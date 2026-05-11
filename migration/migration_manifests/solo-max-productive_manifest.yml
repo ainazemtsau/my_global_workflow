@@ -1,0 +1,2001 @@
+﻿# Generated migration manifest for Solo Max Productive
+# Status: M2_classification_manifest
+# Generated at: 2026-05-11 10:35:47 +03:00
+direction_id: solo-max-productive
+direction_name: 'Solo Max Productive'
+legacy_root_id: TokWnxJOqNse
+target_github_path: directions/solo-max-productive
+items:
+  - legacy_id: 'TokWnxJOqNse'
+    legacy_title: 'Solo Max Productive'
+    legacy_path: 'Solo Max Productive'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: direction_root
+    confidence: high
+    reason: 'Direction root exists as GitHub direction folder.'
+    target_github_path: 'directions/solo-max-productive'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '4eD5HUV4u1Wt'
+    legacy_title: 'Archive'
+    legacy_path: 'Solo Max Productive / Archive'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/archive.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'pqlSXWnvcFxE'
+    legacy_title: '00 START HERE - Direction'
+    legacy_path: 'Solo Max Productive / Archive / 00 START HERE - Direction'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'igjjgi7iPP9K'
+    legacy_title: '01 Direction State'
+    legacy_path: 'Solo Max Productive / Archive / 01 Direction State'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/01_DIRECTION_STATE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'A6nX2kwOo0T1'
+    legacy_title: 'Charter'
+    legacy_path: 'Solo Max Productive / Archive / 01 Direction State / Charter'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/charter.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'T9NtcwSNMmn8'
+    legacy_title: 'Thesis'
+    legacy_path: 'Solo Max Productive / Archive / 01 Direction State / Thesis'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/thesis.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'GprKCojN6Ai7'
+    legacy_title: '02 Current Phase'
+    legacy_path: 'Solo Max Productive / Archive / 02 Current Phase'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/02_CURRENT_PHASE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'oigcT2UKHCYP'
+    legacy_title: '03 Focus Register'
+    legacy_path: 'Solo Max Productive / Archive / 03 Focus Register'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/03_FOCUS_REGISTER.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'FPDtXH3tqokY'
+    legacy_title: '04 Active Goal'
+    legacy_path: 'Solo Max Productive / Archive / 04 Active Goal'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '2SEEfAjPn8D4'
+    legacy_title: '05 Portfolio Queue'
+    legacy_path: 'Solo Max Productive / Archive / 05 Portfolio Queue'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'H1oOcFqqE20H'
+    legacy_title: 'Create Lightweight Codex Small-Fix Lane'
+    legacy_path: 'Solo Max Productive / Archive / 05 Portfolio Queue / Create Lightweight Codex Small-Fix Lane'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/create-lightweight-codex-small-fix-lane.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'EU9UcsNgsARb'
+    legacy_title: '06 Projects / Tool Bindings'
+    legacy_path: 'Solo Max Productive / Archive / 06 Projects / Tool Bindings'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/06-projects-tool-bindings.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '2wZ2n0Ry2wpj'
+    legacy_title: '07 Reviews / Knowledge / Canon'
+    legacy_path: 'Solo Max Productive / Archive / 07 Reviews / Knowledge / Canon'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: canon
+    confidence: high
+    reason: 'Under Reviews/Knowledge/Canon canon subtree.'
+    target_github_path: 'directions/solo-max-productive/knowledge/canon/07-reviews-knowledge-canon.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'xRjE4NRQEKA7'
+    legacy_title: 'Canon'
+    legacy_path: 'Solo Max Productive / Archive / 07 Reviews / Knowledge / Canon / Canon'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: canon
+    confidence: high
+    reason: 'Under Reviews/Knowledge/Canon canon subtree.'
+    target_github_path: 'directions/solo-max-productive/knowledge/canon/canon.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'go7Jts15QD7h'
+    legacy_title: 'Knowledge'
+    legacy_path: 'Solo Max Productive / Archive / 07 Reviews / Knowledge / Canon / Knowledge'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: canon
+    confidence: high
+    reason: 'Under Reviews/Knowledge/Canon canon subtree.'
+    target_github_path: 'directions/solo-max-productive/knowledge/canon/knowledge.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'mYs0ktXabG4w'
+    legacy_title: 'Canon Candidates'
+    legacy_path: 'Solo Max Productive / Archive / 07 Reviews / Knowledge / Canon / Knowledge / Canon Candidates'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: canon
+    confidence: high
+    reason: 'Under Reviews/Knowledge/Canon canon subtree.'
+    target_github_path: 'directions/solo-max-productive/knowledge/canon/canon-candidates.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'r2UsvC1snYaJ'
+    legacy_title: 'Current State Summary - Workflow vNext Transition'
+    legacy_path: 'Solo Max Productive / Archive / 07 Reviews / Knowledge / Canon / Current State Summary - Workflow vNext Transition'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: canon
+    confidence: high
+    reason: 'Under Reviews/Knowledge/Canon canon subtree.'
+    target_github_path: 'directions/solo-max-productive/knowledge/canon/current-state-summary-workflow-vnext-transition.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Tia0ycsZGqjB'
+    legacy_title: '08 Context Loading Index'
+    legacy_path: 'Solo Max Productive / Archive / 08 Context Loading Index'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '8WTUDuekce9G'
+    legacy_title: '09 ChatGPT Project Files'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'k5yf2zkZlfFZ'
+    legacy_title: 'TEMP_CHAT_CONTEXT_BUNDLE_CLEAN__2026-05-11__KERNEL_G1.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / TEMP_CHAT_CONTEXT_BUNDLE_CLEAN__2026-05-11__KERNEL_G1.md'
+    legacy_type: 'code'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'cHK20IoNhxF7'
+    legacy_title: '00_DIRECTION_START_HERE.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / 00_DIRECTION_START_HERE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'DWgW9rgfl0p3'
+    legacy_title: '01_DIRECTION_STATE.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / 01_DIRECTION_STATE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/01_DIRECTION_STATE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'LRiKTvjAza2h'
+    legacy_title: '02_CURRENT_PHASE.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / 02_CURRENT_PHASE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/02_CURRENT_PHASE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'FbZIq8hLYmCq'
+    legacy_title: '03_FOCUS_REGISTER.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / 03_FOCUS_REGISTER.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/03_FOCUS_REGISTER.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'VsOIdQQ2Qh7m'
+    legacy_title: '04_ACTIVE_GOAL.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / 04_ACTIVE_GOAL.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Jv5glwcalsud'
+    legacy_title: '05_PORTFOLIO_QUEUE.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / 05_PORTFOLIO_QUEUE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'UagASD2XxAnL'
+    legacy_title: '06_CONTEXT_LIBRARY_INDEX.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / 06_CONTEXT_LIBRARY_INDEX.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'GzfPrWwNnk5U'
+    legacy_title: 'WF_VNEXT_R_RUNTIME_CORE.md'
+    legacy_path: 'Solo Max Productive / Archive / 09 ChatGPT Project Files / WF_VNEXT_R_RUNTIME_CORE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'qbCe7HZpQGEc'
+    legacy_title: '10 Phases'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases'
+    legacy_type: 'book'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/10-phases.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '2vTEENccwfqE'
+    legacy_title: 'vNext One-Goal Smoke Test'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/vnext-one-goal-smoke-test.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'fv9qsKbxWKJo'
+    legacy_title: '00 Phase Brief'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 00 Phase Brief'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/00-phase-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'KlwTPLNijhkU'
+    legacy_title: '01 Phase Working Context'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 01 Phase Working Context'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/01-phase-working-context.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '7MgSMOxFzAmE'
+    legacy_title: '02 Phase Context Index'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 02 Phase Context Index'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/02-phase-context-index.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'QrMxRXy2dPw5'
+    legacy_title: '04 Phase Execution Log'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 04 Phase Execution Log'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/04-phase-execution-log.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'sjQXzPLswGR0'
+    legacy_title: '05 Phase Review'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 05 Phase Review'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/05-phase-review.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '3fPv88QhZB97'
+    legacy_title: '03 Goals'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 03 Goals'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/03-goals.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'aSgiNeB0LvLt'
+    legacy_title: 'Personal Workflow App Kernel Exploration'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / Personal Workflow App Kernel Exploration'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'VQT0TE4qwwNc'
+    legacy_title: '00 Phase Brief'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / Personal Workflow App Kernel Exploration / 00 Phase Brief'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/00-phase-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'CSq368qTkTVE'
+    legacy_title: '01 Phase Working Context'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / Personal Workflow App Kernel Exploration / 01 Phase Working Context'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/01-phase-working-context.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '7fMzolM5GnbV'
+    legacy_title: '02 Phase Context Index'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / Personal Workflow App Kernel Exploration / 02 Phase Context Index'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/02-phase-context-index.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '66y236qmMVI8'
+    legacy_title: '04 Phase Execution Log'
+    legacy_path: 'Solo Max Productive / Archive / 10 Phases / Personal Workflow App Kernel Exploration / 04 Phase Execution Log'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: execution_log
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/solo-max-productive/phases/04-phase-execution-log.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'pmSGaUpUppt0'
+    legacy_title: '11 Direction Execution Log'
+    legacy_path: 'Solo Max Productive / Archive / 11 Direction Execution Log'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: execution_log
+    confidence: high
+    reason: 'Direction execution log is a runtime lifecycle file.'
+    target_github_path: 'directions/solo-max-productive/execution_logs/11_DIRECTION_EXECUTION_LOG.md'
+    action: replace_or_append_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'LHDkgD5JeGyx'
+    legacy_title: '90 Archive / Historical'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/90-archive-historical.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'NTAtO9jYjQNj'
+    legacy_title: '2026-05-10 Legacy Active Goal Pointer Cleanup'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-05-10-legacy-active-goal-pointer-cleanup.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'm2MpOchld6j4'
+    legacy_title: 'Clean Workflow Core Lifecycle Blueprint v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/clean-workflow-core-lifecycle-blueprint-v1.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'o0oirEiQuQWb'
+    legacy_title: 'Goal Brief'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Goal Brief'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/goal-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'uBs15D9rqkan'
+    legacy_title: 'Execution Pack'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Execution Pack'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/execution-pack.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '2hM4PBscwo2G'
+    legacy_title: 'Sessions'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Sessions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/sessions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'dAleYxsrCHB1'
+    legacy_title: 'Wave Cards'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Wave Cards'
+    legacy_type: 'book'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-cards.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Woa0IoVaVgfr'
+    legacy_title: 'Wave 1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Wave Cards / Wave 1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '9mPk4KLXq980'
+    legacy_title: 'wave 2'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Wave Cards / wave 2'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-2.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'k34xbwsZlgSr'
+    legacy_title: 'Wave 4'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Wave Cards / Wave 4'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-4.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'W2oQZQdu8axG'
+    legacy_title: 'Decisions'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Decisions'
+    legacy_type: 'book'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/decisions.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'K3UWtB30b81F'
+    legacy_title: 'M4 — Architecture Direction — 2026-05-03'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Decisions / M4 — Architecture Direction — 2026-05-03'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/m4-architecture-direction-2026-05-03.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'GYaLhDQaEj3N'
+    legacy_title: 'Execution Pack'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Execution Pack'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/execution-pack.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'WE8hX9KY9sFC'
+    legacy_title: 'Saved Results'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Saved Results'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/saved-results.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'nRLwvSL0Wqjm'
+    legacy_title: 'Workflow Current Problems Complete Inventory v2'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-10 Legacy Active Goal Pointer Cleanup / Clean Workflow Core Lifecycle Blueprint v1 / Saved Results / Workflow Current Problems Complete Inventory v2'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/workflow-current-problems-complete-inventory-v2.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'VdF3wRtqXU6p'
+    legacy_title: '2026-05-05 Visible Root Cleanup Snapshot'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / 2026-05-05 Visible Root Cleanup Snapshot'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-05-05-visible-root-cleanup-snapshot.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '55O8M7BQqnL6'
+    legacy_title: 'Inbox'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/inbox.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '0fkThhHuQo3Q'
+    legacy_title: 'использовать тулзу для LLM memory от Милла Йовович  MemPalace'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox / использовать тулзу для LLM memory от Милла Йовович  MemPalace'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/использовать-тулзу-для-llm-memory-от-милла-йовович-mempalace.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'W5GebLKe4rMI'
+    legacy_title: 'Wave не удобны и не интуитивны непонятно как работать над задачами вроде ест execution stage но как то не то как будто чего то не хватает'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox / Wave не удобны и не интуитивны непонятно как работать над задачами вроде ест execution stage но как то не то как будто чего то не хватает'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/wave-не-удобны-и-не-интуитивны-непонятно-как-работать-над-задачами-вроде-ест-exe.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'D8v2TZauhANM'
+    legacy_title: 'транзит между goal прогресса и слишком маленькие goal'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox / транзит между goal прогресса и слишком маленькие goal'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/транзит-между-goal-прогресса-и-слишком-маленькие-goal.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'aZLcIa5bVcGm'
+    legacy_title: 'tasks in wave какие то блять тупоролые какие то размазанные чтоли большинство адач которые я делал вообще нужно было сократить видимо не работает правило оптимизации'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox / tasks in wave какие то блять тупоролые какие то размазанные чтоли большинство адач которые я делал вообще нужно было сократить видимо не работает правило оптимизации'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/tasks-in-wave-какие-то-блять-тупоролые-какие-то-размазанные-чтоли-большинство-ад.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Oau4K0LLknXw'
+    legacy_title: 'сделать так что бы stage plan 4 как бы вел execution либо сделать нормальный и понятный механизм перепланирвоания'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox / сделать так что бы stage plan 4 как бы вел execution либо сделать нормальный и понятный механизм перепланирвоания'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/сделать-так-что-бы-stage-plan-4-как-бы-вел-execution-либо-сделать-нормальный-и-п.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'z6cEWR4RXKQG'
+    legacy_title: 'рассмотреть использования https://atomicserver.eu/ вместо trillium или вообще связки trillium и nocobase'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox / рассмотреть использования https://atomicserver.eu/ вместо trillium или вообще связки trillium и nocobase'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/рассмотреть-использования-https-atomicserver-eu-вместо-trillium-или-вообще-связк.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'AHpixz25zS78'
+    legacy_title: 'использвоать Atomic Data — нестандартный linked data протокол'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox / использвоать Atomic Data — нестандартный linked data протокол'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/использвоать-atomic-data-нестандартный-linked-data-протокол.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'GwFt48Mnu0R9'
+    legacy_title: 'Плохое формирование goal '
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Inbox / Плохое формирование goal '
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/плохое-формирование-goal.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Jx4DiFBJIXSD'
+    legacy_title: 'Completed Goals'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/completed-goals.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '3QY1sn7XZH5X'
+    legacy_title: 'Workflow v1 Hardening'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/workflow-v1-hardening.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '1H95WOe3OOjm'
+    legacy_title: 'Goal Brief'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Goal Brief'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/goal-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ij6YAmTFaEo1'
+    legacy_title: 'Execution Pack'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Execution Pack'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/execution-pack.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '7mZDG6mjmVKi'
+    legacy_title: 'Sessions'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions'
+    legacy_type: 'book'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/sessions.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'G1hGKDHhulo1'
+    legacy_title: '2026-04-09 S2 SHAPE'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 2026-04-09 S2 SHAPE'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-09-s2-shape.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'L5QTmJlD1BCc'
+    legacy_title: '2026-04-09 S2 SHAPE — bundle'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 2026-04-09 S2 SHAPE — bundle'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-09-s2-shape-bundle.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'dGfx5exVlcWS'
+    legacy_title: 'Sended stage prompts'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / Sended stage prompts'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/sended-stage-prompts.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'V3rUBZsSPsfZ'
+    legacy_title: 'S4'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / Sended stage prompts / S4'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s4.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'lCgoLFcznnOv'
+    legacy_title: 'S5'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / Sended stage prompts / S5'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s5.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ny1BTF50LZzZ'
+    legacy_title: 'S_E'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / Sended stage prompts / S_E'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s-e.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'uxHgEDGGtrES'
+    legacy_title: 'S_E Task 2'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / Sended stage prompts / S_E Task 2'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s-e-task-2.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'WDhGFO5iUHNe'
+    legacy_title: 'S_E Task 3'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / Sended stage prompts / S_E Task 3'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s-e-task-3.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'A2Cu1L8lptK9'
+    legacy_title: 'S_E Task 4'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / Sended stage prompts / S_E Task 4'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s-e-task-4.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'uvuSstxSAFM3'
+    legacy_title: 'S_E Task 5'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / Sended stage prompts / S_E Task 5'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s-e-task-5.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'AgcWqplMqxWS'
+    legacy_title: '10.05.2026 S4 - bundle'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 10.05.2026 S4 - bundle'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/10-05-2026-s4-bundle.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '8eEBMJGtOrJA'
+    legacy_title: '10.05.2026 S4'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 10.05.2026 S4'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/10-05-2026-s4.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'uuVaDYGzVHXd'
+    legacy_title: '2026-04-11 S5'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 2026-04-11 S5'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-11-s5.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'nOBYr2GxsJTQ'
+    legacy_title: '2026-04-11 S5 - bundle'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 2026-04-11 S5 - bundle'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-11-s5-bundle.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'VX2OCkjepIb2'
+    legacy_title: '2026-04-11 S_E Task 1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 2026-04-11 S_E Task 1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-11-s-e-task-1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'mIUBakKChtZc'
+    legacy_title: '2026-04-11 S_E Task 1 — bundle'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 2026-04-11 S_E Task 1 — bundle'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-11-s-e-task-1-bundle.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'diLJnkTd8Q8B'
+    legacy_title: '2026-04-11 S_E Task 2 — bundle'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 2026-04-11 S_E Task 2 — bundle'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-11-s-e-task-2-bundle.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ZBbHUtXICarl'
+    legacy_title: '2026-04-12 S_E Task 4 — bundle'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Sessions / 2026-04-12 S_E Task 4 — bundle'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-12-s-e-task-4-bundle.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '5aRReEwK7S5a'
+    legacy_title: 'Wave Cards'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Wave Cards'
+    legacy_type: 'book'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-cards.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'aMEUOATtMbgA'
+    legacy_title: 'Wave 1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Wave Cards / Wave 1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'EQe14a5z606y'
+    legacy_title: '2026-04-11 workflow preflight audit'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Wave Cards / Wave 1 / 2026-04-11 workflow preflight audit'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-11-workflow-preflight-audit.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'lb3rMyrRy5a7'
+    legacy_title: '2026-04-11 bounded hardening plan'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Wave Cards / Wave 1 / 2026-04-11 bounded hardening plan'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-11-bounded-hardening-plan.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'OuJmcg5QKkkO'
+    legacy_title: '2026-04-11 applied hardening change log'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Wave Cards / Wave 1 / 2026-04-11 applied hardening change log'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-11-applied-hardening-change-log.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'uoSTiSrdnwvB'
+    legacy_title: 'Decisions'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Decisions'
+    legacy_type: 'book'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/decisions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '20ppvud7t3Ut'
+    legacy_title: 'Knowledge'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Knowledge'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/knowledge.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'vjish3IisnE6'
+    legacy_title: 'Research Notes'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Knowledge / Research Notes'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/research-notes.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Wid1cIsQf9pO'
+    legacy_title: '2026-04-11 workflow simplification audit packet'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Workflow v1 Hardening / Knowledge / Research Notes / 2026-04-11 workflow simplification audit packet'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-11-workflow-simplification-audit-packet.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'I2dx6VqHUbfx'
+    legacy_title: 'Жёсткая основа автономной разработки ПО через Codex'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/жёсткая-основа-автономной-разработки-по-через-codex.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'vMsybmrdbxV9'
+    legacy_title: 'GOAL BRIEF'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / GOAL BRIEF'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/goal-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'TdmT3BQ2KhLl'
+    legacy_title: 'files'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / files'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/files.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ZyO0Jllqnht0'
+    legacy_title: 'active-goal'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / files / active-goal'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/active-goal.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'mllutYanksI8'
+    legacy_title: 'Wave cards'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / Wave cards'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-cards.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '7PMAU4p70G3a'
+    legacy_title: 'Wave 1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / Wave cards / Wave 1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'AEYcArb3nVjo'
+    legacy_title: 'Wave 1 — Carry-forward checks after M2 verdict prep'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / Wave cards / Wave 1 / Wave 1 — Carry-forward checks after M2 verdict prep'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1-carry-forward-checks-after-m2-verdict-prep.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'fqxvnqURyeqF'
+    legacy_title: 'Wave 2'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / Wave cards / Wave 2'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-2.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'C0Xn6PIFqv97'
+    legacy_title: 'Wave 3'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / Wave cards / Wave 3'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-3.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'wTDwLAVpePVm'
+    legacy_title: 'Wave 4'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / Wave cards / Wave 4'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-4.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '7YOhrlvx9hn7'
+    legacy_title: 'docs'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/docs.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'DYqwW81UHg4W'
+    legacy_title: 'Milestone Artifacts'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Milestone Artifacts'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/milestone-artifacts.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '1OIzQHxFmQaG'
+    legacy_title: 'M2 — Foundation Sourcing Verdict v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Milestone Artifacts / M2 — Foundation Sourcing Verdict v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/m2-foundation-sourcing-verdict-v1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'EI00aW98J1IT'
+    legacy_title: 'M3 — Prerequisite verification gate for embedding'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Milestone Artifacts / M3 — Prerequisite verification gate for embedding'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/m3-prerequisite-verification-gate-for-embedding.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'x4I5tah8GBmy'
+    legacy_title: 'M3 — Bounded workflow embedding foundation v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Milestone Artifacts / M3 — Bounded workflow embedding foundation v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/m3-bounded-workflow-embedding-foundation-v1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'WjHBAX2u6xqc'
+    legacy_title: 'M4 — Usable operating path for code tasks v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Milestone Artifacts / M4 — Usable operating path for code tasks v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/m4-usable-operating-path-for-code-tasks-v1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'nKbjw39FWaj5'
+    legacy_title: 'Research'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/research.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '0CgFbQ13CJoi'
+    legacy_title: '2026-04-19 — Direct-source verification — Basic Memory'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-19 — Direct-source verification — Basic Memory'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-19-direct-source-verification-basic-memory.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'bgDswNlbRY1p'
+    legacy_title: '2026-04-19 — Direct-source verification — Task Master AI'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-19 — Direct-source verification — Task Master AI'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-19-direct-source-verification-task-master-ai.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '8m6VzaUqUarw'
+    legacy_title: '2026-04-19 — Direct-source verification — Serena'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-19 — Direct-source verification — Serena'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-19-direct-source-verification-serena.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'C9OnVpLcV8Yn'
+    legacy_title: '2026-04-19 — Direct-source verification — Trail of Bits skills'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-19 — Direct-source verification — Trail of Bits skills'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-19-direct-source-verification-trail-of-bits-skills.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'pxKhE85OVOEn'
+    legacy_title: '2026-04-20 — M4 core path contract for code tasks'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-20 — M4 core path contract for code tasks'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-20-m4-core-path-contract-for-code-tasks.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'yUhBRh8jEp2o'
+    legacy_title: '2026-04-20 — M4 scaled packet rule for code tasks'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-20 — M4 scaled packet rule for code tasks'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-20-m4-scaled-packet-rule-for-code-tasks.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'tSwF1f8E14C4'
+    legacy_title: '2026-04-20 — M4 verification floor for code tasks'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-20 — M4 verification floor for code tasks'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-20-m4-verification-floor-for-code-tasks.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'qfMWu4BQgMdC'
+    legacy_title: '2026-04-20 — M4 return-state hygiene for code tasks'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-20 — M4 return-state hygiene for code tasks'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-20-m4-return-state-hygiene-for-code-tasks.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ekxomYTW0QUm'
+    legacy_title: '2026-04-21 — M5 bounded proof protocol against baseline'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-21 — M5 bounded proof protocol against baseline'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-21-m5-bounded-proof-protocol-against-baseline.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'wN2ABHPszDOl'
+    legacy_title: '2026-04-22 — M5 tiny proof case sheet against baseline'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-22 — M5 tiny proof case sheet against baseline'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-22-m5-tiny-proof-case-sheet-against-baseline.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'LOzqT1FYnckv'
+    legacy_title: '2026-04-22 — M5 standard proof case sheet against baseline'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-22 — M5 standard proof case sheet against baseline'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-22-m5-standard-proof-case-sheet-against-baseline.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '7XmaiQBOBtiw'
+    legacy_title: '2026-04-22 — M5 standard proof case against baseline'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-22 — M5 standard proof case against baseline'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-22-m5-standard-proof-case-against-baseline.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'pzHneEIhiVJG'
+    legacy_title: '2026-04-22 — M5 tiny proof case against baseline'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / 2026-04-22 — M5 tiny proof case against baseline'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/2026-04-22-m5-tiny-proof-case-against-baseline.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '5fktT8zBzLLu'
+    legacy_title: 'M5 — Proof packet against baseline v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Жёсткая основа автономной разработки ПО через Codex / docs / Research / M5 — Proof packet against baseline v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/m5-proof-packet-against-baseline-v1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 't3XyUsPb0MOf'
+    legacy_title: 'Codex-Native Autonomous Development Layer v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/codex-native-autonomous-development-layer-v1.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'bii2sopK0afL'
+    legacy_title: 'Sessions'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Sessions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/sessions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '68OQYTkKBHJ2'
+    legacy_title: 'Wave Cards'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Wave Cards'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-cards.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'YjBwN4YtSkSD'
+    legacy_title: 'wave 1 '
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Wave Cards / wave 1 '
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'HfAVL84o0ptC'
+    legacy_title: 'Decisions'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Decisions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/decisions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'KKMNEGiqJ5l5'
+    legacy_title: 'Goal Brief'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Goal Brief'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/goal-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'PqVY9dBOvJnR'
+    legacy_title: 'Execution Pack'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Execution Pack'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/execution-pack.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ESI8FPZE3MjJ'
+    legacy_title: 'New note'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / New note'
+    legacy_type: 'canvas'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/new-note.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Putsvc3BiE38'
+    legacy_title: 'Tasks Results'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Tasks Results'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/tasks-results.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'mWV46L5ICgGg'
+    legacy_title: '2026-04-25 — Wave 1 Task 2 — Codex Execution Authority Contract v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Tasks Results / 2026-04-25 — Wave 1 Task 2 — Codex Execution Authority Contract v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-25-wave-1-task-2-codex-execution-authority-contract-v1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'y2uALtg9sBBo'
+    legacy_title: 'Wave 1 Task 1 — Reference Intake Pack v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Tasks Results / Wave 1 Task 1 — Reference Intake Pack v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1-task-1-reference-intake-pack-v1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'SL8DXwVGcHDl'
+    legacy_title: 'Wave 1 Task 3 — Hardening & Integration Register v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Tasks Results / Wave 1 Task 3 — Hardening & Integration Register v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1-task-3-hardening-integration-register-v1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Aq1ssOnQnNZY'
+    legacy_title: 'Wave 1 Task 4 — General Non-Code Codex Execution Path v1.1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Tasks Results / Wave 1 Task 4 — General Non-Code Codex Execution Path v1.1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1-task-4-general-non-code-codex-execution-path-v1-1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Uf641u7GQ3ho'
+    legacy_title: 'S_E — Execute — Wave 1 Task 5'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Tasks Results / S_E — Execute — Wave 1 Task 5'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s-e-execute-wave-1-task-5.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'AoKFhWhUb0HF'
+    legacy_title: 'Wave 1 Task 6 — Completion Semantics + Evidence/STUCK Schemas v1'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / Tasks Results / Wave 1 Task 6 — Completion Semantics + Evidence/STUCK Schemas v1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/wave-1-task-6-completion-semantics-evidence-stuck-schemas-v1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'E5saFbXlJJ9z'
+    legacy_title: 'REVIEW NOTE DRAFT'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Completed Goals / Codex-Native Autonomous Development Layer v1 / REVIEW NOTE DRAFT'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/review-note-draft.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '4kJVFzK6pzNf'
+    legacy_title: 'Files'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Files'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/files.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'baHyYIzMy606'
+    legacy_title: 'direction-context.md'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Files / direction-context.md'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/direction-context-md.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'IUlndj9n0xVl'
+    legacy_title: 'active-goal.md'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Files / active-goal.md'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/active-goal-md.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'jC3VPMYlxzZl'
+    legacy_title: 'DIRECTION HISTORY ENTRY'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Files / DIRECTION HISTORY ENTRY'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/direction-history-entry.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'd54xh7jUZ3bH'
+    legacy_title: 'Sessions'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/sessions.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'lEiZvPqFtFSe'
+    legacy_title: 'Sended_prompts'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions / Sended_prompts'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/sended-prompts.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'DXORW3qw9Ktn'
+    legacy_title: 'Goal Activation'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions / Sended_prompts / Goal Activation'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/goal-activation.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'le0X9LJHuG7J'
+    legacy_title: 'S2'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions / Sended_prompts / S2'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/s2.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'omUaEP757Li0'
+    legacy_title: 'execution '
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions / Sended_prompts / execution '
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/execution.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'boFe71YNnJxE'
+    legacy_title: '2026-04-08 S_D'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions / 2026-04-08 S_D'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-08-s-d.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'MepN0did5Gx5'
+    legacy_title: '2026-04-08 S_D — bundle'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions / 2026-04-08 S_D — bundle'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-08-s-d-bundle.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'qEhFzAQHNZNy'
+    legacy_title: '2026-04-08 S_P — bundle'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions / 2026-04-08 S_P — bundle'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-08-s-p-bundle.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'GAJxa0teLHof'
+    legacy_title: '2026-04-08 S_P'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Sessions / 2026-04-08 S_P'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-reference/2026-04-08-s-p.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'DEvUtRgfoVXe'
+    legacy_title: 'Templates'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Templates'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/templates.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'IuaLBRdYbAh5'
+    legacy_title: 'S1 — Capture'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Templates / S1 — Capture'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/s1-capture.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'aech8i77Wzqy'
+    legacy_title: 'Send tempo note'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Templates / Send tempo note'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/send-tempo-note.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ewic9TS7sh3W'
+    legacy_title: 'S2 - Explore'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Templates / S2 - Explore'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/s2-explore.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'YKewhFOrHrej'
+    legacy_title: 'Legacy Workflow Artifacts - pre vNext-R normalization'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/legacy-workflow-artifacts-pre-vnext-r-normalization.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'jOIOCbQg7Kvv'
+    legacy_title: 'ZZ_DEPRECATED_07_DIRECTION_WORKFLOW_RULES_DO_NOT_UPLOAD.md'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / ZZ_DEPRECATED_07_DIRECTION_WORKFLOW_RULES_DO_NOT_UPLOAD.md'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/zz-deprecated-07-direction-workflow-rules-do-not-upload-md.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'diTlnusBRozG'
+    legacy_title: 'ZZ_DEPRECATED_09_CODEX_EXECUTION_RULES_DO_NOT_UPLOAD.md'
+    legacy_path: 'Solo Max Productive / Archive / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / ZZ_DEPRECATED_09_CODEX_EXECUTION_RULES_DO_NOT_UPLOAD.md'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/solo-max-productive/knowledge/reviews/legacy-archive/zz-deprecated-09-codex-execution-rules-do-not-upload-md.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+

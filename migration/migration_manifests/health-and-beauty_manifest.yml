@@ -1,0 +1,1113 @@
+﻿# Generated migration manifest for Health and Beauty
+# Status: M2_classification_manifest
+# Generated at: 2026-05-11 10:35:47 +03:00
+direction_id: health-and-beauty
+direction_name: 'Health and Beauty'
+legacy_root_id: YqlUxoXMVTUr
+target_github_path: directions/health-and-beauty
+items:
+  - legacy_id: 'YqlUxoXMVTUr'
+    legacy_title: 'Health and beauty'
+    legacy_path: 'Health and beauty'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: direction_root
+    confidence: high
+    reason: 'Direction root exists as GitHub direction folder.'
+    target_github_path: 'directions/health-and-beauty'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'IMQH2B6dEDsW'
+    legacy_title: '00 START HERE - Direction'
+    legacy_path: 'Health and beauty / 00 START HERE - Direction'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ZNoybSb86z6W'
+    legacy_title: '01 Direction State'
+    legacy_path: 'Health and beauty / 01 Direction State'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/01_DIRECTION_STATE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'xsOgRUps7sz5'
+    legacy_title: '02 Current Phase'
+    legacy_path: 'Health and beauty / 02 Current Phase'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/02_CURRENT_PHASE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'NoVOfH3LfMtl'
+    legacy_title: '03 Focus Register'
+    legacy_path: 'Health and beauty / 03 Focus Register'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/03_FOCUS_REGISTER.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'vAgz99HdoFC7'
+    legacy_title: '04 Active Goal'
+    legacy_path: 'Health and beauty / 04 Active Goal'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'c7rooaetAJMn'
+    legacy_title: '05 Portfolio Queue'
+    legacy_path: 'Health and beauty / 05 Portfolio Queue'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'WcOcac9Hfnoy'
+    legacy_title: 'Собрать weekly review handoff из Hevy + MacroFactor в AI'
+    legacy_path: 'Health and beauty / 05 Portfolio Queue / Собрать weekly review handoff из Hevy + MacroFactor в AI'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_or_raw_health
+    confidence: medium
+    reason: 'Likely personal/raw health note; excluded unless user explicitly promotes it.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'QUTZ9jMMEIYD'
+    legacy_title: 'Собрать Training AI-support вокруг Hevy'
+    legacy_path: 'Health and beauty / 05 Portfolio Queue / Собрать Training AI-support вокруг Hevy'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_or_raw_health
+    confidence: medium
+    reason: 'Likely personal/raw health note; excluded unless user explicitly promotes it.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Y8Fym85Mp3p3'
+    legacy_title: 'Собрать broader bounded AI context architecture для Health and beauty'
+    legacy_path: 'Health and beauty / 05 Portfolio Queue / Собрать broader bounded AI context architecture для Health and beauty'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_or_raw_health
+    confidence: medium
+    reason: 'Likely personal/raw health note; excluded unless user explicitly promotes it.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'n1x7fy5MayCa'
+    legacy_title: 'Собрать минимальный Hevy + MacroFactor cutover'
+    legacy_path: 'Health and beauty / 05 Portfolio Queue / Собрать минимальный Hevy + MacroFactor cutover'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_or_raw_health
+    confidence: medium
+    reason: 'Likely personal/raw health note; excluded unless user explicitly promotes it.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'i5dQaBhUw0sh'
+    legacy_title: 'Проверить small Codex/Trello bridge для recipe/menu storage'
+    legacy_path: 'Health and beauty / 05 Portfolio Queue / Проверить small Codex/Trello bridge для recipe/menu storage'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_or_raw_health
+    confidence: medium
+    reason: 'Likely personal/raw health note; excluded unless user explicitly promotes it.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'FqqHq2FG8DIw'
+    legacy_title: '06 Projects / Tool Bindings'
+    legacy_path: 'Health and beauty / 06 Projects / Tool Bindings'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_or_raw_health
+    confidence: medium
+    reason: 'Likely personal/raw health note; excluded unless user explicitly promotes it.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'bnWkwTNJTv0l'
+    legacy_title: '07 Reviews / Knowledge / Canon'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: canon
+    confidence: high
+    reason: 'Under Reviews/Knowledge/Canon canon subtree.'
+    target_github_path: 'directions/health-and-beauty/knowledge/canon/07-reviews-knowledge-canon.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'NjpVBy7OIKIQ'
+    legacy_title: 'Health Domain Documentation'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Health Domain Documentation'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: domain_doc
+    confidence: high
+    reason: 'Stable Health direction domain documentation candidate.'
+    target_github_path: 'directions/health-and-beauty/domain_docs/health-domain-documentation.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'FbH3wpMRtkz0'
+    legacy_title: 'Workouts'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Health Domain Documentation / Workouts'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_health_log
+    confidence: high
+    reason: 'Raw personal health log; do not migrate into GitHub canonical runtime without explicit user decision.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'KFmMo6GHadz8'
+    legacy_title: 'Week 1 — 2026-04-14 → 2026-04-20'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Health Domain Documentation / Workouts / Week 1 — 2026-04-14 → 2026-04-20'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_health_log
+    confidence: high
+    reason: 'Raw personal health log; do not migrate into GitHub canonical runtime without explicit user decision.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'gu9qMbsA3r2y'
+    legacy_title: 'Diet'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Health Domain Documentation / Diet'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_health_log
+    confidence: high
+    reason: 'Raw personal health log; do not migrate into GitHub canonical runtime without explicit user decision.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '8jpCkiNLNDy0'
+    legacy_title: 'Raw'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Health Domain Documentation / Diet / Raw'
+    legacy_type: 'text'
+    classification: personal_out_of_scope
+    category: personal_health_log
+    confidence: high
+    reason: 'Raw personal health log; do not migrate into GitHub canonical runtime without explicit user decision.'
+    target_github_path: ''
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '9l5Bb44dsqWx'
+    legacy_title: 'Legacy Direction Docs - review before canonizing'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Legacy Direction Docs - review before canonizing'
+    legacy_type: 'text'
+    classification: needs_user_decision
+    category: legacy_knowledge_candidate
+    confidence: medium
+    reason: 'Folder explicitly says review before canonizing; user or later audit should decide active vs reference.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-direction-docs-review-before-canonizing.md'
+    action: defer_user_decision
+    needs_user_decision: true
+    needs_user_export: false
+  - legacy_id: 'iLOHbQ7CDb23'
+    legacy_title: 'Charter'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Legacy Direction Docs - review before canonizing / Charter'
+    legacy_type: 'text'
+    classification: needs_user_decision
+    category: legacy_knowledge_candidate
+    confidence: medium
+    reason: 'Folder explicitly says review before canonizing; user or later audit should decide active vs reference.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/charter.md'
+    action: defer_user_decision
+    needs_user_decision: true
+    needs_user_export: false
+  - legacy_id: 'ak4ut55XO3xz'
+    legacy_title: 'Thesis'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Legacy Direction Docs - review before canonizing / Thesis'
+    legacy_type: 'text'
+    classification: needs_user_decision
+    category: legacy_knowledge_candidate
+    confidence: medium
+    reason: 'Folder explicitly says review before canonizing; user or later audit should decide active vs reference.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/thesis.md'
+    action: defer_user_decision
+    needs_user_decision: true
+    needs_user_export: false
+  - legacy_id: 'Kku7U5uXLiE9'
+    legacy_title: 'Canon'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Legacy Direction Docs - review before canonizing / Canon'
+    legacy_type: 'text'
+    classification: needs_user_decision
+    category: legacy_knowledge_candidate
+    confidence: medium
+    reason: 'Folder explicitly says review before canonizing; user or later audit should decide active vs reference.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/canon.md'
+    action: defer_user_decision
+    needs_user_decision: true
+    needs_user_export: false
+  - legacy_id: 'RXYlamhA6Nrz'
+    legacy_title: 'Knowledge'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Legacy Direction Docs - review before canonizing / Knowledge'
+    legacy_type: 'text'
+    classification: needs_user_decision
+    category: legacy_knowledge_candidate
+    confidence: medium
+    reason: 'Folder explicitly says review before canonizing; user or later audit should decide active vs reference.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/knowledge.md'
+    action: defer_user_decision
+    needs_user_decision: true
+    needs_user_export: false
+  - legacy_id: '4Gsc3TkrpADA'
+    legacy_title: 'Canon Candidates'
+    legacy_path: 'Health and beauty / 07 Reviews / Knowledge / Canon / Legacy Direction Docs - review before canonizing / Knowledge / Canon Candidates'
+    legacy_type: 'text'
+    classification: needs_user_decision
+    category: legacy_knowledge_candidate
+    confidence: medium
+    reason: 'Folder explicitly says review before canonizing; user or later audit should decide active vs reference.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/canon-candidates.md'
+    action: defer_user_decision
+    needs_user_decision: true
+    needs_user_export: false
+  - legacy_id: 'myOkkhftYuFB'
+    legacy_title: '08 Context Loading Index'
+    legacy_path: 'Health and beauty / 08 Context Loading Index'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: active_project_file
+    confidence: high
+    reason: 'Current GitHub project_files/00-06 were already migrated and are canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'BTTcU8cxOKpu'
+    legacy_title: '09 ChatGPT Project Files'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/health-and-beauty'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '4Amy8llb0NVp'
+    legacy_title: '00_DIRECTION_START_HERE.md'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files / 00_DIRECTION_START_HERE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'OVxVtbZz2QZF'
+    legacy_title: '01_DIRECTION_STATE.md'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files / 01_DIRECTION_STATE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/01_DIRECTION_STATE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'E5HtoERbB4I7'
+    legacy_title: '02_CURRENT_PHASE.md'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files / 02_CURRENT_PHASE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/02_CURRENT_PHASE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'KJcZHlkQIARI'
+    legacy_title: '03_FOCUS_REGISTER.md'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files / 03_FOCUS_REGISTER.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/03_FOCUS_REGISTER.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '9KxR3860xuMI'
+    legacy_title: '04_ACTIVE_GOAL.md'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files / 04_ACTIVE_GOAL.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '4qHz15WOlyyu'
+    legacy_title: '05_PORTFOLIO_QUEUE.md'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files / 05_PORTFOLIO_QUEUE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'tC8cKVHo8buE'
+    legacy_title: '06_CONTEXT_LIBRARY_INDEX.md'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files / 06_CONTEXT_LIBRARY_INDEX.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'GzfPrWwNnk5U'
+    legacy_title: 'WF_VNEXT_R_RUNTIME_CORE.md'
+    legacy_path: 'Health and beauty / 09 ChatGPT Project Files / WF_VNEXT_R_RUNTIME_CORE.md'
+    legacy_type: 'text'
+    classification: duplicate_superseded
+    category: project_file_export
+    confidence: high
+    reason: 'GitHub runtime/project file already exists; legacy export is not canonical.'
+    target_github_path: 'workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md'
+    action: no_migration
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '67KdFcOePmGC'
+    legacy_title: '10 Phases'
+    legacy_path: 'Health and beauty / 10 Phases'
+    legacy_type: 'book'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/10-phases.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'PDpNQCMhVTTd'
+    legacy_title: 'MacroFactor Nutrition AI Support Setup'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'NPzM4bu6H8Ri'
+    legacy_title: '00 Phase Brief'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 00 Phase Brief'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/00-phase-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'juIMk7di5JYM'
+    legacy_title: '01 Phase Working Context'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 01 Phase Working Context'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/01-phase-working-context.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'sn1lZFF1gnzJ'
+    legacy_title: '02 Phase Context Index'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 02 Phase Context Index'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: phase
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/02-phase-context-index.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'DxXbtI6njtvN'
+    legacy_title: '03 Goals'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/03-goals.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'r08na14zQvf7'
+    legacy_title: 'Собрать AI-поддержку питания, рецептов и меню под MacroFactor'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/собрать-ai-поддержку-питания-рецептов-и-меню-под-macrofactor.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'dSD0zZJbkAW4'
+    legacy_title: '00 Goal Contract / Brief'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / 00 Goal Contract / Brief'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/00-goal-contract-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '5bsH2XzQPhpH'
+    legacy_title: '01 Goal Working Context'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / 01 Goal Working Context'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/01-goal-working-context.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'D4vyuZl1k1cW'
+    legacy_title: '02 Goal Context Index'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / 02 Goal Context Index'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/02-goal-context-index.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'aMpglQ3nDIgH'
+    legacy_title: '03 Waves'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / 03 Waves'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/03-waves.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'wmHLi0kgsTo2'
+    legacy_title: '04 Execution Log'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / 04 Execution Log'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/04-execution-log.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'EoUXcaSfpPnE'
+    legacy_title: 'Sessions'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / Sessions'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/sessions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'j3I2sJ58stdm'
+    legacy_title: '05 Goal Review'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / 05 Goal Review'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/05-goal-review.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'CVL6gHmF4JAG'
+    legacy_title: 'Wave Cards'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / Wave Cards'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/wave-cards.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'o1JLOyEBnC4P'
+    legacy_title: 'Wave 1'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / Wave Cards / Wave 1'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/wave-1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'fPe1Ckcen0jY'
+    legacy_title: 'Goal Brief'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / Goal Brief'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/goal-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '6A6QarV7Wy65'
+    legacy_title: 'Execution Pack'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / Execution Pack'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: goal
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/execution-pack.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'AyMrLJI53byg'
+    legacy_title: '04 Phase Execution Log'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 04 Phase Execution Log'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: execution_log
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/04-phase-execution-log.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'wiPuhXyMcXb6'
+    legacy_title: '05 Phase Review'
+    legacy_path: 'Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 05 Phase Review'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: review
+    confidence: high
+    reason: 'Lifecycle material under current Phase/Goal tree.'
+    target_github_path: 'directions/health-and-beauty/phases/05-phase-review.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'HwHmdUx7dtAN'
+    legacy_title: '11 Direction Execution Log'
+    legacy_path: 'Health and beauty / 11 Direction Execution Log'
+    legacy_type: 'text'
+    classification: migrate_to_github
+    category: execution_log
+    confidence: high
+    reason: 'Direction execution log is a runtime lifecycle file.'
+    target_github_path: 'directions/health-and-beauty/execution_logs/11_DIRECTION_EXECUTION_LOG.md'
+    action: replace_or_append_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Di69niwsf9wh'
+    legacy_title: '90 Archive / Historical'
+    legacy_path: 'Health and beauty / 90 Archive / Historical'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/90-archive-historical.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'QAnugQV5TLzX'
+    legacy_title: 'Legacy Workflow Artifacts - pre vNext-R normalization'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/legacy-workflow-artifacts-pre-vnext-r-normalization.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '77nQiCYhbM0W'
+    legacy_title: 'Sessions'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Sessions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/sessions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Ogt1YMUVpK7D'
+    legacy_title: 'Files'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Files'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/files.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ghf7KA48PvPJ'
+    legacy_title: 'health-and-beauty-direction-context'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Files / health-and-beauty-direction-context'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/health-and-beauty-direction-context.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'q8LGtLayMtht'
+    legacy_title: 'active-goal'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Files / active-goal'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/active-goal.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'BERUXI3h8OTD'
+    legacy_title: 'Inbox'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Inbox'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/inbox.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Z4wVZUlhwtIy'
+    legacy_title: 'Установить wger для управлением питанием (возможно) и тренировками'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Inbox / Установить wger для управлением питанием (возможно) и тренировками'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/установить-wger-для-управлением-питанием-возможно-и-тренировками.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '3Fh0W7sYvxcj'
+    legacy_title: 'DIRECTION HISTORY ENTRY'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / DIRECTION HISTORY ENTRY'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/direction-history-entry.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'EJP68FM1kbvA'
+    legacy_title: 'New note'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / New note'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/new-note.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ZIFAwBmYocZB'
+    legacy_title: 'Completed Goal'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/completed-goal.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '3tJqAjMHdXMi'
+    legacy_title: 'Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/подготовить-запустить-и-оттрекать-первый-цикл-возврата-к-питанию-и-тренировкам.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'K9hFbrVdLqDd'
+    legacy_title: 'Sessions'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам / Sessions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/sessions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'LpXn5j0Zfcyz'
+    legacy_title: 'Wave Cards'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам / Wave Cards'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/wave-cards.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ngyURPzteQ5N'
+    legacy_title: 'Wave 1'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам / Wave Cards / Wave 1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/wave-1.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Bh5Mi4e3fyeX'
+    legacy_title: 'Task: ЗАДАЧА 2 — Week 1 menu, shopping list, batch-prep'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам / Wave Cards / Wave 1 / Task: ЗАДАЧА 2 — Week 1 menu, shopping list, batch-prep'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/task-задача-2-week-1-menu-shopping-list-batch-prep.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'ZK6e1re0d9o9'
+    legacy_title: 'New note'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам / Wave Cards / New note'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/new-note.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'XpPnz3Y2yKwE'
+    legacy_title: 'Decisions'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам / Decisions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/decisions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'l25qPhbILAkM'
+    legacy_title: 'Goal Brief'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам / Goal Brief'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/goal-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Ti0AUQVFNMN8'
+    legacy_title: 'Execution Pack'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам / Execution Pack'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/execution-pack.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'wjsJmcIquWGw'
+    legacy_title: 'Настроить wger как основной operational layer для тренировок, питания и логирования'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/настроить-wger-как-основной-operational-layer-для-тренировок-питания-и-логирован.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'Xhaz6wG2kika'
+    legacy_title: 'Sessions'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Sessions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/sessions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'PqfdhPxiFkVR'
+    legacy_title: 'Wave Cards'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Wave Cards'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/wave-cards.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'wFdtSZJyqLUb'
+    legacy_title: 'Wave 1'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Wave Cards / Wave 1'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: execution_reference
+    confidence: medium
+    reason: 'Execution/session material may be useful as reference but should not be default runtime context.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-reference/wave-1.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'tb8g5dbDPkbS'
+    legacy_title: 'Decisions'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Decisions'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/decisions.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'HriG0pnk4sPQ'
+    legacy_title: 'Goal Brief'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Goal Brief'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/goal-brief.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'UxsujDxsnSxJ'
+    legacy_title: 'Execution Pack'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Execution Pack'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/execution-pack.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'HD4mPzeId7JD'
+    legacy_title: 'Files'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Files'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/files.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'dcgdx1vFqLJR'
+    legacy_title: 'active-goal'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Files / active-goal'
+    legacy_type: 'code'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/active-goal.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'tyW0tGC44swp'
+    legacy_title: 'Milestone Artifacts'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Milestone Artifacts'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/milestone-artifacts.md'
+    action: create_directory_or_index
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'oe2JDhv4lEha'
+    legacy_title: 'M1 — Navigation baseline'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Milestone Artifacts / M1 — Navigation baseline'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/m1-navigation-baseline.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'CQtxH0xHOzts'
+    legacy_title: 'M1 Evidence — Routines Status + Minimum Weekly Training Slice Candidate'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Milestone Artifacts / M1 Evidence — Routines Status + Minimum Weekly Training Slice Candidate'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/m1-evidence-routines-status-minimum-weekly-training-slice-candidate.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'oSQmjrL22YE5'
+    legacy_title: 'M1 — Routines status + minimum weekly training slice candidate'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Milestone Artifacts / M1 — Routines status + minimum weekly training slice candidate'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/m1-routines-status-minimum-weekly-training-slice-candidate.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'j9H8qAvKwvTv'
+    legacy_title: 'M1 EVIDENCE — Workout logging status + real start/log/save flow'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Milestone Artifacts / M1 EVIDENCE — Workout logging status + real start/log/save flow'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/m1-evidence-workout-logging-status-real-start-log-save-flow.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: 'iTXUyqn5GGaf'
+    legacy_title: 'M1 — Workout logging status + real start-log-save flow'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / Milestone Artifacts / M1 — Workout logging status + real start-log-save flow'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/m1-workout-logging-status-real-start-log-save-flow.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+  - legacy_id: '7FgJhBx2YqeW'
+    legacy_title: 'KILL RECORD'
+    legacy_path: 'Health and beauty / 90 Archive / Historical / Legacy Workflow Artifacts - pre vNext-R normalization / Completed Goal / Настроить wger как основной operational layer для тренировок, питания и логирования / KILL RECORD'
+    legacy_type: 'text'
+    classification: migrate_as_reference
+    category: legacy_archive
+    confidence: medium
+    reason: 'Archived legacy material; preserve only as reference if later needed.'
+    target_github_path: 'directions/health-and-beauty/knowledge/reviews/legacy-archive/kill-record.md'
+    action: create_file
+    needs_user_decision: false
+    needs_user_export: false
+
