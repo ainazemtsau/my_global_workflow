@@ -1,12 +1,13 @@
 direction_id: health-and-beauty
-direction_name: Health and beauty
-status: MIGRATION_PENDING
+direction_name: Health and Beauty
+status: migration_in_progress
 github_repo: https://github.com/ainazemtsau/my_global_workflow
 repo_path: directions/health-and-beauty
-chatgpt_project_name: MIGRATION_PENDING
+chatgpt_project_name: Health and Beauty
 projects:
   local_embedded: []
   external_repos: []
-notes:
-  - Populate from existing source notes during Step 4.
-  - Do not invent external repository URLs.
+migration:
+  project_files_00_06: migrated
+  missing_sources: []
+  external_repo_urls_invented: false

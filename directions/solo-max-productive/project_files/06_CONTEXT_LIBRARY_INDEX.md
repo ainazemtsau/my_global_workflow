@@ -1,7 +1,53 @@
-# 06 Context Library Index
+# 06\_CONTEXT\_LIBRARY\_INDEX.md
 
-Status: MIGRATION_PENDING
+```yaml
+artifact_control:
+  artifact_name: "08 Context Loading Index"
+  schema: context_loading_index.v1
+  owner_layer: persistence
+  status: projection
+  source_note: "Solo Max Productive / 08 Context Loading Index"
+  default_load: yes
+  freshness: fresh
+  last_refresh_at: "2026-05-11"
+  refresh_source: "P0-2026-05-11-personal-workflow-app-kernel-start"
 
-Populate from existing source notes in Step 4.
+```
 
-No fake Context Loading Index data.
+## Default context
+
+Load the Direction Project Files default set.
+
+Current Phase:
+
+*   Personal Workflow App Kernel Exploration
+
+Active Goal:
+
+*   none
+
+Selected Goal candidate:
+
+*   Shape Personal Workflow App Kernel Min Proof
+
+Required default Project Files:
+
+*   00\_DIRECTION\_START\_HERE.md
+*   01\_DIRECTION\_STATE.md
+*   02\_CURRENT\_PHASE.md
+*   03\_FOCUS\_REGISTER.md
+*   04\_ACTIVE\_GOAL.md
+*   05\_PORTFOLIO\_QUEUE.md
+*   06\_CONTEXT\_LIBRARY\_INDEX.md
+*   WF\_VNEXT\_R\_RUNTIME\_CORE.md
+
+Request-only context:
+
+*   Solo Max Productive / 10 Phases / Personal Workflow App Kernel Exploration / 01 Phase Working Context
+*   Full EXOCORTEX concept seed from the P0 chat, only if exact wording is needed.
+*   Solo Max Productive / 07 Review / Canon Candidates / Current State Summary - Workflow vNext Transition, optional only if transition history is needed.
+
+Archive boundary:
+
+*   90 Archive / Historical is archive/pointer-only and must not be default-loaded.
+*   vNext One-Goal Smoke Test is historical/test state for this route, not current active work.
