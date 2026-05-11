@@ -24,6 +24,7 @@ focus:
   pending_state_carried: false
   pending_patch_pointer: none
   last_stage_result_pointer: none
+  last_codex_scope_validation: "M13 Codex App Validation updated this Indie-only file without touching sibling Directions."
 
 ```
 
