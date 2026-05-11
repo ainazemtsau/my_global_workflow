@@ -1,7 +1,7 @@
 # Solo Max Productive Projects
 
-Status: MIGRATION_PENDING
+Status: active
 
-Project references will be populated from accepted Direction source material only.
+No embedded project entries were imported.
 
-No fake project entries.
+Future project references must be added from accepted Direction source material only.

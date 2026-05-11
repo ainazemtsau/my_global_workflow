@@ -1,6 +1,6 @@
 direction_id: solo-max-productive
 direction_name: Solo Max Productive
-status: migration_in_progress
+status: active
 github_repo: https://github.com/ainazemtsau/my_global_workflow
 repo_path: directions/solo-max-productive
 chatgpt_project_name: Solo Max Productive

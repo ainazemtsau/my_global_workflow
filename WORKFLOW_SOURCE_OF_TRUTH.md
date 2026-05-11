@@ -11,7 +11,7 @@ Migration status: Step 10 accepted.
 Direction data rule:
 - Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, or execution state.
 - Direction data must be read from current GitHub Direction files unless an explicit migration/admin task says otherwise.
-- Missing or contradictory source data must be marked `source_missing`, `migration_incomplete`, or returned as `NEEDS_INPUT`.
+- Missing or contradictory source data must be returned as `NEEDS_INPUT` with the exact repository path and blocker.
 
 Runtime rule:
 - ChatGPT and Codex should use GitHub markdown files for workflow state.
