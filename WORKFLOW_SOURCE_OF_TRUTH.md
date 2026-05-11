@@ -1,22 +1,24 @@
 # Workflow Source of Truth
 
-Status: migration_in_progress
+Status: active
 
-Current canonical workflow source: existing accepted migration source until explicit Step 10 acceptance.
+Canonical AI workflow source: GitHub repository `ainazemtsau/my_global_workflow`.
 
-Target canonical workflow source after migration: GitHub repository `ainazemtsau/my_global_workflow`.
+Runtime source-of-truth model: GitHub markdown files in this repository.
 
-GitHub is not active/canonical yet. During migration, GitHub content is a migration workspace and validation target until Step 10 is accepted.
+Migration status: Step 10 accepted.
 
 Direction data rule:
 - Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, or execution state.
-- Direction data must be migrated only from existing accepted source notes.
+- Direction data must be read from current GitHub Direction files unless an explicit migration/admin task says otherwise.
 - Missing or contradictory source data must be marked `source_missing`, `migration_incomplete`, or returned as `NEEDS_INPUT`.
 
-Runtime rule during migration:
-- Do not treat GitHub as canonical for workflow runtime until Step 10.
-- Do not change runtime semantics before the source-of-truth refactor step.
-- Do not use migration/admin notes as runtime context unless a migration task explicitly asks for them.
+Runtime rule:
+- ChatGPT and Codex should use GitHub markdown files for workflow state.
+- Runtime Direction files must not depend on migration/admin notes.
+- Runtime Direction files must not require a note-database layer.
+- Repository Patch / `repository_patch.v1` is the runtime write proposal format.
 
-Finalization rule:
-- GitHub becomes the canonical AI workflow source only after Step 10 validation passes and this file is updated to `active`.
+Admin documentation:
+- Migration/admin docs remain under `docs/`.
+- Migration/admin docs are not loaded by default in Direction Projects.
