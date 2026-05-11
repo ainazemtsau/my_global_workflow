@@ -376,7 +376,7 @@ Use a Repository Patch when:
 
 *   the active Direction has a known Wave Record / Goal execution note path;
 *   the graph plan should be persisted before C2;
-*   documentation maintenance requires a queued note update.
+*   documentation maintenance requires a queued file update.
 
 Patch actions allowed:
 
@@ -385,7 +385,7 @@ Patch actions allowed:
 *   append\_section
 *   update\_header
 
-Do not physically delete notes. If stale material must be handled, instruct mark\_stale only when the path is explicit and the reason is clear.
+Do not physically delete files. If stale material must be handled, instruct mark\_stale only when the path is explicit and the reason is clear.
 
 ## 12\. Documentation Maintenance Gate policy
 

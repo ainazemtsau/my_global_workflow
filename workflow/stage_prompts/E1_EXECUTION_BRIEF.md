@@ -303,7 +303,7 @@ Use Documentation Maintenance Gate when relevant, especially for:
 
 *   stale `GOAL START` terminology;
 *   G1 patch/file read-back / diff verification / commit verification requirements;
-*   active Goal note update after implementation;
+*   active Goal file update after implementation;
 *   Project Files mirror refresh after file read-back / diff verification / commit verification;
 *   compatibility cleanup.
 
@@ -762,7 +762,7 @@ Include:
 
 *   target paths;
 *   exact actions;
-*   allowed file/note changes;
+*   allowed file/file changes;
 *   forbidden changes;
 *   validation commands or file read-back / diff verification / commit verification anchors;
 *   rollback/repair expectations;

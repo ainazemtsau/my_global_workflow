@@ -336,7 +336,7 @@ Use exact actions only:
 *   `update_header`;
 *   `mark_stale`.
 
-Avoid `replace_note` unless the note is newly created by D0 or explicitly safe.
+Avoid `replace_file` unless the file is newly created by D0 or explicitly safe.
 
 ### Pass 9 — Route decision
 

@@ -16,15 +16,15 @@ This is a transport template only. It is not a Codex bridge contract and not a f
 *   HTML is forbidden as transport.
 *   Use plain Markdown with YAML-style fields.
 *   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
-*   Do not physically delete notes unless explicit human approval is included.
-*   Prefer `create`, `replace_note`, `replace_section`, `update_header`, or `mark_stale` over vague append behavior.
+*   Do not physically delete files unless explicit human approval is included.
+*   Prefer `create`, `replace_file`, `replace_section`, `update_header`, or `mark_stale` over vague append behavior.
 *   All content-bearing writes must include validation anchors.
 *   No writes outside named paths.
 
 ## Allowed actions
 
 *   `create`
-*   `replace_note`
+*   `replace_file`
 *   `replace_section`
 *   `append_section`
 *   `update_header`
@@ -39,8 +39,8 @@ This is a transport template only. It is not a Codex bridge contract and not a f
 *   `source_stage`
 *   `install_target`
 *   `dependencies`
-*   `notes_to_create_or_update`
-*   `notes_to_mark_stale`
+*   `files_to_create_or_update`
+*   `files_to_mark_stale`
 *   `do_not_touch`
 *   `readback_requirements`
 *   `rollback_note`
@@ -78,10 +78,10 @@ dependencies:
       required: true
   dependency_failure_route: context_request | human_decision | recovery_close | stop
 
-notes_to_create_or_update:
+files_to_create_or_update:
   - path:
     title:
-    action: create | replace_note | replace_section | append_section | update_header | mark_stale
+    action: create | replace_file | replace_section | append_section | update_header | mark_stale
     status: draft | test-active | active-candidate | active | superseded
     section_anchor:
     content: |
@@ -89,7 +89,7 @@ notes_to_create_or_update:
     validation_anchors:
       - text:
 
-notes_to_mark_stale:
+files_to_mark_stale:
   - path:
     reason:
     replacement_pointer:

@@ -554,8 +554,8 @@ If this Router run is a normal production workflow routing event and should be p
 
 *   `execution_log_entry.persist = true`
 *   Repository Patch must append/create the target Execution Log entry
-*   if canonical route/state changes, Repository Patch must update affected source notes
-*   Changed Files / Context Refresh List must name exact files affected by the source-note updates
+*   if canonical route/state changes, Repository Patch must update affected source files
+*   Changed Files / Context Refresh List must name exact files affected by the source-file updates
 
 Project Files Refresh Coupling Rule:
 
@@ -1002,7 +1002,7 @@ changed_files_context_refresh: []
 
 ```
 
-If production persistence is required, `operations` must include the Execution Log append/create operation and any source-note update operations.
+If production persistence is required, `operations` must include the Execution Log append/create operation and any source-file update operations.
 
 ---
 

@@ -512,7 +512,7 @@ Patch action rules:
 *   Prefer `create` or `replace_section`.
 *   Use `append_section` only when the target note structure clearly requires additive content.
 *   Use `update_header` only for explicit header changes.
-*   Do not physically delete notes.
+*   Do not physically delete files.
 *   Do not overwrite old active Workflow vNext.
 *   Do not modify rebuild stage prompt notes while running as a runtime Direction stage.
 *   Do not modify common canon, cross-Direction notes, source-of-truth rules, security/privacy behavior, tool bindings, or secrets.

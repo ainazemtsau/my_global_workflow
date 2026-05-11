@@ -601,8 +601,8 @@ created_by_stage:
 return_state:
 
 operations:
-  - action: create_note | replace_note | replace_section | append_section | mark_stale | update_header
-    note_path:
+  - action: create_file | replace_file | replace_section | append_section | mark_stale | update_header
+    file_path:
     title:
     section:
     content:
@@ -612,12 +612,12 @@ operations:
       requires_human_approval: false
 
 readback_required:
-  - note_path:
+  - file_path:
     expected_anchor:
     expected_header:
 
 changed_files_context_refresh:
-  - source_note:
+  - source_file:
     project_file:
     reason:
 
@@ -629,7 +629,7 @@ Do not claim a GitHub repository update is complete without file read-back / dif
 
 Prefer `replace_section` for stable notes.
 
-Do not physically delete notes unless explicitly approved.
+Do not physically delete files unless explicitly approved.
 
 Mark stale/superseded material instead of deleting by default.
 
@@ -764,21 +764,21 @@ stable_docs_checked:
   - relevant Knowledge / Canon / domain docs
 
 updates:
-  - note_path:
+  - file_path:
     action: replace_section | append_delta | mark_stale | split | merge | archive_pointer
     reason:
 
 stale_or_superseded:
-  - note_path:
+  - file_path:
     reason:
     replacement_pointer:
 
 knowledge_updates:
-  - target_note:
+  - target_file:
     summary:
 
 canon_candidates:
-  - target_note:
+  - target_file:
     summary:
 
 context_loading_index_updates:
@@ -806,7 +806,7 @@ Every material state change must list exact Project Files to refresh.
 
 Refresh means:
 
-1.  Update GitHub repository source note.
+1.  Update GitHub repository source file.
 2.  Update corresponding child under `09 ChatGPT Project Files`.
 3.  Replace that file in ChatGPT Project.
 

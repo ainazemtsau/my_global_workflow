@@ -570,14 +570,14 @@ schema: repository_patch.v1
 patch_required: true
 patch_reason:
 target_root:
-notes_to_create_or_update:
+files_to_create_or_update:
   - path:
     title:
     action:
     status:
     content:
     validation_anchors: []
-notes_to_mark_stale:
+files_to_mark_stale:
   - path:
     reason:
     replacement_pointer:

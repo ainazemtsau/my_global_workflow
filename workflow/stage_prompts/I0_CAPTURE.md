@@ -478,7 +478,7 @@ patch_id:
 created_by_stage: I0_CAPTURE
 return_state: DONE
 operations:
-  - op: create_note | append_section | replace_section
+  - op: create_file | append_section | replace_section
     path:
     title:
     status:

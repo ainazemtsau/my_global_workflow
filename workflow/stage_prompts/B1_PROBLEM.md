@@ -450,7 +450,7 @@ repository_patch:
   reason:
   target_paths:
     - path:
-      action: create | replace_note | replace_section | append_section | update_header | mark_stale
+      action: create | replace_file | replace_section | append_section | update_header | mark_stale
       content_summary:
       authority:
       freshness:
