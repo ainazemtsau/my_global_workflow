@@ -108,3 +108,11 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - External repos remain not_created with null URLs and paths until source-backed input exists.
 - next allowed step after validation: M10 Direction AGENTS Governance
 
+
+## M10 Direction AGENTS Governance Summary
+
+- Updated at: 2026-05-11 11:21:00 +03:00
+- Status: PASS
+- Direction AGENTS files now declare GitHub source of truth, per-Direction scope, forbidden sibling Directions, no routine external-note loading, and small-diff/no-delete rules.
+- next allowed step after validation: M11 ChatGPT Project Setup Docs
+
