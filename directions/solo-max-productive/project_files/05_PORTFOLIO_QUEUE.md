@@ -1,4 +1,4 @@
-# 05\_PORTFOLIO\_QUEUE.md
+﻿# 05\_PORTFOLIO\_QUEUE.md
 
 ```yaml
 artifact_control:
@@ -6,7 +6,7 @@ artifact_control:
   schema: portfolio_queue.v1
   owner_layer: persistence
   status: projection
-  source_note: "Solo Max Productive / 05 Portfolio Queue"
+  source_file: "directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md"
   default_load: yes
   freshness: fresh
   last_refresh_at: "2026-05-11"

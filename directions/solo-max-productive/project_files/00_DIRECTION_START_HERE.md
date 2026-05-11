@@ -1,4 +1,4 @@
-# 00\_DIRECTION\_START\_HERE.md
+﻿# 00\_DIRECTION\_START\_HERE.md
 
 ```yaml
 artifact_control:
@@ -6,7 +6,7 @@ artifact_control:
   schema: direction_start_here.v1
   owner_layer: persistence
   status: projection
-  source_note: "Solo Max Productive / 00 START HERE - Direction"
+  source_file: "directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
   freshness: fresh
   last_refresh_at: "2026-05-11"
@@ -16,7 +16,7 @@ artifact_control:
 
 ## Current pointers
 
-Current Phase: Personal Workflow App Kernel Exploration -> Solo Max Productive / 10 Phases / Personal Workflow App Kernel Exploration
+Current Phase: Personal Workflow App Kernel Exploration -> directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration
 
 Active Goal: none
 

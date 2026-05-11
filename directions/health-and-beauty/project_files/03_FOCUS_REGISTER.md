@@ -1,15 +1,15 @@
-# 03\_FOCUS\_REGISTER.md
+﻿# 03\_FOCUS\_REGISTER.md
 
 ```yaml
 project_file_control:
   file: 03_FOCUS_REGISTER.md
   schema: project_file_projection.v1
-  direction: Health and beauty
-  generated_from:
-    - "Health and beauty / 03 Focus Register"
-  generated_at: "2026-05-10"
-  source_freshness: fresh
-  canonical_source: GitHub migration snapshot
+  direction: directions/health-and-beauty
+  source_files:
+    - "directions/health-and-beauty/project_files/03_FOCUS_REGISTER.md"
+  activated_at: "2026-05-11"
+  source_freshness: active_git_file
+  canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
 

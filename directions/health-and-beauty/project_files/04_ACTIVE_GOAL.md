@@ -1,16 +1,15 @@
-# 04\_ACTIVE\_GOAL.md
+﻿# 04\_ACTIVE\_GOAL.md
 
 ```yaml
 project_file_control:
   file: 04_ACTIVE_GOAL.md
   schema: project_file_projection.v1
-  direction: Health and beauty
-  generated_from:
-    - "Health and beauty / 04 Active Goal"
-    - "Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor / 00 Goal Contract / Brief"
-  generated_at: "2026-05-10"
-  source_freshness: fresh
-  canonical_source: GitHub migration snapshot
+  direction: directions/health-and-beauty
+  source_files:
+    - "directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md"
+  activated_at: "2026-05-11"
+  source_freshness: active_git_file
+  canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
 
@@ -20,8 +19,8 @@ project_file_control:
 active_goal:
   state: active
   goal_name: "Собрать AI-поддержку питания, рецептов и меню под MacroFactor"
-  goal_path: "Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor"
-  phase_path: "Health and beauty / 10 Phases / MacroFactor Nutrition AI Support Setup"
+  goal_path: "directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup/goals/ai-support-nutrition-recipes-menu-macrofactor"
+  phase_path: "directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup"
   current_wave: none
 
 ```

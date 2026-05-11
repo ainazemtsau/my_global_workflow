@@ -1,4 +1,4 @@
-# 06\_CONTEXT\_LIBRARY\_INDEX.md
+﻿# 06\_CONTEXT\_LIBRARY\_INDEX.md
 
 ```yaml
 artifact_control:
@@ -6,7 +6,7 @@ artifact_control:
   schema: context_loading_index.v1
   owner_layer: persistence
   status: projection
-  source_note: "Solo Max Productive / 08 Context Loading Index"
+  source_file: "directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md"
   default_load: yes
   freshness: fresh
   last_refresh_at: "2026-05-11"
@@ -43,9 +43,9 @@ Required default Project Files:
 
 Request-only context:
 
-*   Solo Max Productive / 10 Phases / Personal Workflow App Kernel Exploration / 01 Phase Working Context
+*   directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration / 01 Phase Working Context
 *   Full EXOCORTEX concept seed from the P0 chat, only if exact wording is needed.
-*   Solo Max Productive / 07 Review / Canon Candidates / Current State Summary - Workflow vNext Transition, optional only if transition history is needed.
+*   directions/solo-max-productive / 07 Review / Canon Candidates / Current State Summary - Workflow vNext Transition, optional only if transition history is needed.
 
 Archive boundary:
 

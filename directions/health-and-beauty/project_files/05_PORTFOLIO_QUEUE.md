@@ -1,18 +1,18 @@
-# 05\_PORTFOLIO\_QUEUE.md
+﻿# 05\_PORTFOLIO\_QUEUE.md
 
 ```yaml
 project_file_projection: 1
 schema: direction_project_file_projection.v1
-source_note_title: "Health and beauty / 05 Portfolio Queue"
-canonical_source: GitHub migration snapshot
+source_file: "directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md"
+canonical_source: GitHub repository file
 projection_status: fresh
-refreshed_at: "2026-05-10"
+activated_at: "2026-05-11"
 
 ```
 
 ## Canon rule
 
-This file is a migrated runtime snapshot. If it conflicts with another current GitHub Direction file, return Context Request; do not invent state.
+This file is an active GitHub Direction runtime file. If it conflicts with another current GitHub Direction file, return Context Request; do not invent state.
 
 ## Current queue state
 

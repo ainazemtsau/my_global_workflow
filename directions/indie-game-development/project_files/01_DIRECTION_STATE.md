@@ -1,15 +1,15 @@
-# 01\_DIRECTION\_STATE.md
+﻿# 01\_DIRECTION\_STATE.md
 
 ```yaml
 project_file_control:
   file: 01_DIRECTION_STATE.md
   schema: project_file_projection.v1
-  direction: Indie Game Development Direction
-  generated_from:
-    - "Indie Game Development Direction / 01 Direction State"
-  generated_at: "2026-05-10"
-  source_freshness: fresh
-  canonical_source: GitHub migration snapshot
+  direction: directions/indie-game-development
+  source_files:
+    - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
+  activated_at: "2026-05-11"
+  source_freshness: active_git_file
+  canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
 
@@ -17,12 +17,12 @@ project_file_control:
 
 ```yaml
 direction:
-  name: Indie Game Development Direction
+  name: directions/indie-game-development
   id: km9QhwfF2zoO
   state: active
   workflow_version: vNext-R
-  current_phase_pointer: "Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint"
-  active_goal_pointer: "Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint / 03 Goals / Определить минимальное доказательное ядро первого proof Expedition"
+  current_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
+  active_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   next_route: G1_GOAL_SHAPE
   last_updated: "2026-05-10"
 

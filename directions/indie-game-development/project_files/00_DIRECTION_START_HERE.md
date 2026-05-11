@@ -1,4 +1,4 @@
-# 00 START HERE - Direction
+﻿# 00 START HERE - Direction
 
 ```yaml
 artifact_control:
@@ -6,7 +6,7 @@ artifact_control:
   schema: direction_start_here.v1
   owner_layer: persistence
   status: canonical
-  storage_target: "Indie Game Development Direction / 00 START HERE - Direction"
+  repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
   freshness: fresh
   next_action: "Continue with G1_GOAL_SHAPE for the active Expedition proof Goal."
@@ -15,7 +15,7 @@ artifact_control:
 
 ## Direction identity
 
-*   Direction name: `Indie Game Development Direction`
+*   Direction name: `directions/indie-game-development`
 *   Direction ID: `km9QhwfF2zoO`
 *   Current state: `active`
 *   Workflow version: `vNext-R`
@@ -27,16 +27,16 @@ Build a commercially viable indie game direction, focused on game concept, produ
 
 ## Source-of-truth rule
 
-This file is a migrated Direction runtime snapshot. During migration, canonical activation is governed by WORKFLOW_SOURCE_OF_TRUTH.md. If required state is missing, stale, or conflicting, return Context Request; do not invent state.
+This file is an active GitHub Direction runtime file. WORKFLOW_SOURCE_OF_TRUTH.md is the active source-of-truth marker. If required state is missing, stale, or conflicting, return Context Request; do not invent state.
 
 ## Current pointers
 
 | Pointer | Value | Canonical target |
 | --- | --- | --- |
-| Current Phase | `Expedition First Proof Checkpoint` | `Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint` |
-| Active Goal | `Определить минимальное доказательное ядро первого proof Expedition` | `Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint / 03 Goals / Определить минимальное доказательное ядро первого proof Expedition` |
-| Current focus | Shape the preserved Expedition first-proof Goal before execution | `Indie Game Development Direction / 03 Focus Register` |
-| Context load rules | Direction Context Loading Index | `Indie Game Development Direction / 08 Context Loading Index` |
+| Current Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
+| Active Goal | `Определить минимальное доказательное ядро первого proof Expedition` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof` |
+| Current focus | Shape the preserved Expedition first-proof Goal before execution | `directions/indie-game-development / 03 Focus Register` |
+| Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
 | Project Files export folder | ChatGPT Project Files | projection only |
 
 ## Default Project Files to load
@@ -54,7 +54,7 @@ This file is a migrated Direction runtime snapshot. During migration, canonical 
 
 `Game Documentation` remains active domain documentation at:
 
-`Indie Game Development Direction / 07 Reviews / Knowledge / Canon / Game Documentation`
+`directions/indie-game-development / domain_docs/game_documentation`
 
 It is not archive material and must not be hidden during workflow cleanup. Request specific Game Documentation notes through `08 Context Loading Index`; do not bulk-load all game docs by default.
 

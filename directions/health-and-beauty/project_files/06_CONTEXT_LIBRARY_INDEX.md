@@ -1,18 +1,18 @@
-# 06\_CONTEXT\_LIBRARY\_INDEX.md
+﻿# 06\_CONTEXT\_LIBRARY\_INDEX.md
 
 ```yaml
 project_file_projection: 1
 schema: direction_project_file_projection.v1
-source_note_title: "Health and beauty / 08 Context Loading Index"
-canonical_source: GitHub migration snapshot
+source_file: "directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md"
+canonical_source: GitHub repository file
 projection_status: fresh
-refreshed_at: "2026-05-10"
+activated_at: "2026-05-11"
 
 ```
 
 ## Canon rule
 
-This file is a migrated runtime snapshot. If it conflicts with another current GitHub Direction file, return Context Request; do not invent state.
+This file is an active GitHub Direction runtime file. If it conflicts with another current GitHub Direction file, return Context Request; do not invent state.
 
 ## Default context
 

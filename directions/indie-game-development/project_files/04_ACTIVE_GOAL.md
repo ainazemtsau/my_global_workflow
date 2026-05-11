@@ -1,16 +1,15 @@
-# 04\_ACTIVE\_GOAL.md
+﻿# 04\_ACTIVE\_GOAL.md
 
 ```yaml
 project_file_control:
   file: 04_ACTIVE_GOAL.md
   schema: project_file_projection.v1
-  direction: Indie Game Development Direction
-  generated_from:
-    - "Indie Game Development Direction / 04 Active Goal"
-    - "Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint / 03 Goals / Определить минимальное доказательное ядро первого proof Expedition / 00 Goal Contract / Brief"
-  generated_at: "2026-05-10"
-  source_freshness: fresh
-  canonical_source: GitHub migration snapshot
+  direction: directions/indie-game-development
+  source_files:
+    - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
+  activated_at: "2026-05-11"
+  source_freshness: active_git_file
+  canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
 
@@ -20,8 +19,8 @@ project_file_control:
 active_goal:
   state: active
   goal_name: "Определить минимальное доказательное ядро первого proof Expedition"
-  goal_path: "Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint / 03 Goals / Определить минимальное доказательное ядро первого proof Expedition"
-  phase_path: "Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint"
+  goal_path: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
+  phase_path: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   current_wave: none
 
 ```

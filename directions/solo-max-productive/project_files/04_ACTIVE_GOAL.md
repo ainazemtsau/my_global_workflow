@@ -1,4 +1,4 @@
-# 04\_ACTIVE\_GOAL.md
+﻿# 04\_ACTIVE\_GOAL.md
 
 ```yaml
 artifact_control:
@@ -6,7 +6,7 @@ artifact_control:
   schema: active_goal.v1
   owner_layer: persistence
   status: projection
-  source_note: "Solo Max Productive / 04 Active Goal"
+  source_file: "directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md"
   default_load: yes
   freshness: fresh
   last_refresh_at: "2026-05-11"
@@ -16,7 +16,7 @@ active_goal:
   state: none
   goal_name: none
   goal_path: none
-  phase_path: "Solo Max Productive / 10 Phases / Personal Workflow App Kernel Exploration"
+  phase_path: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration"
   current_wave: none
 
 selected_goal_candidate:

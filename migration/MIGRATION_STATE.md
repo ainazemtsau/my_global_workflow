@@ -41,3 +41,12 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - needs_user_export: 0
 - next allowed step after validation: M3 Canonical Repo Structure Cleanup
 
+
+## M3 Structure Cleanup Summary
+
+- Updated at: 2026-05-11 10:38:04 +03:00
+- Added Direction README, knowledge, and domain_docs folders.
+- Expanded direction.meta.yml to GitHub-only schema.
+- Cleaned project file metadata to use GitHub repository file source wording.
+- next allowed step after validation: M4 Workflow Core Verification
+

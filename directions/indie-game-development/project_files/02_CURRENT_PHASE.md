@@ -1,16 +1,15 @@
-# 02\_CURRENT\_PHASE.md
+﻿# 02\_CURRENT\_PHASE.md
 
 ```yaml
 project_file_control:
   file: 02_CURRENT_PHASE.md
   schema: project_file_projection.v1
-  direction: Indie Game Development Direction
-  generated_from:
-    - "Indie Game Development Direction / 02 Current Phase"
-    - "Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint / 00 Phase Brief"
-  generated_at: "2026-05-10"
-  source_freshness: fresh
-  canonical_source: GitHub migration snapshot
+  direction: directions/indie-game-development
+  source_files:
+    - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
+  activated_at: "2026-05-11"
+  source_freshness: active_git_file
+  canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
 
@@ -20,7 +19,7 @@ project_file_control:
 current_phase:
   state: active
   phase_name: Expedition First Proof Checkpoint
-  phase_path: "Indie Game Development Direction / 10 Phases / Expedition First Proof Checkpoint"
+  phase_path: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   critical_constraint: "Preserve current Expedition checkpoint and Game Documentation while using vNext-R structure."
   minimum_outcome: "Active Phase exists, active Goal is preserved under it, next route is Goal shaping."
 

@@ -1,4 +1,4 @@
-# 02\_CURRENT\_PHASE.md
+﻿# 02\_CURRENT\_PHASE.md
 
 ```yaml
 artifact_control:
@@ -6,7 +6,7 @@ artifact_control:
   schema: current_phase.v1
   owner_layer: persistence
   status: projection
-  source_note: "Solo Max Productive / 02 Current Phase"
+  source_file: "directions/solo-max-productive/project_files/02_CURRENT_PHASE.md"
   default_load: yes
   freshness: fresh
   last_refresh_at: "2026-05-11"
@@ -15,7 +15,7 @@ artifact_control:
 current_phase:
   state: active_pending_readback
   phase_name: Personal Workflow App Kernel Exploration
-  phase_path: "Solo Max Productive / 10 Phases / Personal Workflow App Kernel Exploration"
+  phase_path: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration"
   critical_constraint: "The app/EXOCORTEX idea is too broad to safely research, architect, or build; the kernel hypothesis must be defined first."
   minimum_outcome: "Compact Kernel Brief with Max Vision, Min Proof, core loop, research gaps, hard scope cuts, and one first Goal candidate."
   validation_signal: "One smallest kernel worth testing and one first Goal are clear; broad app/product features are explicitly deferred."

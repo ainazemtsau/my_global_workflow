@@ -1,4 +1,4 @@
-# 03\_FOCUS\_REGISTER.md
+﻿# 03\_FOCUS\_REGISTER.md
 
 ```yaml
 artifact_control:
@@ -6,7 +6,7 @@ artifact_control:
   schema: focus_register.v1
   owner_layer: persistence
   status: projection
-  source_note: "Solo Max Productive / 03 Focus Register"
+  source_file: "directions/solo-max-productive/project_files/03_FOCUS_REGISTER.md"
   default_load: yes
   freshness: fresh
   last_refresh_at: "2026-05-11"
