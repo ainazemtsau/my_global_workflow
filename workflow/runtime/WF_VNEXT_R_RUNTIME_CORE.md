@@ -1,6 +1,11 @@
 # WF\_VNEXT\_R\_RUNTIME\_CORE
 
-Status: production-ready runtime core Workflow version: vNext-R Source GitHub repository file: Workflow / 20 Workflow vNext-R REBUILD / 01 Runtime Core / WF\_VNEXT\_R\_RUNTIME\_CORE Freshness: refresh whenever runtime core, routing rules, packet contracts, stage registry, or project-file rules change. Authority: common workflow runtime guide for Direction ChatGPT Projects. GitHub repository files win on conflict. Scope: runtime behavior only. This note is not a stage prompt and not a rebuild roadmap.
+Status: production-ready runtime core
+Workflow version: vNext-R
+Source GitHub repository file: `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+Freshness: refresh whenever runtime core, routing rules, packet contracts, stage registry, or project-file rules change.
+Authority: common workflow runtime guide for Direction ChatGPT Projects. GitHub repository files win on conflict.
+Scope: runtime behavior only. This file is not a stage prompt and not a rebuild roadmap.
 
 ---
 
@@ -31,7 +36,14 @@ A stage or workflow chat must not end with only a route name such as `Next: E1`.
 
 ## 2\. Required Direction Project Files
 
-Every Direction ChatGPT Project must load exactly these workflow-relevant files by default:
+Every Direction ChatGPT Project must load the Direction Project Files 00-06 by default from:
+
+```text
+directions/<direction-id>/project_files/
+
+```
+
+Required Direction Project Files:
 
 ```text
 00_DIRECTION_START_HERE.md
@@ -41,18 +53,19 @@ Every Direction ChatGPT Project must load exactly these workflow-relevant files 
 04_ACTIVE_GOAL.md
 05_PORTFOLIO_QUEUE.md
 06_CONTEXT_LIBRARY_INDEX.md
-WF_VNEXT_R_RUNTIME_CORE.md
 
 ```
 
-These files are the default active context.
-
-They are stored in the GitHub repository under:
+Every Direction ChatGPT Project must also load the shared runtime core:
 
 ```text
-directions/<direction-id>/project_files/
+workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 
 ```
+
+Do not create or require local copies at `directions/<direction-id>/project_files/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+These files are the default active context.
 
 The Direction Project must not use Workflow Rebuild Project files as Direction runtime state.
 
@@ -118,7 +131,7 @@ At the start of a Direction Project chat:
 
 1.  Read Project Instructions.
 2.  Read Direction Project Files 00-06.
-3.  Read `WF_VNEXT_R_RUNTIME_CORE.md`.
+3.  Read shared runtime core at `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 4.  Identify Direction, current Phase, active Goal, current route, blockers, freshness/staleness, and whether a Launch Card is present.
 5.  If a Launch Card is present, follow it.
 6.  If no Launch Card is present, use Router / Stage Launcher behavior to determine the smallest safe next action.
@@ -446,7 +459,8 @@ required_context:
     - 04_ACTIVE_GOAL.md
     - 05_PORTFOLIO_QUEUE.md
     - 06_CONTEXT_LIBRARY_INDEX.md
-    - WF_VNEXT_R_RUNTIME_CORE.md
+  shared_runtime_files:
+    - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
   additional_repository_file_exports:
     - path:
       reason:
@@ -816,8 +830,8 @@ Mapping:
 06_CONTEXT_LIBRARY_INDEX.md changed
   -> 06_CONTEXT_LIBRARY_INDEX.md
 
-WF_VNEXT_R_RUNTIME_CORE changed
-  -> WF_VNEXT_R_RUNTIME_CORE.md
+Shared runtime core changed
+  -> workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 
 ```
 
@@ -920,7 +934,7 @@ Use where relevant:
 Stage prompts source root:
 
 ```text
-Workflow / 20 Workflow vNext-R REBUILD / 06 Stage Prompts
+workflow/stage_prompts/
 
 ```
 
@@ -932,23 +946,23 @@ Do not infer "first stage to develop" from this table. Prompt development order 
 
 | Stage ID | Name | Runtime role | Prompt source |
 | --- | --- | --- | --- |
-| ROUTER\_STAGE\_LAUNCHER | Router / Stage Launcher | Determine smallest safe next action; produce Launch Card / Context Request / Human Decision / Stop. | 06 Stage Prompts / ROUTER\_STAGE\_LAUNCHER |
-| D0\_DIRECTION\_SETUP | Direction Setup | Create or repair a Direction container. | 06 Stage Prompts / D0\_DIRECTION\_SETUP |
-| P0\_PHASE\_START | Phase Start | Start/update current Phase by Critical Constraint and Minimum Outcome. | 06 Stage Prompts / P0\_PHASE\_START |
-| I0\_CAPTURE | Capture / Triage | Route raw inputs without doing the work. | 06 Stage Prompts / I0\_CAPTURE |
-| G0\_GOAL\_SELECT | Goal Select | Select/create one candidate for Goal shaping. | 06 Stage Prompts / G0\_GOAL\_SELECT |
-| G1\_GOAL\_SHAPE | Goal Shape / Ruthless Cut | Shape WHAT/WHY/DONE and cut scope before HOW. | 06 Stage Prompts / G1\_GOAL\_SHAPE |
-| S3\_DECIDE | Decide | Resolve a real decision with options/constraints/human conclusion. | 06 Stage Prompts / S3\_DECIDE |
-| D1\_DEEP\_RESEARCH | Deep Research | Research external evidence gaps and synthesize implications. | 06 Stage Prompts / D1\_DEEP\_RESEARCH |
-| A1\_AUDIT | Audit / Challenge | Challenge high-risk/failed/irreversible plans or claims. | 06 Stage Prompts / A1\_AUDIT |
-| E1\_EXECUTION\_BRIEF | Execution Brief | Produce minimum HOW, validation, context, and Codex card if needed. | 06 Stage Prompts / E1\_EXECUTION\_BRIEF |
-| F0\_FAST\_DIRECT | Fast Direct | Execute small reversible work directly with verification. | 06 Stage Prompts / F0\_FAST\_DIRECT |
-| C1\_CODEX\_GRAPH\_PLAN | Codex Graph Plan | Build/validate project-local execution graph from Wave Card. | 06 Stage Prompts / C1\_CODEX\_GRAPH\_PLAN |
-| C2\_CODEX\_EXECUTE | Codex Execute | Execute validated graph and return evidence/return-state. | 06 Stage Prompts / C2\_CODEX\_EXECUTE |
-| B1\_PROBLEM | Problem Router | Classify blocker before solving and route recovery. | 06 Stage Prompts / B1\_PROBLEM |
-| R1\_GOAL\_REVIEW\_DISTILL | Goal Review / Distill | Review Goal, distill durable knowledge, update state/docs. | 06 Stage Prompts / R1\_GOAL\_REVIEW\_DISTILL |
-| P9\_PHASE\_CLOSE | Phase Close | Close/pause Phase and distill phase-level outcomes. | 06 Stage Prompts / P9\_PHASE\_CLOSE |
-| R0\_RECOVERY\_CLOSE | Recovery Close | Close mixed/interrupted sessions and reconstruct safe handoff. | 06 Stage Prompts / R0\_RECOVERY\_CLOSE |
+| ROUTER\_STAGE\_LAUNCHER | Router / Stage Launcher | Determine smallest safe next action; produce Launch Card / Context Request / Human Decision / Stop. | workflow/stage_prompts/ROUTER_STAGE_LAUNCHER.md |
+| D0\_DIRECTION\_SETUP | Direction Setup | Create or repair a Direction container. | workflow/stage_prompts/D0_DIRECTION_SETUP.md |
+| P0\_PHASE\_START | Phase Start | Start/update current Phase by Critical Constraint and Minimum Outcome. | workflow/stage_prompts/P0_PHASE_START.md |
+| I0\_CAPTURE | Capture / Triage | Route raw inputs without doing the work. | workflow/stage_prompts/I0_CAPTURE.md |
+| G0\_GOAL\_SELECT | Goal Select | Select/create one candidate for Goal shaping. | workflow/stage_prompts/G0_GOAL_SELECT.md |
+| G1\_GOAL\_SHAPE | Goal Shape / Ruthless Cut | Shape WHAT/WHY/DONE and cut scope before HOW. | workflow/stage_prompts/G1_GOAL_SHAPE.md |
+| S3\_DECIDE | Decide | Resolve a real decision with options/constraints/human conclusion. | workflow/stage_prompts/S3_DECIDE.md |
+| D1\_DEEP\_RESEARCH | Deep Research | Research external evidence gaps and synthesize implications. | workflow/stage_prompts/D1_DEEP_RESEARCH.md |
+| A1\_AUDIT | Audit / Challenge | Challenge high-risk/failed/irreversible plans or claims. | workflow/stage_prompts/A1_AUDIT.md |
+| E1\_EXECUTION\_BRIEF | Execution Brief | Produce minimum HOW, validation, context, and Codex card if needed. | workflow/stage_prompts/E1_EXECUTION_BRIEF.md |
+| F0\_FAST\_DIRECT | Fast Direct | Execute small reversible work directly with verification. | workflow/stage_prompts/F0_FAST_DIRECT.md |
+| C1\_CODEX\_GRAPH\_PLAN | Codex Graph Plan | Build/validate project-local execution graph from Wave Card. | workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md |
+| C2\_CODEX\_EXECUTE | Codex Execute | Execute validated graph and return evidence/return-state. | workflow/stage_prompts/C2_CODEX_EXECUTE.md |
+| B1\_PROBLEM | Problem Router | Classify blocker before solving and route recovery. | workflow/stage_prompts/B1_PROBLEM.md |
+| R1\_GOAL\_REVIEW\_DISTILL | Goal Review / Distill | Review Goal, distill durable knowledge, update state/docs. | workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md |
+| P9\_PHASE\_CLOSE | Phase Close | Close/pause Phase and distill phase-level outcomes. | workflow/stage_prompts/P9_PHASE_CLOSE.md |
+| R0\_RECOVERY\_CLOSE | Recovery Close | Close mixed/interrupted sessions and reconstruct safe handoff. | workflow/stage_prompts/R0_RECOVERY_CLOSE.md |
 
 ### Runtime lifecycle order
 

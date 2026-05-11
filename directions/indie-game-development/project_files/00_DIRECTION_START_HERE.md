@@ -48,7 +48,12 @@ This file is an active GitHub Direction runtime file. WORKFLOW_SOURCE_OF_TRUTH.m
 5.  `04_ACTIVE_GOAL.md`
 6.  `05_PORTFOLIO_QUEUE.md`
 7.  `06_CONTEXT_LIBRARY_INDEX.md`
-8.  `WF_VNEXT_R_RUNTIME_CORE.md`
+
+## Shared runtime file
+
+Load shared runtime core separately from `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+Do not create or require a local runtime-core copy under this Direction `project_files/` folder.
 
 ## Active domain documentation
 

@@ -41,4 +41,9 @@ State note:
 *   04\_ACTIVE\_GOAL.md
 *   05\_PORTFOLIO\_QUEUE.md
 *   06\_CONTEXT\_LIBRARY\_INDEX.md
-*   WF\_VNEXT\_R\_RUNTIME\_CORE.md
+
+## Shared runtime file
+
+*   `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+
+Do not create or require a local runtime-core copy under this Direction `project_files/` folder.

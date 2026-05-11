@@ -18,6 +18,17 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 Load the Direction Project Files default set only. Do not bulk-load `Game Documentation`, old sessions, Wave Cards, archives, or execution logs by default.
 
+## Shared runtime and stage prompts
+
+```yaml
+shared_runtime_file: "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
+stage_prompt_source_root: "workflow/stage_prompts/"
+stage_prompt_load_rule: "request exact stage prompt by stage ID; do not bulk-load all prompts"
+local_runtime_core_copy_required: false
+```
+
+Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
+
 ## Request-only context
 
 *   `directions/indie-game-development/domain_docs/game_documentation/game-documentation.md`

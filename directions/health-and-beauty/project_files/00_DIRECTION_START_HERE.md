@@ -31,4 +31,9 @@ project_file_control:
 *   `04_ACTIVE_GOAL.md`
 *   `05_PORTFOLIO_QUEUE.md`
 *   `06_CONTEXT_LIBRARY_INDEX.md`
-*   `WF_VNEXT_R_RUNTIME_CORE.md`
+
+## Shared runtime file
+
+*   `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+
+Do not create or require a local runtime-core copy under this Direction `project_files/` folder.

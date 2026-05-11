@@ -18,6 +18,17 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 Load the Direction Project Files default set. Current Phase is `MacroFactor Nutrition AI Support Setup`; active Goal is the MacroFactor nutrition AI support Goal.
 
+## Shared runtime and stage prompts
+
+```yaml
+shared_runtime_file: "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
+stage_prompt_source_root: "workflow/stage_prompts/"
+stage_prompt_load_rule: "request exact stage prompt by stage ID; do not bulk-load all prompts"
+local_runtime_core_copy_required: false
+```
+
+Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
+
 ## Request-only context
 
 *   `directions/health-and-beauty/domain_docs/health-domain-documentation.md`

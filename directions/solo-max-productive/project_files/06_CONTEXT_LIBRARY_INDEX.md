@@ -39,7 +39,17 @@ Required default Project Files:
 *   04\_ACTIVE\_GOAL.md
 *   05\_PORTFOLIO\_QUEUE.md
 *   06\_CONTEXT\_LIBRARY\_INDEX.md
-*   WF\_VNEXT\_R\_RUNTIME\_CORE.md
+
+Shared runtime and stage prompts:
+
+```yaml
+shared_runtime_file: "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
+stage_prompt_source_root: "workflow/stage_prompts/"
+stage_prompt_load_rule: "request exact stage prompt by stage ID; do not bulk-load all prompts"
+local_runtime_core_copy_required: false
+```
+
+Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
 
 Request-only context:
 
