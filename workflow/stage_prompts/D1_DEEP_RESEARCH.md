@@ -3,6 +3,34 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # D1\_DEEP\_RESEARCH — Final Runtime Stage Prompt
 
+## 0.1 Output Schema Authority
+
+All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
+
+Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_request.v1`, `human_decision.v1`, `stop.v1`, `repository_patch.v1`, `execution_log_entry.v1`, `documentation_maintenance_gate`, and `changed_files_context_refresh`.
+
+Use GitHub repository paths: `workflow/stage_prompts/D1_DEEP_RESEARCH.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
+
+Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+
+## 0.2 Progressive Decision Brief behavior
+
+Choose the smallest sufficient human-facing mode:
+
+- Direct Summary for simple, reversible, low-risk research-not-needed outputs with no material state change.
+- Decision Brief for normal source-backed research implications.
+- Decision Memo for complex, strategic, ambiguous, contested, or high-impact research decisions.
+- Context Request / Human Decision when blocking context, source access, or a human-owned choice is required.
+- Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
+
+Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
+
+## 0.3 Mandatory Close Compiler
+
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+
+Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
+
 ## 0\. Runtime identity
 
 You are running **D1\_DEEP\_RESEARCH** inside Workflow vNext-R.
@@ -410,10 +438,20 @@ Emit all required packets below.
 ### Stage Result Packet
 
 ```yaml
-stage_result_packet:
-  stage_id: D1_DEEP_RESEARCH
-  stage_name: Deep Research
-  status: COMPLETE | NEEDS_INPUT | HUMAN_DECISION | STOP
+workflow_packet: 1
+type: stage_result
+schema: stage_result.v1
+stage:
+  id: D1_DEEP_RESEARCH
+  name: Deep Research
+  source_path: workflow/stage_prompts/D1_DEEP_RESEARCH.md
+  version: current
+  status: active
+return_state: DONE | NEEDS_INPUT | STUCK
+route:
+  next_stage:
+  reason:
+source_state:
   upstream_stage:
   direction_id:
   phase_id:
@@ -540,9 +578,25 @@ Emit exactly one of the following.
 #### Next Launch Card
 
 ```yaml
-next_launch_card:
-  next_stage_id:
-  next_stage_name:
+workflow_packet: 1
+type: stage_launch
+schema: stage_launch.v1
+stage:
+  id:
+  name:
+  source_path: workflow/stage_prompts/<STAGE_ID>.md
+  version: current
+  status: ready
+prompt_delivery:
+  mode: request_from_repository
+  stage_prompt_source_path: workflow/stage_prompts/<STAGE_ID>.md
+  stage_prompt_version: current
+  stage_prompt_status: required
+  prompt_text_included: false
+  prompt_text: null
+source_state:
+  pending_repository_patch:
+  changed_files_context_refresh_required:
   reason_for_route:
   decision_or_task_for_next_stage:
   evidence_snapshot:
@@ -563,42 +617,57 @@ next_launch_card:
 #### Context Request Card
 
 ```yaml
-context_request_card:
-  reason:
-  missing_required_context:
-    - item:
-      why_needed:
-  cannot_safely_proceed_because:
-  smallest_context_to_provide:
-    - item:
-  suggested_return_stage: D1_DEEP_RESEARCH
+workflow_packet: 1
+type: context_request
+schema: context_request.v1
+stage:
+  id: D1_DEEP_RESEARCH
+  name: Deep Research
+reason:
+missing_required_context:
+  - item:
+    why_needed:
+cannot_safely_proceed_because:
+smallest_context_to_provide:
+  - item:
+suggested_return_stage: D1_DEEP_RESEARCH
 
 ```
 
 #### Human Decision Card
 
 ```yaml
-human_decision_card:
-  decision_needed:
-  options:
-    - option:
-      evidence_for:
-      evidence_against:
-      risk:
-  recommended_default:
-  why_not_auto_decided:
-  next_stage_after_decision:
+workflow_packet: 1
+type: human_decision
+schema: human_decision.v1
+stage:
+  id: D1_DEEP_RESEARCH
+  name: Deep Research
+decision_needed:
+options:
+  - option:
+    evidence_for:
+    evidence_against:
+    risk:
+recommended_default:
+why_not_auto_decided:
+next_stage_after_decision:
 
 ```
 
 #### Stop Card
 
 ```yaml
-stop_card:
-  reason:
-  unsafe_or_invalid_to_continue_because:
-  what_was_checked:
-  recommended_recovery_route:
+workflow_packet: 1
+type: stop
+schema: stop.v1
+stage:
+  id: D1_DEEP_RESEARCH
+  name: Deep Research
+reason:
+unsafe_or_invalid_to_continue_because:
+what_was_checked:
+recommended_recovery_route:
 
 ```
 

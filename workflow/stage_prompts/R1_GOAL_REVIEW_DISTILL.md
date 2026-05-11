@@ -3,6 +3,34 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # R1\_GOAL\_REVIEW\_DISTILL — Review Distill Runtime Prompt
 
+## 0.1 Output Schema Authority
+
+All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
+
+Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_request.v1`, `human_decision.v1`, `stop.v1`, `repository_patch.v1`, `execution_log_entry.v1`, `documentation_maintenance_gate`, and `changed_files_context_refresh`.
+
+Use GitHub repository paths: `workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
+
+Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+
+## 0.2 Progressive Decision Brief behavior
+
+Choose the smallest sufficient human-facing mode:
+
+- Direct Summary for simple, reversible, low-risk review outputs with no material state change.
+- Decision Brief for normal Goal review and distillation decisions.
+- Decision Memo for complex, strategic, ambiguous, or high-impact review decisions.
+- Context Request / Human Decision when blocking context or a human-owned choice is required.
+- Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
+
+Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
+
+## 0.3 Mandatory Close Compiler
+
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+
+Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
+
 ## 0\. Stage identity
 
 STAGE\_ID: R1\_GOAL\_REVIEW\_DISTILL STAGE\_NAME: Review Distill
@@ -21,8 +49,8 @@ R1 may enable closure only when execution and acceptance evidence are verified. 
 
 Run this prompt only when the Stage Launch Card or runtime instruction identifies:
 
-*   target\_stage\_id: R1\_GOAL\_REVIEW\_DISTILL
-*   target\_stage\_name: Review Distill
+*   `stage.id: R1\_GOAL\_REVIEW\_DISTILL`
+*   `stage.name: Review Distill`
 
 If the launch targets another stage, return STOP with reason: wrong\_stage\_launch.
 
@@ -133,7 +161,7 @@ Use this internal order. Do not expose private reasoning or chain-of-thought. Ex
     *   Identify whether artifact/file read-back / diff verification / commit verification/test evidence exists.
 4.  Upstream execution classification
     
-    *   Preserve upstream result\_state.
+*   Preserve upstream return\_state.
     *   Do not rewrite a blocked or failed upstream result into a successful one.
     *   Assign review\_verdict.
 5.  Acceptance gate
@@ -210,7 +238,7 @@ Output:
 
 Conditions:
 
-*   upstream result\_state is needs\_context, blocked, or equivalent;
+*   upstream return\_state is NEEDS\_INPUT, STUCK, or equivalent;
 *   direct\_execution\_performed is false or execution evidence is absent;
 *   upstream context request exists or blocking context is clear.
 
@@ -342,9 +370,9 @@ Include all required packet blocks:
 
 Use this YAML-like structure:
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.r1\_review\_distill.v1 stage\_id: R1\_GOAL\_REVIEW\_DISTILL stage\_name: Review Distill result\_state: completed | needs\_context | needs\_human\_decision | stopped | failed direction: id: name: active\_project: phase: id: name: status: goal: goal\_id: title: status: source\_stage\_results:
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill source\_path: workflow/stage\_prompts/R1\_GOAL\_REVIEW\_DISTILL.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: P9\_PHASE\_CLOSE | R0\_RECOVERY\_CLOSE | none route\_reason: direction: id: name: active\_project: phase: id: name: status: goal: goal\_id: title: status: upstream\_results:
 
-*   stage\_id: stage\_name: result\_state: packet\_ref: input\_basis: goal\_contract\_available: true | false | unknown execution\_brief\_available: true | false | unknown readback\_evidence\_available: true | false | unknown source\_of\_truth\_state: fresh | stale | conflicted | unknown review: review\_verdict: completed\_verified | completed\_unverified | blocked\_needs\_context | partial\_progress | failed\_execution | no\_op\_verified | invalid\_or\_conflicted\_input closure\_eligibility: eligible | not\_eligible | unknown\_blocked | human\_decision\_required one\_sentence\_reason: acceptance\_review: acceptance\_criteria\_available: true | false | unknown acceptance\_criteria\_met: true | false | unknown missing\_acceptance\_evidence:
+*   stage\_id: stage\_name: return\_state: packet\_ref: input\_basis: goal\_contract\_available: true | false | unknown execution\_brief\_available: true | false | unknown readback\_evidence\_available: true | false | unknown source\_of\_truth\_state: fresh | stale | conflicted | unknown review: review\_verdict: completed\_verified | completed\_unverified | blocked\_needs\_context | partial\_progress | failed\_execution | no\_op\_verified | invalid\_or\_conflicted\_input closure\_eligibility: eligible | not\_eligible | unknown\_blocked | human\_decision\_required one\_sentence\_reason: acceptance\_review: acceptance\_criteria\_available: true | false | unknown acceptance\_criteria\_met: true | false | unknown missing\_acceptance\_evidence:
     *   item: unsafe\_to\_close\_reason: evidence\_review: execution\_performed: true | false | unknown artifacts\_created\_or\_updated:
     *   path\_or\_name: evidence\_state: verified | claimed | missing | not\_applicable readback\_evidence\_state: fresh | pending | missing | conflicted | not\_applicable test\_evidence\_state: passed | failed | missing | not\_applicable | unknown evidence\_supporting\_verdict:
     *   item: evidence\_gaps:
@@ -353,7 +381,7 @@ workflow\_packet: 1 type: stage\_result schema: stage\_result.r1\_review\_distil
     *   item: remaining\_blockers\_or\_work:
     *   item: documentation\_findings: drift\_found: true | false stale\_or\_drifted\_context:
     *   item: refresh\_needed:
-    *   file\_or\_note: reason: route: next\_action: launch\_next\_stage | context\_request | human\_decision | stop | recovery\_route target\_stage\_id: target\_stage\_name: route\_reason: repository\_patch\_state: proposed | none | blocked changed\_files\_context\_refresh\_required: true | false safety\_scope\_confirmation: forbidden\_scope\_preserved: true | false notes\_touched:
+    *   file\_or\_note: reason: route: next\_action: launch\_next\_stage | context\_request | human\_decision | stop | recovery\_route next\_stage: route\_reason: repository\_patch\_state: proposed | none | blocked changed\_files\_context\_refresh\_required: true | false safety\_scope\_confirmation: forbidden\_scope\_preserved: true | false files\_touched:
     *   path: no\_common\_canon: true | false no\_cross\_direction\_rollout: true | false no\_stage\_prompt\_edits: true | false no\_task\_master\_graph: true | false no\_archive\_history\_loading: true | false no\_source\_of\_truth\_security\_privacy\_tool\_binding\_changes: true | false kernel\_qa\_exceptions:
 *   issue: severity: handling:
 
@@ -367,7 +395,7 @@ repository\_patch: patch\_state: proposed | none | blocked target\_root: target\
 
 ### 6.3 Execution Log Entry
 
-execution\_log\_entry: timestamp: direction: id: name: phase: id: name: goal: goal\_id: title: stage\_id: R1\_GOAL\_REVIEW\_DISTILL upstream\_stage\_refs: - stage\_id: result\_state: review\_verdict: closure\_eligibility: evidence\_state: documentation\_drift\_state: next\_action: notes\_touched: - path: safety\_scope\_confirmation:
+execution\_log\_entry: timestamp: direction: id: name: phase: id: name: goal: goal\_id: title: stage\_id: R1\_GOAL\_REVIEW\_DISTILL upstream\_stage\_refs: - stage\_id: return\_state: review\_verdict: closure\_eligibility: evidence\_state: documentation\_drift\_state: next\_action: files\_touched: - path: safety\_scope\_confirmation:
 
 ### 6.4 Documentation Maintenance Gate
 
@@ -383,7 +411,7 @@ Include exactly one of the following.
 
 Option A — Next Launch Card:
 
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 from\_stage\_id: R1\_GOAL\_REVIEW\_DISTILL target\_stage\_id: target\_stage\_name: direction: id: name: active\_project: phase: id: name: status: goal: goal\_id: title: status: launch\_reason: required\_context:
+workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: name: source\_path: workflow/stage\_prompts/<STAGE\_ID>.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/<STAGE\_ID>.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: upstream\_stage: R1\_GOAL\_REVIEW\_DISTILL pending\_repository\_patch: changed\_files\_context\_refresh\_required: direction: id: name: active\_project: phase: id: name: status: goal: goal\_id: title: status: launch\_reason: required\_context:
 
 *   item: upstream\_packets:
 *   stage\_id: packet\_ref: evidence\_basis:
@@ -394,22 +422,22 @@ workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 from\_stage\_id
 
 Option B — Context Request:
 
-workflow\_packet: 1 type: context\_request schema: context\_request.v1 from\_stage\_id: R1\_GOAL\_REVIEW\_DISTILL reason: missing\_context:
+workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill reason: missing\_context:
 
 *   item: needed\_fresh\_readback:
 *   item: forbidden\_until\_resolved:
-*   item: safe\_next\_action\_after\_context: suggested\_route\_after\_context: target\_stage\_id: target\_stage\_name: reason:
+*   item: safe\_next\_action\_after\_context: suggested\_route\_after\_context: next\_stage: reason:
 
 Option C — Human Decision Card:
 
-workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 from\_stage\_id: R1\_GOAL\_REVIEW\_DISTILL decision\_needed: options:
+workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill decision\_needed: options:
 
 *   option: consequence: recommendation: forbidden\_until\_decided:
 *   item:
 
 Option D — Stop / Recovery route:
 
-workflow\_packet: 1 type: stop\_or\_recovery\_route schema: stop\_or\_recovery\_route.v1 from\_stage\_id: R1\_GOAL\_REVIEW\_DISTILL stop\_reason: unsafe\_to\_continue\_because: recommended\_recovery\_stage\_id: recommended\_recovery\_stage\_name: required\_context\_for\_recovery:
+workflow\_packet: 1 type: stop schema: stop.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill stop\_reason: unsafe\_to\_continue\_because: recommended\_recovery\_stage: required\_context\_for\_recovery:
 
 *   item: forbidden\_until\_recovered:
 *   item:
@@ -436,7 +464,7 @@ Include Kernel QA details only for:
 
 If the upstream F0\_FAST\_DIRECT result says any of the following:
 
-*   result\_state: needs\_context
+*   return\_state: NEEDS\_INPUT
 *   direct\_execution\_performed: false
 *   artifacts\_created\_or\_updated: \[\]
 *   repository\_patch\_state: none

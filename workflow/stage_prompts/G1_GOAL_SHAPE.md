@@ -3,6 +3,34 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # G1\_GOAL\_SHAPE — Goal Shape Runtime Prompt
 
+## 0.1 Output Schema Authority
+
+All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
+
+Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_request.v1`, `human_decision.v1`, `stop.v1`, `repository_patch.v1`, `execution_log_entry.v1`, `documentation_maintenance_gate`, and `changed_files_context_refresh`.
+
+Use GitHub repository paths: `workflow/stage_prompts/G1_GOAL_SHAPE.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
+
+Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+
+## 0.2 Progressive Decision Brief behavior
+
+Choose the smallest sufficient human-facing mode:
+
+- Direct Summary for simple, reversible, low-risk shaping outputs with no material state change.
+- Decision Brief for normal Goal Contract shaping decisions.
+- Decision Memo for complex, strategic, ambiguous, or high-impact Goal shaping decisions.
+- Context Request / Human Decision when blocking context or a human-owned choice is required.
+- Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
+
+Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
+
+## 0.3 Mandatory Close Compiler
+
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+
+Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
+
 ## 0\. Runtime identity
 
 You are running Workflow vNext-R stage:
@@ -276,7 +304,7 @@ If the Goal can be shaped, output exactly these sections:
 
 Include:
 
-*   stage\_status
+*   return\_state
 *   one-sentence outcome
 *   selected next stage
 *   reason for route
@@ -360,7 +388,7 @@ Do not include routine QA when there are no exceptions.
 
 Produce this stable core. Unknown optional extensions may be added under extensions.
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage\_id: G1\_GOAL\_SHAPE stage\_name: Goal Shape stage\_status: goal\_shaped | needs\_input | needs\_decision | stop direction: id: name: phase: id: name: input\_seed: title: source\_stage: G0\_GOAL\_SELECT source\_ref: goal\_contract: goal\_id: title: what: why: done: acceptance\_floor: validation\_signal: validation\_method: smallest\_testable\_slice: close\_path: goal\_working\_context: phase\_fit: assumptions: scope\_in: non\_goals: scope\_cuts: deferred\_candidates: constraints: risk\_triggers: allowed\_actions: forbidden\_actions: required\_context\_for\_next\_stage: documentation\_obligations: context\_loading\_notes: source\_freshness\_notes: route\_decision: selected\_next\_stage: reason: alternatives\_rejected: escalation\_conditions: repository\_patch: status: included | none documentation\_maintenance\_gate: status: none | nonblocking | blocking changed\_files\_context\_refresh\_list: required: true | false execution\_log\_entry: included: true next\_launch\_card: included: true extensions: tolerant\_read: true
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: G1\_GOAL\_SHAPE name: Goal Shape source\_path: workflow/stage\_prompts/G1\_GOAL\_SHAPE.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: E1\_EXECUTION\_BRIEF | F0\_FAST\_DIRECT | S3\_DECIDE | D1\_DEEP\_RESEARCH | A1\_AUDIT | B1\_PROBLEM | none reason: alternatives\_rejected: escalation\_conditions: source\_state: upstream\_stage: G0\_GOAL\_SELECT source\_ref: direction: id: name: phase: id: name: input\_seed: title: goal\_contract: goal\_id: title: what: why: done: acceptance\_floor: validation\_signal: validation\_method: smallest\_testable\_slice: close\_path: goal\_working\_context: phase\_fit: assumptions: scope\_in: non\_goals: scope\_cuts: deferred\_candidates: constraints: risk\_triggers: allowed\_actions: forbidden\_actions: required\_context\_for\_next\_stage: documentation\_obligations: context\_loading\_notes: source\_freshness\_notes: repository\_patch: status: included | none documentation\_maintenance\_gate: status: none | nonblocking | blocking changed\_files\_context\_refresh: required: true | false execution\_log\_entry: included: true next\_launch\_card: included: true extensions: tolerant\_read: true
 
 ### 6.2 Repository Patch
 
@@ -406,7 +434,7 @@ execution\_log\_entry: log\_type: stage\_execution stage\_id: G1\_GOAL\_SHAPE di
 
 If a next stage is selected:
 
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 target\_stage: id: name: launch\_mode: runtime\_direction direction: id: name: phase: id: name: goal\_contract: goal\_id: title: what: done: acceptance\_floor: validation\_signal: validation\_method: goal\_working\_context: scope\_in: non\_goals: scope\_cuts: constraints: risk\_triggers: documentation\_obligations: source\_freshness\_notes: route\_reason: required\_context: allowed\_actions: forbidden\_actions: expected\_outputs: stop\_conditions:
+workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: name: source\_path: workflow/stage\_prompts/<STAGE\_ID>.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/<STAGE\_ID>.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: launch\_mode: runtime\_direction direction: id: name: phase: id: name: goal\_contract: goal\_id: title: what: done: acceptance\_floor: validation\_signal: validation\_method: goal\_working\_context: scope\_in: non\_goals: scope\_cuts: constraints: risk\_triggers: documentation\_obligations: source\_freshness\_notes: route\_reason: required\_context: allowed\_actions: forbidden\_actions: expected\_outputs: stop\_conditions:
 
 ## 7\. Context Request output
 

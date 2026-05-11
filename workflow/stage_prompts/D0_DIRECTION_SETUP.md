@@ -3,6 +3,34 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # D0\_DIRECTION\_SETUP — Final Runtime Prompt
 
+## 0.1 Output Schema Authority
+
+All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
+
+Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_request.v1`, `human_decision.v1`, `stop.v1`, `repository_patch.v1`, `execution_log_entry.v1`, `documentation_maintenance_gate`, and `changed_files_context_refresh`.
+
+Use GitHub repository paths: `workflow/stage_prompts/D0_DIRECTION_SETUP.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
+
+Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+
+## 0.2 Progressive Decision Brief behavior
+
+Choose the smallest sufficient human-facing mode:
+
+- Direct Summary for simple, reversible, low-risk setup checks with no material state change.
+- Decision Brief for normal Direction setup or repair decisions.
+- Decision Memo for complex, strategic, ambiguous, or high-impact setup decisions.
+- Context Request / Human Decision when blocking context or a human-owned choice is required.
+- Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
+
+Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
+
+## 0.3 Mandatory Close Compiler
+
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+
+Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
+
 Prompt ID: D0\_DIRECTION\_SETUP.final.v1 Stage ID: D0\_DIRECTION\_SETUP Stage name: Direction Setup Runtime status: draft / test-active Workflow version: vNext-R REBUILD
 
 ## 0\. Use this prompt only for D0\_DIRECTION\_SETUP

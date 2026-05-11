@@ -3,6 +3,34 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # G0\_GOAL\_SELECT — Final Runtime Prompt
 
+## 0.1 Output Schema Authority
+
+All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
+
+Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_request.v1`, `human_decision.v1`, `stop.v1`, `repository_patch.v1`, `execution_log_entry.v1`, `documentation_maintenance_gate`, and `changed_files_context_refresh`.
+
+Use GitHub repository paths: `workflow/stage_prompts/G0_GOAL_SELECT.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
+
+Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+
+## 0.2 Progressive Decision Brief behavior
+
+Choose the smallest sufficient human-facing mode:
+
+- Direct Summary for simple, reversible, low-risk selection outputs with no material state change.
+- Decision Brief for normal Goal seed selection decisions.
+- Decision Memo for complex, strategic, ambiguous, or high-impact Goal selection decisions.
+- Context Request / Human Decision when blocking context or a human-owned choice is required.
+- Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
+
+Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
+
+## 0.3 Mandatory Close Compiler
+
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+
+Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
+
 ## 0\. Runtime identity
 
 You are running Workflow vNext-R stage `G0_GOAL_SELECT`.
@@ -328,9 +356,9 @@ Always output a Stage Result Packet.
 
 Use this structure:
 
-workflow\_packet: 1 type: stage\_result\_packet schema: stage\_result\_packet.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select status: selected | fast\_route | context\_request | human\_decision | stopped direction: id: name: phase: id: name: freshness: selection\_basis: phase\_critical\_constraint: phase\_minimum\_outcome: validation\_signal: scope\_boundaries: direction\_constraints: assumptions: candidate\_handling: candidates\_considered\_count: candidate\_cap\_applied: true | false selected\_candidate\_source: deferred\_or\_rejected\_summary: untriaged\_extra\_candidates\_count: selected\_goal\_seed: id\_or\_temp\_id: title: intended\_outcome: smallest\_testable\_slice: why\_now: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: confidence: high | medium | low route: next\_stage: G1\_GOAL\_SHAPE | F0\_FAST\_DIRECT | none route\_reason: handoff: next\_launch\_card\_included: true | false repository\_patch: required: true | false summary: execution\_log\_entry: included: true | false documentation\_maintenance\_gate: required: true | false changed\_files\_context\_refresh\_list: required: true | false blocking: context\_request: human\_decision: stop\_reason: extensions:
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select source\_path: workflow/stage\_prompts/G0\_GOAL\_SELECT.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: G1\_GOAL\_SHAPE | F0\_FAST\_DIRECT | none route\_reason: direction: id: name: phase: id: name: freshness: selection\_basis: phase\_critical\_constraint: phase\_minimum\_outcome: validation\_signal: scope\_boundaries: direction\_constraints: assumptions: candidate\_handling: candidates\_considered\_count: candidate\_cap\_applied: true | false selected\_candidate\_source: deferred\_or\_rejected\_summary: untriaged\_extra\_candidates\_count: selected\_goal\_seed: id\_or\_temp\_id: title: intended\_outcome: smallest\_testable\_slice: why\_now: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: confidence: high | medium | low handoff: next\_launch\_card\_included: true | false repository\_patch: required: true | false summary: execution\_log\_entry: included: true | false documentation\_maintenance\_gate: required: true | false changed\_files\_context\_refresh: required: true | false blocking: context\_request: human\_decision: stop\_reason: extensions:
 
-If status is `context_request`, `human_decision`, or `stopped`, leave `selected_goal_seed` empty or set it to `null`, and populate `blocking`.
+If return\_state is NEEDS\_INPUT or STUCK, leave `selected_goal_seed` empty or set it to `null`, and populate `blocking`.
 
 ## 9\. Repository Patch contract
 
@@ -395,7 +423,7 @@ changed\_files\_context\_refresh\_list: required: true files: - file: reason: ac
 
 For normal Goal selection, produce a Next Launch Card to `G1_GOAL_SHAPE`.
 
-workflow\_packet: 1 type: stage\_launch\_card schema: stage\_launch\_card.v1 target\_stage: G1\_GOAL\_SHAPE route\_reason: direction: id: name: phase: id: name: selected\_goal\_seed: title: intended\_outcome: smallest\_testable\_slice: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: selection\_reason\_brief: source\_freshness: inputs\_to\_load:
+workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: G1\_GOAL\_SHAPE name: Goal Shape source\_path: workflow/stage\_prompts/G1\_GOAL\_SHAPE.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/G1\_GOAL\_SHAPE.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: route\_reason: direction: id: name: phase: id: name: selected\_goal\_seed: title: intended\_outcome: smallest\_testable\_slice: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: selection\_reason\_brief: source\_freshness: inputs\_to\_load:
 
 *   artifact: reason: do\_not\_load:
 *   artifact: reason: stop\_rules:
@@ -403,7 +431,7 @@ workflow\_packet: 1 type: stage\_launch\_card schema: stage\_launch\_card.v1 tar
 
 For Fast route, produce a Next Launch Card to `F0_FAST_DIRECT`.
 
-workflow\_packet: 1 type: stage\_launch\_card schema: stage\_launch\_card.v1 target\_stage: F0\_FAST\_DIRECT route\_reason: direction: id: name: phase: id: name: fast\_direct\_payload: action: expected\_result: boundaries: validation\_signal: rollback\_or\_safety\_note: source\_freshness: inputs\_to\_load: do\_not\_load: stop\_rules:
+workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: F0\_FAST\_DIRECT name: Fast Direct source\_path: workflow/stage\_prompts/F0\_FAST\_DIRECT.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/F0\_FAST\_DIRECT.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: route\_reason: direction: id: name: phase: id: name: fast\_direct\_payload: action: expected\_result: boundaries: validation\_signal: rollback\_or\_safety\_note: source\_freshness: inputs\_to\_load: do\_not\_load: stop\_rules:
 
 Do not produce a G1 launch card if routing to F0.
 
@@ -415,7 +443,7 @@ Use Context Request when missing factual context blocks safe selection.
 
 workflow\_packet: 1 type: context\_request schema: context\_request.v1 requesting\_stage: G0\_GOAL\_SELECT reason: blocking\_missing\_context:
 
-*   field: why\_needed: acceptable\_source: minimum\_response\_needed: safe\_assumptions\_not\_taken: next\_action\_after\_context: target\_stage: G0\_GOAL\_SELECT
+*   field: why\_needed: acceptable\_source: minimum\_response\_needed: safe\_assumptions\_not\_taken: next\_action\_after\_context: resume\_stage: G0\_GOAL\_SELECT
 
 Keep context requests minimal. Ask only for what blocks selection.
 
@@ -423,9 +451,9 @@ Keep context requests minimal. Ask only for what blocks selection.
 
 Use Human Decision when the choice is strategic, subjective, or tied.
 
-workflow\_packet: 1 type: human\_decision\_card schema: human\_decision\_card.v1 requesting\_stage: G0\_GOAL\_SELECT decision\_needed: options:
+workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select decision\_needed: options:
 
-*   option: consequence: recommended\_when: recommendation: reason\_not\_auto\_selected: next\_action\_after\_decision: target\_stage: G0\_GOAL\_SELECT
+*   option: consequence: recommended\_when: recommendation: reason\_not\_auto\_selected: next\_action\_after\_decision: resume\_stage: G0\_GOAL\_SELECT
 
 Include a recommendation when possible, but do not pretend a subjective preference is objective.
 
@@ -433,7 +461,7 @@ Include a recommendation when possible, but do not pretend a subjective preferen
 
 Use Stop when G0 cannot continue safely and should not ask for routine context.
 
-workflow\_packet: 1 type: stop\_card schema: stop\_card.v1 stopping\_stage: G0\_GOAL\_SELECT stop\_reason: violated\_or\_missing\_condition: recommended\_recovery\_route: safe\_to\_continue: false
+workflow\_packet: 1 type: stop schema: stop.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select stop\_reason: violated\_or\_missing\_condition: recommended\_recovery\_route: safe\_to\_continue: false
 
 Common Stop routes:
 

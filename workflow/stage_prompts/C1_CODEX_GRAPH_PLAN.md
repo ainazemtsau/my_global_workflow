@@ -3,6 +3,34 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # C1\_CODEX\_GRAPH\_PLAN — Final Runtime Stage Prompt
 
+## 0.1 Output Schema Authority
+
+All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
+
+Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_request.v1`, `human_decision.v1`, `stop.v1`, `repository_patch.v1`, `execution_log_entry.v1`, `documentation_maintenance_gate`, and `changed_files_context_refresh`.
+
+Use GitHub repository paths: `workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
+
+Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+
+## 0.2 Progressive Decision Brief behavior
+
+Choose the smallest sufficient human-facing mode:
+
+- Direct Summary for simple, reversible, low-risk planning outputs with no material state change.
+- Decision Brief for normal Codex graph-planning route decisions.
+- Decision Memo for complex, strategic, ambiguous, or high-impact execution-planning decisions.
+- Context Request / Human Decision when blocking context or a human-owned choice is required.
+- Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
+
+Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
+
+## 0.3 Mandatory Close Compiler
+
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+
+Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
+
 ## 0\. Stage identity
 
 Stage ID: C1\_CODEX\_GRAPH\_PLAN
@@ -94,7 +122,7 @@ Unknown fields:
 
 Required for a C2-ready route:
 
-*   Stage Launch Card with target\_stage\_id or current\_stage\_id = C1\_CODEX\_GRAPH\_PLAN.
+*   Stage Launch Card with `stage.id` or current stage identifier = C1\_CODEX\_GRAPH\_PLAN.
 *   Direction reference and current Direction state snapshot or file read-back / diff verification / commit verification.
 *   Phase reference and current Phase state snapshot or file read-back / diff verification / commit verification.
 *   Goal reference and active Goal Contract.
@@ -400,7 +428,7 @@ Gate statuses:
 
 Use required\_before\_c2 when missing documentation blocks safe execution. Use required\_after\_c2 when implementation may require docs/readme/spec updates after code changes. Use not\_applicable when no documentation update is required.
 
-## 13\. Project Files Refresh policy
+## 13\. Changed Files / Context Refresh policy
 
 Default Changed Files / Context Refresh List:
 
@@ -419,7 +447,7 @@ Produce this exact top-level output shape.
 
 Include:
 
-*   result\_status: ready\_for\_c2 | context\_request | human\_decision\_required | stop
+*   return\_state: DONE | NEEDS\_INPUT | STUCK
 *   recommended\_route:
 *   route\_reason:
 *   smallest\_safe\_route:
@@ -473,7 +501,7 @@ Include:
 
 Produce the graph plan with all stable core fields. Use concise YAML-style formatting.
 
-If result\_status is not ready\_for\_c2, either omit nodes or mark graph\_plan\_status: not\_created and explain why.
+If return\_state is not DONE, either omit nodes or mark graph\_plan\_status: not\_created and explain why.
 
 ## 6\. Evidence and validator expectations
 
@@ -491,10 +519,12 @@ Include:
 Include:
 
 *   workflow\_packet: 1
-*   packet\_type: stage\_result\_packet
-*   stage\_id: C1\_CODEX\_GRAPH\_PLAN
-*   stage\_name: Codex Graph Plan
-*   result\_status:
+*   type: stage\_result
+*   schema: stage\_result.v1
+*   stage:
+    *   id: C1\_CODEX\_GRAPH\_PLAN
+    *   name: Codex Graph Plan
+*   return\_state: DONE | NEEDS\_INPUT | STUCK
 *   direction\_ref:
 *   phase\_ref:
 *   goal\_ref:
@@ -535,7 +565,7 @@ Include:
 *   direction:
 *   phase:
 *   goal:
-*   result\_status:
+*   return\_state:
 *   route:
 *   summary:
 *   sources\_checked:
@@ -589,21 +619,21 @@ Check:
 
 ## 13\. Next Launch Card / Blocking Card
 
-If result\_status = ready\_for\_c2, produce exactly one Next Launch Card:
+If return\_state = DONE and route = C2\_CODEX\_EXECUTE, produce exactly one Next Launch Card:
 
-workflow\_packet: 1 type: stage\_launch target\_stage\_id: C2\_CODEX\_EXECUTE target\_stage\_name: Codex Execute source\_stage\_id: C1\_CODEX\_GRAPH\_PLAN direction\_ref: phase\_ref: goal\_ref: execution\_brief\_ref: codex\_graph\_plan\_ref: codex\_graph\_plan\_inline: freshness\_requirements: execution\_boundaries: required\_evidence: expected\_return\_packet: stop\_if\_context\_differs: human\_approval\_requirements:
+workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: C2\_CODEX\_EXECUTE name: Codex Execute source\_path: workflow/stage\_prompts/C2\_CODEX\_EXECUTE.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/C2\_CODEX\_EXECUTE.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: direction\_ref: phase\_ref: goal\_ref: execution\_brief\_ref: codex\_graph\_plan\_ref: codex\_graph\_plan\_inline: freshness\_requirements: execution\_boundaries: required\_evidence: expected\_return\_packet: stop\_if\_context\_differs: human\_approval\_requirements:
 
-If result\_status = context\_request, produce exactly one Context Request Card:
+If return\_state = NEEDS\_INPUT and blocking context is missing, produce exactly one Context Request Card:
 
-workflow\_packet: 1 type: context\_request source\_stage\_id: C1\_CODEX\_GRAPH\_PLAN blocking\_reason: missing\_or\_stale\_artifacts: exact\_context\_needed: smallest\_safe\_next\_input: do\_not\_provide: resume\_stage\_id: C1\_CODEX\_GRAPH\_PLAN
+workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: C1\_CODEX\_GRAPH\_PLAN name: Codex Graph Plan blocking\_reason: missing\_or\_stale\_artifacts: exact\_context\_needed: smallest\_safe\_next\_input: do\_not\_provide: resume\_stage: C1\_CODEX\_GRAPH\_PLAN
 
-If result\_status = human\_decision\_required, produce exactly one Human Decision Card:
+If return\_state = NEEDS\_INPUT and a human-owned tradeoff blocks safe planning, produce exactly one Human Decision Card:
 
-workflow\_packet: 1 type: human\_decision source\_stage\_id: C1\_CODEX\_GRAPH\_PLAN decision\_needed: options: recommended\_option: tradeoffs: risk\_if\_wrong: resume\_stage\_id: C1\_CODEX\_GRAPH\_PLAN
+workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: C1\_CODEX\_GRAPH\_PLAN name: Codex Graph Plan decision\_needed: options: recommended\_option: tradeoffs: risk\_if\_wrong: resume\_stage: C1\_CODEX\_GRAPH\_PLAN
 
-If result\_status = stop, produce exactly one Stop Card:
+If return\_state = STUCK because the launch is invalid or unsafe, produce exactly one Stop Card:
 
-workflow\_packet: 1 type: stop source\_stage\_id: C1\_CODEX\_GRAPH\_PLAN stop\_reason: unsafe\_or\_invalid\_condition: allowed\_recovery\_route: not\_allowed:
+workflow\_packet: 1 type: stop schema: stop.v1 stage: id: C1\_CODEX\_GRAPH\_PLAN name: Codex Graph Plan stop\_reason: unsafe\_or\_invalid\_condition: allowed\_recovery\_route: not\_allowed:
 
 ## 15\. Final self-check before responding
 

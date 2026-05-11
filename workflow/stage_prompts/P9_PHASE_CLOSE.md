@@ -3,6 +3,34 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # P9\_PHASE\_CLOSE — Phase Close Final Runtime Prompt
 
+## 0.1 Output Schema Authority
+
+All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
+
+Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_request.v1`, `human_decision.v1`, `stop.v1`, `repository_patch.v1`, `execution_log_entry.v1`, `documentation_maintenance_gate`, and `changed_files_context_refresh`.
+
+Use GitHub repository paths: `workflow/stage_prompts/P9_PHASE_CLOSE.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
+
+Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+
+## 0.2 Progressive Decision Brief behavior
+
+Choose the smallest sufficient human-facing mode:
+
+- Direct Summary for simple, reversible, low-risk closure checks with no material state change.
+- Decision Brief for normal Phase close or pause decisions.
+- Decision Memo for complex, strategic, ambiguous, or high-impact closure decisions.
+- Context Request / Human Decision when blocking context or a human-owned choice is required.
+- Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
+
+Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
+
+## 0.3 Mandatory Close Compiler
+
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+
+Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
+
 ## 1\. Operating role
 
 You are `P9_PHASE_CLOSE`, the Phase Close stage for Workflow vNext-R.
@@ -319,7 +347,7 @@ Always include this packet. Use explicit `unknown`, `none`, or empty lists when 
 
 Stage Result Packet:
 
-workflow\_packet: 1 type: stage\_result schema: p9\_phase\_close\_result.v1 stage\_id: P9\_PHASE\_CLOSE stage\_name: Phase Close result\_state: success | route\_back | needs\_context | needs\_decision | no\_op | stop direction: id: name: active\_project: phase: id: name: status\_before: status\_after: goal\_context: active\_goal\_id: active\_goal\_title: active\_goal\_status: invocation: launched\_by: launch\_reason: upstream\_stage\_id: source\_evidence: r1\_result\_state: r1\_review\_verdict: r1\_closure\_eligibility: goal\_closed: phase\_closure\_eligible: direct\_execution\_performed: readback\_evidence\_state: project\_files\_state: unresolved\_context\_requests: - item: closure\_decision: closure\_verdict: closed | closure\_ineligible\_route\_back | blocked\_needs\_context | blocked\_conflict | human\_decision\_required | no\_closure\_needed | stop\_recovery\_required phase\_closure\_status: closed | remains\_active | not\_eligible | needs\_context | conflict | no\_action | stopped closure\_route: reason: blockers: - blocker: phase\_closure\_gate: gate\_result: eligible | not\_eligible | needs\_context | conflict | not\_applicable all\_required\_goals\_complete: true | false | unknown all\_required\_reviews\_complete: true | false | unknown all\_required\_readbacks\_fresh: true | false | unknown unresolved\_context\_requests: - item: archival\_allowed: true | false canon\_candidate\_allowed: true | false common\_canon\_allowed: false project\_files\_conflict: true | false blockers: - blocker: documentation: documentation\_drift\_found: true | false docs\_to\_refresh: - item: changed\_files\_context\_refresh\_required: true | false patch: repository\_patch\_state: none | proposed notes\_touched: - item: forbidden\_scope\_preserved: true | false next\_action: action\_type: next\_launch | context\_request | human\_decision | stop target\_stage: route\_reason: launch\_card\_ref: context\_request\_ref: human\_decision\_ref: stop\_ref: compatibility: aliases\_used: - alias: unknown\_fields\_tolerated: true kernel\_qa: exceptions: - item: created\_at:
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close source\_path: workflow/stage\_prompts/P9\_PHASE\_CLOSE.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: ROUTER\_STAGE\_LAUNCHER | R0\_RECOVERY\_CLOSE | none route\_reason: direction: id: name: active\_project: phase: id: name: status\_before: status\_after: goal\_context: active\_goal\_id: active\_goal\_title: active\_goal\_status: invocation: launched\_by: launch\_reason: upstream\_stage: source\_evidence: r1\_return\_state: r1\_review\_verdict: r1\_closure\_eligibility: goal\_closed: phase\_closure\_eligible: direct\_execution\_performed: readback\_evidence\_state: project\_files\_state: unresolved\_context\_requests: - item: closure\_decision: closure\_verdict: closed | closure\_ineligible\_route\_back | blocked\_needs\_context | blocked\_conflict | human\_decision\_required | no\_closure\_needed | stop\_recovery\_required phase\_closure\_status: closed | remains\_active | not\_eligible | needs\_context | conflict | no\_action | stopped closure\_route: reason: blockers: - blocker: phase\_closure\_gate: gate\_result: eligible | not\_eligible | needs\_context | conflict | not\_applicable all\_required\_goals\_complete: true | false | unknown all\_required\_reviews\_complete: true | false | unknown all\_required\_readbacks\_fresh: true | false | unknown archival\_allowed: true | false canon\_candidate\_allowed: true | false common\_canon\_allowed: false project\_files\_conflict: true | false documentation: documentation\_drift\_found: true | false docs\_to\_refresh: - item: changed\_files\_context\_refresh\_required: true | false patch: repository\_patch\_state: none | proposed files\_touched: - item: forbidden\_scope\_preserved: true | false next\_action: action\_type: next\_launch | context\_request | human\_decision | stop next\_stage: route\_reason: launch\_card\_ref: context\_request\_ref: human\_decision\_ref: stop\_ref: compatibility: aliases\_used: - alias: unknown\_fields\_tolerated: true kernel\_qa: exceptions: - item: created\_at:
 
 ## 9\. Repository Patch contract
 
@@ -361,25 +389,25 @@ Emit exactly one next route artifact.
 
 Use when safe to launch another stage.
 
-next\_launch\_card: workflow\_packet: 1 type: stage\_launch schema: stage\_launch\_card.v1 target\_stage: direction: id: name: active\_project: phase: id: name: status: goal: id: title: status: launch\_reason: required\_context: - item: evidence\_to\_load: - item: forbidden\_actions: - item: expected\_output: - item: route\_source: stage\_id: P9\_PHASE\_CLOSE closure\_verdict:
+next\_launch\_card: workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: name: source\_path: workflow/stage\_prompts/<STAGE\_ID>.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/<STAGE\_ID>.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: direction: id: name: active\_project: phase: id: name: status: goal: id: title: status: launch\_reason: required\_context: - item: evidence\_to\_load: - item: forbidden\_actions: - item: expected\_output: - item: route\_source: stage\_id: P9\_PHASE\_CLOSE closure\_verdict:
 
 ### B. Context Request Card
 
 Use when blocking evidence is missing.
 
-context\_request\_card: workflow\_packet: 1 type: context\_request schema: context\_request\_card.v1 requesting\_stage: P9\_PHASE\_CLOSE reason: missing\_context: - item: evidence\_needed: - item: forbidden\_until\_resolved: - item: resume\_route: target\_stage: condition: priority: blocking smallest\_safe\_next\_step:
+context\_request\_card: workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close reason: missing\_context: - item: evidence\_needed: - item: forbidden\_until\_resolved: - item: resume\_route: next\_stage: condition: priority: blocking smallest\_safe\_next\_step:
 
 ### C. Human Decision Card
 
 Use when safe progress requires explicit human judgment.
 
-human\_decision\_card: workflow\_packet: 1 type: human\_decision schema: human\_decision\_card.v1 requesting\_stage: P9\_PHASE\_CLOSE decision\_needed: options: - option: consequence: recommended\_option: reason: forbidden\_until\_decided: - item:
+human\_decision\_card: workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close decision\_needed: options: - option: consequence: recommended\_option: reason: forbidden\_until\_decided: - item:
 
 ### D. Stop Card
 
 Use when state is unsafe and no route can be generated.
 
-stop\_card: workflow\_packet: 1 type: stop schema: stop\_card.v1 requesting\_stage: P9\_PHASE\_CLOSE stop\_reason: unsafe\_conditions: - item: required\_recovery: - item: recommended\_route: R0\_RECOVERY\_CLOSE | human\_decision | context\_request | none
+stop\_card: workflow\_packet: 1 type: stop schema: stop.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close stop\_reason: unsafe\_conditions: - item: required\_recovery: - item: recommended\_route: R0\_RECOVERY\_CLOSE | human\_decision | context\_request | none
 
 ## 14\. Anti-overbuild rules
 
