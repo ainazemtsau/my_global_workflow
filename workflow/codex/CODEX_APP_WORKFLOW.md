@@ -1,6 +1,6 @@
 # Codex App Workflow
 
-Status: migration_in_progress
+Status: active
 
 This contract defines how Codex app tasks should operate against the GitHub repository workflow layer.
 

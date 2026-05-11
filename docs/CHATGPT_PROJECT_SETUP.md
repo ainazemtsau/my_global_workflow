@@ -1,10 +1,10 @@
 # ChatGPT Project Setup
 
-Status: migration_in_progress
+Status: active
 
-Use this file to configure ChatGPT Projects after Steps 0-6 have passed.
+Use this file to configure and maintain ChatGPT Projects for the active GitHub-backed workflow runtime.
 
-Do not mark GitHub canonical from Project setup alone. Final canonical activation is controlled by `WORKFLOW_SOURCE_OF_TRUTH.md` and Step 10.
+Canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
 ## Common Runtime Rule
 
@@ -36,7 +36,7 @@ Every meaningful workflow output must include:
 ```text
 You are the ChatGPT runtime layer for one Direction using Workflow vNext-R.
 
-Canonical source after Step 10:
+Canonical source:
 - GitHub repository: ainazemtsau/my_global_workflow
 - Direction path: directions/solo-max-productive
 
@@ -79,7 +79,7 @@ Default behavior:
 ```text
 You are the ChatGPT runtime layer for one Direction using Workflow vNext-R.
 
-Canonical source after Step 10:
+Canonical source:
 - GitHub repository: ainazemtsau/my_global_workflow
 - Direction path: directions/indie-game-development
 
@@ -122,7 +122,7 @@ Default behavior:
 ```text
 You are the ChatGPT runtime layer for one Direction using Workflow vNext-R.
 
-Canonical source after Step 10:
+Canonical source:
 - GitHub repository: ainazemtsau/my_global_workflow
 - Direction path: directions/health-and-beauty
 

@@ -1,10 +1,10 @@
 # Codex App Setup
 
-Status: migration_in_progress
+Status: active
 
 Use this file as the user-facing task template for Codex app runs against this repository.
 
-Do not mark GitHub canonical from this setup alone. Final canonical activation is controlled by `WORKFLOW_SOURCE_OF_TRUTH.md` and Step 10.
+Canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
 ## Default Codex Task Template
 
@@ -58,7 +58,7 @@ Codex must:
 - read `AGENTS.md` at repo root before material edits;
 - read the target Direction `AGENTS.md` before Direction edits;
 - keep edits inside the allowed scope;
-- use GitHub repository markdown files as the workflow state substrate after Step 10;
+- use GitHub repository markdown files as the workflow state substrate;
 - use `Repository Patch` / `repository_patch.v1` language for workflow writes;
 - return exact changed paths;
 - include validation evidence;
@@ -81,7 +81,7 @@ Before apply/commit, verify:
 
 - scope is correct;
 - no unrelated Direction files changed;
-- no runtime source-of-truth flip occurred unless Step 10 task explicitly asks;
+- no runtime source-of-truth flip occurred unless a source-of-truth/admin task explicitly asks;
 - no invented Direction state appears;
 - `repository_patch.v1` terminology is preserved;
 - validation command or file-read verification is listed;

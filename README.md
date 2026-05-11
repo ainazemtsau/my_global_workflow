@@ -1,9 +1,9 @@
 # My Global Workflow
 
-Status: migration_in_progress
+Status: active
 
-This repository is being prepared as the future canonical AI workflow source.
+This repository is the canonical AI workflow source.
 
-Until Step 10 is explicitly accepted, this repository remains a migration workspace and is not yet the active canonical workflow source.
+GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
-Do not invent Direction data. Missing Direction state must remain `MIGRATION_PENDING`, `source_missing`, `migration_incomplete`, or `NEEDS_INPUT`.
+Do not invent Direction data. Missing Direction state must be reported as `NEEDS_INPUT` instead of fabricated.

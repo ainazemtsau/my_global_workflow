@@ -10,7 +10,7 @@ One ChatGPT Project = one Direction.
 
 GitHub repository is the source of truth.
 
-Direction Direction project files are GitHub repository runtime files after canonical flip; during migration, activation is governed by WORKFLOW_SOURCE_OF_TRUTH.md.
+Direction project files are GitHub repository runtime files. `WORKFLOW_SOURCE_OF_TRUTH.md` is the active source-of-truth marker.
 
 ChatGPT may analyze, route, shape, plan, review, and create patches. ChatGPT does not claim GitHub repository updates are done unless file read-back / diff verification / commit verification confirms them.
 

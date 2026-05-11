@@ -1,11 +1,11 @@
 # Repository Agent Instructions
 
-Status: migration_in_progress
+Status: active
 
-This repository is the future canonical AI workflow source after migration acceptance.
+This repository is the canonical AI workflow source.
 
 Rules:
-- Do not treat this repository as active/canonical until `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
+- Treat this repository as active/canonical only while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
 - Do not invent Direction data.
 - Do not touch other Direction folders unless the task explicitly names them.
 - Use small diffs.
