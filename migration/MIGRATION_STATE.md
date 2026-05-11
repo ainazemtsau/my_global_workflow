@@ -1,6 +1,6 @@
 ﻿# Migration State
 
-Status: M0_M1_APPLIED_PENDING_VALIDATION
+Status: CLOSED
 Updated at: 2026-05-11 10:33:28 +03:00
 
 ## Current Step
@@ -141,4 +141,17 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - Codex made a previewed harmless update only to `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md`.
 - Sibling Direction folders were not modified by the validation edit.
 - next allowed step after validation: M14 Migration Closure
+
+
+## M14 Migration Closure Summary
+
+- Updated at: 2026-05-11
+- Status: PASS_WITH_NONBLOCKING_NOTES
+- Inventory entries classified: 418 / 418
+- `migrate_to_github` items with existing GitHub targets: 77 / 77
+- `needs_user_export` items: 0
+- `needs_user_decision` items: 14, explicitly deferred in manifests
+- Runtime source of truth: GitHub repository markdown
+- Migration/admin context: admin-only, not default Direction runtime context
+- Final migration state: closed
 

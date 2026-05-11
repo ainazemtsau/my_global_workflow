@@ -6,7 +6,7 @@ Canonical AI workflow source: GitHub repository `ainazemtsau/my_global_workflow`
 
 Runtime source-of-truth model: GitHub markdown files in this repository.
 
-Migration status: Step 10 accepted.
+Migration status: closed.
 
 Direction data rule:
 - Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, or execution state.
@@ -20,5 +20,5 @@ Runtime rule:
 - Repository Patch / `repository_patch.v1` is the runtime write proposal format.
 
 Admin documentation:
-- Migration/admin docs remain under `docs/`.
+- Migration/admin docs remain under `migration/` and selected setup docs under `docs/`.
 - Migration/admin docs are not loaded by default in Direction Projects.
