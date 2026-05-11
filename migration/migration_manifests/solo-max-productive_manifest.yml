@@ -202,12 +202,12 @@ items:
     legacy_title: 'Current State Summary - Workflow vNext Transition'
     legacy_path: 'Solo Max Productive / Archive / 07 Reviews / Knowledge / Canon / Current State Summary - Workflow vNext Transition'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: canon
     confidence: high
-    reason: 'Under Reviews/Knowledge/Canon canon subtree.'
-    target_github_path: 'directions/solo-max-productive/knowledge/canon/current-state-summary-workflow-vnext-transition.md'
-    action: create_file
+    reason: 'Superseded by GitHub-only source-of-truth policy; source body contains obsolete Trilium source-of-truth rules and is unsafe as active runtime canon.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: 'Tia0ycsZGqjB'

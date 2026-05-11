@@ -69,3 +69,13 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - No Direction state invented.
 - next allowed step after validation: M6 Knowledge Migration
 
+
+## M6 Knowledge Migration Summary
+
+- Updated at: 2026-05-11 10:52:00 +03:00
+- Status: PASS_WITH_NONBLOCKING_NOTES
+- Migrated high-confidence knowledge-like manifest items: 19
+- Reclassified obsolete Solo Max transition source-of-truth note as duplicate_superseded.
+- needs_user_decision items remain unresolved and visible in manifests.
+- next allowed step after validation: M7 Domain Documentation Migration
+
