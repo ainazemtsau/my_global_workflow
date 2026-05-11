@@ -350,7 +350,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/10-phases.md'
+    target_github_path: 'directions/solo-max-productive/phases/README.md'
     action: create_directory_or_index
     needs_user_decision: false
     needs_user_export: false
@@ -358,84 +358,84 @@ items:
     legacy_title: 'vNext One-Goal Smoke Test'
     legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: goal
     confidence: high
-    reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/vnext-one-goal-smoke-test.md'
-    action: create_directory_or_index
+    reason: 'Superseded test-state per active Portfolio Queue; not active lifecycle context unless explicitly reactivated.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: 'fv9qsKbxWKJo'
     legacy_title: '00 Phase Brief'
     legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 00 Phase Brief'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: goal
     confidence: high
-    reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/00-phase-brief.md'
-    action: create_file
+    reason: 'Child of superseded vNext One-Goal Smoke Test state; not active lifecycle context.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: 'KlwTPLNijhkU'
     legacy_title: '01 Phase Working Context'
     legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 01 Phase Working Context'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: goal
     confidence: high
-    reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/01-phase-working-context.md'
-    action: create_file
+    reason: 'Child of superseded vNext One-Goal Smoke Test state; not active lifecycle context.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: '7MgSMOxFzAmE'
     legacy_title: '02 Phase Context Index'
     legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 02 Phase Context Index'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: goal
     confidence: high
-    reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/02-phase-context-index.md'
-    action: create_file
+    reason: 'Child of superseded vNext One-Goal Smoke Test state; not active lifecycle context.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: 'QrMxRXy2dPw5'
     legacy_title: '04 Phase Execution Log'
     legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 04 Phase Execution Log'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: goal
     confidence: high
-    reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/04-phase-execution-log.md'
-    action: create_file
+    reason: 'Child of superseded vNext One-Goal Smoke Test state; not active lifecycle context.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: 'sjQXzPLswGR0'
     legacy_title: '05 Phase Review'
     legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 05 Phase Review'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: goal
     confidence: high
-    reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/05-phase-review.md'
-    action: create_file
+    reason: 'Child of superseded vNext One-Goal Smoke Test state; not active lifecycle context.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: '3fPv88QhZB97'
     legacy_title: '03 Goals'
     legacy_path: 'Solo Max Productive / Archive / 10 Phases / vNext One-Goal Smoke Test / 03 Goals'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: goal
     confidence: high
-    reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/03-goals.md'
-    action: create_file
+    reason: 'Child of superseded vNext One-Goal Smoke Test state; not active lifecycle context.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: 'aSgiNeB0LvLt'
@@ -446,7 +446,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration.md'
+    target_github_path: 'directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/README.md'
     action: create_directory_or_index
     needs_user_decision: false
     needs_user_export: false
@@ -458,7 +458,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/00-phase-brief.md'
+    target_github_path: 'directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/00_PHASE_BRIEF.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -470,7 +470,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/01-phase-working-context.md'
+    target_github_path: 'directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/01_PHASE_WORKING_CONTEXT.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -482,7 +482,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/02-phase-context-index.md'
+    target_github_path: 'directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/02_PHASE_CONTEXT_INDEX.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -494,7 +494,7 @@ items:
     category: execution_log
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/solo-max-productive/phases/04-phase-execution-log.md'
+    target_github_path: 'directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/04_PHASE_EXECUTION_LOG.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false

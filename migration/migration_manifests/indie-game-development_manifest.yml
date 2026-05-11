@@ -614,7 +614,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/10-phases.md'
+    target_github_path: 'directions/indie-game-development/phases/README.md'
     action: create_directory_or_index
     needs_user_decision: false
     needs_user_export: false
@@ -626,7 +626,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/README.md'
     action: create_directory_or_index
     needs_user_decision: false
     needs_user_export: false
@@ -638,7 +638,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/00-phase-brief.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/00_PHASE_BRIEF.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -650,7 +650,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/01-phase-working-context.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/01_PHASE_WORKING_CONTEXT.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -662,7 +662,7 @@ items:
     category: phase
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/02-phase-context-index.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/02_PHASE_CONTEXT_INDEX.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -674,7 +674,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/03-goals.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/README.md'
     action: create_directory_or_index
     needs_user_decision: false
     needs_user_export: false
@@ -686,7 +686,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/определить-минимальное-доказательное-ядро-первого-proof-expedition.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/README.md'
     action: create_directory_or_index
     needs_user_decision: false
     needs_user_export: false
@@ -698,7 +698,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/00-goal-contract-brief.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/00_GOAL_CONTRACT_BRIEF.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -710,7 +710,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/01-goal-working-context.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/01_GOAL_WORKING_CONTEXT.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -722,7 +722,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/02-goal-context-index.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/02_GOAL_CONTEXT_INDEX.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -734,7 +734,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/03-waves.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_WAVES.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -746,7 +746,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/04-execution-log.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/04_EXECUTION_LOG.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -758,7 +758,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/sessions.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/sessions.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -770,7 +770,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/05-goal-review.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/05_GOAL_REVIEW.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -782,7 +782,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/wave-cards.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/wave-cards.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -794,7 +794,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/decisions.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/decisions.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -806,7 +806,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/goal-brief.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/goal-brief.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -818,7 +818,7 @@ items:
     category: goal
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/execution-pack.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/execution-pack.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -830,7 +830,7 @@ items:
     category: execution_log
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/04-phase-execution-log.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/04_PHASE_EXECUTION_LOG.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false
@@ -842,7 +842,7 @@ items:
     category: review
     confidence: high
     reason: 'Lifecycle material under current Phase/Goal tree.'
-    target_github_path: 'directions/indie-game-development/phases/05-phase-review.md'
+    target_github_path: 'directions/indie-game-development/phases/expedition-first-proof-checkpoint/05_PHASE_REVIEW.md'
     action: create_file
     needs_user_decision: false
     needs_user_export: false

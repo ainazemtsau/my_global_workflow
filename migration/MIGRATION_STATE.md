@@ -89,3 +89,13 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - Context indexes now list GitHub domain documentation paths.
 - next allowed step after validation: M8 Phase / Goal / Review / Execution Log Migration
 
+
+## M8 Lifecycle Migration Summary
+
+- Updated at: 2026-05-11 11:09:26 +03:00
+- Status: PASS
+- Migrated lifecycle items: 49
+- Reclassified superseded Solo Max vNext One-Goal Smoke Test lifecycle subtree as duplicate_superseded.
+- Corrected migrated GitHub files to GitHub-only runtime wording.
+- next allowed step after validation: M9 Project Metadata Migration
+
