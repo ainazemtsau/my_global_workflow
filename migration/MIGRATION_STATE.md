@@ -124,3 +124,12 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - ChatGPT Project setup now names exact GitHub paths, blocks external personal notes, blocks routine migration/admin loading, and requires exact GitHub file/export fallback if connector access fails.
 - next allowed step after validation: M12 GitHub Connector Pilot
 
+
+## M12 GitHub Connector Pilot Summary
+
+- Updated at: 2026-05-11
+- Status: PASS
+- ChatGPT Project UI read only the requested Indie Game Development files and shared runtime core.
+- Current Phase, Active Goal, and next safe route were reported correctly from GitHub files.
+- next allowed step after validation: M13 Codex App Validation
+
