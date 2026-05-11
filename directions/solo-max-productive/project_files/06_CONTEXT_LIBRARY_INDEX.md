@@ -2,7 +2,7 @@
 
 ```yaml
 artifact_control:
-  artifact_name: "08 Context Loading Index"
+  artifact_name: "06_CONTEXT_LIBRARY_INDEX.md"
   schema: context_loading_index.v1
   owner_layer: persistence
   status: projection
@@ -43,9 +43,9 @@ Required default Project Files:
 
 Request-only context:
 
-*   directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration / 01 Phase Working Context
-*   Full EXOCORTEX concept seed from the P0 chat, only if exact wording is needed.
-*   directions/solo-max-productive / 07 Review / Canon Candidates / Current State Summary - Workflow vNext Transition, optional only if transition history is needed.
+*   `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration` when phase working context is needed.
+*   `directions/solo-max-productive/knowledge` when accepted knowledge or canon candidates are needed.
+*   If exact source wording is missing from GitHub, return a Context Request naming the required GitHub path or export.
 
 Archive boundary:
 

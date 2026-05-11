@@ -47,10 +47,10 @@ WF_VNEXT_R_RUNTIME_CORE.md
 
 These files are the default active context.
 
-They are exported from:
+They are stored in the GitHub repository under:
 
 ```text
-Directions / <Direction Name> / 09 ChatGPT Project Files/
+directions/<direction-id>/project_files/
 
 ```
 
@@ -58,25 +58,14 @@ The Direction Project must not use Workflow Rebuild Project files as Direction r
 
 ## 3\. Required Direction structure
 
-Each Direction should expose this active structure:
+Each Direction should expose this active GitHub structure:
 
 ```text
-Directions / <Direction Name>/
-  00 START HERE - Direction
-  01 Direction State
-  02 Current Phase
-  03 Focus Register
-  04 Active Goal
-  05 Portfolio Queue
-  06 Projects / Tool Bindings
-  07 Reviews / Knowledge / Canon/
-    Goal Reviews/
-    Phase Reviews/
-    Knowledge/
-    Canon Candidates/
-    Canon/
-  08 Context Loading Index
-  09 ChatGPT Project Files/
+directions/<direction-id>/
+  AGENTS.md
+  README.md
+  direction.meta.yml
+  project_files/
     00_DIRECTION_START_HERE.md
     01_DIRECTION_STATE.md
     02_CURRENT_PHASE.md
@@ -84,24 +73,17 @@ Directions / <Direction Name>/
     04_ACTIVE_GOAL.md
     05_PORTFOLIO_QUEUE.md
     06_CONTEXT_LIBRARY_INDEX.md
-    WF_VNEXT_R_RUNTIME_CORE.md
-  10 Phases/
+  knowledge/
+    canon/
+    decisions/
+    patterns/
+    reviews/
+  domain_docs/
+  phases/
     <Phase>/
-      00 Phase Brief
-      01 Phase Working Context
-      02 Phase Context Index
-      03 Goals/
-        <Goal>/
-          00 Goal Contract / Brief
-          01 Goal Working Context
-          02 Goal Context Index
-          03 Waves/
-          04 Execution Log
-          05 Goal Review
-      04 Phase Execution Log
-      05 Phase Review
-  11 Direction Execution Log
-  90 Archive / Historical
+  execution_logs/
+    11_DIRECTION_EXECUTION_LOG.md
+  projects/
 
 ```
 
@@ -709,13 +691,13 @@ Choose target log path by active state:
 
 ```text
 If active Goal exists:
-  target = Directions / <Direction> / 10 Phases / <Phase> / 03 Goals / <Goal> / 04 Execution Log
+  target = directions/<direction-id>/phases/<phase-id>/goals/<goal-id>/execution_log.md
 
 Else if active Phase exists:
-  target = Directions / <Direction> / 10 Phases / <Phase> / 04 Phase Execution Log
+  target = directions/<direction-id>/phases/<phase-id>/phase_execution_log.md
 
 Else:
-  target = Directions / <Direction> / 11 Direction Execution Log
+  target = directions/<direction-id>/execution_logs/11_DIRECTION_EXECUTION_LOG.md
 
 ```
 
@@ -741,7 +723,7 @@ Run Documentation Maintenance Gate when any of these occurs:
 *   Goal Review;
 *   Phase Close;
 *   durable Direction change;
-*   Context Loading Index change;
+*   `06_CONTEXT_LIBRARY_INDEX.md` change;
 *   workflow/model change;
 *   documentation update;
 *   Canon/Knowledge candidate creation;
@@ -760,7 +742,7 @@ stable_docs_checked:
   - 03 Focus Register
   - 04 Active Goal
   - 05 Portfolio Queue
-  - 08 Context Loading Index
+  - 06_CONTEXT_LIBRARY_INDEX.md
   - relevant Knowledge / Canon / domain docs
 
 updates:
@@ -802,13 +784,13 @@ Mark contradictions/stale docs explicitly.
 
 ## 18\. Project Files Refresh Rule
 
-Every material state change must list exact Project Files to refresh.
+Every material state change must list exact GitHub files to update or refresh in context.
 
 Refresh means:
 
 1.  Update GitHub repository source file.
-2.  Update corresponding child under `09 ChatGPT Project Files`.
-3.  Replace that file in ChatGPT Project.
+2.  Report the changed file path in the Changed Files / Context Refresh List.
+3.  If attached Project files are used as a fallback, replace only the matching GitHub export file.
 
 Mapping:
 
@@ -831,7 +813,7 @@ Mapping:
 05 Portfolio Queue changed
   -> 05_PORTFOLIO_QUEUE.md
 
-08 Context Loading Index changed
+06_CONTEXT_LIBRARY_INDEX.md changed
   -> 06_CONTEXT_LIBRARY_INDEX.md
 
 WF_VNEXT_R_RUNTIME_CORE changed
@@ -839,7 +821,7 @@ WF_VNEXT_R_RUNTIME_CORE changed
 
 ```
 
-Fresh file read-back / diff verification / commit verification wins over stale Project Files.
+Fresh file read-back / diff verification / commit verification wins over stale attached Project files.
 
 ## 19\. Compatibility / black-box stage rule
 

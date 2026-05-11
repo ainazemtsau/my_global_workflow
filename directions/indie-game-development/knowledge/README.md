@@ -11,4 +11,4 @@ Subfolders:
 - patterns/
 - eviews/
 
-Do not invent canon. Add or update knowledge only from accepted workflow output or explicit migration manifests.
+Do not invent canon. Add or update knowledge only from accepted workflow output or an approved Repository Patch.

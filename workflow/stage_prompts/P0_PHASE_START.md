@@ -773,7 +773,7 @@ documentation_maintenance_gate:
     - 03 Focus Register
     - 04 Active Goal
     - 05 Portfolio Queue
-    - 08 Context Loading Index
+    - 06_CONTEXT_LIBRARY_INDEX.md
   updates:
     - file_path:
       action: replace_section | append_delta | mark_stale | split | merge | archive_pointer

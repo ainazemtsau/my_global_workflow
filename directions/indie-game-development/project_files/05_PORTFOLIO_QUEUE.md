@@ -16,9 +16,9 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-Active Phase: `10 Phases / Expedition First Proof Checkpoint`
+Active Phase: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
 
-Active Goal: `10 Phases / Expedition First Proof Checkpoint / 03 Goals / Определить минимальное доказательное ядро первого proof Expedition`
+Active Goal: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof`
 
 Next route: `G1_GOAL_SHAPE`
 

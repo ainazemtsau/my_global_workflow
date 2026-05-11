@@ -2,6 +2,6 @@
 
 Status: active
 
-No migrated execution log entries were imported.
+No execution log entries are currently recorded.
 
 Runtime stages should append accepted GitHub execution log entries here through Repository Patch when required.

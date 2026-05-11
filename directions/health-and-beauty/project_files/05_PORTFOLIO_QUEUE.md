@@ -16,9 +16,9 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-Current Phase: `10 Phases / MacroFactor Nutrition AI Support Setup`
+Current Phase: `directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup`
 
-Active Goal: `10 Phases / MacroFactor Nutrition AI Support Setup / 03 Goals / Собрать AI-поддержку питания, рецептов и меню под MacroFactor`
+Active Goal: `directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup/goals/ai-support-nutrition-recipes-menu-macrofactor`
 
 Next route: `G1_GOAL_SHAPE`
 

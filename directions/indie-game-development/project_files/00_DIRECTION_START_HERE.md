@@ -15,8 +15,8 @@ artifact_control:
 
 ## Direction identity
 
-*   Direction name: `directions/indie-game-development`
-*   Direction ID: `km9QhwfF2zoO`
+*   Direction name: `Indie Game Development`
+*   Direction ID: `indie_game_development`
 *   Current state: `active`
 *   Workflow version: `vNext-R`
 *   Last updated: `2026-05-10`
@@ -35,9 +35,9 @@ This file is an active GitHub Direction runtime file. WORKFLOW_SOURCE_OF_TRUTH.m
 | --- | --- | --- |
 | Current Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
 | Active Goal | `Определить минимальное доказательное ядро первого proof Expedition` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof` |
-| Current focus | Shape the preserved Expedition first-proof Goal before execution | `directions/indie-game-development / 03 Focus Register` |
+| Current focus | Shape the preserved Expedition first-proof Goal before execution | `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md` |
 | Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
-| Project Files export folder | ChatGPT Project Files | projection only |
+| Project files folder | GitHub Direction project files | `directions/indie-game-development/project_files/` |
 
 ## Default Project Files to load
 
@@ -54,9 +54,9 @@ This file is an active GitHub Direction runtime file. WORKFLOW_SOURCE_OF_TRUTH.m
 
 `Game Documentation` remains active domain documentation at:
 
-`directions/indie-game-development / domain_docs/game_documentation`
+`directions/indie-game-development/domain_docs/game_documentation`
 
-It is not archive material and must not be hidden during workflow cleanup. Request specific Game Documentation notes through `08 Context Loading Index`; do not bulk-load all game docs by default.
+It is not archive material and must not be hidden during workflow cleanup. Request specific game documentation through `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`; do not bulk-load all game docs by default.
 
 ## Normal next route
 

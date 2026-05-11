@@ -33,4 +33,4 @@ focus:
 *   Human decision: `none known`
 *   Source conflict: `none known after 2026-05-10 repair`
 *   Tool/runtime blocker: `project/tool bindings must be verified before Codex execution`
-*   Required attachments: exact `G1_GOAL_SHAPE` prompt and specific Game Documentation notes as needed.
+*   Required attachments: exact `workflow/stage_prompts/G1_GOAL_SHAPE.md` prompt and specific `directions/indie-game-development/domain_docs/game_documentation/` files as needed.

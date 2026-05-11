@@ -20,8 +20,8 @@ Load the Direction Project Files default set. Current Phase is `MacroFactor Nutr
 
 ## Request-only context
 
-*   `07 Reviews / Knowledge / Canon / Health Domain Documentation`.
-*   `07 Reviews / Knowledge / Canon / Legacy Direction Docs - review before canonizing`.
+*   `directions/health-and-beauty/domain_docs` by topic.
+*   `directions/health-and-beauty/knowledge` by topic.
 *   Active Goal preserved children: `Sessions`, `Wave Cards`, `Goal Brief`, `Execution Pack`.
 
 ## Archive boundary

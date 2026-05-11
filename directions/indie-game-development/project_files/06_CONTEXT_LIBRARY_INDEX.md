@@ -20,7 +20,7 @@ Load the Direction Project Files default set only. Do not bulk-load `Game Docume
 
 ## Request-only context
 
-*   `domain_docs/game_documentation` by topic.
+*   `directions/indie-game-development/domain_docs/game_documentation` by topic.
 *   Active Goal preserved children: `Sessions`, `Wave Cards`, `Decisions`, `Goal Brief`, `Execution Pack`.
 *   Phase/Goal working context and execution logs when a stage asks for them.
 

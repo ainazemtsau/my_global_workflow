@@ -23,14 +23,14 @@ direction:
   last_updated: "2026-05-11"
 
 state_note:
-  old_phase_pointer: "directions/solo-max-productive / 10 Phases / vNext One-Goal Smoke Test"
+  old_phase_pointer: "directions/solo-max-productive/phases/vnext-one-goal-smoke-test"
   old_phase_status: "superseded_obsolete_test_state"
   old_selected_candidate: "Create Lightweight Codex Small-Fix Lane"
   old_candidate_status: "not_current_unless_user_reactivates"
   current_phase_intent: "Develop the current personal Workflow toward a possible custom workflow app/kernel."
 
 project_files_export_state:
-  canonical_folder: "directions/solo-max-productive / 09 ChatGPT Project Files"
+  canonical_folder: "directions/solo-max-productive/project_files"
   last_refresh_at: "2026-05-11"
   last_refresh_source: "P0-2026-05-11-personal-workflow-app-kernel-start"
   stale_files: []

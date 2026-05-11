@@ -59,3 +59,13 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - R0 prompt accepted in GitHub: false; interface exists only.
 - next allowed step after validation: M5 Direction Project Files Cleanup
 
+
+## M5 Direction Project Files Cleanup Summary
+
+- Updated at: 2026-05-11 10:46:56 +03:00
+- Status: PASS
+- Normalized Direction project_files 00-06 to active GitHub path wording.
+- Repaired stale shared runtime references to old Direction folder names and old project-file export wording.
+- No Direction state invented.
+- next allowed step after validation: M6 Knowledge Migration
+

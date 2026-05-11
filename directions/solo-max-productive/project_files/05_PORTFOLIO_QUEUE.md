@@ -16,7 +16,7 @@ artifact_control:
 
 ## Current queue state
 
-Current Phase: 10 Phases / Personal Workflow App Kernel Exploration
+Current Phase: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration
 
 Active Goal: none
 
