@@ -1,17 +1,4 @@
-# 07 Reviews / Knowledge / Canon
-
-```
-artifact_control:
-  artifact_name: "07 Reviews / Knowledge / Canon"
-  schema: reviews_knowledge_canon.v1
-  owner_layer: persistence
-  status: canonical
-  storage_target: "Indie Game Development Direction / 07 Reviews / Knowledge / Canon"
-  default_load: pointer_only
-  freshness: fresh
-  next_action: "Load specific docs only when the stage request requires them."
-
-```
+# Reviews Knowledge Canon
 
 ## Purpose
 

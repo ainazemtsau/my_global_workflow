@@ -394,12 +394,12 @@ items:
     legacy_title: 'Foundation Docs Index'
     legacy_path: 'Indie Game Development Direction / 07 Reviews / Knowledge / Canon / Game Documentation / Foundation Docs Index'
     legacy_type: 'text'
-    classification: migrate_to_github
+    classification: duplicate_superseded
     category: game_documentation
     confidence: high
-    reason: 'Indie Game Documentation is required canonical domain documentation.'
-    target_github_path: 'directions/indie-game-development/domain_docs/game_documentation/foundation-docs-index.md'
-    action: create_file
+    reason: 'Superseded by newer full Foundation Docs Index note targeting the same GitHub file.'
+    target_github_path: ''
+    action: no_migration
     needs_user_decision: false
     needs_user_export: false
   - legacy_id: 'tF1rKDTNaEtq'

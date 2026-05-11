@@ -20,13 +20,13 @@ Load the Direction Project Files default set. Current Phase is `MacroFactor Nutr
 
 ## Request-only context
 
-*   `directions/health-and-beauty/domain_docs` by topic.
+*   `directions/health-and-beauty/domain_docs/health-domain-documentation.md`
 *   `directions/health-and-beauty/knowledge` by topic.
 *   Active Goal preserved children: `Sessions`, `Wave Cards`, `Goal Brief`, `Execution Pack`.
 
 ## Archive boundary
 
-`90 Archive / Historical` is archive/pointer-only and must not be default-loaded.
+Archived or historical material is pointer-only and must not be default-loaded.
 
 ## Tool boundary
 

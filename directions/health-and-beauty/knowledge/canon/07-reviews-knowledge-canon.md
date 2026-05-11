@@ -1,17 +1,4 @@
-# 07 Reviews / Knowledge / Canon
-
-```
-artifact_control:
-  artifact_name: "07 Reviews / Knowledge / Canon"
-  schema: reviews_knowledge_canon.v1
-  owner_layer: persistence
-  status: canonical
-  storage_target: "Health and beauty / 07 Reviews / Knowledge / Canon"
-  default_load: pointer_only
-  freshness: fresh
-  next_action: "Load specific health/nutrition docs only when needed."
-
-```
+# Reviews Knowledge Canon
 
 ## Purpose
 

@@ -49,5 +49,5 @@ Request-only context:
 
 Archive boundary:
 
-*   90 Archive / Historical is archive/pointer-only and must not be default-loaded.
+*   Archived or historical material is pointer-only and must not be default-loaded.
 *   vNext One-Goal Smoke Test is historical/test state for this route, not current active work.

@@ -79,3 +79,13 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - needs_user_decision items remain unresolved and visible in manifests.
 - next allowed step after validation: M7 Domain Documentation Migration
 
+
+## M7 Domain Documentation Migration Summary
+
+- Updated at: 2026-05-11 10:58:00 +03:00
+- Status: PASS_WITH_NONBLOCKING_NOTES
+- Migrated high-confidence domain documentation items: 11
+- Reclassified duplicate Indie Foundation Docs Index source as duplicate_superseded.
+- Context indexes now list GitHub domain documentation paths.
+- next allowed step after validation: M8 Phase / Goal / Review / Execution Log Migration
+
