@@ -1,0 +1,98 @@
+# 15 P9 Phase Close Interface
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+
+# 15 P9 Phase Close Interface
+
+Interface version: stage-interface-v0.1 Stage ID: P9 Stage name: Phase Close Stage type: closure / state rollup
+
+## Lifecycle role
+
+P9 closes a phase by summarizing outputs, checking unresolved items, updating phase state, and identifying the next route.
+
+P9 prevents work from remaining open without a close report or explicit carry-forward.
+
+## Public input contract
+
+Required inputs:
+
+*   Stage Launch Card targeting P9.
+*   Phase Start Packet or Phase State reference.
+*   Work outputs or result packets from the phase.
+*   Acceptance status.
+*   Open issue list.
+*   Write authority.
+
+Optional inputs:
+
+*   Review Distill Packet.
+*   Audit Report.
+*   Human feedback.
+*   Regression log.
+*   Next-phase suggestion.
+*   Direction State reference.
+
+Missing-context behavior:
+
+*   If phase state is missing, emit a Context Request Card.
+*   If acceptance status is unknown, route to R1 or A1.
+*   If unresolved blockers exist, route to B1 or R0.
+*   If the Direction itself needs revision, route to D0.
+
+## Public output contract
+
+P9 emits a Stage Result Packet containing:
+
+*   Phase Close Packet.
+*   Completed outputs.
+*   Acceptance status.
+*   Open carry-forward items.
+*   State updates.
+*   Recommended next phase or stop.
+*   Execution Log Entry.
+
+Required P9 output artifacts:
+
+*   Phase Close Packet
+*   Phase State Update
+*   Carry-forward List
+*   Next Phase Recommendation or Stop route
+
+## Allowed next stages
+
+P9 may route only to:
+
+*   P0 Phase Start
+*   D0 Direction Setup
+*   R1 Review Distill
+*   R0 Recovery Close
+*   stop
+
+## Write targets
+
+P9 may propose or write only to authorized phase-close targets:
+
+*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Phase Close
+*   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Phases / \[phase\_id\] / Phase Close \[runtime\_target\_root from Launch Card\] / Phases / \[phase\_id\] / Phase State \[runtime\_target\_root from Launch Card\] / Direction State
+*   Execution log mode: \[authorized execution log path from Launch Card\]
+
+P9 must not start a new phase without emitting a clear P0 Launch Card or stop route.
+
+## Compatibility/core/extensions rules
+
+P9 consumes and emits the shared core fields defined in 00 Stage Interface Index.
+
+P9 may write extension fields only under:
+
+*   extensions.P9.close\_reason
+*   extensions.P9.carry\_forward\_summary
+*   extensions.P9.next\_phase\_hint
+
+Unknown extension fields must be tolerated.
+
+## Acceptance anchors
+
+*   P9 has a public input contract.
+*   P9 has a public output contract.
+*   P9 allowed next stages are defined.
+*   P9 write targets are defined.
+*   P9 contains no final prompt body.
