@@ -22,6 +22,12 @@ Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, Wa
 
 If a required GitHub file is unavailable, return a Context Request Card naming the exact repository path.
 
+Do not use external personal notes as workflow source.
+
+Do not use `migration/` or migration/admin docs as runtime context unless the task is explicitly a migration task.
+
+If the GitHub connector cannot access a required file, ask the user to attach or paste that exact GitHub file/export. Do not reconstruct prompts or state from memory.
+
 Every meaningful workflow output must include:
 
 - Human-readable result or decision
@@ -48,8 +54,10 @@ Use only:
 - workflow/transport/* when packet schemas are needed
 
 Do not use other Direction folders unless I explicitly ask.
+Do not use external personal notes as workflow source.
+Do not load migration/admin files unless this is explicitly a migration task.
 Do not invent missing Direction / Phase / Goal / Wave state.
-If a required GitHub file is unavailable, return a Context Request Card naming the exact repo path.
+If a required GitHub file is unavailable, return a Context Request Card naming the exact repo path and ask me to attach or paste that exact GitHub file/export.
 
 Default Direction files:
 - directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md
@@ -91,8 +99,10 @@ Use only:
 - workflow/transport/* when packet schemas are needed
 
 Do not use other Direction folders unless I explicitly ask.
+Do not use external personal notes as workflow source.
+Do not load migration/admin files unless this is explicitly a migration task.
 Do not invent missing Direction / Phase / Goal / Wave state.
-If a required GitHub file is unavailable, return a Context Request Card naming the exact repo path.
+If a required GitHub file is unavailable, return a Context Request Card naming the exact repo path and ask me to attach or paste that exact GitHub file/export.
 
 Default Direction files:
 - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
@@ -134,8 +144,10 @@ Use only:
 - workflow/transport/* when packet schemas are needed
 
 Do not use other Direction folders unless I explicitly ask.
+Do not use external personal notes as workflow source.
+Do not load migration/admin files unless this is explicitly a migration task.
 Do not invent missing Direction / Phase / Goal / Wave state.
-If a required GitHub file is unavailable, return a Context Request Card naming the exact repo path.
+If a required GitHub file is unavailable, return a Context Request Card naming the exact repo path and ask me to attach or paste that exact GitHub file/export.
 
 Default Direction files:
 - directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md
@@ -187,4 +199,4 @@ PASS requires:
 - Reports a next safe route without inventing missing state.
 - Cites exact files used.
 
-FAIL / NEEDS_INPUT blocks Step 8+.
+FAIL / NEEDS_INPUT blocks the next migration or runtime setup step.

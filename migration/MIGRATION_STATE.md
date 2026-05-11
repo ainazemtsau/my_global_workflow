@@ -116,3 +116,11 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - Direction AGENTS files now declare GitHub source of truth, per-Direction scope, forbidden sibling Directions, no routine external-note loading, and small-diff/no-delete rules.
 - next allowed step after validation: M11 ChatGPT Project Setup Docs
 
+
+## M11 ChatGPT Project Setup Docs Summary
+
+- Updated at: 2026-05-11 11:25:00 +03:00
+- Status: PASS
+- ChatGPT Project setup now names exact GitHub paths, blocks external personal notes, blocks routine migration/admin loading, and requires exact GitHub file/export fallback if connector access fails.
+- next allowed step after validation: M12 GitHub Connector Pilot
+
