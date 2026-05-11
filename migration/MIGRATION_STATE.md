@@ -99,3 +99,12 @@ Updated at: 2026-05-11 10:33:28 +03:00
 - Corrected migrated GitHub files to GitHub-only runtime wording.
 - next allowed step after validation: M9 Project Metadata Migration
 
+
+## M9 Project Metadata Migration Summary
+
+- Updated at: 2026-05-11 11:16:00 +03:00
+- Status: PASS
+- Removed invented embedded project placeholders from direction.meta.yml.
+- External repos remain not_created with null URLs and paths until source-backed input exists.
+- next allowed step after validation: M10 Direction AGENTS Governance
+
