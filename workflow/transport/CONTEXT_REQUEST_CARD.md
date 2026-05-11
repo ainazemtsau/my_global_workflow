@@ -1,5 +1,5 @@
 # 03 Context Request Card Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 03 Context Request Card Template
 
@@ -61,7 +61,7 @@ missing_context:
   required_items:
     - item_id:
       item_name:
-      item_type: user_answer | trilium_note | project_file | source_document | codex_readback | web_verification | other
+      item_type: user_answer | repository_file | project_file | source_document | codex_readback | web_verification | other
       exact_path_or_location:
       required: true | false
       freshness_required: fresh | stale_allowed | unknown_allowed

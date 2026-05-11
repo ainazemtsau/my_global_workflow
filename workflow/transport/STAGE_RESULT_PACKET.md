@@ -1,5 +1,5 @@
 # 02 Stage Result Packet Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 02 Stage Result Packet Template
 
@@ -17,7 +17,7 @@ This is a transport template only. It is not a final stage prompt.
 *   Use plain Markdown with YAML-style fields.
 *   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
 *   The result packet must not depend on private chain-of-thought.
-*   Any write request must be expressed through an explicit Trilium Patch Template.
+*   Any write request must be expressed through an explicit Repository Patch Template.
 *   A stage may stop, request context, request a human decision, emit a patch, or launch a next stage, but it must state which route it selected.
 
 ## Required fields
@@ -94,7 +94,7 @@ state_observations:
   phase_id:
   goal_id:
   task_id:
-  trilium_state_refs:
+  repository_state_refs:
     - path:
       observed_status:
       freshness:
@@ -116,7 +116,7 @@ decisions:
 evidence:
   sources_used:
     - source:
-      type: user_input | trilium | project_file | web | codex | calculation | other
+      type: user_input | repository | project_file | web | codex | calculation | other
       freshness: fresh | stale | unknown
   validation_performed:
     - check:
@@ -125,10 +125,10 @@ evidence:
     - gap:
 
 write_requests:
-  trilium_patch_required: true | false
-  trilium_patch_ref:
-  project_files_refresh_required: true | false
-  project_files_refresh_summary:
+  repository_patch_required: true | false
+  repository_patch_ref:
+  changed_files_context_refresh_required: true | false
+  changed_files_context_refresh_summary:
   no_write_reason:
 
 execution_log_entry:
@@ -137,7 +137,7 @@ execution_log_entry:
   inline_entry:
 
 next_route:
-  selected_route: launch_next_stage | context_request | human_decision | trilium_patch | recovery_close | stop
+  selected_route: launch_next_stage | context_request | human_decision | repository_patch | recovery_close | stop
   next_launch_card_ref:
   context_request_card_ref:
   human_decision_card_ref:
@@ -153,7 +153,7 @@ downstream_usage:
   consumed_by:
     - ChatGPT runtime router
     - next selected stage
-    - Trilium documentation maintenance gate
+    - GitHub repository documentation maintenance gate
     - human validation
   expected_next_artifact:
     - depends on selected_route

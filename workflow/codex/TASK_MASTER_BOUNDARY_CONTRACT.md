@@ -1,5 +1,5 @@
 # 06 Task Master Boundary Contract
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 4 — Codex Bridge Contracts Installed at: 2026-05-07T15:53:47.6656515+03:00 Source input: ChatGPT Step 4 output using Project Files 01/02/03 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 4 — Codex Bridge Contracts Installed at: 2026-05-07T15:53:47.6656515+03:00 Source input: ChatGPT Step 4 output using Project Files 01/02/03 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
 
 # 06 Task Master Boundary Contract
 
@@ -14,12 +14,12 @@ Task Master may help track work. It is not canonical for workflow contracts, sta
 Use this authority order for Workflow vNext-R Rebuild:
 
 1.  Explicit human instruction in the current chat or current Wave Card.
-2.  Canonical Trilium notes under `Workflow / 20 Workflow vNext-R REBUILD`.
+2.  Canonical GitHub repository files under `Workflow / 20 Workflow vNext-R REBUILD`.
 3.  Accepted Project Files named by the current step or Wave Card.
 4.  Repository files inside the allowed target scope.
 5.  Task Master task records, only as a task ledger.
 
-Task Master cannot override canonical Trilium content.
+Task Master cannot override canonical GitHub repository content.
 
 ## Allowed Task Master uses
 
@@ -40,7 +40,7 @@ Task Master must not be used to:
 
 *   store canonical stage prompts;
 *   store canonical Workflow vNext-R contracts;
-*   replace Trilium install logs;
+*   replace GitHub repository install logs;
 *   infer activation approval;
 *   mark Codex work complete without evidence;
 *   mark a Wave Record validated;
@@ -70,11 +70,11 @@ If those fields are absent, Codex must report `Task Master access not granted` a
 
 ## Mismatch rule
 
-When Task Master conflicts with Trilium or Project Files:
+When Task Master conflicts with GitHub repository or Project Files:
 
 1.  Do not rewrite canonical workflow content from Task Master.
 2.  Report the mismatch in the Codex Return Packet.
-3.  Treat Trilium as canonical unless the human explicitly says otherwise.
+3.  Treat GitHub repository as canonical unless the human explicitly says otherwise.
 4.  Return `NEEDS_INPUT` if the conflict blocks safe execution.
 
 ## Task Master boundary template
@@ -101,7 +101,7 @@ task_master_boundary:
     - "store_canonical_prompt"
     - "global_activation"
   canonical_for_workflow_content: false
-  conflict_policy: "Trilium wins unless explicit human override"
+  conflict_policy: "GitHub repository wins unless explicit human override"
   return_packet_requirements:
     - "list task IDs read"
     - "list task IDs changed"
@@ -125,16 +125,16 @@ When a wave uses Task Master, the Codex Return Packet must include:
 - Comments added:
 - Status changes:
 - Evidence links added:
-- Conflicts with Trilium:
+- Conflicts with GitHub repository:
 - Canonical content changed from Task Master: must be no
 
 ```
 
 ## Acceptance anchors
 
-This note is acceptable only if these anchors remain visible on read-back:
+This note is acceptable only if these anchors remain visible on file read-back / diff verification / commit verification:
 
-*   `Task Master cannot override canonical Trilium content`
+*   `Task Master cannot override canonical GitHub repository content`
 *   `access_granted: false`
 *   `TASK_MASTER_BOUNDARY_BEGIN`
 *   `mark_done_without_validation`

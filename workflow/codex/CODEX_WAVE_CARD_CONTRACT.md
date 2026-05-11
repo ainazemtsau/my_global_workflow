@@ -1,5 +1,5 @@
 # 02 Codex Wave Card Contract
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 4 — Codex Bridge Contracts Installed at: 2026-05-07T15:53:47.6656515+03:00 Source input: ChatGPT Step 4 output using Project Files 01/02/03 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 4 — Codex Bridge Contracts Installed at: 2026-05-07T15:53:47.6656515+03:00 Source input: ChatGPT Step 4 output using Project Files 01/02/03 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
 
 # 02 Codex Wave Card Contract
 
@@ -18,7 +18,7 @@ This contract does not define the final C1 or C2 prompts. It defines the bridge 
 3.  Codex must not write outside `allowed_targets`.
 4.  Codex must not touch `forbidden_targets`.
 5.  Codex must return a Codex Return Packet even when blocked.
-6.  Codex must not claim DONE unless the required evidence and read-back requirements are satisfied.
+6.  Codex must not claim DONE unless the required evidence and file read-back / diff verification / commit verification requirements are satisfied.
 7.  Codex must preserve unknown extension fields unless explicitly instructed to normalize or replace the packet.
 8.  A Wave Card may reference Task Master, but Task Master is never canonical for workflow content unless a later validated contract explicitly changes that.
 
@@ -32,14 +32,14 @@ codex_wave_card: 1
 wave:
   wave_id: "{{wave_id}}"
   short_name: "{{short_name}}"
-  wave_record_path: "{{trilium_wave_record_path_or_none}}"
+  wave_record_path: "{{repository_wave_record_path_or_none}}"
   created_at: "{{created_at}}"
 
 origin:
   origin_type: "stage | manual | recovery | install_validation"
   stage_id: "{{stage_id_or_none}}"
   stage_name: "{{stage_name_or_none}}"
-  source_packet_path: "{{trilium_path_or_none}}"
+  source_packet_path: "{{repository_path_or_none}}"
   user_request_summary: "{{one_sentence_summary}}"
 
 mode:
@@ -49,9 +49,9 @@ mode:
   exact_apply_command: "APPLY_INSTALL | APPLY_WAVE | APPLY_PATCH"
 
 authority:
-  canonical_trilium_root: "Workflow / 20 Workflow vNext-R REBUILD"
+  canonical_repository_root: "Workflow / 20 Workflow vNext-R REBUILD"
   canonical_sources:
-    - path: "{{trilium_note_path}}"
+    - path: "{{repository_file_path}}"
       required: true
   project_files:
     - file: "01_WORKFLOW_REBUILD_CONTROL_PACK.md"
@@ -72,16 +72,16 @@ task:
     - "{{observable_acceptance_criterion}}"
 
 allowed_targets:
-  trilium_paths:
-    - "{{allowed_trilium_path_or_none}}"
+  repository_paths:
+    - "{{allowed_repository_path_or_none}}"
   repository_paths:
     - "{{allowed_repo_path_or_none}}"
   commands:
     - "{{allowed_command_or_category}}"
 
 forbidden_targets:
-  trilium_paths:
-    - "{{forbidden_trilium_path_or_pattern}}"
+  repository_paths:
+    - "{{forbidden_repository_path_or_pattern}}"
   repository_paths:
     - "{{forbidden_repo_path_or_pattern}}"
   commands:
@@ -139,7 +139,7 @@ When Codex receives a Wave Card, it must:
 3.  Return a preview when `codex_mode` is `PREVIEW_FIRST`.
 4.  Wait for the exact apply command when `requires_explicit_apply_command` is true.
 5.  Apply only the previewed changes unless the user gives a new Wave Card.
-6.  Read back every created or changed Trilium note when the task involves Trilium.
+6.  Read back every created or changed GitHub repository file when the task involves GitHub repository.
 7.  Run required validators when available.
 8.  State explicitly when a validator cannot be run.
 9.  Return a complete Codex Return Packet.
@@ -154,12 +154,12 @@ Codex must return `NEEDS_INPUT` or `STUCK`, not DONE, when:
 *   allowed targets and requested work conflict;
 *   forbidden paths would need to be touched;
 *   validators required for DONE cannot run and no waiver is present;
-*   read-back is required but cannot be performed;
+*   file read-back / diff verification / commit verification is required but cannot be performed;
 *   the Wave Card asks Codex to overwrite active Workflow vNext without explicit global activation approval.
 
 ## Acceptance anchors
 
-This note is acceptable only if these anchors remain visible on read-back:
+This note is acceptable only if these anchors remain visible on file read-back / diff verification / commit verification:
 
 *   `CODEX_WAVE_CARD_BEGIN`
 *   `requires_explicit_apply_command: true`

@@ -1,5 +1,5 @@
 # 09 Validation Profile Contract
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 09 Validation Profile Contract
 

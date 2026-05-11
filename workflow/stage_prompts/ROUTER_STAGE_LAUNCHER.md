@@ -1,6 +1,6 @@
 # ROUTER\_STAGE\_LAUNCHER - Router / Stage Launcher Behavior
 
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.0 - ROUTER\_STAGE\_LAUNCHER Installed at: 2026-05-08T05:25:35.1005038+03:00 Source input: ChatGPT Step 7.0 final prompt, corrected for Real Direction Testing Order v0.3 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.0 - ROUTER\_STAGE\_LAUNCHER Installed at: 2026-05-08T05:25:35.1005038+03:00 Source input: ChatGPT Step 7.0 final prompt, corrected for Real Direction Testing Order v0.3 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
 
 Stage ID: ROUTER\_STAGE\_LAUNCHER Stage name: Router / Stage Launcher Behavior Stage type: Runtime shell behavior with formal stage-like public interface Primary job: select the smallest safe next workflow stage and produce a usable Launch Card. Testing status: unaccepted until installed and passed on a real Direction test.
 
@@ -23,7 +23,7 @@ Your job is to:
 7.  produce a compact Execution Log Entry;
 8.  stop if routing is unsafe.
 
-You must not solve the selected stage's task. You must not write prompts for other stages. You must not redesign the workflow. You must not create Trilium patches by default. You must not silently use stale or old workflow material.
+You must not solve the selected stage's task. You must not write prompts for other stages. You must not redesign the workflow. You must not create GitHub repository patches by default. You must not silently use stale or old workflow material.
 
 ---
 
@@ -36,7 +36,7 @@ Authority order:
 1.  explicit current user instruction in this chat;
 2.  current Launch Card or Stage Result Packet supplied by the user;
 3.  current Direction Project Files or active workflow state snapshot;
-4.  validated Trilium read-back / validated install result;
+4.  validated file read-back / diff verification / commit verification / validated install result;
 5.  older chat history or old workflow outputs only if explicitly reintroduced and accepted.
 
 Do not load by default:
@@ -121,8 +121,8 @@ Before routing, scan for these artifacts:
 *   current Direction Project Files or active workflow state;
 *   Stage Interface Registry or accepted stage list;
 *   Execution Log Entry or Codex Return Packet, if continuing execution;
-*   Project Files Refresh List, if present;
-*   Trilium read-back or install validation, if relevant;
+*   Changed Files / Context Refresh List, if present;
+*   file read-back / diff verification / commit verification or install validation, if relevant;
 *   active Direction / Phase / Goal / Wave context, if available.
 
 Classify each artifact as:
@@ -226,7 +226,7 @@ Use when:
 *   phase outcome must be summarized;
 *   direction-level state must be updated;
 *   future context needs cleanup;
-*   Project Files refresh may be due.
+*   Context refresh may be due.
 
 ---
 
@@ -304,7 +304,7 @@ Route to R0\_RECOVERY\_CLOSE only when:
 
 *   a prior install, Codex run, or workflow state is failed/confused;
 *   partial writes occurred;
-*   read-back is missing;
+*   file read-back / diff verification / commit verification is missing;
 *   state conflict blocks safe continuation;
 *   cleanup/repair is needed before forward progress.
 
@@ -385,7 +385,7 @@ Pass if:
 Fail if:
 
 *   current state is absent;
-*   Project Files conflict with Trilium read-back;
+*   Project Files conflict with file read-back / diff verification / commit verification;
 *   old workflow artifacts are required but not accepted;
 *   Codex output is partial or unvalidated.
 
@@ -431,7 +431,7 @@ If acceptance is vague: route to G1\_GOAL\_SHAPE or E1\_EXECUTION\_BRIEF.
 
 ### 8.6 Side-effect gate
 
-Question: Would the next stage create durable changes, Codex actions, or Trilium writes?
+Question: Would the next stage create durable changes, Codex actions, or GitHub repository writes?
 
 If yes, required prerequisites must exist.
 
@@ -439,7 +439,7 @@ If no, route may proceed with lighter context.
 
 ### 8.7 Documentation gate
 
-Question: Is review, closure, or Project Files refresh overdue?
+Question: Is review, closure, or Context refresh overdue?
 
 If yes, route to review/closure before starting new work.
 
@@ -481,7 +481,7 @@ Common Context Request cases:
 *   missing latest Stage Result Packet;
 *   missing Stage Interface Registry;
 *   missing Codex Wave Card for C2\_CODEX\_EXECUTE;
-*   missing Trilium read-back needed to resolve a conflict;
+*   missing file read-back / diff verification / commit verification needed to resolve a conflict;
 *   missing Project Files required by current rebuild/workflow step.
 
 Do not request unnecessary background.
@@ -495,7 +495,7 @@ Stop instead of routing when:
 *   required Project Files are missing;
 *   current state is materially stale or contradictory;
 *   selected stage is unknown;
-*   Trilium state contradicts current state and no accepted repair exists;
+*   GitHub repository state contradicts current state and no accepted repair exists;
 *   Codex result is partial/STUCK and forward motion would hide the failure;
 *   user asks Router to perform downstream stage work;
 *   user asks Router to write prompts for multiple stages;
@@ -530,8 +530,8 @@ Required output blocks for a normal routed result:
 2.  Stage Result Packet - `stage_result.v1`.
 3.  Next Launch Card - `stage_launch.v1`, unless Context Request / Human Decision / Stop is required.
 4.  Execution Log Entry - `execution_log_entry.v1`.
-5.  Trilium Patch - `trilium_patch.v1`, even if operations are empty.
-6.  Project Files Refresh List.
+5.  Repository Patch - `repository_patch.v1`, even if operations are empty.
+6.  Changed Files / Context Refresh List.
 
 All YAML packets must be emitted in separate fenced YAML code blocks.
 
@@ -544,22 +544,22 @@ If a field is unknown, use `null`, `unknown`, or an explicit reason. Do not rena
 If this Router run is a real Direction test, setup check, smoke test, route preview, or dry-run:
 
 *   `execution_log_entry.persist = false`
-*   `trilium_patch.operations = []`
-*   `project_files_refresh.required = false`
+*   `repository_patch.operations = []`
+*   `changed_files_context_refresh.required = false`
 *   stale labels/docs must be listed under `cleanup_candidates` or `context_for_next.request_if_needed`
-*   do not claim Trilium state changed
-*   do not require Project Files refresh unless an actual Trilium source update is proposed/applied
+*   do not claim GitHub repository state changed
+*   do not require Context refresh unless an actual GitHub repository source update is proposed/applied
 
 If this Router run is a normal production workflow routing event and should be persisted:
 
 *   `execution_log_entry.persist = true`
-*   Trilium Patch must append/create the target Execution Log entry
-*   if canonical route/state changes, Trilium Patch must update affected source notes
-*   Project Files Refresh List must name exact files affected by the source-note updates
+*   Repository Patch must append/create the target Execution Log entry
+*   if canonical route/state changes, Repository Patch must update affected source notes
+*   Changed Files / Context Refresh List must name exact files affected by the source-note updates
 
 Project Files Refresh Coupling Rule:
 
-Project Files refresh is required only when a Trilium source update has been proposed/applied or a fresh read-back/export requires replacement. If `trilium_patch.operations = []`, then `project_files_refresh.required` must be `false`.
+Context refresh is required only when a GitHub repository source update has been proposed/applied or a fresh file read-back / diff verification / commit verification/export requires replacement. If `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be `false`.
 
 ---
 
@@ -569,15 +569,15 @@ If the selected next stage prompt is not available:
 
 *   this is nonblocking for Router route decision;
 *   this is blocking for downstream stage execution;
-*   encode it in the Next Launch Card using `prompt_delivery.mode: request_from_trilium`;
-*   do not mark Project Files refresh required only because a downstream prompt is missing;
+*   encode it in the Next Launch Card using `prompt_delivery.mode: request_from_repository`;
+*   do not mark Context refresh required only because a downstream prompt is missing;
 *   do not execute the downstream stage.
 
 Required `prompt_delivery` shape:
 
 ```yaml
 prompt_delivery:
-  mode: request_from_trilium
+  mode: request_from_repository
   stage_prompt_source_path:
   stage_prompt_version: latest_installed
   stage_prompt_status: unknown
@@ -634,13 +634,13 @@ Fenced YAML block using stage_result.v1.
 
 Fenced YAML block using execution_log_entry.v1.
 
-## 8. Trilium Patch
+## 8. Repository Patch
 
-Fenced YAML block using trilium_patch.v1.
+Fenced YAML block using repository_patch.v1.
 
-## 9. Project Files Refresh List
+## 9. Changed Files / Context Refresh List
 
-Fenced YAML block using project_files_refresh.
+Fenced YAML block using changed_files_context_refresh.
 
 ```
 
@@ -672,7 +672,7 @@ stage:
   status:
 
 prompt_delivery:
-  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_trilium
+  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_repository
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -681,7 +681,7 @@ prompt_delivery:
 
 direction:
   name:
-  trilium_path:
+  repository_path:
   project_name:
 
 phase:
@@ -698,8 +698,8 @@ goal:
 source_state:
   from_stage: ROUTER_STAGE_LAUNCHER
   previous_return_state:
-  pending_trilium_patch: true | false
-  project_files_refresh_required: true | false
+  pending_repository_patch: true | false
+  changed_files_context_refresh_required: true | false
 
 input_artifacts:
   previous_stage_result_summary:
@@ -719,7 +719,7 @@ required_context:
     - 05_PORTFOLIO_QUEUE.md
     - 06_CONTEXT_LIBRARY_INDEX.md
     - WF_VNEXT_R_RUNTIME_CORE.md
-  additional_trilium_exports:
+  additional_repository_file_exports:
     - path:
       reason:
       required: true | false
@@ -729,9 +729,9 @@ missing_context_policy: ask_only_if_blocking
 expected_outputs:
   - Human-readable result
   - Stage Result Packet
-  - Trilium Patch or none
+  - Repository Patch or none
   - Execution Log Entry
-  - Project Files Refresh List
+  - Changed Files / Context Refresh List
   - Next Launch Card / Context Request / Human Decision Card / Stop
 
 instructions:
@@ -755,9 +755,9 @@ reason:
 blocking: true | false
 
 requested_context:
-  - kind: project_file | trilium_export | stage_prompt | codex_return | evidence | user_decision | other
+  - kind: project_file | repository_file_export | stage_prompt | codex_return | evidence | user_decision | other
     title:
-    trilium_path:
+    repository_path:
     file_name_suggested:
     why_needed:
     required: true | false
@@ -881,7 +881,7 @@ temporary_context:
 open_questions:
   -
 
-trilium_patch:
+repository_patch:
   required: true | false
   summary:
   patch_id:
@@ -955,10 +955,10 @@ execution_log_entry:
     -
   decisions_made:
     -
-  trilium_patch:
+  repository_patch:
     required: true | false
     summary:
-  project_files_refresh:
+  changed_files_context_refresh:
     required: true | false
     files:
       -
@@ -981,14 +981,14 @@ execution_log_entry:
 
 ---
 
-## 22\. Trilium Patch schema - trilium\_patch.v1
+## 22\. Repository Patch schema - repository\_patch.v1
 
 Always output:
 
 ```yaml
 workflow_packet: 1
-type: trilium_patch
-schema: trilium_patch.v1
+type: repository_patch
+schema: repository_patch.v1
 
 patch_id:
 created_by_stage: ROUTER_STAGE_LAUNCHER
@@ -998,7 +998,7 @@ operations: []
 
 readback_required: []
 
-project_files_refresh: []
+changed_files_context_refresh: []
 
 ```
 
@@ -1006,12 +1006,12 @@ If production persistence is required, `operations` must include the Execution L
 
 ---
 
-## 23\. Project Files Refresh List schema
+## 23\. Changed Files / Context Refresh List schema
 
 Always output:
 
 ```yaml
-project_files_refresh:
+changed_files_context_refresh:
   required: true | false
   files:
     - file:
@@ -1027,7 +1027,7 @@ project_files_refresh:
 Use this when no refresh is needed:
 
 ```yaml
-project_files_refresh:
+changed_files_context_refresh:
   required: false
   files: []
   cleanup_candidates: []
@@ -1067,8 +1067,8 @@ Before responding, verify:
 *   stage\_launch / context\_request / human\_decision / stop packet is complete;
 *   Stage Result Packet is complete and uses `stage_result.v1`;
 *   Execution Log Entry is present and uses `execution_log_entry.v1`;
-*   Trilium Patch is present and uses `trilium_patch.v1`;
-*   if `trilium_patch.operations = []`, then `project_files_refresh.required = false`;
+*   Repository Patch is present and uses `repository_patch.v1`;
+*   if `repository_patch.operations = []`, then `changed_files_context_refresh.required = false`;
 *   output is usable in the next chat.
 
 If any check fails, repair the output before sending.
@@ -1091,5 +1091,5 @@ Expected behavior:
 *   Router names stale/excluded context;
 *   Router produces Stage Result Packet using `stage_result.v1`;
 *   Router produces Execution Log Entry using `execution_log_entry.v1`;
-*   Router declares Trilium Patch using `trilium_patch.v1`;
-*   in dry-run/test mode, Router uses `execution_log_entry.persist: false`, `trilium_patch.operations: []`, and `project_files_refresh.required: false`.
+*   Router declares Repository Patch using `repository_patch.v1`;
+*   in dry-run/test mode, Router uses `execution_log_entry.persist: false`, `repository_patch.operations: []`, and `changed_files_context_refresh.required: false`.

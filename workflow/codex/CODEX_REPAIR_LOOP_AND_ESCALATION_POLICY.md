@@ -1,10 +1,10 @@
 # 15 Codex Repair Loop and Escalation Policy
 
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01C — Validation, Review, Repair, and Concrete Project Setup Boundary Installed at: 2026-05-10T04:56:01.1979556+03:00 Source input: ChatGPT SA-01C installable source output, 2026-05-10 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01C — Validation, Review, Repair, and Concrete Project Setup Boundary Installed at: 2026-05-10T04:56:01.1979556+03:00 Source input: ChatGPT SA-01C installable source output, 2026-05-10 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 ## 1\. Purpose
 
-This note defines the finite repair loop Codex must follow when implementation, validation, read-back, or review fails.
+This note defines the finite repair loop Codex must follow when implementation, validation, file read-back / diff verification / commit verification, or review fails.
 
 Repair attempts are finite. Codex must not loop indefinitely, patch randomly, suppress validators, or mark work complete without evidence.
 
@@ -21,14 +21,14 @@ This policy applies to Codex work involving:
 *   module map or module knowledge updates
 *   validator failures
 *   test failures
-*   read-back failures
+*   file read-back / diff verification / commit verification failures
 *   install mismatch
 *   independent review findings
 *   repeated acceptance mismatch
 *   cross-module defects
 *   security/privacy-sensitive corrections
 
-For Trilium rebuild installs, the same principle applies: preview first, apply only approved changes, read back, validate anchors, and escalate if the install does not match the accepted install card.
+For GitHub repository rebuild installs, the same principle applies: preview first, apply only approved changes, read repository files / verify diff or commit, validate anchors, and escalate if the install does not match the accepted install card.
 
 ## 3\. Failure classification
 
@@ -53,9 +53,9 @@ High-risk, security/privacy-sensitive, broad cross-module, or architecture-sensi
 
 ## 5\. Required repair loop
 
-For every failed validator, review finding, read-back mismatch, or acceptance mismatch, Codex must:
+For every failed validator, review finding, file read-back / diff verification / commit verification mismatch, or acceptance mismatch, Codex must:
 
-1.  Identify the failed acceptance criterion, validator, review item, or read-back anchor.
+1.  Identify the failed acceptance criterion, validator, review item, or file read-back / diff verification / commit verification anchor.
 2.  Classify the failure as MINOR, MAJOR, or BLOCKER.
 3.  State the suspected root cause.
 4.  Propose the smallest safe repair.
@@ -81,7 +81,7 @@ Codex must stop and escalate when any of these occur:
 *   independent review is required but unavailable
 *   security/privacy risk is detected
 *   destructive or irreversible write risk exists
-*   Trilium install preview/apply/read-back does not match the install card
+*   GitHub repository install preview/apply/file read-back / diff verification / commit verification does not match the install card
 *   old active Workflow vNext would be touched
 
 Escalation output must be one of:
@@ -110,7 +110,7 @@ Codex must not:
 
 Task Master AI is graph substrate, not DONE authority.
 
-Basic Memory is project/module technical recall only, not Trilium canon.
+Basic Memory is project/module technical recall only, not GitHub repository canon.
 
 Serena is trigger-based semantic code/navigation/refactor support.
 
@@ -132,4 +132,4 @@ When repair occurs, Codex must include:
 *   whether another repair attempt remains
 *   escalation decision if blocked
 
-Codex cannot claim DONE unless the final packet includes acceptance evidence, validator/read-back evidence, and review evidence where required.
+Codex cannot claim DONE unless the final packet includes acceptance evidence, validator/file read-back / diff verification / commit verification evidence, and review evidence where required.

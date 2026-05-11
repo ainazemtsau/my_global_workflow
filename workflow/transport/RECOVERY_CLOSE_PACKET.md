@@ -1,5 +1,5 @@
 # 10 Recovery Close Packet Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 10 Recovery Close Packet Template
 
@@ -75,7 +75,7 @@ scope_contained:
 canonical_state:
   last_known_good_step:
   last_known_good_validation_state:
-  canonical_trilium_paths:
+  canonical_repository_paths:
     - path:
   canonical_project_files:
     - file:

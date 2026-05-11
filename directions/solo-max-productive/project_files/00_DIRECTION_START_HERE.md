@@ -30,7 +30,7 @@ State note:
 
 *   vNext One-Goal Smoke Test is obsolete test/pilot state from Workflow vNext-R validation.
 *   Do not continue Create Lightweight Codex Small-Fix Lane unless the user explicitly reactivates it.
-*   This Phase develops the current personal ChatGPT + Trilium + Codex Workflow toward a possible custom app/kernel.
+*   This Phase develops the current personal ChatGPT + GitHub + Codex Workflow toward a possible custom app/kernel.
 
 ## Default Project Files to load
 

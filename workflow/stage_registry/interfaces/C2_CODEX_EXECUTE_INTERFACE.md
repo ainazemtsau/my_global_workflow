@@ -1,5 +1,5 @@
 # 12 C2 Codex Execute Interface
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 12 C2 Codex Execute Interface
 
@@ -9,7 +9,7 @@ Interface version: stage-interface-v0.1 Stage ID: C2 Stage name: Codex Execute S
 
 C2 executes an accepted Codex Wave Card and returns evidence-backed results.
 
-C2 is the execution-facing stage boundary. It must not claim completion without read-back, tests, or evidence appropriate to the task.
+C2 is the execution-facing stage boundary. It must not claim completion without file read-back / diff verification / commit verification, tests, or evidence appropriate to the task.
 
 ## Public input contract
 
@@ -17,7 +17,7 @@ Required inputs:
 
 *   Stage Launch Card targeting C2 or accepted Codex Wave Card.
 *   Codex Wave Card Contract reference.
-*   Target repository, Trilium root, or authorized write scope.
+*   Target repository, GitHub repository root, or authorized write scope.
 *   Exact allowed actions.
 *   Exact forbidden paths.
 *   Validator expectations.
@@ -47,7 +47,7 @@ C2 emits a Stage Result Packet or Codex Return Packet containing:
 *   Files or notes changed.
 *   Patch summary.
 *   Tests run.
-*   Evidence and read-back results.
+*   Evidence and file read-back / diff verification / commit verification results.
 *   Known limitations.
 *   Rollback notes.
 *   Next route.
@@ -59,7 +59,7 @@ Required C2 output artifacts:
 *   Patch Summary
 *   Evidence Register
 *   Validator Result
-*   Read-back Result when Trilium or persistent notes are modified
+*   Read-back Result when GitHub repository or persistent notes are modified
 *   Next Stage Launch Card or Recovery Close Packet
 
 ## Allowed next stages

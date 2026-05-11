@@ -1,6 +1,6 @@
 # WF\_VNEXT\_R\_RUNTIME\_CORE
 
-Status: production-ready runtime core Workflow version: vNext-R Source Trilium note: Workflow / 20 Workflow vNext-R REBUILD / 01 Runtime Core / WF\_VNEXT\_R\_RUNTIME\_CORE Freshness: refresh whenever runtime core, routing rules, packet contracts, stage registry, or project-file rules change. Authority: common workflow runtime guide for Direction ChatGPT Projects. Trilium source wins on conflict. Scope: runtime behavior only. This note is not a stage prompt and not a rebuild roadmap.
+Status: production-ready runtime core Workflow version: vNext-R Source GitHub repository file: Workflow / 20 Workflow vNext-R REBUILD / 01 Runtime Core / WF\_VNEXT\_R\_RUNTIME\_CORE Freshness: refresh whenever runtime core, routing rules, packet contracts, stage registry, or project-file rules change. Authority: common workflow runtime guide for Direction ChatGPT Projects. GitHub repository files win on conflict. Scope: runtime behavior only. This note is not a stage prompt and not a rebuild roadmap.
 
 ---
 
@@ -8,13 +8,13 @@ Status: production-ready runtime core Workflow version: vNext-R Source Trilium n
 
 One ChatGPT Project = one Direction.
 
-Trilium is the source of truth.
+GitHub repository is the source of truth.
 
-Direction Project Files are refreshed exports/projections from Trilium, not canon.
+Direction Direction project files are GitHub repository runtime files after canonical flip; during migration, activation is governed by WORKFLOW_SOURCE_OF_TRUTH.md.
 
-ChatGPT may analyze, route, shape, plan, review, and create patches. ChatGPT does not claim Trilium updates are done unless read-back/export refresh confirms them.
+ChatGPT may analyze, route, shape, plan, review, and create patches. ChatGPT does not claim GitHub repository updates are done unless file read-back / diff verification / commit verification confirms them.
 
-Codex/user applies Trilium Patch operations and returns read-back evidence.
+Codex/user applies Repository Patch operations and returns file read-back / diff verification / commit verification evidence.
 
 Stage prompts live in the Workflow root and are dynamically provided per stage run. Stage prompts are not uploaded into every Direction Project by default.
 
@@ -22,9 +22,9 @@ Every meaningful workflow output must include:
 
 1.  Human-readable result.
 2.  Stage Result Packet.
-3.  Trilium Patch or explicit `none`.
+3.  Repository Patch or explicit `none`.
 4.  Execution Log Entry.
-5.  Project Files Refresh List.
+5.  Changed Files / Context Refresh List.
 6.  Next Launch Card / Context Request Card / Human Decision Card / Stop.
 
 A stage or workflow chat must not end with only a route name such as `Next: E1`.
@@ -158,7 +158,7 @@ Router must check:
 *   Is Project File freshness acceptable?
 *   Is active Phase known?
 *   Is active Goal known?
-*   Is there a pending Trilium Patch?
+*   Is there a pending Repository Patch?
 *   Is a Launch Card already provided?
 *   Is the needed stage prompt available?
 *   Is there blocking missing context?
@@ -211,7 +211,7 @@ A stage may execute only if the exact stage prompt is:
 *   embedded in the Launch Card;
 *   pasted/provided in the current chat;
 *   attached/exported in the current chat;
-*   requested from Trilium and then provided;
+*   requested from GitHub repository and then provided;
 *   explicitly available in current chat context.
 
 Do not reconstruct missing stage prompts from memory.
@@ -226,7 +226,7 @@ Allowed prompt delivery modes:
 
 ```yaml
 prompt_delivery:
-  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_trilium
+  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_repository
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -261,14 +261,14 @@ Common triggers:
 
 *   missing Direction Project File;
 *   stale Project Files;
-*   missing Trilium export;
+*   missing GitHub repository export;
 *   missing stage prompt;
 *   missing active Phase source;
 *   missing active Goal source;
 *   missing Codex return/evidence;
 *   missing user decision;
 *   required context listed in `06_CONTEXT_LIBRARY_INDEX.md` is not available;
-*   conflict between Project Files and newer Trilium/Codex/user state.
+*   conflict between Project Files and newer GitHub repository/Codex/user state.
 
 Required format:
 
@@ -280,9 +280,9 @@ reason:
 blocking: true | false
 
 requested_context:
-  - kind: project_file | trilium_export | stage_prompt | codex_return | evidence | user_decision | other
+  - kind: project_file | repository_file_export | stage_prompt | codex_return | evidence | user_decision | other
     title:
-    trilium_path:
+    repository_path:
     file_name_suggested:
     why_needed:
     required: true | false
@@ -383,7 +383,7 @@ The Next Launch Card must be filled from:
 *   current stage output;
 *   known user input;
 *   previous stage result;
-*   known Trilium source paths;
+*   known GitHub repository source paths;
 *   known stage registry;
 *   known prompt source path.
 
@@ -418,7 +418,7 @@ stage:
   status:
 
 prompt_delivery:
-  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_trilium
+  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_repository
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -427,7 +427,7 @@ prompt_delivery:
 
 direction:
   name:
-  trilium_path:
+  repository_path:
   project_name:
 
 phase:
@@ -444,8 +444,8 @@ goal:
 source_state:
   from_stage:
   previous_return_state:
-  pending_trilium_patch: true | false
-  project_files_refresh_required: true | false
+  pending_repository_patch: true | false
+  changed_files_context_refresh_required: true | false
 
 input_artifacts:
   previous_stage_result_summary:
@@ -465,7 +465,7 @@ required_context:
     - 05_PORTFOLIO_QUEUE.md
     - 06_CONTEXT_LIBRARY_INDEX.md
     - WF_VNEXT_R_RUNTIME_CORE.md
-  additional_trilium_exports:
+  additional_repository_file_exports:
     - path:
       reason:
       required: true | false
@@ -475,9 +475,9 @@ missing_context_policy: ask_only_if_blocking
 expected_outputs:
   - Human-readable result
   - Stage Result Packet
-  - Trilium Patch or none
+  - Repository Patch or none
   - Execution Log Entry
-  - Project Files Refresh List
+  - Changed Files / Context Refresh List
   - Next Launch Card / Context Request / Human Decision Card / Stop
 
 instructions:
@@ -494,12 +494,12 @@ If Codex is available after a stage closes, Codex may prepare a complete Next St
 A Launch Bundle contains:
 
 1.  Next Launch Card.
-2.  Exact next stage prompt export from Trilium.
+2.  Exact next stage prompt export from GitHub repository.
 3.  Required extra context exports, if any.
-4.  Updated Project Files refresh list.
+4.  Updated Context refresh list.
 5.  Copy-paste instructions for the next ChatGPT chat.
 
-Codex must not invent prompt text. It must read the installed stage prompt from Trilium and include source path/version/status.
+Codex must not invent prompt text. It must read the installed stage prompt from GitHub repository and include source path/version/status.
 
 Launch Bundle is convenience packaging. The underlying authority remains:
 
@@ -546,7 +546,7 @@ temporary_context:
 open_questions:
   -
 
-trilium_patch:
+repository_patch:
   required: true | false
   summary:
   patch_id:
@@ -585,16 +585,16 @@ Use exception-only Kernel QA by default.
 
 Use full coverage matrix only for Deep, Audit, Codex, workflow/model edits, or blocked work.
 
-## 14\. Trilium Patch Contract
+## 14\. Repository Patch Contract
 
-ChatGPT creates patches. Codex/user applies them. Updates are canonical only after write + read-back/export refresh.
+ChatGPT creates patches. Codex/user applies them. Updates are canonical only after write + file read-back / diff verification / commit verification.
 
 Required format:
 
 ```yaml
 workflow_packet: 1
-type: trilium_patch
-schema: trilium_patch.v1
+type: repository_patch
+schema: repository_patch.v1
 
 patch_id:
 created_by_stage:
@@ -616,7 +616,7 @@ readback_required:
     expected_anchor:
     expected_header:
 
-project_files_refresh:
+changed_files_context_refresh:
   - source_note:
     project_file:
     reason:
@@ -625,7 +625,7 @@ project_files_refresh:
 
 Rules:
 
-Do not claim a Trilium update is complete without read-back/export refresh.
+Do not claim a GitHub repository update is complete without file read-back / diff verification / commit verification.
 
 Prefer `replace_section` for stable notes.
 
@@ -669,10 +669,10 @@ execution_log_entry:
     -
   decisions_made:
     -
-  trilium_patch:
+  repository_patch:
     required: true | false
     summary:
-  project_files_refresh:
+  changed_files_context_refresh:
     required: true | false
     files:
       -
@@ -697,7 +697,7 @@ Rules:
 
 Execution Log Entry is part of the stage output.
 
-If `persist: true`, it must appear in Trilium Patch operations.
+If `persist: true`, it must appear in Repository Patch operations.
 
 If `persist: false`, it still documents why the event is not persisted.
 
@@ -719,7 +719,7 @@ Else:
 
 ```
 
-If the target log does not exist, the Trilium Patch must include creation of the target log.
+If the target log does not exist, the Repository Patch must include creation of the target log.
 
 Pure checks still output Execution Log Entry with:
 
@@ -806,7 +806,7 @@ Every material state change must list exact Project Files to refresh.
 
 Refresh means:
 
-1.  Update Trilium source note.
+1.  Update GitHub repository source note.
 2.  Update corresponding child under `09 ChatGPT Project Files`.
 3.  Replace that file in ChatGPT Project.
 
@@ -839,7 +839,7 @@ WF_VNEXT_R_RUNTIME_CORE changed
 
 ```
 
-Fresh Trilium read-back wins over stale Project Files.
+Fresh file read-back / diff verification / commit verification wins over stale Project Files.
 
 ## 19\. Compatibility / black-box stage rule
 
@@ -1040,7 +1040,7 @@ Return NEEDS\_INPUT / Context Request instead of material work if:
 *   stage prompt is missing;
 *   required context listed in Context Loading Index is missing;
 *   Project Files are stale and freshness matters;
-*   pending Trilium Patch must be applied/refreshed before continuing;
+*   pending Repository Patch must be applied/refreshed before continuing;
 *   source-of-truth conflict exists;
 *   Codex return/evidence is required but unavailable;
 *   human-owned decision is blocking.
@@ -1135,7 +1135,7 @@ Use when blocking context is missing or a real human-owned decision blocks route
 
 ### Formalization rule
 
-Do not produce full Trilium Patch, Project Files Refresh List, or Next Launch Card for a material state change until the user approves, unless Direct Summary mode is safe or the Launch Card explicitly says approval was already given.
+Do not produce full Repository Patch, Changed Files / Context Refresh List, or Next Launch Card for a material state change until the user approves, unless Direct Summary mode is safe or the Launch Card explicitly says approval was already given.
 
 After approval, the user may say:
 
@@ -1147,8 +1147,8 @@ APPROVE AND FORMALIZE
 Then produce:
 
 *   Stage Result Packet;
-*   Trilium Patch or explicit none;
+*   Repository Patch or explicit none;
 *   Execution Log Entry;
 *   Documentation Maintenance Gate if relevant;
-*   Project Files Refresh List;
+*   Changed Files / Context Refresh List;
 *   Next Launch Card / Context Request / Human Decision / Stop.

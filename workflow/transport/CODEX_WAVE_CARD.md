@@ -1,5 +1,5 @@
 # 08 Codex Wave Card Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 08 Codex Wave Card Template
 
@@ -16,7 +16,7 @@ This is a transport template only. It is not a C1/C2 final prompt and not an AGE
 *   HTML is forbidden as transport.
 *   Use plain Markdown with YAML-style fields.
 *   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
-*   Codex scope must be bounded by exact repository paths, Trilium paths, or named artifacts.
+*   Codex scope must be bounded by exact repository paths, GitHub repository paths, or named artifacts.
 *   Codex must be told whether it is in preview, apply, inspect, repair, or validation mode.
 *   Codex must return evidence through a Codex Return Packet.
 
@@ -74,7 +74,7 @@ scope:
         - path:
       forbidden_paths:
         - path:
-  trilium_paths:
+  repository_paths:
     - path:
       allowed_action:
   external_artifacts:
@@ -133,7 +133,7 @@ return_packet_requirement:
     - rollback_or_recovery_notes
   cannot_claim_done_without:
     - evidence
-    - read-back or equivalent verification when writes occur
+    - file read-back / diff verification / commit verification or equivalent verification when writes occur
 
 downstream_usage:
   consumed_by:

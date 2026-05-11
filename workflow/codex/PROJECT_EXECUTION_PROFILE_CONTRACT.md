@@ -1,5 +1,5 @@
 # 08 Project Execution Profile Contract
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 08 Project Execution Profile Contract
 
@@ -22,11 +22,11 @@ This contract is generic across project types. It must not assume one global tec
 
 The Project Execution Profile is an execution setup artifact.
 
-It is not a replacement for Trilium Direction canon, Goal state, Phase state, or Workflow stage prompts.
+It is not a replacement for GitHub repository Direction canon, Goal state, Phase state, or Workflow stage prompts.
 
 It may be represented in a repo-local setup file, an AGENTS.md managed section, a Codex setup profile, or another explicit project-local artifact selected by the project. The selected location must be recorded.
 
-When Trilium stores a pointer or summary for this profile, Trilium remains canonical only for the Workflow rebuild documentation and any explicitly accepted Trilium Direction state. The repo-local project profile remains the operative project-owned execution setup for Codex.
+When GitHub repository stores a pointer or summary for this profile, GitHub repository remains canonical only for the Workflow rebuild documentation and any explicitly accepted GitHub repository Direction state. The repo-local project profile remains the operative project-owned execution setup for Codex.
 
 ## 3\. Required fields
 
@@ -134,7 +134,7 @@ The profile must define what Codex must report after execution:
 *   commands run;
 *   validation results;
 *   skipped validation and reason;
-*   read-back results for setup artifacts;
+*   file read-back / diff verification / commit verification results for setup artifacts;
 *   known risks;
 *   next recommended route.
 
@@ -258,7 +258,7 @@ The Project Execution Profile must state:
 *   where memory is stored;
 *   which memory writes require human approval.
 
-Memory must not be used as Trilium canon.
+Memory must not be used as GitHub repository canon.
 
 ## 8\. Tool binding rule
 
@@ -274,7 +274,7 @@ Tool binding may include:
 *   language server;
 *   MCP servers;
 *   repository hosting integration;
-*   Trilium integration, if explicitly available;
+*   GitHub repository integration, if explicitly available;
 *   task management integration, if explicitly available.
 
 Missing tools must be explicit. Codex must not pretend validation was run when the tool was unavailable.
@@ -292,7 +292,7 @@ Updates must:
 *   update timestamps;
 *   avoid changing default autonomy silently;
 *   avoid changing default validation silently;
-*   return a read-back result.
+*   return a file read-back / diff verification / commit verification result.
 
 ## 10\. Invalid profiles
 

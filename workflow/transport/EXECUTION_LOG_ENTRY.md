@@ -1,5 +1,5 @@
 # 06 Execution Log Entry Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 06 Execution Log Entry Template
 
@@ -56,7 +56,7 @@ input_refs:
   launch_card_ref:
   prior_result_packet_refs:
     - ref:
-  trilium_context_refs:
+  repository_context_refs:
     - path:
       freshness:
   project_file_refs:
@@ -101,9 +101,9 @@ decisions:
       human_decision_card_ref:
 
 write_activity:
-  trilium_patch_emitted: true | false
-  trilium_patch_ref:
-  project_files_refresh_required: true | false
+  repository_patch_emitted: true | false
+  repository_patch_ref:
+  changed_files_context_refresh_required: true | false
   docs_maintenance_gate_ref:
   writes_applied_this_stage: none | proposed_only | applied_by_codex | applied_manually
 
@@ -118,7 +118,7 @@ downstream_usage:
   consumed_by:
     - human audit
     - ChatGPT runtime router
-    - Trilium documentation maintenance
+    - GitHub repository documentation maintenance
     - future review/distill stages
   expected_next_artifact:
     - Stage Result Packet

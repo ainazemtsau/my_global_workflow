@@ -1,5 +1,5 @@
 # 01 Stage Launch Card Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 01 Stage Launch Card Template
 
@@ -18,7 +18,7 @@ This is a transport template only. It is not a final stage prompt.
 *   Required fields must remain readable as plain text.
 *   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
 *   Do not embed private chain-of-thought, invisible scratchpad content, or unvalidated prior outputs.
-*   Trilium paths must be exact when referenced.
+*   GitHub repository paths must be exact when referenced.
 *   Dates should use ISO-8601 when available.
 
 ## Required fields
@@ -56,7 +56,7 @@ source:
   stage_name:
   source_result_packet_ref:
   source_execution_log_ref:
-  source_trilium_note_refs:
+  source_repository_file_refs:
     - path:
       required: true
       freshness: fresh | stale | unknown
@@ -88,7 +88,7 @@ state:
   activation_scope: rebuild root only | direction opt-in | global
 
 context:
-  trilium_notes:
+  repository_files:
     - path:
       role:
       required: true | false
@@ -146,7 +146,7 @@ constraints:
 
 freshness_and_boundaries:
   web_required: true | false
-  trilium_read_required: true | false
+  repository_read_required: true | false
   codex_required: true | false
   human_decision_required_before_write: true | false
   stale_context_policy:
@@ -159,7 +159,7 @@ expected_output:
   may_return:
     - context_request_card
     - human_decision_card
-    - trilium_patch_template
+    - repository_patch_template
     - recovery_close_packet
   forbidden_outputs:
     - item:

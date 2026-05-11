@@ -1,13 +1,13 @@
-# 05 Trilium Patch Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+# 05 Repository Patch Template
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
-# 05 Trilium Patch Template
+# 05 Repository Patch Template
 
 ## Purpose
 
-A Trilium Patch Template describes exact note changes for Codex or a human to apply in Trilium.
+A Repository Patch Template describes exact file changes for Codex or a human to apply in the GitHub repository.
 
-It prevents vague write instructions by naming exact paths, actions, content, validation anchors, forbidden paths, and read-back expectations.
+It prevents vague write instructions by naming exact paths, actions, content, validation anchors, forbidden paths, and file read-back / diff verification / commit verification expectations.
 
 This is a transport template only. It is not a Codex bridge contract and not a final stage prompt.
 
@@ -32,7 +32,7 @@ This is a transport template only. It is not a Codex bridge contract and not a f
 
 ## Required fields
 
-*   `trilium_patch_template`
+*   `repository_patch_template`
 *   `patch_type`
 *   `workflow_version`
 *   `created_at`
@@ -50,8 +50,8 @@ This is a transport template only. It is not a Codex bridge contract and not a f
 ## Template
 
 ```
-trilium_patch_template: 1
-patch_type: trilium_patch
+repository_patch_template: 1
+patch_type: repository_patch
 workflow_version: vNext-R REBUILD
 created_at: YYYY-MM-DDTHH:MM:SS±HH:MM
 created_by: ChatGPT
@@ -63,7 +63,7 @@ source_stage:
   execution_log_entry_ref:
 
 install_target:
-  trilium_root: "Workflow / 20 Workflow vNext-R REBUILD"
+  repository_root: "Workflow / 20 Workflow vNext-R REBUILD"
   activation_mode: draft | test-active | active-candidate
   global_activation: false
   codex_mode: PREVIEW_FIRST | APPLY_AFTER_HUMAN_APPROVAL
@@ -124,13 +124,13 @@ rollback_note:
 
 downstream_usage:
   consumed_by:
-    - Codex Trilium installer
+    - Codex GitHub diff/commit/PR workflower
     - human manual installer
     - ChatGPT install validator
   expected_next_artifact:
     - Codex preview result
     - Codex install result
-    - manual read-back packet
+    - manual file read-back / diff verification / commit verification packet
   validation_notes:
     - Installer must not infer unspecified note structure.
     - Consumers may ignore unknown extension fields.
@@ -141,11 +141,11 @@ extensions: {}
 
 ## Downstream usage
 
-The Trilium Patch Template is consumed by Codex, a human manual installer, and ChatGPT install validation. It is the only acceptable transport form for structured Trilium writes.
+The Repository Patch Template is consumed by Codex, a human manual installer, and ChatGPT install validation. It is the only acceptable transport form for structured GitHub repository file writes.
 
 ## Validation anchors
 
-*   `trilium_patch_template: 1`
+*   `repository_patch_template: 1`
 *   `HTML is forbidden as transport.`
 *   `Unknown extension handling`
 *   `Allowed actions`

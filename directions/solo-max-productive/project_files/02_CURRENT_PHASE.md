@@ -21,7 +21,7 @@ current_phase:
   validation_signal: "One smallest kernel worth testing and one first Goal are clear; broad app/product features are explicitly deferred."
 
 phase_intent:
-  summary: "Explore whether the current personal ChatGPT + Trilium + Codex Workflow should evolve toward a custom workflow app/kernel."
+  summary: "Explore whether the current personal ChatGPT + GitHub + Codex Workflow should evolve toward a custom workflow app/kernel."
   nuance:
     - "This is primarily personal-use work."
     - "This is development of the current Workflow, not a separate commercial roadmap."
@@ -31,6 +31,6 @@ phase_intent:
 guard_state:
   active_goal_unresolved: "no active Goal exists yet"
   next_route: G1_GOAL_SHAPE
-  blocker: "G1 must not run until this patch is applied, read back, and Project Files are refreshed."
+  blocker: "G1 must not run until this patch is applied, read repository files / verify diff or commit, and Project Files are refreshed."
 
 ```

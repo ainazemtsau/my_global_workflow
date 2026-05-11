@@ -1,5 +1,5 @@
 # 7.2 G0_GOAL_SELECT - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: 7.2 — Stage Prompt Development — G0\_GOAL\_SELECT Installed at: 2026-05-08T18:11:51.0084138+03:00 Source input: ChatGPT Step 7.2 final runtime prompt output, 2026-05-08 Authority: Trilium canonical after read-back Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: 7.2 — Stage Prompt Development — G0\_GOAL\_SELECT Installed at: 2026-05-08T18:11:51.0084138+03:00 Source input: ChatGPT Step 7.2 final runtime prompt output, 2026-05-08 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
 
 # G0\_GOAL\_SELECT — Final Runtime Prompt
 
@@ -82,7 +82,7 @@ If no formal Stage Launch Card is present, infer only from explicit user-provide
 
 Use the freshest explicit runtime packet over older notes.
 
-Treat Trilium/Project Files as reference material, not automatically current, when a fresher Stage Result Packet, Launch Card, or user-provided runtime state conflicts with them.
+Treat GitHub repository/Project Files as reference material, not automatically current, when a fresher Stage Result Packet, Launch Card, or user-provided runtime state conflicts with them.
 
 If current runtime packets and stored Direction/Phase documents conflict on active Phase, Phase Critical Constraint, Minimum Outcome, candidate priority, or route authority, do not silently reconcile. Use:
 
@@ -239,10 +239,10 @@ For `F0_FAST_DIRECT`, provide one direct-action payload.
 Always include:
 
 *   Stage Result Packet;
-*   Trilium Patch or explicit none;
+*   Repository Patch or explicit none;
 *   Execution Log Entry;
 *   Documentation Maintenance Gate when relevant, otherwise explicit none;
-*   Project Files Refresh List;
+*   Changed Files / Context Refresh List;
 *   Next Launch Card or blocking card.
 
 ## 6\. Selection standard
@@ -311,10 +311,10 @@ Include the Next Launch Card.
 Include:
 
 *   Stage Result Packet;
-*   Trilium Patch or explicit none;
+*   Repository Patch or explicit none;
 *   Execution Log Entry;
 *   Documentation Maintenance Gate or explicit none;
-*   Project Files Refresh List.
+*   Changed Files / Context Refresh List.
 
 ## 7\. Kernel QA exceptions
 
@@ -328,28 +328,28 @@ Always output a Stage Result Packet.
 
 Use this structure:
 
-workflow\_packet: 1 type: stage\_result\_packet schema: stage\_result\_packet.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select status: selected | fast\_route | context\_request | human\_decision | stopped direction: id: name: phase: id: name: freshness: selection\_basis: phase\_critical\_constraint: phase\_minimum\_outcome: validation\_signal: scope\_boundaries: direction\_constraints: assumptions: candidate\_handling: candidates\_considered\_count: candidate\_cap\_applied: true | false selected\_candidate\_source: deferred\_or\_rejected\_summary: untriaged\_extra\_candidates\_count: selected\_goal\_seed: id\_or\_temp\_id: title: intended\_outcome: smallest\_testable\_slice: why\_now: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: confidence: high | medium | low route: next\_stage: G1\_GOAL\_SHAPE | F0\_FAST\_DIRECT | none route\_reason: handoff: next\_launch\_card\_included: true | false trilium\_patch: required: true | false summary: execution\_log\_entry: included: true | false documentation\_maintenance\_gate: required: true | false project\_files\_refresh\_list: required: true | false blocking: context\_request: human\_decision: stop\_reason: extensions:
+workflow\_packet: 1 type: stage\_result\_packet schema: stage\_result\_packet.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select status: selected | fast\_route | context\_request | human\_decision | stopped direction: id: name: phase: id: name: freshness: selection\_basis: phase\_critical\_constraint: phase\_minimum\_outcome: validation\_signal: scope\_boundaries: direction\_constraints: assumptions: candidate\_handling: candidates\_considered\_count: candidate\_cap\_applied: true | false selected\_candidate\_source: deferred\_or\_rejected\_summary: untriaged\_extra\_candidates\_count: selected\_goal\_seed: id\_or\_temp\_id: title: intended\_outcome: smallest\_testable\_slice: why\_now: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: confidence: high | medium | low route: next\_stage: G1\_GOAL\_SHAPE | F0\_FAST\_DIRECT | none route\_reason: handoff: next\_launch\_card\_included: true | false repository\_patch: required: true | false summary: execution\_log\_entry: included: true | false documentation\_maintenance\_gate: required: true | false changed\_files\_context\_refresh\_list: required: true | false blocking: context\_request: human\_decision: stop\_reason: extensions:
 
 If status is `context_request`, `human_decision`, or `stopped`, leave `selected_goal_seed` empty or set it to `null`, and populate `blocking`.
 
-## 9\. Trilium Patch contract
+## 9\. Repository Patch contract
 
-Always include a Trilium Patch section.
+Always include a Repository Patch section.
 
 Default for normal G0 selection:
 
-trilium\_patch: required: false reason: "G0 selection is transport-first; durable Goal Working Context is created or updated by G1 unless a specific documentation/freshness update is required."
+repository\_patch: required: false reason: "G0 selection is transport-first; durable Goal Working Context is created or updated by G1 unless a specific documentation/freshness update is required."
 
 Use `required: true` only when the selected output requires durable documentation maintenance, such as:
 
 *   stale current route label found in active Direction materials;
 *   selected Goal seed must be recorded as active Phase focus before handoff;
 *   conflicting Phase documents need a stale marker;
-*   Project Files refresh is needed to prevent context pollution.
+*   Context refresh is needed to prevent context pollution.
 
 Required patch fields when true:
 
-trilium\_patch: required: true patch\_type: selected\_goal\_seed\_update | phase\_focus\_update | stale\_doc\_flag | documentation\_refresh | other targets: - path: action: create | replace\_section | append\_section | update\_header | mark\_stale reason: content\_summary: freshness: validation\_anchors: do\_not\_touch: - path: reason:
+repository\_patch: required: true patch\_type: selected\_goal\_seed\_update | phase\_focus\_update | stale\_doc\_flag | documentation\_refresh | other targets: - path: action: create | replace\_section | append\_section | update\_header | mark\_stale reason: content\_summary: freshness: validation\_anchors: do\_not\_touch: - path: reason:
 
 Never say “update relevant docs.” Name exact paths when available. If exact path is unknown, use Context Request or include a patch with `required: true` and `path: unknown` plus the minimum needed path request.
 
@@ -379,17 +379,17 @@ Required fields when true:
 
 documentation\_maintenance\_gate: required: true trigger: - selected\_phase\_focus\_changed | stale\_route\_label\_detected | conflicting\_phase\_docs | project\_file\_refresh\_needed | other required\_updates: - target: action: reason: stale\_terms\_detected: - term: recommended\_replacement: safe\_to\_continue\_without\_update: true | false
 
-## 12\. Project Files Refresh List contract
+## 12\. Changed Files / Context Refresh List contract
 
-Always include a Project Files Refresh List.
+Always include a Changed Files / Context Refresh List.
 
 If none:
 
-project\_files\_refresh\_list: required: false files: \[\] reason: "No Project Files refresh required for this G0 selection."
+changed\_files\_context\_refresh\_list: required: false files: \[\] reason: "No Context refresh required for this G0 selection."
 
 If required:
 
-project\_files\_refresh\_list: required: true files: - file: reason: action: refresh | inspect | no\_change urgency: blocking | nonblocking
+changed\_files\_context\_refresh\_list: required: true files: - file: reason: action: refresh | inspect | no\_change urgency: blocking | nonblocking
 
 ## 13\. Next Launch Card contract
 
@@ -453,10 +453,10 @@ Stable core fields must remain stable:
 *   selected\_goal\_seed;
 *   route;
 *   handoff;
-*   trilium\_patch;
+*   repository\_patch;
 *   execution\_log\_entry;
 *   documentation\_maintenance\_gate;
-*   project\_files\_refresh\_list;
+*   changed\_files\_context\_refresh\_list;
 *   blocking.
 
 Optional extensions are allowed under `extensions`.
@@ -485,9 +485,9 @@ Before final answer, check:
 *   Is the validation signal visible?
 *   Did you handle stale/conflicting context?
 *   Did you produce a complete handoff?
-*   Did you include Trilium Patch or explicit none?
+*   Did you include Repository Patch or explicit none?
 *   Did you include Execution Log Entry?
-*   Did you include Project Files Refresh List?
+*   Did you include Changed Files / Context Refresh List?
 *   Did you avoid doing G1, F0, P0, or review-stage work?
 
 If any check fails, revise before output.

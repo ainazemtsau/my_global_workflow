@@ -1,5 +1,5 @@
 # 07 Codex Project Setup Procedure
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 07 Codex Project Setup Procedure
 
@@ -48,9 +48,9 @@ This procedure MUST NOT:
 *   modify the current Step 7 stage-development order;
 *   modify Direction Project Files;
 *   overwrite old active Workflow vNext;
-*   treat memory as Trilium canon;
+*   treat memory as GitHub repository canon;
 *   treat raw chat logs as project memory;
-*   mirror Trilium into repo memory;
+*   mirror GitHub repository into repo memory;
 *   overwrite project-owned customization;
 *   infer technology-specific validation globally across all projects.
 
@@ -166,7 +166,7 @@ The contract is defined in:
 
 `04 Codex Bridge / 10 Memory Policy Contract`
 
-Memory is never Trilium canon.
+Memory is never GitHub repository canon.
 
 ### 6.4 AGENTS.md
 
@@ -188,7 +188,7 @@ It must not contain:
 *   Active Goal as canon;
 *   Wave Card as canon;
 *   raw chats;
-*   Trilium mirrors;
+*   GitHub repository mirrors;
 *   secrets;
 *   stale workflow exports.
 
@@ -278,7 +278,7 @@ For apply routes, Codex must write only previewed setup changes.
 
 ### Step 6 — Validate setup
 
-After setup writes, Codex must read back every created or updated setup artifact and verify:
+After setup writes, Codex must read repository files / verify diff or commit every created or updated setup artifact and verify:
 
 *   required fields exist;
 *   cross-links resolve;
@@ -340,7 +340,7 @@ tool_bindings:
 default_autonomy:
 default_validation:
 forbidden_content_check:
-  memory_contains_trilium_canon: true | false
+  memory_contains_repository_canon: true | false
   memory_contains_raw_chats: true | false
   memory_contains_direction_state_as_canon: true | false
 readback_validation:
@@ -373,7 +373,7 @@ Codex must return NEEDS\_INPUT or a Context Request when:
 A valid install of this note must preserve these anchors:
 
 *   “Project setup MUST run before Codex execution begins”
-*   “Memory is never Trilium canon”
+*   “Memory is never GitHub repository canon”
 *   “Workflow updates must not overwrite project-owned customization”
 *   “AGENTS.md is the repo-local durable instruction layer”
 *   “This procedure MUST NOT modify the current Step 7 stage-development order”
@@ -382,7 +382,7 @@ A valid install of this note must preserve these anchors:
 
 Project setup MUST run before Codex execution begins
 
-Memory is never Trilium canon
+Memory is never GitHub repository canon
 
 Workflow updates must not overwrite project-owned customization
 

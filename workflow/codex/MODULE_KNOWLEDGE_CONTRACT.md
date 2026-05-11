@@ -1,5 +1,5 @@
 # 12 Module Knowledge Contract
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01B — Module Governance Installed at: 2026-05-10T04:39:15.4794821+03:00 Source input: ChatGPT SA-01B installable package generated from user request on 2026-05-10 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01B — Module Governance Installed at: 2026-05-10T04:39:15.4794821+03:00 Source input: ChatGPT SA-01B installable package generated from user request on 2026-05-10 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 12 Module Knowledge Contract
 
@@ -67,7 +67,7 @@ Internal Module Knowledge must not be loaded for read-only dependency modules wi
 
 ### 2.3 Operational Evidence
 
-Operational Evidence includes test output, logs, build output, validator output, read-back, or diff evidence.
+Operational Evidence includes test output, logs, build output, validator output, file read-back / diff verification / commit verification, or diff evidence.
 
 Operational Evidence may be used to validate an editable module. For read-only dependencies, Codex may use public validation outputs only unless scope is expanded.
 

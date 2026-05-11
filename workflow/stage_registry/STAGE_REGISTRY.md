@@ -1,5 +1,5 @@
 # 00 Stage Interface Index
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 00 Stage Interface Index
 
@@ -57,7 +57,7 @@ The interface registry must remain compatible with these accepted rebuild contra
 *   Workflow / 20 Workflow vNext-R REBUILD / 03 Transport Templates / 02 Stage Result Packet Template
 *   Workflow / 20 Workflow vNext-R REBUILD / 03 Transport Templates / 03 Context Request Card Template
 *   Workflow / 20 Workflow vNext-R REBUILD / 03 Transport Templates / 04 Human Decision Card Template
-*   Workflow / 20 Workflow vNext-R REBUILD / 03 Transport Templates / 05 Trilium Patch Template
+*   Workflow / 20 Workflow vNext-R REBUILD / 03 Transport Templates / 05 Repository Patch Template
 *   Workflow / 20 Workflow vNext-R REBUILD / 03 Transport Templates / 06 Execution Log Entry Template
 *   Workflow / 20 Workflow vNext-R REBUILD / 03 Transport Templates / 07 Documentation Maintenance Gate Template
 *   Workflow / 20 Workflow vNext-R REBUILD / 03 Transport Templates / 08 Codex Wave Card Template
@@ -90,7 +90,7 @@ Required launch fields:
 *   allowed\_next\_stage\_set
 *   extension\_fields
 
-A stage must not require private internals from any previous stage. It may rely only on public packets, explicit context, Trilium read-back references, and user-provided material.
+A stage must not require private internals from any previous stage. It may rely only on public packets, explicit context, file read-back / diff verification / commit verification references, and user-provided material.
 
 ## Shared public output contract
 
@@ -135,9 +135,9 @@ Valid next\_route types:
 
 ## Shared write target policy
 
-Stages do not write directly to Trilium unless the Launch Card grants explicit write authority.
+Stages do not write directly to GitHub repository unless the Launch Card grants explicit write authority.
 
-When write authority is absent, a stage must emit a Trilium Patch Template or Codex Wave Card.
+When write authority is absent, a stage must emit a Repository Patch Template or Codex Wave Card.
 
 Permitted write target families:
 

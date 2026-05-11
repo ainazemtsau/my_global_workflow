@@ -1,5 +1,5 @@
 # 10 Memory Policy Contract
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 10 Memory Policy Contract
 
@@ -15,15 +15,15 @@ It governs:
 *   how memory is scoped;
 *   when memory may be updated;
 *   how stale memory is handled;
-*   how memory relates to AGENTS.md, Project Execution Profile, Validation Profile, and Trilium.
+*   how memory relates to AGENTS.md, Project Execution Profile, Validation Profile, and GitHub repository.
 
 ## 2\. Core rule
 
-Memory is never Trilium canon.
+Memory is never GitHub repository canon.
 
-Memory may help Codex remember stable technical facts about a repo or module. It must not become the canonical source for Direction state, Workflow state, Goal state, Phase state, Wave state, or Trilium content.
+Memory may help Codex remember stable technical facts about a repo or module. It must not become the canonical source for Direction state, Workflow state, Goal state, Phase state, Wave state, or GitHub repository content.
 
-Trilium canon must not be mirrored into memory.
+GitHub repository canon must not be mirrored into memory.
 
 ## 3\. Allowed memory content
 
@@ -62,8 +62,8 @@ Memory must not store any of the following as canon:
 *   Phase state;
 *   Stage Result Packet;
 *   raw chats;
-*   Trilium mirrors;
-*   Trilium note bodies copied wholesale;
+*   GitHub repository mirrors;
+*   GitHub repository file bodies copied wholesale;
 *   old workflow exports;
 *   raw Wave JSON as authoritative state;
 *   secrets;
@@ -76,7 +76,7 @@ Memory must not store any of the following as canon:
 *   user intent snapshots that should remain in Direction state;
 *   unresolved human decisions as if decided.
 
-Memory may include a pointer to a canonical Trilium note or Direction artifact only when the pointer is clearly non-canonical and does not copy the canonical content.
+Memory may include a pointer to a canonical GitHub repository file or Direction artifact only when the pointer is clearly non-canonical and does not copy the canonical content.
 
 ## 5\. AGENTS.md relationship
 
@@ -93,7 +93,7 @@ It may contain:
 *   project execution profile pointer;
 *   validation profile pointer.
 
-`AGENTS.md` must not become a Trilium mirror.
+`AGENTS.md` must not become a GitHub repository mirror.
 
 `AGENTS.md` must not store Direction State, Active Goal, or Wave Card as canon.
 
@@ -113,7 +113,7 @@ It must not contain:
 *   secrets unless the project’s secure configuration policy explicitly allows and protects them;
 *   canonical Direction State;
 *   raw chats;
-*   Trilium mirrors.
+*   GitHub repository mirrors.
 
 `.codex/config.toml` is optional and must not be created without a clear execution need.
 
@@ -169,7 +169,7 @@ staleness_triggers:
 owner:
 supersedes:
 superseded_by:
-canonicality_notice: This is technical memory only. It is not Trilium canon.
+canonicality_notice: This is technical memory only. It is not GitHub repository canon.
 
 ```
 
@@ -181,7 +181,7 @@ Codex may propose or write memory only when:
 *   the Memory Policy permits the memory type;
 *   the memory is technical and scoped;
 *   the memory is evidence-backed;
-*   the memory does not duplicate Trilium canon;
+*   the memory does not duplicate GitHub repository canon;
 *   project-owned customization is preserved;
 *   stale or superseded memory is marked rather than silently overwritten.
 
@@ -229,17 +229,17 @@ Forbidden example:
 *   storing a one-time failure as permanent truth without evidence;
 *   storing the current Wave Card as project memory.
 
-## 14\. Memory and Trilium
+## 14\. Memory and GitHub repository
 
-Memory may point to Trilium only as a non-canonical reference.
+Memory may point to GitHub repository only as a non-canonical reference.
 
 Allowed:
 
-*   “Canonical Direction state lives in Trilium; this memory does not reproduce it.”
+*   “Canonical Direction state lives in GitHub repository; this memory does not reproduce it.”
 
 Forbidden:
 
-*   copying Trilium note bodies into memory;
+*   copying GitHub repository file bodies into memory;
 *   using memory as the canonical location for Direction State;
 *   using memory as the canonical location for Active Goal;
 *   using memory as the canonical location for Wave Card.
@@ -248,9 +248,9 @@ Forbidden:
 
 A Memory Policy is invalid if it:
 
-*   treats memory as Trilium canon;
+*   treats memory as GitHub repository canon;
 *   allows raw chats as durable memory;
-*   allows Trilium mirrors;
+*   allows GitHub repository mirrors;
 *   allows Direction State as repo memory canon;
 *   allows Active Goal as repo memory canon;
 *   allows Wave Card as repo memory canon;
@@ -263,23 +263,23 @@ A Memory Policy is invalid if it:
 
 A valid install of this note must preserve these anchors:
 
-*   “Memory is never Trilium canon”
+*   “Memory is never GitHub repository canon”
 *   “Memory must not store Direction State, Active Goal, Wave Card as canon”
 *   “raw chats”
-*   “Trilium mirrors”
+*   “GitHub repository mirrors”
 *   “AGENTS.md is the repo-local durable instruction layer”
 *   “Workflow updates must not overwrite project-owned customization”
 *   “stale memory must not be silently used as current fact”
 
 ## Validation anchor note
 
-Memory is never Trilium canon
+Memory is never GitHub repository canon
 
 Memory must not store Direction State, Active Goal, Wave Card as canon
 
 raw chats
 
-Trilium mirrors
+GitHub repository mirrors
 
 AGENTS.md is the repo-local durable instruction layer
 

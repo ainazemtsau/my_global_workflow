@@ -1,5 +1,5 @@
 # 11 Module Map and Boundary Contract
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01B — Module Governance Installed at: 2026-05-10T04:39:15.4794821+03:00 Source input: ChatGPT SA-01B installable package generated from user request on 2026-05-10 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01B — Module Governance Installed at: 2026-05-10T04:39:15.4794821+03:00 Source input: ChatGPT SA-01B installable package generated from user request on 2026-05-10 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 11 Module Map and Boundary Contract
 
@@ -15,7 +15,7 @@ Codex must never silently edit unrelated modules, dependency modules, shared inf
 
 ## 2\. Scope
 
-This contract applies to Codex work that touches a repository, app, package, service, plugin, workflow component, Trilium-backed module, or any project divided into separately owned functional areas.
+This contract applies to Codex work that touches a repository, app, package, service, plugin, workflow component, GitHub repository-backed module, or any project divided into separately owned functional areas.
 
 It applies before future C1/C2 runtime prompts are finalized, but it is not a C1 or C2 prompt.
 
@@ -35,7 +35,7 @@ It governs:
 
 Before Codex edits a modular project, the active Codex Wave must identify its module scope.
 
-A Module Map is the authoritative project artifact that records module boundaries. It may live in Trilium, the repository, or both, but the Codex Wave Card must name the exact Module Map path or state that the Module Map is missing.
+A Module Map is the authoritative project artifact that records module boundaries. It may live in GitHub repository, the repository, or both, but the Codex Wave Card must name the exact Module Map path or state that the Module Map is missing.
 
 If the Module Map is missing and the project is clearly modular, Codex must not infer broad edit permission. It must either:
 
@@ -64,7 +64,7 @@ Each module entry must define:
 *   forbidden\_dependencies: modules, paths, APIs, private internals, or dependency directions this module must not use.
 *   editable\_paths: exact paths Codex may edit when this module is in editable scope.
 *   read\_only\_dependency\_paths: paths Codex may read when this module is only a dependency.
-*   validation\_rules: tests, checks, commands, read-back requirements, or manual checks needed after edits.
+*   validation\_rules: tests, checks, commands, file read-back / diff verification / commit verification requirements, or manual checks needed after edits.
 *   boundary\_change\_policy: what requires owner approval, scope expansion, or a Cross-Module Request.
 *   freshness: fresh, stale, unknown, or conflicting.
 *   last\_verified\_source: source of the latest boundary confirmation.

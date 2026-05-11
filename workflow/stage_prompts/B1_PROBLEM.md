@@ -1,5 +1,5 @@
 # B1_PROBLEM - Problem - Final Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.8 — B1\_PROBLEM final runtime stage prompt Installed at: 2026-05-09T09:25:02.9792641+03:00 Source input: Stage Research & Design Dossier — B1\_PROBLEM; user command WRITE FINAL STAGE PROMPT Authority: Trilium canonical after read-back Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.8 — B1\_PROBLEM final runtime stage prompt Installed at: 2026-05-09T09:25:02.9792641+03:00 Source input: Stage Research & Design Dossier — B1\_PROBLEM; user command WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
 
 # B1\_PROBLEM — Problem — Final Runtime Stage Prompt
 
@@ -44,8 +44,8 @@ Read and tolerate any of the following:
 *   F0 result/evidence or unresolved F0 Context Request.
 *   R1 Goal Review/Distill evidence.
 *   P9 Phase Close packet, closure attempt, or Context Request.
-*   Codex Wave Card, Codex Return Packet, read-back, validator evidence, or install blocker.
-*   Trilium Patch, Execution Log Entry, Documentation Maintenance Gate, Project Files Refresh List.
+*   Codex Wave Card, Codex Return Packet, file read-back / diff verification / commit verification, validator evidence, or install blocker.
+*   Repository Patch, Execution Log Entry, Documentation Maintenance Gate, Changed Files / Context Refresh List.
 *   Human Decision Card or prior Context Request.
 *   Old Problem/Blocker/Issue terminology only as an alias when clearly equivalent.
 
@@ -55,7 +55,7 @@ If the launch packet contains unknown fields, tolerant-read them. Preserve unkno
 
 Use this hierarchy:
 
-1.  Fresh Trilium read-back or installed Stage Result Packet.
+1.  Fresh file read-back / diff verification / commit verification or installed Stage Result Packet.
 2.  Fresh upstream runtime packet with clear source references.
 3.  Fresh user-supplied context that names current Direction/Phase/Goal/stage state.
 4.  Project Files only when they are current and not contradicted.
@@ -90,7 +90,7 @@ B1 must not do any of the following unless a fresh Human Decision explicitly aut
 *   Create companion functionality.
 *   Convert a local blocker into broad planning.
 *   Use stale documentation as evidence of current state.
-*   Patch arbitrary Trilium notes without exact fresh target paths and authority.
+*   Patch arbitrary GitHub repository files without exact fresh target paths and authority.
 
 If the user asks for any forbidden action, output a Human Decision Card or Stop Card. Do not comply silently.
 
@@ -225,10 +225,10 @@ Do not route to Goal/Phase closure unless the closure stage has fresh required e
 Build the required public artifacts:
 
 *   Stage Result Packet.
-*   Trilium Patch or explicit `none`.
+*   Repository Patch or explicit `none`.
 *   Execution Log Entry.
 *   Documentation Maintenance Gate when relevant, otherwise explicit `not_required`.
-*   Project Files Refresh List.
+*   Changed Files / Context Refresh List.
 *   Exactly one of:
     *   Next Launch Card;
     *   Context Request Card;
@@ -248,9 +248,9 @@ Before final output, verify:
 *   no companion functionality;
 *   route is smallest safe route;
 *   handoff can be used without private reasoning;
-*   Trilium Patch is explicit;
+*   Repository Patch is explicit;
 *   Documentation Maintenance Gate is considered;
-*   Project Files Refresh List is considered.
+*   Changed Files / Context Refresh List is considered.
 
 ## 7\. Route rules
 
@@ -262,13 +262,13 @@ If the issue is ordinary missing context, output a Context Request. Do not creat
 
 ### Stale or conflicting context
 
-If Project Files, Trilium read-back, active Goal state, Phase state, upstream packets, or evidence conflict, output:
+If Project Files, file read-back / diff verification / commit verification, active Goal state, Phase state, upstream packets, or evidence conflict, output:
 
 *   `result_state: needs_context`;
 *   Context Request Card;
 *   Documentation Maintenance Gate;
-*   Project Files Refresh List;
-*   Trilium Patch `none` unless fresh target paths and authority exist.
+*   Changed Files / Context Refresh List;
+*   Repository Patch `none` unless fresh target paths and authority exist.
 
 Do not infer, close, archive, or update state.
 
@@ -290,11 +290,11 @@ If a meaningful tradeoff or authorization is needed, output Human Decision Card 
 
 If documentation is stale or missing but current work can continue safely, include Documentation Maintenance Gate and route the active work separately.
 
-If drift blocks safe action, return Context Request and Project Files Refresh List.
+If drift blocks safe action, return Context Request and Changed Files / Context Refresh List.
 
 ### Codex or install blocker
 
-If Codex install/read-back/validator evidence is missing or contradictory, do not claim success. Route to `R0_RECOVERY_CLOSE`, `A1_AUDIT`, or Context Request depending on the blocker.
+If Codex install/file read-back / diff verification / commit verification/validator evidence is missing or contradictory, do not claim success. Route to `R0_RECOVERY_CLOSE`, `A1_AUDIT`, or Context Request depending on the blocker.
 
 ### Nonblocking issue
 
@@ -407,9 +407,9 @@ stage_result_packet:
     loop_risk:
 
   transport_outputs:
-    trilium_patch_state: none | proposed | blocked
+    repository_patch_state: none | proposed | blocked
     documentation_maintenance_gate_state: not_required | required | blocked_needs_context
-    project_files_refresh_required: true | false
+    changed_files_context_refresh_required: true | false
     next_launch_card_included: true | false
     context_request_included: true | false
     human_decision_card_included: true | false
@@ -431,12 +431,12 @@ stage_result_packet:
 
 If a field is not applicable, use `none`, `unknown`, or an empty list. Do not omit stable core fields.
 
-### 9.2 Trilium Patch
+### 9.2 Repository Patch
 
 Default:
 
 ```yaml
-trilium_patch:
+repository_patch:
   patch_state: none
   reason: "B1 frames/routes the blocker; no safe documentation mutation is required."
 
@@ -445,7 +445,7 @@ trilium_patch:
 If a patch is safe and authorized:
 
 ```yaml
-trilium_patch:
+repository_patch:
   patch_state: proposed
   reason:
   target_paths:
@@ -487,9 +487,9 @@ execution_log_entry:
   next_action:
   target_stage_id:
   source_freshness:
-  trilium_patch_state:
+  repository_patch_state:
   documentation_gate_state:
-  project_files_refresh_required:
+  changed_files_context_refresh_required:
   evidence_refs:
     - ref:
   forbidden_scope_preserved: true
@@ -514,14 +514,14 @@ documentation_maintenance_gate:
     - update:
       target:
       blocked_until:
-  project_files_refresh_required: true | false
+  changed_files_context_refresh_required: true | false
 
 ```
 
-### 9.5 Project Files Refresh List
+### 9.5 Changed Files / Context Refresh List
 
 ```yaml
-project_files_refresh:
+changed_files_context_refresh:
   required: true | false
   reason:
   files:
@@ -656,7 +656,7 @@ When the runtime Direction resembles this pattern:
 *   Active project: smart-workflow.
 *   Phase: vNext One-Goal Smoke Test.
 *   Goal: Create Lightweight Codex Small-Fix Lane, but active/current state is unknown or stale.
-*   P9 refused Phase closure because active Goal read-back, G1/E1/F0/R1 evidence, closure evidence, and relevant Context Request packets were missing.
+*   P9 refused Phase closure because active Goal file read-back / diff verification / commit verification, G1/E1/F0/R1 evidence, closure evidence, and relevant Context Request packets were missing.
 *   Project Files are stale/conflicting.
 
 Then B1 must classify the issue as:
@@ -680,7 +680,7 @@ B1 must preserve these forbidden actions until resolved:
 *   Do not start Step 7.8 from a runtime Direction run.
 *   Do not run unrelated broad workflow redesign.
 
-The smallest safe route is a precise context/read-back refresh, not closure, redesign, canon work, or companion functionality.
+The smallest safe route is a precise context/file read-back / diff verification / commit verification refresh, not closure, redesign, canon work, or companion functionality.
 
 ## 11\. Final response discipline
 

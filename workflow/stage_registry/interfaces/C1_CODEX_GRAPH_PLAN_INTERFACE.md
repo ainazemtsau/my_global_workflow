@@ -1,5 +1,5 @@
 # 11 C1 Codex Graph Plan Interface
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 11 C1 Codex Graph Plan Interface
 
@@ -9,7 +9,7 @@ Interface version: stage-interface-v0.1 Stage ID: C1 Stage name: Codex Graph Pla
 
 C1 converts an Execution Brief into a Codex-ready graph plan and wave card draft.
 
-C1 plans Codex work. It does not execute repository or Trilium writes.
+C1 plans Codex work. It does not execute repository or GitHub repository writes.
 
 ## Public input contract
 
@@ -17,7 +17,7 @@ Required inputs:
 
 *   Stage Launch Card targeting C1.
 *   Execution Brief or equivalent implementation goal.
-*   Target repository, Trilium root, or filesystem scope.
+*   Target repository, GitHub repository root, or filesystem scope.
 *   Allowed tools and forbidden paths.
 *   Evidence and validator expectations.
 *   Rollback expectations.
@@ -81,7 +81,7 @@ C1 may propose or write only to authorized Codex planning targets:
 *   Codex bridge mode: \[authorized Codex wave record path from Launch Card\]
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 
-C1 must not apply code patches, write Trilium changes, or claim implementation completion.
+C1 must not apply code patches, write GitHub repository changes, or claim implementation completion.
 
 ## Compatibility/core/extensions rules
 

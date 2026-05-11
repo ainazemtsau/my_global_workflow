@@ -1,11 +1,11 @@
 # 07 Documentation Maintenance Gate Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 07 Documentation Maintenance Gate Template
 
 ## Purpose
 
-A Documentation Maintenance Gate determines whether a stage result requires Trilium documentation updates, Project File refresh, stale marking, or no write action.
+A Documentation Maintenance Gate determines whether a stage result requires GitHub repository documentation updates, Context refresh, stale marking, or no write action.
 
 It prevents documentation drift by making maintenance a formal gate instead of an afterthought.
 
@@ -18,7 +18,7 @@ This is a transport template only. It is not a final stage prompt.
 *   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
 *   The gate must distinguish proposed documentation changes from applied documentation changes.
 *   Do not overwrite active Workflow vNext.
-*   Project File refresh must be explicit and must name exact file content or exact update block.
+*   Context refresh must be explicit and must name exact file content or exact update block.
 
 ## Required fields
 
@@ -29,8 +29,8 @@ This is a transport template only. It is not a final stage prompt.
 *   `source_stage`
 *   `change_summary`
 *   `documentation_impact`
-*   `trilium_patch`
-*   `project_files_refresh`
+*   `repository_patch`
+*   `changed_files_context_refresh`
 *   `staleness_review`
 *   `decision`
 *   `downstream_usage`
@@ -60,13 +60,13 @@ change_summary:
     - path:
 
 documentation_impact:
-  trilium_update_needed: true | false
+  repository_update_needed: true | false
   project_file_update_needed: true | false
   stale_marking_needed: true | false
   install_log_needed: true | false
   no_update_reason:
 
-trilium_patch:
+repository_patch:
   required: true | false
   patch_ref:
   inline_patch:
@@ -74,7 +74,7 @@ trilium_patch:
     - path:
   human_approval_required_before_apply: true | false
 
-project_files_refresh:
+changed_files_context_refresh:
   required: true | false
   files:
     - file:
@@ -108,12 +108,12 @@ downstream_usage:
     - human manual checker
     - future review/distill stages
   expected_next_artifact:
-    - Trilium Patch Template
+    - Repository Patch Template
     - Human Decision Card
     - Context Request Card
     - Stage Result Packet continuation
   validation_notes:
-    - Gate must not claim documentation was updated unless read-back or explicit installation evidence exists.
+    - Gate must not claim documentation was updated unless file read-back / diff verification / commit verification or explicit installation evidence exists.
     - Consumers may ignore unknown extension fields.
 
 extensions: {}
@@ -129,5 +129,5 @@ The Documentation Maintenance Gate is consumed by the runtime router, Codex inst
 *   `documentation_maintenance_gate: 1`
 *   `HTML is forbidden as transport.`
 *   `Unknown extension handling`
-*   `project_files_refresh`
+*   `changed_files_context_refresh`
 *   `downstream_usage`

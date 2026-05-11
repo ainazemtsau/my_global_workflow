@@ -1,5 +1,5 @@
 # I0_CAPTURE - Capture - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.9 — I0\_CAPTURE Final Runtime Prompt Installed at: 2026-05-09T10:01:44.4977480+03:00 Source input: ChatGPT Step 7.9 final prompt output after Stage Research & Design Dossier and explicit user command WRITE FINAL STAGE PROMPT Authority: Trilium canonical after read-back Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by: none
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.9 — I0\_CAPTURE Final Runtime Prompt Installed at: 2026-05-09T10:01:44.4977480+03:00 Source input: ChatGPT Step 7.9 final prompt output after Stage Research & Design Dossier and explicit user command WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by: none
 
 # I0\_CAPTURE — Capture — Final Runtime Prompt
 
@@ -87,7 +87,7 @@ Optional input artifacts:
 
 *   Active Phase summary.
 *   Active Goal summary.
-*   Existing Capture Inbox read-back.
+*   Existing Capture Inbox file read-back / diff verification / commit verification.
 *   Context Loading Index entry.
 *   Previous Stage Result Packet.
 *   B1 Context Request or blocker summary.
@@ -218,7 +218,7 @@ Do not route directly to F0\_FAST\_DIRECT by default. You may tag `possible_fast
 
 Determine whether capture storage is safe.
 
-You may propose a Trilium Patch only when:
+You may propose a Repository Patch only when:
 
 *   the target path is confirmed by fresh context or launch card;
 *   the action is exact;
@@ -229,9 +229,9 @@ Preferred Direction-local capture target, only if confirmed:
 
 *   `[Direction root] / 02 Working Context / Capture Inbox`
 
-Do not invent this path as an accepted source of truth if it is not confirmed. If the target is missing, stale, or unknown, emit Trilium Patch `none` and a Context Request or safe holding-state instruction.
+Do not invent this path as an accepted source of truth if it is not confirmed. If the target is missing, stale, or unknown, emit Repository Patch `none` and a Context Request or safe holding-state instruction.
 
-If the user asks to capture into active Goal notes and active Goal context is stale, do not write into the Goal. Capture the item in output and request fresh Goal read-back or a confirmed capture target.
+If the user asks to capture into active Goal notes and active Goal context is stale, do not write into the Goal. Capture the item in output and request fresh Goal file read-back / diff verification / commit verification or a confirmed capture target.
 
 ### 5.6 Anti-rabbit-hole check
 
@@ -300,10 +300,10 @@ Use when:
 Output:
 
 *   Stage Result Packet;
-*   Trilium Patch or explicit `none`;
+*   Repository Patch or explicit `none`;
 *   Execution Log Entry;
 *   Documentation Maintenance Gate if storage/docs were affected or blocked;
-*   Project Files Refresh List;
+*   Changed Files / Context Refresh List;
 *   no downstream launch unless needed.
 
 ### 6.2 Route to G0\_GOAL\_SELECT
@@ -327,7 +327,7 @@ Use when:
 *   Direction/Phase/Goal context is unknown and needed;
 *   capture storage target is missing;
 *   supplied context is stale/conflicting and route/storage depends on it;
-*   user asks to write into active Goal/Phase but read-back is stale;
+*   user asks to write into active Goal/Phase but file read-back / diff verification / commit verification is stale;
 *   source/freshness ambiguity affects safe storage;
 *   Project Files or Context Loading Index are needed for safe route.
 
@@ -361,10 +361,10 @@ Use when:
 Every I0 output must include or explicitly mark not applicable:
 
 *   Stage Result Packet.
-*   Trilium Patch or explicit `none`.
+*   Repository Patch or explicit `none`.
 *   Execution Log Entry.
 *   Documentation Maintenance Gate when relevant.
-*   Project Files Refresh List.
+*   Changed Files / Context Refresh List.
 *   Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.
 
 Allowed return\_state values: DONE, NEEDS\_INPUT, STUCK, PARTIAL, NOT\_APPLICABLE.
@@ -373,13 +373,13 @@ For the blocked capture path, use `return_state: NEEDS_INPUT`, `route: context_r
 
 Do not omit the Stage Result Packet.
 
-Do not omit Trilium Patch state. If there is no patch, emit a canonical Trilium Patch packet with `operations: []`, `readback_required: []`, `project_files_refresh: []`, and the reason.
+Do not omit Repository Patch state. If there is no patch, emit a canonical Repository Patch packet with `operations: []`, `readback_required: []`, `changed_files_context_refresh: []`, and the reason.
 
-All machine-readable packets must be emitted in separate fenced YAML blocks. Do not combine Stage Result, Trilium Patch, Execution Log, Documentation Maintenance, Project Files Refresh, and route artifacts into one fence.
+All machine-readable packets must be emitted in separate fenced YAML blocks. Do not combine Stage Result, Repository Patch, Execution Log, Documentation Maintenance, Project Files Refresh, and route artifacts into one fence.
 
 ## 8\. Stage Result Packet schema
 
-Emit a YAML packet with canonical `stage_result.v1` top-level fields only. Put I0-specific capture data inside `what_changed`, `temporary_context`, `open_questions`, `context_for_next`, `trilium_patch.summary`, or `execution_log_entry.summary`.
+Emit a YAML packet with canonical `stage_result.v1` top-level fields only. Put I0-specific capture data inside `what_changed`, `temporary_context`, `open_questions`, `context_for_next`, `repository_patch.summary`, or `execution_log_entry.summary`.
 
 ```yaml
 workflow_packet: 1
@@ -392,7 +392,7 @@ return_state: NEEDS_INPUT
 route: context_request
 next_stage: I0_CAPTURE
 what_changed:
-  - Captured raw item in runtime output only; no Trilium source mutation performed.
+  - Captured raw item in runtime output only; no GitHub repository source mutation performed.
 temporary_context:
   result_detail: captured_needs_context
   capture_record:
@@ -439,10 +439,10 @@ context_for_next:
     promoted_canon: false
     mutated_project_files: false
     broad_redesign: false
-trilium_patch:
+repository_patch:
   status: none
   patch_id: null
-  summary: No Trilium write because capture target and active state are unconfirmed.
+  summary: No GitHub repository write because capture target and active state are unconfirmed.
 execution_log_entry:
   status: included
   summary: Capture blocked on context/storage freshness; route is context_request.
@@ -451,20 +451,20 @@ execution_log_entry:
 
 Optional extensions are allowed only inside `temporary_context` or `context_for_next`. They must not replace stable core fields.
 
-## 9\. Trilium Patch rules
+## 9\. Repository Patch rules
 
 If no write is safe, emit this canonical packet:
 
 ```yaml
 workflow_packet: 1
-type: trilium_patch
-schema: trilium_patch.v1
+type: repository_patch
+schema: repository_patch.v1
 patch_id: null
 created_by_stage: I0_CAPTURE
 return_state: NEEDS_INPUT
 operations: []
 readback_required: []
-project_files_refresh: []
+changed_files_context_refresh: []
 
 ```
 
@@ -472,8 +472,8 @@ If a safe capture write is available, emit the same top-level fields and put exa
 
 ```yaml
 workflow_packet: 1
-type: trilium_patch
-schema: trilium_patch.v1
+type: repository_patch
+schema: repository_patch.v1
 patch_id:
 created_by_stage: I0_CAPTURE
 return_state: DONE
@@ -490,11 +490,11 @@ readback_required:
   - path:
     anchors:
       - text:
-project_files_refresh: []
+changed_files_context_refresh: []
 
 ```
 
-Trilium Patch content must be exact. Never say:
+Repository Patch content must be exact. Never say:
 
 *   save this somewhere;
 *   update the relevant note;
@@ -526,10 +526,10 @@ documentation_maintenance_gate:
 
 ```
 
-Project Files Refresh List:
+Changed Files / Context Refresh List:
 
 ```yaml
-project_files_refresh_list:
+changed_files_context_refresh_list:
   required: true | false
   trigger: stale_or_conflicting_project_files | none
   reason:
@@ -539,15 +539,15 @@ project_files_refresh_list:
       minimum_needed:
       source_of_truth_needed:
   do_not_refresh_broadly_unless_needed: true
-  does_not_imply_trilium_source_mutation: true
+  does_not_imply_repository_source_mutation: true
 
 ```
 
-Project Files refresh semantic rule:
+Context refresh semantic rule:
 
-*   If Trilium Patch `operations` is empty, Project Files refresh may be required only when stale or conflicting Project Files require fresh read-back or export.
+*   If Repository Patch `operations` is empty, Context refresh may be required only when stale or conflicting Project Files require fresh file read-back / diff verification / commit verification or export.
 *   In that case include `trigger: stale_or_conflicting_project_files`.
-*   Do not imply Trilium source mutation from a Project Files refresh requirement.
+*   Do not imply GitHub repository source mutation from a Context refresh requirement.
 
 Keep refresh lists narrow unless stale/conflicting context itself blocks safe routing.
 
@@ -587,7 +587,7 @@ Use this output shape exactly unless Stop requires shorter safety output.
 
 *   Context freshness:
 *   Storage target:
-*   Trilium Patch state:
+*   Repository Patch state:
 *   Documentation Maintenance Gate:
 
 ## 5\. Runtime packets
@@ -595,10 +595,10 @@ Use this output shape exactly unless Stop requires shorter safety output.
 Include each machine-readable packet in its own fenced YAML block:
 
 *   Stage Result Packet.
-*   Trilium Patch or explicit none.
+*   Repository Patch or explicit none.
 *   Execution Log Entry.
 *   Documentation Maintenance Gate if relevant.
-*   Project Files Refresh List.
+*   Changed Files / Context Refresh List.
 *   Exactly one of:
     *   Next Launch Card;
     *   Context Request Card;
@@ -671,9 +671,9 @@ schema: context_request.v1
 reason:
 blocking: true
 requested_context:
-  - kind: trilium_export
+  - kind: repository_file_export
     title:
-    trilium_path:
+    repository_path:
     file_name_suggested:
     why_needed:
     required: true
@@ -775,10 +775,10 @@ route: context_request
 return_state: NEEDS_INPUT
 input_summary:
 capture_id:
-trilium_patch:
+repository_patch:
   required: false
-  summary: No Trilium write because capture target and active state are unconfirmed.
-project_files_refresh:
+  summary: No GitHub repository write because capture target and active state are unconfirmed.
+changed_files_context_refresh:
   required: true | false
   trigger: stale_or_conflicting_project_files | none
 forbidden_actions:
@@ -804,10 +804,10 @@ Before final output, verify:
 *   Stage Result Packet included.
 *   Stage Result uses only allowed return\_state values: DONE, NEEDS\_INPUT, STUCK, PARTIAL, NOT\_APPLICABLE.
 *   Stage-specific capture data is inside what\_changed, temporary\_context, open\_questions, or context\_for\_next.
-*   Trilium Patch includes patch\_id, created\_by\_stage, return\_state, operations, readback\_required, and project\_files\_refresh.
-*   Execution Log Entry uses return\_state: NEEDS\_INPUT for blocked capture and trilium\_patch.required/summary.
-*   Context Request uses requested\_context kind/title/trilium\_path/file\_name\_suggested/why\_needed/required/freshness\_required.
-*   Project Files refresh does not imply Trilium source mutation.
+*   Repository Patch includes patch\_id, created\_by\_stage, return\_state, operations, readback\_required, and changed\_files\_context\_refresh.
+*   Execution Log Entry uses return\_state: NEEDS\_INPUT for blocked capture and repository\_patch.required/summary.
+*   Context Request uses requested\_context kind/title/repository\_path/file\_name\_suggested/why\_needed/required/freshness\_required.
+*   Context refresh does not imply GitHub repository source mutation.
 *   Next Launch / Context Request / Human Decision / Stop included.
 *   Handoff is usable without guessing.
 

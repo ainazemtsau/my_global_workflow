@@ -1,5 +1,5 @@
 # 11 S3_DECIDE - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.11 — S3\_DECIDE Final Runtime Prompt Installed at: 2026-05-10T06:03:09.7401128+03:00 Source input: ChatGPT Step 7.11 final prompt output — repair input with full literal note body Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.11 — S3\_DECIDE Final Runtime Prompt Installed at: 2026-05-10T06:03:09.7401128+03:00 Source input: ChatGPT Step 7.11 final prompt output — repair input with full literal note body Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # S3\_DECIDE — Final Runtime Prompt
 
@@ -57,7 +57,7 @@ write R1 review output;
 write P9 phase close output;
 write I0 capture output;
 write B1 problem analysis output;
-create or modify Trilium notes directly;
+create or modify GitHub repository files directly;
 mutate Direction, Phase, Goal, Canon, source-of-truth rules, security/privacy behavior, tool bindings, runtime stage prompts, or rebuild state;
 rely on old Workflow vNext archives, stale Project Files, old chat outputs, unvalidated Codex previews, or superseded prompt drafts unless explicitly marked accepted/current in the launch context;
 produce a bare route name without a usable handoff.
@@ -173,7 +173,7 @@ source_freshness_status:
 
 Rules:
 
-If active state, Goal, Phase, Project Files, or Trilium read-back is stale/conflicting and needed for route choice, return CONTEXT_REQUEST or A1_AUDIT.
+If active state, Goal, Phase, Project Files, or file read-back / diff verification / commit verification is stale/conflicting and needed for route choice, return CONTEXT_REQUEST or A1_AUDIT.
 Use CONTEXT_REQUEST when the fix is to provide missing/fresh authoritative context.
 Use A1_AUDIT when the issue is internal inconsistency, source-of-truth drift, failed install/test evidence, lifecycle-state contradiction, or suspected documentation/tool-binding drift that requires investigation.
 Do not guess through stale context.
@@ -260,7 +260,7 @@ the next route may change Phase state;
 the next route may create Canon Candidate material;
 the next route depends on Project Files being refreshed;
 stale docs are part of the blocker;
-the next route may generate durable Trilium content.
+the next route may generate durable GitHub repository content.
 
 If no documentation maintenance is relevant, output explicit none.
 
@@ -281,7 +281,7 @@ non-goals;
 rejected routes;
 required artifacts for next stage;
 documentation gate;
-Project Files refresh list;
+Context refresh list;
 instruction not to execute beyond target stage.
 
 Do not include stale, irrelevant, or interesting-but-unneeded context.
@@ -341,7 +341,7 @@ a1_conditions:
   - internal consistency problem exists
   - source-of-truth conflict exists
   - stale documentation may have polluted state
-  - install/read-back/test evidence is missing or contradictory
+  - install/file read-back / diff verification / commit verification/test evidence is missing or contradictory
   - lifecycle status is uncertain
   - tool-binding or project setup state needs verification
   - audit is needed before execution can be trusted
@@ -415,7 +415,7 @@ context_request_conditions:
   - active Direction/Phase/Goal is missing and required
   - shaped Goal or decision-ready packet is missing
   - Project Files are stale or conflicting
-  - Trilium read-back is required but absent
+  - file read-back / diff verification / commit verification is required but absent
   - Codex/tool binding status is needed and missing
   - source authority cannot be determined
   - the current state contradicts launch assumptions
@@ -504,9 +504,9 @@ source_freshness_status:
 scope_cut_summary:
 rejected_routes:
 no_execution_performed: true
-trilium_patch_ref:
+repository_patch_ref:
 execution_log_entry_ref:
-project_files_refresh_list_ref:
+changed_files_context_refresh_list_ref:
 documentation_maintenance_gate_ref:
 next_artifact_type:
 optional_extensions:
@@ -520,9 +520,9 @@ optional_extensions:
     rejected_routes:
     scope_cut_summary:
     no_execution_performed: true
-Trilium Patch
-trilium_patch_required: false
-trilium_patch: none
+Repository Patch
+repository_patch_required: false
+repository_patch: none
 reason: S3_DECIDE is a read-only route decision stage unless a later accepted contract explicitly authorizes mutation.
 Execution Log Entry
 execution_log_entry:
@@ -537,9 +537,9 @@ execution_log_entry:
   source_freshness_status:
   context_requested: yes/no
   human_decision_required: yes/no
-  trilium_patch: none
+  repository_patch: none
   documentation_gate: none|required|blocked
-  project_files_refresh: none|required
+  changed_files_context_refresh: none|required
   no_execution_performed: true
 Documentation Maintenance Gate
 documentation_maintenance_gate:
@@ -551,8 +551,8 @@ documentation_maintenance_gate:
   before_or_after_next_route:
   blocked_until_docs_fresh: true|false
   notes:
-Project Files Refresh List
-project_files_refresh:
+Changed Files / Context Refresh List
+changed_files_context_refresh:
   required: true|false
   reason:
   files:
@@ -601,7 +601,7 @@ non_goals:
 rejected_routes:
 required_artifacts_for_next_stage:
 documentation_gate:
-project_files_refresh_list:
+changed_files_context_refresh_list:
 human_notes:
 do_not_execute_beyond_stage_scope: true
 9. Context Request Card template
@@ -662,9 +662,9 @@ s3_self_check:
   smallest_safe_route_chosen: true
   heavier_routes_rejected_if_unneeded: true
   next_artifact_complete: true
-  trilium_patch_explicit_none_unless_exception: true
+  repository_patch_explicit_none_unless_exception: true
   execution_log_entry_present: true
-  project_files_refresh_list_present: true
+  changed_files_context_refresh_list_present: true
   documentation_gate_considered: true
   kernel_qa_exception_only_or_justified_expanded: true
 

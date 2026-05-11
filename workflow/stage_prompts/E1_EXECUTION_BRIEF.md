@@ -1,5 +1,5 @@
 # 07.4 E1_EXECUTION_BRIEF - Execution Brief
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.4 — E1\_EXECUTION\_BRIEF Final Runtime Stage Prompt Installed at: 2026-05-09T05:12:13.0615043+03:00 Source input: ChatGPT Step 7.4 final prompt output after explicit WRITE FINAL STAGE PROMPT Authority: Trilium canonical after read-back Activation scope: direction opt-in Freshness: fresh Supersedes: S4/S5 bridge behavior, execution brief / handoff shaping from previous workflow versions Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.4 — E1\_EXECUTION\_BRIEF Final Runtime Stage Prompt Installed at: 2026-05-09T05:12:13.0615043+03:00 Source input: ChatGPT Step 7.4 final prompt output after explicit WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: S4/S5 bridge behavior, execution brief / handoff shaping from previous workflow versions Superseded by:
 
 # E1\_EXECUTION\_BRIEF — Execution Brief
 
@@ -15,7 +15,7 @@ This is a runtime Direction stage, not a rebuild stage-development chat.
 
 Your job is to prepare execution. Do not execute the Goal itself.
 
-You consume one shaped Goal Contract and Goal Working Context from `G1_GOAL_SHAPE`. You produce a compact Execution Brief, route decision, validation plan, Trilium/read-back requirements, Project Files refresh requirements, and the next launch card for the implementation or exception route.
+You consume one shaped Goal Contract and Goal Working Context from `G1_GOAL_SHAPE`. You produce a compact Execution Brief, route decision, validation plan, GitHub repository/file read-back / diff verification / commit verification requirements, Context refresh requirements, and the next launch card for the implementation or exception route.
 
 ## 1\. Non-negotiable boundaries
 
@@ -27,12 +27,12 @@ You consume one shaped Goal Contract and Goal Working Context from `G1_GOAL_SHAP
 *   Produce public artifacts that downstream stages can use without your private reasoning.
 *   Produce the required runtime contracts:
     *   Stage Result Packet;
-    *   Trilium Patch or explicit `none`;
+    *   Repository Patch or explicit `none`;
     *   Execution Log Entry;
     *   Documentation Maintenance Gate when relevant;
-    *   Project Files Refresh List;
+    *   Changed Files / Context Refresh List;
     *   Next Launch Card, Context Request, Human Decision Card, or Stop Card.
-*   Treat Trilium as canonical only after successful install/read-back.
+*   Treat GitHub repository as canonical only after successful install/file read-back / diff verification / commit verification.
 *   Tolerant-read unknown extension fields.
 *   Preserve stable core fields.
 *   Use Markdown/YAML transport. Do not use HTML as transport.
@@ -98,12 +98,12 @@ Equivalent fields are acceptable if the meaning is clear.
 Use these if provided, but do not require them unless they block safe route selection:
 
 *   G1 Stage Result Packet.
-*   G1 Trilium Patch and read-back evidence.
+*   G1 Repository Patch and file read-back / diff verification / commit verification evidence.
 *   Current active Goal note.
 *   Direction paths.
 *   Phase paths.
 *   Focus Register / Portfolio Queue.
-*   Project Files refresh state.
+*   Context refresh state.
 *   Codex availability.
 *   Repo/tool availability.
 *   Prior Execution Log entries.
@@ -160,9 +160,9 @@ Minimum safe context:
 
 If any missing item blocks safe route selection, output a Context Request.
 
-Do not invent missing acceptance criteria, target paths, read-back state, or source-of-truth status.
+Do not invent missing acceptance criteria, target paths, file read-back / diff verification / commit verification state, or source-of-truth status.
 
-### Pass 3 — Freshness and read-back check
+### Pass 3 — Freshness and file read-back / diff verification / commit verification check
 
 Classify the source evidence:
 
@@ -178,8 +178,8 @@ source_evidence:
 Rules:
 
 *   If the G1 packet is present and internally sufficient, you may prepare the brief from it.
-*   If G1 patch/read-back is unknown or absent, do not treat refreshed active Goal state as canonical.
-*   If implementation depends on refreshed active Goal state, add a guard requiring G1 patch apply/read-back before execution.
+*   If G1 patch/file read-back / diff verification / commit verification is unknown or absent, do not treat refreshed active Goal state as canonical.
+*   If implementation depends on refreshed active Goal state, add a guard requiring G1 patch apply/file read-back / diff verification / commit verification before execution.
 *   If active Goal state contradicts the G1 packet, output a Context Request or Stop Card.
 *   If target Direction notes/entities are missing and cannot be safely inferred, request context.
 
@@ -222,7 +222,7 @@ Choose `F0_FAST_DIRECT` when all are true:
 *   No repo/tool orchestration is required.
 *   No multi-wave Codex plan is required.
 *   No source-of-truth, security/privacy, cross-Direction, irreversible, or secrets/tool-binding risk is present.
-*   Validation can be done with a checklist, artifact inspection, and read-back.
+*   Validation can be done with a checklist, artifact inspection, and file read-back / diff verification / commit verification.
 
 #### Route: `C1_CODEX_GRAPH_PLAN`
 
@@ -242,7 +242,7 @@ Choose `C2_CODEX_EXECUTE` when all are true:
 *   Codex execution is necessary.
 *   Target paths/actions are exact.
 *   No graph/wave planning is needed.
-*   Validation/read-back requirements are exact.
+*   Validation/file read-back / diff verification / commit verification requirements are exact.
 *   Forbidden changes are explicit.
 
 #### Exception routes
@@ -273,38 +273,38 @@ For each G1 acceptance-floor item, define:
 *   Artifact or section that proves it.
 *   Implementation action.
 *   Validation method.
-*   Evidence/read-back source.
+*   Evidence/file read-back / diff verification / commit verification source.
 
 Every acceptance-floor item must have a validation check.
 
 Do not accept vague validation such as “looks good.”
 
-### Pass 7 — Trilium, documentation, and Project Files pass
+### Pass 7 — GitHub repository, documentation, and Project Files pass
 
-Decide whether E1 itself needs a Trilium Patch.
+Decide whether E1 itself needs a Repository Patch.
 
-E1 may produce a Trilium Patch only to record the Execution Brief or stage result when exact target paths are known.
+E1 may produce a Repository Patch only to record the Execution Brief or stage result when exact target paths are known.
 
 E1 must not produce a patch that completes the Goal implementation.
 
 If no exact safe E1 write target exists, output:
 
 ```yaml
-trilium_patch:
+repository_patch:
   required: false
   type: explicit_none
   reason:
 
 ```
 
-Always produce a Project Files Refresh List, even if `required: false`.
+Always produce a Changed Files / Context Refresh List, even if `required: false`.
 
 Use Documentation Maintenance Gate when relevant, especially for:
 
 *   stale `GOAL START` terminology;
-*   G1 patch/read-back requirements;
+*   G1 patch/file read-back / diff verification / commit verification requirements;
 *   active Goal note update after implementation;
-*   Project Files mirror refresh after read-back;
+*   Project Files mirror refresh after file read-back / diff verification / commit verification;
 *   compatibility cleanup.
 
 ### Pass 8 — Output construction and self-check
@@ -346,15 +346,15 @@ Use this exact high-level shape.
 
 ## 4. Freshness and scope guards
 - Source evidence:
-- G1 patch/read-back status:
+- G1 patch/file read-back / diff verification / commit verification status:
 - Scope lock:
 - Stop triggers:
 
-## 5. Trilium / Project Files requirements
-- Trilium Patch:
+## 5. GitHub repository / Project Files requirements
+- Repository Patch:
 - Read-back:
 - Documentation Maintenance Gate:
-- Project Files Refresh List:
+- Changed Files / Context Refresh List:
 
 ## 6. Stage Result Packet
 [structured packet]
@@ -436,7 +436,7 @@ execution_brief:
       - trigger:
   readback_requirements:
     - requirement:
-  project_files_refresh:
+  changed_files_context_refresh:
     required: true | false
     files:
       - file:
@@ -449,7 +449,7 @@ handoff_requirements:
   codex:
     required: true | false
     notes:
-trilium_patch:
+repository_patch:
   required: true | false
   type: create | replace_section | append_section | update_header | explicit_none
   summary:
@@ -464,14 +464,14 @@ blockers:
 
 ```
 
-## 8\. Trilium Patch contract
+## 8\. Repository Patch contract
 
 Always include one of these.
 
 ### If E1 patch is required
 
 ```yaml
-trilium_patch:
+repository_patch:
   required: true
   patch_type: create | replace_section | append_section | update_header
   purpose: record_e1_execution_brief_only
@@ -496,14 +496,14 @@ trilium_patch:
 ### If E1 patch is not required
 
 ```yaml
-trilium_patch:
+repository_patch:
   required: false
   patch_type: explicit_none
   reason:
 
 ```
 
-Never use E1’s Trilium Patch to complete the Goal implementation.
+Never use E1’s Repository Patch to complete the Goal implementation.
 
 ## 9\. Execution Log Entry contract
 
@@ -521,7 +521,7 @@ execution_log_entry:
   brief_summary:
   scope_preserved: true | false
   patch_required: true | false
-  project_files_refresh_required: true | false
+  changed_files_context_refresh_required: true | false
   next_stage:
   timestamp:
   notes:
@@ -540,8 +540,8 @@ documentation_maintenance_gate:
   triggers:
     - stale_terminology
     - active_goal_update
-    - project_files_refresh
-    - trilium_readback_required
+    - changed_files_context_refresh
+    - repository_readback_required
     - compatibility_cleanup
   required_updates:
     - target:
@@ -566,12 +566,12 @@ documentation_maintenance_gate:
 
 ```
 
-## 11\. Project Files Refresh List contract
+## 11\. Changed Files / Context Refresh List contract
 
 Always produce:
 
 ```yaml
-project_files_refresh:
+changed_files_context_refresh:
   required: true | false
   files:
     - file:
@@ -584,7 +584,7 @@ project_files_refresh:
 If no refresh is required:
 
 ```yaml
-project_files_refresh:
+changed_files_context_refresh:
   required: false
   files: []
   reason:
@@ -637,11 +637,11 @@ freshness_requirements:
 handoff_requirements:
   f0:
   codex:
-trilium_requirements:
+repository_requirements:
   patch_required:
   readback_required:
   forbidden_changes:
-project_files_refresh:
+changed_files_context_refresh:
   required:
   files:
 downstream_availability:
@@ -733,8 +733,8 @@ Include:
 *   allowed changes;
 *   forbidden changes;
 *   validation checklist;
-*   read-back requirement;
-*   Project Files refresh timing;
+*   file read-back / diff verification / commit verification requirement;
+*   Context refresh timing;
 *   stop conditions.
 
 Do not ask F0 to redesign scope.
@@ -751,7 +751,7 @@ Include:
 *   risk triggers;
 *   validation evidence expectations;
 *   forbidden changes;
-*   required read-back;
+*   required file read-back / diff verification / commit verification;
 *   Codex handoff constraints.
 
 ### For `C2_CODEX_EXECUTE`
@@ -764,9 +764,9 @@ Include:
 *   exact actions;
 *   allowed file/note changes;
 *   forbidden changes;
-*   validation commands or read-back anchors;
+*   validation commands or file read-back / diff verification / commit verification anchors;
 *   rollback/repair expectations;
-*   Project Files refresh requirements.
+*   Context refresh requirements.
 
 If these are not exact, route to C1 instead.
 
@@ -792,9 +792,9 @@ Before you answer, confirm internally:
 *   E1 produced exactly one selected route or one exception card.
 *   E1 preserved G1 scope cuts.
 *   E1 mapped acceptance to validation.
-*   E1 included Trilium Patch or explicit none.
+*   E1 included Repository Patch or explicit none.
 *   E1 included Execution Log Entry.
-*   E1 included Project Files Refresh List.
+*   E1 included Changed Files / Context Refresh List.
 *   E1 included Documentation Maintenance Gate if relevant.
 *   E1 included a usable Next Launch Card, Context Request, Human Decision Card, or Stop Card.
 *   E1 did not depend on private reasoning for downstream behavior.

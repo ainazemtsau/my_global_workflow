@@ -1,6 +1,6 @@
 # 16 Test Quality and Review Policy
 
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01C — Validation, Review, Repair, and Concrete Project Setup Boundary Installed at: 2026-05-10T04:56:01.1979556+03:00 Source input: ChatGPT SA-01C installable source output, 2026-05-10 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01C — Validation, Review, Repair, and Concrete Project Setup Boundary Installed at: 2026-05-10T04:56:01.1979556+03:00 Source input: ChatGPT SA-01C installable source output, 2026-05-10 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 ## 1\. Purpose
 
@@ -62,7 +62,7 @@ Where relevant to the work, test design must include:
 *   module-boundary case for inputs/outputs crossing module interfaces
 *   integration or smoke case for high-risk wiring
 *   security/privacy case when sensitive data, permissions, auth, or external services are involved
-*   documentation/read-back validation when work changes Trilium notes or durable docs
+*   documentation/file read-back / diff verification / commit verification validation when work changes GitHub repository files or durable docs
 
 Not every category is required for every small change. Codex must justify omitted categories when the category is relevant but not covered.
 

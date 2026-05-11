@@ -1,5 +1,5 @@
 # 09 Codex Return Packet Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 09 Codex Return Packet Template
 
@@ -7,7 +7,7 @@ Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Ste
 
 A Codex Return Packet is the structured response Codex returns after a bounded wave of work.
 
-It records final state, actions taken, evidence, tests, read-back, blockers, rollback notes, and next route.
+It records final state, actions taken, evidence, tests, file read-back / diff verification / commit verification, blockers, rollback notes, and next route.
 
 This Step 3 note defines only the packet shape. Detailed Codex bridge contracts are Step 4 work and are not created here.
 
@@ -19,7 +19,7 @@ This is a transport template only. It is not a C1/C2 final prompt.
 *   Use plain Markdown with YAML-style fields.
 *   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
 *   Codex cannot claim DONE without evidence.
-*   If writes occurred, Codex must include read-back or equivalent verification.
+*   If writes occurred, Codex must include file read-back / diff verification / commit verification or equivalent verification.
 *   If Codex lacks access, it must return NEEDS\_INPUT or STUCK, not DONE.
 
 ## Required fields
@@ -81,7 +81,7 @@ actions_taken:
       action:
 
 changed_artifacts:
-  trilium_notes:
+  repository_files:
     - path:
       action:
       readback_status: pass | fail | not_applicable

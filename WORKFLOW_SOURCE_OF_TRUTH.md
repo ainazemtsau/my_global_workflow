@@ -2,7 +2,7 @@
 
 Status: migration_in_progress
 
-Current canonical workflow source: Trilium until explicit Step 10 acceptance.
+Current canonical workflow source: existing accepted migration source until explicit Step 10 acceptance.
 
 Target canonical workflow source after migration: GitHub repository `ainazemtsau/my_global_workflow`.
 

@@ -1,5 +1,5 @@
 # 01 Wave Record Template
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 4 — Codex Bridge Contracts Installed at: 2026-05-07T15:53:47.6656515+03:00 Source input: ChatGPT Step 4 output using Project Files 01/02/03 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 4 — Codex Bridge Contracts Installed at: 2026-05-07T15:53:47.6656515+03:00 Source input: ChatGPT Step 4 output using Project Files 01/02/03 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
 
 # 01 Wave Record Template
 
@@ -7,14 +7,14 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 A Wave Record is the persistent ledger entry for one Codex work wave.
 
-It must be readable as normal Trilium markdown and also structured enough for Codex to parse without relying on HTML, screenshots, or implicit conversation memory.
+It must be readable as normal GitHub repository markdown and also structured enough for Codex to parse without relying on HTML, screenshots, or implicit conversation memory.
 
 A Wave Record is not a stage prompt. It does not itself authorize work. It records the lifecycle of a Codex wave, links the originating handoff packet, captures evidence, and preserves validation status.
 
 ## Contract rules
 
 1.  One Wave Record exists for one `wave_id`.
-2.  The Wave Record must remain Trilium-readable as a human audit note.
+2.  The Wave Record must remain GitHub repository-readable as a human audit note.
 3.  The Wave Record must remain Codex-readable through stable headings, explicit field names, and a YAML data block.
 4.  The associated Codex Wave Card is the executable handoff packet.
 5.  The associated Codex Return Packet is the required result/evidence packet.
@@ -73,14 +73,14 @@ wave_record:
 origin:
   originating_stage_id: "{{stage_id_or_manual}}"
   originating_stage_name: "{{stage_name_or_manual}}"
-  stage_result_packet_path: "{{trilium_path_or_none}}"
-  launch_card_path: "{{trilium_path_or_none}}"
+  stage_result_packet_path: "{{repository_path_or_none}}"
+  launch_card_path: "{{repository_path_or_none}}"
   human_request_summary: "{{one_sentence_summary}}"
 
 authority:
   canonical_root: "Workflow / 20 Workflow vNext-R REBUILD"
   canonical_sources:
-    - "{{trilium_note_path}}"
+    - "{{repository_file_path}}"
   project_files_used:
     - "01_WORKFLOW_REBUILD_CONTROL_PACK.md"
     - "02_CURRENT_REBUILD_STATE.md"
@@ -90,7 +90,7 @@ authority:
 
 scope:
   work_type: "inspect | plan | patch | test | install | repair | document"
-  target_system: "Trilium | repository | local_files | mixed"
+  target_system: "GitHub repository | repository | local_files | mixed"
   target_paths:
     - "{{allowed_target_path}}"
   forbidden_paths:
@@ -99,7 +99,7 @@ scope:
   global_activation_allowed: false
 
 codex_handoff:
-  codex_wave_card_path: "{{trilium_path_or_inline_packet_id}}"
+  codex_wave_card_path: "{{repository_path_or_inline_packet_id}}"
   codex_mode: "PREVIEW_FIRST | APPLY_AFTER_CONFIRM | INSPECT_ONLY"
   expected_return_packet: "Codex Return Packet Contract v1"
   requires_read_back: true
@@ -162,7 +162,7 @@ next_route:
 | Source digest | yes | pending | pending | Must identify canonical source notes or files. |
 | Target diff or note write list | yes | pending | pending | Must name exact changed files/notes. |
 | Validator output | yes | pending | pending | Must include command/result or explicit not-run reason. |
-| Read-back evidence | yes | pending | pending | Required for Trilium notes and install operations. |
+| Read-back evidence | yes | pending | pending | Required for GitHub repository files and install operations. |
 | Forbidden path check | yes | pending | pending | Must confirm protected paths were not changed. |
 
 ## Change log
@@ -175,7 +175,7 @@ WAVE\_RECORD\_TEMPLATE\_END
 
 ## Acceptance anchors
 
-This note is acceptable only if these anchors remain visible on read-back:
+This note is acceptable only if these anchors remain visible on file read-back / diff verification / commit verification:
 
 *   `WAVE_RECORD_TEMPLATE_BEGIN`
 *   `wave_status`

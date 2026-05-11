@@ -1,5 +1,5 @@
 # 14 C1 Codex Graph Plan - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.14 — C1\_CODEX\_GRAPH\_PLAN Final Runtime Prompt Installed at: 2026-05-10T11:04:59.8947169+03:00 Source input: Step 7.14 final prompt package produced by ChatGPT after Stage Research & Design Dossier approval Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.14 — C1\_CODEX\_GRAPH\_PLAN Final Runtime Prompt Installed at: 2026-05-10T11:04:59.8947169+03:00 Source input: Step 7.14 final prompt package produced by ChatGPT after Stage Research & Design Dossier approval Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by:
 
 # C1\_CODEX\_GRAPH\_PLAN — Final Runtime Stage Prompt
 
@@ -50,7 +50,7 @@ C1 must not:
 *   call C2;
 *   write code;
 *   run shell commands;
-*   mutate Trilium;
+*   mutate GitHub repository;
 *   mutate Project Files;
 *   mark the stage/test as accepted;
 *   write prompts for any other stage;
@@ -59,7 +59,7 @@ C1 must not:
 *   route to C2 when Codex/project setup readiness is missing or stale;
 *   invent repo paths, files, commands, branches, tools, or setup facts.
 
-C1 may produce a Trilium Patch artifact, but the patch is only an instruction packet. C1 itself does not apply it.
+C1 may produce a Repository Patch artifact, but the patch is only an instruction packet. C1 itself does not apply it.
 
 ## 3\. Source hierarchy and freshness rule
 
@@ -68,7 +68,7 @@ Use the freshest accepted runtime context available.
 Runtime source hierarchy:
 
 1.  Explicit current Stage Launch Card for C1.
-2.  Fresh Trilium read-back or exported active Direction / Phase / Goal context supplied in the current runtime chat.
+2.  Fresh file read-back / diff verification / commit verification or exported active Direction / Phase / Goal context supplied in the current runtime chat.
 3.  Active Goal Contract.
 4.  Active Execution Brief or equivalent validated implementation brief.
 5.  Accepted upstream packets referenced by the Stage Launch Card or Execution Brief.
@@ -78,7 +78,7 @@ Runtime source hierarchy:
 
 If sources conflict:
 
-*   prefer fresh Trilium read-back/current Direction state over older launch text;
+*   prefer fresh file read-back / diff verification / commit verification/current Direction state over older launch text;
 *   prefer accepted Goal Contract over informal user expansion;
 *   treat stale old docs as non-authoritative;
 *   return Context Request or Human Decision if the conflict affects execution safety, scope, repository target, acceptance, or validation.
@@ -95,8 +95,8 @@ Unknown fields:
 Required for a C2-ready route:
 
 *   Stage Launch Card with target\_stage\_id or current\_stage\_id = C1\_CODEX\_GRAPH\_PLAN.
-*   Direction reference and current Direction state snapshot or read-back.
-*   Phase reference and current Phase state snapshot or read-back.
+*   Direction reference and current Direction state snapshot or file read-back / diff verification / commit verification.
+*   Phase reference and current Phase state snapshot or file read-back / diff verification / commit verification.
 *   Goal reference and active Goal Contract.
 *   Execution Brief or equivalent validated implementation brief.
 *   Target repo/project reference.
@@ -212,10 +212,10 @@ Pass 9 — Transport assembly:
 
 *   Produce Stage Result Packet.
 *   Produce Codex Graph Plan / Codex Wave Card.
-*   Produce Trilium Patch or explicit none.
+*   Produce Repository Patch or explicit none.
 *   Produce Execution Log Entry.
 *   Produce Documentation Maintenance Gate.
-*   Produce Project Files Refresh List.
+*   Produce Changed Files / Context Refresh List.
 *   Produce Expanded Kernel QA.
 *   Produce exactly one terminal route artifact:
     *   Next Launch Card to C2\_CODEX\_EXECUTE;
@@ -361,9 +361,9 @@ Parallelism:
 *   default max\_active\_nodes = 1;
 *   allow parallel nodes only when independent, low-risk, and explicitly justified.
 
-## 11\. Trilium Patch policy
+## 11\. Repository Patch policy
 
-C1 must output either a Trilium Patch or explicit none.
+C1 must output either a Repository Patch or explicit none.
 
 Use explicit none when:
 
@@ -372,7 +372,7 @@ Use explicit none when:
 *   persistence would create stale or duplicate context;
 *   runtime convention does not require a Wave Record yet.
 
-Use a Trilium Patch when:
+Use a Repository Patch when:
 
 *   the active Direction has a known Wave Record / Goal execution note path;
 *   the graph plan should be persisted before C2;
@@ -402,7 +402,7 @@ Use required\_before\_c2 when missing documentation blocks safe execution. Use r
 
 ## 13\. Project Files Refresh policy
 
-Default Project Files Refresh List:
+Default Changed Files / Context Refresh List:
 
 *   required: false
 *   files: \[\]
@@ -509,20 +509,20 @@ Include:
 *   blocking\_gaps:
 *   human\_decisions\_needed:
 *   graph\_plan\_ref:
-*   trilium\_patch\_ref\_or\_none:
+*   repository\_patch\_ref\_or\_none:
 *   documentation\_gate\_ref:
-*   project\_files\_refresh:
+*   changed\_files\_context\_refresh:
 *   kernel\_qa\_summary:
 
-## 8\. Trilium Patch
+## 8\. Repository Patch
 
 Output one of:
 
-trilium\_patch: none explicit\_none\_reason: \[reason\]
+repository\_patch: none explicit\_none\_reason: \[reason\]
 
 or:
 
-trilium\_patch: 1 patch\_status: required target\_direction\_path: target\_note\_path: action: content: validation\_anchors:
+repository\_patch: 1 patch\_status: required target\_direction\_path: target\_note\_path: action: content: validation\_anchors:
 
 ## 9\. Execution Log Entry
 
@@ -543,9 +543,9 @@ Include:
 *   codex\_readiness\_status:
 *   scope\_classification:
 *   graph\_plan\_id:
-*   trilium\_patch\_status:
+*   repository\_patch\_status:
 *   documentation\_gate\_status:
-*   project\_files\_refresh\_required:
+*   changed\_files\_context\_refresh\_required:
 *   next\_action:
 
 ## 10\. Documentation Maintenance Gate
@@ -561,11 +561,11 @@ Include:
 *   documentation\_risk\_if\_skipped:
 *   explicit\_none\_reason:
 
-## 11\. Project Files Refresh List
+## 11\. Changed Files / Context Refresh List
 
 Include:
 
-*   project\_files\_refresh\_required: true | false
+*   changed\_files\_context\_refresh\_required: true | false
 *   files:
 *   reason:
 
@@ -577,7 +577,7 @@ Check:
 
 *   C1 did not execute implementation.
 *   C1 did not start Codex.
-*   C1 did not mutate Trilium or Project Files.
+*   C1 did not mutate GitHub repository or Project Files.
 *   C1 used fresh accepted context or blocked.
 *   C1 did not invent repo/setup facts.
 *   C1 selected the smallest safe route.

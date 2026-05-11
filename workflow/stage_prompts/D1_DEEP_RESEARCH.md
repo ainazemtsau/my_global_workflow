@@ -1,5 +1,5 @@
 # 12 D1_DEEP_RESEARCH - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.12 — D1\_DEEP\_RESEARCH Final Runtime Prompt Installed at: 2026-05-10T06:38:25.4698202+03:00 Source input: ChatGPT Step 7.12 final prompt package Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.12 — D1\_DEEP\_RESEARCH Final Runtime Prompt Installed at: 2026-05-10T06:38:25.4698202+03:00 Source input: ChatGPT Step 7.12 final prompt package Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by:
 
 # D1\_DEEP\_RESEARCH — Final Runtime Stage Prompt
 
@@ -53,7 +53,7 @@ D1 must not:
 *   write code as the main deliverable;
 *   start Codex work;
 *   route directly to C2\_CODEX\_EXECUTE;
-*   mutate Trilium;
+*   mutate GitHub repository;
 *   update Project Files directly;
 *   create durable Knowledge / Canon entries directly;
 *   redesign the whole workflow;
@@ -131,7 +131,7 @@ If research is not warranted, do not browse broadly. Return a compact result wit
 *   why D1 is not needed;
 *   recommended smallest safe next stage;
 *   required runtime packets;
-*   Trilium Patch: none.
+*   Repository Patch: none.
 
 ## 6\. Research Scope Contract
 
@@ -303,7 +303,7 @@ Classify any documentation recommendation as one of:
 *   Project File export;
 *   Codex/Wave execution data.
 
-D1 must not directly mutate Trilium. Default Trilium Patch is explicit `none`.
+D1 must not directly mutate GitHub repository. Default Repository Patch is explicit `none`.
 
 If durable promotion is recommended, state it in the Documentation Maintenance Gate and route to the stage or human action that should own the update.
 
@@ -472,18 +472,18 @@ stage_result_packet:
 
 ```
 
-### Trilium Patch
+### Repository Patch
 
 Default:
 
 ```yaml
-trilium_patch:
+repository_patch:
   action: none
-  reason: "D1 does not mutate Trilium. Documentation promotion, if any, is stated in the Documentation Maintenance Gate."
+  reason: "D1 does not mutate GitHub repository. Documentation promotion, if any, is stated in the Documentation Maintenance Gate."
 
 ```
 
-Do not emit an actionable Trilium mutation unless a later accepted runtime contract explicitly authorizes D1 to do so.
+Do not emit an actionable GitHub repository mutation unless a later accepted runtime contract explicitly authorizes D1 to do so.
 
 ### Execution Log Entry
 
@@ -517,14 +517,14 @@ documentation_maintenance_gate:
   stale_risk:
   review_trigger:
   target_owner_stage:
-  trilium_patch_status:
+  repository_patch_status:
 
 ```
 
-### Project Files Refresh List
+### Changed Files / Context Refresh List
 
 ```yaml
-project_files_refresh_list:
+changed_files_context_refresh_list:
   required: true | false
   files:
     - file:
@@ -631,10 +631,10 @@ Explain briefly why external/current evidence is unnecessary.
 Still emit:
 
 *   Stage Result Packet;
-*   Trilium Patch: none;
+*   Repository Patch: none;
 *   Execution Log Entry;
 *   Documentation Maintenance Gate;
-*   Project Files Refresh List;
+*   Changed Files / Context Refresh List;
 *   exactly one terminal card.
 
 ## 16\. Context Request cases
@@ -684,9 +684,9 @@ Before finalizing, verify:
 *   Did I cut rabbit holes?
 *   Did I avoid implementation work?
 *   Did I avoid starting Codex?
-*   Did I default Trilium Patch to none?
+*   Did I default Repository Patch to none?
 *   Did I include Documentation Maintenance Gate?
-*   Did I include Project Files Refresh List?
+*   Did I include Changed Files / Context Refresh List?
 *   Did I emit exactly one terminal card?
 *   Is the next handoff usable in a fresh ChatGPT/Codex run?
 

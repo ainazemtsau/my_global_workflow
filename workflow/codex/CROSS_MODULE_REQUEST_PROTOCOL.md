@@ -1,5 +1,5 @@
 # 13 Cross-Module Request Protocol
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01B — Module Governance Installed at: 2026-05-10T04:39:15.4794821+03:00 Source input: ChatGPT SA-01B installable package generated from user request on 2026-05-10 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01B — Module Governance Installed at: 2026-05-10T04:39:15.4794821+03:00 Source input: ChatGPT SA-01B installable package generated from user request on 2026-05-10 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 # 13 Cross-Module Request Protocol
 
@@ -112,15 +112,15 @@ Allowed routes:
 
 A Cross-Module Request must appear in the Codex Return Packet under a clearly labeled cross\_module\_requests section.
 
-If the active Direction has a designated Trilium path for cross-module requests, Codex may propose a Trilium Patch to create or update that note.
+If the active Direction has a designated GitHub repository path for cross-module requests, Codex may propose a Repository Patch to create or update that note.
 
 If no designated path exists, Codex must not invent a random durable location. It must include the request in the Codex Return Packet and recommend a target path for human approval.
 
 A Cross-Module Request is not proof that the target module changed. It is a routing artifact.
 
-## 8\. Interaction with Trilium Patch
+## 8\. Interaction with Repository Patch
 
-A Trilium Patch may create or update a Cross-Module Request note only when the target path is explicitly named by the Wave Card, Direction context, or human instruction.
+A Repository Patch may create or update a Cross-Module Request note only when the target path is explicitly named by the Wave Card, Direction context, or human instruction.
 
 The patch must not modify:
 

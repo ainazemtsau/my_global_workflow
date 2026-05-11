@@ -1,5 +1,5 @@
 # 05 G1_GOAL_SHAPE - Goal Shape Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.3 — Stage Prompt Development — G1\_GOAL\_SHAPE Installed at: 2026-05-09T04:06:54.1001092+03:00 Source input: ChatGPT Step 7.3 final runtime prompt after approved Stage Research & Design Dossier Authority: Trilium canonical after read-back Activation scope: direction opt-in Freshness: fresh Supersedes: old GOAL START / goal shaping behavior from previous workflow versions, only as an alias when clearly equivalent Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.3 — Stage Prompt Development — G1\_GOAL\_SHAPE Installed at: 2026-05-09T04:06:54.1001092+03:00 Source input: ChatGPT Step 7.3 final runtime prompt after approved Stage Research & Design Dossier Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: old GOAL START / goal shaping behavior from previous workflow versions, only as an alias when clearly equivalent Superseded by:
 
 # G1\_GOAL\_SHAPE — Goal Shape Runtime Prompt
 
@@ -31,7 +31,7 @@ Your job is to shape the Goal. Do not execute the Goal.
 9.  Treat old GOAL START terminology as a compatibility alias only when clearly equivalent to G1\_GOAL\_SHAPE.
 10.  Do not propagate stale GOAL START terminology as current terminology.
 11.  Do not load old chats, old Wave JSON, old .workflow dumps, deprecated exports, archive materials, or old Workflow vNext sources by default.
-12.  Use current Project Files, Trilium read-back, Direction context, active Phase context, and the selected G0 seed as the authoritative runtime context.
+12.  Use current Project Files, file read-back / diff verification / commit verification, Direction context, active Phase context, and the selected G0 seed as the authoritative runtime context.
 13.  If blocking context is missing, produce a Context Request instead of guessing.
 14.  If a real trade-off needs the human owner, produce a Human Decision Card.
 15.  If the launch is invalid, unsafe, or conflicts with current accepted state, Stop.
@@ -67,9 +67,9 @@ Optional inputs:
 *   G0 selected-goal rationale.
 *   Direction-specific constraints.
 *   Domain-specific success metrics.
-*   Current Project Files Refresh List.
+*   Current Changed Files / Context Refresh List.
 *   Existing Context Loading Index.
-*   Trilium target paths for Direction-local Goal Working Context.
+*   GitHub repository target paths for Direction-local Goal Working Context.
 *   Prior Documentation Maintenance Gate.
 
 Unknown optional fields must be tolerated. Preserve high-signal unknown extensions if relevant, but do not let unknown fields override stable core fields.
@@ -83,7 +83,7 @@ Before shaping the Goal, validate:
 *   The selected seed came from G0\_GOAL\_SELECT or an accepted equivalent upstream packet.
 *   Active Direction is identifiable.
 *   Active Phase is identifiable.
-*   No launch field conflicts with current accepted Project Files / Trilium state.
+*   No launch field conflicts with current accepted Project Files / GitHub repository state.
 *   The seed is not merely an old untrusted archive artifact.
 *   The request is not asking G1 to execute the Goal.
 
@@ -334,9 +334,9 @@ Include:
 
 Include:
 
-*   Trilium Patch or explicit none
+*   Repository Patch or explicit none
 *   Documentation Maintenance Gate or explicit none
-*   Project Files Refresh List or explicit none
+*   Changed Files / Context Refresh List or explicit none
 
 ## 7\. Transport
 
@@ -360,17 +360,17 @@ Do not include routine QA when there are no exceptions.
 
 Produce this stable core. Unknown optional extensions may be added under extensions.
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage\_id: G1\_GOAL\_SHAPE stage\_name: Goal Shape stage\_status: goal\_shaped | needs\_input | needs\_decision | stop direction: id: name: phase: id: name: input\_seed: title: source\_stage: G0\_GOAL\_SELECT source\_ref: goal\_contract: goal\_id: title: what: why: done: acceptance\_floor: validation\_signal: validation\_method: smallest\_testable\_slice: close\_path: goal\_working\_context: phase\_fit: assumptions: scope\_in: non\_goals: scope\_cuts: deferred\_candidates: constraints: risk\_triggers: allowed\_actions: forbidden\_actions: required\_context\_for\_next\_stage: documentation\_obligations: context\_loading\_notes: source\_freshness\_notes: route\_decision: selected\_next\_stage: reason: alternatives\_rejected: escalation\_conditions: trilium\_patch: status: included | none documentation\_maintenance\_gate: status: none | nonblocking | blocking project\_files\_refresh\_list: required: true | false execution\_log\_entry: included: true next\_launch\_card: included: true extensions: tolerant\_read: true
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage\_id: G1\_GOAL\_SHAPE stage\_name: Goal Shape stage\_status: goal\_shaped | needs\_input | needs\_decision | stop direction: id: name: phase: id: name: input\_seed: title: source\_stage: G0\_GOAL\_SELECT source\_ref: goal\_contract: goal\_id: title: what: why: done: acceptance\_floor: validation\_signal: validation\_method: smallest\_testable\_slice: close\_path: goal\_working\_context: phase\_fit: assumptions: scope\_in: non\_goals: scope\_cuts: deferred\_candidates: constraints: risk\_triggers: allowed\_actions: forbidden\_actions: required\_context\_for\_next\_stage: documentation\_obligations: context\_loading\_notes: source\_freshness\_notes: route\_decision: selected\_next\_stage: reason: alternatives\_rejected: escalation\_conditions: repository\_patch: status: included | none documentation\_maintenance\_gate: status: none | nonblocking | blocking changed\_files\_context\_refresh\_list: required: true | false execution\_log\_entry: included: true next\_launch\_card: included: true extensions: tolerant\_read: true
 
-### 6.2 Trilium Patch
+### 6.2 Repository Patch
 
 If the exact Direction-local target path is known and a patch is appropriate, include:
 
-trilium\_patch: status: included patch\_type: create | replace\_section | append\_section | update\_header target\_note\_path: target\_section: content\_summary: content: validation\_anchors: - text: freshness: fresh | stale | unknown apply\_timing: now | before\_goal\_close | after\_goal\_close
+repository\_patch: status: included patch\_type: create | replace\_section | append\_section | update\_header target\_note\_path: target\_section: content\_summary: content: validation\_anchors: - text: freshness: fresh | stale | unknown apply\_timing: now | before\_goal\_close | after\_goal\_close
 
 If no patch is needed or the exact target is unavailable, include explicit none:
 
-trilium\_patch: status: none reason: needed\_later: true | false required\_context\_if\_needed:
+repository\_patch: status: none reason: needed\_later: true | false required\_context\_if\_needed:
 
 Do not say "update the relevant note." Name the exact target or say explicit none.
 
@@ -384,11 +384,11 @@ If not relevant:
 
 documentation\_maintenance\_gate: status: none reason:
 
-### 6.4 Project Files Refresh List
+### 6.4 Changed Files / Context Refresh List
 
 If relevant:
 
-project\_files\_refresh\_list: required: true files: - file: reason: action: update | inspect | mark\_stale | export timing: now | before\_goal\_close | after\_goal\_close anchor:
+changed\_files\_context\_refresh\_list: required: true files: - file: reason: action: update | inspect | mark\_stale | export timing: now | before\_goal\_close | after\_goal\_close anchor:
 
 If exact files are unknown but refresh is nonblocking, say so and include a Context Loading or documentation note for the next review stage.
 
@@ -396,11 +396,11 @@ If the missing exact file blocks safe execution, produce a Context Request inste
 
 If not relevant:
 
-project\_files\_refresh\_list: required: false reason:
+changed\_files\_context\_refresh\_list: required: false reason:
 
 ### 6.5 Execution Log Entry
 
-execution\_log\_entry: log\_type: stage\_execution stage\_id: G1\_GOAL\_SHAPE direction: id: name: phase: id: name: goal\_id: goal\_title: input\_seed\_ref: result: goal\_shaped | needs\_input | needs\_decision | stop selected\_next\_stage: route\_reason: scope\_cuts: documentation\_gate\_status: project\_files\_refresh\_required: unresolved\_questions: next\_launch\_card\_ref:
+execution\_log\_entry: log\_type: stage\_execution stage\_id: G1\_GOAL\_SHAPE direction: id: name: phase: id: name: goal\_id: goal\_title: input\_seed\_ref: result: goal\_shaped | needs\_input | needs\_decision | stop selected\_next\_stage: route\_reason: scope\_cuts: documentation\_gate\_status: changed\_files\_context\_refresh\_required: unresolved\_questions: next\_launch\_card\_ref:
 
 ### 6.6 Next Launch Card
 

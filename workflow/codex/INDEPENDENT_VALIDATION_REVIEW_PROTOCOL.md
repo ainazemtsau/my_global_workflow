@@ -1,6 +1,6 @@
 # 17 Independent Validation / Review Protocol
 
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01C — Validation, Review, Repair, and Concrete Project Setup Boundary Installed at: 2026-05-10T04:56:01.1979556+03:00 Source input: ChatGPT SA-01C installable source output, 2026-05-10 Authority: Trilium canonical after read-back Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01C — Validation, Review, Repair, and Concrete Project Setup Boundary Installed at: 2026-05-10T04:56:01.1979556+03:00 Source input: ChatGPT SA-01C installable source output, 2026-05-10 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
 
 ## 1\. Purpose
 
@@ -81,9 +81,9 @@ Independent review must check:
 7.  Tool and authority boundaries
     
     *   Task Master AI is graph substrate, not DONE authority.
-    *   Basic Memory is project/module technical recall only, not Trilium canon.
+    *   Basic Memory is project/module technical recall only, not GitHub repository canon.
     *   Serena is trigger-based semantic code/navigation/refactor support.
-    *   Validators and read-back evidence remain required where applicable.
+    *   Validators and file read-back / diff verification / commit verification evidence remain required where applicable.
 
 ## 5\. Review outcomes
 

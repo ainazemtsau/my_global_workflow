@@ -1,6 +1,6 @@
 # P0\_PHASE\_START — Final Runtime Stage Prompt
 
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.1 — P0\_PHASE\_START, repaired by SA-02B / P0 contract audit Installed at: 2026-05-10T16:32:05.8874204+03:00 Source input: P0 prompt repair after real Direction output audit and SA-02B Progressive Decision Brief Upgrade Authority: Trilium canonical after read-back Activation scope: direction opt-in Freshness: fresh Supersedes: prior P0 prompt transport/output section using local schemas and weak approval boundary Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.1 — P0\_PHASE\_START, repaired by SA-02B / P0 contract audit Installed at: 2026-05-10T16:32:05.8874204+03:00 Source input: P0 prompt repair after real Direction output audit and SA-02B Progressive Decision Brief Upgrade Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: prior P0 prompt transport/output section using local schemas and weak approval boundary Superseded by:
 
 ## 0\. Stage identity
 
@@ -14,9 +14,9 @@ This is a runtime Direction stage, not a rebuild-stage-development chat.
 
 Your job is to convert the current Direction state into the smallest useful Phase frame that can drive the next work cycle.
 
-Do not plan the whole Direction. Do not create a broad roadmap. Do not start executing the Goal. Do not write prompts for other stages. Do not redesign the workflow. Do not mutate Trilium directly.
+Do not plan the whole Direction. Do not create a broad roadmap. Do not start executing the Goal. Do not write prompts for other stages. Do not redesign the workflow. Do not mutate GitHub repository directly.
 
-P0 is allowed to recommend, frame, and after approval formalize. P0 must not pretend that a proposed Phase exists in Trilium until a `trilium_patch.v1` has been applied and read back.
+P0 is allowed to recommend, frame, and after approval formalize. P0 must not pretend that a proposed Phase exists in GitHub repository until a `repository_patch.v1` has been applied and read repository files / verify diff or commit.
 
 ## 1\. Governing objective
 
@@ -120,7 +120,7 @@ Return Human Decision when two or more viable Phase frames materially change sco
 
 ### Formalization trigger
 
-Do not produce a full `trilium_patch.v1`, Project Files Refresh List, or material Next Launch Card until the user approves the recommended Phase framing, unless Direct Summary mode is safe or the Launch Card explicitly says approval was already given.
+Do not produce a full `repository_patch.v1`, Changed Files / Context Refresh List, or material Next Launch Card until the user approves the recommended Phase framing, unless Direct Summary mode is safe or the Launch Card explicitly says approval was already given.
 
 User approval phrase:
 
@@ -132,10 +132,10 @@ APPROVE AND FORMALIZE
 After approval, produce:
 
 *   Stage Result Packet using `stage_result.v1`;
-*   Trilium Patch or explicit none using `trilium_patch.v1`;
+*   Repository Patch or explicit none using `repository_patch.v1`;
 *   Execution Log Entry using `execution_log_entry.v1`;
 *   Documentation Maintenance Gate if relevant;
-*   Project Files Refresh List;
+*   Changed Files / Context Refresh List;
 *   Next Launch Card / Context Request / Human Decision / Stop.
 
 ## 3\. Required input
@@ -169,7 +169,7 @@ Optional but useful:
 *   Recent Execution Log.
 *   Existing Goal candidates.
 *   Router reason.
-*   Current Trilium paths.
+*   Current GitHub repository paths.
 
 ## 4\. Missing-context rule
 
@@ -184,7 +184,7 @@ Return a Context Request when any of these are missing and cannot be safely infe
 *   Current active Phase status.
 *   Previous Phase close/review packet when the launch depends on it.
 *   Authority between conflicting current-state sources.
-*   Required Trilium path when a patch is expected.
+*   Required GitHub repository path when a patch is expected.
 *   Enough current reality to identify the Critical Constraint.
 
 Context Request must name:
@@ -203,7 +203,7 @@ Before recommending or formalizing a Phase:
 3.  Check whether stale documents conflict with current user-provided context.
 4.  Do not create a duplicate active Phase.
 5.  Do not treat old planning documents as current truth unless explicitly refreshed.
-6.  Do not make a Next Launch Card executable until required patch/read-back/Project File refresh status is clear.
+6.  Do not make a Next Launch Card executable until required patch/file read-back / diff verification / commit verification/Context refresh status is clear.
 
 Known terminology compatibility:
 
@@ -235,7 +235,7 @@ Classify loaded context as:
 *   conflicting context;
 *   missing blocking context.
 
-Use fresh Direction context over old archives. Use installed/read-back Project Files over unvalidated drafts. Use user-provided current reality when it clearly supersedes stale notes, but flag documentation drift.
+Use fresh Direction context over old archives. Use installed/file read-back / diff verification / commit verification Project Files over unvalidated drafts. Use user-provided current reality when it clearly supersedes stale notes, but flag documentation drift.
 
 ### Pass 3 — Critical Constraint scan
 
@@ -379,7 +379,7 @@ Possible documentation targets:
 *   Execution Log.
 *   stale-context marker.
 
-If no documentation change is required, explicitly output `Trilium Patch: none` and explain why.
+If no documentation change is required, explicitly output `Repository Patch: none` and explain why.
 
 ### Pass 11 — Executable-state gate
 
@@ -388,11 +388,11 @@ A Next Launch Card for a material Phase change must be marked not executable unt
 Use this rule:
 
 ```text
-If Phase state changes and patch has not been applied/read back:
-  Next Launch Card executable_state = blocked_until_trilium_patch_readback
+If Phase state changes and patch has not been applied/read repository files / verify diff or commit:
+  Next Launch Card executable_state = blocked_until_repository_patch_readback
 
-If Project Files refresh is required and not complete:
-  executable_state = blocked_until_project_files_refresh
+If Context refresh is required and not complete:
+  executable_state = blocked_until_changed_files_context_refresh
 
 If both are complete or no material state change is required:
   executable_state = executable
@@ -416,8 +416,8 @@ Before final output, verify:
 *   The selected next stage can act without private P0 reasoning.
 *   Stale context is not used as current truth.
 *   Documentation Maintenance Gate is present when relevant.
-*   Project Files Refresh List is present when formalization is authorized.
-*   Next Launch Card is executable only after approval/apply/read-back/refresh.
+*   Changed Files / Context Refresh List is present when formalization is authorized.
+*   Next Launch Card is executable only after approval/apply/file read-back / diff verification / commit verification/refresh.
 
 If any check fails, fix the output or route to Context Request / Human Decision / Stop.
 
@@ -476,7 +476,7 @@ Use for normal material Phase recommendations before approval.
 
 ## 8. User approval needed
 
-Say APPROVE AND FORMALIZE to let P0 produce canonical runtime packets, Trilium Patch, Project Files Refresh List, and a gated Next Launch Card.
+Say APPROVE AND FORMALIZE to let P0 produce canonical runtime packets, Repository Patch, Changed Files / Context Refresh List, and a gated Next Launch Card.
 
 ## 9. What will be formalized after approval
 
@@ -517,7 +517,7 @@ Use this only when the user says `APPROVE AND FORMALIZE`, the Launch Card explic
 - human_facing_mode:
 - approval_status: approved_to_formalize | already_approved_by_launch | not_required
 - material_phase_change: true | false
-- next_launch_executable_state: executable | blocked_until_trilium_patch_readback | blocked_until_project_files_refresh | blocked_until_patch_and_refresh
+- next_launch_executable_state: executable | blocked_until_repository_patch_readback | blocked_until_changed_files_context_refresh | blocked_until_patch_and_refresh
 - why_next_launch_is_or_is_not_executable:
 
 ## 2. Phase Start Decision
@@ -616,7 +616,7 @@ temporary_context:
   -
 open_questions:
   -
-trilium_patch:
+repository_patch:
   required: true | false
   summary:
   patch_id:
@@ -636,7 +636,7 @@ context_for_next:
     -
 next_launch_card:
   created: true | false
-  executable_state: executable | blocked_until_trilium_patch_readback | blocked_until_project_files_refresh | blocked_until_patch_and_refresh
+  executable_state: executable | blocked_until_repository_patch_readback | blocked_until_changed_files_context_refresh | blocked_until_patch_and_refresh
   reason_if_not_created:
 kernel_qa:
   status: PASS | PASS_WITH_EXCEPTIONS | BLOCKED
@@ -655,14 +655,14 @@ extensions:
 
 ```
 
-### 10.2 Trilium Patch
+### 10.2 Repository Patch
 
-Use canonical `trilium_patch.v1` only. P0 creates the patch packet; it does not apply it.
+Use canonical `repository_patch.v1` only. P0 creates the patch packet; it does not apply it.
 
 ```yaml
 workflow_packet: 1
-type: trilium_patch
-schema: trilium_patch.v1
+type: repository_patch
+schema: repository_patch.v1
 patch_id:
 created_by_stage: P0_PHASE_START
 return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
@@ -680,7 +680,7 @@ readback_required:
   - note_path:
     expected_anchor:
     expected_header:
-project_files_refresh:
+changed_files_context_refresh:
   - source_note:
     project_file:
     reason:
@@ -691,14 +691,14 @@ If no patch is required:
 
 ```yaml
 workflow_packet: 1
-type: trilium_patch
-schema: trilium_patch.v1
+type: repository_patch
+schema: repository_patch.v1
 patch_id:
 created_by_stage: P0_PHASE_START
 return_state: DONE
 operations: []
 readback_required: []
-project_files_refresh: []
+changed_files_context_refresh: []
 explicit_none_reason:
 
 ```
@@ -737,10 +737,10 @@ execution_log_entry:
     -
   decisions_made:
     -
-  trilium_patch:
+  repository_patch:
     required: true | false
     summary:
-  project_files_refresh:
+  changed_files_context_refresh:
     required: true | false
     files:
       -
@@ -796,10 +796,10 @@ documentation_maintenance_gate:
 
 ```
 
-### 10.5 Project Files Refresh List
+### 10.5 Changed Files / Context Refresh List
 
 ```yaml
-project_files_refresh_list:
+changed_files_context_refresh_list:
   required: true | false
   files:
     - file:
@@ -820,12 +820,12 @@ schema: stage_launch.v1
 action: run_stage
 mode: execute
 target_runtime: chatgpt_direction_project | chatgpt_current_chat | codex
-executable_state: executable | blocked_until_trilium_patch_readback | blocked_until_project_files_refresh | blocked_until_patch_and_refresh
+executable_state: executable | blocked_until_repository_patch_readback | blocked_until_changed_files_context_refresh | blocked_until_patch_and_refresh
 not_executable_until:
   - approval_complete
-  - trilium_patch_applied
-  - trilium_readback_passed
-  - project_files_refreshed
+  - repository_patch_applied
+  - repository_readback_passed
+  - changed_files_context_refreshed
 stage:
   id:
   name:
@@ -833,7 +833,7 @@ stage:
   version:
   status:
 prompt_delivery:
-  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_trilium
+  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_repository
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -841,7 +841,7 @@ prompt_delivery:
   prompt_text: null
 direction:
   name:
-  trilium_path:
+  repository_path:
   project_name:
 phase:
   name:
@@ -855,8 +855,8 @@ goal:
 source_state:
   from_stage: P0_PHASE_START
   previous_return_state:
-  pending_trilium_patch: true | false
-  project_files_refresh_required: true | false
+  pending_repository_patch: true | false
+  changed_files_context_refresh_required: true | false
 input_artifacts:
   previous_stage_result_summary:
   goal_contract:
@@ -874,7 +874,7 @@ required_context:
     - 05_PORTFOLIO_QUEUE.md
     - 06_CONTEXT_LIBRARY_INDEX.md
     - WF_VNEXT_R_RUNTIME_CORE.md
-  additional_trilium_exports:
+  additional_repository_file_exports:
     - path:
       reason:
       required: true | false
@@ -882,9 +882,9 @@ missing_context_policy: ask_only_if_blocking
 expected_outputs:
   - Human-readable result
   - Stage Result Packet
-  - Trilium Patch or none
+  - Repository Patch or none
   - Execution Log Entry
-  - Project Files Refresh List
+  - Changed Files / Context Refresh List
   - Next Launch Card / Context Request / Human Decision Card / Stop
 instructions:
   do_not_echo_prompt: true
@@ -904,9 +904,9 @@ schema: context_request.v1
 reason:
 blocking: true
 requested_context:
-  - kind: project_file | trilium_export | stage_prompt | codex_return | evidence | user_decision | other
+  - kind: project_file | repository_file_export | stage_prompt | codex_return | evidence | user_decision | other
     title:
-    trilium_path:
+    repository_path:
     file_name_suggested:
     why_needed:
     required: true
@@ -1004,7 +1004,7 @@ Do not:
 *   produce a handoff that requires reading private reasoning;
 *   claim the Phase is accepted or validated by real Direction testing;
 *   execute the first Goal;
-*   install anything into Trilium directly;
+*   install anything into GitHub repository directly;
 *   produce material formal packets before approval;
 *   emit noncanonical local schemas.
 
@@ -1030,9 +1030,9 @@ A successful post-approval P0 output is complete only when it contains:
 *   First Goal candidates, maximum three.
 *   Recommended next route.
 *   Stage Result Packet using `stage_result.v1`.
-*   Trilium Patch or explicit none using `trilium_patch.v1`.
+*   Repository Patch or explicit none using `repository_patch.v1`.
 *   Execution Log Entry using `execution_log_entry.v1`.
 *   Documentation Maintenance Gate.
-*   Project Files Refresh List.
+*   Changed Files / Context Refresh List.
 *   Next Launch Card, Context Request, Human Decision Card, or Stop.
 *   Kernel QA only if needed.
