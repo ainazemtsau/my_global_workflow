@@ -348,84 +348,121 @@ For stale/conflict, workflow-edit, Codex, recovery, or closure-adjacent problems
 
 ## 9\. Required transport outputs
 
+### 9.0 Output Schema Authority
+
+Canonical packet schemas are defined by `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+B1 must use these active schemas:
+
+- `stage_result.v1`
+- `stage_launch.v1`
+- `context_request.v1`
+- `human_decision.v1`
+- `stop.v1`
+- `repository_patch.v1`
+- `execution_log_entry.v1`
+- `documentation_maintenance_gate`
+
+Use `return_state`, `route`, and `next_stage` in `stage_result.v1`. Do not emit local packet-schema variants.
+
+### 9.0.1 Mandatory close compiler
+
+Every material B1 output must close with:
+
+1. Human-readable problem result.
+2. Stage Result Packet.
+3. Repository Patch or explicit none.
+4. Execution Log Entry.
+5. Documentation Maintenance Gate.
+6. Changed Files / Context Refresh List.
+7. Exactly one terminal artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.
+
 Always output a Stage Result Packet.
 
 ### 9.1 Stage Result Packet
 
 ```yaml
-stage_result_packet:
-  workflow_packet: 1
-  type: stage_result
-  schema: stage_result_packet.v1
-  stage_id: B1_PROBLEM
-  stage_name: Problem
-  result_state: route_ready | needs_context | needs_human_decision | stop | no_problem_found
+workflow_packet: 1
+type: stage_result
+schema: stage_result.v1
 
-  direction:
-    id:
-    name:
-    active_project:
+stage:
+  id: B1_PROBLEM
+  name: Problem
 
-  phase:
-    name:
-    status:
+return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
+route: context_request | human_decision | launch_next_stage | route_back | stop | no_problem_found
+next_stage:
 
-  goal:
-    goal_id:
-    title:
-    status:
+direction:
+  id:
+  name:
+  active_project:
 
-  problem_frame:
-    problem_kind:
-    blocked_object:
-    symptom:
-    impact:
-    severity:
-    confidence:
-    source_freshness:
-    evidence_available:
-      - item:
-    evidence_missing:
-      - item:
-    stale_or_conflicting_sources:
-      - source:
-        issue:
-    forbidden_scope:
-      - item:
-    anti_rabbit_hole_rejections:
-      - rejected:
-        reason:
+phase:
+  name:
+  status:
 
-  route_verdict:
+goal:
+  goal_id:
+  title:
+  status:
+
+problem_frame:
+  problem_kind:
+  blocked_object:
+  symptom:
+  impact:
+  severity:
+  confidence:
+  source_freshness:
+  evidence_available:
+    - item:
+  evidence_missing:
+    - item:
+  stale_or_conflicting_sources:
+    - source:
+      issue:
+  forbidden_scope:
+    - item:
+  anti_rabbit_hole_rejections:
+    - rejected:
+      reason:
+
+route_verdict:
     next_action: context_request | human_decision | launch_next_stage | route_back | stop
-    target_stage_id:
-    target_stage_name:
+    route:
+    next_stage:
     route_reason:
     smallest_safe_resolution_path:
     unblock_condition:
     route_back_to:
     loop_risk:
 
-  transport_outputs:
-    repository_patch_state: none | proposed | blocked
-    documentation_maintenance_gate_state: not_required | required | blocked_needs_context
-    changed_files_context_refresh_required: true | false
-    next_launch_card_included: true | false
-    context_request_included: true | false
-    human_decision_card_included: true | false
-    stop_card_included: true | false
+transport_outputs:
+  repository_patch_state: none | proposed | blocked
+  documentation_maintenance_gate_state: not_required | required | blocked_needs_context
+  changed_files_context_refresh_required: true | false
+  next_launch_card_included: true | false
+  context_request_included: true | false
+  human_decision_card_included: true | false
+  stop_card_included: true | false
 
-  compatibility:
-    unknown_fields_preserved: true | false
-    aliases_used:
-      - alias:
-        mapped_to:
+compatibility:
+  unknown_fields_preserved: true | false
+  aliases_used:
+    - alias:
+      mapped_to:
 
-  validation_summary:
-    no_false_closure: true
-    no_forbidden_scope: true
-    no_stale_context_inference: true
-    smallest_safe_route_selected: true
+validation_summary:
+  no_false_closure: true
+  no_forbidden_scope: true
+  no_stale_context_inference: true
+  smallest_safe_route_selected: true
+
+extensions:
+  B1_PROBLEM:
+    problem_state: route_ready | needs_context | needs_human_decision | stop | no_problem_found
 
 ```
 
@@ -437,6 +474,9 @@ Default:
 
 ```yaml
 repository_patch:
+  workflow_packet: 1
+  type: repository_patch
+  schema: repository_patch.v1
   patch_state: none
   reason: "B1 frames/routes the blocker; no safe documentation mutation is required."
 
@@ -446,6 +486,9 @@ If a patch is safe and authorized:
 
 ```yaml
 repository_patch:
+  workflow_packet: 1
+  type: repository_patch
+  schema: repository_patch.v1
   patch_state: proposed
   reason:
   target_paths:
@@ -485,7 +528,7 @@ execution_log_entry:
   problem_kind:
   route_verdict:
   next_action:
-  target_stage_id:
+  next_stage:
   source_freshness:
   repository_patch_state:
   documentation_gate_state:
@@ -541,9 +584,13 @@ Include only when `next_action: launch_next_stage` or `route_back`.
 next_launch_card:
   workflow_packet: 1
   type: stage_launch
-  schema: stage_launch_card.v1
-  target_stage_id:
-  target_stage_name:
+  schema: stage_launch.v1
+  stage:
+    id:
+    name:
+  source_state:
+    from_stage: B1_PROBLEM
+    previous_return_state:
   direction:
     id:
     name:
@@ -578,9 +625,10 @@ Include when missing/stale/conflicting context blocks safe routing or state muta
 context_request_card:
   workflow_packet: 1
   type: context_request
-  schema: context_request_card.v1
-  requesting_stage_id: B1_PROBLEM
-  requesting_stage_name: Problem
+  schema: context_request.v1
+  stage:
+    id: B1_PROBLEM
+    name: Problem
   reason:
   missing_context:
     - item:
@@ -594,8 +642,8 @@ context_request_card:
   forbidden_until_resolved:
     - item:
   resume_route:
-    target_stage_id:
-    target_stage_name:
+    route:
+    next_stage:
     reason:
 
 ```
@@ -608,9 +656,10 @@ Include when authorization, priority, scope expansion, or state mutation require
 human_decision_card:
   workflow_packet: 1
   type: human_decision
-  schema: human_decision_card.v1
-  requesting_stage_id: B1_PROBLEM
-  requesting_stage_name: Problem
+  schema: human_decision.v1
+  stage:
+    id: B1_PROBLEM
+    name: Problem
   decision_needed:
   options:
     - option_id:
@@ -622,8 +671,8 @@ human_decision_card:
   forbidden_without_decision:
     - item:
   resume_route_after_decision:
-    target_stage_id:
-    target_stage_name:
+    route:
+    next_stage:
     required_input:
 
 ```
@@ -636,9 +685,10 @@ Include when safe progress cannot continue and no valid Context Request, Human D
 stop_card:
   workflow_packet: 1
   type: stop
-  schema: stop_card.v1
-  requesting_stage_id: B1_PROBLEM
-  requesting_stage_name: Problem
+  schema: stop.v1
+  stage:
+    id: B1_PROBLEM
+    name: Problem
   stop_reason:
   unsafe_or_invalid_request:
   forbidden_actions_requested:

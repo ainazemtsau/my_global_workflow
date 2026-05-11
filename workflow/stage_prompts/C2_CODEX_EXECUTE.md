@@ -442,19 +442,51 @@ Include the expanded QA checklist with pass/fail/notes.
 
 ---
 
+## 11.1 Output Schema Authority
+
+Canonical packet schemas are defined by `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+C2 must use these active schemas:
+
+- `stage_result.v1`
+- `stage_launch.v1`
+- `context_request.v1`
+- `human_decision.v1`
+- `stop.v1`
+- `repository_patch.v1`
+- `execution_log_entry.v1`
+- `documentation_maintenance_gate`
+
+Use `return_state`, `route`, and `next_stage` in `stage_result.v1`. Stage-specific execution status belongs under `extensions.C2_CODEX_EXECUTE`.
+
+## 11.2 Mandatory close compiler
+
+Every material C2 output must close with:
+
+1. Human-readable execution result.
+2. Stage Result Packet.
+3. Codex Return Packet or explicit none.
+4. Repository Patch or explicit none.
+5. Execution Log Entry.
+6. Documentation Maintenance Gate.
+7. Changed Files / Context Refresh List.
+8. Exactly one terminal artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.
+
 ## 12\. Stage Result Packet schema
 
 Produce this packet every run.
 
 ```yaml
 workflow_packet: 1
-packet_type: stage_result_packet
-schema: stage_result_packet.v1
-stage_id: C2_CODEX_EXECUTE
-stage_name: Codex Execute
-stage_run_id:
-status:
+type: stage_result
+schema: stage_result.v1
+stage:
+  id: C2_CODEX_EXECUTE
+  name: Codex Execute
+return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
 route:
+next_stage:
+stage_run_id:
 active_direction_id:
 active_phase_id:
 active_goal_id:
@@ -477,19 +509,11 @@ context_request_needed:
 produced_artifacts:
 unknown_fields_preserved:
 kernel_qa_summary:
-extensions: {}
+extensions:
+  C2_CODEX_EXECUTE:
+    execution_status: executed_verified | executed_partial | validation_failed | blocked_context | needs_human_decision | stop_unsafe | no_op_verified
 
 ```
-
-Allowed `status` values:
-
-*   `executed_verified`
-*   `executed_partial`
-*   `validation_failed`
-*   `blocked_context`
-*   `needs_human_decision`
-*   `stop_unsafe`
-*   `no_op_verified`
 
 ---
 
@@ -679,11 +703,14 @@ For successful verified execution, route normally to R1.
 ```yaml
 workflow_packet: 1
 type: stage_launch
-schema: stage_launch_card.v1
-next_stage_id: R1_GOAL_REVIEW_DISTILL
-next_stage_name: Goal Review Distill
-source_stage_id: C2_CODEX_EXECUTE
-source_stage_result_ref:
+schema: stage_launch.v1
+stage:
+  id: R1_GOAL_REVIEW_DISTILL
+  name: Goal Review Distill
+source_state:
+  from_stage: C2_CODEX_EXECUTE
+  previous_return_state:
+  source_result_ref:
 codex_return_packet_ref:
 active_direction_id:
 active_phase_id:
@@ -720,11 +747,14 @@ For partial or failed execution, route to R0 when recovery is needed and no huma
 ```yaml
 workflow_packet: 1
 type: stage_launch
-schema: stage_launch_card.v1
-next_stage_id: R0_RECOVERY_CLOSE
-next_stage_name: Recovery Close
-source_stage_id: C2_CODEX_EXECUTE
-source_stage_result_ref:
+schema: stage_launch.v1
+stage:
+  id: R0_RECOVERY_CLOSE
+  name: Recovery Close
+source_state:
+  from_stage: C2_CODEX_EXECUTE
+  previous_return_state:
+  source_result_ref:
 codex_return_packet_ref:
 active_direction_id:
 active_phase_id:
@@ -752,9 +782,11 @@ Use when execution context is insufficient.
 ```yaml
 workflow_packet: 1
 type: context_request
-schema: context_request_card.v1
-stage_id: C2_CODEX_EXECUTE
-status: blocked_context
+schema: context_request.v1
+stage:
+  id: C2_CODEX_EXECUTE
+  name: Codex Execute
+return_state: NEEDS_INPUT
 blocking_reason:
 missing_required_context:
   - item:
@@ -792,9 +824,11 @@ Use when execution requires a user choice.
 ```yaml
 workflow_packet: 1
 type: human_decision
-schema: human_decision_card.v1
-stage_id: C2_CODEX_EXECUTE
-status: needs_human_decision
+schema: human_decision.v1
+stage:
+  id: C2_CODEX_EXECUTE
+  name: Codex Execute
+return_state: NEEDS_INPUT
 decision_needed:
 why_decision_is_needed:
 options:
@@ -817,9 +851,11 @@ Use when the requested action is unsafe, invalid, or would contaminate workflow 
 ```yaml
 workflow_packet: 1
 type: stop
-schema: stop_card.v1
-stage_id: C2_CODEX_EXECUTE
-status: stop_unsafe
+schema: stop.v1
+stage:
+  id: C2_CODEX_EXECUTE
+  name: Codex Execute
+return_state: STUCK
 stop_reason:
 unsafe_or_invalid_request:
 evidence:

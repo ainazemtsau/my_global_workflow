@@ -464,6 +464,9 @@ Output:
 When producing a patch, use this structure:
 
 ```yaml
+workflow_packet: 1
+type: repository_patch
+schema: repository_patch.v1
 repository_patch: 1
 patch_id:
 stage_id: F0_FAST_DIRECT
@@ -520,6 +523,35 @@ Patch action rules:
 
 ---
 
+## 11.1 Output Schema Authority
+
+Canonical packet schemas are defined by `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+F0 must use these active schemas:
+
+- `stage_result.v1`
+- `stage_launch.v1`
+- `context_request.v1`
+- `human_decision.v1`
+- `stop.v1`
+- `repository_patch.v1`
+- `execution_log_entry.v1`
+- `documentation_maintenance_gate`
+
+Use `return_state`, `route`, and `next_stage` in `stage_result.v1`. Stage-specific execution metadata belongs under `extensions.F0_FAST_DIRECT`.
+
+## 11.2 Mandatory close compiler
+
+Every material F0 output must close with:
+
+1. Human-readable fast direct result.
+2. Stage Result Packet.
+3. Repository Patch or explicit none.
+4. Execution Log Entry.
+5. Documentation Maintenance Gate.
+6. Changed Files / Context Refresh List.
+7. Exactly one terminal artifact: Next Launch Card, Apply/Read-back Request, Context Request Card, Human Decision Card, Stop Card, or route escalation.
+
 ## 12\. Stage Result Packet
 
 Always produce a Stage Result Packet, even when blocked.
@@ -528,11 +560,14 @@ Use this structure:
 
 ```yaml
 workflow_packet: 1
-type: stage_result_packet
-schema: stage_result_packet.v1
-stage_id: F0_FAST_DIRECT
-stage_name: Fast Direct
-result_state: completed | patch_ready_needs_apply_readback | needs_context | human_decision_required | escalated | stopped
+type: stage_result
+schema: stage_result.v1
+stage:
+  id: F0_FAST_DIRECT
+  name: Fast Direct
+return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
+route:
+next_stage:
 direction:
   id:
   name:
@@ -543,7 +578,9 @@ phase:
 goal:
   goal_id:
   title:
-  source_stage:
+source_state:
+  from_stage:
+  previous_return_state:
 source_inputs:
   launch_card_ref:
   e1_execution_brief_ref:
@@ -580,9 +617,12 @@ documentation_maintenance:
   refresh_required:
 route_decision:
   next_action:
-  next_stage_id:
+  next_stage:
   reason:
 open_risks:
+extensions:
+  F0_FAST_DIRECT:
+    direct_execution_state: completed | patch_ready_needs_apply_readback | needs_context | human_decision_required | escalated | stopped
 
 ```
 
@@ -601,6 +641,9 @@ Produce this for every F0 run:
 
 ```yaml
 execution_log_entry: 1
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
 stage_id: F0_FAST_DIRECT
 stage_name: Fast Direct
 direction:
@@ -691,12 +734,14 @@ Produce this only after completed execution with file read-back / diff verificat
 
 ```yaml
 workflow_packet: 1
-type: stage_launch_card
-schema: stage_launch_card.v1
-next_stage_id: R1_GOAL_REVIEW_DISTILL
-next_stage_name: Review Distill
-from_stage_id: F0_FAST_DIRECT
-from_stage_name: Fast Direct
+type: stage_launch
+schema: stage_launch.v1
+stage:
+  id: R1_GOAL_REVIEW_DISTILL
+  name: Review Distill
+source_state:
+  from_stage: F0_FAST_DIRECT
+  previous_return_state:
 launch_reason:
 direction:
   id:
@@ -761,8 +806,11 @@ Use this when missing context blocks safe execution.
 ```yaml
 workflow_packet: 1
 type: context_request
-schema: context_request_card.v1
-stage_id: F0_FAST_DIRECT
+schema: context_request.v1
+stage:
+  id: F0_FAST_DIRECT
+  name: Fast Direct
+return_state: NEEDS_INPUT
 reason:
 blocking_missing_context:
   - item:
@@ -796,8 +844,11 @@ Use this when a human must choose whether to expand scope or accept risk.
 ```yaml
 workflow_packet: 1
 type: human_decision
-schema: human_decision_card.v1
-stage_id: F0_FAST_DIRECT
+schema: human_decision.v1
+stage:
+  id: F0_FAST_DIRECT
+  name: Fast Direct
+return_state: NEEDS_INPUT
 decision_required:
 options:
   - option_id:
@@ -834,8 +885,11 @@ Use this when proceeding would be unsafe.
 ```yaml
 workflow_packet: 1
 type: stop
-schema: stop_card.v1
-stage_id: F0_FAST_DIRECT
+schema: stop.v1
+stage:
+  id: F0_FAST_DIRECT
+  name: Fast Direct
+return_state: STUCK
 stop_reason:
 evidence:
 unsafe_action_prevented:
@@ -866,11 +920,13 @@ Use this when F0 is no longer the right route but the work may still be valid.
 workflow_packet: 1
 type: route_escalation
 schema: route_escalation.v1
-from_stage_id: F0_FAST_DIRECT
+source_state:
+  from_stage: F0_FAST_DIRECT
+  previous_return_state:
 reason:
 detected_triggers:
-recommended_next_stage_id:
-recommended_next_stage_name:
+recommended_route:
+next_stage:
 preserved_context:
 repository_patch:
   state: none | safe_partial_completed

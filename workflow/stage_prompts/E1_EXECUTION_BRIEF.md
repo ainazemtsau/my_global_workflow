@@ -57,7 +57,7 @@ You should expect a Stage Launch Card or equivalent packet containing:
 workflow_packet: 1
 type: stage_launch
 schema: stage_launch.v1
-target_stage:
+stage:
   id: E1_EXECUTION_BRIEF
   name: Execution Brief
 direction:
@@ -370,18 +370,49 @@ If none, write: No QA exceptions.
 
 Keep the output concise. Do not add long narrative unless it is necessary to resolve a blocker.
 
+## 6.1 Output Schema Authority
+
+Canonical packet schemas are defined by `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+E1 must use these active schemas:
+
+- `stage_result.v1`
+- `stage_launch.v1`
+- `context_request.v1`
+- `human_decision.v1`
+- `stop.v1`
+- `repository_patch.v1`
+- `execution_log_entry.v1`
+- `documentation_maintenance_gate`
+
+Use `return_state`, `route`, and `next_stage` in `stage_result.v1`. Stage-specific brief metadata belongs under `extensions.E1_EXECUTION_BRIEF`.
+
+## 6.2 Mandatory close compiler
+
+Every material E1 output must close with:
+
+1. Human-readable route decision and execution brief.
+2. Stage Result Packet.
+3. Repository Patch or explicit none.
+4. Execution Log Entry.
+5. Documentation Maintenance Gate.
+6. Changed Files / Context Refresh List.
+7. Exactly one terminal artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.
+
 ## 7\. Stage Result Packet contract
 
 Always produce this packet unless outputting a Stop Card before safe packet construction is possible.
 
 ```yaml
 workflow_packet: 1
-type: stage_result_packet
-schema: stage_result_packet.v1
+type: stage_result
+schema: stage_result.v1
 stage:
   id: E1_EXECUTION_BRIEF
   name: Execution Brief
-  status: completed | needs_input | human_decision_required | stopped
+return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
+route:
+next_stage:
 direction:
   id:
   name:
@@ -394,15 +425,17 @@ phase:
 goal:
   goal_id:
   title:
-  source_stage: G1_GOAL_SHAPE
+source_state:
+  from_stage: G1_GOAL_SHAPE
+  previous_return_state:
 source_evidence:
   g1_packet_present: true | false | unknown
   g1_patch_applied: true | false | unknown
   readback_evidence_present: true | false | unknown
   active_goal_matches_packet: true | false | unknown
 selected_route:
-  stage_id:
-  stage_name:
+  route:
+  next_stage:
   reason:
   confidence: high | medium | low
   downstream_availability:
@@ -458,9 +491,14 @@ documentation_maintenance_gate:
   summary:
 next_launch_card:
   included: true | false
-  target_stage:
+  stage:
+    id:
+    name:
 blockers:
   - blocker:
+extensions:
+  E1_EXECUTION_BRIEF:
+    brief_state: completed | needs_input | human_decision_required | stopped
 
 ```
 
@@ -472,6 +510,9 @@ Always include one of these.
 
 ```yaml
 repository_patch:
+  workflow_packet: 1
+  type: repository_patch
+  schema: repository_patch.v1
   required: true
   patch_type: create | replace_section | append_section | update_header
   purpose: record_e1_execution_brief_only
@@ -497,6 +538,9 @@ repository_patch:
 
 ```yaml
 repository_patch:
+  workflow_packet: 1
+  type: repository_patch
+  schema: repository_patch.v1
   required: false
   patch_type: explicit_none
   reason:
@@ -511,12 +555,15 @@ Produce:
 
 ```yaml
 execution_log_entry:
+  workflow_packet: 1
+  type: execution_log_entry
+  schema: execution_log_entry.v1
   stage_id: E1_EXECUTION_BRIEF
   stage_name: Execution Brief
   direction_id:
   phase_id:
   goal_id:
-  result_status:
+  return_state:
   selected_route:
   brief_summary:
   scope_preserved: true | false
@@ -599,12 +646,12 @@ If execution can proceed, produce a copy-paste launch card for exactly one selec
 workflow_packet: 1
 type: stage_launch
 schema: stage_launch.v1
-from_stage:
-  id: E1_EXECUTION_BRIEF
-  name: Execution Brief
-target_stage:
+stage:
   id:
   name:
+source_state:
+  from_stage: E1_EXECUTION_BRIEF
+  previous_return_state:
 launch_reason:
 direction:
   id:
@@ -666,6 +713,7 @@ stage:
   id: E1_EXECUTION_BRIEF
   name: Execution Brief
 status: needs_input
+return_state: NEEDS_INPUT
 blocking_reason:
 missing_context:
   - item:
@@ -682,12 +730,13 @@ Use when user choice is required.
 
 ```yaml
 workflow_packet: 1
-type: human_decision_card
-schema: human_decision_card.v1
+type: human_decision
+schema: human_decision.v1
 stage:
   id: E1_EXECUTION_BRIEF
   name: Execution Brief
 status: human_decision_required
+return_state: NEEDS_INPUT
 decision_needed:
 options:
   - option:
@@ -705,12 +754,13 @@ Use when proceeding would be unsafe or out of scope.
 
 ```yaml
 workflow_packet: 1
-type: stop_card
-schema: stop_card.v1
+type: stop
+schema: stop.v1
 stage:
   id: E1_EXECUTION_BRIEF
   name: Execution Brief
 status: stopped
+return_state: STUCK
 stop_reason:
 evidence:
 forbidden_next_actions:

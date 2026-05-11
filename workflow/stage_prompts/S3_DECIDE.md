@@ -440,9 +440,38 @@ Return this structure.
 
 # S3_DECIDE RESULT — [short work title]
 
+## 0. Output Schema Authority
+
+Canonical packet schemas are defined by `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+S3 must use these active schemas:
+
+- `stage_result.v1`
+- `stage_launch.v1`
+- `context_request.v1`
+- `human_decision.v1`
+- `stop.v1`
+- `repository_patch.v1`
+- `execution_log_entry.v1`
+- `documentation_maintenance_gate`
+
+Use `return_state`, `route`, and `next_stage` in `stage_result.v1`. Stage-specific route confidence belongs under `extensions.S3_DECIDE`.
+
+## 0.1 Mandatory close compiler
+
+Every material S3 output must close with:
+
+1. Human-readable decision result.
+2. Stage Result Packet.
+3. Repository Patch or explicit none.
+4. Execution Log Entry.
+5. Documentation Maintenance Gate.
+6. Changed Files / Context Refresh List.
+7. Exactly one terminal artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.
+
 ## 1. Decision
 
-- stage_status: route_selected | context_request | human_decision | stop
+- return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
 - selected_route: [F0_FAST_DIRECT | E1_EXECUTION_BRIEF | D1_DEEP_RESEARCH | A1_AUDIT | C1_CODEX_GRAPH_PLAN | I0_CAPTURE | B1_PROBLEM | HUMAN_DECISION | CONTEXT_REQUEST | STOP]
 - one_sentence_reason:
 - route_confidence: high | medium | low
@@ -475,11 +504,7 @@ Return this structure.
 
 ## 5. Next artifact
 
-[Include exactly one complete artifact:
-- Next Launch Card, or
-- Context Request Card, or
-- Human Decision Card, or
-- Stop Card.]
+[Include exactly one complete artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.]
 
 ## 6. Runtime packets
 
@@ -488,15 +513,18 @@ Return this structure.
 ```yaml
 workflow_packet: 1
 type: stage_result
-stage_id: S3_DECIDE
-stage_name: Decide
-status: route_selected | context_request | human_decision | stop
+schema: stage_result.v1
+stage:
+  id: S3_DECIDE
+  name: Decide
+return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
+route:
+next_stage:
 input_artifact_summary:
 decision_question:
 selected_route:
 selected_route_name:
 route_reason:
-route_confidence:
 risk_level:
 reversibility:
 evidence_sufficiency:
@@ -509,39 +537,60 @@ execution_log_entry_ref:
 changed_files_context_refresh_list_ref:
 documentation_maintenance_gate_ref:
 next_artifact_type:
-optional_extensions:
-  route_decision_snapshot:
-    selected_route:
-    route_reason:
+extensions:
+  S3_DECIDE:
     route_confidence:
-    risk_level:
-    reversibility:
-    source_freshness_status:
-    rejected_routes:
-    scope_cut_summary:
-    no_execution_performed: true
-Repository Patch
+    route_decision_snapshot:
+      selected_route:
+      route_reason:
+      route_confidence:
+      risk_level:
+      reversibility:
+      source_freshness_status:
+      rejected_routes:
+      scope_cut_summary:
+      no_execution_performed: true
+```
+
+### Repository Patch
+
+```yaml
+workflow_packet: 1
+type: repository_patch
+schema: repository_patch.v1
 repository_patch_required: false
 repository_patch: none
 reason: S3_DECIDE is a read-only route decision stage unless a later accepted contract explicitly authorizes mutation.
-Execution Log Entry
-execution_log_entry:
-  stage_id: S3_DECIDE
-  direction_id:
-  phase_id:
-  goal_id:
-  input_summary:
-  selected_route_or_blocking_card:
-  route_reason:
-  rejected_routes_summary:
-  source_freshness_status:
-  context_requested: yes/no
-  human_decision_required: yes/no
-  repository_patch: none
-  documentation_gate: none|required|blocked
-  changed_files_context_refresh: none|required
-  no_execution_performed: true
-Documentation Maintenance Gate
+```
+
+### Execution Log Entry
+
+```yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+stage:
+  id: S3_DECIDE
+  name: Decide
+direction_id:
+phase_id:
+goal_id:
+input_summary:
+selected_route_or_blocking_card:
+route_reason:
+rejected_routes_summary:
+source_freshness_status:
+context_requested: yes/no
+human_decision_required: yes/no
+repository_patch: none
+documentation_gate: none|required|blocked
+changed_files_context_refresh: none|required
+no_execution_performed: true
+```
+
+### Documentation Maintenance Gate
+
+```yaml
 documentation_maintenance_gate:
   required: true|false
   trigger:
@@ -551,7 +600,11 @@ documentation_maintenance_gate:
   before_or_after_next_route:
   blocked_until_docs_fresh: true|false
   notes:
-Changed Files / Context Refresh List
+```
+
+### Changed Files / Context Refresh List
+
+```yaml
 changed_files_context_refresh:
   required: true|false
   reason:
@@ -560,19 +613,13 @@ changed_files_context_refresh:
       reason:
       minimum_required_refresh:
   blocking: true|false
-7. Kernel QA
+```
+
+## 7. Kernel QA
 
 Use exception-only Kernel QA by default.
 
-Report only failures, risks, or expanded QA required because the decision involves:
-
-Deep Research,
-Audit,
-Codex,
-workflow edit,
-stale/conflict,
-recovery,
-high-risk state change.
+Report only failures, risks, or expanded QA required because the decision involves Deep Research, Audit, Codex, workflow edit, stale/conflict, recovery, or high-risk state change.
 
 If no exceptions:
 
@@ -585,9 +632,13 @@ When selected_route is a downstream stage, include this exact card shape.
 ```yaml
 workflow_packet: 1
 type: stage_launch
-target_stage_id:
-target_stage_name:
-launched_by_stage: S3_DECIDE
+schema: stage_launch.v1
+stage:
+  id:
+  name:
+source_state:
+  from_stage: S3_DECIDE
+  previous_return_state:
 direction_id:
 phase_id:
 goal_id:
@@ -604,13 +655,20 @@ documentation_gate:
 changed_files_context_refresh_list:
 human_notes:
 do_not_execute_beyond_stage_scope: true
-9. Context Request Card template
+```
+
+## 9. Context Request Card template
 
 When selected_route is CONTEXT_REQUEST, include this exact card shape.
 
+```yaml
 workflow_packet: 1
 type: context_request
-stage_id: S3_DECIDE
+schema: context_request.v1
+stage:
+  id: S3_DECIDE
+  name: Decide
+return_state: NEEDS_INPUT
 reason:
 blocking_missing_context:
   - item:
@@ -620,13 +678,20 @@ minimum_user_action:
 do_not_proceed_until:
 route_after_context_is_supplied:
 notes:
-10. Human Decision Card template
+```
+
+## 10. Human Decision Card template
 
 When selected_route is HUMAN_DECISION, include this exact card shape.
 
+```yaml
 workflow_packet: 1
 type: human_decision
-stage_id: S3_DECIDE
+schema: human_decision.v1
+stage:
+  id: S3_DECIDE
+  name: Decide
+return_state: NEEDS_INPUT
 decision_needed:
 why_human_decision_is_required:
 options:
@@ -637,18 +702,27 @@ recommended_default:
 minimum_answer_needed:
 blocked_until_decision: true
 notes:
-11. Stop Card template
+```
+
+## 11. Stop Card template
 
 When selected_route is STOP, include this exact card shape.
 
+```yaml
 workflow_packet: 1
 type: stop
-stage_id: S3_DECIDE
+schema: stop.v1
+stage:
+  id: S3_DECIDE
+  name: Decide
+return_state: STUCK
 stop_reason:
 what_was_not_done:
 safe_next_user_action:
 notes:
-12. Self-check before final answer
+```
+
+## 12. Self-check before final answer
 
 Before responding, verify:
 
