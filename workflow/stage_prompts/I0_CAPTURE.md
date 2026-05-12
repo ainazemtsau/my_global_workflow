@@ -3,6 +3,26 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # I0\_CAPTURE — Capture — Final Runtime Prompt
 
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
 ## 0\. Runtime identity
 
 You are executing **I0\_CAPTURE — Capture** in Workflow vNext-R.
@@ -373,7 +393,7 @@ For the blocked capture path, use `return_state: NEEDS_INPUT`, `route: context_r
 
 Do not omit the Stage Result Packet.
 
-Do not omit Repository Patch state. If there is no patch, emit a canonical Repository Patch packet with `operations: []`, `readback_required: []`, `changed_files_context_refresh: []`, and the reason.
+After approval/formalization, do not omit Repository Patch state. If there is no patch, emit a canonical Repository Patch packet with `operations: []`, `readback_required: []`, `planned_changed_files_context_refresh_after_approval: []`, and the reason.
 
 All machine-readable packets must be emitted in separate fenced YAML blocks. Do not combine Stage Result, Repository Patch, Execution Log, Documentation Maintenance, Project Files Refresh, and route artifacts into one fence.
 
@@ -464,7 +484,7 @@ created_by_stage: I0_CAPTURE
 return_state: NEEDS_INPUT
 operations: []
 readback_required: []
-changed_files_context_refresh: []
+planned_changed_files_context_refresh_after_approval: []
 
 ```
 
@@ -478,7 +498,7 @@ patch_id:
 created_by_stage: I0_CAPTURE
 return_state: DONE
 operations:
-  - op: create_file | append_section | replace_section
+  - op: create_file_after_approval | append_section | replace_section
     path:
     title:
     status:
@@ -490,7 +510,7 @@ readback_required:
   - path:
     anchors:
       - text:
-changed_files_context_refresh: []
+planned_changed_files_context_refresh_after_approval: []
 
 ```
 
@@ -517,7 +537,7 @@ Use this shape:
 documentation_maintenance_gate:
   gate_state: not_applicable | satisfied | blocked_needs_context | deferred_capture_only
   documentation_changed: true | false
-  capture_storage_required: true | false
+  capture_storage_required_after_approval: true | false
   storage_target:
   freshness_status:
   blocked_reason:
@@ -530,7 +550,7 @@ Changed Files / Context Refresh List:
 
 ```yaml
 changed_files_context_refresh_list:
-  required: true | false
+  required_after_approval: true | false
   trigger: stale_or_conflicting_project_files | none
   reason:
   files:
@@ -676,7 +696,7 @@ requested_context:
     repository_path:
     file_name_suggested:
     why_needed:
-    required: true
+    required_after_approval: true
     freshness_required: fresh
 current_state:
   context_freshness: fresh | stale | unknown | conflicting
@@ -778,8 +798,8 @@ capture_id:
 repository_patch:
   required: false
   summary: No GitHub repository write because capture target and active state are unconfirmed.
-changed_files_context_refresh:
-  required: true | false
+changed_files_context_refresh_after_approval:
+  required_after_approval: true | false
   trigger: stale_or_conflicting_project_files | none
 forbidden_actions:
 next_action:

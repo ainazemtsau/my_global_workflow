@@ -3,6 +3,28 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # C1\_CODEX\_GRAPH\_PLAN — Final Runtime Stage Prompt
 
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+C1 may keep stricter execution-planning gates, but must distinguish read-only audit/context request, planning output, repository maintenance, and approved project execution. This rule does not weaken C1 planning-only boundaries.
+
 ## 0.1 Output Schema Authority
 
 All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
@@ -246,7 +268,7 @@ Pass 9 — Transport assembly:
 
 *   Produce Stage Result Packet.
 *   Produce Codex Graph Plan / Codex Wave Card.
-*   Produce Repository Patch or explicit none.
+*   After approval/formalization, produce Repository Patch or explicit none.
 *   Produce Execution Log Entry.
 *   Produce Documentation Maintenance Gate.
 *   Produce Changed Files / Context Refresh List.
@@ -397,7 +419,7 @@ Parallelism:
 
 ## 11\. Repository Patch policy
 
-C1 must output either a Repository Patch or explicit none.
+After approval/formalization, C1 must output either a Repository Patch or explicit none.
 
 Use explicit none when:
 
@@ -441,7 +463,7 @@ Default Changed Files / Context Refresh List:
 *   required: false
 *   files: \[\]
 
-Set required: true only if C1 detects a stable workflow contract or exported Project File must change. Do not mutate Project Files. Report the need and reason.
+Set required_after_approval: true only if C1 detects a stable workflow contract or exported Project File must change. Do not mutate Project Files. Report the need and reason.
 
 ## 14\. Required runtime output format
 
@@ -547,7 +569,7 @@ Include:
 *   graph\_plan\_ref:
 *   repository\_patch\_ref\_or\_none:
 *   documentation\_gate\_ref:
-*   changed\_files\_context\_refresh:
+*   changed\_files\_context\_refresh_after_approval:
 *   kernel\_qa\_summary:
 
 ## 8\. Repository Patch
@@ -601,7 +623,7 @@ Include:
 
 Include:
 
-*   changed\_files\_context\_refresh\_required: true | false
+*   changed\_files\_context\_refresh\_required_after_approval: true | false
 *   files:
 *   reason:
 

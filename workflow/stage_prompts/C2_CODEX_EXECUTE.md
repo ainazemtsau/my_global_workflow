@@ -3,6 +3,28 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # C2\_CODEX\_EXECUTE — Final Runtime Stage Prompt
 
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+C2 may keep stricter execution gates, but must distinguish read-only audit/context request, planning/execution output, repository maintenance, and approved project execution. This rule does not weaken C2 execution readiness gates or accepted C1 plan boundaries.
+
 ## Stage identity
 
 *   Stage ID: C2\_CODEX\_EXECUTE
@@ -472,7 +494,7 @@ Every material C2 output must close with:
 1. Human-readable execution result.
 2. Stage Result Packet.
 3. Codex Return Packet or explicit none.
-4. Repository Patch or explicit none.
+4. Formalization-phase Repository Patch or explicit none.
 5. Execution Log Entry.
 6. Documentation Maintenance Gate.
 7. Changed Files / Context Refresh List.
@@ -597,7 +619,7 @@ If GitHub repository mutation is required and authorized only by patch, produce:
 workflow_packet: 1
 packet_type: repository_patch
 schema: repository_patch.v1
-patch_required: true
+patch_required_after_approval: true
 patch_reason:
 target_root:
 files_to_create_or_update:
@@ -920,7 +942,7 @@ expanded_kernel_qa:
   execution_log:
     result:
     notes:
-  changed_files_context_refresh:
+  changed_files_context_refresh_after_approval:
     result:
     notes:
   route_artifact:

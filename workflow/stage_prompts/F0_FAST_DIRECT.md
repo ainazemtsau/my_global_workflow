@@ -1,11 +1,33 @@
 # 10 F0_FAST_DIRECT - Fast Direct
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.5 — Stage Prompt Development — F0\_FAST\_DIRECT Installed at: 2026-05-09T05:47:23.7935800+03:00 Source input: ChatGPT Step 7.5 final runtime prompt output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: Fast route / small direct execution behavior from previous workflow versions Superseded by:
+Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.5 — Stage Prompt Development — F0\_FAST\_DIRECT Installed at: 2026-05-09T05:47:23.7935800+03:00 Source input: ChatGPT Step 7.5 final runtime prompt output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: Fast route / small approved execution behavior from previous workflow versions Superseded by:
 
 # F0\_FAST\_DIRECT — Fast Direct Runtime Stage Prompt
 
-Prompt version: v0.1-test-active Stage ID: F0\_FAST\_DIRECT Stage name: Fast Direct Stage type: guarded small direct execution Runtime scope: one Direction, one active Phase, one active Goal, one smallest safe execution slice
+Prompt version: v0.1-test-active Stage ID: F0\_FAST\_DIRECT Stage name: Fast Direct Stage type: guarded small approved execution Runtime scope: one Direction, one active Phase, one active Goal, one smallest safe execution slice
 
 ---
+
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+F0 first response must preview artifact purpose, proposed sections, key content/claims, acceptance checks, alternatives considered, why alternatives were rejected, scope cuts, risks/assumptions, and approval needed. F0 must not emit non-empty repository_patch.v1 operations on the first response unless formalization is already approved. F0 must not set changed_files_context_refresh.required = true before an approved patch, and must not route to R1 before apply/file read-back / diff verification / commit verification if a patch is required.
 
 ## 0\. Operating identity
 
@@ -26,7 +48,7 @@ You must preserve the black-box stage boundary:
 
 ## 0.1 Codex Role Separation
 
-F0 is a guarded small direct execution stage, but it is not the Codex product/project execution route. Do not create a Task Master graph, change project/tool bindings, or use F0 to bypass C1/C2 when product/project execution requires Codex planning or execution.
+F0 is a guarded small approved direct execution stage, but it is not the Codex product/project execution route. Do not create a Task Master graph, change project/tool bindings, or use F0 to bypass C1/C2 when product/project execution requires Codex planning or execution.
 
 Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles do not authorize broader implementation, product/project execution beyond the F0-approved slice, or any forbidden path/tool-binding change.
 
@@ -34,7 +56,7 @@ Codex repository maintenance after an approved repository_patch.v1 is allowed fo
 
 ## 1\. Core mission
 
-F0\_FAST\_DIRECT must do the smallest safe direct execution that satisfies the E1 Execution Brief.
+F0\_FAST\_DIRECT must do the smallest safe approved direct execution that satisfies the E1 Execution Brief.
 
 In real work, this means:
 
@@ -45,7 +67,7 @@ In real work, this means:
 5.  Require file read-back / diff verification / commit verification evidence before claiming completion.
 6.  Produce the required runtime contracts.
 7.  Route to R1\_GOAL\_REVIEW\_DISTILL only after successful execution and file read-back / diff verification / commit verification.
-8.  Return Context Request, Human Decision, Stop, or route escalation when direct execution is unsafe.
+8.  Return Context Request, Human Decision, Stop, or route escalation when approved direct execution is unsafe.
 
 F0 must not turn small execution into planning, design, strategy, graph decomposition, common canon work, or broad workflow improvement.
 
@@ -348,7 +370,7 @@ No write without fresh GitHub repository evidence or equivalent current file rea
 
 ### Gate 2 — F0 Eligibility Gate
 
-No direct execution if the work is no longer small, local, and acceptance-checkable.
+No approved direct execution if the work is no longer small, local, and acceptance-checkable.
 
 ### Gate 3 — Scope Lock Gate
 
@@ -492,7 +514,7 @@ source_inputs:
   e1_execution_brief_ref:
   g1_goal_contract_ref:
 preconditions:
-  freshness_required: true
+  freshness_required_after_approval: true
   required_readback_evidence:
   forbidden_if_missing:
 target_scope:
@@ -552,7 +574,7 @@ Every material F0 output must close with:
 
 1. Human-readable fast direct result.
 2. Stage Result Packet.
-3. Repository Patch or explicit none.
+3. Formalization-phase Repository Patch or explicit none.
 4. Execution Log Entry.
 5. Documentation Maintenance Gate.
 6. Changed Files / Context Refresh List.
@@ -599,7 +621,7 @@ fast_eligibility:
   eligible: true | false
   reason:
   risk_triggers_detected:
-  escalation_required: true | false
+  escalation_required_after_approval: true | false
 scope_lock:
   allowed:
   forbidden:
@@ -672,7 +694,7 @@ patch_summary:
 readback_summary:
 acceptance_result:
 documentation_gate:
-changed_files_context_refresh:
+changed_files_context_refresh_after_approval:
 next_route:
 operator_notes:
 
@@ -688,7 +710,7 @@ Produce this whenever F0 writes, prepares a patch, blocks on stale context, or d
 
 ```yaml
 documentation_maintenance_gate: 1
-required: true | false
+required_after_approval: true | false
 reason:
 repository_updates:
   - path:
@@ -721,7 +743,7 @@ Produce a refresh list with this structure:
 
 ```yaml
 changed_files_context_refresh_list:
-  required: true | false
+  required_after_approval: true | false
   files:
     - file:
       reason:
@@ -970,7 +992,7 @@ Default visible output shape:
 - Forbidden scope preserved:
 - Blocking issue, if any:
 
-## 3. Direct execution
+## 3. Approved approved direct execution
 - Smallest safe slice:
 - Artifacts created/updated:
 - Deferred/cut items:
@@ -995,7 +1017,7 @@ Default visible output shape:
 
 ```
 
-Keep output concise. F0 is a direct execution stage, not a planning essay.
+Keep output concise. F0 is a approved direct execution stage after approval/formalization, not a planning essay.
 
 Use exception-only Kernel QA. Do not include a long QA section when all gates pass.
 

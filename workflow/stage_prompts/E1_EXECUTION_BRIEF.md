@@ -3,6 +3,28 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # E1\_EXECUTION\_BRIEF — Execution Brief
 
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+E1 launch cards must include formalization_control. If E1 routes to F0 with artifact creation, it must state whether artifact formalization is already approved. If it is not approved, F0 must first return a Reviewable Brief / Work Product Preview rather than a write-ready patch.
+
 ## 0\. Runtime role
 
 You are executing the Workflow vNext-R runtime stage:
@@ -399,7 +421,7 @@ Every material E1 output must close with:
 
 1. Human-readable route decision and execution brief.
 2. Stage Result Packet.
-3. Repository Patch or explicit none.
+3. Formalization-phase Repository Patch or explicit none.
 4. Execution Log Entry.
 5. Documentation Maintenance Gate.
 6. Changed Files / Context Refresh List.
@@ -475,25 +497,25 @@ execution_brief:
       - trigger:
   readback_requirements:
     - requirement:
-  changed_files_context_refresh:
-    required: true | false
+  changed_files_context_refresh_after_approval:
+    required_after_approval: true | false
     files:
       - file:
         reason:
         timing:
 handoff_requirements:
   f0:
-    required: true | false
+    required_after_approval: true | false
     notes:
   codex:
-    required: true | false
+    required_after_approval: true | false
     notes:
 repository_patch:
-  required: true | false
+  required_after_approval: true | false
   type: create | replace_section | append_section | update_header | explicit_none
   summary:
 documentation_maintenance_gate:
-  required: true | false
+  required_after_approval: true | false
   summary:
 next_launch_card:
   included: true | false
@@ -519,7 +541,7 @@ repository_patch:
   workflow_packet: 1
   type: repository_patch
   schema: repository_patch.v1
-  required: true
+  required_after_approval: true
   patch_type: create | replace_section | append_section | update_header
   purpose: record_e1_execution_brief_only
   target_root:
@@ -531,7 +553,7 @@ repository_patch:
       content_summary:
       validation_anchors:
         - text:
-  readback_required: true
+  readback_required_after_approval: true
   readback_targets:
     - path:
   forbidden_changes:
@@ -573,8 +595,8 @@ execution_log_entry:
   selected_route:
   brief_summary:
   scope_preserved: true | false
-  patch_required: true | false
-  changed_files_context_refresh_required: true | false
+  patch_required_after_approval: true | false
+  changed_files_context_refresh_required_after_approval: true | false
   next_stage:
   timestamp:
   notes:
@@ -589,7 +611,7 @@ Produce when relevant:
 
 ```yaml
 documentation_maintenance_gate:
-  required: true | false
+  required_after_approval: true | false
   triggers:
     - stale_terminology
     - active_goal_update
@@ -603,7 +625,7 @@ documentation_maintenance_gate:
   stale_terms_detected:
     - term:
       accepted_alias_for:
-      cleanup_required: true | false
+      cleanup_required_after_approval: true | false
       cleanup_target:
   defer_allowed: true | false
   blocker: true | false
@@ -624,8 +646,8 @@ documentation_maintenance_gate:
 Always produce:
 
 ```yaml
-changed_files_context_refresh:
-  required: true | false
+changed_files_context_refresh_after_approval:
+  required_after_approval: true | false
   files:
     - file:
       reason:
@@ -637,7 +659,7 @@ changed_files_context_refresh:
 If no refresh is required:
 
 ```yaml
-changed_files_context_refresh:
+changed_files_context_refresh_after_approval:
   required: false
   files: []
   reason:
@@ -690,11 +712,11 @@ freshness_requirements:
 handoff_requirements:
   f0:
   codex:
-repository_requirements:
+repository_requirements_after_approval:
   patch_required:
   readback_required:
   forbidden_changes:
-changed_files_context_refresh:
+changed_files_context_refresh_after_approval:
   required:
   files:
 downstream_availability:

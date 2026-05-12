@@ -3,6 +3,28 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # G1\_GOAL\_SHAPE — Goal Shape Runtime Prompt
 
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+G1 must preview Goal Contract substance before formal packets when material shaping is proposed. G1 must not emit repository_patch.v1 operations before approval and must not use wall-of-text formalization as the first response.
+
 ## 0.1 Output Schema Authority
 
 All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
@@ -228,7 +250,7 @@ Escalate or block if the Goal touches:
 *   cross-Direction behavior
 *   irreversible writes
 *   sensitive credentials or secrets
-*   stale documentation that could misdirect execution
+*   stale documentation that could misapproved direct execution
 *   ambiguous ownership
 *   missing validation criteria
 *   broad migration
@@ -392,9 +414,9 @@ Do not include routine QA when there are no exceptions.
 
 ### 6.1 Stage Result Packet
 
-Produce this stable core. Unknown optional extensions may be added under extensions.
+After approval/formalization, produce this stable core. Unknown optional extensions may be added under extensions.
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: G1\_GOAL\_SHAPE name: Goal Shape source\_path: workflow/stage\_prompts/G1\_GOAL\_SHAPE.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: E1\_EXECUTION\_BRIEF | F0\_FAST\_DIRECT | S3\_DECIDE | D1\_DEEP\_RESEARCH | A1\_AUDIT | B1\_PROBLEM | none reason: alternatives\_rejected: escalation\_conditions: source\_state: upstream\_stage: G0\_GOAL\_SELECT source\_ref: direction: id: name: phase: id: name: input\_seed: title: goal\_contract: goal\_id: title: what: why: done: acceptance\_floor: validation\_signal: validation\_method: smallest\_testable\_slice: close\_path: goal\_working\_context: phase\_fit: assumptions: scope\_in: non\_goals: scope\_cuts: deferred\_candidates: constraints: risk\_triggers: allowed\_actions: forbidden\_actions: required\_context\_for\_next\_stage: documentation\_obligations: context\_loading\_notes: source\_freshness\_notes: repository\_patch: status: included | none documentation\_maintenance\_gate: status: none | nonblocking | blocking changed\_files\_context\_refresh: required: true | false execution\_log\_entry: included: true next\_launch\_card: included: true extensions: tolerant\_read: true
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: G1\_GOAL\_SHAPE name: Goal Shape source\_path: workflow/stage\_prompts/G1\_GOAL\_SHAPE.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: E1\_EXECUTION\_BRIEF | F0\_FAST\_DIRECT | S3\_DECIDE | D1\_DEEP\_RESEARCH | A1\_AUDIT | B1\_PROBLEM | none reason: alternatives\_rejected: escalation\_conditions: source\_state: upstream\_stage: G0\_GOAL\_SELECT source\_ref: direction: id: name: phase: id: name: input\_seed: title: goal\_contract: goal\_id: title: what: why: done: acceptance\_floor: validation\_signal: validation\_method: smallest\_testable\_slice: close\_path: goal\_working\_context: phase\_fit: assumptions: scope\_in: non\_goals: scope\_cuts: deferred\_candidates: constraints: risk\_triggers: allowed\_actions: forbidden\_actions: required\_context\_for\_next\_stage: documentation\_obligations: context\_loading\_notes: source\_freshness\_notes: repository\_patch: status: included | none documentation\_maintenance\_gate: status: none | nonblocking | blocking changed\_files\_context\_refresh_after_approval: required_after_approval: true | false execution\_log\_entry: included: true next\_launch\_card: included: true extensions: tolerant\_read: true
 
 ### 6.2 Repository Patch
 
@@ -412,7 +434,7 @@ Do not say "update the relevant note." Name the exact target or say explicit non
 
 If relevant:
 
-documentation\_maintenance\_gate: status: none | nonblocking | blocking stale\_terms\_detected: - term: replacement: location\_hint: severity: required\_updates: - target: action: timing: now | before\_goal\_close | after\_goal\_close reason: goal\_close\_check\_required: true | false phase\_close\_check\_required: true | false
+documentation\_maintenance\_gate: status: none | nonblocking | blocking stale\_terms\_detected: - term: replacement: location\_hint: severity: required\_updates: - target: action: timing: now | before\_goal\_close | after\_goal\_close reason: goal\_close\_check\_required_after_approval: true | false phase\_close\_check\_required_after_approval: true | false
 
 If not relevant:
 
@@ -420,9 +442,9 @@ documentation\_maintenance\_gate: status: none reason:
 
 ### 6.4 Changed Files / Context Refresh List
 
-If relevant:
+If relevant after approval/formalization:
 
-changed\_files\_context\_refresh\_list: required: true files: - file: reason: action: update | inspect | mark\_stale | export timing: now | before\_goal\_close | after\_goal\_close anchor:
+changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true files: - file: reason: action: update | inspect | mark\_stale | export timing: now | before\_goal\_close | after\_goal\_close anchor:
 
 If exact files are unknown but refresh is nonblocking, say so and include a Context Loading or documentation note for the next review stage.
 

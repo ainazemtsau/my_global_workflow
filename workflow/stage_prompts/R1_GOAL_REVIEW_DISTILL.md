@@ -3,6 +3,28 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # R1\_GOAL\_REVIEW\_DISTILL — Review Distill Runtime Prompt
 
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+R1 must preview review decisions and documentation implications before durable documentation updates. Durable doc changes require approval unless Compact Direct Result mode is safe and no material state change is introduced.
+
 ## 0.1 Output Schema Authority
 
 All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
@@ -110,7 +132,7 @@ If required evidence is missing or contradicted, do not close the Goal. Produce 
 R1 must not:
 
 *   execute missing F0/C2/E1/G1 work;
-*   create artifacts that the upstream execution stage failed or refused to create;
+*   produce artifacts that the upstream execution stage failed or refused to create;
 *   write common canon;
 *   roll out cross-Direction behavior;
 *   edit stage prompts;
@@ -353,7 +375,7 @@ Include:
 
 *   documentation\_drift\_found: true/false
 *   docs\_to\_refresh:
-*   Context refresh required: true/false
+*   Context refresh required_after_approval: true/false
 *   notes:
 
 ## 5\. Next safe route
@@ -387,13 +409,13 @@ workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: R1\_
     *   item: remaining\_blockers\_or\_work:
     *   item: documentation\_findings: drift\_found: true | false stale\_or\_drifted\_context:
     *   item: refresh\_needed:
-    *   file\_or\_note: reason: route: next\_action: launch\_next\_stage | context\_request | human\_decision | stop | recovery\_route next\_stage: route\_reason: repository\_patch\_state: proposed | none | blocked changed\_files\_context\_refresh\_required: true | false safety\_scope\_confirmation: forbidden\_scope\_preserved: true | false files\_touched:
+    *   file\_or\_note: reason: route: next\_action: launch\_next\_stage | context\_request | human\_decision | stop | recovery\_route next\_stage: route\_reason: repository\_patch\_state: proposed | none | blocked changed\_files\_context\_refresh\_required_after_approval: true | false safety\_scope\_confirmation: forbidden\_scope\_preserved: true | false files\_touched:
     *   path: no\_common\_canon: true | false no\_cross\_direction\_rollout: true | false no\_stage\_prompt\_edits: true | false no\_task\_master\_graph: true | false no\_archive\_history\_loading: true | false no\_source\_of\_truth\_security\_privacy\_tool\_binding\_changes: true | false kernel\_qa\_exceptions:
 *   issue: severity: handling:
 
 ### 6.2 Repository Patch
 
-Always include a Repository Patch block.
+After approval/formalization, always include a Repository Patch block.
 
 If no write is safe, use patch\_state: none and explain reason\_if\_none.
 
@@ -409,7 +431,7 @@ documentation\_maintenance\_gate: gate\_state: clear | refresh\_required | block
 
 ### 6.5 Changed Files / Context Refresh List
 
-changed\_files\_context\_refresh\_list: required: true | false files: - file: current\_problem: required\_update\_summary: source\_of\_truth\_to\_use: blocking\_status: blocking | nonblocking | unknown owner\_or\_next\_stage:
+changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true | false files: - file: current\_problem: required\_update\_summary: source\_of\_truth\_to\_use: blocking\_status: blocking | nonblocking | unknown owner\_or\_next\_stage:
 
 ### 6.6 Next route artifact
 
