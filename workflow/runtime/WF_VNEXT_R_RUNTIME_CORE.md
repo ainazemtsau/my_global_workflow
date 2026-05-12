@@ -1183,6 +1183,52 @@ D0_DIRECTION_SETUP
 
 Router may enter any appropriate point based on current Direction state.
 
+### Phase Progress Gate and Phase Closure Contract
+
+Every active Phase must expose enough closure information for post-Goal routing.
+
+The Phase state should include:
+
+```yaml
+phase_closure_contract:
+  closure_criteria:
+    - criterion:
+      evidence_required:
+  phase_work_map:
+    required_for_closure:
+      - goal_id:
+        status:
+        evidence:
+    optional_expansion:
+      - candidate_id:
+        status:
+        reason_optional:
+  first_phase_closing_candidate_if_known:
+  after_goal_gate_policy:
+    phase_progress_gate after R1: required
+    R1 must not route directly to G0 only because Active Goal is none: true
+    G0 allowed only after Phase Continue decision: true
+    P9 required when completed Goal may satisfy Phase Minimum Outcome: true
+    Context Request required when Phase Closure Contract is missing: true
+```
+
+After R1 accepts or verifies a Goal, the workflow must run a `phase_progress_gate` before selecting more Goals.
+
+`phase_progress_gate` checks:
+
+- whether the completed Goal satisfies or may satisfy the current Phase Minimum Outcome;
+- whether remaining Goals are required_for_closure or optional_expansion;
+- whether the Phase should route to `P9_PHASE_CLOSE`, continue to `G0_GOAL_SELECT`, pause, request context, or ask for a human decision.
+
+Routing rules:
+
+- R1 must not route directly to G0 only because Active Goal is none.
+- G0 allowed only after Phase Continue decision, such as `continue_with_required_goals`.
+- P9 required when completed Goal may satisfy Phase Minimum Outcome.
+- Human Decision required when closure vs continuation is strategic/ambiguous.
+- Context Request required when Phase Closure Contract is missing.
+- Optional expansion must not be mistaken for required next Goal.
+
 ### Allowed high-level transitions
 
 ```text
@@ -1214,7 +1260,7 @@ C2_CODEX_EXECUTE -> R1_GOAL_REVIEW_DISTILL | E1_EXECUTION_BRIEF | B1_PROBLEM | S
 
 B1_PROBLEM -> continue_current_stage | E1_EXECUTION_BRIEF | G1_GOAL_SHAPE | S3_DECIDE | R1_GOAL_REVIEW_DISTILL | Stop
 
-R1_GOAL_REVIEW_DISTILL -> G0_GOAL_SELECT | G1_GOAL_SHAPE | P9_PHASE_CLOSE | P0_PHASE_START | Stop
+R1_GOAL_REVIEW_DISTILL -> phase_progress_gate -> G0_GOAL_SELECT | G1_GOAL_SHAPE | P9_PHASE_CLOSE | P0_PHASE_START | Context Request | Human Decision | Stop
 
 P9_PHASE_CLOSE -> P0_PHASE_START | G0_GOAL_SELECT | Direction pause/archive | Stop
 

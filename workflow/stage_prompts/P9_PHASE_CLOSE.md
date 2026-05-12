@@ -143,6 +143,22 @@ Core operating rule:
 
 Closure is deny-by-default. Do not close a Phase unless fresh evidence proves that closure is eligible.
 
+## 1.1 Phase Progress Gate consumption
+
+P9 must consume Phase Progress Gate output when launched after R1 or any post-Goal closure check.
+
+P9 determines exactly one of:
+
+- close;
+- remain active;
+- pause;
+- context request;
+- human decision.
+
+No automatic closure is allowed. Closure remains deny-by-default.
+
+If Phase Progress Gate output is missing, stale, or contradicted by current Phase/Goal evidence, P9 must return Context Request or Human Decision instead of closing or continuing the Phase by guesswork.
+
 ## 2\. Non-negotiable boundaries
 
 Do not:

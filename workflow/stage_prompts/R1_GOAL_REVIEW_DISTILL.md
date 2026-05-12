@@ -238,6 +238,22 @@ Closure eligibility values:
 
 Default to not\_eligible unless completion and acceptance evidence are verified.
 
+## 5.1 Phase Progress Gate after verified Goal
+
+After completed_verified Goal, run Phase Progress Gate before choosing the next lifecycle route.
+
+R1 must:
+
+- check the active Phase Closure Contract and Phase Minimum Outcome;
+- identify whether the completed Goal may satisfy Phase Minimum Outcome;
+- classify remaining work as required_for_closure or optional_expansion when evidence allows;
+- route to P9 when the completed Goal may satisfy Phase Minimum Outcome;
+- route to G0 only after explicit continue_with_required_goals / Phase Continue decision;
+- return Human Decision when closure vs continuation is strategic/ambiguous;
+- return Context Request when Phase Closure Contract is missing or too stale to evaluate.
+
+R1 must not route directly to G0 only because Active Goal is none. Active Goal being none means the Goal lifecycle is clear; it does not prove the Phase should continue.
+
 ## 6\. Internal subprocess
 
 Use this internal order. Do not expose private reasoning or chain-of-thought. Expose only concise findings and public checks.

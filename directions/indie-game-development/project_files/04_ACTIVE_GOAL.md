@@ -20,7 +20,7 @@ active_goal:
   reason: "Previous active Goal was completed by F0 and accepted by R1."
   phase_path: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   current_wave: none
-  next_route: G0_GOAL_SELECT
+  next_route: phase_progress_gate_check
 
 last_completed_goal:
   state: r1_reviewed_accepted
@@ -31,6 +31,13 @@ last_completed_goal:
   reviewed_by_stage: R1_GOAL_REVIEW_DISTILL
   review_verdict: completed_verified
   closure_eligibility: eligible
+
+phase_progress_gate:
+  last_completed_goal: minimum-proof-core-first-expedition-proof
+  gate_status: "missing / needs_check"
+  no_phase_auto_close: true
+  g0_allowed_only_after: continue_with_required_goals
+  phase_continue_decision_required: true
 ```
 
 ## Last completed Goal snapshot
@@ -42,6 +49,9 @@ last_completed_goal:
 * Gas-only proof rejection: accepted.
 * Validation method: accepted at proof-boundary level with `go`, `revise`, and `kill` outcomes.
 * Codex execution allowed: `no, not until project/tool binding is verified`.
+* Next route: `phase_progress_gate_check`.
+* G0 allowed: `only after continue_with_required_goals / Phase Continue decision`.
+* Phase auto-close: `no`.
 
 ## Preserved history
 

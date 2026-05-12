@@ -132,6 +132,20 @@ Default bias:
 *   avoid stale-document pollution;
 *   produce a clean handoff to the next stage only when it is executable.
 
+## 1.1 Phase Closure Contract requirement
+
+P0 creates/updates Phase Closure Contract whenever it creates, restarts, or materially reframes an active Phase.
+
+The Phase Closure Contract must include:
+
+- closure criteria tied to the Phase Minimum Outcome;
+- required goal map listing goals required_for_closure;
+- optional expansion candidates that are explicitly not required for closure;
+- first phase-closing candidate if known;
+- after-goal gate policy requiring `phase_progress_gate` after R1 before any new G0 selection.
+
+P0 must not treat optional expansion candidates as required Goals. If closure criteria, required goal map, or after-goal gate policy cannot be made concrete enough, P0 must return Context Request or Human Decision instead of creating ambiguous Phase state.
+
 ## 2\. Progressive Decision Brief behavior
 
 P0 must choose the smallest sufficient human-facing mode before formal packets.

@@ -183,7 +183,19 @@ Use when:
 
 ### 5.3 Phase exists, no selected Goal
 
-If an active Phase exists but no active Goal is selected, route to G0\_GOAL\_SELECT.
+If an active Phase exists but no active Goal is selected, first check whether a last completed Goal exists.
+
+If active Phase exists, active Goal is none, and last completed Goal exists, check Phase Progress Gate before G0. Do not blindly route to G0_GOAL_SELECT.
+
+If gate missing, route to P9\_PHASE\_CLOSE or Context Request according to available evidence:
+
+If gate missing, route to P9_PHASE_CLOSE or Context Request according to available evidence.
+
+*   route to `P9_PHASE_CLOSE` when the completed Goal may satisfy the Phase Minimum Outcome or closure/continuation must be evaluated;
+*   return Context Request when Phase Progress Gate, Phase Closure Contract, or last completed Goal evidence is missing;
+*   route to `G0_GOAL_SELECT` only after a Phase Continue decision or Phase Progress Gate says continuation with required Goals is safe.
+
+If an active Phase exists but no active Goal is selected and no last completed Goal blocks continuation, route to G0\_GOAL\_SELECT.
 
 Use when:
 

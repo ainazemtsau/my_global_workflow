@@ -81,6 +81,22 @@ If the work is too small for a Goal lifecycle, route to `F0_FAST_DIRECT` instead
 
 If required context is missing, stale, contradictory, or value-dependent, do not guess. Return the appropriate Context Request, Human Decision Card, or Stop Card.
 
+## 1.1 Phase Continue preflight
+
+Before selecting next Goal, verify Phase Continue decision or Phase Progress Gate result when the active Phase has no active Goal and a last completed Goal exists.
+
+G0 does not decide Phase continuation by default.
+
+If Phase Progress Gate is missing after completed Goal, G0 must return Context Request or route to phase progress / closure check instead of selecting a new Goal.
+
+G0 may select the next Goal only when one of these is true:
+
+- Phase Progress Gate says `continue_with_required_goals`;
+- a Phase Continue decision explicitly says the Phase remains active and further required_for_closure Goals remain;
+- P9 or an equivalent closure gate has decided `remain_active` and identified the next required Goal-selection basis.
+
+Optional expansion candidates must not be selected as required Goals unless a Human Decision or Phase Continue decision explicitly adopts them.
+
 ## 2\. Non-goals
 
 You must not:
