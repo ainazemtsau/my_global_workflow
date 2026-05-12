@@ -1,13 +1,12 @@
-﻿# 05\_PORTFOLIO\_QUEUE.md
+# 05_PORTFOLIO_QUEUE.md
 
 ```yaml
 project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh
-activated_at: "2026-05-11"
-
+projection_status: fresh_after_patch_readback
+activated_at: "2026-05-12"
 ```
 
 ## Canon rule
@@ -16,16 +15,20 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-Current Phase: `directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup`
+Current Phase: `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
 
-Active Goal: `directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup/goals/ai-support-nutrition-recipes-menu-macrofactor`
+Active Goal: `none`
+
+Selected Goal seed: `Собрать AI Nutrition Operating Layer v0`
 
 Next route: `G1_GOAL_SHAPE`
 
-## Preserved queue/history input
+## Current priority
 
-*   Подготовить, запустить и оттрекать первый цикл возврата к питанию и тренировкам
-*   Улучшить и стабилизировать систему после первого запуска
-*   Вернуть выраженную физическую форму, силу и подвижность
+Build the smallest useful AI nutrition operating layer: state packet, active menu object, prompt modes, exception correction, recipe/prep builder, review/state update protocol, storage rules, restart/context refresh rules, and sample flows.
 
-These items do not outrank canonical current Phase or Active Goal notes.
+## Superseded / deferred items
+
+* `MacroFactor Nutrition AI Support Setup` is superseded/paused, not completed.
+* Old MacroFactor Goal / Execution Pack / Wave 1 are historical evidence only.
+* Self-hosted tracking, full food tracker setup, API/import automation, and perfect recipe database design are deferred.

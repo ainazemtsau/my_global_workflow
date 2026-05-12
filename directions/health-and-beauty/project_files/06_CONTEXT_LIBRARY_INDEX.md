@@ -1,13 +1,12 @@
-﻿# 06\_CONTEXT\_LIBRARY\_INDEX.md
+# 06_CONTEXT_LIBRARY_INDEX.md
 
 ```yaml
 project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh
-activated_at: "2026-05-11"
-
+projection_status: fresh_after_patch_readback
+activated_at: "2026-05-12"
 ```
 
 ## Canon rule
@@ -16,7 +15,7 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Default context
 
-Load the Direction Project Files default set. Current Phase is `MacroFactor Nutrition AI Support Setup`; active Goal is the MacroFactor nutrition AI support Goal.
+Load the Direction Project Files default set. Current Phase is `Собрать AI-операционный слой питания без тяжёлого трекинга`; active Goal is `none`; selected Goal seed is `Собрать AI Nutrition Operating Layer v0`.
 
 ## Shared runtime and stage prompts
 
@@ -29,11 +28,16 @@ local_runtime_core_copy_required: false
 
 Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
 
-## Request-only context
+## Request-only context for next G1/E1
 
-*   `directions/health-and-beauty/domain_docs/health-domain-documentation.md`
-*   `directions/health-and-beauty/knowledge` by topic.
-*   Active Goal preserved children: `Sessions`, `Wave Cards`, `Goal Brief`, `Execution Pack`.
+* Existing menu / prior nutrition menu materials.
+* Nutrition baseline and preferences.
+* Current kitchen equipment notes: air fryer, multicooker, vacuum sealer.
+* Recipe/prep notes if available.
+* Storage/tool preference notes: Trillium, Notion, GitHub, ChatGPT connections, or other.
+* Prior MacroFactor Phase and Goal files as historical evidence only:
+  * `directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup`
+  * `directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup/goals/ai-support-nutrition-recipes-menu-macrofactor`
 
 ## Archive boundary
 
@@ -41,4 +45,4 @@ Archived or historical material is pointer-only and must not be default-loaded.
 
 ## Tool boundary
 
-Concrete setup for `12-week-starter` must be verified before Codex execution. Do not infer AGENTS.md, `.codex/config.toml`, Task Master, Serena, Basic Memory, or validators from governance notes.
+Do not infer that MacroFactor, self-hosted trackers, Notion, Trillium, ChatGPT connections, or automation are available for execution. Verify concrete tool/storage bindings before relying on them.
