@@ -895,9 +895,9 @@ branch_policy:
   create_pr: false
   commit_directly: true
   push_directly: true
-  require_clean_worktree: true
+  require_clean_worktree: false
   pull_before_apply: true
-  conflict_policy: stop_and_return_needs_input
+  conflict_policy: scoped_path_conflicts_only
 source_stage:
 
 allowed_paths:
@@ -944,6 +944,8 @@ For repository maintenance in `ainazemtsau/my_global_workflow`, the default targ
 
 Repository maintenance means applying an approved `repository_patch.v1` to this workflow repository. Repository maintenance is not product/project execution and does not change C1/C2 product execution boundaries.
 
+The same branch/worktree conflict policy applies to repository maintenance preview/read-back cards. Preview-only maintenance must not require a globally clean worktree and must not stop solely because `main` changed.
+
 Default branch policy:
 
 ```yaml
@@ -954,22 +956,25 @@ branch_policy:
   create_pr: false
   commit_directly: true
   push_directly: true
-  require_clean_worktree: true
+  require_clean_worktree: false
   pull_before_apply: true
-  conflict_policy: stop_and_return_needs_input
+  conflict_policy: scoped_path_conflicts_only
 ```
 
 Rules:
 
 - Pull latest `origin/main` before apply.
-- Require a clean worktree before apply.
+- Do not require a globally clean worktree before apply.
+- Do not stop solely because `main` changed or because unrelated local changes exist.
+- Treat this repository as multiple autonomous Direction/workflow areas sharing one branch.
+- Apply may proceed when the approved patch paths do not overlap unrelated changed paths and no forbidden path is touched.
 - Apply only the approved `repository_patch.v1` operations.
 - Commit directly to `main`.
 - Push directly to `origin/main`.
 - Do not create a branch by default.
 - Do not create a PR by default.
-- Stop on merge, pull, patch, validation, or push conflicts.
-- Return `NEEDS_INPUT` if direct-main maintenance is not possible.
+- Stop only on scoped conflicts: same-file/path overlap, forbidden-path touch, failed patch/read-back validation, or pull/push conflicts that affect approved patch paths.
+- Return `NEEDS_INPUT` only if scoped direct-main maintenance is not possible.
 - Never create a branch as fallback unless the user explicitly overrides this policy.
 - Return commit SHA, diff verification, and file read-back evidence to the same ChatGPT stage thread.
 

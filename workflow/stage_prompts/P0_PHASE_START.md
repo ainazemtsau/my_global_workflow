@@ -114,7 +114,7 @@ and a copy-pasteable `codex_repository_maintenance_apply.v1` card. The user must
 
 This rule states that repository maintenance is not product/project execution and that product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route. This apply card does not authorize product/project execution.
 
-The card must include repository_patch reference or included patch, not a vague pointer. For repository maintenance in `ainazemtsau/my_global_workflow`, the branch_policy block is required and must use direct_main: target `main`, create_branch false, create_pr false, commit_directly true, push_directly true, require_clean_worktree true, pull_before_apply true, and conflict_policy stop_and_return_needs_input.
+The card must include repository_patch reference or included patch, not a vague pointer. For repository maintenance in `ainazemtsau/my_global_workflow`, the branch_policy block is required and must use direct_main: target `main`, create_branch false, create_pr false, commit_directly true, push_directly true, require_clean_worktree false, pull_before_apply true, and conflict_policy scoped_path_conflicts_only.
 
 ```yaml
 workflow_packet: 1
@@ -132,9 +132,9 @@ branch_policy:
   create_pr: false
   commit_directly: true
   push_directly: true
-  require_clean_worktree: true
+  require_clean_worktree: false
   pull_before_apply: true
-  conflict_policy: stop_and_return_needs_input
+  conflict_policy: scoped_path_conflicts_only
 source_stage:
 allowed_paths:
   - path:
@@ -165,10 +165,10 @@ Rules:
 - Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
 - Do not modify project/tool bindings unless explicitly listed.
 - Do not touch sibling Directions.
-- Pull latest origin/main before apply and require a clean worktree.
+- Pull latest origin/main before apply; do not stop solely because main changed or unrelated local changes exist.
 - Commit directly to main and push directly to origin/main.
 - Do not create a branch or PR by default.
-- Stop and return NEEDS_INPUT on conflicts or if direct-main maintenance is not possible.
+- Stop and return NEEDS_INPUT only on scoped conflicts: same-file/path overlap, forbidden-path touch, failed validation, or pull/push conflicts affecting approved patch paths.
 - Never create a branch as fallback unless the user explicitly overrides this policy.
 - Return commit SHA, diff verification, file read-back, and result to the same ChatGPT stage thread for validation.
 
