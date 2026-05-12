@@ -165,7 +165,7 @@ Rules:
 - Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
 - Do not modify project/tool bindings unless explicitly listed.
 - Do not touch sibling Directions.
-- Pull latest origin/main before apply; do not stop solely because main changed or unrelated local changes exist.
+- Pull latest origin/main before apply; do not stop, set apply_safe false, or return NEEDS_INPUT solely because unrelated local changes exist; report them as ignored background state unless they overlap approved patch paths.
 - Commit directly to main and push directly to origin/main.
 - Do not create a branch or PR by default.
 - Stop and return NEEDS_INPUT only on scoped conflicts: same-file/path overlap, forbidden-path touch, failed validation, or pull/push conflicts affecting approved patch paths.

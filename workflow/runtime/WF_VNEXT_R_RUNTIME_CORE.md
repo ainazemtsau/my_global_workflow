@@ -1023,7 +1023,8 @@ Rules:
 
 - Pull latest `origin/main` before apply.
 - Do not require a globally clean worktree before apply.
-- Do not stop solely because `main` changed or because unrelated local changes exist.
+- Do not set `apply_safe: false`, return NEEDS_INPUT, or stop solely because unrelated local changes exist.
+- Report unrelated local changes as ignored background state only; they are not blockers unless they overlap approved patch paths.
 - Treat this repository as multiple autonomous Direction/workflow areas sharing one branch.
 - Apply may proceed when the approved patch paths do not overlap unrelated changed paths and no forbidden path is touched.
 - Apply only the approved `repository_patch.v1` operations.
