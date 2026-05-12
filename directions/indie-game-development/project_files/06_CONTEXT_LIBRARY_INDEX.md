@@ -28,6 +28,31 @@ local_runtime_core_copy_required: false
 
 Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
 
+## Active Phase context
+
+* `directions/indie-game-development/phases/expedition-first-playable-proof-slice/00_PHASE_BRIEF.md`
+  * Status: `active_phase_brief`
+  * Load for `G1_GOAL_SHAPE` and any route working on the current Phase.
+* `directions/indie-game-development/phases/expedition-first-playable-proof-slice/phase_execution_log.md`
+  * Status: `active_phase_log`
+  * Request only when execution history is needed.
+
+## Conditionally required proof-slice context
+
+Load these exact files when shaping, reviewing, or executing work for `Expedition First Playable Proof Slice`:
+
+* `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
+  * Status: `required_for_first_playable_proof_slice_shaping`
+  * Reason: existing downstream proof handoff; prevents duplicate readiness/boundary work.
+* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
+  * Status: `accepted_by_R1_and_closed_by_P9`
+  * Reason: accepted proof core and validation boundary for first playable proof slice.
+
+Request only if product identity becomes unclear:
+
+* `directions/indie-game-development/domain_docs/game_documentation/expedition-experience-model.md`
+* `directions/indie-game-development/domain_docs/game_documentation/primary-product-bet-expedition.md`
+
 ## Request-only context
 
 ### Active domain documentation
@@ -76,6 +101,15 @@ Concrete project setup for Gas Coop Game must be verified before Codex product/p
 
 ## Game Documentation promotion boundary
 
-The accepted minimum proof-core artifact may become a candidate input for future Game Documentation maintenance, but it is not promoted automatically.
+The accepted minimum proof-core artifact and the proof handoff may become candidate inputs for future Game Documentation maintenance, but they are not promoted automatically.
 
 A future documentation stage must load the exact target Game Documentation files before writing domain docs.
+
+## Duplicate-artifact prevention note
+
+Before proposing a new proof readiness, proof boundary, or handoff artifact, load/check:
+
+* `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
+* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
+
+If those files already perform the proposed artifact's job, reuse them instead of creating another abstract layer.

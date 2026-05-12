@@ -15,19 +15,34 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-Active Phase: `none`
+Active Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
+
+Active Phase name: `Expedition First Playable Proof Slice`
 
 Last closed Phase: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
 
 Active Goal: `none`
 
+Recommended first Goal candidate: `first-playable-proof-slice-brief`
+
 Last completed Goal: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof`
 
 Accepted Goal artifact: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
 
-Next route: `P0_PHASE_START`
+Required proof-slice handoff: `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
 
-Phase close result: `P9_PHASE_CLOSE closed Expedition First Proof Checkpoint`
+Next route: `G1_GOAL_SHAPE`
+
+Phase start result: `P0_PHASE_START created Expedition First Playable Proof Slice`
+
+## Selected current Phase direction
+
+* `Expedition First Playable Proof Slice` — selected by `P0_PHASE_START`.
+  * Purpose: move from accepted proof handoff/core to the smallest concrete playable proof slice.
+  * Required first Goal candidate: `Сформировать минимальный playable proof slice для Expedition`.
+  * Not a prototype implementation phase.
+  * Not a Game Documentation promotion phase.
+  * Not Codex product/project execution.
 
 ## Completed / accepted
 
@@ -50,8 +65,8 @@ Queue items are request-only until selected by a vNext-R stage result.
 
 ## Queue discipline
 
-The accepted proof core should guide future Phase or Goal selection, but it must not be expanded into implementation work without a proper Phase, Goal, and execution route.
+The accepted proof core and proof handoff should guide future Phase or Goal selection, but they must not be expanded into implementation work without a proper Phase, Goal, and execution route.
 
-Do not delete queue items during P0. Queue items remain candidates only; they are not selected until a stage result or Human Decision selects them.
+Do not delete queue items during this Phase.
 
-Do not run `G0_GOAL_SELECT` until P0 creates a new active Phase or another valid stage route creates one.
+Do not run `G0_GOAL_SELECT` now unless G1/R1 later determines multiple next Goal candidates genuinely compete. The current first Goal candidate is clear enough for `G1_GOAL_SHAPE`.

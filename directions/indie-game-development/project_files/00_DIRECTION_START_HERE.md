@@ -10,7 +10,7 @@ artifact_control:
   default_load: yes
   freshness: fresh
   last_updated: "2026-05-12"
-  next_action: "Run P0_PHASE_START to start the next Phase after Expedition First Proof Checkpoint closed through P9."
+  next_action: "Run G1_GOAL_SHAPE to shape the first Goal for Expedition First Playable Proof Slice after P0 repository maintenance apply/read-back."
 ```
 
 ## Direction identity
@@ -33,12 +33,14 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 
 | Pointer | Value | Canonical target |
 | --- | --- | --- |
-| Current Phase | `none` | Start next Phase through `P0_PHASE_START` |
+| Current Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Active Goal | `none` | No active Goal until a new Phase/Goal route creates one |
+| Active Goal | `none` | No active Goal until `G1_GOAL_SHAPE` creates a Goal Contract |
+| Recommended first Goal candidate | `Сформировать минимальный playable proof slice для Expedition` | Shape through `G1_GOAL_SHAPE` |
 | Last completed Goal | `Определить минимальное доказательное ядро первого proof Expedition` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof` |
 | Accepted Goal artifact | `Minimum Expedition Proof Core` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md` |
-| Current focus | Start a post-proof-core Phase through P0 | `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md` |
+| Required proof-slice handoff input | `Expedition Proof Handoff` | `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md` |
+| Current focus | Shape the first playable proof slice Goal | `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md` |
 | Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
 | Project files folder | GitHub Direction project files | `directions/indie-game-development/project_files/` |
 
@@ -66,6 +68,12 @@ Do not create or require a local runtime-core copy under this Direction `project
 
 It is not archive material and must not be hidden during workflow cleanup. Request specific game documentation through `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`; do not bulk-load all game docs by default.
 
+For the next proof-slice shaping route, load the exact proof handoff:
+
+`directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
+
+This targeted load is not Game Documentation promotion.
+
 ## Last closed Phase result
 
 P9 closed `Expedition First Proof Checkpoint`.
@@ -76,10 +84,18 @@ The accepted proof-core rule remains:
 
 The accepted proof core is not a prototype design, not an implementation plan, and not a Game Documentation promotion.
 
+## Current Phase result expected
+
+`Expedition First Playable Proof Slice` should produce the smallest playable proof slice that can test the accepted Expedition proof core as a concrete game situation.
+
+It must not create another abstract readiness/boundary document.
+
 ## Normal next route
 
-`P0_PHASE_START` for starting the next Phase.
+`G1_GOAL_SHAPE` for shaping the first Goal candidate:
 
-Do not launch `G0_GOAL_SELECT` until a new active Phase exists or a valid stage route creates one.
+`Сформировать минимальный playable proof slice для Expedition`
+
+Do not run `G1_GOAL_SHAPE` until the P0 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in context.
 
 Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, and scope are verified.

@@ -20,14 +20,15 @@ direction:
   id: indie_game_development
   state: active
   workflow_version: vNext-R
-  current_phase_pointer: null
+  current_phase_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice"
   active_goal_pointer: null
   last_closed_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   last_closed_phase_result: p9_closed
   last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   last_completed_goal_result: r1_reviewed_accepted
   accepted_goal_artifact: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md"
-  next_route: P0_PHASE_START
+  required_proof_slice_handoff: "directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md"
+  next_route: G1_GOAL_SHAPE
   last_updated: "2026-05-12"
 ```
 
@@ -42,8 +43,22 @@ Build a commercially viable indie game direction focused on Expedition product j
 * The accepted minimum proof core is a connected Expedition co-op judgment loop:
   risk preparation → lift descent → gas/topology/dangerous value reading → route/safety intervention → dangerous vessel recovery/stabilization → readable consequence → push/reroute/secure/retreat/abandon decision → consequence ledger → reason for next descent.
 * Gas-only proof is rejected. Gas is supporting evidence only when it creates Expedition judgment.
+* The current active Phase must move from accepted proof boundary to the first minimal playable proof slice.
+* Do not create another abstract proof-boundary/readiness artifact unless new evidence proves the existing handoff/core insufficient.
 * Game truths produced by Goals may move into permanent `Game Documentation` only through an explicit later documentation stage or approved documentation-maintenance patch.
 * Codex/project execution requires verified concrete project/tool bindings.
+
+## Current Phase
+
+* Phase: `Expedition First Playable Proof Slice`
+* Path: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
+* Status: `active`
+* Started by: `P0_PHASE_START`
+* Started at: `2026-05-12`
+* Current Critical Constraint: proof identity/boundary exists, but the smallest playable proof slice does not.
+* Minimum Outcome: accepted `First Playable Proof Slice Brief`.
+* Validation Signal: G1 can shape a concrete first playable proof slice without repeating proof-boundary work or starting implementation.
+* Next route: `G1_GOAL_SHAPE`
 
 ## Last closed Phase
 
@@ -52,7 +67,8 @@ Build a commercially viable indie game direction focused on Expedition product j
 * Close stage: `P9_PHASE_CLOSE`
 * Close result: `closed`
 * Closed at: `2026-05-12`
-* Next route: `P0_PHASE_START`
+* Next route after close: `P0_PHASE_START`
+* P0 route completed by starting `Expedition First Playable Proof Slice`.
 
 ## Last completed Goal
 
@@ -66,8 +82,8 @@ Build a commercially viable indie game direction focused on Expedition product j
 ## Project Files export state
 
 * Last refresh: `2026-05-12`
-* Required refresh: `none after this patch is applied and read back`
+* Required refresh: `none after P0 phase-start patch is applied and read back`
 * Known stale files: `none known after this patch is applied and read back`
-* Current route: `P0_PHASE_START`
-* Active Phase: `none`
+* Current route: `G1_GOAL_SHAPE`
+* Active Phase: `Expedition First Playable Proof Slice`
 * Active Goal: `none`
