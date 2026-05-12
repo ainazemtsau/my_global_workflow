@@ -765,9 +765,9 @@ Recommended first Goal:
 - Context to ignore or treat as stale:
 - Stop conditions for the next stage:
 
-## 7. Canonical Runtime Packets
+## 7. Technical appendix — canonical runtime packets
 
-Emit all required packets below.
+Emit all required packets below after the human-facing Phase decision sections. These packets are copy/paste transport and must not be used as the first visible answer unless the user explicitly requested packet-only output.
 
 ```
 

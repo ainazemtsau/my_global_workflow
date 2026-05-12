@@ -635,19 +635,30 @@ Forbidden substitutions:
 *   Do not use `routing_decision` as a replacement for canonical `route` / `next_stage`.
 *   Do not use `Launch / Blocking Card`; use `stage_launch`, `context_request`, `human_decision`, or `stop`.
 
-Required output blocks for a normal routed result:
+Required output for a normal routed result:
 
 1.  Human-readable Router Result.
-2.  Stage Result Packet - `stage_result.v1`.
-3.  Next Launch Card - `stage_launch.v1`, unless Context Request / Human Decision / Stop is required.
-4.  Execution Log Entry - `execution_log_entry.v1`.
-5.  Repository Patch - `repository_patch.v1`, even if operations are empty.
-6.  Changed Files / Context Refresh List.
+2.  Technical appendix with required runtime packets, only when launch, validation, copy/paste transport, or formal routing evidence is needed.
 
-All YAML packets must be emitted in separate fenced YAML code blocks.
+The human-readable Router Result must appear first and must include:
 
-If a field is unknown, use `null`, `unknown`, or an explicit reason. Do not rename fields.
+- selected next stage or blocking card;
+- immediate next action for the user;
+- why this is the smallest safe route;
+- important missing context, conflicts, or approval needs;
+- scope guardrail / anti-rabbit-hole note when relevant.
 
+The operational packet (`stage_launch`, `context_request`, `human_decision`, or `stop`) must not be shown as the first visible answer unless the user explicitly asked for packet-only output.
+
+When packets are needed, put them under:
+
+```text
+Technical appendix — copy only if launching/applying/validating
+```
+
+YAML packets must be emitted in separate fenced YAML code blocks inside the technical appendix. Do not expose routine workflow-management metadata in the human layer unless it changes the user's next action.
+
+If a field is unknown, use `null`, `unknown`, or an explicit reason. Do not rename canonical packet fields.
 ---
 
 ## 13\. Dry-run / test vs production persistence rule
@@ -699,68 +710,40 @@ prompt_delivery:
 
 ---
 
-## 15\. Human-readable output format
+## 15. Human-readable output format
 
-Use this output shape:
+Use an adaptive, decision-first Router output. The exact headings may change to fit the case, but the first screen must answer what the user should do next.
+
+Default visible shape:
 
 ```text
-# ROUTER RESULT
+# Router Result
 
-## 1. Route Decision
+## 1. Do this next
+- Selected route:
+- Immediate next action:
+- Confidence:
+- Blocking issue, if any:
 
-Selected stage:
-Return state:
-Confidence:
+## 2. Why this route
+Explain why this is the smallest safe route and why heavier/lighter alternatives were rejected.
 
-## 2. Why This Route
+## 3. Context check
+Include only context/freshness details that affect routing, safety, approval, or the next action.
 
-- ...
+## 4. Scope guardrail
+Name scope cuts, anti-rabbit-hole handling, or deferred work only when relevant.
 
-## 3. Context And Freshness Check
-
-Accepted sources:
-Excluded sources:
-Missing context:
-Conflicts:
-
-## 4. Scope Guardrail
-
-Smallest safe route:
-Anti-rabbit-hole triggered:
-Scope cut applied:
-
-## 5. Operational Packet
-
-Output exactly one canonical packet:
-- stage_launch
-- context_request
-- human_decision
-- stop
-
-## 6. Stage Result Packet
-
-Fenced YAML block using stage_result.v1.
-
-## 7. Execution Log Entry
-
-Fenced YAML block using execution_log_entry.v1.
-
-## 8. Repository Patch
-
-Fenced YAML block using repository_patch.v1.
-
-## 9. Changed Files / Context Refresh List
-
-Fenced YAML block using changed_files_context_refresh.
-
+## 5. Technical appendix — copy only if launching/applying/validating
+Include the canonical packet(s) needed for the next action:
+- stage_launch, context_request, human_decision, or stop;
+- stage_result.v1 when formal routing evidence is needed;
+- execution_log_entry.v1, repository_patch.v1, and changed_files_context_refresh only when required by runtime state or formalization.
 ```
 
-Use exception-only Kernel QA.
+Do not mechanically print all packet sections for clean, low-risk route summaries when no copy/paste packet is needed. If packets are required by the runtime contract, keep them in the technical appendix.
 
-Only include a Kernel QA section if there is missing context, state conflict, stale context, unsafe route, schema problem, workflow-edit issue, or recovery condition.
-
-For clean routing, omit Kernel QA.
-
+Use exception-only Kernel QA. Only include a Kernel QA section if there is missing context, state conflict, stale context, unsafe route, schema problem, workflow-edit issue, or recovery condition.
 ---
 
 ## 16\. Next Launch Card schema - stage\_launch.v1

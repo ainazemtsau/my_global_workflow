@@ -472,91 +472,84 @@ The next stage must not need your private reasoning. It should receive:
 *   expected outputs
 *   stop conditions
 
-## 5\. Required output shape
+## 5. Required output shape
 
-If the Goal can be shaped, output exactly these sections:
+If the Goal can be shaped, start with a readable Goal-shaping result, not transport YAML.
 
-# G1\_GOAL\_SHAPE Result
+Use adaptive headings for the specific Goal. The content below is required, but the exact section names are not mandatory when a clearer structure exists.
 
-## 1\. Result summary
+Default visible shape:
 
+```text
+# G1_GOAL_SHAPE Result
+
+## 1. Goal decision
+- Goal being shaped:
+- Recommended next stage:
+- Immediate next action:
+- Why this is the smallest useful version:
+
+## 2. Goal Contract
 Include:
+- goal_id or proposed_goal_id;
+- title;
+- WHAT;
+- WHY now;
+- DONE;
+- acceptance_floor;
+- validation_signal;
+- validation_method;
+- smallest_testable_slice;
+- close_path.
 
-*   return\_state
-*   one-sentence outcome
-*   selected next stage
-*   reason for route
-
-## 2\. Goal Contract
-
+## 3. Scope Boundary
 Include:
+- scope_in;
+- non_goals;
+- scope_cuts;
+- deferred_candidates;
+- escalation_triggers;
+- constraints.
 
-*   goal\_id or proposed\_goal\_id
-*   title
-*   WHAT
-*   WHY now
-*   DONE
-*   acceptance\_floor
-*   validation\_signal
-*   validation\_method
-*   smallest\_testable\_slice
-*   close\_path
+## 4. Goal Working Context
+Include only what the next stage needs:
+- Direction;
+- Phase;
+- phase_fit;
+- assumptions;
+- required_context_for_next_stage;
+- allowed_actions;
+- forbidden_actions;
+- context_loading_notes;
+- source_freshness_notes.
 
-## 3\. Scope Boundary
-
+## 5. Route Decision
 Include:
+- selected_next_stage;
+- route_reason;
+- alternatives_rejected;
+- escalation_conditions.
 
-*   scope\_in
-*   non\_goals
-*   scope\_cuts
-*   deferred\_candidates
-*   escalation\_triggers
-*   constraints
-
-## 4\. Goal Working Context
-
+## 6. Maintenance and approval
 Include:
+- Repository Patch or explicit none;
+- Documentation Maintenance Gate or explicit none;
+- Changed Files / Context Refresh List or explicit none;
+- what requires approval, if anything.
 
-*   Direction
-*   Phase
-*   phase\_fit
-*   assumptions
-*   required\_context\_for\_next\_stage
-*   allowed\_actions
-*   forbidden\_actions
-*   context\_loading\_notes
-*   source\_freshness\_notes
+## 7. Technical appendix — copy only if launching/applying/validating
+Include runtime packets only when formalization, launch, validation, repository maintenance, or copy/paste handoff is needed:
+- Stage Result Packet;
+- Execution Log Entry;
+- Next Launch Card / Context Request / Human Decision / Stop;
+- Repository Patch / Changed Files details when required.
+```
 
-## 5\. Route Decision
+Packets must not appear above the Goal Contract result unless the user explicitly asks for packet-only output. Keep packets copyable when emitted, but treat them as technical transport, not as the main user-facing answer.
 
-Include:
+## 5.1 Kernel QA — exceptions only
 
-*   selected\_next\_stage
-*   route\_reason
-*   alternatives\_rejected
-*   escalation\_conditions
-
-## 6\. Maintenance
-
-Include:
-
-*   Repository Patch or explicit none
-*   Documentation Maintenance Gate or explicit none
-*   Changed Files / Context Refresh List or explicit none
-
-## 7\. Transport
-
-Include:
-
-*   Stage Result Packet
-*   Execution Log Entry
-*   Next Launch Card
-
-Use YAML-like blocks for packets. Keep them copyable.
-
-## 8\. Kernel QA — exceptions only
-
-Include this section only if there are warnings, unresolved risks, stale context, compatibility issues, or route uncertainty.
+Include Kernel QA only if there are warnings, unresolved risks, stale context, compatibility issues, route uncertainty, schema problems, workflow-edit issues, or recovery conditions.
 
 Do not include routine QA when there are no exceptions.
 

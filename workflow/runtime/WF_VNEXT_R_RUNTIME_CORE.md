@@ -36,6 +36,39 @@ A stage or workflow chat must not end with only a route name such as `Next: E1`.
 
 FIRST RESPONSE IS NOT FORMAL CLOSE. For material work, the first response is a reviewable work product unless formalization is already approved.
 
+### 1.1 Human-facing presentation rule
+
+Technical workflow packets are transport, not the primary user interface.
+
+The first visible layer of a workflow response must be readable without inspecting YAML. Put the highest-value information first:
+
+1. what is happening;
+2. what will be done next;
+3. why this is the right next move;
+4. what is in scope and out of scope;
+5. what the user must approve, provide, copy, or run.
+
+Machine-readable packets such as `stage_launch.v1`, `stage_result.v1`, `repository_patch.v1`, `execution_log_entry.v1`, `context_request.v1`, and `human_decision.v1` remain mandatory when formalization, launch, apply, validation, or copy-paste transport is required. They must appear after the human-readable result under:
+
+```text
+Technical appendix — copy only if launching/applying/validating
+```
+
+Do not put raw YAML, launch cards, repository patch packets, or workflow-management metadata above the human-readable result unless the user explicitly asks for packet-only output.
+
+Stage-specific output shapes are content requirements, not mandatory headings for every case. Use adaptive headings and formatting that fit the situation. Include only management-of-workflow details that affect the user's immediate decision, approval, copy/paste action, context refresh, repository maintenance, execution readiness, or next action.
+
+For normal runtime outputs, prefer this visible order:
+
+1. Result / recommendation / next action.
+2. Why this.
+3. What will be done and what is cut.
+4. Risks, assumptions, or required approval.
+5. Technical appendix with copyable packets, only when needed.
+
+If a launch card is being prepared for the next chat, summarize it first in plain text. The full `stage_launch.v1` packet goes in the technical appendix.
+
+Human-facing prose should answer in the user's language when the user's language is clear. Packet field names, schema keys, stage IDs, repository paths, file names, and exact command/card tokens remain canonical English.
 ## 2\. Required Direction Project Files
 
 Every Direction ChatGPT Project must load the Direction Project Files 00-06 by default from:
