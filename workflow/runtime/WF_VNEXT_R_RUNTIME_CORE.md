@@ -483,6 +483,20 @@ instructions:
 
 ```
 
+## 11.5 Codex Role Separation Contract
+
+Codex has separate runtime roles. Do not collapse them into a generic allowed/forbidden state.
+
+Codex product/project execution means implementation against a concrete product/project workspace, product repository, game proof, application code, Task Master execution graph, external tool binding, validation command run, or project file mutation that changes the product/project itself. Codex product/project execution is allowed only through the correct execution route after E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
+
+Codex repository maintenance means applying an approved repository_patch.v1 to workflow or Direction GitHub files, appending execution logs, updating runtime markdown, and returning file read-back / diff verification / commit verification evidence. Codex repository maintenance is allowed after the patch is approved and must stay inside the approved repository paths.
+
+Codex read-only audit/validation means reading repository files, checking packet/schema consistency, verifying diffs, validating anchors, or reporting issues without writing. Codex read-only audit/validation is allowed when requested and does not count as product/project execution.
+
+Codex launch bundle preparation means packaging a Next Launch Card, exact stage prompt source path/version/status, required context exports, and copy-paste instructions for the next ChatGPT run. Codex launch bundle preparation is allowed when needed and must not invent prompt text or bypass stage routing.
+
+When a stage says Codex product/project execution is blocked, that restriction does not block approved repository maintenance, read-only audit/validation, or launch bundle preparation unless the stage explicitly says all Codex roles are blocked.
+
 ## 12\. Next Stage Launch Bundle
 
 If Codex is available after a stage closes, Codex may prepare a complete Next Stage Launch Bundle.

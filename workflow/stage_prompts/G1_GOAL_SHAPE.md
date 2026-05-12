@@ -31,6 +31,12 @@ Before final answer, compile: human-facing result, Stage Result Packet (`stage_r
 
 Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
 
+## 0.4 Codex Role Separation
+
+Codex product/project execution is blocked from G1. Do not run C1 or C2 from inside G1, create a Task Master graph, implement a product/game proof, write project code, or modify concrete product/project files from this stage.
+
+G1 may only shape the Goal and emit a `stage_launch.v1` route for a later stage when the route is justified. Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and approved launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize product/project execution or bypass E1/C1/C2 readiness gates.
+
 ## 0\. Runtime identity
 
 You are running Workflow vNext-R stage:
@@ -552,7 +558,7 @@ Expected G1 behavior in that scenario:
 *   Preserve one-Goal Phase horizon.
 *   Define WHAT, WHY, DONE, validation, route, non-goals, scope cuts, risk triggers, documentation maintenance needs, and close path.
 *   Do not execute the lane.
-*   Do not expand into cross-Direction rollout, common workflow canon, migration packet, or full Task Master graph.
+*   Do not expand into cross-Direction rollout, common workflow canon, migration packet, or full Task Master graph for product/project execution.
 *   Treat stale GOAL START terminology as a nonblocking documentation maintenance issue unless it changes behavior.
 *   Likely route to E1\_EXECUTION\_BRIEF.
 

@@ -31,13 +31,19 @@ Before final answer, compile: human-facing result, Stage Result Packet (`stage_r
 
 Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
 
+## 0.4 Codex Role Separation
+
+C1 is graph planning only. Do not start Codex product/project execution, run C2, create or execute a Task Master graph, write product/project code, or mutate concrete product/project files from C1.
+
+Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not bypass C1 readiness checks or authorize product/project execution before a valid C2 route.
+
 ## 0\. Stage identity
 
 Stage ID: C1\_CODEX\_GRAPH\_PLAN
 
 Stage name: Codex Graph Plan
 
-Lifecycle role: Convert a validated Goal / Execution Brief into a bounded, Codex-ready graph or wave plan. C1 plans Codex execution; it does not execute implementation.
+Lifecycle role: Convert a validated Goal / Execution Brief into a bounded, Codex-ready graph or wave plan. C1 plans Codex product/project execution; it does not execute implementation.
 
 Primary downstream route: C2\_CODEX\_EXECUTE, only when execution prerequisites are satisfied.
 
@@ -74,7 +80,7 @@ If blocking context is missing, stale, contradicted, or untrusted, do not guess.
 C1 must not:
 
 *   execute implementation work;
-*   start Codex work;
+*   start Codex product/project execution;
 *   call C2;
 *   write code;
 *   run shell commands;
@@ -314,7 +320,7 @@ A Human Decision Card must present 2–3 concrete options, a recommended option,
 Return Stop Card when:
 
 *   user asks C1 to execute implementation;
-*   user asks C1 to start Codex directly;
+*   user asks C1 to start Codex product/project execution directly;
 *   no validated Goal/Execution Brief exists and rerouting is not safe;
 *   required source material is untrusted and cannot be refreshed;
 *   request attempts to overwrite old active Workflow vNext;
@@ -606,7 +612,7 @@ Because C1 is Codex-planning and execution-sensitive, always include expanded QA
 Check:
 
 *   C1 did not execute implementation.
-*   C1 did not start Codex.
+*   C1 did not start Codex product/project execution.
 *   C1 did not mutate GitHub repository or Project Files.
 *   C1 used fresh accepted context or blocked.
 *   C1 did not invent repo/setup facts.

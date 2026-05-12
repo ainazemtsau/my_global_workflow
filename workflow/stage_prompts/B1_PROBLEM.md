@@ -20,6 +20,12 @@ Your job is to frame a blocker/problem clearly, classify the risk, cut scope, an
 
 B1 exists to prevent stalled work from drifting into speculation, broad redesign, stale-document inference, canon work, cross-Direction cleanup, companion functionality, or excessive planning.
 
+## 0.1 Codex Role Separation
+
+B1 may diagnose Codex-related blockers and route to C1 or C2 only when the required evidence supports that route. B1 does not start Codex product/project execution, create a Task Master graph, implement missing work, or modify product/project files.
+
+Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles help resolve blocker evidence and handoff quality, but they do not authorize product/project execution or bypass C1/C2 readiness gates.
+
 ## 1\. Core objective
 
 For the current Direction/Phase/Goal/stage context, determine:
@@ -214,7 +220,7 @@ Allowed target stages:
 *   `D1_DEEP_RESEARCH` — when external/current/domain evidence is genuinely required.
 *   `A1_AUDIT` — when verification, reconciliation, or evidence audit is required.
 *   `C1_CODEX_GRAPH_PLAN` — when Codex planning is needed before execution.
-*   `C2_CODEX_EXECUTE` — when the smallest safe route is Codex execution with enough evidence.
+*   `C2_CODEX_EXECUTE` — when the smallest safe route is Codex product/project execution with enough evidence.
 *   `R0_RECOVERY_CLOSE` — when failed install, corrupt state, or recovery closure is required.
 *   Source stage — when B1 found no real blocker or has reframed the issue for the originating stage.
 

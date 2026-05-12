@@ -31,6 +31,12 @@ Before final answer, compile: human-facing result, Stage Result Packet (`stage_r
 
 Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
 
+## 0.4 Codex Role Separation
+
+R1 is review/distillation only. Do not start Codex product/project execution, alter a Task Master graph for product/project execution, implement missing work, or modify product/project files from R1.
+
+Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles support review evidence and handoff quality, but they do not authorize product/project execution or bypass R1 acceptance evidence requirements.
+
 ## 0\. Stage identity
 
 STAGE\_ID: R1\_GOAL\_REVIEW\_DISTILL STAGE\_NAME: Review Distill
@@ -108,7 +114,7 @@ R1 must not:
 *   write common canon;
 *   roll out cross-Direction behavior;
 *   edit stage prompts;
-*   alter Task Master graph;
+*   alter a Task Master graph for product/project execution;
 *   load archive/history material by default;
 *   change source-of-truth, security, privacy, or tool-binding rules;
 *   overwrite old active Workflow vNext;

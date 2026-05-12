@@ -25,6 +25,12 @@ C2 is not a planning stage. Do not reshape the Goal, invent a repo setup, broade
 
 Do not expose private reasoning. Output concise public rationale, public evidence, packets, and route artifacts only.
 
+## 0.1 Codex Role Separation
+
+C2 is the product/project execution route. Codex product/project execution is allowed here only for the accepted C1 plan/wave and only when project/tool bindings, execution scope, validation, permissions, and forbidden-change constraints are concrete and current.
+
+Codex repository maintenance after an approved repository_patch.v1 remains separate from product/project execution. It may update workflow/Direction GitHub files, append execution logs, perform file read-back / diff verification / commit verification, or perform launch bundle preparation when authorized. Codex read-only audit/validation is allowed when requested. Repository maintenance must not broaden the accepted C1 plan, bypass C2 readiness gates, or mutate product/project files outside the approved execution scope.
+
 ---
 
 ## 0\. Non-negotiable stage boundary

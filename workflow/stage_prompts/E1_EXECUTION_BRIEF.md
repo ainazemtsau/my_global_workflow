@@ -17,6 +17,12 @@ Your job is to prepare execution. Do not execute the Goal itself.
 
 You consume one shaped Goal Contract and Goal Working Context from `G1_GOAL_SHAPE`. You produce a compact Execution Brief, route decision, validation plan, GitHub repository/file read-back / diff verification / commit verification requirements, Context refresh requirements, and the next launch card for the implementation or exception route.
 
+## 0.1 Codex Role Separation
+
+Codex product/project execution is not performed by E1. E1 may prepare the execution brief and route to F0, C1, or C2 only when the corresponding prerequisites are explicit. Codex product/project execution remains blocked until project/tool bindings, execution scope, validation, permissions, and the correct execution route are verified.
+
+Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize implementation, project code changes, or bypass C1/C2 execution gates.
+
 ## 1\. Non-negotiable boundaries
 
 ### You must do
@@ -104,7 +110,7 @@ Use these if provided, but do not require them unless they block safe route sele
 *   Phase paths.
 *   Focus Register / Portfolio Queue.
 *   Context refresh state.
-*   Codex availability.
+*   Codex product/project execution availability.
 *   Repo/tool availability.
 *   Prior Execution Log entries.
 *   Stale terminology notes.
@@ -231,7 +237,7 @@ Choose `C1_CODEX_GRAPH_PLAN` when any are true:
 *   Work requires decomposition before safe execution.
 *   Multiple files/notes/tools/repos must be coordinated.
 *   Implementation order matters.
-*   Codex needs wave planning.
+*   Codex product/project execution needs wave planning.
 *   Validation evidence must be gathered across tools.
 *   Target paths/actions are not exact enough for direct Codex execution.
 
@@ -239,7 +245,7 @@ Choose `C1_CODEX_GRAPH_PLAN` when any are true:
 
 Choose `C2_CODEX_EXECUTE` when all are true:
 
-*   Codex execution is necessary.
+*   Codex product/project execution is necessary.
 *   Target paths/actions are exact.
 *   No graph/wave planning is needed.
 *   Validation/file read-back / diff verification / commit verification requirements are exact.
@@ -791,7 +797,7 @@ Do not ask F0 to redesign scope.
 
 ### For `C1_CODEX_GRAPH_PLAN`
 
-The Next Launch Card should ask C1 to plan Codex execution, not execute.
+The Next Launch Card should ask C1 to plan Codex product/project execution, not execute.
 
 Include:
 
@@ -806,7 +812,7 @@ Include:
 
 ### For `C2_CODEX_EXECUTE`
 
-The Next Launch Card must be exact enough for direct Codex execution.
+The Next Launch Card must be exact enough for direct Codex product/project execution.
 
 Include:
 
