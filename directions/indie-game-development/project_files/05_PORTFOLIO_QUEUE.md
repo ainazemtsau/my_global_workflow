@@ -21,9 +21,11 @@ Active Phase name: `Expedition First Playable Proof Slice`
 
 Last closed Phase: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
 
-Active Goal: `none`
+Active Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
 
-Recommended first Goal candidate: `first-playable-proof-slice-brief`
+Active Goal name: `Сформировать минимальный playable proof slice для Expedition`
+
+Active Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
 
 Last completed Goal: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof`
 
@@ -31,15 +33,19 @@ Accepted Goal artifact: `directions/indie-game-development/phases/expedition-fir
 
 Required proof-slice handoff: `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
 
-Next route: `G1_GOAL_SHAPE`
+Next route: `E1_EXECUTION_BRIEF`
 
 Phase start result: `P0_PHASE_START created Expedition First Playable Proof Slice`
+
+Goal shape result: `G1_GOAL_SHAPE created active Goal Contract first-playable-proof-slice-brief`
 
 ## Selected current Phase direction
 
 * `Expedition First Playable Proof Slice` — selected by `P0_PHASE_START`.
   * Purpose: move from accepted proof handoff/core to the smallest concrete playable proof slice.
-  * Required first Goal candidate: `Сформировать минимальный playable proof slice для Expedition`.
+  * Active Goal: `Сформировать минимальный playable proof slice для Expedition`.
+  * Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
+  * Next route: `E1_EXECUTION_BRIEF`.
   * Not a prototype implementation phase.
   * Not a Game Documentation promotion phase.
   * Not Codex product/project execution.
@@ -69,4 +75,4 @@ The accepted proof core and proof handoff should guide future Phase or Goal sele
 
 Do not delete queue items during this Phase.
 
-Do not run `G0_GOAL_SELECT` now unless G1/R1 later determines multiple next Goal candidates genuinely compete. The current first Goal candidate is clear enough for `G1_GOAL_SHAPE`.
+Do not run `G0_GOAL_SELECT` now. The active Goal is already shaped and should proceed to `E1_EXECUTION_BRIEF` after repository maintenance apply/read-back.

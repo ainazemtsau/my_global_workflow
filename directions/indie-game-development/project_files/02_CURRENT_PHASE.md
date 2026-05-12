@@ -22,10 +22,13 @@ current_phase:
   phase_path: "directions/indie-game-development/phases/expedition-first-playable-proof-slice"
   started_by_stage: P0_PHASE_START
   started_at: "2026-05-12"
-  next_route: G1_GOAL_SHAPE
+  next_route: E1_EXECUTION_BRIEF
+  active_goal_id: first-playable-proof-slice-brief
+  active_goal_path: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief"
+  active_goal_contract: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md"
   critical_constraint: "Proof identity/boundary exists, but the Direction lacks the smallest playable proof slice that turns accepted proof core into a concrete game situation."
   minimum_outcome: "Accepted First Playable Proof Slice Brief."
-  validation_signal: "G1 can shape a concrete first playable proof slice without repeating proof-boundary work or starting implementation."
+  validation_signal: "G1 shaped a concrete first playable proof slice Goal without repeating proof-boundary work or starting implementation."
 
 phase_closure_contract:
   closure_criteria:
@@ -38,7 +41,9 @@ phase_closure_contract:
     - goal_candidate_id: first-playable-proof-slice-brief
       name: "Сформировать минимальный playable proof slice для Expedition"
       required_for_closure: true
-      recommended_next_stage: G1_GOAL_SHAPE
+      status: shaped_active_goal
+      goal_contract: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md"
+      recommended_next_stage: E1_EXECUTION_BRIEF
   optional_expansion_candidates:
     - proof-blocking-decision-map
     - project-tool-binding-readiness
@@ -67,13 +72,14 @@ last_closed_phase:
 * Active Phase unresolved: `no`
 * Active Phase: `Expedition First Playable Proof Slice`
 * Active Goal unresolved: `no`
-* Active Goal: `none`
+* Active Goal: `first-playable-proof-slice-brief`
+* Active Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
 * Last closed Phase: `Expedition First Proof Checkpoint`
 * Last completed Goal: `Определить минимальное доказательное ядро первого proof Expedition`
 * Last completed Goal status: `r1_reviewed_accepted`
 * Accepted artifact: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
 * Required proof-slice handoff: `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
-* Next route: `G1_GOAL_SHAPE`
+* Next route: `E1_EXECUTION_BRIEF`
 * Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
@@ -84,8 +90,8 @@ It must not repeat proof-boundary/readiness work already captured in the proof h
 
 ## Next route
 
-Run `G1_GOAL_SHAPE` to shape the first Goal candidate:
+Run `E1_EXECUTION_BRIEF` for the active Goal:
 
 `Сформировать минимальный playable proof slice для Expedition`
 
-Do not run `G1_GOAL_SHAPE` until P0 repository maintenance apply/read-back, diff verification, commit verification, and context refresh are complete.
+Do not run `E1_EXECUTION_BRIEF` until the G1 repository maintenance patch is applied, read back, diff-verified, commit-verified, and refreshed in context.

@@ -7,8 +7,9 @@ project_file_control:
   direction: directions/indie-game-development
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
+    - "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md"
   activated_at: "2026-05-12"
-  source_freshness: active_git_file
+  source_freshness: active_git_file_after_g1_repository_apply_readback
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,18 +17,35 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: none
-  reason: "P0 started a new active Phase; first Goal must be shaped through G1_GOAL_SHAPE."
+  state: active
+  goal_id: first-playable-proof-slice-brief
+  goal_title: "Сформировать минимальный playable proof slice для Expedition"
+  goal_path: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief"
+  goal_contract: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md"
   phase_path: "directions/indie-game-development/phases/expedition-first-playable-proof-slice"
   current_wave: none
-  next_route: G1_GOAL_SHAPE
+  created_by_stage: G1_GOAL_SHAPE
+  next_route: E1_EXECUTION_BRIEF
+  smallest_useful_result: "Accepted First Playable Proof Slice Brief"
 
-recommended_first_goal_candidate:
-  id: first-playable-proof-slice-brief
-  name: "Сформировать минимальный playable proof slice для Expedition"
-  recommended_next_stage: G1_GOAL_SHAPE
-  smallest_useful_result: "Accepted First Playable Proof Slice Brief."
-  status: candidate_only_not_active_goal
+goal_contract_summary:
+  what: "Create a First Playable Proof Slice Brief for Expedition."
+  why_now: "The proof boundary is accepted; the Direction now needs the smallest concrete playable proof slice."
+  done: "A reviewable First Playable Proof Slice Brief exists and preserves unresolved mechanics."
+  acceptance_floor:
+    - minimal player situation
+    - what players do by hand
+    - lift/descent boundary
+    - minimal route/gas/topology pressure
+    - minimal dangerous vessel/value situation
+    - co-op shared-state consequence
+    - real push / reroute / secure / retreat / abandon judgment point
+    - run ending
+    - consequence ledger result
+    - reason for next descent
+    - unresolved mechanics deliberately kept undecided
+  validation_signal: "The smallest playable slice is known and can test Expedition as connected co-op judgment, not gas simulation alone."
+  validation_method: "Review against accepted minimum Expedition loop, six observable proof signals, gas-only rejection, and explicit deferred mechanics."
 
 last_completed_goal:
   state: r1_reviewed_accepted
@@ -47,34 +65,31 @@ last_closed_phase:
   next_route_completed_by: P0_PHASE_START
 ```
 
-## Last completed Goal snapshot
+## Active Goal snapshot
 
-* Goal: define the minimum proof core for the first Expedition proof.
-* Result: accepted.
-* Accepted artifact: `03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-* Core accepted rule: the first proof must show Expedition as an escalating co-op judgment loop, not isolated gas simulation or loose prototype.
-* Gas-only proof rejection: accepted.
-* Validation method: accepted at proof-boundary level with `go`, `revise`, and `kill` outcomes.
-* Codex execution allowed: `no, not until project/tool binding is verified`.
-* Current next route: `G1_GOAL_SHAPE`.
-* G0 allowed: `not needed now; one first Goal candidate is clear`.
-* Phase auto-close: `not automatic; after R1 use phase_progress_gate`.
+* Goal: `Сформировать минимальный playable proof slice для Expedition`
+* Goal ID: `first-playable-proof-slice-brief`
+* Status: `active`
+* Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
+* Result expected: accepted `First Playable Proof Slice Brief`
+* Current next route: `E1_EXECUTION_BRIEF`
+* Codex product/project execution allowed: `no, not until project/tool binding is verified`
+* Phase auto-close: `not automatic; after R1 use phase_progress_gate`
 
-## Current Goal candidate meaning
-
-Active Goal remains none until `G1_GOAL_SHAPE` creates a Goal Contract.
+## Goal meaning
 
 `first-playable-proof-slice-brief` should use the accepted proof handoff/core to define the smallest playable proof slice.
 
 It should not re-create the proof boundary and should not start implementation.
 
-## Preserved history
+## Preserved proof inputs
 
-The pre-vNext Goal note was moved into the now-closed Phase without deletion or cloning. Its child history remains under the Goal: Sessions, Wave Cards, Decisions, Goal Brief, Execution Pack.
+* Accepted proof handoff: `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
+* Accepted proof core: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
 
 ## Deferred items
 
-The current Goal candidate must not silently decide:
+The active Goal must not silently decide:
 
 * full playable prototype design;
 * implementation plan;

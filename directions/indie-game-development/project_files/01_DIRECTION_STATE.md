@@ -21,14 +21,15 @@ direction:
   state: active
   workflow_version: vNext-R
   current_phase_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice"
-  active_goal_pointer: null
+  active_goal_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief"
+  active_goal_contract: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md"
   last_closed_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   last_closed_phase_result: p9_closed
   last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   last_completed_goal_result: r1_reviewed_accepted
   accepted_goal_artifact: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md"
   required_proof_slice_handoff: "directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md"
-  next_route: G1_GOAL_SHAPE
+  next_route: E1_EXECUTION_BRIEF
   last_updated: "2026-05-12"
 ```
 
@@ -57,8 +58,10 @@ Build a commercially viable indie game direction focused on Expedition product j
 * Started at: `2026-05-12`
 * Current Critical Constraint: proof identity/boundary exists, but the smallest playable proof slice does not.
 * Minimum Outcome: accepted `First Playable Proof Slice Brief`.
-* Validation Signal: G1 can shape a concrete first playable proof slice without repeating proof-boundary work or starting implementation.
-* Next route: `G1_GOAL_SHAPE`
+* Validation Signal: G1 shaped a concrete first playable proof slice Goal without repeating proof-boundary work or starting implementation.
+* Active Goal: `first-playable-proof-slice-brief`
+* Active Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
+* Next route: `E1_EXECUTION_BRIEF`
 
 ## Last closed Phase
 
@@ -82,8 +85,9 @@ Build a commercially viable indie game direction focused on Expedition product j
 ## Project Files export state
 
 * Last refresh: `2026-05-12`
-* Required refresh: `none after P0 phase-start patch is applied and read back`
+* Required refresh: `after G1 Goal Contract patch is applied and read back`
 * Known stale files: `none known after this patch is applied and read back`
-* Current route: `G1_GOAL_SHAPE`
+* Current route: `E1_EXECUTION_BRIEF`
 * Active Phase: `Expedition First Playable Proof Slice`
-* Active Goal: `none`
+* Active Goal: `first-playable-proof-slice-brief`
+* Active Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
