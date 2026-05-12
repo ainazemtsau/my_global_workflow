@@ -35,3 +35,13 @@ The Direction has a canonical active Phase, the existing MacroFactor active Goal
 - No Codex execution before Goal contract/tool binding verification.
 
 - No bulk archive/default loading.
+
+## Superseded status
+
+Status after 2026-05-12 P0_PHASE_START: `superseded_paused`, not completed.
+
+Reason: MacroFactor-centered setup is no longer the current nutrition bottleneck. The current Phase is now:
+
+`directions/health-and-beauty/phases/ai-nutrition-operating-layer`
+
+This Phase and its child Goal files remain historical evidence. Do not execute the old Wave 1 as current work without explicit reshaping.

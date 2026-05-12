@@ -46,3 +46,11 @@ active_goal:
 - Health Domain Documentation
 
 - Legacy Direction Docs - review before canonizing
+
+## Historical evidence status
+
+Status after 2026-05-12 P0_PHASE_START: `historical_evidence`.
+
+This Goal is no longer the active Goal of the Direction. It may contain useful nutrition/menu/recipe context, but it must not be executed as current work unless explicitly reshaped under the current Phase:
+
+`directions/health-and-beauty/phases/ai-nutrition-operating-layer`
