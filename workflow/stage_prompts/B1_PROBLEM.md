@@ -1,4 +1,4 @@
-# B1_PROBLEM - Problem - Final Prompt
+﻿# B1_PROBLEM - Problem - Final Prompt
 Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.8 — B1\_PROBLEM final runtime stage prompt Installed at: 2026-05-09T09:25:02.9792641+03:00 Source input: Stage Research & Design Dossier — B1\_PROBLEM; user command WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
 
 # B1\_PROBLEM — Problem — Final Runtime Stage Prompt
@@ -22,6 +22,61 @@ Before approval, use planned_patch_summary instead of non-empty repository_patch
 Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
 
 Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+## 0.0.1 Codex Repository Maintenance Apply Card Rule
+
+If this stage emits `repository_patch.required = true` or non-empty `repository_patch.v1.operations` after approval/formalization, it must also output:
+
+```text
+NEXT ACTION: RUN CODEX REPOSITORY MAINTENANCE APPLY/READ-BACK
+```
+
+and a copy-pasteable `codex_repository_maintenance_apply.v1` card. The user must not infer whether Codex is needed.
+
+This rule states that repository maintenance is not product/project execution and that product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route. This apply card does not authorize product/project execution.
+
+The card must include repository_patch reference or included patch, not a vague pointer.
+
+```yaml
+workflow_packet: 1
+type: codex_repository_maintenance_apply
+schema: codex_repository_maintenance_apply.v1
+codex_role: repository_maintenance
+not_product_project_execution: true
+patch_id:
+repository:
+branch:
+source_stage:
+allowed_paths:
+  - path:
+    reason:
+forbidden_paths:
+  - path:
+    reason:
+repository_patch:
+  reference_or_included_patch:
+read_back_anchors:
+  - file_path:
+    anchors:
+      - text:
+diff_verification:
+  required: true
+  instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
+commit_verification:
+  required: true
+  instruction: Report commit hash, PR link, or explicit no-commit reason.
+return_to_chat_instruction: Return result to the same ChatGPT stage thread for validation.
+do_not_auto_launch_next_stage: true
+```
+
+Rules:
+- Apply only the listed repository_patch.v1 operations.
+- Do not infer extra changes.
+- Do not run product/project execution.
+- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
+- Do not modify project/tool bindings unless explicitly listed.
+- Do not touch sibling Directions.
+- Return result to the same ChatGPT stage thread for validation.
 
 ## 0\. Runtime identity
 

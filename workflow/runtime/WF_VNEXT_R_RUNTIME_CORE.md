@@ -719,6 +719,70 @@ Do not physically delete files unless explicitly approved.
 
 Mark stale/superseded material instead of deleting by default.
 
+## 14.5 Codex Repository Maintenance Apply Card Contract
+
+If any stage emits `repository_patch.required = true` or `repository_patch.v1.operations` is non-empty, the stage must also emit `codex_repository_maintenance_apply.v1`.
+
+The stage must not require the user to infer whether Codex is needed. It must state:
+
+```text
+NEXT ACTION: RUN CODEX REPOSITORY MAINTENANCE APPLY/READ-BACK
+```
+
+This card applies an approved repository_patch.v1. It is repository maintenance only; repository maintenance is not product/project execution. Product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
+
+Required format:
+
+```yaml
+workflow_packet: 1
+type: codex_repository_maintenance_apply
+schema: codex_repository_maintenance_apply.v1
+codex_role: repository_maintenance
+not_product_project_execution: true
+
+patch_id:
+repository:
+branch:
+source_stage:
+
+allowed_paths:
+  - path:
+    reason:
+
+forbidden_paths:
+  - path:
+    reason:
+
+repository_patch:
+  reference_or_inline_patch:
+
+read_back_anchors:
+  - file_path:
+    anchors:
+      - text:
+
+diff_verification:
+  required: true
+  instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
+
+commit_verification:
+  required: true
+  instruction: Report commit hash, PR link, or explicit no-commit reason.
+
+return_to_chat_instruction: Return result to the same ChatGPT stage thread for validation.
+do_not_auto_launch_next_stage: true
+```
+
+Required safety text:
+
+- Apply only the listed repository_patch.v1 operations.
+- Do not infer extra changes.
+- Do not run product/project execution.
+- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
+- Do not modify project/tool bindings unless explicitly listed.
+- Do not touch sibling Directions.
+- Return result to the same ChatGPT stage thread for validation.
+
 ## 15\. Execution Log Contract
 
 Every meaningful workflow event must include Execution Log Entry.
