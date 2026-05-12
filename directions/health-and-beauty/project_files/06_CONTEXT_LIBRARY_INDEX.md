@@ -15,7 +15,17 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Default context
 
-Load the Direction Project Files default set. Current Phase is `Собрать AI-операционный слой питания без тяжёлого трекинга`; active Goal is `none`; selected Goal seed is `Собрать AI Nutrition Operating Layer v0`.
+Load the Direction Project Files default set.
+
+Current Phase: `Собрать AI-операционный слой питания без тяжёлого трекинга`
+
+Active Goal: `Собрать AI Nutrition Operating Layer v0`
+
+Active Goal path:
+
+`directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0`
+
+Next route: `E1_EXECUTION_BRIEF`
 
 ## Shared runtime and stage prompts
 
@@ -28,7 +38,18 @@ local_runtime_core_copy_required: false
 
 Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
 
-## Request-only context for next G1/E1
+## Required context for next E1
+
+* Direction Project Files 00-06.
+* `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+* `workflow/stage_registry/STAGE_REGISTRY.md`.
+* `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`.
+* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/00_PHASE_BRIEF.md`.
+* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/01_PHASE_WORKING_CONTEXT.md`.
+* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/00_GOAL_CONTRACT.md`.
+* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/01_GOAL_WORKING_CONTEXT.md`.
+
+## Request-only context for E1
 
 * Existing menu / prior nutrition menu materials.
 * Nutrition baseline and preferences.

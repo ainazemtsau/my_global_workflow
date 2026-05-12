@@ -17,10 +17,9 @@ project_file_control:
 ## Current pointers
 
 * Current Phase: `Собрать AI-операционный слой питания без тяжёлого трекинга` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
-* Active Goal: `none yet`
-* Selected Goal seed for next stage: `Собрать AI Nutrition Operating Layer v0`
-* Current focus: shape the first Goal for an AI nutrition operating layer after superseding the stale MacroFactor-centered Phase.
-* Next route: `G1_GOAL_SHAPE`
+* Active Goal: `Собрать AI Nutrition Operating Layer v0` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0`
+* Current focus: prepare the E1 Execution Brief for the AI Nutrition Operating Layer v0 Goal.
+* Next route: `E1_EXECUTION_BRIEF`
 
 ## Default Project Files to load
 

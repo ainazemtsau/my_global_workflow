@@ -21,9 +21,10 @@ direction:
   state: active
   workflow_version: vNext-R
   current_phase_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
-  active_goal_pointer: none
-  selected_goal_seed: "Собрать AI Nutrition Operating Layer v0"
-  next_route: G1_GOAL_SHAPE
+  active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
+  active_goal_title: "Собрать AI Nutrition Operating Layer v0"
+  selected_goal_seed: consumed_into_active_goal
+  next_route: E1_EXECUTION_BRIEF
   last_updated: "2026-05-12"
 
 superseded_phase:

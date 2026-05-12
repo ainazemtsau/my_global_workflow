@@ -17,18 +17,19 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 Current Phase: `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
 
-Active Goal: `none`
+Active Goal: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0`
 
-Selected Goal seed: `Собрать AI Nutrition Operating Layer v0`
+Active Goal title: `Собрать AI Nutrition Operating Layer v0`
 
-Next route: `G1_GOAL_SHAPE`
+Next route: `E1_EXECUTION_BRIEF`
 
 ## Current priority
 
-Build the smallest useful AI nutrition operating layer: state packet, active menu object, prompt modes, exception correction, recipe/prep builder, review/state update protocol, storage rules, restart/context refresh rules, and sample flows.
+Prepare the Execution Brief for the smallest useful AI nutrition operating layer: state packet, active menu object, prompt modes, exception correction, recipe/prep builder, review/state update protocol, storage rules, restart/context refresh rules, and sample flows.
 
 ## Superseded / deferred items
 
 * `MacroFactor Nutrition AI Support Setup` is superseded/paused, not completed.
 * Old MacroFactor Goal / Execution Pack / Wave 1 are historical evidence only.
 * Self-hosted tracking, full food tracker setup, API/import automation, and perfect recipe database design are deferred.
+* Menu generation alone is not the Goal; menu is one object inside the operating layer.

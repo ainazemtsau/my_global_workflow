@@ -16,24 +16,48 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: none
-  goal_name: none
-  goal_path: none
+  state: active
+  goal_id: ai-nutrition-operating-layer-v0
+  goal_name: "Собрать AI Nutrition Operating Layer v0"
+  goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
   current_wave: none
-
-selected_goal_seed:
-  title: "Собрать AI Nutrition Operating Layer v0"
-  route_stage: G1_GOAL_SHAPE
-  requires_shape_before_execution: true
-  proposed_goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
+  current_stage: E1_EXECUTION_BRIEF
+  status: execution_brief_pending
 ```
 
 ## Goal Contract snapshot
 
-* Goal Contract: `not created yet`
-* DONE / acceptance: `to be shaped by G1_GOAL_SHAPE`
-* Codex execution allowed: `no, not until Goal Contract and execution basis are created`
+* WHAT: Build a compact AI Nutrition Operating Layer v0: Nutrition State Packet, Active Menu object, operating modes, exception-only correction logic, recipe/prep support, review/state-update protocol, storage/save rules, restart/context-refresh rules, and sample flows.
+* WHY: The bottleneck is absence of a stable AI nutrition process without heavy tracking or reliance on one long ChatGPT chat.
+* DONE: A fresh next chat can use the v0 layer to create/update menu, advise on current day, correct after overeating/off-menu eating, add recipe/prep notes, run day/week summary, and produce durable state-update/save output.
+* Acceptance floor: state packet, active menu object, four modes, exception-only tracking, day correction logic, storage protocol, restart rules, five sample flows, explicit non-goals.
+* Validation: paper-test the five sample flows.
+
+## Scope boundaries
+
+In scope:
+
+* AI nutrition operating layer.
+* State packet.
+* Active menu object.
+* Daily operator.
+* Menu architect.
+* Recipe/prep builder.
+* Review/state update.
+* Exception-only tracking.
+* Storage and restart rules.
+
+Out of scope:
+
+* MacroFactor-centered workflow.
+* Heavy tracker.
+* Detailed calorie/macro ledger.
+* Food tracker/database setup.
+* API/import automation.
+* Huge recipe vault.
+* Clinical nutrition.
+* Menu-only Goal.
 
 ## Preserved history
 

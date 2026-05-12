@@ -22,11 +22,16 @@ current_phase:
   critical_constraint: "Нет устойчивого AI-процесса питания: меню, рецепты, отклонения, дневные коррекции, долгосрочные выводы и сохранение состояния не связаны в один рабочий слой. MacroFactor/detailed tracking создаёт лишний friction, а один длинный ChatGPT-chat со временем деградирует."
   minimum_outcome: "Есть AI Nutrition Operating Layer v0: state packet, active menu object, prompt modes, exception correction, recipe/prep builder, review/state update protocol, storage rules, restart/context refresh rules, and sample flows."
   validation_signal: "Система проходит типовые сценарии: составить/обновить меню, дать совет по текущему дню, скорректировать остаток дня после переедания, добавить рецепт/prep note, сделать day/week summary и обновить persistent state."
+  active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
+  active_goal_title: "Собрать AI Nutrition Operating Layer v0"
+  goal_state: execution_brief_pending
+  next_route: E1_EXECUTION_BRIEF
 ```
 
 ## Guard state
 
-* Active Goal unresolved: `yes, no active Goal yet; selected seed should be shaped by G1_GOAL_SHAPE`
+* Active Goal unresolved: `no`
+* Active Goal shaped: `yes`
 * Phase can close now: `no`
-* Blocker: `First Goal Contract must be shaped before execution`
+* Current blocker: `Execution Brief must be created before execution`
 * Superseded prior Phase: `MacroFactor Nutrition AI Support Setup`
