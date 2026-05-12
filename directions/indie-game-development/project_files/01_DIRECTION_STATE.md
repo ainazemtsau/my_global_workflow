@@ -24,7 +24,13 @@ direction:
   active_goal_pointer: null
   last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   last_completed_goal_result: r1_reviewed_accepted
-  next_route: G0_GOAL_SELECT
+  next_route: P9_PHASE_CLOSE
+  route_correction:
+    corrected_by_stage: R1_GOAL_REVIEW_DISTILL
+    corrected_at: "2026-05-12"
+    old_route: G0_GOAL_SELECT
+    new_route: P9_PHASE_CLOSE
+    reason: "Corrected Phase Progress Gate selected formal Phase close after accepted proof-core Goal."
   last_updated: "2026-05-12"
 ```
 
@@ -56,3 +62,5 @@ Build a commercially viable indie game direction focused on Expedition product j
 * Last refresh: `2026-05-12`
 * Required refresh: `none after this patch is applied and read back`
 * Known stale files: `none known after this patch is applied and read back`
+* Corrected route: `P9_PHASE_CLOSE`
+* Superseded route: `G0_GOAL_SELECT`

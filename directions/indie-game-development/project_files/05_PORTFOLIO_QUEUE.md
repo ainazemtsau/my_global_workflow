@@ -23,15 +23,15 @@ Last completed Goal: `directions/indie-game-development/phases/expedition-first-
 
 Accepted Goal artifact: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
 
-Next route: `phase_progress_gate_check`
+Next route: `P9_PHASE_CLOSE`
 
-Phase Progress Gate: `missing / needs_check`
+Phase Progress Gate: `closure_selected_by_human`
 
 no_phase_auto_close: true
 
-G0 allowed only after: `continue_with_required_goals` / Phase Continue decision
+G0 allowed only after: `P9_handoff` / `explicit_phase_continue_decision`
 
-Phase auto-close: `no`
+Phase auto-close: `no; P9 closes formally`
 
 ## Completed / accepted
 
@@ -54,6 +54,8 @@ Queue items are request-only until selected by a vNext-R stage result.
 
 ## Queue discipline
 
-The accepted proof core should guide future Goal selection, but it must not be expanded into implementation work without a proper Goal and execution route.
+The accepted proof core should guide future Goal or Phase selection, but it must not be expanded into implementation work without a proper Goal and execution route.
 
-Do not delete queue items during Phase Progress Gate. Queue items remain candidates only; they are not required_for_closure unless Phase Progress Gate, P9, or a Human Decision explicitly classifies them that way.
+Do not delete queue items during P9. Queue items remain candidates only; they are not required_for_closure unless P9 or a later Human Decision explicitly classifies them that way.
+
+Do not run `G0_GOAL_SELECT` from the current state before P9 closes or hands off the Phase.
