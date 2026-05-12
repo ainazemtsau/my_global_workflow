@@ -743,6 +743,16 @@ not_product_project_execution: true
 patch_id:
 repository:
 branch:
+branch_policy:
+  mode: direct_main
+  target_branch: main
+  create_branch: false
+  create_pr: false
+  commit_directly: true
+  push_directly: true
+  require_clean_worktree: true
+  pull_before_apply: true
+  conflict_policy: stop_and_return_needs_input
 source_stage:
 
 allowed_paths:
@@ -782,6 +792,41 @@ Required safety text:
 - Do not modify project/tool bindings unless explicitly listed.
 - Do not touch sibling Directions.
 - Return result to the same ChatGPT stage thread for validation.
+
+## 14.6 Direct Main Repository Maintenance Policy
+
+For repository maintenance in `ainazemtsau/my_global_workflow`, the default target branch is `main`.
+
+Repository maintenance means applying an approved `repository_patch.v1` to this workflow repository. Repository maintenance is not product/project execution and does not change C1/C2 product execution boundaries.
+
+Default branch policy:
+
+```yaml
+branch_policy:
+  mode: direct_main
+  target_branch: main
+  create_branch: false
+  create_pr: false
+  commit_directly: true
+  push_directly: true
+  require_clean_worktree: true
+  pull_before_apply: true
+  conflict_policy: stop_and_return_needs_input
+```
+
+Rules:
+
+- Pull latest `origin/main` before apply.
+- Require a clean worktree before apply.
+- Apply only the approved `repository_patch.v1` operations.
+- Commit directly to `main`.
+- Push directly to `origin/main`.
+- Do not create a branch by default.
+- Do not create a PR by default.
+- Stop on merge, pull, patch, validation, or push conflicts.
+- Return `NEEDS_INPUT` if direct-main maintenance is not possible.
+- Never create a branch as fallback unless the user explicitly overrides this policy.
+- Return commit SHA, diff verification, and file read-back evidence to the same ChatGPT stage thread.
 
 ## 15\. Execution Log Contract
 
