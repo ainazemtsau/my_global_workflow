@@ -1,4 +1,4 @@
-﻿# 00 START HERE - Direction
+# 00 START HERE - Direction
 
 ```yaml
 artifact_control:
@@ -9,17 +9,17 @@ artifact_control:
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
   freshness: fresh
-  next_action: "Continue with G1_GOAL_SHAPE for the active Expedition proof Goal."
-
+  last_updated: "2026-05-12"
+  next_action: "Run G0_GOAL_SELECT to select the next Goal under Expedition First Proof Checkpoint, or use a human decision if you want to close/pause the Phase."
 ```
 
 ## Direction identity
 
-*   Direction name: `Indie Game Development`
-*   Direction ID: `indie_game_development`
-*   Current state: `active`
-*   Workflow version: `vNext-R`
-*   Last updated: `2026-05-10`
+* Direction name: `Indie Game Development`
+* Direction ID: `indie_game_development`
+* Current state: `active`
+* Workflow version: `vNext-R`
+* Last updated: `2026-05-12`
 
 ## Purpose / thesis
 
@@ -27,27 +27,29 @@ Build a commercially viable indie game direction, focused on game concept, produ
 
 ## Source-of-truth rule
 
-This file is an active GitHub Direction runtime file. WORKFLOW_SOURCE_OF_TRUTH.md is the active source-of-truth marker. If required state is missing, stale, or conflicting, return Context Request; do not invent state.
+This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.md` is the active source-of-truth marker. If required state is missing, stale, or conflicting, return Context Request; do not invent state.
 
 ## Current pointers
 
 | Pointer | Value | Canonical target |
 | --- | --- | --- |
 | Current Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Active Goal | `Определить минимальное доказательное ядро первого proof Expedition` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof` |
-| Current focus | Shape the preserved Expedition first-proof Goal before execution | `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md` |
+| Active Goal | `none` | Select next Goal through `G0_GOAL_SELECT` |
+| Last completed Goal | `Определить минимальное доказательное ядро первого proof Expedition` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof` |
+| Accepted Goal artifact | `Minimum Expedition Proof Core` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md` |
+| Current focus | Select next Goal after accepted proof-core artifact | `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md` |
 | Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
 | Project files folder | GitHub Direction project files | `directions/indie-game-development/project_files/` |
 
 ## Default Project Files to load
 
-1.  `00_DIRECTION_START_HERE.md`
-2.  `01_DIRECTION_STATE.md`
-3.  `02_CURRENT_PHASE.md`
-4.  `03_FOCUS_REGISTER.md`
-5.  `04_ACTIVE_GOAL.md`
-6.  `05_PORTFOLIO_QUEUE.md`
-7.  `06_CONTEXT_LIBRARY_INDEX.md`
+1. `00_DIRECTION_START_HERE.md`
+2. `01_DIRECTION_STATE.md`
+3. `02_CURRENT_PHASE.md`
+4. `03_FOCUS_REGISTER.md`
+5. `04_ACTIVE_GOAL.md`
+6. `05_PORTFOLIO_QUEUE.md`
+7. `06_CONTEXT_LIBRARY_INDEX.md`
 
 ## Shared runtime file
 
@@ -63,6 +65,20 @@ Do not create or require a local runtime-core copy under this Direction `project
 
 It is not archive material and must not be hidden during workflow cleanup. Request specific game documentation through `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`; do not bulk-load all game docs by default.
 
+## Last accepted Goal result
+
+R1 accepted the Goal-local artifact:
+
+`directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
+
+The accepted proof-core rule is:
+
+> The first Expedition proof must prove a connected co-op judgment loop, not gas simulation alone.
+
 ## Normal next route
 
-`G1_GOAL_SHAPE` for the active Expedition proof Goal. Do not start Codex execution until the Goal contract is shaped and project/tool bindings are verified.
+`G0_GOAL_SELECT` for selecting the next Goal under the active Phase.
+
+Do not launch `P9_PHASE_CLOSE` automatically from this state.
+
+Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, and scope are verified.

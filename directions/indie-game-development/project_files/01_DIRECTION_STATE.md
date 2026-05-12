@@ -1,4 +1,4 @@
-﻿# 01\_DIRECTION\_STATE.md
+# 01_DIRECTION_STATE.md
 
 ```yaml
 project_file_control:
@@ -7,25 +7,25 @@ project_file_control:
   direction: directions/indie-game-development
   source_files:
     - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
-  activated_at: "2026-05-11"
+  activated_at: "2026-05-12"
   source_freshness: active_git_file
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
-
 ```
 
 ```yaml
 direction:
-  name: directions/indie-game-development
-  id: km9QhwfF2zoO
+  name: Indie Game Development
+  id: indie_game_development
   state: active
   workflow_version: vNext-R
   current_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
-  active_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
-  next_route: G1_GOAL_SHAPE
-  last_updated: "2026-05-10"
-
+  active_goal_pointer: null
+  last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
+  last_completed_goal_result: r1_reviewed_accepted
+  next_route: G0_GOAL_SELECT
+  last_updated: "2026-05-12"
 ```
 
 ## Purpose / thesis
@@ -34,13 +34,25 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Durable commitments
 
-*   Expedition is the active product hypothesis.
-*   The first proof should test game meaning and system synergy, not gas simulation alone.
-*   Game truths produced by Goals should move into permanent `Game Documentation`.
-*   Codex/project execution requires verified concrete project/tool bindings.
+* Expedition is the active product hypothesis.
+* The first proof should test game meaning and system synergy, not gas simulation alone.
+* The accepted minimum proof core is a connected Expedition co-op judgment loop:
+  risk preparation → lift descent → gas/topology/dangerous value reading → route/safety intervention → dangerous vessel recovery/stabilization → readable consequence → push/reroute/secure/retreat/abandon decision → consequence ledger → reason for next descent.
+* Gas-only proof is rejected. Gas is supporting evidence only when it creates Expedition judgment.
+* Game truths produced by Goals may move into permanent `Game Documentation` only through an explicit later documentation stage or approved documentation-maintenance patch.
+* Codex/project execution requires verified concrete project/tool bindings.
+
+## Last completed Goal
+
+* Goal: `Определить минимальное доказательное ядро первого proof Expedition`
+* Path: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof`
+* Accepted artifact: `03_MINIMUM_EXPEDITION_PROOF_CORE.md`
+* Review stage: `R1_GOAL_REVIEW_DISTILL`
+* Review result: `completed_verified`
+* Status: `r1_reviewed_accepted`
 
 ## Project Files export state
 
-*   Last refresh: `2026-05-10`
-*   Required refresh: `none`
-*   Known stale files: `none known`
+* Last refresh: `2026-05-12`
+* Required refresh: `none after this patch is applied and read back`
+* Known stale files: `none known after this patch is applied and read back`
