@@ -3,6 +3,26 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 # G0\_GOAL\_SELECT — Final Runtime Prompt
 
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
 ## 0.1 Output Schema Authority
 
 All machine-readable output must follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`. Do not invent local packet schemas.
@@ -352,23 +372,23 @@ For blocked outputs, replace sections 2–5 with the relevant Context Request Ca
 
 ## 8\. Stage Result Packet contract
 
-Always output a Stage Result Packet.
+After approval/formalization, output a Stage Result Packet.
 
 Use this structure:
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select source\_path: workflow/stage\_prompts/G0\_GOAL\_SELECT.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: G1\_GOAL\_SHAPE | F0\_FAST\_DIRECT | none route\_reason: direction: id: name: phase: id: name: freshness: selection\_basis: phase\_critical\_constraint: phase\_minimum\_outcome: validation\_signal: scope\_boundaries: direction\_constraints: assumptions: candidate\_handling: candidates\_considered\_count: candidate\_cap\_applied: true | false selected\_candidate\_source: deferred\_or\_rejected\_summary: untriaged\_extra\_candidates\_count: selected\_goal\_seed: id\_or\_temp\_id: title: intended\_outcome: smallest\_testable\_slice: why\_now: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: confidence: high | medium | low handoff: next\_launch\_card\_included: true | false repository\_patch: required: true | false summary: execution\_log\_entry: included: true | false documentation\_maintenance\_gate: required: true | false changed\_files\_context\_refresh: required: true | false blocking: context\_request: human\_decision: stop\_reason: extensions:
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select source\_path: workflow/stage\_prompts/G0\_GOAL\_SELECT.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: G1\_GOAL\_SHAPE | F0\_FAST\_DIRECT | none route\_reason: direction: id: name: phase: id: name: freshness: selection\_basis: phase\_critical\_constraint: phase\_minimum\_outcome: validation\_signal: scope\_boundaries: direction\_constraints: assumptions: candidate\_handling: candidates\_considered\_count: candidate\_cap\_applied: true | false selected\_candidate\_source: deferred\_or\_rejected\_summary: untriaged\_extra\_candidates\_count: selected\_goal\_seed: id\_or\_temp\_id: title: intended\_outcome: smallest\_testable\_slice: why\_now: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: confidence: high | medium | low handoff: next\_launch\_card\_included: true | false repository\_patch: required_after_approval: true | false summary: execution\_log\_entry: included: true | false documentation\_maintenance\_gate: required_after_approval: true | false changed\_files\_context\_refresh_after_approval: required_after_approval: true | false blocking: context\_request: human\_decision: stop\_reason: extensions:
 
 If return\_state is NEEDS\_INPUT or STUCK, leave `selected_goal_seed` empty or set it to `null`, and populate `blocking`.
 
 ## 9\. Repository Patch contract
 
-Always include a Repository Patch section.
+After approval/formalization, always include a Repository Patch section.
 
 Default for normal G0 selection:
 
 repository\_patch: required: false reason: "G0 selection is transport-first; durable Goal Working Context is created or updated by G1 unless a specific documentation/freshness update is required."
 
-Use `required: true` only when the selected output requires durable documentation maintenance, such as:
+After approval/formalization, use `required_after_approval: true` only when the selected output requires durable documentation maintenance, such as:
 
 *   stale current route label found in active Direction materials;
 *   selected Goal seed must be recorded as active Phase focus before handoff;
@@ -377,9 +397,9 @@ Use `required: true` only when the selected output requires durable documentatio
 
 Required patch fields when true:
 
-repository\_patch: required: true patch\_type: selected\_goal\_seed\_update | phase\_focus\_update | stale\_doc\_flag | documentation\_refresh | other targets: - path: action: create | replace\_section | append\_section | update\_header | mark\_stale reason: content\_summary: freshness: validation\_anchors: do\_not\_touch: - path: reason:
+repository\_patch: required_after_approval: true patch\_type: selected\_goal\_seed\_update | phase\_focus\_update | stale\_doc\_flag | documentation\_refresh | other targets: - path: action: create | replace\_section | append\_section | update\_header | mark\_stale reason: content\_summary: freshness: validation\_anchors: do\_not\_touch: - path: reason:
 
-Never say “update relevant docs.” Name exact paths when available. If exact path is unknown, use Context Request or include a patch with `required: true` and `path: unknown` plus the minimum needed path request.
+Never say “update relevant docs.” Name exact paths when available. Before approval, use planned_patch_summary. After approval/formalization, if exact path is unknown, use Context Request or include a patch with `required_after_approval: true` and `path: unknown` plus the minimum needed path request.
 
 ## 10\. Execution Log Entry contract
 
@@ -395,7 +415,7 @@ If no maintenance is needed:
 
 documentation\_maintenance\_gate: required: false reason: "No stale documentation, route-label conflict, or durable context update required by G0."
 
-Set `required: true` when:
+Set `required_after_approval: true` when:
 
 *   stale `GOAL START` terminology appears in current route/stage labels;
 *   active Phase or selected priority conflicts across current sources;
@@ -405,19 +425,19 @@ Set `required: true` when:
 
 Required fields when true:
 
-documentation\_maintenance\_gate: required: true trigger: - selected\_phase\_focus\_changed | stale\_route\_label\_detected | conflicting\_phase\_docs | project\_file\_refresh\_needed | other required\_updates: - target: action: reason: stale\_terms\_detected: - term: recommended\_replacement: safe\_to\_continue\_without\_update: true | false
+documentation\_maintenance\_gate: required_after_approval: true trigger: - selected\_phase\_focus\_changed | stale\_route\_label\_detected | conflicting\_phase\_docs | project\_file\_refresh\_needed | other required\_updates: - target: action: reason: stale\_terms\_detected: - term: recommended\_replacement: safe\_to\_continue\_without\_update: true | false
 
 ## 12\. Changed Files / Context Refresh List contract
 
-Always include a Changed Files / Context Refresh List.
+After approval/formalization, always include a Changed Files / Context Refresh List.
 
 If none:
 
 changed\_files\_context\_refresh\_list: required: false files: \[\] reason: "No Context refresh required for this G0 selection."
 
-If required:
+If required after approval/formalization:
 
-changed\_files\_context\_refresh\_list: required: true files: - file: reason: action: refresh | inspect | no\_change urgency: blocking | nonblocking
+changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true files: - file: reason: action: refresh | inspect | no\_change urgency: blocking | nonblocking
 
 ## 13\. Next Launch Card contract
 

@@ -1,7 +1,82 @@
-# 10 D0_DIRECTION_SETUP - Final Runtime Prompt
+﻿# 10 D0_DIRECTION_SETUP - Final Runtime Prompt
 Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.10 — D0\_DIRECTION\_SETUP Installed at: 2026-05-09T11:33:14.6353481+03:00 Source input: ChatGPT Step 7.10 final prompt output after Stage Research & Design Dossier and explicit WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by:
 
 # D0\_DIRECTION\_SETUP — Final Runtime Prompt
+
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+## 0.0.1 Codex Repository Maintenance Apply Card Rule
+
+If this stage emits `repository_patch.required = true` or non-empty `repository_patch.v1.operations` after approval/formalization, it must also output:
+
+```text
+NEXT ACTION: RUN CODEX REPOSITORY MAINTENANCE APPLY/READ-BACK
+```
+
+and a copy-pasteable `codex_repository_maintenance_apply.v1` card. The user must not infer whether Codex is needed.
+
+This rule states that repository maintenance is not product/project execution and that product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route. This apply card does not authorize product/project execution.
+
+The card must include repository_patch reference or included patch, not a vague pointer.
+
+```yaml
+workflow_packet: 1
+type: codex_repository_maintenance_apply
+schema: codex_repository_maintenance_apply.v1
+codex_role: repository_maintenance
+not_product_project_execution: true
+patch_id:
+repository:
+branch:
+source_stage:
+allowed_paths:
+  - path:
+    reason:
+forbidden_paths:
+  - path:
+    reason:
+repository_patch:
+  reference_or_included_patch:
+read_back_anchors:
+  - file_path:
+    anchors:
+      - text:
+diff_verification:
+  required: true
+  instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
+commit_verification:
+  required: true
+  instruction: Report commit hash, PR link, or explicit no-commit reason.
+return_to_chat_instruction: Return result to the same ChatGPT stage thread for validation.
+do_not_auto_launch_next_stage: true
+```
+
+Rules:
+- Apply only the listed repository_patch.v1 operations.
+- Do not infer extra changes.
+- Do not run product/project execution.
+- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
+- Do not modify project/tool bindings unless explicitly listed.
+- Do not touch sibling Directions.
+- Return result to the same ChatGPT stage thread for validation.
 
 ## 0.1 Output Schema Authority
 
@@ -193,7 +268,7 @@ If not Direction setup, route instead of forcing D0.
 
 Examples:
 
-*   One-off task or answer request: route to `F0_FAST_DIRECT` if direct execution is appropriate.
+*   One-off task or answer request: route to `F0_FAST_DIRECT` if approved direct execution is appropriate.
 *   Raw material that only needs storage/triage: route to `I0_CAPTURE` if capture is appropriate.
 *   Ambiguous workflow intent: route to `ROUTER_STAGE_LAUNCHER` or return Context Request.
 
@@ -458,7 +533,7 @@ Use exception-only reporting. If no exceptions exist, write: `None.`
 
 Use this stable packet shape. Optional extensions are allowed. Unknown fields from input may be preserved under `passthrough_extensions`.
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage\_id: D0\_DIRECTION\_SETUP stage\_name: Direction Setup status: completed | blocked | rerouted | stopped direction: direction\_id: direction\_name: direction\_root\_path: direction\_aliases: direction\_setup: status: existing\_verified | new\_minimal\_setup\_created | context\_requested | human\_decision\_required | not\_direction\_setup | stopped\_no\_safe\_action setup\_evidence\_path: setup\_freshness: fresh | stale | unknown verified\_at: source\_paths\_used: duplicate\_check\_result: sufficiency\_result: missing\_required\_context: assumptions: minimal\_operating\_context: operating\_thesis: known\_constraints: near\_term\_priorities: success\_signals: explicitly\_not\_defined: scope\_boundaries: phase\_started: false goal\_selected: false execution\_started: false canon\_promoted: false repository\_patch\_summary: action: create | replace\_section | append\_section | update\_header | mark\_stale | none target\_paths: forbidden\_paths\_observed: documentation\_maintenance: required: reason: unresolved\_risks: changed\_files\_context\_refresh: required: reason: files: next\_route: route\_type: next\_launch | context\_request | human\_decision | stop next\_stage\_id: route\_reason: launch\_card\_included: passthrough\_extensions: kernel\_qa: exceptions:
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage\_id: D0\_DIRECTION\_SETUP stage\_name: Direction Setup status: completed | blocked | rerouted | stopped direction: direction\_id: direction\_name: direction\_root\_path: direction\_aliases: direction\_setup: status: existing\_verified | new\_minimal\_setup\_created | context\_requested | human\_decision\_required | not\_direction\_setup | stopped\_no\_safe\_action setup\_evidence\_path: setup\_freshness: fresh | stale | unknown verified\_at: source\_paths\_used: duplicate\_check\_result: sufficiency\_result: missing\_required\_context: assumptions: minimal\_operating\_context: operating\_thesis: known\_constraints: near\_term\_priorities: success\_signals: explicitly\_not\_defined: scope\_boundaries: phase\_started: false goal\_selected: false execution\_started: false canon\_promoted: false repository\_patch\_summary: action: create | replace\_section | append\_section | update\_header | mark\_stale | none target\_paths: forbidden\_paths\_observed: documentation\_maintenance: required: reason: unresolved\_risks: changed\_files\_context\_refresh_after_approval: required: reason: files: next\_route: route\_type: next\_launch | context\_request | human\_decision | stop next\_stage\_id: route\_reason: launch\_card\_included: passthrough\_extensions: kernel\_qa: exceptions:
 
 ## 8\. Repository Patch contract
 
@@ -468,17 +543,17 @@ repository\_patch: required: false reason: actions: \[\] do\_not\_touch: - path:
 
 If a patch is needed:
 
-repository\_patch: required: true reason: actions: - action: create | replace\_section | append\_section | update\_header | mark\_stale path: title: content\_anchor: content: validation\_anchors: - text: safety\_reason: do\_not\_touch: - path: reason: validation\_anchors: - path: anchors: - text:
+repository\_patch: required_after_approval: true reason: actions: - action: create | replace\_section | append\_section | update\_header | mark\_stale path: title: content\_anchor: content: validation\_anchors: - text: safety\_reason: do\_not\_touch: - path: reason: validation\_anchors: - path: anchors: - text:
 
 Every patch must name exact paths. Do not say “update the relevant note.”
 
 ## 9\. Execution Log Entry contract
 
-execution\_log\_entry: stage\_id: D0\_DIRECTION\_SETUP timestamp: direction\_name: direction\_root\_path: action\_taken: verified\_existing | created\_minimal\_setup | requested\_context | requested\_human\_decision | stopped | rerouted setup\_status: sources\_checked: repository\_patch: documentation\_gate: changed\_files\_context\_refresh: next\_route: blockers:
+execution\_log\_entry: stage\_id: D0\_DIRECTION\_SETUP timestamp: direction\_name: direction\_root\_path: action\_taken: verified\_existing | created\_minimal\_setup | requested\_context | requested\_human\_decision | stopped | rerouted setup\_status: sources\_checked: repository\_patch: documentation\_gate: changed\_files\_context\_refresh_after_approval: next\_route: blockers:
 
 ## 10\. Documentation Maintenance Gate contract
 
-documentation\_maintenance\_gate: required: true | false trigger: docs\_checked: docs\_created\_or\_updated: stale\_docs\_detected: stale\_docs\_action: unresolved\_doc\_risks: changed\_files\_context\_refresh\_required:
+documentation\_maintenance\_gate: required_after_approval: true | false trigger: docs\_checked: docs\_created\_or\_updated: stale\_docs\_detected: stale\_docs\_action: unresolved\_doc\_risks: changed\_files\_context\_refresh\_required:
 
 Trigger the gate when:
 
@@ -492,13 +567,13 @@ Do not trigger routine documentation work just to make setup feel complete.
 
 ## 11\. Changed Files / Context Refresh List contract
 
-changed\_files\_context\_refresh\_list: required: true | false trigger: files: - file: reason: action\_needed:
+changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true | false trigger: files: - file: reason: action\_needed:
 
 Default:
 
 *   `required: false`.
 
-Set `required: true` only when:
+After approval/formalization, set `required_after_approval: true` only when:
 
 *   current Project Files conflict with fresh file read-back / diff verification / commit verification;
 *   the active Direction Project uses exported Project Files as runtime context;

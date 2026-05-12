@@ -1,6 +1,83 @@
-# P0\_PHASE\_START — Final Runtime Stage Prompt
+﻿# P0\_PHASE\_START — Final Runtime Stage Prompt
 
 Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.1 — P0\_PHASE\_START, repaired by SA-02B / P0 contract audit Installed at: 2026-05-10T16:32:05.8874204+03:00 Source input: P0 prompt repair after real Direction output audit and SA-02B Progressive Decision Brief Upgrade Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: prior P0 prompt transport/output section using local schemas and weak approval boundary Superseded by:
+
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+## 0.0.1 Codex Repository Maintenance Apply Card Rule
+
+If this stage emits `repository_patch.required = true` or non-empty `repository_patch.v1.operations` after approval/formalization, it must also output:
+
+```text
+NEXT ACTION: RUN CODEX REPOSITORY MAINTENANCE APPLY/READ-BACK
+```
+
+and a copy-pasteable `codex_repository_maintenance_apply.v1` card. The user must not infer whether Codex is needed.
+
+This rule states that repository maintenance is not product/project execution and that product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route. This apply card does not authorize product/project execution.
+
+The card must include repository_patch reference or included patch, not a vague pointer.
+
+```yaml
+workflow_packet: 1
+type: codex_repository_maintenance_apply
+schema: codex_repository_maintenance_apply.v1
+codex_role: repository_maintenance
+not_product_project_execution: true
+patch_id:
+repository:
+branch:
+source_stage:
+allowed_paths:
+  - path:
+    reason:
+forbidden_paths:
+  - path:
+    reason:
+repository_patch:
+  reference_or_included_patch:
+read_back_anchors:
+  - file_path:
+    anchors:
+      - text:
+diff_verification:
+  required: true
+  instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
+commit_verification:
+  required: true
+  instruction: Report commit hash, PR link, or explicit no-commit reason.
+return_to_chat_instruction: Return result to the same ChatGPT stage thread for validation.
+do_not_auto_launch_next_stage: true
+```
+
+Rules:
+- Apply only the listed repository_patch.v1 operations.
+- Do not infer extra changes.
+- Do not run product/project execution.
+- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
+- Do not modify project/tool bindings unless explicitly listed.
+- Do not touch sibling Directions.
+- Return result to the same ChatGPT stage thread for validation.
+
+P0 must preview Phase substance before repository_patch.v1 operations. Material Phase framing must show alternatives and why not alternatives. P0 must not create an active-phase repository patch before approval unless direct formalization is explicitly approved.
 
 ## 0\. Stage identity
 
@@ -132,7 +209,7 @@ APPROVE AND FORMALIZE
 After approval, produce:
 
 *   Stage Result Packet using `stage_result.v1`;
-*   Repository Patch or explicit none using `repository_patch.v1`;
+*   Formalization-phase Repository Patch or explicit none using `repository_patch.v1`;
 *   Execution Log Entry using `execution_log_entry.v1`;
 *   Documentation Maintenance Gate if relevant;
 *   Changed Files / Context Refresh List;
@@ -617,7 +694,7 @@ temporary_context:
 open_questions:
   -
 repository_patch:
-  required: true | false
+  required_after_approval: true | false
   summary:
   patch_id:
 execution_log_entry:
@@ -667,7 +744,7 @@ patch_id:
 created_by_stage: P0_PHASE_START
 return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
 operations:
-  - action: create_file | replace_file | replace_section | append_section | mark_stale | update_header
+  - action: create_file_after_approval | replace_file | replace_section | append_section | mark_stale | update_header
     file_path:
     title:
     section:
@@ -675,12 +752,12 @@ operations:
     reason:
     safety:
       destructive: false
-      requires_human_approval: false
+      requires_human_approval: true_if_material_change
 readback_required:
   - file_path:
     expected_anchor:
     expected_header:
-changed_files_context_refresh:
+changed_files_context_refresh_after_approval:
   - source_file:
     project_file:
     reason:
@@ -698,7 +775,7 @@ created_by_stage: P0_PHASE_START
 return_state: DONE
 operations: []
 readback_required: []
-changed_files_context_refresh: []
+planned_changed_files_context_refresh_after_approval: []
 explicit_none_reason:
 
 ```
@@ -738,10 +815,10 @@ execution_log_entry:
   decisions_made:
     -
   repository_patch:
-    required: true | false
+    required_after_approval: true | false
     summary:
-  changed_files_context_refresh:
-    required: true | false
+  changed_files_context_refresh_after_approval:
+    required_after_approval: true | false
     files:
       -
   evidence_pointers:
@@ -765,7 +842,7 @@ execution_log_entry:
 
 ```yaml
 documentation_maintenance_gate:
-  required: true | false
+  required_after_approval: true | false
   reason:
   stable_docs_checked:
     - 01 Direction State
@@ -800,7 +877,7 @@ documentation_maintenance_gate:
 
 ```yaml
 changed_files_context_refresh_list:
-  required: true | false
+  required_after_approval: true | false
   files:
     - file:
       reason:
@@ -818,7 +895,7 @@ workflow_packet: 1
 type: stage_launch
 schema: stage_launch.v1
 action: run_stage
-mode: execute
+mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations
 target_runtime: chatgpt_direction_project | chatgpt_current_chat | codex
 executable_state: executable | blocked_until_repository_patch_readback | blocked_until_changed_files_context_refresh | blocked_until_patch_and_refresh
 not_executable_until:
@@ -856,7 +933,7 @@ source_state:
   from_stage: P0_PHASE_START
   previous_return_state:
   pending_repository_patch: true | false
-  changed_files_context_refresh_required: true | false
+  changed_files_context_refresh_required_after_approval: true | false
 input_artifacts:
   previous_stage_result_summary:
   goal_contract:
@@ -877,7 +954,7 @@ required_context:
   additional_repository_file_exports:
     - path:
       reason:
-      required: true | false
+      required_after_approval: true | false
 missing_context_policy: ask_only_if_blocking
 expected_outputs:
   - Human-readable result
@@ -909,7 +986,7 @@ requested_context:
     repository_path:
     file_name_suggested:
     why_needed:
-    required: true
+    required_after_approval: true
     freshness_required: fresh | any | latest_available
 current_state:
   direction:
@@ -1030,7 +1107,7 @@ A successful post-approval P0 output is complete only when it contains:
 *   First Goal candidates, maximum three.
 *   Recommended next route.
 *   Stage Result Packet using `stage_result.v1`.
-*   Repository Patch or explicit none using `repository_patch.v1`.
+*   Formalization-phase Repository Patch or explicit none using `repository_patch.v1`.
 *   Execution Log Entry using `execution_log_entry.v1`.
 *   Documentation Maintenance Gate.
 *   Changed Files / Context Refresh List.

@@ -1,7 +1,84 @@
-# P9_PHASE_CLOSE - Phase Close
+﻿# P9_PHASE_CLOSE - Phase Close
 Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.7 — Stage Prompt Development — P9\_PHASE\_CLOSE Installed at: 2026-05-09T06:57:16.5547648+03:00 Source input: ChatGPT Step 7.7 final runtime prompt output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
 
 # P9\_PHASE\_CLOSE — Phase Close Final Runtime Prompt
+
+## 0.0 Reviewable Work Product Rule
+
+Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
+
+Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
+
+First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
+
+Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
+
+Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
+
+Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
+
+Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
+
+Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+
+## 0.0.1 Codex Repository Maintenance Apply Card Rule
+
+If this stage emits `repository_patch.required = true` or non-empty `repository_patch.v1.operations` after approval/formalization, it must also output:
+
+```text
+NEXT ACTION: RUN CODEX REPOSITORY MAINTENANCE APPLY/READ-BACK
+```
+
+and a copy-pasteable `codex_repository_maintenance_apply.v1` card. The user must not infer whether Codex is needed.
+
+This rule states that repository maintenance is not product/project execution and that product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route. This apply card does not authorize product/project execution.
+
+The card must include repository_patch reference or included patch, not a vague pointer.
+
+```yaml
+workflow_packet: 1
+type: codex_repository_maintenance_apply
+schema: codex_repository_maintenance_apply.v1
+codex_role: repository_maintenance
+not_product_project_execution: true
+patch_id:
+repository:
+branch:
+source_stage:
+allowed_paths:
+  - path:
+    reason:
+forbidden_paths:
+  - path:
+    reason:
+repository_patch:
+  reference_or_included_patch:
+read_back_anchors:
+  - file_path:
+    anchors:
+      - text:
+diff_verification:
+  required: true
+  instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
+commit_verification:
+  required: true
+  instruction: Report commit hash, PR link, or explicit no-commit reason.
+return_to_chat_instruction: Return result to the same ChatGPT stage thread for validation.
+do_not_auto_launch_next_stage: true
+```
+
+Rules:
+- Apply only the listed repository_patch.v1 operations.
+- Do not infer extra changes.
+- Do not run product/project execution.
+- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
+- Do not modify project/tool bindings unless explicitly listed.
+- Do not touch sibling Directions.
+- Return result to the same ChatGPT stage thread for validation.
+
+P9 must preview closure decisions and documentation implications before durable documentation updates. Durable doc changes require approval unless Compact Direct Result mode is safe and no material state change is introduced.
 
 ## 0.1 Output Schema Authority
 
@@ -105,7 +182,7 @@ Required when closure is being evaluated:
 *   active Goal file read-back / diff verification / commit verification, or explicit statement that file read-back / diff verification / commit verification is missing.
 *   G1 Goal Contract or G1 Stage Result Packet when Goal-level evidence is relevant.
 *   E1 Execution Brief when execution evidence is relevant.
-*   F0 result/evidence when direct execution was expected.
+*   F0 result/evidence when approved direct execution was expected.
 *   Documentation Maintenance Gate from upstream, if present.
 *   Changed Files / Context Refresh List from upstream, if present.
 *   Execution Log references, if provided.
@@ -151,7 +228,7 @@ Build a concise evidence matrix over:
 *   R1 closure eligibility.
 *   Goal closed state.
 *   Phase closure eligibility.
-*   direct execution evidence.
+*   approved direct execution evidence.
 *   G1/E1/F0 availability.
 *   file read-back / diff verification / commit verification freshness.
 *   active Goal status.
@@ -257,7 +334,7 @@ If upstream R1 says any of the following, do not close the Phase:
 *   `phase_closure_eligible=false`
 *   `goal_closed=false`
 *   unresolved Context Request exists
-*   direct execution did not occur when required
+*   approved direct execution did not occur when required
 *   file read-back / diff verification / commit verification evidence is pending, missing, stale, or conflicting
 
 In that case:
@@ -353,11 +430,11 @@ Always include this packet. Use explicit `unknown`, `none`, or empty lists when 
 
 Stage Result Packet:
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close source\_path: workflow/stage\_prompts/P9\_PHASE\_CLOSE.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: ROUTER\_STAGE\_LAUNCHER | R0\_RECOVERY\_CLOSE | none route\_reason: direction: id: name: active\_project: phase: id: name: status\_before: status\_after: goal\_context: active\_goal\_id: active\_goal\_title: active\_goal\_status: invocation: launched\_by: launch\_reason: upstream\_stage: source\_evidence: r1\_return\_state: r1\_review\_verdict: r1\_closure\_eligibility: goal\_closed: phase\_closure\_eligible: direct\_execution\_performed: readback\_evidence\_state: project\_files\_state: unresolved\_context\_requests: - item: closure\_decision: closure\_verdict: closed | closure\_ineligible\_route\_back | blocked\_needs\_context | blocked\_conflict | human\_decision\_required | no\_closure\_needed | stop\_recovery\_required phase\_closure\_status: closed | remains\_active | not\_eligible | needs\_context | conflict | no\_action | stopped closure\_route: reason: blockers: - blocker: phase\_closure\_gate: gate\_result: eligible | not\_eligible | needs\_context | conflict | not\_applicable all\_required\_goals\_complete: true | false | unknown all\_required\_reviews\_complete: true | false | unknown all\_required\_readbacks\_fresh: true | false | unknown archival\_allowed: true | false canon\_candidate\_allowed: true | false common\_canon\_allowed: false project\_files\_conflict: true | false documentation: documentation\_drift\_found: true | false docs\_to\_refresh: - item: changed\_files\_context\_refresh\_required: true | false patch: repository\_patch\_state: none | proposed files\_touched: - item: forbidden\_scope\_preserved: true | false next\_action: action\_type: next\_launch | context\_request | human\_decision | stop next\_stage: route\_reason: launch\_card\_ref: context\_request\_ref: human\_decision\_ref: stop\_ref: compatibility: aliases\_used: - alias: unknown\_fields\_tolerated: true kernel\_qa: exceptions: - item: created\_at:
+workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close source\_path: workflow/stage\_prompts/P9\_PHASE\_CLOSE.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: ROUTER\_STAGE\_LAUNCHER | R0\_RECOVERY\_CLOSE | none route\_reason: direction: id: name: active\_project: phase: id: name: status\_before: status\_after: goal\_context: active\_goal\_id: active\_goal\_title: active\_goal\_status: invocation: launched\_by: launch\_reason: upstream\_stage: source\_evidence: r1\_return\_state: r1\_review\_verdict: r1\_closure\_eligibility: goal\_closed: phase\_closure\_eligible: direct\_execution\_performed: readback\_evidence\_state: project\_files\_state: unresolved\_context\_requests: - item: closure\_decision: closure\_verdict: closed | closure\_ineligible\_route\_back | blocked\_needs\_context | blocked\_conflict | human\_decision\_required | no\_closure\_needed | stop\_recovery\_required phase\_closure\_status: closed | remains\_active | not\_eligible | needs\_context | conflict | no\_action | stopped closure\_route: reason: blockers: - blocker: phase\_closure\_gate: gate\_result: eligible | not\_eligible | needs\_context | conflict | not\_applicable all\_required\_goals\_complete: true | false | unknown all\_required\_reviews\_complete: true | false | unknown all\_required\_readbacks\_fresh: true | false | unknown archival\_allowed: true | false canon\_candidate\_allowed: true | false common\_canon\_allowed: false project\_files\_conflict: true | false documentation: documentation\_drift\_found: true | false docs\_to\_refresh: - item: changed\_files\_context\_refresh\_required_after_approval: true | false patch: repository\_patch\_state: none | proposed files\_touched: - item: forbidden\_scope\_preserved: true | false next\_action: action\_type: next\_launch | context\_request | human\_decision | stop next\_stage: route\_reason: launch\_card\_ref: context\_request\_ref: human\_decision\_ref: stop\_ref: compatibility: aliases\_used: - alias: unknown\_fields\_tolerated: true kernel\_qa: exceptions: - item: created\_at:
 
 ## 9\. Repository Patch contract
 
-Always include a Repository Patch. If no patch is safe, use `state: none`.
+After approval/formalization, always include a Repository Patch. If no patch is safe, use `state: none`.
 
 Repository Patch:
 
@@ -379,13 +456,13 @@ execution\_log\_entry: timestamp: stage\_id: P9\_PHASE\_CLOSE direction: phase: 
 
 Always include:
 
-documentation\_maintenance\_gate: required: true | false reason: documentation\_drift\_found: true | false stale\_or\_conflicting\_sources: - item: docs\_to\_refresh: - file\_or\_note: reason: source\_of\_truth: urgency: immediate | before\_next\_runtime\_action | routine | none refresh\_required\_before\_next\_runtime\_action: true | false changed\_files\_context\_refresh\_required: true | false
+documentation\_maintenance\_gate: required_after_approval: true | false reason: documentation\_drift\_found: true | false stale\_or\_conflicting\_sources: - item: docs\_to\_refresh: - file\_or\_note: reason: source\_of\_truth: urgency: immediate | before\_next\_runtime\_action | routine | none refresh\_required\_before\_next\_runtime\_action_after_approval: true | false changed\_files\_context\_refresh\_required_after_approval: true | false
 
 ## 12\. Changed Files / Context Refresh List contract
 
 Always include:
 
-changed\_files\_context\_refresh\_list: required: true | false files: - file: reason: source\_of\_truth: required\_before\_next\_runtime\_action: true | false
+changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true | false files: - file: reason: source\_of\_truth: required\_before\_next\_runtime\_action_after_approval: true | false
 
 ## 13\. Next route artifact contracts
 

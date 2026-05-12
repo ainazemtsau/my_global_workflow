@@ -442,6 +442,15 @@ source_state:
   pending_repository_patch: true | false
   changed_files_context_refresh_required: true | false
 
+formalization_control:
+  first_response_mode: compact_direct_result | reviewable_brief | decision_memo_work_product_preview | context_request_or_human_decision | formalization
+  formalization_policy: proposal_first | direct_formalization_allowed
+  approval_state:
+    material_change_approved: true | false
+    repository_patch_approved: true | false
+    approval_source: none | launch_card | user_message | prior_stage_packet
+  formalization_trigger: APPROVE AND FORMALIZE
+
 input_artifacts:
   previous_stage_result_summary:
   goal_contract:
@@ -496,6 +505,73 @@ Codex read-only audit/validation means reading repository files, checking packet
 Codex launch bundle preparation means packaging a Next Launch Card, exact stage prompt source path/version/status, required context exports, and copy-paste instructions for the next ChatGPT run. Codex launch bundle preparation is allowed when needed and must not invent prompt text or bypass stage routing.
 
 When a stage says Codex product/project execution is blocked, that restriction does not block approved repository maintenance, read-only audit/validation, or launch bundle preparation unless the stage explicitly says all Codex roles are blocked.
+
+## 11.6 Reviewable Work Product and Formalization Control
+
+Every stage must produce a reviewable work product or decision layer before formal packets, non-empty repository_patch.v1 operations, or executable next-stage launch when material work is being proposed.
+
+Required first-response modes:
+
+- Compact Direct Result
+- Reviewable Brief
+- Decision Memo / Work Product Preview
+- Context Request / Human Decision
+- Formalization
+
+Core rule: `mode: execute` runs stage reasoning only. It does not authorize full formal packets, non-empty repository_patch.v1.operations, executable next-stage launch, or changed_files_context_refresh.required = true unless formalization is approved.
+
+Default behavior when `formalization_control` is absent:
+
+```yaml
+formalization_control:
+  first_response_mode: reviewable_brief
+  formalization_policy: proposal_first
+  approval_state:
+    material_change_approved: false
+    repository_patch_approved: false
+    approval_source: none
+  formalization_trigger: APPROVE AND FORMALIZE
+```
+
+Reviewable Brief required fields:
+
+1. What I’m proposing
+2. Proposed substance
+3. Why this shape
+4. Alternatives considered
+5. Why not alternatives
+6. Scope cuts
+7. Risks / assumptions
+8. What I need from you
+9. If approved, I will formalize
+
+Decision Memo / Work Product Preview required fields:
+
+1. Decision / work product being reviewed
+2. Recommended content
+3. Full proposed structure
+4. Key claims / principles
+5. Alternatives considered
+6. Why not alternatives
+7. What would change the recommendation
+8. Scope cuts / deferred items
+9. Risks / assumptions / confidence
+10. Approval options
+11. Formalization plan
+12. What will NOT happen until approval
+
+Proposed substance is mandatory for artifact-producing, phase-changing, goal-shaping, planning, review, and decision stages. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
+
+Before approval:
+
+- use planned_patch_summary instead of non-empty repository_patch.v1 operations;
+- use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true;
+- use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes;
+- do not emit formal packets as the final state for a material change.
+
+Non-empty repository_patch.v1 operations may be produced only if formalization_policy = direct_formalization_allowed and repository_patch_approved = true, or the user explicitly says APPROVE AND FORMALIZE in this stage chat. Direct formalization also requires material_change_approved = true, an explicit approval_source, and no remaining material ambiguity.
+
+Any stage-prompt instruction that says to always include formal packets, produce repository_patch, set changed_files_context_refresh.required = true, or emit an executable next launch is a formalization-phase instruction unless the stage is in a safe Compact Direct Result case or direct formalization is explicitly approved.
 
 ## 12\. Next Stage Launch Bundle
 
@@ -642,6 +718,70 @@ Prefer `replace_section` for stable notes.
 Do not physically delete files unless explicitly approved.
 
 Mark stale/superseded material instead of deleting by default.
+
+## 14.5 Codex Repository Maintenance Apply Card Contract
+
+If any stage emits `repository_patch.required = true` or `repository_patch.v1.operations` is non-empty, the stage must also emit `codex_repository_maintenance_apply.v1`.
+
+The stage must not require the user to infer whether Codex is needed. It must state:
+
+```text
+NEXT ACTION: RUN CODEX REPOSITORY MAINTENANCE APPLY/READ-BACK
+```
+
+This card applies an approved repository_patch.v1. It is repository maintenance only; repository maintenance is not product/project execution. Product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
+
+Required format:
+
+```yaml
+workflow_packet: 1
+type: codex_repository_maintenance_apply
+schema: codex_repository_maintenance_apply.v1
+codex_role: repository_maintenance
+not_product_project_execution: true
+
+patch_id:
+repository:
+branch:
+source_stage:
+
+allowed_paths:
+  - path:
+    reason:
+
+forbidden_paths:
+  - path:
+    reason:
+
+repository_patch:
+  reference_or_inline_patch:
+
+read_back_anchors:
+  - file_path:
+    anchors:
+      - text:
+
+diff_verification:
+  required: true
+  instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
+
+commit_verification:
+  required: true
+  instruction: Report commit hash, PR link, or explicit no-commit reason.
+
+return_to_chat_instruction: Return result to the same ChatGPT stage thread for validation.
+do_not_auto_launch_next_stage: true
+```
+
+Required safety text:
+
+- Apply only the listed repository_patch.v1 operations.
+- Do not infer extra changes.
+- Do not run product/project execution.
+- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
+- Do not modify project/tool bindings unless explicitly listed.
+- Do not touch sibling Directions.
+- Return result to the same ChatGPT stage thread for validation.
 
 ## 15\. Execution Log Contract
 
@@ -1071,94 +1211,4 @@ Rebuild/project-development instructions belong in the Workflow Rebuild Project,
 
 ## Progressive Decision Brief Protocol
 
-Every stage must avoid premature wall-of-text formalization.
-
-Before formal packets, choose the smallest sufficient human-facing mode:
-
-```text
-Direct Summary
-Decision Brief
-Decision Memo
-Context Request / Human Decision
-Formalization
-
-```
-
-### Direct Summary
-
-Use only for simple, reversible, low-risk actions with no material state change.
-
-Required:
-
-```text
-Decision:
-Why:
-Next:
-
-```
-
-### Decision Brief
-
-Use for normal material decisions.
-
-Required:
-
-```text
-1. What is being decided?
-2. Recommended option.
-3. Why this option.
-4. Alternatives considered.
-5. Why alternatives were rejected.
-6. What is cut/deferred.
-7. Risks/uncertainty.
-8. User approval needed.
-9. What will be formalized after approval.
-
-```
-
-### Decision Memo
-
-Use for complex, strategic, ambiguous, or high-impact decisions.
-
-Required:
-
-```text
-1. Decision to make.
-2. Recommended option.
-3. Why this option wins.
-4. Strongest alternative.
-5. Why not the alternative.
-6. Evidence / assumptions.
-7. Trade-offs.
-8. Reversibility.
-9. Risk if wrong.
-10. What would change the recommendation.
-11. Scope cuts / anti-rabbit-hole.
-12. Approval needed.
-13. Formalization plan.
-
-```
-
-### Context Request / Human Decision
-
-Use when blocking context is missing or a real human-owned decision blocks route.
-
-### Formalization rule
-
-Do not produce full Repository Patch, Changed Files / Context Refresh List, or Next Launch Card for a material state change until the user approves, unless Direct Summary mode is safe or the Launch Card explicitly says approval was already given.
-
-After approval, the user may say:
-
-```text
-APPROVE AND FORMALIZE
-
-```
-
-Then produce:
-
-*   Stage Result Packet;
-*   Repository Patch or explicit none;
-*   Execution Log Entry;
-*   Documentation Maintenance Gate if relevant;
-*   Changed Files / Context Refresh List;
-*   Next Launch Card / Context Request / Human Decision / Stop.
+This legacy section is superseded by `## 11.6 Reviewable Work Product and Formalization Control`. Use that section for first-response modes, Proposed substance, approval, formalization, repository_patch.v1, changed_files_context_refresh, and executable next-stage launch rules.
