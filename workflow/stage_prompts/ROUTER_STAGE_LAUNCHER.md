@@ -337,6 +337,47 @@ Use when:
 *   no Codex plan is required;
 *   no large documentation update is required.
 
+### 5.6.1 Fast Direct entry guard
+
+Router may select `F0_FAST_DIRECT` only when F0 readiness is explicit, not merely assumed.
+
+Before selecting F0, Router must verify:
+
+```yaml
+f0_readiness:
+  one_active_goal: true
+  one_bounded_execution_slice: true
+  acceptance_concrete_and_checkable: true
+  exact_artifacts_known: true
+  exact_or_safely_creatable_target_paths_known: true
+  validation_anchors_or_checks_known: true
+  external_or_current_research_required: false
+  architecture_or_tooling_decision_required: false
+  graph_or_wave_planning_required: false
+  multi_file_or_multi_tool_coordination_required: false
+  codex_product_execution_required: false
+  source_of_truth_security_privacy_permission_or_secret_risk: false
+  stale_or_conflicting_context: false
+```
+
+If any field is false or unknown, Router must not select F0.
+
+Use these fallbacks:
+
+- If execution basis is missing: route to `E1_EXECUTION_BRIEF`.
+- If research/current external facts are needed: route to `D1_DEEP_RESEARCH`.
+- If implementation needs decomposition or multi-file/multi-tool coordination: route to `C1_CODEX_GRAPH_PLAN`.
+- If the problem or scope is unclear: route to `B1_PROBLEM` or `G1_GOAL_SHAPE`.
+- If user-owned tradeoff is material: return Human Decision.
+- If blocking context is missing: return Context Request.
+
+Router must include a short visible explanation when rejecting F0:
+
+```text
+Почему не F0:
+<one concrete reason: research needed / planning needed / target paths unclear / validation unclear / context stale / risk too high>
+```
+
 ### 5.7 Goal completed but not reviewed
 
 If a Goal appears complete but review/distillation is missing, route to R1\_GOAL\_REVIEW\_DISTILL.

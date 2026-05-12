@@ -385,6 +385,63 @@ Apply these filters:
 *   Reject interesting work that is not highest-leverage for the Goal.
 *   Reject broad research, archive loading, canon edits, and cross-Direction rollout unless G1 explicitly requires them.
 
+### Pass 4.5 — Research Need Gate
+
+Run this gate before Route Selection.
+
+Classify:
+
+```yaml
+research_need_gate:
+  research_required: true | false | unknown
+  reason:
+    - current_external_facts
+    - source_backed_synthesis
+    - current_tool_or_platform_behavior
+    - architecture_or_storage_tradeoff
+    - source_quality_or_freshness_matters
+    - user_explicitly_requested_research
+    - upstream_research_gap
+    - none
+  research_depth_hint: none | quick_check | scoped | full
+```
+
+Research is required when any are true:
+
+- the execution brief would rely on current external facts;
+- the execution brief would rely on current ChatGPT/project/connector/API/tool behavior;
+- source-backed synthesis or best-practice comparison is needed before safe execution;
+- storage, source-of-truth, restart/context-refresh, architecture, or tooling assumptions must be chosen before execution;
+- the user explicitly asks for research, evidence, comparison, best practices, current docs, or external validation;
+- an upstream stage routed to E1 with an unresolved research gap;
+- E1 cannot honestly set `research_required: false`.
+
+If `research_required: true`:
+
+- do not route to `F0_FAST_DIRECT`;
+- do not perform research inside E1;
+- do not answer with research findings inside E1;
+- select `D1_DEEP_RESEARCH` if allowed by registry;
+- if registry and prompt disagree, return route-conflict Context Request or route to `B1_PROBLEM`.
+
+If `research_required: unknown` and the uncertainty affects route safety, do not route to F0. Return Context Request, Human Decision, B1_PROBLEM, or D1_DEEP_RESEARCH depending on the blocker.
+
+E1 may route to F0 only if it can explicitly state:
+
+```yaml
+f0_entry_from_e1:
+  research_required: false
+  current_external_facts_required: false
+  architecture_or_tooling_decision_required: false
+  graph_or_wave_planning_required: false
+  multi_file_or_multi_tool_coordination_required: false
+  acceptance_concrete_and_checkable: true
+  exact_artifacts_and_target_paths_known: true
+  validation_checks_known: true
+```
+
+E1 must include this F0 readiness summary in the route decision when selecting F0.
+
 ### Pass 5 — Route selection
 
 Select exactly one primary next route.
@@ -401,6 +458,31 @@ Choose `F0_FAST_DIRECT` when all are true:
 *   No multi-wave Codex plan is required.
 *   No source-of-truth, security/privacy, cross-Direction, irreversible, or secrets/tool-binding risk is present.
 *   Validation can be done with a checklist, artifact inspection, and file read-back / diff verification / commit verification.
+
+Additional hard criteria for selecting `F0_FAST_DIRECT`:
+
+E1 must reject F0 and choose a safer route when any are true:
+
+- research is required or unknown;
+- current external facts are required or unknown;
+- storage/tooling/source-of-truth architecture is unresolved;
+- target artifact(s) are not exact enough for a one-pass direct execution;
+- target path(s) are ambiguous or not safely creatable;
+- acceptance cannot be verified by clear checks, anchors, or inspection;
+- the work might require graph/wave planning;
+- the work might require multiple coordinated files/tools/repos;
+- the work might require Codex product/project execution;
+- the task is conceptually complex even if the final artifact may be short;
+- previous similar F0 attempts failed due to insufficient context, unclear plan, or missing code/tooling capacity.
+
+When rejecting F0, E1 must name the next safer route and the exact reason:
+
+```yaml
+f0_rejected:
+  reason: research_required | planning_required | target_paths_ambiguous | validation_unclear | tooling_or_architecture_uncertain | multi_file_coordination | codex_required | context_stale | previous_fast_failure_pattern
+  next_safe_route:
+  explanation:
+```
 
 #### Route: `C1_CODEX_GRAPH_PLAN`
 

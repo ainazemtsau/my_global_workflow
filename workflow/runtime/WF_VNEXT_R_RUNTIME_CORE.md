@@ -290,6 +290,39 @@ Router output must be one of:
 
 Router must not silently execute a non-router stage unless the matching stage prompt and Launch Card are provided.
 
+## Research and Fast Direct Routing Boundary
+
+Research-needed work must not be performed inside a non-research stage.
+
+If Router, E1_EXECUTION_BRIEF, F0_FAST_DIRECT, or any other stage detects that the next safe action depends on current external facts, source-backed synthesis, current tool/platform behavior, material research, or unresolved architecture/tooling assumptions, the stage must route to `D1_DEEP_RESEARCH`, return Context Request, or return B1_PROBLEM according to the registry and prompt contract.
+
+F0_FAST_DIRECT is allowed only when all of these are true:
+
+- the work is one active Goal and one bounded execution slice;
+- acceptance is concrete and checkable;
+- artifact(s), target path(s), allowed changes, forbidden changes, and validation anchors are explicit;
+- no external/current research is required;
+- no architecture/tooling/storage/source-of-truth decision is unresolved;
+- no graph/wave planning is required;
+- no multi-file/multi-tool coordination is required beyond a direct repository patch;
+- no Codex product/project execution is required;
+- no security/privacy/permission/secret/tool-binding risk exists;
+- no stale or contradictory context blocks safe execution.
+
+If any item is false or unknown, do not route to F0. Route to the smallest safer stage:
+
+- `D1_DEEP_RESEARCH` for external/current evidence gaps;
+- `E1_EXECUTION_BRIEF` for missing execution brief;
+- `C1_CODEX_GRAPH_PLAN` for decomposition, graph/wave, or multi-file/multi-tool planning;
+- `S3_DECIDE` or Human Decision for material tradeoffs;
+- `B1_PROBLEM` for unclear problem/frame;
+- Context Request for missing blocking context;
+- Stop for unsafe or contradictory launches.
+
+A stage must not route to F0 merely because the requested output seems short. F0 requires explicit readiness, not apparent size.
+
+Route conflict rule: if a prompt-selected route and `STAGE_REGISTRY.md` disagree, return a route-conflict Context Request or B1_PROBLEM. Do not improvise and do not execute another stage's work inside the current stage.
+
 ## 7\. Stage prompt dynamic loading
 
 Concrete stage prompts are dynamic runtime inputs.

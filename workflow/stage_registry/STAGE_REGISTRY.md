@@ -26,6 +26,28 @@ Before running a stage, load only the exact prompt file for that stage. Do not b
 
 If a prompt is marked `missing_prompt`, the stage is registered but unavailable for runtime execution until the prompt file is installed and verified.
 
+## Route Conflict Rule
+
+Stage prompts and `STAGE_REGISTRY.md` must agree on allowed downstream routes.
+
+If a stage prompt names a normal or exception downstream route, that route must be visible in the stage's `allowed_next` registry cell or be represented by a generic terminal card type such as Context Request, Human Decision, or Stop.
+
+If a running stage detects that the prompt-selected route is not allowed by the registry, it must not silently choose another route and must not execute the downstream stage's work inside the current stage.
+
+Required behavior on mismatch:
+
+```yaml
+route_conflict:
+  status: blocking
+  allowed_by_prompt: true
+  allowed_by_registry: false
+  required_output: Context Request or B1_PROBLEM
+  forbidden_behavior:
+    - silently_route_to_F0
+    - perform_downstream_stage_work_inside_current_stage
+    - invent_unregistered_route
+```
+
 ## Canonical Stage IDs
 
 ```text
@@ -61,7 +83,7 @@ R0_RECOVERY_CLOSE
 | S3_DECIDE | Decide | Resolve a real decision with options, constraints, and human conclusion. | `workflow/stage_prompts/S3_DECIDE.md` | present | chatgpt_direction_project | available | G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, R1_GOAL_REVIEW_DISTILL, Stop |
 | D1_DEEP_RESEARCH | Deep Research | Research external evidence gaps and synthesize decision implications. | `workflow/stage_prompts/D1_DEEP_RESEARCH.md` | present | chatgpt_direction_project | available | S3_DECIDE, G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, Stop |
 | A1_AUDIT | Audit / Challenge | Challenge high-risk, failed, irreversible, or unsupported plans and claims. | `workflow/stage_prompts/A1_AUDIT.md` | present | chatgpt_direction_project | available | S3_DECIDE, G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, R1_GOAL_REVIEW_DISTILL, Stop |
-| E1_EXECUTION_BRIEF | Execution Brief | Produce minimum HOW, validation, context, and Codex card if needed. | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` | present | chatgpt_direction_project | available | F0_FAST_DIRECT, C1_CODEX_GRAPH_PLAN, B1_PROBLEM, Stop |
+| E1_EXECUTION_BRIEF | Execution Brief | Produce minimum HOW, validation, context, and Codex card if needed. | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` | present | chatgpt_direction_project | available | F0_FAST_DIRECT, C1_CODEX_GRAPH_PLAN, D1_DEEP_RESEARCH, A1_AUDIT, S3_DECIDE, B1_PROBLEM, Context Request, Human Decision, Stop |
 | F0_FAST_DIRECT | Fast Direct | Execute small reversible non-Codex work directly with verification. | `workflow/stage_prompts/F0_FAST_DIRECT.md` | present | chatgpt_direction_project | available | R1_GOAL_REVIEW_DISTILL, E1_EXECUTION_BRIEF, B1_PROBLEM, Stop |
 | C1_CODEX_GRAPH_PLAN | Codex Graph Plan | Build and validate project-local Codex execution graph from accepted context. | `workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md` | present | chatgpt_direction_project | available | C2_CODEX_EXECUTE, Context Request, Human Decision, Stop |
 | C2_CODEX_EXECUTE | Codex Execute | Execute a validated Codex graph and return evidence / return-state. | `workflow/stage_prompts/C2_CODEX_EXECUTE.md` | present | codex | available | R1_GOAL_REVIEW_DISTILL, E1_EXECUTION_BRIEF, B1_PROBLEM, Stop |

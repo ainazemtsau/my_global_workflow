@@ -357,6 +357,50 @@ Default evidence budgets:
 *   **Standard D1 research:** 4–8 high-quality sources, 3–7 decision-relevant findings.
 *   **High-stakes or contested:** 6–12 sources if available; if more is needed, return Human Decision or Context Request rather than expanding indefinitely.
 
+## Research depth labels
+
+Upstream stages may provide `research_depth_hint`. D1 must treat it as a hint, not as an override of the Research Worthiness Gate.
+
+```yaml
+research_depth:
+  quick_check:
+    use_when:
+      - one_or_two_current_facts_block_route
+      - source freshness must be verified before E1/F0 can proceed
+    evidence_budget: "2-4 high-quality source checks"
+    output: "compact source-backed gate result + next route"
+  scoped:
+    use_when:
+      - architecture/tool/process decision needs several sources and tradeoffs
+      - current platform/tool behavior affects workflow design
+      - storage/restart/source-of-truth options must be compared
+    evidence_budget: "4-8 high-quality sources"
+    output: "research scope contract + findings + synthesis + uncertainty + next launch"
+  full:
+    use_when:
+      - high-impact, contested, strategic, legal, medical, financial, or broad technical decision
+      - evidence conflicts materially
+      - wrong decision creates high rework or safety risk
+    evidence_budget: "6-12 sources if available; otherwise return Human Decision or Context Request"
+    output: "full evidence package + uncertainty/conflicts + next launch"
+```
+
+Upstream handoff from E1/F0/Router must be accepted when it contains:
+
+```yaml
+upstream_research_handoff:
+  from_stage:
+  decision_supported:
+  research_question:
+  reason_research_required:
+  research_depth_hint:
+  downstream_use:
+  explicit_exclusions:
+  expected_next_stage_after_D1:
+```
+
+If upstream asks D1 to implement, write patches, or continue into execution, D1 must refuse that part and preserve only the research scope.
+
 Stop when additional sources are unlikely to change:
 
 *   the next route;

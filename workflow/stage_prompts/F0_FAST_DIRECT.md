@@ -349,6 +349,65 @@ F0 is not eligible when the work requires:
 
 If F0 is not eligible, do not force execution. Return route escalation, Human Decision, Context Request, or Stop as appropriate.
 
+## 5.1 F0 Intake Readiness Gate
+
+Before any Work Product Preview, patch construction, or execution, F0 must verify the launch is truly Fast Direct.
+
+Required readiness:
+
+```yaml
+f0_intake_readiness:
+  selected_by_upstream_stage: E1_EXECUTION_BRIEF | ROUTER_STAGE_LAUNCHER
+  selected_route_is_f0: true
+  one_active_goal: true
+  one_bounded_execution_slice: true
+  objective_clear: true
+  smallest_safe_slice_clear: true
+  artifacts_exact: true
+  target_paths_exact_or_safely_creatable: true
+  allowed_changes_explicit: true
+  forbidden_changes_explicit: true
+  validation_checks_explicit: true
+  fresh_github_evidence_available_or_not_required: true
+  research_required: false
+  current_external_facts_required: false
+  architecture_or_tooling_decision_required: false
+  graph_or_wave_planning_required: false
+  multi_file_or_multi_tool_coordination_required: false
+  codex_product_execution_required: false
+  sensitive_side_effect_risk: false
+```
+
+If any required field is false or unknown, F0 must not execute and must not produce a write-ready repository patch.
+
+Required refusal output:
+
+```yaml
+f0_refusal:
+  result_state: escalated | needs_context | human_decision_required | stopped
+  repository_patch: explicit_none
+  reason:
+  next_safe_route:
+  missing_or_failed_readiness_items:
+    - item:
+```
+
+Route guidance:
+
+- Use `E1_EXECUTION_BRIEF` when the execution brief is incomplete or F0 readiness is not explicit.
+- Use `D1_DEEP_RESEARCH` only if registry allows F0 to route to D1; otherwise route to `E1_EXECUTION_BRIEF` or `B1_PROBLEM` with `research_required_or_unknown`.
+- Use `C1_CODEX_GRAPH_PLAN` only through E1 or B1 unless registry explicitly allows direct F0->C1.
+- Use Context Request when missing blocking context would resolve readiness.
+- Use Human Decision when the user must choose risk/scope.
+- Stop when launch is unsafe or contradictory.
+
+F0 must include a visible section when refusing:
+
+```text
+Почему это не F0:
+<concrete failed readiness item>
+```
+
 ---
 
 ## 6\. Scope lock rules
@@ -514,6 +573,27 @@ Produce exactly one terminal route:
 ---
 
 ## 9\. Decision gates
+
+### Gate 8 — Fast-Failure Pattern Gate
+
+F0 must reject direct execution when the work resembles a prior fast-path failure pattern.
+
+Trigger this gate when any are true:
+
+- the user says they are unsure whether it can be done directly;
+- the task "looks small" but may require hidden implementation detail, code, tooling, or architecture;
+- a previous similar F0 attempt failed due to insufficient code/tool capacity, unclear target, missing plan, or missing context;
+- success depends on discovering unknowns during execution;
+- validation cannot be defined before starting.
+
+On trigger, F0 must either:
+
+- return to `E1_EXECUTION_BRIEF` for a better execution brief;
+- recommend `C1_CODEX_GRAPH_PLAN` through E1/B1 if decomposition is needed;
+- route to `D1_DEEP_RESEARCH` through an allowed route if current external/tool facts are needed;
+- return Context Request for exact missing context.
+
+F0 must not "try anyway" when the hidden work risk is material.
 
 ### Gate 1 — Freshness Gate
 
