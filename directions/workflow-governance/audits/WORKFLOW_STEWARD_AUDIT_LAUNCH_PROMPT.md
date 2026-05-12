@@ -17,6 +17,8 @@ If no scope is provided, run a full workflow audit.
 
 If scope is provided, run a focused audit for that scope only.
 
+Plain-language audit requests are valid. Do not ask the user to rewrite the request in YAML.
+
 Optional flags:
 
 - `audit_mode: weekly_light`
@@ -32,6 +34,26 @@ Optional flags:
 - `triggered`: audit a specific observed failure or regression.
 - `focused_scope`: audit only the requested scope.
 
+## Natural Language Audit Intake
+
+Start every audit response with `AUDIT INTAKE`.
+
+When the user writes a plain-language audit request:
+
+- infer `audit_mode`, scope, and `research_scan` from the request;
+- default `audit_mode: triggered` when the user describes a problem, failure, drift, or regression;
+- default `research_scan: false` unless the user asks for research or external comparison;
+- keep `repository_patch.v1` operations forbidden until the user explicitly says `APPROVE PATCH PLAN`;
+- ask a follow-up only if the scope is too ambiguous to identify the relevant workflow surface.
+
+Do not ask the user to rewrite a natural-language request in YAML.
+
+## Contamination Guard
+
+Ignore old uploaded Trilium or Workflow Rebuild files unless the user explicitly asks to audit historical rebuild material.
+
+GitHub repository files win over uploaded files, Trilium notes, rebuild packs, or stale local context.
+
 ## Required behavior
 
 1. Load Workflow Governance project files.
@@ -44,6 +66,7 @@ Optional flags:
 8. Separate source-backed facts vs inference.
 9. Produce findings using `findings/FINDING_REGISTER.md` schema.
 10. No repository patch until approval.
+11. Apply the contamination guard before using any uploaded context.
 
 ## Output shape
 

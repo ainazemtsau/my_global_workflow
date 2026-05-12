@@ -37,6 +37,23 @@ Stage prompts are request-only by exact stage ID.
 
 Do not bulk-load all stage prompts.
 
+## Project setup
+
+- `directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+
+Use this file when creating or updating the separate ChatGPT Project for Workflow Governance.
+
+## Forbidden default context
+
+Do not load these files as default Workflow Governance context:
+
+- old Trilium rebuild files
+- `01_WORKFLOW_REBUILD_CONTROL_PACK.md`
+- `02_CURRENT_REBUILD_STATE.md`
+- `03_CODEX_TRILIUM_INSTALLER_UNIVERSAL.md`
+
+Load them only when the user explicitly asks to audit the historical rebuild process.
+
 ## Real Direction behavior context
 
 Use `directions/*/project_files/` only when auditing real Direction behavior.

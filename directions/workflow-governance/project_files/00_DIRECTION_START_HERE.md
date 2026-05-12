@@ -31,6 +31,8 @@ Workflow Governance is separate from Solo Max Productive and real product/game D
 
 This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.md` is the active source-of-truth marker. If required state is missing, stale, or conflicting, return Context Request; do not invent state.
 
+Workflow Governance should be run in a separate ChatGPT Project, not the old Workflow Rebuild Project.
+
 ## Current pointers
 
 | Pointer | Value | Canonical target |
@@ -41,6 +43,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Evaluation suite | `WORKFLOW_EVAL_SUITE` | `directions/workflow-governance/evals/WORKFLOW_EVAL_SUITE.md` |
 | Audit launch prompt | `Workflow Steward Audit` | `directions/workflow-governance/audits/WORKFLOW_STEWARD_AUDIT_LAUNCH_PROMPT.md` |
 | Context load rules | Direction Context Loading Index | `directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
+| ChatGPT Project Instructions | `Workflow Governance` | `directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` |
 
 ## Default Project Files to load
 
