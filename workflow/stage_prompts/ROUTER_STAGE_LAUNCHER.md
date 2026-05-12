@@ -187,8 +187,6 @@ If an active Phase exists but no active Goal is selected, first check whether a 
 
 If active Phase exists, active Goal is none, and last completed Goal exists, check Phase Progress Gate before G0. Do not blindly route to G0_GOAL_SELECT.
 
-If gate missing, route to P9\_PHASE\_CLOSE or Context Request according to available evidence:
-
 If gate missing, route to P9_PHASE_CLOSE or Context Request according to available evidence.
 
 *   route to `P9_PHASE_CLOSE` when the completed Goal may satisfy the Phase Minimum Outcome or closure/continuation must be evaluated;
