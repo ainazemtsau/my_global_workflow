@@ -23,7 +23,7 @@ Codex/user applies Repository Patch operations and returns file read-back / diff
 
 Stage prompts live in the Workflow root and are dynamically provided per stage run. Stage prompts are not uploaded into every Direction Project by default.
 
-Every meaningful workflow output must include:
+Every formalized workflow output must include:
 
 1.  Human-readable result.
 2.  Stage Result Packet.
@@ -33,6 +33,8 @@ Every meaningful workflow output must include:
 6.  Next Launch Card / Context Request Card / Human Decision Card / Stop.
 
 A stage or workflow chat must not end with only a route name such as `Next: E1`.
+
+FIRST RESPONSE IS NOT FORMAL CLOSE. For material work, the first response is a reviewable work product unless formalization is already approved.
 
 ## 2\. Required Direction Project Files
 
@@ -477,13 +479,29 @@ required_context:
 
 missing_context_policy: ask_only_if_blocking
 
-expected_outputs:
+expected_first_response_outputs:
+  - Direct Result / Reviewable Brief / Decision Memo / Work Product Preview
+  - planned_patch_summary, if a repository change may be needed
+  - planned_formalization_summary
+  - approval request, Context Request, Human Decision, or Stop
+
+expected_after_approval_outputs:
   - Human-readable result
   - Stage Result Packet
   - Repository Patch or none
   - Execution Log Entry
   - Changed Files / Context Refresh List
   - Next Launch Card / Context Request / Human Decision Card / Stop
+
+expected_outputs:
+  compatibility: fallback_only_do_not_override_formalization_control
+  outputs:
+    - Human-readable result
+    - Stage Result Packet
+    - Repository Patch or none
+    - Execution Log Entry
+    - Changed Files / Context Refresh List
+    - Next Launch Card / Context Request / Human Decision Card / Stop
 
 instructions:
   do_not_echo_prompt: true
@@ -506,7 +524,101 @@ Codex launch bundle preparation means packaging a Next Launch Card, exact stage 
 
 When a stage says Codex product/project execution is blocked, that restriction does not block approved repository maintenance, read-only audit/validation, or launch bundle preparation unless the stage explicitly says all Codex roles are blocked.
 
-## 11.6 Reviewable Work Product and Formalization Control
+## 11.6 Hard First Response and Adaptive Reviewable Work Product Gate
+
+Rule precedence:
+
+1. Safety / Context Request / Human Decision / Stop
+2. Hard First Response / Formalization Gate
+3. Stage-specific Reviewable Work Product Quality Standard
+4. Mandatory Close Compiler
+5. Packet schemas
+
+FIRST RESPONSE IS NOT FORMAL CLOSE.
+
+`mode: execute` means run stage reasoning; mode: execute does not authorize formalization.
+
+Mandatory Close Compiler applies only in Formalization Mode.
+
+Response-depth model:
+
+- R0 Direct Result
+- R1 Reviewable Brief
+- R2 Decision Memo
+- R3 Work Product Preview
+- R4 Context Request / Human Decision
+- R5 Formalization
+
+Launch/output schema split:
+
+```yaml
+expected_first_response_outputs:
+  - Direct Result / Reviewable Brief / Decision Memo / Work Product Preview
+  - planned_patch_summary
+  - planned_formalization_summary
+  - approval request
+  - Context Request / Human Decision / Stop when needed
+
+expected_after_approval_outputs:
+  - stage_result.v1
+  - repository_patch.v1
+  - execution_log_entry.v1
+  - changed_files_context_refresh
+  - stage_launch.v1 / context_request.v1 / human_decision.v1 / stop.v1
+  - codex_repository_maintenance_apply.v1 when repository_patch.required = true or operations are non-empty
+
+expected_outputs:
+  compatibility: fallback_only_do_not_override_formalization_control
+```
+
+Generic `expected_outputs` is compatibility fallback only. It must not override `formalization_control`, first-response rules, approval state, or the hard gate.
+
+forbidden-before-approval list:
+
+Before approval, material stages must not output:
+
+- `stage_result.v1`
+- `repository_patch.v1` with non-empty operations
+- `execution_log_entry.v1` as final formal packet
+- `changed_files_context_refresh.required = true`
+- executable `stage_launch.v1`
+- `codex_repository_maintenance_apply.v1`
+
+allowed-before-approval list:
+
+- Direct Result
+- Reviewable Brief
+- Decision Memo
+- Work Product Preview
+- planned_patch_summary
+- planned_formalization_summary
+- approval request
+- Context Request
+- Human Decision
+- Stop
+
+Reviewable Work Product Quality Standard:
+
+A reviewable first response must be substantive enough for the user to judge the recommendation. It must include:
+
+- what is being decided / produced
+- recommendation or proposed artifact
+- why this
+- alternatives considered
+- why not alternatives
+- scope cuts / deferred items
+- risks / assumptions
+- what would change the recommendation
+- what needs approval
+- what will be formalized after approval
+
+Formal packets are allowed only after:
+
+- user says `APPROVE AND FORMALIZE`;
+- or `direct_formalization_allowed = true` with explicit approval_state;
+- or Direct Result mode is safe for non-material low-risk work.
+
+## 11.6.1 Reviewable Work Product and Formalization Control
 
 Every stage must produce a reviewable work product or decision layer before formal packets, non-empty repository_patch.v1 operations, or executable next-stage launch when material work is being proposed.
 
@@ -1302,4 +1414,4 @@ Rebuild/project-development instructions belong in the Workflow Rebuild Project,
 
 ## Progressive Decision Brief Protocol
 
-This legacy section is superseded by `## 11.6 Reviewable Work Product and Formalization Control`. Use that section for first-response modes, Proposed substance, approval, formalization, repository_patch.v1, changed_files_context_refresh, and executable next-stage launch rules.
+This legacy section is superseded by `## 11.6 Hard First Response and Adaptive Reviewable Work Product Gate`. Use that section for first-response modes, Proposed substance, approval, formalization, repository_patch.v1, changed_files_context_refresh, and executable next-stage launch rules.

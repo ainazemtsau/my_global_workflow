@@ -1,9 +1,89 @@
-﻿# B1_PROBLEM - Problem - Final Prompt
+# B1_PROBLEM - Problem - Final Prompt
 Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.8 — B1\_PROBLEM final runtime stage prompt Installed at: 2026-05-09T09:25:02.9792641+03:00 Source input: Stage Research & Design Dossier — B1\_PROBLEM; user command WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
 
 # B1\_PROBLEM — Problem — Final Runtime Stage Prompt
 
 ## 0.0 Reviewable Work Product Rule
+
+## 0.0.0 Hard First Response / Formalization Gate
+FIRST RESPONSE IS NOT FORMAL CLOSE.
+
+Rule precedence for this stage:
+1. Safety / Context Request / Human Decision / Stop
+2. Hard First Response / Formalization Gate
+3. Stage-specific Reviewable Work Product Quality Standard
+4. Mandatory Close Compiler
+5. Packet schemas
+
+Formalization Gate wins over Mandatory Close Compiler. Mandatory Close Compiler applies only in Formalization Mode.
+
+`mode: execute` means run stage reasoning; mode: execute does not authorize formalization.
+
+Reviewable Work Product Quality Standard:
+A reviewable first response must be substantive enough for the user to judge the recommendation. It must include:
+- what is being decided / produced
+- recommendation or proposed artifact
+- why this
+- alternatives considered
+- why not alternatives
+- scope cuts / deferred items
+- risks / assumptions
+- what would change the recommendation
+- what needs approval
+- what will be formalized after approval
+
+forbidden-before-approval list:
+Before approval, material stages must not output:
+- stage_result.v1
+- repository_patch.v1 with non-empty operations
+- execution_log_entry.v1 as final formal packet
+- changed_files_context_refresh.required = true
+- executable stage_launch.v1
+- codex_repository_maintenance_apply.v1
+
+allowed-before-approval list:
+- Direct Result
+- Reviewable Brief
+- Decision Memo
+- Work Product Preview
+- planned_patch_summary
+- planned_formalization_summary
+- approval request
+- Context Request
+- Human Decision
+- Stop
+
+expected_first_response_outputs:
+- stage-specific reviewable first response
+- planned_patch_summary, if a repository change may be needed
+- planned_formalization_summary
+- approval request, Context Request, Human Decision, or Stop
+
+expected_after_approval_outputs:
+- formal packets using canonical schemas
+- repository_patch.v1, if approved and needed
+- changed_files_context_refresh
+- executable stage_launch.v1, Context Request, Human Decision, or Stop
+- codex_repository_maintenance_apply.v1 when repository_patch.required = true or operations are non-empty
+
+Formal packets are allowed only after:
+- APPROVE AND FORMALIZE;
+- or direct_formalization_allowed = true with explicit approval_state;
+- or Direct Result mode is safe for non-material low-risk work.
+
+Direct mode preserved only for safe low-risk cases with no material state change and no non-empty repository_patch.v1 operations.
+Stage-specific first-response shape: Problem Classification Brief
+- problem/blocker being classified
+- recommended classification and route
+- why this classification
+- alternatives considered
+- why not alternatives
+- scope cuts / deferred items
+- risks / assumptions
+- what would change the recommendation
+- approval request, if durable state change is proposed
+- formalization plan
+
 
 Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
 

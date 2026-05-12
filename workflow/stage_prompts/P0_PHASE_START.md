@@ -1,8 +1,88 @@
-﻿# P0\_PHASE\_START — Final Runtime Stage Prompt
+# P0\_PHASE\_START — Final Runtime Stage Prompt
 
 Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.1 — P0\_PHASE\_START, repaired by SA-02B / P0 contract audit Installed at: 2026-05-10T16:32:05.8874204+03:00 Source input: P0 prompt repair after real Direction output audit and SA-02B Progressive Decision Brief Upgrade Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: prior P0 prompt transport/output section using local schemas and weak approval boundary Superseded by:
 
 ## 0.0 Reviewable Work Product Rule
+
+## 0.0.0 Hard First Response / Formalization Gate
+FIRST RESPONSE IS NOT FORMAL CLOSE.
+
+Rule precedence for this stage:
+1. Safety / Context Request / Human Decision / Stop
+2. Hard First Response / Formalization Gate
+3. Stage-specific Reviewable Work Product Quality Standard
+4. Mandatory Close Compiler
+5. Packet schemas
+
+Formalization Gate wins over Mandatory Close Compiler. Mandatory Close Compiler applies only in Formalization Mode.
+
+`mode: execute` means run stage reasoning; mode: execute does not authorize formalization.
+
+Reviewable Work Product Quality Standard:
+A reviewable first response must be substantive enough for the user to judge the recommendation. It must include:
+- what is being decided / produced
+- recommendation or proposed artifact
+- why this
+- alternatives considered
+- why not alternatives
+- scope cuts / deferred items
+- risks / assumptions
+- what would change the recommendation
+- what needs approval
+- what will be formalized after approval
+
+forbidden-before-approval list:
+Before approval, material stages must not output:
+- stage_result.v1
+- repository_patch.v1 with non-empty operations
+- execution_log_entry.v1 as final formal packet
+- changed_files_context_refresh.required = true
+- executable stage_launch.v1
+- codex_repository_maintenance_apply.v1
+
+allowed-before-approval list:
+- Direct Result
+- Reviewable Brief
+- Decision Memo
+- Work Product Preview
+- planned_patch_summary
+- planned_formalization_summary
+- approval request
+- Context Request
+- Human Decision
+- Stop
+
+expected_first_response_outputs:
+- stage-specific reviewable first response
+- planned_patch_summary, if a repository change may be needed
+- planned_formalization_summary
+- approval request, Context Request, Human Decision, or Stop
+
+expected_after_approval_outputs:
+- formal packets using canonical schemas
+- repository_patch.v1, if approved and needed
+- changed_files_context_refresh
+- executable stage_launch.v1, Context Request, Human Decision, or Stop
+- codex_repository_maintenance_apply.v1 when repository_patch.required = true or operations are non-empty
+
+Formal packets are allowed only after:
+- APPROVE AND FORMALIZE;
+- or direct_formalization_allowed = true with explicit approval_state;
+- or Direct Result mode is safe for non-material low-risk work.
+
+Direct mode preserved only for safe low-risk cases with no material state change and no non-empty repository_patch.v1 operations.
+Stage-specific first-response shape: Phase Decision Brief / Memo
+- Phase decision being proposed
+- proposed Phase name, Critical Constraint, Minimum Outcome, and validation signal
+- why this Phase frame
+- alternatives considered
+- why not alternatives
+- scope cuts / deferred items
+- risks / assumptions
+- what would change the recommendation
+- approval request
+- formalization plan
+
 
 Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
 
