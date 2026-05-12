@@ -20,17 +20,14 @@ direction:
   id: indie_game_development
   state: active
   workflow_version: vNext-R
-  current_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
+  current_phase_pointer: null
   active_goal_pointer: null
+  last_closed_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
+  last_closed_phase_result: p9_closed
   last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   last_completed_goal_result: r1_reviewed_accepted
-  next_route: P9_PHASE_CLOSE
-  route_correction:
-    corrected_by_stage: R1_GOAL_REVIEW_DISTILL
-    corrected_at: "2026-05-12"
-    old_route: G0_GOAL_SELECT
-    new_route: P9_PHASE_CLOSE
-    reason: "Corrected Phase Progress Gate selected formal Phase close after accepted proof-core Goal."
+  accepted_goal_artifact: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md"
+  next_route: P0_PHASE_START
   last_updated: "2026-05-12"
 ```
 
@@ -48,6 +45,15 @@ Build a commercially viable indie game direction focused on Expedition product j
 * Game truths produced by Goals may move into permanent `Game Documentation` only through an explicit later documentation stage or approved documentation-maintenance patch.
 * Codex/project execution requires verified concrete project/tool bindings.
 
+## Last closed Phase
+
+* Phase: `Expedition First Proof Checkpoint`
+* Path: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
+* Close stage: `P9_PHASE_CLOSE`
+* Close result: `closed`
+* Closed at: `2026-05-12`
+* Next route: `P0_PHASE_START`
+
 ## Last completed Goal
 
 * Goal: `Определить минимальное доказательное ядро первого proof Expedition`
@@ -62,5 +68,6 @@ Build a commercially viable indie game direction focused on Expedition product j
 * Last refresh: `2026-05-12`
 * Required refresh: `none after this patch is applied and read back`
 * Known stale files: `none known after this patch is applied and read back`
-* Corrected route: `P9_PHASE_CLOSE`
-* Superseded route: `G0_GOAL_SELECT`
+* Current route: `P0_PHASE_START`
+* Active Phase: `none`
+* Active Goal: `none`

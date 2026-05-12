@@ -17,10 +17,10 @@ project_file_control:
 ```yaml
 active_goal:
   state: none
-  reason: "Previous active Goal was completed by F0 and accepted by corrected R1."
-  phase_path: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
+  reason: "P9 closed the current Phase after the previous active Goal was completed by F0 and accepted by corrected R1."
+  phase_path: null
   current_wave: none
-  next_route: P9_PHASE_CLOSE
+  next_route: P0_PHASE_START
 
 last_completed_goal:
   state: r1_reviewed_accepted
@@ -32,13 +32,12 @@ last_completed_goal:
   review_verdict: completed_verified
   closure_eligibility: eligible
 
-phase_progress_gate:
-  last_completed_goal: minimum-proof-core-first-expedition-proof
-  gate_status: "closure_selected_by_human"
-  next_route: P9_PHASE_CLOSE
-  no_phase_auto_close: true
-  g0_allowed_only_after: P9_handoff_or_explicit_phase_continue_decision
-  phase_continue_decision_required: false
+last_closed_phase:
+  phase_id: expedition-first-proof-checkpoint
+  phase_path: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
+  closed_by_stage: P9_PHASE_CLOSE
+  status: closed
+  next_route: P0_PHASE_START
 ```
 
 ## Last completed Goal snapshot
@@ -50,14 +49,13 @@ phase_progress_gate:
 * Gas-only proof rejection: accepted.
 * Validation method: accepted at proof-boundary level with `go`, `revise`, and `kill` outcomes.
 * Codex execution allowed: `no, not until project/tool binding is verified`.
-* Corrected next route: `P9_PHASE_CLOSE`.
-* Superseded route: `G0_GOAL_SELECT`.
-* G0 allowed: `only after P9 handoff or explicit Phase Continue decision`.
-* Phase auto-close: `no; P9 must close formally`.
+* Current next route: `P0_PHASE_START`.
+* G0 allowed: `only after a new Phase exists or a valid stage route creates it`.
+* Phase auto-close: `completed by P9`.
 
 ## Preserved history
 
-The pre-vNext Goal note was moved into the current Phase without deletion or cloning. Its child history remains under the Goal: Sessions, Wave Cards, Decisions, Goal Brief, Execution Pack.
+The pre-vNext Goal note was moved into the now-closed Phase without deletion or cloning. Its child history remains under the Goal: Sessions, Wave Cards, Decisions, Goal Brief, Execution Pack.
 
 ## Deferred items
 

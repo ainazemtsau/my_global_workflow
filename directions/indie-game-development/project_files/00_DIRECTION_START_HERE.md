@@ -10,7 +10,7 @@ artifact_control:
   default_load: yes
   freshness: fresh
   last_updated: "2026-05-12"
-  next_action: "Run P9_PHASE_CLOSE for Expedition First Proof Checkpoint after corrected R1 Phase Progress Gate selected formal Phase close."
+  next_action: "Run P0_PHASE_START to start the next Phase after Expedition First Proof Checkpoint closed through P9."
 ```
 
 ## Direction identity
@@ -33,11 +33,12 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 
 | Pointer | Value | Canonical target |
 | --- | --- | --- |
-| Current Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Active Goal | `none` | Current Goal accepted; do not select G0 until P9 closes or hands off. |
+| Current Phase | `none` | Start next Phase through `P0_PHASE_START` |
+| Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
+| Active Goal | `none` | No active Goal until a new Phase/Goal route creates one |
 | Last completed Goal | `Определить минимальное доказательное ядро первого proof Expedition` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof` |
 | Accepted Goal artifact | `Minimum Expedition Proof Core` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md` |
-| Current focus | Close current checkpoint Phase through P9 after corrected R1 Phase Progress Gate | `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md` |
+| Current focus | Start a post-proof-core Phase through P0 | `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md` |
 | Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
 | Project files folder | GitHub Direction project files | `directions/indie-game-development/project_files/` |
 
@@ -65,22 +66,20 @@ Do not create or require a local runtime-core copy under this Direction `project
 
 It is not archive material and must not be hidden during workflow cleanup. Request specific game documentation through `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`; do not bulk-load all game docs by default.
 
-## Last accepted Goal result
+## Last closed Phase result
 
-R1 accepted the Goal-local artifact:
+P9 closed `Expedition First Proof Checkpoint`.
 
-`directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-
-The accepted proof-core rule is:
+The accepted proof-core rule remains:
 
 > The first Expedition proof must prove a connected co-op judgment loop, not gas simulation alone.
 
+The accepted proof core is not a prototype design, not an implementation plan, and not a Game Documentation promotion.
+
 ## Normal next route
 
-`P9_PHASE_CLOSE` for formal close review of `Expedition First Proof Checkpoint`.
+`P0_PHASE_START` for starting the next Phase.
 
-Corrected R1 Phase Progress Gate superseded the old `G0_GOAL_SELECT` route. The old route was premature because a verified Goal must first be checked against Phase closure before selecting another Goal.
-
-Do not launch `G0_GOAL_SELECT` from this state unless P9 or an explicit Phase Continue decision creates required follow-up Goal work.
+Do not launch `G0_GOAL_SELECT` until a new active Phase exists or a valid stage route creates one.
 
 Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, and scope are verified.

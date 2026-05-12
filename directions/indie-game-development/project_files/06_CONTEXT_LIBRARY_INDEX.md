@@ -43,21 +43,32 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 * `directions/indie-game-development/domain_docs/game_documentation/expedition-experience-model.md`
 * `directions/indie-game-development/domain_docs/game_documentation/expedition-skeleton-document.md`
 
+### Closed Phase context
+
+* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/00_PHASE_BRIEF.md`
+  * Status: `closed_by_P9`
+* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/05_PHASE_REVIEW.md`
+  * Status: `P9_phase_review_closed`
+* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/phase_execution_log.md`
+  * Status: `phase_log_created_by_P9`
+
 ### Accepted Goal artifacts
 
 * `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-  * Status: `accepted_by_R1`
-  * Use when shaping the next proof-related Goal.
+  * Status: `accepted_by_R1_and_closed_by_P9`
+  * Use when shaping the next proof-related Phase or Goal.
   * Do not treat as a prototype design, implementation plan, Game Documentation promotion, or Codex execution brief.
 
 ### Preserved Goal context
 
-* Active Goal preserved children: `Sessions`, `Wave Cards`, `Decisions`, `Goal Brief`, `Execution Pack`.
+* Closed Phase Goal children: `Sessions`, `Wave Cards`, `Decisions`, `Goal Brief`, `Execution Pack`.
 * Phase/Goal working context and execution logs when a stage asks for them.
 
 ## Archive boundary
 
 Archived or historical material is pointer-only and must not be default-loaded.
+
+The closed Expedition First Proof Checkpoint is not buried as archive by P9; it remains request-only Phase context.
 
 ## Tool boundary
 

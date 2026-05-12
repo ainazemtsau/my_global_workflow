@@ -15,7 +15,9 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-Active Phase: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
+Active Phase: `none`
+
+Last closed Phase: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
 
 Active Goal: `none`
 
@@ -23,15 +25,9 @@ Last completed Goal: `directions/indie-game-development/phases/expedition-first-
 
 Accepted Goal artifact: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
 
-Next route: `P9_PHASE_CLOSE`
+Next route: `P0_PHASE_START`
 
-Phase Progress Gate: `closure_selected_by_human`
-
-no_phase_auto_close: true
-
-G0 allowed only after: `P9_handoff` / `explicit_phase_continue_decision`
-
-Phase auto-close: `no; P9 closes formally`
+Phase close result: `P9_PHASE_CLOSE closed Expedition First Proof Checkpoint`
 
 ## Completed / accepted
 
@@ -54,8 +50,8 @@ Queue items are request-only until selected by a vNext-R stage result.
 
 ## Queue discipline
 
-The accepted proof core should guide future Goal or Phase selection, but it must not be expanded into implementation work without a proper Goal and execution route.
+The accepted proof core should guide future Phase or Goal selection, but it must not be expanded into implementation work without a proper Phase, Goal, and execution route.
 
-Do not delete queue items during P9. Queue items remain candidates only; they are not required_for_closure unless P9 or a later Human Decision explicitly classifies them that way.
+Do not delete queue items during P0. Queue items remain candidates only; they are not selected until a stage result or Human Decision selects them.
 
-Do not run `G0_GOAL_SELECT` from the current state before P9 closes or hands off the Phase.
+Do not run `G0_GOAL_SELECT` until P0 creates a new active Phase or another valid stage route creates one.

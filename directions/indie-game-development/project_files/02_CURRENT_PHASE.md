@@ -16,45 +16,41 @@ project_file_control:
 
 ```yaml
 current_phase:
-  state: active_pending_P9_close
+  state: none
+  phase_name: null
+  phase_id: null
+  phase_path: null
+  next_route: P0_PHASE_START
+
+last_closed_phase:
+  state: closed
   phase_name: Expedition First Proof Checkpoint
   phase_id: expedition-first-proof-checkpoint
   phase_path: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
-  critical_constraint: "Preserve current Expedition checkpoint and Game Documentation while using vNext-R structure."
-  minimum_outcome: "Satisfied for close review: accepted minimum proof core exists for the first Expedition proof, and corrected R1 Phase Progress Gate selected P9 formal Phase close."
-  next_route: P9_PHASE_CLOSE
-
-phase_progress_gate:
-  last_completed_goal: minimum-proof-core-first-expedition-proof
-  last_completed_goal_path: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
-  gate_status: "closure_selected_by_human"
-  current_next_route: P9_PHASE_CLOSE
-  no_phase_auto_close: true
-  g0_allowed_only_after: P9_handoff_or_explicit_phase_continue_decision
-  phase_continue_decision_required: false
-  human_decision:
-    selected: p9_phase_close_review
-    date: "2026-05-12"
+  closed_by_stage: P9_PHASE_CLOSE
+  closed_at: "2026-05-12"
+  closure_reason: "Accepted minimum proof core satisfies the transitional checkpoint outcome."
+  accepted_goal_artifact: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md"
+  next_route_after_close: P0_PHASE_START
 ```
 
 ## Guard state
 
+* Active Phase unresolved: `no`
+* Active Phase: `none`
 * Active Goal unresolved: `no`
 * Active Goal: `none`
+* Last closed Phase: `Expedition First Proof Checkpoint`
 * Last completed Goal: `Определить минимальное доказательное ядро первого proof Expedition`
 * Last completed Goal status: `r1_reviewed_accepted`
 * Accepted artifact: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-* Phase can close now: `not automatically; route to P9_PHASE_CLOSE for formal Phase close review`
-* Phase Progress Gate: `closure_selected_by_human`
-* Blocker: `repository maintenance apply/read-back must refresh corrected route state before launching P9`
+* Next route: `P0_PHASE_START`
 * Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
 
-The Phase remains active until P9 closes it.
+There is no active Phase after P9 closes `Expedition First Proof Checkpoint`.
 
-One checkpoint Goal has completed and been accepted: the minimum proof core for Expedition. Corrected R1 Phase Progress Gate selected formal Phase close review because the checkpoint outcome is satisfied.
+The next safe workflow route is `P0_PHASE_START` to create a better-defined post-proof-core Phase.
 
-The next safe workflow route is `P9_PHASE_CLOSE`, not blind `G0_GOAL_SELECT`.
-
-G0 is allowed only after P9 creates a next-phase handoff or after an explicit Phase Continue decision creates required follow-up Goal work.
+Do not run `G0_GOAL_SELECT` until a new active Phase exists or a valid stage route creates one.
