@@ -262,6 +262,26 @@ Use when:
 *   no current Phase is active;
 *   a Phase needs to be selected or started.
 
+## 5.2.1 Phase Memory Bridge routing gate
+
+When Direction exists but no active Phase exists, Router must check whether the state follows a previous Phase close.
+
+If no active Phase exists and previous Phase closure is known or likely, Router must require Phase Memory Bridge context before launching P0_PHASE_START:
+
+```text
+directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+```
+
+If the Phase Memory Index is missing, stale, or contradicted, Router must return a Context Request or route to recovery/repair rather than blindly launching P0.
+
+Router may launch P0 without blocking on detailed `phase_close_summary.md` only when:
+
+- `07_PHASE_MEMORY_INDEX.md` is present and fresh enough;
+- no latest closed Phase pointer requires detail for safe phase selection;
+- the launch card tells P0 to request the detailed summary if needed.
+
+Router Next Launch Cards to P0 after closure must include `07_PHASE_MEMORY_INDEX.md` in required_context.project_files or additional_repository_file_exports.
+
 ### 5.3 Phase exists, no selected Goal
 
 If an active Phase exists but no active Goal is selected, first check whether a last completed Goal exists.

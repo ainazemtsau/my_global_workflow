@@ -200,3 +200,17 @@ PASS requires:
 - Cites exact files used.
 
 FAIL / NEEDS_INPUT blocks the next migration or runtime setup step.
+
+## Phase Memory Index default Project File amendment
+
+All Direction ChatGPT Projects must include this default Direction Project File in addition to files 00-06:
+
+```text
+directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+```
+
+This file is the compact Phase Memory Bridge used by P0_PHASE_START, P9_PHASE_CLOSE, and Router after Phase closure.
+
+When updating existing Project Instructions, add `07_PHASE_MEMORY_INDEX.md` immediately after `06_CONTEXT_LIBRARY_INDEX.md` in the Default Direction files list.
+
+Do not use execution logs as the default phase-memory substitute. Execution logs remain request-only evidence/history context.

@@ -113,3 +113,13 @@ Before proposing a new proof readiness, proof boundary, or handoff artifact, loa
 * `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
 
 If those files already perform the proposed artifact's job, reuse them instead of creating another abstract layer.
+
+## Phase Memory Index default context amendment
+
+Default Direction Project Files now also include:
+
+* `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
+
+Use `07_PHASE_MEMORY_INDEX.md` as compact phase-history context before P0 proposes a new Phase after closure.
+
+The closed Expedition First Proof Checkpoint phase remains request-only detail context through the Phase Memory Index and its detail pointers.

@@ -239,6 +239,65 @@ No automatic closure is allowed. Closure remains deny-by-default.
 
 If Phase Progress Gate output is missing, stale, or contradicted by current Phase/Goal evidence, P9 must return Context Request or Human Decision instead of closing or continuing the Phase by guesswork.
 
+## 1.2 Phase Memory Bridge closure requirement
+
+P9 must maintain the Phase Memory Bridge whenever it formally closes a Phase.
+
+When closure is approved/formalized and the Phase status changes to closed, P9's repository_patch.v1 must include all applicable operations:
+
+```text
+1. update current Phase status / pointer;
+2. create or replace:
+   directions/<direction-id>/phases/<phase-id>/phase_close_summary.md
+3. create or update:
+   directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+4. update:
+   directions/<direction-id>/project_files/06_CONTEXT_LIBRARY_INDEX.md
+   only if 07_PHASE_MEMORY_INDEX.md is missing from the default context list or relevant request-only pointers;
+5. append/create the appropriate execution log entry under the current execution-log routing rules.
+```
+
+P9 must not mark a Phase closure as DONE if the closure patch omits the Phase Memory Bridge update, unless the closure decision is not a material status change.
+
+Minimum `07_PHASE_MEMORY_INDEX.md` update fields:
+
+- latest_closed_phase_id;
+- latest_closed_phase_name;
+- latest_closed_phase_summary_path;
+- latest_closed_at;
+- ledger entry with phase_id, phase_name, status, started_at, closed_at;
+- critical_constraint;
+- minimum_outcome;
+- completion_verdict;
+- delivered_outcomes;
+- durable_decisions;
+- files_or_docs_created;
+- carryovers;
+- do_not_repeat;
+- duplicate_phase_patterns_to_avoid;
+- recommended_next_phase_candidates;
+- recommended_next_phase_not;
+- evidence/read-back pointer.
+
+Minimum `phase_close_summary.md` sections:
+
+```text
+## 1. Phase objective and closure verdict
+## 2. What was completed
+## 3. Goals completed / excluded / left open
+## 4. Artifacts, docs, files, or decisions created
+## 5. Lessons learned
+## 6. Constraints discovered
+## 7. Carryovers
+## 8. Do not repeat
+## 9. Duplicate-phase patterns to avoid
+## 10. Recommended next phase candidates
+## 11. Not recommended next phases
+## 12. Evidence and source links
+```
+
+P9 must keep the index compact. Do not turn P9 into broad retrospective, planning, or next-Phase design work.
+
 ## 2\. Non-negotiable boundaries
 
 Do not:

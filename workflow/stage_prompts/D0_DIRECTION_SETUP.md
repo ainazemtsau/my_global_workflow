@@ -747,6 +747,42 @@ minimal\_operating\_context: operating\_thesis: known\_constraints: near\_term\_
 
 Do not force a complete charter, OKR system, roadmap, or metric suite.
 
+## 16.1 Phase Memory Index setup requirement
+
+When D0 creates a new Direction or repairs missing required Direction Project Files, the minimal Direction setup must include:
+
+```text
+directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+```
+
+Initial content must use schema `phase_memory_index.v1` and must not invent phase history.
+
+For a new Direction, initialize:
+
+```yaml
+phase_memory_status:
+  latest_closed_phase_id: null
+  latest_closed_phase_name: null
+  latest_closed_phase_summary_path: null
+  latest_closed_at: null
+  history_backfill_status: new_direction
+```
+
+For an existing Direction being repaired where history is not safely known, initialize:
+
+```yaml
+phase_memory_status:
+  latest_closed_phase_id: null
+  latest_closed_phase_name: null
+  latest_closed_phase_summary_path: null
+  latest_closed_at: null
+  history_backfill_status: not_backfilled
+```
+
+D0 must also ensure `06_CONTEXT_LIBRARY_INDEX.md` names `07_PHASE_MEMORY_INDEX.md` as part of the default Direction Project File set.
+
+D0 must not backfill closed Phase history by guesswork. If existing closed Phase evidence is available but incomplete, mark the entry `partial_backfill` and include exact source pointers only.
+
 ## 17\. Context classification
 
 Classify any information you create or preserve:

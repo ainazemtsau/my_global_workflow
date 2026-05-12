@@ -1,4 +1,4 @@
-﻿# 06\_CONTEXT\_LIBRARY\_INDEX.md
+# 06\_CONTEXT\_LIBRARY\_INDEX.md
 
 ```yaml
 artifact_control:
@@ -61,3 +61,11 @@ Archive boundary:
 
 *   Archived or historical material is pointer-only and must not be default-loaded.
 *   vNext One-Goal Smoke Test is historical/test state for this route, not current active work.
+
+## Phase Memory Index default context amendment
+
+Required default Project Files now also include:
+
+*   07_PHASE_MEMORY_INDEX.md
+
+Use `directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md` as compact phase-history context before P0 proposes a new Phase after closure.

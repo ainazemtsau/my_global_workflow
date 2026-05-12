@@ -226,6 +226,62 @@ The Phase Closure Contract must include:
 
 P0 must not treat optional expansion candidates as required Goals. If closure criteria, required goal map, or after-goal gate policy cannot be made concrete enough, P0 must return Context Request or Human Decision instead of creating ambiguous Phase state.
 
+## 1.2 Phase Memory Bridge intake requirement
+
+P0 must consume the Phase Memory Bridge before proposing a materially new Phase when any of these triggers apply:
+
+- previous Phase completed;
+- previous Phase closed by P9;
+- no active Phase after closure;
+- user asks for the next Phase;
+- Router selected P0 after Phase closure;
+- active Phase is missing but Direction history exists.
+
+Required context:
+
+```text
+directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+directions/<direction-id>/project_files/02_CURRENT_PHASE.md
+directions/<direction-id>/project_files/01_DIRECTION_STATE.md
+```
+
+If `07_PHASE_MEMORY_INDEX.md` points to a latest closed Phase summary and the compact index is insufficient to prevent repetition, P0 must request/load:
+
+```text
+directions/<direction-id>/phases/<latest-closed-phase-id>/phase_close_summary.md
+```
+
+P0 must return Context Request instead of proposing a new Phase when:
+
+- `07_PHASE_MEMORY_INDEX.md` is missing;
+- `07_PHASE_MEMORY_INDEX.md` is stale or contradicted by current Project Files;
+- latest closed Phase pointer exists but the detailed summary is required and unavailable;
+- the trigger is previous Phase closure and there is no reliable Phase Memory Bridge;
+- no concrete delta exists between the proposed Phase and latest closed Phase.
+
+Required visible anti-duplicate check in P0 recommendation:
+
+```text
+Почему это не повтор прошлой фазы:
+<concrete delta>
+```
+
+If the delta is weak or absent, P0 must not create a new Phase. It must classify the proposed work as one of:
+
+- continue_existing;
+- repair_previous_phase;
+- carryover_goal_or_goal_selection;
+- context_request;
+- human_decision;
+- stop.
+
+P0 must separate:
+
+- carryover from previous Phase;
+- genuinely new Phase constraint;
+- repair/review work;
+- repeated work that should not be proposed.
+
 ## 2\. Progressive Decision Brief behavior
 
 P0 must choose the smallest sufficient human-facing mode before formal packets.

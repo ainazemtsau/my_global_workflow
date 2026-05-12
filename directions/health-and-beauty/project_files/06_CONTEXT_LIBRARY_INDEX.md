@@ -67,3 +67,11 @@ Archived or historical material is pointer-only and must not be default-loaded.
 ## Tool boundary
 
 Do not infer that MacroFactor, self-hosted trackers, Notion, Trillium, ChatGPT connections, or automation are available for execution. Verify concrete tool/storage bindings before relying on them.
+
+## Phase Memory Index default context amendment
+
+Required default Project Files now also include:
+
+*   `directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md`
+
+Use `07_PHASE_MEMORY_INDEX.md` as compact phase-history context before P0 proposes a new Phase after closure.

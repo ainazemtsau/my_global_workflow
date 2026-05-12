@@ -69,9 +69,9 @@ For normal runtime outputs, prefer this visible order:
 If a launch card is being prepared for the next chat, summarize it first in plain text. The full `stage_launch.v1` packet goes in the technical appendix.
 
 Human-facing prose should answer in the user's language when the user's language is clear. Packet field names, schema keys, stage IDs, repository paths, file names, and exact command/card tokens remain canonical English.
-## 2\. Required Direction Project Files
+## 2. Required Direction Project Files
 
-Every Direction ChatGPT Project must load the Direction Project Files 00-06 by default from:
+Every Direction ChatGPT Project must load the Direction Project Files 00-07 by default from:
 
 ```text
 directions/<direction-id>/project_files/
@@ -88,6 +88,7 @@ Required Direction Project Files:
 04_ACTIVE_GOAL.md
 05_PORTFOLIO_QUEUE.md
 06_CONTEXT_LIBRARY_INDEX.md
+07_PHASE_MEMORY_INDEX.md
 
 ```
 
@@ -104,7 +105,9 @@ These files are the default active context.
 
 The Direction Project must not use Workflow Rebuild Project files as Direction runtime state.
 
-## 3\. Required Direction structure
+If `07_PHASE_MEMORY_INDEX.md` is missing for an existing Direction, treat the Direction as needing a Phase Memory backfill or Context Request before creating a materially new Phase after a previous Phase close.
+
+## 3. Required Direction structure
 
 Each Direction should expose this active GitHub structure:
 
@@ -121,6 +124,7 @@ directions/<direction-id>/
     04_ACTIVE_GOAL.md
     05_PORTFOLIO_QUEUE.md
     06_CONTEXT_LIBRARY_INDEX.md
+    07_PHASE_MEMORY_INDEX.md
   knowledge/
     canon/
     decisions/
@@ -128,7 +132,8 @@ directions/<direction-id>/
     reviews/
   domain_docs/
   phases/
-    <Phase>/
+    <phase-id>/
+      phase_close_summary.md
   execution_logs/
     11_DIRECTION_EXECUTION_LOG.md
   projects/
@@ -138,6 +143,59 @@ directions/<direction-id>/
 `11 Direction Execution Log` is not loaded by default. It is request-only context.
 
 Execution logs are evidence/friction/history layers, not default active context.
+
+`07_PHASE_MEMORY_INDEX.md` is the compact default-loaded Phase Memory Bridge. It is not an execution log and must not become a full retrospective. Detailed closed-Phase information lives in `directions/<direction-id>/phases/<phase-id>/phase_close_summary.md`.
+
+## 3.1 Phase Memory Bridge
+
+The Phase Memory Bridge is the required durable runtime link between a closed Phase and the next Phase start.
+
+Required files:
+
+```text
+directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+directions/<direction-id>/phases/<phase-id>/phase_close_summary.md
+```
+
+`07_PHASE_MEMORY_INDEX.md` is default-loaded Project File context. It must stay compact and must include:
+
+- latest closed Phase pointer;
+- closed Phase ledger entries;
+- carryovers;
+- do-not-repeat items;
+- duplicate Phase patterns to avoid;
+- recommended next Phase candidates;
+- recommended next Phase exclusions;
+- pointers to detailed close summaries and evidence.
+
+`phase_close_summary.md` is request-only detailed Phase memory. It must include:
+
+- Phase objective and closure verdict;
+- delivered outcomes;
+- Goals completed, excluded, or left open;
+- files/docs/artifacts created;
+- durable decisions;
+- lessons learned;
+- constraints discovered;
+- carryovers;
+- do-not-repeat items;
+- duplicate patterns to avoid;
+- recommended next Phase candidates;
+- recommended next Phase exclusions;
+- source/evidence pointers.
+
+P9_PHASE_CLOSE must update both files when formally closing a Phase. Phase closure is incomplete if the Phase status changes but the Phase Memory Bridge is not updated in the same approved repository patch.
+
+P0_PHASE_START must read `07_PHASE_MEMORY_INDEX.md` before proposing a materially new Phase when the trigger is previous Phase completed, no active Phase, restart after closure, or user asks for next Phase. If the compact index is missing, stale, contradictory, or insufficient, P0 must return a Context Request naming the exact missing repository path. If the compact index points to a latest close summary and P0 needs detail to avoid repetition, P0 must request/load that exact `phase_close_summary.md`.
+
+P0 must show a visible anti-duplicate line before approval:
+
+```text
+Почему это не повтор прошлой фазы:
+<concrete delta>
+```
+
+If no concrete delta exists, P0 must not create a new Phase. It must choose continue/repair/carryover/context-request/human-decision/stop instead.
 
 ## 4\. Forbidden Direction Project Files
 

@@ -63,3 +63,11 @@ Research files:
 - `directions/workflow-governance/research/RESEARCH_SOURCE_REGISTER.md`
 - `directions/workflow-governance/research/WEEKLY_RESEARCH_DIGEST.md`
 - `directions/workflow-governance/research/BEST_PRACTICE_MAP.md`
+
+## Phase Memory Index default context amendment
+
+Default Direction Project Files include:
+
+- `directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md`
+
+Use `07_PHASE_MEMORY_INDEX.md` as compact phase-history context before P0 proposes a new Phase after closure.
