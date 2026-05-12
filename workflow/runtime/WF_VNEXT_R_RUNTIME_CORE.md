@@ -223,7 +223,7 @@ Stage prompts are provided dynamically only for the stage being run.
 At the start of a Direction Project chat:
 
 1.  Read Project Instructions.
-2.  Read Direction Project Files 00-06.
+2.  Read Direction Project Files 00-07.
 3.  Read shared runtime core at `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 4.  Identify Direction, current Phase, active Goal, current route, blockers, freshness/staleness, and whether a Launch Card is present.
 5.  If a Launch Card is present, follow it.
@@ -561,6 +561,7 @@ required_context:
     - 04_ACTIVE_GOAL.md
     - 05_PORTFOLIO_QUEUE.md
     - 06_CONTEXT_LIBRARY_INDEX.md
+    - 07_PHASE_MEMORY_INDEX.md
   shared_runtime_files:
     - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
   additional_repository_file_exports:

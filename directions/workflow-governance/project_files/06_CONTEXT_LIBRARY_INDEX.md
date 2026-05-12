@@ -23,6 +23,7 @@ Load these files by default for Workflow Governance runtime:
 - `directions/workflow-governance/project_files/04_ACTIVE_GOAL.md`
 - `directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md`
 - `directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+- `directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
 
 ## Shared workflow context

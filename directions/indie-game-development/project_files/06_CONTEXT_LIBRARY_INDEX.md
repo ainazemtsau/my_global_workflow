@@ -17,6 +17,8 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 Load the Direction Project Files default set only. Do not bulk-load `Game Documentation`, old sessions, Wave Cards, archives, or execution logs by default.
 
+The default Direction Project Files set includes `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md` immediately after `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`.
+
 ## Shared runtime and stage prompts
 
 ```yaml

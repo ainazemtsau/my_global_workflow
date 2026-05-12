@@ -39,6 +39,7 @@ Required default Project Files:
 *   04\_ACTIVE\_GOAL.md
 *   05\_PORTFOLIO\_QUEUE.md
 *   06\_CONTEXT\_LIBRARY\_INDEX.md
+*   07_PHASE_MEMORY_INDEX.md
 
 Shared runtime and stage prompts:
 

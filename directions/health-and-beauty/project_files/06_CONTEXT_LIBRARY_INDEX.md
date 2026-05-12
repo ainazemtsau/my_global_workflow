@@ -40,7 +40,7 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 
 ## Required context for next E1
 
-* Direction Project Files 00-06.
+* Direction Project Files 00-07.
 * `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 * `workflow/stage_registry/STAGE_REGISTRY.md`.
 * `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`.

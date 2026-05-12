@@ -67,6 +67,7 @@ Default Direction files:
 - directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md
 - directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md
 - directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md
+- directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 
 Stage prompts:
@@ -112,6 +113,7 @@ Default Direction files:
 - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
 - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
 - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+- directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 
 Stage prompts:
@@ -157,6 +159,7 @@ Default Direction files:
 - directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md
 - directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md
 - directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md
+- directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 
 Stage prompts:
@@ -203,7 +206,7 @@ FAIL / NEEDS_INPUT blocks the next migration or runtime setup step.
 
 ## Phase Memory Index default Project File amendment
 
-All Direction ChatGPT Projects must include this default Direction Project File in addition to files 00-06:
+All Direction ChatGPT Projects must include `07_PHASE_MEMORY_INDEX.md` immediately after `06_CONTEXT_LIBRARY_INDEX.md` in the default Direction Project Files set:
 
 ```text
 directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md

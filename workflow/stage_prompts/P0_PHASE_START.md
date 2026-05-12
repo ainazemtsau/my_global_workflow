@@ -1115,6 +1115,7 @@ required_context:
     - 04_ACTIVE_GOAL.md
     - 05_PORTFOLIO_QUEUE.md
     - 06_CONTEXT_LIBRARY_INDEX.md
+    - 07_PHASE_MEMORY_INDEX.md
     - WF_VNEXT_R_RUNTIME_CORE.md
   additional_repository_file_exports:
     - path:
