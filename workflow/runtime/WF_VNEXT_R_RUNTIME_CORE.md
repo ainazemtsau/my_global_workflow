@@ -294,7 +294,7 @@ Router must not silently execute a non-router stage unless the matching stage pr
 
 Research-needed work must not be performed inside a non-research stage.
 
-If Router, E1_EXECUTION_BRIEF, F0_FAST_DIRECT, or any other stage detects that the next safe action depends on current external facts, source-backed synthesis, current tool/platform behavior, material research, or unresolved architecture/tooling assumptions, the stage must route to `D1_DEEP_RESEARCH`, return Context Request, or return B1_PROBLEM according to the registry and prompt contract.
+If Router, E1_EXECUTION_BRIEF, F0_FAST_DIRECT, or any other stage detects that the next safe action depends on current external facts, source-backed synthesis, current tool/platform behavior, material research, or unresolved architecture/tooling assumptions, the stage must route to `D1_DEEP_RESEARCH`, return Context Request, or return B1_PROBLEM according to `workflow/stage_registry/STAGE_REGISTRY.md` and the runtime prompt contract.
 
 F0_FAST_DIRECT is allowed only when all of these are true:
 
@@ -309,7 +309,7 @@ F0_FAST_DIRECT is allowed only when all of these are true:
 - no security/privacy/permission/secret/tool-binding risk exists;
 - no stale or contradictory context blocks safe execution.
 
-If any item is false or unknown, do not route to F0. Route to the smallest safer stage:
+If any item is false or unknown, do not route to F0. Route to the smallest safer stage allowed by `STAGE_REGISTRY.md`:
 
 - `D1_DEEP_RESEARCH` for external/current evidence gaps;
 - `E1_EXECUTION_BRIEF` for missing execution brief;
@@ -321,19 +321,20 @@ If any item is false or unknown, do not route to F0. Route to the smallest safer
 
 A stage must not route to F0 merely because the requested output seems short. F0 requires explicit readiness, not apparent size.
 
-Route conflict rule: if a prompt-selected route and `STAGE_REGISTRY.md` disagree, return a route-conflict Context Request or B1_PROBLEM. Do not improvise and do not execute another stage's work inside the current stage.
+Route conflict rule: route conflict is selected-route-vs-registry. If the selected next stage is not allowed by `STAGE_REGISTRY.md`, return a route-conflict Context Request or B1_PROBLEM. Do not improvise and do not execute another stage's work inside the current stage.
+
+Stage prompt route lists are not independent authority. If a prompt-maintained route list conflicts with `STAGE_REGISTRY.md`, the registry wins.
 
 ## 7\. Stage prompt dynamic loading
 
 Concrete stage prompts are dynamic runtime inputs.
 
-A stage may execute only if the exact stage prompt is:
+A stage may execute only if the exact stage prompt is available in the current run through one of these delivery modes:
 
-*   embedded in the Launch Card;
-*   pasted/provided in the current chat;
-*   attached/exported in the current chat;
-*   requested from GitHub repository and then provided;
-*   explicitly available in current chat context.
+- `prompt_text_embedded`: exact prompt text is embedded in the Launch Card.
+- `prompt_attachment_provided`: exact prompt text is attached/exported in the current chat.
+- `manual_prompt_required`: prompt text is not available; the chat must request the exact prompt from the user/Codex and must not execute the stage yet.
+- `codex_verified_local_bundle`: Codex read the exact prompt from a local checkout, verified completeness, and supplied the prompt or a verified launch bundle.
 
 Do not reconstruct missing stage prompts from memory.
 
@@ -341,36 +342,50 @@ Do not use old/superseded prompts.
 
 Do not silently switch to a different stage.
 
-If a required stage prompt is missing, return Context Request Card.
+If a required stage prompt is missing, truncated, omitted, lacks tail verification when tail verification is required, or is not available in current chat context, return Context Request Card.
 
 Allowed prompt delivery modes:
 
 ```yaml
 prompt_delivery:
-  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_repository
+  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
   prompt_text_included: true | false
   prompt_text: null
-
+  source_commit:
+  line_count:
+  byte_count:
+  tail_anchor_or_eof_verified: true | false
+  execute_allowed: true | false
 ```
 
 Rules:
 
 ```text
-If prompt_text_included: true:
+If prompt_text_included: true and the prompt is complete:
   execute using the provided prompt.
 
-If prompt_text_included: false and prompt is available as attachment/current chat:
+If mode: prompt_attachment_provided and the attached/exported prompt is complete:
   execute using the provided prompt.
 
-If prompt_text_included: false and prompt is not available:
+If mode: codex_verified_local_bundle and Codex verifies completeness:
+  execute using the supplied verified prompt or launch bundle.
+
+If mode: manual_prompt_required:
+  return Context Request for the exact stage prompt path.
+
+If prompt_text_included: false and the prompt is not otherwise available:
   return Context Request Card.
 
+If a GitHub read of the exact prompt is truncated, omitted, or lacks required tail verification:
+  treat the prompt as unavailable for that run.
 ```
 
 Never invent prompt text.
+
+`request_from_repository` is deprecated and must not be used for new launch cards. Use `manual_prompt_required` or `codex_verified_local_bundle`.
 
 ## 8\. Context Request Card Contract
 
@@ -556,12 +571,17 @@ stage:
   status:
 
 prompt_delivery:
-  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_repository
+  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
   prompt_text_included: true | false
   prompt_text: null
+  source_commit:
+  line_count:
+  byte_count:
+  tail_anchor_or_eof_verified: true | false
+  execute_allowed: true | false
 
 direction:
   name:
@@ -613,7 +633,11 @@ required_context:
     - 06_CONTEXT_LIBRARY_INDEX.md
     - 07_PHASE_MEMORY_INDEX.md
   shared_runtime_files:
+    - WORKFLOW_SOURCE_OF_TRUTH.md
     - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+    - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+    - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+    - workflow/stage_registry/STAGE_REGISTRY.md
   additional_repository_file_exports:
     - path:
       reason:
@@ -649,8 +673,11 @@ instructions:
   do_not_echo_prompt: true
   do_not_run_unrelated_stage: true
   do_not_reconstruct_missing_prompt: true
+  route_authority: workflow/stage_registry/STAGE_REGISTRY.md
 
 ```
+
+`request_from_repository` is deprecated. If the prompt text is not included, use `manual_prompt_required` or `codex_verified_local_bundle`.
 
 ## 11.5 Codex Role Separation Contract
 
@@ -1514,44 +1541,27 @@ Routing rules:
 
 ### Allowed high-level transitions
 
+Do not maintain a transition table in this runtime core.
+
+Normal stage-to-stage `allowed_next` transitions are defined only in:
+
 ```text
-ROUTER_STAGE_LAUNCHER -> any stage or Context Request / Human Decision / Stop
-
-D0_DIRECTION_SETUP -> P0_PHASE_START
-
-P0_PHASE_START -> I0_CAPTURE | G0_GOAL_SELECT | G1_GOAL_SHAPE
-
-I0_CAPTURE -> G0_GOAL_SELECT | G1_GOAL_SHAPE | S3_DECIDE | B1_PROBLEM | Stop
-
-G0_GOAL_SELECT -> G1_GOAL_SHAPE
-
-G1_GOAL_SHAPE -> F0_FAST_DIRECT | E1_EXECUTION_BRIEF | S3_DECIDE | D1_DEEP_RESEARCH | A1_AUDIT | B1_PROBLEM | Stop
-
-S3_DECIDE -> G1_GOAL_SHAPE | E1_EXECUTION_BRIEF | R1_GOAL_REVIEW_DISTILL | Stop
-
-D1_DEEP_RESEARCH -> S3_DECIDE | G1_GOAL_SHAPE | E1_EXECUTION_BRIEF | Stop
-
-A1_AUDIT -> S3_DECIDE | G1_GOAL_SHAPE | E1_EXECUTION_BRIEF | R1_GOAL_REVIEW_DISTILL | Stop
-
-E1_EXECUTION_BRIEF -> F0_FAST_DIRECT | C1_CODEX_GRAPH_PLAN | B1_PROBLEM | Stop
-
-F0_FAST_DIRECT -> R1_GOAL_REVIEW_DISTILL | E1_EXECUTION_BRIEF | B1_PROBLEM | Stop
-
-C1_CODEX_GRAPH_PLAN -> C2_CODEX_EXECUTE | B1_PROBLEM | Context Request | Stop
-
-C2_CODEX_EXECUTE -> R1_GOAL_REVIEW_DISTILL | E1_EXECUTION_BRIEF | B1_PROBLEM | Stop
-
-B1_PROBLEM -> continue_current_stage | E1_EXECUTION_BRIEF | G1_GOAL_SHAPE | S3_DECIDE | R1_GOAL_REVIEW_DISTILL | Stop
-
-R1_GOAL_REVIEW_DISTILL -> phase_progress_gate -> G0_GOAL_SELECT | G1_GOAL_SHAPE | P9_PHASE_CLOSE | P0_PHASE_START | Context Request | Human Decision | Stop
-
-P9_PHASE_CLOSE -> P0_PHASE_START | G0_GOAL_SELECT | Direction pause/archive | Stop
-
-R0_RECOVERY_CLOSE -> ROUTER_STAGE_LAUNCHER | Context Request | Stop
-
+workflow/stage_registry/STAGE_REGISTRY.md
 ```
 
-Unknown stage IDs must produce Context Request Card or Proposed Registry Amendment. Do not guess.
+Runtime core may describe route-selection process, safety gates, and routing heuristics, but it must not duplicate the registry transition table.
+
+Terminal card types are not stage IDs:
+
+```text
+Context Request
+Human Decision
+Stop
+```
+
+These are terminal outputs. They may be allowed outcomes, but they must not be treated as stage-to-stage transition authority.
+
+If a selected next stage is not allowed by `STAGE_REGISTRY.md`, return a route-conflict Context Request or B1_PROBLEM. Do not guess and do not silently execute a different stage.
 
 ## 23\. Stop rules
 
@@ -1586,3 +1596,7 @@ Rebuild/project-development instructions belong in the Workflow Rebuild Project,
 ## Progressive Decision Brief Protocol
 
 This legacy section is superseded by `## 11.6 Hard First Response and Adaptive Reviewable Work Product Gate`. Use that section for first-response modes, Proposed substance, approval, formalization, repository_patch.v1, changed_files_context_refresh, and executable next-stage launch rules.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`

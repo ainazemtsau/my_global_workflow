@@ -2,6 +2,18 @@
 
 Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.1 — P0\_PHASE\_START, repaired by SA-02B / P0 contract audit Installed at: 2026-05-10T16:32:05.8874204+03:00 Source input: P0 prompt repair after real Direction output audit and SA-02B Progressive Decision Brief Upgrade Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: prior P0 prompt transport/output section using local schemas and weak approval boundary Superseded by:
 
+## Runtime authority boundary — AD-WF-RT-001
+
+`workflow/stage_registry/STAGE_REGISTRY.md` is the sole authority for normal stage-to-stage `allowed_next` transitions.
+
+This stage prompt may describe route-selection criteria, but it must not be treated as an independent route table.
+
+If any route list or route example in this prompt conflicts with `STAGE_REGISTRY.md`, the registry wins.
+
+Terminal card types such as `Context Request`, `Human Decision`, and `Stop` are terminal outputs, not stage IDs.
+
+If the selected next stage is not allowed by the registry, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop. Do not silently choose another stage and do not perform downstream stage work inside this stage.
+
 ## 0.0 Reviewable Work Product Rule
 
 ## 0.0.0 Hard First Response / Formalization Gate

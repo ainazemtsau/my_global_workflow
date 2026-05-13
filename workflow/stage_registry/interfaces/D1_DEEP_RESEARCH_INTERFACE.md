@@ -5,6 +5,20 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 Interface version: stage-interface-v0.1 Stage ID: D1 Stage name: Deep Research Stage type: research / evidence synthesis
 
+## Interface authority boundary — AD-WF-RT-001
+
+This interface file is a derived/reference surface only.
+
+It is not authority for stage-to-stage `allowed_next` transitions.
+
+If this interface file contains route lists, they are snapshots only and must not override:
+
+```text
+workflow/stage_registry/STAGE_REGISTRY.md
+```
+
+If this interface conflicts with `STAGE_REGISTRY.md`, the registry wins and this interface should be refreshed in a later cleanup patch.
+
 ## Lifecycle role
 
 D1 investigates questions that require evidence, freshness checks, source comparison, or synthesis before decision or execution.

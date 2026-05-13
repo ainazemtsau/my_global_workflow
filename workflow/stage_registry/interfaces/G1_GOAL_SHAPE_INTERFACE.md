@@ -5,6 +5,20 @@ Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap ste
 
 Interface version: stage-interface-v0.1 Stage ID: G1 Stage name: Goal Shape Stage type: goal definition / ruthless cut
 
+## Interface authority boundary — AD-WF-RT-001
+
+This interface file is a derived/reference surface only.
+
+It is not authority for stage-to-stage `allowed_next` transitions.
+
+If this interface file contains route lists, they are snapshots only and must not override:
+
+```text
+workflow/stage_registry/STAGE_REGISTRY.md
+```
+
+If this interface conflicts with `STAGE_REGISTRY.md`, the registry wins and this interface should be refreshed in a later cleanup patch.
+
 ## Lifecycle role
 
 G1 turns a selected or implied goal into an executable shaped goal.

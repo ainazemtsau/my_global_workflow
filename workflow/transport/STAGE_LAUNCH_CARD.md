@@ -3,6 +3,22 @@ Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Ste
 
 # 01 Stage Launch Card Template
 
+## Transport authority boundary — AD-WF-RT-001
+
+This transport template is not independent routing authority.
+
+Until transport files are converted to canonical `workflow_packet: 1` / `schema: *.v1` packet shapes, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` remains the packet schema authority.
+
+Any route fields in this file, including `allowed_next_stage_ids`, are snapshots only.
+
+They must not override:
+
+```text
+workflow/stage_registry/STAGE_REGISTRY.md
+```
+
+If a transport packet route snapshot conflicts with the registry, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop.
+
 ## Purpose
 
 A Stage Launch Card is the controlled input packet for starting a workflow stage or route.

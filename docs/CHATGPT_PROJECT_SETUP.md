@@ -223,3 +223,26 @@ This file is the compact Phase Memory Bridge used by P0_PHASE_START, P9_PHASE_CL
 When updating existing Project Instructions, add `07_PHASE_MEMORY_INDEX.md` immediately after `06_CONTEXT_LIBRARY_INDEX.md` in the Default Direction files list.
 
 Do not use execution logs as the default phase-memory substitute. Execution logs remain request-only evidence/history context.
+
+## Shared runtime authority and prompt delivery note
+
+Workflow runtime authority follows `workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md`.
+
+Required shared runtime cache files for every active Direction Project are defined in:
+
+```text
+workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+```
+
+`workflow/stage_registry/STAGE_REGISTRY.md` is the sole authority for normal stage-to-stage `allowed_next` transitions.
+
+Stage prompt file existence does not mean the prompt is available in a chat. Launch cards must use:
+
+```text
+prompt_text_embedded
+prompt_attachment_provided
+manual_prompt_required
+codex_verified_local_bundle
+```
+
+Do not use `request_from_repository` in new launch cards.

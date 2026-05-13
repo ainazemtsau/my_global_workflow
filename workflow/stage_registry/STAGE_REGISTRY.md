@@ -10,9 +10,21 @@ Freshness: refresh when stage prompt files, stage IDs, stage availability, targe
 
 This file is the GitHub-native runtime registry for Workflow vNext-R stages.
 
-Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+This file is the sole authority for:
 
-This file is only stage registry / stage identity / prompt path / allowed transitions. It does not define packet schemas, launch/result field lists, stage packet bodies, or prompt internals.
+- canonical stage IDs;
+- stage identity;
+- stage prompt path;
+- prompt status as repository-file existence;
+- target runtime;
+- stage activation availability;
+- normal stage-to-stage `allowed_next` transitions.
+
+Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` until transport schemas are formally converted.
+
+This file does not define packet schemas, launch/result field lists, stage packet bodies, prompt internals, or stage-specific reasoning.
+
+Terminal card types such as `Context Request`, `Human Decision`, and `Stop` are terminal outputs, not stage IDs. If they appear in `allowed_next`, they are allowed terminal outcomes and not stage-to-stage transition authority.
 
 Prompt source root: `workflow/stage_prompts/`
 
@@ -36,25 +48,31 @@ If a GitHub read of the exact stage prompt is truncated, omitted due to tool res
 
 ## Route Conflict Rule
 
-Stage prompts and `STAGE_REGISTRY.md` must agree on allowed downstream routes.
+Route conflict is selected-route-vs-registry.
 
-If a stage prompt names a normal or exception downstream route, that route must be visible in the stage's `allowed_next` registry cell or be represented by a generic terminal card type such as Context Request, Human Decision, or Stop.
+A selected next stage is valid only when it is allowed by the current stage row in the Runtime Registry.
 
-If a running stage detects that the prompt-selected route is not allowed by the registry, it must not silently choose another route and must not execute the downstream stage's work inside the current stage.
+Stage prompts may describe route-selection criteria, but stage prompts must not be treated as independent authority for `allowed_next` transition tables. If a stage prompt contains an old route list, the registry wins.
+
+If a running stage selects a next stage that is not allowed by the current stage row in `STAGE_REGISTRY.md`, the stage must not silently choose another route and must not execute the downstream stage's work inside the current stage.
 
 Required behavior on mismatch:
 
 ```yaml
 route_conflict:
   status: blocking
-  allowed_by_prompt: true
+  conflict_model: selected_route_vs_registry
+  selected_next_stage:
   allowed_by_registry: false
-  required_output: Context Request or B1_PROBLEM
+  required_output: Context Request, B1_PROBLEM, Human Decision, or Stop
   forbidden_behavior:
-    - silently_route_to_F0
+    - silently_route_to_another_stage
     - perform_downstream_stage_work_inside_current_stage
     - invent_unregistered_route
+    - treat_prompt_route_list_as_authority
 ```
+
+Unknown stage IDs must produce a Context Request or registry amendment request instead of guessing.
 
 ## Canonical Stage IDs
 
@@ -116,8 +134,17 @@ Registry validation must check:
 2. Every `present` prompt has a corresponding file under `workflow/stage_prompts/`.
 3. `R0_RECOVERY_CLOSE` remains `missing_prompt` until `workflow/stage_prompts/R0_RECOVERY_CLOSE.md` exists and is verified.
 4. This registry does not define packet schemas.
-5. Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+5. Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` until transport schemas are formally converted.
 6. Direction Project Files must not contain stage prompt bodies.
 7. Stage prompt paths must use `workflow/stage_prompts/<STAGE_ID>.md`.
+8. Runtime core must not maintain a second full `allowed_next` transition table.
+9. Stage prompts must not be treated as authority for `allowed_next` transition lists.
+10. Stage registry interface files, if present, are derived/reference surfaces only and must not override this registry.
+11. Transport route fields, if present, are snapshots only and must not override this registry.
+12. Terminal card types are not canonical stage IDs.
 
 If a launch card names an unknown stage ID, return a Context Request or registry amendment request instead of guessing.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_registry/STAGE_REGISTRY.md`
