@@ -1279,3 +1279,7 @@ Expected behavior:
 *   Router produces Execution Log Entry using `execution_log_entry.v1`;
 *   Router declares Repository Patch using `repository_patch.v1`;
 *   in dry-run/test mode, Router uses `execution_log_entry.persist: false`, `repository_patch.operations: []`, and `changed_files_context_refresh.required: false`.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/ROUTER_STAGE_LAUNCHER.md`

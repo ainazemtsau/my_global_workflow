@@ -1004,3 +1004,7 @@ Before final output, verify:
 ## Validation anchor note
 
 Never write into an active Goal, Phase, Project File, common canon, stage prompt, or rebuild state unless the launch explicitly authorizes that route and the target is fresh.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/I0_CAPTURE.md`

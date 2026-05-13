@@ -687,3 +687,7 @@ Do not expose private reasoning.
 Do not bury the selected Goal seed.
 
 Do not end with an informal suggestion. End with the required runtime artifacts.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/G0_GOAL_SELECT.md`

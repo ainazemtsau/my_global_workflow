@@ -711,3 +711,7 @@ Do not produce multiple next routes. If the route is ambiguous and consequential
 ## Validation anchor note
 
 Do not launch P9.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md`

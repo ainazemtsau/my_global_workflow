@@ -777,3 +777,7 @@ Before finalizing, verify:
 *   The graph is no larger than necessary.
 *   Every ready\_for\_c2 graph node has validators and evidence.
 *   There is one and only one terminal route artifact.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md`

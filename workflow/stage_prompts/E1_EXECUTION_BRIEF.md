@@ -1136,3 +1136,7 @@ In `## 8. Kernel QA exceptions`, report only exceptions. If there are none, writ
 No QA exceptions.
 
 ```
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/E1_EXECUTION_BRIEF.md`

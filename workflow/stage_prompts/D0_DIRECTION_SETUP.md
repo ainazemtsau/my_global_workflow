@@ -900,3 +900,7 @@ Avoid:
 ## Validation anchor note
 
 Next Launch Card, Context Request Card, Human Decision Card, or Stop Card
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/D0_DIRECTION_SETUP.md`

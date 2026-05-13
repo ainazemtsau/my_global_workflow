@@ -1304,3 +1304,7 @@ A successful post-approval P0 output is complete only when it contains:
 *   Changed Files / Context Refresh List.
 *   Next Launch Card, Context Request, Human Decision Card, or Stop.
 *   Kernel QA only if needed.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/P0_PHASE_START.md`

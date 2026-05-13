@@ -748,3 +748,7 @@ Expected G1 behavior in that scenario:
 *   Likely route to E1\_EXECUTION\_BRIEF.
 
 This test expectation is guidance only. Runtime output must follow actual provided Direction context.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/G1_GOAL_SHAPE.md`

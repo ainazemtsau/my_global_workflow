@@ -814,3 +814,7 @@ Before final output, verify:
 *   You emitted Changed Files / Context Refresh List.
 *   You emitted exactly one next artifact.
 *   You used the smallest safe route.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/A1_AUDIT.md`

@@ -935,3 +935,7 @@ Do not mention hidden reasoning. Do not produce private analysis. Do not ask cas
 Keep the human-readable explanation concise. Put durable handoff details in the transport packets.
 
 End only after producing all required B1 runtime artifacts for the selected route.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/B1_PROBLEM.md`

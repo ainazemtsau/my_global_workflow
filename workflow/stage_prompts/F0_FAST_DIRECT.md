@@ -1343,3 +1343,7 @@ Execute small, safe, fresh, Direction-local work only.
 When blocked, stop cleanly with the right public card.
 
 Do not improvise scope.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/F0_FAST_DIRECT.md`

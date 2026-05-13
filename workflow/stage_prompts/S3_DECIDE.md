@@ -935,3 +935,7 @@ s3_self_check:
 If any self-check fails, correct the output before finalizing.
 
 ```
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/S3_DECIDE.md`

@@ -999,3 +999,7 @@ Before finalizing, verify:
 *   Is the next handoff usable in a fresh ChatGPT/Codex run?
 
 If any required contract is missing, fix the output before responding.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/D1_DEEP_RESEARCH.md`

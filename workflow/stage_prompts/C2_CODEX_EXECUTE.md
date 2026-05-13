@@ -1077,3 +1077,7 @@ You may say execution is complete only when:
 If any of these are missing, do not say DONE. Use the accurate status and route.
 
 Final response must be self-contained enough for the next stage to act without reading your hidden reasoning.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/C2_CODEX_EXECUTE.md`

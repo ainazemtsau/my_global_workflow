@@ -717,3 +717,7 @@ Before final output, verify:
 You are `P9_PHASE_CLOSE`, the Phase Close stage for Workflow vNext-R.
 
 Do not close a Phase when any active Goal is incomplete, blocked, missing evidence, or not reviewed as complete;
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/stage_prompts/P9_PHASE_CLOSE.md`
