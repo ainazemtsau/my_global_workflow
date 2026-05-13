@@ -1,4 +1,4 @@
-﻿# 02\_CURRENT\_PHASE.md
+# 02_CURRENT_PHASE.md
 
 ```yaml
 artifact_control:
@@ -9,11 +9,11 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/02_CURRENT_PHASE.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-11"
-  refresh_source: "P0-2026-05-11-personal-workflow-app-kernel-start"
+  last_refresh_at: "2026-05-12"
+  refresh_source: "G1-2026-05-12-personal-workflow-app-kernel-min-proof"
 
 current_phase:
-  state: active_pending_readback
+  state: active
   phase_name: Personal Workflow App Kernel Exploration
   phase_path: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration"
   critical_constraint: "The app/EXOCORTEX idea is too broad to safely research, architect, or build; the kernel hypothesis must be defined first."
@@ -27,10 +27,12 @@ phase_intent:
     - "This is development of the current Workflow, not a separate commercial roadmap."
     - "The user controls pace, scope, and decisions."
     - "The EXOCORTEX document is directional concept input, not a roadmap."
+    - "Future LLMs should amplify the kernel rather than replace it."
 
 guard_state:
-  active_goal_unresolved: "no active Goal exists yet"
-  next_route: G1_GOAL_SHAPE
-  blocker: "G1 must not run until this patch is applied, read repository files / verify diff or commit, and Project Files are refreshed."
-
+  active_goal_unresolved: false
+  active_goal: "Personal Workflow App Kernel Min Proof"
+  active_goal_path: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof"
+  next_route: E1_EXECUTION_BRIEF
+  blocker: none
 ```

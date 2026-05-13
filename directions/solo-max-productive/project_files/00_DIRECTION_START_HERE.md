@@ -1,4 +1,4 @@
-﻿# 00\_DIRECTION\_START\_HERE.md
+# 00_DIRECTION_START_HERE.md
 
 ```yaml
 artifact_control:
@@ -9,41 +9,42 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-11"
-  refresh_source: "P0-2026-05-11-personal-workflow-app-kernel-start"
-
+  last_refresh_at: "2026-05-12"
+  refresh_source: "G1-2026-05-12-personal-workflow-app-kernel-min-proof"
 ```
 
 ## Current pointers
 
-Current Phase: Personal Workflow App Kernel Exploration -> directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration
+Current Phase: Personal Workflow App Kernel Exploration -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration`
 
-Active Goal: none
+Active Goal: Personal Workflow App Kernel Min Proof -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
 
-Selected Goal candidate: Shape Personal Workflow App Kernel Min Proof
+Selected Goal candidate: shaped and activated
 
-Current focus: Shape the first Goal candidate for the personal Workflow app/kernel exploration.
+Current focus: Prepare the minimum execution basis for the Kernel Min Proof Brief.
 
-Next route: G1\_GOAL\_SHAPE
+Next route: `E1_EXECUTION_BRIEF`
 
 State note:
 
-*   vNext One-Goal Smoke Test is obsolete test/pilot state from Workflow vNext-R validation.
-*   Do not continue Create Lightweight Codex Small-Fix Lane unless the user explicitly reactivates it.
-*   This Phase develops the current personal ChatGPT + GitHub + Codex Workflow toward a possible custom app/kernel.
+- vNext One-Goal Smoke Test is obsolete test/pilot state from Workflow vNext-R validation.
+- Do not continue Create Lightweight Codex Small-Fix Lane unless the user explicitly reactivates it.
+- This Phase develops the current personal ChatGPT + GitHub + Codex Workflow toward a possible custom app/kernel.
+- The active Goal defines the smallest testable external-brain/workflow-kernel proof before research, architecture, or implementation.
 
 ## Default Project Files to load
 
-*   00\_DIRECTION\_START\_HERE.md
-*   01\_DIRECTION\_STATE.md
-*   02\_CURRENT\_PHASE.md
-*   03\_FOCUS\_REGISTER.md
-*   04\_ACTIVE\_GOAL.md
-*   05\_PORTFOLIO\_QUEUE.md
-*   06\_CONTEXT\_LIBRARY\_INDEX.md
+- `00_DIRECTION_START_HERE.md`
+- `01_DIRECTION_STATE.md`
+- `02_CURRENT_PHASE.md`
+- `03_FOCUS_REGISTER.md`
+- `04_ACTIVE_GOAL.md`
+- `05_PORTFOLIO_QUEUE.md`
+- `06_CONTEXT_LIBRARY_INDEX.md`
+- `07_PHASE_MEMORY_INDEX.md`
 
 ## Shared runtime file
 
-*   `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
 
 Do not create or require a local runtime-core copy under this Direction `project_files/` folder.

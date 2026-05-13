@@ -1,4 +1,4 @@
-﻿# 05\_PORTFOLIO\_QUEUE.md
+# 05_PORTFOLIO_QUEUE.md
 
 ```yaml
 artifact_control:
@@ -9,23 +9,23 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-11"
-  refresh_source: "P0-2026-05-11-personal-workflow-app-kernel-start"
-
+  last_refresh_at: "2026-05-12"
+  refresh_source: "G1-2026-05-12-personal-workflow-app-kernel-min-proof"
 ```
 
 ## Current queue state
 
-Current Phase: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration
+Current Phase: `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration`
 
-Active Goal: none
+Active Goal: `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
 
-Selected candidate: Shape Personal Workflow App Kernel Min Proof
+Selected candidate: shaped and activated
 
-Next route: G1\_GOAL\_SHAPE
+Next route: `E1_EXECUTION_BRIEF`
 
 Queue note:
 
-*   This candidate is for shaping only.
-*   Do not build the app during P0/G1.
-*   Treat vNext One-Goal Smoke Test and Create Lightweight Codex Small-Fix Lane as superseded test-state unless explicitly reactivated.
+- This Goal is for defining and testing the minimum personal workflow kernel proof.
+- Do not build the app during G1/E1.
+- Treat vNext One-Goal Smoke Test and Create Lightweight Codex Small-Fix Lane as superseded test-state unless explicitly reactivated.
+- Broad product/architecture/research work remains deferred unless a later stage explicitly routes it.
