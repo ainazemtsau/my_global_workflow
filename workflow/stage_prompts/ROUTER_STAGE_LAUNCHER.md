@@ -764,7 +764,7 @@ If the selected next stage prompt is not available:
 
 *   this is nonblocking for Router route decision;
 *   this is blocking for downstream stage execution;
-*   encode it in the Next Launch Card using `prompt_delivery.mode: request_from_repository`;
+*   encode it in the Next Launch Card using `prompt_delivery.mode: manual_prompt_required`;
 *   do not mark Context refresh required only because a downstream prompt is missing;
 *   do not execute the downstream stage.
 
@@ -772,12 +772,17 @@ Required `prompt_delivery` shape:
 
 ```yaml
 prompt_delivery:
-  mode: request_from_repository
+  mode: manual_prompt_required
   stage_prompt_source_path:
   stage_prompt_version: latest_installed
   stage_prompt_status: unknown
   prompt_text_included: false
   prompt_text: null
+  source_commit: null
+  line_count: null
+  byte_count: null
+  tail_anchor_or_eof_verified: false
+  execute_allowed: false
 
 ```
 
@@ -839,12 +844,17 @@ stage:
   status:
 
 prompt_delivery:
-  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_repository
+  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
   prompt_text_included: true | false
   prompt_text: null
+  source_commit: null
+  line_count: null
+  byte_count: null
+  tail_anchor_or_eof_verified: false
+  execute_allowed: false
 
 direction:
   name:

@@ -814,12 +814,17 @@ stage:
   version: current
   status: ready
 prompt_delivery:
-  mode: request_from_repository
+  mode: manual_prompt_required
   stage_prompt_source_path: workflow/stage_prompts/<STAGE_ID>.md
   stage_prompt_version: current
   stage_prompt_status: required
   prompt_text_included: false
   prompt_text: null
+  source_commit: null
+  line_count: null
+  byte_count: null
+  tail_anchor_or_eof_verified: false
+  execute_allowed: false
 source_state:
   pending_repository_patch:
   changed_files_context_refresh_required:

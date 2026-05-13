@@ -1087,12 +1087,17 @@ stage:
   version:
   status:
 prompt_delivery:
-  mode: embedded_in_launch_card | pasted_in_current_chat | attached_export | request_from_repository
+  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
   prompt_text_included: true | false
   prompt_text: null
+  source_commit: null
+  line_count: null
+  byte_count: null
+  tail_anchor_or_eof_verified: false
+  execute_allowed: false
 direction:
   name:
   repository_path:
