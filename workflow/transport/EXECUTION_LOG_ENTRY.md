@@ -1,145 +1,100 @@
-# 06 Execution Log Entry Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+# Execution Log Entry Transport Template
 
-# 06 Execution Log Entry Template
+```yaml
+artifact_control:
+  artifact_name: "Execution Log Entry Transport Template"
+  schema: transport_template.v1
+  owner_layer: transport
+  status: canonical
+  repo_path: "workflow/transport/EXECUTION_LOG_ENTRY.md"
+  runtime_schema: execution_log_entry.v1
+  last_updated: "2026-05-13"
+```
 
 ## Purpose
 
-An Execution Log Entry records what happened during a workflow stage or controlled runtime operation.
+Defines the canonical transport template for recording observable workflow events.
 
-It makes stage execution auditable without exposing private reasoning. It records inputs, outputs, validation, decisions, write requests, and next route.
+Execution logs record inputs, outputs, validation, decisions, write requests, and next route without exposing private reasoning.
 
-This is a transport template only. It is not an install log and not a final stage prompt.
+## Transport authority boundary — AD-WF-RT-001
+
+This template is not routing authority. Route fields are snapshots only.
 
 ## Transport invariants
 
-*   HTML is forbidden as transport.
-*   Use plain Markdown with YAML-style fields.
-*   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
-*   Log observable facts and public rationale, not private chain-of-thought.
-*   Every stage result should either include or point to an Execution Log Entry.
-*   Execution logs must name the associated launch card and result packet.
+- HTML is forbidden as transport.
+- Use plain Markdown with YAML-style fields.
+- Unknown extension fields must be tolerated by consumers.
+- Log observable facts and public rationale, not private chain-of-thought.
+- Every meaningful workflow event should include an Execution Log Entry.
+- If `persist: true`, the matching repository patch must include the log write.
 
-## Required fields
+## Canonical packet template
 
-*   `execution_log_entry`
-*   `entry_type`
-*   `workflow_version`
-*   `created_at`
-*   `stage`
-*   `input_refs`
-*   `operation_summary`
-*   `outputs`
-*   `validation`
-*   `decisions`
-*   `write_activity`
-*   `next_route`
-*   `downstream_usage`
-*   `extensions`
-
-## Template
-
-```
-execution_log_entry: 1
-entry_type: execution_log
-workflow_version: vNext-R REBUILD
-created_at: YYYY-MM-DDTHH:MM:SS±HH:MM
-created_by: ChatGPT
-
-stage:
-  stage_id:
-  stage_name:
-  stage_prompt_version:
-  stage_prompt_path:
-
-input_refs:
-  launch_card_ref:
-  prior_result_packet_refs:
-    - ref:
-  repository_context_refs:
-    - path:
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  persist: true | false
+  target_log_path:
+  event_type: router_decision | stage_run | codex_return | problem | review | install | context_request | human_decision | recovery | other
+  timestamp:
+  direction:
+    name:
+    path:
+  phase:
+    name:
+    path:
+    status:
+  goal:
+    title:
+    path:
+    status:
+  stage:
+    id:
+    name:
+  route:
+  return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
+  input_sources:
+    - source:
       freshness:
-  project_file_refs:
-    - file:
-      freshness:
-
-operation_summary:
-  user_visible_summary:
-  objective:
-  non_objectives:
-    - item:
-  route_taken:
-  route_reason:
-
-outputs:
-  result_packet_ref:
-  produced_artifacts:
-    - name:
-      type:
-      pointer_or_inline_summary:
-  rejected_or_deferred_items:
-    - item:
-      reason:
-
-validation:
-  checks_performed:
-    - check:
-      result: pass | fail | not_applicable
-  evidence_refs:
-    - ref:
-  known_gaps:
-    - gap:
-  confidence: high | medium | low
-
-decisions:
+  outputs_created:
+    -
   decisions_made:
-    - decision:
-      public_rationale:
-  decisions_deferred:
-    - decision:
-      reason:
-      human_decision_card_ref:
-
-write_activity:
-  repository_patch_emitted: true | false
-  repository_patch_ref:
-  changed_files_context_refresh_required: true | false
-  docs_maintenance_gate_ref:
-  writes_applied_this_stage: none | proposed_only | applied_by_codex | applied_manually
-
-next_route:
-  selected_route:
-  next_stage_id:
-  next_launch_card_ref:
-  stop_reason:
-  recovery_close_packet_ref:
-
-downstream_usage:
-  consumed_by:
-    - human audit
-    - ChatGPT runtime router
-    - GitHub repository documentation maintenance
-    - future review/distill stages
-  expected_next_artifact:
-    - Stage Result Packet
-    - Next Launch Card
-    - Documentation Maintenance Gate
-  validation_notes:
-    - Log must be sufficient for audit without private reasoning.
-    - Consumers may ignore unknown extension fields.
+    -
+  repository_patch:
+    required: true | false
+    summary:
+  changed_files_context_refresh:
+    required: true | false
+    files:
+      -
+  evidence_pointers:
+    -
+  friction:
+    -
+  human_burden:
+    level: H0 | H1 | H2 | H3
+    notes:
+  ai_failure_mode:
+    -
+  blocker:
+    -
+  next_route:
+  next_launch_card_created: true | false
+  notes:
 
 extensions: {}
-
 ```
-
-## Downstream usage
-
-The Execution Log Entry is consumed by human audit, the runtime router, documentation maintenance, and review/distill stages.
 
 ## Validation anchors
 
-*   `execution_log_entry: 1`
-*   `HTML is forbidden as transport.`
-*   `Unknown extension handling`
-*   `writes_applied_this_stage`
-*   `downstream_usage`
+- `schema: execution_log_entry.v1`
+- `persist`
+- `target_log_path`
+- `event_type`
+- `return_state`
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/transport/EXECUTION_LOG_ENTRY.md`

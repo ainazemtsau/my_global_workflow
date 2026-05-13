@@ -1,133 +1,87 @@
-# 07 Documentation Maintenance Gate Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+# Documentation Maintenance Gate Transport Template
 
-# 07 Documentation Maintenance Gate Template
+```yaml
+artifact_control:
+  artifact_name: "Documentation Maintenance Gate Transport Template"
+  schema: transport_template.v1
+  owner_layer: transport
+  status: canonical
+  repo_path: "workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md"
+  runtime_schema: documentation_maintenance_gate.v1
+  last_updated: "2026-05-13"
+```
 
 ## Purpose
 
-A Documentation Maintenance Gate determines whether a stage result requires GitHub repository documentation updates, Context refresh, stale marking, or no write action.
+Defines the canonical transport template for deciding whether documentation maintenance is required.
 
-It prevents documentation drift by making maintenance a formal gate instead of an afterthought.
+Use this when workflow/model changes, durable Direction changes, Goal Review, Phase Close, context loading changes, documentation updates, or stale material discovery require maintenance review.
 
-This is a transport template only. It is not a final stage prompt.
+## Transport authority boundary — AD-WF-RT-001
+
+This template is not routing authority and must not override runtime routing or registry transitions.
 
 ## Transport invariants
 
-*   HTML is forbidden as transport.
-*   Use plain Markdown with YAML-style fields.
-*   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
-*   The gate must distinguish proposed documentation changes from applied documentation changes.
-*   Do not overwrite active Workflow vNext.
-*   Context refresh must be explicit and must name exact file content or exact update block.
+- HTML is forbidden as transport.
+- Use plain Markdown with YAML-style fields.
+- Unknown extension fields must be tolerated by consumers.
+- Distinguish proposed documentation changes from applied documentation changes.
+- Do not claim documentation was updated without read-back / diff verification / commit verification.
+- Context refresh must name exact files.
 
-## Required fields
+## Canonical packet template
 
-*   `documentation_maintenance_gate`
-*   `gate_type`
-*   `workflow_version`
-*   `created_at`
-*   `source_stage`
-*   `change_summary`
-*   `documentation_impact`
-*   `repository_patch`
-*   `changed_files_context_refresh`
-*   `staleness_review`
-*   `decision`
-*   `downstream_usage`
-*   `extensions`
-
-## Template
-
-```
-documentation_maintenance_gate: 1
-gate_type: documentation_maintenance
-workflow_version: vNext-R REBUILD
-created_at: YYYY-MM-DDTHH:MM:SS±HH:MM
-created_by: ChatGPT
-
-source_stage:
-  stage_id:
-  stage_name:
-  result_packet_ref:
-  execution_log_entry_ref:
-
-change_summary:
-  material_change_made: true | false
-  summary:
-  affected_concepts:
-    - concept:
-  affected_paths:
-    - path:
-
-documentation_impact:
-  repository_update_needed: true | false
-  project_file_update_needed: true | false
-  stale_marking_needed: true | false
-  install_log_needed: true | false
-  no_update_reason:
-
-repository_patch:
+```yaml
+documentation_maintenance_gate:
   required: true | false
-  patch_ref:
-  inline_patch:
-  patch_scope:
-    - path:
-  human_approval_required_before_apply: true | false
+  reason:
 
-changed_files_context_refresh:
-  required: true | false
-  files:
-    - file:
-      action: replace_file | replace_section | no_action
-      reason:
-      content_update_summary:
-      exact_update_block_ref:
+stable_docs_checked:
+  - 01 Direction State
+  - 02 Current Phase
+  - 03 Focus Register
+  - 04 Active Goal
+  - 05 Portfolio Queue
+  - 06_CONTEXT_LIBRARY_INDEX.md
+  - relevant Knowledge / Canon / domain docs
 
-staleness_review:
-  notes_to_mark_stale:
-    - path:
-      reason:
-      replacement_pointer:
-  notes_confirmed_fresh:
-    - path:
-      reason:
-  unknown_freshness:
-    - path:
-      required_followup:
+updates:
+  - file_path:
+    action: replace_section | append_delta | mark_stale | split | merge | archive_pointer
+    reason:
 
-decision:
-  selected_gate_outcome: no_docs_change | emit_patch | request_human_decision | request_context | recovery_close | stop
-  rationale:
-  safe_to_continue_after_gate: true | false
-  next_route:
+stale_or_superseded:
+  - file_path:
+    reason:
+    replacement_pointer:
 
-downstream_usage:
-  consumed_by:
-    - ChatGPT runtime router
-    - Codex installer
-    - human manual checker
-    - future review/distill stages
-  expected_next_artifact:
-    - Repository Patch Template
-    - Human Decision Card
-    - Context Request Card
-    - Stage Result Packet continuation
-  validation_notes:
-    - Gate must not claim documentation was updated unless file read-back / diff verification / commit verification or explicit installation evidence exists.
-    - Consumers may ignore unknown extension fields.
+knowledge_updates:
+  - target_file:
+    summary:
+
+canon_candidates:
+  - target_file:
+    summary:
+
+context_loading_index_updates:
+  - summary:
+
+project_files_to_refresh:
+  - file:
+    reason:
 
 extensions: {}
-
 ```
-
-## Downstream usage
-
-The Documentation Maintenance Gate is consumed by the runtime router, Codex installer, human manual checker, and review/distill stages.
 
 ## Validation anchors
 
-*   `documentation_maintenance_gate: 1`
-*   `HTML is forbidden as transport.`
-*   `Unknown extension handling`
-*   `changed_files_context_refresh`
-*   `downstream_usage`
+- `documentation_maintenance_gate`
+- `stable_docs_checked`
+- `updates`
+- `stale_or_superseded`
+- `project_files_to_refresh`
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md`

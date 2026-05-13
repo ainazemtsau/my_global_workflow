@@ -1,124 +1,80 @@
-# 03 Context Request Card Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+# Context Request Transport Template
 
-# 03 Context Request Card Template
+```yaml
+artifact_control:
+  artifact_name: "Context Request Transport Template"
+  schema: transport_template.v1
+  owner_layer: transport
+  status: canonical
+  repo_path: "workflow/transport/CONTEXT_REQUEST_CARD.md"
+  runtime_schema: context_request.v1
+  last_updated: "2026-05-13"
+```
 
 ## Purpose
 
-A Context Request Card is emitted when a stage cannot safely proceed because required input, evidence, freshness, permission, or source material is missing.
+Defines the canonical transport template for requesting missing context.
 
-It prevents vague clarification loops by naming exactly what is missing and what can proceed safely without it.
+Use this when required context is unavailable, stale, contradictory, or too ambiguous for safe material work.
 
-This is a transport template only. It is not a final stage prompt.
+## Transport authority boundary — AD-WF-RT-001
+
+This template is not routing authority. Route fields are snapshots only.
+
+The registry remains authoritative for stage IDs and normal stage-to-stage routing.
 
 ## Transport invariants
 
-*   HTML is forbidden as transport.
-*   Use plain Markdown with YAML-style fields.
-*   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
-*   Ask only for context that blocks safe progress.
-*   If safe partial progress exists, describe the partial route instead of stopping entirely.
-*   Do not request old Workflow vNext archives unless the current step explicitly needs them.
+- HTML is forbidden as transport.
+- Use plain Markdown with YAML-style fields.
+- Unknown extension fields must be tolerated by consumers.
+- Ask only for context that blocks safe progress.
+- Do not infer missing file content from memory, old chats, search snippets, or partial GitHub output.
+- If safe partial progress exists, identify it explicitly.
 
-## Required fields
+## Canonical packet template
 
-*   `context_request_card`
-*   `card_type`
-*   `workflow_version`
-*   `created_at`
-*   `requesting_stage`
-*   `blocking_status`
-*   `missing_context`
-*   `why_needed`
-*   `safe_partial_route`
-*   `requested_user_action`
-*   `fallback_if_not_available`
-*   `downstream_usage`
-*   `extensions`
+```yaml
+workflow_packet: 1
+type: context_request
+schema: context_request.v1
+reason:
+blocking: true | false
 
-## Template
+requested_context:
+  - kind: project_file | repository_file_export | stage_prompt | codex_return | evidence | user_decision | other
+    title:
+    repository_path:
+    file_name_suggested:
+    why_needed:
+    required: true | false
+    freshness_required: fresh | any | latest_available
 
-```
-context_request_card: 1
-card_type: context_request
-workflow_version: vNext-R REBUILD
-created_at: YYYY-MM-DDTHH:MM:SS±HH:MM
-created_by: ChatGPT
+current_state:
+  direction:
+  phase:
+  goal:
+  route_attempted:
 
-requesting_stage:
+after_provided:
+  action: continue_current_stage | run_stage | regenerate_launch_card | recheck_state
   stage_id:
-  stage_name:
-  launch_card_ref:
-  result_packet_ref:
+  expected_next_output:
 
-blocking_status:
-  is_blocking: true | false
-  severity: low | medium | high
-  can_continue_partially: true | false
-  unsafe_to_continue_reason:
-
-missing_context:
-  required_items:
-    - item_id:
-      item_name:
-      item_type: user_answer | repository_file | project_file | source_document | codex_readback | web_verification | other
-      exact_path_or_location:
-      required: true | false
-      freshness_required: fresh | stale_allowed | unknown_allowed
-  optional_items:
-    - item_id:
-      item_name:
-      value_if_available:
-
-why_needed:
-  dependency_explanation:
-  risk_if_missing:
-  decision_or_output_blocked:
-
-safe_partial_route:
-  available: true | false
-  partial_output_possible:
-  limits_on_partial_output:
-  route_if_user_does_not_provide_context:
-
-requested_user_action:
-  exact_request:
-  acceptable_response_formats:
-    - format:
-  do_not_provide:
-    - item:
-      reason:
-
-fallback_if_not_available:
-  fallback_assumption:
-  fallback_risk:
-  fallback_stage_or_stop_route:
-
-downstream_usage:
-  consumed_by:
-    - human user
-    - ChatGPT runtime router
-    - requesting stage on resume
-  expected_next_artifact:
-    - user-provided context
-    - revised launch card
-    - stop
-  validation_notes:
-    - Requesting stage must consume only supplied context or explicitly state assumptions.
-    - Consumers may ignore unknown extension fields.
+instructions_for_user:
+  - exact thing to paste/export/upload
 
 extensions: {}
-
 ```
-
-## Downstream usage
-
-The Context Request Card is consumed by the human user, the runtime router, and the original requesting stage when work resumes.
 
 ## Validation anchors
 
-*   `context_request_card: 1`
-*   `HTML is forbidden as transport.`
-*   `Unknown extension handling`
-*   `safe_partial_route`
-*   `downstream_usage`
+- `workflow_packet: 1`
+- `schema: context_request.v1`
+- `requested_context`
+- `blocking`
+- `instructions_for_user`
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/transport/CONTEXT_REQUEST_CARD.md`

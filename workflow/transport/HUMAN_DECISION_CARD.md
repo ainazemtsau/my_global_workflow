@@ -1,143 +1,79 @@
-# 04 Human Decision Card Template
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Step 3 — Transport Templates Installed at: 2026-05-07T15:25:01.4848571+03:00 Source input: ChatGPT Step 3 result generated 2026-05-07 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+# Human Decision Transport Template
 
-# 04 Human Decision Card Template
+```yaml
+artifact_control:
+  artifact_name: "Human Decision Transport Template"
+  schema: transport_template.v1
+  owner_layer: transport
+  status: canonical
+  repo_path: "workflow/transport/HUMAN_DECISION_CARD.md"
+  runtime_schema: human_decision.v1
+  last_updated: "2026-05-13"
+```
 
 ## Purpose
 
-A Human Decision Card is emitted when the workflow needs an explicit user choice before it can safely continue.
+Defines the canonical transport template for a human-owned decision.
 
-It separates true decisions from routine missing-context questions and prevents the system from silently choosing policy, scope, priority, destructive action, or activation level.
+Use this when the workflow needs an explicit user conclusion before it can safely continue.
 
-This is a transport template only. It is not a final stage prompt.
+## Transport authority boundary — AD-WF-RT-001
+
+This template is not routing authority. Route fields are snapshots only.
+
+The registry remains authoritative for stage IDs and normal stage-to-stage routing.
 
 ## Transport invariants
 
-*   HTML is forbidden as transport.
-*   Use plain Markdown with YAML-style fields.
-*   Unknown extension handling: consumers must tolerant-read unknown fields under `extensions`; producers must not make unknown extensions mandatory for correct execution.
-*   Present decision options neutrally unless a recommendation is explicitly justified.
-*   Do not default to destructive, global, irreversible, or active-workflow-changing actions.
-*   Do not bundle unrelated decisions into one ambiguous choice.
+- HTML is forbidden as transport.
+- Use plain Markdown with YAML-style fields.
+- Unknown extension fields must be tolerated by consumers.
+- Do not write the user's conclusion for them.
+- Present options clearly and state tradeoffs.
+- Do not default to destructive, global, irreversible, or active-workflow-changing actions.
 
-## Required fields
+## Canonical packet template
 
-*   `human_decision_card`
-*   `card_type`
-*   `workflow_version`
-*   `created_at`
-*   `requesting_stage`
-*   `decision`
-*   `options`
-*   `recommendation`
-*   `impact`
-*   `required_response`
-*   `route_after_decision`
-*   `downstream_usage`
-*   `extensions`
-
-## Template
-
-```
-human_decision_card: 1
-card_type: human_decision
-workflow_version: vNext-R REBUILD
-created_at: YYYY-MM-DDTHH:MM:SS±HH:MM
-created_by: ChatGPT
-
-requesting_stage:
-  stage_id:
-  stage_name:
-  launch_card_ref:
-  result_packet_ref:
+```yaml
+workflow_packet: 1
+type: human_decision
+schema: human_decision.v1
 
 decision:
-  decision_id:
-  decision_title:
-  decision_question:
-  why_human_decision_is_required:
+  question:
+  why_needed:
   blocking: true | false
-  reversibility: reversible | difficult | irreversible
-  activation_impact: none | rebuild_root_only | direction_opt_in | global
 
 options:
-  - option_id: A
+  - id:
     label:
-    description:
-    benefits:
-      - item:
-    risks:
-      - item:
-    downstream_effect:
-    safe_default: true | false
-  - option_id: B
-    label:
-    description:
-    benefits:
-      - item:
-    risks:
-      - item:
-    downstream_effect:
-    safe_default: true | false
+    tradeoff:
+    consequence:
 
 recommendation:
-  recommended_option_id:
+  option_id:
   rationale:
-  confidence: high | medium | low
-  no_recommendation_reason:
+  confidence: low | medium | high
 
-impact:
-  scope_affected:
-    - path_or_stage:
-  writes_or_activation_blocked:
-    - item:
-  risk_of_no_decision:
-  rollback_complexity:
+what_changes_based_on_answer:
+  - if:
+    then:
 
-required_response:
-  acceptable_answers:
-    - option_id:
-  user_may_modify_option: true | false
-  minimum_user_input_needed:
-
-route_after_decision:
-  if_option_A:
-    next_route:
-    next_stage_id:
-    patch_required: true | false
-  if_option_B:
-    next_route:
-    next_stage_id:
-    patch_required: true | false
-  if_no_decision:
-    next_route: stop | context_request | partial_safe_route
-    reason:
-
-downstream_usage:
-  consumed_by:
-    - human user
-    - ChatGPT runtime router
-    - requesting stage on resume
-  expected_next_artifact:
-    - user decision
-    - revised launch card
-    - stop
-  validation_notes:
-    - Runtime must not infer a decision when explicit human approval is required.
-    - Consumers may ignore unknown extension fields.
+after_decision:
+  action: continue_current_stage | run_stage | regenerate_launch_card | stop
+  stage_id:
 
 extensions: {}
-
 ```
-
-## Downstream usage
-
-The Human Decision Card is consumed by the human user, the runtime router, and the requesting stage after the user chooses an option.
 
 ## Validation anchors
 
-*   `human_decision_card: 1`
-*   `HTML is forbidden as transport.`
-*   `Unknown extension handling`
-*   `activation_impact`
-*   `downstream_usage`
+- `workflow_packet: 1`
+- `schema: human_decision.v1`
+- `decision`
+- `options`
+- `after_decision`
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/transport/HUMAN_DECISION_CARD.md`
