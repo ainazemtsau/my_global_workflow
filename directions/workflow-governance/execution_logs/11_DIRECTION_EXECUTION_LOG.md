@@ -26,6 +26,22 @@ execution_log_entry:
   next_route: "Codex repository maintenance apply/read-back"
 ```
 
+```yaml
+execution_log_entry:
+  timestamp: "2026-05-13"
+  stage_or_process: "repository_maintenance_amendment"
+  summary: "Added mandatory Codex reporting rule for ChatGPT Project Files cache refresh after repository maintenance."
+  files_changed:
+    - "workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md"
+    - "workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md"
+    - "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
+    - "directions/workflow-governance/execution_logs/11_DIRECTION_EXECUTION_LOG.md"
+  validation:
+    - "Read-back anchors must confirm cache refresh reporting rule exists in manifest, guard, and runtime core."
+    - "Codex return must include project_files_cache_refresh_required section."
+  next_route: "Refresh Workflow Governance Project Files if any cached file changed."
+```
+
 ## Entry shape
 
 ```yaml

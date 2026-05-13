@@ -82,6 +82,25 @@ A GitHub read may be treated as complete when the run has sufficient evidence su
 - end-of-file marker is present for files that define one;
 - Codex read-only verification confirms the file from a local checkout.
 
+## Project Files cache refresh after repository maintenance
+
+If repository maintenance changes a file that is required in ChatGPT Project Files runtime cache, the maintenance return must explicitly state that the Project File cache must be refreshed before the next material workflow run.
+
+A GitHub commit alone is not enough to refresh ChatGPT Project Files.
+
+Required return section:
+
+```yaml
+project_files_cache_refresh_required: true | false
+target_chatgpt_project:
+manual_refresh_required: true | false
+blocking_before_next_material_run: true | false
+changed_cached_files:
+  - repository_path:
+    refresh_reason:
+manual_action:
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`

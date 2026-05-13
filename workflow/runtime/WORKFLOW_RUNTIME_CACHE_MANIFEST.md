@@ -65,6 +65,34 @@ If a required cached runtime file is missing from Project Files and GitHub read 
 
 Do not continue material workflow work by relying on memory or partial GitHub output.
 
+## Codex repository maintenance reporting rule
+
+When Codex repository maintenance creates or updates any file listed in this manifest, or any file required by a Direction's ChatGPT Project Files runtime cache, Codex must explicitly report that the corresponding ChatGPT Project File cache must be manually refreshed.
+
+Codex must include this return section after every repository maintenance apply/read-back:
+
+```yaml
+project_files_cache_refresh_required: true | false
+target_chatgpt_project:
+manual_refresh_required: true | false
+blocking_before_next_material_run: true | false
+changed_cached_files:
+  - repository_path:
+    project_file_cache_name:
+    refresh_reason:
+    blocking_before_next_material_run: true | false
+manual_action:
+```
+
+If no cached file changed, Codex must explicitly report:
+
+```yaml
+project_files_cache_refresh_required: false
+reason: "No runtime cache or Direction Project File cache file changed."
+```
+
+A GitHub commit does not update ChatGPT Project Files. Manual refresh remains required when cached files change.
+
 ## End-of-file marker
 
 `END_OF_FILE: workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`

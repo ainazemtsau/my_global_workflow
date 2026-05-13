@@ -1047,6 +1047,29 @@ Required safety text:
 - Do not touch sibling Directions.
 - Return result to the same ChatGPT stage thread for validation.
 
+## 14.5.1 Project Files Cache Refresh Reporting
+
+When Codex repository maintenance creates or updates any file that is listed in `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` or required by a Direction's ChatGPT Project Files runtime cache, Codex must explicitly report that the Project Files cache needs manual refresh.
+
+The Codex repository maintenance return must include:
+
+```yaml
+project_files_cache_refresh_required: true | false
+target_chatgpt_project:
+manual_refresh_required: true | false
+blocking_before_next_material_run: true | false
+changed_cached_files:
+  - repository_path:
+    project_file_cache_name:
+    refresh_reason:
+    blocking_before_next_material_run: true | false
+manual_action:
+```
+
+If no cached file changed, Codex must explicitly report `project_files_cache_refresh_required: false`.
+
+A committed GitHub change does not update ChatGPT Project Files. If a cached runtime file changed, manual Project Files refresh is blocking before the next material workflow run in that ChatGPT Project.
+
 ## 14.6 Direct Main Repository Maintenance Policy
 
 For repository maintenance in `ainazemtsau/my_global_workflow`, the default target branch is `main`.
