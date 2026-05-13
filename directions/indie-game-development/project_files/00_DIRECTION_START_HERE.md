@@ -8,18 +8,18 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh
-  last_updated: "2026-05-12"
-  next_action: "After G1 repository maintenance apply/read-back, run E1_EXECUTION_BRIEF for the active Goal first-playable-proof-slice-brief."
+  freshness: fresh_after_p0_repository_apply
+  last_updated: "2026-05-13"
+  next_action: "After P0 repository maintenance apply/read-back and Project Files refresh, run G1_GOAL_SHAPE for candidate core-technical-foundation-decision-brief."
 ```
 
 ## Direction identity
 
-* Direction name: `Indie Game Development`
-* Direction ID: `indie_game_development`
-* Current state: `active`
-* Workflow version: `vNext-R`
-* Last updated: `2026-05-12`
+- Direction name: `Indie Game Development`
+- Direction ID: `indie_game_development`
+- Current state: `active`
+- Workflow version: `vNext-R`
+- Last updated: `2026-05-13`
 
 ## Purpose / thesis
 
@@ -33,17 +33,31 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 
 | Pointer | Value | Canonical target |
 | --- | --- | --- |
-| Current Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
+| Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
+| Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
+| Active Goal | `none_pending_G1` | `N/A` |
+| Recommended first Goal candidate | `Сформировать Core Technical Foundation Decision Brief` | To be shaped by `G1_GOAL_SHAPE` |
+| Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
+| Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
+| Previous Goal | `first-playable-proof-slice-brief` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief` |
+| Previous Goal status | `paused_superseded_partial_progress_not_accepted` | Preserved as scaffold/evidence, not accepted completion |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Active Goal | `first-playable-proof-slice-brief` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief` |
-| Active Goal Contract | `Goal Contract — First Playable Proof Slice Brief` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md` |
-| Recommended first Goal candidate | `Сформировать минимальный playable proof slice для Expedition` | Shaped by `G1_GOAL_SHAPE`; active Goal now exists |
-| Last completed Goal | `Определить минимальное доказательное ядро первого proof Expedition` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof` |
 | Accepted Goal artifact | `Minimum Expedition Proof Core` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md` |
-| Required proof-slice handoff input | `Expedition Proof Handoff` | `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md` |
-| Current focus | Prepare E1 execution brief for the First Playable Proof Slice Brief | `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md` |
 | Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
-| Project files folder | GitHub Direction project files | `directions/indie-game-development/project_files/` |
+| Next route | `G1_GOAL_SHAPE` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
+
+## Current Phase meaning
+
+`Core Co-op Technical Foundation Selection` exists to resolve high-lock-in technical foundation choices before playable proof or implementation work.
+
+Foundation scope includes:
+
+- multiplayer technology and host-player architecture;
+- Grid/Topology transfer boundary;
+- Gas Simulation durable gameplay logic model;
+- smallest durable technical nucleus to build next.
+
+FishNet is a candidate based on old project evidence, not a final default. Unity multiplayer stack and other viable options may be considered through the proper research/decision route.
 
 ## Default Project Files to load
 
@@ -64,48 +78,12 @@ Also load shared runtime cache files defined in:
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 ```
 
-## Shared runtime file
-
-Load shared runtime core separately from `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
-
-Do not create or require a local runtime-core copy under this Direction `project_files/` folder.
-
-## Active domain documentation
-
-`Game Documentation` remains active domain documentation at:
-
-`directions/indie-game-development/domain_docs/game_documentation`
-
-It is not archive material and must not be hidden during workflow cleanup. Request specific game documentation through `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`; do not bulk-load all game docs by default.
-
-For the next proof-slice shaping route, load the exact proof handoff:
-
-`directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
-
-This targeted load is not Game Documentation promotion.
-
-## Last closed Phase result
-
-P9 closed `Expedition First Proof Checkpoint`.
-
-The accepted proof-core rule remains:
-
-> The first Expedition proof must prove a connected co-op judgment loop, not gas simulation alone.
-
-The accepted proof core is not a prototype design, not an implementation plan, and not a Game Documentation promotion.
-
-## Current Phase result expected
-
-`Expedition First Playable Proof Slice` should produce the smallest playable proof slice that can test the accepted Expedition proof core as a concrete game situation.
-
-It must not create another abstract readiness/boundary document.
-
 ## Normal next route
 
-`E1_EXECUTION_BRIEF` for the active Goal:
+Run `G1_GOAL_SHAPE` for the candidate Goal:
 
-`Сформировать минимальный playable proof slice для Expedition`
+`Сформировать Core Technical Foundation Decision Brief`
 
-Do not run `E1_EXECUTION_BRIEF` until the G1 repository maintenance patch is applied, read back, diff-verified, commit-verified, and refreshed in context.
+Do not run G1 until this P0 patch is applied, read back, diff-verified, commit-verified, and refreshed in ChatGPT Project Files.
 
-Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, and scope are verified.
+Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, scope, and execution route are verified.

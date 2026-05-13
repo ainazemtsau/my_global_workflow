@@ -5,8 +5,8 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh
-activated_at: "2026-05-12"
+projection_status: fresh_after_p0_repository_apply_readback
+activated_at: "2026-05-13"
 ```
 
 ## Canon rule
@@ -15,9 +15,7 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Default context
 
-Load these files by default for Indie Game Development runtime.
-
-In the ChatGPT Project, these files should be present as Project Files runtime cache so the chat does not depend on potentially truncated GitHub connector reads for core workflow behavior:
+Load these files by default for Indie Game Development runtime:
 
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
@@ -50,97 +48,85 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 
 ## Active Phase context
 
-* `directions/indie-game-development/phases/expedition-first-playable-proof-slice/00_PHASE_BRIEF.md`
-  * Status: `active_phase_brief`
-  * Load for `E1_EXECUTION_BRIEF` and any route working on the current Phase.
-* `directions/indie-game-development/phases/expedition-first-playable-proof-slice/phase_execution_log.md`
-  * Status: `active_phase_log`
-  * Request only when execution history is needed.
+Load for work on the current Phase:
+
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+  - Status: `active_phase_brief`
+  - Load for `G1_GOAL_SHAPE` and any route working on the current Phase.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md`
+  - Status: `active_phase_log`
+  - Request only when execution history is needed.
 
 ## Active Goal context
 
-Load these exact files when working on the active Goal `first-playable-proof-slice-brief`:
+No active Goal exists after P0.
 
-* `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
-  * Status: `active_goal_contract`
-  * Load for `E1_EXECUTION_BRIEF`, Goal execution, and Goal review.
-* `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/execution_log.md`
-  * Status: `active_goal_log`
-  * Request only when execution history is needed.
+First Goal candidate awaiting G1:
 
-## Conditionally required proof-slice context
+- Candidate ID: `core-technical-foundation-decision-brief`
+- Candidate title: `Сформировать Core Technical Foundation Decision Brief`
+- Recommended next stage: `G1_GOAL_SHAPE`
 
-Load these exact files when shaping, reviewing, or executing work for `Expedition First Playable Proof Slice`:
+## Conditionally required technical foundation context
 
-* `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
-  * Status: `required_for_first_playable_proof_slice_shaping`
-  * Reason: existing downstream proof handoff; prevents duplicate readiness/boundary work.
-* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-  * Status: `accepted_by_R1_and_closed_by_P9`
-  * Reason: accepted proof core and validation boundary for first playable proof slice.
+Load/request these when shaping, researching, deciding, or executing the first technical foundation Goal:
 
-Request only if product identity becomes unclear:
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+  - Status: `required_for_current_G1`
+  - Reason: active Phase frame and closure contract.
+- `directions/indie-game-development/domain_docs/game_documentation/technical-foundation-gas-and-grid-contract.md`
+  - Status: `request_only`
+  - Reason: prior technical foundation/gas/grid documentation candidate.
+- `directions/indie-game-development/domain_docs/game_documentation/clean-start-transfer-boundary.md`
+  - Status: `request_only`
+  - Reason: old-to-new project transfer boundary context.
+- `directions/indie-game-development/domain_docs/game_documentation/foundation-docs-index.md`
+  - Status: `request_only`
+  - Reason: index for relevant foundation docs.
+- `directions/indie-game-development/phases/expedition-first-playable-proof-slice/00_PHASE_BRIEF.md`
+  - Status: `paused_superseded_phase_context`
+  - Reason: previous Phase context; do not treat as current active Phase.
+- `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
+  - Status: `paused_superseded_goal_context`
+  - Reason: previous active Goal; not accepted completion.
+- `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/02_FIRST_PLAYABLE_PROOF_SLICE_BRIEF.md`
+  - Status: `preserved_scaffold_evidence_not_accepted`
+  - Reason: useful scaffold/evidence only.
+- `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
+  - Status: `request_only_product_identity_context`
+  - Reason: preserve accepted proof direction if product identity becomes unclear.
+- `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
+  - Status: `accepted_by_R1_and_closed_by_P9`
+  - Reason: accepted proof core; do not treat as prototype design or execution brief.
 
-* `directions/indie-game-development/domain_docs/game_documentation/expedition-experience-model.md`
-* `directions/indie-game-development/domain_docs/game_documentation/primary-product-bet-expedition.md`
+## Future context not required for P0 but likely required later
 
-## Request-only context
-
-### Active domain documentation
-
-* `directions/indie-game-development/domain_docs/game_documentation/game-documentation.md`
-* `directions/indie-game-development/domain_docs/game_documentation/game-foundation.md`
-* `directions/indie-game-development/domain_docs/game_documentation/technical-foundation-gas-and-grid-contract.md`
-* `directions/indie-game-development/domain_docs/game_documentation/clean-start-transfer-boundary.md`
-* `directions/indie-game-development/domain_docs/game_documentation/foundation-docs-index.md`
-* `directions/indie-game-development/domain_docs/game_documentation/documentation-index.md`
-* `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
-* `directions/indie-game-development/domain_docs/game_documentation/primary-product-bet-expedition.md`
-* `directions/indie-game-development/domain_docs/game_documentation/expedition-experience-model.md`
-* `directions/indie-game-development/domain_docs/game_documentation/expedition-skeleton-document.md`
-
-### Closed Phase context
-
-* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/00_PHASE_BRIEF.md`
-  * Status: `closed_by_P9`
-* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/05_PHASE_REVIEW.md`
-  * Status: `P9_phase_review_closed`
-* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/phase_execution_log.md`
-  * Status: `phase_log_created_by_P9`
-
-### Accepted Goal artifacts
-
-* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-  * Status: `accepted_by_R1_and_closed_by_P9`
-  * Use when shaping the next proof-related Phase or Goal.
-  * Do not treat as a prototype design, implementation plan, Game Documentation promotion, or Codex execution brief.
-
-### Preserved Goal context
-
-* Closed Phase Goal children: `Sessions`, `Wave Cards`, `Decisions`, `Goal Brief`, `Execution Pack`.
-* Phase/Goal working context and execution logs when a stage asks for them.
-
-## Archive boundary
-
-Archived or historical material is pointer-only and must not be default-loaded.
-
-The closed Expedition First Proof Checkpoint is not buried as archive by P9; it remains request-only Phase context.
+- old Unity project code;
+- old Grid/Topology implementation files;
+- old Grid/Topology tests;
+- old Gas Simulation implementation/docs/tests;
+- old FishNet integration files;
+- old technical documentation;
+- profiling notes;
+- current external multiplayer technology evidence;
+- Unity multiplayer stack documentation;
+- FishNet documentation;
+- other candidate networking technology documentation.
 
 ## Tool boundary
 
 Concrete project setup for Gas Coop Game must be verified before Codex product/project execution. Do not infer AGENTS.md, `.codex/config.toml`, Task Master, Serena, Basic Memory, or validators from governance notes.
 
+Repository maintenance is allowed only for approved `repository_patch.v1` application/read-back and is not product/project execution.
+
 ## Game Documentation promotion boundary
 
-The accepted minimum proof-core artifact and the proof handoff may become candidate inputs for future Game Documentation maintenance, but they are not promoted automatically.
-
-A future documentation stage must load the exact target Game Documentation files before writing domain docs.
+Foundation decisions may become candidates for future Game Documentation maintenance, but they are not promoted automatically.
 
 ## Duplicate-artifact prevention note
 
-Before proposing a new proof readiness, proof boundary, or handoff artifact, load/check:
+Do not create another proof-boundary/readiness artifact unless evidence proves the accepted proof core/handoff are insufficient.
 
-* `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
-* `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
+Do not recreate `Expedition First Proof Checkpoint`.
 
-If those files already perform the proposed artifact's job, reuse them instead of creating another abstract layer.
+This current Phase has a different delta: high-lock-in technical foundation selection for a new co-op project.

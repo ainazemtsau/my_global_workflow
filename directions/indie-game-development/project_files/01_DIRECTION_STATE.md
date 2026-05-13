@@ -7,8 +7,8 @@ project_file_control:
   direction: directions/indie-game-development
   source_files:
     - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
-  activated_at: "2026-05-12"
-  source_freshness: active_git_file
+  activated_at: "2026-05-13"
+  source_freshness: active_git_file_after_p0_repository_apply_readback
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -20,17 +20,21 @@ direction:
   id: indie_game_development
   state: active
   workflow_version: vNext-R
-  current_phase_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice"
-  active_goal_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief"
-  active_goal_contract: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md"
+  current_phase_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
+  active_goal_pointer: null
+  active_goal_contract: null
+  recommended_first_goal_candidate: core-technical-foundation-decision-brief
   last_closed_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   last_closed_phase_result: p9_closed
+  previous_active_phase_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice"
+  previous_active_phase_status: paused_superseded_not_closed
+  previous_active_goal_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief"
+  previous_active_goal_status: paused_superseded_partial_progress_not_accepted
   last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   last_completed_goal_result: r1_reviewed_accepted
   accepted_goal_artifact: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md"
-  required_proof_slice_handoff: "directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md"
-  next_route: E1_EXECUTION_BRIEF
-  last_updated: "2026-05-12"
+  next_route: G1_GOAL_SHAPE
+  last_updated: "2026-05-13"
 ```
 
 ## Purpose / thesis
@@ -39,55 +43,55 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Durable commitments
 
-* Expedition is the active product hypothesis.
-* The first proof should test game meaning and system synergy, not gas simulation alone.
-* The accepted minimum proof core is a connected Expedition co-op judgment loop:
-  risk preparation → lift descent → gas/topology/dangerous value reading → route/safety intervention → dangerous vessel recovery/stabilization → readable consequence → push/reroute/secure/retreat/abandon decision → consequence ledger → reason for next descent.
-* Gas-only proof is rejected. Gas is supporting evidence only when it creates Expedition judgment.
-* The current active Phase must move from accepted proof boundary to the first minimal playable proof slice.
-* Do not create another abstract proof-boundary/readiness artifact unless new evidence proves the existing handoff/core insufficient.
-* Game truths produced by Goals may move into permanent `Game Documentation` only through an explicit later documentation stage or approved documentation-maintenance patch.
-* Codex/project execution requires verified concrete project/tool bindings.
+- Expedition remains the active product hypothesis.
+- The first proof should test game meaning and system synergy, not gas simulation alone.
+- Gas-only proof remains rejected.
+- This is a new project; old project material is evidence/source material, not automatic production base.
+- Multiplayer technology and architecture are foundation decisions because the game is co-op.
+- FishNet was used before but is not final for the new project until selected with evidence.
+- Gas Simulation gameplay logic must be durable/extensible from the first real implementation, not hardcoded/disposable.
+- Grid/Topology old modules may be transferable, but transfer requires audit and boundary decision.
+- Game truths produced by Goals may move into permanent `Game Documentation` only through an explicit later documentation stage or approved documentation-maintenance patch.
+- Codex product/project execution requires verified concrete project/tool bindings.
 
 ## Current Phase
 
-* Phase: `Expedition First Playable Proof Slice`
-* Path: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
-* Status: `active`
-* Started by: `P0_PHASE_START`
-* Started at: `2026-05-12`
-* Current Critical Constraint: proof identity/boundary exists, but the smallest playable proof slice does not.
-* Minimum Outcome: accepted `First Playable Proof Slice Brief`.
-* Validation Signal: G1 shaped a concrete first playable proof slice Goal without repeating proof-boundary work or starting implementation.
-* Active Goal: `first-playable-proof-slice-brief`
-* Active Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
-* Next route: `E1_EXECUTION_BRIEF`
+- Phase: `Core Co-op Technical Foundation Selection`
+- Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
+- Status: `active_after_p0_repository_apply_readback`
+- Started by: `P0_PHASE_START`
+- Started at: `2026-05-13`
+- Current Critical Constraint: high-lock-in co-op technical foundation choices are unresolved.
+- Minimum Outcome: accepted `Core Technical Foundation Decision Brief`.
+- Validation Signal: accepted foundation decision covers multiplayer stack/architecture, Grid/Topology transfer boundary, Gas Simulation durable logic architecture, and smallest durable technical nucleus.
+- Active Goal: `none_pending_G1`
+- Recommended first Goal candidate: `core-technical-foundation-decision-brief`
+- Next route: `G1_GOAL_SHAPE`
+
+## Previous active Phase / Goal
+
+- Phase: `Expedition First Playable Proof Slice`
+- Path: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
+- Status: `paused_superseded_not_closed`
+- Reason: user challenged the bottleneck; playable-slice brief is premature until technical foundation selection is resolved.
+- Goal: `first-playable-proof-slice-brief`
+- Status: `paused_superseded_partial_progress_not_accepted`
+- F0 artifact: preserved as scaffold/evidence, not accepted completion.
+- P9 launched: `false`
 
 ## Last closed Phase
 
-* Phase: `Expedition First Proof Checkpoint`
-* Path: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
-* Close stage: `P9_PHASE_CLOSE`
-* Close result: `closed`
-* Closed at: `2026-05-12`
-* Next route after close: `P0_PHASE_START`
-* P0 route completed by starting `Expedition First Playable Proof Slice`.
-
-## Last completed Goal
-
-* Goal: `Определить минимальное доказательное ядро первого proof Expedition`
-* Path: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof`
-* Accepted artifact: `03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-* Review stage: `R1_GOAL_REVIEW_DISTILL`
-* Review result: `completed_verified`
-* Status: `r1_reviewed_accepted`
+- Phase: `Expedition First Proof Checkpoint`
+- Path: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
+- Close stage: `P9_PHASE_CLOSE`
+- Close result: `closed`
+- Closed at: `2026-05-12`
+- Next route after close: `P0_PHASE_START`
 
 ## Project Files export state
 
-* Last refresh: `2026-05-12`
-* Required refresh: `after G1 Goal Contract patch is applied and read back`
-* Known stale files: `none known after this patch is applied and read back`
-* Current route: `E1_EXECUTION_BRIEF`
-* Active Phase: `Expedition First Playable Proof Slice`
-* Active Goal: `first-playable-proof-slice-brief`
-* Active Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
+- Last refresh: `2026-05-13 after P0 repository maintenance apply/read-back`
+- Required refresh: `before G1_GOAL_SHAPE`
+- Current route: `G1_GOAL_SHAPE`
+- Active Phase: `Core Co-op Technical Foundation Selection`
+- Active Goal: `none_pending_G1`

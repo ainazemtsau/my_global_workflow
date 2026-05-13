@@ -131,3 +131,17 @@ candidate:
 `G1_GOAL_SHAPE`
 
 Do not run the next stage until this Phase start patch is applied, read back, diff-verified, commit-verified, and refreshed in context.
+
+## P0 status update — 2026-05-13
+
+Status after `P0_PHASE_START`: `paused_superseded_not_closed`.
+
+This Phase was not closed by P9 and must not be treated as successful Phase completion.
+
+Reason: R1/user review identified that the current bottleneck changed. The playable-slice brief route is useful context, but the new project needs high-lock-in technical foundation selection first: multiplayer technology/architecture, Grid/Topology transfer boundary, and Gas Simulation durable logic architecture.
+
+Replacement active Phase:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection`
+
+Preserve this Phase as historical/current evidence. Do not route it to P9 unless a later stage explicitly decides how to close or archive it.

@@ -203,3 +203,13 @@ forbidden_actions:
 `E1_EXECUTION_BRIEF`
 
 E1 should produce the minimum HOW for creating the `First Playable Proof Slice Brief`, including artifact boundaries, validation method, required source context, stop conditions, and whether the work can be direct or must route through a later stage.
+
+## P0 status update — 2026-05-13
+
+Status after `P0_PHASE_START`: `paused_superseded_partial_progress_not_accepted`.
+
+The F0-created First Playable Proof Slice Brief remains useful scaffold/evidence, but it is not accepted as Goal completion.
+
+Reason: the user identified a higher-leverage bottleneck for the new project: core technical foundation selection, including multiplayer technology/architecture, Grid/Topology transfer boundary, and durable Gas Simulation logic architecture.
+
+Do not route this Goal to R1 acceptance or Phase closure unless a later explicit stage reactivates it.

@@ -5,8 +5,8 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh
-activated_at: "2026-05-12"
+projection_status: fresh_after_p0_repository_apply_readback
+activated_at: "2026-05-13"
 ```
 
 ## Canon rule
@@ -15,64 +15,63 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-Active Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
-
-Active Phase name: `Expedition First Playable Proof Slice`
-
-Last closed Phase: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
-
-Active Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
-
-Active Goal name: `Сформировать минимальный playable proof slice для Expedition`
-
-Active Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
-
-Last completed Goal: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof`
-
-Accepted Goal artifact: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-
-Required proof-slice handoff: `directions/indie-game-development/domain_docs/game_documentation/expedition-proof-handoff.md`
-
-Next route: `E1_EXECUTION_BRIEF`
-
-Phase start result: `P0_PHASE_START created Expedition First Playable Proof Slice`
-
-Goal shape result: `G1_GOAL_SHAPE created active Goal Contract first-playable-proof-slice-brief`
+- Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
+- Active Phase name: `Core Co-op Technical Foundation Selection`
+- Active Goal: `none_pending_G1`
+- Recommended first Goal candidate: `core-technical-foundation-decision-brief`
+- Recommended first Goal name: `Сформировать Core Technical Foundation Decision Brief`
+- Next route: `G1_GOAL_SHAPE`
+- Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
+- Previous Phase status: `paused_superseded_not_closed`
+- Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
+- Previous Goal status: `paused_superseded_partial_progress_not_accepted`
+- Last closed Phase: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
+- Last completed Goal: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof`
 
 ## Selected current Phase direction
 
-* `Expedition First Playable Proof Slice` — selected by `P0_PHASE_START`.
-  * Purpose: move from accepted proof handoff/core to the smallest concrete playable proof slice.
-  * Active Goal: `Сформировать минимальный playable proof slice для Expedition`.
-  * Goal Contract: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief/00_GOAL_CONTRACT.md`
-  * Next route: `E1_EXECUTION_BRIEF`.
-  * Not a prototype implementation phase.
-  * Not a Game Documentation promotion phase.
-  * Not Codex product/project execution.
+`Core Co-op Technical Foundation Selection` is selected by `P0_PHASE_START`.
+
+Purpose: resolve high-lock-in technical foundation choices for a new co-op project before playable proof or implementation work.
+
+Required foundation surface:
+
+- multiplayer technology and host-player architecture;
+- Grid/Topology transfer boundary;
+- Gas Simulation durable logic architecture;
+- smallest durable technical nucleus.
 
 ## Completed / accepted
 
-* `Определить минимальное доказательное ядро первого proof Expedition` — accepted by `R1_GOAL_REVIEW_DISTILL`.
-  * Artifact: `03_MINIMUM_EXPEDITION_PROOF_CORE.md`
-  * Verdict: `completed_verified`
-  * Status: `r1_reviewed_accepted`
+- `Определить минимальное доказательное ядро первого proof Expedition`
+  - Artifact: `03_MINIMUM_EXPEDITION_PROOF_CORE.md`
+  - Verdict: `completed_verified`
+  - Status: `r1_reviewed_accepted`
+
+## Preserved / paused
+
+- `Expedition First Playable Proof Slice`
+  - Status: `paused_superseded_not_closed`
+  - Reason: technical foundation selection is now the current bottleneck.
+- `first-playable-proof-slice-brief`
+  - Status: `paused_superseded_partial_progress_not_accepted`
+  - Reason: F0 artifact is useful scaffold/evidence but not accepted completion.
 
 ## Queue items
 
-* Expedition First Proof Readiness Package
-* Expedition Truthful Build / Proof Boundary
-* Expedition Proof-Blocking Decision Map
-* Expedition System Synergy Research Pack
-* Expedition Controlled Visual Probe Set
-* Expedition Durable Skeleton Documentation Promotion
-* Expedition Project Bootstrap / Tool Binding Readiness
+- Core Technical Foundation Decision Brief
+- Expedition Project Bootstrap / Tool Binding Readiness
+- Durable Technical Nucleus Implementation
+- Expedition System Synergy Research Pack
+- Expedition Durable Skeleton Documentation Promotion
+- Expedition Controlled Visual Probe Set
 
 Queue items are request-only until selected by a vNext-R stage result.
 
 ## Queue discipline
 
-The accepted proof core and proof handoff should guide future Phase or Goal selection, but they must not be expanded into implementation work without a proper Phase, Goal, and execution route.
+Do not run implementation, Unity bootstrap, code transfer, or Codex product/project execution until the foundation decision and execution route are accepted.
 
-Do not delete queue items during this Phase.
+Do not default to FishNet solely because it was used in the old project.
 
-Do not run `G0_GOAL_SELECT` now. The active Goal is already shaped and should proceed to `E1_EXECUTION_BRIEF` after repository maintenance apply/read-back.
+Do not create throwaway gas/grid prototype logic.
