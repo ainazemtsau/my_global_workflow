@@ -19,18 +19,23 @@ Current Phase: Personal Workflow App Kernel Exploration -> `directions/solo-max-
 
 Active Goal: Personal Workflow App Kernel Min Proof -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
 
-Selected Goal candidate: shaped and activated
+Active Goal status: contested / superseded pending replacement
 
-Current focus: Prepare the minimum execution basis for the Kernel Min Proof Brief.
+Selected Goal candidate: Personal Workflow System Core and MVP Definition -> pending `G1_GOAL_SHAPE`
 
-Next route: `E1_EXECUTION_BRIEF`
+Current focus: Repair the active Goal framing. The kernel loop has already been proven enough by the current ChatGPT + GitHub + Codex workflow; the next Goal must define the core/base system or MVP that can become more useful than the current workflow.
+
+Next route: `G1_GOAL_SHAPE`
 
 State note:
 
 - vNext One-Goal Smoke Test is obsolete test/pilot state from Workflow vNext-R validation.
 - Do not continue Create Lightweight Codex Small-Fix Lane unless the user explicitly reactivates it.
 - This Phase develops the current personal ChatGPT + GitHub + Codex Workflow toward a possible custom app/kernel.
-- The active Goal defines the smallest testable external-brain/workflow-kernel proof before research, architecture, or implementation.
+- The old active Goal, Personal Workflow App Kernel Min Proof, is superseded as an execution target because the proof framing is now redundant.
+- Do not create `03_KERNEL_MIN_PROOF_BRIEF.md`.
+- Do not delete the old Goal folder; preserve it as superseded/replaced provenance.
+- Do not start app implementation, choose a stack, design full architecture, or load the full EXOCORTEX seed by default.
 
 ## Default Project Files to load
 

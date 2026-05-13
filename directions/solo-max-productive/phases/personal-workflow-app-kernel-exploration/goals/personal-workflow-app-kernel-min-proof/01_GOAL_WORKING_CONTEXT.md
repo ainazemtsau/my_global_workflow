@@ -118,3 +118,25 @@ Stop or reroute if:
 - external evidence is required before defining the proof;
 - the full EXOCORTEX seed becomes necessary but is not loaded;
 - repository/source-of-truth conflict appears.
+
+## Supersession note — 2026-05-13
+
+`B1_PROBLEM` classified this working context as superseded for execution.
+
+The old context remains useful only as comparison material for the replacement Goal.
+
+Replacement route: `G1_GOAL_SHAPE`
+
+Replacement Goal candidate: `Personal Workflow System Core and MVP Definition`
+
+Carry forward:
+- persistent kernel/substrate framing;
+- single coherent distributed assistant/operator idea;
+- model-vs-kernel boundary;
+- Reality Alignment / mismatch-capture loop;
+- hard cuts against app build, stack choice, full architecture, dashboards, automations, and broad research.
+
+Do not carry forward:
+- the premise that the next artifact should prove the kernel loop;
+- the E1 route for a Kernel Min Proof Brief;
+- creation of `03_KERNEL_MIN_PROOF_BRIEF.md`.

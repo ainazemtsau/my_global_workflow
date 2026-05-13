@@ -5,11 +5,15 @@ artifact_control:
   artifact_name: "00 Goal Contract — Personal Workflow App Kernel Min Proof"
   schema: goal_contract.v1
   owner_layer: persistence
-  status: canonical
+  status: superseded_pending_replacement
   source_file: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/00_GOAL_CONTRACT.md"
   freshness: fresh
   created_by_stage: G1_GOAL_SHAPE
   created_at: "2026-05-12"
+  superseded_by: "pending G1_GOAL_SHAPE: Personal Workflow System Core and MVP Definition"
+  superseded_reason: "B1_PROBLEM determined the Goal is misframed because the current ChatGPT + GitHub + Codex workflow has already proven the kernel/workflow loop enough."
+  last_updated_by_stage: B1_PROBLEM
+  last_updated_at: "2026-05-13"
 ```
 
 ## Goal identity
@@ -22,7 +26,9 @@ Direction: `directions/solo-max-productive`
 
 Phase: `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration`
 
-Status: active
+Status: superseded_pending_replacement
+
+Supersession status: This Goal is preserved as provenance but must not proceed to execution. The next safe route is `G1_GOAL_SHAPE` for `Personal Workflow System Core and MVP Definition`.
 
 ## WHAT
 
@@ -135,3 +141,17 @@ Reason: the Goal is shaped enough to define a minimum execution basis, but not a
 ## Close path
 
 After execution and validation, route to `R1_GOAL_REVIEW_DISTILL` to decide whether the kernel proof becomes durable knowledge, a next Goal, or a cut/deferred idea.
+
+## Supersession note — 2026-05-13
+
+`B1_PROBLEM` classified this Goal as misframed / superseded pending replacement.
+
+Reason: the Goal asks for a Kernel Min Proof Brief, but the current ChatGPT + GitHub + Codex workflow has already proven the kernel/workflow loop enough for the next step.
+
+Replacement route: `G1_GOAL_SHAPE`
+
+Replacement Goal candidate: `Personal Workflow System Core and MVP Definition`
+
+Do not create `03_KERNEL_MIN_PROOF_BRIEF.md`.
+
+Do not delete this Goal folder; preserve it as historical provenance for the replacement Goal.
