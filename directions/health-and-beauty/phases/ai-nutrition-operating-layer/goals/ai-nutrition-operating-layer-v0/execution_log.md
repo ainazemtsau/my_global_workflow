@@ -75,3 +75,76 @@ execution_log_entry:
     Repository patch must be applied and read back before relying on updated
     GitHub state.
 ```
+
+## 2026-05-13 — E1_EXECUTION_BRIEF routed to D1_DEEP_RESEARCH
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  persist: true
+  target_log_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md
+  event_type: stage_run
+  timestamp: "2026-05-13"
+  direction:
+    name: directions/health-and-beauty
+    path: directions/health-and-beauty
+  phase:
+    name: "Собрать AI-операционный слой питания без тяжёлого трекинга"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+    status: active
+  goal:
+    title: "Собрать AI Nutrition Operating Layer v0"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0
+    status: active
+  stage:
+    id: E1_EXECUTION_BRIEF
+    name: Execution Brief
+  route: D1_DEEP_RESEARCH
+  return_state: DONE
+  input_sources:
+    - source: Direction Project Files 00-07
+      freshness: active_git_file_or_project_file_cache
+    - source: workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+      freshness: project_file_cache
+    - source: workflow/stage_registry/STAGE_REGISTRY.md
+      freshness: project_file_cache
+    - source: workflow/stage_prompts/E1_EXECUTION_BRIEF.md
+      freshness: pasted_full_prompt_current_chat
+    - source: Goal Contract and Goal Working Context
+      freshness: active_git_file
+  outputs_created:
+    - E1 Execution Brief
+    - Repository Patch
+    - D1 Launch Card
+  decisions_made:
+    - Reject F0_FAST_DIRECT because research/storage/tooling architecture is unresolved.
+    - Route to D1_DEEP_RESEARCH with scoped research depth.
+    - Preserve Goal scope: operating layer, not menu-only, not MacroFactor, not heavy tracker.
+  repository_patch:
+    required: true
+    summary: Create 02_EXECUTION_BRIEF.md and append E1 execution log entry.
+  changed_files_context_refresh:
+    required: true
+    files:
+      - directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/02_EXECUTION_BRIEF.md
+      - directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md
+  evidence_pointers:
+    - user_approved_formalization_2026-05-13
+    - E1_research_need_gate
+    - STAGE_REGISTRY_allows_E1_to_D1
+  friction:
+    - Previous E1 preview incorrectly preferred F0 before resolving research/tooling assumptions.
+  human_burden:
+    level: H1
+    notes: User supplied full E1 prompt and approved formalization.
+  ai_failure_mode:
+    - Do not perform D1 research inside E1.
+    - Do not route to F0 when storage/tooling architecture is unresolved.
+  blocker: []
+  next_route: D1_DEEP_RESEARCH
+  next_launch_card_created: true
+  notes: >
+    Run Codex repository maintenance apply/read-back before relying on the persisted
+    E1 brief. D1 should research operational architecture only, not nutrition science
+    or implementation.
+```
