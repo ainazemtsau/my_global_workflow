@@ -1319,32 +1319,6 @@ Shared runtime core changed
 
 Fresh file read-back / diff verification / commit verification wins over stale attached Project files.
 
-## 18.1 Shared Workflow All-Direction Rollout Rule
-
-Shared workflow runtime changes must not be scoped mentally to one Direction.
-
-If a repository maintenance patch changes shared workflow behavior, runtime context loading, stage prompt loading, GitHub read policy, Project Files cache policy, Stage Registry, source-of-truth rules, or ChatGPT Project setup instructions, the patch must evaluate every active Direction Project.
-
-Active Direction Projects currently include:
-
-```text
-Workflow Governance
-Solo Max Productive
-Indie Game Development
-Health and Beauty
-```
-
-Required behavior:
-
-1. Identify all active Direction Projects affected by the shared change.
-2. Update central setup docs and per-Direction Project Instructions where needed.
-3. Update each affected Direction `06_CONTEXT_LIBRARY_INDEX.md` and default Project Files list where needed.
-4. Return `project_files_cache_refresh_required` for every affected ChatGPT Project.
-5. If a Direction is intentionally excluded, state the exact reason.
-6. Do not assume a shared runtime change is complete if only Workflow Governance was updated.
-
-For Workflow Governance specifically: workflow maintenance work must include cross-Direction rollout impact as a default check, because Workflow Governance exists to maintain the shared workflow layer, not only its own Direction files.
-
 ## 19\. Compatibility / black-box stage rule
 
 Stage prompts are black-box modules behind public runtime contracts.

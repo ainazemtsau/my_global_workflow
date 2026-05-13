@@ -74,6 +74,25 @@ execution_log_entry:
   next_route: "Refresh all active ChatGPT Project Instructions and Project Files runtime caches."
 ```
 
+```yaml
+execution_log_entry:
+  timestamp: "2026-05-13"
+  stage_or_process: "repository_maintenance_correction"
+  patch_id: WFG_PATCH_2026_05_13_REMOVE_ROLLOUT_RULE_FROM_RUNTIME_CORE
+  summary: "Moved the hard all-Direction rollout rule out of shared runtime core and kept it in Workflow Governance-specific governance/setup surfaces."
+  files_changed:
+    - "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
+    - "directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md"
+    - "directions/workflow-governance/project_files/03_FOCUS_REGISTER.md"
+    - "directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md"
+    - "directions/workflow-governance/evals/TRANSPORT_CONTRACT_CHECKLIST.md"
+    - "directions/workflow-governance/execution_logs/11_DIRECTION_EXECUTION_LOG.md"
+  validation:
+    - "Runtime core must not contain `## 18.1 Shared Workflow All-Direction Rollout Rule`."
+    - "Workflow Governance Project Instructions must contain `## Hard Cross-Direction Rollout Rule`."
+  next_route: "Refresh Workflow Governance Project Instructions and affected Project Files if changed."
+```
+
 ## Entry shape
 
 ```yaml
