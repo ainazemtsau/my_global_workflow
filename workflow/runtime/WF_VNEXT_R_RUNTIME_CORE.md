@@ -433,6 +433,23 @@ Do not continue material work if blocking context is missing.
 
 If context is non-blocking, proceed and list it as `request_if_needed`.
 
+## 8.5 GitHub Long File Read Guard
+
+A GitHub repository file read is not full-file authority when the response is truncated, omitted due to tool response token budget, lacks an expected tail anchor, or cannot verify that the chat saw the end of the file.
+
+When material work depends on such a file, the workflow must stop and return a Context Request naming the exact repository path. The chat must not infer unseen content from memory, search snippets, compact results, earlier chats, or partial GitHub output.
+
+Stage prompt special rule: if an exact stage prompt file is truncated or lacks tail verification, the prompt is considered unavailable for that run. The stage must not execute until the prompt is supplied manually, split into smaller files, chunk-exported with tail verification, or verified by Codex read-only local checkout.
+
+Detailed guard rules live in:
+
+```text
+workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+```
+
+Core workflow files required in every Direction Project chat should be manually loaded as ChatGPT Project Files runtime cache according to `WORKFLOW_RUNTIME_CACHE_MANIFEST.md`.
+
 ## 9\. Human Decision Card Contract
 
 Use Human Decision Card when the workflow needs a real human-owned conclusion.

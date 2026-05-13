@@ -1,0 +1,87 @@
+# GitHub Long File Read Guard
+
+```yaml
+artifact_control:
+  artifact_name: "GitHub Long File Read Guard"
+  schema: github_long_file_read_guard.v1
+  owner_layer: runtime
+  status: canonical
+  repo_path: "workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md"
+  default_load: yes
+  freshness: refresh_when_github_connector_or_runtime_context_loading_rules_change
+  last_updated: "2026-05-13"
+```
+
+## Purpose
+
+Prevent ChatGPT Direction Project chats from treating truncated GitHub connector reads as complete source authority.
+
+This file is a runtime guard for GitHub file-read transport. It does not replace GitHub as source of truth. It defines when a GitHub read is insufficient and what the chat must do instead.
+
+## Core rule
+
+A GitHub repository file read is **not full-file authority** if any of these are true:
+
+- the tool response contains `truncated due to tool response token budget`;
+- the tool response says `Full entry omitted because the tool response token budget was exhausted`;
+- the response contains only a compact result when file content is required;
+- expected end-of-file marker / tail anchor is absent;
+- the chat cannot verify it saw the end of the file;
+- base64, raw URL, search result, or alternate fetch still returns a truncated or omitted response;
+- line count, byte size, SHA, or tail verification is required for the task but unavailable.
+
+When any trigger is present, the file must be treated as **missing blocking context** for material work that depends on it.
+
+## Required behavior
+
+If material work depends on a file whose GitHub read is not full-file authority, ChatGPT must:
+
+1. Stop the material workflow action.
+2. Return a `context_request.v1` naming the exact repository path.
+3. Ask for one of:
+   - manual upload as ChatGPT Project File or chat attachment;
+   - smaller split file;
+   - chunked export with explicit line ranges and tail anchor;
+   - Codex read-only verification from a local checkout;
+   - repository refactor that splits the long file into smaller authority files.
+4. Not infer missing content from memory, prior chats, search snippets, or partially returned GitHub content.
+5. Not run a stage, produce a final audit verdict, or emit repository changes that depend on unseen content.
+
+## Stage prompt special rule
+
+Stage prompts are request-only by exact stage ID.
+
+If an exact stage prompt file is read from GitHub and the read is truncated, omitted, or lacks tail verification:
+
+- the prompt is considered unavailable for that run;
+- the stage must not execute;
+- the chat must return a Context Request for the exact prompt path or a manually supplied prompt;
+- the chat must not reconstruct the prompt from memory.
+
+This applies even when `workflow/stage_registry/STAGE_REGISTRY.md` marks the prompt as `present`.
+
+## Runtime core cache rule
+
+Core workflow files that are required in every Direction Project chat should be loaded as ChatGPT Project Files as a runtime cache.
+
+The runtime cache does not replace GitHub as source of truth. It provides reliable full-file access inside the ChatGPT Project.
+
+If GitHub and Project File cache conflict:
+
+- a verified full GitHub read wins;
+- an unverified or truncated GitHub read does not override the Project File cache;
+- if the conflict affects material workflow behavior and cannot be verified, return Context Request.
+
+## Acceptable verification
+
+A GitHub read may be treated as complete when the run has sufficient evidence such as:
+
+- no truncation or omitted-content marker;
+- expected tail anchor is visible;
+- SHA / size / line count are available when needed;
+- end-of-file marker is present for files that define one;
+- Codex read-only verification confirms the file from a local checkout.
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`

@@ -19,6 +19,12 @@ Runtime rule:
 - Runtime Direction files must not require a note-database layer.
 - Repository Patch / `repository_patch.v1` is the runtime write proposal format.
 
+Long file read transport rule:
+- A truncated, omitted, or tail-unverified GitHub connector read is not valid source authority for material workflow work.
+- Core workflow files required in every ChatGPT Project chat may be loaded as Project Files runtime cache, while GitHub remains the source of truth.
+- If a material workflow action depends on a long GitHub file that cannot be read or verified completely, return Context Request with the exact repository path.
+- Do not infer missing file content from memory, search snippets, compact results, or partial GitHub output.
+
 Admin documentation:
 - Migration/admin docs remain under `migration/` and selected setup docs under `docs/`.
 - Migration/admin docs are not loaded by default in Direction Projects.

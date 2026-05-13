@@ -14,8 +14,15 @@ artifact_control:
 
 ## Default context
 
-Load these files by default for Workflow Governance runtime:
+Load these files by default for Workflow Governance runtime.
 
+In the ChatGPT Project, these files should be present as Project Files runtime cache so the chat does not depend on potentially truncated GitHub connector reads for core workflow behavior:
+
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
+- `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
+- `workflow/stage_registry/STAGE_REGISTRY.md`
 - `directions/workflow-governance/project_files/00_DIRECTION_START_HERE.md`
 - `directions/workflow-governance/project_files/01_DIRECTION_STATE.md`
 - `directions/workflow-governance/project_files/02_CURRENT_PHASE.md`
@@ -24,7 +31,10 @@ Load these files by default for Workflow Governance runtime:
 - `directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md`
 - `directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md`
 - `directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md`
-- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+
+GitHub remains the source of truth. Project Files are a runtime cache.
+
+If GitHub and Project File cache conflict, use verified full GitHub read-back. If GitHub read is truncated, omitted, lacks tail verification, or cannot be verified, return Context Request instead of treating partial GitHub content as authority.
 
 ## Shared workflow context
 

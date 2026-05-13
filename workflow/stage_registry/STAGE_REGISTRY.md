@@ -26,6 +26,14 @@ Before running a stage, load only the exact prompt file for that stage. Do not b
 
 If a prompt is marked `missing_prompt`, the stage is registered but unavailable for runtime execution until the prompt file is installed and verified.
 
+### GitHub prompt read completeness
+
+A registry row with `prompt_status: present` means the prompt file exists in the repository. It does not prove that a given ChatGPT run received the full prompt text.
+
+Before running a stage, the exact prompt file for that stage must be available without truncation or omitted-content markers.
+
+If a GitHub read of the exact stage prompt is truncated, omitted due to tool response token budget, or lacks tail verification, the prompt is considered unavailable for that run. Return Context Request for the exact prompt path. Do not run the stage and do not reconstruct the prompt from memory.
+
 ## Route Conflict Rule
 
 Stage prompts and `STAGE_REGISTRY.md` must agree on allowed downstream routes.
