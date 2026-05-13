@@ -70,6 +70,21 @@ Use `directions/*/project_files/` only when auditing real Direction behavior.
 
 Do not load sibling Direction files by default.
 
+## Shared workflow rollout context
+
+When auditing or changing shared workflow runtime behavior, load/check all active Direction setup surfaces as needed:
+
+```text
+directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+directions/solo-max-productive/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+directions/indie-game-development/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+directions/health-and-beauty/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+docs/CHATGPT_PROJECT_SETUP.md
+workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+```
+
+For shared workflow changes, do not stop at Workflow Governance files. Check whether every active Direction Project needs Project Instructions or Project Files refresh.
+
 ## Governance context
 
 Findings/register files:

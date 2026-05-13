@@ -23,13 +23,22 @@ project_file_control:
 
 ## Default Project Files to load
 
-* `00_DIRECTION_START_HERE.md`
-* `01_DIRECTION_STATE.md`
-* `02_CURRENT_PHASE.md`
-* `03_FOCUS_REGISTER.md`
-* `04_ACTIVE_GOAL.md`
-* `05_PORTFOLIO_QUEUE.md`
-* `06_CONTEXT_LIBRARY_INDEX.md`
+Load these Direction Project Files by default:
+
+1. `00_DIRECTION_START_HERE.md`
+2. `01_DIRECTION_STATE.md`
+3. `02_CURRENT_PHASE.md`
+4. `03_FOCUS_REGISTER.md`
+5. `04_ACTIVE_GOAL.md`
+6. `05_PORTFOLIO_QUEUE.md`
+7. `06_CONTEXT_LIBRARY_INDEX.md`
+8. `07_PHASE_MEMORY_INDEX.md`
+
+Also load shared runtime cache files defined in:
+
+```text
+workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+```
 
 ## Shared runtime file
 

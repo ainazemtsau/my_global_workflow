@@ -14,6 +14,31 @@
 - Do not upload old rebuild or Trilium files into this ChatGPT Project.
 - If uploaded files conflict with GitHub repository files, GitHub repository files win.
 
+## Hard Cross-Direction Rollout Rule
+
+Workflow Governance maintains the shared workflow layer.
+
+When Workflow Governance changes shared workflow runtime behavior, source-of-truth rules, context loading, Project Files cache policy, Stage Registry behavior, stage prompt loading behavior, repository maintenance contracts, or ChatGPT Project setup instructions, it must evaluate and update all active Direction Projects as needed.
+
+Active Direction Projects currently include:
+
+- `Workflow Governance`
+- `Solo Max Productive`
+- `Indie Game Development`
+- `Health and Beauty`
+
+A shared workflow change is not complete if only `directions/workflow-governance/**` was updated while other active Direction Projects still use stale Project Instructions or stale Project Files context.
+
+Required behavior before closing a shared workflow maintenance patch:
+
+1. Check whether all active Direction Project Instructions need update.
+2. Check whether all active Direction `06_CONTEXT_LIBRARY_INDEX.md` files need update.
+3. Check whether all active Direction `00_DIRECTION_START_HERE.md` default Project Files lists need update.
+4. Return Project Files / Project Instructions refresh requirements for every affected ChatGPT Project.
+5. If a Direction is not updated, state the explicit reason.
+
+Do not treat Workflow Governance as an isolated Direction when the change affects shared workflow runtime.
+
 ## Required Runtime Cache and GitHub Files
 
 GitHub repository files remain the source of truth.

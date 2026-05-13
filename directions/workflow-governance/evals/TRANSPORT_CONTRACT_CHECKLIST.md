@@ -34,3 +34,17 @@ For any workflow output that depends on a GitHub repository file read, check:
 - if full-file availability cannot be verified, the output returns Context Request instead of continuing material work.
 
 A partial GitHub read is a transport failure, not acceptable runtime context.
+
+## Cross-Direction rollout verification checks
+
+For shared workflow runtime changes, verify:
+
+- all active Direction Projects are identified;
+- central setup docs are updated if needed;
+- per-Direction Project Instructions exist or are updated if needed;
+- each active Direction default Project Files list includes `00-07`;
+- each active Direction context index includes shared runtime cache files;
+- `project_files_cache_refresh_required` is returned for every affected ChatGPT Project;
+- sibling Directions are not silently skipped.
+
+A shared workflow change that updates only Workflow Governance but leaves other active Directions stale is incomplete unless the patch explicitly proves those Directions are unaffected.

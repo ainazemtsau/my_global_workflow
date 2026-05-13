@@ -42,6 +42,38 @@ execution_log_entry:
   next_route: "Refresh Workflow Governance Project Files if any cached file changed."
 ```
 
+```yaml
+execution_log_entry:
+  timestamp: "2026-05-13"
+  stage_or_process: "repository_maintenance_rollout"
+  patch_id: WFG_PATCH_2026_05_13_ALL_DIRECTIONS_RUNTIME_CACHE_ROLLOUT
+  summary: "Rolled out Project Files runtime cache, GitHub long-file read guard, and dedicated Project Instructions model to all active Direction Projects."
+  files_changed:
+    - "workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md"
+    - "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
+    - "docs/CHATGPT_PROJECT_SETUP.md"
+    - "directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md"
+    - "directions/workflow-governance/project_files/03_FOCUS_REGISTER.md"
+    - "directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md"
+    - "directions/workflow-governance/evals/TRANSPORT_CONTRACT_CHECKLIST.md"
+    - "directions/solo-max-productive/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md"
+    - "directions/indie-game-development/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md"
+    - "directions/health-and-beauty/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md"
+    - "directions/workflow-governance/project_files/00_DIRECTION_START_HERE.md"
+    - "directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md"
+    - "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
+    - "directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md"
+    - "directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md"
+    - "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
+    - "directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md"
+    - "directions/workflow-governance/execution_logs/11_DIRECTION_EXECUTION_LOG.md"
+  validation:
+    - "Read-back anchors must confirm all active Directions have dedicated Project Instructions or updated setup references."
+    - "Read-back anchors must confirm all active Direction context indexes include shared runtime cache files."
+    - "Codex return must include project_files_cache_refresh_required for all affected ChatGPT Projects."
+  next_route: "Refresh all active ChatGPT Project Instructions and Project Files runtime caches."
+```
+
 ## Entry shape
 
 ```yaml

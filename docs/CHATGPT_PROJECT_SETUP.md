@@ -11,22 +11,26 @@ Canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 Every Direction Project uses:
 
 - GitHub repository: `ainazemtsau/my_global_workflow`
+- Source of truth marker: `WORKFLOW_SOURCE_OF_TRUTH.md`
 - Runtime core: `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- GitHub long-file read guard: `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
+- Runtime cache manifest: `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - Stage registry: `workflow/stage_registry/STAGE_REGISTRY.md`
 - Stage prompts: `workflow/stage_prompts/<requested stage only>`
-- Transport schemas: `workflow/transport/*` when packet schemas are needed
 
-Do not reconstruct missing prompts from memory.
+GitHub repository files remain the source of truth.
+
+ChatGPT Project Files are runtime cache, not source of truth. They must be manually refreshed when Codex changes cached files.
+
+If a GitHub read is truncated, omitted, lacks tail verification, or cannot prove full-file availability, do not treat that read as source authority. Return Context Request naming the exact path.
+
+Stage prompts are request-only by exact stage ID. Do not bulk-load all stage prompts. Do not reconstruct missing prompts from memory.
 
 Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, Wave, execution, or project state.
-
-If a required GitHub file is unavailable, return a Context Request Card naming the exact repository path.
 
 Do not use external personal notes as workflow source.
 
 Do not use `migration/` or migration/admin docs as runtime context unless the task is explicitly a migration task.
-
-If the GitHub connector cannot access a required file, ask the user to attach or paste that exact GitHub file/export. Do not reconstruct prompts or state from memory.
 
 Every meaningful workflow output must include:
 
@@ -36,6 +40,8 @@ Every meaningful workflow output must include:
 - Execution Log Entry
 - Changed Files / Context Refresh List
 - Next Launch Card / Context Request / Human Decision / Stop
+
+Shared workflow changes must be evaluated across all active Direction Projects, not only Workflow Governance.
 
 ## Solo Max Productive Project Instructions
 

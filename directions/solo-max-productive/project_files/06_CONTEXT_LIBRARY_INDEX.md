@@ -15,39 +15,27 @@ artifact_control:
 
 ## Default context
 
-Load the Direction Project Files default set.
+Load these files by default for Solo Max Productive runtime.
 
-Current Phase:
+In the ChatGPT Project, these files should be present as Project Files runtime cache so the chat does not depend on potentially truncated GitHub connector reads for core workflow behavior:
 
-- Personal Workflow App Kernel Exploration
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
+- `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
+- `workflow/stage_registry/STAGE_REGISTRY.md`
+- `directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md`
+- `directions/solo-max-productive/project_files/01_DIRECTION_STATE.md`
+- `directions/solo-max-productive/project_files/02_CURRENT_PHASE.md`
+- `directions/solo-max-productive/project_files/03_FOCUS_REGISTER.md`
+- `directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md`
+- `directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md`
+- `directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+- `directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md`
 
-Active Goal: Personal Workflow App Kernel Min Proof
+GitHub remains the source of truth. Project Files are a runtime cache.
 
-Active Goal path:
-
-- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
-
-Required default Project Files:
-
-- `00_DIRECTION_START_HERE.md`
-- `01_DIRECTION_STATE.md`
-- `02_CURRENT_PHASE.md`
-- `03_FOCUS_REGISTER.md`
-- `04_ACTIVE_GOAL.md`
-- `05_PORTFOLIO_QUEUE.md`
-- `06_CONTEXT_LIBRARY_INDEX.md`
-- `07_PHASE_MEMORY_INDEX.md`
-
-Shared runtime and stage prompts:
-
-```yaml
-shared_runtime_file: "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
-stage_prompt_source_root: "workflow/stage_prompts/"
-stage_prompt_load_rule: "request exact stage prompt by stage ID; do not bulk-load all prompts"
-local_runtime_core_copy_required: false
-```
-
-Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
+If GitHub and Project File cache conflict, use verified full GitHub read-back. If GitHub read is truncated, omitted, lacks tail verification, or cannot be verified, return Context Request instead of treating partial GitHub content as authority.
 
 ## Goal context
 

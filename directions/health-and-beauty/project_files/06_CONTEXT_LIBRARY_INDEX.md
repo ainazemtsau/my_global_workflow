@@ -15,17 +15,27 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Default context
 
-Load the Direction Project Files default set.
+Load these files by default for Health and Beauty runtime.
 
-Current Phase: `Собрать AI-операционный слой питания без тяжёлого трекинга`
+In the ChatGPT Project, these files should be present as Project Files runtime cache so the chat does not depend on potentially truncated GitHub connector reads for core workflow behavior:
 
-Active Goal: `Собрать AI Nutrition Operating Layer v0`
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
+- `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
+- `workflow/stage_registry/STAGE_REGISTRY.md`
+- `directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md`
+- `directions/health-and-beauty/project_files/01_DIRECTION_STATE.md`
+- `directions/health-and-beauty/project_files/02_CURRENT_PHASE.md`
+- `directions/health-and-beauty/project_files/03_FOCUS_REGISTER.md`
+- `directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md`
+- `directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md`
+- `directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+- `directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md`
 
-Active Goal path:
+GitHub remains the source of truth. Project Files are a runtime cache.
 
-`directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0`
-
-Next route: `E1_EXECUTION_BRIEF`
+If GitHub and Project File cache conflict, use verified full GitHub read-back. If GitHub read is truncated, omitted, lacks tail verification, or cannot be verified, return Context Request instead of treating partial GitHub content as authority.
 
 ## Shared runtime and stage prompts
 

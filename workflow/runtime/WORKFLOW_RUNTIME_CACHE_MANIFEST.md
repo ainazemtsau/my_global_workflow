@@ -18,9 +18,13 @@ Define which workflow authority files should be manually loaded into ChatGPT Pro
 
 GitHub remains the source of truth. Project Files are a runtime cache for files that are needed in every chat or are too important to depend on potentially truncated GitHub connector reads.
 
-## Required Project File cache for Workflow Governance
+## Required Project File cache for all active Direction Projects
 
-Load these files into the `Workflow Governance` ChatGPT Project Files:
+Every active Direction ChatGPT Project must manually load the shared runtime cache files plus its own Direction Project Files 00-07.
+
+GitHub remains the source of truth. Project Files are runtime cache only.
+
+### Shared runtime cache files for every Direction Project
 
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
@@ -28,6 +32,13 @@ workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
+```
+
+### Active Direction cache file sets
+
+#### Workflow Governance
+
+```text
 directions/workflow-governance/project_files/00_DIRECTION_START_HERE.md
 directions/workflow-governance/project_files/01_DIRECTION_STATE.md
 directions/workflow-governance/project_files/02_CURRENT_PHASE.md
@@ -37,6 +48,88 @@ directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md
 directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md
 ```
+
+Project Instructions source:
+
+```text
+directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+```
+
+#### Solo Max Productive
+
+```text
+directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md
+directions/solo-max-productive/project_files/01_DIRECTION_STATE.md
+directions/solo-max-productive/project_files/02_CURRENT_PHASE.md
+directions/solo-max-productive/project_files/03_FOCUS_REGISTER.md
+directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md
+directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md
+directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md
+directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md
+```
+
+Project Instructions source:
+
+```text
+directions/solo-max-productive/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+```
+
+#### Indie Game Development
+
+```text
+directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+```
+
+Project Instructions source:
+
+```text
+directions/indie-game-development/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+```
+
+#### Health and Beauty
+
+```text
+directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md
+directions/health-and-beauty/project_files/01_DIRECTION_STATE.md
+directions/health-and-beauty/project_files/02_CURRENT_PHASE.md
+directions/health-and-beauty/project_files/03_FOCUS_REGISTER.md
+directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md
+directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md
+directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md
+directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md
+```
+
+Project Instructions source:
+
+```text
+directions/health-and-beauty/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+```
+
+## Shared workflow change rollout rule
+
+Any repository maintenance patch that changes shared workflow runtime behavior must evaluate whether every active Direction ChatGPT Project needs Project Instructions and Project Files refresh.
+
+Shared workflow files include at least:
+
+```text
+WORKFLOW_SOURCE_OF_TRUTH.md
+workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+workflow/stage_registry/STAGE_REGISTRY.md
+docs/CHATGPT_PROJECT_SETUP.md
+```
+
+If any shared workflow file changes, Codex must report Project Files / Project Instructions refresh requirements for all active Direction Projects.
+
+If only one Direction is intentionally updated, Codex must explicitly report why sibling Directions do not need refresh.
 
 ## Cache authority rule
 

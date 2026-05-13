@@ -47,6 +47,8 @@ Workflow Governance should be run in a separate ChatGPT Project, not the old Wor
 
 ## Default Project Files to load
 
+Load these Direction Project Files by default:
+
 1. `00_DIRECTION_START_HERE.md`
 2. `01_DIRECTION_STATE.md`
 3. `02_CURRENT_PHASE.md`
@@ -54,6 +56,13 @@ Workflow Governance should be run in a separate ChatGPT Project, not the old Wor
 5. `04_ACTIVE_GOAL.md`
 6. `05_PORTFOLIO_QUEUE.md`
 7. `06_CONTEXT_LIBRARY_INDEX.md`
+8. `07_PHASE_MEMORY_INDEX.md`
+
+Also load shared runtime cache files defined in:
+
+```text
+workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+```
 
 ## Shared runtime file
 
