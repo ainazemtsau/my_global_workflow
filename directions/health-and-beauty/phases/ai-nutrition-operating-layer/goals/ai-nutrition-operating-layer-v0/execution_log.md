@@ -148,3 +148,81 @@ execution_log_entry:
     E1 brief. D1 should research operational architecture only, not nutrition science
     or implementation.
 ```
+
+## 2026-05-13 — E1_EXECUTION_BRIEF formalized post-D1 route to F0_FAST_DIRECT
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  persist: true
+  target_log_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md
+  event_type: stage_run
+  timestamp: "2026-05-13"
+  direction:
+    name: directions/health-and-beauty
+    path: directions/health-and-beauty
+  phase:
+    name: "Собрать AI-операционный слой питания без тяжёлого трекинга"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+    status: active
+  goal:
+    title: "Собрать AI Nutrition Operating Layer v0"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0
+    status: active
+  stage:
+    id: E1_EXECUTION_BRIEF
+    name: Execution Brief
+  route: F0_FAST_DIRECT
+  return_state: DONE
+  input_sources:
+    - source: Direction Project Files 00-07
+      freshness: active_git_file_or_project_file_cache
+    - source: workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+      freshness: project_file_cache
+    - source: workflow/stage_registry/STAGE_REGISTRY.md
+      freshness: project_file_cache
+    - source: workflow/stage_prompts/E1_EXECUTION_BRIEF.md
+      freshness: pasted_full_prompt_current_chat
+    - source: Goal Contract and Goal Working Context
+      freshness: active_git_file
+    - source: D1_DEEP_RESEARCH result summary
+      freshness: supplied_in_launch
+  outputs_created:
+    - Updated E1 Execution Brief
+    - F0_FAST_DIRECT Launch Card
+    - Repository Patch
+    - Codex repository maintenance apply card
+  decisions_made:
+    - Preserve D1 source-first private project architecture.
+    - Reject another D1 pass because architecture/tooling research blocker is resolved.
+    - Select F0_FAST_DIRECT because the next work is one bounded markdown artifact.
+    - Keep artifact formalization for 03_AI_NUTRITION_OPERATING_LAYER_V0.md proposal-first inside F0.
+  repository_patch:
+    required: true
+    summary: Replace 02_EXECUTION_BRIEF.md and append this execution log entry.
+  changed_files_context_refresh:
+    required: true
+    files:
+      - directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/02_EXECUTION_BRIEF.md
+      - directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md
+  evidence_pointers:
+    - D1_architecture_decision_source_first_private_project
+    - E1_research_need_gate_resolved
+    - STAGE_REGISTRY_allows_E1_to_F0
+  friction:
+    - Earlier pre-D1 E1 brief correctly routed to D1 while architecture/storage assumptions were unresolved.
+  human_burden:
+    level: H1
+    notes: User approved E1 formalization with APPROVE AND FORMALIZE.
+  ai_failure_mode:
+    - Do not create the final v0 artifact inside E1.
+    - Do not route F0 as already-approved artifact write; F0 must first preview.
+    - Do not require connectors, automation, database, or Memory as source of truth.
+  blocker: []
+  next_route: F0_FAST_DIRECT
+  next_launch_card_created: true
+  notes: >
+    Run Codex repository maintenance apply/read-back before relying on this
+    persisted E1 brief. F0 should create the v0 artifact only after its own
+    reviewable preview and approval.
+```
