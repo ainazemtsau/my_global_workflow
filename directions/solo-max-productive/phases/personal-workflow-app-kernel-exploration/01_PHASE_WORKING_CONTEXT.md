@@ -12,6 +12,12 @@ The EXOCORTEX document describes a possible personal AI companion / external bra
 
 For this Phase, the document is directional input only.
 
+## Source material pointers
+
+- `source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md`
+  Full raw EXOCORTEX concept seed.
+  Usage: request-only; exact concept detail only; not roadmap; not implementation scope.
+
 ## Working interpretation
 
 The strongest near-term framing is not "build an app." It is:

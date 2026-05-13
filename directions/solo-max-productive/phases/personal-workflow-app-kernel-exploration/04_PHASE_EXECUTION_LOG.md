@@ -18,3 +18,25 @@ Summary:
 readback_anchor: "P0_PHASE_START formalized new Phase"
 
 ```
+
+## Source preservation addendum
+
+Full EXOCORTEX concept seed preserved as request-only source material.
+
+Created:
+
+- directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md
+
+Reason:
+
+- Phase Brief and Working Context intentionally stay narrow.
+- Full user concept should not be lost.
+- Full concept should not become default context or roadmap.
+
+Validation:
+
+- Full source file exists.
+- Phase Working Context points to it.
+- Phase Context Index marks the full EXOCORTEX seed as request-only context.
+- 06_CONTEXT_LIBRARY_INDEX.md points to it as request-only context.
+- No default Project File contains the full raw document.
