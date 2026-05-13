@@ -1,0 +1,116 @@
+# Static Runtime Validation Expectations
+
+Status: baseline expectations
+Owner layer: workflow validation
+Scope: Workflow vNext-R shared runtime cleanup
+
+## Purpose
+
+This file defines the expected behavior of `runtime_static_checks.py`.
+
+It separates hard runtime invariants from known cleanup debt.
+
+## Active Directions
+
+The active Direction Projects currently checked by this suite are:
+
+- `workflow-governance`
+- `solo-max-productive`
+- `indie-game-development`
+- `health-and-beauty`
+
+Each active Direction is expected to have:
+
+```text
+directions/<direction-id>/project_files/00_DIRECTION_START_HERE.md
+directions/<direction-id>/project_files/01_DIRECTION_STATE.md
+directions/<direction-id>/project_files/02_CURRENT_PHASE.md
+directions/<direction-id>/project_files/03_FOCUS_REGISTER.md
+directions/<direction-id>/project_files/04_ACTIVE_GOAL.md
+directions/<direction-id>/project_files/05_PORTFOLIO_QUEUE.md
+directions/<direction-id>/project_files/06_CONTEXT_LIBRARY_INDEX.md
+directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+directions/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+```
+
+## Required shared runtime files
+
+These files must exist:
+
+```text
+WORKFLOW_SOURCE_OF_TRUTH.md
+workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+workflow/stage_registry/STAGE_REGISTRY.md
+```
+
+## Hard invariants
+
+These checks are blocking in both baseline and strict mode:
+
+1. Required shared runtime files exist.
+2. Active Direction Project Files `00-07` exist.
+3. Active Direction Project Instructions exist.
+4. Markdown triple-backtick fences are balanced.
+5. `STAGE_REGISTRY.md` declares itself the sole authority for canonical stage IDs, stage identity, prompt path/status, target runtime, activation, and normal `allowed_next`.
+6. Runtime core must not maintain a second full `allowed_next` transition table.
+7. Registry validation rules must preserve these invariants:
+   - runtime core must not maintain a duplicate full transition table;
+   - prompts must not be treated as allowed-next authority;
+   - transport route fields are snapshots only;
+   - terminal card types are not canonical stage IDs.
+8. Active stage prompts must not use deprecated prompt delivery modes:
+   - `request_from_repository`
+   - `embedded_in_launch_card`
+   - `pasted_in_current_chat`
+   - `attached_export`
+9. Present stage prompts must contain the `AD-WF-RT-001` authority boundary.
+10. Required authority files with EOF markers must keep them:
+    - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+    - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
+    - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
+    - `workflow/stage_registry/STAGE_REGISTRY.md`
+11. Direction Project Files must not contain full stage prompt bodies.
+
+## Baseline warnings
+
+These are expected warnings during current cleanup:
+
+1. Legacy transport card shapes:
+   - `stage_launch_card: 1`
+   - `stage_result_packet: 1`
+   - active transport use of `card_type:`
+   - active transport use of `packet_type:`
+   - active transport use of `patch_type:`
+2. Missing dedicated `codex_repository_maintenance_apply.v1` transport template under `workflow/transport/`.
+3. Missing `END_OF_FILE:` markers in stage prompts.
+4. Stale rebuild/test-active metadata:
+   - `vNext-R REBUILD`
+   - `test-active`
+   - `rebuild root only`
+   - `Installed from roadmap step`
+   - `Step 7.`
+5. Prompt schema duplication or old route examples in long prompts.
+6. Stale `docs/CHATGPT_PROJECT_SETUP.md` setup blocks compared to the current runtime cache manifest.
+
+## Strict-mode promotion
+
+After corresponding cleanup patches are complete, these warning classes may be promoted to strict failures:
+
+- legacy transport card shapes;
+- missing transport schema templates;
+- missing prompt EOF markers;
+- stale setup docs;
+- stale rebuild/test-active metadata;
+- prompt schema duplication / route-list residue.
+
+## Expected first baseline result
+
+Until cleanup debt is resolved, the expected baseline result is:
+
+```text
+PASS_WITH_CLEANUP
+```
+
+A `BLOCKED` result means a hard runtime invariant failed and should be investigated before proceeding with further cleanup patches.
