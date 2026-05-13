@@ -8,15 +8,23 @@ Stage ID: ROUTER\_STAGE\_LAUNCHER Stage name: Router / Stage Launcher Behavior S
 
 ## Runtime authority boundary — AD-WF-RT-001
 
-`workflow/stage_registry/STAGE_REGISTRY.md` is the sole authority for normal stage-to-stage `allowed_next` transitions.
+This prompt may describe route-selection criteria, but it is not routing authority.
 
-This stage prompt may describe route-selection criteria, but it must not be treated as an independent route table.
+Routing transitions and canonical stage IDs are owned by:
 
-If any route list or route example in this prompt conflicts with `STAGE_REGISTRY.md`, the registry wins.
+```text
+workflow/stage_registry/STAGE_REGISTRY.md
+```
 
-Terminal card types such as `Context Request`, `Human Decision`, and `Stop` are terminal outputs, not stage IDs.
+When selecting or validating a next stage:
 
-If the selected next stage is not allowed by the registry, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop. Do not silently choose another stage and do not perform downstream stage work inside this stage.
+- use the registry as the source of truth;
+- treat any local route examples in this prompt as non-authoritative guidance only;
+- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- do not silently choose another route;
+- do not execute downstream stage work inside this prompt.
+
+Do not maintain prompt-local transition tables in this file.
 
 ## 0.0 Reviewable Work Product Rule
 
