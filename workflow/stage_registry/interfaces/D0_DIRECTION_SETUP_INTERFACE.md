@@ -1,5 +1,15 @@
 # 01 D0 Direction Setup Interface
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+artifact_control:
+  artifact_name: "D0_DIRECTION_SETUP Stage Registry Interface"
+  schema: stage_registry_interface.v1
+  owner_layer: stage_registry_reference
+  status: derived-reference
+  stage_id: "D0_DIRECTION_SETUP"
+  repo_path: "workflow/stage_registry/interfaces/D0_DIRECTION_SETUP_INTERFACE.md"
+  authority: "Derived/reference only; workflow/stage_registry/STAGE_REGISTRY.md wins on conflicts"
+  activation_scope: reference_only
+  freshness: refresh_when_stage_registry_or_interface_contract_changes
+  last_updated: "2026-05-13"
 
 # 01 D0 Direction Setup Interface
 
@@ -32,7 +42,7 @@ Required inputs:
 *   Stage Launch Card targeting D0.
 *   User request to create, reset, clarify, or revise a Direction.
 *   Available current state reference, even if empty.
-*   Activation scope: rebuild root only, direction opt-in, or global.
+*   Activation scope selection: rebuild-root-only, direction opt-in, or global.
 *   Known constraints, including do-not-touch boundaries.
 *   Freshness state for any external or old workflow material.
 

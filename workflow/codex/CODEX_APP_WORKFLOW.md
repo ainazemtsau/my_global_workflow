@@ -1,6 +1,15 @@
 # Codex App Workflow
 
-Status: active
+artifact_control:
+  artifact_name: "Codex App Workflow"
+  schema: codex_workflow_contract.v1
+  owner_layer: codex_runtime_contract
+  status: canonical
+  repo_path: "workflow/codex/CODEX_APP_WORKFLOW.md"
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: workflow_runtime_reference
+  freshness: refresh_when_codex_runtime_contract_changes
+  last_updated: "2026-05-13"
 
 This contract defines how Codex app tasks should operate against the GitHub repository workflow layer.
 

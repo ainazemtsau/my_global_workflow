@@ -1,5 +1,16 @@
 # R1_GOAL_REVIEW_DISTILL - Review Distill Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: 7.6 — Stage Prompt Development — R1\_GOAL\_REVIEW\_DISTILL Installed at: 2026-05-09T06:18:24.2466254+03:00 Source input: ChatGPT Step 7.6 final runtime prompt output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by:
+artifact_control:
+  artifact_name: "R1_GOAL_REVIEW_DISTILL Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "R1_GOAL_REVIEW_DISTILL"
+  repo_path: "workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # R1\_GOAL\_REVIEW\_DISTILL — Review Distill Runtime Prompt
 

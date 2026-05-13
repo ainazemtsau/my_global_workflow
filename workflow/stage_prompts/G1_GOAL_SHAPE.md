@@ -1,5 +1,16 @@
 # 05 G1_GOAL_SHAPE - Goal Shape Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.3 — Stage Prompt Development — G1\_GOAL\_SHAPE Installed at: 2026-05-09T04:06:54.1001092+03:00 Source input: ChatGPT Step 7.3 final runtime prompt after approved Stage Research & Design Dossier Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: old GOAL START / goal shaping behavior from previous workflow versions, only as an alias when clearly equivalent Superseded by:
+artifact_control:
+  artifact_name: "G1_GOAL_SHAPE Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "G1_GOAL_SHAPE"
+  repo_path: "workflow/stage_prompts/G1_GOAL_SHAPE.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # G1\_GOAL\_SHAPE — Goal Shape Runtime Prompt
 

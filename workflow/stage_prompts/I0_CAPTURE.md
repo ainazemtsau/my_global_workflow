@@ -1,5 +1,16 @@
 # I0_CAPTURE - Capture - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.9 — I0\_CAPTURE Final Runtime Prompt Installed at: 2026-05-09T10:01:44.4977480+03:00 Source input: ChatGPT Step 7.9 final prompt output after Stage Research & Design Dossier and explicit user command WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by: none
+artifact_control:
+  artifact_name: "I0_CAPTURE Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "I0_CAPTURE"
+  repo_path: "workflow/stage_prompts/I0_CAPTURE.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # I0\_CAPTURE — Capture — Final Runtime Prompt
 

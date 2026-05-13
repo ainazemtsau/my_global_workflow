@@ -1,5 +1,16 @@
 # 07.4 E1_EXECUTION_BRIEF - Execution Brief
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.4 — E1\_EXECUTION\_BRIEF Final Runtime Stage Prompt Installed at: 2026-05-09T05:12:13.0615043+03:00 Source input: ChatGPT Step 7.4 final prompt output after explicit WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: S4/S5 bridge behavior, execution brief / handoff shaping from previous workflow versions Superseded by:
+artifact_control:
+  artifact_name: "E1_EXECUTION_BRIEF Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "E1_EXECUTION_BRIEF"
+  repo_path: "workflow/stage_prompts/E1_EXECUTION_BRIEF.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # E1\_EXECUTION\_BRIEF — Execution Brief
 

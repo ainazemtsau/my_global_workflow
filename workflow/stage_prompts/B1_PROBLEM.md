@@ -1,5 +1,16 @@
 # B1_PROBLEM - Problem - Final Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.8 — B1\_PROBLEM final runtime stage prompt Installed at: 2026-05-09T09:25:02.9792641+03:00 Source input: Stage Research & Design Dossier — B1\_PROBLEM; user command WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
+artifact_control:
+  artifact_name: "B1_PROBLEM Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "B1_PROBLEM"
+  repo_path: "workflow/stage_prompts/B1_PROBLEM.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # B1\_PROBLEM — Problem — Final Runtime Stage Prompt
 

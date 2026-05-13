@@ -1,6 +1,15 @@
 # 15 Codex Repair Loop and Escalation Policy
 
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01C — Validation, Review, Repair, and Concrete Project Setup Boundary Installed at: 2026-05-10T04:56:01.1979556+03:00 Source input: ChatGPT SA-01C installable source output, 2026-05-10 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+artifact_control:
+  artifact_name: "15 Codex Repair Loop and Escalation Policy"
+  schema: codex_workflow_contract.v1
+  owner_layer: codex_runtime_contract
+  status: canonical
+  repo_path: "workflow/codex/CODEX_REPAIR_LOOP_AND_ESCALATION_POLICY.md"
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: workflow_runtime_reference
+  freshness: refresh_when_codex_runtime_contract_changes
+  last_updated: "2026-05-13"
 
 ## 1\. Purpose
 

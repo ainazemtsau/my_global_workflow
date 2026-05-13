@@ -1,5 +1,16 @@
 # 13 A1_AUDIT - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.13 — A1\_AUDIT Final Runtime Prompt Installed at: 2026-05-10T09:09:37.8843233+03:00 Source input: ChatGPT Step 7.13 final runtime prompt response Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
+artifact_control:
+  artifact_name: "A1_AUDIT Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "A1_AUDIT"
+  repo_path: "workflow/stage_prompts/A1_AUDIT.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # A1\_AUDIT — Final Runtime Prompt
 

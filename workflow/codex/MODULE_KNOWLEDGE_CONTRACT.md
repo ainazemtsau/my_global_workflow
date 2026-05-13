@@ -1,5 +1,14 @@
 # 12 Module Knowledge Contract
-Status: draft Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01B — Module Governance Installed at: 2026-05-10T04:39:15.4794821+03:00 Source input: ChatGPT SA-01B installable package generated from user request on 2026-05-10 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+artifact_control:
+  artifact_name: "12 Module Knowledge Contract"
+  schema: codex_workflow_contract.v1
+  owner_layer: codex_runtime_contract
+  status: canonical
+  repo_path: "workflow/codex/MODULE_KNOWLEDGE_CONTRACT.md"
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: workflow_runtime_reference
+  freshness: refresh_when_codex_runtime_contract_changes
+  last_updated: "2026-05-13"
 
 # 12 Module Knowledge Contract
 

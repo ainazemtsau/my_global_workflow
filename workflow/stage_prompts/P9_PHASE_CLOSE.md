@@ -1,5 +1,16 @@
 # P9_PHASE_CLOSE - Phase Close
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.7 — Stage Prompt Development — P9\_PHASE\_CLOSE Installed at: 2026-05-09T06:57:16.5547648+03:00 Source input: ChatGPT Step 7.7 final runtime prompt output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
+artifact_control:
+  artifact_name: "P9_PHASE_CLOSE Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "P9_PHASE_CLOSE"
+  repo_path: "workflow/stage_prompts/P9_PHASE_CLOSE.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # P9\_PHASE\_CLOSE — Phase Close Final Runtime Prompt
 

@@ -1,6 +1,17 @@
 # P0\_PHASE\_START — Final Runtime Stage Prompt
 
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.1 — P0\_PHASE\_START, repaired by SA-02B / P0 contract audit Installed at: 2026-05-10T16:32:05.8874204+03:00 Source input: P0 prompt repair after real Direction output audit and SA-02B Progressive Decision Brief Upgrade Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: prior P0 prompt transport/output section using local schemas and weak approval boundary Superseded by:
+artifact_control:
+  artifact_name: "P0_PHASE_START Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "P0_PHASE_START"
+  repo_path: "workflow/stage_prompts/P0_PHASE_START.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 ## Runtime authority boundary — AD-WF-RT-001
 

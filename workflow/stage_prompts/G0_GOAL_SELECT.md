@@ -1,5 +1,16 @@
 # 7.2 G0_GOAL_SELECT - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: 7.2 — Stage Prompt Development — G0\_GOAL\_SELECT Installed at: 2026-05-08T18:11:51.0084138+03:00 Source input: ChatGPT Step 7.2 final runtime prompt output, 2026-05-08 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: none Superseded by:
+artifact_control:
+  artifact_name: "G0_GOAL_SELECT Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "G0_GOAL_SELECT"
+  repo_path: "workflow/stage_prompts/G0_GOAL_SELECT.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # G0\_GOAL\_SELECT — Final Runtime Prompt
 

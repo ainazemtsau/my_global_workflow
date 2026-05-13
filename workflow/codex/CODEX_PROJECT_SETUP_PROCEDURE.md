@@ -1,5 +1,14 @@
 # 07 Codex Project Setup Procedure
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Side Amendment SA-01A — Codex Project Setup Core Installed at: 2026-05-10T04:16:01.8896091+03:00 Source input: ChatGPT SA-01A side amendment output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+artifact_control:
+  artifact_name: "07 Codex Project Setup Procedure"
+  schema: codex_workflow_contract.v1
+  owner_layer: codex_runtime_contract
+  status: canonical
+  repo_path: "workflow/codex/CODEX_PROJECT_SETUP_PROCEDURE.md"
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: workflow_runtime_reference
+  freshness: refresh_when_codex_runtime_contract_changes
+  last_updated: "2026-05-13"
 
 # 07 Codex Project Setup Procedure
 

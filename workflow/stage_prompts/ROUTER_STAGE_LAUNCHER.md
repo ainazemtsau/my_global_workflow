@@ -1,6 +1,17 @@
 # ROUTER\_STAGE\_LAUNCHER - Router / Stage Launcher Behavior
 
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.0 - ROUTER\_STAGE\_LAUNCHER Installed at: 2026-05-08T05:25:35.1005038+03:00 Source input: ChatGPT Step 7.0 final prompt, corrected for Real Direction Testing Order v0.3 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
+artifact_control:
+  artifact_name: "ROUTER_STAGE_LAUNCHER Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "ROUTER_STAGE_LAUNCHER"
+  repo_path: "workflow/stage_prompts/ROUTER_STAGE_LAUNCHER.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 Stage ID: ROUTER\_STAGE\_LAUNCHER Stage name: Router / Stage Launcher Behavior Stage type: Runtime shell behavior with formal stage-like public interface Primary job: select the smallest safe next workflow stage and produce a usable Launch Card. Testing status: unaccepted until installed and passed on a real Direction test.
 

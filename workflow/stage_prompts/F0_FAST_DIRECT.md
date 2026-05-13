@@ -1,5 +1,16 @@
 # 10 F0_FAST_DIRECT - Fast Direct
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.5 — Stage Prompt Development — F0\_FAST\_DIRECT Installed at: 2026-05-09T05:47:23.7935800+03:00 Source input: ChatGPT Step 7.5 final runtime prompt output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: direction opt-in Freshness: fresh Supersedes: Fast route / small approved execution behavior from previous workflow versions Superseded by:
+artifact_control:
+  artifact_name: "F0_FAST_DIRECT Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "F0_FAST_DIRECT"
+  repo_path: "workflow/stage_prompts/F0_FAST_DIRECT.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # F0\_FAST\_DIRECT — Fast Direct Runtime Stage Prompt
 

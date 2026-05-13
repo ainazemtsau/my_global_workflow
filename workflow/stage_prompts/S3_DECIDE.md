@@ -1,5 +1,16 @@
 # 11 S3_DECIDE - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.11 — S3\_DECIDE Final Runtime Prompt Installed at: 2026-05-10T06:03:09.7401128+03:00 Source input: ChatGPT Step 7.11 final prompt output — repair input with full literal note body Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+artifact_control:
+  artifact_name: "S3_DECIDE Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "S3_DECIDE"
+  repo_path: "workflow/stage_prompts/S3_DECIDE.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # S3\_DECIDE — Final Runtime Prompt
 

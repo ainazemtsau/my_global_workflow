@@ -1,5 +1,16 @@
 # 15 C2_CODEX_EXECUTE - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.15 — Stage Prompt Development — C2\_CODEX\_EXECUTE Installed at: 2026-05-10T15:12:34.9325980+03:00 Source input: ChatGPT Step 7.15 final prompt output Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by:
+artifact_control:
+  artifact_name: "C2_CODEX_EXECUTE Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "C2_CODEX_EXECUTE"
+  repo_path: "workflow/stage_prompts/C2_CODEX_EXECUTE.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # C2\_CODEX\_EXECUTE — Final Runtime Stage Prompt
 

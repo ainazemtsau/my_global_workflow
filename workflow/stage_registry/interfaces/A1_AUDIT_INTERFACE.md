@@ -1,5 +1,15 @@
 # 08 A1 Audit Interface
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 6 — Stage Interface Registry Installed at: 2026-05-07T16:43:14.1696924+03:00 Source input: ChatGPT Step 6 output generated 2026-05-07 from validated current state after Step 5 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: Superseded by:
+artifact_control:
+  artifact_name: "A1_AUDIT Stage Registry Interface"
+  schema: stage_registry_interface.v1
+  owner_layer: stage_registry_reference
+  status: derived-reference
+  stage_id: "A1_AUDIT"
+  repo_path: "workflow/stage_registry/interfaces/A1_AUDIT_INTERFACE.md"
+  authority: "Derived/reference only; workflow/stage_registry/STAGE_REGISTRY.md wins on conflicts"
+  activation_scope: reference_only
+  freshness: refresh_when_stage_registry_or_interface_contract_changes
+  last_updated: "2026-05-13"
 
 # 08 A1 Audit Interface
 

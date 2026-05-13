@@ -1,5 +1,14 @@
 # 01 Wave Record Template
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 4 — Codex Bridge Contracts Installed at: 2026-05-07T15:53:47.6656515+03:00 Source input: ChatGPT Step 4 output using Project Files 01/02/03 Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by: none
+artifact_control:
+  artifact_name: "01 Wave Record Template"
+  schema: codex_workflow_contract.v1
+  owner_layer: codex_runtime_contract
+  status: canonical
+  repo_path: "workflow/codex/WAVE_RECORD_TEMPLATE.md"
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: workflow_runtime_reference
+  freshness: refresh_when_codex_runtime_contract_changes
+  last_updated: "2026-05-13"
 
 # 01 Wave Record Template
 

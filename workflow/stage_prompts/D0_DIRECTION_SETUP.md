@@ -1,5 +1,16 @@
 # 10 D0_DIRECTION_SETUP - Final Runtime Prompt
-Status: test-active Workflow version: vNext-R REBUILD Installed from roadmap step: Step 7.10 — D0\_DIRECTION\_SETUP Installed at: 2026-05-09T11:33:14.6353481+03:00 Source input: ChatGPT Step 7.10 final prompt output after Stage Research & Design Dossier and explicit WRITE FINAL STAGE PROMPT Authority: GitHub repository canonical after file read-back / diff verification / commit verification Activation scope: rebuild root only Freshness: fresh Supersedes: none Superseded by:
+artifact_control:
+  artifact_name: "D0_DIRECTION_SETUP Runtime Stage Prompt"
+  schema: stage_prompt.v1
+  owner_layer: stage_prompt
+  status: runtime-active
+  stage_id: "D0_DIRECTION_SETUP"
+  repo_path: "workflow/stage_prompts/D0_DIRECTION_SETUP.md"
+  prompt_source: request_only
+  authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
+  activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
+  freshness: refresh_when_stage_prompt_or_registry_changes
+  last_updated: "2026-05-13"
 
 # D0\_DIRECTION\_SETUP — Final Runtime Prompt
 
@@ -221,7 +232,7 @@ Before final answer, compile: human-facing result, Stage Result Packet (`stage_r
 
 Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
 
-Prompt ID: D0\_DIRECTION\_SETUP.final.v1 Stage ID: D0\_DIRECTION\_SETUP Stage name: Direction Setup Runtime status: draft / test-active Workflow version: vNext-R REBUILD
+Prompt ID: D0\_DIRECTION\_SETUP.final.v1 Stage ID: D0\_DIRECTION\_SETUP Stage name: Direction Setup Runtime status: runtime-active
 
 ## 0\. Use this prompt only for D0\_DIRECTION\_SETUP
 
