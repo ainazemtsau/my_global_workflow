@@ -10,7 +10,7 @@ artifact_control:
   default_load: yes
   freshness: fresh
   last_updated: "2026-05-12"
-  next_action: "Use G0_GOAL_SELECT for a concrete stewardship goal, or run Workflow Steward Audit when the user asks for audit."
+  next_action: "Use Workflow Governance Maintenance Mode for workflow audit/repair/cleanup. Use G0_GOAL_SELECT only when the user explicitly asks for normal Goal lifecycle operation."
 ```
 
 ## Direction identity
@@ -32,6 +32,26 @@ Workflow Governance is separate from Solo Max Productive and real product/game D
 This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.md` is the active source-of-truth marker. If required state is missing, stale, or conflicting, return Context Request; do not invent state.
 
 Workflow Governance should be run in a separate ChatGPT Project, not the old Workflow Rebuild Project.
+
+## Workflow Governance Maintenance Mode
+
+Workflow Governance is the maintenance console for the shared workflow layer.
+
+For workflow audit, repair, cleanup, source-of-truth review, routing repair, prompt-boundary repair, transport/schema cleanup, cache/setup consistency work, or Codex repository maintenance, use direct maintenance mode.
+
+In direct maintenance mode:
+
+- accept natural-language maintenance requests;
+- inspect the relevant workflow files;
+- produce findings and patch plans;
+- wait for approval before repository patch operations unless the user directly asks Codex to execute the changes;
+- prepare Codex repository maintenance apply/read-back cards after approval;
+- validate Codex return evidence;
+- report Project Files / Project Instructions refresh requirements.
+
+Do not route to `G0_GOAL_SELECT`, `G1_GOAL_SHAPE`, `P0_PHASE_START`, or another lifecycle stage merely because Active Goal is `none`.
+
+Use normal workflow lifecycle stages only when the user explicitly asks to run Workflow Governance as a normal Direction lifecycle.
 
 ## Current pointers
 
@@ -72,7 +92,9 @@ Do not create or require a local runtime-core copy under this Direction `project
 
 ## Normal next route
 
-- Use `G0_GOAL_SELECT` when the user wants to choose a concrete Workflow Governance goal.
-- Use `Workflow Steward Audit` when the user asks for audit, research, findings, evaluation, or controlled improvement proposals.
-- No repository patch until approval.
+- Use Workflow Governance Maintenance Mode by default when the user asks to audit, repair, simplify, restructure, validate, or patch workflow behavior.
+- Do not route to `G0_GOAL_SELECT` merely because Active Goal is `none`.
+- Use `G0_GOAL_SELECT` only when the user explicitly wants to choose a durable Workflow Governance Goal and run the normal lifecycle.
+- Use `Workflow Steward Audit` only when the user explicitly asks to run that audit launch prompt as a workflow stage/process.
+- No repository patch until approval or direct user request to execute the approved maintenance changes.
 - No product/project execution.

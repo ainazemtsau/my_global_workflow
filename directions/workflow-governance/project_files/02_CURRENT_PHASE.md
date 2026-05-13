@@ -22,8 +22,18 @@ phase:
   source_of_truth: github_markdown
   minimum_outcome: "Workflow Governance has a usable audit, findings, research, eval, decision, patch, and execution-log structure."
   active_goal: none
-  default_next_route: "G0_GOAL_SELECT or Workflow Steward Audit Launch depending on user intent"
+  default_next_route: "Workflow Governance Maintenance Mode for workflow audit/repair/cleanup; G0/G1/P0 only when explicitly requested for normal lifecycle operation"
 ```
+
+## Maintenance-mode interpretation
+
+This Phase does not require Workflow Governance to run normal Goal/Phase lifecycle for every maintenance task.
+
+For shared workflow audit, repair, cleanup, validation, Project Instructions updates, runtime rule updates, stage registry cleanup, prompt-boundary cleanup, transport/schema cleanup, or Codex repository maintenance, use Workflow Governance Maintenance Mode.
+
+Active Goal `none` is not a blocker for maintenance work.
+
+Do not start `P0_PHASE_START`, `G0_GOAL_SELECT`, or `G1_GOAL_SHAPE` merely to continue workflow repair.
 
 ## Closure criteria
 

@@ -14,6 +14,51 @@
 - Do not upload old rebuild or Trilium files into this ChatGPT Project.
 - If uploaded files conflict with GitHub repository files, GitHub repository files win.
 
+## Workflow Governance Maintenance Mode
+
+Workflow Governance is a workflow maintenance and audit Project.
+
+This ChatGPT Project uses workflow runtime files as source context and audit targets, not as a mandatory self-executed lifecycle engine.
+
+Default behavior in this Project is maintenance-direct:
+
+1. Accept the user's natural-language workflow issue, audit request, cleanup request, or repair request.
+2. Identify the relevant workflow surfaces.
+3. Read or request the required repository files.
+4. Audit source-of-truth, structure, duplication, routing, prompt, transport, cache, setup, and rollout consistency.
+5. Produce findings and a patch plan.
+6. Do not emit `repository_patch.v1` operations until the user explicitly approves the patch plan or directly asks Codex to execute the changes.
+7. After approval, produce a Codex repository maintenance apply/read-back card.
+8. Validate Codex return evidence.
+9. Continue with the next audit/fix cycle.
+
+Normal Direction lifecycle routing does not apply by default to Workflow Governance maintenance work.
+
+Do not route to `G0_GOAL_SELECT`, `G1_GOAL_SHAPE`, `P0_PHASE_START`, or another workflow stage merely because Workflow Governance has no active Goal, no active Phase transition, or no Launch Card.
+
+Do not require exact stage prompts merely to audit, repair, or maintain workflow documentation.
+
+Stage prompts are required only when:
+
+- the user explicitly asks to run a workflow stage as a stage;
+- a stage prompt itself is the object of execution rather than audit;
+- the current task depends on exact prompt wording and the prompt is not already available.
+
+For ordinary workflow maintenance, audits, cleanup planning, repository patch preparation, Codex read-only validation, and Codex repository maintenance, use direct maintenance mode.
+
+Workflow runtime files remain important context and source material, but they must not force self-routing overhead for the Workflow Governance Project.
+
+If a Workflow Governance Project File says to use `G0_GOAL_SELECT` or another stage by default, interpret that as applying only when the user explicitly wants normal workflow lifecycle operation. For workflow repair/audit tasks, this Maintenance Mode section wins.
+
+Keep these constraints:
+
+- GitHub repository files remain the source of truth.
+- Project Files are runtime cache only.
+- Do not invent missing repository state.
+- Do not run product/project execution.
+- Do not patch before approval or direct user request to execute changes.
+- For shared runtime changes, evaluate rollout impact across all active Direction Projects.
+
 ## Hard Cross-Direction Rollout Rule
 
 Workflow Governance maintains the shared workflow layer.

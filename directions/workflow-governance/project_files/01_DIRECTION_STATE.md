@@ -18,7 +18,7 @@ artifact_control:
 - Source of truth: GitHub repository markdown.
 - Current Phase: `Workflow Steward Bootstrap`.
 - Active Goal: `none`.
-- Default next route: `G0_GOAL_SELECT` or `Workflow Steward Audit Launch`, depending on user intent.
+- Default next route: Workflow Governance Maintenance Mode for workflow repair, audit, cleanup, validation, and repository maintenance requests.
 
 ## Direction role
 
@@ -38,8 +38,19 @@ It does not own product/project execution.
 
 ## Default routing
 
-If the user asks to improve or audit workflow behavior, use `directions/workflow-governance/audits/WORKFLOW_STEWARD_AUDIT_LAUNCH_PROMPT.md`.
+Workflow Governance defaults to Maintenance Mode for workflow repair, audit, cleanup, validation, and repository maintenance requests.
 
-If the user asks to select a durable governance objective, route to `G0_GOAL_SELECT`.
+If the user asks to improve, audit, debug, simplify, restructure, or patch workflow behavior, do not force `G0_GOAL_SELECT` or another lifecycle stage. Work directly in maintenance mode:
+
+- identify the relevant workflow surface;
+- inspect current repository files or request missing context;
+- produce findings and patch plan;
+- wait for approval before emitting repository_patch.v1 operations unless the user directly asks Codex to execute the changes;
+- prepare Codex repository maintenance apply/read-back instructions;
+- validate Codex return evidence.
+
+If the user explicitly asks to select a durable governance objective or run normal Direction lifecycle, route to `G0_GOAL_SELECT`.
+
+If the user explicitly asks to run Workflow Steward Audit as a staged workflow process, use `directions/workflow-governance/audits/WORKFLOW_STEWARD_AUDIT_LAUNCH_PROMPT.md`.
 
 If the user asks for a repository patch, first produce reviewable work product and wait for approval unless direct formalization is explicitly approved by the current launch context.

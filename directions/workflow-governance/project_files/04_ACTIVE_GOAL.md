@@ -19,11 +19,17 @@ active_goal:
   state: none
   goal_id: null
   goal_name: null
-  default_next_route: "G0_GOAL_SELECT or Workflow Steward Audit Launch depending on user intent"
+  default_next_route: "Workflow Governance Maintenance Mode for workflow audit/repair/cleanup; G0_GOAL_SELECT only when explicitly requested"
 ```
 
 ## Notes
 
 No Workflow Governance Goal is currently active.
 
-Use `G0_GOAL_SELECT` to choose a durable governance goal, or use `audits/WORKFLOW_STEWARD_AUDIT_LAUNCH_PROMPT.md` for an audit run.
+Active Goal `none` is not a blocker for workflow maintenance work.
+
+Use Workflow Governance Maintenance Mode for workflow audit, repair, cleanup, validation, source-of-truth review, repository patch preparation, and Codex repository maintenance.
+
+Use `G0_GOAL_SELECT` only when the user explicitly asks to choose a durable governance goal or run the normal Goal lifecycle.
+
+Use `audits/WORKFLOW_STEWARD_AUDIT_LAUNCH_PROMPT.md` only when the user explicitly asks to run that staged audit process.

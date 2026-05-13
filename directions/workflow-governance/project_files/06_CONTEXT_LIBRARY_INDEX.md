@@ -47,6 +47,28 @@ Stage prompts are request-only by exact stage ID.
 
 Do not bulk-load all stage prompts.
 
+## Workflow Governance Maintenance Mode context
+
+Workflow Governance Maintenance Mode may inspect workflow files directly as audit and repair targets.
+
+Typical maintenance targets include:
+
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/runtime/`
+- `workflow/stage_registry/`
+- `workflow/stage_prompts/`
+- `workflow/transport/`
+- `docs/CHATGPT_PROJECT_SETUP.md`
+- `directions/*/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/*/project_files/00_DIRECTION_START_HERE.md`
+- `directions/*/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+
+Stage prompts are request-only for execution, but they may be read by Codex/local audit or supplied as verified bundles when they are audit targets.
+
+Do not bulk-load all stage prompts into ChatGPT Project Files.
+
+For workflow maintenance tasks, do not require lifecycle stage prompts merely to continue the audit/repair process. Require an exact stage prompt only when the user explicitly asks to execute that stage or when exact prompt wording is material to the audit.
+
 ## Project setup
 
 - `directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
