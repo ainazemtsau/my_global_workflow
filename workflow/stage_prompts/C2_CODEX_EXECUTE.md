@@ -614,42 +614,25 @@ extensions: {}
 
 ## 14\. Repository Patch schema
 
-If GitHub repository mutation is required and authorized only by patch, produce:
+## Repository Patch packet reference
 
-```yaml
-workflow_packet: 1
-packet_type: repository_patch
-schema: repository_patch.v1
-patch_required_after_approval: true
-patch_reason:
-target_root:
-files_to_create_or_update:
-  - path:
-    title:
-    action:
-    status:
-    content:
-    validation_anchors: []
-files_to_mark_stale:
-  - path:
-    reason:
-    replacement_pointer:
-do_not_touch:
-  - path:
-    reason:
+Do not copy the full Repository Patch packet schema inside this prompt.
 
+Use the canonical transport template:
+
+```text
+workflow/transport/REPOSITORY_PATCH.md
 ```
 
-If no GitHub repository mutation is required, produce:
+Stage-specific repository patch obligations in this prompt still apply.
 
-```yaml
-workflow_packet: 1
-packet_type: repository_patch
-schema: repository_patch.v1
-patch_required: false
-explicit_none_reason:
+If this stage proposes repository changes after approval/formalization, produce the patch using the canonical Repository Patch transport template and the stage-specific write rules below.
 
-```
+Do not invent local repository patch schemas.
+
+Required patch: include patch reason, target root, files to create/update, stale-file markers, do-not-touch paths, validation anchors, and read-back / diff verification / commit verification evidence.
+
+No patch: output explicit none with a reason.
 
 ---
 

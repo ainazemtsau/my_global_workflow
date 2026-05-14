@@ -642,54 +642,23 @@ Output:
 
 ## 11\. Repository Patch rules
 
-When producing a patch, use this structure:
+## Repository Patch packet reference
 
-```yaml
-workflow_packet: 1
-type: repository_patch
-schema: repository_patch.v1
-repository_patch: 1
-patch_id:
-stage_id: F0_FAST_DIRECT
-stage_name: Fast Direct
-direction:
-  id:
-  name:
-phase:
-  id:
-  name:
-  status:
-goal:
-  goal_id:
-  title:
-source_inputs:
-  launch_card_ref:
-  e1_execution_brief_ref:
-  g1_goal_contract_ref:
-preconditions:
-  freshness_required_after_approval: true
-  required_readback_evidence:
-  forbidden_if_missing:
-target_scope:
-  allowed_paths:
-  forbidden_paths:
-actions:
-  - path:
-    title:
-    action: create | replace_section | append_section | update_header
-    section:
-    content: |
-      [exact content]
-    validation_anchors:
-      - "[anchor text]"
-readback_requirements:
-  expected_paths:
-  expected_anchors:
-  forbidden_changes:
-apply_readback_state: draft_only | patch_ready_needs_apply | applied_needs_readback | applied_readback_pass | applied_readback_fail | not_required
-rollback_or_repair_note:
+Do not copy the full Repository Patch packet schema inside this prompt.
 
+Use the canonical transport template:
+
+```text
+workflow/transport/REPOSITORY_PATCH.md
 ```
+
+Stage-specific repository patch obligations in this prompt still apply.
+
+If this stage proposes repository changes after approval/formalization, produce the patch using the canonical Repository Patch transport template and the stage-specific write rules below.
+
+Do not invent local repository patch schemas.
+
+When producing a patch, include F0 identity, direction/phase/goal source inputs, freshness and read-back preconditions, allowed/forbidden paths, exact actions/content, validation anchors, read-back requirements, apply/read-back state, and rollback or repair note.
 
 Patch action rules:
 

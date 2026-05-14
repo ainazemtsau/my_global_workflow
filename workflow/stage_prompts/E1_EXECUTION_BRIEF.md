@@ -576,48 +576,27 @@ For E1 Stage Result, always produce a packet unless outputting a Stop Card befor
 
 ## 8\. Repository Patch contract
 
-Always include one of these.
+Always include a Repository Patch or explicit none.
 
-### If E1 patch is required
+## Repository Patch packet reference
 
-```yaml
-repository_patch:
-  workflow_packet: 1
-  type: repository_patch
-  schema: repository_patch.v1
-  required_after_approval: true
-  patch_type: create | replace_section | append_section | update_header
-  purpose: record_e1_execution_brief_only
-  target_root:
-  notes:
-    - path:
-      title:
-      action:
-      status:
-      content_summary:
-      validation_anchors:
-        - text:
-  readback_required_after_approval: true
-  readback_targets:
-    - path:
-  forbidden_changes:
-    - path_or_pattern:
-      reason:
+Do not copy the full Repository Patch packet schema inside this prompt.
 
+Use the canonical transport template:
+
+```text
+workflow/transport/REPOSITORY_PATCH.md
 ```
 
-### If E1 patch is not required
+Stage-specific repository patch obligations in this prompt still apply.
 
-```yaml
-repository_patch:
-  workflow_packet: 1
-  type: repository_patch
-  schema: repository_patch.v1
-  required: false
-  patch_type: explicit_none
-  reason:
+If this stage proposes repository changes after approval/formalization, produce the patch using the canonical Repository Patch transport template and the stage-specific write rules below.
 
-```
+Do not invent local repository patch schemas.
+
+Required patch: purpose `record_e1_execution_brief_only`; include target paths, action/status, content summary, validation anchors, read-back targets, forbidden changes, and approval/read-back state.
+
+No patch: output explicit none with a reason.
 
 Never use E1’s Repository Patch to complete the Goal implementation.
 
