@@ -14,9 +14,44 @@ artifact_control:
 
 ## Purpose
 
-A Codex Return Packet is the required response from Codex after executing, previewing, blocking, or failing a Codex Wave Card.
+A Codex Return Packet is the required response from Codex after executing, previewing, blocking, or failing a Codex Wave.
 
 It is the evidence-bearing bridge back to ChatGPT or a human validator. It must be complete enough for validation without relying on private Codex memory.
+
+## Schema authority boundary
+
+This file defines semantic safety requirements for Codex return evidence.
+
+It is not the canonical packet schema authority.
+
+Canonical packet schema lives in:
+
+```text
+workflow/transport/CODEX_RETURN_PACKET.md
+```
+
+Canonical schema identity:
+
+```yaml
+workflow_packet: 1
+type: codex_return
+schema: codex_return.v1
+```
+
+Human-readable names such as `Codex Return Packet` may remain in prose.
+
+Legacy names such as `codex_return_packet`, `codex_return_packet.v1`, and `CODEX_RETURN_PACKET_BEGIN/END` are compatibility aliases only. They must not be treated as canonical schema IDs.
+
+Compatibility mapping:
+
+```text
+packet_type: codex_return_packet -> type: codex_return
+schema: codex_return_packet.v1 -> schema: codex_return.v1
+CODEX_RETURN_PACKET_BEGIN/END -> extensions.legacy_wrapper
+unmatched legacy fields -> extensions.legacy_*
+```
+
+Producers should emit `codex_return.v1`.
 
 ## Final states
 
@@ -55,81 +90,35 @@ Codex must not claim DONE based only on intention, partial inspection, or an uns
 
 ## Required Codex Return Packet template
 
-CODEX\_RETURN\_PACKET\_BEGIN
+Producers should use the canonical transport template:
 
 ```text
-# CODEX RETURN PACKET
-
-Final state: DONE / NEEDS_INPUT / PARTIAL / STUCK / FAILED
-
-## Wave executed
-- Wave ID:
-- Wave name:
-- Wave Card source:
-- Wave Record path:
-- Codex mode:
-- Apply command received: yes/no/not-required
-
-## Objective
-- Requested objective:
-- Completed objective:
-- Non-goals respected:
-
-## Source and authority check
-- Canonical sources read:
-- Required sources missing:
-- Stale or untrusted sources ignored:
-- Authority conflicts detected:
-
-## Work performed
-- Summary:
-- Files changed:
-  - path:
-    action: create | modify | delete | move | no-change
-    summary:
-- GitHub repository files changed:
-  - path:
-    action: create | replace_note | replace_section | append_section | update_header | mark_stale | no-change
-    summary:
-- Commands run:
-  - command:
-    result:
-    evidence excerpt:
-- Task Master actions:
-  - task_id:
-    action:
-    summary:
-
-## Evidence
-- Diff summary:
-- Read-back results:
-- Validator results:
-- Logs or artifacts:
-- Screenshots or visual checks, if applicable:
-- Evidence not available:
-- Reason evidence is unavailable:
-
-## Safety checks
-- Allowed targets only: pass/fail
-- Forbidden targets untouched: pass/fail
-- Secrets or credentials exposed: yes/no
-- Active Workflow vNext overwritten: yes/no
-- Global activation performed: yes/no
-- Unexpected side effects:
-
-## Result classification
-- Final state:
-- Why this state is valid:
-- Blocking issues:
-- Nonblocking notes:
-
-## Next route
-- Return to:
-- Exact next instruction:
-
+workflow/transport/CODEX_RETURN_PACKET.md
 ```
 
-CODEX\_RETURN\_PACKET\_END
+Required canonical identity:
+
+```yaml
+workflow_packet: 1
+type: codex_return
+schema: codex_return.v1
+```
+
+The return must still satisfy this contract's semantic safety requirements:
+
+- final state is explicit;
+- requested objective and completed work are stated;
+- changed files are listed;
+- commands/validators are reported;
+- evidence is present;
+- file read-back / diff verification / commit verification is reported when required;
+- forbidden targets are checked;
+- blockers and nonblocking notes are explicit;
+- exact next route is included.
+
+Legacy `CODEX_RETURN_PACKET_BEGIN/END` wrapper format is accepted only as a temporary compatibility wrapper and should be normalized under `extensions.legacy_wrapper`.
+
+Legacy shape compatibility must not weaken the DONE claim rule.
 
 ## Required GitHub repository install return compatibility
 

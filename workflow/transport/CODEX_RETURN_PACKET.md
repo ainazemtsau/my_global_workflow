@@ -108,6 +108,39 @@ extensions: {}
 - `evidence`
 - `project_files_cache_refresh_required`
 
+## Legacy compatibility aliases
+
+Canonical schema identity:
+
+```yaml
+workflow_packet: 1
+type: codex_return
+schema: codex_return.v1
+```
+
+Human-readable artifact names such as `Codex Return Packet` may remain in prose.
+
+Legacy packet shapes may be tolerated only as compatibility input, not as schema authority:
+
+```text
+packet_type: codex_return_packet
+schema: codex_return_packet.v1
+CODEX_RETURN_PACKET_BEGIN / CODEX_RETURN_PACKET_END wrappers
+```
+
+Compatibility normalization:
+
+```text
+packet_type: codex_return_packet -> type: codex_return
+schema: codex_return_packet.v1 -> schema: codex_return.v1
+CODEX_RETURN_PACKET_BEGIN/END -> extensions.legacy_wrapper
+legacy packet fields -> canonical fields when names match, otherwise extensions.legacy_*
+```
+
+Producers should emit `codex_return.v1`.
+
+Consumers may tolerant-read legacy return packet shapes during migration, but must not treat legacy names as canonical schema IDs.
+
 ## End-of-file marker
 
 `END_OF_FILE: workflow/transport/CODEX_RETURN_PACKET.md`

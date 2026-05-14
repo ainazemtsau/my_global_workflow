@@ -14,130 +14,91 @@ artifact_control:
 
 ## Purpose
 
-A Codex Wave Card is the executable handoff packet from ChatGPT, a future stage prompt, or a recovery process to Codex.
+A Codex Wave Card is an executable handoff packet from ChatGPT, a stage prompt, or a recovery process to Codex.
 
-It tells Codex exactly what to inspect, preview, change, test, install, or repair. It also defines allowed targets, forbidden targets, evidence requirements, validator requirements, and the required return packet.
+It tells Codex exactly what to inspect, preview, change, test, install, repair, or validate. It also defines allowed scope, forbidden scope, evidence requirements, validator requirements, and the required return packet.
 
-This contract does not define the final C1 or C2 prompts. It defines the bridge those later prompts must use.
+This contract defines semantic safety requirements for Codex waves. It does not define the final C1 or C2 prompts.
+
+## Schema authority boundary
+
+This file is not the canonical packet schema authority.
+
+Canonical packet schema lives in:
+
+```text
+workflow/transport/CODEX_WAVE_CARD.md
+```
+
+Canonical schema identity:
+
+```yaml
+workflow_packet: 1
+type: codex_wave
+schema: codex_wave.v1
+```
+
+Human-readable names such as `Codex Wave Card` may remain in prose.
+
+Legacy names and wrappers such as `codex_wave_card: 1` and `CODEX_WAVE_CARD_BEGIN/END` are compatibility aliases only. They must not be treated as canonical schema IDs.
+
+Compatibility mapping:
+
+```text
+codex_wave_card: 1 -> workflow_packet: 1 / type: codex_wave / schema: codex_wave.v1
+CODEX_WAVE_CARD_BEGIN/END -> extensions.legacy_wrapper
+allowed_targets -> repository.allowed_paths or allowed_actions, depending on value type
+forbidden_targets -> repository.forbidden_paths or forbidden_actions, depending on value type
+unmatched legacy fields -> extensions.legacy_*
+```
+
+Producers should emit `codex_wave.v1`.
 
 ## Core rules
 
-1.  Codex must treat the Wave Card as the immediate work authorization.
-2.  Codex must not infer write permission from surrounding conversation when the Wave Card says preview or inspect only.
-3.  Codex must not write outside `allowed_targets`.
-4.  Codex must not touch `forbidden_targets`.
-5.  Codex must return a Codex Return Packet even when blocked.
-6.  Codex must not claim DONE unless the required evidence and file read-back / diff verification / commit verification requirements are satisfied.
-7.  Codex must preserve unknown extension fields unless explicitly instructed to normalize or replace the packet.
-8.  A Wave Card may reference Task Master, but Task Master is never canonical for workflow content unless a later validated contract explicitly changes that.
+1. Codex must treat the Wave Card as the immediate work authorization.
+2. Codex must not infer write permission from surrounding conversation when the Wave Card says read-only, preview, inspect, or validation only.
+3. Codex must not write outside canonical `allowed_paths`, `allowed_actions`, or explicitly equivalent normalized legacy scope.
+4. Codex must not touch canonical `forbidden_paths`, `forbidden_actions`, or explicitly equivalent normalized legacy scope.
+5. Codex must return a Codex Return Packet using `codex_return.v1`, or a tolerated legacy shape normalized to `codex_return.v1`.
+6. Codex must not claim DONE unless required evidence and file read-back / diff verification / commit verification requirements are satisfied.
+7. Codex must preserve unknown extension fields unless explicitly instructed to normalize or replace the packet.
+8. A Wave may reference Task Master, but Task Master is never canonical for workflow content and never independently proves DONE.
 
 ## Required Codex Wave Card template
 
-CODEX\_WAVE\_CARD\_BEGIN
+Producers should use the canonical transport template:
 
-```yaml
-codex_wave_card: 1
-
-wave:
-  wave_id: "{{wave_id}}"
-  short_name: "{{short_name}}"
-  wave_record_path: "{{repository_wave_record_path_or_none}}"
-  created_at: "{{created_at}}"
-
-origin:
-  origin_type: "stage | manual | recovery | install_validation"
-  stage_id: "{{stage_id_or_none}}"
-  stage_name: "{{stage_name_or_none}}"
-  source_packet_path: "{{repository_path_or_none}}"
-  user_request_summary: "{{one_sentence_summary}}"
-
-mode:
-  codex_mode: "PREVIEW_FIRST | APPLY_AFTER_CONFIRM | INSPECT_ONLY"
-  write_permission: "none | preview_only | allowed_after_human_apply"
-  requires_explicit_apply_command: true
-  exact_apply_command: "APPLY_INSTALL | APPLY_WAVE | APPLY_PATCH"
-
-authority:
-  canonical_repository_root: "Workflow / 20 Workflow vNext-R REBUILD"
-  canonical_sources:
-    - path: "{{repository_file_path}}"
-      required: true
-  project_files:
-    - file: "01_WORKFLOW_REBUILD_CONTROL_PACK.md"
-      required: true
-    - file: "02_CURRENT_REBUILD_STATE.md"
-      required: true
-    - file: "03_CODEX_TRILIUM_INSTALLER_UNIVERSAL.md"
-      required: false
-  stale_or_untrusted_sources:
-    - "{{source_to_ignore_unless_reintroduced}}"
-
-task:
-  task_type: "inspect | plan | patch | test | install | repair | document"
-  objective: "{{specific_objective}}"
-  non_goals:
-    - "{{explicit_non_goal}}"
-  acceptance_criteria:
-    - "{{observable_acceptance_criterion}}"
-
-allowed_targets:
-  repository_paths:
-    - "{{allowed_repository_path_or_none}}"
-  repository_paths:
-    - "{{allowed_repo_path_or_none}}"
-  commands:
-    - "{{allowed_command_or_category}}"
-
-forbidden_targets:
-  repository_paths:
-    - "{{forbidden_repository_path_or_pattern}}"
-  repository_paths:
-    - "{{forbidden_repo_path_or_pattern}}"
-  commands:
-    - "{{forbidden_command_or_category}}"
-  data:
-    - "secrets"
-    - "credentials"
-    - "unrequested private data"
-
-implementation_constraints:
-  minimal_safe_change: true
-  preserve_existing_behavior_unless_requested: true
-  no_global_activation: true
-  no_final_stage_prompts_unless_step_7_plus: true
-  stop_on_ambiguous_write_scope: true
-
-evidence_requirements:
-  required_readback:
-    - "{{path_or_artifact_to_read_back}}"
-  required_commands:
-    - "{{validator_or_command}}"
-  required_artifacts:
-    - "{{diff_summary | note_tree | test_output | log_entry}}"
-  forbidden_change_check: true
-
-task_master:
-  access_granted: false
-  project_identifier: "{{project_or_none}}"
-  allowed_task_ids:
-    - "{{task_id_or_none}}"
-  allowed_actions:
-    - "read | comment | status_update | create_subtask"
-  must_not_mark_done_without_wave_validation: true
-
-return_packet:
-  required_contract: "Codex Return Packet Contract v1"
-  required_final_states:
-    - "DONE"
-    - "NEEDS_INPUT"
-    - "PARTIAL"
-    - "STUCK"
-    - "FAILED"
-  must_include_next_route: true
-
+```text
+workflow/transport/CODEX_WAVE_CARD.md
 ```
 
-CODEX\_WAVE\_CARD\_END
+Required canonical identity:
+
+```yaml
+workflow_packet: 1
+type: codex_wave
+schema: codex_wave.v1
+```
+
+The wave must still satisfy this contract's semantic safety requirements:
+
+- Codex mode is explicit;
+- write permission is explicit;
+- allowed scope is bounded;
+- forbidden scope is bounded;
+- required sources are named;
+- task objective and non-goals are explicit;
+- evidence requirements are explicit;
+- validators are explicit or their absence is explained;
+- Task Master permissions, if any, are explicit and do not become DONE authority;
+- return packet requirements are explicit.
+
+Legacy `CODEX_WAVE_CARD_BEGIN/END` wrapper format and `codex_wave_card: 1` shape are accepted only as temporary compatibility wrappers and should be normalized under `extensions.legacy_wrapper`.
+
+Legacy `allowed_targets` / `forbidden_targets` should be mapped to canonical `allowed_paths` / `forbidden_paths` or action-level fields according to value type.
+
+Legacy shape compatibility must not authorize writes outside the canonical allowed scope.
 
 ## Codex behavior requirements
 

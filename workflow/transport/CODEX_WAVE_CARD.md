@@ -98,6 +98,41 @@ extensions: {}
 - `allowed_paths`
 - `evidence_required`
 
+## Legacy compatibility aliases
+
+Canonical schema identity:
+
+```yaml
+workflow_packet: 1
+type: codex_wave
+schema: codex_wave.v1
+```
+
+Human-readable artifact names such as `Codex Wave Card` may remain in prose.
+
+Legacy packet shapes may be tolerated only as compatibility input, not as schema authority:
+
+```text
+codex_wave_card: 1
+CODEX_WAVE_CARD_BEGIN / CODEX_WAVE_CARD_END wrappers
+allowed_targets
+forbidden_targets
+```
+
+Compatibility normalization:
+
+```text
+codex_wave_card: 1 -> workflow_packet: 1 / type: codex_wave / schema: codex_wave.v1
+CODEX_WAVE_CARD_BEGIN/END -> extensions.legacy_wrapper
+allowed_targets -> repository.allowed_paths or allowed_actions, depending on value type
+forbidden_targets -> repository.forbidden_paths or forbidden_actions, depending on value type
+legacy packet fields -> canonical fields when names match, otherwise extensions.legacy_*
+```
+
+Producers should emit `codex_wave.v1`.
+
+Consumers may tolerant-read legacy wave card shapes during migration, but must not treat legacy names as canonical schema IDs.
+
 ## End-of-file marker
 
 `END_OF_FILE: workflow/transport/CODEX_WAVE_CARD.md`

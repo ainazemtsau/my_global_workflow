@@ -182,6 +182,35 @@ next_route:
 
 WAVE\_RECORD\_TEMPLATE\_END
 
+## Codex Wave/Return schema compatibility note
+
+Wave Records may continue to use human-readable names such as `Codex Wave Card` and `Codex Return Packet`.
+
+Canonical transport schema IDs are:
+
+```text
+codex_wave.v1
+codex_return.v1
+```
+
+Compatibility aliases:
+
+```text
+codex_wave_card: 1 -> codex_wave.v1
+codex_return_packet / codex_return_packet.v1 -> codex_return.v1
+CODEX_WAVE_CARD_BEGIN/END -> extensions.legacy_wrapper
+CODEX_RETURN_PACKET_BEGIN/END -> extensions.legacy_wrapper
+```
+
+Wave Records should point to the canonical transport templates:
+
+```text
+workflow/transport/CODEX_WAVE_CARD.md
+workflow/transport/CODEX_RETURN_PACKET.md
+```
+
+Legacy aliases may be preserved in historical Wave Records, but new Wave Records should reference canonical schema IDs where practical.
+
 ## Acceptance anchors
 
 This note is acceptable only if these anchors remain visible on file read-back / diff verification / commit verification:
