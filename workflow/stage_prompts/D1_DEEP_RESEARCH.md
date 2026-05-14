@@ -103,7 +103,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/D1_DEEP_RESEARCH.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results use `return_state`, `route`, and `next_stage`. Stage launches use the canonical Stage Launch Card template and a canonical `stage:` object.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -567,250 +567,51 @@ Use expanded QA because D1 is evidence-sensitive.
 *   Handoff completeness:
 *   Packet compliance:
 
-## 7\. Runtime packets
+## Transport packet references
 
-Emit all required packets below.
+Do not copy full packet schemas inside this prompt.
 
-### Stage Result Packet
+Use canonical transport templates from:
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
-stage:
-  id: D1_DEEP_RESEARCH
-  name: Deep Research
-  source_path: workflow/stage_prompts/D1_DEEP_RESEARCH.md
-  version: current
-  status: active
-return_state: DONE | NEEDS_INPUT | STUCK
-route:
-  next_stage:
-  reason:
-source_state:
-  upstream_stage:
-  direction_id:
-  phase_id:
-  goal_id:
-  decision_supported:
-  research_question:
-  result_summary:
-  source_backed_findings:
-    - finding:
-      source_support:
-      source_type:
-      freshness_note:
-      decision_relevance:
-  synthesis_inference:
-    - inference:
-      basis:
-      decision_implication:
-  uncertainty_conflicts:
-    - issue:
-      impact:
-      handling:
-  rejected_scope:
-    - item:
-      reason:
-  recommended_next_route:
-    stage_id:
-    reason:
-  handoff_notes:
-    preserve:
-      - item:
-    do_not_do:
-      - item:
-  contract_compliance:
-    research_needed_gate:
-    source_backing:
-    no_execution:
-    no_codex_start:
-    one_terminal_card:
-  extensions:
-    research_scope_contract:
-      decision_supported:
-      research_question:
-      source_scope:
-      freshness_requirement:
-      evidence_budget:
-      stop_rule:
-      exclusions:
-    evidence_snapshot:
-      source_backed_findings:
-      synthesis_inference:
-      uncertainty_conflicts:
-      source_summary:
-      freshness_assessment:
-      rejected_scope:
-      downstream_use:
-
+```text
+workflow/transport/
 ```
 
-### Repository Patch
+Primary templates:
 
-Default:
-
-```yaml
-repository_patch:
-  action: none
-  reason: "D1 does not mutate GitHub repository. Documentation promotion, if any, is stated in the Documentation Maintenance Gate."
-
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
+workflow/transport/REPOSITORY_PATCH.md
+workflow/transport/EXECUTION_LOG_ENTRY.md
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
+workflow/transport/CODEX_WAVE_CARD.md
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/RECOVERY_CLOSE_PACKET.md
 ```
 
-Do not emit an actionable GitHub repository mutation unless a later accepted runtime contract explicitly authorizes D1 to do so.
+Stage-specific output obligations in this prompt still apply.
 
-### Execution Log Entry
+If this prompt requires a specific output, produce it using the canonical transport template and the stage-specific content rules in this prompt.
 
-```yaml
-execution_log_entry:
-  stage_id: D1_DEEP_RESEARCH
-  stage_name: Deep Research
-  timestamp:
-  direction_id:
-  phase_id:
-  goal_id:
-  upstream_stage:
-  research_question:
-  source_budget_used:
-  source_count:
-  route_result:
-  key_decision_implication:
-  documentation_maintenance_result:
-  next_card_type:
-  limitations:
+Do not invent local packet schemas.
 
-```
+### D1-specific transport obligations
 
-### Documentation Maintenance Gate
-
-```yaml
-documentation_maintenance_gate:
-  durable_update_needed: yes | no
-  classification: stage-local temporary data | Goal Working Context | Phase Working Context | Direction stable context | Knowledge / Canon Candidate | Context Loading Index entry | Project File export | Codex/Wave execution data
-  promotion_reason:
-  stale_risk:
-  review_trigger:
-  target_owner_stage:
-  repository_patch_status:
-
-```
-
-### Changed Files / Context Refresh List
-
-```yaml
-changed_files_context_refresh_list:
-  required_after_approval: true | false
-  files:
-    - file:
-      reason:
-      content_update_summary:
-
-```
-
-### Terminal card
-
-Emit exactly one of the following.
-
-#### Next Launch Card
-
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-stage:
-  id:
-  name:
-  source_path: workflow/stage_prompts/<STAGE_ID>.md
-  version: current
-  status: ready
-prompt_delivery:
-  mode: manual_prompt_required
-  stage_prompt_source_path: workflow/stage_prompts/<STAGE_ID>.md
-  stage_prompt_version: current
-  stage_prompt_status: required
-  prompt_text_included: false
-  prompt_text: null
-  source_commit: null
-  line_count: null
-  byte_count: null
-  tail_anchor_or_eof_verified: false
-  execute_allowed: false
-source_state:
-  pending_repository_patch:
-  changed_files_context_refresh_required:
-  reason_for_route:
-  decision_or_task_for_next_stage:
-  evidence_snapshot:
-  source_backed_constraints:
-    - constraint:
-  unresolved_uncertainty:
-    - uncertainty:
-  assumptions_to_preserve:
-    - assumption:
-  documentation_maintenance_instruction:
-  do_not_do:
-    - item:
-  required_context_for_next_stage:
-    - item:
-
-```
-
-#### Context Request Card
-
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-stage:
-  id: D1_DEEP_RESEARCH
-  name: Deep Research
-reason:
-missing_required_context:
-  - item:
-    why_needed:
-cannot_safely_proceed_because:
-smallest_context_to_provide:
-  - item:
-suggested_return_stage: D1_DEEP_RESEARCH
-
-```
-
-#### Human Decision Card
-
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
-stage:
-  id: D1_DEEP_RESEARCH
-  name: Deep Research
-decision_needed:
-options:
-  - option:
-    evidence_for:
-    evidence_against:
-    risk:
-recommended_default:
-why_not_auto_decided:
-next_stage_after_decision:
-
-```
-
-#### Stop Card
-
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage:
-  id: D1_DEEP_RESEARCH
-  name: Deep Research
-reason:
-unsafe_or_invalid_to_continue_because:
-what_was_checked:
-recommended_recovery_route:
-
-```
+- Normal D1 research output must emit all required packets after the human-readable research sections.
+- Stage Result Packet content must preserve source state, upstream stage, Direction/Phase/Goal IDs, decision supported, research question, result summary, source-backed findings, synthesis/inference, uncertainty/conflicts, rejected scope, recommended next route, handoff notes, contract compliance, research scope contract, and evidence snapshot.
+- Repository Patch default is explicit none because D1 does not mutate the GitHub repository. Do not emit an actionable GitHub repository mutation unless a later accepted runtime contract explicitly authorizes D1 to do so.
+- Execution Log Entry must preserve stage, timestamp, Direction/Phase/Goal IDs, upstream stage, research question, source budget/count, route result, key decision implication, documentation maintenance result, next card type, and limitations.
+- Documentation Maintenance Gate must classify whether durable update is needed, promotion classification, promotion reason, stale risk, review trigger, target owner stage, and repository patch status.
+- Changed Files / Context Refresh List must state whether refresh is required and name files, reasons, and content update summaries when applicable.
+- Emit exactly one terminal artifact: Stage Launch Card, Context Request Card, Human Decision Card, or Stop Card.
+- Stage Launch Card must preserve route reason, minimum safe scope, evidence snapshot, source-backed constraints, unresolved uncertainty, assumptions to preserve, documentation maintenance instruction, do-not-do items, and required context for the next stage.
+- Context Request Card must ask for the smallest missing context needed when a decision-supported research question cannot be formed, required context is missing/conflicting, current evidence is required but unavailable, or the launch asks for implementation and no safe route can be inferred.
+- Human Decision Card must be used when evidence supports multiple materially different routes, the decision depends on cost/risk/preference/source standards, high-stakes action would be unsafe, or durable documentation promotion cannot be safely inferred.
+- Stop Card must be used when proceeding would be unsafe, misleading, out of scope, or unsupported.
 
 ## 15\. Compact output shape for research-not-needed cases
 

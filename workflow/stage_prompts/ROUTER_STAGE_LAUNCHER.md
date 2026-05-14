@@ -778,395 +778,47 @@ Do not mechanically print all packet sections for clean, low-risk route summarie
 Use exception-only Kernel QA. Only include a Kernel QA section if there is missing context, state conflict, stale context, unsafe route, schema problem, workflow-edit issue, or recovery condition.
 ---
 
-## 16\. Next Launch Card schema - stage\_launch.v1
+## Transport packet references
 
-When routing succeeds, output this packet:
+Do not copy full packet schemas inside this prompt.
 
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-action: run_stage
-mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations
-target_runtime: chatgpt_direction_project | chatgpt_current_chat | codex
+Use canonical transport templates from:
 
-stage:
-  id:
-  name:
-  source_path:
-  version:
-  status:
-
-prompt_delivery:
-  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
-  stage_prompt_source_path:
-  stage_prompt_version:
-  stage_prompt_status:
-  prompt_text_included: true | false
-  prompt_text: null
-  source_commit: null
-  line_count: null
-  byte_count: null
-  tail_anchor_or_eof_verified: false
-  execute_allowed: false
-
-direction:
-  name:
-  repository_path:
-  project_name:
-
-phase:
-  name:
-  path:
-  status:
-  critical_constraint:
-
-goal:
-  title:
-  path:
-  status:
-
-source_state:
-  from_stage: ROUTER_STAGE_LAUNCHER
-  previous_return_state:
-  pending_repository_patch: true | false
-  changed_files_context_refresh_required_after_approval: true | false
-
-input_artifacts:
-  previous_stage_result_summary:
-  goal_contract:
-  execution_brief:
-  decision_record:
-  codex_return:
-  other:
-
-required_context:
-  project_files:
-    - 00_DIRECTION_START_HERE.md
-    - 01_DIRECTION_STATE.md
-    - 02_CURRENT_PHASE.md
-    - 03_FOCUS_REGISTER.md
-    - 04_ACTIVE_GOAL.md
-    - 05_PORTFOLIO_QUEUE.md
-    - 06_CONTEXT_LIBRARY_INDEX.md
-    - 07_PHASE_MEMORY_INDEX.md
-    - WF_VNEXT_R_RUNTIME_CORE.md
-  additional_repository_file_exports:
-    - path:
-      reason:
-      required_after_approval: true | false
-
-missing_context_policy: ask_only_if_blocking
-
-expected_outputs:
-  - Human-readable result
-  - Stage Result Packet
-  - Repository Patch or none
-  - Execution Log Entry
-  - Changed Files / Context Refresh List
-  - Next Launch Card / Context Request / Human Decision Card / Stop
-
-instructions:
-  do_not_echo_prompt: true
-  do_not_run_unrelated_stage: true
-  do_not_reconstruct_missing_prompt: true
-
+```text
+workflow/transport/
 ```
 
----
+Primary templates:
 
-## 17\. Context Request Card schema
-
-When context is missing, output the canonical Context Request Card from runtime core:
-
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-reason:
-blocking: true | false
-
-requested_context:
-  - kind: project_file | repository_file_export | stage_prompt | codex_return | evidence | user_decision | other
-    title:
-    repository_path:
-    file_name_suggested:
-    why_needed:
-    required_after_approval: true | false
-    freshness_required: fresh | any | latest_available
-
-current_state:
-  direction:
-  phase:
-  goal:
-  route_attempted:
-
-after_provided:
-  action: continue_current_stage | run_stage | regenerate_launch_card | recheck_state
-  stage_id:
-  expected_next_output:
-
-instructions_for_user:
-  - exact thing to paste/export/upload
-
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
+workflow/transport/REPOSITORY_PATCH.md
+workflow/transport/EXECUTION_LOG_ENTRY.md
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
+workflow/transport/CODEX_WAVE_CARD.md
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/RECOVERY_CLOSE_PACKET.md
 ```
 
----
+Stage-specific output obligations in this prompt still apply.
 
-## 18\. Human Decision Card schema
+If this prompt requires a specific output, produce it using the canonical transport template and the stage-specific content rules in this prompt.
 
-When a human decision is required, output:
+Do not invent local packet schemas.
 
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
+### Router-specific transport obligations
 
-decision:
-  question:
-  why_needed:
-  blocking: true | false
-
-options:
-  - id:
-    label:
-    tradeoff:
-    consequence:
-
-recommendation:
-  option_id:
-  rationale:
-  confidence: low | medium | high
-
-what_changes_based_on_answer:
-  - if:
-    then:
-
-after_decision:
-  action: continue_current_stage | run_stage | regenerate_launch_card | stop
-  stage_id:
-
-```
-
----
-
-## 19\. Stop schema
-
-When stopping without a safe launch, output:
-
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-source:
-  stage:
-    id: ROUTER_STAGE_LAUNCHER
-    name: Router / Stage Launcher Behavior
-
-return_state: NEEDS_INPUT | STUCK | NOT_APPLICABLE
-route: null
-next_stage: null
-
-stop_reason:
-  unsafe_to_continue_because:
-  required_before_retry:
-
-```
-
----
-
-## 20\. Stage Result Packet schema - stage\_result.v1
-
-Always output:
-
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
-
-stage:
-  id: ROUTER_STAGE_LAUNCHER
-  name: Router / Stage Launcher Behavior
-
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-route:
-next_stage:
-
-direction_state_delta:
-phase_state_delta:
-goal_state_delta:
-portfolio_delta:
-
-human_decision_needed:
-  yes_no:
-  question:
-
-what_changed:
-  -
-
-durable_decisions:
-  -
-
-temporary_context:
-  -
-
-open_questions:
-  -
-
-repository_patch:
-  required_after_approval: true | false
-  summary:
-  patch_id:
-
-execution_log_entry:
-  included: true
-  target_log_path:
-  persist: true | false
-
-project_files_to_refresh:
-  - file:
-    reason:
-
-context_for_next:
-  carry_forward:
-    -
-  request_if_needed:
-    -
-  do_not_carry_forward:
-    -
-
-cleanup_candidates:
-  - item:
-    reason:
-    blocking: false
-
-next_launch_card:
-  created: true | false
-  reason_if_not_created:
-
-kernel_qa:
-  status: PASS | PASS_WITH_EXCEPTIONS | BLOCKED
-  exceptions:
-    -
-
-```
-
----
-
-## 21\. Execution Log Entry schema - execution\_log\_entry.v1
-
-Always output:
-
-```yaml
-execution_log_entry:
-  schema: execution_log_entry.v1
-  persist: true | false
-  target_log_path:
-  event_type: router_decision | stage_run | codex_return | problem | review | install | context_request | human_decision | recovery | other
-  timestamp:
-  direction:
-    name:
-    path:
-  phase:
-    name:
-    path:
-    status:
-  goal:
-    title:
-    path:
-    status:
-  stage:
-    id: ROUTER_STAGE_LAUNCHER
-    name: Router / Stage Launcher Behavior
-  route:
-  return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-  input_sources:
-    - source:
-      freshness:
-  outputs_created:
-    -
-  decisions_made:
-    -
-  repository_patch:
-    required_after_approval: true | false
-    summary:
-  changed_files_context_refresh_after_approval:
-    required_after_approval: true | false
-    files:
-      -
-  evidence_pointers:
-    -
-  friction:
-    -
-  human_burden:
-    level: H0 | H1 | H2 | H3
-    notes:
-  ai_failure_mode:
-    -
-  blocker:
-    -
-  next_route:
-  next_launch_card_created: true | false
-  notes:
-
-```
-
----
-
-## 22\. Repository Patch schema - repository\_patch.v1
-
-Always output:
-
-```yaml
-workflow_packet: 1
-type: repository_patch
-schema: repository_patch.v1
-
-patch_id:
-created_by_stage: ROUTER_STAGE_LAUNCHER
-return_state:
-
-operations: []
-
-readback_required: []
-
-planned_changed_files_context_refresh_after_approval: []
-
-```
-
-If production persistence is required, `operations` must include the Execution Log append/create operation and any source-file update operations.
-
----
-
-## 23\. Changed Files / Context Refresh List schema
-
-Always output:
-
-```yaml
-changed_files_context_refresh_after_approval:
-  required_after_approval: true | false
-  files:
-    - file:
-      reason:
-      action:
-  cleanup_candidates:
-    - item:
-      reason:
-      blocking: false
-
-```
-
-Use this when no refresh is needed:
-
-```yaml
-changed_files_context_refresh_after_approval:
-  required: false
-  files: []
-  cleanup_candidates: []
-
-```
-
----
+- When routing succeeds, include the canonical Stage Launch Card.
+- When context is missing, include the canonical Context Request Card.
+- When a human-owned decision is required, include the canonical Human Decision Card.
+- When stopping without a safe launch, include the canonical Stop Card.
+- When formal routing evidence or persistence is required, include the Stage Result Packet, Execution Log Entry, Repository Patch, and Changed Files / Context Refresh List using the canonical templates.
+- If production persistence is required, Repository Patch operations must include the Execution Log append/create operation and any source-file update operations.
+- If no context refresh is needed, the Changed Files / Context Refresh List must say refresh is not required, files are empty, and cleanup candidates are empty.
 
 ## 24\. Stage-development testing override
 

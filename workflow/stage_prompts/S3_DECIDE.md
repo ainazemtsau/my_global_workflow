@@ -598,221 +598,50 @@ Every material S3 output must close with:
 
 [Include exactly one complete artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.]
 
-## 6. Runtime packets
+## Transport packet references
 
-### Stage Result Packet
+Do not copy full packet schemas inside this prompt.
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
-stage:
-  id: S3_DECIDE
-  name: Decide
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-route:
-next_stage:
-input_artifact_summary:
-decision_question:
-selected_route:
-selected_route_name:
-route_reason:
-risk_level:
-reversibility:
-evidence_sufficiency:
-source_freshness_status:
-scope_cut_summary:
-rejected_routes:
-no_execution_performed: true
-repository_patch_ref:
-execution_log_entry_ref:
-changed_files_context_refresh_list_ref:
-documentation_maintenance_gate_ref:
-next_artifact_type:
-extensions:
-  S3_DECIDE:
-    route_confidence:
-    route_decision_snapshot:
-      selected_route:
-      route_reason:
-      route_confidence:
-      risk_level:
-      reversibility:
-      source_freshness_status:
-      rejected_routes:
-      scope_cut_summary:
-      no_execution_performed: true
+Use canonical transport templates from:
+
+```text
+workflow/transport/
 ```
 
-### Repository Patch
+Primary templates:
 
-```yaml
-workflow_packet: 1
-type: repository_patch
-schema: repository_patch.v1
-repository_patch_required: false
-repository_patch: none
-reason: S3_DECIDE is a read-only route decision stage unless a later accepted contract explicitly authorizes mutation.
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
+workflow/transport/REPOSITORY_PATCH.md
+workflow/transport/EXECUTION_LOG_ENTRY.md
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
+workflow/transport/CODEX_WAVE_CARD.md
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/RECOVERY_CLOSE_PACKET.md
 ```
 
-### Execution Log Entry
+Stage-specific output obligations in this prompt still apply.
 
-```yaml
-workflow_packet: 1
-type: execution_log_entry
-schema: execution_log_entry.v1
-stage:
-  id: S3_DECIDE
-  name: Decide
-direction_id:
-phase_id:
-goal_id:
-input_summary:
-selected_route_or_blocking_card:
-route_reason:
-rejected_routes_summary:
-source_freshness_status:
-context_requested: yes/no
-human_decision_required: yes/no
-repository_patch: none
-documentation_gate: none|required|blocked
-changed_files_context_refresh_after_approval: none|required
-no_execution_performed: true
-```
+If this prompt requires a specific output, produce it using the canonical transport template and the stage-specific content rules in this prompt.
 
-### Documentation Maintenance Gate
+Do not invent local packet schemas.
 
-```yaml
-documentation_maintenance_gate:
-  required_after_approval: true|false
-  trigger:
-  affected_scope:
-  required_update:
-  responsible_next_stage:
-  before_or_after_next_route:
-  blocked_until_docs_fresh: true|false
-  notes:
-```
+### S3-specific transport obligations
 
-### Changed Files / Context Refresh List
-
-```yaml
-changed_files_context_refresh_after_approval:
-  required_after_approval: true|false
-  reason:
-  files:
-    - file:
-      reason:
-      minimum_required_refresh:
-  blocking: true|false
-```
-
-## 7. Kernel QA
-
-Use exception-only Kernel QA by default.
-
-Report only failures, risks, or expanded QA required because the decision involves Deep Research, Audit, Codex, workflow edit, stale/conflict, recovery, or high-risk state change.
-
-If no exceptions:
-
-Kernel QA: no exceptions detected.
-
-## 8. Next Launch Card template
-
-When selected_route is a downstream stage, include this exact card shape.
-
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-stage:
-  id:
-  name:
-source_state:
-  from_stage: S3_DECIDE
-  previous_return_state:
-direction_id:
-phase_id:
-goal_id:
-route_reason:
-minimum_safe_scope:
-acceptance_target:
-input_context:
-source_freshness_summary:
-constraints:
-non_goals:
-rejected_routes:
-required_artifacts_for_next_stage:
-documentation_gate:
-changed_files_context_refresh_list:
-human_notes:
-do_not_execute_beyond_stage_scope: true
-```
-
-## 9. Context Request Card template
-
-When selected_route is CONTEXT_REQUEST, include this exact card shape.
-
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-stage:
-  id: S3_DECIDE
-  name: Decide
-return_state: NEEDS_INPUT
-reason:
-blocking_missing_context:
-  - item:
-    why_needed:
-    acceptable_source:
-minimum_user_action:
-do_not_proceed_until:
-route_after_context_is_supplied:
-notes:
-```
-
-## 10. Human Decision Card template
-
-When selected_route is HUMAN_DECISION, include this exact card shape.
-
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
-stage:
-  id: S3_DECIDE
-  name: Decide
-return_state: NEEDS_INPUT
-decision_needed:
-why_human_decision_is_required:
-options:
-  - option:
-    consequence:
-    risk:
-recommended_default:
-minimum_answer_needed:
-blocked_until_decision: true
-notes:
-```
-
-## 11. Stop Card template
-
-When selected_route is STOP, include this exact card shape.
-
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage:
-  id: S3_DECIDE
-  name: Decide
-return_state: STUCK
-stop_reason:
-what_was_not_done:
-safe_next_user_action:
-notes:
-```
+- Every material S3 output must close with the human-readable decision result, Stage Result Packet, Repository Patch or explicit none, Execution Log Entry, Documentation Maintenance Gate, Changed Files / Context Refresh List, and exactly one terminal artifact.
+- Stage Result Packet content must preserve input artifact summary, decision question, selected route/name/reason, risk level, reversibility, evidence sufficiency, source freshness status, scope cut summary, rejected routes, no-execution confirmation, repository patch/log/refresh/gate refs, next artifact type, route confidence, and route decision snapshot.
+- Repository Patch default is explicit none because S3_DECIDE is read-only unless a later accepted contract explicitly authorizes mutation.
+- Execution Log Entry must preserve Direction/Phase/Goal IDs, input summary, selected route or blocking card, route reason, rejected routes summary, source freshness, context request/human decision flags, repository patch state, documentation gate state, changed-files context refresh state, and no-execution confirmation.
+- Documentation Maintenance Gate must state whether it is required, trigger, affected scope, required update, responsible next stage, timing, docs freshness blocker, and notes.
+- Changed Files / Context Refresh List must state whether refresh is required, reason, files, minimum refresh needed, and blocking status.
+- Next Launch Card is used when selected route is a downstream stage and must preserve route reason, minimum safe scope, acceptance target, source freshness summary, constraints, non-goals, rejected routes, required artifacts, documentation gate, context refresh list, human notes, and no-execution-beyond-stage-scope instruction.
+- Context Request Card is used when selected route is CONTEXT_REQUEST and must preserve blocking missing context, why it is needed, acceptable source, minimum user action, do-not-proceed condition, and route after context is supplied.
+- Human Decision Card is used when selected route is HUMAN_DECISION and must preserve the decision need, why a human decision is required, options, consequences, risks, recommended default, minimum answer needed, and blocked-until-decision status.
+- Stop Card is used when selected route is STOP and must preserve the stop reason and unsafe/invalid condition.
 
 ## 12. Self-check before final answer
 

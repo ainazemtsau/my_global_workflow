@@ -749,397 +749,48 @@ Emit all required packets below after the human-facing Phase decision sections. 
 
 ```
 
-## 10\. Canonical runtime packets
+## Transport packet references
 
-### 10.1 Stage Result Packet
+Do not copy full packet schemas inside this prompt.
 
-Use canonical `stage_result.v1` only.
+Use canonical transport templates from:
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
-stage:
-  id: P0_PHASE_START
-  name: Phase Start
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-route:
-next_stage:
-direction_state_delta:
-phase_state_delta:
-goal_state_delta:
-portfolio_delta:
-human_decision_needed:
-  yes_no:
-  question:
-what_changed:
-  -
-durable_decisions:
-  -
-temporary_context:
-  -
-open_questions:
-  -
-repository_patch:
-  required_after_approval: true | false
-  summary:
-  patch_id:
-execution_log_entry:
-  included: true | false
-  target_log_path:
-  persist: true | false
-project_files_to_refresh:
-  - file:
-    reason:
-context_for_next:
-  carry_forward:
-    -
-  request_if_needed:
-    -
-  do_not_carry_forward:
-    -
-next_launch_card:
-  created: true | false
-  executable_state: executable | blocked_until_repository_patch_readback | blocked_until_changed_files_context_refresh | blocked_until_patch_and_refresh
-  reason_if_not_created:
-kernel_qa:
-  status: PASS | PASS_WITH_EXCEPTIONS | BLOCKED
-  exceptions:
-    -
-extensions:
-  P0:
-    approval_status:
-    human_facing_mode:
-    critical_constraint:
-    minimum_outcome:
-    validation_signal:
-    alternatives_considered:
-    alternatives_rejected:
-    what_would_change_recommendation:
-
+```text
+workflow/transport/
 ```
 
-### 10.2 Repository Patch
+Primary templates:
 
-Use canonical `repository_patch.v1` only. P0 creates the patch packet; it does not apply it.
-
-```yaml
-workflow_packet: 1
-type: repository_patch
-schema: repository_patch.v1
-patch_id:
-created_by_stage: P0_PHASE_START
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-operations:
-  - action: create_file_after_approval | replace_file | replace_section | append_section | mark_stale | update_header
-    file_path:
-    title:
-    section:
-    content:
-    reason:
-    safety:
-      destructive: false
-      requires_human_approval: true_if_material_change
-readback_required:
-  - file_path:
-    expected_anchor:
-    expected_header:
-changed_files_context_refresh_after_approval:
-  - source_file:
-    project_file:
-    reason:
-
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
+workflow/transport/REPOSITORY_PATCH.md
+workflow/transport/EXECUTION_LOG_ENTRY.md
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
+workflow/transport/CODEX_WAVE_CARD.md
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/RECOVERY_CLOSE_PACKET.md
 ```
 
-If no patch is required:
+Stage-specific output obligations in this prompt still apply.
 
-```yaml
-workflow_packet: 1
-type: repository_patch
-schema: repository_patch.v1
-patch_id:
-created_by_stage: P0_PHASE_START
-return_state: DONE
-operations: []
-readback_required: []
-planned_changed_files_context_refresh_after_approval: []
-explicit_none_reason:
+If this prompt requires a specific output, produce it using the canonical transport template and the stage-specific content rules in this prompt.
 
-```
+Do not invent local packet schemas.
 
-### 10.3 Execution Log Entry
+### P0-specific transport obligations
 
-Use canonical `execution_log_entry.v1` only.
-
-```yaml
-execution_log_entry:
-  schema: execution_log_entry.v1
-  persist: true | false
-  target_log_path:
-  event_type: stage_run
-  timestamp:
-  direction:
-    name:
-    path:
-  phase:
-    name:
-    path:
-    status:
-  goal:
-    title:
-    path:
-    status:
-  stage:
-    id: P0_PHASE_START
-    name: Phase Start
-  route:
-  return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-  input_sources:
-    - source:
-      freshness:
-  outputs_created:
-    -
-  decisions_made:
-    -
-  repository_patch:
-    required_after_approval: true | false
-    summary:
-  changed_files_context_refresh_after_approval:
-    required_after_approval: true | false
-    files:
-      -
-  evidence_pointers:
-    -
-  friction:
-    -
-  human_burden:
-    level: H0 | H1 | H2 | H3
-    notes:
-  ai_failure_mode:
-    -
-  blocker:
-    -
-  next_route:
-  next_launch_card_created: true | false
-  notes:
-
-```
-
-### 10.4 Documentation Maintenance Gate
-
-```yaml
-documentation_maintenance_gate:
-  required_after_approval: true | false
-  reason:
-  stable_docs_checked:
-    - 01 Direction State
-    - 02 Current Phase
-    - 03 Focus Register
-    - 04 Active Goal
-    - 05 Portfolio Queue
-    - 06_CONTEXT_LIBRARY_INDEX.md
-  updates:
-    - file_path:
-      action: replace_section | append_delta | mark_stale | split | merge | archive_pointer
-      reason:
-  stale_or_superseded:
-    - file_path:
-      reason:
-      replacement_pointer:
-  knowledge_updates:
-    - target_file:
-      summary:
-  canon_candidates:
-    - target_file:
-      summary:
-  context_loading_index_updates:
-    - summary:
-  project_files_to_refresh:
-    - file:
-      reason:
-
-```
-
-### 10.5 Changed Files / Context Refresh List
-
-```yaml
-changed_files_context_refresh_list:
-  required_after_approval: true | false
-  files:
-    - file:
-      reason:
-      update_summary:
-      priority: required_before_next_stage | after_next_stage | optional
-
-```
-
-### 10.6 Next Launch Card
-
-If routing to a next stage, produce a canonical Next Launch Card and include executable-state gating.
-
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-action: run_stage
-mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations
-target_runtime: chatgpt_direction_project | chatgpt_current_chat | codex
-executable_state: executable | blocked_until_repository_patch_readback | blocked_until_changed_files_context_refresh | blocked_until_patch_and_refresh
-not_executable_until:
-  - approval_complete
-  - repository_patch_applied
-  - repository_readback_passed
-  - changed_files_context_refreshed
-stage:
-  id:
-  name:
-  source_path:
-  version:
-  status:
-prompt_delivery:
-  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
-  stage_prompt_source_path:
-  stage_prompt_version:
-  stage_prompt_status:
-  prompt_text_included: true | false
-  prompt_text: null
-  source_commit: null
-  line_count: null
-  byte_count: null
-  tail_anchor_or_eof_verified: false
-  execute_allowed: false
-direction:
-  name:
-  repository_path:
-  project_name:
-phase:
-  name:
-  path:
-  status:
-  critical_constraint:
-goal:
-  title:
-  path:
-  status:
-source_state:
-  from_stage: P0_PHASE_START
-  previous_return_state:
-  pending_repository_patch: true | false
-  changed_files_context_refresh_required_after_approval: true | false
-input_artifacts:
-  previous_stage_result_summary:
-  goal_contract:
-  execution_brief:
-  decision_record:
-  codex_return:
-  other:
-required_context:
-  project_files:
-    - 00_DIRECTION_START_HERE.md
-    - 01_DIRECTION_STATE.md
-    - 02_CURRENT_PHASE.md
-    - 03_FOCUS_REGISTER.md
-    - 04_ACTIVE_GOAL.md
-    - 05_PORTFOLIO_QUEUE.md
-    - 06_CONTEXT_LIBRARY_INDEX.md
-    - 07_PHASE_MEMORY_INDEX.md
-    - WF_VNEXT_R_RUNTIME_CORE.md
-  additional_repository_file_exports:
-    - path:
-      reason:
-      required_after_approval: true | false
-missing_context_policy: ask_only_if_blocking
-expected_outputs:
-  - Human-readable result
-  - Stage Result Packet
-  - Repository Patch or none
-  - Execution Log Entry
-  - Changed Files / Context Refresh List
-  - Next Launch Card / Context Request / Human Decision Card / Stop
-instructions:
-  do_not_echo_prompt: true
-  do_not_run_unrelated_stage: true
-  do_not_reconstruct_missing_prompt: true
-
-```
-
-## 11\. Context Request format
-
-Use this if missing context blocks safe Phase start or formalization.
-
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-reason:
-blocking: true
-requested_context:
-  - kind: project_file | repository_file_export | stage_prompt | codex_return | evidence | user_decision | other
-    title:
-    repository_path:
-    file_name_suggested:
-    why_needed:
-    required_after_approval: true
-    freshness_required: fresh | any | latest_available
-current_state:
-  direction:
-  phase:
-  goal:
-  route_attempted: P0_PHASE_START
-after_provided:
-  action: continue_current_stage | run_stage | regenerate_launch_card | recheck_state
-  stage_id: P0_PHASE_START
-  expected_next_output:
-instructions_for_user:
-  - exact thing to paste/export/upload
-
-```
-
-## 12\. Human Decision Card format
-
-Use this if P0 must not decide for the user.
-
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
-decision:
-  question:
-  why_needed:
-  blocking: true | false
-options:
-  - id:
-    label:
-    tradeoff:
-    consequence:
-recommendation:
-  option_id:
-  rationale:
-  confidence: low | medium | high
-what_changes_based_on_answer:
-  - if:
-    then:
-after_decision:
-  action: continue_current_stage | run_stage | regenerate_launch_card | stop
-  stage_id: P0_PHASE_START
-
-```
-
-## 13\. Stop Card format
-
-Use this if P0 should not continue.
-
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage_id: P0_PHASE_START
-stop_reason:
-unsafe_or_invalid_condition:
-what_was_not_done:
-recommended_recovery_route:
-
-```
+- Emit required packets after the human-facing Phase decision sections. These packets are copy/paste transport and must not be used as the first visible answer unless the user explicitly requested packet-only output.
+- The Stage Result Packet must preserve P0-specific content, including approval status, human-facing mode, critical constraint, minimum outcome, validation signal, alternatives considered, alternatives rejected, and what would change the recommendation.
+- P0 creates the Repository Patch packet; it does not apply it. If no patch is required, emit explicit none with empty operations, empty read-back requirements, empty planned context refresh, and the reason.
+- Emit Execution Log Entry, Documentation Maintenance Gate, and Changed Files / Context Refresh List when required by the output requirements and formalization rules above.
+- If routing to a next stage, produce a canonical Stage Launch Card and include executable-state gating.
+- Emit a Context Request Card if missing context blocks safe Phase start or formalization.
+- Emit a Human Decision Card if P0 must not decide for the user.
+- Emit a Stop Card if P0 should not continue.
 
 ## 14\. Kernel QA — exceptions only
 

@@ -477,324 +477,52 @@ Every material B1 output must close with:
 
 After approval/formalization, output a Stage Result Packet.
 
-### 9.1 Stage Result Packet
+## Transport packet references
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
+Do not copy full packet schemas inside this prompt.
 
-stage:
-  id: B1_PROBLEM
-  name: Problem
+Use canonical transport templates from:
 
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-route: context_request | human_decision | launch_next_stage | route_back | stop | no_problem_found
-next_stage:
-
-direction:
-  id:
-  name:
-  active_project:
-
-phase:
-  name:
-  status:
-
-goal:
-  goal_id:
-  title:
-  status:
-
-problem_frame:
-  problem_kind:
-  blocked_object:
-  symptom:
-  impact:
-  severity:
-  confidence:
-  source_freshness:
-  evidence_available:
-    - item:
-  evidence_missing:
-    - item:
-  stale_or_conflicting_sources:
-    - source:
-      issue:
-  forbidden_scope:
-    - item:
-  anti_rabbit_hole_rejections:
-    - rejected:
-      reason:
-
-route_verdict:
-    next_action: context_request | human_decision | launch_next_stage | route_back | stop
-    route:
-    next_stage:
-    route_reason:
-    smallest_safe_resolution_path:
-    unblock_condition:
-    route_back_to:
-    loop_risk:
-
-transport_outputs:
-  repository_patch_state: none | proposed | blocked
-  documentation_maintenance_gate_state: not_required | required | blocked_needs_context
-  changed_files_context_refresh_required_after_approval: true | false
-  next_launch_card_included: true | false
-  context_request_included: true | false
-  human_decision_card_included: true | false
-  stop_card_included: true | false
-
-compatibility:
-  unknown_fields_preserved: true | false
-  aliases_used:
-    - alias:
-      mapped_to:
-
-validation_summary:
-  no_false_closure: true
-  no_forbidden_scope: true
-  no_stale_context_inference: true
-  smallest_safe_route_selected: true
-
-extensions:
-  B1_PROBLEM:
-    problem_state: route_ready | needs_context | needs_human_decision | stop | no_problem_found
-
+```text
+workflow/transport/
 ```
 
-If a field is not applicable, use `none`, `unknown`, or an empty list. Do not omit stable core fields.
+Primary templates:
 
-### 9.2 Repository Patch
-
-Default:
-
-```yaml
-repository_patch:
-  workflow_packet: 1
-  type: repository_patch
-  schema: repository_patch.v1
-  patch_state: none
-  reason: "B1 frames/routes the blocker; no safe documentation mutation is required."
-
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
+workflow/transport/REPOSITORY_PATCH.md
+workflow/transport/EXECUTION_LOG_ENTRY.md
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
+workflow/transport/CODEX_WAVE_CARD.md
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/RECOVERY_CLOSE_PACKET.md
 ```
 
-If a patch is safe and authorized:
+Stage-specific output obligations in this prompt still apply.
 
-```yaml
-repository_patch:
-  workflow_packet: 1
-  type: repository_patch
-  schema: repository_patch.v1
-  patch_state: proposed
-  reason:
-  target_paths:
-    - path:
-      action: create | replace_file | replace_section | append_section | update_header | mark_stale
-      content_summary:
-      authority:
-      freshness:
-  forbidden_paths:
-    - path:
-      reason:
+If this prompt requires a specific output, produce it using the canonical transport template and the stage-specific content rules in this prompt.
 
-```
+Do not invent local packet schemas.
 
-Never output vague patch instructions.
+### B1-specific transport obligations
 
-### 9.3 Execution Log Entry
-
-```yaml
-execution_log_entry:
-  workflow_packet: 1
-  type: execution_log_entry
-  schema: execution_log_entry.v1
-  stage_id: B1_PROBLEM
-  stage_name: Problem
-  direction:
-    id:
-    name:
-  phase:
-    name:
-    status:
-  goal:
-    goal_id:
-    title:
-    status:
-  blocked_object:
-  problem_kind:
-  route_verdict:
-  next_action:
-  next_stage:
-  source_freshness:
-  repository_patch_state:
-  documentation_gate_state:
-  changed_files_context_refresh_required:
-  evidence_refs:
-    - ref:
-  forbidden_scope_preserved: true
-
-```
-
-### 9.4 Documentation Maintenance Gate
-
-Use `not_required` when no documentation drift affects the route.
-
-```yaml
-documentation_maintenance_gate:
-  gate_state: not_required | required | blocked_needs_context
-  reason:
-  affected_docs:
-    - path_or_file:
-      issue:
-  stale_or_conflicting_docs:
-    - path_or_file:
-      conflict:
-  required_updates:
-    - update:
-      target:
-      blocked_until:
-  changed_files_context_refresh_required_after_approval: true | false
-
-```
-
-### 9.5 Changed Files / Context Refresh List
-
-```yaml
-changed_files_context_refresh_after_approval:
-  required_after_approval: true | false
-  reason:
-  files:
-    - file:
-      why_needed:
-      freshness_problem:
-      needed_before_stage:
-      priority: high | medium | low
-
-```
-
-### 9.6 Next Launch Card
-
-Include only when `next_action: launch_next_stage` or `route_back`.
-
-```yaml
-next_launch_card:
-  workflow_packet: 1
-  type: stage_launch
-  schema: stage_launch.v1
-  stage:
-    id:
-    name:
-  source_state:
-    from_stage: B1_PROBLEM
-    previous_return_state:
-  direction:
-    id:
-    name:
-    active_project:
-  phase:
-    name:
-    status:
-  goal:
-    goal_id:
-    title:
-    status:
-  launch_reason:
-  required_context:
-    - item:
-  source_packets:
-    - packet:
-  problem_frame_summary:
-  smallest_safe_objective:
-  forbidden_scope:
-    - item:
-  stop_conditions:
-    - condition:
-  expected_output:
-
-```
-
-### 9.7 Context Request Card
-
-Include when missing/stale/conflicting context blocks safe routing or state mutation.
-
-```yaml
-context_request_card:
-  workflow_packet: 1
-  type: context_request
-  schema: context_request.v1
-  stage:
-    id: B1_PROBLEM
-    name: Problem
-  reason:
-  missing_context:
-    - item:
-      why_needed:
-      acceptable_source:
-      needed_before:
-  stale_or_conflicting_context:
-    - item:
-      conflict:
-      required_resolution:
-  forbidden_until_resolved:
-    - item:
-  resume_route:
-    route:
-    next_stage:
-    reason:
-
-```
-
-### 9.8 Human Decision Card
-
-Include when authorization, priority, scope expansion, or state mutation requires human choice.
-
-```yaml
-human_decision_card:
-  workflow_packet: 1
-  type: human_decision
-  schema: human_decision.v1
-  stage:
-    id: B1_PROBLEM
-    name: Problem
-  decision_needed:
-  options:
-    - option_id:
-      label:
-      consequence:
-      risk:
-  recommended_option:
-  recommendation_reason:
-  forbidden_without_decision:
-    - item:
-  resume_route_after_decision:
-    route:
-    next_stage:
-    required_input:
-
-```
-
-### 9.9 Stop Card
-
-Include when safe progress cannot continue and no valid Context Request, Human Decision, or next stage route is possible.
-
-```yaml
-stop_card:
-  workflow_packet: 1
-  type: stop
-  schema: stop.v1
-  stage:
-    id: B1_PROBLEM
-    name: Problem
-  stop_reason:
-  unsafe_or_invalid_request:
-  forbidden_actions_requested:
-    - item:
-  minimum_safe_resume_condition:
-  suggested_restart_route:
-
-```
+- Every material B1 output must close with the human-readable problem result, Stage Result Packet, Repository Patch or explicit none, Execution Log Entry, Documentation Maintenance Gate, Changed Files / Context Refresh List, and exactly one terminal artifact.
+- Stage Result Packet content must preserve B1-specific problem framing: problem kind, blocked object, symptom, impact, severity, confidence, source freshness, available/missing evidence, stale or conflicting sources, forbidden scope, and anti-rabbit-hole rejections.
+- Stage Result Packet content must preserve route verdict details: next action, route, next stage, route reason, smallest safe resolution path, unblock condition, route-back target, and loop risk.
+- Stage Result Packet content must preserve transport output flags, compatibility notes, validation summary, and B1 problem state.
+- Repository Patch default is explicit none when B1 only frames/routes the blocker. If a patch is safe and authorized, it must name target paths, actions, content summary, authority, freshness, and forbidden paths. Never output vague patch instructions.
+- Execution Log Entry must preserve stage, Direction/Phase/Goal, blocked object, problem kind, route verdict, next action/stage, source freshness, repository patch state, documentation gate state, context refresh requirement, evidence refs, and forbidden-scope preservation.
+- Documentation Maintenance Gate must classify not-required, required, or blocked-needs-context and name affected/stale docs, required updates, blockers, and context refresh impact.
+- Changed Files / Context Refresh List must name each file, why it is needed, the freshness problem, needed-before stage, and priority.
+- Include a Stage Launch Card only when `next_action` is launch-next-stage or route-back.
+- Include a Context Request Card when missing, stale, or conflicting context blocks safe routing or state mutation.
+- Include a Human Decision Card when authorization, priority, scope expansion, or state mutation requires human choice.
+- Include a Stop Card when safe progress cannot continue and no valid context request, human decision, or next-stage route is possible.
 
 ## 10\. Special handling for the Solo Max Productive stale/conflict pattern
 

@@ -469,179 +469,53 @@ After approval/formalization, do not omit Repository Patch state. If there is no
 
 All machine-readable packets must be emitted in separate fenced YAML blocks. Do not combine Stage Result, Repository Patch, Execution Log, Documentation Maintenance, Project Files Refresh, and route artifacts into one fence.
 
-## 8\. Stage Result Packet schema
+## Transport packet references
 
-Emit a YAML packet with canonical `stage_result.v1` top-level fields only. Put I0-specific capture data inside `what_changed`, `temporary_context`, `open_questions`, `context_for_next`, `repository_patch.summary`, or `execution_log_entry.summary`.
+Do not copy full packet schemas inside this prompt.
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
-stage:
-  id: I0_CAPTURE
-  name: Capture
-return_state: NEEDS_INPUT
-route: context_request
-next_stage: I0_CAPTURE
-what_changed:
-  - Captured raw item in runtime output only; no GitHub repository source mutation performed.
-temporary_context:
-  result_detail: captured_needs_context
-  capture_record:
-    capture_id:
-    captured_at:
-    captured_by:
-    source:
-    raw_text:
-    normalized_summary:
-    capture_kind:
-    scope_guess:
-    linked_direction_phase_goal:
-    freshness_basis:
-    constraints:
-    do_not_do:
-    possible_fast_candidate: true | false
-    possible_problem: true | false
-    possible_decision: true | false
-    possible_research: true | false
-    status: captured | held | blocked_capture | route_requested | rejected
-  source_context:
-    launch_source:
-    user_raw_input_present: true | false
-    context_freshness: fresh | stale | unknown | conflicting
-    accepted_aliases:
-    unknown_fields_tolerated: true
-  route_decision:
-    primary_route: hold_capture | launch_g0_goal_select | context_request | human_decision | stop
-    next_stage:
-    route_reason:
-    route_confidence: high | medium | low
-open_questions:
-  - Confirm fresh active state and capture storage target.
-context_for_next:
-  raw_capture_preserved: true
-  storage_decision_needed: true
-  result_detail: captured_needs_context
-  forbidden_actions_preserved:
-    started_goal: false
-    changed_phase: false
-    closed_goal_or_phase: false
-    executed_work: false
-    edited_stage_prompt: false
-    promoted_canon: false
-    mutated_project_files: false
-    broad_redesign: false
-repository_patch:
-  status: none
-  patch_id: null
-  summary: No GitHub repository write because capture target and active state are unconfirmed.
-execution_log_entry:
-  status: included
-  summary: Capture blocked on context/storage freshness; route is context_request.
+Use canonical transport templates from:
 
+```text
+workflow/transport/
 ```
 
-Optional extensions are allowed only inside `temporary_context` or `context_for_next`. They must not replace stable core fields.
+Primary templates:
 
-## 9\. Repository Patch rules
-
-If no write is safe, emit this canonical packet:
-
-```yaml
-workflow_packet: 1
-type: repository_patch
-schema: repository_patch.v1
-patch_id: null
-created_by_stage: I0_CAPTURE
-return_state: NEEDS_INPUT
-operations: []
-readback_required: []
-planned_changed_files_context_refresh_after_approval: []
-
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
+workflow/transport/REPOSITORY_PATCH.md
+workflow/transport/EXECUTION_LOG_ENTRY.md
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
+workflow/transport/CODEX_WAVE_CARD.md
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/RECOVERY_CLOSE_PACKET.md
 ```
 
-If a safe capture write is available, emit the same top-level fields and put exact operations in `operations`. Every operation must have an exact path, action, content, and validation anchors.
+Stage-specific output obligations in this prompt still apply.
 
-```yaml
-workflow_packet: 1
-type: repository_patch
-schema: repository_patch.v1
-patch_id:
-created_by_stage: I0_CAPTURE
-return_state: DONE
-operations:
-  - op: create_file_after_approval | append_section | replace_section
-    path:
-    title:
-    status:
-    content: |
-      [exact content]
-    validation_anchors:
-      - text:
-readback_required:
-  - path:
-    anchors:
-      - text:
-planned_changed_files_context_refresh_after_approval: []
+If this prompt requires a specific output, produce it using the canonical transport template and the stage-specific content rules in this prompt.
 
-```
+Do not invent local packet schemas.
 
-Repository Patch content must be exact. Never say:
+### I0-specific transport obligations
 
-*   save this somewhere;
-*   update the relevant note;
-*   create appropriate docs;
-*   Codex should figure it out.
-
-## 10\. Documentation and refresh rules
-
-Documentation Maintenance Gate is required when:
-
-*   capture storage is proposed;
-*   capture storage is blocked;
-*   the item is intended for active Goal/Phase docs;
-*   stale context affects storage;
-*   Project Files or Context Loading Index may need refresh.
-
-Use this shape:
-
-```yaml
-documentation_maintenance_gate:
-  gate_state: not_applicable | satisfied | blocked_needs_context | deferred_capture_only
-  documentation_changed: true | false
-  capture_storage_required_after_approval: true | false
-  storage_target:
-  freshness_status:
-  blocked_reason:
-  docs_not_touched:
-  required_followup:
-
-```
-
-Changed Files / Context Refresh List:
-
-```yaml
-changed_files_context_refresh_list:
-  required_after_approval: true | false
-  trigger: stale_or_conflicting_project_files | none
-  reason:
-  files:
-    - file:
-      reason:
-      minimum_needed:
-      source_of_truth_needed:
-  do_not_refresh_broadly_unless_needed: true
-  does_not_imply_repository_source_mutation: true
-
-```
-
-Context refresh semantic rule:
-
-*   If Repository Patch `operations` is empty, Context refresh may be required only when stale or conflicting Project Files require fresh file read-back / diff verification / commit verification or export.
-*   In that case include `trigger: stale_or_conflicting_project_files`.
-*   Do not imply GitHub repository source mutation from a Context refresh requirement.
-
-Keep refresh lists narrow unless stale/conflicting context itself blocks safe routing.
+- Every I0 output must include or explicitly mark not applicable: Stage Result Packet, Repository Patch or explicit none, Execution Log Entry, Documentation Maintenance Gate when relevant, Changed Files / Context Refresh List, and exactly one terminal artifact.
+- For the blocked capture path, use `return_state: NEEDS_INPUT`, `route: context_request`, and `next_stage: I0_CAPTURE`. Preserve the local detail as `result_detail: captured_needs_context` only inside `temporary_context` or `context_for_next`.
+- The Stage Result Packet must use canonical top-level fields. Put I0-specific capture data inside `what_changed`, `temporary_context`, `open_questions`, or `context_for_next`.
+- Capture data to preserve when applicable: capture ID, capture time, captured-by/source, raw text, normalized summary, capture kind, scope guess, linked Direction/Phase/Goal, freshness basis, constraints, do-not-do items, possible fast/problem/decision/research flags, capture status, launch source, context freshness, accepted aliases, route decision, forbidden actions, storage decision status, and safe holding state.
+- If no write is safe, emit a canonical Repository Patch none state with empty operations, empty read-back requirements, empty planned context refresh, and the reason.
+- If a safe capture write is available, Repository Patch operations must contain exact paths, actions, content, and validation/read-back anchors. Never output vague patch instructions.
+- Documentation Maintenance Gate is required when capture storage is proposed or blocked, when the item is intended for active Goal/Phase docs, when stale context affects storage, or when Project Files / Context Loading Index may need refresh.
+- Changed Files / Context Refresh List must stay narrow. If Repository Patch operations are empty, context refresh may be required only for stale or conflicting Project Files that block safe routing or storage.
+- Use the canonical Stage Launch Card only when route is safe.
+- Use the canonical Context Request Card when missing context blocks safe capture, storage, or route.
+- Use the canonical Human Decision Card when a human-owned storage, routing, or safety decision is required.
+- Use the canonical Stop Card when boundary conditions prevent safe progress.
+- Execution Log Entry must record the capture event type, timestamp, Direction/Phase/Goal/stage context, route, return state, input summary, capture ID, repository patch state, context refresh state, forbidden actions, and next action.
 
 ## 11\. Required human-readable output shape
 
@@ -715,168 +589,16 @@ If an exception applies, include only the triggered checks:
 *   missing blocking context;
 *   sensitive/private storage concern.
 
-## 12\. Next Launch Card shape
+## 12\. Terminal transport artifact obligations
 
-Use only when route is safe.
+Use the canonical transport templates above for the terminal artifact required by the route:
 
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-next_stage:
-from_stage: I0_CAPTURE
-direction_context:
-  id:
-  name:
-  active_project:
-phase_context:
-  name:
-  status:
-goal_context:
-  goal_id:
-  title:
-  status:
-capture_record:
-  capture_id:
-  raw_text:
-  normalized_summary:
-  capture_kind:
-  scope_guess:
-  freshness_basis:
-route_reason:
-freshness_status:
-required_inputs:
-forbidden_actions:
-expected_outputs:
-stop_if:
+- Stage Launch Card only when the route is safe.
+- Context Request Card when missing context blocks safe capture, storage, or route.
+- Human Decision Card when the workflow needs a human-owned decision before continuing.
+- Stop Card when boundary conditions prevent safe progress.
 
-```
-
-## 13\. Context Request Card shape
-
-Use when missing context blocks safe capture, storage, or route.
-
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-reason:
-blocking: true
-requested_context:
-  - kind: repository_file_export
-    title:
-    repository_path:
-    file_name_suggested:
-    why_needed:
-    required_after_approval: true
-    freshness_required: fresh
-current_state:
-  context_freshness: fresh | stale | unknown | conflicting
-  storage_target:
-  capture_route:
-after_provided:
-  action: continue_current_stage
-  stage_id: I0_CAPTURE
-  expected_next_output: capture storage decision or hold-only result
-instructions_for_user:
-  -
-captured_item_preserved:
-  capture_id:
-  raw_text:
-  normalized_summary:
-forbidden_until_resolved:
-  -
-safe_holding_state:
-
-```
-
-## 14\. Human Decision Card shape
-
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
-stage:
-  id: I0_CAPTURE
-  name: Capture
-return_state: NEEDS_INPUT
-reason:
-decision_needed:
-why_i0_cannot_decide:
-options:
-  - option:
-    consequence:
-    recommended: true | false
-captured_item_preserved:
-  capture_id:
-  raw_text:
-  normalized_summary:
-forbidden_until_decided:
-  -
-after_decision:
-  action: continue_current_stage
-  stage_id: I0_CAPTURE
-
-```
-
-## 15\. Stop Card shape
-
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage:
-  id: I0_CAPTURE
-  name: Capture
-return_state: STUCK
-reason:
-boundary_triggered:
-captured_item_preserved: true | false
-safe_next_options:
-  -
-forbidden_actions:
-  -
-
-```
-
-## 16\. Execution Log Entry shape
-
-```yaml
-workflow_packet: 1
-type: execution_log_entry
-schema: execution_log_entry.v1
-persist: true | false
-target_log_path:
-event_type: capture_recorded | capture_blocked_context | capture_human_decision | capture_stopped
-timestamp:
-direction:
-  id:
-  name:
-  active_project:
-phase:
-  name:
-  status:
-goal:
-  goal_id:
-  title:
-  status:
-stage:
-  id: I0_CAPTURE
-  name: Capture
-route: context_request
-return_state: NEEDS_INPUT
-input_summary:
-capture_id:
-repository_patch:
-  required: false
-  summary: No GitHub repository write because capture target and active state are unconfirmed.
-changed_files_context_refresh_after_approval:
-  required_after_approval: true | false
-  trigger: stale_or_conflicting_project_files | none
-forbidden_actions:
-next_action:
-
-```
+Use the canonical Execution Log Entry template for the required log entry and preserve the I0-specific event, capture, route, repository patch, context refresh, forbidden-action, and next-action details listed above.
 
 ## 17\. Final self-check before responding
 
