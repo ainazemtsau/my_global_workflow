@@ -59,13 +59,22 @@ Load for work on the current Phase:
 
 ## Active Goal context
 
-No active Goal exists after P0.
+Active Goal after G1:
 
-First Goal candidate awaiting G1:
+- Goal ID: `core-technical-foundation-decision-brief`
+- Goal title: `Сформировать Core Technical Foundation Decision Brief`
+- Goal path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief`
+- Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
+- Recommended next stage: `E1_EXECUTION_BRIEF`
 
-- Candidate ID: `core-technical-foundation-decision-brief`
-- Candidate title: `Сформировать Core Technical Foundation Decision Brief`
-- Recommended next stage: `G1_GOAL_SHAPE`
+Load for work on the active Goal:
+
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
+  - Status: `active_goal_contract`
+  - Reason: shaped Goal Contract, staged decision-map scope boundary, decision status model.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md`
+  - Status: `active_goal_log`
+  - Request only when execution history is needed.
 
 ## Conditionally required technical foundation context
 
@@ -99,7 +108,7 @@ Load/request these when shaping, researching, deciding, or executing the first t
   - Status: `accepted_by_R1_and_closed_by_P9`
   - Reason: accepted proof core; do not treat as prototype design or execution brief.
 
-## Future context not required for P0 but likely required later
+## Future context not required for G1 but likely required later
 
 - old Unity project code;
 - old Grid/Topology implementation files;
@@ -111,7 +120,10 @@ Load/request these when shaping, researching, deciding, or executing the first t
 - current external multiplayer technology evidence;
 - Unity multiplayer stack documentation;
 - FishNet documentation;
-- other candidate networking technology documentation.
+- other candidate networking technology documentation;
+- Unity/C# testing and project-architecture references;
+- Codex development workflow / validation guidance;
+- dependency injection / composition-root references for Unity, if the decision brief requires external evidence.
 
 ## Tool boundary
 

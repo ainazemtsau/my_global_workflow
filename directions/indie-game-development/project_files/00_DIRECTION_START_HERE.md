@@ -35,8 +35,8 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | --- | --- | --- |
 | Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
 | Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
-| Active Goal | `none_pending_G1` | `N/A` |
-| Recommended first Goal candidate | `Сформировать Core Technical Foundation Decision Brief` | To be shaped by `G1_GOAL_SHAPE` |
+| Active Goal | `core-technical-foundation-decision-brief` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief` |
+| Active Goal Contract | `Goal Contract — Core Technical Foundation Decision Brief` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Previous Goal | `first-playable-proof-slice-brief` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief` |
@@ -44,7 +44,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
 | Accepted Goal artifact | `Minimum Expedition Proof Core` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md` |
 | Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
-| Next route | `G1_GOAL_SHAPE` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
+| Next route | `E1_EXECUTION_BRIEF` | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` |
 
 ## Current Phase meaning
 
@@ -57,7 +57,13 @@ Foundation scope includes:
 - Gas Simulation durable gameplay logic model;
 - smallest durable technical nucleus to build next.
 
+The active Goal adds a goal-local decision surface: `Project Engineering & Codex Development Operating Model`.
+
+This is a staged decision brief / decision map, not one-shot closure of every technical detail.
+
 FishNet is a candidate based on old project evidence, not a final default. Unity multiplayer stack and other viable options may be considered through the proper research/decision route.
+
+Codex-driven implementation must wait until the foundation decision, execution route, concrete project/tool bindings, validators, and scope are verified.
 
 ## Default Project Files to load
 

@@ -17,10 +17,10 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
 - Active Phase name: `Core Co-op Technical Foundation Selection`
-- Active Goal: `none_pending_G1`
-- Recommended first Goal candidate: `core-technical-foundation-decision-brief`
-- Recommended first Goal name: `Сформировать Core Technical Foundation Decision Brief`
-- Next route: `G1_GOAL_SHAPE`
+- Active Goal: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief`
+- Active Goal name: `Сформировать Core Technical Foundation Decision Brief`
+- Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
+- Next route: `E1_EXECUTION_BRIEF`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -59,14 +59,12 @@ Required foundation surface:
 
 ## Queue items
 
-- Core Technical Foundation Decision Brief
-- Expedition Project Bootstrap / Tool Binding Readiness
-- Durable Technical Nucleus Implementation
-- Expedition System Synergy Research Pack
-- Expedition Durable Skeleton Documentation Promotion
-- Expedition Controlled Visual Probe Set
-
-Queue items are request-only until selected by a vNext-R stage result.
+- Core Technical Foundation Decision Brief — `active_goal_shaped_pending_E1`
+- Expedition Project Bootstrap / Tool Binding Readiness — request-only until selected by a vNext-R stage result
+- Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result
+- Expedition System Synergy Research Pack — request-only until selected by a vNext-R stage result
+- Expedition Durable Skeleton Documentation Promotion — request-only until selected by a vNext-R stage result
+- Expedition Controlled Visual Probe Set — request-only until selected by a vNext-R stage result
 
 ## Queue discipline
 
@@ -75,3 +73,7 @@ Do not run implementation, Unity bootstrap, code transfer, or Codex product/proj
 Do not default to FishNet solely because it was used in the old project.
 
 Do not create throwaway gas/grid prototype logic.
+
+Do not treat the active Goal as one-shot closure of every technical detail. It produces a staged decision brief / decision map with explicit statuses and route gates.
+
+Do not create a full engineering handbook as part of the active Goal. The active Goal only requires a decision-brief-level `Project Engineering & Codex Development Operating Model`.

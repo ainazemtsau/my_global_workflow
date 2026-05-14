@@ -16,30 +16,26 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run G1_GOAL_SHAPE for candidate core-technical-foundation-decision-brief."
-  route_stage: G1_GOAL_SHAPE
+  current_focus: "Run E1_EXECUTION_BRIEF for active Goal core-technical-foundation-decision-brief after G1 repository maintenance apply/read-back and Project Files refresh."
+  route_stage: E1_EXECUTION_BRIEF
   same_chat_allowed: false
-  boundary_trigger: p0_phase_start_after_repository_maintenance
+  boundary_trigger: g1_goal_shape_after_repository_maintenance
   pending_state_carried: true
-  pending_patch_pointer: p0_phase_start_core_coop_technical_foundation_selection_2026-05-13
-  last_stage_result_pointer: "P0_PHASE_START created Core Co-op Technical Foundation Selection."
+  pending_patch_pointer: g1_goal_shape_core_technical_foundation_decision_map_2026-05-14
+  last_stage_result_pointer: "G1_GOAL_SHAPE shaped Core Technical Foundation Decision Brief as staged decision map."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   active_goal:
-    goal_id: null
-    goal_title: null
-    goal_path: null
-    goal_contract: null
-    status: none_pending_G1
-  recommended_first_goal_candidate:
-    goal_candidate_id: core-technical-foundation-decision-brief
+    goal_id: core-technical-foundation-decision-brief
     goal_title: "Сформировать Core Technical Foundation Decision Brief"
-    recommended_next_stage: G1_GOAL_SHAPE
+    goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
+    goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+    status: active_goal_shaped_pending_E1
   active_phase:
     phase_id: core-coop-technical-foundation-selection
     phase_name: Core Co-op Technical Foundation Selection
     phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
     status: active
-    next_route: G1_GOAL_SHAPE
+    next_route: E1_EXECUTION_BRIEF
 ```
 
 ## Blockers / required inputs
@@ -55,9 +51,26 @@ focus:
 
 ## Current focus boundary
 
-G1 should shape one Goal: `Core Technical Foundation Decision Brief`.
+E1 should prepare the minimum execution brief for producing the accepted `Core Technical Foundation Decision Brief` / Decision Map.
 
-G1 must not silently turn this into:
+E1 must preserve the staged decision-map model. It must classify each foundation surface as one of:
+
+- `decided`;
+- `decision_gate`;
+- `research_needed_D1`;
+- `audit_needed_A1`;
+- `human_decision_needed_S3`;
+- `deferred_not_blocking_for_bootstrap`.
+
+E1 must cover these foundation surfaces:
+
+- multiplayer technology and host-player architecture;
+- Grid/Topology transfer boundary;
+- Gas Simulation durable logic architecture;
+- smallest durable technical nucleus;
+- Project Engineering & Codex Development Operating Model.
+
+E1 must not silently turn this into:
 
 - technical audit execution;
 - external research synthesis without routing to D1 when needed;
@@ -65,12 +78,14 @@ G1 must not silently turn this into:
 - Unity project creation;
 - code transfer;
 - Codex product/project execution;
+- Task Master graph creation;
 - throwaway gas prototype;
 - visual gas proof;
+- full engineering handbook;
 - Game Documentation promotion.
 
-If G1 discovers that current external multiplayer technology evidence is required, route to `D1_DEEP_RESEARCH`.
+If E1 discovers that current external multiplayer/tooling evidence is required, route to `D1_DEEP_RESEARCH`.
 
-If G1 discovers that a human-owned strategic tradeoff is blocking, route to `S3_DECIDE`.
+If E1 discovers that a human-owned strategic tradeoff is blocking, route to `S3_DECIDE`.
 
-If G1 discovers that old project/docs are blocking, return Context Request naming exact files.
+If E1 discovers that old project docs/code are blocking, return Context Request or route to `A1_AUDIT` with exact file needs.

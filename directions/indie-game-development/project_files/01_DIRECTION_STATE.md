@@ -21,9 +21,9 @@ direction:
   state: active
   workflow_version: vNext-R
   current_phase_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-  active_goal_pointer: null
-  active_goal_contract: null
-  recommended_first_goal_candidate: core-technical-foundation-decision-brief
+  active_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
+  active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  recommended_first_goal_candidate: null
   last_closed_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   last_closed_phase_result: p9_closed
   previous_active_phase_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice"
@@ -33,8 +33,8 @@ direction:
   last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   last_completed_goal_result: r1_reviewed_accepted
   accepted_goal_artifact: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md"
-  next_route: G1_GOAL_SHAPE
-  last_updated: "2026-05-13"
+  next_route: E1_EXECUTION_BRIEF
+  last_updated: "2026-05-14"
 ```
 
 ## Purpose / thesis
@@ -51,6 +51,8 @@ Build a commercially viable indie game direction focused on Expedition product j
 - FishNet was used before but is not final for the new project until selected with evidence.
 - Gas Simulation gameplay logic must be durable/extensible from the first real implementation, not hardcoded/disposable.
 - Grid/Topology old modules may be transferable, but transfer requires audit and boundary decision.
+- The active technical foundation Goal must use staged decision mapping, not one-shot closure of all technical details.
+- Codex-driven development requires foundation-level engineering guardrails before implementation: modularity, testability, dependency/composition boundaries, validation gates, and separation of gameplay/domain logic from multiplayer transport.
 - Game truths produced by Goals may move into permanent `Game Documentation` only through an explicit later documentation stage or approved documentation-maintenance patch.
 - Codex product/project execution requires verified concrete project/tool bindings.
 
@@ -58,15 +60,15 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Core Co-op Technical Foundation Selection`
 - Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
-- Status: `active_after_p0_repository_apply_readback`
+- Status: `active_after_g1_goal_shape_pending_E1`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 - Current Critical Constraint: high-lock-in co-op technical foundation choices are unresolved.
 - Minimum Outcome: accepted `Core Technical Foundation Decision Brief`.
-- Validation Signal: accepted foundation decision covers multiplayer stack/architecture, Grid/Topology transfer boundary, Gas Simulation durable logic architecture, and smallest durable technical nucleus.
-- Active Goal: `none_pending_G1`
-- Recommended first Goal candidate: `core-technical-foundation-decision-brief`
-- Next route: `G1_GOAL_SHAPE`
+- Validation Signal: accepted foundation decision covers multiplayer stack/architecture, Grid/Topology transfer boundary, Gas Simulation durable logic architecture, smallest durable technical nucleus, and explicit route gates for unresolved foundation surfaces.
+- Active Goal: `core-technical-foundation-decision-brief`
+- Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
+- Next route: `E1_EXECUTION_BRIEF`
 
 ## Previous active Phase / Goal
 

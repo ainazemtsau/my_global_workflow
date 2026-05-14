@@ -16,30 +16,39 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: none_pending_G1
-  goal_id: null
-  goal_title: null
-  goal_path: null
-  goal_contract: null
+  state: active_goal_shaped_pending_E1
+  goal_id: core-technical-foundation-decision-brief
+  goal_title: "Сформировать Core Technical Foundation Decision Brief"
+  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: G1_GOAL_SHAPE
-  smallest_useful_result: null
+  next_route: E1_EXECUTION_BRIEF
+  smallest_useful_result: "Accepted Core Technical Foundation Decision Brief / Decision Map with per-surface statuses and route gates."
 ```
 
 ```yaml
-recommended_first_goal_candidate:
-  goal_candidate_id: core-technical-foundation-decision-brief
+shaped_goal:
+  goal_id: core-technical-foundation-decision-brief
   goal_title: "Сформировать Core Technical Foundation Decision Brief"
-  recommended_next_stage: G1_GOAL_SHAPE
-  smallest_useful_result: "Accepted Goal Contract for producing a technical foundation decision brief."
-  candidate_scope:
+  shaped_by_stage: G1_GOAL_SHAPE
+  status: active_goal_shaped_pending_E1
+  recommended_next_stage: E1_EXECUTION_BRIEF
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  decision_status_model:
+    - decided
+    - decision_gate
+    - research_needed_D1
+    - audit_needed_A1
+    - human_decision_needed_S3
+    - deferred_not_blocking_for_bootstrap
+  required_decision_surfaces:
     - "multiplayer technology and host-player architecture"
     - "Grid/Topology transfer boundary"
     - "Gas Simulation durable logic architecture"
-    - "old project evidence/reuse/unsafe assumptions"
     - "smallest durable technical nucleus"
-  validation_signal: "The Direction has an accepted technical foundation decision sufficient to proceed to bootstrap/implementation planning without guessing."
+    - "Project Engineering & Codex Development Operating Model"
+  validation_signal: "The Direction can proceed to bootstrap/implementation planning, or to a precise research/audit/decision route, without guessing."
 ```
 
 ```yaml
@@ -56,18 +65,26 @@ previous_active_goal:
 
 ## Active Goal snapshot
 
-There is no active Goal after P0. The next valid step is `G1_GOAL_SHAPE` for the first Goal candidate.
+Active Goal is now `core-technical-foundation-decision-brief`.
+
+The next valid route is `E1_EXECUTION_BRIEF` to prepare a staged execution decomposition for producing the accepted technical foundation decision brief / decision map.
 
 ## Deferred items
 
-The next Goal must not silently decide or perform:
+The active Goal must not silently decide or perform:
 
 - Unity project creation;
 - code transfer;
 - final implementation;
-- exact gas taxonomy/reactions;
-- final 25 cm vs 50 cm implementation;
+- Task Master graph creation;
+- Codex product/project execution;
 - final multiplayer stack without evidence;
 - final network authority model without decision record;
+- exact gas taxonomy/reactions;
+- final 25 cm vs 50 cm implementation;
+- exact DI package / Unity folder layout / CI setup unless evidence is sufficient and the decision brief requires it;
+- full engineering handbook;
 - visual gas proof;
 - Game Documentation promotion.
+
+The active Goal may leave a surface unresolved only when the unresolved item is explicitly routed to `D1_DEEP_RESEARCH`, `A1_AUDIT`, `S3_DECIDE`, Context Request, or marked `deferred_not_blocking_for_bootstrap`.
