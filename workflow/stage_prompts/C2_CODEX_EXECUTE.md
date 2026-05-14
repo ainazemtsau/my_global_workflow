@@ -826,72 +826,28 @@ stop_conditions:
 
 ---
 
-## 19\. Context Request Card schema
+## Context Request / Human Decision packet references
 
-Use when execution context is insufficient.
+Do not copy full Context Request or Human Decision packet schemas inside this prompt.
 
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-stage:
-  id: C2_CODEX_EXECUTE
-  name: Codex Execute
-return_state: NEEDS_INPUT
-blocking_reason:
-missing_required_context:
-  - item:
-    why_needed:
-    acceptable_source:
-stale_or_conflicting_context:
-  - item:
-    conflict:
-    needed_resolution:
-minimum_context_to_continue:
-  - accepted C1 Codex Graph Plan or Codex Wave Card
-  - Active Goal / Goal Contract
-  - Execution Brief
-  - Codex Project Setup
-  - target repo/workspace
-  - tool/runtime binding
-  - sandbox policy
-  - approval policy
-  - network policy
-  - dependency policy
-  - validation commands
-  - evidence requirements
-  - forbidden changes
-  - source-of-truth freshness marker
-default_next_action:
+Use canonical transport templates:
 
+```text
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
 ```
 
----
+Stage-specific trigger rules in this prompt still apply.
 
-## 20\. Human Decision Card schema
+If this stage needs missing context, produce a Context Request using the canonical transport template and the stage-specific missing-context triggers below.
 
-Use when execution requires a user choice.
+If this stage needs a human-owned decision, produce a Human Decision using the canonical transport template and the stage-specific decision triggers below.
 
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
-stage:
-  id: C2_CODEX_EXECUTE
-  name: Codex Execute
-return_state: NEEDS_INPUT
-decision_needed:
-why_decision_is_needed:
-options:
-  - option:
-    consequence:
-    risk:
-recommended_option:
-scope_or_safety_impact:
-execution_paused_at:
-safe_to_resume_after:
+Do not invent local packet schemas.
 
-```
+Context Request trigger: execution context is insufficient.
+
+Human Decision trigger: execution requires a user choice.
 
 ---
 

@@ -883,52 +883,28 @@ stop_conditions:
 
 Do not produce launch cards for multiple routes. Put rejected routes in the route decision summary only.
 
-## 13\. Context Request Card
+## Context Request / Human Decision packet references
 
-Use when missing context blocks safe design.
+Do not copy full Context Request or Human Decision packet schemas inside this prompt.
 
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-stage:
-  id: E1_EXECUTION_BRIEF
-  name: Execution Brief
-status: needs_input
-return_state: NEEDS_INPUT
-blocking_reason:
-missing_context:
-  - item:
-    why_needed:
-    acceptable_sources:
-suggested_next_action:
-do_not_proceed_because:
+Use canonical transport templates:
 
+```text
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
 ```
 
-## 14\. Human Decision Card
+Stage-specific trigger rules in this prompt still apply.
 
-Use when user choice is required.
+If this stage needs missing context, produce a Context Request using the canonical transport template and the stage-specific missing-context triggers below.
 
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
-stage:
-  id: E1_EXECUTION_BRIEF
-  name: Execution Brief
-status: human_decision_required
-return_state: NEEDS_INPUT
-decision_needed:
-options:
-  - option:
-    consequence:
-    risk:
-recommended_option:
-why:
-blocked_until_decision: true
+If this stage needs a human-owned decision, produce a Human Decision using the canonical transport template and the stage-specific decision triggers below.
 
-```
+Do not invent local packet schemas.
+
+Triggers:
+- Missing context blocks safe design.
+- User choice required.
 
 ## 15\. Stop Card
 

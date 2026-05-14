@@ -980,31 +980,24 @@ next_chat_action: "Return the apply/file read-back / diff verification / commit 
 
 ---
 
-## 18\. Context Request Card
+## Context Request / Human Decision packet references
 
-Use this when missing context blocks safe execution.
+Do not copy full Context Request or Human Decision packet schemas inside this prompt.
 
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-stage:
-  id: F0_FAST_DIRECT
-  name: Fast Direct
-return_state: NEEDS_INPUT
-reason:
-blocking_missing_context:
-  - item:
-    why_needed:
-    acceptable_evidence:
-current_safe_state:
-repository_patch:
-  state: none
-  reason:
-forbidden_until_resolved:
-next_action_after_context:
+Use canonical transport templates:
 
+```text
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
 ```
+
+Stage-specific trigger rules in this prompt still apply.
+
+If this stage needs missing context, produce a Context Request using the canonical transport template and the stage-specific missing-context triggers below.
+
+If this stage needs a human-owned decision, produce a Human Decision using the canonical transport template and the stage-specific decision triggers below.
+
+Do not invent local packet schemas.
 
 Common Context Request triggers:
 
@@ -1015,36 +1008,6 @@ Common Context Request triggers:
 *   stale mirror says no active Goal;
 *   G1/E1 Goal identity mismatch;
 *   no safe evidence that target note can be created/updated.
-
----
-
-## 19\. Human Decision Card
-
-Use this when a human must choose whether to expand scope or accept risk.
-
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
-stage:
-  id: F0_FAST_DIRECT
-  name: Fast Direct
-return_state: NEEDS_INPUT
-decision_required:
-options:
-  - option_id:
-    label:
-    effect:
-    risk:
-    recommended: true | false
-default_recommendation:
-why_f0_cannot_decide:
-repository_patch:
-  state: none | safe_partial_available
-  reason:
-next_action_after_decision:
-
-```
 
 Human Decision is required for:
 
