@@ -100,7 +100,7 @@ C1 may route only to:
 
 C1 may propose or write only to authorized Codex planning targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Codex Graph Plan
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Codex Graph Plan
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Codex / \[wave\_id\] / Codex Graph Plan \[runtime\_target\_root from Launch Card\] / Codex / \[wave\_id\] / Codex Wave Card Draft
 *   Codex bridge mode: \[authorized Codex wave record path from Launch Card\]
 *   Execution log mode: \[authorized execution log path from Launch Card\]

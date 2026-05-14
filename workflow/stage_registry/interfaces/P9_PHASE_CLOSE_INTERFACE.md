@@ -95,7 +95,7 @@ P9 may route only to:
 
 P9 may propose or write only to authorized phase-close targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Phase Close
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Phase Close
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Phases / \[phase\_id\] / Phase Close \[runtime\_target\_root from Launch Card\] / Phases / \[phase\_id\] / Phase State \[runtime\_target\_root from Launch Card\] / Direction State
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

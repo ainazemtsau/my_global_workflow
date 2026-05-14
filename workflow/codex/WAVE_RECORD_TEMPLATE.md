@@ -72,7 +72,7 @@ WAVE\_RECORD\_TEMPLATE\_BEGIN
 ```yaml
 wave_record:
   schema_version: 1
-  workflow_version: "vNext-R REBUILD"
+  workflow_version: "vNext-R"
   wave_id: "{{wave_id}}"
   short_name: "{{short_name}}"
   wave_status: "draft"
@@ -87,7 +87,7 @@ origin:
   human_request_summary: "{{one_sentence_summary}}"
 
 authority:
-  canonical_root: "Workflow / 20 Workflow vNext-R REBUILD"
+  canonical_root: "ainazemtsau/my_global_workflow"
   canonical_sources:
     - "{{repository_file_path}}"
   project_files_used:
@@ -104,7 +104,7 @@ scope:
     - "{{allowed_target_path}}"
   forbidden_paths:
     - "{{forbidden_path_or_pattern}}"
-  activation_scope: "rebuild root only | direction opt-in | global"
+  activation_scope: "workflow runtime scope | direction opt-in | global"
   global_activation_allowed: false
 
 codex_handoff:

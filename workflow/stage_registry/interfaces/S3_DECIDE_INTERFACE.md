@@ -98,7 +98,7 @@ S3 may route only to:
 
 S3 may propose or write only to authorized decision targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Decision Record
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Decision Record
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Decisions / \[decision\_id\] \[runtime\_target\_root from Launch Card\] / Goals / \[goal\_id\] / Decision Record
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

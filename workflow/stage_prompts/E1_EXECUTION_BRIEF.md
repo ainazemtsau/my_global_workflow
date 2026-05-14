@@ -411,7 +411,7 @@ Use exception routes when needed:
 *   Context Request: required context is missing.
 *   Stop Card: launch is unsafe, contradictory, or out of scope.
 
-If a selected downstream prompt may not yet be installed/test-active, still produce the correct route if it is the smallest safe route, but include a downstream availability guard:
+If a selected downstream prompt may not yet be installed/runtime-active, still produce the correct route if it is the smallest safe route, but include a downstream availability guard:
 
 ```yaml
 downstream_availability:

@@ -632,7 +632,7 @@ If any item fails and cannot be fixed inside G1, use Kernel QA, Context Request,
 
 ## 11\. First real Direction test scenario expectation
 
-For the first Step 7.3 real Direction test, the likely context is:
+For an initial real Direction runtime test, the likely context is:
 
 *   Direction: Solo Max Productive
 *   Active Phase: vNext One-Goal Smoke Test

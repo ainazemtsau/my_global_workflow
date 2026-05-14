@@ -97,7 +97,7 @@ P0 may route only to:
 
 P0 may propose or write only to authorized Phase targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Phase Start
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Phase Start
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Phases / \[phase\_id\] / Phase Start \[runtime\_target\_root from Launch Card\] / Phases / \[phase\_id\] / Phase State \[runtime\_target\_root from Launch Card\] / Phases / \[phase\_id\] / Phase Log
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

@@ -101,7 +101,7 @@ C2 may route only to:
 
 C2 may write only to explicitly authorized Codex execution targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Codex Execute Result
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Codex Execute Result
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Codex / \[wave\_id\] / Codex Return Packet \[runtime\_target\_root from Launch Card\] / Codex / \[wave\_id\] / Evidence
 *   Codex bridge mode: \[authorized Codex wave record path from Launch Card\]
 *   Repository mode: \[authorized repository paths from Codex Wave Card\]

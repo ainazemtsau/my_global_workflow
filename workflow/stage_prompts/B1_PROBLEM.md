@@ -181,7 +181,7 @@ B1 must not do any of the following unless a fresh Human Decision explicitly aut
 *   Touch cross-Direction notes.
 *   Edit stage prompts.
 *   Update rebuild state files from a runtime Direction run.
-*   Start or continue a rebuild Step 7.x process from a runtime Direction run.
+*   Start or continue a workflow-maintenance process from a runtime Direction run.
 *   Change source-of-truth rules.
 *   Change security, privacy, or tool-binding behavior.
 *   Redesign the whole workflow.
@@ -553,7 +553,7 @@ B1 must preserve these forbidden actions until resolved:
 *   Do not touch cross-Direction notes.
 *   Do not edit stage prompts.
 *   Do not update rebuild state files from a runtime Direction run.
-*   Do not start Step 7.8 from a runtime Direction run.
+*   Do not start workflow-maintenance work from a runtime Direction run.
 *   Do not run unrelated broad workflow redesign.
 
 The smallest safe route is a precise context/file read-back / diff verification / commit verification refresh, not closure, redesign, canon work, or companion functionality.

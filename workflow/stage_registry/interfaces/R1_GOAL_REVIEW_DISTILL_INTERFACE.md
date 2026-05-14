@@ -99,7 +99,7 @@ R1 may route only to:
 
 R1 may propose or write only to authorized review targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Review Distill
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Review Distill
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Reviews / \[review\_id\] / Review Distill \[runtime\_target\_root from Launch Card\] / Lessons / \[lesson\_id\] \[runtime\_target\_root from Launch Card\] / Documentation Maintenance
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

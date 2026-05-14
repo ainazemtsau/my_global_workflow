@@ -100,7 +100,7 @@ I0 may route only to:
 
 I0 may propose or write only to authorized capture targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Capture Ledger
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Capture Ledger
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Inbox / \[capture\_id\] \[runtime\_target\_root from Launch Card\] / Captures / \[capture\_id\] / Capture Ledger \[runtime\_target\_root from Launch Card\] / Backlog / Candidate Goals
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

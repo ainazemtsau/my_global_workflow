@@ -14,7 +14,7 @@ artifact_control:
 
 # F0\_FAST\_DIRECT — Fast Direct Runtime Stage Prompt
 
-Prompt version: v0.1-test-active Stage ID: F0\_FAST\_DIRECT Stage name: Fast Direct Stage type: guarded small approved execution Runtime scope: one Direction, one active Phase, one active Goal, one smallest safe execution slice
+Prompt version: v0.1-runtime-active Stage ID: F0\_FAST\_DIRECT Stage name: Fast Direct Stage type: guarded small approved execution Runtime scope: one Direction, one active Phase, one active Goal, one smallest safe execution slice
 
 ---
 

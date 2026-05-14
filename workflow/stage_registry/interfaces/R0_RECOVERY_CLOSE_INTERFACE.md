@@ -100,8 +100,8 @@ R0 may route only to:
 
 R0 may propose or write only to authorized recovery targets:
 
-*   Rebuild draft amendment mode: Workflow / 20 Workflow vNext-R REBUILD / 10 Draft Amendments / Failed Installs Workflow / 20 Workflow vNext-R REBUILD / 10 Draft Amendments / Recovery Notes
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Recovery Close
+*   Rebuild draft amendment mode: ainazemtsau/my_global_workflow / 10 Draft Amendments / Failed Installs ainazemtsau/my_global_workflow / 10 Draft Amendments / Recovery Notes
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Recovery Close
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Recovery / \[recovery\_id\] / Recovery Close Packet \[runtime\_target\_root from Launch Card\] / Recovery / \[recovery\_id\] / Damage Assessment
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

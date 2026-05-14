@@ -95,7 +95,7 @@ G0 may route only to:
 
 G0 may propose or write only to authorized goal-selection targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Goal Selection
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Goal Selection
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Goals / Goal Options \[runtime\_target\_root from Launch Card\] / Goals / Selected Goal \[runtime\_target\_root from Launch Card\] / Backlog / Deferred Goals \[runtime\_target\_root from Launch Card\] / Decisions / Goal Selection Decision
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

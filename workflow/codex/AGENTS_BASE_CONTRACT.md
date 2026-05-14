@@ -38,7 +38,7 @@ The Wave Card controls the task, allowed targets, forbidden targets, validators,
 Use this authority order:
 
 1. The current Codex Wave Card.
-2. Canonical GitHub repository files under `Workflow / 20 Workflow vNext-R REBUILD`.
+2. Canonical GitHub repository files under `ainazemtsau/my_global_workflow`.
 3. Current rebuild project files explicitly named by the Wave Card.
 4. Repository files in the allowed target scope.
 5. Task Master or other task ledgers, only when explicitly authorized.

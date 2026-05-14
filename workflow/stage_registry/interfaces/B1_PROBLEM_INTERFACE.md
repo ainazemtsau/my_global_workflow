@@ -101,8 +101,8 @@ B1 may route only to:
 
 B1 may propose or write only to authorized problem targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Problem Report
-*   Rebuild draft amendment mode: Workflow / 20 Workflow vNext-R REBUILD / 10 Draft Amendments / Problem Reports
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Problem Report
+*   Rebuild draft amendment mode: ainazemtsau/my_global_workflow / 10 Draft Amendments / Problem Reports
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Problems / \[problem\_id\] / Problem Report \[runtime\_target\_root from Launch Card\] / Problems / \[problem\_id\] / Repair Plan \[runtime\_target\_root from Launch Card\] / Regression Log
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

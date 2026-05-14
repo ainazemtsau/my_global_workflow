@@ -96,7 +96,7 @@ F0 may route only to:
 
 F0 may propose or write only to authorized direct-output targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Fast Direct Output
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Fast Direct Output
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Outputs / \[output\_id\] \[runtime\_target\_root from Launch Card\] / Execution / \[execution\_id\] / Direct Output
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

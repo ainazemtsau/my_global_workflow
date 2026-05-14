@@ -101,7 +101,7 @@ E1 may route only to:
 
 E1 may propose or write only to authorized execution-brief targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Execution Brief
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Execution Brief
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Execution / \[execution\_id\] / Execution Brief \[runtime\_target\_root from Launch Card\] / Execution / \[execution\_id\] / Acceptance Tests \[runtime\_target\_root from Launch Card\] / Execution / \[execution\_id\] / Evidence Requirements
 *   Codex bridge mode: \[authorized Codex wave record path from Launch Card\]
 *   Execution log mode: \[authorized execution log path from Launch Card\]

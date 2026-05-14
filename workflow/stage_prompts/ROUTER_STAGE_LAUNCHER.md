@@ -822,12 +822,12 @@ Do not invent local packet schemas.
 
 ## 24\. Stage-development testing override
 
-When ROUTER\_STAGE\_LAUNCHER is used inside a Step 7.x stage-development chat, apply this testing order:
+When ROUTER\_STAGE\_LAUNCHER is used inside a stage-development chat, apply this testing order:
 
 1.  Dossier.
 2.  Final prompt only after explicit WRITE FINAL STAGE PROMPT.
 3.  Pre-install Test Plan only.
-4.  Codex install as draft/test-active.
+4.  Codex install as draft/runtime-active.
 5.  Codex creates Real Direction Test Launch Card.
 6.  User runs test in real Direction Project/chat.
 7.  ChatGPT validates returned real test output.

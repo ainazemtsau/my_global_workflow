@@ -102,7 +102,7 @@ G1 may route only to:
 
 G1 may propose or write only to authorized goal-shaping targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Shaped Goal Brief
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Shaped Goal Brief
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Goals / \[goal\_id\] / Shaped Goal Brief \[runtime\_target\_root from Launch Card\] / Goals / \[goal\_id\] / Acceptance Criteria \[runtime\_target\_root from Launch Card\] / Goals / \[goal\_id\] / Scope Cut List
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

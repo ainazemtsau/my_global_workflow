@@ -99,7 +99,7 @@ A1 may route only to:
 
 A1 may propose or write only to authorized audit targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Audit Report
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Audit Report
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Audits / \[audit\_id\] / Audit Report \[runtime\_target\_root from Launch Card\] / Evidence / \[audit\_id\] \[runtime\_target\_root from Launch Card\] / Regression Log
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

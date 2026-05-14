@@ -95,14 +95,14 @@ D0 may route only to:
 
 D0 may propose or write only to authorized Direction setup targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Direction Charter
-*   Rebuild draft amendment mode: Workflow / 20 Workflow vNext-R REBUILD / 10 Draft Amendments / Direction Setup Amendments
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Direction Charter
+*   Rebuild draft amendment mode: ainazemtsau/my_global_workflow / 10 Draft Amendments / Direction Setup Amendments
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Direction Charter \[runtime\_target\_root from Launch Card\] / Direction State \[runtime\_target\_root from Launch Card\] / Direction Boundary Register
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 
 D0 must not write to:
 
-*   Workflow / 20 Workflow vNext-R REBUILD / 07 Stage Prompts /
+*   ainazemtsau/my_global_workflow / 07 Stage Prompts /
 *   old active Workflow vNext material
 *   any unapproved external Direction root
 

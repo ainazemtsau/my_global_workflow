@@ -100,7 +100,7 @@ D1 may route only to:
 
 D1 may propose or write only to authorized research targets:
 
-*   Rebuild scenario test mode: Workflow / 20 Workflow vNext-R REBUILD / 08 Scenario Tests / \[scenario\_id\] / Research Dossier
+*   Rebuild scenario test mode: ainazemtsau/my_global_workflow / 08 Scenario Tests / \[scenario\_id\] / Research Dossier
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Research / \[research\_id\] / Research Dossier \[runtime\_target\_root from Launch Card\] / Research / \[research\_id\] / Source Map \[runtime\_target\_root from Launch Card\] / Evidence / \[research\_id\]
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 

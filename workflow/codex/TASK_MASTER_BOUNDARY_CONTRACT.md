@@ -23,7 +23,7 @@ Task Master may help track work. It is not canonical for workflow contracts, sta
 Use this authority order for Workflow vNext-R Rebuild:
 
 1.  Explicit human instruction in the current chat or current Wave Card.
-2.  Canonical GitHub repository files under `Workflow / 20 Workflow vNext-R REBUILD`.
+2.  Canonical GitHub repository files under `ainazemtsau/my_global_workflow`.
 3.  Accepted Project Files named by the current step or Wave Card.
 4.  Repository files inside the allowed target scope.
 5.  Task Master task records, only as a task ledger.
