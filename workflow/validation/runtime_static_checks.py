@@ -52,13 +52,30 @@ DEPRECATED_PROMPT_DELIVERY_MODES = [
     "attached_export",
 ]
 
-LEGACY_TRANSPORT_PATTERNS = [
+LEGACY_TRANSPORT_ACTIVE_SHAPE_TOKENS = [
     "stage_launch_card: 1",
     "stage_result_packet: 1",
     "card_type:",
     "packet_type:",
     "patch_type:",
+    "codex_wave_card: 1",
 ]
+
+LEGACY_TRANSPORT_COMPATIBILITY_FILES = {
+    "workflow/transport/CODEX_RETURN_PACKET.md": [
+        "packet_type: codex_return_packet",
+        "schema: codex_return_packet.v1",
+        "CODEX_RETURN_PACKET_BEGIN",
+        "CODEX_RETURN_PACKET_END",
+    ],
+    "workflow/transport/CODEX_WAVE_CARD.md": [
+        "codex_wave_card: 1",
+        "CODEX_WAVE_CARD_BEGIN",
+        "CODEX_WAVE_CARD_END",
+        "allowed_targets",
+        "forbidden_targets",
+    ],
+}
 
 STALE_METADATA_PATTERNS = [
     "vNext-R REBUILD",
@@ -257,15 +274,62 @@ def check_legacy_transport_shapes(root: Path, results: list[Finding], mode: str)
         return
 
     status: Status = "WARN" if mode == "baseline" else "FAIL"
-    found = 0
+    active_found = 0
+    compatibility_hits = 0
+
+    def is_legacy_compatibility_context(rel_path: str, lines: list[str], line_index: int, token: str) -> bool:
+        allowed_terms = LEGACY_TRANSPORT_COMPATIBILITY_FILES.get(rel_path)
+        if not allowed_terms:
+            return False
+
+        line = lines[line_index]
+        if not any(term in line for term in allowed_terms):
+            return False
+
+        # Compatibility aliases must be in an explicitly marked compatibility section.
+        # Scan backward to the nearest markdown H2/H3/H4 heading.
+        for idx in range(line_index, -1, -1):
+            heading = lines[idx].strip()
+            if re.match(r"^#{2,4}\s+", heading):
+                heading_lower = heading.lower()
+                return "compatibility" in heading_lower or "legacy" in heading_lower
+
+        return False
+
     for path in sorted(transport_dir.glob("*.md")):
-        text = read_text(path)
-        for token in LEGACY_TRANSPORT_PATTERNS:
-            if token in text:
-                found += 1
-                add(results, "CHECK 010", "legacy_transport_shape_scan", status, f"Legacy transport shape token found: {token}.", rel(path, root))
-    if found == 0:
-        add(results, "CHECK 010", "legacy_transport_shape_scan", "PASS", "No legacy transport shape tokens found.")
+        rel_path = rel(path, root)
+        lines = read_text(path).splitlines()
+
+        for line_index, line in enumerate(lines):
+            for token in LEGACY_TRANSPORT_ACTIVE_SHAPE_TOKENS:
+                if token not in line:
+                    continue
+
+                if is_legacy_compatibility_context(rel_path, lines, line_index, token):
+                    compatibility_hits += 1
+                    continue
+
+                active_found += 1
+                add(
+                    results,
+                    "CHECK 010",
+                    "legacy_transport_shape_scan",
+                    status,
+                    f"Active legacy transport shape token found outside documented compatibility aliases: {token}.",
+                    f"{rel_path}:{line_index + 1}",
+                )
+
+    if active_found == 0:
+        if compatibility_hits:
+            add(
+                results,
+                "CHECK 010",
+                "legacy_transport_shape_scan",
+                "PASS",
+                f"No active legacy transport shape tokens found; {compatibility_hits} documented compatibility alias occurrence(s) tolerated.",
+            )
+        else:
+            add(results, "CHECK 010", "legacy_transport_shape_scan", "PASS", "No legacy transport shape tokens found.")
 
 
 def check_transport_apply_template(root: Path, results: list[Finding], mode: str) -> None:

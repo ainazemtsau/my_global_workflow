@@ -219,3 +219,38 @@ Hard invariant:
 - transport templates remain packet-shape authority.
 
 `CHECK 021 — runtime_core_packet_schema_reference_cleanup` enforces this in both baseline and strict mode.
+
+## CHECK 010 compatibility-aware legacy transport expectation
+
+`CHECK 010 — legacy_transport_shape_scan` distinguishes active legacy transport shapes from documented compatibility aliases.
+
+Active legacy transport shapes remain cleanup debt or blockers:
+
+```text
+stage_launch_card: 1
+stage_result_packet: 1
+card_type:
+packet_type:
+patch_type:
+codex_wave_card: 1
+```
+
+Compatibility aliases are allowed only inside explicit legacy/compatibility sections of allowlisted files:
+
+```text
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/CODEX_WAVE_CARD.md
+```
+
+Allowed compatibility aliases must normalize to canonical schemas:
+
+```text
+codex_return.v1
+codex_wave.v1
+```
+
+Hard invariant:
+
+- strict mode must not fail merely because a legacy alias is documented in a compatibility section;
+- strict mode must fail if active transport templates regress to legacy card shapes;
+- compatibility aliases must not be treated as canonical schema IDs.

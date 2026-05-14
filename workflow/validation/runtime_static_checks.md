@@ -125,18 +125,46 @@ Result:
 
 ## CHECK 010 — legacy_transport_shape_scan
 
-Scan `workflow/transport/` for legacy active card shapes:
+Scan `workflow/transport/` for active legacy transport card shapes.
+
+Active legacy shape tokens are not allowed outside documented compatibility sections:
 
 - `stage_launch_card: 1`
 - `stage_result_packet: 1`
 - `card_type:`
 - `packet_type:`
 - `patch_type:`
+- `codex_wave_card: 1`
+
+Documented compatibility aliases are allowed only when all are true:
+
+- the file is explicitly allowlisted for that alias;
+- the occurrence is inside a markdown section whose heading contains `legacy` or `compatibility`;
+- the compatibility section maps the alias to a canonical `workflow_packet: 1` / `schema: *.v1` transport template.
+
+Current allowlisted compatibility files:
+
+```text
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/CODEX_WAVE_CARD.md
+```
+
+Examples of allowed compatibility aliases in those sections:
+
+```text
+packet_type: codex_return_packet
+schema: codex_return_packet.v1
+codex_wave_card: 1
+CODEX_RETURN_PACKET_BEGIN/END
+CODEX_WAVE_CARD_BEGIN/END
+allowed_targets / forbidden_targets
+```
 
 Result:
 
-- baseline: WARN
-- strict: FAIL
+- baseline: WARN on active legacy transport shapes outside documented compatibility sections.
+- strict: FAIL on active legacy transport shapes outside documented compatibility sections.
+- baseline and strict: PASS when legacy tokens appear only as documented compatibility aliases.
 
 ## CHECK 011 — transport_apply_template_presence
 
