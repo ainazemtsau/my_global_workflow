@@ -589,33 +589,39 @@ Include:
 
 ## 7\. Stage Result Packet
 
-Include:
+Use the canonical Stage Result transport template:
 
-*   workflow\_packet: 1
-*   type: stage\_result
-*   schema: stage\_result.v1
-*   stage:
-    *   id: C1\_CODEX\_GRAPH\_PLAN
-    *   name: Codex Graph Plan
-*   return\_state: DONE | NEEDS\_INPUT | STUCK
-*   direction\_ref:
-*   phase\_ref:
-*   goal\_ref:
-*   goal\_contract\_ref:
-*   execution\_brief\_ref:
-*   source\_artifacts:
-*   freshness\_check:
-*   codex\_readiness\_status:
-*   scope\_classification:
-*   recommended\_route:
-*   route\_reason:
-*   blocking\_gaps:
-*   human\_decisions\_needed:
-*   graph\_plan\_ref:
-*   repository\_patch\_ref\_or\_none:
-*   documentation\_gate\_ref:
-*   changed\_files\_context\_refresh_after_approval:
-*   kernel\_qa\_summary:
+```text
+workflow/transport/STAGE_RESULT_PACKET.md
+```
+
+C1 must still emit a Stage Result every run.
+
+Preserve these C1-specific result obligations:
+
+- stage id and name: `C1_CODEX_GRAPH_PLAN` / `Codex Graph Plan`;
+- return state: `DONE`, `NEEDS_INPUT`, or `STUCK`;
+- Direction, Phase, Goal, Goal Contract, and Execution Brief references;
+- source artifacts and freshness check;
+- Codex readiness status;
+- scope classification;
+- recommended route and route reason;
+- blocking gaps;
+- human decisions needed;
+- graph plan reference or explicit none;
+- repository patch reference or explicit none;
+- documentation gate reference;
+- changed-files/context-refresh status;
+- kernel QA summary.
+
+Store C1-specific fields that are not part of the canonical transport envelope under:
+
+```yaml
+extensions:
+  C1_CODEX_GRAPH_PLAN:
+```
+
+Do not invent local Stage Result schemas.
 
 ## 8\. Repository Patch
 
@@ -694,7 +700,7 @@ Check:
 
 Produce exactly one terminal route artifact.
 
-Do not copy terminal packet schemas inside this prompt. Use canonical transport/runtime templates:
+Use canonical transport/runtime templates instead of local packet schemas:
 
 ```text
 workflow/transport/STAGE_LAUNCH_CARD.md
@@ -705,7 +711,7 @@ workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 
 ### DONE route — C2 launch
 
-If `return_state = DONE` and the selected route is `C2_CODEX_EXECUTE`, emit one `stage_launch.v1` Next Launch Card using:
+If `return_state = DONE` and the selected route is `C2_CODEX_EXECUTE`, emit one Stage Launch using:
 
 ```text
 workflow/transport/STAGE_LAUNCH_CARD.md
@@ -717,32 +723,23 @@ The launch must target:
 workflow/stage_prompts/C2_CODEX_EXECUTE.md
 ```
 
-Prompt delivery must use only runtime-approved modes:
-
-```text
-prompt_text_embedded
-prompt_attachment_provided
-manual_prompt_required
-codex_verified_local_bundle
-```
+Prompt delivery must use only runtime-approved modes from `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 
 Do not use deprecated repository-request prompt delivery.
 
-C1-specific C2 launch payload must include direction, phase, and goal references; execution brief reference; Codex graph plan reference or inline graph plan; target repository/project; branch/worktree expectations; Codex surface/tool binding; setup freshness; execution boundaries; do-not-touch areas; validator matrix; required evidence; expected C2 return fields; stop-if-context-differs rule; and human approval requirements.
+C1-specific C2 launch payload must preserve: direction, phase, and goal references; Execution Brief reference; Codex graph plan reference or inline graph plan; target repository/project; branch/worktree expectations; Codex surface/tool binding; setup freshness; execution boundaries; do-not-touch areas; validator matrix; required evidence; expected C2 return fields; stop-if-context-differs rule; and human approval requirements.
 
-### NEEDS_INPUT route — Context Request
+### NEEDS_INPUT route — Context Request or Human Decision
 
-If blocking context is missing or stale, emit one `context_request.v1` using:
+If blocking context is missing or stale, emit one Context Request using:
 
 ```text
 workflow/transport/CONTEXT_REQUEST_CARD.md
 ```
 
-Ask only for the smallest exact missing set required to resume `C1_CODEX_GRAPH_PLAN`, such as Goal Contract, Execution Brief, Direction/Phase/Goal state, target repository/project, repo root/path or safe discovery scope, CODEX_PROJECT_SETUP or accepted equivalent, Codex surface/tool binding, branch/worktree expectations, AGENTS.md or equivalent when required, sandbox/approval/network policy, validation commands, or explicit no-command reason.
+Ask only for the smallest exact missing set required to resume `C1_CODEX_GRAPH_PLAN`.
 
-### NEEDS_INPUT route — Human Decision
-
-If a human-owned tradeoff blocks safe graph planning, emit one `human_decision.v1` using:
+If a human-owned tradeoff blocks safe graph planning, emit one Human Decision using:
 
 ```text
 workflow/transport/HUMAN_DECISION_CARD.md
@@ -753,8 +750,6 @@ Preserve C1-specific decision triggers: fast patch vs deeper refactor, dependenc
 ### STUCK route — Stop
 
 If the launch is invalid, unsafe, or asks C1 to execute implementation, emit one Stop artifact using the runtime core stop contract.
-
-Stop must identify the stop reason, unsafe or invalid condition, allowed recovery route if any, and actions that are not allowed.
 
 C1 remains graph planning only. C2 execution may begin only through a valid C2 launch and the exact C2 prompt availability rules.
 
