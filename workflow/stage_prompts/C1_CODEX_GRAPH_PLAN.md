@@ -692,21 +692,71 @@ Check:
 
 ## 13\. Next Launch Card / Blocking Card
 
-If return\_state = DONE and route = C2\_CODEX\_EXECUTE, produce exactly one Next Launch Card:
+Produce exactly one terminal route artifact.
 
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: C2\_CODEX\_EXECUTE name: Codex Execute source\_path: workflow/stage\_prompts/C2\_CODEX\_EXECUTE.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/C2\_CODEX\_EXECUTE.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: direction\_ref: phase\_ref: goal\_ref: execution\_brief\_ref: codex\_graph\_plan\_ref: codex\_graph\_plan\_inline: freshness\_requirements: execution\_boundaries: required\_evidence: expected\_return\_packet: stop\_if\_context\_differs: human\_approval\_requirements:
+Do not copy terminal packet schemas inside this prompt. Use canonical transport/runtime templates:
 
-If return\_state = NEEDS\_INPUT and blocking context is missing, produce exactly one Context Request Card:
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
+workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+```
 
-workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: C1\_CODEX\_GRAPH\_PLAN name: Codex Graph Plan blocking\_reason: missing\_or\_stale\_artifacts: exact\_context\_needed: smallest\_safe\_next\_input: do\_not\_provide: resume\_stage: C1\_CODEX\_GRAPH\_PLAN
+### DONE route — C2 launch
 
-If return\_state = NEEDS\_INPUT and a human-owned tradeoff blocks safe planning, produce exactly one Human Decision Card:
+If `return_state = DONE` and the selected route is `C2_CODEX_EXECUTE`, emit one `stage_launch.v1` Next Launch Card using:
 
-workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: C1\_CODEX\_GRAPH\_PLAN name: Codex Graph Plan decision\_needed: options: recommended\_option: tradeoffs: risk\_if\_wrong: resume\_stage: C1\_CODEX\_GRAPH\_PLAN
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+```
 
-If return\_state = STUCK because the launch is invalid or unsafe, produce exactly one Stop Card:
+The launch must target:
 
-workflow\_packet: 1 type: stop schema: stop.v1 stage: id: C1\_CODEX\_GRAPH\_PLAN name: Codex Graph Plan stop\_reason: unsafe\_or\_invalid\_condition: allowed\_recovery\_route: not\_allowed:
+```text
+workflow/stage_prompts/C2_CODEX_EXECUTE.md
+```
+
+Prompt delivery must use only runtime-approved modes:
+
+```text
+prompt_text_embedded
+prompt_attachment_provided
+manual_prompt_required
+codex_verified_local_bundle
+```
+
+Do not use deprecated repository-request prompt delivery.
+
+C1-specific C2 launch payload must include direction, phase, and goal references; execution brief reference; Codex graph plan reference or inline graph plan; target repository/project; branch/worktree expectations; Codex surface/tool binding; setup freshness; execution boundaries; do-not-touch areas; validator matrix; required evidence; expected C2 return fields; stop-if-context-differs rule; and human approval requirements.
+
+### NEEDS_INPUT route — Context Request
+
+If blocking context is missing or stale, emit one `context_request.v1` using:
+
+```text
+workflow/transport/CONTEXT_REQUEST_CARD.md
+```
+
+Ask only for the smallest exact missing set required to resume `C1_CODEX_GRAPH_PLAN`, such as Goal Contract, Execution Brief, Direction/Phase/Goal state, target repository/project, repo root/path or safe discovery scope, CODEX_PROJECT_SETUP or accepted equivalent, Codex surface/tool binding, branch/worktree expectations, AGENTS.md or equivalent when required, sandbox/approval/network policy, validation commands, or explicit no-command reason.
+
+### NEEDS_INPUT route — Human Decision
+
+If a human-owned tradeoff blocks safe graph planning, emit one `human_decision.v1` using:
+
+```text
+workflow/transport/HUMAN_DECISION_CARD.md
+```
+
+Preserve C1-specific decision triggers: fast patch vs deeper refactor, dependency choice, migration/schema change, production-impacting change, security-sensitive access, external service/network use, shared architecture touch, scope outside Goal Contract, or documentation/canon change affecting stable workflow meaning.
+
+### STUCK route — Stop
+
+If the launch is invalid, unsafe, or asks C1 to execute implementation, emit one Stop artifact using the runtime core stop contract.
+
+Stop must identify the stop reason, unsafe or invalid condition, allowed recovery route if any, and actions that are not allowed.
+
+C1 remains graph planning only. C2 execution may begin only through a valid C2 launch and the exact C2 prompt availability rules.
 
 ## 15\. Final self-check before responding
 
