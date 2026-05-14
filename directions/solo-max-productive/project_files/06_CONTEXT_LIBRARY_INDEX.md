@@ -9,8 +9,8 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-13"
-  refresh_source: "G1-2026-05-13-exocortex-phase-repair"
+  last_refresh_at: "2026-05-14"
+  refresh_source: "P0-2026-05-14-exocortex-app-foundation-repair"
 ```
 
 ## Default context
@@ -37,24 +37,25 @@ GitHub remains the source of truth. Project Files are a runtime cache.
 
 If GitHub and Project File cache conflict, use verified full GitHub read-back. If GitHub read is truncated, omitted, lacks tail verification, or cannot be verified, return Context Request instead of treating partial GitHub content as authority.
 
-## Phase repair context for P0
+## EXOCORTEX foundation context for G1
 
-Required for the next `P0_PHASE_START` run:
+Required for the next `G1_GOAL_SHAPE` run:
 
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md`
-- Current G1 result packet / stop card / repository patch from `G1-2026-05-13-exocortex-phase-repair`
-- User correction from the approving chat: current workflow remains the construction workflow; EXOCORTEX is the future application and should replace current workflow only after radical superiority/full readiness.
+- P0 result / repository patch / Codex return from `P0-2026-05-14-exocortex-app-foundation-repair`
+- User correction: current workflow remains the construction workflow; EXOCORTEX is the future application and should replace current workflow only after radical superiority/full readiness.
 
 Purpose:
 
-- Repair or restart the Phase as `EXOCORTEX App Foundation`.
+- Shape `EXOCORTEX Product Foundation Definition`.
 - Treat EXOCORTEX as the future target application / personal external brain.
 - Preserve current ChatGPT + GitHub + Codex workflow as the construction workflow.
-- Define a Phase that can later support `EXOCORTEX Product Foundation Definition`.
+- Define product/application foundation: target system, principles, core loop, conceptual subsystem map, buildable foundation, non-goals, and validation criteria.
 - Do not execute the old proof Goal.
 - Do not treat the old replacement candidate as current.
-- Do not implement the app during P0/G1.
+- Do not implement the app during G1.
 - Do not choose tech stack or full architecture before the appropriate later route.
+- Do not treat `EXOCORTEX_CONCEPT_SEED_FULL.md` as an executable implementation roadmap.
 
 If GitHub read of `EXOCORTEX_CONCEPT_SEED_FULL.md` is truncated or lacks tail verification, request one of:
 
@@ -64,7 +65,7 @@ If GitHub read of `EXOCORTEX_CONCEPT_SEED_FULL.md` is truncated or lacks tail ve
 
 ## Superseded Goal comparison context
 
-Request only if P0/G1 needs comparison material:
+Request only if G1 needs comparison material:
 
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/00_GOAL_CONTRACT.md`
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/01_GOAL_WORKING_CONTEXT.md`
@@ -77,7 +78,7 @@ Use old Goal files only as superseded comparison material.
 
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md`
 
-Load for P0 phase repair and later EXOCORTEX foundation shaping. Do not treat as an executable implementation roadmap.
+Load for EXOCORTEX foundation shaping. Do not treat as an executable implementation roadmap.
 
 ## Archive boundary
 

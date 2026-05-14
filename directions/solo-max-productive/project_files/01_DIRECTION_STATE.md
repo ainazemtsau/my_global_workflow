@@ -9,8 +9,8 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/01_DIRECTION_STATE.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-13"
-  refresh_source: "G1-2026-05-13-exocortex-phase-repair"
+  last_refresh_at: "2026-05-14"
+  refresh_source: "P0-2026-05-14-exocortex-app-foundation-repair"
 
 direction:
   id: solo-max-productive
@@ -18,19 +18,26 @@ direction:
   state: active
   workflow_version: vNext-R
   current_phase_pointer: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration"
-  current_phase_status: repair_required_pending_p0
-  proposed_phase_repair:
-    proposed_phase_name: "EXOCORTEX App Foundation"
-    proposed_phase_status: pending_P0_PHASE_START
+  current_phase_name: "EXOCORTEX App Foundation"
+  current_phase_status: active
+  phase_repair:
+    repair_mode: repair_existing_phase_path_in_place
+    previous_phase_name: "Personal Workflow App Kernel Exploration"
+    repaired_phase_name: "EXOCORTEX App Foundation"
     repair_reason: "User clarified that the strategic target is the future EXOCORTEX application / personal external brain. The current workflow remains the construction workflow and is not being replaced now."
-  active_goal_pointer: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof"
-  active_goal_name: "Personal Workflow App Kernel Min Proof"
-  active_goal_status: invalidated_by_phase_repair_pending_p0
+    path_note: "Legacy folder slug retained temporarily to avoid duplicate active Phase state before foundation definition."
+  active_goal_pointer: null
+  active_goal_name: null
+  active_goal_status: none_pending_G1
+  superseded_goal_pointer: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof"
+  superseded_goal_name: "Personal Workflow App Kernel Min Proof"
+  superseded_goal_status: superseded_provenance_not_executable
   selected_goal_candidate: "EXOCORTEX Product Foundation Definition"
-  selected_goal_candidate_status: pending_after_phase_repair
-  next_route: P0_PHASE_START
-  route_note: "Launch via Router/new P0 run after repository patch apply/read-back and Project Files cache refresh. G1 stopped and did not launch P0 directly."
-  last_updated: "2026-05-13"
+  selected_goal_candidate_id: "G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION"
+  selected_goal_candidate_status: approved_for_G1_GOAL_SHAPE
+  next_route: G1_GOAL_SHAPE
+  route_note: "Launch G1 after repository patch apply/read-back and Project Files cache refresh."
+  last_updated: "2026-05-14"
 
 state_note:
   old_phase_pointer: "directions/solo-max-productive/phases/vnext-one-goal-smoke-test"
@@ -41,23 +48,24 @@ state_note:
   corrected_phase_intent: "Build the foundation for the future EXOCORTEX app / personal external brain while the current ChatGPT + GitHub + Codex workflow remains the construction workflow."
   old_goal_recovery_status: "superseded because the current ChatGPT + GitHub + Codex workflow has already proven the kernel/workflow loop enough."
   corrected_replacement_intent: "Define the EXOCORTEX product/application foundation, not a merely convenient current-workflow replacement."
-  critical_constraint: "Do not implement, choose stack, design full architecture, create product execution graph, or attempt full roadmap execution before P0 repairs the Phase and G1 shapes the first Goal."
+  critical_constraint: "Do not implement, choose stack, design full architecture, create product execution graph, or attempt full roadmap execution before G1 shapes the first Goal."
 
 project_files_export_state:
   canonical_folder: "directions/solo-max-productive/project_files"
-  last_refresh_at: "2026-05-13"
-  last_refresh_source: "G1-2026-05-13-exocortex-phase-repair"
+  last_refresh_at: "2026-05-14"
+  last_refresh_source: "P0-2026-05-14-exocortex-app-foundation-repair"
   stale_files: []
   required_refresh: []
 ```
 
 ## Current state summary
 
-- Current Phase: `Personal Workflow App Kernel Exploration`
-- Current Phase status: repair required / pending `P0_PHASE_START`
-- Proposed repaired Phase: `EXOCORTEX App Foundation`
+- Current Phase: `EXOCORTEX App Foundation`
+- Current Phase path: `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration`
+- Current Phase status: active / repaired in place by `P0_PHASE_START`
 - Old Active Goal: `Personal Workflow App Kernel Min Proof`
-- Old Goal status: invalidated by Phase repair; preserve as superseded provenance.
-- Current focus: repair/restart the Phase around the future EXOCORTEX application foundation.
-- Proposed first Goal after Phase repair: `EXOCORTEX Product Foundation Definition`
-- Next route: `P0_PHASE_START` via Router/new stage run after repository patch and Project Files refresh.
+- Old Goal status: superseded provenance; not executable.
+- Active Goal: none pending `G1_GOAL_SHAPE`
+- Current focus: shape the future EXOCORTEX application foundation.
+- Required first Goal after Phase repair: `EXOCORTEX Product Foundation Definition`
+- Next route: `G1_GOAL_SHAPE` after repository patch and Project Files refresh.

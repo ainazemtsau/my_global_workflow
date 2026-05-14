@@ -9,39 +9,80 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-13"
-  refresh_source: "G1-2026-05-13-exocortex-phase-repair"
+  last_refresh_at: "2026-05-14"
+  refresh_source: "P0-2026-05-14-exocortex-app-foundation-repair"
 ```
 
 ## Current pointers
 
-Current Phase: Personal Workflow App Kernel Exploration -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration`
+Current Phase: EXOCORTEX App Foundation -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration`
 
-Current Phase status: repair required / pending `P0_PHASE_START`
+Current Phase status: active / repaired in place by `P0_PHASE_START`
 
-Proposed repaired Phase: EXOCORTEX App Foundation
+Phase path note: the folder slug remains `personal-workflow-app-kernel-exploration` temporarily. This is intentional to avoid duplicate active Phase state and migration overhead before the EXOCORTEX foundation definition exists.
 
-Old Active Goal: Personal Workflow App Kernel Min Proof -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
+Active Goal: none
 
-Old Active Goal status: invalidated by Phase repair; preserve as superseded/replaced provenance.
+Active Goal status: none pending `G1_GOAL_SHAPE`
 
-Proposed first Goal after Phase repair: EXOCORTEX Product Foundation Definition -> pending repaired Phase approval and later `G1_GOAL_SHAPE`.
+Superseded Goal: Personal Workflow App Kernel Min Proof -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
 
-Current focus: Repair the Phase framing. The target is not to make a convenient replacement for the current ChatGPT + GitHub + Codex workflow. The target is to build the future EXOCORTEX application / personal external brain. The current workflow remains the construction workflow until EXOCORTEX is radically better and ready to replace it.
+Superseded Goal status: preserved as superseded/replaced provenance. It must not proceed to `E1_EXECUTION_BRIEF`.
 
-Next route: `P0_PHASE_START` via Router/new stage run after repository patch apply/read-back and Project Files cache refresh.
+Required first Goal candidate for Phase closure: EXOCORTEX Product Foundation Definition -> pending `G1_GOAL_SHAPE`.
+
+Current focus: Shape the EXOCORTEX product/application foundation while preserving the current ChatGPT + GitHub + Codex workflow as the construction workflow.
+
+Next route: `G1_GOAL_SHAPE` after repository patch apply/read-back and Project Files cache refresh.
 
 State note:
 
 - vNext One-Goal Smoke Test is obsolete test/pilot state from Workflow vNext-R validation.
 - Do not continue Create Lightweight Codex Small-Fix Lane unless the user explicitly reactivates it.
 - The old active Goal, Personal Workflow App Kernel Min Proof, is superseded as an execution target.
-- The prior replacement candidate, Personal Workflow System Core and MVP Definition, is superseded by the stronger EXOCORTEX phase-repair framing.
-- The EXOCORTEX concept document is required context for the next P0 run.
+- The prior replacement candidate, Personal Workflow System Core and MVP Definition, is superseded by the EXOCORTEX App Foundation phase repair.
+- The EXOCORTEX concept document is required context for G1 foundation shaping.
 - Do not create `03_KERNEL_MIN_PROOF_BRIEF.md`.
 - Do not delete the old Goal folder; preserve it as superseded/replaced provenance.
-- Do not start app implementation, choose a stack, design full architecture, or create a Codex product execution graph before repaired Phase and Goal shaping.
-- P0 must decide whether to repair the current phase path or create a new phase folder.
+- Do not start app implementation, choose a stack, design full architecture, or create a Codex product execution graph before repaired Goal shaping.
+- EXOCORTEX should replace the current workflow only after radical superiority and sufficient readiness.
+
+## Phase Closure Contract
+
+Closure criteria:
+
+1. A reviewed EXOCORTEX Product Foundation Definition exists.
+   - Evidence required: accepted Goal output or Goal review showing target system, principles, core loop, subsystem map, non-goals, validation criteria, and first buildable foundation boundary.
+2. The foundation explicitly separates Max Vision from Min Proof / buildable foundation.
+   - Evidence required: clear not-now boundaries for implementation, stack, full architecture, omnichannel expansion, automation buildout, and UI surface proliferation.
+3. The old proof/replacement framing is durably superseded.
+   - Evidence required: Project Files show old Goal preserved as provenance, not executable current work.
+4. Phase continuation after foundation definition requires an explicit phase-progress decision.
+   - Evidence required: `phase_progress_gate` after R1 determines whether `P9_PHASE_CLOSE`, continuation, or Human Decision is appropriate.
+
+Required goal map:
+
+```yaml
+required_for_closure:
+  - goal_id: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
+    name: EXOCORTEX Product Foundation Definition
+    status: pending_G1_GOAL_SHAPE
+    evidence_required: accepted foundation definition and R1 review/distill result
+optional_expansion:
+  - EXOCORTEX technical architecture map
+  - tech stack shortlist
+  - implementation spike
+  - UI/workspace mockup
+  - Event Ledger prototype
+  - memory model prototype
+  - external research on current AI app infrastructure
+  - Codex/Task Master/product execution graph
+first_phase_closing_candidate_if_known: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
+after_goal_gate_policy:
+  phase_progress_gate_after_R1: required
+  optional_expansion_not_required_for_closure: true
+  P9_required_when_completed_goal_may_satisfy_minimum_outcome: true
+```
 
 ## Default Project Files to load
 

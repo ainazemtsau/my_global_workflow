@@ -9,18 +9,18 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/03_FOCUS_REGISTER.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-13"
-  refresh_source: "G1-2026-05-13-exocortex-phase-repair"
+  last_refresh_at: "2026-05-14"
+  refresh_source: "P0-2026-05-14-exocortex-app-foundation-repair"
 
 focus:
-  current_focus: "Repair/restart the current Phase as EXOCORTEX App Foundation."
-  route_stage: P0_PHASE_START
-  route_note: "Launch via Router/new P0 run after repository patch apply/read-back and Project Files cache refresh. G1 stopped because the Phase frame is mismatched."
+  current_focus: "Shape EXOCORTEX Product Foundation Definition."
+  route_stage: G1_GOAL_SHAPE
+  route_note: "Launch G1 after P0 repository patch apply/read-back and Project Files cache refresh."
   same_chat_allowed: false
-  boundary_trigger: phase_misframed_for_exocortex_target
+  boundary_trigger: exocortex_foundation_goal_pending
   pending_state_carried: true
-  pending_patch_pointer: "G1-2026-05-13-exocortex-phase-repair"
-  last_stage_result_pointer: "G1_GOAL_SHAPE stopped old replacement framing and formalized phase repair route 2026-05-13"
+  pending_patch_pointer: "P0-2026-05-14-exocortex-app-foundation-repair"
+  last_stage_result_pointer: "P0_PHASE_START repaired current Phase in place as EXOCORTEX App Foundation on 2026-05-14."
 
 boundary:
   do_not_start_implementation: true
@@ -30,25 +30,26 @@ boundary:
   do_not_run_broad_research_before_explicit_gap: true
   do_not_create_kernel_min_proof_brief: true
   do_not_delete_old_goal_folder: true
-  do_not_launch_p0_directly_from_g1: true
   do_not_create_task_master_graph: true
   do_not_run_codex_product_execution: true
+  do_not_treat_EXOCORTEX_CONCEPT_SEED_FULL_as_execution_roadmap: true
 ```
 
 ## Next launch pointer
 
 ```yaml
 next_launch:
-  recommended_next_stage: P0_PHASE_START
-  launch_method: Router/new P0 run after repository patch and Project Files refresh
-  proposed_phase_name: "EXOCORTEX App Foundation"
-  proposed_first_goal_candidate_after_phase_repair: "EXOCORTEX Product Foundation Definition"
+  recommended_next_stage: G1_GOAL_SHAPE
+  launch_method: new G1 run after repository patch and Project Files refresh
+  current_phase_name: "EXOCORTEX App Foundation"
+  current_phase_path: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration"
+  proposed_first_goal_candidate: "EXOCORTEX Product Foundation Definition"
   required_inputs:
     - "Direction: Solo Max Productive"
-    - "Current Phase: Personal Workflow App Kernel Exploration"
-    - "Phase repair target: EXOCORTEX App Foundation"
-    - "Old contested Goal: Personal Workflow App Kernel Min Proof"
+    - "Current Phase: EXOCORTEX App Foundation"
+    - "Phase path: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration"
+    - "Old superseded Goal: Personal Workflow App Kernel Min Proof"
     - "EXOCORTEX concept source: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md"
-    - "User correction: current workflow remains the construction workflow; EXOCORTEX is the future application and should replace current workflow only after radical superiority/full readiness."
+    - "P0 result: current Phase repaired in place; current workflow remains construction workflow; EXOCORTEX is future target application."
   missing_context_behavior: ask_only_if_blocking
 ```
