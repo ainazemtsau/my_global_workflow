@@ -226,3 +226,77 @@ execution_log_entry:
     persisted E1 brief. F0 should create the v0 artifact only after its own
     reviewable preview and approval.
 ```
+
+## 2026-05-14 — F0_FAST_DIRECT formalized AI Nutrition Operating Layer v0 patch
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  persist: true
+  target_log_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md
+  event_type: stage_run
+  timestamp: "2026-05-14"
+  direction:
+    name: directions/health-and-beauty
+    path: directions/health-and-beauty
+  phase:
+    name: "Собрать AI-операционный слой питания без тяжёлого трекинга"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+    status: active
+  goal:
+    title: "Собрать AI Nutrition Operating Layer v0"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0
+    status: active
+  stage:
+    id: F0_FAST_DIRECT
+    name: Fast Direct
+  route: apply_readback_request
+  return_state: PARTIAL
+  input_sources:
+    - source: F0 stage prompt manually supplied in current chat
+      freshness: current_chat_prompt_with_end_marker
+    - source: E1 Execution Brief
+      freshness: active_git_file_readback
+    - source: Goal Contract and Goal Working Context
+      freshness: active_git_file_readback
+    - source: Phase brief and working context
+      freshness: active_git_file_readback
+  outputs_created:
+    - Repository Patch for 03_AI_NUTRITION_OPERATING_LAYER_V0.md
+    - Apply/read-back request
+    - Codex repository maintenance apply card
+  decisions_made:
+    - Created one bounded operating-layer artifact proposal for AI Nutrition Operating Layer v0.
+    - Preserved D1/E1 source-first private project architecture.
+    - Kept Memory optional and not source of truth.
+    - Excluded tracker/database/API/automation and clinical nutrition advice.
+    - Did not emit R1 launch because repository apply/read-back is pending.
+  repository_patch:
+    required: true
+    summary: Create 03_AI_NUTRITION_OPERATING_LAYER_V0.md and append this execution-log entry.
+  changed_files_context_refresh:
+    required: true
+    files:
+      - directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/03_AI_NUTRITION_OPERATING_LAYER_V0.md
+      - directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md
+  evidence_pointers:
+    - user_APPROVE_AND_FORMALIZE_2026-05-14
+    - E1_selected_F0_FAST_DIRECT
+    - target_artifact_absent_before_formalization
+  friction: []
+  human_burden:
+    level: H1
+    notes: User approved formalization after F0 Work Product Preview.
+  ai_failure_mode:
+    - Do not claim completion until apply/read-back/diff/commit verification returns.
+    - Do not route to R1 before repository evidence passes.
+    - Do not expand into tracker/database/API/automation or clinical nutrition.
+  blocker:
+    - Repository patch not yet applied/read back.
+  next_route: F0 apply/read-back validation in same stage thread
+  next_launch_card_created: false
+  notes: >
+    Run Codex repository maintenance apply/read-back. Return commit SHA,
+    diff verification, file read-back anchors, and forbidden-path confirmation
+    to the same F0 stage thread before R1_GOAL_REVIEW_DISTILL.
+```
