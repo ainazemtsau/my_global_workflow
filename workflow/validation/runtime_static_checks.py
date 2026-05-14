@@ -591,6 +591,120 @@ def check_codex_schema_regression(root: Path, results: list[Finding]) -> None:
         )
 
 
+def check_transport_authority_boundary(root: Path, results: list[Finding]) -> None:
+    """Hard-check that transport schema authority boundary matches completed conversion."""
+    check_id = "CHECK 020"
+    name = "transport_authority_boundary"
+    failures = 0
+
+    required_anchors = {
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
+            "Canonical packet schemas and transport templates",
+            "workflow/transport/*.md",
+            "Runtime core may still contain compatibility examples or legacy embedded packet blocks",
+        ],
+        "workflow/stage_registry/STAGE_REGISTRY.md": [
+            "Packet schema templates are owned by:",
+            "workflow/transport/*.md",
+            "Runtime packet-use behavior, formalization coupling, repository maintenance policy, and runtime precedence remain owned by:",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "Packet template authority boundary",
+            "workflow/transport/*.md",
+            "Runtime core remains authority for runtime behavior",
+        ],
+    }
+
+    forbidden_stale_phrases = {
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
+            "temporary: `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`; future cleanup may promote `workflow/transport/*.md` after canonical schema conversion",
+            "Until `workflow/transport/*.md` is converted to canonical",
+            "convert `workflow/transport/*.md` into canonical schema authority",
+        ],
+        "workflow/stage_registry/STAGE_REGISTRY.md": [
+            "Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` until transport schemas are formally converted.",
+            "Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` until transport schemas are formally converted",
+        ],
+    }
+
+    for file_path, anchors in required_anchors.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required transport authority boundary file is missing.", file_path)
+            continue
+
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(
+                results,
+                check_id,
+                name,
+                "FAIL",
+                f"Transport authority boundary anchors missing: {', '.join(missing[:5])}.",
+                file_path,
+            )
+
+    for file_path, phrases in forbidden_stale_phrases.items():
+        path = root / file_path
+        if not path.is_file():
+            continue
+
+        text = read_text(path)
+        for phrase in phrases:
+            if phrase in text:
+                failures += 1
+                add(
+                    results,
+                    check_id,
+                    name,
+                    "FAIL",
+                    f"Stale pre-transport-conversion authority wording remains: {phrase[:120]}",
+                    file_path,
+                )
+
+    transport_required = {
+        "workflow/transport/STAGE_LAUNCH_CARD.md": "schema: stage_launch.v1",
+        "workflow/transport/STAGE_RESULT_PACKET.md": "schema: stage_result.v1",
+        "workflow/transport/CONTEXT_REQUEST_CARD.md": "schema: context_request.v1",
+        "workflow/transport/HUMAN_DECISION_CARD.md": "schema: human_decision.v1",
+        "workflow/transport/REPOSITORY_PATCH.md": "schema: repository_patch.v1",
+        "workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md": "schema: codex_repository_maintenance_apply.v1",
+        "workflow/transport/CODEX_RETURN_PACKET.md": "schema: codex_return.v1",
+        "workflow/transport/CODEX_WAVE_CARD.md": "schema: codex_wave.v1",
+    }
+
+    for file_path, anchor in transport_required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required canonical transport template is missing.", file_path)
+            continue
+
+        text = read_text(path)
+        if "workflow_packet: 1" not in text or anchor not in text:
+            failures += 1
+            add(
+                results,
+                check_id,
+                name,
+                "FAIL",
+                f"Canonical transport template anchor missing: workflow_packet: 1 / {anchor}.",
+                file_path,
+            )
+
+    if failures == 0:
+        add(
+            results,
+            check_id,
+            name,
+            "PASS",
+            "Transport packet-template authority boundary is aligned with completed transport conversion.",
+        )
+
+
 def summarize(results: list[Finding]) -> str:
     if any(item.status == "FAIL" for item in results):
         return "BLOCKED"
@@ -620,6 +734,7 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_project_files_do_not_contain_stage_prompt_bodies(root, results)
     check_interface_path_detection(root, results)
     check_codex_schema_regression(root, results)
+    check_transport_authority_boundary(root, results)
     return results
 
 

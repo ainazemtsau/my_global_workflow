@@ -20,7 +20,17 @@ This file is the sole authority for:
 - stage activation availability;
 - normal stage-to-stage `allowed_next` transitions.
 
-Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` until transport schemas are formally converted.
+Packet schema templates are owned by:
+
+```text
+workflow/transport/*.md
+```
+
+Runtime packet-use behavior, formalization coupling, repository maintenance policy, and runtime precedence remain owned by:
+
+```text
+workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+```
 
 This file does not define packet schemas, launch/result field lists, stage packet bodies, prompt internals, or stage-specific reasoning.
 
@@ -134,14 +144,15 @@ Registry validation must check:
 2. Every `present` prompt has a corresponding file under `workflow/stage_prompts/`.
 3. `R0_RECOVERY_CLOSE` remains `missing_prompt` until `workflow/stage_prompts/R0_RECOVERY_CLOSE.md` exists and is verified.
 4. This registry does not define packet schemas.
-5. Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` until transport schemas are formally converted.
-6. Direction Project Files must not contain stage prompt bodies.
-7. Stage prompt paths must use `workflow/stage_prompts/<STAGE_ID>.md`.
-8. Runtime core must not maintain a second full `allowed_next` transition table.
-9. Stage prompts must not be treated as authority for `allowed_next` transition lists.
-10. Stage registry interface files, if present, are derived/reference surfaces only and must not override this registry.
-11. Transport route fields, if present, are snapshots only and must not override this registry.
-12. Terminal card types are not canonical stage IDs.
+5. Packet schema templates live in `workflow/transport/*.md`.
+6. Runtime packet-use behavior, formalization coupling, repository maintenance policy, and runtime precedence remain in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+7. Direction Project Files must not contain stage prompt bodies.
+8. Stage prompt paths must use `workflow/stage_prompts/<STAGE_ID>.md`.
+9. Runtime core must not maintain a second full `allowed_next` transition table.
+10. Stage prompts must not be treated as authority for `allowed_next` transition lists.
+11. Stage registry interface files, if present, are derived/reference surfaces only and must not override this registry.
+12. Transport route fields, if present, are snapshots only and must not override this registry.
+13. Terminal card types are not canonical stage IDs.
 
 If a launch card names an unknown stage ID, return a Context Request or registry amendment request instead of guessing.
 

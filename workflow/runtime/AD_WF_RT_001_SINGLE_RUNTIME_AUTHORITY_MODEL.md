@@ -27,8 +27,13 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 | Project Files runtime cache | `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
 | Stage identity, prompt path/status, target runtime, activation, and normal stage-to-stage transitions | `workflow/stage_registry/STAGE_REGISTRY.md` |
 | Stage-specific mission, inputs, gates, and constraints | exact file under `workflow/stage_prompts/<STAGE_ID>.md` |
-| Packet schemas / transport templates | temporary: `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`; future cleanup may promote `workflow/transport/*.md` after canonical schema conversion |
+| Canonical packet schemas and transport templates | `workflow/transport/*.md` |
+| Packet use behavior, runtime precedence, formalization coupling, and repository maintenance rules | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` |
 | Direction runtime state | `directions/<direction-id>/project_files/00-07` |
+
+Runtime core may still contain compatibility examples or legacy embedded packet blocks until the later runtime-core packet-schema reference cleanup. Those blocks are not packet-schema authority after transport conversion.
+
+If a packet field/template in runtime core conflicts with the matching canonical transport template, the canonical transport template wins for packet shape; runtime core still wins for behavior, approval/formalization, routing process, and repository maintenance rules.
 
 ## Routing authority
 
@@ -100,9 +105,29 @@ prompt_delivery:
 
 ## Transport boundary
 
-Until `workflow/transport/*.md` is converted to canonical `workflow_packet: 1` / `schema: *.v1` shapes, transport files are not independent runtime authority.
+`workflow/transport/*.md` is the canonical packet-template surface for transport packet shapes.
+
+Canonical packet templates include, at minimum:
+
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/CONTEXT_REQUEST_CARD.md
+workflow/transport/HUMAN_DECISION_CARD.md
+workflow/transport/REPOSITORY_PATCH.md
+workflow/transport/EXECUTION_LOG_ENTRY.md
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
+workflow/transport/CODEX_WAVE_CARD.md
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/RECOVERY_CLOSE_PACKET.md
+```
+
+Runtime core remains authority for behavior, precedence, approval/formalization, route process, Codex role separation, repository maintenance rules, and Project Files refresh/reporting rules.
 
 Any route fields in transport files are snapshots only. They must not override `STAGE_REGISTRY.md`.
+
+If a transport packet route snapshot conflicts with the registry, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop.
 
 ## Minimal unblock policy
 
@@ -117,13 +142,19 @@ This decision authorizes minimal unblock changes:
 
 ## Deferred cleanup
 
-Deferred to a later approved patch:
+Completed since this decision:
 
-- convert `workflow/transport/*.md` into canonical schema authority;
-- slim every stage prompt;
-- remove stale rebuild/test-active headers;
-- split runtime core into smaller authority files;
-- add EOF markers and static validation to all long authority files.
+- transport templates were converted to canonical `workflow_packet: 1` / `schema: *.v1` packet shapes;
+- stale prompt route-list authority was neutralized;
+- stage prompt EOF markers were added;
+- stale rebuild/test-active metadata was cleaned from runtime-facing prompt/interface/Codex surfaces;
+- prompt slimming slices S1-S4 reduced copied maintenance/formalization/transport/schema boilerplate.
+
+Deferred to later approved patches:
+
+- replace embedded packet schema blocks in runtime core with links to `workflow/transport/*.md`;
+- split runtime core into smaller authority files only after boundary/reference cleanup is stable;
+- backfill Workflow Governance Phase Memory if normal lifecycle history is needed.
 
 ## End-of-file marker
 

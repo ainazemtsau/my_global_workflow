@@ -265,6 +265,33 @@ Result:
 - baseline: FAIL on missing canonical anchors or unauthorized legacy schema-token residue.
 - strict: FAIL on missing canonical anchors or unauthorized legacy schema-token residue.
 
+## CHECK 020 — transport_authority_boundary
+
+Validate that the runtime authority boundary reflects completed transport schema conversion.
+
+Hard requirements:
+
+- `workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md` declares `workflow/transport/*.md` as canonical packet-schema / transport-template authority.
+- `workflow/stage_registry/STAGE_REGISTRY.md` states that packet schema templates are owned by `workflow/transport/*.md`.
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` contains a packet template authority boundary note.
+- runtime core remains behavior / precedence / formalization / repository maintenance authority.
+- registry remains route authority.
+- canonical transport templates exist for:
+  - `stage_launch.v1`;
+  - `stage_result.v1`;
+  - `context_request.v1`;
+  - `human_decision.v1`;
+  - `repository_patch.v1`;
+  - `codex_repository_maintenance_apply.v1`;
+  - `codex_return.v1`;
+  - `codex_wave.v1`.
+- stale pre-transport-conversion wording must not remain in AD-WF-RT-001 or STAGE_REGISTRY.
+
+Result:
+
+- baseline: FAIL on missing boundary anchors, missing canonical transport anchors, or stale pre-conversion authority wording.
+- strict: FAIL on the same conditions.
+
 ## Expected baseline summary
 
 The expected first useful run is:

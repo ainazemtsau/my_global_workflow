@@ -152,3 +152,40 @@ Hard invariant:
 - compatibility aliases must not be treated as canonical schema IDs.
 
 `CHECK 019 — codex_return_wave_schema_regression` enforces this as a hard check in both baseline and strict mode.
+
+## Transport authority boundary expectation
+
+After transport schema conversion, canonical packet schema templates live in:
+
+```text
+workflow/transport/*.md
+```
+
+Runtime core remains authority for:
+
+```text
+runtime behavior
+precedence
+approval/formalization rules
+repository maintenance rules
+route process
+Codex role separation
+Project Files refresh/reporting rules
+```
+
+Stage registry remains authority for:
+
+```text
+canonical stage IDs
+prompt path/status
+activation
+normal allowed_next transitions
+```
+
+Hard invariant:
+
+- AD-WF-RT-001 and STAGE_REGISTRY must not say that packet contracts remain in runtime core until transport schemas are converted;
+- runtime core may contain compatibility examples until the later packet-schema reference cleanup, but those examples are not packet-template authority;
+- transport templates must retain canonical `workflow_packet: 1` and `schema: *.v1` anchors.
+
+`CHECK 020 — transport_authority_boundary` enforces this in both baseline and strict mode.

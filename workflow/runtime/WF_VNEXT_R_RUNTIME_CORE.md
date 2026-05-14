@@ -69,6 +69,21 @@ For normal runtime outputs, prefer this visible order:
 If a launch card is being prepared for the next chat, summarize it first in plain text. The full `stage_launch.v1` packet goes in the technical appendix.
 
 Human-facing prose should answer in the user's language when the user's language is clear. Packet field names, schema keys, stage IDs, repository paths, file names, and exact command/card tokens remain canonical English.
+
+### 1.2 Packet template authority boundary
+
+Canonical packet templates live in:
+
+```text
+workflow/transport/*.md
+```
+
+Runtime core remains authority for runtime behavior, precedence, approval/formalization rules, repository maintenance rules, route process, Codex role separation, and Project Files refresh/reporting rules.
+
+Until the later runtime-core packet-schema reference cleanup is applied, this file may still contain embedded packet examples or compatibility blocks. Those examples must be treated as reference/fallback text, not as packet-template authority.
+
+If a runtime-core packet example conflicts with the matching transport template, use the canonical transport template for packet shape and this runtime core for behavior.
+
 ## 2. Required Direction Project Files
 
 Every Direction ChatGPT Project must load the Direction Project Files 00-07 by default from:
