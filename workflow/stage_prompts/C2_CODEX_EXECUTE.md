@@ -546,69 +546,51 @@ For C2 Stage Result, produce a packet every run. Include `return_state`, `route`
 
 ---
 
-## 13\. Codex Return Packet schema
+## 13\. Codex Return Packet reference
 
-Produce this packet whenever C2 executes, partially executes, validates, fails validation, or confirms no-op verification.
+Do not copy full packet schema here.
 
-If execution is blocked before touching the workspace, produce a minimal Codex Return Packet only if useful; otherwise set explicit none with reason in the Stage Result Packet.
+Use the canonical files:
+
+```text
+workflow/transport/CODEX_RETURN_PACKET.md
+workflow/codex/CODEX_RETURN_PACKET_CONTRACT.md
+```
+
+Canonical packet identity:
 
 ```yaml
 workflow_packet: 1
-packet_type: codex_return_packet
-schema: codex_return_packet.v1
-stage_id: C2_CODEX_EXECUTE
-stage_run_id:
-c1_plan_id:
-codex_wave_id:
-execution_status:
-target_repo:
-workspace_path_or_ref:
-branch_or_worktree:
-base_commit_or_state:
-head_commit_or_state:
-tool_binding:
-sandbox_policy:
-approval_policy:
-network_policy:
-dependency_policy:
-approvals_used:
-network_used:
-dependency_changes:
-project_instructions_ref:
-scope_ledger:
-  approved_items: []
-  executed_items: []
-  skipped_items: []
-  out_of_scope_items_detected: []
-  scope_decision_required: false
-changed_files: []
-created_files: []
-deleted_files: []
-forbidden_changes_check:
-commands_run:
-  - command:
-    purpose:
-    result:
-    evidence_excerpt:
-    failure_reason:
-validation_results:
-  - validation:
-    command:
-    result:
-    evidence_excerpt:
-    skipped_reason:
-diff_or_readback_summary:
-docs_updates:
-repository_patch_summary:
-changed_files_context_refresh_summary:
-evidence_items: []
-unverified_claims: []
-risks_or_residuals: []
-rollback_or_recovery_hint:
-next_recommended_route:
-extensions: {}
-
+type: codex_return
+schema: codex_return.v1
 ```
+
+Emit this packet whenever C2 executes, partially executes, validates, fails validation, or confirms no-op verification.
+
+Blocked before workspace touch: emit a minimal canonical Codex Return Packet only if useful; otherwise set explicit none with reason in the Stage Result Packet.
+
+All C2 obligations still apply.
+
+Does not change the C2 Task Master boundary or Codex Role Separation.
+
+C2 return evidence must preserve: scope-lock ledger; changed-files summary; forbidden changes check; commands run; Validation evidence; diff/read-back summary; docs/cache refresh impact; risks/residuals; rollback/recovery hint; next route; evidence needed by ChatGPT validation.
+
+```yaml
+extensions:
+  C2_CODEX_EXECUTE:
+    execution_status:
+    stage_run_id:
+    c1_plan_id:
+    codex_wave_id:
+    scope_ledger:
+      approved_items: []
+      executed_items: []
+      skipped_items: []
+      out_of_scope_items_detected: []
+      scope_decision_required: false
+```
+
+C2 must not claim DONE without validation evidence, file read-back / diff verification / commit verification for writes, and forbidden paths confirmation.
 
 ---
 
