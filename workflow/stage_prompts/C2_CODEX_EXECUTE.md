@@ -618,75 +618,93 @@ No patch: output explicit none with a reason.
 
 ---
 
-## 15\. Execution Log Entry schema
+## 15\. Execution Log Entry reference
 
-```yaml
-workflow_packet: 1
-packet_type: execution_log_entry
-schema: execution_log_entry.v1
-timestamp:
-stage_run_id:
-stage_id: C2_CODEX_EXECUTE
-stage_name: Codex Execute
-active_direction:
-active_phase:
-active_goal:
-c1_plan_ref:
-codex_wave_ref:
-target_repo:
-execution_status:
-summary:
-changed_files_summary:
-validation_summary:
-docs_gate_result:
-context_freshness_result:
-human_decisions_or_approvals:
-residual_risks:
-next_route:
+Do not copy the full Execution Log Entry schema inside this prompt.
 
+Use the canonical transport template:
+
+```text
+workflow/transport/EXECUTION_LOG_ENTRY.md
 ```
+
+C2 must still produce an Execution Log Entry for material execution, validation, partial execution, failed validation, blocked context, no-op verification, or recovery routing.
+
+Preserve these C2-specific log obligations:
+
+- stage id and name: `C2_CODEX_EXECUTE` / `Codex Execute`;
+- stage run id;
+- active Direction, Phase, and Goal references;
+- C1 plan reference;
+- Codex wave reference;
+- target repository/workspace;
+- execution status;
+- summary;
+- changed files summary;
+- validation summary;
+- documentation gate result;
+- context freshness result;
+- human decisions or approvals;
+- residual risks;
+- next route.
+
+C2 must not log a DONE claim unless the DONE evidence discipline in this prompt is satisfied.
 
 ---
 
-## 16\. Documentation Maintenance Gate schema
+## 16\. Documentation Maintenance Gate reference
 
-```yaml
-workflow_packet: 1
-packet_type: documentation_maintenance_gate
-schema: documentation_maintenance_gate.v1
-stage_id: C2_CODEX_EXECUTE
-docs_gate_required:
-reason:
-user_facing_behavior_changed:
-workflow_docs_changed:
-project_files_affected:
-repository_docs_affected:
-docs_updated:
-updated_docs: []
-docs_validation:
-not_updated_reason:
-changed_files_context_refresh_required:
-claims_not_proven: []
+Do not copy the full Documentation Maintenance Gate schema inside this prompt.
 
+Use the canonical transport template:
+
+```text
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
 ```
+
+C2 must still run the Documentation Maintenance Gate after execution or before returning a no-op result.
+
+Preserve these C2-specific gate obligations:
+
+- whether docs gate is required;
+- reason;
+- whether user-facing behavior changed;
+- whether workflow docs changed;
+- whether Project Files are affected;
+- whether repository docs are affected;
+- docs updated;
+- updated docs list;
+- docs validation;
+- not-updated reason;
+- changed-files/context-refresh impact;
+- claims not proven.
+
+If documentation update is required but not authorized, C2 must not silently update docs. It must return the correct Repository Patch, Context Request, Human Decision, or Stop route.
 
 ---
 
-## 17\. Changed Files / Context Refresh List schema
+## 17\. Changed Files / Context Refresh reference
 
-```yaml
-workflow_packet: 1
-packet_type: changed_files_context_refresh_list
-schema: changed_files_context_refresh_list.v1
-required:
-files:
-  - file:
-    reason:
-    action:
-    content_update_summary:
-not_required_reason:
+Do not copy a local Changed Files / Context Refresh schema inside this prompt.
 
+Use the canonical runtime close contracts in:
+
+```text
+workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 ```
+
+C2 must still report changed-files/context-refresh impact whenever execution, documentation maintenance, repository patch output, or Project Files/runtime cache state could affect future workflow runs.
+
+Preserve these C2-specific refresh obligations:
+
+- whether refresh is required;
+- affected files;
+- reason;
+- required manual action;
+- content update summary when relevant;
+- explicit not-required reason when no refresh is needed.
+
+If a required cached Project File or runtime cache file changes, C2 must report manual refresh requirements instead of assuming ChatGPT Project Files update automatically.
 
 ---
 
@@ -731,25 +749,29 @@ Human Decision trigger: execution requires a user choice.
 
 ---
 
-## 21\. Stop Card schema
+## 21\. Stop Card reference
 
-Use when the requested action is unsafe, invalid, or would contaminate workflow state.
+Use a Stop artifact when the requested action is unsafe, invalid, or would contaminate workflow state.
 
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage:
-  id: C2_CODEX_EXECUTE
-  name: Codex Execute
-return_state: STUCK
-stop_reason:
-unsafe_or_invalid_request:
-evidence:
-what_was_not_done:
-safe_alternative_route:
+Do not copy a local Stop schema inside this prompt.
 
+Use the runtime Stop contract in:
+
+```text
+workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 ```
+
+Preserve these C2-specific Stop obligations:
+
+- stage id and name: `C2_CODEX_EXECUTE` / `Codex Execute`;
+- return state: `STUCK`;
+- stop reason;
+- unsafe or invalid request;
+- evidence;
+- what was not done;
+- safe alternative route.
+
+Stop must never claim execution, validation, file changes, or DONE when C2 did not actually perform the required work and evidence checks.
 
 ---
 
@@ -757,66 +779,30 @@ safe_alternative_route:
 
 Always include expanded Kernel QA for C2.
 
-```yaml
-expanded_kernel_qa:
-  stage_boundary:
-    result:
-    notes:
-  c1_plan_present_and_accepted:
-    result:
-    notes:
-  source_of_truth_freshness:
-    result:
-    notes:
-  execution_readiness:
-    result:
-    notes:
-  scope_lock:
-    result:
-    notes:
-  smallest_safe_route:
-    result:
-    notes:
-  forbidden_changes:
-    result:
-    notes:
-  approval_network_dependency_policy:
-    result:
-    notes:
-  validation_evidence:
-    result:
-    notes:
-  readback_or_diff_inspection:
-    result:
-    notes:
-  documentation_maintenance:
-    result:
-    notes:
-  codex_return_packet:
-    result:
-    notes:
-  repository_patch_or_none:
-    result:
-    notes:
-  execution_log:
-    result:
-    notes:
-  changed_files_context_refresh_after_approval:
-    result:
-    notes:
-  route_artifact:
-    result:
-    notes:
-  unknown_field_tolerance:
-    result:
-    notes:
-  no_done_without_evidence:
-    result:
-    notes:
+Do not copy a local QA packet schema.
 
-```
+Report pass/fail/not_applicable/blocked with concise notes for:
 
-Use result values: `pass`, `fail`, `not_applicable`, or `blocked`.
+- stage boundary;
+- C1 plan present and accepted;
+- source-of-truth freshness;
+- execution readiness;
+- scope lock;
+- smallest safe route;
+- forbidden changes;
+- approval, network, and dependency policy;
+- validation evidence;
+- read-back or diff inspection;
+- documentation maintenance;
+- Codex Return Packet;
+- repository patch or explicit none;
+- execution log;
+- changed-files/context-refresh impact;
+- route artifact;
+- unknown field tolerance;
+- no DONE without evidence.
+
+Expanded Kernel QA must be public and evidence-based. Do not use it to hide missing validation, missing read-back, scope drift, or an unsupported DONE claim.
 
 ---
 
