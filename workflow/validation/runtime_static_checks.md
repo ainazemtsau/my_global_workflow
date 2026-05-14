@@ -204,7 +204,7 @@ Result:
 
 ## CHECK 014 — stale_rebuild_metadata
 
-Scan runtime-facing files for stale metadata:
+Scan runtime-facing markdown files for stale rebuild/test-active metadata:
 
 - `vNext-R REBUILD`
 - `test-active`
@@ -212,19 +212,48 @@ Scan runtime-facing files for stale metadata:
 - `Installed from roadmap step`
 - `Step 7.`
 
+Exclusions:
+
+- `workflow/validation/*`, because validation files intentionally list stale tokens as expectations/check patterns.
+- `workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md`, because architecture decisions may preserve historical/deferred cleanup references.
+- `directions/*/execution_logs/*`, because execution logs are historical evidence and are not active runtime metadata.
+
 Result:
 
-- baseline: WARN
-- strict: WARN until metadata cleanup is complete; then may become FAIL
+- baseline: WARN on stale metadata in active runtime-facing files.
+- strict: WARN until the remaining real metadata cleanup is complete; then this may be promoted to FAIL.
+- excluded intentional/history surfaces must not produce warnings.
 
 ## CHECK 015 — prompt_schema_duplication_scan
 
-Scan long prompts for duplicated packet schema blocks and old route examples.
+Scan stage prompts for copied packet schema bodies or prompt-local route tables.
+
+This check must not warn merely because a prompt references a canonical schema name such as:
+
+- `stage_launch.v1`
+- `stage_result.v1`
+- `repository_patch.v1`
+- `context_request.v1`
+- `human_decision.v1`
+
+Allowed:
+
+- compact references to canonical transport templates;
+- prose references to schema names;
+- stage-specific output obligations that point to canonical templates;
+- AD-WF-RT-001 route-authority boundary text.
+
+Warn only when a prompt appears to contain:
+
+- a copied full packet schema body beginning with `workflow_packet: 1`, `type: ...`, and `schema: ...`;
+- a prompt-maintained `allowed_next` route table;
+- legacy local launch-format headings such as `Next Launch Card Required Format`.
 
 Result:
 
-- baseline: WARN
-- strict: WARN until prompt slimming is complete; then may become FAIL
+- baseline: WARN on copied schema bodies or prompt-local route-table residue.
+- strict: WARN until prompt slimming cleanup is fully complete; may become FAIL after zero-noise baseline is established.
+- canonical references alone must not warn.
 
 ## CHECK 016 — cross_direction_cache_setup_consistency
 

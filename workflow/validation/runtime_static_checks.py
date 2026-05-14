@@ -392,6 +392,29 @@ def check_stale_rebuild_metadata(root: Path, results: list[Finding]) -> None:
         root / "directions",
         root / "docs",
     ]
+
+    excluded_exact_paths = {
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md",
+    }
+
+    excluded_prefixes = (
+        "workflow/validation/",
+    )
+
+    def is_excluded_stale_metadata_path(path: Path) -> bool:
+        rel_path = rel(path, root)
+
+        if rel_path in excluded_exact_paths:
+            return True
+
+        if any(rel_path.startswith(prefix) for prefix in excluded_prefixes):
+            return True
+
+        if rel_path.startswith("directions/") and "/execution_logs/" in rel_path:
+            return True
+
+        return False
+
     found = 0
     for base in scanned_roots:
         if not base.exists():
@@ -399,34 +422,69 @@ def check_stale_rebuild_metadata(root: Path, results: list[Finding]) -> None:
         for path in base.rglob("*.md"):
             if ".git" in path.parts:
                 continue
+            if is_excluded_stale_metadata_path(path):
+                continue
+
             text = read_text(path)
             for token in STALE_METADATA_PATTERNS:
                 if token in text:
                     found += 1
                     add(results, "CHECK 014", "stale_rebuild_metadata", "WARN", f"Stale metadata token found: {token}.", rel(path, root))
+
     if found == 0:
-        add(results, "CHECK 014", "stale_rebuild_metadata", "PASS", "No stale rebuild/test-active metadata tokens found in scanned markdown files.")
+        add(results, "CHECK 014", "stale_rebuild_metadata", "PASS", "No stale rebuild/test-active metadata tokens found in scanned runtime-facing markdown files.")
 
 
 def check_prompt_schema_duplication(root: Path, results: list[Finding]) -> None:
-    tokens = [
-        "schema: stage_launch.v1",
-        "schema: stage_result.v1",
-        "schema: repository_patch.v1",
-        "schema: context_request.v1",
-        "schema: human_decision.v1",
-        "allowed_next",
-        "Next Launch Card Required Format",
+    """Warn only on likely copied packet schema bodies or prompt-local route tables.
+
+    Canonical references such as `schema: stage_launch.v1` inside prose or
+    compact references are allowed after prompt slimming. This check is for
+    duplicated schema bodies, not legitimate references to canonical schemas.
+    """
+    body_key_after_schema = r"\s*\n\s*(?!```)[A-Za-z_][A-Za-z0-9_-]*\s*:"
+    full_schema_body_patterns = [
+        ("stage_launch.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*stage_launch\s*\n\s*schema:\s*stage_launch\.v1{body_key_after_schema}"),
+        ("stage_result.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*stage_result\s*\n\s*schema:\s*stage_result\.v1{body_key_after_schema}"),
+        ("repository_patch.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*repository_patch\s*\n\s*schema:\s*repository_patch\.v1{body_key_after_schema}"),
+        ("context_request.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*context_request\s*\n\s*schema:\s*context_request\.v1{body_key_after_schema}"),
+        ("human_decision.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*human_decision\s*\n\s*schema:\s*human_decision\.v1{body_key_after_schema}"),
+        ("codex_repository_maintenance_apply.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_repository_maintenance_apply\s*\n\s*schema:\s*codex_repository_maintenance_apply\.v1{body_key_after_schema}"),
+        ("codex_return.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_return\s*\n\s*schema:\s*codex_return\.v1{body_key_after_schema}"),
+        ("codex_wave.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_wave\s*\n\s*schema:\s*codex_wave\.v1{body_key_after_schema}"),
     ]
+
+    route_table_patterns = [
+        ("allowed_next markdown table", r"\|\s*stage[_ ]?id\s*\|.*\|\s*allowed_next\s*\|"),
+        ("legacy next launch format heading", r"Next Launch Card Required Format"),
+    ]
+
     found = 0
     for path in stage_prompt_files(root):
         text = read_text(path)
-        matches = [token for token in tokens if token in text]
+        matches: list[str] = []
+
+        for label, pattern in full_schema_body_patterns:
+            if re.search(pattern, text, flags=re.MULTILINE | re.IGNORECASE):
+                matches.append(label)
+
+        for label, pattern in route_table_patterns:
+            if re.search(pattern, text, flags=re.MULTILINE | re.IGNORECASE):
+                matches.append(label)
+
         if matches:
             found += 1
-            add(results, "CHECK 015", "prompt_schema_duplication_scan", "WARN", f"Prompt contains duplicated schema/route surface tokens: {', '.join(matches[:4])}.", rel(path, root))
+            add(
+                results,
+                "CHECK 015",
+                "prompt_schema_duplication_scan",
+                "WARN",
+                f"Prompt appears to contain copied schema body or prompt-local route-table residue: {', '.join(matches[:5])}.",
+                rel(path, root),
+            )
+
     if found == 0:
-        add(results, "CHECK 015", "prompt_schema_duplication_scan", "PASS", "No obvious prompt schema duplication tokens found.")
+        add(results, "CHECK 015", "prompt_schema_duplication_scan", "PASS", "No copied packet schema bodies or prompt-local route tables detected in stage prompts.")
 
 
 def check_cross_direction_cache_setup(root: Path, results: list[Finding]) -> None:

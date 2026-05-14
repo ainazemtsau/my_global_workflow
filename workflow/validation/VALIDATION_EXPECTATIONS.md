@@ -254,3 +254,27 @@ Hard invariant:
 - strict mode must not fail merely because a legacy alias is documented in a compatibility section;
 - strict mode must fail if active transport templates regress to legacy card shapes;
 - compatibility aliases must not be treated as canonical schema IDs.
+
+## CHECK 014/015 validator-noise reduction expectation
+
+`CHECK 014 — stale_rebuild_metadata` must warn on active stale runtime metadata, but it must not warn on intentional examples/history in:
+
+```text
+workflow/validation/*
+workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md
+directions/*/execution_logs/*
+```
+
+`CHECK 015 — prompt_schema_duplication_scan` must warn on copied prompt schema bodies and prompt-local route tables, but it must not warn on canonical schema references or compact transport-template references.
+
+Hard invariant:
+
+- validator-noise reductions must not hide active legacy transport shapes, copied packet schema bodies, deprecated prompt delivery modes, or route-authority drift;
+- CHECK 014 should continue to surface real stale metadata in runtime-facing files;
+- CHECK 015 should continue to surface true prompt schema-body duplication.
+
+Expected effect after this refinement:
+
+- baseline and strict validation still exit 0;
+- blocking failures remain 0;
+- false-positive warnings from validation docs, AD-WF-RT-001 history, execution logs, and canonical prompt references are reduced.
