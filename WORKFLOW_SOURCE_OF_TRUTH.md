@@ -28,3 +28,7 @@ Long file read transport rule:
 Admin documentation:
 - Migration/admin docs remain under `migration/` and selected setup docs under `docs/`.
 - Migration/admin docs are not loaded by default in Direction Projects.
+
+## End-of-file marker
+
+`END_OF_FILE: WORKFLOW_SOURCE_OF_TRUTH.md`
