@@ -142,68 +142,24 @@ If this stage emits `repository_patch.required = true` or non-empty `repository_
 NEXT ACTION: RUN CODEX REPOSITORY MAINTENANCE APPLY/READ-BACK
 ```
 
-and a copy-pasteable `codex_repository_maintenance_apply.v1` card. The user must not infer whether Codex is needed.
+and a copy-pasteable `codex_repository_maintenance_apply.v1` card.
 
-This rule states that repository maintenance is not product/project execution and that product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route. This apply card does not authorize product/project execution.
+Use the canonical transport template:
 
-The card must include repository_patch reference or included patch, not a vague pointer. For repository maintenance in `ainazemtsau/my_global_workflow`, the branch_policy block is required and must use direct_main: target `main`, create_branch false, create_pr false, commit_directly true, push_directly true, require_clean_worktree false, pull_before_apply true, and conflict_policy scoped_path_conflicts_only.
-
-```yaml
-workflow_packet: 1
-type: codex_repository_maintenance_apply
-schema: codex_repository_maintenance_apply.v1
-codex_role: repository_maintenance
-not_product_project_execution: true
-patch_id:
-repository:
-branch:
-branch_policy:
-  mode: direct_main
-  target_branch: main
-  create_branch: false
-  create_pr: false
-  commit_directly: true
-  push_directly: true
-  require_clean_worktree: false
-  pull_before_apply: true
-  conflict_policy: scoped_path_conflicts_only
-source_stage:
-allowed_paths:
-  - path:
-    reason:
-forbidden_paths:
-  - path:
-    reason:
-repository_patch:
-  reference_or_included_patch:
-read_back_anchors:
-  - file_path:
-    anchors:
-      - text:
-diff_verification:
-  required: true
-  instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
-commit_verification:
-  required: true
-  instruction: Report commit hash, PR link, or explicit no-commit reason.
-return_to_chat_instruction: Return result to the same ChatGPT stage thread for validation.
-do_not_auto_launch_next_stage: true
+```text
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
 ```
 
-Rules:
-- Apply only the listed repository_patch.v1 operations.
-- Do not infer extra changes.
-- Do not run product/project execution.
-- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
-- Do not modify project/tool bindings unless explicitly listed.
-- Do not touch sibling Directions.
-- Pull latest origin/main before apply; do not stop, set apply_safe false, or return NEEDS_INPUT solely because unrelated local changes exist; report them as ignored background state unless they overlap approved patch paths.
-- Commit directly to main and push directly to origin/main.
-- Do not create a branch or PR by default.
-- Stop and return NEEDS_INPUT only on scoped conflicts: same-file/path overlap, forbidden-path touch, failed validation, or pull/push conflicts affecting approved patch paths.
-- Never create a branch as fallback unless the user explicitly overrides this policy.
-- Return commit SHA, diff verification, file read-back, and result to the same ChatGPT stage thread for validation.
+Repository maintenance is not product/project execution.
 
+This rule does not authorize product/project execution, Task Master graph creation, tool-binding changes, sibling Direction edits, or any change outside the approved `repository_patch.v1`.
+
+Required behavior:
+
+- apply only the listed approved `repository_patch.v1` operations;
+- do not infer extra changes;
+- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 E1 launch cards must include formalization_control. If E1 routes to F0 with artifact creation, it must state whether artifact formalization is already approved. If it is not approved, F0 must first return a Reviewable Brief / Work Product Preview rather than a write-ready patch.
 
 ## 0\. Runtime role
