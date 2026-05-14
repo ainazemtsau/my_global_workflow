@@ -37,75 +37,27 @@ When selecting or validating a next stage:
 
 Do not maintain prompt-local transition tables in this file.
 
-## 0.0 Reviewable Work Product Rule
+## 0.0 Reviewable Work Product and Formalization Control
 
-## 0.0.0 Hard First Response / Formalization Gate
-FIRST RESPONSE IS NOT FORMAL CLOSE.
+This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:
 
-Rule precedence for this stage:
-1. Safety / Context Request / Human Decision / Stop
-2. Hard First Response / Formalization Gate
-3. Stage-specific Reviewable Work Product Quality Standard
-4. Mandatory Close Compiler
-5. Packet schemas
+```text
+workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+```
 
-Formalization Gate wins over Mandatory Close Compiler. Mandatory Close Compiler applies only in Formalization Mode.
+Especially:
 
-`mode: execute` means run stage reasoning; mode: execute does not authorize formalization.
+- `## 11.6 Hard First Response and Adaptive Reviewable Work Product Gate`
+- `## 11.6.1 Reviewable Work Product and Formalization Control`
 
-Reviewable Work Product Quality Standard:
-A reviewable first response must be substantive enough for the user to judge the recommendation. It must include:
-- what is being decided / produced
-- recommendation or proposed artifact
-- why this
-- alternatives considered
-- why not alternatives
-- scope cuts / deferred items
-- risks / assumptions
-- what would change the recommendation
-- what needs approval
-- what will be formalized after approval
+Core rule summary:
 
-forbidden-before-approval list:
-Before approval, material stages must not output:
-- stage_result.v1
-- repository_patch.v1 with non-empty operations
-- execution_log_entry.v1 as final formal packet
-- changed_files_context_refresh.required = true
-- executable stage_launch.v1
-- codex_repository_maintenance_apply.v1
+- FIRST RESPONSE IS NOT FORMAL CLOSE.
+- `mode: execute` runs stage reasoning only; it does not authorize repository writes, formal packets, executable next-stage launch, or material state changes.
+- Before approval, produce a reviewable work product, planned patch summary, planned formalization summary, approval request, Context Request, Human Decision, or Stop.
+- After approval/formalization, use canonical runtime packets and close contracts from the runtime core.
+- If local prompt text conflicts with the runtime core on formalization, approval, repository patch, changed-files refresh, or executable launch behavior, the runtime core wins.
 
-allowed-before-approval list:
-- Direct Result
-- Reviewable Brief
-- Decision Memo
-- Work Product Preview
-- planned_patch_summary
-- planned_formalization_summary
-- approval request
-- Context Request
-- Human Decision
-- Stop
-
-expected_first_response_outputs:
-- stage-specific reviewable first response
-- planned_patch_summary, if a repository change may be needed
-- planned_formalization_summary
-- approval request, Context Request, Human Decision, or Stop
-
-expected_after_approval_outputs:
-- formal packets using canonical schemas
-- repository_patch.v1, if approved and needed
-- changed_files_context_refresh
-- executable stage_launch.v1, Context Request, Human Decision, or Stop
-- codex_repository_maintenance_apply.v1 when repository_patch.required = true or operations are non-empty
-
-Formal packets are allowed only after:
-- APPROVE AND FORMALIZE;
-- or direct_formalization_allowed = true with explicit approval_state;
-- or Direct Result mode is safe for non-material low-risk work.
-
-Direct mode preserved only for safe low-risk cases with no material state change and no non-empty repository_patch.v1 operations.
 Stage-specific first-response shape: Router Routing Brief
 - what is being routed
 - current Direction/Phase/Goal state used
@@ -119,24 +71,7 @@ Stage-specific first-response shape: Router Routing Brief
 - approval request, if route formalization changes repository state
 - formalization plan
 
-
-Before formal packets, non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, or executable next-stage launch, this stage must first produce a reviewable work product unless formalization is already approved. `mode: execute  # runs stage reasoning only; does not approve formalization or repository_patch operations` runs stage reasoning only; it does not grant approval for formalization, repository writes, executable launches, or material state changes.
-
-Default when formalization_control is absent: first_response_mode = reviewable_brief; formalization_policy = proposal_first; material_change_approved = false; repository_patch_approved = false; approval_source = none; formalization_trigger = APPROVE AND FORMALIZE.
-
-First response modes: Compact Direct Result, Reviewable Brief, Decision Memo / Work Product Preview, Context Request / Human Decision, Formalization.
-
-Reviewable Brief must include: What I’m proposing; Proposed substance; Why this shape; Alternatives considered; Why not alternatives; Scope cuts; Risks / assumptions; What I need from you; If approved, I will formalize.
-
-Decision Memo / Work Product Preview must include: Decision / work product being reviewed; Recommended content; Full proposed structure; Key claims / principles; Alternatives considered; Why not alternatives; What would change the recommendation; Scope cuts / deferred items; Risks / assumptions / confidence; Approval options; Formalization plan; What will NOT happen until approval.
-
-Proposed substance is mandatory for material artifact-producing, phase-changing, goal-shaping, planning, review, routing, decision, audit, research, capture, execution-brief, and closure outputs. It must summarize the actual contents of the artifact, Goal Contract, Phase, plan, review, decision, or patch being proposed.
-
-Before approval, use planned_patch_summary instead of non-empty repository_patch.v1 operations; use planned_changed_files_context_refresh instead of changed_files_context_refresh.required = true; and use prepared_but_not_executable_next_launch instead of executable stage_launch.v1 when the launch depends on unapproved writes.
-
-Non-empty repository_patch.v1 operations, changed_files_context_refresh.required = true, formal execution_log_entry.v1 for a material change, and executable next-stage launch are allowed only after APPROVE AND FORMALIZE, or when formalization_policy = direct_formalization_allowed, repository_patch_approved = true, material_change_approved = true, approval_source is explicit, and no material ambiguity remains.
-
-Any later instruction in this prompt that says to always include formal packets, produce repository_patch, set required: true, create_file, create an artifact, perform direct execution, or emit a next launch is conditional on approval/formalization unless explicitly described as a Compact Direct Result with no material state change.
+Do not copy the full formalization gate locally.
 
 ## 0\. Operating role
 
