@@ -189,3 +189,33 @@ Hard invariant:
 - transport templates must retain canonical `workflow_packet: 1` and `schema: *.v1` anchors.
 
 `CHECK 020 — transport_authority_boundary` enforces this in both baseline and strict mode.
+
+## Runtime core packet schema reference cleanup expectation
+
+After P2 cleanup, runtime core remains behavior authority but no longer owns full packet schema bodies.
+
+Canonical packet templates live in:
+
+```text
+workflow/transport/*.md
+```
+
+Runtime core must reference transport templates for packet shape and keep only behavior rules, including:
+
+```text
+runtime behavior
+precedence
+approval/formalization rules
+repository maintenance rules
+route process
+Codex role separation
+Project Files refresh/reporting rules
+```
+
+Hard invariant:
+
+- runtime core must not contain full packet schema bodies for common workflow packets;
+- runtime core must preserve behavior anchors for formalization, repository maintenance, and Project Files refresh reporting;
+- transport templates remain packet-shape authority.
+
+`CHECK 021 — runtime_core_packet_schema_reference_cleanup` enforces this in both baseline and strict mode.

@@ -301,3 +301,38 @@ PASS_WITH_CLEANUP
 ```
 
 This means hard runtime invariants pass and known cleanup debt remains.
+
+## CHECK 021 — runtime_core_packet_schema_reference_cleanup
+
+Validate that runtime core no longer owns full packet schema bodies after P2 cleanup.
+
+Hard requirements:
+
+- runtime core references canonical transport templates for:
+  - `CONTEXT_REQUEST_CARD.md`;
+  - `HUMAN_DECISION_CARD.md`;
+  - `STAGE_LAUNCH_CARD.md`;
+  - `STAGE_RESULT_PACKET.md`;
+  - `REPOSITORY_PATCH.md`;
+  - `CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
+  - `EXECUTION_LOG_ENTRY.md`;
+  - `DOCUMENTATION_MAINTENANCE_GATE.md`.
+- runtime core must not contain full packet schema bodies for:
+  - `context_request.v1`;
+  - `human_decision.v1`;
+  - `stage_launch.v1`;
+  - `stage_result.v1`;
+  - `repository_patch.v1`;
+  - `codex_repository_maintenance_apply.v1`;
+  - `execution_log_entry.v1`;
+  - `documentation_maintenance_gate.v1`.
+- runtime core must preserve behavior anchors for:
+  - runtime behavior authority;
+  - first-response/formalization gate;
+  - repository maintenance separation;
+  - Project Files refresh reporting.
+
+Result:
+
+- baseline: FAIL on missing transport references, full packet schema-body residue, or missing behavior anchors.
+- strict: FAIL on the same conditions.

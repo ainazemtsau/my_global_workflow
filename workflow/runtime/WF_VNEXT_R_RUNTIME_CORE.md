@@ -404,64 +404,37 @@ Never invent prompt text.
 
 ## 8\. Context Request Card Contract
 
-Any workflow chat may request missing context.
-
 Use Context Request Card when required context is unavailable, stale, contradictory, or too ambiguous for safe material work.
+
+Canonical packet template:
+
+```text
+workflow/transport/CONTEXT_REQUEST_CARD.md
+```
+
+Runtime behavior rules:
+
+- do not guess missing context;
+- do not continue material work if blocking context is missing;
+- request only the smallest exact blocking context set;
+- if context is non-blocking, proceed and list it as `request_if_needed`;
+- name exact repository paths when repository context is required;
+- do not infer unseen content from memory, search snippets, compact results, earlier chats, or partial GitHub output.
 
 Common triggers:
 
-*   missing Direction Project File;
-*   stale Project Files;
-*   missing GitHub repository export;
-*   missing stage prompt;
-*   missing active Phase source;
-*   missing active Goal source;
-*   missing Codex return/evidence;
-*   missing user decision;
-*   required context listed in `06_CONTEXT_LIBRARY_INDEX.md` is not available;
-*   conflict between Project Files and newer GitHub repository/Codex/user state.
+- missing Direction Project File;
+- stale Project Files;
+- missing GitHub repository export;
+- missing stage prompt;
+- missing active Phase source;
+- missing active Goal source;
+- missing Codex return/evidence;
+- missing user decision;
+- required context listed in `06_CONTEXT_LIBRARY_INDEX.md` is not available;
+- conflict between Project Files and newer GitHub repository/Codex/user state.
 
-Required format:
-
-```yaml
-workflow_packet: 1
-type: context_request
-schema: context_request.v1
-reason:
-blocking: true | false
-
-requested_context:
-  - kind: project_file | repository_file_export | stage_prompt | codex_return | evidence | user_decision | other
-    title:
-    repository_path:
-    file_name_suggested:
-    why_needed:
-    required: true | false
-    freshness_required: fresh | any | latest_available
-
-current_state:
-  direction:
-  phase:
-  goal:
-  route_attempted:
-
-after_provided:
-  action: continue_current_stage | run_stage | regenerate_launch_card | recheck_state
-  stage_id:
-  expected_next_output:
-
-instructions_for_user:
-  - exact thing to paste/export/upload
-
-```
-
-Rules:
-
-Do not guess missing context.
-
-Do not continue material work if blocking context is missing.
-
-If context is non-blocking, proceed and list it as `request_if_needed`.
+Use the canonical transport template for packet shape. Runtime core owns the behavior above.
 
 ## 8.5 GitHub Long File Read Guard
 
@@ -484,53 +457,31 @@ Core workflow files required in every Direction Project chat should be manually 
 
 Use Human Decision Card when the workflow needs a real human-owned conclusion.
 
-Examples:
+Canonical packet template:
 
-*   strategic priority choice;
-*   irreversible/high-impact scope decision;
-*   Canon acceptance;
-*   ambiguous Goal/Phase close;
-*   route choice where trade-off is material;
-*   permission for risky or destructive change.
-
-Required format:
-
-```yaml
-workflow_packet: 1
-type: human_decision
-schema: human_decision.v1
-
-decision:
-  question:
-  why_needed:
-  blocking: true | false
-
-options:
-  - id:
-    label:
-    tradeoff:
-    consequence:
-
-recommendation:
-  option_id:
-  rationale:
-  confidence: low | medium | high
-
-what_changes_based_on_answer:
-  - if:
-    then:
-
-after_decision:
-  action: continue_current_stage | run_stage | regenerate_launch_card | stop
-  stage_id:
-
+```text
+workflow/transport/HUMAN_DECISION_CARD.md
 ```
 
-Rules:
+Runtime behavior rules:
 
-Do not write the user's conclusion for them.
+- do not write the user's conclusion for them;
+- present concrete options and consequences;
+- recommend a default only when justified;
+- final choice belongs to the user;
+- after the decision, route according to the registry and runtime state;
+- do not use Human Decision as a substitute for missing context.
 
-You may recommend a default option, but final choice belongs to the user.
+Examples:
+
+- strategic priority choice;
+- irreversible/high-impact scope decision;
+- Canon acceptance;
+- ambiguous Goal/Phase close;
+- route choice where trade-off is material;
+- permission for risky or destructive change.
+
+Use the canonical transport template for packet shape. Runtime core owns the behavior above.
 
 ## 10\. Stage Close and Next Launch Contract
 
@@ -570,129 +521,38 @@ If non-blocking:
 
 ## 11\. Next Launch Card Required Format
 
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-action: run_stage
-mode: execute
-target_runtime: chatgpt_direction_project | chatgpt_current_chat | codex
+If the next action is another stage, the current stage must generate a complete filled Next Launch Card.
 
-stage:
-  id:
-  name:
-  source_path:
-  version:
-  status:
+Canonical packet template:
 
-prompt_delivery:
-  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
-  stage_prompt_source_path:
-  stage_prompt_version:
-  stage_prompt_status:
-  prompt_text_included: true | false
-  prompt_text: null
-  source_commit:
-  line_count:
-  byte_count:
-  tail_anchor_or_eof_verified: true | false
-  execute_allowed: true | false
-
-direction:
-  name:
-  repository_path:
-  project_name:
-
-phase:
-  name:
-  path:
-  status:
-  critical_constraint:
-
-goal:
-  title:
-  path:
-  status:
-
-source_state:
-  from_stage:
-  previous_return_state:
-  pending_repository_patch: true | false
-  changed_files_context_refresh_required: true | false
-
-formalization_control:
-  first_response_mode: compact_direct_result | reviewable_brief | decision_memo_work_product_preview | context_request_or_human_decision | formalization
-  formalization_policy: proposal_first | direct_formalization_allowed
-  approval_state:
-    material_change_approved: true | false
-    repository_patch_approved: true | false
-    approval_source: none | launch_card | user_message | prior_stage_packet
-  formalization_trigger: APPROVE AND FORMALIZE
-
-input_artifacts:
-  previous_stage_result_summary:
-  goal_contract:
-  execution_brief:
-  decision_record:
-  codex_return:
-  other:
-
-required_context:
-  project_files:
-    - 00_DIRECTION_START_HERE.md
-    - 01_DIRECTION_STATE.md
-    - 02_CURRENT_PHASE.md
-    - 03_FOCUS_REGISTER.md
-    - 04_ACTIVE_GOAL.md
-    - 05_PORTFOLIO_QUEUE.md
-    - 06_CONTEXT_LIBRARY_INDEX.md
-    - 07_PHASE_MEMORY_INDEX.md
-  shared_runtime_files:
-    - WORKFLOW_SOURCE_OF_TRUTH.md
-    - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
-    - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
-    - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
-    - workflow/stage_registry/STAGE_REGISTRY.md
-  additional_repository_file_exports:
-    - path:
-      reason:
-      required: true | false
-
-missing_context_policy: ask_only_if_blocking
-
-expected_first_response_outputs:
-  - Direct Result / Reviewable Brief / Decision Memo / Work Product Preview
-  - planned_patch_summary, if a repository change may be needed
-  - planned_formalization_summary
-  - approval request, Context Request, Human Decision, or Stop
-
-expected_after_approval_outputs:
-  - Human-readable result
-  - Stage Result Packet
-  - Repository Patch or none
-  - Execution Log Entry
-  - Changed Files / Context Refresh List
-  - Next Launch Card / Context Request / Human Decision Card / Stop
-
-expected_outputs:
-  compatibility: fallback_only_do_not_override_formalization_control
-  outputs:
-    - Human-readable result
-    - Stage Result Packet
-    - Repository Patch or none
-    - Execution Log Entry
-    - Changed Files / Context Refresh List
-    - Next Launch Card / Context Request / Human Decision Card / Stop
-
-instructions:
-  do_not_echo_prompt: true
-  do_not_run_unrelated_stage: true
-  do_not_reconstruct_missing_prompt: true
-  route_authority: workflow/stage_registry/STAGE_REGISTRY.md
-
+```text
+workflow/transport/STAGE_LAUNCH_CARD.md
 ```
 
-`request_from_repository` is deprecated. If the prompt text is not included, use `manual_prompt_required` or `codex_verified_local_bundle`.
+Runtime behavior rules:
+
+- a route name alone is not enough;
+- the human should not manually fill known fields;
+- the launch must be filled from current Direction Project Files, current stage output, known user input, previous stage result, known GitHub repository source paths, known stage registry, and known prompt source path;
+- if a required field is unknown and blocking, return Context Request;
+- if a field is optional/non-blocking, mark it as optional or `request_if_needed`;
+- use `workflow/stage_registry/STAGE_REGISTRY.md` for route authority;
+- stage prompt availability must use approved prompt delivery modes only;
+- do not reconstruct missing prompt text;
+- do not execute downstream stage work inside the current stage.
+
+Prompt delivery modes allowed for new launches:
+
+```text
+prompt_text_embedded
+prompt_attachment_provided
+manual_prompt_required
+codex_verified_local_bundle
+```
+
+Deprecated repository-request prompt delivery must not be used.
+
+Use the canonical transport template for packet shape. Runtime core owns the behavior above.
 
 ## 11.5 Codex Role Separation Contract
 
@@ -892,336 +752,142 @@ Launch Card + Stage Prompt + Direction Project Files + Runtime Core
 
 ## 13\. Stage Result Packet Contract
 
-Required format:
+Every meaningful stage close must produce a Stage Result Packet unless the run stops before a formal close and returns Context Request, Human Decision, or Stop.
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
+Canonical packet template:
 
-stage:
-  id:
-  name:
-
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-route:
-next_stage:
-
-direction_state_delta:
-phase_state_delta:
-goal_state_delta:
-portfolio_delta:
-
-human_decision_needed:
-  yes_no:
-  question:
-
-what_changed:
-  -
-
-durable_decisions:
-  -
-
-temporary_context:
-  -
-
-open_questions:
-  -
-
-repository_patch:
-  required: true | false
-  summary:
-  patch_id:
-
-execution_log_entry:
-  included: true | false
-  target_log_path:
-  persist: true | false
-
-project_files_to_refresh:
-  - file:
-    reason:
-
-context_for_next:
-  carry_forward:
-    -
-  request_if_needed:
-    -
-  do_not_carry_forward:
-    -
-
-next_launch_card:
-  created: true | false
-  reason_if_not_created:
-
-kernel_qa:
-  status: PASS | PASS_WITH_EXCEPTIONS | BLOCKED
-  exceptions:
-    -
-
+```text
+workflow/transport/STAGE_RESULT_PACKET.md
 ```
 
-Rules:
+Runtime behavior rules:
 
-Use exception-only Kernel QA by default.
+- include the stage identity and return state;
+- include route / next-stage information when applicable;
+- include durable decisions and what changed;
+- include repository patch status or explicit none;
+- include execution log status;
+- include Project Files refresh impact;
+- include context for next stage;
+- include next launch status or reason not created;
+- use exception-only Kernel QA by default;
+- use full coverage matrix only for Deep, Audit, Codex, workflow/model edits, or blocked work.
 
-Use full coverage matrix only for Deep, Audit, Codex, workflow/model edits, or blocked work.
+Use the canonical transport template for packet shape. Runtime core owns the behavior above.
 
 ## 14\. Repository Patch Contract
 
-ChatGPT creates patches. Codex/user applies them. Updates are canonical only after write + file read-back / diff verification / commit verification.
+ChatGPT creates Repository Patch packets. Codex or the user applies them. Repository updates are canonical only after write plus file read-back / diff verification / commit verification.
 
-Required format:
+Canonical Repository Patch template:
 
-```yaml
-workflow_packet: 1
-type: repository_patch
-schema: repository_patch.v1
-
-patch_id:
-created_by_stage:
-return_state:
-
-operations:
-  - action: create_file | replace_file | replace_section | append_section | mark_stale | update_header
-    file_path:
-    title:
-    section:
-    content:
-    reason:
-    safety:
-      destructive: false
-      requires_human_approval: false
-
-readback_required:
-  - file_path:
-    expected_anchor:
-    expected_header:
-
-changed_files_context_refresh:
-  - source_file:
-    project_file:
-    reason:
-
+```text
+workflow/transport/REPOSITORY_PATCH.md
 ```
 
-Rules:
+### 14.1 Repository Patch behavior
 
-Do not claim a GitHub repository update is complete without file read-back / diff verification / commit verification.
+Runtime behavior rules:
 
-Prefer `replace_section` for stable notes.
+- do not physically delete files unless explicitly approved;
+- prefer scoped operations over vague append behavior;
+- every patch must name exact paths;
+- all content-bearing writes must include validation/read-back anchors;
+- no writes outside named approved paths;
+- do not claim repository updates are complete without read-back / diff verification / commit verification;
+- if `repository_patch.operations = []`, then changed-files/context-refresh required must be false unless another approved write changed cached files;
+- stale labels or cleanup needs without a patch go into cleanup candidates or context-for-next.
 
-Do not physically delete files unless explicitly approved.
+Use the canonical transport template for patch shape. Runtime core owns the approval, safety, and verification behavior above.
 
-Mark stale/superseded material instead of deleting by default.
+### 14.2 Approval and formalization coupling
 
-## 14.5 Codex Repository Maintenance Apply Card Contract
+Before approval/formalization, use planned patch summaries instead of non-empty `repository_patch.v1.operations`.
 
-If any stage emits `repository_patch.required = true` or `repository_patch.v1.operations` is non-empty, the stage must also emit `codex_repository_maintenance_apply.v1`.
+Non-empty repository patch operations may be emitted only after:
 
-The stage must not require the user to infer whether Codex is needed. It must state:
+- explicit approval/formalization; or
+- direct formalization is allowed with explicit material-change and repository-patch approval state.
+
+Repository patch approval does not authorize product/project execution.
+
+### 14.3 Codex Repository Maintenance Apply
+
+If a stage emits `repository_patch.required = true` or non-empty `repository_patch.v1.operations` after approval/formalization, it must also output:
 
 ```text
 NEXT ACTION: RUN CODEX REPOSITORY MAINTENANCE APPLY/READ-BACK
 ```
 
-This card applies an approved repository_patch.v1. It is repository maintenance only; repository maintenance is not product/project execution. Product/project execution remains governed by E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
+Canonical Codex repository maintenance apply template:
 
-Required format:
-
-```yaml
-workflow_packet: 1
-type: codex_repository_maintenance_apply
-schema: codex_repository_maintenance_apply.v1
-codex_role: repository_maintenance
-not_product_project_execution: true
-
-patch_id:
-repository:
-branch:
-branch_policy:
-  mode: direct_main
-  target_branch: main
-  create_branch: false
-  create_pr: false
-  commit_directly: true
-  push_directly: true
-  require_clean_worktree: false
-  pull_before_apply: true
-  conflict_policy: scoped_path_conflicts_only
-source_stage:
-
-allowed_paths:
-  - path:
-    reason:
-
-forbidden_paths:
-  - path:
-    reason:
-
-repository_patch:
-  reference_or_inline_patch:
-
-read_back_anchors:
-  - file_path:
-    anchors:
-      - text:
-
-diff_verification:
-  required: true
-  instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
-
-commit_verification:
-  required: true
-  instruction: Report commit hash, PR link, or explicit no-commit reason.
-
-return_to_chat_instruction: Return result to the same ChatGPT stage thread for validation.
-do_not_auto_launch_next_stage: true
+```text
+workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
 ```
 
-Required safety text:
+Repository maintenance is not product/project execution.
 
-- Apply only the listed repository_patch.v1 operations.
-- Do not infer extra changes.
-- Do not run product/project execution.
-- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
-- Do not modify project/tool bindings unless explicitly listed.
-- Do not touch sibling Directions.
-- Return result to the same ChatGPT stage thread for validation.
+Codex repository maintenance must:
 
-## 14.5.1 Project Files Cache Refresh Reporting
+- apply only the approved `repository_patch.v1` operations;
+- not infer extra cleanup;
+- not run product/project execution;
+- not create Task Master graph unless explicitly part of approved product execution route;
+- not modify sibling Directions unless explicitly listed;
+- return commit SHA or explicit no-commit reason;
+- return diff verification and file read-back evidence;
+- return Project Files cache refresh requirements;
+- return forbidden-path confirmation to the same ChatGPT stage thread.
 
-When Codex repository maintenance creates or updates any file that is listed in `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` or required by a Direction's ChatGPT Project Files runtime cache, Codex must explicitly report that the Project Files cache needs manual refresh.
+### 14.4 Direct-main maintenance policy
 
-The Codex repository maintenance return must include:
+For repository maintenance in `ainazemtsau/my_global_workflow`, the default branch policy is direct-main maintenance unless the approved patch explicitly says otherwise:
 
-```yaml
-project_files_cache_refresh_required: true | false
-target_chatgpt_project:
-manual_refresh_required: true | false
-blocking_before_next_material_run: true | false
-changed_cached_files:
-  - repository_path:
-    project_file_cache_name:
-    refresh_reason:
-    blocking_before_next_material_run: true | false
-manual_action:
+```text
+target branch: main
+create branch: false
+create PR: false
+commit directly: true
+push directly: true
+pull before apply: true
+conflict policy: scoped path conflicts only
 ```
 
-If no cached file changed, Codex must explicitly report `project_files_cache_refresh_required: false`.
+Do not create a branch as fallback unless the user explicitly overrides this policy.
 
-A committed GitHub change does not update ChatGPT Project Files. If a cached runtime file changed, manual Project Files refresh is blocking before the next material workflow run in that ChatGPT Project.
+Stop and return NEEDS_INPUT only on scoped conflicts: same-file/path overlap, forbidden-path touch, failed validation, or pull/push conflicts affecting approved patch paths.
 
-## 14.6 Direct Main Repository Maintenance Policy
+### 14.5 Changed Files / Context Refresh coupling
 
-For repository maintenance in `ainazemtsau/my_global_workflow`, the default target branch is `main`.
+Every repository maintenance apply/read-back must report whether manual Project Files refresh is required.
 
-Repository maintenance means applying an approved `repository_patch.v1` to this workflow repository. Repository maintenance is not product/project execution and does not change C1/C2 product execution boundaries.
+If a cached shared runtime file or Direction Project File changed, manual refresh requirements must name:
 
-The same branch/worktree conflict policy applies to repository maintenance preview/read-back cards. Preview-only maintenance must not require a globally clean worktree and must not stop solely because `main` changed.
+- affected ChatGPT Project;
+- repository path changed;
+- Project File cache name;
+- refresh reason;
+- whether refresh blocks the next material run.
 
-Default branch policy:
+## 15\. Execution Log Entry Contract
 
-```yaml
-branch_policy:
-  mode: direct_main
-  target_branch: main
-  create_branch: false
-  create_pr: false
-  commit_directly: true
-  push_directly: true
-  require_clean_worktree: false
-  pull_before_apply: true
-  conflict_policy: scoped_path_conflicts_only
+Execution logs record observable workflow events, inputs, outputs, validation, decisions, write requests, and next routes without exposing private reasoning.
+
+Canonical packet template:
+
+```text
+workflow/transport/EXECUTION_LOG_ENTRY.md
 ```
 
-Rules:
+Runtime behavior rules:
 
-- Pull latest `origin/main` before apply.
-- Do not require a globally clean worktree before apply.
-- Do not set `apply_safe: false`, return NEEDS_INPUT, or stop solely because unrelated local changes exist.
-- Report unrelated local changes as ignored background state only; they are not blockers unless they overlap approved patch paths.
-- Treat this repository as multiple autonomous Direction/workflow areas sharing one branch.
-- Apply may proceed when the approved patch paths do not overlap unrelated changed paths and no forbidden path is touched.
-- Apply only the approved `repository_patch.v1` operations.
-- Commit directly to `main`.
-- Push directly to `origin/main`.
-- Do not create a branch by default.
-- Do not create a PR by default.
-- Stop only on scoped conflicts: same-file/path overlap, forbidden-path touch, failed patch/read-back validation, or pull/push conflicts that affect approved patch paths.
-- Return `NEEDS_INPUT` only if scoped direct-main maintenance is not possible.
-- Never create a branch as fallback unless the user explicitly overrides this policy.
-- Return commit SHA, diff verification, and file read-back evidence to the same ChatGPT stage thread.
+- log observable facts and public rationale, not private chain-of-thought;
+- every meaningful workflow event should include an Execution Log Entry;
+- if `persist: true`, the matching repository patch must include the log write;
+- log entries must not claim a write occurred without read-back / diff verification / commit verification;
+- execution logs are evidence/friction/history layers, not default active context.
 
-## 15\. Execution Log Contract
-
-Every meaningful workflow event must include Execution Log Entry.
-
-Required format:
-
-```yaml
-execution_log_entry:
-  schema: execution_log_entry.v1
-  persist: true | false
-  target_log_path:
-  event_type: router_decision | stage_run | codex_return | problem | review | install | context_request | human_decision | recovery | other
-  timestamp:
-  direction:
-    name:
-    path:
-  phase:
-    name:
-    path:
-    status:
-  goal:
-    title:
-    path:
-    status:
-  stage:
-    id:
-    name:
-  route:
-  return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-  input_sources:
-    - source:
-      freshness:
-  outputs_created:
-    -
-  decisions_made:
-    -
-  repository_patch:
-    required: true | false
-    summary:
-  changed_files_context_refresh:
-    required: true | false
-    files:
-      -
-  evidence_pointers:
-    -
-  friction:
-    -
-  human_burden:
-    level: H0 | H1 | H2 | H3
-    notes:
-  ai_failure_mode:
-    -
-  blocker:
-    -
-  next_route:
-  next_launch_card_created: true | false
-  notes:
-
-```
-
-Rules:
-
-Execution Log Entry is part of the stage output.
-
-If `persist: true`, it must appear in Repository Patch operations.
-
-If `persist: false`, it still documents why the event is not persisted.
-
-Execution logs are request-only context, not default Project Files.
+Use the canonical transport template for packet shape. Runtime core owns the behavior above.
 
 ## 16\. Execution Log target routing
 
@@ -1256,69 +922,24 @@ Examples of pure checks:
 
 ## 17\. Documentation Maintenance Gate
 
-Run Documentation Maintenance Gate when any of these occurs:
+Documentation Maintenance Gate decides whether documentation maintenance is required before or after workflow/model changes, durable Direction changes, Goal Review, Phase Close, context loading changes, documentation updates, or stale material discovery.
 
-*   Goal Review;
-*   Phase Close;
-*   durable Direction change;
-*   `06_CONTEXT_LIBRARY_INDEX.md` change;
-*   workflow/model change;
-*   documentation update;
-*   Canon/Knowledge candidate creation;
-*   stale/superseded material discovered.
+Canonical packet template:
 
-Required format:
-
-```yaml
-documentation_maintenance_gate:
-  required: true | false
-  reason:
-
-stable_docs_checked:
-  - 01 Direction State
-  - 02 Current Phase
-  - 03 Focus Register
-  - 04 Active Goal
-  - 05 Portfolio Queue
-  - 06_CONTEXT_LIBRARY_INDEX.md
-  - relevant Knowledge / Canon / domain docs
-
-updates:
-  - file_path:
-    action: replace_section | append_delta | mark_stale | split | merge | archive_pointer
-    reason:
-
-stale_or_superseded:
-  - file_path:
-    reason:
-    replacement_pointer:
-
-knowledge_updates:
-  - target_file:
-    summary:
-
-canon_candidates:
-  - target_file:
-    summary:
-
-context_loading_index_updates:
-  - summary:
-
-project_files_to_refresh:
-  - file:
-    reason:
-
+```text
+workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
 ```
 
-Rules:
+Runtime behavior rules:
 
-Do not append unlimited history into stable docs.
+- distinguish proposed documentation changes from applied documentation changes;
+- do not claim documentation was updated without read-back / diff verification / commit verification;
+- context refresh must name exact files;
+- mark stale/superseded material only with explicit paths and reasons;
+- documentation updates must stay scoped to the approved stage/result/patch;
+- if documentation maintenance changes cached Project Files or runtime cache files, manual refresh must be reported.
 
-Update existing stable notes when possible.
-
-Separate evidence from reusable truth.
-
-Mark contradictions/stale docs explicitly.
+Use the canonical transport template for packet shape. Runtime core owns the behavior above.
 
 ## 18\. Project Files Refresh Rule
 

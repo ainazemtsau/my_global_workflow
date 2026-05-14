@@ -705,6 +705,93 @@ def check_transport_authority_boundary(root: Path, results: list[Finding]) -> No
         )
 
 
+def check_runtime_core_packet_schema_reference_cleanup(root: Path, results: list[Finding]) -> None:
+    """Hard-check that runtime core no longer owns full packet schema bodies."""
+    check_id = "CHECK 021"
+    name = "runtime_core_packet_schema_reference_cleanup"
+    failures = 0
+
+    runtime_path = root / "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
+    if not runtime_path.is_file():
+        add(results, check_id, name, "FAIL", "Runtime core file is missing.", "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md")
+        return
+
+    text = read_text(runtime_path)
+
+    required_references = [
+        "workflow/transport/CONTEXT_REQUEST_CARD.md",
+        "workflow/transport/HUMAN_DECISION_CARD.md",
+        "workflow/transport/STAGE_LAUNCH_CARD.md",
+        "workflow/transport/STAGE_RESULT_PACKET.md",
+        "workflow/transport/REPOSITORY_PATCH.md",
+        "workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md",
+        "workflow/transport/EXECUTION_LOG_ENTRY.md",
+        "workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md",
+    ]
+
+    missing_refs = [ref for ref in required_references if ref not in text]
+    if missing_refs:
+        failures += 1
+        add(
+            results,
+            check_id,
+            name,
+            "FAIL",
+            f"Runtime core missing canonical transport references: {', '.join(missing_refs[:5])}.",
+            "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+        )
+
+    full_body_patterns = [
+        ("context_request", r"workflow_packet:\s*1\s*\n\s*type:\s*context_request\s*\n\s*schema:\s*context_request\.v1"),
+        ("human_decision", r"workflow_packet:\s*1\s*\n\s*type:\s*human_decision\s*\n\s*schema:\s*human_decision\.v1"),
+        ("stage_launch", r"workflow_packet:\s*1\s*\n\s*type:\s*stage_launch\s*\n\s*schema:\s*stage_launch\.v1"),
+        ("stage_result", r"workflow_packet:\s*1\s*\n\s*type:\s*stage_result\s*\n\s*schema:\s*stage_result\.v1"),
+        ("repository_patch", r"workflow_packet:\s*1\s*\n\s*type:\s*repository_patch\s*\n\s*schema:\s*repository_patch\.v1"),
+        ("codex_repository_maintenance_apply", r"workflow_packet:\s*1\s*\n\s*type:\s*codex_repository_maintenance_apply\s*\n\s*schema:\s*codex_repository_maintenance_apply\.v1"),
+        ("execution_log_entry", r"workflow_packet:\s*1\s*\n\s*(?:type|packet_type):\s*execution_log_entry\s*\n\s*schema:\s*execution_log_entry\.v1"),
+        ("documentation_maintenance_gate", r"workflow_packet:\s*1\s*\n\s*(?:type|packet_type):\s*documentation_maintenance_gate\s*\n\s*schema:\s*documentation_maintenance_gate\.v1"),
+    ]
+
+    for label, pattern in full_body_patterns:
+        if re.search(pattern, text, flags=re.MULTILINE):
+            failures += 1
+            add(
+                results,
+                check_id,
+                name,
+                "FAIL",
+                f"Runtime core still contains full packet schema body: {label}.",
+                "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+            )
+
+    behavior_anchors = [
+        "Runtime core remains authority for runtime behavior",
+        "FIRST RESPONSE IS NOT FORMAL CLOSE",
+        "Repository maintenance is not product/project execution",
+        "Every repository maintenance apply/read-back must report whether manual Project Files refresh is required",
+    ]
+
+    missing_behavior = [anchor for anchor in behavior_anchors if anchor not in text]
+    if missing_behavior:
+        failures += 1
+        add(
+            results,
+            check_id,
+            name,
+            "FAIL",
+            f"Runtime behavior anchors missing after packet schema cleanup: {', '.join(missing_behavior[:5])}.",
+            "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+        )
+
+    if failures == 0:
+        add(
+            results,
+            check_id,
+            name,
+            "PASS",
+            "Runtime core references canonical transport templates and no full packet schema bodies were detected.",
+        )
+
 def summarize(results: list[Finding]) -> str:
     if any(item.status == "FAIL" for item in results):
         return "BLOCKED"
@@ -735,8 +822,8 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_interface_path_detection(root, results)
     check_codex_schema_regression(root, results)
     check_transport_authority_boundary(root, results)
+    check_runtime_core_packet_schema_reference_cleanup(root, results)
     return results
-
 
 def print_text(results: list[Finding], root: Path, mode: str) -> None:
     summary = summarize(results)
