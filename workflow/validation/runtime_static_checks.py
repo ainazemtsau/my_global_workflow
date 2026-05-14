@@ -426,6 +426,171 @@ def check_interface_path_detection(root: Path, results: list[Finding]) -> None:
         add(results, "CHECK 018", "interface_path_detection", "INFO", "No workflow interface directory detected.")
 
 
+def check_codex_schema_regression(root: Path, results: list[Finding]) -> None:
+    """Hard-check Codex Return/Wave canonical schema boundaries.
+
+    This check prevents drift back to legacy Codex packet schema names in
+    stage prompts and unauthorized runtime surfaces.
+    """
+    check_id = "CHECK 019"
+    name = "codex_return_wave_schema_regression"
+    failures = 0
+
+    def require_anchors(file_path: str, anchors: list[str], description: str) -> None:
+        nonlocal failures
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", f"{description} file is missing.", file_path)
+            return
+
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(
+                results,
+                check_id,
+                name,
+                "FAIL",
+                f"{description} missing required anchors: {', '.join(missing[:5])}.",
+                file_path,
+            )
+
+    require_anchors(
+        "workflow/transport/CODEX_RETURN_PACKET.md",
+        [
+            "workflow_packet: 1",
+            "type: codex_return",
+            "schema: codex_return.v1",
+            "Legacy compatibility aliases",
+            "schema: codex_return_packet.v1 -> schema: codex_return.v1",
+        ],
+        "Codex Return transport canonical schema",
+    )
+
+    require_anchors(
+        "workflow/transport/CODEX_WAVE_CARD.md",
+        [
+            "workflow_packet: 1",
+            "type: codex_wave",
+            "schema: codex_wave.v1",
+            "Legacy compatibility aliases",
+            "codex_wave_card: 1 -> workflow_packet: 1 / type: codex_wave / schema: codex_wave.v1",
+        ],
+        "Codex Wave transport canonical schema",
+    )
+
+    require_anchors(
+        "workflow/codex/CODEX_RETURN_PACKET_CONTRACT.md",
+        [
+            "Schema authority boundary",
+            "workflow/transport/CODEX_RETURN_PACKET.md",
+            "type: codex_return",
+            "schema: codex_return.v1",
+            "DONE claim rule",
+        ],
+        "Codex Return semantic contract",
+    )
+
+    require_anchors(
+        "workflow/codex/CODEX_WAVE_CARD_CONTRACT.md",
+        [
+            "Schema authority boundary",
+            "workflow/transport/CODEX_WAVE_CARD.md",
+            "type: codex_wave",
+            "schema: codex_wave.v1",
+            "Task Master is never canonical for workflow content",
+        ],
+        "Codex Wave semantic contract",
+    )
+
+    require_anchors(
+        "workflow/codex/WAVE_RECORD_TEMPLATE.md",
+        [
+            "Codex Wave/Return schema compatibility note",
+            "codex_wave.v1",
+            "codex_return.v1",
+        ],
+        "Wave Record schema compatibility note",
+    )
+
+    forbidden_prompt_tokens = [
+        "codex_return_packet.v1",
+        "packet_type: codex_return_packet",
+        "CODEX_RETURN_PACKET_BEGIN",
+        "CODEX_RETURN_PACKET_END",
+        "codex_wave_card: 1",
+        "CODEX_WAVE_CARD_BEGIN",
+        "CODEX_WAVE_CARD_END",
+        "allowed_targets:",
+        "forbidden_targets:",
+    ]
+
+    for path in stage_prompt_files(root):
+        text = read_text(path)
+        for token in forbidden_prompt_tokens:
+            if token in text:
+                failures += 1
+                add(
+                    results,
+                    check_id,
+                    name,
+                    "FAIL",
+                    f"Legacy Codex schema token found in stage prompt: {token}.",
+                    rel(path, root),
+                )
+
+    compatibility_allowed_paths = {
+        "workflow/transport/CODEX_RETURN_PACKET.md",
+        "workflow/transport/CODEX_WAVE_CARD.md",
+        "workflow/codex/CODEX_RETURN_PACKET_CONTRACT.md",
+        "workflow/codex/CODEX_WAVE_CARD_CONTRACT.md",
+        "workflow/codex/WAVE_RECORD_TEMPLATE.md",
+    }
+
+    legacy_tokens = [
+        "codex_return_packet.v1",
+        "packet_type: codex_return_packet",
+        "CODEX_RETURN_PACKET_BEGIN",
+        "CODEX_RETURN_PACKET_END",
+        "codex_wave_card: 1",
+        "CODEX_WAVE_CARD_BEGIN",
+        "CODEX_WAVE_CARD_END",
+        "allowed_targets",
+        "forbidden_targets",
+    ]
+
+    for base in [root / "workflow" / "transport", root / "workflow" / "codex"]:
+        if not base.exists():
+            continue
+        for path in sorted(base.rglob("*.md")):
+            rel_path = rel(path, root)
+            if rel_path in compatibility_allowed_paths:
+                continue
+            text = read_text(path)
+            for token in legacy_tokens:
+                if token in text:
+                    failures += 1
+                    add(
+                        results,
+                        check_id,
+                        name,
+                        "FAIL",
+                        f"Legacy Codex schema token appears outside allowed compatibility files: {token}.",
+                        rel_path,
+                    )
+
+    if failures == 0:
+        add(
+            results,
+            check_id,
+            name,
+            "PASS",
+            "Codex Return/Wave canonical schema anchors are present and no unauthorized legacy schema tokens were found.",
+        )
+
+
 def summarize(results: list[Finding]) -> str:
     if any(item.status == "FAIL" for item in results):
         return "BLOCKED"
@@ -454,6 +619,7 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_cross_direction_cache_setup(root, results)
     check_project_files_do_not_contain_stage_prompt_bodies(root, results)
     check_interface_path_detection(root, results)
+    check_codex_schema_regression(root, results)
     return results
 
 

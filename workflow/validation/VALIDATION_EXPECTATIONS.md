@@ -114,3 +114,41 @@ PASS_WITH_CLEANUP
 ```
 
 A `BLOCKED` result means a hard runtime invariant failed and should be investigated before proceeding with further cleanup patches.
+
+## Codex Return/Wave schema regression expectation
+
+After S4-E Codex Return/Wave cleanup:
+
+Canonical schema IDs:
+
+```text
+codex_return.v1
+codex_wave.v1
+```
+
+Human-readable artifact names may remain:
+
+```text
+Codex Return Packet
+Codex Wave Card
+```
+
+Legacy aliases are allowed only in documented compatibility sections:
+
+```text
+codex_return_packet.v1
+packet_type: codex_return_packet
+codex_wave_card: 1
+CODEX_RETURN_PACKET_BEGIN/END
+CODEX_WAVE_CARD_BEGIN/END
+allowed_targets / forbidden_targets
+```
+
+Hard invariant:
+
+- stage prompts must not contain legacy Codex schema names or wrapper tokens;
+- transport templates must declare canonical `codex_return.v1` and `codex_wave.v1`;
+- Codex semantic contracts must point to transport templates as packet schema authority;
+- compatibility aliases must not be treated as canonical schema IDs.
+
+`CHECK 019 — codex_return_wave_schema_regression` enforces this as a hard check in both baseline and strict mode.

@@ -231,6 +231,40 @@ Result:
 - baseline: INFO/WARN only
 - strict: INFO/WARN only
 
+## CHECK 019 — codex_return_wave_schema_regression
+
+Validate Codex Return/Wave schema canonicalization after S4-E cleanup.
+
+Hard requirements:
+
+- `workflow/transport/CODEX_RETURN_PACKET.md` declares canonical `workflow_packet: 1`, `type: codex_return`, `schema: codex_return.v1`.
+- `workflow/transport/CODEX_WAVE_CARD.md` declares canonical `workflow_packet: 1`, `type: codex_wave`, `schema: codex_wave.v1`.
+- transport files document legacy compatibility aliases for:
+  - `codex_return_packet.v1`;
+  - `packet_type: codex_return_packet`;
+  - `codex_wave_card: 1`;
+  - `CODEX_RETURN_PACKET_BEGIN/END`;
+  - `CODEX_WAVE_CARD_BEGIN/END`;
+  - `allowed_targets` / `forbidden_targets`.
+- `workflow/codex/CODEX_RETURN_PACKET_CONTRACT.md` references transport as schema authority and preserves DONE evidence discipline.
+- `workflow/codex/CODEX_WAVE_CARD_CONTRACT.md` references transport as schema authority and preserves Task Master boundary.
+- `workflow/codex/WAVE_RECORD_TEMPLATE.md` documents canonical schema IDs and legacy aliases for historical records.
+- stage prompts must not contain legacy Codex schema tokens:
+  - `codex_return_packet.v1`;
+  - `packet_type: codex_return_packet`;
+  - `CODEX_RETURN_PACKET_BEGIN`;
+  - `CODEX_RETURN_PACKET_END`;
+  - `codex_wave_card: 1`;
+  - `CODEX_WAVE_CARD_BEGIN`;
+  - `CODEX_WAVE_CARD_END`;
+  - `allowed_targets:`;
+  - `forbidden_targets:`.
+
+Result:
+
+- baseline: FAIL on missing canonical anchors or unauthorized legacy schema-token residue.
+- strict: FAIL on missing canonical anchors or unauthorized legacy schema-token residue.
+
 ## Expected baseline summary
 
 The expected first useful run is:
