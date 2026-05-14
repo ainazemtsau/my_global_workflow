@@ -148,3 +148,23 @@ execution_log_entry:
   next_route: G1_GOAL_SHAPE
   next_launch_card_created: true
 ```
+
+## 2026-05-13 — G1_GOAL_SHAPE stopped old replacement framing and queued EXOCORTEX phase repair
+
+```yaml
+event_type: stage_run
+stage:
+  id: G1_GOAL_SHAPE
+  name: Goal Shape
+return_state: STUCK
+patch_id: G1-2026-05-13-exocortex-phase-repair
+user_approval: "APPROVE AND FORMALIZE: phase repair to EXOCORTEX App Foundation"
+summary:
+  - "User clarified that the target is the future EXOCORTEX application / personal external brain, not a temporary or merely convenient current-workflow replacement."
+  - "Current ChatGPT + GitHub + Codex workflow remains the construction workflow until EXOCORTEX is radically better and ready."
+  - "Current G1 replacement framing is stopped."
+  - "Phase repair/restart is required before new Goal shaping."
+  - "G1 cannot directly launch P0_PHASE_START under STAGE_REGISTRY.md, so it emits Stop and queues safe next action through Router/new P0 run."
+next_route: P0_PHASE_START
+route_note: "Run via Router/new stage after repository patch apply/read-back and Project Files cache refresh."
+```

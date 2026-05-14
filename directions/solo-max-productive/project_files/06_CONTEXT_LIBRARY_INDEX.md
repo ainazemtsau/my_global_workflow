@@ -10,7 +10,7 @@ artifact_control:
   default_load: yes
   freshness: fresh
   last_refresh_at: "2026-05-13"
-  refresh_source: "B1-2026-05-13-active-goal-misframed-recovery"
+  refresh_source: "G1-2026-05-13-exocortex-phase-repair"
 ```
 
 ## Default context
@@ -37,38 +37,55 @@ GitHub remains the source of truth. Project Files are a runtime cache.
 
 If GitHub and Project File cache conflict, use verified full GitHub read-back. If GitHub read is truncated, omitted, lacks tail verification, or cannot be verified, return Context Request instead of treating partial GitHub content as authority.
 
-## Goal revision context for G1
+## Phase repair context for P0
 
-Default-load for the next `G1_GOAL_SHAPE` run:
+Required for the next `P0_PHASE_START` run:
 
-- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/00_GOAL_CONTRACT.md`
-- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/01_GOAL_WORKING_CONTEXT.md`
-- Current B1 result packet / launch card from the chat that formalized `B1-2026-05-13-active-goal-misframed-recovery`
+- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md`
+- Current G1 result packet / stop card / repository patch from `G1-2026-05-13-exocortex-phase-repair`
+- User correction from the approving chat: current workflow remains the construction workflow; EXOCORTEX is the future application and should replace current workflow only after radical superiority/full readiness.
 
 Purpose:
 
-- Use the old Goal files only as superseded comparison material.
-- Preserve the kernel-loop principle.
+- Repair or restart the Phase as `EXOCORTEX App Foundation`.
+- Treat EXOCORTEX as the future target application / personal external brain.
+- Preserve current ChatGPT + GitHub + Codex workflow as the construction workflow.
+- Define a Phase that can later support `EXOCORTEX Product Foundation Definition`.
 - Do not execute the old proof Goal.
-- Shape a replacement Goal for `Personal Workflow System Core and MVP Definition`.
+- Do not treat the old replacement candidate as current.
+- Do not implement the app during P0/G1.
+- Do not choose tech stack or full architecture before the appropriate later route.
 
-Request if needed:
+If GitHub read of `EXOCORTEX_CONCEPT_SEED_FULL.md` is truncated or lacks tail verification, request one of:
 
+- manual paste/upload as chat attachment;
+- split/chunked export with tail verification;
+- Codex read-only local verification/export.
+
+## Superseded Goal comparison context
+
+Request only if P0/G1 needs comparison material:
+
+- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/00_GOAL_CONTRACT.md`
+- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/01_GOAL_WORKING_CONTEXT.md`
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/02_GOAL_CONTEXT_INDEX.md`
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof/execution_log.md`
+
+Use old Goal files only as superseded comparison material.
 
 ## Request-only context
 
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md`
 
-Load only if exact concept detail is needed. Do not treat as roadmap.
+Load for P0 phase repair and later EXOCORTEX foundation shaping. Do not treat as an executable implementation roadmap.
 
 ## Archive boundary
 
 - Archived or historical material is pointer-only and must not be default-loaded.
 - vNext One-Goal Smoke Test is historical/test state for this route, not current active work.
 - Create Lightweight Codex Small-Fix Lane is not current active Goal state unless explicitly reactivated.
-- Personal Workflow App Kernel Min Proof is superseded as an execution target and should be used only as replacement-shaping context unless explicitly reactivated by a later human decision.
+- Personal Workflow App Kernel Min Proof is superseded as an execution target and should be used only as comparison/provenance unless explicitly reactivated by a later human decision.
+- Personal Workflow System Core and MVP Definition is superseded as the current replacement candidate by the approved EXOCORTEX App Foundation phase repair.
 
 ## Phase Memory Index default context amendment
 
@@ -76,4 +93,4 @@ Required default Project Files include:
 
 - `07_PHASE_MEMORY_INDEX.md`
 
-Use `directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md` as compact phase-history context before P0 proposes a materially new Phase after closure.
+Use `directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md` as compact phase-history context before P0 proposes a materially new Phase after closure or restart.

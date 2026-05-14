@@ -9,33 +9,39 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-12"
-  refresh_source: "G1-2026-05-12-personal-workflow-app-kernel-min-proof"
+  last_refresh_at: "2026-05-13"
+  refresh_source: "G1-2026-05-13-exocortex-phase-repair"
 ```
 
 ## Current pointers
 
 Current Phase: Personal Workflow App Kernel Exploration -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration`
 
-Active Goal: Personal Workflow App Kernel Min Proof -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
+Current Phase status: repair required / pending `P0_PHASE_START`
 
-Active Goal status: contested / superseded pending replacement
+Proposed repaired Phase: EXOCORTEX App Foundation
 
-Selected Goal candidate: Personal Workflow System Core and MVP Definition -> pending `G1_GOAL_SHAPE`
+Old Active Goal: Personal Workflow App Kernel Min Proof -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
 
-Current focus: Repair the active Goal framing. The kernel loop has already been proven enough by the current ChatGPT + GitHub + Codex workflow; the next Goal must define the core/base system or MVP that can become more useful than the current workflow.
+Old Active Goal status: invalidated by Phase repair; preserve as superseded/replaced provenance.
 
-Next route: `G1_GOAL_SHAPE`
+Proposed first Goal after Phase repair: EXOCORTEX Product Foundation Definition -> pending repaired Phase approval and later `G1_GOAL_SHAPE`.
+
+Current focus: Repair the Phase framing. The target is not to make a convenient replacement for the current ChatGPT + GitHub + Codex workflow. The target is to build the future EXOCORTEX application / personal external brain. The current workflow remains the construction workflow until EXOCORTEX is radically better and ready to replace it.
+
+Next route: `P0_PHASE_START` via Router/new stage run after repository patch apply/read-back and Project Files cache refresh.
 
 State note:
 
 - vNext One-Goal Smoke Test is obsolete test/pilot state from Workflow vNext-R validation.
 - Do not continue Create Lightweight Codex Small-Fix Lane unless the user explicitly reactivates it.
-- This Phase develops the current personal ChatGPT + GitHub + Codex Workflow toward a possible custom app/kernel.
-- The old active Goal, Personal Workflow App Kernel Min Proof, is superseded as an execution target because the proof framing is now redundant.
+- The old active Goal, Personal Workflow App Kernel Min Proof, is superseded as an execution target.
+- The prior replacement candidate, Personal Workflow System Core and MVP Definition, is superseded by the stronger EXOCORTEX phase-repair framing.
+- The EXOCORTEX concept document is required context for the next P0 run.
 - Do not create `03_KERNEL_MIN_PROOF_BRIEF.md`.
 - Do not delete the old Goal folder; preserve it as superseded/replaced provenance.
-- Do not start app implementation, choose a stack, design full architecture, or load the full EXOCORTEX seed by default.
+- Do not start app implementation, choose a stack, design full architecture, or create a Codex product execution graph before repaired Phase and Goal shaping.
+- P0 must decide whether to repair the current phase path or create a new phase folder.
 
 ## Default Project Files to load
 
