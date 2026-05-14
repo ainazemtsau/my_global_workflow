@@ -153,43 +153,15 @@ Codex repository maintenance after an approved repository_patch.v1 is allowed fo
 
 You should expect a Stage Launch Card or equivalent packet containing:
 
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-stage:
-  id: E1_EXECUTION_BRIEF
-  name: Execution Brief
-direction:
-  id:
-  name:
-  active_project:
-phase:
-  id:
-  name:
-  status:
-  horizon:
-goal_contract:
-  goal_id:
-  title:
-  what:
-  done:
-  acceptance_floor:
-  validation_signal:
-  smallest_testable_slice:
-goal_working_context:
-  scope_in:
-  non_goals:
-  constraints:
-  risk_triggers:
-  documentation_obligations:
-source_evidence:
-  g1_packet_present:
-  g1_patch_applied:
-  readback_evidence_present:
-  active_goal_matches_packet:
+Use the canonical Stage Launch transport template at `workflow/transport/STAGE_LAUNCH_CARD.md`.
 
-```
+For E1, the launch or equivalent packet must provide enough meaning for:
+
+- stage identity: `E1_EXECUTION_BRIEF`;
+- direction, phase, and active project;
+- goal contract fields: `goal_id`, `title`, `what`, `done`, `acceptance_floor`, `validation_signal`, `smallest_testable_slice`;
+- goal working context: `scope_in`, `non_goals`, `constraints`, `risk_triggers`, `documentation_obligations`;
+- source evidence: `g1_packet_present`, `g1_patch_applied`, `readback_evidence_present`, `active_goal_matches_packet`.
 
 Equivalent fields are acceptable if the meaning is clear.
 
@@ -581,108 +553,26 @@ Every material E1 output must close with:
 6. Changed Files / Context Refresh List.
 7. Exactly one terminal artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.
 
-## 7\. Stage Result Packet contract
+## Stage Result / Stage Launch packet references
 
-Always produce this packet unless outputting a Stop Card before safe packet construction is possible.
+Do not copy full Stage Result or Stage Launch packet schemas inside this prompt.
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
-stage:
-  id: E1_EXECUTION_BRIEF
-  name: Execution Brief
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-route:
-next_stage:
-direction:
-  id:
-  name:
-  active_project:
-phase:
-  id:
-  name:
-  status:
-  horizon:
-goal:
-  goal_id:
-  title:
-source_state:
-  from_stage: G1_GOAL_SHAPE
-  previous_return_state:
-source_evidence:
-  g1_packet_present: true | false | unknown
-  g1_patch_applied: true | false | unknown
-  readback_evidence_present: true | false | unknown
-  active_goal_matches_packet: true | false | unknown
-selected_route:
-  route:
-  next_stage:
-  reason:
-  confidence: high | medium | low
-  downstream_availability:
-    expected_stage_installed: true | false | unknown
-    if_unavailable:
-execution_brief:
-  objective:
-  smallest_safe_slice:
-  implementation_route:
-  artifacts_to_create_or_update:
-    - artifact:
-      target_path:
-      action:
-      purpose:
-  implementation_sequence:
-    - step:
-  acceptance_validation_map:
-    - acceptance_floor_item:
-      artifact_or_check:
-      evidence_required:
-  scope_lock:
-    allowed:
-      - item:
-    forbidden:
-      - item:
-    constraints:
-      - item:
-    risk_triggers:
-      - item:
-    requires_human_decision:
-      - trigger:
-  readback_requirements:
-    - requirement:
-  changed_files_context_refresh_after_approval:
-    required_after_approval: true | false
-    files:
-      - file:
-        reason:
-        timing:
-handoff_requirements:
-  f0:
-    required_after_approval: true | false
-    notes:
-  codex:
-    required_after_approval: true | false
-    notes:
-repository_patch:
-  required_after_approval: true | false
-  type: create | replace_section | append_section | update_header | explicit_none
-  summary:
-documentation_maintenance_gate:
-  required_after_approval: true | false
-  summary:
-next_launch_card:
-  included: true | false
-  stage:
-    id:
-    name:
-blockers:
-  - blocker:
-extensions:
-  E1_EXECUTION_BRIEF:
-    brief_state: completed | needs_input | human_decision_required | stopped
+Use canonical transport templates:
 
+```text
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/STAGE_LAUNCH_CARD.md
 ```
+
+Stage-specific result and launch obligations in this prompt still apply.
+
+If this stage returns a result, produce it using the canonical Stage Result transport template and the stage-specific result fields/rules below.
+
+If this stage launches another stage, produce the launch using the canonical Stage Launch transport template and the stage-specific launch payload/routing rules below.
+
+Do not invent local packet schemas.
+
+For E1 Stage Result, always produce a packet unless outputting a Stop Card before safe packet construction is possible. Include `return_state`, `route`, `next_stage`, direction, phase, goal, `source_state.from_stage: G1_GOAL_SHAPE`, source evidence, selected route, execution brief, handoff requirements, repository patch summary, documentation maintenance gate summary, next launch card summary, blockers, and `extensions.E1_EXECUTION_BRIEF.brief_state`.
 
 ## 8\. Repository Patch contract
 
@@ -824,62 +714,9 @@ changed_files_context_refresh_after_approval:
 
 If execution can proceed, produce a copy-paste launch card for exactly one selected next stage.
 
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-stage:
-  id:
-  name:
-source_state:
-  from_stage: E1_EXECUTION_BRIEF
-  previous_return_state:
-launch_reason:
-direction:
-  id:
-  name:
-  active_project:
-phase:
-  id:
-  name:
-  status:
-  horizon:
-goal:
-  goal_id:
-  title:
-execution_brief:
-  objective:
-  smallest_safe_slice:
-  selected_route:
-  artifacts_to_create_or_update:
-  target_paths:
-  implementation_sequence:
-  acceptance_validation_map:
-scope_lock:
-  allowed:
-  forbidden:
-  constraints:
-  risk_triggers:
-  requires_human_decision:
-freshness_requirements:
-  required_before_execution:
-handoff_requirements:
-  f0:
-  codex:
-repository_requirements_after_approval:
-  patch_required:
-  readback_required:
-  forbidden_changes:
-changed_files_context_refresh_after_approval:
-  required:
-  files:
-downstream_availability:
-  expected_stage_installed:
-  if_unavailable:
-stop_conditions:
-  - condition:
+Use the canonical Stage Launch transport template at `workflow/transport/STAGE_LAUNCH_CARD.md`.
 
-```
+For E1 launch payloads, include stage identity, `source_state.from_stage: E1_EXECUTION_BRIEF`, previous return state, launch reason, direction, phase, goal, execution brief, scope lock, freshness requirements, F0/Codex handoff requirements, repository requirements after approval, changed-files context refresh requirements, downstream availability, and stop conditions.
 
 Do not produce launch cards for multiple routes. Put rejected routes in the route decision summary only.
 

@@ -523,48 +523,26 @@ Every material C2 output must close with:
 7. Changed Files / Context Refresh List.
 8. Exactly one terminal artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.
 
-## 12\. Stage Result Packet schema
+## Stage Result / Stage Launch packet references
 
-Produce this packet every run.
+Do not copy full Stage Result or Stage Launch packet schemas inside this prompt.
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
-stage:
-  id: C2_CODEX_EXECUTE
-  name: Codex Execute
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-route:
-next_stage:
-stage_run_id:
-active_direction_id:
-active_phase_id:
-active_goal_id:
-goal_contract_ref:
-execution_brief_ref:
-c1_plan_ref:
-codex_wave_ref:
-codex_project_setup_ref:
-input_freshness_result:
-execution_readiness_result:
-execution_mode:
-scope_lock_result:
-summary:
-changed_artifacts_summary:
-validation_summary:
-documentation_gate_summary:
-blocking_reason:
-human_decision_needed:
-context_request_needed:
-produced_artifacts:
-unknown_fields_preserved:
-kernel_qa_summary:
-extensions:
-  C2_CODEX_EXECUTE:
-    execution_status: executed_verified | executed_partial | validation_failed | blocked_context | needs_human_decision | stop_unsafe | no_op_verified
+Use canonical transport templates:
 
+```text
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/STAGE_LAUNCH_CARD.md
 ```
+
+Stage-specific result and launch obligations in this prompt still apply.
+
+If this stage returns a result, produce it using the canonical Stage Result transport template and the stage-specific result fields/rules below.
+
+If this stage launches another stage, produce the launch using the canonical Stage Launch transport template and the stage-specific launch payload/routing rules below.
+
+Do not invent local packet schemas.
+
+For C2 Stage Result, produce a packet every run. Include `return_state`, `route`, `next_stage`, stage run id, active direction/phase/goal ids, goal contract ref, execution brief ref, C1 plan ref, Codex wave ref, Codex project setup ref, input freshness result, execution readiness result, execution mode, scope lock result, summary, changed artifacts summary, validation summary, documentation gate summary, blocking reason, human decision/context request flags, produced artifacts, unknown fields preservation, kernel QA summary, and `extensions.C2_CODEX_EXECUTE.execution_status`.
 
 ---
 
@@ -751,78 +729,15 @@ not_required_reason:
 
 For successful verified execution, route normally to R1.
 
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-stage:
-  id: R1_GOAL_REVIEW_DISTILL
-  name: Goal Review Distill
-source_state:
-  from_stage: C2_CODEX_EXECUTE
-  previous_return_state:
-  source_result_ref:
-codex_return_packet_ref:
-active_direction_id:
-active_phase_id:
-active_goal_id:
-context_to_load:
-  - Stage Result Packet from C2
-  - Codex Return Packet from C2
-  - Goal Contract
-  - Execution Brief
-  - changed artifacts summary
-  - validation evidence
-  - documentation gate result
-artifacts_to_review:
-  - changed files
-  - validation results
-  - unverified claims
-  - residual risks
-  - docs/project file changes
-review_questions:
-  - Did C2 execute only the accepted C1 plan/wave?
-  - Did validation evidence satisfy the Goal Contract?
-  - Are documentation updates complete?
-  - Are residual risks acceptable?
-stop_conditions:
-  - missing Codex Return Packet
-  - missing validation evidence
-  - ambiguous changed files
-  - unverified DONE claim
+Use the canonical Stage Launch transport template at `workflow/transport/STAGE_LAUNCH_CARD.md`.
 
-```
+For successful verified execution, the R1 launch payload must include `stage.id: R1_GOAL_REVIEW_DISTILL`, `stage.name: Goal Review Distill`, `source_state.from_stage: C2_CODEX_EXECUTE`, previous return state, source result ref, Codex Return Packet ref, active direction/phase/goal ids, context to load, artifacts to review, review questions, and stop conditions.
 
 For partial or failed execution, route to R0 when recovery is needed and no human choice blocks the route.
 
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-stage:
-  id: R0_RECOVERY_CLOSE
-  name: Recovery Close
-source_state:
-  from_stage: C2_CODEX_EXECUTE
-  previous_return_state:
-  source_result_ref:
-codex_return_packet_ref:
-active_direction_id:
-active_phase_id:
-active_goal_id:
-recovery_reason:
-context_to_load:
-  - Stage Result Packet from C2
-  - Codex Return Packet from C2
-  - failed validation evidence
-  - changed files summary
-  - rollback_or_recovery_hint
-stop_conditions:
-  - missing changed files summary
-  - unclear partial mutation state
-  - unresolved human decision
+Use the canonical Stage Launch transport template at `workflow/transport/STAGE_LAUNCH_CARD.md`.
 
-```
+For recovery routing, the R0 launch payload must include `stage.id: R0_RECOVERY_CLOSE`, `stage.name: Recovery Close`, `source_state.from_stage: C2_CODEX_EXECUTE`, previous return state, source result ref, Codex Return Packet ref, active direction/phase/goal ids, recovery reason, context to load, and stop conditions.
 
 ---
 

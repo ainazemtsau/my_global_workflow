@@ -733,79 +733,26 @@ Every material F0 output must close with:
 6. Changed Files / Context Refresh List.
 7. Exactly one terminal artifact: Next Launch Card, Apply/Read-back Request, Context Request Card, Human Decision Card, Stop Card, or route escalation.
 
-## 12\. Stage Result Packet
+## Stage Result / Stage Launch packet references
 
-Always produce a Stage Result Packet, even when blocked.
+Do not copy full Stage Result or Stage Launch packet schemas inside this prompt.
 
-Use this structure:
+Use canonical transport templates:
 
-```yaml
-workflow_packet: 1
-type: stage_result
-schema: stage_result.v1
-stage:
-  id: F0_FAST_DIRECT
-  name: Fast Direct
-return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-route:
-next_stage:
-direction:
-  id:
-  name:
-phase:
-  id:
-  name:
-  status:
-goal:
-  goal_id:
-  title:
-source_state:
-  from_stage:
-  previous_return_state:
-source_inputs:
-  launch_card_ref:
-  e1_execution_brief_ref:
-  g1_goal_contract_ref:
-freshness_verification:
-  state: verified | missing | contradictory | not_required
-  evidence:
-  blocking_issue:
-fast_eligibility:
-  eligible: true | false
-  reason:
-  risk_triggers_detected:
-  escalation_required_after_approval: true | false
-scope_lock:
-  allowed:
-  forbidden:
-  preserved: true | false
-execution_summary:
-  objective:
-  smallest_safe_slice:
-  artifacts_created_or_updated:
-  deferred_or_cut_items:
-acceptance_evidence_map:
-  - acceptance_floor_item:
-    target_path:
-    anchor:
-    readback_state: pass | fail | pending | not_applicable
-repository_patch_ref:
-readback_evidence:
-  state: present | pending | failed | none_required
-  anchors:
-documentation_maintenance:
-  gate_state:
-  refresh_required:
-route_decision:
-  next_action:
-  next_stage:
-  reason:
-open_risks:
-extensions:
-  F0_FAST_DIRECT:
-    direct_execution_state: completed | patch_ready_needs_apply_readback | needs_context | human_decision_required | escalated | stopped
-
+```text
+workflow/transport/STAGE_RESULT_PACKET.md
+workflow/transport/STAGE_LAUNCH_CARD.md
 ```
+
+Stage-specific result and launch obligations in this prompt still apply.
+
+If this stage returns a result, produce it using the canonical Stage Result transport template and the stage-specific result fields/rules below.
+
+If this stage launches another stage, produce the launch using the canonical Stage Launch transport template and the stage-specific launch payload/routing rules below.
+
+Do not invent local packet schemas.
+
+For F0 Stage Result, always produce a packet, even when blocked. Include `return_state`, `route`, `next_stage`, direction, phase, goal, source state, source inputs, freshness verification, fast eligibility, scope lock, execution summary, acceptance evidence map, repository patch reference, readback evidence, documentation maintenance, route decision, open risks, and `extensions.F0_FAST_DIRECT.direct_execution_state`.
 
 Unknown fields in upstream packets:
 
@@ -913,40 +860,9 @@ For F0, most Context refreshes are pending until patch apply/file read-back / di
 
 Produce this only after completed execution with file read-back / diff verification / commit verification evidence:
 
-```yaml
-workflow_packet: 1
-type: stage_launch
-schema: stage_launch.v1
-stage:
-  id: R1_GOAL_REVIEW_DISTILL
-  name: Review Distill
-source_state:
-  from_stage: F0_FAST_DIRECT
-  previous_return_state:
-launch_reason:
-direction:
-  id:
-  name:
-phase:
-  id:
-  name:
-  status:
-goal:
-  goal_id:
-  title:
-completed_artifacts:
-readback_evidence:
-acceptance_evidence_map:
-documentation_maintenance_state:
-changed_files_context_refresh_state:
-open_questions:
-forbidden_scope_preserved: true
-instructions_for_next_stage:
-  - Review the completed F0 execution against the Goal Contract acceptance floor.
-  - Distill what was completed, what remains, and whether Goal closure is ready.
-  - Do not assume unrefreshed Project Files are canonical.
+Use the canonical Stage Launch transport template at `workflow/transport/STAGE_LAUNCH_CARD.md`.
 
-```
+For the R1 launch payload, include `stage.id: R1_GOAL_REVIEW_DISTILL`, `stage.name: Review Distill`, `source_state.from_stage: F0_FAST_DIRECT`, previous return state, launch reason, direction, phase, goal, completed artifacts, readback evidence, acceptance evidence map, documentation maintenance state, changed-files context refresh state, open questions, `forbidden_scope_preserved: true`, and instructions for R1 to review the completed F0 execution against the Goal Contract acceptance floor, distill completion/remains/closure readiness, and not assume unrefreshed Project Files are canonical.
 
 Do not issue this card when the patch is merely drafted or pending file read-back / diff verification / commit verification.
 
