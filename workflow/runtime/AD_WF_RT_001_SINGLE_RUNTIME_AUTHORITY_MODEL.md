@@ -29,7 +29,7 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 | Stage-specific mission, inputs, gates, and constraints | exact file under `workflow/stage_prompts/<STAGE_ID>.md` |
 | Canonical packet schemas and transport templates | `workflow/transport/*.md` |
 | Packet use behavior, runtime precedence, formalization coupling, and repository maintenance rules | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` |
-| Direction runtime state | `directions/<direction-id>/project_files/00-07` |
+| Direction runtime state | `directions/<direction-id>/project_files/00-08` |
 
 Runtime core must not maintain full packet schema bodies or duplicate registry stage tables.
 

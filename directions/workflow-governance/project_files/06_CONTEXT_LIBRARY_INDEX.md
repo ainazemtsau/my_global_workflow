@@ -31,10 +31,13 @@ In the ChatGPT Project, these files should be present as Project Files runtime c
 - `directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md`
 - `directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md`
 - `directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md`
+- `directions/workflow-governance/project_files/08_DIRECTION_MAP.md`
 
 GitHub remains the source of truth. Project Files are a runtime cache.
 
 If GitHub and Project File cache conflict, use verified full GitHub read-back. If GitHub read is truncated, omitted, lacks tail verification, or cannot be verified, return Context Request instead of treating partial GitHub content as authority.
+
+`08_DIRECTION_MAP.md` is strategic routing context between Direction and Phase; it does not replace Phase, Goal, Queue, Context Loading Index, or Phase Memory state.
 
 ## Shared workflow context
 
@@ -134,5 +137,6 @@ Research files:
 Default Direction Project Files include:
 
 - `directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md`
+- `directions/workflow-governance/project_files/08_DIRECTION_MAP.md`
 
 Use `07_PHASE_MEMORY_INDEX.md` as compact phase-history context before P0 proposes a new Phase after closure.

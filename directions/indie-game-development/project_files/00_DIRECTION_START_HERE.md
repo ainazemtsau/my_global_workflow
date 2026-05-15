@@ -44,6 +44,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
 | Accepted Goal artifact | `Minimum Expedition Proof Core` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md` |
 | Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
+| Direction Map | initial stub / needs M0 review | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Next route | `E1_EXECUTION_BRIEF` | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` |
 
 ## Current Phase meaning
@@ -77,12 +78,15 @@ Load these Direction Project Files by default:
 6. `05_PORTFOLIO_QUEUE.md`
 7. `06_CONTEXT_LIBRARY_INDEX.md`
 8. `07_PHASE_MEMORY_INDEX.md`
+9. `08_DIRECTION_MAP.md`
 
 Also load shared runtime cache files defined in:
 
 ```text
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 ```
+
+If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_DIRECTION_MAP` to migrate/build the map from current `00-07` progress and user-provided initiative context before relying on it for strategic Phase/Goal selection.
 
 ## Normal next route
 

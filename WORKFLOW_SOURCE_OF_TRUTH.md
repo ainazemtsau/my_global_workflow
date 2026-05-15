@@ -9,7 +9,7 @@ Runtime source-of-truth model: GitHub markdown files in this repository.
 Migration status: closed.
 
 Direction data rule:
-- Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, or execution state.
+- Do not invent Direction, Direction Map, Phase, Goal, Portfolio Queue, Context Loading Index, or execution state.
 - Direction data must be read from current GitHub Direction files unless an explicit migration/admin task says otherwise.
 - Missing or contradictory source data must be returned as `NEEDS_INPUT` with the exact repository path and blocker.
 

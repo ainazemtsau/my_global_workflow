@@ -30,9 +30,9 @@ Result:
 - baseline: FAIL on missing file
 - strict: FAIL on missing file
 
-## CHECK 003 — active_direction_00_07_exist
+## CHECK 003 — active_direction_00_08_exist
 
-For every active Direction, verify Project Files `00-07`.
+For every active Direction, verify Project Files `00-08`.
 
 Active Directions:
 
@@ -99,6 +99,17 @@ Result:
 
 - baseline: FAIL if missing
 - strict: FAIL if missing
+
+## CHECK 007A — registry_present_prompt_files_exist
+
+For every Runtime Registry row marked `prompt_status: present`, verify the referenced prompt file exists under `workflow/stage_prompts/`.
+
+This includes `workflow/stage_prompts/M0_DIRECTION_MAP.md` when `M0_DIRECTION_MAP` is registered as present.
+
+Result:
+
+- baseline: FAIL on missing present prompt file
+- strict: FAIL on missing present prompt file
 
 ## CHECK 008 — deprecated_prompt_delivery_modes_absent
 
@@ -257,7 +268,7 @@ Result:
 
 ## CHECK 016 — cross_direction_cache_setup_consistency
 
-Check all active Directions have required Project Files, Project Instructions, and cache references.
+Check all active Directions have required Project Files, Project Instructions, and cache references through `08_DIRECTION_MAP.md`.
 
 Check `docs/CHATGPT_PROJECT_SETUP.md` for likely stale setup coverage.
 

@@ -32,6 +32,9 @@ For normal runtime, manually load these files into this ChatGPT Project Files as
 - `directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md`
 - `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`
 - `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
+- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
+
+If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review` and a new strategic Phase/Goal choice is needed, route to `M0_DIRECTION_MAP`.
 
 ## Direction Boundary
 
@@ -61,7 +64,7 @@ Do not reconstruct missing prompts from memory.
 
 If required GitHub files or Project Files are unavailable, stale, inaccessible, contradictory, truncated, or missing tail verification, return Context Request instead of inventing state.
 
-Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, Wave, execution, or project state.
+Do not invent Direction, Direction Map, Phase, Goal, Portfolio Queue, Context Loading Index, Wave, execution, or project state.
 
 ## Default Behavior
 

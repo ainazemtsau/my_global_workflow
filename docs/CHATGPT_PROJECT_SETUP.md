@@ -74,7 +74,7 @@ If a GitHub read is truncated, omitted, lacks tail verification, or cannot prove
 
 Stage prompts are request-only by exact stage ID. Do not bulk-load all stage prompts. Do not reconstruct missing prompts from memory.
 
-Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, Wave, execution, or project state.
+Do not invent Direction, Direction Map, Phase, Goal, Portfolio Queue, Context Loading Index, Wave, execution, or project state.
 
 Do not use external personal notes as workflow source.
 
@@ -94,7 +94,7 @@ workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
 ```
 
-Also manually load that Direction's own Project Files `00-07` from:
+Also manually load that Direction's own Project Files `00-08` from:
 
 ```text
 directions/<direction-id>/project_files/
@@ -111,11 +111,14 @@ Required Direction Project Files:
 05_PORTFOLIO_QUEUE.md
 06_CONTEXT_LIBRARY_INDEX.md
 07_PHASE_MEMORY_INDEX.md
+08_DIRECTION_MAP.md
 ```
 
 Do not upload stage prompts as default Project Files.
 
 Do not upload old rebuild Project Files, migration/admin notes, raw chats, archive notes, or execution evidence dumps as default Project Files.
+
+`08_DIRECTION_MAP.md` is strategic routing context, not a replacement for Phase or Goal state. If it is uninitialized or marked `needs_m0_review` and a material strategic Phase/Goal choice is needed, run `M0_DIRECTION_MAP`.
 
 ## Workflow Governance Project Setup
 
@@ -153,6 +156,7 @@ directions/workflow-governance/project_files/04_ACTIVE_GOAL.md
 directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md
 directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md
+directions/workflow-governance/project_files/08_DIRECTION_MAP.md
 ```
 
 Copyable Project Instructions summary:
@@ -215,6 +219,7 @@ Default Project Files:
 - directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md
 - directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md
 - directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md
+- directions/workflow-governance/project_files/08_DIRECTION_MAP.md
 ```
 
 ## Solo Max Productive Project Setup
@@ -253,6 +258,7 @@ directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md
 directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md
 directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md
+directions/solo-max-productive/project_files/08_DIRECTION_MAP.md
 ```
 
 Copyable Project Instructions summary:
@@ -301,6 +307,7 @@ Default Project Files:
 - directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md
 - directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md
 - directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md
+- directions/solo-max-productive/project_files/08_DIRECTION_MAP.md
 
 Default behavior:
 - choose smallest safe route
@@ -345,6 +352,7 @@ directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
 directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
 directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+directions/indie-game-development/project_files/08_DIRECTION_MAP.md
 ```
 
 Copyable Project Instructions summary:
@@ -393,6 +401,7 @@ Default Project Files:
 - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
 - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
 - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+- directions/indie-game-development/project_files/08_DIRECTION_MAP.md
 
 Default behavior:
 - choose smallest safe route
@@ -437,6 +446,7 @@ directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md
 directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md
 directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md
+directions/health-and-beauty/project_files/08_DIRECTION_MAP.md
 ```
 
 Copyable Project Instructions summary:
@@ -485,6 +495,7 @@ Default Project Files:
 - directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md
 - directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md
 - directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md
+- directions/health-and-beauty/project_files/08_DIRECTION_MAP.md
 
 Default behavior:
 - choose smallest safe route
@@ -512,6 +523,7 @@ Using GitHub repo ainazemtsau/my_global_workflow, read only:
 - directions/<direction-id>/project_files/05_PORTFOLIO_QUEUE.md
 - directions/<direction-id>/project_files/06_CONTEXT_LIBRARY_INDEX.md
 - directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+- directions/<direction-id>/project_files/08_DIRECTION_MAP.md
 
 Report:
 1. Direction identity.
@@ -561,6 +573,7 @@ directions/<direction-id>/project_files/04_ACTIVE_GOAL.md
 directions/<direction-id>/project_files/05_PORTFOLIO_QUEUE.md
 directions/<direction-id>/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+directions/<direction-id>/project_files/08_DIRECTION_MAP.md
 ```
 
 Project Instructions refresh is required when a Direction's actual Project Instructions source changes:

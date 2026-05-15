@@ -35,6 +35,8 @@ Current focus: Shape the EXOCORTEX product/application foundation while preservi
 
 Next route: `G1_GOAL_SHAPE` after repository patch apply/read-back and Project Files cache refresh.
 
+Direction Map: initial `08_DIRECTION_MAP.md` stub / needs M0 review before relying on it for strategic Phase/Goal selection.
+
 State note:
 
 - vNext One-Goal Smoke Test is obsolete test/pilot state from Workflow vNext-R validation.
@@ -96,12 +98,15 @@ Load these Direction Project Files by default:
 6. `05_PORTFOLIO_QUEUE.md`
 7. `06_CONTEXT_LIBRARY_INDEX.md`
 8. `07_PHASE_MEMORY_INDEX.md`
+9. `08_DIRECTION_MAP.md`
 
 Also load shared runtime cache files defined in:
 
 ```text
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 ```
+
+If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_DIRECTION_MAP` to migrate/build the map from current `00-07` progress and user-provided initiative context before relying on it for strategic Phase/Goal selection.
 
 ## Shared runtime file
 

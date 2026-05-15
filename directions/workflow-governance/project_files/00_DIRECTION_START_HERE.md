@@ -63,6 +63,7 @@ Use normal workflow lifecycle stages only when the user explicitly asks to run W
 | Evaluation suite | `WORKFLOW_EVAL_SUITE` | `directions/workflow-governance/evals/WORKFLOW_EVAL_SUITE.md` |
 | Audit launch prompt | `Workflow Steward Audit` | `directions/workflow-governance/audits/WORKFLOW_STEWARD_AUDIT_LAUNCH_PROMPT.md` |
 | Context load rules | Direction Context Loading Index | `directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
+| Direction Map | initial stub / needs M0 review | `directions/workflow-governance/project_files/08_DIRECTION_MAP.md` |
 | ChatGPT Project Instructions | `Workflow Governance` | `directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` |
 
 ## Default Project Files to load
@@ -77,12 +78,15 @@ Load these Direction Project Files by default:
 6. `05_PORTFOLIO_QUEUE.md`
 7. `06_CONTEXT_LIBRARY_INDEX.md`
 8. `07_PHASE_MEMORY_INDEX.md`
+9. `08_DIRECTION_MAP.md`
 
 Also load shared runtime cache files defined in:
 
 ```text
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 ```
+
+If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_DIRECTION_MAP` to migrate/build the map from current `00-07` progress and user-provided initiative context before relying on it for strategic Phase/Goal selection.
 
 ## Shared runtime file
 

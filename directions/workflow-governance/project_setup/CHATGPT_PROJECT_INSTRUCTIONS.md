@@ -103,8 +103,11 @@ For normal Workflow Governance runtime, manually load these files into the ChatG
 - `directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md`
 - `directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md`
 - `directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md`
+- `directions/workflow-governance/project_files/08_DIRECTION_MAP.md`
 
 Project Files are a runtime cache, not a replacement source of truth.
+
+If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review` and a new strategic Phase/Goal choice is needed, route to `M0_DIRECTION_MAP`.
 
 If a verified full GitHub read conflicts with Project File cache, GitHub wins and the Project File cache must be refreshed.
 

@@ -20,7 +20,7 @@ GitHub remains the source of truth. Project Files are a runtime cache for files 
 
 ## Required Project File cache for all active Direction Projects
 
-Every active Direction ChatGPT Project must manually load the shared runtime cache files plus its own Direction Project Files 00-07.
+Every active Direction ChatGPT Project must manually load the shared runtime cache files plus its own Direction Project Files 00-08.
 
 GitHub remains the source of truth. Project Files are runtime cache only.
 
@@ -47,6 +47,7 @@ directions/workflow-governance/project_files/04_ACTIVE_GOAL.md
 directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md
 directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/workflow-governance/project_files/07_PHASE_MEMORY_INDEX.md
+directions/workflow-governance/project_files/08_DIRECTION_MAP.md
 ```
 
 Project Instructions source:
@@ -66,6 +67,7 @@ directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md
 directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md
 directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/solo-max-productive/project_files/07_PHASE_MEMORY_INDEX.md
+directions/solo-max-productive/project_files/08_DIRECTION_MAP.md
 ```
 
 Project Instructions source:
@@ -85,6 +87,7 @@ directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
 directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
 directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+directions/indie-game-development/project_files/08_DIRECTION_MAP.md
 ```
 
 Project Instructions source:
@@ -104,6 +107,7 @@ directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md
 directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md
 directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md
+directions/health-and-beauty/project_files/08_DIRECTION_MAP.md
 ```
 
 Project Instructions source:
@@ -148,7 +152,7 @@ Refresh the Project File cache when any of these change in GitHub:
 - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
-- any Workflow Governance `project_files/00-07`
+- any active Direction `project_files/00-08` file listed in this manifest
 - ChatGPT Project Instructions for Workflow Governance
 - runtime file-read, prompt-loading, repository-patch, or context-loading rules
 

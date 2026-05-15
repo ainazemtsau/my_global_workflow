@@ -120,6 +120,7 @@ required_context:
     - 05_PORTFOLIO_QUEUE.md
     - 06_CONTEXT_LIBRARY_INDEX.md
     - 07_PHASE_MEMORY_INDEX.md
+    - 08_DIRECTION_MAP.md
   shared_runtime_files:
     - WORKFLOW_SOURCE_OF_TRUTH.md
     - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md

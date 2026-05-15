@@ -88,7 +88,7 @@ If a runtime-core packet reference conflicts with the matching transport templat
 
 ## 2. Required Direction Project Files
 
-Every Direction ChatGPT Project must load the Direction Project Files 00-07 by default from:
+Every Direction ChatGPT Project must load the Direction Project Files 00-08 by default from:
 
 ```text
 directions/<direction-id>/project_files/
@@ -106,6 +106,7 @@ Required Direction Project Files:
 05_PORTFOLIO_QUEUE.md
 06_CONTEXT_LIBRARY_INDEX.md
 07_PHASE_MEMORY_INDEX.md
+08_DIRECTION_MAP.md
 
 ```
 
@@ -123,6 +124,8 @@ These files are the default active context.
 The Direction Project must not use Workflow Rebuild Project files as Direction runtime state.
 
 If `07_PHASE_MEMORY_INDEX.md` is missing for an existing Direction, treat the Direction as needing a Phase Memory backfill or Context Request before creating a materially new Phase after a previous Phase close.
+
+If `08_DIRECTION_MAP.md` is missing, uninitialized, or marked `needs_m0_review`, treat the Direction as needing `M0_DIRECTION_MAP` migration/review before a material strategic Phase or Goal selection depends on the map.
 
 ## 3. Required Direction structure
 
@@ -142,6 +145,7 @@ directions/<direction-id>/
     05_PORTFOLIO_QUEUE.md
     06_CONTEXT_LIBRARY_INDEX.md
     07_PHASE_MEMORY_INDEX.md
+    08_DIRECTION_MAP.md
   knowledge/
     canon/
     decisions/
@@ -214,6 +218,46 @@ P0 must show a visible anti-duplicate line before approval:
 
 If no concrete delta exists, P0 must not create a new Phase. It must choose continue/repair/carryover/context-request/human-decision/stop instead.
 
+## 3.2 Direction Map
+
+`08_DIRECTION_MAP.md` is compact strategic routing context between Direction and Phase.
+
+It does not replace Direction State, Current Phase, Active Goal, Portfolio Queue, Context Loading Index, or Phase Memory. It helps route the next strategic campaign by keeping the current initiative, active front, horizon slice, and parked nodes visible without becoming a broad backlog or roadmap.
+
+The Direction Map should stay compact and include:
+
+- Current Initiative;
+- Initiative Registry;
+- Strategy Basis;
+- Compact Initiative Graph;
+- Active Front;
+- Horizon Slice;
+- Parked/Future Nodes;
+- Map Update Policy.
+
+`M0_DIRECTION_MAP` is the conditional map optimizer/review stage for creating, reviewing, updating, or migrating this file. M0 does not replace `P0_PHASE_START`, `G0_GOAL_SELECT`, `G1_GOAL_SHAPE`, `E1_EXECUTION_BRIEF`, `R1_GOAL_REVIEW_DISTILL`, or `P9_PHASE_CLOSE`; those stages still own their normal lifecycle artifacts.
+
+After the 08 rollout, initial Direction Map stubs are not accepted strategic maps. M0 has a migration mode for Directions whose `08_DIRECTION_MAP.md` is uninitialized. In migration mode, M0 must build the Direction Map from current `00-07` state, Phase Memory, existing Phase/Goal/Queue state, and explicit user-provided strategic initiative/context when available. M0 must not invent missing progress, active initiatives, nodes, goals, or strategy.
+
+Phase `map_binding`:
+
+- A new or materially changed Phase should be selected from the Direction Map Active Front / Horizon Slice when the map is initialized and relevant.
+- The Phase remains a constraint campaign with Critical Constraint, Minimum Outcome, closure contract, and Phase Memory obligations.
+- If the map is stale, missing, or contradictory and the Phase choice depends on it, route to M0 or return Context Request.
+
+Goal `map_binding`:
+
+- A shaped Goal should identify the map node or initiative it advances when the map is initialized and relevant.
+- Goal outputs may include `expected_map_delta` describing the likely map change after acceptance or review.
+- A Goal must not mutate `08_DIRECTION_MAP.md` directly during execution unless the approved lifecycle stage patch includes the controlled map delta.
+
+Controlled `map_delta` behavior:
+
+- `R1_GOAL_REVIEW_DISTILL` may propose or apply a compact map delta after a Goal outcome is reviewed and approved.
+- `P9_PHASE_CLOSE` may propose or apply a compact map delta when closing or pausing a Phase.
+- Parent synthesis after parallel branches may propose a map update from branch evidence.
+- Branch chats must not mutate `08_DIRECTION_MAP.md`; branch chats return Node Result Cards, Evidence Packets, Audit Results, Decision Inputs, or delta proposals for parent synthesis.
+
 ## 4\. Forbidden Direction Project Files
 
 Do not upload these into normal Direction Project Files:
@@ -240,9 +284,9 @@ Stage prompts are provided dynamically only for the stage being run.
 At the start of a Direction Project chat:
 
 1.  Read Project Instructions.
-2.  Read Direction Project Files 00-07.
+2.  Read Direction Project Files 00-08.
 3.  Read shared runtime core at `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
-4.  Identify Direction, current Phase, active Goal, current route, blockers, freshness/staleness, and whether a Launch Card is present.
+4.  Identify Direction, Direction Map status, current Phase, active Goal, current route, blockers, freshness/staleness, and whether a Launch Card is present.
 5.  If a Launch Card is present, follow it.
 6.  If no Launch Card is present, use Router / Stage Launcher behavior to determine the smallest safe next action.
 7.  If the required stage prompt or required context is missing, return Context Request Card.
@@ -261,6 +305,7 @@ Router must check:
 
 *   Is Direction known?
 *   Is Project File freshness acceptable?
+*   Is Direction Map missing, uninitialized, or stale when strategic Phase/Goal selection depends on it?
 *   Is active Phase known?
 *   Is active Goal known?
 *   Is there a pending Repository Patch?
@@ -274,6 +319,9 @@ Router default routing:
 ```text
 If Direction is missing:
   route to D0_DIRECTION_SETUP or Context Request.
+
+If Direction Map is uninitialized/needs_m0_review and a material strategic Phase or Goal choice depends on it:
+  route to M0_DIRECTION_MAP.
 
 If active Phase is missing:
   route to P0_PHASE_START.
@@ -976,6 +1024,12 @@ Mapping:
 
 06_CONTEXT_LIBRARY_INDEX.md changed
   -> 06_CONTEXT_LIBRARY_INDEX.md
+
+07 Phase Memory changed
+  -> 07_PHASE_MEMORY_INDEX.md
+
+08 Direction Map changed
+  -> 08_DIRECTION_MAP.md
 
 Shared runtime core changed
   -> workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md

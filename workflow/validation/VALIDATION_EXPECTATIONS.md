@@ -30,6 +30,7 @@ directions/<direction-id>/project_files/04_ACTIVE_GOAL.md
 directions/<direction-id>/project_files/05_PORTFOLIO_QUEUE.md
 directions/<direction-id>/project_files/06_CONTEXT_LIBRARY_INDEX.md
 directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+directions/<direction-id>/project_files/08_DIRECTION_MAP.md
 directions/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
 ```
 
@@ -50,7 +51,7 @@ workflow/stage_registry/STAGE_REGISTRY.md
 These checks are blocking in both baseline and strict mode:
 
 1. Required shared runtime files exist.
-2. Active Direction Project Files `00-07` exist.
+2. Active Direction Project Files `00-08` exist.
 3. Active Direction Project Instructions exist.
 4. Markdown triple-backtick fences are balanced.
 5. `STAGE_REGISTRY.md` declares itself the sole authority for canonical stage IDs, stage identity, prompt path/status, target runtime, activation, and normal `allowed_next`.
@@ -72,6 +73,7 @@ These checks are blocking in both baseline and strict mode:
     - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
     - `workflow/stage_registry/STAGE_REGISTRY.md`
 11. Direction Project Files must not contain full stage prompt bodies.
+12. Registry rows marked `prompt_status: present` must have matching prompt files under `workflow/stage_prompts/`.
 
 ## Baseline warnings
 

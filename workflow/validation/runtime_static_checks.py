@@ -43,6 +43,7 @@ REQUIRED_DIRECTION_PROJECT_FILES = [
     "05_PORTFOLIO_QUEUE.md",
     "06_CONTEXT_LIBRARY_INDEX.md",
     "07_PHASE_MEMORY_INDEX.md",
+    "08_DIRECTION_MAP.md",
 ]
 
 DEPRECATED_PROMPT_DELIVERY_MODES = [
@@ -160,9 +161,9 @@ def check_active_direction_files(root: Path, results: list[Finding]) -> None:
             path = f"directions/{direction}/project_files/{filename}"
             if not (root / path).is_file():
                 missing.append(path)
-                add(results, "CHECK 003", "active_direction_00_07_exist", "FAIL", "Required Direction Project File is missing.", path)
+                add(results, "CHECK 003", "active_direction_00_08_exist", "FAIL", "Required Direction Project File is missing.", path)
     if not missing:
-        add(results, "CHECK 003", "active_direction_00_07_exist", "PASS", "All active Direction Project Files 00-07 exist.")
+        add(results, "CHECK 003", "active_direction_00_08_exist", "PASS", "All active Direction Project Files 00-08 exist.")
 
 
 def check_active_direction_project_instructions(root: Path, results: list[Finding]) -> None:
@@ -237,6 +238,38 @@ def check_registry_validation_rules(root: Path, results: list[Finding]) -> None:
         add(results, "CHECK 007", "registry_validation_rules_present", "FAIL", f"Registry validation rule fragments missing: {len(missing)}.", rel(path, root))
     else:
         add(results, "CHECK 007", "registry_validation_rules_present", "PASS", "Registry validation rule fragments are present.", rel(path, root))
+
+
+def check_registry_present_prompt_files(root: Path, results: list[Finding]) -> None:
+    path = root / "workflow/stage_registry/STAGE_REGISTRY.md"
+    if not path.is_file():
+        add(results, "CHECK 007A", "registry_present_prompt_files_exist", "FAIL", "STAGE_REGISTRY.md missing.", rel(path, root))
+        return
+
+    missing = []
+    text = read_text(path)
+    for line in text.splitlines():
+        if not line.startswith("|") or "`workflow/stage_prompts/" not in line or "| present |" not in line:
+            continue
+
+        match = re.search(r"`(workflow/stage_prompts/[^`]+\.md)`", line)
+        if not match:
+            continue
+
+        prompt_path = match.group(1)
+        if not (root / prompt_path).is_file():
+            missing.append(prompt_path)
+            add(
+                results,
+                "CHECK 007A",
+                "registry_present_prompt_files_exist",
+                "FAIL",
+                "Registry row marks prompt as present, but prompt file is missing.",
+                prompt_path,
+            )
+
+    if not missing:
+        add(results, "CHECK 007A", "registry_present_prompt_files_exist", "PASS", "All registry rows marked present have prompt files.")
 
 
 def check_deprecated_prompt_delivery_modes(root: Path, results: list[Finding]) -> None:
@@ -499,19 +532,20 @@ def check_cross_direction_cache_setup(root: Path, results: list[Finding]) -> Non
     manifest_text = read_text(manifest)
     missing_refs = []
     for direction in ACTIVE_DIRECTIONS:
-        if f"directions/{direction}/project_files/07_PHASE_MEMORY_INDEX.md" not in manifest_text:
-            missing_refs.append(direction)
+        for filename in ("07_PHASE_MEMORY_INDEX.md", "08_DIRECTION_MAP.md"):
+            if f"directions/{direction}/project_files/{filename}" not in manifest_text:
+                missing_refs.append(f"{direction}/{filename}")
     if missing_refs:
-        add(results, "CHECK 016", "cross_direction_cache_setup_consistency", "FAIL", f"Manifest missing 07 Phase Memory references for: {', '.join(missing_refs)}.", rel(manifest, root))
+        add(results, "CHECK 016", "cross_direction_cache_setup_consistency", "FAIL", f"Manifest missing active Direction cache references for: {', '.join(missing_refs)}.", rel(manifest, root))
     else:
-        add(results, "CHECK 016", "cross_direction_cache_setup_consistency", "PASS", "Manifest references active Direction Project Files 00-07 including 07 Phase Memory.")
+        add(results, "CHECK 016", "cross_direction_cache_setup_consistency", "PASS", "Manifest references active Direction Project Files 00-08 including 08 Direction Map.")
 
     if docs_setup.is_file():
         docs_text = read_text(docs_setup)
-        if "Workflow Governance" not in docs_text or "07_PHASE_MEMORY_INDEX.md" not in docs_text:
+        if "Workflow Governance" not in docs_text or "07_PHASE_MEMORY_INDEX.md" not in docs_text or "08_DIRECTION_MAP.md" not in docs_text:
             add(results, "CHECK 016", "cross_direction_cache_setup_consistency", "WARN", "docs/CHATGPT_PROJECT_SETUP.md appears stale versus current Workflow Governance/cache setup.", rel(docs_setup, root))
         else:
-            add(results, "CHECK 016", "cross_direction_cache_setup_consistency", "PASS", "docs/CHATGPT_PROJECT_SETUP.md contains Workflow Governance and 07 Phase Memory references.")
+            add(results, "CHECK 016", "cross_direction_cache_setup_consistency", "PASS", "docs/CHATGPT_PROJECT_SETUP.md contains Workflow Governance, 07 Phase Memory, and 08 Direction Map references.")
     else:
         add(results, "CHECK 016", "cross_direction_cache_setup_consistency", "WARN", "docs/CHATGPT_PROJECT_SETUP.md missing.", rel(docs_setup, root))
 
@@ -1052,6 +1086,7 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_registry_authority_markers(root, results)
     check_runtime_core_no_duplicate_full_transition_table(root, results)
     check_registry_validation_rules(root, results)
+    check_registry_present_prompt_files(root, results)
     check_deprecated_prompt_delivery_modes(root, results)
     check_ad_wf_rt_001_boundary(root, results)
     check_legacy_transport_shapes(root, results, mode)

@@ -32,10 +32,13 @@ In the ChatGPT Project, these files should be present as Project Files runtime c
 - `directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md`
 - `directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md`
 - `directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md`
+- `directions/health-and-beauty/project_files/08_DIRECTION_MAP.md`
 
 GitHub remains the source of truth. Project Files are a runtime cache.
 
 If GitHub and Project File cache conflict, use verified full GitHub read-back. If GitHub read is truncated, omitted, lacks tail verification, or cannot be verified, return Context Request instead of treating partial GitHub content as authority.
+
+`08_DIRECTION_MAP.md` is strategic routing context between Direction and Phase; it does not replace Phase, Goal, Queue, Context Loading Index, or Phase Memory state.
 
 ## Shared runtime and stage prompts
 
@@ -50,7 +53,7 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 
 ## Required context for next E1
 
-* Direction Project Files 00-07.
+* Direction Project Files 00-08.
 * `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 * `workflow/stage_registry/STAGE_REGISTRY.md`.
 * `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`.
@@ -83,5 +86,6 @@ Do not infer that MacroFactor, self-hosted trackers, Notion, Trillium, ChatGPT c
 Required default Project Files now also include:
 
 *   `directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md`
+*   `directions/health-and-beauty/project_files/08_DIRECTION_MAP.md`
 
 Use `07_PHASE_MEMORY_INDEX.md` as compact phase-history context before P0 proposes a new Phase after closure.
