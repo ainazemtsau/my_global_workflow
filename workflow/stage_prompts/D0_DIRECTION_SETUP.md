@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-15"
 
 # D0\_DIRECTION\_SETUP — Final Runtime Prompt
 
@@ -704,6 +704,22 @@ phase_memory_status:
 D0 must also ensure `06_CONTEXT_LIBRARY_INDEX.md` names `07_PHASE_MEMORY_INDEX.md` as part of the default Direction Project File set.
 
 D0 must not backfill closed Phase history by guesswork. If existing closed Phase evidence is available but incomplete, mark the entry `partial_backfill` and include exact source pointers only.
+
+## 16.2 Direction Map setup handoff
+
+After creating or repairing the Direction container and required Project Files, check whether:
+
+```text
+directions/<direction-id>/project_files/08_DIRECTION_MAP.md
+```
+
+exists, and whether its `map_state` is `uninitialized`, `needs_m0_review`, stale, missing, or contradicted by current setup evidence.
+
+D0 must not build, migrate, or populate the Direction Map. M0 remains the only full map construction/review stage.
+
+If no material active Phase/Goal continuation blocks safe routing and map creation/review is needed, D0 should recommend or route to `M0_DIRECTION_MAP` before `P0_PHASE_START`, using the registry for route validation.
+
+If an existing active Phase/Goal continuation is clearly safe and the map is nonblocking, D0 may hand off normally while noting that M0 migration/review remains required before material strategic Phase/Goal selection.
 
 ## 17\. Context classification
 

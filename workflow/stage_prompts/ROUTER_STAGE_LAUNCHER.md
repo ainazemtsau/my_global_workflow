@@ -11,7 +11,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-15"
 
 Stage ID: ROUTER\_STAGE\_LAUNCHER Stage name: Router / Stage Launcher Behavior Stage type: Runtime shell behavior with formal stage-like public interface Primary job: select the smallest safe next workflow stage and produce a usable Launch Card. Testing status: unaccepted until installed and passed on a real Direction test.
 
@@ -199,6 +199,33 @@ Classify each artifact as:
 *   stale/excluded context;
 *   missing but nonblocking;
 *   missing and blocking.
+
+## 4.1 Direction Map awareness gate
+
+When routing material strategic work for an existing Direction, check the current status of:
+
+```text
+directions/<direction-id>/project_files/08_DIRECTION_MAP.md
+```
+
+Use the map only as routing context. Do not execute M0 work, mutate `08_DIRECTION_MAP.md`, or run map construction inside Router.
+
+When relevant, classify raw user input against the Direction Map as one of:
+
+- `active_node`
+- `horizon_node`
+- `parallel_safe_node`
+- `parked_or_future_node`
+- `new_node_candidate`
+- `initiative_switch_signal`
+- `map_drift_signal`
+- `no_map_or_uninitialized_map`
+
+Route to `M0_DIRECTION_MAP` only when the map is missing, uninitialized, stale, disputed, or when a strategic Phase/Goal choice depends on map review. Do not launch M0 merely because `08_DIRECTION_MAP.md` exists.
+
+If an active Goal is already in progress and the map is uninitialized, do not interrupt the Goal unless the user asks for strategic map review or the missing map blocks safe routing.
+
+If routing proceeds without M0, preserve normal Launch Card and Context Request behavior and include the map classification only when it materially affects the route.
 
 ---
 

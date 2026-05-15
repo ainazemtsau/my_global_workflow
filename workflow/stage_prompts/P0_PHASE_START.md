@@ -11,7 +11,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-15"
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -203,6 +203,36 @@ P0 must separate:
 - genuinely new Phase constraint;
 - repair/review work;
 - repeated work that should not be proposed.
+
+## 1.3 Direction Map Phase link
+
+Before proposing a materially new Phase, P0 must read and use both:
+
+```text
+directions/<direction-id>/project_files/07_PHASE_MEMORY_INDEX.md
+directions/<direction-id>/project_files/08_DIRECTION_MAP.md
+```
+
+Use `07_PHASE_MEMORY_INDEX.md` for anti-duplicate Phase logic as described above. Use `08_DIRECTION_MAP.md` only to link the proposed Phase to the current Active Front, Horizon Slice, or a specific map node/edge when the map is initialized.
+
+Required visible line in every Phase recommendation:
+
+```text
+Map link: <node_or_edge_or_uninitialized_reason>
+```
+
+The existing visible anti-duplicate line remains required:
+
+```text
+Почему это не повтор прошлой фазы:
+<concrete delta>
+```
+
+If `08_DIRECTION_MAP.md` is uninitialized and strategic Phase choice depends on it, route to `M0_DIRECTION_MAP` or return a Context Request instead of inventing a Phase from missing map context.
+
+If current Phase continuation is clear and the uninitialized map is nonblocking, P0 may proceed only with an explicit note that M0 migration/review remains required before material strategic Phase/Goal selection.
+
+P0 must not populate, repair, or update `08_DIRECTION_MAP.md`.
 
 ## 2\. Progressive Decision Brief behavior
 

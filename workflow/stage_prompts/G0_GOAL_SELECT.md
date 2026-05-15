@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-15"
 
 # G0\_GOAL\_SELECT — Final Runtime Prompt
 
@@ -150,6 +150,24 @@ G0 may select the next Goal only when one of these is true:
 - P9 or an equivalent closure gate has decided `remain_active` and identified the next required Goal-selection basis.
 
 Optional expansion candidates must not be selected as required Goals unless a Human Decision or Phase Continue decision explicitly adopts them.
+
+## 1.2 Direction Map candidate filter
+
+When `08_DIRECTION_MAP.md` is initialized, prefer Goal candidates that advance both the current Phase and a Direction Map node or edge.
+
+Classify each relevant candidate, when enough map context exists, as one of:
+
+- `active_front`
+- `horizon`
+- `parallel_safe`
+- `parked_or_future`
+- `new_node_candidate`
+
+If the leading candidate is parked/future work, requires an initiative switch, or materially changes the Active Front, route to `M0_DIRECTION_MAP` or Human Decision instead of selecting it as a normal Goal.
+
+If `08_DIRECTION_MAP.md` is uninitialized, G0 may select only clearly local Phase-required Goals. Strategic Goal selection must route to `M0_DIRECTION_MAP` or Context Request.
+
+G0 must not edit, backfill, or rewrite the Direction Map.
 
 ## 2\. Non-goals
 

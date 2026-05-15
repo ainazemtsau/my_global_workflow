@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-15"
 
 # G1\_GOAL\_SHAPE — Goal Shape Runtime Prompt
 
@@ -193,6 +193,7 @@ Optional inputs:
 *   Phase Working Context.
 *   G0 Stage Result Packet.
 *   G0 selected-goal rationale.
+*   Direction Map binding or candidate classification from G0/P0, when available.
 *   Direction-specific constraints.
 *   Domain-specific success metrics.
 *   Current Changed Files / Context Refresh List.
@@ -201,6 +202,23 @@ Optional inputs:
 *   Prior Documentation Maintenance Gate.
 
 Unknown optional fields must be tolerated. Preserve high-signal unknown extensions if relevant, but do not let unknown fields override stable core fields.
+
+## 2.1 Direction Map binding
+
+When applicable, the Goal Contract must include compact `map_binding`:
+
+```yaml
+map_binding:
+  initiative_id:
+  node_or_edge:
+  expected_map_delta:
+  why_this_goal_is_minimal:
+  why_not_premature_or_optional_expansion:
+```
+
+If no binding is possible because `08_DIRECTION_MAP.md` is uninitialized, G1 must state whether the Goal is local Phase-required work or whether `M0_DIRECTION_MAP` is required before shaping.
+
+Map binding is not a backlog. Do not list future map nodes or expand the Goal beyond WHAT / WHY / DONE.
 
 ## 3\. Immediate launch validation
 
@@ -273,6 +291,7 @@ Convert the seed into a Goal Contract with:
 *   risk triggers
 *   route recommendation
 *   close path
+*   map binding, when applicable
 
 The Goal Contract should be sufficient for a fresh next-stage chat to proceed without rereading old history.
 
@@ -422,6 +441,7 @@ Include:
 - validation_signal;
 - validation_method;
 - smallest_testable_slice;
+- map_binding, when applicable;
 - close_path.
 
 ## 3. Scope Boundary

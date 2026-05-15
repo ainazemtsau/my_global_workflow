@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-15"
 
 # R1\_GOAL\_REVIEW\_DISTILL — Review Distill Runtime Prompt
 
@@ -255,6 +255,26 @@ R1 must:
 - return Context Request when Phase Closure Contract is missing or too stale to evaluate.
 
 R1 must not route directly to G0 only because Active Goal is none. Active Goal being none means the Goal lifecycle is clear; it does not prove the Phase should continue.
+
+## 5.2 Direction Map delta proposal
+
+When the reviewed Goal had `map_binding` or materially affects strategy, R1 must include a proposed `map_delta` in the review result.
+
+Use only these compact delta types:
+
+- `node_progressed`
+- `node_done_accepted`
+- `node_blocked`
+- `node_superseded`
+- `new_dependency_discovered`
+- `parked_node_became_candidate`
+- `active_front_unchanged`
+- `active_front_review_needed`
+- `m0_review_needed`
+
+R1 must not silently rewrite `08_DIRECTION_MAP.md`. If the strategic delta is material, ambiguous, disputed, or changes the Active Front, route to `M0_DIRECTION_MAP` or Human Decision.
+
+The `phase_progress_gate` / Phase Progress Gate remains mandatory before any next `G0_GOAL_SELECT` route.
 
 ## 6\. Internal subprocess
 

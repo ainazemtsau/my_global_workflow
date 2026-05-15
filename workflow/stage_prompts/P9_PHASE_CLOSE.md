@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-15"
 
 # P9\_PHASE\_CLOSE — Phase Close Final Runtime Prompt
 
@@ -219,6 +219,27 @@ Minimum `phase_close_summary.md` sections:
 ```
 
 P9 must keep the index compact. Do not turn P9 into broad retrospective, planning, or next-Phase design work.
+
+## 1.3 Direction Map frontier review
+
+P9 must update or propose updates to Phase Memory as before; Direction Map does not replace `07_PHASE_MEMORY_INDEX.md`.
+
+When closing or pausing a Phase, add a compact Direction Map frontier review:
+
+```yaml
+direction_map_frontier_review:
+  horizon_slice_delta:
+  active_front_delta:
+  nodes_completed:
+  nodes_unblocked:
+  nodes_parked:
+  nodes_superseded:
+  m0_review_needed:
+```
+
+If next Phase selection depends on map repair/review, initiative switch, or Active Front conflict, route to `M0_DIRECTION_MAP` before P0 selection work.
+
+P9 must not populate a large future roadmap, backlog, or speculative map. Keep frontier review limited to closure evidence and the next routing decision.
 
 ## 2\. Non-negotiable boundaries
 

@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-15"
 
 # E1\_EXECUTION\_BRIEF — Execution Brief
 
@@ -335,6 +335,22 @@ f0_entry_from_e1:
 ```
 
 E1 must include this F0 readiness summary in the route decision when selecting F0.
+
+### Pass 4.6 — Direction Map topology gate
+
+When the shaped Goal includes `map_binding` or Direction Map node context, use the map node type, dependencies, and parallel-safety flags to choose execution topology:
+
+- `evidence_node` -> `D1_DEEP_RESEARCH` or `research_before_execution`.
+- `decision_node` -> `S3_DECIDE`, `D1_DEEP_RESEARCH`, `A1_AUDIT`, or decision-map topology.
+- `audit/risk node` -> `A1_AUDIT`.
+- `build_node` -> `F0_FAST_DIRECT`, `C1_CODEX_GRAPH_PLAN`, or `C2_CODEX_EXECUTE` only when scope, acceptance, and context are ready.
+- `parallel_safe nodes` -> bounded parallel branches plus parent synthesis.
+
+Preserve the existing research gate and Fast Direct entry guard. If map context conflicts with those gates, choose the safer gate result and explain the route.
+
+Branch outputs must be `Node Result Card` / `Evidence Packet` / `Audit Result` / `Decision Input` for parent synthesis. Branch chats must not mutate `08_DIRECTION_MAP.md`.
+
+E1 must not directly change the Direction Map. Any map update is a later parent-synthesis proposal, not execution-brief work.
 
 ### Pass 5 — Route selection
 
