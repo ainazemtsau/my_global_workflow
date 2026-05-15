@@ -35,9 +35,32 @@ Workflow Governance should be run in a separate ChatGPT Project, not the old Wor
 
 ## Workflow Governance Maintenance Mode
 
-Workflow Governance is the maintenance console for the shared workflow layer.
+Workflow Governance is the maintenance workbench for the shared workflow layer.
 
-For workflow audit, repair, cleanup, source-of-truth review, routing repair, prompt-boundary repair, transport/schema cleanup, cache/setup consistency work, or Codex repository maintenance, use direct maintenance mode.
+Use this Project for iterative workflow governance work such as:
+
+- workflow audit;
+- workflow repair;
+- cleanup;
+- source-of-truth review;
+- routing repair;
+- prompt-boundary repair;
+- transport/schema cleanup;
+- cache/setup consistency work;
+- validation hardening;
+- Codex repository maintenance.
+
+This maintenance work may be performed across many separate chats using the maintenance loop:
+
+```text
+natural-language issue/request
+-> inspect relevant workflow files
+-> produce findings and patch plan
+-> wait for approval
+-> prepare Codex repository maintenance apply/read-back card
+-> validate Codex return evidence
+-> continue with the next focused audit/fix cycle
+```
 
 In direct maintenance mode:
 
@@ -52,6 +75,8 @@ In direct maintenance mode:
 Do not route to `G0_GOAL_SELECT`, `G1_GOAL_SHAPE`, `P0_PHASE_START`, or another lifecycle stage merely because Active Goal is `none`.
 
 Use normal workflow lifecycle stages only when the user explicitly asks to run Workflow Governance as a normal Direction lifecycle.
+
+The current `Workflow Steward Bootstrap` Phase is a maintenance container for this workbench. It is not a requirement to run every maintenance task through the normal lifecycle.
 
 ## Current pointers
 

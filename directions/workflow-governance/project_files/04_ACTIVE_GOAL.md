@@ -19,6 +19,8 @@ active_goal:
   state: none
   goal_id: null
   goal_name: null
+  maintenance_workbench_active: true
+  normal_lifecycle_required: false
   default_next_route: "Workflow Governance Maintenance Mode for workflow audit/repair/cleanup; G0_GOAL_SELECT only when explicitly requested"
 ```
 
@@ -28,7 +30,7 @@ No Workflow Governance Goal is currently active.
 
 Active Goal `none` is not a blocker for workflow maintenance work.
 
-Use Workflow Governance Maintenance Mode for workflow audit, repair, cleanup, validation, source-of-truth review, repository patch preparation, and Codex repository maintenance.
+Workflow Governance currently operates as a maintenance workbench. Use Workflow Governance Maintenance Mode for workflow audit, repair, cleanup, validation, source-of-truth review, repository patch preparation, and Codex repository maintenance.
 
 Use `G0_GOAL_SELECT` only when the user explicitly asks to choose a durable governance goal or run the normal Goal lifecycle.
 

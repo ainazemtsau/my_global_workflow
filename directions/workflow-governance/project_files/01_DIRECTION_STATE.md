@@ -16,9 +16,14 @@ artifact_control:
 
 - Purpose: maintain and improve Workflow vNext-R.
 - Source of truth: GitHub repository markdown.
-- Current Phase: `Workflow Steward Bootstrap`.
+- Operating mode: `maintenance_direct` by default.
+- Workbench role: iterative workflow governance maintenance across chats.
+- Current Phase container: `Workflow Steward Bootstrap`.
+- Current Phase type: `maintenance_container`.
 - Active Goal: `none`.
+- Active Goal `none` is not a blocker for maintenance work.
 - Default next route: Workflow Governance Maintenance Mode for workflow repair, audit, cleanup, validation, and repository maintenance requests.
+- Normal lifecycle route: only when the user explicitly asks to select a durable governance objective or run normal Direction lifecycle.
 
 ## Direction role
 
@@ -40,14 +45,15 @@ It does not own product/project execution.
 
 Workflow Governance defaults to Maintenance Mode for workflow repair, audit, cleanup, validation, and repository maintenance requests.
 
-If the user asks to improve, audit, debug, simplify, restructure, or patch workflow behavior, do not force `G0_GOAL_SELECT` or another lifecycle stage. Work directly in maintenance mode:
+If the user asks to improve, audit, debug, simplify, restructure, validate, or patch workflow behavior, do not force `G0_GOAL_SELECT`, `G1_GOAL_SHAPE`, `P0_PHASE_START`, or another lifecycle stage. Work directly in maintenance mode:
 
 - identify the relevant workflow surface;
 - inspect current repository files or request missing context;
 - produce findings and patch plan;
-- wait for approval before emitting repository_patch.v1 operations unless the user directly asks Codex to execute the changes;
+- wait for approval before emitting `repository_patch.v1` operations unless the user directly asks Codex to execute the changes;
 - prepare Codex repository maintenance apply/read-back instructions;
-- validate Codex return evidence.
+- validate Codex return evidence;
+- continue with the next focused maintenance issue when requested.
 
 If the user explicitly asks to select a durable governance objective or run normal Direction lifecycle, route to `G0_GOAL_SELECT`.
 
