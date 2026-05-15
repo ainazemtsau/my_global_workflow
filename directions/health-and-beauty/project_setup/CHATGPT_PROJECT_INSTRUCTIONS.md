@@ -74,3 +74,36 @@ Do not invent Direction, Direction Map, Phase, Goal, Portfolio Queue, Context Lo
 - Use ruthless scope cutting and smallest testable version where relevant.
 - Do not emit `repository_patch.v1` operations until explicitly approved by the user.
 - Do not run product/project execution unless the correct execution route and context are present.
+
+## Direction worktree repository maintenance
+
+Repository maintenance must follow the worktree-aware policy in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+For Health and Beauty Direction-specific work, use:
+
+```text
+worktree: C:\my_global_workflow_worktrees\health-and-beauty
+branch: codex/direction-health-and-beauty
+upstream: origin/codex/direction-health-and-beauty
+main integration worktree: C:\my_global_workflow
+```
+
+Before starting repository work in the worktree:
+
+```text
+git fetch origin
+git rebase origin/main
+```
+
+After finishing scoped work:
+
+```text
+git status
+git add <approved files>
+git commit -m "<approved summary>"
+git push
+```
+
+Then merge or PR the Direction branch into `main` from the clean main integration worktree, or return explicit unmerged reason with conflict evidence.
+
+Do not edit sibling Directions unless the approved patch explicitly requires it.

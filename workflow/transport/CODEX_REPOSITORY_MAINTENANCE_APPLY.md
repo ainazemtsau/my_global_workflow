@@ -46,19 +46,55 @@ not_product_project_execution: true
 patch_id:
 
 repository:
-  name:
-  branch:
+  name: ainazemtsau/my_global_workflow
+  remote: origin
+  main_branch: main
+  main_worktree_path: C:\my_global_workflow
+
+worktree_policy:
+  mode: direction_worktree | workflow_governance_worktree | main_integration_worktree | direct_main_override
+  target_direction:
+  target_worktree_path:
+  target_branch:
+  upstream_branch:
+  rebase_before_apply: true
+  push_branch_after_commit: true
+  integrate_to_main: true
+  integration_method: merge_or_pr
+  main_worktree_path: C:\my_global_workflow
+  sibling_direction_edits_allowed: false
+  direct_main_requires_explicit_override: true
+
+direction_worktree_map:
+  workflow-governance:
+    worktree_path: C:\my_global_workflow_worktrees\workflow-governance
+    branch: codex/direction-workflow-governance
+    upstream: origin/codex/direction-workflow-governance
+  solo-max-productive:
+    worktree_path: C:\my_global_workflow_worktrees\solo-max-productive
+    branch: codex/direction-solo-max-productive
+    upstream: origin/codex/direction-solo-max-productive
+  indie-game-development:
+    worktree_path: C:\my_global_workflow_worktrees\indie-game-development
+    branch: codex/direction-indie-game-development
+    upstream: origin/codex/direction-indie-game-development
+  health-and-beauty:
+    worktree_path: C:\my_global_workflow_worktrees\health-and-beauty
+    branch: codex/direction-health-and-beauty
+    upstream: origin/codex/direction-health-and-beauty
 
 branch_policy:
-  mode: direct_main
-  target_branch: main
-  create_branch: false
-  create_pr: false
-  commit_directly: true
-  push_directly: true
-  require_clean_worktree: false
-  pull_before_apply: true
+  mode: worktree_branch_then_main_integration
+  target_branch:
+  upstream_branch:
+  rebase_before_apply: true
+  commit_in_worktree_branch: true
+  push_branch_after_commit: true
+  merge_or_pr_into_main: true
+  require_clean_worktree: true
+  pull_or_fetch_before_apply: true
   conflict_policy: scoped_path_conflicts_only
+  direct_main_allowed: explicit_override_only
 
 source_stage:
 
@@ -95,7 +131,14 @@ do_not_auto_launch_next_stage: true
 
 required_return:
   - final_state
+  - worktree_used
+  - target_branch
+  - upstream_branch
+  - rebase_result
   - commit_sha
+  - push_result
+  - main_integration_status
+  - main_commit_sha_or_pr
   - files_changed
   - validation_command_outputs
   - read_back_anchor_results
@@ -110,10 +153,16 @@ extensions: {}
 
 - Apply only the listed `repository_patch.v1` operations.
 - Do not infer extra changes.
+- Use the required Direction worktree for Direction-specific work.
+- Use `C:\my_global_workflow` as the clean integration worktree for `main`.
+- Run `git fetch origin && git rebase origin/main` before applying work in a Direction worktree.
+- Commit and push the Direction branch after scoped work.
+- Merge, PR, or report explicit unmerged reason for main integration.
+- Do not use the main worktree as an ordinary Direction working tree.
 - Do not run product/project execution.
 - Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
 - Do not modify project/tool bindings unless explicitly listed.
-- Do not touch sibling Directions.
+- Do not touch sibling Directions unless explicitly listed.
 - Return result to the same ChatGPT stage thread for validation.
 
 ## Validation anchors

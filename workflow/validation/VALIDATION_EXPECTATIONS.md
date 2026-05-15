@@ -306,3 +306,21 @@ Completed cleanup notes must stay current:
 - P3 removed runtime-core registry snapshot duplication.
 
 `CHECK 022 — runtime_core_registry_snapshot_cleanup` enforces this in both baseline and strict mode.
+
+## Direction worktree repository maintenance expectation
+
+Repository maintenance for `ainazemtsau/my_global_workflow` is worktree-aware.
+
+Expected model:
+
+- `C:\my_global_workflow` is the clean main integration worktree.
+- Each active Direction has a matching worktree under `C:\my_global_workflow_worktrees\`.
+- Direction-specific work happens on the matching `codex/direction-*` branch.
+- Shared workflow/governance maintenance uses the Workflow Governance worktree by default.
+- Direct-main maintenance is explicit override only.
+- Direction branches must be rebased on `origin/main` before work.
+- Direction branches must be pushed after work.
+- The run must merge/PR into main or report explicit unmerged reason.
+- Sibling Directions must not be edited from a Direction worktree unless explicitly approved.
+
+`CHECK 023 — direction_worktree_repository_maintenance_contract` enforces this in baseline and strict mode.

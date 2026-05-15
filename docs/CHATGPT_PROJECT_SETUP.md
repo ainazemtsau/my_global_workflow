@@ -642,6 +642,60 @@ superseded prompt packs
 
 Load request-only evidence/history files only when the current task requires them.
 
+## Direction worktree repository maintenance setup
+
+Repository maintenance uses a clean main integration worktree plus one worktree per active Direction.
+
+Main integration worktree:
+
+```text
+C:\my_global_workflow
+branch: main
+role: clean integration worktree
+```
+
+Direction worktrees:
+
+```text
+Workflow Governance:
+  C:\my_global_workflow_worktrees\workflow-governance
+  codex/direction-workflow-governance
+
+Solo Max Productive:
+  C:\my_global_workflow_worktrees\solo-max-productive
+  codex/direction-solo-max-productive
+
+Indie Game Development:
+  C:\my_global_workflow_worktrees\indie-game-development
+  codex/direction-indie-game-development
+
+Health and Beauty:
+  C:\my_global_workflow_worktrees\health-and-beauty
+  codex/direction-health-and-beauty
+```
+
+Direction-specific work happens in the matching worktree/branch.
+
+Before work:
+
+```text
+git fetch origin
+git rebase origin/main
+```
+
+After work:
+
+```text
+git status
+git add <approved files>
+git commit -m "<approved summary>"
+git push
+```
+
+Then merge or PR the Direction branch into `main` from `C:\my_global_workflow`, or return explicit unmerged reason with conflict evidence.
+
+Do not edit sibling Directions from a Direction worktree unless the approved task explicitly requires it.
+
 ## End-of-file marker
 
 `END_OF_FILE: docs/CHATGPT_PROJECT_SETUP.md`

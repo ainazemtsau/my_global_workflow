@@ -889,23 +889,74 @@ Codex repository maintenance must:
 - return Project Files cache refresh requirements;
 - return forbidden-path confirmation to the same ChatGPT stage thread.
 
-### 14.4 Direct-main maintenance policy
+### 14.4 Worktree-aware repository maintenance policy
 
-For repository maintenance in `ainazemtsau/my_global_workflow`, the default branch policy is direct-main maintenance unless the approved patch explicitly says otherwise:
+Repository maintenance for `ainazemtsau/my_global_workflow` is worktree-aware.
+
+The main worktree is the clean integration worktree:
 
 ```text
-target branch: main
-create branch: false
-create PR: false
-commit directly: true
-push directly: true
-pull before apply: true
-conflict policy: scoped path conflicts only
+C:\my_global_workflow
+branch: main
+role: clean integration worktree
 ```
 
-Do not create a branch as fallback unless the user explicitly overrides this policy.
+Direction-specific work must happen inside the matching Direction worktree and branch:
 
-Stop and return NEEDS_INPUT only on scoped conflicts: same-file/path overlap, forbidden-path touch, failed validation, or pull/push conflicts affecting approved patch paths.
+| Direction | Worktree path | Branch | Upstream |
+| --- | --- | --- | --- |
+| Workflow Governance | `C:\my_global_workflow_worktrees\workflow-governance` | `codex/direction-workflow-governance` | `origin/codex/direction-workflow-governance` |
+| Solo Max Productive | `C:\my_global_workflow_worktrees\solo-max-productive` | `codex/direction-solo-max-productive` | `origin/codex/direction-solo-max-productive` |
+| Indie Game Development | `C:\my_global_workflow_worktrees\indie-game-development` | `codex/direction-indie-game-development` | `origin/codex/direction-indie-game-development` |
+| Health and Beauty | `C:\my_global_workflow_worktrees\health-and-beauty` | `codex/direction-health-and-beauty` | `origin/codex/direction-health-and-beauty` |
+
+Default worktree selection:
+
+- Changes under `directions/<direction-id>/**` use that Direction's matching worktree and branch.
+- Shared workflow/runtime governance changes use the Workflow Governance worktree by default.
+- The main worktree is used for integration, pull/rebase verification, merge/PR preparation, and final main status checks.
+- Direct edits to `main` are allowed only when the approved patch explicitly declares `main_integration_worktree` or `direct_main_override`.
+
+Before starting work in a Direction worktree, Codex must run:
+
+```text
+git fetch origin
+git rebase origin/main
+```
+
+After finishing the scoped work, Codex must:
+
+```text
+git status
+git add <approved files>
+git commit -m "<approved summary>"
+git push
+```
+
+Then Codex must integrate into main by one of:
+
+- merge the pushed Direction branch into `main` from `C:\my_global_workflow`;
+- create or report a PR/merge requirement;
+- return `STUCK` / `NEEDS_INPUT` with conflict evidence if safe merge is blocked.
+
+A repository maintenance run is not complete until it reports:
+
+- worktree used;
+- target branch;
+- upstream branch;
+- rebase result;
+- direction branch commit SHA;
+- push result;
+- main integration status;
+- main commit SHA or explicit unmerged reason;
+- validation results;
+- Project Files / Project Instructions refresh requirements.
+
+Do not edit sibling Directions from a Direction worktree unless the approved patch explicitly lists sibling Direction paths.
+
+Do not use the main worktree as an ordinary Direction working tree.
+
+Do not create Task Master graph or run product/project execution as part of repository maintenance unless explicitly authorized by a C1/C2 product execution route.
 
 ### 14.5 Changed Files / Context Refresh coupling
 

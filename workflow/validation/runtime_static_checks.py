@@ -1069,6 +1069,123 @@ def check_runtime_core_registry_snapshot_cleanup(root: Path, results: list[Findi
         )
 
 
+def check_direction_worktree_repository_maintenance_contract(root: Path, results: list[Finding]) -> None:
+    """Hard-check direction worktree repository maintenance policy anchors."""
+    check_id = "CHECK 023"
+    name = "direction_worktree_repository_maintenance_contract"
+    failures = 0
+
+    required = {
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "Worktree-aware repository maintenance policy",
+            "C:\\my_global_workflow",
+            "C:\\my_global_workflow_worktrees\\workflow-governance",
+            "codex/direction-workflow-governance",
+            "codex/direction-solo-max-productive",
+            "codex/direction-indie-game-development",
+            "codex/direction-health-and-beauty",
+            "git fetch origin",
+            "git rebase origin/main",
+            "Do not use the main worktree as an ordinary Direction working tree.",
+        ],
+        "workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md": [
+            "worktree_policy:",
+            "direction_worktree_map:",
+            "worktree_branch_then_main_integration",
+            "merge_or_pr_into_main: true",
+            "direct_main_allowed: explicit_override_only",
+        ],
+        "docs/CHATGPT_PROJECT_SETUP.md": [
+            "Direction worktree repository maintenance setup",
+            "C:\\my_global_workflow_worktrees\\health-and-beauty",
+            "codex/direction-health-and-beauty",
+        ],
+    }
+
+    project_instruction_requirements = {
+        "directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md": [
+            "Direction worktree repository maintenance",
+            "C:\\my_global_workflow_worktrees\\workflow-governance",
+            "codex/direction-workflow-governance",
+        ],
+        "directions/solo-max-productive/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md": [
+            "Direction worktree repository maintenance",
+            "C:\\my_global_workflow_worktrees\\solo-max-productive",
+            "codex/direction-solo-max-productive",
+        ],
+        "directions/indie-game-development/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md": [
+            "Direction worktree repository maintenance",
+            "C:\\my_global_workflow_worktrees\\indie-game-development",
+            "codex/direction-indie-game-development",
+        ],
+        "directions/health-and-beauty/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md": [
+            "Direction worktree repository maintenance",
+            "C:\\my_global_workflow_worktrees\\health-and-beauty",
+            "codex/direction-health-and-beauty",
+        ],
+    }
+
+    required.update(project_instruction_requirements)
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required worktree policy file is missing.", file_path)
+            continue
+
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(
+                results,
+                check_id,
+                name,
+                "FAIL",
+                f"Direction worktree policy anchors missing: {', '.join(missing[:5])}.",
+                file_path,
+            )
+
+    forbidden_runtime = {
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "### 14.4 Direct-main maintenance policy",
+            "the default branch policy is direct-main maintenance unless the approved patch explicitly says otherwise",
+        ],
+        "workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md": [
+            "mode: direct_main",
+            "commit_directly: true",
+        ],
+    }
+
+    for file_path, tokens in forbidden_runtime.items():
+        path = root / file_path
+        if not path.is_file():
+            continue
+
+        text = read_text(path)
+        for token in tokens:
+            if token in text:
+                failures += 1
+                add(
+                    results,
+                    check_id,
+                    name,
+                    "FAIL",
+                    f"Stale direct-main default wording remains: {token}.",
+                    file_path,
+                )
+
+    if failures == 0:
+        add(
+            results,
+            check_id,
+            name,
+            "PASS",
+            "Direction worktree repository maintenance policy anchors are present and stale direct-main default wording is absent.",
+        )
+
+
 def summarize(results: list[Finding]) -> str:
     if any(item.status == "FAIL" for item in results):
         return "BLOCKED"
@@ -1102,6 +1219,7 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_transport_authority_boundary(root, results)
     check_runtime_core_packet_schema_reference_cleanup(root, results)
     check_runtime_core_registry_snapshot_cleanup(root, results)
+    check_direction_worktree_repository_maintenance_contract(root, results)
     return results
 
 def print_text(results: list[Finding], root: Path, mode: str) -> None:

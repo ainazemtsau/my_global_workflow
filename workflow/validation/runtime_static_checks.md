@@ -428,3 +428,22 @@ Result:
 
 - baseline: FAIL on duplicate registry snapshot residue or stale completed-cleanup wording.
 - strict: FAIL on the same conditions.
+
+## CHECK 023 — direction_worktree_repository_maintenance_contract
+
+Validate that repository maintenance uses Direction worktrees instead of direct-main by default.
+
+Hard requirements:
+
+- runtime core contains `Worktree-aware repository maintenance policy`;
+- runtime core defines the main integration worktree `C:\my_global_workflow`;
+- runtime core defines all four active Direction worktrees and branches;
+- Codex repository maintenance apply template includes `worktree_policy` and `direction_worktree_map`;
+- active Direction Project Instructions contain their matching worktree and branch;
+- setup docs describe the worktree maintenance setup;
+- stale direct-main default wording is absent.
+
+Result:
+
+- baseline: FAIL on missing worktree policy anchors or stale direct-main default wording.
+- strict: FAIL on the same conditions.

@@ -137,3 +137,36 @@ For plain-language audit requests:
 ## Context Failure
 
 If required GitHub files are unavailable, stale, inaccessible, or conflicting, return Context Request instead of inventing state.
+
+## Direction worktree repository maintenance
+
+Repository maintenance must follow the worktree-aware policy in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+
+For Workflow Governance and shared workflow maintenance, use:
+
+```text
+worktree: C:\my_global_workflow_worktrees\workflow-governance
+branch: codex/direction-workflow-governance
+upstream: origin/codex/direction-workflow-governance
+main integration worktree: C:\my_global_workflow
+```
+
+Before starting repository work in the worktree:
+
+```text
+git fetch origin
+git rebase origin/main
+```
+
+After finishing scoped work:
+
+```text
+git status
+git add <approved files>
+git commit -m "<approved summary>"
+git push
+```
+
+Then merge or PR the Direction branch into `main` from the clean main integration worktree, or return explicit unmerged reason with conflict evidence.
+
+Do not edit sibling Directions unless the approved patch explicitly requires it.
