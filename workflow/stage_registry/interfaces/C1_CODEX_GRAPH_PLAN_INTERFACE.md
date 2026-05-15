@@ -31,9 +31,11 @@ If this interface conflicts with `STAGE_REGISTRY.md`, the registry wins and this
 
 ## Lifecycle role
 
-C1 converts an Execution Brief into a Codex-ready graph plan and wave card draft.
+C1 converts an Execution Brief into a bounded Codex execution envelope and, when needed, a graph plan / wave card draft.
 
-C1 plans Codex work. It does not execute repository or GitHub repository writes.
+C1 plans the ChatGPT-side execution envelope for Codex work. It does not execute repository or GitHub repository writes, and it does not perform deep product technical planning unless exact technical context is explicitly supplied and scoped.
+
+C1 may require Codex-side technical discovery / architecture reuse preflight in C2 when product-local architecture, module-boundary, reuse-vs-new, public-interface, dependency-direction, or technical-memory decisions are needed.
 
 ## Public input contract
 
@@ -56,6 +58,7 @@ Optional inputs:
 *   Existing tests.
 *   Task Master boundary notes.
 *   Human sequencing preference.
+*   Compact pointers to project-local technical sources such as `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, ADRs, public interface docs, internal module knowledge, or `.codex` memory.
 
 Missing-context behavior:
 
@@ -82,19 +85,22 @@ Required C1 output artifacts:
 
 *   Codex Graph Plan
 *   Codex Wave Card Draft
+*   Technical Context Boundary
+*   Technical Discovery Preflight Requirement, when needed
 *   Evidence Plan
 *   Validator Plan
 *   Next Stage Launch Card or Codex Wave Card
 
 ## Allowed next stages
 
-C1 may route only to:
+This interface is a derived/reference surface only. Registry authority wins.
 
-*   C2 Codex Execute
-*   E1 Execution Brief
-*   G1 Goal Shape
-*   B1 Problem
-*   R0 Recovery Close
+Current registry-valid C1 terminal outcomes:
+
+*   C2_CODEX_EXECUTE
+*   Context Request
+*   Human Decision
+*   Stop
 
 ## Write targets
 

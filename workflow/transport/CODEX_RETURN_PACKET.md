@@ -73,6 +73,35 @@ evidence:
     required: true | false
     result:
 
+technical_discovery:
+  preflight_required: true | false
+  preflight_run: true | false
+  trigger_reasons:
+    - reason:
+  project_local_sources_loaded:
+    - path_or_source:
+  bounded_discovery_scope:
+    - path_or_module:
+  existing_modules_checked:
+    - module:
+  existing_public_interfaces_checked:
+    - interface_or_doc:
+  similar_code_or_patterns_found:
+    - item:
+  decision: reuse_existing | extend_existing | refactor_existing | create_new_module | cross_module_request | blocked_missing_context | human_decision_required | not_applicable
+  decision_reason:
+  implementation_boundary:
+  validation_impact:
+  stop_or_escalation_required: true | false
+
+technical_memory_delta:
+  durable_update_required: true | false
+  target_artifacts:
+    - artifact:
+  update_performed: true | false
+  update_blocked_reason:
+  compact_summary_for_chatgpt:
+
 project_files_cache_refresh_required: true | false
 target_chatgpt_project:
 manual_refresh_required: true | false
@@ -107,6 +136,8 @@ extensions: {}
 - `final_state`
 - `evidence`
 - `project_files_cache_refresh_required`
+- `technical_discovery`
+- `technical_memory_delta`
 
 ## Legacy compatibility aliases
 

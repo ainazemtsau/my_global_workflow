@@ -264,6 +264,74 @@ The default route is smallest safe execution. Prefer the smallest testable imple
 
 ---
 
+## 6.5 Technical discovery / architecture reuse preflight
+
+C2 performs product/project technical discovery inside the Codex execution workspace, not inside the ChatGPT Direction Project.
+
+Run this preflight before mutation when C1 sets `technical_discovery_preflight.required: true`, or when C2 detects any of these triggers during readiness or initial inspection:
+
+- a new module, public interface, API, integration, or dependency direction may be created or changed;
+- multi-file or modular work is expected;
+- existing code reuse versus new implementation is ambiguous;
+- a refactor may be safer than adding a new module;
+- generated, protected, read-only, module-boundary, or technical-memory rules may affect implementation;
+- validation scope may change materially.
+
+Preflight procedure:
+
+1. Load only project-local technical context needed for the bounded task, such as root/nested `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, relevant public interface docs, relevant internal module docs for editable modules, and relevant code/tests inside the bounded discovery scope.
+2. Do not load unrelated module internals or full product technical history by default.
+3. Check existing modules, public interfaces, similar code, dependency direction, generated/protected/read-only paths, validation rules, and project technical memory.
+4. Decide exactly one:
+   - `reuse_existing`
+   - `extend_existing`
+   - `refactor_existing`
+   - `create_new_module`
+   - `cross_module_request`
+   - `blocked_missing_context`
+   - `human_decision_required`
+5. Mutate only if the decision stays inside the approved C1 envelope and does not require a material architecture decision outside the launch.
+6. Stop and return Human Decision, Context Request, or route back to C1/E1 if the preflight reveals a material architecture decision, dependency-direction change, public-interface change, forbidden path need, or validation-scope expansion outside the approved envelope.
+
+Required compact return evidence when the preflight ran or was required:
+
+```yaml
+technical_discovery_card:
+  preflight_required: true | false
+  preflight_run: true | false
+  trigger_reasons: []
+  project_local_sources_loaded: []
+  bounded_discovery_scope: []
+  existing_modules_checked: []
+  existing_public_interfaces_checked: []
+  similar_code_or_patterns_found: []
+  decision: reuse_existing | extend_existing | refactor_existing | create_new_module | cross_module_request | blocked_missing_context | human_decision_required
+  decision_reason:
+  implementation_boundary:
+  files_allowed_to_edit:
+  files_to_avoid:
+  validation_impact:
+  stop_or_escalation_required: true | false
+technical_memory_delta:
+  durable_update_required: true | false
+  target_artifacts:
+    - AGENTS.md
+    - Project Execution Profile
+    - Validation Profile
+    - Module Map
+    - ADR
+    - public interface docs
+    - internal module knowledge
+    - .codex memory
+  update_performed: true | false
+  update_blocked_reason:
+  compact_summary_for_chatgpt:
+```
+
+ChatGPT Direction Project Files must receive only compact summaries and pointers from this preflight, not full product technical docs.
+
+---
+
 ## 7\. Execution procedure
 
 If the readiness gate passes and the runtime is execution-capable:

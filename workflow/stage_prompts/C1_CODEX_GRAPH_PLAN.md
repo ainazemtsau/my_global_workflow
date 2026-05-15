@@ -119,13 +119,47 @@ C1 is graph planning only. Do not start Codex product/project execution, run C2,
 
 Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not bypass C1 readiness checks or authorize product/project execution before a valid C2 route.
 
+## 0.5 ChatGPT / Codex technical context boundary
+
+C1 is a ChatGPT-side Codex execution-envelope planning stage. It must keep product technical context out of the default ChatGPT workflow layer.
+
+C1 may plan and validate:
+
+- Codex execution route and wave shape;
+- target repo/workspace identity;
+- branch/worktree, sandbox, approval, network, and dependency policy;
+- allowed and forbidden paths or modules when already known;
+- validation expectations;
+- stop triggers;
+- evidence and return packet requirements;
+- compact pointers to project-local technical sources.
+
+C1 must not default-load or mirror full product technical docs, module internals, code-level implementation history, old Codex returns, ADR bodies, or reusable implementation decisions into the ChatGPT Direction Project.
+
+C1 must not decide deep product architecture, module reuse, public-interface design, dependency direction, or refactor-vs-new-module strategy unless the exact technical context is explicitly supplied and scoped in the current run.
+
+For non-trivial modular code work, C1 must include a `technical_discovery_preflight` requirement in the C2 launch instead of trying to perform that discovery itself.
+
+Trigger `technical_discovery_preflight.required: true` when any are true:
+
+- new module, public interface, API, integration, or dependency direction may be created or changed;
+- multi-file or modular work is expected;
+- existing code reuse versus new implementation is ambiguous;
+- a refactor may be safer than adding a new module;
+- generated, protected, read-only, module-boundary, or technical-memory rules may affect implementation;
+- validation scope may change materially.
+
+The C2 launch must tell Codex to run project-local read-only discovery before mutation and return a compact `technical_discovery_card` and `technical_memory_delta` in the Codex Return Packet.
+
+If C1 cannot identify even a bounded discovery scope, it must return Context Request instead of asking ChatGPT to load all product technical context.
+
 ## 0\. Stage identity
 
 Stage ID: C1\_CODEX\_GRAPH\_PLAN
 
 Stage name: Codex Graph Plan
 
-Lifecycle role: Convert a validated Goal / Execution Brief into a bounded, Codex-ready graph or wave plan. C1 plans Codex product/project execution; it does not execute implementation.
+Lifecycle role: Convert a validated Goal / Execution Brief into a bounded Codex execution envelope and, when needed, a graph or wave plan. C1 plans the execution envelope for Codex product/project execution; it does not execute implementation or perform deep product technical planning.
 
 Primary downstream route: C2\_CODEX\_EXECUTE, only when execution prerequisites are satisfied.
 
@@ -450,6 +484,8 @@ Stable core fields:
 *   human\_review\_expectations
 *   open\_questions\_for\_c2
 *   handoff\_constraints
+*   technical\_context\_boundary
+*   technical\_discovery\_preflight
 
 Node fields:
 
