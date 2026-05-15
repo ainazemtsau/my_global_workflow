@@ -58,3 +58,23 @@ For shared workflow runtime changes, verify:
 - sibling Directions are not silently skipped.
 
 A shared workflow change that updates only Workflow Governance but leaves other active Directions stale is incomplete unless the patch explicitly proves those Directions are unaffected.
+
+## Branch / Workstream Transport Checklist
+
+Required transport templates:
+
+- `workflow/transport/TOPOLOGY_LAUNCH_BUNDLE.md`
+- `workflow/transport/WORKSTREAM_LAUNCH_CARD.md`
+- `workflow/transport/WORKSTREAM_RESULT_CARD.md`
+
+Required invariants:
+
+- Topology Launch Bundle is one terminal launch artifact, not a new stage.
+- Workstream Launch Card targets a registry-valid stage.
+- Workstream Result Card is compact by default.
+- Heavy artifact full return defaults to false.
+- Branch cards include dependency policy.
+- Branch cards include artifact policy.
+- Branch result cards include synthesis readiness.
+- Branch result cards include state-policy confirmation.
+- Branch state mutation is forbidden unless explicitly approved and scoped.

@@ -34,6 +34,16 @@ When selecting or validating a next stage:
 
 Do not maintain prompt-local transition tables in this file.
 
+## Branch / workstream result boundary
+
+A `workstream_result_card.v1` is branch output, not parent Goal completion.
+
+R1 must reject a branch-only result as parent Goal acceptance unless the parent Goal Contract explicitly defines that single branch result as the complete Goal output.
+
+For parent Goals that used branch/workstream execution, R1 should review the final parent synthesis artifact after required Workstream Result Cards have been integrated.
+
+R1 must not run phase_progress_gate from a branch-only result.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:

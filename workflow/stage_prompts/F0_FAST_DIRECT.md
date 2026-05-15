@@ -38,6 +38,24 @@ When selecting or validating a next stage:
 
 Do not maintain prompt-local transition tables in this file.
 
+## Branch / workstream mode
+
+If this stage is launched with `workstream_launch_card.v1` or `branch_mode.enabled: true`, it is a branch under a parent Goal.
+
+F0 branch mode is allowed only when the branch is small, bounded, direct, and satisfies normal F0 readiness.
+
+In branch mode:
+
+- execute only the branch objective;
+- do not broaden into parent synthesis unless the launch explicitly says this F0 run is the parent synthesis stage;
+- do not close the parent Goal;
+- do not run parent R1;
+- do not run phase_progress_gate;
+- do not mutate Direction, Phase, Goal, or Direction Map state unless the approved launch explicitly authorizes that state update;
+- return a compact `workstream_result_card.v1` when launched as a branch.
+
+If this F0 run is explicitly launched as parent synthesis, it must read Workstream Result Cards first, check required branches, detect conflicts, and route rather than silently synthesizing incomplete or conflicting results.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:

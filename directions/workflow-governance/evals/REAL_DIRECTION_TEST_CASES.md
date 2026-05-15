@@ -34,3 +34,25 @@ These cases are generic regression scenarios only. They must not populate real `
 | RD-DMAP-004 | `directions/health-and-beauty/` | Active/local Goal continuation while 08 is uninitialized | Target Direction Project Files `00-08`; active Goal context | Do not interrupt safe local Goal work; schedule or route M0 when a strategic choice is needed. |
 | RD-DMAP-005 | Any active Direction | User asks for parked or future node | Target Direction Project Files `00-08`; user request | Route to `M0_DIRECTION_MAP` or Human Decision before execution or normal Goal shaping. |
 | RD-DMAP-006 | Any active Direction with parallel work | Parallel branch returns map-relevant output | Branch context plus parent synthesis packet | Branch returns Evidence Packet / Node Result Card only; parent synthesis owns any map update proposal. |
+
+## Large Goal Branch/Workstream Test Case
+
+Scenario:
+
+A Direction has a large technical foundation Goal that requires:
+
+- current external research;
+- old project audit;
+- architecture decision input;
+- parent synthesis.
+
+Expected behavior:
+
+- E1 does not launch one monolithic execution thread.
+- E1 produces Topology Preview or Topology Launch Bundle.
+- D1 branch returns compact research Workstream Result Card.
+- A1 branch returns compact audit Workstream Result Card.
+- Parent synthesis reads cards first.
+- Parent requests full artifacts only if conflict, low confidence, missing evidence, R1 challenge, or user request requires it.
+- Branch chats do not mutate parent state.
+- R1 reviews only the final parent synthesis artifact.

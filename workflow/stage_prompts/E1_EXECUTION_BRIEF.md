@@ -336,6 +336,92 @@ f0_entry_from_e1:
 
 E1 must include this F0 readiness summary in the route decision when selecting F0.
 
+### Pass 4.7 — Branch / Workstream Topology Gate
+
+Run this gate after scope lock and research need analysis, before final route selection.
+
+E1 must reject monolithic execution when the shaped Goal is too large or multi-surface for one safe execution thread.
+
+Classify:
+
+```yaml
+branchability_gate:
+  monolithic_execution_safe: true | false | unknown
+  reason:
+    - multi_surface_goal
+    - research_and_audit_mixed
+    - current_external_facts_required
+    - source_audit_required
+    - human_tradeoff_possible
+    - heavy_artifact_expected
+    - parallel_workstreams_available
+    - f0_readiness_failed
+    - codex_graph_required
+    - none
+  topology_selected: single_direct | gated_sequential | parallel_workstreams | parallel_then_gated_synthesis | decision_map | codex_graph | human_decision_blocked
+```
+
+If `monolithic_execution_safe: false` and the Goal can be decomposed, E1 must produce a Topology Preview before formalization, or a `topology_launch_bundle.v1` after approval/formalization.
+
+Branches are not Goals. They are bounded workstreams under the parent Goal.
+
+Branch launch cards must target existing registry-valid stages only:
+
+```text
+D1_DEEP_RESEARCH
+A1_AUDIT
+F0_FAST_DIRECT
+S3_DECIDE
+C1_CODEX_GRAPH_PLAN
+C2_CODEX_EXECUTE
+B1_PROBLEM
+```
+
+E1 must not execute branch work inside E1.
+
+For every branch, specify:
+
+```yaml
+branch:
+  branch_id:
+  branch_name:
+  stage:
+    id:
+    source_path:
+  branch_objective:
+  expected_output:
+  dependency_policy:
+    mode: parallel_safe | gated_after | blocked_until | optional_parallel | synthesis_only
+    depends_on:
+    reason:
+    uncertainty:
+  artifact_policy:
+    heavy_artifact_expected:
+    return_full_artifact_to_parent: false
+    parent_must_read_full_artifact: false
+    artifact_persistence:
+      mode:
+      pointer:
+      parent_accessible_now:
+  return_contract:
+    output_type: workstream_result_card.v1
+  state_policy:
+    may_mutate_parent_goal: false
+    may_mutate_direction_state: false
+    may_emit_repository_patch: false
+```
+
+Parallel branches are allowed only when confidently independent. If dependency uncertainty is material, use `gated_sequential` or `gated_after`.
+
+Heavy artifacts do not return to the parent chat by default. Branches return compact Workstream Result Cards. Parent synthesis reads full artifacts only on targeted demand.
+
+E1 close behavior:
+
+- `single_direct` -> normal single Next Launch Card.
+- branch topology before approval -> Topology Preview, not executable branch cards.
+- branch topology after approval/formalization -> `topology_launch_bundle.v1`.
+- unresolved context/decision/conflict -> Context Request, Human Decision, B1_PROBLEM, S3_DECIDE, D1_DEEP_RESEARCH, A1_AUDIT, or Stop as appropriate.
+
 ### Pass 4.6 — Direction Map topology gate
 
 When the shaped Goal includes `map_binding` or Direction Map node context, use the map node type, dependencies, and parallel-safety flags to choose execution topology:
@@ -714,6 +800,38 @@ Use the canonical Stage Launch transport template at `workflow/transport/STAGE_L
 For E1 launch payloads, include stage identity, `source_state.from_stage: E1_EXECUTION_BRIEF`, previous return state, launch reason, direction, phase, goal, execution brief, scope lock, freshness requirements, F0/Codex handoff requirements, repository requirements after approval, changed-files context refresh requirements, downstream availability, and stop conditions.
 
 Do not produce launch cards for multiple routes. Put rejected routes in the route decision summary only.
+
+## 12.5 Topology Launch Bundle contract
+
+If E1 selects a branch/workstream topology, E1 may produce a Topology Launch Bundle instead of one ordinary Next Launch Card.
+
+Use canonical transport templates:
+
+```text
+workflow/transport/TOPOLOGY_LAUNCH_BUNDLE.md
+workflow/transport/WORKSTREAM_LAUNCH_CARD.md
+workflow/transport/WORKSTREAM_RESULT_CARD.md
+```
+
+A Topology Launch Bundle is one terminal launch artifact containing multiple branch launch cards.
+
+It must include:
+
+- topology ID;
+- parent Goal identity;
+- selected topology;
+- reason monolithic execution was rejected;
+- branch list;
+- dependency policy per branch;
+- artifact policy per branch;
+- required and optional branch result list;
+- parent synthesis plan;
+- branch state-mutation prohibition;
+- return-to-parent instructions.
+
+It must not create new stage IDs or override `workflow/stage_registry/STAGE_REGISTRY.md`.
+
+Before approval, output a reviewable Topology Preview. After approval/formalization, output the copy-pasteable Topology Launch Bundle.
 
 ## Context Request / Human Decision packet references
 

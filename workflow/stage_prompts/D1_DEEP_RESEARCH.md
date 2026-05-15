@@ -34,6 +34,22 @@ When selecting or validating a next stage:
 
 Do not maintain prompt-local transition tables in this file.
 
+## Branch / workstream mode
+
+If this stage is launched with `workstream_launch_card.v1` or `branch_mode.enabled: true`, it is a branch under a parent Goal.
+
+In branch mode:
+
+- do the scoped research requested by the branch objective;
+- do not close the parent Goal;
+- do not run parent R1;
+- do not run phase_progress_gate;
+- do not mutate Direction, Phase, Goal, or Direction Map state;
+- do not emit repository patches for parent state unless explicitly approved for this branch;
+- return a compact `workstream_result_card.v1`.
+
+If the research produces a heavy artifact, summarize it in the Workstream Result Card and include artifact persistence/pointer fields. Do not paste the full heavy artifact back to the parent by default.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:

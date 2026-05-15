@@ -360,6 +360,22 @@ Result:
 - baseline: FAIL on missing boundary anchors, missing canonical transport anchors, or stale pre-conversion authority wording.
 - strict: FAIL on the same conditions.
 
+## CHECK 021 — Branch/workstream execution contract
+
+Verifies that branch/workstream execution support is installed consistently.
+
+Required anchors:
+
+- `workflow/transport/TOPOLOGY_LAUNCH_BUNDLE.md`
+- `workflow/transport/WORKSTREAM_LAUNCH_CARD.md`
+- `workflow/transport/WORKSTREAM_RESULT_CARD.md`
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` includes Branch / Workstream Execution Topology behavior.
+- `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` includes Branch / Workstream Topology Gate.
+- branch-capable prompts include Branch / workstream mode and `workstream_result_card.v1`.
+- `R1_GOAL_REVIEW_DISTILL.md` rejects branch-only results as parent Goal completion.
+
+The check prevents drift back to monolithic large-Goal execution without explicit topology handling.
+
 ## Expected baseline summary
 
 The expected first useful run is:

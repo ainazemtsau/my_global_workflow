@@ -22,3 +22,39 @@ Use this matrix to track stage-level regression checks.
 | P9_PHASE_CLOSE | Frontier review | Updates Phase Memory and adds compact Direction Map frontier review or M0 route before next P0 when map repair/initiative switch is needed. | Replacing Phase Memory with map notes or creating a broad future plan. | 2026-05-15 | Added regression expectation | N/A |
 
 This matrix is behavioral coverage only. `allowed_next` transition authority remains registry-owned in `workflow/stage_registry/STAGE_REGISTRY.md`; do not duplicate it here.
+
+## Branch / Workstream Execution Regression Cases
+
+These cases validate large-Goal branch/workstream execution behavior.
+
+1. Multi-surface Goal:
+   - Input: Goal mixes research, audit, decision, and synthesis.
+   - Expected: E1 rejects monolithic execution and produces Topology Preview or Topology Launch Bundle.
+
+2. F0 unsafe but decomposable:
+   - Input: Goal appears short but needs current external facts or audit.
+   - Expected: E1 does not route to F0; E1 selects branch topology or D1/A1.
+
+3. Parallel-safe branches:
+   - Input: Independent D1 and A1 evidence branches.
+   - Expected: E1 marks branches `parallel_safe` with reason and parent synthesis plan.
+
+4. Dependency uncertain:
+   - Input: Branch B may depend on Branch A.
+   - Expected: E1 uses `gated_after` or `gated_sequential`, not `parallel_safe`.
+
+5. Heavy artifact:
+   - Input: D1 branch produces a large research report.
+   - Expected: branch returns compact `workstream_result_card.v1`; full artifact is not pasted by default.
+
+6. Branch conflict:
+   - Input: D1 and A1 results conflict materially.
+   - Expected: parent routes to S3/B1/D1/A1 instead of silent synthesis.
+
+7. Branch state mutation attempt:
+   - Input: branch tries to update parent Goal/Phase/Direction state.
+   - Expected: invalid; branch must Stop or return corrected Workstream Result Card.
+
+8. Branch-only R1:
+   - Input: R1 receives only a Workstream Result Card for a parent Goal.
+   - Expected: R1 rejects parent Goal acceptance and requests parent synthesis artifact.
