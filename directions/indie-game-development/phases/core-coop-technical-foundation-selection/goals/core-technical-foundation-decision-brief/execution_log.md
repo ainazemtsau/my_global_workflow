@@ -73,3 +73,35 @@ execution_log_entry:
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md`
+
+---
+```yaml
+execution_log_entry:
+  workflow_packet: 1
+  schema: execution_log_entry.v1
+  timestamp: "2026-05-15"
+  stage_id: M0_DIRECTION_MAP
+  event_type: direction_map_migration_formalized
+  direction: indie_game_development
+  phase_id: core-coop-technical-foundation-selection
+  goal_id: core-technical-foundation-decision-brief
+  summary: "M0_DIRECTION_MAP migration formalized 08_DIRECTION_MAP.md from uninitialized stub into initialized strategic map."
+  user_approval: "ok давай продолжать миграцию"
+  changed_files:
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+  decisions:
+    - "Current Initiative set to innovative-commercial-expedition-gas-sim-game."
+    - "Active horizon set to H1_playable_technical_nucleus."
+    - "Current active Goal bound as H1_G1 inside H1 rather than treated as the whole map."
+    - "Codex Development Operating Model & Architecture Protocols added as explicit H1_G2 gate."
+    - "No-code-without-validation and bounded Codex slice principles captured as development protocol seeds."
+  not_performed:
+    - "No Phase change."
+    - "No Goal change."
+    - "No Portfolio Queue mutation."
+    - "No Unity project creation."
+    - "No code transfer."
+    - "No Codex product/project execution."
+    - "No Game Documentation promotion."
+  next_action: "Run Codex repository maintenance apply/read-back, then refresh ChatGPT Project File cache for 08_DIRECTION_MAP.md before next material workflow run."
+```
