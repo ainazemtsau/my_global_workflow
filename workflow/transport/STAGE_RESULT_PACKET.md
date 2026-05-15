@@ -17,6 +17,18 @@ Defines the canonical transport template for a workflow stage result.
 
 This file is a transport template. It is not a stage prompt and not routing authority.
 
+## Branch / workstream result extension
+
+Standard `stage_result.v1` remains the base stage-result packet.
+
+A branch/workstream stage run that is launched under a parent Goal may return a compact workstream result using:
+
+```text
+workflow/transport/WORKSTREAM_RESULT_CARD.md
+```
+
+A Workstream Result Card is an input to parent synthesis. It is not a parent Goal review, parent Goal acceptance, Phase close, or shared state mutation.
+
 ## Transport authority boundary — AD-WF-RT-001
 
 Route fields are snapshots only. They must not override:

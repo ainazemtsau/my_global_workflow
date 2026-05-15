@@ -1186,6 +1186,93 @@ def check_direction_worktree_repository_maintenance_contract(root: Path, results
         )
 
 
+def check_branch_workstream_execution_contract(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 021"
+    name = "branch_workstream_execution_contract"
+    failures = 0
+
+    required_files = {
+        "workflow/transport/TOPOLOGY_LAUNCH_BUNDLE.md": [
+            "schema: topology_launch_bundle.v1",
+            "selected_topology:",
+            "synthesis_plan:",
+            "state_policy:",
+        ],
+        "workflow/transport/WORKSTREAM_LAUNCH_CARD.md": [
+            "schema: workstream_launch_card.v1",
+            "dependency_policy:",
+            "artifact_policy:",
+            "return_contract:",
+        ],
+        "workflow/transport/WORKSTREAM_RESULT_CARD.md": [
+            "schema: workstream_result_card.v1",
+            "synthesis_readiness:",
+            "state_policy_confirmation:",
+            "parent_must_read_full_artifact: false",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "Branch / Workstream Execution Topology",
+            "Branchability gate",
+            "Heavy artifacts do not flow back to the parent chat by default",
+            "A branch is not an Active Goal",
+            "Topology Launch Bundle",
+        ],
+        "workflow/stage_prompts/E1_EXECUTION_BRIEF.md": [
+            "Branch / Workstream Topology Gate",
+            "topology_launch_bundle.v1",
+            "workstream_result_card.v1",
+            "Parallel branches are allowed only when confidently independent",
+        ],
+        "workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md": [
+            "Branch / workstream result boundary",
+            "workstream_result_card.v1",
+            "branch-only result",
+        ],
+    }
+
+    for file_path, anchors in required_files.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required branch/workstream file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing branch/workstream anchors: {', '.join(missing[:5])}.", file_path)
+
+    branch_prompt_files = [
+        "workflow/stage_prompts/D1_DEEP_RESEARCH.md",
+        "workflow/stage_prompts/A1_AUDIT.md",
+        "workflow/stage_prompts/F0_FAST_DIRECT.md",
+        "workflow/stage_prompts/S3_DECIDE.md",
+        "workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md",
+        "workflow/stage_prompts/B1_PROBLEM.md",
+    ]
+
+    for file_path in branch_prompt_files:
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Branch-capable stage prompt missing.", file_path)
+            continue
+        text = read_text(path)
+        required = [
+            "Branch / workstream mode",
+            "workstream_result_card.v1",
+            "do not close the parent Goal",
+            "do not run phase_progress_gate",
+        ]
+        missing = [anchor for anchor in required if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing branch-mode anchors: {', '.join(missing)}.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "Branch/workstream execution transport and prompt anchors are present.")
+
+
 def summarize(results: list[Finding]) -> str:
     if any(item.status == "FAIL" for item in results):
         return "BLOCKED"
@@ -1217,6 +1304,7 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_interface_path_detection(root, results)
     check_codex_schema_regression(root, results)
     check_transport_authority_boundary(root, results)
+    check_branch_workstream_execution_contract(root, results)
     check_runtime_core_packet_schema_reference_cleanup(root, results)
     check_runtime_core_registry_snapshot_cleanup(root, results)
     check_direction_worktree_repository_maintenance_contract(root, results)

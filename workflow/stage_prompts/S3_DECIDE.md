@@ -34,6 +34,20 @@ When selecting or validating a next stage:
 
 Do not maintain prompt-local transition tables in this file.
 
+## Branch / workstream mode
+
+If this stage is launched with `workstream_launch_card.v1` or `branch_mode.enabled: true`, it resolves only the scoped branch decision.
+
+In branch mode:
+
+- present the scoped decision options and consequences;
+- record the user's decision if given;
+- do not close the parent Goal;
+- do not run parent R1;
+- do not run phase_progress_gate;
+- do not mutate Direction, Phase, Goal, or Direction Map state;
+- return the decision as a compact `workstream_result_card.v1` for parent synthesis.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:

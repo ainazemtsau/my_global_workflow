@@ -390,6 +390,215 @@ Route conflict rule: route conflict is selected-route-vs-registry. If the select
 
 Stage prompt route lists are not independent authority. If a prompt-maintained route list conflicts with `STAGE_REGISTRY.md`, the registry wins.
 
+## Branch / Workstream Execution Topology
+
+Large or multi-surface Goals must not be forced through one monolithic execution thread when the Goal mixes materially different work types such as research, audit, decision, architecture, Codex planning, and synthesis.
+
+This runtime uses branch/workstream execution as an E1-owned execution-planning mechanism.
+
+Core distinction:
+
+```text
+Goal = the parent accepted result.
+Branch / Workstream = bounded evidence, audit, decision-input, planning, or artifact work under the parent Goal.
+```
+
+A branch is not an Active Goal. A branch must not close the parent Goal, run parent R1, run phase_progress_gate, mutate Direction/Phase/Goal state, or emit parent-state repository patches. Branches return bounded outputs to the parent chat.
+
+### Branchability gate
+
+`E1_EXECUTION_BRIEF` must reject monolithic execution and consider branch/workstream topology when any of these are true:
+
+- the shaped Goal has multiple materially different work surfaces;
+- the shaped Goal mixes research, audit, decision, synthesis, architecture, or Codex planning;
+- current/external facts are required;
+- old source/code/docs require audit or challenge;
+- a human-owned tradeoff may block final synthesis;
+- output would exceed safe context size for a single execution thread;
+- independent workstreams can produce bounded evidence;
+- parent Goal acceptance depends on evidence from separate domains;
+- F0 readiness criteria are false or unknown;
+- Codex execution requires graph/wave planning.
+
+If F0 is unsafe but the Goal can be decomposed into bounded workstreams, E1 should produce a topology preview or Topology Launch Bundle instead of one monolithic launch.
+
+### Topology types
+
+E1 may classify execution as:
+
+```text
+single_direct
+gated_sequential
+parallel_workstreams
+parallel_then_gated_synthesis
+decision_map
+codex_graph
+human_decision_blocked
+```
+
+`parallel_then_gated_synthesis` is the default topology for large decision-map Goals with independent evidence branches and a required parent synthesis step.
+
+Research-before-execution and audit-before-execution are branch routes or gates inside these topology types, not separate stage IDs.
+
+### Parallel safety gate
+
+Parallel branches are allowed only when E1 can confidently state that all required conditions are true:
+
+- branch A does not require branch B output;
+- branch B does not require branch A output;
+- all branches use the same stable parent Goal Contract and constraints;
+- branches do not mutate shared state;
+- each branch returns a bounded output;
+- conflicts can be resolved in parent synthesis;
+- no branch makes a final parent-level decision.
+
+If dependency uncertainty is material, E1 must use `gated_sequential`, `gated_after`, or another safer topology instead of `parallel_safe`.
+
+### Branch dependency policy
+
+Every branch in a Topology Launch Bundle must include a dependency policy:
+
+```yaml
+dependency_policy:
+  mode: parallel_safe | gated_after | blocked_until | optional_parallel | synthesis_only
+  depends_on:
+    - branch_id:
+  reason:
+  uncertainty: none | low | medium | high
+```
+
+### Heavy artifact policy
+
+Branches may produce heavy artifacts such as research reports, audit reports, implementation briefs, or evidence registers.
+
+Heavy artifacts do not flow back to the parent chat by default.
+
+Every branch must declare:
+
+```yaml
+artifact_policy:
+  heavy_artifact_expected: true | false
+  artifact_type:
+  return_full_artifact_to_parent: false
+  parent_must_read_full_artifact: false
+  artifact_persistence:
+    mode: ephemeral_chat | attached_file | repository_path_after_approval | codex_verified_export | not_persisted_summary_only
+    pointer:
+    parent_accessible_now: true | false
+```
+
+Default behavior:
+
+```text
+Branch returns a compact Workstream Result Card.
+Parent reads full artifacts only on targeted demand.
+```
+
+A chat-only artifact is a soft pointer. Parent synthesis must not assume it can read another chat's full artifact unless the artifact is pasted, attached, exported, or stored at an approved repository path.
+
+### Workstream result contract
+
+Every branch must return a compact `workstream_result_card.v1` containing:
+
+- `topology_id`;
+- `parent_goal_id`;
+- `branch_id`;
+- `branch_stage`;
+- `return_state`;
+- compact summary;
+- parent-relevant findings and implications;
+- artifact pointer and persistence status;
+- decisions made and not made;
+- blockers;
+- synthesis readiness;
+- recommended parent next action;
+- state-policy confirmation.
+
+The card must state whether it is sufficient for parent synthesis:
+
+```yaml
+synthesis_readiness:
+  sufficient_for_parent_synthesis: true | false
+  missing_inputs:
+  confidence: low | medium | high
+```
+
+If `sufficient_for_parent_synthesis: false`, the card must name the exact missing input or artifact sections required.
+
+### Parent synthesis
+
+Parent synthesis must:
+
+- read Workstream Result Cards first;
+- check required branch results;
+- check `synthesis_readiness`;
+- detect material conflicts;
+- request targeted full artifact sections only when needed;
+- choose the next route according to the registry and runtime gates.
+
+Parent synthesis must not silently synthesize missing required branches, average conflicting branch outputs, paste all full research reports by default, or let branch outputs mutate state directly.
+
+Parent synthesis outcomes:
+
+```yaml
+parent_synthesis_decision:
+  status: ready | blocked | partial | needs_human_decision | needs_more_research | needs_audit | conflict
+  reason:
+  next_route: F0_FAST_DIRECT | E1_EXECUTION_BRIEF | S3_DECIDE | B1_PROBLEM | D1_DEEP_RESEARCH | A1_AUDIT | R1_GOAL_REVIEW_DISTILL
+```
+
+Material conflicts must be routed explicitly:
+
+- evidence conflict -> `D1_DEEP_RESEARCH` or `A1_AUDIT`;
+- human-owned tradeoff -> `S3_DECIDE` or Human Decision;
+- framing conflict -> `B1_PROBLEM`;
+- missing context -> Context Request;
+- implementation graph conflict -> `E1_EXECUTION_BRIEF` or `C1_CODEX_GRAPH_PLAN`.
+
+### Topology Launch Bundle
+
+If E1 selects `parallel_workstreams`, `parallel_then_gated_synthesis`, `gated_sequential`, or another branch topology, E1 may close with a `topology_launch_bundle.v1` as the terminal launch artifact.
+
+A Topology Launch Bundle is one terminal launch artifact containing multiple registry-valid branch launch cards. It is not a new stage ID and must not override `STAGE_REGISTRY.md`.
+
+Each branch launch card must target an existing registered stage such as:
+
+```text
+D1_DEEP_RESEARCH
+A1_AUDIT
+F0_FAST_DIRECT
+S3_DECIDE
+C1_CODEX_GRAPH_PLAN
+C2_CODEX_EXECUTE
+B1_PROBLEM
+```
+
+E1 must not directly execute branch work inside E1.
+
+### Branch state policy
+
+Branch chats must not:
+
+- update Direction files;
+- mutate parent Goal or Phase;
+- close the parent Goal;
+- run parent R1;
+- run phase_progress_gate;
+- emit repository patches for parent state;
+- claim parent Goal acceptance.
+
+Branch chats may produce evidence, audit results, decision inputs, compact artifacts, and delta proposals for parent synthesis.
+
+Parent synthesis, R1, P9, or an approved repository maintenance patch owns integration into workflow state.
+
+### R1 and phase_progress_gate boundary
+
+R1 reviews the final parent Goal outcome after branch results are synthesized.
+
+R1 must reject a branch-only result as parent Goal completion unless the branch was itself the accepted parent Goal output.
+
+After R1 accepts or verifies the parent Goal, the existing phase_progress_gate rules apply.
+
 ## 7\. Stage prompt dynamic loading
 
 Concrete stage prompts are dynamic runtime inputs.

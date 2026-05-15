@@ -17,6 +17,20 @@ Defines the canonical transport template for launching a workflow stage.
 
 This file is a transport template. It is not a stage prompt and not routing authority.
 
+## Branch / workstream extension
+
+Standard `stage_launch.v1` remains the base stage-launch packet.
+
+For E1 branch/workstream execution, use:
+
+```text
+workflow/transport/TOPOLOGY_LAUNCH_BUNDLE.md
+workflow/transport/WORKSTREAM_LAUNCH_CARD.md
+workflow/transport/WORKSTREAM_RESULT_CARD.md
+```
+
+Workstream launch cards target registry-valid stages and may be embedded in a Topology Launch Bundle. They are not new stage IDs and must not override `workflow/stage_registry/STAGE_REGISTRY.md`.
+
 ## Transport authority boundary — AD-WF-RT-001
 
 This transport template is not independent routing authority.
