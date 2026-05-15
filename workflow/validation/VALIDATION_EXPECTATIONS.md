@@ -278,3 +278,29 @@ Expected effect after this refinement:
 - baseline and strict validation still exit 0;
 - blocking failures remain 0;
 - false-positive warnings from validation docs, AD-WF-RT-001 history, execution logs, and canonical prompt references are reduced.
+
+## Runtime core registry snapshot cleanup expectation
+
+Runtime core must not duplicate the stage registry.
+
+`workflow/stage_registry/STAGE_REGISTRY.md` owns:
+
+```text
+canonical stage IDs
+stage identity
+prompt path/status
+target runtime
+activation
+normal allowed_next transitions
+```
+
+Runtime core may describe routing behavior, route conflict handling, lifecycle heuristics, and Phase Progress Gate rules.
+
+Runtime core must not contain a stage identity / prompt source table copied from the registry.
+
+Completed cleanup notes must stay current:
+
+- P2 removed runtime-core packet schema body authority;
+- P3 removed runtime-core registry snapshot duplication.
+
+`CHECK 022 — runtime_core_registry_snapshot_cleanup` enforces this in both baseline and strict mode.

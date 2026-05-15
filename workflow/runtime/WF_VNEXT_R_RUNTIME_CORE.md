@@ -80,9 +80,11 @@ workflow/transport/*.md
 
 Runtime core remains authority for runtime behavior, precedence, approval/formalization rules, repository maintenance rules, route process, Codex role separation, and Project Files refresh/reporting rules.
 
-Until the later runtime-core packet-schema reference cleanup is applied, this file may still contain embedded packet examples or compatibility blocks. Those examples must be treated as reference/fallback text, not as packet-template authority.
+Runtime core must not reintroduce full packet schema bodies.
 
-If a runtime-core packet example conflicts with the matching transport template, use the canonical transport template for packet shape and this runtime core for behavior.
+Runtime core may contain compact behavior references, schema IDs, and links to canonical transport templates, but those references are not packet-template authority.
+
+If a runtime-core packet reference conflicts with the matching transport template, use the canonical transport template for packet shape and this runtime core for behavior.
 
 ## 2. Required Direction Project Files
 
@@ -1076,58 +1078,35 @@ Use where relevant:
 
 ## 22\. Runtime Stage Registry
 
+Runtime stage registry authority lives in:
+
+```text
+workflow/stage_registry/STAGE_REGISTRY.md
+```
+
+`STAGE_REGISTRY.md` owns:
+
+- canonical stage IDs;
+- stage identity;
+- prompt path;
+- prompt status;
+- target runtime;
+- activation availability;
+- normal stage-to-stage `allowed_next` transitions.
+
+Runtime core must not maintain stage identity tables, prompt-path tables, activation tables, or `allowed_next` transition tables.
+
+Runtime core may describe route-selection process, safety gates, route conflict behavior, lifecycle heuristics, and phase progress rules.
+
+If runtime core text conflicts with `STAGE_REGISTRY.md` on stage identity, prompt status, prompt path, activation, target runtime, or normal `allowed_next` transitions, `STAGE_REGISTRY.md` wins.
+
 Stage prompts source root:
 
 ```text
 workflow/stage_prompts/
-
 ```
 
-This registry is a runtime registry, not the prompt-development roadmap.
-
-Do not infer "first stage to develop" from this table. Prompt development order belongs to the rebuild state, not to Direction runtime.
-
-### Core routing behavior
-
-| Stage ID | Name | Runtime role | Prompt source |
-| --- | --- | --- | --- |
-| ROUTER\_STAGE\_LAUNCHER | Router / Stage Launcher | Determine smallest safe next action; produce Launch Card / Context Request / Human Decision / Stop. | workflow/stage_prompts/ROUTER_STAGE_LAUNCHER.md |
-| D0\_DIRECTION\_SETUP | Direction Setup | Create or repair a Direction container. | workflow/stage_prompts/D0_DIRECTION_SETUP.md |
-| P0\_PHASE\_START | Phase Start | Start/update current Phase by Critical Constraint and Minimum Outcome. | workflow/stage_prompts/P0_PHASE_START.md |
-| I0\_CAPTURE | Capture / Triage | Route raw inputs without doing the work. | workflow/stage_prompts/I0_CAPTURE.md |
-| G0\_GOAL\_SELECT | Goal Select | Select/create one candidate for Goal shaping. | workflow/stage_prompts/G0_GOAL_SELECT.md |
-| G1\_GOAL\_SHAPE | Goal Shape / Ruthless Cut | Shape WHAT/WHY/DONE and cut scope before HOW. | workflow/stage_prompts/G1_GOAL_SHAPE.md |
-| S3\_DECIDE | Decide | Resolve a real decision with options/constraints/human conclusion. | workflow/stage_prompts/S3_DECIDE.md |
-| D1\_DEEP\_RESEARCH | Deep Research | Research external evidence gaps and synthesize implications. | workflow/stage_prompts/D1_DEEP_RESEARCH.md |
-| A1\_AUDIT | Audit / Challenge | Challenge high-risk/failed/irreversible plans or claims. | workflow/stage_prompts/A1_AUDIT.md |
-| E1\_EXECUTION\_BRIEF | Execution Brief | Produce minimum HOW, validation, context, and Codex card if needed. | workflow/stage_prompts/E1_EXECUTION_BRIEF.md |
-| F0\_FAST\_DIRECT | Fast Direct | Execute small reversible work directly with verification. | workflow/stage_prompts/F0_FAST_DIRECT.md |
-| C1\_CODEX\_GRAPH\_PLAN | Codex Graph Plan | Build/validate project-local execution graph from Wave Card. | workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md |
-| C2\_CODEX\_EXECUTE | Codex Execute | Execute validated graph and return evidence/return-state. | workflow/stage_prompts/C2_CODEX_EXECUTE.md |
-| B1\_PROBLEM | Problem Router | Classify blocker before solving and route recovery. | workflow/stage_prompts/B1_PROBLEM.md |
-| R1\_GOAL\_REVIEW\_DISTILL | Goal Review / Distill | Review Goal, distill durable knowledge, update state/docs. | workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md |
-| P9\_PHASE\_CLOSE | Phase Close | Close/pause Phase and distill phase-level outcomes. | workflow/stage_prompts/P9_PHASE_CLOSE.md |
-| R0\_RECOVERY\_CLOSE | Recovery Close | Close mixed/interrupted sessions and reconstruct safe handoff. | workflow/stage_prompts/R0_RECOVERY_CLOSE.md |
-
-### Runtime lifecycle order
-
-Normal runtime lifecycle:
-
-```text
-D0_DIRECTION_SETUP
-  -> P0_PHASE_START
-  -> I0_CAPTURE / G0_GOAL_SELECT / G1_GOAL_SHAPE
-  -> S3_DECIDE / D1_DEEP_RESEARCH / A1_AUDIT if needed
-  -> E1_EXECUTION_BRIEF
-  -> F0_FAST_DIRECT or C1_CODEX_GRAPH_PLAN -> C2_CODEX_EXECUTE
-  -> B1_PROBLEM if blocked
-  -> R1_GOAL_REVIEW_DISTILL
-  -> P9_PHASE_CLOSE when Phase outcome is reached
-  -> next P0_PHASE_START or Direction pause/archive
-
-```
-
-Router may enter any appropriate point based on current Direction state.
+Stage prompts are request-only by exact stage ID. Do not bulk-load all stage prompts into ChatGPT Project Files.
 
 ### Phase Progress Gate and Phase Closure Contract
 
@@ -1171,7 +1150,7 @@ Routing rules:
 - R1 must not route directly to G0 only because Active Goal is none.
 - G0 allowed only after Phase Continue decision, such as `continue_with_required_goals`.
 - P9 required when completed Goal may satisfy Phase Minimum Outcome.
-- Human Decision required when closure vs continuation is strategic/ambiguous.
+- Human Decision is required when closure vs continuation is strategic or ambiguous.
 - Context Request required when Phase Closure Contract is missing.
 - Optional expansion must not be mistaken for required next Goal.
 

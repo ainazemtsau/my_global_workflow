@@ -31,9 +31,13 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 | Packet use behavior, runtime precedence, formalization coupling, and repository maintenance rules | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` |
 | Direction runtime state | `directions/<direction-id>/project_files/00-07` |
 
-Runtime core may still contain compatibility examples or legacy embedded packet blocks until the later runtime-core packet-schema reference cleanup. Those blocks are not packet-schema authority after transport conversion.
+Runtime core must not maintain full packet schema bodies or duplicate registry stage tables.
+
+Runtime core may contain compact behavior references, schema IDs, route-process rules, and pointers to canonical authority files.
 
 If a packet field/template in runtime core conflicts with the matching canonical transport template, the canonical transport template wins for packet shape; runtime core still wins for behavior, approval/formalization, routing process, and repository maintenance rules.
+
+If a stage identity, prompt path/status, activation, or `allowed_next` detail in runtime core conflicts with `STAGE_REGISTRY.md`, the registry wins.
 
 ## Routing authority
 
@@ -148,11 +152,13 @@ Completed since this decision:
 - stale prompt route-list authority was neutralized;
 - stage prompt EOF markers were added;
 - stale rebuild/test-active metadata was cleaned from runtime-facing prompt/interface/Codex surfaces;
-- prompt slimming slices S1-S4 reduced copied maintenance/formalization/transport/schema boilerplate.
+- prompt slimming slices S1-S4 reduced copied maintenance/formalization/transport/schema boilerplate;
+- runtime transport authority boundary was aligned so `workflow/transport/*.md` owns canonical packet templates;
+- runtime-core packet schema bodies were replaced by transport references;
+- duplicate runtime-core registry snapshot text was replaced with a pointer to `workflow/stage_registry/STAGE_REGISTRY.md`.
 
 Deferred to later approved patches:
 
-- replace embedded packet schema blocks in runtime core with links to `workflow/transport/*.md`;
 - split runtime core into smaller authority files only after boundary/reference cleanup is stable;
 - backfill Workflow Governance Phase Memory if normal lifecycle history is needed.
 

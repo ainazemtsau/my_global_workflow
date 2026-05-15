@@ -393,3 +393,27 @@ Result:
 
 - baseline: FAIL on missing transport references, full packet schema-body residue, or missing behavior anchors.
 - strict: FAIL on the same conditions.
+
+## CHECK 022 — runtime_core_registry_snapshot_cleanup
+
+Validate that runtime core does not duplicate the stage registry.
+
+Hard requirements:
+
+- runtime core points to `workflow/stage_registry/STAGE_REGISTRY.md` for stage identity, prompt path/status, activation, target runtime, and normal `allowed_next` transitions.
+- runtime core does not contain a duplicate stage identity / prompt source table.
+- runtime core preserves Phase Progress Gate behavior.
+- runtime core preserves the rule that it must not maintain a transition table.
+- AD-WF-RT-001 records completed P2/P3 cleanup and does not list completed packet-schema cleanup as deferred.
+
+Forbidden residue:
+
+- a markdown table headed `Stage ID | Name | Runtime role | Prompt source`;
+- runtime-core rows duplicating specific stage IDs and prompt sources;
+- stale wording that says runtime-core packet-schema reference cleanup is still pending;
+- AD-WF-RT-001 deferred cleanup item saying embedded packet schema blocks still need replacement.
+
+Result:
+
+- baseline: FAIL on duplicate registry snapshot residue or stale completed-cleanup wording.
+- strict: FAIL on the same conditions.

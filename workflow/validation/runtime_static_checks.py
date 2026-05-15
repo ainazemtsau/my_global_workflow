@@ -723,7 +723,7 @@ def check_transport_authority_boundary(root: Path, results: list[Finding]) -> No
         "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
             "Canonical packet schemas and transport templates",
             "workflow/transport/*.md",
-            "Runtime core may still contain compatibility examples or legacy embedded packet blocks",
+            "Runtime core must not maintain full packet schema bodies",
         ],
         "workflow/stage_registry/STAGE_REGISTRY.md": [
             "Packet schema templates are owned by:",
@@ -742,6 +742,7 @@ def check_transport_authority_boundary(root: Path, results: list[Finding]) -> No
             "temporary: `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`; future cleanup may promote `workflow/transport/*.md` after canonical schema conversion",
             "Until `workflow/transport/*.md` is converted to canonical",
             "convert `workflow/transport/*.md` into canonical schema authority",
+            "Runtime core may still contain compatibility examples or legacy embedded packet blocks",
         ],
         "workflow/stage_registry/STAGE_REGISTRY.md": [
             "Packet contracts live in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` until transport schemas are formally converted.",
@@ -914,6 +915,126 @@ def check_runtime_core_packet_schema_reference_cleanup(root: Path, results: list
             "Runtime core references canonical transport templates and no full packet schema bodies were detected.",
         )
 
+
+def check_runtime_core_registry_snapshot_cleanup(root: Path, results: list[Finding]) -> None:
+    """Hard-check that runtime core does not duplicate registry stage tables."""
+    check_id = "CHECK 022"
+    name = "runtime_core_registry_snapshot_cleanup"
+    failures = 0
+
+    runtime_path = root / "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md"
+    ad_path = root / "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md"
+
+    if not runtime_path.is_file():
+        add(results, check_id, name, "FAIL", "Runtime core file is missing.", "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md")
+        return
+
+    runtime_text = read_text(runtime_path)
+
+    required_runtime_anchors = [
+        "Runtime stage registry authority lives in:",
+        "workflow/stage_registry/STAGE_REGISTRY.md",
+        "Runtime core must not maintain stage identity tables",
+        "Phase Progress Gate and Phase Closure Contract",
+        "Do not maintain a transition table in this runtime core",
+    ]
+
+    missing_runtime = [anchor for anchor in required_runtime_anchors if anchor not in runtime_text]
+    if missing_runtime:
+        failures += 1
+        add(
+            results,
+            check_id,
+            name,
+            "FAIL",
+            f"Runtime core registry-boundary anchors missing: {', '.join(missing_runtime[:5])}.",
+            "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+        )
+
+    forbidden_runtime_patterns = [
+        ("stage_snapshot_table_header", r"\|\s*Stage ID\s*\|\s*Name\s*\|\s*Runtime role\s*\|\s*Prompt source\s*\|"),
+        ("router_stage_snapshot_row", r"\|\s*ROUTER\\?_STAGE\\?_LAUNCHER\s*\|\s*Router / Stage Launcher\s*\|"),
+        ("d0_stage_snapshot_row", r"\|\s*D0\\?_DIRECTION\\?_SETUP\s*\|\s*Direction Setup\s*\|"),
+        ("c2_stage_snapshot_row", r"\|\s*C2\\?_CODEX\\?_EXECUTE\s*\|\s*Codex Execute\s*\|"),
+    ]
+
+    for label, pattern in forbidden_runtime_patterns:
+        if re.search(pattern, runtime_text, flags=re.MULTILINE):
+            failures += 1
+            add(
+                results,
+                check_id,
+                name,
+                "FAIL",
+                f"Runtime core still appears to contain duplicate registry snapshot table residue: {label}.",
+                "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+            )
+
+    stale_runtime_phrases = [
+        "Until the later runtime-core packet-schema reference cleanup is applied",
+        "embedded packet examples or compatibility blocks",
+    ]
+
+    for phrase in stale_runtime_phrases:
+        if phrase in runtime_text:
+            failures += 1
+            add(
+                results,
+                check_id,
+                name,
+                "FAIL",
+                f"Runtime core stale completed-cleanup wording remains: {phrase}",
+                "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+            )
+
+    if not ad_path.is_file():
+        failures += 1
+        add(results, check_id, name, "FAIL", "AD-WF-RT-001 decision file is missing.", "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md")
+    else:
+        ad_text = read_text(ad_path)
+        required_ad_anchors = [
+            "runtime-core packet schema bodies were replaced by transport references",
+            "duplicate runtime-core registry snapshot text was replaced with a pointer",
+        ]
+        missing_ad = [anchor for anchor in required_ad_anchors if anchor not in ad_text]
+        if missing_ad:
+            failures += 1
+            add(
+                results,
+                check_id,
+                name,
+                "FAIL",
+                f"AD-WF-RT-001 completed-cleanup anchors missing: {', '.join(missing_ad[:5])}.",
+                "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md",
+            )
+
+        stale_ad_phrases = [
+            "replace embedded packet schema blocks in runtime core with links to `workflow/transport/*.md`",
+            "until the later runtime-core packet-schema reference cleanup",
+        ]
+
+        for phrase in stale_ad_phrases:
+            if phrase in ad_text:
+                failures += 1
+                add(
+                    results,
+                    check_id,
+                    name,
+                    "FAIL",
+                    f"AD-WF-RT-001 stale deferred/completed cleanup wording remains: {phrase}",
+                    "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md",
+                )
+
+    if failures == 0:
+        add(
+            results,
+            check_id,
+            name,
+            "PASS",
+            "Runtime core registry snapshot is removed, registry authority pointer is present, and completed-cleanup notes are current.",
+        )
+
+
 def summarize(results: list[Finding]) -> str:
     if any(item.status == "FAIL" for item in results):
         return "BLOCKED"
@@ -945,6 +1066,7 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_codex_schema_regression(root, results)
     check_transport_authority_boundary(root, results)
     check_runtime_core_packet_schema_reference_cleanup(root, results)
+    check_runtime_core_registry_snapshot_cleanup(root, results)
     return results
 
 def print_text(results: list[Finding], root: Path, mode: str) -> None:
