@@ -87,6 +87,47 @@ return_requirement:
   blockers_required_if_any: true
   cannot_claim_done_without_evidence: true
 
+technical_context_boundary:
+  chatgpt_default_load_full_product_technical_context: false
+  product_technical_context_owner: codex_project_workspace
+  project_local_context_sources:
+    - AGENTS.md
+    - Project Execution Profile
+    - Validation Profile
+    - Module Map
+    - ADRs
+    - public interface docs
+    - internal module knowledge for editable modules
+    - .codex memory
+  return_to_chatgpt: compact_summary_and_pointers_only
+
+technical_discovery_preflight:
+  required: true | false
+  trigger_reasons:
+    - new_module_or_public_interface_possible
+    - multi_file_or_modular_work
+    - reuse_vs_new_ambiguous
+    - refactor_may_be_safer
+    - module_boundary_or_generated_path_risk
+    - validation_scope_may_change
+  bounded_discovery_scope:
+    - path_or_module:
+      reason:
+  decision_values:
+    - reuse_existing
+    - extend_existing
+    - refactor_existing
+    - create_new_module
+    - cross_module_request
+    - blocked_missing_context
+    - human_decision_required
+  stop_if:
+    - material_architecture_decision_outside_envelope
+    - dependency_direction_change_required
+    - public_interface_change_outside_scope
+    - forbidden_or_protected_path_required
+    - validation_scope_expands_materially
+
 extensions: {}
 ```
 

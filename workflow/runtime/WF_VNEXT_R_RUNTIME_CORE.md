@@ -827,6 +827,44 @@ Codex launch bundle preparation means packaging a Next Launch Card, exact stage 
 
 When a stage says Codex product/project execution is blocked, that restriction does not block approved repository maintenance, read-only audit/validation, or launch bundle preparation unless the stage explicitly says all Codex roles are blocked.
 
+### 11.5.1 ChatGPT / Codex technical context boundary
+
+ChatGPT Direction Projects own workflow orchestration. They must not become the default storage or loading surface for full product-repository technical context.
+
+For Codex product/project execution:
+
+- ChatGPT stages may define WHY / WHAT / DONE, acceptance, route, risk boundaries, allowed and forbidden scope, validation expectations, approval gates, and evidence requirements.
+- ChatGPT stages may pass compact pointers to repo-local technical sources such as `AGENTS.md`, Project Execution Profile, Module Map, Validation Profile, ADRs, public interface docs, and technical memory.
+- ChatGPT stages must not default-load, mirror, or maintain full product technical context, module internals, code-level architecture notes, historical implementation logs, or reusable code decisions unless the exact content is the object of a workflow audit or a targeted Context Request.
+- Deep technical discovery, architecture/reuse decisions, module map inspection, public-interface checks, internal module knowledge loading, duplicate-code scan, and implementation-shaping decisions belong in the Codex product/project execution workspace.
+- Durable technical decisions from Codex must be stored in product-repo-local artifacts such as `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, ADRs, public interface docs, internal module knowledge, or `.codex` memory according to the project policy.
+- Direction Project Files may store only compact outcome summaries, approval-relevant decisions, risk notes, and pointers to product technical artifacts. They must not store full product technical documentation by default.
+
+`C1_CODEX_GRAPH_PLAN` is a ChatGPT execution-envelope planning stage. It may require a Codex technical discovery preflight, but it must not perform deep product architecture planning unless the current chat has explicitly provided and scoped that technical context.
+
+`C2_CODEX_EXECUTE` is the Codex product/project execution stage. For non-trivial code work, C2 must run a project-local technical discovery / architecture reuse preflight before mutation when any of these are true:
+
+- a new module, public interface, API, integration, or dependency direction may be created or changed;
+- multi-file or modular work is expected;
+- existing code reuse versus new implementation is ambiguous;
+- a refactor may be safer than a new module;
+- generated, protected, read-only, module-boundary, or technical-memory rules may affect implementation;
+- validation scope may change materially.
+
+The preflight must decide one of:
+
+```text
+reuse_existing
+extend_existing
+refactor_existing
+create_new_module
+cross_module_request
+blocked_missing_context
+human_decision_required
+```
+
+Codex must return a compact technical discovery card and technical memory delta in the Codex Return Packet when the preflight ran or was required. If the preflight reveals a material architecture decision outside the approved execution envelope, Codex must stop and return Human Decision or route back to C1/E1 instead of mutating product code.
+
 ## 11.6 Hard First Response and Adaptive Reviewable Work Product Gate
 
 Rule precedence:

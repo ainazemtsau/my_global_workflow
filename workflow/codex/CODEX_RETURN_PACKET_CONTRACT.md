@@ -88,6 +88,34 @@ Codex may use `DONE` only when all of the following are true:
 
 Codex must not claim DONE based only on intention, partial inspection, or an unstated assumption.
 
+## Technical discovery evidence rule
+
+When the Codex Wave Card, C1 launch, C2 prompt, or C2 runtime inspection requires technical discovery / architecture reuse preflight, the Codex Return Packet must include `technical_discovery` evidence.
+
+The evidence must be compact and must not copy full product technical docs into ChatGPT.
+
+Required `technical_discovery` evidence:
+
+- whether preflight was required;
+- whether preflight ran;
+- trigger reasons;
+- project-local sources loaded;
+- bounded discovery scope;
+- existing modules checked;
+- existing public interfaces checked;
+- similar code or patterns found;
+- decision: `reuse_existing`, `extend_existing`, `refactor_existing`, `create_new_module`, `cross_module_request`, `blocked_missing_context`, `human_decision_required`, or `not_applicable`;
+- decision reason;
+- implementation boundary;
+- validation impact;
+- whether stop or escalation was required.
+
+Codex must also return `technical_memory_delta` when implementation or discovery creates, changes, supersedes, or invalidates durable technical knowledge.
+
+`technical_memory_delta` must identify whether durable update is required and which product-local artifacts are affected, such as `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, ADRs, public interface docs, internal module knowledge, or `.codex` memory.
+
+Codex must not use `DONE` when a required technical discovery preflight was skipped, when the discovery decision requires human approval, or when a material architecture decision is outside the approved execution envelope.
+
 ## Required Codex Return Packet template
 
 Producers should use the canonical transport template:
@@ -148,3 +176,6 @@ This note is acceptable only if these anchors remain visible on file read-back /
 *   `Required file read-back / diff verification / commit verification was performed and passed`
 *   `Forbidden targets were checked and not changed`
 *   `CODEX_RETURN_PACKET_END`
+*   `technical_discovery`
+*   `technical_memory_delta`
+*   `Codex must not use DONE when a required technical discovery preflight was skipped`

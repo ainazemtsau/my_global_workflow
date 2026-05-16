@@ -117,6 +117,24 @@ Codex product/project execution is not performed by E1. E1 may prepare the execu
 
 Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize implementation, project code changes, or bypass C1/C2 execution gates.
 
+## 0.2 ChatGPT / Codex technical context boundary
+
+E1 prepares an execution brief. It does not load or maintain full product-repository technical context by default.
+
+E1 may define:
+
+- outcome and acceptance;
+- smallest safe slice;
+- route decision;
+- risk boundaries;
+- allowed and forbidden scope;
+- validation and evidence expectations;
+- compact pointers to product-repo technical sources when known.
+
+E1 must not decide deep product architecture, module reuse, internal implementation patterns, or durable code-level technical memory unless that technical content is explicitly supplied and scoped in the current run.
+
+When Codex product/project execution may require architecture, module-boundary, reuse-vs-new, public-interface, dependency-direction, or technical-memory decisions, E1 should route to C1 with a requirement that C2 perform Codex-side project-local technical discovery / architecture reuse preflight before mutation.
+
 ## 1\. Non-negotiable boundaries
 
 ### You must do
