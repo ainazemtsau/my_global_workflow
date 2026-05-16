@@ -247,3 +247,30 @@ Reason:
 Direct `G1_GOAL_SHAPE` -> `R1_GOAL_REVIEW_DISTILL` is not registry-valid. B1 is selected narrowly for route-integrity recovery and review handoff repair.
 
 G1 did not authorize Unity project creation, code transfer, technical audit execution, external research synthesis, Codex product/project execution, Task Master graph creation, Game Documentation promotion, or implementation.
+
+## 2026-05-16 R1 stabilization / Phase Progress Gate
+
+R1 accepted the existing `Core Technical Foundation Decision Brief / Decision Map` as an accepted route-gated decision map.
+
+Accepted within this Goal:
+- FishNet + Steamworks / Steam Networking / Steam Datagram Relay as multiplayer default;
+- Photon Fusion 2 as fallback / paid acceleration path;
+- player-hosted / listen-host co-op architecture;
+- Project Engineering & Codex Development Operating Model at decision-map level;
+- Grid/Gas/GridV2/GasV2R transfer surfaces explicitly routed to A1 audit rather than silently approved.
+
+Phase Progress Gate result:
+
+```yaml
+phase_progress_gate:
+  result: continue_with_required_goal
+  p9_allowed_now: false
+  required_next_goal_candidate:
+    id: grid-gas-transfer-boundary-audit
+    title: "Провести аудит transfer boundary для legacy Grid, GridV2, GasV2R и Gas↔Grid interaction"
+    recommended_next_stage: G1_GOAL_SHAPE
+    expected_route_after_G1: A1_AUDIT
+  implementation_allowed_now: false
+```
+
+This R1 result does not authorize Unity project creation, code transfer, Codex product/project execution, Task Master graph creation, Game Documentation promotion, or implementation planning.

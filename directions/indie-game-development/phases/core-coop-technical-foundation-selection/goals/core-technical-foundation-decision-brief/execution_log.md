@@ -306,3 +306,79 @@ execution_log_entry:
     patch_id: g1_goal_shape_route_repair_core_technical_foundation_decision_brief_2026_05_16
   changed_files_context_refresh_required: true
 ```
+
+## 2026-05-16 — R1_GOAL_REVIEW_DISTILL formalization: accepted route-gated decision map
+
+```yaml
+execution_log_entry:
+  workflow_packet: 1
+  schema: execution_log_entry.v1
+  persist: true
+  event_type: stage_run
+  timestamp: "2026-05-16"
+  stage:
+    id: R1_GOAL_REVIEW_DISTILL
+    name: "Goal Review / Distill"
+  direction:
+    id: indie_game_development
+    name: "Indie Game Development"
+  phase:
+    id: core-coop-technical-foundation-selection
+    name: "Core Co-op Technical Foundation Selection"
+    status_after_r1: active_r1_accepted_decision_map_pending_grid_gas_transfer_audit
+  goal:
+    id: core-technical-foundation-decision-brief
+    title: "Сформировать Core Technical Foundation Decision Brief"
+    result_status: r1_accepted_route_gated_decision_map
+  input:
+    - "Existing Core Technical Foundation Decision Brief."
+    - "Goal Contract."
+    - "Phase Brief."
+    - "Owner confirmation that multiplayer decision is reliable."
+    - "Codex read-only result confirming decision_brief_status: accept_as_route_gated_decision_map."
+    - "Codex read-only result confirming B1 was route-integrity repair only."
+    - "Technical Foundation — Gas and Grid Contract."
+    - "Clean-start Transfer Boundary."
+  review:
+    review_verdict: completed_verified
+    closure_eligibility: eligible_for_goal_acceptance_not_phase_closure
+    accepted_result: accepted_route_gated_decision_map
+  accepted_surfaces:
+    multiplayer:
+      status: decided
+      default: "FishNet + Steamworks / Steam Networking / Steam Datagram Relay"
+      fallback: "Photon Fusion 2"
+      architecture: "player-hosted / listen-host co-op, no dedicated authoritative server by default"
+    project_engineering_codex_operating_model:
+      status: decided_at_decision_map_level
+  gated_surfaces:
+    legacy_grid:
+      status: audit_needed_A1
+    gridv2:
+      status: audit_needed_A1
+      note: "Not a silent replacement for legacy Grid."
+    gasv2r:
+      status: audit_needed_A1
+    grid_gas_interaction:
+      status: decision_gate_audit_surface
+  phase_progress_gate:
+    result: continue_with_required_goal
+    p9_allowed_now: false
+    next_required_goal_candidate:
+      id: grid-gas-transfer-boundary-audit
+      title: "Провести аудит transfer boundary для legacy Grid, GridV2, GasV2R и Gas↔Grid interaction"
+      recommended_next_stage: G1_GOAL_SHAPE
+      expected_route_after_G1: A1_AUDIT
+  not_performed:
+    - "No Unity project creation."
+    - "No code transfer."
+    - "No Codex product/project execution."
+    - "No Task Master graph."
+    - "No Game Documentation promotion."
+    - "No implementation planning."
+  repository_patch:
+    required: true
+    patch_id: r1_accept_route_gated_decision_map_and_select_grid_gas_audit_2026_05_16
+  changed_files_context_refresh_required: true
+  next_route: G1_GOAL_SHAPE
+```

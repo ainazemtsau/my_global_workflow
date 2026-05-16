@@ -16,18 +16,18 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
+  state: r1_accepted_route_gated_decision_map
   goal_id: core-technical-foundation-decision-brief
   goal_title: "Сформировать Core Technical Foundation Decision Brief"
   goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  existing_goal_artifact_status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
+  existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: B1_PROBLEM
-  next_route_mode: route_integrity_recovery_for_review_ready_decision_brief
-  smallest_useful_result: "B1 route-integrity recovery that validates the registry-safe handoff from G1-classified review-ready candidate to R1 review or exact blocker route."
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_required_grid_gas_transfer_boundary_audit_goal
+  smallest_useful_result: "G1 Goal Contract for grid-gas-transfer-boundary-audit, routed to A1_AUDIT."
 ```
 
 ```yaml
@@ -37,13 +37,13 @@ shaped_goal:
   shaped_by_stage: G1_GOAL_SHAPE
   previous_status_before_p0_map_alignment: active_goal_shaped_pending_E1
   previous_recommended_next_stage_before_p0_map_alignment: E1_EXECUTION_BRIEF
-  current_runtime_status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
-  current_recommended_next_stage: B1_PROBLEM
-  current_recommended_next_mode: route_integrity_recovery_for_review_ready_decision_brief
-  repair_reason: "G1 classified the existing decision brief artifact as a review-ready candidate; B1 route-integrity recovery is required before any R1 downstream routing."
+  current_runtime_status: r1_accepted_route_gated_decision_map
+  current_recommended_next_stage: G1_GOAL_SHAPE
+  current_recommended_next_mode: shape_required_grid_gas_transfer_boundary_audit_goal
+  repair_reason: "R1 accepted the existing decision brief as a route-gated decision map; Grid/Gas transfer remains a required A1 audit surface."
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  existing_goal_artifact_status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
+  existing_goal_artifact_status: accepted_route_gated_decision_map
   decision_status_model:
     - decided
     - decision_gate
@@ -57,7 +57,7 @@ shaped_goal:
     - "Gas Simulation durable logic architecture"
     - "smallest durable technical nucleus"
     - "Project Engineering & Codex Development Operating Model / H1_G2"
-  validation_signal: "G1 can determine whether the existing decision brief is review-ready, incomplete, stale/partial, or blocked by A1/D1/S3/E1 without relying on stale E1 route state."
+  validation_signal: "G1 can shape the required Grid/Gas transfer-boundary audit Goal for A1 without treating the accepted decision map as implementation approval."
 ```
 
 ```yaml
@@ -82,13 +82,39 @@ The existing artifact is:
 
 Current treatment:
 
-- `review_ready_candidate_pending_B1_route_repair_not_R1_accepted`
+- `r1_accepted_route_gated_decision_map`
 - not stale by default;
 - not duplicated blindly;
-- not accepted by R1;
-- must pass `B1_PROBLEM` route-integrity recovery before any R1 downstream route.
+- accepted by R1 as a route-gated decision map;
+- Grid/Gas/GridV2/GasV2R transfer remains blocked pending A1 audit.
 
-The next valid route is `B1_PROBLEM`, not direct R1 from G1.
+The next valid route is `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit`.
+
+## R1 acceptance / next Goal candidate
+
+R1 accepted `core-technical-foundation-decision-brief` as an accepted route-gated decision map.
+
+Accepted:
+- Multiplayer technology and host-player architecture are decided.
+- Project Engineering & Codex Development Operating Model is decided at decision-brief level.
+- The decision map is sufficient to route the remaining foundation risks.
+
+Still unresolved:
+- legacy Grid transfer boundary;
+- GridV2 transfer / replacement boundary;
+- GasV2R transfer / rewrite boundary;
+- Gas↔Grid interaction authority/order/snapshot boundary.
+
+Required next Goal candidate:
+
+```yaml
+next_goal_candidate:
+  id: grid-gas-transfer-boundary-audit
+  title: "Провести аудит transfer boundary для legacy Grid, GridV2, GasV2R и Gas↔Grid interaction"
+  recommended_next_stage: G1_GOAL_SHAPE
+  expected_route_after_G1: A1_AUDIT
+  implementation_allowed_now: false
+```
 
 ## Deferred items
 

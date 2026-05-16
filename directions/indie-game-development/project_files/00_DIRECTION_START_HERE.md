@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_p0_repository_apply
-  last_updated: "2026-05-13"
-  next_action: "After G1 repository maintenance apply/read-back and Project Files refresh, run B1_PROBLEM for route-integrity recovery and review handoff repair."
+  freshness: fresh_after_r1_repository_apply
+  last_updated: "2026-05-16"
+  next_action: "Run G1_GOAL_SHAPE to shape the required grid-gas-transfer-boundary-audit Goal after R1 accepted the decision brief as a route-gated decision map."
 ```
 
 ## Direction identity
@@ -19,7 +19,7 @@ artifact_control:
 - Direction ID: `indie_game_development`
 - Current state: `active`
 - Workflow version: `vNext-R`
-- Last updated: `2026-05-13`
+- Last updated: `2026-05-16`
 
 ## Purpose / thesis
 
@@ -46,7 +46,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `B1_PROBLEM` route-integrity recovery / review handoff repair | `workflow/stage_prompts/B1_PROBLEM.md` |
+| Next route | `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
 
 ## Current Phase meaning
 
@@ -91,15 +91,33 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `B1_PROBLEM` for route-integrity recovery / review handoff repair after this G1 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in ChatGPT Project Files.
+Run `G1_GOAL_SHAPE` to shape the required `grid-gas-transfer-boundary-audit` Goal after R1 accepted the decision brief as a route-gated decision map.
 
-B1 must resolve the registry route issue created by the fact that the existing decision brief is review-ready, while direct `G1_GOAL_SHAPE` -> `R1_GOAL_REVIEW_DISTILL` is not allowed.
-
-Target outcome:
-
-- confirm the existing `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` can proceed to `R1_GOAL_REVIEW_DISTILL`; or
-- route to exact blocker stage if not review-ready.
-
-Do not run direct R1 from G1.
+G1 must shape the audit Goal narrowly for `A1_AUDIT`; it must not perform the audit itself.
 
 Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, scope, and execution route are verified.
+
+## 2026-05-16 R1 stabilization
+
+R1 accepted the existing `Core Technical Foundation Decision Brief / Decision Map` as an accepted route-gated decision map.
+
+Accepted:
+- multiplayer default: FishNet + Steamworks / Steam Networking / Steam Datagram Relay;
+- Photon Fusion 2 as fallback / paid acceleration path;
+- player-hosted / listen-host co-op architecture for MVP baseline;
+- Project Engineering & Codex Development Operating Model at decision-map level.
+
+Not accepted for implementation:
+- direct legacy Grid transfer;
+- direct GridV2 replacement;
+- direct GasV2R production transfer;
+- Grid↔Gas interaction production readiness;
+- Unity project creation;
+- code transfer;
+- Codex product/project execution.
+
+Phase Progress Gate selected continuation with required next Goal candidate:
+
+`grid-gas-transfer-boundary-audit`
+
+Next route: `G1_GOAL_SHAPE`.

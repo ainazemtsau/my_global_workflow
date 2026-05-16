@@ -16,14 +16,14 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run B1_PROBLEM route-integrity recovery / review handoff repair for active Goal core-technical-foundation-decision-brief after G1 repository maintenance apply/read-back and Project Files refresh."
-  route_stage: B1_PROBLEM
-  route_mode: route_integrity_recovery_for_review_ready_decision_brief
+  current_focus: "Run G1_GOAL_SHAPE to shape required Goal grid-gas-transfer-boundary-audit after R1 accepted the Core Technical Foundation Decision Brief as a route-gated decision map."
+  route_stage: G1_GOAL_SHAPE
+  route_mode: shape_required_grid_gas_transfer_boundary_audit_goal
   same_chat_allowed: false
   boundary_trigger: p0_phase_start_map_alignment_after_m0
   pending_state_carried: true
-  pending_patch_pointer: g1_goal_shape_route_repair_core_technical_foundation_decision_brief_2026_05_16
-  last_stage_result_pointer: "G1_GOAL_SHAPE formalized decision brief classification as review-ready candidate and selected B1 route-integrity repair."
+  pending_patch_pointer: r1_accept_route_gated_decision_map_and_select_grid_gas_audit_2026_05_16
+  last_stage_result_pointer: "R1_GOAL_REVIEW_DISTILL accepted core-technical-foundation-decision-brief as route-gated decision map and Phase Progress Gate selected required Grid/Gas transfer-boundary audit."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   active_goal:
     goal_id: core-technical-foundation-decision-brief
@@ -31,51 +31,68 @@ focus:
     goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
     goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
     existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-    status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
+    status: r1_accepted_route_gated_decision_map
   active_phase:
     phase_id: core-coop-technical-foundation-selection
     phase_name: Core Co-op Technical Foundation Selection
     phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-    status: active_after_g1_repair_update_pending_b1_route_repair
+    status: active_r1_accepted_decision_map_pending_grid_gas_transfer_audit
     map_binding: H1_playable_technical_nucleus
-    next_route: B1_PROBLEM
+    next_route: G1_GOAL_SHAPE
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `none blocking for G1 route repair after user approval`
+- Missing context: `none blocking for repository maintenance apply; manual Project Files refresh blocks the next material G1 run`
 - Human decision: `none pending for Phase start`
 - Source conflict: `resolved by approved G1 patch; Project Files must be refreshed after apply`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/B1_PROBLEM.md`
-  - current Project Files 00-06 after G1 read-back
+  - exact `workflow/stage_prompts/G1_GOAL_SHAPE.md`
+  - current Project Files 00-08 after R1 repository maintenance read-back
   - active Phase Brief: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
   - active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
 
 ## Current focus boundary
 
-B1 should repair the route/state handoff created by G1's classification of the existing decision brief as review-ready candidate.
+G1 must shape the required transfer-boundary audit Goal narrowly for A1. G1 must not perform the audit itself.
 
-B1 must decide whether the next registry-valid route should be:
+Audit target:
 
-- `R1_GOAL_REVIEW_DISTILL` if the artifact can be reviewed as-is;
-- `E1_EXECUTION_BRIEF` if execution/decomposition is still needed before review;
-- `A1_AUDIT` if source-backed challenge of Grid/Gas/old-project evidence blocks review;
-- `D1_DEEP_RESEARCH` if current external evidence blocks review;
-- `S3_DECIDE` if a human-owned tradeoff is reopened;
-- `Stop` if route/state is contradictory.
+- legacy Grid;
+- GridV2;
+- GasV2R;
+- Gas↔Grid interaction.
 
-B1 must not silently turn this into:
+Forbidden:
 
-- R1 review execution inside B1;
-- technical audit execution;
-- external research synthesis without D1;
-- Unity project creation;
+- Unity bootstrap;
 - code transfer;
 - Codex product/project execution;
 - Task Master graph creation;
-- throwaway gas prototype;
-- visual gas proof;
-- full engineering handbook;
-- Game Documentation promotion.
+- Game Documentation promotion;
+- implementation planning before audit result.
+
+## Current focus after R1
+
+The current focus is no longer B1 route-integrity repair.
+
+R1 accepted the existing decision brief as an accepted route-gated decision map. The next required workflow step is to shape the audit Goal:
+
+`grid-gas-transfer-boundary-audit`
+
+G1 must shape this Goal narrowly for A1 audit. G1 must not perform the audit itself.
+
+Audit target:
+- legacy Grid;
+- GridV2;
+- GasV2R;
+- Gas↔Grid interaction.
+
+Forbidden:
+- Unity bootstrap;
+- code transfer;
+- Codex product/project execution;
+- Task Master graph creation;
+- Game Documentation promotion;
+- implementation planning before audit result.

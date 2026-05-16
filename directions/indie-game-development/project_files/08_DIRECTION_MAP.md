@@ -375,6 +375,39 @@ map_update_policy:
     - module_coupling_that_forces_Codex_to_load_whole_project_for_small_changes
 ```
 
+## 2026-05-16 R1 map delta
+
+```yaml
+map_delta:
+  source_stage: R1_GOAL_REVIEW_DISTILL
+  delta_type:
+    - node_progressed
+    - active_front_unchanged
+    - new_dependency_discovered
+  node: H1_G1_core_technical_foundation_decision_brief
+  result: r1_accepted_route_gated_decision_map
+  summary: >
+    Core Technical Foundation Decision Brief accepted as route-gated decision map.
+    Multiplayer is decided. Grid/Gas/GridV2/GasV2R transfer remains required A1 audit.
+  active_front:
+    active_horizon: H1_playable_technical_nucleus
+    current_gate: grid-gas-transfer-boundary-audit
+    implementation_allowed_now: false
+  next_required_gate:
+    id: grid-gas-transfer-boundary-audit
+    stage_route: G1_GOAL_SHAPE -> A1_AUDIT
+    target:
+      - legacy Grid
+      - GridV2
+      - GasV2R
+      - Gas↔Grid interaction
+  forbidden_until_gate_resolved:
+    - Unity project bootstrap
+    - code transfer
+    - Codex product/project execution
+    - durable technical nucleus implementation
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/project_files/08_DIRECTION_MAP.md`

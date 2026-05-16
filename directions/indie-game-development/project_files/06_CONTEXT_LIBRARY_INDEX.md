@@ -55,23 +55,23 @@ Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
   - Status: `active_phase_brief`
-  - Load for `B1_PROBLEM` and any route working on the current Phase.
+  - Load for `G1_GOAL_SHAPE`, `A1_AUDIT`, and any route working on the current Phase.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
 
 ## Active Goal context
 
-Active Goal after G1 repair/update formalization:
+Active Goal after R1 acceptance:
 
 - Goal ID: `core-technical-foundation-decision-brief`
 - Goal title: `Сформировать Core Technical Foundation Decision Brief`
 - Goal path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief`
 - Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-- Existing artifact treatment: `review_ready_candidate_pending_B1_route_repair_not_R1_accepted`
-- Recommended next stage: `B1_PROBLEM`
-- Recommended next mode: `route_integrity_recovery_for_review_ready_decision_brief`
+- Existing artifact treatment: `accepted_route_gated_decision_map`
+- Recommended next stage: `G1_GOAL_SHAPE`
+- Recommended next mode: `shape_required_grid_gas_transfer_boundary_audit_goal`
 
 Load for work on the active Goal:
 
@@ -79,8 +79,8 @@ Load for work on the active Goal:
   - Status: `active_goal_contract`
   - Reason: shaped Goal Contract, staged decision-map scope boundary, decision status model.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-  - Status: `existing_goal_artifact_review_ready_candidate_pending_B1_route_repair`
-  - Reason: existing decision brief was classified by G1 as review-ready candidate; B1 must repair/validate the registry-safe handoff toward R1 or route to an exact blocker.
+  - Status: `existing_goal_artifact_r1_accepted_route_gated_decision_map`
+  - Reason: existing decision brief was accepted by R1 as a route-gated decision map; Grid/Gas transfer remains routed to A1 audit.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md`
   - Status: `active_goal_log`
   - Request only when execution history is needed.
@@ -151,3 +151,30 @@ Do not create another proof-boundary/readiness artifact unless evidence proves t
 Do not recreate `Expedition First Proof Checkpoint`.
 
 This current Phase has a different delta: high-lock-in technical foundation selection for a new co-op project.
+
+## Required context for grid-gas-transfer-boundary-audit
+
+After R1 accepted the Core Technical Foundation Decision Brief as a route-gated decision map, the next required Goal candidate is:
+
+`grid-gas-transfer-boundary-audit`
+
+Load for shaping/audit:
+- `directions/indie-game-development/domain_docs/game_documentation/technical-foundation-gas-and-grid-contract.md`
+- `directions/indie-game-development/domain_docs/game_documentation/clean-start-transfer-boundary.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+
+Search-discovered C2 evidence docs:
+- `01_OLD_PROJECT_GRID_TOPOLOGY_TECHNICAL_DOC.md`
+- `02_OLD_PROJECT_GAS_SIMULATION_TECHNICAL_DOC.md`
+- `03_OLD_PROJECT_GRID_GAS_INTERACTION_DOC.md`
+
+A1 audit target:
+- legacy Grid;
+- GridV2;
+- GasV2R;
+- Gas↔Grid interaction.
+
+Known gap:
+- old Unity source/code/tests are not present in this repository;
+- referenced old source anchors point to `C:\Users\Anton\TheLastExit`;
+- A1 may need Context Request or Codex/local-source access if direct code/test inspection is required.
