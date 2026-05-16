@@ -179,3 +179,47 @@ candidate:
 ## Next route
 
 Run `G1_GOAL_SHAPE` for candidate `core-technical-foundation-decision-brief` after repository patch apply/read-back/commit verification and Project Files refresh.
+
+## 2026-05-15 P0 map-alignment repair
+
+P0 kept this Phase active after M0 initialized `08_DIRECTION_MAP.md`.
+
+### Map binding
+
+- Active Horizon: `H1_playable_technical_nucleus`
+- Current Gate: `H1_G1_core_technical_foundation_decision_brief`
+- Required inside current gate or next gate before implementation: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+
+### Updated Critical Constraint
+
+The Direction cannot safely move toward the playable technical nucleus while foundation choices and Codex-development architecture protocols are not reconciled into an accepted, reviewable foundation decision.
+
+### Updated Minimum Outcome
+
+Accepted or review-routed `Core Technical Foundation Decision Brief / Decision Map` that either satisfies the current Phase closure criteria or names exact A1/D1/S3/E1 gates.
+
+### Updated Validation Signal
+
+The next workflow state can choose R1 review, A1 audit, D1 research, S3 decision, or E1 execution planning without guessing and without premature implementation.
+
+### Existing artifact treatment
+
+Existing artifact:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+
+Treatment:
+
+- review candidate / evidence artifact;
+- not stale by default;
+- not accepted by P0;
+- not duplicated blindly;
+- must be reconciled by `G1_GOAL_SHAPE` repair/update.
+
+### Next route after P0
+
+Run `G1_GOAL_SHAPE` in repair/update mode.
+
+Do not route directly from P0 to `E1_EXECUTION_BRIEF` or `R1_GOAL_REVIEW_DISTILL`.
+
+Do not run Unity project creation, code transfer, technical audit, external research synthesis, Codex product/project execution, Task Master graph creation, Game Documentation promotion, or implementation inside P0.

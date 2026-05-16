@@ -16,15 +16,18 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: active_goal_shaped_pending_E1
+  state: artifact_exists_pending_G1_repair_update
   goal_id: core-technical-foundation-decision-brief
   goal_title: "Сформировать Core Technical Foundation Decision Brief"
   goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+  existing_goal_artifact_status: review_candidate_evidence_artifact_not_yet_accepted_by_P0
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: E1_EXECUTION_BRIEF
-  smallest_useful_result: "Accepted Core Technical Foundation Decision Brief / Decision Map with per-surface statuses and route gates."
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
+  smallest_useful_result: "Repaired/updated active Goal route/state that determines whether the existing Core Technical Foundation Decision Brief is review-ready, needs repair, or needs D1/A1/S3/E1 gates."
 ```
 
 ```yaml
@@ -65,9 +68,21 @@ previous_active_goal:
 
 ## Active Goal snapshot
 
-Active Goal is now `core-technical-foundation-decision-brief`.
+Active Goal remains `core-technical-foundation-decision-brief`.
 
-The next valid route is `E1_EXECUTION_BRIEF` to prepare a staged execution decomposition for producing the accepted technical foundation decision brief / decision map.
+The existing artifact is:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+
+Current treatment:
+
+- `review_candidate_evidence_artifact_not_yet_accepted_by_P0`
+- not stale by default;
+- not duplicated blindly;
+- not accepted as final by P0;
+- must be reconciled by `G1_GOAL_SHAPE` repair/update before any E1/R1 downstream route.
+
+The next valid route is `G1_GOAL_SHAPE`, not direct E1 from P0.
 
 ## Deferred items
 
