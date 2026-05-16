@@ -72,3 +72,20 @@ execution_log_entry:
   next_launch_card_created: true
   notes: "P0 did not run technical audit, implementation, or P9."
 ```
+
+## 2026-05-16 — G1 reset to first technical nucleus specification
+
+```yaml
+log_type: phase_event
+stage_id: G1_GOAL_SHAPE
+previous_goal_id: grid-gas-transfer-boundary-audit
+new_goal_id: first-technical-nucleus-functional-spec
+result: active_goal_repaired
+next_stage: E1_EXECUTION_BRIEF
+reason: >
+  Human clarification rejected direct old-code transfer and reframed old Grid/Gas material
+  as reference/evidence only. The Phase remains valid, but the active Goal is now a
+  first technical nucleus functional specification with gated sequential execution.
+implementation_performed: false
+repository_patch_id: g1_formalize_first_technical_nucleus_functional_spec_2026_05_16
+```

@@ -55,42 +55,54 @@ Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
   - Status: `active_phase_brief`
-  - Load for `G1_GOAL_SHAPE`, `A1_AUDIT`, and any route working on the current Phase.
+  - Load for `G1_GOAL_SHAPE`, `E1_EXECUTION_BRIEF`, and any route working on the current Phase.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
 
 ## Active Goal context
 
-Active Goal after G1 formalization:
+Active Goal after G1 reset formalization:
 
 ```yaml
-active_goal_after_g1:
-  goal_id: grid-gas-transfer-boundary-audit
-  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/execution_log.md"
-  recommended_next_stage: A1_AUDIT
-  recommended_next_mode: audit_grid_gas_transfer_boundary
+active_goal_after_g1_reset:
+  goal_id: first-technical-nucleus-functional-spec
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
+  recommended_next_stage: E1_EXECUTION_BRIEF
+  recommended_next_mode: plan_gated_sequential_first_technical_nucleus_spec
+  previous_goal_superseded: grid-gas-transfer-boundary-audit
 ```
 
 Load for work on the active Goal:
 
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`
   - Status: `active_goal_contract`
-  - Reason: shaped Goal Contract for A1 audit of legacy Grid, GridV2, GasV2R, and Gas↔Grid interaction.
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/execution_log.md`
+  - Reason: shaped Goal Contract for first technical nucleus functional specification.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
   - Status: `active_goal_log`
   - Request only when execution history is needed.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
   - Status: `existing_goal_artifact_r1_accepted_route_gated_decision_map`
-  - Reason: existing decision brief was accepted by R1 as a route-gated decision map; Grid/Gas transfer remains routed to A1 audit.
+  - Reason: accepted decision map remains prior context.
+
+## Superseded Goal context
+
+`grid-gas-transfer-boundary-audit` is superseded after human clarification.
+
+Treatment:
+
+- preserve as reset context;
+- do not load for default active execution;
+- do not run A1 audit unless a later lifecycle stage explicitly reselects a targeted audit;
+- old Grid/Gas material is reference/evidence only after requirements are clear.
 
 ## Conditionally required technical foundation context
 
 Load/request these when shaping, researching, deciding, or executing the first technical foundation Goal:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - Status: `required_for_current_A1`
+  - Status: `required_for_current_E1`
   - Reason: active Phase frame and closure contract.
 - `directions/indie-game-development/domain_docs/game_documentation/technical-foundation-gas-and-grid-contract.md`
   - Status: `request_only`
@@ -152,9 +164,9 @@ Do not recreate `Expedition First Proof Checkpoint`.
 
 This current Phase has a different delta: high-lock-in technical foundation selection for a new co-op project.
 
-## Required context for grid-gas-transfer-boundary-audit
+## Superseded context for grid-gas-transfer-boundary-audit
 
-After G1 formalized the Grid/Gas transfer-boundary audit Goal, the active Goal is:
+After G1 reset formalization, this Goal is superseded:
 
 `grid-gas-transfer-boundary-audit`
 
@@ -181,8 +193,26 @@ Known gap:
 - referenced old source anchors point to `C:\Users\Anton\TheLastExit`;
 - A1 may need Context Request or Codex/local-source access if direct code/test inspection is required.
 
-## Required context for A1 grid-gas-transfer-boundary-audit after G1 formalization
+## Superseded context for A1 grid-gas-transfer-boundary-audit after G1 formalization
 
 Recommended next stage: `A1_AUDIT`.
 
 Recommended next mode: `audit_grid_gas_transfer_boundary`.
+
+## Required context for first-technical-nucleus-functional-spec
+
+Recommended next stage: `E1_EXECUTION_BRIEF`.
+
+Recommended next mode: `plan_gated_sequential_first_technical_nucleus_spec`.
+
+Required for E1:
+
+- exact `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` prompt with visible EOF marker;
+- current Project Files 00-08 after repository maintenance read-back and manual refresh;
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`;
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`;
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`.
+
+Old Unity source/code/tests are not default context. Request them only after a later block has a targeted reference question.
+
+Do not run implementation, Unity bootstrap, old-code transfer, old-code audit, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.

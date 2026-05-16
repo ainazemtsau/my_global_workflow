@@ -5,7 +5,11 @@ artifact_control:
   artifact_name: "Phase Brief — Core Co-op Technical Foundation Selection"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_after_repository_apply
+  status: active_g1_formalized_first_technical_nucleus_spec_pending_E1
+  phase_status: active_g1_formalized_first_technical_nucleus_spec_pending_E1
+  active_goal_id: first-technical-nucleus-functional-spec
+  active_goal_status: goal_shaped_pending_E1
+  next_route: E1_EXECUTION_BRIEF
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
   created_by_stage: P0_PHASE_START
   created_at: "2026-05-13"
@@ -16,7 +20,7 @@ artifact_control:
 - Phase ID: `core-coop-technical-foundation-selection`
 - Phase name: `Core Co-op Technical Foundation Selection`
 - Direction: `Indie Game Development`
-- Status: `active_after_repository_apply`
+- Status: `active_g1_formalized_first_technical_nucleus_spec_pending_E1`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 
@@ -115,6 +119,19 @@ phase_closure_contract:
       required_for_closure: true
       status: first_goal_candidate_pending_G1
       recommended_next_stage: G1_GOAL_SHAPE
+    - goal_id: first-technical-nucleus-functional-spec
+      title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
+      required_for_closure: true
+      status: goal_shaped_pending_E1
+      next_stage: E1_EXECUTION_BRIEF
+      purpose: >
+        Define first technical nucleus capabilities across gas, spatial/level needs,
+        Grid/topology substrate, cross-system interaction, destructibility compatibility,
+        and validation/demo scenarios.
+    - goal_id: grid-gas-transfer-boundary-audit
+      status: superseded_after_human_clarification
+      required_for_closure: false
+      treatment: "reference/evidence only"
   optional_expansion_candidates:
     - candidate_id: unity-project-bootstrap
       status: optional_not_required_for_closure
@@ -178,7 +195,11 @@ candidate:
 
 ## Next route
 
-Run `G1_GOAL_SHAPE` for candidate `core-technical-foundation-decision-brief` after repository patch apply/read-back/commit verification and Project Files refresh.
+Run `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`.
+
+Do not proceed until this G1 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in Project Files.
+
+E1 must not implement. E1 must plan gated sequential execution and preserve the required user approval gate after the gas simulation capability frame.
 
 ## 2026-05-15 P0 map-alignment repair
 
@@ -274,3 +295,32 @@ phase_progress_gate:
 ```
 
 This R1 result does not authorize Unity project creation, code transfer, Codex product/project execution, Task Master graph creation, Game Documentation promotion, or implementation planning.
+
+## 2026-05-16 G1 reset — first technical nucleus functional specification
+
+G1 superseded `grid-gas-transfer-boundary-audit` after human clarification.
+
+New active Goal:
+
+`first-technical-nucleus-functional-spec`
+
+The Phase remains valid. The active foundation-selection question is now requirements-first:
+define the first technical nucleus capability/specification before implementation or old project reference review.
+
+Required route:
+
+`E1_EXECUTION_BRIEF`
+
+Required internal gate:
+
+User approval after `gas_simulation_capability_frame` before Grid/topology work proceeds.
+
+Blocked:
+
+- implementation;
+- Unity bootstrap;
+- old-code transfer;
+- old-code audit as starting point;
+- Codex product/project execution;
+- Task Master graph;
+- Game Documentation promotion.

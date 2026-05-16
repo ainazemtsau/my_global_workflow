@@ -10,7 +10,7 @@ artifact_control:
   default_load: yes
   freshness: fresh_after_r1_repository_apply
   last_updated: "2026-05-16"
-  next_action: "Run A1_AUDIT for the shaped grid-gas-transfer-boundary-audit Goal after repository maintenance apply/read-back and Project Files refresh."
+  next_action: "Run E1_EXECUTION_BRIEF for first-technical-nucleus-functional-spec after repository maintenance apply/read-back and Project Files refresh."
 ```
 
 ## Direction identity
@@ -38,15 +38,16 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Current Gate | `H1_G1_core_technical_foundation_decision_brief` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
+| Current Phase status | `active_g1_formalized_first_technical_nucleus_spec_pending_E1` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
-| Active Goal | `core-technical-foundation-decision-brief` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief` |
-| Active Goal Contract | `Goal Contract — Core Technical Foundation Decision Brief` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md` |
+| Active Goal | `first-technical-nucleus-functional-spec` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec` |
+| Active Goal Contract | `Goal Contract — First Technical Nucleus Functional Spec` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md` |
 | Existing Goal Artifact | `Core Technical Foundation Decision Brief / Decision Map` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` |
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `A1_AUDIT` for `grid-gas-transfer-boundary-audit` | `workflow/stage_prompts/A1_AUDIT.md` |
+| Next route | `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec` | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` |
 
 ## Current Phase meaning
 
@@ -91,11 +92,20 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `A1_AUDIT` for `grid-gas-transfer-boundary-audit`.
+Run `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`.
 
-A1 must audit the shaped transfer-boundary Goal without implementation, Unity bootstrap, code transfer, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.
+E1 must plan gated sequential execution for the first technical nucleus functional specification:
 
-Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, scope, and execution route are verified.
+1. gas simulation capability frame;
+2. user approval gate after gas block;
+3. level/spatial requirements;
+4. Grid/topology substrate requirements;
+5. cross-system interaction requirements;
+6. destructibility compatibility boundary;
+7. validation/demo requirements;
+8. synthesis.
+
+Do not run Unity bootstrap, implementation, old-code transfer, old-code audit, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.
 
 ## 2026-05-16 R1 stabilization
 
@@ -122,12 +132,14 @@ Phase Progress Gate selected continuation with required next Goal candidate:
 
 Next route: `G1_GOAL_SHAPE`.
 
-## 2026-05-16 G1 formalization
+## 2026-05-16 G1 reset formalization
 
-G1 formalized `grid-gas-transfer-boundary-audit` and routed it to `A1_AUDIT`.
+G1 superseded `grid-gas-transfer-boundary-audit` after human clarification.
 
-The shaped Goal Contract is:
+New active Goal:
 
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
+`first-technical-nucleus-functional-spec`
 
-Run A1_AUDIT for the shaped grid-gas-transfer-boundary-audit Goal after repository maintenance apply/read-back and Project Files refresh.
+Direct old-code transfer is out of scope. Old project material is reference/evidence only and may be used later as targeted reference after requirements are clear.
+
+Next route: `E1_EXECUTION_BRIEF`.

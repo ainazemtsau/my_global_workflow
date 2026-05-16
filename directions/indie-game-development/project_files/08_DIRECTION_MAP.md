@@ -234,11 +234,11 @@ compact_initiative_graph:
 ```yaml
 active_front:
   active_horizon: H1_playable_technical_nucleus
-  current_gate: grid-gas-transfer-boundary-audit
-  current_gate_status: goal_shaped_pending_A1
+  current_gate: first-technical-nucleus-functional-spec
+  current_gate_status: goal_shaped_pending_E1
   required_inside_current_gate_or_next_gate:
     - H1_G2_codex_development_operating_model_and_architecture_protocols
-  primary_reason: "The current Goal matters because it is the first foundation gate before a real playable technical nucleus, not because the Direction Map should be reduced to the current Phase."
+  primary_reason: "The current Goal matters because it defines the requirements for the first technical nucleus before implementation or old project reference review."
   active_front_rule: "Close/accept the foundation decision minimally enough; do not expand it into endless research or a full engineering handbook."
   codex_architecture_rule: "The foundation decision is sufficient only if it either accepts minimum Codex-driven development rules or explicitly route-gates them before implementation."
   immediate_next_after_gate:
@@ -310,7 +310,8 @@ parked_future_nodes:
     reason_parked: "Documentation is not promoted automatically."
 
   - id: old_project_transfer_audit
-    activation_trigger: "A concrete transfer target is selected."
+    status: superseded_as_active_gate
+    activation_trigger: "Only after requirements are clear and a later lifecycle route asks a targeted reference/audit question."
     reason_parked: "Old project material is evidence/source material, not automatic production base."
 ```
 
@@ -411,6 +412,8 @@ map_delta:
 
 ## 2026-05-16 G1 map delta — grid-gas-transfer-boundary-audit shaped
 
+Superseded as the active front by the later 2026-05-16 G1 reset to `first-technical-nucleus-functional-spec`.
+
 ```yaml
 map_delta:
   source_stage: G1_GOAL_SHAPE
@@ -434,6 +437,47 @@ map_delta:
   forbidden_until_gate_resolved:
     - Unity project bootstrap
     - code transfer
+    - Codex product/project execution
+    - durable technical nucleus implementation
+```
+
+## 2026-05-16 G1 map delta — first technical nucleus functional specification shaped
+
+```yaml
+map_delta:
+  source_stage: G1_GOAL_SHAPE
+  delta_type:
+    - goal_shaped
+    - active_front_repaired
+    - implementation_still_blocked
+  previous_gate: grid-gas-transfer-boundary-audit
+  previous_gate_result: superseded_after_human_clarification
+  node: first-technical-nucleus-functional-spec
+  result: goal_shaped_pending_E1
+  summary: >
+    G1 superseded the legacy Grid/Gas transfer-boundary audit as the active gate.
+    The repaired active Goal is a single broad parent specification Goal for the
+    first technical nucleus. Direct old-code transfer is out of scope. Old project
+    material is reference/evidence only after requirements are clear.
+  active_front:
+    active_horizon: H1_playable_technical_nucleus
+    current_gate: first-technical-nucleus-functional-spec
+    next_stage: E1_EXECUTION_BRIEF
+    implementation_allowed_now: false
+  required_sequence:
+    - gas_simulation_capability_frame
+    - user_approval_gate_after_gas_block
+    - level_and_spatial_requirements
+    - grid_topology_substrate_requirements
+    - cross_system_interaction_requirements
+    - destructibility_compatibility_boundary
+    - validation_demo_requirements
+    - synthesis
+  forbidden_until_gate_resolved:
+    - Unity project bootstrap
+    - implementation
+    - old-code transfer
+    - old-code audit as starting point
     - Codex product/project execution
     - durable technical nucleus implementation
 ```

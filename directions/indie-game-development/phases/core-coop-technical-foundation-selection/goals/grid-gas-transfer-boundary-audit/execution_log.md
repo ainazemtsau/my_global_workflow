@@ -49,6 +49,23 @@ changed_files_context_refresh_required: true
 next_launch_card_ref: "A1_AUDIT launch card emitted by G1 formalization."
 ```
 
+## 2026-05-16 — Superseded after human clarification
+
+```yaml
+log_type: stage_supersession
+stage_id: G1_GOAL_SHAPE
+previous_goal_id: grid-gas-transfer-boundary-audit
+superseded_by_goal_id: first-technical-nucleus-functional-spec
+result: superseded_misframed_after_human_clarification
+reason: >
+  The active transfer-boundary audit route no longer matches the human-owned foundation policy.
+  Direct old-code transfer is out of scope. Old Grid/Gas material is reference/evidence only.
+  The new active Goal starts from the desired first technical nucleus capabilities.
+implementation_performed: false
+old_code_audit_performed: false
+codex_product_execution_performed: false
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/execution_log.md`

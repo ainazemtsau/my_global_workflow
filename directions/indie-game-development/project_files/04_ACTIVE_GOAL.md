@@ -16,18 +16,20 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: goal_shaped_pending_A1
-  goal_id: grid-gas-transfer-boundary-audit
-  goal_title: "Провести аудит transfer boundary для legacy Grid, GridV2, GasV2R и Gas↔Grid interaction"
-  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
-  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md"
+  state: goal_shaped_pending_E1
+  goal_id: first-technical-nucleus-functional-spec
+  goal_title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
+  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec"
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
+  previous_goal_superseded: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: A1_AUDIT
-  next_route_mode: audit_grid_gas_transfer_boundary
-  smallest_useful_result: "A1 audit result for legacy Grid, GridV2, GasV2R, and Gas↔Grid transfer/rewrite/reference-only boundary."
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: plan_gated_sequential_first_technical_nucleus_spec
+  smallest_useful_result: "E1 execution brief for gated sequential production of the first technical nucleus functional specification, starting with gas_simulation_capability_frame and user approval gate."
 ```
 
 ```yaml
@@ -74,20 +76,38 @@ previous_active_goal:
 
 ## Active Goal snapshot
 
-Active Goal is `grid-gas-transfer-boundary-audit`.
+Active Goal is `first-technical-nucleus-functional-spec`.
 
 The active Goal Contract is:
 
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`
 
 Current treatment:
 
-- `goal_shaped_pending_A1`
+- `goal_shaped_pending_E1`
 - shaped by G1;
-- routed to A1 audit;
-- implementation remains blocked pending A1 audit.
+- routed to E1 execution brief;
+- implementation remains blocked pending accepted specification and later execution readiness.
 
-The next valid route is `A1_AUDIT` for `grid-gas-transfer-boundary-audit`.
+The next valid route is `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`.
+
+## Superseded previous active Goal
+
+Previous active Goal:
+
+`grid-gas-transfer-boundary-audit`
+
+Status:
+
+`superseded_after_human_clarification`
+
+Treatment:
+
+- preserve as reset context;
+- do not continue as A1 transfer-boundary audit;
+- old project material is reference/evidence only;
+- direct old-code transfer is out of scope;
+- targeted old-project reference may occur later only after requirements are clear.
 
 ## R1 acceptance / next Goal candidate
 
@@ -104,7 +124,7 @@ Still unresolved:
 - GasV2R transfer / rewrite boundary;
 - Gas↔Grid interaction authority/order/snapshot boundary.
 
-Required next Goal candidate:
+Required next Goal candidate at that time, now superseded by the 2026-05-16 G1 reset:
 
 ```yaml
 next_goal_candidate:

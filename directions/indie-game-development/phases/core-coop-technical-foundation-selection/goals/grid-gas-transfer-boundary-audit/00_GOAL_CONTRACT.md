@@ -1,5 +1,17 @@
 # Goal Contract — Grid/Gas Transfer Boundary Audit
 
+## Supersession note — 2026-05-16
+
+This Goal is superseded after human clarification.
+
+Do not continue this as a transfer/reuse/discard audit.
+
+Direct old-code transfer is out of scope. Old Grid/Gas material may be used later only as targeted reference/evidence after the first technical nucleus requirements are clear.
+
+Superseding active Goal:
+
+`first-technical-nucleus-functional-spec`
+
 ```yaml
 artifact_control:
   artifact_name: "Goal Contract — Grid/Gas Transfer Boundary Audit"
@@ -8,11 +20,16 @@ artifact_control:
   direction_id: indie_game_development
   phase_id: core-coop-technical-foundation-selection
   goal_id: grid-gas-transfer-boundary-audit
-  status: goal_shaped_pending_A1
+  status: superseded_after_human_clarification
+  superseded_by_goal_id: first-technical-nucleus-functional-spec
+  superseded_reason: >
+    Direct old-code transfer is out of scope. Old Grid/Gas material is reference/evidence only.
+    Requirements for the new game's first technical nucleus must be defined first.
+  active_goal: false
   shaped_by_stage: G1_GOAL_SHAPE
   shaped_at: "2026-05-16"
   source_stage_prompt: "workflow/stage_prompts/G1_GOAL_SHAPE.md"
-  next_stage: A1_AUDIT
+  next_stage: none
   repository_source: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md"
 ```
 
