@@ -16,18 +16,18 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: r1_accepted_route_gated_decision_map
-  goal_id: core-technical-foundation-decision-brief
-  goal_title: "Сформировать Core Technical Foundation Decision Brief"
-  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
-  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  state: goal_shaped_pending_A1
+  goal_id: grid-gas-transfer-boundary-audit
+  goal_title: "Провести аудит transfer boundary для legacy Grid, GridV2, GasV2R и Gas↔Grid interaction"
+  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_required_grid_gas_transfer_boundary_audit_goal
-  smallest_useful_result: "G1 Goal Contract for grid-gas-transfer-boundary-audit, routed to A1_AUDIT."
+  next_route: A1_AUDIT
+  next_route_mode: audit_grid_gas_transfer_boundary
+  smallest_useful_result: "A1 audit result for legacy Grid, GridV2, GasV2R, and Gas↔Grid transfer/rewrite/reference-only boundary."
 ```
 
 ```yaml
@@ -74,21 +74,20 @@ previous_active_goal:
 
 ## Active Goal snapshot
 
-Active Goal remains `core-technical-foundation-decision-brief`.
+Active Goal is `grid-gas-transfer-boundary-audit`.
 
-The existing artifact is:
+The active Goal Contract is:
 
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
 
 Current treatment:
 
-- `r1_accepted_route_gated_decision_map`
-- not stale by default;
-- not duplicated blindly;
-- accepted by R1 as a route-gated decision map;
-- Grid/Gas/GridV2/GasV2R transfer remains blocked pending A1 audit.
+- `goal_shaped_pending_A1`
+- shaped by G1;
+- routed to A1 audit;
+- implementation remains blocked pending A1 audit.
 
-The next valid route is `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit`.
+The next valid route is `A1_AUDIT` for `grid-gas-transfer-boundary-audit`.
 
 ## R1 acceptance / next Goal candidate
 
@@ -115,6 +114,10 @@ next_goal_candidate:
   expected_route_after_G1: A1_AUDIT
   implementation_allowed_now: false
 ```
+
+## Previous accepted Goal
+
+Previous accepted Goal: `core-technical-foundation-decision-brief` remains `r1_accepted_route_gated_decision_map`.
 
 ## Deferred items
 

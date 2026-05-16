@@ -234,7 +234,8 @@ compact_initiative_graph:
 ```yaml
 active_front:
   active_horizon: H1_playable_technical_nucleus
-  current_gate: H1_G1_core_technical_foundation_decision_brief
+  current_gate: grid-gas-transfer-boundary-audit
+  current_gate_status: goal_shaped_pending_A1
   required_inside_current_gate_or_next_gate:
     - H1_G2_codex_development_operating_model_and_architecture_protocols
   primary_reason: "The current Goal matters because it is the first foundation gate before a real playable technical nucleus, not because the Direction Map should be reduced to the current Phase."
@@ -401,6 +402,35 @@ map_delta:
       - GridV2
       - GasV2R
       - Gas↔Grid interaction
+  forbidden_until_gate_resolved:
+    - Unity project bootstrap
+    - code transfer
+    - Codex product/project execution
+    - durable technical nucleus implementation
+```
+
+## 2026-05-16 G1 map delta — grid-gas-transfer-boundary-audit shaped
+
+```yaml
+map_delta:
+  source_stage: G1_GOAL_SHAPE
+  delta_type:
+    - goal_shaped
+    - active_front_unchanged
+    - implementation_still_blocked
+  node: grid-gas-transfer-boundary-audit
+  result: goal_shaped_pending_A1
+  summary: >
+    G1 formalized the Grid/Gas/GridV2/GasV2R transfer-boundary audit Goal.
+    A1 must audit legacy Grid, GridV2, GasV2R, and Gas↔Grid interaction
+    against the new game's bounded co-op expedition concept, including Grid
+    as interaction substrate, Gas T1/T2/T3 source-of-truth review, and
+    future destructibility should-not-block guardrail.
+  active_front:
+    active_horizon: H1_playable_technical_nucleus
+    current_gate: grid-gas-transfer-boundary-audit
+    next_stage: A1_AUDIT
+    implementation_allowed_now: false
   forbidden_until_gate_resolved:
     - Unity project bootstrap
     - code transfer

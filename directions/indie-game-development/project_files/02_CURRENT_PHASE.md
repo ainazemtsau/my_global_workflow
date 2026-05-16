@@ -25,16 +25,17 @@ current_phase:
   started_by_stage: P0_PHASE_START
   started_at: "2026-05-13"
   status_after_r1: active_r1_accepted_decision_map_pending_grid_gas_transfer_audit
+  status_after_g1: active_g1_formalized_grid_gas_transfer_boundary_audit_pending_A1
   map_binding:
     active_horizon: H1_playable_technical_nucleus
     current_gate: H1_G1_core_technical_foundation_decision_brief
     required_inside_current_gate_or_next_gate:
       - H1_G2_codex_development_operating_model_and_architecture_protocols
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_required_grid_gas_transfer_boundary_audit_goal
-  active_goal_id: core-technical-foundation-decision-brief
-  active_goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
-  active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  next_route: A1_AUDIT
+  next_route_mode: audit_grid_gas_transfer_boundary
+  active_goal_id: grid-gas-transfer-boundary-audit
+  active_goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
+  active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
   recommended_first_goal_candidate: grid-gas-transfer-boundary-audit
@@ -45,14 +46,13 @@ current_phase:
 
 ```yaml
 active_goal_projection:
-  goal_id: core-technical-foundation-decision-brief
-  status: r1_accepted_route_gated_decision_map
-  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
-  existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  existing_goal_artifact_status: accepted_route_gated_decision_map
-  recommended_next_stage: G1_GOAL_SHAPE
-  next_goal_candidate: grid-gas-transfer-boundary-audit
-  goal_shape_note: "R1 accepted the decision brief as a route-gated decision map; G1 must shape the required Grid/Gas transfer-boundary audit Goal for A1."
+  goal_id: grid-gas-transfer-boundary-audit
+  status: goal_shaped_pending_A1
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/execution_log.md"
+  recommended_next_stage: A1_AUDIT
+  next_goal_candidate: none
+  goal_shape_note: "G1 shaped the required Grid/Gas/GridV2/GasV2R transfer-boundary audit Goal; A1 is next."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
 ```
 
@@ -71,8 +71,8 @@ phase_closure_contract_status_update:
     - goal_id: grid-gas-transfer-boundary-audit
       name: "Провести аудит transfer boundary для legacy Grid, GridV2, GasV2R и Gas↔Grid interaction"
       required_for_closure: true
-      status: candidate_pending_G1
-      recommended_next_stage: G1_GOAL_SHAPE
+      status: goal_shaped_pending_A1
+      recommended_next_stage: A1_AUDIT
       expected_route_after_G1: A1_AUDIT
   after_goal_gate_policy:
     - "R1 ran phase_progress_gate after accepting the decision map."
@@ -86,12 +86,13 @@ phase_closure_contract_status_update:
 
 - Active Phase unresolved: `no`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Phase route state: `active_r1_accepted_decision_map_pending_grid_gas_transfer_audit`
+- Active Phase route state: `active_g1_formalized_grid_gas_transfer_boundary_audit_pending_A1`
 - Active Goal unresolved: `no`
-- Active Goal: `core-technical-foundation-decision-brief`
-- Active Goal status: `r1_accepted_route_gated_decision_map`
-- Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-- Existing artifact treatment: `accepted_route_gated_decision_map`
+- Active Goal: `grid-gas-transfer-boundary-audit`
+- Active Goal status: `goal_shaped_pending_A1`
+- Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
+- Previous accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+- Previous accepted artifact treatment: `accepted_route_gated_decision_map`
 - Previous Phase: `Expedition First Playable Proof Slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `first-playable-proof-slice-brief`
@@ -100,7 +101,7 @@ phase_closure_contract_status_update:
 - Last completed Goal status: `r1_reviewed_accepted`
 - Direction Map status: `initialized`
 - Map link: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief / H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Next route: `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit`
+- Next route: `A1_AUDIT` for `grid-gas-transfer-boundary-audit`
 - Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
@@ -113,16 +114,16 @@ Previous closed Phase proved the Expedition proof identity and rejected gas-only
 
 ## Next route
 
-Run `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit`.
+Run `A1_AUDIT` for `grid-gas-transfer-boundary-audit`.
 
-G1 must shape a narrow Goal Contract for A1 audit of:
+A1 must audit:
 
 - legacy Grid;
 - GridV2;
 - GasV2R;
 - Gas↔Grid interaction.
 
-Do not run G1 until this R1 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in context.
+Do not run A1 until this G1 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in context.
 
 ## 2026-05-16 R1 Phase Progress Gate
 
@@ -132,4 +133,8 @@ Phase Progress Gate result: `continue_with_required_goal`.
 
 P9 is not allowed now because Grid/Gas/GridV2/GasV2R transfer safety remains a required foundation audit surface before implementation.
 
-Next route: `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit`.
+Next route after R1 was `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit`.
+
+## 2026-05-16 G1 formalization
+
+G1 shaped the required Grid/Gas/GridV2/GasV2R transfer-boundary audit Goal; A1 is next.

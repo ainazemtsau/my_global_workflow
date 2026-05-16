@@ -23,8 +23,8 @@ direction:
   current_initiative_from_map: innovative-commercial-expedition-gas-sim-game
   active_horizon_from_map: H1_playable_technical_nucleus
   current_phase_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-  active_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
-  active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  active_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
+  active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: r1_accepted_route_gated_decision_map
   recommended_first_goal_candidate: grid-gas-transfer-boundary-audit
@@ -37,8 +37,8 @@ direction:
   last_completed_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
   last_completed_goal_result: r1_accepted_route_gated_decision_map
   accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_required_grid_gas_transfer_boundary_audit_goal
+  next_route: A1_AUDIT
+  next_route_mode: audit_grid_gas_transfer_boundary
   last_updated: "2026-05-16"
 ```
 
@@ -65,7 +65,7 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Core Co-op Technical Foundation Selection`
 - Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
-- Status: `active_r1_accepted_decision_map_pending_grid_gas_transfer_audit`
+- Status: `active_g1_formalized_grid_gas_transfer_boundary_audit_pending_A1`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
@@ -73,12 +73,12 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Current Critical Constraint: foundation choices and Codex-development architecture protocols must be reconciled into an accepted, reviewable foundation decision before playable technical nucleus implementation can safely proceed.
 - Minimum Outcome: accepted or review-routed `Core Technical Foundation Decision Brief / Decision Map`.
 - Validation Signal: the next workflow state can choose R1 review, A1 audit, D1 research, S3 decision, or E1 execution planning without guessing and without premature implementation.
-- Active Goal: `core-technical-foundation-decision-brief`
+- Active Goal: `grid-gas-transfer-boundary-audit`
 - Completed Goal status: `r1_accepted_route_gated_decision_map`
-- Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
+- Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`; Grid/Gas transfer remains `audit_needed_A1`.
-- Next route: `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit`
+- Next route: `A1_AUDIT` for `grid-gas-transfer-boundary-audit`
 
 ## Previous active Phase / Goal
 
@@ -103,11 +103,11 @@ Build a commercially viable indie game direction focused on Expedition product j
 ## Project Files export state
 
 - Last refresh: `requires_refresh_after_R1_2026-05-16_repository_maintenance_apply_readback`
-- Required refresh: `before G1_GOAL_SHAPE grid-gas-transfer-boundary-audit`
-- Current route: `G1_GOAL_SHAPE`
+- Required refresh: `before A1_AUDIT grid-gas-transfer-boundary-audit`
+- Current route: `A1_AUDIT`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Goal: `core-technical-foundation-decision-brief`
-- Active Goal status: `r1_accepted_route_gated_decision_map`
+- Active Goal: `grid-gas-transfer-boundary-audit`
+- Active Goal status: `goal_shaped_pending_A1`
 - Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Direction Map status: `initialized`
 - Manual Project Files cache refresh required: `true`
@@ -130,3 +130,9 @@ Phase continues with required next Goal candidate:
 `grid-gas-transfer-boundary-audit`
 
 Do not run Unity bootstrap, code transfer, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.
+
+## 2026-05-16 G1 formalized grid-gas-transfer-boundary-audit
+
+G1 formalized `grid-gas-transfer-boundary-audit`; implementation remains blocked pending A1.
+
+Next route mode: `audit_grid_gas_transfer_boundary`.

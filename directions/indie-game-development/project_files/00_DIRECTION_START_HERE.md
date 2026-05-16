@@ -10,7 +10,7 @@ artifact_control:
   default_load: yes
   freshness: fresh_after_r1_repository_apply
   last_updated: "2026-05-16"
-  next_action: "Run G1_GOAL_SHAPE to shape the required grid-gas-transfer-boundary-audit Goal after R1 accepted the decision brief as a route-gated decision map."
+  next_action: "Run A1_AUDIT for the shaped grid-gas-transfer-boundary-audit Goal after repository maintenance apply/read-back and Project Files refresh."
 ```
 
 ## Direction identity
@@ -46,7 +46,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
+| Next route | `A1_AUDIT` for `grid-gas-transfer-boundary-audit` | `workflow/stage_prompts/A1_AUDIT.md` |
 
 ## Current Phase meaning
 
@@ -91,9 +91,9 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `G1_GOAL_SHAPE` to shape the required `grid-gas-transfer-boundary-audit` Goal after R1 accepted the decision brief as a route-gated decision map.
+Run `A1_AUDIT` for `grid-gas-transfer-boundary-audit`.
 
-G1 must shape the audit Goal narrowly for `A1_AUDIT`; it must not perform the audit itself.
+A1 must audit the shaped transfer-boundary Goal without implementation, Unity bootstrap, code transfer, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.
 
 Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, scope, and execution route are verified.
 
@@ -121,3 +121,13 @@ Phase Progress Gate selected continuation with required next Goal candidate:
 `grid-gas-transfer-boundary-audit`
 
 Next route: `G1_GOAL_SHAPE`.
+
+## 2026-05-16 G1 formalization
+
+G1 formalized `grid-gas-transfer-boundary-audit` and routed it to `A1_AUDIT`.
+
+The shaped Goal Contract is:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
+
+Run A1_AUDIT for the shaped grid-gas-transfer-boundary-audit Goal after repository maintenance apply/read-back and Project Files refresh.

@@ -20,13 +20,13 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 - Active Phase status: `active_r1_accepted_decision_map_pending_grid_gas_transfer_audit`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief`
-- Active Goal name: `Сформировать Core Technical Foundation Decision Brief`
-- Active Goal status: `r1_accepted_route_gated_decision_map`
-- Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
+- Active Goal: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit`
+- Active Goal name: `Провести аудит transfer boundary для legacy Grid, GridV2, GasV2R и Gas↔Grid interaction`
+- Active Goal status: `goal_shaped_pending_A1`
+- Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `G1_GOAL_SHAPE` for `grid-gas-transfer-boundary-audit`
+- Next route: `A1_AUDIT`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -66,7 +66,7 @@ Required foundation surface:
 
 ## Queue items
 
-- Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `candidate_pending_G1`, expected route `A1_AUDIT`
+- Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `goal_shaped_pending_A1`, expected route `A1_AUDIT`
 - Expedition Project Bootstrap / Tool Binding Readiness — request-only until selected by a vNext-R stage result
 - Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result
 - Expedition System Synergy Research Pack — request-only until selected by a vNext-R stage result
@@ -97,3 +97,9 @@ Required next queue item:
   - reason: transfer/rewrite boundary must be audited before implementation planning.
 
 Implementation, Unity bootstrap, code transfer, and Codex product/project execution remain blocked.
+
+## Queue update after G1
+
+`grid-gas-transfer-boundary-audit` shaped; next route `A1_AUDIT`.
+
+Queue update after G1: grid-gas-transfer-boundary-audit shaped; next route A1_AUDIT.

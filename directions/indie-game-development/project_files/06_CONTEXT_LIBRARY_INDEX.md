@@ -62,35 +62,35 @@ Load for work on the current Phase:
 
 ## Active Goal context
 
-Active Goal after R1 acceptance:
+Active Goal after G1 formalization:
 
-- Goal ID: `core-technical-foundation-decision-brief`
-- Goal title: `Сформировать Core Technical Foundation Decision Brief`
-- Goal path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief`
-- Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
-- Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-- Existing artifact treatment: `accepted_route_gated_decision_map`
-- Recommended next stage: `G1_GOAL_SHAPE`
-- Recommended next mode: `shape_required_grid_gas_transfer_boundary_audit_goal`
+```yaml
+active_goal_after_g1:
+  goal_id: grid-gas-transfer-boundary-audit
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/execution_log.md"
+  recommended_next_stage: A1_AUDIT
+  recommended_next_mode: audit_grid_gas_transfer_boundary
+```
 
 Load for work on the active Goal:
 
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
   - Status: `active_goal_contract`
-  - Reason: shaped Goal Contract, staged decision-map scope boundary, decision status model.
+  - Reason: shaped Goal Contract for A1 audit of legacy Grid, GridV2, GasV2R, and Gas↔Grid interaction.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/execution_log.md`
+  - Status: `active_goal_log`
+  - Request only when execution history is needed.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
   - Status: `existing_goal_artifact_r1_accepted_route_gated_decision_map`
   - Reason: existing decision brief was accepted by R1 as a route-gated decision map; Grid/Gas transfer remains routed to A1 audit.
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md`
-  - Status: `active_goal_log`
-  - Request only when execution history is needed.
 
 ## Conditionally required technical foundation context
 
 Load/request these when shaping, researching, deciding, or executing the first technical foundation Goal:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - Status: `required_for_current_G1`
+  - Status: `required_for_current_A1`
   - Reason: active Phase frame and closure contract.
 - `directions/indie-game-development/domain_docs/game_documentation/technical-foundation-gas-and-grid-contract.md`
   - Status: `request_only`
@@ -154,11 +154,13 @@ This current Phase has a different delta: high-lock-in technical foundation sele
 
 ## Required context for grid-gas-transfer-boundary-audit
 
-After R1 accepted the Core Technical Foundation Decision Brief as a route-gated decision map, the next required Goal candidate is:
+After G1 formalized the Grid/Gas transfer-boundary audit Goal, the active Goal is:
 
 `grid-gas-transfer-boundary-audit`
 
-Load for shaping/audit:
+Load for A1 audit:
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit/execution_log.md`
 - `directions/indie-game-development/domain_docs/game_documentation/technical-foundation-gas-and-grid-contract.md`
 - `directions/indie-game-development/domain_docs/game_documentation/clean-start-transfer-boundary.md`
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
@@ -178,3 +180,9 @@ Known gap:
 - old Unity source/code/tests are not present in this repository;
 - referenced old source anchors point to `C:\Users\Anton\TheLastExit`;
 - A1 may need Context Request or Codex/local-source access if direct code/test inspection is required.
+
+## Required context for A1 grid-gas-transfer-boundary-audit after G1 formalization
+
+Recommended next stage: `A1_AUDIT`.
+
+Recommended next mode: `audit_grid_gas_transfer_boundary`.
