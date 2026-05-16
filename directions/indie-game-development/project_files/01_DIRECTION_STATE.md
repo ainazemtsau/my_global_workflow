@@ -20,9 +20,13 @@ direction:
   id: indie_game_development
   state: active
   workflow_version: vNext-R
+  current_initiative_from_map: innovative-commercial-expedition-gas-sim-game
+  active_horizon_from_map: H1_playable_technical_nucleus
   current_phase_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   active_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
   active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+  existing_goal_artifact_status: review_candidate_evidence_artifact_not_yet_accepted_by_P0
   recommended_first_goal_candidate: null
   last_closed_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   last_closed_phase_result: p9_closed
@@ -33,8 +37,9 @@ direction:
   last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   last_completed_goal_result: r1_reviewed_accepted
   accepted_goal_artifact: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md"
-  next_route: E1_EXECUTION_BRIEF
-  last_updated: "2026-05-14"
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
+  last_updated: "2026-05-15"
 ```
 
 ## Purpose / thesis
@@ -60,15 +65,20 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Core Co-op Technical Foundation Selection`
 - Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
-- Status: `active_after_g1_goal_shape_pending_E1`
+- Status: `active_after_p0_map_alignment_pending_g1_repair_update`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
-- Current Critical Constraint: high-lock-in co-op technical foundation choices are unresolved.
-- Minimum Outcome: accepted `Core Technical Foundation Decision Brief`.
-- Validation Signal: accepted foundation decision covers multiplayer stack/architecture, Grid/Topology transfer boundary, Gas Simulation durable logic architecture, smallest durable technical nucleus, and explicit route gates for unresolved foundation surfaces.
+- Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
+- Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Current Critical Constraint: foundation choices and Codex-development architecture protocols must be reconciled into an accepted, reviewable foundation decision before playable technical nucleus implementation can safely proceed.
+- Minimum Outcome: accepted or review-routed `Core Technical Foundation Decision Brief / Decision Map`.
+- Validation Signal: the next workflow state can choose R1 review, A1 audit, D1 research, S3 decision, or E1 execution planning without guessing and without premature implementation.
 - Active Goal: `core-technical-foundation-decision-brief`
+- Active Goal status: `artifact_exists_pending_G1_repair_update`
 - Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
-- Next route: `E1_EXECUTION_BRIEF`
+- Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+- Existing artifact treatment: review candidate / evidence artifact, not accepted by P0.
+- Next route: `G1_GOAL_SHAPE`
 
 ## Previous active Phase / Goal
 
@@ -92,8 +102,12 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `2026-05-13 after P0 repository maintenance apply/read-back`
-- Required refresh: `before G1_GOAL_SHAPE`
+- Last refresh: `requires_refresh_after_P0_2026-05-15_repository_maintenance_apply_readback`
+- Required refresh: `before G1_GOAL_SHAPE repair/update`
 - Current route: `G1_GOAL_SHAPE`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Goal: `none_pending_G1`
+- Active Goal: `core-technical-foundation-decision-brief`
+- Active Goal status: `artifact_exists_pending_G1_repair_update`
+- Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+- Direction Map status: `initialized`
+- Manual Project Files cache refresh required: `true`

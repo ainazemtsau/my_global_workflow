@@ -17,10 +17,16 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
 - Active Phase name: `Core Co-op Technical Foundation Selection`
+- Active Phase status: `active_after_p0_map_alignment_pending_g1_repair_update`
+- Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
+- Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
 - Active Goal: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief`
 - Active Goal name: `Сформировать Core Technical Foundation Decision Brief`
+- Active Goal status: `artifact_exists_pending_G1_repair_update`
 - Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
-- Next route: `E1_EXECUTION_BRIEF`
+- Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+- Existing artifact treatment: `review_candidate_evidence_artifact_not_yet_accepted_by_P0`
+- Next route: `G1_GOAL_SHAPE`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -59,7 +65,7 @@ Required foundation surface:
 
 ## Queue items
 
-- Core Technical Foundation Decision Brief — `active_goal_shaped_pending_E1`
+- Core Technical Foundation Decision Brief — `artifact_exists_pending_G1_repair_update`
 - Expedition Project Bootstrap / Tool Binding Readiness — request-only until selected by a vNext-R stage result
 - Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result
 - Expedition System Synergy Research Pack — request-only until selected by a vNext-R stage result

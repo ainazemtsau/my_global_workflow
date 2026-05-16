@@ -16,26 +16,29 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run E1_EXECUTION_BRIEF for active Goal core-technical-foundation-decision-brief after G1 repository maintenance apply/read-back and Project Files refresh."
-  route_stage: E1_EXECUTION_BRIEF
+  current_focus: "Run G1_GOAL_SHAPE repair/update for active Goal core-technical-foundation-decision-brief after P0 map-alignment repository maintenance apply/read-back and Project Files refresh."
+  route_stage: G1_GOAL_SHAPE
+  route_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
   same_chat_allowed: false
-  boundary_trigger: g1_goal_shape_after_repository_maintenance
+  boundary_trigger: p0_phase_start_map_alignment_after_m0
   pending_state_carried: true
-  pending_patch_pointer: g1_goal_shape_core_technical_foundation_decision_map_2026-05-14
-  last_stage_result_pointer: "G1_GOAL_SHAPE shaped Core Technical Foundation Decision Brief as staged decision map."
+  pending_patch_pointer: p0_phase_start_indie_game_development_map_alignment_2026_05_15
+  last_stage_result_pointer: "P0_PHASE_START formalized current Phase keep/update, map_binding to H1, and G1 repair/update route."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   active_goal:
     goal_id: core-technical-foundation-decision-brief
     goal_title: "Сформировать Core Technical Foundation Decision Brief"
     goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
     goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
-    status: active_goal_shaped_pending_E1
+    existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+    status: artifact_exists_pending_G1_repair_update
   active_phase:
     phase_id: core-coop-technical-foundation-selection
     phase_name: Core Co-op Technical Foundation Selection
     phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-    status: active
-    next_route: E1_EXECUTION_BRIEF
+    status: active_after_p0_map_alignment_pending_g1_repair_update
+    map_binding: H1_playable_technical_nucleus
+    next_route: G1_GOAL_SHAPE
 ```
 
 ## Blockers / required inputs
@@ -51,30 +54,23 @@ focus:
 
 ## Current focus boundary
 
-E1 should prepare the minimum execution brief for producing the accepted `Core Technical Foundation Decision Brief` / Decision Map.
+G1 should repair/update the existing active Goal against the initialized Direction Map and existing decision brief artifact.
 
-E1 must preserve the staged decision-map model. It must classify each foundation surface as one of:
+G1 must decide whether `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` is:
 
-- `decided`;
-- `decision_gate`;
-- `research_needed_D1`;
-- `audit_needed_A1`;
-- `human_decision_needed_S3`;
-- `deferred_not_blocking_for_bootstrap`.
+- review-ready and should be routed toward R1 through a registry-valid path;
+- incomplete and needs a bounded repair/update;
+- blocked by current external evidence and should route to `D1_DEEP_RESEARCH`;
+- blocked by old project evidence and should route to `A1_AUDIT` or Context Request;
+- blocked by a human-owned tradeoff and should route to `S3_DECIDE`;
+- stale/partial evidence only.
 
-E1 must cover these foundation surfaces:
+G1 must not silently turn this into:
 
-- multiplayer technology and host-player architecture;
-- Grid/Topology transfer boundary;
-- Gas Simulation durable logic architecture;
-- smallest durable technical nucleus;
-- Project Engineering & Codex Development Operating Model.
-
-E1 must not silently turn this into:
-
+- E1 execution decomposition before artifact-state reconciliation;
 - technical audit execution;
-- external research synthesis without routing to D1 when needed;
-- final technology selection without evidence;
+- external research synthesis without D1;
+- final technology selection without evidence/review;
 - Unity project creation;
 - code transfer;
 - Codex product/project execution;
@@ -83,9 +79,3 @@ E1 must not silently turn this into:
 - visual gas proof;
 - full engineering handbook;
 - Game Documentation promotion.
-
-If E1 discovers that current external multiplayer/tooling evidence is required, route to `D1_DEEP_RESEARCH`.
-
-If E1 discovers that a human-owned strategic tradeoff is blocking, route to `S3_DECIDE`.
-
-If E1 discovers that old project docs/code are blocking, return Context Request or route to `A1_AUDIT` with exact file needs.

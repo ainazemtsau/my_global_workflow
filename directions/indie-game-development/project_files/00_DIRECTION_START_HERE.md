@@ -33,19 +33,20 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 
 | Pointer | Value | Canonical target |
 | --- | --- | --- |
+| Current Initiative | `innovative-commercial-expedition-gas-sim-game` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
+| Active Horizon | `H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
+| Current Gate | `H1_G1_core_technical_foundation_decision_brief` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
+| Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
 | Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Active Goal | `core-technical-foundation-decision-brief` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief` |
 | Active Goal Contract | `Goal Contract — Core Technical Foundation Decision Brief` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md` |
+| Existing Goal Artifact | `Core Technical Foundation Decision Brief / Decision Map` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` |
+| Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
-| Previous Goal | `first-playable-proof-slice-brief` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief` |
-| Previous Goal status | `paused_superseded_partial_progress_not_accepted` | Preserved as scaffold/evidence, not accepted completion |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Accepted Goal artifact | `Minimum Expedition Proof Core` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md` |
-| Context load rules | Direction Context Loading Index | `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md` |
-| Direction Map | initial stub / needs M0 review | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
-| Next route | `E1_EXECUTION_BRIEF` | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` |
+| Next route | `G1_GOAL_SHAPE` repair/update | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
 
 ## Current Phase meaning
 
@@ -90,10 +91,18 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `G1_GOAL_SHAPE` for the candidate Goal:
+Run `G1_GOAL_SHAPE` in repair/update mode for the existing active Goal:
 
 `Сформировать Core Technical Foundation Decision Brief`
 
-Do not run G1 until this P0 patch is applied, read back, diff-verified, commit-verified, and refreshed in ChatGPT Project Files.
+G1 must reconcile the initialized Direction Map, the active Phase/Goal state, and the existing artifact:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+
+G1 must decide whether the artifact is review-ready, incomplete, stale/partial, or blocked by A1/D1/S3/E1 prerequisites.
+
+Do not run G1 until this P0 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in ChatGPT Project Files.
+
+Do not route directly from P0 to `E1_EXECUTION_BRIEF` or `R1_GOAL_REVIEW_DISTILL`.
 
 Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, scope, and execution route are verified.
