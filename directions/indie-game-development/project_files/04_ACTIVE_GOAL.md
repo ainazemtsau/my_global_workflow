@@ -35,9 +35,15 @@ shaped_goal:
   goal_id: core-technical-foundation-decision-brief
   goal_title: "Сформировать Core Technical Foundation Decision Brief"
   shaped_by_stage: G1_GOAL_SHAPE
-  status: active_goal_shaped_pending_E1
-  recommended_next_stage: E1_EXECUTION_BRIEF
+  previous_status_before_p0_map_alignment: active_goal_shaped_pending_E1
+  previous_recommended_next_stage_before_p0_map_alignment: E1_EXECUTION_BRIEF
+  current_runtime_status: artifact_exists_pending_G1_repair_update
+  current_recommended_next_stage: G1_GOAL_SHAPE
+  current_recommended_next_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
+  repair_reason: "Existing decision brief artifact now requires G1 repair/update against initialized Direction Map before any E1/R1 downstream routing."
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+  existing_goal_artifact_status: review_candidate_evidence_artifact_not_yet_accepted_by_P0
   decision_status_model:
     - decided
     - decision_gate
@@ -50,8 +56,8 @@ shaped_goal:
     - "Grid/Topology transfer boundary"
     - "Gas Simulation durable logic architecture"
     - "smallest durable technical nucleus"
-    - "Project Engineering & Codex Development Operating Model"
-  validation_signal: "The Direction can proceed to bootstrap/implementation planning, or to a precise research/audit/decision route, without guessing."
+    - "Project Engineering & Codex Development Operating Model / H1_G2"
+  validation_signal: "G1 can determine whether the existing decision brief is review-ready, incomplete, stale/partial, or blocked by A1/D1/S3/E1 without relying on stale E1 route state."
 ```
 
 ```yaml
