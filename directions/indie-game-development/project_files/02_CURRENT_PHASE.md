@@ -61,9 +61,12 @@ phase_closure_contract_status_update:
     - goal_id: core-technical-foundation-decision-brief
       name: "Сформировать Core Technical Foundation Decision Brief"
       required_for_closure: true
-      status: active_goal_shaped_pending_E1
+      status: artifact_exists_pending_G1_repair_update
       goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
-      recommended_next_stage: E1_EXECUTION_BRIEF
+      existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+      existing_goal_artifact_status: review_candidate_evidence_artifact_not_yet_accepted_by_P0
+      recommended_next_stage: G1_GOAL_SHAPE
+      recommended_next_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
   after_goal_gate_policy:
     - "After R1, run phase_progress_gate before selecting any new G0/G1 work."
     - "Do not auto-continue into Unity project creation, code transfer, or Codex product/project execution."

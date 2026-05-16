@@ -149,6 +149,74 @@ execution_log_entry:
   next_route: G1_GOAL_SHAPE
   next_launch_card_created: true
 ```
+---
+```yaml
+execution_log_entry:
+  workflow_packet: 1
+  schema: execution_log_entry.v1
+  persist: true
+  target_log_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md"
+  event_type: stage_run
+  timestamp: "2026-05-15"
+  direction:
+    name: Indie Game Development
+    path: directions/indie-game-development
+  phase:
+    name: Core Co-op Technical Foundation Selection
+    path: directions/indie-game-development/phases/core-coop-technical-foundation-selection
+    status: active_after_p0_map_alignment_pending_g1_repair_update
+  goal:
+    title: "Сформировать Core Technical Foundation Decision Brief"
+    path: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief
+    status: artifact_exists_pending_G1_repair_update
+  stage:
+    id: P0_PHASE_START
+    name: Phase Start / validation repair
+  route:
+    next_stage: G1_GOAL_SHAPE
+    mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
+  return_state: DONE
+  input_sources:
+    - source: "Codex repository maintenance return for p0_phase_start_indie_game_development_map_alignment_2026_05_15"
+      freshness: current_user_message
+    - source: "GitHub read-back of 02_CURRENT_PHASE.md and 04_ACTIVE_GOAL.md after main merge"
+      freshness: verified_current_repository_files
+    - source: "User approval: APPROVE AND FORMALIZE REPAIR"
+      freshness: current_user_message
+  outputs_created:
+    - "Narrow repair patch for stale E1 projection blocks."
+    - "02_CURRENT_PHASE.md phase_closure_contract_status_update repaired to G1 repair/update."
+    - "04_ACTIVE_GOAL.md shaped_goal block repaired to current runtime status while preserving previous E1 shape as historical context."
+  decisions_made:
+    - "Do not launch G1 until repair patch is applied, read back, committed, and Project Files cache refreshed."
+    - "Do not mutate 08_DIRECTION_MAP.md."
+    - "Do not mutate 07_PHASE_MEMORY_INDEX.md."
+    - "Do not run product/project execution."
+  repository_patch:
+    required: true
+    patch_id: p0_validation_repair_stale_e1_projection_blocks_2026_05_15
+    summary: "Repair residual stale E1 projection blocks in 02_CURRENT_PHASE.md and 04_ACTIVE_GOAL.md."
+  changed_files_context_refresh:
+    required: true
+    files:
+      - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+      - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+      - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md
+  evidence_pointers:
+    - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
+    - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
+  friction:
+    - "Manual Project Files cache refresh remains blocking before G1."
+  human_burden:
+    level: H1
+    notes: "Run Codex repository maintenance apply/read-back; then refresh 02 and 04 Project Files cache before next G1 material run."
+  ai_failure_mode:
+    - "Patch validation found residual stale projection blocks after a broader state repair."
+  blocker:
+    - "G1 launch blocked until repair repository maintenance apply/read-back/commit verification and Project Files refresh."
+  next_route: G1_GOAL_SHAPE
+  next_launch_card_created: true
+```
 
 ## End-of-file marker
 
