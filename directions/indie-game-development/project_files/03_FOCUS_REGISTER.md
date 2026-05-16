@@ -16,14 +16,14 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run G1_GOAL_SHAPE repair/update for active Goal core-technical-foundation-decision-brief after P0 map-alignment repository maintenance apply/read-back and Project Files refresh."
-  route_stage: G1_GOAL_SHAPE
-  route_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
+  current_focus: "Run B1_PROBLEM route-integrity recovery / review handoff repair for active Goal core-technical-foundation-decision-brief after G1 repository maintenance apply/read-back and Project Files refresh."
+  route_stage: B1_PROBLEM
+  route_mode: route_integrity_recovery_for_review_ready_decision_brief
   same_chat_allowed: false
   boundary_trigger: p0_phase_start_map_alignment_after_m0
   pending_state_carried: true
-  pending_patch_pointer: p0_phase_start_indie_game_development_map_alignment_2026_05_15
-  last_stage_result_pointer: "P0_PHASE_START formalized current Phase keep/update, map_binding to H1, and G1 repair/update route."
+  pending_patch_pointer: g1_goal_shape_route_repair_core_technical_foundation_decision_brief_2026_05_16
+  last_stage_result_pointer: "G1_GOAL_SHAPE formalized decision brief classification as review-ready candidate and selected B1 route-integrity repair."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   active_goal:
     goal_id: core-technical-foundation-decision-brief
@@ -31,46 +31,46 @@ focus:
     goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
     goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
     existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-    status: artifact_exists_pending_G1_repair_update
+    status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
   active_phase:
     phase_id: core-coop-technical-foundation-selection
     phase_name: Core Co-op Technical Foundation Selection
     phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-    status: active_after_p0_map_alignment_pending_g1_repair_update
+    status: active_after_g1_repair_update_pending_b1_route_repair
     map_binding: H1_playable_technical_nucleus
-    next_route: G1_GOAL_SHAPE
+    next_route: B1_PROBLEM
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `none blocking for P0 formalization after user approval`
+- Missing context: `none blocking for G1 route repair after user approval`
 - Human decision: `none pending for Phase start`
-- Source conflict: `resolved by approved P0 patch; Project Files must be refreshed after apply`
+- Source conflict: `resolved by approved G1 patch; Project Files must be refreshed after apply`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/G1_GOAL_SHAPE.md`
-  - current Project Files 00-07 after P0 read-back
-  - new Phase Brief: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+  - exact `workflow/stage_prompts/B1_PROBLEM.md`
+  - current Project Files 00-06 after G1 read-back
+  - active Phase Brief: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+  - active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
 
 ## Current focus boundary
 
-G1 should repair/update the existing active Goal against the initialized Direction Map and existing decision brief artifact.
+B1 should repair the route/state handoff created by G1's classification of the existing decision brief as review-ready candidate.
 
-G1 must decide whether `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` is:
+B1 must decide whether the next registry-valid route should be:
 
-- review-ready and should be routed toward R1 through a registry-valid path;
-- incomplete and needs a bounded repair/update;
-- blocked by current external evidence and should route to `D1_DEEP_RESEARCH`;
-- blocked by old project evidence and should route to `A1_AUDIT` or Context Request;
-- blocked by a human-owned tradeoff and should route to `S3_DECIDE`;
-- stale/partial evidence only.
+- `R1_GOAL_REVIEW_DISTILL` if the artifact can be reviewed as-is;
+- `E1_EXECUTION_BRIEF` if execution/decomposition is still needed before review;
+- `A1_AUDIT` if source-backed challenge of Grid/Gas/old-project evidence blocks review;
+- `D1_DEEP_RESEARCH` if current external evidence blocks review;
+- `S3_DECIDE` if a human-owned tradeoff is reopened;
+- `Stop` if route/state is contradictory.
 
-G1 must not silently turn this into:
+B1 must not silently turn this into:
 
-- E1 execution decomposition before artifact-state reconciliation;
+- R1 review execution inside B1;
 - technical audit execution;
 - external research synthesis without D1;
-- final technology selection without evidence/review;
 - Unity project creation;
 - code transfer;
 - Codex product/project execution;

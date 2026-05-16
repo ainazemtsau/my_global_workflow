@@ -253,3 +253,56 @@ execution_log_entry:
     - "No Game Documentation promotion."
   next_action: "Run Codex repository maintenance apply/read-back, then refresh ChatGPT Project File cache for 08_DIRECTION_MAP.md before next material workflow run."
 ```
+
+## 2026-05-16 — G1_GOAL_SHAPE formalization: decision brief route/state repair
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  log_type: stage_execution
+  stage_id: G1_GOAL_SHAPE
+  stage_name: "Goal Shape / Ruthless Cut"
+  direction:
+    id: indie_game_development
+    name: "Indie Game Development"
+  phase:
+    id: core-coop-technical-foundation-selection
+    name: "Core Co-op Technical Foundation Selection"
+  goal:
+    id: core-technical-foundation-decision-brief
+    title: "Сформировать Core Technical Foundation Decision Brief"
+  input:
+    existing_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+    existing_decision_brief: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+    prior_route_state: "artifact_exists_pending_G1_repair_update"
+  result:
+    return_state: DONE
+    artifact_classification: review_ready_candidate
+    accepted_by_g1: false
+    accepted_by_r1: false
+    duplicate_or_rewrite_required: false
+    selected_next_stage: B1_PROBLEM
+  route_reason: >
+    Existing decision brief appears review-ready, but direct G1_GOAL_SHAPE -> R1_GOAL_REVIEW_DISTILL
+    is not registry-valid. B1_PROBLEM is selected narrowly for route-integrity recovery and review
+    handoff repair.
+  scope_cuts:
+    - "No decision brief rewrite."
+    - "No R1 review inside G1."
+    - "No E1 execution decomposition inside G1."
+    - "No A1/D1/S3 work inside G1."
+    - "No Unity project creation."
+    - "No code transfer."
+    - "No Codex product/project execution."
+    - "No Task Master graph."
+    - "No Game Documentation promotion."
+  downstream_gates_preserved:
+    - "A1_AUDIT for Grid/GridV2 and GasV2R transfer safety if needed."
+    - "D1_DEEP_RESEARCH for current external evidence if needed."
+    - "S3_DECIDE if a human-owned tradeoff is reopened."
+    - "E1_EXECUTION_BRIEF before implementation planning or Codex execution."
+  repository_patch:
+    status: requested_after_user_approval
+    patch_id: g1_goal_shape_route_repair_core_technical_foundation_decision_brief_2026_05_16
+  changed_files_context_refresh_required: true
+```

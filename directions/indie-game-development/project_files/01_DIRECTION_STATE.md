@@ -26,7 +26,7 @@ direction:
   active_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
   active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  existing_goal_artifact_status: review_candidate_evidence_artifact_not_yet_accepted_by_P0
+  existing_goal_artifact_status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
   recommended_first_goal_candidate: null
   last_closed_phase_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint"
   last_closed_phase_result: p9_closed
@@ -37,8 +37,8 @@ direction:
   last_completed_goal_pointer: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof"
   last_completed_goal_result: r1_reviewed_accepted
   accepted_goal_artifact: "directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof/03_MINIMUM_EXPEDITION_PROOF_CORE.md"
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
+  next_route: B1_PROBLEM
+  next_route_mode: route_integrity_recovery_for_review_ready_decision_brief
   last_updated: "2026-05-15"
 ```
 
@@ -65,7 +65,7 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Core Co-op Technical Foundation Selection`
 - Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
-- Status: `active_after_p0_map_alignment_pending_g1_repair_update`
+- Status: `active_after_g1_repair_update_pending_b1_route_repair`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
@@ -74,11 +74,11 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Minimum Outcome: accepted or review-routed `Core Technical Foundation Decision Brief / Decision Map`.
 - Validation Signal: the next workflow state can choose R1 review, A1 audit, D1 research, S3 decision, or E1 execution planning without guessing and without premature implementation.
 - Active Goal: `core-technical-foundation-decision-brief`
-- Active Goal status: `artifact_exists_pending_G1_repair_update`
+- Active Goal status: `review_ready_candidate_pending_B1_route_repair_not_R1_accepted`
 - Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-- Existing artifact treatment: review candidate / evidence artifact, not accepted by P0.
-- Next route: `G1_GOAL_SHAPE`
+- Existing artifact treatment: `review_ready_candidate_pending_B1_route_repair_not_R1_accepted`.
+- Next route: `B1_PROBLEM`
 
 ## Previous active Phase / Goal
 
@@ -102,12 +102,12 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `requires_refresh_after_P0_2026-05-15_repository_maintenance_apply_readback`
-- Required refresh: `before G1_GOAL_SHAPE repair/update`
-- Current route: `G1_GOAL_SHAPE`
+- Last refresh: `requires_refresh_after_G1_2026-05-16_repository_maintenance_apply_readback`
+- Required refresh: `before B1_PROBLEM route-integrity recovery`
+- Current route: `B1_PROBLEM`
 - Active Phase: `Core Co-op Technical Foundation Selection`
 - Active Goal: `core-technical-foundation-decision-brief`
-- Active Goal status: `artifact_exists_pending_G1_repair_update`
+- Active Goal status: `review_ready_candidate_pending_B1_route_repair_not_R1_accepted`
 - Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Direction Map status: `initialized`
 - Manual Project Files cache refresh required: `true`

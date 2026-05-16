@@ -55,23 +55,23 @@ Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
   - Status: `active_phase_brief`
-  - Load for `G1_GOAL_SHAPE` and any route working on the current Phase.
+  - Load for `B1_PROBLEM` and any route working on the current Phase.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
 
 ## Active Goal context
 
-Active Goal after P0 map-alignment formalization:
+Active Goal after G1 repair/update formalization:
 
 - Goal ID: `core-technical-foundation-decision-brief`
 - Goal title: `Сформировать Core Technical Foundation Decision Brief`
 - Goal path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief`
 - Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-- Existing artifact treatment: `review_candidate_evidence_artifact_not_yet_accepted_by_P0`
-- Recommended next stage: `G1_GOAL_SHAPE`
-- Recommended next mode: `repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact`
+- Existing artifact treatment: `review_ready_candidate_pending_B1_route_repair_not_R1_accepted`
+- Recommended next stage: `B1_PROBLEM`
+- Recommended next mode: `route_integrity_recovery_for_review_ready_decision_brief`
 
 Load for work on the active Goal:
 
@@ -79,8 +79,8 @@ Load for work on the active Goal:
   - Status: `active_goal_contract`
   - Reason: shaped Goal Contract, staged decision-map scope boundary, decision status model.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-  - Status: `existing_goal_artifact_review_candidate`
-  - Reason: existing decision brief must be classified by G1 as review-ready, incomplete, blocked by D1/A1/S3/E1, stale/partial, or evidence-only.
+  - Status: `existing_goal_artifact_review_ready_candidate_pending_B1_route_repair`
+  - Reason: existing decision brief was classified by G1 as review-ready candidate; B1 must repair/validate the registry-safe handoff toward R1 or route to an exact blocker.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md`
   - Status: `active_goal_log`
   - Request only when execution history is needed.

@@ -16,18 +16,18 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: artifact_exists_pending_G1_repair_update
+  state: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
   goal_id: core-technical-foundation-decision-brief
   goal_title: "Сформировать Core Technical Foundation Decision Brief"
   goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  existing_goal_artifact_status: review_candidate_evidence_artifact_not_yet_accepted_by_P0
+  existing_goal_artifact_status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
-  smallest_useful_result: "Repaired/updated active Goal route/state that determines whether the existing Core Technical Foundation Decision Brief is review-ready, needs repair, or needs D1/A1/S3/E1 gates."
+  next_route: B1_PROBLEM
+  next_route_mode: route_integrity_recovery_for_review_ready_decision_brief
+  smallest_useful_result: "B1 route-integrity recovery that validates the registry-safe handoff from G1-classified review-ready candidate to R1 review or exact blocker route."
 ```
 
 ```yaml
@@ -37,13 +37,13 @@ shaped_goal:
   shaped_by_stage: G1_GOAL_SHAPE
   previous_status_before_p0_map_alignment: active_goal_shaped_pending_E1
   previous_recommended_next_stage_before_p0_map_alignment: E1_EXECUTION_BRIEF
-  current_runtime_status: artifact_exists_pending_G1_repair_update
-  current_recommended_next_stage: G1_GOAL_SHAPE
-  current_recommended_next_mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
-  repair_reason: "Existing decision brief artifact now requires G1 repair/update against initialized Direction Map before any E1/R1 downstream routing."
+  current_runtime_status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
+  current_recommended_next_stage: B1_PROBLEM
+  current_recommended_next_mode: route_integrity_recovery_for_review_ready_decision_brief
+  repair_reason: "G1 classified the existing decision brief artifact as a review-ready candidate; B1 route-integrity recovery is required before any R1 downstream routing."
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  existing_goal_artifact_status: review_candidate_evidence_artifact_not_yet_accepted_by_P0
+  existing_goal_artifact_status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
   decision_status_model:
     - decided
     - decision_gate
@@ -82,13 +82,13 @@ The existing artifact is:
 
 Current treatment:
 
-- `review_candidate_evidence_artifact_not_yet_accepted_by_P0`
+- `review_ready_candidate_pending_B1_route_repair_not_R1_accepted`
 - not stale by default;
 - not duplicated blindly;
-- not accepted as final by P0;
-- must be reconciled by `G1_GOAL_SHAPE` repair/update before any E1/R1 downstream route.
+- not accepted by R1;
+- must pass `B1_PROBLEM` route-integrity recovery before any R1 downstream route.
 
-The next valid route is `G1_GOAL_SHAPE`, not direct E1 from P0.
+The next valid route is `B1_PROBLEM`, not direct R1 from G1.
 
 ## Deferred items
 

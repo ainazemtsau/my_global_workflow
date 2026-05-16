@@ -11,7 +11,7 @@ artifact_control:
   phase_id: core-coop-technical-foundation-selection
   goal_id: core-technical-foundation-decision-brief
   created_by_stage: G1_GOAL_SHAPE
-  last_updated: "2026-05-14"
+  last_updated: "2026-05-16"
 ```
 
 ## Goal identity
@@ -20,7 +20,7 @@ artifact_control:
 - Goal title: `Сформировать Core Technical Foundation Decision Brief`
 - Direction: `Indie Game Development`
 - Phase: `Core Co-op Technical Foundation Selection`
-- Recommended next stage: `E1_EXECUTION_BRIEF`
+- Recommended next stage: `B1_PROBLEM`
 
 ## WHAT
 
@@ -206,13 +206,43 @@ If a packet is blocked by a human-owned tradeoff, route to `S3_DECIDE`.
 
 ## Route recommendation
 
-Next stage: `E1_EXECUTION_BRIEF`.
+Next stage: `B1_PROBLEM`.
 
-Route reason: the Goal is shaped; the next safe work is to prepare the minimum execution decomposition for producing the decision brief, including evidence gates and validation requirements.
+Route reason: the decision brief artifact now exists and is classified by G1 as a review-ready candidate, but direct `G1_GOAL_SHAPE` -> `R1_GOAL_REVIEW_DISTILL` is not registry-valid.
+
+`B1_PROBLEM` is selected narrowly for route-integrity recovery and review handoff repair. It must not reopen the technical foundation decision unless it discovers a real blocker.
 
 ## Close path
 
-`E1_EXECUTION_BRIEF` -> gated D1/A1/S3 as needed -> synthesis/execution of decision brief -> `R1_GOAL_REVIEW_DISTILL` -> `phase_progress_gate` -> `P9_PHASE_CLOSE` if the Phase minimum outcome is satisfied.
+`B1_PROBLEM` -> registry-valid review handoff -> likely `R1_GOAL_REVIEW_DISTILL` if no blocker is found -> `phase_progress_gate` -> `P9_PHASE_CLOSE` if the Phase minimum outcome is satisfied.
+
+Downstream gates remain valid:
+- `A1_AUDIT` for Grid/GridV2 and GasV2R transfer safety if review requires source-backed challenge;
+- `D1_DEEP_RESEARCH` if current external evidence is required;
+- `S3_DECIDE` if a human-owned tradeoff is reopened;
+- `E1_EXECUTION_BRIEF` before implementation planning or Codex execution.
+
+## 2026-05-16 G1 repair/update formalization
+
+G1 classified the existing decision brief artifact as:
+
+```yaml
+existing_decision_brief_classification:
+  artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+  status: review_ready_candidate
+  accepted_by_g1: false
+  accepted_by_r1: false
+  stale_by_default: false
+  duplicate_or_rewrite_required: false
+```
+
+The Goal Contract remains valid in substance. The repaired state is route/state only:
+
+- immediate next route is `B1_PROBLEM`, not direct `R1_GOAL_REVIEW_DISTILL`;
+- B1 scope is route-integrity recovery and review handoff repair;
+- the existing decision brief should be reviewed, not duplicated blindly;
+- A1/D1/S3/E1 remain downstream gates only if review or route repair finds a blocker;
+- no Unity project creation, code transfer, Codex product/project execution, Task Master graph, or Game Documentation promotion is authorized by this G1 formalization.
 
 ## End-of-file marker
 

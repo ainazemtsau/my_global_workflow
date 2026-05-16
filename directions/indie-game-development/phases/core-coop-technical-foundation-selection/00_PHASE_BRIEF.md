@@ -223,3 +223,27 @@ Run `G1_GOAL_SHAPE` in repair/update mode.
 Do not route directly from P0 to `E1_EXECUTION_BRIEF` or `R1_GOAL_REVIEW_DISTILL`.
 
 Do not run Unity project creation, code transfer, technical audit, external research synthesis, Codex product/project execution, Task Master graph creation, Game Documentation promotion, or implementation inside P0.
+
+## 2026-05-16 G1 repair/update formalization
+
+G1 kept this Phase active and classified the existing Core Technical Foundation Decision Brief / Decision Map as a review-ready candidate, not an accepted result.
+
+Updated active Goal status:
+
+```yaml
+active_goal_status_after_g1:
+  goal_id: core-technical-foundation-decision-brief
+  status: review_ready_candidate_pending_B1_route_repair_not_R1_accepted
+  existing_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+  artifact_classification: review_ready_candidate
+```
+
+Next route after G1:
+
+`B1_PROBLEM`
+
+Reason:
+
+Direct `G1_GOAL_SHAPE` -> `R1_GOAL_REVIEW_DISTILL` is not registry-valid. B1 is selected narrowly for route-integrity recovery and review handoff repair.
+
+G1 did not authorize Unity project creation, code transfer, technical audit execution, external research synthesis, Codex product/project execution, Task Master graph creation, Game Documentation promotion, or implementation.

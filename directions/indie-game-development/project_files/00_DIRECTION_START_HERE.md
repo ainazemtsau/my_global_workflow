@@ -10,7 +10,7 @@ artifact_control:
   default_load: yes
   freshness: fresh_after_p0_repository_apply
   last_updated: "2026-05-13"
-  next_action: "After P0 repository maintenance apply/read-back and Project Files refresh, run G1_GOAL_SHAPE for candidate core-technical-foundation-decision-brief."
+  next_action: "After G1 repository maintenance apply/read-back and Project Files refresh, run B1_PROBLEM for route-integrity recovery and review handoff repair."
 ```
 
 ## Direction identity
@@ -46,7 +46,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `G1_GOAL_SHAPE` repair/update | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
+| Next route | `B1_PROBLEM` route-integrity recovery / review handoff repair | `workflow/stage_prompts/B1_PROBLEM.md` |
 
 ## Current Phase meaning
 
@@ -91,18 +91,15 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `G1_GOAL_SHAPE` in repair/update mode for the existing active Goal:
+Run `B1_PROBLEM` for route-integrity recovery / review handoff repair after this G1 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in ChatGPT Project Files.
 
-`Сформировать Core Technical Foundation Decision Brief`
+B1 must resolve the registry route issue created by the fact that the existing decision brief is review-ready, while direct `G1_GOAL_SHAPE` -> `R1_GOAL_REVIEW_DISTILL` is not allowed.
 
-G1 must reconcile the initialized Direction Map, the active Phase/Goal state, and the existing artifact:
+Target outcome:
 
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+- confirm the existing `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` can proceed to `R1_GOAL_REVIEW_DISTILL`; or
+- route to exact blocker stage if not review-ready.
 
-G1 must decide whether the artifact is review-ready, incomplete, stale/partial, or blocked by A1/D1/S3/E1 prerequisites.
-
-Do not run G1 until this P0 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in ChatGPT Project Files.
-
-Do not route directly from P0 to `E1_EXECUTION_BRIEF` or `R1_GOAL_REVIEW_DISTILL`.
+Do not run direct R1 from G1.
 
 Do not start Codex product/project execution until concrete project/tool bindings, runtime surfaces, validators, scope, and execution route are verified.
