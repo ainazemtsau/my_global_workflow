@@ -408,26 +408,321 @@ After this artifact is applied and verified, the next valid lifecycle route may 
 
 ## 3. Level and Spatial Requirements
 
-Status: `blocked_until_valid_stage_after_gas_frame_apply_readback`
+Status: level_and_spatial_requirements_formalized
 
-Dependency:
+### 3.1 Purpose
 
-- accepted `gas_simulation_capability_frame`;
-- repository apply/read-back verification;
-- valid next workflow stage.
+This block defines the minimum spatial surfaces required for the first technical nucleus to validate the accepted Gas Simulation Capability Frame.
 
-Placeholder only.
+The level/spatial requirement is not final level design. It is a validation substrate: enough connected space, passage structure, verticality, ventilation, toggleable openings, and source/sink anchors to make gas behavior observable before Grid/topology, cross-system interaction, destructibility compatibility, validation/demo requirements, or implementation are completed.
 
-Expected later surfaces:
+### 3.2 Minimum Test Space Set
 
-- simple rooms and corridors;
-- vertical shafts / two-level spaces;
-- ventilation paths;
-- small technical rooms;
-- long corridor;
-- optional larger hangar-like room if useful;
-- openings / doors / passages;
-- complex test level after simple level.
+The first technical nucleus requires a compact no-player validation space composed of the following required spaces.
+
+#### MTS-01 — Simple Connected Room Chain
+
+Required.
+
+Purpose: validate basic gas movement across connected spaces.
+
+Minimum contents:
+- Room A: source-capable room.
+- Corridor C: narrow connector between rooms.
+- Room B: receiving room with sink/vent-capable anchor.
+- Door/opening D-01 between Room A and Corridor C, with toggleable open/closed state.
+- Door/opening D-02 or permanent opening between Corridor C and Room B.
+- Observation/debug points in Room A, Corridor C, and Room B.
+
+Acceptance role:
+- Supports simple room-to-corridor propagation.
+- Supports closed-door-then-open-door flow.
+- Provides the smallest readable gas path: source room → connector → receiving room.
+
+#### MTS-02 — Ventilation / Clearance Path Space
+
+Required.
+
+Purpose: validate that gas has an explicit ventilation or sink route and that the route can be checked separately from ordinary room adjacency.
+
+Minimum contents:
+- One small technical room or service alcove.
+- One ventilation path connecting the technical room or corridor to a sink/vent location.
+- One clear path from a gas-bearing room/corridor to the vent/sink.
+- One obstruction-free clearance segment that makes it possible to distinguish “vent path is clear” from “vent path is blocked or unavailable” in later validation.
+
+Acceptance role:
+- Supports ventilation path clearance validation.
+- Provides the spatial basis for sink/vent behavior without requiring final ventilation gameplay, art, effects, or implementation.
+
+#### MTS-03 — Vertical Shaft or Two-Level Space
+
+Required.
+
+Purpose: validate vertical gas behavior for light/heavy gas expectations.
+
+Minimum contents:
+- One vertical shaft, stairwell-like void, lift-like void, duct, or two-level room.
+- Distinct lower and upper spatial bands.
+- A bottom anchor and a top anchor.
+- A vertical connection that is not treated as a normal horizontal doorway.
+- Observation/debug points at lower, mid, and upper positions.
+
+Acceptance role:
+- Supports light-vs-heavy vertical behavior.
+- Provides a minimal spatial basis for upward accumulation, downward accumulation, and vertical path traversal.
+
+#### MTS-04 — Optional Larger Stress Space
+
+Optional.
+
+Purpose: stress capacity, visibility, and propagation behavior after simple validation passes.
+
+Acceptable forms:
+- Larger hangar-like room connected to the simple room chain.
+- Multi-room loop branching from the corridor.
+- Additional room/corridor loop that returns to Room A, Room B, or the technical room.
+
+Acceptance role:
+- Supports multi-room capacity stress.
+- Must remain optional until the simple required spaces pass validation.
+- Must not become final level layout or production map design.
+
+### 3.3 Spatial Archetype List
+
+The first technical nucleus must recognize these spatial archetypes at requirement level:
+
+1. Standard room
+   - A bounded space that can hold gas volume and expose observable gas state.
+
+2. Corridor
+   - A narrow connector that tests propagation through constrained space.
+
+3. Toggleable door/opening
+   - A passage whose gas-transmission state can be represented as open or closed.
+
+4. Permanent opening
+   - A passage that remains open and does not require interaction logic.
+
+5. Vertical shaft / two-level connection
+   - A non-horizontal connection with lower/upper bands.
+
+6. Ventilation path
+   - A directed or semi-directed gas clearance path toward a sink/vent anchor.
+
+7. Small technical room
+   - A compact service space used for vent/sink/source adjacency tests.
+
+8. Source anchor
+   - A named location where gas can originate for validation.
+
+9. Sink/vent anchor
+   - A named location where gas can be cleared, exhausted, or measured as exiting.
+
+10. Optional breach/new-opening placeholder
+    - A reserved spatial marker for a future opening/breach compatibility test; not destructibility implementation.
+
+11. Optional large capacity room
+    - A larger room used only for stress validation after the required simple scene passes.
+
+12. Optional loop / branch
+    - A multi-room route used only for capacity and pathing stress; not required final topology.
+
+### 3.4 Simple Level Requirements
+
+The required simple validation level must include:
+
+- at least two connected rooms;
+- one corridor between or adjacent to those rooms;
+- one toggleable door/opening along the path from source to sink;
+- one permanent or open passage that allows gas to continue after the controlled door;
+- one source anchor in the source-side room;
+- one sink/vent anchor in the receiving side or ventilation path;
+- one small technical room or service alcove connected to the corridor or receiving room;
+- one ventilation path connected to the small technical room, corridor, or receiving room;
+- one vertical shaft or two-level space reachable from the simple chain;
+- enough observation/debug locations to compare gas state before, inside, and after each connection.
+
+The simple level must be small enough that failure can be diagnosed from spatial configuration rather than from map complexity.
+
+### 3.5 Complex Level Requirements
+
+Complex spatial surfaces are allowed only as optional validation extensions.
+
+A complex validation space may include:
+- one larger hangar-like room;
+- one additional branch room;
+- one loop path;
+- one second sink/vent location;
+- one placeholder breach/new-opening marker.
+
+A complex validation space must not:
+- define final game level layout;
+- introduce final gameplay encounter design;
+- require production art, lighting, navigation, networking, or destructibility;
+- require final Grid/topology architecture before Section 4.
+
+Complex spaces exist only to verify that the simple gas behavior remains stable when spatial capacity and path count increase.
+
+### 3.6 Vertical Space Requirements
+
+The vertical shaft or two-level space must support validation of light/heavy gas behavior by providing:
+
+- lower anchor;
+- upper anchor;
+- observable lower/middle/upper positions;
+- a continuous or explicitly connected vertical passage;
+- enough separation between lower and upper bands for vertical distribution to be visible;
+- no dependency on player movement, ladders, animation, or final traversal design.
+
+The vertical space must allow tests in both directions:
+- source low, observation/sink high;
+- source high, observation/sink low.
+
+This block does not decide final vertical Grid representation, voxel/cell size, implementation data model, or physics algorithm.
+
+### 3.7 Ventilation and Clearance Path Requirements
+
+The ventilation path must provide:
+
+- one named vent/sink anchor;
+- one spatial route from a gas-bearing area to the vent/sink;
+- one clear segment where gas should be able to pass;
+- one identifiable boundary or passage where later systems can decide whether the path is open, closed, blocked, or unavailable;
+- observation/debug positions before the vent path and at/near the sink.
+
+The ventilation path must be sufficient for these validation questions:
+- Does gas reach the vent/sink when the route is clear?
+- Does gas remain or accumulate differently when the route is unavailable?
+- Can the validation scene distinguish ordinary room spread from deliberate ventilation clearance?
+
+This block does not implement fans, pressure machinery, powered ventilation, environmental controls, or final audiovisual treatment.
+
+### 3.8 Doors, Openings, and Passage Requirements
+
+The first technical nucleus requires at least one passage whose gas-flow state can be toggled.
+
+Minimum door/opening states:
+- closed: should block or materially restrict gas flow according to the later gas model;
+- open: should allow gas to pass according to the later gas model.
+
+The required passage does not need:
+- final door art;
+- animation;
+- player interaction;
+- networking;
+- lock/key logic;
+- sound;
+- final gameplay rules.
+
+The passage must expose enough state for later validation to compare gas behavior before and after the state change.
+
+Permanent openings may be used where no state toggle is needed.
+
+### 3.9 Source and Sink / Vent Anchor Requirements
+
+The required validation scene must include named anchors:
+
+- `source_location.primary`
+  - Located in Room A or equivalent source-side room.
+  - Must be separated from the sink/vent by at least one passage.
+  - Must be usable for simple propagation and closed/open door validation.
+
+- `sink_or_vent_location.primary`
+  - Located in Room B, the ventilation path, or the small technical room/vent outlet.
+  - Must be reachable through the intended gas path.
+  - Must allow validation to distinguish “gas reached destination” from “gas remained contained.”
+
+- `source_location.vertical_lower`
+  - Located near the lower band of the vertical shaft/two-level space.
+
+- `source_location.vertical_upper`
+  - Located near the upper band of the vertical shaft/two-level space.
+
+- `sink_or_vent_location.vertical_counterpart`
+  - Located at the opposite vertical band from the active vertical source.
+
+Optional anchors:
+- `source_location.stress`
+- `sink_or_vent_location.secondary`
+- `breach_placeholder.opening_candidate`
+
+Anchors are test fixtures, not final gameplay spawn systems.
+
+### 3.10 Gas Validation Scene Mapping
+
+| Gas validation scenario | Required spatial surface | Minimum scene mapping |
+| --- | --- | --- |
+| Simple room-to-corridor propagation | MTS-01 Simple Connected Room Chain | Source in Room A; gas crosses into Corridor C; receiving state observable in Corridor C and Room B. |
+| Closed-door-then-open-door flow | MTS-01 with D-01 toggleable door/opening | Door D-01 starts closed, limiting/blocking flow; door D-01 opens, allowing measurable movement into Corridor C and then Room B. |
+| Vertical shaft light-vs-heavy behavior | MTS-03 Vertical Shaft / Two-Level Space | Source alternates lower/upper anchors; observation compares lower, middle, and upper bands. |
+| Ventilation path clearance | MTS-02 Ventilation / Clearance Path Space | Gas-bearing area connects to vent/sink anchor through a clear path; sink/vent behavior is observable separately from ordinary spread. |
+| Multi-room capacity stress | MTS-04 Optional Larger Stress Space | Optional larger room, branch, or loop connects to the required simple chain after simple validation passes. |
+| Breach/new-opening placeholder | MTS-01 or MTS-04 with reserved opening marker | A non-implemented opening candidate is marked for future compatibility; no destructibility logic is required in this block. |
+
+### 3.11 Dependency Outputs for Grid / Topology Substrate Requirements
+
+This section does not design final Grid/topology architecture. It only defines spatial facts that Section 4 must be able to consume or represent.
+
+Required dependency outputs for the later Grid/topology block:
+
+- spatial region inventory:
+  - room IDs;
+  - corridor IDs;
+  - technical room IDs;
+  - vertical space IDs;
+  - optional stress-space IDs.
+
+- adjacency inventory:
+  - room-to-corridor connection;
+  - corridor-to-room connection;
+  - room/corridor-to-technical-room connection;
+  - room/corridor-to-ventilation-path connection;
+  - lower-band-to-upper-band vertical connection.
+
+- passage inventory:
+  - toggleable opening ID;
+  - permanent opening ID;
+  - ventilation path boundary ID;
+  - optional breach/new-opening placeholder ID.
+
+- passage state requirement:
+  - at minimum, open/closed state must be representable for one gas-relevant passage.
+
+- anchor inventory:
+  - source anchors;
+  - sink/vent anchors;
+  - vertical lower/upper anchors;
+  - optional stress/breach anchors.
+
+- observation/debug inventory:
+  - positions or region markers before, inside, and after each validation path.
+
+- non-final topology note:
+  - cell size, graph model, voxel model, sampling model, data structures, and implementation authority remain blocked until the Grid/topology substrate requirements block.
+
+### 3.12 Explicit Non-Goals and Scope Cuts
+
+This block does not decide or perform:
+
+- final level design;
+- production scene layout;
+- Unity scene creation;
+- code generation;
+- player traversal;
+- final art, lighting, sound, or VFX;
+- final ventilation machinery;
+- final destructibility;
+- final Grid/topology architecture;
+- final cell size or topology data model;
+- gas implementation algorithms;
+- multiplayer/network authority;
+- old-code audit or transfer;
+- Codex product/project execution;
+- Task Master graph creation;
+- Game Documentation promotion.
+
+Sections 4-8 remain blocked after this block unless later approved by the gated sequence.
 
 ## 4. Grid / Topology Substrate Requirements
 

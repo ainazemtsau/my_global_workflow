@@ -78,6 +78,25 @@ next_required_evidence:
 next_route_after_successful_apply_readback: F0_FAST_DIRECT_return_validation_or_R1_GOAL_REVIEW_DISTILL_launch_after_validation
 ```
 
+## 2026-05-17 — F0_FAST_DIRECT — level_and_spatial_requirements
+
+patch_id: f0_formalize_level_spatial_requirements_2026_05_17
+result_state: patch_applied_pending_chat_validation
+
+Summary:
+- Formalized Section 3, `Level and Spatial Requirements`, in `01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`.
+- The section derives from the accepted Gas Simulation Capability Frame dependency outputs.
+- The section defines the minimum test space set, spatial archetypes, simple/complex level requirements, vertical and ventilation requirements, passage/source/sink anchors, gas validation scene mapping, Grid/topology dependency outputs, and explicit non-goals.
+- The update keeps Sections 4-8 blocked.
+- No implementation, Unity scene creation, old-code audit/transfer, Codex product/project execution, Task Master graph creation, or Game Documentation promotion was authorized.
+
+Validation expectations:
+- Section 3 contains `Status: level_and_spatial_requirements_formalized`.
+- Section 3 contains `### 3.10 Gas Validation Scene Mapping`.
+- Section 3 contains `### 3.11 Dependency Outputs for Grid / Topology Substrate Requirements`.
+- Section 3 contains `### 3.12 Explicit Non-Goals and Scope Cuts`.
+- Only the approved goal artifact and this execution log were changed.
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
