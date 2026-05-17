@@ -16,13 +16,14 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Prepare the E1 Execution Brief for AI Nutrition Operating Layer v0."
-  route_stage: E1_EXECUTION_BRIEF
+  current_focus: "Shape the setup/installation Goal for a working ChatGPT Project `Питание` based on AI Nutrition Operating Layer v0."
+  route_stage: G1_GOAL_SHAPE
   same_chat_allowed: false
-  boundary_trigger: goal_shaped
-  pending_state_carried: false
-  pending_patch_pointer: "G1-2026-05-12-ai-nutrition-operating-layer-v0"
-  last_stage_result_pointer: "G1_GOAL_SHAPE formalized 2026-05-12"
+  boundary_trigger: stale_state_correction
+  pending_state_carried: true
+  pending_patch_pointer: "repository-state-correction-2026-05-17"
+  last_stage_result_pointer: "F0 artifact exists as design/protocol; operational setup remains required"
+  human_correction: "Do not close Phase; do not claim working Project `Питание` exists."
 ```
 
 ## Active Goal
@@ -33,4 +34,6 @@ Goal path:
 
 `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0`
 
-E1 should produce the minimum execution brief before any execution.
+Next route is `G1_GOAL_SHAPE` for the setup/installation Goal seed:
+
+`Собрать рабочий ChatGPT Project “Питание” на базе AI Nutrition Operating Layer v0`

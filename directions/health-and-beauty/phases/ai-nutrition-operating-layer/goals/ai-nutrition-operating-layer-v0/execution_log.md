@@ -300,3 +300,58 @@ execution_log_entry:
     diff verification, file read-back anchors, and forbidden-path confirmation
     to the same F0 stage thread before R1_GOAL_REVIEW_DISTILL.
 ```
+
+## 2026-05-17 — Repository maintenance corrected stale runtime route
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  persist: true
+  target_log_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md
+  event_type: repository_state_repair
+  timestamp: "2026-05-17"
+  direction:
+    name: directions/health-and-beauty
+    path: directions/health-and-beauty
+    status: active
+  phase:
+    name: "Собрать AI-операционный слой питания без тяжёлого трекинга"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+    status: active
+  previous_goal:
+    title: "Собрать AI Nutrition Operating Layer v0"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0
+    corrected_status: design_artifact_ready_but_operational_setup_required
+  correction:
+    - "AI Nutrition Operating Layer v0 exists as a design/protocol artifact."
+    - "Do not treat the artifact as proof that a working ChatGPT Project `Питание` exists."
+    - "Previous R1/P9 direction was not formalized as completed_verified -> P9_PHASE_CLOSE."
+    - "Operational setup remains required; Phase remains active."
+  repository_patch:
+    required: true
+    summary: "Correct Project Files 00-06 and the M0-migrated Direction Map away from stale E1 routing."
+  changed_files_context_refresh:
+    required: true
+    files:
+      - directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md
+      - directions/health-and-beauty/project_files/01_DIRECTION_STATE.md
+      - directions/health-and-beauty/project_files/02_CURRENT_PHASE.md
+      - directions/health-and-beauty/project_files/03_FOCUS_REGISTER.md
+      - directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md
+      - directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md
+      - directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md
+      - directions/health-and-beauty/project_files/08_DIRECTION_MAP.md
+      - directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md
+  next_goal_seed:
+    id_candidate: nutrition-project-operational-setup-v0
+    title: "Собрать рабочий ChatGPT Project “Питание” на базе AI Nutrition Operating Layer v0"
+  next_route: G1_GOAL_SHAPE
+  return_state: DONE
+  product_execution:
+    performed: false
+  forbidden_confirmations:
+    - "No clinical nutrition advice."
+    - "No MacroFactor-centered workflow revival."
+    - "No tracker/database/API automation."
+    - "No P9_PHASE_CLOSE launch."
+```

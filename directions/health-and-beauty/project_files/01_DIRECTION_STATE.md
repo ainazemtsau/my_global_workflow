@@ -23,9 +23,23 @@ direction:
   current_phase_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
   active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
   active_goal_title: "Собрать AI Nutrition Operating Layer v0"
-  selected_goal_seed: consumed_into_active_goal
-  next_route: E1_EXECUTION_BRIEF
-  last_updated: "2026-05-12"
+  current_state_summary: "AI Nutrition Operating Layer v0 exists as a design/protocol artifact; operational setup remains required before claiming a working ChatGPT Project `Питание`."
+  selected_goal_seed: nutrition_project_operational_setup_seed
+  next_route: G1_GOAL_SHAPE
+  last_updated: "2026-05-17"
+
+next_goal_seed:
+  id_candidate: nutrition-project-operational-setup-v0
+  title: "Собрать рабочий ChatGPT Project “Питание” на базе AI Nutrition Operating Layer v0"
+  route: G1_GOAL_SHAPE
+  reason: "Shape the setup/installation Goal for Project Instructions, Snapshot, Current Loop, Active Menu starter, save/update behavior, and minimal dry-run scenarios."
+  forbidden:
+    - clinical_nutrition_advice
+    - macrofactor_centered_workflow
+    - heavy_calorie_macro_ledger
+    - tracker_database_api_automation
+    - full_body_transformation_plan
+    - P9_PHASE_CLOSE
 
 superseded_phase:
   phase_name: MacroFactor Nutrition AI Support Setup
@@ -37,6 +51,6 @@ superseded_phase:
 
 ## Project Files export state
 
-* Last refresh: `2026-05-12`
+* Last refresh: `2026-05-17`
 * Required refresh: `after repository patch read-back / diff verification`
-* Known stale files: `none after this patch is applied and read back`
+* Known stale files: ChatGPT Project Files cache may still show `E1_EXECUTION_BRIEF` / `execution_brief_pending` until manually refreshed.

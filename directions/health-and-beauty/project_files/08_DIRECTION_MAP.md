@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/health-and-beauty/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: m0_migrated
-  last_updated: "2026-05-16"
+  freshness: m0_migrated_plus_state_correction
+  last_updated: "2026-05-17"
 ```
 
 ## Purpose
@@ -32,25 +32,25 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: body-transformation-20kg-strength-health
   map_confidence: medium
-  current_execution_state_confidence: low
-  last_reviewed_stage: M0_DIRECTION_MAP
-  migration_status: migrated_with_downstream_state_conflict_recorded
+  current_execution_state_confidence: medium
+  last_reviewed_stage: repository_state_correction
+  migration_status: migrated_with_2026_05_17_state_correction
   migration_source:
     mode: post_rollout_m0_migration
     direction_path: "directions/health-and-beauty"
     source_ref: "main"
     source_commit_or_head_sha: "d170a8c703034ea44285d88a3abaedf36c21b9cd"
-  known_state_conflict:
-    summary: "Default Project Files 00-06 project next_route E1_EXECUTION_BRIEF / execution_brief_pending, while the Codex-verified migration bundle reports that active goal artifacts include an E1 brief, an F0 v0 artifact, and an execution_log latest entry where F0 returned PARTIAL with apply/read-back validation still required before R1."
+  corrected_state:
+    summary: "Project Files 00-06 were corrected away from stale E1_EXECUTION_BRIEF / execution_brief_pending. AI Nutrition Operating Layer v0 exists as a design/protocol artifact, not proof that a working ChatGPT Project `Питание` exists. The active Phase remains open; next route is G1_GOAL_SHAPE for the setup/installation Goal."
     blocks:
-      - downstream_route_selection
-      - claiming_current_goal_ready_for_review
-      - claiming_project_files_are_fully_fresh
+      - P9_PHASE_CLOSE
+      - claiming_working_project_pitanie_exists
+      - claiming_operational_completion
     does_not_block:
-      - compact_direction_map_initialization
-      - recording_current_initiative
-      - selecting_active_front_at_strategy_level
-    conflicting_paths:
+      - G1_GOAL_SHAPE_for_operational_setup_goal
+      - preserving_current_active_phase
+      - using_v0_artifact_as_setup_input
+    corrected_paths:
       project_file_projection_paths:
         - "directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md"
         - "directions/health-and-beauty/project_files/01_DIRECTION_STATE.md"
@@ -59,7 +59,7 @@ direction_map_status:
         - "directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md"
         - "directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md"
         - "directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md"
-      active_goal_artifact_paths_reported_by_bundle:
+      active_goal_artifact_paths:
         - "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/02_EXECUTION_BRIEF.md"
         - "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/03_AI_NUTRITION_OPERATING_LAYER_V0.md"
         - "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md"
@@ -102,8 +102,8 @@ initiative_registry:
       goal_name: "Собрать AI Nutrition Operating Layer v0"
       binding_reason: "The Goal creates the low-friction nutrition operating layer needed before broader training/cardio/recovery integration."
     current_risk:
-      - "Project File projections and active goal artifact state disagree; downstream route must not be inferred until reconciled."
-      - "Broad health/fitness optimization can easily become overbuilt unless sliced after the nutrition layer is validated."
+      - "The v0 artifact can be mistaken for an installed working ChatGPT Project; setup evidence is still missing."
+      - "Broad health/fitness optimization can easily become overbuilt unless sliced after the nutrition project setup is validated."
 ```
 
 ## Strategy Basis
@@ -120,9 +120,9 @@ strategy_basis:
     - reversibility
     - human_burden_minimization
   candidate_paths_considered:
-    - path_id: continue_repair_validate_current_nutrition_layer_then_integrate
+    - path_id: shape_operational_setup_goal_then_validate
       verdict: selected
-      rationale: "Reuses current active Phase/Goal, removes the highest-friction constraint, and avoids restarting into a broad plan."
+      rationale: "Uses the existing v0 protocol artifact as input, keeps the Phase open, and shapes the missing Project `Питание` setup before any close/review claim."
     - path_id: restart_full_body_transformation_master_plan
       verdict: rejected_for_now
       rationale: "Too broad and likely to create planning bloat before the current nutrition layer is usable."
@@ -132,22 +132,22 @@ strategy_basis:
     - path_id: research_training_cardio_supplements_first
       verdict: parked
       rationale: "Valuable later, but requires evidence and decisions; should not precede current state reconciliation."
-    - path_id: parallel_training_cardio_while_nutrition_conflicted
+    - path_id: parallel_training_cardio_before_project_setup
       verdict: parked
-      rationale: "Adds scope before the current active goal state is safe to route."
-  selected_path_rationale: "Use the current AI Nutrition Operating Layer as the first constraint-removal node under the broader body-transformation initiative; record the state conflict; do not invent downstream route; after validation/review, add only the next narrow evidence-backed slice."
+      rationale: "Adds scope before the nutrition operating layer is installed and minimally tested."
+  selected_path_rationale: "Use the current AI Nutrition Operating Layer v0 as the design/protocol input, then shape the setup/installation Goal for Project `Питание`; do not claim operational completion or route to Phase close."
   major_assumptions:
     - "User can sustain a strict process if the process is clear and routine work is offloaded."
     - "Low-burden execution is more important than perfect measurement at the current stage."
     - "Nutrition remains the first practical bottleneck because the active Phase/Goal already targets it and the user identifies weight as the main problem."
-    - "Training/cardio/recovery/supplement decisions need later scoped evidence or decision work, not M0."
+    - "Training/cardio/recovery/supplement decisions need later scoped evidence or decision work after nutrition setup is operational."
   scope_cuts:
     - "No calendar roadmap."
     - "No broad backlog."
     - "No detailed calorie/macro ledger."
     - "No MacroFactor revival as default."
     - "No supplement/fasting/brain-diet recommendation inside M0."
-    - "No downstream route assertion until state conflict is reconciled."
+    - "No P9_PHASE_CLOSE from this correction."
 ```
 
 ## Compact Initiative Graph
@@ -157,13 +157,14 @@ compact_initiative_graph:
   nodes:
     - node_id: n1_repair_validate_ai_nutrition_layer_v0
       initiative_id: body-transformation-20kg-strength-health
-      label: "Repair/validate AI Nutrition Operating Layer v0 state"
+      label: "Operationalize AI Nutrition Operating Layer v0 through Project setup"
       type: active_front
-      status: active_with_state_conflict
-      purpose: "Make the current low-friction nutrition layer usable and validated before broader body-transformation integration."
+      status: active_operational_setup_required
+      purpose: "Shape and complete the missing working ChatGPT Project `Питание` setup before broader body-transformation integration."
       success_signal:
-        - "Project File projections and active goal artifacts are reconciled or a precise blocker is named."
-        - "AI Nutrition Operating Layer v0 is either validated/review-ready or returned to the correct execution/repair route."
+        - "Project Instructions for `Питание` are drafted or installed."
+        - "Snapshot, Current Loop, and Active Menu starter sources are drafted or missing user inputs are listed."
+        - "Save/update behavior is ready and 2-3 minimal operational scenarios are paper-tested or dry-run."
         - "The layer supports menu, day advice, exception correction, recipe/prep notes, review/state update, and restart/context refresh flows."
       human_burden_policy: "No detailed calorie-app ledger; use exception-only tracking and compact state updates."
 
@@ -228,10 +229,11 @@ compact_initiative_graph:
 ```yaml
 active_front:
   primary_node: n1_repair_validate_ai_nutrition_layer_v0
-  reason: "This is the smallest credible path because it preserves current progress, removes the known low-friction nutrition constraint, and avoids a broad restart."
+  reason: "This is the smallest credible path because it preserves the v0 protocol artifact, fills the missing Project `Питание` setup, and avoids a broad restart."
   current_route_binding:
-    route_state: unresolved_due_state_conflict
-    rule: "Do not infer E1/F0/R1/B1 or other next route from this map. Resolve by verified read-back / appropriate lifecycle stage."
+    route_state: corrected_to_G1_GOAL_SHAPE
+    route: G1_GOAL_SHAPE
+    rule: "Shape the setup/installation Goal for Project `Питание`; do not route to P9_PHASE_CLOSE from this correction."
   parallel_candidate_nodes: []
   parked_nodes:
     - n3_training_cardio_recovery_decision_slice
@@ -244,7 +246,7 @@ active_front:
 
 ```yaml
 horizon_slice:
-  statement: "Do not jump to a perfect full-body plan. First make the low-friction AI nutrition layer usable/validated; then define minimal body metrics; then run one evidence-backed training/cardio/recovery decision slice; then integrate into a daily/weekly AI operator."
+  statement: "Do not jump to a perfect full-body plan. First install/setup the low-friction AI nutrition layer in Project `Питание` and dry-run it; then define minimal body metrics; then run one evidence-backed training/cardio/recovery decision slice; then integrate into a daily/weekly AI operator."
   node_ids:
     - n1_repair_validate_ai_nutrition_layer_v0
     - n2_minimal_body_metrics_packet
@@ -287,8 +289,8 @@ map_update_policy:
     - replacing_phase_or_goal_state
     - inventing_downstream_route_from_conflicted_state
   next_update_triggers:
-    - "After active goal state conflict is reconciled."
-    - "After AI Nutrition Operating Layer v0 is accepted, returned for repair, or explicitly blocked."
+    - "After the Project `Питание` setup/installation Goal is shaped."
+    - "After AI Nutrition Operating Layer v0 is installed/setup, returned for repair, or explicitly blocked."
     - "After a scoped training/cardio/recovery evidence or decision slice is completed."
 ```
 

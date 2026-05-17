@@ -51,23 +51,24 @@ local_runtime_core_copy_required: false
 
 Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
 
-## Required context for next E1
+## Required context for next G1_GOAL_SHAPE
 
 * Direction Project Files 00-08.
 * `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 * `workflow/stage_registry/STAGE_REGISTRY.md`.
-* `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`.
+* `workflow/stage_prompts/G1_GOAL_SHAPE.md`.
 * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/00_PHASE_BRIEF.md`.
 * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/01_PHASE_WORKING_CONTEXT.md`.
 * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/00_GOAL_CONTRACT.md`.
-* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/01_GOAL_WORKING_CONTEXT.md`.
+* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/03_AI_NUTRITION_OPERATING_LAYER_V0.md`.
 
-## Request-only context for E1
+## Request-only context for G1_GOAL_SHAPE
 
 * Existing menu / prior nutrition menu materials.
 * Nutrition baseline and preferences.
 * Current kitchen equipment notes: air fryer, multicooker, vacuum sealer.
 * Recipe/prep notes if available.
+* User decision on whether Project Instructions / Snapshot / Current Loop should be drafted for manual install or marked as already installed with evidence.
 * Storage/tool preference notes: Trillium, Notion, GitHub, ChatGPT connections, or other.
 * Prior MacroFactor Phase and Goal files as historical evidence only:
   * `directions/health-and-beauty/phases/macrofactor-nutrition-ai-support-setup`

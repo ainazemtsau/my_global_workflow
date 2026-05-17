@@ -21,15 +21,17 @@ Active Goal: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/g
 
 Active Goal title: `Собрать AI Nutrition Operating Layer v0`
 
-Next route: `E1_EXECUTION_BRIEF`
+Next route: `G1_GOAL_SHAPE`
 
 ## Current priority
 
-Prepare the Execution Brief for the smallest useful AI nutrition operating layer: state packet, active menu object, prompt modes, exception correction, recipe/prep builder, review/state update protocol, storage rules, restart/context refresh rules, and sample flows.
+Shape the setup/installation Goal for a working ChatGPT Project `Питание` based on AI Nutrition Operating Layer v0.
+
+The setup slice must cover Project Instructions, Snapshot source, Current Loop source, Active Menu starter or explicit missing inputs, save/update behavior, and 2-3 minimal operational paper-tests or dry-runs.
 
 ## Superseded / deferred items
 
 * `MacroFactor Nutrition AI Support Setup` is superseded/paused, not completed.
 * Old MacroFactor Goal / Execution Pack / Wave 1 are historical evidence only.
-* Self-hosted tracking, full food tracker setup, API/import automation, and perfect recipe database design are deferred.
-* Menu generation alone is not the Goal; menu is one object inside the operating layer.
+* MacroFactor-centered workflow, self-hosted tracking, full food tracker setup, API/import automation, perfect recipe database design, and huge recipe vault are deferred.
+* Menu generation alone is not enough; operational setup needs Snapshot / Current Loop / Active Menu starter wiring around the v0 protocol.

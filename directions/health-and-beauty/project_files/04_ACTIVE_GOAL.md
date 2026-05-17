@@ -22,8 +22,9 @@ active_goal:
   goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
   current_wave: none
-  current_stage: E1_EXECUTION_BRIEF
-  status: execution_brief_pending
+  current_stage: state_corrected_after_v0_artifact
+  status: design_artifact_ready_but_operational_setup_required
+  next_route: G1_GOAL_SHAPE
 ```
 
 ## Goal Contract snapshot
@@ -33,6 +34,36 @@ active_goal:
 * DONE: A fresh next chat can use the v0 layer to create/update menu, advise on current day, correct after overeating/off-menu eating, add recipe/prep notes, run day/week summary, and produce durable state-update/save output.
 * Acceptance floor: state packet, active menu object, four modes, exception-only tracking, day correction logic, storage protocol, restart rules, five sample flows, explicit non-goals.
 * Validation: paper-test the five sample flows.
+
+## Corrected runtime position
+
+* `03_AI_NUTRITION_OPERATING_LAYER_V0.md` exists as a design/protocol artifact.
+* The artifact does not prove that a working ChatGPT Project `Питание` exists.
+* Do not treat the prior review direction as formalized `completed_verified -> P9_PHASE_CLOSE`.
+* Operational setup remains required before the Phase can be closed.
+
+## Next Goal seed
+
+```yaml
+next_goal_seed:
+  id_candidate: nutrition-project-operational-setup-v0
+  title: "Собрать рабочий ChatGPT Project “Питание” на базе AI Nutrition Operating Layer v0"
+  route: G1_GOAL_SHAPE
+  done_floor:
+    - "Project Instructions for `Питание` drafted or installed."
+    - "Snapshot source drafted."
+    - "Current Loop source drafted."
+    - "Active Menu starter created or missing user inputs listed."
+    - "Save/update behavior ready."
+    - "2-3 minimal operational scenarios paper-tested or dry-run."
+  forbidden:
+    - "No clinical nutrition advice."
+    - "No MacroFactor-centered workflow."
+    - "No heavy calorie/macro ledger."
+    - "No tracker/database/API automation."
+    - "No full body-transformation plan."
+    - "No P9_PHASE_CLOSE."
+```
 
 ## Scope boundaries
 

@@ -24,14 +24,17 @@ current_phase:
   validation_signal: "Система проходит типовые сценарии: составить/обновить меню, дать совет по текущему дню, скорректировать остаток дня после переедания, добавить рецепт/prep note, сделать day/week summary и обновить persistent state."
   active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
   active_goal_title: "Собрать AI Nutrition Operating Layer v0"
-  goal_state: execution_brief_pending
-  next_route: E1_EXECUTION_BRIEF
+  goal_state: design_artifact_ready_but_operational_setup_required
+  next_route: G1_GOAL_SHAPE
+  next_goal_seed: nutrition-project-operational-setup-v0
+  phase_closeable: false
 ```
 
 ## Guard state
 
-* Active Goal unresolved: `no`
+* Active Goal unresolved: `yes`
 * Active Goal shaped: `yes`
 * Phase can close now: `no`
-* Current blocker: `Execution Brief must be created before execution`
+* Current blocker: working ChatGPT Project `Питание` is not confirmed installed; Snapshot, Current Loop, Active Menu starter, and Project Instructions still need setup/installation shaping.
 * Superseded prior Phase: `MacroFactor Nutrition AI Support Setup`
+* Correction note: AI Nutrition Operating Layer v0 is a design/protocol artifact, not proof of operational completion.
