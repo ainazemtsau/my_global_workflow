@@ -56,6 +56,29 @@ In branch mode:
 
 If this F0 run is explicitly launched as parent synthesis, it must read Workstream Result Cards first, check required branches, detect conflicts, and route rather than silently synthesizing incomplete or conflicting results.
 
+## Parent Goal Completion Gate for R1
+
+Before selecting `R1_GOAL_REVIEW_DISTILL`, F0 must classify completion scope:
+
+```yaml
+completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
+parent_goal_completion_state: complete | incomplete | unknown
+```
+
+Use `parent_goal_complete` only when the parent Goal outcome is complete or when the completed artifact is itself the accepted parent Goal outcome.
+
+If `completion_scope != parent_goal_complete`, F0 must not select normal parent-level R1.
+
+For `completion_scope: gated_slice_complete` under `gated_sequential` topology while `parent_goal_completion_state: incomplete`, F0 must route to `E1_EXECUTION_BRIEF` for continuation planning.
+
+In that continuation route, F0 must:
+
+- preserve the accepted slice output and read-back evidence;
+- identify remaining gated slices or blocked placeholders;
+- avoid marking the parent Goal complete;
+- avoid running `phase_progress_gate`;
+- avoid parent Goal closure state updates.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:
@@ -503,7 +526,8 @@ Produce:
 
 Produce exactly one terminal route:
 
-*   Next Launch Card to R1\_GOAL\_REVIEW\_DISTILL;
+*   Next Launch Card to R1\_GOAL\_REVIEW\_DISTILL only when `completion_scope: parent_goal_complete`;
+*   Next Launch Card or route escalation to E1\_EXECUTION\_BRIEF when a completed gated slice needs continuation planning;
 *   Apply/Read-back Request;
 *   Context Request;
 *   Human Decision Card;
@@ -572,6 +596,14 @@ No successful completion and no R1 launch without file read-back / diff verifica
 
 No closeout without documentation maintenance outputs.
 
+### Gate 9 — Completion Scope Gate
+
+No normal parent-level R1 launch unless `completion_scope: parent_goal_complete`.
+
+If F0 completed a gated slice, gated block, branch/workstream, partial artifact, placeholder-filled artifact, or other intermediate execution slice while the parent Goal remains incomplete, the next route must not be normal parent-level R1.
+
+For `gated_slice_complete` under `gated_sequential`, route to `E1_EXECUTION_BRIEF` for the next gated slice.
+
 ---
 
 ## 10\. Route outcomes
@@ -592,7 +624,8 @@ Output:
 *   Execution Log Entry;
 *   Documentation Maintenance Gate;
 *   Changed Files / Context Refresh List;
-*   Next Launch Card to `R1_GOAL_REVIEW_DISTILL`.
+*   Next Launch Card to `R1_GOAL_REVIEW_DISTILL` only when `completion_scope: parent_goal_complete`;
+*   otherwise, continuation route to `E1_EXECUTION_BRIEF` or another registry-valid non-closure route.
 
 ### Outcome B — Patch ready, needs apply/file read-back / diff verification / commit verification
 
@@ -845,13 +878,13 @@ For F0, most Context refreshes are pending until patch apply/file read-back / di
 
 ## 16\. Next Launch Card to R1
 
-Produce this only after completed execution with file read-back / diff verification / commit verification evidence:
+Produce this only after completed execution with file read-back / diff verification / commit verification evidence and `completion_scope: parent_goal_complete`:
 
 Use the canonical Stage Launch transport template at `workflow/transport/STAGE_LAUNCH_CARD.md`.
 
-For the R1 launch payload, include `stage.id: R1_GOAL_REVIEW_DISTILL`, `stage.name: Review Distill`, `source_state.from_stage: F0_FAST_DIRECT`, previous return state, launch reason, direction, phase, goal, completed artifacts, readback evidence, acceptance evidence map, documentation maintenance state, changed-files context refresh state, open questions, `forbidden_scope_preserved: true`, and instructions for R1 to review the completed F0 execution against the Goal Contract acceptance floor, distill completion/remains/closure readiness, and not assume unrefreshed Project Files are canonical.
+For the R1 launch payload, include `stage.id: R1_GOAL_REVIEW_DISTILL`, `stage.name: Review Distill`, `source_state.from_stage: F0_FAST_DIRECT`, previous return state, direction, phase, goal, completed artifacts, readback evidence, acceptance evidence map, documentation maintenance state, changed-files context refresh state, `completion_scope: parent_goal_complete`, `parent_goal_completion_state: complete`, open questions, `forbidden_scope_preserved: true`, and instructions for R1 to review the completed F0 execution against the Goal Contract acceptance floor, distill completion/remains/closure readiness, and not assume unrefreshed Project Files are canonical.
 
-Do not issue this card when the patch is merely drafted or pending file read-back / diff verification / commit verification.
+Do not issue this card when the patch is merely drafted or pending file read-back / diff verification / commit verification, or when only a gated slice/block, branch/workstream, or partial artifact is complete.
 
 ---
 

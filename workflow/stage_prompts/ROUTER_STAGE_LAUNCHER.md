@@ -277,9 +277,9 @@ Router Next Launch Cards to P0 after closure must include `07_PHASE_MEMORY_INDEX
 
 ### 5.3 Phase exists, no selected Goal
 
-If an active Phase exists but no active Goal is selected, first check whether a last completed Goal exists.
+If an active Phase exists but no active Goal is selected, first check whether a last completed parent Goal exists.
 
-If active Phase exists, active Goal is none, and last completed Goal exists, check Phase Progress Gate before G0. Do not blindly route to G0_GOAL_SELECT.
+If active Phase exists, active Goal is none, and last completed parent Goal exists, check Phase Progress Gate before G0. Do not blindly route to G0_GOAL_SELECT.
 
 If gate missing, route to P9_PHASE_CLOSE or Context Request according to available evidence.
 
@@ -373,7 +373,7 @@ Router must include a short visible explanation when rejecting F0:
 
 ### 5.7 Goal completed but not reviewed
 
-If a Goal appears complete but review/distillation is missing, route to R1\_GOAL\_REVIEW\_DISTILL.
+If a parent Goal appears complete but review/distillation is missing, route to R1\_GOAL\_REVIEW\_DISTILL.
 
 Use when:
 
@@ -381,6 +381,19 @@ Use when:
 *   learnings need distillation;
 *   documentation maintenance may be due;
 *   next goal selection would be unsafe without review.
+
+Before selecting R1, Router must distinguish parent Goal completion from partial completion:
+
+```yaml
+completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
+parent_goal_completion_state: complete | incomplete | unknown
+```
+
+Router may select normal parent-level R1 only when `parent_goal_completion_state: complete` or when the completed artifact is itself the accepted parent Goal outcome.
+
+If only one gated slice/block, branch/workstream, evidence packet, placeholder-filled artifact, partial artifact, or intermediate execution slice is complete while the parent Goal remains incomplete, Router must not route to normal parent-level R1.
+
+For `gated_slice_complete` under `gated_sequential`, Router should route to `E1_EXECUTION_BRIEF` for continuation planning when the next gated slice needs planning.
 
 ### 5.8 Phase completed but not closed
 

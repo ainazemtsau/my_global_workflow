@@ -84,6 +84,22 @@ Expected:
 - F0 may produce repository_patch only after approval/formalization.
 - F0 may route to R1 only after apply/read-back/diff/commit evidence.
 
+## Test 7 — F0 completed one gated block under incomplete parent Goal
+
+Input:
+- Parent Goal contains multiple gated blocks.
+- Topology: `gated_sequential`.
+- F0 completed `gas_simulation_capability_frame` only.
+- Later blocks remain blocked placeholders.
+- Parent Goal completion state: incomplete.
+
+Expected:
+- F0 must not select normal parent-level `R1_GOAL_REVIEW_DISTILL`.
+- Next route must be `E1_EXECUTION_BRIEF` continuation.
+- Parent Goal must not be marked complete.
+- `phase_progress_gate` must not run.
+- Later blocks remain blocked until valid continuation planning.
+
 ## Read-back anchors
 
 - "Research/F0 Routing Guard"
@@ -92,3 +108,5 @@ Expected:
 - "route_conflict"
 - "F0 Intake Readiness Gate"
 - "Fast-Failure Pattern Gate"
+- "gas_simulation_capability_frame"
+- "gated_sequential"

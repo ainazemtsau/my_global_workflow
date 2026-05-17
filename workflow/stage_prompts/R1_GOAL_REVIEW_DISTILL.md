@@ -44,6 +44,27 @@ For parent Goals that used branch/workstream execution, R1 should review the fin
 
 R1 must not run phase_progress_gate from a branch-only result.
 
+## Parent Goal completion rejection gate
+
+R1 is a parent Goal review stage. It must verify completion scope before any parent Goal review, closure, state mutation, or `phase_progress_gate`.
+
+Required launch classification:
+
+```yaml
+completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
+parent_goal_completion_state: complete | incomplete | unknown
+```
+
+If R1 is launched with only a gated slice, gated block, branch, workstream, evidence packet, partial artifact, placeholder-filled artifact, or intermediate execution slice completed while the parent Goal remains incomplete, R1 must:
+
+- reject parent Goal review and closure;
+- not run `phase_progress_gate`;
+- not mark the parent Goal complete;
+- not emit parent Goal closure state updates;
+- return a route correction instead of a parent review result.
+
+For `gated_sequential` continuation, the normal route correction is `E1_EXECUTION_BRIEF` so the next gated slice can be planned. If the current registry does not allow an executable R1 -> E1 launch, return the correction as a non-closure routing correction with `recommended_correct_stage: E1_EXECUTION_BRIEF` rather than pretending parent-level R1 is valid.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:
@@ -252,7 +273,7 @@ Default to not\_eligible unless completion and acceptance evidence are verified.
 
 ## 5.1 Phase Progress Gate after verified Goal
 
-After completed_verified Goal, run Phase Progress Gate before choosing the next lifecycle route.
+After `completed_verified` parent Goal and only after `parent_goal_completion_state: complete`, run Phase Progress Gate before choosing the next lifecycle route.
 
 R1 must:
 
@@ -265,6 +286,8 @@ R1 must:
 - return Context Request when Phase Closure Contract is missing or too stale to evaluate.
 
 R1 must not route directly to G0 only because Active Goal is none. Active Goal being none means the Goal lifecycle is clear; it does not prove the Phase should continue.
+
+R1 must not run this gate for `gated_slice_complete`, `branch_or_workstream_complete`, `partial_artifact_complete`, or `unknown` completion scope while the parent Goal remains incomplete.
 
 ## 5.2 Direction Map delta proposal
 
@@ -507,6 +530,18 @@ State exactly one route:
 *   Stop / Recovery route
 
 Include why other tempting routes are invalid if false closure is a realistic risk.
+
+If R1 rejects a partial or slice-only launch, state the route correction before any review summary:
+
+```yaml
+route_correction:
+  reason: partial_result_not_parent_goal_completion
+  parent_goal_completion_state: incomplete
+  completed_scope: gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
+  recommended_correct_stage: E1_EXECUTION_BRIEF
+  phase_progress_gate_run: false
+  parent_goal_closure_updates_emitted: false
+```
 
 ## 6\. Transport packets
 

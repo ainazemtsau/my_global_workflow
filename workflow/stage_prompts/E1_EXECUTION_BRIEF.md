@@ -433,6 +433,21 @@ Parallel branches are allowed only when confidently independent. If dependency u
 
 Heavy artifacts do not return to the parent chat by default. Branches return compact Workstream Result Cards. Parent synthesis reads full artifacts only on targeted demand.
 
+### Gated sequential continuation
+
+When E1 is returning after a verified gated slice under an incomplete parent Goal, E1 continues the existing `gated_sequential` plan.
+
+E1 must:
+
+- preserve the accepted prior slice output, read-back evidence, and acceptance notes;
+- plan only the next gated slice needed for parent Goal completion;
+- keep later blocked placeholders blocked until valid continuation planning reaches them;
+- avoid reopening completed work unless a defect is identified;
+- avoid treating slice completion as parent Goal completion;
+- avoid emitting parent Goal closure state updates or `phase_progress_gate` instructions.
+
+If the prior stage completed only one gated slice, gated block, branch/workstream, partial artifact, placeholder-filled artifact, or intermediate execution slice while the parent Goal remains incomplete, E1 must not convert that result into a normal parent-level `R1_GOAL_REVIEW_DISTILL` route.
+
 E1 close behavior:
 
 - `single_direct` -> normal single Next Launch Card.
