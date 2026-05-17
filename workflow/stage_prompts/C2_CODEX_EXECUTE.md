@@ -358,6 +358,24 @@ If the readiness gate passes and the runtime is execution-capable:
 
 Do not keep changing files after a validation failure unless the plan authorizes the exact repair loop. If multiple repair paths are plausible, return Human Decision or R0 route.
 
+## 7.1 Completion scope routing gate
+
+Before selecting `R1_GOAL_REVIEW_DISTILL`, C2 must classify completion scope:
+
+```yaml
+completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
+parent_goal_completion_state: complete | incomplete | unknown
+```
+
+C2 may route normal parent-level R1 only when:
+
+- `parent_goal_completion_state: complete`; or
+- the completed artifact is itself the accepted parent Goal outcome.
+
+If C2 returns a completed execution slice but the parent Goal remains incomplete, C2 must route to `E1_EXECUTION_BRIEF` or another registry-valid continuation route, not normal parent-level R1.
+
+For `gated_slice_complete` under `gated_sequential`, C2 must preserve validation evidence for the completed slice, avoid parent Goal closure state updates, avoid `phase_progress_gate`, and route continuation planning to `E1_EXECUTION_BRIEF`.
+
 ---
 
 ## 8\. Validation evidence rules
@@ -778,11 +796,13 @@ If a required cached Project File or runtime cache file changes, C2 must report 
 
 ## 18\. Next Launch Card schema
 
-For successful verified execution, route normally to R1.
+For successful verified execution, route normally to R1 only when `completion_scope: parent_goal_complete` or the completed artifact is itself the accepted parent Goal outcome.
 
 Use the canonical Stage Launch transport template at `workflow/transport/STAGE_LAUNCH_CARD.md`.
 
-For successful verified execution, the R1 launch payload must include `stage.id: R1_GOAL_REVIEW_DISTILL`, `stage.name: Goal Review Distill`, `source_state.from_stage: C2_CODEX_EXECUTE`, previous return state, source result ref, Codex Return Packet ref, active direction/phase/goal ids, context to load, artifacts to review, review questions, and stop conditions.
+For successful verified parent Goal execution, the R1 launch payload must include `stage.id: R1_GOAL_REVIEW_DISTILL`, `stage.name: Goal Review Distill`, `source_state.from_stage: C2_CODEX_EXECUTE`, previous return state, source result ref, Codex Return Packet ref, active direction/phase/goal ids, `completion_scope: parent_goal_complete`, `parent_goal_completion_state: complete`, context to load, artifacts to review, review questions, and stop conditions.
+
+For successful verified slice execution while the parent Goal remains incomplete, do not issue an R1 launch card. Route to `E1_EXECUTION_BRIEF` continuation planning or another registry-valid non-closure continuation route.
 
 For partial or failed execution, route to R0 when recovery is needed and no human choice blocks the route.
 

@@ -338,8 +338,11 @@ If Goal Contract exists and execution basis is missing:
 If execution is blocked:
   route to B1_PROBLEM.
 
-If Goal is ready for review:
+If parent Goal completion gate for R1 passes:
   route to R1_GOAL_REVIEW_DISTILL.
+
+If parent Goal remains incomplete and the next gated slice needs planning:
+  route to E1_EXECUTION_BRIEF.
 
 If Phase is ready to close:
   route to P9_PHASE_CLOSE.
@@ -389,6 +392,33 @@ A stage must not route to F0 merely because the requested output seems short. F0
 Route conflict rule: route conflict is selected-route-vs-registry. If the selected next stage is not allowed by `STAGE_REGISTRY.md`, return a route-conflict Context Request or B1_PROBLEM. Do not improvise and do not execute another stage's work inside the current stage.
 
 Stage prompt route lists are not independent authority. If a prompt-maintained route list conflicts with `STAGE_REGISTRY.md`, the registry wins.
+
+## Parent Goal Completion Gate for R1
+
+`R1_GOAL_REVIEW_DISTILL` is a parent Goal review route.
+
+A stage may select normal parent-level R1 only when:
+
+- `parent_goal_completion_state: complete`; or
+- the completed artifact is itself the accepted parent Goal outcome.
+
+A completed gated slice, gated block, branch, workstream, evidence packet, partial artifact, placeholder-filled artifact, or intermediate execution slice inside an incomplete parent Goal must not route to normal parent-level R1.
+
+Before selecting R1, classify:
+
+```yaml
+completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
+parent_goal_completion_state: complete | incomplete | unknown
+```
+
+If `completion_scope != parent_goal_complete`, do not select normal parent-level R1 unless the completed artifact is explicitly the accepted parent Goal outcome.
+
+For `gated_sequential` continuation:
+
+- if the parent Goal remains incomplete and the next gated slice needs planning, route to `E1_EXECUTION_BRIEF`;
+- do not run `phase_progress_gate`;
+- do not mark the parent Goal complete;
+- do not emit parent Goal closure state updates.
 
 ## Branch / Workstream Execution Topology
 
@@ -596,6 +626,8 @@ Parent synthesis, R1, P9, or an approved repository maintenance patch owns integ
 R1 reviews the final parent Goal outcome after branch results are synthesized.
 
 R1 must reject a branch-only result as parent Goal completion unless the branch was itself the accepted parent Goal output.
+
+R1 must also reject any gated slice, gated block, workstream, partial artifact, placeholder-filled artifact, or intermediate execution slice when the parent Goal remains incomplete.
 
 After R1 accepts or verifies the parent Goal, the existing phase_progress_gate rules apply.
 
