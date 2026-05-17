@@ -42,6 +42,42 @@ unresolved_questions:
   - "User approval is required after gas block before Grid/topology proceeds."
 ```
 
+## 2026-05-17 — F0_FAST_DIRECT formalization
+
+```yaml
+log_type: stage_execution
+stage_id: F0_FAST_DIRECT
+result: patch_ready_needs_apply_readback
+patch_id: f0_formalize_gas_simulation_capability_frame_2026_05_17
+approved_trigger: APPROVE_AND_FORMALIZE_F0_ARTIFACT
+summary: >
+  F0 formalized the Gas Simulation Capability Frame as the first gated
+  block of the First Technical Nucleus Functional Specification.
+  The output is patch-ready and requires repository maintenance apply,
+  read-back, diff verification, and commit/main-integration verification.
+artifact_target: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
+completed_substantive_block:
+  - gas_simulation_capability_frame
+blocked_later_blocks:
+  - level_and_spatial_requirements
+  - grid_topology_substrate_requirements
+  - cross_system_interaction_requirements
+  - destructibility_compatibility_boundary
+  - validation_demo_requirements
+  - synthesis
+direct_old_code_transfer: false
+implementation_allowed_now: false
+unity_bootstrap_allowed_now: false
+codex_product_execution_allowed_now: false
+repository_maintenance_required: true
+next_required_evidence:
+  - file_readback
+  - diff_verification
+  - commit_verification
+  - main_integration_status
+next_route_after_successful_apply_readback: F0_FAST_DIRECT_return_validation_or_R1_GOAL_REVIEW_DISTILL_launch_after_validation
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
