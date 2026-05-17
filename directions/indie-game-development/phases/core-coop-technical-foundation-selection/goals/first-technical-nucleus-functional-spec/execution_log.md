@@ -97,6 +97,29 @@ Validation expectations:
 - Section 3 contains `### 3.12 Explicit Non-Goals and Scope Cuts`.
 - Only the approved goal artifact and this execution log were changed.
 
+## 2026-05-17 — F0_FAST_DIRECT — grid_topology_substrate_requirements
+
+patch_id: f0_formalize_grid_topology_substrate_requirements_2026_05_17
+result_state: patch_ready_needs_apply_readback
+
+Summary:
+- Formalized Section 4, `Grid / Topology Substrate Requirements`, in `01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`.
+- The section derives from the accepted Gas Simulation Capability Frame and formalized Level and Spatial Requirements.
+- The section defines required topology entities, stable IDs, connectivity/passability representation, effective topology overlays, topology mutation boundary, gas read boundary, future system read/write seeds, host-authoritative co-op implications, dependency outputs for Sections 5-7, and explicit non-goals.
+- The update keeps Sections 5-8 blocked.
+- No implementation, Unity scene creation, old-code audit/transfer, final Grid/GridV2 reuse verdict, final network replication model, Codex product/project execution, Task Master graph creation, or Game Documentation promotion was authorized.
+
+Validation expectations:
+- Section 4 contains `Status: grid_topology_substrate_requirements_formalized`.
+- Section 4 contains `### 4.3 Stable ID Requirements`.
+- Section 4 contains `### 4.5 Effective Topology Overlay Model`.
+- Section 4 contains `### 4.6 Topology Mutation Boundary`.
+- Section 4 contains `### 4.7 Gas Read Boundary`.
+- Section 4 contains `### 4.9 Host-Authoritative Co-op Implications`.
+- Section 4 contains dependency outputs for Sections 5, 6, and 7.
+- Sections 5-8 remain blocked.
+- Only the approved goal artifact and this execution log were changed.
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`

@@ -5,18 +5,18 @@ artifact_control:
   artifact_name: "First Technical Nucleus Functional Specification"
   schema: first_technical_nucleus_functional_spec.v1
   owner_layer: persistence
-  status: draft_gas_block_formalized_pending_apply_readback
+  status: draft_grid_topology_substrate_requirements_formalized_pending_apply_readback
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
   direction_id: indie_game_development
   phase_id: core-coop-technical-foundation-selection
   goal_id: first-technical-nucleus-functional-spec
   source_stage: F0_FAST_DIRECT
   formalized_at: "2026-05-17"
-  formalization_trigger: APPROVE_AND_FORMALIZE_F0_ARTIFACT
+  formalization_trigger: APPROVE_AND_FORMALIZE_F0_GRID_TOPOLOGY_BLOCK
   source_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
   sequencing_model: gated_sequential
-  current_completed_block: gas_simulation_capability_frame
-  next_blocks_state: blocked_until_valid_stage_after_apply_readback
+  current_completed_block: grid_topology_substrate_requirements
+  next_blocks_state: sections_5_to_8_blocked_until_valid_stage_after_apply_readback
 ```
 
 ## 1. Gas Simulation Capability Frame
@@ -726,24 +726,630 @@ Sections 4-8 remain blocked after this block unless later approved by the gated 
 
 ## 4. Grid / Topology Substrate Requirements
 
-Status: `blocked_until_level_and_spatial_requirements`
+Status: grid_topology_substrate_requirements_formalized
 
-Dependency:
+### 4.1 Purpose and Boundary
 
-- accepted gas frame;
-- level/spatial requirements;
-- valid later workflow stage.
+This block defines the minimum topology substrate that the first technical nucleus needs after the accepted Gas Simulation Capability Frame and the formalized Level and Spatial Requirements.
 
-Placeholder only.
+The topology substrate must represent enough stable spatial identity, connectivity, passability, vertical relation, vent availability, and current effective topology state for gas validation to be meaningful.
 
-Expected later surfaces:
+This block is a requirements layer, not final architecture.
 
-- room/zone/cell/chamber concepts;
-- stable IDs for rooms, doors, portals, openings;
-- connectivity/passability representation;
-- topology mutation/effective topology overlays;
-- how other systems read/write spatial effects;
-- snapshot/delta implications for host-authoritative co-op.
+It does not decide:
+
+- final Grid architecture;
+- old Grid reuse, GridV2 reuse, rewrite, or discard verdict;
+- final cell size;
+- final voxel, graph, region, chamber, or hybrid data structure;
+- final network replication model;
+- Unity scene implementation;
+- old-code audit or transfer;
+- Codex product/project execution.
+
+The required substrate is only this:
+
+- spatial regions can be named and referenced;
+- connections between regions can be represented;
+- gas-relevant passage state can be represented;
+- vertical and ventilation relationships can be represented;
+- the current effective topology can be read by gas and validation systems;
+- future topology mutation can be represented as a placeholder event without implementing destructibility.
+
+### 4.2 Required Topology Entities
+
+The first technical nucleus requires these topology entities at requirement level.
+
+#### Spatial Region
+
+A spatial region is a bounded gas-relevant space.
+
+Required region archetypes:
+
+- room;
+- corridor;
+- small technical room;
+- vertical shaft or two-level space;
+- ventilation path;
+- optional larger stress room;
+- optional loop or branch region.
+
+Each spatial region must expose:
+
+- stable region ID;
+- region archetype;
+- capacity or volume value, estimate, or authored classification;
+- optional vertical band information;
+- observation/debug marker references;
+- source/sink/vent anchor references where applicable.
+
+This does not require final room/chamber/grid implementation.
+
+#### Connection / Portal
+
+A connection is a gas-relevant relation between two spatial regions or between a region and an exit/sink boundary.
+
+Required connection archetypes:
+
+- permanent opening;
+- toggleable door/opening;
+- ventilation path boundary;
+- vertical shaft link;
+- optional breach/new-opening placeholder;
+- optional stress-loop connection.
+
+Each connection must expose:
+
+- stable connection ID;
+- endpoint region IDs;
+- connection type;
+- open/closed or available/unavailable state when stateful;
+- resistance or flow-limit requirement;
+- vertical relationship where relevant;
+- whether the connection belongs to the normal adjacency graph, ventilation graph, vertical graph, or mutation placeholder surface.
+
+This does not require final portal geometry or final pathfinding representation.
+
+#### Passage State Controller
+
+A passage state controller represents the gas-relevant state of a door, opening, vent boundary, or future breach placeholder.
+
+Minimum required states:
+
+- open / available;
+- closed / unavailable;
+- restricted or limited, if needed for resistance/flow-limit validation.
+
+For the first nucleus, at least one door/opening must support toggling between closed and open.
+
+Vent path availability must be representable separately from ordinary room adjacency so validation can distinguish “gas spread through rooms” from “gas cleared through a ventilation route.”
+
+#### Source / Sink / Vent Anchor
+
+Anchors are stable named points or region-local markers used by gas validation.
+
+Required anchor families:
+
+- gas source anchor;
+- sink or vent anchor;
+- vertical lower anchor;
+- vertical upper anchor;
+- optional stress source/sink anchor;
+- optional breach/new-opening candidate anchor.
+
+Anchors are validation fixtures, not final gameplay spawn systems.
+
+#### Observation / Debug Point
+
+Observation points are stable markers for reading topology and gas state during validation.
+
+Required observation points:
+
+- before each required validation path;
+- inside or at each meaningful connection;
+- after each required validation path;
+- lower/middle/upper positions in the vertical validation space;
+- near the vent/sink boundary;
+- at or near the breach/new-opening placeholder.
+
+Observation points must be addressable by stable ID so debug overlays and validation checks can refer to the same locations across snapshots, events, and test runs.
+
+### 4.3 Stable ID Requirements
+
+Stable IDs are required because gas, validation, debug visualization, future systems, and host-authoritative co-op all need to refer to the same topology facts without depending on Unity object names, old Grid internals, or scene-specific transient references.
+
+Required ID families:
+
+```yaml
+stable_topology_ids:
+  region_id:
+    required_for:
+      - rooms
+      - corridors
+      - small_technical_rooms
+      - vertical_spaces
+      - vent_paths
+      - optional_stress_spaces
+
+  connection_id:
+    required_for:
+      - room_to_corridor_connection
+      - corridor_to_room_connection
+      - technical_room_connection
+      - vertical_connection
+      - ventilation_path_connection
+      - permanent_opening
+      - toggleable_opening
+      - breach_placeholder_connection
+
+  passage_state_id:
+    required_for:
+      - door_state
+      - opening_state
+      - vent_boundary_state
+      - future_breach_state_placeholder
+
+  door_or_opening_id:
+    required_for:
+      - toggleable_door_or_opening
+      - permanent_opening
+      - future_opening_candidate
+
+  vent_path_id:
+    required_for:
+      - ventilation_path
+      - vent_or_sink_boundary
+      - vent_availability_query
+
+  source_sink_anchor_id:
+    required_for:
+      - source_location_primary
+      - sink_or_vent_location_primary
+      - vertical_lower_source
+      - vertical_upper_source
+      - vertical_counterpart_sink
+      - optional_stress_anchor
+
+  observation_point_id:
+    required_for:
+      - per_region_debug_read
+      - per_connection_debug_read
+      - vertical_band_observation
+      - vent_path_observation
+      - breach_placeholder_observation
+
+  breach_placeholder_id:
+    required_for:
+      - future_new_opening_representation
+      - destructibility_compatibility_boundary
+      - breach_opening_validation_surface
+
+  topology_revision_id:
+    required_for:
+      - effective_topology_snapshot
+      - event_ordering
+      - host_authoritative_update_order
+```
+
+Stable IDs must be:
+
+- compact enough for snapshot/event use;
+- serializable;
+- stable across a validation run;
+- independent from final Unity hierarchy;
+- independent from old Grid/GridV2 internals;
+- usable by gas debug overlays and no-player validation scenes.
+
+This block does not decide the final ID implementation format.
+
+### 4.4 Connectivity and Passability Representation
+
+The topology substrate must represent connectivity as an explicit graph or equivalent query surface.
+
+Minimum required connectivity facts:
+
+```yaml
+connectivity_requirements:
+  adjacency:
+    - source_region_id
+    - target_region_id
+    - connection_id
+    - connection_type
+
+  passage_state:
+    - open
+    - closed
+    - restricted_or_limited_if_needed
+
+  flow_properties:
+    - connection_resistance_or_flow_limit
+    - connection_allows_gas_transfer
+    - connection_blocks_or_reduces_gas_transfer
+
+  vertical_relation:
+    - same_level
+    - lower_to_upper
+    - upper_to_lower
+    - vertical_band_delta_or_equivalent_requirement
+
+  vent_path_availability:
+    - vent_path_available
+    - vent_path_unavailable
+    - vent_or_sink_boundary_id
+    - ordinary_adjacency_distinguished_from_vent_clearance
+
+  mutation_placeholder:
+    - possible_new_opening
+    - inactive_until_future_event
+    - activatable_as_topology_event_without_destructibility_implementation
+```
+
+The representation must support these questions:
+
+- Which regions are adjacent?
+- Which passage connects them?
+- Is the passage open, closed, restricted, or unavailable?
+- Does the connection have a flow limit or resistance?
+- Is the relationship vertical, horizontal, or vent-directed?
+- Is the ventilation route available?
+- Has a future placeholder opening been activated?
+
+Passability in this block is gas passability, not final player navigation, AI pathfinding, projectile logic, or line-of-sight.
+
+### 4.5 Effective Topology Overlay Model
+
+The first nucleus needs a readable current topology state, not only an authored base layout.
+
+Represent effective topology as:
+
+```yaml
+effective_topology:
+  base_topology:
+    includes:
+      - spatial_regions
+      - static_adjacencies
+      - permanent_openings
+      - authored_vertical_connections
+      - authored_ventilation_paths
+      - validation_anchors
+      - observation_points
+
+  passage_state_overlay:
+    includes:
+      - door_open_closed_state
+      - toggleable_opening_state
+      - vent_boundary_state
+      - restricted_or_flow_limited_state
+
+  vent_availability_overlay:
+    includes:
+      - vent_path_available_or_unavailable
+      - sink_or_vent_active_or_inactive
+      - clearance_path_state
+
+  mutation_placeholder_overlay:
+    includes:
+      - breach_placeholder_inactive
+      - breach_or_new_opening_active_if_future_event_occurs
+      - added_connection_id_if_activated
+
+  effective_read:
+    meaning: >
+      The current gas-readable topology after base layout, current passage
+      states, vent availability, and any future mutation placeholder state
+      are combined.
+```
+
+The gas model and validation/debug surfaces must read effective topology, not only the base topology.
+
+This model keeps the first nucleus future-compatible without forcing final destructibility, final networking, or final Grid architecture.
+
+### 4.6 Topology Mutation Boundary
+
+The topology substrate must be able to represent a future breach/new opening as a topology mutation event.
+
+Required mutation boundary:
+
+```yaml
+topology_mutation_boundary:
+  can_represent_new_opening: true
+  requires_destructibility_implementation_now: false
+  mutation_event_minimum_fields:
+    - topology_revision_id_before
+    - topology_revision_id_after
+    - breach_placeholder_id
+    - added_or_activated_connection_id
+    - source_region_id
+    - target_region_id
+    - connection_type
+    - initial_passage_state
+    - connection_resistance_or_flow_limit
+    - vertical_relation_if_any
+  gas_expectation:
+    - gas_can_read_new_effective_connection_after_event
+    - gas_can_flow_through_new_opening_if_open_or_available
+  blocked_now:
+    - damage_model
+    - debris_physics
+    - wall_fragment_simulation
+    - structural_collapse
+    - explosion_pressure_wave
+    - player_knockdown
+    - final_destructibility_networking
+```
+
+Update order must be representable:
+
+1. topology state changes;
+2. effective topology revision updates;
+3. gas reads the new effective topology;
+4. gas simulation tick applies flow using the updated connectivity;
+5. debug/validation surfaces observe the result.
+
+This is an ordering requirement, not a final implementation or networking design.
+
+### 4.7 Gas Read Boundary
+
+Gas may read topology. Gas must not own topology.
+
+Gas may read:
+
+- region IDs;
+- region capacity or volume;
+- connection IDs;
+- endpoint region IDs;
+- connection type;
+- open/closed or available/unavailable state;
+- resistance or flow limit;
+- vertical relationship;
+- vent path availability;
+- source/sink anchors;
+- observation/debug points;
+- topology revision ID;
+- activated breach/new-opening placeholder state.
+
+Gas may not be required to read:
+
+- Unity scene hierarchy;
+- MonoBehaviour references;
+- final network transport state;
+- old Grid internals;
+- old GridV2 internals;
+- final rendering/VFX data;
+- player-controller state.
+
+Gas may write gas state, gas metrics, and debug outputs.
+
+Gas must not directly write:
+
+- base topology;
+- door/opening state;
+- vent availability;
+- breach activation;
+- future destructibility events.
+
+Later systems may write those surfaces through explicit boundaries, but Section 5 owns those cross-system interaction requirements.
+
+### 4.8 Future Systems Read / Write Seed
+
+This block creates seed surfaces for later systems without completing Section 5.
+
+Future systems that may read topology:
+
+- gas simulation;
+- debug visualization;
+- validation/demo checks;
+- doors/openings;
+- vents;
+- valves;
+- fans;
+- hazards;
+- temperature/airflow systems;
+- future reactions/fire;
+- future destructibility.
+
+Future systems that may write topology-adjacent state later:
+
+```yaml
+future_write_seed:
+  doors_or_openings:
+    possible_write:
+      - passage_open_closed_state
+      - passage_restriction_or_flow_limit
+
+  vents_or_sinks:
+    possible_write:
+      - vent_path_available_unavailable
+      - sink_active_inactive
+      - clearance_path_state
+
+  fans_or_airflow:
+    possible_write:
+      - flow_bias_or_flow_modifier
+    section_5_required: true
+
+  valves:
+    possible_write:
+      - connection_resistance_or_flow_limit
+      - source_sink_availability
+    section_5_required: true
+
+  hazards_or_reactions:
+    possible_write:
+      - source_activation
+      - sink_or_transformation_activation
+    section_5_required: true
+
+  destructibility:
+    possible_write:
+      - breach_placeholder_activation
+      - new_opening_connection_event
+    section_6_required: true
+```
+
+This seed does not define final authority, gameplay rules, UI, networking, or implementation for those systems.
+
+### 4.9 Host-Authoritative Co-op Implications
+
+The topology substrate must be compatible with a host-authoritative co-op direction without finalizing networking.
+
+Minimum implications:
+
+```yaml
+host_authoritative_topology_implications:
+  stable_ids_required: true
+
+  compact_snapshot_possible:
+    required: true
+    snapshot_contains:
+      - base_topology_reference_or_version
+      - topology_revision_id
+      - current_passage_state_overlay
+      - current_vent_availability_overlay
+      - active_mutation_placeholder_overlay_if_any
+
+  event_or_delta_surface_possible:
+    required: true
+    candidate_events:
+      - door_or_opening_state_changed
+      - vent_path_availability_changed
+      - connection_flow_limit_changed
+      - breach_placeholder_activated
+      - topology_revision_advanced
+
+  update_order_representable:
+    required: true
+    order:
+      - topology_event_or_state_change
+      - effective_topology_revision_update
+      - gas_reads_effective_topology
+      - gas_simulation_tick
+      - gas_state_snapshot_or_delta
+      - debug_or_validation_observation
+
+  final_network_replication_model:
+    status: not_required_in_this_block
+```
+
+This block requires that snapshot/delta/event surfaces be possible. It does not decide bandwidth strategy, prediction, rollback, interest management, transport serialization, or final replication schema.
+
+### 4.10 Dependency Outputs for Cross-System Interaction Requirements
+
+Section 5 must receive these dependency outputs from this block:
+
+```yaml
+dependency_outputs_for_section_5:
+  topology_read_surfaces:
+    - effective_topology_read
+    - region_inventory_read
+    - connection_inventory_read
+    - passage_state_read
+    - vent_path_availability_read
+    - source_sink_anchor_read
+    - observation_point_read
+
+  topology_adjacent_write_surfaces_to_define_later:
+    - door_or_opening_state_write
+    - vent_path_availability_write
+    - connection_flow_modifier_write
+    - source_sink_activation_write
+    - airflow_or_fan_modifier_write
+    - valve_flow_limit_write
+    - hazard_or_reaction_source_write
+
+  ordering_questions_for_section_5:
+    - which system owns each write
+    - when writes occur relative to gas tick
+    - whether writes are authoritative, predicted, debug-only, or validation-only
+    - how conflicting writes are resolved
+```
+
+Section 5 remains blocked until a valid later stage completes it.
+
+### 4.11 Dependency Outputs for Destructibility Compatibility Boundary
+
+Section 6 must receive these dependency outputs from this block:
+
+```yaml
+dependency_outputs_for_section_6:
+  breach_placeholder_id_required: true
+  new_opening_can_be_represented: true
+  activated_breach_has_connection_id: true
+  activated_breach_has_endpoint_region_ids: true
+  activated_breach_has_initial_passage_state: true
+  activated_breach_has_flow_limit_or_resistance: true
+  activated_breach_advances_topology_revision: true
+  gas_can_read_breach_after_effective_topology_update: true
+  explicit_non_goals:
+    - no_full_destructibility_implementation
+    - no_debris_physics
+    - no_structural_collapse
+    - no_final_damage_model
+    - no_final_destruction_networking
+```
+
+This makes destructibility future-compatible without allowing destructibility to become an implemented first-nucleus feature.
+
+### 4.12 Dependency Outputs for Validation / Demo Requirements
+
+Section 7 must receive these dependency outputs from this block:
+
+```yaml
+dependency_outputs_for_section_7:
+  validation_checks_needed:
+    - topology_region_inventory_visible
+    - connection_inventory_visible
+    - stable_ids_visible_or_loggable
+    - door_closed_blocks_or_restricts_gas_path
+    - door_open_allows_gas_path
+    - vertical_connection_reports_lower_upper_relation
+    - vent_path_availability_affects_clearance
+    - effective_topology_snapshot_visible
+    - topology_revision_changes_after_state_change
+    - breach_placeholder_can_be_activated_as_new_opening_for_validation
+    - gas_reads_effective_topology_not_base_topology_only
+
+  debug_surfaces_needed:
+    - region_id_overlay
+    - connection_id_overlay
+    - passage_state_overlay
+    - vent_path_status_overlay
+    - vertical_relation_overlay
+    - topology_revision_display
+    - active_breach_placeholder_marker
+```
+
+Validation/demo requirements remain blocked until the gas, level/spatial, and topology blocks have been accepted.
+
+### 4.13 Explicit Non-Goals and Scope Cuts
+
+This block does not decide or perform:
+
+- final Grid architecture;
+- old Grid reuse verdict;
+- old GridV2 reuse verdict;
+- Grid/GridV2 rewrite/discard decision;
+- final topology data structures;
+- final cell size;
+- final room/chamber/voxel/graph implementation model;
+- Unity scene creation;
+- code generation;
+- old-code audit;
+- old-code transfer;
+- player navigation;
+- AI pathfinding;
+- final multiplayer replication;
+- bandwidth/prediction/rollback design;
+- final destructibility;
+- final ventilation machinery;
+- cross-system interaction completion;
+- validation/demo completion;
+- synthesis;
+- Codex product/project execution;
+- Task Master graph creation;
+- Game Documentation promotion.
+
+Sections 5-8 remain blocked after this block unless later completed through the gated workflow sequence.
 
 ## 5. Cross-System Interaction Requirements
 
