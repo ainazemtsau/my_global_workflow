@@ -433,6 +433,51 @@ Parallel branches are allowed only when confidently independent. If dependency u
 
 Heavy artifacts do not return to the parent chat by default. Branches return compact Workstream Result Cards. Parent synthesis reads full artifacts only on targeted demand.
 
+### Pass 4.8 — External Tool / Human Operator Gate
+
+Run this gate before final route selection.
+
+Classify:
+
+```yaml
+external_tool_operator_gate:
+  external_surface_required: true | false | unknown
+  surface_type: external_app | website | chatgpt_ui | local_program | game_engine_editor | design_tool | admin_console | setup_wizard | unknown | none
+  tool_or_app_name:
+  verified_tool_binding_available: true | false | unknown
+  human_operator_required: true | false | unknown
+  operator_skill_assumption: novice | intermediate | expert | unknown
+  long_static_instruction_fragile: true | false | unknown
+  screenshot_or_confirmation_expected: true | false | unknown
+  guided_execution_required: true | false | unknown
+```
+
+Select `U1_USER_GUIDED_EXECUTION` when:
+
+- operation must happen in an external app/site/UI/local program/ChatGPT Project UI;
+- no verified automation/tool binding exists, or human operation is safer;
+- the user may be novice or asked for step-by-step help;
+- screen state, version, permissions, or setup state may differ;
+- the safest execution path is micro-step guidance with confirmation/screenshot checkpoints.
+
+Do not select `F0_FAST_DIRECT` when `human_operator_required: true`, `external_surface_required: true`, or `verified_tool_binding_available: false` for the required action.
+
+If current external documentation or platform behavior is required before safe instruction, route to `D1_DEEP_RESEARCH`.
+
+If the task frame is unclear, route to `B1_PROBLEM` or Context Request.
+
+If the user must choose between materially different routes, use `S3_DECIDE` or Human Decision.
+
+U1 launch cards must include:
+- surface type and tool/app name;
+- operator skill assumption;
+- verified tool-binding status;
+- task objective and smallest safe slice;
+- first visible checkpoint;
+- screenshot/confirmation policy;
+- stop triggers;
+- route-back policy.
+
 ### Gated sequential continuation
 
 When E1 is returning after a verified gated slice under an incomplete parent Goal, E1 continues the existing `gated_sequential` plan.
@@ -476,6 +521,26 @@ E1 must not directly change the Direction Map. Any map update is a later parent-
 Select exactly one primary next route.
 
 Use the smallest safe route rule.
+
+#### Route: `U1_USER_GUIDED_EXECUTION`
+
+Choose `U1_USER_GUIDED_EXECUTION` when all are true:
+
+*   the next safe action requires the human to operate an external app, website, local program, ChatGPT Project UI, setup wizard, game engine/editor, design tool, admin console, or similar interface;
+*   no verified automation/tool binding is available, or human operation is safer than automation;
+*   the user may be novice or explicitly asked for step-by-step guidance;
+*   visible UI state, version, permissions, setup state, screenshot evidence, copied error text, or user confirmation materially affects the next safe step;
+*   the task can proceed through bounded micro-steps with stop/checkpoint rules.
+
+U1 must not be used to bypass C1/C2 product/project execution when verified Codex/tool execution is required and available. If Codex/tool execution is required but not planned, route to `C1_CODEX_GRAPH_PLAN` or Context Request.
+
+U1 launch must state:
+- first step only, unless a short overview is needed;
+- expected visible state;
+- what the user must reply with;
+- screenshot/error-text policy;
+- mismatch/stop triggers;
+- rollback or safe-stop guidance.
 
 #### Route: `F0_FAST_DIRECT`
 

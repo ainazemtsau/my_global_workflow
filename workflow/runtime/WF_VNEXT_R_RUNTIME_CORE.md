@@ -393,6 +393,43 @@ Route conflict rule: route conflict is selected-route-vs-registry. If the select
 
 Stage prompt route lists are not independent authority. If a prompt-maintained route list conflicts with `STAGE_REGISTRY.md`, the registry wins.
 
+## User-Guided External Execution Boundary
+
+Use `U1_USER_GUIDED_EXECUTION` when the next safe action requires a human operator to work inside an external app, website, local program, ChatGPT Project UI, game engine/editor, design tool, admin console, setup wizard, or other interface that ChatGPT/Codex cannot directly and safely operate.
+
+U1 is the correct route when all of these are true:
+
+- the task is procedural operation in an external UI or local tool;
+- no verified automation/tool binding is available, or human operation is safer than automation;
+- the user may be unfamiliar with the tool, or asked for step-by-step guidance;
+- a long static instruction would be fragile because UI version, screen state, permissions, or setup state may differ;
+- validation depends on visible state, screenshot evidence, copied error text, or user confirmation.
+
+U1 is not product/project execution by Codex. U1 does not mutate repositories, product files, Direction state, Phase state, Goal state, or Project Files by itself. It guides the user and collects evidence for the next safe workflow route.
+
+U1 must default to novice-safe interaction unless the user says otherwise:
+
+- give one micro-step at a time when the tool is unfamiliar, risky, or version-sensitive;
+- include the expected visible result for every step;
+- require a confirmation, screenshot, or copied error text before proceeding when mismatch risk is material;
+- stop on UI mismatch, unexpected warning, irreversible/destructive action, permission prompt, secret exposure, or unverified tool-binding risk;
+- request only the smallest blocking context: version, OS, current screen, screenshot, URL, project name, or exact error text;
+- route to `D1_DEEP_RESEARCH` when current external documentation or platform behavior must be checked before safe instruction;
+- route to `B1_PROBLEM` when the task frame or blocker is unclear;
+- route to `S3_DECIDE` or Human Decision when a real human-owned tradeoff appears;
+- route back to `E1_EXECUTION_BRIEF` when the execution envelope must be replanned;
+- route to `R1_GOAL_REVIEW_DISTILL` only when the parent Goal completion gate passes.
+
+If a verified tool binding becomes available during a U1 run, U1 must not silently switch into Codex/product execution. It must route back to `E1_EXECUTION_BRIEF` or `C1_CODEX_GRAPH_PLAN` according to `STAGE_REGISTRY.md` and the runtime gates.
+
+U1 output may use:
+
+```text
+workflow/transport/USER_GUIDED_STEP_CARD.md
+```
+
+A User Guided Step Card is a step-level guidance artifact, not a stage ID and not routing authority.
+
 ## Parent Goal Completion Gate for R1
 
 `R1_GOAL_REVIEW_DISTILL` is a parent Goal review route.
@@ -1400,6 +1437,7 @@ Routes:
 
 *   Fast
 *   Standard
+*   Guided
 *   Deep
 *   Audit
 
@@ -1419,6 +1457,14 @@ Use Standard when:
 *   validation matters;
 *   Codex may be needed;
 *   work is more than a quick pass.
+
+Use Guided when:
+
+*   the work is concrete procedural operation in an external app, website, local program, ChatGPT Project UI, setup wizard, game engine/editor, design tool, or admin console;
+*   ChatGPT/Codex do not have a verified direct tool binding for the operation;
+*   user-visible screen state determines the next safe step;
+*   the user may be novice or explicitly wants step-by-step guidance;
+*   screenshots, copied errors, or user confirmations are expected validation signals.
 
 Use Deep when:
 

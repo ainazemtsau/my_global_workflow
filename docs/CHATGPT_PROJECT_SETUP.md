@@ -82,6 +82,23 @@ Do not use `migration/` or migration/admin docs as runtime context unless the ta
 
 Shared workflow changes must be evaluated across all active Direction Projects, not only Workflow Governance.
 
+## User-guided external setup and UI operation
+
+When a setup or maintenance task requires the user to operate ChatGPT Project UI, a website, admin console, local program, setup wizard, Unity, Blender, or another external interface, and ChatGPT/Codex do not have a verified direct tool binding, use `U1_USER_GUIDED_EXECUTION`.
+
+U1 is the default guided mode for:
+
+- creating or configuring a ChatGPT Project manually;
+- uploading or refreshing Project Files;
+- copying Project Instructions into the ChatGPT UI;
+- checking visible setup state;
+- installing/configuring external tools when the user must operate the UI;
+- Unity/Blender/editor tasks where no verified MCP/tool binding exists.
+
+U1 should guide one visible step at a time for novice or unknown-skill users, request screenshots or exact error text when screen state differs, and stop before irreversible, permission, security, privacy, payment, or secret-related actions.
+
+Do not use F0_FAST_DIRECT for human-operated external UI tasks. F0 is for small direct execution with explicit artifacts, target paths, and validation anchors. Use E1 to prepare the execution envelope, then U1 for guided external operation when needed.
+
 ## Required shared runtime Project Files for every active Direction
 
 Manually load these shared runtime cache files into every active Direction ChatGPT Project:
