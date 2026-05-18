@@ -125,6 +125,7 @@ workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
 workflow/transport/CODEX_WAVE_CARD.md
 workflow/transport/CODEX_RETURN_PACKET.md
 workflow/transport/RECOVERY_CLOSE_PACKET.md
+workflow/transport/USER_GUIDED_STEP_CARD.md
 ```
 
 Runtime core remains authority for behavior, precedence, approval/formalization, route process, Codex role separation, repository maintenance rules, and Project Files refresh/reporting rules.

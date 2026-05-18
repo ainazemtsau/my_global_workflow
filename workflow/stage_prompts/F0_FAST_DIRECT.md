@@ -308,7 +308,11 @@ F0 is not eligible when the work requires:
 *   broad research;
 *   ambiguous target paths;
 *   stale or contradictory context;
-*   reopening G1/E1 scope.
+*   reopening G1/E1 scope;
+*   human operation in an external app, website, local program, ChatGPT Project UI, setup wizard, game engine/editor, design tool, admin console, or similar interface;
+*   step-by-step novice guidance through a UI whose visible state may differ;
+*   screenshot-driven or confirmation-driven interaction before the next safe step;
+*   unverified automation/tool binding for the required external action.
 
 If F0 is not eligible, do not force execution. Return route escalation, Human Decision, Context Request, or Stop as appropriate.
 
@@ -339,6 +343,10 @@ f0_intake_readiness:
   multi_file_or_multi_tool_coordination_required: false
   codex_product_execution_required: false
   sensitive_side_effect_risk: false
+  human_external_operator_required: false
+  external_ui_or_program_operation_required: false
+  verified_external_tool_binding_absent_for_required_action: false
+  screenshot_or_confirmation_driven_next_step_required: false
 ```
 
 If any required field is false or unknown, F0 must not execute and must not produce a write-ready repository patch.
@@ -355,9 +363,17 @@ f0_refusal:
     - item:
 ```
 
+Allowed `f0_refusal.reason` values include:
+
+```text
+human_external_operator_required | external_ui_operation_required | verified_tool_binding_absent | screenshot_confirmation_loop_required
+```
+
 Route guidance:
 
 - Use `E1_EXECUTION_BRIEF` when the execution brief is incomplete or F0 readiness is not explicit.
+- Use `U1_USER_GUIDED_EXECUTION` when the failed readiness item is human external operation and the registry allows F0 to route to U1.
+- Otherwise route to `E1_EXECUTION_BRIEF` with a recommendation to select U1.
 - Use `D1_DEEP_RESEARCH` only if registry allows F0 to route to D1; otherwise route to `E1_EXECUTION_BRIEF` or `B1_PROBLEM` with `research_required_or_unknown`.
 - Use `C1_CODEX_GRAPH_PLAN` only through E1 or B1 unless registry explicitly allows direct F0->C1.
 - Use Context Request when missing blocking context would resolve readiness.
