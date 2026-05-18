@@ -74,3 +74,32 @@ execution_log_entry:
   next_launch_card_created: true
   notes: This is repository maintenance only, not product/project execution.
 ```
+
+## 2026-05-18 - M0_DIRECTION_MAP migration formalized
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  stage_id: M0_DIRECTION_MAP
+  direction_id: solo-max-productive
+  phase_name: EXOCORTEX App Foundation
+  phase_path: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration
+  event_type: direction_map_migration_formalized
+  approval_source: user_message_APPROVE_AND_FORMALIZE
+  repository_patch_id: M0-2026-05-18-solo-max-productive-direction-map-formalization
+  files_changed:
+    - directions/solo-max-productive/project_files/08_DIRECTION_MAP.md
+    - directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/phase_execution_log.md
+  result: >
+    Initialized the compact Direction Map for the EXOCORTEX Persistent Personal AI Brain
+    initiative. Active Front is G1-EXOCORTEX-PRODUCT-FOUNDATION. Horizon Slice is
+    M0 map initialization, G1 product foundation shaping, and R1 foundation review /
+    phase-progress gate.
+  next_route_after_apply_and_cache_refresh: G1_GOAL_SHAPE
+  state_policy:
+    app_implementation_started: false
+    tech_stack_chosen: false
+    full_architecture_designed: false
+    product_execution_graph_created: false
+    old_kernel_goal_reactivated: false
+```
