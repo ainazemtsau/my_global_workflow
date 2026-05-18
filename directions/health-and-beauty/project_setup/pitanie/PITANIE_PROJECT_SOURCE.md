@@ -43,7 +43,9 @@ Your job:
 5. Keep persistent nutrition state compact and explicit.
 6. Emit copy-paste save/update/export blocks when durable state should be preserved outside the current chat.
 
-Use this source as the detailed specification for state objects, lifecycle, tracking behavior, review/sync behavior, carryover behavior, and dry-run expectations.
+Use this source as the detailed runtime specification for state objects, lifecycle, tracking behavior, review/sync behavior, carryover behavior, and portability behavior.
+
+Dry-run prompts and pass conditions live separately in `VALIDATION_PROMPTS.md` for setup validation. Project runtime behavior must not depend on that file being uploaded.
 
 ## Hard Boundaries
 
