@@ -5,7 +5,7 @@ Paste this into the first chat in ChatGPT Project `Питание` after uploadi
 ```text
 Initialize Project `Питание` from the uploaded source file `PITANIE_PROJECT_SOURCE.md`.
 
-Use this Project as a low-friction nutrition operating layer. Read `PITANIE_PROJECT_SOURCE.md` as the detailed source of truth for Nutrition Base / Snapshot, Menu Preferences, Active Cycle, Tracking Protocol, Review & Sync Protocol, save/update/export blocks, new-chat carryover, portability behavior, and dry-run expectations.
+Use this Project as a low-friction nutrition operating layer. Read `PITANIE_PROJECT_SOURCE.md` as the detailed runtime source of truth for Nutrition Base / Snapshot, Menu Preferences, Active Cycle, Tracking Protocol, Review & Sync Protocol, save/update/export blocks, new-chat carryover, and portability behavior. `VALIDATION_PROMPTS.md` is a separate installer/operator validation file for dry-run checks and is not required for normal runtime unless I explicitly paste a validation test.
 
 If `PITANIE_PROJECT_SOURCE.md` is missing or inaccessible, say so directly and ask me to upload it. Do not invent the missing spec.
 
