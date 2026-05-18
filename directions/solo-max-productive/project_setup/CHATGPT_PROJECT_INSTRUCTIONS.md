@@ -21,6 +21,7 @@ For normal runtime, manually load these files into this ChatGPT Project Files as
 
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
 - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
@@ -43,6 +44,7 @@ Use only:
 - `directions/solo-max-productive/**`
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
 - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`

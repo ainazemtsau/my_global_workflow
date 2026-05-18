@@ -20,6 +20,7 @@ In the ChatGPT Project, these files should be present as Project Files runtime c
 
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
 - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
@@ -43,6 +44,7 @@ If GitHub and Project File cache conflict, use verified full GitHub read-back. I
 
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
 - `workflow/stage_prompts/`
 
@@ -125,6 +127,7 @@ Evals files:
 - `directions/workflow-governance/evals/STAGE_REGRESSION_MATRIX.md`
 - `directions/workflow-governance/evals/TRANSPORT_CONTRACT_CHECKLIST.md`
 - `directions/workflow-governance/evals/REAL_DIRECTION_TEST_CASES.md`
+- `directions/workflow-governance/evals/OBJECTIVE_ARCHITECTURE_REGRESSION_CASES.md`
 
 Research files:
 

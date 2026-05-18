@@ -29,6 +29,7 @@ GitHub remains the source of truth. Project Files are runtime cache only.
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -125,11 +126,14 @@ Shared workflow files include at least:
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
 docs/CHATGPT_PROJECT_SETUP.md
 ```
+
+Objective Architecture Model changes affect horizon/frontier/next-action selection behavior and require Project Files cache refresh review for all active Direction Projects.
 
 If any shared workflow file changes, Codex must report Project Files / Project Instructions refresh requirements for all active Direction Projects.
 
@@ -149,6 +153,7 @@ Refresh the Project File cache when any of these change in GitHub:
 
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
 - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`

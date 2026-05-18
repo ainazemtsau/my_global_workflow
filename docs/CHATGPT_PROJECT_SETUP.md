@@ -59,6 +59,7 @@ Every active Direction Project uses:
 GitHub repository: ainazemtsau/my_global_workflow
 Source of truth marker: WORKFLOW_SOURCE_OF_TRUTH.md
 Runtime core: workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+Objective architecture model: workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 GitHub long-file read guard: workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 Runtime cache manifest: workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 Stage registry: workflow/stage_registry/STAGE_REGISTRY.md
@@ -106,6 +107,7 @@ Manually load these shared runtime cache files into every active Direction ChatG
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -162,6 +164,7 @@ Project Files to load:
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -188,6 +191,7 @@ Canonical source:
 Use only:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -225,6 +229,7 @@ Stage prompts:
 Default Project Files:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -264,6 +269,7 @@ Project Files to load:
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -290,6 +296,7 @@ Canonical source:
 Use only:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -313,6 +320,7 @@ Stage prompts:
 Default Project Files:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -358,6 +366,7 @@ Project Files to load:
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -384,6 +393,7 @@ Canonical source:
 Use only:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -407,6 +417,7 @@ Stage prompts:
 Default Project Files:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -452,6 +463,7 @@ Project Files to load:
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -478,6 +490,7 @@ Canonical source:
 Use only:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -501,6 +514,7 @@ Stage prompts:
 Default Project Files:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -529,6 +543,7 @@ For each Project, run this read-only check after pasting the matching Project In
 Using GitHub repo ainazemtsau/my_global_workflow, read only:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+- workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -574,6 +589,7 @@ Cached shared runtime files:
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md

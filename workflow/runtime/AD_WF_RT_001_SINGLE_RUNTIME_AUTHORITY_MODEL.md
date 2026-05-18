@@ -25,6 +25,7 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 | Runtime behavior and precedence | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` |
 | Long GitHub file read completeness | `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md` |
 | Project Files runtime cache | `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
+| Objective architecture, horizon acceptance, active frontier, and next-action basis-validity | `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` |
 | Stage identity, prompt path/status, target runtime, activation, and normal stage-to-stage transitions | `workflow/stage_registry/STAGE_REGISTRY.md` |
 | Stage-specific mission, inputs, gates, and constraints | exact file under `workflow/stage_prompts/<STAGE_ID>.md` |
 | Canonical packet schemas and transport templates | `workflow/transport/*.md` |
@@ -81,6 +82,8 @@ If a stage prompt contains an old route list or copied packet schema, the shared
 `WF_VNEXT_R_RUNTIME_CORE.md` defines runtime behavior, precedence, routing process, formalization gates, Codex role separation, and repository maintenance rules.
 
 It must not maintain a separate full `allowed_next` transition table. It may describe how to consult `STAGE_REGISTRY.md`.
+
+`workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` owns basis-validity rules for horizon/frontier/next-action proof. It does not override `STAGE_REGISTRY.md` for allowed transitions, `workflow/transport/*.md` for packet templates, or Direction Project Files for Direction state.
 
 ## Prompt delivery model
 

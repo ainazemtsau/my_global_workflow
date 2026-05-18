@@ -13,6 +13,8 @@ Scope: runtime behavior only. This file is not a stage prompt and not a rebuild 
 
 One ChatGPT Project = one Direction.
 
+Material strategic work must be basis-valid, not only route-valid. Horizon selection, active frontier selection, Goal selection, and material audit/research/execution launch must follow `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the next work depends on strategic choice, unresolved surfaces, external evidence, old-source audit, implementation readiness, or Direction Map state.
+
 GitHub repository is the source of truth.
 
 Direction project files are GitHub repository runtime files. `WORKFLOW_SOURCE_OF_TRUTH.md` is the active source-of-truth marker.
@@ -224,6 +226,8 @@ If no concrete delta exists, P0 must not create a new Phase. It must choose cont
 
 It does not replace Direction State, Current Phase, Active Goal, Portfolio Queue, Context Loading Index, or Phase Memory. It helps route the next strategic campaign by keeping the current initiative, active front, horizon slice, and parked nodes visible without becoming a broad backlog or roadmap.
 
+Direction Map strategic selection must use the Objective Architecture Model when accepting or changing active horizon, deriving active frontier, or selecting map-linked Phase/Goal candidates. `08_DIRECTION_MAP.md` remains compact strategic routing context and must not become a broad roadmap or backlog.
+
 The Direction Map should stay compact and include:
 
 - Current Initiative;
@@ -312,7 +316,10 @@ Router must check:
 *   Is a Launch Card already provided?
 *   Is the needed stage prompt available?
 *   Is there blocking missing context?
+*   Is material strategic, audit, research, planning, or execution work backed by a basis-valid `next_action_proof`?
 *   What is the smallest safe route?
+
+Router must distinguish `route_valid` from `basis_valid`. Before launching material strategic, audit, research, planning, or execution work, Router must use or request a `next_action_proof` according to `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`. If basis-validity is missing or false, Router must route to M0_DIRECTION_MAP, B1_PROBLEM, Context Request, Human Decision, or Stop rather than launching the material stage.
 
 Router default routing:
 
@@ -1433,6 +1440,8 @@ Breaking changes require schema version bump, alias, or adapter.
 
 Default route = smallest safe route.
 
+A registry-valid route is necessary but not sufficient. For material next actions, the selected action must also be basis-valid: linked to the Direction objective, accepted horizon, active frontier, prerequisites, concrete target, acceptance/evidence path, and stage semantics.
+
 Routes:
 
 *   Fast
@@ -1568,6 +1577,8 @@ phase_closure_contract:
 ```
 
 After R1 accepts or verifies a Goal, the workflow must run a `phase_progress_gate` before selecting more Goals.
+
+After R1 accepts/verifies a Goal, phase_progress_gate must not create the next required Goal merely from an unresolved surface. If continuation is selected, the next Goal candidate must be basis-valid under the Objective Architecture Model or route to M0_DIRECTION_MAP, B1_PROBLEM, Context Request, Human Decision, or Stop.
 
 `phase_progress_gate` checks:
 
