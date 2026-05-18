@@ -17,21 +17,22 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 Current Phase: `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
 
-Active Goal: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0`
+Active Goal: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
 
-Active Goal title: `Собрать AI Nutrition Operating Layer v0`
+Active Goal title: `Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system`
 
-Next route: `G1_GOAL_SHAPE`
+Next route: `E1_EXECUTION_BRIEF`
 
 ## Current priority
 
-Shape the setup/installation Goal for a working ChatGPT Project `Питание` based on AI Nutrition Operating Layer v0.
+Prepare E1 execution brief for Project `Питание` setup/installation.
 
-The setup slice must cover Project Instructions, Snapshot source, Current Loop source, Active Menu starter or explicit missing inputs, save/update behavior, and 2-3 minimal operational paper-tests or dry-runs.
+The setup slice must cover Project Instructions, Nutrition Base / Snapshot, Menu Preferences, Active Cycle, Tracking Protocol, Review & Sync Protocol, save/update behavior, and 2-3 dry-runs.
 
 ## Superseded / deferred items
 
 * `MacroFactor Nutrition AI Support Setup` is superseded/paused, not completed.
 * Old MacroFactor Goal / Execution Pack / Wave 1 are historical evidence only.
-* MacroFactor-centered workflow, self-hosted tracking, full food tracker setup, API/import automation, perfect recipe database design, and huge recipe vault are deferred.
+* MacroFactor-centered workflow remains superseded/paused.
+* Full food tracker/API automation/perfect recipe database/huge vault remain deferred.
 * Menu generation alone is not enough; operational setup needs Snapshot / Current Loop / Active Menu starter wiring around the v0 protocol.

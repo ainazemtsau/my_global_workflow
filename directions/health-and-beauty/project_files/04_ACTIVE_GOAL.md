@@ -17,78 +17,31 @@ project_file_control:
 ```yaml
 active_goal:
   state: active
-  goal_id: ai-nutrition-operating-layer-v0
-  goal_name: "Собрать AI Nutrition Operating Layer v0"
-  goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
+  goal_id: nutrition-project-operational-setup-v0
+  goal_name: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
+  goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
   current_wave: none
-  current_stage: state_corrected_after_v0_artifact
-  status: design_artifact_ready_but_operational_setup_required
-  next_route: G1_GOAL_SHAPE
+  current_stage: G1_GOAL_SHAPE_formalized
+  status: goal_contract_shaped_execution_brief_required
+  next_route: E1_EXECUTION_BRIEF
 ```
 
 ## Goal Contract snapshot
 
-* WHAT: Build a compact AI Nutrition Operating Layer v0: Nutrition State Packet, Active Menu object, operating modes, exception-only correction logic, recipe/prep support, review/state-update protocol, storage/save rules, restart/context-refresh rules, and sample flows.
-* WHY: The bottleneck is absence of a stable AI nutrition process without heavy tracking or reliance on one long ChatGPT chat.
-* DONE: A fresh next chat can use the v0 layer to create/update menu, advise on current day, correct after overeating/off-menu eating, add recipe/prep notes, run day/week summary, and produce durable state-update/save output.
-* Acceptance floor: state packet, active menu object, four modes, exception-only tracking, day correction logic, storage protocol, restart rules, five sample flows, explicit non-goals.
-* Validation: paper-test the five sample flows.
+* WHAT: Prepare separate Project `Питание` setup package with Project Instructions, Nutrition Base, Menu Preferences, Active Cycle, Tracking Protocol, Review & Sync Protocol, and dry-runs.
+* WHY: v0 protocol exists but operational Project setup is not confirmed.
+* DONE: Fresh Project `Питание` chat can plan cycle, track photo/voice events, handle unknown/defaulted answers, correct exceptions, review, and emit sync/update packets.
+* Acceptance floor: Manual-install setup package plus 2-3 operational dry-runs.
+* Validation: Cycle planning, meal-event, missing-answer, review/sync dry-runs.
 
-## Corrected runtime position
-
-* `03_AI_NUTRITION_OPERATING_LAYER_V0.md` exists as a design/protocol artifact.
-* The artifact does not prove that a working ChatGPT Project `Питание` exists.
-* Do not treat the prior review direction as formalized `completed_verified -> P9_PHASE_CLOSE`.
-* Operational setup remains required before the Phase can be closed.
-
-## Next Goal seed
+## Prior artifact input
 
 ```yaml
-next_goal_seed:
-  id_candidate: nutrition-project-operational-setup-v0
-  title: "Собрать рабочий ChatGPT Project “Питание” на базе AI Nutrition Operating Layer v0"
-  route: G1_GOAL_SHAPE
-  done_floor:
-    - "Project Instructions for `Питание` drafted or installed."
-    - "Snapshot source drafted."
-    - "Current Loop source drafted."
-    - "Active Menu starter created or missing user inputs listed."
-    - "Save/update behavior ready."
-    - "2-3 minimal operational scenarios paper-tested or dry-run."
-  forbidden:
-    - "No clinical nutrition advice."
-    - "No MacroFactor-centered workflow."
-    - "No heavy calorie/macro ledger."
-    - "No tracker/database/API automation."
-    - "No full body-transformation plan."
-    - "No P9_PHASE_CLOSE."
+prior_artifact_input:
+  goal_id: ai-nutrition-operating-layer-v0
+  status: design_protocol_artifact_input_not_operational_setup
 ```
-
-## Scope boundaries
-
-In scope:
-
-* AI nutrition operating layer.
-* State packet.
-* Active menu object.
-* Daily operator.
-* Menu architect.
-* Recipe/prep builder.
-* Review/state update.
-* Exception-only tracking.
-* Storage and restart rules.
-
-Out of scope:
-
-* MacroFactor-centered workflow.
-* Heavy tracker.
-* Detailed calorie/macro ledger.
-* Food tracker/database setup.
-* API/import automation.
-* Huge recipe vault.
-* Clinical nutrition.
-* Menu-only Goal.
 
 ## Preserved history
 

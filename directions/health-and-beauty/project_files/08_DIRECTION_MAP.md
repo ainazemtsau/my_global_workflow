@@ -33,7 +33,7 @@ direction_map_status:
   current_initiative_id: body-transformation-20kg-strength-health
   map_confidence: medium
   current_execution_state_confidence: medium
-  last_reviewed_stage: repository_state_correction
+  last_reviewed_stage: G1_GOAL_SHAPE_formalized
   migration_status: migrated_with_2026_05_17_state_correction
   migration_source:
     mode: post_rollout_m0_migration
@@ -41,7 +41,7 @@ direction_map_status:
     source_ref: "main"
     source_commit_or_head_sha: "d170a8c703034ea44285d88a3abaedf36c21b9cd"
   corrected_state:
-    summary: "Project Files 00-06 were corrected away from stale E1_EXECUTION_BRIEF / execution_brief_pending. AI Nutrition Operating Layer v0 exists as a design/protocol artifact, not proof that a working ChatGPT Project `Питание` exists. The active Phase remains open; next route is G1_GOAL_SHAPE for the setup/installation Goal."
+    summary: "G1 shaped `nutrition-project-operational-setup-v0`; operational Project `Питание` setup and validation are still pending; next route is E1_EXECUTION_BRIEF."
     blocks:
       - P9_PHASE_CLOSE
       - claiming_working_project_pitanie_exists
@@ -83,6 +83,7 @@ current_initiative:
     - "A low-friction AI-assisted process exists and can be run through ChatGPT or approved storage without detailed manual calorie/macro ledger."
     - "Nutrition layer can create/update menu, advise current day, correct after overeating/off-menu eating, add recipe/prep notes, run day/week summary, and produce durable state update/save output."
     - "After nutrition layer validation, the Direction can add minimal metrics and a training/cardio/recovery decision slice without expanding into a broad backlog."
+    - "Project `Питание` setup Goal is shaped and ready for E1 execution brief."
 ```
 
 ## Initiative Registry
@@ -97,10 +98,10 @@ initiative_registry:
       phase_name: "Собрать AI-операционный слой питания без тяжёлого трекинга"
       binding_reason: "Nutrition execution without heavy manual tracking is the current documented constraint and directly supports the broader body-transformation initiative."
     active_goal_binding:
-      goal_id: ai-nutrition-operating-layer-v0
-      goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0"
-      goal_name: "Собрать AI Nutrition Operating Layer v0"
-      binding_reason: "The Goal creates the low-friction nutrition operating layer needed before broader training/cardio/recovery integration."
+      goal_id: nutrition-project-operational-setup-v0
+      goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
+      goal_name: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
+      binding_reason: "The Goal installs/operationalizes AI Nutrition Operating Layer v0 into separate Project `Питание` before broader integration."
     current_risk:
       - "The v0 artifact can be mistaken for an installed working ChatGPT Project; setup evidence is still missing."
       - "Broad health/fitness optimization can easily become overbuilt unless sliced after the nutrition project setup is validated."
@@ -159,7 +160,7 @@ compact_initiative_graph:
       initiative_id: body-transformation-20kg-strength-health
       label: "Operationalize AI Nutrition Operating Layer v0 through Project setup"
       type: active_front
-      status: active_operational_setup_required
+      status: goal_shaped_execution_brief_required
       purpose: "Shape and complete the missing working ChatGPT Project `Питание` setup before broader body-transformation integration."
       success_signal:
         - "Project Instructions for `Питание` are drafted or installed."
@@ -231,9 +232,9 @@ active_front:
   primary_node: n1_repair_validate_ai_nutrition_layer_v0
   reason: "This is the smallest credible path because it preserves the v0 protocol artifact, fills the missing Project `Питание` setup, and avoids a broad restart."
   current_route_binding:
-    route_state: corrected_to_G1_GOAL_SHAPE
-    route: G1_GOAL_SHAPE
-    rule: "Shape the setup/installation Goal for Project `Питание`; do not route to P9_PHASE_CLOSE from this correction."
+    route_state: goal_shaped_to_E1_EXECUTION_BRIEF
+    route: E1_EXECUTION_BRIEF
+    rule: "Prepare execution brief for Project `Питание`; do not route to P9_PHASE_CLOSE before setup/validation evidence."
   parallel_candidate_nodes: []
   parked_nodes:
     - n3_training_cardio_recovery_decision_slice
