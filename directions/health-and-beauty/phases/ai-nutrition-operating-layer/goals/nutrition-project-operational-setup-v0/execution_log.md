@@ -23,6 +23,33 @@ Summary:
 - Confirmed concrete menu/diet execution is out of G1 scope.
 - Routed next stage to `E1_EXECUTION_BRIEF`.
 
+## 2026-05-18 — E1_EXECUTION_BRIEF formalized
+
+```yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+stage_id: E1_EXECUTION_BRIEF
+stage_name: Execution Brief
+direction_id: health-and-beauty
+phase_id: ai-nutrition-operating-layer
+goal_id: nutrition-project-operational-setup-v0
+return_state: DONE
+selected_route: F0_FAST_DIRECT
+brief_summary: "Formalized E1 execution brief for manual-install Project Питание setup package. Long-lived setup package target moved to Direction-level setup path; goal folder stores only workflow evidence."
+scope_preserved: true
+patch_required_after_approval: true
+changed_files_context_refresh_required_after_approval: true
+next_stage: F0_FAST_DIRECT
+timestamp: "2026-05-18"
+notes:
+  - "User approved formalization with APPROVE AND FORMALIZE."
+  - "User corrected storage target: do not place long-lived Project Питание setup package inside goal folder."
+  - "F0 target artifact: directions/health-and-beauty/project_setup/pitanie/PROJECT_PITANIE_SETUP_PACKAGE.md"
+  - "F0 artifact formalization is not pre-approved; F0 should produce reviewable package preview unless separately approved."
+  - "No Project Питание installation, menu/diet prescription, clinical nutrition advice, storage automation, or Phase close performed in E1."
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/execution_log.md`
