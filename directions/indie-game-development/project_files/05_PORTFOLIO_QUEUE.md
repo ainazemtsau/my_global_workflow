@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_p0_repository_apply_readback
+projection_status: fresh_after_r1_first_technical_nucleus_spec_acceptance
 activated_at: "2026-05-13"
 ```
 
@@ -17,16 +17,16 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
 - Active Phase name: `Core Co-op Technical Foundation Selection`
-- Active Phase status: `active_first_technical_nucleus_spec_synthesis_formalized_pending_R1`
+- Active Phase status: `active_pending_m0_after_r1_acceptance`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec`
-- Active Goal name: `Сформировать функционально-техническую спецификацию первого technical nucleus`
-- Active Goal status: `synthesis_formalized_pending_R1_review`
-- Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`
+- Active Goal: `none_pending_m0_direction_map_review`
+- Last completed Goal: `first-technical-nucleus-functional-spec`
+- Last completed Goal status: `r1_completed_verified_specification_accepted`
+- Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `R1_GOAL_REVIEW_DISTILL`
+- Next route: `M0_DIRECTION_MAP`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -54,6 +54,10 @@ Required foundation surface:
   - Verdict: `completed_verified`
   - Status: `r1_reviewed_accepted`
 - Core Technical Foundation Decision Brief — `r1_accepted_route_gated_decision_map`
+- First Technical Nucleus Functional Specification — `r1_completed_verified_specification_accepted`
+  - Artifact: `01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
+  - Accepted scope: functional/technical specification only.
+  - Not accepted: implementation, Unity bootstrap, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, Game Documentation promotion.
 
 ## Preserved / paused
 
@@ -66,7 +70,7 @@ Required foundation surface:
 
 ## Queue items
 
-- First Technical Nucleus Functional Specification — `synthesis_formalized_pending_R1_review`, expected route `R1_GOAL_REVIEW_DISTILL`
+- Direction Map / Active Front Review after accepted first technical nucleus specification — `next_route: M0_DIRECTION_MAP`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
 - Expedition Project Bootstrap / Tool Binding Readiness — request-only until selected by a vNext-R stage result
 - Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result
@@ -76,7 +80,7 @@ Required foundation surface:
 
 ## Queue discipline
 
-Do not run implementation, Unity bootstrap, code transfer, old-code audit, or Codex product/project execution until the first technical nucleus functional specification is accepted and later execution stages authorize concrete work.
+Do not run implementation, Unity bootstrap, code transfer, old-code audit, or Codex product/project execution until a later basis-valid lifecycle route authorizes concrete work.
 
 Do not default to FishNet solely because it was used in the old project.
 
@@ -84,7 +88,7 @@ Do not create throwaway gas/grid prototype logic.
 
 Do not treat old Grid/Gas material as the source of requirements. Old material is reference/evidence only after the new requirements are clear.
 
-The active Goal is one parent functional/specification Goal with gated sequential execution and a required user approval gate after gas simulation capability framing.
+The accepted specification was one parent functional/specification Goal with gated sequential execution and a required user approval gate after gas simulation capability framing.
 
 ## Queue update after R1
 
@@ -109,6 +113,14 @@ Queue update after G1 reset: first-technical-nucleus-functional-spec shaped; his
 
 ## Queue update after F0 synthesis formalization
 
-`first-technical-nucleus-functional-spec` is synthesis-formalized and pending `R1_GOAL_REVIEW_DISTILL`.
+At F0, `first-technical-nucleus-functional-spec` was synthesis-formalized and pending `R1_GOAL_REVIEW_DISTILL`.
 
-Project Files cache refresh is required after the repository evidence integrity repair commit before launching R1 in a fresh Direction Project chat.
+Project Files cache refresh was required after the repository evidence integrity repair commit before launching R1 in a fresh Direction Project chat.
+
+## Queue update after R1 first technical nucleus specification acceptance
+
+`first-technical-nucleus-functional-spec` is accepted as `r1_completed_verified_specification_accepted`.
+
+Next route: `M0_DIRECTION_MAP`.
+
+Project Files cache refresh is required after this repository maintenance commit before launching M0 in a fresh Direction Project chat.

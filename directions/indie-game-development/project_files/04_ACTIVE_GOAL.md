@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_p0_repository_apply_readback
+  source_freshness: active_git_file_after_r1_first_technical_nucleus_spec_acceptance
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,23 +16,24 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: synthesis_formalized_pending_R1_review
-  goal_id: first-technical-nucleus-functional-spec
-  goal_title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
-  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec"
-  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
+  state: none_pending_m0_direction_map_review
+  goal_id: none
+  previous_active_goal_id: first-technical-nucleus-functional-spec
+  previous_active_goal_title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
+  previous_active_goal_result: r1_completed_verified_specification_accepted
+  previous_active_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
+  previous_active_goal_execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
   previous_goal_superseded: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: R1_GOAL_REVIEW_DISTILL
-  next_route_mode: review_parent_goal_outcome_against_goal_contract
-  review_scope: parent_goal_outcome
-  completion_scope: parent_goal_complete_after_f0_apply_readback
-  parent_goal_completion_state: complete_pending_R1_acceptance
-  smallest_useful_result: "R1 review verdict for the completed first technical nucleus functional specification parent Goal outcome."
+  next_route: M0_DIRECTION_MAP
+  next_route_mode: review_active_front_after_completed_specification_goal
+  review_scope: active_front_after_completed_specification_goal
+  completion_scope: functional_technical_specification_only
+  parent_goal_completion_state: r1_completed_verified_specification_accepted
+  smallest_useful_result: "M0 active-front review after accepted first technical nucleus functional specification."
 ```
 
 ```yaml
@@ -79,20 +80,19 @@ previous_active_goal:
 
 ## Active Goal snapshot
 
-Active Goal is `first-technical-nucleus-functional-spec`.
+No active Goal is selected after R1 acceptance.
 
-The active Goal Contract is:
+Last completed Goal:
 
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`
+`first-technical-nucleus-functional-spec`
 
-Current treatment:
+Status:
 
-- `synthesis_formalized_pending_R1_review`
-- shaped by G1 and formalized through F0 gated blocks through synthesis;
-- routed to R1 parent Goal review;
-- implementation remains blocked pending accepted specification and later execution readiness.
+`r1_completed_verified_specification_accepted`
 
-The next valid route is `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec`.
+Accepted result: first technical nucleus functional/technical specification.
+
+The next valid route is `M0_DIRECTION_MAP`.
 
 ## Superseded previous active Goal
 
@@ -144,7 +144,7 @@ Previous accepted Goal: `core-technical-foundation-decision-brief` remains `r1_a
 
 ## Deferred items
 
-The active Goal must not silently decide or perform:
+The accepted specification did not silently decide or perform:
 
 - Unity project creation;
 - code transfer;
@@ -160,4 +160,4 @@ The active Goal must not silently decide or perform:
 - visual gas proof;
 - Game Documentation promotion.
 
-The active Goal may leave a surface unresolved only when the unresolved item is explicitly routed to `D1_DEEP_RESEARCH`, `A1_AUDIT`, `S3_DECIDE`, Context Request, or marked `deferred_not_blocking_for_bootstrap`.
+Any later Goal may leave a surface unresolved only when the unresolved item is explicitly routed to `D1_DEEP_RESEARCH`, `A1_AUDIT`, `S3_DECIDE`, Context Request, or marked `deferred_not_blocking_for_bootstrap`.

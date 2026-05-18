@@ -8,7 +8,7 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_f0_synthesis_evidence_integrity_repair
+  freshness: fresh_after_r1_first_technical_nucleus_spec_acceptance
   last_updated: "2026-05-18"
 ```
 
@@ -137,8 +137,8 @@ strategy_basis:
     - "No full engineering handbook now."
   open_issues:
     - id: active_goal_route_mismatch
-      status: resolved_by_f0_synthesis_evidence_integrity_repair
-      summary: "Project Files, Phase Brief, and the synthesis-formalized Goal artifact now route the active Goal to R1_GOAL_REVIEW_DISTILL."
+      status: resolved_by_r1_route_to_m0
+      summary: "R1 accepted the specification and routed to M0 before P9/G0/E1."
     - id: codex_product_execution_blocked
       status: blocking_for_product_execution
       summary: "Codex product/project execution waits for verified project/tool bindings, route, scope, validation, and permissions."
@@ -234,19 +234,18 @@ compact_initiative_graph:
 ```yaml
 active_front:
   active_horizon: H1_playable_technical_nucleus
-  current_gate: first-technical-nucleus-functional-spec
-  current_gate_status: synthesis_formalized_pending_R1_review
+  current_gate: none_pending_m0_review_after_first_technical_nucleus_spec_acceptance
+  current_gate_status: r1_completed_verified_specification_accepted
   required_inside_current_gate_or_next_gate:
     - H1_G2_codex_development_operating_model_and_architecture_protocols
-  primary_reason: "The current Goal matters because it defines the requirements for the first technical nucleus before implementation or old project reference review."
-  active_front_rule: "Review the completed parent Goal outcome through R1 before Phase Progress Gate, P9, documentation promotion, implementation, or next Goal selection."
+  primary_reason: "The first technical nucleus functional specification has been accepted; the active front must now be reviewed before phase close, bootstrap/tool-binding readiness, or implementation planning."
+  active_front_rule: "Run M0_DIRECTION_MAP before P9, G0, E1, or implementation route selection."
   codex_architecture_rule: "The foundation decision is sufficient only if it either accepts minimum Codex-driven development rules or explicitly route-gates them before implementation."
   immediate_next_after_gate:
-    - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-    - H1_G4_durable_technical_nucleus
+    - M0_DIRECTION_MAP_review_active_front
   route_integrity_issue:
-    status: resolved_current_route_pending_R1
-    summary: "Current active route is R1_GOAL_REVIEW_DISTILL for the synthesis-formalized first technical nucleus specification."
+    status: resolved_by_r1_route_to_m0
+    summary: "R1 accepted the specification and routed to M0 before P9/G0/E1."
   parked_nodes:
     - H2_unique_gas_coop_gameplay_proof
     - H3_vertical_slice_demo_identity
@@ -517,6 +516,30 @@ map_delta:
     - Codex product/project execution
     - durable technical nucleus implementation
     - Game Documentation promotion
+```
+
+## 2026-05-18 R1 map delta — first technical nucleus functional specification accepted
+
+```yaml
+map_delta:
+  source_stage: R1_GOAL_REVIEW_DISTILL
+  delta_type:
+    - node_done_accepted
+    - active_front_review_needed
+    - m0_review_needed
+  node: first-technical-nucleus-functional-spec
+  result: r1_accepted_first_technical_nucleus_functional_spec
+  summary: >
+    Parent specification Goal accepted. The first technical nucleus is now
+    defined at functional/technical specification level. Implementation,
+    Unity bootstrap, old-code transfer/audit-as-starting-point, Codex
+    product/project execution, Task Master graph creation, and Game
+    Documentation promotion remain blocked.
+  active_front_effect: >
+    Active front must be reviewed before selecting project bootstrap,
+    Codex/tool-binding readiness, durable nucleus implementation, Phase close,
+    or a new Goal.
+  next_route: M0_DIRECTION_MAP
 ```
 
 ## End-of-file marker
