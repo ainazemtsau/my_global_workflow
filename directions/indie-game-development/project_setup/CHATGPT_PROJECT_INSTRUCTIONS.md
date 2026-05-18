@@ -1,111 +1,45 @@
 # ChatGPT Project Instructions - Indie Game Development
 
-## Project Identity
+## Identity
 
-- Project name: `Indie Game Development`
+- Project: `Indie Game Development`
 - Source of truth: GitHub repository `ainazemtsau/my_global_workflow`
 - Direction path: `directions/indie-game-development`
 - Run this as a separate ChatGPT Project for this Direction.
 
-## Runtime Authority
+## Authority and context
 
-- GitHub repository files are the runtime authority.
-- Project Files are a runtime cache, not a replacement source of truth.
-- If a verified full GitHub read conflicts with Project File cache, GitHub wins and the Project File cache must be refreshed.
-- If GitHub read is truncated, omitted, lacks an expected tail anchor, or cannot verify full-file availability, do not treat it as authority. Return Context Request.
-- Do not use external personal notes, old Trilium files, rebuild files, migration/admin files, raw chats, or archive notes as runtime source unless explicitly asked.
+- GitHub repository markdown is canonical.
+- Project Files are runtime cache only.
+- Load shared runtime cache and this Direction's Project Files from `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` and `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`.
+- If verified full GitHub read conflicts with Project Files cache, GitHub wins and cache must be refreshed.
+- If a required file is missing, stale, contradictory, truncated, omitted, or lacks tail verification, return Context Request with the exact repository path.
+- Do not infer Direction, Direction Map, Phase, Goal, Portfolio Queue, Context Loading Index, execution, or project state from memory, snippets, old chats, archive notes, or partial reads.
 
-## Required Runtime Cache and GitHub Files
-
-For normal runtime, manually load these files into this ChatGPT Project Files as runtime cache:
-
-- `WORKFLOW_SOURCE_OF_TRUTH.md`
-- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
-- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
-- `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
-- `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
-- `workflow/stage_registry/STAGE_REGISTRY.md`
-- `directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md`
-- `directions/indie-game-development/project_files/01_DIRECTION_STATE.md`
-- `directions/indie-game-development/project_files/02_CURRENT_PHASE.md`
-- `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md`
-- `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md`
-- `directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md`
-- `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`
-- `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
-- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
-
-If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review` and a new strategic Phase/Goal choice is needed, route to `M0_DIRECTION_MAP`.
-
-## Direction Boundary
+## Direction boundary
 
 Use only:
-
 - `directions/indie-game-development/**`
-- `WORKFLOW_SOURCE_OF_TRUTH.md`
-- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
-- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
-- `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
-- `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
-- `workflow/stage_registry/STAGE_REGISTRY.md`
-- `workflow/stage_prompts/<requested stage only>`
+- shared runtime files listed in `WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
+- exact requested stage prompt only
 
-Do not use sibling Direction folders unless explicitly asked.
+Do not use sibling Direction folders unless explicitly asked. For shared workflow changes, follow cross-Direction rollout rules from Workflow Governance/runtime.
 
-## Stage Prompts
+## Objective architecture / routing
 
-Stage prompts are request-only by exact stage ID.
+Material work must be basis-valid, not only route-valid, according to `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`.
 
-Do not bulk-load all stage prompts.
+If `08_DIRECTION_MAP.md` is uninitialized/needs M0 review and strategic Phase/Goal selection depends on it, route to `M0_DIRECTION_MAP`.
 
-If an exact stage prompt read from GitHub is truncated, omitted, or lacks tail verification, the stage prompt is considered unavailable for that run. Stop and request the exact prompt manually, as a Project File/chat attachment, split file, chunked export, or Codex read-only verification.
+Stage registry controls valid stage IDs and allowed transitions. Stage prompts are request-only by exact stage ID; do not bulk-load all prompts and do not reconstruct missing prompts from memory.
 
-Do not reconstruct missing prompts from memory.
+Choose the smallest safe route. Ask only for blocking missing context. Use ruthless scope cutting and smallest testable version where relevant.
 
-## Context Failure
+## Execution and patch boundaries
 
-If required GitHub files or Project Files are unavailable, stale, inaccessible, contradictory, truncated, or missing tail verification, return Context Request instead of inventing state.
-
-Do not invent Direction, Direction Map, Phase, Goal, Portfolio Queue, Context Loading Index, Wave, execution, or project state.
-
-## Default Behavior
-
-- Choose the smallest safe route.
-- Ask only for blocking missing context.
-- Do not overbuild.
-- Use ruthless scope cutting and smallest testable version where relevant.
-- Do not emit `repository_patch.v1` operations until explicitly approved by the user.
-- Do not run product/project execution unless the correct execution route and context are present.
-
-## Direction worktree repository maintenance
-
-Repository maintenance must follow the worktree-aware policy in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
-
-For Indie Game Development Direction-specific work, use:
-
-```text
-worktree: C:\my_global_workflow_worktrees\indie-game-development
-branch: codex/direction-indie-game-development
-upstream: origin/codex/direction-indie-game-development
-main integration worktree: C:\my_global_workflow
-```
-
-Before starting repository work in the worktree:
-
-```text
-git fetch origin
-git rebase origin/main
-```
-
-After finishing scoped work:
-
-```text
-git status
-git add <approved files>
-git commit -m "<approved summary>"
-git push
-```
-
-Then merge or PR the Direction branch into `main` from the clean main integration worktree, or return explicit unmerged reason with conflict evidence.
-
-Do not edit sibling Directions unless the approved patch explicitly requires it.
+- Do not emit non-empty `repository_patch.v1` operations until explicitly approved or directly requested by the user.
+- Do not run product/project execution unless the correct E1/C1/C2 route, scope, validators, permissions, and context are present.
+- Repository maintenance must follow worktree policy in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
+- Direction worktree repository maintenance: use `C:\my_global_workflow_worktrees\indie-game-development` on branch `codex/direction-indie-game-development`.
+- Direction-specific repository work uses the Indie Game Development worktree/branch from runtime core unless the approved patch states otherwise.
+- Do not edit sibling Directions unless the approved patch explicitly requires it.
