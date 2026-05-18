@@ -5,18 +5,18 @@ artifact_control:
   artifact_name: "First Technical Nucleus Functional Specification"
   schema: first_technical_nucleus_functional_spec.v1
   owner_layer: persistence
-  status: draft_cross_system_interaction_requirements_formalized_pending_apply_readback
+  status: synthesis_formalized
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
   direction_id: indie_game_development
   phase_id: core-coop-technical-foundation-selection
   goal_id: first-technical-nucleus-functional-spec
   source_stage: F0_FAST_DIRECT
   formalized_at: "2026-05-18"
-  formalization_trigger: APPROVE_AND_FORMALIZE_F0_CROSS_SYSTEM_BLOCK
+  formalization_trigger: APPROVE_AND_FORMALIZE_F0_SYNTHESIS_BLOCK
   source_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
   sequencing_model: gated_sequential
-  current_completed_block: cross_system_interaction_requirements
-  next_blocks_state: sections_6_to_8_blocked_until_valid_stage_after_apply_readback
+  current_completed_block: synthesis
+  next_blocks_state: parent_goal_completion_candidate_pending_apply_readback_diff_commit_main_verification
 ```
 
 ## 1. Gas Simulation Capability Frame
@@ -2819,11 +2819,283 @@ Section 8 remains blocked until Section 7 is accepted, formalized, applied, read
 
 ## 8. Synthesis
 
-Status: `blocked_until_prior_blocks_are_accepted`
+Status: `synthesis_formalized`
 
-Placeholder only.
+### 8.1 Purpose and Boundary
 
-The final synthesis must integrate accepted prior blocks into one coherent first technical nucleus functional specification.
+This synthesis integrates the accepted prior blocks into one coherent first technical nucleus functional specification.
+
+The first technical nucleus is a requirements-and-validation definition for the minimum durable technical foundation where gameplay gas, spatial layout, topology, cross-system modifiers, breach/new-opening compatibility, and observable validation can exist together.
+
+This synthesis is not an implementation plan, Unity scene plan, Codex execution brief, test harness design, final architecture decision, or Game Documentation promotion.
+
+The synthesis preserves these boundaries:
+
+- the nucleus must be gameplay-directed, not gas-only;
+- the nucleus must be observable through no-player validation before player mechanics are layered on top;
+- Gas, topology, cross-system interaction, and breach/new-opening compatibility must remain separated by explicit ownership boundaries;
+- implementation remains blocked until later execution planning, project/tool bindings, validators, and explicit execution envelope are approved;
+- old project material remains reference/evidence only after requirements are clear and must not dictate implementation or transfer decisions.
+
+### 8.2 Integrated Requirement Stack
+
+The first technical nucleus is defined by the following accepted stack.
+
+#### Gas layer
+
+The nucleus must support gameplay-relevant gas behavior: propagation through bounded spaces, accumulation and clearing, density-biased vertical behavior, source/sink behavior, topology-sensitive behavior, and debug-observable hazard state.
+
+Gas is modeled at requirement level as typed mass or concentration distributed across spatial containers. Heavy, light, and neutral behavior use a continuous density coefficient with named validation bands. The first validation set may use heavy hazard gas, light hazard gas, and neutral obscuring/asphyxiant gas.
+
+Gas requires simplified mass/capacity/flow behavior, source and sink rates, connection flow limits, and pressure-like gradients, but not full CFD, compressible pressure simulation, fire chemistry, shockwaves, structural collapse, final replication, or player abilities.
+
+#### Spatial layer
+
+The nucleus requires a compact validation space, not final level design.
+
+Required spatial surfaces are:
+
+- simple connected room chain;
+- ventilation / clearance path space;
+- vertical shaft or two-level space;
+- optional larger stress space after simple validation passes.
+
+These spaces must expose source anchors, sink/vent anchors, toggleable openings, permanent openings, vertical lower/upper anchors, observation/debug points, and optional breach/new-opening placeholders.
+
+The simple validation space must stay small enough that failure can be diagnosed from spatial configuration rather than map complexity.
+
+#### Grid / topology layer
+
+The nucleus requires a gas-readable topology substrate, not final Grid architecture.
+
+The topology substrate must represent:
+
+- stable spatial region IDs;
+- stable connection/portal IDs;
+- passage state IDs;
+- door/opening IDs;
+- vent path IDs;
+- source/sink anchor IDs;
+- observation point IDs;
+- breach placeholder IDs;
+- topology revision IDs.
+
+Gas must read effective topology, not only base topology. Effective topology combines base layout, passage-state overlay, vent-availability overlay, and dynamic mutation placeholder overlay.
+
+Topology must support compact snapshot/event/delta surfaces in principle, but this synthesis does not decide bandwidth strategy, prediction, rollback, transport serialization, interest management, or final replication schema.
+
+#### Cross-system layer
+
+The nucleus must make cross-system interaction explicit enough to avoid hidden coupling.
+
+Systems may interact through requirement-level state changes, commands/requests, modifiers, and signals/events. Each interaction record must expose source system, target owner, target ID, interaction type, payload summary, tick/revision, authority/scope, and debug visibility.
+
+The accepted update order is:
+
+1. collect commands, state changes, and modifier inputs;
+2. resolve owning-system state;
+3. resolve effective topology and modifier state;
+4. gas reads effective state;
+5. gas simulation tick runs;
+6. optional player/actor effect consumers read exposure;
+7. debug, validation, and UI/telemetry read observable state.
+
+Gas owns gas state and gas metrics. It does not own topology, doors/openings, vent availability, breach activation, source/sink ownership, player health, final effects, or final network state.
+
+#### Destructibility compatibility layer
+
+The nucleus does not implement full destructibility.
+
+It must be compatible with a future breach/new-opening writer boundary by supporting:
+
+- an addressable breach placeholder;
+- controlled breach/new-opening activation;
+- activated connection ID;
+- endpoint region IDs;
+- initial passage state;
+- initial flow limit or resistance;
+- topology revision before and after activation;
+- Gas reading the post-mutation effective topology only after the topology revision advances;
+- debug/validation observability of the activation, update order, and resulting flow.
+
+The breach/new-opening shape must remain compatible with broader future topology mutation records and must not become a breach-only special case.
+
+#### Validation / demo layer
+
+The nucleus must be validated through observable scenarios and debug surfaces, not through implementation claims.
+
+Minimum validation scenarios:
+
+- `VD_01_simple_propagation`
+- `VD_02_closed_door_then_open_door_flow`
+- `VD_03_vertical_light_heavy_neutral_behavior`
+- `VD_04_ventilation_path_clearance`
+- `VD_05_multi_room_capacity_stress`
+- `VD_06_cross_system_modifier_validation`
+- `VD_07_breach_new_opening_compatibility_validation`
+- `VD_08_player_actor_exposure_read_surface_validation_optional_boundary_only`
+- `VD_09_debug_telemetry_validation_surface`
+
+The validation layer must preserve no-player validation as the first hard boundary. Player/actor exposure is allowed only as a read-only boundary surface unless a later valid stage explicitly routes player mechanics into scope.
+
+### 8.3 Coherent First Technical Nucleus Definition
+
+The first technical nucleus is:
+
+> A minimal, durable, no-player-observable technical requirements nucleus where typed gameplay gas moves through a small authored spatial/topology substrate, reads effective topology and explicit modifier/state surfaces, responds to controlled topology changes such as door/vent state and breach/new-opening activation, and exposes enough debug/validation telemetry to prove correctness before implementation, player mechanics, final networking, final architecture, or Game Documentation promotion.
+
+This definition intentionally includes gas, space, topology, cross-system ownership, breach compatibility, and validation together. It is not a gas-only prototype and not a final game slice.
+
+### 8.4 First Technical Nucleus Capability Summary
+
+The first technical nucleus must be capable of demonstrating:
+
+1. Gas can originate from a named source and become visible as mass/concentration in a source region.
+2. Gas can propagate through passable topology connections.
+3. Gas can be blocked or materially restricted by closed/non-passable passages.
+4. Gas can distinguish light, heavy, and neutral vertical behavior at requirement level.
+5. Gas can accumulate, clear, or be removed through source/sink/vent surfaces.
+6. Stable topology IDs can connect gas state, debug surfaces, validation assertions, and future host-authoritative snapshots.
+7. Effective topology can differ from base topology through passage state, vent availability, and controlled mutation overlays.
+8. Cross-system modifiers can affect Gas without owning Gas.
+9. Shared-target conflicts can be diagnosed through visible conflict records.
+10. A breach/new-opening placeholder can become a passable connection only through controlled activation and topology revision advancement.
+11. Gas reads post-mutation topology after topology update, not before.
+12. Optional player/actor exposure reads can observe resulting gas/topology state without requiring player health, damage, inventory, animation, controller, or replication mechanics.
+13. Debug/validation telemetry can explain pass/fail outcomes for scenarios `VD_01` through `VD_09`.
+
+### 8.5 Required Validation Surface Summary
+
+The required validation surface must expose at minimum:
+
+- gas concentration or mass per region;
+- gas type presence;
+- source state and source rate;
+- sink/scrubber/removal state and removal rate;
+- flow arrows or transfer rates;
+- region IDs;
+- connection IDs;
+- passage open/closed state;
+- vent availability;
+- vertical relation;
+- effective topology snapshot;
+- topology revision;
+- gas tick ID;
+- cross-system interaction records;
+- conflict records;
+- breach placeholder state;
+- activated breach/new-opening connection ID when relevant;
+- optional player/actor exposure read surface.
+
+Validation must be scenario-driven and pass/fail observable. Debug surfaces are acceptance requirements, not optional polish.
+
+### 8.6 Implementation Readiness Boundary
+
+This specification makes the parent Goal reviewable, but it does not authorize implementation.
+
+Before any code, Unity project work, Codex product/project execution, Task Master graph, or durable nucleus implementation, later workflow stages must still establish:
+
+- execution route;
+- concrete project/tool bindings;
+- allowed and forbidden product/project paths;
+- validators and validation commands;
+- Codex execution envelope;
+- implementation slice boundaries;
+- project-local architecture and module boundaries;
+- read-back, diff, validation, and evidence requirements.
+
+This synthesis is sufficient to review the first technical nucleus functional specification. It is not sufficient to begin product/project mutation.
+
+### 8.7 Explicit Non-Goals Preserved
+
+This synthesis preserves the following non-goals:
+
+- no Unity bootstrap;
+- no Unity scene creation;
+- no implementation;
+- no code generation;
+- no test harness implementation;
+- no Codex product/project execution;
+- no Task Master graph creation;
+- no direct old-code transfer;
+- no old-code audit as the starting point;
+- no final Gas architecture;
+- no final Grid/topology architecture;
+- no final cross-system architecture;
+- no final event-bus architecture;
+- no final network replication model;
+- no final destructibility architecture;
+- no full destructibility implementation;
+- no full fire/reaction chemistry;
+- no full temperature or pressure simulation;
+- no player controller, player health, damage, inventory, animation, or gameplay balancing;
+- no visual polish or production debug UI;
+- no Game Documentation promotion.
+
+### 8.8 Unresolved or Deferred Items
+
+The following remain unresolved or deferred by design:
+
+- final Gas architecture and data structures;
+- final Grid/topology architecture and cell/region/chamber model;
+- old Grid/GridV2/GasV2R reuse, rewrite, or discard classification;
+- final host-authoritative replication model;
+- final bandwidth, prediction, rollback, serialization, and interest-management strategy;
+- final cross-system implementation mechanism;
+- final event/message architecture;
+- final destructibility implementation and topology mutation architecture;
+- final player-facing hazard/effect rules;
+- exact Unity folder structure, DI package, CI setup, and validators;
+- project bootstrap/tool-binding readiness;
+- Codex product/project execution planning;
+- Game Documentation promotion.
+
+These items may be routed later only through valid lifecycle stages and explicit approval.
+
+### 8.9 Parent Goal Completion Candidate Marker
+
+```yaml
+parent_goal_completion_candidate:
+  state: candidate_after_f0_apply_readback
+  artifact: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md
+  completed_blocks:
+    - gas_simulation_capability_frame
+    - user_approval_gate_after_gas_block
+    - level_and_spatial_requirements
+    - grid_topology_substrate_requirements
+    - cross_system_interaction_requirements
+    - destructibility_compatibility_boundary
+    - validation_demo_requirements
+    - synthesis
+  completion_scope: parent_goal_complete_after_apply_readback_diff_commit_main_verification
+  parent_goal_completion_state: complete_after_apply_readback_diff_commit_main_verification
+  review_route_after_successful_f0_verification: R1_GOAL_REVIEW_DISTILL
+```
+
+This marker becomes effective only after this Section 8 synthesis is applied, read back, diff-verified, commit-verified, and integrated to `main`.
+
+Before that evidence exists, the parent Goal remains open and F0 must not route to R1.
+
+### 8.10 Next Review Route After Successful Apply / Read-Back
+
+After Section 8 synthesis is approved, applied, read back, diff-verified, commit-verified, and integrated to `main`, the next valid route is:
+
+```yaml
+next_stage_after_successful_synthesis_apply_readback: R1_GOAL_REVIEW_DISTILL
+reason: >
+  The completed artifact becomes reviewable as the parent Goal outcome only
+  after the final synthesis block is repository-verified.
+```
+
+R1 must review the whole parent Goal outcome against the Goal Contract and acceptance floor. R1 must not assume unrefreshed Project Files are canonical.
+
+### 8.11 Phase Progress Gate and Documentation Promotion Boundary
+
+F0 does not run the Phase Progress Gate.
+
+The Phase Progress Gate remains blocked until R1 accepts, rejects, or route-gates the parent Goal outcome.
+
+This synthesis does not promote any durable truth into Game Documentation. Any Game Documentation promotion requires a later explicit documentation-maintenance stage or approved documentation-maintenance patch.
 
 ## 9. Explicit Non-Goals and Old Project Reference Policy
 
