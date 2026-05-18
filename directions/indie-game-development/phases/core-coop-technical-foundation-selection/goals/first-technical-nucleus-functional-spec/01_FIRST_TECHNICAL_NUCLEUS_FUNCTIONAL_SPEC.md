@@ -2158,23 +2158,256 @@ Sections 6-8 remain blocked after this block unless later completed through the 
 
 ## 6. Destructibility Compatibility Boundary
 
-Status: `blocked_until_grid_topology_substrate_requirements`
+### 6.1 Purpose and boundary
 
-Placeholder only.
+The first technical nucleus does not implement full destructibility.
 
-Required later compatibility surface:
+This block defines only the compatibility boundary required so that a future destructibility-capable system can introduce a breach, new opening, or other topology-relevant barrier change into the accepted Grid/topology substrate without forcing a rewrite of Gas, topology, player/actor exposure, debug validation, or cross-system interaction records.
 
-- opening/breach can appear in topology;
-- gas can flow through new opening;
-- topology/effective connectivity update order is representable.
+For this nucleus, destructibility is treated as a future writer boundary. The nucleus must be able to represent and observe a breach/new-opening activation, but it must not define the final damage model, debris behavior, structural simulation, explosion pressure model, visual destruction pipeline, or destruction networking model.
 
-Not required now:
+The compatibility target is narrow:
 
-- full destruction implementation;
+- a breach placeholder can exist;
+- a breach or new opening can activate;
+- the activation can mutate effective topology;
+- Gas can read the updated topology after the mutation;
+- validation/debug surfaces can prove that the new opening affected topology and Gas in the correct order;
+- the representation does not block future runtime topology mutation types beyond the first breach/new-opening case.
+
+### 6.2 Minimal compatibility surface
+
+The first nucleus must support a minimal destructibility compatibility surface with these capabilities:
+
+1. A breach placeholder may exist in the topology substrate as an addressable future-opening candidate.
+2. A breach/new-opening activation may be represented as a cross-system event or record.
+3. An activated breach must have a stable activated connection ID.
+4. An activated breach must identify endpoint region IDs.
+5. An activated breach must define an initial passage state.
+6. An activated breach must define an initial flow limit or resistance value.
+7. An activated breach must advance the topology revision.
+8. Gas must read the new effective topology only after the topology update is applied.
+9. Gas may flow through the new opening when the opening is open, available, leaking, partially open, or otherwise passable under the initial passage state and flow limit/resistance.
+10. The record shape must remain compatible with future topology mutations such as connection closure, passage-state change, flow-resistance/permeability change, barrier/door state change, obstruction changes, material-layer-driven barrier updates, region split, and region merge.
+
+This surface is compatibility-level only. It does not require arbitrary wall destruction, fracture simulation, authored debris, structural collapse, visual mesh cutting, damage accumulation, pressure-wave gameplay, or final replicated destruction state.
+
+### 6.3 Breach placeholder definition
+
+A breach placeholder is a topology-level compatibility marker that represents a possible future opening between spatial/topology regions.
+
+A breach placeholder is not a destructible object implementation. It is not a damage receiver. It is not a visual destruction asset. It is not a physics fragment source.
+
+A breach placeholder must be sufficient to answer:
+
+- which future opening candidate is being referenced;
+- which regions may become connected;
+- what connection should be created or activated when the placeholder is triggered;
+- what initial passage state and flow limit/resistance Gas should see after topology mutation;
+- what topology revision should be observed before and after activation;
+- what debug/validation surfaces should display.
+
+The placeholder may be authored, test-created, or otherwise declared by the topology substrate for validation purposes. The first nucleus must not require player action, explosion logic, or a damage model to create arbitrary breach placeholders.
+
+### 6.4 Breach/new-opening activation record requirements
+
+A breach/new-opening activation record must include, at minimum:
+
+- `breach_placeholder_id`;
+- `activated_connection_id`;
+- `endpoint_region_ids`;
+- `initial_passage_state`;
+- `initial_flow_limit_or_resistance`;
+- `topology_revision_before`;
+- `topology_revision_after`;
+- activation source classification, limited to future destructibility writer boundary or validation/debug trigger;
+- debug visibility fields sufficient to inspect activation order and resulting topology;
+- cross-system interaction record participation, without requiring full destructibility implementation.
+
+The activation record must be readable by validation/debug tooling and by any cross-system interaction log used by the nucleus.
+
+The record must not require final damage values, fragment state, debris bodies, structural stress, final visual destruction state, or final network replication state.
+
+### 6.5 Future scalable topology mutation compatibility
+
+Breach/new-opening activation is the first required compatibility case of a broader future runtime topology mutation model.
+
+The first nucleus validates only the minimal new-opening path. However, the representation must not make `ActivateBreach()` or equivalent breach-only behavior the only possible shape of future topology change.
+
+The compatibility model should allow breach/new-opening activation to be treated as a specific topology mutation type, such as:
+
+- create or activate a connection between endpoint regions;
+- set the initial passage state for that connection;
+- set the initial flow limit or resistance;
+- advance the effective topology revision;
+- expose the result to Gas, debug/validation, and player/actor exposure readers.
+
+The same general mutation boundary should remain compatible with future mutation types, including:
+
+- closing, sealing, blocking, or removing an existing connection;
+- changing a connection's passage state;
+- changing a connection's flow limit, resistance, permeability, or leakage state;
+- adding or removing an obstruction;
+- changing a door, hatch, vent, barricade, or barrier state;
+- representing a partially open, leaking, obstructed, or collapsed opening;
+- representing material-layer-driven barrier state changes as effective topology/permeability changes;
+- splitting a region when a new wall or barrier meaningfully divides space;
+- merging regions or increasing connectivity when a wall or barrier is removed;
+- preserving before/after topology revision evidence for every topology-relevant mutation.
+
+These future mutation types are not required first-nucleus features. They are compatibility constraints on the shape of the current breach/new-opening boundary.
+
+The required model is:
+
+```text
+base topology
++ dynamic topology overlay
+= effective topology read by Gas and exposure systems
+```
+
+Gas must read effective topology. Gas must not own the dynamic topology overlay or directly author destructibility mutations.
+
+### 6.6 Topology mutation and update order
+
+The required update order is:
+
+1. A breach/new-opening activation is requested through the allowed writer boundary or validation/debug trigger.
+2. The activation record is created with placeholder ID, endpoint region IDs, activated connection ID, passage state, flow limit/resistance, and topology revision-before.
+3. Grid/topology applies the mutation to the dynamic topology overlay or effective topology representation.
+4. Grid/topology advances the effective topology revision and records topology revision-after.
+5. Gas reads the new effective topology after the topology revision has advanced.
+6. Gas tick processes the new connection according to passage state and flow limit/resistance.
+7. Debug/validation surfaces observe the activation, topology revision change, and first Gas read/tick using the new topology.
+8. Player/actor exposure surfaces may read the resulting topology/exposure state, but do not own breach activation.
+
+Gas must not read the breach as active before the effective topology mutation is complete.
+
+### 6.7 Gas flow after new opening
+
+Gas does not own breach activation.
+
+Gas owns only its normal simulation response after it reads the effective topology revision containing the activated connection.
+
+After the breach/new-opening topology mutation is applied:
+
+- Gas may treat the activated connection as a valid flow path if the initial passage state is open, available, leaking, partially open, or otherwise passable.
+- Gas must respect the initial flow limit or resistance value exposed by the topology/breach activation record.
+- Gas may later contribute events such as pressure, heat, reaction, or explosion-like signals, but those signals must be consumed by a future destructibility/material/barrier writer boundary before topology mutates.
+- Gas must not infer destructibility semantics from the opening.
+- Gas must not decide whether a breach exists.
+- Gas must not create, close, remove, split, merge, or otherwise mutate topology connections or regions.
+- Gas must not require debris, damage, visual destruction, structural collapse, or explosion pressure-wave data to flow through the new opening.
+
+The compatibility requirement is satisfied when Gas can observe and respond to the updated effective topology in a deterministic, debug-visible order.
+
+### 6.8 Cross-system ownership and non-ownership rules
+
+Ownership boundaries:
+
+- Future destructibility writer boundary owns the decision that a breach, new opening, barrier change, or other topology-relevant destruction result is activated.
+- Future material/barrier systems may own material-layer, integrity, pressure-resistance, heat-resistance, or permeability decisions before topology mutation.
+- Grid/topology owns the representation of regions, connections, endpoint region IDs, topology mutation, dynamic topology overlay, effective topology revision, and passage/flow metadata exposed to Gas.
+- Gas owns simulation through the effective topology after the mutation is applied.
+- Debug/validation owns observability of activation, mutation, Gas read order, and cross-system record consistency.
+- Player/actor exposure may observe resulting exposure or reachability effects, but does not create, own, or directly author breach behavior in this block.
+
+Non-ownership rules:
+
+- Gas must not activate breaches or directly mutate topology.
+- Player/actor interaction must not directly create or own breach behavior in this block.
+- Debug tools may trigger or inspect validation activations, but this must remain a validation surface, not production destructibility design.
+- Cross-system interaction records may include breach activation, but they must not become the final destruction networking or gameplay-authority model.
+
+### 6.9 Player/actor exposure compatibility note
+
+Player/actor systems may need to observe that a new opening changes exposure, accessibility, line-of-effect, environmental risk, or reachability after topology mutation.
+
+For Section 6, the requirement is limited to compatibility:
+
+- player/actor exposure surfaces can read the post-mutation effective topology or derived exposure result;
+- they can observe that the breach/new opening exists after the topology update;
+- they can observe future-compatible states such as blocked, leaking, partially open, obstructed, or open when those states are exposed by topology;
+- they do not decide that the breach exists;
+- they do not author the connection;
+- they do not own the activation record;
+- they do not require player knockdown, explosion impulse, debris collision, or final destructible interaction logic.
+
+Any future player-caused destruction is outside this block and must be handled by a later accepted destructibility design.
+
+### 6.10 Debug and validation observability requirements
+
+Debug/validation must be able to show or assert:
+
+- breach placeholder ID;
+- endpoint region IDs;
+- activated connection ID;
+- initial passage state;
+- initial flow limit or resistance;
+- topology revision before activation;
+- topology revision after activation;
+- whether effective topology includes the new connection;
+- when Gas first reads the post-mutation topology revision;
+- whether Gas flow through the new opening is possible under the exposed passage/flow metadata;
+- whether player/actor exposure surfaces see the post-mutation state only after topology update;
+- whether the breach/new-opening event is present in cross-system interaction records;
+- whether the event shape remains compatible with future runtime topology mutation records rather than a breach-only special case.
+
+Validation should fail if:
+
+- activation does not advance topology revision;
+- the activated connection lacks endpoint regions;
+- Gas reads stale topology after activation;
+- Gas owns, creates, closes, removes, splits, merges, or directly mutates topology;
+- player/actor interaction directly creates or owns breach behavior;
+- the block requires damage, debris, structural collapse, explosion pressure wave, final visual destruction, or final destruction networking;
+- the breach/new-opening representation prevents future mutation types from using the same topology mutation boundary.
+
+### 6.11 Explicit non-goals
+
+This block explicitly excludes:
+
+- full destructibility implementation;
+- final destructibility architecture;
+- final runtime topology mutation architecture;
+- final damage model;
+- final material-layer simulation;
 - debris physics;
-- fragments knocking players down;
-- explosion wave as required nucleus feature;
-- structural collapse simulation.
+- fragment simulation;
+- structural collapse;
+- explosion pressure wave as a required first-nucleus feature;
+- player knockdown;
+- final visual destruction;
+- final destruction networking;
+- arbitrary runtime wall cutting;
+- final region split/merge implementation;
+- final Gas architecture;
+- final Grid/topology architecture;
+- final network replication model;
+- Unity scene creation;
+- implementation or code generation;
+- old-code audit or transfer as the basis for requirements.
+
+### 6.12 Dependency outputs for Section 7 validation/demo requirements
+
+This block provides the following dependency outputs for the later validation/demo requirements section:
+
+- validation can include a controlled breach/new-opening activation;
+- validation can verify that a breach placeholder exists before activation;
+- validation can verify activation record completeness;
+- validation can verify topology revision-before and revision-after;
+- validation can verify that the effective topology contains the activated connection after mutation;
+- validation can verify that Gas reads the new effective topology after the topology revision advances;
+- validation can verify that Gas may flow through the new opening when the opening is passable under the initial passage state and flow limit/resistance;
+- validation can verify that debug surfaces expose the activation and update order;
+- validation can verify that player/actor exposure reads the post-mutation topology/exposure state without owning breach activation;
+- validation can verify that the breach/new-opening shape is compatible with broader future topology mutation records;
+- validation must not require full destructibility, debris, structural collapse, explosion pressure wave, player knockdown, final visual destruction, final destruction networking, Unity implementation, or old-code transfer.
+
+### 6.13 Sections 7–8 remain blocked
+
+Completing this Section 6 block does not complete Section 7 validation/demo requirements and does not complete Section 8 synthesis.
+
+Sections 7–8 remain blocked until this destructibility compatibility boundary is applied, read-back verified, and the next gated execution slice is launched through the proper route.
 
 ## 7. Validation / Demo Requirements
 

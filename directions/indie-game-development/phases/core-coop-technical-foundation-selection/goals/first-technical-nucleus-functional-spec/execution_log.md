@@ -143,6 +143,72 @@ Validation expectations:
 - Sections 6-8 remain blocked.
 - Only the approved goal artifact and this execution log were changed.
 
+## 2026-05-18 — F0_FAST_DIRECT — destructibility compatibility boundary formalization
+
+```yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+stage_id: F0_FAST_DIRECT
+stage_name: Fast Direct
+patch_id: f0_formalize_destructibility_compatibility_boundary_2026_05_18
+direction:
+  id: indie_game_development
+  name: Indie Game Development
+phase:
+  id: core-coop-technical-foundation-selection
+  name: Core Co-op Technical Foundation Selection
+goal:
+  goal_id: first-technical-nucleus-functional-spec
+  title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
+started_at: 2026-05-18
+completed_at: pending_apply_readback
+input_refs:
+  - F0 launch packet for destructibility_compatibility_boundary
+  - F0_FAST_DIRECT prompt with EOF verified
+  - prior accepted Sections 1-5 as reported by launch packet
+  - user approval: "apply and formilize"
+freshness_check:
+  state: patch_ready_needs_apply_readback
+  current_artifact_readback_ref_from_launch: 71e3ed338e96b1fdc84d08dc449923c64ccec29c
+scope_check:
+  allowed_slice: destructibility_compatibility_boundary
+  forbidden_scope_preserved: true
+  implementation_started: false
+  unity_scene_created: false
+  old_code_audit_or_transfer_started: false
+  codex_product_execution_started: false
+actions_taken:
+  - Formalized Section 6 as Destructibility Compatibility Boundary.
+  - Defined breach/new-opening activation as the first minimal compatibility case.
+  - Added explicit future scalable runtime topology mutation compatibility guard.
+  - Preserved Gas read-only relationship to effective topology mutation.
+  - Preserved Sections 7-8 as blocked.
+patch_summary:
+  artifact_update: Replace/fill Section 6 in 01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md.
+  log_update: Append this execution log entry.
+readback_summary:
+  state: pending_apply_readback
+  required: file read-back, diff verification, commit verification, main integration verification
+acceptance_result:
+  state: pending_apply_readback
+  expected_result: Section 6 formalized only after repository apply/read-back verification.
+documentation_gate:
+  state: pending_apply_readback
+  project_files_refresh_required: false
+  reason: No Direction Project Files 00-08 or shared runtime cache files are modified by this patch.
+changed_files_context_refresh_after_approval:
+  - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md
+  - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md
+next_route:
+  state: apply_readback_required
+  after_successful_apply_readback: return_to_F0_for_validation_then_continue_gated_sequence
+operator_notes:
+  - Parent Goal remains incomplete.
+  - R1 is not launched.
+  - Section 7 validation/demo requirements and Section 8 synthesis remain blocked.
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
