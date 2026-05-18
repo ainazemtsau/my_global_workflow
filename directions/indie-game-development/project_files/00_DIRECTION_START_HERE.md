@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_r1_repository_apply
-  last_updated: "2026-05-16"
-  next_action: "Run E1_EXECUTION_BRIEF for first-technical-nucleus-functional-spec after repository maintenance apply/read-back and Project Files refresh."
+  freshness: fresh_after_f0_synthesis_evidence_integrity_repair
+  last_updated: "2026-05-18"
+  next_action: "Refresh Project Files from GitHub, then run R1_GOAL_REVIEW_DISTILL for first-technical-nucleus-functional-spec."
 ```
 
 ## Direction identity
@@ -19,7 +19,7 @@ artifact_control:
 - Direction ID: `indie_game_development`
 - Current state: `active`
 - Workflow version: `vNext-R`
-- Last updated: `2026-05-16`
+- Last updated: `2026-05-18`
 
 ## Purpose / thesis
 
@@ -38,16 +38,17 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Current Gate | `H1_G1_core_technical_foundation_decision_brief` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
-| Current Phase status | `active_g1_formalized_first_technical_nucleus_spec_pending_E1` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
+| Current Phase status | `active_first_technical_nucleus_spec_synthesis_formalized_pending_R1` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Active Goal | `first-technical-nucleus-functional-spec` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec` |
 | Active Goal Contract | `Goal Contract — First Technical Nucleus Functional Spec` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md` |
+| Active Goal status | `synthesis_formalized_pending_R1_review` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md` |
 | Existing Goal Artifact | `Core Technical Foundation Decision Brief / Decision Map` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` |
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec` | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` |
+| Next route | `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec` | `workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md` |
 
 ## Current Phase meaning
 
@@ -92,9 +93,9 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`.
+Run `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec`.
 
-E1 must plan gated sequential execution for the first technical nucleus functional specification:
+R1 must review the completed parent Goal outcome against the Goal Contract, including:
 
 1. gas simulation capability frame;
 2. user approval gate after gas block;
@@ -105,7 +106,7 @@ E1 must plan gated sequential execution for the first technical nucleus function
 7. validation/demo requirements;
 8. synthesis.
 
-Do not run Unity bootstrap, implementation, old-code transfer, old-code audit, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.
+Do not run Unity bootstrap, implementation, old-code transfer, old-code audit, Codex product/project execution, Task Master graph creation, Phase Progress Gate, P9, or Game Documentation promotion in this R1 launch context.
 
 ## 2026-05-16 R1 stabilization
 
@@ -142,4 +143,6 @@ New active Goal:
 
 Direct old-code transfer is out of scope. Old project material is reference/evidence only and may be used later as targeted reference after requirements are clear.
 
-Next route: `E1_EXECUTION_BRIEF`.
+Historical next route at G1 reset: `E1_EXECUTION_BRIEF`.
+
+Current next route after F0 synthesis formalization and evidence repair: `R1_GOAL_REVIEW_DISTILL`.

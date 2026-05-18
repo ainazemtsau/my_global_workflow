@@ -26,13 +26,14 @@ current_phase:
   started_at: "2026-05-13"
   status_after_r1: active_r1_accepted_decision_map_pending_grid_gas_transfer_audit
   status_after_g1: active_g1_formalized_first_technical_nucleus_spec_pending_E1
+  status_after_f0_synthesis: active_first_technical_nucleus_spec_synthesis_formalized_pending_R1
   map_binding:
     active_horizon: H1_playable_technical_nucleus
     current_gate: H1_G1_core_technical_foundation_decision_brief
     required_inside_current_gate_or_next_gate:
       - H1_G2_codex_development_operating_model_and_architecture_protocols
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: plan_gated_sequential_first_technical_nucleus_spec
+  next_route: R1_GOAL_REVIEW_DISTILL
+  next_route_mode: review_parent_goal_outcome_against_goal_contract
   active_goal_id: first-technical-nucleus-functional-spec
   active_goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec"
   active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
@@ -47,12 +48,16 @@ current_phase:
 ```yaml
 active_goal_projection:
   goal_id: first-technical-nucleus-functional-spec
-  status: goal_shaped_pending_E1
+  status: synthesis_formalized_pending_R1_review
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
+  goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
-  recommended_next_stage: E1_EXECUTION_BRIEF
+  recommended_next_stage: R1_GOAL_REVIEW_DISTILL
+  review_scope: parent_goal_outcome
+  completion_scope: parent_goal_complete_after_f0_apply_readback
+  parent_goal_completion_state: complete_pending_R1_acceptance
   next_goal_candidate: none
-  goal_shape_note: "G1 shaped the first technical nucleus functional specification Goal; E1 is next."
+  goal_shape_note: "F0 synthesis formalized the first technical nucleus functional specification; R1 is next."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
 ```
 
@@ -71,10 +76,11 @@ phase_closure_contract_status_update:
     - goal_id: first-technical-nucleus-functional-spec
       name: "Сформировать функционально-техническую спецификацию первого technical nucleus"
       required_for_closure: true
-      status: goal_shaped_pending_E1
-      recommended_next_stage: E1_EXECUTION_BRIEF
-      expected_route_after_G1: E1_EXECUTION_BRIEF
-      evidence: "Goal Contract formalized by G1; pending E1 execution brief."
+      status: synthesis_formalized_pending_R1_review
+      recommended_next_stage: R1_GOAL_REVIEW_DISTILL
+      expected_route_after_synthesis: R1_GOAL_REVIEW_DISTILL
+      parent_goal_completion_state: complete_pending_R1_acceptance
+      evidence: "Goal artifact status is synthesis_formalized; pending R1 parent Goal review."
     - goal_id: grid-gas-transfer-boundary-audit
       status: superseded_after_human_clarification
       required_for_closure: false
@@ -91,10 +97,10 @@ phase_closure_contract_status_update:
 
 - Active Phase unresolved: `no`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Phase route state: `active_g1_formalized_first_technical_nucleus_spec_pending_E1`
+- Active Phase route state: `active_first_technical_nucleus_spec_synthesis_formalized_pending_R1`
 - Active Goal unresolved: `no`
 - Active Goal: `first-technical-nucleus-functional-spec`
-- Active Goal status: `goal_shaped_pending_E1`
+- Active Goal status: `synthesis_formalized_pending_R1_review`
 - Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`
 - Previous accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Previous accepted artifact treatment: `accepted_route_gated_decision_map`
@@ -106,7 +112,7 @@ phase_closure_contract_status_update:
 - Last completed Goal status: `r1_reviewed_accepted`
 - Direction Map status: `initialized`
 - Map link: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief / H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Next route: `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`
+- Next route: `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec`
 - Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
@@ -119,11 +125,11 @@ Previous closed Phase proved the Expedition proof identity and rejected gas-only
 
 ## Next route
 
-Run `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`.
+Run `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec`.
 
-Do not proceed until this G1 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in Project Files.
+Do not proceed until the repository evidence integrity repair is applied, read back, diff-verified, commit-verified, integrated to `main` or otherwise reported as unmerged, and refreshed in Project Files.
 
-E1 must not implement. E1 must plan gated sequential execution and preserve the required user approval gate after the gas simulation capability frame.
+R1 must review the completed parent Goal outcome against the Goal Contract. It must not implement, run the Phase Progress Gate, launch P9, promote Game Documentation, or authorize product/project execution.
 
 ## 2026-05-16 R1 Phase Progress Gate
 
@@ -143,4 +149,6 @@ G1 shaped the required Grid/Gas/GridV2/GasV2R transfer-boundary audit Goal; this
 
 G1 superseded `grid-gas-transfer-boundary-audit` after human clarification and formalized `first-technical-nucleus-functional-spec` as the active Goal.
 
-Next route: `E1_EXECUTION_BRIEF`.
+Historical next route at G1 reset: `E1_EXECUTION_BRIEF`.
+
+Current next route after F0 synthesis formalization and evidence repair: `R1_GOAL_REVIEW_DISTILL`.

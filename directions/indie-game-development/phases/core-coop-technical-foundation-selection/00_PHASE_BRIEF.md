@@ -5,11 +5,14 @@ artifact_control:
   artifact_name: "Phase Brief — Core Co-op Technical Foundation Selection"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_g1_formalized_first_technical_nucleus_spec_pending_E1
-  phase_status: active_g1_formalized_first_technical_nucleus_spec_pending_E1
+  status: active_first_technical_nucleus_spec_synthesis_formalized_pending_R1
+  phase_status: active_first_technical_nucleus_spec_synthesis_formalized_pending_R1
   active_goal_id: first-technical-nucleus-functional-spec
-  active_goal_status: goal_shaped_pending_E1
-  next_route: E1_EXECUTION_BRIEF
+  active_goal_status: synthesis_formalized_pending_R1_review
+  next_route: R1_GOAL_REVIEW_DISTILL
+  phase_progress_gate_status: not_run_pending_R1
+  phase_closed: false
+  p9_allowed_now: false
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
   created_by_stage: P0_PHASE_START
   created_at: "2026-05-13"
@@ -20,7 +23,7 @@ artifact_control:
 - Phase ID: `core-coop-technical-foundation-selection`
 - Phase name: `Core Co-op Technical Foundation Selection`
 - Direction: `Indie Game Development`
-- Status: `active_g1_formalized_first_technical_nucleus_spec_pending_E1`
+- Status: `active_first_technical_nucleus_spec_synthesis_formalized_pending_R1`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 
@@ -122,8 +125,9 @@ phase_closure_contract:
     - goal_id: first-technical-nucleus-functional-spec
       title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
       required_for_closure: true
-      status: goal_shaped_pending_E1
-      next_stage: E1_EXECUTION_BRIEF
+      status: synthesis_formalized_pending_R1_review
+      next_stage: R1_GOAL_REVIEW_DISTILL
+      parent_goal_completion_state: complete_pending_R1_acceptance
       purpose: >
         Define first technical nucleus capabilities across gas, spatial/level needs,
         Grid/topology substrate, cross-system interaction, destructibility compatibility,
@@ -195,11 +199,11 @@ candidate:
 
 ## Next route
 
-Run `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`.
+Run `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec`.
 
-Do not proceed until this G1 repository patch is applied, read back, diff-verified, commit-verified, and refreshed in Project Files.
+Do not proceed until this repository evidence integrity repair is applied, read back, diff-verified, commit-verified, integrated to `main` or otherwise reported as unmerged, and refreshed in Project Files.
 
-E1 must not implement. E1 must plan gated sequential execution and preserve the required user approval gate after the gas simulation capability frame.
+R1 must review the completed parent Goal outcome against the Goal Contract and must not implement, run the Phase Progress Gate, launch P9, promote Game Documentation, or authorize product/project execution.
 
 ## 2026-05-15 P0 map-alignment repair
 
@@ -309,7 +313,9 @@ define the first technical nucleus capability/specification before implementatio
 
 Required route:
 
-`E1_EXECUTION_BRIEF`
+Historical route at G1 reset time: `E1_EXECUTION_BRIEF`.
+
+Current route after F0 synthesis formalization and evidence repair: `R1_GOAL_REVIEW_DISTILL`.
 
 Required internal gate:
 

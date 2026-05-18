@@ -17,16 +17,16 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
 - Active Phase name: `Core Co-op Technical Foundation Selection`
-- Active Phase status: `active_g1_formalized_first_technical_nucleus_spec_pending_E1`
+- Active Phase status: `active_first_technical_nucleus_spec_synthesis_formalized_pending_R1`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
 - Active Goal: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec`
 - Active Goal name: `Сформировать функционально-техническую спецификацию первого technical nucleus`
-- Active Goal status: `goal_shaped_pending_E1`
+- Active Goal status: `synthesis_formalized_pending_R1_review`
 - Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `E1_EXECUTION_BRIEF`
+- Next route: `R1_GOAL_REVIEW_DISTILL`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -66,7 +66,7 @@ Required foundation surface:
 
 ## Queue items
 
-- First Technical Nucleus Functional Specification — `goal_shaped_pending_E1`, expected route `E1_EXECUTION_BRIEF`
+- First Technical Nucleus Functional Specification — `synthesis_formalized_pending_R1_review`, expected route `R1_GOAL_REVIEW_DISTILL`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
 - Expedition Project Bootstrap / Tool Binding Readiness — request-only until selected by a vNext-R stage result
 - Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result
@@ -103,6 +103,12 @@ Implementation, Unity bootstrap, code transfer, and Codex product/project execut
 
 `grid-gas-transfer-boundary-audit` is superseded after human clarification.
 
-`first-technical-nucleus-functional-spec` shaped; next route `E1_EXECUTION_BRIEF`.
+`first-technical-nucleus-functional-spec` shaped; historical next route `E1_EXECUTION_BRIEF`.
 
-Queue update after G1 reset: first-technical-nucleus-functional-spec shaped; next route E1_EXECUTION_BRIEF.
+Queue update after G1 reset: first-technical-nucleus-functional-spec shaped; historical next route E1_EXECUTION_BRIEF.
+
+## Queue update after F0 synthesis formalization
+
+`first-technical-nucleus-functional-spec` is synthesis-formalized and pending `R1_GOAL_REVIEW_DISTILL`.
+
+Project Files cache refresh is required after the repository evidence integrity repair commit before launching R1 in a fresh Direction Project chat.

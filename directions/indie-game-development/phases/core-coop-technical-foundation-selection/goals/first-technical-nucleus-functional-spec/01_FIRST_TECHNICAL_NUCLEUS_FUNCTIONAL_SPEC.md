@@ -16,7 +16,11 @@ artifact_control:
   source_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
   sequencing_model: gated_sequential
   current_completed_block: synthesis
-  next_blocks_state: parent_goal_completion_candidate_pending_apply_readback_diff_commit_main_verification
+  current_route_state: parent_goal_completion_candidate_pending_R1_review
+  next_route: R1_GOAL_REVIEW_DISTILL
+  parent_goal_closed: false
+  phase_progress_gate_run: false
+  implementation_allowed: false
 ```
 
 ## 1. Gas Simulation Capability Frame
@@ -2815,7 +2819,9 @@ This section contributes the following synthesis inputs for Section 8:
 
 ### 7.10 Section 8 Status
 
-Section 8 remains blocked until Section 7 is accepted, formalized, applied, read back, diff-verified, and commit-verified.
+Section 8 is formalized and completes the synthesis block for the parent Goal outcome.
+
+The current route state is parent Goal review pending `R1_GOAL_REVIEW_DISTILL`, not additional F0 block execution.
 
 ## 8. Synthesis
 
@@ -3056,7 +3062,7 @@ These items may be routed later only through valid lifecycle stages and explicit
 
 ```yaml
 parent_goal_completion_candidate:
-  state: candidate_after_f0_apply_readback
+  state: parent_goal_completion_candidate_pending_R1_review
   artifact: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md
   completed_blocks:
     - gas_simulation_capability_frame
@@ -3067,24 +3073,28 @@ parent_goal_completion_candidate:
     - destructibility_compatibility_boundary
     - validation_demo_requirements
     - synthesis
-  completion_scope: parent_goal_complete_after_apply_readback_diff_commit_main_verification
-  parent_goal_completion_state: complete_after_apply_readback_diff_commit_main_verification
+  completion_scope: parent_goal_complete_after_f0_apply_readback
+  parent_goal_completion_state: complete_pending_R1_acceptance
+  review_scope: parent_goal_outcome
   review_route_after_successful_f0_verification: R1_GOAL_REVIEW_DISTILL
+  parent_goal_closed: false
+  phase_progress_gate_run: false
+  implementation_allowed: false
 ```
 
-This marker becomes effective only after this Section 8 synthesis is applied, read back, diff-verified, commit-verified, and integrated to `main`.
+This marker identifies the artifact as a parent Goal completion candidate ready for R1 review after repository evidence integrity repair and Project Files refresh.
 
-Before that evidence exists, the parent Goal remains open and F0 must not route to R1.
+It does not claim R1 acceptance, does not close the parent Goal, does not run the Phase Progress Gate, and does not authorize implementation.
 
 ### 8.10 Next Review Route After Successful Apply / Read-Back
 
-After Section 8 synthesis is approved, applied, read back, diff-verified, commit-verified, and integrated to `main`, the next valid route is:
+After Section 8 synthesis is approved, applied, read back, diff-verified, commit-verified, and integrated to `main`, the current valid route is:
 
 ```yaml
 next_stage_after_successful_synthesis_apply_readback: R1_GOAL_REVIEW_DISTILL
 reason: >
-  The completed artifact becomes reviewable as the parent Goal outcome only
-  after the final synthesis block is repository-verified.
+  The completed artifact is reviewable as the parent Goal outcome after
+  the final synthesis block is repository-verified.
 ```
 
 R1 must review the whole parent Goal outcome against the Goal Contract and acceptance floor. R1 must not assume unrefreshed Project Files are canonical.
@@ -3103,7 +3113,7 @@ This specification does not approve direct old-code transfer.
 
 Old Grid, GridV2, GasV2R, and Grid↔Gas material may be used later only as targeted reference/evidence after the new requirements are clear.
 
-This gas frame does not decide:
+This specification does not decide:
 
 - final Gas Simulation architecture;
 - final Grid/topology architecture;
@@ -3117,20 +3127,20 @@ This gas frame does not decide:
 
 ## 10. Acceptance Checks for This Artifact
 
-This artifact passes the F0 gas-frame floor if:
+This artifact is ready for parent Goal review if:
 
-- the only completed substantive block is `gas_simulation_capability_frame`;
-- the gas behaviors and properties are specified or explicitly deferred;
-- heavy/light/neutral behavior uses a continuous density coefficient with named validation bands;
-- rooms, corridors, shafts, vents, doors, openings, and breach placeholders are represented as required spread surfaces;
-- pressure is bounded to simplified mass/capacity/flow behavior, not full pressure physics;
-- mixing is allowed but full reactions are deferred;
-- two to three gas types are specified for first validation;
-- debug/visualization and no-player validation surfaces are listed;
-- dependency outputs for level/spatial, Grid/topology, and validation/demo blocks are captured;
-- later blocks are marked blocked, not completed;
-- old project material is reference/evidence only;
-- implementation, Unity bootstrap, Codex product/project execution, Task Master graph, and Game Documentation promotion are not included.
+- artifact status is `synthesis_formalized`;
+- `current_completed_block` is `synthesis`;
+- the parent Goal remains open until `R1_GOAL_REVIEW_DISTILL` reviews the outcome against the Goal Contract;
+- all required blocks are present and formalized: gas simulation capability frame, user approval gate after gas block, level/spatial requirements, Grid/topology substrate requirements, cross-system interaction requirements, destructibility compatibility boundary, validation/demo requirements, and synthesis;
+- gas-first sequencing and the user approval gate after the gas block remain preserved;
+- level/spatial, Grid/topology, cross-system, destructibility compatibility, validation/demo, and synthesis surfaces are defined at requirement level;
+- validation scenarios `VD_01` through `VD_09` remain present;
+- direct old-code transfer remains prohibited;
+- old project material remains reference/evidence only after requirements are clear;
+- no Unity bootstrap, no implementation, no Codex product/project execution, no Task Master graph, and no Game Documentation promotion are authorized by this artifact;
+- unresolved final architecture, networking, destructibility, player-facing effects, project bootstrap, and tooling questions are explicitly deferred or routed rather than silently decided;
+- R1 must review the completed parent Goal outcome before Goal acceptance, Phase Progress Gate execution, P9, Game Documentation promotion, or any implementation route.
 
 ## 11. Alternatives Considered
 
@@ -3140,43 +3150,43 @@ Rejected.
 
 Requirements must come first. Old material is evidence only after the new game's requirements are clear.
 
-### Finalize gas architecture now
+### Treat the gas frame as the completed parent Goal
 
 Rejected.
 
-This F0 slice is a capability frame, not final architecture.
+Gas-only proof is insufficient. The accepted parent Goal requires gas, spatial/level, Grid/topology, cross-system, destructibility compatibility, validation/demo, and synthesis surfaces together.
 
-### Create a throwaway gas prototype
-
-Rejected.
-
-Gas-only proof is insufficient. This block exists inside a broader first technical nucleus specification.
-
-### Define full reactions, fire, explosions, and destructibility now
+### Launch Unity bootstrap or implementation from this specification
 
 Rejected.
 
-This would over-expand the first gas block and prematurely consume later cross-system/destructibility work.
+This specification is reviewable, but implementation requires later lifecycle routing, project/tool binding verification, validators, execution envelope, and explicit product/project scope.
 
-### Use visual gas as the acceptance surface
+### Promote this artifact directly into Game Documentation
 
 Rejected.
 
-Visual gas may be simpler than gameplay gas. The first acceptance surface is debug-visible gameplay gas state.
+Game Documentation promotion requires a later explicit documentation-maintenance stage or approved documentation-maintenance patch after durable truths are accepted.
+
+### Finalize all architecture decisions now
+
+Rejected.
+
+The artifact defines functional requirements and validation surfaces. Final Gas, Grid/topology, cross-system, networking, destructibility, project structure, and tooling decisions remain deferred to later valid stages.
 
 ## 12. Risks and Assumptions
 
 Main assumption:
 
-- a room/zone/chamber-level gas model is sufficient for the first technical nucleus.
+- the integrated gas, spatial, topology, cross-system, destructibility-compatibility, and validation surfaces are sufficient for R1 to review the parent Goal outcome without additional implementation evidence.
 
 Main risk:
 
-- the gas frame could become too generic.
+- R1 may find that one or more requirement surfaces are still too broad, ambiguous, or insufficiently tied to the Goal Contract acceptance floor.
 
 Countermeasure:
 
-- force observable no-player validation scenes and two to three concrete gas types.
+- keep the artifact requirement-level, preserve no-player observable validation scenarios `VD_01` through `VD_09`, and route unresolved implementation or architecture questions explicitly instead of silently deciding them here.
 
 What would change the recommendation:
 
@@ -3184,7 +3194,9 @@ What would change the recommendation:
 - player mechanics become required for immediate gas validation;
 - old GasV2R is allowed to dictate requirements;
 - final Grid/topology architecture is required before accepting gas requirements;
-- gas validation scale requires current external research or performance evidence.
+- gas validation scale requires current external research or performance evidence;
+- R1 determines that the parent Goal outcome does not satisfy the Goal Contract;
+- Phase Progress Gate determines that the Phase cannot continue or close from this Goal without an additional route-gated decision.
 
 ## End-of-file marker
 

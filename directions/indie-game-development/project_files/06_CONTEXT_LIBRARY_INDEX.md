@@ -56,22 +56,24 @@ Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
   - Status: `active_phase_brief`
-  - Load for `G1_GOAL_SHAPE`, `E1_EXECUTION_BRIEF`, and any route working on the current Phase.
+  - Load for `R1_GOAL_REVIEW_DISTILL` and any route working on the current Phase.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
 
 ## Active Goal context
 
-Active Goal after G1 reset formalization:
+Active Goal after F0 synthesis formalization:
 
 ```yaml
-active_goal_after_g1_reset:
+active_goal_after_synthesis_formalization:
   goal_id: first-technical-nucleus-functional-spec
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
+  goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
-  recommended_next_stage: E1_EXECUTION_BRIEF
-  recommended_next_mode: plan_gated_sequential_first_technical_nucleus_spec
+  status: synthesis_formalized_pending_R1_review
+  recommended_next_stage: R1_GOAL_REVIEW_DISTILL
+  recommended_next_mode: review_parent_goal_outcome_against_goal_contract
   previous_goal_superseded: grid-gas-transfer-boundary-audit
 ```
 
@@ -80,6 +82,9 @@ Load for work on the active Goal:
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`
   - Status: `active_goal_contract`
   - Reason: shaped Goal Contract for first technical nucleus functional specification.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
+  - Status: `synthesis_formalized_parent_goal_candidate`
+  - Reason: completed parent Goal outcome for R1 review.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
   - Status: `active_goal_log`
   - Request only when execution history is needed.
@@ -202,16 +207,18 @@ Recommended next mode: `audit_grid_gas_transfer_boundary`.
 
 ## Required context for first-technical-nucleus-functional-spec
 
-Recommended next stage: `E1_EXECUTION_BRIEF`.
+Recommended next stage: `R1_GOAL_REVIEW_DISTILL`.
 
-Recommended next mode: `plan_gated_sequential_first_technical_nucleus_spec`.
+Recommended next mode: `review_parent_goal_outcome_against_goal_contract`.
 
-Required for E1:
+Required for R1:
 
-- exact `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` prompt with visible EOF marker;
+- exact `workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md` prompt with visible EOF marker;
 - current Project Files 00-08 after repository maintenance read-back and manual refresh;
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`;
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`;
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`;
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`;
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`.
 
 Old Unity source/code/tests are not default context. Request them only after a later block has a targeted reference question.

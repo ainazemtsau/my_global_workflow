@@ -209,9 +209,6 @@ operator_notes:
   - Section 7 validation/demo requirements and Section 8 synthesis remain blocked.
 ```
 
-## End-of-file marker
-
-`END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
 ## 2026-05-18 — F0_FAST_DIRECT — validation_demo_requirements formalization
 
 ~~~yaml
@@ -397,7 +394,7 @@ readback_summary:
     - "### 8.9 Parent Goal Completion Candidate Marker"
     - "next_stage_after_successful_synthesis_apply_readback: R1_GOAL_REVIEW_DISTILL"
     - "## 9. Explicit Non-Goals and Old Project Reference Policy"
-    - "END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
+    - artifact_eof_marker_verified_at_true_file_end
 
 acceptance_result:
   state: patch_ready_not_completed
@@ -424,3 +421,44 @@ operator_notes:
   - Repository maintenance only; not Codex product/project execution.
   - Do not touch Unity/product project files, sibling Directions, workflow runtime files, stage prompts, or Game Documentation promotion targets.
 ~~~
+
+## 2026-05-18 — repository_evidence_integrity_repair
+
+~~~yaml
+log_type: repository_maintenance
+repair_id: repository_evidence_integrity_repair_2026_05_18
+result: evidence_state_repaired_pending_R1_review
+summary: >
+  Repaired stale post-synthesis route and evidence markers so a fresh
+  R1_GOAL_REVIEW_DISTILL review can load the completed parent Goal without
+  stale E1/project-file conflicts.
+changed_scope:
+  - current route/status metadata for the goal artifact, Phase Brief, and Project Files 00-06/08
+  - artifact tail acceptance/alternatives/risks aligned to parent Goal synthesis state
+  - execution log EOF marker placement
+  - current Project Files route from E1_EXECUTION_BRIEF to R1_GOAL_REVIEW_DISTILL
+preserved_scope:
+  - Goal Contract unchanged
+  - Sections 1-8 substantive requirements preserved
+  - VD_01 through VD_09 preserved
+  - parent_goal_completion_candidate marker preserved
+  - implementation readiness boundary preserved
+  - old-code transfer prohibition preserved
+not_claimed:
+  r1_acceptance: false
+  parent_goal_closed: false
+  phase_progress_gate_run: false
+  p9_allowed_now: false
+  implementation_allowed_now: false
+  game_documentation_promoted: false
+route_state:
+  active_goal_status: synthesis_formalized_pending_R1_review
+  parent_goal_completion_state: complete_pending_R1_acceptance
+  next_route: R1_GOAL_REVIEW_DISTILL
+  after_successful_apply_validation: R1_GOAL_REVIEW_DISTILL
+project_files_cache_refresh_required_after_commit: true
+~~~
+
+## End-of-file marker
+
+`END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`

@@ -37,9 +37,10 @@ direction:
   last_completed_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief"
   last_completed_goal_result: r1_accepted_route_gated_decision_map
   accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: plan_gated_sequential_first_technical_nucleus_spec
-  last_updated: "2026-05-16"
+  active_goal_status: synthesis_formalized_pending_R1_review
+  next_route: R1_GOAL_REVIEW_DISTILL
+  next_route_mode: review_parent_goal_outcome_against_goal_contract
+  last_updated: "2026-05-18"
 ```
 
 ## Purpose / thesis
@@ -68,7 +69,7 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Core Co-op Technical Foundation Selection`
 - Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
-- Status: `active_g1_formalized_first_technical_nucleus_spec_pending_E1`
+- Status: `active_first_technical_nucleus_spec_synthesis_formalized_pending_R1`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
@@ -77,11 +78,12 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Minimum Outcome: accepted or review-routed `Core Technical Foundation Decision Brief / Decision Map`.
 - Validation Signal: the next workflow state can choose R1 review, A1 audit, D1 research, S3 decision, or E1 execution planning without guessing and without premature implementation.
 - Active Goal: `first-technical-nucleus-functional-spec`
+- Active Goal status: `synthesis_formalized_pending_R1_review`
 - Completed Goal status: `r1_accepted_route_gated_decision_map`
 - Active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`; old Grid/Gas material is reference/evidence only until requirements are clear.
-- Next route: `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`
+- Next route: `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec`
 
 ## Previous active Phase / Goal
 
@@ -105,12 +107,12 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `requires_refresh_after_R1_2026-05-16_repository_maintenance_apply_readback`
-- Required refresh: `before E1_EXECUTION_BRIEF first-technical-nucleus-functional-spec`
-- Current route: `E1_EXECUTION_BRIEF`
+- Last refresh: `requires_refresh_after_f0_synthesis_evidence_integrity_repair_2026-05-18`
+- Required refresh: `before R1_GOAL_REVIEW_DISTILL first-technical-nucleus-functional-spec`
+- Current route: `R1_GOAL_REVIEW_DISTILL`
 - Active Phase: `Core Co-op Technical Foundation Selection`
 - Active Goal: `first-technical-nucleus-functional-spec`
-- Active Goal status: `goal_shaped_pending_E1`
+- Active Goal status: `synthesis_formalized_pending_R1_review`
 - Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Direction Map status: `initialized`
 - Manual Project Files cache refresh required: `true`
@@ -144,6 +146,8 @@ Active Goal is now:
 
 The Goal is a single parent functional/specification Goal with gated sequential execution. Gas simulation capability frame comes first and requires user approval before Grid/topology work proceeds.
 
-Next route: `E1_EXECUTION_BRIEF`.
+Historical next route at G1 reset: `E1_EXECUTION_BRIEF`.
+
+Current next route after F0 synthesis formalization and evidence repair: `R1_GOAL_REVIEW_DISTILL`.
 
 Implementation, Unity bootstrap, old-code transfer, old-code audit, Codex product/project execution, Task Master graph creation, and Game Documentation promotion remain blocked.

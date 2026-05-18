@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_m0_review
-  last_updated: "2026-05-15"
+  freshness: fresh_after_f0_synthesis_evidence_integrity_repair
+  last_updated: "2026-05-18"
 ```
 
 ## Purpose
@@ -137,8 +137,8 @@ strategy_basis:
     - "No full engineering handbook now."
   open_issues:
     - id: active_goal_route_mismatch
-      status: open_for_downstream_launch
-      summary: "Project Files/bundle point to E1_EXECUTION_BRIEF, while an existing goal artifact may point to R1_GOAL_REVIEW_DISTILL. M0 does not silently resolve this."
+      status: resolved_by_f0_synthesis_evidence_integrity_repair
+      summary: "Project Files, Phase Brief, and the synthesis-formalized Goal artifact now route the active Goal to R1_GOAL_REVIEW_DISTILL."
     - id: codex_product_execution_blocked
       status: blocking_for_product_execution
       summary: "Codex product/project execution waits for verified project/tool bindings, route, scope, validation, and permissions."
@@ -235,18 +235,18 @@ compact_initiative_graph:
 active_front:
   active_horizon: H1_playable_technical_nucleus
   current_gate: first-technical-nucleus-functional-spec
-  current_gate_status: goal_shaped_pending_E1
+  current_gate_status: synthesis_formalized_pending_R1_review
   required_inside_current_gate_or_next_gate:
     - H1_G2_codex_development_operating_model_and_architecture_protocols
   primary_reason: "The current Goal matters because it defines the requirements for the first technical nucleus before implementation or old project reference review."
-  active_front_rule: "Close/accept the foundation decision minimally enough; do not expand it into endless research or a full engineering handbook."
+  active_front_rule: "Review the completed parent Goal outcome through R1 before Phase Progress Gate, P9, documentation promotion, implementation, or next Goal selection."
   codex_architecture_rule: "The foundation decision is sufficient only if it either accepts minimum Codex-driven development rules or explicitly route-gates them before implementation."
   immediate_next_after_gate:
     - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
     - H1_G4_durable_technical_nucleus
   route_integrity_issue:
-    status: open_for_downstream_launch
-    summary: "Before the next executable stage, check the E1 vs R1 mismatch and registry-allowed transition."
+    status: resolved_current_route_pending_R1
+    summary: "Current active route is R1_GOAL_REVIEW_DISTILL for the synthesis-formalized first technical nucleus specification."
   parked_nodes:
     - H2_unique_gas_coop_gameplay_proof
     - H3_vertical_slice_demo_identity
@@ -480,6 +480,43 @@ map_delta:
     - old-code audit as starting point
     - Codex product/project execution
     - durable technical nucleus implementation
+```
+
+## 2026-05-18 F0 synthesis / evidence integrity repair map delta
+
+```yaml
+map_delta:
+  source_stage: F0_FAST_DIRECT_repository_maintenance
+  delta_type:
+    - active_front_route_repaired
+    - parent_goal_completion_candidate_ready_for_R1
+    - implementation_still_blocked
+  node: first-technical-nucleus-functional-spec
+  result: synthesis_formalized_pending_R1_review
+  summary: >
+    F0 formalized the synthesis block for the first technical nucleus functional
+    specification. Repository maintenance repaired stale E1/project-file route
+    evidence so the completed parent Goal outcome can be reviewed by R1.
+  active_front:
+    active_horizon: H1_playable_technical_nucleus
+    current_gate: first-technical-nucleus-functional-spec
+    next_stage: R1_GOAL_REVIEW_DISTILL
+    parent_goal_completion_state: complete_pending_R1_acceptance
+    phase_progress_gate_status: not_run_pending_R1
+    p9_allowed_now: false
+    implementation_allowed_now: false
+  not_claimed:
+    r1_acceptance: false
+    phase_closed: false
+    game_documentation_promoted: false
+  forbidden_until_R1_and_later_gate:
+    - Unity project bootstrap
+    - implementation
+    - old-code transfer
+    - old-code audit as starting point
+    - Codex product/project execution
+    - durable technical nucleus implementation
+    - Game Documentation promotion
 ```
 
 ## End-of-file marker

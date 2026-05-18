@@ -16,7 +16,7 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: goal_shaped_pending_E1
+  state: synthesis_formalized_pending_R1_review
   goal_id: first-technical-nucleus-functional-spec
   goal_title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
   goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec"
@@ -27,9 +27,12 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: plan_gated_sequential_first_technical_nucleus_spec
-  smallest_useful_result: "E1 execution brief for gated sequential production of the first technical nucleus functional specification, starting with gas_simulation_capability_frame and user approval gate."
+  next_route: R1_GOAL_REVIEW_DISTILL
+  next_route_mode: review_parent_goal_outcome_against_goal_contract
+  review_scope: parent_goal_outcome
+  completion_scope: parent_goal_complete_after_f0_apply_readback
+  parent_goal_completion_state: complete_pending_R1_acceptance
+  smallest_useful_result: "R1 review verdict for the completed first technical nucleus functional specification parent Goal outcome."
 ```
 
 ```yaml
@@ -84,12 +87,12 @@ The active Goal Contract is:
 
 Current treatment:
 
-- `goal_shaped_pending_E1`
-- shaped by G1;
-- routed to E1 execution brief;
+- `synthesis_formalized_pending_R1_review`
+- shaped by G1 and formalized through F0 gated blocks through synthesis;
+- routed to R1 parent Goal review;
 - implementation remains blocked pending accepted specification and later execution readiness.
 
-The next valid route is `E1_EXECUTION_BRIEF` for `first-technical-nucleus-functional-spec`.
+The next valid route is `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec`.
 
 ## Superseded previous active Goal
 
