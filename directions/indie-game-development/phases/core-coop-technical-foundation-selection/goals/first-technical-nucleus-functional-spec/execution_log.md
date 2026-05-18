@@ -120,6 +120,29 @@ Validation expectations:
 - Sections 5-8 remain blocked.
 - Only the approved goal artifact and this execution log were changed.
 
+## 2026-05-18 — F0_FAST_DIRECT — cross_system_interaction_requirements
+
+patch_id: f0_formalize_cross_system_interaction_requirements_2026_05_18
+result_state: patch_ready_needs_apply_readback
+
+Summary:
+- Formalized Section 5, `Cross-System Interaction Requirements`, in `01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`.
+- The section derives from the accepted Gas Simulation Capability Frame, formalized Level and Spatial Requirements, and formalized Grid / Topology Substrate Requirements.
+- The section defines required system categories, general interaction surfaces, topology writer boundaries, gas source/sink modifier boundaries, flow modifier boundaries, environmental and cross-simulation modifier hooks, player/actor interaction boundaries, system-to-system interaction boundaries, read-only consumer boundaries, read/write/non-ownership matrix, update order, conflict policy, and dependency outputs for Sections 6 and 7.
+- The update keeps Sections 6-8 blocked.
+- No implementation, Unity scene creation, old-code audit/transfer, final architecture, full fire/reaction chemistry, full destructibility, final network replication model, Codex product/project execution, Task Master graph creation, or Game Documentation promotion was authorized.
+
+Validation expectations:
+- Section 5 contains `Status: cross_system_interaction_requirements_formalized`.
+- Section 5 contains `### 5.3 General Interaction Surface Rule`.
+- Section 5 contains `### 5.8 Player / Actor Interaction Boundaries`.
+- Section 5 contains `### 5.11 Read / Write / Non-Ownership Matrix`.
+- Section 5 contains `### 5.12 Update Order Boundary`.
+- Section 5 contains `### 5.13 Conflict Policy for Multiple System Effects`.
+- Section 5 contains dependency outputs for Sections 6 and 7.
+- Sections 6-8 remain blocked.
+- Only the approved goal artifact and this execution log were changed.
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`

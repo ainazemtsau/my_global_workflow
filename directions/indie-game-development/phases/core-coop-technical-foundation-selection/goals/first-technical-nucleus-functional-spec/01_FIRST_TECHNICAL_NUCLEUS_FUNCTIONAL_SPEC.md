@@ -5,18 +5,18 @@ artifact_control:
   artifact_name: "First Technical Nucleus Functional Specification"
   schema: first_technical_nucleus_functional_spec.v1
   owner_layer: persistence
-  status: draft_grid_topology_substrate_requirements_formalized_pending_apply_readback
+  status: draft_cross_system_interaction_requirements_formalized_pending_apply_readback
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
   direction_id: indie_game_development
   phase_id: core-coop-technical-foundation-selection
   goal_id: first-technical-nucleus-functional-spec
   source_stage: F0_FAST_DIRECT
-  formalized_at: "2026-05-17"
-  formalization_trigger: APPROVE_AND_FORMALIZE_F0_GRID_TOPOLOGY_BLOCK
+  formalized_at: "2026-05-18"
+  formalization_trigger: APPROVE_AND_FORMALIZE_F0_CROSS_SYSTEM_BLOCK
   source_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/00_GOAL_CONTRACT.md"
   sequencing_model: gated_sequential
-  current_completed_block: grid_topology_substrate_requirements
-  next_blocks_state: sections_5_to_8_blocked_until_valid_stage_after_apply_readback
+  current_completed_block: cross_system_interaction_requirements
+  next_blocks_state: sections_6_to_8_blocked_until_valid_stage_after_apply_readback
 ```
 
 ## 1. Gas Simulation Capability Frame
@@ -1353,21 +1353,808 @@ Sections 5-8 remain blocked after this block unless later completed through the 
 
 ## 5. Cross-System Interaction Requirements
 
-Status: `blocked_until_grid_topology_substrate_requirements`
+Status: cross_system_interaction_requirements_formalized
 
-Placeholder only.
+### 5.1 Purpose and Boundary
 
-Expected later systems:
+This block defines how gas, topology, topology-adjacent systems, player/actor interaction surfaces, environmental modifier hooks, debug, validation, and future systems may interact in the first technical nucleus.
+
+The purpose is to prevent system interactions from becoming ambiguous ownership, hidden implementation coupling, or premature final architecture.
+
+The first technical nucleus needs these boundaries:
+
+- topology state can change before gas reads it;
+- systems may influence topology only through explicit owning boundaries;
+- source/sink modifiers can add or remove gas through explicit anchors;
+- flow modifiers can bias or limit gas movement without owning gas state;
+- environmental and future simulation hooks can interact through explicit modifier surfaces without requiring full temperature, pressure, fire, reaction, or chemistry implementation;
+- gas may expose player/actor hazard or exposure state without owning player health, player controller state, or final gameplay effects;
+- player/actor interactions may trigger gas-relevant systems only through the owning system boundary;
+- systems may communicate through requirement-level events, commands, state changes, signals, or modifiers, but this block does not choose a final event-bus implementation;
+- debug and validation systems can observe the combined state without owning simulation state.
+
+This block is a requirements layer.
+
+It does not implement:
+
+- final system architecture;
+- final event-bus architecture;
+- final Grid/topology architecture;
+- final gas architecture;
+- final player health/effects system;
+- final network replication model;
+- final Unity scene;
+- full temperature simulation;
+- full pressure simulation;
+- full fire/reaction chemistry;
+- full destructibility;
+- old-code audit or transfer;
+- Codex product/project execution.
+
+### 5.2 System Category Map
+
+The first technical nucleus must recognize these system categories at requirement level.
+
+#### Topology State Writers
+
+Topology state writers affect the current effective topology or topology-adjacent state that gas may read.
+
+Required categories:
+
+- doors or openings;
+- vents or vent boundaries;
+- valves;
+- future breach or destructibility seed, reserved for Section 6 only.
+
+Topology state writers may submit state changes. They do not own gas simulation state.
+
+A future non-gas system may influence a topology state writer only through that writer's explicit boundary. It must not silently mutate effective topology unless that later system is explicitly assigned ownership by a valid later stage.
+
+#### Gas Source / Sink Modifiers
+
+Gas source/sink modifiers affect where gas enters, exits, is scrubbed, or is activated.
+
+Required categories:
+
+- leaks or emitters;
+- scrubbers;
+- vents or sinks;
+- hazards as source activators.
+
+Gas source/sink modifiers may expose source/sink rates and activation state. They do not directly mutate topology.
+
+#### Flow Modifiers
+
+Flow modifiers influence gas movement across regions, connections, or vent paths.
+
+Required categories:
+
+- fans;
+- airflow;
+- pressure-like directional modifiers;
+- valves as flow-limit modifiers.
+
+Flow modifiers may bias, limit, or direct transfer. They do not own base topology or gas mass.
+
+#### Environmental and Cross-Simulation Modifier Hooks
+
+Environmental and cross-simulation modifier hooks expose future-compatible state that may later affect gas, topology-adjacent behavior, player/actor effects, or other simulation surfaces.
+
+Required categories:
 
 - temperature;
-- airflow;
-- fans;
-- valves;
-- doors;
-- vents;
-- leaks/sources;
-- hazards;
-- future reactions/fire.
+- future pressure-like environmental state;
+- future fire or reactions;
+- future chemical transformation hooks;
+- future system-to-system modifier hooks.
+
+For the first nucleus, these remain hooks unless a later valid stage explicitly routes them into required behavior.
+
+#### Player / Actor Interaction Consumers and Effect Receivers
+
+Player/actor systems may consume gas exposure or hazard state.
+
+Required categories:
+
+- player or actor exposure readers;
+- health/effect/debuff candidates;
+- interaction command sources routed through owning systems;
+- future equipment/protection candidates if later required.
+
+Gas may expose hazard/exposure outputs. Gas must not own final player health, input, controller state, animation, networking, or final gameplay effect logic.
+
+#### Read-Only Consumers
+
+Read-only consumers observe topology, modifiers, gas state, player/actor exposure state where relevant, and validation state.
+
+Required categories:
+
+- debug visualization;
+- validation/demo checks;
+- UI or telemetry candidates.
+
+Read-only consumers must not own or mutate topology, gas, flow, source/sink, environmental, or player/effect state.
+
+### 5.3 General Interaction Surface Rule
+
+Cross-system interaction must be representable through explicit requirement-level surfaces.
+
+Acceptable interaction surface types:
+
+```yaml
+interaction_surface_types:
+  state_change:
+    meaning: "An owning system changes its own gas-relevant state."
+    examples:
+      - passage_open_closed_state
+      - vent_available_unavailable_state
+      - source_active_inactive_state
+      - flow_modifier_active_inactive_state
+
+  command_or_request:
+    meaning: "A non-owning system asks an owning system to perform a state change."
+    examples:
+      - player_interaction_requests_door_toggle
+      - validation_requests_source_activation
+      - system_requests_valve_state_change
+
+  modifier:
+    meaning: "A system contributes a readable effect without owning the target simulation."
+    examples:
+      - flow_bias
+      - source_rate_modifier
+      - sink_rate_modifier
+      - environmental_modifier_hook
+
+  signal_or_event:
+    meaning: "A system reports that something happened and other systems may react through their own ownership boundaries."
+    examples:
+      - topology_revision_advanced
+      - source_activated
+      - gas_exposure_threshold_crossed
+      - conflict_resolution_record_created
+```
+
+This does not require a final event bus, message bus, ECS event stream, Unity event system, observer pattern, or networking event schema.
+
+Minimum interaction record requirements:
+
+```yaml
+interaction_record_requirement:
+  source_system_id: required
+  target_owner_system_id: required
+  target_id: required
+  interaction_type: required
+  value_or_payload_summary: required
+  tick_id_or_revision_id: required
+  authority_or_scope: required
+  debug_visibility: required
+```
+
+A system must not bypass another system's ownership boundary merely because it can technically reach the data.
+
+### 5.4 Topology State Writer Boundaries
+
+Topology state writers may affect effective topology through explicit state surfaces.
+
+#### Doors or Openings
+
+Doors/openings may write:
+
+- passage open/closed state;
+- passage restricted/unrestricted state if needed;
+- connection resistance or flow-limit contribution;
+- current passage state revision metadata.
+
+Doors/openings must not write:
+
+- gas concentration;
+- gas mass;
+- source/sink rate;
+- final network state;
+- Unity scene hierarchy;
+- base topology identity;
+- player health/effect state.
+
+Gas reads the resulting effective topology after door/opening state is resolved.
+
+Player/actor interaction, validation, debug controls, or future systems may request a door/opening state change only through the door/opening ownership boundary.
+
+#### Vents or Vent Boundaries
+
+Vents or vent boundaries may write:
+
+- vent path available/unavailable state;
+- sink or exhaust active/inactive state;
+- clearance path state;
+- vent boundary flow-limit contribution.
+
+Vents must distinguish ordinary adjacency from deliberate clearance or sink behavior.
+
+Vents must not directly write gas mass. Gas consumes vent/sink state during its tick.
+
+#### Valves
+
+Valves may write:
+
+- connection resistance or flow-limit modifier;
+- source/sink availability modifier;
+- open/closed or restricted state when the valve is topology-relevant.
+
+Valves may participate as topology-adjacent writers and flow modifiers.
+
+Valves must not own gas state, base topology identity, player interaction rules, or final network authority.
+
+#### Future Breach / Destructibility Seed
+
+Future breach or destructibility may later write:
+
+- breach placeholder activation;
+- new opening connection event;
+- initial passage state for the new opening;
+- topology revision advancement.
+
+This block does not complete destructibility compatibility.
+
+Section 6 must define the destructibility compatibility boundary before breach/destructibility is treated as a completed requirement.
+
+### 5.5 Gas Source / Sink Modifier Boundaries
+
+Gas source/sink modifiers expose inputs that the gas simulation consumes during the gas tick.
+
+#### Leaks or Emitters
+
+Leaks/emitters may write source modifier records:
+
+```yaml
+source_modifier_requirement:
+  source_anchor_id: required
+  gas_type_id: required
+  source_rate: required
+  activation_state: required
+  duration_or_tick_scope: required
+  source_owner_system: required
+```
+
+Leaks/emitters must not directly write gas concentration. The gas simulation applies source rates during the gas tick.
+
+#### Scrubbers
+
+Scrubbers may write sink or removal modifier records:
+
+```yaml
+scrubber_modifier_requirement:
+  sink_anchor_id_or_region_id: required
+  affected_gas_type_or_profile: required
+  sink_rate_or_removal_capacity: required
+  activation_state: required
+  duration_or_tick_scope: required
+```
+
+Scrubbers may remove or transform gas only through a gas-consumed sink/modifier surface.
+
+Full chemistry or transformation logic is not required in this block.
+
+#### Vents or Sinks
+
+Vents/sinks may write:
+
+- sink active/inactive state;
+- sink rate or exhaust capacity;
+- vent path availability;
+- target region, connection, or anchor reference.
+
+The gas simulation must read vent/sink state and apply removal or clearance during the gas tick.
+
+#### Hazards as Source Activators
+
+Hazards may activate source behavior through explicit source activation records.
+
+Hazards may write:
+
+- source active/inactive state;
+- source intensity or rate modifier;
+- source gas type reference;
+- source anchor reference.
+
+Hazards must not directly write gas concentration, topology mutation, player health/effect state, or fire/reaction outcomes in this block.
+
+### 5.6 Flow Modifier Boundaries
+
+Flow modifiers affect transfer behavior but do not own gas state.
+
+#### Fans
+
+Fans may write flow modifier records:
+
+```yaml
+flow_modifier_requirement:
+  target_connection_id_or_region_pair: required
+  direction_or_bias: required
+  magnitude_or_strength: required
+  active_state: required
+  flow_limit_or_boost: optional
+  duration_or_tick_scope: required
+  owner_system: required
+```
+
+Fans may bias movement through an available connection or vent path.
+
+Fans must not create new topology connections. If a path is closed or unavailable, fan effect must not silently override topology state unless a later valid requirement explicitly allows it.
+
+#### Airflow
+
+Airflow may write region-level or connection-level flow bias.
+
+Airflow may express:
+
+- preferred flow direction;
+- flow strength;
+- local or global bias;
+- active/inactive state.
+
+Airflow must remain a modifier surface, not a final atmospheric simulation or CFD model.
+
+#### Pressure-Like Directional Modifiers
+
+Pressure-like directional modifiers may influence gas movement through simplified gradients.
+
+Required boundary:
+
+- pressure-like modifiers may bias flow;
+- they do not require full compressible pressure simulation;
+- they must be visible in debug/validation when active;
+- they must be resolved before the gas tick reads them.
+
+#### Valves as Flow-Limit Modifiers
+
+Valves may restrict, cap, or block transfer rates across a connection, vent boundary, or source/sink channel.
+
+Valve flow limits must be represented as modifiers that gas can read. Valves do not directly write gas mass.
+
+### 5.7 Environmental and Cross-Simulation Modifier Boundaries
+
+Environmental and cross-simulation modifiers are future-compatible hooks unless later routed otherwise.
+
+#### Temperature
+
+Temperature may expose:
+
+- region-level temperature state;
+- connection-level temperature modifier if relevant;
+- optional effect hook for density, buoyancy, reaction, hazard behavior, player/actor exposure, or other future simulation behavior.
+
+For the first nucleus:
+
+- temperature may be visible as a debug/validation hook;
+- temperature does not require a full thermal simulation;
+- temperature does not require final fire or reaction implementation;
+- gas behavior must not depend on temperature unless a later accepted block explicitly requires it.
+
+#### Future Pressure-Like Environmental State
+
+Future pressure-like environmental state may expose:
+
+- region-level pressure-like modifier;
+- connection-level directional bias;
+- environmental constraint affecting flow modifiers.
+
+For the first nucleus, this remains a hook. It does not require a full pressure simulation.
+
+#### Future Fire or Reactions
+
+Future fire/reaction systems may later influence:
+
+- source activation;
+- gas transformation;
+- hazard escalation;
+- sink/neutralization behavior;
+- environmental state;
+- player/actor exposure effects;
+- topology-adjacent state if a later valid stage assigns that boundary.
+
+In this block, fire/reactions remain hooks only.
+
+Required now:
+
+- the interaction surface must not prevent future fire/reaction systems;
+- current Section 5 must not implement or require them;
+- future fire/reaction writes must use explicit modifier, source/sink, environmental, or owning-system boundaries.
+
+#### Future Chemical Transformation Hooks
+
+Chemical transformations may later consume and produce gas types.
+
+For this block:
+
+- transformation is represented only as a future hook;
+- no reaction graph is required;
+- no final chemistry taxonomy is required;
+- scrubber/neutralization behavior may remain a minimal sink or transformation placeholder.
+
+#### Future System-to-System Modifier Hooks
+
+Future systems may interact with each other through explicit records.
+
+Examples of allowed requirement-level patterns:
+
+- one system requests another owning system to change its state;
+- one system contributes a modifier read by another system;
+- one system emits a signal that another system may consume through its own boundary;
+- one system blocks, enables, or limits another system only through an explicit target owner and target ID.
+
+This block does not decide the final technical mechanism for those interactions.
+
+### 5.8 Player / Actor Interaction Boundaries
+
+Player/actor interaction is important, but this block does not require a player controller, health system, final co-op behavior, animation, or final gameplay effect implementation.
+
+The first nucleus must remain compatible with player/actor interactions by exposing explicit boundaries.
+
+#### Gas to Player / Actor Exposure
+
+Gas may expose:
+
+- gas type presence near or inside a player/actor-relevant region;
+- concentration or exposure value;
+- unsafe threshold state;
+- exposure duration or tick count if needed later;
+- hazard profile reference;
+- debug-readable exposure record.
+
+Gas must not directly own:
+
+- player health;
+- player damage application;
+- debuff state;
+- equipment/protection behavior;
+- player controller state;
+- player animation;
+- final network replication of player effects.
+
+Player/effect systems may later consume gas exposure state and apply effects through their own ownership boundary.
+
+#### Player / Actor to Gas-Relevant Systems
+
+Player/actor interaction may later request:
+
+- door/opening toggle;
+- vent/sink activation;
+- valve state change;
+- source/sink activation;
+- hazard interaction;
+- debug or validation test command if explicitly routed.
+
+These requests must route through the owning system boundary.
+
+Player/actor interaction must not directly mutate:
+
+- gas concentration;
+- gas mass;
+- base topology;
+- effective topology;
+- vent availability;
+- flow modifier state;
+- source/sink state.
+
+#### No-Player Validation Compatibility
+
+The accepted earlier gas frame requires no-player validation surfaces.
+
+This Section 5 player/actor boundary does not replace no-player validation. It only ensures that later player-facing behavior can attach to gas/topology/system state without forcing player implementation now.
+
+### 5.9 System-to-System Interaction Boundaries
+
+Systems may interact with other systems only through explicit ownership boundaries.
+
+Required rules:
+
+- the target owner must be identifiable;
+- the target ID must be stable enough for validation/debug;
+- the interaction must be represented as state change, command/request, modifier, or signal/event;
+- the receiving owner decides whether and how its state changes;
+- gas-readable consequences are visible only after the owning system resolves its state;
+- debug/validation can show both the requested input and the resolved output.
+
+A system must not secretly mutate another system's internal state.
+
+This is a requirement-level interaction rule, not a final architecture choice.
+
+### 5.10 Read-Only Consumer Boundaries
+
+Read-only systems may observe combined simulation state.
+
+#### Debug Visualization
+
+Debug visualization may read:
+
+- effective topology;
+- passage state;
+- vent availability;
+- source/sink modifiers;
+- flow modifiers;
+- environmental modifier hooks;
+- player/actor exposure records if present;
+- gas concentration/mass state;
+- topology revision ID;
+- gas tick ID;
+- conflict-resolution outputs;
+- interaction records where debug visibility is enabled.
+
+Debug visualization must not write simulation state.
+
+#### Validation / Demo Checks
+
+Validation/demo checks may read the same surfaces as debug visualization.
+
+Validation may trigger controlled test actions only when the action is routed through the owning system boundary, such as opening a door, activating a source, toggling a fan, or placing a player/actor exposure probe.
+
+Validation checks must not bypass ownership boundaries.
+
+#### UI or Telemetry Candidates
+
+UI/telemetry candidates may read summarized state:
+
+- unsafe region indicators;
+- player/actor exposure indicators if later required;
+- source/sink active indicators;
+- flow direction indicators;
+- topology or modifier revision;
+- validation status.
+
+UI/telemetry must not become a gameplay system or state owner in this block.
+
+### 5.11 Read / Write / Non-Ownership Matrix
+
+| System category | May read | May write | Must not own |
+| --- | --- | --- | --- |
+| Gas simulation | Effective topology, source/sink modifiers, flow modifiers, environmental hooks, player/actor exposure probe locations if later required | Gas state, gas metrics, gas exposure/hazard read surface, debug gas outputs | Base topology, passage state, vent availability, breach activation, player health/effects, final network state |
+| Doors/openings | Passage IDs, current passage state, validation or player-routed commands | Passage open/closed/restricted state | Gas mass, gas concentration, source/sink rates, base topology identity, player state |
+| Vents/sinks | Vent path IDs, sink anchors, current vent state, owning-system commands | Vent availability, sink active state, sink/removal rate | Gas state, ordinary adjacency, final ventilation machinery, player state |
+| Fans/airflow | Connection IDs, region IDs, current topology availability | Flow bias, flow direction, flow strength, active/inactive state | Base topology, gas mass, source/sink identity, player state |
+| Valves | Connection IDs, source/sink channels, current valve state | Flow limit, resistance, source/sink availability, valve state | Gas concentration, final network authority, unrelated topology, player state |
+| Leaks/emitters | Source anchors, activation controls, gas type IDs | Source activation, gas type reference, source rate | Gas state application, topology state, player state |
+| Scrubbers | Sink anchors, gas type/profile references | Sink/removal modifier, active state | Gas state application, topology state, player state |
+| Hazards | Source anchors, hazard activation state, future environmental hooks | Source activation or intensity modifier | Full reaction/fire system, gas state, topology mutation, player health/effect application |
+| Temperature / environmental hooks | Region/connection IDs, environmental state | Environmental modifier hook | Full thermal simulation, fire/reaction completion, gas ownership, player effect ownership |
+| Future fire/reactions | Future source/sink/environmental hooks | Deferred hook outputs only after later routing | Current Section 5 completion, full chemistry, final fire logic, destructibility completion |
+| Player/actor interaction | Exposure state, interaction targets, owning-system command surfaces | Interaction requests routed through owning systems; later player/effect state through player/effect owner | Gas state, topology state, source/sink state, flow modifier state |
+| Player/effect systems | Gas exposure/hazard records, player/actor state, future equipment/protection state | Player health/effect/debuff state if later implemented | Gas state, topology, vent state, source/sink state, flow modifiers |
+| Future non-gas system controller | Target owner boundaries, stable target IDs, relevant modifier records | Commands, requests, modifiers, or signals through explicit target owner | Another system's internal state unless explicitly assigned ownership |
+| Debug visualization | Effective topology, modifiers, gas state, player/actor exposure records, revisions, interaction records | Debug display state only | Simulation ownership |
+| Validation/demo checks | Effective topology, modifiers, gas state, player/actor exposure records, revisions | Test commands routed through owning systems | Simulation ownership, implementation authority |
+| UI/telemetry candidates | Summaries of topology/modifier/gas/player-exposure state | UI/telemetry display state only | Simulation ownership |
+
+### 5.12 Update Order Boundary
+
+The first technical nucleus must support a deterministic update order for cross-system effects.
+
+Required order:
+
+```yaml
+cross_system_update_order:
+  1_collect_commands_state_changes_and_modifier_inputs:
+    examples:
+      - player_or_actor_interaction_request
+      - validation_test_command
+      - door_or_opening_state_change
+      - vent_availability_change
+      - valve_flow_limit_change
+      - fan_or_airflow_modifier_change
+      - source_or_sink_activation_change
+      - environmental_modifier_change
+      - system_to_system_command_or_signal
+      - future_breach_placeholder_event_if_section_6_allows
+
+  2_resolve_owning_system_state:
+    includes:
+      - door_or_opening_owner_resolves_passage_state
+      - vent_owner_resolves_vent_availability
+      - valve_owner_resolves_flow_limit
+      - source_sink_owner_resolves_activation
+      - environmental_owner_resolves_modifier_hooks
+      - target_owner_resolves_system_to_system_requests
+
+  3_resolve_effective_topology_and_modifier_state:
+    includes:
+      - passage_state_overlay
+      - vent_availability_overlay
+      - flow_modifier_overlay
+      - source_sink_modifier_overlay
+      - environmental_modifier_overlay
+      - topology_revision_id_or_modifier_revision_id_update
+
+  4_gas_reads_effective_state:
+    gas_reads:
+      - effective_topology
+      - source_sink_modifiers
+      - flow_modifiers
+      - environmental_hooks_if_enabled
+      - topology_revision_id
+      - modifier_revision_id_if_present
+
+  5_gas_simulation_tick:
+    gas_writes:
+      - gas_mass_or_concentration_state
+      - gas_flow_metrics
+      - source_sink_application_metrics
+      - gas_exposure_or_hazard_read_surface_if_present
+      - mass_conservation_or_tolerance_metrics
+
+  6_player_actor_effect_consumers_read_exposure_if_enabled:
+    consumers:
+      - player_effect_system_candidates
+      - actor_exposure_check_candidates
+    writes_allowed_only_to:
+      - player_or_actor_effect_state_if_later_implemented
+
+  7_debug_validation_and_ui_read:
+    consumers:
+      - debug_visualization
+      - validation_demo_checks
+      - ui_or_telemetry_candidates
+```
+
+No system may silently mutate gas-readable topology or modifiers midway through a gas tick.
+
+If a state change occurs during a tick, it is applied at the next defined update boundary unless a later implementation-stage decision explicitly defines sub-step behavior.
+
+Player/actor effect consumption is represented as a boundary, not as a required implementation of health, damage, debuffs, or player controller logic.
+
+### 5.13 Conflict Policy for Multiple System Effects
+
+The first nucleus must expose deterministic conflict resolution for multiple systems affecting one connection, modifier, source, sink, player/actor exposure interpretation, or system-to-system target.
+
+Required conflict policy:
+
+```yaml
+cross_system_conflict_policy:
+  deterministic: required
+  conflict_inputs_visible_in_debug: required
+  resolved_output_visible_in_debug: required
+  target_owner_required: true
+  target_id_required:
+    - connection_id
+    - passage_state_id
+    - vent_path_id
+    - source_sink_anchor_id
+    - flow_modifier_target_id
+    - environmental_modifier_target_id
+    - player_actor_exposure_target_id_if_present
+    - system_interaction_target_id
+
+  default_rules:
+    passage_or_vent_availability:
+      rule: "blocking_or_unavailable_wins_over_open_or_available unless a single explicit owner is assigned later"
+    connection_flow_limit:
+      rule: "most_restrictive_limit_wins unless a later owner-specific rule overrides"
+    flow_direction_or_bias:
+      rule: "combine compatible directional modifiers; opposing modifiers resolve to net bias or flagged conflict according to deterministic merge"
+    source_rates:
+      rule: "aggregate compatible sources by gas type and anchor; conflicting activation state uses explicit owner priority or validation-visible conflict flag"
+    sink_rates:
+      rule: "aggregate compatible sinks within configured capacity; conflicting activation state uses explicit owner priority or validation-visible conflict flag"
+    environmental_hooks:
+      rule: "store latest resolved hook state by owner priority; do not trigger full reactions in this block"
+    player_actor_exposure:
+      rule: "gas exposes hazard/exposure state; player/effect owner decides final effect application if later implemented"
+    system_to_system_requests:
+      rule: "target owner resolves requests; non-owning systems cannot directly mutate target state"
+
+  required_conflict_record:
+    - target_owner_system_id
+    - target_id
+    - input_systems
+    - input_values
+    - resolved_value
+    - resolution_rule
+    - topology_or_modifier_revision_id
+    - gas_tick_id_if_relevant
+```
+
+Conflict resolution must be good enough for validation and debugging. It does not need to be a final production architecture.
+
+### 5.14 Dependency Outputs for Destructibility Compatibility Boundary
+
+Section 6 must receive these dependency outputs from Section 5:
+
+```yaml
+dependency_outputs_for_section_6:
+  destructibility_writer_boundary:
+    future_breach_or_destructibility_may_write:
+      - breach_placeholder_activation
+      - new_opening_connection_event
+      - initial_passage_state
+      - initial_connection_flow_limit_or_resistance
+      - topology_revision_advance
+
+  required_integration_questions_for_section_6:
+    - how_breach_activation_competes_with_door_or_opening_state
+    - whether_breach_creates_a_new_connection_or_activates_an_authored_placeholder
+    - what_initial_passage_state_a_breach_or_new_opening_receives
+    - how_gas_reads_the_new_effective_topology_after_the_breach_event
+    - how_debug_validation_and_player_actor_exposure_surfaces_see_breach_activation_and_gas_flow_afterward
+    - how_breach_events_participate_in_system_to_system_interaction_records_without_becoming_full_destructibility
+
+  explicit_section_5_non_completion:
+    - section_5_does_not_define_damage_model
+    - section_5_does_not_define_debris_physics
+    - section_5_does_not_define_structural_collapse
+    - section_5_does_not_define_explosion_pressure_wave
+    - section_5_does_not_complete_section_6
+```
+
+### 5.15 Dependency Outputs for Validation / Demo Requirements
+
+Section 7 must receive these dependency outputs from Section 5:
+
+```yaml
+dependency_outputs_for_section_7:
+  validation_checks_needed:
+    - door_or_opening_state_change_occurs_before_gas_tick
+    - vent_availability_change_affects_clearance_before_gas_tick
+    - leak_or_emitter_source_rate_is_applied_by_gas_tick
+    - scrubber_or_sink_removal_rate_is_applied_by_gas_tick
+    - fan_or_airflow_modifier_biases_flow_without_owning_gas
+    - valve_flow_limit_restricts_transfer_without_owning_gas
+    - hazard_source_activation_uses_source_boundary
+    - temperature_or_environmental_hook_is_visible_without_requiring_full_fire_reactions
+    - future_system_to_system_interaction_can_be_represented_without_final_event_bus
+    - player_actor_exposure_surface_can_be_read_without_requiring_player_health_implementation
+    - player_or_validation_commands_route_through_owning_system_boundaries
+    - gas_reads_effective_topology_and_modifiers_not_base_topology_only
+    - debug_visualization_reads_state_without_owning_state
+    - validation_commands_route_through_owning_system_boundaries
+    - conflict_resolution_output_is_visible_for_shared_targets
+
+  debug_surfaces_needed:
+    - system_writer_overlay
+    - source_sink_modifier_overlay
+    - flow_modifier_overlay
+    - environmental_hook_overlay
+    - player_actor_exposure_overlay_if_present
+    - system_interaction_record_overlay_or_log
+    - conflict_resolution_overlay_or_log
+    - update_order_step_display
+    - topology_revision_and_gas_tick_display
+```
+
+Section 7 remains blocked until a valid later stage completes validation/demo requirements.
+
+### 5.16 Explicit Non-Goals and Scope Cuts
+
+This block does not decide or perform:
+
+- final cross-system architecture;
+- final event-bus implementation;
+- Unity scene creation;
+- code generation;
+- old-code audit;
+- old-code transfer;
+- final Grid/topology architecture;
+- final gas architecture;
+- final player controller;
+- final player health/effects/debuff system;
+- final equipment/protection mechanics;
+- final network replication model;
+- final host/client prediction, rollback, or bandwidth design;
+- full fire/reaction chemistry;
+- full temperature simulation;
+- full pressure simulation;
+- full destructibility;
+- damage model;
+- debris physics;
+- structural collapse;
+- final ventilation machinery;
+- player ability design;
+- final UI/telemetry design;
+- validation/demo completion;
+- synthesis;
+- Codex product/project execution;
+- Task Master graph creation;
+- Game Documentation promotion.
+
+Sections 6-8 remain blocked after this block unless later completed through the gated workflow sequence.
 
 ## 6. Destructibility Compatibility Boundary
 
