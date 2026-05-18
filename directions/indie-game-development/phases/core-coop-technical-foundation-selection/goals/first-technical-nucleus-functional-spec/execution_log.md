@@ -314,3 +314,113 @@ operator_notes:
   - Repository maintenance only; not Codex product/project execution.
   - Do not touch Unity/product project files, sibling Directions, workflow runtime files, stage prompts, or Game Documentation promotion targets.
 ~~~
+
+## 2026-05-18 — F0_FAST_DIRECT — synthesis formalization
+
+~~~yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+
+stage_id: F0_FAST_DIRECT
+stage_name: Fast Direct
+return_state: PATCH_READY_NEEDS_APPLY_READBACK
+
+direction:
+  id: indie_game_development
+  name: Indie Game Development
+
+phase:
+  id: core-coop-technical-foundation-selection
+  name: Core Co-op Technical Foundation Selection
+  status: active_gated_sequential_execution_first_technical_nucleus_spec
+
+goal:
+  goal_id: first-technical-nucleus-functional-spec
+  title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
+
+started_at: "2026-05-18"
+completed_at: "2026-05-18"
+
+input_refs:
+  launch_card: F0_FAST_DIRECT synthesis launch
+  approval_token: APPROVE_AND_FORMALIZE_F0_SYNTHESIS_BLOCK
+  target_artifact: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md
+  prior_main_ref: de6afd9835500fb7dd37402655476fdf5c997e69
+
+freshness_check:
+  state: patch_ready_requires_apply_readback
+  current_artifact_readback_state: section_8_placeholder_verified_on_main
+  note: Final completion requires repository maintenance apply, file read-back, diff verification, commit verification, and main integration evidence.
+
+scope_check:
+  smallest_safe_slice: synthesis
+  allowed_scope:
+    - formalize Section 8 Synthesis
+    - update artifact-control metadata for the completed synthesis state
+    - append execution log entry
+  forbidden_scope_preserved:
+    - R1_GOAL_REVIEW_DISTILL_before_synthesis_apply_readback
+    - parent_goal_close_before_synthesis_apply_readback
+    - phase_progress_gate
+    - implementation
+    - Unity_bootstrap
+    - Unity_scene_creation
+    - code_generation
+    - test_harness_implementation
+    - old_code_transfer
+    - old_code_audit_as_starting_point
+    - Codex_product_project_execution
+    - Task_Master_graph_creation
+    - Game_Documentation_promotion
+
+actions_taken:
+  - Prepared repository patch to replace Section 8 with synthesis.
+  - Integrated accepted Sections 1-7 into one coherent parent Goal completion candidate.
+  - Preserved no-implementation and no-Game-Documentation-promotion boundaries.
+  - Prepared apply/read-back request and Codex repository maintenance apply card.
+
+patch_summary:
+  patch_id: f0_formalize_synthesis_block_2026_05_18
+  operations:
+    - replace_section: artifact header / artifact_control metadata
+    - replace_section: "## 8. Synthesis"
+    - append_section: execution_log.md
+  apply_state: pending
+
+readback_summary:
+  state: pending_apply_readback
+  required_anchors:
+    - "status: synthesis_formalized"
+    - "## 8. Synthesis"
+    - "### 8.3 Coherent First Technical Nucleus Definition"
+    - "### 8.9 Parent Goal Completion Candidate Marker"
+    - "next_stage_after_successful_synthesis_apply_readback: R1_GOAL_REVIEW_DISTILL"
+    - "## 9. Explicit Non-Goals and Old Project Reference Policy"
+    - "END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
+
+acceptance_result:
+  state: patch_ready_not_completed
+  completion_claimed: false
+  reason: Repository update requires apply/read-back/diff/commit/main evidence before completion.
+
+documentation_gate:
+  state: pending_apply_readback
+  project_files_00_08_changed: false
+  manual_project_files_refresh_required: false
+
+changed_files_context_refresh_after_approval:
+  required_after_apply_readback: true
+  files:
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md
+
+next_route:
+  current_terminal_action: apply_readback_request
+  after_successful_apply_validation: R1_GOAL_REVIEW_DISTILL
+  no_R1_now_reason: repository_evidence_missing_for_parent_goal_completion_candidate
+
+operator_notes:
+  - Repository maintenance only; not Codex product/project execution.
+  - Do not touch Unity/product project files, sibling Directions, workflow runtime files, stage prompts, or Game Documentation promotion targets.
+~~~
