@@ -212,3 +212,105 @@ operator_notes:
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
+## 2026-05-18 — F0_FAST_DIRECT — validation_demo_requirements formalization
+
+~~~yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+
+stage_id: F0_FAST_DIRECT
+stage_name: Fast Direct
+return_state: PATCH_READY_NEEDS_APPLY_READBACK
+
+direction:
+  id: indie_game_development
+  name: Indie Game Development
+
+phase:
+  id: core-coop-technical-foundation-selection
+  name: Core Co-op Technical Foundation Selection
+  status: active_gated_sequential_execution_first_technical_nucleus_spec
+
+goal:
+  goal_id: first-technical-nucleus-functional-spec
+  title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
+
+started_at: "2026-05-18"
+completed_at: "2026-05-18"
+
+input_refs:
+  launch_card: F0_FAST_DIRECT validation_demo_requirements launch
+  approval_token: APPROVE_AND_FORMALIZE_F0_VALIDATION_DEMO_BLOCK
+  target_artifact: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md
+  prior_main_ref: d1a819eda7f0e78c882c500854a553726a69e9af
+
+freshness_check:
+  state: patch_ready_requires_apply_readback
+  note: Current artifact read-back was supplied by launch context; final completion requires Codex/user apply, file read-back, diff verification, commit verification, and main integration evidence.
+
+scope_check:
+  smallest_safe_slice: validation_demo_requirements
+  allowed_scope:
+    - formalize Section 7 Validation / Demo Requirements
+    - append execution log entry
+  forbidden_scope_preserved:
+    - R1_GOAL_REVIEW_DISTILL
+    - parent_goal_close
+    - phase_progress_gate
+    - implementation
+    - Unity_scene_creation
+    - code_generation
+    - test_harness_implementation
+    - old_code_transfer
+    - old_code_audit_as_starting_point
+    - Codex_product_project_execution
+    - Task_Master_graph_creation
+    - Game_Documentation_promotion
+
+actions_taken:
+  - Prepared repository patch to replace Section 7 with validation/demo requirements.
+  - Included VD_01 through VD_09 validation scenarios.
+  - Included required debug surfaces, validation assertions, no-player validation, demo non-goals, synthesis dependencies, and Section 8 blocked status.
+  - Prepared apply/read-back request and Codex repository maintenance apply card.
+
+patch_summary:
+  patch_id: f0_formalize_validation_demo_requirements_2026_05_18
+  operations:
+    - replace_section: "## 7. Validation / Demo Requirements"
+    - append_or_create_file: execution_log.md
+  apply_state: pending
+
+readback_summary:
+  state: pending_apply_readback
+  required_anchors:
+    - "## 7. Validation / Demo Requirements"
+    - "#### VD_09_debug_telemetry_validation_surface"
+    - "### 7.10 Section 8 Status"
+    - "## 8. Synthesis"
+
+acceptance_result:
+  state: patch_ready_not_completed
+  completion_claimed: false
+  reason: Repository update requires apply/read-back/diff/commit/main evidence before completion.
+
+documentation_gate:
+  state: pending_apply_readback
+  project_files_00_08_changed: false
+  manual_project_files_refresh_required: false
+
+changed_files_context_refresh_after_approval:
+  required_after_apply_readback: true
+  files:
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md
+
+next_route:
+  current_terminal_action: apply_readback_request
+  after_successful_apply_validation: E1_EXECUTION_BRIEF
+  no_R1_reason: gated_slice_complete_parent_goal_incomplete_section_8_synthesis_remaining
+
+operator_notes:
+  - Repository maintenance only; not Codex product/project execution.
+  - Do not touch Unity/product project files, sibling Directions, workflow runtime files, stage prompts, or Game Documentation promotion targets.
+~~~

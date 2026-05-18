@@ -2411,19 +2411,411 @@ Sections 7–8 remain blocked until this destructibility compatibility boundary 
 
 ## 7. Validation / Demo Requirements
 
-Status: `blocked_until_gas_level_and_topology_blocks`
+### 7.1 Purpose and Boundary
 
-Placeholder only.
+The Validation / Demo Requirements block defines how the first technical nucleus must be proven observable before implementation planning proceeds.
 
-Candidate later scenarios:
+Validation is not an implementation plan, Unity scene plan, test harness design, networking plan, player-health plan, or final architecture. It is a requirements surface for what the first technical nucleus must be able to demonstrate once implemented.
 
-- no-player simulation demo;
-- simple propagation scene;
-- vertical shaft scene;
-- ventilation path scene;
-- complex multi-room scene;
-- breach/opening gas-flow scene;
-- stress scenario with multiple gases or larger volume.
+This section validates that the accepted gas, level/spatial, Grid/topology, cross-system interaction, and destructibility compatibility requirements can be observed through controlled scenarios, debug surfaces, pass/fail assertions, and no-player validation flows.
+
+Section 7 completes only the validation/demo requirements block. Section 8, synthesis, remains blocked until this block is accepted and formalized.
+
+### 7.2 Validation Principles
+
+1. Validation must be observable before production gameplay is layered on top.
+2. Validation must be possible without player mechanics.
+3. Validation must use small controlled spatial surfaces before any larger stress surface.
+4. Validation must expose effective topology, not only base topology.
+5. Validation must show update order where cross-system changes affect gas behavior.
+6. Validation must distinguish source behavior, transfer behavior, modifier behavior, sink/removal behavior, and read-only exposure behavior.
+7. Validation must include breach/new-opening compatibility without requiring full destruction.
+8. Validation must show debug telemetry sufficient to diagnose why a pass/fail result occurred.
+9. Validation must avoid finalizing exact Gas, Grid/topology, networking, destructibility, or player-health architecture.
+
+### 7.3 Scenario Record Template
+
+Every validation/demo scenario must be recorded with this shape:
+
+- `id`
+- `purpose`
+- `required_prior_blocks`
+- `spatial_surface`
+- `topology_surface`
+- `system_interaction_surface`
+- `observable_debug_outputs`
+- `pass_condition`
+- `fail_condition`
+- `explicit_non_goals`
+
+### 7.4 Minimum Validation / Demo Scenario Set
+
+#### VD_01_simple_propagation
+
+- `id`: VD_01_simple_propagation
+- `purpose`: Validate baseline gas propagation from a source through a simple connected space.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Level and Spatial Requirements
+  - Grid / Topology Substrate Requirements
+- `spatial_surface`: MTS_01 simple connected room chain or equivalent room-to-corridor-to-room surface.
+- `topology_surface`: Region inventory, connection inventory, stable region/connection IDs, effective topology snapshot.
+- `system_interaction_surface`: Gas source activation and gas tick progression only.
+- `observable_debug_outputs`:
+  - gas type presence
+  - concentration or mass per region
+  - source state and source rate
+  - flow arrows or transfer rates between connected regions
+  - region IDs
+  - connection IDs
+  - gas tick ID
+- `pass_condition`: Gas appears at the source region, propagates only through passable connections, and concentration/mass changes are visible per tick in expected connected regions.
+- `fail_condition`: Gas appears in disconnected regions, does not propagate through valid open connections, lacks visible concentration/mass, or cannot be traced by region/connection ID.
+- `explicit_non_goals`:
+  - no player actor required
+  - no hazard damage
+  - no final gas taxonomy
+  - no final gas algorithm selection
+  - no production performance benchmark
+
+#### VD_02_closed_door_then_open_door_flow
+
+- `id`: VD_02_closed_door_then_open_door_flow
+- `purpose`: Validate that passage state changes affect gas transfer through effective topology.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Grid / Topology Substrate Requirements
+  - Cross-System Interaction Requirements
+- `spatial_surface`: Two rooms or room-corridor-room with a controllable door/opening.
+- `topology_surface`: Base connection, passage state, effective topology snapshot before and after state change, topology revision.
+- `system_interaction_surface`: Door/opening state change occurs before the next gas tick.
+- `observable_debug_outputs`:
+  - open/closed passage state
+  - topology revision before and after state change
+  - effective topology snapshot
+  - gas tick ID
+  - flow arrows/rates
+  - concentration/mass per region
+  - cross-system interaction record for door/opening change
+- `pass_condition`: Gas does not flow through the closed passage; after the passage opens and topology revision advances, gas may flow through that connection on the subsequent gas tick.
+- `fail_condition`: Gas flows through a closed passage, fails to flow through an open passable connection, or gas reads stale topology after the passage-state change.
+- `explicit_non_goals`:
+  - no final door implementation
+  - no animation requirements
+  - no network authority model
+  - no player interaction requirement
+
+#### VD_03_vertical_light_heavy_neutral_behavior
+
+- `id`: VD_03_vertical_light_heavy_neutral_behavior
+- `purpose`: Validate vertical relation handling for light, heavy, and neutral gas behavior.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Level and Spatial Requirements
+  - Grid / Topology Substrate Requirements
+- `spatial_surface`: MTS_03 vertical shaft or two-level space with at least upper/lower connected regions.
+- `topology_surface`: Vertical relation between connected regions, connection IDs, effective topology snapshot.
+- `system_interaction_surface`: Gas type or gas behavior category is visible enough to classify light/heavy/neutral movement expectations.
+- `observable_debug_outputs`:
+  - gas type/category presence
+  - vertical relation marker
+  - region IDs for upper/lower regions
+  - connection IDs
+  - concentration/mass by region over ticks
+  - flow direction indicators
+  - gas tick ID
+- `pass_condition`: Light, heavy, and neutral gas behavior can be distinguished through observable vertical distribution or transfer tendencies according to the accepted requirement level.
+- `fail_condition`: Vertical relation is not visible, gas behavior cannot be distinguished, or gas movement ignores the vertical relation in a way that invalidates the requirement.
+- `explicit_non_goals`:
+  - no final fluid simulation model
+  - no exact gas chemistry
+  - no full environmental reaction system
+  - no production balancing
+
+#### VD_04_ventilation_path_clearance
+
+- `id`: VD_04_ventilation_path_clearance
+- `purpose`: Validate that vent availability, clearance, source/sink state, and removal behavior can affect gas behavior before the relevant gas tick.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Level and Spatial Requirements
+  - Cross-System Interaction Requirements
+- `spatial_surface`: MTS_02 ventilation clearance path space or equivalent source-to-vent/sink path.
+- `topology_surface`: Region and connection inventory, vent availability state, effective topology snapshot when vent availability changes.
+- `system_interaction_surface`: Vent availability change, scrubber/sink removal rate, optional fan/airflow bias if present as modifier.
+- `observable_debug_outputs`:
+  - vent availability
+  - sink/scrubber state
+  - removal rate
+  - source state and source rate
+  - flow arrows/rates
+  - concentration/mass per region
+  - cross-system interaction records
+  - gas tick ID
+- `pass_condition`: Changing vent/sink availability or removal rate visibly affects gas distribution/removal according to the accepted requirement before or on the next relevant gas tick.
+- `fail_condition`: Vent/sink state is not observable, clearance has no visible effect, or gas behavior uses stale availability data.
+- `explicit_non_goals`:
+  - no final ventilation architecture
+  - no final fan simulation
+  - no production HVAC system
+  - no Unity scene implementation requirement
+
+#### VD_05_multi_room_capacity_stress
+
+- `id`: VD_05_multi_room_capacity_stress
+- `purpose`: Validate that the gas/topology/debug surface remains observable under a modest multi-room stress case.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Level and Spatial Requirements
+  - Grid / Topology Substrate Requirements
+- `spatial_surface`: MTS_04 optional larger stress space or a small multi-room chain/cluster.
+- `topology_surface`: Multiple regions, multiple connections, stable IDs, effective topology snapshot, concentration/mass per region.
+- `system_interaction_surface`: Multiple source/sink or source/transfer observations, without requiring full cross-system stack.
+- `observable_debug_outputs`:
+  - gas concentration/mass per region
+  - gas type presence
+  - source/sink state
+  - flow arrows/rates across multiple connections
+  - region IDs
+  - connection IDs
+  - effective topology snapshot
+  - gas tick ID
+- `pass_condition`: The scenario remains diagnosable: gas movement, mass/concentration distribution, and topology path behavior can be inspected across multiple rooms without ambiguous debug output.
+- `fail_condition`: Debug output becomes unreadable, IDs cannot be correlated, mass/concentration cannot be inspected, or effective topology cannot explain observed flow.
+- `explicit_non_goals`:
+  - no production-scale performance benchmark
+  - no final level size target
+  - no stress automation
+  - no multiplayer validation
+
+#### VD_06_cross_system_modifier_validation
+
+- `id`: VD_06_cross_system_modifier_validation
+- `purpose`: Validate that cross-system modifiers can influence gas without owning gas simulation authority.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Cross-System Interaction Requirements
+  - Grid / Topology Substrate Requirements
+- `spatial_surface`: Minimal connected room/vent/path surface that can expose modifier effects.
+- `topology_surface`: Effective topology snapshot plus visible modifier target region/connection.
+- `system_interaction_surface`:
+  - door/opening state change
+  - vent availability change
+  - source/emitter rate
+  - sink/removal rate
+  - fan/airflow bias
+  - valve flow limit
+  - hazard source activation boundary
+  - optional temperature/environment hook visibility
+  - conflict-resolution output for shared targets
+- `observable_debug_outputs`:
+  - cross-system interaction records
+  - conflict records for shared targets
+  - modifier type and target
+  - pre-gas-tick update order
+  - gas tick ID
+  - source/sink state
+  - flow arrows/rates
+  - concentration/mass per region
+- `pass_condition`: At least one source, one sink/removal, one passage/availability, and one transfer modifier can be observed affecting gas behavior in the required update order without becoming the gas owner.
+- `fail_condition`: Modifier effects are invisible, update order is ambiguous, gas ownership is implied by non-gas systems, or conflicts on shared targets cannot be diagnosed.
+- `explicit_non_goals`:
+  - no final event bus
+  - no final cross-system architecture
+  - no full fire/temperature reaction system
+  - no production hazard system
+
+#### VD_07_breach_new_opening_compatibility_validation
+
+- `id`: VD_07_breach_new_opening_compatibility_validation
+- `purpose`: Validate compatibility with controlled breach/new-opening activation without requiring full destructibility.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Grid / Topology Substrate Requirements
+  - Cross-System Interaction Requirements
+  - Destructibility Compatibility Boundary
+- `spatial_surface`: Two adjacent regions separated by a non-passable boundary with a predefined breach placeholder.
+- `topology_surface`: Breach placeholder marker, activation record, topology revision before/after activation, effective topology snapshot after mutation, activated connection ID.
+- `system_interaction_surface`: Controlled activation of a predefined breach/new opening before gas reads topology.
+- `observable_debug_outputs`:
+  - breach placeholder state
+  - activation record completeness
+  - topology revision before and after activation
+  - new/activated connection ID
+  - effective topology snapshot
+  - gas tick ID
+  - flow arrows/rates through new opening
+  - concentration/mass per region
+  - cross-system update-order record
+- `pass_condition`: Before activation, gas cannot use the placeholder as a passable connection. After controlled activation, topology revision advances, effective topology includes the new passable connection, and gas may flow through it on the post-mutation gas read.
+- `fail_condition`: Gas uses an inactive placeholder, the activation record is incomplete, topology revision does not advance, effective topology omits the activated connection, or gas reads stale topology after activation.
+- `explicit_non_goals`:
+  - no full destruction simulation
+  - no voxel/mesh destruction requirement
+  - no damage model
+  - no player breach tool
+  - no final destructibility architecture
+
+#### VD_08_player_actor_exposure_read_surface_validation_optional_boundary_only
+
+- `id`: VD_08_player_actor_exposure_read_surface_validation_optional_boundary_only
+- `purpose`: Validate that a player/actor exposure read surface can observe post-mutation gas/topology state without requiring player health implementation.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Cross-System Interaction Requirements
+  - Destructibility Compatibility Boundary
+- `spatial_surface`: Any prior validation surface with a readable actor sample point or placeholder actor region.
+- `topology_surface`: Current effective topology snapshot, region ID at actor/sample location, gas concentration/mass at that region.
+- `system_interaction_surface`: Read-only exposure query after gas tick and after topology mutation where relevant.
+- `observable_debug_outputs`:
+  - optional player/actor exposure read surface
+  - sampled region ID
+  - sampled gas type and concentration/mass
+  - gas tick ID
+  - topology revision used for read
+  - breach/new-opening state if relevant
+- `pass_condition`: A read-only actor exposure query can report gas exposure from the current post-mutation state without requiring health, damage, inventory, animation, or player-controller mechanics.
+- `fail_condition`: Exposure reads require player-health implementation, read stale topology/gas state, or cannot report the region/topology revision used.
+- `explicit_non_goals`:
+  - no player health
+  - no damage rules
+  - no player controller
+  - no networked player replication
+  - no gameplay balancing
+
+#### VD_09_debug_telemetry_validation_surface
+
+- `id`: VD_09_debug_telemetry_validation_surface
+- `purpose`: Validate that the required debug and telemetry surfaces are sufficient to diagnose all prior scenarios.
+- `required_prior_blocks`:
+  - Gas Simulation Capability Frame
+  - Level and Spatial Requirements
+  - Grid / Topology Substrate Requirements
+  - Cross-System Interaction Requirements
+  - Destructibility Compatibility Boundary
+- `spatial_surface`: Any minimum validation scenario plus at least one multi-surface scenario involving topology state change or modifier state.
+- `topology_surface`: Region inventory, connection inventory, passage states, effective topology snapshot, topology revision, breach placeholder/activation state where relevant.
+- `system_interaction_surface`: Source/sink/modifier records, update-order records, conflict records.
+- `observable_debug_outputs`:
+  - gas concentration/mass
+  - gas type presence
+  - source/sink state
+  - flow arrows/rates
+  - region IDs
+  - connection IDs
+  - passage state
+  - vent availability
+  - vertical relation
+  - topology revision
+  - gas tick ID
+  - cross-system interaction records
+  - conflict records
+  - breach placeholder / activated connection
+  - optional player/actor exposure read surface
+- `pass_condition`: The full required telemetry set can explain observed gas behavior, topology state, modifier effects, update order, and breach/new-opening activation without hidden assumptions.
+- `fail_condition`: Any required telemetry category is missing, stale, ambiguous, or insufficient to diagnose pass/fail results for scenarios VD_01 through VD_08.
+- `explicit_non_goals`:
+  - no final debug UI design
+  - no production telemetry stack
+  - no automated test framework
+  - no logging format finalization
+
+### 7.5 Required Debug / Observable Surfaces
+
+The first technical nucleus validation surface must expose at minimum:
+
+- gas concentration or mass per region;
+- gas type presence;
+- source state and source rate;
+- sink/scrubber/removal state and removal rate;
+- flow arrows or transfer rates;
+- region IDs;
+- connection IDs;
+- passage open/closed state;
+- vent availability;
+- vertical relation between relevant regions;
+- effective topology snapshot;
+- topology revision;
+- gas tick ID;
+- cross-system interaction records;
+- conflict records for shared targets;
+- breach placeholder state;
+- activated breach/new-opening connection ID when relevant;
+- optional player/actor exposure read surface.
+
+These surfaces may be debug overlays, logs, inspectors, exported records, or equivalent observable evidence. The requirement is observability, not a final UI implementation.
+
+### 7.6 Required Validation Assertions
+
+Validation must be able to assert at least:
+
+1. Gas source creates gas in the intended source region.
+2. Gas transfers through open/passable connections.
+3. Gas does not transfer through closed/non-passable passages.
+4. A door/opening state change is applied before the gas tick that should read it.
+5. Light/heavy/neutral gas behavior can be distinguished on a vertical surface.
+6. Vent availability and sink/removal state affect gas distribution/removal.
+7. Cross-system modifiers affect gas without owning gas simulation authority.
+8. Shared-target conflicts produce visible conflict records.
+9. Topology revision advances after controlled topology mutation.
+10. Effective topology contains activated breach/new-opening connection after mutation.
+11. Gas reads the post-mutation effective topology after topology revision advances.
+12. A breach/new opening remains placeholder-only until controlled activation.
+13. Optional actor exposure reads can read post-mutation gas/topology state without requiring player health implementation.
+14. Debug/validation reads identify which topology revision and gas tick they used.
+
+### 7.7 No-Player Validation Requirements
+
+No-player validation remains required.
+
+The validation/demo set must be runnable or inspectable without:
+
+- player controller;
+- player input;
+- player inventory;
+- player health/damage;
+- player animation;
+- networked player replication;
+- playable mission flow.
+
+Player/actor exposure is allowed only as a read-only boundary surface. It must not pull player mechanics into the technical nucleus validation requirement.
+
+### 7.8 Demo Boundaries and Non-Goals
+
+This validation/demo block does not require:
+
+- implementation;
+- Unity scene creation;
+- code generation;
+- test harness implementation;
+- old-code audit or transfer;
+- final Gas architecture;
+- final Grid/topology architecture;
+- final cross-system architecture;
+- full destructibility;
+- final networking;
+- player health/damage systems;
+- visual polish;
+- production debug UI;
+- Game Documentation promotion;
+- Codex product/project execution;
+- Task Master graph creation.
+
+### 7.9 Dependency Outputs for Synthesis
+
+This section contributes the following synthesis inputs for Section 8:
+
+- The first technical nucleus must include enough observable state to validate gas propagation, topology state, cross-system modifiers, controlled breach/new-opening compatibility, and optional exposure reads.
+- The minimum validation set is scenario-driven, not implementation-driven.
+- Debug surfaces are acceptance requirements, not optional polish.
+- No-player validation is a hard boundary for the first validation layer.
+- Breach/new-opening compatibility is required only as controlled placeholder activation and post-mutation topology/gas read behavior.
+- Cross-system validation is required only at the boundary/modifier/update-order level, not as final architecture.
+- Section 8 may synthesize the nucleus requirements only after Section 7 is accepted and formalized.
+
+### 7.10 Section 8 Status
+
+Section 8 remains blocked until Section 7 is accepted, formalized, applied, read back, diff-verified, and commit-verified.
 
 ## 8. Synthesis
 
