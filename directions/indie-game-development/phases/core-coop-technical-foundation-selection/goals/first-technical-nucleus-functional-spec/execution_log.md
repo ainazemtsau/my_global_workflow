@@ -459,6 +459,45 @@ route_state:
 project_files_cache_refresh_required_after_commit: true
 ~~~
 
+## 2026-05-18 — R1_GOAL_REVIEW_DISTILL — parent Goal review/distillation
+
+```yaml
+stage_id: R1_GOAL_REVIEW_DISTILL
+review_verdict: completed_verified
+closure_eligibility: eligible
+reviewed_goal: first-technical-nucleus-functional-spec
+accepted_result: functional_technical_specification_only
+upstream_stage_refs:
+  - stage_id: F0_FAST_DIRECT
+    return_state: DONE
+    patch_id: f0_formalize_synthesis_block_2026_05_18
+    main_commit: fde485cf67e4cfa668242e4f42abdafbd3408ea4
+    apply_readback_state: applied_readback_pass
+durable_outcome:
+  - gas_simulation_capability_frame
+  - user_approval_gate_after_gas_block
+  - level_and_spatial_requirements
+  - grid_topology_substrate_requirements
+  - cross_system_interaction_requirements
+  - destructibility_compatibility_boundary
+  - validation_demo_requirements
+  - synthesis
+not_authorized:
+  - implementation
+  - Unity_bootstrap
+  - Unity_scene_creation
+  - old_code_transfer
+  - old_code_audit_as_starting_point
+  - Codex_product_project_execution
+  - Task_Master_graph_creation
+  - Game_Documentation_promotion
+documentation_drift_state: refresh_required
+phase_progress_gate:
+  gate_run: true
+  result: m0_review_required_before_p9_g0_e1_or_implementation
+next_route: M0_DIRECTION_MAP
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`

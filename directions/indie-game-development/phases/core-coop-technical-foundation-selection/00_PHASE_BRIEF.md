@@ -5,12 +5,18 @@ artifact_control:
   artifact_name: "Phase Brief — Core Co-op Technical Foundation Selection"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_first_technical_nucleus_spec_synthesis_formalized_pending_R1
-  phase_status: active_first_technical_nucleus_spec_synthesis_formalized_pending_R1
-  active_goal_id: first-technical-nucleus-functional-spec
-  active_goal_status: synthesis_formalized_pending_R1_review
-  next_route: R1_GOAL_REVIEW_DISTILL
-  phase_progress_gate_status: not_run_pending_R1
+  status: active_pending_m0_after_r1_acceptance
+  phase_status: active_pending_m0_after_r1_acceptance
+  active_goal_id: none_pending_m0_direction_map_review
+  active_goal_status: none_pending_m0_direction_map_review
+  status_after_r1_first_technical_nucleus_spec: active_pending_m0_after_r1_acceptance
+  last_completed_goal:
+    goal_id: first-technical-nucleus-functional-spec
+    result: r1_completed_verified_specification_accepted
+    accepted_scope: functional_technical_specification_only
+  next_route: M0_DIRECTION_MAP
+  next_route_mode: review_active_front_after_completed_specification_goal
+  phase_progress_gate_status: m0_review_required_before_p9_g0_e1_or_implementation
   phase_closed: false
   p9_allowed_now: false
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
@@ -23,7 +29,7 @@ artifact_control:
 - Phase ID: `core-coop-technical-foundation-selection`
 - Phase name: `Core Co-op Technical Foundation Selection`
 - Direction: `Indie Game Development`
-- Status: `active_first_technical_nucleus_spec_synthesis_formalized_pending_R1`
+- Status: `active_pending_m0_after_r1_acceptance`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 
@@ -125,9 +131,9 @@ phase_closure_contract:
     - goal_id: first-technical-nucleus-functional-spec
       title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
       required_for_closure: true
-      status: synthesis_formalized_pending_R1_review
-      next_stage: R1_GOAL_REVIEW_DISTILL
-      parent_goal_completion_state: complete_pending_R1_acceptance
+      status: r1_completed_verified_specification_accepted
+      review_stage: R1_GOAL_REVIEW_DISTILL
+      accepted_scope: "Functional/technical specification accepted; implementation remains blocked."
       purpose: >
         Define first technical nucleus capabilities across gas, spatial/level needs,
         Grid/topology substrate, cross-system interaction, destructibility compatibility,
@@ -199,11 +205,11 @@ candidate:
 
 ## Next route
 
-Run `R1_GOAL_REVIEW_DISTILL` for `first-technical-nucleus-functional-spec`.
+Run `M0_DIRECTION_MAP` after repository maintenance apply/read-back and manual Project Files refresh.
 
-Do not proceed until this repository evidence integrity repair is applied, read back, diff-verified, commit-verified, integrated to `main` or otherwise reported as unmerged, and refreshed in Project Files.
+M0 must review the active front after the specification Goal was accepted.
 
-R1 must review the completed parent Goal outcome against the Goal Contract and must not implement, run the Phase Progress Gate, launch P9, promote Game Documentation, or authorize product/project execution.
+M0 must not perform implementation, Unity bootstrap, old-code transfer, Codex product/project execution, Task Master graph creation, Game Documentation promotion, or Phase close inside M0.
 
 ## 2026-05-15 P0 map-alignment repair
 
@@ -316,6 +322,10 @@ Required route:
 Historical route at G1 reset time: `E1_EXECUTION_BRIEF`.
 
 Current route after F0 synthesis formalization and evidence repair: `R1_GOAL_REVIEW_DISTILL`.
+
+Current route after R1 acceptance: `M0_DIRECTION_MAP`.
+
+R1 Phase Progress Gate after `first-technical-nucleus-functional-spec`: the Goal is accepted and may satisfy a closure-relevant Phase surface, but M0 review is required before P9, G0, E1, or implementation route selection.
 
 Required internal gate:
 
