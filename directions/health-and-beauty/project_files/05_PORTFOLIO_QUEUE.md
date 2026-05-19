@@ -21,13 +21,15 @@ Active Goal: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/g
 
 Active Goal title: `Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system`
 
-Next route: `E1_EXECUTION_BRIEF`
+Active Goal status: `blocked_stale_not_basis_valid_pending_decision`
+
+Next route: `S3_DECIDE`
 
 ## Current priority
 
-Prepare E1 execution brief for Project `Питание` setup/installation.
+Decide minimal nutrition loop shape and tool/container policy.
 
-The setup slice must cover Project Instructions, Nutrition Base / Snapshot, Menu Preferences, Active Cycle, Tracking Protocol, Review & Sync Protocol, save/update behavior, and 2-3 dry-runs.
+Project `Питание` is a possible option, not the required implementation. The decision must clarify whether it is kept, repaired, reduced, or superseded before any new execution planning.
 
 ## Superseded / deferred items
 
@@ -35,4 +37,4 @@ The setup slice must cover Project Instructions, Nutrition Base / Snapshot, Menu
 * Old MacroFactor Goal / Execution Pack / Wave 1 are historical evidence only.
 * MacroFactor-centered workflow remains superseded/paused.
 * Full food tracker/API automation/perfect recipe database/huge vault remain deferred.
-* Menu generation alone is not enough; operational setup needs Snapshot / Current Loop / Active Menu starter wiring around the v0 protocol.
+* Menu generation alone is not enough; the next valid step is choosing the minimal loop and tooling policy.

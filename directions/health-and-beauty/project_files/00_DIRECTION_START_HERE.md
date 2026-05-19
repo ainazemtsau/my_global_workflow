@@ -16,19 +16,20 @@ project_file_control:
 
 ## Current pointers
 
-* Current Phase: `Собрать AI-операционный слой питания без тяжёлого трекинга` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
-* Active Goal: Собрать отдельный рабочий ChatGPT Project `Питание` как low-friction nutrition operating system -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
-* Current focus: Prepare E1_EXECUTION_BRIEF for Project `Питание` setup/installation Goal.
-* Next route: `E1_EXECUTION_BRIEF`
-* Direction Map: `08_DIRECTION_MAP.md` is M0-migrated and has a compact state correction; use verified GitHub read-back over stale Project Files cache.
+* Current Phase: `Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
+* Active Goal pointer: `nutrition-project-operational-setup-v0` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
+* Active Goal status: blocked/stale pending decision; it is historical/current input, not an executable target.
+* Current focus: Resolve minimal nutrition loop shape and tool/container policy before execution planning.
+* Next route: `S3_DECIDE`
+* Direction Map: `08_DIRECTION_MAP.md` is the current routing authority after Objective Architecture migration; use verified GitHub read-back over stale Project Files cache.
 
 ## Stale-state correction
 
 Repository read-back confirms `03_AI_NUTRITION_OPERATING_LAYER_V0.md` exists as a design/protocol artifact. It is not evidence that a working ChatGPT Project `Питание` exists, nor that Snapshot / Current Loop / Active Menu sources are installed.
 
-The Phase remains active. Do not route this correction to `P9_PHASE_CLOSE`. G1 has now shaped `nutrition-project-operational-setup-v0`; operational setup and validation are still not performed. The next safe route is `E1_EXECUTION_BRIEF` for the setup/installation Goal:
+The Phase remains active. Do not route this correction to `P9_PHASE_CLOSE`.
 
-`Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system`
+The prior Project `Питание` setup route is stale and must not be launched. The prior Goal/artifact may be used only as historical/current input until `S3_DECIDE` resolves the minimal nutrition loop shape and tool/container policy. Project `Питание` is a possible container/tool, not the required implementation.
 
 ## Default Project Files to load
 

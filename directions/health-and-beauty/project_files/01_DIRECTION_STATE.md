@@ -23,16 +23,17 @@ direction:
   current_phase_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
   active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
   active_goal_title: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
-  current_state_summary: "G1 shaped the Project `Питание` operational setup Goal. Execution brief is required before setup, menu generation, or Project installation."
+  current_state_summary: "Objective Architecture migration corrected the active frontier: the Direction Objective is outcome-first, tooling is optional, and the prior Project `Питание` execution path is blocked as stale pending S3 decision."
   selected_goal_seed: nutrition-project-operational-setup-v0
-  next_route: E1_EXECUTION_BRIEF
-  last_updated: "2026-05-18"
+  selected_frontier_node: d_nutrition_loop_shape_and_tooling
+  next_route: S3_DECIDE
+  last_updated: "2026-05-19"
 
 next_goal_seed: null
 
 active_goal_status:
   goal_id: nutrition-project-operational-setup-v0
-  status: goal_contract_shaped_execution_brief_required
+  status: blocked_stale_not_basis_valid_pending_decision
 
 superseded_phase:
   phase_name: MacroFactor Nutrition AI Support Setup

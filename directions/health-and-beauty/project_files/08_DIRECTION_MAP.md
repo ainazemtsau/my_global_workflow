@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/health-and-beauty/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: m0_migrated_plus_state_correction
-  last_updated: "2026-05-17"
+  freshness: objective_architecture_migration_frontier_repair
+  last_updated: "2026-05-19"
 ```
 
 ## Purpose
@@ -33,23 +33,24 @@ direction_map_status:
   current_initiative_id: body-transformation-20kg-strength-health
   map_confidence: medium
   current_execution_state_confidence: medium
-  last_reviewed_stage: G1_GOAL_SHAPE_formalized
-  migration_status: migrated_with_2026_05_17_state_correction
+  last_reviewed_stage: objective_architecture_migration_review
+  migration_status: migrated_with_2026_05_19_objective_architecture_frontier_repair
   migration_source:
-    mode: post_rollout_m0_migration
+    mode: approved_repository_maintenance_formalization
     direction_path: "directions/health-and-beauty"
-    source_ref: "main"
-    source_commit_or_head_sha: "d170a8c703034ea44285d88a3abaedf36c21b9cd"
+    source_ref: "codex/direction-health-and-beauty"
+    patch_id: health_beauty_objective_architecture_migration_2026_05_19
   corrected_state:
-    summary: "G1 shaped `nutrition-project-operational-setup-v0`; operational Project `Питание` setup and validation are still pending; next route is E1_EXECUTION_BRIEF."
+    summary: "Objective Architecture migration corrected the Direction Objective to outcome-first; AI/ChatGPT/Project/app/storage are optional tools, and the prior Project `Питание` E1 path is stale/blocked pending S3_DECIDE."
     blocks:
       - P9_PHASE_CLOSE
       - claiming_working_project_pitanie_exists
       - claiming_operational_completion
+      - launching_stale_project_pitanie_e1_route
     does_not_block:
-      - G1_GOAL_SHAPE_for_operational_setup_goal
+      - S3_DECIDE_for_minimal_nutrition_loop_shape_and_tooling_policy
       - preserving_current_active_phase
-      - using_v0_artifact_as_setup_input
+      - using_prior_v0_and_goal_artifacts_as_historical_input
     corrected_paths:
       project_file_projection_paths:
         - "directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md"
@@ -73,17 +74,19 @@ current_initiative:
   id: body-transformation-20kg-strength-health
   title: "Похудеть на 20 кг и вывести силу и здоровье на максимальный уровень"
   status: active
-  intent: "Build a hard but sustainable AI-assisted body-transformation operating system covering nutrition, training/cardio, recovery, minimal metrics, and periodic correction while keeping manual routine burden low."
+  objective: "Похудеть примерно на 20 кг и устойчиво вывести здоровье, силу, внешний вид, энергию и качество режима на высокий уровень через лучшие практики и удобные инструменты, без лишней ручной нагрузки."
+  intent: "Create a sustainable, evidence-based body-transformation process covering nutrition first, then training/cardio, recovery, minimal metrics, and periodic correction while keeping manual routine burden low."
+  tooling_policy: "AI/ChatGPT/Project/app/storage are optional tools; use the best available tool mix for the outcome, and do not require everything to live in ChatGPT."
   why_now:
     - "User identified excess weight as the largest current health/beauty problem."
     - "User can sustain a strict process if the process is clear and routine burden is low."
-    - "Current active Phase already targets the main documented constraint: no stable AI nutrition process without heavy tracking."
+    - "Current active Phase already targets the main documented constraint: no stable nutrition process without heavy tracking."
     - "Manual calorie-app logging is considered too high-friction for the desired process."
   success_signal:
-    - "A low-friction AI-assisted process exists and can be run through ChatGPT or approved storage without detailed manual calorie/macro ledger."
-    - "Nutrition layer can create/update menu, advise current day, correct after overeating/off-menu eating, add recipe/prep notes, run day/week summary, and produce durable state update/save output."
+    - "A low-friction, evidence-based nutrition loop exists without detailed manual calorie/macro ledger."
+    - "Project `Питание` is a possible container/tool, not the required implementation."
+    - "Nutrition loop can plan/update menus or defaults, advise current day, correct after overeating/off-menu eating, add recipe/prep notes, run day/week summary, and produce durable state update/save output."
     - "After nutrition layer validation, the Direction can add minimal metrics and a training/cardio/recovery decision slice without expanding into a broad backlog."
-    - "Project `Питание` setup Goal is shaped and ready for E1 execution brief."
 ```
 
 ## Initiative Registry
@@ -95,16 +98,17 @@ initiative_registry:
     status: active
     active_phase_binding:
       phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
-      phase_name: "Собрать AI-операционный слой питания без тяжёлого трекинга"
+      phase_name: "Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга"
       binding_reason: "Nutrition execution without heavy manual tracking is the current documented constraint and directly supports the broader body-transformation initiative."
     active_goal_binding:
       goal_id: nutrition-project-operational-setup-v0
       goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
       goal_name: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
-      binding_reason: "The Goal installs/operationalizes AI Nutrition Operating Layer v0 into separate Project `Питание` before broader integration."
+      status: blocked_stale_not_basis_valid_pending_decision
+      binding_reason: "The Goal remains historical/current input only until S3 decides whether Project `Питание` is kept, repaired, reduced, or superseded."
     current_risk:
-      - "The v0 artifact can be mistaken for an installed working ChatGPT Project; setup evidence is still missing."
-      - "Broad health/fitness optimization can easily become overbuilt unless sliced after the nutrition project setup is validated."
+      - "The prior Project `Питание` setup/E1 path can be mistaken for a basis-valid current route."
+      - "Broad health/fitness optimization can easily become overbuilt unless S3 narrows the nutrition loop and tooling policy first."
 ```
 
 ## Strategy Basis
@@ -121,9 +125,12 @@ strategy_basis:
     - reversibility
     - human_burden_minimization
   candidate_paths_considered:
-    - path_id: shape_operational_setup_goal_then_validate
+    - path_id: decide_minimal_nutrition_loop_shape_and_tooling
       verdict: selected
-      rationale: "Uses the existing v0 protocol artifact as input, keeps the Phase open, and shapes the missing Project `Питание` setup before any close/review claim."
+      rationale: "Repairs the active frontier after user correction, keeps the Phase open, and decides the smallest basis-valid nutrition loop before execution planning."
+    - path_id: execute_existing_project_pitanie_setup_goal
+      verdict: rejected_stale_blocked
+      rationale: "The current saved Project `Питание` E1 route is stale / blocked / not basis-valid after Objective Architecture correction."
     - path_id: restart_full_body_transformation_master_plan
       verdict: rejected_for_now
       rationale: "Too broad and likely to create planning bloat before the current nutrition layer is usable."
@@ -133,15 +140,15 @@ strategy_basis:
     - path_id: research_training_cardio_supplements_first
       verdict: parked
       rationale: "Valuable later, but requires evidence and decisions; should not precede current state reconciliation."
-    - path_id: parallel_training_cardio_before_project_setup
+    - path_id: parallel_training_cardio_before_nutrition_loop_decision
       verdict: parked
-      rationale: "Adds scope before the nutrition operating layer is installed and minimally tested."
-  selected_path_rationale: "Use the current AI Nutrition Operating Layer v0 as the design/protocol input, then shape the setup/installation Goal for Project `Питание`; do not claim operational completion or route to Phase close."
+      rationale: "Adds scope before the nutrition loop shape and tooling policy are basis-valid."
+  selected_path_rationale: "Run S3_DECIDE on minimal nutrition loop shape and tool/container policy; do not claim operational completion or route to Phase close."
   major_assumptions:
     - "User can sustain a strict process if the process is clear and routine work is offloaded."
     - "Low-burden execution is more important than perfect measurement at the current stage."
-    - "Nutrition remains the first practical bottleneck because the active Phase/Goal already targets it and the user identifies weight as the main problem."
-    - "Training/cardio/recovery/supplement decisions need later scoped evidence or decision work after nutrition setup is operational."
+    - "Nutrition remains the first practical bottleneck because the active Phase targets it and the user identifies weight as the main problem."
+    - "Training/cardio/recovery/supplement decisions need later scoped evidence or decision work after the nutrition loop is accepted."
   scope_cuts:
     - "No calendar roadmap."
     - "No broad backlog."
@@ -149,6 +156,7 @@ strategy_basis:
     - "No MacroFactor revival as default."
     - "No supplement/fasting/brain-diet recommendation inside M0."
     - "No P9_PHASE_CLOSE from this correction."
+    - "No stale Project `Питание` E1 launch."
 ```
 
 ## Compact Initiative Graph
@@ -156,17 +164,17 @@ strategy_basis:
 ```yaml
 compact_initiative_graph:
   nodes:
-    - node_id: n1_repair_validate_ai_nutrition_layer_v0
+    - node_id: d_nutrition_loop_shape_and_tooling
       initiative_id: body-transformation-20kg-strength-health
-      label: "Operationalize AI Nutrition Operating Layer v0 through Project setup"
+      label: "Decide minimal nutrition loop shape and tool/container policy"
       type: active_front
-      status: goal_shaped_execution_brief_required
-      purpose: "Shape and complete the missing working ChatGPT Project `Питание` setup before broader body-transformation integration."
+      status: decision_required
+      purpose: "Choose the minimal low-friction nutrition loop and the tool/container mix before shaping or executing any implementation Goal."
       success_signal:
-        - "Project Instructions for `Питание` are drafted or installed."
-        - "Snapshot, Current Loop, and Active Menu starter sources are drafted or missing user inputs are listed."
-        - "Save/update behavior is ready and 2-3 minimal operational scenarios are paper-tested or dry-run."
-        - "The layer supports menu, day advice, exception correction, recipe/prep notes, review/state update, and restart/context refresh flows."
+        - "S3_DECIDE selects whether Project `Питание` is kept, repaired, reduced, or superseded."
+        - "Minimum recurring nutrition inputs and state update rules are clear."
+        - "Tool/storage policy is explicit and outcome-first."
+        - "A repaired/new Goal can be shaped only after the decision."
       human_burden_policy: "No detailed calorie-app ledger; use exception-only tracking and compact state updates."
 
     - node_id: n2_minimal_body_metrics_packet
@@ -207,10 +215,10 @@ compact_initiative_graph:
       purpose: "Available only if explicitly reshaped later; not default due low-friction constraint and superseded Phase status."
 
   edges:
-    - from: n1_repair_validate_ai_nutrition_layer_v0
+    - from: d_nutrition_loop_shape_and_tooling
       to: n2_minimal_body_metrics_packet
       relation: enables
-      reason: "A validated nutrition layer needs a minimal state input format for ongoing correction."
+      reason: "An accepted nutrition loop needs a minimal state input format for ongoing correction."
     - from: n2_minimal_body_metrics_packet
       to: n3_training_cardio_recovery_decision_slice
       relation: informs
@@ -229,12 +237,12 @@ compact_initiative_graph:
 
 ```yaml
 active_front:
-  primary_node: n1_repair_validate_ai_nutrition_layer_v0
-  reason: "This is the smallest credible path because it preserves the v0 protocol artifact, fills the missing Project `Питание` setup, and avoids a broad restart."
+  primary_node: d_nutrition_loop_shape_and_tooling
+  reason: "This is the smallest credible path because it repairs the stale Project `Питание` route, preserves useful prior artifacts as input, and avoids a broad restart."
   current_route_binding:
-    route_state: goal_shaped_to_E1_EXECUTION_BRIEF
-    route: E1_EXECUTION_BRIEF
-    rule: "Prepare execution brief for Project `Питание`; do not route to P9_PHASE_CLOSE before setup/validation evidence."
+    route_state: decision_required_before_execution_planning
+    route: S3_DECIDE
+    rule: "Decide minimal nutrition loop shape and tool/container policy before any repaired/new Goal or execution brief."
   parallel_candidate_nodes: []
   parked_nodes:
     - n3_training_cardio_recovery_decision_slice
@@ -247,9 +255,10 @@ active_front:
 
 ```yaml
 horizon_slice:
-  statement: "Do not jump to a perfect full-body plan. First install/setup the low-friction AI nutrition layer in Project `Питание` and dry-run it; then define minimal body metrics; then run one evidence-backed training/cardio/recovery decision slice; then integrate into a daily/weekly AI operator."
+  id: h_low_friction_evidence_based_nutrition_loop
+  statement: "Do not jump to a perfect full-body plan. First decide a low-friction evidence-based nutrition loop and tool/container policy; then shape a repaired/new implementation Goal; then define minimal body metrics; then run one evidence-backed training/cardio/recovery decision slice; then integrate into a daily/weekly operator."
   node_ids:
-    - n1_repair_validate_ai_nutrition_layer_v0
+    - d_nutrition_loop_shape_and_tooling
     - n2_minimal_body_metrics_packet
     - n3_training_cardio_recovery_decision_slice
     - n4_integrated_daily_weekly_ai_operator
@@ -290,8 +299,9 @@ map_update_policy:
     - replacing_phase_or_goal_state
     - inventing_downstream_route_from_conflicted_state
   next_update_triggers:
-    - "After the Project `Питание` setup/installation Goal is shaped."
-    - "After AI Nutrition Operating Layer v0 is installed/setup, returned for repair, or explicitly blocked."
+    - "After S3_DECIDE on nutrition loop/tooling policy."
+    - "After a repaired/new nutrition implementation Goal is shaped."
+    - "After the accepted nutrition loop is installed/setup, returned for repair, or explicitly blocked."
     - "After a scoped training/cardio/recovery evidence or decision slice is completed."
 ```
 

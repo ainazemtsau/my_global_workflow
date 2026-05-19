@@ -17,15 +17,15 @@ project_file_control:
 ```yaml
 current_phase:
   state: active
-  phase_name: "Собрать AI-операционный слой питания без тяжёлого трекинга"
+  phase_name: "Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга"
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
-  critical_constraint: "Нет устойчивого AI-процесса питания: меню, рецепты, отклонения, дневные коррекции, долгосрочные выводы и сохранение состояния не связаны в один рабочий слой. MacroFactor/detailed tracking создаёт лишний friction, а один длинный ChatGPT-chat со временем деградирует."
-  minimum_outcome: "Есть AI Nutrition Operating Layer v0: state packet, active menu object, prompt modes, exception correction, recipe/prep builder, review/state update protocol, storage rules, restart/context refresh rules, and sample flows."
-  validation_signal: "Система проходит типовые сценарии: составить/обновить меню, дать совет по текущему дню, скорректировать остаток дня после переедания, добавить рецепт/prep note, сделать day/week summary и обновить persistent state."
+  critical_constraint: "Нет устойчивого, низкофрикционного процесса питания: форма цикла, минимальные входные данные, правила коррекции, хранение состояния и контейнер выполнения ещё не выбраны после Objective Architecture correction."
+  minimum_outcome: "Принято решение о минимальном nutrition loop shape и tool/container policy: что ведём, где ведём, как обновляем состояние, какая роль у AI/ChatGPT/Project/app/storage, и какой следующий Goal можно безопасно сформировать или repaired."
+  validation_signal: "S3_DECIDE выбирает basis-valid route: сохранить, починить, уменьшить или заменить Project `Питание` setup path; только после этого возможна новая/исправленная Goal shape и execution planning."
   active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
   active_goal_title: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
-  goal_state: goal_contract_shaped_execution_brief_required
-  next_route: E1_EXECUTION_BRIEF
+  goal_state: blocked_stale_not_basis_valid_pending_decision
+  next_route: S3_DECIDE
   next_goal_seed: null
   phase_closeable: false
 ```
@@ -35,6 +35,7 @@ current_phase:
 * Active Goal unresolved: `yes`
 * Active Goal shaped: `yes`
 * Phase can close now: `no`
-* Current blocker: E1 execution brief is required; Project `Питание` is still not installed or validated.
+* Current blocker: the stale Project `Питание` E1 route is not basis-valid after user correction; S3 must decide the minimal nutrition loop shape and tool/container policy first.
+* Tooling policy: AI/ChatGPT/Project/app/storage may be tools, not the objective.
 * Superseded prior Phase: `MacroFactor Nutrition AI Support Setup`
 * Correction note: AI Nutrition Operating Layer v0 is a design/protocol artifact, not proof of operational completion.
