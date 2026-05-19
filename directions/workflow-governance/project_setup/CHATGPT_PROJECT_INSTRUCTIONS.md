@@ -35,9 +35,9 @@ Exact stage prompts are required only when executing that stage or auditing exac
 
 ## Objective architecture / basis-validity
 
-Material strategic work must be basis-valid, not only route-valid, according to `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`.
+Material strategic work must be basis-valid, not only route-valid, and material solution-shape selection must be solution-minimal according to `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`.
 
-Use Horizon Acceptance Proof, Active Frontier, and Next Action Proof when the next work depends on strategic choice, unresolved surfaces, research/audit launch, implementation readiness, or Direction Map state.
+Use Horizon Acceptance Proof, Active Frontier, Next Action Proof, and Minimum Sufficient Solution Proof when the next work depends on strategic choice, unresolved surfaces, research/audit launch, implementation readiness, solution shape, or Direction Map state.
 
 ## Cross-Direction rollout
 

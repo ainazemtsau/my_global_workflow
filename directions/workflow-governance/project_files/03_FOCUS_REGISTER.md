@@ -22,7 +22,7 @@ Bootstrap a durable Workflow Governance Direction for Workflow Steward Audit wor
 | --- | --- | --- |
 | Runtime contract audit | ready | Use `evals/WORKFLOW_EVAL_SUITE.md`. |
 | Lifecycle logic audit | ready | Focus on phase, goal, review, closure, and routing behavior. |
-| Objective architecture / basis-validity hardening | active | Implement and validate Horizon Acceptance Proof, Active Frontier, and Next Action Proof. |
+| Objective architecture / basis-validity hardening | active | Implement and validate Horizon Acceptance Proof, Active Frontier, Next Action Proof, and Minimum Sufficient Solution Proof. |
 | UX/human burden audit | ready | Identify unnecessary wall-of-text, unclear approvals, or manual burden. |
 | Context hygiene audit | ready | Check default loads, prompt request rules, and cross-Direction boundaries. |
 | Real usage friction audit | ready | Capture friction from actual Direction usage. |
