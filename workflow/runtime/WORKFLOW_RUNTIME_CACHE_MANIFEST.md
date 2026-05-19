@@ -133,7 +133,7 @@ workflow/stage_registry/STAGE_REGISTRY.md
 docs/CHATGPT_PROJECT_SETUP.md
 ```
 
-Objective Architecture Model changes affect horizon/frontier/next-action selection behavior and require Project Files cache refresh review for all active Direction Projects.
+Objective Architecture Model changes affect horizon/frontier/next-action and solution-shape selection behavior and require Project Files cache refresh review for all active Direction Projects.
 
 If any shared workflow file changes, Codex must report Project Files / Project Instructions refresh requirements for all active Direction Projects.
 

@@ -12,7 +12,7 @@ artifact_control:
 
 ## Purpose
 
-Regression cases for the Objective Architecture Model, Horizon Acceptance Proof, Active Frontier, and Next Action Proof.
+Regression cases for the Objective Architecture Model, Horizon Acceptance Proof, Active Frontier, Next Action Proof, and Minimum Sufficient Solution Proof.
 
 ## Cases
 
@@ -121,6 +121,82 @@ Input pattern:
 Expected:
 - Each Direction uses its own root objective, horizon, frontier, and proof.
 - No global objective imposed across Directions.
+
+### OA-011 — user examples are not requirements
+
+Input pattern:
+- User gives examples of possible implementation.
+- User says or implies examples are just thoughts, possible approaches, or initial ideas.
+
+Expected:
+- G1/E1 classify examples as `nonbinding_idea` unless explicitly marked as requirements.
+- At least one considered solution shape is not structurally derived from the user's examples.
+- No component is accepted solely because the user mentioned it.
+
+### OA-012 — burden is a hard constraint, not a score
+
+Input pattern:
+- User says the main requirement is low effort, low friction, speed, simplicity, or "not геморно".
+- Proposed solution adds recurring templates, logs, reviews, reports, multiple chats, or manual formatting.
+
+Expected:
+- Human Burden Budget is required.
+- Higher-burden solution fails unless it prevents a concrete safety, evidence, persistence, or correctness failure that the lower-burden option cannot handle.
+- Candidate scoring cannot compensate for failed burden gate.
+
+### OA-013 — component without necessity is parked or cut
+
+Input pattern:
+- Proposed solution includes an extra template, persistent artifact, report, workstream, role, or chat split.
+- Removing it does not break a current acceptance predicate.
+
+Expected:
+- Component Necessity Test fails.
+- Component is cut or parked with activation trigger.
+- It cannot remain as "probably useful later."
+
+### OA-014 — minimality cannot destroy completeness
+
+Input pattern:
+- Scope cutting leaves only a fragment.
+- Fragment does not produce one complete user-visible loop.
+
+Expected:
+- Overcut Guard fails.
+- Workflow selects a thin complete loop, not a micro-task.
+- `solution_minimal` cannot be true while `complete_enough` is false.
+
+### OA-015 — simple baseline must be considered
+
+Input pattern:
+- Multiple implementation paths exist.
+- Proposed solution jumps directly to structured workflow, automation, or multi-agent/process design.
+
+Expected:
+- Workflow considers a no-new-system/manual/lightweight baseline before structured or automated variants.
+- Rejection of the simpler baseline states the concrete failure it cannot handle.
+
+### OA-016 — future-proofing requires proof
+
+Input pattern:
+- Proposed solution adds flexibility, persistence, automation, reporting, or structure for possible future use.
+- Current acceptance predicates do not require it.
+
+Expected:
+- YAGNI-style gate rejects, cuts, or parks the future-proofing component.
+- Component can be kept only if current acceptance, safety, evidence, persistence, or correctness requires it.
+
+### OA-017 — low-burden nutrition-like planning case
+
+Input pattern:
+- User wants menu planning and food/intake tracking with minimal effort.
+- Proposed solution adds multiple templates, heavy reporting, or complex process structure.
+
+Expected:
+- Minimum Complete Outcome is defined as one usable loop, such as weekly menu proposal -> low-burden intake feedback -> weekly summary -> adjusted next menu.
+- Human burden is treated as dominant constraint unless safety or medical accuracy overrides it.
+- Photos/notes may be accepted as lower-burden input if they satisfy the current loop.
+- Heavy templates, detailed reports, or multi-chat structure are cut or parked unless Component Necessity Test proves current need.
 
 ## End-of-file marker
 

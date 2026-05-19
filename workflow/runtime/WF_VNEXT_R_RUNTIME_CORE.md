@@ -15,6 +15,10 @@ One ChatGPT Project = one Direction.
 
 Material strategic work must be basis-valid, not only route-valid. Horizon selection, active frontier selection, Goal selection, and material audit/research/execution launch must follow `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the next work depends on strategic choice, unresolved surfaces, external evidence, old-source audit, implementation readiness, or Direction Map state.
 
+Material solution-shape selection must be solution-minimal, not only basis-valid. Goal shaping, execution planning, architecture/process selection, artifact/template creation, workstream topology, chat splitting, and Codex execution envelopes must use `Minimum Sufficient Solution Proof` from `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the chosen form of solution is material, when low burden is a stated constraint, when multiple implementation paths exist, or when user-provided examples may anchor the solution shape.
+
+Basis-valid work may still be rejected when the selected solution shape is overbuilt, undercut, anchored to nonbinding user examples, or violates the dominant constraint.
+
 GitHub repository is the source of truth.
 
 Direction project files are GitHub repository runtime files. `WORKFLOW_SOURCE_OF_TRUTH.md` is the active source-of-truth marker.
@@ -317,9 +321,15 @@ Router must check:
 *   Is the needed stage prompt available?
 *   Is there blocking missing context?
 *   Is material strategic, audit, research, planning, or execution work backed by a basis-valid `next_action_proof`?
+*   Does the next material action choose solution shape, HOW, architecture, process, templates, artifacts, workstreams, chat splits, or recurring user actions?
+*   Did the user state low burden, low friction, speed, simplicity, or 'not геморно' as a primary constraint?
+*   Are user-provided implementation examples present and potentially anchoring the plan?
+*   If yes, is Minimum Sufficient Solution Proof inherited, proven, or explicitly not required?
 *   What is the smallest safe route?
 
 Router must distinguish `route_valid` from `basis_valid`. Before launching material strategic, audit, research, planning, or execution work, Router must use or request a `next_action_proof` according to `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`. If basis-validity is missing or false, Router must route to M0_DIRECTION_MAP, B1_PROBLEM, Context Request, Human Decision, or Stop rather than launching the material stage.
+
+When solution-shape proof is required but missing or failed, Router must not launch material HOW/planning/execution. It must route to the smallest safe correction: B1_PROBLEM, S3_DECIDE, Context Request, Human Decision, Stop, or a stage allowed by `STAGE_REGISTRY.md` that can repair the proof.
 
 Router default routing:
 
@@ -1408,6 +1418,9 @@ Mapping:
 Shared runtime core changed
   -> workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 
+Objective Architecture Model changed
+  -> workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+
 ```
 
 Fresh file read-back / diff verification / commit verification wins over stale attached Project files.
@@ -1438,9 +1451,11 @@ Breaking changes require schema version bump, alias, or adapter.
 
 ## 20\. Route selection rules
 
-Default route = smallest safe route.
+Default route = smallest safe route that preserves the minimum complete outcome.
 
 A registry-valid route is necessary but not sufficient. For material next actions, the selected action must also be basis-valid: linked to the Direction objective, accepted horizon, active frontier, prerequisites, concrete target, acceptance/evidence path, and stage semantics.
+
+For material solution-shape decisions, the selected route must also be solution-minimal or explicitly not require solution-shape proof. Smallest safe route does not mean fragmenting the Goal below one complete usable loop.
 
 Routes:
 
@@ -1501,6 +1516,10 @@ The workflow must compensate for:
 *   overplanning small work;
 *   choosing interesting work instead of highest-leverage work;
 *   failing to cut scope aggressively enough;
+*   treating user-provided implementation examples as hypotheses unless explicitly marked as requirements;
+*   choosing a heavier process because it looks more systematic rather than because it passes Component Necessity Test;
+*   optimizing for theoretical completeness while violating the user's stated low-burden constraint;
+*   cutting scope below one complete usable loop;
 *   stale documentation polluting current context;
 *   missing documentation updates after Goal/Phase completion;
 *   creating hard-to-use handoffs between ChatGPT and Codex.
