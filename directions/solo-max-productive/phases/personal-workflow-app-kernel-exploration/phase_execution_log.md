@@ -103,3 +103,34 @@ execution_log_entry:
     product_execution_graph_created: false
     old_kernel_goal_reactivated: false
 ```
+
+## 2026-05-19 — Objective Architecture Migration Formalization: EXOCORTEX Core Foundation
+
+Status: approved for repository maintenance apply/read-back.
+
+User approved and formalized the Objective Architecture migration for Solo Max Productive.
+
+Accepted Direction Objective:
+Build EXOCORTEX as a persistent personal AI brain / external-brain application that preserves memory, compiles context, uses tools and workspace surfaces, learns from outcomes, maintains Reality Alignment, and compounds with future LLM improvements.
+
+Accepted Active Horizon:
+An accepted EXOCORTEX Core Foundation exists: a product-level definition of the expandable core that is not just chat, but a persistent personal AI brain substrate with memory/context persistence, model interoperability, tool/action extensibility, interaction/process loops, workspace surfaces, learning from outcomes, Reality Alignment, and clear boundaries for the first buildable foundation.
+
+Accepted Objective Graph:
+OBJ-EXOCORTEX-AI-BRAIN -> INIT-EXOCORTEX-PERSISTENT-PERSONAL-AI-BRAIN -> HORIZON-EXOCORTEX-CORE-FOUNDATION -> NODE-DEFINE-CORE-FOUNDATION -> GOAL-G1-EXOCORTEX-PRODUCT-FOUNDATION -> REVIEW-R1-FOUNDATION-AND-PHASE-GATE -> DECISION-FIRST-BUILDABLE-FOUNDATION-BOUNDARY -> PARKED-EXPANSIONS.
+
+Accepted Active Frontier:
+Ready node: NODE-DEFINE-CORE-FOUNDATION.
+Blocked nodes: RUN-G1-GOAL-SHAPE until exact G1 prompt, EXOCORTEX concept source, and refreshed Project Files are available; REVIEW-R1-FOUNDATION-AND-PHASE-GATE until Goal output exists; DECISION-FIRST-BUILDABLE-FOUNDATION-BOUNDARY until Core Foundation is accepted.
+Premature/parked nodes: architecture, stack, implementation, prototypes, UI/workspace mockup, Event Ledger prototype, memory model prototype, external research sweep, Codex product graph, full EXOCORTEX application.
+
+Next Action Proof:
+Proposed stage after migration repair: G1_GOAL_SHAPE.
+Selected frontier node: NODE-DEFINE-CORE-FOUNDATION.
+basis_valid: true.
+route_valid: true.
+launch_allowed: false.
+Launch blockers: exact G1_GOAL_SHAPE prompt unavailable in current run; EXOCORTEX_CONCEPT_SEED_FULL.md required; Project Files cache must be refreshed after repository maintenance.
+
+Repository maintenance scope:
+Sync Direction Project Files 00, 01, 02, 03, 04, 05, 06, and 08 to the accepted EXOCORTEX Core Foundation framing. Do not change 07_PHASE_MEMORY_INDEX.md. Do not run G1 or product execution.

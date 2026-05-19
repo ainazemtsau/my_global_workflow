@@ -9,8 +9,8 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/02_CURRENT_PHASE.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-14"
-  refresh_source: "P0-2026-05-14-exocortex-app-foundation-repair"
+  last_refresh_at: "2026-05-19"
+  refresh_source: "OA-MIGRATION-SMP-EXOCORTEX-CORE-FOUNDATION-2026-05-19"
 
 current_phase:
   state: active
@@ -19,24 +19,23 @@ current_phase:
   repair_mode: repair_existing_phase_path_in_place
   previous_phase_name: Personal Workflow App Kernel Exploration
   path_note: "Legacy folder slug retained temporarily; do not create duplicate active Phase folder unless later explicitly approved."
-  critical_constraint: "The EXOCORTEX concept is too broad and implementation-attractive to move directly into architecture, stack choice, or product execution. The current bottleneck is converting the accepted future-app vision into a bounded product/application foundation that can guide the first Goal without collapsing back into current-workflow replacement, full roadmap, or speculative build planning."
-  minimum_outcome: "A repaired active Phase exists with clear objective, boundaries, closure criteria, and first Goal candidate for EXOCORTEX Product Foundation Definition."
+  critical_constraint: "The EXOCORTEX concept is broad and implementation-attractive. The current bottleneck is converting the accepted EXOCORTEX vision into an expandable Core Foundation that can guide the first Goal without drifting into architecture, stack choice, product execution, full roadmap, or speculative build planning."
+  minimum_outcome: "A repaired active Phase exists with clear objective, boundaries, closure criteria, and first Goal candidate for EXOCORTEX Core Foundation / Product Foundation Definition."
   validation_signal: "G1_GOAL_SHAPE can shape EXOCORTEX Product Foundation Definition without re-litigating the Phase target, without continuing the old kernel-proof Goal, and without drifting into implementation, stack selection, full architecture, broad roadmap execution, or product/Codex execution."
 
 phase_intent:
-  summary: "Build the foundation for EXOCORTEX: a future personal AI application / external brain with memory, tools, working environment, learning loops, Reality Alignment, and progressive autonomy."
+  summary: "Define EXOCORTEX as a persistent personal AI brain substrate / external-brain application with memory, context, tools, workspace surfaces, outcome learning, Reality Alignment, and future LLM compounding."
   nuance:
-    - "The current ChatGPT + GitHub + Codex workflow remains the working construction system."
-    - "The user will not switch to EXOCORTEX until it is radically better and sufficiently complete."
-    - "The EXOCORTEX document is required concept input for G1 foundation shaping."
-    - "The first repaired Goal should define product/application foundation, not execute implementation."
-    - "Future LLMs should amplify the EXOCORTEX substrate rather than replace it."
-    - "Max Vision remains large; P0/G1 must cut scope into a buildable foundation without pretending the final app is small."
+    - "The EXOCORTEX document is required concept input for G1 Core Foundation shaping."
+    - "The first repaired Goal should define Core Foundation, not execute implementation."
+    - "Core Foundation must cover memory/context persistence, model interoperability, tools/actions extensibility, interaction/process loops, workspace surfaces, learning from outcomes, Reality Alignment, and the first buildable foundation boundary."
+    - "Future LLMs should amplify the EXOCORTEX substrate."
+    - "Max Vision remains large; G1 must define a buildable foundation without pretending the final app is small."
 
 phase_closure_contract:
   closure_criteria:
-    - criterion: "A reviewed EXOCORTEX Product Foundation Definition exists."
-      evidence_required: "Accepted Goal output or Goal review showing target system, principles, core loop, subsystem map, non-goals, validation criteria, and first buildable foundation boundary."
+    - criterion: "A reviewed EXOCORTEX Core Foundation Definition exists."
+      evidence_required: "Accepted Goal output or Goal review showing core substrate, memory/context persistence, model interoperability, tools/actions extensibility, interaction/process loops, workspace surfaces, learning from outcomes, Reality Alignment, non-goals, validation criteria, and first buildable foundation boundary."
     - criterion: "The foundation explicitly separates Max Vision from Min Proof / buildable foundation."
       evidence_required: "Clear not-now boundaries for implementation, stack, full architecture, omnichannel expansion, automation buildout, and UI surface proliferation."
     - criterion: "The old proof/replacement framing is durably superseded."
@@ -48,7 +47,8 @@ phase_closure_contract:
       - goal_id: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
         name: EXOCORTEX Product Foundation Definition
         status: pending_G1_GOAL_SHAPE
-        evidence_required: accepted foundation definition and R1 review/distill result
+        meaning: EXOCORTEX Core Foundation Definition
+        evidence_required: accepted Core Foundation definition and R1 review/distill result
     optional_expansion:
       - candidate_id: EXOCORTEX-TECHNICAL-ARCHITECTURE-MAP
         status: deferred_optional
@@ -79,11 +79,17 @@ phase_closure_contract:
 
 scope_boundaries:
   in_scope:
-    - EXOCORTEX target system definition
+    - EXOCORTEX Core Foundation definition
     - product/application principles
-    - core loop definition
-    - conceptual subsystem map
-    - buildable foundation boundary
+    - core substrate definition
+    - memory/context persistence
+    - model interoperability
+    - tools/actions extensibility
+    - interaction/process loops
+    - workspace surfaces
+    - learning from outcomes
+    - Reality Alignment
+    - first buildable foundation boundary
     - non-goals
     - validation criteria
     - closure criteria
@@ -115,7 +121,7 @@ guard_state:
   superseded_goal: "Personal Workflow App Kernel Min Proof"
   superseded_goal_status: superseded_provenance_not_executable
   superseded_goal_path: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof"
-  proposed_first_goal_after_repair: "EXOCORTEX Product Foundation Definition"
+  proposed_first_goal_after_repair: "EXOCORTEX Product Foundation Definition / EXOCORTEX Core Foundation Definition"
   proposed_first_goal_status: approved_for_G1_GOAL_SHAPE
   next_route: G1_GOAL_SHAPE
   route_note: "Launch G1 after repository patch apply/read-back and Project Files cache refresh."
@@ -126,10 +132,10 @@ guard_state:
 
 The current Phase has been repaired in place as `EXOCORTEX App Foundation`.
 
-The target is not current-workflow convenience replacement. The target is a future EXOCORTEX application / personal external brain.
+The target is EXOCORTEX Core Foundation for a persistent personal AI brain / external-brain application.
 
-The repaired Phase keeps the scope bounded: foundation definition first, no implementation, no stack choice, no full architecture, no Task Master/Codex product execution graph.
+The repaired Phase keeps the scope bounded: Core Foundation definition first, no implementation, no stack choice, no full architecture, no Task Master/Codex product execution graph before G1.
 
 ## Почему это не повтор прошлой фазы
 
-Предыдущая рамка спрашивала, должен ли текущий ChatGPT + GitHub + Codex workflow эволюционировать в custom app/kernel или replacement MVP. Новая рамка принимает EXOCORTEX как будущую целевую application / personal external brain, а текущий workflow оставляет construction workflow до радикального превосходства и готовности EXOCORTEX.
+Новая рамка определяет расширяемый EXOCORTEX Core Foundation: устойчивую основу личного AI brain, а не implementation, prototype или полную architecture. G1 должен зафиксировать границы, критерии проверки и первый buildable foundation boundary.
