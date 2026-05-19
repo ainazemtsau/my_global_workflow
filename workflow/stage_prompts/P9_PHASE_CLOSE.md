@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-15"
 
-# P9\_PHASE\_CLOSE — Phase Close Final Runtime Prompt
+# P9\_PHASE\_CLOSE — Phase Close Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -93,7 +93,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 P9 must preview closure decisions and documentation implications before durable documentation updates. Durable doc changes require approval unless Compact Direct Result mode is safe and no material state change is introduced.
 
@@ -105,7 +105,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/P9_PHASE_CLOSE.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results and launches must use the canonical transport templates from `workflow/transport/*.md` with stage-specific fields preserved below.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -537,73 +537,17 @@ Use exception-only QA. If no exceptions, write:
 
 *   none
 
-## 8\. Stage Result Packet contract
+## 8\. Transport obligations
 
-Always include this packet. Use explicit `unknown`, `none`, or empty lists when information is not available.
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these P9-specific fields/content in the relevant canonical packet when formalization is approved:
 
-Stage Result Packet:
+- Direction, active project, Phase, active Goal context, invocation source, upstream stage, source evidence, and read-back evidence state;
+- closure decision, closure verdict, Phase closure status, closure route reason, blockers, and Phase closure gate result;
+- required-goal/review/read-back completion checks, archival/canon candidate flags, project-files conflict state, documentation drift, docs to refresh, repository patch state, files touched, and forbidden-scope confirmation;
+- next action type and exactly one canonical next route artifact: registry-valid Stage Launch, Context Request, Human Decision, or Stop;
+- compatibility aliases tolerated and Kernel QA exceptions.
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close source\_path: workflow/stage\_prompts/P9\_PHASE\_CLOSE.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: ROUTER\_STAGE\_LAUNCHER | R0\_RECOVERY\_CLOSE | none route\_reason: direction: id: name: active\_project: phase: id: name: status\_before: status\_after: goal\_context: active\_goal\_id: active\_goal\_title: active\_goal\_status: invocation: launched\_by: launch\_reason: upstream\_stage: source\_evidence: r1\_return\_state: r1\_review\_verdict: r1\_closure\_eligibility: goal\_closed: phase\_closure\_eligible: direct\_execution\_performed: readback\_evidence\_state: project\_files\_state: unresolved\_context\_requests: - item: closure\_decision: closure\_verdict: closed | closure\_ineligible\_route\_back | blocked\_needs\_context | blocked\_conflict | human\_decision\_required | no\_closure\_needed | stop\_recovery\_required phase\_closure\_status: closed | remains\_active | not\_eligible | needs\_context | conflict | no\_action | stopped closure\_route: reason: blockers: - blocker: phase\_closure\_gate: gate\_result: eligible | not\_eligible | needs\_context | conflict | not\_applicable all\_required\_goals\_complete: true | false | unknown all\_required\_reviews\_complete: true | false | unknown all\_required\_readbacks\_fresh: true | false | unknown archival\_allowed: true | false canon\_candidate\_allowed: true | false common\_canon\_allowed: false project\_files\_conflict: true | false documentation: documentation\_drift\_found: true | false docs\_to\_refresh: - item: changed\_files\_context\_refresh\_required_after_approval: true | false patch: repository\_patch\_state: none | proposed files\_touched: - item: forbidden\_scope\_preserved: true | false next\_action: action\_type: next\_launch | context\_request | human\_decision | stop next\_stage: route\_reason: launch\_card\_ref: context\_request\_ref: human\_decision\_ref: stop\_ref: compatibility: aliases\_used: - alias: unknown\_fields\_tolerated: true kernel\_qa: exceptions: - item: created\_at:
-
-## 9\. Repository Patch contract
-
-After approval/formalization, always include a Repository Patch. If no patch is safe, use `state: none`.
-
-Repository Patch:
-
-repository\_patch: state: none | proposed reason: target\_scope: notes\_to\_create\_or\_update: - path: title: action: create | replace\_note | replace\_section | append\_section | update\_header | mark\_stale status: content\_summary: validation\_anchors: - anchor: notes\_to\_mark\_stale: - path: reason: replacement\_pointer: do\_not\_touch: - path: reason: readback\_requirements: expected\_notes: - path: expected\_headers: - field: expected\_content\_anchors: - path: anchors: - text: forbidden\_changes: - path\_or\_pattern: reason:
-
-For blocked or missing-context closure, default to:
-
-repository\_patch: state: none
-
-unless a safe, explicit maintenance/log patch is authorized and exact paths are available.
-
-## 10\. Execution Log Entry contract
-
-Always include:
-
-execution\_log\_entry: timestamp: stage\_id: P9\_PHASE\_CLOSE direction: phase: active\_goal: closure\_verdict: route: evidence\_checked: - item: blockers: - item: documentation\_drift\_found: true | false docs\_to\_refresh: - item: repository\_patch\_state: none | proposed notes\_touched: - item: forbidden\_scope\_confirmation: no\_common\_canon: true | false no\_cross\_direction\_rollout: true | false no\_stage\_prompt\_edits: true | false no\_task\_master\_graph: true | false no\_archive\_history\_loading: true | false no\_source\_of\_truth\_security\_privacy\_tool\_binding\_changes: true | false next\_action:
-
-## 11\. Documentation Maintenance Gate contract
-
-Always include:
-
-documentation\_maintenance\_gate: required_after_approval: true | false reason: documentation\_drift\_found: true | false stale\_or\_conflicting\_sources: - item: docs\_to\_refresh: - file\_or\_note: reason: source\_of\_truth: urgency: immediate | before\_next\_runtime\_action | routine | none refresh\_required\_before\_next\_runtime\_action_after_approval: true | false changed\_files\_context\_refresh\_required_after_approval: true | false
-
-## 12\. Changed Files / Context Refresh List contract
-
-Always include:
-
-changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true | false files: - file: reason: source\_of\_truth: required\_before\_next\_runtime\_action_after_approval: true | false
-
-## 13\. Next route artifact contracts
-
-Emit exactly one next route artifact.
-
-### A. Next Launch Card
-
-Use when safe to launch another stage.
-
-next\_launch\_card: workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: name: source\_path: workflow/stage\_prompts/<STAGE\_ID>.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/<STAGE\_ID>.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: direction: id: name: active\_project: phase: id: name: status: goal: id: title: status: launch\_reason: required\_context: - item: evidence\_to\_load: - item: forbidden\_actions: - item: expected\_output: - item: route\_source: stage\_id: P9\_PHASE\_CLOSE closure\_verdict:
-
-### B. Context Request Card
-
-Use when blocking evidence is missing.
-
-context\_request\_card: workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close reason: missing\_context: - item: evidence\_needed: - item: forbidden\_until\_resolved: - item: resume\_route: next\_stage: condition: priority: blocking smallest\_safe\_next\_step:
-
-### C. Human Decision Card
-
-Use when safe progress requires explicit human judgment.
-
-human\_decision\_card: workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close decision\_needed: options: - option: consequence: recommended\_option: reason: forbidden\_until\_decided: - item:
-
-### D. Stop Card
-
-Use when state is unsafe and no route can be generated.
-
-stop\_card: workflow\_packet: 1 type: stop schema: stop.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close stop\_reason: unsafe\_conditions: - item: required\_recovery: - item: recommended\_route: R0\_RECOVERY\_CLOSE | human\_decision | context\_request | none
+For blocked or missing-context closure, default to no repository patch unless a safe, explicit maintenance/log patch is authorized and exact paths are available. Context Requests should name exact missing closure evidence. Human Decisions should be used only when closure/progression requires explicit judgment. Stop should state unsafe conditions and minimum recovery context without inventing an unavailable stage launch.
 
 ## 14\. Anti-overbuild rules
 

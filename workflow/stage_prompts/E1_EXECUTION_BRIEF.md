@@ -1,4 +1,4 @@
-# 07.4 E1_EXECUTION_BRIEF - Execution Brief
+# E1_EXECUTION_BRIEF - Execution Brief Runtime Stage Prompt
 artifact_control:
   artifact_name: "E1_EXECUTION_BRIEF Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -101,7 +101,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 E1 launch cards must include formalization_control. If E1 routes to F0 with artifact creation, it must state whether artifact formalization is already approved. If it is not approved, F0 must first return a Reviewable Brief / Work Product Preview rather than a write-ready patch.
 
@@ -121,7 +121,7 @@ You consume one shaped Goal Contract and Goal Working Context from `G1_GOAL_SHAP
 
 ## 0.1 Codex Role Separation
 
-Codex product/project execution is not performed by E1. E1 may prepare the execution brief and route to F0, C1, or C2 only when the corresponding prerequisites are explicit. Codex product/project execution remains blocked until project/tool bindings, execution scope, validation, permissions, and the correct execution route are verified.
+Codex product/project execution is not performed by E1. E1 may prepare the execution brief and route to F0, U1, or C1 only when the corresponding prerequisites are explicit and registry-valid. Codex product/project execution remains blocked until project/tool bindings, execution scope, validation, permissions, and the correct execution route are verified.
 
 Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize implementation, project code changes, or bypass C1/C2 execution gates.
 
@@ -397,9 +397,9 @@ Branch launch cards must target existing registry-valid stages only:
 D1_DEEP_RESEARCH
 A1_AUDIT
 F0_FAST_DIRECT
+U1_USER_GUIDED_EXECUTION
 S3_DECIDE
 C1_CODEX_GRAPH_PLAN
-C2_CODEX_EXECUTE
 B1_PROBLEM
 ```
 
@@ -515,7 +515,7 @@ When the shaped Goal includes `map_binding` or Direction Map node context, use t
 - `evidence_node` -> `D1_DEEP_RESEARCH` or `research_before_execution`.
 - `decision_node` -> `S3_DECIDE`, `D1_DEEP_RESEARCH`, `A1_AUDIT`, or decision-map topology.
 - `audit/risk node` -> `A1_AUDIT`.
-- `build_node` -> `F0_FAST_DIRECT`, `C1_CODEX_GRAPH_PLAN`, or `C2_CODEX_EXECUTE` only when scope, acceptance, and context are ready.
+- `build_node` -> `F0_FAST_DIRECT`, `U1_USER_GUIDED_EXECUTION`, or `C1_CODEX_GRAPH_PLAN` only when scope, acceptance, and context are ready.
 - `parallel_safe nodes` -> bounded parallel branches plus parent synthesis.
 
 Preserve the existing research gate and Fast Direct entry guard. If map context conflicts with those gates, choose the safer gate result and explain the route.
@@ -597,16 +597,6 @@ Choose `C1_CODEX_GRAPH_PLAN` when any are true:
 *   Validation evidence must be gathered across tools.
 *   Target paths/actions are not exact enough for direct Codex execution.
 
-#### Route: `C2_CODEX_EXECUTE`
-
-Choose `C2_CODEX_EXECUTE` when all are true:
-
-*   Codex product/project execution is necessary.
-*   Target paths/actions are exact.
-*   No graph/wave planning is needed.
-*   Validation/file read-back / diff verification / commit verification requirements are exact.
-*   Forbidden changes are explicit.
-
 #### Exception routes
 
 Use exception routes when needed:
@@ -615,7 +605,6 @@ Use exception routes when needed:
 *   `S3_DECIDE` or Human Decision Card: scope, priority, or route tradeoff requires human choice.
 *   `D1_DEEP_RESEARCH`: material external/domain research is required before execution can be safely briefed.
 *   `A1_AUDIT`: existing system state must be audited before implementation.
-*   `R0_RECOVERY_CLOSE`: stale/partial/contradictory state makes normal execution unsafe.
 *   Context Request: required context is missing.
 *   Stop Card: launch is unsafe, contradictory, or out of scope.
 
@@ -808,94 +797,15 @@ No patch: output explicit none with a reason.
 
 Never use E1’s Repository Patch to complete the Goal implementation.
 
-## 9\. Execution Log Entry contract
+## 9\. Execution Log Entry / Documentation / Refresh obligations
 
-Produce:
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these E1-specific fields/content in the relevant canonical packet when formalization is approved:
 
-```yaml
-execution_log_entry:
-  workflow_packet: 1
-  type: execution_log_entry
-  schema: execution_log_entry.v1
-  stage_id: E1_EXECUTION_BRIEF
-  stage_name: Execution Brief
-  direction_id:
-  phase_id:
-  goal_id:
-  return_state:
-  selected_route:
-  brief_summary:
-  scope_preserved: true | false
-  patch_required_after_approval: true | false
-  changed_files_context_refresh_required_after_approval: true | false
-  next_stage:
-  timestamp:
-  notes:
+- execution log: stage id/name, Direction/Phase/Goal ids, return state, selected route, brief summary, scope preservation, repository patch requirement, changed-files/context-refresh requirement, next stage, timestamp if available, and notes;
+- documentation maintenance: whether maintenance is required, triggers, required updates, stale terms if any, defer/blocker state, and reason when not required;
+- changed-files/context-refresh: required state, exact files when known, reason, refresh timing, and content update summary.
 
-```
-
-If timestamp is unknown, write `timestamp: runtime_timestamp_unavailable`.
-
-## 10\. Documentation Maintenance Gate contract
-
-Produce when relevant:
-
-```yaml
-documentation_maintenance_gate:
-  required_after_approval: true | false
-  triggers:
-    - stale_terminology
-    - active_goal_update
-    - changed_files_context_refresh
-    - repository_readback_required
-    - compatibility_cleanup
-  required_updates:
-    - target:
-      action:
-      reason:
-  stale_terms_detected:
-    - term:
-      accepted_alias_for:
-      cleanup_required_after_approval: true | false
-      cleanup_target:
-  defer_allowed: true | false
-  blocker: true | false
-
-```
-
-If not relevant:
-
-```yaml
-documentation_maintenance_gate:
-  required: false
-  reason:
-
-```
-
-## 11\. Changed Files / Context Refresh List contract
-
-Always produce:
-
-```yaml
-changed_files_context_refresh_after_approval:
-  required_after_approval: true | false
-  files:
-    - file:
-      reason:
-      refresh_timing: before_execution | after_patch_readback | after_goal_close | not_required
-      content_update_summary:
-
-```
-
-If no refresh is required:
-
-```yaml
-changed_files_context_refresh_after_approval:
-  required: false
-  files: []
-  reason:
-
-```
+Do not copy local packet schemas. If no timestamp is available, state that explicitly in the canonical log entry.
 
 ## 12\. Next Launch Card contract
 
@@ -964,24 +874,7 @@ Triggers:
 
 ## 15\. Stop Card
 
-Use when proceeding would be unsafe or out of scope.
-
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage:
-  id: E1_EXECUTION_BRIEF
-  name: Execution Brief
-status: stopped
-return_state: STUCK
-stop_reason:
-evidence:
-forbidden_next_actions:
-  - action:
-safe_restart_route:
-
-```
+Use the canonical Stop transport when proceeding would be unsafe or out of scope. Preserve E1-specific content: stage identity, `return_state: STUCK`, stop reason, evidence, forbidden next actions, and safe restart route. Do not copy a local Stop schema.
 
 ## 16\. Route-specific guidance
 
@@ -1018,21 +911,9 @@ Include:
 *   required file read-back / diff verification / commit verification;
 *   Codex handoff constraints.
 
-### For `C2_CODEX_EXECUTE`
+### Codex execution route boundary
 
-The Next Launch Card must be exact enough for direct Codex product/project execution.
-
-Include:
-
-*   target paths;
-*   exact actions;
-*   allowed file/file changes;
-*   forbidden changes;
-*   validation commands or file read-back / diff verification / commit verification anchors;
-*   rollback/repair expectations;
-*   Context refresh requirements.
-
-If these are not exact, route to C1 instead.
+E1 must use only registry-valid Codex downstream routes. When Codex execution is needed, route through `C1_CODEX_GRAPH_PLAN` unless the registry is explicitly changed by an approved future patch. Do not emit a direct C2 launch from E1 in this prompt.
 
 ## 17\. Personal optimization rules
 

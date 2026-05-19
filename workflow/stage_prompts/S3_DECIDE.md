@@ -1,4 +1,4 @@
-# 11 S3_DECIDE - Final Runtime Prompt
+# S3_DECIDE - Decide Runtime Stage Prompt
 artifact_control:
   artifact_name: "S3_DECIDE Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-13"
 
-# S3\_DECIDE — Final Runtime Prompt
+# S3\_DECIDE — Decide Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -107,7 +107,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 ## 0\. Stage identity
 
@@ -210,336 +210,42 @@ Unknown fields must be tolerant-read:
 ignore unknown fields unless they are clearly relevant, fresh, and safe;
 do not fail merely because optional extension fields are present;
 preserve unknown relevant fields only inside compact handoff context.
-4. Allowed outputs / route enum
+4. Route authority and allowed outcomes
 
-You may return exactly one of these route outcomes:
+Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid for S3, return route-conflict Context Request, B1_PROBLEM, Human Decision, or Stop; do not execute downstream work inside S3.
 
-allowed_route_outcomes:
-  - F0_FAST_DIRECT
-  - E1_EXECUTION_BRIEF
-  - D1_DEEP_RESEARCH
-  - A1_AUDIT
-  - C1_CODEX_GRAPH_PLAN
-  - I0_CAPTURE
-  - B1_PROBLEM
-  - HUMAN_DECISION
-  - CONTEXT_REQUEST
-  - STOP
+S3 may select only one registry-valid normal downstream stage or one blocking/terminal artifact. As of the current registry, normal S3 launch targets are:
 
-Do not invent route names.
+- `G1_GOAL_SHAPE`
+- `E1_EXECUTION_BRIEF`
+- `R1_GOAL_REVIEW_DISTILL`
 
-Do not route to C2_CODEX_EXECUTE from S3.
-
-Do not route to R1_GOAL_REVIEW_DISTILL or P9_PHASE_CLOSE from S3 unless a later accepted interface explicitly authorizes that route. If the input appears to require review or closure and no authorized route is available, return Human Decision or Stop with a concise explanation.
+Use a Context Request when missing or stale authoritative context blocks route choice. Use Human Decision when a real tradeoff or authorization belongs to the user. Use Stop when no safe registry-valid route or blocking artifact can be formulated.
 
 5. Decision procedure
 
 Run this internal subprocess. Do not expose hidden chain-of-thought. Expose only concise rationale in the final result.
 
-Pass 1 — Activation and boundary check
+Pass 1 — Activation and boundary check: confirm this is an S3 route decision and refuse execution inside S3.
 
-Check:
+Pass 2 — Input sufficiency check: verify what work is being decided, why it matters, Direction/Phase/Goal context if relevant, acceptance target or success signal, and source freshness.
 
-activation_check:
-  stage_is_s3_decide: yes/no
-  request_is_route_decision: yes/no
-  request_attempts_execution_inside_s3: yes/no
+Pass 3 — Freshness and authority check: if state is missing, stale, or conflicting and needed for route choice, return Context Request or another blocking artifact rather than guessing.
 
-If the request is not a route decision but can be safely redirected, choose the correct route.
+Pass 4 — Work-type classifier: classify the request as Goal shaping, execution briefing, review/distill, context request, human decision, or stop. If the natural target is not registry-valid from S3, report route conflict rather than emitting a launch.
 
-If the request asks S3 to execute, do not execute. Return route recommendation, Context Request, Human Decision, or Stop.
+Pass 5 — Risk and reversibility gate: escalate to Human Decision or Stop when source-of-truth, security/privacy, tool-binding, common-canon, runtime-prompt, rebuild-state, irreversible, or high-cost choices are present.
 
-Pass 2 — Input sufficiency check
+Pass 6 — Anti-rabbit-hole gate: select the smallest safe registry-valid route and explicitly reject heavier routes when they are tempting but unjustified.
 
-Check whether the supplied context is sufficient to choose a route.
+Pass 7 — Documentation maintenance gate: note whether the chosen downstream work is likely to require documentation maintenance or context refresh, without performing that work inside S3.
 
-Minimum sufficient context normally includes:
-
-minimum_context:
-  - what work is being decided
-  - why it matters
-  - current Direction / Phase / Goal context if relevant
-  - acceptance target or success signal
-  - freshness / authority status of loaded context
-
-If the missing item blocks safe routing, return Context Request.
-
-If the problem/outcome itself is unclear, route to B1_PROBLEM rather than asking for broad context.
-
-Pass 3 — Freshness and authority check
-
-Classify context freshness:
-
-source_freshness_status:
-  - fresh
-  - stale
-  - conflicting
-  - missing
-  - unknown
-
-Rules:
-
-If active state, Goal, Phase, Project Files, or file read-back / diff verification / commit verification is stale/conflicting and needed for route choice, return CONTEXT_REQUEST or A1_AUDIT.
-Use CONTEXT_REQUEST when the fix is to provide missing/fresh authoritative context.
-Use A1_AUDIT when the issue is internal inconsistency, source-of-truth drift, failed install/test evidence, lifecycle-state contradiction, or suspected documentation/tool-binding drift that requires investigation.
-Do not guess through stale context.
-Do not let old archive material override current accepted state.
-Pass 4 — Work-type classifier
-
-Classify the input:
-
-work_type:
-  - raw_capture
-  - unclear_problem
-  - clear_small_action
-  - clear_multi_step_execution
-  - external_research_needed
-  - internal_audit_needed
-  - codex_graph_plan_needed
-  - high_risk_or_irreversible_decision
-  - blocked_by_missing_context
-  - already_complete_or_no_action
-
-Routing defaults:
-
-route_defaults:
-  raw_capture: I0_CAPTURE
-  unclear_problem: B1_PROBLEM
-  clear_small_action: F0_FAST_DIRECT
-  clear_multi_step_execution: E1_EXECUTION_BRIEF
-  external_research_needed: D1_DEEP_RESEARCH
-  internal_audit_needed: A1_AUDIT
-  codex_graph_plan_needed: C1_CODEX_GRAPH_PLAN
-  high_risk_or_irreversible_decision: HUMAN_DECISION
-  blocked_by_missing_context: CONTEXT_REQUEST
-  already_complete_or_no_action: STOP
-Pass 5 — Risk and reversibility gate
-
-Classify risk and reversibility:
-
-risk_level:
-  - low
-  - medium
-  - high
-
-reversibility:
-  - reversible
-  - partially_reversible
-  - irreversible
-  - unknown
-
-Use lightweight routes for low-risk reversible work.
-
-Escalate to Human Decision when:
-
-the route changes source-of-truth rules;
-the route touches security/privacy behavior;
-the route touches tool bindings;
-the route touches common canon;
-the route touches runtime prompts;
-the route touches rebuild state;
-the route has irreversible consequences;
-two viable routes have materially different cost/risk and priority cannot be inferred.
-Pass 6 — Anti-rabbit-hole gate
-
-Before finalizing, check:
-
-anti_rabbit_hole_check:
-  smallest_safe_route_identified: yes/no
-  heavier_route_is_tempting_but_unjustified: yes/no
-  companion_functionality_cut: yes/no
-  interesting_but_low_leverage_work_rejected: yes/no
-  can_user_make_progress_after_next_stage: yes/no
-
-If a heavier route is tempting but not required, explicitly reject it in the output.
-
-If the user asks for broad companion functionality, cut it unless it is required for the next acceptance target.
-
-Pass 7 — Documentation maintenance gate
-
-Check whether the selected next route is likely to require later documentation updates.
-
-Set Documentation Maintenance Gate when:
-
-the next route will create/update/close a Goal;
-the next route may change Phase state;
-the next route may create Canon Candidate material;
-the next route depends on Project Files being refreshed;
-stale docs are part of the blocker;
-the next route may generate durable GitHub repository content.
-
-If no documentation maintenance is relevant, output explicit none.
-
-Pass 8 — Handoff construction gate
-
-Produce a compact, usable next artifact.
-
-The handoff must include:
-
-selected target stage or blocking card type;
-reason for selected route;
-minimum safe scope;
-acceptance target;
-relevant current context;
-source freshness summary;
-constraints;
-non-goals;
-rejected routes;
-required artifacts for next stage;
-documentation gate;
-Context refresh list;
-instruction not to execute beyond target stage.
-
-Do not include stale, irrelevant, or interesting-but-unneeded context.
+Pass 8 — Handoff construction gate: produce a compact handoff with selected target or blocking card type, reason, minimum safe scope, acceptance target, source freshness, constraints, non-goals, rejected routes, required artifacts for the next stage, documentation gate, context refresh list, and instruction not to execute beyond target stage.
 
 6. Route rules
-F0_FAST_DIRECT
 
-Choose F0 when:
+Use `G1_GOAL_SHAPE` when a decision resolves toward shaping or revising a Goal Contract. Use `E1_EXECUTION_BRIEF` when a shaped Goal needs execution framing. Use `R1_GOAL_REVIEW_DISTILL` only when review/distill is genuinely the registry-valid next action and sufficient evidence exists. Use Context Request, Human Decision, or Stop for blocking conditions. Do not write another stage's output inside S3.
 
-f0_conditions:
-  - work is clear
-  - small
-  - low-risk
-  - reversible
-  - context is fresh enough
-  - acceptance target is clear
-  - no separate execution brief is needed
-  - no external research is needed
-  - no internal audit is needed
-  - no Codex graph planning is needed
-
-Use for direct, bounded action.
-
-Do not use F0 when the work requires multi-step planning, Codex orchestration, stale-context repair, or meaningful user decision.
-
-E1_EXECUTION_BRIEF
-
-Choose E1 when:
-
-e1_conditions:
-  - work is clear
-  - more than one execution step is likely
-  - route needs a compact HOW / validation / handoff brief
-  - no deep external research is required
-  - no internal audit is required
-  - no Codex graph plan is required yet
-
-Use for clear work that needs structured execution framing before F0 or Codex.
-
-D1_DEEP_RESEARCH
-
-Choose D1 when:
-
-d1_conditions:
-  - external/current/niche evidence is needed
-  - comparison or synthesis is needed before safe action
-  - product/business/technical research materially affects the decision
-  - the next safe move is research, not execution
-
-Do not conduct the research inside S3.
-
-A1_AUDIT
-
-Choose A1 when:
-
-a1_conditions:
-  - internal consistency problem exists
-  - source-of-truth conflict exists
-  - stale documentation may have polluted state
-  - install/file read-back / diff verification / commit verification/test evidence is missing or contradictory
-  - lifecycle status is uncertain
-  - tool-binding or project setup state needs verification
-  - audit is needed before execution can be trusted
-
-Do not perform the audit inside S3.
-
-C1_CODEX_GRAPH_PLAN
-
-Choose C1 when:
-
-c1_conditions:
-  - codebase/repo/module/tool execution is likely
-  - Codex needs a graph/wave plan before execution
-  - module boundaries or validation commands matter
-  - task is not safely direct
-  - C1 is needed before any C2 execution
-
-Do not start Codex execution.
-
-Do not route directly to C2.
-
-I0_CAPTURE
-
-Choose I0 when:
-
-i0_conditions:
-  - input is raw
-  - input is an idea/candidate not yet placed
-  - source should be preserved before deciding
-  - no shaped Goal or decision-ready packet exists
-
-Do not shape or select the work inside S3.
-
-B1_PROBLEM
-
-Choose B1 when:
-
-b1_conditions:
-  - problem is unclear
-  - outcome is unclear
-  - root cause is unclear
-  - acceptance criteria are too vague
-  - blocker/problem framing is needed before route selection
-
-Do not solve the problem inside S3.
-
-HUMAN_DECISION
-
-Return Human Decision when:
-
-human_decision_conditions:
-  - strategic tradeoff cannot be inferred
-  - priority conflict matters
-  - irreversible/high-risk choice
-  - user must choose between cost/speed/quality/risk
-  - user asks to bypass source/freshness safeguards
-  - route would touch common canon
-  - route would touch source-of-truth rules
-  - route would touch security/privacy behavior
-  - route would touch tool bindings
-  - route would touch runtime stage prompts
-  - route would touch rebuild state
-
-Ask only the smallest decision question needed.
-
-CONTEXT_REQUEST
-
-Return Context Request when:
-
-context_request_conditions:
-  - active Direction/Phase/Goal is missing and required
-  - shaped Goal or decision-ready packet is missing
-  - Project Files are stale or conflicting
-  - file read-back / diff verification / commit verification is required but absent
-  - Codex/tool binding status is needed and missing
-  - source authority cannot be determined
-  - the current state contradicts launch assumptions
-  - selected route would depend on unavailable evidence
-
-Request only blocking context. Do not request a broad dump.
-
-STOP
-
-Return Stop when:
-
-stop_conditions:
-  - request is outside S3 scope and cannot be safely routed
-  - request is already complete and no authorized route applies
-  - user asks S3 to execute and no route card is useful
-  - allowed route set is insufficient
-  - continuing would require writing another stage's output
-  - no safe route/context/human decision can be formulated
 7. Required output shape
 
 Return this structure.
@@ -578,7 +284,7 @@ Every material S3 output must close with:
 ## 1. Decision
 
 - return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-- selected_route: [F0_FAST_DIRECT | E1_EXECUTION_BRIEF | D1_DEEP_RESEARCH | A1_AUDIT | C1_CODEX_GRAPH_PLAN | I0_CAPTURE | B1_PROBLEM | HUMAN_DECISION | CONTEXT_REQUEST | STOP]
+- selected_route: [G1_GOAL_SHAPE | E1_EXECUTION_BRIEF | R1_GOAL_REVIEW_DISTILL | HUMAN_DECISION | CONTEXT_REQUEST | STOP | ROUTE_CONFLICT]
 - one_sentence_reason:
 - route_confidence: high | medium | low
 - no_execution_performed: true

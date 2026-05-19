@@ -1,4 +1,4 @@
-# 13 A1_AUDIT - Final Runtime Prompt
+# A1_AUDIT - Audit Runtime Stage Prompt
 artifact_control:
   artifact_name: "A1_AUDIT Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-13"
 
-# A1\_AUDIT — Final Runtime Prompt
+# A1\_AUDIT — Audit Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -110,7 +110,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 ## 0.1 Output Schema Authority
 
@@ -120,7 +120,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/A1_AUDIT.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results and launches must use the canonical transport templates from `workflow/transport/*.md` with stage-specific fields preserved below.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -656,64 +656,19 @@ If STOP:
 *   Blocking:
 *   Exact update or route:
 
-## 7\. Stage Result Packet
+## 7\. Transport obligations
 
-workflow\_packet: 1 packet\_type: stage\_result schema: workflow\_stage\_result.v1 stage: id: A1\_AUDIT name: Audit audit\_object: type: identifier\_or\_path: source: version\_or\_timestamp: audit\_request: purpose: requested\_depth: expected\_contract: scope: in\_scope: out\_of\_scope: expansion\_trigger: evidence\_summary: criteria\_checked: evidence\_sufficiency: stale\_or\_conflicting\_evidence: findings: blocking: patch\_required: nonblocking: missing\_evidence: stale\_or\_conflicting: verdict: status: rationale: confidence: route: original\_intended\_next: recommended\_next: route\_basis: assumptions: next\_artifact\_type:
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these A1-specific fields/content in the relevant canonical packet when formalization is approved:
 
-## 8\. Repository Patch
+- audit object type, identifier/path, source, version/timestamp, request purpose, depth, expected contract, and scope boundaries;
+- evidence summary, criteria checked, evidence sufficiency, stale/conflicting evidence, and findings classified as blocking, patch-required, nonblocking, missing-evidence, or stale/conflicting;
+- verdict status, rationale, confidence, route basis, assumptions, and selected next artifact type;
+- repository patch recommendation or explicit none;
+- execution log entry confirming no execution, no Codex start, and no repository mutation unless separately approved;
+- documentation maintenance and changed-files/context-refresh impact;
+- exactly one canonical next artifact: Stage Launch, Context Request, Human Decision, or Stop.
 
-repository\_patch: required: action: none | patch\_recommendation\_only mutation\_performed: false reason: recommended\_patch: target\_path: proposed\_action: patch\_summary: blocking\_before\_continuation:
-
-## 9\. Execution Log Entry
-
-execution\_log\_entry: stage\_id: A1\_AUDIT stage\_name: Audit audit\_object: verdict: findings\_summary: route\_decision: documentation\_gate: changed\_files\_context\_refresh_after_approval: no\_execution\_confirmed: true no\_codex\_start\_confirmed: true no\_repository\_mutation\_confirmed: true timestamp\_or\_run\_label:
-
-## 10\. Changed Files / Context Refresh List
-
-changed\_files\_context\_refresh\_list: required: files: - file: reason: refresh\_action: blocking:
-
-## 11\. Expanded Kernel QA
-
-*   Audit object identified:
-*   Scope bounded:
-*   Criteria named:
-*   Evidence checked:
-*   Findings classified:
-*   Verdict supported by findings:
-*   Repair route exact if needed:
-*   No execution performed:
-*   No Codex start:
-*   No GitHub repository mutation:
-*   Documentation Maintenance Gate handled:
-*   Changed Files / Context Refresh List handled:
-*   Exactly one next artifact emitted:
-
-## 12\. Next artifact
-
-Provide exactly one:
-
-*   Next Launch Card;
-*   Context Request Card;
-*   Human Decision Card;
-*   Stop result.
-
-### Next Launch Card format
-
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: name: source\_path: workflow/stage\_prompts/<STAGE\_ID>.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/<STAGE\_ID>.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: reason: context\_to\_load: required: optional: input\_artifacts:
-
-*   artifact: source: status: route\_constraints: must\_not: must: audit\_verdict\_reference: stop\_rules:
-
-### Context Request Card format
-
-workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: A1\_AUDIT name: Audit request: reason: blocking: true exact\_context\_needed: - item: why\_needed: acceptable\_source: after\_context\_is\_supplied: return\_to\_stage: A1\_AUDIT resume\_action:
-
-### Human Decision Card format
-
-workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: A1\_AUDIT name: Audit decision: question: why\_required: options: - option: effect: risk: recommended\_option: default\_if\_user\_declines: after\_decision: return\_to\_stage: A1\_AUDIT resume\_action:
-
-### Stop result format
-
-workflow\_packet: 1 type: stop schema: stop.v1 stage: id: A1\_AUDIT name: Audit stop: reason: evidence: unsafe\_to\_continue\_because: minimum\_unblock\_condition: no\_execution\_route: true
+A1 launch/blocking artifacts must preserve audit verdict references, route constraints, required context, and stop rules. Do not copy local packet schemas or local prompt-delivery policy.
 
 ## 15\. Final self-check before responding
 

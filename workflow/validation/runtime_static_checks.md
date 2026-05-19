@@ -117,6 +117,8 @@ Result:
 Scan active stage prompts for deprecated prompt delivery modes:
 
 - `request_from_repository`
+- Markdown-escaped `request\_from\_repository`
+- `repository-request`
 - `embedded_in_launch_card`
 - `pasted_in_current_chat`
 - `attached_export`

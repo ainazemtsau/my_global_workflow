@@ -145,7 +145,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 R1 must preview review decisions and documentation implications before durable documentation updates. Durable doc changes require approval unless Compact Direct Result mode is safe and no material state change is introduced.
 
@@ -157,7 +157,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results and launches must use the canonical transport templates from `workflow/transport/*.md` with stage-specific fields preserved below.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -454,7 +454,8 @@ Output:
 
 *   review\_verdict: partial\_progress
 *   closure\_eligibility: not\_eligible
-*   route to E1/F0/C1/C2 continuation, B1 if problem diagnosis is required, or Human Decision if ambiguous.
+*   do not emit execution-continuation launches from R1 unless the registry allows them;
+*   if more execution is needed, return a non-closure routing correction that names the desired owner, or route to `G1_GOAL_SHAPE`, `M0_DIRECTION_MAP`, `G0_GOAL_SELECT`, `P0_PHASE_START`, or Stop when that is the smallest registry-valid R1 path.
 
 ### 7.5 Failed execution route
 
@@ -468,7 +469,7 @@ Output:
 
 *   review\_verdict: failed\_execution
 *   closure\_eligibility: not\_eligible
-*   route to B1\_PROBLEM for diagnosis, R0\_RECOVERY\_CLOSE for workflow-state repair, or Context Request if evidence is missing.
+*   return a route-conflict correction for B1/R0-style diagnosis or recovery when that is the desired owner, or Stop if safe continuation is unclear. Do not emit B1 or R0 as normal R1 launch routes under the current registry.
 
 ### 7.6 Invalid/conflicted input route
 
@@ -564,85 +565,17 @@ route_correction:
   parent_goal_closure_updates_emitted: false
 ```
 
-## 6\. Transport packets
+## 6\. Transport obligations
 
-Include all required packet blocks:
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these R1-specific fields/content in the relevant canonical packet when formalization is approved:
 
-### 6.1 R1 Stage Result Packet
+- upstream stage refs, input basis, Goal Contract availability, Execution Brief availability, read-back evidence availability, and source-of-truth state;
+- review verdict, closure eligibility, one-sentence reason, acceptance criteria availability, acceptance result, missing acceptance evidence, and unsafe-to-close reason;
+- evidence review: execution performed, artifacts created/updated, evidence state, read-back/test evidence state, evidence supporting the verdict, and evidence gaps;
+- distilled outcome, what did not happen, remaining blockers/work, documentation findings, stale/drifted context, refresh needs, repository patch state, changed-files/context-refresh impact, and forbidden-scope confirmation;
+- exactly one next route artifact using the canonical templates and only a registry-valid launch when a downstream stage is launched.
 
-Use this YAML-like structure:
-
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill source\_path: workflow/stage\_prompts/R1\_GOAL\_REVIEW\_DISTILL.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: P9\_PHASE\_CLOSE | R0\_RECOVERY\_CLOSE | none route\_reason: direction: id: name: active\_project: phase: id: name: status: goal: goal\_id: title: status: upstream\_results:
-
-*   stage\_id: stage\_name: return\_state: packet\_ref: input\_basis: goal\_contract\_available: true | false | unknown execution\_brief\_available: true | false | unknown readback\_evidence\_available: true | false | unknown source\_of\_truth\_state: fresh | stale | conflicted | unknown review: review\_verdict: completed\_verified | completed\_unverified | blocked\_needs\_context | partial\_progress | failed\_execution | no\_op\_verified | invalid\_or\_conflicted\_input closure\_eligibility: eligible | not\_eligible | unknown\_blocked | human\_decision\_required one\_sentence\_reason: acceptance\_review: acceptance\_criteria\_available: true | false | unknown acceptance\_criteria\_met: true | false | unknown missing\_acceptance\_evidence:
-    *   item: unsafe\_to\_close\_reason: evidence\_review: execution\_performed: true | false | unknown artifacts\_created\_or\_updated:
-    *   path\_or\_name: evidence\_state: verified | claimed | missing | not\_applicable readback\_evidence\_state: fresh | pending | missing | conflicted | not\_applicable test\_evidence\_state: passed | failed | missing | not\_applicable | unknown evidence\_supporting\_verdict:
-    *   item: evidence\_gaps:
-    *   item: distilled\_outcome: what\_happened:
-    *   item: what\_did\_not\_happen:
-    *   item: remaining\_blockers\_or\_work:
-    *   item: documentation\_findings: drift\_found: true | false stale\_or\_drifted\_context:
-    *   item: refresh\_needed:
-    *   file\_or\_note: reason: route: next\_action: launch\_next\_stage | context\_request | human\_decision | stop | recovery\_route next\_stage: route\_reason: repository\_patch\_state: proposed | none | blocked changed\_files\_context\_refresh\_required_after_approval: true | false safety\_scope\_confirmation: forbidden\_scope\_preserved: true | false files\_touched:
-    *   path: no\_common\_canon: true | false no\_cross\_direction\_rollout: true | false no\_stage\_prompt\_edits: true | false no\_task\_master\_graph: true | false no\_archive\_history\_loading: true | false no\_source\_of\_truth\_security\_privacy\_tool\_binding\_changes: true | false kernel\_qa\_exceptions:
-*   issue: severity: handling:
-
-### 6.2 Repository Patch
-
-After approval/formalization, always include a Repository Patch block.
-
-If no write is safe, use patch\_state: none and explain reason\_if\_none.
-
-repository\_patch: patch\_state: proposed | none | blocked target\_root: target\_paths: - path: actions: - action: create | replace\_note | replace\_section | append\_section | update\_header | mark\_stale | none path: content\_summary: content\_blocks: - label: content: validation\_anchors: - text: readback\_requirements: - requirement: forbidden\_paths: - path\_or\_pattern: reason: reason\_if\_none: reason\_if\_blocked:
-
-### 6.3 Execution Log Entry
-
-execution\_log\_entry: timestamp: direction: id: name: phase: id: name: goal: goal\_id: title: stage\_id: R1\_GOAL\_REVIEW\_DISTILL upstream\_stage\_refs: - stage\_id: return\_state: review\_verdict: closure\_eligibility: evidence\_state: documentation\_drift\_state: next\_action: files\_touched: - path: safety\_scope\_confirmation:
-
-### 6.4 Documentation Maintenance Gate
-
-documentation\_maintenance\_gate: gate\_state: clear | refresh\_required | blocked | not\_applicable drift\_found: true | false stale\_or\_drifted\_context: - item: docs\_to\_refresh: - file\_or\_note: reason: refresh\_blocking\_next\_route: true | false safe\_to\_patch\_now: true | false requires\_project\_files\_export: true | false forbidden\_doc\_updates: - file\_or\_note: reason:
-
-### 6.5 Changed Files / Context Refresh List
-
-changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true | false files: - file: current\_problem: required\_update\_summary: source\_of\_truth\_to\_use: blocking\_status: blocking | nonblocking | unknown owner\_or\_next\_stage:
-
-### 6.6 Next route artifact
-
-Include exactly one of the following.
-
-Option A — Next Launch Card:
-
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: name: source\_path: workflow/stage\_prompts/<STAGE\_ID>.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/<STAGE\_ID>.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: upstream\_stage: R1\_GOAL\_REVIEW\_DISTILL pending\_repository\_patch: changed\_files\_context\_refresh\_required: direction: id: name: active\_project: phase: id: name: status: goal: goal\_id: title: status: launch\_reason: required\_context:
-
-*   item: upstream\_packets:
-*   stage\_id: packet\_ref: evidence\_basis:
-*   item: forbidden\_scope:
-*   item: expected\_output:
-*   item: stop\_rules:
-*   rule:
-
-Option B — Context Request:
-
-workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill reason: missing\_context:
-
-*   item: needed\_fresh\_readback:
-*   item: forbidden\_until\_resolved:
-*   item: safe\_next\_action\_after\_context: suggested\_route\_after\_context: next\_stage: reason:
-
-Option C — Human Decision Card:
-
-workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill decision\_needed: options:
-
-*   option: consequence: recommendation: forbidden\_until\_decided:
-*   item:
-
-Option D — Stop / Recovery route:
-
-workflow\_packet: 1 type: stop schema: stop.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill stop\_reason: unsafe\_to\_continue\_because: recommended\_recovery\_stage: required\_context\_for\_recovery:
-
-*   item: forbidden\_until\_recovered:
-*   item:
+If R1 identifies a non-registry-valid desired continuation, report it as a route correction or registry review candidate inside the canonical result; do not emit a non-registry launch card. Context Requests should name the exact missing read-back/evidence. Human Decisions should name the user-owned choice. Stop should state unsafe-to-continue reason and recovery context without inventing an unavailable stage launch.
 
 ## 7\. Kernel QA exceptions
 

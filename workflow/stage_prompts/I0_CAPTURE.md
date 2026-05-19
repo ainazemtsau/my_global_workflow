@@ -1,4 +1,4 @@
-# I0_CAPTURE - Capture - Final Runtime Prompt
+# I0_CAPTURE - Capture Runtime Stage Prompt
 artifact_control:
   artifact_name: "I0_CAPTURE Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-13"
 
-# I0\_CAPTURE — Capture — Final Runtime Prompt
+# I0\_CAPTURE — Capture Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -93,7 +93,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 ## 0\. Runtime identity
 

@@ -1,4 +1,4 @@
-# 15 C2_CODEX_EXECUTE - Final Runtime Prompt
+# C2_CODEX_EXECUTE - Codex Execute Runtime Stage Prompt
 artifact_control:
   artifact_name: "C2_CODEX_EXECUTE Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-13"
 
-# C2\_CODEX\_EXECUTE — Final Runtime Stage Prompt
+# C2\_CODEX\_EXECUTE — Codex Execute Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -102,7 +102,7 @@ C2 may do these things:
 *   inspect changed files, diffs, logs, and file read-back / diff verification / commit verification evidence;
 *   update authorized documentation if the execution requires it;
 *   produce a Codex Return Packet and Workflow runtime packets;
-*   route to R1, R0, Context Request, Human Decision, or Stop.
+*   route to R1, E1, B1, Context Request, Human Decision, or Stop when registry-valid.
 
 C2 must not do these things:
 
@@ -454,14 +454,14 @@ Use when:
 
 Status: `executed_verified` or `no_op_verified`.
 
-### Route to R0\_RECOVERY\_CLOSE
+### Route to B1\_PROBLEM
 
 Use when:
 
 *   implementation is partial;
 *   validation failed;
 *   repo state may need cleanup;
-*   recovery is needed and no immediate human decision is blocking.
+*   diagnosis, repair framing, or recovery triage is needed and no immediate human decision is blocking.
 
 Status: `executed_partial` or `validation_failed`.
 
@@ -818,11 +818,7 @@ For successful verified parent Goal execution, the R1 launch payload must includ
 
 For successful verified slice execution while the parent Goal remains incomplete, do not issue an R1 launch card. Route to `E1_EXECUTION_BRIEF` continuation planning or another registry-valid non-closure continuation route.
 
-For partial or failed execution, route to R0 when recovery is needed and no human choice blocks the route.
-
-Use the canonical Stage Launch transport template at `workflow/transport/STAGE_LAUNCH_CARD.md`.
-
-For recovery routing, the R0 launch payload must include `stage.id: R0_RECOVERY_CLOSE`, `stage.name: Recovery Close`, `source_state.from_stage: C2_CODEX_EXECUTE`, previous return state, source result ref, Codex Return Packet ref, active direction/phase/goal ids, recovery reason, context to load, and stop conditions.
+For partial or failed execution, route to `B1_PROBLEM` when diagnosis, repair framing, or recovery triage is needed and no human choice blocks the route. If the desired recovery owner is unavailable or non-registry-valid, return Stop with the exact recovery evidence and do not emit an R0 launch.
 
 ---
 

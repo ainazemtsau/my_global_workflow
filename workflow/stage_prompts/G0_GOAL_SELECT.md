@@ -1,4 +1,4 @@
-# 7.2 G0_GOAL_SELECT - Final Runtime Prompt
+# G0_GOAL_SELECT - Goal Select Runtime Stage Prompt
 artifact_control:
   artifact_name: "G0_GOAL_SELECT Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-15"
 
-# G0\_GOAL\_SELECT — Final Runtime Prompt
+# G0\_GOAL\_SELECT — Goal Select Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -85,7 +85,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/G0_GOAL_SELECT.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results and launches must use the canonical transport templates from `workflow/transport/*.md` with stage-specific fields preserved below.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -117,7 +117,7 @@ Your job is to select exactly one smallest, highest-leverage next Goal seed for 
 
 Default downstream route after successful selection: `G1_GOAL_SHAPE`.
 
-Exception route for tiny, reversible, direct work: `F0_FAST_DIRECT`.
+If a desired tiny/direct route is not registry-valid from G0, return a route-conflict artifact or another registry-valid correction instead of forcing Goal shaping.
 
 Blocking routes: `Context Request`, `Human Decision`, or `Stop`.
 
@@ -131,7 +131,7 @@ The selected Goal must directly advance the active Phase by attacking the Phase 
 
 Prefer the smallest safe route. Cut scope until slightly uncomfortable, but not incoherent.
 
-If the work is too small for a Goal lifecycle, route to `F0_FAST_DIRECT` instead of forcing Goal shaping.
+If the work is too small for a Goal lifecycle and no registry-valid G0 launch fits, return a route-conflict artifact or Stop instead of forcing Goal shaping.
 
 If required context is missing, stale, contradictory, or value-dependent, do not guess. Return the appropriate Context Request, Human Decision Card, or Stop Card.
 
@@ -333,14 +333,10 @@ Route to `G1_GOAL_SHAPE` when:
 *   exactly one Goal seed is materially highest leverage;
 *   it needs Goal shaping before execution;
 *   selection basis is sufficiently fresh;
-*   the Goal seed has a clear minimum validation signal.
+*   the Goal seed has a clear minimum validation signal;
+*   the route is registry-valid for G0.
 
-Route to `F0_FAST_DIRECT` when:
-
-*   the selected work is tiny;
-*   it is reversible or low-risk;
-*   it does not require a Goal lifecycle;
-*   the action can be stated as a narrow direct task.
+If the desired next action is not registry-valid for G0, return a route-conflict artifact or another registry-valid correction.
 
 Return Context Request when:
 
@@ -369,8 +365,6 @@ Return Stop when:
 Build a handoff that lets the next stage start without re-triage.
 
 For `G1_GOAL_SHAPE`, provide one selected Goal seed.
-
-For `F0_FAST_DIRECT`, provide one direct-action payload.
 
 Always include:
 
@@ -458,125 +452,19 @@ Include this section only if there is a freshness issue, route ambiguity, missin
 
 For blocked outputs, replace sections 2–5 with the relevant Context Request Card, Human Decision Card, or Stop Card, then include the required runtime packets.
 
-## 8\. Stage Result Packet contract
+## 8\. Transport obligations
 
-After approval/formalization, output a Stage Result Packet.
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these G0-specific fields/content in the relevant canonical packet when formalization is approved:
 
-Use this structure:
+- return state, selected registry-valid next stage, route reason, Direction and Phase identity;
+- freshness and selection basis: Phase Critical Constraint, Phase Minimum Outcome, validation signal, scope boundaries, constraints, and assumptions;
+- candidate handling: candidates considered count, cap applied, selected source, deferred/rejected summary, and untriaged extras count;
+- selected Goal seed: title, intended outcome, smallest testable slice, why now, validation signal, acceptance floor, explicit not-doing, key constraints, and confidence;
+- handoff summary, repository patch summary or explicit none, execution log entry, documentation maintenance gate, changed-files/context-refresh impact, and blocking reason if any.
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select source\_path: workflow/stage\_prompts/G0\_GOAL\_SELECT.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: G1\_GOAL\_SHAPE | F0\_FAST\_DIRECT | none route\_reason: direction: id: name: phase: id: name: freshness: selection\_basis: phase\_critical\_constraint: phase\_minimum\_outcome: validation\_signal: scope\_boundaries: direction\_constraints: assumptions: candidate\_handling: candidates\_considered\_count: candidate\_cap\_applied: true | false selected\_candidate\_source: deferred\_or\_rejected\_summary: untriaged\_extra\_candidates\_count: selected\_goal\_seed: id\_or\_temp\_id: title: intended\_outcome: smallest\_testable\_slice: why\_now: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: confidence: high | medium | low handoff: next\_launch\_card\_included: true | false repository\_patch: required_after_approval: true | false summary: execution\_log\_entry: included: true | false documentation\_maintenance\_gate: required_after_approval: true | false changed\_files\_context\_refresh_after_approval: required_after_approval: true | false blocking: context\_request: human\_decision: stop\_reason: extensions:
+For normal Goal selection, produce a canonical Stage Launch Card only to a registry-valid next stage. If the desired route is not valid for G0 under `workflow/stage_registry/STAGE_REGISTRY.md`, return a route-conflict Context Request, Human Decision, Stop, or other registry-valid correction instead of emitting a non-registry launch card.
 
-If return\_state is NEEDS\_INPUT or STUCK, leave `selected_goal_seed` empty or set it to `null`, and populate `blocking`.
-
-## 9\. Repository Patch contract
-
-After approval/formalization, always include a Repository Patch section.
-
-Default for normal G0 selection:
-
-repository\_patch: required: false reason: "G0 selection is transport-first; durable Goal Working Context is created or updated by G1 unless a specific documentation/freshness update is required."
-
-After approval/formalization, use `required_after_approval: true` only when the selected output requires durable documentation maintenance, such as:
-
-*   stale current route label found in active Direction materials;
-*   selected Goal seed must be recorded as active Phase focus before handoff;
-*   conflicting Phase documents need a stale marker;
-*   Context refresh is needed to prevent context pollution.
-
-Required patch fields when true:
-
-repository\_patch: required_after_approval: true patch\_type: selected\_goal\_seed\_update | phase\_focus\_update | stale\_doc\_flag | documentation\_refresh | other targets: - path: action: create | replace\_section | append\_section | update\_header | mark\_stale reason: content\_summary: freshness: validation\_anchors: do\_not\_touch: - path: reason:
-
-Never say “update relevant docs.” Name exact paths when available. Before approval, use planned_patch_summary. After approval/formalization, if exact path is unknown, use Context Request or include a patch with `required_after_approval: true` and `path: unknown` plus the minimum needed path request.
-
-## 10\. Execution Log Entry contract
-
-Always include an Execution Log Entry.
-
-execution\_log\_entry: stage\_id: G0\_GOAL\_SELECT event\_type: goal\_selected | fast\_route\_selected | selection\_blocked | stopped direction: id: name: phase: id: name: selected\_goal\_title: route: selection\_reason\_brief: candidates\_considered\_count: scope\_cuts: freshness\_status: documentation\_gate: next\_stage: created\_at: "\[runtime fill\]"
-
-## 11\. Documentation Maintenance Gate contract
-
-Always include a Documentation Maintenance Gate section.
-
-If no maintenance is needed:
-
-documentation\_maintenance\_gate: required: false reason: "No stale documentation, route-label conflict, or durable context update required by G0."
-
-Set `required_after_approval: true` when:
-
-*   stale `GOAL START` terminology appears in current route/stage labels;
-*   active Phase or selected priority conflicts across current sources;
-*   Phase focus changes and must be recorded;
-*   selected Goal handoff would be unsafe without a documentation update;
-*   Project Files need refresh after selection.
-
-Required fields when true:
-
-documentation\_maintenance\_gate: required_after_approval: true trigger: - selected\_phase\_focus\_changed | stale\_route\_label\_detected | conflicting\_phase\_docs | project\_file\_refresh\_needed | other required\_updates: - target: action: reason: stale\_terms\_detected: - term: recommended\_replacement: safe\_to\_continue\_without\_update: true | false
-
-## 12\. Changed Files / Context Refresh List contract
-
-After approval/formalization, always include a Changed Files / Context Refresh List.
-
-If none:
-
-changed\_files\_context\_refresh\_list: required: false files: \[\] reason: "No Context refresh required for this G0 selection."
-
-If required after approval/formalization:
-
-changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true files: - file: reason: action: refresh | inspect | no\_change urgency: blocking | nonblocking
-
-## 13\. Next Launch Card contract
-
-For normal Goal selection, produce a Next Launch Card to `G1_GOAL_SHAPE`.
-
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: G1\_GOAL\_SHAPE name: Goal Shape source\_path: workflow/stage\_prompts/G1\_GOAL\_SHAPE.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/G1\_GOAL\_SHAPE.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: route\_reason: direction: id: name: phase: id: name: selected\_goal\_seed: title: intended\_outcome: smallest\_testable\_slice: validation\_signal: acceptance\_floor: explicit\_not\_doing: key\_constraints: selection\_reason\_brief: source\_freshness: inputs\_to\_load:
-
-*   artifact: reason: do\_not\_load:
-*   artifact: reason: stop\_rules:
-*   condition:
-
-For Fast route, produce a Next Launch Card to `F0_FAST_DIRECT`.
-
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: F0\_FAST\_DIRECT name: Fast Direct source\_path: workflow/stage\_prompts/F0\_FAST\_DIRECT.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/F0\_FAST\_DIRECT.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: route\_reason: direction: id: name: phase: id: name: fast\_direct\_payload: action: expected\_result: boundaries: validation\_signal: rollback\_or\_safety\_note: source\_freshness: inputs\_to\_load: do\_not\_load: stop\_rules:
-
-Do not produce a G1 launch card if routing to F0.
-
-Do not produce a downstream launch card when status is `context_request`, `human_decision`, or `stopped`; produce the relevant blocking card instead.
-
-## 14\. Context Request Card contract
-
-Use Context Request when missing factual context blocks safe selection.
-
-workflow\_packet: 1 type: context\_request schema: context\_request.v1 requesting\_stage: G0\_GOAL\_SELECT reason: blocking\_missing\_context:
-
-*   field: why\_needed: acceptable\_source: minimum\_response\_needed: safe\_assumptions\_not\_taken: next\_action\_after\_context: resume\_stage: G0\_GOAL\_SELECT
-
-Keep context requests minimal. Ask only for what blocks selection.
-
-## 15\. Human Decision Card contract
-
-Use Human Decision when the choice is strategic, subjective, or tied.
-
-workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select decision\_needed: options:
-
-*   option: consequence: recommended\_when: recommendation: reason\_not\_auto\_selected: next\_action\_after\_decision: resume\_stage: G0\_GOAL\_SELECT
-
-Include a recommendation when possible, but do not pretend a subjective preference is objective.
-
-## 16\. Stop Card contract
-
-Use Stop when G0 cannot continue safely and should not ask for routine context.
-
-workflow\_packet: 1 type: stop schema: stop.v1 stage: id: G0\_GOAL\_SELECT name: Goal Select stop\_reason: violated\_or\_missing\_condition: recommended\_recovery\_route: safe\_to\_continue: false
-
-Common Stop routes:
-
-*   no active Phase exists: recommend `P0_PHASE_START`;
-*   request is backlog/roadmap creation: recommend capture/review route if appropriate;
-*   all candidates invalid or stale: recommend context repair or review;
-*   wrong stage requested: recommend router.
+Context Requests should ask only for the missing factual context that blocks selection. Human Decisions should be used for strategic, subjective, or tied choices. Stop should be used when G0 cannot continue safely and should not ask for routine context.
 
 ## 17\. Compatibility and aliases
 

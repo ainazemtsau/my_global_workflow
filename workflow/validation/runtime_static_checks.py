@@ -49,6 +49,8 @@ REQUIRED_DIRECTION_PROJECT_FILES = [
 
 DEPRECATED_PROMPT_DELIVERY_MODES = [
     "request_" "from_repository",
+    "request\\_" "from\\_repository",
+    "repository-request",
     "embedded_" "in_launch_card",
     "pasted_" "in_current_chat",
     "attached_" "export",
@@ -478,15 +480,28 @@ def check_prompt_schema_duplication(root: Path, results: list[Finding]) -> None:
     duplicated schema bodies, not legitimate references to canonical schemas.
     """
     body_key_after_schema = r"\s*\n\s*(?!```)[A-Za-z_][A-Za-z0-9_-]*\s*:"
+
+    def md_token(value: str) -> str:
+        """Match plain or Markdown-escaped underscores in packet/schema tokens."""
+        return re.escape(value).replace("_", r"\\?_")
+
+    workflow_packet_anchor = rf"{md_token('workflow_packet')}:\s*1"
+
+    def packet_body(label: str, packet_type: str, schema: str) -> tuple[str, str]:
+        return (
+            label,
+            rf"{workflow_packet_anchor}\s*\n\s*(?:type|packet\\?_type):\s*{md_token(packet_type)}\s*\n\s*schema:\s*{md_token(schema)}{body_key_after_schema}",
+        )
+
     full_schema_body_patterns = [
-        ("stage_launch.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*stage_launch\s*\n\s*schema:\s*stage_launch\.v1{body_key_after_schema}"),
-        ("stage_result.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*stage_result\s*\n\s*schema:\s*stage_result\.v1{body_key_after_schema}"),
-        ("repository_patch.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*repository_patch\s*\n\s*schema:\s*repository_patch\.v1{body_key_after_schema}"),
-        ("context_request.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*context_request\s*\n\s*schema:\s*context_request\.v1{body_key_after_schema}"),
-        ("human_decision.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*human_decision\s*\n\s*schema:\s*human_decision\.v1{body_key_after_schema}"),
-        ("codex_repository_maintenance_apply.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_repository_maintenance_apply\s*\n\s*schema:\s*codex_repository_maintenance_apply\.v1{body_key_after_schema}"),
-        ("codex_return.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_return\s*\n\s*schema:\s*codex_return\.v1{body_key_after_schema}"),
-        ("codex_wave.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_wave\s*\n\s*schema:\s*codex_wave\.v1{body_key_after_schema}"),
+        packet_body("stage_launch.v1 body", "stage_launch", "stage_launch.v1"),
+        packet_body("stage_result.v1 body", "stage_result", "stage_result.v1"),
+        packet_body("repository_patch.v1 body", "repository_patch", "repository_patch.v1"),
+        packet_body("context_request.v1 body", "context_request", "context_request.v1"),
+        packet_body("human_decision.v1 body", "human_decision", "human_decision.v1"),
+        packet_body("codex_repository_maintenance_apply.v1 body", "codex_repository_maintenance_apply", "codex_repository_maintenance_apply.v1"),
+        packet_body("codex_return.v1 body", "codex_return", "codex_return.v1"),
+        packet_body("codex_wave.v1 body", "codex_wave", "codex_wave.v1"),
     ]
 
     route_table_patterns = [

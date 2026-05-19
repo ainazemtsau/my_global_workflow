@@ -63,6 +63,8 @@ These checks are blocking in both baseline and strict mode:
    - terminal card types are not canonical stage IDs.
 8. Active stage prompts must not use deprecated prompt delivery modes:
    - `request_from_repository`
+   - Markdown-escaped `request\_from\_repository`
+   - `repository-request`
    - `embedded_in_launch_card`
    - `pasted_in_current_chat`
    - `attached_export`

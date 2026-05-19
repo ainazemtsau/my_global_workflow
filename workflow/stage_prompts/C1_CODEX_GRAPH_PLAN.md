@@ -1,4 +1,4 @@
-# 14 C1 Codex Graph Plan - Final Runtime Prompt
+# C1_CODEX_GRAPH_PLAN - Codex Graph Plan Runtime Stage Prompt
 artifact_control:
   artifact_name: "C1_CODEX_GRAPH_PLAN Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-13"
 
-# C1\_CODEX\_GRAPH\_PLAN — Final Runtime Stage Prompt
+# C1\_CODEX\_GRAPH\_PLAN — Codex Graph Plan Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -93,7 +93,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results and launches must use the canonical transport templates from `workflow/transport/*.md` with stage-specific fields preserved below.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -776,7 +776,7 @@ workflow/stage_prompts/C2_CODEX_EXECUTE.md
 
 Prompt delivery must use only runtime-approved modes from `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 
-Do not use deprecated repository-request prompt delivery.
+Use only prompt delivery modes allowed by `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` and `workflow/transport/STAGE_LAUNCH_CARD.md`.
 
 C1-specific C2 launch payload must preserve: direction, phase, and goal references; Execution Brief reference; Codex graph plan reference or inline graph plan; target repository/project; branch/worktree expectations; Codex surface/tool binding; setup freshness; execution boundaries; do-not-touch areas; validator matrix; required evidence; expected C2 return fields; stop-if-context-differs rule; and human approval requirements.
 

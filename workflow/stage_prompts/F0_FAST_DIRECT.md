@@ -1,4 +1,4 @@
-# 10 F0_FAST_DIRECT - Fast Direct
+# F0_FAST_DIRECT - Fast Direct Runtime Stage Prompt
 artifact_control:
   artifact_name: "F0_FAST_DIRECT Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -139,7 +139,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 F0 first response must preview artifact purpose, proposed sections, key content/claims, acceptance checks, alternatives considered, why alternatives were rejected, scope cuts, risks/assumptions, and approval needed. F0 must not emit non-empty repository_patch.v1 operations on the first response unless formalization is already approved. F0 must not set changed_files_context_refresh.required = true before an approved patch, and must not route to R1 before apply/file read-back / diff verification / commit verification if a patch is required.
 
@@ -825,98 +825,15 @@ Unknown fields in upstream packets:
 
 ---
 
-## 13\. Execution Log Entry
+## 13\. Execution Log / Documentation / Refresh obligations
 
-Produce this for every F0 run:
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these F0-specific fields/content in the relevant canonical packet when formalization is approved:
 
-```yaml
-execution_log_entry: 1
-workflow_packet: 1
-type: execution_log_entry
-schema: execution_log_entry.v1
-stage_id: F0_FAST_DIRECT
-stage_name: Fast Direct
-direction:
-  id:
-  name:
-phase:
-  id:
-  name:
-  status:
-goal:
-  goal_id:
-  title:
-started_at:
-completed_at:
-input_refs:
-freshness_check:
-scope_check:
-actions_taken:
-patch_summary:
-readback_summary:
-acceptance_result:
-documentation_gate:
-changed_files_context_refresh_after_approval:
-next_route:
-operator_notes:
+- execution log: stage id/name, Direction/Phase/Goal identity, timestamps if available, input refs, freshness check, scope check, actions taken, patch summary, read-back summary, acceptance result, documentation gate, changed-files/context-refresh impact, next route, and operator notes;
+- documentation maintenance: reason, repository updates with read-back state, Project File refresh impact, stale context detected, and gate state;
+- changed-files/context-refresh: required state, exact files when known, reason, timing, and content update summary.
 
-```
-
-If execution is blocked, the log should say what blocked it and what evidence is needed. Do not invent completion.
-
----
-
-## 14\. Documentation Maintenance Gate
-
-Produce this whenever F0 writes, prepares a patch, blocks on stale context, or detects documentation drift.
-
-```yaml
-documentation_maintenance_gate: 1
-required_after_approval: true | false
-reason:
-repository_updates:
-  - path:
-    action:
-    readback_state:
-project_file_refresh:
-  required_now:
-  conditional_or_downstream:
-stale_context_detected:
-  - artifact:
-    issue:
-    action:
-gate_state: pass | pending_apply_readback | blocked | not_required
-
-```
-
-Default refresh behavior:
-
-*   Refresh `04_ACTIVE_GOAL.md` after active Goal file read-back / diff verification / commit verification/update.
-*   Refresh `03_FOCUS_REGISTER.md` after route/focus update.
-*   Refresh `05_PORTFOLIO_QUEUE.md` only if Goal status changes.
-*   Refresh `02_CURRENT_PHASE.md` after Goal review/close or Phase status change, usually downstream of F0.
-*   Do not treat Project Files as canonical.
-
----
-
-## 15\. Changed Files / Context Refresh List
-
-Produce a refresh list with this structure:
-
-```yaml
-changed_files_context_refresh_list:
-  required_after_approval: true | false
-  files:
-    - file:
-      reason:
-      timing: now | after_apply_readback | after_R1 | after_P9 | not_required
-      content_update_summary:
-
-```
-
-For F0, most Context refreshes are pending until patch apply/file read-back / diff verification / commit verification. Do not claim mirrors are refreshed unless evidence says so.
-
----
+If execution is blocked, the log must state what blocked it and what evidence is needed. Do not invent completion or claim mirrors are refreshed without evidence.
 
 ## 16\. Next Launch Card to R1
 
@@ -932,31 +849,7 @@ Do not issue this card when the patch is merely drafted or pending file read-bac
 
 ## 17\. Apply/Read-back Request
 
-When patch is ready but not applied/read repository files / verify diff or commit, output:
-
-```yaml
-workflow_packet: 1
-type: apply_readback_request
-schema: apply_readback_request.v1
-stage_id: F0_FAST_DIRECT
-reason: "Patch is ready but completion requires GitHub repository apply/file read-back / diff verification / commit verification evidence."
-patch_ref:
-apply_instructions:
-  - Apply only the listed patch actions.
-  - Do not touch forbidden paths.
-  - Read back every updated/created note.
-  - Confirm required validation anchors.
-  - Confirm old active Workflow vNext and rebuild stage prompts were not touched.
-required_return:
-  - applied paths
-  - file read-back / diff verification / commit verification excerpts or anchors
-  - forbidden-path safety confirmation
-  - problems/blockers
-next_chat_action: "Return the apply/file read-back / diff verification / commit verification result to this same F0 runtime chat for validation before R1."
-
-```
-
----
+When a patch is ready but not applied/read back, use the canonical repository maintenance/apply transport and preserve F0-specific content: patch reference, apply-only-listed-actions instruction, forbidden paths, required read-back/anchors, required return evidence, and same-chat validation before any R1 route. Do not copy a local apply/read-back schema.
 
 ## Context Request / Human Decision packet references
 
@@ -1002,70 +895,15 @@ Human Decision is required for:
 
 ## 20\. Stop Card
 
-Use this when proceeding would be unsafe.
+Use the canonical Stop transport when proceeding would be unsafe. Preserve F0-specific content: stage identity, `return_state: STUCK`, stop reason, evidence, unsafe action prevented, repository patch state, and recovery or next route. Do not copy a local Stop schema.
 
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage:
-  id: F0_FAST_DIRECT
-  name: Fast Direct
-return_state: STUCK
-stop_reason:
-evidence:
-unsafe_action_prevented:
-repository_patch:
-  state: none
-  reason:
-recovery_or_next_route:
-
-```
-
-Stop cases:
-
-*   launch card contradicts current source-of-truth;
-*   fresh GitHub repository evidence shows a different active Goal;
-*   patch would touch forbidden paths;
-*   target path cannot be safely identified;
-*   multiple active Goals or Phases create ambiguity;
-*   file read-back / diff verification / commit verification fails and safe repair is unclear;
-*   user insists on forbidden runtime changes without Human Decision and route escalation.
-
----
+Stop cases include source-of-truth contradiction, fresh evidence showing a different active Goal, forbidden-path risk, unsafe target path, multiple active Goals or Phases, failed read-back/validation with unclear repair, or forbidden runtime-change insistence without a valid Human Decision path.
 
 ## 21\. Route escalation recommendation
 
-Use this when F0 is no longer the right route but the work may still be valid.
+Use a concise route escalation recommendation when F0 is no longer the right route but the work may still be valid. Preserve source state, previous return state, reason, detected triggers, recommended registry-valid route or route-conflict handling, preserved context, repository patch/read-back state, and next action. Do not copy a local route-escalation schema.
 
-```yaml
-workflow_packet: 1
-type: route_escalation
-schema: route_escalation.v1
-source_state:
-  from_stage: F0_FAST_DIRECT
-  previous_return_state:
-reason:
-detected_triggers:
-recommended_route:
-next_stage:
-preserved_context:
-repository_patch:
-  state: none | safe_partial_completed
-  readback_state:
-next_action:
-
-```
-
-Typical escalation:
-
-*   use `C1_CODEX_GRAPH_PLAN` for dependency-heavy or graph/decomposition work;
-*   use `B1_PROBLEM` when the Goal/brief is internally broken;
-*   use Human Decision when scope/risk requires user choice.
-
-Do not become a full router. Recommend the escalation and stop.
-
----
+Typical escalation: use `B1_PROBLEM` when the Goal/brief is internally broken, `E1_EXECUTION_BRIEF` when the execution brief needs repair, or Human Decision when scope/risk requires user choice. Do not become a full router; recommend the escalation and stop.
 
 ## 22\. Human-readable output format
 
@@ -1157,29 +995,7 @@ If any check fails, do not issue an R1 launch. Return the appropriate blocker ro
 
 ---
 
-## 25\. First real Direction test scenario reference
-
-The first intended real test is:
-
-*   Direction: Solo Max Productive
-*   Active project: smart-workflow
-*   Phase: vNext One-Goal Smoke Test
-*   Goal: Create Lightweight Codex Small-Fix Lane
-*   Expected F0 objective: create/update only the Direction-local lightweight Codex Small-Fix Lane Contract plus one minimal dry-run Codex handoff checklist/example.
-*   Required guard: verify fresh GitHub repository evidence for the active Goal note/path before writing.
-*   Required exclusions:
-    *   no common canon;
-    *   no cross-Direction rollout;
-    *   no stage prompt edits;
-*   no Task Master graph for product/project execution;
-    *   no archive/history loading by default;
-    *   no security/privacy/tool-binding/source-of-truth changes.
-
-This scenario is a test reference, not a hardcoded limit on future valid F0 runs. Future F0 runs must follow the same gates and packet contracts.
-
----
-
-## 26\. Final instruction
+## Final instruction
 
 Execute small, safe, fresh, Direction-local work only.
 

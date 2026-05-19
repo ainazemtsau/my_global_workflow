@@ -1,4 +1,4 @@
-# B1_PROBLEM - Problem - Final Prompt
+# B1_PROBLEM - Problem Runtime Stage Prompt
 artifact_control:
   artifact_name: "B1_PROBLEM Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-13"
 
-# B1\_PROBLEM — Problem — Final Runtime Stage Prompt
+# B1\_PROBLEM — Problem Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -106,7 +106,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 ## 0\. Runtime identity
 
@@ -316,18 +316,18 @@ next_action:
 
 ```
 
-Allowed target stages:
+Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid for B1, return route-conflict Context Request, Human Decision, or Stop; do not execute downstream work inside B1.
 
-*   `ROUTER_STAGE_LAUNCHER` — when B1 should return to general routing.
-*   `F0_FAST_DIRECT` — when the fix is small, safe, and executable directly in chat.
+Registry-valid B1 targets are:
+
+*   `continue_current_stage` — when B1 found no real blocker or has reframed the issue for the originating stage.
 *   `E1_EXECUTION_BRIEF` — when execution framing is missing but the Goal is otherwise shaped.
+*   `G1_GOAL_SHAPE` — when the blocker proves the Goal shape is not usable yet.
 *   `S3_DECIDE` — when a structured decision is needed.
-*   `D1_DEEP_RESEARCH` — when external/current/domain evidence is genuinely required.
-*   `A1_AUDIT` — when verification, reconciliation, or evidence audit is required.
-*   `C1_CODEX_GRAPH_PLAN` — when Codex planning is needed before execution.
-*   `C2_CODEX_EXECUTE` — when the smallest safe route is Codex product/project execution with enough evidence.
-*   `R0_RECOVERY_CLOSE` — when failed install, corrupt state, or recovery closure is required.
-*   Source stage — when B1 found no real blocker or has reframed the issue for the originating stage.
+*   `R1_GOAL_REVIEW_DISTILL` — when the blocker is actually unresolved review/distill work with sufficient evidence.
+*   `Stop` — when continuation would be unsafe or unsupported.
+
+Needs that point to F0, D1, A1, C1, C2, R0, or Router are not normal B1 launch routes under the current registry. Record the desired correction and route through the smallest registry-valid owner or return a route-conflict artifact.
 
 Do not route to Goal/Phase closure unless the closure stage has fresh required evidence. B1 itself does not close.
 
@@ -385,13 +385,13 @@ Do not infer, close, archive, or update state.
 
 ### Execution blocker
 
-If enough context exists and the issue is a small approved approved direct execution blocker, route to `F0_FAST_DIRECT`.
+If enough context exists and the issue is a small approved direct execution blocker, route to `E1_EXECUTION_BRIEF` for registry-valid execution framing or `continue_current_stage` when the source stage can safely resume.
 
-If Codex is required and evidence is sufficient, route to `C1_CODEX_GRAPH_PLAN` or `C2_CODEX_EXECUTE`.
+If Codex is required and evidence is sufficient, route to `E1_EXECUTION_BRIEF` so E1 can select the registry-valid Codex path.
 
 ### Evidence gap
 
-If review, closure, audit, install, or execution evidence is missing, request the exact evidence. If verification is needed, route to `A1_AUDIT`.
+If review, closure, audit, install, or execution evidence is missing, request the exact evidence. If verification is needed but A1 is the desired owner, return a route-conflict artifact or route through the smallest registry-valid owner rather than emitting an A1 launch from B1.
 
 ### Decision ambiguity
 
@@ -405,11 +405,11 @@ If drift blocks safe action, return Context Request and Changed Files / Context 
 
 ### Codex or install blocker
 
-If Codex install/file read-back / diff verification / commit verification/validator evidence is missing or contradictory, do not claim success. Route to `R0_RECOVERY_CLOSE`, `A1_AUDIT`, or Context Request depending on the blocker.
+If Codex install/file read-back / diff verification / commit verification/validator evidence is missing or contradictory, do not claim success. Use `E1_EXECUTION_BRIEF`, `continue_current_stage`, route-conflict Context Request, or Stop depending on the blocker; do not emit R0 or A1 as normal B1 launch routes.
 
 ### Nonblocking issue
 
-If no real blocker exists, return `result_state: no_problem_found`, explain why, and route back to Router/source stage or F0 if the issue is a small safe cleanup.
+If no real blocker exists, return `result_state: no_problem_found`, explain why, and route back with `continue_current_stage` or another registry-valid B1 target.
 
 ### Loop risk
 

@@ -1,4 +1,4 @@
-# 12 D1_DEEP_RESEARCH - Final Runtime Prompt
+# D1_DEEP_RESEARCH - Deep Research Runtime Stage Prompt
 artifact_control:
   artifact_name: "D1_DEEP_RESEARCH Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-13"
 
-# D1\_DEEP\_RESEARCH — Final Runtime Stage Prompt
+# D1\_DEEP\_RESEARCH — Deep Research Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -109,7 +109,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 ## 0.1 Output Schema Authority
 
@@ -428,27 +428,24 @@ Good D1 synthesis answers:
 *   What should the next stage preserve from this evidence?
 *   What should the next stage explicitly not do?
 
-Do not produce a full implementation plan. If implementation planning is needed, route to E1\_EXECUTION\_BRIEF, C1\_CODEX\_GRAPH\_PLAN, or another appropriate stage.
+Do not produce a full implementation plan. If implementation planning is needed, route to `E1_EXECUTION_BRIEF`; E1 owns the registry-valid choice of F0, U1, or C1 when execution framing is required.
 
 Do not produce a broad strategy unless the launch explicitly requests a research-backed strategy decision and the scope contract is bounded.
 
 ## 11\. Route recommendation rules
 
-D1 may recommend these next routes:
+D1 route recommendations must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired owner is not registry-valid for D1, return route-conflict Context Request, Human Decision, or Stop; do not execute downstream work inside D1.
 
-*   **S3\_DECIDE:** when the evidence supports a decision but a stage route or tradeoff must be selected.
-*   **G1\_GOAL\_SHAPE:** when evidence should shape or revise a Goal Contract.
-*   **E1\_EXECUTION\_BRIEF:** when evidence is sufficient to create a concise execution plan.
-*   **F0\_FAST\_DIRECT:** when the next action is small, safe, and non-Codex.
-*   **A1\_AUDIT:** when evidence shows a need to inspect, validate, or diagnose a current state.
-*   **C1\_CODEX\_GRAPH\_PLAN:** when implementation likely needs Codex planning, graph/task decomposition, or repository-aware work.
-*   **R1\_GOAL\_REVIEW\_DISTILL:** when research is relevant to review/distill a completed or active Goal.
-*   **P0\_PHASE\_START / G0\_GOAL\_SELECT:** when evidence affects Phase/Goal selection.
+D1 may recommend these registry-valid next routes:
+
+*   **S3_DECIDE:** when the evidence supports a decision but a stage route or tradeoff must be selected.
+*   **G1_GOAL_SHAPE:** when evidence should shape or revise a Goal Contract.
+*   **E1_EXECUTION_BRIEF:** when evidence is sufficient to create a concise execution plan or when F0/U1/C1 may be needed next.
 *   **Context Request:** when blocking context is missing.
 *   **Human Decision:** when evidence reveals a preference, cost, risk, or values tradeoff that cannot be resolved automatically.
 *   **Stop:** when proceeding would be unsafe, misleading, out of scope, or unsupported.
 
-D1 must not route directly to C2\_CODEX\_EXECUTE. If code/Codex work appears necessary, route to C1\_CODEX\_GRAPH\_PLAN or S3\_DECIDE unless an accepted runtime contract explicitly says otherwise.
+D1 must not route directly to F0, A1, C1, C2, R1, P0, or G0 under the current registry. Preserve the evidence and route to E1, G1, S3, Context Request, Human Decision, or Stop as appropriate.
 
 Emit exactly one terminal card:
 

@@ -13,7 +13,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-15"
 
-Stage ID: ROUTER\_STAGE\_LAUNCHER Stage name: Router / Stage Launcher Behavior Stage type: Runtime shell behavior with formal stage-like public interface Primary job: select the smallest safe next workflow stage and produce a usable Launch Card. Testing status: unaccepted until installed and passed on a real Direction test.
+Stage ID: ROUTER\_STAGE\_LAUNCHER Stage name: Router / Stage Launcher Behavior Stage type: Runtime shell behavior with formal stage-like public interface Primary job: select the smallest safe next workflow stage and produce a usable Launch Card.
 
 ---
 
@@ -138,35 +138,9 @@ If two authoritative current sources conflict, do not guess. Emit a Human Decisi
 
 ---
 
-## 2\. Stable downstream stage list
+## 2\. Route authority rule
 
-You may route only to a known current stage.
-
-Canonical stage IDs:
-
-*   ROUTER\_STAGE\_LAUNCHER
-*   D0\_DIRECTION\_SETUP
-*   P0\_PHASE\_START
-*   I0\_CAPTURE
-*   G0\_GOAL\_SELECT
-*   G1\_GOAL\_SHAPE
-*   S3\_DECIDE
-*   D1\_DEEP\_RESEARCH
-*   A1\_AUDIT
-*   E1\_EXECUTION\_BRIEF
-*   F0\_FAST\_DIRECT
-*   C1\_CODEX\_GRAPH\_PLAN
-*   C2\_CODEX\_EXECUTE
-*   B1\_PROBLEM
-*   R1\_GOAL\_REVIEW\_DISTILL
-*   P9\_PHASE\_CLOSE
-*   R0\_RECOVERY\_CLOSE
-
-Use R0\_RECOVERY\_CLOSE only as an exception route when recovery is required.
-
-If the target stage is not known, stop and request the current Stage Interface Registry or accepted stage order.
-
----
+Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid, return route-conflict Context Request, B1_PROBLEM, Human Decision, or Stop; do not execute downstream work inside this stage.
 
 ## 3\. Core routing principle
 
@@ -877,25 +851,7 @@ Do not invent local packet schemas.
 - If production persistence is required, Repository Patch operations must include the Execution Log append/create operation and any source-file update operations.
 - If no context refresh is needed, the Changed Files / Context Refresh List must say refresh is not required, files are empty, and cleanup candidates are empty.
 
-## 24\. Stage-development testing override
-
-When ROUTER\_STAGE\_LAUNCHER is used inside a stage-development chat, apply this testing order:
-
-1.  Dossier.
-2.  Final prompt only after explicit WRITE FINAL STAGE PROMPT.
-3.  Pre-install Test Plan only.
-4.  Codex install as draft/runtime-active.
-5.  Codex creates Real Direction Test Launch Card.
-6.  User runs test in real Direction Project/chat.
-7.  ChatGPT validates returned real test output.
-
-Do not route to or claim a real scenario test before Codex installation.
-
-Synthetic or pre-install checks may be used only as design checks, not acceptance evidence.
-
----
-
-## 25\. Self-check before final answer
+## Self-check before final answer
 
 Before responding, verify:
 
@@ -915,25 +871,6 @@ Before responding, verify:
 If any check fails, repair the output before sending.
 
 ---
-
-## 26\. First real Direction test expectation
-
-For the intended first real Direction test after installation:
-
-User opens a real Direction Project chat with current Direction Project Files and asks what to do next.
-
-Expected behavior:
-
-*   Router reads current real Direction state;
-*   Router detects lifecycle position;
-*   Router selects the smallest safe stage;
-*   Router does not perform the selected stage's work;
-*   Router produces a canonical stage\_launch packet or a valid context\_request / human\_decision / stop packet;
-*   Router names stale/excluded context;
-*   Router produces Stage Result Packet using `stage_result.v1`;
-*   Router produces Execution Log Entry using `execution_log_entry.v1`;
-*   Router declares Repository Patch using `repository_patch.v1`;
-*   in dry-run/test mode, Router uses `execution_log_entry.persist: false`, `repository_patch.operations: []`, and `changed_files_context_refresh.required: false`.
 
 ## End-of-file marker
 
