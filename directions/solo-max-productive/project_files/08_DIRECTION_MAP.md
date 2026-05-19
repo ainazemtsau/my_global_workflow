@@ -9,7 +9,7 @@ artifact_control:
   repo_path: "directions/solo-max-productive/project_files/08_DIRECTION_MAP.md"
   default_load: yes
   freshness: fresh
-  last_updated: "2026-05-18"
+  last_updated: "2026-05-19"
 ```
 
 ## Purpose
@@ -32,11 +32,12 @@ It should stay compact. It is not a calendar roadmap, backlog, implementation pl
 ```yaml
 direction_map_status:
   map_state: initialized
-  current_initiative_id: INIT-2026-05-16-EXOCORTEX-PERSISTENT-AI-BRAIN
+  current_initiative_id: INIT-EXOCORTEX-PERSISTENT-PERSONAL-AI-BRAIN
   map_confidence: medium
   last_reviewed_stage: M0_DIRECTION_MAP
   last_reviewed_at: "2026-05-18"
   migration_status: migrated_from_uninitialized_stub
+  objective_architecture_migration_at: "2026-05-19"
   source_commit_from_launch_bundle: "06a7b20cf23bcb632f1d47ede18d44f740737fe6"
   migration_inputs_used:
     - project_files/00_DIRECTION_START_HERE.md
@@ -53,47 +54,68 @@ direction_map_status:
   update_policy: "M0 owns shared map review/update; R1/P9/parent synthesis may propose controlled map deltas; branch chats emit delta proposals only."
 ```
 
+## Direction Objective
+
+```yaml
+direction_objective:
+  id: OBJ-EXOCORTEX-AI-BRAIN
+  statement: >
+    Build EXOCORTEX as a persistent personal AI brain / external-brain application
+    that preserves memory, compiles context, uses tools and workspace surfaces,
+    learns from outcomes, maintains Reality Alignment, and compounds with future
+    LLM improvements.
+  active_horizon:
+    id: HORIZON-EXOCORTEX-CORE-FOUNDATION
+    statement: >
+      Active Horizon: Accepted EXOCORTEX Core Foundation exists.
+    coverage:
+      - memory/context persistence
+      - model interoperability
+      - tools/actions extensibility
+      - interaction/process loops
+      - workspace surfaces
+      - learning from outcomes
+      - Reality Alignment
+      - first buildable foundation boundary
+```
+
 ## Current Initiative
 
 ```yaml
 current_initiative:
-  id: INIT-2026-05-16-EXOCORTEX-PERSISTENT-AI-BRAIN
+  id: INIT-EXOCORTEX-PERSISTENT-PERSONAL-AI-BRAIN
   title: EXOCORTEX Persistent Personal AI Brain
   status: active
   intent: >
-    Create a persistent personal AI companion/substrate that is not merely Q&A chat
-    and not merely a temporary workflow replacement. EXOCORTEX should preserve memory,
-    compile context, use tools, operate or generate useful UI/workspace surfaces,
-    learn from interaction outcomes, maintain Reality Alignment / anti-sycophancy
-    mechanisms, and become stronger as future LLMs improve.
+    Build EXOCORTEX as the persistent personal AI brain / external-brain application
+    described by the Direction Objective.
   why_now: >
-    The active Phase has been repaired around EXOCORTEX App Foundation, but the
-    Direction Map was still an uninitialized stub. The immediate constraint is to
-    convert the large future-app vision into a bounded foundation before architecture,
-    stack choice, product execution, or broad roadmap work.
+    The Direction Map is initialized and the accepted migration target is EXOCORTEX
+    Core Foundation. The immediate constraint is converting the large vision into
+    a bounded foundation before architecture, stack choice, product execution, or
+    broad roadmap work.
   success_signal: >
-    A reviewed EXOCORTEX Product Foundation Definition exists and is accepted or
-    reviewed through the normal Goal lifecycle. It defines target system, principles,
-    core loop, conceptual subsystem map, Max Vision vs Min Proof / buildable foundation
-    boundary, non-goals, and validation criteria, and it enables a phase-progress
-    decision about closing or continuing the current Phase.
+    A reviewed EXOCORTEX Core Foundation Definition exists and is accepted through
+    the normal Goal lifecycle. It defines core substrate, memory/context persistence,
+    model interoperability, tools/actions extensibility, interaction/process loops,
+    workspace surfaces, learning from outcomes, Reality Alignment, first buildable
+    foundation boundary, non-goals, and validation criteria.
 ```
 
 ## Initiative Registry
 
 ```yaml
 initiative_registry:
-  - id: INIT-2026-05-16-EXOCORTEX-PERSISTENT-AI-BRAIN
+  - id: INIT-EXOCORTEX-PERSISTENT-PERSONAL-AI-BRAIN
     title: EXOCORTEX Persistent Personal AI Brain
     status: active
     phase_binding:
       current_phase: EXOCORTEX App Foundation
       current_phase_path: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration
-    current_front_node: G1-EXOCORTEX-PRODUCT-FOUNDATION
-    success_signal: reviewed_exocortex_product_foundation_definition
-    replacement_policy: >
-      Current ChatGPT + GitHub + Codex workflow remains the construction workflow.
-      EXOCORTEX should replace it only after radical superiority and sufficient readiness.
+    current_front_node: NODE-DEFINE-CORE-FOUNDATION
+    current_goal_node: GOAL-G1-EXOCORTEX-PRODUCT-FOUNDATION
+    success_signal: reviewed_exocortex_core_foundation_definition
+    horizon: HORIZON-EXOCORTEX-CORE-FOUNDATION
 ```
 
 ## Strategy Basis
@@ -103,8 +125,8 @@ strategy_basis:
   map_generation_mode: m0_migration_from_project_files_and_user_objective
   strategic_question: >
     What is the shortest credible path from the broad EXOCORTEX personal-brain vision
-    to a bounded, reviewable foundation that can guide the next Goal without drifting
-    into implementation, stack, architecture, or broad roadmap work?
+    to a bounded, reviewable Core Foundation that can guide the next Goal without
+    drifting into implementation, stack, architecture, or broad roadmap work?
   optimization_criteria:
     - shortest_credible_path
     - constraint_removal
@@ -114,18 +136,18 @@ strategy_basis:
     - human_burden_minimization
   candidate_paths_considered:
     - id: PATH-FOUNDATION-FIRST
-      title: Initialize map, then shape EXOCORTEX Product Foundation Definition
+      title: Shape EXOCORTEX Core Foundation through the existing Product Foundation candidate
       verdict: selected
       rationale: >
         Directly removes the current bottleneck and matches the active Phase closure contract.
     - id: PATH-ARCHITECTURE-FIRST
-      title: Technical architecture map before product foundation
+      title: Technical architecture map before Core Foundation
       verdict: rejected_now
       rationale: >
         Premature; architecture is optional and deferred until foundation is accepted or
         a phase-progress decision explicitly continues.
     - id: PATH-STACK-FIRST
-      title: Technology stack shortlist before product foundation
+      title: Technology stack shortlist before Core Foundation
       verdict: rejected_now
       rationale: >
         Premature; stack choice depends on accepted foundation and validation criteria.
@@ -153,16 +175,16 @@ strategy_basis:
         Violates current constraints. The map is a compact strategic routing context,
         not a calendar roadmap or backlog.
   selected_path_rationale: >
-    The shortest credible path is to initialize the map around one Current Initiative
-    and one Active Front, then route to G1_GOAL_SHAPE for the EXOCORTEX Product Foundation
-    Definition. This maximizes evidence value while minimizing irreversible planning,
-    product execution, and human review burden.
+    The shortest credible path is to route the initialized map to G1_GOAL_SHAPE for
+    the existing EXOCORTEX Product Foundation Definition candidate, clarified as
+    EXOCORTEX Core Foundation Definition. This maximizes evidence value while
+    minimizing irreversible planning, product execution, and human review burden.
   major_assumptions:
     - >
       User-provided strategic objective is valid as human input but must be shaped
       against current Direction state rather than treated as automatic accepted canon.
     - >
-      Full EXOCORTEX source material is required for G1 foundation shaping, but the M0
+      Full EXOCORTEX source material is required for G1 Core Foundation shaping, but the M0
       map can rely on current Project Files plus the Codex-verified launch bundle summary
       without producing the foundation itself.
     - >
@@ -187,99 +209,94 @@ strategy_basis:
 ```yaml
 compact_initiative_graph:
   nodes:
-    - id: INIT-2026-05-16-EXOCORTEX-PERSISTENT-AI-BRAIN
+    - id: OBJ-EXOCORTEX-AI-BRAIN
+      type: objective
+      title: EXOCORTEX persistent personal AI brain / external-brain application
+      status: accepted
+      role: direction_objective
+    - id: INIT-EXOCORTEX-PERSISTENT-PERSONAL-AI-BRAIN
       type: initiative
       title: EXOCORTEX Persistent Personal AI Brain
       status: active
-      role: strategic_target
-    - id: M0-MAP-INITIALIZATION
-      type: map_node
-      title: Initialize compact Direction Map
-      status: formalized
-      role: make_strategy_context_usable
-    - id: G1-EXOCORTEX-PRODUCT-FOUNDATION
+      role: objective_carrier
+    - id: HORIZON-EXOCORTEX-CORE-FOUNDATION
+      type: horizon
+      title: EXOCORTEX Core Foundation
+      status: accepted
+      role: active_horizon
+    - id: NODE-DEFINE-CORE-FOUNDATION
+      type: frontier_node
+      title: Define EXOCORTEX Core Foundation
+      status: ready
+      role: selected_frontier_node
+      stage_binding: G1_GOAL_SHAPE
+    - id: GOAL-G1-EXOCORTEX-PRODUCT-FOUNDATION
       type: goal_candidate_node
       title: EXOCORTEX Product Foundation Definition
       status: active_front_primary
-      role: define_target_foundation_before_how
+      role: existing_goal_candidate_for_core_foundation_definition
+      candidate_id: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
+      candidate_title_compatibility: EXOCORTEX Product Foundation Definition
+      clarified_meaning: EXOCORTEX Core Foundation Definition
       stage_binding: G1_GOAL_SHAPE
-    - id: R1-FOUNDATION-REVIEW-AND-PHASE-GATE
+    - id: REVIEW-R1-FOUNDATION-AND-PHASE-GATE
       type: review_gate_node
       title: Review foundation and run phase-progress gate
-      status: horizon
+      status: blocked_until_goal_output_exists
       role: decide_close_continue_or_human_decision_after_foundation
-    - id: MIN-PROOF-BOUNDARY
+    - id: DECISION-FIRST-BUILDABLE-FOUNDATION-BOUNDARY
       type: decision_boundary_node
-      title: First buildable foundation / Min Proof boundary
-      status: gated_by_foundation
-      role: decide what can be built or validated first after foundation
-    - id: TECHNICAL-ARCHITECTURE-MAP
-      type: parked_node
-      title: EXOCORTEX technical architecture map
+      title: First buildable foundation boundary
+      status: blocked_until_core_foundation_accepted
+      role: decide first buildable boundary after accepted Core Foundation
+    - id: PARKED-EXPANSIONS
+      type: parked_node_group
+      title: Parked expansions
       status: parked
-      role: optional_after_foundation_or_phase_continue_decision
-    - id: TECH-STACK-SHORTLIST
-      type: parked_node
-      title: Tech stack shortlist
-      status: parked
-      role: optional_after_foundation_or_explicit_evidence_gap
-    - id: PROTOTYPE-SPIKES
-      type: parked_node
-      title: Event Ledger / memory model / UI workspace prototype spikes
-      status: parked
-      role: optional_after_foundation_and_execution_route
-    - id: FULL-EXOCORTEX-APPLICATION
-      type: future_node
-      title: Full EXOCORTEX application / personal external brain
-      status: future
-      role: max_vision_not_current_execution_scope
+      role: architecture_stack_prototypes_research_product_execution_and_full_app_are_not_current_scope
   edges:
-    - from: INIT-2026-05-16-EXOCORTEX-PERSISTENT-AI-BRAIN
-      to: M0-MAP-INITIALIZATION
-      relation: requires_map_initialization
-    - from: M0-MAP-INITIALIZATION
-      to: G1-EXOCORTEX-PRODUCT-FOUNDATION
-      relation: enables_next_goal_shape
-    - from: G1-EXOCORTEX-PRODUCT-FOUNDATION
-      to: R1-FOUNDATION-REVIEW-AND-PHASE-GATE
+    - from: OBJ-EXOCORTEX-AI-BRAIN
+      to: INIT-EXOCORTEX-PERSISTENT-PERSONAL-AI-BRAIN
+      relation: drives
+    - from: INIT-EXOCORTEX-PERSISTENT-PERSONAL-AI-BRAIN
+      to: HORIZON-EXOCORTEX-CORE-FOUNDATION
+      relation: selects_active_horizon
+    - from: HORIZON-EXOCORTEX-CORE-FOUNDATION
+      to: NODE-DEFINE-CORE-FOUNDATION
+      relation: requires_definition
+    - from: NODE-DEFINE-CORE-FOUNDATION
+      to: GOAL-G1-EXOCORTEX-PRODUCT-FOUNDATION
+      relation: maps_to_existing_goal_candidate
+    - from: GOAL-G1-EXOCORTEX-PRODUCT-FOUNDATION
+      to: REVIEW-R1-FOUNDATION-AND-PHASE-GATE
       relation: requires_review_before_expansion
-    - from: G1-EXOCORTEX-PRODUCT-FOUNDATION
-      to: MIN-PROOF-BOUNDARY
-      relation: defines_or_constrains
-    - from: MIN-PROOF-BOUNDARY
-      to: TECHNICAL-ARCHITECTURE-MAP
-      relation: may_enable_after_phase_decision
-    - from: MIN-PROOF-BOUNDARY
-      to: TECH-STACK-SHORTLIST
-      relation: may_enable_after_phase_decision
-    - from: MIN-PROOF-BOUNDARY
-      to: PROTOTYPE-SPIKES
-      relation: may_enable_after_execution_route
-    - from: G1-EXOCORTEX-PRODUCT-FOUNDATION
-      to: FULL-EXOCORTEX-APPLICATION
-      relation: keeps_max_vision_grounded_without_executing_it
+    - from: REVIEW-R1-FOUNDATION-AND-PHASE-GATE
+      to: DECISION-FIRST-BUILDABLE-FOUNDATION-BOUNDARY
+      relation: enables_boundary_decision_after_accepted_foundation
+    - from: DECISION-FIRST-BUILDABLE-FOUNDATION-BOUNDARY
+      to: PARKED-EXPANSIONS
+      relation: may_unpark_specific_expansion_after_later_route
 ```
 
 ## Active Front
 
 ```yaml
 active_front:
-  primary_node: G1-EXOCORTEX-PRODUCT-FOUNDATION
+  primary_node: NODE-DEFINE-CORE-FOUNDATION
+  mapped_goal_node: GOAL-G1-EXOCORTEX-PRODUCT-FOUNDATION
+  mapped_goal_candidate_id: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
   primary_stage_binding: G1_GOAL_SHAPE
   active_front_statement: >
-    Shape the EXOCORTEX Product Foundation Definition. Define WHAT / WHY / DONE
-    for the future application foundation before HOW, architecture, stack, prototypes,
-    or Codex product execution.
+    Shape EXOCORTEX Core Foundation through the existing EXOCORTEX Product Foundation
+    Definition candidate. Define WHAT / WHY / DONE for the core substrate before HOW,
+    architecture, stack, prototypes, or Codex product execution.
   parallel_candidate_nodes: []
   parallel_policy: >
     No parallel workstreams before the foundation is stable. Parallel research,
     audit, or prototype work can be considered only after G1 exposes specific
     evidence gaps or after a phase-progress decision continues the Phase.
   parked_nodes:
-    - TECHNICAL-ARCHITECTURE-MAP
-    - TECH-STACK-SHORTLIST
-    - PROTOTYPE-SPIKES
-    - FULL-EXOCORTEX-APPLICATION
+    - PARKED-EXPANSIONS
 ```
 
 ## Horizon Slice
@@ -287,14 +304,15 @@ active_front:
 ```yaml
 horizon_slice:
   statement: >
-    Reach one reviewed EXOCORTEX Product Foundation Definition and then make a
+    Reach one reviewed EXOCORTEX Core Foundation Definition and then make a
     phase-progress decision. Do not move into architecture, stack, implementation,
     prototypes, full roadmap, or Codex product execution until that foundation is
     accepted or a specific evidence gap is identified.
   node_ids:
-    - M0-MAP-INITIALIZATION
-    - G1-EXOCORTEX-PRODUCT-FOUNDATION
-    - R1-FOUNDATION-REVIEW-AND-PHASE-GATE
+    - HORIZON-EXOCORTEX-CORE-FOUNDATION
+    - NODE-DEFINE-CORE-FOUNDATION
+    - GOAL-G1-EXOCORTEX-PRODUCT-FOUNDATION
+    - REVIEW-R1-FOUNDATION-AND-PHASE-GATE
   exit_condition: >
     Foundation definition reviewed; phase-progress gate decides P9_PHASE_CLOSE,
     continuation, Human Decision, or targeted next route.
@@ -304,56 +322,39 @@ horizon_slice:
 
 ```yaml
 parked_future_nodes:
-  - id: TECHNICAL-ARCHITECTURE-MAP
-    title: EXOCORTEX technical architecture map
+  - id: PARKED-EXPANSIONS
+    title: Parked expansions
     status: parked
+    contains:
+      - EXOCORTEX technical architecture map
+      - tech stack shortlist
+      - implementation spike
+      - UI/workspace mockup
+      - Event Ledger prototype
+      - memory model prototype
+      - external research on current AI app infrastructure
+      - Codex / Task Master / product execution graph
+      - full EXOCORTEX application / personal external brain
     unpark_trigger: >
-      Accepted foundation creates a concrete architecture question or phase-progress
-      decision explicitly continues into architecture.
-  - id: TECH-STACK-SHORTLIST
-    title: Tech stack shortlist
-    status: parked
-    unpark_trigger: >
-      Accepted foundation defines buildable boundary and validation criteria requiring
-      stack comparison.
-  - id: IMPLEMENTATION-SPIKE
-    title: Implementation spike
-    status: parked
-    unpark_trigger: >
-      Execution route is approved after foundation, with scope, target paths, and
-      validation anchors.
-  - id: UI-WORKSPACE-MOCKUP
-    title: UI/workspace mockup
-    status: parked
-    unpark_trigger: >
-      Foundation identifies UI/workspace as the next highest-evidence surface.
-  - id: EVENT-LEDGER-PROTOTYPE
-    title: Event Ledger prototype
-    status: parked
-    unpark_trigger: >
-      Foundation makes Event Ledger the minimum useful validation slice.
-  - id: MEMORY-MODEL-PROTOTYPE
-    title: Memory model prototype
-    status: parked
-    unpark_trigger: >
-      Foundation makes memory behavior the minimum useful validation slice.
-  - id: EXTERNAL-RESEARCH-SWEEP
-    title: External research on current AI app infrastructure
-    status: parked
-    unpark_trigger: >
-      G1, S3, E1, or D1 identifies a concrete current-facts evidence gap.
-  - id: CODEX-PRODUCT-GRAPH
-    title: Codex / Task Master / product execution graph
-    status: parked
-    unpark_trigger: >
-      Accepted Goal and execution brief require multi-file or product/project execution
-      through the correct E1/C1/C2 route.
-  - id: FULL-EXOCORTEX-APPLICATION
-    title: Full EXOCORTEX application / personal external brain
-    status: future_max_vision
-    unpark_trigger: >
-      Multiple later foundations, proofs, and readiness checks show EXOCORTEX is
-      radically superior to the current construction workflow.
+      A later accepted Core Foundation, phase-progress decision, or explicit evidence
+      gap selects one expansion through the correct workflow route.
+```
+
+## Next Action Proof
+
+```yaml
+next_action_proof:
+  proposed_stage_after_migration_repair: G1_GOAL_SHAPE
+  selected_frontier_node: NODE-DEFINE-CORE-FOUNDATION
+  mapped_goal_node: GOAL-G1-EXOCORTEX-PRODUCT-FOUNDATION
+  mapped_goal_candidate_id: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
+  basis_valid: true
+  route_valid: true
+  launch_allowed: false
+  launch_blockers:
+    - exact G1_GOAL_SHAPE prompt unavailable in current run
+    - EXOCORTEX_CONCEPT_SEED_FULL.md required
+    - Project Files refresh required after this patch
 ```
 
 ## Map Update Policy
@@ -367,7 +368,7 @@ map_update_policy:
     - P9_PHASE_CLOSE
     - parent_synthesis_after_parallel_branches
   update_triggers:
-    - accepted_or_rejected_EXOCORTEX_Product_Foundation_Definition
+    - accepted_or_rejected_EXOCORTEX_Core_Foundation_Definition
     - phase_progress_gate_decision_after_foundation_review
     - human_decision_changes_current_initiative
     - concrete_evidence_gap_requires_research_or_audit_route

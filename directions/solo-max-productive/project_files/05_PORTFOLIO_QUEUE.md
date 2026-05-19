@@ -9,8 +9,8 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-14"
-  refresh_source: "P0-2026-05-14-exocortex-app-foundation-repair"
+  last_refresh_at: "2026-05-19"
+  refresh_source: "OA-MIGRATION-SMP-EXOCORTEX-CORE-FOUNDATION-2026-05-19"
 ```
 
 ## Current queue state
@@ -27,7 +27,7 @@ Superseded Goal: `directions/solo-max-productive/phases/personal-workflow-app-ke
 
 Superseded Goal status: preserved as superseded provenance; not executable.
 
-Required candidate for Phase closure: `EXOCORTEX Product Foundation Definition` — approved for later `G1_GOAL_SHAPE`.
+Required candidate for Phase closure: `EXOCORTEX Product Foundation Definition` — approved for later `G1_GOAL_SHAPE`; this candidate now means EXOCORTEX Core Foundation Definition.
 
 Next route: `G1_GOAL_SHAPE` after repository patch and Project Files refresh.
 
@@ -38,7 +38,7 @@ required_for_closure:
   - id: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
     title: EXOCORTEX Product Foundation Definition
     status: approved_for_G1_GOAL_SHAPE
-    smallest_useful_result: "Define target system, principles, core loop, conceptual subsystem map, buildable foundation boundary, non-goals, and validation criteria."
+    smallest_useful_result: "Define EXOCORTEX Core Foundation with expandable core, memory/context persistence, model interoperability, tools/actions extensibility, interaction/process loops, workspace surfaces, Reality Alignment, first buildable foundation boundary, non-goals, and validation criteria."
     validation_link: "May satisfy Phase Minimum Outcome after R1 review/distill."
 ```
 
@@ -58,9 +58,8 @@ optional_expansion:
 
 Queue note:
 
-- The user clarified that the target is the future EXOCORTEX application / personal external brain.
-- The current ChatGPT + GitHub + Codex workflow remains the construction workflow.
-- The new app should replace current workflow only after radical superiority/full readiness.
+- The accepted Direction Objective is EXOCORTEX as a persistent personal AI brain / external-brain application.
+- The active queue target is EXOCORTEX Core Foundation shaping.
 - The prior candidate `Personal Workflow System Core and MVP Definition` is too weak and is superseded by EXOCORTEX phase repair.
 - Do not create `03_KERNEL_MIN_PROOF_BRIEF.md`.
 - Do not build the app during this P0/G1 shaping boundary.

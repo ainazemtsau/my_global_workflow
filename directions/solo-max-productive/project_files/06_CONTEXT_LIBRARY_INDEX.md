@@ -9,8 +9,8 @@ artifact_control:
   source_file: "directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md"
   default_load: yes
   freshness: fresh
-  last_refresh_at: "2026-05-14"
-  refresh_source: "P0-2026-05-14-exocortex-app-foundation-repair"
+  last_refresh_at: "2026-05-19"
+  refresh_source: "OA-MIGRATION-SMP-EXOCORTEX-CORE-FOUNDATION-2026-05-19"
 ```
 
 ## Default context
@@ -41,20 +41,20 @@ If GitHub and Project File cache conflict, use verified full GitHub read-back. I
 
 `08_DIRECTION_MAP.md` is strategic routing context between Direction and Phase; it does not replace Phase, Goal, Queue, Context Loading Index, or Phase Memory state.
 
-## EXOCORTEX foundation context for G1
+## EXOCORTEX Core Foundation context for G1
 
 Required for the next `G1_GOAL_SHAPE` run:
 
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md`
 - P0 result / repository patch / Codex return from `P0-2026-05-14-exocortex-app-foundation-repair`
-- User correction: current workflow remains the construction workflow; EXOCORTEX is the future application and should replace current workflow only after radical superiority/full readiness.
+- Accepted migration concepts: Direction Objective, Active Horizon, Objective Graph, Active Frontier, and Next Action Proof from the EXOCORTEX Core Foundation Objective Architecture migration.
 
 Purpose:
 
-- Shape `EXOCORTEX Product Foundation Definition`.
-- Treat EXOCORTEX as the future target application / personal external brain.
-- Preserve current ChatGPT + GitHub + Codex workflow as the construction workflow.
-- Define product/application foundation: target system, principles, core loop, conceptual subsystem map, buildable foundation, non-goals, and validation criteria.
+- Shape EXOCORTEX Core Foundation Definition.
+- Treat EXOCORTEX as a persistent personal AI brain / external-brain application.
+- Define core substrate, memory/context persistence, model interoperability, tools/actions extensibility, interaction/process loops, workspace surfaces, learning from outcomes, Reality Alignment, first buildable foundation boundary, non-goals, and validation criteria.
+- G1 must define core substrate, memory/context persistence, model interoperability, tools/actions extensibility, interaction/process loops, workspace surfaces, learning from outcomes, Reality Alignment, first buildable foundation boundary, non-goals, and validation criteria.
 - Do not execute the old proof Goal.
 - Do not treat the old replacement candidate as current.
 - Do not implement the app during G1.
@@ -82,7 +82,7 @@ Use old Goal files only as superseded comparison material.
 
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md`
 
-Load for EXOCORTEX foundation shaping. Do not treat as an executable implementation roadmap.
+Load for EXOCORTEX Core Foundation shaping. Do not treat as an executable implementation roadmap.
 
 ## Archive boundary
 
@@ -90,7 +90,7 @@ Load for EXOCORTEX foundation shaping. Do not treat as an executable implementat
 - vNext One-Goal Smoke Test is historical/test state for this route, not current active work.
 - Create Lightweight Codex Small-Fix Lane is not current active Goal state unless explicitly reactivated.
 - Personal Workflow App Kernel Min Proof is superseded as an execution target and should be used only as comparison/provenance unless explicitly reactivated by a later human decision.
-- Personal Workflow System Core and MVP Definition is superseded as the current replacement candidate by the approved EXOCORTEX App Foundation phase repair.
+- Personal Workflow System Core and MVP Definition is superseded as a legacy candidate by the approved EXOCORTEX Core Foundation migration.
 
 ## Phase Memory Index default context amendment
 
