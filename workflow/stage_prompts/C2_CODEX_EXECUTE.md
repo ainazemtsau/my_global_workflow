@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-19"
 
 # C2\_CODEX\_EXECUTE — Codex Execute Runtime Stage Prompt
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -46,7 +46,7 @@ C2 must not treat a Codex return as complete when:
 - append operations placed content below an EOF marker;
 - diff verification includes extra unapproved paths.
 
-In these cases C2 must return repair instructions, Context Request, B1_PROBLEM, or Stop rather than launching R1 or another downstream material stage.
+In these cases C2 must return repair instructions, B1_PROBLEM, E1_EXECUTION_BRIEF, Stop, or `REGISTRY_REVIEW_CANDIDATE` rather than launching R1 or another downstream material stage. If a Context Request artifact is the exact needed repair but is not registry-valid for C2, report the registry review candidate and use the smallest registry-valid fallback.
 
 ## 0.0 Reviewable Work Product and Formalization Control
 
@@ -90,6 +90,32 @@ C2 is the product/project execution route. Codex product/project execution is al
 
 Codex repository maintenance after an approved repository_patch.v1 remains separate from product/project execution. It may update workflow/Direction GitHub files, append execution logs, perform file read-back / diff verification / commit verification, or perform launch bundle preparation when authorized. Codex read-only audit/validation is allowed when requested. Repository maintenance must not broaden the accepted C1 plan, bypass C2 readiness gates, or mutate product/project files outside the approved execution scope.
 
+## 0.2 Codex mutation readiness and return evidence
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `execution_readiness`, basis-validity, and route-valid versus basis-valid distinction. Use `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` for Codex role separation, ChatGPT/Codex technical context boundary, Parent Goal Completion Gate, and Lifecycle State Reconciliation Gate. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
+
+C2 must verify the C1 envelope before mutation and must not mutate outside approved allowed surfaces.
+
+Before mutation or return routing, set compact readiness/evidence status:
+
+- execution_readiness_status: ready | missing_blocking | failed | not_required_for_nonmaterial_case
+- envelope_verification_status: ready | missing_blocking | failed
+- technical_discovery_preflight_status: not_required | required_done | required_missing | blocked
+- mutation_allowed: true | false
+- allowed_surfaces_checked:
+- forbidden_surfaces_checked:
+- validation_result:
+- evidence_returned:
+- completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
+- parent_goal_completion_state: complete | incomplete | unknown
+- next_route_basis:
+
+C2 must distinguish Codex product/project execution, Codex repository maintenance, Codex read-only audit/validation, and Codex launch bundle preparation. Product/project execution must run project-local technical discovery / architecture reuse preflight before mutation when runtime core requires it.
+
+Stop or return the smallest registry-valid correction when the envelope is missing/contradictory, target is unclear, allowed/forbidden surfaces are unclear, validation surface is missing, architecture/reuse decision is outside the envelope, discovered risk violates approval, secrets/permissions/tool bindings are missing, or validation failure changes scope. If the needed correction route is not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE` and use Stop or another registry-valid fallback rather than inventing prompt-local route authority.
+
+C2 may return evidence sufficient for parent synthesis or R1 only when completion_scope supports it. Do not route to R1 for branch, gated-slice, or partial results unless the completed artifact is explicitly the accepted parent Goal outcome. Route incomplete parent work back to E1 or B1 according to registry.
+
 ---
 
 ## 0\. Non-negotiable stage boundary
@@ -102,7 +128,7 @@ C2 may do these things:
 *   inspect changed files, diffs, logs, and file read-back / diff verification / commit verification evidence;
 *   update authorized documentation if the execution requires it;
 *   produce a Codex Return Packet and Workflow runtime packets;
-*   route to R1, E1, B1, Context Request, Human Decision, or Stop when registry-valid.
+*   route to R1, E1, B1, or Stop when registry-valid; if Context Request or Human Decision would be the exact needed terminal artifact but is not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE` and use the smallest registry-valid fallback.
 
 C2 must not do these things:
 
@@ -151,7 +177,7 @@ Before executing, require these artifacts or explicit equivalents:
 19.  Project instructions reference, such as AGENTS.md, or explicit statement that none exists.
 20.  Source-of-truth freshness marker.
 
-If any required item is missing, stale, contradictory, or not concrete enough to execute safely, do not execute. Return `blocked_context` with a Context Request Card.
+If any required item is missing, stale, contradictory, or not concrete enough to execute safely, do not execute. Return `blocked_context` through the smallest registry-valid fallback; if a Context Request Card is required but not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 
 ---
 
@@ -185,11 +211,11 @@ Use this mode only if you have actual access to the target repo/workspace and th
 
 ### Mode B — Handoff-only / not execution-capable
 
-Use this mode if you do not have actual filesystem, shell, Codex, or repo access. Do not pretend to execute. Do not claim files were changed. Return `blocked_context` with a Context Request that asks for a C2 execution-capable runtime or the missing Codex Return Packet from an actual Codex run.
+Use this mode if you do not have actual filesystem, shell, Codex, or repo access. Do not pretend to execute. Do not claim files were changed. Return `blocked_context` through the smallest registry-valid fallback; if a Context Request for a C2 execution-capable runtime or missing Codex Return Packet is required but not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 
 ### Mode C — Blocked/unsafe
 
-Use this mode if execution would violate scope, safety, approval, network, dependency, credential, production, or stale-context constraints. Return Human Decision or Stop depending on severity.
+Use this mode if execution would violate scope, safety, approval, network, dependency, credential, production, or stale-context constraints. Use Stop or another registry-valid fallback depending on severity; if a Human Decision artifact is required but not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE`.
 
 ---
 
@@ -208,13 +234,15 @@ Use this authority order:
 
 Do not treat old Workflow vNext materials, archive exports, prior failed Codex runs, old roadmap files, stale project files, or partial old workflow outputs as authority unless the current launch explicitly provides and accepts them.
 
-If current source-of-truth artifacts conflict, return Context Request. If the conflict requires a choice rather than more context, return Human Decision.
+If current source-of-truth artifacts conflict, use the smallest registry-valid fallback. If the conflict requires Context Request or Human Decision and that artifact is not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 
 ---
 
 ## 5\. Execution readiness gate
 
 Before modifying anything, produce an internal readiness result and act accordingly.
+
+This readiness result must set `execution_readiness_status`, `envelope_verification_status`, `technical_discovery_preflight_status`, `mutation_allowed`, `allowed_surfaces_checked`, `forbidden_surfaces_checked`, `validation_result`, `evidence_returned`, `completion_scope`, `parent_goal_completion_state`, and `next_route_basis`.
 
 C2 may execute only if all are true:
 
@@ -243,7 +271,7 @@ If any condition fails, stop before mutation and output:
 *   Execution Log Entry;
 *   Documentation Maintenance Gate;
 *   Changed Files / Context Refresh List;
-*   Context Request Card;
+*   registry-valid correction or Stop;
 *   expanded Kernel QA.
 
 ---
@@ -271,7 +299,7 @@ If an action does not map to the ledger:
 
 *   do not perform it;
 *   either skip it as out-of-scope,
-*   return Human Decision if it appears necessary,
+    *   use a registry-valid fallback if human choice appears necessary,
 *   or route back to C1 if the plan itself must change.
 
 The default route is smallest safe execution. Prefer the smallest testable implementation that satisfies the accepted C1 wave. Cut scope until slightly uncomfortable when the work begins to expand beyond the plan.
@@ -305,7 +333,7 @@ Preflight procedure:
    - `blocked_missing_context`
    - `human_decision_required`
 5. Mutate only if the decision stays inside the approved C1 envelope and does not require a material architecture decision outside the launch.
-6. Stop and return Human Decision, Context Request, or route back to C1/E1 if the preflight reveals a material architecture decision, dependency-direction change, public-interface change, forbidden path need, or validation-scope expansion outside the approved envelope.
+6. Stop, route back to E1/B1 when registry-valid, or report `REGISTRY_REVIEW_CANDIDATE` if a Human Decision or Context Request artifact is required, when the preflight reveals a material architecture decision, dependency-direction change, public-interface change, forbidden path need, or validation-scope expansion outside the approved envelope.
 
 Required compact return evidence when the preflight ran or was required:
 
@@ -370,7 +398,7 @@ If the readiness gate passes and the runtime is execution-capable:
 12.  Run Documentation Maintenance Gate.
 13.  Produce packets and route.
 
-Do not keep changing files after a validation failure unless the plan authorizes the exact repair loop. If multiple repair paths are plausible, return Human Decision or R0 route.
+Do not keep changing files after a validation failure unless the plan authorizes the exact repair loop. If multiple repair paths are plausible, route to B1/E1 or Stop according to registry; report `REGISTRY_REVIEW_CANDIDATE` if a Human Decision or unavailable recovery route is required.
 
 ## 7.1 Completion scope routing gate
 
@@ -465,9 +493,9 @@ Use when:
 
 Status: `executed_partial` or `validation_failed`.
 
-### Return Context Request
+### Missing context fallback
 
-Use when:
+Use the smallest registry-valid fallback when:
 
 *   required context is missing;
 *   C1 plan/wave is absent, stale, incomplete, or not accepted;
@@ -476,11 +504,11 @@ Use when:
 *   validation commands/evidence requirements/forbidden changes are missing;
 *   runtime is not execution-capable.
 
-Status: `blocked_context`.
+Status: `blocked_context`. If a Context Request artifact is required but not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 
-### Return Human Decision Card
+### Human decision fallback
 
-Use when:
+Use the smallest registry-valid fallback when:
 
 *   execution requires scope expansion;
 *   forbidden files must be touched;
@@ -523,6 +551,10 @@ Output these sections in order.
 ## 2\. Execution readiness
 
 *   Readiness result:
+*   execution_readiness_status:
+*   envelope_verification_status:
+*   technical_discovery_preflight_status:
+*   mutation_allowed:
 *   Execution mode:
 *   Required context present:
 *   Missing/stale/conflicting context:
@@ -533,6 +565,8 @@ Output these sections in order.
 *   C1 plan reference:
 *   Codex wave reference:
 *   Approved items:
+*   allowed_surfaces_checked:
+*   forbidden_surfaces_checked:
 *   Executed items:
 *   Skipped items:
 *   Out-of-scope items detected:
@@ -553,6 +587,11 @@ Output these sections in order.
 
 *   Commands run:
 *   Validation results:
+*   validation_result:
+*   evidence_returned:
+*   completion_scope:
+*   parent_goal_completion_state:
+*   next_route_basis:
 *   Diff/file read-back / diff verification / commit verification summary:
 *   Skipped validation:
 *   Unverified claims:
@@ -583,8 +622,7 @@ Include:
 Include exactly one:
 
 *   Next Launch Card;
-*   Context Request Card;
-*   Human Decision Card;
+*   registry-valid correction card when allowed;
 *   Stop Card.
 
 ## 9\. Expanded Kernel QA
@@ -779,7 +817,7 @@ Preserve these C2-specific gate obligations:
 - changed-files/context-refresh impact;
 - claims not proven.
 
-If documentation update is required but not authorized, C2 must not silently update docs. It must return the correct Repository Patch, Context Request, Human Decision, or Stop route.
+If documentation update is required but not authorized, C2 must not silently update docs. It must return the correct registry-valid fallback or Stop route; report `REGISTRY_REVIEW_CANDIDATE` if Context Request or Human Decision is required but not registry-valid for C2.
 
 ---
 
@@ -835,9 +873,9 @@ workflow/transport/HUMAN_DECISION_CARD.md
 
 Stage-specific trigger rules in this prompt still apply.
 
-If this stage needs missing context, produce a Context Request using the canonical transport template and the stage-specific missing-context triggers below.
+If this stage needs missing context, use the smallest registry-valid fallback. If a Context Request artifact is required but not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 
-If this stage needs a human-owned decision, produce a Human Decision using the canonical transport template and the stage-specific decision triggers below.
+If this stage needs a human-owned decision, use the smallest registry-valid fallback. If a Human Decision artifact is required but not registry-valid for C2, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 
 Do not invent local packet schemas.
 
@@ -922,4 +960,4 @@ Final response must be self-contained enough for the next stage to act without r
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/C2_CODEX_EXECUTE.md`
+END_OF_FILE: workflow/stage_prompts/C2_CODEX_EXECUTE.md

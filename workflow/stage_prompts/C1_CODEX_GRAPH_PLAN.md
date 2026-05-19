@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-19"
 
 # C1\_CODEX\_GRAPH\_PLAN — Codex Graph Plan Runtime Stage Prompt
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -152,6 +152,35 @@ Trigger `technical_discovery_preflight.required: true` when any are true:
 The C2 launch must tell Codex to run project-local read-only discovery before mutation and return a compact `technical_discovery_card` and `technical_memory_delta` in the Codex Return Packet.
 
 If C1 cannot identify even a bounded discovery scope, it must return Context Request instead of asking ChatGPT to load all product technical context.
+
+## 0.6 Codex execution envelope readiness
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `execution_readiness`, basis-validity, solution-shape proof, and route-valid versus basis-valid distinction. Use `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` for Codex role separation and ChatGPT/Codex technical context boundary. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
+
+C1 must not execute product/project work. C1 prepares a bounded Codex execution envelope only when execution readiness is ready enough for C2.
+
+Before emitting a C2 launch, set compact envelope readiness:
+
+- execution_readiness_status: ready | missing_blocking | failed | not_required_for_nonmaterial_case
+- codex_envelope_status: ready | missing_blocking | failed
+- accepted_context_basis:
+- implementation_target:
+- allowed_surfaces:
+- forbidden_surfaces:
+- validation_surface:
+- acceptance_or_review_path:
+- technical_discovery_preflight_required: true | false
+- technical_discovery_reason:
+- c2_launch_allowed: true | false
+- route_basis:
+
+C1 requires accepted Goal/Execution Brief context or explicit launch basis, implementation target, allowed surfaces, forbidden surfaces, validation surface, acceptance/review path, basis-validity status, solution-shape proof status, product/project workspace binding when relevant, and Codex role separation.
+
+C1 must require Codex-side technical discovery preflight when project-local architecture/reuse decisions may be needed: new module/interface/API/integration/dependency possible, multi-file/modular work expected, reuse/refactor/new-module choice ambiguous, validation scope may change materially, or generated/protected/read-only/module-boundary/technical-memory rules may affect implementation.
+
+C1 must not perform deep product architecture planning unless exact scoped technical context is provided and the planning remains within the ChatGPT execution-envelope boundary. Do not create a C2 launch if the envelope requires a material human decision, missing context, or a non-registry-valid route. Do not use Codex execution to bypass unresolved E1/F0 readiness gaps.
+
+If the needed correction route is not registry-valid for C1, report `REGISTRY_REVIEW_CANDIDATE` and use Stop or another registry-valid fallback rather than inventing prompt-local route authority.
 
 ## 0\. Stage identity
 
@@ -300,6 +329,8 @@ Pass 3 — Goal adequacy check:
 Pass 4 — Codex readiness check:
 
 *   Confirm repo/project target.
+*   Confirm compact execution_readiness_status and codex_envelope_status.
+*   Confirm implementation target, allowed surfaces, forbidden surfaces, validation surface, and acceptance/review path.
 *   Confirm repo root/path or safe discovery scope.
 *   Confirm Codex surface/tool binding.
 *   Confirm branch/worktree expectations.
@@ -307,6 +338,7 @@ Pass 4 — Codex readiness check:
 *   Confirm sandbox/approval/network policy.
 *   Confirm validation commands or explicit no-command reason.
 *   Confirm secrets/external systems boundaries.
+*   Confirm technical_discovery_preflight_required and technical_discovery_reason.
 
 Pass 5 — Scope-cut pass:
 
@@ -354,6 +386,7 @@ Pass 7 — Evidence and validator design:
 Pass 8 — Route decision:
 
 *   Route to C2 only if all execution prerequisites are satisfied.
+*   Set c2_launch_allowed true only when the Codex envelope is complete and registry-valid.
 *   Return Context Request if missing/stale context blocks safe planning.
 *   Return Human Decision if a material tradeoff needs user judgment.
 *   Return Stop if the request is invalid, unsafe, or asks C1 to execute.
@@ -576,6 +609,10 @@ Include:
 *   route\_reason:
 *   smallest\_safe\_route:
 *   scope\_classification:
+*   execution_readiness_status:
+*   codex_envelope_status:
+*   c2_launch_allowed:
+*   route_basis:
 *   one-sentence human summary:
 
 ## 2\. Context and freshness check
@@ -596,6 +633,12 @@ Include:
 
 Include:
 
+*   accepted_context_basis:
+*   implementation_target:
+*   allowed_surfaces:
+*   forbidden_surfaces:
+*   validation_surface:
+*   acceptance_or_review_path:
 *   target\_repo:
 *   target\_root\_or\_path:
 *   base\_branch\_or\_worktree:
@@ -608,6 +651,8 @@ Include:
 *   network\_policy:
 *   validation commands:
 *   readiness\_status:
+*   technical_discovery_preflight_required:
+*   technical_discovery_reason:
 *   gaps:
 
 ## 4\. Scope cut
@@ -820,4 +865,4 @@ Before finalizing, verify:
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md`
+END_OF_FILE: workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md

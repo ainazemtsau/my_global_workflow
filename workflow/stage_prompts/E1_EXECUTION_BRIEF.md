@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-15"
+  last_updated: "2026-05-19"
 
 # E1\_EXECUTION\_BRIEF — Execution Brief
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -142,6 +142,38 @@ E1 may define:
 E1 must not decide deep product architecture, module reuse, internal implementation patterns, or durable code-level technical memory unless that technical content is explicitly supplied and scoped in the current run.
 
 When Codex product/project execution may require architecture, module-boundary, reuse-vs-new, public-interface, dependency-direction, or technical-memory decisions, E1 should route to C1 with a requirement that C2 perform Codex-side project-local technical discovery / architecture reuse preflight before mutation.
+
+## 0.3 Execution readiness and HOW boundary
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `execution_readiness`, Next Action Proof, Minimum Sufficient Solution Proof, Component Necessity Test, route-valid versus basis-valid distinction, and solution-shape minimality. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
+
+E1 must inherit or produce compact `next_action_proof` before execution planning. E1 must not plan HOW for unproven WHAT, and must not plan HOW until MSSP is passed, inherited, or explicitly not required when solution shape is material.
+
+Before selecting an execution route, set compact execution readiness:
+
+- execution_readiness_status: ready | missing_blocking | failed | not_required_for_nonmaterial_case
+- next_action_proof_status: inherited | proven_compact | missing_blocking | failed | not_required
+- mssp_status: inherited | proven_compact | missing_blocking | failed | not_required
+- implementation_target:
+- allowed_surfaces:
+- validation_surface:
+- acceptance_or_review_path:
+- execution_topology:
+- component_necessity_status:
+- chosen_execution_route:
+- why_not_simpler:
+- why_not_more_complex:
+- route_basis:
+
+Execution readiness requires explicit implementation target, allowed surfaces, validation surface, acceptance or review path, inherited or proven basis-validity, and solution-shape proof passed or not required.
+
+Classify execution mode/topology as `single_direct`, `gated_sequential`, `parallel_workstreams`, `parallel_then_gated_synthesis`, `decision_map`, `codex_graph`, `human_decision_blocked`, or `blocked_missing_readiness`.
+
+Run or reference Component Necessity Test for durable artifacts, templates, recurring reports, workstreams, chat splits, repository-backed processes, or Codex execution envelopes. Do not choose branch/workstream topology merely because it is systematic; topology must be necessary for material work surfaces, dependencies, context size, evidence quality, risk isolation, or Codex graph need.
+
+If execution readiness, Next Action Proof, or MSSP is missing or failed for material work, do not plan execution. Return the smallest registry-valid correction or terminal outcome. If the needed correction route is not registry-valid for E1, report `REGISTRY_REVIEW_CANDIDATE` and use Stop or another registry-valid fallback rather than inventing prompt-local route authority.
+
+E1 may route research gaps to D1, audit/challenge gaps to A1, human-owned tradeoffs to S3, blocker/framing gaps to B1, guided external UI execution to U1, direct small execution to F0, Codex graph planning to C1, or terminal outcomes only when registry-valid. E1 must explicitly state why F0 is allowed/rejected, why C1/Codex graph is allowed/rejected, and why U1 is allowed/rejected when external human operation may be involved.
 
 ## 1\. Non-negotiable boundaries
 
@@ -361,6 +393,20 @@ f0_entry_from_e1:
 ```
 
 E1 must include this F0 readiness summary in the route decision when selecting F0.
+
+### Pass 4.6 — Execution readiness proof gate
+
+Run this gate before branch/topology selection or next-stage launch.
+
+Check:
+
+*   execution_readiness_status is ready, inherited, or not required for a nonmaterial case;
+*   next_action_proof_status is inherited/proven_compact/not_required;
+*   mssp_status is inherited/proven_compact/not_required when solution shape is material;
+*   implementation_target, allowed_surfaces, validation_surface, and acceptance_or_review_path are explicit;
+*   component_necessity_status is passed/not_required for every durable artifact, template, recurring report, workstream, chat split, repository-backed process, or Codex execution envelope.
+
+If any material item is missing or failed, return the smallest registry-valid correction/terminal outcome instead of planning HOW.
 
 ### Pass 4.7 — Branch / Workstream Topology Gate
 
@@ -682,12 +728,25 @@ Use this exact high-level shape.
 - Why this is the smallest safe route:
 - Alternatives rejected:
 - Downstream availability guard:
+- execution_readiness_status:
+- next_action_proof_status:
+- mssp_status:
+- execution_topology:
+- component_necessity_status:
+- chosen_execution_route:
+- why_not_simpler:
+- why_not_more_complex:
+- route_basis:
 
 ## 2. Execution brief
 - Objective:
 - Smallest safe slice:
+- Implementation target:
+- Allowed surfaces:
 - Artifacts to create/update:
 - Target paths:
+- Validation surface:
+- Acceptance or review path:
 - Implementation sequence:
 - Explicit non-goals:
 
@@ -954,4 +1013,4 @@ No QA exceptions.
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
+END_OF_FILE: workflow/stage_prompts/E1_EXECUTION_BRIEF.md
