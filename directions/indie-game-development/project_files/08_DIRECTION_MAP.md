@@ -8,7 +8,7 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_r1_first_technical_nucleus_spec_acceptance
+  freshness: fresh_after_g1_H1_G2_formalization
   last_updated: "2026-05-19"
 ```
 

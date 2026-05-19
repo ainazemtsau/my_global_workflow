@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_r1_first_technical_nucleus_spec_acceptance
+  freshness: fresh_after_g1_H1_G2_formalization
   last_updated: "2026-05-19"
-  next_action: "Run G1_GOAL_SHAPE for H1_G2_codex_development_operating_model_and_architecture_protocols after M0 Objective Architecture migration apply/read-back and manual Project Files refresh."
+  next_action: "Run A1_AUDIT for H1_G2_codex_development_operating_model_and_architecture_protocols after G1 H1_G2 formalization apply/read-back and manual Project Files refresh."
 ```
 
 ## Direction identity
@@ -38,9 +38,10 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Current Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
-| Current Phase status | `active_pending_m0_after_r1_first_technical_nucleus_spec_acceptance` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
+| Current Phase status | `active_H1_G2_goal_shaped_pending_A1_audit` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
-| Active Goal | `none_pending_g1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal status | `goal_shaped_pending_A1_audit` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Last completed Goal | `first-technical-nucleus-functional-spec` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec` |
 | Last completed Goal status | `r1_completed_verified_specification_accepted` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md` |
 | Last completed Goal Artifact | `First Technical Nucleus Functional Specification` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md` |
@@ -49,7 +50,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `G1_GOAL_SHAPE — shape H1_G2 Codex Development Operating Model / Architecture Protocols` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
+| Next route | `A1_AUDIT — audit existing workflow Codex/project setup first-use fit` | `workflow/stage_prompts/A1_AUDIT.md` |
 
 ## Current Phase meaning
 
@@ -94,11 +95,11 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `G1_GOAL_SHAPE` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after M0 Objective Architecture migration repository maintenance apply/read-back and manual Project Files refresh.
+Run `A1_AUDIT` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after G1 H1_G2 formalization repository maintenance apply/read-back and manual Project Files refresh.
 
-G1 must shape the minimum Goal Contract for Codex development operating rules, architecture boundaries, validation requirements, and bootstrap-readiness criteria.
+A1 must audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
 
-Do not run Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, direct E1 launch, or Game Documentation promotion before a later basis-valid route authorizes concrete work.
+A1 must not create a second Indie-only workflow layer. Do not run Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, real internal tool setup, direct E1 launch, or Game Documentation promotion before a later basis-valid route authorizes concrete work.
 
 ## 2026-05-16 R1 stabilization
 

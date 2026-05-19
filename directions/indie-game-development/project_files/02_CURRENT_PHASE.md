@@ -9,7 +9,7 @@ project_file_control:
     - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
     - "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_r1_first_technical_nucleus_spec_acceptance
+  source_freshness: active_git_file_after_g1_H1_G2_formalization
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -100,10 +100,10 @@ phase_closure_contract_status_update:
 
 - Active Phase unresolved: `no`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Phase route state: `active_pending_m0_after_r1_acceptance`
+- Active Phase route state: `active_H1_G2_goal_shaped_pending_A1_audit`
 - Active Goal unresolved: `no`
-- Active Goal: `none_pending_g1_goal_shape`
-- Active Goal status: `none_pending_g1_goal_shape`
+- Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Active Goal status: `goal_shaped_pending_A1_audit`
 - Last completed Goal: `first-technical-nucleus-functional-spec`
 - Last completed Goal status: `r1_completed_verified_specification_accepted`
 - Previous accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
@@ -116,7 +116,7 @@ phase_closure_contract_status_update:
 - Last closed Phase completed Goal status: `r1_reviewed_accepted`
 - Direction Map status: `initialized`
 - Map link: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief / H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `A1_AUDIT`
 - Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
@@ -129,11 +129,11 @@ Previous closed Phase proved the Expedition proof identity and rejected gas-only
 
 ## Next route
 
-Run `G1_GOAL_SHAPE` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after M0 Objective Architecture migration repository maintenance apply/read-back and manual Project Files refresh.
+Run `A1_AUDIT` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after G1 H1_G2 formalization repository maintenance apply/read-back and manual Project Files refresh.
 
-G1 must shape the minimum Codex Development Operating Model / Architecture Protocols Goal before project bootstrap, E1 implementation planning, durable technical nucleus implementation, or Codex product/project execution.
+A1 must audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
 
-Do not proceed to P9, E1, project bootstrap, or durable implementation planning until the H1_G2 Goal is shaped and later reviewed through the normal lifecycle.
+A1 must not create a second Indie-only workflow layer. Do not proceed to P9, E1, project bootstrap, durable implementation planning, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
 ## 2026-05-16 R1 Phase Progress Gate
 
@@ -159,4 +159,6 @@ Current next route after F0 synthesis formalization and evidence repair: `R1_GOA
 
 Historical next route after R1 acceptance: `M0_DIRECTION_MAP`.
 
-Current next route after M0 Objective Architecture migration: `G1_GOAL_SHAPE`.
+Historical next route after M0 Objective Architecture migration: `G1_GOAL_SHAPE`.
+
+Current next route after G1 H1_G2 formalization: `A1_AUDIT`.

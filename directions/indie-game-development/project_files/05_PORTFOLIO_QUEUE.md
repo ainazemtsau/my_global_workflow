@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_first_technical_nucleus_spec_acceptance
+projection_status: fresh_after_g1_H1_G2_formalization
 activated_at: "2026-05-13"
 ```
 
@@ -17,16 +17,17 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
 - Active Phase name: `Core Co-op Technical Foundation Selection`
-- Active Phase status: `active_pending_m0_after_r1_acceptance`
+- Active Phase status: `active_H1_G2_goal_shaped_pending_A1_audit`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `none_pending_g1_goal_shape`
+- Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Active Goal status: `goal_shaped_pending_A1_audit`
 - Last completed Goal: `first-technical-nucleus-functional-spec`
 - Last completed Goal status: `r1_completed_verified_specification_accepted`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `A1_AUDIT`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -70,7 +71,7 @@ Required foundation surface:
 
 ## Queue items
 
-- Codex Development Operating Model / Architecture Protocols Goal shaping — `next_route: G1_GOAL_SHAPE`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: A1_AUDIT`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `goal_shaped_pending_A1_audit`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
 - Expedition Project Bootstrap / Tool Binding Readiness — request-only until selected by a vNext-R stage result
 - Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result

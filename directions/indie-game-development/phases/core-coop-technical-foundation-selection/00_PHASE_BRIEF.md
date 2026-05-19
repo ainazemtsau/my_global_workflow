@@ -5,20 +5,25 @@ artifact_control:
   artifact_name: "Phase Brief — Core Co-op Technical Foundation Selection"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_pending_m0_after_r1_acceptance
-  phase_status: active_pending_m0_after_r1_acceptance
-  active_goal_id: none_pending_m0_direction_map_review
-  active_goal_status: none_pending_m0_direction_map_review
+  status: active_H1_G2_goal_shaped_pending_A1_audit
+  phase_status: active_H1_G2_goal_shaped_pending_A1_audit
+  active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  active_goal_status: goal_shaped_pending_A1_audit
   status_after_r1_first_technical_nucleus_spec: active_pending_m0_after_r1_acceptance
+  status_after_m0_objective_architecture_migration: active_pending_g1_H1_G2_goal_shape
+  status_after_g1_H1_G2_formalization: active_H1_G2_goal_shaped_pending_A1_audit
   last_completed_goal:
     goal_id: first-technical-nucleus-functional-spec
     result: r1_completed_verified_specification_accepted
     accepted_scope: functional_technical_specification_only
-  next_route: M0_DIRECTION_MAP
-  next_route_mode: review_active_front_after_completed_specification_goal
-  phase_progress_gate_status: m0_review_required_before_p9_g0_e1_or_implementation
+  current_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+  next_route: A1_AUDIT
+  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  phase_progress_gate_status: completed_by_R1_then_m0_frontier_review_completed
   phase_closed: false
   p9_allowed_now: false
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
   created_by_stage: P0_PHASE_START
   created_at: "2026-05-13"
@@ -29,7 +34,7 @@ artifact_control:
 - Phase ID: `core-coop-technical-foundation-selection`
 - Phase name: `Core Co-op Technical Foundation Selection`
 - Direction: `Indie Game Development`
-- Status: `active_pending_m0_after_r1_acceptance`
+- Status: `active_H1_G2_goal_shaped_pending_A1_audit`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 
@@ -205,11 +210,13 @@ candidate:
 
 ## Next route
 
-Run `M0_DIRECTION_MAP` after repository maintenance apply/read-back and manual Project Files refresh.
+Run `A1_AUDIT` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after G1 H1_G2 formalization repository maintenance apply/read-back and manual Project Files refresh.
 
-M0 must review the active front after the specification Goal was accepted.
+A1 must audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
 
-M0 must not perform implementation, Unity bootstrap, old-code transfer, Codex product/project execution, Task Master graph creation, Game Documentation promotion, or Phase close inside M0.
+A1 must not create a second Indie-only workflow layer. It must decide whether the existing workflow is sufficient, needs a minimal project-specific input/profile, needs Workflow Governance repair, or requires exact missing context.
+
+Do not proceed to P9, E1, project bootstrap, durable technical nucleus implementation, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
 ## 2026-05-15 P0 map-alignment repair
 
@@ -339,4 +346,42 @@ Blocked:
 - old-code audit as starting point;
 - Codex product/project execution;
 - Task Master graph;
+- Game Documentation promotion.
+
+## 2026-05-19 G1 H1_G2 formalization
+
+G1 formalized `H1_G2_codex_development_operating_model_and_architecture_protocols` as the active Goal.
+
+Goal contract:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+
+Current state:
+
+```yaml
+active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+active_goal_status: goal_shaped_pending_A1_audit
+next_route: A1_AUDIT
+next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+unity_bootstrap_allowed_now: false
+task_master_graph_allowed_now: false
+```
+
+Key correction:
+
+- This Goal must audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
+- It must not create a second Indie-only workflow layer.
+- A1 must decide whether the existing workflow is sufficient, needs a minimal project-specific input/profile, needs Workflow Governance repair, or requires exact missing context.
+
+Still not authorized:
+
+- Unity bootstrap;
+- implementation;
+- old-code transfer;
+- old-code audit as starting point;
+- Codex product/project execution;
+- Task Master graph creation;
+- real internal tool setup;
 - Game Documentation promotion.

@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_r1_first_technical_nucleus_spec_acceptance
+  source_freshness: active_git_file_after_g1_H1_G2_formalization
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes

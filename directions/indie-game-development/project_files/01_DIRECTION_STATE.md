@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_r1_first_technical_nucleus_spec_acceptance
+  source_freshness: active_git_file_after_g1_H1_G2_formalization
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -23,8 +23,8 @@ direction:
   current_initiative_from_map: innovative-commercial-expedition-gas-sim-game
   active_horizon_from_map: H1_playable_technical_nucleus
   current_phase_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-  active_goal_pointer: none_pending_g1_goal_shape
-  active_goal_contract: none
+  active_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols"
+  active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: r1_accepted_route_gated_decision_map
   recommended_first_goal_candidate: H1_G2_codex_development_operating_model_and_architecture_protocols
@@ -37,9 +37,9 @@ direction:
   last_completed_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec"
   last_completed_goal_result: r1_completed_verified_specification_accepted
   accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
-  active_goal_status: none_pending_g1_goal_shape
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
+  active_goal_status: goal_shaped_pending_A1_audit
+  next_route: A1_AUDIT
+  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
   last_updated: "2026-05-19"
 ```
 
@@ -69,7 +69,7 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Core Co-op Technical Foundation Selection`
 - Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
-- Status: `active_pending_m0_after_r1_acceptance`
+- Status: `active_H1_G2_goal_shaped_pending_A1_audit`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
@@ -77,14 +77,14 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Current Critical Constraint: foundation choices and Codex-development architecture protocols must be reconciled into an accepted, reviewable foundation decision before playable technical nucleus implementation can safely proceed.
 - Minimum Outcome: accepted or review-routed `Core Technical Foundation Decision Brief / Decision Map`.
 - Validation Signal: the next workflow state can choose R1 review, A1 audit, D1 research, S3 decision, or E1 execution planning without guessing and without premature implementation.
-- Active Goal: `none_pending_g1_goal_shape`
-- Active Goal status: `none_pending_g1_goal_shape`
+- Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Active Goal status: `goal_shaped_pending_A1_audit`
 - Last completed Goal: `first-technical-nucleus-functional-spec`
 - Last completed Goal status: `r1_completed_verified_specification_accepted`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`; old Grid/Gas material is reference/evidence only until requirements are clear.
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `A1_AUDIT`
 
 ## Previous active Phase / Goal
 
@@ -108,12 +108,12 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `requires_refresh_after_r1_first_technical_nucleus_spec_acceptance_2026-05-18`
-- Required refresh: `before G1_GOAL_SHAPE for H1_G2`
-- Current route: `G1_GOAL_SHAPE`
+- Last refresh: `requires_refresh_after_g1_H1_G2_formalization_2026-05-19`
+- Required refresh: `before A1_AUDIT for H1_G2 after post-G1 projection reconciliation`
+- Current route: `A1_AUDIT`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Goal: `none_pending_g1_goal_shape`
-- Active Goal status: `none_pending_g1_goal_shape`
+- Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Active Goal status: `goal_shaped_pending_A1_audit`
 - Last completed Goal: `first-technical-nucleus-functional-spec`
 - Last completed Goal status: `r1_completed_verified_specification_accepted`
 - Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`

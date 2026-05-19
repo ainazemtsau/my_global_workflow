@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_first_technical_nucleus_spec_acceptance
+projection_status: fresh_after_g1_H1_G2_formalization
 activated_at: "2026-05-13"
 ```
 
@@ -56,40 +56,43 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - Status: `active_phase_brief`
-  - Load for `M0_DIRECTION_MAP` and any route working on the current Phase.
+  - Status: `active_phase_brief_after_g1_H1_G2_formalization`
+  - Load for `A1_AUDIT` and any route working on the current Phase.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
 
 ## Active Goal context
 
-No active Goal is selected after M0 Objective Architecture migration. The next selected route is `G1_GOAL_SHAPE` for `H1_G2_codex_development_operating_model_and_architecture_protocols`.
+Active Goal after G1 H1_G2 formalization:
 
 ```yaml
-last_completed_goal_after_r1:
-  goal_id: first-technical-nucleus-functional-spec
-  result: r1_completed_verified_specification_accepted
-  artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
-  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
-  recommended_next_stage: G1_GOAL_SHAPE
-  recommended_next_mode: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
+active_goal_after_g1_H1_G2:
+  active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  active_goal_status: goal_shaped_pending_A1_audit
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
+  recommended_next_stage: A1_AUDIT
+  recommended_next_mode: audit_existing_workflow_codex_project_setup_first_use_fit
 ```
 
-Load for G1 H1_G2 Goal shaping:
+Load for A1 H1_G2 workflow fit-check:
 
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - Status: `active_phase_brief`
-  - Reason: Phase state and H1_G2 readiness relevance after M0 Objective Architecture migration.
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
-  - Status: `r1_completed_verified_specification_accepted`
-  - Reason: completed specification artifact for active-front review.
+- `workflow/stage_prompts/A1_AUDIT.md`
+  - Status: `required_stage_prompt`
+  - Reason: exact next stage prompt for the selected audit route.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+  - Status: `goal_shaped_pending_A1_audit`
+  - Reason: active H1_G2 Goal Contract.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
+  - Status: `goal_execution_log`
+  - Reason: G1 formalization evidence and selected route.
 - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
-  - Status: `objective_architecture_migration_completed`
-  - Reason: Objective Architecture layer, active frontier, and next action proof.
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-  - Status: `existing_goal_artifact_r1_accepted_route_gated_decision_map`
-  - Reason: accepted decision map remains prior context.
+  - Status: `g1_H1_G2_formalization_delta_present`
+  - Reason: Direction Map active-front delta and A1 route evidence.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+  - Status: `active_phase_brief_after_g1_H1_G2_formalization`
+  - Reason: active Phase state and current route guardrails.
 
 ## Superseded Goal context
 
@@ -230,7 +233,11 @@ Recommended next mode: `audit_existing_workflow_codex_project_setup_first_use_fi
 
 Load for A1:
 
+- `workflow/stage_prompts/A1_AUDIT.md`
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
+- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 
