@@ -23,6 +23,7 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 | --- | --- |
 | Canonical workflow source-of-truth marker | `WORKFLOW_SOURCE_OF_TRUTH.md` |
 | Runtime behavior and precedence | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` |
+| Repository/context acquisition order before Context Request | `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` |
 | Long GitHub file read completeness | `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md` |
 | Project Files runtime cache | `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
 | Lifecycle state reconciliation and Project Files semantic staleness | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` plus reporting rules in `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
@@ -74,6 +75,7 @@ Stage prompts must not be treated as authority for:
 - packet schemas;
 - repository maintenance branch policy;
 - Project Files cache rules;
+- repository/context acquisition order before Context Request;
 - GitHub long-file read completeness;
 - cross-Direction rollout policy.
 
@@ -95,7 +97,7 @@ Valid prompt delivery modes after this decision:
 
 ```yaml
 prompt_delivery:
-  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
+  mode: prompt_text_embedded | prompt_attachment_provided | github_connector_verified_full_read | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -108,7 +110,9 @@ prompt_delivery:
   execute_allowed: true | false
 ```
 
-`manual_prompt_required` means the chat must request the exact stage prompt from the user/Codex and must not auto-fetch or reconstruct it.
+`github_connector_verified_full_read` means the exact stage prompt was acquired in the current run through an exposed GitHub connector/tool and passed completeness verification under `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`.
+
+`manual_prompt_required` means the prompt remains unavailable after `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` has been applied. It must not mean "skip GitHub acquisition and ask the user/Codex immediately."
 
 `codex_verified_local_bundle` means Codex read the exact stage prompt from a local checkout, verified completeness, and supplied the prompt or bundle metadata.
 
@@ -145,7 +149,7 @@ This decision authorizes minimal unblock changes:
 
 1. declare registry as sole route authority;
 2. replace runtime transition table with registry pointer;
-3. replace `request_from_repository` with explicit prompt delivery modes;
+3. replace repository-request prompt delivery with explicit prompt delivery modes;
 4. neutralize prompt-maintained route lists;
 5. mark transport/interface route lists as derived or non-authoritative;
 6. require cache refresh reporting for all active Direction Projects when shared runtime cached files change.

@@ -69,11 +69,17 @@ These checks are blocking in both baseline and strict mode:
 9. Present stage prompts must contain the `AD-WF-RT-001` authority boundary.
 10. Required authority files with EOF markers must keep them:
     - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+    - `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`
     - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
     - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
     - `workflow/stage_registry/STAGE_REGISTRY.md`
 11. Direction Project Files must not contain full stage prompt bodies.
 12. Registry rows marked `prompt_status: present` must have matching prompt files under `workflow/stage_prompts/`.
+13. Repository/context acquisition order must be owned by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
+14. Exact repository/path Context Request must include acquisition audit and cannot skip available current-run GitHub acquisition.
+15. The complete acquisition order must not be copied outside the canonical policy file.
+16. Stage close must create launch cards without requesting downstream execution-only prompt/files.
+17. GitHub connector verified prompt acquisition must be an allowed prompt delivery path, and manual prompt fallback must apply only after acquisition policy.
 
 ## Baseline warnings
 
@@ -324,3 +330,46 @@ Expected model:
 - Sibling Directions must not be edited from a Direction worktree unless explicitly approved.
 
 `CHECK 023 — direction_worktree_repository_maintenance_contract` enforces this in baseline and strict mode.
+
+## Context acquisition authority expectation
+
+Repository/context acquisition before Context Request has a single owner:
+
+```text
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
+```
+
+Hard invariants:
+
+- AD-WF-RT-001 names the policy as source/context acquisition authority.
+- Runtime core consults the policy before exact repository/path Context Request.
+- GitHub long-file guard owns completeness verification only.
+- Runtime cache manifest includes the policy in shared runtime cache.
+- Context Request packets include `acquisition_audit` for exact repository/stage-prompt context.
+- Active Direction Project Instructions contain the compact GitHub-first acquisition instruction.
+- The complete acquisition order appears only in the policy file.
+
+`CHECK 024 — context_acquisition_policy_authority`, `CHECK 025 — github_first_acquisition_before_context_request`, and `CHECK 026 — acquisition_order_not_duplicated` enforce this in baseline and strict mode.
+
+## Stage close acquisition boundary expectation
+
+Closing a stage creates the next launch card from known fields and source paths. It must not request downstream prompt text or repository exports merely to run the downstream stage.
+
+Hard invariants:
+
+- runtime core contains the stage-close launch boundary;
+- Stage Launch template contains `next_stage_context_policy`;
+- next-stage prompt acquisition can be deferred to the next run under the acquisition policy.
+
+`CHECK 027 — stage_close_launch_boundary` enforces this in baseline and strict mode.
+
+## GitHub connector prompt delivery expectation
+
+An exact stage prompt can be available in the current run through verified GitHub connector/tool acquisition.
+
+Hard invariants:
+
+- AD-WF-RT-001, runtime core, and Stage Launch template allow `github_connector_verified_full_read`;
+- `manual_prompt_required` means the prompt remains unavailable after allowed acquisition has been attempted or deemed unsafe.
+
+`CHECK 028 — prompt_delivery_github_connector_mode` enforces this in baseline and strict mode.

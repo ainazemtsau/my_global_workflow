@@ -60,6 +60,7 @@ GitHub repository: ainazemtsau/my_global_workflow
 Source of truth marker: WORKFLOW_SOURCE_OF_TRUTH.md
 Runtime core: workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 Objective architecture model: workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+Context acquisition policy: workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 GitHub long-file read guard: workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 Runtime cache manifest: workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 Stage registry: workflow/stage_registry/STAGE_REGISTRY.md
@@ -72,6 +73,10 @@ GitHub repository files remain the source of truth.
 ChatGPT Project Files are runtime cache, not source of truth. They must be manually refreshed when Codex changes cached files.
 
 If a GitHub read is truncated, omitted, lacks tail verification, or cannot prove full-file availability, do not treat that read as source authority. Return Context Request naming the exact path.
+
+GitHub connector/tool should be enabled and authorized for every active Direction Project when possible. If it is not exposed in a run, Context Request `acquisition_audit` must state `github_connector.available: false` / `not_exposed`.
+
+Do not treat "not uploaded as Project File/attachment" as missing context until `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` has been applied.
 
 Stage prompts are request-only by exact stage ID. Do not bulk-load all stage prompts. Do not reconstruct missing prompts from memory.
 
@@ -108,6 +113,7 @@ Manually load these shared runtime cache files into every active Direction ChatG
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -165,6 +171,7 @@ Project Files to load:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -213,6 +220,7 @@ Project Files to load:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -261,6 +269,7 @@ Project Files to load:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -309,6 +318,7 @@ Project Files to load:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -340,6 +350,7 @@ Using GitHub repo ainazemtsau/my_global_workflow, read only:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 - workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+- workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -386,6 +397,7 @@ Cached shared runtime files:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md

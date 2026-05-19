@@ -52,6 +52,8 @@ If a prompt is marked `missing_prompt`, the stage is registered but unavailable 
 
 A registry row with `prompt_status: present` means the prompt file exists in the repository. It does not prove that a given ChatGPT run received the full prompt text.
 
+Registry `prompt_status: present` proves repository file existence only. Current-run prompt acquisition is governed by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`; GitHub read completeness remains governed by `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`.
+
 Before running a stage, the exact prompt file for that stage must be available without truncation or omitted-content markers.
 
 If a GitHub read of the exact stage prompt is truncated, omitted due to tool response token budget, or lacks tail verification, the prompt is considered unavailable for that run. Return Context Request for the exact prompt path. Do not run the stage and do not reconstruct the prompt from memory.

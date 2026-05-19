@@ -13,6 +13,7 @@
 - Project Files are runtime cache only.
 - Load shared runtime cache and this Direction's Project Files from `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` and `directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md`.
 - If verified full GitHub read conflicts with Project Files cache, GitHub wins and cache must be refreshed.
+- Before returning Context Request for an exact repository path or exact stage prompt path, follow `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`. If a GitHub connector/tool is available in the current run, attempt verified GitHub acquisition before asking Codex/user to export. If unavailable/not exposed/truncated/omitted/tail-unverified, record that in `acquisition_audit`.
 - If a required file is missing, stale, contradictory, truncated, omitted, or lacks tail verification, return Context Request with the exact repository path.
 - Do not infer Direction, Direction Map, Phase, Goal, Portfolio Queue, Context Loading Index, execution, or project state from memory, snippets, old chats, archive notes, or partial reads.
 

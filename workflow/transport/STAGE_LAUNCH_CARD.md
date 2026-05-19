@@ -53,6 +53,7 @@ Packet fields in this template must remain compatible with `workflow/runtime/WF_
 - Unknown extension fields must be tolerated by consumers.
 - Do not embed private chain-of-thought or invisible scratchpad content.
 - GitHub repository paths must be exact when referenced.
+- Source paths may be listed for next-stage acquisition without requiring the current stage to fetch, paste, or attach downstream prompt/files.
 - Dates should use ISO-8601 when available.
 
 ## Canonical packet template
@@ -73,7 +74,7 @@ stage:
   status:
 
 prompt_delivery:
-  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
+  mode: prompt_text_embedded | prompt_attachment_provided | github_connector_verified_full_read | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -84,6 +85,20 @@ prompt_delivery:
   byte_count:
   tail_anchor_or_eof_verified: true | false
   execute_allowed: true | false
+
+required_context_acquisition:
+  policy: workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
+  applies_to_exact_repository_paths: true
+  applies_to_exact_stage_prompt_paths: true
+  acquisition_required_before_context_request: true
+  prompt_acquisition_required_before_execution_when_prompt_text_missing: true
+
+next_stage_context_policy:
+  launch_card_only_close: true
+  downstream_prompt_required_for_current_close: false
+  downstream_execution_context_required_for_current_close: false
+  request_downstream_context_only_if_needed_to_form_launch_card: true
+  do_not_continue_downstream_stage_in_same_chat_without_explicit_user_request: true
 
 direction:
   name:
@@ -164,6 +179,7 @@ required_context:
   shared_runtime_files:
     - WORKFLOW_SOURCE_OF_TRUTH.md
     - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+    - workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
     - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
     - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
     - workflow/stage_registry/STAGE_REGISTRY.md
@@ -214,6 +230,8 @@ extensions: {}
 - `route_authority: workflow/stage_registry/STAGE_REGISTRY.md`
 - `target_runtime`
 - `project_files_state`
+- `required_context_acquisition`
+- `next_stage_context_policy`
 - `fresh_sources_for_stage`
 - `lifecycle_state_reconciliation`
 - `formalization_control`

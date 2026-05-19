@@ -3,7 +3,7 @@
 Status: production-ready runtime core
 Workflow version: vNext-R
 Source GitHub repository file: `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
-Freshness: refresh whenever runtime core, routing rules, packet contracts, stage registry, or project-file rules change.
+Freshness: refresh whenever runtime core, routing rules, packet contracts, stage registry, context-acquisition rules, or project-file rules change.
 Authority: common workflow runtime guide for Direction ChatGPT Projects. GitHub repository files win on conflict.
 Scope: runtime behavior only. This file is not a stage prompt and not a rebuild roadmap.
 
@@ -28,6 +28,8 @@ ChatGPT may analyze, route, shape, plan, review, and create patches. ChatGPT doe
 Codex/user applies Repository Patch operations and returns file read-back / diff verification / commit verification evidence.
 
 Stage prompts live in the Workflow root and are dynamically provided per stage run. Stage prompts are not uploaded into every Direction Project by default.
+
+Repository/context acquisition before Context Request is governed by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`. GitHub long-file completeness verification remains governed by `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`.
 
 Every formalized workflow output must include:
 
@@ -297,11 +299,13 @@ At the start of a Direction Project chat:
 4.  Identify Direction, Direction Map status, current Phase, active Goal, current route, blockers, freshness/staleness, and whether a Launch Card is present.
 5.  If a Launch Card is present, follow it.
 6.  If no Launch Card is present, use Router / Stage Launcher behavior to determine the smallest safe next action.
-7.  If the required stage prompt or required context is missing, return Context Request Card.
+7.  If the required stage prompt or required context is missing after the applicable acquisition policy is applied, return Context Request Card.
 
 Do not invent missing Direction / Phase / Goal / Wave state.
 
 Do not reconstruct missing stage prompts from memory.
+
+For exact repository context or exact stage prompt paths, absence from Project Files or attachments is not enough to declare blocking missing context until `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` has been applied.
 
 ## 6\. Runtime Router / Stage Launcher behavior
 
@@ -320,6 +324,7 @@ Router must check:
 *   Is a Launch Card already provided?
 *   Is the needed stage prompt available?
 *   Is there blocking missing context?
+*   For exact repository context or exact stage prompt paths, has `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` been applied before Context Request?
 *   Is material strategic, audit, research, planning, or execution work backed by a basis-valid `next_action_proof`?
 *   Does the next material action choose solution shape, HOW, architecture, process, templates, artifacts, workstreams, chat splits, or recurring user actions?
 *   Did the user state low burden, low friction, speed, simplicity, or 'not геморно' as a primary constraint?
@@ -693,7 +698,8 @@ A stage may execute only if the exact stage prompt is available in the current r
 
 - `prompt_text_embedded`: exact prompt text is embedded in the Launch Card.
 - `prompt_attachment_provided`: exact prompt text is attached/exported in the current chat.
-- `manual_prompt_required`: prompt text is not available; the chat must request the exact prompt from the user/Codex and must not execute the stage yet.
+- `github_connector_verified_full_read`: exact prompt text was acquired in the current run through an exposed GitHub connector/tool and passed completeness verification.
+- `manual_prompt_required`: prompt text remains unavailable after allowed acquisition attempts; the chat must request the exact prompt and must not execute the stage yet.
 - `codex_verified_local_bundle`: Codex read the exact prompt from a local checkout, verified completeness, and supplied the prompt or a verified launch bundle.
 
 Do not reconstruct missing stage prompts from memory.
@@ -702,13 +708,15 @@ Do not use old/superseded prompts.
 
 Do not silently switch to a different stage.
 
-If a required stage prompt is missing, truncated, omitted, lacks tail verification when tail verification is required, or is not available in current chat context, return Context Request Card.
+Before returning Context Request for an exact stage prompt path, apply `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
+
+If a required stage prompt is missing, truncated, omitted, lacks tail verification when tail verification is required, or is not available in current chat context after allowed acquisition attempts, return Context Request Card.
 
 Allowed prompt delivery modes:
 
 ```yaml
 prompt_delivery:
-  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
+  mode: prompt_text_embedded | prompt_attachment_provided | github_connector_verified_full_read | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -730,11 +738,14 @@ If prompt_text_included: true and the prompt is complete:
 If mode: prompt_attachment_provided and the attached/exported prompt is complete:
   execute using the provided prompt.
 
+If mode: github_connector_verified_full_read and GitHub completeness verification passes:
+  execute using the acquired prompt.
+
 If mode: codex_verified_local_bundle and Codex verifies completeness:
   execute using the supplied verified prompt or launch bundle.
 
 If mode: manual_prompt_required:
-  return Context Request for the exact stage prompt path.
+  return Context Request for the exact stage prompt path only after the acquisition policy has been applied or the remaining paths are unsafe.
 
 If prompt_text_included: false and the prompt is not otherwise available:
   return Context Request Card.
@@ -745,11 +756,13 @@ If a GitHub read of the exact prompt is truncated, omitted, or lacks required ta
 
 Never invent prompt text.
 
-`request_from_repository` is deprecated and must not be used for new launch cards. Use `manual_prompt_required` or `codex_verified_local_bundle`.
+Repository-request prompt delivery aliases are deprecated and must not be used for new launch cards. Use the approved modes above.
 
 ## 8\. Context Request Card Contract
 
 Use Context Request Card when required context is unavailable, stale, contradictory, or too ambiguous for safe material work.
+
+For exact repository context or exact stage prompt paths, apply `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` before returning Context Request. "Not uploaded as a Project File or attachment" is not enough to declare missing context.
 
 Canonical packet template:
 
@@ -762,6 +775,7 @@ Runtime behavior rules:
 - do not guess missing context;
 - do not continue material work if blocking context is missing;
 - request only the smallest exact blocking context set;
+- include `acquisition_audit` when requesting exact repository context or exact stage prompt context;
 - if context is non-blocking, proceed and list it as `request_if_needed`;
 - name exact repository paths when repository context is required;
 - do not infer unseen content from memory, search snippets, compact results, earlier chats, or partial GitHub output.
@@ -785,14 +799,15 @@ Use the canonical transport template for packet shape. Runtime core owns the beh
 
 A GitHub repository file read is not full-file authority when the response is truncated, omitted due to tool response token budget, lacks an expected tail anchor, or cannot verify that the chat saw the end of the file.
 
-When material work depends on such a file, the workflow must stop and return a Context Request naming the exact repository path. The chat must not infer unseen content from memory, search snippets, compact results, earlier chats, or partial GitHub output.
+When material work depends on such a file, the workflow must follow `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` before returning a Context Request naming the exact repository path. The chat must not infer unseen content from memory, search snippets, compact results, earlier chats, or partial GitHub output.
 
-Stage prompt special rule: if an exact stage prompt file is truncated or lacks tail verification, the prompt is considered unavailable for that run. The stage must not execute until the prompt is supplied manually, split into smaller files, chunk-exported with tail verification, or verified by Codex read-only local checkout.
+Stage prompt special rule: if an exact stage prompt file is truncated or lacks tail verification, the prompt is considered unavailable for that run until acquired through an allowed complete source under `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
 
 Detailed guard rules live in:
 
 ```text
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 ```
 
@@ -841,6 +856,8 @@ A route name alone is not enough.
 
 If the next action is another stage, the current stage must generate a complete filled Next Launch Card.
 
+The current stage closes by creating the launch card. It must not request next-stage prompt text, next-stage attachments, or downstream execution-only repository exports merely so the downstream stage can run. It may request extra context only when that context is required to decide or construct the launch card itself. The next stage chat/run performs acquisition under `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
+
 The Next Launch Card must be filled from:
 
 *   current Direction Project Files;
@@ -850,6 +867,8 @@ The Next Launch Card must be filled from:
 *   known GitHub repository source paths;
 *   known stage registry;
 *   known prompt source path.
+
+Source paths may be listed for next-stage acquisition without requiring the current stage to fetch or paste downstream prompt/files.
 
 The human should not manually fill known fields.
 
@@ -879,10 +898,13 @@ Runtime behavior rules:
 - a route name alone is not enough;
 - the human should not manually fill known fields;
 - the launch must be filled from current Direction Project Files, current stage output, known user input, previous stage result, known GitHub repository source paths, known stage registry, and known prompt source path;
+- the current stage must not request downstream prompt/context merely for downstream execution;
+- the current stage may request context only if needed to form the launch card;
 - if a required field is unknown and blocking, return Context Request;
 - if a field is optional/non-blocking, mark it as optional or `request_if_needed`;
 - use `workflow/stage_registry/STAGE_REGISTRY.md` for route authority;
 - stage prompt availability must use approved prompt delivery modes only;
+- if prompt text is not included, the launch card must encode `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` and set execution permission according to whether the next chat must acquire the prompt first;
 - do not reconstruct missing prompt text;
 - do not execute downstream stage work inside the current stage.
 
@@ -891,6 +913,7 @@ Prompt delivery modes allowed for new launches:
 ```text
 prompt_text_embedded
 prompt_attachment_provided
+github_connector_verified_full_read
 manual_prompt_required
 codex_verified_local_bundle
 ```
@@ -1119,12 +1142,16 @@ If Codex is available after a stage closes, Codex may prepare a complete Next St
 A Launch Bundle contains:
 
 1.  Next Launch Card.
-2.  Exact next stage prompt export from GitHub repository.
+2.  Optional exact next stage prompt export when already acquired or when convenience packaging is explicitly requested.
 3.  Required extra context exports, if any.
 4.  Updated Context refresh list.
 5.  Copy-paste instructions for the next ChatGPT chat.
 
-Codex must not invent prompt text. It must read the installed stage prompt from GitHub repository and include source path/version/status.
+Codex prompt export is optional convenience packaging, not a blocker for current stage close. The current stage must still create the launch card from known fields and source paths.
+
+If prompt text is not included, the launch card must encode `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`; `execute_allowed` must reflect whether the next chat must acquire the prompt first.
+
+Codex must not invent prompt text. When it packages prompt text, it must read the installed stage prompt and include source path/version/status plus completeness evidence.
 
 Launch Bundle is convenience packaging. The underlying authority remains:
 
@@ -1766,11 +1793,11 @@ If a selected next stage is not allowed by `STAGE_REGISTRY.md`, return a route-c
 Return NEEDS\_INPUT / Context Request instead of material work if:
 
 *   Direction identity is missing;
-*   required Project Files are missing;
+*   required Project Files are missing after applicable source acquisition has been attempted;
 *   active Phase state is required but missing/contradictory;
 *   active Goal state is required but missing/contradictory;
-*   stage prompt is missing;
-*   required context listed in Context Loading Index is missing;
+*   stage prompt is missing after applicable acquisition policy has been applied;
+*   required context listed in Context Loading Index is missing after applicable acquisition policy has been applied;
 *   Project Files are stale and freshness matters;
 *   pending Repository Patch must be applied/refreshed before continuing;
 *   source-of-truth conflict exists;

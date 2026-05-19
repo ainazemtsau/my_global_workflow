@@ -30,6 +30,7 @@ GitHub remains the source of truth. Project Files are runtime cache only.
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -127,6 +128,7 @@ Shared workflow files include at least:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -154,6 +156,7 @@ Refresh the Project File cache when any of these change in GitHub:
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
 - `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
+- `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`
 - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
@@ -177,7 +180,9 @@ Logical lifecycle transition triggers include:
 
 ## Required chat behavior when cache is missing
 
-If a required cached runtime file is missing from Project Files and GitHub read is unavailable, truncated, stale, or contradictory, return Context Request.
+If required context is absent from Project Files cache, do not immediately return Context Request; follow `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
+
+If a required cached runtime file remains unavailable, truncated, stale, contradictory, or unsafe after the applicable acquisition policy is applied, return Context Request.
 
 Do not continue material workflow work by relying on memory or partial GitHub output.
 

@@ -16,7 +16,9 @@ artifact_control:
 
 Prevent ChatGPT Direction Project chats from treating truncated GitHub connector reads as complete source authority.
 
-This file is a runtime guard for GitHub file-read transport. It does not replace GitHub as source of truth. It defines when a GitHub read is insufficient and what the chat must do instead.
+This file is a runtime guard for GitHub file-read transport. It does not replace GitHub as source of truth. It defines when a GitHub read is insufficient.
+
+This file owns GitHub read completeness verification, not source acquisition order. Source/context acquisition order is owned by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
 
 ## Core rule
 
@@ -37,13 +39,8 @@ When any trigger is present, the file must be treated as **missing blocking cont
 If material work depends on a file whose GitHub read is not full-file authority, ChatGPT must:
 
 1. Stop the material workflow action.
-2. Return a `context_request.v1` naming the exact repository path.
-3. Ask for one of:
-   - manual upload as ChatGPT Project File or chat attachment;
-   - smaller split file;
-   - chunked export with explicit line ranges and tail anchor;
-   - Codex read-only verification from a local checkout;
-   - repository refactor that splits the long file into smaller authority files.
+2. Apply `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` before selecting Context Request or fallback export.
+3. Return a `context_request.v1` naming the exact repository path only when the context remains unavailable or unsafe.
 4. Not infer missing content from memory, prior chats, search snippets, or partially returned GitHub content.
 5. Not run a stage, produce a final audit verdict, or emit repository changes that depend on unseen content.
 
@@ -55,7 +52,7 @@ If an exact stage prompt file is read from GitHub and the read is truncated, omi
 
 - the prompt is considered unavailable for that run;
 - the stage must not execute;
-- the chat must return a Context Request for the exact prompt path or a manually supplied prompt;
+- the chat must apply `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` before returning Context Request for the exact prompt path or requesting a supplied prompt;
 - the chat must not reconstruct the prompt from memory.
 
 This applies even when `workflow/stage_registry/STAGE_REGISTRY.md` marks the prompt as `present`.

@@ -29,6 +29,7 @@ ACTIVE_DIRECTIONS = [
 REQUIRED_SHARED_RUNTIME_FILES = [
     "WORKFLOW_SOURCE_OF_TRUTH.md",
     "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+    "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md",
     "workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md",
     "workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md",
     "workflow/stage_registry/STAGE_REGISTRY.md",
@@ -47,10 +48,10 @@ REQUIRED_DIRECTION_PROJECT_FILES = [
 ]
 
 DEPRECATED_PROMPT_DELIVERY_MODES = [
-    "request_from_repository",
-    "embedded_in_launch_card",
-    "pasted_in_current_chat",
-    "attached_export",
+    "request_" "from_repository",
+    "embedded_" "in_launch_card",
+    "pasted_" "in_current_chat",
+    "attached_" "export",
 ]
 
 LEGACY_TRANSPORT_ACTIVE_SHAPE_TOKENS = [
@@ -88,6 +89,7 @@ STALE_METADATA_PATTERNS = [
 
 REQUIRED_EOF_FILES = [
     "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+    "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md",
     "workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md",
     "workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md",
     "workflow/stage_registry/STAGE_REGISTRY.md",
@@ -1186,6 +1188,232 @@ def check_direction_worktree_repository_maintenance_contract(root: Path, results
         )
 
 
+def check_context_acquisition_policy_authority(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 024"
+    name = "context_acquisition_policy_authority"
+    failures = 0
+
+    required = {
+        "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md": [
+            "schema: context_acquisition_policy.v1",
+            "## Acquisition order",
+            "## GitHub-first rule",
+            "## Context Request audit",
+            "## Stage-close launch boundary",
+        ],
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
+            "Repository/context acquisition order before Context Request",
+            "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "For exact repository context or exact stage prompt paths, apply `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` before returning Context Request",
+            "For exact repository context or exact stage prompt paths, has `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` been applied before Context Request?",
+        ],
+        "workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md": [
+            "owns GitHub read completeness verification, not source acquisition order",
+            "Source/context acquisition order is owned by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`",
+        ],
+        "workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md": [
+            "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md",
+        ],
+    }
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required context acquisition authority file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing context acquisition authority anchors: {', '.join(missing[:5])}.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "Context acquisition policy authority anchors are present.")
+
+
+def check_github_first_acquisition_before_context_request(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 025"
+    name = "github_first_acquisition_before_context_request"
+    failures = 0
+
+    required = {
+        "workflow/transport/CONTEXT_REQUEST_CARD.md": [
+            "acquisition_audit:",
+            "github_connector:",
+            "not exposed",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            '"Not uploaded as a Project File or attachment" is not enough to declare missing context.',
+        ],
+    }
+
+    for direction in ACTIVE_DIRECTIONS:
+        required[f"directions/{direction}/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md"] = [
+            "Before returning Context Request for an exact repository path or exact stage prompt path",
+            "attempt verified GitHub acquisition before asking Codex/user to export",
+            "acquisition_audit",
+        ]
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required GitHub-first acquisition file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing GitHub-first acquisition anchors: {', '.join(missing[:5])}.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "GitHub-first acquisition anchors are present before Context Request.")
+
+
+def check_acquisition_order_not_duplicated(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 026"
+    name = "acquisition_order_not_duplicated"
+    policy_rel = "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md"
+    policy_path = root / policy_rel
+    failures = 0
+
+    if not policy_path.is_file():
+        add(results, check_id, name, "FAIL", "Context acquisition policy file is missing.", policy_rel)
+        return
+
+    policy_text = read_text(policy_path)
+    section_match = re.search(r"## Acquisition order\s+(.*?)(?:\n## |\Z)", policy_text, flags=re.S)
+    if not section_match:
+        add(results, check_id, name, "FAIL", "Canonical acquisition order section is missing.", policy_rel)
+        return
+
+    order_items: list[str] = []
+    for item_number in range(1, 6):
+        item_match = re.search(rf"^{item_number}\.\s+(.+)$", section_match.group(1), flags=re.M)
+        if item_match:
+            order_items.append(item_match.group(1).strip())
+
+    if len(order_items) != 5:
+        failures += 1
+        add(results, check_id, name, "FAIL", "Canonical policy must contain exactly five numbered acquisition items.", policy_rel)
+
+    scan_prefixes = (
+        "workflow/runtime/",
+        "workflow/transport/",
+        "workflow/stage_registry/",
+        "workflow/validation/",
+        "docs/",
+        "directions/",
+    )
+
+    for path in markdown_files(root):
+        rel_path = rel(path, root)
+        if rel_path == policy_rel:
+            continue
+        if not rel_path.startswith(scan_prefixes):
+            continue
+
+        text = read_text(path)
+        matched_items = sum(1 for item in order_items if item and item in text)
+        if matched_items >= 4:
+            failures += 1
+            add(results, check_id, name, "FAIL", "Acquisition order appears copied outside the canonical policy file.", rel_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "Complete acquisition order is confined to the canonical policy file.")
+
+
+def check_stage_close_launch_boundary(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 027"
+    name = "stage_close_launch_boundary"
+    failures = 0
+
+    required = {
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "must not request next-stage prompt text, next-stage attachments, or downstream execution-only repository exports merely so the downstream stage can run",
+            "The next stage chat/run performs acquisition under `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`",
+        ],
+        "workflow/transport/STAGE_LAUNCH_CARD.md": [
+            "next_stage_context_policy:",
+            "downstream_prompt_required_for_current_close: false",
+            "downstream_execution_context_required_for_current_close: false",
+            "request_downstream_context_only_if_needed_to_form_launch_card: true",
+        ],
+    }
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required stage-close boundary file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing stage-close boundary anchors: {', '.join(missing[:5])}.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "Stage-close launch boundary anchors are present.")
+
+
+def check_prompt_delivery_github_connector_mode(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 028"
+    name = "prompt_delivery_github_connector_mode"
+    failures = 0
+
+    required = {
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
+            "github_connector_verified_full_read",
+            "must not mean \"skip GitHub acquisition and ask the user/Codex immediately.\"",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "github_connector_verified_full_read",
+            "prompt text remains unavailable after allowed acquisition attempts",
+        ],
+        "workflow/transport/STAGE_LAUNCH_CARD.md": [
+            "github_connector_verified_full_read",
+        ],
+    }
+
+    forbidden = {
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
+            "manual_prompt_required` means the chat must request the exact stage prompt from the user/Codex and must not auto-fetch",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "manual_prompt_required`: prompt text is not available; the chat must request the exact prompt from the user/Codex",
+        ],
+    }
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required prompt delivery file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing prompt delivery anchors: {', '.join(missing[:5])}.", file_path)
+
+    for file_path, tokens in forbidden.items():
+        path = root / file_path
+        if not path.is_file():
+            continue
+        text = read_text(path)
+        for token in tokens:
+            if token in text:
+                failures += 1
+                add(results, check_id, name, "FAIL", "manual_prompt_required still bypasses acquisition policy.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "GitHub connector prompt delivery mode and manual fallback semantics are present.")
+
+
 def check_branch_workstream_execution_contract(root: Path, results: list[Finding]) -> None:
     check_id = "CHECK 021"
     name = "branch_workstream_execution_contract"
@@ -1308,6 +1536,11 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_runtime_core_packet_schema_reference_cleanup(root, results)
     check_runtime_core_registry_snapshot_cleanup(root, results)
     check_direction_worktree_repository_maintenance_contract(root, results)
+    check_context_acquisition_policy_authority(root, results)
+    check_github_first_acquisition_before_context_request(root, results)
+    check_acquisition_order_not_duplicated(root, results)
+    check_stage_close_launch_boundary(root, results)
+    check_prompt_delivery_github_connector_mode(root, results)
     return results
 
 def print_text(results: list[Finding], root: Path, mode: str) -> None:

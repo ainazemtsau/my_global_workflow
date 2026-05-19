@@ -20,6 +20,7 @@ Required files:
 ```text
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -201,6 +202,7 @@ Verify EOF markers exist in authority files that already define them:
 
 ```text
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -462,4 +464,78 @@ Hard requirements:
 Result:
 
 - baseline: FAIL on missing worktree policy anchors or stale direct-main default wording.
+- strict: FAIL on the same conditions.
+
+## CHECK 024 — context_acquisition_policy_authority
+
+Validate that context acquisition authority is centralized.
+
+Hard requirements:
+
+- `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` exists;
+- AD-WF-RT-001 declares it as authority for source/context acquisition order;
+- runtime core references it before Context Request for exact repository context and stage prompts;
+- GitHub long-file guard declares it owns verification, not acquisition order;
+- runtime cache manifest includes it in required shared runtime cache.
+
+Result:
+
+- baseline: FAIL on missing policy file or missing authority anchors.
+- strict: FAIL on the same conditions.
+
+## CHECK 025 — github_first_acquisition_before_context_request
+
+Validate that exact repository/path Context Request cannot skip current-run GitHub acquisition when available.
+
+Hard requirements:
+
+- Context Request template contains `acquisition_audit`;
+- all active Direction Project Instructions contain the compact GitHub-first acquisition instruction;
+- runtime core says Project File/attachment absence alone is insufficient before applying the acquisition policy.
+
+Result:
+
+- baseline: FAIL on missing audit fields or missing compact enforcement anchors.
+- strict: FAIL on the same conditions.
+
+## CHECK 026 — acquisition_order_not_duplicated
+
+Validate that the complete acquisition order stays in one canonical policy file.
+
+Hard requirements:
+
+- the canonical policy contains exactly one complete five-item order;
+- runtime core, long-file guard, manifest, transport templates, setup docs, validation docs, and Direction files do not copy that complete order.
+
+Result:
+
+- baseline: FAIL if the complete order is missing from the policy or copied outside it.
+- strict: FAIL on the same conditions.
+
+## CHECK 027 — stage_close_launch_boundary
+
+Validate that stage close creates a launch card without requesting downstream execution-only prompt/files.
+
+Hard requirements:
+
+- runtime core contains the close-boundary rule;
+- Stage Launch template contains `next_stage_context_policy` or equivalent fields.
+
+Result:
+
+- baseline: FAIL on missing stage-close launch-boundary anchors.
+- strict: FAIL on the same conditions.
+
+## CHECK 028 — prompt_delivery_github_connector_mode
+
+Validate that verified GitHub connector acquisition is an approved prompt delivery path and manual fallback cannot bypass acquisition.
+
+Hard requirements:
+
+- AD-WF-RT-001, runtime core, and Stage Launch template allow `github_connector_verified_full_read`;
+- `manual_prompt_required` means prompt remains unavailable after the acquisition policy is applied.
+
+Result:
+
+- baseline: FAIL on missing GitHub connector prompt mode or stale manual fallback semantics.
 - strict: FAIL on the same conditions.
