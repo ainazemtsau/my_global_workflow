@@ -56,3 +56,29 @@ Expected behavior:
 - Parent requests full artifacts only if conflict, low confidence, missing evidence, R1 challenge, or user request requires it.
 - Branch chats do not mutate parent state.
 - R1 reviews only the final parent synthesis artifact.
+
+## Lifecycle State Reconciliation real Direction incident case
+
+```yaml
+test_case:
+  test_id: RD-LSRG-001
+  direction_path: directions/indie-game-development/
+  scenario: >
+    F0 final synthesis for first-technical-nucleus-functional-spec produced a
+    synthesis_formalized parent Goal completion candidate and execution evidence
+    for R1, while Direction Project Files and Phase Brief still showed
+    goal_shaped_pending_E1 and next_route E1_EXECUTION_BRIEF.
+  files_loaded:
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md
+    - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+    - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md
+  expected_behavior: >
+    Workflow must update runtime projection files, launch R1 with an explicit
+    stale-but-nonblocking override and fresh sources, or return Context Request
+    for state reconciliation. It must not silently route backward to E1.
+  actual_behavior: "Recorded incident; fixed by shared LSRG hardening plus separate Direction incident repair."
+  result: regression_added
+  finding_id: WFG-FINDING-2026-05-18-001
+```

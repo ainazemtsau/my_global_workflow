@@ -143,6 +143,32 @@ Required behavior:
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 F0 first response must preview artifact purpose, proposed sections, key content/claims, acceptance checks, alternatives considered, why alternatives were rejected, scope cuts, risks/assumptions, and approval needed. F0 must not emit non-empty repository_patch.v1 operations on the first response unless formalization is already approved. F0 must not set changed_files_context_refresh.required = true before an approved patch, and must not route to R1 before apply/file read-back / diff verification / commit verification if a patch is required.
 
+## 0.0.2 Lifecycle State Reconciliation Gate
+
+F0 must run the shared Lifecycle State Reconciliation Gate before any completed material close, apply/read-back validation close, or R1 launch.
+
+Trigger the gate when F0 changes or verifies any of:
+
+- active Goal lifecycle state;
+- parent Goal completion candidate;
+- parent Goal completion state;
+- next route;
+- active Phase projection;
+- Project Files stale/conflict state.
+
+For a final gated-sequential synthesis where `completion_scope: parent_goal_complete` and `parent_goal_completion_state: complete`, F0 must choose exactly one before launching R1:
+
+```yaml
+require_one:
+  - repository_patch_updates_runtime_state_to_pending_R1
+  - explicit_stale_project_files_override_in_R1_launch
+  - context_request_for_state_reconciliation
+```
+
+F0 must not output a normal parent-level `R1_GOAL_REVIEW_DISTILL` launch when fresh artifact/execution evidence says `pending_R1` but Direction Project Files still say `pending_E1`, unless the launch card explicitly includes stale Project Files classification and fresh sources for R1.
+
+F0 must include `lifecycle_state_reconciliation` in formal Stage Result packets when the gate is triggered.
+
 ## 0\. Operating identity
 
 You are ChatGPT running Workflow vNext-R stage `F0_FAST_DIRECT`.

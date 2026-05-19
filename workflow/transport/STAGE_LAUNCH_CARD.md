@@ -107,6 +107,32 @@ source_state:
   pending_repository_patch: true | false
   changed_files_context_refresh_required: true | false
 
+project_files_state:
+  current: updated_pending_next_stage | stale_pre_next_stage | stale_but_nonblocking | stale_blocking | unknown
+  authority_for_this_launch: project_files | fresh_goal_files_and_execution_evidence | fresh_repository_readback | codex_verified_bundle
+  stale_values_detected:
+    - path:
+      stale_field:
+      stale_value:
+      fresh_value:
+  stale_override_allowed: true | false
+  stale_override_scope:
+    allowed_only_for_stage:
+    must_not_route_backward_to:
+  blocking_before_stage_start: true | false
+
+fresh_sources_for_stage:
+  - path:
+    source_type: project_file | goal_contract | goal_artifact | execution_log | phase_brief | stage_result | codex_return | stage_prompt | registry | runtime_core
+    freshness_evidence:
+    required: true | false
+
+lifecycle_state_reconciliation:
+  inherited_from_previous_stage: true | false
+  required: true | false
+  status: pass | stale_override | blocked | not_required
+  notes:
+
 formalization_control:
   first_response_mode: compact_direct_result | reviewable_brief | decision_memo_work_product_preview | context_request_or_human_decision | formalization
   formalization_policy: proposal_first | direct_formalization_allowed
@@ -187,6 +213,9 @@ extensions: {}
 - `schema: stage_launch.v1`
 - `route_authority: workflow/stage_registry/STAGE_REGISTRY.md`
 - `target_runtime`
+- `project_files_state`
+- `fresh_sources_for_stage`
+- `lifecycle_state_reconciliation`
 - `formalization_control`
 
 ## End-of-file marker

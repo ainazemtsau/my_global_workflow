@@ -37,6 +37,23 @@ When selecting or validating a next stage:
 
 Do not maintain prompt-local transition tables in this file.
 
+## Lifecycle Projection Conflict Check
+
+Router must run the Lifecycle State Reconciliation Gate before launching a material stage when Project Files, Goal artifacts, Phase artifacts, execution logs, or Codex returns disagree about active lifecycle state or next route.
+
+If fresh evidence says the next route is R1 while Project Files still say E1, Router must not route backward from the stale Project Files and must not silently choose between them.
+
+Required Router outcome:
+
+```yaml
+require_one:
+  - launch_card_with_valid_stale_but_nonblocking_override_for_named_stage
+  - Context Request for exact source reconciliation
+  - B1_PROBLEM or Stop when the contradiction is unsafe
+```
+
+Router may launch the named stage only when the launch card lists stale Project File fields, fresh source paths, and the stage for which the stale override is valid.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:

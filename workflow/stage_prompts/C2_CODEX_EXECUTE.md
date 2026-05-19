@@ -34,6 +34,20 @@ When selecting or validating a next stage:
 
 Do not maintain prompt-local transition tables in this file.
 
+## Lifecycle and Structural Validation Return Requirements
+
+When C2 receives, validates, or packages Codex repository maintenance evidence, it must require the same lifecycle-state reconciliation and structural integrity fields as `codex_repository_maintenance_apply.v1`.
+
+C2 must not treat a Codex return as complete when:
+
+- a logical lifecycle state changed but Project Files projection is unclassified;
+- Project Files are stale-blocking before the next material run;
+- a changed file has an `END_OF_FILE` marker that is not the final non-whitespace content;
+- append operations placed content below an EOF marker;
+- diff verification includes extra unapproved paths.
+
+In these cases C2 must return repair instructions, Context Request, B1_PROBLEM, or Stop rather than launching R1 or another downstream material stage.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:

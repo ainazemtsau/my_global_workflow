@@ -31,6 +31,8 @@ This template is not routing authority. It must not alter stage IDs, registry tr
 - All content-bearing writes must include validation anchors.
 - No writes outside named paths.
 - Do not claim repository updates are complete without read-back / diff verification / commit verification.
+- When a file defines an `END_OF_FILE` marker, append operations must insert before that marker and preserve it as the final non-whitespace content.
+- A lifecycle-state-changing patch must include `lifecycle_state_reconciliation` or explicitly state why it is not required.
 
 ## Canonical packet template
 
@@ -53,6 +55,20 @@ operations:
     safety:
       destructive: false
       requires_human_approval: false
+
+structural_integrity:
+  eof_marker_policy:
+    required_for_changed_files_with_eof: true
+    expected_marker_count: exactly_one
+    marker_must_be_last_non_whitespace: true
+  append_policy:
+    if_target_has_eof_marker: insert_before_eof_marker
+    must_not_append_below_eof: true
+
+lifecycle_state_reconciliation:
+  required: true | false
+  reason:
+  expected_policy: update_runtime_state_files | stale_but_nonblocking_override_for_named_next_stage | context_request_for_state_reconciliation | not_required
 
 readback_required:
   - file_path:

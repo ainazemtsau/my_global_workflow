@@ -100,6 +100,36 @@ project_files_to_refresh:
   - file:
     reason:
 
+lifecycle_state_reconciliation:
+  required: true | false
+  trigger:
+    -
+  lifecycle_delta:
+    active_goal_state_from:
+    active_goal_state_to:
+    next_route_from:
+    next_route_to:
+    phase_projection_changed: true | false
+    phase_progress_gate_run: true | false
+    implementation_allowed_now: true | false
+  project_files_state:
+    physical_cached_file_changed: true | false
+    logical_runtime_state_changed: true | false
+    project_files_now_stale_against_goal_evidence: true | false
+    blocking_before_next_material_run: true | false
+  runtime_projection_policy:
+    selected: update_runtime_state_files | stale_but_nonblocking_override_for_named_next_stage | context_request_for_state_reconciliation | not_required
+    reason:
+  affected_runtime_projection_files:
+    - path:
+      action: update | mark_stale_for_named_stage | checked_no_change_needed | not_applicable
+  downstream_launch_policy:
+    next_stage:
+    launch_allowed: true | false
+    required_fresh_sources:
+      - path:
+    stale_project_files_override_allowed: true | false
+
 context_for_next:
   carry_forward:
     -
@@ -126,6 +156,8 @@ extensions: {}
 - `schema: stage_result.v1`
 - `return_state`
 - `repository_patch`
+- `project_files_to_refresh`
+- `lifecycle_state_reconciliation`
 - `next_launch_card`
 
 ## End-of-file marker

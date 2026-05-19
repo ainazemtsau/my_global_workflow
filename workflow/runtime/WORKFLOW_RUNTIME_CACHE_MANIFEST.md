@@ -158,8 +158,22 @@ Refresh the Project File cache when any of these change in GitHub:
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
 - any active Direction `project_files/00-08` file listed in this manifest
-- ChatGPT Project Instructions for Workflow Governance
-- runtime file-read, prompt-loading, repository-patch, or context-loading rules
+- ChatGPT Project Instructions for any active Direction Project
+- runtime file-read, prompt-loading, repository-patch, lifecycle-state reconciliation, structural-integrity, or context-loading rules
+
+Refresh or explicitly classify Project Files state when a verified repository change produces a logical lifecycle transition that affects active runtime state, even if the Direction `project_files/00-08` files were not physically changed in the same patch.
+
+Logical lifecycle transition triggers include:
+
+- active Goal state changes;
+- active Phase state changes;
+- next route changes;
+- parent Goal completion candidate creation;
+- R1 acceptance, rejection, or route-gating;
+- Phase Progress Gate result changes;
+- Phase closure or pause state changes;
+- Direction Map active front changes;
+- fresh source evidence contradicts Project Files cache.
 
 ## Required chat behavior when cache is missing
 
@@ -171,7 +185,11 @@ Do not continue material workflow work by relying on memory or partial GitHub ou
 
 When Codex repository maintenance creates or updates any file listed in this manifest, or any file required by a Direction's ChatGPT Project Files runtime cache, Codex must explicitly report that the corresponding ChatGPT Project File cache must be manually refreshed.
 
-Codex must include this return section after every repository maintenance apply/read-back:
+Codex must also report semantic lifecycle staleness even when no cached file was physically changed.
+
+Physical cached-file change is not the only refresh trigger. If a repository maintenance run updates or verifies a Goal artifact, Phase artifact, execution log, Direction Map artifact, or stage output such that the active runtime route or lifecycle state has logically changed, Codex must classify whether the Direction Project Files are updated, intentionally stale for a named next stage, or blocking.
+
+Required return section after every repository maintenance apply/read-back:
 
 ```yaml
 project_files_cache_refresh_required: true | false
@@ -183,17 +201,54 @@ changed_cached_files:
     project_file_cache_name:
     refresh_reason:
     blocking_before_next_material_run: true | false
+logical_runtime_state:
+  changed: true | false
+  triggers:
+    - next_route_changed
+    - active_goal_lifecycle_state_changed
+    - active_phase_lifecycle_state_changed
+    - parent_goal_completion_candidate_created
+    - parent_goal_completion_state_changed
+    - r1_acceptance_or_rejection
+    - phase_progress_gate_result_changed
+    - phase_closure_or_pause_state_changed
+    - direction_map_active_front_changed
+  old_state_summary:
+  new_state_summary:
+project_files_runtime_projection:
+  state: updated | stale_but_nonblocking_for_named_next_stage | stale_blocking | unchanged_not_stale | unknown
+  affected_project_files:
+    - repository_path:
+      stale_field:
+      stale_value:
+      fresh_value:
+      action: updated | stale_override | checked_no_change_needed | requires_reconciliation
+  allowed_next_stage_when_stale:
+  fresh_sources_for_next_stage:
+    - path:
+  blocking_before_next_material_run: true | false
+structural_integrity_validation:
+  eof_marker_validation:
+    - file_path:
+      marker_count:
+      marker_is_last_non_whitespace: true | false
+      content_after_marker: true | false
+      result: pass | fail | not_applicable
 manual_action:
 ```
 
-If no cached file changed, Codex must explicitly report:
+If no cached file changed and no logical runtime state changed, Codex must explicitly report:
 
 ```yaml
 project_files_cache_refresh_required: false
-reason: "No runtime cache or Direction Project File cache file changed."
+reason: "No runtime cache or Direction Project File cache file changed, and no logical runtime state transition made Project Files stale."
+logical_runtime_state:
+  changed: false
+project_files_runtime_projection:
+  state: unchanged_not_stale
 ```
 
-A GitHub commit does not update ChatGPT Project Files. Manual refresh remains required when cached files change.
+A GitHub commit does not update ChatGPT Project Files. Manual refresh remains required when cached files change. A stale-but-nonblocking override can authorize only the named next stage and only when the launch bundle includes fresh source evidence.
 
 ## End-of-file marker
 

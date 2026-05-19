@@ -65,6 +65,27 @@ If R1 is launched with only a gated slice, gated block, branch, workstream, evid
 
 For `gated_sequential` continuation, the normal route correction is `E1_EXECUTION_BRIEF` so the next gated slice can be planned. If the current registry does not allow an executable R1 -> E1 launch, return the correction as a non-closure routing correction with `recommended_correct_stage: E1_EXECUTION_BRIEF` rather than pretending parent-level R1 is valid.
 
+## Runtime Projection Conflict Gate
+
+Before reviewing a parent Goal, R1 must verify that the launch either has current runtime projection files or an explicit stale-but-nonblocking override.
+
+If fresh Goal artifact, execution log, Codex return, or upstream stage result says the Goal is ready for R1 but Direction Project Files still show an earlier execution route such as `goal_shaped_pending_E1`, R1 must not silently route backward or treat the stale Project Files as canonical.
+
+Required behavior:
+
+```yaml
+if:
+  project_files_conflict_with_fresh_review_evidence: true
+require_one:
+  - project_files_updated_pending_R1
+  - launch_card_has_project_files_state_stale_but_nonblocking_for_R1
+  - Context Request for exact state reconciliation sources
+```
+
+A stale-but-nonblocking override is valid only for the named R1 run and only when the launch provides fresh source paths for the Goal Contract, reviewed artifact, execution evidence, Phase/Goal state basis, and stage prompt availability.
+
+Without updated Project Files or a valid stale override, R1 must return Context Request or Stop and must not close, accept, reject, or route-gate the Goal.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:

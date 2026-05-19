@@ -25,7 +25,9 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 | Runtime behavior and precedence | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` |
 | Long GitHub file read completeness | `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md` |
 | Project Files runtime cache | `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
-| Objective architecture, horizon acceptance, active frontier, next-action basis-validity, and minimum sufficient solution proof | `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` |
+| Lifecycle state reconciliation and Project Files semantic staleness | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` plus reporting rules in `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
+| Structural EOF/tail integrity for repository maintenance and read-back | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`, and `workflow/transport/REPOSITORY_PATCH.md` |
+| Objective architecture, horizon acceptance, active frontier, and next-action basis-validity | `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` |
 | Stage identity, prompt path/status, target runtime, activation, and normal stage-to-stage transitions | `workflow/stage_registry/STAGE_REGISTRY.md` |
 | Stage-specific mission, inputs, gates, and constraints | exact file under `workflow/stage_prompts/<STAGE_ID>.md` |
 | Canonical packet schemas and transport templates | `workflow/transport/*.md` |
@@ -34,9 +36,9 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 
 Runtime core must not maintain full packet schema bodies or duplicate registry stage tables.
 
-Runtime core may contain compact behavior references, schema IDs, route-process rules, and pointers to canonical authority files.
+Runtime core may contain compact behavior references, schema IDs, route-process rules, lifecycle-state reconciliation rules, structural-integrity rules, and pointers to canonical authority files.
 
-If a packet field/template in runtime core conflicts with the matching canonical transport template, the canonical transport template wins for packet shape; runtime core still wins for behavior, approval/formalization, routing process, and repository maintenance rules.
+If a packet field/template in runtime core conflicts with the matching canonical transport template, the canonical transport template wins for packet shape; runtime core still wins for behavior, approval/formalization, routing process, lifecycle-state reconciliation, structural integrity, and repository maintenance rules.
 
 If a stage identity, prompt path/status, activation, or `allowed_next` detail in runtime core conflicts with `STAGE_REGISTRY.md`, the registry wins.
 

@@ -38,6 +38,28 @@ For any workflow output that depends on a GitHub repository file read, check:
 
 A partial GitHub read is a transport failure, not acceptable runtime context.
 
+## Lifecycle State Reconciliation transport checks
+
+For any material stage close, Codex return, or next launch where lifecycle state may have changed, check:
+
+- `stage_result.v1` includes `lifecycle_state_reconciliation` when triggered;
+- `stage_launch.v1` includes `project_files_state` and `fresh_sources_for_stage` when Project Files are stale or overridden;
+- `documentation_maintenance_gate` distinguishes physical file updates from semantic runtime projection changes;
+- `codex_repository_maintenance_apply.v1` requires logical runtime state classification;
+- `project_files_cache_refresh_required: false` is valid only when no cached file changed and no logical runtime state made Project Files stale;
+- a stale-but-nonblocking override names the exact next stage and exact fresh sources;
+- stale override does not authorize general future routing.
+
+## Structural EOF transport checks
+
+For every changed file that defines `END_OF_FILE`, check:
+
+- EOF marker appears exactly once;
+- EOF marker is the last non-whitespace content;
+- no append operation placed content below EOF;
+- read-back / diff verification reports EOF validation;
+- structural failure blocks next material launch until repaired.
+
 ## Direction Map transport checks
 
 - Required Direction Project File context is `00-08` when full Direction Project Files are in scope.

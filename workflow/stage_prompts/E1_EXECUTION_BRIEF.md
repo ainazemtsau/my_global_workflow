@@ -34,6 +34,14 @@ When selecting or validating a next stage:
 
 Do not maintain prompt-local transition tables in this file.
 
+## Lifecycle State Reconciliation awareness
+
+E1 must preserve lifecycle projection state when planning gated sequential, branch/workstream, or continuation execution.
+
+If E1 launches a next gated slice after a prior slice, the launch must state whether the parent Goal remains incomplete, which Project Files route is current, and whether any stale-but-nonblocking override exists.
+
+E1 must not plan a continuation from stale `pending_E1` Project Files when fresh evidence shows a parent completion candidate pending R1, unless the run first returns Context Request or route correction.
+
 ## 0.0 Reviewable Work Product and Formalization Control
 
 This stage follows the canonical first-response, approval, formalization, repository patch, changed-files refresh, executable launch, and mandatory close rules in:

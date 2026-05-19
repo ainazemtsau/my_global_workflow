@@ -37,6 +37,22 @@ documentation_maintenance_gate:
   required: true | false
   reason:
 
+lifecycle_state_reconciliation:
+  required: true | false
+  trigger:
+    - next_route_changed
+    - active_goal_lifecycle_state_changed
+    - active_phase_lifecycle_state_changed
+    - parent_goal_completion_candidate_created
+    - parent_goal_completion_state_changed
+    - r1_acceptance_or_rejection
+    - phase_progress_gate_result_changed
+    - phase_closure_or_pause_state_changed
+    - direction_map_active_front_changed
+    - project_files_stale_against_fresh_evidence_detected
+  selected_policy: update_runtime_state_files | stale_but_nonblocking_override_for_named_next_stage | context_request_for_state_reconciliation | not_required
+  blocking_before_next_material_run: true | false
+
 stable_docs_checked:
   - 01 Direction State
   - 02 Current Phase
@@ -45,6 +61,13 @@ stable_docs_checked:
   - 05 Portfolio Queue
   - 06_CONTEXT_LIBRARY_INDEX.md
   - relevant Knowledge / Canon / domain docs
+
+runtime_projection_updates:
+  - file_path:
+    current_state:
+    expected_state:
+    action: update | mark_stale | checked_no_change_needed
+    reason:
 
 updates:
   - file_path:
@@ -77,7 +100,9 @@ extensions: {}
 ## Validation anchors
 
 - `documentation_maintenance_gate`
+- `lifecycle_state_reconciliation`
 - `stable_docs_checked`
+- `runtime_projection_updates`
 - `updates`
 - `stale_or_superseded`
 - `project_files_to_refresh`

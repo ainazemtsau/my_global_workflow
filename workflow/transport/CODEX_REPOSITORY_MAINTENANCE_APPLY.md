@@ -114,6 +114,14 @@ read_back_anchors:
     anchors:
       - text:
 
+lifecycle_state_reconciliation:
+  required: true | false
+  instruction: Report whether approved changes or verified artifacts changed logical runtime state and whether Project Files are updated, stale-but-nonblocking, stale-blocking, or unchanged.
+
+structural_integrity_validation:
+  required: true
+  instruction: For every changed file with an END_OF_FILE marker, verify the marker appears exactly once and is the last non-whitespace content. Append operations must insert before EOF, not below it.
+
 diff_verification:
   required: true
   instruction: Apply only the listed repository_patch.v1 operations and verify the diff contains no extra changes.
@@ -142,6 +150,8 @@ required_return:
   - files_changed
   - validation_command_outputs
   - read_back_anchor_results
+  - structural_integrity_validation
+  - lifecycle_state_reconciliation
   - diff_scope_verification
   - project_files_cache_refresh_required
   - confirmation_no_forbidden_paths_touched
@@ -163,6 +173,9 @@ extensions: {}
 - Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
 - Do not modify project/tool bindings unless explicitly listed.
 - Do not touch sibling Directions unless explicitly listed.
+- If a logical lifecycle state changes, report whether Project Files were updated, intentionally stale for a named next stage, or stale-blocking.
+- If a changed file has an `END_OF_FILE` marker, verify the marker appears exactly once and remains the last non-whitespace content.
+- Insert append operations before EOF markers, not below them.
 - Return result to the same ChatGPT stage thread for validation.
 
 ## Validation anchors

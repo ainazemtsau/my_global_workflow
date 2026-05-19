@@ -23,6 +23,16 @@ Use this matrix to track stage-level regression checks.
 
 This matrix is behavioral coverage only. `allowed_next` transition authority remains registry-owned in `workflow/stage_registry/STAGE_REGISTRY.md`; do not duplicate it here.
 
+## Lifecycle State Reconciliation Regression Entries
+
+| Stage ID | Area | Expected behavior | Regression risk | Last checked | Result | Finding ID |
+| --- | --- | --- | --- | --- | --- | --- |
+| ROUTER_STAGE_LAUNCHER | Lifecycle projection conflict | Does not route from stale Project Files when fresh evidence says another next stage; returns launch with stale override, Context Request, B1, or Stop. | Router silently routes backward to E1 from stale Project Files. | 2026-05-18 | Added regression expectation | WFG-FINDING-2026-05-18-001 |
+| E1_EXECUTION_BRIEF | Gated continuation state | Does not plan execution continuation from stale pending-E1 state when fresh parent completion candidate pending R1 exists. | E1 re-enters execution after parent completion. | 2026-05-18 | Added regression expectation | WFG-FINDING-2026-05-18-001 |
+| F0_FAST_DIRECT | Final gated slice handoff | Before R1 launch, updates runtime projection, declares stale-but-nonblocking override, or returns Context Request. | F0 launches R1 while Project Files still contradict it silently. | 2026-05-18 | Added regression expectation | WFG-FINDING-2026-05-18-001 |
+| R1_GOAL_REVIEW_DISTILL | Review launch evidence | Rejects stale/conflicting Project Files unless launch supplies fresh sources and named stale override. | R1 accepts stale Project Files or routes backward incorrectly. | 2026-05-18 | Added regression expectation | WFG-FINDING-2026-05-18-001 |
+| C2_CODEX_EXECUTE | Codex return validation | Requires logical runtime state classification, Project Files refresh classification, EOF structural validation, and diff scope verification. | Codex return says no refresh needed despite semantic stale state or broken EOF. | 2026-05-18 | Added regression expectation | WFG-FINDING-2026-05-18-001 |
+
 ## Branch / Workstream Execution Regression Cases
 
 These cases validate large-Goal branch/workstream execution behavior.

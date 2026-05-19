@@ -70,3 +70,29 @@ finding:
   approval_needed: false
   next_action: "Apply WFG_PATCH_2026_05_13_GITHUB_LONG_FILE_READ_GUARD and refresh ChatGPT Project Files runtime cache."
 ```
+
+```yaml
+finding:
+  finding_id: WFG-FINDING-2026-05-18-001
+  status: accepted
+  area: lifecycle_state_reconciliation
+  severity: P1
+  confidence: high
+  evidence:
+    - "Incident report: final F0 synthesis advanced the Goal artifact and execution log to pending R1 while Direction Project Files and Phase Brief remained pending E1."
+    - "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md showed synthesis_formalized and parent_goal_completion_candidate."
+    - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md still showed goal_shaped_pending_E1 and next_route E1_EXECUTION_BRIEF."
+    - "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md had an END_OF_FILE marker before later entries."
+  recommendation:
+    - "Add mandatory Lifecycle State Reconciliation Gate to shared runtime behavior."
+    - "Extend transport packets with project_files_state, fresh_sources_for_stage, lifecycle_state_reconciliation, and structural_integrity_validation."
+    - "Require Codex repository maintenance to distinguish physical cached-file changes from logical runtime state changes."
+    - "Require EOF markers to remain unique final tail markers and append before EOF."
+  alternatives:
+    - "Only repair Indie Game Project Files: rejected because the defect can recur in other Directions."
+    - "Tell R1 to ignore Project Files: rejected because stale default cache can still misroute launches."
+    - "Rely on manual user context: rejected because the Workflow target is autonomous stage handoff."
+  patch_needed: true
+  approval_needed: false
+  next_action: "Apply wg_lsrg_runtime_hardening_2026_05_18 and refresh shared runtime Project Files in all active Direction Projects."
+```

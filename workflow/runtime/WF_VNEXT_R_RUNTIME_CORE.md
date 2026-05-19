@@ -1375,7 +1375,7 @@ Runtime behavior rules:
 
 Use the canonical transport template for packet shape. Runtime core owns the behavior above.
 
-## 18\. Project Files Refresh Rule
+## 18. Project Files Refresh Rule
 
 Every material state change must list exact GitHub files to update or refresh in context.
 
@@ -1417,13 +1417,136 @@ Mapping:
 
 Shared runtime core changed
   -> workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
-
-Objective Architecture Model changed
-  -> workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
-
 ```
 
 Fresh file read-back / diff verification / commit verification wins over stale attached Project files.
+
+### 18.1 Lifecycle State Reconciliation Gate
+
+A material stage close, repository maintenance return, Router launch, or next-stage launch must run the Lifecycle State Reconciliation Gate when any lifecycle transition trigger is present.
+
+Lifecycle transition triggers:
+
+```yaml
+lifecycle_transition_triggers:
+  - next_route_changed
+  - active_goal_lifecycle_state_changed
+  - active_phase_lifecycle_state_changed
+  - parent_goal_completion_candidate_created
+  - parent_goal_completion_state_changed
+  - r1_acceptance_or_rejection
+  - phase_progress_gate_result_changed
+  - phase_closure_or_pause_state_changed
+  - direction_map_active_front_changed
+  - project_files_stale_against_fresh_evidence_detected
+```
+
+Required invariant:
+
+```yaml
+if:
+  logical_runtime_state_changed: true
+require_one:
+  - update_runtime_state_files
+  - stale_but_nonblocking_override_for_named_next_stage
+  - context_request_for_state_reconciliation
+else:
+  next_material_stage_launch_allowed: false
+```
+
+The gate distinguishes physical file changes from logical runtime state changes. A stage may create or verify a Goal artifact that changes the next route or active lifecycle state even when no Direction Project File was physically changed. In that case the output must not report only `project_files_cache_refresh_required: false`; it must classify semantic staleness.
+
+Required reconciliation packet fragment:
+
+```yaml
+lifecycle_state_reconciliation:
+  required: true | false
+  trigger:
+    -
+  lifecycle_delta:
+    active_goal_state_from:
+    active_goal_state_to:
+    next_route_from:
+    next_route_to:
+    phase_projection_changed: true | false
+    phase_progress_gate_run: true | false
+    implementation_allowed_now: true | false
+  evidence_basis:
+    - path:
+      evidence_type: artifact_header | completion_marker | execution_log | codex_readback | stage_result | project_file
+      supports:
+  project_files_state:
+    physical_cached_file_changed: true | false
+    logical_runtime_state_changed: true | false
+    project_files_now_stale_against_goal_evidence: true | false
+    blocking_before_next_material_run: true | false
+  runtime_projection_policy:
+    selected: update_runtime_state_files | stale_but_nonblocking_override_for_named_next_stage | context_request_for_state_reconciliation
+    reason:
+  affected_runtime_projection_files:
+    - path:
+      current_state:
+      expected_state:
+      action: update | mark_stale_for_named_stage | checked_no_change_needed
+  downstream_launch_policy:
+    next_stage:
+    launch_allowed: true | false
+    required_fresh_sources:
+      - path:
+    stale_project_files_override_allowed: true | false
+```
+
+If the gate selects `update_runtime_state_files`, the repository patch must update the exact stale Direction runtime projection files such as `04_ACTIVE_GOAL.md`, `02_CURRENT_PHASE.md`, relevant `00_PHASE_BRIEF.md`, or map/focus/queue files when their content is stale.
+
+If the gate selects `stale_but_nonblocking_override_for_named_next_stage`, the next launch card must explicitly list stale Project File fields, fresh source paths, and the only stage for which the stale override is valid. A generic route name is not enough.
+
+If the gate cannot establish either an update patch or a safe stale override, the stage must return Context Request or Stop and must not launch the next material stage.
+
+### 18.2 Required runtime state names for post-execution Goal review
+
+Use explicit intermediate lifecycle states instead of overloading `goal_shaped_pending_E1` after execution artifacts have advanced.
+
+Required active Goal lifecycle vocabulary includes:
+
+```text
+goal_shaped_pending_E1
+gated_execution_in_progress
+synthesis_formalized_pending_R1_review
+r1_accepted_goal_complete
+r1_route_gated
+rejected_or_needs_rework
+```
+
+A final gated-sequential F0 synthesis that creates a parent Goal completion candidate and routes to R1 must classify the active Goal as `synthesis_formalized_pending_R1_review` unless the Project Files are intentionally left stale under a named stale-but-nonblocking override for R1.
+
+### 18.3 Structural Integrity / EOF Marker Guard
+
+Repository maintenance must validate file structure for any file it creates or updates when the file defines an `END_OF_FILE` marker.
+
+EOF marker invariant:
+
+```yaml
+eof_marker_policy:
+  marker_count: exactly_one
+  marker_position: last_non_whitespace_content
+  fail_if:
+    - eof_marker_count != 1
+    - content_after_eof_marker: true
+```
+
+Append behavior:
+
+```yaml
+append_policy:
+  append_section:
+    if_target_has_eof_marker: insert_before_eof_marker
+    must_preserve_eof_as_final_tail: true
+  append_or_create_file:
+    if_existing_file_has_eof_marker: insert_before_eof_marker
+    must_not_append_below_eof: true
+```
+
+A file read-back, diff verification, or commit verification that relies on an EOF marker is invalid when the marker appears before later content. In that case Codex/user repository maintenance must return `STUCK` or `NEEDS_REPAIR`, and the next material stage launch is blocked until the structure is repaired or the EOF marker policy is explicitly changed by an approved patch.
 
 ## 19\. Compatibility / black-box stage rule
 

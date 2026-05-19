@@ -47,6 +47,21 @@ These cases verify that `08_DIRECTION_MAP.md` is routing context, not a backlog,
 | DMAP-011 | Map bloat prevention | Direction Map stays compact; excessive nodes are cut, parked, split, or deferred. |
 | DMAP-012 | Cross-Direction refresh after shared runtime/cache change | Return refresh requirements for all active Direction Projects, including `08_DIRECTION_MAP.md` impact. |
 
+## Lifecycle State Reconciliation / EOF regression cases
+
+These cases verify that Workflow does not launch a next material stage through stale or contradictory runtime projections.
+
+| ID | Case | Expected behavior |
+| --- | --- | --- |
+| LSRG-001 | Final F0 synthesis creates parent completion candidate and next route R1 while Project Files still say E1. | Fail closed unless runtime projection files are updated, an explicit stale-but-nonblocking R1 override is supplied, or Context Request is returned. |
+| LSRG-002 | Gated slice complete but parent Goal incomplete tries normal parent-level R1. | Reject R1; route to E1 continuation or correction. |
+| LSRG-003 | R1 launch has stale Project Files and no fresh evidence bundle. | Return Context Request; do not review or close. |
+| LSRG-004 | R1 launch has stale Project Files, explicit stale override, and fresh verified sources. | Allow R1 review using the named fresh sources only. |
+| LSRG-005 | `END_OF_FILE` marker appears before later content. | Structural validation fails; next material launch blocked until repaired. |
+| LSRG-006 | `append_section` appends below EOF. | Repository maintenance return fails structural validation. |
+| LSRG-007 | Codex reports `project_files_cache_refresh_required: false` while logical runtime state changed and Project Files are stale. | Return validation failure; require lifecycle projection classification. |
+| LSRG-008 | R1 accepts Goal and routes to G0 without phase_progress_gate. | Fail; R1 must run Phase Progress Gate first. |
+
 ## Rule
 
 Findings must go through `FINDING_REGISTER.md`. No repository patch until approval.

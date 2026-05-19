@@ -80,7 +80,23 @@ A GitHub read may be treated as complete when the run has sufficient evidence su
 - expected tail anchor is visible;
 - SHA / size / line count are available when needed;
 - end-of-file marker is present for files that define one;
+- the end-of-file marker appears exactly once and is the last non-whitespace content;
+- no content appears after the end-of-file marker;
 - Codex read-only verification confirms the file from a local checkout.
+
+A visible `END_OF_FILE` marker is not valid tail authority when later content appears after it. In that case the read is structurally conflicted and must be treated as insufficient for material workflow work until the file is repaired or a different approved tail policy is applied.
+
+Required EOF validation shape for read-back / repository maintenance:
+
+```yaml
+eof_marker_validation:
+  - file_path:
+    marker_text:
+    marker_count:
+    marker_is_last_non_whitespace: true | false
+    content_after_marker: true | false
+    result: pass | fail | not_applicable
+```
 
 ## Project Files cache refresh after repository maintenance
 
