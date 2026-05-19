@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-19"
 
 # B1\_PROBLEM — Problem Runtime Stage Prompt
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -127,7 +127,7 @@ B1 exists to prevent stalled work from drifting into speculation, broad redesign
 
 ## 0.1 Codex Role Separation
 
-B1 may diagnose Codex-related blockers and route to C1 or C2 only when the required evidence supports that route. B1 does not start Codex product/project execution, create a Task Master graph, implement missing work, or modify product/project files.
+B1 may diagnose Codex-related blockers and route through a registry-valid owner when the required evidence supports that route. B1 does not start Codex product/project execution, create a Task Master graph, implement missing work, or modify product/project files.
 
 Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles help resolve blocker evidence and handoff quality, but they do not authorize product/project execution or bypass C1/C2 readiness gates.
 
@@ -269,6 +269,43 @@ problem_kind:
 
 Secondary tags are allowed only as optional extensions.
 
+### Pass 3.1 — Proof repair / blocker classification
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for basis-validity, proof/readiness gaps, and route-valid versus basis-valid distinction. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
+
+B1 must classify blockers before solving and must not perform downstream work inside B1.
+
+Classify the blocker as one or more of:
+
+- missing_context
+- route_conflict
+- basis_validity_gap
+- horizon_or_frontier_gap
+- next_action_proof_gap
+- minimum_sufficient_solution_proof_gap
+- audit_readiness_gap
+- research_readiness_gap
+- execution_readiness_gap
+- decision_needed
+- state_projection_or_project_files_staleness
+- validation_failure
+- unsafe_or_contradictory_state
+- user_request_outside_workflow_boundary
+
+Map each blocker to the smallest safe registry-valid repair or terminal outcome. Preserve `continue_current_stage` only when the current stage can safely repair the blocker without violating its stage boundary.
+
+If the needed route is not registry-valid for B1, do not invent it. Report route conflict / `REGISTRY_REVIEW_CANDIDATE` / Stop according to registry and runtime constraints.
+
+Every B1 result should include compact proof-repair status lines:
+
+- blocker_classification:
+- proof_or_readiness_gap:
+- current_stage_boundary:
+- smallest_safe_repair:
+- registry_validity_status:
+- continuation_allowed: true | false
+- why_not_downstream_execution_inside_B1:
+
 ### Pass 4 — Impact and blocked-object check
 
 Identify:
@@ -316,7 +353,7 @@ next_action:
 
 ```
 
-Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid for B1, return route-conflict Context Request, Human Decision, or Stop; do not execute downstream work inside B1.
+Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid for B1, report route conflict or `REGISTRY_REVIEW_CANDIDATE` and use the smallest registry-valid correction or terminal outcome. Do not execute downstream work inside B1.
 
 Registry-valid B1 targets are:
 
@@ -395,17 +432,17 @@ If review, closure, audit, install, or execution evidence is missing, request th
 
 ### Decision ambiguity
 
-If a meaningful tradeoff or authorization is needed, output Human Decision Card or route to `S3_DECIDE`.
+If a meaningful tradeoff or authorization is needed, route to `S3_DECIDE` when registry-valid. If the required human-owned decision artifact is not registry-valid, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 
 ### Documentation drift
 
 If documentation is stale or missing but current work can continue safely, include Documentation Maintenance Gate and route the active work separately.
 
-If drift blocks safe action, return Context Request and Changed Files / Context Refresh List.
+If drift blocks safe action, use the smallest registry-valid correction or terminal outcome and include Changed Files / Context Refresh List. If the required Context Request artifact is not registry-valid, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 
 ### Codex or install blocker
 
-If Codex install/file read-back / diff verification / commit verification/validator evidence is missing or contradictory, do not claim success. Use `E1_EXECUTION_BRIEF`, `continue_current_stage`, route-conflict Context Request, or Stop depending on the blocker; do not emit R0 or A1 as normal B1 launch routes.
+If Codex install/file read-back / diff verification / commit verification/validator evidence is missing or contradictory, do not claim success. Use `E1_EXECUTION_BRIEF`, `continue_current_stage`, a route-conflict artifact, or Stop depending on the blocker; do not emit R0 or A1 as normal B1 launch routes.
 
 ### Nonblocking issue
 
@@ -413,7 +450,7 @@ If no real blocker exists, return `result_state: no_problem_found`, explain why,
 
 ### Loop risk
 
-If the same context request or route has repeated without new evidence, output Human Decision or Stop. Do not bounce indefinitely.
+If the same context request or route has repeated without new evidence, route to `S3_DECIDE` when registry-valid or Stop. Do not bounce indefinitely.
 
 ## 8\. Output format
 
@@ -425,9 +462,12 @@ Produce the following sections.
 ## 1. Problem frame
 - Blocked object:
 - Problem kind:
+- blocker_classification:
+- proof_or_readiness_gap:
 - Severity:
 - Symptom:
 - Impact:
+- current_stage_boundary:
 - Source freshness:
 - Evidence available:
 - Evidence missing/stale/conflicting:
@@ -437,9 +477,13 @@ Produce the following sections.
 - Route verdict:
 - Target stage/action:
 - Route reason:
+- smallest_safe_repair:
+- registry_validity_status:
+- continuation_allowed:
 - Smallest safe resolution path:
 - Unblock condition:
 - Why broader routes are rejected:
+- why_not_downstream_execution_inside_B1:
 
 ## 3. Do not touch / forbidden scope
 - Forbidden until resolved:
@@ -526,6 +570,7 @@ Do not invent local packet schemas.
 
 - Every material B1 output must close with the human-readable problem result, Stage Result Packet, Repository Patch or explicit none, Execution Log Entry, Documentation Maintenance Gate, Changed Files / Context Refresh List, and exactly one terminal artifact.
 - Stage Result Packet content must preserve B1-specific problem framing: problem kind, blocked object, symptom, impact, severity, confidence, source freshness, available/missing evidence, stale or conflicting sources, forbidden scope, and anti-rabbit-hole rejections.
+- Proof-repair content must preserve blocker_classification, proof_or_readiness_gap, current_stage_boundary, smallest_safe_repair, registry_validity_status, continuation_allowed, and why downstream execution is not performed inside B1.
 - Stage Result Packet content must preserve route verdict details: next action, route, next stage, route reason, smallest safe resolution path, unblock condition, route-back target, and loop risk.
 - Stage Result Packet content must preserve transport output flags, compatibility notes, validation summary, and B1 problem state.
 - Repository Patch default is explicit none when B1 only frames/routes the blocker. If a patch is safe and authorized, it must name target paths, actions, content summary, authority, freshness, and forbidden paths. Never output vague patch instructions.

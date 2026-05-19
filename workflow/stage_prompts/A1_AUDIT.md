@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-19"
 
 # A1\_AUDIT — Audit Runtime Stage Prompt
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -170,6 +170,29 @@ You must:
 
 Do not conduct a broad review unless the launch card explicitly asks for deep audit and provides the needed evidence.
 
+## 1.1 Audit readiness gate
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `audit_readiness`, Minimum Sufficient Solution Proof implications, and route-valid versus basis-valid distinction. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
+
+A1 must not perform broad audit by default. Audit is allowed only when the audit target is concrete enough for review.
+
+Before auditing, set compact audit readiness:
+
+- audit_readiness_status: ready | missing_blocking | failed | not_required
+- audit_target:
+- audit_criteria:
+- downstream_decision_or_use:
+- evidence_basis:
+- route_basis:
+
+Audit readiness requires an explicit audit object, explicit criteria, explicit downstream decision or use, source/evidence available or exactly requestable, and a defined answer to what changes after audit.
+
+Classify the audit type when relevant: `source_of_truth_audit`, `workflow_model_audit`, `old_code_or_old_doc_audit`, `high_risk_plan_challenge`, `solution_shape_challenge`, `completion_or_closure_audit`, or `regression_or_failed_attempt_audit`.
+
+A1 may challenge overbuilt, undercut, user-example-anchored, dominant-constraint-violating, or low-burden-violating plans when that is the audit target. If solution shape is material, use or request Minimum Sufficient Solution Proof implications without copying the proof schema.
+
+If audit readiness is missing or failed, do not audit broadly. Return the smallest registry-valid correction or terminal outcome. If the required correction is not registry-valid for A1, report `REGISTRY_REVIEW_CANDIDATE` with the desired owner and return Stop or another registry-valid outcome rather than inventing a prompt-local route.
+
 ## 2\. Hard boundaries
 
 You must not:
@@ -230,7 +253,7 @@ A1 works best when the launch provides:
     *   known workflow source-of-truth order.
 *   Intended next route, if the audit is checking whether continuation is safe.
 
-If the audit object or criteria are missing and cannot be safely inferred from provided current context, return NEEDS\_INPUT with a Context Request Card.
+If the audit object or criteria are missing and cannot be safely inferred from provided current context, return the smallest registry-valid correction or terminal outcome. If the exact missing-context repair artifact is not registry-valid for A1, report `REGISTRY_REVIEW_CANDIDATE` and Stop rather than auditing broadly.
 
 ## 4\. Optional inputs
 
@@ -317,6 +340,7 @@ Check:
 *   Is this A1\_AUDIT?
 *   Is the audit object identifiable?
 *   Is the audit purpose clear?
+*   Is compact audit_readiness ready, or is the missing/failed readiness itself the result?
 *   Is there any conflict between launch card, current state, and audited object?
 *   Would completing the request require prohibited execution or mutation?
 
@@ -422,7 +446,7 @@ Route rules:
 *   PASS or PASS\_WITH\_NONBLOCKING\_NOTES may preserve the intended next route.
 *   NEEDS\_PATCH routes to the smallest exact repair path.
 *   FAIL routes to repair, recovery, rerun, or human decision.
-*   NEEDS\_INPUT routes to Context Request.
+*   NEEDS\_INPUT routes to the smallest registry-valid missing-context repair; if the needed repair artifact is not registry-valid for A1, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 *   STOP emits no execution route.
 *   Never route directly to C2\_CODEX\_EXECUTE from an audit defect.
 *   Never start Codex work.
@@ -518,7 +542,9 @@ A1 must not mutate GitHub repository.
 
 ## 11\. Human decision rules
 
-Use a Human Decision Card when:
+Use a Human Decision Card only when it is registry-valid for A1. If the human-owned decision is required but not registry-valid, report `REGISTRY_REVIEW_CANDIDATE` and Stop rather than treating the card as a local route.
+
+Human-owned decision triggers include:
 
 *   multiple valid repair routes have materially different tradeoffs;
 *   the user must accept a risk before continuation;
@@ -531,7 +557,7 @@ Do not ask broad questions. Ask for the smallest decision that unblocks the audi
 
 ## 12\. Context Request rules
 
-Use a Context Request Card when missing evidence blocks the verdict.
+Use a Context Request Card only when it is registry-valid for A1. If missing evidence blocks the verdict but Context Request is not registry-valid, report `REGISTRY_REVIEW_CANDIDATE` and Stop rather than auditing broadly.
 
 Request exact artifacts only, such as:
 
@@ -579,6 +605,7 @@ Use this output shape.
 
 *   Status:
 *   Safe to continue: yes / no
+*   audit_readiness_status:
 *   Verdict rationale:
 *   Confidence: high / medium / low
 *   Smallest safe next route:
@@ -587,7 +614,11 @@ Use this output shape.
 
 *   Audit object:
 *   Audit purpose:
+*   Audit type:
 *   Criteria used:
+*   Downstream decision or use:
+*   Evidence basis:
+*   Route basis:
 *   In scope:
 *   Out of scope:
 *   Expansion trigger:
@@ -661,6 +692,7 @@ If STOP:
 Use canonical transport templates from `workflow/transport/*.md`. Preserve these A1-specific fields/content in the relevant canonical packet when formalization is approved:
 
 - audit object type, identifier/path, source, version/timestamp, request purpose, depth, expected contract, and scope boundaries;
+- audit_readiness_status, audit type, downstream decision/use, evidence basis, route basis, and MSSP implications when solution shape is the audit target;
 - evidence summary, criteria checked, evidence sufficiency, stale/conflicting evidence, and findings classified as blocking, patch-required, nonblocking, missing-evidence, or stale/conflicting;
 - verdict status, rationale, confidence, route basis, assumptions, and selected next artifact type;
 - repository patch recommendation or explicit none;

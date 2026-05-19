@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-19"
 
 # S3\_DECIDE — Decide Runtime Stage Prompt
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -212,7 +212,7 @@ do not fail merely because optional extension fields are present;
 preserve unknown relevant fields only inside compact handoff context.
 4. Route authority and allowed outcomes
 
-Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid for S3, return route-conflict Context Request, B1_PROBLEM, Human Decision, or Stop; do not execute downstream work inside S3.
+Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid for S3, return a route-conflict artifact; if no registry-valid correction exists, report `REGISTRY_REVIEW_CANDIDATE` and Stop. Do not execute downstream work inside S3.
 
 S3 may select only one registry-valid normal downstream stage or one blocking/terminal artifact. As of the current registry, normal S3 launch targets are:
 
@@ -220,7 +220,30 @@ S3 may select only one registry-valid normal downstream stage or one blocking/te
 - `E1_EXECUTION_BRIEF`
 - `R1_GOAL_REVIEW_DISTILL`
 
-Use a Context Request when missing or stale authoritative context blocks route choice. Use Human Decision when a real tradeoff or authorization belongs to the user. Use Stop when no safe registry-valid route or blocking artifact can be formulated.
+Use a blocking artifact only when it is registry-valid for S3. Missing or stale authoritative context is not a real decision; if the required repair artifact is not registry-valid, report `REGISTRY_REVIEW_CANDIDATE` and Stop. Use Human Decision only for a real human-owned tradeoff or authorization, never as a missing-context substitute.
+
+4.1 Human-owned decision readiness
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for proof gates, MSSP/component necessity, and route-valid versus basis-valid distinction.
+
+S3 is for real human-owned decisions, not missing-context repair, generic brainstorming, or assistant-owned routing. Before presenting options, set compact decision readiness:
+
+- decision_readiness_status: ready | missing_blocking | failed | not_required
+- decision_question:
+- decision_owner:
+- options:
+- binding_constraints:
+- tradeoffs_and_consequences:
+- evidence_basis:
+- recommended_default_if_any:
+- human_choice_needed:
+- downstream_route_basis:
+
+Decision readiness requires an explicit decision question, human/user or authorized operator as decision owner, viable options, explicit constraints/tradeoffs, understandable consequences, sufficient or declared-nonblocking evidence basis, and a known downstream route/use of the decision.
+
+If the blocker is missing context rather than a real human decision, S3 must not fake a decision or use Human Decision as a substitute for missing context. Return the smallest registry-valid correction/terminal outcome, or report `REGISTRY_REVIEW_CANDIDATE` and Stop if the needed correction is not registry-valid for S3.
+
+Do not overbuild decisions into process/template artifacts unless MSSP and component necessity are required and passed by reference to `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`. S3 may recommend a default when justified, but must not write the user's final conclusion for them.
 
 5. Decision procedure
 
@@ -228,13 +251,13 @@ Run this internal subprocess. Do not expose hidden chain-of-thought. Expose only
 
 Pass 1 — Activation and boundary check: confirm this is an S3 route decision and refuse execution inside S3.
 
-Pass 2 — Input sufficiency check: verify what work is being decided, why it matters, Direction/Phase/Goal context if relevant, acceptance target or success signal, and source freshness.
+Pass 2 — Decision readiness check: verify decision question, decision owner, options, binding constraints, tradeoffs/consequences, evidence basis, and downstream route/use.
 
-Pass 3 — Freshness and authority check: if state is missing, stale, or conflicting and needed for route choice, return Context Request or another blocking artifact rather than guessing.
+Pass 3 — Freshness and authority check: if state is missing, stale, or conflicting and needed for a real decision, return the smallest registry-valid correction or Stop rather than guessing or converting missing context into a fake decision.
 
-Pass 4 — Work-type classifier: classify the request as Goal shaping, execution briefing, review/distill, context request, human decision, or stop. If the natural target is not registry-valid from S3, report route conflict rather than emitting a launch.
+Pass 4 — Work-type classifier: classify the request as Goal shaping, execution briefing, review/distill, blocking correction, human-owned decision, or stop. If the natural target is not registry-valid from S3, report route conflict rather than emitting a launch.
 
-Pass 5 — Risk and reversibility gate: escalate to Human Decision or Stop when source-of-truth, security/privacy, tool-binding, common-canon, runtime-prompt, rebuild-state, irreversible, or high-cost choices are present.
+Pass 5 — Risk and reversibility gate: use Stop or another registry-valid outcome when source-of-truth, security/privacy, tool-binding, common-canon, runtime-prompt, rebuild-state, irreversible, or high-cost choices are present. If the needed human-owned decision artifact is not registry-valid, report `REGISTRY_REVIEW_CANDIDATE`.
 
 Pass 6 — Anti-rabbit-hole gate: select the smallest safe registry-valid route and explicitly reject heavier routes when they are tempting but unjustified.
 
@@ -244,7 +267,7 @@ Pass 8 — Handoff construction gate: produce a compact handoff with selected ta
 
 6. Route rules
 
-Use `G1_GOAL_SHAPE` when a decision resolves toward shaping or revising a Goal Contract. Use `E1_EXECUTION_BRIEF` when a shaped Goal needs execution framing. Use `R1_GOAL_REVIEW_DISTILL` only when review/distill is genuinely the registry-valid next action and sufficient evidence exists. Use Context Request, Human Decision, or Stop for blocking conditions. Do not write another stage's output inside S3.
+Use `G1_GOAL_SHAPE` when a decision resolves toward shaping or revising a Goal Contract. Use `E1_EXECUTION_BRIEF` when a shaped Goal needs execution framing. Use `R1_GOAL_REVIEW_DISTILL` only when review/distill is genuinely the registry-valid next action and sufficient evidence exists. For blocking conditions, use only registry-valid correction/terminal outcomes or report `REGISTRY_REVIEW_CANDIDATE` and Stop. Do not write another stage's output inside S3.
 
 7. Required output shape
 
@@ -279,12 +302,13 @@ Every material S3 output must close with:
 4. Execution Log Entry.
 5. Documentation Maintenance Gate.
 6. Changed Files / Context Refresh List.
-7. Exactly one terminal artifact: Next Launch Card, Context Request Card, Human Decision Card, or Stop Card.
+7. Exactly one terminal artifact: Next Launch Card for a registry-valid next stage, Stop Card, or other terminal artifact only when registry-valid for S3.
 
 ## 1. Decision
 
 - return_state: DONE | NEEDS_INPUT | STUCK | PARTIAL | NOT_APPLICABLE
-- selected_route: [G1_GOAL_SHAPE | E1_EXECUTION_BRIEF | R1_GOAL_REVIEW_DISTILL | HUMAN_DECISION | CONTEXT_REQUEST | STOP | ROUTE_CONFLICT]
+- decision_readiness_status:
+- selected_route: [G1_GOAL_SHAPE | E1_EXECUTION_BRIEF | R1_GOAL_REVIEW_DISTILL | STOP | ROUTE_CONFLICT | REGISTRY_REVIEW_CANDIDATE]
 - one_sentence_reason:
 - route_confidence: high | medium | low
 - no_execution_performed: true
@@ -298,6 +322,18 @@ Every material S3 output must close with:
 - why Audit is / is not needed:
 - why Codex Graph Plan is / is not needed:
 - rejected interesting/rabbit-hole additions:
+
+## 2.1 Decision readiness
+
+- decision_question:
+- decision_owner:
+- options:
+- binding_constraints:
+- tradeoffs_and_consequences:
+- evidence_basis:
+- recommended_default_if_any:
+- human_choice_needed:
+- downstream_route_basis:
 
 ## 3. Source and freshness check
 
@@ -354,6 +390,7 @@ Do not invent local packet schemas.
 
 - Every material S3 output must close with the human-readable decision result, Stage Result Packet, Repository Patch or explicit none, Execution Log Entry, Documentation Maintenance Gate, Changed Files / Context Refresh List, and exactly one terminal artifact.
 - Stage Result Packet content must preserve input artifact summary, decision question, selected route/name/reason, risk level, reversibility, evidence sufficiency, source freshness status, scope cut summary, rejected routes, no-execution confirmation, repository patch/log/refresh/gate refs, next artifact type, route confidence, and route decision snapshot.
+- Decision readiness content must preserve decision_readiness_status, decision owner, options/tradeoffs/consequences, binding constraints, evidence basis, recommended default if any, human choice need, downstream route basis, and missing-context-not-decision guard result.
 - Repository Patch default is explicit none because S3_DECIDE is read-only unless a later accepted contract explicitly authorizes mutation.
 - Execution Log Entry must preserve Direction/Phase/Goal IDs, input summary, selected route or blocking card, route reason, rejected routes summary, source freshness, context request/human decision flags, repository patch state, documentation gate state, changed-files context refresh state, and no-execution confirmation.
 - Documentation Maintenance Gate must state whether it is required, trigger, affected scope, required update, responsible next stage, timing, docs freshness blocker, and notes.
