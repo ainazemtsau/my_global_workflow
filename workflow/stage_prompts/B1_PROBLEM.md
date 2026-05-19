@@ -626,4 +626,4 @@ End only after producing all required B1 runtime artifacts for the selected rout
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/B1_PROBLEM.md`
+END_OF_FILE: workflow/stage_prompts/B1_PROBLEM.md

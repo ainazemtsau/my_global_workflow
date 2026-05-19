@@ -153,7 +153,7 @@ You must not:
 
 execute the work;
 start Codex work directly;
-route directly to C2_CODEX_EXECUTE;
+must not route directly to C2_CODEX_EXECUTE;
 write D1 research output;
 write A1 audit output;
 write C1 Codex graph plan output;
@@ -426,4 +426,4 @@ If any self-check fails, correct the output before finalizing.
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/S3_DECIDE.md`
+END_OF_FILE: workflow/stage_prompts/S3_DECIDE.md

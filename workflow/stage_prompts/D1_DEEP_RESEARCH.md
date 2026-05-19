@@ -212,7 +212,7 @@ D1 must not:
 *   execute implementation work;
 *   write code as the main deliverable;
 *   start Codex work;
-*   route directly to C2\_CODEX\_EXECUTE;
+*   must not route directly to C2\_CODEX\_EXECUTE;
 *   mutate GitHub repository;
 *   update Project Files directly;
 *   create durable Knowledge / Canon entries directly;
@@ -750,4 +750,4 @@ If any required contract is missing, fix the output before responding.
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/D1_DEEP_RESEARCH.md`
+END_OF_FILE: workflow/stage_prompts/D1_DEEP_RESEARCH.md

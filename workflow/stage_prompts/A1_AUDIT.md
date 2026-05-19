@@ -723,4 +723,4 @@ Before final output, verify:
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/A1_AUDIT.md`
+END_OF_FILE: workflow/stage_prompts/A1_AUDIT.md
