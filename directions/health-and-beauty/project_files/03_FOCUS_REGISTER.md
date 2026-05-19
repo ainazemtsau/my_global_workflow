@@ -16,15 +16,15 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Resolve minimal nutrition loop shape and tool/container policy before execution planning."
-  route_stage: S3_DECIDE
+  current_focus: "Prepare E1 execution brief for repo-backed standalone Project `Питание` v0."
+  route_stage: E1_EXECUTION_BRIEF
   same_chat_allowed: false
-  boundary_trigger: objective_architecture_migration_frontier_repair
+  boundary_trigger: g1_goal_shape_formalized_after_s3_decision
   pending_state_carried: true
   pending_patch_pointer: "health_beauty_objective_architecture_migration_2026_05_19"
-  last_stage_result_pointer: "Objective Architecture migration blocks stale Project `Питание` execution path; no product/project execution performed."
+  last_stage_result_pointer: "G1_GOAL_SHAPE formalized repaired Goal Contract for Project `Питание` v0; no product/project execution performed."
   human_correction: "Objective is outcome-first; AI/ChatGPT/Project/app/storage are optional tools, not requirements."
-  stale_prior_focus: "Project `Питание` setup via E1 is blocked after user correction until S3 decides whether the tool/container path is kept, repaired, reduced, or superseded."
+  stale_prior_focus: "Resolved by S3 keep-and-repair decision plus G1 formalized Goal shape; E1 remains blocked until repository maintenance/read-back and Project Files refresh."
 ```
 
 ## Active Goal
@@ -35,6 +35,6 @@ Goal path:
 
 `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
 
-The next route is `S3_DECIDE` for tool/container policy and minimal nutrition loop shape, not setup execution.
+The next route is `E1_EXECUTION_BRIEF` for execution envelope and validation planning, not product/project execution.
 
-The existing Goal path remains historical/current input until the decision resolves whether Project `Питание` remains part of the implementation.
+The existing Goal path now contains the fresh shaped Goal Contract and Working Context for Project `Питание` v0.

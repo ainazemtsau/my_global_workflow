@@ -16,27 +16,27 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: blocked
+  state: shaped
   goal_id: nutrition-project-operational-setup-v0
   goal_name: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
   goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
   current_wave: none
   current_stage: G1_GOAL_SHAPE_formalized
-  status: stale_not_basis_valid_after_user_correction
-  next_route: S3_DECIDE
-  use_policy: "Historical/current input only; do not execute E1 until S3 decides whether Project `Питание` is kept, repaired, reduced, or superseded."
+  status: goal_shaped_pending_E1
+  next_route: E1_EXECUTION_BRIEF
+  use_policy: "Fresh shaped Goal Contract; do not execute Project setup until E1 defines execution envelope, validators, and route."
 ```
 
 ## Goal Contract snapshot
 
-* WHAT: Prepare separate Project `Питание` setup package with Project Instructions, Nutrition Base, Menu Preferences, Active Cycle, Tracking Protocol, Review & Sync Protocol, and dry-runs.
-* WHY: v0 protocol exists but operational Project setup is not confirmed.
-* DONE: Fresh Project `Питание` chat can plan cycle, track photo/voice events, handle unknown/defaulted answers, correct exceptions, review, and emit sync/update packets.
-* Acceptance floor: Manual-install setup package plus 2-3 operational dry-runs.
-* Validation: Cycle planning, meal-event, missing-answer, review/sync dry-runs.
+* WHAT: Create a repo-backed standalone Project `Питание` v0 package with Project Instructions, Project Files, durable nutrition state, low-friction loop protocols, Codex Save Operator protocol, and dry-run acceptance file.
+* WHY: S3 selected Project `Питание` as the repaired standalone container/tool for the nutrition loop; G1 formalized the minimum complete usable loop.
+* DONE: Fresh Project `Питание` chat can plan cycle/defaults, process meal/photo/voice events with missing-answer defaults, correct exceptions, review, and emit sync/update packets; Codex Save Operator can save/read back approved state packets.
+* Acceptance floor: Manual-install setup package plus three synthetic dry-runs.
+* Validation: Cycle planning/restart, meal-event + exception correction, and review/sync dry-runs.
 
-This snapshot is preserved as prior Goal Contract context but is stale as an execution target after Objective Architecture correction.
+This snapshot reflects the fresh G1 Goal shape and remains pending E1 execution planning.
 
 ## Prior artifact input
 

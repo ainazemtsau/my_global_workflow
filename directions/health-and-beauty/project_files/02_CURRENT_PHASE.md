@@ -19,13 +19,13 @@ current_phase:
   state: active
   phase_name: "Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга"
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
-  critical_constraint: "Нет устойчивого, низкофрикционного процесса питания: форма цикла, минимальные входные данные, правила коррекции, хранение состояния и контейнер выполнения ещё не выбраны после Objective Architecture correction."
-  minimum_outcome: "Принято решение о минимальном nutrition loop shape и tool/container policy: что ведём, где ведём, как обновляем состояние, какая роль у AI/ChatGPT/Project/app/storage, и какой следующий Goal можно безопасно сформировать или repaired."
-  validation_signal: "S3_DECIDE выбирает basis-valid route: сохранить, починить, уменьшить или заменить Project `Питание` setup path; только после этого возможна новая/исправленная Goal shape и execution planning."
+  critical_constraint: "The minimal nutrition loop shape and container policy have been selected and shaped; Project `Питание` v0 package execution/validation has not yet been planned or run."
+  minimum_outcome: "A repo-backed standalone Project `Питание` v0 package is created and validated through synthetic dry-runs, or a later stage returns a concrete blocker/repair route."
+  validation_signal: "E1 defines the execution envelope; later implementation produces package files and dry-run evidence."
   active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
   active_goal_title: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
-  goal_state: blocked_stale_not_basis_valid_pending_decision
-  next_route: S3_DECIDE
+  goal_state: goal_shaped_pending_E1
+  next_route: E1_EXECUTION_BRIEF
   next_goal_seed: null
   phase_closeable: false
 ```
@@ -35,7 +35,7 @@ current_phase:
 * Active Goal unresolved: `yes`
 * Active Goal shaped: `yes`
 * Phase can close now: `no`
-* Current blocker: the stale Project `Питание` E1 route is not basis-valid after user correction; S3 must decide the minimal nutrition loop shape and tool/container policy first.
+* Current blocker: Execution package and dry-run validation are not yet produced.
 * Tooling policy: AI/ChatGPT/Project/app/storage may be tools, not the objective.
 * Superseded prior Phase: `MacroFactor Nutrition AI Support Setup`
 * Correction note: AI Nutrition Operating Layer v0 is a design/protocol artifact, not proof of operational completion.
