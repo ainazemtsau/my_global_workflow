@@ -16,8 +16,13 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: none_pending_g1_goal_shape
-  goal_id: none
+  state: goal_shaped_pending_A1_audit
+  goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
+  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols"
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
+  status: goal_shaped_pending_A1_audit
   previous_active_goal_id: first-technical-nucleus-functional-spec
   previous_active_goal_title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
   previous_active_goal_result: r1_completed_verified_specification_accepted
@@ -28,16 +33,20 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
-  review_scope: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
+  next_route: A1_AUDIT
+  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  review_scope: audit_existing_workflow_codex_project_setup_first_use_fit
   completion_scope: functional_technical_specification_only
   parent_goal_completion_state: r1_completed_verified_specification_accepted
-  smallest_useful_result: "G1 Goal Contract for H1_G2 Codex Development Operating Model / Architecture Protocols."
+  smallest_useful_result: "A1 verdict on whether the existing workflow Codex/project setup procedure can be used for Gas Coop Game."
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  task_master_graph_allowed_now: false
   next_goal_seed:
     id: H1_G2_codex_development_operating_model_and_architecture_protocols
-    title: "Сформировать минимальный Codex Development Operating Model и Architecture Protocols для первого technical nucleus"
-    recommended_next_stage: G1_GOAL_SHAPE
+    title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
+    recommended_next_stage: A1_AUDIT
     map_binding: H1_playable_technical_nucleus / H1_G2_codex_development_operating_model_and_architecture_protocols
     implementation_allowed_now: false
 ```
@@ -86,32 +95,50 @@ previous_active_goal:
 
 ## Active Goal snapshot
 
-No active Goal is selected after M0 Objective Architecture migration.
+Active Goal:
+
+`H1_G2_codex_development_operating_model_and_architecture_protocols`
+
+Status:
+
+`goal_shaped_pending_A1_audit`
+
+Goal contract:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+
+Execution log:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
+
+Next route:
+
+`A1_AUDIT`
+
+Implementation, Unity bootstrap, Codex product/project execution, and Task Master graph creation are not authorized now.
 
 Last completed Goal:
 
 `first-technical-nucleus-functional-spec`
 
-Status:
-
-`r1_completed_verified_specification_accepted`
-
 Accepted result: first technical nucleus functional/technical specification.
 
-The next valid route is `G1_GOAL_SHAPE` for `H1_G2_codex_development_operating_model_and_architecture_protocols`.
-
-## M0-selected next Goal seed
+## G1-shaped next audit
 
 ```yaml
-next_goal_seed:
-  id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  title: "Сформировать минимальный Codex Development Operating Model и Architecture Protocols для первого technical nucleus"
-  recommended_next_stage: G1_GOAL_SHAPE
+active_goal_snapshot:
+  goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  status: goal_shaped_pending_A1_audit
+  next_route: A1_AUDIT
+  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
   purpose: >
-    Shape the smallest useful Goal that defines Codex development operating rules,
-    architecture boundaries, validation requirements, and bootstrap-readiness criteria
-    before project bootstrap, durable nucleus implementation, or Codex product/project execution.
+    Audit/fit-check the existing workflow Codex/project setup and execution-readiness
+    procedure on first real use before project bootstrap, durable nucleus implementation,
+    or Codex product/project execution.
   implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  task_master_graph_allowed_now: false
 ```
 
 ## Superseded previous active Goal

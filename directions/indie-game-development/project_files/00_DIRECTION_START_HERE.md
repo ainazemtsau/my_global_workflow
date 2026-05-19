@@ -169,3 +169,32 @@ Not authorized:
 - Codex product/project execution;
 - Task Master graph creation;
 - Game Documentation promotion.
+
+## 2026-05-19 G1 H1_G2 formalization
+
+G1 formalized `H1_G2_codex_development_operating_model_and_architecture_protocols` as a Goal.
+
+Goal contract:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+
+Key correction:
+
+- The Goal is not to create a second Codex/workflow layer.
+- The Goal is to audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
+- A1 must decide whether the existing workflow is sufficient, needs a minimal Indie project-specific addendum/profile, needs Workflow Governance repair, or requires missing context.
+
+Next route:
+
+`A1_AUDIT`
+
+Still not authorized:
+
+- Unity bootstrap;
+- implementation;
+- old-code transfer;
+- old-code audit as starting point;
+- Codex product/project execution;
+- Task Master graph creation;
+- real internal tool setup;
+- Game Documentation promotion.

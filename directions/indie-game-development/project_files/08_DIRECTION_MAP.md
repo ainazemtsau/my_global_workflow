@@ -851,6 +851,46 @@ map_delta:
     - Game Documentation promotion
 ```
 
+## 2026-05-19 G1 H1_G2 formalization delta
+
+```yaml
+map_delta:
+  source_stage: G1_GOAL_SHAPE
+  delta_type:
+    - goal_shaped
+    - active_frontier_progressed_to_audit
+    - implementation_still_blocked
+  node: H1_G2_codex_development_operating_model_and_architecture_protocols
+  result: goal_shaped_pending_A1_audit
+  summary: >
+    G1 shaped H1_G2 as a first-use audit/fit-check of the existing workflow
+    Codex/project setup and execution-readiness procedure. The Goal must not
+    create a second workflow layer. It must decide whether the existing workflow
+    is sufficient, needs a minimal Indie project-specific addendum/profile,
+    needs Workflow Governance repair, or needs exact missing context.
+  active_front:
+    active_horizon: H1_playable_technical_nucleus
+    current_gate: H1_G2_codex_development_operating_model_and_architecture_protocols
+    current_gate_status: goal_shaped_pending_A1_audit
+    next_stage: A1_AUDIT
+    implementation_allowed_now: false
+    codex_product_execution_allowed_now: false
+  blocked_nodes:
+    - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    - H1_G4_durable_technical_nucleus
+    - codex_product_project_execution
+  forbidden_until_later_basis_valid_route:
+    - Unity project bootstrap
+    - implementation
+    - old-code transfer
+    - old-code audit as starting point
+    - Codex product/project execution
+    - durable technical nucleus implementation
+    - Task Master graph creation
+    - real internal tool setup
+    - Game Documentation promotion
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/project_files/08_DIRECTION_MAP.md`

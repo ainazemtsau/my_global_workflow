@@ -135,3 +135,26 @@ execution_log_entry:
     - Task Master graph creation
     - Game Documentation promotion
 ```
+
+## 2026-05-19 G1 H1_G2 formalization
+
+```yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+log_type: stage_execution
+stage_id: G1_GOAL_SHAPE
+result: goal_shaped
+goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
+goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+selected_next_stage: A1_AUDIT
+route_reason: >
+  Existing workflow Codex/project setup procedure must be audited on first
+  real use before bootstrap/tool-binding readiness, implementation planning,
+  or Codex product/project execution.
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+unity_bootstrap_allowed_now: false
+task_master_graph_allowed_now: false
+```

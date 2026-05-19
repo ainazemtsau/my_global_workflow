@@ -29,14 +29,15 @@ current_phase:
   status_after_f0_synthesis: active_first_technical_nucleus_spec_synthesis_formalized_pending_R1
   status_after_r1_first_technical_nucleus_spec: active_pending_m0_after_r1_acceptance
   status_after_m0_objective_architecture_migration: active_pending_g1_H1_G2_goal_shape
+  status_after_g1_H1_G2_formalization: active_H1_G2_goal_shaped_pending_A1_audit
   map_binding:
     active_horizon: H1_playable_technical_nucleus
     current_gate: H1_G1_core_technical_foundation_decision_brief
     required_inside_current_gate_or_next_gate:
       - H1_G2_codex_development_operating_model_and_architecture_protocols
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
-  active_goal_id: none_pending_g1_goal_shape
+  next_route: A1_AUDIT
+  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
   last_completed_goal_id: first-technical-nucleus-functional-spec
   last_completed_goal_result: r1_completed_verified_specification_accepted
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
@@ -49,18 +50,20 @@ current_phase:
 
 ```yaml
 active_goal_projection:
-  goal_id: none_pending_g1_goal_shape
-  status: none_pending_g1_goal_shape
+  goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  status: goal_shaped_pending_A1_audit
   last_completed_goal_id: first-technical-nucleus-functional-spec
   last_completed_goal_result: r1_completed_verified_specification_accepted
   accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
-  recommended_next_stage: G1_GOAL_SHAPE
-  review_scope: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+  recommended_next_stage: A1_AUDIT
+  review_scope: audit_existing_workflow_codex_project_setup_first_use_fit
   completion_scope: functional_technical_specification_only
   next_goal_candidate: H1_G2_codex_development_operating_model_and_architecture_protocols
   goal_shape_note: "M0 selected H1_G2 as the active frontier node after R1 accepted the first technical nucleus functional specification."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
+  implementation_allowed_now: false
 ```
 
 ```yaml

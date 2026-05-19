@@ -69,6 +69,29 @@ Forbidden in this focus:
 - broad engineering handbook creation;
 - direct E1 launch without a shaped Goal.
 
+## 2026-05-19 G1 H1_G2 formalization
+
+```yaml
+focus_update_after_g1_H1_G2:
+  active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  active_goal_status: goal_shaped_pending_A1_audit
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+  next_route: A1_AUDIT
+  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  core_correction: >
+    This Goal must audit/fit-check the existing workflow Codex/project setup
+    procedure. It must not create a second Indie-only workflow layer.
+  forbidden:
+    - implementation
+    - Unity bootstrap
+    - Codex product/project execution
+    - Task Master graph creation
+    - real internal tool setup
+    - old-code transfer
+    - old-code audit as starting point
+    - Game Documentation promotion
+```
+
 ## Current focus after G1 reset
 
 The current focus after F0 synthesis formalization and evidence repair: R1 parent Goal review for `first-technical-nucleus-functional-spec`.

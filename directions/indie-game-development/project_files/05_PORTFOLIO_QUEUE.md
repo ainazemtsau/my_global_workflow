@@ -141,3 +141,33 @@ Still request-only / blocked until selected by later lifecycle route:
 - Durable Technical Nucleus Implementation
 - Codex product/project execution
 - Game Documentation promotion
+
+## Queue update after G1 H1_G2 formalization
+
+`H1_G2_codex_development_operating_model_and_architecture_protocols` is shaped as a Goal.
+
+Goal contract:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+
+Current queue item:
+
+- `H1_G2_codex_development_operating_model_and_architecture_protocols`
+  - status: `goal_shaped_pending_A1_audit`
+  - next route: `A1_AUDIT`
+  - purpose: audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
+
+Correction:
+
+- This is not a request to create a second workflow layer.
+- Existing workflow procedure must be inspected first.
+- If sufficient, use it.
+- If project-specific input is needed, define the minimum addendum/profile.
+- If the workflow is defective, route repair to Workflow Governance.
+
+Still request-only / blocked until selected by later lifecycle route:
+
+- Expedition Project Bootstrap / Tool Binding Readiness
+- Durable Technical Nucleus Implementation
+- Codex product/project execution
+- Game Documentation promotion

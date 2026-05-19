@@ -220,3 +220,37 @@ Required for G1:
 Old Unity source/code/tests are not default context. Request them only after a later block has a targeted reference question.
 
 Do not run implementation, Unity bootstrap, old-code transfer, old-code audit, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.
+
+## Required context after G1 H1_G2 formalization
+
+Recommended next stage: `A1_AUDIT`.
+
+Recommended next mode: `audit_existing_workflow_codex_project_setup_first_use_fit`.
+
+Load for A1:
+
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+
+A1 must inspect or request exact workflow setup / Codex readiness sources, including:
+
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
+- `workflow/stage_registry/STAGE_REGISTRY.md`
+- `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
+- `workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md`
+- `workflow/stage_prompts/C2_CODEX_EXECUTE.md`
+- `workflow/stage_prompts/U1_USER_GUIDED_EXECUTION.md`
+- `workflow/stage_prompts/A1_AUDIT.md`
+- `workflow/transport/STAGE_LAUNCH_CARD.md`
+- `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`
+- `workflow/transport/CODEX_WAVE_CARD.md`
+- `workflow/transport/CODEX_RETURN_PACKET.md`
+- `workflow/transport/USER_GUIDED_STEP_CARD.md`
+- `docs/CHATGPT_PROJECT_SETUP.md`
+- any exact project setup / tool-binding profile template discovered by A1.
+
+A1 must not infer AGENTS.md, `.codex/config.toml`, Task Master, Serena, Basic Memory, validators, project/tool bindings, or product-repo local technical memory surfaces from governance notes. It must verify the existing workflow procedure or return Context Request with exact missing paths.
+
+Do not run implementation, Unity bootstrap, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, internal tool setup, or Game Documentation promotion.

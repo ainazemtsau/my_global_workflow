@@ -174,3 +174,21 @@ Next route:
 - `G1_GOAL_SHAPE`
 
 The next Goal must shape the minimum Codex development operating model and architecture protocols required before project bootstrap, validation-scene readiness, durable technical nucleus implementation, or Codex product/project execution.
+
+## 2026-05-19 G1 H1_G2 formalization
+
+```yaml
+g1_H1_G2_formalization:
+  active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  active_goal_status: goal_shaped_pending_A1_audit
+  active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+  next_route: A1_AUDIT
+  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  task_master_graph_allowed_now: false
+  key_correction: >
+    H1_G2 is a first-use audit/fit-check of the existing workflow Codex/project
+    setup procedure, not creation of a second workflow layer.
+```
