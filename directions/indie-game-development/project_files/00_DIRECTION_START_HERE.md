@@ -9,8 +9,8 @@ artifact_control:
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
   freshness: fresh_after_r1_first_technical_nucleus_spec_acceptance
-  last_updated: "2026-05-18"
-  next_action: "Run M0_DIRECTION_MAP after R1 repository maintenance apply/read-back and manual Project Files refresh."
+  last_updated: "2026-05-19"
+  next_action: "Run G1_GOAL_SHAPE for H1_G2_codex_development_operating_model_and_architecture_protocols after M0 Objective Architecture migration apply/read-back and manual Project Files refresh."
 ```
 
 ## Direction identity
@@ -35,12 +35,12 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | --- | --- | --- |
 | Current Initiative | `innovative-commercial-expedition-gas-sim-game` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Active Horizon | `H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
-| Current Gate | `none_pending_m0_review_after_first_technical_nucleus_spec_acceptance` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
+| Current Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
 | Current Phase status | `active_pending_m0_after_r1_first_technical_nucleus_spec_acceptance` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
-| Active Goal | `none_pending_m0_direction_map_review` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal | `none_pending_g1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Last completed Goal | `first-technical-nucleus-functional-spec` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec` |
 | Last completed Goal status | `r1_completed_verified_specification_accepted` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md` |
 | Last completed Goal Artifact | `First Technical Nucleus Functional Specification` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md` |
@@ -49,7 +49,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `M0_DIRECTION_MAP` active-front review | `workflow/stage_prompts/M0_DIRECTION_MAP.md` |
+| Next route | `G1_GOAL_SHAPE — shape H1_G2 Codex Development Operating Model / Architecture Protocols` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
 
 ## Current Phase meaning
 
@@ -94,11 +94,11 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `M0_DIRECTION_MAP` after R1 repository maintenance apply/read-back and manual Project Files refresh.
+Run `G1_GOAL_SHAPE` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after M0 Objective Architecture migration repository maintenance apply/read-back and manual Project Files refresh.
 
-M0 must review the active front after R1 accepted `first-technical-nucleus-functional-spec` as `completed_verified` at functional/technical specification level.
+G1 must shape the minimum Goal Contract for Codex development operating rules, architecture boundaries, validation requirements, and bootstrap-readiness criteria.
 
-Do not run Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, Phase close, direct P9/G0/E1 launch, or Game Documentation promotion in this M0 review context.
+Do not run Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, direct E1 launch, or Game Documentation promotion before a later basis-valid route authorizes concrete work.
 
 ## 2026-05-16 R1 stabilization
 
@@ -148,3 +148,24 @@ Accepted: gas simulation capability frame, user approval gate after gas, level/s
 Not authorized: Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.
 
 Next route: `M0_DIRECTION_MAP` to review active front before P9, G0, E1, or implementation planning.
+
+## 2026-05-19 M0 Objective Architecture migration
+
+M0 formalized the Objective Architecture layer for the initialized Direction Map.
+
+Accepted:
+- Direction Objective is explicit.
+- `H1_playable_technical_nucleus` remains the active accepted horizon.
+- Horizon is strategically accepted but locked for direct execution.
+- Objective Graph / Active Frontier / Next Action Proof are now explicit in `08_DIRECTION_MAP.md`.
+- Selected next frontier node: `H1_G2_codex_development_operating_model_and_architecture_protocols`.
+- Next safe route: `G1_GOAL_SHAPE`.
+
+Not authorized:
+- Unity bootstrap;
+- implementation;
+- old-code transfer;
+- old-code audit as starting point;
+- Codex product/project execution;
+- Task Master graph creation;
+- Game Documentation promotion.

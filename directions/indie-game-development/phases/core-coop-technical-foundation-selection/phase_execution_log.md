@@ -89,3 +89,49 @@ reason: >
 implementation_performed: false
 repository_patch_id: g1_formalize_first_technical_nucleus_functional_spec_2026_05_16
 ```
+
+---
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  stage_id: M0_DIRECTION_MAP
+  date: "2026-05-19"
+  event: objective_architecture_migration_formalized
+  summary: >
+    M0 formalized Objective Architecture migration for Indie Game Development after
+    R1 accepted first-technical-nucleus-functional-spec. The Direction Map now exposes
+    Direction Objective, Horizon Acceptance Proof, Objective Graph, Active Frontier,
+    Next Action Proof, blocked/premature/parked nodes, and next safe route.
+  source_basis:
+    - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+    - directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+    - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+    - directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+    - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+    - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+    - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+    - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+  selected_frontier_node: H1_G2_codex_development_operating_model_and_architecture_protocols
+  next_safe_route: G1_GOAL_SHAPE
+  repository_patch:
+    status: requested
+    changed_files:
+      - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+      - directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+      - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+      - directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+      - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+      - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+      - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+      - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+      - directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md
+  not_authorized:
+    - Unity project bootstrap
+    - implementation
+    - old-code transfer
+    - old-code audit as starting point
+    - Codex product/project execution
+    - Task Master graph creation
+    - Game Documentation promotion
+```

@@ -63,7 +63,7 @@ Load for work on the current Phase:
 
 ## Active Goal context
 
-No active Goal is selected after R1 accepted `first-technical-nucleus-functional-spec`.
+No active Goal is selected after M0 Objective Architecture migration. The next selected route is `G1_GOAL_SHAPE` for `H1_G2_codex_development_operating_model_and_architecture_protocols`.
 
 ```yaml
 last_completed_goal_after_r1:
@@ -71,24 +71,21 @@ last_completed_goal_after_r1:
   result: r1_completed_verified_specification_accepted
   artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
-  recommended_next_stage: M0_DIRECTION_MAP
-  recommended_next_mode: review_active_front_after_completed_specification_goal
+  recommended_next_stage: G1_GOAL_SHAPE
+  recommended_next_mode: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
 ```
 
-Load for M0 active-front review:
+Load for G1 H1_G2 Goal shaping:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
   - Status: `active_phase_brief`
-  - Reason: Phase state and closure relevance after R1 acceptance.
+  - Reason: Phase state and H1_G2 readiness relevance after M0 Objective Architecture migration.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
   - Status: `r1_completed_verified_specification_accepted`
   - Reason: completed specification artifact for active-front review.
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
-  - Status: `r1_review_log`
-  - Reason: execution history and R1 formalization entry.
 - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
-  - Status: `active_front_requires_m0_review`
-  - Reason: map delta and next route.
+  - Status: `objective_architecture_migration_completed`
+  - Reason: Objective Architecture layer, active frontier, and next action proof.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
   - Status: `existing_goal_artifact_r1_accepted_route_gated_decision_map`
   - Reason: accepted decision map remains prior context.
@@ -206,19 +203,19 @@ Recommended next stage: `A1_AUDIT`.
 
 Recommended next mode: `audit_grid_gas_transfer_boundary`.
 
-## Required context after R1 first technical nucleus specification acceptance
+## Required context after M0 Objective Architecture migration
 
-Recommended next stage: `M0_DIRECTION_MAP`.
+Recommended next stage: `G1_GOAL_SHAPE`.
 
-Recommended next mode: `review_active_front_after_completed_specification_goal`.
+Recommended next mode: `shape_H1_G2_codex_development_operating_model_and_architecture_protocols`.
 
-Required for M0:
+Required for G1:
 
-- exact `workflow/stage_prompts/M0_DIRECTION_MAP.md` prompt with visible EOF marker;
-- current Project Files 00-08 after repository maintenance read-back and manual refresh;
+- exact `workflow/stage_prompts/G1_GOAL_SHAPE.md` prompt with visible EOF marker or Codex verified local bundle;
+- current Project Files 00-08 after M0 Objective Architecture migration repository maintenance read-back and manual refresh;
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`;
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`;
-- R1 execution log entry in `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`.
 
 Old Unity source/code/tests are not default context. Request them only after a later block has a targeted reference question.
 

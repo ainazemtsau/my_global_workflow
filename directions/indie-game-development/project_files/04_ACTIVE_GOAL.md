@@ -16,7 +16,7 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: none_pending_m0_direction_map_review
+  state: none_pending_g1_goal_shape
   goal_id: none
   previous_active_goal_id: first-technical-nucleus-functional-spec
   previous_active_goal_title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
@@ -28,12 +28,18 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: M0_DIRECTION_MAP
-  next_route_mode: review_active_front_after_completed_specification_goal
-  review_scope: active_front_after_completed_specification_goal
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
+  review_scope: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
   completion_scope: functional_technical_specification_only
   parent_goal_completion_state: r1_completed_verified_specification_accepted
-  smallest_useful_result: "M0 active-front review after accepted first technical nucleus functional specification."
+  smallest_useful_result: "G1 Goal Contract for H1_G2 Codex Development Operating Model / Architecture Protocols."
+  next_goal_seed:
+    id: H1_G2_codex_development_operating_model_and_architecture_protocols
+    title: "Сформировать минимальный Codex Development Operating Model и Architecture Protocols для первого technical nucleus"
+    recommended_next_stage: G1_GOAL_SHAPE
+    map_binding: H1_playable_technical_nucleus / H1_G2_codex_development_operating_model_and_architecture_protocols
+    implementation_allowed_now: false
 ```
 
 ```yaml
@@ -80,7 +86,7 @@ previous_active_goal:
 
 ## Active Goal snapshot
 
-No active Goal is selected after R1 acceptance.
+No active Goal is selected after M0 Objective Architecture migration.
 
 Last completed Goal:
 
@@ -92,7 +98,21 @@ Status:
 
 Accepted result: first technical nucleus functional/technical specification.
 
-The next valid route is `M0_DIRECTION_MAP`.
+The next valid route is `G1_GOAL_SHAPE` for `H1_G2_codex_development_operating_model_and_architecture_protocols`.
+
+## M0-selected next Goal seed
+
+```yaml
+next_goal_seed:
+  id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  title: "Сформировать минимальный Codex Development Operating Model и Architecture Protocols для первого technical nucleus"
+  recommended_next_stage: G1_GOAL_SHAPE
+  purpose: >
+    Shape the smallest useful Goal that defines Codex development operating rules,
+    architecture boundaries, validation requirements, and bootstrap-readiness criteria
+    before project bootstrap, durable nucleus implementation, or Codex product/project execution.
+  implementation_allowed_now: false
+```
 
 ## Superseded previous active Goal
 

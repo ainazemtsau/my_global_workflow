@@ -20,13 +20,13 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 - Active Phase status: `active_pending_m0_after_r1_acceptance`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `none_pending_m0_direction_map_review`
+- Active Goal: `none_pending_g1_goal_shape`
 - Last completed Goal: `first-technical-nucleus-functional-spec`
 - Last completed Goal status: `r1_completed_verified_specification_accepted`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `M0_DIRECTION_MAP`
+- Next route: `G1_GOAL_SHAPE`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -70,7 +70,7 @@ Required foundation surface:
 
 ## Queue items
 
-- Direction Map / Active Front Review after accepted first technical nucleus specification — `next_route: M0_DIRECTION_MAP`
+- Codex Development Operating Model / Architecture Protocols Goal shaping — `next_route: G1_GOAL_SHAPE`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
 - Expedition Project Bootstrap / Tool Binding Readiness — request-only until selected by a vNext-R stage result
 - Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result
@@ -124,3 +124,20 @@ Project Files cache refresh was required after the repository evidence integrity
 Next route: `M0_DIRECTION_MAP`.
 
 Project Files cache refresh is required after this repository maintenance commit before launching M0 in a fresh Direction Project chat.
+
+## Queue update after M0 Objective Architecture migration
+
+M0 formalized the Objective Architecture layer for the initialized Direction Map.
+
+Current queue item:
+
+- `H1_G2_codex_development_operating_model_and_architecture_protocols`
+  - route: `G1_GOAL_SHAPE`
+  - purpose: shape the minimum Codex development operating model and architecture protocols before project bootstrap, validation-scene readiness, durable technical nucleus implementation, or Codex product/project execution.
+
+Still request-only / blocked until selected by later lifecycle route:
+
+- Expedition Project Bootstrap / Tool Binding Readiness
+- Durable Technical Nucleus Implementation
+- Codex product/project execution
+- Game Documentation promotion

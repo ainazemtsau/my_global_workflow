@@ -16,17 +16,17 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run M0_DIRECTION_MAP after R1 accepted first-technical-nucleus-functional-spec."
-  route_stage: M0_DIRECTION_MAP
-  route_mode: review_active_front_after_first_technical_nucleus_spec_acceptance
+  current_focus: "Run G1_GOAL_SHAPE for H1_G2 Codex Development Operating Model / Architecture Protocols after M0 Objective Architecture migration."
+  route_stage: G1_GOAL_SHAPE
+  route_mode: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
   same_chat_allowed: false
-  boundary_trigger: r1_accept_first_technical_nucleus_spec
+  boundary_trigger: m0_objective_architecture_migration_completed
   pending_state_carried: true
-  pending_patch_pointer: r1_accept_first_technical_nucleus_spec_2026_05_18
-  last_stage_result_pointer: "R1_GOAL_REVIEW_DISTILL accepted first-technical-nucleus-functional-spec as completed_verified."
+  pending_patch_pointer: m0_objective_architecture_migration_indie_game_development_2026_05_19
+  last_stage_result_pointer: "M0_DIRECTION_MAP formalized Objective Architecture migration and selected H1_G2 as the active frontier node."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   active_goal:
-    goal_id: none_pending_m0_direction_map_review
+    goal_id: none_pending_g1_goal_shape
     previous_goal_id: first-technical-nucleus-functional-spec
     previous_goal_status: r1_completed_verified_specification_accepted
   active_phase:
@@ -35,27 +35,29 @@ focus:
     phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
     status: active_pending_m0_after_r1_acceptance
     map_binding: H1_playable_technical_nucleus
-    next_route: M0_DIRECTION_MAP
+    next_route: G1_GOAL_SHAPE
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `none blocking for repository maintenance apply; manual Project Files refresh blocks the next material M0 run`
-- Human decision: `none pending for Phase start`
-- Source conflict: `resolved by R1 acceptance maintenance; Project Files must be refreshed after commit`
+- Missing context: `manual Project Files refresh blocks the next material G1 run after repository maintenance apply/read-back`
+- Human decision: `none pending for G1 launch`
+- Source conflict: `none expected after M0 repository maintenance apply/read-back and manual refresh`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/M0_DIRECTION_MAP.md`
-  - current Project Files 00-08 after R1 acceptance maintenance read-back
+  - exact `workflow/stage_prompts/G1_GOAL_SHAPE.md`
+  - current Project Files 00-08 after M0 Objective Architecture migration read-back and manual refresh
   - active Phase Brief: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
   - completed specification artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
-  - R1 execution log entry: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md`
+  - accepted decision brief artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 
 ## Current focus boundary
 
-M0 must review the active front after the accepted specification Goal. It must determine whether the next lifecycle route is Phase close consideration, required continuation, project/bootstrap readiness, or another map-bound correction.
+G1 must shape a minimal Goal Contract for `H1_G2_codex_development_operating_model_and_architecture_protocols`.
 
-Forbidden in M0:
+The Goal should define the smallest useful Codex development operating model and architecture protocols needed before project bootstrap, validation scene readiness, E1 implementation planning, durable technical nucleus implementation, or Codex product/project execution.
+
+Forbidden in this focus:
 
 - implementation;
 - Unity bootstrap;
@@ -64,7 +66,8 @@ Forbidden in M0:
 - Codex product/project execution;
 - Task Master graph creation;
 - Game Documentation promotion;
-- direct P9/G0/E1 launch without basis-valid map/frontier review.
+- broad engineering handbook creation;
+- direct E1 launch without a shaped Goal.
 
 ## Current focus after G1 reset
 
