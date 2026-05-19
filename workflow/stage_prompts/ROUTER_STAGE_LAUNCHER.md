@@ -142,6 +142,22 @@ If two authoritative current sources conflict, do not guess. Emit a Human Decisi
 
 Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid, return route-conflict Context Request, B1_PROBLEM, Human Decision, or Stop; do not execute downstream work inside this stage.
 
+## 2.1 Objective Architecture routing gate
+
+Material strategic routing must be basis-valid, not only route-valid.
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for Horizon Acceptance Proof, Active Frontier, Next Action Proof, Minimum Sufficient Solution Proof, readiness gates, anti-anchor handling, component necessity, human burden, and overcut guard. Use `workflow/stage_registry/STAGE_REGISTRY.md` only for route validity.
+
+Router must not launch material strategic, audit, research, planning, execution, Goal shaping, or Phase/Goal selection work from registry validity alone. For material route selection, Router must require or inherit a compact `next_action_proof` that shows the selected next action is grounded in the Direction objective, accepted horizon/frontier or local repair basis, concrete target, evidence path, and stage semantics.
+
+Router must require `minimum_sufficient_solution_proof` / MSSP when the next material action chooses solution shape, HOW, architecture/process, artifacts/templates, workstream topology, chat splitting, recurring user actions, or when user examples or low-burden constraints may anchor the solution.
+
+If basis validity is missing, false, stale, or contradictory, Router must not proceed by confidence or route validity alone. Route to the smallest correction: `M0_DIRECTION_MAP`, `B1_PROBLEM`, Context Request, Human Decision, or Stop.
+
+If MSSP is missing or failed when solution shape is material, Router must not launch HOW/planning/execution. Route to `B1_PROBLEM`, `S3_DECIDE`, Context Request, Human Decision, Stop, or another registry-valid repair route.
+
+F0 readiness is also an `execution_readiness` check under the Objective Architecture Model. Router may select F0 only when F0 readiness is explicit and basis-validity plus solution-minimal status are inherited, proven compactly, or not required for the local repair/action.
+
 ## 3\. Core routing principle
 
 Default to the smallest safe route.

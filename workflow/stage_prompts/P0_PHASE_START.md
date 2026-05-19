@@ -234,6 +234,28 @@ If current Phase continuation is clear and the uninitialized map is nonblocking,
 
 P0 must not populate, repair, or update `08_DIRECTION_MAP.md`.
 
+## 1.4 Phase basis-validity gate
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for basis-validity, Horizon Acceptance Proof, Active Frontier, Next Action Proof, and local-repair exceptions.
+
+Before proposing a materially new Phase or materially reframing a Phase, P0 must link the proposed Phase to:
+
+- Direction objective/current initiative when known;
+- accepted horizon, or an explicit reason horizon is not required for this local/repair Phase;
+- Active Front / Horizon Slice / map node when `08_DIRECTION_MAP.md` is initialized and relevant;
+- Phase Memory anti-duplicate evidence.
+
+P0 must not create a new Phase solely because no active Phase exists if no concrete delta from the previous Phase exists. If strategic Phase choice depends on horizon/frontier and the Objective Architecture basis is missing, stale, false, or contradictory, route to `M0_DIRECTION_MAP` or return Context Request instead of inventing the Phase.
+
+If the Phase is local repair or continuation and map state is nonblocking, P0 may proceed with explicit basis-validity status `not_required_for_local_repair` and a nonblocking map note.
+
+Every material Phase recommendation must include compact basis lines:
+
+- Map link:
+- Почему это не повтор прошлой фазы:
+- Basis-validity status: inherited / proven / blocked / not_required_for_local_repair
+- next_action_proof status for the next material stage: inherited / proven_compact / missing_blocking / not_required_for_local_repair
+
 ## 2\. Progressive Decision Brief behavior
 
 P0 must choose the smallest sufficient human-facing mode before formal packets.
@@ -724,6 +746,9 @@ Use this only when the user says `APPROVE AND FORMALIZE`, the Launch Card explic
 - Phase ID:
 - Phase name:
 - Phase status:
+- Map link:
+- Почему это не повтор прошлой фазы:
+- Basis-validity status:
 - Current Critical Constraint:
 - Minimum Outcome:
 - Validation signal:
@@ -765,6 +790,7 @@ Recommended first Goal:
 - Target stage:
 - Target stage name:
 - Route reason:
+- Next Action Proof status:
 - Context to load:
 - Context to ignore or treat as stale:
 - Stop conditions for the next stage:

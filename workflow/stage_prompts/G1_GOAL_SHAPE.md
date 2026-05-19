@@ -141,7 +141,7 @@ You are running Workflow vNext-R stage:
 *   Runtime mode: Direction workflow stage, not rebuild-stage-development.
 *   Primary upstream stage: G0\_GOAL\_SELECT.
 *   Primary downstream stage: E1\_EXECUTION\_BRIEF.
-*   Conditional downstream stages: F0\_FAST\_DIRECT, B1\_PROBLEM, S3\_DECIDE, D1\_DEEP\_RESEARCH, A1\_AUDIT, C1\_CODEX\_GRAPH\_PLAN only when direct C1 routing is allowed by installed interface; otherwise route Codex-bound work through E1.
+*   Conditional downstream stages: M0\_DIRECTION\_MAP, F0\_FAST\_DIRECT, B1\_PROBLEM, S3\_DECIDE, D1\_DEEP\_RESEARCH, A1\_AUDIT, or Stop when registry-valid and justified; Codex-bound work routes through E1\_EXECUTION\_BRIEF.
 *   Recovery outputs: Context Request, Human Decision Card, or Stop.
 
 Your job is to shape the Goal. Do not execute the Goal.
@@ -220,6 +220,36 @@ If no binding is possible because `08_DIRECTION_MAP.md` is uninitialized, G1 mus
 
 Map binding is not a backlog. Do not list future map nodes or expand the Goal beyond WHAT / WHY / DONE.
 
+## 2.2 Goal shape proof and anti-anchor gate
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for Next Action Proof, Minimum Sufficient Solution Proof, anti-anchor handling, component necessity, human burden, and overcut guard.
+
+Before shaping, G1 must challenge the selected seed instead of polishing it by default.
+
+Classify user examples as one of:
+
+- `nonbinding_idea`
+- `explicit_requirement`
+- `constraint`
+- `anti_example`
+- `not_present`
+
+G1 must define `minimum_complete_outcome` before scope cutting. Scope cuts may remove optional work, but must not cut below one complete usable loop.
+
+Use or request `minimum_sufficient_solution_proof` / MSSP when user examples may anchor solution shape; low burden, speed, simplicity, or "not геморно" is a constraint; the Goal creates artifacts, templates, recurring reports, workstreams, chat splits, processes, Codex envelope, or multiple implementation paths; or the proposed shape risks overbuilding or cutting below one complete usable loop.
+
+Reject or route away from Goal shapes that are overbuilt, undercut below the Minimum Complete Outcome, anchored to nonbinding user examples, or unsupported by the active frontier when map binding is material.
+
+The Goal Contract must include compact proof-status lines:
+
+- map/frontier binding status;
+- `next_action_proof` status;
+- `minimum_complete_outcome`;
+- MSSP status: not_required / inherited / proven_compact / missing_blocking / failed;
+- user example classification.
+
+If proof is missing or failed and material, return `B1_PROBLEM`, `S3_DECIDE`, Context Request, Human Decision, or Stop according to the registry. Do not route directly to C1 from G1 under the current registry.
+
 ## 3\. Immediate launch validation
 
 Before shaping the Goal, validate:
@@ -258,6 +288,16 @@ Check whether the seed has enough information to shape a Goal:
 If one or two fields are weak but safely inferable from the seed and Phase context, state the assumption explicitly.
 
 If DONE or validation cannot be made observable, produce a Context Request or Human Decision Card.
+
+### Pass 1.5 — Anti-anchor and solution-shape proof
+
+Classify any user examples and decide whether MSSP is required.
+
+Define `minimum_complete_outcome` before cutting scope.
+
+Set compact proof statuses for map/frontier binding, `next_action_proof`, MSSP, and user example classification.
+
+If MSSP is required but missing or failed, do not shape a material Goal Contract. Return the smallest registry-valid repair route or blocking artifact.
 
 ### Pass 2 — Phase fit and leverage
 
@@ -437,11 +477,16 @@ Include:
 - WHAT;
 - WHY now;
 - DONE;
+- minimum_complete_outcome;
 - acceptance_floor;
 - validation_signal;
 - validation_method;
 - smallest_testable_slice;
 - map_binding, when applicable;
+- map/frontier binding status;
+- next_action_proof status;
+- MSSP status;
+- user example classification;
 - close_path.
 
 ## 3. Scope Boundary
@@ -469,6 +514,8 @@ Include only what the next stage needs:
 Include:
 - selected_next_stage;
 - route_reason;
+- next_action_proof status;
+- solution-minimal proof status;
 - alternatives_rejected;
 - escalation_conditions.
 
@@ -500,6 +547,7 @@ Do not include routine QA when there are no exceptions.
 Use canonical transport templates from `workflow/transport/*.md`. Preserve these G1-specific fields/content in the relevant canonical packet when formalization is approved:
 
 - return state, selected registry-valid next stage, route reason, alternatives rejected, and escalation conditions;
+- map/frontier binding status, next_action_proof status, minimum_complete_outcome, MSSP status, and user example classification;
 - source state from G0 or equivalent seed, Direction/Phase identity, input seed, and source freshness notes;
 - Goal Contract: goal id/title, WHAT, WHY, DONE, acceptance floor, validation signal/method, smallest testable slice, and close path;
 - Goal Working Context: phase fit, assumptions, scope in, non-goals, scope cuts, deferred candidates, constraints, risk triggers, allowed actions, forbidden actions, required context for the next stage, documentation obligations, and context-loading notes;

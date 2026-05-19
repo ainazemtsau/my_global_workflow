@@ -151,21 +151,28 @@ G0 may select the next Goal only when one of these is true:
 
 Optional expansion candidates must not be selected as required Goals unless a Human Decision or Phase Continue decision explicitly adopts them.
 
-## 1.2 Direction Map candidate filter
+## 1.2 Active Frontier candidate gate
 
-When `08_DIRECTION_MAP.md` is initialized, prefer Goal candidates that advance both the current Phase and a Direction Map node or edge.
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for Active Frontier and Next Action Proof.
 
-Classify each relevant candidate, when enough map context exists, as one of:
+When `08_DIRECTION_MAP.md` is initialized and relevant, prefer Goal candidates from `active_frontier` ready nodes that advance both the current Phase and a Direction Map node or edge.
 
-- `active_front`
-- `horizon`
-- `parallel_safe`
+Classify each leading candidate, when enough map/frontier context exists, as one of:
+
+- `active_frontier_ready`
+- `blocked`
+- `premature`
 - `parked_or_future`
-- `new_node_candidate`
+- `unsupported`
+- `local_phase_required_without_map_dependency`
 
-If the leading candidate is parked/future work, requires an initiative switch, or materially changes the Active Front, route to `M0_DIRECTION_MAP` or Human Decision instead of selecting it as a normal Goal.
+A candidate may not be selected only because it is interesting, matches a user example, appears easy, or satisfies a nonbinding user example. This is the nonbinding user example guard.
+
+If the leading candidate is parked/future work, blocked, premature, unsupported, requires an initiative switch, or materially changes the Active Front, route to `M0_DIRECTION_MAP` or Human Decision instead of selecting it as a normal Goal.
 
 If `08_DIRECTION_MAP.md` is uninitialized, G0 may select only clearly local Phase-required Goals. Strategic Goal selection must route to `M0_DIRECTION_MAP` or Context Request.
+
+G0 must include compact `next_action_proof` status for the selected Goal seed: inherited, proven_compact, missing_blocking, or not_required_for_local_phase_required_goal.
 
 G0 must not edit, backfill, or rewrite the Direction Map.
 
@@ -304,8 +311,9 @@ Reject or deprioritize candidates that:
 *   exceed Phase scope;
 *   are mostly companion functionality;
 *   are interesting but low leverage;
+*   are anchored to nonbinding user examples;
 *   depend on stale or missing context;
-*   are better handled by Fast Direct.
+*   are too small or direct for a registry-valid G0 Goal selection.
 
 ### Pass 6 — Smallest safe route pass
 
@@ -396,18 +404,18 @@ A valid selected Goal seed must include:
 
 ## 7\. Human-readable output shape
 
-Use this output shape for successful selection or Fast route:
+Use this output shape for successful selection:
 
 # G0\_GOAL\_SELECT — Goal Select Result
 
 ## 1\. Decision
 
-*   Status: selected / fast\_route
+*   Status: selected
 *   Selected work:
-*   Next route: G1\_GOAL\_SHAPE / F0\_FAST\_DIRECT
+*   Next route: G1\_GOAL\_SHAPE
 *   Confidence: high / medium / low
 
-## 2\. Selected Goal seed or Fast Direct payload
+## 2\. Selected Goal seed
 
 *   Title:
 *   Intended outcome:
@@ -427,6 +435,7 @@ Do not expose private chain-of-thought or long scoring analysis.
 
 *   Considered:
 *   Selected:
+*   Candidate classification:
 *   Deferred/rejected:
 *   Untriaged extras, if any:
 
@@ -458,8 +467,9 @@ Use canonical transport templates from `workflow/transport/*.md`. Preserve these
 
 - return state, selected registry-valid next stage, route reason, Direction and Phase identity;
 - freshness and selection basis: Phase Critical Constraint, Phase Minimum Outcome, validation signal, scope boundaries, constraints, and assumptions;
-- candidate handling: candidates considered count, cap applied, selected source, deferred/rejected summary, and untriaged extras count;
+- candidate handling: candidates considered count, cap applied, selected source, candidate classification, active_frontier status, nonbinding user example guard result, deferred/rejected summary, and untriaged extras count;
 - selected Goal seed: title, intended outcome, smallest testable slice, why now, validation signal, acceptance floor, explicit not-doing, key constraints, and confidence;
+- next_action_proof status for the selected Goal seed;
 - handoff summary, repository patch summary or explicit none, execution log entry, documentation maintenance gate, changed-files/context-refresh impact, and blocking reason if any.
 
 For normal Goal selection, produce a canonical Stage Launch Card only to a registry-valid next stage. If the desired route is not valid for G0 under `workflow/stage_registry/STAGE_REGISTRY.md`, return a route-conflict Context Request, Human Decision, Stop, or other registry-valid correction instead of emitting a non-registry launch card.

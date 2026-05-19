@@ -44,6 +44,25 @@ M0 must not do downstream product/project execution, implementation planning, Go
 
 M0 does not replace `P0_PHASE_START`, `G0_GOAL_SELECT`, `G1_GOAL_SHAPE`, `E1_EXECUTION_BRIEF`, `R1_GOAL_REVIEW_DISTILL`, or `P9_PHASE_CLOSE`.
 
+## Horizon and frontier ownership
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for Horizon Acceptance Proof and Active Frontier derivation.
+
+M0 owns compact `horizon_acceptance_proof` and `active_frontier` derivation when `08_DIRECTION_MAP.md` is missing, stale, uninitialized, disputed, or materially affects strategic Phase/Goal selection.
+
+The reviewable map result must include:
+
+- candidate horizon or current horizon finding;
+- whether Horizon Acceptance Proof is accepted, rejected, or blocked;
+- `active_frontier` ready/blocked/premature/parked summary;
+- `selected_next_node` or explicit reason no selected frontier node is safe yet;
+- what is explicitly parked and why;
+- routing impact.
+
+M0 must not create a backlog, calendar roadmap, or broad roadmap. It must not perform downstream Phase/Goal selection or execution.
+
+If the horizon/frontier proof cannot be established because Direction state is missing, stale, or contradictory, return Context Request with exact paths. If the horizon/frontier choice is human-owned, return Human Decision.
+
 ## Formalization Control
 
 The first response must be a Reviewable Brief unless direct formalization is explicitly approved.
@@ -126,8 +145,10 @@ Before approval, return:
 
 - strategic target / success signal;
 - current initiative proposal or migration finding;
+- Horizon Acceptance Proof status;
 - compact graph summary;
 - active front and horizon slice;
+- selected frontier node, if any;
 - parked/future nodes and why they are parked;
 - rejected alternatives;
 - open assumptions and blockers;
