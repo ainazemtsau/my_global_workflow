@@ -21,7 +21,7 @@ current_phase:
   path_note: "Legacy folder slug retained temporarily; do not create duplicate active Phase folder unless later explicitly approved."
   critical_constraint: "The EXOCORTEX concept is broad and implementation-attractive. The current bottleneck is converting the accepted EXOCORTEX vision into an expandable Core Foundation that can guide the first Goal without drifting into architecture, stack choice, product execution, full roadmap, or speculative build planning."
   minimum_outcome: "A repaired active Phase exists with clear objective, boundaries, closure criteria, and first Goal candidate for EXOCORTEX Core Foundation / Product Foundation Definition."
-  validation_signal: "G1_GOAL_SHAPE can shape EXOCORTEX Product Foundation Definition without re-litigating the Phase target, without continuing the old kernel-proof Goal, and without drifting into implementation, stack selection, full architecture, broad roadmap execution, or product/Codex execution."
+  validation_signal: "E1_EXECUTION_BRIEF can prepare the minimum HOW for producing the EXOCORTEX Core Foundation Definition without re-litigating the Phase target, without continuing the old kernel-proof Goal, and without drifting into implementation, stack selection, full architecture, broad roadmap execution, or product/Codex execution."
 
 phase_intent:
   summary: "Define EXOCORTEX as a persistent personal AI brain substrate / external-brain application with memory, context, tools, workspace surfaces, outcome learning, Reality Alignment, and future LLM compounding."
@@ -46,9 +46,9 @@ phase_closure_contract:
     required_for_closure:
       - goal_id: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
         name: EXOCORTEX Product Foundation Definition
-        status: pending_G1_GOAL_SHAPE
+        status: goal_shaped_pending_E1
         meaning: EXOCORTEX Core Foundation Definition
-        evidence_required: accepted Core Foundation definition and R1 review/distill result
+        evidence_required: "Goal Contract shaped; accepted Core Foundation definition and R1 review/distill result still required for closure."
     optional_expansion:
       - candidate_id: EXOCORTEX-TECHNICAL-ARCHITECTURE-MAP
         status: deferred_optional
@@ -110,21 +110,21 @@ scope_boundaries:
     - "Use EXOCORTEX concept source as concept input, not as implementation roadmap."
   anti_rabbit_hole_triggers:
     - "Any request to choose stack before foundation definition."
-    - "Any request to design full architecture before G1."
+    - "Any request to design full architecture before the Core Foundation Definition is reviewed."
     - "Any request to implement or create product execution graph."
     - "Any expansion from one required Goal into broad roadmap."
 
 guard_state:
   active_goal_unresolved: false
-  active_goal: null
-  active_goal_status: none_pending_G1
+  active_goal: exocortex-core-foundation-definition
+  active_goal_status: goal_shaped_pending_E1
   superseded_goal: "Personal Workflow App Kernel Min Proof"
   superseded_goal_status: superseded_provenance_not_executable
   superseded_goal_path: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof"
-  proposed_first_goal_after_repair: "EXOCORTEX Product Foundation Definition / EXOCORTEX Core Foundation Definition"
-  proposed_first_goal_status: approved_for_G1_GOAL_SHAPE
-  next_route: G1_GOAL_SHAPE
-  route_note: "Launch G1 after repository patch apply/read-back and Project Files cache refresh."
+  proposed_first_goal_after_repair: "EXOCORTEX Core Foundation Definition"
+  proposed_first_goal_status: goal_shaped_pending_E1
+  next_route: E1_EXECUTION_BRIEF
+  route_note: "Run E1 after G1 patch apply/read-back and Project Files refresh. E1 prepares minimum HOW for producing the definition artifact."
   blocker: null
 ```
 
@@ -134,7 +134,9 @@ The current Phase has been repaired in place as `EXOCORTEX App Foundation`.
 
 The target is EXOCORTEX Core Foundation for a persistent personal AI brain / external-brain application.
 
-The repaired Phase keeps the scope bounded: Core Foundation definition first, no implementation, no stack choice, no full architecture, no Task Master/Codex product execution graph before G1.
+The repaired Phase keeps the scope bounded: Core Foundation definition first, no implementation, no stack choice, no full architecture, no Task Master/Codex product execution graph before the Core Foundation Definition is reviewed.
+
+G1 formalized the Core Foundation Definition Goal on 2026-05-19. Phase closure still requires accepted Goal output and R1 review/distill.
 
 ## Почему это не повтор прошлой фазы
 

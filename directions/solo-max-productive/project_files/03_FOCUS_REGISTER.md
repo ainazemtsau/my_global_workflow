@@ -13,14 +13,14 @@ artifact_control:
   refresh_source: "OA-MIGRATION-SMP-EXOCORTEX-CORE-FOUNDATION-2026-05-19"
 
 focus:
-  current_focus: "Shape EXOCORTEX Core Foundation Definition."
-  route_stage: G1_GOAL_SHAPE
-  route_note: "Launch G1 only after repository patch apply/read-back, Project Files cache refresh, exact G1 prompt availability, and EXOCORTEX concept source availability."
+  current_focus: "Prepare E1 execution brief for EXOCORTEX Core Foundation Definition."
+  route_stage: E1_EXECUTION_BRIEF
+  route_note: "Run E1 only after G1 repository patch apply/read-back and Project Files cache refresh. E1 must prepare minimum HOW for the definition artifact, not implementation."
   same_chat_allowed: false
-  boundary_trigger: exocortex_foundation_goal_pending
+  boundary_trigger: exocortex_foundation_goal_shaped_pending_E1
   pending_state_carried: true
   pending_patch_pointer: "P0-2026-05-14-exocortex-app-foundation-repair"
-  last_stage_result_pointer: "Objective Architecture migration formalized EXOCORTEX Core Foundation on 2026-05-19."
+  last_stage_result_pointer: "G1 formalized EXOCORTEX Core Foundation Definition on 2026-05-19."
 
 boundary:
   do_not_start_implementation: true
@@ -39,19 +39,20 @@ boundary:
 
 ```yaml
 next_launch:
-  recommended_next_stage: G1_GOAL_SHAPE
-  launch_method: new G1 run after repository patch and Project Files refresh
+  recommended_next_stage: E1_EXECUTION_BRIEF
+  launch_method: new E1 run after G1 repository patch apply/read-back and Project Files refresh
   current_phase_name: "EXOCORTEX App Foundation"
   current_phase_path: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration"
-  proposed_first_goal_candidate: "EXOCORTEX Product Foundation Definition"
+  active_goal: EXOCORTEX Core Foundation Definition
+  active_goal_path: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/exocortex-core-foundation-definition
   required_inputs:
     - "Direction: Solo Max Productive"
     - "Current Phase: EXOCORTEX App Foundation"
-    - "Current focus: Shape EXOCORTEX Core Foundation Definition"
+    - "Current focus: Prepare E1 execution brief for EXOCORTEX Core Foundation Definition"
     - "Phase path: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration"
     - "Old superseded Goal: Personal Workflow App Kernel Min Proof"
     - "EXOCORTEX concept source: directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md"
     - "Accepted Direction Objective: EXOCORTEX persistent personal AI brain / external-brain application."
-    - "Next Action Proof: basis_valid true; route_valid true; launch_allowed false until exact G1 prompt, concept source, and refreshed Project Files are available."
+    - "Next Action Proof: basis_valid true; route_valid true; launch_allowed false until G1 repository patch apply/read-back and refreshed Project Files are available."
   missing_context_behavior: ask_only_if_blocking
 ```

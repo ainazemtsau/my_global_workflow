@@ -27,17 +27,17 @@ direction:
     repaired_phase_name: "EXOCORTEX App Foundation"
     repair_reason: "User clarified that the strategic target is EXOCORTEX as a persistent personal AI brain / external-brain application. The active migration target is EXOCORTEX Core Foundation, not implementation, stack choice, full architecture, or product execution."
     path_note: "Legacy folder slug retained temporarily to avoid duplicate active Phase state before foundation definition."
-  active_goal_pointer: null
-  active_goal_name: null
-  active_goal_status: none_pending_G1
+  active_goal_pointer: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/exocortex-core-foundation-definition"
+  active_goal_name: "EXOCORTEX Core Foundation Definition"
+  active_goal_status: goal_shaped_pending_E1
   superseded_goal_pointer: "directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof"
   superseded_goal_name: "Personal Workflow App Kernel Min Proof"
   superseded_goal_status: superseded_provenance_not_executable
   selected_goal_candidate: "EXOCORTEX Product Foundation Definition"
   selected_goal_candidate_id: "G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION"
-  selected_goal_candidate_status: approved_for_G1_GOAL_SHAPE
-  next_route: G1_GOAL_SHAPE
-  route_note: "Launch G1 only after repository patch apply/read-back, Project Files cache refresh, exact G1 prompt availability, and EXOCORTEX concept source availability."
+  selected_goal_candidate_status: shaped_as_active_goal_pending_E1
+  next_route: E1_EXECUTION_BRIEF
+  route_note: "Run E1 only after G1 repository patch apply/read-back and Project Files cache refresh. E1 must prepare minimum HOW for the Core Foundation Definition without implementation, stack choice, full architecture, prototype, roadmap, Task Master graph, or Codex product execution."
   last_updated: "2026-05-19"
 
 state_note:
@@ -49,7 +49,7 @@ state_note:
   corrected_phase_intent: "Define EXOCORTEX Core Foundation as expandable product substrate for the personal AI brain."
   old_goal_recovery_status: "superseded provenance; not executable unless explicitly reactivated by later Human Decision."
   corrected_foundation_intent: "Define the EXOCORTEX Core Foundation before implementation, stack choice, full architecture, product execution, or broad roadmap work."
-  critical_constraint: "Do not implement, choose stack, design full architecture, create product execution graph, or attempt full roadmap execution before G1 shapes the first Goal."
+  critical_constraint: "Do not implement, choose stack, design full architecture, create product execution graph, or attempt full roadmap execution before the Core Foundation Definition is reviewed."
 
 project_files_export_state:
   canonical_folder: "directions/solo-max-productive/project_files"
@@ -66,8 +66,8 @@ project_files_export_state:
 - Current Phase status: active / repaired in place by `P0_PHASE_START`
 - Old Active Goal: `Personal Workflow App Kernel Min Proof`
 - Old Goal status: superseded provenance; not executable.
-- Active Goal: none pending `G1_GOAL_SHAPE`
+- Active Goal: `EXOCORTEX Core Foundation Definition` / `goal_shaped_pending_E1`
 - Direction Objective: build EXOCORTEX as a persistent personal AI brain / external-brain application.
-- Current focus: shape EXOCORTEX Core Foundation.
+- Current focus: prepare E1 execution brief for the EXOCORTEX Core Foundation Definition.
 - Required first Goal after Phase repair: `EXOCORTEX Product Foundation Definition`, now interpreted as EXOCORTEX Core Foundation Definition.
-- Next route: `G1_GOAL_SHAPE` after repository patch, Project Files refresh, exact G1 prompt availability, and `EXOCORTEX_CONCEPT_SEED_FULL.md` availability.
+- Next route: `E1_EXECUTION_BRIEF` after G1 repository patch apply/read-back and manual Project Files refresh.

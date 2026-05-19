@@ -41,31 +41,24 @@ If GitHub and Project File cache conflict, use verified full GitHub read-back. I
 
 `08_DIRECTION_MAP.md` is strategic routing context between Direction and Phase; it does not replace Phase, Goal, Queue, Context Loading Index, or Phase Memory state.
 
-## EXOCORTEX Core Foundation context for G1
+## EXOCORTEX Core Foundation context for E1
 
-Required for the next `G1_GOAL_SHAPE` run:
+Required for the next `E1_EXECUTION_BRIEF` run:
 
+- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/exocortex-core-foundation-definition/00_GOAL_CONTRACT.md`
+- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/exocortex-core-foundation-definition/01_GOAL_WORKING_CONTEXT.md`
+- `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/exocortex-core-foundation-definition/02_GOAL_CONTEXT_INDEX.md`
 - `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/source_materials/EXOCORTEX_CONCEPT_SEED_FULL.md`
-- P0 result / repository patch / Codex return from `P0-2026-05-14-exocortex-app-foundation-repair`
-- Accepted migration concepts: Direction Objective, Active Horizon, Objective Graph, Active Frontier, and Next Action Proof from the EXOCORTEX Core Foundation Objective Architecture migration.
+- exact stage prompt: `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
 
 Purpose:
 
-- Shape EXOCORTEX Core Foundation Definition.
-- Treat EXOCORTEX as a persistent personal AI brain / external-brain application.
-- Define core substrate, memory/context persistence, model interoperability, tools/actions extensibility, interaction/process loops, workspace surfaces, learning from outcomes, Reality Alignment, first buildable foundation boundary, non-goals, and validation criteria.
-- G1 must define core substrate, memory/context persistence, model interoperability, tools/actions extensibility, interaction/process loops, workspace surfaces, learning from outcomes, Reality Alignment, first buildable foundation boundary, non-goals, and validation criteria.
-- Do not execute the old proof Goal.
-- Do not treat the old replacement candidate as current.
-- Do not implement the app during G1.
-- Do not choose tech stack or full architecture before the appropriate later route.
-- Do not treat `EXOCORTEX_CONCEPT_SEED_FULL.md` as an executable implementation roadmap.
-
-If GitHub read of `EXOCORTEX_CONCEPT_SEED_FULL.md` is truncated or lacks tail verification, request one of:
-
-- manual paste/upload as chat attachment;
-- split/chunked export with tail verification;
-- Codex read-only local verification/export.
+- Prepare minimum HOW for producing the EXOCORTEX Core Foundation Definition.
+- Preserve the G1 scope boundary.
+- Do not implement the app.
+- Do not choose tech stack, provider, storage model, API, or full architecture.
+- Do not create prototypes, Task Master graph, or Codex product execution envelope unless E1 later proves readiness through the correct route.
+- Treat `EXOCORTEX_CONCEPT_SEED_FULL.md` as concept input, not implementation roadmap.
 
 ## Superseded Goal comparison context
 

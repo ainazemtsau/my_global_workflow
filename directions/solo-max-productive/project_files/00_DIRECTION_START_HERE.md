@@ -21,19 +21,19 @@ Current Phase status: active / repaired in place by `P0_PHASE_START`
 
 Phase path note: the folder slug remains `personal-workflow-app-kernel-exploration` temporarily. This is intentional to avoid duplicate active Phase state and migration overhead before the EXOCORTEX foundation definition exists.
 
-Active Goal: none
+Active Goal: EXOCORTEX Core Foundation Definition -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/exocortex-core-foundation-definition`
 
-Active Goal status: none pending `G1_GOAL_SHAPE`
+Active Goal status: `goal_shaped_pending_E1`
 
 Superseded Goal: Personal Workflow App Kernel Min Proof -> `directions/solo-max-productive/phases/personal-workflow-app-kernel-exploration/goals/personal-workflow-app-kernel-min-proof`
 
 Superseded Goal status: preserved as superseded/replaced provenance. It must not proceed to `E1_EXECUTION_BRIEF`.
 
-Required first Goal candidate for Phase closure: EXOCORTEX Product Foundation Definition -> pending `G1_GOAL_SHAPE`. This existing candidate now means EXOCORTEX Core Foundation Definition.
+Required first Goal candidate for Phase closure: EXOCORTEX Product Foundation Definition -> `goal_shaped_pending_E1`. This existing candidate now means EXOCORTEX Core Foundation Definition.
 
-Current focus: Shape EXOCORTEX Core Foundation / Product Foundation Definition.
+Current focus: Prepare E1 execution brief for producing the EXOCORTEX Core Foundation Definition.
 
-Next route: `G1_GOAL_SHAPE`; launch is blocked until the exact G1 prompt and `EXOCORTEX_CONCEPT_SEED_FULL.md` are available after Project Files cache refresh.
+Next route: `E1_EXECUTION_BRIEF`; launch is blocked until this G1 repository patch is applied/read back and Project Files cache is manually refreshed.
 
 Direction Map: initialized / M0-reviewed / migrated from uninitialized stub. Use `08_DIRECTION_MAP.md` as current strategic routing authority.
 
@@ -43,10 +43,11 @@ State note:
 - Do not continue Create Lightweight Codex Small-Fix Lane unless the user explicitly reactivates it.
 - The old active Goal, Personal Workflow App Kernel Min Proof, is superseded as an execution target.
 - The prior replacement candidate, Personal Workflow System Core and MVP Definition, is superseded by the EXOCORTEX App Foundation phase repair.
-- The EXOCORTEX concept document is required context for G1 Core Foundation shaping.
+- The EXOCORTEX concept document is required context for E1 Core Foundation execution brief preparation.
+- G1 formalized `exocortex-core-foundation-definition` on 2026-05-19. E1 must produce the minimum HOW for the definition artifact, not implementation.
 - Do not create `03_KERNEL_MIN_PROOF_BRIEF.md`.
 - Do not delete the old Goal folder; preserve it as superseded/replaced provenance.
-- Do not start app implementation, choose a stack, design full architecture, or create a Codex product execution graph before repaired Goal shaping.
+- Do not start app implementation, choose a stack, design full architecture, or create a Codex product execution graph before the Core Foundation Definition is reviewed.
 
 ## Phase Closure Contract
 
@@ -67,7 +68,7 @@ Required goal map:
 required_for_closure:
   - goal_id: G1-CAND-2026-05-13-EXOCORTEX-PRODUCT-FOUNDATION
     name: EXOCORTEX Product Foundation Definition
-    status: pending_G1_GOAL_SHAPE
+    status: goal_shaped_pending_E1
     meaning: EXOCORTEX Core Foundation Definition
     evidence_required: accepted Core Foundation definition and R1 review/distill result
 optional_expansion:
