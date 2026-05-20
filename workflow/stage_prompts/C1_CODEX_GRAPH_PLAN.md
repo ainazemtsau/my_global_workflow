@@ -182,6 +182,43 @@ C1 must not perform deep product architecture planning unless exact scoped techn
 
 If the needed correction route is not registry-valid for C1, report `REGISTRY_REVIEW_CANDIDATE` and use Stop or another registry-valid fallback rather than inventing prompt-local route authority.
 
+## 0.7 Executor/Codex compatibility mode
+
+C1 remains the current compatibility path from ChatGPT planning to C2 Codex execution. Codex is the first/default executor adapter, not the architecture authority.
+
+C1 accepts either:
+
+- a normal Execution Work Package for product/project execution, mappable to `workflow/transport/EXECUTION_WORK_PACKAGE.md` with `schema: execution_work_package.v1`;
+- a Project Setup Request for Executor Project Setup.
+
+For setup work, C1 must make the expected setup result mappable to:
+
+```text
+workflow/transport/EXECUTOR_SETUP_RESULT.md
+schema: executor_setup_result.v1
+```
+
+Project Setup Wizard is a workflow capability/action, not a registered stage. C1 must not claim otherwise.
+
+Before planning, C1 must confirm or require `target_project_ref`:
+
+- `direction_id`
+- `project_id`
+- `project_name`
+- `project_root_pointer`
+- `expected_repo_or_workspace`
+- `executor_setup_status`
+
+C1 must block normal product/project execution when setup is missing or incomplete unless the planned C2 action is setup itself. Acceptable normal execution setup statuses are `complete` and `complete_with_approved_fallback`. Core-only setup is acceptable; stack-specific tuning is optional unless needed to make validation or evidence possible.
+
+C1 must require a human-readable Plan Preview before nontrivial autonomous execution. P2/P3 Codex tasks require a Task Master graph. P0/P1 tasks may avoid graph creation, but Task Master remains a setup-required Codex adapter capability for configured projects.
+
+C1 must not do deep product architecture planning in ChatGPT context. When architecture, reuse, module-boundary, dependency, public-interface, or validation-scope decisions may be needed, C1 must require Codex project-local technical discovery/preflight in C2.
+
+C1 must preserve bounded repair and no-DONE-without-evidence expectations. The C2 launch should include default repair limits `max_repair_attempts: 2` and `same_failure_repeat_limit: 1`, plus stop triggers for repeated validator failure, new dependency, new module boundary, forbidden area, missing validation surface, out-of-scope architecture decision, and public API scope expansion.
+
+C1 preserves `workflow/stage_registry/STAGE_REGISTRY.md` authority. It routes to `C2_CODEX_EXECUTE` only when ready, or returns Context Request, Human Decision, or Stop when not ready.
+
 ## 0\. Stage identity
 
 Stage ID: C1\_CODEX\_GRAPH\_PLAN

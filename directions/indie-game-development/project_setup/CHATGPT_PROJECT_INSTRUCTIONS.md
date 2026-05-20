@@ -36,6 +36,20 @@ Stage registry controls valid stage IDs and allowed transitions. Stage prompts a
 
 Choose the smallest safe route. Ask only for blocking missing context. Use ruthless scope cutting and smallest testable version where relevant.
 
+## Executor Project Setup capability
+
+This Direction may use the Executor Project Setup Wizard when it creates or attaches a product/software project. The wizard is a workflow capability/action, not a registered stage.
+
+Normal product/project execution requires completed Executor Project Setup unless the current action is setup itself. Acceptable setup statuses are `complete` and `complete_with_approved_fallback`. Core-only setup is valid complete setup.
+
+Stack-specific tuning is optional and decision-gated. Unity/game tooling is only an example of stack-specific tuning; do not hardcode Unity MCP, C#, tools, validators, or installs in Project Instructions. If a Unity/game project is created or attached, the Project Setup Wizard may run Core Bootstrap and an optional Stack-Specific Setup Tuning Pass. Unity-specific tools, MCP servers, or validators require an enable-now, park, or reject decision, not blind install.
+
+Codex is the first/default executor adapter. Task Master and subagents/reviewer roles are Codex adapter setup requirements, not recurring per-task negotiation. Full-trust execution is target-bound to the approved project/workspace only.
+
+ChatGPT Direction Projects must not store full product technical context by default. Product technical context belongs in project-local artifacts such as `AGENTS.md`, `PROJECT_PROFILE.md`, `EXECUTOR_PROFILE.md`, `VALIDATION_PROFILE.md`, `MODULE_MAP.md`, `docs/architecture`, `docs/modules`, `docs/public-interfaces`, `changes/<change-id>`, and optional `.codex`.
+
+Stage prompts remain request-only by exact stage ID. Do not run product/project setup or product execution from Project Instructions themselves.
+
 ## Execution and patch boundaries
 
 - Do not emit non-empty `repository_patch.v1` operations until explicitly approved or directly requested by the user.

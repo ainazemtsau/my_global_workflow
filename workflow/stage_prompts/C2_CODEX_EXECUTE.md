@@ -116,6 +116,44 @@ Stop or return the smallest registry-valid correction when the envelope is missi
 
 C2 may return evidence sufficient for parent synthesis or R1 only when completion_scope supports it. Do not route to R1 for branch, gated-slice, or partial results unless the completed artifact is explicitly the accepted parent Goal outcome. Route incomplete parent work back to E1 or B1 according to registry.
 
+## 0.3 Executor-compatible Codex execution and return
+
+C2 remains the current Codex execution compatibility stage for the Executor Project Execution Core.
+
+For normal product/project execution, C2 must verify before mutation:
+
+- `target_project_ref` matches the current workspace;
+- setup status is `complete` or `complete_with_approved_fallback`;
+- setup artifacts are available or fallback-approved;
+- the execution work package is explicit and mappable to `workflow/transport/EXECUTION_WORK_PACKAGE.md`;
+- validation and return contract are explicit.
+
+For a Project Setup Wizard action, C2 may execute setup even though prior setup is not complete. Setup action evidence must be mappable to:
+
+```text
+workflow/transport/EXECUTOR_SETUP_RESULT.md
+schema: executor_setup_result.v1
+```
+
+Normal product/project execution evidence must be human-readable first and mappable to:
+
+```text
+workflow/transport/EXECUTOR_RETURN_PACKET.md
+schema: executor_return_packet.v1
+```
+
+C2 must not claim DONE without validation and evidence. C2 must enforce full-trust execution as target-bound to the approved project/workspace only, and preserve separation from Codex repository maintenance.
+
+Task Master and subagents/reviewer roles are setup-time Codex adapter requirements, not recurring per-task negotiation. If baseline setup components are missing during normal execution, C2 stops with `NEEDS_INPUT` or `STUCK` according to the active state model instead of silently falling back. If true subagents or required tools are unavailable during setup, fallback is a setup-time human decision only.
+
+P2/P3 work must use a Task Master graph. The bounded repair loop remains `max_repair_attempts: 2` by default and `same_failure_repeat_limit: 1`. Stop on repeated validator failure, new dependency, new module boundary, forbidden area, missing validation surface, out-of-scope architecture decision, or public API scope expansion.
+
+If current external/tooling facts are required, C2 must not select `D1_DEEP_RESEARCH` directly as the next stage unless `workflow/stage_registry/STAGE_REGISTRY.md` later allows that transition. C2 returns a research-needed note and uses a registry-valid carrier route such as `E1_EXECUTION_BRIEF`, `B1_PROBLEM`, Context Request, Human Decision, or Stop as appropriate.
+
+If external UI or local tool operation is required, C2 must not select `U1_USER_GUIDED_EXECUTION` directly as the next stage unless `workflow/stage_registry/STAGE_REGISTRY.md` later allows that transition. C2 returns a guided-setup-needed note and uses a registry-valid carrier route such as `E1_EXECUTION_BRIEF`, `B1_PROBLEM`, Context Request, Human Decision, or Stop as appropriate.
+
+If C2 return evidence includes `next_recommended_route`, it may name `D1_DEEP_RESEARCH` or `U1_USER_GUIDED_EXECUTION` as a recommendation only, not as C2's selected next stage. E1, B1, or another registry-valid ChatGPT stage owns selecting D1/U1 when allowed by the registry.
+
 ---
 
 ## 0\. Non-negotiable stage boundary

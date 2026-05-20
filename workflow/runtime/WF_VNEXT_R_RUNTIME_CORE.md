@@ -86,7 +86,17 @@ Canonical packet templates live in:
 workflow/transport/*.md
 ```
 
-Runtime core remains authority for runtime behavior, precedence, approval/formalization rules, repository maintenance rules, route process, Codex role separation, and Project Files refresh/reporting rules.
+Executor/product-project transport templates:
+
+```text
+workflow/transport/EXECUTION_WORK_PACKAGE.md
+workflow/transport/EXECUTOR_SETUP_RESULT.md
+workflow/transport/EXECUTOR_RETURN_PACKET.md
+```
+
+These executor templates are canonical packet shapes for product/project executor handoff, setup result, and return evidence. They do not change runtime behavior by themselves.
+
+Runtime core remains authority for runtime behavior, precedence, approval/formalization rules, repository maintenance rules, route process, Executor/Codex role separation, and Project Files refresh/reporting rules.
 
 Runtime core must not reintroduce full packet schema bodies.
 
@@ -924,6 +934,8 @@ Use the canonical transport template for packet shape. Runtime core owns the beh
 
 ## 11.5 Codex Role Separation Contract
 
+The Executor Project Execution Core defines product/project execution handoff to external coding executors. Codex is the first/default executor adapter. Current `C1_CODEX_GRAPH_PLAN` and `C2_CODEX_EXECUTE` remain the compatibility path until a later approved stage prompt migration changes them.
+
 Codex has separate runtime roles. Do not collapse them into a generic allowed/forbidden state.
 
 Codex product/project execution means implementation against a concrete product/project workspace, product repository, game proof, application code, Task Master execution graph, external tool binding, validation command run, or project file mutation that changes the product/project itself. Codex product/project execution is allowed only through the correct execution route after E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
@@ -936,17 +948,34 @@ Codex launch bundle preparation means packaging a Next Launch Card, exact stage 
 
 When a stage says Codex product/project execution is blocked, that restriction does not block approved repository maintenance, read-only audit/validation, or launch bundle preparation unless the stage explicitly says all Codex roles are blocked.
 
+Product/project execution by an external executor requires completed Executor Project Setup for the target project unless the current action is the Project Setup Wizard itself. The Project Setup Wizard is a workflow capability/action, not a registered stage.
+
+Acceptable setup statuses for normal product/project execution:
+
+```text
+complete
+complete_with_approved_fallback
+```
+
+Core-only setup is a valid complete setup. Stack-specific tuning is optional and decision-gated unless it is needed to make validation or evidence possible.
+
+Normal product/project execution handoff should use or be mappable to `workflow/transport/EXECUTION_WORK_PACKAGE.md`. Setup wizard result should use or be mappable to `workflow/transport/EXECUTOR_SETUP_RESULT.md`. Executor/Codex evidence return should use or be mappable to `workflow/transport/EXECUTOR_RETURN_PACKET.md`.
+
+Task Master and subagents/reviewer roles are Codex adapter setup requirements, not recurring per-task negotiation. Full-trust execution is target-bound to the approved target project/workspace only.
+
+If setup needs current external/tooling facts, route to `D1_DEEP_RESEARCH` or return a research-needed note. If setup needs external UI or local tool operation, route to `U1_USER_GUIDED_EXECUTION`. Do not invent new stage IDs for setup.
+
 ### 11.5.1 ChatGPT / Codex technical context boundary
 
 ChatGPT Direction Projects own workflow orchestration. They must not become the default storage or loading surface for full product-repository technical context.
 
-For Codex product/project execution:
+For Executor/Codex product/project execution:
 
 - ChatGPT stages may define WHY / WHAT / DONE, acceptance, route, risk boundaries, allowed and forbidden scope, validation expectations, approval gates, and evidence requirements.
 - ChatGPT stages may pass compact pointers to repo-local technical sources such as `AGENTS.md`, Project Execution Profile, Module Map, Validation Profile, ADRs, public interface docs, and technical memory.
 - ChatGPT stages must not default-load, mirror, or maintain full product technical context, module internals, code-level architecture notes, historical implementation logs, or reusable code decisions unless the exact content is the object of a workflow audit or a targeted Context Request.
-- Deep technical discovery, architecture/reuse decisions, module map inspection, public-interface checks, internal module knowledge loading, duplicate-code scan, and implementation-shaping decisions belong in the Codex product/project execution workspace.
-- Durable technical decisions from Codex must be stored in product-repo-local artifacts such as `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, ADRs, public interface docs, internal module knowledge, or `.codex` memory according to the project policy.
+- Deep technical discovery, architecture/reuse decisions, module map inspection, public-interface checks, internal module knowledge loading, duplicate-code scan, and implementation-shaping decisions belong in the Executor/Codex product/project execution workspace.
+- Durable technical decisions from Executor/Codex work must be stored in product-repo-local artifacts such as `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, ADRs, public interface docs, internal module knowledge, or `.codex` memory according to the project policy.
 - Direction Project Files may store only compact outcome summaries, approval-relevant decisions, risk notes, and pointers to product technical artifacts. They must not store full product technical documentation by default.
 
 `C1_CODEX_GRAPH_PLAN` is a ChatGPT execution-envelope planning stage. It may require a Codex technical discovery preflight, but it must not perform deep product architecture planning unless the current chat has explicitly provided and scoped that technical context.

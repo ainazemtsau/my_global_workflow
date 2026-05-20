@@ -58,14 +58,6 @@ Do not upload:
 
 ```text
 directions/health-and-beauty/project_setup/pitanie/**
-directions/health-and-beauty/projects/nutrition/project_files/01_NUTRITION_BASE.md
-directions/health-and-beauty/projects/nutrition/project_files/01_NUTRITION_LOOP_PROTOCOL.md
-directions/health-and-beauty/projects/nutrition/project_files/02_MENU_PREFERENCES.md
-directions/health-and-beauty/projects/nutrition/project_files/02_STATE_AND_SAVE_PROTOCOL.md
-directions/health-and-beauty/projects/nutrition/project_files/03_ACTIVE_CYCLE.md
-directions/health-and-beauty/projects/nutrition/project_files/03_DRY_RUN_ACCEPTANCE.md
-directions/health-and-beauty/projects/nutrition/project_files/04_TRACKING_AND_EXCEPTIONS.md
-directions/health-and-beauty/projects/nutrition/project_files/05_REVIEW_AND_SYNC.md
 directions/health-and-beauty/projects/nutrition/state/ACTIVE_WEEK_MENU.md
 directions/health-and-beauty/projects/nutrition/state/CURRENT_NUTRITION_PLAN.md
 directions/health-and-beauty/projects/nutrition/state/REVIEW_AND_NEXT_WEEK.md

@@ -143,6 +143,43 @@ E1 must not decide deep product architecture, module reuse, internal implementat
 
 When Codex product/project execution may require architecture, module-boundary, reuse-vs-new, public-interface, dependency-direction, or technical-memory decisions, E1 should route to C1 with a requirement that C2 perform Codex-side project-local technical discovery / architecture reuse preflight before mutation.
 
+## 0.2.1 Executor Project Execution Core compatibility
+
+For product/project work handled by an external executor, E1 frames the work generically through the Executor Project Execution Core while preserving the current C1/C2 compatibility path.
+
+When normal product/project execution is needed, E1 prepares or requires an Execution Work Package mappable to:
+
+```text
+workflow/transport/EXECUTION_WORK_PACKAGE.md
+schema: execution_work_package.v1
+```
+
+The work package must include `target_project_ref`:
+
+- `direction_id`
+- `project_id`
+- `project_name`
+- `project_root_pointer`
+- `expected_repo_or_workspace`
+- `executor_setup_status`
+
+Before planning HOW for product/project executor work, E1 must check that Executor Project Setup status is known and acceptable:
+
+```text
+complete
+complete_with_approved_fallback
+```
+
+Core-only setup is acceptable. Stack-specific tuning is optional unless it is required to make validation or evidence possible.
+
+If setup is missing or incomplete and the next action is setup itself, E1 prepares a Project Setup Request, not a normal product execution work package. The Project Setup Request may route through the current C1/C2 compatibility path, or through `U1_USER_GUIDED_EXECUTION` when external UI or local tool guidance is required.
+
+If setup or tooling decisions require current external facts, E1 routes to `D1_DEEP_RESEARCH` when registry-valid or returns a research-needed note. E1 must not invent `EXECUTOR_PROJECT_SETUP` as a stage ID.
+
+E1 may pass compact pointers to project-local files such as `AGENTS.md`, `PROJECT_PROFILE.md`, `EXECUTOR_PROFILE.md`, `VALIDATION_PROFILE.md`, `MODULE_MAP.md`, `docs/architecture`, `docs/modules`, `docs/public-interfaces`, `changes/<change-id>`, and optional `.codex`. E1 must not default-load or mirror full product technical context into Direction Project Files.
+
+Repository maintenance remains separate from product/project execution. Before formalization, E1 must not emit non-empty `repository_patch.v1.operations` unless explicitly approved under the runtime formalization rules.
+
 ## 0.3 Execution readiness and HOW boundary
 
 Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `execution_readiness`, Next Action Proof, Minimum Sufficient Solution Proof, Component Necessity Test, route-valid versus basis-valid distinction, and solution-shape minimality. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
