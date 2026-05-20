@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_g1_H1_G2_formalization
-  last_updated: "2026-05-19"
+  freshness: fresh_after_r1_H1_G2_acceptance_pending_m0_review
+  last_updated: "2026-05-20"
 ```
 
 ## Purpose
@@ -36,7 +36,7 @@ direction_map_status:
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
   current_objective_architecture_node: H1_G2_codex_development_operating_model_and_architecture_protocols
-  next_safe_route: G1_GOAL_SHAPE
+  next_safe_route: M0_DIRECTION_MAP
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -879,6 +879,41 @@ map_delta:
     - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
     - H1_G4_durable_technical_nucleus
     - codex_product_project_execution
+  forbidden_until_later_basis_valid_route:
+    - Unity project bootstrap
+    - implementation
+    - old-code transfer
+    - old-code audit as starting point
+    - Codex product/project execution
+    - durable technical nucleus implementation
+    - Task Master graph creation
+    - real internal tool setup
+    - Game Documentation promotion
+```
+
+## 2026-05-20 R1 map delta — H1_G2 accepted
+
+```yaml
+map_delta:
+  source_stage: R1_GOAL_REVIEW_DISTILL
+  delta_type:
+    - node_done_accepted
+    - active_front_review_needed
+    - m0_review_needed
+  node: H1_G2_codex_development_operating_model_and_architecture_protocols
+  result: r1_accepted_goal_complete
+  summary: >
+    R1 accepted the Gas Coop Game Project Execution Profile as the minimal
+    project-specific profile/addendum for existing workflow project/Codex setup readiness.
+    The result preserves no-bootstrap/no-product-execution boundaries and defers real
+    project/tool setup to later H1_G3+ routes.
+  active_front_effect: >
+    H1_G2 no longer blocks active-front review. H1_G3 project/bootstrap/tool-binding/
+    validation-scene readiness is the likely next candidate, but it is not selected until
+    M0 reviews the frontier.
+  next_route: M0_DIRECTION_MAP
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
   forbidden_until_later_basis_valid_route:
     - Unity project bootstrap
     - implementation

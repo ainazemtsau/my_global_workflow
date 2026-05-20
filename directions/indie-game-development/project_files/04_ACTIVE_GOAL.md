@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_g1_H1_G2_formalization
+  source_freshness: active_git_file_after_r1_H1_G2_acceptance_pending_m0_review
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,13 +16,13 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: goal_shaped_pending_A1_audit
+  state: r1_accepted_goal_complete
   goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
   goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
   goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols"
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
-  status: goal_shaped_pending_A1_audit
+  status: r1_accepted_goal_complete
   previous_active_goal_id: first-technical-nucleus-functional-spec
   previous_active_goal_title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
   previous_active_goal_result: r1_completed_verified_specification_accepted
@@ -33,22 +33,23 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: A1_AUDIT
-  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
-  review_scope: audit_existing_workflow_codex_project_setup_first_use_fit
-  completion_scope: functional_technical_specification_only
-  parent_goal_completion_state: r1_completed_verified_specification_accepted
-  smallest_useful_result: "A1 verdict on whether the existing workflow Codex/project setup procedure can be used for Gas Coop Game."
+  next_route: M0_DIRECTION_MAP
+  next_route_mode: active_front_review_after_H1_G2_acceptance
+  review_scope: r1_goal_review_distill_completed_verified
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  smallest_useful_result: "Accepted minimal Gas Coop Game project execution profile/addendum for later H1_G3 planning."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
   task_master_graph_allowed_now: false
   next_goal_seed:
-    id: H1_G2_codex_development_operating_model_and_architecture_protocols
-    title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
-    recommended_next_stage: A1_AUDIT
-    map_binding: H1_playable_technical_nucleus / H1_G2_codex_development_operating_model_and_architecture_protocols
+    id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    title: "Review/select project bootstrap, tool-binding, and validation-scene readiness as next frontier candidate"
+    recommended_next_stage: M0_DIRECTION_MAP
+    map_binding: H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
     implementation_allowed_now: false
+    candidate_only_until_M0: true
 ```
 
 ```yaml
@@ -101,7 +102,7 @@ Active Goal:
 
 Status:
 
-`goal_shaped_pending_A1_audit`
+`r1_accepted_goal_complete`
 
 Goal contract:
 
@@ -113,28 +114,28 @@ Execution log:
 
 Next route:
 
-`A1_AUDIT`
+`M0_DIRECTION_MAP`
 
 Implementation, Unity bootstrap, Codex product/project execution, and Task Master graph creation are not authorized now.
 
 Last completed Goal:
 
-`first-technical-nucleus-functional-spec`
+`H1_G2_codex_development_operating_model_and_architecture_protocols`
 
-Accepted result: first technical nucleus functional/technical specification.
+Accepted result: Gas Coop Game Project Execution Profile accepted as minimal project execution profile/addendum.
 
-## G1-shaped next audit
+## R1-accepted active-front review
 
 ```yaml
 active_goal_snapshot:
   goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  status: goal_shaped_pending_A1_audit
-  next_route: A1_AUDIT
-  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  status: r1_accepted_goal_complete
+  next_route: M0_DIRECTION_MAP
+  next_route_mode: active_front_review_after_H1_G2_acceptance
   purpose: >
-    Audit/fit-check the existing workflow Codex/project setup and execution-readiness
-    procedure on first real use before project bootstrap, durable nucleus implementation,
-    or Codex product/project execution.
+    H1_G2 is accepted as the minimal Gas Coop Game project execution
+    profile/addendum. M0 must review the active frontier before selecting
+    H1_G3, P9, G0, E1, bootstrap, or implementation.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -208,3 +209,15 @@ The accepted specification did not silently decide or perform:
 - Game Documentation promotion.
 
 Any later Goal may leave a surface unresolved only when the unresolved item is explicitly routed to `D1_DEEP_RESEARCH`, `A1_AUDIT`, `S3_DECIDE`, Context Request, or marked `deferred_not_blocking_for_bootstrap`.
+
+## R1 acceptance — H1_G2
+
+R1 accepted `H1_G2_codex_development_operating_model_and_architecture_protocols`
+as `completed_verified`.
+
+Accepted artifact:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+
+The active frontier must be reviewed by `M0_DIRECTION_MAP` before selecting H1_G3,
+P9, G0, E1, bootstrap, or implementation.

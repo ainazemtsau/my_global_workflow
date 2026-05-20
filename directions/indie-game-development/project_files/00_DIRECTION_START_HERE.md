@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_g1_H1_G2_formalization
-  last_updated: "2026-05-19"
-  next_action: "Run A1_AUDIT for H1_G2_codex_development_operating_model_and_architecture_protocols after G1 H1_G2 formalization apply/read-back and manual Project Files refresh."
+  freshness: fresh_after_r1_H1_G2_acceptance_pending_m0_review
+  last_updated: "2026-05-20"
+  next_action: "Run M0_DIRECTION_MAP after R1 H1_G2 acceptance repository maintenance apply/read-back and manual Project Files refresh."
 ```
 
 ## Direction identity
@@ -38,19 +38,19 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Current Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
-| Current Phase status | `active_H1_G2_goal_shaped_pending_A1_audit` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
+| Current Phase status | `active_H1_G2_r1_accepted_pending_M0_active_front_review` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Active Goal | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
-| Active Goal status | `goal_shaped_pending_A1_audit` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
-| Last completed Goal | `first-technical-nucleus-functional-spec` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec` |
-| Last completed Goal status | `r1_completed_verified_specification_accepted` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md` |
-| Last completed Goal Artifact | `First Technical Nucleus Functional Specification` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md` |
+| Active Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Last completed Goal | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols` |
+| Last completed Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md` |
+| Last completed Goal Artifact | `Gas Coop Game Project Execution Profile` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md` |
 | Existing Goal Artifact | `Core Technical Foundation Decision Brief / Decision Map` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` |
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `A1_AUDIT — audit existing workflow Codex/project setup first-use fit` | `workflow/stage_prompts/A1_AUDIT.md` |
+| Next route | `M0_DIRECTION_MAP — active-front review after H1_G2 acceptance` | `workflow/stage_prompts/M0_DIRECTION_MAP.md` |
 
 ## Current Phase meaning
 
@@ -95,11 +95,11 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `A1_AUDIT` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after G1 H1_G2 formalization repository maintenance apply/read-back and manual Project Files refresh.
+Run `M0_DIRECTION_MAP` after R1 H1_G2 acceptance repository maintenance apply/read-back and manual Project Files refresh.
 
-A1 must audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
+M0 must review the active frontier after H1_G2 acceptance before selecting H1_G3 project/bootstrap/tool-binding/validation-scene readiness, P9, G0, E1, bootstrap, or implementation.
 
-A1 must not create a second Indie-only workflow layer. Do not run Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, real internal tool setup, direct E1 launch, or Game Documentation promotion before a later basis-valid route authorizes concrete work.
+Do not run Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, real internal tool setup, direct E1 launch, or Game Documentation promotion before a later basis-valid route authorizes concrete work.
 
 ## 2026-05-16 R1 stabilization
 
@@ -199,3 +199,39 @@ Still not authorized:
 - Task Master graph creation;
 - real internal tool setup;
 - Game Documentation promotion.
+
+## 2026-05-20 R1 acceptance — H1_G2 profile/addendum
+
+R1 accepted `H1_G2_codex_development_operating_model_and_architecture_protocols`
+as `completed_verified`.
+
+Accepted artifact:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+
+Accepted scope:
+- minimal Gas Coop Game zero-state project execution profile/addendum;
+- future H1_G3 bootstrap-readiness targets;
+- validation profile;
+- memory/tool-binding policy;
+- module/documentation requirements;
+- bounded Codex slice contract;
+- Unity MCP deferred until H1_G3;
+- stop rules.
+
+Not authorized:
+- Unity bootstrap;
+- product repository creation;
+- implementation;
+- product code;
+- Codex product/project execution;
+- Task Master graph creation;
+- real internal tool setup;
+- old-code transfer or old-code audit as starting point;
+- Game Documentation promotion.
+
+Next route: `M0_DIRECTION_MAP`.
+
+Reason: H1_G2 acceptance changes the active frontier. M0 must review whether
+H1_G3 project/bootstrap/tool-binding/validation-scene readiness, P9, G0, or
+another route is basis-valid before any material continuation.

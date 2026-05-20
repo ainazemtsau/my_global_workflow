@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_g1_H1_G2_formalization
+  source_freshness: active_git_file_after_r1_H1_G2_acceptance_pending_m0_review
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,18 +16,18 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run A1_AUDIT for H1_G2 Codex/project setup workflow fit-check after G1 formalization apply/read-back and manual Project Files refresh."
-  route_stage: A1_AUDIT
-  route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  current_focus: "Run repository maintenance for R1 H1_G2 acceptance projection reconciliation, then run M0_DIRECTION_MAP after manual Project Files refresh."
+  route_stage: M0_DIRECTION_MAP
+  route_mode: active_front_review_after_H1_G2_acceptance
   same_chat_allowed: false
-  boundary_trigger: g1_H1_G2_goal_formalized
+  boundary_trigger: r1_H1_G2_goal_accepted
   pending_state_carried: true
-  pending_patch_pointer: igd_post_g1_a1_projection_reconciliation_2026_05_19
-  last_stage_result_pointer: "G1_GOAL_SHAPE formalized H1_G2 as a goal and selected A1_AUDIT as the next route."
+  pending_patch_pointer: igd_r1_h1_g2_acceptance_projection_reconciliation_2026_05_20
+  last_stage_result_pointer: "R1_GOAL_REVIEW_DISTILL accepted H1_G2 as completed_verified and selected M0_DIRECTION_MAP."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   active_goal:
     goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-    status: goal_shaped_pending_A1_audit
+    status: r1_accepted_goal_complete
     goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
     previous_goal_id: first-technical-nucleus-functional-spec
     previous_goal_status: r1_completed_verified_specification_accepted
@@ -35,31 +35,29 @@ focus:
     phase_id: core-coop-technical-foundation-selection
     phase_name: Core Co-op Technical Foundation Selection
     phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-    status: active_H1_G2_goal_shaped_pending_A1_audit
+    status: active_H1_G2_r1_accepted_pending_M0_active_front_review
     map_binding: H1_playable_technical_nucleus
-    next_route: A1_AUDIT
+    next_route: M0_DIRECTION_MAP
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `manual Project Files refresh blocks the next material A1 run after repository maintenance apply/read-back`
-- Human decision: `none pending for A1 launch`
-- Source conflict: `none expected after G1 H1_G2 repository maintenance apply/read-back and manual refresh`
+- Missing context: `manual Project Files refresh blocks the next material M0 run after R1 repository maintenance apply/read-back`
+- Human decision: `none pending for M0 launch`
+- Source conflict: `Project Files stale until this repository maintenance patch is applied/read back and manually refreshed`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/A1_AUDIT.md`
-  - current Project Files 00-08 after G1 H1_G2 formalization read-back and manual refresh
-  - active Phase Brief: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - active Goal Contract: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
-  - active Goal execution log: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
-  - completed specification artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
-  - accepted decision brief artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+  - exact `workflow/stage_prompts/M0_DIRECTION_MAP.md`
+  - current Project Files 00-08 after R1 H1_G2 acceptance repository maintenance read-back and manual refresh
+  - active Phase Brief
+  - active Goal Contract and accepted profile artifact
+  - Direction Map
 
 ## Current focus boundary
 
-A1 must audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure for `H1_G2_codex_development_operating_model_and_architecture_protocols`.
+M0 must review the active frontier after R1 accepted `H1_G2_codex_development_operating_model_and_architecture_protocols`.
 
-The audit should decide whether the existing workflow is sufficient, needs a minimal Indie project-specific input/profile, needs Workflow Governance repair, or requires exact missing context.
+The review should decide whether `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`, P9, G0, E1, or another route is basis-valid before any material continuation.
 
 Forbidden in this focus:
 
@@ -72,7 +70,7 @@ Forbidden in this focus:
 - Game Documentation promotion;
 - real internal tool setup;
 - broad engineering handbook creation;
-- direct E1 launch without an A1 verdict.
+- direct E1 launch without M0 active-front selection.
 
 ## 2026-05-19 G1 H1_G2 formalization
 
@@ -104,3 +102,10 @@ The focus after F0 synthesis formalization and evidence repair was R1 parent Goa
 G1 superseded the transfer-boundary audit as the active Goal after human clarification.
 
 R1 must verify that gas-first sequencing and the user approval gate after `gas_simulation_capability_frame` were preserved before accepting or route-gating the parent Goal.
+
+## 2026-05-20 R1 H1_G2 acceptance focus update
+
+H1_G2 is accepted as complete.
+
+Current focus is repository projection reconciliation and then M0 active-front review.
+M0 must determine the next basis-valid route after H1_G2 acceptance.

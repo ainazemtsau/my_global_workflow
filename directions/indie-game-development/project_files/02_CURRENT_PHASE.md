@@ -9,7 +9,7 @@ project_file_control:
     - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
     - "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_g1_H1_G2_formalization
+  source_freshness: active_git_file_after_r1_H1_G2_acceptance_pending_m0_review
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -30,16 +30,17 @@ current_phase:
   status_after_r1_first_technical_nucleus_spec: active_pending_m0_after_r1_acceptance
   status_after_m0_objective_architecture_migration: active_pending_g1_H1_G2_goal_shape
   status_after_g1_H1_G2_formalization: active_H1_G2_goal_shaped_pending_A1_audit
+  status_after_r1_H1_G2_acceptance: active_H1_G2_r1_accepted_pending_M0_active_front_review
   map_binding:
     active_horizon: H1_playable_technical_nucleus
     current_gate: H1_G1_core_technical_foundation_decision_brief
     required_inside_current_gate_or_next_gate:
       - H1_G2_codex_development_operating_model_and_architecture_protocols
-  next_route: A1_AUDIT
-  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  next_route: M0_DIRECTION_MAP
+  next_route_mode: active_front_review_after_H1_G2_acceptance
   active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  last_completed_goal_id: first-technical-nucleus-functional-spec
-  last_completed_goal_result: r1_completed_verified_specification_accepted
+  last_completed_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  last_completed_goal_result: r1_accepted_goal_complete
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
   recommended_first_goal_candidate: H1_G2_codex_development_operating_model_and_architecture_protocols
@@ -51,19 +52,27 @@ current_phase:
 ```yaml
 active_goal_projection:
   goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  status: goal_shaped_pending_A1_audit
-  last_completed_goal_id: first-technical-nucleus-functional-spec
-  last_completed_goal_result: r1_completed_verified_specification_accepted
-  accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
-  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
+  status: r1_accepted_goal_complete
+  last_completed_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  last_completed_goal_result: r1_accepted_goal_complete
+  accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
-  recommended_next_stage: A1_AUDIT
-  review_scope: audit_existing_workflow_codex_project_setup_first_use_fit
-  completion_scope: functional_technical_specification_only
-  next_goal_candidate: H1_G2_codex_development_operating_model_and_architecture_protocols
-  goal_shape_note: "M0 selected H1_G2 as the active frontier node after R1 accepted the first technical nucleus functional specification."
+  recommended_next_stage: M0_DIRECTION_MAP
+  review_scope: active_front_review_after_H1_G2_acceptance
+  completion_scope: parent_goal_complete
+  next_goal_candidate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  goal_shape_note: "R1 accepted H1_G2 as a minimal profile/addendum; M0 must review the active frontier before selecting H1_G3 or another route."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
   implementation_allowed_now: false
+```
+
+```yaml
+phase_progress_gate_after_r1_H1_G2_acceptance:
+  result: active_front_review_needed
+  p9_allowed_now: false
+  next_route: M0_DIRECTION_MAP
+  reason: "H1_G2 accepted; active front must be reviewed before H1_G3, P9, G0, E1, bootstrap, or implementation."
 ```
 
 ```yaml
@@ -100,10 +109,10 @@ phase_closure_contract_status_update:
 
 - Active Phase unresolved: `no`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Phase route state: `active_H1_G2_goal_shaped_pending_A1_audit`
+- Active Phase route state: `active_H1_G2_r1_accepted_pending_M0_active_front_review`
 - Active Goal unresolved: `no`
 - Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal status: `goal_shaped_pending_A1_audit`
+- Active Goal status: `r1_accepted_goal_complete`
 - Last completed Goal: `first-technical-nucleus-functional-spec`
 - Last completed Goal status: `r1_completed_verified_specification_accepted`
 - Previous accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
@@ -116,7 +125,7 @@ phase_closure_contract_status_update:
 - Last closed Phase completed Goal status: `r1_reviewed_accepted`
 - Direction Map status: `initialized`
 - Map link: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief / H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Next route: `A1_AUDIT`
+- Next route: `M0_DIRECTION_MAP`
 - Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
@@ -129,11 +138,11 @@ Previous closed Phase proved the Expedition proof identity and rejected gas-only
 
 ## Next route
 
-Run `A1_AUDIT` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after G1 H1_G2 formalization repository maintenance apply/read-back and manual Project Files refresh.
+Run `M0_DIRECTION_MAP` after R1 H1_G2 acceptance repository maintenance apply/read-back and manual Project Files refresh.
 
-A1 must audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
+M0 must review the active frontier before selecting H1_G3 project/bootstrap/tool-binding/validation-scene readiness, P9, G0, E1, bootstrap, or implementation.
 
-A1 must not create a second Indie-only workflow layer. Do not proceed to P9, E1, project bootstrap, durable implementation planning, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
+Do not proceed to P9, E1, project bootstrap, durable implementation planning, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
 ## 2026-05-16 R1 Phase Progress Gate
 
@@ -161,4 +170,17 @@ Historical next route after R1 acceptance: `M0_DIRECTION_MAP`.
 
 Historical next route after M0 Objective Architecture migration: `G1_GOAL_SHAPE`.
 
-Current next route after G1 H1_G2 formalization: `A1_AUDIT`.
+Historical next route after G1 H1_G2 formalization: `A1_AUDIT`.
+
+Current next route after R1 H1_G2 acceptance: `M0_DIRECTION_MAP`.
+
+## 2026-05-20 R1 H1_G2 acceptance
+
+R1 accepted the H1_G2 Gas Coop Game Project Execution Profile as the
+minimal project-specific profile/addendum for existing workflow setup/Codex readiness.
+
+Phase Progress Gate result: `active_front_review_needed`.
+
+P9 is not launched. M0 must review the active frontier before selecting
+H1_G3 bootstrap/tool-binding/validation-scene readiness, P9, G0, E1,
+or any material execution route.

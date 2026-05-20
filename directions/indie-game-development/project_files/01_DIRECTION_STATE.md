@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_g1_H1_G2_formalization
+  source_freshness: active_git_file_after_r1_H1_G2_acceptance_pending_m0_review
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -34,13 +34,13 @@ direction:
   previous_active_phase_status: paused_superseded_not_closed
   previous_active_goal_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief"
   previous_active_goal_status: paused_superseded_partial_progress_not_accepted
-  last_completed_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec"
-  last_completed_goal_result: r1_completed_verified_specification_accepted
-  accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
-  active_goal_status: goal_shaped_pending_A1_audit
-  next_route: A1_AUDIT
-  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
-  last_updated: "2026-05-19"
+  last_completed_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols"
+  last_completed_goal_result: r1_accepted_goal_complete
+  accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
+  active_goal_status: r1_accepted_goal_complete
+  next_route: M0_DIRECTION_MAP
+  next_route_mode: active_front_review_after_H1_G2_acceptance
+  last_updated: "2026-05-20"
 ```
 
 ## Purpose / thesis
@@ -69,7 +69,7 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Core Co-op Technical Foundation Selection`
 - Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
-- Status: `active_H1_G2_goal_shaped_pending_A1_audit`
+- Status: `active_H1_G2_r1_accepted_pending_M0_active_front_review`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
@@ -78,13 +78,13 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Minimum Outcome: accepted or review-routed `Core Technical Foundation Decision Brief / Decision Map`.
 - Validation Signal: the next workflow state can choose R1 review, A1 audit, D1 research, S3 decision, or E1 execution planning without guessing and without premature implementation.
 - Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal status: `goal_shaped_pending_A1_audit`
-- Last completed Goal: `first-technical-nucleus-functional-spec`
-- Last completed Goal status: `r1_completed_verified_specification_accepted`
-- Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
+- Active Goal status: `r1_accepted_goal_complete`
+- Last completed Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Last completed Goal status: `r1_accepted_goal_complete`
+- Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`; old Grid/Gas material is reference/evidence only until requirements are clear.
-- Next route: `A1_AUDIT`
+- Next route: `M0_DIRECTION_MAP`
 
 ## Previous active Phase / Goal
 
@@ -108,14 +108,14 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `requires_refresh_after_g1_H1_G2_formalization_2026-05-19`
-- Required refresh: `before A1_AUDIT for H1_G2 after post-G1 projection reconciliation`
-- Current route: `A1_AUDIT`
+- Last refresh: `requires_refresh_after_r1_H1_G2_acceptance_2026-05-20`
+- Required refresh: `before M0_DIRECTION_MAP after R1 H1_G2 acceptance repository maintenance read-back`
+- Current route: `M0_DIRECTION_MAP`
 - Active Phase: `Core Co-op Technical Foundation Selection`
 - Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal status: `goal_shaped_pending_A1_audit`
-- Last completed Goal: `first-technical-nucleus-functional-spec`
-- Last completed Goal status: `r1_completed_verified_specification_accepted`
+- Active Goal status: `r1_accepted_goal_complete`
+- Last completed Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Last completed Goal status: `r1_accepted_goal_complete`
 - Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Direction Map status: `initialized`
 - Manual Project Files cache refresh required: `true`
@@ -188,7 +188,23 @@ g1_H1_G2_formalization:
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
   task_master_graph_allowed_now: false
-  key_correction: >
+key_correction: >
     H1_G2 is a first-use audit/fit-check of the existing workflow Codex/project
     setup procedure, not creation of a second workflow layer.
 ```
+
+## 2026-05-20 R1 accepted H1_G2 profile/addendum
+
+`H1_G2_codex_development_operating_model_and_architecture_protocols`
+is accepted as `completed_verified`.
+
+The accepted artifact is the Gas Coop Game Project Execution Profile:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+
+H1_G2 is complete only as an execution-readiness/profile addendum.
+It does not authorize Unity bootstrap, product repository creation, implementation,
+Codex product/project execution, Task Master graph creation, real internal tool setup,
+old-code transfer, or Game Documentation promotion.
+
+Next route: `M0_DIRECTION_MAP`.

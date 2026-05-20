@@ -5,20 +5,21 @@ artifact_control:
   artifact_name: "Phase Brief — Core Co-op Technical Foundation Selection"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_H1_G2_goal_shaped_pending_A1_audit
-  phase_status: active_H1_G2_goal_shaped_pending_A1_audit
+  status: active_H1_G2_r1_accepted_pending_M0_active_front_review
+  phase_status: active_H1_G2_r1_accepted_pending_M0_active_front_review
   active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  active_goal_status: goal_shaped_pending_A1_audit
+  active_goal_status: r1_accepted_goal_complete
   status_after_r1_first_technical_nucleus_spec: active_pending_m0_after_r1_acceptance
   status_after_m0_objective_architecture_migration: active_pending_g1_H1_G2_goal_shape
   status_after_g1_H1_G2_formalization: active_H1_G2_goal_shaped_pending_A1_audit
+  status_after_r1_H1_G2_acceptance: active_H1_G2_r1_accepted_pending_M0_active_front_review
   last_completed_goal:
-    goal_id: first-technical-nucleus-functional-spec
-    result: r1_completed_verified_specification_accepted
-    accepted_scope: functional_technical_specification_only
+    goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+    result: r1_accepted_goal_complete
+    accepted_scope: existing_workflow_plus_minimal_project_profile
   current_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
-  next_route: A1_AUDIT
-  next_route_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  next_route: M0_DIRECTION_MAP
+  next_route_mode: active_front_review_after_H1_G2_acceptance
   phase_progress_gate_status: completed_by_R1_then_m0_frontier_review_completed
   phase_closed: false
   p9_allowed_now: false
@@ -34,7 +35,7 @@ artifact_control:
 - Phase ID: `core-coop-technical-foundation-selection`
 - Phase name: `Core Co-op Technical Foundation Selection`
 - Direction: `Indie Game Development`
-- Status: `active_H1_G2_goal_shaped_pending_A1_audit`
+- Status: `active_H1_G2_r1_accepted_pending_M0_active_front_review`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 
@@ -210,11 +211,9 @@ candidate:
 
 ## Next route
 
-Run `A1_AUDIT` for `H1_G2_codex_development_operating_model_and_architecture_protocols` after G1 H1_G2 formalization repository maintenance apply/read-back and manual Project Files refresh.
+Run `M0_DIRECTION_MAP` after R1 H1_G2 acceptance repository maintenance apply/read-back and manual Project Files refresh.
 
-A1 must audit/fit-check the existing workflow Codex/project setup and execution-readiness procedure on first real use.
-
-A1 must not create a second Indie-only workflow layer. It must decide whether the existing workflow is sufficient, needs a minimal project-specific input/profile, needs Workflow Governance repair, or requires exact missing context.
+M0 must review the active frontier before selecting H1_G3 project/bootstrap/tool-binding/validation-scene readiness, P9, G0, E1, bootstrap, or implementation.
 
 Do not proceed to P9, E1, project bootstrap, durable technical nucleus implementation, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
@@ -379,6 +378,35 @@ Still not authorized:
 
 - Unity bootstrap;
 - implementation;
+- old-code transfer;
+- old-code audit as starting point;
+- Codex product/project execution;
+- Task Master graph creation;
+- real internal tool setup;
+- Game Documentation promotion.
+
+## 2026-05-20 R1 H1_G2 acceptance
+
+R1 accepted `H1_G2_codex_development_operating_model_and_architecture_protocols`
+as complete.
+
+Accepted artifact:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+
+Phase Progress Gate result: `active_front_review_needed`.
+
+Next route: `M0_DIRECTION_MAP`.
+
+Rationale: H1_G2 acceptance may unblock H1_G3 project/bootstrap/tool-binding/
+validation-scene readiness, but the active frontier must be reviewed before
+selecting H1_G3, P9, G0, E1, bootstrap, or implementation.
+
+Still not authorized:
+- Unity bootstrap;
+- implementation;
+- product repository creation;
+- product code;
 - old-code transfer;
 - old-code audit as starting point;
 - Codex product/project execution;

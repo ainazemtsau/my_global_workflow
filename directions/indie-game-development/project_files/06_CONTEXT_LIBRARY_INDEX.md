@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_g1_H1_G2_formalization
+projection_status: fresh_after_r1_H1_G2_acceptance_pending_m0_review
 activated_at: "2026-05-13"
 ```
 
@@ -56,42 +56,61 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - Status: `active_phase_brief_after_g1_H1_G2_formalization`
-  - Load for `A1_AUDIT` and any route working on the current Phase.
+  - Status: `active_phase_brief_after_r1_H1_G2_acceptance_pending_m0_review`
+  - Load for `M0_DIRECTION_MAP` and any route working on the current Phase.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
 
 ## Active Goal context
 
-Active Goal after G1 H1_G2 formalization:
+Active Goal after R1 H1_G2 acceptance:
 
 ```yaml
-active_goal_after_g1_H1_G2:
+active_goal_after_r1_H1_G2_acceptance:
   active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  active_goal_status: goal_shaped_pending_A1_audit
+  active_goal_status: r1_accepted_goal_complete
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+  accepted_profile_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
-  recommended_next_stage: A1_AUDIT
-  recommended_next_mode: audit_existing_workflow_codex_project_setup_first_use_fit
+  recommended_next_stage: M0_DIRECTION_MAP
+  recommended_next_mode: active_front_review_after_H1_G2_acceptance
 ```
 
-Load for A1 H1_G2 workflow fit-check:
+Load for M0 after R1 H1_G2 acceptance:
 
-- `workflow/stage_prompts/A1_AUDIT.md`
+- `workflow/stage_prompts/M0_DIRECTION_MAP.md`
   - Status: `required_stage_prompt`
-  - Reason: exact next stage prompt for the selected audit route.
+  - Reason: exact next stage prompt for active-front review.
+- `directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md`
+  - Status: `required_M0_context`
+- `directions/indie-game-development/project_files/01_DIRECTION_STATE.md`
+  - Status: `required_M0_context`
+- `directions/indie-game-development/project_files/02_CURRENT_PHASE.md`
+  - Status: `required_M0_context`
+- `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md`
+  - Status: `required_M0_context`
+- `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md`
+  - Status: `required_M0_context`
+- `directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md`
+  - Status: `required_M0_context`
+- `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+  - Status: `required_M0_context`
+- `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
+  - Status: `required_M0_context`
+- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
+  - Status: `required_M0_context`
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
-  - Status: `goal_shaped_pending_A1_audit`
-  - Reason: active H1_G2 Goal Contract.
+  - Status: `r1_accepted_goal_complete`
+  - Reason: accepted H1_G2 Goal Contract.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+  - Status: `accepted_profile_artifact`
+  - Reason: accepted H1_G2 profile/addendum.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
   - Status: `goal_execution_log`
-  - Reason: G1 formalization evidence and selected route.
-- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
-  - Status: `g1_H1_G2_formalization_delta_present`
-  - Reason: Direction Map active-front delta and A1 route evidence.
+  - Reason: R1 acceptance evidence and selected route.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - Status: `active_phase_brief_after_g1_H1_G2_formalization`
+  - Status: `active_phase_brief_after_r1_H1_G2_acceptance_pending_m0_review`
   - Reason: active Phase state and current route guardrails.
 
 ## Superseded Goal context
@@ -262,3 +281,17 @@ A1 must inspect or request exact workflow setup / Codex readiness sources, inclu
 A1 must not infer AGENTS.md, `.codex/config.toml`, Task Master, Serena, Basic Memory, validators, project/tool bindings, or product-repo local technical memory surfaces from governance notes. It must verify the existing workflow procedure or return Context Request with exact missing paths.
 
 Do not run implementation, Unity bootstrap, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, internal tool setup, or Game Documentation promotion.
+
+## Required context after R1 H1_G2 acceptance
+
+Recommended next stage: `M0_DIRECTION_MAP`.
+
+Recommended next mode: `active_front_review_after_H1_G2_acceptance`.
+
+M0 must review the active frontier after H1_G2 acceptance and decide whether
+H1_G3 project/bootstrap/tool-binding/validation-scene readiness, P9, G0,
+or another route is basis-valid.
+
+Do not run implementation, Unity bootstrap, old-code transfer, old-code audit,
+Codex product/project execution, Task Master graph creation, internal tool setup,
+or Game Documentation promotion.

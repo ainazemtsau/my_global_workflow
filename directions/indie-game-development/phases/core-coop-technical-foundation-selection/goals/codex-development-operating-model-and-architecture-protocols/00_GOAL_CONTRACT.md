@@ -5,7 +5,7 @@ artifact_control:
   artifact_name: "Goal Contract — H1_G2 Codex/project setup workflow fit-check"
   schema: goal_contract.v1
   owner_layer: persistence
-  status: goal_shaped_pending_A1_audit
+  status: r1_accepted_goal_complete
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
   direction_id: indie_game_development
   phase_id: core-coop-technical-foundation-selection
@@ -13,7 +13,10 @@ artifact_control:
   shaped_by_stage: G1_GOAL_SHAPE
   formalized_at: "2026-05-19"
   formalization_trigger: APPROVE_AND_FORMALIZE
-  next_stage: A1_AUDIT
+  reviewed_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
+  r1_reviewed_at: "2026-05-20"
+  r1_verdict: completed_verified
+  next_stage: M0_DIRECTION_MAP
   implementation_allowed: false
   unity_bootstrap_allowed: false
   codex_product_execution_allowed: false
@@ -280,6 +283,27 @@ This is a challenge/fit-check of an existing workflow procedure on first real us
 - Do not run old-code audit as starting point.
 - Do not promote Game Documentation.
 - Do not create a second workflow layer.
+
+## 10. R1 acceptance
+
+R1 accepted this Goal as `completed_verified`.
+
+Accepted outcome:
+
+`existing_workflow_plus_minimal_project_profile`
+
+Accepted artifact:
+
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+
+The accepted profile is a zero-state execution-readiness addendum for later bootstrap
+planning. It is not bootstrap, implementation, product execution, tool installation,
+or Game Documentation promotion.
+
+Next route: `M0_DIRECTION_MAP`.
+
+Reason: after H1_G2 acceptance, the active frontier must be reviewed before selecting
+H1_G3 project/bootstrap/tool-binding/validation-scene readiness or another route.
 
 ## End-of-file marker
 
