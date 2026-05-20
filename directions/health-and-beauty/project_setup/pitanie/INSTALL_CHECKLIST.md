@@ -1,13 +1,20 @@
-# Project Питание Install Checklist
+# Install checklist - superseded legacy file
 
-1. Create Project `Питание`.
-2. Paste `PROJECT_INSTRUCTIONS.md` into Project Instructions.
-3. Upload only required source `PITANIE_PROJECT_SOURCE.md` first.
-4. Optional: upload prior menus/preferences/equipment notes.
-5. Start new chat.
-6. Paste `BOOTSTRAP_PROMPT.md`.
-7. Validate output using `VALIDATION_PROMPTS.md`.
+Status: `SUPERSEDED_U1_REAL_UI_TEST_FAILED`
 
-Do not paste the full operating spec into Project Instructions. The full detailed source belongs in the uploaded `PITANIE_PROJECT_SOURCE.md` file.
+Do not install this checklist.
+
+Current installation source:
+
+```text
+directions/health-and-beauty/projects/nutrition/PROJECT_FILES_MANIFEST.md
+directions/health-and-beauty/projects/nutrition/CHATGPT_PROJECT_INSTRUCTIONS.md
+```
+
+Operator rule:
+
+1. Ignore this legacy directory during active setup.
+2. Use only the active manifest under `projects/nutrition`.
+3. Run the active real-start acceptance tests after manual Project UI setup.
 
 END_OF_FILE: directions/health-and-beauty/project_setup/pitanie/INSTALL_CHECKLIST.md

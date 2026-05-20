@@ -1,41 +1,55 @@
-# Project Питание v0
+# Project `Питание` - repo-backed multi-chat nutrition loop
 
-This folder is the repo-backed package for a standalone ChatGPT Project named `Питание`.
+Status: active clean rebuild after `U1_REAL_UI_TEST_FAILED`
 
-It is a manual-install package, not evidence that the Project has already been created in ChatGPT, not a live diet, and not clinical nutrition advice.
+This package is the active setup source for ChatGPT Project `Питание`.
 
-## Install Order
+It is not a live diet, not a menu prescription, and not clinical nutrition advice. It defines the operating architecture, Project Instructions, Project Files cache, durable GitHub state layout, save boundary, and acceptance tests.
 
-1. Create a ChatGPT Project named `Питание`.
-2. Paste `CHATGPT_PROJECT_INSTRUCTIONS.md` into the Project instructions field.
-3. Upload the six files in `project_files/` as the Project's durable source files.
-4. Keep `PROJECT_FILES_MANIFEST.md` as the package manifest.
-5. Use `protocols/DRY_RUN_ACCEPTANCE.md` to validate a fresh Project chat before relying on it.
-6. Use `protocols/CODEX_SAVE_OPERATOR.md` only when an approved state-update packet needs to be saved back to the repository.
+## Architecture
 
-## Runtime Shape
+```yaml
+source_of_truth:
+  durable_state: GitHub markdown files in directions/health-and-beauty/projects/nutrition/
+  chatgpt_project_files: refreshable runtime cache copied from GitHub
+  chat_memory: non_authoritative
+  codex: save_only_repository_maintenance_writer
+```
 
-Project `Питание` is a low-friction nutrition operating loop. It supports:
+Project `Питание` uses separate chats for separate jobs:
 
-- start or resume from durable state;
-- cycle/default menu planning from baseline and preferences;
-- meal, photo, or voice-style event intake with missing-answer defaults;
-- practical correction after off-menu eating or overeating;
-- day/week review;
-- compact `nutrition_state_update_packet.v1` output for approved saving.
+- Global Strategy Chat: first setup or rare strategy rebuild only; must create `DEEP_RESEARCH_REQUEST` before any final global plan.
+- Weekly Planning Chat: one week only; creates `WEEKLY_PLAN` and later closes the week from `WEEK_TRACKING_REPORT`.
+- Menu Chat: one week only; requires `WEEKLY_PLAN` and creates `ACTIVE_WEEK_MENU`, shopping list, and prep plan.
+- Tracking Chat: one week only; requires `WEEKLY_PLAN` and `ACTIVE_WEEK_MENU`; creates `WEEK_TRACKING_REPORT` at week end.
 
-## Boundaries
+## Install surface
 
-- No live user diet/menu is included in this package.
-- No heavy calorie or macro ledger is required by default.
-- No food database, API automation, external tracker, or app import is required.
-- No training, cardio, recovery, supplements, fasting, labs, or clinical protocol is included.
-- Codex Save Operator saves approved packets only; it does not interpret nutrition content or give nutrition advice.
+Use:
 
-## File Set
+```text
+CHATGPT_PROJECT_INSTRUCTIONS.md
+PROJECT_FILES_MANIFEST.md
+project_files/
+state/
+weeks/
+protocols/
+```
 
-The exact package file set is listed in `PROJECT_FILES_MANIFEST.md`.
+Do not use the superseded setup under:
 
-## End-of-file marker
+```text
+directions/health-and-beauty/project_setup/pitanie/
+```
 
-`END_OF_FILE: directions/health-and-beauty/projects/nutrition/README.md`
+## Validation
+
+Before treating the Project as usable, run the real-start prompts in:
+
+```text
+project_files/07_REAL_START_ACCEPTANCE_TESTS.md
+```
+
+Repo rebuild validation must prove required files, supersession anchors, prompt routing, Deep Research gate, one-week chat boundaries, tracking save default, and forbidden-path discipline.
+
+END_OF_FILE: directions/health-and-beauty/projects/nutrition/README.md

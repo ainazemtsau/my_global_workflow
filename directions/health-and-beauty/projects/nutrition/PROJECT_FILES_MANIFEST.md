@@ -1,38 +1,75 @@
-# Project Питание v0 Manifest
+# Project Files Manifest - Project `Питание`
 
-```yaml
-manifest:
-  schema: nutrition_project_manifest.v1
-  package_name: "Питание"
-  package_version: v0
-  package_root: directions/health-and-beauty/projects/nutrition
-  file_count: 11
-  package_files:
-    - directions/health-and-beauty/projects/nutrition/README.md
-    - directions/health-and-beauty/projects/nutrition/CHATGPT_PROJECT_INSTRUCTIONS.md
-    - directions/health-and-beauty/projects/nutrition/PROJECT_FILES_MANIFEST.md
-    - directions/health-and-beauty/projects/nutrition/project_files/00_NUTRITION_START_HERE.md
-    - directions/health-and-beauty/projects/nutrition/project_files/01_NUTRITION_BASE.md
-    - directions/health-and-beauty/projects/nutrition/project_files/02_MENU_PREFERENCES.md
-    - directions/health-and-beauty/projects/nutrition/project_files/03_ACTIVE_CYCLE.md
-    - directions/health-and-beauty/projects/nutrition/project_files/04_TRACKING_AND_EXCEPTIONS.md
-    - directions/health-and-beauty/projects/nutrition/project_files/05_REVIEW_AND_SYNC.md
-    - directions/health-and-beauty/projects/nutrition/protocols/CODEX_SAVE_OPERATOR.md
-    - directions/health-and-beauty/projects/nutrition/protocols/DRY_RUN_ACCEPTANCE.md
+Status: active clean rebuild
+
+Use this manifest for manual ChatGPT Project setup and refresh.
+
+## Project Instructions
+
+Paste this file into the ChatGPT Project Instructions field:
+
+```text
+directions/health-and-beauty/projects/nutrition/CHATGPT_PROJECT_INSTRUCTIONS.md
 ```
 
-## Upload Set For The ChatGPT Project
+## Upload as Project Files
 
-Upload the six files under `project_files/` as the Project source files. Keep the README, manifest, and protocol files in the repository as operator/setup references.
+Protocol/runtime cache:
 
-## Validation Expectations
+```text
+directions/health-and-beauty/projects/nutrition/project_files/00_NUTRITION_START_HERE.md
+directions/health-and-beauty/projects/nutrition/project_files/01_GLOBAL_STRATEGY_CHAT_PROTOCOL.md
+directions/health-and-beauty/projects/nutrition/project_files/02_WEEKLY_PLANNING_CHAT_PROTOCOL.md
+directions/health-and-beauty/projects/nutrition/project_files/03_MENU_CHAT_PROTOCOL.md
+directions/health-and-beauty/projects/nutrition/project_files/04_TRACKING_CHAT_PROTOCOL.md
+directions/health-and-beauty/projects/nutrition/project_files/05_STATE_SAVE_AND_REFRESH_PROTOCOL.md
+directions/health-and-beauty/projects/nutrition/project_files/06_CHAT_LAUNCHERS_AND_OUTPUT_FORMATS.md
+directions/health-and-beauty/projects/nutrition/project_files/07_REAL_START_ACCEPTANCE_TESTS.md
+```
 
-- The file set above is exact.
-- Project Instructions are pasted separately and are not a Project source upload.
-- The Project can operate from the six uploaded Project files without external process machinery.
-- Dry-run acceptance uses only synthetic inputs.
-- Codex Save Operator applies approved state packets only and gives no nutrition advice.
+Durable state cache copied from GitHub:
 
-## End-of-file marker
+```text
+directions/health-and-beauty/projects/nutrition/state/GLOBAL_NUTRITION_PLAN.md
+directions/health-and-beauty/projects/nutrition/state/USER_PROFILE_AND_CONSTRAINTS.md
+directions/health-and-beauty/projects/nutrition/state/NUTRITION_HISTORY.md
+directions/health-and-beauty/projects/nutrition/state/PROGRESS_METRICS.md
+directions/health-and-beauty/projects/nutrition/weeks/ACTIVE_WEEK_POINTER.md
+directions/health-and-beauty/projects/nutrition/weeks/current/WEEKLY_PLAN.md
+directions/health-and-beauty/projects/nutrition/weeks/current/ACTIVE_WEEK_MENU.md
+directions/health-and-beauty/projects/nutrition/weeks/current/WEEK_TRACKING_REPORT.md
+directions/health-and-beauty/projects/nutrition/weeks/current/WEEK_REVIEW.md
+directions/health-and-beauty/projects/nutrition/weeks/current/NEXT_WEEK_INPUTS.md
+```
 
-`END_OF_FILE: directions/health-and-beauty/projects/nutrition/PROJECT_FILES_MANIFEST.md`
+Operator protocols, request-only unless doing save or validation:
+
+```text
+directions/health-and-beauty/projects/nutrition/protocols/CODEX_SAVE_OPERATOR.md
+directions/health-and-beauty/projects/nutrition/protocols/DRY_RUN_ACCEPTANCE.md
+```
+
+## Explicitly Excluded
+
+Do not upload:
+
+```text
+directions/health-and-beauty/project_setup/pitanie/**
+directions/health-and-beauty/projects/nutrition/project_files/01_NUTRITION_BASE.md
+directions/health-and-beauty/projects/nutrition/project_files/01_NUTRITION_LOOP_PROTOCOL.md
+directions/health-and-beauty/projects/nutrition/project_files/02_MENU_PREFERENCES.md
+directions/health-and-beauty/projects/nutrition/project_files/02_STATE_AND_SAVE_PROTOCOL.md
+directions/health-and-beauty/projects/nutrition/project_files/03_ACTIVE_CYCLE.md
+directions/health-and-beauty/projects/nutrition/project_files/03_DRY_RUN_ACCEPTANCE.md
+directions/health-and-beauty/projects/nutrition/project_files/04_TRACKING_AND_EXCEPTIONS.md
+directions/health-and-beauty/projects/nutrition/project_files/05_REVIEW_AND_SYNC.md
+directions/health-and-beauty/projects/nutrition/state/ACTIVE_WEEK_MENU.md
+directions/health-and-beauty/projects/nutrition/state/CURRENT_NUTRITION_PLAN.md
+directions/health-and-beauty/projects/nutrition/state/REVIEW_AND_NEXT_WEEK.md
+directions/health-and-beauty/projects/nutrition/state/USER_NUTRITION_BASELINE.md
+directions/health-and-beauty/projects/nutrition/state/WEEK_TRACKING_REPORT.md
+```
+
+Those files are superseded compatibility stubs if still present.
+
+END_OF_FILE: directions/health-and-beauty/projects/nutrition/PROJECT_FILES_MANIFEST.md
