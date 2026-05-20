@@ -1,6 +1,6 @@
 # Deep Research Synthesis
 
-Status: draft_for_user_approval  
+Status: approved_synthesis_saved
 Mode: Global Strategy Chat — after Deep Research  
 Source result: `research/DEEP_RESEARCH_RESULT.md`  
 Date: 2026-05-20

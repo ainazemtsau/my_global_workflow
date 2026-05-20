@@ -1,6 +1,6 @@
 # Global Nutrition Plan
 
-Status: draft_for_user_approval  
+Status: approved_active_global_nutrition_plan
 Schema: global_nutrition_plan.v1  
 Date: 2026-05-20
 
@@ -9,13 +9,13 @@ Date: 2026-05-20
 ```yaml
 global_nutrition_plan:
   schema: global_nutrition_plan.v1
-  plan_status: draft_for_user_approval
+  plan_status: approved_active_global_nutrition_plan
   source_research:
     user_profile: state/USER_PROFILE_AND_CONSTRAINTS.yml
     deep_research_request: research/DEEP_RESEARCH_REQUEST.md
     deep_research_result: research/DEEP_RESEARCH_RESULT.md
     deep_research_synthesis: research/DEEP_RESEARCH_SYNTHESIS.md
-    user_approval: pending
+    user_approval: approved_global_nutrition_plan_save_packet
   external_write_claimed: false
 ```
 
@@ -539,4 +539,4 @@ Tracking Chat should not request GitHub writes after every food message. Durable
 
 ## Current approval status
 
-This plan is a draft. It should not be treated as saved durable state until the user approves and Codex returns read-back/diff evidence.
+This plan is approved and saved as durable global nutrition strategy state for weekly planning.

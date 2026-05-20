@@ -1,6 +1,6 @@
 # Deep Research Result
 
-Status: supplied_by_user_pending_save
+Status: saved_user_supplied_research_result
 Date received: 2026-05-20
 Source: uploaded `Pasted text.txt`
 
