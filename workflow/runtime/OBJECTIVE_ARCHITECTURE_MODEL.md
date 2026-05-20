@@ -478,6 +478,25 @@ execution_readiness:
   solution_shape_proven_or_not_required: true
 ```
 
+For product/project execution through Executor/Codex, execution readiness also requires:
+
+```yaml
+executor_handoff_readiness:
+  target_project_ref_explicit: true
+  executor_project_setup_status_known: true
+  executor_project_setup_status_acceptable: true
+  execution_work_package_or_equivalent_explicit: true
+  validation_and_return_contract_explicit: true
+```
+
+Acceptable setup status is `complete` or `complete_with_approved_fallback`. Core-only setup is acceptable.
+
+Stack-specific tuning is optional unless it is required to make validation or evidence possible.
+
+Executor Project Setup itself is a distinct setup action/capability and does not require prior completed project setup.
+
+This extension does not duplicate transport schemas and does not change stage registry authority.
+
 If these are false or unknown, execution must not proceed.
 
 ## Candidate comparison

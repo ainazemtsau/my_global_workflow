@@ -29,6 +29,8 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 | Lifecycle state reconciliation and Project Files semantic staleness | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` plus reporting rules in `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
 | Structural EOF/tail integrity for repository maintenance and read-back | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`, and `workflow/transport/REPOSITORY_PATCH.md` |
 | Objective architecture, horizon acceptance, active frontier, and next-action basis-validity | `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` |
+| Executor project execution design/contracts | `workflow/executor/*.md` |
+| Codex executor adapter | `workflow/executor/adapters/CODEX_ADAPTER.md` |
 | Stage identity, prompt path/status, target runtime, activation, and normal stage-to-stage transitions | `workflow/stage_registry/STAGE_REGISTRY.md` |
 | Stage-specific mission, inputs, gates, and constraints | exact file under `workflow/stage_prompts/<STAGE_ID>.md` |
 | Canonical packet schemas and transport templates | `workflow/transport/*.md` |
@@ -133,13 +135,22 @@ workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
 workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
 workflow/transport/CODEX_WAVE_CARD.md
 workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/EXECUTION_WORK_PACKAGE.md
+workflow/transport/EXECUTOR_SETUP_RESULT.md
+workflow/transport/EXECUTOR_RETURN_PACKET.md
 workflow/transport/RECOVERY_CLOSE_PACKET.md
 workflow/transport/USER_GUIDED_STEP_CARD.md
 ```
 
-Runtime core remains authority for behavior, precedence, approval/formalization, route process, Codex role separation, repository maintenance rules, and Project Files refresh/reporting rules.
+These templates own packet shape only.
+
+Executor design/contracts live under `workflow/executor/*.md`. The Codex executor adapter lives at `workflow/executor/adapters/CODEX_ADAPTER.md`.
+
+Runtime core remains authority for behavior, precedence, approval/formalization, route process, Executor/Codex role separation, repository maintenance rules, and Project Files refresh/reporting rules.
 
 Any route fields in transport files are snapshots only. They must not override `STAGE_REGISTRY.md`.
+
+Route fields in executor transport templates are snapshots or recommendations only. They must not override `workflow/stage_registry/STAGE_REGISTRY.md`.
 
 If a transport packet route snapshot conflicts with the registry, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop.
 
