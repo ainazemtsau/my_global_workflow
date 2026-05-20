@@ -129,7 +129,7 @@ B1 exists to prevent stalled work from drifting into speculation, broad redesign
 
 B1 may diagnose Codex-related blockers and route through a registry-valid owner when the required evidence supports that route. B1 does not start Codex product/project execution, create a Task Master graph, implement missing work, or modify product/project files.
 
-Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles help resolve blocker evidence and handoff quality, but they do not authorize product/project execution or bypass C1/C2 readiness gates.
+Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles help resolve blocker evidence and handoff quality, but they do not authorize product/project execution or bypass executor setup/run readiness gates. B1 routes unresolved executor setup/execution blockers to `E1_EXECUTION_BRIEF` when planning is needed, or to Context Request / Human Decision / Stop when safer.
 
 ## 1\. Core objective
 
@@ -364,7 +364,7 @@ Registry-valid B1 targets are:
 *   `R1_GOAL_REVIEW_DISTILL` — when the blocker is actually unresolved review/distill work with sufficient evidence.
 *   `Stop` — when continuation would be unsafe or unsupported.
 
-Needs that point to F0, D1, A1, C1, C2, R0, or Router are not normal B1 launch routes under the current registry. Record the desired correction and route through the smallest registry-valid owner or return a route-conflict artifact.
+Needs that point to F0, D1, A1, executor setup/run, recovery, or Router are not normal B1 launch routes under the current registry. Record the desired correction and route through the smallest registry-valid owner or return a route-conflict artifact.
 
 Do not route to Goal/Phase closure unless the closure stage has fresh required evidence. B1 itself does not close.
 

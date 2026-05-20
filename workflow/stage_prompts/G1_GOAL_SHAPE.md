@@ -127,9 +127,9 @@ Repository patch coupling: if `repository_patch.operations = []`, then `changed_
 
 ## 0.4 Codex Role Separation
 
-Codex product/project execution is blocked from G1. Do not run C1 or C2 from inside G1, create a Task Master graph, implement a product/game proof, write project code, or modify concrete product/project files from this stage.
+Executor/Codex product/project execution is blocked from G1. Do not run executor setup or executor product/project execution from inside G1, create a Task Master graph, implement a product/game proof, write project code, or modify concrete product/project files from this stage.
 
-G1 may only shape the Goal and emit a `stage_launch.v1` route for a later stage when the route is justified. Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and approved launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize product/project execution or bypass E1/C1/C2 readiness gates.
+G1 may only shape the Goal and emit a `stage_launch.v1` route for a later stage when the route is justified. If a shaped Goal needs executor setup or execution planning, route to `E1_EXECUTION_BRIEF`. Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and approved launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize product/project execution or bypass E1/executor readiness gates.
 
 ## 0\. Runtime identity
 
@@ -248,7 +248,7 @@ The Goal Contract must include compact proof-status lines:
 - MSSP status: not_required / inherited / proven_compact / missing_blocking / failed;
 - user example classification.
 
-If proof is missing or failed and material, return `B1_PROBLEM`, `S3_DECIDE`, Context Request, Human Decision, or Stop according to the registry. Do not route directly to C1 from G1 under the current registry.
+If proof is missing or failed and material, return `B1_PROBLEM`, `S3_DECIDE`, Context Request, Human Decision, or Stop according to the registry. Do not route directly to executor setup/run stages from G1 under the current registry.
 
 ## 3\. Immediate launch validation
 
@@ -406,7 +406,7 @@ Route rules:
 *   S3\_DECIDE is used when the human must choose among materially different valid shapes, routes, or scope cuts.
 *   D1\_DEEP\_RESEARCH is used when material external or technical uncertainty blocks safe Goal shape.
 *   A1\_AUDIT is used when source-of-truth conflict, stale context, correctness risk, or documentation conflict blocks safe execution.
-*   Codex-bound work routes through `E1_EXECUTION_BRIEF` under the current registry; G1 does not emit a direct C1 launch unless a future registry change authorizes it.
+*   Executor-bound work routes through `E1_EXECUTION_BRIEF` under the current registry; G1 does not emit direct executor setup/run launches.
 *   Context Request is used when required context is missing.
 *   Human Decision Card is used when the human owner must choose.
 *   Stop is used for invalid launch, unsafe instruction, stage-boundary violation, or accepted-state conflict.

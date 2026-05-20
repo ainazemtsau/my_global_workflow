@@ -178,8 +178,9 @@ Use these bias rules:
 *   If the user needs to choose among options, prefer S3\_DECIDE.
 *   If external evidence is required, prefer D1\_DEEP\_RESEARCH.
 *   If quality, risk, consistency, or correctness must be inspected, prefer A1\_AUDIT.
-*   If implementation planning is needed before Codex, prefer C1\_CODEX\_GRAPH\_PLAN.
-*   If an approved Codex plan/wave exists and execution is requested, prefer C2\_CODEX\_EXECUTE.
+*   If executor setup or execution planning is needed, prefer E1\_EXECUTION\_BRIEF.
+*   If setup is missing and setup readiness is valid, prefer X0\_EXECUTOR\_PROJECT\_SETUP.
+*   If setup is complete and an explicit Execution Work Package is ready, prefer X1\_EXECUTOR\_RUN.
 *   If closure/review/documentation maintenance is due, prefer R1\_GOAL\_REVIEW\_DISTILL or P9\_PHASE\_CLOSE.
 *   If state is confused, failed, partial, or unsafe, prefer R0\_RECOVERY\_CLOSE or stop.
 
@@ -366,7 +367,9 @@ Use these fallbacks:
 
 - If execution basis is missing: route to `E1_EXECUTION_BRIEF`.
 - If research/current external facts are needed: route to `D1_DEEP_RESEARCH`.
-- If implementation needs decomposition or multi-file/multi-tool coordination: route to `C1_CODEX_GRAPH_PLAN`.
+- If executor setup is missing and the safe next action is setup, route to `X0_EXECUTOR_PROJECT_SETUP` only when readiness and prompt delivery are valid.
+- If setup is complete and an explicit Execution Work Package exists, route to `X1_EXECUTOR_RUN` only when readiness and prompt delivery are valid.
+- If executor setup/run planning is still needed, route to `E1_EXECUTION_BRIEF`.
 - If the problem or scope is unclear: route to `B1_PROBLEM` or `G1_GOAL_SHAPE`.
 - If user-owned tradeoff is material: return Human Decision.
 - If blocking context is missing: return Context Request.
@@ -464,24 +467,27 @@ Route to A1\_AUDIT when:
 *   an existing artifact must be reviewed;
 *   the desired output is findings, issues, or validation.
 
-### 6.6 Codex graph plan
+### 6.6 Executor planning and setup
 
-Route to C1\_CODEX\_GRAPH\_PLAN when:
+Route to E1\_EXECUTION\_BRIEF when executor setup/run planning is still needed.
 
-*   implementation planning is required before Codex execution;
-*   files, tasks, dependencies, or graph/wave structure must be designed;
-*   the work is not yet ready for direct Codex execution.
+Route to X0\_EXECUTOR\_PROJECT\_SETUP only when:
 
-### 6.7 Codex execute
+*   setup is missing and the safe next action is setup;
+*   target project/workspace identity is explicit enough for setup;
+*   prompt delivery and readiness are valid.
 
-Route to C2\_CODEX\_EXECUTE only when:
+### 6.7 Executor run
 
-*   an approved Codex Wave Card or implementation plan exists;
+Route to X1\_EXECUTOR\_RUN only when:
+
+*   Executor Project Setup is complete or complete with approved fallback;
+*   an explicit Execution Work Package exists;
 *   execution scope is clear;
-*   target repository/system is known;
+*   target project/workspace is known;
 *   validation expectations are defined.
 
-If these are missing, do not route to C2\_CODEX\_EXECUTE. Route to C1\_CODEX\_GRAPH\_PLAN or emit a Context Request.
+If these are missing, route to E1\_EXECUTION\_BRIEF or emit a Context Request.
 
 ### 6.8 Recovery
 
@@ -610,7 +616,7 @@ On fail: choose the smaller route.
 
 Question: Is acceptance clear enough for the selected stage?
 
-If selected stage is execution-like (F0\_FAST\_DIRECT, C1\_CODEX\_GRAPH\_PLAN, C2\_CODEX\_EXECUTE), acceptance must be clear.
+If selected stage is execution-like (F0\_FAST\_DIRECT, X0\_EXECUTOR\_PROJECT\_SETUP, X1\_EXECUTOR\_RUN), acceptance must be clear.
 
 If acceptance is vague: route to G1\_GOAL\_SHAPE or E1\_EXECUTION\_BRIEF.
 
@@ -665,7 +671,7 @@ Common Context Request cases:
 *   missing current Launch Card;
 *   missing latest Stage Result Packet;
 *   missing Stage Interface Registry;
-*   missing Codex Wave Card for C2\_CODEX\_EXECUTE;
+*   missing Execution Work Package for X1\_EXECUTOR\_RUN;
 *   missing file read-back / diff verification / commit verification needed to resolve a conflict;
 *   missing Project Files required by current rebuild/workflow step.
 

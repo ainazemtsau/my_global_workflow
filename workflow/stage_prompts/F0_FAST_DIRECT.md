@@ -188,7 +188,7 @@ You must preserve the black-box stage boundary:
 
 ## 0.1 Codex Role Separation
 
-F0 is a guarded small approved direct execution stage, but it is not the Codex product/project execution route. Do not create a Task Master graph, change project/tool bindings, or use F0 to bypass C1/C2 when product/project execution requires Codex planning or execution.
+F0 is a guarded small approved direct execution stage, but it is not the executor product/project execution route. Do not create a Task Master graph, change project/tool bindings, run executor setup, or use F0 to bypass executor setup/run readiness when product/project execution requires Executor/Codex planning or execution.
 
 Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles do not authorize broader implementation, product/project execution beyond the F0-approved slice, or any forbidden path/tool-binding change.
 
@@ -430,7 +430,7 @@ Route guidance:
 - Use `U1_USER_GUIDED_EXECUTION` when the failed readiness item is human external operation and the registry allows F0 to route to U1.
 - Otherwise route to `E1_EXECUTION_BRIEF` with a recommendation to select U1.
 - Do not emit a direct `D1_DEEP_RESEARCH` launch from F0 under the current registry. Route to `E1_EXECUTION_BRIEF` or `B1_PROBLEM` with `research_required_or_unknown`.
-- Use `C1_CODEX_GRAPH_PLAN` only through E1 or B1 unless registry explicitly allows direct F0->C1.
+- If executor setup, executor run, graph/task planning, product/project execution, or Codex adapter work is needed, route to `E1_EXECUTION_BRIEF` or another registry-valid correction.
 - If missing blocking context would resolve readiness, use the smallest registry-valid fallback and report `REGISTRY_REVIEW_CANDIDATE` if a Context Request artifact is required.
 - If the user must choose risk/scope, use the smallest registry-valid fallback and report `REGISTRY_REVIEW_CANDIDATE` if a Human Decision artifact is required.
 - Stop when launch is unsafe or contradictory.
@@ -624,7 +624,7 @@ Trigger this gate when any are true:
 On trigger, F0 must either:
 
 - return to `E1_EXECUTION_BRIEF` for a better execution brief;
-- recommend `C1_CODEX_GRAPH_PLAN` through E1/B1 if decomposition is needed;
+- recommend `E1_EXECUTION_BRIEF` when executor decomposition, setup, or execution planning is needed;
 - route to `E1_EXECUTION_BRIEF` or `B1_PROBLEM` when current external/tool facts are needed;
 - use the smallest registry-valid fallback for exact missing context and report `REGISTRY_REVIEW_CANDIDATE` if a Context Request artifact is required.
 

@@ -145,18 +145,17 @@ Cut scope until the next route feels slightly smaller than instinct wants, as lo
 
 Do not choose the interesting route merely because it is intellectually attractive.
 
-Do not choose Deep Research, Audit, or Codex planning unless the input proves that lighter routes are unsafe or insufficient.
+Do not choose Deep Research, Audit, or executor planning unless the input proves that lighter routes are unsafe or insufficient.
 
 2. Hard boundaries
 
 You must not:
 
 execute the work;
-start Codex work directly;
-must not route directly to C2_CODEX_EXECUTE;
+start Executor/Codex work directly;
+route directly to executor setup/run stages;
 write D1 research output;
 write A1 audit output;
-write C1 Codex graph plan output;
 write E1 execution brief output;
 write F0 execution output;
 write R1 review output;
@@ -320,7 +319,7 @@ Every material S3 output must close with:
 - why Execution Brief is / is not needed:
 - why Deep Research is / is not needed:
 - why Audit is / is not needed:
-- why Codex Graph Plan is / is not needed:
+- why executor setup/execution planning is / is not needed:
 - rejected interesting/rabbit-hole additions:
 
 ## 2.1 Decision readiness

@@ -14,7 +14,7 @@ artifact_control:
 
 AD-WF-RT-001 applies. `workflow/stage_registry/STAGE_REGISTRY.md` owns stage identity and route validity. `workflow/transport/*.md` owns packet shape. Runtime behavior remains in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 
-X1 is the registered executor execution stage. It replaces active `C2_CODEX_EXECUTE` usage. C1/C2 are not compatibility paths.
+X1 is the registered executor execution stage. Normal product/project execution uses X1 through the Executor Project Execution Core.
 
 ## Mission
 
