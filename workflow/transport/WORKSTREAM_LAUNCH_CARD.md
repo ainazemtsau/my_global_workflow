@@ -75,7 +75,7 @@ dependency_policy:
 
 artifact_policy:
   heavy_artifact_expected: true | false
-  artifact_type: research_report | audit_report | decision_input | implementation_brief | codex_graph | other
+  artifact_type: research_report | audit_report | decision_input | implementation_brief | executor_work_package | executor_execution_plan | other
   return_full_artifact_to_parent: false
   parent_must_read_full_artifact: false
   artifact_persistence:

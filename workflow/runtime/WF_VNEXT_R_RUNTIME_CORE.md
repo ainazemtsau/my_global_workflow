@@ -15,7 +15,7 @@ One ChatGPT Project = one Direction.
 
 Material strategic work must be basis-valid, not only route-valid. Horizon selection, active frontier selection, Goal selection, and material audit/research/execution launch must follow `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the next work depends on strategic choice, unresolved surfaces, external evidence, old-source audit, implementation readiness, or Direction Map state.
 
-Material solution-shape selection must be solution-minimal, not only basis-valid. Goal shaping, execution planning, architecture/process selection, artifact/template creation, workstream topology, chat splitting, and Codex execution envelopes must use `Minimum Sufficient Solution Proof` from `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the chosen form of solution is material, when low burden is a stated constraint, when multiple implementation paths exist, or when user-provided examples may anchor the solution shape.
+Material solution-shape selection must be solution-minimal, not only basis-valid. Goal shaping, execution planning, architecture/process selection, artifact/template creation, workstream topology, chat splitting, and Executor execution envelopes must use `Minimum Sufficient Solution Proof` from `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the chosen form of solution is material, when low burden is a stated constraint, when multiple implementation paths exist, or when user-provided examples may anchor the solution shape.
 
 Basis-valid work may still be rejected when the selected solution shape is overbuilt, undercut, anchored to nonbinding user examples, or violates the dominant constraint.
 
@@ -491,7 +491,7 @@ For `gated_sequential` continuation:
 
 ## Branch / Workstream Execution Topology
 
-Large or multi-surface Goals must not be forced through one monolithic execution thread when the Goal mixes materially different work types such as research, audit, decision, architecture, Codex planning, and synthesis.
+Large or multi-surface Goals must not be forced through one monolithic execution thread when the Goal mixes materially different work types such as research, audit, decision, architecture, executor planning, and synthesis.
 
 This runtime uses branch/workstream execution as an E1-owned execution-planning mechanism.
 
@@ -509,7 +509,7 @@ A branch is not an Active Goal. A branch must not close the parent Goal, run par
 `E1_EXECUTION_BRIEF` must reject monolithic execution and consider branch/workstream topology when any of these are true:
 
 - the shaped Goal has multiple materially different work surfaces;
-- the shaped Goal mixes research, audit, decision, synthesis, architecture, or Codex planning;
+- the shaped Goal mixes research, audit, decision, synthesis, architecture, or executor planning;
 - current/external facts are required;
 - old source/code/docs require audit or challenge;
 - a human-owned tradeoff may block final synthesis;
@@ -517,7 +517,7 @@ A branch is not an Active Goal. A branch must not close the parent Goal, run par
 - independent workstreams can produce bounded evidence;
 - parent Goal acceptance depends on evidence from separate domains;
 - F0 readiness criteria are false or unknown;
-- Codex execution requires graph/wave planning.
+- executor execution requires work-package, task-graph, or wave planning.
 
 If F0 is unsafe but the Goal can be decomposed into bounded workstreams, E1 should produce a topology preview or Topology Launch Bundle instead of one monolithic launch.
 
@@ -531,7 +531,7 @@ gated_sequential
 parallel_workstreams
 parallel_then_gated_synthesis
 decision_map
-codex_graph
+executor_work_package
 human_decision_blocked
 ```
 
@@ -1654,7 +1654,7 @@ Use Fast when:
 *   reversible;
 *   one clear output;
 *   acceptance obvious;
-*   no Codex graph needed;
+*   no executor work package needed;
 *   no durable strategic change;
 *   no external evidence gap.
 
