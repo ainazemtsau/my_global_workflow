@@ -212,7 +212,7 @@ D1 must not:
 *   execute implementation work;
 *   write code as the main deliverable;
 *   start Codex work;
-*   must not route directly to C2\_CODEX\_EXECUTE;
+*   must not route directly to executor setup/run stages;
 *   mutate GitHub repository;
 *   update Project Files directly;
 *   create durable Knowledge / Canon entries directly;
@@ -452,7 +452,7 @@ Good D1 synthesis answers:
 *   What should the next stage preserve from this evidence?
 *   What should the next stage explicitly not do?
 
-Do not produce a full implementation plan. If implementation planning is needed, route to `E1_EXECUTION_BRIEF`; E1 owns the registry-valid choice of F0, U1, or C1 when execution framing is required.
+Do not produce a full implementation plan. If implementation planning is needed, route to `E1_EXECUTION_BRIEF`; E1 owns the registry-valid choice of F0, U1, X0, or X1 when execution framing is required.
 
 Do not produce a broad strategy unless the launch explicitly requests a research-backed strategy decision and the scope contract is bounded.
 
@@ -464,10 +464,10 @@ D1 may recommend these registry-valid normal next routes:
 
 *   **S3_DECIDE:** when the evidence supports a decision but a stage route or tradeoff must be selected.
 *   **G1_GOAL_SHAPE:** when evidence should shape or revise a Goal Contract.
-*   **E1_EXECUTION_BRIEF:** when evidence is sufficient to create a concise execution plan or when F0/U1/C1 may be needed next.
+*   **E1_EXECUTION_BRIEF:** when evidence is sufficient to create a concise execution plan or when F0, U1, executor setup, or executor run may be needed next.
 *   **Stop:** when proceeding would be unsafe, misleading, out of scope, or unsupported.
 
-D1 must not route directly to F0, A1, C1, C2, R1, P0, or G0 under the current registry. Preserve the evidence and route to E1, G1, S3, or Stop as appropriate. If blocking context or a human-owned choice requires an artifact not currently registry-valid for D1, report `REGISTRY_REVIEW_CANDIDATE` instead of inventing a prompt-local route.
+D1 must not route directly to F0, A1, executor setup/run stages, R1, P0, or G0 under the current registry. Preserve the evidence and route to E1, G1, S3, or Stop as appropriate. If blocking context or a human-owned choice requires an artifact not currently registry-valid for D1, report `REGISTRY_REVIEW_CANDIDATE` instead of inventing a prompt-local route.
 
 Emit exactly one terminal card:
 

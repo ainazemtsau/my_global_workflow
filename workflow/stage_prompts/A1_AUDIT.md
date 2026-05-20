@@ -199,7 +199,7 @@ You must not:
 
 *   execute implementation work;
 *   start Codex work;
-*   call for C2\_CODEX\_EXECUTE directly from an audit defect;
+*   call executor setup/run stages directly from an audit defect;
 *   mutate GitHub repository;
 *   mutate Project Files;
 *   write or revise runtime prompts for other stages;
@@ -448,7 +448,7 @@ Route rules:
 *   FAIL routes to repair, recovery, rerun, or human decision.
 *   NEEDS\_INPUT routes to the smallest registry-valid missing-context repair; if the needed repair artifact is not registry-valid for A1, report `REGISTRY_REVIEW_CANDIDATE` and Stop.
 *   STOP emits no execution route.
-*   Never route directly to C2\_CODEX\_EXECUTE from an audit defect.
+*   Never route directly to executor setup/run stages from an audit defect. If audit conclusions require executor setup/run planning, route to `E1_EXECUTION_BRIEF` or another registry-valid route.
 *   Never start Codex work.
 
 ### Pass 9 — Expanded Kernel QA

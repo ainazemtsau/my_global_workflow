@@ -258,7 +258,7 @@ Required input artifacts:
 *   Goal identifier/title/status.
 *   G1 Goal Contract or G1 Stage Result Packet, unless the launch explicitly states why it is unavailable.
 *   E1 Execution Brief or equivalent execution basis, unless the launch explicitly states why it is unavailable.
-*   At least one upstream execution/result packet, such as F0\_FAST\_DIRECT, C2\_CODEX\_EXECUTE, D1\_DEEP\_RESEARCH, A1\_AUDIT, B1\_PROBLEM, or equivalent.
+*   At least one upstream execution/result packet, such as F0\_FAST\_DIRECT, X1\_EXECUTOR\_RUN, D1\_DEEP\_RESEARCH, A1\_AUDIT, B1\_PROBLEM, or equivalent.
 *   Artifact/file read-back / diff verification / commit verification/test evidence, or an explicit statement that this evidence is missing, pending, or not applicable.
 *   Current forbidden-scope constraints.
 *   Current freshness/source-of-truth state.
@@ -293,7 +293,7 @@ If required evidence is missing or contradicted, do not close the Goal. Produce 
 
 R1 must not:
 
-*   execute missing F0/C2/E1/G1 work;
+*   execute missing F0/executor/E1/G1 work;
 *   produce artifacts that the upstream execution stage failed or refused to create;
 *   write common canon;
 *   roll out cross-Direction behavior;
@@ -304,6 +304,8 @@ R1 must not:
 *   overwrite old active Workflow vNext;
 *   treat stale Project Files as canonical when fresher evidence conflicts;
 *   launch P9 unless Goal review indicates closure or phase-close consideration is valid.
+
+If review finds further executor setup/run is needed, route to `E1_EXECUTION_BRIEF` rather than attempting setup or execution from R1.
 
 R1 may identify Knowledge/Canon Candidates, but only as candidates in the public packet. It must not promote them to canon.
 
