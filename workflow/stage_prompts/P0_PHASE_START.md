@@ -1,4 +1,4 @@
-# P0\_PHASE\_START — Final Runtime Stage Prompt
+# P0\_PHASE\_START — Phase Start Runtime Stage Prompt
 
 artifact_control:
   artifact_name: "P0_PHASE_START Runtime Stage Prompt"
@@ -92,7 +92,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 P0 must preview Phase substance before repository_patch.v1 operations. Material Phase framing must show alternatives and why not alternatives. P0 must not create an active-phase repository patch before approval unless direct formalization is explicitly approved.
 
@@ -233,6 +233,28 @@ If `08_DIRECTION_MAP.md` is uninitialized and strategic Phase choice depends on 
 If current Phase continuation is clear and the uninitialized map is nonblocking, P0 may proceed only with an explicit note that M0 migration/review remains required before material strategic Phase/Goal selection.
 
 P0 must not populate, repair, or update `08_DIRECTION_MAP.md`.
+
+## 1.4 Phase basis-validity gate
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for basis-validity, Horizon Acceptance Proof, Active Frontier, Next Action Proof, and local-repair exceptions.
+
+Before proposing a materially new Phase or materially reframing a Phase, P0 must link the proposed Phase to:
+
+- Direction objective/current initiative when known;
+- accepted horizon, or an explicit reason horizon is not required for this local/repair Phase;
+- Active Front / Horizon Slice / map node when `08_DIRECTION_MAP.md` is initialized and relevant;
+- Phase Memory anti-duplicate evidence.
+
+P0 must not create a new Phase solely because no active Phase exists if no concrete delta from the previous Phase exists. If strategic Phase choice depends on horizon/frontier and the Objective Architecture basis is missing, stale, false, or contradictory, route to `M0_DIRECTION_MAP` or return Context Request instead of inventing the Phase.
+
+If the Phase is local repair or continuation and map state is nonblocking, P0 may proceed with explicit basis-validity status `not_required_for_local_repair` and a nonblocking map note.
+
+Every material Phase recommendation must include compact basis lines:
+
+- Map link:
+- Почему это не повтор прошлой фазы:
+- Basis-validity status: inherited / proven / blocked / not_required_for_local_repair
+- next_action_proof status for the next material stage: inherited / proven_compact / missing_blocking / not_required_for_local_repair
 
 ## 2\. Progressive Decision Brief behavior
 
@@ -542,20 +564,16 @@ Do not create a backlog. Do not produce more than three candidates. Do not inclu
 
 ### Pass 9 — Route selection
 
-Choose the next route.
+Choose the next route. Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired route is not registry-valid for P0, return route-conflict Context Request, B1_PROBLEM, Human Decision, or Stop; do not execute downstream work inside P0.
 
-Allowed default routes:
+Registry-valid normal P0 launch targets are:
 
-*   `G1_GOAL_SHAPE` — use when one recommended first Goal is clearly highest leverage.
+*   `I0_CAPTURE` — use when the next safe action is intake/capture before Goal selection.
+*   `M0_DIRECTION_MAP` — use when strategic Phase/Goal choice depends on missing, stale, disputed, or uninitialized map context.
 *   `G0_GOAL_SELECT` — use when multiple first Goal candidates are plausible and selection genuinely matters.
-*   `F0_FAST_DIRECT` — use when Phase machinery would be overhead and the next action is small, safe, and direct.
-*   `D0_DIRECTION_SETUP` — use when Direction context is insufficient or no stable Direction exists.
-*   `S3_DECIDE` — use when a strategic tradeoff must be decided before Phase start.
-*   `Human Decision` — use when user preference, authority, irreversible commitment, or conflicting current state must be resolved by the user.
-*   `R0_RECOVERY_CLOSE` — use when state corruption, contradictory active Phase status, or stale context prevents safe continuation.
-*   `Stop` — use when the request is not a valid P0 runtime request or would cause unsafe workflow state.
+*   `G1_GOAL_SHAPE` — use when one recommended first Goal is clearly highest leverage and should be shaped before execution.
 
-Default route is `G1_GOAL_SHAPE` if one first Goal is clearly best and execution prerequisites are satisfied.
+Default route is `G1_GOAL_SHAPE` only when one first Goal is clearly best, context is fresh, and registry validation passes.
 
 ### Pass 10 — Documentation maintenance assessment
 
@@ -728,6 +746,9 @@ Use this only when the user says `APPROVE AND FORMALIZE`, the Launch Card explic
 - Phase ID:
 - Phase name:
 - Phase status:
+- Map link:
+- Почему это не повтор прошлой фазы:
+- Basis-validity status:
 - Current Critical Constraint:
 - Minimum Outcome:
 - Validation signal:
@@ -769,6 +790,7 @@ Recommended first Goal:
 - Target stage:
 - Target stage name:
 - Route reason:
+- Next Action Proof status:
 - Context to load:
 - Context to ignore or treat as stale:
 - Stop conditions for the next stage:

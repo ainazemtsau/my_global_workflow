@@ -41,7 +41,7 @@ direction_map_status:
     source_ref: "codex/direction-health-and-beauty"
     patch_id: health_beauty_objective_architecture_migration_2026_05_19
   corrected_state:
-    summary: "Objective Architecture migration corrected the Direction Objective to outcome-first; AI/ChatGPT/Project/app/storage are optional tools, and the prior Project `Питание` E1 path is stale/blocked pending S3_DECIDE."
+    summary: "G1 formalized the repaired repo-backed multi-chat Project `Питание` nutrition loop; E1 execution planning is pending repository maintenance/read-back and Project Files refresh."
     blocks:
       - P9_PHASE_CLOSE
       - claiming_working_project_pitanie_exists
@@ -103,9 +103,9 @@ initiative_registry:
     active_goal_binding:
       goal_id: nutrition-project-operational-setup-v0
       goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
-      goal_name: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
-      status: blocked_stale_not_basis_valid_pending_decision
-      binding_reason: "The Goal remains historical/current input only until S3 decides whether Project `Питание` is kept, repaired, reduced, or superseded."
+      goal_name: "Починить Project `Питание` как repo-backed multi-chat nutrition loop"
+      status: goal_shaped_pending_E1
+      binding_reason: "G1 repaired the Goal into a repo-backed multi-chat Project `Питание` nutrition loop; E1 must plan implementation and validation."
     current_risk:
       - "The prior Project `Питание` setup/E1 path can be mistaken for a basis-valid current route."
       - "Broad health/fitness optimization can easily become overbuilt unless S3 narrows the nutrition loop and tooling policy first."
@@ -143,7 +143,7 @@ strategy_basis:
     - path_id: parallel_training_cardio_before_nutrition_loop_decision
       verdict: parked
       rationale: "Adds scope before the nutrition loop shape and tooling policy are basis-valid."
-  selected_path_rationale: "Run S3_DECIDE on minimal nutrition loop shape and tool/container policy; do not claim operational completion or route to Phase close."
+  selected_path_rationale: "Run E1_EXECUTION_BRIEF on the repaired repo-backed multi-chat Project `Питание` nutrition loop Goal; do not claim operational completion or route to Phase close."
   major_assumptions:
     - "User can sustain a strict process if the process is clear and routine work is offloaded."
     - "Low-burden execution is more important than perfect measurement at the current stage."
@@ -168,7 +168,7 @@ compact_initiative_graph:
       initiative_id: body-transformation-20kg-strength-health
       label: "Decide minimal nutrition loop shape and tool/container policy"
       type: active_front
-      status: decision_required
+      status: implementation_goal_shaped_pending_E1
       purpose: "Choose the minimal low-friction nutrition loop and the tool/container mix before shaping or executing any implementation Goal."
       success_signal:
         - "S3_DECIDE selects whether Project `Питание` is kept, repaired, reduced, or superseded."
@@ -240,9 +240,9 @@ active_front:
   primary_node: d_nutrition_loop_shape_and_tooling
   reason: "This is the smallest credible path because it repairs the stale Project `Питание` route, preserves useful prior artifacts as input, and avoids a broad restart."
   current_route_binding:
-    route_state: decision_required_before_execution_planning
-    route: S3_DECIDE
-    rule: "Decide minimal nutrition loop shape and tool/container policy before any repaired/new Goal or execution brief."
+    route_state: execution_brief_required_after_repaired_goal_shape
+    route: E1_EXECUTION_BRIEF
+    rule: "Run E1 only after repository maintenance/read-back and Project Files refresh."
   parallel_candidate_nodes: []
   parked_nodes:
     - n3_training_cardio_recovery_decision_slice

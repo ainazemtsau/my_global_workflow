@@ -54,7 +54,7 @@ parent_relevant_findings:
 artifact:
   produced: true | false
   title:
-  type: research_report | audit_report | decision_input | implementation_brief | codex_graph | other
+  type: research_report | audit_report | decision_input | implementation_brief | executor_work_package | executor_execution_plan | other
   persistence_mode: ephemeral_chat | attached_file | repository_path_after_approval | codex_verified_export | not_persisted_summary_only
   pointer:
   parent_accessible_now: true | false

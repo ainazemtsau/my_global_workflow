@@ -135,3 +135,77 @@ execution_log_entry:
     - Task Master graph creation
     - Game Documentation promotion
 ```
+
+## 2026-05-19 G1 H1_G2 formalization
+
+```yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+log_type: stage_execution
+stage_id: G1_GOAL_SHAPE
+result: goal_shaped
+goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
+goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
+selected_next_stage: A1_AUDIT
+route_reason: >
+  Existing workflow Codex/project setup procedure must be audited on first
+  real use before bootstrap/tool-binding readiness, implementation planning,
+  or Codex product/project execution.
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+unity_bootstrap_allowed_now: false
+task_master_graph_allowed_now: false
+```
+
+---
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  stage_id: repository_maintenance
+  date: "2026-05-19"
+  event: post_g1_H1_G2_A1_projection_reconciliation
+  summary: >
+    Reconciled Direction Project Files and Phase Brief after G1 formalized
+    H1_G2_codex_development_operating_model_and_architecture_protocols and
+    selected A1_AUDIT as the next route. This repair prevents stale
+    post-R1/pre-M0 and post-M0/pre-G1 projections from routing back to
+    M0_DIRECTION_MAP or G1_GOAL_SHAPE.
+  source_basis:
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md
+    - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+    - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md
+  lifecycle_state_reconciliation:
+    required: true
+    trigger:
+      - next_route_changed
+      - active_goal_lifecycle_state_changed
+      - direction_map_active_front_changed
+      - project_files_stale_against_fresh_evidence_detected
+    lifecycle_delta:
+      active_goal_state_from: none_pending_g1_goal_shape
+      active_goal_state_to: goal_shaped_pending_A1_audit
+      next_route_from: G1_GOAL_SHAPE
+      next_route_to: A1_AUDIT
+      phase_projection_changed: true
+      phase_progress_gate_run: already_run_by_R1_before_M0
+      implementation_allowed_now: false
+    runtime_projection_policy:
+      selected: update_runtime_state_files
+      reason: >
+        Current repository evidence already contains G1 H1_G2 formalization and
+        A1 route, while some projection fields still pointed to older M0/G1 states.
+  next_route: A1_AUDIT
+  not_authorized:
+    - Unity project bootstrap
+    - implementation
+    - old-code transfer
+    - old-code audit as starting point
+    - Codex product_project_execution
+    - Task Master graph creation
+    - real internal tool setup
+    - Game Documentation promotion
+```

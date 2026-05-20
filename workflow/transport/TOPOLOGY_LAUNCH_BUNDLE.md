@@ -44,7 +44,7 @@ topology:
   topology_id:
   parent_goal_id:
   parent_goal_title:
-  selected_topology: single_direct | gated_sequential | parallel_workstreams | parallel_then_gated_synthesis | decision_map | codex_graph | human_decision_blocked
+  selected_topology: single_direct | gated_sequential | parallel_workstreams | parallel_then_gated_synthesis | decision_map | executor_work_package | human_decision_blocked
   reason_monolithic_execution_rejected:
   parent_stage: E1_EXECUTION_BRIEF
 

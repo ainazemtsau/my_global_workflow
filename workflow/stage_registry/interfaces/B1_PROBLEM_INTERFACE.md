@@ -88,14 +88,14 @@ Required B1 output artifacts:
 
 B1 may route only to:
 
+*   continue_current_stage
+*   E1 Execution Brief
 *   G1 Goal Shape
 *   S3 Decide
-*   D1 Deep Research
-*   A1 Audit
-*   E1 Execution Brief
-*   C1 Codex Graph Plan
-*   P9 Phase Close
-*   R0 Recovery Close
+*   R1 Review Distill
+*   Context Request
+*   Human Decision
+*   Stop
 
 ## Write targets
 

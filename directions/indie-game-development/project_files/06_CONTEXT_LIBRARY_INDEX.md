@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_first_technical_nucleus_spec_acceptance
+projection_status: fresh_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
 activated_at: "2026-05-13"
 ```
 
@@ -20,6 +20,7 @@ Load these files by default for Indie Game Development runtime:
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
 - `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
+- `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`
 - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
@@ -55,40 +56,63 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - Status: `active_phase_brief`
-  - Load for `M0_DIRECTION_MAP` and any route working on the current Phase.
+  - Status: `active_phase_brief_after_g1_H1_G3_formalization_pending_E1_execution_brief`
+  - Load for `E1_EXECUTION_BRIEF` and any route working on the current Phase.
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
 
 ## Active Goal context
 
-No active Goal is selected after M0 Objective Architecture migration. The next selected route is `G1_GOAL_SHAPE` for `H1_G2_codex_development_operating_model_and_architecture_protocols`.
+Active Goal after G1 H1_G3 formalization:
 
 ```yaml
-last_completed_goal_after_r1:
-  goal_id: first-technical-nucleus-functional-spec
-  result: r1_completed_verified_specification_accepted
-  artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
-  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
-  recommended_next_stage: G1_GOAL_SHAPE
-  recommended_next_mode: shape_H1_G2_codex_development_operating_model_and_architecture_protocols
+active_goal_after_g1_H1_G3_formalization:
+  active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+  last_completed_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  accepted_profile_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
+  recommended_next_stage: E1_EXECUTION_BRIEF
+  recommended_next_mode: prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
 ```
 
-Load for G1 H1_G2 Goal shaping:
+Load for E1 after G1 H1_G3 formalization:
 
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
-  - Status: `active_phase_brief`
-  - Reason: Phase state and H1_G2 readiness relevance after M0 Objective Architecture migration.
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
-  - Status: `r1_completed_verified_specification_accepted`
-  - Reason: completed specification artifact for active-front review.
+- `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
+  - Status: `required_stage_prompt`
+  - Reason: exact next stage prompt for readiness execution brief.
+- `directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md`
+  - Status: `required_E1_context`
+- `directions/indie-game-development/project_files/01_DIRECTION_STATE.md`
+  - Status: `required_E1_context`
+- `directions/indie-game-development/project_files/02_CURRENT_PHASE.md`
+  - Status: `required_E1_context`
+- `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md`
+  - Status: `required_E1_context`
+- `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md`
+  - Status: `required_E1_context`
+- `directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md`
+  - Status: `required_E1_context`
+- `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+  - Status: `required_E1_context`
+- `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
+  - Status: `required_E1_context`
 - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
-  - Status: `objective_architecture_migration_completed`
-  - Reason: Objective Architecture layer, active frontier, and next action proof.
-- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
-  - Status: `existing_goal_artifact_r1_accepted_route_gated_decision_map`
-  - Reason: accepted decision map remains prior context.
+  - Status: `required_E1_context`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md`
+  - Status: `goal_shaped_pending_E1_execution_brief`
+  - Reason: active H1_G3 Goal Contract.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
+  - Status: `goal_execution_log`
+  - Reason: G1 formalization evidence.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+  - Status: `accepted_profile_artifact`
+  - Reason: accepted H1_G2 profile/addendum.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+  - Status: `active_phase_brief_after_g1_H1_G3_formalization_pending_E1_execution_brief`
+  - Reason: active Phase state and current route guardrails.
 
 ## Superseded Goal context
 
@@ -181,7 +205,7 @@ Load for A1 audit:
 - `directions/indie-game-development/domain_docs/game_documentation/clean-start-transfer-boundary.md`
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 
-Search-discovered C2 evidence docs:
+Search-discovered old-project technical evidence docs:
 - `01_OLD_PROJECT_GRID_TOPOLOGY_TECHNICAL_DOC.md`
 - `02_OLD_PROJECT_GAS_SIMULATION_TECHNICAL_DOC.md`
 - `03_OLD_PROJECT_GRID_GAS_INTERACTION_DOC.md`
@@ -220,3 +244,130 @@ Required for G1:
 Old Unity source/code/tests are not default context. Request them only after a later block has a targeted reference question.
 
 Do not run implementation, Unity bootstrap, old-code transfer, old-code audit, Codex product/project execution, Task Master graph creation, or Game Documentation promotion.
+
+## Required context after G1 H1_G2 formalization
+
+Recommended next stage: `A1_AUDIT`.
+
+Recommended next mode: `audit_existing_workflow_codex_project_setup_first_use_fit`.
+
+Load for A1:
+
+- `workflow/stage_prompts/A1_AUDIT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
+- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
+
+A1 must inspect or request exact workflow setup / Codex readiness sources, including:
+
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
+- `workflow/stage_registry/STAGE_REGISTRY.md`
+- `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
+- `workflow/stage_prompts/X0_EXECUTOR_PROJECT_SETUP.md`
+- `workflow/stage_prompts/X1_EXECUTOR_RUN.md`
+- `workflow/stage_prompts/U1_USER_GUIDED_EXECUTION.md`
+- `workflow/stage_prompts/A1_AUDIT.md`
+- `workflow/transport/STAGE_LAUNCH_CARD.md`
+- `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`
+- `workflow/transport/CODEX_WAVE_CARD.md`
+- `workflow/transport/CODEX_RETURN_PACKET.md`
+- `workflow/transport/USER_GUIDED_STEP_CARD.md`
+- `docs/CHATGPT_PROJECT_SETUP.md`
+- any exact project setup / tool-binding profile template discovered by A1.
+
+A1 must not infer AGENTS.md, `.codex/config.toml`, Task Master, Serena, Basic Memory, validators, project/tool bindings, or product-repo local technical memory surfaces from governance notes. It must verify the existing workflow procedure or return Context Request with exact missing paths.
+
+Do not run implementation, Unity bootstrap, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, internal tool setup, or Game Documentation promotion.
+
+## Required context after R1 H1_G2 acceptance
+
+Recommended next stage: `M0_DIRECTION_MAP`.
+
+Recommended next mode: `active_front_review_after_H1_G2_acceptance`.
+
+M0 must review the active frontier after H1_G2 acceptance and decide whether
+H1_G3 project/bootstrap/tool-binding/validation-scene readiness, P9, G0,
+or another route is basis-valid.
+
+Do not run implementation, Unity bootstrap, old-code transfer, old-code audit,
+Codex product/project execution, Task Master graph creation, internal tool setup,
+or Game Documentation promotion.
+
+## Required context after M0 active-front review
+
+Recommended next stage:
+
+`G1_GOAL_SHAPE`
+
+Recommended next mode:
+
+`shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Selected next node:
+
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Load for G1:
+
+- `workflow/stage_prompts/G1_GOAL_SHAPE.md`
+  - Status: `required_stage_prompt`
+  - Reason: exact next stage prompt for shaping H1_G3.
+- `directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md`
+- `directions/indie-game-development/project_files/01_DIRECTION_STATE.md`
+- `directions/indie-game-development/project_files/02_CURRENT_PHASE.md`
+- `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md`
+- `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md`
+- `directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md`
+- `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+- `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
+- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
+
+G1 must shape H1_G3 only. It must not run implementation, Unity bootstrap, product repository creation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, internal tool setup, Unity MCP setup, or Game Documentation promotion.
+
+## Required context after G1 H1_G3 formalization
+
+Recommended next stage: `E1_EXECUTION_BRIEF`.
+
+Recommended next mode: `prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`.
+
+Load for E1:
+
+- `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
+  - Status: `required_stage_prompt`
+  - Reason: exact next stage prompt for readiness execution brief.
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+- `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
+- `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`
+- `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
+- `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
+- `workflow/stage_registry/STAGE_REGISTRY.md`
+- `directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md`
+- `directions/indie-game-development/project_files/01_DIRECTION_STATE.md`
+- `directions/indie-game-development/project_files/02_CURRENT_PHASE.md`
+- `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md`
+- `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md`
+- `directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md`
+- `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+- `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
+- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md`
+  - Status: `goal_shaped_pending_E1_execution_brief`
+  - Reason: active H1_G3 Goal Contract.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
+  - Status: `active_goal_execution_log`
+  - Reason: G1 formalization evidence.
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+  - Status: `accepted_profile_artifact`
+  - Reason: H1_G2 accepted profile remains required context for readiness planning.
+
+E1 must prepare the H1_G3 readiness execution brief only. It must not run product execution directly, run Unity bootstrap, create a product repository, write product code, create a Task Master graph, configure real tools, install/configure Unity MCP, transfer old code, or promote Game Documentation.

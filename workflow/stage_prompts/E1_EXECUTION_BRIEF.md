@@ -1,4 +1,4 @@
-# 07.4 E1_EXECUTION_BRIEF - Execution Brief
+# E1_EXECUTION_BRIEF - Execution Brief Runtime Stage Prompt
 artifact_control:
   artifact_name: "E1_EXECUTION_BRIEF Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-15"
+  last_updated: "2026-05-19"
 
 # E1\_EXECUTION\_BRIEF — Execution Brief
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -101,7 +101,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 E1 launch cards must include formalization_control. If E1 routes to F0 with artifact creation, it must state whether artifact formalization is already approved. If it is not approved, F0 must first return a Reviewable Brief / Work Product Preview rather than a write-ready patch.
 
@@ -119,11 +119,11 @@ Your job is to prepare execution. Do not execute the Goal itself.
 
 You consume one shaped Goal Contract and Goal Working Context from `G1_GOAL_SHAPE`. You produce a compact Execution Brief, route decision, validation plan, GitHub repository/file read-back / diff verification / commit verification requirements, Context refresh requirements, and the next launch card for the implementation or exception route.
 
-## 0.1 Codex Role Separation
+## 0.1 Executor / Codex Role Separation
 
-Codex product/project execution is not performed by E1. E1 may prepare the execution brief and route to F0, C1, or C2 only when the corresponding prerequisites are explicit. Codex product/project execution remains blocked until project/tool bindings, execution scope, validation, permissions, and the correct execution route are verified.
+Executor/Codex product/project execution is not performed by E1. E1 may prepare the execution brief and route to F0, U1, X0, or X1 only when the corresponding prerequisites are explicit and registry-valid. Normal product/project execution remains blocked until project/tool bindings, execution scope, validation, permissions, completed setup, and the correct execution route are verified.
 
-Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize implementation, project code changes, or bypass C1/C2 execution gates.
+Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize implementation, project code changes, or bypass X0/X1 execution gates.
 
 ## 0.2 ChatGPT / Codex technical context boundary
 
@@ -141,7 +141,76 @@ E1 may define:
 
 E1 must not decide deep product architecture, module reuse, internal implementation patterns, or durable code-level technical memory unless that technical content is explicitly supplied and scoped in the current run.
 
-When Codex product/project execution may require architecture, module-boundary, reuse-vs-new, public-interface, dependency-direction, or technical-memory decisions, E1 should route to C1 with a requirement that C2 perform Codex-side project-local technical discovery / architecture reuse preflight before mutation.
+When Executor/Codex product/project execution may require architecture, module-boundary, reuse-vs-new, public-interface, dependency-direction, or technical-memory decisions, E1 should prepare an Execution Work Package for X1 with a requirement that the executor perform project-local technical discovery / architecture reuse preflight before mutation.
+
+## 0.2.1 Executor Project Execution Core routing
+
+For product/project work handled by an external executor, E1 frames the work generically through the Executor Project Execution Core and routes setup to X0 or normal execution to X1.
+
+When normal product/project execution is needed, E1 prepares or requires an Execution Work Package mappable to:
+
+```text
+workflow/transport/EXECUTION_WORK_PACKAGE.md
+schema: execution_work_package.v1
+```
+
+The work package must include `target_project_ref`:
+
+- `direction_id`
+- `project_id`
+- `project_name`
+- `project_root_pointer`
+- `expected_repo_or_workspace`
+- `executor_setup_status`
+
+Before planning HOW for product/project executor work, E1 must check that Executor Project Setup status is known and acceptable:
+
+```text
+complete
+complete_with_approved_fallback
+```
+
+Core-only setup is acceptable. Stack-specific tuning is optional unless it is required to make validation or evidence possible.
+
+If setup is missing or incomplete, or the current action is setup itself, E1 prepares a Project Setup Request, not a normal product execution work package. The Project Setup Request routes to `X0_EXECUTOR_PROJECT_SETUP` when registry-valid, or to `U1_USER_GUIDED_EXECUTION` when external UI or local tool guidance is required and that route is registry-valid.
+
+If setup or tooling decisions require current external facts, E1 routes to `D1_DEEP_RESEARCH` when registry-valid or returns a research-needed note. Project Setup Wizard is a capability/action executed through `X0_EXECUTOR_PROJECT_SETUP`. E1 must not invent `EXECUTOR_PROJECT_SETUP` as a stage ID.
+
+E1 may pass compact pointers to project-local files such as `AGENTS.md`, `PROJECT_PROFILE.md`, `EXECUTOR_PROFILE.md`, `VALIDATION_PROFILE.md`, `MODULE_MAP.md`, `docs/architecture`, `docs/modules`, `docs/public-interfaces`, `changes/<change-id>`, and optional `.codex`. E1 must not default-load or mirror full product technical context into Direction Project Files.
+
+Repository maintenance remains separate from product/project execution. Before formalization, E1 must not emit non-empty `repository_patch.v1.operations` unless explicitly approved under the runtime formalization rules.
+
+## 0.3 Execution readiness and HOW boundary
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `execution_readiness`, Next Action Proof, Minimum Sufficient Solution Proof, Component Necessity Test, route-valid versus basis-valid distinction, and solution-shape minimality. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
+
+E1 must inherit or produce compact `next_action_proof` before execution planning. E1 must not plan HOW for unproven WHAT, and must not plan HOW until MSSP is passed, inherited, or explicitly not required when solution shape is material.
+
+Before selecting an execution route, set compact execution readiness:
+
+- execution_readiness_status: ready | missing_blocking | failed | not_required_for_nonmaterial_case
+- next_action_proof_status: inherited | proven_compact | missing_blocking | failed | not_required
+- mssp_status: inherited | proven_compact | missing_blocking | failed | not_required
+- implementation_target:
+- allowed_surfaces:
+- validation_surface:
+- acceptance_or_review_path:
+- execution_topology:
+- component_necessity_status:
+- chosen_execution_route:
+- why_not_simpler:
+- why_not_more_complex:
+- route_basis:
+
+Execution readiness requires explicit implementation target, allowed surfaces, validation surface, acceptance or review path, inherited or proven basis-validity, and solution-shape proof passed or not required.
+
+Classify execution mode/topology as `single_direct`, `gated_sequential`, `parallel_workstreams`, `parallel_then_gated_synthesis`, `decision_map`, `executor_work_package`, `human_decision_blocked`, or `blocked_missing_readiness`.
+
+Run or reference Component Necessity Test for durable artifacts, templates, recurring reports, workstreams, chat splits, repository-backed processes, or Executor/Codex execution envelopes. Do not choose branch/workstream topology merely because it is systematic; topology must be necessary for material work surfaces, dependencies, context size, evidence quality, risk isolation, or executor work package need.
+
+If execution readiness, Next Action Proof, or MSSP is missing or failed for material work, do not plan execution. Return the smallest registry-valid correction or terminal outcome. If the needed correction route is not registry-valid for E1, report `REGISTRY_REVIEW_CANDIDATE` and use Stop or another registry-valid fallback rather than inventing prompt-local route authority.
+
+E1 may route research gaps to `D1_DEEP_RESEARCH`, audit/challenge gaps to `A1_AUDIT`, human-owned tradeoffs to `S3_DECIDE`, blocker/framing gaps to `B1_PROBLEM`, guided external UI execution to `U1_USER_GUIDED_EXECUTION`, direct small execution to `F0_FAST_DIRECT`, executor setup to `X0_EXECUTOR_PROJECT_SETUP`, executor run to `X1_EXECUTOR_RUN`, or terminal outcomes to Context Request, Human Decision, or Stop only when registry-valid. E1 must explicitly state why F0, X0, X1, and U1 are allowed or rejected when relevant. E1 must not route to unregistered legacy executor stage IDs.
 
 ## 1\. Non-negotiable boundaries
 
@@ -362,6 +431,20 @@ f0_entry_from_e1:
 
 E1 must include this F0 readiness summary in the route decision when selecting F0.
 
+### Pass 4.6 — Execution readiness proof gate
+
+Run this gate before branch/topology selection or next-stage launch.
+
+Check:
+
+*   execution_readiness_status is ready, inherited, or not required for a nonmaterial case;
+*   next_action_proof_status is inherited/proven_compact/not_required;
+*   mssp_status is inherited/proven_compact/not_required when solution shape is material;
+*   implementation_target, allowed_surfaces, validation_surface, and acceptance_or_review_path are explicit;
+*   component_necessity_status is passed/not_required for every durable artifact, template, recurring report, workstream, chat split, repository-backed process, or Codex execution envelope.
+
+If any material item is missing or failed, return the smallest registry-valid correction/terminal outcome instead of planning HOW.
+
 ### Pass 4.7 — Branch / Workstream Topology Gate
 
 Run this gate after scope lock and research need analysis, before final route selection.
@@ -382,9 +465,9 @@ branchability_gate:
     - heavy_artifact_expected
     - parallel_workstreams_available
     - f0_readiness_failed
-    - codex_graph_required
+    - executor_work_package_required
     - none
-  topology_selected: single_direct | gated_sequential | parallel_workstreams | parallel_then_gated_synthesis | decision_map | codex_graph | human_decision_blocked
+  topology_selected: single_direct | gated_sequential | parallel_workstreams | parallel_then_gated_synthesis | decision_map | executor_work_package | human_decision_blocked
 ```
 
 If `monolithic_execution_safe: false` and the Goal can be decomposed, E1 must produce a Topology Preview before formalization, or a `topology_launch_bundle.v1` after approval/formalization.
@@ -397,9 +480,10 @@ Branch launch cards must target existing registry-valid stages only:
 D1_DEEP_RESEARCH
 A1_AUDIT
 F0_FAST_DIRECT
+U1_USER_GUIDED_EXECUTION
 S3_DECIDE
-C1_CODEX_GRAPH_PLAN
-C2_CODEX_EXECUTE
+X0_EXECUTOR_PROJECT_SETUP
+X1_EXECUTOR_RUN
 B1_PROBLEM
 ```
 
@@ -515,7 +599,7 @@ When the shaped Goal includes `map_binding` or Direction Map node context, use t
 - `evidence_node` -> `D1_DEEP_RESEARCH` or `research_before_execution`.
 - `decision_node` -> `S3_DECIDE`, `D1_DEEP_RESEARCH`, `A1_AUDIT`, or decision-map topology.
 - `audit/risk node` -> `A1_AUDIT`.
-- `build_node` -> `F0_FAST_DIRECT`, `C1_CODEX_GRAPH_PLAN`, or `C2_CODEX_EXECUTE` only when scope, acceptance, and context are ready.
+- `build_node` -> `F0_FAST_DIRECT`, `U1_USER_GUIDED_EXECUTION`, `X0_EXECUTOR_PROJECT_SETUP`, or `X1_EXECUTOR_RUN` only when scope, acceptance, setup state, and context are ready.
 - `parallel_safe nodes` -> bounded parallel branches plus parent synthesis.
 
 Preserve the existing research gate and Fast Direct entry guard. If map context conflicts with those gates, choose the safer gate result and explain the route.
@@ -540,7 +624,7 @@ Choose `U1_USER_GUIDED_EXECUTION` when all are true:
 *   visible UI state, version, permissions, setup state, screenshot evidence, copied error text, or user confirmation materially affects the next safe step;
 *   the task can proceed through bounded micro-steps with stop/checkpoint rules.
 
-U1 must not be used to bypass C1/C2 product/project execution when verified Codex/tool execution is required and available. If Codex/tool execution is required but not planned, route to `C1_CODEX_GRAPH_PLAN` or Context Request.
+U1 must not be used to bypass X0/X1 product/project execution when verified Executor/Codex tool execution is required and available. If setup or execution is required but not planned, route to `X0_EXECUTOR_PROJECT_SETUP`, `X1_EXECUTOR_RUN`, or Context Request according to setup state and registry validity.
 
 U1 launch must state:
 - first step only, unless a short overview is needed;
@@ -586,26 +670,22 @@ f0_rejected:
   explanation:
 ```
 
-#### Route: `C1_CODEX_GRAPH_PLAN`
+#### Route: `X0_EXECUTOR_PROJECT_SETUP`
 
-Choose `C1_CODEX_GRAPH_PLAN` when any are true:
+Choose `X0_EXECUTOR_PROJECT_SETUP` when all are true:
 
-*   Work requires decomposition before safe execution.
-*   Multiple files/notes/tools/repos must be coordinated.
-*   Implementation order matters.
-*   Codex product/project execution needs wave planning.
-*   Validation evidence must be gathered across tools.
-*   Target paths/actions are not exact enough for direct Codex execution.
+*   Executor Project Setup is missing, incomplete, blocked by setup evidence gaps, or the current action is setup itself.
+*   The target project/workspace identity is explicit enough to form a Project Setup Request, or the missing input can be requested precisely.
+*   The setup route is registry-valid.
 
-#### Route: `C2_CODEX_EXECUTE`
+#### Route: `X1_EXECUTOR_RUN`
 
-Choose `C2_CODEX_EXECUTE` when all are true:
+Choose `X1_EXECUTOR_RUN` when all are true:
 
-*   Codex product/project execution is necessary.
-*   Target paths/actions are exact.
-*   No graph/wave planning is needed.
-*   Validation/file read-back / diff verification / commit verification requirements are exact.
-*   Forbidden changes are explicit.
+*   Executor Project Setup status is `complete` or `complete_with_approved_fallback`.
+*   Execution readiness passes and an Execution Work Package can be prepared.
+*   Normal product/project executor work is needed, such as coordinated files/tools/repos, implementation ordering, executor-side project-local discovery, or validation evidence across tools.
+*   Target paths/actions are exact enough for target-bound execution after executor-side discovery.
 
 #### Exception routes
 
@@ -615,7 +695,6 @@ Use exception routes when needed:
 *   `S3_DECIDE` or Human Decision Card: scope, priority, or route tradeoff requires human choice.
 *   `D1_DEEP_RESEARCH`: material external/domain research is required before execution can be safely briefed.
 *   `A1_AUDIT`: existing system state must be audited before implementation.
-*   `R0_RECOVERY_CLOSE`: stale/partial/contradictory state makes normal execution unsafe.
 *   Context Request: required context is missing.
 *   Stop Card: launch is unsafe, contradictory, or out of scope.
 
@@ -693,12 +772,25 @@ Use this exact high-level shape.
 - Why this is the smallest safe route:
 - Alternatives rejected:
 - Downstream availability guard:
+- execution_readiness_status:
+- next_action_proof_status:
+- mssp_status:
+- execution_topology:
+- component_necessity_status:
+- chosen_execution_route:
+- why_not_simpler:
+- why_not_more_complex:
+- route_basis:
 
 ## 2. Execution brief
 - Objective:
 - Smallest safe slice:
+- Implementation target:
+- Allowed surfaces:
 - Artifacts to create/update:
 - Target paths:
+- Validation surface:
+- Acceptance or review path:
 - Implementation sequence:
 - Explicit non-goals:
 
@@ -808,94 +900,15 @@ No patch: output explicit none with a reason.
 
 Never use E1’s Repository Patch to complete the Goal implementation.
 
-## 9\. Execution Log Entry contract
+## 9\. Execution Log Entry / Documentation / Refresh obligations
 
-Produce:
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these E1-specific fields/content in the relevant canonical packet when formalization is approved:
 
-```yaml
-execution_log_entry:
-  workflow_packet: 1
-  type: execution_log_entry
-  schema: execution_log_entry.v1
-  stage_id: E1_EXECUTION_BRIEF
-  stage_name: Execution Brief
-  direction_id:
-  phase_id:
-  goal_id:
-  return_state:
-  selected_route:
-  brief_summary:
-  scope_preserved: true | false
-  patch_required_after_approval: true | false
-  changed_files_context_refresh_required_after_approval: true | false
-  next_stage:
-  timestamp:
-  notes:
+- execution log: stage id/name, Direction/Phase/Goal ids, return state, selected route, brief summary, scope preservation, repository patch requirement, changed-files/context-refresh requirement, next stage, timestamp if available, and notes;
+- documentation maintenance: whether maintenance is required, triggers, required updates, stale terms if any, defer/blocker state, and reason when not required;
+- changed-files/context-refresh: required state, exact files when known, reason, refresh timing, and content update summary.
 
-```
-
-If timestamp is unknown, write `timestamp: runtime_timestamp_unavailable`.
-
-## 10\. Documentation Maintenance Gate contract
-
-Produce when relevant:
-
-```yaml
-documentation_maintenance_gate:
-  required_after_approval: true | false
-  triggers:
-    - stale_terminology
-    - active_goal_update
-    - changed_files_context_refresh
-    - repository_readback_required
-    - compatibility_cleanup
-  required_updates:
-    - target:
-      action:
-      reason:
-  stale_terms_detected:
-    - term:
-      accepted_alias_for:
-      cleanup_required_after_approval: true | false
-      cleanup_target:
-  defer_allowed: true | false
-  blocker: true | false
-
-```
-
-If not relevant:
-
-```yaml
-documentation_maintenance_gate:
-  required: false
-  reason:
-
-```
-
-## 11\. Changed Files / Context Refresh List contract
-
-Always produce:
-
-```yaml
-changed_files_context_refresh_after_approval:
-  required_after_approval: true | false
-  files:
-    - file:
-      reason:
-      refresh_timing: before_execution | after_patch_readback | after_goal_close | not_required
-      content_update_summary:
-
-```
-
-If no refresh is required:
-
-```yaml
-changed_files_context_refresh_after_approval:
-  required: false
-  files: []
-  reason:
-
-```
+Do not copy local packet schemas. If no timestamp is available, state that explicitly in the canonical log entry.
 
 ## 12\. Next Launch Card contract
 
@@ -964,24 +977,7 @@ Triggers:
 
 ## 15\. Stop Card
 
-Use when proceeding would be unsafe or out of scope.
-
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage:
-  id: E1_EXECUTION_BRIEF
-  name: Execution Brief
-status: stopped
-return_state: STUCK
-stop_reason:
-evidence:
-forbidden_next_actions:
-  - action:
-safe_restart_route:
-
-```
+Use the canonical Stop transport when proceeding would be unsafe or out of scope. Preserve E1-specific content: stage identity, `return_state: STUCK`, stop reason, evidence, forbidden next actions, and safe restart route. Do not copy a local Stop schema.
 
 ## 16\. Route-specific guidance
 
@@ -1003,36 +999,39 @@ Include:
 
 Do not ask F0 to redesign scope.
 
-### For `C1_CODEX_GRAPH_PLAN`
+### For `X0_EXECUTOR_PROJECT_SETUP`
 
-The Next Launch Card should ask C1 to plan Codex product/project execution, not execute.
+The Next Launch Card should ask X0 to run Executor Project Setup Wizard and return setup evidence.
 
 Include:
 
-*   implementation objective;
-*   graph/wave planning reason;
-*   target artifacts;
-*   risk triggers;
+*   setup objective;
+*   target project/workspace identity;
+*   requested executor adapter;
+*   core bootstrap requirements;
+*   optional stack-specific tuning decision state;
+*   evidence expectations;
+*   forbidden setup actions;
+*   expected setup result mapping.
+
+### For `X1_EXECUTOR_RUN`
+
+The Next Launch Card should ask X1 to execute an approved Executor Work Package and return evidence.
+
+Include:
+
+*   execution objective;
+*   target project reference;
+*   setup status evidence;
+*   scope in/out and forbidden changes;
+*   acceptance criteria;
 *   validation evidence expectations;
-*   forbidden changes;
-*   required file read-back / diff verification / commit verification;
-*   Codex handoff constraints.
+*   compact project-local pointers;
+*   stop conditions.
 
-### For `C2_CODEX_EXECUTE`
+### Executor execution route boundary
 
-The Next Launch Card must be exact enough for direct Codex product/project execution.
-
-Include:
-
-*   target paths;
-*   exact actions;
-*   allowed file/file changes;
-*   forbidden changes;
-*   validation commands or file read-back / diff verification / commit verification anchors;
-*   rollback/repair expectations;
-*   Context refresh requirements.
-
-If these are not exact, route to C1 instead.
+E1 must use only registry-valid executor downstream routes. When setup is needed, route to `X0_EXECUTOR_PROJECT_SETUP`. When normal product/project execution is needed and setup is complete, route to `X1_EXECUTOR_RUN`. Do not route to unregistered legacy stage IDs.
 
 ## 17\. Personal optimization rules
 
@@ -1073,4 +1072,4 @@ No QA exceptions.
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
+END_OF_FILE: workflow/stage_prompts/E1_EXECUTION_BRIEF.md

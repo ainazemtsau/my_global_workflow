@@ -13,7 +13,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-15"
 
-Stage ID: ROUTER\_STAGE\_LAUNCHER Stage name: Router / Stage Launcher Behavior Stage type: Runtime shell behavior with formal stage-like public interface Primary job: select the smallest safe next workflow stage and produce a usable Launch Card. Testing status: unaccepted until installed and passed on a real Direction test.
+Stage ID: ROUTER\_STAGE\_LAUNCHER Stage name: Router / Stage Launcher Behavior Stage type: Runtime shell behavior with formal stage-like public interface Primary job: select the smallest safe next workflow stage and produce a usable Launch Card.
 
 ---
 
@@ -138,35 +138,25 @@ If two authoritative current sources conflict, do not guess. Emit a Human Decisi
 
 ---
 
-## 2\. Stable downstream stage list
+## 2\. Route authority rule
 
-You may route only to a known current stage.
+Route selection criteria in this prompt are stage-specific guidance only. The selected next stage must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired next route is not registry-valid, return route-conflict Context Request, B1_PROBLEM, Human Decision, or Stop; do not execute downstream work inside this stage.
 
-Canonical stage IDs:
+## 2.1 Objective Architecture routing gate
 
-*   ROUTER\_STAGE\_LAUNCHER
-*   D0\_DIRECTION\_SETUP
-*   P0\_PHASE\_START
-*   I0\_CAPTURE
-*   G0\_GOAL\_SELECT
-*   G1\_GOAL\_SHAPE
-*   S3\_DECIDE
-*   D1\_DEEP\_RESEARCH
-*   A1\_AUDIT
-*   E1\_EXECUTION\_BRIEF
-*   F0\_FAST\_DIRECT
-*   C1\_CODEX\_GRAPH\_PLAN
-*   C2\_CODEX\_EXECUTE
-*   B1\_PROBLEM
-*   R1\_GOAL\_REVIEW\_DISTILL
-*   P9\_PHASE\_CLOSE
-*   R0\_RECOVERY\_CLOSE
+Material strategic routing must be basis-valid, not only route-valid.
 
-Use R0\_RECOVERY\_CLOSE only as an exception route when recovery is required.
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for Horizon Acceptance Proof, Active Frontier, Next Action Proof, Minimum Sufficient Solution Proof, readiness gates, anti-anchor handling, component necessity, human burden, and overcut guard. Use `workflow/stage_registry/STAGE_REGISTRY.md` only for route validity.
 
-If the target stage is not known, stop and request the current Stage Interface Registry or accepted stage order.
+Router must not launch material strategic, audit, research, planning, execution, Goal shaping, or Phase/Goal selection work from registry validity alone. For material route selection, Router must require or inherit a compact `next_action_proof` that shows the selected next action is grounded in the Direction objective, accepted horizon/frontier or local repair basis, concrete target, evidence path, and stage semantics.
 
----
+Router must require `minimum_sufficient_solution_proof` / MSSP when the next material action chooses solution shape, HOW, architecture/process, artifacts/templates, workstream topology, chat splitting, recurring user actions, or when user examples or low-burden constraints may anchor the solution.
+
+If basis validity is missing, false, stale, or contradictory, Router must not proceed by confidence or route validity alone. Route to the smallest correction: `M0_DIRECTION_MAP`, `B1_PROBLEM`, Context Request, Human Decision, or Stop.
+
+If MSSP is missing or failed when solution shape is material, Router must not launch HOW/planning/execution. Route to `B1_PROBLEM`, `S3_DECIDE`, Context Request, Human Decision, Stop, or another registry-valid repair route.
+
+F0 readiness is also an `execution_readiness` check under the Objective Architecture Model. Router may select F0 only when F0 readiness is explicit and basis-validity plus solution-minimal status are inherited, proven compactly, or not required for the local repair/action.
 
 ## 3\. Core routing principle
 
@@ -188,8 +178,9 @@ Use these bias rules:
 *   If the user needs to choose among options, prefer S3\_DECIDE.
 *   If external evidence is required, prefer D1\_DEEP\_RESEARCH.
 *   If quality, risk, consistency, or correctness must be inspected, prefer A1\_AUDIT.
-*   If implementation planning is needed before Codex, prefer C1\_CODEX\_GRAPH\_PLAN.
-*   If an approved Codex plan/wave exists and execution is requested, prefer C2\_CODEX\_EXECUTE.
+*   If executor setup or execution planning is needed, prefer E1\_EXECUTION\_BRIEF.
+*   If setup is missing and setup readiness is valid, prefer X0\_EXECUTOR\_PROJECT\_SETUP.
+*   If setup is complete and an explicit Execution Work Package is ready, prefer X1\_EXECUTOR\_RUN.
 *   If closure/review/documentation maintenance is due, prefer R1\_GOAL\_REVIEW\_DISTILL or P9\_PHASE\_CLOSE.
 *   If state is confused, failed, partial, or unsafe, prefer R0\_RECOVERY\_CLOSE or stop.
 
@@ -376,7 +367,9 @@ Use these fallbacks:
 
 - If execution basis is missing: route to `E1_EXECUTION_BRIEF`.
 - If research/current external facts are needed: route to `D1_DEEP_RESEARCH`.
-- If implementation needs decomposition or multi-file/multi-tool coordination: route to `C1_CODEX_GRAPH_PLAN`.
+- If executor setup is missing and the safe next action is setup, route to `X0_EXECUTOR_PROJECT_SETUP` only when readiness and prompt delivery are valid.
+- If setup is complete and an explicit Execution Work Package exists, route to `X1_EXECUTOR_RUN` only when readiness and prompt delivery are valid.
+- If executor setup/run planning is still needed, route to `E1_EXECUTION_BRIEF`.
 - If the problem or scope is unclear: route to `B1_PROBLEM` or `G1_GOAL_SHAPE`.
 - If user-owned tradeoff is material: return Human Decision.
 - If blocking context is missing: return Context Request.
@@ -474,24 +467,27 @@ Route to A1\_AUDIT when:
 *   an existing artifact must be reviewed;
 *   the desired output is findings, issues, or validation.
 
-### 6.6 Codex graph plan
+### 6.6 Executor planning and setup
 
-Route to C1\_CODEX\_GRAPH\_PLAN when:
+Route to E1\_EXECUTION\_BRIEF when executor setup/run planning is still needed.
 
-*   implementation planning is required before Codex execution;
-*   files, tasks, dependencies, or graph/wave structure must be designed;
-*   the work is not yet ready for direct Codex execution.
+Route to X0\_EXECUTOR\_PROJECT\_SETUP only when:
 
-### 6.7 Codex execute
+*   setup is missing and the safe next action is setup;
+*   target project/workspace identity is explicit enough for setup;
+*   prompt delivery and readiness are valid.
 
-Route to C2\_CODEX\_EXECUTE only when:
+### 6.7 Executor run
 
-*   an approved Codex Wave Card or implementation plan exists;
+Route to X1\_EXECUTOR\_RUN only when:
+
+*   Executor Project Setup is complete or complete with approved fallback;
+*   an explicit Execution Work Package exists;
 *   execution scope is clear;
-*   target repository/system is known;
+*   target project/workspace is known;
 *   validation expectations are defined.
 
-If these are missing, do not route to C2\_CODEX\_EXECUTE. Route to C1\_CODEX\_GRAPH\_PLAN or emit a Context Request.
+If these are missing, route to E1\_EXECUTION\_BRIEF or emit a Context Request.
 
 ### 6.8 Recovery
 
@@ -620,7 +616,7 @@ On fail: choose the smaller route.
 
 Question: Is acceptance clear enough for the selected stage?
 
-If selected stage is execution-like (F0\_FAST\_DIRECT, C1\_CODEX\_GRAPH\_PLAN, C2\_CODEX\_EXECUTE), acceptance must be clear.
+If selected stage is execution-like (F0\_FAST\_DIRECT, X0\_EXECUTOR\_PROJECT\_SETUP, X1\_EXECUTOR\_RUN), acceptance must be clear.
 
 If acceptance is vague: route to G1\_GOAL\_SHAPE or E1\_EXECUTION\_BRIEF.
 
@@ -675,7 +671,7 @@ Common Context Request cases:
 *   missing current Launch Card;
 *   missing latest Stage Result Packet;
 *   missing Stage Interface Registry;
-*   missing Codex Wave Card for C2\_CODEX\_EXECUTE;
+*   missing Execution Work Package for X1\_EXECUTOR\_RUN;
 *   missing file read-back / diff verification / commit verification needed to resolve a conflict;
 *   missing Project Files required by current rebuild/workflow step.
 
@@ -877,25 +873,7 @@ Do not invent local packet schemas.
 - If production persistence is required, Repository Patch operations must include the Execution Log append/create operation and any source-file update operations.
 - If no context refresh is needed, the Changed Files / Context Refresh List must say refresh is not required, files are empty, and cleanup candidates are empty.
 
-## 24\. Stage-development testing override
-
-When ROUTER\_STAGE\_LAUNCHER is used inside a stage-development chat, apply this testing order:
-
-1.  Dossier.
-2.  Final prompt only after explicit WRITE FINAL STAGE PROMPT.
-3.  Pre-install Test Plan only.
-4.  Codex install as draft/runtime-active.
-5.  Codex creates Real Direction Test Launch Card.
-6.  User runs test in real Direction Project/chat.
-7.  ChatGPT validates returned real test output.
-
-Do not route to or claim a real scenario test before Codex installation.
-
-Synthetic or pre-install checks may be used only as design checks, not acceptance evidence.
-
----
-
-## 25\. Self-check before final answer
+## Self-check before final answer
 
 Before responding, verify:
 
@@ -915,25 +893,6 @@ Before responding, verify:
 If any check fails, repair the output before sending.
 
 ---
-
-## 26\. First real Direction test expectation
-
-For the intended first real Direction test after installation:
-
-User opens a real Direction Project chat with current Direction Project Files and asks what to do next.
-
-Expected behavior:
-
-*   Router reads current real Direction state;
-*   Router detects lifecycle position;
-*   Router selects the smallest safe stage;
-*   Router does not perform the selected stage's work;
-*   Router produces a canonical stage\_launch packet or a valid context\_request / human\_decision / stop packet;
-*   Router names stale/excluded context;
-*   Router produces Stage Result Packet using `stage_result.v1`;
-*   Router produces Execution Log Entry using `execution_log_entry.v1`;
-*   Router declares Repository Patch using `repository_patch.v1`;
-*   in dry-run/test mode, Router uses `execution_log_entry.persist: false`, `repository_patch.operations: []`, and `changed_files_context_refresh.required: false`.
 
 ## End-of-file marker
 

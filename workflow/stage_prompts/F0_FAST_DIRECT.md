@@ -1,4 +1,4 @@
-# 10 F0_FAST_DIRECT - Fast Direct
+# F0_FAST_DIRECT - Fast Direct Runtime Stage Prompt
 artifact_control:
   artifact_name: "F0_FAST_DIRECT Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-19"
 
 # F0\_FAST\_DIRECT — Fast Direct Runtime Stage Prompt
 
@@ -32,7 +32,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -139,7 +139,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 F0 first response must preview artifact purpose, proposed sections, key content/claims, acceptance checks, alternatives considered, why alternatives were rejected, scope cuts, risks/assumptions, and approval needed. F0 must not emit non-empty repository_patch.v1 operations on the first response unless formalization is already approved. F0 must not set changed_files_context_refresh.required = true before an approved patch, and must not route to R1 before apply/file read-back / diff verification / commit verification if a patch is required.
 
@@ -188,9 +188,36 @@ You must preserve the black-box stage boundary:
 
 ## 0.1 Codex Role Separation
 
-F0 is a guarded small approved direct execution stage, but it is not the Codex product/project execution route. Do not create a Task Master graph, change project/tool bindings, or use F0 to bypass C1/C2 when product/project execution requires Codex planning or execution.
+F0 is a guarded small approved direct execution stage, but it is not the executor product/project execution route. Do not create a Task Master graph, change project/tool bindings, run executor setup, or use F0 to bypass executor setup/run readiness when product/project execution requires Executor/Codex planning or execution.
 
 Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles do not authorize broader implementation, product/project execution beyond the F0-approved slice, or any forbidden path/tool-binding change.
+
+## 0.2 Fast Direct execution readiness
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `execution_readiness`, basis-validity, solution-shape proof, and route-valid versus basis-valid distinction. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
+
+F0 is allowed only for one active Goal and one bounded reversible non-Codex execution slice.
+
+Before execution, set compact Fast Direct readiness:
+
+- execution_readiness_status: ready | missing_blocking | failed | not_required_for_nonmaterial_case
+- fast_direct_allowed: true | false
+- rejection_reason_if_any:
+- implementation_target:
+- allowed_changes:
+- forbidden_changes:
+- validation_anchors:
+- acceptance_or_review_path:
+- reversibility_basis:
+- completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
+- parent_goal_completion_state: complete | incomplete | unknown
+- next_route_basis:
+
+F0 readiness requires exact implementation target, exact artifact/path/surface, explicit allowed changes, explicit forbidden changes, validation anchors, acceptance/review path, inherited or proven basis-validity, and solution-shape proof passed or not required.
+
+Reject F0 execution when any required item is false or unknown, including external/current research required, architecture/tooling/storage/source-of-truth decision unresolved, graph/wave planning required, material multi-file/multi-tool coordination beyond direct patch, Codex product/project execution required, security/privacy/permission/secret/tool-binding risk, stale or contradictory context, or parent Goal unclear enough to block validation.
+
+If F0 detects a needed correction route that the registry does not allow directly, use the smallest registry-valid fallback and report `REGISTRY_REVIEW_CANDIDATE` rather than inventing a prompt-local route.
 
 ---
 
@@ -207,7 +234,7 @@ In real work, this means:
 5.  Require file read-back / diff verification / commit verification evidence before claiming completion.
 6.  Produce the required runtime contracts.
 7.  Route to R1\_GOAL\_REVIEW\_DISTILL only after successful execution and file read-back / diff verification / commit verification.
-8.  Return Context Request, Human Decision, Stop, or route escalation when approved direct execution is unsafe.
+8.  Use Stop or registry-valid route escalation when approved direct execution is unsafe; report `REGISTRY_REVIEW_CANDIDATE` if Context Request or Human Decision is the exact needed artifact but is not registry-valid for F0.
 
 F0 must not turn small execution into planning, design, strategy, graph decomposition, common canon work, or broad workflow improvement.
 
@@ -258,7 +285,7 @@ A valid F0 run requires:
     *   Changed Files / Context Refresh List;
     *   Next Launch Card / Context Request / Human Decision / Stop.
 
-If any required input is missing and cannot be safely inferred from fresh GitHub repository evidence, return a Context Request before writing.
+If any required input is missing and cannot be safely inferred from fresh GitHub repository evidence, use the smallest registry-valid fallback before writing and report `REGISTRY_REVIEW_CANDIDATE` if a Context Request artifact is required.
 
 ---
 
@@ -300,7 +327,7 @@ You may proceed only if fresh evidence proves:
 
 If a Project File says there is no active Goal, but the launch card says there is one, require newer file read-back / diff verification / commit verification evidence before writing.
 
-If G1 patch/file read-back / diff verification / commit verification is unknown and no newer active Goal file read-back / diff verification / commit verification resolves it, stop with Context Request.
+If G1 patch/file read-back / diff verification / commit verification is unknown and no newer active Goal file read-back / diff verification / commit verification resolves it, use the smallest registry-valid fallback and report `REGISTRY_REVIEW_CANDIDATE` if a Context Request artifact is required.
 
 Do not execute from memory, old workflow behavior, old prompt drafts, or stale mirrors.
 
@@ -340,11 +367,13 @@ F0 is not eligible when the work requires:
 *   screenshot-driven or confirmation-driven interaction before the next safe step;
 *   unverified automation/tool binding for the required external action.
 
-If F0 is not eligible, do not force execution. Return route escalation, Human Decision, Context Request, or Stop as appropriate.
+If F0 is not eligible, do not force execution. Return route escalation or Stop as appropriate, and report `REGISTRY_REVIEW_CANDIDATE` when a Human Decision or Context Request artifact is required but not registry-valid for F0.
 
 ## 5.1 F0 Intake Readiness Gate
 
 Before any Work Product Preview, patch construction, or execution, F0 must verify the launch is truly Fast Direct.
+
+This gate must also set `execution_readiness_status`, `fast_direct_allowed`, `rejection_reason_if_any`, `implementation_target`, `allowed_changes`, `forbidden_changes`, `validation_anchors`, `acceptance_or_review_path`, `reversibility_basis`, `completion_scope`, `parent_goal_completion_state`, and `next_route_basis`.
 
 Required readiness:
 
@@ -400,10 +429,10 @@ Route guidance:
 - Use `E1_EXECUTION_BRIEF` when the execution brief is incomplete or F0 readiness is not explicit.
 - Use `U1_USER_GUIDED_EXECUTION` when the failed readiness item is human external operation and the registry allows F0 to route to U1.
 - Otherwise route to `E1_EXECUTION_BRIEF` with a recommendation to select U1.
-- Use `D1_DEEP_RESEARCH` only if registry allows F0 to route to D1; otherwise route to `E1_EXECUTION_BRIEF` or `B1_PROBLEM` with `research_required_or_unknown`.
-- Use `C1_CODEX_GRAPH_PLAN` only through E1 or B1 unless registry explicitly allows direct F0->C1.
-- Use Context Request when missing blocking context would resolve readiness.
-- Use Human Decision when the user must choose risk/scope.
+- Do not emit a direct `D1_DEEP_RESEARCH` launch from F0 under the current registry. Route to `E1_EXECUTION_BRIEF` or `B1_PROBLEM` with `research_required_or_unknown`.
+- If executor setup, executor run, graph/task planning, product/project execution, or Codex adapter work is needed, route to `E1_EXECUTION_BRIEF` or another registry-valid correction.
+- If missing blocking context would resolve readiness, use the smallest registry-valid fallback and report `REGISTRY_REVIEW_CANDIDATE` if a Context Request artifact is required.
+- If the user must choose risk/scope, use the smallest registry-valid fallback and report `REGISTRY_REVIEW_CANDIDATE` if a Human Decision artifact is required.
 - Stop when launch is unsafe or contradictory.
 
 F0 must include a visible section when refusing:
@@ -444,7 +473,7 @@ Use this default rule:
 
 > Cut until the remaining patch feels slightly narrower than instinctively satisfying, then execute only that cut.
 
-If the user asks for expansion beyond E1/G1 scope, return Human Decision or route escalation. Do not silently expand.
+If the user asks for expansion beyond E1/G1 scope, route-escalate or Stop. If a Human Decision artifact is required but not registry-valid for F0, report `REGISTRY_REVIEW_CANDIDATE`. Do not silently expand.
 
 ---
 
@@ -478,7 +507,7 @@ Process:
 3.  Validate forbidden paths were not touched.
 4.  Validate acceptance evidence map.
 5.  If file read-back / diff verification / commit verification passes, produce completed Stage Result Packet and Next Launch Card to R1\_GOAL\_REVIEW\_DISTILL.
-6.  If file read-back / diff verification / commit verification fails, produce repair instructions, Context Request, or Stop.
+6.  If file read-back / diff verification / commit verification fails, produce repair instructions, Stop, or another registry-valid fallback; report `REGISTRY_REVIEW_CANDIDATE` if a Context Request artifact is required.
 7.  Do not claim completion if any required anchor is missing.
 
 ---
@@ -595,9 +624,9 @@ Trigger this gate when any are true:
 On trigger, F0 must either:
 
 - return to `E1_EXECUTION_BRIEF` for a better execution brief;
-- recommend `C1_CODEX_GRAPH_PLAN` through E1/B1 if decomposition is needed;
-- route to `D1_DEEP_RESEARCH` through an allowed route if current external/tool facts are needed;
-- return Context Request for exact missing context.
+- recommend `E1_EXECUTION_BRIEF` when executor decomposition, setup, or execution planning is needed;
+- route to `E1_EXECUTION_BRIEF` or `B1_PROBLEM` when current external/tool facts are needed;
+- use the smallest registry-valid fallback for exact missing context and report `REGISTRY_REVIEW_CANDIDATE` if a Context Request artifact is required.
 
 F0 must not "try anyway" when the hidden work risk is material.
 
@@ -615,7 +644,7 @@ No expansion beyond E1/G1 allowed scope.
 
 ### Gate 4 — Sensitive Side-Effect Gate
 
-Human Decision is required for:
+Human-owned decision handling is required for:
 
 *   source-of-truth behavior;
 *   security behavior;
@@ -825,98 +854,15 @@ Unknown fields in upstream packets:
 
 ---
 
-## 13\. Execution Log Entry
+## 13\. Execution Log / Documentation / Refresh obligations
 
-Produce this for every F0 run:
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these F0-specific fields/content in the relevant canonical packet when formalization is approved:
 
-```yaml
-execution_log_entry: 1
-workflow_packet: 1
-type: execution_log_entry
-schema: execution_log_entry.v1
-stage_id: F0_FAST_DIRECT
-stage_name: Fast Direct
-direction:
-  id:
-  name:
-phase:
-  id:
-  name:
-  status:
-goal:
-  goal_id:
-  title:
-started_at:
-completed_at:
-input_refs:
-freshness_check:
-scope_check:
-actions_taken:
-patch_summary:
-readback_summary:
-acceptance_result:
-documentation_gate:
-changed_files_context_refresh_after_approval:
-next_route:
-operator_notes:
+- execution log: stage id/name, Direction/Phase/Goal identity, timestamps if available, input refs, freshness check, scope check, actions taken, patch summary, read-back summary, acceptance result, documentation gate, changed-files/context-refresh impact, next route, and operator notes;
+- documentation maintenance: reason, repository updates with read-back state, Project File refresh impact, stale context detected, and gate state;
+- changed-files/context-refresh: required state, exact files when known, reason, timing, and content update summary.
 
-```
-
-If execution is blocked, the log should say what blocked it and what evidence is needed. Do not invent completion.
-
----
-
-## 14\. Documentation Maintenance Gate
-
-Produce this whenever F0 writes, prepares a patch, blocks on stale context, or detects documentation drift.
-
-```yaml
-documentation_maintenance_gate: 1
-required_after_approval: true | false
-reason:
-repository_updates:
-  - path:
-    action:
-    readback_state:
-project_file_refresh:
-  required_now:
-  conditional_or_downstream:
-stale_context_detected:
-  - artifact:
-    issue:
-    action:
-gate_state: pass | pending_apply_readback | blocked | not_required
-
-```
-
-Default refresh behavior:
-
-*   Refresh `04_ACTIVE_GOAL.md` after active Goal file read-back / diff verification / commit verification/update.
-*   Refresh `03_FOCUS_REGISTER.md` after route/focus update.
-*   Refresh `05_PORTFOLIO_QUEUE.md` only if Goal status changes.
-*   Refresh `02_CURRENT_PHASE.md` after Goal review/close or Phase status change, usually downstream of F0.
-*   Do not treat Project Files as canonical.
-
----
-
-## 15\. Changed Files / Context Refresh List
-
-Produce a refresh list with this structure:
-
-```yaml
-changed_files_context_refresh_list:
-  required_after_approval: true | false
-  files:
-    - file:
-      reason:
-      timing: now | after_apply_readback | after_R1 | after_P9 | not_required
-      content_update_summary:
-
-```
-
-For F0, most Context refreshes are pending until patch apply/file read-back / diff verification / commit verification. Do not claim mirrors are refreshed unless evidence says so.
-
----
+If execution is blocked, the log must state what blocked it and what evidence is needed. Do not invent completion or claim mirrors are refreshed without evidence.
 
 ## 16\. Next Launch Card to R1
 
@@ -932,31 +878,7 @@ Do not issue this card when the patch is merely drafted or pending file read-bac
 
 ## 17\. Apply/Read-back Request
 
-When patch is ready but not applied/read repository files / verify diff or commit, output:
-
-```yaml
-workflow_packet: 1
-type: apply_readback_request
-schema: apply_readback_request.v1
-stage_id: F0_FAST_DIRECT
-reason: "Patch is ready but completion requires GitHub repository apply/file read-back / diff verification / commit verification evidence."
-patch_ref:
-apply_instructions:
-  - Apply only the listed patch actions.
-  - Do not touch forbidden paths.
-  - Read back every updated/created note.
-  - Confirm required validation anchors.
-  - Confirm old active Workflow vNext and rebuild stage prompts were not touched.
-required_return:
-  - applied paths
-  - file read-back / diff verification / commit verification excerpts or anchors
-  - forbidden-path safety confirmation
-  - problems/blockers
-next_chat_action: "Return the apply/file read-back / diff verification / commit verification result to this same F0 runtime chat for validation before R1."
-
-```
-
----
+When a patch is ready but not applied/read back, use the canonical repository maintenance/apply transport and preserve F0-specific content: patch reference, apply-only-listed-actions instruction, forbidden paths, required read-back/anchors, required return evidence, and same-chat validation before any R1 route. Do not copy a local apply/read-back schema.
 
 ## Context Request / Human Decision packet references
 
@@ -971,9 +893,9 @@ workflow/transport/HUMAN_DECISION_CARD.md
 
 Stage-specific trigger rules in this prompt still apply.
 
-If this stage needs missing context, produce a Context Request using the canonical transport template and the stage-specific missing-context triggers below.
+If this stage needs missing context, use the smallest registry-valid fallback. If a Context Request artifact is required but not registry-valid for F0, report `REGISTRY_REVIEW_CANDIDATE` and Stop or route through a registry-valid owner.
 
-If this stage needs a human-owned decision, produce a Human Decision using the canonical transport template and the stage-specific decision triggers below.
+If this stage needs a human-owned decision, use the smallest registry-valid fallback. If a Human Decision artifact is required but not registry-valid for F0, report `REGISTRY_REVIEW_CANDIDATE` and Stop or route through a registry-valid owner.
 
 Do not invent local packet schemas.
 
@@ -987,7 +909,7 @@ Common Context Request triggers:
 *   G1/E1 Goal identity mismatch;
 *   no safe evidence that target note can be created/updated.
 
-Human Decision is required for:
+Human-owned decision handling is required for:
 
 *   expansion beyond Direction-local scope;
 *   common canon edits;
@@ -1002,70 +924,15 @@ Human Decision is required for:
 
 ## 20\. Stop Card
 
-Use this when proceeding would be unsafe.
+Use the canonical Stop transport when proceeding would be unsafe. Preserve F0-specific content: stage identity, `return_state: STUCK`, stop reason, evidence, unsafe action prevented, repository patch state, and recovery or next route. Do not copy a local Stop schema.
 
-```yaml
-workflow_packet: 1
-type: stop
-schema: stop.v1
-stage:
-  id: F0_FAST_DIRECT
-  name: Fast Direct
-return_state: STUCK
-stop_reason:
-evidence:
-unsafe_action_prevented:
-repository_patch:
-  state: none
-  reason:
-recovery_or_next_route:
-
-```
-
-Stop cases:
-
-*   launch card contradicts current source-of-truth;
-*   fresh GitHub repository evidence shows a different active Goal;
-*   patch would touch forbidden paths;
-*   target path cannot be safely identified;
-*   multiple active Goals or Phases create ambiguity;
-*   file read-back / diff verification / commit verification fails and safe repair is unclear;
-*   user insists on forbidden runtime changes without Human Decision and route escalation.
-
----
+Stop cases include source-of-truth contradiction, fresh evidence showing a different active Goal, forbidden-path risk, unsafe target path, multiple active Goals or Phases, failed read-back/validation with unclear repair, or forbidden runtime-change insistence without a valid Human Decision path.
 
 ## 21\. Route escalation recommendation
 
-Use this when F0 is no longer the right route but the work may still be valid.
+Use a concise route escalation recommendation when F0 is no longer the right route but the work may still be valid. Preserve source state, previous return state, reason, detected triggers, recommended registry-valid route or route-conflict handling, preserved context, repository patch/read-back state, and next action. Do not copy a local route-escalation schema.
 
-```yaml
-workflow_packet: 1
-type: route_escalation
-schema: route_escalation.v1
-source_state:
-  from_stage: F0_FAST_DIRECT
-  previous_return_state:
-reason:
-detected_triggers:
-recommended_route:
-next_stage:
-preserved_context:
-repository_patch:
-  state: none | safe_partial_completed
-  readback_state:
-next_action:
-
-```
-
-Typical escalation:
-
-*   use `C1_CODEX_GRAPH_PLAN` for dependency-heavy or graph/decomposition work;
-*   use `B1_PROBLEM` when the Goal/brief is internally broken;
-*   use Human Decision when scope/risk requires user choice.
-
-Do not become a full router. Recommend the escalation and stop.
-
----
+Typical escalation: use `B1_PROBLEM` when the Goal/brief is internally broken or `E1_EXECUTION_BRIEF` when the execution brief needs repair. If scope/risk requires user choice and Human Decision is not registry-valid for F0, report `REGISTRY_REVIEW_CANDIDATE` and use the smallest registry-valid fallback. Do not become a full router; recommend the escalation and stop.
 
 ## 22\. Human-readable output format
 
@@ -1078,10 +945,22 @@ Default visible output shape:
 - Status:
 - Next action:
 - Reason:
+- execution_readiness_status:
+- fast_direct_allowed:
+- rejection_reason_if_any:
+- completion_scope:
+- parent_goal_completion_state:
+- next_route_basis:
 
 ## 2. Freshness and scope check
 - Freshness:
 - Active Direction/Phase/Goal:
+- implementation_target:
+- allowed_changes:
+- forbidden_changes:
+- validation_anchors:
+- acceptance_or_review_path:
+- reversibility_basis:
 - Allowed scope:
 - Forbidden scope preserved:
 - Blocking issue, if any:
@@ -1157,29 +1036,7 @@ If any check fails, do not issue an R1 launch. Return the appropriate blocker ro
 
 ---
 
-## 25\. First real Direction test scenario reference
-
-The first intended real test is:
-
-*   Direction: Solo Max Productive
-*   Active project: smart-workflow
-*   Phase: vNext One-Goal Smoke Test
-*   Goal: Create Lightweight Codex Small-Fix Lane
-*   Expected F0 objective: create/update only the Direction-local lightweight Codex Small-Fix Lane Contract plus one minimal dry-run Codex handoff checklist/example.
-*   Required guard: verify fresh GitHub repository evidence for the active Goal note/path before writing.
-*   Required exclusions:
-    *   no common canon;
-    *   no cross-Direction rollout;
-    *   no stage prompt edits;
-*   no Task Master graph for product/project execution;
-    *   no archive/history loading by default;
-    *   no security/privacy/tool-binding/source-of-truth changes.
-
-This scenario is a test reference, not a hardcoded limit on future valid F0 runs. Future F0 runs must follow the same gates and packet contracts.
-
----
-
-## 26\. Final instruction
+## Final instruction
 
 Execute small, safe, fresh, Direction-local work only.
 
@@ -1189,4 +1046,4 @@ Do not improvise scope.
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/F0_FAST_DIRECT.md`
+END_OF_FILE: workflow/stage_prompts/F0_FAST_DIRECT.md

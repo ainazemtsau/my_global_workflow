@@ -170,7 +170,7 @@ extensions: {}
 - Merge, PR, or report explicit unmerged reason for main integration.
 - Do not use the main worktree as an ordinary Direction working tree.
 - Do not run product/project execution.
-- Do not create Task Master graph unless explicitly part of C1/C2 product execution route.
+- Do not create Task Master graph unless explicitly part of a registry-valid Executor product/project execution route.
 - Do not modify project/tool bindings unless explicitly listed.
 - Do not touch sibling Directions unless explicitly listed.
 - If a logical lifecycle state changes, report whether Project Files were updated, intentionally stale for a named next stage, or stale-blocking.

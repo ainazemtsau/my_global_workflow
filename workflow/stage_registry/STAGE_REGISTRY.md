@@ -36,6 +36,12 @@ This file does not define packet schemas, launch/result field lists, stage packe
 
 Terminal card types such as `Context Request`, `Human Decision`, and `Stop` are terminal outputs, not stage IDs. If they appear in `allowed_next`, they are allowed terminal outcomes and not stage-to-stage transition authority.
 
+Special `allowed_next` tokens:
+
+- `continue_current_stage` is a B1-only continuation token, not a stage ID.
+- `Direction pause/archive` is a P9-only lifecycle terminal token, not a stage ID.
+- Transport/schema concepts such as `topology_launch_bundle` and `codex_return` must not appear as `allowed_next` tokens.
+
 Prompt source root: `workflow/stage_prompts/`
 
 ## Registry Rules
@@ -51,6 +57,8 @@ If a prompt is marked `missing_prompt`, the stage is registered but unavailable 
 ### GitHub prompt read completeness
 
 A registry row with `prompt_status: present` means the prompt file exists in the repository. It does not prove that a given ChatGPT run received the full prompt text.
+
+Registry `prompt_status: present` proves repository file existence only. Current-run prompt acquisition is governed by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`; GitHub read completeness remains governed by `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`.
 
 Before running a stage, the exact prompt file for that stage must be available without truncation or omitted-content markers.
 
@@ -100,8 +108,8 @@ A1_AUDIT
 E1_EXECUTION_BRIEF
 F0_FAST_DIRECT
 U1_USER_GUIDED_EXECUTION
-C1_CODEX_GRAPH_PLAN
-C2_CODEX_EXECUTE
+X0_EXECUTOR_PROJECT_SETUP
+X1_EXECUTOR_RUN
 B1_PROBLEM
 R1_GOAL_REVIEW_DISTILL
 P9_PHASE_CLOSE
@@ -119,17 +127,17 @@ R0_RECOVERY_CLOSE
 | I0_CAPTURE | Capture / Triage | Route raw inputs without doing the downstream work. | `workflow/stage_prompts/I0_CAPTURE.md` | present | chatgpt_direction_project | available | G0_GOAL_SELECT, G1_GOAL_SHAPE, S3_DECIDE, B1_PROBLEM, Stop |
 | G0_GOAL_SELECT | Goal Select | Select or create one candidate for Goal shaping. | `workflow/stage_prompts/G0_GOAL_SELECT.md` | present | chatgpt_direction_project | available | M0_DIRECTION_MAP, G1_GOAL_SHAPE |
 | G1_GOAL_SHAPE | Goal Shape / Ruthless Cut | Shape WHAT / WHY / DONE and cut scope before HOW. | `workflow/stage_prompts/G1_GOAL_SHAPE.md` | present | chatgpt_direction_project | available | M0_DIRECTION_MAP, F0_FAST_DIRECT, E1_EXECUTION_BRIEF, S3_DECIDE, D1_DEEP_RESEARCH, A1_AUDIT, B1_PROBLEM, Stop |
-| S3_DECIDE | Decide | Resolve a real decision with options, constraints, and human conclusion. | `workflow/stage_prompts/S3_DECIDE.md` | present | chatgpt_direction_project | available | G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, R1_GOAL_REVIEW_DISTILL, Stop |
-| D1_DEEP_RESEARCH | Deep Research | Research external evidence gaps and synthesize decision implications. | `workflow/stage_prompts/D1_DEEP_RESEARCH.md` | present | chatgpt_direction_project | available | S3_DECIDE, G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, Stop |
-| A1_AUDIT | Audit / Challenge | Challenge high-risk, failed, irreversible, or unsupported plans and claims. | `workflow/stage_prompts/A1_AUDIT.md` | present | chatgpt_direction_project | available | S3_DECIDE, G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, R1_GOAL_REVIEW_DISTILL, Stop |
-| E1_EXECUTION_BRIEF | Execution Brief | Produce minimum HOW, validation, context, and Codex card if needed. | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` | present | chatgpt_direction_project | available | M0_DIRECTION_MAP, F0_FAST_DIRECT, U1_USER_GUIDED_EXECUTION, C1_CODEX_GRAPH_PLAN, D1_DEEP_RESEARCH, A1_AUDIT, S3_DECIDE, B1_PROBLEM, Context Request, Human Decision, Stop |
-| F0_FAST_DIRECT | Fast Direct | Execute small reversible non-Codex work directly with verification. | `workflow/stage_prompts/F0_FAST_DIRECT.md` | present | chatgpt_direction_project | available | R1_GOAL_REVIEW_DISTILL, E1_EXECUTION_BRIEF, U1_USER_GUIDED_EXECUTION, B1_PROBLEM, Stop |
+| S3_DECIDE | Decide | Resolve a real decision with options, constraints, and human conclusion. | `workflow/stage_prompts/S3_DECIDE.md` | present | chatgpt_direction_project | available | G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, R1_GOAL_REVIEW_DISTILL, Context Request, Human Decision, Stop |
+| D1_DEEP_RESEARCH | Deep Research | Research external evidence gaps and synthesize decision implications. | `workflow/stage_prompts/D1_DEEP_RESEARCH.md` | present | chatgpt_direction_project | available | S3_DECIDE, G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, B1_PROBLEM, Context Request, Human Decision, Stop |
+| A1_AUDIT | Audit / Challenge | Challenge high-risk, failed, irreversible, or unsupported plans and claims. | `workflow/stage_prompts/A1_AUDIT.md` | present | chatgpt_direction_project | available | S3_DECIDE, G1_GOAL_SHAPE, E1_EXECUTION_BRIEF, R1_GOAL_REVIEW_DISTILL, B1_PROBLEM, Context Request, Human Decision, Stop |
+| E1_EXECUTION_BRIEF | Execution Brief | Produce minimum HOW, validation, context, and executor handoff if needed. | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` | present | chatgpt_direction_project | available | M0_DIRECTION_MAP, F0_FAST_DIRECT, U1_USER_GUIDED_EXECUTION, X0_EXECUTOR_PROJECT_SETUP, X1_EXECUTOR_RUN, D1_DEEP_RESEARCH, A1_AUDIT, S3_DECIDE, B1_PROBLEM, Context Request, Human Decision, Stop |
+| F0_FAST_DIRECT | Fast Direct | Execute small reversible non-Codex work directly with verification. | `workflow/stage_prompts/F0_FAST_DIRECT.md` | present | chatgpt_direction_project | available | R1_GOAL_REVIEW_DISTILL, E1_EXECUTION_BRIEF, U1_USER_GUIDED_EXECUTION, B1_PROBLEM, Context Request, Human Decision, Stop |
 | U1_USER_GUIDED_EXECUTION | User Guided Execution | Guide the human operator through an external app, website, local program, ChatGPT UI, or tool setup when no verified automation/tool binding exists or human operation is safer. | `workflow/stage_prompts/U1_USER_GUIDED_EXECUTION.md` | present | chatgpt_direction_project | available | E1_EXECUTION_BRIEF, B1_PROBLEM, D1_DEEP_RESEARCH, A1_AUDIT, S3_DECIDE, R1_GOAL_REVIEW_DISTILL, Context Request, Human Decision, Stop |
-| C1_CODEX_GRAPH_PLAN | Codex Graph Plan | Prepare a bounded Codex execution envelope from accepted workflow context; require Codex-side technical discovery when project-local architecture/reuse decisions are needed. | `workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md` | present | chatgpt_direction_project | available | C2_CODEX_EXECUTE, Context Request, Human Decision, Stop |
-| C2_CODEX_EXECUTE | Codex Execute | Execute a validated Codex graph and return evidence / return-state. | `workflow/stage_prompts/C2_CODEX_EXECUTE.md` | present | codex | available | R1_GOAL_REVIEW_DISTILL, E1_EXECUTION_BRIEF, B1_PROBLEM, Stop |
-| B1_PROBLEM | Problem Router | Classify blockers before solving and route recovery. | `workflow/stage_prompts/B1_PROBLEM.md` | present | chatgpt_direction_project | available | continue_current_stage, E1_EXECUTION_BRIEF, G1_GOAL_SHAPE, S3_DECIDE, R1_GOAL_REVIEW_DISTILL, Stop |
-| R1_GOAL_REVIEW_DISTILL | Goal Review / Distill | Review Goal outcome, distill durable knowledge, and update state / docs. | `workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md` | present | chatgpt_direction_project | available | M0_DIRECTION_MAP, G0_GOAL_SELECT, G1_GOAL_SHAPE, P9_PHASE_CLOSE, P0_PHASE_START, Stop |
-| P9_PHASE_CLOSE | Phase Close | Close or pause Phase and distill phase-level outcomes. | `workflow/stage_prompts/P9_PHASE_CLOSE.md` | present | chatgpt_direction_project | available | M0_DIRECTION_MAP, P0_PHASE_START, G0_GOAL_SELECT, Direction pause/archive, Stop |
+| X0_EXECUTOR_PROJECT_SETUP | Executor Project Setup | Run Executor Project Setup Wizard and return setup evidence. | `workflow/stage_prompts/X0_EXECUTOR_PROJECT_SETUP.md` | present | codex | available | E1_EXECUTION_BRIEF, R1_GOAL_REVIEW_DISTILL, D1_DEEP_RESEARCH, U1_USER_GUIDED_EXECUTION, B1_PROBLEM, Context Request, Human Decision, Stop |
+| X1_EXECUTOR_RUN | Executor Run | Execute approved Executor Work Package and return evidence. | `workflow/stage_prompts/X1_EXECUTOR_RUN.md` | present | codex | available | R1_GOAL_REVIEW_DISTILL, E1_EXECUTION_BRIEF, D1_DEEP_RESEARCH, U1_USER_GUIDED_EXECUTION, B1_PROBLEM, Context Request, Human Decision, Stop |
+| B1_PROBLEM | Problem Router | Classify blockers before solving and route recovery. | `workflow/stage_prompts/B1_PROBLEM.md` | present | chatgpt_direction_project | available | continue_current_stage, E1_EXECUTION_BRIEF, G1_GOAL_SHAPE, S3_DECIDE, R1_GOAL_REVIEW_DISTILL, Context Request, Human Decision, Stop |
+| R1_GOAL_REVIEW_DISTILL | Goal Review / Distill | Review Goal outcome, distill durable knowledge, and update state / docs. | `workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md` | present | chatgpt_direction_project | available | M0_DIRECTION_MAP, G0_GOAL_SELECT, G1_GOAL_SHAPE, P9_PHASE_CLOSE, P0_PHASE_START, E1_EXECUTION_BRIEF, B1_PROBLEM, Context Request, Human Decision, Stop |
+| P9_PHASE_CLOSE | Phase Close | Close or pause Phase and distill phase-level outcomes. | `workflow/stage_prompts/P9_PHASE_CLOSE.md` | present | chatgpt_direction_project | available | M0_DIRECTION_MAP, P0_PHASE_START, G0_GOAL_SELECT, B1_PROBLEM, Context Request, Human Decision, Direction pause/archive, Stop |
 | R0_RECOVERY_CLOSE | Recovery Close | Close mixed or interrupted sessions and reconstruct a safe handoff. | `workflow/stage_prompts/R0_RECOVERY_CLOSE.md` | missing_prompt | mixed | unavailable_until_prompt_installed | ROUTER_STAGE_LAUNCHER, Context Request, Stop |
 
 ## Compatibility Aliases
@@ -157,6 +165,7 @@ Registry validation must check:
 11. Stage registry interface files, if present, are derived/reference surfaces only and must not override this registry.
 12. Transport route fields, if present, are snapshots only and must not override this registry.
 13. Terminal card types are not canonical stage IDs.
+14. Executor setup/run stage IDs are `X0_EXECUTOR_PROJECT_SETUP` and `X1_EXECUTOR_RUN`; do not register `C1_CODEX_GRAPH_PLAN`, `C2_CODEX_EXECUTE`, `EXECUTOR_PROJECT_SETUP`, `E2_EXECUTION_HANDOFF`, or alternate executor-run stage IDs as active stages.
 
 If a launch card names an unknown stage ID, return a Context Request or registry amendment request instead of guessing.
 

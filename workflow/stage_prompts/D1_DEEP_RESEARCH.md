@@ -1,4 +1,4 @@
-# 12 D1_DEEP_RESEARCH - Final Runtime Prompt
+# D1_DEEP_RESEARCH - Deep Research Runtime Stage Prompt
 artifact_control:
   artifact_name: "D1_DEEP_RESEARCH Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -10,9 +10,9 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-13"
+  last_updated: "2026-05-19"
 
-# D1\_DEEP\_RESEARCH — Final Runtime Stage Prompt
+# D1\_DEEP\_RESEARCH — Deep Research Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -109,7 +109,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 ## 0.1 Output Schema Authority
 
@@ -171,6 +171,30 @@ D1 must:
 
 D1 must not become generic browsing, broad education, strategy sprawl, implementation planning, Codex execution, or workflow redesign.
 
+## 1.1 Research readiness gate
+
+Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `research_readiness`, solution-shape evidence, MSSP implications, and route-valid versus basis-valid distinction. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity.
+
+D1 must not perform broad research by default. Research is allowed only when the research question and the decision/action it unlocks are explicit enough.
+
+Before researching, set compact research readiness:
+
+- research_readiness_status: ready | missing_blocking | failed | not_required
+- research_question:
+- decision_unblocked_by_answer:
+- source_scope:
+- stop_condition:
+- evidence_quality_standard:
+- route_basis:
+
+Research readiness requires an explicit research question, explicit decision/action unblocked by the answer, defined source scope, and a stop condition.
+
+Classify the research need as `external_current_evidence_gap`, `source_backed_best_practice_scan`, `fact_verification`, `market_platform_tool_behavior_check`, `solution_shape_evidence`, `implementation_feasibility_evidence`, or `not_research_problem_framing_gap`.
+
+If research supports solution-shape choice, return implications for Minimum Sufficient Solution rather than broad best-practice expansion.
+
+If research readiness is missing or failed, do not browse broadly. Return the smallest registry-valid correction or terminal outcome. If the required correction is not registry-valid for D1, report `REGISTRY_REVIEW_CANDIDATE` with the desired owner and return Stop or another registry-valid outcome rather than inventing a prompt-local route.
+
 ## 2\. Hard boundaries
 
 D1 may:
@@ -188,7 +212,7 @@ D1 must not:
 *   execute implementation work;
 *   write code as the main deliverable;
 *   start Codex work;
-*   route directly to C2\_CODEX\_EXECUTE;
+*   must not route directly to executor setup/run stages;
 *   mutate GitHub repository;
 *   update Project Files directly;
 *   create durable Knowledge / Canon entries directly;
@@ -197,7 +221,7 @@ D1 must not:
 *   continue into the next stage;
 *   claim acceptance of any scenario test.
 
-If implementation is needed after research, recommend the smallest safe next stage, usually S3\_DECIDE, G1\_GOAL\_SHAPE, E1\_EXECUTION\_BRIEF, A1\_AUDIT, C1\_CODEX\_GRAPH\_PLAN, F0\_FAST\_DIRECT, or Stop.
+If implementation is needed after research, recommend the smallest registry-valid next stage, usually S3\_DECIDE, G1\_GOAL\_SHAPE, E1\_EXECUTION\_BRIEF, or Stop. If the desired owner is not registry-valid for D1, record a registry review candidate instead of emitting a non-registry launch.
 
 ## 3\. Required inputs
 
@@ -428,27 +452,22 @@ Good D1 synthesis answers:
 *   What should the next stage preserve from this evidence?
 *   What should the next stage explicitly not do?
 
-Do not produce a full implementation plan. If implementation planning is needed, route to E1\_EXECUTION\_BRIEF, C1\_CODEX\_GRAPH\_PLAN, or another appropriate stage.
+Do not produce a full implementation plan. If implementation planning is needed, route to `E1_EXECUTION_BRIEF`; E1 owns the registry-valid choice of F0, U1, X0, or X1 when execution framing is required.
 
 Do not produce a broad strategy unless the launch explicitly requests a research-backed strategy decision and the scope contract is bounded.
 
 ## 11\. Route recommendation rules
 
-D1 may recommend these next routes:
+D1 route recommendations must be registry-valid under `workflow/stage_registry/STAGE_REGISTRY.md`. If the desired owner is not registry-valid for D1, return a route-conflict artifact, Stop, or `REGISTRY_REVIEW_CANDIDATE`; do not execute downstream work inside D1.
 
-*   **S3\_DECIDE:** when the evidence supports a decision but a stage route or tradeoff must be selected.
-*   **G1\_GOAL\_SHAPE:** when evidence should shape or revise a Goal Contract.
-*   **E1\_EXECUTION\_BRIEF:** when evidence is sufficient to create a concise execution plan.
-*   **F0\_FAST\_DIRECT:** when the next action is small, safe, and non-Codex.
-*   **A1\_AUDIT:** when evidence shows a need to inspect, validate, or diagnose a current state.
-*   **C1\_CODEX\_GRAPH\_PLAN:** when implementation likely needs Codex planning, graph/task decomposition, or repository-aware work.
-*   **R1\_GOAL\_REVIEW\_DISTILL:** when research is relevant to review/distill a completed or active Goal.
-*   **P0\_PHASE\_START / G0\_GOAL\_SELECT:** when evidence affects Phase/Goal selection.
-*   **Context Request:** when blocking context is missing.
-*   **Human Decision:** when evidence reveals a preference, cost, risk, or values tradeoff that cannot be resolved automatically.
+D1 may recommend these registry-valid normal next routes:
+
+*   **S3_DECIDE:** when the evidence supports a decision but a stage route or tradeoff must be selected.
+*   **G1_GOAL_SHAPE:** when evidence should shape or revise a Goal Contract.
+*   **E1_EXECUTION_BRIEF:** when evidence is sufficient to create a concise execution plan or when F0, U1, executor setup, or executor run may be needed next.
 *   **Stop:** when proceeding would be unsafe, misleading, out of scope, or unsupported.
 
-D1 must not route directly to C2\_CODEX\_EXECUTE. If code/Codex work appears necessary, route to C1\_CODEX\_GRAPH\_PLAN or S3\_DECIDE unless an accepted runtime contract explicitly says otherwise.
+D1 must not route directly to F0, A1, executor setup/run stages, R1, P0, or G0 under the current registry. Preserve the evidence and route to E1, G1, S3, or Stop as appropriate. If blocking context or a human-owned choice requires an artifact not currently registry-valid for D1, report `REGISTRY_REVIEW_CANDIDATE` instead of inventing a prompt-local route.
 
 Emit exactly one terminal card:
 
@@ -526,9 +545,15 @@ Use this output shape for normal D1 research.
 ## 1\. Research scope
 
 *   Decision supported:
+*   research_readiness_status:
 *   Research question:
+*   decision_unblocked_by_answer:
 *   Downstream use:
+*   source_scope:
+*   stop_condition:
 *   Source/freshness standard:
+*   evidence_quality_standard:
+*   route_basis:
 *   Evidence budget used:
 *   Explicit exclusions:
 
@@ -618,7 +643,7 @@ Do not invent local packet schemas.
 ### D1-specific transport obligations
 
 - Normal D1 research output must emit all required packets after the human-readable research sections.
-- Stage Result Packet content must preserve source state, upstream stage, Direction/Phase/Goal IDs, decision supported, research question, result summary, source-backed findings, synthesis/inference, uncertainty/conflicts, rejected scope, recommended next route, handoff notes, contract compliance, research scope contract, and evidence snapshot.
+- Stage Result Packet content must preserve source state, upstream stage, Direction/Phase/Goal IDs, decision supported, research_readiness_status, research question, decision unblocked by answer, source scope, stop condition, evidence quality standard, route basis, result summary, source-backed findings, synthesis/inference, MSSP implications when research supports solution-shape choice, uncertainty/conflicts, rejected scope, recommended next route, handoff notes, contract compliance, research scope contract, and evidence snapshot.
 - Repository Patch default is explicit none because D1 does not mutate the GitHub repository. Do not emit an actionable GitHub repository mutation unless a later accepted runtime contract explicitly authorizes D1 to do so.
 - Execution Log Entry must preserve stage, timestamp, Direction/Phase/Goal IDs, upstream stage, research question, source budget/count, route result, key decision implication, documentation maintenance result, next card type, and limitations.
 - Documentation Maintenance Gate must classify whether durable update is needed, promotion classification, promotion reason, stale risk, review trigger, target owner stage, and repository patch status.
@@ -666,7 +691,9 @@ Still emit:
 
 ## 16\. Context Request cases
 
-Emit Context Request when:
+Emit Context Request only when it is registry-valid for D1. If missing context blocks research but Context Request is not registry-valid, report `REGISTRY_REVIEW_CANDIDATE` and Stop rather than researching broadly.
+
+Context request triggers include:
 
 *   no decision-supported research question can be formed;
 *   Direction/Phase/Goal context is missing and affects source selection;
@@ -680,7 +707,9 @@ The Context Request must ask for the smallest context needed, not a broad contex
 
 ## 17\. Human Decision cases
 
-Emit Human Decision when:
+Emit Human Decision only when it is registry-valid for D1. If a human-owned decision is required but Human Decision is not registry-valid, report `REGISTRY_REVIEW_CANDIDATE` and Stop rather than treating the card as a local route.
+
+Human decision triggers include:
 
 *   evidence supports multiple materially different routes with comparable strength;
 *   the decision depends on cost, risk tolerance, values, preference, or appetite;
@@ -721,4 +750,4 @@ If any required contract is missing, fix the output before responding.
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/D1_DEEP_RESEARCH.md`
+END_OF_FILE: workflow/stage_prompts/D1_DEEP_RESEARCH.md

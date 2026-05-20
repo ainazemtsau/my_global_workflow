@@ -18,9 +18,9 @@ project_file_control:
 
 * Current Phase: `Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
 * Active Goal pointer: `nutrition-project-operational-setup-v0` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
-* Active Goal status: blocked/stale pending decision; it is historical/current input, not an executable target.
-* Current focus: Resolve minimal nutrition loop shape and tool/container policy before execution planning.
-* Next route: `S3_DECIDE`
+* Active Goal status: goal_shaped_pending_E1 after G1 repaired Goal Contract formalization
+* Current focus: Prepare E1 execution brief for the repaired repo-backed Project `Питание` nutrition loop.
+* Next route: `E1_EXECUTION_BRIEF`
 * Direction Map: `08_DIRECTION_MAP.md` is the current routing authority after Objective Architecture migration; use verified GitHub read-back over stale Project Files cache.
 
 ## Stale-state correction
@@ -29,7 +29,7 @@ Repository read-back confirms `03_AI_NUTRITION_OPERATING_LAYER_V0.md` exists as 
 
 The Phase remains active. Do not route this correction to `P9_PHASE_CLOSE`.
 
-The prior Project `Питание` setup route is stale and must not be launched. The prior Goal/artifact may be used only as historical/current input until `S3_DECIDE` resolves the minimal nutrition loop shape and tool/container policy. Project `Питание` is a possible container/tool, not the required implementation.
+The prior Project `Питание` route is historical input only; G1 formalized the repaired repo-backed multi-chat Project `Питание` nutrition loop. E1 must plan against the repaired Goal Contract and must not run until this patch is applied/read back and Project Files are refreshed.
 
 ## Default Project Files to load
 

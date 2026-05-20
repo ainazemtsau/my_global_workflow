@@ -84,14 +84,9 @@ Required P0 output artifacts:
 P0 may route only to:
 
 *   I0 Capture
+*   M0 Direction Map
 *   G0 Goal Select
 *   G1 Goal Shape
-*   F0 Fast Direct
-*   D1 Deep Research
-*   A1 Audit
-*   C1 Codex Graph Plan
-*   P9 Phase Close
-*   R0 Recovery Close
 
 ## Write targets
 

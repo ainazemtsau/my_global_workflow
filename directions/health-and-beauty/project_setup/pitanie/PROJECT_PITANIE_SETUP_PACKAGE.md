@@ -1,36 +1,34 @@
-# Project Питание Portable Setup Package
+# Project `Питание` setup package - superseded
 
-This file is the root index and portable package manifest for ChatGPT Project `Питание`.
+Status: `SUPERSEDED_U1_REAL_UI_TEST_FAILED`
 
-Do not paste the full source/spec into Project Instructions. The Project Instructions field should receive only `PROJECT_INSTRUCTIONS.md`.
+Do not install this package. It is retained only as historical evidence of the failed one-chat setup route.
 
-## Package Files
-
-- `PROJECT_INSTRUCTIONS.md` — exact short paste target for ChatGPT Project Instructions.
-- `PITANIE_PROJECT_SOURCE.md` — required uploaded Project Source and detailed operating source of truth.
-- `BOOTSTRAP_PROMPT.md` — exact first-chat bootstrap prompt.
-- `INSTALL_CHECKLIST.md` — manual setup guide.
-- `VALIDATION_PROMPTS.md` — dry-run validation prompts and pass conditions.
-- `README.md` — portable package overview.
-- `archive/PROJECT_PITANIE_SETUP_PACKAGE_MONOLITH_2026-05-18.md` — archived pre-repair monolithic package.
-
-## Required ChatGPT Project Upload Set
-
-Upload exactly one required source file first:
+The active Project `Питание` setup is the clean repo-backed multi-chat package at:
 
 ```text
-PITANIE_PROJECT_SOURCE.md
+directions/health-and-beauty/projects/nutrition/
 ```
 
-Optional real nutrition files, prior menus, preference notes, equipment notes, or cycle carryover files can be uploaded after setup.
+Required operator rule:
 
-## Install Order
+- Do not upload this file as Project Instructions.
+- Do not upload old files from this directory as Project Files.
+- Do not use this file as a runtime source of truth.
+- Do not patch this file to restore active behavior.
 
-1. Create ChatGPT Project `Питание`.
-2. Paste `PROJECT_INSTRUCTIONS.md` into Project Instructions.
-3. Upload `PITANIE_PROJECT_SOURCE.md` as the required Project Source.
-4. Start a new chat.
-5. Paste `BOOTSTRAP_PROMPT.md`.
-6. Validate behavior with `VALIDATION_PROMPTS.md`.
+Reason:
+
+```yaml
+supersession_reason:
+  trigger: U1_REAL_UI_TEST_FAILED
+  old_route: one_chat_setup
+  failure_modes:
+    - one_chat_collapse
+    - premature_menu_generation
+    - missing_chat_mode_routing
+    - user_prompt_became_protocol
+  replacement: directions/health-and-beauty/projects/nutrition/
+```
 
 END_OF_FILE: directions/health-and-beauty/project_setup/pitanie/PROJECT_PITANIE_SETUP_PACKAGE.md

@@ -16,27 +16,27 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: blocked
+  state: active
   goal_id: nutrition-project-operational-setup-v0
-  goal_name: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
+  goal_name: "Починить Project `Питание` как repo-backed multi-chat nutrition loop"
   goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
   current_wave: none
   current_stage: G1_GOAL_SHAPE_formalized
-  status: stale_not_basis_valid_after_user_correction
-  next_route: S3_DECIDE
-  use_policy: "Historical/current input only; do not execute E1 until S3 decides whether Project `Питание` is kept, repaired, reduced, or superseded."
+  status: goal_shaped_pending_E1
+  next_route: E1_EXECUTION_BRIEF
+  use_policy: "Use the repaired Goal Contract and Working Context as current authority. Do not execute old E1/U1/R1 path."
 ```
 
 ## Goal Contract snapshot
 
-* WHAT: Prepare separate Project `Питание` setup package with Project Instructions, Nutrition Base, Menu Preferences, Active Cycle, Tracking Protocol, Review & Sync Protocol, and dry-runs.
-* WHY: v0 protocol exists but operational Project setup is not confirmed.
-* DONE: Fresh Project `Питание` chat can plan cycle, track photo/voice events, handle unknown/defaulted answers, correct exceptions, review, and emit sync/update packets.
-* Acceptance floor: Manual-install setup package plus 2-3 operational dry-runs.
-* Validation: Cycle planning, meal-event, missing-answer, review/sync dry-runs.
+* WHAT: Create a minimal repo-backed multi-chat Project `Питание` nutrition loop where GitHub markdown files are durable nutrition state, ChatGPT Project Files are a refreshable runtime cache, chat memory is non-authoritative, and Codex is save-only repository maintenance writer.
+* WHY: The previous Project `Питание` path was stale / not basis-valid after Objective Architecture correction; S3 selected the repaired shape that keeps Project `Питание` as UI while moving authority to repository-backed state.
+* DONE: One complete low-friction loop is proven: baseline/current plan -> weekly menu -> tracking/adaptation -> review -> save to GitHub -> Project Files refresh -> fresh chat continuation.
+* Acceptance floor: `first_week_bootstrap_from_empty_state`, `later_week_bootstrap_from_saved_state`, `fresh_menu_chat_from_saved_plan`, `fresh_tracking_chat_from_saved_plan_and_menu`, `week_review_from_saved_report`, and `project_files_refresh_reproducibility`.
+* Validation: E1 must plan implementation and validation; later execution must prove repository read-back, dry-runs, Project Files refresh reproducibility, and fresh-chat continuation without hidden memory or manual giant packets.
 
-This snapshot is preserved as prior Goal Contract context but is stale as an execution target after Objective Architecture correction.
+This snapshot reflects the repaired G1 Goal shape and remains pending E1 execution planning.
 
 ## Prior artifact input
 

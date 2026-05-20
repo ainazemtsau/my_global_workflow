@@ -90,10 +90,11 @@ A1 may route only to:
 *   G1 Goal Shape
 *   S3 Decide
 *   E1 Execution Brief
-*   C1 Codex Graph Plan
-*   B1 Problem
 *   R1 Review Distill
-*   R0 Recovery Close
+*   B1 Problem
+*   Context Request
+*   Human Decision
+*   Stop
 
 ## Write targets
 

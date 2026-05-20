@@ -239,7 +239,7 @@ A node is ready only when:
 
 ## Next Action Proof
 
-Before launching material G1, A1, D1, E1, F0, C1, C2, or a material Router-selected stage, produce or inherit a compact `next_action_proof`.
+Before launching material G1, A1, D1, E1, F0, X0, X1, or a material Router-selected stage, produce or inherit a compact `next_action_proof`.
 
 ```yaml
 next_action_proof:
@@ -466,7 +466,7 @@ If these are false or unknown, D1 must not perform broad research. It should ret
 
 ## Execution readiness gate
 
-E1/F0/C1/C2 execution planning or execution is allowed only when:
+E1/F0/X0/X1 execution planning, setup, or execution is allowed only when:
 
 ```yaml
 execution_readiness:
@@ -477,6 +477,26 @@ execution_readiness:
   basis_validity_inherited_or_proven: true
   solution_shape_proven_or_not_required: true
 ```
+
+For product/project execution through Executor/Codex, execution readiness also requires:
+
+```yaml
+executor_handoff_readiness:
+  target_project_ref_explicit: true
+  executor_project_setup_status_known: true
+  executor_project_setup_status_acceptable: true
+  executor_setup_request_or_equivalent_explicit: true # for X0 setup action
+  execution_work_package_or_equivalent_explicit: true
+  validation_and_return_contract_explicit: true
+```
+
+X0 setup action is exempt from prior completed setup but still requires explicit target project reference, setup objective, setup request or equivalent, and validation/evidence expectations. X1 normal execution requires acceptable setup status: `complete` or `complete_with_approved_fallback`.
+
+Core-only setup is acceptable. Stack-specific tuning is optional and decision-gated unless it is needed to make validation or evidence possible.
+
+Executor Project Setup itself is a distinct setup action/capability and does not require prior completed project setup.
+
+This extension does not duplicate transport schemas and does not change stage registry authority.
 
 If these are false or unknown, execution must not proceed.
 

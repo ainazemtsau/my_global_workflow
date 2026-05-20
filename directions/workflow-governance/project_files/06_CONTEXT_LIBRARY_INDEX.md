@@ -21,6 +21,7 @@ In the ChatGPT Project, these files should be present as Project Files runtime c
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
 - `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
+- `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`
 - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
 - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
@@ -45,6 +46,7 @@ If GitHub and Project File cache conflict, use verified full GitHub read-back. I
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
 - `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
+- `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
 - `workflow/stage_prompts/`
 

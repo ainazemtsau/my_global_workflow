@@ -1,4 +1,4 @@
-# 10 D0_DIRECTION_SETUP - Final Runtime Prompt
+# D0_DIRECTION_SETUP - Direction Setup Runtime Stage Prompt
 artifact_control:
   artifact_name: "D0_DIRECTION_SETUP Runtime Stage Prompt"
   schema: stage_prompt.v1
@@ -12,7 +12,7 @@ artifact_control:
   freshness: refresh_when_stage_prompt_or_registry_changes
   last_updated: "2026-05-15"
 
-# D0\_DIRECTION\_SETUP — Final Runtime Prompt
+# D0\_DIRECTION\_SETUP — Direction Setup Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -93,7 +93,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 ## 0.1 Output Schema Authority
 
@@ -103,7 +103,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/D0_DIRECTION_SETUP.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results and launches must use the canonical transport templates from `workflow/transport/*.md` with stage-specific fields preserved below.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -258,7 +258,7 @@ Run these passes internally before producing output.
 
 Confirm this is appropriate for `D0_DIRECTION_SETUP`.
 
-If the launch card targets another stage, do not run D0. Return a Stop Card or route to `ROUTER_STAGE_LAUNCHER`.
+If the launch card targets another stage, do not run D0. Return a Stop Card or route-conflict artifact using registry-valid options; do not execute another stage inside D0.
 
 Normalize aliases:
 
@@ -283,11 +283,7 @@ Classify the request as one of:
 
 If not Direction setup, route instead of forcing D0.
 
-Examples:
-
-*   One-off task or answer request: route to `F0_FAST_DIRECT` if approved direct execution is appropriate.
-*   Raw material that only needs storage/triage: route to `I0_CAPTURE` if capture is appropriate.
-*   Ambiguous workflow intent: route to `ROUTER_STAGE_LAUNCHER` or return Context Request.
+If the request is not Direction setup, return a Stop, Context Request, Human Decision, or registry-valid route-conflict artifact. Do not emit a non-registry launch from D0.
 
 ### Pass 3 — Direction-worthiness check
 
@@ -475,9 +471,7 @@ Route rules:
 *   New Direction setup created but user did not request immediate Phase work: Stop Card with setup result and optional suggested next route.
 *   Missing root/file read-back / diff verification / commit verification/current state: Context Request Card.
 *   Possible duplicate or conflicting roots: Human Decision Card.
-*   One-off/small task: route to `F0_FAST_DIRECT`, `I0_CAPTURE`, or `ROUTER_STAGE_LAUNCHER` as appropriate.
-*   Corrupted existing Direction setup: Human Decision Card, or route to `R0_RECOVERY_CLOSE` only if R0 is installed/available and the launch context supports it.
-*   Request outside D0 authority: Stop Card or route to `ROUTER_STAGE_LAUNCHER`.
+*   One-off/small task, corrupted existing Direction setup, or request outside D0 authority: return Stop, Context Request, Human Decision, or another registry-valid route-conflict artifact; do not emit a non-registry launch from D0.
 
 ## 6\. Required output shape
 
@@ -546,116 +540,22 @@ Include the canonical packet.
 
 Use exception-only reporting. If no exceptions exist, write: `None.`
 
-## 7\. Stage Result Packet contract
+## 7\. Transport obligations
 
-Use this stable packet shape. Optional extensions are allowed. Unknown fields from input may be preserved under `passthrough_extensions`.
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these D0-specific fields/content in the relevant canonical packet when formalization is approved:
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage\_id: D0\_DIRECTION\_SETUP stage\_name: Direction Setup status: completed | blocked | rerouted | stopped direction: direction\_id: direction\_name: direction\_root\_path: direction\_aliases: direction\_setup: status: existing\_verified | new\_minimal\_setup\_created | context\_requested | human\_decision\_required | not\_direction\_setup | stopped\_no\_safe\_action setup\_evidence\_path: setup\_freshness: fresh | stale | unknown verified\_at: source\_paths\_used: duplicate\_check\_result: sufficiency\_result: missing\_required\_context: assumptions: minimal\_operating\_context: operating\_thesis: known\_constraints: near\_term\_priorities: success\_signals: explicitly\_not\_defined: scope\_boundaries: phase\_started: false goal\_selected: false execution\_started: false canon\_promoted: false repository\_patch\_summary: action: create | replace\_section | append\_section | update\_header | mark\_stale | none target\_paths: forbidden\_paths\_observed: documentation\_maintenance: required: reason: unresolved\_risks: changed\_files\_context\_refresh_after_approval: required: reason: files: next\_route: route\_type: next\_launch | context\_request | human\_decision | stop next\_stage\_id: route\_reason: launch\_card\_included: passthrough\_extensions: kernel\_qa: exceptions:
+- direction identity, root path, aliases, and setup evidence path;
+- setup status: existing verified, new minimal setup created, context requested, human decision required, not Direction setup, or stopped;
+- setup freshness, sources checked, duplicate-check result, sufficiency result, and missing required context;
+- minimal operating context: operating thesis, constraints, near-term priorities, success signals, explicit non-definitions, and scope boundaries;
+- confirmation that D0 did not start a Phase, select a Goal, execute work, or promote canon;
+- exact repository patch summary or explicit none;
+- documentation maintenance and changed-files/context-refresh impact;
+- next route artifact using only registry-valid D0 downstream stages or a blocking artifact.
 
-## 8\. Repository Patch contract
+Repository Patch, Execution Log Entry, Documentation Maintenance Gate, Changed Files / Context Refresh List, Stage Launch, Context Request, Human Decision, and Stop artifacts must use the canonical transport templates. Do not copy local packet schemas.
 
-If no durable write is safe or needed:
-
-repository\_patch: required: false reason: actions: \[\] do\_not\_touch: - path: reason:
-
-If a patch is needed:
-
-repository\_patch: required_after_approval: true reason: actions: - action: create | replace\_section | append\_section | update\_header | mark\_stale path: title: content\_anchor: content: validation\_anchors: - text: safety\_reason: do\_not\_touch: - path: reason: validation\_anchors: - path: anchors: - text:
-
-Every patch must name exact paths. Do not say “update the relevant note.”
-
-## 9\. Execution Log Entry contract
-
-execution\_log\_entry: stage\_id: D0\_DIRECTION\_SETUP timestamp: direction\_name: direction\_root\_path: action\_taken: verified\_existing | created\_minimal\_setup | requested\_context | requested\_human\_decision | stopped | rerouted setup\_status: sources\_checked: repository\_patch: documentation\_gate: changed\_files\_context\_refresh_after_approval: next\_route: blockers:
-
-## 10\. Documentation Maintenance Gate contract
-
-documentation\_maintenance\_gate: required_after_approval: true | false trigger: docs\_checked: docs\_created\_or\_updated: stale\_docs\_detected: stale\_docs\_action: unresolved\_doc\_risks: changed\_files\_context\_refresh\_required:
-
-Trigger the gate when:
-
-*   new Direction setup evidence is created;
-*   existing setup is verified but evidence markers are missing;
-*   duplicate/stale Direction roots are detected;
-*   Direction stable context is changed;
-*   Project Files appear stale relative to file read-back / diff verification / commit verification.
-
-Do not trigger routine documentation work just to make setup feel complete.
-
-## 11\. Changed Files / Context Refresh List contract
-
-changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true | false trigger: files: - file: reason: action\_needed:
-
-Default:
-
-*   `required: false`.
-
-After approval/formalization, set `required_after_approval: true` only when:
-
-*   current Project Files conflict with fresh file read-back / diff verification / commit verification;
-*   the active Direction Project uses exported Project Files as runtime context;
-*   a Context refresh is necessary to prevent stale context in future runs.
-
-## 12\. Next Launch Card contract
-
-Use only when the next stage is safe.
-
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 from\_stage: D0\_DIRECTION\_SETUP next\_stage\_id: next\_stage\_name: direction: direction\_name: direction\_root\_path: setup\_status: setup\_evidence\_path: setup\_freshness: input\_summary: user\_intent: d0\_verdict: required\_context:
-
-*   item: path\_or\_source: route\_reason: do\_not\_do:
-*   start\_phase\_without\_P0
-*   create\_duplicate\_direction
-*   use\_stale\_archives\_as\_authority
-*   mutate\_old\_active\_workflow\_vnext
-
-## 13\. Context Request Card contract
-
-Use when safe D0 output requires missing context.
-
-workflow\_packet: 1 type: context\_request schema: context\_request.v1 from\_stage: D0\_DIRECTION\_SETUP blocking\_reason: required\_context:
-
-*   item: why\_needed: acceptable\_sources: current\_safe\_state: repository\_patch: required: false reason: next\_action\_after\_context:
-
-Common D0 Context Request cases:
-
-*   existing Direction named but no fresh root/file read-back / diff verification / commit verification is available;
-*   candidate root path is missing for new Direction creation;
-*   setup evidence cannot be found;
-*   Direction name is ambiguous;
-*   old Project Files and fresh file read-back / diff verification / commit verification conflict;
-*   missing context would affect durable mutation;
-*   user asks to verify an existing Direction but provides no current state.
-
-## 14\. Human Decision Card contract
-
-Use when the system can identify the choice but cannot safely choose for the user.
-
-workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 from\_stage: D0\_DIRECTION\_SETUP decision\_needed: options:
-
-*   option: consequence: risk: recommended\_option: smallest\_safe\_default: repository\_patch: required: false reason: decision\_required\_before:
-
-Common D0 Human Decision cases:
-
-*   multiple plausible Direction roots;
-*   merge/rename/overwrite/delete request;
-*   user requests broad companion structure before a Phase exists;
-*   user asks to touch common canon or old active Workflow vNext;
-*   stale and fresh sources conflict in a way that affects durable state;
-*   user insists on creating a Direction for work that appears too small.
-
-## 15\. Stop Card contract
-
-Use when D0 must stop and no safe route or decision card is appropriate.
-
-workflow\_packet: 1 type: stop schema: stop.v1 from\_stage: D0\_DIRECTION\_SETUP stop\_reason: safe\_state: repository\_patch: required: false reason: recommended\_reentry:
-
-Stop when:
-
-*   the request is outside D0 and no safe route is clear;
-*   the request would violate D0 authority;
-*   the user asks D0 to start Phase/Goal/execution;
-*   safe setup cannot proceed without guessing;
-*   required tool/context access is absent and no useful Context Request can be made.
+D0 Context Requests should name only the missing setup/root/current-state evidence that blocks safe setup. D0 Human Decisions should be limited to duplicate roots, merge/rename/overwrite/delete requests, broad companion structure requests, common-canon/old-workflow touches, or source conflicts that affect durable state. D0 Stop should be used when the request is outside D0, violates D0 authority, asks D0 to start Phase/Goal/execution, or cannot proceed without guessing.
 
 ## 16\. Direction Setup Evidence minimum
 

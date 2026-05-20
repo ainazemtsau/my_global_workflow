@@ -23,11 +23,14 @@ This decision is accepted as the minimal unblock authority model for routing, pr
 | --- | --- |
 | Canonical workflow source-of-truth marker | `WORKFLOW_SOURCE_OF_TRUTH.md` |
 | Runtime behavior and precedence | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` |
+| Repository/context acquisition order before Context Request | `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` |
 | Long GitHub file read completeness | `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md` |
 | Project Files runtime cache | `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
 | Lifecycle state reconciliation and Project Files semantic staleness | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` plus reporting rules in `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md` |
 | Structural EOF/tail integrity for repository maintenance and read-back | `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`, and `workflow/transport/REPOSITORY_PATCH.md` |
 | Objective architecture, horizon acceptance, active frontier, and next-action basis-validity | `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` |
+| Executor project execution design/contracts | `workflow/executor/*.md` |
+| Codex executor adapter | `workflow/executor/adapters/CODEX_ADAPTER.md` |
 | Stage identity, prompt path/status, target runtime, activation, and normal stage-to-stage transitions | `workflow/stage_registry/STAGE_REGISTRY.md` |
 | Stage-specific mission, inputs, gates, and constraints | exact file under `workflow/stage_prompts/<STAGE_ID>.md` |
 | Canonical packet schemas and transport templates | `workflow/transport/*.md` |
@@ -74,6 +77,7 @@ Stage prompts must not be treated as authority for:
 - packet schemas;
 - repository maintenance branch policy;
 - Project Files cache rules;
+- repository/context acquisition order before Context Request;
 - GitHub long-file read completeness;
 - cross-Direction rollout policy.
 
@@ -95,7 +99,7 @@ Valid prompt delivery modes after this decision:
 
 ```yaml
 prompt_delivery:
-  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
+  mode: prompt_text_embedded | prompt_attachment_provided | github_connector_verified_full_read | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -108,7 +112,9 @@ prompt_delivery:
   execute_allowed: true | false
 ```
 
-`manual_prompt_required` means the chat must request the exact stage prompt from the user/Codex and must not auto-fetch or reconstruct it.
+`github_connector_verified_full_read` means the exact stage prompt was acquired in the current run through an exposed GitHub connector/tool and passed completeness verification under `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`.
+
+`manual_prompt_required` means the prompt remains unavailable after `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` has been applied. It must not mean "skip GitHub acquisition and ask the user/Codex immediately."
 
 `codex_verified_local_bundle` means Codex read the exact stage prompt from a local checkout, verified completeness, and supplied the prompt or bundle metadata.
 
@@ -129,13 +135,23 @@ workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
 workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
 workflow/transport/CODEX_WAVE_CARD.md
 workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/EXECUTOR_SETUP_REQUEST.md
+workflow/transport/EXECUTION_WORK_PACKAGE.md
+workflow/transport/EXECUTOR_SETUP_RESULT.md
+workflow/transport/EXECUTOR_RETURN_PACKET.md
 workflow/transport/RECOVERY_CLOSE_PACKET.md
 workflow/transport/USER_GUIDED_STEP_CARD.md
 ```
 
-Runtime core remains authority for behavior, precedence, approval/formalization, route process, Codex role separation, repository maintenance rules, and Project Files refresh/reporting rules.
+These templates own packet shape only.
+
+Executor design/contracts live under `workflow/executor/*.md`. The Codex executor adapter lives at `workflow/executor/adapters/CODEX_ADAPTER.md`.
+
+Runtime core remains authority for behavior, precedence, approval/formalization, route process, Executor/Codex role separation, repository maintenance rules, and Project Files refresh/reporting rules.
 
 Any route fields in transport files are snapshots only. They must not override `STAGE_REGISTRY.md`.
+
+Route fields in executor transport templates are snapshots or recommendations only. They must not override `workflow/stage_registry/STAGE_REGISTRY.md`.
 
 If a transport packet route snapshot conflicts with the registry, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop.
 
@@ -145,7 +161,7 @@ This decision authorizes minimal unblock changes:
 
 1. declare registry as sole route authority;
 2. replace runtime transition table with registry pointer;
-3. replace `request_from_repository` with explicit prompt delivery modes;
+3. replace repository-request prompt delivery with explicit prompt delivery modes;
 4. neutralize prompt-maintained route lists;
 5. mark transport/interface route lists as derived or non-authoritative;
 6. require cache refresh reporting for all active Direction Projects when shared runtime cached files change.

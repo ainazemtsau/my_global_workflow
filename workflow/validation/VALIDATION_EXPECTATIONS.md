@@ -61,19 +61,33 @@ These checks are blocking in both baseline and strict mode:
    - prompts must not be treated as allowed-next authority;
    - transport route fields are snapshots only;
    - terminal card types are not canonical stage IDs.
-8. Active stage prompts must not use deprecated prompt delivery modes:
+8. Registry `allowed_next` entries must use only canonical stage IDs, terminal output tokens, approved special tokens, or the Router-only `any appropriate stage` phrase.
+   - Terminal output tokens: `Context Request`, `Human Decision`, `Stop`.
+   - Special tokens: `continue_current_stage` is B1-only; `Direction pause/archive` is P9-only.
+   - `topology_launch_bundle` and `codex_return` are not route tokens.
+9. `R0_RECOVERY_CLOSE` may remain `missing_prompt` only while its prompt file is absent and activation is `unavailable_until_prompt_installed`.
+10. Active stage prompts must not use deprecated prompt delivery modes:
    - `request_from_repository`
+   - Markdown-escaped `request\_from\_repository`
+   - `repository-request`
    - `embedded_in_launch_card`
    - `pasted_in_current_chat`
    - `attached_export`
-9. Present stage prompts must contain the `AD-WF-RT-001` authority boundary.
-10. Required authority files with EOF markers must keep them:
+11. Active stage prompts must not contain direct-main maintenance boilerplate, prompt-local `allowed_next` authority, stable downstream route lists, runtime-test residue, or non-registry route examples presented as normal/allowed/default.
+12. Present stage prompts must contain the `AD-WF-RT-001` authority boundary.
+13. Stage prompts and required authority/runtime files with EOF markers must keep exactly one expected marker as final non-whitespace content:
     - `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
+    - `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`
     - `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`
     - `workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md`
     - `workflow/stage_registry/STAGE_REGISTRY.md`
-11. Direction Project Files must not contain full stage prompt bodies.
-12. Registry rows marked `prompt_status: present` must have matching prompt files under `workflow/stage_prompts/`.
+14. Direction Project Files `00-08` must not contain full stage prompt bodies or list stage prompts as default Project Files.
+15. Registry rows marked `prompt_status: present` must have matching prompt files under `workflow/stage_prompts/`.
+16. Repository/context acquisition order must be owned by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
+17. Exact repository/path Context Request must include acquisition audit and cannot skip available current-run GitHub acquisition.
+18. The complete acquisition order must not be copied outside the canonical policy file.
+19. Stage close must create launch cards without requesting downstream execution-only prompt/files.
+20. GitHub connector verified prompt acquisition must be an allowed prompt delivery path, and manual prompt fallback must apply only after acquisition policy.
 
 ## Baseline warnings
 
@@ -86,14 +100,14 @@ These are expected warnings during current cleanup:
    - active transport use of `packet_type:`
    - active transport use of `patch_type:`
 2. Missing dedicated `codex_repository_maintenance_apply.v1` transport template under `workflow/transport/`.
-3. Missing `END_OF_FILE:` markers in stage prompts.
+3. Missing, duplicated, changed, or non-final `END_OF_FILE:` markers in stage prompts.
 4. Stale rebuild/test-active metadata:
    - `vNext-R REBUILD`
    - `test-active`
    - `rebuild root only`
    - `Installed from roadmap step`
    - `Step 7.`
-5. Prompt schema duplication or old route examples in long prompts.
+5. Prompt packet/proof schema duplication or old route examples in long prompts.
 6. Stale `docs/CHATGPT_PROJECT_SETUP.md` setup blocks compared to the current runtime cache manifest.
 
 ## Strict-mode promotion
@@ -102,20 +116,20 @@ After corresponding cleanup patches are complete, these warning classes may be p
 
 - legacy transport card shapes;
 - missing transport schema templates;
-- missing prompt EOF markers;
+- missing or malformed prompt EOF markers;
 - stale setup docs;
 - stale rebuild/test-active metadata;
 - prompt schema duplication / route-list residue.
 
-## Expected first baseline result
+## Expected validation result
 
-Until cleanup debt is resolved, the expected baseline result is:
+After the stage prompt authority cleanup and Wave 3B validation hardening, the expected baseline and strict result is:
 
 ```text
-PASS_WITH_CLEANUP
+PASS
 ```
 
-A `BLOCKED` result means a hard runtime invariant failed and should be investigated before proceeding with further cleanup patches.
+`PASS_WITH_CLEANUP` means a warning class has returned. A `BLOCKED` result means a hard runtime invariant failed and should be investigated before proceeding with further cleanup patches.
 
 ## Codex Return/Wave schema regression expectation
 
@@ -267,13 +281,13 @@ workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md
 directions/*/execution_logs/*
 ```
 
-`CHECK 015 — prompt_schema_duplication_scan` must warn on copied prompt schema bodies and prompt-local route tables, but it must not warn on canonical schema references or compact transport-template references.
+`CHECK 015 — prompt_schema_duplication_scan` must fail on copied prompt schema/proof/readiness bodies and prompt-local route tables, but it must not warn on canonical schema references, compact transport-template references, or compact status fields such as `execution_readiness_status`, `next_action_proof_status`, `audit_readiness_status`, or `research_readiness_status`.
 
 Hard invariant:
 
-- validator-noise reductions must not hide active legacy transport shapes, copied packet schema bodies, deprecated prompt delivery modes, or route-authority drift;
+- validator-noise reductions must not hide active legacy transport shapes, copied packet/proof/readiness schema bodies, deprecated prompt delivery modes, or route-authority drift;
 - CHECK 014 should continue to surface real stale metadata in runtime-facing files;
-- CHECK 015 should continue to surface true prompt schema-body duplication.
+- CHECK 015 should continue to surface true prompt schema-body duplication and proof/readiness body duplication.
 
 Expected effect after this refinement:
 
@@ -324,3 +338,46 @@ Expected model:
 - Sibling Directions must not be edited from a Direction worktree unless explicitly approved.
 
 `CHECK 023 — direction_worktree_repository_maintenance_contract` enforces this in baseline and strict mode.
+
+## Context acquisition authority expectation
+
+Repository/context acquisition before Context Request has a single owner:
+
+```text
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
+```
+
+Hard invariants:
+
+- AD-WF-RT-001 names the policy as source/context acquisition authority.
+- Runtime core consults the policy before exact repository/path Context Request.
+- GitHub long-file guard owns completeness verification only.
+- Runtime cache manifest includes the policy in shared runtime cache.
+- Context Request packets include `acquisition_audit` for exact repository/stage-prompt context.
+- Active Direction Project Instructions contain the compact GitHub-first acquisition instruction.
+- The complete acquisition order appears only in the policy file.
+
+`CHECK 024 — context_acquisition_policy_authority`, `CHECK 025 — github_first_acquisition_before_context_request`, and `CHECK 026 — acquisition_order_not_duplicated` enforce this in baseline and strict mode.
+
+## Stage close acquisition boundary expectation
+
+Closing a stage creates the next launch card from known fields and source paths. It must not request downstream prompt text or repository exports merely to run the downstream stage.
+
+Hard invariants:
+
+- runtime core contains the stage-close launch boundary;
+- Stage Launch template contains `next_stage_context_policy`;
+- next-stage prompt acquisition can be deferred to the next run under the acquisition policy.
+
+`CHECK 027 — stage_close_launch_boundary` enforces this in baseline and strict mode.
+
+## GitHub connector prompt delivery expectation
+
+An exact stage prompt can be available in the current run through verified GitHub connector/tool acquisition.
+
+Hard invariants:
+
+- AD-WF-RT-001, runtime core, and Stage Launch template allow `github_connector_verified_full_read`;
+- `manual_prompt_required` means the prompt remains unavailable after allowed acquisition has been attempted or deemed unsafe.
+
+`CHECK 028 — prompt_delivery_github_connector_mode` enforces this in baseline and strict mode.

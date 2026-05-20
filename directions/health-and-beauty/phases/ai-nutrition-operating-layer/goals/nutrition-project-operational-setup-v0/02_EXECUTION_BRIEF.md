@@ -1,179 +1,338 @@
-# E1 Execution Brief — Project `Питание` operational setup v0
+# 02_EXECUTION_BRIEF — Project `Питание` clean rebuild after U1 failure
 
 ```yaml
 artifact_control:
-  artifact_name: "E1 Execution Brief — Project Питание operational setup v0"
-  schema: execution_brief.v1
-  owner_layer: goal_evidence
-  direction: directions/health-and-beauty
-  phase_id: ai-nutrition-operating-layer
-  goal_id: nutrition-project-operational-setup-v0
-  stage_id: E1_EXECUTION_BRIEF
+  artifact_name: "02_EXECUTION_BRIEF — Project `Питание` clean rebuild after U1 failure"
+  schema: execution_brief.v2
+  owner_layer: direction_goal
   status: formalized
-  created_at: "2026-05-18"
+  direction: directions/health-and-beauty
+  phase_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+  goal_id: nutrition-project-operational-setup-v0
+  goal_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0
+  formalized_by_stage: E1_EXECUTION_BRIEF
+  formalized_at: "2026-05-20"
+  correction_trigger: U1_REAL_UI_TEST_FAILED
+  supersedes_prior_e1: true
+  prior_c1_launch_invalidated: true
+  selected_next_stage: C1_CODEX_GRAPH_PLAN
 ```
 
-## 1. Route decision
+## Failure basis
 
-Selected next route: `F0_FAST_DIRECT`.
+The real U1/UI test failed.
 
-Execution topology: `single_direct`.
-
-F0 is the smallest safe route because the next execution slice is one bounded, reversible, text-artifact setup package with concrete validation checks. It does not require nutrition research, a storage/tool architecture decision, Codex product/project execution, graph/wave planning, or Phase close.
-
-The long-lived Project `Питание` setup package must be stored as a Direction-level setup asset:
-
-```text
-directions/health-and-beauty/project_setup/pitanie/PROJECT_PITANIE_SETUP_PACKAGE.md
+```yaml
+failure_basis:
+  status: U1_REAL_UI_TEST_FAILED
+  user_error: false
+  project_setup_error: true
+  observed_failure:
+    - one_chat_collapse
+    - premature_menu_generation
+    - missing_chat_mode_routing
+    - protocol_shifted_to_user_prompt
+    - old_files_contaminated_architecture
+  conclusion: "The old Project `Питание` setup is not repairable by cosmetic prompt patches."
 ```
 
-The active Goal folder stores only workflow evidence and pointers, not the long-lived setup package.
+## Supersession rule
 
-## 2. Objective
-
-Prepare a manual-install setup package for a separate ChatGPT Project named `Питание`.
-
-The package must let the user manually:
-
-1. create a new ChatGPT Project `Питание`;
-2. paste Project Instructions;
-3. upload or attach the setup package as Project source/context;
-4. start the first Project chat using a bootstrap prompt;
-5. initialize Nutrition Base / missing inputs / Active Cycle behavior without turning the process into mandatory detailed food logging.
-
-This Goal prepares setup/protocol artifacts and validation dry-runs. It does not physically create the ChatGPT Project and does not claim the Project is installed.
-
-## 3. Smallest safe slice
-
-F0 must create one primary artifact:
-
-```text
-directions/health-and-beauty/project_setup/pitanie/PROJECT_PITANIE_SETUP_PACKAGE.md
+```yaml
+supersession:
+  prior_e1_execution_brief: superseded
+  prior_c1_launch_card: invalid_do_not_run
+  old_nutrition_project_files: do_not_repair
+  implementation_policy: clean_rebuild_from_scratch
+  c1_must_plan_old_file_removal_or_supersession: true
 ```
 
-Required sections:
+## Accepted architecture
 
-1. Project Instructions for `Питание`;
-2. Bootstrap prompt / first chat prompt;
-3. Nutrition Base / Snapshot template;
-4. Menu Preferences template;
-5. Active Cycle object;
-6. Tracking Protocol;
-7. Review & Sync Protocol;
-8. Manual install guide;
-9. Dry-run test pack.
+Project `Питание` is a repo-backed multi-chat operating loop.
 
-Missing baseline or preferences must not block the setup package. F0 must represent missing data as explicit missing inputs, unknown/defaulted fields, and confidence labels.
+```yaml
+accepted_chat_topology:
+  global_strategy_chat:
+    lifecycle: first_setup_or_rare_repair_only
+    closes_after: GLOBAL_NUTRITION_PLAN_saved
+    purpose:
+      - collect strategically necessary data
+      - determine what evidence question must be researched
+      - create DEEP_RESEARCH_REQUEST
+      - synthesize Deep Research result into GLOBAL_NUTRITION_PLAN
+    not_for:
+      - weekly logistics
+      - equipment/budget/menu details unless strategically relevant
+      - concrete weekly menu
+      - shopping list
+      - prep plan
 
-## 4. Acceptance → validation map
+  weekly_planning_chat:
+    lifecycle: one_week_only
+    created_each_week: true
+    closes_after: week_review_saved
+    purpose:
+      - read GLOBAL_NUTRITION_PLAN and history
+      - create WEEKLY_PLAN for one week
+      - create inputs for Menu Chat and Tracking Chat
+      - later review WEEK_TRACKING_REPORT
+      - save week result/history
+    not_for:
+      - concrete menu generation
+      - shopping list
+      - acting as a permanent weekly chat across weeks
 
-| Acceptance-floor item | Artifact/check | Evidence required |
-|---|---|---|
-| Project Instructions drafted | `PROJECT_PITANIE_SETUP_PACKAGE.md` contains a copy-pasteable Project Instructions block | Read-back confirms Project role, boundaries, low-friction tracking, and forbidden clinical/heavy-tracking behavior |
-| Nutrition Base / Snapshot drafted or missing inputs explicit | Package contains Nutrition Base / Snapshot template | Read-back confirms known/unknown/defaulted/confidence fields and no invented baseline |
-| Menu Preferences drafted or missing inputs explicit | Package contains Menu Preferences template | Read-back confirms missing inputs and no MacroFactor/heavy-ledger revival |
-| Active Cycle structure drafted | Package contains menu, shopping list, recipes, prep plan, storage, fallback, replacement logic | Read-back confirms all required subsections |
-| Tracking Protocol drafted | Package covers photo, voice, text, approximate/exact, unanswered questions, pending/unknown/defaulted fields, confidence impact | Read-back confirms normal menu-following is not mandatory logging |
-| Review & Sync Protocol drafted | Package contains day/week review and durable sync/update packet | Read-back confirms no unverified tool/storage binding |
-| 2–3 scenarios paper-tested or dry-run | Package contains cycle planning, meal-event, missing-answer dry-runs; optional review/sync dry-run | Read-back confirms dry-runs are validation examples, not real diet prescription |
+  menu_chat:
+    lifecycle: one_week_only
+    created_each_week: true
+    closes_after: week_menu_no_longer_active
+    purpose:
+      - read WEEKLY_PLAN
+      - create concrete weekly menu
+      - create shopping list
+      - create prep plan
+      - support menu edits during that week
+    not_for:
+      - global strategy
+      - week review
+      - tracking report
 
-## 5. F0 implementation sequence
-
-1. Load this E1 brief and the shaped Goal Contract / Working Context.
-2. Load or request the prior design/protocol artifact if needed:
-
-   ```text
-   directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/03_AI_NUTRITION_OPERATING_LAYER_V0.md
-   ```
-
-3. Draft the package at the Direction-level setup path.
-4. Keep the package copy-pasteable for manual Project installation.
-5. Include a bootstrap prompt that starts a fresh Project `Питание` chat without requiring perfect baseline data.
-6. Include dry-runs as validation scenarios only.
-7. Do not generate a real user menu/diet unless separately routed and approved.
-8. Validate by read-back anchors and acceptance map.
-
-## 6. Scope lock
-
-Allowed:
-
-- create the Direction-level setup package;
-- include Project Instructions;
-- include bootstrap prompt;
-- include Nutrition Base / Snapshot template;
-- include Menu Preferences template;
-- include Active Cycle structure;
-- include Tracking Protocol;
-- include Review & Sync Protocol;
-- include manual install guide;
-- include 2–3 dry-runs.
-
-Forbidden:
-
-- creating the ChatGPT Project inside workflow;
-- claiming Project `Питание` is installed;
-- concrete diet/menu prescription as the default deliverable;
-- clinical or disease-specific nutrition;
-- MacroFactor-centered workflow as default;
-- mandatory calorie/macro ledger;
-- food database/API/import automation;
-- huge recipe vault;
-- full body-transformation plan;
-- training/cardio/recovery/supplement decisions;
-- Phase close.
-
-## 7. Context requirements for F0
-
-Required:
-
-- this E1 brief;
-- active Goal Contract / Working Context;
-- active Direction Project Files 00–08;
-- runtime core and stage registry;
-- exact F0 stage prompt.
-
-Request if needed:
-
-- prior AI Nutrition Operating Layer v0 design/protocol artifact;
-- existing menu or old nutrition card;
-- nutrition baseline and preferences;
-- kitchen equipment notes;
-- recipe/prep notes;
-- storage/tool preference notes.
-
-Missing baseline/preferences are not blockers. Missing required protocol context is a blocker only if F0 cannot safely avoid inventing setup rules.
-
-## 8. Stop conditions for F0
-
-Stop or return Context Request if:
-
-- exact `F0_FAST_DIRECT` prompt is unavailable;
-- required Goal Contract / Working Context is unavailable or contradictory;
-- F0 cannot access enough prior protocol context to avoid inventing the nutrition operating model;
-- user asks for clinical/disease-specific diet;
-- user asks for real menu/diet prescription rather than setup package;
-- current platform-specific UI claims are required but cannot be verified;
-- storage/tool automation is required before setup;
-- target path changes away from Direction-level setup asset without human decision;
-- any patch would touch sibling Directions or runtime/shared workflow files.
-
-## 9. Next-stage formalization control
-
-E1 approval formalizes this execution brief only.
-
-F0 artifact formalization is not pre-approved. F0 must first produce a reviewable package preview / planned patch unless the user explicitly approves direct formalization in the F0 stage chat.
-
-F0 target artifact:
-
-```text
-directions/health-and-beauty/project_setup/pitanie/PROJECT_PITANIE_SETUP_PACKAGE.md
+  tracking_chat:
+    lifecycle: one_week_only
+    created_each_week: true
+    closes_after: WEEK_TRACKING_REPORT_created
+    purpose:
+      - read WEEKLY_PLAN and ACTIVE_WEEK_MENU
+      - track food/photos/water/events during the week
+      - estimate calories/BJU when required by the plan
+      - ask missing questions until answered or explicitly declined
+      - show current status and advice
+      - create WEEK_TRACKING_REPORT at end of week
+    not_for:
+      - concrete menu generation
+      - global strategy changes
+      - durable GitHub write after every message by default
 ```
 
-## 10. End state expected after F0
+## Global Strategy Deep Research Gate
 
-F0 is successful when the Direction-level setup package exists, passes read-back validation, and contains a manual install guide that the user can follow to create Project `Питание`.
+Global Strategy Chat must not directly finalize the optimal nutrition strategy before evidence pass.
 
-Parent Goal review via `R1_GOAL_REVIEW_DISTILL` becomes appropriate only after the setup package and dry-runs satisfy the active Goal acceptance floor.
+```yaml
+global_strategy_research_gate:
+  required: true
+  sequence:
+    - strategic_intake
+    - preliminary_strategy_hypothesis_if_useful
+    - create_DEEP_RESEARCH_REQUEST
+    - run_Deep_Research
+    - synthesize_research_result
+    - create_GLOBAL_NUTRITION_PLAN
+    - save_to_GitHub
+    - close_chat
+
+  deep_research_request_must_include:
+    - user_profile_summary
+    - goal_and_constraints
+    - acceptable_strictness
+    - whether calories_or_BJU_or_named_diet_may_be_needed
+    - foods_to_include_or_exclude_if_known
+    - low_friction_requirement
+    - research_objective
+    - specific_research_questions
+    - expected_output_format_for_strategy_synthesis
+
+  global_strategy_chat_must_not:
+    - finalize_diet_before_deep_research_when_first_setup_or_strategy_rebuild
+    - generate_weekly_menu
+    - generate_shopping_list
+    - collect_week_specific_logistics_as_main_task
+```
+
+## Storage model
+
+```yaml
+storage_model:
+  github:
+    role: durable_source_of_truth_for_data_history_metrics_and_saved_results
+    stores:
+      - GLOBAL_NUTRITION_PLAN
+      - user profile if needed
+      - weekly plans
+      - active menus
+      - tracking reports
+      - week reviews
+      - metrics/progress/history
+  project_files:
+    role: runtime_cache_for_instructions_processes_prompts_and_formats
+    stores:
+      - Project Instructions
+      - chat mode definitions
+      - prepared prompts
+      - output formats
+      - save protocol
+      - acceptance tests
+  chat_memory:
+    role: non_authoritative
+```
+
+## Tracking state rule
+
+```yaml
+tracking_state_rule:
+  default_after_each_tracking_message:
+    output:
+      - food_or_event_estimate
+      - current_day_status
+      - pending_questions
+      - advice_for_rest_of_day
+    durable_github_update: false
+
+  missing_data_policy:
+    ask_until:
+      - user_answers
+      - user_explicitly_declines
+    report_unlogged_or_unresolved_items: true
+
+  full_export_required_when:
+    - end_of_week
+    - user_explicitly_requests_state_update
+```
+
+## Week lifecycle
+
+```yaml
+week_lifecycle:
+  start:
+    - create_new_weekly_planning_chat
+    - read_global_plan_and_history
+    - create_WEEKLY_PLAN
+  menu:
+    - create_new_menu_chat_for_same_week
+    - create_ACTIVE_WEEK_MENU
+    - edit_menu_during_week_if_needed
+  tracking:
+    - create_new_tracking_chat_for_same_week
+    - track_week
+    - create_WEEK_TRACKING_REPORT
+  close:
+    - return_to_weekly_planning_chat_for_that_week
+    - review_tracking_report
+    - save_week_result_and_history_to_GitHub
+    - close_weekly_planning_chat
+  next_week:
+    - create_new_weekly_planning_chat
+    - continue_from_GitHub_history_not_from_old_chat_memory
+```
+
+## C1 mission
+
+C1 must plan a clean rebuild. It must not execute mutations.
+
+```yaml
+c1_mission:
+  selected_next_stage: C1_CODEX_GRAPH_PLAN
+  must_plan:
+    - clean rebuild from scratch
+    - old nutrition files removal_or_supersession
+    - Project Instructions rewrite
+    - Project Files process/prompt rewrite
+    - GitHub durable state/history layout
+    - Deep Research gate for Global Strategy Chat
+    - one-week lifecycle for Weekly/Menu/Tracking chats
+    - real short-start validation tests
+    - C2 execution envelope
+  must_not:
+    - patch old protocol cosmetically
+    - reuse old one-chat architecture
+    - require user giant bootstrap prompts as normal UX
+    - generate live diet/menu
+    - route to R1 before evidence
+```
+
+## Required real-start acceptance tests
+
+```yaml
+acceptance_tests:
+  global_strategy_first_start:
+    prompt: "Режим: Global Strategy Chat. Первый запуск."
+    pass_if:
+      - collects_strategic_data
+      - prepares_DEEP_RESEARCH_REQUEST
+      - does_not_finalize_global_plan_before_research
+      - does_not_generate_menu
+    fail_if:
+      - asks_weekly_logistics_as_main_task
+      - generates_week_menu
+      - skips_research_gate
+
+  weekly_planning_start:
+    prompt: "Режим: Weekly Planning Chat. Создаём план недели."
+    pass_if:
+      - creates_plan_for_one_week
+      - reads_global_plan_and_history
+      - outputs_WEEKLY_PLAN
+      - gives_inputs_for_Menu_and_Tracking
+      - does_not_generate_concrete_menu
+    fail_if:
+      - behaves_as_permanent_weekly_chat
+      - starts_from_zero_when_history_exists
+      - generates_shopping_list_or_concrete_meals
+
+  menu_chat_start:
+    prompt: "Режим: Menu Chat. Создаём меню на неделю по WEEKLY_PLAN."
+    pass_if:
+      - requires_WEEKLY_PLAN
+      - creates_concrete_menu
+      - creates_shopping_list
+      - creates_prep_plan
+      - supports_edits_for_current_week
+    fail_if:
+      - rebuilds_global_strategy
+      - performs_week_review
+      - ignores_weekly_plan
+
+  tracking_chat_start:
+    prompt: "Режим: Tracking Chat. Начинаем неделю по WEEKLY_PLAN и ACTIVE_WEEK_MENU."
+    pass_if:
+      - tracks_food_photos_water_events
+      - estimates_calories_BJU_when_required
+      - keeps_pending_questions_until_answered_or_declined
+      - gives_status_and_advice
+      - creates_WEEK_TRACKING_REPORT_at_end
+    fail_if:
+      - generates_menu
+      - forgets_missing_questions
+      - requires_heavy_manual_tracker
+      - writes_large_state_update_after_every_message_by_default
+
+  week_close:
+    prompt: "Режим: Weekly Planning Chat. Закрываем неделю по WEEK_TRACKING_REPORT."
+    pass_if:
+      - reviews_tracking_report
+      - reports_unlogged_or_unresolved_items
+      - saves_week_result_history_and_progress
+      - prepares_next_week_inputs
+      - closes_week_chat
+    fail_if:
+      - starts_next_week_in_same_chat
+      - generates_menu
+      - does_not_save_result
+```
+
+## Scope cuts
+
+```yaml
+scope_cuts:
+  - no_macrofactor_revival
+  - no_training_cardio_recovery_supplements_expansion
+  - no_clinical_medical_nutrition_protocol
+  - no_full_food_database
+  - no_hidden_memory_as_state
+  - no_one_chat_does_everything_default
+  - no_old_file_salvage
+```
 
 ## End-of-file marker
 

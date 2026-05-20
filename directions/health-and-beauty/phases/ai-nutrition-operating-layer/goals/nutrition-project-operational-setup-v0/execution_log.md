@@ -50,6 +50,132 @@ notes:
   - "No Project Питание installation, menu/diet prescription, clinical nutrition advice, storage automation, or Phase close performed in E1."
 ```
 
+## 2026-05-19 — G1_GOAL_SHAPE formalized
+
+```yaml
+execution_log_entry:
+  log_type: stage_execution
+  stage_id: G1_GOAL_SHAPE
+  direction:
+    id: health-and-beauty
+    name: Health and Beauty
+    path: directions/health-and-beauty
+  phase:
+    id: ai-nutrition-operating-layer
+    name: "Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга"
+    path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+  goal_id: nutrition-project-operational-setup-v0
+  goal_title: "Собрать repo-backed standalone ChatGPT Project “Питание” v0 as a low-friction nutrition operating loop"
+  input_seed_ref: "S3_DECIDE selected standalone repo-backed ChatGPT Project `Питание` v0"
+  result: goal_shaped
+  selected_next_stage: E1_EXECUTION_BRIEF
+  route_reason: "Nontrivial package, validation dry-runs, durable state, and save/read-back policy require execution brief before implementation."
+  scope_cuts:
+    - "No live diet/menu generation."
+    - "No Project UI installation."
+    - "No required usage trial."
+    - "No training/cardio/recovery integration."
+    - "No supplements/fasting/labs research."
+    - "No MacroFactor/heavy tracking default."
+    - "No full food database/API automation."
+  documentation_gate_status: blocking_until_repository_maintenance_and_project_files_refresh
+  changed_files_context_refresh_required: true
+  unresolved_questions: []
+  next_launch_card_ref: "E1_EXECUTION_BRIEF launch prepared; executable only after repository maintenance/read-back and Project Files refresh."
+```
+
+## 2026-05-20 — G1_GOAL_SHAPE formalized repaired Goal Contract
+
+```yaml
+execution_log_entry:
+  stage: G1_GOAL_SHAPE
+  patch_id: g1_formalize_repaired_repo_backed_pitanie_loop_2026_05_20
+  return_state: DONE
+  decision: "Repaired active Goal into repo-backed multi-chat Project `Питание` nutrition loop."
+  selected_next_stage: E1_EXECUTION_BRIEF
+  repository_patch_required: true
+  product_project_execution_performed: false
+  codex_execution_performed: false
+  key_constraints:
+    - GitHub markdown state files are canonical.
+    - ChatGPT Project Files are runtime cache only.
+    - Chat memory is non-authoritative.
+    - Codex is save-only repository maintenance writer.
+    - No manual giant state packets as normal UX.
+    - No default detailed macro/calorie ledger.
+  acceptance_tests:
+    - first_week_bootstrap_from_empty_state
+    - later_week_bootstrap_from_saved_state
+    - fresh_menu_chat_from_saved_plan
+    - fresh_tracking_chat_from_saved_plan_and_menu
+    - week_review_from_saved_report
+    - project_files_refresh_reproducibility
+```
+
+## 2026-05-20 — E1_EXECUTION_BRIEF formalized
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  stage_id: E1_EXECUTION_BRIEF
+  stage_name: Execution Brief
+  direction: directions/health-and-beauty
+  phase_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+  goal_id: nutrition-project-operational-setup-v0
+  return_state: DONE
+  selected_route: C1_CODEX_GRAPH_PLAN
+  execution_topology: codex_graph
+  repository_patch_requirement: "record E1 brief only"
+  execution_brief_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/02_EXECUTION_BRIEF.md
+  parent_goal_completion_state: incomplete
+  scope_preservation:
+    in_scope:
+      - repo-backed nutrition state/protocol loop
+      - Project Files runtime-cache policy
+      - Codex save-only boundary
+      - dry-run acceptance
+    out_of_scope:
+      - live diet/menu generation
+      - implementation writes during E1
+      - MacroFactor/heavy tracker revival
+      - training/cardio/recovery/supplements expansion
+  next_stage: C1_CODEX_GRAPH_PLAN
+```
+
+## 2026-05-20 — E1 repair formalized after U1 failure
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  stage_id: E1_EXECUTION_BRIEF
+  stage_name: Execution Brief
+  direction: directions/health-and-beauty
+  phase_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+  goal_id: nutrition-project-operational-setup-v0
+  return_state: DONE
+  correction_trigger: U1_REAL_UI_TEST_FAILED
+  user_error: false
+  project_setup_error: true
+  prior_e1_superseded: true
+  prior_c1_launch_invalidated: true
+  selected_route: C1_CODEX_GRAPH_PLAN
+  execution_topology: codex_graph
+  implementation_policy: clean_rebuild_from_scratch
+  accepted_chat_topology:
+    - Global Strategy Chat with mandatory Deep Research Request gate
+    - Weekly Planning Chat one week only
+    - Menu Chat one week only
+    - Tracking Chat one week only
+  storage_policy:
+    github: durable data/history/metrics/results
+    project_files: instructions/processes/prompts/formats
+    chat_memory: non_authoritative
+  repository_patch_requirement: "record corrected E1 repair baseline only"
+  execution_brief_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/02_EXECUTION_BRIEF.md
+  parent_goal_completion_state: incomplete
+  next_stage: C1_CODEX_GRAPH_PLAN
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/execution_log.md`

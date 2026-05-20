@@ -60,6 +60,7 @@ GitHub repository: ainazemtsau/my_global_workflow
 Source of truth marker: WORKFLOW_SOURCE_OF_TRUTH.md
 Runtime core: workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 Objective architecture model: workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+Context acquisition policy: workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 GitHub long-file read guard: workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 Runtime cache manifest: workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 Stage registry: workflow/stage_registry/STAGE_REGISTRY.md
@@ -72,6 +73,10 @@ GitHub repository files remain the source of truth.
 ChatGPT Project Files are runtime cache, not source of truth. They must be manually refreshed when Codex changes cached files.
 
 If a GitHub read is truncated, omitted, lacks tail verification, or cannot prove full-file availability, do not treat that read as source authority. Return Context Request naming the exact path.
+
+GitHub connector/tool should be enabled and authorized for every active Direction Project when possible. If it is not exposed in a run, Context Request `acquisition_audit` must state `github_connector.available: false` / `not_exposed`.
+
+Do not treat "not uploaded as Project File/attachment" as missing context until `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` has been applied.
 
 Stage prompts are request-only by exact stage ID. Do not bulk-load all stage prompts. Do not reconstruct missing prompts from memory.
 
@@ -100,6 +105,61 @@ U1 should guide one visible step at a time for novice or unknown-skill users, re
 
 Do not use F0_FAST_DIRECT for human-operated external UI tasks. F0 is for small direct execution with explicit artifacts, target paths, and validation anchors. Use E1 to prepare the execution envelope, then U1 for guided external operation when needed.
 
+## Executor Project Setup for product/software projects
+
+Product/software project execution uses the Executor Project Execution Core. Codex is the first/default executor adapter under generic Executor stages.
+
+When a Direction creates or attaches a product/software project, ChatGPT may prepare an Executor Setup Request and route it to `X0_EXECUTOR_PROJECT_SETUP`. The Project Setup Wizard is a workflow capability/action executed through X0, not a registered pseudo-stage.
+
+Normal product/project execution requires completed Executor Project Setup unless the current action is setup itself. Acceptable setup statuses are `complete` and `complete_with_approved_fallback`. Core-only setup is a valid complete setup.
+
+Optional Stack-Specific Setup Tuning Pass may recommend tools, MCP servers, skills, or validators. Optional tooling is not installed blindly; each recommendation needs an enable-now, park, reject, or research decision. Unity/game tooling is only one possible stack-specific tuning example.
+
+If current external/tooling facts matter, route to `D1_DEEP_RESEARCH` or return a research-needed note according to `workflow/stage_registry/STAGE_REGISTRY.md`. If external UI or local tool operation is required, route to `U1_USER_GUIDED_EXECUTION` when registry-valid.
+
+Normal project execution handoffs should use or be mappable to:
+
+```text
+workflow/transport/EXECUTION_WORK_PACKAGE.md
+```
+
+Setup requests should use or be mappable to:
+
+```text
+workflow/transport/EXECUTOR_SETUP_REQUEST.md
+```
+
+Setup results should use or be mappable to:
+
+```text
+workflow/transport/EXECUTOR_SETUP_RESULT.md
+```
+
+Executor returns should use or be mappable to:
+
+```text
+workflow/transport/EXECUTOR_RETURN_PACKET.md
+```
+
+Normal executor product/project execution routes to `X1_EXECUTOR_RUN`.
+
+Do not mirror full product technical context into ChatGPT Project Files. Product/project technical context belongs in project-local artifacts:
+
+```text
+AGENTS.md
+PROJECT_PROFILE.md
+EXECUTOR_PROFILE.md
+VALIDATION_PROFILE.md
+MODULE_MAP.md
+docs/architecture
+docs/modules
+docs/public-interfaces
+changes/<change-id>
+optional .codex
+```
+
+Direction Project Files store compact outcome summaries, approval-relevant decisions, risk notes, and pointers only.
+
 ## Required shared runtime Project Files for every active Direction
 
 Manually load these shared runtime cache files into every active Direction ChatGPT Project:
@@ -108,6 +168,7 @@ Manually load these shared runtime cache files into every active Direction ChatG
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -165,6 +226,7 @@ Project Files to load:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -213,6 +275,7 @@ Project Files to load:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -261,6 +324,7 @@ Project Files to load:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -309,6 +373,7 @@ Project Files to load:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md
@@ -340,6 +405,7 @@ Using GitHub repo ainazemtsau/my_global_workflow, read only:
 - WORKFLOW_SOURCE_OF_TRUTH.md
 - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 - workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+- workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 - workflow/stage_registry/STAGE_REGISTRY.md
@@ -386,6 +452,7 @@ Cached shared runtime files:
 WORKFLOW_SOURCE_OF_TRUTH.md
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
 workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 workflow/stage_registry/STAGE_REGISTRY.md

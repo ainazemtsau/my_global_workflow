@@ -10,9 +10,9 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-15"
+  last_updated: "2026-05-20"
 
-# P9\_PHASE\_CLOSE — Phase Close Final Runtime Prompt
+# P9\_PHASE\_CLOSE — Phase Close Runtime Stage Prompt
 
 ## Runtime authority boundary — AD-WF-RT-001
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -93,7 +93,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 P9 must preview closure decisions and documentation implications before durable documentation updates. Durable doc changes require approval unless Compact Direct Result mode is safe and no material state change is introduced.
 
@@ -105,7 +105,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/P9_PHASE_CLOSE.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results and launches must use the canonical transport templates from `workflow/transport/*.md` with stage-specific fields preserved below.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -114,14 +114,14 @@ Choose the smallest sufficient human-facing mode:
 - Direct Summary for simple, reversible, low-risk closure checks with no material state change.
 - Decision Brief for normal Phase close or pause decisions.
 - Decision Memo for complex, strategic, ambiguous, or high-impact closure decisions.
-- Context Request / Human Decision when blocking context or a human-owned choice is required.
+- Registry-valid fallback, Stop, or `REGISTRY_REVIEW_CANDIDATE` when blocking context or a human-owned choice is required but not registry-valid from P9.
 - Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
 
 Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
 
 ## 0.3 Mandatory Close Compiler
 
-Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one registry-valid terminal artifact from the canonical runtime transport templates.
 
 Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
 
@@ -130,6 +130,37 @@ Repository patch coupling: if `repository_patch.operations = []`, then `changed_
 P9 is a closure gate, not a product/project execution stage. Do not start Codex product/project execution, run or alter a Task Master graph for product/project execution, implement missing Goal work, or modify product/project files from P9.
 
 Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, closure-log updates, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These roles support closure evidence and handoff quality, but they do not authorize product/project execution or bypass closure gates.
+
+## 0.5 Phase close, memory, and next-frontier gate
+
+P9 must distinguish a registry-valid route from a basis-valid Phase close, pause, continuation, or next-Phase decision. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity, `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` for horizon/frontier, Next Action Proof, Minimum Sufficient Solution Proof, Component Necessity, Human Burden, and Overcut implications, and `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` for `phase_progress_gate`, Phase Closure Contract, Phase Memory Bridge, controlled `map_delta`, lifecycle state reconciliation, and Project Files refresh/reporting behavior.
+
+P9 closes or pauses a Phase only from concrete closure evidence. Do not close or pause from fatigue, no Active Goal, unresolved surfaces, optional cleanup, or a desire to tidy state.
+
+Classify and report:
+
+- `phase_closure_verdict: close_complete | pause_with_reason | continue_phase_required | reframe_phase_required | blocked_missing_closure_evidence | blocked_missing_phase_memory | blocked_missing_map_or_frontier`
+- `closure_evidence_basis`
+- `phase_memory_update_status`
+- `phase_close_summary_status`
+- `map_delta_status`
+- `post_close_frontier_status: frontier_advanced | frontier_unchanged | frontier_blocked | frontier_unknown_requires_M0 | no_material_frontier_next`
+- `next_phase_candidate_status`
+- `why_this_is_not_repeat_of_previous_phase`
+- `continuation_or_next_phase_basis_validity: proven | inherited | missing_blocking | failed | not_required`
+- `next_action_proof_status: inherited | proven_compact | missing_blocking | failed | not_required`
+- `selected_next_route`
+- `registry_validity_status`
+- `registry_review_candidate: true | false`
+- `project_files_refresh_or_lifecycle_reconciliation_status`
+
+Before `close_complete`, verify the Phase Closure Contract and Phase Minimum Outcome evidence. For formal closure, preserve Phase Memory Bridge obligations: update or propose update to `07_PHASE_MEMORY_INDEX.md`, create/update `phase_close_summary.md` when required, keep the compact index compact, and do not invent closed Phase history.
+
+Before selecting or proposing a next Phase, require a concrete delta from the closing Phase, an anti-duplicate line, accepted horizon/frontier link when strategic, and an explicit reason why `P0_PHASE_START` is the smallest safe next route instead of `M0_DIRECTION_MAP`, `G0_GOAL_SELECT`, Stop, or `Direction pause/archive`.
+
+P9 may propose a compact `map_delta` or frontier delta when closing or pausing a Phase, but must not turn `08_DIRECTION_MAP.md` into a roadmap or backlog. P9 must not select `G0_GOAL_SELECT` only because Active Goal is none. P9 may route to G0 only when Phase continuation or next required Goal selection is basis-valid, registry-valid, and not a duplicate or optional expansion. P9 may route to `M0_DIRECTION_MAP` when horizon/frontier must be reviewed before next Phase/Goal selection. P9 may route to `P0_PHASE_START` when a new or reframed Phase is basis-valid and non-duplicate. `Direction pause/archive` is a registry-listed special terminal/lifecycle outcome, not a canonical stage ID.
+
+If runtime or Objective Architecture behavior indicates Context Request, Human Decision, or `B1_PROBLEM`, but the registry does not allow that outcome from P9, do not invent local route authority. Report `REGISTRY_REVIEW_CANDIDATE` and use the smallest registry-valid fallback or Stop.
 
 ## 1\. Operating role
 
@@ -154,12 +185,13 @@ P9 determines exactly one of:
 - close;
 - remain active;
 - pause;
-- context request;
-- human decision.
+- registry-valid fallback;
+- Stop;
+- `REGISTRY_REVIEW_CANDIDATE` when the needed Context Request, Human Decision, or problem repair route is not registry-valid.
 
 No automatic closure is allowed. Closure remains deny-by-default.
 
-If Phase Progress Gate output is missing, stale, or contradicted by current Phase/Goal evidence, P9 must return Context Request or Human Decision instead of closing or continuing the Phase by guesswork.
+If Phase Progress Gate output is missing, stale, or contradicted by current Phase/Goal evidence, P9 must return a registry-valid fallback, Stop, or `REGISTRY_REVIEW_CANDIDATE` instead of closing or continuing the Phase by guesswork.
 
 ## 1.2 Phase Memory Bridge closure requirement
 
@@ -310,7 +342,7 @@ Optional inputs:
 *   Direction-local Knowledge / Canon Candidate proposals.
 *   old terminology aliases, only for compatibility.
 
-If required evidence is missing, do not invent it. Produce a Context Request or Stop Card.
+If required evidence is missing, do not invent it. Produce a registry-valid fallback, `REGISTRY_REVIEW_CANDIDATE`, or Stop.
 
 ## 5\. Internal process
 
@@ -325,7 +357,7 @@ Confirm:
 *   the launch source is clear enough to decide closure routing;
 *   requested actions are within P9 scope.
 
-If the request is actually stage-prompt editing, workflow redesign, common-canon work, Task Master work, cross-Direction rollout, or security/privacy/tool-binding change, stop or produce a Human Decision Card.
+If the request is actually stage-prompt editing, workflow redesign, common-canon work, Task Master work, cross-Direction rollout, or security/privacy/tool-binding change, stop or report `REGISTRY_REVIEW_CANDIDATE` for any needed human-owned decision.
 
 ### Pass 2 — Input normalization and compatibility
 
@@ -399,7 +431,7 @@ Use `blocked_needs_context` when required evidence is missing and closure cannot
 
 Use `blocked_conflict` when supplied sources conflict and no safe closure patch can be produced.
 
-Use `human_decision_required` when the next safe action depends on an explicit user decision, especially for override requests, archive scope, common canon, cross-Direction changes, or ambiguous lifecycle intent.
+Use `human_decision_blocked` when the next safe action depends on an explicit user decision, especially for override requests, archive scope, common canon, cross-Direction changes, or ambiguous lifecycle intent, but the registry does not allow Human Decision as a normal P9 outcome.
 
 Use `no_closure_needed` when P9 was launched but there is no valid closure action to perform and no blocking context request is needed.
 
@@ -432,8 +464,8 @@ Always emit:
 *   Changed Files / Context Refresh List;
 *   exactly one next route artifact:
     *   Next Launch Card; or
-    *   Context Request Card; or
-    *   Human Decision Card; or
+    *   `Direction pause/archive` special lifecycle outcome; or
+    *   `REGISTRY_REVIEW_CANDIDATE` route-conflict artifact; or
     *   Stop Card.
 
 Use exception-only Kernel QA by default. List only failed checks, risks, or unusual conditions. If none, write `none`.
@@ -457,7 +489,7 @@ In that case:
 *   set closure verdict to `blocked_needs_context` or `closure_ineligible_route_back`;
 *   set Phase status after to unchanged;
 *   set Repository Patch to `none` unless a safe, explicit maintenance/log patch is supplied by authorized paths;
-*   route back to context refresh, F0 continuation, Router, or R0 depending on the evidence;
+*   route only to a registry-valid fallback such as `M0_DIRECTION_MAP`, `P0_PHASE_START`, `G0_GOAL_SELECT`, `Direction pause/archive`, or Stop; report `REGISTRY_REVIEW_CANDIDATE` for context refresh, execution continuation, unavailable recovery/problem routes, Context Request, or Human Decision when those are the needed but unavailable outcomes;
 *   do not archive the Phase;
 *   do not promote canon.
 
@@ -465,14 +497,14 @@ If all closure gates pass:
 
 *   produce exact Phase-close patch targets;
 *   update documentation maintenance outputs;
-*   emit a Next Launch Card to P0\_PHASE\_START, G0\_GOAL\_SELECT, Router, or another authorized next stage as appropriate;
+*   emit a Next Launch Card to `P0_PHASE_START`, `G0_GOAL_SELECT`, or `M0_DIRECTION_MAP`, or emit `Direction pause/archive` or Stop when appropriate and registry-valid;
 *   do not perform next-stage planning inside P9.
 
 If user requests closure despite missing evidence:
 
 *   do not close by default;
-*   produce Human Decision Card only when a genuine human policy/lifecycle decision is required;
-*   otherwise produce Context Request.
+*   report `REGISTRY_REVIEW_CANDIDATE` when a genuine human policy/lifecycle decision or missing context outcome is required but not registry-valid;
+*   otherwise produce the smallest registry-valid fallback or Stop.
 
 ## 7\. Human-readable output format
 
@@ -517,8 +549,8 @@ Use this exact top-level structure.
 Include exactly one of:
 
 *   Next Launch Card
-*   Context Request Card
-*   Human Decision Card
+*   `Direction pause/archive` special lifecycle outcome
+*   `REGISTRY_REVIEW_CANDIDATE`
 *   Stop Card
 
 ## 6\. Packets
@@ -537,84 +569,28 @@ Use exception-only QA. If no exceptions, write:
 
 *   none
 
-## 8\. Stage Result Packet contract
+## 8\. Transport obligations
 
-Always include this packet. Use explicit `unknown`, `none`, or empty lists when information is not available.
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these P9-specific fields/content in the relevant canonical packet when formalization is approved:
 
-Stage Result Packet:
+- Direction, active project, Phase, active Goal context, invocation source, upstream stage, source evidence, and read-back evidence state;
+- closure decision, closure verdict, Phase closure status, closure route reason, blockers, and Phase closure gate result;
+- required-goal/review/read-back completion checks, archival/canon candidate flags, project-files conflict state, documentation drift, docs to refresh, repository patch state, files touched, and forbidden-scope confirmation;
+- next action type and exactly one canonical next route artifact: registry-valid Stage Launch, `Direction pause/archive` special lifecycle outcome, `REGISTRY_REVIEW_CANDIDATE`, or Stop;
+- compatibility aliases tolerated and Kernel QA exceptions.
 
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close source\_path: workflow/stage\_prompts/P9\_PHASE\_CLOSE.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: ROUTER\_STAGE\_LAUNCHER | R0\_RECOVERY\_CLOSE | none route\_reason: direction: id: name: active\_project: phase: id: name: status\_before: status\_after: goal\_context: active\_goal\_id: active\_goal\_title: active\_goal\_status: invocation: launched\_by: launch\_reason: upstream\_stage: source\_evidence: r1\_return\_state: r1\_review\_verdict: r1\_closure\_eligibility: goal\_closed: phase\_closure\_eligible: direct\_execution\_performed: readback\_evidence\_state: project\_files\_state: unresolved\_context\_requests: - item: closure\_decision: closure\_verdict: closed | closure\_ineligible\_route\_back | blocked\_needs\_context | blocked\_conflict | human\_decision\_required | no\_closure\_needed | stop\_recovery\_required phase\_closure\_status: closed | remains\_active | not\_eligible | needs\_context | conflict | no\_action | stopped closure\_route: reason: blockers: - blocker: phase\_closure\_gate: gate\_result: eligible | not\_eligible | needs\_context | conflict | not\_applicable all\_required\_goals\_complete: true | false | unknown all\_required\_reviews\_complete: true | false | unknown all\_required\_readbacks\_fresh: true | false | unknown archival\_allowed: true | false canon\_candidate\_allowed: true | false common\_canon\_allowed: false project\_files\_conflict: true | false documentation: documentation\_drift\_found: true | false docs\_to\_refresh: - item: changed\_files\_context\_refresh\_required_after_approval: true | false patch: repository\_patch\_state: none | proposed files\_touched: - item: forbidden\_scope\_preserved: true | false next\_action: action\_type: next\_launch | context\_request | human\_decision | stop next\_stage: route\_reason: launch\_card\_ref: context\_request\_ref: human\_decision\_ref: stop\_ref: compatibility: aliases\_used: - alias: unknown\_fields\_tolerated: true kernel\_qa: exceptions: - item: created\_at:
-
-## 9\. Repository Patch contract
-
-After approval/formalization, always include a Repository Patch. If no patch is safe, use `state: none`.
-
-Repository Patch:
-
-repository\_patch: state: none | proposed reason: target\_scope: notes\_to\_create\_or\_update: - path: title: action: create | replace\_note | replace\_section | append\_section | update\_header | mark\_stale status: content\_summary: validation\_anchors: - anchor: notes\_to\_mark\_stale: - path: reason: replacement\_pointer: do\_not\_touch: - path: reason: readback\_requirements: expected\_notes: - path: expected\_headers: - field: expected\_content\_anchors: - path: anchors: - text: forbidden\_changes: - path\_or\_pattern: reason:
-
-For blocked or missing-context closure, default to:
-
-repository\_patch: state: none
-
-unless a safe, explicit maintenance/log patch is authorized and exact paths are available.
-
-## 10\. Execution Log Entry contract
-
-Always include:
-
-execution\_log\_entry: timestamp: stage\_id: P9\_PHASE\_CLOSE direction: phase: active\_goal: closure\_verdict: route: evidence\_checked: - item: blockers: - item: documentation\_drift\_found: true | false docs\_to\_refresh: - item: repository\_patch\_state: none | proposed notes\_touched: - item: forbidden\_scope\_confirmation: no\_common\_canon: true | false no\_cross\_direction\_rollout: true | false no\_stage\_prompt\_edits: true | false no\_task\_master\_graph: true | false no\_archive\_history\_loading: true | false no\_source\_of\_truth\_security\_privacy\_tool\_binding\_changes: true | false next\_action:
-
-## 11\. Documentation Maintenance Gate contract
-
-Always include:
-
-documentation\_maintenance\_gate: required_after_approval: true | false reason: documentation\_drift\_found: true | false stale\_or\_conflicting\_sources: - item: docs\_to\_refresh: - file\_or\_note: reason: source\_of\_truth: urgency: immediate | before\_next\_runtime\_action | routine | none refresh\_required\_before\_next\_runtime\_action_after_approval: true | false changed\_files\_context\_refresh\_required_after_approval: true | false
-
-## 12\. Changed Files / Context Refresh List contract
-
-Always include:
-
-changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true | false files: - file: reason: source\_of\_truth: required\_before\_next\_runtime\_action_after_approval: true | false
-
-## 13\. Next route artifact contracts
-
-Emit exactly one next route artifact.
-
-### A. Next Launch Card
-
-Use when safe to launch another stage.
-
-next\_launch\_card: workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: name: source\_path: workflow/stage\_prompts/<STAGE\_ID>.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/<STAGE\_ID>.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: pending\_repository\_patch: changed\_files\_context\_refresh\_required: direction: id: name: active\_project: phase: id: name: status: goal: id: title: status: launch\_reason: required\_context: - item: evidence\_to\_load: - item: forbidden\_actions: - item: expected\_output: - item: route\_source: stage\_id: P9\_PHASE\_CLOSE closure\_verdict:
-
-### B. Context Request Card
-
-Use when blocking evidence is missing.
-
-context\_request\_card: workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close reason: missing\_context: - item: evidence\_needed: - item: forbidden\_until\_resolved: - item: resume\_route: next\_stage: condition: priority: blocking smallest\_safe\_next\_step:
-
-### C. Human Decision Card
-
-Use when safe progress requires explicit human judgment.
-
-human\_decision\_card: workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close decision\_needed: options: - option: consequence: recommended\_option: reason: forbidden\_until\_decided: - item:
-
-### D. Stop Card
-
-Use when state is unsafe and no route can be generated.
-
-stop\_card: workflow\_packet: 1 type: stop schema: stop.v1 stage: id: P9\_PHASE\_CLOSE name: Phase Close stop\_reason: unsafe\_conditions: - item: required\_recovery: - item: recommended\_route: R0\_RECOVERY\_CLOSE | human\_decision | context\_request | none
+For blocked or missing-context closure, default to no repository patch unless a safe, explicit maintenance/log patch is authorized and exact paths are available. When Context Request or Human Decision is needed but unavailable from P9 under the registry, name exact missing closure evidence or the user-owned choice inside `REGISTRY_REVIEW_CANDIDATE`. Stop should state unsafe conditions and minimum recovery context without inventing an unavailable stage launch.
 
 ## 14\. Anti-overbuild rules
 
 Apply these defaults:
 
 *   Cut closure work to the smallest safe closure/routing decision.
-*   Prefer a precise Context Request over broad investigation.
+*   Prefer a precise missing-context registry review candidate or registry-valid fallback over broad investigation.
 *   Prefer route-back over premature closure.
 *   Do not turn closure into retrospective, cleanup, canon, archive, or next-Phase planning work.
 *   If a task seems interesting but not required for safe Phase closure, exclude it.
-*   If uncertain whether a patch is safe, use explicit `Repository Patch: none` and request context or decision.
+*   If uncertain whether a patch is safe, use explicit `Repository Patch: none` and return the smallest registry-valid fallback, Stop, or `REGISTRY_REVIEW_CANDIDATE`.
 *   If documentation drift exists, identify the smallest refresh list rather than editing everything.
 
 ## 15\. Final self-check before responding
@@ -643,4 +619,4 @@ Do not close a Phase when any active Goal is incomplete, blocked, missing eviden
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/P9_PHASE_CLOSE.md`
+END_OF_FILE: workflow/stage_prompts/P9_PHASE_CLOSE.md

@@ -3,7 +3,7 @@
 Status: production-ready runtime core
 Workflow version: vNext-R
 Source GitHub repository file: `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
-Freshness: refresh whenever runtime core, routing rules, packet contracts, stage registry, or project-file rules change.
+Freshness: refresh whenever runtime core, routing rules, packet contracts, stage registry, context-acquisition rules, or project-file rules change.
 Authority: common workflow runtime guide for Direction ChatGPT Projects. GitHub repository files win on conflict.
 Scope: runtime behavior only. This file is not a stage prompt and not a rebuild roadmap.
 
@@ -15,7 +15,7 @@ One ChatGPT Project = one Direction.
 
 Material strategic work must be basis-valid, not only route-valid. Horizon selection, active frontier selection, Goal selection, and material audit/research/execution launch must follow `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the next work depends on strategic choice, unresolved surfaces, external evidence, old-source audit, implementation readiness, or Direction Map state.
 
-Material solution-shape selection must be solution-minimal, not only basis-valid. Goal shaping, execution planning, architecture/process selection, artifact/template creation, workstream topology, chat splitting, and Codex execution envelopes must use `Minimum Sufficient Solution Proof` from `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the chosen form of solution is material, when low burden is a stated constraint, when multiple implementation paths exist, or when user-provided examples may anchor the solution shape.
+Material solution-shape selection must be solution-minimal, not only basis-valid. Goal shaping, execution planning, architecture/process selection, artifact/template creation, workstream topology, chat splitting, and Executor execution envelopes must use `Minimum Sufficient Solution Proof` from `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when the chosen form of solution is material, when low burden is a stated constraint, when multiple implementation paths exist, or when user-provided examples may anchor the solution shape.
 
 Basis-valid work may still be rejected when the selected solution shape is overbuilt, undercut, anchored to nonbinding user examples, or violates the dominant constraint.
 
@@ -28,6 +28,8 @@ ChatGPT may analyze, route, shape, plan, review, and create patches. ChatGPT doe
 Codex/user applies Repository Patch operations and returns file read-back / diff verification / commit verification evidence.
 
 Stage prompts live in the Workflow root and are dynamically provided per stage run. Stage prompts are not uploaded into every Direction Project by default.
+
+Repository/context acquisition before Context Request is governed by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`. GitHub long-file completeness verification remains governed by `workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md`.
 
 Every formalized workflow output must include:
 
@@ -84,7 +86,18 @@ Canonical packet templates live in:
 workflow/transport/*.md
 ```
 
-Runtime core remains authority for runtime behavior, precedence, approval/formalization rules, repository maintenance rules, route process, Codex role separation, and Project Files refresh/reporting rules.
+Executor/product-project transport templates:
+
+```text
+workflow/transport/EXECUTOR_SETUP_REQUEST.md
+workflow/transport/EXECUTION_WORK_PACKAGE.md
+workflow/transport/EXECUTOR_SETUP_RESULT.md
+workflow/transport/EXECUTOR_RETURN_PACKET.md
+```
+
+These executor templates are canonical packet shapes for setup request, product/project executor handoff, setup result, and return evidence. They do not change runtime behavior by themselves.
+
+Runtime core remains authority for runtime behavior, precedence, approval/formalization rules, repository maintenance rules, route process, Executor/Codex role separation, and Project Files refresh/reporting rules.
 
 Runtime core must not reintroduce full packet schema bodies.
 
@@ -297,11 +310,13 @@ At the start of a Direction Project chat:
 4.  Identify Direction, Direction Map status, current Phase, active Goal, current route, blockers, freshness/staleness, and whether a Launch Card is present.
 5.  If a Launch Card is present, follow it.
 6.  If no Launch Card is present, use Router / Stage Launcher behavior to determine the smallest safe next action.
-7.  If the required stage prompt or required context is missing, return Context Request Card.
+7.  If the required stage prompt or required context is missing after the applicable acquisition policy is applied, return Context Request Card.
 
 Do not invent missing Direction / Phase / Goal / Wave state.
 
 Do not reconstruct missing stage prompts from memory.
+
+For exact repository context or exact stage prompt paths, absence from Project Files or attachments is not enough to declare blocking missing context until `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` has been applied.
 
 ## 6\. Runtime Router / Stage Launcher behavior
 
@@ -320,6 +335,7 @@ Router must check:
 *   Is a Launch Card already provided?
 *   Is the needed stage prompt available?
 *   Is there blocking missing context?
+*   For exact repository context or exact stage prompt paths, has `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` been applied before Context Request?
 *   Is material strategic, audit, research, planning, or execution work backed by a basis-valid `next_action_proof`?
 *   Does the next material action choose solution shape, HOW, architecture, process, templates, artifacts, workstreams, chat splits, or recurring user actions?
 *   Did the user state low burden, low friction, speed, simplicity, or 'not геморно' as a primary constraint?
@@ -397,8 +413,7 @@ F0_FAST_DIRECT is allowed only when all of these are true:
 If any item is false or unknown, do not route to F0. Route to the smallest safer stage allowed by `STAGE_REGISTRY.md`:
 
 - `D1_DEEP_RESEARCH` for external/current evidence gaps;
-- `E1_EXECUTION_BRIEF` for missing execution brief;
-- `C1_CODEX_GRAPH_PLAN` for decomposition, graph/wave, or multi-file/multi-tool planning;
+- `E1_EXECUTION_BRIEF` for missing execution brief, decomposition, executor setup/run planning, graph/wave, or multi-file/multi-tool planning;
 - `S3_DECIDE` or Human Decision for material tradeoffs;
 - `B1_PROBLEM` for unclear problem/frame;
 - Context Request for missing blocking context;
@@ -437,7 +452,7 @@ U1 must default to novice-safe interaction unless the user says otherwise:
 - route back to `E1_EXECUTION_BRIEF` when the execution envelope must be replanned;
 - route to `R1_GOAL_REVIEW_DISTILL` only when the parent Goal completion gate passes.
 
-If a verified tool binding becomes available during a U1 run, U1 must not silently switch into Codex/product execution. It must route back to `E1_EXECUTION_BRIEF` or `C1_CODEX_GRAPH_PLAN` according to `STAGE_REGISTRY.md` and the runtime gates.
+If a verified tool binding becomes available during a U1 run, U1 must not silently switch into Executor/Codex product execution. It must route back to `E1_EXECUTION_BRIEF`, `X0_EXECUTOR_PROJECT_SETUP`, or `X1_EXECUTOR_RUN` according to `STAGE_REGISTRY.md`, setup state, and the runtime gates.
 
 U1 output may use:
 
@@ -476,7 +491,7 @@ For `gated_sequential` continuation:
 
 ## Branch / Workstream Execution Topology
 
-Large or multi-surface Goals must not be forced through one monolithic execution thread when the Goal mixes materially different work types such as research, audit, decision, architecture, Codex planning, and synthesis.
+Large or multi-surface Goals must not be forced through one monolithic execution thread when the Goal mixes materially different work types such as research, audit, decision, architecture, executor planning, and synthesis.
 
 This runtime uses branch/workstream execution as an E1-owned execution-planning mechanism.
 
@@ -494,7 +509,7 @@ A branch is not an Active Goal. A branch must not close the parent Goal, run par
 `E1_EXECUTION_BRIEF` must reject monolithic execution and consider branch/workstream topology when any of these are true:
 
 - the shaped Goal has multiple materially different work surfaces;
-- the shaped Goal mixes research, audit, decision, synthesis, architecture, or Codex planning;
+- the shaped Goal mixes research, audit, decision, synthesis, architecture, or executor planning;
 - current/external facts are required;
 - old source/code/docs require audit or challenge;
 - a human-owned tradeoff may block final synthesis;
@@ -502,7 +517,7 @@ A branch is not an Active Goal. A branch must not close the parent Goal, run par
 - independent workstreams can produce bounded evidence;
 - parent Goal acceptance depends on evidence from separate domains;
 - F0 readiness criteria are false or unknown;
-- Codex execution requires graph/wave planning.
+- executor execution requires work-package, task-graph, or wave planning.
 
 If F0 is unsafe but the Goal can be decomposed into bounded workstreams, E1 should produce a topology preview or Topology Launch Bundle instead of one monolithic launch.
 
@@ -516,7 +531,7 @@ gated_sequential
 parallel_workstreams
 parallel_then_gated_synthesis
 decision_map
-codex_graph
+executor_work_package
 human_decision_blocked
 ```
 
@@ -637,7 +652,7 @@ Material conflicts must be routed explicitly:
 - human-owned tradeoff -> `S3_DECIDE` or Human Decision;
 - framing conflict -> `B1_PROBLEM`;
 - missing context -> Context Request;
-- implementation graph conflict -> `E1_EXECUTION_BRIEF` or `C1_CODEX_GRAPH_PLAN`.
+- implementation graph conflict -> `E1_EXECUTION_BRIEF`.
 
 ### Topology Launch Bundle
 
@@ -652,8 +667,8 @@ D1_DEEP_RESEARCH
 A1_AUDIT
 F0_FAST_DIRECT
 S3_DECIDE
-C1_CODEX_GRAPH_PLAN
-C2_CODEX_EXECUTE
+X0_EXECUTOR_PROJECT_SETUP
+X1_EXECUTOR_RUN
 B1_PROBLEM
 ```
 
@@ -693,7 +708,8 @@ A stage may execute only if the exact stage prompt is available in the current r
 
 - `prompt_text_embedded`: exact prompt text is embedded in the Launch Card.
 - `prompt_attachment_provided`: exact prompt text is attached/exported in the current chat.
-- `manual_prompt_required`: prompt text is not available; the chat must request the exact prompt from the user/Codex and must not execute the stage yet.
+- `github_connector_verified_full_read`: exact prompt text was acquired in the current run through an exposed GitHub connector/tool and passed completeness verification.
+- `manual_prompt_required`: prompt text remains unavailable after allowed acquisition attempts; the chat must request the exact prompt and must not execute the stage yet.
 - `codex_verified_local_bundle`: Codex read the exact prompt from a local checkout, verified completeness, and supplied the prompt or a verified launch bundle.
 
 Do not reconstruct missing stage prompts from memory.
@@ -702,13 +718,15 @@ Do not use old/superseded prompts.
 
 Do not silently switch to a different stage.
 
-If a required stage prompt is missing, truncated, omitted, lacks tail verification when tail verification is required, or is not available in current chat context, return Context Request Card.
+Before returning Context Request for an exact stage prompt path, apply `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
+
+If a required stage prompt is missing, truncated, omitted, lacks tail verification when tail verification is required, or is not available in current chat context after allowed acquisition attempts, return Context Request Card.
 
 Allowed prompt delivery modes:
 
 ```yaml
 prompt_delivery:
-  mode: prompt_text_embedded | prompt_attachment_provided | manual_prompt_required | codex_verified_local_bundle
+  mode: prompt_text_embedded | prompt_attachment_provided | github_connector_verified_full_read | manual_prompt_required | codex_verified_local_bundle
   stage_prompt_source_path:
   stage_prompt_version:
   stage_prompt_status:
@@ -730,11 +748,14 @@ If prompt_text_included: true and the prompt is complete:
 If mode: prompt_attachment_provided and the attached/exported prompt is complete:
   execute using the provided prompt.
 
+If mode: github_connector_verified_full_read and GitHub completeness verification passes:
+  execute using the acquired prompt.
+
 If mode: codex_verified_local_bundle and Codex verifies completeness:
   execute using the supplied verified prompt or launch bundle.
 
 If mode: manual_prompt_required:
-  return Context Request for the exact stage prompt path.
+  return Context Request for the exact stage prompt path only after the acquisition policy has been applied or the remaining paths are unsafe.
 
 If prompt_text_included: false and the prompt is not otherwise available:
   return Context Request Card.
@@ -745,11 +766,13 @@ If a GitHub read of the exact prompt is truncated, omitted, or lacks required ta
 
 Never invent prompt text.
 
-`request_from_repository` is deprecated and must not be used for new launch cards. Use `manual_prompt_required` or `codex_verified_local_bundle`.
+Repository-request prompt delivery aliases are deprecated and must not be used for new launch cards. Use the approved modes above.
 
 ## 8\. Context Request Card Contract
 
 Use Context Request Card when required context is unavailable, stale, contradictory, or too ambiguous for safe material work.
+
+For exact repository context or exact stage prompt paths, apply `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` before returning Context Request. "Not uploaded as a Project File or attachment" is not enough to declare missing context.
 
 Canonical packet template:
 
@@ -762,6 +785,7 @@ Runtime behavior rules:
 - do not guess missing context;
 - do not continue material work if blocking context is missing;
 - request only the smallest exact blocking context set;
+- include `acquisition_audit` when requesting exact repository context or exact stage prompt context;
 - if context is non-blocking, proceed and list it as `request_if_needed`;
 - name exact repository paths when repository context is required;
 - do not infer unseen content from memory, search snippets, compact results, earlier chats, or partial GitHub output.
@@ -785,14 +809,15 @@ Use the canonical transport template for packet shape. Runtime core owns the beh
 
 A GitHub repository file read is not full-file authority when the response is truncated, omitted due to tool response token budget, lacks an expected tail anchor, or cannot verify that the chat saw the end of the file.
 
-When material work depends on such a file, the workflow must stop and return a Context Request naming the exact repository path. The chat must not infer unseen content from memory, search snippets, compact results, earlier chats, or partial GitHub output.
+When material work depends on such a file, the workflow must follow `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` before returning a Context Request naming the exact repository path. The chat must not infer unseen content from memory, search snippets, compact results, earlier chats, or partial GitHub output.
 
-Stage prompt special rule: if an exact stage prompt file is truncated or lacks tail verification, the prompt is considered unavailable for that run. The stage must not execute until the prompt is supplied manually, split into smaller files, chunk-exported with tail verification, or verified by Codex read-only local checkout.
+Stage prompt special rule: if an exact stage prompt file is truncated or lacks tail verification, the prompt is considered unavailable for that run until acquired through an allowed complete source under `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
 
 Detailed guard rules live in:
 
 ```text
 workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 ```
 
@@ -841,6 +866,8 @@ A route name alone is not enough.
 
 If the next action is another stage, the current stage must generate a complete filled Next Launch Card.
 
+The current stage closes by creating the launch card. It must not request next-stage prompt text, next-stage attachments, or downstream execution-only repository exports merely so the downstream stage can run. It may request extra context only when that context is required to decide or construct the launch card itself. The next stage chat/run performs acquisition under `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
+
 The Next Launch Card must be filled from:
 
 *   current Direction Project Files;
@@ -850,6 +877,8 @@ The Next Launch Card must be filled from:
 *   known GitHub repository source paths;
 *   known stage registry;
 *   known prompt source path.
+
+Source paths may be listed for next-stage acquisition without requiring the current stage to fetch or paste downstream prompt/files.
 
 The human should not manually fill known fields.
 
@@ -879,10 +908,13 @@ Runtime behavior rules:
 - a route name alone is not enough;
 - the human should not manually fill known fields;
 - the launch must be filled from current Direction Project Files, current stage output, known user input, previous stage result, known GitHub repository source paths, known stage registry, and known prompt source path;
+- the current stage must not request downstream prompt/context merely for downstream execution;
+- the current stage may request context only if needed to form the launch card;
 - if a required field is unknown and blocking, return Context Request;
 - if a field is optional/non-blocking, mark it as optional or `request_if_needed`;
 - use `workflow/stage_registry/STAGE_REGISTRY.md` for route authority;
 - stage prompt availability must use approved prompt delivery modes only;
+- if prompt text is not included, the launch card must encode `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` and set execution permission according to whether the next chat must acquire the prompt first;
 - do not reconstruct missing prompt text;
 - do not execute downstream stage work inside the current stage.
 
@@ -891,6 +923,7 @@ Prompt delivery modes allowed for new launches:
 ```text
 prompt_text_embedded
 prompt_attachment_provided
+github_connector_verified_full_read
 manual_prompt_required
 codex_verified_local_bundle
 ```
@@ -901,9 +934,11 @@ Use the canonical transport template for packet shape. Runtime core owns the beh
 
 ## 11.5 Codex Role Separation Contract
 
+The Executor Project Execution Core defines product/project execution handoff to external coding executors. Codex is the first/default executor adapter under generic Executor stages.
+
 Codex has separate runtime roles. Do not collapse them into a generic allowed/forbidden state.
 
-Codex product/project execution means implementation against a concrete product/project workspace, product repository, game proof, application code, Task Master execution graph, external tool binding, validation command run, or project file mutation that changes the product/project itself. Codex product/project execution is allowed only through the correct execution route after E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
+Executor/Codex product/project execution means implementation against a concrete product/project workspace, product repository, game proof, application code, Task Master execution graph, external tool binding, validation command run, or project file mutation that changes the product/project itself. It is allowed only through the correct execution route after E1/X0/X1 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
 
 Codex repository maintenance means applying an approved repository_patch.v1 to workflow or Direction GitHub files, appending execution logs, updating runtime markdown, and returning file read-back / diff verification / commit verification evidence. Codex repository maintenance is allowed after the patch is approved and must stay inside the approved repository paths.
 
@@ -913,22 +948,43 @@ Codex launch bundle preparation means packaging a Next Launch Card, exact stage 
 
 When a stage says Codex product/project execution is blocked, that restriction does not block approved repository maintenance, read-only audit/validation, or launch bundle preparation unless the stage explicitly says all Codex roles are blocked.
 
+Product/project execution by an external executor requires completed Executor Project Setup for the target project unless the current action is the Project Setup Wizard itself. The Project Setup Wizard is a workflow capability/action, not a registered stage.
+
+Executor Project Setup runs through `X0_EXECUTOR_PROJECT_SETUP`. Normal executor product/project execution runs through `X1_EXECUTOR_RUN`.
+
+Repository maintenance does not require Executor Project Setup. Read-only audit/validation and launch bundle preparation also do not require Executor Project Setup. X0 setup action does not require prior completed setup. X1 normal execution requires acceptable completed setup status for the target project.
+
+Acceptable setup statuses for normal product/project execution:
+
+```text
+complete
+complete_with_approved_fallback
+```
+
+Core-only setup is a valid complete setup. Stack-specific tuning is optional and decision-gated unless it is needed to make validation or evidence possible.
+
+Normal setup request should use or be mappable to `workflow/transport/EXECUTOR_SETUP_REQUEST.md`. Setup result should use or be mappable to `workflow/transport/EXECUTOR_SETUP_RESULT.md`. Normal product/project execution handoff should use or be mappable to `workflow/transport/EXECUTION_WORK_PACKAGE.md`. Executor/Codex evidence return should use or be mappable to `workflow/transport/EXECUTOR_RETURN_PACKET.md`.
+
+Task Master and subagents/reviewer roles are Codex adapter setup requirements, not recurring per-task negotiation. Full-trust execution is target-bound to the approved target project/workspace only.
+
+If setup needs current external/tooling facts, route to `D1_DEEP_RESEARCH` or return a research-needed note. If setup needs external UI or local tool operation, route to `U1_USER_GUIDED_EXECUTION`. Do not invent new stage IDs for setup.
+
 ### 11.5.1 ChatGPT / Codex technical context boundary
 
 ChatGPT Direction Projects own workflow orchestration. They must not become the default storage or loading surface for full product-repository technical context.
 
-For Codex product/project execution:
+For Executor/Codex product/project execution:
 
 - ChatGPT stages may define WHY / WHAT / DONE, acceptance, route, risk boundaries, allowed and forbidden scope, validation expectations, approval gates, and evidence requirements.
 - ChatGPT stages may pass compact pointers to repo-local technical sources such as `AGENTS.md`, Project Execution Profile, Module Map, Validation Profile, ADRs, public interface docs, and technical memory.
 - ChatGPT stages must not default-load, mirror, or maintain full product technical context, module internals, code-level architecture notes, historical implementation logs, or reusable code decisions unless the exact content is the object of a workflow audit or a targeted Context Request.
-- Deep technical discovery, architecture/reuse decisions, module map inspection, public-interface checks, internal module knowledge loading, duplicate-code scan, and implementation-shaping decisions belong in the Codex product/project execution workspace.
-- Durable technical decisions from Codex must be stored in product-repo-local artifacts such as `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, ADRs, public interface docs, internal module knowledge, or `.codex` memory according to the project policy.
+- Deep technical discovery, architecture/reuse decisions, module map inspection, public-interface checks, internal module knowledge loading, duplicate-code scan, and implementation-shaping decisions belong in the Executor/Codex product/project execution workspace.
+- Durable technical decisions from Executor/Codex work must be stored in product-repo-local artifacts such as `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, ADRs, public interface docs, internal module knowledge, or `.codex` memory according to the project policy.
 - Direction Project Files may store only compact outcome summaries, approval-relevant decisions, risk notes, and pointers to product technical artifacts. They must not store full product technical documentation by default.
 
-`C1_CODEX_GRAPH_PLAN` is a ChatGPT execution-envelope planning stage. It may require a Codex technical discovery preflight, but it must not perform deep product architecture planning unless the current chat has explicitly provided and scoped that technical context.
+`E1_EXECUTION_BRIEF` prepares the execution envelope. `X0_EXECUTOR_PROJECT_SETUP` runs setup and returns setup evidence. `X1_EXECUTOR_RUN` executes an approved Executor Work Package and returns execution evidence. E1 must not perform deep product architecture planning unless the current chat has explicitly provided and scoped that technical context.
 
-`C2_CODEX_EXECUTE` is the Codex product/project execution stage. For non-trivial code work, C2 must run a project-local technical discovery / architecture reuse preflight before mutation when any of these are true:
+For non-trivial Executor/Codex product/project execution, X1 must run a project-local technical discovery / architecture reuse preflight before mutation when any of these are true:
 
 - a new module, public interface, API, integration, or dependency direction may be created or changed;
 - multi-file or modular work is expected;
@@ -949,7 +1005,7 @@ blocked_missing_context
 human_decision_required
 ```
 
-Codex must return a compact technical discovery card and technical memory delta in the Codex Return Packet when the preflight ran or was required. If the preflight reveals a material architecture decision outside the approved execution envelope, Codex must stop and return Human Decision or route back to C1/E1 instead of mutating product code.
+Codex must return a compact technical discovery card and technical memory delta in the Executor Return Packet when the preflight ran or was required. If the preflight reveals a material architecture decision outside the approved execution envelope, Codex must stop and return Human Decision or route back to `E1_EXECUTION_BRIEF` instead of mutating product code.
 
 ## 11.6 Hard First Response and Adaptive Reviewable Work Product Gate
 
@@ -1119,12 +1175,16 @@ If Codex is available after a stage closes, Codex may prepare a complete Next St
 A Launch Bundle contains:
 
 1.  Next Launch Card.
-2.  Exact next stage prompt export from GitHub repository.
+2.  Optional exact next stage prompt export when already acquired or when convenience packaging is explicitly requested.
 3.  Required extra context exports, if any.
 4.  Updated Context refresh list.
 5.  Copy-paste instructions for the next ChatGPT chat.
 
-Codex must not invent prompt text. It must read the installed stage prompt from GitHub repository and include source path/version/status.
+Codex prompt export is optional convenience packaging, not a blocker for current stage close. The current stage must still create the launch card from known fields and source paths.
+
+If prompt text is not included, the launch card must encode `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`; `execute_allowed` must reflect whether the next chat must acquire the prompt first.
+
+Codex must not invent prompt text. When it packages prompt text, it must read the installed stage prompt and include source path/version/status plus completeness evidence.
 
 Launch Bundle is convenience packaging. The underlying authority remains:
 
@@ -1289,7 +1349,7 @@ Do not edit sibling Directions from a Direction worktree unless the approved pat
 
 Do not use the main worktree as an ordinary Direction working tree.
 
-Do not create Task Master graph or run product/project execution as part of repository maintenance unless explicitly authorized by a C1/C2 product execution route.
+Do not create Task Master graph or run product/project execution as part of repository maintenance unless explicitly authorized through the registry-valid Executor setup/run route.
 
 ### 14.5 Changed Files / Context Refresh coupling
 
@@ -1594,7 +1654,7 @@ Use Fast when:
 *   reversible;
 *   one clear output;
 *   acceptance obvious;
-*   no Codex graph needed;
+*   no executor work package needed;
 *   no durable strategic change;
 *   no external evidence gap.
 
@@ -1766,11 +1826,11 @@ If a selected next stage is not allowed by `STAGE_REGISTRY.md`, return a route-c
 Return NEEDS\_INPUT / Context Request instead of material work if:
 
 *   Direction identity is missing;
-*   required Project Files are missing;
+*   required Project Files are missing after applicable source acquisition has been attempted;
 *   active Phase state is required but missing/contradictory;
 *   active Goal state is required but missing/contradictory;
-*   stage prompt is missing;
-*   required context listed in Context Loading Index is missing;
+*   stage prompt is missing after applicable acquisition policy has been applied;
+*   required context listed in Context Loading Index is missing after applicable acquisition policy has been applied;
 *   Project Files are stale and freshness matters;
 *   pending Repository Patch must be applied/refreshed before continuing;
 *   source-of-truth conflict exists;

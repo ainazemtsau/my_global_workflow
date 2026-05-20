@@ -29,6 +29,7 @@ ACTIVE_DIRECTIONS = [
 REQUIRED_SHARED_RUNTIME_FILES = [
     "WORKFLOW_SOURCE_OF_TRUTH.md",
     "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+    "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md",
     "workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md",
     "workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md",
     "workflow/stage_registry/STAGE_REGISTRY.md",
@@ -47,10 +48,12 @@ REQUIRED_DIRECTION_PROJECT_FILES = [
 ]
 
 DEPRECATED_PROMPT_DELIVERY_MODES = [
-    "request_from_repository",
-    "embedded_in_launch_card",
-    "pasted_in_current_chat",
-    "attached_export",
+    "request_" "from_repository",
+    "request\\_" "from\\_repository",
+    "repository-request",
+    "embedded_" "in_launch_card",
+    "pasted_" "in_current_chat",
+    "attached_" "export",
 ]
 
 LEGACY_TRANSPORT_ACTIVE_SHAPE_TOKENS = [
@@ -88,10 +91,29 @@ STALE_METADATA_PATTERNS = [
 
 REQUIRED_EOF_FILES = [
     "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md",
+    "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md",
     "workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md",
     "workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md",
     "workflow/stage_registry/STAGE_REGISTRY.md",
 ]
+
+TERMINAL_ALLOWED_NEXT_TOKENS = {
+    "Context Request",
+    "Human Decision",
+    "Stop",
+}
+
+SPECIAL_ALLOWED_NEXT_TOKENS = {
+    "continue_current_stage": "B1_PROBLEM",
+    "Direction pause/archive": "P9_PHASE_CLOSE",
+}
+
+ROUTER_ALLOWED_NEXT_PHRASE = "any appropriate stage"
+
+FORBIDDEN_ALLOWED_NEXT_TOKENS = {
+    "topology_launch_bundle",
+    "codex_return",
+}
 
 
 @dataclass
@@ -129,8 +151,62 @@ def stage_prompt_files(root: Path) -> list[Path]:
     return sorted(prompt_dir.glob("*.md"))
 
 
+def parse_registry_rows(root: Path) -> list[dict[str, str]]:
+    path = root / "workflow/stage_registry/STAGE_REGISTRY.md"
+    if not path.is_file():
+        return []
+
+    rows: list[dict[str, str]] = []
+    for line in read_text(path).splitlines():
+        if not line.startswith("| ") or "`workflow/stage_prompts/" not in line:
+            continue
+
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) < 8:
+            continue
+
+        rows.append(
+            {
+                "stage_id": cells[0],
+                "stage_name": cells[1],
+                "runtime_role": cells[2],
+                "prompt_path": cells[3].strip("`"),
+                "prompt_status": cells[4],
+                "target_runtime": cells[5],
+                "activation": cells[6],
+                "allowed_next": cells[7],
+            }
+        )
+    return rows
+
+
+def split_allowed_next(value: str) -> list[str]:
+    return [token.strip() for token in value.split(",") if token.strip()]
+
+
 def add(results: list[Finding], check_id: str, name: str, status: Status, message: str, path: str | None = None) -> None:
     results.append(Finding(check_id=check_id, name=name, status=status, message=message, path=path))
+
+
+def eof_marker_errors(path: Path, root: Path) -> list[str]:
+    repo_path = rel(path, root)
+    expected = f"END_OF_FILE: {repo_path}"
+    text = read_text(path)
+    marker_count = text.count(expected)
+    errors: list[str] = []
+
+    if marker_count != 1:
+        errors.append(f"marker_count={marker_count}")
+
+    stripped = text.rstrip()
+    last_line = stripped.splitlines()[-1].strip() if stripped else ""
+    normalized_last_line = last_line.strip("`")
+    if normalized_last_line != expected:
+        errors.append("marker_is_last_non_whitespace=false")
+        if expected in stripped:
+            errors.append("content_after_marker=true")
+
+    return errors
 
 
 def check_markdown_fence_balance(root: Path, results: list[Finding]) -> None:
@@ -272,6 +348,113 @@ def check_registry_present_prompt_files(root: Path, results: list[Finding]) -> N
         add(results, "CHECK 007A", "registry_present_prompt_files_exist", "PASS", "All registry rows marked present have prompt files.")
 
 
+def check_registry_allowed_next_tokens(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 007B"
+    name = "registry_allowed_next_tokens"
+    registry_path = root / "workflow/stage_registry/STAGE_REGISTRY.md"
+    if not registry_path.is_file():
+        add(results, check_id, name, "FAIL", "STAGE_REGISTRY.md missing.", rel(registry_path, root))
+        return
+
+    rows = parse_registry_rows(root)
+    stage_ids = [row["stage_id"] for row in rows]
+    stage_id_set = set(stage_ids)
+    failures = 0
+
+    required_executor_stage_ids = {
+        "X0_EXECUTOR_PROJECT_SETUP",
+        "X1_EXECUTOR_RUN",
+    }
+    forbidden_executor_stage_ids = {
+        "C1_CODEX_GRAPH_PLAN",
+        "C2_CODEX_EXECUTE",
+        "EXECUTOR_PROJECT_SETUP",
+        "E2_EXECUTION_HANDOFF",
+        "X1_EXECUTOR_EXECUTE",
+    }
+
+    for stage_id in sorted(required_executor_stage_ids):
+        if stage_id not in stage_id_set:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Required executor stage ID is not registered: {stage_id}.", rel(registry_path, root))
+
+    for stage_id in sorted(forbidden_executor_stage_ids):
+        if stage_id in stage_id_set:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Forbidden executor compatibility or pseudo-stage is registered: {stage_id}.", rel(registry_path, root))
+
+    for stage_id in sorted(stage_id_set):
+        count = stage_ids.count(stage_id)
+        if count != 1:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Canonical stage ID appears {count} times in registry: {stage_id}.", rel(registry_path, root))
+
+    for row in rows:
+        stage_id = row["stage_id"]
+        for token in split_allowed_next(row["allowed_next"]):
+            if token == ROUTER_ALLOWED_NEXT_PHRASE and stage_id == "ROUTER_STAGE_LAUNCHER":
+                continue
+            if token in stage_id_set:
+                continue
+            if token in TERMINAL_ALLOWED_NEXT_TOKENS:
+                continue
+            if token in SPECIAL_ALLOWED_NEXT_TOKENS:
+                expected_stage = SPECIAL_ALLOWED_NEXT_TOKENS[token]
+                if stage_id == expected_stage:
+                    continue
+                failures += 1
+                add(
+                    results,
+                    check_id,
+                    name,
+                    "FAIL",
+                    f"Special allowed_next token `{token}` is only allowed for {expected_stage}, not {stage_id}.",
+                    rel(registry_path, root),
+                )
+                continue
+            if token in FORBIDDEN_ALLOWED_NEXT_TOKENS:
+                failures += 1
+                add(results, check_id, name, "FAIL", f"Forbidden non-route token appears in allowed_next: {token}.", rel(registry_path, root))
+                continue
+
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Unknown allowed_next token for {stage_id}: {token}.", rel(registry_path, root))
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "All allowed_next tokens are canonical stage IDs, terminal outputs, or approved special tokens.")
+
+
+def check_r0_recovery_prompt_status(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 007C"
+    name = "r0_recovery_prompt_status"
+    registry_path = root / "workflow/stage_registry/STAGE_REGISTRY.md"
+    prompt_path = root / "workflow/stage_prompts/R0_RECOVERY_CLOSE.md"
+    if not registry_path.is_file():
+        add(results, check_id, name, "FAIL", "STAGE_REGISTRY.md missing.", rel(registry_path, root))
+        return
+
+    rows = [row for row in parse_registry_rows(root) if row["stage_id"] == "R0_RECOVERY_CLOSE"]
+    if len(rows) != 1:
+        add(results, check_id, name, "FAIL", f"Expected exactly one R0_RECOVERY_CLOSE registry row, found {len(rows)}.", rel(registry_path, root))
+        return
+
+    row = rows[0]
+    status = row["prompt_status"]
+    activation = row["activation"]
+    exists = prompt_path.is_file()
+
+    if status == "missing_prompt" and activation == "unavailable_until_prompt_installed" and not exists:
+        add(results, check_id, name, "PASS", "R0_RECOVERY_CLOSE missing_prompt exception is valid.")
+    elif status == "missing_prompt" and exists:
+        add(results, check_id, name, "FAIL", "R0 prompt file exists while registry still marks missing_prompt.", rel(prompt_path, root))
+    elif status == "present" and not exists:
+        add(results, check_id, name, "FAIL", "R0 registry row is present but prompt file is missing.", rel(prompt_path, root))
+    elif status == "present" and exists:
+        add(results, check_id, name, "PASS", "R0 prompt file and present registry status are aligned.")
+    else:
+        add(results, check_id, name, "FAIL", f"Unexpected R0 registry status/activation combination: {status} / {activation}.", rel(registry_path, root))
+
+
 def check_deprecated_prompt_delivery_modes(root: Path, results: list[Finding]) -> None:
     found = 0
     for path in stage_prompt_files(root):
@@ -282,6 +465,116 @@ def check_deprecated_prompt_delivery_modes(root: Path, results: list[Finding]) -
                 add(results, "CHECK 008", "deprecated_prompt_delivery_modes_absent", "FAIL", f"Deprecated prompt delivery mode found: {token}.", rel(path, root))
     if found == 0:
         add(results, "CHECK 008", "deprecated_prompt_delivery_modes_absent", "PASS", "No deprecated prompt delivery modes found in stage prompts.")
+
+
+def check_stage_prompt_forbidden_patterns(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 008A"
+    name = "stage_prompt_forbidden_patterns"
+    patterns = [
+        ("deprecated prompt delivery", r"request\\?_from\\?_repository|repository-request"),
+        ("direct-main maintenance policy", r"use direct-main repository maintenance policy|direct-main repository maintenance|direct_main|direct main"),
+        ("stable downstream stage list", r"Stable downstream stage list"),
+        ("stage-development testing override", r"Stage-development testing override"),
+        ("first real direction test", r"First real Direction test"),
+        ("testing status residue", r"Testing status"),
+        ("prompt-local allowed_next field", r"^\s*allowed_next\s*:"),
+        ("prompt-local allowed_next table", r"\|\s*stage[_ ]?id\s*\|.*\|\s*allowed_next\s*\|"),
+        ("allowed next heading", r"^#{1,6}\s+Allowed next\b"),
+        ("default downstream route heading", r"^#{1,6}\s+Default downstream route\b"),
+    ]
+
+    failures = 0
+    for path in stage_prompt_files(root):
+        text = read_text(path)
+        for label, pattern in patterns:
+            if re.search(pattern, text, flags=re.IGNORECASE | re.MULTILINE):
+                failures += 1
+                add(results, check_id, name, "FAIL", f"Forbidden stage prompt residue found: {label}.", rel(path, root))
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "No forbidden prompt delivery, direct-main, test residue, or prompt-local allowed_next authority patterns found.")
+
+
+def check_stage_prompt_route_authority_residue(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 008B"
+    name = "stage_prompt_route_authority_residue"
+    rows = parse_registry_rows(root)
+    allowed_by_stage = {row["stage_id"]: set(split_allowed_next(row["allowed_next"])) for row in rows}
+    stage_ids = {row["stage_id"] for row in rows}
+    prompt_stage_by_path = {
+        Path(row["prompt_path"]).name: row["stage_id"]
+        for row in rows
+        if row["prompt_path"].startswith("workflow/stage_prompts/")
+    }
+
+    route_keywords = [
+        "route to",
+        "route directly to",
+        "route back",
+        "next route",
+        "selected route",
+        "normal route",
+        "default route",
+        "allowed route",
+        "launch to",
+        "launch card to",
+        "emit a next launch",
+        "may route",
+        "must route",
+        "should route",
+    ]
+    explicit_non_authority = [
+        "registry_review_candidate",
+        "not registry-valid",
+        "not registry valid",
+        "registry-valid fallback",
+        "route conflict",
+        "forbidden route",
+        "do not emit",
+        "do not route",
+        "must not route",
+        "not allowed",
+        "unless registry",
+        "desired owner",
+        "unavailable",
+        "do not invent",
+        "source_state.from_stage",
+    ]
+
+    failures = 0
+    for path in stage_prompt_files(root):
+        current_stage = prompt_stage_by_path.get(path.name)
+        if not current_stage or current_stage == "ROUTER_STAGE_LAUNCHER":
+            continue
+
+        allowed = allowed_by_stage.get(current_stage, set())
+        for line_no, line in enumerate(read_text(path).splitlines(), 1):
+            lowered = line.lower()
+            if not any(keyword in lowered for keyword in route_keywords):
+                continue
+
+            mentioned_stage_ids = [stage_id for stage_id in stage_ids if stage_id in line]
+            if not mentioned_stage_ids:
+                continue
+
+            if any(marker in lowered for marker in explicit_non_authority):
+                continue
+
+            for stage_id in mentioned_stage_ids:
+                if stage_id == current_stage or stage_id in allowed:
+                    continue
+                failures += 1
+                add(
+                    results,
+                    check_id,
+                    name,
+                    "FAIL",
+                    f"Prompt appears to present non-registry route `{stage_id}` as normal/allowed/default at line {line_no}.",
+                    rel(path, root),
+                )
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "No prompt-local normal route examples conflict with registry allowed_next.")
 
 
 def check_ad_wf_rt_001_boundary(root: Path, results: list[Finding]) -> None:
@@ -385,38 +678,48 @@ def check_transport_apply_template(root: Path, results: list[Finding], mode: str
 
 
 def check_prompt_eof_markers(root: Path, results: list[Finding], mode: str) -> None:
-    status: Status = "WARN" if mode == "baseline" else "FAIL"
     prompts = stage_prompt_files(root)
-    missing = 0
+    failures = 0
     for path in prompts:
-        text = read_text(path)
-        if "END_OF_FILE:" not in text:
-            missing += 1
-            add(results, "CHECK 012", "prompt_eof_markers", status, "Stage prompt lacks END_OF_FILE marker.", rel(path, root))
-    if missing == 0:
-        add(results, "CHECK 012", "prompt_eof_markers", "PASS", "All stage prompts have END_OF_FILE markers.")
+        errors = eof_marker_errors(path, root)
+        if errors:
+            failures += 1
+            add(results, "CHECK 012", "prompt_eof_markers", "FAIL", f"Stage prompt EOF marker is not structurally valid: {', '.join(errors)}.", rel(path, root))
+    if failures == 0:
+        add(results, "CHECK 012", "prompt_eof_markers", "PASS", "All stage prompts have exactly one EOF marker as the final marker line.")
 
 
 def check_authority_eof_markers(root: Path, results: list[Finding]) -> None:
-    missing = 0
+    failures = 0
+    checked_paths: set[Path] = set()
     for item in REQUIRED_EOF_FILES:
         path = root / item
         if not path.is_file():
             add(results, "CHECK 013", "authority_eof_markers", "FAIL", "Required authority EOF file is missing.", item)
-            missing += 1
+            failures += 1
             continue
-        text = read_text(path)
-        expected = f"END_OF_FILE: {item}"
-        if expected not in text:
-            missing += 1
-            add(results, "CHECK 013", "authority_eof_markers", "FAIL", "Required authority EOF marker missing or changed.", item)
+        checked_paths.add(path)
+        errors = eof_marker_errors(path, root)
+        if errors:
+            failures += 1
+            add(results, "CHECK 013", "authority_eof_markers", "FAIL", f"Required authority EOF marker is not structurally valid: {', '.join(errors)}.", item)
+
+    for path in sorted((root / "workflow/runtime").glob("*.md")):
+        if path in checked_paths:
+            continue
+        if "END_OF_FILE:" not in read_text(path):
+            continue
+        errors = eof_marker_errors(path, root)
+        if errors:
+            failures += 1
+            add(results, "CHECK 013", "authority_eof_markers", "FAIL", f"Runtime EOF marker is not structurally valid: {', '.join(errors)}.", rel(path, root))
 
     source_path = root / "WORKFLOW_SOURCE_OF_TRUTH.md"
     if source_path.is_file() and "END_OF_FILE:" not in read_text(source_path):
         add(results, "CHECK 013", "authority_eof_markers", "WARN", "WORKFLOW_SOURCE_OF_TRUTH.md lacks END_OF_FILE marker; current baseline treats this as non-blocking because the file is short.", "WORKFLOW_SOURCE_OF_TRUTH.md")
 
-    if missing == 0:
-        add(results, "CHECK 013", "authority_eof_markers", "PASS", "Required authority EOF markers are present.")
+    if failures == 0:
+        add(results, "CHECK 013", "authority_eof_markers", "PASS", "Required authority and runtime EOF markers are structurally valid.")
 
 
 def check_stale_rebuild_metadata(root: Path, results: list[Finding]) -> None:
@@ -469,55 +772,54 @@ def check_stale_rebuild_metadata(root: Path, results: list[Finding]) -> None:
 
 
 def check_prompt_schema_duplication(root: Path, results: list[Finding]) -> None:
-    """Warn only on likely copied packet schema bodies or prompt-local route tables.
+    """Fail packet/proof/readiness schema bodies in stage prompts.
 
-    Canonical references such as `schema: stage_launch.v1` inside prose or
-    compact references are allowed after prompt slimming. This check is for
-    duplicated schema bodies, not legitimate references to canonical schemas.
+    Compact status fields such as `execution_readiness_status` and
+    `next_action_proof_status` remain valid stage-specific obligations.
     """
-    body_key_after_schema = r"\s*\n\s*(?!```)[A-Za-z_][A-Za-z0-9_-]*\s*:"
-    full_schema_body_patterns = [
-        ("stage_launch.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*stage_launch\s*\n\s*schema:\s*stage_launch\.v1{body_key_after_schema}"),
-        ("stage_result.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*stage_result\s*\n\s*schema:\s*stage_result\.v1{body_key_after_schema}"),
-        ("repository_patch.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*repository_patch\s*\n\s*schema:\s*repository_patch\.v1{body_key_after_schema}"),
-        ("context_request.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*context_request\s*\n\s*schema:\s*context_request\.v1{body_key_after_schema}"),
-        ("human_decision.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*human_decision\s*\n\s*schema:\s*human_decision\.v1{body_key_after_schema}"),
-        ("codex_repository_maintenance_apply.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_repository_maintenance_apply\s*\n\s*schema:\s*codex_repository_maintenance_apply\.v1{body_key_after_schema}"),
-        ("codex_return.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_return\s*\n\s*schema:\s*codex_return\.v1{body_key_after_schema}"),
-        ("codex_wave.v1 body", rf"workflow_packet:\s*1\s*\n\s*type:\s*codex_wave\s*\n\s*schema:\s*codex_wave\.v1{body_key_after_schema}"),
-    ]
-
-    route_table_patterns = [
+    schema_patterns = [
+        ("workflow_packet anchor", r"^\s*workflow_packet:\s*1\s*$"),
+        ("stage_result.v1 schema", r"^\s*schema:\s*stage_result\.v1\s*$"),
+        ("stage_launch.v1 schema", r"^\s*schema:\s*stage_launch\.v1\s*$"),
+        ("repository_patch.v1 schema", r"^\s*schema:\s*repository_patch\.v1\s*$"),
+        ("execution_log_entry.v1 schema", r"^\s*schema:\s*execution_log_entry\.v1\s*$"),
+        ("context_request.v1 schema", r"^\s*schema:\s*context_request\.v1\s*$"),
+        ("human_decision.v1 schema", r"^\s*schema:\s*human_decision\.v1\s*$"),
+        ("stop.v1 schema", r"^\s*schema:\s*stop\.v1\s*$"),
+        ("codex_return.v1 schema", r"^\s*schema:\s*codex_return\.v1\s*$"),
+        ("horizon_acceptance_proof body", r"^horizon_acceptance_proof:\s*$"),
+        ("active_frontier body", r"^active_frontier:\s*$"),
+        ("next_action_proof body", r"^next_action_proof:\s*$"),
+        ("minimum_sufficient_solution_proof body", r"^minimum_sufficient_solution_proof:\s*$"),
+        ("audit_readiness body", r"^audit_readiness:\s*$"),
+        ("research_readiness body", r"^research_readiness:\s*$"),
+        ("execution_readiness body", r"^execution_readiness:\s*$"),
         ("allowed_next markdown table", r"\|\s*stage[_ ]?id\s*\|.*\|\s*allowed_next\s*\|"),
         ("legacy next launch format heading", r"Next Launch Card Required Format"),
     ]
 
-    found = 0
+    failures = 0
     for path in stage_prompt_files(root):
         text = read_text(path)
         matches: list[str] = []
 
-        for label, pattern in full_schema_body_patterns:
-            if re.search(pattern, text, flags=re.MULTILINE | re.IGNORECASE):
-                matches.append(label)
-
-        for label, pattern in route_table_patterns:
+        for label, pattern in schema_patterns:
             if re.search(pattern, text, flags=re.MULTILINE | re.IGNORECASE):
                 matches.append(label)
 
         if matches:
-            found += 1
+            failures += 1
             add(
                 results,
                 "CHECK 015",
                 "prompt_schema_duplication_scan",
-                "WARN",
-                f"Prompt appears to contain copied schema body or prompt-local route-table residue: {', '.join(matches[:5])}.",
+                "FAIL",
+                f"Stage prompt contains packet/proof schema body or route-table residue: {', '.join(matches[:5])}.",
                 rel(path, root),
             )
 
-    if found == 0:
-        add(results, "CHECK 015", "prompt_schema_duplication_scan", "PASS", "No copied packet schema bodies or prompt-local route tables detected in stage prompts.")
+    if failures == 0:
+        add(results, "CHECK 015", "prompt_schema_duplication_scan", "PASS", "No packet/proof schema bodies or prompt-local route tables detected in stage prompts.")
 
 
 def check_cross_direction_cache_setup(root: Path, results: list[Finding]) -> None:
@@ -551,24 +853,51 @@ def check_cross_direction_cache_setup(root: Path, results: list[Finding]) -> Non
 
 
 def check_project_files_do_not_contain_stage_prompt_bodies(root: Path, results: list[Finding]) -> None:
-    found = 0
-    suspicious_tokens = [
+    failures = 0
+    embedded_prompt_tokens = [
+        "schema: stage_prompt.v1",
         "Runtime Stage Prompt",
-        "Stage type:",
-        "Prompt version:",
-        "Reviewable Work Product Rule",
+        "END_OF_FILE: workflow/stage_prompts/",
+    ]
+    default_load_markers = [
+        "default project file",
+        "default project files",
+        "load by default",
+        "always load",
+        "default context",
     ]
     for direction in ACTIVE_DIRECTIONS:
         project_dir = root / "directions" / direction / "project_files"
         if not project_dir.exists():
             continue
-        for path in project_dir.glob("*.md"):
+        for file_name in REQUIRED_DIRECTION_PROJECT_FILES:
+            path = project_dir / file_name
+            if not path.is_file():
+                continue
             text = read_text(path)
-            if any(token in text for token in suspicious_tokens) and "workflow/stage_prompts/" in text:
-                found += 1
+            if "workflow/stage_prompts/" not in text:
+                continue
+
+            if all(token in text for token in embedded_prompt_tokens):
+                failures += 1
                 add(results, "CHECK 017", "project_files_do_not_contain_stage_prompt_bodies", "FAIL", "Direction Project File appears to contain a stage prompt body.", rel(path, root))
-    if found == 0:
-        add(results, "CHECK 017", "project_files_do_not_contain_stage_prompt_bodies", "PASS", "No full stage prompt bodies detected in active Direction Project Files.")
+                continue
+
+            for line_no, line in enumerate(text.splitlines(), 1):
+                lowered = line.lower()
+                if "workflow/stage_prompts/" in line and any(marker in lowered for marker in default_load_markers):
+                    failures += 1
+                    add(
+                        results,
+                        "CHECK 017",
+                        "project_files_do_not_contain_stage_prompt_bodies",
+                        "FAIL",
+                        f"Direction Project File appears to list a stage prompt as default-loaded context at line {line_no}.",
+                        rel(path, root),
+                    )
+
+    if failures == 0:
+        add(results, "CHECK 017", "project_files_do_not_contain_stage_prompt_bodies", "PASS", "No embedded stage prompt bodies or default-loaded stage prompt paths detected in active Direction Project Files 00-08.")
 
 
 def check_interface_path_detection(root: Path, results: list[Finding]) -> None:
@@ -1186,6 +1515,232 @@ def check_direction_worktree_repository_maintenance_contract(root: Path, results
         )
 
 
+def check_context_acquisition_policy_authority(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 024"
+    name = "context_acquisition_policy_authority"
+    failures = 0
+
+    required = {
+        "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md": [
+            "schema: context_acquisition_policy.v1",
+            "## Acquisition order",
+            "## GitHub-first rule",
+            "## Context Request audit",
+            "## Stage-close launch boundary",
+        ],
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
+            "Repository/context acquisition order before Context Request",
+            "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "For exact repository context or exact stage prompt paths, apply `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` before returning Context Request",
+            "For exact repository context or exact stage prompt paths, has `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md` been applied before Context Request?",
+        ],
+        "workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md": [
+            "owns GitHub read completeness verification, not source acquisition order",
+            "Source/context acquisition order is owned by `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`",
+        ],
+        "workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md": [
+            "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md",
+        ],
+    }
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required context acquisition authority file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing context acquisition authority anchors: {', '.join(missing[:5])}.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "Context acquisition policy authority anchors are present.")
+
+
+def check_github_first_acquisition_before_context_request(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 025"
+    name = "github_first_acquisition_before_context_request"
+    failures = 0
+
+    required = {
+        "workflow/transport/CONTEXT_REQUEST_CARD.md": [
+            "acquisition_audit:",
+            "github_connector:",
+            "not exposed",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            '"Not uploaded as a Project File or attachment" is not enough to declare missing context.',
+        ],
+    }
+
+    for direction in ACTIVE_DIRECTIONS:
+        required[f"directions/{direction}/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md"] = [
+            "Before returning Context Request for an exact repository path or exact stage prompt path",
+            "attempt verified GitHub acquisition before asking Codex/user to export",
+            "acquisition_audit",
+        ]
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required GitHub-first acquisition file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing GitHub-first acquisition anchors: {', '.join(missing[:5])}.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "GitHub-first acquisition anchors are present before Context Request.")
+
+
+def check_acquisition_order_not_duplicated(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 026"
+    name = "acquisition_order_not_duplicated"
+    policy_rel = "workflow/runtime/CONTEXT_ACQUISITION_POLICY.md"
+    policy_path = root / policy_rel
+    failures = 0
+
+    if not policy_path.is_file():
+        add(results, check_id, name, "FAIL", "Context acquisition policy file is missing.", policy_rel)
+        return
+
+    policy_text = read_text(policy_path)
+    section_match = re.search(r"## Acquisition order\s+(.*?)(?:\n## |\Z)", policy_text, flags=re.S)
+    if not section_match:
+        add(results, check_id, name, "FAIL", "Canonical acquisition order section is missing.", policy_rel)
+        return
+
+    order_items: list[str] = []
+    for item_number in range(1, 6):
+        item_match = re.search(rf"^{item_number}\.\s+(.+)$", section_match.group(1), flags=re.M)
+        if item_match:
+            order_items.append(item_match.group(1).strip())
+
+    if len(order_items) != 5:
+        failures += 1
+        add(results, check_id, name, "FAIL", "Canonical policy must contain exactly five numbered acquisition items.", policy_rel)
+
+    scan_prefixes = (
+        "workflow/runtime/",
+        "workflow/transport/",
+        "workflow/stage_registry/",
+        "workflow/validation/",
+        "docs/",
+        "directions/",
+    )
+
+    for path in markdown_files(root):
+        rel_path = rel(path, root)
+        if rel_path == policy_rel:
+            continue
+        if not rel_path.startswith(scan_prefixes):
+            continue
+
+        text = read_text(path)
+        matched_items = sum(1 for item in order_items if item and item in text)
+        if matched_items >= 4:
+            failures += 1
+            add(results, check_id, name, "FAIL", "Acquisition order appears copied outside the canonical policy file.", rel_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "Complete acquisition order is confined to the canonical policy file.")
+
+
+def check_stage_close_launch_boundary(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 027"
+    name = "stage_close_launch_boundary"
+    failures = 0
+
+    required = {
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "must not request next-stage prompt text, next-stage attachments, or downstream execution-only repository exports merely so the downstream stage can run",
+            "The next stage chat/run performs acquisition under `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`",
+        ],
+        "workflow/transport/STAGE_LAUNCH_CARD.md": [
+            "next_stage_context_policy:",
+            "downstream_prompt_required_for_current_close: false",
+            "downstream_execution_context_required_for_current_close: false",
+            "request_downstream_context_only_if_needed_to_form_launch_card: true",
+        ],
+    }
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required stage-close boundary file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing stage-close boundary anchors: {', '.join(missing[:5])}.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "Stage-close launch boundary anchors are present.")
+
+
+def check_prompt_delivery_github_connector_mode(root: Path, results: list[Finding]) -> None:
+    check_id = "CHECK 028"
+    name = "prompt_delivery_github_connector_mode"
+    failures = 0
+
+    required = {
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
+            "github_connector_verified_full_read",
+            "must not mean \"skip GitHub acquisition and ask the user/Codex immediately.\"",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "github_connector_verified_full_read",
+            "prompt text remains unavailable after allowed acquisition attempts",
+        ],
+        "workflow/transport/STAGE_LAUNCH_CARD.md": [
+            "github_connector_verified_full_read",
+        ],
+    }
+
+    forbidden = {
+        "workflow/runtime/AD_WF_RT_001_SINGLE_RUNTIME_AUTHORITY_MODEL.md": [
+            "manual_prompt_required` means the chat must request the exact stage prompt from the user/Codex and must not auto-fetch",
+        ],
+        "workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md": [
+            "manual_prompt_required`: prompt text is not available; the chat must request the exact prompt from the user/Codex",
+        ],
+    }
+
+    for file_path, anchors in required.items():
+        path = root / file_path
+        if not path.is_file():
+            failures += 1
+            add(results, check_id, name, "FAIL", "Required prompt delivery file is missing.", file_path)
+            continue
+        text = read_text(path)
+        missing = [anchor for anchor in anchors if anchor not in text]
+        if missing:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Missing prompt delivery anchors: {', '.join(missing[:5])}.", file_path)
+
+    for file_path, tokens in forbidden.items():
+        path = root / file_path
+        if not path.is_file():
+            continue
+        text = read_text(path)
+        for token in tokens:
+            if token in text:
+                failures += 1
+                add(results, check_id, name, "FAIL", "manual_prompt_required still bypasses acquisition policy.", file_path)
+
+    if failures == 0:
+        add(results, check_id, name, "PASS", "GitHub connector prompt delivery mode and manual fallback semantics are present.")
+
+
 def check_branch_workstream_execution_contract(root: Path, results: list[Finding]) -> None:
     check_id = "CHECK 021"
     name = "branch_workstream_execution_contract"
@@ -1247,7 +1802,7 @@ def check_branch_workstream_execution_contract(root: Path, results: list[Finding
         "workflow/stage_prompts/A1_AUDIT.md",
         "workflow/stage_prompts/F0_FAST_DIRECT.md",
         "workflow/stage_prompts/S3_DECIDE.md",
-        "workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md",
+        "workflow/stage_prompts/X1_EXECUTOR_RUN.md",
         "workflow/stage_prompts/B1_PROBLEM.md",
     ]
 
@@ -1291,7 +1846,11 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_runtime_core_no_duplicate_full_transition_table(root, results)
     check_registry_validation_rules(root, results)
     check_registry_present_prompt_files(root, results)
+    check_registry_allowed_next_tokens(root, results)
+    check_r0_recovery_prompt_status(root, results)
     check_deprecated_prompt_delivery_modes(root, results)
+    check_stage_prompt_forbidden_patterns(root, results)
+    check_stage_prompt_route_authority_residue(root, results)
     check_ad_wf_rt_001_boundary(root, results)
     check_legacy_transport_shapes(root, results, mode)
     check_transport_apply_template(root, results, mode)
@@ -1308,6 +1867,11 @@ def run(root: Path, mode: str) -> list[Finding]:
     check_runtime_core_packet_schema_reference_cleanup(root, results)
     check_runtime_core_registry_snapshot_cleanup(root, results)
     check_direction_worktree_repository_maintenance_contract(root, results)
+    check_context_acquisition_policy_authority(root, results)
+    check_github_first_acquisition_before_context_request(root, results)
+    check_acquisition_order_not_duplicated(root, results)
+    check_stage_close_launch_boundary(root, results)
+    check_prompt_delivery_github_connector_mode(root, results)
     return results
 
 def print_text(results: list[Finding], root: Path, mode: str) -> None:

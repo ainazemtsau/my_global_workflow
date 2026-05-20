@@ -10,7 +10,7 @@ artifact_control:
   authority: "GitHub repository canonical after file read-back / diff verification / commit verification"
   activation_scope: "as defined in workflow/stage_registry/STAGE_REGISTRY.md"
   freshness: refresh_when_stage_prompt_or_registry_changes
-  last_updated: "2026-05-15"
+  last_updated: "2026-05-20"
 
 # R1\_GOAL\_REVIEW\_DISTILL — Review Distill Runtime Prompt
 
@@ -28,7 +28,7 @@ When selecting or validating a next stage:
 
 - use the registry as the source of truth;
 - treat any local route examples in this prompt as non-authoritative guidance only;
-- on mismatch, return route-conflict Context Request / B1_PROBLEM / Human Decision / Stop;
+- on mismatch, return a route-conflict artifact, registry-valid correction, Stop, or `REGISTRY_REVIEW_CANDIDATE`;
 - do not silently choose another route;
 - do not execute downstream stage work inside this prompt.
 
@@ -65,6 +65,44 @@ If R1 is launched with only a gated slice, gated block, branch, workstream, evid
 
 For `gated_sequential` continuation, the normal route correction is `E1_EXECUTION_BRIEF` so the next gated slice can be planned. If the current registry does not allow an executable R1 -> E1 launch, return the correction as a non-closure routing correction with `recommended_correct_stage: E1_EXECUTION_BRIEF` rather than pretending parent-level R1 is valid.
 
+## Parent Goal review, frontier, and continuation gate
+
+R1 must distinguish a registry-valid next route from a basis-valid continuation or closure decision. Use `workflow/stage_registry/STAGE_REGISTRY.md` for route validity, `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` for frontier, Next Action Proof, Minimum Sufficient Solution Proof, Component Necessity, Human Burden, and Overcut implications, and `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` for parent Goal completion, `phase_progress_gate`, lifecycle reconciliation, Phase Memory Bridge, and Project Files refresh/reporting behavior.
+
+Before accepting parent-level completion, R1 must classify and report:
+
+- `completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown`
+- `parent_goal_completion_state: complete | incomplete | unknown`
+- `goal_review_verdict: accepted_complete | rejected_incomplete | needs_rework | evidence_insufficient | blocked`
+- `evidence_basis`
+- `delivered_outcome_summary`
+
+Reject normal parent-level completion when the completed work is a gated slice, branch/workstream result, partial artifact, incomplete or unknown parent state, insufficient evidence, or a delivered artifact that is not the accepted parent Goal outcome. Do not route to parent-level closure just because local work completed.
+
+After accepting or verifying a parent Goal outcome, R1 must run or reference `phase_progress_gate` and report:
+
+- `phase_progress_gate_status`
+- `map_frontier_impact: none | compact_delta_proposed | requires_M0 | blocked_missing_map | not_applicable`
+- `active_frontier_implication: advanced | unchanged | blocked | new_candidate | parked | unknown`
+- `burden_delta: reduced | unchanged | increased_acceptable | increased_problematic | unknown`
+- `unnecessary_component_or_process_detected: true | false`
+
+Do not convert parked optional components, unresolved surfaces, nice-to-have improvements, or future ideas into required continuation work without new basis-valid and solution-minimal proof.
+
+For any proposed continuation, classify and report:
+
+- `continuation_candidate_classification: required_for_phase_closure | required_for_parent_goal_completion | required_for_active_frontier | optional_expansion | parked_future | premature | unsupported | blocked_missing_context`
+- `continuation_basis_validity: proven | inherited | missing_blocking | failed | not_required`
+- `next_action_proof_status: inherited | proven_compact | missing_blocking | failed | not_required`
+- `selected_next_route`
+- `registry_validity_status`
+- `registry_review_candidate: true | false`
+- `project_files_refresh_or_lifecycle_reconciliation_status`
+
+R1 may route to `P9_PHASE_CLOSE` when the completed Goal may satisfy Phase Minimum Outcome and P9 is registry-valid. R1 may route to `M0_DIRECTION_MAP` when map/frontier implications materially affect next selection and M0 is registry-valid. R1 may route to `P0_PHASE_START` only when a materially new Phase start/update is basis-valid or runtime state requires Phase repair and P0 is registry-valid. R1 may route to `G0_GOAL_SELECT` only when `phase_progress_gate` allows Phase continuation with required Goals.
+
+If runtime or Objective Architecture behavior indicates `E1_EXECUTION_BRIEF`, `B1_PROBLEM`, Context Request, or Human Decision, but the registry does not allow that outcome from R1, do not invent local route authority. Report `REGISTRY_REVIEW_CANDIDATE` and use the smallest registry-valid fallback or Stop.
+
 ## Runtime Projection Conflict Gate
 
 Before reviewing a parent Goal, R1 must verify that the launch either has current runtime projection files or an explicit stale-but-nonblocking override.
@@ -79,12 +117,12 @@ if:
 require_one:
   - project_files_updated_pending_R1
   - launch_card_has_project_files_state_stale_but_nonblocking_for_R1
-  - Context Request for exact state reconciliation sources
+  - route-conflict artifact naming exact state reconciliation sources when Context Request is needed but not registry-valid
 ```
 
 A stale-but-nonblocking override is valid only for the named R1 run and only when the launch provides fresh source paths for the Goal Contract, reviewed artifact, execution evidence, Phase/Goal state basis, and stage prompt availability.
 
-Without updated Project Files or a valid stale override, R1 must return Context Request or Stop and must not close, accept, reject, or route-gate the Goal.
+Without updated Project Files or a valid stale override, R1 must return a registry-valid fallback, `REGISTRY_REVIEW_CANDIDATE`, or Stop and must not close, accept, reject, or route-gate the Goal.
 
 ## 0.0 Reviewable Work Product and Formalization Control
 
@@ -145,7 +183,7 @@ Required behavior:
 
 - apply only the listed approved `repository_patch.v1` operations;
 - do not infer extra changes;
-- use direct-main repository maintenance policy unless explicitly overridden by an approved patch;
+- follow `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md` §14.4 worktree-aware repository maintenance policy and `workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md`;
 - return commit SHA, diff verification, file read-back, Project Files cache refresh result, and forbidden-path confirmation to the same ChatGPT stage thread for validation.
 R1 must preview review decisions and documentation implications before durable documentation updates. Durable doc changes require approval unless Compact Direct Result mode is safe and no material state change is introduced.
 
@@ -157,7 +195,7 @@ Use canonical runtime packets: `stage_result.v1`, `stage_launch.v1`, `context_re
 
 Use GitHub repository paths: `workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md`, `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`, and `directions/<direction-id>/project_files/`. Use `repository_path` / `file_path` plus file read-back / diff verification / commit verification.
 
-Stage results use `return_state`, `route`, and `next_stage`. Stage launches use `schema: stage_launch.v1` and a canonical `stage:` object.
+Stage results and launches must use the canonical transport templates from `workflow/transport/*.md` with stage-specific fields preserved below.
 
 ## 0.2 Progressive Decision Brief behavior
 
@@ -166,14 +204,14 @@ Choose the smallest sufficient human-facing mode:
 - Direct Summary for simple, reversible, low-risk review outputs with no material state change.
 - Decision Brief for normal Goal review and distillation decisions.
 - Decision Memo for complex, strategic, ambiguous, or high-impact review decisions.
-- Context Request / Human Decision when blocking context or a human-owned choice is required.
+- Registry-valid fallback, Stop, or `REGISTRY_REVIEW_CANDIDATE` when blocking context or a human-owned choice is required but not registry-valid from R1.
 - Formalization only after approval; use `APPROVE AND FORMALIZE` as the trigger when approval is required.
 
 Do not produce full repository_patch / refresh list / executable next launch for a material state change until approval, unless Direct Summary mode is safe or the launch card explicitly says approval was already provided.
 
 ## 0.3 Mandatory Close Compiler
 
-Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one terminal artifact: Next Launch Card (`stage_launch.v1`), Context Request (`context_request.v1`), Human Decision (`human_decision.v1`), or Stop (`stop.v1`).
+Before final answer, compile: human-facing result, Stage Result Packet (`stage_result.v1`), Repository Patch (`repository_patch.v1`) or explicit none, Execution Log Entry (`execution_log_entry.v1`), Documentation Maintenance Gate if relevant, Changed Files / Context Refresh List (`changed_files_context_refresh`), and exactly one registry-valid terminal artifact from the canonical runtime transport templates.
 
 Repository patch coupling: if `repository_patch.operations = []`, then `changed_files_context_refresh.required` must be false. Stale labels or cleanup needs without a repository patch go into `cleanup_candidates` or `context_for_next.request_if_needed`.
 
@@ -220,7 +258,7 @@ Required input artifacts:
 *   Goal identifier/title/status.
 *   G1 Goal Contract or G1 Stage Result Packet, unless the launch explicitly states why it is unavailable.
 *   E1 Execution Brief or equivalent execution basis, unless the launch explicitly states why it is unavailable.
-*   At least one upstream execution/result packet, such as F0\_FAST\_DIRECT, C2\_CODEX\_EXECUTE, D1\_DEEP\_RESEARCH, A1\_AUDIT, B1\_PROBLEM, or equivalent.
+*   At least one upstream execution/result packet, such as F0\_FAST\_DIRECT, X1\_EXECUTOR\_RUN, D1\_DEEP\_RESEARCH, A1\_AUDIT, B1\_PROBLEM, or equivalent.
 *   Artifact/file read-back / diff verification / commit verification/test evidence, or an explicit statement that this evidence is missing, pending, or not applicable.
 *   Current forbidden-scope constraints.
 *   Current freshness/source-of-truth state.
@@ -249,13 +287,13 @@ If exported Project Files conflict with fresh GitHub repository/file read-back /
 
 If the launch assumes completion but upstream result/file read-back / diff verification / commit verification evidence says execution did not happen, trust the evidence. Do not infer completion.
 
-If required evidence is missing or contradicted, do not close the Goal. Produce Context Request, Human Decision, or Stop as appropriate.
+If required evidence is missing or contradicted, do not close the Goal. Produce a registry-valid fallback, `REGISTRY_REVIEW_CANDIDATE`, or Stop as appropriate.
 
 ## 4\. Hard scope boundaries
 
 R1 must not:
 
-*   execute missing F0/C2/E1/G1 work;
+*   execute missing F0/executor/E1/G1 work;
 *   produce artifacts that the upstream execution stage failed or refused to create;
 *   write common canon;
 *   roll out cross-Direction behavior;
@@ -266,6 +304,8 @@ R1 must not:
 *   overwrite old active Workflow vNext;
 *   treat stale Project Files as canonical when fresher evidence conflicts;
 *   launch P9 unless Goal review indicates closure or phase-close consideration is valid.
+
+If review finds further executor setup/run is needed, route to `E1_EXECUTION_BRIEF` rather than attempting setup or execution from R1.
 
 R1 may identify Knowledge/Canon Candidates, but only as candidates in the public packet. It must not promote them to canon.
 
@@ -303,8 +343,8 @@ R1 must:
 - classify remaining work as required_for_closure or optional_expansion when evidence allows;
 - route to P9 when the completed Goal may satisfy Phase Minimum Outcome;
 - route to G0 only after explicit continue_with_required_goals / Phase Continue decision;
-- return Human Decision when closure vs continuation is strategic/ambiguous;
-- return Context Request when Phase Closure Contract is missing or too stale to evaluate.
+- report `REGISTRY_REVIEW_CANDIDATE` when closure vs continuation is strategic/ambiguous but the needed Human Decision outcome is not registry-valid;
+- report `REGISTRY_REVIEW_CANDIDATE` when Phase Closure Contract is missing or too stale to evaluate but the needed Context Request outcome is not registry-valid.
 
 R1 must not route directly to G0 only because Active Goal is none. Active Goal being none means the Goal lifecycle is clear; it does not prove the Phase should continue.
 
@@ -326,7 +366,7 @@ Use only these compact delta types:
 - `active_front_review_needed`
 - `m0_review_needed`
 
-R1 must not silently rewrite `08_DIRECTION_MAP.md`. If the strategic delta is material, ambiguous, disputed, or changes the Active Front, route to `M0_DIRECTION_MAP` or Human Decision.
+R1 must not silently rewrite `08_DIRECTION_MAP.md`. If the strategic delta is material, ambiguous, disputed, or changes the Active Front, route to `M0_DIRECTION_MAP` when registry-valid, otherwise report `REGISTRY_REVIEW_CANDIDATE` and Stop or use the smallest registry-valid fallback.
 
 The `phase_progress_gate` / Phase Progress Gate remains mandatory before any next `G0_GOAL_SELECT` route.
 
@@ -342,7 +382,7 @@ Use this internal order. Do not expose private reasoning or chain-of-thought. Ex
 2.  Scope check
     
     *   Restate forbidden scope only when relevant.
-    *   If requested work violates scope, produce Human Decision or Stop.
+    *   If requested work violates scope, produce `REGISTRY_REVIEW_CANDIDATE` for any needed human-owned decision, or Stop.
 3.  Evidence inventory
     
     *   List evidence present.
@@ -376,8 +416,7 @@ Use this internal order. Do not expose private reasoning or chain-of-thought. Ex
     
     *   Produce exactly one next route artifact:
         *   Next Launch Card;
-        *   Context Request;
-        *   Human Decision Card;
+        *   registry-valid correction or `REGISTRY_REVIEW_CANDIDATE`;
         *   Stop / Recovery route.
 9.  Self-check Before final output, verify:
     
@@ -422,7 +461,7 @@ Output:
 *   review\_verdict: completed\_unverified
 *   closure\_eligibility: unknown\_blocked or not\_eligible
 *   no P9
-*   Context Request for missing evidence, or route-back Launch Card for evidence refresh.
+*   `REGISTRY_REVIEW_CANDIDATE` naming missing evidence, or route-back Launch Card for evidence refresh when registry-valid.
 
 ### 7.3 Blocked upstream route
 
@@ -454,7 +493,8 @@ Output:
 
 *   review\_verdict: partial\_progress
 *   closure\_eligibility: not\_eligible
-*   route to E1/F0/C1/C2 continuation, B1 if problem diagnosis is required, or Human Decision if ambiguous.
+*   do not emit execution-continuation launches from R1 unless the registry allows them;
+*   if more execution is needed, return a non-closure routing correction that names the desired owner, or route to `G1_GOAL_SHAPE`, `M0_DIRECTION_MAP`, `G0_GOAL_SELECT`, `P0_PHASE_START`, or Stop when that is the smallest registry-valid R1 path.
 
 ### 7.5 Failed execution route
 
@@ -468,7 +508,7 @@ Output:
 
 *   review\_verdict: failed\_execution
 *   closure\_eligibility: not\_eligible
-*   route to B1\_PROBLEM for diagnosis, R0\_RECOVERY\_CLOSE for workflow-state repair, or Context Request if evidence is missing.
+*   return a route-conflict correction for B1/R0-style diagnosis or recovery when that is the desired owner, or Stop if safe continuation is unclear. Do not emit B1 or R0 as normal R1 launch routes under the current registry.
 
 ### 7.6 Invalid/conflicted input route
 
@@ -482,7 +522,7 @@ Output:
 
 *   review\_verdict: invalid\_or\_conflicted\_input
 *   closure\_eligibility: unknown\_blocked or human\_decision\_required
-*   Context Request, Human Decision, or Stop
+*   registry-valid fallback, `REGISTRY_REVIEW_CANDIDATE`, or Stop
 *   no P9
 
 ## 8\. Anti-overbuild rules
@@ -495,8 +535,8 @@ Apply these defaults:
 *   Do not open broad planning after small work.
 *   Do not choose interesting review/canon work over the highest-leverage closure signal.
 *   Do not create long lessons-learned sections by default.
-*   Do not ask routine questions. Use Context Request only when missing information blocks safe review.
-*   Do not produce multiple route options unless a Human Decision is required.
+*   Do not ask routine questions. Use `REGISTRY_REVIEW_CANDIDATE` when missing information blocks safe review but Context Request is not registry-valid.
+*   Do not produce multiple route options unless a human-owned decision is required; report registry review candidate if that outcome is not registry-valid.
 
 ## 9\. Required human-readable output shape
 
@@ -510,7 +550,19 @@ Include:
 
 *   review\_verdict:
 *   closure\_eligibility:
+*   completion\_scope:
+*   parent\_goal\_completion\_state:
+*   phase\_progress\_gate\_status:
+*   map\_frontier\_impact:
+*   active\_frontier\_implication:
+*   burden\_delta:
+*   continuation\_candidate\_classification:
+*   continuation\_basis\_validity:
+*   next\_action\_proof\_status:
 *   next\_action:
+*   registry\_validity\_status:
+*   registry\_review\_candidate:
+*   project\_files\_refresh\_or\_lifecycle\_reconciliation\_status:
 *   one-sentence reason:
 
 ## 2\. Evidence basis
@@ -546,8 +598,7 @@ State exactly one route:
 
 *   P9 Launch Card
 *   route-back Launch Card
-*   Context Request
-*   Human Decision Card
+*   registry-valid correction or `REGISTRY_REVIEW_CANDIDATE`
 *   Stop / Recovery route
 
 Include why other tempting routes are invalid if false closure is a realistic risk.
@@ -560,89 +611,23 @@ route_correction:
   parent_goal_completion_state: incomplete
   completed_scope: gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown
   recommended_correct_stage: E1_EXECUTION_BRIEF
+  registry_launch_allowed: false unless registry changes
+  registry_review_candidate: true
   phase_progress_gate_run: false
   parent_goal_closure_updates_emitted: false
 ```
 
-## 6\. Transport packets
+## 6\. Transport obligations
 
-Include all required packet blocks:
+Use canonical transport templates from `workflow/transport/*.md`. Preserve these R1-specific fields/content in the relevant canonical packet when formalization is approved:
 
-### 6.1 R1 Stage Result Packet
+- upstream stage refs, input basis, Goal Contract availability, Execution Brief availability, read-back evidence availability, and source-of-truth state;
+- review verdict, closure eligibility, one-sentence reason, acceptance criteria availability, acceptance result, missing acceptance evidence, and unsafe-to-close reason;
+- evidence review: execution performed, artifacts created/updated, evidence state, read-back/test evidence state, evidence supporting the verdict, and evidence gaps;
+- distilled outcome, what did not happen, remaining blockers/work, documentation findings, stale/drifted context, refresh needs, repository patch state, changed-files/context-refresh impact, and forbidden-scope confirmation;
+- exactly one next route artifact using the canonical templates and only a registry-valid launch when a downstream stage is launched.
 
-Use this YAML-like structure:
-
-workflow\_packet: 1 type: stage\_result schema: stage\_result.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill source\_path: workflow/stage\_prompts/R1\_GOAL\_REVIEW\_DISTILL.md version: current status: active return\_state: DONE | NEEDS\_INPUT | STUCK route: next\_stage: P9\_PHASE\_CLOSE | R0\_RECOVERY\_CLOSE | none route\_reason: direction: id: name: active\_project: phase: id: name: status: goal: goal\_id: title: status: upstream\_results:
-
-*   stage\_id: stage\_name: return\_state: packet\_ref: input\_basis: goal\_contract\_available: true | false | unknown execution\_brief\_available: true | false | unknown readback\_evidence\_available: true | false | unknown source\_of\_truth\_state: fresh | stale | conflicted | unknown review: review\_verdict: completed\_verified | completed\_unverified | blocked\_needs\_context | partial\_progress | failed\_execution | no\_op\_verified | invalid\_or\_conflicted\_input closure\_eligibility: eligible | not\_eligible | unknown\_blocked | human\_decision\_required one\_sentence\_reason: acceptance\_review: acceptance\_criteria\_available: true | false | unknown acceptance\_criteria\_met: true | false | unknown missing\_acceptance\_evidence:
-    *   item: unsafe\_to\_close\_reason: evidence\_review: execution\_performed: true | false | unknown artifacts\_created\_or\_updated:
-    *   path\_or\_name: evidence\_state: verified | claimed | missing | not\_applicable readback\_evidence\_state: fresh | pending | missing | conflicted | not\_applicable test\_evidence\_state: passed | failed | missing | not\_applicable | unknown evidence\_supporting\_verdict:
-    *   item: evidence\_gaps:
-    *   item: distilled\_outcome: what\_happened:
-    *   item: what\_did\_not\_happen:
-    *   item: remaining\_blockers\_or\_work:
-    *   item: documentation\_findings: drift\_found: true | false stale\_or\_drifted\_context:
-    *   item: refresh\_needed:
-    *   file\_or\_note: reason: route: next\_action: launch\_next\_stage | context\_request | human\_decision | stop | recovery\_route next\_stage: route\_reason: repository\_patch\_state: proposed | none | blocked changed\_files\_context\_refresh\_required_after_approval: true | false safety\_scope\_confirmation: forbidden\_scope\_preserved: true | false files\_touched:
-    *   path: no\_common\_canon: true | false no\_cross\_direction\_rollout: true | false no\_stage\_prompt\_edits: true | false no\_task\_master\_graph: true | false no\_archive\_history\_loading: true | false no\_source\_of\_truth\_security\_privacy\_tool\_binding\_changes: true | false kernel\_qa\_exceptions:
-*   issue: severity: handling:
-
-### 6.2 Repository Patch
-
-After approval/formalization, always include a Repository Patch block.
-
-If no write is safe, use patch\_state: none and explain reason\_if\_none.
-
-repository\_patch: patch\_state: proposed | none | blocked target\_root: target\_paths: - path: actions: - action: create | replace\_note | replace\_section | append\_section | update\_header | mark\_stale | none path: content\_summary: content\_blocks: - label: content: validation\_anchors: - text: readback\_requirements: - requirement: forbidden\_paths: - path\_or\_pattern: reason: reason\_if\_none: reason\_if\_blocked:
-
-### 6.3 Execution Log Entry
-
-execution\_log\_entry: timestamp: direction: id: name: phase: id: name: goal: goal\_id: title: stage\_id: R1\_GOAL\_REVIEW\_DISTILL upstream\_stage\_refs: - stage\_id: return\_state: review\_verdict: closure\_eligibility: evidence\_state: documentation\_drift\_state: next\_action: files\_touched: - path: safety\_scope\_confirmation:
-
-### 6.4 Documentation Maintenance Gate
-
-documentation\_maintenance\_gate: gate\_state: clear | refresh\_required | blocked | not\_applicable drift\_found: true | false stale\_or\_drifted\_context: - item: docs\_to\_refresh: - file\_or\_note: reason: refresh\_blocking\_next\_route: true | false safe\_to\_patch\_now: true | false requires\_project\_files\_export: true | false forbidden\_doc\_updates: - file\_or\_note: reason:
-
-### 6.5 Changed Files / Context Refresh List
-
-changed\_files\_context\_refresh\_list_after_approval: required_after_approval: true | false files: - file: current\_problem: required\_update\_summary: source\_of\_truth\_to\_use: blocking\_status: blocking | nonblocking | unknown owner\_or\_next\_stage:
-
-### 6.6 Next route artifact
-
-Include exactly one of the following.
-
-Option A — Next Launch Card:
-
-workflow\_packet: 1 type: stage\_launch schema: stage\_launch.v1 stage: id: name: source\_path: workflow/stage\_prompts/<STAGE\_ID>.md version: current status: ready prompt\_delivery: mode: request\_from\_repository stage\_prompt\_source\_path: workflow/stage\_prompts/<STAGE\_ID>.md stage\_prompt\_version: current stage\_prompt\_status: required prompt\_text\_included: false prompt\_text: null source\_state: upstream\_stage: R1\_GOAL\_REVIEW\_DISTILL pending\_repository\_patch: changed\_files\_context\_refresh\_required: direction: id: name: active\_project: phase: id: name: status: goal: goal\_id: title: status: launch\_reason: required\_context:
-
-*   item: upstream\_packets:
-*   stage\_id: packet\_ref: evidence\_basis:
-*   item: forbidden\_scope:
-*   item: expected\_output:
-*   item: stop\_rules:
-*   rule:
-
-Option B — Context Request:
-
-workflow\_packet: 1 type: context\_request schema: context\_request.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill reason: missing\_context:
-
-*   item: needed\_fresh\_readback:
-*   item: forbidden\_until\_resolved:
-*   item: safe\_next\_action\_after\_context: suggested\_route\_after\_context: next\_stage: reason:
-
-Option C — Human Decision Card:
-
-workflow\_packet: 1 type: human\_decision schema: human\_decision.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill decision\_needed: options:
-
-*   option: consequence: recommendation: forbidden\_until\_decided:
-*   item:
-
-Option D — Stop / Recovery route:
-
-workflow\_packet: 1 type: stop schema: stop.v1 stage: id: R1\_GOAL\_REVIEW\_DISTILL name: Review Distill stop\_reason: unsafe\_to\_continue\_because: recommended\_recovery\_stage: required\_context\_for\_recovery:
-
-*   item: forbidden\_until\_recovered:
-*   item:
+If R1 identifies a non-registry-valid desired continuation, report it as a route correction or registry review candidate inside the canonical result; do not emit a non-registry launch card. When Context Request or Human Decision is needed but unavailable from R1 under the registry, name the exact missing evidence or user-owned choice inside `REGISTRY_REVIEW_CANDIDATE`. Stop should state unsafe-to-continue reason and recovery context without inventing an unavailable stage launch.
 
 ## 7\. Kernel QA exceptions
 
@@ -677,10 +662,10 @@ Then R1 must:
 *   classify review\_verdict as blocked\_needs\_context unless stronger conflicting evidence is provided;
 *   state that F0 did not execute;
 *   state that no claimed artifact from F0 is verified as created by that run;
-*   preserve the F0 Context Request;
+*   preserve the F0 missing-context basis;
 *   identify documentation drift if Project Files contradict the launch or active Goal state;
 *   emit Repository Patch explicit none unless a safe documentation-only patch is explicitly authorized;
-*   route back to context refresh or F0 continuation;
+*   report the desired context refresh or F0 continuation as a registry review candidate unless a registry-valid fallback exists;
 *   not launch P9;
 *   not close the Goal.
 
@@ -690,16 +675,16 @@ Be concise. Prefer exact packets over narrative.
 
 Do not end with open-ended suggestions. End with the selected next route artifact.
 
-Do not ask a question when a Context Request Card is the correct artifact.
+Do not ask a question when a formal missing-context artifact or registry review candidate is the correct artifact.
 
 Do not claim acceptance of a Goal, Phase, stage prompt, or test unless the required evidence is present.
 
-Do not produce multiple next routes. If the route is ambiguous and consequential, produce a Human Decision Card.
+Do not produce multiple next routes. If the route is ambiguous and consequential, report `REGISTRY_REVIEW_CANDIDATE` for any needed Human Decision outcome that is not registry-valid.
 
 ## Validation anchor note
 
-Do not launch P9.
+Do not launch P9 unless parent Goal completion is accepted or verified, `phase_progress_gate` indicates possible Phase closure, and P9 is registry-valid.
 
 ## End-of-file marker
 
-`END_OF_FILE: workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md`
+END_OF_FILE: workflow/stage_prompts/R1_GOAL_REVIEW_DISTILL.md
