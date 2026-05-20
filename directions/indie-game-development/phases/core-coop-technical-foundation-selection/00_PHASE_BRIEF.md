@@ -5,8 +5,8 @@ artifact_control:
   artifact_name: "Phase Brief — Core Co-op Technical Foundation Selection"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_H1_G2_r1_accepted_pending_M0_active_front_review
-  phase_status: active_H1_G2_r1_accepted_pending_M0_active_front_review
+  status: active_H1_G3_selected_pending_G1_goal_shape
+  phase_status: active_H1_G3_selected_pending_G1_goal_shape
   active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
   active_goal_status: r1_accepted_goal_complete
   status_after_r1_first_technical_nucleus_spec: active_pending_m0_after_r1_acceptance
@@ -18,8 +18,8 @@ artifact_control:
     result: r1_accepted_goal_complete
     accepted_scope: existing_workflow_plus_minimal_project_profile
   current_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
-  next_route: M0_DIRECTION_MAP
-  next_route_mode: active_front_review_after_H1_G2_acceptance
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   phase_progress_gate_status: completed_by_R1_then_m0_frontier_review_completed
   phase_closed: false
   p9_allowed_now: false
@@ -35,7 +35,7 @@ artifact_control:
 - Phase ID: `core-coop-technical-foundation-selection`
 - Phase name: `Core Co-op Technical Foundation Selection`
 - Direction: `Indie Game Development`
-- Status: `active_H1_G2_r1_accepted_pending_M0_active_front_review`
+- Status: `active_H1_G3_selected_pending_G1_goal_shape`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 
@@ -211,9 +211,9 @@ candidate:
 
 ## Next route
 
-Run `M0_DIRECTION_MAP` after R1 H1_G2 acceptance repository maintenance apply/read-back and manual Project Files refresh.
+Run `G1_GOAL_SHAPE` after M0 active-front review repository maintenance apply/read-back and manual Project Files refresh.
 
-M0 must review the active frontier before selecting H1_G3 project/bootstrap/tool-binding/validation-scene readiness, P9, G0, E1, bootstrap, or implementation.
+M0 reviewed the active frontier and selected H1_G3 project/bootstrap/tool-binding/validation-scene readiness for G1 Goal shaping. P9, G0, E1, bootstrap, and implementation remain blocked until later basis-valid route.
 
 Do not proceed to P9, E1, project bootstrap, durable technical nucleus implementation, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
@@ -413,3 +413,28 @@ Still not authorized:
 - Task Master graph creation;
 - real internal tool setup;
 - Game Documentation promotion.
+
+## 2026-05-20 M0 active-front review — H1_G3 selected
+
+M0 reviewed the active frontier after R1 accepted `H1_G2_codex_development_operating_model_and_architecture_protocols`.
+
+Result:
+
+```yaml
+m0_active_front_review:
+  result: H1_G3_selected_for_G1_goal_shape
+  selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  selected_next_stage: G1_GOAL_SHAPE
+  phase_status_after_m0: active_H1_G3_selected_pending_G1_goal_shape
+  p9_allowed_now: false
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+Rationale:
+
+- H1_G2 is accepted and no longer blocks active-front review.
+- H1_G3 is the smallest next readiness gate before project bootstrap, tool-binding verification, validation-scene readiness, E1/U1/C1 planning, or implementation.
+- P9 is premature because H1_G3 is now selected as the active-front continuation.
+- E1 is premature because H1_G3 WHAT / WHY / DONE is not yet shaped.
+- Direct bootstrap, implementation, product repository creation, Codex product/project execution, Task Master graph creation, real tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain forbidden.

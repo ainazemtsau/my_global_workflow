@@ -8,7 +8,7 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_r1_H1_G2_acceptance_pending_m0_review
+  freshness: fresh_after_m0_H1_G3_selected_pending_g1_goal_shape
   last_updated: "2026-05-20"
 ```
 
@@ -35,8 +35,8 @@ direction_map_status:
   last_reviewed_stage: M0_DIRECTION_MAP
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
-  current_objective_architecture_node: H1_G2_codex_development_operating_model_and_architecture_protocols
-  next_safe_route: M0_DIRECTION_MAP
+  current_objective_architecture_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  next_safe_route: G1_GOAL_SHAPE
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -164,7 +164,7 @@ objective_architecture:
     Codex-suitable development process, and durable validation surfaces.
   active_initiative: innovative-commercial-expedition-gas-sim-game
   active_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: H1_G2_codex_development_operating_model_and_architecture_protocols
+  selected_frontier_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   next_safe_route: G1_GOAL_SHAPE
 
 horizon_acceptance_proof:
@@ -273,7 +273,7 @@ objective_graph:
 
     - id: H1_G2_codex_development_operating_model_and_architecture_protocols
       type: execution_readiness
-      status: ready
+      status: done
       requires:
         - H1_G1_core_technical_foundation_decision_brief
         - H1_G1B_first_technical_nucleus_functional_spec
@@ -282,8 +282,8 @@ objective_graph:
 
     - id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
       type: execution_readiness
-      status: blocked
-      blocked_by:
+      status: ready
+      requires:
         - H1_G2_codex_development_operating_model_and_architecture_protocols
 
     - id: H1_G4_durable_technical_nucleus
@@ -341,7 +341,7 @@ active_frontier:
       activation_trigger: "Accepted durable truths exist and documentation maintenance is explicitly authorized."
     - node_id: old_project_transfer_audit
       activation_trigger: "Only after requirements are clear and a later lifecycle route asks a targeted reference/audit question."
-  selected_next_node: H1_G2_codex_development_operating_model_and_architecture_protocols
+  selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   selection_reason: >
     This is the smallest active-front node that removes the current execution-readiness blocker
     without prematurely launching bootstrap, implementation, or product execution.
@@ -349,9 +349,9 @@ active_frontier:
 next_action_proof:
   direction_objective: "Commercially viable co-op indie game with deep gas/3D-space gameplay core."
   current_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: H1_G2_codex_development_operating_model_and_architecture_protocols
+  selected_frontier_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   proposed_work: >
-    Shape the minimum Codex Development Operating Model and Architecture Protocols Goal
+    Shape the project bootstrap, tool-binding, and validation-scene readiness Goal
     for the first technical nucleus.
   proposed_stage: G1_GOAL_SHAPE
   desired_delta: >
@@ -493,18 +493,18 @@ compact_initiative_graph:
 ```yaml
 active_front:
   active_horizon: H1_playable_technical_nucleus
-  current_gate: H1_G2_codex_development_operating_model_and_architecture_protocols
-  current_gate_status: ready_for_G1_goal_shape_after_m0_objective_architecture_migration
+  current_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  current_gate_status: selected_for_G1_goal_shape_after_m0_active_front_review
   previous_gate: first-technical-nucleus-functional-spec
   previous_gate_status: r1_completed_verified_specification_accepted
-  selected_next_node: H1_G2_codex_development_operating_model_and_architecture_protocols
+  selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   selected_next_route: G1_GOAL_SHAPE
   primary_reason: >
-    The first technical nucleus functional specification has been accepted; the next blocker is
-    minimum Codex development operating model and architecture protocols before bootstrap,
-    validation-scene readiness, implementation planning, or Codex product/project execution.
+    H1_G2 is accepted as the minimal project execution profile/addendum. The next blocker is
+    project/bootstrap/tool-binding/validation-scene readiness before implementation planning,
+    durable technical nucleus work, or Codex product/project execution.
   active_front_rule: >
-    Run G1_GOAL_SHAPE for H1_G2 before P9, E1, project bootstrap, durable technical nucleus
+    Run G1_GOAL_SHAPE for H1_G3 before P9, E1, project bootstrap, durable technical nucleus
     implementation, or Codex product/project execution.
   codex_architecture_rule: >
     The foundation decision is sufficient only if minimum Codex-driven development rules,
@@ -923,6 +923,138 @@ map_delta:
     - durable technical nucleus implementation
     - Task Master graph creation
     - real internal tool setup
+    - Game Documentation promotion
+```
+
+## 2026-05-20 M0 active-front review delta — H1_G3 selected
+
+```yaml
+map_delta:
+  source_stage: M0_DIRECTION_MAP
+  delta_type:
+    - active_front_review_completed
+    - selected_frontier_node_updated
+    - next_action_proof_updated
+    - implementation_still_blocked
+  previous_selected_node: H1_G2_codex_development_operating_model_and_architecture_protocols
+  previous_selected_node_result: r1_accepted_goal_complete
+  selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  selected_next_route: G1_GOAL_SHAPE
+  result: completed_formalized
+  summary: >
+    M0 reviewed the active frontier after R1 accepted H1_G2. H1_G2 no longer
+    blocks bootstrap-readiness review. H1_G3 project/bootstrap/tool-binding/
+    validation-scene readiness is now the smallest basis-valid next node.
+  horizon_acceptance_proof:
+    active_horizon: H1_playable_technical_nucleus
+    status: accepted_carried_forward
+    direct_execution_status: locked
+    locked_by:
+      - H1_G3 is not yet shaped as a Goal.
+      - project/tool bindings are not verified.
+      - validation scene/harness readiness is not accepted.
+      - Codex product/project execution is not authorized.
+  active_front:
+    active_horizon: H1_playable_technical_nucleus
+    current_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    current_gate_status: selected_for_G1_goal_shape
+    selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    selected_next_route: G1_GOAL_SHAPE
+    implementation_allowed_now: false
+    codex_product_execution_allowed_now: false
+    p9_allowed_now: false
+  ready_nodes:
+    - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  blocked_nodes:
+    - H1_G4_durable_technical_nucleus
+    - codex_product_project_execution
+    - unity_project_bootstrap
+    - product_repository_creation
+  premature_nodes:
+    - direct_E1_EXECUTION_BRIEF
+    - direct_U1_USER_GUIDED_EXECUTION
+    - direct_C1_CODEX_GRAPH_PLAN
+    - direct_C2_CODEX_EXECUTE
+    - direct_H1_G4_durable_technical_nucleus
+    - direct_P9_PHASE_CLOSE
+    - direct_implementation
+  parked_nodes:
+    - H2_unique_gas_coop_gameplay_proof
+    - H3_vertical_slice_demo_identity
+    - H4_commercialization_visibility_path
+    - game_documentation_promotion
+    - old_project_transfer_audit
+  next_action_proof:
+    direction_objective: "Commercially viable co-op indie game with deep gas/3D-space gameplay core."
+    current_horizon: H1_playable_technical_nucleus
+    selected_frontier_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    proposed_work: >
+      Shape the H1_G3 Goal for project bootstrap, tool-binding, and
+      validation-scene readiness before any real setup or product execution.
+    proposed_stage: G1_GOAL_SHAPE
+    desired_delta: >
+      A bounded Goal Contract defining the minimum complete readiness target,
+      non-goals, validation expectations, allowed/forbidden setup surfaces,
+      tool-binding verification requirements, and next route after H1_G3.
+    why_this_now: >
+      H1_G2 accepted the minimal zero-state execution profile/addendum. The next
+      blocker is no longer workflow/profile readiness; it is the concrete bootstrap
+      readiness Goal definition.
+    prerequisite_check:
+      satisfied:
+        - Core Technical Foundation Decision Brief accepted.
+        - First Technical Nucleus Functional Specification accepted.
+        - H1_G2 Gas Coop Game Project Execution Profile accepted.
+      missing:
+        - H1_G3 Goal Contract.
+        - verified product repository.
+        - verified Unity project.
+        - verified tool bindings.
+        - validation scene/harness readiness.
+      assumed: []
+    active_frontier_check:
+      is_on_frontier: true
+      why_not_premature: >
+        H1_G3 is the direct readiness gate between accepted execution profile
+        and any later bootstrap, E1 planning, U1 guided setup, Codex graph,
+        or implementation route.
+    expected_unlock: >
+      Enables a later route to decide whether bootstrap should proceed through
+      E1, U1, C1, A1, D1, S3, Context Request, or Human Decision.
+    alternatives_considered:
+      - action: direct_P9_PHASE_CLOSE
+        why_rejected: "Premature while H1_G3 remains the next active-front readiness node."
+      - action: direct_E1_EXECUTION_BRIEF
+        why_rejected: "Would plan HOW before H1_G3 WHAT/WHY/DONE is shaped."
+      - action: direct_bootstrap_or_implementation
+        why_rejected: "Explicitly forbidden until a later basis-valid execution route."
+      - action: G0_GOAL_SELECT
+        why_rejected: "Unnecessary because M0 selected the concrete next node."
+    readiness:
+      concrete_target_exists: true
+      acceptance_criteria_exist: true
+      context_available: true
+      stage_semantics_match: true
+    verdict:
+      basis_valid: true
+      route_valid: true
+      launch_allowed: true
+      launch_condition: >
+        After repository maintenance apply/read-back, manual Project Files refresh,
+        and exact G1_GOAL_SHAPE prompt acquisition in the next run.
+  forbidden_until_later_basis_valid_route:
+    - Unity project bootstrap
+    - product repository creation
+    - implementation
+    - product code
+    - Codex product/project execution
+    - durable technical nucleus implementation
+    - Task Master graph creation
+    - real internal tool setup
+    - Unity MCP installation/configuration
+    - old-code transfer
+    - old-code audit as starting point
+    - final DI package selection
     - Game Documentation promotion
 ```
 

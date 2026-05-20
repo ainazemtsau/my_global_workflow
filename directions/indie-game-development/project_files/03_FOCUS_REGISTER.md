@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_r1_H1_G2_acceptance_pending_m0_review
+  source_freshness: active_git_file_after_m0_H1_G3_selected_pending_g1_goal_shape
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,14 +16,14 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run repository maintenance for R1 H1_G2 acceptance projection reconciliation, then run M0_DIRECTION_MAP after manual Project Files refresh."
-  route_stage: M0_DIRECTION_MAP
-  route_mode: active_front_review_after_H1_G2_acceptance
+  current_focus: "Run repository maintenance for M0 H1_G3 active-front selection, then run G1_GOAL_SHAPE for H1_G3 after manual Project Files refresh."
+  route_stage: G1_GOAL_SHAPE
+  route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   same_chat_allowed: false
-  boundary_trigger: r1_H1_G2_goal_accepted
+  boundary_trigger: m0_active_front_review_completed_H1_G3_selected
   pending_state_carried: true
   pending_patch_pointer: igd_r1_h1_g2_acceptance_projection_reconciliation_2026_05_20
-  last_stage_result_pointer: "R1_GOAL_REVIEW_DISTILL accepted H1_G2 as completed_verified and selected M0_DIRECTION_MAP."
+  last_stage_result_pointer: "M0_DIRECTION_MAP selected H1_G3_project_bootstrap_tool_binding_validation_scene_readiness as the next active-front node and selected G1_GOAL_SHAPE."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   active_goal:
     goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
@@ -35,9 +35,9 @@ focus:
     phase_id: core-coop-technical-foundation-selection
     phase_name: Core Co-op Technical Foundation Selection
     phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-    status: active_H1_G2_r1_accepted_pending_M0_active_front_review
+    status: active_H1_G3_selected_pending_G1_goal_shape
     map_binding: H1_playable_technical_nucleus
-    next_route: M0_DIRECTION_MAP
+    next_route: G1_GOAL_SHAPE
 ```
 
 ## Blockers / required inputs
@@ -55,9 +55,9 @@ focus:
 
 ## Current focus boundary
 
-M0 must review the active frontier after R1 accepted `H1_G2_codex_development_operating_model_and_architecture_protocols`.
+M0 reviewed the active frontier after R1 accepted `H1_G2_codex_development_operating_model_and_architecture_protocols`.
 
-The review should decide whether `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`, P9, G0, E1, or another route is basis-valid before any material continuation.
+The review selected `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` as the basis-valid next frontier node. G1 must shape H1_G3 before any material continuation.
 
 Forbidden in this focus:
 
@@ -109,3 +109,17 @@ H1_G2 is accepted as complete.
 
 Current focus is repository projection reconciliation and then M0 active-front review.
 M0 must determine the next basis-valid route after H1_G2 acceptance.
+
+## 2026-05-20 M0 active-front review focus update
+
+M0 selected:
+
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Next focus:
+
+`G1_GOAL_SHAPE`
+
+G1 must shape the H1_G3 Goal Contract for project bootstrap, tool-binding, and validation-scene readiness.
+
+This focus does not authorize execution. It does not create product repo, Unity project, Codex config, AGENTS.md, Task Master graph, Serena, Basic Memory, Unity MCP, scenes, prefabs, assets, scripts, old-code transfer, or implementation.

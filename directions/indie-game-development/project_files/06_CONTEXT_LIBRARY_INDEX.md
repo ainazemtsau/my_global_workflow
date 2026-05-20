@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_H1_G2_acceptance_pending_m0_review
+projection_status: fresh_after_m0_H1_G3_selected_pending_g1_goal_shape
 activated_at: "2026-05-13"
 ```
 
@@ -73,8 +73,8 @@ active_goal_after_r1_H1_G2_acceptance:
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
   accepted_profile_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
-  recommended_next_stage: M0_DIRECTION_MAP
-  recommended_next_mode: active_front_review_after_H1_G2_acceptance
+  recommended_next_stage: G1_GOAL_SHAPE
+  recommended_next_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
 ```
 
 Load for M0 after R1 H1_G2 acceptance:
@@ -295,3 +295,38 @@ or another route is basis-valid.
 Do not run implementation, Unity bootstrap, old-code transfer, old-code audit,
 Codex product/project execution, Task Master graph creation, internal tool setup,
 or Game Documentation promotion.
+
+## Required context after M0 active-front review
+
+Recommended next stage:
+
+`G1_GOAL_SHAPE`
+
+Recommended next mode:
+
+`shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Selected next node:
+
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Load for G1:
+
+- `workflow/stage_prompts/G1_GOAL_SHAPE.md`
+  - Status: `required_stage_prompt`
+  - Reason: exact next stage prompt for shaping H1_G3.
+- `directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md`
+- `directions/indie-game-development/project_files/01_DIRECTION_STATE.md`
+- `directions/indie-game-development/project_files/02_CURRENT_PHASE.md`
+- `directions/indie-game-development/project_files/03_FOCUS_REGISTER.md`
+- `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md`
+- `directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md`
+- `directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+- `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
+- `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+- `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
+
+G1 must shape H1_G3 only. It must not run implementation, Unity bootstrap, product repository creation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, internal tool setup, Unity MCP setup, or Game Documentation promotion.
