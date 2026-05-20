@@ -204,13 +204,13 @@ Before selecting an execution route, set compact execution readiness:
 
 Execution readiness requires explicit implementation target, allowed surfaces, validation surface, acceptance or review path, inherited or proven basis-validity, and solution-shape proof passed or not required.
 
-Classify execution mode/topology as `single_direct`, `gated_sequential`, `parallel_workstreams`, `parallel_then_gated_synthesis`, `decision_map`, `codex_graph`, `human_decision_blocked`, or `blocked_missing_readiness`.
+Classify execution mode/topology as `single_direct`, `gated_sequential`, `parallel_workstreams`, `parallel_then_gated_synthesis`, `decision_map`, `executor_work_package`, `human_decision_blocked`, or `blocked_missing_readiness`.
 
-Run or reference Component Necessity Test for durable artifacts, templates, recurring reports, workstreams, chat splits, repository-backed processes, or Codex execution envelopes. Do not choose branch/workstream topology merely because it is systematic; topology must be necessary for material work surfaces, dependencies, context size, evidence quality, risk isolation, or Codex graph need.
+Run or reference Component Necessity Test for durable artifacts, templates, recurring reports, workstreams, chat splits, repository-backed processes, or Executor/Codex execution envelopes. Do not choose branch/workstream topology merely because it is systematic; topology must be necessary for material work surfaces, dependencies, context size, evidence quality, risk isolation, or executor work package need.
 
 If execution readiness, Next Action Proof, or MSSP is missing or failed for material work, do not plan execution. Return the smallest registry-valid correction or terminal outcome. If the needed correction route is not registry-valid for E1, report `REGISTRY_REVIEW_CANDIDATE` and use Stop or another registry-valid fallback rather than inventing prompt-local route authority.
 
-E1 may route research gaps to D1, audit/challenge gaps to A1, human-owned tradeoffs to S3, blocker/framing gaps to B1, guided external UI execution to U1, direct small execution to F0, Codex graph planning to C1, or terminal outcomes only when registry-valid. E1 must explicitly state why F0 is allowed/rejected, why C1/Codex graph is allowed/rejected, and why U1 is allowed/rejected when external human operation may be involved.
+E1 may route research gaps to `D1_DEEP_RESEARCH`, audit/challenge gaps to `A1_AUDIT`, human-owned tradeoffs to `S3_DECIDE`, blocker/framing gaps to `B1_PROBLEM`, guided external UI execution to `U1_USER_GUIDED_EXECUTION`, direct small execution to `F0_FAST_DIRECT`, executor setup to `X0_EXECUTOR_PROJECT_SETUP`, executor run to `X1_EXECUTOR_RUN`, or terminal outcomes to Context Request, Human Decision, or Stop only when registry-valid. E1 must explicitly state why F0, X0, X1, and U1 are allowed or rejected when relevant. E1 must not route to unregistered legacy executor stage IDs.
 
 ## 1\. Non-negotiable boundaries
 
@@ -465,9 +465,9 @@ branchability_gate:
     - heavy_artifact_expected
     - parallel_workstreams_available
     - f0_readiness_failed
-    - codex_graph_required
+    - executor_work_package_required
     - none
-  topology_selected: single_direct | gated_sequential | parallel_workstreams | parallel_then_gated_synthesis | decision_map | codex_graph | human_decision_blocked
+  topology_selected: single_direct | gated_sequential | parallel_workstreams | parallel_then_gated_synthesis | decision_map | executor_work_package | human_decision_blocked
 ```
 
 If `monolithic_execution_safe: false` and the Goal can be decomposed, E1 must produce a Topology Preview before formalization, or a `topology_launch_bundle.v1` after approval/formalization.
@@ -1031,7 +1031,7 @@ Include:
 
 ### Executor execution route boundary
 
-E1 must use only registry-valid executor downstream routes. When setup is needed, route to `X0_EXECUTOR_PROJECT_SETUP`. When normal product/project execution is needed and setup is complete, route to `X1_EXECUTOR_RUN`. Do not route to deleted Codex stages.
+E1 must use only registry-valid executor downstream routes. When setup is needed, route to `X0_EXECUTOR_PROJECT_SETUP`. When normal product/project execution is needed and setup is complete, route to `X1_EXECUTOR_RUN`. Do not route to unregistered legacy stage IDs.
 
 ## 17\. Personal optimization rules
 
