@@ -54,7 +54,7 @@ Core Doctor verifies that setup artifacts and tools are usable before execution 
 Core Doctor checks:
 
 - target binding exists and matches the workspace
-- required project-local files exist or have approved absence
+- core-required project-local files exist; approved absence is allowed only for optional artifacts or for a named `complete_with_approved_fallback` result that does not block the requested execution modes
 - Task Master is installed, configured, and project-bound for Codex
 - subagents and reviewer roles are configured and verified for Codex
 - validation profile contains executable or explicitly unavailable checks
