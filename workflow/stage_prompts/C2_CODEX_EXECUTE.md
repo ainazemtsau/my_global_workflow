@@ -695,13 +695,7 @@ workflow/transport/CODEX_RETURN_PACKET.md
 workflow/codex/CODEX_RETURN_PACKET_CONTRACT.md
 ```
 
-Canonical packet identity:
-
-```yaml
-workflow_packet: 1
-type: codex_return
-schema: codex_return.v1
-```
+Use the canonical Codex Return Packet template from `workflow/transport/CODEX_RETURN_PACKET.md`. This prompt must not define or copy the packet schema.
 
 Emit this packet whenever C2 executes, partially executes, validates, fails validation, or confirms no-op verification.
 

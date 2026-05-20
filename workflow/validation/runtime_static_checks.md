@@ -112,6 +112,40 @@ Result:
 - baseline: FAIL on missing present prompt file
 - strict: FAIL on missing present prompt file
 
+## CHECK 007B — registry_allowed_next_tokens
+
+For every Runtime Registry `allowed_next` token, verify the token is one of:
+
+- a canonical stage ID;
+- terminal output token: `Context Request`, `Human Decision`, or `Stop`;
+- approved special token: `continue_current_stage` or `Direction pause/archive`;
+- the Router-only phrase `any appropriate stage`.
+
+Special token restrictions:
+
+- `continue_current_stage` is valid only for `B1_PROBLEM`;
+- `Direction pause/archive` is valid only for `P9_PHASE_CLOSE`;
+- terminal output tokens are not stage IDs;
+- `topology_launch_bundle` and `codex_return` must not appear as `allowed_next` tokens.
+
+Result:
+
+- baseline: FAIL on unknown, misplaced, or forbidden allowed_next token
+- strict: FAIL on unknown, misplaced, or forbidden allowed_next token
+
+## CHECK 007C — r0_recovery_prompt_status
+
+Validate the R0 installation exception:
+
+- `R0_RECOVERY_CLOSE` may remain `missing_prompt` and `unavailable_until_prompt_installed` when `workflow/stage_prompts/R0_RECOVERY_CLOSE.md` is absent;
+- if the R0 prompt file exists while the registry still says `missing_prompt`, fail;
+- if the registry marks R0 present while the prompt file is missing, fail.
+
+Result:
+
+- baseline: FAIL on R0 registry/file mismatch
+- strict: FAIL on R0 registry/file mismatch
+
 ## CHECK 008 — deprecated_prompt_delivery_modes_absent
 
 Scan active stage prompts for deprecated prompt delivery modes:
@@ -127,6 +161,48 @@ Result:
 
 - baseline: FAIL if found in active stage prompt body
 - strict: FAIL if found in active stage prompt body
+
+## CHECK 008A — stage_prompt_forbidden_patterns
+
+Scan stage prompts for authority and development residue:
+
+- deprecated prompt delivery aliases;
+- direct-main repository maintenance policy boilerplate;
+- `Stable downstream stage list`;
+- `Stage-development testing override`;
+- `First real Direction test`;
+- `Testing status`;
+- prompt-local `allowed_next:` fields or markdown tables;
+- route-authority headings such as `Allowed next` or `Default downstream route`.
+
+Allowed:
+
+- prose that says prompts must not define `allowed_next`;
+- registry-authority boundary language that points to `STAGE_REGISTRY.md`.
+
+Result:
+
+- baseline: FAIL if residue is found
+- strict: FAIL if residue is found
+
+## CHECK 008B — stage_prompt_route_authority_residue
+
+Scan stage prompts for likely route examples that present a non-registry-valid next stage as normal, allowed, default, or selected.
+
+False-positive handling permits explicit non-authority language such as:
+
+- `REGISTRY_REVIEW_CANDIDATE`;
+- `not registry-valid`;
+- `do not emit`;
+- `registry-valid fallback`;
+- `route conflict`;
+- `forbidden route`;
+- `do not invent`.
+
+Result:
+
+- baseline: FAIL on non-registry route presented as normal/allowed/default
+- strict: FAIL on non-registry route presented as normal/allowed/default
 
 ## CHECK 009 — ad_wf_rt_001_boundary_present
 
@@ -191,16 +267,16 @@ Result:
 
 ## CHECK 012 — prompt_eof_markers
 
-Verify stage prompts include `END_OF_FILE:` markers.
+Verify each stage prompt has exactly one expected `END_OF_FILE:` marker for its repository path and that the marker line is the final non-whitespace line. Legacy markdown-code wrapping around the marker is tolerated only when the marker text itself is exact and final.
 
 Result:
 
-- baseline: WARN if missing
-- strict: FAIL if missing
+- baseline: FAIL if missing, duplicated, changed, or followed by content
+- strict: FAIL if missing, duplicated, changed, or followed by content
 
 ## CHECK 013 — authority_eof_markers
 
-Verify EOF markers exist in authority files that already define them:
+Verify EOF markers exist and are structurally valid in authority files that already define them:
 
 ```text
 workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
@@ -214,8 +290,8 @@ workflow/stage_registry/STAGE_REGISTRY.md
 
 Result:
 
-- baseline: FAIL for required authority EOF marker loss; WARN for short source marker absence
-- strict: FAIL for required authority EOF marker loss
+- baseline: FAIL for required authority/runtime EOF marker loss or trailing content; WARN for short source marker absence
+- strict: FAIL for required authority/runtime EOF marker loss or trailing content
 
 ## CHECK 014 — stale_rebuild_metadata
 
@@ -241,7 +317,7 @@ Result:
 
 ## CHECK 015 — prompt_schema_duplication_scan
 
-Scan stage prompts for copied packet schema bodies or prompt-local route tables.
+Scan stage prompts for copied packet/proof/readiness schema bodies or prompt-local route tables.
 
 This check must not warn merely because a prompt references a canonical schema name such as:
 
@@ -257,17 +333,20 @@ Allowed:
 - prose references to schema names;
 - stage-specific output obligations that point to canonical templates;
 - AD-WF-RT-001 route-authority boundary text.
+- compact status lines such as `execution_readiness_status`, `next_action_proof_status`, `mssp_status`, `audit_readiness_status`, `research_readiness_status`, and `phase_progress_gate_status`.
 
-Warn only when a prompt appears to contain:
+Fail when a prompt appears to contain:
 
-- a copied full packet schema body beginning with `workflow_packet: 1`, `type: ...`, and `schema: ...`;
+- packet schema anchors such as `workflow_packet: 1` or `schema: codex_return.v1`;
+- copied packet schema anchors such as `schema: stage_result.v1`, `schema: stage_launch.v1`, `schema: repository_patch.v1`, `schema: context_request.v1`, `schema: human_decision.v1`, or `schema: stop.v1`;
+- proof/readiness schema bodies such as `horizon_acceptance_proof:`, `active_frontier:`, `next_action_proof:`, `minimum_sufficient_solution_proof:`, `audit_readiness:`, `research_readiness:`, or `execution_readiness:`;
 - a prompt-maintained `allowed_next` route table;
 - legacy local launch-format headings such as `Next Launch Card Required Format`.
 
 Result:
 
-- baseline: WARN on copied schema bodies or prompt-local route-table residue.
-- strict: WARN until prompt slimming cleanup is fully complete; may become FAIL after zero-noise baseline is established.
+- baseline: FAIL on schema/proof bodies or prompt-local route-table residue.
+- strict: FAIL on schema/proof bodies or prompt-local route-table residue.
 - canonical references alone must not warn.
 
 ## CHECK 016 — cross_direction_cache_setup_consistency
@@ -283,7 +362,16 @@ Result:
 
 ## CHECK 017 — project_files_do_not_contain_stage_prompt_bodies
 
-Direction Project Files must not contain full stage prompt bodies.
+Active Direction Project Files `00-08` must not contain full stage prompt bodies or list `workflow/stage_prompts/*.md` as default-loaded Project Files.
+
+Allowed:
+
+- request-only pointers to stage prompt paths.
+
+Forbidden:
+
+- embedded full prompt body;
+- default Project Files list containing stage prompt paths.
 
 Result:
 
