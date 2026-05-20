@@ -2,9 +2,11 @@
 
 ## Purpose
 
-This document defines what ChatGPT sends to an Executor for product/project execution. The package is human-readable first. It may later be paired with machine-readable transport, but this file does not define a canonical transport template.
+This document defines what ChatGPT sends to an Executor for normal product/project execution through `X1_EXECUTOR_RUN`. The package is human-readable first and should be mappable to `workflow/transport/EXECUTION_WORK_PACKAGE.md`.
 
 The work package carries intent, target, scope, acceptance, and evidence expectations. It points to project-local technical artifacts instead of copying full technical context into ChatGPT history.
+
+Setup action is separate: Project Setup Wizard runs through `X0_EXECUTOR_PROJECT_SETUP` using an Executor Setup Request, not this work package.
 
 ## Human-Readable First
 

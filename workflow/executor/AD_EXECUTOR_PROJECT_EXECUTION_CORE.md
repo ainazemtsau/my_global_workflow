@@ -16,11 +16,11 @@ Adopt an executor-generic Project Execution Core for product/project implementat
 
 Codex is accepted as the first/default executor adapter. Codex-specific setup and execution behavior must remain adapter-scoped so the architecture can support other executors later.
 
-This decision creates documentation only. It does not change runtime behavior, register stages, alter stage prompts, create transport templates, or update Direction Project Files.
+This decision records the executor-generic model now aligned with the stage registry, runtime behavior, stage prompts, and transport templates.
 
 ## Why Now
 
-The current workflow has Codex-oriented C1/C2 compatibility paths and Codex project setup contracts, but it needs a clearer generic execution layer that:
+The workflow needs a clear generic execution layer that:
 
 - separates workflow repository maintenance from product/project execution
 - defines setup as a product execution gate
@@ -128,31 +128,27 @@ The Project Setup Wizard returns an Executor Setup Result that records setup sta
 - Project technical context lives in the project workspace, not ChatGPT history.
 - Direction Project Files store compact outcome summaries, approval-relevant decisions, risk notes, and pointers.
 - Codex becomes an adapter, not the architecture itself.
-- C1/C2 remain compatibility paths until later approved migration work.
+- E1 prepares setup requests or execution work packages.
+- `X0_EXECUTOR_PROJECT_SETUP` runs the Executor Project Setup Wizard and returns `executor_setup_result.v1`.
+- `X1_EXECUTOR_RUN` executes approved `execution_work_package.v1` work and returns `executor_return_packet.v1`.
 - Future transport and registry work must preserve these boundaries.
 
-## Deferred Items
+## Remaining Deferred Items
 
 Deferred to later approved passes:
 
-- runtime behavior changes
-- `STAGE_REGISTRY.md` updates
-- stage prompt changes
-- transport templates
-- Project Instructions updates
-- Direction Project Files 00-08 refreshes
 - project-local setup file generation
 - stack-specific tuning packages
-- machine-readable canonical executor transport schemas
+- additional adapter commands or project-local automation
 
-## Rollback / Compatibility
+## Rollback / Supersession
 
-Rollback is documentation-only: remove or supersede these executor core docs if the design is rejected before runtime integration.
+Supersession is documentation-level: replace these executor core docs only through an approved repository maintenance change.
 
-Compatibility is preserved because this pass does not change runtime files, registry files, stage prompts, transport templates, or project artifacts. Current `C1_CODEX_GRAPH_PLAN` and `C2_CODEX_EXECUTE` remain the active compatibility path.
+Repository maintenance remains separate from product/project execution. Repository maintenance does not require Executor Project Setup.
 
 ## Registry Boundary
 
-No registry change is made in this pass. No new stage is registered by this architecture decision. Any future capability or action named in executor documentation remains a future concept until a later approved registry update.
+Registered executor stages are owned by `workflow/stage_registry/STAGE_REGISTRY.md`. Project Setup Wizard is a capability/action executed through `X0_EXECUTOR_PROJECT_SETUP`, not a pseudo-stage. Normal executor product/project execution uses `X1_EXECUTOR_RUN`.
 
 END_OF_FILE: workflow/executor/AD_EXECUTOR_PROJECT_EXECUTION_CORE.md

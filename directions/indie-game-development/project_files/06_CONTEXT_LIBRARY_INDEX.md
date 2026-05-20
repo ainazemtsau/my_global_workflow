@@ -205,7 +205,7 @@ Load for A1 audit:
 - `directions/indie-game-development/domain_docs/game_documentation/clean-start-transfer-boundary.md`
 - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 
-Search-discovered C2 evidence docs:
+Search-discovered old-project technical evidence docs:
 - `01_OLD_PROJECT_GRID_TOPOLOGY_TECHNICAL_DOC.md`
 - `02_OLD_PROJECT_GAS_SIMULATION_TECHNICAL_DOC.md`
 - `03_OLD_PROJECT_GRID_GAS_INTERACTION_DOC.md`
@@ -267,8 +267,8 @@ A1 must inspect or request exact workflow setup / Codex readiness sources, inclu
 - `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`
 - `workflow/stage_registry/STAGE_REGISTRY.md`
 - `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
-- `workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md`
-- `workflow/stage_prompts/C2_CODEX_EXECUTE.md`
+- `workflow/stage_prompts/X0_EXECUTOR_PROJECT_SETUP.md`
+- `workflow/stage_prompts/X1_EXECUTOR_RUN.md`
 - `workflow/stage_prompts/U1_USER_GUIDED_EXECUTION.md`
 - `workflow/stage_prompts/A1_AUDIT.md`
 - `workflow/transport/STAGE_LAUNCH_CARD.md`

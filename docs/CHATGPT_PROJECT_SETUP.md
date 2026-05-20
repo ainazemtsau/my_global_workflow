@@ -107,9 +107,9 @@ Do not use F0_FAST_DIRECT for human-operated external UI tasks. F0 is for small 
 
 ## Executor Project Setup for product/software projects
 
-Product/software project execution uses the Executor Project Execution Core. Codex is the first/default executor adapter, while C1/C2 remain the current compatibility path.
+Product/software project execution uses the Executor Project Execution Core. Codex is the first/default executor adapter under generic Executor stages.
 
-When a Direction creates or attaches a product/software project, ChatGPT may prepare a Project Setup Request and route it through the Project Setup Wizard capability. The Project Setup Wizard is a workflow capability/action, not a registered stage.
+When a Direction creates or attaches a product/software project, ChatGPT may prepare an Executor Setup Request and route it to `X0_EXECUTOR_PROJECT_SETUP`. The Project Setup Wizard is a workflow capability/action executed through X0, not a registered pseudo-stage.
 
 Normal product/project execution requires completed Executor Project Setup unless the current action is setup itself. Acceptable setup statuses are `complete` and `complete_with_approved_fallback`. Core-only setup is a valid complete setup.
 
@@ -123,6 +123,12 @@ Normal project execution handoffs should use or be mappable to:
 workflow/transport/EXECUTION_WORK_PACKAGE.md
 ```
 
+Setup requests should use or be mappable to:
+
+```text
+workflow/transport/EXECUTOR_SETUP_REQUEST.md
+```
+
 Setup results should use or be mappable to:
 
 ```text
@@ -134,6 +140,8 @@ Executor returns should use or be mappable to:
 ```text
 workflow/transport/EXECUTOR_RETURN_PACKET.md
 ```
+
+Normal executor product/project execution routes to `X1_EXECUTOR_RUN`.
 
 Do not mirror full product technical context into ChatGPT Project Files. Product/project technical context belongs in project-local artifacts:
 

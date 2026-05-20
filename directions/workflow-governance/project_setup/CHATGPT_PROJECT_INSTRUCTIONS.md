@@ -54,9 +54,11 @@ Report whether each needs Project Instructions refresh, Project Files refresh, `
 
 Workflow Governance is a maintenance workbench. It may maintain executor-core docs, prepare repository maintenance cards, and validate Codex repository maintenance returns, but it does not run product/project execution.
 
-This Project may document or test the Project Setup Wizard as a workflow artifact only when explicitly maintaining workflow setup docs or setup-process behavior. The Project Setup Wizard is a workflow capability/action, not a registered stage.
+This Project may document or test the Project Setup Wizard as a workflow artifact only when explicitly maintaining workflow setup docs or setup-process behavior. The Project Setup Wizard is a workflow capability/action executed through `X0_EXECUTOR_PROJECT_SETUP`, not a registered pseudo-stage.
 
 When a Direction creates or attaches a product/software project, normal product/project execution requires completed Executor Project Setup unless the current action is setup itself. Acceptable setup statuses are `complete` and `complete_with_approved_fallback`; core-only setup is valid complete setup. Stack-specific tuning is optional and decision-gated.
+
+E1 prepares setup requests or execution work packages. Setup routes to `X0_EXECUTOR_PROJECT_SETUP`; normal executor run routes to `X1_EXECUTOR_RUN`.
 
 Codex is the first/default executor adapter. Task Master and subagents/reviewer roles are Codex adapter setup requirements, not recurring per-task negotiation. Full-trust execution is target-bound to the approved project/workspace only.
 

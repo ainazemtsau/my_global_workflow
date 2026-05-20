@@ -223,7 +223,7 @@ horizon_acceptance_proof:
     locked_by:
       - "H1_G2 is not yet shaped as a Goal."
       - "H1_G3 project/bootstrap readiness is not complete."
-      - "E1/C1/C2 execution readiness is not proven."
+      - "E1/X0/X1 execution readiness is not proven."
     if_locked_select_prerequisite_horizon: H1_G2_codex_development_operating_model_and_architecture_protocols
   alternatives_considered:
     - horizon: direct_durable_technical_nucleus_implementation
@@ -319,12 +319,12 @@ active_frontier:
   blocked_nodes:
     - node_id: codex_product_project_execution
       blocker: "Concrete project/tool bindings, validators, scope, permissions, and execution route are not verified."
-      unblock_route: "Later E1/C1/C2 readiness only."
+      unblock_route: "Later E1/X0/X1 readiness only."
   premature_nodes:
     - node_id: H1_G4_durable_technical_nucleus
       premature_because: "Implementation target exists conceptually, but H1_G3 readiness packet and project/tool bindings are not accepted."
-    - node_id: direct_C1_CODEX_GRAPH_PLAN
-      premature_because: "Task Master graph planning remains blocked until E1 defines the readiness envelope and bindings are verified."
+    - node_id: direct_X0_X1_EXECUTOR_ROUTE
+      premature_because: "Executor setup/run remains blocked until E1 defines the readiness envelope, setup state, and bindings are verified."
     - node_id: direct_P9_PHASE_CLOSE
       premature_because: "M0 selected a required active-front continuation; M0 does not close Phase."
   parked_nodes:
@@ -373,9 +373,9 @@ next_action_proof:
     is_on_frontier: true
     why_not_premature: >
       H1_G3 is the readiness gate directly between accepted execution profile and any
-      later bootstrap, U1 guided setup, Codex graph, or implementation route.
+      later bootstrap, U1 guided setup, Executor setup/run, or implementation route.
   expected_unlock: >
-    Enables later selection of U1, D1, A1, S3, C1/C2, Context Request, Human Decision,
+    Enables later selection of U1, D1, A1, S3, X0/X1, Context Request, Human Decision,
     Stop, or a setup route without inventing tool/project state.
   alternatives_considered:
     - action: direct_P9_phase_close
@@ -520,8 +520,8 @@ active_front:
     - unity_project_bootstrap
     - product_repository_creation
   premature_nodes:
-    - direct_C1_CODEX_GRAPH_PLAN
-    - direct_C2_CODEX_EXECUTE
+    - direct_X0_EXECUTOR_PROJECT_SETUP
+    - direct_X1_EXECUTOR_RUN
     - direct_P9_PHASE_CLOSE
     - unity_project_bootstrap
     - durable_technical_nucleus_implementation
@@ -564,7 +564,7 @@ horizon_slice:
     - "full marketing campaign"
     - "throwaway gas prototype"
     - "automatic old-code transfer"
-    - "Codex product/project execution without E1/C1/C2 readiness"
+    - "Executor/Codex product/project execution without E1/X0/X1 readiness"
 ```
 
 ## Parked/Future Nodes
@@ -973,8 +973,8 @@ map_delta:
   premature_nodes:
     - direct_E1_EXECUTION_BRIEF
     - direct_U1_USER_GUIDED_EXECUTION
-    - direct_C1_CODEX_GRAPH_PLAN
-    - direct_C2_CODEX_EXECUTE
+    - direct_X0_EXECUTOR_PROJECT_SETUP
+    - direct_X1_EXECUTOR_RUN
     - direct_H1_G4_durable_technical_nucleus
     - direct_P9_PHASE_CLOSE
     - direct_implementation
@@ -1016,11 +1016,11 @@ map_delta:
       is_on_frontier: true
       why_not_premature: >
         H1_G3 is the direct readiness gate between accepted execution profile
-        and any later bootstrap, E1 planning, U1 guided setup, Codex graph,
+        and any later bootstrap, E1 planning, U1 guided setup, Executor setup/run,
         or implementation route.
     expected_unlock: >
       Enables a later route to decide whether bootstrap should proceed through
-      E1, U1, C1, A1, D1, S3, Context Request, or Human Decision.
+      E1, U1, X0, X1, A1, D1, S3, Context Request, or Human Decision.
     alternatives_considered:
       - action: direct_P9_PHASE_CLOSE
         why_rejected: "Premature while H1_G3 remains the next active-front readiness node."

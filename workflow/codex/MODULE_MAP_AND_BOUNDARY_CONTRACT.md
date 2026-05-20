@@ -26,7 +26,7 @@ Codex must never silently edit unrelated modules, dependency modules, shared inf
 
 This contract applies to Codex work that touches a repository, app, package, service, plugin, workflow component, GitHub repository-backed module, or any project divided into separately owned functional areas.
 
-It applies before future C1/C2 runtime prompts are finalized, but it is not a C1 or C2 prompt.
+It applies to Executor/Codex product/project execution, but it is not a stage prompt.
 
 It governs:
 

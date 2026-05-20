@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the executor validation ladder, quality gates, bounded repair loop, and human-readable return evidence. It is a contract document only and does not create a canonical transport template.
+This document defines the executor validation ladder, quality gates, bounded repair loop, and human-readable return evidence for normal execution through `X1_EXECUTOR_RUN`. Return evidence should be mappable to `workflow/transport/EXECUTOR_RETURN_PACKET.md`.
 
 ## Validation Ladder
 
@@ -32,6 +32,8 @@ The executor confirms target binding before work:
 - `executor_setup_status`
 
 Wrong target, missing setup, or ambiguous workspace blocks execution.
+
+Setup itself runs through `X0_EXECUTOR_PROJECT_SETUP` and returns setup evidence before normal X1 execution begins.
 
 ### Existing-Code / Reuse Gate
 

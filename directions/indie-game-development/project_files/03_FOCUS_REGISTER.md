@@ -72,7 +72,7 @@ Forbidden in this focus:
 - Game Documentation promotion;
 - real internal tool setup;
 - broad engineering handbook creation;
-- direct C1/C2 launch without E1 readiness envelope.
+- direct X0/X1 launch without E1 readiness envelope and setup-state proof.
 
 ## 2026-05-19 G1 H1_G2 formalization
 

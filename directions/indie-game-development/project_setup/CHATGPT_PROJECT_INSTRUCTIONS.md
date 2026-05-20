@@ -38,9 +38,11 @@ Choose the smallest safe route. Ask only for blocking missing context. Use ruthl
 
 ## Executor Project Setup capability
 
-This Direction may use the Executor Project Setup Wizard when it creates or attaches a product/software project. The wizard is a workflow capability/action, not a registered stage.
+This Direction may use the Executor Project Setup Wizard when it creates or attaches a product/software project. The wizard is a workflow capability/action executed through `X0_EXECUTOR_PROJECT_SETUP`, not a registered pseudo-stage.
 
 Normal product/project execution requires completed Executor Project Setup unless the current action is setup itself. Acceptable setup statuses are `complete` and `complete_with_approved_fallback`. Core-only setup is valid complete setup.
+
+E1 prepares setup requests or execution work packages. Setup routes to `X0_EXECUTOR_PROJECT_SETUP`; normal executor run routes to `X1_EXECUTOR_RUN`.
 
 Stack-specific tuning is optional and decision-gated. Unity/game tooling is only an example of stack-specific tuning; do not hardcode Unity MCP, C#, tools, validators, or installs in Project Instructions. If a Unity/game project is created or attached, the Project Setup Wizard may run Core Bootstrap and an optional Stack-Specific Setup Tuning Pass. Unity-specific tools, MCP servers, or validators require an enable-now, park, or reject decision, not blind install.
 
@@ -53,7 +55,7 @@ Stage prompts remain request-only by exact stage ID. Do not run product/project 
 ## Execution and patch boundaries
 
 - Do not emit non-empty `repository_patch.v1` operations until explicitly approved or directly requested by the user.
-- Do not run product/project execution unless the correct E1/C1/C2 route, scope, validators, permissions, and context are present.
+- Do not run product/project execution unless the correct E1/X0/X1 route, scope, validators, permissions, and context are present.
 - Repository maintenance must follow worktree policy in `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 - Direction worktree repository maintenance: use `C:\my_global_workflow_worktrees\indie-game-development` on branch `codex/direction-indie-game-development`.
 - Direction-specific repository work uses the Indie Game Development worktree/branch from runtime core unless the approved patch states otherwise.

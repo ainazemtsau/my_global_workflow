@@ -6,7 +6,7 @@ status: adapter_first
 
 This document defines Codex as the first/default executor adapter for the Executor Project Execution Core. Codex is not the permanent architecture lock-in. Generic executor rules live in the core documents; Codex-specific setup and execution requirements live here.
 
-This file is a documentation contract only. It does not change Codex runtime behavior, create commands, register stages, or modify transport templates.
+This file is a documentation contract for the Codex adapter under the generic Executor stages. It does not register adapter-specific stages.
 
 ## Adapter Command Concepts
 
@@ -20,7 +20,7 @@ Codex setup and maintenance command concepts:
 - `/executor:research-tools`
 - `/executor:promote-learning`
 
-These are command concepts for future implementation. They are not registered stages in this pass.
+These are command concepts for adapter implementation. They are not registered stages.
 
 ## Required Setup
 
@@ -38,6 +38,8 @@ Codex project setup must install, configure, and verify:
 Task Master is required and verified during setup. Subagents and reviewer roles are setup-time requirements.
 
 If true subagents or required baseline tools cannot be configured, setup must stop and request a setup-time fallback decision. Normal execution assumes setup is complete and does not renegotiate fallback.
+
+Codex setup runs through `X0_EXECUTOR_PROJECT_SETUP`. Normal Codex product/project execution runs through `X1_EXECUTOR_RUN`.
 
 ## Full-Trust Target-Bound Execution
 
@@ -121,7 +123,7 @@ Return evidence should include:
 
 ## Return Evidence Format
 
-Codex returns human-readable evidence first. A minimal future-compatible field set may be included when useful, but this adapter does not define a canonical transport template.
+Codex returns human-readable evidence first. Normal execution return evidence should be mappable to `workflow/transport/EXECUTOR_RETURN_PACKET.md`.
 
 ```text
 codex_executor_result:

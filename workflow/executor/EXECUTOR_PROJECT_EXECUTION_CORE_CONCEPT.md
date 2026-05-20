@@ -2,7 +2,7 @@
 
 status: accepted_concept_for_wave_a_b
 
-Source note: this concept is derived from the reviewed Executor Project Execution Core concept and approved user deltas for Wave A-B. It creates a documentation baseline only. It does not change runtime behavior, register stages, alter stage prompts, or implement stack-specific project rules.
+Source note: this concept is derived from the reviewed Executor Project Execution Core concept and approved user deltas for Wave A-B, then aligned with the X0/X1 executor-stage migration.
 
 ## Purpose
 
@@ -16,7 +16,7 @@ ChatGPT Direction Project is the Orchestrator, Planner, and Reviewer. It owns WH
 
 Executor is an external coding agent operating inside a concrete project workspace. It owns HOW, codebase discovery, implementation planning, local tool use, validation, bounded repair, and evidence return.
 
-Codex is the first executor adapter. It provides the initial concrete commands, setup checks, Task Master integration, subagent/reviewer role expectations, and return evidence format. Codex-specific behavior belongs in adapter documentation or compatibility notes, not in the generic core.
+Codex is the first executor adapter. It provides the initial concrete commands, setup checks, Task Master integration, subagent/reviewer role expectations, and return evidence format. Codex-specific behavior belongs in adapter documentation, not in the generic core.
 
 Project means the concrete software or product workspace with local technical artifacts, source code, validators, build configuration, module boundaries, and project-specific operating instructions.
 
@@ -113,25 +113,20 @@ The validation ladder is:
 - V3_INTEGRATION_BUILD
 - V4_RELEASE_CONFIDENCE
 
-Executor results are human-readable first. Machine-readable packets may follow later when transport templates are created. This pass creates contract documentation only and does not create transport templates.
+Executor results are human-readable first. Machine-readable packets use canonical transport templates where applicable.
 
-## Migration From Current C1/C2
+## X0/X1 Runtime Mapping
 
-Current `C1_CODEX_GRAPH_PLAN` and `C2_CODEX_EXECUTE` remain the compatibility path. This concept prepares a future executor-generic architecture while preserving current workflow behavior.
+E1 prepares a setup request or execution work package.
 
-This pass does not register new stages, change `STAGE_REGISTRY.md`, change E1/C1/C2 prompts, or update runtime cache manifests.
+`X0_EXECUTOR_PROJECT_SETUP` runs the Executor Project Setup Wizard and returns `executor_setup_result.v1`.
+
+`X1_EXECUTOR_RUN` executes approved `execution_work_package.v1` work and returns `executor_return_packet.v1`.
 
 ## Non-Goals
 
-This Wave A-B pass does not:
+This concept does not by itself:
 
-- change runtime behavior
-- register new stage IDs
-- create transport templates
-- update Project Instructions
-- update Direction Project Files 00-08
-- modify runtime core or Objective Architecture files
-- change stage prompts
 - install project tooling
 - create product/project setup artifacts
 - implement Unity-specific or other stack-specific rules
@@ -144,7 +139,7 @@ Unity may be considered later as one example of stack-specific tuning. No Unity-
 
 Wave A-B creates the accepted design and contract documentation layer under `workflow/executor/`.
 
-Later waves may add transport templates, stage prompt integration, registry updates, Project Instructions updates, Direction Project File refreshes, adapter commands, and project setup artifacts only when explicitly approved.
+Later waves may add adapter commands and project setup artifacts only when explicitly approved.
 
 ## Acceptance Criteria
 
@@ -159,7 +154,7 @@ This baseline is accepted when:
 - Task Master and subagent setup decisions are recorded for Codex
 - full-trust execution is target-bound
 - project-local technical context boundaries are documented
-- C1/C2 compatibility is preserved
+- X0/X1 executor stage routing is clean and registry-owned
 - no runtime, registry, prompt, transport, Direction, or product repository files are changed
 
 END_OF_FILE: workflow/executor/EXECUTOR_PROJECT_EXECUTION_CORE_CONCEPT.md

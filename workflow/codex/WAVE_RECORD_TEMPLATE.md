@@ -30,7 +30,7 @@ A Wave Record is not a stage prompt. It does not itself authorize work. It recor
 6.  A Wave Record may be created before Codex runs, but it must not be marked `validated` until ChatGPT or a named human validator records PASS or PASS\_WITH\_NONBLOCKING\_NOTES.
 7.  Unknown extension fields are tolerated. Codex must preserve unknown fields unless the Wave Card explicitly authorizes a rewrite.
 8.  HTML is not valid transport for a Wave Record.
-9.  Final C1/C2 stage prompts are not defined here.
+9.  Executor stage prompts are not defined here.
 
 ## Status vocabulary
 

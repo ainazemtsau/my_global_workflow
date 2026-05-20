@@ -2,15 +2,15 @@
 
 ## Purpose
 
-The Executor Project Setup Wizard defines how a Direction prepares a product/project workspace for future executor-based implementation. The wizard is a workflow capability, not a registered stage in this pass.
+The Executor Project Setup Wizard defines how a Direction prepares a product/project workspace for future executor-based implementation. The wizard is a workflow capability/action executed through `X0_EXECUTOR_PROJECT_SETUP`, not a registered pseudo-stage.
 
 Core-only setup is valid complete setup.
 
 ## Launch Model
 
-The wizard launches through a Project Setup Request that identifies the Direction, project, workspace pointer, expected repository or workspace, requested executor adapter, and authorization boundary.
+The wizard launches through an Executor Setup Request, normally `workflow/transport/EXECUTOR_SETUP_REQUEST.md` or an equivalent packet, that identifies the Direction, project, workspace pointer, expected repository or workspace, requested executor adapter, and authorization boundary.
 
-For the Codex adapter, `/executor:init-project` is the command concept for starting setup. This document records the concept only and does not implement a command.
+For the Codex adapter, `/executor:init-project` is the command concept for starting setup inside X0. This document records the concept only and does not implement a command.
 
 ## Setup Layers
 
@@ -182,6 +182,6 @@ Generated files must be compact, project-specific, and pointer-oriented. They mu
 
 For Codex setup, Task Master and subagents/reviewer roles are required and verified during setup. Validation failure blocks setup unless an approved setup-time fallback is recorded.
 
-Normal execution assumes setup is complete. It does not reopen fallback negotiation for missing baseline tools.
+Normal execution through `X1_EXECUTOR_RUN` assumes setup is complete. It does not reopen fallback negotiation for missing baseline tools. X0 returns setup evidence mappable to `workflow/transport/EXECUTOR_SETUP_RESULT.md`.
 
 END_OF_FILE: workflow/executor/EXECUTOR_PROJECT_SETUP_WIZARD.md

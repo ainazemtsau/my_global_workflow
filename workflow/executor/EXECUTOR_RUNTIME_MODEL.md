@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the generic executor runtime behavior model for future product/project execution. It is a design contract only. It does not change current workflow runtime behavior, register stages, or define canonical transport schemas.
+This document defines the generic executor runtime behavior model for product/project execution. Runtime behavior, stage identity, and packet shapes remain owned by the runtime core, stage registry, and transport templates respectively.
 
 ## Role Model
 
@@ -16,17 +16,19 @@ Adapter is the executor-specific binding. Codex is the first/default adapter and
 
 ## Lifecycle
 
-1. ChatGPT prepares an Execution Work Package.
-2. Executor confirms target binding.
-3. Executor checks setup status and readiness.
-4. Executor reads project-local technical context.
-5. Executor prepares a human-readable Plan Preview.
-6. User approves the readable plan for nontrivial autonomous execution.
-7. Executor executes within the approved plan.
-8. Executor validates using the requested validation ladder level.
-9. Executor runs bounded repair if validation fails and repair remains in scope.
-10. Executor returns human-readable evidence for review.
-11. ChatGPT reviews against DONE, acceptance, scope, and evidence expectations.
+1. E1 prepares an Executor Setup Request for setup or an Execution Work Package for normal execution.
+2. `X0_EXECUTOR_PROJECT_SETUP` runs setup when setup is missing, incomplete, or the current action is setup.
+3. `X1_EXECUTOR_RUN` handles normal execution when setup is complete.
+4. Executor confirms target binding.
+5. Executor checks setup status and readiness.
+6. Executor reads project-local technical context.
+7. Executor prepares a human-readable Plan Preview for nontrivial execution.
+8. User approves the readable plan when required.
+9. Executor executes within the approved plan.
+10. Executor validates using the requested validation ladder level.
+11. Executor runs bounded repair if validation fails and repair remains in scope.
+12. Executor returns human-readable evidence for review.
+13. ChatGPT reviews against DONE, acceptance, scope, and evidence expectations.
 
 ## ChatGPT / Executor Boundary
 
@@ -143,10 +145,14 @@ Required evidence normally includes:
 - remaining risks or explicit none
 - forbidden-path confirmation
 
-## Compatibility With C1/C2
+## Registry and Transport Boundary
 
-Current `C1_CODEX_GRAPH_PLAN` and `C2_CODEX_EXECUTE` remain the compatibility path. This model describes a future executor-generic runtime and must not be read as an immediate runtime change.
+Project Setup Wizard is a capability/action executed through `X0_EXECUTOR_PROJECT_SETUP`. Normal executor product/project execution uses `X1_EXECUTOR_RUN`.
 
-This document does not duplicate the stage registry allowed-next table and does not define transport templates as canonical schemas.
+Setup action does not require prior completed setup. Normal execution requires setup status `complete` or `complete_with_approved_fallback`.
+
+Core-only setup is valid complete setup. Stack-specific tuning is optional and decision-gated.
+
+This document does not duplicate the stage registry allowed-next table and does not duplicate transport schemas.
 
 END_OF_FILE: workflow/executor/EXECUTOR_RUNTIME_MODEL.md
