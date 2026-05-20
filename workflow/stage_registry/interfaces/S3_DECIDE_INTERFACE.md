@@ -85,14 +85,12 @@ Required S3 output artifacts:
 
 S3 may route only to:
 
-*   E1 Execution Brief
-*   C1 Codex Graph Plan
-*   D1 Deep Research
-*   A1 Audit
 *   G1 Goal Shape
-*   F0 Fast Direct
-*   P9 Phase Close
-*   R0 Recovery Close
+*   E1 Execution Brief
+*   R1 Review Distill
+*   Context Request
+*   Human Decision
+*   Stop
 
 ## Write targets
 
@@ -102,7 +100,7 @@ S3 may propose or write only to authorized decision targets:
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Decisions / \[decision\_id\] \[runtime\_target\_root from Launch Card\] / Goals / \[goal\_id\] / Decision Record
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 
-S3 must not execute the decision. Execution preparation belongs to E1, C1, C2, or F0.
+S3 must not execute the decision. Execution preparation belongs to registry-valid execution stages such as E1 or F0.
 
 ## Compatibility/core/extensions rules
 

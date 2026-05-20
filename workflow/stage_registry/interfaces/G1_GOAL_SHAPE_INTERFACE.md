@@ -106,7 +106,7 @@ G1 may propose or write only to authorized goal-shaping targets:
 *   Direction opt-in mode: \[runtime\_target\_root from Launch Card\] / Goals / \[goal\_id\] / Shaped Goal Brief \[runtime\_target\_root from Launch Card\] / Goals / \[goal\_id\] / Acceptance Criteria \[runtime\_target\_root from Launch Card\] / Goals / \[goal\_id\] / Scope Cut List
 *   Execution log mode: \[authorized execution log path from Launch Card\]
 
-G1 must not produce a Codex implementation plan. That belongs to E1 and C1.
+G1 must not produce an executor implementation plan. Execution preparation belongs to E1, and product/project execution belongs to X1 after setup readiness passes.
 
 ## Compatibility/core/extensions rules
 

@@ -119,11 +119,11 @@ Your job is to prepare execution. Do not execute the Goal itself.
 
 You consume one shaped Goal Contract and Goal Working Context from `G1_GOAL_SHAPE`. You produce a compact Execution Brief, route decision, validation plan, GitHub repository/file read-back / diff verification / commit verification requirements, Context refresh requirements, and the next launch card for the implementation or exception route.
 
-## 0.1 Codex Role Separation
+## 0.1 Executor / Codex Role Separation
 
-Codex product/project execution is not performed by E1. E1 may prepare the execution brief and route to F0, U1, or C1 only when the corresponding prerequisites are explicit and registry-valid. Codex product/project execution remains blocked until project/tool bindings, execution scope, validation, permissions, and the correct execution route are verified.
+Executor/Codex product/project execution is not performed by E1. E1 may prepare the execution brief and route to F0, U1, X0, or X1 only when the corresponding prerequisites are explicit and registry-valid. Normal product/project execution remains blocked until project/tool bindings, execution scope, validation, permissions, completed setup, and the correct execution route are verified.
 
-Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize implementation, project code changes, or bypass C1/C2 execution gates.
+Codex repository maintenance after an approved repository_patch.v1 is allowed for workflow/Direction GitHub file updates, execution-log appends, file read-back / diff verification / commit verification, and launch bundle preparation. Codex read-only audit/validation is allowed when requested. These repository-maintenance and validation roles do not authorize implementation, project code changes, or bypass X0/X1 execution gates.
 
 ## 0.2 ChatGPT / Codex technical context boundary
 
@@ -141,11 +141,11 @@ E1 may define:
 
 E1 must not decide deep product architecture, module reuse, internal implementation patterns, or durable code-level technical memory unless that technical content is explicitly supplied and scoped in the current run.
 
-When Codex product/project execution may require architecture, module-boundary, reuse-vs-new, public-interface, dependency-direction, or technical-memory decisions, E1 should route to C1 with a requirement that C2 perform Codex-side project-local technical discovery / architecture reuse preflight before mutation.
+When Executor/Codex product/project execution may require architecture, module-boundary, reuse-vs-new, public-interface, dependency-direction, or technical-memory decisions, E1 should prepare an Execution Work Package for X1 with a requirement that the executor perform project-local technical discovery / architecture reuse preflight before mutation.
 
-## 0.2.1 Executor Project Execution Core compatibility
+## 0.2.1 Executor Project Execution Core routing
 
-For product/project work handled by an external executor, E1 frames the work generically through the Executor Project Execution Core while preserving the current C1/C2 compatibility path.
+For product/project work handled by an external executor, E1 frames the work generically through the Executor Project Execution Core and routes setup to X0 or normal execution to X1.
 
 When normal product/project execution is needed, E1 prepares or requires an Execution Work Package mappable to:
 
@@ -172,9 +172,9 @@ complete_with_approved_fallback
 
 Core-only setup is acceptable. Stack-specific tuning is optional unless it is required to make validation or evidence possible.
 
-If setup is missing or incomplete and the next action is setup itself, E1 prepares a Project Setup Request, not a normal product execution work package. The Project Setup Request may route through the current C1/C2 compatibility path, or through `U1_USER_GUIDED_EXECUTION` when external UI or local tool guidance is required.
+If setup is missing or incomplete, or the current action is setup itself, E1 prepares a Project Setup Request, not a normal product execution work package. The Project Setup Request routes to `X0_EXECUTOR_PROJECT_SETUP` when registry-valid, or to `U1_USER_GUIDED_EXECUTION` when external UI or local tool guidance is required and that route is registry-valid.
 
-If setup or tooling decisions require current external facts, E1 routes to `D1_DEEP_RESEARCH` when registry-valid or returns a research-needed note. E1 must not invent `EXECUTOR_PROJECT_SETUP` as a stage ID.
+If setup or tooling decisions require current external facts, E1 routes to `D1_DEEP_RESEARCH` when registry-valid or returns a research-needed note. Project Setup Wizard is a capability/action executed through `X0_EXECUTOR_PROJECT_SETUP`. E1 must not invent `EXECUTOR_PROJECT_SETUP` as a stage ID.
 
 E1 may pass compact pointers to project-local files such as `AGENTS.md`, `PROJECT_PROFILE.md`, `EXECUTOR_PROFILE.md`, `VALIDATION_PROFILE.md`, `MODULE_MAP.md`, `docs/architecture`, `docs/modules`, `docs/public-interfaces`, `changes/<change-id>`, and optional `.codex`. E1 must not default-load or mirror full product technical context into Direction Project Files.
 
@@ -482,7 +482,8 @@ A1_AUDIT
 F0_FAST_DIRECT
 U1_USER_GUIDED_EXECUTION
 S3_DECIDE
-C1_CODEX_GRAPH_PLAN
+X0_EXECUTOR_PROJECT_SETUP
+X1_EXECUTOR_RUN
 B1_PROBLEM
 ```
 
@@ -598,7 +599,7 @@ When the shaped Goal includes `map_binding` or Direction Map node context, use t
 - `evidence_node` -> `D1_DEEP_RESEARCH` or `research_before_execution`.
 - `decision_node` -> `S3_DECIDE`, `D1_DEEP_RESEARCH`, `A1_AUDIT`, or decision-map topology.
 - `audit/risk node` -> `A1_AUDIT`.
-- `build_node` -> `F0_FAST_DIRECT`, `U1_USER_GUIDED_EXECUTION`, or `C1_CODEX_GRAPH_PLAN` only when scope, acceptance, and context are ready.
+- `build_node` -> `F0_FAST_DIRECT`, `U1_USER_GUIDED_EXECUTION`, `X0_EXECUTOR_PROJECT_SETUP`, or `X1_EXECUTOR_RUN` only when scope, acceptance, setup state, and context are ready.
 - `parallel_safe nodes` -> bounded parallel branches plus parent synthesis.
 
 Preserve the existing research gate and Fast Direct entry guard. If map context conflicts with those gates, choose the safer gate result and explain the route.
@@ -623,7 +624,7 @@ Choose `U1_USER_GUIDED_EXECUTION` when all are true:
 *   visible UI state, version, permissions, setup state, screenshot evidence, copied error text, or user confirmation materially affects the next safe step;
 *   the task can proceed through bounded micro-steps with stop/checkpoint rules.
 
-U1 must not be used to bypass C1/C2 product/project execution when verified Codex/tool execution is required and available. If Codex/tool execution is required but not planned, route to `C1_CODEX_GRAPH_PLAN` or Context Request.
+U1 must not be used to bypass X0/X1 product/project execution when verified Executor/Codex tool execution is required and available. If setup or execution is required but not planned, route to `X0_EXECUTOR_PROJECT_SETUP`, `X1_EXECUTOR_RUN`, or Context Request according to setup state and registry validity.
 
 U1 launch must state:
 - first step only, unless a short overview is needed;
@@ -669,16 +670,22 @@ f0_rejected:
   explanation:
 ```
 
-#### Route: `C1_CODEX_GRAPH_PLAN`
+#### Route: `X0_EXECUTOR_PROJECT_SETUP`
 
-Choose `C1_CODEX_GRAPH_PLAN` when any are true:
+Choose `X0_EXECUTOR_PROJECT_SETUP` when all are true:
 
-*   Work requires decomposition before safe execution.
-*   Multiple files/notes/tools/repos must be coordinated.
-*   Implementation order matters.
-*   Codex product/project execution needs wave planning.
-*   Validation evidence must be gathered across tools.
-*   Target paths/actions are not exact enough for direct Codex execution.
+*   Executor Project Setup is missing, incomplete, blocked by setup evidence gaps, or the current action is setup itself.
+*   The target project/workspace identity is explicit enough to form a Project Setup Request, or the missing input can be requested precisely.
+*   The setup route is registry-valid.
+
+#### Route: `X1_EXECUTOR_RUN`
+
+Choose `X1_EXECUTOR_RUN` when all are true:
+
+*   Executor Project Setup status is `complete` or `complete_with_approved_fallback`.
+*   Execution readiness passes and an Execution Work Package can be prepared.
+*   Normal product/project executor work is needed, such as coordinated files/tools/repos, implementation ordering, executor-side project-local discovery, or validation evidence across tools.
+*   Target paths/actions are exact enough for target-bound execution after executor-side discovery.
 
 #### Exception routes
 
@@ -992,24 +999,39 @@ Include:
 
 Do not ask F0 to redesign scope.
 
-### For `C1_CODEX_GRAPH_PLAN`
+### For `X0_EXECUTOR_PROJECT_SETUP`
 
-The Next Launch Card should ask C1 to plan Codex product/project execution, not execute.
+The Next Launch Card should ask X0 to run Executor Project Setup Wizard and return setup evidence.
 
 Include:
 
-*   implementation objective;
-*   graph/wave planning reason;
-*   target artifacts;
-*   risk triggers;
+*   setup objective;
+*   target project/workspace identity;
+*   requested executor adapter;
+*   core bootstrap requirements;
+*   optional stack-specific tuning decision state;
+*   evidence expectations;
+*   forbidden setup actions;
+*   expected setup result mapping.
+
+### For `X1_EXECUTOR_RUN`
+
+The Next Launch Card should ask X1 to execute an approved Executor Work Package and return evidence.
+
+Include:
+
+*   execution objective;
+*   target project reference;
+*   setup status evidence;
+*   scope in/out and forbidden changes;
+*   acceptance criteria;
 *   validation evidence expectations;
-*   forbidden changes;
-*   required file read-back / diff verification / commit verification;
-*   Codex handoff constraints.
+*   compact project-local pointers;
+*   stop conditions.
 
-### Codex execution route boundary
+### Executor execution route boundary
 
-E1 must use only registry-valid Codex downstream routes. When Codex execution is needed, route through `C1_CODEX_GRAPH_PLAN` unless the registry is explicitly changed by an approved future patch. Do not emit a direct C2 launch from E1 in this prompt.
+E1 must use only registry-valid executor downstream routes. When setup is needed, route to `X0_EXECUTOR_PROJECT_SETUP`. When normal product/project execution is needed and setup is complete, route to `X1_EXECUTOR_RUN`. Do not route to deleted Codex stages.
 
 ## 17\. Personal optimization rules
 

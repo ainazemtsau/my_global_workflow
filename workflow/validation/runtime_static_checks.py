@@ -361,6 +361,28 @@ def check_registry_allowed_next_tokens(root: Path, results: list[Finding]) -> No
     stage_id_set = set(stage_ids)
     failures = 0
 
+    required_executor_stage_ids = {
+        "X0_EXECUTOR_PROJECT_SETUP",
+        "X1_EXECUTOR_RUN",
+    }
+    forbidden_executor_stage_ids = {
+        "C1_CODEX_GRAPH_PLAN",
+        "C2_CODEX_EXECUTE",
+        "EXECUTOR_PROJECT_SETUP",
+        "E2_EXECUTION_HANDOFF",
+        "X1_EXECUTOR_EXECUTE",
+    }
+
+    for stage_id in sorted(required_executor_stage_ids):
+        if stage_id not in stage_id_set:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Required executor stage ID is not registered: {stage_id}.", rel(registry_path, root))
+
+    for stage_id in sorted(forbidden_executor_stage_ids):
+        if stage_id in stage_id_set:
+            failures += 1
+            add(results, check_id, name, "FAIL", f"Forbidden executor compatibility or pseudo-stage is registered: {stage_id}.", rel(registry_path, root))
+
     for stage_id in sorted(stage_id_set):
         count = stage_ids.count(stage_id)
         if count != 1:
@@ -1780,7 +1802,7 @@ def check_branch_workstream_execution_contract(root: Path, results: list[Finding
         "workflow/stage_prompts/A1_AUDIT.md",
         "workflow/stage_prompts/F0_FAST_DIRECT.md",
         "workflow/stage_prompts/S3_DECIDE.md",
-        "workflow/stage_prompts/C1_CODEX_GRAPH_PLAN.md",
+        "workflow/stage_prompts/X1_EXECUTOR_RUN.md",
         "workflow/stage_prompts/B1_PROBLEM.md",
     ]
 

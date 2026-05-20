@@ -88,13 +88,9 @@ Required R0 output artifacts:
 
 R0 may route only to:
 
-*   retry\_previous\_stage
-*   P0 Phase Start
-*   G1 Goal Shape
-*   E1 Execution Brief
-*   C1 Codex Graph Plan
-*   P9 Phase Close
-*   stop
+*   Router / Stage Launcher
+*   Context Request
+*   Stop
 
 ## Write targets
 
