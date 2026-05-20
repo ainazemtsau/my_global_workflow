@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_m0_H1_G3_selected_pending_g1_goal_shape
+projection_status: fresh_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
 activated_at: "2026-05-13"
 ```
 
@@ -17,17 +17,17 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
 - Active Phase name: `Core Co-op Technical Foundation Selection`
-- Active Phase status: `active_H1_G3_selected_pending_G1_goal_shape`
+- Active Phase status: `active_H1_G3_goal_shaped_pending_E1_execution_brief`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal status: `r1_accepted_goal_complete`
+- Active Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+- Active Goal status: `goal_shaped_pending_E1_execution_brief`
 - Last completed Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `E1_EXECUTION_BRIEF`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -77,7 +77,7 @@ Required foundation surface:
 
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
-- Expedition Project Bootstrap / Tool Binding Readiness — `selected_for_G1_goal_shape_by_M0`; route: `G1_GOAL_SHAPE`
+- Expedition Project Bootstrap / Tool Binding Readiness — `goal_shaped_pending_E1_execution_brief`; node: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`; route: `E1_EXECUTION_BRIEF`
 - Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result
 - Expedition System Synergy Research Pack — request-only until selected by a vNext-R stage result
 - Expedition Durable Skeleton Documentation Promotion — request-only until selected by a vNext-R stage result
@@ -204,3 +204,16 @@ Next route:
 `G1_GOAL_SHAPE`
 
 H1_G3 must be shaped before any Unity bootstrap, product repository creation, implementation, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, or Game Documentation promotion.
+
+## Queue update after G1 H1_G3 formalization
+
+H1_G3 is now the active shaped readiness Goal.
+
+Current queue state:
+
+- `H1_G2_codex_development_operating_model_and_architecture_protocols`: `r1_accepted_goal_complete` / previous completed Goal
+- `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`: `goal_shaped_pending_E1_execution_brief`
+
+Next route: `E1_EXECUTION_BRIEF`
+
+The next queue movement is an E1 readiness execution brief, not bootstrap or product execution. Unity bootstrap, product repository creation, implementation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked/request-only until a later basis-valid route authorizes them.

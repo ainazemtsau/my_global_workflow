@@ -5,21 +5,22 @@ artifact_control:
   artifact_name: "Phase Brief — Core Co-op Technical Foundation Selection"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_H1_G3_selected_pending_G1_goal_shape
-  phase_status: active_H1_G3_selected_pending_G1_goal_shape
-  active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  active_goal_status: r1_accepted_goal_complete
+  status: active_H1_G3_goal_shaped_pending_E1_execution_brief
+  phase_status: active_H1_G3_goal_shaped_pending_E1_execution_brief
+  active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  active_goal_status: goal_shaped_pending_E1_execution_brief
   status_after_r1_first_technical_nucleus_spec: active_pending_m0_after_r1_acceptance
   status_after_m0_objective_architecture_migration: active_pending_g1_H1_G2_goal_shape
   status_after_g1_H1_G2_formalization: active_H1_G2_goal_shaped_pending_A1_audit
   status_after_r1_H1_G2_acceptance: active_H1_G2_r1_accepted_pending_M0_active_front_review
+  status_after_g1_H1_G3_formalization: active_H1_G3_goal_shaped_pending_E1_execution_brief
   last_completed_goal:
     goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
     result: r1_accepted_goal_complete
     accepted_scope: existing_workflow_plus_minimal_project_profile
-  current_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  current_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   phase_progress_gate_status: completed_by_R1_then_m0_frontier_review_completed
   phase_closed: false
   p9_allowed_now: false
@@ -35,7 +36,7 @@ artifact_control:
 - Phase ID: `core-coop-technical-foundation-selection`
 - Phase name: `Core Co-op Technical Foundation Selection`
 - Direction: `Indie Game Development`
-- Status: `active_H1_G3_selected_pending_G1_goal_shape`
+- Status: `active_H1_G3_goal_shaped_pending_E1_execution_brief`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 
@@ -211,11 +212,11 @@ candidate:
 
 ## Next route
 
-Run `G1_GOAL_SHAPE` after M0 active-front review repository maintenance apply/read-back and manual Project Files refresh.
+Run `E1_EXECUTION_BRIEF` after G1 H1_G3 formalization repository maintenance apply/read-back and manual Project Files refresh.
 
-M0 reviewed the active frontier and selected H1_G3 project/bootstrap/tool-binding/validation-scene readiness for G1 Goal shaping. P9, G0, E1, bootstrap, and implementation remain blocked until later basis-valid route.
+G1 formalized H1_G3 project/bootstrap/tool-binding/validation-scene readiness as the active shaped Goal. P9, G0, bootstrap, implementation, and Codex product/project execution remain blocked until later basis-valid route.
 
-Do not proceed to P9, E1, project bootstrap, durable technical nucleus implementation, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
+Do not proceed to P9, project bootstrap, durable technical nucleus implementation, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, Unity MCP setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
 ## 2026-05-15 P0 map-alignment repair
 
@@ -438,3 +439,26 @@ Rationale:
 - P9 is premature because H1_G3 is now selected as the active-front continuation.
 - E1 is premature because H1_G3 WHAT / WHY / DONE is not yet shaped.
 - Direct bootstrap, implementation, product repository creation, Codex product/project execution, Task Master graph creation, real tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain forbidden.
+
+## 2026-05-20 G1 H1_G3 formalization
+
+G1 formalized `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` as the active shaped readiness Goal.
+
+```yaml
+g1_H1_G3_formalization:
+  status_after_g1_H1_G3_formalization: active_H1_G3_goal_shaped_pending_E1_execution_brief
+  active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  current_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+  last_completed_goal:
+    goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+    result: r1_accepted_goal_complete
+  next_route: E1_EXECUTION_BRIEF
+  phase_closed: false
+  p9_allowed_now: false
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+E1 is the next route to prepare the concrete H1_G3 readiness execution brief. Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.

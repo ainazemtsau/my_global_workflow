@@ -8,7 +8,7 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_m0_H1_G3_selected_pending_g1_goal_shape
+  freshness: fresh_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
   last_updated: "2026-05-20"
 ```
 
@@ -32,11 +32,11 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: innovative-commercial-expedition-gas-sim-game
   map_confidence: medium
-  last_reviewed_stage: M0_DIRECTION_MAP
+  last_reviewed_stage: G1_GOAL_SHAPE
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
   current_objective_architecture_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  next_safe_route: G1_GOAL_SHAPE
+  next_safe_route: E1_EXECUTION_BRIEF
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -165,7 +165,7 @@ objective_architecture:
   active_initiative: innovative-commercial-expedition-gas-sim-game
   active_horizon: H1_playable_technical_nucleus
   selected_frontier_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  next_safe_route: G1_GOAL_SHAPE
+  next_safe_route: E1_EXECUTION_BRIEF
 
 horizon_acceptance_proof:
   candidate_horizon: H1_playable_technical_nucleus
@@ -282,7 +282,7 @@ objective_graph:
 
     - id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
       type: execution_readiness
-      status: ready
+      status: goal_shaped_pending_E1_execution_brief
       requires:
         - H1_G2_codex_development_operating_model_and_architecture_protocols
 
@@ -309,25 +309,22 @@ objective_graph:
 
 active_frontier:
   ready_nodes:
-    - node_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-      reason_ready: >
-        The first technical nucleus specification is accepted, but execution/project/bootstrap readiness
-        requires minimum Codex operating rules, architecture boundaries, and validation protocol.
-      expected_unlock: >
-        Enables project/bootstrap readiness to be evaluated without guessing architecture, validation,
-        or Codex slice constraints.
-  blocked_nodes:
     - node_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-      blocker: "H1_G2 is not shaped and accepted."
-      unblock_route: "Complete G1/R1 lifecycle for H1_G2, then route to bootstrap readiness."
+      reason_ready: >
+        H1_G2 is accepted and G1 shaped H1_G3 as the project/bootstrap/tool-binding/
+        validation-scene readiness Goal.
+      expected_unlock: >
+        Enables E1 to prepare the concrete readiness execution brief without guessing
+        bootstrap surfaces, tool-binding evidence, validation scenes, or stop rules.
+  blocked_nodes:
     - node_id: codex_product_project_execution
       blocker: "Concrete project/tool bindings, validators, scope, permissions, and execution route are not verified."
       unblock_route: "Later E1/C1/C2 readiness only."
   premature_nodes:
     - node_id: H1_G4_durable_technical_nucleus
-      premature_because: "Implementation target exists conceptually, but H1_G2/H1_G3 are not done."
-    - node_id: direct_E1_EXECUTION_BRIEF
-      premature_because: "E1 would plan HOW before the remaining WHAT/DONE/validation gate is explicit."
+      premature_because: "Implementation target exists conceptually, but H1_G3 readiness packet and project/tool bindings are not accepted."
+    - node_id: direct_C1_CODEX_GRAPH_PLAN
+      premature_because: "Task Master graph planning remains blocked until E1 defines the readiness envelope and bindings are verified."
     - node_id: direct_P9_PHASE_CLOSE
       premature_because: "M0 selected a required active-front continuation; M0 does not close Phase."
   parked_nodes:
@@ -351,36 +348,36 @@ next_action_proof:
   current_horizon: H1_playable_technical_nucleus
   selected_frontier_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   proposed_work: >
-    Shape the project bootstrap, tool-binding, and validation-scene readiness Goal
-    for the first technical nucleus.
-  proposed_stage: G1_GOAL_SHAPE
+    Prepare the H1_G3 readiness execution brief for project bootstrap, tool-binding,
+    and validation-scene readiness for the first technical nucleus.
+  proposed_stage: E1_EXECUTION_BRIEF
   desired_delta: >
-    A bounded Goal Contract defining Codex development operating rules, architecture boundaries,
-    validation requirements, and bootstrap-readiness criteria.
+    A readiness execution brief defining the concrete setup/tool/validation envelope
+    without running bootstrap, product execution, or real tool configuration directly.
   why_this_now: >
-    R1 accepted the first technical nucleus functional specification; the next blocker is not more broad
-    research or implementation, but the operating model/protocol gate required before safe bootstrap
-    and execution.
+    G1 shaped H1_G3 after H1_G2 accepted the minimal execution profile. The next
+    blocker is the concrete readiness execution envelope, not bootstrap or implementation.
   prerequisite_check:
     satisfied:
       - "Current Direction Project Files 00-08 are available."
       - "08_DIRECTION_MAP is initialized."
       - "Core decision brief is accepted as route-gated decision map."
       - "First technical nucleus specification is accepted."
+      - "H1_G2 Gas Coop Game Project Execution Profile is accepted."
+      - "H1_G3 Goal Contract is shaped."
     missing:
-      - "Exact G1_GOAL_SHAPE prompt for the next stage run."
+      - "Exact E1_EXECUTION_BRIEF prompt for the next stage run."
       - "Manual Project Files refresh after this repository maintenance patch."
     assumed: []
   active_frontier_check:
     is_on_frontier: true
     why_not_premature: >
-      H1_G2 is a readiness/protocol gate directly between accepted specification and bootstrap/implementation.
+      H1_G3 is the readiness gate directly between accepted execution profile and any
+      later bootstrap, U1 guided setup, Codex graph, or implementation route.
   expected_unlock: >
-    Enables later selection of project bootstrap/tool-binding readiness or execution planning without
-    guessing module boundaries, Codex slice contracts, or validation surfaces.
+    Enables later selection of U1, D1, A1, S3, C1/C2, Context Request, Human Decision,
+    Stop, or a setup route without inventing tool/project state.
   alternatives_considered:
-    - action: direct_E1_execution_brief
-      why_rejected: "Would plan execution before H1_G2 Goal Contract exists."
     - action: direct_P9_phase_close
       why_rejected: "Selected active-front continuation remains unresolved."
     - action: direct_bootstrap_or_implementation
@@ -403,7 +400,7 @@ next_action_proof:
     launch_allowed: true
     launch_condition: >
       After repository maintenance apply/read-back, manual Project Files refresh, and exact
-      G1_GOAL_SHAPE prompt availability.
+      E1_EXECUTION_BRIEF prompt availability.
 ```
 
 ## Compact Initiative Graph
@@ -494,34 +491,37 @@ compact_initiative_graph:
 active_front:
   active_horizon: H1_playable_technical_nucleus
   current_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  current_gate_status: selected_for_G1_goal_shape_after_m0_active_front_review
-  previous_gate: first-technical-nucleus-functional-spec
-  previous_gate_status: r1_completed_verified_specification_accepted
+  current_gate_status: goal_shaped_pending_E1_execution_brief
+  previous_gate: H1_G2_codex_development_operating_model_and_architecture_protocols
+  previous_gate_status: r1_accepted_goal_complete
   selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  selected_next_route: G1_GOAL_SHAPE
+  selected_next_route: E1_EXECUTION_BRIEF
   primary_reason: >
-    H1_G2 is accepted as the minimal project execution profile/addendum. The next blocker is
-    project/bootstrap/tool-binding/validation-scene readiness before implementation planning,
-    durable technical nucleus work, or Codex product/project execution.
+    H1_G2 is accepted as the minimal project execution profile/addendum and G1 shaped
+    H1_G3 as the project/bootstrap/tool-binding/validation-scene readiness Goal.
+    The next blocker is the E1 readiness execution envelope before any setup,
+    implementation planning, durable technical nucleus work, or Codex product/project execution.
   active_front_rule: >
-    Run G1_GOAL_SHAPE for H1_G3 before P9, E1, project bootstrap, durable technical nucleus
-    implementation, or Codex product/project execution.
+    Run E1_EXECUTION_BRIEF for H1_G3 before P9, project bootstrap, durable technical
+    nucleus implementation, Task Master graph creation, or Codex product/project execution.
   codex_architecture_rule: >
     The foundation decision is sufficient only if minimum Codex-driven development rules,
     module/dependency boundaries, and validation protocol are accepted before implementation.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   immediate_next_after_gate:
-    - G1_GOAL_SHAPE_for_H1_G2
+    - E1_EXECUTION_BRIEF_for_H1_G3
   route_integrity_issue:
-    status: resolved_by_m0_objective_architecture_migration
-    summary: "M0 selected G1 for H1_G2 as the next basis-valid route."
+    status: resolved_by_g1_H1_G3_formalization
+    summary: "G1 shaped H1_G3 and selected E1 as the next basis-valid route."
   blocked_nodes:
-    - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
     - H1_G4_durable_technical_nucleus
     - codex_product_project_execution
+    - unity_project_bootstrap
+    - product_repository_creation
   premature_nodes:
-    - direct_E1_EXECUTION_BRIEF
+    - direct_C1_CODEX_GRAPH_PLAN
+    - direct_C2_CODEX_EXECUTE
     - direct_P9_PHASE_CLOSE
     - unity_project_bootstrap
     - durable_technical_nucleus_implementation
@@ -1042,6 +1042,56 @@ map_delta:
       launch_condition: >
         After repository maintenance apply/read-back, manual Project Files refresh,
         and exact G1_GOAL_SHAPE prompt acquisition in the next run.
+  forbidden_until_later_basis_valid_route:
+    - Unity project bootstrap
+    - product repository creation
+    - implementation
+    - product code
+    - Codex product/project execution
+    - durable technical nucleus implementation
+    - Task Master graph creation
+    - real internal tool setup
+    - Unity MCP installation/configuration
+    - old-code transfer
+    - old-code audit as starting point
+    - final DI package selection
+    - Game Documentation promotion
+```
+
+## 2026-05-20 G1 map delta — H1_G3 shaped
+
+```yaml
+map_delta:
+  source_stage: G1_GOAL_SHAPE
+  delta_type:
+    - goal_shaped
+    - active_frontier_progressed_to_E1
+    - implementation_still_blocked
+  node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  result: goal_shaped_pending_E1_execution_brief
+  summary: >
+    G1 shaped H1_G3 as the readiness Goal for project bootstrap, tool-binding,
+    and validation-scene readiness before any real setup or product execution.
+    The Goal defines readiness packet requirements, evidence surfaces, stop rules,
+    validation-scene/harness candidates, and next route.
+  active_front:
+    active_horizon: H1_playable_technical_nucleus
+    current_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    current_gate_status: goal_shaped_pending_E1_execution_brief
+    previous_gate: H1_G2_codex_development_operating_model_and_architecture_protocols
+    previous_gate_status: r1_accepted_goal_complete
+    next_route: E1_EXECUTION_BRIEF
+    implementation_allowed_now: false
+    codex_product_execution_allowed_now: false
+    p9_allowed_now: false
+  blocked_nodes:
+    - H1_G4_durable_technical_nucleus
+    - codex_product_project_execution
+    - unity_project_bootstrap
+    - product_repository_creation
+    - task_master_graph_creation
+    - real_internal_tool_setup
+    - unity_mcp_setup
   forbidden_until_later_basis_valid_route:
     - Unity project bootstrap
     - product repository creation

@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_m0_H1_G3_selected_pending_g1_goal_shape
+  source_freshness: active_git_file_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,40 +16,36 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: r1_accepted_goal_complete_next_frontier_selected
-  goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
-  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols"
-  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
-  status: r1_accepted_goal_complete
-  previous_active_goal_id: first-technical-nucleus-functional-spec
-  previous_active_goal_title: "Сформировать функционально-техническую спецификацию первого technical nucleus"
-  previous_active_goal_result: r1_completed_verified_specification_accepted
-  previous_active_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/01_FIRST_TECHNICAL_NUCLEUS_FUNCTIONAL_SPEC.md"
-  previous_active_goal_execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/first-technical-nucleus-functional-spec/execution_log.md"
+  state: goal_shaped_pending_E1_execution_brief
+  goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  goal_title: "Сформировать readiness-пакет для project bootstrap, tool-binding и validation scenes первого technical nucleus"
+  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness"
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+  status: goal_shaped_pending_E1_execution_brief
+  previous_active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  previous_active_goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
+  previous_active_goal_result: r1_accepted_goal_complete
+  previous_active_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
+  previous_active_goal_execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
+  last_completed_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  last_completed_goal_result: r1_accepted_goal_complete
   previous_goal_superseded: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  review_scope: r1_goal_review_distill_completed_verified
-  completion_scope: parent_goal_complete
-  parent_goal_completion_state: complete
-  smallest_useful_result: "Accepted minimal Gas Coop Game project execution profile/addendum for later H1_G3 planning."
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  review_scope: g1_goal_shape_formalized_H1_G3
+  completion_scope: goal_shaped_pending_E1_execution_brief
+  parent_goal_completion_state: not_complete_readiness_packet_pending
+  smallest_useful_result: "Accepted readiness packet for project bootstrap, tool-binding, and validation-scene readiness."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
   task_master_graph_allowed_now: false
-  next_goal_seed:
-    id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-    title: "Review/select project bootstrap, tool-binding, and validation-scene readiness as next frontier candidate"
-    recommended_next_stage: G1_GOAL_SHAPE
-    map_binding: H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-    implementation_allowed_now: false
-    candidate_only_until_M0: false
+  next_goal_seed: none_active_goal_already_shaped
 ```
 
 ```yaml
@@ -98,23 +94,23 @@ previous_active_goal:
 
 Active Goal:
 
-`H1_G2_codex_development_operating_model_and_architecture_protocols`
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 
 Status:
 
-`r1_accepted_goal_complete`
+`goal_shaped_pending_E1_execution_brief`
 
 Goal contract:
 
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md`
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md`
 
 Execution log:
 
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
+`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
 
 Next route:
 
-`M0_DIRECTION_MAP`
+`E1_EXECUTION_BRIEF`
 
 Implementation, Unity bootstrap, Codex product/project execution, and Task Master graph creation are not authorized now.
 
@@ -128,14 +124,18 @@ Accepted result: Gas Coop Game Project Execution Profile accepted as minimal pro
 
 ```yaml
 active_goal_snapshot:
-  goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  status: r1_accepted_goal_complete
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+  last_completed_goal: H1_G2_codex_development_operating_model_and_architecture_protocols
+  last_completed_goal_result: r1_accepted_goal_complete
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   purpose: >
-    H1_G2 is accepted as the minimal Gas Coop Game project execution
-    profile/addendum. M0 must review the active frontier before selecting
-    H1_G3, P9, G0, E1, bootstrap, or implementation.
+    H1_G3 is shaped as the readiness Goal for project bootstrap, tool-binding,
+    and validation-scene readiness. E1 must prepare the concrete readiness
+    execution brief without running setup or product execution directly.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -255,3 +255,32 @@ Still forbidden until a later basis-valid route:
 - old-code transfer;
 - old-code audit as starting point;
 - Game Documentation promotion.
+
+## 2026-05-20 G1 H1_G3 formalization
+
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` is now the active shaped Goal.
+
+```yaml
+active_goal:
+  goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  status: goal_shaped_pending_E1_execution_brief
+  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness"
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+  last_completed_goal:
+    goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+    result: r1_accepted_goal_complete
+  next_route: E1_EXECUTION_BRIEF
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  product_repository_creation_allowed_now: false
+  product_code_allowed_now: false
+  task_master_graph_allowed_now: false
+  real_internal_tool_setup_allowed_now: false
+  unity_mcp_setup_allowed_now: false
+  old_code_transfer_allowed_now: false
+  game_documentation_promotion_allowed_now: false
+```
+
+E1 is the next route. It must not directly run Unity bootstrap, create a product repository, write product code, run Codex product/project execution, create a Task Master graph, perform real internal tool setup, configure Unity MCP, transfer old code, or promote Game Documentation.

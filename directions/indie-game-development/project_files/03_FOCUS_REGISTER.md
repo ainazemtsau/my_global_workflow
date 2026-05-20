@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_m0_H1_G3_selected_pending_g1_goal_shape
+  source_freshness: active_git_file_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,48 +16,50 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run repository maintenance for M0 H1_G3 active-front selection, then run G1_GOAL_SHAPE for H1_G3 after manual Project Files refresh."
-  route_stage: G1_GOAL_SHAPE
-  route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  current_focus: "Run E1_EXECUTION_BRIEF for H1_G3 after repository maintenance apply/read-back and manual Project Files refresh."
+  route_stage: E1_EXECUTION_BRIEF
+  route_mode: prepare_H1_G3_readiness_execution_brief
   same_chat_allowed: false
-  boundary_trigger: m0_active_front_review_completed_H1_G3_selected
+  boundary_trigger: g1_H1_G3_goal_contract_formalized_pending_E1
   pending_state_carried: true
-  pending_patch_pointer: igd_r1_h1_g2_acceptance_projection_reconciliation_2026_05_20
-  last_stage_result_pointer: "M0_DIRECTION_MAP selected H1_G3_project_bootstrap_tool_binding_validation_scene_readiness as the next active-front node and selected G1_GOAL_SHAPE."
+  pending_patch_pointer: g1_formalize_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness_2026_05_20
+  last_stage_result_pointer: "G1_GOAL_SHAPE formalized H1_G3_project_bootstrap_tool_binding_validation_scene_readiness and selected E1_EXECUTION_BRIEF."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   active_goal:
-    goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-    status: r1_accepted_goal_complete
-    goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
-    previous_goal_id: first-technical-nucleus-functional-spec
-    previous_goal_status: r1_completed_verified_specification_accepted
+    goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    status: goal_shaped_pending_E1_execution_brief
+    goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
+    execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+    previous_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+    previous_goal_status: r1_accepted_goal_complete
   active_phase:
     phase_id: core-coop-technical-foundation-selection
     phase_name: Core Co-op Technical Foundation Selection
     phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-    status: active_H1_G3_selected_pending_G1_goal_shape
+    status: active_H1_G3_goal_shaped_pending_E1_execution_brief
     map_binding: H1_playable_technical_nucleus
-    next_route: G1_GOAL_SHAPE
+    next_route: E1_EXECUTION_BRIEF
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `manual Project Files refresh blocks the next material M0 run after R1 repository maintenance apply/read-back`
-- Human decision: `none pending for M0 launch`
+- Missing context: `manual Project Files refresh blocks the next E1 run after G1 H1_G3 repository maintenance apply/read-back`
+- Human decision: `none pending for E1 launch`
 - Source conflict: `Project Files stale until this repository maintenance patch is applied/read back and manually refreshed`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/M0_DIRECTION_MAP.md`
-  - current Project Files 00-08 after R1 H1_G2 acceptance repository maintenance read-back and manual refresh
+  - exact `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
+  - current Project Files 00-08 after G1 H1_G3 formalization repository maintenance read-back and manual refresh
   - active Phase Brief
-  - active Goal Contract and accepted profile artifact
+  - active H1_G3 Goal Contract and execution log
+  - accepted H1_G2 profile artifact
   - Direction Map
 
 ## Current focus boundary
 
-M0 reviewed the active frontier after R1 accepted `H1_G2_codex_development_operating_model_and_architecture_protocols`.
+G1 formalized `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` after M0 selected it as the active-front node.
 
-The review selected `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` as the basis-valid next frontier node. G1 must shape H1_G3 before any material continuation.
+The next focus is `E1_EXECUTION_BRIEF` to prepare the concrete readiness execution envelope. E1 must not run bootstrap, product repository creation, product code, real tool setup, Unity MCP setup, Task Master graph creation, or Codex product/project execution directly.
 
 Forbidden in this focus:
 
@@ -70,7 +72,7 @@ Forbidden in this focus:
 - Game Documentation promotion;
 - real internal tool setup;
 - broad engineering handbook creation;
-- direct E1 launch without M0 active-front selection.
+- direct C1/C2 launch without E1 readiness envelope.
 
 ## 2026-05-19 G1 H1_G2 formalization
 
@@ -123,3 +125,24 @@ Next focus:
 G1 must shape the H1_G3 Goal Contract for project bootstrap, tool-binding, and validation-scene readiness.
 
 This focus does not authorize execution. It does not create product repo, Unity project, Codex config, AGENTS.md, Task Master graph, Serena, Basic Memory, Unity MCP, scenes, prefabs, assets, scripts, old-code transfer, or implementation.
+
+## 2026-05-20 G1 H1_G3 formalization focus update
+
+G1 shaped:
+
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Current route:
+
+```yaml
+route_stage: E1_EXECUTION_BRIEF
+route_mode: prepare_H1_G3_readiness_execution_brief
+active_goal:
+  goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
+same_chat_allowed: false
+codex_product_execution_allowed_now: false
+```
+
+E1 must plan the readiness envelope only. Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.
