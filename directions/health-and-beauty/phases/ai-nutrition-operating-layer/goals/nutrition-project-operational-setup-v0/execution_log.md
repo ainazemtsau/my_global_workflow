@@ -142,6 +142,40 @@ execution_log_entry:
   next_stage: C1_CODEX_GRAPH_PLAN
 ```
 
+## 2026-05-20 — E1 repair formalized after U1 failure
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  stage_id: E1_EXECUTION_BRIEF
+  stage_name: Execution Brief
+  direction: directions/health-and-beauty
+  phase_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+  goal_id: nutrition-project-operational-setup-v0
+  return_state: DONE
+  correction_trigger: U1_REAL_UI_TEST_FAILED
+  user_error: false
+  project_setup_error: true
+  prior_e1_superseded: true
+  prior_c1_launch_invalidated: true
+  selected_route: C1_CODEX_GRAPH_PLAN
+  execution_topology: codex_graph
+  implementation_policy: clean_rebuild_from_scratch
+  accepted_chat_topology:
+    - Global Strategy Chat with mandatory Deep Research Request gate
+    - Weekly Planning Chat one week only
+    - Menu Chat one week only
+    - Tracking Chat one week only
+  storage_policy:
+    github: durable data/history/metrics/results
+    project_files: instructions/processes/prompts/formats
+    chat_memory: non_authoritative
+  repository_patch_requirement: "record corrected E1 repair baseline only"
+  execution_brief_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/02_EXECUTION_BRIEF.md
+  parent_goal_completion_state: incomplete
+  next_stage: C1_CODEX_GRAPH_PLAN
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/execution_log.md`
