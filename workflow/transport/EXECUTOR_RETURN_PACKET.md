@@ -12,9 +12,9 @@ artifact_control:
 
 ## Purpose
 
-Defines the canonical transport template for Executor to ChatGPT evidence return after product/project execution.
+Defines the canonical transport template for Executor to ChatGPT evidence return from `X1_EXECUTOR_RUN` after normal product/project execution.
 
-The readable execution result comes first. The machine-readable packet section follows the readable result.
+The readable execution result comes first. The machine-readable packet section follows the readable result. Expected input is `workflow/transport/EXECUTION_WORK_PACKAGE.md` or an equivalent execution work package.
 
 ## Authority Boundary
 

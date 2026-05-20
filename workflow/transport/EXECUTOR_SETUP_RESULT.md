@@ -12,9 +12,9 @@ artifact_control:
 
 ## Purpose
 
-Defines the canonical transport template for the Executor Project Setup Wizard result.
+Defines the canonical transport template for the Executor Project Setup Wizard result returned by `X0_EXECUTOR_PROJECT_SETUP`.
 
-This packet reports setup outcome only. It is not an execution result, not a workflow repository maintenance result, and not proof that product/project implementation has occurred.
+This packet reports setup outcome only. It is not an execution result, not a workflow repository maintenance result, and not proof that product/project implementation has occurred. Expected input is `workflow/transport/EXECUTOR_SETUP_REQUEST.md` or an equivalent setup request. Project Setup Wizard is a capability/action executed through X0.
 
 ## Authority Boundary
 

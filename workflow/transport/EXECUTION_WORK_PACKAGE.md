@@ -12,9 +12,9 @@ artifact_control:
 
 ## Purpose
 
-Defines the canonical transport template for ChatGPT to hand off product/project work to an Executor.
+Defines the canonical transport template for ChatGPT to hand off normal product/project work to an Executor through `X1_EXECUTOR_RUN`.
 
-This packet is for product/project execution only. It is not a repository maintenance packet, not a workflow repository patch, not a project setup command, and not proof that execution has already occurred.
+This packet is for normal product/project execution only. It is not a repository maintenance packet, not a workflow repository patch, not a project setup command, and not proof that execution has already occurred. Setup action belongs to `X0_EXECUTOR_PROJECT_SETUP` and uses `workflow/transport/EXECUTOR_SETUP_REQUEST.md`.
 
 ## Authority Boundary
 
@@ -134,6 +134,8 @@ extensions: {}
 ## Usage Notes
 
 The Executor confirms `target_project_ref` before reading project-local context or changing files. A wrong target, incomplete setup, or missing validation surface blocks execution.
+
+This packet is the expected input for `X1_EXECUTOR_RUN` or must be mappable to it.
 
 The Objective Architecture reference must stay compact. Do not copy the full Objective Architecture model into this packet.
 

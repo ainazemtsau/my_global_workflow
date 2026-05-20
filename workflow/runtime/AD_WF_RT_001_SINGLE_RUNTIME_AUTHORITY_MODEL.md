@@ -135,6 +135,7 @@ workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
 workflow/transport/CODEX_REPOSITORY_MAINTENANCE_APPLY.md
 workflow/transport/CODEX_WAVE_CARD.md
 workflow/transport/CODEX_RETURN_PACKET.md
+workflow/transport/EXECUTOR_SETUP_REQUEST.md
 workflow/transport/EXECUTION_WORK_PACKAGE.md
 workflow/transport/EXECUTOR_SETUP_RESULT.md
 workflow/transport/EXECUTOR_RETURN_PACKET.md

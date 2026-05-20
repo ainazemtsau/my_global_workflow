@@ -89,12 +89,13 @@ workflow/transport/*.md
 Executor/product-project transport templates:
 
 ```text
+workflow/transport/EXECUTOR_SETUP_REQUEST.md
 workflow/transport/EXECUTION_WORK_PACKAGE.md
 workflow/transport/EXECUTOR_SETUP_RESULT.md
 workflow/transport/EXECUTOR_RETURN_PACKET.md
 ```
 
-These executor templates are canonical packet shapes for product/project executor handoff, setup result, and return evidence. They do not change runtime behavior by themselves.
+These executor templates are canonical packet shapes for setup request, product/project executor handoff, setup result, and return evidence. They do not change runtime behavior by themselves.
 
 Runtime core remains authority for runtime behavior, precedence, approval/formalization rules, repository maintenance rules, route process, Executor/Codex role separation, and Project Files refresh/reporting rules.
 
@@ -412,8 +413,7 @@ F0_FAST_DIRECT is allowed only when all of these are true:
 If any item is false or unknown, do not route to F0. Route to the smallest safer stage allowed by `STAGE_REGISTRY.md`:
 
 - `D1_DEEP_RESEARCH` for external/current evidence gaps;
-- `E1_EXECUTION_BRIEF` for missing execution brief;
-- `C1_CODEX_GRAPH_PLAN` for decomposition, graph/wave, or multi-file/multi-tool planning;
+- `E1_EXECUTION_BRIEF` for missing execution brief, decomposition, executor setup/run planning, graph/wave, or multi-file/multi-tool planning;
 - `S3_DECIDE` or Human Decision for material tradeoffs;
 - `B1_PROBLEM` for unclear problem/frame;
 - Context Request for missing blocking context;
@@ -452,7 +452,7 @@ U1 must default to novice-safe interaction unless the user says otherwise:
 - route back to `E1_EXECUTION_BRIEF` when the execution envelope must be replanned;
 - route to `R1_GOAL_REVIEW_DISTILL` only when the parent Goal completion gate passes.
 
-If a verified tool binding becomes available during a U1 run, U1 must not silently switch into Codex/product execution. It must route back to `E1_EXECUTION_BRIEF` or `C1_CODEX_GRAPH_PLAN` according to `STAGE_REGISTRY.md` and the runtime gates.
+If a verified tool binding becomes available during a U1 run, U1 must not silently switch into Executor/Codex product execution. It must route back to `E1_EXECUTION_BRIEF`, `X0_EXECUTOR_PROJECT_SETUP`, or `X1_EXECUTOR_RUN` according to `STAGE_REGISTRY.md`, setup state, and the runtime gates.
 
 U1 output may use:
 
@@ -652,7 +652,7 @@ Material conflicts must be routed explicitly:
 - human-owned tradeoff -> `S3_DECIDE` or Human Decision;
 - framing conflict -> `B1_PROBLEM`;
 - missing context -> Context Request;
-- implementation graph conflict -> `E1_EXECUTION_BRIEF` or `C1_CODEX_GRAPH_PLAN`.
+- implementation graph conflict -> `E1_EXECUTION_BRIEF`.
 
 ### Topology Launch Bundle
 
@@ -667,8 +667,8 @@ D1_DEEP_RESEARCH
 A1_AUDIT
 F0_FAST_DIRECT
 S3_DECIDE
-C1_CODEX_GRAPH_PLAN
-C2_CODEX_EXECUTE
+X0_EXECUTOR_PROJECT_SETUP
+X1_EXECUTOR_RUN
 B1_PROBLEM
 ```
 
@@ -934,11 +934,11 @@ Use the canonical transport template for packet shape. Runtime core owns the beh
 
 ## 11.5 Codex Role Separation Contract
 
-The Executor Project Execution Core defines product/project execution handoff to external coding executors. Codex is the first/default executor adapter. Current `C1_CODEX_GRAPH_PLAN` and `C2_CODEX_EXECUTE` remain the compatibility path until a later approved stage prompt migration changes them.
+The Executor Project Execution Core defines product/project execution handoff to external coding executors. Codex is the first/default executor adapter under generic Executor stages.
 
 Codex has separate runtime roles. Do not collapse them into a generic allowed/forbidden state.
 
-Codex product/project execution means implementation against a concrete product/project workspace, product repository, game proof, application code, Task Master execution graph, external tool binding, validation command run, or project file mutation that changes the product/project itself. Codex product/project execution is allowed only through the correct execution route after E1/C1/C2 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
+Executor/Codex product/project execution means implementation against a concrete product/project workspace, product repository, game proof, application code, Task Master execution graph, external tool binding, validation command run, or project file mutation that changes the product/project itself. It is allowed only through the correct execution route after E1/X0/X1 readiness, verified project/tool bindings, scope, validation, permissions, and explicit route.
 
 Codex repository maintenance means applying an approved repository_patch.v1 to workflow or Direction GitHub files, appending execution logs, updating runtime markdown, and returning file read-back / diff verification / commit verification evidence. Codex repository maintenance is allowed after the patch is approved and must stay inside the approved repository paths.
 
@@ -950,6 +950,10 @@ When a stage says Codex product/project execution is blocked, that restriction d
 
 Product/project execution by an external executor requires completed Executor Project Setup for the target project unless the current action is the Project Setup Wizard itself. The Project Setup Wizard is a workflow capability/action, not a registered stage.
 
+Executor Project Setup runs through `X0_EXECUTOR_PROJECT_SETUP`. Normal executor product/project execution runs through `X1_EXECUTOR_RUN`.
+
+Repository maintenance does not require Executor Project Setup. Read-only audit/validation and launch bundle preparation also do not require Executor Project Setup. X0 setup action does not require prior completed setup. X1 normal execution requires acceptable completed setup status for the target project.
+
 Acceptable setup statuses for normal product/project execution:
 
 ```text
@@ -959,7 +963,7 @@ complete_with_approved_fallback
 
 Core-only setup is a valid complete setup. Stack-specific tuning is optional and decision-gated unless it is needed to make validation or evidence possible.
 
-Normal product/project execution handoff should use or be mappable to `workflow/transport/EXECUTION_WORK_PACKAGE.md`. Setup wizard result should use or be mappable to `workflow/transport/EXECUTOR_SETUP_RESULT.md`. Executor/Codex evidence return should use or be mappable to `workflow/transport/EXECUTOR_RETURN_PACKET.md`.
+Normal setup request should use or be mappable to `workflow/transport/EXECUTOR_SETUP_REQUEST.md`. Setup result should use or be mappable to `workflow/transport/EXECUTOR_SETUP_RESULT.md`. Normal product/project execution handoff should use or be mappable to `workflow/transport/EXECUTION_WORK_PACKAGE.md`. Executor/Codex evidence return should use or be mappable to `workflow/transport/EXECUTOR_RETURN_PACKET.md`.
 
 Task Master and subagents/reviewer roles are Codex adapter setup requirements, not recurring per-task negotiation. Full-trust execution is target-bound to the approved target project/workspace only.
 
@@ -978,9 +982,9 @@ For Executor/Codex product/project execution:
 - Durable technical decisions from Executor/Codex work must be stored in product-repo-local artifacts such as `AGENTS.md`, Project Execution Profile, Validation Profile, Module Map, ADRs, public interface docs, internal module knowledge, or `.codex` memory according to the project policy.
 - Direction Project Files may store only compact outcome summaries, approval-relevant decisions, risk notes, and pointers to product technical artifacts. They must not store full product technical documentation by default.
 
-`C1_CODEX_GRAPH_PLAN` is a ChatGPT execution-envelope planning stage. It may require a Codex technical discovery preflight, but it must not perform deep product architecture planning unless the current chat has explicitly provided and scoped that technical context.
+`E1_EXECUTION_BRIEF` prepares the execution envelope. `X0_EXECUTOR_PROJECT_SETUP` runs setup and returns setup evidence. `X1_EXECUTOR_RUN` executes an approved Executor Work Package and returns execution evidence. E1 must not perform deep product architecture planning unless the current chat has explicitly provided and scoped that technical context.
 
-`C2_CODEX_EXECUTE` is the Codex product/project execution stage. For non-trivial code work, C2 must run a project-local technical discovery / architecture reuse preflight before mutation when any of these are true:
+For non-trivial Executor/Codex product/project execution, X1 must run a project-local technical discovery / architecture reuse preflight before mutation when any of these are true:
 
 - a new module, public interface, API, integration, or dependency direction may be created or changed;
 - multi-file or modular work is expected;
@@ -1001,7 +1005,7 @@ blocked_missing_context
 human_decision_required
 ```
 
-Codex must return a compact technical discovery card and technical memory delta in the Codex Return Packet when the preflight ran or was required. If the preflight reveals a material architecture decision outside the approved execution envelope, Codex must stop and return Human Decision or route back to C1/E1 instead of mutating product code.
+Codex must return a compact technical discovery card and technical memory delta in the Executor Return Packet when the preflight ran or was required. If the preflight reveals a material architecture decision outside the approved execution envelope, Codex must stop and return Human Decision or route back to `E1_EXECUTION_BRIEF` instead of mutating product code.
 
 ## 11.6 Hard First Response and Adaptive Reviewable Work Product Gate
 
@@ -1345,7 +1349,7 @@ Do not edit sibling Directions from a Direction worktree unless the approved pat
 
 Do not use the main worktree as an ordinary Direction working tree.
 
-Do not create Task Master graph or run product/project execution as part of repository maintenance unless explicitly authorized by a C1/C2 product execution route.
+Do not create Task Master graph or run product/project execution as part of repository maintenance unless explicitly authorized through the registry-valid Executor setup/run route.
 
 ### 14.5 Changed Files / Context Refresh coupling
 
