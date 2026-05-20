@@ -84,6 +84,34 @@ execution_log_entry:
   next_launch_card_ref: "E1_EXECUTION_BRIEF launch prepared; executable only after repository maintenance/read-back and Project Files refresh."
 ```
 
+## 2026-05-20 — G1_GOAL_SHAPE formalized repaired Goal Contract
+
+```yaml
+execution_log_entry:
+  stage: G1_GOAL_SHAPE
+  patch_id: g1_formalize_repaired_repo_backed_pitanie_loop_2026_05_20
+  return_state: DONE
+  decision: "Repaired active Goal into repo-backed multi-chat Project `Питание` nutrition loop."
+  selected_next_stage: E1_EXECUTION_BRIEF
+  repository_patch_required: true
+  product_project_execution_performed: false
+  codex_execution_performed: false
+  key_constraints:
+    - GitHub markdown state files are canonical.
+    - ChatGPT Project Files are runtime cache only.
+    - Chat memory is non-authoritative.
+    - Codex is save-only repository maintenance writer.
+    - No manual giant state packets as normal UX.
+    - No default detailed macro/calorie ledger.
+  acceptance_tests:
+    - first_week_bootstrap_from_empty_state
+    - later_week_bootstrap_from_saved_state
+    - fresh_menu_chat_from_saved_plan
+    - fresh_tracking_chat_from_saved_plan_and_menu
+    - week_review_from_saved_report
+    - project_files_refresh_reproducibility
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/execution_log.md`

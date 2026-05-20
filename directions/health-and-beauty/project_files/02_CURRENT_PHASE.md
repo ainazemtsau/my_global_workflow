@@ -19,9 +19,9 @@ current_phase:
   state: active
   phase_name: "Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга"
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
-  critical_constraint: "The minimal nutrition loop shape and container policy have been selected and shaped; Project `Питание` v0 package execution/validation has not yet been planned or run."
-  minimum_outcome: "A repo-backed standalone Project `Питание` v0 package is created and validated through synthetic dry-runs, or a later stage returns a concrete blocker/repair route."
-  validation_signal: "E1 defines the execution envelope; later implementation produces package files and dry-run evidence."
+  critical_constraint: "Repaired nutrition loop shape is now selected; execution planning must define files, save boundaries, Project Files refresh, and dry-run validation."
+  minimum_outcome: "One complete repo-backed low-friction weekly nutrition loop can continue across fresh chats through GitHub markdown state, Project Files refresh, and Codex save boundaries."
+  validation_signal: "E1_EXECUTION_BRIEF produces minimum HOW, validation map, and repository maintenance route for the repaired repo-backed Project `Питание` loop."
   active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
   active_goal_title: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
   goal_state: goal_shaped_pending_E1
@@ -35,7 +35,7 @@ current_phase:
 * Active Goal unresolved: `yes`
 * Active Goal shaped: `yes`
 * Phase can close now: `no`
-* Current blocker: Execution package and dry-run validation are not yet produced.
+* Current blocker: Execution planning has not yet defined exact files, save boundaries, Project Files refresh, and dry-run validation.
 * Tooling policy: AI/ChatGPT/Project/app/storage may be tools, not the objective.
 * Superseded prior Phase: `MacroFactor Nutrition AI Support Setup`
 * Correction note: AI Nutrition Operating Layer v0 is a design/protocol artifact, not proof of operational completion.

@@ -16,7 +16,7 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Prepare E1 execution brief for repo-backed standalone Project `Питание` v0."
+  current_focus: "Prepare E1 execution brief for repaired repo-backed Project `Питание` nutrition loop."
   route_stage: E1_EXECUTION_BRIEF
   same_chat_allowed: false
   boundary_trigger: g1_goal_shape_formalized_after_s3_decision
@@ -24,17 +24,17 @@ focus:
   pending_patch_pointer: "health_beauty_objective_architecture_migration_2026_05_19"
   last_stage_result_pointer: "G1_GOAL_SHAPE formalized repaired Goal Contract for Project `Питание` v0; no product/project execution performed."
   human_correction: "Objective is outcome-first; AI/ChatGPT/Project/app/storage are optional tools, not requirements."
-  stale_prior_focus: "Resolved by S3 keep-and-repair decision plus G1 formalized Goal shape; E1 remains blocked until repository maintenance/read-back and Project Files refresh."
+  stale_prior_focus: "Old Project `Питание` execution route remains historical input only; E1 must plan against the repaired G1 Goal Contract."
 ```
 
 ## Active Goal
 
-`Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system`
+``Починить Project `Питание` как repo-backed multi-chat nutrition loop``
 
 Goal path:
 
 `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
 
-The next route is `E1_EXECUTION_BRIEF` for execution envelope and validation planning, not product/project execution.
+The next route is `E1_EXECUTION_BRIEF` for implementation and validation planning, not product/project execution.
 
-The existing Goal path now contains the fresh shaped Goal Contract and Working Context for Project `Питание` v0.
+The existing Goal path now contains the repaired Goal Contract and Working Context for the repo-backed multi-chat Project `Питание` nutrition loop.

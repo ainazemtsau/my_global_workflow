@@ -36,7 +36,7 @@ In the ChatGPT Project, these files should be present as Project Files runtime c
 - `directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md`
 - `directions/health-and-beauty/project_files/08_DIRECTION_MAP.md`
 
-GitHub remains the source of truth. Project Files are a runtime cache.
+GitHub markdown files remain the source of truth. Project Files are runtime cache.
 
 If GitHub and Project File cache conflict, use verified full GitHub read-back. If GitHub read is truncated, omitted, lacks tail verification, or cannot be verified, return Context Request instead of treating partial GitHub content as authority.
 
@@ -60,17 +60,16 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 * `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`.
 * `workflow/stage_registry/STAGE_REGISTRY.md`.
 * `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`.
-* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/00_GOAL_CONTRACT.md`.
-* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/01_GOAL_WORKING_CONTEXT.md`.
+* Current Goal Contract: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/00_GOAL_CONTRACT.md`.
+* Current Goal Working Context: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/01_GOAL_WORKING_CONTEXT.md`.
 
 ## Request-only context for E1_EXECUTION_BRIEF
 
 * Prior AI Nutrition Operating Layer v0 design/protocol artifact:
   * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/03_AI_NUTRITION_OPERATING_LAYER_V0.md`
-* Prior Project `Питание` Goal Contract / Working Context, historical input only:
-  * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/00_GOAL_CONTRACT.md`
-  * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/01_GOAL_WORKING_CONTEXT.md`
-
+* Prior Project `Питание` setup files, historical input only.
+* Existing nutrition project files under `directions/health-and-beauty/projects/nutrition/**`, if needed for state/protocol inventory.
+* Existing setup package under `directions/health-and-beauty/project_setup/pitanie/**`, if needed for historical comparison.
 * Existing menu / prior nutrition menu materials, if needed.
 * Nutrition baseline/preferences, if needed for dry-run realism.
 * Tool/storage preferences and concrete availability.

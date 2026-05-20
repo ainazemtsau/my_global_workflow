@@ -19,7 +19,7 @@ Current Phase: `directions/health-and-beauty/phases/ai-nutrition-operating-layer
 
 Active Goal: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
 
-Active Goal title: `Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system`
+Active Goal title: ``Починить Project `Питание` как repo-backed multi-chat nutrition loop``
 
 Active Goal status: `goal_shaped_pending_E1`
 
@@ -27,7 +27,7 @@ Next route: `E1_EXECUTION_BRIEF`
 
 ## Current priority
 
-Define execution envelope for Project `Питание` v0 package creation and dry-run validation.
+Plan minimum implementation and validation for the repaired repo-backed Project `Питание` nutrition loop.
 
 ## Superseded / deferred items
 

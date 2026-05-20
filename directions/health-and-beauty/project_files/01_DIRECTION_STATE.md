@@ -22,8 +22,8 @@ direction:
   workflow_version: vNext-R
   current_phase_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
   active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
-  active_goal_title: "Собрать отдельный рабочий ChatGPT Project “Питание” как low-friction nutrition operating system"
-  current_state_summary: "S3 selected Project `Питание` v0 as a standalone repo-backed container/tool; G1 formalized the repaired Goal Contract; next route is E1_EXECUTION_BRIEF after repository maintenance/read-back and Project Files refresh."
+  active_goal_title: "Починить Project `Питание` как repo-backed multi-chat nutrition loop"
+  current_state_summary: "G1 formalized the repaired active Goal: Project `Питание` is kept as user-facing UI, GitHub markdown state is canonical, Project Files are runtime cache, Codex is save-only writer, and E1 must plan implementation/validation."
   selected_goal_seed: nutrition-project-operational-setup-v0
   selected_frontier_node: d_nutrition_loop_shape_and_tooling
   next_route: E1_EXECUTION_BRIEF
@@ -47,4 +47,4 @@ superseded_phase:
 
 * Last refresh: `2026-05-17`
 * Required refresh: `after repository patch read-back / diff verification`
-* Known stale files: ChatGPT Project Files cache may still show `S3_DECIDE` / pending-decision state until manually refreshed.
+* Known stale files: ChatGPT Project Files cache may still show older standalone/pending-decision state until manually refreshed.

@@ -1,133 +1,89 @@
-# Goal Contract — nutrition-project-operational-setup-v0
+# Goal Contract — Repaired repo-backed Project `Питание` nutrition loop
 
 ```yaml
 artifact_control:
-  artifact_name: "Goal Contract - Project Питание v0"
+  artifact_name: "Goal Contract — Repaired repo-backed Project `Питание` nutrition loop"
   schema: goal_contract.v1
   owner_layer: direction_goal
   status: active
-  direction_path: "directions/health-and-beauty"
-  phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
-  goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
-  goal_id: nutrition-project-operational-setup-v0
-  formalized_by_stage: G1_GOAL_SHAPE
-  formalized_at: "2026-05-19"
-  source_decision: "S3_DECIDE selected standalone repo-backed ChatGPT Project `Питание` v0"
-  next_route: E1_EXECUTION_BRIEF
+  direction: directions/health-and-beauty
+  phase_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+  goal_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0
+  shaped_by_stage: G1_GOAL_SHAPE
+  shaped_at: "2026-05-20"
+  source_decision_stage: S3_DECIDE
+  lifecycle_state: goal_shaped_pending_E1
 ```
 
-## Title
+## Goal
 
-Собрать repo-backed standalone ChatGPT Project “Питание” v0 as a low-friction nutrition operating loop.
+**goal_id:** `nutrition-project-operational-setup-v0`
+
+**Title:** Починить Project `Питание` как repo-backed multi-chat nutrition loop.
 
 ## WHAT
 
-Create a repaired standalone ChatGPT Project package `Питание` v0 that can operate outside Workflow while using repository-backed durable state under:
+Создать минимальный рабочий nutrition operating loop, где:
 
-```text
-directions/health-and-beauty/projects/nutrition/**
-```
-
-The future execution outcome must produce a manual-install-ready Project package containing:
-
-```text
-directions/health-and-beauty/projects/nutrition/
-  README.md
-  CHATGPT_PROJECT_INSTRUCTIONS.md
-  PROJECT_FILES_MANIFEST.md
-  project_files/
-    00_NUTRITION_START_HERE.md
-    01_NUTRITION_BASE.md
-    02_MENU_PREFERENCES.md
-    03_ACTIVE_CYCLE.md
-    04_TRACKING_AND_EXCEPTIONS.md
-    05_REVIEW_AND_SYNC.md
-  protocols/
-    CODEX_SAVE_OPERATOR.md
-    DRY_RUN_ACCEPTANCE.md
-```
+- GitHub markdown files являются durable source of truth для nutrition state.
+- ChatGPT Project `Питание` остаётся пользовательским UI-контейнером.
+- ChatGPT Project Files являются refreshable runtime cache, а не источником истины.
+- Chat memory не считается authoritative state.
+- Codex используется только как save-only repository maintenance writer.
+- Weekly fresh chats могут продолжать работу из сохранённого state без manual giant packets.
 
 ## WHY now
 
-The active Health and Beauty initiative is outcome-first: lose approximately 20 kg and improve health, strength, appearance, energy, and routine quality through low-burden evidence-based systems. S3 selected Project `Питание` v0 as the repaired container/tool for the nutrition loop, not as the objective itself.
+Предыдущий путь Project `Питание` был признан stale / not basis-valid после Objective Architecture correction. S3 выбрал repaired shape: сохранить Project `Питание`, но перевести его в repo-backed multi-chat loop. Поэтому текущий Goal должен быть reshaped перед E1 execution planning.
 
-The current Phase remains focused on creating a convenient, evidence-aware nutrition process without heavy manual tracking. This Goal converts the selected container policy into an executable target while keeping execution out of G1.
+## Minimum Complete Outcome
+
+Один полный low-friction nutrition loop:
+
+`baseline/current plan -> weekly menu -> tracking/adaptation -> review -> save to GitHub -> Project Files refresh -> fresh chat continuation`
+
+Если убрать GitHub state, Project Files refresh или save boundary, fresh chats снова зависят от скрытой chat memory или ручной вставки больших state packets. Это ниже minimum complete outcome.
 
 ## DONE
 
-This Goal is complete only when a later execution/review path has produced and validated a Project `Питание` v0 package that can:
+Goal complete только когда подтверждено:
 
-1. Start or resume from durable state.
-2. Plan a current nutrition cycle/menu-default structure from baseline and preferences.
-3. Process a meal/photo/voice-style event with missing-answer defaults.
-4. Correct the current day after off-menu eating or overeating.
-5. Perform a day/week review.
-6. Emit a compact `nutrition_state_update_packet.v1`.
-7. Preserve strict role boundaries:
-   - Dietitian: evidence-aware nutrition guidance boundaries; no medical diagnosis or clinical protocol.
-   - Menu Planner: cycle/menu/defaults/prep-note planning; no full recipe database.
-   - Food Tracker: low-friction event intake, exceptions, and summaries; no heavy macro/calorie ledger by default.
-   - Codex Save Operator: applies approved state-update packets to repository files and returns read-back/diff evidence; does not give nutrition advice.
+- существует минимальный набор repository-backed nutrition state/protocol files;
+- first-week chat может запросить только missing baseline inputs и создать initial plan/save card;
+- later-week chat может прочитать saved state и не переопрашивать baseline полностью;
+- fresh menu chat может построить weekly menu по saved plan;
+- fresh tracking/adaptation chat может обработать food event/photo/deviation без default heavy macro ledger;
+- review/sync chat может обновить review decisions and next week inputs;
+- Codex save boundary явно описывает, какие файлы меняются и как они возвращаются в GitHub;
+- после manual Project Files refresh fresh chats продолжают без hidden memory and giant manual packets.
 
 ## Acceptance floor
 
-A repo-backed, manual-install-ready Project package plus three synthetic dry-runs:
+Required acceptance tests:
 
-1. Cycle planning / restart dry-run.
-2. Meal event + exception dry-run.
-3. Review + sync dry-run.
+1. `first_week_bootstrap_from_empty_state`
+2. `later_week_bootstrap_from_saved_state`
+3. `fresh_menu_chat_from_saved_plan`
+4. `fresh_tracking_chat_from_saved_plan_and_menu`
+5. `week_review_from_saved_report`
+6. `project_files_refresh_reproducibility`
 
 ## Validation signal
 
-A fresh Project `Питание` chat can complete the three dry-runs and produce expected outputs without knowing Workflow, and Codex Save Operator policy can save/read back state updates without interpreting nutrition content.
+A fresh Project `Питание` chat can continue from saved repository-backed Project Files cache, ask only missing/stale inputs, create/update menu/tracking/review outputs, and emit save cards for Codex without relying on hidden chat memory or manual giant packets.
 
 ## Validation method
 
-E1_EXECUTION_BRIEF defines the execution envelope, artifact surfaces, validators, and route. A later execution stage creates the package and runs the synthetic dry-runs. R1_GOAL_REVIEW_DISTILL may review completion only after dry-run evidence exists.
+E1 must plan the minimum execution route and validation map. Execution must later prove the acceptance tests through repository read-back, dry-runs, and Project Files refresh evidence before R1 can review parent Goal completion.
 
 ## Smallest testable slice
 
-One install-ready Project package plus three synthetic dry-runs plus save/read-back protocol. No live user diet, no actual menu deployment, no Project UI installation, and no required usage trial.
+First execution slice should establish the minimum state/protocol skeleton and prove:
 
-## Scope in
+- first-week bootstrap from empty/missing state;
+- later-week continuation from saved state.
 
-- Repaired standalone Project `Питание` v0 package.
-- Minimum complete v0 nutrition loop.
-- Strict role boundaries.
-- Strict repository folder/file structure.
-- Project Files set for the standalone ChatGPT Project.
-- Codex Save Operator protocol at policy level.
-- Dry-run acceptance floor.
-
-## Non-goals
-
-- Actual diet/menu generation for the user.
-- Installing/configuring the ChatGPT Project UI.
-- Running E1 inside G1.
-- Workflow-managed usage/trial goals.
-- Training/cardio/recovery integration.
-- Supplements, fasting, labs, or clinical nutrition research.
-- MacroFactor or heavy tracking as default.
-- Full food database/API automation.
-- Full body-transformation roadmap.
-
-## Constraints
-
-- Outcome-first; tooling supports the nutrition/body objective.
-- Standalone Project `Питание` usable outside Workflow.
-- Durable state outside chat history.
-- Low friction, but not cut below one usable loop.
-- No heavy calorie/macro ledger by default.
-- Sensitive nutrition/health data must stay scoped.
-
-## Escalation triggers
-
-- User wants live diet/menu generation during this Goal.
-- Project UI installation becomes part of this Goal.
-- Durable state root changes away from `directions/health-and-beauty/projects/nutrition/**`.
-- External app/tool binding becomes required.
-- Codex is asked to make nutrition decisions rather than save/read back approved state packets.
-- Project `Питание` starts depending on Workflow stage/goal/phase machinery.
+Menu generation alone is not sufficient.
 
 ## Map binding
 
@@ -135,21 +91,66 @@ One install-ready Project package plus three synthetic dry-runs plus save/read-b
 map_binding:
   initiative_id: body-transformation-20kg-strength-health
   node_or_edge: d_nutrition_loop_shape_and_tooling
-  expected_map_delta: "Active front advances from decision_required to implementation_goal_shaped_pending_E1."
-  why_this_goal_is_minimal: "It creates one complete low-friction nutrition operating loop with durable state, without expanding into training/cardio/recovery or full body-transformation planning."
-  why_not_premature_or_optional_expansion: "S3 selected Project `Питание` v0 as the repaired container; this Goal only makes that selected container executable and testable."
+  expected_map_delta: "Goal moves from stale blocked decision target to repaired implementation target pending E1."
+  why_this_goal_is_minimal: "It repairs the nutrition loop/state/tooling bottleneck without expanding into training/cardio/recovery/supplements or a full body-transformation roadmap."
+  why_not_premature_or_optional_expansion: "Nutrition loop persistence is the active blocker; broader health/fitness work remains parked until this loop is usable."
 ```
+
+## Proof statuses
+
+```yaml
+map_frontier_binding_status: inherited_and_sufficient
+next_action_proof_status: inherited_from_S3_and_G1_validated
+minimum_complete_outcome: "One complete repo-backed low-friction weekly nutrition loop."
+MSSP_status: proven_compact
+user_example_classification:
+  Project_Pitanie: explicit_selected_container_not_objective
+  GitHub_markdown_state: explicit_requirement
+  multi_chat_roles: explicit_selected_solution_shape
+  manual_giant_packets: anti_example
+  detailed_macro_calorie_ledger_default: constraint_rejected_for_default
+  training_cardio_recovery_supplements: deferred_out_of_current_goal
+```
+
+## Scope in
+
+- repo-backed state policy;
+- Project Files runtime-cache policy;
+- multi-chat role topology;
+- first-week vs later-week behavior;
+- Codex save-only boundary;
+- minimum protocol/state file targets for E1 to evaluate;
+- acceptance dry-runs and refresh reproducibility.
+
+## Non-goals
+
+- live diet/menu generation in G1;
+- actual nutrition prescription in G1;
+- implementation writes under `directions/health-and-beauty/projects/nutrition/**` in G1;
+- R1 closure;
+- Phase close;
+- MacroFactor/heavy tracker revival;
+- training/cardio/recovery/supplements/labs/fasting expansion;
+- manual giant state-packet workaround.
+
+## Route recommendation
+
+Next stage: `E1_EXECUTION_BRIEF`.
+
+E1 must create the minimum HOW, validation plan, Codex repository maintenance envelope, and any U1 handoff needed for ChatGPT Project UI setup. G1 must not execute implementation.
 
 ## Close path
 
-```text
-G1_GOAL_SHAPE formalized
--> repository maintenance apply/read-back and Project Files refresh
--> E1_EXECUTION_BRIEF
--> implementation/validation route selected by E1
--> package creation and dry-run evidence
--> R1_GOAL_REVIEW_DISTILL
-```
+`G1_GOAL_SHAPE -> E1_EXECUTION_BRIEF -> execution route selected by E1 -> R1_GOAL_REVIEW_DISTILL only after parent Goal completion evidence exists`.
+
+## Failure conditions
+
+- implementation depends on hidden chat memory;
+- user must paste giant state packets as normal workflow;
+- default path requires detailed macro/calorie ledger;
+- Project `Питание` is treated as the objective instead of a UI container;
+- files are created but fresh-chat continuation is not proven;
+- Codex mutates nutrition implementation files outside approved execution route.
 
 ## End-of-file marker
 
