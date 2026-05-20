@@ -14,7 +14,7 @@ Read when available:
 - `weeks/ACTIVE_WEEK_POINTER.md`
 - `weeks/current/NEXT_WEEK_INPUTS.md`
 
-If `GLOBAL_NUTRITION_PLAN` is missing or still pending Deep Research, stop and ask for Global Strategy completion or refresh.
+If `GLOBAL_NUTRITION_PLAN` is missing or still pending profile capture, Deep Research result, research synthesis, or user approval, stop and ask for Global Strategy completion or refresh.
 
 ## Start-of-Week Output
 

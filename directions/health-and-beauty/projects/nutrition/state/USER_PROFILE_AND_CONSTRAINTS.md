@@ -1,26 +1,22 @@
-# User Profile and Constraints
+# Legacy User Profile and Constraints
 
-Status: empty template
+Status: legacy compatibility only
 
-This file stores durable strategic inputs only. It is not a live plan.
+The canonical structured nutrition profile is:
+
+```text
+directions/health-and-beauty/projects/nutrition/state/USER_PROFILE_AND_CONSTRAINTS.yml
+```
+
+This `.md` file is retained only as legacy compatibility input if older Project Files still include it. Do not save new Global Strategy profile facts here.
 
 ```yaml
 user_profile_and_constraints:
   schema: user_profile_and_constraints.v1
-  profile_status: missing_user_input
-  goals:
-  health_constraints:
-  allergies_or_exclusions:
-  preferred_foods:
-  disliked_foods:
-  budget_or_store_constraints:
-  cooking_time_and_equipment:
-  schedule_constraints:
-  acceptable_strictness:
-  tracking_burden_preference: low
-  notes_for_deep_research:
+  profile_status: superseded_by_yml
+  canonical_file: state/USER_PROFILE_AND_CONSTRAINTS.yml
 ```
 
-Fresh chats may ask only for missing or stale fields needed by the selected mode.
+Fresh chats may use this file only to recover legacy hints, then propose updates to `state/USER_PROFILE_AND_CONSTRAINTS.yml`.
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/state/USER_PROFILE_AND_CONSTRAINTS.md

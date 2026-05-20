@@ -15,7 +15,7 @@ codex: save_only_repository_maintenance_writer
 
 ## Save Packet
 
-The Project may propose a save packet only after the user approves the content to preserve.
+The Project may propose a single-file or multi-file save packet only after the user approves the content to preserve. Multi-file packets must keep each artifact separate and list each target file explicitly.
 
 ```yaml
 nutrition_state_update_packet:
@@ -35,11 +35,23 @@ nutrition_state_update_packet:
 
 Codex may write only when `packet_status: approved_by_user`.
 
+Allowed Global Strategy artifact targets:
+
+```text
+state/USER_PROFILE_AND_CONSTRAINTS.yml
+research/DEEP_RESEARCH_REQUEST.md
+research/DEEP_RESEARCH_RESULT.md
+research/DEEP_RESEARCH_SYNTHESIS.md
+state/GLOBAL_NUTRITION_PLAN.md
+```
+
+The Project must not claim a save happened until Codex returns read-back and diff evidence for the changed files.
+
 ## Refresh After Save
 
 After Codex returns read-back/diff evidence:
 
-1. Refresh the changed files in ChatGPT Project Files from GitHub.
+1. Refresh exactly the changed files in ChatGPT Project Files from GitHub.
 2. Start a fresh chat with the relevant mode.
 3. Verify it resumes from the refreshed files, not hidden memory.
 

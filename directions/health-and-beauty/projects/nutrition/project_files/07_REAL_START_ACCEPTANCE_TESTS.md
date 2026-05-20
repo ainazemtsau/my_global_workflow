@@ -14,10 +14,29 @@ Prompt:
 
 Pass if:
 
-- collects strategic data;
-- creates `DEEP_RESEARCH_REQUEST`;
+- collects personal strategic data;
+- separates user profile from strategy;
+- proposes or updates `USER_PROFILE_AND_CONSTRAINTS.yml`;
+- creates detailed markdown `DEEP_RESEARCH_REQUEST.md`;
 - does not finalize `GLOBAL_NUTRITION_PLAN` before research;
-- does not generate menu.
+- does not generate menu;
+- does not output a generic plan.
+
+## Test 1B - Global Strategy After Research
+
+Prompt:
+
+```text
+Режим: Global Strategy Chat. Продолжаем после Deep Research.
+```
+
+Pass if:
+
+- preserves `DEEP_RESEARCH_RESULT.md`;
+- creates `DEEP_RESEARCH_SYNTHESIS.md`;
+- compares major diet, fasting, hydration, and behavior practices;
+- creates detailed user-specific `GLOBAL_NUTRITION_PLAN.md`;
+- requires user approval before save.
 
 ## Test 2 - Weekly Planning Start
 

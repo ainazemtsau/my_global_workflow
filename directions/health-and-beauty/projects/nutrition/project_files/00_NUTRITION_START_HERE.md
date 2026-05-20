@@ -7,7 +7,7 @@ Read this file first in every fresh Project `Питание` chat.
 ## Non-Negotiables
 
 - Use one explicit chat mode at a time.
-- GitHub markdown files are durable state.
+- GitHub files are durable state.
 - Project Files are a refreshable runtime cache.
 - Chat memory is non-authoritative.
 - No hidden memory as state.
@@ -21,6 +21,14 @@ If the user provides:
 
 ```text
 Режим: Global Strategy Chat. Первый запуск.
+```
+
+open `01_GLOBAL_STRATEGY_CHAT_PROTOCOL.md`.
+
+If the user provides:
+
+```text
+Режим: Global Strategy Chat. Продолжаем после Deep Research.
 ```
 
 open `01_GLOBAL_STRATEGY_CHAT_PROTOCOL.md`.
@@ -63,10 +71,16 @@ If no mode is clear, ask for mode selection. Do not infer one all-purpose chat.
 
 ```yaml
 global_strategy:
-  file: state/GLOBAL_NUTRITION_PLAN.md
-  first_setup_status: pending_DEEP_RESEARCH_REQUEST
+  profile: state/USER_PROFILE_AND_CONSTRAINTS.yml
+  legacy_profile_md: state/USER_PROFILE_AND_CONSTRAINTS.md
+  legacy_profile_md_policy: compatibility_only_if_present
+  research_request: research/DEEP_RESEARCH_REQUEST.md
+  research_result: research/DEEP_RESEARCH_RESULT.md
+  research_synthesis: research/DEEP_RESEARCH_SYNTHESIS.md
+  global_plan: state/GLOBAL_NUTRITION_PLAN.md
+  first_setup_status: pending_profile_and_DEEP_RESEARCH_REQUEST
 profile:
-  file: state/USER_PROFILE_AND_CONSTRAINTS.md
+  file: state/USER_PROFILE_AND_CONSTRAINTS.yml
 history:
   file: state/NUTRITION_HISTORY.md
 metrics:
@@ -80,12 +94,16 @@ active_week:
   next_inputs: weeks/current/NEXT_WEEK_INPUTS.md
 ```
 
+Global Strategy Chat must keep profile facts, research request, research result, research synthesis, and final approved plan as separate artifacts. Do not substitute `state/USER_PROFILE_AND_CONSTRAINTS.md` for the canonical `.yml` profile except as legacy compatibility input.
+
 ## Missing State Rule
 
 If required state is missing:
 
 1. Name the exact missing file.
-2. Ask for Project Files refresh from GitHub or for the minimum input needed to create only that file.
-3. Do not reconstruct missing state from chat memory.
+2. If the file should already exist in GitHub, ask for Project Files refresh from GitHub and list exactly that file.
+3. If the file must be created, ask for the minimum input needed to create only that file and propose a save packet for that exact path.
+4. For Global Strategy missing files, use these exact targets: `state/USER_PROFILE_AND_CONSTRAINTS.yml`, `research/DEEP_RESEARCH_REQUEST.md`, `research/DEEP_RESEARCH_RESULT.md`, `research/DEEP_RESEARCH_SYNTHESIS.md`, and `state/GLOBAL_NUTRITION_PLAN.md`.
+5. Do not reconstruct missing state from chat memory.
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/project_files/00_NUTRITION_START_HERE.md

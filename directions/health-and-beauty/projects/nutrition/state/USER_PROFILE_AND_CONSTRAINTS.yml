@@ -1,0 +1,74 @@
+user_profile_and_constraints:
+  schema: user_profile_and_constraints.v1
+  status: pending_or_partial
+  source_policy:
+    chat_memory_is_authoritative: false
+    github_file_is_durable_state: true
+    do_not_invent_unknowns: true
+
+  identity_and_body:
+    age: unknown
+    sex: unknown
+    height_cm: unknown
+    weight_kg: unknown
+    waist_cm: unknown
+    body_composition_notes: unknown
+
+  goals:
+    primary_goal: unknown
+    secondary_goals: []
+    target_weight_or_body_composition: unknown
+    timeline_pressure: unknown
+
+  training_and_activity:
+    strength_training: unknown
+    cardio: unknown
+    steps_or_daily_activity: unknown
+    recovery_capacity: unknown
+
+  schedule_and_lifestyle:
+    wake_time: unknown
+    sleep_schedule: unknown
+    work_context: unknown
+    cognitive_load: unknown
+    meal_timing_reality: unknown
+
+  appetite_and_behavior:
+    hunger_pattern: unknown
+    cravings: unknown
+    snacking_pattern: unknown
+    binge_or_compulsive_risk_notes: []
+    problem_foods: []
+
+  food_preferences_and_environment:
+    liked_foods: []
+    disliked_foods: []
+    dietary_exclusions: []
+    allergies_or_intolerances: []
+    cooking_tolerance: unknown
+    budget_context: unknown
+    food_availability_context: unknown
+
+  equipment:
+    kitchen_tools: []
+    storage_and_prep_tools: []
+
+  tracking_tolerance:
+    calorie_tracking: unknown
+    macro_tracking: unknown
+    chat_tracking: unknown
+    acceptable_daily_burden: unknown
+
+  medical_and_safety:
+    medications: unknown
+    blood_pressure: unknown
+    glucose_or_diabetes_context: unknown
+    kidney_context: unknown
+    gi_context: unknown
+    sleep_apnea_signs: unknown
+    recent_labs: unknown
+    clinician_involvement: unknown
+
+  known_unknowns: []
+  useful_later_questions: []
+  last_updated: unknown

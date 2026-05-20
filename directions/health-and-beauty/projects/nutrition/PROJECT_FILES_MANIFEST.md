@@ -30,8 +30,11 @@ directions/health-and-beauty/projects/nutrition/project_files/07_REAL_START_ACCE
 Durable state cache copied from GitHub:
 
 ```text
+directions/health-and-beauty/projects/nutrition/state/USER_PROFILE_AND_CONSTRAINTS.yml
+directions/health-and-beauty/projects/nutrition/research/DEEP_RESEARCH_REQUEST.md
+directions/health-and-beauty/projects/nutrition/research/DEEP_RESEARCH_RESULT.md
+directions/health-and-beauty/projects/nutrition/research/DEEP_RESEARCH_SYNTHESIS.md
 directions/health-and-beauty/projects/nutrition/state/GLOBAL_NUTRITION_PLAN.md
-directions/health-and-beauty/projects/nutrition/state/USER_PROFILE_AND_CONSTRAINTS.md
 directions/health-and-beauty/projects/nutrition/state/NUTRITION_HISTORY.md
 directions/health-and-beauty/projects/nutrition/state/PROGRESS_METRICS.md
 directions/health-and-beauty/projects/nutrition/weeks/ACTIVE_WEEK_POINTER.md
@@ -67,9 +70,10 @@ directions/health-and-beauty/projects/nutrition/state/ACTIVE_WEEK_MENU.md
 directions/health-and-beauty/projects/nutrition/state/CURRENT_NUTRITION_PLAN.md
 directions/health-and-beauty/projects/nutrition/state/REVIEW_AND_NEXT_WEEK.md
 directions/health-and-beauty/projects/nutrition/state/USER_NUTRITION_BASELINE.md
+directions/health-and-beauty/projects/nutrition/state/USER_PROFILE_AND_CONSTRAINTS.md
 directions/health-and-beauty/projects/nutrition/state/WEEK_TRACKING_REPORT.md
 ```
 
-Those files are superseded compatibility stubs if still present.
+Those files are superseded compatibility stubs if still present. `state/USER_PROFILE_AND_CONSTRAINTS.md` is legacy compatibility input only; the canonical structured profile is `state/USER_PROFILE_AND_CONSTRAINTS.yml`.
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/PROJECT_FILES_MANIFEST.md

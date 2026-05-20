@@ -10,7 +10,25 @@ Use these launchers exactly enough to select the correct mode. Do not paste gian
 Режим: Global Strategy Chat. Первый запуск.
 ```
 
-Expected output: strategic intake questions and `DEEP_RESEARCH_REQUEST`, not final plan or menu.
+Expected output:
+
+- strategic intake;
+- proposed `USER_PROFILE_AND_CONSTRAINTS.yml`;
+- proposed `DEEP_RESEARCH_REQUEST.md`;
+- no final plan before research.
+
+## Global Strategy After Research
+
+```text
+Режим: Global Strategy Chat. Продолжаем после Deep Research.
+```
+
+Expected output:
+
+- proposed `DEEP_RESEARCH_RESULT.md`;
+- `DEEP_RESEARCH_SYNTHESIS.md`;
+- proposed `GLOBAL_NUTRITION_PLAN.md`;
+- user approval request before save.
 
 ## Weekly Planning Start
 

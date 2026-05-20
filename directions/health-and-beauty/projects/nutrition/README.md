@@ -10,7 +10,7 @@ It is not a live diet, not a menu prescription, and not clinical nutrition advic
 
 ```yaml
 source_of_truth:
-  durable_state: GitHub markdown files in directions/health-and-beauty/projects/nutrition/
+  durable_state: GitHub files in directions/health-and-beauty/projects/nutrition/
   chatgpt_project_files: refreshable runtime cache copied from GitHub
   chat_memory: non_authoritative
   codex: save_only_repository_maintenance_writer
@@ -18,7 +18,7 @@ source_of_truth:
 
 Project `Питание` uses separate chats for separate jobs:
 
-- Global Strategy Chat: first setup or rare strategy rebuild only; must create `DEEP_RESEARCH_REQUEST` before any final global plan.
+- Global Strategy Chat: first setup or rare strategy rebuild only; must keep `USER_PROFILE_AND_CONSTRAINTS.yml`, `DEEP_RESEARCH_REQUEST.md`, `DEEP_RESEARCH_RESULT.md`, `DEEP_RESEARCH_SYNTHESIS.md`, and the approved `GLOBAL_NUTRITION_PLAN.md` separate.
 - Weekly Planning Chat: one week only; creates `WEEKLY_PLAN` and later closes the week from `WEEK_TRACKING_REPORT`.
 - Menu Chat: one week only; requires `WEEKLY_PLAN` and creates `ACTIVE_WEEK_MENU`, shopping list, and prep plan.
 - Tracking Chat: one week only; requires `WEEKLY_PLAN` and `ACTIVE_WEEK_MENU`; creates `WEEK_TRACKING_REPORT` at week end.

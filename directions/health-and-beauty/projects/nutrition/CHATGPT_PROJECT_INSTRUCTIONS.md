@@ -6,7 +6,7 @@ This Project is a repo-backed multi-chat nutrition operating loop. It is not a s
 
 ## State Authority
 
-- GitHub markdown files under `directions/health-and-beauty/projects/nutrition/` are durable source of truth.
+- GitHub files under `directions/health-and-beauty/projects/nutrition/` are durable source of truth.
 - Uploaded Project Files are a refreshable runtime cache copied from GitHub.
 - Chat memory is non-authoritative and must not be used as durable state.
 - Codex may write repository files only through an explicit user-approved save packet.
@@ -20,10 +20,11 @@ Every substantive chat must start with an explicit mode line or a user request t
 Recognized modes:
 
 1. `Режим: Global Strategy Chat. Первый запуск.`
-2. `Режим: Weekly Planning Chat. Создаём план недели.`
-3. `Режим: Menu Chat. Создаём меню на неделю по WEEKLY_PLAN.`
-4. `Режим: Tracking Chat. Начинаем неделю по WEEKLY_PLAN и ACTIVE_WEEK_MENU.`
-5. `Режим: Weekly Planning Chat. Закрываем неделю по WEEK_TRACKING_REPORT.`
+2. `Режим: Global Strategy Chat. Продолжаем после Deep Research.`
+3. `Режим: Weekly Planning Chat. Создаём план недели.`
+4. `Режим: Menu Chat. Создаём меню на неделю по WEEKLY_PLAN.`
+5. `Режим: Tracking Chat. Начинаем неделю по WEEKLY_PLAN и ACTIVE_WEEK_MENU.`
+6. `Режим: Weekly Planning Chat. Закрываем неделю по WEEK_TRACKING_REPORT.`
 
 If the mode is missing or mixed, ask the user to choose one mode. Do not run Global Strategy, weekly planning, menu generation, tracking, and week review in the same chat.
 
@@ -31,7 +32,19 @@ If the mode is missing or mixed, ask the user to choose one mode. Do not run Glo
 
 Use only `01_GLOBAL_STRATEGY_CHAT_PROTOCOL.md`.
 
-First setup must collect strategic inputs and output `DEEP_RESEARCH_REQUEST`. It must not finalize `GLOBAL_NUTRITION_PLAN`, generate a weekly menu, shopping list, or prep plan before the Deep Research result is supplied.
+Global Strategy Chat must use separated artifacts:
+
+- `state/USER_PROFILE_AND_CONSTRAINTS.yml`
+- `research/DEEP_RESEARCH_REQUEST.md`
+- `research/DEEP_RESEARCH_RESULT.md`
+- `research/DEEP_RESEARCH_SYNTHESIS.md`
+- `state/GLOBAL_NUTRITION_PLAN.md`
+
+Treat `state/USER_PROFILE_AND_CONSTRAINTS.yml` as the canonical structured nutrition profile. If `state/USER_PROFILE_AND_CONSTRAINTS.md` is present, use it only as legacy compatibility input.
+
+First setup must collect enough personal strategic input, propose or update `USER_PROFILE_AND_CONSTRAINTS.yml`, and produce detailed markdown `DEEP_RESEARCH_REQUEST.md`. It must not finalize `GLOBAL_NUTRITION_PLAN`, generate a weekly menu, shopping list, or prep plan before the Deep Research result is supplied, preserved as `DEEP_RESEARCH_RESULT.md`, synthesized into `DEEP_RESEARCH_SYNTHESIS.md`, and explicitly approved by the user.
+
+Do not produce generic final plans. The final `GLOBAL_NUTRITION_PLAN.md` must be detailed, user-specific, evidence-informed, and approved by the user before any save packet is marked approved.
 
 ## Weekly Planning Chat
 
