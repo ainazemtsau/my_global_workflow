@@ -112,6 +112,36 @@ execution_log_entry:
     - project_files_refresh_reproducibility
 ```
 
+## 2026-05-20 — E1_EXECUTION_BRIEF formalized
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  stage_id: E1_EXECUTION_BRIEF
+  stage_name: Execution Brief
+  direction: directions/health-and-beauty
+  phase_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer
+  goal_id: nutrition-project-operational-setup-v0
+  return_state: DONE
+  selected_route: C1_CODEX_GRAPH_PLAN
+  execution_topology: codex_graph
+  repository_patch_requirement: "record E1 brief only"
+  execution_brief_path: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/02_EXECUTION_BRIEF.md
+  parent_goal_completion_state: incomplete
+  scope_preservation:
+    in_scope:
+      - repo-backed nutrition state/protocol loop
+      - Project Files runtime-cache policy
+      - Codex save-only boundary
+      - dry-run acceptance
+    out_of_scope:
+      - live diet/menu generation
+      - implementation writes during E1
+      - MacroFactor/heavy tracker revival
+      - training/cardio/recovery/supplements expansion
+  next_stage: C1_CODEX_GRAPH_PLAN
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/execution_log.md`
