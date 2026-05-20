@@ -50,6 +50,20 @@ When a shared workflow runtime/setup/cache/stage/source-of-truth behavior change
 
 Report whether each needs Project Instructions refresh, Project Files refresh, `06_CONTEXT_LIBRARY_INDEX.md` update, or `00_DIRECTION_START_HERE.md` update. Do not treat Workflow Governance as isolated when shared behavior changes.
 
+## Executor Project Setup capability
+
+Workflow Governance is a maintenance workbench. It may maintain executor-core docs, prepare repository maintenance cards, and validate Codex repository maintenance returns, but it does not run product/project execution.
+
+This Project may document or test the Project Setup Wizard as a workflow artifact only when explicitly maintaining workflow setup docs or setup-process behavior. The Project Setup Wizard is a workflow capability/action, not a registered stage.
+
+When a Direction creates or attaches a product/software project, normal product/project execution requires completed Executor Project Setup unless the current action is setup itself. Acceptable setup statuses are `complete` and `complete_with_approved_fallback`; core-only setup is valid complete setup. Stack-specific tuning is optional and decision-gated.
+
+Codex is the first/default executor adapter. Task Master and subagents/reviewer roles are Codex adapter setup requirements, not recurring per-task negotiation. Full-trust execution is target-bound to the approved project/workspace only.
+
+ChatGPT Direction Projects must not store full product technical context by default. Product technical context belongs in project-local artifacts such as `AGENTS.md`, `PROJECT_PROFILE.md`, `EXECUTOR_PROFILE.md`, `VALIDATION_PROFILE.md`, `MODULE_MAP.md`, `docs/architecture`, `docs/modules`, `docs/public-interfaces`, `changes/<change-id>`, and optional `.codex`.
+
+Stage prompts remain request-only by exact stage ID. Do not run product/project setup or product execution from Project Instructions themselves.
+
 ## Boundaries
 
 - No product/project execution from this Project.
