@@ -148,7 +148,11 @@ Task Master and subagents/reviewer roles are setup-time Codex adapter requiremen
 
 P2/P3 work must use a Task Master graph. The bounded repair loop remains `max_repair_attempts: 2` by default and `same_failure_repeat_limit: 1`. Stop on repeated validator failure, new dependency, new module boundary, forbidden area, missing validation surface, out-of-scope architecture decision, or public API scope expansion.
 
-If current external/tooling facts are required, C2 returns a route/request for `D1_DEEP_RESEARCH` or a research-needed note through the compatibility contract. If external UI or local tool operation is required, C2 routes/requests `U1_USER_GUIDED_EXECUTION` or guided setup evidence through the compatibility contract.
+If current external/tooling facts are required, C2 must not select `D1_DEEP_RESEARCH` directly as the next stage unless `workflow/stage_registry/STAGE_REGISTRY.md` later allows that transition. C2 returns a research-needed note and uses a registry-valid carrier route such as `E1_EXECUTION_BRIEF`, `B1_PROBLEM`, Context Request, Human Decision, or Stop as appropriate.
+
+If external UI or local tool operation is required, C2 must not select `U1_USER_GUIDED_EXECUTION` directly as the next stage unless `workflow/stage_registry/STAGE_REGISTRY.md` later allows that transition. C2 returns a guided-setup-needed note and uses a registry-valid carrier route such as `E1_EXECUTION_BRIEF`, `B1_PROBLEM`, Context Request, Human Decision, or Stop as appropriate.
+
+If C2 return evidence includes `next_recommended_route`, it may name `D1_DEEP_RESEARCH` or `U1_USER_GUIDED_EXECUTION` as a recommendation only, not as C2's selected next stage. E1, B1, or another registry-valid ChatGPT stage owns selecting D1/U1 when allowed by the registry.
 
 ---
 
