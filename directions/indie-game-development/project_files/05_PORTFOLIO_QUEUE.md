@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_H1_G2_acceptance_pending_m0_review
+projection_status: fresh_after_m0_H1_G3_selected_pending_g1_goal_shape
 activated_at: "2026-05-13"
 ```
 
@@ -17,7 +17,7 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
 - Active Phase name: `Core Co-op Technical Foundation Selection`
-- Active Phase status: `active_H1_G2_r1_accepted_pending_M0_active_front_review`
+- Active Phase status: `active_H1_G3_selected_pending_G1_goal_shape`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
 - Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
@@ -27,7 +27,7 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 - Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `M0_DIRECTION_MAP`
+- Next route: `G1_GOAL_SHAPE`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -77,7 +77,7 @@ Required foundation surface:
 
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
-- Expedition Project Bootstrap / Tool Binding Readiness — `candidate_for_M0_active_front_review`; route: request-only until M0 selects
+- Expedition Project Bootstrap / Tool Binding Readiness — `selected_for_G1_goal_shape_by_M0`; route: `G1_GOAL_SHAPE`
 - Durable Technical Nucleus Implementation — request-only until selected by a vNext-R stage result
 - Expedition System Synergy Research Pack — request-only until selected by a vNext-R stage result
 - Expedition Durable Skeleton Documentation Promotion — request-only until selected by a vNext-R stage result
@@ -181,9 +181,26 @@ Still request-only / blocked until selected by later lifecycle route:
 
 H1_G2 is accepted as complete.
 
-Current queue transition:
+Current queue transition after R1:
 - next route: `M0_DIRECTION_MAP`;
 - likely candidate for review: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`;
 - still blocked until later route: Unity bootstrap, durable technical nucleus implementation,
   Codex product/project execution, Task Master graph creation, real internal tool setup,
   and Game Documentation promotion.
+
+## Queue update after M0 active-front review
+
+M0 selected:
+
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Queue status:
+
+- `H1_G2_codex_development_operating_model_and_architecture_protocols`: `r1_accepted_goal_complete`
+- `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`: `selected_for_G1_goal_shape_by_M0`
+
+Next route:
+
+`G1_GOAL_SHAPE`
+
+H1_G3 must be shaped before any Unity bootstrap, product repository creation, implementation, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, or Game Documentation promotion.

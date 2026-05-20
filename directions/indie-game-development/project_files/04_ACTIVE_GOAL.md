@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_r1_H1_G2_acceptance_pending_m0_review
+  source_freshness: active_git_file_after_m0_H1_G3_selected_pending_g1_goal_shape
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,7 +16,7 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: r1_accepted_goal_complete
+  state: r1_accepted_goal_complete_next_frontier_selected
   goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
   goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
   goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols"
@@ -33,8 +33,8 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: M0_DIRECTION_MAP
-  next_route_mode: active_front_review_after_H1_G2_acceptance
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   review_scope: r1_goal_review_distill_completed_verified
   completion_scope: parent_goal_complete
   parent_goal_completion_state: complete
@@ -46,10 +46,10 @@ active_goal:
   next_goal_seed:
     id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
     title: "Review/select project bootstrap, tool-binding, and validation-scene readiness as next frontier candidate"
-    recommended_next_stage: M0_DIRECTION_MAP
+    recommended_next_stage: G1_GOAL_SHAPE
     map_binding: H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
     implementation_allowed_now: false
-    candidate_only_until_M0: true
+    candidate_only_until_M0: false
 ```
 
 ```yaml
@@ -130,8 +130,8 @@ Accepted result: Gas Coop Game Project Execution Profile accepted as minimal pro
 active_goal_snapshot:
   goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
   status: r1_accepted_goal_complete
-  next_route: M0_DIRECTION_MAP
-  next_route_mode: active_front_review_after_H1_G2_acceptance
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   purpose: >
     H1_G2 is accepted as the minimal Gas Coop Game project execution
     profile/addendum. M0 must review the active frontier before selecting
@@ -219,5 +219,39 @@ Accepted artifact:
 
 `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
 
-The active frontier must be reviewed by `M0_DIRECTION_MAP` before selecting H1_G3,
+The active frontier was reviewed by `M0_DIRECTION_MAP`; H1_G3 is selected for `G1_GOAL_SHAPE` before selecting
 P9, G0, E1, bootstrap, or implementation.
+
+## 2026-05-20 M0 active-front review result
+
+H1_G2 remains the last completed Goal:
+
+`H1_G2_codex_development_operating_model_and_architecture_protocols`
+
+Status:
+
+`r1_accepted_goal_complete`
+
+M0 selected the next frontier seed:
+
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Recommended next stage:
+
+`G1_GOAL_SHAPE`
+
+H1_G3 is not yet an active shaped Goal. It is the selected next Goal seed pending G1.
+
+Still forbidden until a later basis-valid route:
+
+- Unity bootstrap;
+- product repository creation;
+- implementation;
+- product code;
+- Codex product/project execution;
+- Task Master graph creation;
+- real internal tool setup;
+- Unity MCP installation/configuration;
+- old-code transfer;
+- old-code audit as starting point;
+- Game Documentation promotion.

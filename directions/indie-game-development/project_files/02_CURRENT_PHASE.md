@@ -9,7 +9,7 @@ project_file_control:
     - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
     - "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_r1_H1_G2_acceptance_pending_m0_review
+  source_freshness: active_git_file_after_m0_H1_G3_selected_pending_g1_goal_shape
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -36,8 +36,8 @@ current_phase:
     current_gate: H1_G1_core_technical_foundation_decision_brief
     required_inside_current_gate_or_next_gate:
       - H1_G2_codex_development_operating_model_and_architecture_protocols
-  next_route: M0_DIRECTION_MAP
-  next_route_mode: active_front_review_after_H1_G2_acceptance
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
   last_completed_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
   last_completed_goal_result: r1_accepted_goal_complete
@@ -58,21 +58,21 @@ active_goal_projection:
   accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/00_GOAL_CONTRACT.md"
-  recommended_next_stage: M0_DIRECTION_MAP
-  review_scope: active_front_review_after_H1_G2_acceptance
+  recommended_next_stage: G1_GOAL_SHAPE
+  review_scope: m0_active_front_review_completed_H1_G3_selected
   completion_scope: parent_goal_complete
   next_goal_candidate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  goal_shape_note: "R1 accepted H1_G2 as a minimal profile/addendum; M0 must review the active frontier before selecting H1_G3 or another route."
+  goal_shape_note: "M0 reviewed the active frontier after H1_G2 acceptance and selected H1_G3 as the next Goal-shaping target."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
   implementation_allowed_now: false
 ```
 
 ```yaml
 phase_progress_gate_after_r1_H1_G2_acceptance:
-  result: active_front_review_needed
+  result: active_front_review_completed_H1_G3_selected
   p9_allowed_now: false
-  next_route: M0_DIRECTION_MAP
-  reason: "H1_G2 accepted; active front must be reviewed before H1_G3, P9, G0, E1, bootstrap, or implementation."
+  next_route: G1_GOAL_SHAPE
+  reason: "H1_G2 accepted; M0 reviewed the active front and selected H1_G3 for G1 goal shaping. P9, E1, bootstrap, and implementation remain premature."
 ```
 
 ```yaml
@@ -109,7 +109,7 @@ phase_closure_contract_status_update:
 
 - Active Phase unresolved: `no`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Phase route state: `active_H1_G2_r1_accepted_pending_M0_active_front_review`
+- Active Phase route state: `active_H1_G3_selected_pending_G1_goal_shape`
 - Active Goal unresolved: `no`
 - Active Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
 - Active Goal status: `r1_accepted_goal_complete`
@@ -172,7 +172,7 @@ Historical next route after M0 Objective Architecture migration: `G1_GOAL_SHAPE`
 
 Historical next route after G1 H1_G2 formalization: `A1_AUDIT`.
 
-Current next route after R1 H1_G2 acceptance: `M0_DIRECTION_MAP`.
+Current next route after M0 active-front review: `G1_GOAL_SHAPE`.
 
 ## 2026-05-20 R1 H1_G2 acceptance
 
@@ -184,3 +184,23 @@ Phase Progress Gate result: `active_front_review_needed`.
 P9 is not launched. M0 must review the active frontier before selecting
 H1_G3 bootstrap/tool-binding/validation-scene readiness, P9, G0, E1,
 or any material execution route.
+
+## 2026-05-20 M0 active-front review
+
+M0 completed the active-front review after R1 H1_G2 acceptance.
+
+Phase status after M0:
+
+`active_H1_G3_selected_pending_G1_goal_shape`
+
+Selected next node:
+
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+
+Selected next route:
+
+`G1_GOAL_SHAPE`
+
+Phase closure is still premature. P9 is not launched.
+
+H1_G3 must be shaped before any Unity bootstrap, product repository creation, E1 execution planning, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP installation, or implementation work.

@@ -103,6 +103,55 @@ documentation_gate_status: repository_projection_refresh_required
 changed_files_context_refresh_required: true
 ```
 
+## 2026-05-20 — M0_DIRECTION_MAP active-front review
+
+```yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+log_type: stage_execution
+stage_id: M0_DIRECTION_MAP
+direction:
+  id: indie_game_development
+  name: Indie Game Development
+phase:
+  id: core-coop-technical-foundation-selection
+  name: Core Co-op Technical Foundation Selection
+completed_goal:
+  id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  status: r1_accepted_goal_complete
+  accepted_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
+input_basis:
+  previous_stage: R1_GOAL_REVIEW_DISTILL
+  previous_result: completed_verified
+  review_reason: >
+    H1_G2 acceptance changed the active frontier. M0 had to decide whether
+    H1_G3, P9, G0, E1, bootstrap, implementation, or another route was basis-valid.
+result: active_front_review_completed
+selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+selected_next_stage: G1_GOAL_SHAPE
+selected_next_mode: shape_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+rejected_routes:
+  - route: P9_PHASE_CLOSE
+    reason: "Premature while H1_G3 is the smallest active-front continuation."
+  - route: G0_GOAL_SELECT
+    reason: "Unnecessary because M0 selected the concrete next node."
+  - route: E1_EXECUTION_BRIEF
+    reason: "Premature before H1_G3 Goal Contract exists."
+  - route: direct_bootstrap_or_implementation
+    reason: "Explicitly forbidden until later basis-valid route."
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+unity_bootstrap_allowed_now: false
+product_repo_creation_allowed_now: false
+task_master_graph_allowed_now: false
+unity_mcp_allowed_now: false
+old_code_transfer_allowed_now: false
+game_documentation_promotion_allowed_now: false
+changed_files_context_refresh_required: true
+next_launch_card_ref: G1_GOAL_SHAPE_after_M0_H1_G3_selection
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md`
