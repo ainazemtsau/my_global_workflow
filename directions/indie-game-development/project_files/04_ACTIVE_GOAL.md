@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p9_core_coop_technical_foundation_selection_closed
+  source_freshness: fresh_after_p0_project_bootstrap_validation_surface_setup_started
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,38 +16,39 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: closed_with_phase
-  goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  goal_title: "Сформировать readiness-пакет для project bootstrap, tool-binding и validation scenes первого technical nucleus"
-  goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness"
-  goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
-  status: r1_accepted_goal_complete
-  previous_active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
-  previous_active_goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
+  state: none_active_pending_G1_goal_shape
+  active_goal_state: none_active_pending_G1_goal_shape
+  goal_id: none_active_pending_G1_goal_shape
+  active_goal_id: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: bootstrap-validation-surface-setup-envelope
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
+  status: none_active_pending_G1_goal_shape
+  previous_active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  previous_active_goal_title: "Сформировать readiness-пакет для project bootstrap, tool-binding и validation scenes первого technical nucleus"
   previous_active_goal_result: r1_accepted_goal_complete
-  previous_active_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
-  previous_active_goal_execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/execution_log.md"
+  previous_active_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+  previous_active_goal_execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
   last_completed_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   last_completed_goal_result: r1_accepted_goal_complete
   previous_goal_superseded: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
-  phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
+  previous_phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: P0_PHASE_START
-  next_route_mode: start_next_phase_after_phase_close
-  review_scope: r1_H1_G3_readiness_packet_accepted
-  completion_scope: parent_goal_complete
-  parent_goal_completion_state: complete
-  accepted_result: "Readiness packet for project bootstrap, tool-binding, and validation-scene readiness."
-  smallest_useful_result: "Accepted readiness packet for project bootstrap, tool-binding, and validation-scene readiness."
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_bootstrap_validation_surface_setup_envelope
+  review_scope: none_active_pending_G1_goal_shape
+  completion_scope: none_active_pending_G1_goal_shape
+  accepted_result: "No active Goal yet; P0 selected the first Goal candidate for G1 shaping."
+  smallest_useful_result: "G1-shaped setup/validation envelope Goal Contract."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
   task_master_graph_allowed_now: false
-  next_goal_seed: none_after_phase_close
-  note: "P0/G0/G1 must select any new Goal later; P9 does not select a next Goal."
+  unity_mcp_setup_allowed_now: false
+  next_goal_seed: bootstrap-validation-surface-setup-envelope
+  note: "P0 selected the setup/validation envelope seed; G1 must shape it before any setup or product execution."
 ```
 
 ```yaml
@@ -96,25 +97,21 @@ previous_active_goal:
 
 Active Goal:
 
-`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+`none_active_pending_G1_goal_shape`
+
+Selected first Goal candidate:
+
+`bootstrap-validation-surface-setup-envelope`
 
 Status:
 
-`r1_accepted_goal_complete`
-
-Goal contract:
-
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md`
-
-Execution log:
-
-`directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
+`selected_for_G1_goal_shape`
 
 Next route:
 
-`P0_PHASE_START`
+`G1_GOAL_SHAPE`
 
-Implementation, Unity bootstrap, Codex product/project execution, and Task Master graph creation are not authorized now.
+Implementation, Unity bootstrap, Codex product/project execution, Unity MCP setup, and Task Master graph creation are not authorized now.
 
 Last completed Goal:
 
@@ -327,3 +324,24 @@ task_master_graph_allowed_now: false
 ```
 
 H1_G3 is preserved as last completed Goal evidence, not active work.
+
+## 2026-05-21 P0 selected first Goal candidate
+
+```yaml
+p0_selected_first_goal_candidate:
+  active_goal_state: none_active_pending_G1_goal_shape
+  active_goal_id: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: bootstrap-validation-surface-setup-envelope
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_bootstrap_validation_surface_setup_envelope
+  last_completed_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  last_completed_goal_result: r1_accepted_goal_complete
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  task_master_graph_allowed_now: false
+```
+
+G1 must shape the first Goal candidate into a Goal Contract before any bootstrap, setup, product repository creation, product code, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, or Game Documentation promotion.
