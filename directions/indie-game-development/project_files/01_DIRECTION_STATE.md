@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
+  source_freshness: active_git_file_after_r1_H1_G3_readiness_packet_accepted_pending_p9_phase_close
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -23,6 +23,7 @@ direction:
   current_initiative_from_map: innovative-commercial-expedition-gas-sim-game
   active_horizon_from_map: H1_playable_technical_nucleus
   current_phase_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
+  current_phase_status: active_H1_G3_r1_accepted_pending_P9_phase_close
   active_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness"
   active_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
@@ -34,13 +35,18 @@ direction:
   previous_active_phase_status: paused_superseded_not_closed
   previous_active_goal_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief"
   previous_active_goal_status: paused_superseded_partial_progress_not_accepted
-  last_completed_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols"
+  last_completed_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness"
   last_completed_goal_result: r1_accepted_goal_complete
-  accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
-  active_goal_status: goal_shaped_pending_E1_execution_brief
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  last_updated: "2026-05-20"
+  accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+  accepted_product_local_artifacts:
+    - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\outbox\\H1_G3_READINESS_PACKET.md"
+    - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\evidence\\h1-g3-readiness-2026-05-21.md"
+  active_goal_status: r1_accepted_goal_complete
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_core_coop_technical_foundation_selection_after_H1_G3_acceptance
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  last_updated: "2026-05-21"
 ```
 
 ## Purpose / thesis
@@ -69,7 +75,7 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Core Co-op Technical Foundation Selection`
 - Path: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
-- Status: `active_H1_G3_goal_shaped_pending_E1_execution_brief`
+- Status: `active_H1_G3_r1_accepted_pending_P9_phase_close`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
@@ -78,13 +84,13 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Minimum Outcome: accepted or review-routed `Core Technical Foundation Decision Brief / Decision Map`.
 - Validation Signal: the next workflow state can choose R1 review, A1 audit, D1 research, S3 decision, or E1 execution planning without guessing and without premature implementation.
 - Active Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
-- Active Goal status: `goal_shaped_pending_E1_execution_brief`
-- Last completed Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Active Goal status: `r1_accepted_goal_complete`
+- Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 - Last completed Goal status: `r1_accepted_goal_complete`
-- Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+- Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`; old Grid/Gas material is reference/evidence only until requirements are clear.
-- Next route: `E1_EXECUTION_BRIEF`
+- Next route: `P9_PHASE_CLOSE`
 
 ## Previous active Phase / Goal
 
@@ -108,13 +114,13 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `requires_refresh_after_g1_H1_G3_formalization_2026-05-20`
-- Required refresh: `before E1_EXECUTION_BRIEF after G1 H1_G3 formalization repository maintenance read-back`
-- Current route: `E1_EXECUTION_BRIEF`
+- Last refresh: `requires_refresh_after_r1_H1_G3_readiness_acceptance_2026-05-21`
+- Required refresh: `before P9_PHASE_CLOSE after R1 H1_G3 readiness acceptance repository maintenance read-back`
+- Current route: `P9_PHASE_CLOSE`
 - Active Phase: `Core Co-op Technical Foundation Selection`
 - Active Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
-- Active Goal status: `goal_shaped_pending_E1_execution_brief`
-- Last completed Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Active Goal status: `r1_accepted_goal_complete`
+- Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Direction Map status: `initialized`
@@ -272,3 +278,22 @@ Still not authorized:
 - old-code transfer;
 - old-code audit as starting point;
 - Game Documentation promotion.
+
+## 2026-05-21 R1 accepted H1_G3 readiness packet
+
+```yaml
+r1_H1_G3_readiness_packet_acceptance:
+  current_phase_status: active_H1_G3_r1_accepted_pending_P9_phase_close
+  active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  active_goal_status: r1_accepted_goal_complete
+  last_completed_goal_pointer: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness"
+  last_completed_goal_result: r1_accepted_goal_complete
+  next_route: P9_PHASE_CLOSE
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  project_files_cache_refresh_required_before_P9: true
+summary: >
+  R1 accepted the H1_G3 readiness packet as complete. Phase close is now the
+  next lifecycle route; implementation/bootstrap remains blocked until a later
+  Phase/Goal/E1/X1 route.
+```

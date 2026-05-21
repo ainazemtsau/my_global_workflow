@@ -5,7 +5,7 @@ artifact_control:
   artifact_name: "Goal Contract — H1_G3 Project Bootstrap / Tool Binding / Validation Scene Readiness"
   schema: goal_contract.v1
   owner_layer: persistence
-  status: goal_shaped_pending_E1_execution_brief
+  status: r1_accepted_goal_complete
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
   created_by_stage: G1_GOAL_SHAPE
   created_at: "2026-05-20"
@@ -14,8 +14,8 @@ goal:
   title: "Сформировать readiness-пакет для project bootstrap, tool-binding и validation scenes первого technical nucleus"
   phase_id: core-coop-technical-foundation-selection
   direction_id: indie_game_development
-  status: goal_shaped_pending_E1_execution_brief
-  next_route: E1_EXECUTION_BRIEF
+  status: r1_accepted_goal_complete
+  next_route: P9_PHASE_CLOSE
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -217,7 +217,7 @@ Stop or route away if:
 map_binding:
   initiative_id: innovative-commercial-expedition-gas-sim-game
   node_or_edge: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  expected_map_delta: goal_shaped_pending_E1_execution_brief
+  expected_map_delta: r1_accepted_goal_complete
   why_this_goal_is_minimal: >
     H1_G3 is the direct readiness gate between the accepted H1_G2 execution
     profile and any later bootstrap, U1 guided setup, Codex graph, or implementation route.
@@ -240,29 +240,29 @@ user_example_classification: not_present
 
 ## Route decision
 
-Selected next stage:
+Selected next stage after R1 acceptance:
 
-`E1_EXECUTION_BRIEF`
+`P9_PHASE_CLOSE`
 
 Route reason:
 
-E1 is the smallest safe next route because H1_G3 involves multiple setup/tool/validation surfaces and must plan a concrete execution envelope without prematurely running setup or product execution.
+P9 is the smallest safe next route because R1 accepted the H1_G3 readiness packet and the Phase can now be closed or paused without prematurely running setup or product execution.
 
 Rejected alternatives:
 
-- direct P9_PHASE_CLOSE: premature while H1_G3 remains active-front readiness node;
-- direct F0_FAST_DIRECT: too narrow for multi-surface readiness;
-- direct U1_USER_GUIDED_EXECUTION: premature until E1 defines exact user-guided checks;
+- direct E1_EXECUTION_BRIEF: not current after R1 accepted the readiness packet;
+- direct F0_FAST_DIRECT: too narrow for phase close/review;
+- direct U1_USER_GUIDED_EXECUTION: premature until a later lifecycle route selects user-guided checks;
 - direct C1_CODEX_GRAPH_PLAN / C2_CODEX_EXECUTE: blocked until project/tool bindings are verified;
 - direct Unity bootstrap / product repo creation: explicitly forbidden.
 
 ## Next route
 
-`E1_EXECUTION_BRIEF` — prepare the concrete H1_G3 readiness execution brief without running bootstrap, product repository creation, real tool setup, Task Master graph creation, Unity MCP setup, product code, or Codex product/project execution directly.
+`P9_PHASE_CLOSE` — close or pause the Core Co-op Technical Foundation Selection Phase after H1_G3 readiness acceptance without running bootstrap, product repository creation, real tool setup, Task Master graph creation, Unity MCP setup, product code, or Codex product/project execution directly.
 
 ## Close path
 
-H1_G3 should close through a later accepted readiness packet and then route according to evidence:
+H1_G3 closed through an accepted readiness packet. Later lifecycle routes may still select, according to evidence:
 
 - E1_EXECUTION_BRIEF for setup/execution envelope;
 - U1_USER_GUIDED_EXECUTION for human-guided local UI/tool checks;
@@ -271,6 +271,19 @@ H1_G3 should close through a later accepted readiness packet and then route acco
 - S3_DECIDE / Human Decision for human-owned tradeoffs;
 - Context Request for missing exact state/files;
 - Stop for unsafe or contradictory state.
+
+## 2026-05-21 R1 acceptance
+
+```yaml
+r1_acceptance:
+  goal:
+    status: r1_accepted_goal_complete
+    next_route: P9_PHASE_CLOSE
+  accepted_scope: "Readiness packet and evidence review only."
+  not_authorized: "Unity bootstrap, product code, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, or Game Documentation promotion."
+```
+
+The original DONE and acceptance floor above remains the historical contract for H1_G3. R1 accepted that floor as satisfied by the readiness packet and evidence review only.
 
 ## End-of-file marker
 
