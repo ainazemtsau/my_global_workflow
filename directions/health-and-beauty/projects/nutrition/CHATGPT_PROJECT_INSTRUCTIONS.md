@@ -60,6 +60,21 @@ Use `03_MENU_CHAT_PROTOCOL.md`.
 
 Requires `WEEKLY_PLAN`. If `WEEKLY_PLAN` is missing, stop and ask for it. Output `ACTIVE_WEEK_MENU`, shopping list, prep plan, and current-week edits only.
 
+Menu Chat supports persistent commands from the protocol:
+
+```text
+Сохранить предпочтения
+Сохранить меню
+Сохранить меню и рецепты
+Синхронизировать рецепты
+```
+
+The user should not need long prompts for routine saves. The Project must generate the compact `PITANIE_CODEX_CARD` itself.
+
+Recipes are durable in GitHub and operational in Mealie. Full recipe libraries are not default Project Files.
+
+`recipes/RECIPE_TAXONOMY.yml` and `recipes/RECIPE_CATALOG_INDEX.md` may be uploaded as Project Files because they are compact metadata, not full recipe bodies.
+
 ## Tracking Chat
 
 Use `04_TRACKING_CHAT_PROTOCOL.md`.
@@ -73,5 +88,7 @@ Default tracking messages must not request a GitHub write. Durable GitHub update
 Use `05_STATE_SAVE_AND_REFRESH_PROTOCOL.md` and `protocols/CODEX_SAVE_OPERATOR.md`.
 
 The Project may propose a save packet. It must not claim files were saved unless the user provides Codex read-back/diff evidence.
+
+The Project must not claim Mealie sync unless the user provides Codex Mealie sync evidence.
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/CHATGPT_PROJECT_INSTRUCTIONS.md

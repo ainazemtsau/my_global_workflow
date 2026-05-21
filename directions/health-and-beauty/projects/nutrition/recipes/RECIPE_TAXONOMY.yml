@@ -1,0 +1,43 @@
+schema: pitanie_recipe_taxonomy.v1
+status: active
+
+categories:
+  - "Питание / Завтрак"
+  - "Питание / Обед"
+  - "Питание / Ужин"
+  - "Питание / Перекус"
+  - "Питание / Fallback"
+  - "Питание / Meal Prep"
+
+tags:
+  - chatgpt-pitanie
+  - approved-menu
+  - high-protein
+  - low-friction
+  - air-fryer
+  - ninja
+  - instant-pot
+  - multicooker
+  - oven
+  - pan
+  - batch-prep
+  - fast-10-min
+  - fast-20-min
+  - training-day
+  - rest-day
+  - breakfast
+  - lunch
+  - dinner
+  - snack
+  - fallback
+
+id_policy: "pitanie-<week_id>-<slug>-<nnn>"
+deduplication_policy: "extras.pitanie_recipe_id"
+
+project_files_policy:
+  may_upload_to_project_files: true
+  reason: "Compact taxonomy metadata only."
+  full_recipes_default_upload: false
+  full_recipes_rule: "Full recipes must not be uploaded to Project Files by default."
+
+END_OF_FILE: directions/health-and-beauty/projects/nutrition/recipes/RECIPE_TAXONOMY.yml

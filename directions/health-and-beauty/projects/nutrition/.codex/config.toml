@@ -1,0 +1,13 @@
+[mcp_servers.mealie]
+enabled = true
+required = false
+command = "C:\\my_global_workflow_worktrees\\health-and-beauty\\directions\\health-and-beauty\\projects\\nutrition\\.venv\\Scripts\\python.exe"
+args = ["integrations/mealie/mealie_mcp_server.py"]
+cwd = "C:\\my_global_workflow_worktrees\\health-and-beauty\\directions\\health-and-beauty\\projects\\nutrition"
+startup_timeout_sec = 20
+tool_timeout_sec = 120
+default_tools_approval_mode = "prompt"
+
+[mcp_servers.mealie.env]
+MEALIE_BASE_URL = "${MEALIE_BASE_URL}"
+MEALIE_API_TOKEN = "${MEALIE_API_TOKEN}"

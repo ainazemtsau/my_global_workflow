@@ -31,6 +31,7 @@ ChatGPT Project `Питание` may produce save packets such as:
 
 ```text
 nutrition_state_update_packet
+PITANIE_CODEX_CARD
 global_nutrition_plan
 weekly_plan
 active_week_menu
@@ -145,6 +146,97 @@ weeks/current/NEXT_WEEK_INPUTS.md
 
 Prefer explicit packet `target_files` over inference.
 
+## Project integration operations
+
+Project `Питание` may hand Codex one compact `PITANIE_CODEX_CARD` for persistent preferences, menu saves, recipe bundle saves, and Mealie sync. The card must include an `operation` field and all content needed by Codex. Do not require the user to paste long prompts every week.
+
+Supported operations:
+
+```text
+save_preferences
+save_menu_and_recipes
+sync_recipes_only
+```
+
+### `save_preferences`
+
+Input comes from `PITANIE_CODEX_CARD`.
+
+Target:
+
+```text
+state/USER_PROFILE_AND_CONSTRAINTS.yml
+```
+
+Rules:
+
+- if no new durable preference data is present, do not write;
+- do not invent user facts;
+- write only approved preference changes;
+- preserve existing YAML style where possible;
+- return read-back anchors and ChatGPT Project Files refresh requirement.
+
+### `save_menu_and_recipes`
+
+Targets may include:
+
+```text
+weeks/current/WEEKLY_PLAN.md
+weeks/current/ACTIVE_WEEK_MENU.md
+weeks/current/MEALIE_RECIPE_BUNDLE.json
+weeks/current/NEXT_WEEK_INPUTS.md
+recipes/bundles/<week_id>/MEALIE_RECIPE_BUNDLE.json
+recipes/catalog/*.json
+recipes/RECIPE_CATALOG_INDEX.md
+state/USER_PROFILE_AND_CONSTRAINTS.yml
+```
+
+Rules:
+
+- update `state/USER_PROFILE_AND_CONSTRAINTS.yml` only when explicitly included;
+- validate recipe bundle JSON before writing/syncing;
+- save the approved bundle to GitHub;
+- save each approved recipe as an individual JSON file under `recipes/catalog/`;
+- update metadata-only `recipes/RECIPE_CATALOG_INDEX.md`;
+- sync to Mealie using MCP server `mealie`;
+- if GitHub save succeeds but MCP/Mealie sync fails, return `PENDING_MEALIE_SYNC`, not full failure.
+
+### `sync_recipes_only`
+
+Use an existing GitHub recipe bundle path from the card.
+
+Rules:
+
+- do not modify menu files unless explicitly requested;
+- do not modify preferences unless explicitly requested;
+- validate the existing bundle JSON before syncing;
+- sync to Mealie using MCP server `mealie`;
+- report duplicate conflicts without creating uncontrolled duplicates.
+
+## Mealie recipe sync
+
+Project-local Codex MCP config:
+
+```text
+.codex/config.toml
+```
+
+MCP server:
+
+```text
+integrations/mealie/mealie_mcp_server.py
+```
+
+Mealie API tokens must be supplied only through:
+
+```text
+MEALIE_API_TOKEN
+```
+
+Do not store Mealie tokens, bearer headers, cookies, or copied credentials in GitHub.
+
+GitHub remains the durable recipe source. Mealie is the operational recipe app. Full recipe JSON files live under `recipes/catalog/*.json` and must not be uploaded to ChatGPT Project Files by default.
+
 ## Apply rules
 
 Read target files before editing.
@@ -161,7 +253,7 @@ If the packet conflicts with existing state or target files are unclear, report 
 After editing, return:
 
 ```text
-Status: DONE or STUCK
+Status: DONE, STUCK, or PENDING_MEALIE_SYNC
 
 Worktree:
 Branch:
@@ -170,6 +262,7 @@ Changed files:
 Diff summary:
 Read-back anchors:
 Forbidden-path check:
+Mealie sync summary:
 Commit SHA:
 Push result:
 Main integration:
@@ -193,6 +286,15 @@ confirm no superseded Project Питание legacy files were reintroduced
 
 For Global Strategy saves, also confirm that profile, research request, research result, research synthesis, and final plan stayed separated.
 
+For `save_menu_and_recipes` and `sync_recipes_only`, also confirm:
+
+```text
+recipe bundle JSON validated
+recipes/catalog/*.json updated only from approved recipe data
+recipes/RECIPE_CATALOG_INDEX.md remains metadata-only
+Mealie sync summary returned by MCP tool mealie
+```
+
 ## Commit messages
 
 Use one of:
@@ -215,6 +317,8 @@ If any file under:
 state/**
 research/**
 weeks/**
+recipes/RECIPE_TAXONOMY.yml
+recipes/RECIPE_CATALOG_INDEX.md
 ```
 
 changed, report the exact file names that must be manually refreshed in ChatGPT Project `Питание`.

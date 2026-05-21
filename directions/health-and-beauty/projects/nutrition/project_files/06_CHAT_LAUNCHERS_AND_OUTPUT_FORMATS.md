@@ -46,6 +46,21 @@ Expected output: one `WEEKLY_PLAN` and inputs for Menu Chat and Tracking Chat, n
 
 Expected output: `ACTIVE_WEEK_MENU`, shopping list, prep plan, and current-week edit policy.
 
+Menu Chat command examples:
+
+```text
+Сохранить предпочтения
+Сохранить меню
+Сохранить меню и рецепты
+Синхронизировать рецепты
+```
+
+Expected command output:
+
+- human summary;
+- one copy-paste `PITANIE_CODEX_CARD`;
+- no extra long user instructions.
+
 ## Tracking Chat Start
 
 ```text

@@ -43,6 +43,8 @@ directions/health-and-beauty/projects/nutrition/weeks/current/ACTIVE_WEEK_MENU.m
 directions/health-and-beauty/projects/nutrition/weeks/current/WEEK_TRACKING_REPORT.md
 directions/health-and-beauty/projects/nutrition/weeks/current/WEEK_REVIEW.md
 directions/health-and-beauty/projects/nutrition/weeks/current/NEXT_WEEK_INPUTS.md
+directions/health-and-beauty/projects/nutrition/recipes/RECIPE_TAXONOMY.yml
+directions/health-and-beauty/projects/nutrition/recipes/RECIPE_CATALOG_INDEX.md
 ```
 
 Operator protocols, request-only unless doing save or validation:
@@ -64,6 +66,10 @@ directions/health-and-beauty/projects/nutrition/state/REVIEW_AND_NEXT_WEEK.md
 directions/health-and-beauty/projects/nutrition/state/USER_NUTRITION_BASELINE.md
 directions/health-and-beauty/projects/nutrition/state/USER_PROFILE_AND_CONSTRAINTS.md
 directions/health-and-beauty/projects/nutrition/state/WEEK_TRACKING_REPORT.md
+directions/health-and-beauty/projects/nutrition/recipes/catalog/*.json
+directions/health-and-beauty/projects/nutrition/recipes/bundles/**
+directions/health-and-beauty/projects/nutrition/.codex/config.toml
+directions/health-and-beauty/projects/nutrition/integrations/mealie/mealie_mcp_server.py
 ```
 
 Those files are superseded compatibility stubs if still present. `state/USER_PROFILE_AND_CONSTRAINTS.md` is legacy compatibility input only; the canonical structured profile is `state/USER_PROFILE_AND_CONSTRAINTS.yml`.
