@@ -1,0 +1,89 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-ninja-potato-wedges-003",
+  "name": "Ninja Potato Wedges",
+  "mealie_slug": "pitanie-2026-w21-v5-ninja-potato-wedges",
+  "purpose": "Batch carb base for loaded potatoes, crunchwraps, pita pockets, and sides.",
+  "servings": 8,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 30,
+  "total_time_minutes": 45,
+  "equipment": [
+    "Ninja dual-basket air fryer"
+  ],
+  "categories": [
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "low-friction",
+    "air-fryer",
+    "ninja",
+    "batch-prep"
+  ],
+  "ingredients": [
+    {
+      "item": "potatoes",
+      "amount": 3000,
+      "unit": "g"
+    },
+    {
+      "item": "olive oil",
+      "amount": 25,
+      "unit": "ml"
+    },
+    {
+      "item": "smoked paprika",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "garlic powder",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "salt",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "tsp"
+    }
+  ],
+  "instructions": [
+    "Cut potatoes into wedges or large cubes.",
+    "Rinse and dry well.",
+    "Toss with oil, smoked paprika, garlic powder, salt, and pepper.",
+    "Cook in Ninja at 190-200°C for 22-30 minutes.",
+    "Shake 1-2 times during cooking.",
+    "Cool and portion separately."
+  ],
+  "storage": [
+    "Refrigerate up to 3-4 days.",
+    "Best texture if reheated in Ninja."
+  ],
+  "reheating": [
+    "Ninja 180°C for 4-6 minutes.",
+    "Microwave is acceptable for bowls but loses crispness."
+  ],
+  "substitutions": [
+    "Rice can replace potatoes in some bowls."
+  ],
+  "meal_prep_notes": [
+    "Do not mix with turkey/chicken until serving."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "250-350 kcal",
+    "protein": "5-8 g",
+    "fat": "3-6 g",
+    "carbs": "50-70 g"
+  },
+  "why_it_fits_weekly_plan": "Simple repeatable carb base that supports high-satiety meals.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-ninja-potato-wedges-003",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005",
+  "name": "Yogurt Mustard Tuna Sauce",
+  "mealie_slug": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce",
+  "purpose": "Sauce for tuna melt lavash and tuna egg potato pita pockets.",
+  "servings": 4,
+  "prep_time_minutes": 7,
+  "cook_time_minutes": 0,
+  "total_time_minutes": 7,
+  "equipment": [
+    "mixing bowl"
+  ],
+  "categories": [
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "low-friction",
+    "batch-prep"
+  ],
+  "ingredients": [
+    {
+      "item": "Greek yogurt or skyr",
+      "amount": 250,
+      "unit": "g"
+    },
+    {
+      "item": "mustard",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "lemon juice",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "item": "pickles, finely chopped",
+      "amount": 100,
+      "unit": "g"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "to taste"
+    },
+    {
+      "item": "salt",
+      "amount": 1,
+      "unit": "pinch"
+    }
+  ],
+  "instructions": [
+    "Mix yogurt, mustard, lemon juice, chopped pickles, pepper, and a small pinch of salt.",
+    "Taste before adding more salt because tuna and pickles are already salty.",
+    "Store separately."
+  ],
+  "storage": [
+    "Refrigerate 2-3 days."
+  ],
+  "reheating": [
+    "Do not reheat."
+  ],
+  "substitutions": [
+    "A small amount of light mayo can replace part of yogurt if desired."
+  ],
+  "meal_prep_notes": [
+    "Use with tuna just before assembling wraps/pitas."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "40-70 kcal",
+    "protein": "4-8 g",
+    "fat": "0-3 g",
+    "carbs": "4-8 g"
+  },
+  "why_it_fits_weekly_plan": "Makes canned tuna usable as a tasty fallback without bought sweets/snacks.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

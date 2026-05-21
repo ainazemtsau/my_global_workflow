@@ -1,0 +1,87 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
+  "name": "Chicken-Egg Breakfast Crunchwrap",
+  "mealie_slug": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap",
+  "purpose": "Savory high-satiety breakfast using batch chicken.",
+  "servings": 1,
+  "prep_time_minutes": 5,
+  "cook_time_minutes": 8,
+  "total_time_minutes": 13,
+  "equipment": [
+    "pan or Ninja air fryer"
+  ],
+  "categories": [
+    "Питание / Завтрак"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-20-min",
+    "breakfast"
+  ],
+  "ingredients": [
+    {
+      "item": "lavash or tortilla",
+      "amount": 1,
+      "unit": "large piece"
+    },
+    {
+      "item": "eggs",
+      "amount": 3,
+      "unit": "pieces"
+    },
+    {
+      "item": "Ninja Shawarma Chicken Fillet Strips",
+      "amount": 150,
+      "unit": "g"
+    },
+    {
+      "item": "Ninja Potato Wedges",
+      "amount": 130,
+      "unit": "g"
+    },
+    {
+      "item": "cheese",
+      "amount": 35,
+      "unit": "g"
+    },
+    {
+      "item": "Garlic Yogurt Sauce",
+      "amount": 40,
+      "unit": "g"
+    }
+  ],
+  "instructions": [
+    "Make a soft scramble from 3 eggs.",
+    "Reheat chicken and potatoes.",
+    "Place cheese, eggs, chicken, potatoes, and a little sauce on lavash.",
+    "Fold edges toward the center to make a closed crunchwrap.",
+    "Toast seam-side down in pan for 2-3 minutes, then flip and toast 2 minutes more.",
+    "Alternative: Ninja 190°C for 5-7 minutes seam-side down."
+  ],
+  "storage": [
+    "Cook fresh.",
+    "Store bases separately."
+  ],
+  "reheating": [
+    "Reheat only if assembled shortly before eating; Ninja 180°C for 2-3 minutes."
+  ],
+  "substitutions": [
+    "Turkey chili mince can replace chicken, but it becomes a turkey breakfast crunchwrap."
+  ],
+  "meal_prep_notes": [
+    "Prepare breakfast kits with chicken/potato/cheese; add eggs fresh."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "750-950 kcal",
+    "protein": "60-80 g",
+    "fat": "30-45 g",
+    "carbs": "45-75 g"
+  },
+  "why_it_fits_weekly_plan": "Savory, protein-heavy breakfast aligned with user's satiety preference.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

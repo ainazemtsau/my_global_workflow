@@ -1,0 +1,90 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
+  "name": "Tuna Egg Potato Pita Pockets",
+  "mealie_slug": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets",
+  "purpose": "High-protein tuna lunch using prepared eggs and potatoes.",
+  "servings": 1,
+  "prep_time_minutes": 8,
+  "cook_time_minutes": 3,
+  "total_time_minutes": 11,
+  "equipment": [
+    "mixing bowl",
+    "pan or Ninja optional"
+  ],
+  "categories": [
+    "Питание / Обед",
+    "Питание / Fallback"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-20-min",
+    "lunch",
+    "fallback"
+  ],
+  "ingredients": [
+    {
+      "item": "canned tuna, drained",
+      "amount": 2,
+      "unit": "cans"
+    },
+    {
+      "item": "boiled eggs, chopped",
+      "amount": 2,
+      "unit": "pieces"
+    },
+    {
+      "item": "Ninja Potato Wedges, chopped",
+      "amount": 250,
+      "unit": "g"
+    },
+    {
+      "item": "Yogurt Mustard Tuna Sauce",
+      "amount": 90,
+      "unit": "g"
+    },
+    {
+      "item": "pita or lavash",
+      "amount": 1,
+      "unit": "serving"
+    },
+    {
+      "item": "green onion or dill",
+      "amount": 10,
+      "unit": "g"
+    }
+  ],
+  "instructions": [
+    "Drain tuna well.",
+    "Chop boiled eggs and potato wedges.",
+    "Mix tuna, eggs, potatoes, sauce, and herbs gently.",
+    "Fill pita pockets or lavash.",
+    "Optionally toast 2-3 minutes in pan or Ninja until warm and slightly crisp."
+  ],
+  "storage": [
+    "Best assembled day-of.",
+    "Keep tuna, eggs, potatoes, and sauce separate until serving."
+  ],
+  "reheating": [
+    "If toasted, eat immediately."
+  ],
+  "substitutions": [
+    "One can tuna can be used if appetite is lower.",
+    "Rice can replace potato but is less suitable for pita."
+  ],
+  "meal_prep_notes": [
+    "Boil eggs during Thursday prep."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "750-950 kcal",
+    "protein": "70-95 g",
+    "fat": "20-35 g",
+    "carbs": "55-90 g"
+  },
+  "why_it_fits_weekly_plan": "Fast high-protein protein-salad format that respects the salad preference.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

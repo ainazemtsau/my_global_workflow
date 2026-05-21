@@ -1,0 +1,89 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
+  "name": "Real Chicken Shawarma Wrap",
+  "mealie_slug": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap",
+  "purpose": "Actual wrapped and toasted shawarma-style lunch.",
+  "servings": 1,
+  "prep_time_minutes": 5,
+  "cook_time_minutes": 5,
+  "total_time_minutes": 10,
+  "equipment": [
+    "pan or Ninja air fryer"
+  ],
+  "categories": [
+    "Питание / Обед",
+    "Питание / Ужин"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-10-min",
+    "lunch",
+    "dinner"
+  ],
+  "ingredients": [
+    {
+      "item": "lavash or flatbread",
+      "amount": 1,
+      "unit": "large piece"
+    },
+    {
+      "item": "Ninja Shawarma Chicken Fillet Strips",
+      "amount": 240,
+      "unit": "g"
+    },
+    {
+      "item": "Garlic Yogurt Sauce",
+      "amount": 70,
+      "unit": "g"
+    },
+    {
+      "item": "cucumber/tomato/red onion, chopped",
+      "amount": 100,
+      "unit": "g"
+    },
+    {
+      "item": "feta, optional",
+      "amount": 30,
+      "unit": "g"
+    },
+    {
+      "item": "pickles, optional",
+      "amount": 30,
+      "unit": "g"
+    }
+  ],
+  "instructions": [
+    "Warm lavash briefly so it folds without tearing.",
+    "Spread Garlic Yogurt Sauce in a thin layer.",
+    "Add chicken, vegetables, optional feta, and optional pickles.",
+    "Fold sides in and roll tightly.",
+    "Toast seam-side down in pan 2 minutes per side or Ninja 190°C for 4-5 minutes.",
+    "Serve immediately."
+  ],
+  "storage": [
+    "Do not store assembled wrap for days.",
+    "Store components separately."
+  ],
+  "reheating": [
+    "Reheat chicken before assembling; toast finished wrap briefly."
+  ],
+  "substitutions": [
+    "Turkey chili mince can replace chicken if chicken runs out, but then it is not chicken shawarma."
+  ],
+  "meal_prep_notes": [
+    "Uses batch chicken base only."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "700-950 kcal",
+    "protein": "60-85 g",
+    "fat": "20-35 g",
+    "carbs": "55-90 g"
+  },
+  "why_it_fits_weekly_plan": "High-protein, filling, and actually matches the wrap/shawarma format.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

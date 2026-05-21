@@ -1,0 +1,77 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-closeout-bowl-016",
+  "name": "Closeout Bowl",
+  "mealie_slug": "pitanie-2026-w21-v5-closeout-bowl",
+  "purpose": "Sunday dinner to use remaining prepared bases without a new cooking process.",
+  "servings": 1,
+  "prep_time_minutes": 3,
+  "cook_time_minutes": 7,
+  "total_time_minutes": 10,
+  "equipment": [
+    "microwave, pan, or Ninja air fryer"
+  ],
+  "categories": [
+    "Питание / Ужин",
+    "Питание / Fallback"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-10-min",
+    "dinner",
+    "fallback"
+  ],
+  "ingredients": [
+    {
+      "item": "remaining batch chicken or turkey chili mince",
+      "amount": 350,
+      "unit": "g"
+    },
+    {
+      "item": "rice or potato wedges",
+      "amount": 300,
+      "unit": "g"
+    },
+    {
+      "item": "Garlic Yogurt Sauce or Greek yogurt",
+      "amount": 60,
+      "unit": "g"
+    },
+    {
+      "item": "Greek salad components or hot vegetables",
+      "amount": 1,
+      "unit": "serving"
+    }
+  ],
+  "instructions": [
+    "Choose remaining protein: chicken with Garlic Yogurt Sauce, or turkey with Greek yogurt.",
+    "Choose remaining carb: rice or potato wedges.",
+    "Reheat protein and carb separately.",
+    "Assemble in bowl with sauce and vegetables/Greek side.",
+    "Adjust portion based on remaining daily hunger and protein target."
+  ],
+  "storage": [
+    "Use remaining refrigerated/frozen portions."
+  ],
+  "reheating": [
+    "Reheat hot components only; add sauce after heating."
+  ],
+  "substitutions": [
+    "Canned tuna can replace cooked protein if no leftovers remain."
+  ],
+  "meal_prep_notes": [
+    "Designed to close the week without extra cooking."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "650-950 kcal",
+    "protein": "50-80 g",
+    "fat": "15-35 g",
+    "carbs": "55-100 g"
+  },
+  "why_it_fits_weekly_plan": "Prevents waste and keeps Sunday low-friction.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-closeout-bowl-016",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

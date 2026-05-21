@@ -1,0 +1,128 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips-001",
+  "name": "Ninja Shawarma Chicken Fillet Strips",
+  "mealie_slug": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips",
+  "purpose": "Universal batch chicken base for wraps, bowls, crunchwraps, and emergency omelets.",
+  "servings": 6,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 15,
+  "total_time_minutes": 60,
+  "equipment": [
+    "Ninja dual-basket air fryer",
+    "mixing bowl",
+    "containers"
+  ],
+  "categories": [
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "air-fryer",
+    "ninja",
+    "batch-prep"
+  ],
+  "ingredients": [
+    {
+      "item": "chicken fillet, cut into 1.5-2 cm strips",
+      "amount": 1500,
+      "unit": "g"
+    },
+    {
+      "item": "Greek yogurt or skyr",
+      "amount": 180,
+      "unit": "g"
+    },
+    {
+      "item": "lemon juice",
+      "amount": 30,
+      "unit": "ml"
+    },
+    {
+      "item": "olive oil",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "item": "garlic cloves, grated",
+      "amount": 4,
+      "unit": "cloves"
+    },
+    {
+      "item": "ground cumin",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "smoked paprika",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "ground coriander",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "turmeric",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "cinnamon",
+      "amount": 0.25,
+      "unit": "tsp"
+    },
+    {
+      "item": "salt",
+      "amount": 1.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "tsp"
+    }
+  ],
+  "instructions": [
+    "Cut chicken fillet into strips 1.5-2 cm thick.",
+    "Mix yogurt, lemon juice, olive oil, garlic, cumin, smoked paprika, coriander, turmeric, cinnamon, salt, and black pepper.",
+    "Coat chicken fully in marinade.",
+    "Marinate at least 30 minutes. Longer is acceptable if refrigerated.",
+    "Preheat Ninja to 200°C for 3 minutes.",
+    "Place chicken in one layer; cook in batches if needed.",
+    "Air Fry 200°C for 12 minutes.",
+    "Shake or turn halfway.",
+    "Check doneness; add 2-3 minutes if needed. Avoid overcooking because fillet dries quickly.",
+    "Rest 5 minutes before portioning."
+  ],
+  "storage": [
+    "Cool before sealing.",
+    "Refrigerate Thursday-Friday portions.",
+    "Vacuum-freeze Saturday-Sunday portions."
+  ],
+  "reheating": [
+    "Ninja 170°C for 4-6 minutes.",
+    "Microwave 60-120 seconds if used in bowls."
+  ],
+  "substitutions": [
+    "Do not use chicken thighs in this version; user requested fillet consistency.",
+    "Turkey fillet can substitute only if chicken is unavailable."
+  ],
+  "meal_prep_notes": [
+    "This is the only chicken preparation for the week.",
+    "Use in wraps, bowls, crunchwraps, and fallback omelets."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "250-330 kcal",
+    "protein": "45-55 g",
+    "fat": "4-10 g",
+    "carbs": "2-6 g"
+  },
+  "why_it_fits_weekly_plan": "High-protein low-friction batch base for multiple meals.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips-001",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
+  "name": "Crispy Tuna Melt Lavash",
+  "mealie_slug": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash",
+  "purpose": "Fast savory breakfast or fallback meal using canned tuna.",
+  "servings": 1,
+  "prep_time_minutes": 5,
+  "cook_time_minutes": 7,
+  "total_time_minutes": 12,
+  "equipment": [
+    "pan or Ninja air fryer"
+  ],
+  "categories": [
+    "Питание / Завтрак",
+    "Питание / Fallback"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-20-min",
+    "breakfast",
+    "fallback"
+  ],
+  "ingredients": [
+    {
+      "item": "lavash or tortilla",
+      "amount": 1,
+      "unit": "large piece"
+    },
+    {
+      "item": "canned tuna, drained",
+      "amount": 1,
+      "unit": "can"
+    },
+    {
+      "item": "Yogurt Mustard Tuna Sauce",
+      "amount": 70,
+      "unit": "g"
+    },
+    {
+      "item": "cheese",
+      "amount": 50,
+      "unit": "g"
+    },
+    {
+      "item": "pickles, optional",
+      "amount": 30,
+      "unit": "g"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "to taste"
+    }
+  ],
+  "instructions": [
+    "Drain tuna very well.",
+    "Mix tuna with Yogurt Mustard Tuna Sauce and pepper.",
+    "Place cheese on lavash, then tuna mixture, then a little more cheese.",
+    "Fold sides inward and roll tightly.",
+    "Toast seam-side down in pan 2-3 minutes per side or Ninja 190°C for 5-7 minutes.",
+    "Finish when outside is crisp and cheese is melted."
+  ],
+  "storage": [
+    "Best cooked fresh."
+  ],
+  "reheating": [
+    "Ninja 180°C for 2-3 minutes if needed."
+  ],
+  "substitutions": [
+    "Use two cans tuna if higher protein is needed.",
+    "Use pita instead of lavash if available."
+  ],
+  "meal_prep_notes": [
+    "Keep sauce and tuna separate until assembling."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "550-800 kcal",
+    "protein": "45-75 g",
+    "fat": "20-35 g",
+    "carbs": "35-65 g"
+  },
+  "why_it_fits_weekly_plan": "Savory high-protein breakfast/fallback that does not require batch meat.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

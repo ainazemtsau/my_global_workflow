@@ -1,0 +1,100 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011",
+  "name": "Sesame Tuna Steak Rice Bowl",
+  "mealie_slug": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl",
+  "purpose": "Optional fresh fish dinner; the only fresh protein cooking outside batch bases.",
+  "servings": 1,
+  "prep_time_minutes": 10,
+  "cook_time_minutes": 6,
+  "total_time_minutes": 16,
+  "equipment": [
+    "Ninja air fryer or grill"
+  ],
+  "categories": [
+    "Питание / Ужин"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-20-min",
+    "ninja",
+    "dinner"
+  ],
+  "ingredients": [
+    {
+      "item": "tuna steak",
+      "amount": 250,
+      "unit": "g"
+    },
+    {
+      "item": "soy sauce",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "item": "lemon or lime juice",
+      "amount": 15,
+      "unit": "ml"
+    },
+    {
+      "item": "sesame or olive oil",
+      "amount": 5,
+      "unit": "ml"
+    },
+    {
+      "item": "sesame seeds",
+      "amount": 12,
+      "unit": "g"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "to taste"
+    },
+    {
+      "item": "cooked rice",
+      "amount": 250,
+      "unit": "g"
+    },
+    {
+      "item": "Greek salad components",
+      "amount": 1,
+      "unit": "serving"
+    }
+  ],
+  "instructions": [
+    "Pat tuna steak very dry.",
+    "Mix soy sauce, lemon/lime, oil, and pepper.",
+    "Coat tuna and marinate 10 minutes only.",
+    "Press sesame seeds onto both sides.",
+    "Preheat Ninja to 200°C.",
+    "Cook 2-3 minutes, turn, then 2-3 minutes more depending on thickness and desired doneness.",
+    "Slice and serve over rice with Greek side."
+  ],
+  "storage": [
+    "Best cooked fresh.",
+    "If leftovers remain, refrigerate and use within 1-2 days."
+  ],
+  "reheating": [
+    "Prefer eating leftover tuna cold.",
+    "If reheating, Ninja 180-200°C for 1-2 minutes only."
+  ],
+  "substitutions": [
+    "If tuna steak is unavailable, use Crispy Tuna Melt Lavash."
+  ],
+  "meal_prep_notes": [
+    "Do not batch-cook tuna steaks."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "650-900 kcal",
+    "protein": "55-75 g",
+    "fat": "12-25 g",
+    "carbs": "65-95 g"
+  },
+  "why_it_fits_weekly_plan": "Adds variety with minimal extra cooking burden.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

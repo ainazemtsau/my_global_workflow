@@ -1,0 +1,74 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
+  "name": "Turkey Chili Rice Bowl",
+  "mealie_slug": "pitanie-2026-w21-v5-turkey-chili-rice-bowl",
+  "purpose": "Lunch bowl using turkey chili mince and rice.",
+  "servings": 1,
+  "prep_time_minutes": 3,
+  "cook_time_minutes": 5,
+  "total_time_minutes": 8,
+  "equipment": [
+    "microwave or pan"
+  ],
+  "categories": [
+    "Питание / Обед"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-10-min",
+    "lunch"
+  ],
+  "ingredients": [
+    {
+      "item": "Instant Pro Smoky Turkey Chili Mince",
+      "amount": 400,
+      "unit": "g"
+    },
+    {
+      "item": "cooked rice",
+      "amount": 250,
+      "unit": "g"
+    },
+    {
+      "item": "Greek yogurt or skyr",
+      "amount": 50,
+      "unit": "g"
+    },
+    {
+      "item": "herbs or green onion",
+      "amount": 10,
+      "unit": "g"
+    }
+  ],
+  "instructions": [
+    "Reheat rice with 1-2 tbsp water.",
+    "Reheat turkey chili mince until hot.",
+    "Put rice in bowl and top with turkey.",
+    "Add yogurt/skyr and herbs after heating."
+  ],
+  "storage": [
+    "Store rice and turkey separately."
+  ],
+  "reheating": [
+    "Reheat rice and turkey; do not heat yogurt topping."
+  ],
+  "substitutions": [
+    "Potato wedges can replace rice."
+  ],
+  "meal_prep_notes": [
+    "No new cooking required if bases are prepared."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "700-950 kcal",
+    "protein": "55-80 g",
+    "fat": "15-35 g",
+    "carbs": "75-115 g"
+  },
+  "why_it_fits_weekly_plan": "Low-friction high-protein lunch.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

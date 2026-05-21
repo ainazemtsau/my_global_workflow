@@ -1,0 +1,151 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-smoky-turkey-chili-mince-002",
+  "name": "Instant Pro Smoky Turkey Chili Mince",
+  "mealie_slug": "pitanie-2026-w21-v5-smoky-turkey-chili-mince",
+  "purpose": "Universal turkey base for loaded potato, rice bowls, egg skillet wraps, and closeout meals.",
+  "servings": 6,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 25,
+  "total_time_minutes": 40,
+  "equipment": [
+    "Instant Pro 8 multicooker"
+  ],
+  "categories": [
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "instant-pot",
+    "multicooker",
+    "batch-prep"
+  ],
+  "ingredients": [
+    {
+      "item": "ground turkey 5-10%",
+      "amount": 1700,
+      "unit": "g"
+    },
+    {
+      "item": "yellow onion, chopped",
+      "amount": 2,
+      "unit": "pieces"
+    },
+    {
+      "item": "sweet peppers, diced",
+      "amount": 2,
+      "unit": "pieces"
+    },
+    {
+      "item": "garlic cloves, minced",
+      "amount": 4,
+      "unit": "cloves"
+    },
+    {
+      "item": "canned chopped tomatoes",
+      "amount": 800,
+      "unit": "g"
+    },
+    {
+      "item": "tomato paste",
+      "amount": 60,
+      "unit": "g"
+    },
+    {
+      "item": "canned beans, drained and rinsed",
+      "amount": 2,
+      "unit": "cans"
+    },
+    {
+      "item": "water or broth",
+      "amount": 250,
+      "unit": "ml"
+    },
+    {
+      "item": "olive oil",
+      "amount": 10,
+      "unit": "ml"
+    },
+    {
+      "item": "ground cumin",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "smoked paprika",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "paprika",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "oregano",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "chili flakes or chili powder",
+      "amount": 1,
+      "unit": "to taste"
+    },
+    {
+      "item": "salt",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "lemon or lime juice",
+      "amount": 20,
+      "unit": "ml"
+    }
+  ],
+  "instructions": [
+    "Set Instant Pro to Sauté High.",
+    "Add olive oil, onion, and sweet peppers. Cook 4-5 minutes.",
+    "Add garlic and spices. Stir 30-45 seconds.",
+    "Add ground turkey. Break it up with a spatula and cook 6-8 minutes until mostly pale.",
+    "Add 100 ml water/broth and scrape the bottom thoroughly to avoid Burn warning.",
+    "Add chopped tomatoes, tomato paste, beans, and remaining water/broth.",
+    "Pressure Cook High for 5 minutes.",
+    "Natural Release for 7 minutes.",
+    "If too liquid, use Sauté Medium 5-8 minutes until thick.",
+    "Finish with lemon/lime juice and adjust salt."
+  ],
+  "storage": [
+    "Cool before sealing.",
+    "Refrigerate Thursday-Friday portions.",
+    "Vacuum-freeze Saturday-Sunday portions."
+  ],
+  "reheating": [
+    "Microwave 2-3 minutes, stirring halfway.",
+    "Or reheat in pan with 1-2 tbsp water."
+  ],
+  "substitutions": [
+    "Ground chicken can replace turkey.",
+    "Do not add potato into this base; potatoes are stored separately for flexibility."
+  ],
+  "meal_prep_notes": [
+    "This is the only turkey preparation for the week.",
+    "Keep thick enough for wraps and loaded potatoes."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "420-600 kcal",
+    "protein": "45-60 g",
+    "fat": "12-25 g",
+    "carbs": "25-45 g"
+  },
+  "why_it_fits_weekly_plan": "High-protein batch base with flexible use across breakfast, lunch, and dinner.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-smoky-turkey-chili-mince-002",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-loaded-turkey-chili-potato-008",
+  "name": "Loaded Turkey Chili Potato",
+  "mealie_slug": "pitanie-2026-w21-v5-loaded-turkey-chili-potato",
+  "purpose": "Dinner using turkey chili mince and potato wedges.",
+  "servings": 1,
+  "prep_time_minutes": 3,
+  "cook_time_minutes": 7,
+  "total_time_minutes": 10,
+  "equipment": [
+    "microwave or pan",
+    "Ninja air fryer optional"
+  ],
+  "categories": [
+    "Питание / Ужин",
+    "Питание / Fallback"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-10-min",
+    "dinner",
+    "fallback"
+  ],
+  "ingredients": [
+    {
+      "item": "Ninja Potato Wedges",
+      "amount": 400,
+      "unit": "g"
+    },
+    {
+      "item": "Instant Pro Smoky Turkey Chili Mince",
+      "amount": 400,
+      "unit": "g"
+    },
+    {
+      "item": "Greek yogurt or skyr",
+      "amount": 50,
+      "unit": "g"
+    },
+    {
+      "item": "feta or cheese, optional",
+      "amount": 30,
+      "unit": "g"
+    },
+    {
+      "item": "green onion or herbs",
+      "amount": 10,
+      "unit": "g"
+    }
+  ],
+  "instructions": [
+    "Reheat potato wedges in Ninja at 180°C for 4-6 minutes.",
+    "Reheat turkey chili mince until hot.",
+    "Put potatoes in a bowl.",
+    "Top with turkey chili mince.",
+    "Add yogurt/skyr, optional feta/cheese, and herbs."
+  ],
+  "storage": [
+    "Store potatoes and turkey separately."
+  ],
+  "reheating": [
+    "Reheat components separately for best texture."
+  ],
+  "substitutions": [
+    "Rice can replace potato.",
+    "Chicken can replace turkey, but then use Garlic Yogurt Sauce."
+  ],
+  "meal_prep_notes": [
+    "No new cooking required if bases are prepared."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "750-1000 kcal",
+    "protein": "55-80 g",
+    "fat": "18-35 g",
+    "carbs": "75-115 g"
+  },
+  "why_it_fits_weekly_plan": "Dense, high-protein, easy dinner assembled from prepared bases.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-loaded-turkey-chili-potato-008",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

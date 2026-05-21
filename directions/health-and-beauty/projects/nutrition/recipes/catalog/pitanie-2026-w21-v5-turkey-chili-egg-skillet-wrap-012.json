@@ -1,0 +1,75 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012",
+  "name": "Turkey Chili Egg Skillet Wrap",
+  "mealie_slug": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap",
+  "purpose": "Savory breakfast wrap using turkey chili mince.",
+  "servings": 1,
+  "prep_time_minutes": 3,
+  "cook_time_minutes": 8,
+  "total_time_minutes": 11,
+  "equipment": [
+    "pan"
+  ],
+  "categories": [
+    "Питание / Завтрак"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-20-min",
+    "breakfast"
+  ],
+  "ingredients": [
+    {
+      "item": "Instant Pro Smoky Turkey Chili Mince",
+      "amount": 300,
+      "unit": "g"
+    },
+    {
+      "item": "eggs",
+      "amount": 3,
+      "unit": "pieces"
+    },
+    {
+      "item": "lavash or pita",
+      "amount": 1,
+      "unit": "serving"
+    },
+    {
+      "item": "feta or cheese",
+      "amount": 30,
+      "unit": "g"
+    }
+  ],
+  "instructions": [
+    "Heat turkey chili mince in a pan for 2-3 minutes.",
+    "Add eggs directly and scramble into the turkey or make small wells and set eggs softly.",
+    "Cook 3-5 minutes until eggs are set.",
+    "Add feta/cheese.",
+    "Fill lavash/pita and toast 1-2 minutes if desired."
+  ],
+  "storage": [
+    "Cook fresh using prepared turkey base."
+  ],
+  "reheating": [
+    "Not ideal after eggs are added."
+  ],
+  "substitutions": [
+    "Chicken base can replace turkey, but use Garlic Yogurt Sauce."
+  ],
+  "meal_prep_notes": [
+    "Only turkey base is prepped; eggs are fresh."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "700-950 kcal",
+    "protein": "60-85 g",
+    "fat": "30-45 g",
+    "carbs": "35-70 g"
+  },
+  "why_it_fits_weekly_plan": "Satisfying non-sweet breakfast from one turkey base.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

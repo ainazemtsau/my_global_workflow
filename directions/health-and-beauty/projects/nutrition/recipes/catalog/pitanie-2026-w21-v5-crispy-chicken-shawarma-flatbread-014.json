@@ -1,0 +1,83 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
+  "name": "Crispy Chicken Shawarma Flatbread",
+  "mealie_slug": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread",
+  "purpose": "Dinner wrap/flatbread using batch chicken.",
+  "servings": 1,
+  "prep_time_minutes": 5,
+  "cook_time_minutes": 6,
+  "total_time_minutes": 11,
+  "equipment": [
+    "pan or Ninja air fryer"
+  ],
+  "categories": [
+    "Питание / Ужин",
+    "Питание / Fallback"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-20-min",
+    "dinner",
+    "fallback"
+  ],
+  "ingredients": [
+    {
+      "item": "flatbread or lavash",
+      "amount": 1,
+      "unit": "large piece"
+    },
+    {
+      "item": "Ninja Shawarma Chicken Fillet Strips",
+      "amount": 240,
+      "unit": "g"
+    },
+    {
+      "item": "Garlic Yogurt Sauce",
+      "amount": 70,
+      "unit": "g"
+    },
+    {
+      "item": "feta or cheese",
+      "amount": 30,
+      "unit": "g"
+    },
+    {
+      "item": "Greek salad components",
+      "amount": 1,
+      "unit": "small serving"
+    }
+  ],
+  "instructions": [
+    "Warm chicken.",
+    "Spread a little Garlic Yogurt Sauce on flatbread.",
+    "Add chicken, feta/cheese, and a small amount of Greek salad components.",
+    "Fold or close flatbread so it can toast without leaking.",
+    "Toast in pan 2-3 minutes per side or Ninja 190°C for 5-6 minutes.",
+    "Serve with remaining sauce on the side."
+  ],
+  "storage": [
+    "Store components separately."
+  ],
+  "reheating": [
+    "Toast assembled flatbread fresh."
+  ],
+  "substitutions": [
+    "Rice bowl format can replace flatbread if lavash is unavailable."
+  ],
+  "meal_prep_notes": [
+    "This changes form without changing the chicken preparation."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "700-950 kcal",
+    "protein": "60-85 g",
+    "fat": "20-35 g",
+    "carbs": "55-90 g"
+  },
+  "why_it_fits_weekly_plan": "Interesting but still assembled from prepared bases.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

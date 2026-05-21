@@ -1,0 +1,88 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
+  "name": "Garlic Yogurt Sauce",
+  "mealie_slug": "pitanie-2026-w21-v5-garlic-yogurt-sauce",
+  "purpose": "Base sauce for chicken wraps, rice bowls, flatbreads, and crunchwraps.",
+  "servings": 8,
+  "prep_time_minutes": 7,
+  "cook_time_minutes": 0,
+  "total_time_minutes": 7,
+  "equipment": [
+    "mixing bowl"
+  ],
+  "categories": [
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "low-friction",
+    "batch-prep"
+  ],
+  "ingredients": [
+    {
+      "item": "Greek yogurt or skyr",
+      "amount": 400,
+      "unit": "g"
+    },
+    {
+      "item": "garlic cloves, grated",
+      "amount": 2,
+      "unit": "cloves"
+    },
+    {
+      "item": "lemon juice",
+      "amount": 25,
+      "unit": "ml"
+    },
+    {
+      "item": "salt",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "to taste"
+    },
+    {
+      "item": "dill or parsley, optional",
+      "amount": 15,
+      "unit": "g"
+    },
+    {
+      "item": "water to thin",
+      "amount": 30,
+      "unit": "ml"
+    }
+  ],
+  "instructions": [
+    "Mix yogurt, garlic, lemon juice, salt, pepper, and optional herbs.",
+    "Add water 1 tbsp at a time until sauce consistency is right.",
+    "Store separately from hot food."
+  ],
+  "storage": [
+    "Refrigerate 2-3 days."
+  ],
+  "reheating": [
+    "Do not reheat."
+  ],
+  "substitutions": [
+    "Skyr can replace Greek yogurt.",
+    "Add cucumber to turn it into tzatziki-style sauce."
+  ],
+  "meal_prep_notes": [
+    "Add after reheating food, not before."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "25-50 kcal",
+    "protein": "3-6 g",
+    "fat": "0-2 g",
+    "carbs": "2-4 g"
+  },
+  "why_it_fits_weekly_plan": "Adds flavor without turning meals into separate cooking projects.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

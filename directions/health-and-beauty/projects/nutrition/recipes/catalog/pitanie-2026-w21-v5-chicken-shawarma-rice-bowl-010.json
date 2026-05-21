@@ -1,0 +1,75 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
+  "name": "Chicken Shawarma Rice Bowl",
+  "mealie_slug": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl",
+  "purpose": "Lunch bowl using prepared chicken, rice, sauce, and Greek side.",
+  "servings": 1,
+  "prep_time_minutes": 3,
+  "cook_time_minutes": 5,
+  "total_time_minutes": 8,
+  "equipment": [
+    "microwave or pan"
+  ],
+  "categories": [
+    "Питание / Обед"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-10-min",
+    "lunch"
+  ],
+  "ingredients": [
+    {
+      "item": "cooked rice",
+      "amount": 300,
+      "unit": "g"
+    },
+    {
+      "item": "Ninja Shawarma Chicken Fillet Strips",
+      "amount": 240,
+      "unit": "g"
+    },
+    {
+      "item": "Garlic Yogurt Sauce",
+      "amount": 70,
+      "unit": "g"
+    },
+    {
+      "item": "Greek salad components",
+      "amount": 1,
+      "unit": "serving"
+    }
+  ],
+  "instructions": [
+    "Reheat rice with 1-2 tbsp water.",
+    "Reheat chicken.",
+    "Add rice to bowl, then chicken.",
+    "Add Greek salad components on the side or on top.",
+    "Finish with Garlic Yogurt Sauce."
+  ],
+  "storage": [
+    "Store components separately."
+  ],
+  "reheating": [
+    "Reheat rice and chicken only; do not heat sauce/salad."
+  ],
+  "substitutions": [
+    "Potato wedges can replace rice."
+  ],
+  "meal_prep_notes": [
+    "This is a fast assembly meal from prepared bases."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "750-950 kcal",
+    "protein": "65-85 g",
+    "fat": "15-30 g",
+    "carbs": "85-120 g"
+  },
+  "why_it_fits_weekly_plan": "High-protein lunch that uses no extra cooking process.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}
