@@ -16,15 +16,15 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Prepare E1 execution brief for repaired repo-backed Project `Питание` nutrition loop."
-  route_stage: E1_EXECUTION_BRIEF
+  current_focus: "Prepare P9 phase close review after R1 accepted the Project `Питание` repo-backed multi-chat nutrition loop Goal complete."
+  route_stage: P9_PHASE_CLOSE
   same_chat_allowed: false
-  boundary_trigger: g1_goal_shape_formalized_after_s3_decision
+  boundary_trigger: r1_goal_review_distill_accepted_goal_complete
   pending_state_carried: true
   pending_patch_pointer: "health_beauty_objective_architecture_migration_2026_05_19"
-  last_stage_result_pointer: "G1_GOAL_SHAPE formalized repaired Goal Contract for Project `Питание` v0; no product/project execution performed."
+  last_stage_result_pointer: "R1_GOAL_REVIEW_DISTILL accepted nutrition-project-operational-setup-v0 complete based on U1/setup/real-use validation."
   human_correction: "Objective is outcome-first; AI/ChatGPT/Project/app/storage are optional tools, not requirements."
-  stale_prior_focus: "Old Project `Питание` execution route remains historical input only; E1 must plan against the repaired G1 Goal Contract."
+  stale_prior_focus: "Old Project `Питание` E1/U1/R1 setup routes remain historical input only; next route is `P9_PHASE_CLOSE`."
 ```
 
 ## Active Goal
@@ -35,6 +35,6 @@ Goal path:
 
 `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
 
-The next route is `E1_EXECUTION_BRIEF` for implementation and validation planning, not product/project execution.
+The next route is `P9_PHASE_CLOSE` for phase close review, not E1 implementation planning or product/project execution.
 
-The existing Goal path now contains the repaired Goal Contract and Working Context for the repo-backed multi-chat Project `Питание` nutrition loop.
+The existing Goal path now contains the repaired Goal Contract, Working Context, and R1 acceptance evidence for the repo-backed multi-chat Project `Питание` nutrition loop.

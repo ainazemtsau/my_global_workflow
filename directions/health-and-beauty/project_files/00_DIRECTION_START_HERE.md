@@ -18,18 +18,16 @@ project_file_control:
 
 * Current Phase: `Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
 * Active Goal pointer: `nutrition-project-operational-setup-v0` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
-* Active Goal status: goal_shaped_pending_E1 after G1 repaired Goal Contract formalization
-* Current focus: Prepare E1 execution brief for the repaired repo-backed Project `Питание` nutrition loop.
-* Next route: `E1_EXECUTION_BRIEF`
+* Active Goal status: r1_accepted_goal_complete
+* Current focus: R1 accepted Project `Питание` Goal complete; prepare P9_PHASE_CLOSE after repository maintenance/read-back and Project Files refresh.
+* Next route: `P9_PHASE_CLOSE`
 * Direction Map: `08_DIRECTION_MAP.md` is the current routing authority after Objective Architecture migration; use verified GitHub read-back over stale Project Files cache.
 
 ## Stale-state correction
 
-Repository read-back confirms `03_AI_NUTRITION_OPERATING_LAYER_V0.md` exists as a design/protocol artifact. It is not evidence that a working ChatGPT Project `Питание` exists, nor that Snapshot / Current Loop / Active Menu sources are installed.
+R1 2026-05-21 accepted the repo-backed multi-chat Project `Питание` nutrition loop as complete for this Goal based on U1/setup/real-use validation. The Phase remains active pending P9_PHASE_CLOSE.
 
-The Phase remains active. Do not route this correction to `P9_PHASE_CLOSE`.
-
-The prior Project `Питание` route is historical input only; G1 formalized the repaired repo-backed multi-chat Project `Питание` nutrition loop. E1 must plan against the repaired Goal Contract and must not run until this patch is applied/read back and Project Files are refreshed.
+Do not execute old E1/U1/R1 setup routes. The next material route is `P9_PHASE_CLOSE` after this repository maintenance/read-back and manual Project Files refresh.
 
 ## Default Project Files to load
 

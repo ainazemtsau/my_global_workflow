@@ -21,13 +21,13 @@ Active Goal: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/g
 
 Active Goal title: ``Починить Project `Питание` как repo-backed multi-chat nutrition loop``
 
-Active Goal status: `goal_shaped_pending_E1`
+Active Goal status: `r1_accepted_goal_complete`
 
-Next route: `E1_EXECUTION_BRIEF`
+Next route: `P9_PHASE_CLOSE`
 
 ## Current priority
 
-Plan minimum implementation and validation for the repaired repo-backed Project `Питание` nutrition loop.
+Run P9 phase close review for the AI Nutrition Operating Layer after accepted Project `Питание` Goal.
 
 ## Superseded / deferred items
 
@@ -35,4 +35,6 @@ Plan minimum implementation and validation for the repaired repo-backed Project 
 * Old MacroFactor Goal / Execution Pack / Wave 1 are historical evidence only.
 * MacroFactor-centered workflow remains superseded/paused.
 * Full food tracker/API automation/perfect recipe database/huge vault remain deferred.
+* Mealie recipe sync / meal planner sync is optional/nonblocking unless explicitly reshaped later.
+* Training/cardio/recovery/supplements are out of this Goal and only future scoped work after Phase/P9 decision.
 * Menu generation alone is not enough.

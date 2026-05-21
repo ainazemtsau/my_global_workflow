@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/health-and-beauty/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: objective_architecture_migration_frontier_repair
-  last_updated: "2026-05-19"
+  freshness: r1_goal_review_distill_accepted_goal_complete
+  last_updated: "2026-05-21"
 ```
 
 ## Purpose
@@ -41,14 +41,12 @@ direction_map_status:
     source_ref: "codex/direction-health-and-beauty"
     patch_id: health_beauty_objective_architecture_migration_2026_05_19
   corrected_state:
-    summary: "G1 formalized the repaired repo-backed multi-chat Project `Питание` nutrition loop; E1 execution planning is pending repository maintenance/read-back and Project Files refresh."
+    summary: "R1 accepted the repo-backed multi-chat Project `Питание` nutrition loop Goal complete; next route is P9_PHASE_CLOSE before selecting further body-transformation work."
     blocks:
-      - P9_PHASE_CLOSE
-      - claiming_working_project_pitanie_exists
-      - claiming_operational_completion
+      - reopening_accepted_project_pitanie_setup_goal_without_new_evidence
       - launching_stale_project_pitanie_e1_route
     does_not_block:
-      - S3_DECIDE_for_minimal_nutrition_loop_shape_and_tooling_policy
+      - P9_PHASE_CLOSE
       - preserving_current_active_phase
       - using_prior_v0_and_goal_artifacts_as_historical_input
     corrected_paths:
@@ -104,8 +102,8 @@ initiative_registry:
       goal_id: nutrition-project-operational-setup-v0
       goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
       goal_name: "Починить Project `Питание` как repo-backed multi-chat nutrition loop"
-      status: goal_shaped_pending_E1
-      binding_reason: "G1 repaired the Goal into a repo-backed multi-chat Project `Питание` nutrition loop; E1 must plan implementation and validation."
+      status: r1_accepted_goal_complete
+      binding_reason: "R1 accepted the repo-backed multi-chat Project `Питание` nutrition loop Goal complete based on U1/setup/real-use validation."
     current_risk:
       - "The prior Project `Питание` setup/E1 path can be mistaken for a basis-valid current route."
       - "Broad health/fitness optimization can easily become overbuilt unless S3 narrows the nutrition loop and tooling policy first."
@@ -127,7 +125,7 @@ strategy_basis:
   candidate_paths_considered:
     - path_id: decide_minimal_nutrition_loop_shape_and_tooling
       verdict: selected
-      rationale: "Repairs the active frontier after user correction, keeps the Phase open, and decides the smallest basis-valid nutrition loop before execution planning."
+      rationale: "Repaired the active frontier after user correction and led to an accepted basis-valid nutrition loop before phase close review."
     - path_id: execute_existing_project_pitanie_setup_goal
       verdict: rejected_stale_blocked
       rationale: "The current saved Project `Питание` E1 route is stale / blocked / not basis-valid after Objective Architecture correction."
@@ -143,7 +141,7 @@ strategy_basis:
     - path_id: parallel_training_cardio_before_nutrition_loop_decision
       verdict: parked
       rationale: "Adds scope before the nutrition loop shape and tooling policy are basis-valid."
-  selected_path_rationale: "Run E1_EXECUTION_BRIEF on the repaired repo-backed multi-chat Project `Питание` nutrition loop Goal; do not claim operational completion or route to Phase close."
+  selected_path_rationale: "R1 accepted the repaired repo-backed multi-chat Project `Питание` nutrition loop Goal complete; run P9_PHASE_CLOSE before selecting further body-transformation work."
   major_assumptions:
     - "User can sustain a strict process if the process is clear and routine work is offloaded."
     - "Low-burden execution is more important than perfect measurement at the current stage."
@@ -155,7 +153,7 @@ strategy_basis:
     - "No detailed calorie/macro ledger."
     - "No MacroFactor revival as default."
     - "No supplement/fasting/brain-diet recommendation inside M0."
-    - "No P9_PHASE_CLOSE from this correction."
+    - "No reopening the accepted nutrition setup Goal before the P9 phase gate."
     - "No stale Project `Питание` E1 launch."
 ```
 
@@ -168,13 +166,12 @@ compact_initiative_graph:
       initiative_id: body-transformation-20kg-strength-health
       label: "Decide minimal nutrition loop shape and tool/container policy"
       type: active_front
-      status: implementation_goal_shaped_pending_E1
+      status: done_accepted_pending_P9_phase_close
       purpose: "Choose the minimal low-friction nutrition loop and the tool/container mix before shaping or executing any implementation Goal."
       success_signal:
-        - "S3_DECIDE selects whether Project `Питание` is kept, repaired, reduced, or superseded."
-        - "Minimum recurring nutrition inputs and state update rules are clear."
-        - "Tool/storage policy is explicit and outcome-first."
-        - "A repaired/new Goal can be shaped only after the decision."
+        - "R1 accepted the repo-backed multi-chat Project `Питание` nutrition loop based on U1/setup/real-use validation."
+        - "User-confirmed real use: Project `Питание` is in process, menu has been composed, and setup works."
+        - "Next routing is Phase close review, not more nutrition setup by default."
       human_burden_policy: "No detailed calorie-app ledger; use exception-only tracking and compact state updates."
 
     - node_id: n2_minimal_body_metrics_packet
@@ -240,9 +237,9 @@ active_front:
   primary_node: d_nutrition_loop_shape_and_tooling
   reason: "This is the smallest credible path because it repairs the stale Project `Питание` route, preserves useful prior artifacts as input, and avoids a broad restart."
   current_route_binding:
-    route_state: execution_brief_required_after_repaired_goal_shape
-    route: E1_EXECUTION_BRIEF
-    rule: "Run E1 only after repository maintenance/read-back and Project Files refresh."
+    route_state: phase_close_review_required_after_r1_goal_acceptance
+    route: P9_PHASE_CLOSE
+    rule: "Run P9 after repository maintenance/read-back and Project Files refresh; do not select training/cardio/recovery or optional tool sync work before phase gate."
   parallel_candidate_nodes: []
   parked_nodes:
     - n3_training_cardio_recovery_decision_slice
@@ -280,6 +277,16 @@ parked_future_nodes:
     parked_reason: "Too broad; would create planning bloat before core process validation."
   - node_id: clinical_nutrition_or_medical_protocol
     parked_reason: "Out of current scope and would require a different evidence/safety standard."
+```
+
+## Map Delta Notes
+
+```yaml
+map_delta:
+  type: node_done_accepted
+  node_id: d_nutrition_loop_shape_and_tooling
+  date: "2026-05-21"
+  summary: "Repo-backed multi-chat Project `Питание` nutrition loop accepted as the current nutrition operating layer setup result; next routing is Phase close review, not more nutrition setup by default."
 ```
 
 ## Map Update Policy

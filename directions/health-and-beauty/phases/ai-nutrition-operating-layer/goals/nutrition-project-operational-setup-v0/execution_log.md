@@ -176,6 +176,47 @@ execution_log_entry:
   next_stage: C1_CODEX_GRAPH_PLAN
 ```
 
+## 2026-05-21 — R1_GOAL_REVIEW_DISTILL accepted Project `Питание` Goal complete
+
+```yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+
+stage_id: R1_GOAL_REVIEW_DISTILL
+return_state: DONE
+review_verdict: completed_verified
+closure_eligibility: eligible
+goal_review_verdict: accepted_complete
+completion_scope: parent_goal_complete
+parent_goal_completion_state: complete
+
+accepted_goal:
+  goal_id: nutrition-project-operational-setup-v0
+  title: "Починить Project `Питание` как repo-backed multi-chat nutrition loop"
+
+evidence_basis:
+  - "U1/setup/real-use validation completed."
+  - "User confirmed Project `Питание` is in process, menu has been composed, and setup works."
+  - "R1 launch carried an explicit stale Project Files override for this R1 run."
+
+distilled_outcome:
+  - "Repo-backed multi-chat nutrition loop accepted as complete for the Goal."
+  - "Mealie recipe sync / meal planner sync not proven installed/tested; deferred as nonblocking optional expansion."
+  - "No further U1/E1 setup slice is required for this Goal unless later evidence contradicts the working loop."
+
+phase_progress_gate:
+  status: route_to_P9_PHASE_CLOSE_after_repository_projection_update
+  completed_goal_may_satisfy_phase_minimum_outcome: true
+
+next_route:
+  after_repository_maintenance_readback: P9_PHASE_CLOSE
+
+project_files_refresh:
+  required: true
+  reason: "R1 acceptance changes active Goal lifecycle state and next route."
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/execution_log.md`
