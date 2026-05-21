@@ -1,7 +1,6 @@
 [mcp_servers.mealie]
 command = "uv"
 args = ["--directory", "C:\\my_global_workflow_tools\\mealie-mcp-server\\src", "run", "server.py"]
-env_vars = ["MEALIE_BASE_URL", "MEALIE_API_KEY"]
 startup_timeout_sec = 20
 tool_timeout_sec = 120
 enabled = true
