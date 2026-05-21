@@ -1,0 +1,169 @@
+{
+  "recipe_id": "pitanie-2026-w21-calibration-turkey-potato-chili-002",
+  "name": "Instant Pro Turkey Potato Chili",
+  "mealie_slug": "pitanie-2026-w21-turkey-potato-chili",
+  "purpose": "Dense high-protein batch dish for lunch/dinner.",
+  "servings": 5,
+  "prep_time_minutes": 20,
+  "cook_time_minutes": 25,
+  "total_time_minutes": 45,
+  "equipment": [
+    "Instant Pro 8 multicooker",
+    "knife",
+    "cutting board"
+  ],
+  "categories": [
+    "Питание / Обед",
+    "Питание / Ужин",
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "low-friction",
+    "instant-pot",
+    "multicooker",
+    "batch-prep",
+    "lunch",
+    "dinner"
+  ],
+  "ingredients": [
+    {
+      "item": "ground turkey 5-10%",
+      "amount": 1100,
+      "unit": "g"
+    },
+    {
+      "item": "potatoes, cut into 2.5-3 cm cubes",
+      "amount": 900,
+      "unit": "g"
+    },
+    {
+      "item": "canned beans, drained and rinsed",
+      "amount": 2,
+      "unit": "cans"
+    },
+    {
+      "item": "canned chopped tomatoes",
+      "amount": 800,
+      "unit": "g"
+    },
+    {
+      "item": "tomato paste",
+      "amount": 50,
+      "unit": "g"
+    },
+    {
+      "item": "yellow onion, chopped",
+      "amount": 1,
+      "unit": "large"
+    },
+    {
+      "item": "sweet peppers, diced",
+      "amount": 2,
+      "unit": "pieces"
+    },
+    {
+      "item": "garlic cloves, minced",
+      "amount": 4,
+      "unit": "cloves"
+    },
+    {
+      "item": "water or broth",
+      "amount": 300,
+      "unit": "ml"
+    },
+    {
+      "item": "olive oil",
+      "amount": 10,
+      "unit": "g"
+    },
+    {
+      "item": "ground cumin",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "smoked paprika",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "paprika",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "oregano",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "chili flakes or chili powder",
+      "amount": 1,
+      "unit": "to taste"
+    },
+    {
+      "item": "salt",
+      "amount": 1.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "lemon or lime juice",
+      "amount": 15,
+      "unit": "g"
+    },
+    {
+      "item": "Greek yogurt/skyr for topping",
+      "amount": 250,
+      "unit": "g"
+    }
+  ],
+  "instructions": [
+    "Cut potatoes into large 2.5-3 cm cubes so they do not turn into mash under pressure.",
+    "Set Instant Pro to Sauté High. Add olive oil, onion, and peppers. Cook 4-5 minutes.",
+    "Add garlic, cumin, smoked paprika, paprika, oregano, chili, salt, and pepper. Stir for 30-45 seconds.",
+    "Add ground turkey. Break it up with a spatula and cook 5-7 minutes until mostly pale.",
+    "Pour in about 100 ml water/broth and scrape the bottom thoroughly to avoid Burn warning.",
+    "Add potatoes, beans, chopped tomatoes, tomato paste, and remaining water/broth. Stir.",
+    "Pressure Cook High for 6 minutes.",
+    "Natural Release for 7 minutes, then release remaining pressure.",
+    "Check potatoes. If too firm, simmer on Sauté Medium 3-5 minutes. If soft, do not overcook.",
+    "Finish with lemon/lime juice and adjust salt.",
+    "Serve 450-550 g chili with 30-60 g Greek yogurt/skyr on top."
+  ],
+  "storage": [
+    "Refrigerate up to 3-4 days.",
+    "Vacuum-freeze 1-2 portions for Sunday or later."
+  ],
+  "reheating": [
+    "Microwave 2-3 minutes, stirring halfway.",
+    "Or reheat in Instant Pro on Sauté Medium 5-7 minutes with 1-2 tbsp water."
+  ],
+  "substitutions": [
+    "Potato can be reduced if serving with rice.",
+    "Beans can be replaced with chickpeas.",
+    "Ground chicken can replace ground turkey."
+  ],
+  "meal_prep_notes": [
+    "This is a main batch dish. Portion into 450-550 g containers.",
+    "Use yogurt topping only at serving."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "500-700 kcal",
+    "protein": "45-60 g",
+    "fat": "12-22 g",
+    "carbs": "55-80 g"
+  },
+  "why_it_fits_weekly_plan": "High-protein, high-satiety, batch-friendly meal that replaces sweet potato with regular potato due to availability.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-calibration-turkey-potato-chili-002",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

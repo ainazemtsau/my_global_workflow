@@ -1,0 +1,99 @@
+{
+  "recipe_id": "pitanie-2026-w21-calibration-meatball-shakshuka-008",
+  "name": "Meatball Shakshuka",
+  "mealie_slug": "pitanie-2026-w21-meatball-shakshuka",
+  "purpose": "Savory breakfast using Greek turkey meatballs.",
+  "servings": 1,
+  "prep_time_minutes": 5,
+  "cook_time_minutes": 12,
+  "total_time_minutes": 17,
+  "equipment": [
+    "pan with lid"
+  ],
+  "categories": [
+    "Питание / Завтрак"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-20-min",
+    "breakfast",
+    "pan"
+  ],
+  "ingredients": [
+    {
+      "item": "Greek turkey feta meatballs",
+      "amount": 4,
+      "unit": "pieces"
+    },
+    {
+      "item": "eggs",
+      "amount": 3,
+      "unit": "pieces"
+    },
+    {
+      "item": "chopped tomatoes or passata",
+      "amount": 250,
+      "unit": "g"
+    },
+    {
+      "item": "feta",
+      "amount": 30,
+      "unit": "g"
+    },
+    {
+      "item": "paprika",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "oregano",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "to taste"
+    },
+    {
+      "item": "toast or flatbread",
+      "amount": 1,
+      "unit": "optional serving"
+    }
+  ],
+  "instructions": [
+    "Add chopped tomatoes/passata to a pan with paprika, oregano, and black pepper.",
+    "Simmer on medium heat for 3-4 minutes.",
+    "Add meatballs and warm through for 2-3 minutes.",
+    "Make 3 small wells and crack in the eggs.",
+    "Cover with lid and cook 4-6 minutes until whites are set.",
+    "Top with feta.",
+    "Serve with toast or flatbread if extra carbs are needed."
+  ],
+  "storage": [
+    "Cook fresh using prepped meatballs."
+  ],
+  "reheating": [
+    "Not recommended after eggs are cooked."
+  ],
+  "substitutions": [
+    "Chicken shawarma can replace meatballs.",
+    "More tomatoes can be used if a saucier breakfast is preferred."
+  ],
+  "meal_prep_notes": [
+    "Keep meatballs cooked and tomato sauce available; add eggs fresh."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "650-850 kcal",
+    "protein": "55-75 g",
+    "fat": "30-45 g",
+    "carbs": "25-55 g"
+  },
+  "why_it_fits_weekly_plan": "High-satiety breakfast aligned with the user's preference for omelets/meaty breakfasts.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-calibration-meatball-shakshuka-008",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

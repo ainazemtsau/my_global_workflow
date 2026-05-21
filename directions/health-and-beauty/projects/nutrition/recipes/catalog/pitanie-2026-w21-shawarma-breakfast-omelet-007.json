@@ -1,0 +1,89 @@
+{
+  "recipe_id": "pitanie-2026-w21-calibration-shawarma-breakfast-omelet-007",
+  "name": "Shawarma Breakfast Omelet",
+  "mealie_slug": "pitanie-2026-w21-shawarma-breakfast-omelet",
+  "purpose": "Savory high-protein breakfast using chicken shawarma leftovers.",
+  "servings": 1,
+  "prep_time_minutes": 5,
+  "cook_time_minutes": 8,
+  "total_time_minutes": 13,
+  "equipment": [
+    "pan"
+  ],
+  "categories": [
+    "Питание / Завтрак"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "fast-20-min",
+    "breakfast",
+    "pan"
+  ],
+  "ingredients": [
+    {
+      "item": "eggs",
+      "amount": 3,
+      "unit": "pieces"
+    },
+    {
+      "item": "cooked chicken shawarma",
+      "amount": 170,
+      "unit": "g"
+    },
+    {
+      "item": "feta or cheese",
+      "amount": 40,
+      "unit": "g"
+    },
+    {
+      "item": "flatbread or toast",
+      "amount": 1,
+      "unit": "serving"
+    },
+    {
+      "item": "yogurt garlic sauce",
+      "amount": 30,
+      "unit": "g"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "to taste"
+    }
+  ],
+  "instructions": [
+    "Heat chicken shawarma in a pan for 1-2 minutes.",
+    "Beat eggs with black pepper.",
+    "Pour eggs over the chicken.",
+    "Add feta or cheese.",
+    "Cook as a scramble or folded omelet for 3-4 minutes.",
+    "Serve with flatbread/toast.",
+    "Add yogurt garlic sauce on the plate, not in the hot pan."
+  ],
+  "storage": [
+    "Cook fresh using prepped chicken."
+  ],
+  "reheating": [
+    "Not recommended as a finished omelet."
+  ],
+  "substitutions": [
+    "Turkey meatballs, chopped, can replace chicken.",
+    "Tuna can replace chicken."
+  ],
+  "meal_prep_notes": [
+    "Prepare breakfast kits with 150-180 g cooked chicken and cheese; add eggs fresh."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "650-850 kcal",
+    "protein": "65-85 g",
+    "fat": "25-40 g",
+    "carbs": "30-60 g"
+  },
+  "why_it_fits_weekly_plan": "Uses batch protein in a satisfying non-sweet breakfast.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-calibration-shawarma-breakfast-omelet-007",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "recipe_id": "pitanie-2026-w21-calibration-greek-turkey-feta-meatballs-003",
+  "name": "Ninja Greek Turkey Feta Meatballs",
+  "mealie_slug": "pitanie-2026-w21-greek-turkey-feta-meatballs",
+  "purpose": "Reusable protein base for lunch, dinner, and breakfast shakshuka.",
+  "servings": 5,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 15,
+  "total_time_minutes": 30,
+  "equipment": [
+    "Ninja dual-basket air fryer",
+    "mixing bowl"
+  ],
+  "categories": [
+    "Питание / Обед",
+    "Питание / Ужин",
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "air-fryer",
+    "ninja",
+    "batch-prep",
+    "lunch",
+    "dinner"
+  ],
+  "ingredients": [
+    {
+      "item": "ground turkey 5-10%",
+      "amount": 1000,
+      "unit": "g"
+    },
+    {
+      "item": "egg",
+      "amount": 1,
+      "unit": "piece"
+    },
+    {
+      "item": "panko breadcrumbs",
+      "amount": 60,
+      "unit": "g"
+    },
+    {
+      "item": "feta, crumbled",
+      "amount": 120,
+      "unit": "g"
+    },
+    {
+      "item": "small onion, very finely chopped",
+      "amount": 1,
+      "unit": "piece"
+    },
+    {
+      "item": "garlic cloves, grated",
+      "amount": 3,
+      "unit": "cloves"
+    },
+    {
+      "item": "parsley or dill, chopped",
+      "amount": 25,
+      "unit": "g"
+    },
+    {
+      "item": "oregano",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "paprika",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "ground cumin",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "salt",
+      "amount": 0.75,
+      "unit": "tsp"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "Greek yogurt/skyr for sauce",
+      "amount": 250,
+      "unit": "g"
+    },
+    {
+      "item": "lemon juice for sauce",
+      "amount": 15,
+      "unit": "g"
+    },
+    {
+      "item": "garlic clove for sauce",
+      "amount": 1,
+      "unit": "clove"
+    },
+    {
+      "item": "cucumber, grated and squeezed for sauce",
+      "amount": 100,
+      "unit": "g"
+    }
+  ],
+  "instructions": [
+    "Mix ground turkey, egg, panko, feta, onion, garlic, herbs, oregano, paprika, cumin, salt, and pepper.",
+    "Mix only until combined. Do not overwork the meat.",
+    "If mixture is too wet, add 10-15 g extra panko. If too dry, add 1-2 tbsp yogurt.",
+    "Form 24-28 meatballs, 35-45 g each.",
+    "Preheat Ninja to 200°C for 3 minutes.",
+    "Place meatballs in one layer. Air Fry at 200°C for 8 minutes.",
+    "Turn or shake, then cook 3-5 minutes more until 74°C internally.",
+    "Rest 5 minutes.",
+    "For sauce, mix yogurt, lemon, garlic, grated squeezed cucumber, salt, and optional dill.",
+    "Serve 4-5 meatballs with potato wedges and sauce."
+  ],
+  "storage": [
+    "Refrigerate meatballs up to 3-4 days.",
+    "Freeze or vacuum-freeze after cooling.",
+    "Store sauce separately for 2-3 days."
+  ],
+  "reheating": [
+    "Ninja 170°C for 4-6 minutes.",
+    "Microwave 60-90 seconds if needed."
+  ],
+  "substitutions": [
+    "Chicken mince can replace turkey.",
+    "Oat flour can replace panko.",
+    "Mozzarella can replace feta, but the Greek flavor is reduced."
+  ],
+  "meal_prep_notes": [
+    "Use as lunch/dinner protein or breakfast protein in shakshuka."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "330-450 kcal",
+    "protein": "40-55 g",
+    "fat": "14-24 g",
+    "carbs": "8-15 g"
+  },
+  "why_it_fits_weekly_plan": "Gives a more interesting high-protein base than plain turkey and works across several meals.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-calibration-greek-turkey-feta-meatballs-003",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}

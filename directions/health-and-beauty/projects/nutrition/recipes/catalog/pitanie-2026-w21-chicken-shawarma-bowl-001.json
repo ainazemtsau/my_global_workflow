@@ -1,0 +1,159 @@
+{
+  "recipe_id": "pitanie-2026-w21-calibration-chicken-shawarma-bowl-001",
+  "name": "Ninja Chicken Shawarma Rice Bowl",
+  "mealie_slug": "pitanie-2026-w21-chicken-shawarma-bowl",
+  "purpose": "High-protein lunch/dinner meal-prep bowl.",
+  "servings": 4,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 20,
+  "total_time_minutes": 65,
+  "equipment": [
+    "Ninja dual-basket air fryer",
+    "mixing bowl",
+    "containers"
+  ],
+  "categories": [
+    "Питание / Обед",
+    "Питание / Ужин",
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "high-protein",
+    "low-friction",
+    "air-fryer",
+    "ninja",
+    "batch-prep",
+    "lunch",
+    "dinner"
+  ],
+  "ingredients": [
+    {
+      "item": "boneless skinless chicken thighs or chicken breast",
+      "amount": 1200,
+      "unit": "g"
+    },
+    {
+      "item": "Greek yogurt or skyr",
+      "amount": 150,
+      "unit": "g"
+    },
+    {
+      "item": "olive oil",
+      "amount": 15,
+      "unit": "g"
+    },
+    {
+      "item": "lemon juice",
+      "amount": 30,
+      "unit": "g"
+    },
+    {
+      "item": "garlic cloves, grated",
+      "amount": 4,
+      "unit": "cloves"
+    },
+    {
+      "item": "paprika",
+      "amount": 2,
+      "unit": "tsp"
+    },
+    {
+      "item": "ground cumin",
+      "amount": 1.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "ground coriander",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "turmeric",
+      "amount": 0.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "cinnamon",
+      "amount": 0.25,
+      "unit": "tsp"
+    },
+    {
+      "item": "salt",
+      "amount": 1.5,
+      "unit": "tsp"
+    },
+    {
+      "item": "black pepper",
+      "amount": 1,
+      "unit": "tsp"
+    },
+    {
+      "item": "cooked rice",
+      "amount": 1000,
+      "unit": "g"
+    },
+    {
+      "item": "Greek yogurt/skyr for garlic sauce",
+      "amount": 250,
+      "unit": "g"
+    },
+    {
+      "item": "garlic clove for sauce",
+      "amount": 1,
+      "unit": "clove"
+    },
+    {
+      "item": "lemon juice for sauce",
+      "amount": 15,
+      "unit": "g"
+    },
+    {
+      "item": "salt for sauce",
+      "amount": 1,
+      "unit": "pinch"
+    }
+  ],
+  "instructions": [
+    "Cut chicken into 2-3 cm pieces. Do not cut too small or it will dry out.",
+    "Mix 150 g yogurt, olive oil, lemon juice, grated garlic, paprika, cumin, coriander, turmeric, cinnamon, salt, and black pepper into a thick marinade.",
+    "Coat chicken fully in the marinade. Marinate at least 30 minutes; 2-4 hours is better.",
+    "Preheat Ninja air fryer to 200°C for 3 minutes.",
+    "Place chicken in one layer on the crisper plate. Do not crowd; cook in batches if needed.",
+    "Air Fry at 200°C for 15 minutes. Shake or turn at minute 8.",
+    "Cook another 2-5 minutes if more browning is needed. Chicken should reach 74°C internally.",
+    "Rest chicken for 5 minutes before portioning.",
+    "Make sauce: mix 250 g yogurt, garlic, lemon, salt, and optional herbs. Add water 1 tbsp at a time until sauce consistency is right.",
+    "Serve with 250-320 g cooked rice per portion and Greek salad if desired."
+  ],
+  "storage": [
+    "Store chicken, rice, sauce, and salad components separately.",
+    "Refrigerate chicken up to 3-4 days.",
+    "Freeze or vacuum-freeze Sunday portion after cooling."
+  ],
+  "reheating": [
+    "Reheat chicken in Ninja at 170°C for 4-6 minutes or microwave 1-2 minutes.",
+    "Reheat rice with 1-2 tbsp water under cover."
+  ],
+  "substitutions": [
+    "Chicken breast can replace thighs, but it is less juicy.",
+    "Potato wedges can replace rice.",
+    "Frozen vegetables can replace Greek salad if salad is not desired."
+  ],
+  "meal_prep_notes": [
+    "Best as separate components rather than pre-mixed bowls.",
+    "Sauce should stay separate until serving."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "750-950 kcal",
+    "protein": "65-85 g",
+    "fat": "20-35 g",
+    "carbs": "70-100 g"
+  },
+  "why_it_fits_weekly_plan": "High-protein structured meal; works for lunch/dinner; supports batch prep and low-friction tracking.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-calibration-chicken-shawarma-bowl-001",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+  }
+}
