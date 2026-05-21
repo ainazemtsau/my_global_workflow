@@ -2,13 +2,15 @@
   "recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
   "name": "Завтрачный crunchwrap с курицей и яйцами",
   "mealie_slug": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap",
-  "purpose": "Сытный несладкий завтрак из готовой куриной базы.",
+  "purpose": "Несладкий плотный завтрак: яйца, курица, картофель, сыр, лаваш.",
   "servings": 1,
-  "prep_time_minutes": 5,
-  "cook_time_minutes": 8,
-  "total_time_minutes": 13,
+  "prep_time_minutes": 12,
+  "cook_time_minutes": 25,
+  "total_time_minutes": 45,
   "equipment": [
-    "сковорода или аэрогриль Ninja"
+    "сковорода",
+    "аэрогриль опционально",
+    "миска"
   ],
   "categories": [
     "Питание / Завтрак"
@@ -17,14 +19,64 @@
     "chatgpt-pitanie",
     "approved-menu",
     "high-protein",
-    "fast-20-min",
     "breakfast"
   ],
   "ingredients": [
     {
-      "item": "лаваш или тортилья",
+      "item": "куриное филе",
+      "amount": 220,
+      "unit": "г",
+      "prep_note_ru": "сырое, нарезать полосками"
+    },
+    {
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 30,
+      "unit": "г",
+      "prep_note_ru": "для маринада курицы"
+    },
+    {
+      "item": "лимонный сок",
+      "amount": 6,
+      "unit": "мл",
+      "prep_note_ru": "для маринада"
+    },
+    {
+      "item": "чеснок",
       "amount": 1,
-      "unit": "большой лист"
+      "unit": "зубчик",
+      "prep_note_ru": "часть в маринад, часть в соус"
+    },
+    {
+      "item": "молотая зира / кумин",
+      "amount": 0.25,
+      "unit": "ч. л."
+    },
+    {
+      "item": "копчёная паприка",
+      "amount": 0.25,
+      "unit": "ч. л."
+    },
+    {
+      "item": "соль",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "картофель",
+      "amount": 160,
+      "unit": "г",
+      "prep_note_ru": "сырой, дольками или кубиком"
+    },
+    {
+      "item": "оливковое масло",
+      "amount": 6,
+      "unit": "мл",
+      "prep_note_ru": "для курицы/картофеля"
     },
     {
       "item": "яйца",
@@ -32,33 +84,34 @@
       "unit": "шт."
     },
     {
-      "item": "куриное филе шаурма-стайл в Ninja",
-      "amount": 150,
-      "unit": "г"
-    },
-    {
-      "item": "картофельные дольки в Ninja",
-      "amount": 130,
-      "unit": "г"
+      "item": "лаваш или тортилья",
+      "amount": 1,
+      "unit": "шт.",
+      "prep_note_ru": "большой лист"
     },
     {
       "item": "сыр",
-      "amount": 35,
-      "unit": "г"
+      "amount": 40,
+      "unit": "г",
+      "prep_note_ru": "для плавления"
     },
     {
-      "item": "чесночно-йогуртовый соус",
+      "item": "греческий йогурт или skyr без сахара",
       "amount": 40,
-      "unit": "г"
+      "unit": "г",
+      "prep_note_ru": "для соуса"
     }
   ],
   "instructions": [
-    "Сделай мягкий скрэмбл из 3 яиц.",
-    "Разогрей курицу и картофель.",
-    "Выложи на лаваш сыр, яйца, курицу, картофель и немного соуса.",
-    "Загни края к центру, чтобы получился закрытый crunchwrap.",
-    "Поджарь швом вниз на сковороде 2–3 минуты, затем переверни и поджарь ещё 2 минуты.",
-    "Альтернатива: Ninja 190°C 5–7 минут швом вниз."
+    "Если batch-prep уже сделан: возьми готовую курицу и картофель, затем перейди к яйцам.",
+    "Если готовишь с нуля: нарежь курицу, смешай с йогуртом, лимоном, чесноком, зирой, паприкой, солью, перцем и частью масла.",
+    "Готовь курицу в аэрогриле 200°C 12–15 минут.",
+    "Картофель нарежь, смешай с маслом, солью и паприкой; готовь 190–200°C 20–25 минут.",
+    "Смешай быстрый йогуртовый соус с чесноком, солью и перцем.",
+    "Яйца взбей вилкой и сделай мягкий скрэмбл 2–3 минуты.",
+    "В центр лаваша положи сыр, яйца, курицу, картофель и немного соуса.",
+    "Сложи края к центру, положи швом вниз на сковороду и готовь 2–3 минуты.",
+    "Переверни и готовь ещё 2 минуты или 190°C 5–7 минут в аэрогриле."
   ],
   "storage": [
     "Готовь свежим.",
@@ -71,7 +124,7 @@
     "Индейка chili может заменить курицу, но это станет завтраком с индейкой."
   ],
   "meal_prep_notes": [
-    "Можно подготовить наборы курица/картофель/сыр; яйца добавлять свежими."
+    "В Mealie ingredients указаны сырые продукты, чтобы shopping list был нормальным."
   ],
   "nutrition_estimate_per_serving": {
     "calories": "750-950 ккал",
@@ -82,87 +135,95 @@
   "why_it_fits_weekly_plan": "Белковый несладкий завтрак под предпочтение по сытости.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Сытный несладкий завтрак из готовой куриной базы.",
-  "structured_ingredients_ru": [
+  "description": "Несладкий плотный завтрак: яйца, курица, картофель, сыр, лаваш.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "1 большой лист лаваш или тортилья",
+      "food": "куриное филе",
+      "amount": 220,
+      "unit": "г",
+      "note": "сырое, нарезать полосками"
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 30,
+      "unit": "г",
+      "note": "для маринада курицы"
+    },
+    {
+      "food": "лимонный сок",
+      "amount": 6,
+      "unit": "мл",
+      "note": "для маринада"
+    },
+    {
+      "food": "чеснок",
       "amount": 1,
-      "unit_ru": "большой лист",
-      "food_ru": "лаваш или тортилья",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "зубчик",
+      "note": "часть в маринад, часть в соус"
     },
     {
-      "original_text_ru": "3 шт. яйца",
+      "food": "молотая зира / кумин",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "копчёная паприка",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "картофель",
+      "amount": 160,
+      "unit": "г",
+      "note": "сырой, дольками или кубиком"
+    },
+    {
+      "food": "оливковое масло",
+      "amount": 6,
+      "unit": "мл",
+      "note": "для курицы/картофеля"
+    },
+    {
+      "food": "яйца",
       "amount": 3,
-      "unit_ru": "шт.",
-      "food_ru": "яйца",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "шт.",
+      "note": null
     },
     {
-      "original_text_ru": "150 г куриное филе шаурма-стайл в Ninja",
-      "amount": 150,
-      "unit_ru": "г",
-      "food_ru": "куриное филе шаурма-стайл в Ninja",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "лаваш или тортилья",
+      "amount": 1,
+      "unit": "шт.",
+      "note": "большой лист"
     },
     {
-      "original_text_ru": "130 г картофельные дольки в Ninja",
-      "amount": 130,
-      "unit_ru": "г",
-      "food_ru": "картофельные дольки в Ninja",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
-    },
-    {
-      "original_text_ru": "35 г сыр",
-      "amount": 35,
-      "unit_ru": "г",
-      "food_ru": "сыр",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
-    },
-    {
-      "original_text_ru": "40 г чесночно-йогуртовый соус",
+      "food": "сыр",
       "amount": 40,
-      "unit_ru": "г",
-      "food_ru": "чесночно-йогуртовый соус",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "для плавления"
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 40,
+      "unit": "г",
+      "note": "для соуса"
     }
-  ]
+  ],
+  "meal_plan_usage": "scheduled"
 }

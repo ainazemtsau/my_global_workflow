@@ -2,13 +2,14 @@
   "recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
   "name": "Боул с рисом и индейкой chili",
   "mealie_slug": "pitanie-2026-w21-v5-turkey-chili-rice-bowl",
-  "purpose": "Обеденный боул из индейки chili и риса.",
+  "purpose": "Обед из риса, густой индейки chili и йогурта.",
   "servings": 1,
-  "prep_time_minutes": 3,
-  "cook_time_minutes": 5,
-  "total_time_minutes": 8,
+  "prep_time_minutes": 12,
+  "cook_time_minutes": 25,
+  "total_time_minutes": 40,
   "equipment": [
-    "микроволновка или сковорода"
+    "мультиварка-скороварка",
+    "кастрюля или мультиварка для риса"
   ],
   "categories": [
     "Питание / Обед"
@@ -17,36 +18,117 @@
     "chatgpt-pitanie",
     "approved-menu",
     "high-protein",
-    "fast-10-min",
     "lunch"
   ],
   "ingredients": [
     {
-      "item": "густая индейка chili в Instant Pro",
-      "amount": 400,
+      "item": "фарш индейки 5–10%",
+      "amount": 350,
+      "unit": "г",
+      "prep_note_ru": "сырой"
+    },
+    {
+      "item": "репчатый лук",
+      "amount": 50,
+      "unit": "г",
+      "prep_note_ru": "мелко нарезать"
+    },
+    {
+      "item": "сладкий перец",
+      "amount": 60,
+      "unit": "г",
+      "prep_note_ru": "кубиком"
+    },
+    {
+      "item": "чеснок",
+      "amount": 1,
+      "unit": "зубчик"
+    },
+    {
+      "item": "резаные томаты в банке",
+      "amount": 160,
       "unit": "г"
     },
     {
-      "item": "готовый рис",
-      "amount": 250,
+      "item": "томатная паста",
+      "amount": 12,
       "unit": "г"
+    },
+    {
+      "item": "консервированная фасоль",
+      "amount": 90,
+      "unit": "г",
+      "prep_note_ru": "слить жидкость"
+    },
+    {
+      "item": "вода или бульон",
+      "amount": 50,
+      "unit": "мл"
+    },
+    {
+      "item": "молотая зира / кумин",
+      "amount": 0.5,
+      "unit": "ч. л."
+    },
+    {
+      "item": "копчёная паприка",
+      "amount": 0.5,
+      "unit": "ч. л."
+    },
+    {
+      "item": "паприка",
+      "amount": 0.25,
+      "unit": "ч. л."
+    },
+    {
+      "item": "орегано",
+      "amount": 0.25,
+      "unit": "ч. л."
+    },
+    {
+      "item": "соль",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "рис",
+      "amount": 80,
+      "unit": "г",
+      "prep_note_ru": "сухой"
     },
     {
       "item": "греческий йогурт или skyr без сахара",
-      "amount": 50,
-      "unit": "г"
+      "amount": 60,
+      "unit": "г",
+      "prep_note_ru": "для подачи"
     },
     {
-      "item": "зелень или зелёный лук",
+      "item": "зелёный лук или петрушка",
       "amount": 10,
-      "unit": "г"
+      "unit": "г",
+      "prep_note_ru": "опционально"
+    },
+    {
+      "item": "лимонный или лаймовый сок",
+      "amount": 5,
+      "unit": "мл",
+      "prep_note_ru": "в конце"
     }
   ],
   "instructions": [
-    "Разогрей рис с 1–2 ст. л. воды.",
-    "Разогрей индейку chili до горячего состояния.",
-    "Выложи рис в миску и добавь сверху индейку.",
-    "Добавь йогурт/skyr и зелень после разогрева."
+    "Если batch-prep уже сделан: возьми готовую индейку chili и готовый рис.",
+    "Если готовишь с нуля: приготовь 80 г сухого риса.",
+    "Обжарь лук и перец 4–5 минут, добавь чеснок и специи на 30–45 секунд.",
+    "Добавь фарш индейки, разбивай 6–8 минут.",
+    "Влей воду/бульон, добавь томаты, томатную пасту и фасоль.",
+    "Готовь под давлением 5 минут или туши 10–15 минут до густоты.",
+    "В конце добавь лимон/лайм.",
+    "Собери боул: рис, индейка, йогурт/skyr и зелень."
   ],
   "storage": [
     "Храни рис и индейку отдельно."
@@ -69,61 +151,119 @@
   "why_it_fits_weekly_plan": "Низкофрикционный высокобелковый обед.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Обеденный боул из индейки chili и риса.",
-  "structured_ingredients_ru": [
+  "description": "Обед из риса, густой индейки chili и йогурта.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "400 г густая индейка chili в Instant Pro",
-      "amount": 400,
-      "unit_ru": "г",
-      "food_ru": "густая индейка chili в Instant Pro",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "фарш индейки 5–10%",
+      "amount": 350,
+      "unit": "г",
+      "note": "сырой"
     },
     {
-      "original_text_ru": "250 г готовый рис",
-      "amount": 250,
-      "unit_ru": "г",
-      "food_ru": "готовый рис",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
-    },
-    {
-      "original_text_ru": "50 г греческий йогурт или skyr без сахара",
+      "food": "репчатый лук",
       "amount": 50,
-      "unit_ru": "г",
-      "food_ru": "греческий йогурт или skyr без сахара",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "мелко нарезать"
     },
     {
-      "original_text_ru": "10 г зелень или зелёный лук",
+      "food": "сладкий перец",
+      "amount": 60,
+      "unit": "г",
+      "note": "кубиком"
+    },
+    {
+      "food": "чеснок",
+      "amount": 1,
+      "unit": "зубчик",
+      "note": null
+    },
+    {
+      "food": "резаные томаты в банке",
+      "amount": 160,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "томатная паста",
+      "amount": 12,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "консервированная фасоль",
+      "amount": 90,
+      "unit": "г",
+      "note": "слить жидкость"
+    },
+    {
+      "food": "вода или бульон",
+      "amount": 50,
+      "unit": "мл",
+      "note": null
+    },
+    {
+      "food": "молотая зира / кумин",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "копчёная паприка",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "паприка",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "орегано",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "рис",
+      "amount": 80,
+      "unit": "г",
+      "note": "сухой"
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 60,
+      "unit": "г",
+      "note": "для подачи"
+    },
+    {
+      "food": "зелёный лук или петрушка",
       "amount": 10,
-      "unit_ru": "г",
-      "food_ru": "зелень или зелёный лук",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "опционально"
+    },
+    {
+      "food": "лимонный или лаймовый сок",
+      "amount": 5,
+      "unit": "мл",
+      "note": "в конце"
     }
-  ]
+  ],
+  "meal_plan_usage": "scheduled"
 }

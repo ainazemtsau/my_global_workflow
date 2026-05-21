@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005",
-  "name": "Йогуртово-горчичный соус для тунца",
+  "name": "Заготовка: йогуртово-горчичный соус для тунца",
   "mealie_slug": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce",
-  "purpose": "Соус для лаваша с тунцом и питы с тунцом, яйцом и картофелем.",
+  "purpose": "Соус для tuna melt и питы с тунцом.",
   "servings": 4,
   "prep_time_minutes": 7,
   "cook_time_minutes": 0,
   "total_time_minutes": 7,
   "equipment": [
-    "миска для смешивания"
+    "миска"
   ],
   "categories": [
     "Питание / Meal Prep"
@@ -67,7 +67,7 @@
     "Небольшая часть йогурта может быть заменена лёгким майонезом, если нужно."
   ],
   "meal_prep_notes": [
-    "Смешивай с тунцом прямо перед сборкой лаваша или питы."
+    "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
   ],
   "nutrition_estimate_per_serving": {
     "calories": "40-70 ккал",
@@ -78,87 +78,47 @@
   "why_it_fits_weekly_plan": "Делает консервированный тунец вкусным запасным белком без сладких перекусов.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Соус для лаваша с тунцом и питы с тунцом, яйцом и картофелем.",
-  "structured_ingredients_ru": [
+  "description": "Соус для tuna melt и питы с тунцом.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "250 г греческий йогурт или skyr без сахара",
+      "food": "греческий йогурт или skyr без сахара",
       "amount": 250,
-      "unit_ru": "г",
-      "food_ru": "греческий йогурт или skyr без сахара",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "2 ч. л. горчица",
+      "food": "горчица",
       "amount": 2,
-      "unit_ru": "ч. л.",
-      "food_ru": "горчица",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "15 мл лимонный сок",
+      "food": "лимонный сок",
       "amount": 15,
-      "unit_ru": "мл",
-      "food_ru": "лимонный сок",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "100 г маринованные огурцы (мелко нарезать)",
+      "food": "маринованные огурцы",
       "amount": 100,
-      "unit_ru": "г",
-      "food_ru": "маринованные огурцы",
-      "prep_note_ru": "мелко нарезать",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "мелко нарезать"
     },
     {
-      "original_text_ru": "чёрный перец по вкусу",
+      "food": "чёрный перец",
       "amount": null,
-      "unit_ru": "по вкусу",
-      "food_ru": "чёрный перец",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": false,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "по вкусу",
+      "note": null
     },
     {
-      "original_text_ru": "1 щепотка соль",
+      "food": "соль",
       "amount": 1,
-      "unit_ru": "щепотка",
-      "food_ru": "соль",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "щепотка",
+      "note": null
     }
-  ]
+  ],
+  "meal_plan_usage": "prep_reference_only_not_scheduled"
 }

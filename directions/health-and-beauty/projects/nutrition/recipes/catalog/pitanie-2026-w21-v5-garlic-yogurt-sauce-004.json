@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
-  "name": "Чесночно-йогуртовый соус",
+  "name": "Заготовка: чесночно-йогуртовый соус",
   "mealie_slug": "pitanie-2026-w21-v5-garlic-yogurt-sauce",
-  "purpose": "Базовый соус для куриных лавашей, боулов, лепёшек и crunchwrap.",
+  "purpose": "Соус для куриных блюд.",
   "servings": 8,
   "prep_time_minutes": 7,
   "cook_time_minutes": 0,
   "total_time_minutes": 7,
   "equipment": [
-    "миска для смешивания"
+    "миска"
   ],
   "categories": [
     "Питание / Meal Prep"
@@ -74,7 +74,7 @@
     "Добавь огурец, если нужен соус в стиле дзадзики."
   ],
   "meal_prep_notes": [
-    "Добавляй после разогрева еды, не до."
+    "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
   ],
   "nutrition_estimate_per_serving": {
     "calories": "25-50 ккал",
@@ -85,100 +85,53 @@
   "why_it_fits_weekly_plan": "Добавляет вкус без отдельного сложного процесса готовки.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Базовый соус для куриных лавашей, боулов, лепёшек и crunchwrap.",
-  "structured_ingredients_ru": [
+  "description": "Соус для куриных блюд.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "400 г греческий йогурт или skyr без сахара",
+      "food": "греческий йогурт или skyr без сахара",
       "amount": 400,
-      "unit_ru": "г",
-      "food_ru": "греческий йогурт или skyr без сахара",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "2 зубчика чеснок (натереть)",
+      "food": "чеснок",
       "amount": 2,
-      "unit_ru": "зубчика",
-      "food_ru": "чеснок",
-      "prep_note_ru": "натереть",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "зубчика",
+      "note": "натереть"
     },
     {
-      "original_text_ru": "25 мл лимонный сок",
+      "food": "лимонный сок",
       "amount": 25,
-      "unit_ru": "мл",
-      "food_ru": "лимонный сок",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "0.5 ч. л. соль",
+      "food": "соль",
       "amount": 0.5,
-      "unit_ru": "ч. л.",
-      "food_ru": "соль",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "чёрный перец по вкусу",
+      "food": "чёрный перец",
       "amount": null,
-      "unit_ru": "по вкусу",
-      "food_ru": "чёрный перец",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": false,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "по вкусу",
+      "note": null
     },
     {
-      "original_text_ru": "15 г укроп или петрушка (по желанию)",
+      "food": "укроп или петрушка",
       "amount": 15,
-      "unit_ru": "г",
-      "food_ru": "укроп или петрушка",
-      "prep_note_ru": "по желанию",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "по желанию"
     },
     {
-      "original_text_ru": "30 мл вода для разбавления",
+      "food": "вода для разбавления",
       "amount": 30,
-      "unit_ru": "мл",
-      "food_ru": "вода для разбавления",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     }
-  ]
+  ],
+  "meal_plan_usage": "prep_reference_only_not_scheduled"
 }

@@ -2,13 +2,14 @@
   "recipe_id": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011",
   "name": "Боул с тунцом-стейком в кунжуте",
   "mealie_slug": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl",
-  "purpose": "Опциональный свежий рыбный ужин; единственная свежая белковая готовка сверх баз.",
+  "purpose": "Свежий рыбный ужин, единственный белок недели, который готовится день-в-день.",
   "servings": 1,
   "prep_time_minutes": 10,
-  "cook_time_minutes": 6,
-  "total_time_minutes": 16,
+  "cook_time_minutes": 10,
+  "total_time_minutes": 20,
   "equipment": [
-    "Ninja или гриль"
+    "аэрогриль или гриль",
+    "миска"
   ],
   "categories": [
     "Питание / Ужин"
@@ -17,7 +18,6 @@
     "chatgpt-pitanie",
     "approved-menu",
     "high-protein",
-    "fast-20-min",
     "ninja",
     "dinner"
   ],
@@ -25,7 +25,8 @@
     {
       "item": "стейк тунца",
       "amount": 250,
-      "unit": "г"
+      "unit": "г",
+      "prep_note_ru": "сырой"
     },
     {
       "item": "соевый соус",
@@ -53,24 +54,53 @@
       "unit": "по вкусу"
     },
     {
-      "item": "готовый рис",
-      "amount": 250,
+      "item": "рис",
+      "amount": 80,
+      "unit": "г",
+      "prep_note_ru": "сухой"
+    },
+    {
+      "item": "огурец",
+      "amount": 120,
       "unit": "г"
     },
     {
-      "item": "компоненты греческого салата",
-      "amount": 1,
-      "unit": "порция"
+      "item": "помидор",
+      "amount": 120,
+      "unit": "г"
+    },
+    {
+      "item": "фета",
+      "amount": 30,
+      "unit": "г"
+    },
+    {
+      "item": "оливки",
+      "amount": 25,
+      "unit": "г"
+    },
+    {
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 60,
+      "unit": "г",
+      "prep_note_ru": "для соуса"
+    },
+    {
+      "item": "горчица",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "prep_note_ru": "для соуса"
     }
   ],
   "instructions": [
-    "Очень хорошо обсуши стейк тунца.",
-    "Смешай соевый соус, лимонный или лаймовый сок, масло и перец.",
-    "Покрой тунец маринадом и оставь только на 10 минут.",
-    "Прижми кунжут к обеим сторонам стейка.",
-    "Разогрей Ninja до 200°C.",
-    "Готовь 2–3 минуты, переверни и готовь ещё 2–3 минуты в зависимости от толщины и желаемой прожарки.",
-    "Нарежь и подавай на рисе с греческим салатом."
+    "Если рис уже приготовлен batch-prep: возьми готовую порцию. Если нет — приготовь 80 г сухого риса.",
+    "Тунец обсуши бумажным полотенцем.",
+    "Смешай соевый соус, лимон/лайм, масло и перец, обмажь тунец на 10 минут.",
+    "Прижми кунжут к двум сторонам стейка.",
+    "Готовь при 200°C 2–3 минуты, переверни и готовь ещё 2–3 минуты; для полной прожарки добавь 1–2 минуты.",
+    "Дай постоять 1–2 минуты и нарежь ломтиками.",
+    "Смешай йогурт и горчицу для соуса.",
+    "Собери боул: рис, тунец, огурец, помидор, фета, оливки и соус."
   ],
   "storage": [
     "Лучше готовить свежим.",
@@ -95,113 +125,89 @@
   "why_it_fits_weekly_plan": "Даёт разнообразие при минимальной дополнительной готовке.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Опциональный свежий рыбный ужин; единственная свежая белковая готовка сверх баз.",
-  "structured_ingredients_ru": [
+  "description": "Свежий рыбный ужин, единственный белок недели, который готовится день-в-день.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "250 г стейк тунца",
+      "food": "стейк тунца",
       "amount": 250,
-      "unit_ru": "г",
-      "food_ru": "стейк тунца",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "сырой"
     },
     {
-      "original_text_ru": "15 мл соевый соус",
+      "food": "соевый соус",
       "amount": 15,
-      "unit_ru": "мл",
-      "food_ru": "соевый соус",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "15 мл лимонный или лаймовый сок",
+      "food": "лимонный или лаймовый сок",
       "amount": 15,
-      "unit_ru": "мл",
-      "food_ru": "лимонный или лаймовый сок",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "5 мл кунжутное или оливковое масло",
+      "food": "кунжутное или оливковое масло",
       "amount": 5,
-      "unit_ru": "мл",
-      "food_ru": "кунжутное или оливковое масло",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "12 г кунжут",
+      "food": "кунжут",
       "amount": 12,
-      "unit_ru": "г",
-      "food_ru": "кунжут",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "чёрный перец по вкусу",
+      "food": "чёрный перец",
       "amount": null,
-      "unit_ru": "по вкусу",
-      "food_ru": "чёрный перец",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": false,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "по вкусу",
+      "note": null
     },
     {
-      "original_text_ru": "250 г готовый рис",
-      "amount": 250,
-      "unit_ru": "г",
-      "food_ru": "готовый рис",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "рис",
+      "amount": 80,
+      "unit": "г",
+      "note": "сухой"
     },
     {
-      "original_text_ru": "1 порция компоненты греческого салата",
-      "amount": 1,
-      "unit_ru": "порция",
-      "food_ru": "компоненты греческого салата",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "огурец",
+      "amount": 120,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "помидор",
+      "amount": 120,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "фета",
+      "amount": 30,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "оливки",
+      "amount": 25,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 60,
+      "unit": "г",
+      "note": "для соуса"
+    },
+    {
+      "food": "горчица",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": "для соуса"
     }
-  ]
+  ],
+  "meal_plan_usage": "scheduled"
 }

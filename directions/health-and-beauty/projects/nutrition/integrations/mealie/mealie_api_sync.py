@@ -32,6 +32,25 @@ TOKEN_KEYS = ("MEALIE_API_TOKEN", "MEALIE_API_KEY")
 BASE_URL_KEYS = ("MEALIE_BASE_URL", "MEALIE_URL")
 MEAL_TYPE_ORDER = ("breakfast", "lunch", "dinner")
 OLD_INVALID_TITLES = ("Shawarma Breakfast Omelet", "Шаурма-омлет")
+FORBIDDEN_SCHEDULED_INGREDIENT_PATTERNS = (
+    "ninja",
+    "instant pro",
+    "готовая",
+    "готовый",
+    "заготовка",
+    "batch",
+    "meal prep",
+    "шаурма-стайл в ninja",
+    "куриная заготовка",
+    "индейка chili в instant pro",
+    "картофельные дольки в ninja",
+    "чесночно-йогуртовый соус",
+    "йогуртово-горчичный соус",
+    "prepared",
+    "cooked chicken",
+    "turkey chili mince",
+    "potato wedges",
+)
 
 
 class SyncError(RuntimeError):
@@ -256,6 +275,13 @@ def main(argv: list[str] | None = None) -> int:
                 return 2
             return 0
 
+        if args.command == "shopping-preview":
+            result = shopping_preview(client, bundle, limit=args.limit)
+            print_shopping_preview(result)
+            if result["errors"]:
+                return 2
+            return 0
+
         if args.command == "sync":
             sync_result = sync_mealie(client, bundle, dry_run=args.dry_run, sync_mealplans=args.sync_mealplans)
             print_sync_result(sync_result)
@@ -286,6 +312,10 @@ def build_parser() -> argparse.ArgumentParser:
     validate_parser = sub.add_parser("validate", help="Read Mealie back and verify structured ingredients and meal planner entries")
     add_bundle_argument(validate_parser)
     validate_parser.add_argument("--examples", type=int, default=3, help="Ingredient examples per first three recipes")
+
+    preview_parser = sub.add_parser("shopping-preview", help="Preview grocery items aggregated from scheduled Mealie recipe read-back")
+    add_bundle_argument(preview_parser)
+    preview_parser.add_argument("--limit", type=int, default=40, help="Maximum aggregated ingredient rows to print")
 
     sync_parser = sub.add_parser("sync", help="Create/update recipes with native structured ingredients")
     add_bundle_argument(sync_parser)
@@ -332,22 +362,29 @@ def validate_bundle_shape(bundle: dict[str, Any]) -> None:
         if recipe_id in seen:
             raise SyncError(f"Duplicate recipe_id in bundle: {recipe_id}")
         seen.add(recipe_id)
-        structured = recipe.get("structured_ingredients_ru")
+        structured = recipe_ingredient_rows(recipe)
         if not isinstance(structured, list) or not structured:
-            raise SyncError(f"Recipe {recipe_id} must contain structured_ingredients_ru")
+            raise SyncError(f"Recipe {recipe_id} must contain ingredients_structured or structured_ingredients_ru")
         for index, row in enumerate(structured, start=1):
-            if not row.get("food_ru"):
-                raise SyncError(f"Recipe {recipe_id} ingredient {index} missing food_ru")
-            if row.get("amount") is not None and not row.get("unit_ru"):
-                raise SyncError(f"Recipe {recipe_id} ingredient {index} has amount but no unit_ru")
-            if row.get("mealie_expected", {}).get("note_field_must_not_be_the_only_data") and not row.get("food_ru"):
+            if not row.get("food"):
+                raise SyncError(f"Recipe {recipe_id} ingredient {index} missing food")
+            if row.get("amount") is not None and not row.get("unit"):
+                raise SyncError(f"Recipe {recipe_id} ingredient {index} has amount but no unit")
+            if row.get("mealie_expected", {}).get("note_field_must_not_be_the_only_data") and not row.get("food"):
                 raise SyncError(f"Recipe {recipe_id} ingredient {index} would be note-only")
+            if is_scheduled_recipe(recipe):
+                forbidden = forbidden_ingredient_pattern(row.get("food"))
+                if forbidden:
+                    raise SyncError(
+                        f"Scheduled recipe {recipe_id} ingredient {index} has forbidden prepared-component "
+                        f"food {row.get('food')!r}; matched {forbidden!r}"
+                    )
 
 
 def print_bundle_summary(bundle: dict[str, Any]) -> None:
     recipes = bundle["recipes_to_upsert"]
     mealplans = bundle.get("meal_plan_entries") or []
-    ingredient_rows = sum(len(recipe.get("structured_ingredients_ru") or []) for recipe in recipes)
+    ingredient_rows = sum(len(recipe_ingredient_rows(recipe)) for recipe in recipes)
     print("bundle_ok: true")
     print(f"week_id: {bundle.get('week_id')}")
     print(f"recipes_to_upsert: {len(recipes)}")
@@ -456,7 +493,7 @@ def sync_mealie(client: MealieClient, bundle: dict[str, Any], dry_run: bool, syn
                 "recipe_id": recipe["recipe_id"],
                 "name": recipe["name"],
                 "action": action,
-                "ingredient_rows": len(recipe.get("structured_ingredients_ru") or []),
+                "ingredient_rows": len(recipe_ingredient_rows(recipe)),
                 "mealie_slug": current.get("slug"),
             }
         )
@@ -496,7 +533,7 @@ def build_recipe_payload(current: dict[str, Any], recipe: dict[str, Any], entiti
             "week_id": recipe.get("extras", {}).get("week_id"),
             "intended_mealie_slug": recipe.get("mealie_slug"),
             "sync_source": "directions/health-and-beauty/projects/nutrition/integrations/mealie/mealie_api_sync.py",
-            "sync_policy": "native_structured_ingredients_ru",
+            "sync_policy": "native_grocery_safe_ingredients_v2",
         }
     )
     payload["extras"] = extras
@@ -506,17 +543,17 @@ def build_recipe_payload(current: dict[str, Any], recipe: dict[str, Any], entiti
 def build_ingredients(recipe: dict[str, Any], entities: EntityCache) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     recipe_id = recipe["recipe_id"]
-    for index, row in enumerate(recipe["structured_ingredients_ru"], start=1):
-        display = row.get("original_text_ru") or render_ingredient_display(row)
-        food = entities.get_or_create("foods", row.get("food_ru"))
-        unit = entities.get_or_create("units", row.get("unit_ru"))
+    for index, row in enumerate(recipe_ingredient_rows(recipe), start=1):
+        display = row.get("original_text") or render_ingredient_display(row)
+        food = entities.get_or_create("foods", row.get("food"))
+        unit = entities.get_or_create("units", row.get("unit"))
         rows.append(
             {
                 "quantity": row.get("amount"),
                 "unit": unit,
                 "food": food,
                 "referencedRecipe": None,
-                "note": row.get("prep_note_ru"),
+                "note": row.get("note"),
                 "display": display,
                 "title": None,
                 "originalText": display,
@@ -625,7 +662,7 @@ def validate_mealie(client: MealieClient, bundle: dict[str, Any], examples: int 
         if detail.get("name") != recipe.get("name"):
             errors.append(f"Recipe name mismatch for {recipe['recipe_id']}: {detail.get('name')} != {recipe.get('name')}")
         ingredients = detail.get("recipeIngredient") or []
-        expected = recipe.get("structured_ingredients_ru") or []
+        expected = recipe_ingredient_rows(recipe)
         if len(ingredients) != len(expected):
             errors.append(f"Ingredient row count mismatch for {recipe['recipe_id']}: {len(ingredients)} != {len(expected)}")
         example_count_for_recipe = 0
@@ -638,6 +675,13 @@ def validate_mealie(client: MealieClient, bundle: dict[str, Any], examples: int 
                 errors.append(f"Ingredient {index_row} in {recipe['recipe_id']} has quantity but no unit")
             if not info["quantity"] and not info["unit"] and not info["food"] and info["note"]:
                 note_only_rows += 1
+            if is_scheduled_recipe(recipe):
+                forbidden = forbidden_ingredient_pattern(info["food"])
+                if forbidden:
+                    errors.append(
+                        f"Ingredient {index_row} in scheduled recipe {recipe['recipe_id']} contains forbidden "
+                        f"prepared-component food {info['food']!r}; matched {forbidden!r}"
+                    )
             if recipe_matches <= 3 and example_count_for_recipe < examples:
                 examples_out.append({"recipe": detail.get("name"), **info})
                 example_count_for_recipe += 1
@@ -682,6 +726,78 @@ def validate_mealplans(client: MealieClient, bundle: dict[str, Any], errors: lis
     if old_invalid:
         errors.append(f"Old invalid meal planner entries detected: {old_invalid}")
     return {"expected": len(entries), "matched": matched, "old_invalid_entries": old_invalid}
+
+
+def shopping_preview(client: MealieClient, bundle: dict[str, Any], limit: int) -> dict[str, Any]:
+    errors: list[str] = []
+    index = RecipeIndex(client)
+    index.load()
+    recipes_by_id = {recipe["recipe_id"]: recipe for recipe in bundle["recipes_to_upsert"]}
+    aggregate: dict[tuple[str, str | None], dict[str, Any]] = {}
+    meal_entries = bundle.get("meal_plan_entries") or []
+
+    for entry in meal_entries:
+        recipe = recipes_by_id.get(entry["recipe_id"])
+        if not recipe:
+            errors.append(f"Meal plan references unknown recipe_id {entry['recipe_id']}")
+            continue
+        if not is_scheduled_recipe(recipe):
+            errors.append(f"Meal plan schedules prep-reference recipe {entry['recipe_id']}")
+            continue
+        detail = index.resolve(recipe)
+        if not detail:
+            errors.append(f"Missing Mealie recipe for shopping preview: {entry['recipe_id']}")
+            continue
+        for row in detail.get("recipeIngredient") or []:
+            info = readback_ingredient_info(row)
+            food = info["food"]
+            unit = info["unit"]
+            if not food:
+                errors.append(f"Shopping preview row without food in {entry['recipe_id']}")
+                continue
+            forbidden = forbidden_ingredient_pattern(food)
+            if forbidden:
+                errors.append(f"Shopping preview contains forbidden prepared component {food!r}; matched {forbidden!r}")
+            key = (food, unit)
+            target = aggregate.setdefault(key, {"food": food, "unit": unit, "quantity": 0.0, "free_text": 0, "notes": set()})
+            quantity = info["quantity"]
+            if isinstance(quantity, (int, float)):
+                target["quantity"] += float(quantity)
+            else:
+                target["free_text"] += 1
+            if info["note"]:
+                target["notes"].add(str(info["note"]))
+
+    rows = sorted(aggregate.values(), key=lambda item: normalize_name(item["food"]))
+    for row in rows:
+        row["notes"] = sorted(row["notes"])
+    return {
+        "source": "mealie_planner_recipe_readback",
+        "meal_entries": len(meal_entries),
+        "rows_total": len(rows),
+        "rows": rows[:limit],
+        "limit": limit,
+        "errors": errors,
+    }
+
+
+def print_shopping_preview(result: dict[str, Any]) -> None:
+    print("shopping_preview:")
+    print(f"  source: {result['source']}")
+    print(f"  meal_entries: {result['meal_entries']}")
+    print(f"  rows_total: {result['rows_total']}")
+    print(f"  rows_shown: {len(result['rows'])}")
+    for row in result["rows"]:
+        quantity = row["quantity"]
+        quantity_text = format_number(quantity) if quantity else f"{row['free_text']}x"
+        unit_text = row["unit"] or ""
+        print(f"    - {quantity_text} {unit_text} {row['food']}".rstrip())
+    if result["errors"]:
+        print("  errors:")
+        for error in result["errors"]:
+            print(f"    - {error}")
+    else:
+        print("  errors: none")
 
 
 def print_sync_result(result: dict[str, Any]) -> None:
@@ -740,6 +856,50 @@ def readback_ingredient_info(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def recipe_ingredient_rows(recipe: dict[str, Any]) -> list[dict[str, Any]]:
+    if isinstance(recipe.get("ingredients_structured"), list):
+        source = recipe["ingredients_structured"]
+        return [
+            {
+                "food": row.get("food"),
+                "amount": row.get("amount"),
+                "unit": row.get("unit"),
+                "note": row.get("note"),
+                "original_text": row.get("original_text") or render_v2_ingredient_display(row),
+                "mealie_expected": row.get("mealie_expected") or {"note_field_must_not_be_the_only_data": True},
+            }
+            for row in source
+        ]
+    if isinstance(recipe.get("structured_ingredients_ru"), list):
+        source = recipe["structured_ingredients_ru"]
+        return [
+            {
+                "food": row.get("food_ru"),
+                "amount": row.get("amount"),
+                "unit": row.get("unit_ru"),
+                "note": row.get("prep_note_ru"),
+                "original_text": row.get("original_text_ru") or render_v2_ingredient_display(
+                    {"food": row.get("food_ru"), "amount": row.get("amount"), "unit": row.get("unit_ru"), "note": row.get("prep_note_ru")}
+                ),
+                "mealie_expected": row.get("mealie_expected") or {"note_field_must_not_be_the_only_data": True},
+            }
+            for row in source
+        ]
+    return []
+
+
+def is_scheduled_recipe(recipe: dict[str, Any]) -> bool:
+    return recipe.get("meal_plan_usage") == "scheduled"
+
+
+def forbidden_ingredient_pattern(value: Any) -> str | None:
+    normalized = normalize_name(value)
+    for pattern in FORBIDDEN_SCHEDULED_INGREDIENT_PATTERNS:
+        if pattern in normalized:
+            return pattern
+    return None
+
+
 def extract_pitanie_recipe_id(recipe: dict[str, Any]) -> str | None:
     extras = recipe.get("extras") or {}
     if extras.get("pitanie_recipe_id"):
@@ -753,9 +913,17 @@ def extract_pitanie_recipe_id(recipe: dict[str, Any]) -> str | None:
 
 def render_ingredient_display(row: dict[str, Any]) -> str:
     amount = row.get("amount")
-    unit = row.get("unit_ru")
-    food = row.get("food_ru") or ""
-    note = row.get("prep_note_ru")
+    unit = row.get("unit")
+    food = row.get("food") or ""
+    note = row.get("note")
+    return render_v2_ingredient_display({"amount": amount, "unit": unit, "food": food, "note": note})
+
+
+def render_v2_ingredient_display(row: dict[str, Any]) -> str:
+    amount = row.get("amount")
+    unit = row.get("unit")
+    food = row.get("food") or ""
+    note = row.get("note")
     parts = []
     if amount is not None:
         parts.append(format_number(amount))

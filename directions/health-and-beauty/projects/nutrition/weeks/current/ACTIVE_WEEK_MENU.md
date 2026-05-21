@@ -1,9 +1,9 @@
 # Активное меню недели
 
-Status: active_menu_approved_for_save
-Menu version: v5_same_bases_different_dishes
+Статус: active_menu_approved_for_save
+Версия меню: v6_ru_standalone_shopping_safe
 Week ID: 2026-W21-calibration-2026-05-21_to_2026-05-24
-Source weekly plan: directions/health-and-beauty/projects/nutrition/weeks/current/WEEKLY_PLAN.md
+Источник недельного плана: directions/health-and-beauty/projects/nutrition/weeks/current/WEEKLY_PLAN.md
 Диапазон меню: 2026-05-21 — 2026-05-24
 
 ## Цели недели
@@ -19,30 +19,26 @@ Source weekly plan: directions/health-and-beauty/projects/nutrition/weeks/curren
 - Овощной салат по умолчанию: классический греческий салат
 - Белковые салаты/начинки для питы с тунцом, курицей и яйцами разрешены
 
-## Операционный принцип
+## Главный принцип v6
 
-Меню держится на двух белковых базах, двух гарнирах и двух соусах.
+Меню должно быть удобным для batch-prep и Mealie shopping list.
 
-Белковые базы:
-- Куриное филе шаурма-стайл в Ninja
-- Густая индейка chili в Instant Pro
+Поэтому:
+- В рецептах для планировщика питания ингредиенты — только продукты из магазина.
+- Нельзя писать ингредиентом “готовая курица”, “индейка chili”, “картофельные дольки”, “соус”.
+- Заготовки описываются в шагах, а не в ингредиентах.
+- Если batch-prep сделан, в день еды блюдо собирается за 5–15 минут.
+- Если batch-prep не сделан, каждый рецепт всё равно должен быть понятен с нуля.
 
-Гарниры:
-- Рис в Instant Pro
-- Картофельные дольки в Ninja
+## Что готовится одним batch-prep блоком
 
-Соусы:
-- Чесночно-йогуртовый соус
-- Йогуртово-горчичный соус для тунца
-
-Быстрые добавки:
-- яйца
-- консервированный тунец
-- опциональный стейк тунца
-- лаваш/пита/тортилья
-- компоненты греческого салата
-
-Меню не должно требовать отдельной мясной готовки каждый день.
+1. Куриное филе шаурма-стайл.
+2. Густая индейка chili.
+3. Рис.
+4. Картофель.
+5. Чесночно-йогуртовый соус.
+6. Йогуртово-горчичный соус для тунца.
+7. 6–8 варёных яиц.
 
 ## Приёмы пищи по дням
 
@@ -61,20 +57,16 @@ Source weekly plan: directions/health-and-beauty/projects/nutrition/weeks/curren
 Обед:
 - Настоящая шаурма с курицей в лаваше
 - Recipe ID: pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007
-- Использует базу: куриное филе шаурма-стайл в Ninja
 
 Ужин:
 - Картофель с индейкой chili и йогуртовым соусом
 - Recipe ID: pitanie-2026-w21-v5-loaded-turkey-chili-potato-008
-- Использует базу: густая индейка chili в Instant Pro
-- Использует гарнир: картофельные дольки в Ninja
 
 ### Пятница 2026-05-22
 
 Завтрак:
 - Завтрачный crunchwrap с курицей и яйцами
 - Recipe ID: pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009
-- Использует куриную базу, яйца, картофель и лаваш
 
 Контролируемый утренний слот, опционально:
 - 30 г whey с водой
@@ -83,7 +75,6 @@ Source weekly plan: directions/health-and-beauty/projects/nutrition/weeks/curren
 Обед:
 - Боул с рисом и курицей шаурма-стайл
 - Recipe ID: pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010
-- Использует куриную базу, рис и чесночно-йогуртовый соус
 
 Ужин:
 - Боул с тунцом-стейком в кунжуте
@@ -95,7 +86,6 @@ Source weekly plan: directions/health-and-beauty/projects/nutrition/weeks/curren
 Завтрак:
 - Лаваш с индейкой chili и яйцами
 - Recipe ID: pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012
-- Использует базу индейки chili, яйца и лаваш
 
 Контролируемый утренний слот, опционально:
 - 30 г whey с водой
@@ -104,19 +94,16 @@ Source weekly plan: directions/health-and-beauty/projects/nutrition/weeks/curren
 Обед:
 - Боул с рисом и индейкой chili
 - Recipe ID: pitanie-2026-w21-v5-turkey-chili-rice-bowl-013
-- Использует базу индейки chili и рис
 
 Ужин:
 - Хрустящая лепёшка с курицей шаурма-стайл
 - Recipe ID: pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014
-- Использует куриную базу, чесночно-йогуртовый соус и лаваш/лепёшку
 
 ### Воскресенье 2026-05-24
 
 Завтрак:
 - Завтрачный crunchwrap с курицей и яйцами
 - Recipe ID: pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009
-- Использует остатки курицы и картофеля
 
 Контролируемый утренний слот, опционально:
 - 30 г whey с водой
@@ -125,12 +112,10 @@ Source weekly plan: directions/health-and-beauty/projects/nutrition/weeks/curren
 Обед:
 - Пита с тунцом, яйцом и картофелем
 - Recipe ID: pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015
-- Использует консервированный тунец, варёные яйца, картофель и йогуртово-горчичный соус
 
 Ужин:
-- Финальный боул из остатков
+- Боул закрытия с индейкой chili
 - Recipe ID: pitanie-2026-w21-v5-closeout-bowl-016
-- Использует остатки курицы или индейки, рис или картофель и подходящий соус
 
 ## Запасные блюда
 

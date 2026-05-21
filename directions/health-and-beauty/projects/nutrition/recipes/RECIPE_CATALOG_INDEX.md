@@ -23,6 +23,8 @@ primary_protein:
 equipment:
 total_time:
 last_used_week:
+menu_version:
+meal_plan_usage:
 mealie_status:
 mealie_slug:
 mealie_id_if_known:
@@ -34,7 +36,7 @@ mealie_id_if_known:
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-shawarma-chicken-fillet-strips-001
-name: Куриное филе шаурма-стайл в Ninja
+name: Заготовка: куриное филе шаурма-стайл
 categories:
   - Питание / Meal Prep
 tags:
@@ -46,12 +48,14 @@ tags:
   - batch-prep
 primary_protein: куриное филе
 equipment:
-  - аэрогриль Ninja с двумя корзинами
-  - миска для смешивания
+  - аэрогриль
+  - миска
   - контейнеры
 total_time: 60 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: prep_reference_only_not_scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-shawarma-chicken-fillet-strips
 mealie_id_if_known: null
 ```
@@ -60,7 +64,7 @@ mealie_id_if_known: null
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-smoky-turkey-chili-mince-002
-name: Густая индейка chili в Instant Pro
+name: Заготовка: густая индейка chili
 categories:
   - Питание / Meal Prep
 tags:
@@ -70,12 +74,16 @@ tags:
   - instant-pot
   - multicooker
   - batch-prep
-primary_protein: фарш индейки
+primary_protein: фарш индейки 5–10%
 equipment:
-  - мультиварка Instant Pro 8
+  - мультиварка-скороварка
+  - лопатка
+  - контейнеры
 total_time: 40 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: prep_reference_only_not_scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-smoky-turkey-chili-mince
 mealie_id_if_known: null
 ```
@@ -84,7 +92,7 @@ mealie_id_if_known: null
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-ninja-potato-wedges-003
-name: Картофельные дольки в Ninja
+name: Заготовка: картофельные дольки
 categories:
   - Питание / Meal Prep
 tags:
@@ -96,10 +104,13 @@ tags:
   - batch-prep
 primary_protein: картофель
 equipment:
-  - аэрогриль Ninja с двумя корзинами
+  - аэрогриль
+  - миска
 total_time: 45 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: prep_reference_only_not_scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-ninja-potato-wedges
 mealie_id_if_known: null
 ```
@@ -108,7 +119,7 @@ mealie_id_if_known: null
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-garlic-yogurt-sauce-004
-name: Чесночно-йогуртовый соус
+name: Заготовка: чесночно-йогуртовый соус
 categories:
   - Питание / Meal Prep
 tags:
@@ -116,12 +127,14 @@ tags:
   - approved-menu
   - low-friction
   - batch-prep
-primary_protein: греческий йогурт / skyr
+primary_protein: греческий йогурт или skyr без сахара
 equipment:
-  - миска для смешивания
+  - миска
 total_time: 7 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: prep_reference_only_not_scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-garlic-yogurt-sauce
 mealie_id_if_known: null
 ```
@@ -130,7 +143,7 @@ mealie_id_if_known: null
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005
-name: Йогуртово-горчичный соус для тунца
+name: Заготовка: йогуртово-горчичный соус для тунца
 categories:
   - Питание / Meal Prep
 tags:
@@ -138,12 +151,14 @@ tags:
   - approved-menu
   - low-friction
   - batch-prep
-primary_protein: греческий йогурт / skyr
+primary_protein: греческий йогурт или skyr без сахара
 equipment:
-  - миска для смешивания
+  - миска
 total_time: 7 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: prep_reference_only_not_scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce
 mealie_id_if_known: null
 ```
@@ -160,15 +175,17 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-20-min
   - breakfast
   - fallback
 primary_protein: консервированный тунец
 equipment:
-  - сковорода или аэрогриль Ninja
+  - сковорода или аэрогриль
+  - миска
 total_time: 12 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-crispy-tuna-melt-lavash
 mealie_id_if_known: null
 ```
@@ -185,15 +202,18 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-10-min
   - lunch
   - dinner
 primary_protein: куриное филе
 equipment:
-  - сковорода или аэрогриль Ninja
-total_time: 10 минут
+  - аэрогриль
+  - сковорода опционально
+  - миска
+total_time: 50 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-real-chicken-shawarma-wrap
 mealie_id_if_known: null
 ```
@@ -210,16 +230,18 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-10-min
   - dinner
   - fallback
-primary_protein: фарш индейки
+primary_protein: фарш индейки 5–10%
 equipment:
-  - микроволновка или сковорода
-  - Ninja по желанию
-total_time: 10 минут
+  - мультиварка-скороварка
+  - аэрогриль
+  - миска
+total_time: 50 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-loaded-turkey-chili-potato
 mealie_id_if_known: null
 ```
@@ -235,14 +257,17 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-20-min
   - breakfast
-primary_protein: куриное филе + яйца
+primary_protein: куриное филе
 equipment:
-  - сковорода или аэрогриль Ninja
-total_time: 13 минут
+  - сковорода
+  - аэрогриль опционально
+  - миска
+total_time: 45 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap
 mealie_id_if_known: null
 ```
@@ -258,14 +283,17 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-10-min
   - lunch
 primary_protein: куриное филе
 equipment:
-  - микроволновка или сковорода
-total_time: 8 минут
+  - аэрогриль
+  - мультиварка или кастрюля
+  - миска
+total_time: 45 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-chicken-shawarma-rice-bowl
 mealie_id_if_known: null
 ```
@@ -281,15 +309,17 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-20-min
   - ninja
   - dinner
 primary_protein: стейк тунца
 equipment:
-  - Ninja или гриль
-total_time: 16 минут
+  - аэрогриль или гриль
+  - миска
+total_time: 20 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl
 mealie_id_if_known: null
 ```
@@ -305,14 +335,16 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-20-min
   - breakfast
-primary_protein: фарш индейки + яйца
+primary_protein: фарш индейки 5–10%
 equipment:
+  - мультиварка-скороварка или сковорода
   - сковорода
-total_time: 11 минут
+total_time: 40 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap
 mealie_id_if_known: null
 ```
@@ -328,14 +360,16 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-10-min
   - lunch
-primary_protein: фарш индейки
+primary_protein: фарш индейки 5–10%
 equipment:
-  - микроволновка или сковорода
-total_time: 8 минут
+  - мультиварка-скороварка
+  - кастрюля или мультиварка для риса
+total_time: 40 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-turkey-chili-rice-bowl
 mealie_id_if_known: null
 ```
@@ -352,15 +386,17 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-20-min
   - dinner
   - fallback
 primary_protein: куриное филе
 equipment:
-  - сковорода или аэрогриль Ninja
-total_time: 11 минут
+  - аэрогриль или сковорода
+  - миска
+total_time: 45 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread
 mealie_id_if_known: null
 ```
@@ -377,16 +413,18 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-20-min
   - lunch
   - fallback
-primary_protein: консервированный тунец + яйца
+primary_protein: консервированный тунец
 equipment:
-  - миска для смешивания
-  - pan or Ninja optional
-total_time: 11 минут
+  - миска
+  - кастрюля
+  - аэрогриль или сковорода опционально
+total_time: 35 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets
 mealie_id_if_known: null
 ```
@@ -395,7 +433,7 @@ mealie_id_if_known: null
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-closeout-bowl-016
-name: Финальный боул из остатков
+name: Боул закрытия с индейкой chili
 categories:
   - Питание / Ужин
   - Питание / Fallback
@@ -403,15 +441,17 @@ tags:
   - chatgpt-pitanie
   - approved-menu
   - high-protein
-  - fast-10-min
   - dinner
   - fallback
-primary_protein: остатки курицы или индейки
+primary_protein: фарш индейки 5–10%
 equipment:
-  - микроволновка, сковорода или Ninja
-total_time: 10 минут
+  - мультиварка-скороварка или сковорода
+  - кастрюля или мультиварка для риса
+total_time: 40 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced_structured_ru
+menu_version: v6_ru_standalone_shopping_safe
+meal_plan_usage: scheduled
+mealie_status: synced_v6_grocery_safe
 mealie_slug: pitanie-2026-w21-v5-closeout-bowl
 mealie_id_if_known: null
 ```

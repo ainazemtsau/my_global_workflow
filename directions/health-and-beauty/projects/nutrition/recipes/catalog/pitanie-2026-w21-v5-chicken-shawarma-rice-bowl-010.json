@@ -2,13 +2,15 @@
   "recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
   "name": "Боул с рисом и курицей шаурма-стайл",
   "mealie_slug": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl",
-  "purpose": "Обеденный боул из готовой курицы, риса, соуса и греческого салата.",
+  "purpose": "Обед из риса, курицы, чесночного йогурта и греческой стороны.",
   "servings": 1,
-  "prep_time_minutes": 3,
-  "cook_time_minutes": 5,
-  "total_time_minutes": 8,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 25,
+  "total_time_minutes": 45,
   "equipment": [
-    "микроволновка или сковорода"
+    "аэрогриль",
+    "мультиварка или кастрюля",
+    "миска"
   ],
   "categories": [
     "Питание / Обед"
@@ -17,37 +19,121 @@
     "chatgpt-pitanie",
     "approved-menu",
     "high-protein",
-    "fast-10-min",
     "lunch"
   ],
   "ingredients": [
     {
-      "item": "готовый рис",
-      "amount": 300,
-      "unit": "г"
+      "item": "куриное филе",
+      "amount": 320,
+      "unit": "г",
+      "prep_note_ru": "сырое, нарезать полосками"
     },
     {
-      "item": "куриное филе шаурма-стайл в Ninja",
-      "amount": 240,
-      "unit": "г"
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 40,
+      "unit": "г",
+      "prep_note_ru": "для маринада"
     },
     {
-      "item": "чесночно-йогуртовый соус",
-      "amount": 70,
-      "unit": "г"
+      "item": "лимонный сок",
+      "amount": 8,
+      "unit": "мл",
+      "prep_note_ru": "для маринада"
     },
     {
-      "item": "компоненты греческого салата",
+      "item": "оливковое масло",
+      "amount": 5,
+      "unit": "мл",
+      "prep_note_ru": "для маринада"
+    },
+    {
+      "item": "чеснок",
       "amount": 1,
-      "unit": "порция"
+      "unit": "зубчик",
+      "prep_note_ru": "часть в маринад, часть в соус"
+    },
+    {
+      "item": "молотая зира / кумин",
+      "amount": 0.5,
+      "unit": "ч. л."
+    },
+    {
+      "item": "копчёная паприка",
+      "amount": 0.5,
+      "unit": "ч. л."
+    },
+    {
+      "item": "молотый кориандр",
+      "amount": 0.25,
+      "unit": "ч. л."
+    },
+    {
+      "item": "куркума",
+      "amount": 0.125,
+      "unit": "ч. л."
+    },
+    {
+      "item": "соль",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "рис",
+      "amount": 90,
+      "unit": "г",
+      "prep_note_ru": "сухой"
+    },
+    {
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 70,
+      "unit": "г",
+      "prep_note_ru": "для соуса"
+    },
+    {
+      "item": "огурец",
+      "amount": 150,
+      "unit": "г"
+    },
+    {
+      "item": "помидор",
+      "amount": 150,
+      "unit": "г"
+    },
+    {
+      "item": "красный лук",
+      "amount": 20,
+      "unit": "г"
+    },
+    {
+      "item": "фета",
+      "amount": 40,
+      "unit": "г"
+    },
+    {
+      "item": "оливки",
+      "amount": 30,
+      "unit": "г"
+    },
+    {
+      "item": "орегано",
+      "amount": null,
+      "unit": "по вкусу",
+      "prep_note_ru": "для греческой стороны"
     }
   ],
   "instructions": [
-    "Разогрей рис с 1–2 ст. л. воды.",
-    "Разогрей курицу.",
-    "Выложи рис в миску, сверху добавь курицу.",
-    "Добавь компоненты греческого салата сбоку или сверху.",
-    "Заверши чесночно-йогуртовым соусом."
+    "Если batch-prep уже сделан: возьми готовую курицу, готовый рис и компоненты греческой стороны.",
+    "Если готовишь с нуля: промой и приготовь 90 г сухого риса.",
+    "Нарежь курицу полосками и замаринуй в йогурте, лимоне, масле, чесноке, специях, соли и перце.",
+    "Готовь курицу 200°C 12–15 минут.",
+    "Сделай соус из йогурта, чеснока, лимона, соли и перца.",
+    "Нарежь огурец, помидор и красный лук, добавь фету, оливки и орегано.",
+    "Собери боул: рис, сверху курица, рядом греческая сторона, соус сверху или отдельно."
   ],
   "storage": [
     "Храни компоненты отдельно."
@@ -70,61 +156,125 @@
   "why_it_fits_weekly_plan": "Высокобелковый обед без дополнительного процесса готовки.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Обеденный боул из готовой курицы, риса, соуса и греческого салата.",
-  "structured_ingredients_ru": [
+  "description": "Обед из риса, курицы, чесночного йогурта и греческой стороны.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "300 г готовый рис",
-      "amount": 300,
-      "unit_ru": "г",
-      "food_ru": "готовый рис",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "куриное филе",
+      "amount": 320,
+      "unit": "г",
+      "note": "сырое, нарезать полосками"
     },
     {
-      "original_text_ru": "240 г куриное филе шаурма-стайл в Ninja",
-      "amount": 240,
-      "unit_ru": "г",
-      "food_ru": "куриное филе шаурма-стайл в Ninja",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 40,
+      "unit": "г",
+      "note": "для маринада"
     },
     {
-      "original_text_ru": "70 г чесночно-йогуртовый соус",
-      "amount": 70,
-      "unit_ru": "г",
-      "food_ru": "чесночно-йогуртовый соус",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "лимонный сок",
+      "amount": 8,
+      "unit": "мл",
+      "note": "для маринада"
     },
     {
-      "original_text_ru": "1 порция компоненты греческого салата",
+      "food": "оливковое масло",
+      "amount": 5,
+      "unit": "мл",
+      "note": "для маринада"
+    },
+    {
+      "food": "чеснок",
       "amount": 1,
-      "unit_ru": "порция",
-      "food_ru": "компоненты греческого салата",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "зубчик",
+      "note": "часть в маринад, часть в соус"
+    },
+    {
+      "food": "молотая зира / кумин",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "копчёная паприка",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "молотый кориандр",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "куркума",
+      "amount": 0.125,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "рис",
+      "amount": 90,
+      "unit": "г",
+      "note": "сухой"
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 70,
+      "unit": "г",
+      "note": "для соуса"
+    },
+    {
+      "food": "огурец",
+      "amount": 150,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "помидор",
+      "amount": 150,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "красный лук",
+      "amount": 20,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "фета",
+      "amount": 40,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "оливки",
+      "amount": 30,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "орегано",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": "для греческой стороны"
     }
-  ]
+  ],
+  "meal_plan_usage": "scheduled"
 }

@@ -2,13 +2,15 @@
   "recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
   "name": "Настоящая шаурма с курицей в лаваше",
   "mealie_slug": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap",
-  "purpose": "Настоящая завёрнутая и поджаренная шаурма на обед.",
+  "purpose": "Настоящий завёрнутый и поджаренный лаваш с курицей, а не омлет рядом с хлебом.",
   "servings": 1,
-  "prep_time_minutes": 5,
-  "cook_time_minutes": 5,
-  "total_time_minutes": 10,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 20,
+  "total_time_minutes": 50,
   "equipment": [
-    "сковорода или аэрогриль Ninja"
+    "аэрогриль",
+    "сковорода опционально",
+    "миска"
   ],
   "categories": [
     "Питание / Обед",
@@ -18,52 +20,129 @@
     "chatgpt-pitanie",
     "approved-menu",
     "high-protein",
-    "fast-10-min",
     "lunch",
     "dinner"
   ],
   "ingredients": [
     {
-      "item": "лаваш или лепёшка",
-      "amount": 1,
-      "unit": "большой лист"
-    },
-    {
-      "item": "куриное филе шаурма-стайл в Ninja",
-      "amount": 240,
-      "unit": "г"
-    },
-    {
-      "item": "чесночно-йогуртовый соус",
-      "amount": 70,
-      "unit": "г"
-    },
-    {
-      "item": "огурец, помидор и красный лук",
-      "amount": 100,
+      "item": "куриное филе",
+      "amount": 320,
       "unit": "г",
-      "prep_note_ru": "нарезать"
+      "prep_note_ru": "сырое, нарезать полосками"
+    },
+    {
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 40,
+      "unit": "г",
+      "prep_note_ru": "для маринада"
+    },
+    {
+      "item": "лимонный сок",
+      "amount": 8,
+      "unit": "мл",
+      "prep_note_ru": "для маринада"
+    },
+    {
+      "item": "оливковое масло",
+      "amount": 3,
+      "unit": "мл",
+      "prep_note_ru": "для маринада"
+    },
+    {
+      "item": "чеснок",
+      "amount": 1,
+      "unit": "зубчик",
+      "prep_note_ru": "часть в маринад, часть в соус"
+    },
+    {
+      "item": "молотая зира / кумин",
+      "amount": 0.5,
+      "unit": "ч. л."
+    },
+    {
+      "item": "копчёная паприка",
+      "amount": 0.5,
+      "unit": "ч. л."
+    },
+    {
+      "item": "молотый кориандр",
+      "amount": 0.25,
+      "unit": "ч. л."
+    },
+    {
+      "item": "куркума",
+      "amount": 0.125,
+      "unit": "ч. л."
+    },
+    {
+      "item": "корица",
+      "amount": 1,
+      "unit": "щепотка"
+    },
+    {
+      "item": "соль",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "prep_note_ru": "плюс по вкусу в соус"
+    },
+    {
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "лаваш или тортилья",
+      "amount": 1,
+      "unit": "шт.",
+      "prep_note_ru": "большой лист"
+    },
+    {
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 70,
+      "unit": "г",
+      "prep_note_ru": "для чесночного соуса"
+    },
+    {
+      "item": "огурец",
+      "amount": 80,
+      "unit": "г",
+      "prep_note_ru": "тонко нарезать"
+    },
+    {
+      "item": "помидор",
+      "amount": 80,
+      "unit": "г",
+      "prep_note_ru": "тонко нарезать"
+    },
+    {
+      "item": "красный лук",
+      "amount": 20,
+      "unit": "г",
+      "prep_note_ru": "тонко нарезать"
     },
     {
       "item": "фета",
       "amount": 30,
       "unit": "г",
-      "prep_note_ru": "по желанию"
+      "prep_note_ru": "опционально"
     },
     {
       "item": "маринованные огурцы",
       "amount": 30,
       "unit": "г",
-      "prep_note_ru": "по желанию"
+      "prep_note_ru": "опционально"
     }
   ],
   "instructions": [
-    "Слегка прогрей лаваш, чтобы он не рвался при сворачивании.",
-    "Намажь тонкий слой чесночно-йогуртового соуса.",
-    "Добавь курицу, овощи, фету по желанию и маринованные огурцы по желанию.",
-    "Загни боковые края и плотно сверни.",
-    "Поджарь швом вниз на сковороде по 2 минуты с каждой стороны или в Ninja при 190°C 4–5 минут.",
-    "Подавай сразу."
+    "Если batch-prep курицы уже сделан: возьми готовую порцию и перейди к сборке.",
+    "Если готовишь с нуля: нарежь куриное филе полосками 1.5–2 см.",
+    "Смешай йогурт, лимонный сок, масло, часть чеснока, зиру, паприку, кориандр, куркуму, корицу, соль и перец.",
+    "Обмажь курицу маринадом и оставь минимум на 30 минут, если есть время.",
+    "Готовь курицу в аэрогриле 200°C 12–15 минут, перевернув в середине; дай постоять 5 минут.",
+    "Смешай соус из йогурта, оставшегося чеснока, лимона, соли и перца.",
+    "Нарежь огурец, помидор и красный лук тонко.",
+    "Прогрей лаваш 20–30 секунд, намажь соус, выложи курицу, овощи, фету и маринованный огурец.",
+    "Заверни плотно и поджарь швом вниз 2 минуты с каждой стороны или 190°C 4–5 минут в аэрогриле."
   ],
   "storage": [
     "Не храни собранное блюдо несколько дней.",
@@ -76,7 +155,7 @@
     "Если курица закончилась, можно заменить индейкой chili, но это уже не куриная шаурма."
   ],
   "meal_prep_notes": [
-    "Использует только готовую куриную базу."
+    "В ингредиентах указаны продукты из магазина. Готовая куриная заготовка не должна быть ингредиентом в Mealie."
   ],
   "nutrition_estimate_per_serving": {
     "calories": "700-950 ккал",
@@ -87,87 +166,125 @@
   "why_it_fits_weekly_plan": "Сытный высокобелковый обед, который действительно соответствует формату шаурмы.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Настоящая завёрнутая и поджаренная шаурма на обед.",
-  "structured_ingredients_ru": [
+  "description": "Настоящий завёрнутый и поджаренный лаваш с курицей, а не омлет рядом с хлебом.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "1 большой лист лаваш или лепёшка",
+      "food": "куриное филе",
+      "amount": 320,
+      "unit": "г",
+      "note": "сырое, нарезать полосками"
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 40,
+      "unit": "г",
+      "note": "для маринада"
+    },
+    {
+      "food": "лимонный сок",
+      "amount": 8,
+      "unit": "мл",
+      "note": "для маринада"
+    },
+    {
+      "food": "оливковое масло",
+      "amount": 3,
+      "unit": "мл",
+      "note": "для маринада"
+    },
+    {
+      "food": "чеснок",
       "amount": 1,
-      "unit_ru": "большой лист",
-      "food_ru": "лаваш или лепёшка",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "зубчик",
+      "note": "часть в маринад, часть в соус"
     },
     {
-      "original_text_ru": "240 г куриное филе шаурма-стайл в Ninja",
-      "amount": 240,
-      "unit_ru": "г",
-      "food_ru": "куриное филе шаурма-стайл в Ninja",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "молотая зира / кумин",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "70 г чесночно-йогуртовый соус",
+      "food": "копчёная паприка",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "молотый кориандр",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "куркума",
+      "amount": 0.125,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "корица",
+      "amount": 1,
+      "unit": "щепотка",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "note": "плюс по вкусу в соус"
+    },
+    {
+      "food": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "лаваш или тортилья",
+      "amount": 1,
+      "unit": "шт.",
+      "note": "большой лист"
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
       "amount": 70,
-      "unit_ru": "г",
-      "food_ru": "чесночно-йогуртовый соус",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "для чесночного соуса"
     },
     {
-      "original_text_ru": "100 г огурец, помидор и красный лук (нарезать)",
-      "amount": 100,
-      "unit_ru": "г",
-      "food_ru": "огурец, помидор и красный лук",
-      "prep_note_ru": "нарезать",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "огурец",
+      "amount": 80,
+      "unit": "г",
+      "note": "тонко нарезать"
     },
     {
-      "original_text_ru": "30 г фета (по желанию)",
+      "food": "помидор",
+      "amount": 80,
+      "unit": "г",
+      "note": "тонко нарезать"
+    },
+    {
+      "food": "красный лук",
+      "amount": 20,
+      "unit": "г",
+      "note": "тонко нарезать"
+    },
+    {
+      "food": "фета",
       "amount": 30,
-      "unit_ru": "г",
-      "food_ru": "фета",
-      "prep_note_ru": "по желанию",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "опционально"
     },
     {
-      "original_text_ru": "30 г маринованные огурцы (по желанию)",
+      "food": "маринованные огурцы",
       "amount": 30,
-      "unit_ru": "г",
-      "food_ru": "маринованные огурцы",
-      "prep_note_ru": "по желанию",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "опционально"
     }
-  ]
+  ],
+  "meal_plan_usage": "scheduled"
 }

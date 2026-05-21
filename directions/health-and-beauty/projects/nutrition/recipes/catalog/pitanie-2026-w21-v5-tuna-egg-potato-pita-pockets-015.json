@@ -2,14 +2,15 @@
   "recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
   "name": "Пита с тунцом, яйцом и картофелем",
   "mealie_slug": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets",
-  "purpose": "Белковый обед с тунцом, яйцами и готовым картофелем.",
+  "purpose": "Сытный белковый обед без новой мясной готовки.",
   "servings": 1,
-  "prep_time_minutes": 8,
-  "cook_time_minutes": 3,
-  "total_time_minutes": 11,
+  "prep_time_minutes": 10,
+  "cook_time_minutes": 25,
+  "total_time_minutes": 35,
   "equipment": [
-    "миска для смешивания",
-    "pan or Ninja optional"
+    "миска",
+    "кастрюля",
+    "аэрогриль или сковорода опционально"
   ],
   "categories": [
     "Питание / Обед",
@@ -19,7 +20,6 @@
     "chatgpt-pitanie",
     "approved-menu",
     "high-protein",
-    "fast-20-min",
     "lunch",
     "fallback"
   ],
@@ -27,43 +27,74 @@
     {
       "item": "консервированный тунец",
       "amount": 2,
-      "unit": "банки",
+      "unit": "банка",
       "prep_note_ru": "слить жидкость"
     },
     {
-      "item": "варёные яйца",
+      "item": "яйца",
       "amount": 2,
       "unit": "шт.",
-      "prep_note_ru": "нарезать"
+      "prep_note_ru": "сварить вкрутую"
     },
     {
-      "item": "картофельные дольки в Ninja",
-      "amount": 250,
+      "item": "картофель",
+      "amount": 300,
       "unit": "г",
-      "prep_note_ru": "нарезать"
+      "prep_note_ru": "сырой, затем приготовить"
     },
     {
-      "item": "йогуртово-горчичный соус для тунца",
+      "item": "греческий йогурт или skyr без сахара",
       "amount": 90,
       "unit": "г"
     },
     {
+      "item": "горчица",
+      "amount": 1,
+      "unit": "ч. л."
+    },
+    {
+      "item": "маринованные огурцы",
+      "amount": 50,
+      "unit": "г",
+      "prep_note_ru": "мелко нарезать"
+    },
+    {
+      "item": "лимонный сок",
+      "amount": 10,
+      "unit": "мл"
+    },
+    {
       "item": "пита или лаваш",
       "amount": 1,
-      "unit": "порция"
+      "unit": "шт."
     },
     {
       "item": "зелёный лук или укроп",
       "amount": 10,
-      "unit": "г"
+      "unit": "г",
+      "prep_note_ru": "опционально"
+    },
+    {
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "соль",
+      "amount": null,
+      "unit": "по вкусу",
+      "prep_note_ru": "осторожно"
     }
   ],
   "instructions": [
-    "Хорошо слей жидкость с тунца.",
-    "Нарежь варёные яйца и картофельные дольки.",
-    "Аккуратно смешай тунец, яйца, картофель, соус и зелень.",
-    "Наполни питу или лаваш.",
-    "По желанию поджарь 2–3 минуты на сковороде или в Ninja до тёплого и слегка хрустящего состояния."
+    "Если яйца и картофель уже готовы: возьми готовые порции и перейди к сборке.",
+    "Если готовишь с нуля: свари яйца 9–10 минут, охлади и очисти.",
+    "Картофель нарежь и приготовь в аэрогриле 190–200°C 22–30 минут или отвари до мягкости.",
+    "Слей жидкость из тунца.",
+    "Нарежь яйца и картофель.",
+    "Смешай йогурт, горчицу, лимонный сок, маринованные огурцы, перец и немного соли.",
+    "Добавь тунец, яйца и картофель, перемешай аккуратно.",
+    "Прогрей питу/лаваш, начини смесью и опционально поджарь 2–3 минуты."
   ],
   "storage": [
     "Лучше собирать в день еды.",
@@ -88,87 +119,77 @@
   "why_it_fits_weekly_plan": "Быстрый высокобелковый формат protein-salad/pita.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Белковый обед с тунцом, яйцами и готовым картофелем.",
-  "structured_ingredients_ru": [
+  "description": "Сытный белковый обед без новой мясной готовки.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "2 банки консервированный тунец (слить жидкость)",
+      "food": "консервированный тунец",
       "amount": 2,
-      "unit_ru": "банки",
-      "food_ru": "консервированный тунец",
-      "prep_note_ru": "слить жидкость",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "банка",
+      "note": "слить жидкость"
     },
     {
-      "original_text_ru": "2 шт. варёные яйца (нарезать)",
+      "food": "яйца",
       "amount": 2,
-      "unit_ru": "шт.",
-      "food_ru": "варёные яйца",
-      "prep_note_ru": "нарезать",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "шт.",
+      "note": "сварить вкрутую"
     },
     {
-      "original_text_ru": "250 г картофельные дольки в Ninja (нарезать)",
-      "amount": 250,
-      "unit_ru": "г",
-      "food_ru": "картофельные дольки в Ninja",
-      "prep_note_ru": "нарезать",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "картофель",
+      "amount": 300,
+      "unit": "г",
+      "note": "сырой, затем приготовить"
     },
     {
-      "original_text_ru": "90 г йогуртово-горчичный соус для тунца",
+      "food": "греческий йогурт или skyr без сахара",
       "amount": 90,
-      "unit_ru": "г",
-      "food_ru": "йогуртово-горчичный соус для тунца",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "1 порция пита или лаваш",
+      "food": "горчица",
       "amount": 1,
-      "unit_ru": "порция",
-      "food_ru": "пита или лаваш",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "10 г зелёный лук или укроп",
+      "food": "маринованные огурцы",
+      "amount": 50,
+      "unit": "г",
+      "note": "мелко нарезать"
+    },
+    {
+      "food": "лимонный сок",
       "amount": 10,
-      "unit_ru": "г",
-      "food_ru": "зелёный лук или укроп",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
+    },
+    {
+      "food": "пита или лаваш",
+      "amount": 1,
+      "unit": "шт.",
+      "note": null
+    },
+    {
+      "food": "зелёный лук или укроп",
+      "amount": 10,
+      "unit": "г",
+      "note": "опционально"
+    },
+    {
+      "food": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": "осторожно"
     }
-  ]
+  ],
+  "meal_plan_usage": "scheduled"
 }

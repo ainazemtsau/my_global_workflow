@@ -1,14 +1,16 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-smoky-turkey-chili-mince-002",
-  "name": "Густая индейка chili в Instant Pro",
+  "name": "Заготовка: густая индейка chili",
   "mealie_slug": "pitanie-2026-w21-v5-smoky-turkey-chili-mince",
-  "purpose": "Универсальная база из индейки для картофеля, рисовых боулов, лаваша с яйцами и финального блюда.",
+  "purpose": "Одна индюшачья белковая база для картофеля, риса, лаваша и завтрака с яйцами.",
   "servings": 6,
   "prep_time_minutes": 15,
   "cook_time_minutes": 25,
   "total_time_minutes": 40,
   "equipment": [
-    "мультиварка Instant Pro 8"
+    "мультиварка-скороварка",
+    "лопатка",
+    "контейнеры"
   ],
   "categories": [
     "Питание / Meal Prep"
@@ -138,8 +140,7 @@
     "Не добавляй картофель в эту базу: картофель хранится отдельно для гибкости."
   ],
   "meal_prep_notes": [
-    "Это единственная подготовка индейки на неделю.",
-    "Держи массу достаточно густой для лаваша и картофеля."
+    "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
   ],
   "nutrition_estimate_per_serving": {
     "calories": "420-600 ккал",
@@ -150,230 +151,113 @@
   "why_it_fits_weekly_plan": "Высокобелковая база, которую можно использовать на завтрак, обед и ужин.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-smoky-turkey-chili-mince-002",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Универсальная база из индейки для картофеля, рисовых боулов, лаваша с яйцами и финального блюда.",
-  "structured_ingredients_ru": [
+  "description": "Одна индюшачья белковая база для картофеля, риса, лаваша и завтрака с яйцами.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "1700 г фарш индейки 5–10%",
+      "food": "фарш индейки 5–10%",
       "amount": 1700,
-      "unit_ru": "г",
-      "food_ru": "фарш индейки 5–10%",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "2 шт. жёлтый лук (нарезать)",
+      "food": "жёлтый лук",
       "amount": 2,
-      "unit_ru": "шт.",
-      "food_ru": "жёлтый лук",
-      "prep_note_ru": "нарезать",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "шт.",
+      "note": "нарезать"
     },
     {
-      "original_text_ru": "2 шт. сладкий перец (нарезать кубиком)",
+      "food": "сладкий перец",
       "amount": 2,
-      "unit_ru": "шт.",
-      "food_ru": "сладкий перец",
-      "prep_note_ru": "нарезать кубиком",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "шт.",
+      "note": "нарезать кубиком"
     },
     {
-      "original_text_ru": "4 зубчика чеснок (измельчить)",
+      "food": "чеснок",
       "amount": 4,
-      "unit_ru": "зубчика",
-      "food_ru": "чеснок",
-      "prep_note_ru": "измельчить",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "зубчика",
+      "note": "измельчить"
     },
     {
-      "original_text_ru": "800 г резаные томаты в банке",
+      "food": "резаные томаты в банке",
       "amount": 800,
-      "unit_ru": "г",
-      "food_ru": "резаные томаты в банке",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "60 г томатная паста",
+      "food": "томатная паста",
       "amount": 60,
-      "unit_ru": "г",
-      "food_ru": "томатная паста",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "2 банки консервированная фасоль (слить жидкость и промыть)",
+      "food": "консервированная фасоль",
       "amount": 2,
-      "unit_ru": "банки",
-      "food_ru": "консервированная фасоль",
-      "prep_note_ru": "слить жидкость и промыть",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "банки",
+      "note": "слить жидкость и промыть"
     },
     {
-      "original_text_ru": "250 мл вода или бульон",
+      "food": "вода или бульон",
       "amount": 250,
-      "unit_ru": "мл",
-      "food_ru": "вода или бульон",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "10 мл оливковое масло",
+      "food": "оливковое масло",
       "amount": 10,
-      "unit_ru": "мл",
-      "food_ru": "оливковое масло",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "2 ч. л. молотая зира / кумин",
+      "food": "молотая зира / кумин",
       "amount": 2,
-      "unit_ru": "ч. л.",
-      "food_ru": "молотая зира / кумин",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "2 ч. л. копчёная паприка",
+      "food": "копчёная паприка",
       "amount": 2,
-      "unit_ru": "ч. л.",
-      "food_ru": "копчёная паприка",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "1 ч. л. паприка",
+      "food": "паприка",
       "amount": 1,
-      "unit_ru": "ч. л.",
-      "food_ru": "паприка",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "1 ч. л. орегано",
+      "food": "орегано",
       "amount": 1,
-      "unit_ru": "ч. л.",
-      "food_ru": "орегано",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "хлопья чили или чили-порошок по вкусу",
+      "food": "хлопья чили или чили-порошок",
       "amount": null,
-      "unit_ru": "по вкусу",
-      "food_ru": "хлопья чили или чили-порошок",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": false,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "по вкусу",
+      "note": null
     },
     {
-      "original_text_ru": "2 ч. л. соль",
+      "food": "соль",
       "amount": 2,
-      "unit_ru": "ч. л.",
-      "food_ru": "соль",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "1 ч. л. чёрный перец",
+      "food": "чёрный перец",
       "amount": 1,
-      "unit_ru": "ч. л.",
-      "food_ru": "чёрный перец",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "20 мл лимонный или лаймовый сок",
+      "food": "лимонный или лаймовый сок",
       "amount": 20,
-      "unit_ru": "мл",
-      "food_ru": "лимонный или лаймовый сок",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     }
-  ]
+  ],
+  "meal_plan_usage": "prep_reference_only_not_scheduled"
 }

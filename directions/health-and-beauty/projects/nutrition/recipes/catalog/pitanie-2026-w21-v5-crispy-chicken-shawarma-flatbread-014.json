@@ -2,13 +2,14 @@
   "recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
   "name": "Хрустящая лепёшка с курицей шаурма-стайл",
   "mealie_slug": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread",
-  "purpose": "Ужин в формате хрустящей лепёшки с готовой куриной базой.",
+  "purpose": "Ужин в формате поджаренной лепёшки с курицей, соусом и овощами.",
   "servings": 1,
-  "prep_time_minutes": 5,
-  "cook_time_minutes": 6,
-  "total_time_minutes": 11,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 20,
+  "total_time_minutes": 45,
   "equipment": [
-    "сковорода или аэрогриль Ninja"
+    "аэрогриль или сковорода",
+    "миска"
   ],
   "categories": [
     "Питание / Ужин",
@@ -18,25 +19,74 @@
     "chatgpt-pitanie",
     "approved-menu",
     "high-protein",
-    "fast-20-min",
     "dinner",
     "fallback"
   ],
   "ingredients": [
     {
-      "item": "лепёшка или лаваш",
+      "item": "куриное филе",
+      "amount": 320,
+      "unit": "г",
+      "prep_note_ru": "сырое, нарезать полосками"
+    },
+    {
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 40,
+      "unit": "г",
+      "prep_note_ru": "для маринада"
+    },
+    {
+      "item": "лимонный сок",
+      "amount": 8,
+      "unit": "мл",
+      "prep_note_ru": "для маринада"
+    },
+    {
+      "item": "оливковое масло",
+      "amount": 5,
+      "unit": "мл"
+    },
+    {
+      "item": "чеснок",
       "amount": 1,
-      "unit": "большой лист"
+      "unit": "зубчик",
+      "prep_note_ru": "часть в маринад, часть в соус"
     },
     {
-      "item": "куриное филе шаурма-стайл в Ninja",
-      "amount": 240,
-      "unit": "г"
+      "item": "молотая зира / кумин",
+      "amount": 0.5,
+      "unit": "ч. л."
     },
     {
-      "item": "чесночно-йогуртовый соус",
+      "item": "копчёная паприка",
+      "amount": 0.5,
+      "unit": "ч. л."
+    },
+    {
+      "item": "молотый кориандр",
+      "amount": 0.25,
+      "unit": "ч. л."
+    },
+    {
+      "item": "соль",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "лаваш или лепёшка",
+      "amount": 1,
+      "unit": "шт."
+    },
+    {
+      "item": "греческий йогурт или skyr без сахара",
       "amount": 70,
-      "unit": "г"
+      "unit": "г",
+      "prep_note_ru": "для соуса"
     },
     {
       "item": "фета или сыр",
@@ -44,18 +94,29 @@
       "unit": "г"
     },
     {
-      "item": "компоненты греческого салата",
-      "amount": 1,
-      "unit": "small serving"
+      "item": "огурец",
+      "amount": 80,
+      "unit": "г"
+    },
+    {
+      "item": "помидор",
+      "amount": 80,
+      "unit": "г"
+    },
+    {
+      "item": "красный лук",
+      "amount": 15,
+      "unit": "г"
     }
   ],
   "instructions": [
-    "Разогрей курицу.",
-    "Намажь немного чесночно-йогуртового соуса на лепёшку.",
-    "Добавь курицу, фету или сыр и немного компонентов греческого салата.",
-    "Сложи или закрой лепёшку так, чтобы она не протекала при поджаривании.",
-    "Поджарь на сковороде 2–3 минуты с каждой стороны или в Ninja при 190°C 5–6 минут.",
-    "Подавай с оставшимся соусом отдельно."
+    "Если batch-prep уже сделан: возьми готовую курицу и перейди к сборке.",
+    "Если готовишь с нуля: нарежь курицу, замаринуй в йогурте, лимоне, масле, чесноке, зире, паприке, кориандре, соли и перце.",
+    "Готовь курицу в аэрогриле 200°C 12–15 минут.",
+    "Смешай отдельный соус из йогурта, чеснока, лимона, соли и перца.",
+    "На лаваш нанеси тонкий слой соуса, добавь курицу, фету/сыр, огурец, помидор и красный лук.",
+    "Сложи лепёшку так, чтобы начинка не выпадала.",
+    "Поджарь 2–3 минуты с каждой стороны или в аэрогриле 190°C 5–6 минут."
   ],
   "storage": [
     "Храни компоненты отдельно."
@@ -78,74 +139,107 @@
   "why_it_fits_weekly_plan": "Меняет форму блюда, не меняя куриную базу.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Ужин в формате хрустящей лепёшки с готовой куриной базой.",
-  "structured_ingredients_ru": [
+  "description": "Ужин в формате поджаренной лепёшки с курицей, соусом и овощами.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "1 большой лист лепёшка или лаваш",
+      "food": "куриное филе",
+      "amount": 320,
+      "unit": "г",
+      "note": "сырое, нарезать полосками"
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 40,
+      "unit": "г",
+      "note": "для маринада"
+    },
+    {
+      "food": "лимонный сок",
+      "amount": 8,
+      "unit": "мл",
+      "note": "для маринада"
+    },
+    {
+      "food": "оливковое масло",
+      "amount": 5,
+      "unit": "мл",
+      "note": null
+    },
+    {
+      "food": "чеснок",
       "amount": 1,
-      "unit_ru": "большой лист",
-      "food_ru": "лепёшка или лаваш",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "зубчик",
+      "note": "часть в маринад, часть в соус"
     },
     {
-      "original_text_ru": "240 г куриное филе шаурма-стайл в Ninja",
-      "amount": 240,
-      "unit_ru": "г",
-      "food_ru": "куриное филе шаурма-стайл в Ninja",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "молотая зира / кумин",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "70 г чесночно-йогуртовый соус",
+      "food": "копчёная паприка",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "молотый кориандр",
+      "amount": 0.25,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "лаваш или лепёшка",
+      "amount": 1,
+      "unit": "шт.",
+      "note": null
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
       "amount": 70,
-      "unit_ru": "г",
-      "food_ru": "чесночно-йогуртовый соус",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "для соуса"
     },
     {
-      "original_text_ru": "30 г фета или сыр",
+      "food": "фета или сыр",
       "amount": 30,
-      "unit_ru": "г",
-      "food_ru": "фета или сыр",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "1 small serving компоненты греческого салата",
-      "amount": 1,
-      "unit_ru": "small serving",
-      "food_ru": "компоненты греческого салата",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "огурец",
+      "amount": 80,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "помидор",
+      "amount": 80,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "красный лук",
+      "amount": 15,
+      "unit": "г",
+      "note": null
     }
-  ]
+  ],
+  "meal_plan_usage": "scheduled"
 }

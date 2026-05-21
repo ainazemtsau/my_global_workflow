@@ -2,13 +2,14 @@
   "recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
   "name": "Хрустящий лаваш с тунцом и плавленым сыром",
   "mealie_slug": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash",
-  "purpose": "Быстрый несладкий завтрак или запасной приём пищи с консервированным тунцом.",
+  "purpose": "Быстрый несладкий завтрак или fallback без мясной заготовки.",
   "servings": 1,
   "prep_time_minutes": 5,
   "cook_time_minutes": 7,
   "total_time_minutes": 12,
   "equipment": [
-    "сковорода или аэрогриль Ninja"
+    "сковорода или аэрогриль",
+    "миска"
   ],
   "categories": [
     "Питание / Завтрак",
@@ -18,7 +19,6 @@
     "chatgpt-pitanie",
     "approved-menu",
     "high-protein",
-    "fast-20-min",
     "breakfast",
     "fallback"
   ],
@@ -26,29 +26,41 @@
     {
       "item": "лаваш или тортилья",
       "amount": 1,
-      "unit": "большой лист"
+      "unit": "шт.",
+      "prep_note_ru": "большой лист"
     },
     {
       "item": "консервированный тунец",
-      "amount": 1,
+      "amount": 2,
       "unit": "банка",
       "prep_note_ru": "слить жидкость"
     },
     {
-      "item": "йогуртово-горчичный соус для тунца",
-      "amount": 70,
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 80,
       "unit": "г"
+    },
+    {
+      "item": "горчица",
+      "amount": 1,
+      "unit": "ч. л."
+    },
+    {
+      "item": "маринованные огурцы",
+      "amount": 50,
+      "unit": "г",
+      "prep_note_ru": "мелко нарезать"
+    },
+    {
+      "item": "лимонный сок",
+      "amount": 10,
+      "unit": "мл"
     },
     {
       "item": "сыр",
       "amount": 50,
-      "unit": "г"
-    },
-    {
-      "item": "маринованные огурцы",
-      "amount": 30,
       "unit": "г",
-      "prep_note_ru": "по желанию"
+      "prep_note_ru": "для плавления"
     },
     {
       "item": "чёрный перец",
@@ -57,12 +69,13 @@
     }
   ],
   "instructions": [
-    "Хорошо слей жидкость с тунца.",
-    "Смешай тунец с йогуртово-горчичным соусом и перцем.",
-    "Выложи сыр на лаваш, сверху смесь тунца, затем ещё немного сыра.",
-    "Загни края внутрь и плотно сверни.",
-    "Поджарь швом вниз на сковороде 2–3 минуты с каждой стороны или в Ninja при 190°C 5–7 минут.",
-    "Готово, когда лаваш хрустящий, а сыр расплавился."
+    "Слить жидкость из тунца и размять тунец вилкой.",
+    "Добавить йогурт, горчицу, маринованные огурцы, лимонный сок и перец.",
+    "Перемешать до густой начинки; она не должна течь.",
+    "Положить часть сыра на лаваш, сверху тунцовую начинку и оставшийся сыр.",
+    "Завернуть плотно: боковые края внутрь, затем рулетом.",
+    "Поджарить швом вниз на сковороде 2–3 минуты с каждой стороны или в аэрогриле 190°C 5–7 минут.",
+    "Есть сразу, когда лаваш хрустит, а сыр расплавился."
   ],
   "storage": [
     "Лучше готовить свежим."
@@ -75,7 +88,7 @@
     "Питу можно использовать вместо лаваша."
   ],
   "meal_prep_notes": [
-    "Держи соус и тунец отдельно до сборки."
+    "Рецепт не требует batch-prep и подходит сразу после магазина."
   ],
   "nutrition_estimate_per_serving": {
     "calories": "550-800 ккал",
@@ -86,87 +99,59 @@
   "why_it_fits_weekly_plan": "Несладкий высокобелковый завтрак или fallback без готовой мясной базы.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Быстрый несладкий завтрак или запасной приём пищи с консервированным тунцом.",
-  "structured_ingredients_ru": [
+  "description": "Быстрый несладкий завтрак или fallback без мясной заготовки.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "1 большой лист лаваш или тортилья",
+      "food": "лаваш или тортилья",
       "amount": 1,
-      "unit_ru": "большой лист",
-      "food_ru": "лаваш или тортилья",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "шт.",
+      "note": "большой лист"
     },
     {
-      "original_text_ru": "1 банка консервированный тунец (слить жидкость)",
+      "food": "консервированный тунец",
+      "amount": 2,
+      "unit": "банка",
+      "note": "слить жидкость"
+    },
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 80,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "горчица",
       "amount": 1,
-      "unit_ru": "банка",
-      "food_ru": "консервированный тунец",
-      "prep_note_ru": "слить жидкость",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "70 г йогуртово-горчичный соус для тунца",
-      "amount": 70,
-      "unit_ru": "г",
-      "food_ru": "йогуртово-горчичный соус для тунца",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
-    },
-    {
-      "original_text_ru": "50 г сыр",
+      "food": "маринованные огурцы",
       "amount": 50,
-      "unit_ru": "г",
-      "food_ru": "сыр",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": "мелко нарезать"
     },
     {
-      "original_text_ru": "30 г маринованные огурцы (по желанию)",
-      "amount": 30,
-      "unit_ru": "г",
-      "food_ru": "маринованные огурцы",
-      "prep_note_ru": "по желанию",
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "food": "лимонный сок",
+      "amount": 10,
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "чёрный перец по вкусу",
+      "food": "сыр",
+      "amount": 50,
+      "unit": "г",
+      "note": "для плавления"
+    },
+    {
+      "food": "чёрный перец",
       "amount": null,
-      "unit_ru": "по вкусу",
-      "food_ru": "чёрный перец",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": false,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "по вкусу",
+      "note": null
     }
-  ]
+  ],
+  "meal_plan_usage": "scheduled"
 }

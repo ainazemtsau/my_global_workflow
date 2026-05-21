@@ -67,19 +67,18 @@ Each `recipes_to_upsert` item must include:
 recipe_id
 name
 mealie_slug
-structured_ingredients_ru
+ingredients_structured
 instructions
 extras.pitanie_recipe_id
 ```
 
-Each `structured_ingredients_ru` row must include:
+Each `ingredients_structured` row must include:
 
 ```text
 amount
-unit_ru
-food_ru
-prep_note_ru
-original_text_ru
+unit
+food
+note
 ```
 
 `amount` may be null only for true free-text quantities such as `по вкусу`.
@@ -93,11 +92,19 @@ recipeIngredient.quantity <- amount
 recipeIngredient.unit     <- Unit entity found/created from unit_ru
 recipeIngredient.food     <- Food entity found/created from food_ru
 recipeIngredient.note     <- prep_note_ru only
-recipeIngredient.display  <- original_text_ru
-recipeIngredient.originalText <- original_text_ru
+recipeIngredient.display  <- rendered Russian ingredient line
+recipeIngredient.originalText <- rendered Russian ingredient line
 ```
 
 The validation command fails if normal ingredients are note-only or if measurable ingredients lack amount/unit/food read-back fields.
+
+For scheduled recipes, `food` must be a grocery product, not a prepared component. Names such as `готовая курица`, `заготовка`, `картофельные дольки`, `чесночно-йогуртовый соус`, `prepared`, or `potato wedges` are rejected before sync.
+
+Preview grocery rows aggregated from scheduled planner recipes:
+
+```powershell
+python integrations/mealie/mealie_api_sync.py shopping-preview --bundle weeks/current/MEALIE_RECIPE_BUNDLE.json
+```
 
 ## Meal Planner Mapping
 

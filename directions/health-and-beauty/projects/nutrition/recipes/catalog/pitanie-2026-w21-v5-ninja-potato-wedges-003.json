@@ -1,14 +1,15 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-ninja-potato-wedges-003",
-  "name": "Картофельные дольки в Ninja",
+  "name": "Заготовка: картофельные дольки",
   "mealie_slug": "pitanie-2026-w21-v5-ninja-potato-wedges",
-  "purpose": "Гарнирная база для картофеля с chili, crunchwrap, питы и быстрых тарелок.",
+  "purpose": "Картофельная база для loaded potato, crunchwrap и питы с тунцом.",
   "servings": 8,
   "prep_time_minutes": 15,
   "cook_time_minutes": 30,
   "total_time_minutes": 45,
   "equipment": [
-    "аэрогриль Ninja с двумя корзинами"
+    "аэрогриль",
+    "миска"
   ],
   "categories": [
     "Питание / Meal Prep"
@@ -73,7 +74,7 @@
     "В некоторых боулах картофель можно заменить рисом."
   ],
   "meal_prep_notes": [
-    "Не смешивай с курицей или индейкой до подачи."
+    "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
   ],
   "nutrition_estimate_per_serving": {
     "calories": "250-350 ккал",
@@ -84,87 +85,47 @@
   "why_it_fits_weekly_plan": "Простой повторяемый гарнир для сытных блюд.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-ninja-potato-wedges-003",
-    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
   },
-  "description": "Гарнирная база для картофеля с chili, crunchwrap, питы и быстрых тарелок.",
-  "structured_ingredients_ru": [
+  "description": "Картофельная база для loaded potato, crunchwrap и питы с тунцом.",
+  "ingredients_structured": [
     {
-      "original_text_ru": "3000 г картофель",
+      "food": "картофель",
       "amount": 3000,
-      "unit_ru": "г",
-      "food_ru": "картофель",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "г",
+      "note": null
     },
     {
-      "original_text_ru": "25 мл оливковое масло",
+      "food": "оливковое масло",
       "amount": 25,
-      "unit_ru": "мл",
-      "food_ru": "оливковое масло",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "мл",
+      "note": null
     },
     {
-      "original_text_ru": "2 ч. л. копчёная паприка",
+      "food": "копчёная паприка",
       "amount": 2,
-      "unit_ru": "ч. л.",
-      "food_ru": "копчёная паприка",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "2 ч. л. сушёный чеснок",
+      "food": "сушёный чеснок",
       "amount": 2,
-      "unit_ru": "ч. л.",
-      "food_ru": "сушёный чеснок",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "2 ч. л. соль",
+      "food": "соль",
       "amount": 2,
-      "unit_ru": "ч. л.",
-      "food_ru": "соль",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     },
     {
-      "original_text_ru": "1 ч. л. чёрный перец",
+      "food": "чёрный перец",
       "amount": 1,
-      "unit_ru": "ч. л.",
-      "food_ru": "чёрный перец",
-      "prep_note_ru": null,
-      "mealie_expected": {
-        "amount_field_required_when_numeric": true,
-        "unit_field_required_when_applicable": true,
-        "food_field_required": true,
-        "note_field_must_not_be_the_only_data": true
-      }
+      "unit": "ч. л.",
+      "note": null
     }
-  ]
+  ],
+  "meal_plan_usage": "prep_reference_only_not_scheduled"
 }
