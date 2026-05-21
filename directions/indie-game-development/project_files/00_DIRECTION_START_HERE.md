@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_r1_H1_G3_readiness_packet_accepted_pending_p9_phase_close
+  freshness: fresh_after_p9_core_coop_technical_foundation_selection_closed
   last_updated: "2026-05-21"
-  next_action: "Run P9_PHASE_CLOSE after R1 accepted the H1_G3 readiness packet."
+  next_action: "Run P0_PHASE_START after P9 closed Core Co-op Technical Foundation Selection and Project Files are manually refreshed."
 ```
 
 ## Direction identity
@@ -38,10 +38,10 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Current Gate | `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
-| Current Phase status | `active_H1_G3_r1_accepted_pending_P9_phase_close` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
+| Current Phase status | `closed_complete_by_P9` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
-| Active Goal | `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
-| Active Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal | `none_active_after_phase_close` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal status | `closed_with_phase / r1_accepted_goal_complete as last completed evidence` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Last completed Goal | `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness` |
 | Last completed Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md` |
 | Last completed Goal Artifact | `H1_G3 readiness packet / evidence log` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md` |
@@ -50,8 +50,8 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
-| Last closed Phase | `Expedition First Proof Checkpoint` | `directions/indie-game-development/phases/expedition-first-proof-checkpoint` |
-| Next route | `P9_PHASE_CLOSE — close/review Core Co-op Technical Foundation Selection after H1_G3 readiness acceptance` | `workflow/stage_prompts/P9_PHASE_CLOSE.md` |
+| Last closed Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md` |
+| Next route | `P0_PHASE_START — start/reframe the next Phase after Project Files refresh` | `workflow/stage_prompts/P0_PHASE_START.md` |
 
 ## Current Phase meaning
 
@@ -96,9 +96,9 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `P9_PHASE_CLOSE` after R1 H1_G3 readiness acceptance repository maintenance apply/read-back and manual Project Files refresh.
+Run `P0_PHASE_START` after P9 phase close repository maintenance is applied/read back/committed/integrated and the Indie Game Development Project Files 00-08 are manually refreshed.
 
-R1 accepted `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` as complete. P9 must close or pause the Core Co-op Technical Foundation Selection Phase without running bootstrap, tool setup, implementation, or Codex product/project execution directly.
+P0 must start a new or reframed Phase from Phase Memory and Direction Map. P0 must not run implementation directly.
 
 Do not run Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, or Game Documentation promotion before a later basis-valid route authorizes concrete work.
 
@@ -289,3 +289,22 @@ r1_H1_G3_readiness_acceptance:
     - old-code transfer
     - Game Documentation promotion
 ```
+
+## 2026-05-21 P9 close - Core Co-op Technical Foundation Selection
+
+```yaml
+p9_phase_close:
+  close_status: closed_complete_by_P9
+  closed_phase: core-coop-technical-foundation-selection
+  closed_at: "2026-05-21"
+  active_goal_status: closed_with_phase
+  last_completed_goal: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  last_completed_goal_result: r1_accepted_goal_complete
+  latest_closed_phase_summary: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md"
+  next_route: P0_PHASE_START
+  manual_project_files_refresh_required: true
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+P0 must start a new/reframed Phase after Project Files refresh and must not run implementation directly.

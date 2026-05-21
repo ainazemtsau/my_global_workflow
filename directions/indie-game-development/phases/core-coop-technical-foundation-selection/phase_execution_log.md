@@ -209,3 +209,26 @@ execution_log_entry:
     - real internal tool setup
     - Game Documentation promotion
 ```
+
+## 2026-05-21 - P9 Phase Close formalization
+
+```yaml
+workflow_packet: 1
+type: execution_log_entry
+schema: execution_log_entry.v1
+stage_id: P9_PHASE_CLOSE
+event: phase_close_formalized
+phase_id: core-coop-technical-foundation-selection
+phase_name: "Core Co-op Technical Foundation Selection"
+result: closed_complete_by_P9
+active_goal_at_close: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+active_goal_result: r1_accepted_goal_complete
+closure_basis:
+  - Core Technical Foundation Decision Brief accepted
+  - First Technical Nucleus Functional Specification accepted
+  - Gas Coop Game Project Execution Profile accepted
+  - H1_G3 readiness packet accepted
+next_route: P0_PHASE_START
+product_execution_allowed: false
+repository_patch_id: p9_close_core_coop_technical_foundation_selection_2026_05_21
+```

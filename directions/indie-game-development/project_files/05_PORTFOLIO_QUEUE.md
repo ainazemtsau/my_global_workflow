@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_H1_G3_readiness_packet_accepted_pending_p9_phase_close
+projection_status: fresh_after_p9_core_coop_technical_foundation_selection_closed
 activated_at: "2026-05-13"
 ```
 
@@ -15,25 +15,24 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-- Active Phase: `directions/indie-game-development/phases/core-coop-technical-foundation-selection`
+- Active Phase: `core-coop-technical-foundation-selection`
 - Active Phase name: `Core Co-op Technical Foundation Selection`
-- Active Phase status: `active_H1_G3_r1_accepted_pending_P9_phase_close`
+- Active Phase status: `closed_complete_by_P9`
 - Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
-- Active Goal status: `r1_accepted_goal_complete`
-- Last completed Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Active Goal: `none_active_after_phase_close`
+- Active Goal status: `closed_with_phase`
+- Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 - Last completed Goal status: `r1_accepted_goal_complete`
-- Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md`
+- Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `P9_PHASE_CLOSE`
+- Next route: `P0_PHASE_START`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
 - Previous Goal status: `paused_superseded_partial_progress_not_accepted`
-- Last closed Phase: `directions/indie-game-development/phases/expedition-first-proof-checkpoint`
-- Last completed Goal: `directions/indie-game-development/phases/expedition-first-proof-checkpoint/goals/minimum-proof-core-first-expedition-proof`
+- Last closed Phase: `core-coop-technical-foundation-selection`
 
 ## Selected current Phase direction
 
@@ -232,3 +231,23 @@ queue_update_after_r1_H1_G3_acceptance:
 ```
 
 P9 is the next queue movement. Unity bootstrap, product repository creation, implementation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked/request-only until a later basis-valid route authorizes them.
+
+## Queue update after P9 phase close
+
+```yaml
+queue_update_after_p9_phase_close:
+  active_phase: core-coop-technical-foundation-selection
+  active_phase_status: closed_complete_by_P9
+  active_goal: none_active_after_phase_close
+  last_completed_goal: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  last_completed_goal_status: r1_accepted_goal_complete
+  last_closed_phase: core-coop-technical-foundation-selection
+  next_route: P0_PHASE_START
+  summary:
+    - H1_G3 readiness packet accepted and Phase closed.
+    - P0 is the next lifecycle route.
+    - Durable Technical Nucleus Implementation remains request-only until selected by a later basis-valid lifecycle route.
+    - Implementation/bootstrap/product execution remain blocked.
+```
+
+Parked/request-only queue items remain unchanged.

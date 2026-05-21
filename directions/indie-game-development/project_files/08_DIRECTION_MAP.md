@@ -8,7 +8,7 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_r1_H1_G3_readiness_packet_accepted_pending_p9_phase_close
+  freshness: fresh_after_p9_core_coop_technical_foundation_selection_closed
   last_updated: "2026-05-21"
 ```
 
@@ -32,11 +32,11 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: innovative-commercial-expedition-gas-sim-game
   map_confidence: medium
-  last_reviewed_stage: R1_GOAL_REVIEW_DISTILL
+  last_reviewed_stage: P9_PHASE_CLOSE
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
-  current_objective_architecture_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  next_safe_route: P9_PHASE_CLOSE
+  current_objective_architecture_node: P0_PHASE_START_after_core_coop_phase_close
+  next_safe_route: P0_PHASE_START
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -290,7 +290,8 @@ objective_graph:
       type: implementation_slice
       status: premature
       blocked_by:
-        - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+        - P0_G0_G1_E1_route_selection_and_scope
+      premature_until: "P0/G0/G1/E1 selects and scopes durable technical nucleus implementation."
 
     - id: H2_unique_gas_coop_gameplay_proof
       type: horizon
@@ -309,12 +310,13 @@ objective_graph:
 
 active_frontier:
   ready_nodes:
-    - node_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    - node_id: P0_PHASE_START
       reason_ready: >
-        H1_G3 readiness packet is accepted as complete.
+        Core Co-op Technical Foundation Selection closed complete by P9 after
+        H1_G3 readiness packet acceptance.
       expected_unlock: >
-        Enables P9 to close or pause the current Phase without guessing
-        bootstrap surfaces, tool-binding evidence, validation scenes, or stop rules.
+        Enables P0 to establish the next Phase from Phase Memory and Direction
+        Map without guessing or launching implementation directly.
   blocked_nodes:
     - node_id: codex_product_project_execution
       blocker: "Concrete project/tool bindings, validators, scope, permissions, and execution route are not verified."
@@ -335,25 +337,27 @@ active_frontier:
       activation_trigger: "Accepted durable truths exist and documentation maintenance is explicitly authorized."
     - node_id: old_project_transfer_audit
       activation_trigger: "Only after requirements are clear and a later lifecycle route asks a targeted reference/audit question."
-  selected_next_node: P9_PHASE_CLOSE
+  selected_next_node: P0_PHASE_START
   selection_reason: >
-    H1_G3 is accepted; P9 is the smallest safe lifecycle route to close or pause
-    the Phase without prematurely launching bootstrap, implementation, or product execution.
+    The foundation-selection Phase is closed; P0 is the smallest safe lifecycle
+    route to establish the next Phase without prematurely launching bootstrap,
+    implementation, or product execution.
 
 next_action_proof:
   direction_objective: "Commercially viable co-op indie game with deep gas/3D-space gameplay core."
   current_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: P9_PHASE_CLOSE
+  selected_frontier_node: P0_PHASE_START
   proposed_work: >
-    Close or pause the Core Co-op Technical Foundation Selection Phase after
-    H1_G3 readiness acceptance.
-  proposed_stage: P9_PHASE_CLOSE
+    Start or reframe the next Phase after Core Co-op Technical Foundation
+    Selection closed complete by P9.
+  proposed_stage: P0_PHASE_START
   desired_delta: >
-    A Phase close/pause decision with Phase Memory preserved and no implementation
-    or product execution launched.
+    A non-duplicate next Phase proposal with Phase Memory preserved and no
+    implementation or product execution launched.
   why_this_now: >
-    R1 accepted H1_G3. Remaining bootstrap/implementation work is a later lifecycle
-    concern, not a reason to keep the foundation-selection Phase open.
+    P9 closed the foundation-selection Phase. P0 must establish the next Phase
+    before any setup, implementation planning, durable technical nucleus work,
+    or Codex product/project execution.
   prerequisite_check:
     satisfied:
       - "Current Direction Project Files 00-08 are available."
@@ -363,20 +367,20 @@ next_action_proof:
       - "H1_G2 Gas Coop Game Project Execution Profile is accepted."
       - "H1_G3 readiness packet is accepted."
     missing:
-      - "Exact P9_PHASE_CLOSE prompt for the next stage run."
+      - "Exact P0_PHASE_START prompt for the next stage run."
       - "Manual Project Files refresh after this repository maintenance patch."
     assumed: []
   active_frontier_check:
     is_on_frontier: true
     why_not_premature: >
-      P9 is allowed because H1_G3 is accepted and the remaining bootstrap/implementation
-      surfaces belong to later lifecycle routes.
+      P0 is allowed because P9 closed the Phase and the remaining bootstrap/
+      implementation surfaces belong to later lifecycle routes.
   expected_unlock: >
     Enables later selection of U1, D1, A1, S3, X0/X1, Context Request, Human Decision,
     Stop, or a setup route without inventing tool/project state.
   alternatives_considered:
     - action: direct_E1_or_bootstrap_setup
-      why_rejected: "H1_G3 is accepted; P9 must preserve Phase Memory before any later setup route."
+      why_rejected: "P0 must establish the next Phase before any later setup route."
     - action: direct_bootstrap_or_implementation
       why_rejected: "Execution readiness and project/tool bindings are not verified."
   evidence_basis:
@@ -397,7 +401,7 @@ next_action_proof:
     launch_allowed: true
     launch_condition: >
       After repository maintenance apply/read-back, manual Project Files refresh, and exact
-      P9_PHASE_CLOSE prompt availability.
+      P0_PHASE_START prompt availability.
 ```
 
 ## Compact Initiative Graph
@@ -491,27 +495,26 @@ active_front:
   current_gate_status: r1_accepted_goal_complete
   previous_gate: H1_G2_codex_development_operating_model_and_architecture_protocols
   previous_gate_status: r1_accepted_goal_complete
-  selected_next_node: P9_PHASE_CLOSE
-  selected_next_route: P9_PHASE_CLOSE
+  selected_next_node: P0_PHASE_START
+  selected_next_route: P0_PHASE_START
   primary_reason: >
-    R1 accepted H1_G3 as the project/bootstrap/tool-binding/validation-scene
-    readiness Goal. The next lifecycle route is P9 phase close/review before
-    any setup, implementation planning, durable technical nucleus work, or
-    Codex product/project execution.
+    Core Co-op Technical Foundation Selection closed; P0 must establish the
+    next Phase before any setup, implementation planning, durable technical
+    nucleus work, or Codex product/project execution.
   active_front_rule: >
-    Run P9_PHASE_CLOSE after H1_G3 readiness acceptance before any new
-    project bootstrap, durable technical nucleus implementation, Task Master
-    graph creation, or Codex product/project execution.
+    Run P0_PHASE_START after P9 closed the foundation-selection Phase before
+    any new project bootstrap, durable technical nucleus implementation, Task
+    Master graph creation, or Codex product/project execution.
   codex_architecture_rule: >
     The foundation decision is sufficient only if minimum Codex-driven development rules,
     module/dependency boundaries, and validation protocol are accepted before implementation.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   immediate_next_after_gate:
-    - P9_PHASE_CLOSE_after_H1_G3_acceptance
+    - P0_PHASE_START_after_core_coop_phase_close
   route_integrity_issue:
-    status: resolved_by_r1_H1_G3_acceptance
-    summary: "R1 accepted H1_G3 and selected P9 as the next basis-valid route."
+    status: resolved_by_p9_phase_close
+    summary: "P9 closed the foundation-selection Phase and selected P0 as the next basis-valid route."
   blocked_nodes:
     - H1_G4_durable_technical_nucleus
     - codex_product_project_execution
@@ -1128,6 +1131,31 @@ map_delta:
       status: premature
 ```
 
+## 2026-05-21 P9 map delta - Core Co-op Technical Foundation Selection closed
+
+```yaml
+map_delta:
+  source_stage: P9_PHASE_CLOSE
+  delta_type:
+    - phase_closed
+    - phase_memory_bridge_updated
+    - active_frontier_requires_P0
+    - implementation_still_blocked
+  node: core-coop-technical-foundation-selection
+  result: closed_complete_by_P9
+  summary: "Foundation-selection Phase closed after H1_G3 readiness acceptance. Next route is P0_PHASE_START. H1_G4 remains premature until selected/scoped by later lifecycle route."
+  next_route: P0_PHASE_START
+  direction_map_status:
+    current_objective_architecture_node: P0_PHASE_START_after_core_coop_phase_close
+    next_safe_route: P0_PHASE_START
+  objective_graph:
+    H1_G3_project_bootstrap_tool_binding_validation_scene_readiness:
+      status: done
+    H1_G4_durable_technical_nucleus:
+      status: premature
+      premature_until: "P0/G0/G1/E1 selects and scopes it."
+```
+
 ## End-of-file marker
 
-`END_OF_FILE: directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
+END_OF_FILE: directions/indie-game-development/project_files/08_DIRECTION_MAP.md

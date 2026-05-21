@@ -5,8 +5,8 @@ artifact_control:
   artifact_name: "Phase Brief — Core Co-op Technical Foundation Selection"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_H1_G3_r1_accepted_pending_P9_phase_close
-  phase_status: active_H1_G3_r1_accepted_pending_P9_phase_close
+  status: closed_complete_by_P9
+  phase_status: closed_complete_by_P9
   active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   active_goal_status: r1_accepted_goal_complete
   status_after_r1_first_technical_nucleus_spec: active_pending_m0_after_r1_acceptance
@@ -15,16 +15,18 @@ artifact_control:
   status_after_r1_H1_G2_acceptance: active_H1_G2_r1_accepted_pending_M0_active_front_review
   status_after_g1_H1_G3_formalization: active_H1_G3_goal_shaped_pending_E1_execution_brief
   status_after_r1_H1_G3_acceptance: active_H1_G3_r1_accepted_pending_P9_phase_close
+  status_after_p9_phase_close: closed_complete_by_P9
   last_completed_goal:
     goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
     result: r1_accepted_goal_complete
     accepted_scope: readiness_packet_only
   current_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
-  next_route: P9_PHASE_CLOSE
-  next_route_mode: close_or_pause_core_coop_technical_foundation_selection_after_H1_G3_acceptance
+  next_route: P0_PHASE_START
+  next_route_mode: start_next_phase_after_core_coop_technical_foundation_selection_close
   phase_progress_gate_status: completed_by_R1_H1_G3_acceptance
-  phase_closed: false
-  p9_allowed_now: true
+  phase_closed: true
+  closed_at: "2026-05-21"
+  p9_allowed_now: consumed
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   repo_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
@@ -37,7 +39,7 @@ artifact_control:
 - Phase ID: `core-coop-technical-foundation-selection`
 - Phase name: `Core Co-op Technical Foundation Selection`
 - Direction: `Indie Game Development`
-- Status: `active_H1_G3_r1_accepted_pending_P9_phase_close`
+- Status: `closed_complete_by_P9`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-13`
 
@@ -494,3 +496,19 @@ phase_progress_gate_after_r1_H1_G3_acceptance:
 ```
 
 P9 is the next lifecycle route. Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.
+
+## 2026-05-21 P9 phase close
+
+```yaml
+p9_phase_close:
+  close_stage: P9_PHASE_CLOSE
+  close_status: closed_complete_by_P9
+  closed_at: "2026-05-21"
+  closure_verdict: close_complete
+  phase_memory_summary: directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md
+  next_route: P0_PHASE_START
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+P9 closed the Phase after the accepted Goal map, H1_G2 execution profile, and H1_G3 readiness packet satisfied the foundation-selection closure package.
