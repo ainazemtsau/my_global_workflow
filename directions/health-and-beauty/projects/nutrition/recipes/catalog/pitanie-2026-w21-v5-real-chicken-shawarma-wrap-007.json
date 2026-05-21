@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
-  "name": "Real Chicken Shawarma Wrap",
+  "name": "Настоящая шаурма с курицей в лаваше",
   "mealie_slug": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap",
-  "purpose": "Actual wrapped and toasted shawarma-style lunch.",
+  "purpose": "Настоящая завёрнутая и поджаренная шаурма на обед.",
   "servings": 1,
   "prep_time_minutes": 5,
   "cook_time_minutes": 5,
   "total_time_minutes": 10,
   "equipment": [
-    "pan or Ninja air fryer"
+    "сковорода или аэрогриль Ninja"
   ],
   "categories": [
     "Питание / Обед",
@@ -24,66 +24,150 @@
   ],
   "ingredients": [
     {
-      "item": "lavash or flatbread",
+      "item": "лаваш или лепёшка",
       "amount": 1,
-      "unit": "large piece"
+      "unit": "большой лист"
     },
     {
-      "item": "Ninja Shawarma Chicken Fillet Strips",
+      "item": "куриное филе шаурма-стайл в Ninja",
       "amount": 240,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Garlic Yogurt Sauce",
+      "item": "чесночно-йогуртовый соус",
       "amount": 70,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "cucumber/tomato/red onion, chopped",
+      "item": "огурец, помидор и красный лук",
       "amount": 100,
-      "unit": "g"
+      "unit": "г",
+      "prep_note_ru": "нарезать"
     },
     {
-      "item": "feta, optional",
+      "item": "фета",
       "amount": 30,
-      "unit": "g"
+      "unit": "г",
+      "prep_note_ru": "по желанию"
     },
     {
-      "item": "pickles, optional",
+      "item": "маринованные огурцы",
       "amount": 30,
-      "unit": "g"
+      "unit": "г",
+      "prep_note_ru": "по желанию"
     }
   ],
   "instructions": [
-    "Warm lavash briefly so it folds without tearing.",
-    "Spread Garlic Yogurt Sauce in a thin layer.",
-    "Add chicken, vegetables, optional feta, and optional pickles.",
-    "Fold sides in and roll tightly.",
-    "Toast seam-side down in pan 2 minutes per side or Ninja 190°C for 4-5 minutes.",
-    "Serve immediately."
+    "Слегка прогрей лаваш, чтобы он не рвался при сворачивании.",
+    "Намажь тонкий слой чесночно-йогуртового соуса.",
+    "Добавь курицу, овощи, фету по желанию и маринованные огурцы по желанию.",
+    "Загни боковые края и плотно сверни.",
+    "Поджарь швом вниз на сковороде по 2 минуты с каждой стороны или в Ninja при 190°C 4–5 минут.",
+    "Подавай сразу."
   ],
   "storage": [
-    "Do not store assembled wrap for days.",
-    "Store components separately."
+    "Не храни собранное блюдо несколько дней.",
+    "Храни компоненты отдельно."
   ],
   "reheating": [
-    "Reheat chicken before assembling; toast finished wrap briefly."
+    "Разогрей курицу перед сборкой; готовый лаваш коротко поджарь."
   ],
   "substitutions": [
-    "Turkey chili mince can replace chicken if chicken runs out, but then it is not chicken shawarma."
+    "Если курица закончилась, можно заменить индейкой chili, но это уже не куриная шаурма."
   ],
   "meal_prep_notes": [
-    "Uses batch chicken base only."
+    "Использует только готовую куриную базу."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "700-950 kcal",
-    "protein": "60-85 g",
-    "fat": "20-35 g",
-    "carbs": "55-90 g"
+    "calories": "700-950 ккал",
+    "protein": "60-85 г",
+    "fat": "20-35 г",
+    "carbs": "55-90 г"
   },
-  "why_it_fits_weekly_plan": "High-protein, filling, and actually matches the wrap/shawarma format.",
+  "why_it_fits_weekly_plan": "Сытный высокобелковый обед, который действительно соответствует формату шаурмы.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Настоящая завёрнутая и поджаренная шаурма на обед.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "1 большой лист лаваш или лепёшка",
+      "amount": 1,
+      "unit_ru": "большой лист",
+      "food_ru": "лаваш или лепёшка",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "240 г куриное филе шаурма-стайл в Ninja",
+      "amount": 240,
+      "unit_ru": "г",
+      "food_ru": "куриное филе шаурма-стайл в Ninja",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "70 г чесночно-йогуртовый соус",
+      "amount": 70,
+      "unit_ru": "г",
+      "food_ru": "чесночно-йогуртовый соус",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "100 г огурец, помидор и красный лук (нарезать)",
+      "amount": 100,
+      "unit_ru": "г",
+      "food_ru": "огурец, помидор и красный лук",
+      "prep_note_ru": "нарезать",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "30 г фета (по желанию)",
+      "amount": 30,
+      "unit_ru": "г",
+      "food_ru": "фета",
+      "prep_note_ru": "по желанию",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "30 г маринованные огурцы (по желанию)",
+      "amount": 30,
+      "unit_ru": "г",
+      "food_ru": "маринованные огурцы",
+      "prep_note_ru": "по желанию",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

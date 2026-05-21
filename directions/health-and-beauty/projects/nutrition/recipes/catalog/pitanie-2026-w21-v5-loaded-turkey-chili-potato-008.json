@@ -1,15 +1,15 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-loaded-turkey-chili-potato-008",
-  "name": "Loaded Turkey Chili Potato",
+  "name": "Картофель с индейкой chili и йогуртовым соусом",
   "mealie_slug": "pitanie-2026-w21-v5-loaded-turkey-chili-potato",
-  "purpose": "Dinner using turkey chili mince and potato wedges.",
+  "purpose": "Ужин из базы индейки chili и картофельных долек.",
   "servings": 1,
   "prep_time_minutes": 3,
   "cook_time_minutes": 7,
   "total_time_minutes": 10,
   "equipment": [
-    "microwave or pan",
-    "Ninja air fryer optional"
+    "микроволновка или сковорода",
+    "Ninja по желанию"
   ],
   "categories": [
     "Питание / Ужин",
@@ -25,60 +25,129 @@
   ],
   "ingredients": [
     {
-      "item": "Ninja Potato Wedges",
+      "item": "картофельные дольки в Ninja",
       "amount": 400,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Instant Pro Smoky Turkey Chili Mince",
+      "item": "густая индейка chili в Instant Pro",
       "amount": 400,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Greek yogurt or skyr",
+      "item": "греческий йогурт или skyr без сахара",
       "amount": 50,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "feta or cheese, optional",
+      "item": "фета или сыр",
       "amount": 30,
-      "unit": "g"
+      "unit": "г",
+      "prep_note_ru": "по желанию"
     },
     {
-      "item": "green onion or herbs",
+      "item": "зелёный лук или зелень",
       "amount": 10,
-      "unit": "g"
+      "unit": "г"
     }
   ],
   "instructions": [
-    "Reheat potato wedges in Ninja at 180°C for 4-6 minutes.",
-    "Reheat turkey chili mince until hot.",
-    "Put potatoes in a bowl.",
-    "Top with turkey chili mince.",
-    "Add yogurt/skyr, optional feta/cheese, and herbs."
+    "Разогрей картофельные дольки в Ninja при 180°C 4–6 минут.",
+    "Разогрей индейку chili до горячего состояния.",
+    "Выложи картофель в миску.",
+    "Сверху добавь индейку chili.",
+    "Добавь йогурт/skyr, фету или сыр по желанию и зелень."
   ],
   "storage": [
-    "Store potatoes and turkey separately."
+    "Храни картофель и индейку отдельно."
   ],
   "reheating": [
-    "Reheat components separately for best texture."
+    "Для лучшей текстуры разогревай компоненты отдельно."
   ],
   "substitutions": [
-    "Rice can replace potato.",
-    "Chicken can replace turkey, but then use Garlic Yogurt Sauce."
+    "Картофель можно заменить рисом.",
+    "Курицу можно использовать вместо индейки, тогда добавь чесночно-йогуртовый соус."
   ],
   "meal_prep_notes": [
-    "No new cooking required if bases are prepared."
+    "Если базы готовы, новая готовка не нужна."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "750-1000 kcal",
-    "protein": "55-80 g",
-    "fat": "18-35 g",
-    "carbs": "75-115 g"
+    "calories": "750-1000 ккал",
+    "protein": "55-80 г",
+    "fat": "18-35 г",
+    "carbs": "75-115 г"
   },
-  "why_it_fits_weekly_plan": "Dense, high-protein, easy dinner assembled from prepared bases.",
+  "why_it_fits_weekly_plan": "Плотный высокобелковый ужин, который собирается из готовых баз.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-loaded-turkey-chili-potato-008",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Ужин из базы индейки chili и картофельных долек.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "400 г картофельные дольки в Ninja",
+      "amount": 400,
+      "unit_ru": "г",
+      "food_ru": "картофельные дольки в Ninja",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "400 г густая индейка chili в Instant Pro",
+      "amount": 400,
+      "unit_ru": "г",
+      "food_ru": "густая индейка chili в Instant Pro",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "50 г греческий йогурт или skyr без сахара",
+      "amount": 50,
+      "unit_ru": "г",
+      "food_ru": "греческий йогурт или skyr без сахара",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "30 г фета или сыр (по желанию)",
+      "amount": 30,
+      "unit_ru": "г",
+      "food_ru": "фета или сыр",
+      "prep_note_ru": "по желанию",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "10 г зелёный лук или зелень",
+      "amount": 10,
+      "unit_ru": "г",
+      "food_ru": "зелёный лук или зелень",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

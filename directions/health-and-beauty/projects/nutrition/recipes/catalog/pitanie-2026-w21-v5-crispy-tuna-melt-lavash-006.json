@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
-  "name": "Crispy Tuna Melt Lavash",
+  "name": "Хрустящий лаваш с тунцом и плавленым сыром",
   "mealie_slug": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash",
-  "purpose": "Fast savory breakfast or fallback meal using canned tuna.",
+  "purpose": "Быстрый несладкий завтрак или запасной приём пищи с консервированным тунцом.",
   "servings": 1,
   "prep_time_minutes": 5,
   "cook_time_minutes": 7,
   "total_time_minutes": 12,
   "equipment": [
-    "pan or Ninja air fryer"
+    "сковорода или аэрогриль Ninja"
   ],
   "categories": [
     "Питание / Завтрак",
@@ -24,66 +24,149 @@
   ],
   "ingredients": [
     {
-      "item": "lavash or tortilla",
+      "item": "лаваш или тортилья",
       "amount": 1,
-      "unit": "large piece"
+      "unit": "большой лист"
     },
     {
-      "item": "canned tuna, drained",
+      "item": "консервированный тунец",
       "amount": 1,
-      "unit": "can"
+      "unit": "банка",
+      "prep_note_ru": "слить жидкость"
     },
     {
-      "item": "Yogurt Mustard Tuna Sauce",
+      "item": "йогуртово-горчичный соус для тунца",
       "amount": 70,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "cheese",
+      "item": "сыр",
       "amount": 50,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "pickles, optional",
+      "item": "маринованные огурцы",
       "amount": 30,
-      "unit": "g"
+      "unit": "г",
+      "prep_note_ru": "по желанию"
     },
     {
-      "item": "black pepper",
-      "amount": 1,
-      "unit": "to taste"
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
     }
   ],
   "instructions": [
-    "Drain tuna very well.",
-    "Mix tuna with Yogurt Mustard Tuna Sauce and pepper.",
-    "Place cheese on lavash, then tuna mixture, then a little more cheese.",
-    "Fold sides inward and roll tightly.",
-    "Toast seam-side down in pan 2-3 minutes per side or Ninja 190°C for 5-7 minutes.",
-    "Finish when outside is crisp and cheese is melted."
+    "Хорошо слей жидкость с тунца.",
+    "Смешай тунец с йогуртово-горчичным соусом и перцем.",
+    "Выложи сыр на лаваш, сверху смесь тунца, затем ещё немного сыра.",
+    "Загни края внутрь и плотно сверни.",
+    "Поджарь швом вниз на сковороде 2–3 минуты с каждой стороны или в Ninja при 190°C 5–7 минут.",
+    "Готово, когда лаваш хрустящий, а сыр расплавился."
   ],
   "storage": [
-    "Best cooked fresh."
+    "Лучше готовить свежим."
   ],
   "reheating": [
-    "Ninja 180°C for 2-3 minutes if needed."
+    "При необходимости Ninja 180°C 2–3 минуты."
   ],
   "substitutions": [
-    "Use two cans tuna if higher protein is needed.",
-    "Use pita instead of lavash if available."
+    "Для большего белка можно использовать 2 банки тунца.",
+    "Питу можно использовать вместо лаваша."
   ],
   "meal_prep_notes": [
-    "Keep sauce and tuna separate until assembling."
+    "Держи соус и тунец отдельно до сборки."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "550-800 kcal",
-    "protein": "45-75 g",
-    "fat": "20-35 g",
-    "carbs": "35-65 g"
+    "calories": "550-800 ккал",
+    "protein": "45-75 г",
+    "fat": "20-35 г",
+    "carbs": "35-65 г"
   },
-  "why_it_fits_weekly_plan": "Savory high-protein breakfast/fallback that does not require batch meat.",
+  "why_it_fits_weekly_plan": "Несладкий высокобелковый завтрак или fallback без готовой мясной базы.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Быстрый несладкий завтрак или запасной приём пищи с консервированным тунцом.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "1 большой лист лаваш или тортилья",
+      "amount": 1,
+      "unit_ru": "большой лист",
+      "food_ru": "лаваш или тортилья",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 банка консервированный тунец (слить жидкость)",
+      "amount": 1,
+      "unit_ru": "банка",
+      "food_ru": "консервированный тунец",
+      "prep_note_ru": "слить жидкость",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "70 г йогуртово-горчичный соус для тунца",
+      "amount": 70,
+      "unit_ru": "г",
+      "food_ru": "йогуртово-горчичный соус для тунца",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "50 г сыр",
+      "amount": 50,
+      "unit_ru": "г",
+      "food_ru": "сыр",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "30 г маринованные огурцы (по желанию)",
+      "amount": 30,
+      "unit_ru": "г",
+      "food_ru": "маринованные огурцы",
+      "prep_note_ru": "по желанию",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "чёрный перец по вкусу",
+      "amount": null,
+      "unit_ru": "по вкусу",
+      "food_ru": "чёрный перец",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": false,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

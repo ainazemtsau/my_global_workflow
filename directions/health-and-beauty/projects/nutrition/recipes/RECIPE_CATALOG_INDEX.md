@@ -2,11 +2,11 @@
 
 Status: active_metadata_index
 
-Purpose: compact metadata-only recipe index for ChatGPT Project Files.
+Purpose: компактный metadata-only индекс рецептов для ChatGPT Project Files.
 
-This file must not contain full recipe bodies, ingredient lists, cooking steps, storage instructions, or full macro notes.
+Этот файл не должен содержать полные рецепты, списки ингредиентов, шаги приготовления, инструкции хранения или полные macro notes.
 
-Full recipe JSON files live under:
+Полные JSON-рецепты находятся здесь:
 
 ```text
 recipes/catalog/*.json
@@ -34,7 +34,7 @@ mealie_id_if_known:
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-shawarma-chicken-fillet-strips-001
-name: Ninja Shawarma Chicken Fillet Strips
+name: Куриное филе шаурма-стайл в Ninja
 categories:
   - Питание / Meal Prep
 tags:
@@ -44,23 +44,23 @@ tags:
   - air-fryer
   - ninja
   - batch-prep
-primary_protein: chicken fillet
+primary_protein: куриное филе
 equipment:
-  - Ninja dual-basket air fryer
-  - mixing bowl
-  - containers
-total_time: 60 minutes
+  - аэрогриль Ninja с двумя корзинами
+  - миска для смешивания
+  - контейнеры
+total_time: 60 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-shawarma-chicken-fillet-strips
-mealie_id_if_known: e14d6ba0-2bcc-401f-ae28-3521d6612699
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-smoky-turkey-chili-mince-002
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-smoky-turkey-chili-mince-002
-name: Instant Pro Smoky Turkey Chili Mince
+name: Густая индейка chili в Instant Pro
 categories:
   - Питание / Meal Prep
 tags:
@@ -70,21 +70,21 @@ tags:
   - instant-pot
   - multicooker
   - batch-prep
-primary_protein: ground turkey
+primary_protein: фарш индейки
 equipment:
-  - Instant Pro 8 multicooker
-total_time: 40 minutes
+  - мультиварка Instant Pro 8
+total_time: 40 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-smoky-turkey-chili-mince
-mealie_id_if_known: 4f242687-7726-4052-981e-bd2f59ad9723
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-ninja-potato-wedges-003
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-ninja-potato-wedges-003
-name: Ninja Potato Wedges
+name: Картофельные дольки в Ninja
 categories:
   - Питание / Meal Prep
 tags:
@@ -94,21 +94,21 @@ tags:
   - air-fryer
   - ninja
   - batch-prep
-primary_protein: potato
+primary_protein: картофель
 equipment:
-  - Ninja dual-basket air fryer
-total_time: 45 minutes
+  - аэрогриль Ninja с двумя корзинами
+total_time: 45 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-ninja-potato-wedges
-mealie_id_if_known: 22acfc93-b7e1-49ac-bdd8-4470b17e2831
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-garlic-yogurt-sauce-004
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-garlic-yogurt-sauce-004
-name: Garlic Yogurt Sauce
+name: Чесночно-йогуртовый соус
 categories:
   - Питание / Meal Prep
 tags:
@@ -116,21 +116,21 @@ tags:
   - approved-menu
   - low-friction
   - batch-prep
-primary_protein: Greek yogurt/skyr
+primary_protein: греческий йогурт / skyr
 equipment:
-  - mixing bowl
-total_time: 7 minutes
+  - миска для смешивания
+total_time: 7 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-garlic-yogurt-sauce
-mealie_id_if_known: 3a08f8a3-8ea1-4663-ab2e-f96fa4e92fa8
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005
-name: Yogurt Mustard Tuna Sauce
+name: Йогуртово-горчичный соус для тунца
 categories:
   - Питание / Meal Prep
 tags:
@@ -138,21 +138,21 @@ tags:
   - approved-menu
   - low-friction
   - batch-prep
-primary_protein: Greek yogurt/skyr
+primary_protein: греческий йогурт / skyr
 equipment:
-  - mixing bowl
-total_time: 7 minutes
+  - миска для смешивания
+total_time: 7 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce
-mealie_id_if_known: 2c8f8273-e667-44d7-bdc4-a172e9857ac8
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006
-name: Crispy Tuna Melt Lavash
+name: Хрустящий лаваш с тунцом и плавленым сыром
 categories:
   - Питание / Завтрак
   - Питание / Fallback
@@ -163,21 +163,21 @@ tags:
   - fast-20-min
   - breakfast
   - fallback
-primary_protein: canned tuna
+primary_protein: консервированный тунец
 equipment:
-  - pan or Ninja air fryer
-total_time: 12 minutes
+  - сковорода или аэрогриль Ninja
+total_time: 12 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-crispy-tuna-melt-lavash
-mealie_id_if_known: 49e99b81-0e10-443a-9a8a-4c0d8d44183a
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007
-name: Real Chicken Shawarma Wrap
+name: Настоящая шаурма с курицей в лаваше
 categories:
   - Питание / Обед
   - Питание / Ужин
@@ -188,21 +188,21 @@ tags:
   - fast-10-min
   - lunch
   - dinner
-primary_protein: chicken fillet
+primary_protein: куриное филе
 equipment:
-  - pan or Ninja air fryer
-total_time: 10 minutes
+  - сковорода или аэрогриль Ninja
+total_time: 10 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-real-chicken-shawarma-wrap
-mealie_id_if_known: 1a09f67d-b14f-432a-8602-520cda9a80ca
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-loaded-turkey-chili-potato-008
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-loaded-turkey-chili-potato-008
-name: Loaded Turkey Chili Potato
+name: Картофель с индейкой chili и йогуртовым соусом
 categories:
   - Питание / Ужин
   - Питание / Fallback
@@ -213,22 +213,22 @@ tags:
   - fast-10-min
   - dinner
   - fallback
-primary_protein: ground turkey
+primary_protein: фарш индейки
 equipment:
-  - microwave or pan
-  - Ninja air fryer optional
-total_time: 10 minutes
+  - микроволновка или сковорода
+  - Ninja по желанию
+total_time: 10 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-loaded-turkey-chili-potato
-mealie_id_if_known: cf629cb1-0039-4585-931c-7e7b81c30485
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009
-name: Chicken-Egg Breakfast Crunchwrap
+name: Завтрачный crunchwrap с курицей и яйцами
 categories:
   - Питание / Завтрак
 tags:
@@ -237,21 +237,21 @@ tags:
   - high-protein
   - fast-20-min
   - breakfast
-primary_protein: chicken fillet + eggs
+primary_protein: куриное филе + яйца
 equipment:
-  - pan or Ninja air fryer
-total_time: 13 minutes
+  - сковорода или аэрогриль Ninja
+total_time: 13 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap
-mealie_id_if_known: bcbc82e9-67a0-4f6e-8a68-471386d7bcb2
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010
-name: Chicken Shawarma Rice Bowl
+name: Боул с рисом и курицей шаурма-стайл
 categories:
   - Питание / Обед
 tags:
@@ -260,21 +260,21 @@ tags:
   - high-protein
   - fast-10-min
   - lunch
-primary_protein: chicken fillet
+primary_protein: куриное филе
 equipment:
-  - microwave or pan
-total_time: 8 minutes
+  - микроволновка или сковорода
+total_time: 8 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-chicken-shawarma-rice-bowl
-mealie_id_if_known: 3f462fcc-51f4-47f1-adee-6b19abd66930
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011
-name: Sesame Tuna Steak Rice Bowl
+name: Боул с тунцом-стейком в кунжуте
 categories:
   - Питание / Ужин
 tags:
@@ -284,21 +284,21 @@ tags:
   - fast-20-min
   - ninja
   - dinner
-primary_protein: tuna steak
+primary_protein: стейк тунца
 equipment:
-  - Ninja air fryer or grill
-total_time: 16 minutes
+  - Ninja или гриль
+total_time: 16 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl
-mealie_id_if_known: b528f500-1cf5-4c1c-8a3b-2ae177cb7688
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012
-name: Turkey Chili Egg Skillet Wrap
+name: Лаваш с индейкой chili и яйцами
 categories:
   - Питание / Завтрак
 tags:
@@ -307,21 +307,21 @@ tags:
   - high-protein
   - fast-20-min
   - breakfast
-primary_protein: ground turkey + eggs
+primary_protein: фарш индейки + яйца
 equipment:
-  - pan
-total_time: 11 minutes
+  - сковорода
+total_time: 11 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap
-mealie_id_if_known: 57b4938d-595c-4dbc-89aa-12bdb4169600
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-turkey-chili-rice-bowl-013
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-turkey-chili-rice-bowl-013
-name: Turkey Chili Rice Bowl
+name: Боул с рисом и индейкой chili
 categories:
   - Питание / Обед
 tags:
@@ -330,21 +330,21 @@ tags:
   - high-protein
   - fast-10-min
   - lunch
-primary_protein: ground turkey
+primary_protein: фарш индейки
 equipment:
-  - microwave or pan
-total_time: 8 minutes
+  - микроволновка или сковорода
+total_time: 8 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-turkey-chili-rice-bowl
-mealie_id_if_known: 487bb344-97e6-489c-ba59-36f2d95c459d
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014
-name: Crispy Chicken Shawarma Flatbread
+name: Хрустящая лепёшка с курицей шаурма-стайл
 categories:
   - Питание / Ужин
   - Питание / Fallback
@@ -355,21 +355,21 @@ tags:
   - fast-20-min
   - dinner
   - fallback
-primary_protein: chicken fillet
+primary_protein: куриное филе
 equipment:
-  - pan or Ninja air fryer
-total_time: 11 minutes
+  - сковорода или аэрогриль Ninja
+total_time: 11 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread
-mealie_id_if_known: 5748648a-60c5-4ecb-8726-b560b322a206
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015
-name: Tuna Egg Potato Pita Pockets
+name: Пита с тунцом, яйцом и картофелем
 categories:
   - Питание / Обед
   - Питание / Fallback
@@ -380,22 +380,22 @@ tags:
   - fast-20-min
   - lunch
   - fallback
-primary_protein: canned tuna + eggs
+primary_protein: консервированный тунец + яйца
 equipment:
-  - mixing bowl
+  - миска для смешивания
   - pan or Ninja optional
-total_time: 11 minutes
+total_time: 11 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets
-mealie_id_if_known: 013df608-f3ad-4d6e-9d64-1f1fe7b4bbf7
+mealie_id_if_known: null
 ```
 
 ### pitanie-2026-w21-v5-closeout-bowl-016
 
 ```yaml
 recipe_id: pitanie-2026-w21-v5-closeout-bowl-016
-name: Closeout Bowl
+name: Финальный боул из остатков
 categories:
   - Питание / Ужин
   - Питание / Fallback
@@ -406,14 +406,14 @@ tags:
   - fast-10-min
   - dinner
   - fallback
-primary_protein: leftover chicken or turkey
+primary_protein: остатки курицы или индейки
 equipment:
-  - microwave, pan, or Ninja air fryer
-total_time: 10 minutes
+  - микроволновка, сковорода или Ninja
+total_time: 10 минут
 last_used_week: 2026-W21-calibration-2026-05-21_to_2026-05-24
-mealie_status: synced
+mealie_status: synced_structured_ru
 mealie_slug: pitanie-2026-w21-v5-closeout-bowl
-mealie_id_if_known: bb807e15-7bc2-4426-a265-0507ff31a149
+mealie_id_if_known: null
 ```
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/recipes/RECIPE_CATALOG_INDEX.md

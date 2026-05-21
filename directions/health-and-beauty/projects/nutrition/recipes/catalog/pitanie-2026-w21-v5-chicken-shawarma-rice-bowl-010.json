@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
-  "name": "Chicken Shawarma Rice Bowl",
+  "name": "Боул с рисом и курицей шаурма-стайл",
   "mealie_slug": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl",
-  "purpose": "Lunch bowl using prepared chicken, rice, sauce, and Greek side.",
+  "purpose": "Обеденный боул из готовой курицы, риса, соуса и греческого салата.",
   "servings": 1,
   "prep_time_minutes": 3,
   "cook_time_minutes": 5,
   "total_time_minutes": 8,
   "equipment": [
-    "microwave or pan"
+    "микроволновка или сковорода"
   ],
   "categories": [
     "Питание / Обед"
@@ -22,54 +22,109 @@
   ],
   "ingredients": [
     {
-      "item": "cooked rice",
+      "item": "готовый рис",
       "amount": 300,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Ninja Shawarma Chicken Fillet Strips",
+      "item": "куриное филе шаурма-стайл в Ninja",
       "amount": 240,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Garlic Yogurt Sauce",
+      "item": "чесночно-йогуртовый соус",
       "amount": 70,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Greek salad components",
+      "item": "компоненты греческого салата",
       "amount": 1,
-      "unit": "serving"
+      "unit": "порция"
     }
   ],
   "instructions": [
-    "Reheat rice with 1-2 tbsp water.",
-    "Reheat chicken.",
-    "Add rice to bowl, then chicken.",
-    "Add Greek salad components on the side or on top.",
-    "Finish with Garlic Yogurt Sauce."
+    "Разогрей рис с 1–2 ст. л. воды.",
+    "Разогрей курицу.",
+    "Выложи рис в миску, сверху добавь курицу.",
+    "Добавь компоненты греческого салата сбоку или сверху.",
+    "Заверши чесночно-йогуртовым соусом."
   ],
   "storage": [
-    "Store components separately."
+    "Храни компоненты отдельно."
   ],
   "reheating": [
-    "Reheat rice and chicken only; do not heat sauce/salad."
+    "Разогревай только горячие компоненты; соус и салат не грей."
   ],
   "substitutions": [
-    "Potato wedges can replace rice."
+    "Картофельные дольки могут заменить рис."
   ],
   "meal_prep_notes": [
-    "This is a fast assembly meal from prepared bases."
+    "Быстрая сборка из готовых баз."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "750-950 kcal",
-    "protein": "65-85 g",
-    "fat": "15-30 g",
-    "carbs": "85-120 g"
+    "calories": "750-950 ккал",
+    "protein": "65-85 г",
+    "fat": "15-30 г",
+    "carbs": "85-120 г"
   },
-  "why_it_fits_weekly_plan": "High-protein lunch that uses no extra cooking process.",
+  "why_it_fits_weekly_plan": "Высокобелковый обед без дополнительного процесса готовки.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Обеденный боул из готовой курицы, риса, соуса и греческого салата.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "300 г готовый рис",
+      "amount": 300,
+      "unit_ru": "г",
+      "food_ru": "готовый рис",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "240 г куриное филе шаурма-стайл в Ninja",
+      "amount": 240,
+      "unit_ru": "г",
+      "food_ru": "куриное филе шаурма-стайл в Ninja",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "70 г чесночно-йогуртовый соус",
+      "amount": 70,
+      "unit_ru": "г",
+      "food_ru": "чесночно-йогуртовый соус",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 порция компоненты греческого салата",
+      "amount": 1,
+      "unit_ru": "порция",
+      "food_ru": "компоненты греческого салата",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

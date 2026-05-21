@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-closeout-bowl-016",
-  "name": "Closeout Bowl",
+  "name": "Финальный боул из остатков",
   "mealie_slug": "pitanie-2026-w21-v5-closeout-bowl",
-  "purpose": "Sunday dinner to use remaining prepared bases without a new cooking process.",
+  "purpose": "Воскресный ужин для использования остатков без новой готовки.",
   "servings": 1,
   "prep_time_minutes": 3,
   "cook_time_minutes": 7,
   "total_time_minutes": 10,
   "equipment": [
-    "microwave, pan, or Ninja air fryer"
+    "микроволновка, сковорода или Ninja"
   ],
   "categories": [
     "Питание / Ужин",
@@ -24,54 +24,109 @@
   ],
   "ingredients": [
     {
-      "item": "remaining batch chicken or turkey chili mince",
+      "item": "оставшаяся курица или индейка chili",
       "amount": 350,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "rice or potato wedges",
+      "item": "рис или картофельные дольки",
       "amount": 300,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Garlic Yogurt Sauce or Greek yogurt",
+      "item": "чесночно-йогуртовый соус или греческий йогурт",
       "amount": 60,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Greek salad components or hot vegetables",
+      "item": "компоненты греческого салата или горячие овощи",
       "amount": 1,
-      "unit": "serving"
+      "unit": "порция"
     }
   ],
   "instructions": [
-    "Choose remaining protein: chicken with Garlic Yogurt Sauce, or turkey with Greek yogurt.",
-    "Choose remaining carb: rice or potato wedges.",
-    "Reheat protein and carb separately.",
-    "Assemble in bowl with sauce and vegetables/Greek side.",
-    "Adjust portion based on remaining daily hunger and protein target."
+    "Выбери оставшийся белок: курицу с чесночно-йогуртовым соусом или индейку с греческим йогуртом.",
+    "Выбери оставшийся гарнир: рис или картофельные дольки.",
+    "Разогрей белок и гарнир отдельно.",
+    "Собери в миске с соусом и овощами или греческим салатом.",
+    "Подстрой порцию под голод и белковую цель дня."
   ],
   "storage": [
-    "Use remaining refrigerated/frozen portions."
+    "Используй оставшиеся охлаждённые или замороженные порции."
   ],
   "reheating": [
-    "Reheat hot components only; add sauce after heating."
+    "Разогревай только горячие компоненты; соус добавляй после разогрева."
   ],
   "substitutions": [
-    "Canned tuna can replace cooked protein if no leftovers remain."
+    "Если остатков нет, можно использовать консервированный тунец."
   ],
   "meal_prep_notes": [
-    "Designed to close the week without extra cooking."
+    "Блюдо специально закрывает неделю без новой готовки."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "650-950 kcal",
-    "protein": "50-80 g",
-    "fat": "15-35 g",
-    "carbs": "55-100 g"
+    "calories": "650-950 ккал",
+    "protein": "50-80 г",
+    "fat": "15-35 г",
+    "carbs": "55-100 г"
   },
-  "why_it_fits_weekly_plan": "Prevents waste and keeps Sunday low-friction.",
+  "why_it_fits_weekly_plan": "Снижает отходы и оставляет воскресенье простым.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-closeout-bowl-016",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Воскресный ужин для использования остатков без новой готовки.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "350 г оставшаяся курица или индейка chili",
+      "amount": 350,
+      "unit_ru": "г",
+      "food_ru": "оставшаяся курица или индейка chili",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "300 г рис или картофельные дольки",
+      "amount": 300,
+      "unit_ru": "г",
+      "food_ru": "рис или картофельные дольки",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "60 г чесночно-йогуртовый соус или греческий йогурт",
+      "amount": 60,
+      "unit_ru": "г",
+      "food_ru": "чесночно-йогуртовый соус или греческий йогурт",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 порция компоненты греческого салата или горячие овощи",
+      "amount": 1,
+      "unit_ru": "порция",
+      "food_ru": "компоненты греческого салата или горячие овощи",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

@@ -1,292 +1,292 @@
-# Active Week Menu
+# Активное меню недели
 
 Status: active_menu_approved_for_save
 Menu version: v5_same_bases_different_dishes
 Week ID: 2026-W21-calibration-2026-05-21_to_2026-05-24
 Source weekly plan: directions/health-and-beauty/projects/nutrition/weeks/current/WEEKLY_PLAN.md
-Menu date range: 2026-05-21 to 2026-05-24
+Диапазон меню: 2026-05-21 — 2026-05-24
 
-## Weekly Targets
+## Цели недели
 
-- Calories: 2400-2600 kcal/day
-- Protein: ~180 g/day
-- Structure: 3 anchor meals/day
-- Controlled morning anti-grazing slot: 1/day if needed
-- No unplanned morning sweets
-- Breakfast preference: savory, egg/meat/tuna based
-- Oatmeal is not the default breakfast
-- Bought sweets are excluded
-- Vegetable-only salad default: classic Greek salad
-- Protein salads/pita fillings with tuna/chicken/egg are allowed
+- Калории: 2400–2600 ккал/день
+- Белок: ~180 г/день
+- Структура: 3 основных приёма пищи в день
+- Контролируемый утренний слот: 1 раз в день, только если есть голод
+- Без незапланированных утренних сладостей
+- Завтрак: несладкий, на яйцах/мясе/тунце
+- Овсянка не является завтраком по умолчанию
+- Покупные сладости исключены
+- Овощной салат по умолчанию: классический греческий салат
+- Белковые салаты/начинки для питы с тунцом, курицей и яйцами разрешены
 
-## Operational Principle
+## Операционный принцип
 
-This menu uses two batch protein bases, two carb bases, and two sauces.
+Меню держится на двух белковых базах, двух гарнирах и двух соусах.
 
-Batch protein bases:
-- Ninja Shawarma Chicken Fillet Strips
-- Instant Pro Smoky Turkey Chili Mince
+Белковые базы:
+- Куриное филе шаурма-стайл в Ninja
+- Густая индейка chili в Instant Pro
 
-Batch carbs:
-- Instant Pro rice
-- Ninja potato wedges
+Гарниры:
+- Рис в Instant Pro
+- Картофельные дольки в Ninja
 
-Batch sauces:
-- Garlic Yogurt Sauce
-- Yogurt Mustard Tuna Sauce
+Соусы:
+- Чесночно-йогуртовый соус
+- Йогуртово-горчичный соус для тунца
 
-Fast extras:
-- eggs
-- canned tuna
-- optional tuna steak
-- lavash/pita/tortilla
-- Greek salad components
+Быстрые добавки:
+- яйца
+- консервированный тунец
+- опциональный стейк тунца
+- лаваш/пита/тортилья
+- компоненты греческого салата
 
-The menu must not require a different meat preparation every day.
+Меню не должно требовать отдельной мясной готовки каждый день.
 
-## Meals By Day
+## Приёмы пищи по дням
 
-### Thursday 2026-05-21
+### Четверг 2026-05-21
 
-Breakfast:
-- Crispy Tuna Melt Lavash
+Завтрак:
+- Хрустящий лаваш с тунцом и плавленым сыром
 - Recipe ID: pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006
-- Reason: first meal after shopping; no batch bases required yet
+- Причина: первый приём пищи после закупки, готовые базы ещё не нужны
 
-Controlled morning slot, optional only if hungry:
-- 30 g whey with water
-- or 2 boiled eggs
-- or 200 g skyr/Greek yogurt
+Контролируемый утренний слот, только если есть голод:
+- 30 г whey с водой
+- или 2 варёных яйца
+- или 200 г skyr/греческого йогурта
 
-Lunch:
-- Real Chicken Shawarma Wrap
+Обед:
+- Настоящая шаурма с курицей в лаваше
 - Recipe ID: pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007
-- Uses batch base: Ninja Shawarma Chicken Fillet Strips
+- Использует базу: куриное филе шаурма-стайл в Ninja
 
-Dinner:
-- Loaded Turkey Chili Potato
+Ужин:
+- Картофель с индейкой chili и йогуртовым соусом
 - Recipe ID: pitanie-2026-w21-v5-loaded-turkey-chili-potato-008
-- Uses batch base: Instant Pro Smoky Turkey Chili Mince
-- Uses batch carb: Ninja potato wedges
+- Использует базу: густая индейка chili в Instant Pro
+- Использует гарнир: картофельные дольки в Ninja
 
-### Friday 2026-05-22
+### Пятница 2026-05-22
 
-Breakfast:
-- Chicken-Egg Breakfast Crunchwrap
+Завтрак:
+- Завтрачный crunchwrap с курицей и яйцами
 - Recipe ID: pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009
-- Uses batch chicken + eggs + potato + lavash
+- Использует куриную базу, яйца, картофель и лаваш
 
-Controlled morning slot, optional:
-- 30 g whey with water
-- or 2 boiled eggs
+Контролируемый утренний слот, опционально:
+- 30 г whey с водой
+- или 2 варёных яйца
 
-Lunch:
-- Chicken Shawarma Rice Bowl
+Обед:
+- Боул с рисом и курицей шаурма-стайл
 - Recipe ID: pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010
-- Uses batch chicken + rice + garlic yogurt sauce
+- Использует куриную базу, рис и чесночно-йогуртовый соус
 
-Dinner:
-- Sesame Tuna Steak Rice Bowl
+Ужин:
+- Боул с тунцом-стейком в кунжуте
 - Recipe ID: pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011
-- Cook fresh; if not available or not desired, replace with Crispy Tuna Melt Lavash
+- Готовить свежим; если стейка нет или не хочется, заменить на хрустящий лаваш с тунцом
 
-### Saturday 2026-05-23
+### Суббота 2026-05-23
 
-Breakfast:
-- Turkey Chili Egg Skillet Wrap
+Завтрак:
+- Лаваш с индейкой chili и яйцами
 - Recipe ID: pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012
-- Uses batch turkey chili mince + eggs + lavash
+- Использует базу индейки chili, яйца и лаваш
 
-Controlled morning slot, optional:
-- 30 g whey with water
-- or 200 g skyr/Greek yogurt
+Контролируемый утренний слот, опционально:
+- 30 г whey с водой
+- или 200 г skyr/греческого йогурта
 
-Lunch:
-- Turkey Chili Rice Bowl
+Обед:
+- Боул с рисом и индейкой chili
 - Recipe ID: pitanie-2026-w21-v5-turkey-chili-rice-bowl-013
-- Uses batch turkey chili mince + rice
+- Использует базу индейки chili и рис
 
-Dinner:
-- Crispy Chicken Shawarma Flatbread
+Ужин:
+- Хрустящая лепёшка с курицей шаурма-стайл
 - Recipe ID: pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014
-- Uses batch chicken + garlic yogurt sauce + lavash/flatbread
+- Использует куриную базу, чесночно-йогуртовый соус и лаваш/лепёшку
 
-### Sunday 2026-05-24
+### Воскресенье 2026-05-24
 
-Breakfast:
-- Chicken-Egg Breakfast Crunchwrap
+Завтрак:
+- Завтрачный crunchwrap с курицей и яйцами
 - Recipe ID: pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009
-- Uses leftover batch chicken/potato
+- Использует остатки курицы и картофеля
 
-Controlled morning slot, optional:
-- 30 g whey with water
-- or 2 boiled eggs
+Контролируемый утренний слот, опционально:
+- 30 г whey с водой
+- или 2 варёных яйца
 
-Lunch:
-- Tuna Egg Potato Pita Pockets
+Обед:
+- Пита с тунцом, яйцом и картофелем
 - Recipe ID: pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015
-- Uses canned tuna + boiled eggs + potato + yogurt mustard tuna sauce
+- Использует консервированный тунец, варёные яйца, картофель и йогуртово-горчичный соус
 
-Dinner:
-- Closeout Bowl
+Ужин:
+- Финальный боул из остатков
 - Recipe ID: pitanie-2026-w21-v5-closeout-bowl-016
-- Uses leftover chicken or turkey + rice or potato + appropriate sauce
+- Использует остатки курицы или индейки, рис или картофель и подходящий соус
 
-## Fallback Meals
+## Запасные блюда
 
-1. Crispy Tuna Melt Lavash
-   - canned tuna + sauce + cheese + lavash
-   - 10-15 minutes
+1. Хрустящий лаваш с тунцом и плавленым сыром
+   - тунец + соус + сыр + лаваш
+   - 10–15 минут
 
-2. Chicken-Egg Breakfast Crunchwrap
-   - eggs + batch chicken + potato + lavash
-   - 10-15 minutes
+2. Завтрачный crunchwrap с курицей и яйцами
+   - яйца + куриная база + картофель + лаваш
+   - 10–15 минут
 
-3. Loaded Turkey Chili Potato
-   - batch turkey + potato + yogurt
-   - 5-10 minutes
+3. Картофель с индейкой chili и йогуртовым соусом
+   - база индейки + картофель + йогурт
+   - 5–10 минут
 
-4. Whey controlled slot
-   - 30 g whey with water
-   - only if actual hunger appears
-   - not used as repeated sweet grazing
+4. Контролируемый whey-слот
+   - 30 г whey с водой
+   - только при реальном голоде
+   - не использовать как повторяющееся сладкое grazing-поведение
 
-## Replacement Rules
+## Правила замен
 
-- Chicken base can replace tuna steak if needed.
-- Turkey chili mince can replace chicken in bowls/wraps if chicken runs out.
-- Rice and potato can replace each other.
-- Large rice plus large potato in the same meal should be avoided unless clearly needed for energy.
-- Tuna steak is optional and fresh-only.
-- Canned tuna is always allowed as a fallback.
-- Vegetable-only salad should be classic Greek salad.
-- Protein pita/salad with tuna/egg is allowed.
-- No bought sweets.
-- Oatmeal is not a planned default breakfast.
+- Куриная база может заменить стейк тунца, если нужно.
+- Индейка chili может заменить курицу в боулах и лавашах, если курица закончилась.
+- Рис и картофель могут заменять друг друга.
+- Большой рис и большой картофель в одном приёме лучше не совмещать, если нет явной потребности в энергии.
+- Стейк тунца опциональный и готовится только свежим.
+- Консервированный тунец всегда разрешён как fallback.
+- Овощной салат должен быть классическим греческим.
+- Белковая пита/салат с тунцом и яйцом разрешены.
+- Покупные сладости не покупать.
+- Овсянка не запланирована как завтрак по умолчанию.
 
-## Shopping List
+## Список покупок
 
-### Protein
-- Chicken fillet: 1.5 kg
-- Ground turkey 5-10%: 1.6-1.8 kg
-- Canned tuna in water/own juice: 6-8 cans
-- Optional tuna steaks: 1-2 steaks, 220-280 g each
-- Eggs: 24
-- Greek yogurt/skyr unsweetened: 1.5-2.0 kg
-- Feta: 400-600 g
-- Cheese for melt/crunchwrap: 200-300 g
-- Whey protein: do not buy; user has some at home
+### Белок
+- Куриное филе: 1.5 кг
+- Фарш индейки 5–10%: 1.6–1.8 кг
+- Консервированный тунец в воде/собственном соку: 6–8 банок
+- Опциональные стейки тунца: 1–2 стейка по 220–280 г
+- Яйца: 24 шт.
+- Греческий йогурт/skyr без сахара: 1.5–2.0 кг
+- Фета: 400–600 г
+- Сыр для melt/crunchwrap: 200–300 г
+- Whey protein: не покупать, дома уже есть
 
-### Carbs
-- Lavash/tortilla/pita: 2 packs
-- Rice: 500-700 g dry
-- Potatoes: 3.2-4.0 kg
-- Oatmeal: not required
-- Sweet potato: not required
+### Углеводы
+- Лаваш/тортилья/пита: 2 упаковки
+- Рис: 500–700 г сухого
+- Картофель: 3.2–4.0 кг
+- Овсянка: не требуется
+- Батат: не требуется
 
-### Vegetables And Flavor
-- Cucumbers: 1.0-1.2 kg
-- Tomatoes: 1.0-1.2 kg
-- Sweet peppers: 5-6
-- Red onions: 2
-- Yellow onions: 2
-- Garlic: 2 heads
-- Pickles: 1 jar
-- Lemons/limes: 4-5
-- Herbs: dill, parsley, green onion
-- Olives: 200-300 g
-- Canned beans: 2 cans
-- Canned chopped tomatoes: 2 cans of 400 g
-- Tomato paste: 1 small can
+### Овощи и вкус
+- Огурцы: 1.0–1.2 кг
+- Помидоры: 1.0–1.2 кг
+- Сладкий перец: 5–6 шт.
+- Красный лук: 2 шт.
+- Жёлтый лук: 2 шт.
+- Чеснок: 2 головки
+- Маринованные огурцы: 1 банка
+- Лимоны/лаймы: 4–5 шт.
+- Зелень: укроп, петрушка, зелёный лук
+- Оливки: 200–300 г
+- Консервированная фасоль: 2 банки
+- Резаные томаты: 2 банки по 400 г
+- Томатная паста: 1 маленькая банка
 
-### Spices And Sauces
-- Cumin
-- Smoked paprika
-- Paprika
-- Oregano
-- Turmeric
-- Ground coriander
-- Cinnamon
-- Chili flakes or chili powder
-- Black pepper
-- Salt
-- Sesame seeds
-- Soy sauce
-- Mustard
-- Olive oil
-- Optional sesame oil
+### Специи и соусы
+- Зира / кумин
+- Копчёная паприка
+- Паприка
+- Орегано
+- Куркума
+- Молотый кориандр
+- Корица
+- Хлопья чили или чили-порошок
+- Чёрный перец
+- Соль
+- Кунжут
+- Соевый соус
+- Горчица
+- Оливковое масло
+- Опционально кунжутное масло
 
-### Do Not Buy
-- Bought sweets
-- Sweet yogurts
-- Protein bars
-- Diet desserts
-- Dessert snacks
-- Oatmeal as required breakfast base
+### Не покупать
+- Покупные сладости
+- Сладкие йогурты
+- Протеиновые батончики
+- Диет-десерты
+- Десертные снеки
+- Овсянку как обязательную базу завтрака
 
-## Prep Plan
+## План подготовки
 
-### Step 0: Eat First
-After shopping, make Crispy Tuna Melt Lavash.
-Do not start batch prep hungry.
+### Шаг 0: сначала поесть
+После закупки сделать хрустящий лаваш с тунцом.
+Не начинать batch prep голодным.
 
-### Step 1: Cook Rice
-- 500-600 g dry rice
-- water according to rice type
-- salt
-Instant Pro: Pressure Cook High 4 minutes, Natural Release 10 minutes.
-Cool and portion separately.
+### Шаг 1: приготовить рис
+- 500–600 г сухого риса
+- вода по типу риса
+- соль
+Instant Pro: Pressure Cook High 4 минуты, Natural Release 10 минут.
+Остудить и порционировать отдельно.
 
-### Step 2: Marinate Chicken
-Use only chicken fillet.
-Cut into 1.5-2 cm strips.
-Coat in yogurt-lemon-shawarma marinade.
-Marinate at least 30 minutes.
+### Шаг 2: замариновать курицу
+Использовать только куриное филе.
+Нарезать полосками 1.5–2 см.
+Покрыть йогуртово-лимонным маринадом со специями шаурма-стайл.
+Мариновать минимум 30 минут.
 
-### Step 3: Cook Turkey Chili Mince
-Use Instant Pro Sauté + Pressure Cook.
-Make it thick, not soupy.
-Portion separately.
+### Шаг 3: приготовить индейку chili
+Использовать Instant Pro Sauté + Pressure Cook.
+Сделать густой, не суповой.
+Порционировать отдельно.
 
-### Step 4: Cook Chicken In Ninja
-Air Fry 200°C for 12-15 minutes.
-Turn/shake halfway.
-Do not overcook fillet.
+### Шаг 4: приготовить курицу в Ninja
+Air Fry 200°C 12–15 минут.
+Перевернуть или встряхнуть в середине.
+Не пересушивать филе.
 
-### Step 5: Cook Potato Wedges In Ninja
-Air Fry 190-200°C for 22-30 minutes.
-Shake 1-2 times.
+### Шаг 5: приготовить картофель в Ninja
+Air Fry 190–200°C 22–30 минут.
+Встряхнуть 1–2 раза.
 
-### Step 6: Prepare Sauces
-- Garlic Yogurt Sauce
-- Yogurt Mustard Tuna Sauce
-Store separately.
+### Шаг 6: приготовить соусы
+- Чесночно-йогуртовый соус
+- Йогуртово-горчичный соус для тунца
+Хранить отдельно.
 
-### Step 7: Boil Eggs
-Boil 6-8 eggs for tuna pita/fallbacks.
-Keep the rest fresh for breakfast wraps.
+### Шаг 7: отварить яйца
+Отварить 6–8 яиц для питы с тунцом и fallback-блюд.
+Остальные оставить свежими для завтраков.
 
-### Step 8: Storage
-Fridge for Thursday-Friday:
-- 2-3 chicken portions
-- 2-3 turkey portions
-- 2 rice portions
-- 2 potato portions
-- sauces separately
+### Шаг 8: хранение
+Холодильник на четверг–пятницу:
+- 2–3 порции курицы
+- 2–3 порции индейки
+- 2 порции риса
+- 2 порции картофеля
+- соусы отдельно
 
-Vacuum + freezer for Saturday-Sunday:
-- 1-2 chicken portions
-- 1-2 turkey portions
+Вакуум + морозилка на субботу–воскресенье:
+- 1–2 порции курицы
+- 1–2 порции индейки
 
-Do not vacuum:
-- assembled lavash/wraps
-- assembled crunchwraps
-- mixed Greek salad
-- hot food
-- finished tuna melt
+Не вакуумировать:
+- собранные лаваши/wraps
+- собранные crunchwrap
+- смешанный греческий салат
+- горячую еду
+- готовый tuna melt
 
-## Open Questions
+## Открытые вопросы
 
-None blocking.
+Нет блокирующих вопросов.
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/weeks/current/ACTIVE_WEEK_MENU.md

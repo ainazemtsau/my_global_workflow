@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
-  "name": "Chicken-Egg Breakfast Crunchwrap",
+  "name": "Завтрачный crunchwrap с курицей и яйцами",
   "mealie_slug": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap",
-  "purpose": "Savory high-satiety breakfast using batch chicken.",
+  "purpose": "Сытный несладкий завтрак из готовой куриной базы.",
   "servings": 1,
   "prep_time_minutes": 5,
   "cook_time_minutes": 8,
   "total_time_minutes": 13,
   "equipment": [
-    "pan or Ninja air fryer"
+    "сковорода или аэрогриль Ninja"
   ],
   "categories": [
     "Питание / Завтрак"
@@ -22,66 +22,147 @@
   ],
   "ingredients": [
     {
-      "item": "lavash or tortilla",
+      "item": "лаваш или тортилья",
       "amount": 1,
-      "unit": "large piece"
+      "unit": "большой лист"
     },
     {
-      "item": "eggs",
+      "item": "яйца",
       "amount": 3,
-      "unit": "pieces"
+      "unit": "шт."
     },
     {
-      "item": "Ninja Shawarma Chicken Fillet Strips",
+      "item": "куриное филе шаурма-стайл в Ninja",
       "amount": 150,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Ninja Potato Wedges",
+      "item": "картофельные дольки в Ninja",
       "amount": 130,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "cheese",
+      "item": "сыр",
       "amount": 35,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Garlic Yogurt Sauce",
+      "item": "чесночно-йогуртовый соус",
       "amount": 40,
-      "unit": "g"
+      "unit": "г"
     }
   ],
   "instructions": [
-    "Make a soft scramble from 3 eggs.",
-    "Reheat chicken and potatoes.",
-    "Place cheese, eggs, chicken, potatoes, and a little sauce on lavash.",
-    "Fold edges toward the center to make a closed crunchwrap.",
-    "Toast seam-side down in pan for 2-3 minutes, then flip and toast 2 minutes more.",
-    "Alternative: Ninja 190°C for 5-7 minutes seam-side down."
+    "Сделай мягкий скрэмбл из 3 яиц.",
+    "Разогрей курицу и картофель.",
+    "Выложи на лаваш сыр, яйца, курицу, картофель и немного соуса.",
+    "Загни края к центру, чтобы получился закрытый crunchwrap.",
+    "Поджарь швом вниз на сковороде 2–3 минуты, затем переверни и поджарь ещё 2 минуты.",
+    "Альтернатива: Ninja 190°C 5–7 минут швом вниз."
   ],
   "storage": [
-    "Cook fresh.",
-    "Store bases separately."
+    "Готовь свежим.",
+    "Храни базы отдельно."
   ],
   "reheating": [
-    "Reheat only if assembled shortly before eating; Ninja 180°C for 2-3 minutes."
+    "Если блюдо собрано заранее, разогрей в Ninja 180°C 2–3 минуты."
   ],
   "substitutions": [
-    "Turkey chili mince can replace chicken, but it becomes a turkey breakfast crunchwrap."
+    "Индейка chili может заменить курицу, но это станет завтраком с индейкой."
   ],
   "meal_prep_notes": [
-    "Prepare breakfast kits with chicken/potato/cheese; add eggs fresh."
+    "Можно подготовить наборы курица/картофель/сыр; яйца добавлять свежими."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "750-950 kcal",
-    "protein": "60-80 g",
-    "fat": "30-45 g",
-    "carbs": "45-75 g"
+    "calories": "750-950 ккал",
+    "protein": "60-80 г",
+    "fat": "30-45 г",
+    "carbs": "45-75 г"
   },
-  "why_it_fits_weekly_plan": "Savory, protein-heavy breakfast aligned with user's satiety preference.",
+  "why_it_fits_weekly_plan": "Белковый несладкий завтрак под предпочтение по сытости.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Сытный несладкий завтрак из готовой куриной базы.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "1 большой лист лаваш или тортилья",
+      "amount": 1,
+      "unit_ru": "большой лист",
+      "food_ru": "лаваш или тортилья",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "3 шт. яйца",
+      "amount": 3,
+      "unit_ru": "шт.",
+      "food_ru": "яйца",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "150 г куриное филе шаурма-стайл в Ninja",
+      "amount": 150,
+      "unit_ru": "г",
+      "food_ru": "куриное филе шаурма-стайл в Ninja",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "130 г картофельные дольки в Ninja",
+      "amount": 130,
+      "unit_ru": "г",
+      "food_ru": "картофельные дольки в Ninja",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "35 г сыр",
+      "amount": 35,
+      "unit_ru": "г",
+      "food_ru": "сыр",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "40 г чесночно-йогуртовый соус",
+      "amount": 40,
+      "unit_ru": "г",
+      "food_ru": "чесночно-йогуртовый соус",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

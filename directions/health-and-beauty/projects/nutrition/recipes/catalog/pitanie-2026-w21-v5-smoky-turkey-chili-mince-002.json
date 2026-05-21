@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-smoky-turkey-chili-mince-002",
-  "name": "Instant Pro Smoky Turkey Chili Mince",
+  "name": "Густая индейка chili в Instant Pro",
   "mealie_slug": "pitanie-2026-w21-v5-smoky-turkey-chili-mince",
-  "purpose": "Universal turkey base for loaded potato, rice bowls, egg skillet wraps, and closeout meals.",
+  "purpose": "Универсальная база из индейки для картофеля, рисовых боулов, лаваша с яйцами и финального блюда.",
   "servings": 6,
   "prep_time_minutes": 15,
   "cook_time_minutes": 25,
   "total_time_minutes": 40,
   "equipment": [
-    "Instant Pro 8 multicooker"
+    "мультиварка Instant Pro 8"
   ],
   "categories": [
     "Питание / Meal Prep"
@@ -23,129 +23,357 @@
   ],
   "ingredients": [
     {
-      "item": "ground turkey 5-10%",
+      "item": "фарш индейки 5–10%",
       "amount": 1700,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "yellow onion, chopped",
+      "item": "жёлтый лук",
       "amount": 2,
-      "unit": "pieces"
+      "unit": "шт.",
+      "prep_note_ru": "нарезать"
     },
     {
-      "item": "sweet peppers, diced",
+      "item": "сладкий перец",
       "amount": 2,
-      "unit": "pieces"
+      "unit": "шт.",
+      "prep_note_ru": "нарезать кубиком"
     },
     {
-      "item": "garlic cloves, minced",
+      "item": "чеснок",
       "amount": 4,
-      "unit": "cloves"
+      "unit": "зубчика",
+      "prep_note_ru": "измельчить"
     },
     {
-      "item": "canned chopped tomatoes",
+      "item": "резаные томаты в банке",
       "amount": 800,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "tomato paste",
+      "item": "томатная паста",
       "amount": 60,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "canned beans, drained and rinsed",
+      "item": "консервированная фасоль",
       "amount": 2,
-      "unit": "cans"
+      "unit": "банки",
+      "prep_note_ru": "слить жидкость и промыть"
     },
     {
-      "item": "water or broth",
+      "item": "вода или бульон",
       "amount": 250,
-      "unit": "ml"
+      "unit": "мл"
     },
     {
-      "item": "olive oil",
+      "item": "оливковое масло",
       "amount": 10,
-      "unit": "ml"
+      "unit": "мл"
     },
     {
-      "item": "ground cumin",
+      "item": "молотая зира / кумин",
       "amount": 2,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "smoked paprika",
+      "item": "копчёная паприка",
       "amount": 2,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "paprika",
+      "item": "паприка",
       "amount": 1,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "oregano",
+      "item": "орегано",
       "amount": 1,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "chili flakes or chili powder",
-      "amount": 1,
-      "unit": "to taste"
+      "item": "хлопья чили или чили-порошок",
+      "amount": null,
+      "unit": "по вкусу"
     },
     {
-      "item": "salt",
+      "item": "соль",
       "amount": 2,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "black pepper",
+      "item": "чёрный перец",
       "amount": 1,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "lemon or lime juice",
+      "item": "лимонный или лаймовый сок",
       "amount": 20,
-      "unit": "ml"
+      "unit": "мл"
     }
   ],
   "instructions": [
-    "Set Instant Pro to Sauté High.",
-    "Add olive oil, onion, and sweet peppers. Cook 4-5 minutes.",
-    "Add garlic and spices. Stir 30-45 seconds.",
-    "Add ground turkey. Break it up with a spatula and cook 6-8 minutes until mostly pale.",
-    "Add 100 ml water/broth and scrape the bottom thoroughly to avoid Burn warning.",
-    "Add chopped tomatoes, tomato paste, beans, and remaining water/broth.",
-    "Pressure Cook High for 5 minutes.",
-    "Natural Release for 7 minutes.",
-    "If too liquid, use Sauté Medium 5-8 minutes until thick.",
-    "Finish with lemon/lime juice and adjust salt."
+    "Включи Instant Pro в режиме Sauté High.",
+    "Добавь оливковое масло, лук и сладкий перец. Готовь 4–5 минут.",
+    "Добавь чеснок и специи. Перемешивай 30–45 секунд.",
+    "Добавь фарш индейки. Разбей лопаткой и готовь 6–8 минут, пока фарш почти не побелеет.",
+    "Влей 100 мл воды или бульона и тщательно соскреби со дна, чтобы не получить предупреждение Burn.",
+    "Добавь резаные томаты, томатную пасту, фасоль и оставшуюся воду или бульон.",
+    "Готовь Pressure Cook High 5 минут.",
+    "Сделай Natural Release 7 минут.",
+    "Если масса слишком жидкая, включи Sauté Medium на 5–8 минут до густой консистенции.",
+    "В конце добавь лимонный или лаймовый сок и отрегулируй соль."
   ],
   "storage": [
-    "Cool before sealing.",
-    "Refrigerate Thursday-Friday portions.",
-    "Vacuum-freeze Saturday-Sunday portions."
+    "Остуди перед герметичным хранением.",
+    "Порции на четверг–пятницу держи в холодильнике.",
+    "Порции на субботу–воскресенье вакуумируй и заморозь."
   ],
   "reheating": [
-    "Microwave 2-3 minutes, stirring halfway.",
-    "Or reheat in pan with 1-2 tbsp water."
+    "Микроволновка 2–3 минуты, перемешать в середине.",
+    "Или разогреть на сковороде с 1–2 ст. л. воды."
   ],
   "substitutions": [
-    "Ground chicken can replace turkey.",
-    "Do not add potato into this base; potatoes are stored separately for flexibility."
+    "Куриный фарш может заменить индейку.",
+    "Не добавляй картофель в эту базу: картофель хранится отдельно для гибкости."
   ],
   "meal_prep_notes": [
-    "This is the only turkey preparation for the week.",
-    "Keep thick enough for wraps and loaded potatoes."
+    "Это единственная подготовка индейки на неделю.",
+    "Держи массу достаточно густой для лаваша и картофеля."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "420-600 kcal",
-    "protein": "45-60 g",
-    "fat": "12-25 g",
-    "carbs": "25-45 g"
+    "calories": "420-600 ккал",
+    "protein": "45-60 г",
+    "fat": "12-25 г",
+    "carbs": "25-45 г"
   },
-  "why_it_fits_weekly_plan": "High-protein batch base with flexible use across breakfast, lunch, and dinner.",
+  "why_it_fits_weekly_plan": "Высокобелковая база, которую можно использовать на завтрак, обед и ужин.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-smoky-turkey-chili-mince-002",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Универсальная база из индейки для картофеля, рисовых боулов, лаваша с яйцами и финального блюда.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "1700 г фарш индейки 5–10%",
+      "amount": 1700,
+      "unit_ru": "г",
+      "food_ru": "фарш индейки 5–10%",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 шт. жёлтый лук (нарезать)",
+      "amount": 2,
+      "unit_ru": "шт.",
+      "food_ru": "жёлтый лук",
+      "prep_note_ru": "нарезать",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 шт. сладкий перец (нарезать кубиком)",
+      "amount": 2,
+      "unit_ru": "шт.",
+      "food_ru": "сладкий перец",
+      "prep_note_ru": "нарезать кубиком",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "4 зубчика чеснок (измельчить)",
+      "amount": 4,
+      "unit_ru": "зубчика",
+      "food_ru": "чеснок",
+      "prep_note_ru": "измельчить",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "800 г резаные томаты в банке",
+      "amount": 800,
+      "unit_ru": "г",
+      "food_ru": "резаные томаты в банке",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "60 г томатная паста",
+      "amount": 60,
+      "unit_ru": "г",
+      "food_ru": "томатная паста",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 банки консервированная фасоль (слить жидкость и промыть)",
+      "amount": 2,
+      "unit_ru": "банки",
+      "food_ru": "консервированная фасоль",
+      "prep_note_ru": "слить жидкость и промыть",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "250 мл вода или бульон",
+      "amount": 250,
+      "unit_ru": "мл",
+      "food_ru": "вода или бульон",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "10 мл оливковое масло",
+      "amount": 10,
+      "unit_ru": "мл",
+      "food_ru": "оливковое масло",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 ч. л. молотая зира / кумин",
+      "amount": 2,
+      "unit_ru": "ч. л.",
+      "food_ru": "молотая зира / кумин",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 ч. л. копчёная паприка",
+      "amount": 2,
+      "unit_ru": "ч. л.",
+      "food_ru": "копчёная паприка",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 ч. л. паприка",
+      "amount": 1,
+      "unit_ru": "ч. л.",
+      "food_ru": "паприка",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 ч. л. орегано",
+      "amount": 1,
+      "unit_ru": "ч. л.",
+      "food_ru": "орегано",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "хлопья чили или чили-порошок по вкусу",
+      "amount": null,
+      "unit_ru": "по вкусу",
+      "food_ru": "хлопья чили или чили-порошок",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": false,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 ч. л. соль",
+      "amount": 2,
+      "unit_ru": "ч. л.",
+      "food_ru": "соль",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 ч. л. чёрный перец",
+      "amount": 1,
+      "unit_ru": "ч. л.",
+      "food_ru": "чёрный перец",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "20 мл лимонный или лаймовый сок",
+      "amount": 20,
+      "unit_ru": "мл",
+      "food_ru": "лимонный или лаймовый сок",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

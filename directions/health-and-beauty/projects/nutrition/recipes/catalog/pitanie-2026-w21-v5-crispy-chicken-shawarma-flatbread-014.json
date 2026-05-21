@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
-  "name": "Crispy Chicken Shawarma Flatbread",
+  "name": "Хрустящая лепёшка с курицей шаурма-стайл",
   "mealie_slug": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread",
-  "purpose": "Dinner wrap/flatbread using batch chicken.",
+  "purpose": "Ужин в формате хрустящей лепёшки с готовой куриной базой.",
   "servings": 1,
   "prep_time_minutes": 5,
   "cook_time_minutes": 6,
   "total_time_minutes": 11,
   "equipment": [
-    "pan or Ninja air fryer"
+    "сковорода или аэрогриль Ninja"
   ],
   "categories": [
     "Питание / Ужин",
@@ -24,60 +24,128 @@
   ],
   "ingredients": [
     {
-      "item": "flatbread or lavash",
+      "item": "лепёшка или лаваш",
       "amount": 1,
-      "unit": "large piece"
+      "unit": "большой лист"
     },
     {
-      "item": "Ninja Shawarma Chicken Fillet Strips",
+      "item": "куриное филе шаурма-стайл в Ninja",
       "amount": 240,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Garlic Yogurt Sauce",
+      "item": "чесночно-йогуртовый соус",
       "amount": 70,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "feta or cheese",
+      "item": "фета или сыр",
       "amount": 30,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Greek salad components",
+      "item": "компоненты греческого салата",
       "amount": 1,
       "unit": "small serving"
     }
   ],
   "instructions": [
-    "Warm chicken.",
-    "Spread a little Garlic Yogurt Sauce on flatbread.",
-    "Add chicken, feta/cheese, and a small amount of Greek salad components.",
-    "Fold or close flatbread so it can toast without leaking.",
-    "Toast in pan 2-3 minutes per side or Ninja 190°C for 5-6 minutes.",
-    "Serve with remaining sauce on the side."
+    "Разогрей курицу.",
+    "Намажь немного чесночно-йогуртового соуса на лепёшку.",
+    "Добавь курицу, фету или сыр и немного компонентов греческого салата.",
+    "Сложи или закрой лепёшку так, чтобы она не протекала при поджаривании.",
+    "Поджарь на сковороде 2–3 минуты с каждой стороны или в Ninja при 190°C 5–6 минут.",
+    "Подавай с оставшимся соусом отдельно."
   ],
   "storage": [
-    "Store components separately."
+    "Храни компоненты отдельно."
   ],
   "reheating": [
-    "Toast assembled flatbread fresh."
+    "Поджаривай собранную лепёшку свежей."
   ],
   "substitutions": [
-    "Rice bowl format can replace flatbread if lavash is unavailable."
+    "Если лаваша нет, собери это как рисовый боул."
   ],
   "meal_prep_notes": [
-    "This changes form without changing the chicken preparation."
+    "Форма другая, но куриная база та же."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "700-950 kcal",
-    "protein": "60-85 g",
-    "fat": "20-35 g",
-    "carbs": "55-90 g"
+    "calories": "700-950 ккал",
+    "protein": "60-85 г",
+    "fat": "20-35 г",
+    "carbs": "55-90 г"
   },
-  "why_it_fits_weekly_plan": "Interesting but still assembled from prepared bases.",
+  "why_it_fits_weekly_plan": "Меняет форму блюда, не меняя куриную базу.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Ужин в формате хрустящей лепёшки с готовой куриной базой.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "1 большой лист лепёшка или лаваш",
+      "amount": 1,
+      "unit_ru": "большой лист",
+      "food_ru": "лепёшка или лаваш",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "240 г куриное филе шаурма-стайл в Ninja",
+      "amount": 240,
+      "unit_ru": "г",
+      "food_ru": "куриное филе шаурма-стайл в Ninja",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "70 г чесночно-йогуртовый соус",
+      "amount": 70,
+      "unit_ru": "г",
+      "food_ru": "чесночно-йогуртовый соус",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "30 г фета или сыр",
+      "amount": 30,
+      "unit_ru": "г",
+      "food_ru": "фета или сыр",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 small serving компоненты греческого салата",
+      "amount": 1,
+      "unit_ru": "small serving",
+      "food_ru": "компоненты греческого салата",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

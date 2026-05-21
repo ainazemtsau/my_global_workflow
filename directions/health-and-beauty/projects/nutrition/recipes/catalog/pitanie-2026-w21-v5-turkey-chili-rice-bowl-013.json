@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
-  "name": "Turkey Chili Rice Bowl",
+  "name": "Боул с рисом и индейкой chili",
   "mealie_slug": "pitanie-2026-w21-v5-turkey-chili-rice-bowl",
-  "purpose": "Lunch bowl using turkey chili mince and rice.",
+  "purpose": "Обеденный боул из индейки chili и риса.",
   "servings": 1,
   "prep_time_minutes": 3,
   "cook_time_minutes": 5,
   "total_time_minutes": 8,
   "equipment": [
-    "microwave or pan"
+    "микроволновка или сковорода"
   ],
   "categories": [
     "Питание / Обед"
@@ -22,53 +22,108 @@
   ],
   "ingredients": [
     {
-      "item": "Instant Pro Smoky Turkey Chili Mince",
+      "item": "густая индейка chili в Instant Pro",
       "amount": 400,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "cooked rice",
+      "item": "готовый рис",
       "amount": 250,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "Greek yogurt or skyr",
+      "item": "греческий йогурт или skyr без сахара",
       "amount": 50,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "herbs or green onion",
+      "item": "зелень или зелёный лук",
       "amount": 10,
-      "unit": "g"
+      "unit": "г"
     }
   ],
   "instructions": [
-    "Reheat rice with 1-2 tbsp water.",
-    "Reheat turkey chili mince until hot.",
-    "Put rice in bowl and top with turkey.",
-    "Add yogurt/skyr and herbs after heating."
+    "Разогрей рис с 1–2 ст. л. воды.",
+    "Разогрей индейку chili до горячего состояния.",
+    "Выложи рис в миску и добавь сверху индейку.",
+    "Добавь йогурт/skyr и зелень после разогрева."
   ],
   "storage": [
-    "Store rice and turkey separately."
+    "Храни рис и индейку отдельно."
   ],
   "reheating": [
-    "Reheat rice and turkey; do not heat yogurt topping."
+    "Разогревай только горячие компоненты; соус и салат не грей."
   ],
   "substitutions": [
-    "Potato wedges can replace rice."
+    "Картофельные дольки могут заменить рис."
   ],
   "meal_prep_notes": [
-    "No new cooking required if bases are prepared."
+    "Если базы готовы, новая готовка не нужна."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "700-950 kcal",
-    "protein": "55-80 g",
-    "fat": "15-35 g",
-    "carbs": "75-115 g"
+    "calories": "700-950 ккал",
+    "protein": "55-80 г",
+    "fat": "15-35 г",
+    "carbs": "75-115 г"
   },
-  "why_it_fits_weekly_plan": "Low-friction high-protein lunch.",
+  "why_it_fits_weekly_plan": "Низкофрикционный высокобелковый обед.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Обеденный боул из индейки chili и риса.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "400 г густая индейка chili в Instant Pro",
+      "amount": 400,
+      "unit_ru": "г",
+      "food_ru": "густая индейка chili в Instant Pro",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "250 г готовый рис",
+      "amount": 250,
+      "unit_ru": "г",
+      "food_ru": "готовый рис",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "50 г греческий йогурт или skyr без сахара",
+      "amount": 50,
+      "unit_ru": "г",
+      "food_ru": "греческий йогурт или skyr без сахара",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "10 г зелень или зелёный лук",
+      "amount": 10,
+      "unit_ru": "г",
+      "food_ru": "зелень или зелёный лук",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

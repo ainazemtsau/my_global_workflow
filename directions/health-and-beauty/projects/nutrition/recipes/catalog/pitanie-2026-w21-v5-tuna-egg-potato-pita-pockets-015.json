@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
-  "name": "Tuna Egg Potato Pita Pockets",
+  "name": "Пита с тунцом, яйцом и картофелем",
   "mealie_slug": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets",
-  "purpose": "High-protein tuna lunch using prepared eggs and potatoes.",
+  "purpose": "Белковый обед с тунцом, яйцами и готовым картофелем.",
   "servings": 1,
   "prep_time_minutes": 8,
   "cook_time_minutes": 3,
   "total_time_minutes": 11,
   "equipment": [
-    "mixing bowl",
+    "миска для смешивания",
     "pan or Ninja optional"
   ],
   "categories": [
@@ -25,66 +25,150 @@
   ],
   "ingredients": [
     {
-      "item": "canned tuna, drained",
+      "item": "консервированный тунец",
       "amount": 2,
-      "unit": "cans"
+      "unit": "банки",
+      "prep_note_ru": "слить жидкость"
     },
     {
-      "item": "boiled eggs, chopped",
+      "item": "варёные яйца",
       "amount": 2,
-      "unit": "pieces"
+      "unit": "шт.",
+      "prep_note_ru": "нарезать"
     },
     {
-      "item": "Ninja Potato Wedges, chopped",
+      "item": "картофельные дольки в Ninja",
       "amount": 250,
-      "unit": "g"
+      "unit": "г",
+      "prep_note_ru": "нарезать"
     },
     {
-      "item": "Yogurt Mustard Tuna Sauce",
+      "item": "йогуртово-горчичный соус для тунца",
       "amount": 90,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "pita or lavash",
+      "item": "пита или лаваш",
       "amount": 1,
-      "unit": "serving"
+      "unit": "порция"
     },
     {
-      "item": "green onion or dill",
+      "item": "зелёный лук или укроп",
       "amount": 10,
-      "unit": "g"
+      "unit": "г"
     }
   ],
   "instructions": [
-    "Drain tuna well.",
-    "Chop boiled eggs and potato wedges.",
-    "Mix tuna, eggs, potatoes, sauce, and herbs gently.",
-    "Fill pita pockets or lavash.",
-    "Optionally toast 2-3 minutes in pan or Ninja until warm and slightly crisp."
+    "Хорошо слей жидкость с тунца.",
+    "Нарежь варёные яйца и картофельные дольки.",
+    "Аккуратно смешай тунец, яйца, картофель, соус и зелень.",
+    "Наполни питу или лаваш.",
+    "По желанию поджарь 2–3 минуты на сковороде или в Ninja до тёплого и слегка хрустящего состояния."
   ],
   "storage": [
-    "Best assembled day-of.",
-    "Keep tuna, eggs, potatoes, and sauce separate until serving."
+    "Лучше собирать в день еды.",
+    "Тунец, яйца, картофель и соус держи отдельно до подачи."
   ],
   "reheating": [
-    "If toasted, eat immediately."
+    "Если поджарено, ешь сразу."
   ],
   "substitutions": [
-    "One can tuna can be used if appetite is lower.",
-    "Rice can replace potato but is less suitable for pita."
+    "Если аппетит ниже, можно использовать 1 банку тунца.",
+    "Рис может заменить картофель, но для питы он менее удобен."
   ],
   "meal_prep_notes": [
-    "Boil eggs during Thursday prep."
+    "Яйца отвариваются во время четвергового prep."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "750-950 kcal",
-    "protein": "70-95 g",
-    "fat": "20-35 g",
-    "carbs": "55-90 g"
+    "calories": "750-950 ккал",
+    "protein": "70-95 г",
+    "fat": "20-35 г",
+    "carbs": "55-90 г"
   },
-  "why_it_fits_weekly_plan": "Fast high-protein protein-salad format that respects the salad preference.",
+  "why_it_fits_weekly_plan": "Быстрый высокобелковый формат protein-salad/pita.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Белковый обед с тунцом, яйцами и готовым картофелем.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "2 банки консервированный тунец (слить жидкость)",
+      "amount": 2,
+      "unit_ru": "банки",
+      "food_ru": "консервированный тунец",
+      "prep_note_ru": "слить жидкость",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 шт. варёные яйца (нарезать)",
+      "amount": 2,
+      "unit_ru": "шт.",
+      "food_ru": "варёные яйца",
+      "prep_note_ru": "нарезать",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "250 г картофельные дольки в Ninja (нарезать)",
+      "amount": 250,
+      "unit_ru": "г",
+      "food_ru": "картофельные дольки в Ninja",
+      "prep_note_ru": "нарезать",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "90 г йогуртово-горчичный соус для тунца",
+      "amount": 90,
+      "unit_ru": "г",
+      "food_ru": "йогуртово-горчичный соус для тунца",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 порция пита или лаваш",
+      "amount": 1,
+      "unit_ru": "порция",
+      "food_ru": "пита или лаваш",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "10 г зелёный лук или укроп",
+      "amount": 10,
+      "unit_ru": "г",
+      "food_ru": "зелёный лук или укроп",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

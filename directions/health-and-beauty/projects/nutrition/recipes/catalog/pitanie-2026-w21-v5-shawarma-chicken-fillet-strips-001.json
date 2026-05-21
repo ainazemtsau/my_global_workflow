@@ -1,16 +1,16 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips-001",
-  "name": "Ninja Shawarma Chicken Fillet Strips",
+  "name": "Куриное филе шаурма-стайл в Ninja",
   "mealie_slug": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips",
-  "purpose": "Universal batch chicken base for wraps, bowls, crunchwraps, and emergency omelets.",
+  "purpose": "Универсальная куриная база для шаурмы, боулов, crunchwrap и быстрых блюд.",
   "servings": 6,
   "prep_time_minutes": 15,
   "cook_time_minutes": 15,
   "total_time_minutes": 60,
   "equipment": [
-    "Ninja dual-basket air fryer",
-    "mixing bowl",
-    "containers"
+    "аэрогриль Ninja с двумя корзинами",
+    "миска для смешивания",
+    "контейнеры"
   ],
   "categories": [
     "Питание / Meal Prep"
@@ -25,104 +25,265 @@
   ],
   "ingredients": [
     {
-      "item": "chicken fillet, cut into 1.5-2 cm strips",
+      "item": "куриное филе",
       "amount": 1500,
-      "unit": "g"
+      "unit": "г",
+      "prep_note_ru": "нарезать полосками 1.5–2 см"
     },
     {
-      "item": "Greek yogurt or skyr",
+      "item": "греческий йогурт или skyr без сахара",
       "amount": 180,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "lemon juice",
+      "item": "лимонный сок",
       "amount": 30,
-      "unit": "ml"
+      "unit": "мл"
     },
     {
-      "item": "olive oil",
+      "item": "оливковое масло",
       "amount": 15,
-      "unit": "ml"
+      "unit": "мл"
     },
     {
-      "item": "garlic cloves, grated",
+      "item": "чеснок",
       "amount": 4,
-      "unit": "cloves"
+      "unit": "зубчика",
+      "prep_note_ru": "натереть"
     },
     {
-      "item": "ground cumin",
+      "item": "молотая зира / кумин",
       "amount": 2,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "smoked paprika",
+      "item": "копчёная паприка",
       "amount": 2,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "ground coriander",
+      "item": "молотый кориандр",
       "amount": 1,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "turmeric",
+      "item": "куркума",
       "amount": 0.5,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "cinnamon",
+      "item": "корица",
       "amount": 0.25,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "salt",
+      "item": "соль",
       "amount": 1.5,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "black pepper",
+      "item": "чёрный перец",
       "amount": 1,
-      "unit": "tsp"
+      "unit": "ч. л."
     }
   ],
   "instructions": [
-    "Cut chicken fillet into strips 1.5-2 cm thick.",
-    "Mix yogurt, lemon juice, olive oil, garlic, cumin, smoked paprika, coriander, turmeric, cinnamon, salt, and black pepper.",
-    "Coat chicken fully in marinade.",
-    "Marinate at least 30 minutes. Longer is acceptable if refrigerated.",
-    "Preheat Ninja to 200°C for 3 minutes.",
-    "Place chicken in one layer; cook in batches if needed.",
-    "Air Fry 200°C for 12 minutes.",
-    "Shake or turn halfway.",
-    "Check doneness; add 2-3 minutes if needed. Avoid overcooking because fillet dries quickly.",
-    "Rest 5 minutes before portioning."
+    "Нарежь куриное филе полосками толщиной 1.5–2 см.",
+    "Смешай йогурт, лимонный сок, оливковое масло, чеснок, зиру, копчёную паприку, кориандр, куркуму, корицу, соль и чёрный перец.",
+    "Полностью покрой курицу маринадом.",
+    "Маринуй минимум 30 минут. Дольше можно, если курица стоит в холодильнике.",
+    "Разогрей Ninja до 200°C в течение 3 минут.",
+    "Выложи курицу одним слоем; готовь партиями, если нужно.",
+    "Готовь в режиме Air Fry при 200°C 12 минут.",
+    "Переверни или встряхни в середине готовки.",
+    "Проверь готовность; при необходимости добавь 2–3 минуты. Не пересушивай филе.",
+    "Дай курице отдохнуть 5 минут перед порционированием."
   ],
   "storage": [
-    "Cool before sealing.",
-    "Refrigerate Thursday-Friday portions.",
-    "Vacuum-freeze Saturday-Sunday portions."
+    "Остуди перед герметичным хранением.",
+    "Порции на четверг–пятницу держи в холодильнике.",
+    "Порции на субботу–воскресенье вакуумируй и заморозь."
   ],
   "reheating": [
-    "Ninja 170°C for 4-6 minutes.",
-    "Microwave 60-120 seconds if used in bowls."
+    "Ninja 170°C 4–6 минут.",
+    "Для боулов можно разогреть в микроволновке 60–120 секунд."
   ],
   "substitutions": [
-    "Do not use chicken thighs in this version; user requested fillet consistency.",
-    "Turkey fillet can substitute only if chicken is unavailable."
+    "В этой версии не используй бёдра: нужна стабильность филе.",
+    "Филе индейки можно использовать только если курицы нет."
   ],
   "meal_prep_notes": [
-    "This is the only chicken preparation for the week.",
-    "Use in wraps, bowls, crunchwraps, and fallback omelets."
+    "Это единственная куриная подготовка недели.",
+    "Используй в лавашах, боулах, crunchwrap и быстрых fallback-блюдах."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "250-330 kcal",
-    "protein": "45-55 g",
-    "fat": "4-10 g",
-    "carbs": "2-6 g"
+    "calories": "250-330 ккал",
+    "protein": "45-55 г",
+    "fat": "4-10 г",
+    "carbs": "2-6 г"
   },
-  "why_it_fits_weekly_plan": "High-protein low-friction batch base for multiple meals.",
+  "why_it_fits_weekly_plan": "Высокобелковая низкофрикционная база для нескольких разных блюд.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips-001",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Универсальная куриная база для шаурмы, боулов, crunchwrap и быстрых блюд.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "1500 г куриное филе (нарезать полосками 1.5–2 см)",
+      "amount": 1500,
+      "unit_ru": "г",
+      "food_ru": "куриное филе",
+      "prep_note_ru": "нарезать полосками 1.5–2 см",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "180 г греческий йогурт или skyr без сахара",
+      "amount": 180,
+      "unit_ru": "г",
+      "food_ru": "греческий йогурт или skyr без сахара",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "30 мл лимонный сок",
+      "amount": 30,
+      "unit_ru": "мл",
+      "food_ru": "лимонный сок",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "15 мл оливковое масло",
+      "amount": 15,
+      "unit_ru": "мл",
+      "food_ru": "оливковое масло",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "4 зубчика чеснок (натереть)",
+      "amount": 4,
+      "unit_ru": "зубчика",
+      "food_ru": "чеснок",
+      "prep_note_ru": "натереть",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 ч. л. молотая зира / кумин",
+      "amount": 2,
+      "unit_ru": "ч. л.",
+      "food_ru": "молотая зира / кумин",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 ч. л. копчёная паприка",
+      "amount": 2,
+      "unit_ru": "ч. л.",
+      "food_ru": "копчёная паприка",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 ч. л. молотый кориандр",
+      "amount": 1,
+      "unit_ru": "ч. л.",
+      "food_ru": "молотый кориандр",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "0.5 ч. л. куркума",
+      "amount": 0.5,
+      "unit_ru": "ч. л.",
+      "food_ru": "куркума",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "0.25 ч. л. корица",
+      "amount": 0.25,
+      "unit_ru": "ч. л.",
+      "food_ru": "корица",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1.5 ч. л. соль",
+      "amount": 1.5,
+      "unit_ru": "ч. л.",
+      "food_ru": "соль",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 ч. л. чёрный перец",
+      "amount": 1,
+      "unit_ru": "ч. л.",
+      "food_ru": "чёрный перец",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
-  "name": "Garlic Yogurt Sauce",
+  "name": "Чесночно-йогуртовый соус",
   "mealie_slug": "pitanie-2026-w21-v5-garlic-yogurt-sauce",
-  "purpose": "Base sauce for chicken wraps, rice bowls, flatbreads, and crunchwraps.",
+  "purpose": "Базовый соус для куриных лавашей, боулов, лепёшек и crunchwrap.",
   "servings": 8,
   "prep_time_minutes": 7,
   "cook_time_minutes": 0,
   "total_time_minutes": 7,
   "equipment": [
-    "mixing bowl"
+    "миска для смешивания"
   ],
   "categories": [
     "Питание / Meal Prep"
@@ -21,68 +21,164 @@
   ],
   "ingredients": [
     {
-      "item": "Greek yogurt or skyr",
+      "item": "греческий йогурт или skyr без сахара",
       "amount": 400,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "garlic cloves, grated",
+      "item": "чеснок",
       "amount": 2,
-      "unit": "cloves"
+      "unit": "зубчика",
+      "prep_note_ru": "натереть"
     },
     {
-      "item": "lemon juice",
+      "item": "лимонный сок",
       "amount": 25,
-      "unit": "ml"
+      "unit": "мл"
     },
     {
-      "item": "salt",
+      "item": "соль",
       "amount": 0.5,
-      "unit": "tsp"
+      "unit": "ч. л."
     },
     {
-      "item": "black pepper",
-      "amount": 1,
-      "unit": "to taste"
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
     },
     {
-      "item": "dill or parsley, optional",
+      "item": "укроп или петрушка",
       "amount": 15,
-      "unit": "g"
+      "unit": "г",
+      "prep_note_ru": "по желанию"
     },
     {
-      "item": "water to thin",
+      "item": "вода для разбавления",
       "amount": 30,
-      "unit": "ml"
+      "unit": "мл"
     }
   ],
   "instructions": [
-    "Mix yogurt, garlic, lemon juice, salt, pepper, and optional herbs.",
-    "Add water 1 tbsp at a time until sauce consistency is right.",
-    "Store separately from hot food."
+    "Смешай йогурт, чеснок, лимонный сок, соль, перец и зелень, если используешь.",
+    "Добавляй воду по 1 ст. л., пока соус не станет нужной консистенции.",
+    "Храни отдельно от горячей еды."
   ],
   "storage": [
-    "Refrigerate 2-3 days."
+    "Храни в холодильнике 2–3 дня."
   ],
   "reheating": [
-    "Do not reheat."
+    "Не разогревать."
   ],
   "substitutions": [
-    "Skyr can replace Greek yogurt.",
-    "Add cucumber to turn it into tzatziki-style sauce."
+    "Skyr можно заменить греческим йогуртом.",
+    "Добавь огурец, если нужен соус в стиле дзадзики."
   ],
   "meal_prep_notes": [
-    "Add after reheating food, not before."
+    "Добавляй после разогрева еды, не до."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "25-50 kcal",
-    "protein": "3-6 g",
-    "fat": "0-2 g",
-    "carbs": "2-4 g"
+    "calories": "25-50 ккал",
+    "protein": "3-6 г",
+    "fat": "0-2 г",
+    "carbs": "2-4 г"
   },
-  "why_it_fits_weekly_plan": "Adds flavor without turning meals into separate cooking projects.",
+  "why_it_fits_weekly_plan": "Добавляет вкус без отдельного сложного процесса готовки.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Базовый соус для куриных лавашей, боулов, лепёшек и crunchwrap.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "400 г греческий йогурт или skyr без сахара",
+      "amount": 400,
+      "unit_ru": "г",
+      "food_ru": "греческий йогурт или skyr без сахара",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "2 зубчика чеснок (натереть)",
+      "amount": 2,
+      "unit_ru": "зубчика",
+      "food_ru": "чеснок",
+      "prep_note_ru": "натереть",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "25 мл лимонный сок",
+      "amount": 25,
+      "unit_ru": "мл",
+      "food_ru": "лимонный сок",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "0.5 ч. л. соль",
+      "amount": 0.5,
+      "unit_ru": "ч. л.",
+      "food_ru": "соль",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "чёрный перец по вкусу",
+      "amount": null,
+      "unit_ru": "по вкусу",
+      "food_ru": "чёрный перец",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": false,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "15 г укроп или петрушка (по желанию)",
+      "amount": 15,
+      "unit_ru": "г",
+      "food_ru": "укроп или петрушка",
+      "prep_note_ru": "по желанию",
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "30 мл вода для разбавления",
+      "amount": 30,
+      "unit_ru": "мл",
+      "food_ru": "вода для разбавления",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }

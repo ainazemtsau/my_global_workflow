@@ -1,14 +1,14 @@
 {
   "recipe_id": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012",
-  "name": "Turkey Chili Egg Skillet Wrap",
+  "name": "Лаваш с индейкой chili и яйцами",
   "mealie_slug": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap",
-  "purpose": "Savory breakfast wrap using turkey chili mince.",
+  "purpose": "Несладкий завтрак в лаваше с базой из индейки chili и яйцами.",
   "servings": 1,
   "prep_time_minutes": 3,
   "cook_time_minutes": 8,
   "total_time_minutes": 11,
   "equipment": [
-    "pan"
+    "сковорода"
   ],
   "categories": [
     "Питание / Завтрак"
@@ -22,54 +22,109 @@
   ],
   "ingredients": [
     {
-      "item": "Instant Pro Smoky Turkey Chili Mince",
+      "item": "густая индейка chili в Instant Pro",
       "amount": 300,
-      "unit": "g"
+      "unit": "г"
     },
     {
-      "item": "eggs",
+      "item": "яйца",
       "amount": 3,
-      "unit": "pieces"
+      "unit": "шт."
     },
     {
-      "item": "lavash or pita",
+      "item": "лаваш или пита",
       "amount": 1,
-      "unit": "serving"
+      "unit": "порция"
     },
     {
-      "item": "feta or cheese",
+      "item": "фета или сыр",
       "amount": 30,
-      "unit": "g"
+      "unit": "г"
     }
   ],
   "instructions": [
-    "Heat turkey chili mince in a pan for 2-3 minutes.",
-    "Add eggs directly and scramble into the turkey or make small wells and set eggs softly.",
-    "Cook 3-5 minutes until eggs are set.",
-    "Add feta/cheese.",
-    "Fill lavash/pita and toast 1-2 minutes if desired."
+    "Разогрей индейку chili на сковороде 2–3 минуты.",
+    "Добавь яйца прямо в сковороду и вмешай в индейку или сделай небольшие углубления и мягко доведи яйца.",
+    "Готовь 3–5 минут, пока яйца не схватятся.",
+    "Добавь фету или сыр.",
+    "Наполни лаваш или питу и при желании поджарь 1–2 минуты."
   ],
   "storage": [
-    "Cook fresh using prepared turkey base."
+    "Готовь свежим из готовой базы индейки."
   ],
   "reheating": [
-    "Not ideal after eggs are added."
+    "После добавления яиц блюдо плохо подходит для повторного разогрева."
   ],
   "substitutions": [
-    "Chicken base can replace turkey, but use Garlic Yogurt Sauce."
+    "Куриная база может заменить индейку, но тогда используй чесночно-йогуртовый соус."
   ],
   "meal_prep_notes": [
-    "Only turkey base is prepped; eggs are fresh."
+    "Заранее готовится только база индейки; яйца свежие."
   ],
   "nutrition_estimate_per_serving": {
-    "calories": "700-950 kcal",
-    "protein": "60-85 g",
-    "fat": "30-45 g",
-    "carbs": "35-70 g"
+    "calories": "700-950 ккал",
+    "protein": "60-85 г",
+    "fat": "30-45 г",
+    "carbs": "35-70 г"
   },
-  "why_it_fits_weekly_plan": "Satisfying non-sweet breakfast from one turkey base.",
+  "why_it_fits_weekly_plan": "Сытный несладкий завтрак из одной базы индейки.",
   "extras": {
     "pitanie_recipe_id": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012",
     "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24"
-  }
+  },
+  "description": "Несладкий завтрак в лаваше с базой из индейки chili и яйцами.",
+  "structured_ingredients_ru": [
+    {
+      "original_text_ru": "300 г густая индейка chili в Instant Pro",
+      "amount": 300,
+      "unit_ru": "г",
+      "food_ru": "густая индейка chili в Instant Pro",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "3 шт. яйца",
+      "amount": 3,
+      "unit_ru": "шт.",
+      "food_ru": "яйца",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "1 порция лаваш или пита",
+      "amount": 1,
+      "unit_ru": "порция",
+      "food_ru": "лаваш или пита",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    },
+    {
+      "original_text_ru": "30 г фета или сыр",
+      "amount": 30,
+      "unit_ru": "г",
+      "food_ru": "фета или сыр",
+      "prep_note_ru": null,
+      "mealie_expected": {
+        "amount_field_required_when_numeric": true,
+        "unit_field_required_when_applicable": true,
+        "food_field_required": true,
+        "note_field_must_not_be_the_only_data": true
+      }
+    }
+  ]
 }
