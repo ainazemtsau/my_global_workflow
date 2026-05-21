@@ -1,23 +1,24 @@
-# AGENTS.md - Project `Питание` Codex instructions
+# AGENTS.md - Project `Питание` Codex local operator
 
 Status: active
 
 ## Scope
 
-These instructions apply only to the nutrition project:
+These instructions apply only to:
 
 ```text
 directions/health-and-beauty/projects/nutrition/**
 ```
 
-This is not a Direction-wide instruction file.
+This file is not a Direction-wide instruction file.
 
 Do not apply these rules to:
 
 ```text
+workflow/**
 directions/health-and-beauty/project_files/**
 directions/health-and-beauty/phases/**
-workflow/**
+directions/health-and-beauty/project_setup/**
 directions/* except directions/health-and-beauty/projects/nutrition/**
 ```
 
@@ -25,24 +26,26 @@ unless the user explicitly asks for workflow or Direction lifecycle repository m
 
 ## Role
 
-Codex is the save-only repository writer for ChatGPT Project `Питание`.
+Codex is the local repository operator for ChatGPT Project `Питание`.
 
-ChatGPT Project `Питание` may produce save packets such as:
+Codex may perform two normal nutrition-project roles:
+
+- Nutrition state save operation: apply approved save packets from ChatGPT Project `Питание` to durable markdown/YAML/JSON state.
+- Nutrition project change operation: repair or change the project's local instructions, protocols, state schema, research artifacts, launchers, acceptance tests, recipe metadata, or Codex-local docs so the ChatGPT Project behaves differently.
+
+Codex must not default to giving the user another ChatGPT prompt when the user asks to change the project. If a repository change is the right fix, make the repository change.
+
+## Required local docs
+
+Before any non-trivial change request, read:
 
 ```text
-nutrition_state_update_packet
-PITANIE_CODEX_CARD
-global_nutrition_plan
-weekly_plan
-active_week_menu
-week_tracking_report
-week_review
-next_week_inputs
+codex/PROJECT_MAP.md
+codex/CHANGE_REQUEST_PROCESS.md
+codex/VALIDATION_AND_RETURN_CONTRACT.md
 ```
 
-These packets are proposed durable state updates. They do not save themselves.
-
-Codex must apply approved packets to GitHub files, verify the result, commit, push, and report which ChatGPT Project Files must be refreshed manually.
+If any of these files are missing, recreate them from the intended structure in this AGENTS.md setup or report STUCK.
 
 ## Preflight
 
@@ -55,45 +58,209 @@ git rebase origin/main
 git status --short
 ```
 
-If the worktree is dirty before edits, report STUCK unless the dirty files are clearly part of the current requested save operation.
+If the worktree is dirty before edits, classify the dirty files:
 
-## Allowed files for normal nutrition save operations
+- if they are clearly part of the current requested nutrition change, continue carefully;
+- if unrelated, report STUCK before overwriting anything.
 
-Normal save operations may modify only:
+## Request classification
+
+When the user writes a normal request, classify it first:
 
 ```text
-directions/health-and-beauty/projects/nutrition/state/**
-directions/health-and-beauty/projects/nutrition/research/**
-directions/health-and-beauty/projects/nutrition/weeks/**
+state_save
+profile_or_preference_update
+current_week_menu_update
+weekly_planning_update
+tracking_or_review_update
+global_strategy_research_update
+recipe_or_mealie_sync_update
+project_behavior_change
+project_protocol_bug
+chatgpt_project_refresh_help
+codex_operator_docs_update
+unclear_or_unsafe
 ```
 
-Do not modify:
+Then act according to `codex/CHANGE_REQUEST_PROCESS.md`.
+
+## Core rule
+
+If the user says something like:
+
+```text
+"это не работает"
+"чат делает хуйню"
+"надо поменять поведение"
+"добавь механизм"
+"сделай чтобы он сохранял preferences"
+"Menu Chat должен..."
+"Weekly Planner должен..."
+"Global Strategy должен..."
+```
+
+then Codex should normally update repository files under the nutrition project, not only produce a prompt.
+
+Prompt-only output is allowed only when:
+
+- the user explicitly asks for a prompt;
+- the requested change does not belong in repository files;
+- the repository change is blocked and a temporary workaround prompt is the safest fallback.
+
+## Allowed normal change targets
+
+Project behavior / protocol changes:
+
+```text
+CHATGPT_PROJECT_INSTRUCTIONS.md
+project_files/00_NUTRITION_START_HERE.md
+project_files/01_GLOBAL_STRATEGY_CHAT_PROTOCOL.md
+project_files/02_WEEKLY_PLANNING_CHAT_PROTOCOL.md
+project_files/03_MENU_CHAT_PROTOCOL.md
+project_files/04_TRACKING_CHAT_PROTOCOL.md
+project_files/05_STATE_SAVE_AND_REFRESH_PROTOCOL.md
+project_files/06_CHAT_LAUNCHERS_AND_OUTPUT_FORMATS.md
+project_files/07_REAL_START_ACCEPTANCE_TESTS.md
+```
+
+Durable nutrition state:
+
+```text
+state/GLOBAL_NUTRITION_PLAN.md
+state/USER_PROFILE_AND_CONSTRAINTS.yml
+state/NUTRITION_HISTORY.md
+state/PROGRESS_METRICS.md
+```
+
+Research artifacts:
+
+```text
+research/DEEP_RESEARCH_REQUEST.md
+research/DEEP_RESEARCH_RESULT.md
+research/DEEP_RESEARCH_SYNTHESIS.md
+```
+
+Week state:
+
+```text
+weeks/ACTIVE_WEEK_POINTER.md
+weeks/current/WEEKLY_PLAN.md
+weeks/current/ACTIVE_WEEK_MENU.md
+weeks/current/WEEK_TRACKING_REPORT.md
+weeks/current/WEEK_REVIEW.md
+weeks/current/NEXT_WEEK_INPUTS.md
+weeks/current/MEALIE_RECIPE_BUNDLE.json
+```
+
+Recipe and Mealie sync state for approved `PITANIE_CODEX_CARD` operations:
+
+```text
+recipes/RECIPE_TAXONOMY.yml
+recipes/RECIPE_CATALOG_INDEX.md
+recipes/catalog/*.json
+recipes/bundles/*/MEALIE_RECIPE_BUNDLE.json
+```
+
+Codex-local operator docs:
+
+```text
+AGENTS.md
+codex/PROJECT_MAP.md
+codex/CHANGE_REQUEST_PROCESS.md
+codex/VALIDATION_AND_RETURN_CONTRACT.md
+```
+
+## Forbidden normal targets
+
+Do not modify these during normal nutrition project change requests:
 
 ```text
 workflow/**
 directions/health-and-beauty/project_files/**
 directions/health-and-beauty/phases/**
 directions/health-and-beauty/project_setup/**
-directions/* except directions/health-and-beauty/projects/nutrition/**
+directions/workflow-governance/**
+directions/solo-max-productive/**
+directions/indie-game-development/**
 ```
 
-unless explicitly requested.
+Do not reintroduce old legacy/superseded Project `Питание` files from:
 
-## Global Strategy targets
+```text
+directions/health-and-beauty/project_setup/pitanie/**
+```
 
-Nutrition save operations must understand these Global Strategy targets:
+or old standalone nutrition protocol/state files unless explicitly requested and justified.
 
-- `state/USER_PROFILE_AND_CONSTRAINTS.yml`
-- `research/DEEP_RESEARCH_REQUEST.md`
-- `research/DEEP_RESEARCH_RESULT.md`
-- `research/DEEP_RESEARCH_SYNTHESIS.md`
-- `state/GLOBAL_NUTRITION_PLAN.md`
+## Behavior-change principle
 
-Do not apply nutrition save packets to the repository root, Direction-level project files, sibling Directions, or `workflow/**`.
+When fixing behavior, update the smallest sufficient protocol surface.
 
-Do not save generic nutrition plans.
+Examples:
 
-For Global Strategy saves, validate that profile, research request, research result, research synthesis, and final plan remain separated.
+- Global Strategy behavior bug: usually update `project_files/01_GLOBAL_STRATEGY_CHAT_PROTOCOL.md`; maybe also update `CHATGPT_PROJECT_INSTRUCTIONS.md`, `00_NUTRITION_START_HERE.md`, `05_STATE_SAVE_AND_REFRESH_PROTOCOL.md`, `06_CHAT_LAUNCHERS_AND_OUTPUT_FORMATS.md`, `07_REAL_START_ACCEPTANCE_TESTS.md`.
+- Weekly Planning behavior bug: usually update `project_files/02_WEEKLY_PLANNING_CHAT_PROTOCOL.md`; maybe also update launchers/tests/save protocol.
+- Menu Chat behavior bug: usually update `project_files/03_MENU_CHAT_PROTOCOL.md`; if persistent preferences are involved, also update `05_STATE_SAVE_AND_REFRESH_PROTOCOL.md`, `06_CHAT_LAUNCHERS_AND_OUTPUT_FORMATS.md`, and acceptance tests.
+- Tracking behavior bug: usually update `project_files/04_TRACKING_CHAT_PROTOCOL.md`; maybe also update save protocol/tests.
+- Project refresh or mode-launch UX bug: usually update `06_CHAT_LAUNCHERS_AND_OUTPUT_FORMATS.md`.
+
+## State-save principle
+
+Do not store user preferences or profile facts in protocol files.
+
+Use:
+
+```text
+state/USER_PROFILE_AND_CONSTRAINTS.yml
+```
+
+for durable personal facts, preferences, dislikes, equipment, schedule, tracking tolerance, constraints, and problem-food rules.
+
+Use:
+
+```text
+weeks/current/NEXT_WEEK_INPUTS.md
+```
+
+for lessons or constraints that should affect the next week but are not yet durable global preferences.
+
+Use:
+
+```text
+weeks/current/ACTIVE_WEEK_MENU.md
+```
+
+for current-week menu changes.
+
+Use:
+
+```text
+state/GLOBAL_NUTRITION_PLAN.md
+```
+
+only for approved global strategy changes.
+
+## Save approval rule
+
+For state save operations:
+
+- do not mark a save packet approved unless the user explicitly approved it;
+- do not invent missing health data;
+- do not turn risk notes into diagnoses;
+- do not claim GitHub was saved until write, read-back, diff verification, commit, and push are done;
+- do not claim Mealie sync until MCP sync evidence exists.
+
+## Project-change approval rule
+
+When the user directly asks Codex to change the nutrition project behavior, that is approval to make a scoped repository change under:
+
+```text
+directions/health-and-beauty/projects/nutrition/**
+```
+
+unless the request is ambiguous, unsafe, or would modify forbidden paths.
+
+If scope is ambiguous, make the smallest safe change and report assumptions.
 
 ## Packet routing
 
@@ -105,7 +272,7 @@ If the packet contains `global_nutrition_plan`, update:
 state/GLOBAL_NUTRITION_PLAN.md
 ```
 
-If the packet contains user profile fields such as age, sex, height, weight, constraints, allergies, schedule, equipment, training context, or risk notes, update:
+If the packet contains user profile fields such as age, sex, height, weight, constraints, allergies, schedule, equipment, training context, preferences, dislikes, tracking tolerance, or risk notes, update:
 
 ```text
 state/USER_PROFILE_AND_CONSTRAINTS.yml
@@ -206,8 +373,8 @@ Rules:
 - do not resend full bodies for `existing_recipes_to_reuse`;
 - create meal planner entries from `meal_plan_entries` after recipes exist in Mealie;
 - use `create_mealplan_bulk` if available;
-- if existing meal plan entries would be duplicated and MCP cannot safely update/delete, return `STUCK_MEAL_PLAN_DUPLICATE_RISK` before writing duplicates;
-- if GitHub save succeeds but MCP/Mealie sync fails, return `PENDING_MEALIE_SYNC`, not full failure.
+- if existing meal plan entries would be duplicated and MCP cannot safely update/delete, report `STUCK_MEAL_PLAN_DUPLICATE_RISK` before writing duplicates;
+- if GitHub save succeeds but MCP/Mealie sync fails, report `PENDING_MEALIE_SYNC` in blockers/warnings and do not claim full sync.
 
 ### operation: `sync_recipes_only`
 
@@ -257,48 +424,35 @@ GitHub remains the durable recipe source. Mealie is the operational recipe and m
 ## Apply rules
 
 Read target files before editing.
-Preserve existing markdown/YAML style where possible.
+Preserve existing markdown/YAML/JSON style where possible.
 Do not save the packet wrapper itself unless an existing file explicitly uses that pattern.
 Do not invent missing health data.
 Do not turn risk notes into diagnoses.
 Do not generate live diet/menu/training content while saving state.
-Do not claim external writes unless files were actually changed, read back, committed, and pushed.
+Do not generate generic nutrition advice when the task is protocol repair.
+Do not claim external writes unless files were actually changed, read back, committed, pushed, and synced where applicable.
 If the packet conflicts with existing state or target files are unclear, report STUCK.
 
 ## Validation
 
-After editing, return:
+After every mutation, follow:
 
 ```text
-Status: DONE, STUCK, PENDING_MEALIE_SYNC, STUCK_MEALIE_MCP_UNAVAILABLE, or STUCK_MEAL_PLAN_DUPLICATE_RISK
-
-Worktree:
-Branch:
-Rebase result:
-Changed files:
-Diff summary:
-Read-back anchors:
-Forbidden-path check:
-Mealie sync summary:
-Commit SHA:
-Push result:
-Main integration:
-Project Files refresh required:
-  target ChatGPT Project: Питание
-  files to refresh:
-Blockers/warnings:
+codex/VALIDATION_AND_RETURN_CONTRACT.md
 ```
 
-Required checks:
+Minimum checks:
 
 ```text
 git diff --stat
 changed files list
-read-back anchors from every changed file
-confirm no workflow/** files changed
-confirm no directions/health-and-beauty/project_files/** files changed
-confirm no sibling Direction files changed
-confirm no superseded Project Питание legacy files were reintroduced
+forbidden-path check
+read-back anchors from changed files
+no workflow files changed
+no Direction project_files changed
+no sibling Direction files changed
+no legacy Project Питание files reintroduced
+Project Files refresh list for ChatGPT Project Питание
 ```
 
 For Global Strategy saves, also confirm that profile, research request, research result, research synthesis, and final plan stayed separated.
@@ -319,11 +473,23 @@ custom project-local Mealie MCP adapter does not exist
 Use one of:
 
 ```text
+update nutrition project codex operator
+repair nutrition global strategy protocol
+repair nutrition weekly planning protocol
+repair nutrition menu protocol
+repair nutrition tracking protocol
 save nutrition global strategy state
+save nutrition user profile preferences
 save nutrition weekly plan state
 save nutrition active week menu
 save nutrition tracking state
 save nutrition project state
+```
+
+If multiple behavior areas changed, use:
+
+```text
+repair nutrition project behavior
 ```
 
 ## Project Files refresh rule
@@ -333,6 +499,8 @@ A GitHub commit does not update ChatGPT Project Files.
 If any file under:
 
 ```text
+CHATGPT_PROJECT_INSTRUCTIONS.md
+project_files/*.md
 state/**
 research/**
 weeks/**
@@ -341,5 +509,17 @@ recipes/RECIPE_CATALOG_INDEX.md
 ```
 
 changed, report the exact file names that must be manually refreshed in ChatGPT Project `Питание`.
+
+Do not tell the user to upload:
+
+```text
+AGENTS.md
+codex/*.md
+recipes/catalog/*.json
+recipes/bundles/*/MEALIE_RECIPE_BUNDLE.json
+weeks/current/MEALIE_RECIPE_BUNDLE.json
+```
+
+unless explicitly requested.
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/AGENTS.md
