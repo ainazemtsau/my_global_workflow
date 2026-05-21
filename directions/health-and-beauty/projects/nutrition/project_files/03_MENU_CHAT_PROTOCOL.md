@@ -40,7 +40,7 @@ Menu Chat supports these short user commands without requiring long weekly promp
 
 ### `Сохранить предпочтения`
 
-Inspect the current conversation for new durable preferences, dislikes, equipment rules, cooking constraints, food exclusions, problem foods, schedule constraints, and tracking tolerance.
+Inspect the current conversation for new durable preferences, dislikes, cooking rules, equipment rules, problem foods, schedule constraints, and tracking tolerance.
 
 Compare against `USER_PROFILE_AND_CONSTRAINTS.yml` when available.
 
@@ -72,11 +72,14 @@ Use this only after the menu is user-approved.
 Output:
 
 - final `ACTIVE_WEEK_MENU.md` content;
-- detailed recipes;
 - `MEALIE_RECIPE_BUNDLE.json`;
+- `recipes_to_upsert`;
+- `existing_recipes_to_reuse`;
+- `meal_plan_entries`;
 - shopping list;
 - prep plan;
-- one `PITANIE_CODEX_CARD` with `operation: save_menu_and_recipes`.
+- preference updates if explicitly detected and approved;
+- one `PITANIE_CODEX_CARD` with `operation: save_menu_recipes_and_mealie_plan`.
 
 The card must include all data needed by Codex. The user should copy-paste one card only.
 
@@ -93,12 +96,12 @@ Do not modify menu, preferences, or weekly plan unless the user explicitly inclu
 Every recipe must include:
 
 - name;
-- purpose/slot;
+- purpose/meal slot;
 - servings;
 - prep/cook/total time;
 - equipment;
 - ingredients with amounts and units;
-- detailed steps;
+- detailed cooking steps;
 - storage;
 - reheating;
 - substitutions;
@@ -113,9 +116,11 @@ Forbidden recipe output:
 
 - vague recipes like "cook chicken with spices";
 - missing ingredient quantities;
-- missing steps;
+- missing cooking steps;
 - unapproved final save;
-- claims that GitHub or Mealie was saved.
+- claims that GitHub was saved;
+- claims that Mealie was synced;
+- asking the user to explain MCP/Codex every week.
 
 ## Forbidden Outputs
 

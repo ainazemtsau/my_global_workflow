@@ -37,7 +37,7 @@ Codex may write only when `packet_status: approved_by_user`.
 
 The Project may emit one compact `PITANIE_CODEX_CARD` instead of a long manual prompt. The card must identify the operation, target files, content payload, validation expectations, and whether Mealie sync is requested.
 
-Codex performs the GitHub save and, when requested by an approved card, Mealie sync through project-local MCP server `mealie`.
+Codex performs the GitHub save and, when requested by an approved card, Mealie recipe sync and meal planner sync through existing MCP server `mealie`.
 
 The Project must not claim GitHub save or Mealie sync without Codex read-back, diff evidence, and Mealie sync evidence.
 
@@ -66,7 +66,7 @@ recipes/bundles/*/MEALIE_RECIPE_BUNDLE.json
 
 The Project must not claim a save happened until Codex returns read-back and diff evidence for the changed files.
 
-The Project must not claim Mealie sync happened until Codex returns a Mealie sync summary from MCP tool `mealie`.
+The Project must not claim Mealie sync happened until Codex returns Mealie recipe and meal planner sync evidence from MCP server `mealie`.
 
 ## Refresh After Save
 

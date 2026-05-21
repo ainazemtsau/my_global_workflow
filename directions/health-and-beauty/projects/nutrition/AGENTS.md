@@ -154,11 +154,11 @@ Supported operations:
 
 ```text
 save_preferences
-save_menu_and_recipes
+save_menu_recipes_and_mealie_plan
 sync_recipes_only
 ```
 
-### `save_preferences`
+### operation: `save_preferences`
 
 Input comes from `PITANIE_CODEX_CARD`.
 
@@ -176,7 +176,7 @@ Rules:
 - preserve existing YAML style where possible;
 - return read-back anchors and ChatGPT Project Files refresh requirement.
 
-### `save_menu_and_recipes`
+### operation: `save_menu_recipes_and_mealie_plan`
 
 Targets may include:
 
@@ -194,14 +194,22 @@ state/USER_PROFILE_AND_CONSTRAINTS.yml
 Rules:
 
 - update `state/USER_PROFILE_AND_CONSTRAINTS.yml` only when explicitly included;
-- validate recipe bundle JSON before writing/syncing;
-- save the approved bundle to GitHub;
-- save each approved recipe as an individual JSON file under `recipes/catalog/`;
+- validate `PITANIE_CODEX_CARD` and recipe bundle JSON before writing/syncing;
+- save `weeks/current/ACTIVE_WEEK_MENU.md`;
+- save `weeks/current/MEALIE_RECIPE_BUNDLE.json`;
+- save `recipes/bundles/<week_id>/MEALIE_RECIPE_BUNDLE.json`;
+- save each new or changed recipe as an individual JSON file under `recipes/catalog/`;
 - update metadata-only `recipes/RECIPE_CATALOG_INDEX.md`;
-- sync to Mealie using MCP server `mealie`;
+- use existing MCP server `mealie` from `rldiao/mealie-mcp-server`;
+- ensure categories/tags if supported by MCP;
+- upsert only recipes listed in `recipes_to_upsert`;
+- do not resend full bodies for `existing_recipes_to_reuse`;
+- create meal planner entries from `meal_plan_entries` after recipes exist in Mealie;
+- use `create_mealplan_bulk` if available;
+- if existing meal plan entries would be duplicated and MCP cannot safely update/delete, return `STUCK_MEAL_PLAN_DUPLICATE_RISK` before writing duplicates;
 - if GitHub save succeeds but MCP/Mealie sync fails, return `PENDING_MEALIE_SYNC`, not full failure.
 
-### `sync_recipes_only`
+### operation: `sync_recipes_only`
 
 Use an existing GitHub recipe bundle path from the card.
 
@@ -210,7 +218,8 @@ Rules:
 - do not modify menu files unless explicitly requested;
 - do not modify preferences unless explicitly requested;
 - validate the existing bundle JSON before syncing;
-- sync to Mealie using MCP server `mealie`;
+- sync recipe upserts and meal planner entries if present;
+- use existing MCP server `mealie`;
 - report duplicate conflicts without creating uncontrolled duplicates.
 
 ## Mealie recipe sync
@@ -224,18 +233,26 @@ Project-local Codex MCP config:
 MCP server:
 
 ```text
-integrations/mealie/mealie_mcp_server.py
+rldiao/mealie-mcp-server
 ```
 
-Mealie API tokens must be supplied only through:
+External install path:
 
 ```text
-MEALIE_API_TOKEN
+C:\my_global_workflow_tools\mealie-mcp-server
+```
+
+Mealie API keys must be supplied only through:
+
+```text
+MEALIE_API_KEY
 ```
 
 Do not store Mealie tokens, bearer headers, cookies, or copied credentials in GitHub.
 
-GitHub remains the durable recipe source. Mealie is the operational recipe app. Full recipe JSON files live under `recipes/catalog/*.json` and must not be uploaded to ChatGPT Project Files by default.
+Do not create, restore, or use a custom project-local Mealie MCP adapter.
+
+GitHub remains the durable recipe source. Mealie is the operational recipe and meal planner app. Full recipe JSON files live under `recipes/catalog/*.json` and must not be uploaded to ChatGPT Project Files by default.
 
 ## Apply rules
 
@@ -253,7 +270,7 @@ If the packet conflicts with existing state or target files are unclear, report 
 After editing, return:
 
 ```text
-Status: DONE, STUCK, or PENDING_MEALIE_SYNC
+Status: DONE, STUCK, PENDING_MEALIE_SYNC, STUCK_MEALIE_MCP_UNAVAILABLE, or STUCK_MEAL_PLAN_DUPLICATE_RISK
 
 Worktree:
 Branch:
@@ -286,13 +303,15 @@ confirm no superseded Project Питание legacy files were reintroduced
 
 For Global Strategy saves, also confirm that profile, research request, research result, research synthesis, and final plan stayed separated.
 
-For `save_menu_and_recipes` and `sync_recipes_only`, also confirm:
+For `save_menu_recipes_and_mealie_plan` and `sync_recipes_only`, also confirm:
 
 ```text
 recipe bundle JSON validated
 recipes/catalog/*.json updated only from approved recipe data
 recipes/RECIPE_CATALOG_INDEX.md remains metadata-only
-Mealie sync summary returned by MCP tool mealie
+Mealie recipe sync summary returned by MCP server mealie
+Mealie meal planner sync summary returned by MCP server mealie when meal_plan_entries are present
+custom project-local Mealie MCP adapter does not exist
 ```
 
 ## Commit messages

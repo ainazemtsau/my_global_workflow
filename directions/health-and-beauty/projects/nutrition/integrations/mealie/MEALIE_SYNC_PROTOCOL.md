@@ -19,14 +19,14 @@ Mealie is the operational recipe app for searching, cooking, and meal planning. 
 
 ChatGPT Project `Питание` creates approved menu content, recipe details, `MEALIE_RECIPE_BUNDLE.json`, and one compact `PITANIE_CODEX_CARD`. It must not claim GitHub or Mealie was updated.
 
-Codex saves approved files to GitHub and syncs recipes to Mealie through project-local MCP server `mealie`.
+Codex saves approved files to GitHub and syncs recipes and meal planner entries to Mealie through existing external MCP server `mealie` from `rldiao/mealie-mcp-server`.
 
 ## Secrets
 
-Mealie API tokens are supplied only by environment variable:
+Mealie API keys are supplied only by environment variable:
 
 ```text
-MEALIE_API_TOKEN
+MEALIE_API_KEY
 ```
 
 Repository files must not contain API tokens, bearer headers, copied cookies, or personal Mealie credentials.
@@ -55,10 +55,10 @@ If GitHub save succeeds but Mealie sync fails:
 Status: PENDING_MEALIE_SYNC
 ```
 
-If Mealie is reachable but the API schema does not expose safe recipe create/update/search endpoints:
+If the external Mealie MCP server or required tools are unavailable:
 
 ```text
-Status: STUCK_API_SCHEMA
+Status: STUCK_MEALIE_MCP_UNAVAILABLE
 ```
 
 If a duplicate conflict is detected:
@@ -66,6 +66,12 @@ If a duplicate conflict is detected:
 ```text
 Status: STUCK
 Reason: DUPLICATE_CONFLICT
+```
+
+If existing meal plan entries would be duplicated and the MCP cannot safely update/delete before creating new entries:
+
+```text
+Status: STUCK_MEAL_PLAN_DUPLICATE_RISK
 ```
 
 The return must include the exact bundle path, the failed tool or endpoint, and the recommended next action.

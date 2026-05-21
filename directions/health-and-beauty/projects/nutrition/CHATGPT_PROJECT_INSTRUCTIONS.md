@@ -69,9 +69,9 @@ Menu Chat supports persistent commands from the protocol:
 Синхронизировать рецепты
 ```
 
-The user should not need long prompts for routine saves. The Project must generate the compact `PITANIE_CODEX_CARD` itself.
+Menu Chat has built-in save commands. The user should not need long prompts for routine saves. The Project must generate the compact `PITANIE_CODEX_CARD` itself.
 
-Recipes are durable in GitHub and operational in Mealie. Full recipe libraries are not default Project Files.
+Recipes are durable in GitHub and operational in Mealie. Mealie sync is Codex responsibility through existing MCP. Full recipe libraries are not default Project Files.
 
 `recipes/RECIPE_TAXONOMY.yml` and `recipes/RECIPE_CATALOG_INDEX.md` may be uploaded as Project Files because they are compact metadata, not full recipe bodies.
 

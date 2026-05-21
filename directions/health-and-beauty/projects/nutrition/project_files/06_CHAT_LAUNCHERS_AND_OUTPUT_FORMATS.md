@@ -57,9 +57,9 @@ Menu Chat command examples:
 
 Expected command output:
 
-- human summary;
-- one copy-paste `PITANIE_CODEX_CARD`;
-- no extra long user instructions.
+- concise human summary;
+- exactly one copy-paste `PITANIE_CODEX_CARD`;
+- no extra long setup instructions.
 
 ## Tracking Chat Start
 

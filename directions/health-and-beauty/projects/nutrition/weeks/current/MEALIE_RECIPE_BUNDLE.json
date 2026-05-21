@@ -2,5 +2,7 @@
   "schema": "mealie_recipe_bundle.v1",
   "bundle_status": "placeholder_pending_approved_menu",
   "week_id": null,
-  "recipes": []
+  "recipes_to_upsert": [],
+  "existing_recipes_to_reuse": [],
+  "meal_plan_entries": []
 }

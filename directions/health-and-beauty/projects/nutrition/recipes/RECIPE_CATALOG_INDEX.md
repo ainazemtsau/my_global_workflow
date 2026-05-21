@@ -21,10 +21,11 @@ categories:
 tags:
 primary_protein:
 equipment:
-time:
+total_time:
 last_used_week:
-meal_slots:
 mealie_status:
+mealie_slug:
+mealie_id_if_known:
 ```
 
 ## Index

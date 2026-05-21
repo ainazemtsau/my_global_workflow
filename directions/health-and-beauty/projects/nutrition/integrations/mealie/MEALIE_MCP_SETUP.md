@@ -2,34 +2,32 @@
 
 Status: active
 
-Purpose: configure a project-local Codex MCP server that lets Codex sync approved Project `Питание` recipe bundles to Mealie.
+Purpose: setup notes for the external Mealie MCP server used by Project `Питание`.
 
-## One-Time Virtual Environment Setup
+## Selected Server
 
-Run from:
+Use:
 
 ```text
-C:\my_global_workflow_worktrees\health-and-beauty\directions\health-and-beauty\projects\nutrition
+rldiao/mealie-mcp-server
 ```
 
-Create and populate the local virtual environment:
+External install path:
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install mcp requests pyyaml
+```text
+C:\my_global_workflow_tools\mealie-mcp-server
 ```
 
-The project-local Codex config is:
+Project-local config:
 
 ```text
 .codex/config.toml
 ```
 
-It points Codex at:
+It must run the external server:
 
 ```text
-integrations/mealie/mealie_mcp_server.py
+uv --directory C:\my_global_workflow_tools\mealie-mcp-server\src run server.py
 ```
 
 ## Environment Variables
@@ -38,7 +36,7 @@ Set these outside the repository before starting Codex:
 
 ```powershell
 $env:MEALIE_BASE_URL = "http://localhost:9925"
-$env:MEALIE_API_TOKEN = "<token from Mealie>"
+$env:MEALIE_API_KEY = "<token from Mealie>"
 ```
 
 Do not commit tokens, `.env` files, shell history exports, screenshots with tokens, or copied request headers to GitHub.
@@ -49,32 +47,24 @@ Do not commit tokens, `.env` files, shell history exports, screenshots with toke
 2. Confirm the project-local `.codex/config.toml` is trusted.
 3. Run `/mcp`.
 4. Confirm server `mealie` is enabled.
-5. Confirm tools are listed:
-   - `mealie_healthcheck`
-   - `mealie_get_taxonomy`
-   - `mealie_validate_recipe_bundle`
-   - `mealie_dry_run_recipe_bundle`
-   - `mealie_upsert_recipe_bundle`
+5. Confirm Mealie recipe, category, tag, shopping list, and meal plan tools are listed.
+6. Confirm a bulk meal plan creation tool such as `create_mealplan_bulk` is available before running meal planner sync.
 
 ## MCP Smoke Test
 
-Run only after `MEALIE_BASE_URL` and `MEALIE_API_TOKEN` are set:
+Run only after `MEALIE_BASE_URL` and `MEALIE_API_KEY` are set:
 
 ```text
-Call MCP tool mealie_healthcheck.
-Call MCP tool mealie_get_taxonomy.
-Call MCP tool mealie_validate_recipe_bundle with weeks/current/MEALIE_RECIPE_BUNDLE.json content.
+Use read-only Mealie MCP tools to list categories/tags or inspect available meal plan tools.
 ```
 
-Do not run `mealie_upsert_recipe_bundle` unless the user explicitly asks for a smoke sync or recipe sync.
+Do not run real recipe upsert or meal planner creation unless the user explicitly asks for a smoke sync or recipe sync.
 
 ## Failure States
 
-- `NEEDS_ENV`: `MEALIE_BASE_URL` or `MEALIE_API_TOKEN` is missing.
-- `UNREACHABLE`: Mealie did not respond at `/docs` or `/openapi.json`.
-- `UNAUTHORIZED`: Mealie rejected the bearer token.
-- `STUCK_API_SCHEMA`: local Mealie OpenAPI does not expose the recipe or taxonomy endpoint needed for safe sync.
+- `NEEDS_ENV`: `MEALIE_BASE_URL` or `MEALIE_API_KEY` is missing.
+- `STUCK_MEALIE_MCP_UNAVAILABLE`: external MCP server or required Mealie tools are unavailable.
 - `PENDING_MEALIE_SYNC`: GitHub save succeeded, but Mealie sync did not finish.
-- `DUPLICATE_CONFLICT`: more than one existing recipe matched the same Project `Питание` recipe identity.
+- `STUCK_MEAL_PLAN_DUPLICATE_RISK`: meal plan entries appear duplicative and cannot be safely updated/deleted through MCP before create.
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/integrations/mealie/MEALIE_MCP_SETUP.md

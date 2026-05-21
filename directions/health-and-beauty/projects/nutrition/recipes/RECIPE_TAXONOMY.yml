@@ -31,8 +31,12 @@ tags:
   - snack
   - fallback
 
-id_policy: "pitanie-<week_id>-<slug>-<nnn>"
-deduplication_policy: "extras.pitanie_recipe_id"
+id_policy:
+  recipe_id: "pitanie-<week_id>-<slug>-<nnn>"
+
+dedupe_policy:
+  primary: "extras.pitanie_recipe_id"
+  fallback: "exact name + week tag + chatgpt-pitanie tag"
 
 project_files_policy:
   may_upload_to_project_files: true
