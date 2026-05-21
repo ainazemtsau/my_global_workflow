@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
+  source_freshness: active_git_file_after_r1_H1_G3_readiness_packet_accepted_pending_p9_phase_close
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,13 +16,13 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: goal_shaped_pending_E1_execution_brief
+  state: r1_accepted_goal_complete
   goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   goal_title: "Сформировать readiness-пакет для project bootstrap, tool-binding и validation scenes первого technical nucleus"
   goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness"
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
-  status: goal_shaped_pending_E1_execution_brief
+  status: r1_accepted_goal_complete
   previous_active_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
   previous_active_goal_title: "Проверить и адаптировать существующую workflow-процедуру Codex/project setup под первый technical nucleus"
   previous_active_goal_result: r1_accepted_goal_complete
@@ -35,11 +35,12 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  review_scope: g1_goal_shape_formalized_H1_G3
-  completion_scope: goal_shaped_pending_E1_execution_brief
-  parent_goal_completion_state: not_complete_readiness_packet_pending
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_core_coop_technical_foundation_selection_after_H1_G3_acceptance
+  review_scope: r1_H1_G3_readiness_packet_accepted
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  accepted_result: "Readiness packet for project bootstrap, tool-binding, and validation-scene readiness."
   smallest_useful_result: "Accepted readiness packet for project bootstrap, tool-binding, and validation-scene readiness."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
@@ -98,7 +99,7 @@ Active Goal:
 
 Status:
 
-`goal_shaped_pending_E1_execution_brief`
+`r1_accepted_goal_complete`
 
 Goal contract:
 
@@ -110,32 +111,32 @@ Execution log:
 
 Next route:
 
-`E1_EXECUTION_BRIEF`
+`P9_PHASE_CLOSE`
 
 Implementation, Unity bootstrap, Codex product/project execution, and Task Master graph creation are not authorized now.
 
 Last completed Goal:
 
-`H1_G2_codex_development_operating_model_and_architecture_protocols`
+`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 
-Accepted result: Gas Coop Game Project Execution Profile accepted as minimal project execution profile/addendum.
+Accepted result: Readiness packet for project bootstrap, tool-binding, and validation-scene readiness.
 
 ## R1-accepted active-front review
 
 ```yaml
 active_goal_snapshot:
   goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  status: goal_shaped_pending_E1_execution_brief
+  status: r1_accepted_goal_complete
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
-  last_completed_goal: H1_G2_codex_development_operating_model_and_architecture_protocols
+  last_completed_goal: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   last_completed_goal_result: r1_accepted_goal_complete
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_core_coop_technical_foundation_selection_after_H1_G3_acceptance
   purpose: >
-    H1_G3 is shaped as the readiness Goal for project bootstrap, tool-binding,
-    and validation-scene readiness. E1 must prepare the concrete readiness
-    execution brief without running setup or product execution directly.
+    H1_G3 is accepted as the completed readiness Goal for project bootstrap,
+    tool-binding, and validation-scene readiness. P9 must close or pause the
+    Phase without running setup or product execution directly.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -284,3 +285,22 @@ active_goal:
 ```
 
 E1 is the next route. It must not directly run Unity bootstrap, create a product repository, write product code, run Codex product/project execution, create a Task Master graph, perform real internal tool setup, configure Unity MCP, transfer old code, or promote Game Documentation.
+
+## 2026-05-21 R1 acceptance — H1_G3 readiness packet
+
+```yaml
+active_goal:
+  state: r1_accepted_goal_complete
+  status: r1_accepted_goal_complete
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  next_route: P9_PHASE_CLOSE
+  review_scope: r1_H1_G3_readiness_packet_accepted
+accepted_result: "Readiness packet for project bootstrap, tool-binding, and validation-scene readiness."
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+unity_bootstrap_allowed_now: false
+task_master_graph_allowed_now: false
+```
+
+The accepted result is readiness evidence only. It does not authorize Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, or Game Documentation promotion.

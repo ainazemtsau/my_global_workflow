@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
-  last_updated: "2026-05-20"
+  freshness: fresh_after_r1_H1_G3_readiness_packet_accepted_pending_p9_phase_close
+  last_updated: "2026-05-21"
 ```
 
 ## Purpose
@@ -32,11 +32,11 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: innovative-commercial-expedition-gas-sim-game
   map_confidence: medium
-  last_reviewed_stage: G1_GOAL_SHAPE
+  last_reviewed_stage: R1_GOAL_REVIEW_DISTILL
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
   current_objective_architecture_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  next_safe_route: E1_EXECUTION_BRIEF
+  next_safe_route: P9_PHASE_CLOSE
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -165,7 +165,7 @@ objective_architecture:
   active_initiative: innovative-commercial-expedition-gas-sim-game
   active_horizon: H1_playable_technical_nucleus
   selected_frontier_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  next_safe_route: E1_EXECUTION_BRIEF
+  next_safe_route: P9_PHASE_CLOSE
 
 horizon_acceptance_proof:
   candidate_horizon: H1_playable_technical_nucleus
@@ -282,7 +282,7 @@ objective_graph:
 
     - id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
       type: execution_readiness
-      status: goal_shaped_pending_E1_execution_brief
+      status: done
       requires:
         - H1_G2_codex_development_operating_model_and_architecture_protocols
 
@@ -311,10 +311,9 @@ active_frontier:
   ready_nodes:
     - node_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
       reason_ready: >
-        H1_G2 is accepted and G1 shaped H1_G3 as the project/bootstrap/tool-binding/
-        validation-scene readiness Goal.
+        H1_G3 readiness packet is accepted as complete.
       expected_unlock: >
-        Enables E1 to prepare the concrete readiness execution brief without guessing
+        Enables P9 to close or pause the current Phase without guessing
         bootstrap surfaces, tool-binding evidence, validation scenes, or stop rules.
   blocked_nodes:
     - node_id: codex_product_project_execution
@@ -322,11 +321,9 @@ active_frontier:
       unblock_route: "Later E1/X0/X1 readiness only."
   premature_nodes:
     - node_id: H1_G4_durable_technical_nucleus
-      premature_because: "Implementation target exists conceptually, but H1_G3 readiness packet and project/tool bindings are not accepted."
+      premature_because: "Implementation target exists conceptually, but P9/P0/G0/E1 has not selected and scoped durable technical nucleus implementation."
     - node_id: direct_X0_X1_EXECUTOR_ROUTE
       premature_because: "Executor setup/run remains blocked until E1 defines the readiness envelope, setup state, and bindings are verified."
-    - node_id: direct_P9_PHASE_CLOSE
-      premature_because: "M0 selected a required active-front continuation; M0 does not close Phase."
   parked_nodes:
     - node_id: H2_unique_gas_coop_gameplay_proof
       activation_trigger: "Durable technical nucleus exists."
@@ -338,25 +335,25 @@ active_frontier:
       activation_trigger: "Accepted durable truths exist and documentation maintenance is explicitly authorized."
     - node_id: old_project_transfer_audit
       activation_trigger: "Only after requirements are clear and a later lifecycle route asks a targeted reference/audit question."
-  selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  selected_next_node: P9_PHASE_CLOSE
   selection_reason: >
-    This is the smallest active-front node that removes the current execution-readiness blocker
-    without prematurely launching bootstrap, implementation, or product execution.
+    H1_G3 is accepted; P9 is the smallest safe lifecycle route to close or pause
+    the Phase without prematurely launching bootstrap, implementation, or product execution.
 
 next_action_proof:
   direction_objective: "Commercially viable co-op indie game with deep gas/3D-space gameplay core."
   current_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  selected_frontier_node: P9_PHASE_CLOSE
   proposed_work: >
-    Prepare the H1_G3 readiness execution brief for project bootstrap, tool-binding,
-    and validation-scene readiness for the first technical nucleus.
-  proposed_stage: E1_EXECUTION_BRIEF
+    Close or pause the Core Co-op Technical Foundation Selection Phase after
+    H1_G3 readiness acceptance.
+  proposed_stage: P9_PHASE_CLOSE
   desired_delta: >
-    A readiness execution brief defining the concrete setup/tool/validation envelope
-    without running bootstrap, product execution, or real tool configuration directly.
+    A Phase close/pause decision with Phase Memory preserved and no implementation
+    or product execution launched.
   why_this_now: >
-    G1 shaped H1_G3 after H1_G2 accepted the minimal execution profile. The next
-    blocker is the concrete readiness execution envelope, not bootstrap or implementation.
+    R1 accepted H1_G3. Remaining bootstrap/implementation work is a later lifecycle
+    concern, not a reason to keep the foundation-selection Phase open.
   prerequisite_check:
     satisfied:
       - "Current Direction Project Files 00-08 are available."
@@ -364,22 +361,22 @@ next_action_proof:
       - "Core decision brief is accepted as route-gated decision map."
       - "First technical nucleus specification is accepted."
       - "H1_G2 Gas Coop Game Project Execution Profile is accepted."
-      - "H1_G3 Goal Contract is shaped."
+      - "H1_G3 readiness packet is accepted."
     missing:
-      - "Exact E1_EXECUTION_BRIEF prompt for the next stage run."
+      - "Exact P9_PHASE_CLOSE prompt for the next stage run."
       - "Manual Project Files refresh after this repository maintenance patch."
     assumed: []
   active_frontier_check:
     is_on_frontier: true
     why_not_premature: >
-      H1_G3 is the readiness gate directly between accepted execution profile and any
-      later bootstrap, U1 guided setup, Executor setup/run, or implementation route.
+      P9 is allowed because H1_G3 is accepted and the remaining bootstrap/implementation
+      surfaces belong to later lifecycle routes.
   expected_unlock: >
     Enables later selection of U1, D1, A1, S3, X0/X1, Context Request, Human Decision,
     Stop, or a setup route without inventing tool/project state.
   alternatives_considered:
-    - action: direct_P9_phase_close
-      why_rejected: "Selected active-front continuation remains unresolved."
+    - action: direct_E1_or_bootstrap_setup
+      why_rejected: "H1_G3 is accepted; P9 must preserve Phase Memory before any later setup route."
     - action: direct_bootstrap_or_implementation
       why_rejected: "Execution readiness and project/tool bindings are not verified."
   evidence_basis:
@@ -400,7 +397,7 @@ next_action_proof:
     launch_allowed: true
     launch_condition: >
       After repository maintenance apply/read-back, manual Project Files refresh, and exact
-      E1_EXECUTION_BRIEF prompt availability.
+      P9_PHASE_CLOSE prompt availability.
 ```
 
 ## Compact Initiative Graph
@@ -491,29 +488,30 @@ compact_initiative_graph:
 active_front:
   active_horizon: H1_playable_technical_nucleus
   current_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  current_gate_status: goal_shaped_pending_E1_execution_brief
+  current_gate_status: r1_accepted_goal_complete
   previous_gate: H1_G2_codex_development_operating_model_and_architecture_protocols
   previous_gate_status: r1_accepted_goal_complete
-  selected_next_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  selected_next_route: E1_EXECUTION_BRIEF
+  selected_next_node: P9_PHASE_CLOSE
+  selected_next_route: P9_PHASE_CLOSE
   primary_reason: >
-    H1_G2 is accepted as the minimal project execution profile/addendum and G1 shaped
-    H1_G3 as the project/bootstrap/tool-binding/validation-scene readiness Goal.
-    The next blocker is the E1 readiness execution envelope before any setup,
-    implementation planning, durable technical nucleus work, or Codex product/project execution.
+    R1 accepted H1_G3 as the project/bootstrap/tool-binding/validation-scene
+    readiness Goal. The next lifecycle route is P9 phase close/review before
+    any setup, implementation planning, durable technical nucleus work, or
+    Codex product/project execution.
   active_front_rule: >
-    Run E1_EXECUTION_BRIEF for H1_G3 before P9, project bootstrap, durable technical
-    nucleus implementation, Task Master graph creation, or Codex product/project execution.
+    Run P9_PHASE_CLOSE after H1_G3 readiness acceptance before any new
+    project bootstrap, durable technical nucleus implementation, Task Master
+    graph creation, or Codex product/project execution.
   codex_architecture_rule: >
     The foundation decision is sufficient only if minimum Codex-driven development rules,
     module/dependency boundaries, and validation protocol are accepted before implementation.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   immediate_next_after_gate:
-    - E1_EXECUTION_BRIEF_for_H1_G3
+    - P9_PHASE_CLOSE_after_H1_G3_acceptance
   route_integrity_issue:
-    status: resolved_by_g1_H1_G3_formalization
-    summary: "G1 shaped H1_G3 and selected E1 as the next basis-valid route."
+    status: resolved_by_r1_H1_G3_acceptance
+    summary: "R1 accepted H1_G3 and selected P9 as the next basis-valid route."
   blocked_nodes:
     - H1_G4_durable_technical_nucleus
     - codex_product_project_execution
@@ -522,7 +520,6 @@ active_front:
   premature_nodes:
     - direct_X0_EXECUTOR_PROJECT_SETUP
     - direct_X1_EXECUTOR_RUN
-    - direct_P9_PHASE_CLOSE
     - unity_project_bootstrap
     - durable_technical_nucleus_implementation
   parked_nodes:
@@ -1106,6 +1103,29 @@ map_delta:
     - old-code audit as starting point
     - final DI package selection
     - Game Documentation promotion
+```
+
+## 2026-05-21 R1 map delta — H1_G3 accepted
+
+```yaml
+map_delta:
+  source_stage: R1_GOAL_REVIEW_DISTILL
+  delta_type:
+    - node_done_accepted
+    - phase_close_candidate
+    - implementation_still_blocked
+  node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  result: r1_accepted_goal_complete
+  summary: "H1_G3 readiness packet accepted. Project/workspace/tool-binding/validation-surface readiness is evidenced enough to close or pause the foundation-selection Phase through P9. Product implementation remains blocked."
+  next_route: P9_PHASE_CLOSE
+  direction_map_status:
+    current_objective_architecture_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    next_safe_route: P9_PHASE_CLOSE
+  objective_graph:
+    H1_G3:
+      status: done
+    H1_G4:
+      status: premature
 ```
 
 ## End-of-file marker

@@ -9,7 +9,7 @@ project_file_control:
     - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
     - "directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md"
   activated_at: "2026-05-13"
-  source_freshness: active_git_file_after_g1_H1_G3_goal_shaped_pending_e1_execution_brief
+  source_freshness: active_git_file_after_r1_H1_G3_readiness_packet_accepted_pending_p9_phase_close
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -18,6 +18,7 @@ project_file_control:
 ```yaml
 current_phase:
   state: active
+  current_phase_status: active_H1_G3_r1_accepted_pending_P9_phase_close
   phase_name: Core Co-op Technical Foundation Selection
   phase_id: core-coop-technical-foundation-selection
   phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
@@ -32,15 +33,16 @@ current_phase:
   status_after_g1_H1_G2_formalization: active_H1_G2_goal_shaped_pending_A1_audit
   status_after_r1_H1_G2_acceptance: active_H1_G2_r1_accepted_pending_M0_active_front_review
   status_after_g1_H1_G3_formalization: active_H1_G3_goal_shaped_pending_E1_execution_brief
+  status_after_r1_H1_G3_acceptance: active_H1_G3_r1_accepted_pending_P9_phase_close
   map_binding:
     active_horizon: H1_playable_technical_nucleus
     current_gate: H1_G1_core_technical_foundation_decision_brief
     required_inside_current_gate_or_next_gate:
       - H1_G2_codex_development_operating_model_and_architecture_protocols
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_core_coop_technical_foundation_selection_after_H1_G3_acceptance
   active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  last_completed_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  last_completed_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   last_completed_goal_result: r1_accepted_goal_complete
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
@@ -53,18 +55,22 @@ current_phase:
 ```yaml
 active_goal_projection:
   goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  status: goal_shaped_pending_E1_execution_brief
+  status: r1_accepted_goal_complete
   goal_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness"
   goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
   execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
-  last_completed_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+  last_completed_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   last_completed_goal_result: r1_accepted_goal_complete
-  accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md"
-  recommended_next_stage: E1_EXECUTION_BRIEF
-  review_scope: g1_H1_G3_goal_contract_formalized
-  completion_scope: goal_shaped_pending_E1_execution_brief
-  next_goal_candidate: none_active_goal_already_shaped
-  goal_shape_note: "G1 formalized H1_G3 as the active readiness Goal; E1 must prepare the execution brief without running setup or product execution."
+  accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
+  accepted_product_local_artifacts:
+    - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\outbox\\H1_G3_READINESS_PACKET.md"
+    - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\evidence\\h1-g3-readiness-2026-05-21.md"
+  recommended_next_stage: P9_PHASE_CLOSE
+  review_scope: r1_H1_G3_readiness_packet_accepted
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  next_goal_candidate: phase_close_candidate
+  goal_shape_note: "R1 accepted H1_G3 as complete; P9 must close or pause the Phase without running setup or product execution."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
@@ -84,6 +90,16 @@ phase_progress_gate_after_g1_H1_G3_formalization:
   p9_allowed_now: false
   next_route: E1_EXECUTION_BRIEF
   reason: "G1 shaped H1_G3 as a readiness Goal. E1 is the smallest safe route to prepare the concrete readiness execution brief without bootstrap or product execution."
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+```yaml
+phase_progress_gate_after_r1_H1_G3_acceptance:
+  result: phase_close_candidate
+  p9_allowed_now: true
+  next_route: P9_PHASE_CLOSE
+  reason: "H1_G3 readiness packet is accepted; remaining implementation/bootstrap work is a later lifecycle concern, not required to keep this foundation-selection Phase open."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
 ```
@@ -122,11 +138,11 @@ phase_closure_contract_status_update:
 
 - Active Phase unresolved: `no`
 - Active Phase: `Core Co-op Technical Foundation Selection`
-- Active Phase route state: `active_H1_G3_goal_shaped_pending_E1_execution_brief`
+- Active Phase route state: `active_H1_G3_r1_accepted_pending_P9_phase_close`
 - Active Goal unresolved: `no`
 - Active Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
-- Active Goal status: `goal_shaped_pending_E1_execution_brief`
-- Last completed Goal: `H1_G2_codex_development_operating_model_and_architecture_protocols`
+- Active Goal status: `r1_accepted_goal_complete`
+- Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Previous accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Previous accepted artifact treatment: `accepted_route_gated_decision_map`
@@ -138,7 +154,7 @@ phase_closure_contract_status_update:
 - Last closed Phase completed Goal status: `r1_reviewed_accepted`
 - Direction Map status: `initialized`
 - Map link: `H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
-- Next route: `E1_EXECUTION_BRIEF`
+- Next route: `P9_PHASE_CLOSE`
 - Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
@@ -151,11 +167,11 @@ Previous closed Phase proved the Expedition proof identity and rejected gas-only
 
 ## Next route
 
-Run `E1_EXECUTION_BRIEF` after G1 H1_G3 formalization repository maintenance apply/read-back and manual Project Files refresh.
+Run `P9_PHASE_CLOSE` after R1 H1_G3 readiness acceptance repository maintenance apply/read-back and manual Project Files refresh.
 
-E1 must prepare the concrete execution envelope for H1_G3 readiness without running bootstrap, real tool setup, product repository creation, implementation, or Codex product/project execution directly.
+P9 must close or pause the Core Co-op Technical Foundation Selection Phase without running bootstrap, real tool setup, product repository creation, implementation, or Codex product/project execution directly.
 
-Do not proceed to P9, project bootstrap, durable implementation planning, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, Unity MCP setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
+Do not proceed to project bootstrap, durable implementation planning, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, Unity MCP setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
 ## 2026-05-16 R1 Phase Progress Gate
 
@@ -187,7 +203,9 @@ Historical next route after G1 H1_G2 formalization: `A1_AUDIT`.
 
 Historical next route after M0 active-front review: `G1_GOAL_SHAPE`.
 
-Current next route after G1 H1_G3 formalization: `E1_EXECUTION_BRIEF`.
+Historical next route after G1 H1_G3 formalization: `E1_EXECUTION_BRIEF`.
+
+Current next route after R1 H1_G3 readiness acceptance: `P9_PHASE_CLOSE`.
 
 ## 2026-05-20 R1 H1_G2 acceptance
 
@@ -244,3 +262,30 @@ g1_H1_G3_formalization:
 ```
 
 E1 is the next route to prepare the readiness execution brief. Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.
+
+## 2026-05-21 R1 H1_G3 acceptance
+
+R1 accepted `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` as complete.
+
+Phase status:
+
+`active_H1_G3_r1_accepted_pending_P9_phase_close`
+
+```yaml
+r1_H1_G3_acceptance:
+  last_completed_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  last_completed_goal_result: r1_accepted_goal_complete
+  active_goal_projection:
+    status: r1_accepted_goal_complete
+    completion_scope: parent_goal_complete
+    parent_goal_completion_state: complete
+  phase_progress_gate_after_r1_H1_G3_acceptance:
+    result: phase_close_candidate
+    p9_allowed_now: true
+    next_route: P9_PHASE_CLOSE
+    reason: "H1_G3 readiness packet is accepted; remaining implementation/bootstrap work is a later lifecycle concern, not required to keep this foundation-selection Phase open."
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+P9 is the next route to close or pause the Phase. Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.

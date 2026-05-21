@@ -32,12 +32,16 @@ documentation:
 projects:
   embedded: []
   external_repos:
-  - id: indie_game_main
-    name: Indie Game Main Repo
-    github_repo: null
-    local_path_windows: null
+  - id: gas_coop_game
+    name: Gas Coop Game
+    github_repo: https://github.com/ainazemtsau/GasCoopGame
+    local_path_windows: C:\projects\Unity\GasCoopGame
     local_path_mac: null
-    status: not_created
-    purpose: No source-backed external project repository is recorded yet.
-    codex_allowed: false
-    needs_user_input: true
+    status: setup_complete_external_repo
+    purpose: Standalone Unity product repository for Gas Coop Game, tracked by workflow metadata as an external repo reference.
+    binding: external_repo_reference
+    codex_allowed: true
+    needs_user_input: false
+    setup_stage: X0_EXECUTOR_PROJECT_SETUP
+    executor_adapter: Codex
+    unity_editor: 6000.4.7f1
