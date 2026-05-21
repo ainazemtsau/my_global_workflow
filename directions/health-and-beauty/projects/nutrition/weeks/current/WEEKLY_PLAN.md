@@ -7,14 +7,16 @@ Weekly Planning Chat creates this file for one week only.
 ```yaml
 WEEKLY_PLAN:
   schema: weekly_plan.v1
-  week_id: "2026-W21-calibration-2026-05-21_to_2026-05-27"
+  week_id: "2026-W21-calibration-2026-05-21_to_2026-05-24"
   plan_status: draft_for_current_week
   source_global_plan: state/GLOBAL_NUTRITION_PLAN.md
   source_history: state/NUTRITION_HISTORY.md
   calendar_logic:
+    nutrition_weeks_always_end_on: Sunday
     today_2026_05_20: "setup_evening_only_not_counted_as_day_1"
     day_1: "Thursday 2026-05-21"
-    day_7: "Wednesday 2026-05-27"
+    day_4: "Sunday 2026-05-24"
+    week_closes_after: "Sunday 2026-05-24"
   week_goal:
     - calibration_week_for_current_nutrition_routine
     - start_real_plan_and_tracking_on_2026_05_21
@@ -31,19 +33,19 @@ WEEKLY_PLAN:
     calories_per_day: "2400-2600 kcal"
     protein_per_day: "~180 g"
   menu_chat_inputs:
-    menu_date_range: "2026-05-21_to_2026-05-27"
+    menu_date_range: "2026-05-21_to_2026-05-24"
     build_menu_for_days:
       day_1: "Thursday 2026-05-21"
-      day_7: "Wednesday 2026-05-27"
+      day_4: "Sunday 2026-05-24"
     boundaries:
-      - "Menu Chat should build the menu for 2026-05-21 through 2026-05-27."
+      - "Menu Chat should build the menu only for 2026-05-21 through 2026-05-24."
       - "Menu Chat must not build the menu from 2026-05-20."
       - "Concrete menu, shopping list, and prep plan belong to Menu Chat, not this weekly plan."
   tracking_chat_inputs:
     tracking_start: "Thursday 2026-05-21"
     day_1: "Thursday 2026-05-21"
-    day_7: "Wednesday 2026-05-27"
-    tracking_days: 7
+    day_4: "Sunday 2026-05-24"
+    tracking_days: 4
     tracking_style: low_friction_inputs
   explicit_non_goals:
     - concrete_menu
