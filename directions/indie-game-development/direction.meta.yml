@@ -35,10 +35,11 @@ projects:
   - id: gas_coop_game
     name: Gas Coop Game
     github_repo: https://github.com/ainazemtsau/GasCoopGame
-    local_path_windows: directions/indie-game-development/projects/gas-coop-game
+    local_path_windows: C:\projects\Unity\GasCoopGame
     local_path_mac: null
-    status: setup_complete_submodule
-    purpose: Standalone Unity product repository for Gas Coop Game, tracked from workflow as a Git submodule.
+    status: setup_complete_external_repo
+    purpose: Standalone Unity product repository for Gas Coop Game, tracked by workflow metadata as an external repo reference.
+    binding: external_repo_reference
     codex_allowed: true
     needs_user_input: false
     setup_stage: X0_EXECUTOR_PROJECT_SETUP

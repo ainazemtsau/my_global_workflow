@@ -16,12 +16,12 @@ Do not invent repo URLs, local paths, project names, or Codex access permissions
 id: gas_coop_game
 name: Gas Coop Game
 github_repo: https://github.com/ainazemtsau/GasCoopGame
-local_path_windows: directions/indie-game-development/projects/gas-coop-game
-binding: git_submodule
+local_path_windows: C:\projects\Unity\GasCoopGame
+binding: external_repo_reference
 setup_stage: X0_EXECUTOR_PROJECT_SETUP
 executor_adapter: Codex
 unity_editor: 6000.4.7f1
-status: setup_complete_submodule
+status: setup_complete_external_repo
 ```
 
-The submodule is the standalone product repository. Keep full product technical context in that repository. Direction files may reference compact setup status and pointers only.
+The product repository is standalone and lives outside the workflow repository. Keep full product technical context in that repository. Direction files may reference compact setup status and pointers only.
