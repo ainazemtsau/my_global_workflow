@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p9_core_coop_technical_foundation_selection_closed
+  source_freshness: fresh_after_p0_project_bootstrap_validation_surface_setup_started
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,51 +16,52 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run P0_PHASE_START after P9 closed Core Co-op Technical Foundation Selection."
-  route_stage: P0_PHASE_START
-  route_mode: start_next_phase_after_core_coop_technical_foundation_selection_close
+  current_focus: "Run G1_GOAL_SHAPE to shape the first Goal for Project Bootstrap and Validation Surface Setup."
+  route_stage: G1_GOAL_SHAPE
+  route_mode: shape_bootstrap_validation_surface_setup_envelope
   same_chat_allowed: false
-  boundary_trigger: p9_core_coop_technical_foundation_selection_closed
+  boundary_trigger: p0_project_bootstrap_validation_surface_setup_started
   pending_state_carried: true
-  pending_patch_pointer: p9_close_core_coop_technical_foundation_selection_2026_05_21
-  last_stage_result_pointer: "P9_PHASE_CLOSE closed Core Co-op Technical Foundation Selection and selected P0_PHASE_START."
+  pending_patch_pointer: p0_start_project_bootstrap_validation_surface_setup_2026_05_21
+  last_stage_result_pointer: "P0_PHASE_START started Project Bootstrap and Validation Surface Setup and selected G1_GOAL_SHAPE."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   active_goal:
-    goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-    status: closed_with_phase / r1_accepted_goal_complete
-    goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md"
-    execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
-    previous_goal_id: H1_G2_codex_development_operating_model_and_architecture_protocols
+    goal_id: none_active_pending_G1_goal_shape
+    status: none_active_pending_G1_goal_shape
+    selected_first_goal_candidate: bootstrap-validation-surface-setup-envelope
+    selected_first_goal_candidate_status: selected_for_G1_goal_shape
+    previous_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
     previous_goal_status: r1_accepted_goal_complete
   active_phase:
-    phase_id: core-coop-technical-foundation-selection
-    phase_name: Core Co-op Technical Foundation Selection
-    phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
-    status: closed_complete_by_P9
-    map_binding: H1_playable_technical_nucleus
-    next_route: P0_PHASE_START
+    phase_id: project-bootstrap-validation-surface-setup
+    phase_name: Project Bootstrap and Validation Surface Setup
+    phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
+    status: active_pending_G1_goal_shape
+    map_binding: "H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus"
+    next_route: G1_GOAL_SHAPE
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `manual Project Files refresh blocks the next P0 run after P9 repository maintenance apply/read-back/commit/integration`
-- Human decision: `none pending for P0 launch after refresh`
-- Source conflict: `Project Files stale until this P9 repository maintenance patch is applied/read back and manually refreshed`
+- Missing context: `manual Project Files refresh blocks the next G1 run after P0 repository maintenance apply/read-back/commit/integration`
+- Human decision: `none pending for G1 launch after refresh`
+- Source conflict: `Project Files stale until this P0 repository maintenance patch is applied/read back and manually refreshed`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/P0_PHASE_START.md`
-  - refreshed Project Files 00-08 after P9 close
+  - exact `workflow/stage_prompts/G1_GOAL_SHAPE.md`
+  - refreshed Project Files 00-08 after P0 phase start
   - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md`
+  - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md`
   - `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
   - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
 
 ## Current focus boundary
 
-P9 closed `Core Co-op Technical Foundation Selection` after `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` was accepted as complete.
+P0 started `Project Bootstrap and Validation Surface Setup` after `Core Co-op Technical Foundation Selection` closed complete by P9.
 
-The next focus is `P0_PHASE_START` to start or reframe the next Phase from Phase Memory and Direction Map. P0 must not run bootstrap, product repository creation, product code, real tool setup, Unity MCP setup, Task Master graph creation, or Codex product/project execution directly.
+The next focus is `G1_GOAL_SHAPE` to shape the first Goal candidate `bootstrap-validation-surface-setup-envelope`. G1 must not run bootstrap, product repository creation, product code, real tool setup, Unity MCP setup, Task Master graph creation, or Codex product/project execution directly.
 
 Forbidden in this focus:
 
@@ -198,3 +199,26 @@ required_context_for_next_stage:
 ```
 
 P0 must start/reframe the next Phase. Implementation, Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.
+
+## 2026-05-21 P0 phase start focus update
+
+P0 started:
+
+`Project Bootstrap and Validation Surface Setup`
+
+Current route:
+
+```yaml
+route_stage: G1_GOAL_SHAPE
+route_mode: shape_bootstrap_validation_surface_setup_envelope
+same_chat_allowed: false
+boundary_trigger: p0_project_bootstrap_validation_surface_setup_started
+active_phase_id: project-bootstrap-validation-surface-setup
+active_phase_status: active_pending_G1_goal_shape
+active_goal_id: none_active_pending_G1_goal_shape
+selected_first_goal_candidate: bootstrap-validation-surface-setup-envelope
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+```
+
+G1 must shape the setup/validation envelope Goal before any bootstrap, setup, product repository creation, product code, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, or Game Documentation promotion.

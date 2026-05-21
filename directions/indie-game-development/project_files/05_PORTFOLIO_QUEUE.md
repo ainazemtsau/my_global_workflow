@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_p9_core_coop_technical_foundation_selection_closed
+projection_status: fresh_after_p0_project_bootstrap_validation_surface_setup_started
 activated_at: "2026-05-13"
 ```
 
@@ -15,19 +15,21 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-- Active Phase: `core-coop-technical-foundation-selection`
-- Active Phase name: `Core Co-op Technical Foundation Selection`
-- Active Phase status: `closed_complete_by_P9`
-- Map binding: `H1_playable_technical_nucleus / H1_G1_core_technical_foundation_decision_brief`
+- Active Phase: `project-bootstrap-validation-surface-setup`
+- Active Phase name: `Project Bootstrap and Validation Surface Setup`
+- Active Phase status: `active_pending_G1_goal_shape`
+- Map binding: `H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `none_active_after_phase_close`
-- Active Goal status: `closed_with_phase`
+- Active Goal: `none_active_pending_G1_goal_shape`
+- Active Goal status: `none_active_pending_G1_goal_shape`
+- Selected first Goal candidate: `bootstrap-validation-surface-setup-envelope`
+- Selected first Goal candidate status: `selected_for_G1_goal_shape`
 - Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `P0_PHASE_START`
+- Next route: `G1_GOAL_SHAPE`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -36,16 +38,18 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Selected current Phase direction
 
-`Core Co-op Technical Foundation Selection` is selected by `P0_PHASE_START`.
+`Project Bootstrap and Validation Surface Setup` is selected by `P0_PHASE_START`.
 
-Purpose: resolve high-lock-in technical foundation choices for a new co-op project before playable proof or implementation work.
+Purpose: convert accepted H1_G3 readiness into a bounded project bootstrap / tool-binding / validation-surface setup campaign before H1_G4 durable technical nucleus work is scoped.
 
-Required foundation surface:
+Required setup/validation surface:
 
-- multiplayer technology and host-player architecture;
-- Grid/Topology transfer boundary;
-- Gas Simulation durable logic architecture;
-- smallest durable technical nucleus.
+- concrete setup target;
+- allowed and forbidden setup surfaces;
+- validation surface requirements;
+- stop conditions;
+- evidence requirements;
+- next safe route toward H1_G4 without starting product implementation prematurely.
 
 ## Completed / accepted
 
@@ -77,6 +81,7 @@ Required foundation surface:
 
 ## Queue items
 
+- Project Bootstrap / Validation Surface Setup Envelope — `selected_for_G1_goal_shape`; id: `bootstrap-validation-surface-setup-envelope`; route: `G1_GOAL_SHAPE`; purpose: shape the minimum setup/validation envelope before any bootstrap, tool setup, X0/X1, or H1_G4 work.
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
 - Expedition Project Bootstrap / Tool Binding Readiness — `r1_accepted_goal_complete`; node: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`; route: `P9_PHASE_CLOSE`
@@ -251,3 +256,26 @@ queue_update_after_p9_phase_close:
 ```
 
 Parked/request-only queue items remain unchanged.
+
+## Queue update after P0 phase start
+
+```yaml
+queue_update_after_p0_phase_start:
+  active_phase: project-bootstrap-validation-surface-setup
+  active_phase_name: Project Bootstrap and Validation Surface Setup
+  active_phase_status: active_pending_G1_goal_shape
+  active_goal: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: bootstrap-validation-surface-setup-envelope
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  next_route: G1_GOAL_SHAPE
+  last_closed_phase: core-coop-technical-foundation-selection
+  last_completed_goal: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  last_completed_goal_status: r1_accepted_goal_complete
+required_queue_item:
+  id: bootstrap-validation-surface-setup-envelope
+  status: selected_for_G1_goal_shape
+  route: G1_GOAL_SHAPE
+  purpose: "Shape the minimum setup/validation envelope before any bootstrap, tool setup, X0/X1, or H1_G4 work."
+```
+
+The next queue movement is G1 shaping of the setup/validation envelope, not setup or product execution.

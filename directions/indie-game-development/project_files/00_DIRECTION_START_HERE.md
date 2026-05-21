@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_p9_core_coop_technical_foundation_selection_closed
+  freshness: fresh_after_p0_project_bootstrap_validation_surface_setup_started
   last_updated: "2026-05-21"
-  next_action: "Run P0_PHASE_START after P9 closed Core Co-op Technical Foundation Selection and Project Files are manually refreshed."
+  next_action: "Run G1_GOAL_SHAPE to shape the setup/validation envelope Goal after Project Files are manually refreshed."
 ```
 
 ## Direction identity
@@ -19,7 +19,7 @@ artifact_control:
 - Direction ID: `indie_game_development`
 - Current state: `active`
 - Workflow version: `vNext-R`
-- Last updated: `2026-05-18`
+- Last updated: `2026-05-21`
 
 ## Purpose / thesis
 
@@ -35,42 +35,36 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | --- | --- | --- |
 | Current Initiative | `innovative-commercial-expedition-gas-sim-game` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Active Horizon | `H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
-| Current Gate | `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
+| Current Gate | `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
-| Current Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection` |
-| Current Phase status | `closed_complete_by_P9` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
-| Current Phase Brief | `Phase Brief — Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md` |
-| Active Goal | `none_active_after_phase_close` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
-| Active Goal status | `closed_with_phase / r1_accepted_goal_complete as last completed evidence` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Current Phase | `Project Bootstrap and Validation Surface Setup` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup` |
+| Current Phase status | `active_pending_G1_goal_shape` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` |
+| Current Phase Brief | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` |
+| Active Goal | `none_active_pending_G1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal status | `none_active_pending_G1_goal_shape; selected first Goal candidate: bootstrap-validation-surface-setup-envelope` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Last completed Goal | `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness` |
 | Last completed Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md` |
 | Last completed Goal Artifact | `H1_G3 readiness packet / evidence log` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md` |
-| Active Goal Contract | `Goal Contract — H1_G3 Project Bootstrap / Tool Binding / Validation Scene Readiness` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/00_GOAL_CONTRACT.md` |
+| Active Goal Contract | `none_active_pending_G1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Existing Goal Artifact | `Core Technical Foundation Decision Brief / Decision Map` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` |
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
 | Last closed Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md` |
-| Next route | `P0_PHASE_START — start/reframe the next Phase after Project Files refresh` | `workflow/stage_prompts/P0_PHASE_START.md` |
+| Selected first Goal candidate | `bootstrap-validation-surface-setup-envelope` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` |
+| Next route | `G1_GOAL_SHAPE — shape the setup/validation envelope Goal` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
 
 ## Current Phase meaning
 
-`Core Co-op Technical Foundation Selection` exists to resolve high-lock-in technical foundation choices before playable proof or implementation work.
+`Project Bootstrap and Validation Surface Setup` exists to convert accepted H1_G3 readiness into a bounded setup/validation campaign before H1_G4 durable technical nucleus work is scoped.
 
-Foundation scope includes:
+The current critical constraint is that concrete project setup boundaries, tool-binding route, validation surfaces, stop rules, and allowed execution route must be selected and scoped before durable technical nucleus work can proceed.
 
-- multiplayer technology and host-player architecture;
-- Grid/Topology transfer boundary;
-- Gas Simulation durable gameplay logic model;
-- smallest durable technical nucleus to build next.
+Minimum outcome: a reviewed or route-gated project bootstrap / validation-surface setup envelope that defines setup target, allowed and forbidden setup surfaces, validation requirements, stop conditions, evidence requirements, and the next safe route toward H1_G4.
 
-The accepted specification preserves a goal-local decision surface: `Project Engineering & Codex Development Operating Model`.
+This Phase does not reopen the foundation decision, first technical nucleus specification, Codex/project execution profile, or H1_G3 readiness packet accepted in the previous Phase.
 
-This is a staged decision brief / decision map, not one-shot closure of every technical detail.
-
-FishNet is a candidate based on old project evidence, not a final default. Unity multiplayer stack and other viable options may be considered through the proper research/decision route.
-
-Codex-driven implementation must wait until the foundation decision, execution route, concrete project/tool bindings, validators, and scope are verified.
+Implementation, Unity bootstrap, product repository creation, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked until a later basis-valid route authorizes concrete work.
 
 ## Default Project Files to load
 
@@ -96,11 +90,13 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `P0_PHASE_START` after P9 phase close repository maintenance is applied/read back/committed/integrated and the Indie Game Development Project Files 00-08 are manually refreshed.
+Run `G1_GOAL_SHAPE` after this P0 repository maintenance is applied/read back/committed/integrated and the Indie Game Development Project Files are manually refreshed.
 
-P0 must start a new or reframed Phase from Phase Memory and Direction Map. P0 must not run implementation directly.
+G1 must shape the first Goal candidate:
 
-Do not run Unity bootstrap, implementation, old-code transfer, old-code audit as starting point, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, or Game Documentation promotion before a later basis-valid route authorizes concrete work.
+`bootstrap-validation-surface-setup-envelope`
+
+G1 must define WHAT / WHY / DONE for the setup/validation envelope. It must not run implementation, setup, product repository mutation, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
 
 ## 2026-05-16 R1 stabilization
 
@@ -308,3 +304,26 @@ p9_phase_close:
 ```
 
 P0 must start a new/reframed Phase after Project Files refresh and must not run implementation directly.
+
+## 2026-05-21 P0 start — Project Bootstrap and Validation Surface Setup
+
+```yaml
+p0_project_bootstrap_validation_surface_setup_start:
+  current_phase: "Project Bootstrap and Validation Surface Setup"
+  current_phase_id: project-bootstrap-validation-surface-setup
+  current_phase_status: active_pending_G1_goal_shape
+  current_phase_brief: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md"
+  active_goal: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: bootstrap-validation-surface-setup-envelope
+  last_completed_goal: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  last_completed_goal_status: r1_accepted_goal_complete
+  last_closed_phase: core-coop-technical-foundation-selection
+  next_route: G1_GOAL_SHAPE
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  P0 started the Project Bootstrap and Validation Surface Setup Phase after
+  Core Co-op Technical Foundation Selection closed complete by P9. The next
+  route is G1 goal shaping for the setup/validation envelope, not setup or
+  product execution.
+```
