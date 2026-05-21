@@ -1,10 +1,22 @@
 # External Mealie MCP
 
-Status: active
+Status: disabled_for_project_writes
 
-Purpose: document the external MCP server used by Project `Питание` for Mealie recipe and meal planner sync.
+Purpose: record why the old external MCP path is not the authoritative Mealie write path for Project `Питание`.
 
-## Selected MCP
+## Current Write Path
+
+Use:
+
+```text
+integrations/mealie/mealie_api_sync.py
+```
+
+The script writes recipes through Mealie HTTP API and verifies native structured ingredient read-back.
+
+## Disabled MCP
+
+The previous MCP server was:
 
 ```text
 rldiao/mealie-mcp-server
@@ -16,30 +28,18 @@ External install path:
 C:\my_global_workflow_tools\mealie-mcp-server
 ```
 
-Codex project config:
+Project config:
 
 ```text
 .codex/config.toml
+mcp_servers.mealie.enabled = false
 ```
 
-The config must point to the external server with:
+Do not use this MCP for recipe upsert or meal planner writes. It can produce Mealie ingredients where note/display is populated but amount, unit, and food are not reliably populated.
 
-```text
-uv --directory C:\my_global_workflow_tools\mealie-mcp-server\src run server.py
-```
+## Allowed Use
 
-Do not use a custom project-local Mealie MCP server.
-
-## Environment
-
-Required environment variables:
-
-```text
-MEALIE_BASE_URL
-MEALIE_API_KEY
-```
-
-No Mealie API keys, bearer headers, cookies, copied request headers, `.env` files, or screenshots with secrets belong in GitHub.
+The generic MCP may be used only for non-authoritative read-only inspection when direct API access is unavailable. Any actual write must go through `MEALIE_API_SYNC.md` or a future user-approved MCP wrapper that delegates to the same native structured ingredient contract.
 
 ## Responsibility Boundary
 
@@ -48,15 +48,17 @@ Project `Питание` outputs a compact `PITANIE_CODEX_CARD` only.
 Codex performs:
 
 - GitHub durable state save;
-- Mealie recipe sync through existing MCP tools;
-- Mealie meal planner sync through existing MCP tools.
+- Mealie recipe sync through the project-local API tool;
+- Mealie meal planner sync through the project-local API tool;
+- read-back validation that normal ingredients are not note-only rows.
 
 The ChatGPT Project must not claim GitHub save or Mealie sync without Codex evidence.
 
 ## Failure States
 
 - `PENDING_MEALIE_SYNC`: GitHub save succeeded, but recipe or meal planner sync did not finish.
-- `STUCK_MEALIE_MCP_UNAVAILABLE`: external MCP server or required Mealie MCP tools are unavailable.
-- `STUCK_MEAL_PLAN_DUPLICATE_RISK`: meal plan entries appear duplicative and the MCP cannot safely update/delete before creating new entries.
+- `NEEDS_ENV`: Mealie API URL or token is missing.
+- `STUCK`: Mealie read-back does not preserve native structured ingredient fields.
+- `STUCK_MEAL_PLAN_DUPLICATE_RISK`: planner slots are duplicative and cannot be safely updated before create.
 
 END_OF_FILE: directions/health-and-beauty/projects/nutrition/integrations/mealie/EXTERNAL_MEALIE_MCP.md

@@ -248,7 +248,7 @@ For state save operations:
 - do not invent missing health data;
 - do not turn risk notes into diagnoses;
 - do not claim GitHub was saved until write, read-back, diff verification, commit, and push are done;
-- do not claim Mealie sync until MCP sync evidence exists.
+- do not claim Mealie sync until Mealie API sync and structured ingredient read-back evidence exists.
 
 ## Project-change approval rule
 
@@ -367,14 +367,15 @@ Rules:
 - save `recipes/bundles/<week_id>/MEALIE_RECIPE_BUNDLE.json`;
 - save each new or changed recipe as an individual JSON file under `recipes/catalog/`;
 - update metadata-only `recipes/RECIPE_CATALOG_INDEX.md`;
-- use existing MCP server `mealie` from `rldiao/mealie-mcp-server`;
-- ensure categories/tags if supported by MCP;
+- use project-local API tool `integrations/mealie/mealie_api_sync.py`, not generic Mealie MCP, for Mealie writes;
+- require `structured_ingredients_ru` before recipe sync;
+- ensure categories/tags through the Mealie API when present in the bundle;
 - upsert only recipes listed in `recipes_to_upsert`;
-- do not resend full bodies for `existing_recipes_to_reuse`;
-- create meal planner entries from `meal_plan_entries` after recipes exist in Mealie;
-- use `create_mealplan_bulk` if available;
-- if existing meal plan entries would be duplicated and MCP cannot safely update/delete, report `STUCK_MEAL_PLAN_DUPLICATE_RISK` before writing duplicates;
-- if GitHub save succeeds but MCP/Mealie sync fails, report `PENDING_MEALIE_SYNC` in blockers/warnings and do not claim full sync.
+- do not resend full bodies for `existing_recipes_to_reuse` unless the bundle explicitly requests a resync;
+- create or update meal planner entries from `meal_plan_entries` after recipes exist in Mealie;
+- run `python integrations/mealie/mealie_api_sync.py validate --bundle weeks/current/MEALIE_RECIPE_BUNDLE.json` after sync;
+- if existing meal plan entries would be duplicated and cannot be safely updated, report `STUCK_MEAL_PLAN_DUPLICATE_RISK` before writing duplicates;
+- if GitHub save succeeds but Mealie API sync fails, report `PENDING_MEALIE_SYNC` in blockers/warnings and do not claim full sync.
 
 ### operation: `sync_recipes_only`
 
@@ -385,39 +386,43 @@ Rules:
 - do not modify menu files unless explicitly requested;
 - do not modify preferences unless explicitly requested;
 - validate the existing bundle JSON before syncing;
-- sync recipe upserts and meal planner entries if present;
-- use existing MCP server `mealie`;
+- sync recipe upserts and meal planner entries if present through `integrations/mealie/mealie_api_sync.py`;
+- do not use generic Mealie MCP for writes;
 - report duplicate conflicts without creating uncontrolled duplicates.
 
 ## Mealie recipe sync
 
-Project-local Codex MCP config:
+Project-local Mealie write path:
+
+```text
+integrations/mealie/mealie_api_sync.py
+```
+
+Project-local generic MCP config:
 
 ```text
 .codex/config.toml
 ```
 
-MCP server:
+The generic `mcp_servers.mealie` entry must remain disabled for Project `Питание` writes:
 
 ```text
-rldiao/mealie-mcp-server
+enabled = false
 ```
 
-External install path:
+Mealie API credentials must be supplied only through environment variables or local uncommitted Codex config values:
 
 ```text
-C:\my_global_workflow_tools\mealie-mcp-server
-```
-
-Mealie API keys must be supplied only through:
-
-```text
+MEALIE_BASE_URL
+MEALIE_API_TOKEN
 MEALIE_API_KEY
 ```
 
-Do not store Mealie tokens, bearer headers, cookies, or copied credentials in GitHub.
+Do not store Mealie tokens, bearer headers, cookies, copied credentials, or `.env` files in GitHub.
 
-Do not create, restore, or use a custom project-local Mealie MCP adapter.
+The generic Mealie MCP may be used only for non-authoritative read-only inspection. It must not be used to create or update recipes or meal planner entries because it can collapse ingredients into note/display strings instead of native amount/unit/food fields.
+
+A custom project-local Mealie MCP wrapper is allowed only if the user explicitly requests it and it delegates to the API sync contract in `integrations/mealie/mealie_api_sync.py` or preserves the same structured ingredient read-back validation.
 
 GitHub remains the durable recipe source. Mealie is the operational recipe and meal planner app. Full recipe JSON files live under `recipes/catalog/*.json` and must not be uploaded to ChatGPT Project Files by default.
 
@@ -463,9 +468,10 @@ For `save_menu_recipes_and_mealie_plan` and `sync_recipes_only`, also confirm:
 recipe bundle JSON validated
 recipes/catalog/*.json updated only from approved recipe data
 recipes/RECIPE_CATALOG_INDEX.md remains metadata-only
-Mealie recipe sync summary returned by MCP server mealie
-Mealie meal planner sync summary returned by MCP server mealie when meal_plan_entries are present
-custom project-local Mealie MCP adapter does not exist
+Mealie API sync summary returned by `integrations/mealie/mealie_api_sync.py`
+Mealie structured ingredient read-back shows quantity/unit/food populated
+Mealie meal planner API read-back confirms meal_plan_entries when present
+project-local generic `mcp_servers.mealie` remains disabled for writes
 ```
 
 ## Commit messages
