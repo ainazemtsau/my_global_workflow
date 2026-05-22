@@ -401,3 +401,30 @@ queue_update_after_g1_h1_g4_first_runnable_goal_formalization:
 ```
 
 The next queue movement is E1 execution-brief preparation. Implementation/bootstrap/product execution remain blocked.
+
+## Queue update after R1 H1_G4 route gate
+
+`h1-g4-first-runnable-technical-nucleus-slice` remains the active queue item.
+
+Status: `r1_route_gated`.
+
+Next route: `E1_EXECUTION_BRIEF`.
+
+Purpose of next movement:
+Prepare a minimal repair execution brief so Codex can finish the real H1_G4 TechnicalNucleus work in a user-verifiable way.
+
+Required before Goal acceptance:
+- product repo persistence evidence;
+- Markdown Operator Report;
+- Unity manual verification instructions;
+- scene/setup instructions if needed;
+- Unity-as-render-engine architecture evidence;
+- product worktree / open Editor batchmode policy.
+
+Still parked/forbidden:
+- Unity MCP setup;
+- fake test task;
+- Task Master graph creation;
+- old-code transfer;
+- Game Documentation promotion;
+- full vertical slice expansion.

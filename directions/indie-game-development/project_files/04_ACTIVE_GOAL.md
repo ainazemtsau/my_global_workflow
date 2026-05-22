@@ -505,3 +505,51 @@ summary: >
   Goal is shaped only; acceptance requires later runnable validated nucleus
   slice evidence or a concrete blocker/unblock packet.
 ```
+
+## 2026-05-22 R1 route gate — H1_G4 first runnable technical nucleus
+
+R1 reviewed the X1 H1_G4 TechnicalNucleus result.
+
+Verdict: `r1_route_gated` / `partial_progress`, not accepted complete.
+
+X1 produced useful runnable technical progress:
+- a Unity/C# gas nucleus loop;
+- `TechnicalNucleusRunner`;
+- Editor validation harness;
+- product evidence artifact;
+- Unity validation pass line;
+- Unity smoke pass.
+
+The Goal is not accepted complete because:
+- H1_G4 product repo changes are uncommitted;
+- the Codex return is not yet sufficiently human-verifiable;
+- Codex did not provide a Markdown Operator Report suitable for the user;
+- Codex did not provide sufficient Unity manual verification steps;
+- Codex did not provide scene/editor setup fallback instructions;
+- Codex did not explicitly report Unity-as-render-engine architecture evidence;
+- product worktree / open Unity Editor batchmode policy remains unresolved.
+
+Active Goal state after R1:
+- `active_goal_state`: `r1_route_gated`
+- `parent_goal_completion_state`: `incomplete_route_gated`
+- `accepted_result`: `none_route_gated_pending_E1_repair`
+- `next_route`: `E1_EXECUTION_BRIEF`
+- `next_route_mode`: `h1_g4_codex_operator_report_and_unity_validation_contract_repair`
+
+Required E1 repair scope:
+- preserve the real H1_G4 TechnicalNucleus slice;
+- do not create a fake/non-game test task;
+- require a user-facing Markdown Codex Operator Report;
+- require Unity manual verification instructions;
+- require manual scene/editor setup instructions when needed;
+- require Unity-as-render-engine architecture self-check;
+- resolve product worktree / open Unity Editor batchmode policy;
+- require product persistence evidence or explicit blocker.
+
+Explicitly forbidden:
+- Unity MCP setup;
+- Task Master graph creation;
+- old-code transfer;
+- Game Documentation promotion;
+- broad vertical slice expansion;
+- unrestricted scene/prefab mutation.

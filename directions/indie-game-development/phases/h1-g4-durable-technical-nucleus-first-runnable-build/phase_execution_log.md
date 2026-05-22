@@ -53,6 +53,22 @@ execution_log_entry:
   codex_product_execution_allowed_now: false
 ```
 
+## 2026-05-22 — R1 route gate, no Phase close
+
+R1 route-gated the active H1_G4 Goal after X1.
+
+The Phase remains active. P9 is not allowed because the first runnable H1_G4 technical nucleus slice is not yet accepted complete.
+
+Next route: `E1_EXECUTION_BRIEF`.
+
+Repair focus:
+- Codex Markdown Operator Report;
+- Unity manual verification;
+- scene/setup instructions if needed;
+- Unity-as-render-engine guardrail;
+- product worktree / batchmode policy;
+- product persistence evidence.
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/phase_execution_log.md`

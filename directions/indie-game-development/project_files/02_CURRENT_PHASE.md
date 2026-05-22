@@ -490,3 +490,24 @@ summary: >
   active parent Goal is not complete; E1 must prepare the execution brief before
   any product/project execution or setup route can proceed.
 ```
+
+## 2026-05-22 R1 route gate — H1_G4 operator-verification repair
+
+Current Phase remains active.
+
+Phase status after R1:
+- `active_goal_status`: `r1_route_gated`
+- `phase_progress_gate_status`: `not_run_goal_not_accepted`
+- `next_route`: `E1_EXECUTION_BRIEF`
+- `next_route_mode`: `h1_g4_codex_operator_report_and_unity_validation_contract_repair`
+
+The H1_G4 runnable slice is useful progress, but Phase close is not allowed yet.
+P9 remains blocked until R1 later accepts the parent Goal as complete.
+
+E1 must repair the execution contract before another X1 acceptance attempt:
+- Markdown Operator Report, no YAML as user-facing report;
+- Unity manual verification path;
+- scene/setup fallback instructions;
+- Unity-as-render-engine guardrail;
+- product worktree / batchmode policy;
+- product persistence evidence.

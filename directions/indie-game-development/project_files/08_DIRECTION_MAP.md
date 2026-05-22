@@ -1276,6 +1276,36 @@ map_delta:
   codex_product_execution_allowed_now: false
 ```
 
+## 2026-05-22 R1 map delta — H1_G4 route-gated for operator verification
+
+```yaml
+map_delta:
+  source_stage: R1_GOAL_REVIEW_DISTILL
+  delta_type:
+    - node_blocked
+    - active_front_unchanged
+    - implementation_still_bounded
+  node: H1_G4_durable_technical_nucleus
+  active_goal: h1-g4-first-runnable-technical-nucleus-slice
+  result: r1_route_gated
+  summary: >
+    X1 produced useful runnable TechnicalNucleus progress, but R1 did not
+    accept the parent Goal complete. Acceptance is blocked by uncommitted
+    product changes and insufficient operator-facing verification/reporting.
+  next_route: E1_EXECUTION_BRIEF
+  required_repair:
+    - Markdown Codex Operator Report
+    - Unity manual verification path
+    - scene/editor setup fallback steps
+    - Unity-as-render-engine architecture self-check
+    - product worktree / batchmode policy
+    - product persistence evidence
+  explicitly_not_selected:
+    - Unity MCP setup
+    - fake test task
+    - P9_PHASE_CLOSE
+```
+
 ## End-of-file marker
 
 END_OF_FILE: directions/indie-game-development/project_files/08_DIRECTION_MAP.md

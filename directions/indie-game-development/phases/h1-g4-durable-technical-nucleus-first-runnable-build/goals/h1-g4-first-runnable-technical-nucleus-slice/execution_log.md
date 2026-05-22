@@ -40,6 +40,39 @@ execution_log_entry:
   game_documentation_promotion_allowed_now: false
 ```
 
+## 2026-05-22 — R1 route gate after X1 TechnicalNucleus run
+
+R1 reviewed the X1-produced H1_G4 TechnicalNucleus result.
+
+Observable X1 progress:
+- runnable Unity/C# gas nucleus loop reported;
+- `TechnicalNucleusRunner` reported;
+- Editor validation harness reported;
+- Unity validation pass line reported;
+- Unity smoke pass reported;
+- Task Master checks reported;
+- forbidden surfaces including Unity MCP were not touched.
+
+R1 verdict:
+
+`partial_progress` / `r1_route_gated`.
+
+R1 did not accept the parent Goal complete.
+
+Blocking reasons:
+- product repo H1_G4 changes are uncommitted;
+- user-facing Codex Operator Report is insufficient;
+- Unity manual verification path is insufficient;
+- scene/editor setup fallback instructions are missing;
+- Unity-as-render-engine architecture evidence is not explicit enough;
+- product worktree / open Unity Editor batchmode policy is unresolved.
+
+Next route:
+
+`E1_EXECUTION_BRIEF`
+
+E1 must produce the smallest repair execution brief for the existing H1_G4 TechnicalNucleus slice. It must not create a fake test task and must not configure Unity MCP.
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md`

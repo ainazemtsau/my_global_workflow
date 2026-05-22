@@ -363,3 +363,24 @@ implementation_allowed_now: false
 ```
 
 E1 must prepare the execution brief for the shaped Goal. Implementation, Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.
+
+## 2026-05-22 focus update — E1 repair after R1 route gate
+
+Current focus:
+
+Prepare `E1_EXECUTION_BRIEF` for the H1_G4 Codex Operator Report and Unity validation contract repair.
+
+The goal is not a new test task. The subject is the existing H1_G4 TechnicalNucleus slice.
+
+E1 must require X1/Codex to return a user-facing Markdown report with:
+- plain-language implementation summary;
+- architecture summary without code dump;
+- Unity-as-render-engine self-check;
+- changed files and why they matter;
+- validation commands and evidence;
+- exact Unity manual verification steps;
+- scene/editor setup steps if needed;
+- product persistence state;
+- unresolved risks.
+
+YAML is forbidden as the user-facing Codex report format. YAML may be used only as hidden/technical workflow transport when required.
