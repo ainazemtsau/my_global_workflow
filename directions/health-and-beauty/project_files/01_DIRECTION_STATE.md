@@ -23,9 +23,9 @@ direction:
   current_phase_pointer: null
   active_goal_pointer: null
   active_goal_title: null
-  current_state_summary: "P9 closed the AI Nutrition Operating Layer Phase as close_complete after R1 accepted the repo-backed Project `Питание` nutrition loop Goal complete. Next action is Project Files refresh and P0_PHASE_START for a non-duplicate next Phase."
+  current_state_summary: "P9 closed the AI Nutrition Operating Layer Phase as closed_complete after R1 accepted the repo-backed Project `Питание` nutrition loop Goal complete. Next action is Project Files refresh and P0_PHASE_START for a result-facing first weekly body-transformation correction loop; no active Phase or active Goal is created by this patch."
   selected_goal_seed: null
-  selected_frontier_node: n2_minimal_body_metrics_packet
+  selected_frontier_node: n2_first_weekly_body_transformation_correction_loop
   next_route: P0_PHASE_START
   last_updated: "2026-05-22"
 

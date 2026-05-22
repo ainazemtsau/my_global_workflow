@@ -53,20 +53,29 @@ local_runtime_core_copy_required: false
 
 Stage prompts are request-only runtime inputs. Do not copy stage prompt files into Direction Project Files.
 
-## Required context for next E1_EXECUTION_BRIEF
+## Required context for next P0_PHASE_START / G1_GOAL_SHAPE
 
 * Direction Project Files 00-08 after repository maintenance/read-back and manual Project Files refresh.
 * `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 * `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`.
+* `workflow/runtime/CONTEXT_ACQUISITION_POLICY.md`.
 * `workflow/stage_registry/STAGE_REGISTRY.md`.
-* `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`.
-* Current Goal Contract: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/00_GOAL_CONTRACT.md`.
-* Current Goal Working Context: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/01_GOAL_WORKING_CONTEXT.md`.
+* Request exact stage prompt only when entering the stage:
+  * `workflow/stage_prompts/P0_PHASE_START.md`
+  * `workflow/stage_prompts/G1_GOAL_SHAPE.md`
+* Phase close summary: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/phase_close_summary.md`.
+* Phase Memory Index: `directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md`.
+* Direction Map: `directions/health-and-beauty/project_files/08_DIRECTION_MAP.md`.
 
-## Request-only context for E1_EXECUTION_BRIEF
+The next default route is a result-facing first weekly body-transformation correction loop. A standalone metrics/readiness/documentation packet Phase is not the default allowed shape.
 
-* Prior AI Nutrition Operating Layer v0 design/protocol artifact:
+## Request-only context for P0_PHASE_START / G1_GOAL_SHAPE
+
+* Prior AI Nutrition Operating Layer v0 design/protocol artifact, historical input only:
   * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/03_AI_NUTRITION_OPERATING_LAYER_V0.md`
+* Closed Project `Питание` Goal files, historical evidence only:
+  * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/00_GOAL_CONTRACT.md`
+  * `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0/01_GOAL_WORKING_CONTEXT.md`
 * Prior Project `Питание` setup files, historical input only.
 * Existing nutrition project files under `directions/health-and-beauty/projects/nutrition/**`, if needed for state/protocol inventory.
 * Existing setup package under `directions/health-and-beauty/project_setup/pitanie/**`, if needed for historical comparison.

@@ -27,7 +27,9 @@ Next route: `P0_PHASE_START`
 
 ## Current priority
 
-Start the next Phase from the Phase Memory Bridge after Project Files refresh. Candidate frontier for P0 is `n2_minimal_body_metrics_packet`; it is not yet a selected Goal.
+Start the next Phase from the Phase Memory Bridge after Project Files refresh. Candidate frontier for P0 is `n2_first_weekly_body_transformation_correction_loop`; it is not yet a selected Goal.
+
+The minimal metrics/state packet is the first internal gate for that loop, not a standalone Phase.
 
 ## Superseded / deferred items
 
@@ -37,5 +39,6 @@ Start the next Phase from the Phase Memory Bridge after Project Files refresh. C
 * Full food tracker/API automation/perfect recipe database/huge vault remain deferred.
 * Mealie recipe sync / meal planner sync is optional/nonblocking unless explicitly reshaped later.
 * Heavy tracking remains parked; do not revive MacroFactor/heavy tracking as default.
-* Training/cardio/recovery/supplements are future scoped work after the minimal metrics/state packet and a scoped evidence/decision slice.
+* Standalone metrics/readiness/documentation packet work is superseded unless it is inside the result-facing correction loop.
+* Training/cardio/recovery/supplements are future scoped work after the first weekly correction loop and a scoped evidence/decision slice.
 * Menu generation alone is not enough.

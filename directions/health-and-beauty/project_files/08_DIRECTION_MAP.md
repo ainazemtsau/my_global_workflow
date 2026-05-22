@@ -130,6 +130,12 @@ strategy_basis:
     - reversibility
     - human_burden_minimization
   candidate_paths_considered:
+    - path_id: first_weekly_body_transformation_correction_loop
+      verdict: selected_next_frontier
+      rationale: "Result-First repair requires the next frontier to face the body-transformation result directly: collect only the necessary state and produce the first weekly correction decision."
+    - path_id: standalone_minimal_body_metrics_packet
+      verdict: rejected_as_standalone_phase
+      rationale: "A metrics/readiness packet is useful only as an internal gate inside the correction loop, not as a standalone support-artifact Phase."
     - path_id: decide_minimal_nutrition_loop_shape_and_tooling
       verdict: selected
       rationale: "Repaired the active frontier after user correction and led to an accepted basis-valid nutrition loop before phase close review."
@@ -148,7 +154,7 @@ strategy_basis:
     - path_id: parallel_training_cardio_before_nutrition_loop_decision
       verdict: parked
       rationale: "Adds scope before the nutrition loop shape and tooling policy are basis-valid."
-  selected_path_rationale: "R1 accepted the repaired repo-backed multi-chat Project `Питание` nutrition loop Goal complete and P9 closed the Phase; run P0_PHASE_START before selecting further body-transformation work."
+  selected_path_rationale: "R1 accepted the repaired repo-backed multi-chat Project `Питание` nutrition loop Goal complete and P9 closed the Phase; run P0_PHASE_START to shape the first result-facing weekly body-transformation correction loop."
   major_assumptions:
     - "User can sustain a strict process if the process is clear and routine work is offloaded."
     - "Low-burden execution is more important than perfect measurement at the current stage."
@@ -162,6 +168,7 @@ strategy_basis:
     - "No supplement/fasting/brain-diet recommendation inside M0."
     - "No reopening the accepted nutrition setup Goal before the P9 phase gate."
     - "No stale Project `Питание` E1 launch."
+    - "No standalone metrics/readiness/documentation packet Phase that does not produce a correction decision."
 ```
 
 ## Compact Initiative Graph
@@ -181,13 +188,18 @@ compact_initiative_graph:
         - "Next routing is Phase close review, not more nutrition setup by default."
       human_burden_policy: "No detailed calorie-app ledger; use exception-only tracking and compact state updates."
 
-    - node_id: n2_minimal_body_metrics_packet
+    - node_id: n2_first_weekly_body_transformation_correction_loop
       initiative_id: body-transformation-20kg-strength-health
-      label: "Minimal body-transformation metrics packet"
-      type: horizon
+      label: "First weekly body-transformation correction loop"
+      type: active_front
       status: candidate_next_frontier_for_P0
-      purpose: "Define the smallest recurring input packet for AI correction: weight trend, optional waist/photos, training completion, VR/cardio minutes, sleep/energy, and exceptions."
-      non_goal: "Do not create a full quantified-self tracker or food database."
+      purpose: "Shape the smallest recurring body-transformation loop that gathers the minimum necessary state and produces a weekly correction decision."
+      internal_gate: "Minimal metrics/state packet is required inside the loop, not as its own standalone Phase."
+      success_signal:
+        - "Weekly state inputs are small enough to sustain."
+        - "The loop produces the first body-transformation correction decision."
+        - "The output can inform later training/cardio/recovery choices without creating a broad tracker."
+      non_goal: "Do not create a standalone n2_minimal_body_metrics_packet Phase framing, full quantified-self tracker, or food database."
 
     - node_id: n3_training_cardio_recovery_decision_slice
       initiative_id: body-transformation-20kg-strength-health
@@ -220,13 +232,13 @@ compact_initiative_graph:
 
   edges:
     - from: d_nutrition_loop_shape_and_tooling
-      to: n2_minimal_body_metrics_packet
+      to: n2_first_weekly_body_transformation_correction_loop
       relation: enables
-      reason: "An accepted nutrition loop needs a minimal state input format for ongoing correction."
-    - from: n2_minimal_body_metrics_packet
+      reason: "An accepted nutrition loop needs a result-facing weekly correction loop, with the state packet as its internal input gate."
+    - from: n2_first_weekly_body_transformation_correction_loop
       to: n3_training_cardio_recovery_decision_slice
       relation: informs
-      reason: "Training/cardio/recovery choice should reflect baseline and minimal metrics."
+      reason: "Training/cardio/recovery choice should reflect the first weekly correction decision and its minimal state inputs."
     - from: n3_training_cardio_recovery_decision_slice
       to: n4_integrated_daily_weekly_ai_operator
       relation: enables
@@ -241,12 +253,12 @@ compact_initiative_graph:
 
 ```yaml
 active_front:
-  primary_node: n2_minimal_body_metrics_packet
-  reason: "The nutrition loop node is accepted and Phase-closed; the next smallest non-duplicate frontier is defining the minimal recurring state packet for body-transformation correction."
+  primary_node: n2_first_weekly_body_transformation_correction_loop
+  reason: "The nutrition loop node is accepted and Phase-closed; the next smallest non-duplicate frontier is a result-facing weekly correction loop. The minimal metrics/state packet is an internal gate for that loop, not a standalone support artifact."
   current_route_binding:
     route_state: post_phase_close_pending_P0
     route: P0_PHASE_START
-    rule: "Run P0 after repository maintenance/read-back and Project Files refresh; candidate frontier is n2_minimal_body_metrics_packet, not a selected Goal."
+    rule: "Run P0 after repository maintenance/read-back and Project Files refresh; candidate frontier is n2_first_weekly_body_transformation_correction_loop, not a selected Goal."
   parallel_candidate_nodes: []
   parked_nodes:
     - n3_training_cardio_recovery_decision_slice
@@ -256,10 +268,11 @@ active_front:
   completed_nodes:
     - d_nutrition_loop_shape_and_tooling
   candidate_next_frontier:
-    - n2_minimal_body_metrics_packet
+    - n2_first_weekly_body_transformation_correction_loop
   superseded_nodes:
     - "stale Project `Питание` setup route"
     - "MacroFactor/heavy tracking default path"
+    - "standalone n2_minimal_body_metrics_packet Phase framing"
 ```
 
 ## Horizon Slice
@@ -267,10 +280,10 @@ active_front:
 ```yaml
 horizon_slice:
   id: h_low_friction_evidence_based_body_transformation_loop
-  statement: "Do not jump to a perfect full-body plan. The nutrition loop is accepted and Phase-closed; next define minimal body metrics/state, then run one evidence-backed training/cardio/recovery decision slice, then integrate into a daily/weekly operator."
+  statement: "Do not jump to a perfect full-body plan. The nutrition loop is accepted and Phase-closed; next shape the first weekly body-transformation correction loop, with minimal body metrics/state as its internal gate, then run one evidence-backed training/cardio/recovery decision slice, then integrate into a daily/weekly operator."
   node_ids:
     - d_nutrition_loop_shape_and_tooling
-    - n2_minimal_body_metrics_packet
+    - n2_first_weekly_body_transformation_correction_loop
     - n3_training_cardio_recovery_decision_slice
     - n4_integrated_daily_weekly_ai_operator
   not_a_calendar_roadmap: true
@@ -305,16 +318,22 @@ parked_future_node_details:
 
 ```yaml
 map_delta:
-  type: p9_phase_close_delta
-  node_id: d_nutrition_loop_shape_and_tooling
+  type: result_first_local_direction_migration
+  node_id: n2_first_weekly_body_transformation_correction_loop
   date: "2026-05-22"
-  summary: "Nutrition loop node completed and Phase closed; next candidate frontier is minimal body-transformation metrics packet."
-  horizon_slice_delta: "Nutrition loop node completed and Phase closed; next candidate frontier is minimal body-transformation metrics packet."
-  active_front_delta: "Advance from nutrition loop closure gate to P0 selection of next Phase."
+  summary: "Active front changed from standalone n2_minimal_body_metrics_packet Phase framing to a result-facing first weekly body-transformation correction loop."
+  previous_frontier_node: n2_minimal_body_metrics_packet
+  new_frontier_node: n2_first_weekly_body_transformation_correction_loop
+  lifecycle_state_reconciliation:
+    active_phase_created: false
+    active_goal_created: false
+    route_remains: P0_PHASE_START
+  horizon_slice_delta: "Minimal body metrics/state becomes the first internal gate inside the weekly correction loop, not a standalone Phase."
+  active_front_delta: "Advance from support-artifact packet framing to P0 selection of a result-facing correction loop."
   nodes_completed:
     - d_nutrition_loop_shape_and_tooling
   nodes_unblocked:
-    - n2_minimal_body_metrics_packet
+    - n2_first_weekly_body_transformation_correction_loop
   nodes_parked:
     - n3_training_cardio_recovery_decision_slice
     - n4_integrated_daily_weekly_ai_operator
@@ -323,6 +342,7 @@ map_delta:
   nodes_superseded:
     - "stale Project `Питание` setup route"
     - "MacroFactor/heavy tracking default path"
+    - "standalone n2_minimal_body_metrics_packet Phase framing"
   m0_review_needed: false
 ```
 
@@ -344,7 +364,8 @@ map_update_policy:
     - inventing_downstream_route_from_conflicted_state
   next_update_triggers:
     - "After P0_PHASE_START selects the next non-duplicate Phase."
-    - "After minimal body-transformation metrics packet is shaped or accepted."
+    - "After G1_GOAL_SHAPE defines the first weekly body-transformation correction loop."
+    - "After the minimal metrics/state packet is accepted as the first internal gate inside that loop."
     - "After a scoped training/cardio/recovery evidence or decision slice is completed."
 ```
 

@@ -37,7 +37,9 @@ Use these files before proposing the next Phase:
 * Phase close summary: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/phase_close_summary.md`
 * Phase memory index: `07_PHASE_MEMORY_INDEX.md`
 
-The next Phase should not repeat Project `Питание` setup repair. The candidate frontier for P0 is `n2_minimal_body_metrics_packet`.
+The next Phase should not repeat Project `Питание` setup repair. The candidate frontier for P0 is `n2_first_weekly_body_transformation_correction_loop`.
+
+The minimal metrics/state packet is the first internal gate, not a standalone support-artifact Phase. Shape the next Phase around a result-facing weekly correction loop that can produce an actual body-transformation correction decision.
 
 ## Default Project Files to load
 
