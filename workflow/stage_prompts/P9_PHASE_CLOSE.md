@@ -143,6 +143,7 @@ Classify and report:
 - `closure_evidence_basis`
 - `phase_memory_update_status`
 - `phase_close_summary_status`
+- `closed_phase_dominant_output: primary_result | support_artifact_heavy | mixed_result_and_support | partial_or_route_gated | unknown`
 - `map_delta_status`
 - `post_close_frontier_status: frontier_advanced | frontier_unchanged | frontier_blocked | frontier_unknown_requires_M0 | no_material_frontier_next`
 - `next_phase_candidate_status`
@@ -154,9 +155,22 @@ Classify and report:
 - `registry_review_candidate: true | false`
 - `project_files_refresh_or_lifecycle_reconciliation_status`
 
-Before `close_complete`, verify the Phase Closure Contract and Phase Minimum Outcome evidence. For formal closure, preserve Phase Memory Bridge obligations: update or propose update to `07_PHASE_MEMORY_INDEX.md`, create/update `phase_close_summary.md` when required, keep the compact index compact, and do not invent closed Phase history.
+Before `close_complete`, verify the Phase Result Contract / Phase Closure Contract and Phase Minimum Outcome evidence. Ask whether the Phase moved the Direction to the promised next observable state, or whether the output was only a support artifact. A Phase may close on a support artifact only when that artifact is the accepted primary outcome by Direction/Phase contract or directly unlocks a named result action and closure was explicitly contracted that way.
 
-Before selecting or proposing a next Phase, require a concrete delta from the closing Phase, an anti-duplicate line, accepted horizon/frontier link when strategic, and an explicit reason why `P0_PHASE_START` is the smallest safe next route instead of `M0_DIRECTION_MAP`, `G0_GOAL_SELECT`, Stop, or `Direction pause/archive`.
+For formal closure, preserve Phase Memory Bridge obligations: update or propose update to `07_PHASE_MEMORY_INDEX.md`, create/update `phase_close_summary.md` when required, keep the compact index compact, and do not invent closed Phase history.
+
+Before selecting or proposing a next Phase, require a concrete delta from the closing Phase, an anti-duplicate line, accepted horizon/frontier link when strategic, and an explicit reason why `P0_PHASE_START` is the shortest safe path to the next Direction-visible result instead of `M0_DIRECTION_MAP`, `G0_GOAL_SELECT`, Stop, or `Direction pause/archive`.
+
+Every next Phase candidate in Phase Memory must classify:
+
+- `standalone_phase_allowed: true | false`
+- `embed_as_first_goal_or_gate_by_default: true | false`
+- `standalone_allowed_only_if`
+- `do_not_select_if`
+- `result_visible_delta`
+- `support_artifacts_expected`
+
+After a support-artifact-heavy Phase, P9 must not seed another same-surface support artifact, readiness, setup, documentation, research, checklist, or validation Phase by default. Recommend a result-facing next Phase with needed support validation/setup as the first Goal/gate when required.
 
 P9 may propose a compact `map_delta` or frontier delta when closing or pausing a Phase, but must not turn `08_DIRECTION_MAP.md` into a roadmap or backlog. P9 must not select `G0_GOAL_SELECT` only because Active Goal is none. P9 may route to G0 only when Phase continuation or next required Goal selection is basis-valid, registry-valid, and not a duplicate or optional expansion. P9 may route to `M0_DIRECTION_MAP` when horizon/frontier must be reviewed before next Phase/Goal selection. P9 may route to `P0_PHASE_START` when a new or reframed Phase is basis-valid and non-duplicate. `Direction pause/archive` is a registry-listed special terminal/lifecycle outcome, not a canonical stage ID.
 
@@ -231,6 +245,7 @@ Minimum `07_PHASE_MEMORY_INDEX.md` update fields:
 - duplicate_phase_patterns_to_avoid;
 - recommended_next_phase_candidates;
 - recommended_next_phase_not;
+- next_phase_candidate_result_first_check for each recommended candidate, including standalone_phase_allowed, embed_as_first_goal_or_gate_by_default, standalone_allowed_only_if, do_not_select_if, result_visible_delta, and support_artifacts_expected;
 - evidence/read-back pointer.
 
 Minimum `phase_close_summary.md` sections:
@@ -402,6 +417,8 @@ Phase closure is eligible only when all applicable statements are true:
 *   R1 or equivalent review evidence supports closure.
 *   Required G1/E1/F0 evidence is present when relevant.
 *   Required file read-back / diff verification / commit verification evidence is fresh.
+*   Phase Result Contract proves the promised next observable state was reached.
+*   Support artifact output, if dominant, is accepted as primary or explicitly contracted as directly unlocking a named result action.
 *   No unresolved Context Request blocks closure.
 *   No source-of-truth conflict blocks closure.
 *   Documentation drift is either resolved or explicitly safe to refresh after closure.
@@ -518,6 +535,7 @@ Use this exact top-level structure.
 *   Route:
 *   Phase status before:
 *   Phase status after:
+*   Dominant output classification:
 *   Reason:
 
 ## 2\. Evidence checked
@@ -592,6 +610,9 @@ Apply these defaults:
 *   If a task seems interesting but not required for safe Phase closure, exclude it.
 *   If uncertain whether a patch is safe, use explicit `Repository Patch: none` and return the smallest registry-valid fallback, Stop, or `REGISTRY_REVIEW_CANDIDATE`.
 *   If documentation drift exists, identify the smallest refresh list rather than editing everything.
+*   Do not convert each blocker/gate into its own Phase.
+*   Do not interpret smallest safe route as smallest lifecycle container.
+*   Do not produce Phase Memory candidates that anchor P0 into micro-phases.
 
 ## 15\. Final self-check before responding
 

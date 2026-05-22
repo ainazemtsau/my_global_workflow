@@ -186,6 +186,17 @@ Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for `executi
 
 E1 must inherit or produce compact `next_action_proof` before execution planning. E1 must not plan HOW for unproven WHAT, and must not plan HOW until MSSP is passed, inherited, or explicitly not required when solution shape is material.
 
+E1 prepares the minimum HOW/handoff needed to execute the accepted WHAT. It must not create another planning, documentation, readiness, or setup chain unless new evidence or a concrete blocker requires it.
+
+Before selecting execution HOW or a downstream route, run this result-first execution planning check:
+
+- What Direction-visible result will this execution route produce or unlock?
+- Which support docs, handoff artifacts, setup evidence, or validation artifacts are strictly necessary?
+- Is the proposed output merely another support artifact, readiness, setup, or documentation chain?
+- If a support artifact is material, does it pass the Documentation Admission Test or resolve a concrete blocker/new evidence?
+
+If the next output would only be another support artifact and the Documentation Admission Test or concrete blocker/new evidence does not justify it, cut it and plan the shortest safe path to execution/result progress.
+
 Before selecting an execution route, set compact execution readiness:
 
 - execution_readiness_status: ready | missing_blocking | failed | not_required_for_nonmaterial_case
@@ -373,6 +384,7 @@ Apply these filters:
 *   Reject companion functionality unless required by the acceptance floor.
 *   Reject interesting work that is not highest-leverage for the Goal.
 *   Reject broad research, archive loading, canon edits, and cross-Direction rollout unless G1 explicitly requires them.
+*   Reject broad architecture/process documentation, handoff envelopes, setup loops, or readiness chains unless they are execution-unlocking and pass Component Necessity / Documentation Admission rules.
 
 ### Pass 4.5 — Research Need Gate
 
@@ -612,7 +624,7 @@ E1 must not directly change the Direction Map. Any map update is a later parent-
 
 Select exactly one primary next route.
 
-Use the smallest safe route rule.
+Use the shortest safe path to the next Direction-visible result while preserving the Minimum Complete Outcome and all E1/X0/X1 readiness gates.
 
 #### Route: `U1_USER_GUIDED_EXECUTION`
 
@@ -675,8 +687,11 @@ f0_rejected:
 Choose `X0_EXECUTOR_PROJECT_SETUP` when all are true:
 
 *   Executor Project Setup is missing, incomplete, blocked by setup evidence gaps, or the current action is setup itself.
+*   Setup evidence is needed to unlock, protect, or verify the next Direction-visible result and cannot be safely handled through existing setup evidence or a lighter route.
 *   The target project/workspace identity is explicit enough to form a Project Setup Request, or the missing input can be requested precisely.
 *   The setup route is registry-valid.
+
+X0 is an execution-unlocking setup action, not a standalone result by default.
 
 #### Route: `X1_EXECUTOR_RUN`
 
@@ -698,7 +713,7 @@ Use exception routes when needed:
 *   Context Request: required context is missing.
 *   Stop Card: launch is unsafe, contradictory, or out of scope.
 
-If a selected downstream prompt may not yet be installed/runtime-active, still produce the correct route if it is the smallest safe route, but include a downstream availability guard:
+If a selected downstream prompt may not yet be installed/runtime-active, still produce the correct result-first route, but include a downstream availability guard:
 
 ```yaml
 downstream_availability:
@@ -719,6 +734,8 @@ For each G1 acceptance-floor item, define:
 Every acceptance-floor item must have a validation check.
 
 Do not accept vague validation such as “looks good.”
+
+Execution Brief artifacts must be minimal, consumer-bound, and execution-unlocking. Do not produce broad architecture/process docs unless they pass Component Necessity and Documentation Admission rules.
 
 ### Pass 7 — GitHub repository, documentation, and Project Files pass
 
@@ -754,7 +771,7 @@ Before finalizing, verify:
 
 *   You did not execute the Goal.
 *   You preserved G1 scope cuts.
-*   You selected the smallest safe route.
+*   You selected the shortest safe path to the next Direction-visible result.
 *   You did not silently trust stale context.
 *   You produced validation evidence requirements.
 *   You produced a usable Next Launch Card.
@@ -769,9 +786,12 @@ Use this exact high-level shape.
 
 ## 1. Route decision
 - Selected route:
-- Why this is the smallest safe route:
+- Why this is the shortest safe path to the next Direction-visible result:
 - Alternatives rejected:
 - Downstream availability guard:
+- Direction-visible result produced_or_unlocked:
+- Support artifacts strictly necessary:
+- Support-artifact chain check:
 - execution_readiness_status:
 - next_action_proof_status:
 - mssp_status:
@@ -1037,7 +1057,7 @@ E1 must use only registry-valid executor downstream routes. When setup is needed
 
 Apply these aggressively:
 
-*   Default to the smallest safe route.
+*   Default to the shortest safe path to the next Direction-visible result.
 *   Use Pareto/80-20: brief the highest-leverage work that proves the validation signal.
 *   Cut scope until slightly uncomfortable.
 *   Prefer one testable slice over a comprehensive system.
@@ -1054,6 +1074,7 @@ Before you answer, confirm internally:
 *   E1 did not execute the Goal.
 *   E1 produced exactly one selected route or one exception card.
 *   E1 preserved G1 scope cuts.
+*   E1 avoided a standalone support-artifact/readiness/setup/documentation chain unless admitted by Documentation Admission Test or concrete blocker/new evidence.
 *   E1 mapped acceptance to validation.
 *   E1 included Repository Patch or explicit none.
 *   E1 included Execution Log Entry.

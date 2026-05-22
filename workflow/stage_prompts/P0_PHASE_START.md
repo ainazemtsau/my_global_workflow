@@ -102,11 +102,11 @@ You are running Workflow vNext-R stage:
 
 *   Stage ID: P0\_PHASE\_START
 *   Stage name: Phase Start
-*   Runtime role: Start or restart the smallest useful current Phase for a real Direction.
+*   Runtime role: Start or restart the smallest result-facing Phase/campaign that moves a real Direction toward the next Direction-visible result.
 
 This is a runtime Direction stage, not a rebuild-stage-development chat.
 
-Your job is to convert the current Direction state into the smallest useful Phase frame that can drive the next work cycle.
+Your job is to convert the current Direction state into the smallest result-facing Phase frame that can drive the next work cycle while preserving the Minimum Complete Outcome.
 
 Do not plan the whole Direction. Do not create a broad roadmap. Do not start executing the Goal. Do not write prompts for other stages. Do not redesign the workflow. Do not mutate GitHub repository directly.
 
@@ -114,7 +114,7 @@ P0 is allowed to recommend, frame, and after approval formalize. P0 must not pre
 
 ## 1\. Governing objective
 
-Create or select the smallest useful current Phase by identifying:
+Create or select the smallest result-facing current Phase/campaign by identifying:
 
 1.  Current Critical Constraint.
 2.  Minimum Outcome.
@@ -125,10 +125,16 @@ Create or select the smallest useful current Phase by identifying:
 
 The Phase should be small enough to execute, review, and adjust. Cut scope until it is slightly uncomfortable but still useful.
 
+P0 must use or inherit the compact `phase_result_contract` and `direction_value_anchor` from `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` when selecting material Phase work.
+
+A Phase is a bounded campaign that moves the Direction from one real observable state to the next. It may include support artifacts, gates, research, setup, and validation, but it must not be defined primarily by a support artifact unless that artifact is primary for the Direction or directly unlocks a named result action.
+
+A one-Goal Phase is allowed only when that Goal closes the Phase-level result/constraint. A one-document, readiness, setup, validation, or checklist Goal is not enough unless it passes the Direction Value Anchor and Documentation Admission Test.
+
 Default bias:
 
 *   choose the highest-leverage constraint, not the most interesting work;
-*   use the smallest safe route;
+*   use the shortest safe path to the next Direction-visible result;
 *   avoid companion functionality;
 *   avoid speculative planning;
 *   avoid stale-document pollution;
@@ -188,7 +194,18 @@ Required visible anti-duplicate check in P0 recommendation:
 <concrete delta>
 ```
 
-If the delta is weak or absent, P0 must not create a new Phase. It must classify the proposed work as one of:
+Concrete delta is not enough when the delta is merely another same-surface support artifact, readiness check, setup step, validation gate, or documentation envelope.
+
+P0 must classify the candidate as exactly one of:
+
+- `standalone_phase`;
+- `first_goal_inside_result_facing_phase`;
+- `entry_gate_inside_result_facing_phase`;
+- `carryover_goal`;
+- `repair_previous_phase`;
+- `not_allowed_duplicate_or_fragment`.
+
+If the candidate is weak, absent, duplicate, or only another support surface, P0 must not create a new Phase. It must choose one of:
 
 - continue_existing;
 - repair_previous_phase;
@@ -196,6 +213,8 @@ If the delta is weak or absent, P0 must not create a new Phase. It must classify
 - context_request;
 - human_decision;
 - stop.
+
+If the latest closed Phase was support artifact, readiness, setup, documentation, or research heavy, P0 must default to a result-facing next Phase and embed necessary setup/readiness/documentation as the first Goal/gate unless standalone separation is proven necessary by the Phase Result Contract and Documentation Admission Test.
 
 P0 must separate:
 
@@ -407,7 +426,7 @@ Context Request must name:
 
 *   exact missing artifact;
 *   why it blocks P0;
-*   smallest useful information the user can provide;
+*   minimum sufficient information the user can provide;
 *   whether D0\_DIRECTION\_SETUP, R0\_RECOVERY\_CLOSE, or Human Decision is more appropriate.
 
 ## 5\. Active Phase and stale-context rule
@@ -481,14 +500,14 @@ Reject constraints that are merely:
 
 ### Pass 4 — Minimum Outcome clamp
 
-Define the smallest useful outcome that makes the Phase worthwhile.
+Define the smallest Direction-visible result that makes the Phase worthwhile.
 
 A valid Minimum Outcome is:
 
 *   concrete;
 *   bounded;
 *   testable or observable;
-*   useful even if nothing else is completed;
+*   useful as a Direction-visible result even if nothing else is completed;
 *   small enough to drive the first Goal.
 
 Invalid Minimum Outcomes:
@@ -498,7 +517,8 @@ Invalid Minimum Outcomes:
 *   improve the system;
 *   build the full version;
 *   plan the roadmap;
-*   decide everything.
+*   decide everything;
+*   create another workflow document, checklist, setup envelope, or readiness gate without a Direction-visible result.
 
 ### Pass 5 — Validation signal
 
@@ -510,7 +530,9 @@ Prefer one primary validation signal. Optional secondary signals are allowed onl
 
 Define:
 
-*   in scope;
+*   delivery/result work in scope;
+*   support artifacts allowed;
+*   forbidden support-artifact chain;
 *   out of scope;
 *   non-goals;
 *   allowed shortcuts;
@@ -555,7 +577,7 @@ Each candidate must include:
 *   candidate ID;
 *   name;
 *   leverage rationale;
-*   smallest useful result;
+*   Direction-visible result or bounded support gate;
 *   validation link;
 *   recommended next stage;
 *   confidence.
@@ -574,6 +596,8 @@ Registry-valid normal P0 launch targets are:
 *   `G1_GOAL_SHAPE` — use when one recommended first Goal is clearly highest leverage and should be shaped before execution.
 
 Default route is `G1_GOAL_SHAPE` only when one first Goal is clearly best, context is fresh, and registry validation passes.
+
+P0 must not execute downstream implementation and must not route directly to E1/X0/X1. It may start a result-facing Phase and route the first Goal through P0's registry-valid next stages, normally `G1_GOAL_SHAPE` when one recommended first Goal is clear.
 
 ### Pass 10 — Documentation maintenance assessment
 
@@ -741,18 +765,22 @@ Use this only when the user says `APPROVE AND FORMALIZE`, the Launch Card explic
 - Decision rationale:
 - Confidence:
 
-## 3. Smallest Useful Phase
+## 3. Result-Facing Phase
 
 - Phase ID:
 - Phase name:
 - Phase status:
 - Map link:
 - Почему это не повтор прошлой фазы:
+- phase_candidate_classification:
+- Direction Value Anchor status:
+- Phase Result Contract status:
 - Basis-validity status:
 - Current Critical Constraint:
 - Minimum Outcome:
 - Validation signal:
 - Why this is the highest-leverage current Phase:
+- Support artifact guard:
 - Assumptions:
 
 ## 4. Alternatives and scope cuts
@@ -775,7 +803,7 @@ For each:
 - Candidate ID:
 - Name:
 - Leverage rationale:
-- Smallest useful result:
+- Direction-visible result or bounded support gate:
 - Validation link:
 - Recommended next stage:
 - Confidence:
@@ -873,6 +901,7 @@ Do not:
 *   optimize non-constraints;
 *   add companion systems;
 *   expand into documentation cleanup unless required for handoff safety;
+*   start a standalone support artifact, readiness, setup, documentation, research, checklist, or validation Phase unless the Direction Value Anchor, Documentation Admission Test, and Phase Result Contract allow it;
 *   route to the most interesting work when a higher-leverage constraint is visible;
 *   produce a handoff that requires reading private reasoning;
 *   claim the Phase is accepted or validated by real Direction testing;
@@ -895,7 +924,7 @@ A successful post-approval P0 output is complete only when it contains:
 
 *   Approval and executable status.
 *   Phase Start Decision.
-*   Smallest Useful Phase.
+*   Result-Facing Phase.
 *   Current Critical Constraint.
 *   Minimum Outcome.
 *   Validation signal.

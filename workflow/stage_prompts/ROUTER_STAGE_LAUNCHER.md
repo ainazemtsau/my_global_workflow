@@ -160,16 +160,19 @@ F0 readiness is also an `execution_readiness` check under the Objective Architec
 
 ## 3\. Core routing principle
 
-Default to the smallest safe route.
+Default to the shortest safe path to the next Direction-visible result that preserves the Minimum Complete Outcome and required safety gates.
 
-Smallest safe route means:
+Smallest safe route is only a compatibility shorthand for that result-first default. It means smallest sufficient result scope and smallest sufficient support work, not the least powerful lifecycle container, document gate, or Phase boundary.
 
-*   the least powerful stage that can safely move the work forward;
-*   the route with the fewest assumptions;
-*   the route that avoids irreversible writes unless explicitly prepared;
-*   the route that does not over-plan small work;
-*   the route that cuts scope instead of expanding it;
-*   the route that prevents stale context from contaminating the next stage.
+Before choosing a lifecycle/stage container, run this result-first routing check:
+
+*   What is the next Direction-visible result?
+*   Which support artifacts are strictly necessary to unlock, protect, or verify it?
+*   Can readiness, setup, documentation, or research be embedded as an internal Goal/gate inside a result-facing Phase/Goal?
+*   Was the previous material Phase/Goal support-artifact-heavy?
+*   Does the selected route preserve the Minimum Complete Outcome rather than replacing it with control-plane work?
+
+If the previous material Phase/Goal was documentation, readiness, setup, research, or support-artifact-heavy, default to result-facing continuation unless new evidence introduced a blocker, source-of-truth/safety risk makes execution unsafe, the Direction itself makes a governance/documentation artifact the primary result, or the user explicitly chose more planning/research/documentation.
 
 Use these bias rules:
 
@@ -181,7 +184,7 @@ Use these bias rules:
 *   If executor setup or execution planning is needed, prefer E1\_EXECUTION\_BRIEF.
 *   If setup is missing and setup readiness is valid, prefer X0\_EXECUTOR\_PROJECT\_SETUP.
 *   If setup is complete and an explicit Execution Work Package is ready, prefer X1\_EXECUTOR\_RUN.
-*   If closure/review/documentation maintenance is due, prefer R1\_GOAL\_REVIEW\_DISTILL or P9\_PHASE\_CLOSE.
+*   If closure/review/documentation maintenance is due and blocks result flow under the Documentation Admission Test or source-of-truth/safety/execution/validation/cache-refresh rules, prefer R1\_GOAL\_REVIEW\_DISTILL or P9\_PHASE\_CLOSE.
 *   If state is confused, failed, partial, or unsafe, prefer R0\_RECOVERY\_CLOSE or stop.
 
 ---
@@ -469,13 +472,16 @@ Route to A1\_AUDIT when:
 
 ### 6.6 Executor planning and setup
 
-Route to E1\_EXECUTION\_BRIEF when executor setup/run planning is still needed.
+Route to E1\_EXECUTION\_BRIEF when executor setup/run planning is needed to execute or unlock the accepted result-facing Goal.
 
 Route to X0\_EXECUTOR\_PROJECT\_SETUP only when:
 
-*   setup is missing and the safe next action is setup;
+*   setup is missing and setup evidence directly unlocks, protects, or verifies the next Direction-visible result;
 *   target project/workspace identity is explicit enough for setup;
-*   prompt delivery and readiness are valid.
+*   prompt delivery and readiness are valid;
+*   setup cannot be safely embedded in the current result-facing route.
+
+X0/setup is control-plane unlock by default. Do not route to setup as a material outcome unless it directly unlocks or protects the next Direction-visible result.
 
 ### 6.7 Executor run
 
@@ -604,13 +610,13 @@ On fail: request current Stage Interface Registry or accepted stage list.
 
 ### 8.4 Scope gate
 
-Question: Is this route the smallest safe route?
+Question: Is this route the shortest safe path to the next Direction-visible result while preserving the Minimum Complete Outcome?
 
-Pass if no less-powerful stage can safely progress the work.
+Pass if the selected stage is the smallest sufficient result-facing route and all required support artifacts/gates are necessary.
 
-Fail if a smaller shaping, decision, capture, or fast-direct route would be safer.
+Fail if the route turns readiness, documentation, setup, research, or validation into a standalone material container when it can be embedded in result-facing work.
 
-On fail: choose the smaller route.
+On fail: choose the result-facing route or the smallest registry-valid correction.
 
 ### 8.5 Acceptance gate
 
@@ -630,9 +636,9 @@ If no, route may proceed with lighter context.
 
 ### 8.7 Documentation gate
 
-Question: Is review, closure, or Context refresh overdue?
+Question: Would stale or missing documentation create a concrete source-of-truth, safety, execution, validation, or cache-refresh failure?
 
-If yes, route to review/closure before starting new work.
+Documentation maintenance blocks routing only when the Documentation Admission Test passes or the concrete failure above is present. Documentation improvement alone must not preempt a result route.
 
 ### 8.8 Recovery gate
 
@@ -724,7 +730,7 @@ The human-readable Router Result must appear first and must include:
 
 - selected next stage or blocking card;
 - immediate next action for the user;
-- why this is the smallest safe route;
+- why this is the shortest safe path to the next Direction-visible result;
 - important missing context, conflicts, or approval needs;
 - scope guardrail / anti-rabbit-hole note when relevant.
 
@@ -811,7 +817,7 @@ Default visible shape:
 - Blocking issue, if any:
 
 ## 2. Why this route
-Explain why this is the smallest safe route and why heavier/lighter alternatives were rejected.
+Explain why this is the shortest safe path to the next Direction-visible result and why heavier/lighter alternatives were rejected.
 
 ## 3. Context check
 Include only context/freshness details that affect routing, safety, approval, or the next action.
@@ -878,7 +884,7 @@ Do not invent local packet schemas.
 Before responding, verify:
 
 *   exactly one route outcome is selected;
-*   the selected route is the smallest safe route;
+*   the selected route is the shortest safe path to the next Direction-visible result;
 *   no downstream stage work was performed;
 *   no prompt for another stage was written;
 *   stale context is excluded;

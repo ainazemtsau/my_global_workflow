@@ -154,7 +154,7 @@ Your job is to shape the Goal. Do not execute the Goal.
 4.  Do not execute the Goal.
 5.  Do not create a full execution plan unless the next-stage route requires a compact execution brief handoff.
 6.  Do not add companion functionality unless it is required for the acceptance floor.
-7.  Prefer the smallest safe route.
+7.  Prefer the shortest safe path to the next Direction-visible result while preserving the Minimum Complete Outcome.
 8.  Cut scope until the Goal is slightly uncomfortable but still valid.
 9.  Treat old GOAL START terminology as a compatibility alias only when clearly equivalent to G1\_GOAL\_SHAPE.
 10.  Do not propagate stale GOAL START terminology as current terminology.
@@ -240,11 +240,26 @@ Use or request `minimum_sufficient_solution_proof` / MSSP when user examples may
 
 Reject or route away from Goal shapes that are overbuilt, undercut below the Minimum Complete Outcome, anchored to nonbinding user examples, or unsupported by the active frontier when map binding is material.
 
+G1 may keep Goals small/testable, but must preserve the accepted Phase/result loop. Small slicing must not convert a result-facing Phase into a support-artifact chain.
+
+Classify the proposed Goal outcome before scope cutting:
+
+- Is the outcome a Direction-visible result?
+- Or is it a support artifact?
+- If support artifact, what named result action does it unlock, protect, or verify?
+- Does the Documentation Admission Test apply?
+
+If the proposed Goal is documentation, readiness, setup, research, checklist, envelope, or other support-artifact-heavy work, require Documentation Admission Test when a durable artifact is material and Direction Value Anchor when it is claimed as primary progress. Otherwise embed it as a bounded support gate and route toward result-facing continuation.
+
 The Goal Contract must include compact proof-status lines:
 
 - map/frontier binding status;
 - `next_action_proof` status;
 - `minimum_complete_outcome`;
+- `outcome_classification: primary_result | support_artifact | mixed | unknown`;
+- `result_action_unlocked`;
+- `documentation_admission_required: true | false`;
+- `result_first_verdict`;
 - MSSP status: not_required / inherited / proven_compact / missing_blocking / failed;
 - user example classification.
 
@@ -295,7 +310,7 @@ Classify any user examples and decide whether MSSP is required.
 
 Define `minimum_complete_outcome` before cutting scope.
 
-Set compact proof statuses for map/frontier binding, `next_action_proof`, MSSP, and user example classification.
+Set compact proof statuses for map/frontier binding, `next_action_proof`, outcome classification, support artifact admission, MSSP, and user example classification.
 
 If MSSP is required but missing or failed, do not shape a material Goal Contract. Return the smallest registry-valid repair route or blocking artifact.
 
@@ -332,6 +347,10 @@ Convert the seed into a Goal Contract with:
 *   route recommendation
 *   close path
 *   map binding, when applicable
+*   outcome\_classification
+*   result\_action\_unlocked
+*   documentation\_admission\_required
+*   result\_first\_verdict
 
 The Goal Contract should be sufficient for a fresh next-stage chat to proceed without rereading old history.
 
@@ -339,12 +358,14 @@ The Goal Contract should be sufficient for a fresh next-stage chat to proceed wi
 
 Apply these filters:
 
-*   What is the smallest version that proves the Goal?
+*   What is the smallest result-facing version that proves the Goal?
 *   What is necessary for DONE?
 *   What is merely attractive companion functionality?
 *   What would turn this Goal into a broader Phase?
 *   What would require common canon, source-of-truth changes, security/privacy behavior, or cross-Direction rollout?
 *   What can be safely deferred?
+
+Scope cutting may cut optional scope, future-proofing, broad research, excessive docs, speculative architecture, companion features, and unnecessary validation surfaces. It must not cut away the first operational/result action or reduce the Goal to a support document unless that is the accepted primary result.
 
 Move anything not required for the acceptance floor into one of:
 
@@ -468,7 +489,7 @@ Default visible shape:
 - Goal being shaped:
 - Recommended next stage:
 - Immediate next action:
-- Why this is the smallest useful version:
+- Why this is the shortest safe path to the next Direction-visible result:
 
 ## 2. Goal Contract
 Include:
@@ -485,6 +506,10 @@ Include:
 - map_binding, when applicable;
 - map/frontier binding status;
 - next_action_proof status;
+- outcome_classification: primary_result | support_artifact | mixed | unknown;
+- result_action_unlocked;
+- documentation_admission_required: true | false;
+- result_first_verdict;
 - MSSP status;
 - user example classification;
 - close_path.
@@ -569,11 +594,12 @@ Before finalizing, silently check:
 *   Did I define observable DONE?
 *   Did I define validation?
 *   Did I preserve the active Phase horizon?
+*   Did I preserve the accepted Phase/result loop instead of creating a support-artifact chain?
 *   Did I avoid stale GOAL START propagation?
 *   Did I create a usable next-stage launch card?
 *   Did I include documentation obligations?
 *   Did I avoid context pollution?
-*   Did I route to the least heavy safe next stage?
+*   Did I route toward the next Direction-visible result with only necessary support artifacts?
 *   Did I include required transport packets?
 *   Did I tolerant-read unknown fields?
 

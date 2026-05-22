@@ -74,6 +74,7 @@ Before accepting parent-level completion, R1 must classify and report:
 - `completion_scope: parent_goal_complete | gated_slice_complete | branch_or_workstream_complete | partial_artifact_complete | unknown`
 - `parent_goal_completion_state: complete | incomplete | unknown`
 - `goal_review_verdict: accepted_complete | rejected_incomplete | needs_rework | evidence_insufficient | blocked`
+- `reviewed_output_classification: primary_result | support_artifact | partial_slice | optional_reference | unknown`
 - `evidence_basis`
 - `delivered_outcome_summary`
 
@@ -88,6 +89,8 @@ After accepting or verifying a parent Goal outcome, R1 must run or reference `ph
 - `unnecessary_component_or_process_detected: true | false`
 
 Do not convert parked optional components, unresolved surfaces, nice-to-have improvements, or future ideas into required continuation work without new basis-valid and solution-minimal proof.
+
+If R1 accepts a support artifact, default continuation must be result-facing use of that artifact, not another support-artifact Goal or standalone support-artifact Phase. A further support-artifact continuation is allowed only when the Direction Value Anchor, Documentation Admission Test, or concrete source-of-truth/safety/execution/validation/cache-refresh failure justifies it.
 
 For any proposed continuation, classify and report:
 
@@ -340,9 +343,11 @@ R1 must:
 
 - check the active Phase Closure Contract and Phase Minimum Outcome;
 - identify whether the completed Goal may satisfy Phase Minimum Outcome;
+- classify the completed output as `primary_result`, `support_artifact`, `partial_slice`, `optional_reference`, or `unknown`;
 - classify remaining work as required_for_closure or optional_expansion when evidence allows;
 - route to P9 when the completed Goal may satisfy Phase Minimum Outcome;
 - route to G0 only after explicit continue_with_required_goals / Phase Continue decision;
+- prevent support artifact completion from triggering Phase closure or a next standalone support-artifact Phase unless Phase Result Contract and Documentation Admission Test pass;
 - report `REGISTRY_REVIEW_CANDIDATE` when closure vs continuation is strategic/ambiguous but the needed Human Decision outcome is not registry-valid;
 - report `REGISTRY_REVIEW_CANDIDATE` when Phase Closure Contract is missing or too stale to evaluate but the needed Context Request outcome is not registry-valid.
 
@@ -408,8 +413,10 @@ Use this internal order. Do not expose private reasoning or chain-of-thought. Ex
         *   what remains unresolved;
         *   what route is safe.
 7.  Documentation maintenance gate
-    
+
     *   Identify stale Direction, Phase, Goal, Focus Register, Portfolio Queue, Execution Log, or Project File exports.
+    *   Recommend documentation maintenance only when required by Documentation Admission Test, source-of-truth, safety, execution, validation, Project Files cache, or concrete evidence preservation.
+    *   Treat documentation polish alone as optional; park it rather than making it required continuation.
     *   Emit Changed Files / Context Refresh List.
     *   Do not patch documentation unless exact paths, authority, and content are available.
 8.  Route selection
@@ -430,7 +437,7 @@ Use this internal order. Do not expose private reasoning or chain-of-thought. Ex
 
 ## 7\. Route rules
 
-Use the smallest safe route.
+Use the shortest safe path to the next Direction-visible result that preserves the Minimum Complete Outcome and required review/closure gates.
 
 ### 7.1 Verified completion route
 
@@ -534,6 +541,8 @@ Apply these defaults:
 *   Do not add companion functionality.
 *   Do not open broad planning after small work.
 *   Do not choose interesting review/canon work over the highest-leverage closure signal.
+*   Do not select the next required Goal merely because a surface remains unresolved; continuation must be basis-valid, result-facing, and on the active frontier.
+*   Park optional or nonblocking support surfaces.
 *   Do not create long lessons-learned sections by default.
 *   Do not ask routine questions. Use `REGISTRY_REVIEW_CANDIDATE` when missing information blocks safe review but Context Request is not registry-valid.
 *   Do not produce multiple route options unless a human-owned decision is required; report registry review candidate if that outcome is not registry-valid.
@@ -552,6 +561,7 @@ Include:
 *   closure\_eligibility:
 *   completion\_scope:
 *   parent\_goal\_completion\_state:
+*   reviewed\_output\_classification:
 *   phase\_progress\_gate\_status:
 *   map\_frontier\_impact:
 *   active\_frontier\_implication:
@@ -582,12 +592,14 @@ Include concise bullets:
 *   what did not happen:
 *   acceptance status:
 *   remaining blocker or remaining work:
+*   result-facing continuation if output was support_artifact:
 
 ## 4\. Documentation maintenance
 
 Include:
 
 *   documentation\_drift\_found: true/false
+*   documentation_admission_status:
 *   docs\_to\_refresh:
 *   Context refresh required_after_approval: true/false
 *   notes:
