@@ -31,6 +31,28 @@ execution_log_entry:
   codex_product_execution_allowed_now: false
 ```
 
+## 2026-05-22 — G1_GOAL_SHAPE formalized first H1_G4 Goal
+
+```yaml
+execution_log_entry:
+  stage_id: G1_GOAL_SHAPE
+  event: first_phase_goal_shaped
+  result: goal_shaped_pending_E1_execution_brief
+  phase_id: h1-g4-durable-technical-nucleus-first-runnable-build
+  active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  summary: >
+    The first H1_G4 runnable durable technical nucleus Goal was
+    formalized. E1 is now the next route to prepare HOW, validation,
+    context, route, and blocker handling. No implementation or product
+    execution is authorized by this G1 result.
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/phase_execution_log.md`

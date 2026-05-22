@@ -9,7 +9,7 @@ project_file_control:
     - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
     - "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p0_h1_g4_first_runnable_build_phase_start
+  source_freshness: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -18,8 +18,8 @@ project_file_control:
 ```yaml
 current_phase:
   state: active
-  current_phase_status: active_pending_G1_goal_shape
-  status: active_pending_G1_goal_shape
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  status: active_goal_shaped_pending_E1_execution_brief
   phase_name: "H1_G4 Durable Technical Nucleus — First Runnable Build"
   phase_id: h1-g4-durable-technical-nucleus-first-runnable-build
   phase_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
@@ -31,9 +31,12 @@ current_phase:
   previous_phase_summary: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md"
   phase_closed: false
   map_binding: "H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus"
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_h1_g4_first_runnable_technical_nucleus_slice
-  active_goal_id: none_active_pending_G1_goal_shape
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
   selected_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
   last_completed_goal_id: bootstrap-validation-surface-setup-envelope
   last_completed_goal_result: r1_accepted_goal_complete
@@ -49,22 +52,22 @@ current_phase:
 
 ```yaml
 active_goal_projection:
-  goal_id: none_active_pending_G1_goal_shape
-  status: none_active_pending_G1_goal_shape
+  goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  status: goal_shaped_pending_E1_execution_brief
   phase_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
-  goal_contract: none_pending_G1_goal_shape
-  execution_log: none_pending_G1_goal_shape
+  goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
   selected_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
   selected_first_goal_candidate_status: selected_for_G1_goal_shape
   last_completed_goal_id: bootstrap-validation-surface-setup-envelope
   last_completed_goal_result: r1_accepted_goal_complete
   accepted_goal_artifact: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md"
-  recommended_next_stage: G1_GOAL_SHAPE
-  next_route_mode: shape_h1_g4_first_runnable_technical_nucleus_slice
-  completion_scope: none_pending_goal_shape
-  parent_goal_completion_state: none_pending_goal_shape
-  accepted_result: "Setup/validation envelope accepted by R1 and closed with previous Phase."
-  goal_shape_note: "P0 selected the first H1_G4 runnable technical nucleus Goal candidate. No setup or product execution is authorized."
+  recommended_next_stage: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  completion_scope: goal_shaped_only
+  parent_goal_completion_state: incomplete_goal_shaped_only
+  accepted_result: none_pending_execution
+  goal_shape_note: "G1 shaped the first H1_G4 runnable technical nucleus Goal. E1 is required before any setup or product execution is authorized."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
@@ -79,6 +82,20 @@ phase_progress_gate_after_g1_bootstrap_validation_surface_setup_envelope_formali
   next_route: E1_EXECUTION_BRIEF
   next_route_mode: prepare_bootstrap_validation_surface_setup_envelope_execution_brief
   reason: "G1 shaped the setup/validation envelope Goal. E1 is the smallest safe route to prepare execution without bootstrap or product execution."
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  task_master_graph_allowed_now: false
+```
+
+```yaml
+phase_progress_gate_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization:
+  result: active_goal_shaped_pending_E1_execution_brief
+  p9_allowed_now: false
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  reason: "G1 shaped the first H1_G4 runnable durable technical nucleus Goal. E1 is the smallest safe route to prepare HOW, validation, allowed/forbidden surfaces, context requirements, and blocker handling."
+  parent_goal_completion_state: incomplete_goal_shaped_only
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -168,10 +185,10 @@ phase_closure_contract_status_update:
 
 - Active Phase unresolved: `no`
 - Active Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
-- Active Phase route state: `active_pending_G1_goal_shape`
+- Active Phase route state: `active_goal_shaped_pending_E1_execution_brief`
 - Active Goal unresolved: `no`
-- Active Goal: `none_active_pending_G1_goal_shape`
-- Active Goal status: `none_active_pending_G1_goal_shape`
+- Active Goal: `h1-g4-first-runnable-technical-nucleus-slice`
+- Active Goal status: `goal_shaped_pending_E1_execution_brief`
 - Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
@@ -185,7 +202,7 @@ phase_closure_contract_status_update:
 - Last closed Phase result: `p9_closed_complete`
 - Direction Map status: `initialized`
 - Map link: `H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus`
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `E1_EXECUTION_BRIEF`
 - Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
@@ -198,9 +215,9 @@ The previous Phase accepted the setup/validation envelope. This Phase does not r
 
 ## Next route
 
-Run `G1_GOAL_SHAPE` after this P0 repository maintenance is committed/integrated and manual Project Files refresh is complete.
+Run `E1_EXECUTION_BRIEF` after this G1 repository maintenance is committed/integrated and manual Project Files refresh is complete.
 
-G1 must shape `h1-g4-first-runnable-technical-nucleus-slice` before any setup or product execution.
+E1 must prepare the execution brief for `h1-g4-first-runnable-technical-nucleus-slice` before any setup or product execution.
 
 Do not proceed to project bootstrap, durable implementation planning, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, Unity MCP setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
@@ -449,4 +466,27 @@ summary: >
   Goal candidate to G1. Product/project execution, Unity bootstrap, Task Master
   graph creation, Unity MCP setup, old-code transfer, and documentation
   promotion remain blocked until a later basis-valid route authorizes them.
+```
+
+## 2026-05-22 G1 formalization — H1_G4 first runnable technical nucleus Goal
+
+```yaml
+g1_h1_g4_first_runnable_technical_nucleus_slice_formalization:
+  state: active
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  status: active_goal_shaped_pending_E1_execution_brief
+  phase_id: h1-g4-durable-technical-nucleus-first-runnable-build
+  active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  parent_goal_completion_state: incomplete_goal_shaped_only
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  G1 shaped the first H1_G4 runnable durable technical nucleus Goal. The
+  active parent Goal is not complete; E1 must prepare the execution brief before
+  any product/project execution or setup route can proceed.
 ```

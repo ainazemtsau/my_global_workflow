@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_p0_h1_g4_first_runnable_build_phase_start
+projection_status: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
 activated_at: "2026-05-13"
 ```
 
@@ -17,19 +17,17 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `h1-g4-durable-technical-nucleus-first-runnable-build`
 - Active Phase name: `H1_G4 Durable Technical Nucleus — First Runnable Build`
-- Active Phase status: `active_pending_G1_goal_shape`
+- Active Phase status: `active_goal_shaped_pending_E1_execution_brief`
 - Map binding: `H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `none_active_pending_G1_goal_shape`
-- Active Goal status: `none_active_pending_G1_goal_shape`
-- Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
-- Selected first Goal candidate status: `selected_for_G1_goal_shape`
+- Active Goal: `h1-g4-first-runnable-technical-nucleus-slice`
+- Active Goal status: `goal_shaped_pending_E1_execution_brief`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `E1_EXECUTION_BRIEF`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -82,7 +80,7 @@ Required first runnable technical nucleus surface:
 
 ## Queue items
 
-- H1_G4 first runnable durable technical nucleus slice — `selected_for_G1_goal_shape`; id: `h1-g4-first-runnable-technical-nucleus-slice`; route: `G1_GOAL_SHAPE`; purpose: shape the first runnable H1_G4 technical nucleus Goal or evidence-based blocker route.
+- H1_G4 first runnable durable technical nucleus slice — `goal_shaped_pending_E1_execution_brief`; id: `h1-g4-first-runnable-technical-nucleus-slice`; route: `E1_EXECUTION_BRIEF`; purpose: prepare execution brief for the first runnable H1_G4 durable technical nucleus Goal.
 - Project Bootstrap / Validation Surface Setup Envelope — `closed_with_phase`; id: `bootstrap-validation-surface-setup-envelope`; route: `none_goal_complete`; purpose: preserved as completed Phase evidence after setup/validation envelope acceptance.
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
@@ -376,3 +374,30 @@ parked_request_only_preserved:
 ```
 
 The next queue movement is G1 shaping of the first runnable H1_G4 durable technical nucleus Goal. Implementation/bootstrap/product execution remain blocked.
+
+## Queue update after G1 H1_G4 first runnable Goal formalization
+
+```yaml
+queue_update_after_g1_h1_g4_first_runnable_goal_formalization:
+  active_phase: h1-g4-durable-technical-nucleus-first-runnable-build
+  active_phase_name: "H1_G4 Durable Technical Nucleus — First Runnable Build"
+  active_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal: h1-g4-first-runnable-technical-nucleus-slice
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  next_route: E1_EXECUTION_BRIEF
+  queue_item:
+    id: h1-g4-first-runnable-technical-nucleus-slice
+    status: goal_shaped_pending_E1_execution_brief
+    route: E1_EXECUTION_BRIEF
+    purpose: "Prepare execution brief for the first runnable H1_G4 durable technical nucleus Goal."
+  parked_request_only_preserved:
+    - product_execution
+    - Game Documentation promotion
+    - old-code transfer
+    - Unity MCP setup
+    - Task Master graph creation
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+The next queue movement is E1 execution-brief preparation. Implementation/bootstrap/product execution remain blocked.

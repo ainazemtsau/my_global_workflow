@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p0_h1_g4_first_runnable_build_phase_start
+  source_freshness: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -23,9 +23,9 @@ direction:
   current_initiative_from_map: innovative-commercial-expedition-gas-sim-game
   active_horizon_from_map: H1_playable_technical_nucleus
   current_phase_pointer: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
-  current_phase_status: active_pending_G1_goal_shape
-  active_goal_pointer: none_active_pending_G1_goal_shape
-  active_goal_contract: none_pending_G1_goal_shape
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal_pointer: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice"
+  active_goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: r1_accepted_route_gated_decision_map
   recommended_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
@@ -41,9 +41,9 @@ direction:
   accepted_product_local_artifacts:
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\outbox\\H1_G3_READINESS_PACKET.md"
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\evidence\\h1-g3-readiness-2026-05-21.md"
-  active_goal_status: none_active_pending_G1_goal_shape
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_h1_g4_first_runnable_technical_nucleus_slice
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -83,7 +83,7 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
 - Path: `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build`
-- Status: `active_pending_G1_goal_shape`
+- Status: `active_goal_shaped_pending_E1_execution_brief`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-22`
 - Map binding: `H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus`
@@ -91,15 +91,16 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Current Critical Constraint: accepted readiness/envelope state exists, but no first runnable durable technical nucleus slice exists yet.
 - Minimum Outcome: accepted or route-gated first runnable H1_G4 durable technical nucleus slice.
 - Validation Signal: concrete runnable/evidence output or exact blocker/unblock route.
-- Active Goal: `none_active_pending_G1_goal_shape`
-- Active Goal status: `none_active_pending_G1_goal_shape`
+- Active Goal: `h1-g4-first-runnable-technical-nucleus-slice`
+- Active Goal status: `goal_shaped_pending_E1_execution_brief`
+- Active Goal Contract: `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md`
 - Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`; old Grid/Gas material is reference/evidence only until requirements are clear.
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `E1_EXECUTION_BRIEF`
 - Implementation allowed now: `false`
 - Codex product execution allowed now: `false`
 
@@ -145,13 +146,13 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `requires_manual_refresh_after_p0_h1_g4_first_runnable_build_phase_start_repository_maintenance_2026-05-22`
-- Required refresh: `before G1_GOAL_SHAPE after P0 phase start repository maintenance read-back/commit/integration`
-- Current route: `G1_GOAL_SHAPE`
+- Last refresh: `requires_manual_refresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization_repository_maintenance_2026-05-22`
+- Required refresh: `before E1_EXECUTION_BRIEF after G1 goal formalization repository maintenance read-back/commit/integration`
+- Current route: `E1_EXECUTION_BRIEF`
 - Active Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
-- Active Phase status: `active_pending_G1_goal_shape`
-- Active Goal: `none_active_pending_G1_goal_shape`
-- Active Goal status: `none_active_pending_G1_goal_shape`
+- Active Phase status: `active_goal_shaped_pending_E1_execution_brief`
+- Active Goal: `h1-g4-first-runnable-technical-nucleus-slice`
+- Active Goal status: `goal_shaped_pending_E1_execution_brief`
 - Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
@@ -473,4 +474,24 @@ summary: >
   first runnable durable technical nucleus Goal candidate for G1 shaping. The
   accepted setup/validation envelope remains input evidence, not the new Goal
   outcome.
+```
+
+## 2026-05-22 G1 formalized H1_G4 first runnable technical nucleus Goal
+
+```yaml
+g1_h1_g4_first_runnable_technical_nucleus_slice_formalization:
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal_pointer: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice"
+  active_goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  recommended_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  G1 formalized the first H1_G4 runnable durable technical nucleus Goal.
+  The Goal is shaped only; the parent Goal is incomplete until a runnable
+  validated nucleus slice or concrete blocker/unblock packet exists and is
+  reviewed through the later lifecycle route.
 ```

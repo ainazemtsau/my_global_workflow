@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_p0_h1_g4_first_runnable_build_phase_start
+  freshness: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
   last_updated: "2026-05-22"
-  next_action: "Run G1_GOAL_SHAPE after repository maintenance and manual Project Files refresh."
+  next_action: "Run E1_EXECUTION_BRIEF after repository maintenance and manual Project Files refresh."
 ```
 
 ## Direction identity
@@ -38,14 +38,14 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Current Gate | `P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `H1_G4 Durable Technical Nucleus — First Runnable Build` | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build` |
-| Current Phase status | `active_pending_G1_goal_shape` | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md` |
+| Current Phase status | `active_goal_shaped_pending_E1_execution_brief` | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md` | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md` |
-| Active Goal | `none_active_pending_G1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
-| Active Goal status | `none_active_pending_G1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal | `h1-g4-first-runnable-technical-nucleus-slice` | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice` |
+| Active Goal status | `goal_shaped_pending_E1_execution_brief` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Last completed Goal | `bootstrap-validation-surface-setup-envelope` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope` |
 | Last completed Goal status | `r1_accepted_goal_complete / closed_with_phase` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md` |
 | Last completed Goal Artifact | `setup/validation envelope` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md` |
-| Active Goal Contract | `none_pending_G1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal Contract | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md` | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md` |
 | Existing Goal Artifact | `Core Technical Foundation Decision Brief / Decision Map` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` |
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
@@ -53,7 +53,7 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Last closed Phase | `Project Bootstrap and Validation Surface Setup` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` |
 | latest_closed_phase_summary | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` |
 | Selected first Goal candidate | `h1-g4-first-runnable-technical-nucleus-slice` | `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md` |
-| Next route | `G1_GOAL_SHAPE — shape first H1_G4 runnable technical nucleus slice` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
+| Next route | `E1_EXECUTION_BRIEF — prepare H1_G4 first runnable technical nucleus slice execution brief` | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` |
 
 ## Current Phase meaning
 
@@ -91,13 +91,13 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `G1_GOAL_SHAPE` after this P0 repository maintenance is applied/read back/committed/integrated and the Indie Game Development Project Files are manually refreshed.
+Run `E1_EXECUTION_BRIEF` after this G1 repository maintenance is applied/read back/committed/integrated and the Indie Game Development Project Files are manually refreshed.
 
 P0 started the Phase after P9 closed Project Bootstrap and Validation Surface Setup:
 
 `H1_G4 Durable Technical Nucleus — First Runnable Build`
 
-G1 must shape `h1-g4-first-runnable-technical-nucleus-slice`. It must not run implementation, setup, product repository mutation, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
+E1 must prepare the execution brief for `h1-g4-first-runnable-technical-nucleus-slice`. It must not run implementation, setup, product repository mutation, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
 
 ## 2026-05-16 R1 stabilization
 
@@ -417,4 +417,24 @@ summary: >
   P0 formalized the H1_G4 first runnable build Phase. The accepted
   setup/validation envelope is input, not a repeated microphase. G1 is the next
   route to shape the first runnable durable technical nucleus Goal.
+```
+
+## 2026-05-22 G1 formalization — H1_G4 first runnable technical nucleus Goal shaped
+
+```yaml
+g1_h1_g4_first_runnable_technical_nucleus_slice_formalization:
+  current_phase: "H1_G4 Durable Technical Nucleus — First Runnable Build"
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal: h1-g4-first-runnable-technical-nucleus-slice
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  active_goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  G1 formalized the first H1_G4 runnable durable technical nucleus Goal.
+  E1 is the next route to prepare HOW, validation path, allowed and forbidden
+  surfaces, context requirements, and blocker handling. No implementation or
+  product/project execution is authorized by this G1 result.
 ```
