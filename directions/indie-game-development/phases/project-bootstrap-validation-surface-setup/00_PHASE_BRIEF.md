@@ -6,7 +6,7 @@ schema: phase_brief.v1
 direction_id: indie_game_development
 phase_id: project-bootstrap-validation-surface-setup
 phase_name: "Project Bootstrap and Validation Surface Setup"
-status: active_goal_r1_accepted_pending_P9_phase_close
+status: closed_complete_by_P9
 started_by_stage: P0_PHASE_START
 started_at: "2026-05-21"
 previous_phase_id: core-coop-technical-foundation-selection
@@ -14,7 +14,7 @@ previous_phase_status: closed_complete_by_P9
 previous_phase_summary: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md"
 map_link: "H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus"
 basis_validity_status: proven
-next_route: P9_PHASE_CLOSE
+next_route: P0_PHASE_START
 implementation_allowed_now: false
 codex_product_execution_allowed_now: false
 unity_bootstrap_allowed_now: false
@@ -109,6 +109,32 @@ r1_acceptance_note:
   next_route: P9_PHASE_CLOSE
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
+```
+
+## 2026-05-22 P9 close
+
+```yaml
+p9_phase_close:
+  close_status: closed_complete_by_P9
+  closed_phase: project-bootstrap-validation-surface-setup
+  closed_goal: bootstrap-validation-surface-setup-envelope
+  closure_verdict: close_complete
+  closed_at: "2026-05-22"
+  basis:
+    - "R1 accepted bootstrap-validation-surface-setup-envelope as completed_verified / accepted_complete."
+    - "The Phase minimum outcome is satisfied by the accepted setup/validation envelope."
+    - "Remaining implementation/setup items are later lifecycle work, not required for this Phase closure."
+  next_route: P0_PHASE_START
+  next_route_condition: "after repository maintenance and manual Project Files refresh"
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  product_repository_creation_allowed_now: false
+  product_code_allowed_now: false
+  task_master_graph_allowed_now: false
+  unity_mcp_setup_allowed_now: false
+  old_code_transfer_allowed_now: false
+  game_documentation_promotion_allowed_now: false
 ```
 
 ## First Goal Candidate

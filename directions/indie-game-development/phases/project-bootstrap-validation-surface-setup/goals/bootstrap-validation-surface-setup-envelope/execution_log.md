@@ -144,6 +144,42 @@ log_entry:
     Product/project execution remains blocked until a later basis-valid route.
 ```
 
+## 2026-05-22 — P9_PHASE_CLOSE — Phase close formalized
+
+```yaml
+log_entry:
+  date: "2026-05-22"
+  stage: P9_PHASE_CLOSE
+  patch_id: p9_close_project_bootstrap_validation_surface_setup_2026_05_22
+  kind: phase_close_formalization
+  approval_source: APPROVE_AND_FORMALIZE
+  repository_patch_approved: true
+  phase_id: project-bootstrap-validation-surface-setup
+  goal_id: bootstrap-validation-surface-setup-envelope
+  phase_status_before: active_goal_r1_accepted_pending_P9_phase_close
+  phase_status_after: closed_complete_by_P9
+  goal_status_before: r1_accepted_goal_complete
+  goal_status_after: closed_with_phase
+  closure_verdict: close_complete
+  repository_patch_required: true
+  phase_memory_bridge_update_required: true
+  next_route: P0_PHASE_START
+  next_route_after_repository_maintenance_and_manual_refresh: P0_PHASE_START
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  product_repository_creation_allowed_now: false
+  product_code_allowed_now: false
+  task_master_graph_allowed_now: false
+  unity_mcp_setup_allowed_now: false
+  old_code_transfer_allowed_now: false
+  game_documentation_promotion_allowed_now: false
+  summary: >
+    P9 formalized closure of Project Bootstrap and Validation Surface Setup
+    after R1 accepted the setup/validation envelope. Product/project execution
+    boundaries remain preserved for a later basis-valid route.
+```
+
 ## End-of-file marker
 
 END_OF_FILE: directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md

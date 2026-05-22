@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_r1_bootstrap_validation_surface_setup_envelope_accepted
+  source_freshness: fresh_after_p9_project_bootstrap_validation_surface_setup_close
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,20 +16,20 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run P9_PHASE_CLOSE to close or pause Project Bootstrap and Validation Surface Setup after R1 accepted the setup/validation envelope."
-  route_stage: P9_PHASE_CLOSE
-  route_mode: close_or_pause_project_bootstrap_validation_surface_setup_after_envelope_acceptance
+  current_focus: "Start the next Phase after Project Bootstrap and Validation Surface Setup closure, repository maintenance, and manual Project Files refresh."
+  route_stage: P0_PHASE_START
+  route_mode: start_next_phase_after_project_bootstrap_validation_surface_setup_close
   same_chat_allowed: false
-  boundary_trigger: r1_bootstrap_validation_surface_setup_envelope_accepted
+  boundary_trigger: p9_project_bootstrap_validation_surface_setup_closed
   pending_state_carried: true
   pending_patch_pointer: g1_formalize_bootstrap_validation_surface_setup_envelope_2026_05_22
-  last_stage_result_pointer: "R1_GOAL_REVIEW_DISTILL accepted the bootstrap-validation-surface-setup-envelope Goal and selected P9_PHASE_CLOSE."
+  last_stage_result_pointer: "P9_PHASE_CLOSE closed Project Bootstrap and Validation Surface Setup as closed_complete_by_P9."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   active_goal:
     goal_id: bootstrap-validation-surface-setup-envelope
-    status: r1_accepted_goal_complete
+    status: closed_with_phase
     goal_contract: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md"
     execution_log: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md"
     previous_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
@@ -38,23 +38,21 @@ focus:
     phase_id: project-bootstrap-validation-surface-setup
     phase_name: Project Bootstrap and Validation Surface Setup
     phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
-    status: active_goal_r1_accepted_pending_P9_phase_close
+    status: closed_complete_by_P9
     map_binding: "H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus"
-    next_route: P9_PHASE_CLOSE
+    next_route: P0_PHASE_START
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `manual Project Files refresh blocks the next P9 run after R1 repository maintenance apply/read-back/commit/integration`
-- Human decision: `none pending for P9 launch after refresh`
-- Source conflict: `Project Files stale until this R1 repository maintenance patch is applied/read back and manually refreshed`
+- Missing context: `manual Project Files refresh blocks the next P0 run after P9 repository maintenance apply/read-back/commit/integration`
+- Human decision: `none pending for P0 launch after refresh`
+- Source conflict: `Project Files stale until this P9 repository maintenance patch is applied/read back and manually refreshed`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/P9_PHASE_CLOSE.md`
-  - refreshed Project Files 00-08 after R1 acceptance
-  - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md`
-  - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md`
-  - `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md`
+  - exact `workflow/stage_prompts/P0_PHASE_START.md`
+  - refreshed Project Files 00-08 after P9 close
+  - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md`
   - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md`
   - `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
   - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
@@ -63,7 +61,7 @@ focus:
 
 P0 started `Project Bootstrap and Validation Surface Setup` after `Core Co-op Technical Foundation Selection` closed complete by P9.
 
-The next focus is `P9_PHASE_CLOSE` to close or pause the Phase after R1 accepted the Goal `bootstrap-validation-surface-setup-envelope`. P9 must not run bootstrap, product repository creation, product code, real tool setup, Unity MCP setup, Task Master graph creation, or Codex product/project execution directly.
+The next focus is `P0_PHASE_START` after P9 closed the Phase with Goal `bootstrap-validation-surface-setup-envelope` accepted and closed with the Phase. P0 must not run bootstrap, product repository creation, product code, real tool setup, Unity MCP setup, Task Master graph creation, or Codex product/project execution directly.
 
 Forbidden in this focus:
 
@@ -272,3 +270,31 @@ implementation_allowed_now: false
 ```
 
 P9 must close or pause the Project Bootstrap and Validation Surface Setup Phase after acceptance. Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.
+
+## 2026-05-22 P9 phase close focus update
+
+P9 closed:
+
+`Project Bootstrap and Validation Surface Setup`
+
+Current route:
+
+```yaml
+route_stage: P0_PHASE_START
+route_mode: start_next_phase_after_project_bootstrap_validation_surface_setup_close
+same_chat_allowed: false
+boundary_trigger: p9_project_bootstrap_validation_surface_setup_closed
+active_goal:
+  goal_id: bootstrap-validation-surface-setup-envelope
+  status: closed_with_phase
+active_phase:
+  phase_id: project-bootstrap-validation-surface-setup
+  status: closed_complete_by_P9
+required_context_for_next_stage:
+  - exact workflow/stage_prompts/P0_PHASE_START.md
+  - refreshed Project Files 00-08 after P9 close
+  - directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md
+codex_product_execution_allowed_now: false
+```
+
+P0 must start/reframe the next Phase. Implementation, Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked.

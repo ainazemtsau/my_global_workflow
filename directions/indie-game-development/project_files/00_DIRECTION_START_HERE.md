@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_r1_bootstrap_validation_surface_setup_envelope_accepted
+  freshness: fresh_after_p9_project_bootstrap_validation_surface_setup_close
   last_updated: "2026-05-22"
-  next_action: "Run P9_PHASE_CLOSE to close or pause the Project Bootstrap and Validation Surface Setup Phase after Project Files are manually refreshed."
+  next_action: "Run P0_PHASE_START after repository maintenance and manual Project Files refresh."
 ```
 
 ## Direction identity
@@ -38,21 +38,22 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Current Gate | `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `Project Bootstrap and Validation Surface Setup` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup` |
-| Current Phase status | `active_goal_r1_accepted_pending_P9_phase_close` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` |
+| Current Phase status | `closed_complete_by_P9` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` |
-| Active Goal | `bootstrap-validation-surface-setup-envelope` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
-| Active Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
-| Last completed Goal | `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness` |
-| Last completed Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md` |
-| Last completed Goal Artifact | `H1_G3 readiness packet / evidence log` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md` |
+| Active Goal | `none_active_after_phase_close` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal status | `closed_with_phase` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Last completed Goal | `bootstrap-validation-surface-setup-envelope` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope` |
+| Last completed Goal status | `r1_accepted_goal_complete / closed_with_phase` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md` |
+| Last completed Goal Artifact | `setup/validation envelope` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md` |
 | Active Goal Contract | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Existing Goal Artifact | `Core Technical Foundation Decision Brief / Decision Map` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` |
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
-| Last closed Phase | `Core Co-op Technical Foundation Selection` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md` |
+| Last closed Phase | `Project Bootstrap and Validation Surface Setup` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` |
+| latest_closed_phase_summary | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` |
 | Selected first Goal candidate | `bootstrap-validation-surface-setup-envelope` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md` |
-| Next route | `P9_PHASE_CLOSE — close or pause Project Bootstrap and Validation Surface Setup after setup/validation envelope acceptance` | `workflow/stage_prompts/P9_PHASE_CLOSE.md` |
+| Next route | `P0_PHASE_START — start the next Phase after repository maintenance and manual Project Files refresh` | `workflow/stage_prompts/P0_PHASE_START.md` |
 
 ## Current Phase meaning
 
@@ -90,13 +91,13 @@ If `08_DIRECTION_MAP.md` is uninitialized or marked `needs_m0_review`, run `M0_D
 
 ## Normal next route
 
-Run `P9_PHASE_CLOSE` after this R1 repository maintenance is applied/read back/committed/integrated and the Indie Game Development Project Files are manually refreshed.
+Run `P0_PHASE_START` after this P9 repository maintenance is applied/read back/committed/integrated and the Indie Game Development Project Files are manually refreshed.
 
-P9 must close or pause the Phase after R1 accepted the setup/validation envelope:
+P9 closed the Phase after R1 accepted the setup/validation envelope:
 
 `bootstrap-validation-surface-setup-envelope`
 
-P9 must evaluate Phase closure/continuation after the accepted setup/validation envelope. It must not run implementation, setup, product repository mutation, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
+P0 must start or reframe the next Phase. It must not run implementation, setup, product repository mutation, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
 
 ## 2026-05-16 R1 stabilization
 
@@ -371,4 +372,28 @@ summary: >
   candidate; implementation, product execution, Unity bootstrap, Task Master
   graph creation, Unity MCP setup, old-code transfer, and Game Documentation
   promotion remain blocked.
+```
+
+## 2026-05-22 P9 close — Project Bootstrap and Validation Surface Setup
+
+```yaml
+p9_project_bootstrap_validation_surface_setup_close:
+  close_status: closed_complete_by_P9
+  closed_phase: project-bootstrap-validation-surface-setup
+  closed_phase_name: Project Bootstrap and Validation Surface Setup
+  closed_at: "2026-05-22"
+  active_goal: none_active_after_phase_close
+  closed_goal: bootstrap-validation-surface-setup-envelope
+  active_goal_status: closed_with_phase
+  last_completed_goal: bootstrap-validation-surface-setup-envelope
+  last_completed_goal_result: r1_accepted_goal_complete
+  latest_closed_phase_summary: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md"
+  next_route: P0_PHASE_START
+  manual_project_files_refresh_required: true
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  P9 closed the Project Bootstrap and Validation Surface Setup Phase after R1
+  accepted the setup/validation envelope. P0 is the next route after repository
+  maintenance and manual Project Files refresh.
 ```

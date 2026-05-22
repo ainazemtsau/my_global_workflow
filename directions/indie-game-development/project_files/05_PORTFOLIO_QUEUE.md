@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_bootstrap_validation_surface_setup_envelope_accepted
+projection_status: fresh_after_p9_project_bootstrap_validation_surface_setup_close
 activated_at: "2026-05-13"
 ```
 
@@ -17,19 +17,19 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `project-bootstrap-validation-surface-setup`
 - Active Phase name: `Project Bootstrap and Validation Surface Setup`
-- Active Phase status: `active_goal_r1_accepted_pending_P9_phase_close`
+- Active Phase status: `closed_complete_by_P9`
 - Map binding: `H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `bootstrap-validation-surface-setup-envelope`
-- Active Goal status: `r1_accepted_goal_complete`
+- Active Goal: `none_active_after_phase_close`
+- Active Goal status: `closed_with_phase`
 - Selected first Goal candidate: `bootstrap-validation-surface-setup-envelope`
 - Selected first Goal candidate status: `selected_for_G1_goal_shape`
-- Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+- Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
-- Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
+- Accepted Goal Artifact: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `P9_PHASE_CLOSE`
+- Next route: `P0_PHASE_START`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -81,7 +81,7 @@ Required setup/validation surface:
 
 ## Queue items
 
-- Project Bootstrap / Validation Surface Setup Envelope — `r1_accepted_goal_complete`; id: `bootstrap-validation-surface-setup-envelope`; route: `P9_PHASE_CLOSE`; purpose: close or pause the Project Bootstrap and Validation Surface Setup Phase after setup/validation envelope acceptance.
+- Project Bootstrap / Validation Surface Setup Envelope — `closed_with_phase`; id: `bootstrap-validation-surface-setup-envelope`; route: `P0_PHASE_START`; purpose: preserved as completed Phase evidence after setup/validation envelope acceptance.
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
 - Expedition Project Bootstrap / Tool Binding Readiness — `r1_accepted_goal_complete`; node: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`; route: `P9_PHASE_CLOSE`
@@ -315,3 +315,32 @@ queue_update_after_r1_bootstrap_validation_surface_setup_envelope_acceptance:
 ```
 
 The next queue movement is P9 phase close. Durable technical nucleus implementation, product execution, Game Documentation promotion, old-code transfer, Unity MCP setup, and Task Master graph creation remain parked/request-only.
+
+## Queue update after P9 Project Bootstrap and Validation Surface Setup close
+
+```yaml
+queue_update_after_p9_project_bootstrap_validation_surface_setup_close:
+  active_phase: project-bootstrap-validation-surface-setup
+  active_phase_name: Project Bootstrap and Validation Surface Setup
+  active_phase_status: closed_complete_by_P9
+  active_goal: none_active_after_phase_close
+  active_goal_status: closed_with_phase
+  last_completed_goal: bootstrap-validation-surface-setup-envelope
+  last_completed_goal_status: r1_accepted_goal_complete
+  last_closed_phase: project-bootstrap-validation-surface-setup
+  next_route: P0_PHASE_START
+  parked_request_only_preserved:
+    - durable_technical_nucleus_implementation
+    - product_execution
+    - Game Documentation promotion
+    - old-code transfer
+    - Unity MCP setup
+    - Task Master graph creation
+  summary:
+    - Setup/validation envelope accepted and Phase closed.
+    - P0 is the next lifecycle route after manual Project Files refresh.
+    - Durable Technical Nucleus Implementation remains request-only until selected by a later basis-valid lifecycle route.
+    - Implementation/bootstrap/product execution remain blocked.
+```
+
+The next queue movement is P0 phase start. Durable technical nucleus implementation, product execution, Game Documentation promotion, old-code transfer, Unity MCP setup, and Task Master graph creation remain parked/request-only.

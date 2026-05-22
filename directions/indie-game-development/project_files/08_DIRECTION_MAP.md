@@ -8,7 +8,7 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_r1_bootstrap_validation_surface_setup_envelope_accepted
+  freshness: fresh_after_p9_project_bootstrap_validation_surface_setup_close
   last_updated: "2026-05-22"
 ```
 
@@ -32,11 +32,11 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: innovative-commercial-expedition-gas-sim-game
   map_confidence: medium
-  last_reviewed_stage: R1_GOAL_REVIEW_DISTILL
+  last_reviewed_stage: P9_PHASE_CLOSE
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
-  current_objective_architecture_node: bootstrap-validation-surface-setup-envelope
-  next_safe_route: P9_PHASE_CLOSE
+  current_objective_architecture_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
+  next_safe_route: P0_PHASE_START
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -164,8 +164,8 @@ objective_architecture:
     Codex-suitable development process, and durable validation surfaces.
   active_initiative: innovative-commercial-expedition-gas-sim-game
   active_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: bootstrap-validation-surface-setup-envelope
-  next_safe_route: P9_PHASE_CLOSE
+  selected_frontier_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
+  next_safe_route: P0_PHASE_START
 
 horizon_acceptance_proof:
   candidate_horizon: H1_playable_technical_nucleus
@@ -288,7 +288,7 @@ objective_graph:
 
     - id: bootstrap-validation-surface-setup-envelope
       type: execution_readiness_envelope
-      status: shaped
+      status: done
       requires:
         - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
       unlocks:
@@ -299,7 +299,7 @@ objective_graph:
       status: premature
       blocked_by:
         - E1_setup_validation_envelope_execution_brief
-      premature_until: "Later E1/route selection produces or route-gates the setup/validation envelope."
+      premature_until: "P0/G1/E1 or later route selects and scopes it after setup/validation Phase close."
 
     - id: H2_unique_gas_coop_gameplay_proof
       type: horizon
@@ -345,26 +345,27 @@ active_frontier:
       activation_trigger: "Accepted durable truths exist and documentation maintenance is explicitly authorized."
     - node_id: old_project_transfer_audit
       activation_trigger: "Only after requirements are clear and a later lifecycle route asks a targeted reference/audit question."
-  selected_next_node: bootstrap-validation-surface-setup-envelope
+  selected_next_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
   selection_reason: >
-    G1 shaped the setup/validation envelope Goal; E1 is the smallest safe route
-    to prepare execution without prematurely launching bootstrap, implementation,
-    or product execution.
+    P9 closed the setup/validation Phase after R1 accepted the envelope. P0 is
+    required to select the next Phase without prematurely launching bootstrap,
+    implementation, or product execution.
 
 next_action_proof:
   direction_objective: "Commercially viable co-op indie game with deep gas/3D-space gameplay core."
   current_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: bootstrap-validation-surface-setup-envelope
+  selected_frontier_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
   proposed_work: >
-    Prepare the execution brief for producing or route-gating the setup/validation envelope.
-  proposed_stage: E1_EXECUTION_BRIEF
+    Start or reframe the next Phase after Project Bootstrap and Validation
+    Surface Setup closed complete by P9.
+  proposed_stage: P0_PHASE_START
   desired_delta: >
-    A compact E1 execution brief with target, context, allowed surfaces,
-    forbidden surfaces, validation, evidence, stop rules, and next route.
+    A next phase-level campaign selected from Phase Memory and Direction Map
+    with anti-duplicate reasoning and preserved execution blockers.
   why_this_now: >
-    G1 shaped the setup/validation envelope Goal. E1 must now define HOW to
-    produce or route-gate it before any setup, implementation planning, durable
-    technical nucleus work, or Codex product/project execution.
+    P9 closed the setup/validation Phase. P0 must now choose the next Phase
+    before any setup, implementation planning, durable technical nucleus work,
+    or Codex product/project execution.
   prerequisite_check:
     satisfied:
       - "Current Direction Project Files 00-08 are available."
@@ -374,17 +375,17 @@ next_action_proof:
       - "H1_G2 Gas Coop Game Project Execution Profile is accepted."
       - "H1_G3 readiness packet is accepted."
     missing:
-      - "Exact E1_EXECUTION_BRIEF prompt for the next stage run."
+      - "Exact P0_PHASE_START prompt for the next stage run."
       - "Manual Project Files refresh after this repository maintenance patch."
     assumed: []
   active_frontier_check:
     is_on_frontier: true
     why_not_premature: >
-      E1 is allowed because G1 shaped the Goal and the remaining bootstrap/
+      P0 is allowed because the Phase is closed and the remaining bootstrap/
       implementation surfaces remain blocked until a later route.
   expected_unlock: >
-    Enables later selection of U1, D1, A1, S3, X0/X1, Context Request, Human Decision,
-    Stop, or a setup route without inventing tool/project state.
+    Enables later selection of G1, E1, U1, D1, A1, S3, X0/X1, Context Request,
+    Human Decision, Stop, or a setup route without inventing tool/project state.
   alternatives_considered:
     - action: direct_X0_or_X1
       why_rejected: "E1 must define the execution brief before executor setup/run."
@@ -498,16 +499,16 @@ compact_initiative_graph:
 ```yaml
 active_front:
   active_horizon: H1_playable_technical_nucleus
-  current_gate: bootstrap-validation-surface-setup-envelope
-  current_gate_status: r1_accepted_goal_complete
+  current_gate: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
+  current_gate_status: ready_after_p9_phase_close
   previous_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   previous_gate_status: r1_accepted_goal_complete
-  selected_next_node: bootstrap-validation-surface-setup-envelope
-  selected_next_route: P9_PHASE_CLOSE
+  selected_next_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
+  selected_next_route: P0_PHASE_START
   primary_reason: >
-    R1 accepted the setup/validation envelope. P9 must close or pause the
-    Phase before any setup, implementation planning, durable technical nucleus
-    work, or Codex product/project execution.
+    P9 closed the setup/validation Phase after R1 accepted the envelope. P0
+    must select the next Phase before any setup, implementation planning,
+    durable technical nucleus work, or Codex product/project execution.
   active_front_rule: >
     Run P9_PHASE_CLOSE after R1 acceptance before any new project bootstrap,
     durable technical nucleus implementation, Task Master graph creation, or
@@ -1235,6 +1236,44 @@ map_delta:
     H1_G4_durable_technical_nucleus:
       status: premature
       premature_until: "P9/P0/G1/E1 or later route selects and scopes it."
+```
+
+## 2026-05-22 P9 map delta — Project Bootstrap and Validation Surface Setup closed
+
+```yaml
+map_delta:
+  source_stage: P9_PHASE_CLOSE
+  delta_type:
+    - phase_closed
+    - phase_memory_bridge_updated
+    - active_frontier_requires_P0
+    - implementation_still_blocked
+  node: project-bootstrap-validation-surface-setup
+  completed_goal: bootstrap-validation-surface-setup-envelope
+  result: closed_complete_by_P9
+  summary: >
+    Project Bootstrap and Validation Surface Setup closed after the setup/
+    validation envelope was accepted. The current objective architecture node
+    moves to P0 after phase close; H1_G4 durable technical nucleus remains
+    premature until a later route selects and scopes it.
+  next_safe_route: P0_PHASE_START
+  direction_map_status:
+    current_objective_architecture_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
+    next_safe_route: P0_PHASE_START
+  objective_graph:
+    bootstrap-validation-surface-setup-envelope:
+      status: done
+    H1_G4_durable_technical_nucleus:
+      status: premature
+      premature_until: "P0/G1/E1 or later route selects and scopes it."
+  blocked_nodes:
+    - codex_product_project_execution
+    - unity_project_bootstrap
+    - product_repository_creation
+    - task_master_graph_creation
+    - unity_mcp_setup
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
 ```
 
 ## End-of-file marker

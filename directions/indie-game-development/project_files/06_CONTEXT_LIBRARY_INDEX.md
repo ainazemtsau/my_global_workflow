@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_bootstrap_validation_surface_setup_envelope_accepted
+projection_status: fresh_after_p9_project_bootstrap_validation_surface_setup_close
 activated_at: "2026-05-13"
 ```
 
@@ -56,8 +56,11 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md`
-  - Status: `active_goal_r1_accepted_pending_P9_phase_close`
-  - Load for `P9_PHASE_CLOSE` and any route that needs the active setup/validation Phase frame.
+  - Status: `closed_complete_by_P9`
+  - Load for `P0_PHASE_START` and any route that needs the latest closed setup/validation Phase frame.
+- `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md`
+  - Status: `latest_closed_phase_summary`
+  - Load for `P0_PHASE_START` because P0 starts from the P9-closed setup/validation Phase.
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
@@ -535,3 +538,39 @@ required_context_after_r1_bootstrap_validation_surface_setup_envelope_acceptance
 P9 prompt text is not copied into Project Files.
 
 P9 must close or pause the Phase after R1 accepted the setup/validation envelope. It must not run Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
+
+## Required context after P9 Project Bootstrap and Validation Surface Setup close
+
+Recommended next stage: `P0_PHASE_START`.
+
+Recommended next mode: `start_next_phase_after_project_bootstrap_validation_surface_setup_close`.
+
+```yaml
+required_context_after_p9_project_bootstrap_validation_surface_setup_close:
+  recommended_next_stage: P0_PHASE_START
+  recommended_next_mode: start_next_phase_after_project_bootstrap_validation_surface_setup_close
+  latest_closed_phase: project-bootstrap-validation-surface-setup
+  latest_closed_phase_summary: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md"
+  load_for_P0:
+    - workflow/stage_prompts/P0_PHASE_START.md
+    - WORKFLOW_SOURCE_OF_TRUTH.md
+    - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+    - workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+    - workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
+    - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+    - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+    - workflow/stage_registry/STAGE_REGISTRY.md
+    - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+    - directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+    - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+    - directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+    - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+    - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+    - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+    - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+    - directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md
+  stage_prompt_copy_policy: "P0 prompt text is not copied into Project Files."
+```
+
+The P0 prompt path is listed as a source to acquire in the P0 runtime. Prompt text is not copied into Project Files.

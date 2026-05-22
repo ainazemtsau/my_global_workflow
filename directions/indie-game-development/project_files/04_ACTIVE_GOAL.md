@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_r1_bootstrap_validation_surface_setup_envelope_accepted
+  source_freshness: fresh_after_p9_project_bootstrap_validation_surface_setup_close
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,15 +16,15 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: r1_accepted_goal_complete
-  active_goal_state: r1_accepted_goal_complete
+  state: closed_with_phase
+  active_goal_state: none_active_after_phase_close
   goal_id: bootstrap-validation-surface-setup-envelope
   active_goal_id: bootstrap-validation-surface-setup-envelope
   goal_title: "Сформировать setup/validation envelope для project bootstrap перед H1_G4"
   goal_contract: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md"
   execution_log: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md"
   phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
-  status: r1_accepted_goal_complete
+  status: closed_with_phase
   previous_active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   previous_active_goal_title: "Сформировать readiness-пакет для project bootstrap, tool-binding и validation scenes первого technical nucleus"
   previous_active_goal_result: r1_accepted_goal_complete
@@ -37,8 +37,8 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   previous_phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
   current_wave: none
-  next_route: P9_PHASE_CLOSE
-  next_route_mode: close_or_pause_project_bootstrap_validation_surface_setup_after_envelope_acceptance
+  next_route: P0_PHASE_START
+  next_route_mode: start_next_phase_after_project_bootstrap_validation_surface_setup_close
   review_scope: r1_bootstrap_validation_surface_setup_envelope_accepted
   completion_scope: parent_goal_complete
   parent_goal_completion_state: complete
@@ -54,7 +54,8 @@ active_goal:
   unity_mcp_setup_allowed_now: false
   old_code_transfer_allowed_now: false
   game_documentation_promotion_allowed_now: false
-  note: "R1 accepted the setup/validation envelope Goal; P9 must close or pause the Phase before any setup or product execution."
+  next_goal_seed: none_after_phase_close
+  note: "P9 closed the setup/validation envelope Goal with the Phase; P0/G0/G1 must select any new Goal later."
 ```
 
 ```yaml
@@ -111,11 +112,11 @@ Goal title:
 
 Status:
 
-`goal_shaped_pending_E1_execution_brief`
+`closed_with_phase`
 
 Next route:
 
-`E1_EXECUTION_BRIEF`
+`P0_PHASE_START`
 
 Implementation, Unity bootstrap, Codex product/project execution, Unity MCP setup, and Task Master graph creation are not authorized now.
 
@@ -422,3 +423,25 @@ active_goal:
 ```
 
 The active Goal is accepted complete and the next lifecycle route is P9 phase close. Historical sections above remain as evidence only where they describe older active-goal states.
+
+## 2026-05-22 P9 close - active Goal closed with Phase
+
+```yaml
+active_goal:
+  state: closed_with_phase
+  active_goal_state: none_active_after_phase_close
+  goal_id: bootstrap-validation-surface-setup-envelope
+  status: r1_accepted_goal_complete
+  accepted_artifact: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md"
+  phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
+  next_route: P0_PHASE_START
+  next_route_mode: start_next_phase_after_phase_close
+  next_goal_seed: none_after_phase_close
+  note: "P0/G0/G1 must select any new Goal later; P9 does not select a next Goal."
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+unity_bootstrap_allowed_now: false
+task_master_graph_allowed_now: false
+```
+
+`bootstrap-validation-surface-setup-envelope` is preserved as last completed Goal evidence, not active work.
