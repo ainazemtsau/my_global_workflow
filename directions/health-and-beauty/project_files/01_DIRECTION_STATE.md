@@ -20,26 +20,34 @@ direction:
   id: YqlUxoXMVTUr
   state: active
   workflow_version: vNext-R
-  current_phase_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
-  active_goal_pointer: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
-  active_goal_title: "Починить Project `Питание` как repo-backed multi-chat nutrition loop"
-  current_state_summary: "R1 accepted the repaired Project `Питание` repo-backed multi-chat nutrition loop Goal as complete after user-confirmed real-use validation; Direction is ready for P9 phase close review after repository maintenance/read-back and Project Files refresh."
-  selected_goal_seed: nutrition-project-operational-setup-v0
-  selected_frontier_node: d_nutrition_loop_shape_and_tooling
-  next_route: P9_PHASE_CLOSE
-  last_updated: "2026-05-21"
+  current_phase_pointer: null
+  active_goal_pointer: null
+  active_goal_title: null
+  current_state_summary: "P9 closed the AI Nutrition Operating Layer Phase as close_complete after R1 accepted the repo-backed Project `Питание` nutrition loop Goal complete. Next action is Project Files refresh and P0_PHASE_START for a non-duplicate next Phase."
+  selected_goal_seed: null
+  selected_frontier_node: n2_minimal_body_metrics_packet
+  next_route: P0_PHASE_START
+  last_updated: "2026-05-22"
 
 next_goal_seed: null
 
 active_goal_status:
   goal_id: nutrition-project-operational-setup-v0
-  status: r1_accepted_goal_complete
+  status: closed_under_closed_phase
+
+latest_closed_phase:
+  phase_id: ai-nutrition-operating-layer
+  phase_name: "Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга"
+  phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
+  status: closed_complete
+  closed_at: "2026-05-22"
+  phase_close_summary_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/phase_close_summary.md"
 
 r1_review_result:
   verdict: accepted_complete
   review_date: "2026-05-21"
-  next_route: P9_PHASE_CLOSE
-  repository_projection_status: pending_readback_until_Codex_return
+  next_route: P0_PHASE_START
+  repository_projection_status: p9_repository_maintenance_readback_completed
 
 superseded_phase:
   phase_name: MacroFactor Nutrition AI Support Setup
@@ -52,5 +60,5 @@ superseded_phase:
 ## Project Files export state
 
 * Last refresh: `2026-05-17`
-* Required refresh: `manual refresh after this repository patch read-back / diff verification`
-* Known stale files: ChatGPT Project Files cache may still show older E1 route state until manually refreshed.
+* Required refresh: `manual refresh after P9 repository patch read-back / diff verification`
+* Known stale files: ChatGPT Project Files cache may still show older P9 or E1 route state until manually refreshed.

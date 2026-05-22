@@ -16,16 +16,29 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: complete
+  state: no_active_goal
+  goal_id: null
+  goal_name: null
+  goal_path: null
+  phase_path: null
+  current_wave: none
+  current_stage: none
+  status: none
+  next_route: P0_PHASE_START
+  use_policy: "No active Goal remains after P9 closed Phase ai-nutrition-operating-layer. Do not execute old E1/U1/R1 Project `Питание` setup routes. Next material route is P0_PHASE_START after repository maintenance/read-back and Project Files refresh."
+```
+
+## Latest completed Goal snapshot
+
+```yaml
+latest_completed_goal:
   goal_id: nutrition-project-operational-setup-v0
   goal_name: "Починить Project `Питание` как repo-backed multi-chat nutrition loop"
   goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
+  closed_under_phase: ai-nutrition-operating-layer
   phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
-  current_wave: none
-  current_stage: R1_GOAL_REVIEW_DISTILL_formalized
-  status: r1_accepted_goal_complete
-  next_route: P9_PHASE_CLOSE
-  use_policy: "Goal is accepted complete by R1. Do not execute old E1/U1/R1 setup routes. Next material route is P9_PHASE_CLOSE after repository maintenance/read-back and Project Files refresh."
+  review_verdict: accepted_complete
+  goal_state: closed_under_closed_phase
 ```
 
 ## R1 Review Result
@@ -37,7 +50,7 @@ evidence_basis: "User-confirmed U1/setup/real-use validation: Project `Пита�
 nonblocking_deferrals:
   - Mealie recipe sync / meal planner sync not proven installed/tested; deferred as optional/nonblocking.
   - Training/cardio/supplements excluded from this Goal.
-phase_gate: "Completed Goal may satisfy Phase Minimum Outcome; route to P9_PHASE_CLOSE."
+phase_gate: "Completed Goal satisfied Phase Minimum Outcome; P9 closed the Phase as close_complete."
 ```
 
 ## Goal Contract snapshot
@@ -48,7 +61,7 @@ phase_gate: "Completed Goal may satisfy Phase Minimum Outcome; route to P9_PHASE
 * Acceptance floor: `first_week_bootstrap_from_empty_state`, `later_week_bootstrap_from_saved_state`, `fresh_menu_chat_from_saved_plan`, `fresh_tracking_chat_from_saved_plan_and_menu`, `week_review_from_saved_report`, and `project_files_refresh_reproducibility`.
 * Validation: Historical E1 validation targets included repository read-back, dry-runs, Project Files refresh reproducibility, and fresh-chat continuation without hidden memory or manual giant packets; R1 accepted user-confirmed U1/setup/real-use validation as sufficient for this Goal.
 
-This snapshot reflects the repaired G1 Goal shape as historical context. R1 accepted the Goal complete, so the current route is P9_PHASE_CLOSE rather than E1 execution planning.
+This snapshot reflects the repaired G1 Goal shape as historical context. R1 accepted the Goal complete and P9 closed the Phase, so the current route is P0_PHASE_START rather than E1 execution planning.
 
 ## Prior artifact input
 

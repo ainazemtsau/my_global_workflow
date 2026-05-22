@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/health-and-beauty/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: r1_goal_review_distill_accepted_goal_complete
-  last_updated: "2026-05-21"
+  freshness: p9_phase_close_complete
+  last_updated: "2026-05-22"
 ```
 
 ## Purpose
@@ -33,7 +33,7 @@ direction_map_status:
   current_initiative_id: body-transformation-20kg-strength-health
   map_confidence: medium
   current_execution_state_confidence: medium
-  last_reviewed_stage: objective_architecture_migration_review
+  last_reviewed_stage: P9_PHASE_CLOSE
   migration_status: migrated_with_2026_05_19_objective_architecture_frontier_repair
   migration_source:
     mode: approved_repository_maintenance_formalization
@@ -41,13 +41,13 @@ direction_map_status:
     source_ref: "codex/direction-health-and-beauty"
     patch_id: health_beauty_objective_architecture_migration_2026_05_19
   corrected_state:
-    summary: "R1 accepted the repo-backed multi-chat Project `Питание` nutrition loop Goal complete; next route is P9_PHASE_CLOSE before selecting further body-transformation work."
+    summary: "P9 closed the repo-backed multi-chat Project `Питание` nutrition loop Phase complete; next route is P0_PHASE_START to select the next non-duplicate Phase."
     blocks:
       - reopening_accepted_project_pitanie_setup_goal_without_new_evidence
       - launching_stale_project_pitanie_e1_route
     does_not_block:
-      - P9_PHASE_CLOSE
-      - preserving_current_active_phase
+      - P0_PHASE_START
+      - using_phase_memory_bridge
       - using_prior_v0_and_goal_artifacts_as_historical_input
     corrected_paths:
       project_file_projection_paths:
@@ -62,6 +62,9 @@ direction_map_status:
         - "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/02_EXECUTION_BRIEF.md"
         - "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/03_AI_NUTRITION_OPERATING_LAYER_V0.md"
         - "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/ai-nutrition-operating-layer-v0/execution_log.md"
+      phase_memory_paths:
+        - "directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md"
+        - "directions/health-and-beauty/phases/ai-nutrition-operating-layer/phase_close_summary.md"
   update_policy: "M0 owns shared map review/update; R1/P9/parent synthesis may propose controlled map deltas after evidence; branch chats emit delta proposals only."
 ```
 
@@ -97,13 +100,17 @@ initiative_registry:
     active_phase_binding:
       phase_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer"
       phase_name: "Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга"
+      status: closed_complete
       binding_reason: "Nutrition execution without heavy manual tracking is the current documented constraint and directly supports the broader body-transformation initiative."
     active_goal_binding:
-      goal_id: nutrition-project-operational-setup-v0
-      goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
-      goal_name: "Починить Project `Питание` как repo-backed multi-chat nutrition loop"
-      status: r1_accepted_goal_complete
-      binding_reason: "R1 accepted the repo-backed multi-chat Project `Питание` nutrition loop Goal complete based on U1/setup/real-use validation."
+      goal_id: null
+      goal_path: null
+      goal_name: null
+      status: none
+      latest_completed_goal_id: nutrition-project-operational-setup-v0
+      latest_completed_goal_path: "directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0"
+      latest_completed_goal_status: closed_under_closed_phase
+      binding_reason: "P9 closed the Phase after R1 accepted the repo-backed multi-chat Project `Питание` nutrition loop Goal complete based on U1/setup/real-use validation."
     current_risk:
       - "The prior Project `Питание` setup/E1 path can be mistaken for a basis-valid current route."
       - "Broad health/fitness optimization can easily become overbuilt unless S3 narrows the nutrition loop and tooling policy first."
@@ -141,7 +148,7 @@ strategy_basis:
     - path_id: parallel_training_cardio_before_nutrition_loop_decision
       verdict: parked
       rationale: "Adds scope before the nutrition loop shape and tooling policy are basis-valid."
-  selected_path_rationale: "R1 accepted the repaired repo-backed multi-chat Project `Питание` nutrition loop Goal complete; run P9_PHASE_CLOSE before selecting further body-transformation work."
+  selected_path_rationale: "R1 accepted the repaired repo-backed multi-chat Project `Питание` nutrition loop Goal complete and P9 closed the Phase; run P0_PHASE_START before selecting further body-transformation work."
   major_assumptions:
     - "User can sustain a strict process if the process is clear and routine work is offloaded."
     - "Low-burden execution is more important than perfect measurement at the current stage."
@@ -166,7 +173,7 @@ compact_initiative_graph:
       initiative_id: body-transformation-20kg-strength-health
       label: "Decide minimal nutrition loop shape and tool/container policy"
       type: active_front
-      status: done_accepted_pending_P9_phase_close
+      status: done_accepted_phase_closed
       purpose: "Choose the minimal low-friction nutrition loop and the tool/container mix before shaping or executing any implementation Goal."
       success_signal:
         - "R1 accepted the repo-backed multi-chat Project `Питание` nutrition loop based on U1/setup/real-use validation."
@@ -178,7 +185,7 @@ compact_initiative_graph:
       initiative_id: body-transformation-20kg-strength-health
       label: "Minimal body-transformation metrics packet"
       type: horizon
-      status: not_started
+      status: candidate_next_frontier_for_P0
       purpose: "Define the smallest recurring input packet for AI correction: weight trend, optional waist/photos, training completion, VR/cardio minutes, sleep/energy, and exceptions."
       non_goal: "Do not create a full quantified-self tracker or food database."
 
@@ -234,26 +241,33 @@ compact_initiative_graph:
 
 ```yaml
 active_front:
-  primary_node: d_nutrition_loop_shape_and_tooling
-  reason: "This is the smallest credible path because it repairs the stale Project `Питание` route, preserves useful prior artifacts as input, and avoids a broad restart."
+  primary_node: n2_minimal_body_metrics_packet
+  reason: "The nutrition loop node is accepted and Phase-closed; the next smallest non-duplicate frontier is defining the minimal recurring state packet for body-transformation correction."
   current_route_binding:
-    route_state: phase_close_review_required_after_r1_goal_acceptance
-    route: P9_PHASE_CLOSE
-    rule: "Run P9 after repository maintenance/read-back and Project Files refresh; do not select training/cardio/recovery or optional tool sync work before phase gate."
+    route_state: post_phase_close_pending_P0
+    route: P0_PHASE_START
+    rule: "Run P0 after repository maintenance/read-back and Project Files refresh; candidate frontier is n2_minimal_body_metrics_packet, not a selected Goal."
   parallel_candidate_nodes: []
   parked_nodes:
     - n3_training_cardio_recovery_decision_slice
     - n4_integrated_daily_weekly_ai_operator
     - n5_supplements_fasting_brain_diet_research_gate
     - n6_macrofactor_or_heavy_tracking_revival
+  completed_nodes:
+    - d_nutrition_loop_shape_and_tooling
+  candidate_next_frontier:
+    - n2_minimal_body_metrics_packet
+  superseded_nodes:
+    - "stale Project `Питание` setup route"
+    - "MacroFactor/heavy tracking default path"
 ```
 
 ## Horizon Slice
 
 ```yaml
 horizon_slice:
-  id: h_low_friction_evidence_based_nutrition_loop
-  statement: "Do not jump to a perfect full-body plan. First decide a low-friction evidence-based nutrition loop and tool/container policy; then shape a repaired/new implementation Goal; then define minimal body metrics; then run one evidence-backed training/cardio/recovery decision slice; then integrate into a daily/weekly operator."
+  id: h_low_friction_evidence_based_body_transformation_loop
+  statement: "Do not jump to a perfect full-body plan. The nutrition loop is accepted and Phase-closed; next define minimal body metrics/state, then run one evidence-backed training/cardio/recovery decision slice, then integrate into a daily/weekly operator."
   node_ids:
     - d_nutrition_loop_shape_and_tooling
     - n2_minimal_body_metrics_packet
@@ -267,6 +281,14 @@ horizon_slice:
 
 ```yaml
 parked_future_nodes:
+    - n3_training_cardio_recovery_decision_slice
+    - n4_integrated_daily_weekly_ai_operator
+    - n5_supplements_fasting_brain_diet_research_gate
+    - n6_macrofactor_or_heavy_tracking_revival
+```
+
+```yaml
+parked_future_node_details:
   - node_id: n5_supplements_fasting_brain_diet_research_gate
     parked_reason: "Requires external evidence and safety framing; not needed to unblock current process."
   - node_id: n6_macrofactor_or_heavy_tracking_revival
@@ -283,10 +305,25 @@ parked_future_nodes:
 
 ```yaml
 map_delta:
-  type: node_done_accepted
+  type: p9_phase_close_delta
   node_id: d_nutrition_loop_shape_and_tooling
-  date: "2026-05-21"
-  summary: "Repo-backed multi-chat Project `Питание` nutrition loop accepted as the current nutrition operating layer setup result; next routing is Phase close review, not more nutrition setup by default."
+  date: "2026-05-22"
+  summary: "Nutrition loop node completed and Phase closed; next candidate frontier is minimal body-transformation metrics packet."
+  horizon_slice_delta: "Nutrition loop node completed and Phase closed; next candidate frontier is minimal body-transformation metrics packet."
+  active_front_delta: "Advance from nutrition loop closure gate to P0 selection of next Phase."
+  nodes_completed:
+    - d_nutrition_loop_shape_and_tooling
+  nodes_unblocked:
+    - n2_minimal_body_metrics_packet
+  nodes_parked:
+    - n3_training_cardio_recovery_decision_slice
+    - n4_integrated_daily_weekly_ai_operator
+    - n5_supplements_fasting_brain_diet_research_gate
+    - n6_macrofactor_or_heavy_tracking_revival
+  nodes_superseded:
+    - "stale Project `Питание` setup route"
+    - "MacroFactor/heavy tracking default path"
+  m0_review_needed: false
 ```
 
 ## Map Update Policy
@@ -306,9 +343,8 @@ map_update_policy:
     - replacing_phase_or_goal_state
     - inventing_downstream_route_from_conflicted_state
   next_update_triggers:
-    - "After S3_DECIDE on nutrition loop/tooling policy."
-    - "After a repaired/new nutrition implementation Goal is shaped."
-    - "After the accepted nutrition loop is installed/setup, returned for repair, or explicitly blocked."
+    - "After P0_PHASE_START selects the next non-duplicate Phase."
+    - "After minimal body-transformation metrics packet is shaped or accepted."
     - "After a scoped training/cardio/recovery evidence or decision slice is completed."
 ```
 

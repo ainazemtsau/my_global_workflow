@@ -15,19 +15,19 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-Current Phase: `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
+Current Phase: `none`
 
-Active Goal: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
+Latest closed Phase: `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
 
-Active Goal title: ``Починить Project `Питание` как repo-backed multi-chat nutrition loop``
+Latest closed Phase status: `closed_complete`
 
-Active Goal status: `r1_accepted_goal_complete`
+Active Goal: `none`
 
-Next route: `P9_PHASE_CLOSE`
+Next route: `P0_PHASE_START`
 
 ## Current priority
 
-Run P9 phase close review for the AI Nutrition Operating Layer after accepted Project `Питание` Goal.
+Start the next Phase from the Phase Memory Bridge after Project Files refresh. Candidate frontier for P0 is `n2_minimal_body_metrics_packet`; it is not yet a selected Goal.
 
 ## Superseded / deferred items
 
@@ -36,5 +36,6 @@ Run P9 phase close review for the AI Nutrition Operating Layer after accepted Pr
 * MacroFactor-centered workflow remains superseded/paused.
 * Full food tracker/API automation/perfect recipe database/huge vault remain deferred.
 * Mealie recipe sync / meal planner sync is optional/nonblocking unless explicitly reshaped later.
-* Training/cardio/recovery/supplements are out of this Goal and only future scoped work after Phase/P9 decision.
+* Heavy tracking remains parked; do not revive MacroFactor/heavy tracking as default.
+* Training/cardio/recovery/supplements are future scoped work after the minimal metrics/state packet and a scoped evidence/decision slice.
 * Menu generation alone is not enough.

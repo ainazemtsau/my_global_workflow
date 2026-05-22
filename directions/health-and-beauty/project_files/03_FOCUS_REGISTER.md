@@ -16,25 +16,25 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Prepare P9 phase close review after R1 accepted the Project `Питание` repo-backed multi-chat nutrition loop Goal complete."
-  route_stage: P9_PHASE_CLOSE
+  current_focus: "Post-close P0 Phase Start using the Phase Memory Bridge after Project Files refresh."
+  route_stage: P0_PHASE_START
   same_chat_allowed: false
-  boundary_trigger: r1_goal_review_distill_accepted_goal_complete
-  pending_state_carried: true
-  pending_patch_pointer: "health_beauty_objective_architecture_migration_2026_05_19"
-  last_stage_result_pointer: "R1_GOAL_REVIEW_DISTILL accepted nutrition-project-operational-setup-v0 complete based on U1/setup/real-use validation."
+  boundary_trigger: p9_phase_close_complete
+  pending_state_carried: false
+  pending_patch_pointer: "p9_close_ai_nutrition_operating_layer_2026_05_22"
+  last_stage_result_pointer: "P9_PHASE_CLOSE closed Phase ai-nutrition-operating-layer as closed_complete after R1 accepted nutrition-project-operational-setup-v0 complete."
   human_correction: "Objective is outcome-first; AI/ChatGPT/Project/app/storage are optional tools, not requirements."
-  stale_prior_focus: "Old Project `Питание` E1/U1/R1 setup routes remain historical input only; next route is `P9_PHASE_CLOSE`."
+  stale_prior_focus: "Old Project `Питание` E1/U1/R1 setup routes remain historical input only; next route is `P0_PHASE_START`."
 ```
 
 ## Active Goal
 
-``Починить Project `Питание` как repo-backed multi-chat nutrition loop``
+No active Goal.
 
-Goal path:
+Latest completed Goal snapshot:
 
 `directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
 
-The next route is `P9_PHASE_CLOSE` for phase close review, not E1 implementation planning or product/project execution.
+The next route is `P0_PHASE_START` for a new Phase Start using `07_PHASE_MEMORY_INDEX.md` and, if needed, `directions/health-and-beauty/phases/ai-nutrition-operating-layer/phase_close_summary.md`.
 
-The existing Goal path now contains the repaired Goal Contract, Working Context, and R1 acceptance evidence for the repo-backed multi-chat Project `Питание` nutrition loop.
+The old Project `Питание` setup routes are stale historical evidence only, not active Goal work.
