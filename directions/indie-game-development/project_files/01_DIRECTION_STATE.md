@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p9_project_bootstrap_validation_surface_setup_close
+  source_freshness: fresh_after_p0_h1_g4_first_runnable_build_phase_start
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -22,13 +22,13 @@ direction:
   workflow_version: vNext-R
   current_initiative_from_map: innovative-commercial-expedition-gas-sim-game
   active_horizon_from_map: H1_playable_technical_nucleus
-  current_phase_pointer: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
-  current_phase_status: no_active_phase_pending_P0
-  active_goal_pointer: none_active_after_phase_close
-  active_goal_contract: none_after_phase_close
+  current_phase_pointer: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
+  current_phase_status: active_pending_G1_goal_shape
+  active_goal_pointer: none_active_pending_G1_goal_shape
+  active_goal_contract: none_pending_G1_goal_shape
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: r1_accepted_route_gated_decision_map
-  recommended_first_goal_candidate: bootstrap-validation-surface-setup-envelope
+  recommended_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
   last_closed_phase_pointer: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
   last_closed_phase_result: p9_closed_complete
   previous_active_phase_pointer: "directions/indie-game-development/phases/expedition-first-playable-proof-slice"
@@ -41,9 +41,9 @@ direction:
   accepted_product_local_artifacts:
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\outbox\\H1_G3_READINESS_PACKET.md"
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\evidence\\h1-g3-readiness-2026-05-21.md"
-  active_goal_status: closed_with_phase
-  next_route: P0_PHASE_START
-  next_route_mode: start_next_phase_after_project_bootstrap_validation_surface_setup_close
+  active_goal_status: none_active_pending_G1_goal_shape
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_h1_g4_first_runnable_technical_nucleus_slice
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -81,25 +81,25 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Current Phase
 
-- Phase: `Project Bootstrap and Validation Surface Setup`
-- Path: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup`
-- Status: `closed_complete_by_P9`
+- Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
+- Path: `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build`
+- Status: `active_pending_G1_goal_shape`
 - Started by: `P0_PHASE_START`
-- Started at: `2026-05-21`
-- Map binding: `H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus`
+- Started at: `2026-05-22`
+- Map binding: `H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Current Critical Constraint: setup/validation envelope accepted; next Phase must be selected by P0 before H1_G4 can be scoped safely.
-- Minimum Outcome: accepted or route-gated project bootstrap / validation-surface setup envelope.
-- Validation Signal: later E1/U1/X0/X1 or H1_G4 scoping can proceed without inventing project/tool state.
-- Active Goal: `none_active_after_phase_close`
-- Active Goal status: `closed_with_phase`
-- Selected first Goal candidate: `bootstrap-validation-surface-setup-envelope`
+- Current Critical Constraint: accepted readiness/envelope state exists, but no first runnable durable technical nucleus slice exists yet.
+- Minimum Outcome: accepted or route-gated first runnable H1_G4 durable technical nucleus slice.
+- Validation Signal: concrete runnable/evidence output or exact blocker/unblock route.
+- Active Goal: `none_active_pending_G1_goal_shape`
+- Active Goal status: `none_active_pending_G1_goal_shape`
+- Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`; old Grid/Gas material is reference/evidence only until requirements are clear.
-- Next route: `P0_PHASE_START`
+- Next route: `G1_GOAL_SHAPE`
 - Implementation allowed now: `false`
 - Codex product execution allowed now: `false`
 
@@ -145,15 +145,15 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `requires_manual_refresh_after_p9_project_bootstrap_validation_surface_setup_close_repository_maintenance_2026-05-22`
-- Required refresh: `before P0_PHASE_START after P9 closure repository maintenance read-back/commit/integration`
-- Current route: `P0_PHASE_START`
-- Active Phase: `Project Bootstrap and Validation Surface Setup`
-- Active Phase status: `closed_complete_by_P9`
-- Active Goal: `none_active_after_phase_close`
-- Active Goal status: `closed_with_phase`
-- Selected first Goal candidate: `bootstrap-validation-surface-setup-envelope`
-- Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+- Last refresh: `requires_manual_refresh_after_p0_h1_g4_first_runnable_build_phase_start_repository_maintenance_2026-05-22`
+- Required refresh: `before G1_GOAL_SHAPE after P0 phase start repository maintenance read-back/commit/integration`
+- Current route: `G1_GOAL_SHAPE`
+- Active Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
+- Active Phase status: `active_pending_G1_goal_shape`
+- Active Goal: `none_active_pending_G1_goal_shape`
+- Active Goal status: `none_active_pending_G1_goal_shape`
+- Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
+- Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Direction Map status: `initialized`
@@ -450,4 +450,27 @@ p9_project_bootstrap_validation_surface_setup_close:
 summary: >
   P9 closed the setup/validation Phase after R1 accepted the envelope. P0 is
   the next route after repository maintenance and manual Project Files refresh.
+```
+
+## 2026-05-22 P0 started H1_G4 first runnable build Phase
+
+```yaml
+p0_h1_g4_first_runnable_build_phase_start:
+  current_phase_pointer: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
+  current_phase_status: active_pending_G1_goal_shape
+  active_goal_pointer: none_active_pending_G1_goal_shape
+  active_goal_contract: none_pending_G1_goal_shape
+  recommended_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_h1_g4_first_runnable_technical_nucleus_slice
+  previous_closed_phase: project-bootstrap-validation-surface-setup
+  previous_closed_phase_result: closed_complete_by_P9
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  project_files_cache_refresh_required_after_P0: true
+summary: >
+  P0 formalized the active H1_G4 first runnable build Phase and selected the
+  first runnable durable technical nucleus Goal candidate for G1 shaping. The
+  accepted setup/validation envelope remains input evidence, not the new Goal
+  outcome.
 ```

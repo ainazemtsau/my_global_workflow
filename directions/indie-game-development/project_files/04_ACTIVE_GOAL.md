@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p9_project_bootstrap_validation_surface_setup_close
+  source_freshness: fresh_after_p0_h1_g4_first_runnable_build_phase_start
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,34 +16,36 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: closed_with_phase
-  active_goal_state: none_active_after_phase_close
-  goal_id: bootstrap-validation-surface-setup-envelope
-  active_goal_id: bootstrap-validation-surface-setup-envelope
-  goal_title: "Сформировать setup/validation envelope для project bootstrap перед H1_G4"
-  goal_contract: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md"
-  phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
-  status: closed_with_phase
-  previous_active_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  previous_active_goal_title: "Сформировать readiness-пакет для project bootstrap, tool-binding и validation scenes первого technical nucleus"
+  state: none_active_pending_G1_goal_shape
+  active_goal_state: none_active_pending_G1_goal_shape
+  goal_id: none_active_pending_G1_goal_shape
+  active_goal_id: none_active_pending_G1_goal_shape
+  goal_title: none_pending_G1_goal_shape
+  goal_contract: none_pending_G1_goal_shape
+  execution_log: none_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  phase_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
+  status: none_active_pending_G1_goal_shape
+  previous_active_goal_id: bootstrap-validation-surface-setup-envelope
+  previous_active_goal_title: "Сформировать setup/validation envelope для project bootstrap перед H1_G4"
   previous_active_goal_result: r1_accepted_goal_complete
-  previous_active_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
-  previous_active_goal_execution_log: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
-  last_completed_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  previous_active_goal_artifact: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md"
+  previous_active_goal_execution_log: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md"
+  last_completed_goal_id: bootstrap-validation-surface-setup-envelope
   last_completed_goal_result: r1_accepted_goal_complete
   previous_goal_superseded: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
-  previous_phase_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection"
+  previous_phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
   current_wave: none
-  next_route: P0_PHASE_START
-  next_route_mode: start_next_phase_after_project_bootstrap_validation_surface_setup_close
-  review_scope: r1_bootstrap_validation_surface_setup_envelope_accepted
-  completion_scope: parent_goal_complete
-  parent_goal_completion_state: complete
-  accepted_result: "Setup/validation envelope accepted by R1."
-  smallest_useful_result: "E1 execution brief for producing or route-gating the setup/validation envelope."
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_h1_g4_first_runnable_technical_nucleus_slice
+  review_scope: none_pending_G1_goal_shape
+  completion_scope: none_pending_G1_goal_shape
+  parent_goal_completion_state: none_pending_G1_goal_shape
+  accepted_result: none_pending_G1_goal_shape
+  smallest_useful_result: "A shaped Goal Contract whose accepted outcome is either a first runnable nucleus slice with validation evidence or a concrete blocker/unblock packet."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -54,8 +56,8 @@ active_goal:
   unity_mcp_setup_allowed_now: false
   old_code_transfer_allowed_now: false
   game_documentation_promotion_allowed_now: false
-  next_goal_seed: none_after_phase_close
-  note: "P9 closed the setup/validation envelope Goal with the Phase; P0/G0/G1 must select any new Goal later."
+  next_goal_seed: h1-g4-first-runnable-technical-nucleus-slice
+  note: "P0 selected the first H1_G4 runnable technical nucleus Goal candidate for G1 shaping; no implementation or product execution is authorized."
 ```
 
 ```yaml
@@ -104,35 +106,39 @@ previous_active_goal:
 
 Active Goal:
 
-`bootstrap-validation-surface-setup-envelope`
+`none_active_pending_G1_goal_shape`
 
 Goal title:
 
-`Сформировать setup/validation envelope для project bootstrap перед H1_G4`
+`none_pending_G1_goal_shape`
 
 Status:
 
-`closed_with_phase`
+`none_active_pending_G1_goal_shape`
 
 Next route:
 
-`P0_PHASE_START`
+`G1_GOAL_SHAPE`
 
 Implementation, Unity bootstrap, Codex product/project execution, Unity MCP setup, and Task Master graph creation are not authorized now.
 
+Selected first Goal candidate:
+
+`h1-g4-first-runnable-technical-nucleus-slice`
+
 Last completed Goal:
 
-`H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
+`bootstrap-validation-surface-setup-envelope`
 
-Accepted result: Readiness packet for project bootstrap, tool-binding, and validation-scene readiness.
+Accepted result: setup/validation envelope accepted by R1 and closed with previous Phase.
 
 Goal Contract:
 
-`directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md`
+`none_pending_G1_goal_shape`
 
 Execution log:
 
-`directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md`
+`none_pending_G1_goal_shape`
 
 ## R1-accepted active-front review
 
@@ -445,3 +451,33 @@ task_master_graph_allowed_now: false
 ```
 
 `bootstrap-validation-surface-setup-envelope` is preserved as last completed Goal evidence, not active work.
+
+## 2026-05-22 P0 selected first H1_G4 Goal candidate
+
+```yaml
+active_goal:
+  state: none_active_pending_G1_goal_shape
+  active_goal_state: none_active_pending_G1_goal_shape
+  goal_id: none_active_pending_G1_goal_shape
+  active_goal_id: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  phase_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_h1_g4_first_runnable_technical_nucleus_slice
+  previous_active_goal_id: bootstrap-validation-surface-setup-envelope
+  previous_active_goal_result: r1_accepted_goal_complete
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  product_repository_creation_allowed_now: false
+  product_code_allowed_now: false
+  task_master_graph_allowed_now: false
+  real_internal_tool_setup_allowed_now: false
+  unity_mcp_setup_allowed_now: false
+  old_code_transfer_allowed_now: false
+  game_documentation_promotion_allowed_now: false
+summary: >
+  P0 selected the first H1_G4 runnable durable technical nucleus Goal candidate
+  for G1 shaping. No active Goal Contract exists until G1 formalizes one.
+```

@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_p9_project_bootstrap_validation_surface_setup_close
+projection_status: fresh_after_p0_h1_g4_first_runnable_build_phase_start
 activated_at: "2026-05-13"
 ```
 
@@ -15,41 +15,42 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-- Active Phase: `project-bootstrap-validation-surface-setup`
-- Active Phase name: `Project Bootstrap and Validation Surface Setup`
-- Active Phase status: `closed_complete_by_P9`
-- Map binding: `H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus`
+- Active Phase: `h1-g4-durable-technical-nucleus-first-runnable-build`
+- Active Phase name: `H1_G4 Durable Technical Nucleus — First Runnable Build`
+- Active Phase status: `active_pending_G1_goal_shape`
+- Map binding: `H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `none_active_after_phase_close`
-- Active Goal status: `closed_with_phase`
-- Selected first Goal candidate: `bootstrap-validation-surface-setup-envelope`
+- Active Goal: `none_active_pending_G1_goal_shape`
+- Active Goal status: `none_active_pending_G1_goal_shape`
+- Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
 - Selected first Goal candidate status: `selected_for_G1_goal_shape`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
-- Next route: `P0_PHASE_START`
+- Next route: `G1_GOAL_SHAPE`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
 - Previous Goal status: `paused_superseded_partial_progress_not_accepted`
-- Last closed Phase: `core-coop-technical-foundation-selection`
+- Last closed Phase: `project-bootstrap-validation-surface-setup`
 
 ## Selected current Phase direction
 
-`Project Bootstrap and Validation Surface Setup` is selected by `P0_PHASE_START`.
+`H1_G4 Durable Technical Nucleus — First Runnable Build` is selected by `P0_PHASE_START`.
 
-Purpose: convert accepted H1_G3 readiness into a bounded project bootstrap / tool-binding / validation-surface setup campaign before H1_G4 durable technical nucleus work is scoped.
+Purpose: convert accepted setup/readiness/envelope work into the first runnable H1_G4 durable technical nucleus slice, or a concrete blocker/unblock route if that slice cannot be produced safely.
 
-Required setup/validation surface:
+Required first runnable technical nucleus surface:
 
 - concrete setup target;
 - allowed and forbidden setup surfaces;
-- validation surface requirements;
+- minimal runnable slice definition;
+- validation scene/harness/test/manual checklist requirements;
 - stop conditions;
 - evidence requirements;
-- next safe route toward H1_G4 without starting product implementation prematurely.
+- exact blocker/unblock route if runnable output cannot be produced safely.
 
 ## Completed / accepted
 
@@ -81,7 +82,8 @@ Required setup/validation surface:
 
 ## Queue items
 
-- Project Bootstrap / Validation Surface Setup Envelope — `closed_with_phase`; id: `bootstrap-validation-surface-setup-envelope`; route: `P0_PHASE_START`; purpose: preserved as completed Phase evidence after setup/validation envelope acceptance.
+- H1_G4 first runnable durable technical nucleus slice — `selected_for_G1_goal_shape`; id: `h1-g4-first-runnable-technical-nucleus-slice`; route: `G1_GOAL_SHAPE`; purpose: shape the first runnable H1_G4 technical nucleus Goal or evidence-based blocker route.
+- Project Bootstrap / Validation Surface Setup Envelope — `closed_with_phase`; id: `bootstrap-validation-surface-setup-envelope`; route: `none_goal_complete`; purpose: preserved as completed Phase evidence after setup/validation envelope acceptance.
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
 - Expedition Project Bootstrap / Tool Binding Readiness — `r1_accepted_goal_complete`; node: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`; route: `P9_PHASE_CLOSE`
@@ -344,3 +346,33 @@ queue_update_after_p9_project_bootstrap_validation_surface_setup_close:
 ```
 
 The next queue movement is P0 phase start. Durable technical nucleus implementation, product execution, Game Documentation promotion, old-code transfer, Unity MCP setup, and Task Master graph creation remain parked/request-only.
+
+## Queue update after P0 H1_G4 first runnable build phase start
+
+```yaml
+queue_update_after_p0_h1_g4_first_runnable_build_phase_start:
+  active_phase: h1-g4-durable-technical-nucleus-first-runnable-build
+  active_phase_name: "H1_G4 Durable Technical Nucleus — First Runnable Build"
+  active_phase_status: active_pending_G1_goal_shape
+  map_binding: "H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus"
+  active_goal: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  last_completed_goal: bootstrap-validation-surface-setup-envelope
+  last_completed_goal_status: r1_accepted_goal_complete
+  next_route: G1_GOAL_SHAPE
+required_queue_item:
+  id: h1-g4-first-runnable-technical-nucleus-slice
+  status: selected_for_G1_goal_shape
+  route: G1_GOAL_SHAPE
+  purpose: "Shape the first runnable H1_G4 durable technical nucleus Goal, including setup/tool-binding entry gate, validation surface, stop conditions, and blocker/unblock route."
+parked_request_only_preserved:
+  - durable_technical_nucleus_implementation
+  - product_execution
+  - Game Documentation promotion
+  - old-code transfer
+  - Unity MCP setup
+  - Task Master graph creation
+```
+
+The next queue movement is G1 shaping of the first runnable H1_G4 durable technical nucleus Goal. Implementation/bootstrap/product execution remain blocked.
