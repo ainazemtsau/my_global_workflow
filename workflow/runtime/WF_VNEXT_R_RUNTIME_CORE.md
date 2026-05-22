@@ -19,6 +19,16 @@ Material solution-shape selection must be solution-minimal, not only basis-valid
 
 Basis-valid work may still be rejected when the selected solution shape is overbuilt, undercut, anchored to nonbinding user examples, or violates the dominant constraint.
 
+Runtime optimization is result-first:
+
+```text
+Default route = shortest safe path to the next Direction-visible result that preserves the Minimum Complete Outcome.
+```
+
+Control-plane artifacts remain subordinate to delivery/result progress. Documentation, research, readiness, setup, validation, launch cards, execution briefs, and cache refresh notes are support artifacts by default unless the Direction objective or current accepted Goal/Phase makes them primary.
+
+Result-first routing does not authorize skipping basis-validity, execution readiness, source-of-truth, E1/X0/X1, Project Files refresh, approval/formalization, stage registry, transport schema, or EOF/structural-integrity gates.
+
 GitHub repository is the source of truth.
 
 Direction project files are GitHub repository runtime files. `WORKFLOW_SOURCE_OF_TRUTH.md` is the active source-of-truth marker.
@@ -309,7 +319,7 @@ At the start of a Direction Project chat:
 3.  Read shared runtime core at `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`.
 4.  Identify Direction, Direction Map status, current Phase, active Goal, current route, blockers, freshness/staleness, and whether a Launch Card is present.
 5.  If a Launch Card is present, follow it.
-6.  If no Launch Card is present, use Router / Stage Launcher behavior to determine the smallest safe next action.
+6.  If no Launch Card is present, use Router / Stage Launcher behavior to determine the shortest safe path to the next Direction-visible result, preserving the Minimum Complete Outcome and required safety gates.
 7.  If the required stage prompt or required context is missing after the applicable acquisition policy is applied, return Context Request Card.
 
 Do not invent missing Direction / Phase / Goal / Wave state.
@@ -322,7 +332,7 @@ For exact repository context or exact stage prompt paths, absence from Project F
 
 Router / Stage Launcher is the default routing behavior used when a chat starts without a specific stage already running.
 
-It does not replace full stage prompts. It only determines the smallest safe next action and prepares a Launch Card or Context Request.
+It does not replace full stage prompts. It determines the shortest safe path to the next Direction-visible result and prepares a Launch Card or terminal card.
 
 Router must check:
 
@@ -341,11 +351,17 @@ Router must check:
 *   Did the user state low burden, low friction, speed, simplicity, or 'not геморно' as a primary constraint?
 *   Are user-provided implementation examples present and potentially anchoring the plan?
 *   If yes, is Minimum Sufficient Solution Proof inherited, proven, or explicitly not required?
-*   What is the smallest safe route?
+*   What is the shortest safe path to the next Direction-visible result, and which support artifacts are strictly necessary to unlock or protect it?
 
 Router must distinguish `route_valid` from `basis_valid`. Before launching material strategic, audit, research, planning, or execution work, Router must use or request a `next_action_proof` according to `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`. If basis-validity is missing or false, Router must route to M0_DIRECTION_MAP, B1_PROBLEM, Context Request, Human Decision, or Stop rather than launching the material stage.
 
 When solution-shape proof is required but missing or failed, Router must not launch material HOW/planning/execution. It must route to the smallest safe correction: B1_PROBLEM, S3_DECIDE, Context Request, Human Decision, Stop, or a stage allowed by `STAGE_REGISTRY.md` that can repair the proof.
+
+Result-first guard:
+
+- Router must not select a support-artifact/readiness/documentation/setup route as standalone material work when it can be embedded as an internal Goal/gate inside a result-facing Phase/Goal.
+- If the previous material container was support-artifact-heavy, the next material container defaults to delivery/result-facing unless new evidence introduced a blocker, source-of-truth/safety risk makes execution unsafe, the Direction itself makes a workflow/documentation/governance artifact the primary result, or the user explicitly chooses more planning/research/documentation.
+- Support artifacts are admitted through the Direction Value Anchor, Documentation Admission Test, and Phase Result Contract in `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md`.
 
 Router default routing:
 
@@ -1427,10 +1443,14 @@ workflow/transport/DOCUMENTATION_MAINTENANCE_GATE.md
 Runtime behavior rules:
 
 - distinguish proposed documentation changes from applied documentation changes;
+- treat documentation maintenance as control-plane work by default;
+- block result flow only when Documentation Admission Test passes or when stale/missing documentation would create a concrete source-of-truth, safety, execution, validation, or cache-refresh failure;
 - do not claim documentation was updated without read-back / diff verification / commit verification;
 - context refresh must name exact files;
 - mark stale/superseded material only with explicit paths and reasons;
 - documentation updates must stay scoped to the approved stage/result/patch;
+- documentation maintenance must not create a standalone Phase or Goal merely because docs can be improved;
+- documentation updates must stay proportionate to the result being protected;
 - if documentation maintenance changes cached Project Files or runtime cache files, manual refresh must be reported.
 
 Use the canonical transport template for packet shape. Runtime core owns the behavior above.
@@ -1634,11 +1654,20 @@ Breaking changes require schema version bump, alias, or adapter.
 
 ## 20\. Route selection rules
 
-Default route = smallest safe route that preserves the minimum complete outcome.
+Default route = shortest safe path to the next Direction-visible result that preserves the Minimum Complete Outcome and required safety gates.
 
 A registry-valid route is necessary but not sufficient. For material next actions, the selected action must also be basis-valid: linked to the Direction objective, accepted horizon, active frontier, prerequisites, concrete target, acceptance/evidence path, and stage semantics.
 
 For material solution-shape decisions, the selected route must also be solution-minimal or explicitly not require solution-shape proof. Smallest safe route does not mean fragmenting the Goal below one complete usable loop.
+
+"Smallest" means smallest sufficient result scope and smallest sufficient support work. It does not mean:
+
+- smallest lifecycle container;
+- standalone document/readiness/setup gate;
+- splitting a natural result loop into multiple Phases;
+- replacing delivery/result progress with proof that delivery may later be possible.
+
+After a support-artifact-heavy Phase/Goal, the next route must default to result-facing work unless new evidence introduced a blocker, source-of-truth/safety risk makes execution unsafe, the Direction objective makes the support artifact primary, or the user explicitly chooses more support work.
 
 Routes:
 
@@ -1703,6 +1732,10 @@ The workflow must compensate for:
 *   choosing a heavier process because it looks more systematic rather than because it passes Component Necessity Test;
 *   optimizing for theoretical completeness while violating the user's stated low-burden constraint;
 *   cutting scope below one complete usable loop;
+*   cutting optional scope instead of preserving the natural result loop;
+*   cutting excessive docs/research/readiness instead of the first operational action;
+*   turning smallest testable version into micro-Phase gates instead of Goal/execution slice sizing;
+*   creating process churn or support-artifact chains;
 *   stale documentation polluting current context;
 *   missing documentation updates after Goal/Phase completion;
 *   creating hard-to-use handoffs between ChatGPT and Codex.
@@ -1714,7 +1747,7 @@ Use where relevant:
 *   cut until slightly uncomfortable;
 *   smallest testable version;
 *   anti-rabbit-hole checks;
-*   default smallest safe route;
+*   default shortest safe path to the next Direction-visible result;
 *   explicit stop rules for missing context.
 
 ## 22\. Runtime Stage Registry
@@ -1770,6 +1803,7 @@ phase_closure_contract:
         status:
         reason_optional:
   first_phase_closing_candidate_if_known:
+  completed_output_classification: primary_result | support_artifact | partial_slice | optional_reference | unknown
   after_goal_gate_policy:
     phase_progress_gate after R1: required
     R1 must not route directly to G0 only because Active Goal is none: true
@@ -1785,8 +1819,29 @@ After R1 accepts/verifies a Goal, phase_progress_gate must not create the next r
 `phase_progress_gate` checks:
 
 - whether the completed Goal satisfies or may satisfy the current Phase Minimum Outcome;
+- whether the completed output is `primary_result`, `support_artifact`, `partial_slice`, `optional_reference`, or `unknown`;
 - whether remaining Goals are required_for_closure or optional_expansion;
 - whether the Phase should route to `P9_PHASE_CLOSE`, continue to `G0_GOAL_SELECT`, pause, request context, or ask for a human decision.
+
+Phase closure must be evaluated against observable result-state movement, not only support-artifact production, unless the support artifact is primary by Direction, Goal, or Phase contract.
+
+If completed output is `support_artifact`:
+
+- default continuation is result-facing next Goal/gate using the artifact;
+- do not close the Phase or create the next support-artifact Phase unless Phase Result Contract and Documentation Admission Test pass;
+- repeated support/readiness/setup/documentation gates require new evidence, blocker, or named result action unlocked.
+
+P9 next candidates must classify:
+
+```yaml
+next_phase_candidate_result_first_check:
+  standalone_phase_allowed: true | false
+  embed_as_first_goal_or_gate_by_default: true | false
+  standalone_allowed_only_if:
+  do_not_select_if:
+```
+
+A support/readiness/setup/documentation gate should normally be the first Goal/gate inside the next result-facing Phase, not a standalone Phase.
 
 Routing rules:
 

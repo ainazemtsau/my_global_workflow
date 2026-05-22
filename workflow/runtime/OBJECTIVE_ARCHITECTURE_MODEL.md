@@ -9,7 +9,7 @@ artifact_control:
   repo_path: "workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md"
   default_load: yes
   freshness: refresh_when_basis_validity_horizon_frontier_or_solution_shape_rules_change
-  last_updated: "2026-05-18"
+  last_updated: "2026-05-22"
 ```
 
 ## Purpose
@@ -64,6 +64,95 @@ No Minimum Sufficient Solution Proof -> no material HOW, process, architecture, 
 No Component Necessity Test -> no durable artifact/template/workstream/chat split.
 No Human Burden Budget -> no higher-burden solution when low burden is a stated primary constraint.
 ```
+
+## Result-First Workflow Contract
+
+The workflow is a result-delivery system, not a documentation-production system.
+
+Each material Direction route must be anchored to a Direction-visible result: an observable state change in the Direction's real objective surface.
+
+Default optimization:
+
+```text
+shortest safe path to the next Direction-visible result that preserves the Minimum Complete Outcome.
+```
+
+"Smallest" means smallest sufficient result scope and smallest sufficient support work. It does not mean smallest lifecycle container, document gate, or Phase boundary.
+
+Control-plane artifacts include documentation, research summaries, readiness checks, envelopes, validation evidence, launch cards, execution briefs, setup evidence, cache refresh notes, and handoff packets. Control-plane artifacts are valid only when they enable, protect, or verify a Direction-visible result.
+
+In product/result Directions, documentation, research, readiness, setup, checklist, and envelope artifacts are support artifacts by default. In Workflow Governance or other governance/documentation Directions, a runtime rule, stage prompt change, eval, source-of-truth repair, or accepted governance artifact may be the primary result when the Direction objective makes it primary.
+
+## Direction Value Anchor
+
+Use a compact `direction_value_anchor` when selecting or changing a material Horizon, Phase, Goal, audit/research/execution launch, or support-artifact-heavy continuation.
+
+```yaml
+direction_value_anchor:
+  direction_objective:
+  primary_result_type:
+  current_real_state:
+  next_observable_state:
+  direction_visible_result:
+  support_artifacts_allowed:
+  support_artifacts_reason:
+  progress_measure:
+  verdict:
+    result_anchored: true | false
+    reason:
+```
+
+A support artifact cannot be treated as primary progress unless the Direction Value Anchor proves it is the result or directly unlocks a named result action.
+
+## Documentation Admission Test
+
+Use a compact `documentation_admission_test` before durable documentation, reports, templates, envelopes, handoff artifacts, or memory/cache artifacts become material work.
+
+```yaml
+documentation_admission_test:
+  artifact:
+  role: primary_outcome | enabling_decision | execution_handoff | validation_evidence | memory_cache | optional_reference
+  consumer:
+  next_action_unlocked:
+  concrete_failure_prevented:
+  why_existing_artifact_is_insufficient:
+  max_scope_or_depth:
+  expires_or_is_superseded_when:
+  if_not_used_by_next_stage:
+    action: cut | park | summarize | delete_candidate
+  verdict:
+    admitted: true | false
+    reason:
+```
+
+No next action unlocked means do not create durable documentation as material work. If an existing artifact is sufficient, reuse it. Optional reference material is not a Phase, not a blocker, and not a required continuation. Documentation can be a primary outcome only when the Direction objective or current accepted Goal/Phase makes it primary.
+
+## Phase Result Contract
+
+A Phase is a campaign that moves the Direction from one real observable state to the next.
+
+Use a compact `phase_result_contract` for material Phase selection or reframing:
+
+```yaml
+phase_result_contract:
+  phase_candidate:
+  parent_horizon_or_initiative:
+  current_real_state:
+  next_observable_state:
+  primary_result_delta:
+  first_operational_action:
+  support_artifacts_allowed:
+  max_pre_execution_support_goals:
+  closure_means:
+  not_closed_by:
+  verdict:
+    standalone_phase_allowed: true | false
+    reason:
+```
+
+A Phase may include support artifacts, gates, research, setup, and validation, but must not be closed by support artifacts alone unless those artifacts are the Direction-visible result or directly unlock a named result action.
+
+A one-Goal Phase is allowed only when that Goal itself closes the Phase-level result or constraint. Readiness, setup, documentation, and validation gates default to an internal Goal/gate inside a larger result-facing Phase.
 
 ## Direction independence
 
@@ -309,6 +398,8 @@ Core distinction:
 basis_valid is not solution_minimal.
 solution_minimal is not solution_trivial.
 scope_cutting is not goal fragmentation.
+scope_cutting is not phase fragmentation.
+support artifact is not primary outcome by default.
 user examples are hypotheses unless explicitly marked as requirements.
 ```
 
@@ -319,6 +410,8 @@ Required when any of these are true:
 - multiple implementation paths exist;
 - low burden, low friction, speed, simplicity, or "not геморно" is a stated user constraint;
 - the proposed solution adds recurring user actions, persistent logs, reports, templates, roles, reviews, or multi-chat coordination;
+- durable documentation, reports, templates, envelopes, handoff artifacts, workstreams, or control-plane artifacts are proposed as material work;
+- a support-artifact-heavy continuation or lifecycle boundary is being selected;
 - the task risks overbuilding, future-proofing, or cutting below a complete usable loop.
 
 Produce or inherit a compact `minimum_sufficient_solution_proof`:
@@ -347,6 +440,12 @@ minimum_sufficient_solution_proof:
         what_fails:
     not_enough_if:
       - condition:
+  result_first_check:
+    direction_value_anchor_status: not_required | inherited | proven | missing | failed
+    proposed_primary_outcome:
+    support_artifact_status: none | enabling | validation | optional_reference | misclassified_primary | unknown
+    documentation_admission_status: not_required | inherited | proven | missing | failed
+    phase_fragmentation_risk: none | possible | present | unknown
   dominant_constraint:
     type: human_burden | cognitive_load | context_persistence | safety | accuracy | cost | time | tooling | uncertainty | other
     evidence:
@@ -406,8 +505,12 @@ Reject or route to repair when:
 - low burden is primary but Human Burden Budget is missing or too_high;
 - a component remains even though removal does not break a current acceptance predicate;
 - a future-proofing component is kept without current acceptance, safety, evidence, or persistence necessity;
+- a support artifact is treated as the primary result without Direction Value Anchor or Documentation Admission Test;
 - scope cutting removes the minimum complete outcome;
+- scope cutting preserves a document/checklist/readiness artifact but cuts away the natural result loop;
 - the result is a micro-task rather than one complete usable loop;
+- the selected shape creates micro-Phase fragmentation rather than one complete result loop;
+- repeated support-artifact work is selected without new evidence, blocker, or named result action unlocked;
 - scoring is used to compensate for a violated hard constraint.
 ```
 
@@ -433,6 +536,14 @@ Overcut rule:
 
 ```text
 Cut scope until slightly uncomfortable, but not below the minimum complete outcome.
+```
+
+Scope-cutting clarification:
+
+```text
+Scope cutting removes optional features, future-proofing, broad research, companion functionality, excessive documentation, speculative architecture, and unnecessary validation surfaces.
+Scope cutting must not cut below the Minimum Complete Outcome.
+Scope cutting must not split a natural result loop into multiple support-artifact Phases.
 ```
 
 ## Audit readiness gate
@@ -528,6 +639,7 @@ When a user-stated hard constraint exists, candidate scoring must not compensate
 
 Router:
 - must not choose a material route from registry validity alone;
+- must route toward the shortest safe path to the next Direction-visible result, not merely the smallest lifecycle container;
 - must require basis-validity when selecting strategic Phase/Goal/research/audit/execution work;
 - must require Minimum Sufficient Solution Proof when material solution shape, architecture/process choice, recurring user burden, or user-example anchoring risk exists;
 - must route to B1_PROBLEM, S3_DECIDE, Context Request, Human Decision, or Stop when solution minimality is missing or false for material work;
@@ -538,6 +650,10 @@ M0_DIRECTION_MAP:
 - when deriving horizon/frontier, must keep dominant constraint and human-burden implications visible when they materially affect strategic selection;
 - must not build a broad roadmap or backlog.
 
+P0_PHASE_START:
+- must use Phase Result Contract for material Phase selection;
+- must not start a standalone support-artifact/readiness/documentation/setup Phase when the work can be the first Goal/gate inside a result-facing Phase.
+
 G0_GOAL_SELECT:
 - should select from active frontier ready nodes;
 - must not select candidates merely because they match nonbinding user examples;
@@ -546,6 +662,8 @@ G0_GOAL_SELECT:
 G1_GOAL_SHAPE:
 - must challenge the selected seed before shaping it;
 - must classify user examples as nonbinding ideas, explicit requirements, constraints, or anti-examples before shaping the Goal;
+- may keep Goals small/testable, but must preserve the accepted Phase/result loop;
+- must classify support artifacts when they are part of the Goal outcome;
 - must define Minimum Complete Outcome before scope cutting;
 - must reject Goal shapes that are overbuilt, undercut, or anchored to nonbinding examples;
 - must not turn an ungrounded seed into a polished Goal Contract;
@@ -564,11 +682,15 @@ D1_DEEP_RESEARCH:
 E1_EXECUTION_BRIEF:
 - must inherit or produce Next Action Proof before execution planning;
 - must not plan HOW until the selected solution shape passes Minimum Sufficient Solution Proof or is explicitly not required;
+- must keep support documentation/handoff artifacts minimal and execution-unlocking;
+- must not create another planning/documentation chain unless new evidence or blocker requires it;
 - every durable artifact, template, recurring report, workstream, chat split, or repository-backed process must pass Component Necessity Test;
 - must not plan HOW for unproven WHAT.
 
 R1_GOAL_REVIEW_DISTILL:
 - after reviewing a Goal, must report graph/frontier implications when the Goal touched map-bound strategic work;
+- must classify accepted outputs as primary outcome versus support artifact;
+- after support-artifact acceptance, must default continuation toward result-facing work unless another support artifact passes admission test;
 - must report whether the delivered outcome created unnecessary operational burden;
 - must not convert parked optional components into required continuation work without new basis-valid and solution-minimal proof;
 - must not select a next required Goal merely because a surface is unresolved;
@@ -576,6 +698,8 @@ R1_GOAL_REVIEW_DISTILL:
 
 P9_PHASE_CLOSE:
 - may update compact map/frontier state when closing a Phase;
+- must not seed next standalone support-artifact Phases by default;
+- must classify next candidates as standalone Phase versus first Goal/gate inside a result-facing Phase;
 - must preserve Phase Memory and avoid duplicate or premature next Phase selection.
 
 ## Proof depth
@@ -608,6 +732,10 @@ Do not let scoring compensate for violating a hard human-burden or dominant-cons
 Do not cut below the Minimum Complete Outcome.
 Do not keep artifacts, templates, recurring reports, workstreams, or chat splits that fail Component Necessity Test.
 Do not equate solution minimality with triviality or micro-task fragmentation.
+Do not treat documentation/readiness/setup/research artifacts as primary progress by default.
+Do not convert each blocker or gate into its own Phase.
+Do not select another same-surface support-artifact Phase after a support-artifact-heavy Phase unless new evidence or a named result-unlocking need proves it.
+Do not interpret "smallest safe route" as "smallest lifecycle container."
 ```
 
 ## End-of-file marker
