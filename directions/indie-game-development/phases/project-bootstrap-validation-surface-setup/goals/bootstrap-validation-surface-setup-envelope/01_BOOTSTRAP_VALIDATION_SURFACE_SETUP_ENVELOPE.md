@@ -5,7 +5,7 @@ artifact_control:
   artifact_name: "Bootstrap Validation Surface Setup Envelope"
   schema: bootstrap_validation_surface_setup_envelope.v1
   owner_layer: direction_goal_artifact
-  status: bootstrap_validation_surface_setup_envelope_formalized
+  status: r1_accepted_goal_complete
   direction_id: indie_game_development
   phase_id: project-bootstrap-validation-surface-setup
   goal_id: bootstrap-validation-surface-setup-envelope
@@ -13,6 +13,10 @@ artifact_control:
   formalized_by_stage: F0_FAST_DIRECT
   formalization_trigger: APPROVE_AND_FORMALIZE
   formalized_at: "2026-05-22"
+  accepted_by_stage: R1_GOAL_REVIEW_DISTILL
+  accepted_at: "2026-05-22"
+  r1_review_verdict: completed_verified
+  next_route_after_r1_acceptance: P9_PHASE_CLOSE
   scope_lock: readiness_envelope_only
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
@@ -224,7 +228,9 @@ Rejected alternatives for immediate execution:
 Repository maintenance must verify these anchors:
 
 ```text
-status: bootstrap_validation_surface_setup_envelope_formalized
+status: r1_accepted_goal_complete
+r1_review_verdict: completed_verified
+next_route_after_r1_acceptance: P9_PHASE_CLOSE
 scope_lock: readiness_envelope_only
 implementation_allowed_now: false
 codex_product_execution_allowed_now: false

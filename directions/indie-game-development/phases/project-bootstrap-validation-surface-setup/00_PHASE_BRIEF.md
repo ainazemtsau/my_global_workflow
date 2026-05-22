@@ -6,7 +6,7 @@ schema: phase_brief.v1
 direction_id: indie_game_development
 phase_id: project-bootstrap-validation-surface-setup
 phase_name: "Project Bootstrap and Validation Surface Setup"
-status: active_pending_G1_goal_shape
+status: active_goal_r1_accepted_pending_P9_phase_close
 started_by_stage: P0_PHASE_START
 started_at: "2026-05-21"
 previous_phase_id: core-coop-technical-foundation-selection
@@ -14,7 +14,7 @@ previous_phase_status: closed_complete_by_P9
 previous_phase_summary: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md"
 map_link: "H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus"
 basis_validity_status: proven
-next_route: G1_GOAL_SHAPE
+next_route: P9_PHASE_CLOSE
 implementation_allowed_now: false
 codex_product_execution_allowed_now: false
 unity_bootstrap_allowed_now: false
@@ -78,8 +78,8 @@ phase_closure_contract:
   phase_work_map:
     required_for_closure:
       - goal_id: bootstrap-validation-surface-setup-envelope
-        status: selected_for_G1_goal_shape
-        evidence: "P0 formalized first Goal candidate."
+        status: r1_accepted_goal_complete
+        evidence: "R1 accepted the setup/validation envelope."
     optional_expansion:
       - candidate_id: H1_G4_durable_technical_nucleus_planning
         status: optional_not_required_for_closure
@@ -97,6 +97,18 @@ phase_closure_contract:
     G0_allowed_only_after_phase_continue_decision: true
     P9_required_when_completed_goal_may_satisfy_phase_minimum_outcome: true
     Context_Request_required_when_phase_closure_contract_is_missing: true
+```
+
+## 2026-05-22 R1 acceptance note
+
+```yaml
+r1_acceptance_note:
+  accepted_goal: bootstrap-validation-surface-setup-envelope
+  accepted_result: setup/validation envelope
+  phase_progress_gate_status: phase_close_candidate
+  next_route: P9_PHASE_CLOSE
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
 ```
 
 ## First Goal Candidate

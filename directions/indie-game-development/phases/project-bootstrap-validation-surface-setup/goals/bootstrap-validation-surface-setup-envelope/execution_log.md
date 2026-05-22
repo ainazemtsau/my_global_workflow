@@ -109,6 +109,41 @@ log_entry:
   next_route_after_successful_f0_validation: R1_GOAL_REVIEW_DISTILL
 ```
 
+## 2026-05-22 — R1_GOAL_REVIEW_DISTILL — setup/validation envelope accepted
+
+```yaml
+log_entry:
+  date: "2026-05-22"
+  stage: R1_GOAL_REVIEW_DISTILL
+  trigger: APPROVE_AND_FORMALIZE
+  patch_id: r1_accept_bootstrap_validation_surface_setup_envelope_2026_05_22
+  goal_id: bootstrap-validation-surface-setup-envelope
+  review_verdict: completed_verified
+  closure_eligibility: eligible
+  goal_review_verdict: accepted_complete
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  accepted_artifact: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md"
+  accepted_scope: "setup/validation envelope only"
+  phase_progress_gate_status: phase_close_candidate
+  next_route_after_repository_maintenance: P9_PHASE_CLOSE
+  forbidden_scope_preserved:
+    - Unity bootstrap
+    - product repository creation
+    - product code
+    - Codex product/project execution
+    - Task Master graph creation
+    - real internal tool setup
+    - Unity MCP setup
+    - old-code transfer
+    - old-code audit as starting point
+    - Game Documentation promotion
+  summary: >
+    R1 accepted the F0-formalized setup/validation envelope as satisfying
+    the Goal Contract acceptance floor. The Phase is now a close candidate.
+    Product/project execution remains blocked until a later basis-valid route.
+```
+
 ## End-of-file marker
 
-`END_OF_FILE: directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md`
+END_OF_FILE: directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md

@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_g1_bootstrap_validation_surface_setup_envelope_formalized
+projection_status: fresh_after_r1_bootstrap_validation_surface_setup_envelope_accepted
 activated_at: "2026-05-13"
 ```
 
@@ -56,8 +56,8 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md`
-  - Status: `active_goal_shaped_pending_E1_execution_brief`
-  - Load for `E1_EXECUTION_BRIEF` and any route that needs the active setup/validation Phase frame.
+  - Status: `active_goal_r1_accepted_pending_P9_phase_close`
+  - Load for `P9_PHASE_CLOSE` and any route that needs the active setup/validation Phase frame.
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
@@ -84,6 +84,19 @@ active_goal_after_g1_bootstrap_validation_surface_setup_envelope_formalization:
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\evidence\\h1-g3-readiness-2026-05-21.md"
   recommended_next_stage: E1_EXECUTION_BRIEF
   recommended_next_mode: prepare_bootstrap_validation_surface_setup_envelope_execution_brief
+```
+
+Active Goal after R1 acceptance:
+
+```yaml
+active_goal_after_r1_bootstrap_validation_surface_setup_envelope_acceptance:
+  active_goal_id: bootstrap-validation-surface-setup-envelope
+  active_goal_status: r1_accepted_goal_complete
+  review_verdict: completed_verified
+  goal_review_verdict: accepted_complete
+  phase_progress_gate_status: phase_close_candidate
+  recommended_next_stage: P9_PHASE_CLOSE
+  recommended_next_mode: close_or_pause_project_bootstrap_validation_surface_setup_after_envelope_acceptance
 ```
 
 Load for P9 after R1 H1_G3 acceptance:
@@ -482,20 +495,20 @@ required_context_after_p0_project_bootstrap_validation_surface_setup_start:
 
 G1 must shape the setup/validation envelope only. It must not run Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
 
-## Required context after G1 bootstrap validation surface setup envelope formalization
+## Required context after R1 bootstrap validation surface setup envelope acceptance
 
-Recommended next stage: `E1_EXECUTION_BRIEF`.
+Recommended next stage: `P9_PHASE_CLOSE`.
 
-Recommended next mode: `prepare_bootstrap_validation_surface_setup_envelope_execution_brief`.
+Recommended next mode: `close_or_pause_project_bootstrap_validation_surface_setup_after_envelope_acceptance`.
 
 ```yaml
-required_context_after_g1_bootstrap_validation_surface_setup_envelope_formalization:
+required_context_after_r1_bootstrap_validation_surface_setup_envelope_acceptance:
   active_goal_id: bootstrap-validation-surface-setup-envelope
-  active_goal_status: goal_shaped_pending_E1_execution_brief
-  recommended_next_stage: E1_EXECUTION_BRIEF
-  recommended_next_mode: prepare_bootstrap_validation_surface_setup_envelope_execution_brief
-  load_for_E1:
-    - workflow/stage_prompts/E1_EXECUTION_BRIEF.md
+  active_goal_status: r1_accepted_goal_complete
+  recommended_next_stage: P9_PHASE_CLOSE
+  recommended_next_mode: close_or_pause_project_bootstrap_validation_surface_setup_after_envelope_acceptance
+  load_for_P9:
+    - workflow/stage_prompts/P9_PHASE_CLOSE.md
     - WORKFLOW_SOURCE_OF_TRUTH.md
     - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
     - workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
@@ -512,11 +525,13 @@ required_context_after_g1_bootstrap_validation_surface_setup_envelope_formalizat
     - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
     - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
     - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
-    - directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md
-    - directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md
-    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md
-    - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/codex-development-operating-model-and-architecture-protocols/01_GAS_COOP_GAME_PROJECT_EXECUTION_PROFILE.md
     - directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md
+    - directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md
+    - directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md
+    - directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md
+  stage_prompt_copy_policy: "P9 prompt text is not copied into Project Files."
 ```
 
-E1 must prepare the setup/validation envelope execution brief only. It must not run Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
+P9 prompt text is not copied into Project Files.
+
+P9 must close or pause the Phase after R1 accepted the setup/validation envelope. It must not run Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.

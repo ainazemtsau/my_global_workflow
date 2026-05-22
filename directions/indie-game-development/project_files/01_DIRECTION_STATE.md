@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/01_DIRECTION_STATE.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_g1_bootstrap_validation_surface_setup_envelope_formalized
+  source_freshness: fresh_after_r1_bootstrap_validation_surface_setup_envelope_accepted
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -23,7 +23,7 @@ direction:
   current_initiative_from_map: innovative-commercial-expedition-gas-sim-game
   active_horizon_from_map: H1_playable_technical_nucleus
   current_phase_pointer: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
-  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  current_phase_status: active_goal_r1_accepted_pending_P9_phase_close
   active_goal_pointer: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope"
   active_goal_contract: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
@@ -41,11 +41,19 @@ direction:
   accepted_product_local_artifacts:
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\outbox\\H1_G3_READINESS_PACKET.md"
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\evidence\\h1-g3-readiness-2026-05-21.md"
-  active_goal_status: goal_shaped_pending_E1_execution_brief
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_bootstrap_validation_surface_setup_envelope_execution_brief
+  active_goal_status: r1_accepted_goal_complete
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_project_bootstrap_validation_surface_setup_after_envelope_acceptance
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  product_repository_creation_allowed_now: false
+  product_code_allowed_now: false
+  task_master_graph_allowed_now: false
+  real_internal_tool_setup_allowed_now: false
+  unity_mcp_setup_allowed_now: false
+  old_code_transfer_allowed_now: false
+  game_documentation_promotion_allowed_now: false
   last_updated: "2026-05-22"
 ```
 
@@ -75,7 +83,7 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 - Phase: `Project Bootstrap and Validation Surface Setup`
 - Path: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup`
-- Status: `active_goal_shaped_pending_E1_execution_brief`
+- Status: `active_goal_r1_accepted_pending_P9_phase_close`
 - Started by: `P0_PHASE_START`
 - Started at: `2026-05-21`
 - Map binding: `H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus`
@@ -84,14 +92,14 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Minimum Outcome: accepted or route-gated project bootstrap / validation-surface setup envelope.
 - Validation Signal: later E1/U1/X0/X1 or H1_G4 scoping can proceed without inventing project/tool state.
 - Active Goal: `bootstrap-validation-surface-setup-envelope`
-- Active Goal status: `goal_shaped_pending_E1_execution_brief`
+- Active Goal status: `r1_accepted_goal_complete`
 - Selected first Goal candidate: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`; old Grid/Gas material is reference/evidence only until requirements are clear.
-- Next route: `E1_EXECUTION_BRIEF`
+- Next route: `P9_PHASE_CLOSE`
 - Implementation allowed now: `false`
 - Codex product execution allowed now: `false`
 
@@ -127,13 +135,13 @@ Build a commercially viable indie game direction focused on Expedition product j
 
 ## Project Files export state
 
-- Last refresh: `requires_manual_refresh_after_g1_bootstrap_validation_surface_setup_envelope_repository_maintenance_2026-05-22`
-- Required refresh: `before E1_EXECUTION_BRIEF after G1 formalization repository maintenance read-back/commit/integration`
-- Current route: `E1_EXECUTION_BRIEF`
+- Last refresh: `requires_manual_refresh_after_r1_bootstrap_validation_surface_setup_envelope_acceptance_repository_maintenance_2026-05-22`
+- Required refresh: `before P9_PHASE_CLOSE after R1 acceptance repository maintenance read-back/commit/integration`
+- Current route: `P9_PHASE_CLOSE`
 - Active Phase: `Project Bootstrap and Validation Surface Setup`
-- Active Phase status: `active_goal_shaped_pending_E1_execution_brief`
+- Active Phase status: `active_goal_r1_accepted_pending_P9_phase_close`
 - Active Goal: `bootstrap-validation-surface-setup-envelope`
-- Active Goal status: `goal_shaped_pending_E1_execution_brief`
+- Active Goal status: `r1_accepted_goal_complete`
 - Selected first Goal candidate: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 - Last completed Goal status: `r1_accepted_goal_complete`
@@ -381,4 +389,34 @@ summary: >
   the next route. Product/project execution remains blocked until a later
   basis-valid route proves target, setup state, tool bindings, validation,
   scope, and permissions.
+```
+
+## 2026-05-22 R1 accepted setup/validation envelope Goal
+
+```yaml
+r1_bootstrap_validation_surface_setup_envelope_acceptance:
+  active_goal_pointer: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope"
+  accepted_artifact: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md"
+  current_phase_status: active_goal_r1_accepted_pending_P9_phase_close
+  active_goal_status: r1_accepted_goal_complete
+  review_verdict: completed_verified
+  goal_review_verdict: accepted_complete
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  phase_progress_gate_status: phase_close_candidate
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_project_bootstrap_validation_surface_setup_after_envelope_acceptance
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  task_master_graph_allowed_now: false
+  real_internal_tool_setup_allowed_now: false
+  unity_mcp_setup_allowed_now: false
+  old_code_transfer_allowed_now: false
+  game_documentation_promotion_allowed_now: false
+summary: >
+  R1 accepted the setup/validation envelope as complete. The next lifecycle
+  route is P9 phase close; product/project execution remains blocked until a
+  later basis-valid route proves target, setup state, tool bindings,
+  validation, scope, and permissions.
 ```
