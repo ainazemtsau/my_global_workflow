@@ -16,6 +16,14 @@ artifact_control:
   freshness: refresh_when_result_first_routing_or_phase_granularity_rules_change
 ```
 
+## Scope / non-goals
+
+- These are regression cases, not new runtime authority.
+- This file must not override runtime, stage registry, stage prompts, or transport schemas.
+- This file must not mutate Direction state.
+- This file must not hardcode product Direction state into shared runtime behavior.
+- This file is not default Project Files cache.
+
 ## Pass rule
 
 A case passes when Router/P0/G1/E1/R1/P9 select the shortest safe path to the next Direction-visible result while preserving the Minimum Complete Outcome and required safety gates.
@@ -84,6 +92,45 @@ Expected:
 - Additional support work requires new blocker evidence, safety/source-of-truth risk, primary governance/documentation Direction objective, or explicit user choice.
 - forbidden: another default setup/readiness/research/documentation chain.
 
+## Test 6 — governance_documentation_primary_outcome_allowed
+
+```yaml
+case:
+  id: governance_documentation_primary_outcome_allowed
+  name: Governance/documentation primary outcome is allowed when Direction objective makes it primary
+  direction_type: governance_or_documentation_primary
+  setup:
+    - Direction is Workflow Governance or another Direction where workflow/runtime/documentation governance artifact is the primary result.
+    - Proposed artifact is a runtime rule, stage prompt change, validation/eval case, source-of-truth repair, or accepted governance artifact.
+    - Direction Value Anchor proves the artifact is the Direction-visible result.
+  trigger:
+    - Router, P0, G1, R1, or P9 evaluates whether the artifact is support work or primary progress.
+  expected_result:
+    - Allow the governance/documentation artifact as primary outcome when the Direction objective or accepted Phase/Goal contract makes it primary.
+    - Still require proportionate scope and no duplicate doctrine.
+    - Still preserve registry, transport, and source-of-truth authority boundaries.
+  must_not:
+    - Overcorrect by banning documentation as a primary result in governance Directions.
+    - Treat optional polish or duplicated doctrine as required work.
+  authority_checks:
+    - Direction Value Anchor
+    - Documentation Admission Test when durable documentation is proposed
+    - Result-First Workflow Contract
+    - Single Runtime Authority Model
+  pass_condition:
+    - Artifact is allowed as primary only because the Direction objective/Phase/Goal contract makes it primary.
+  fail_condition:
+    - Result-first repair blocks a legitimate governance runtime/stage/eval/source-of-truth artifact solely because it is documentation-shaped.
+```
+
+## Regression checklist
+
+- Result-facing routes preserve the Minimum Complete Outcome.
+- Support artifacts become standalone material work only with Direction Value Anchor, Documentation Admission Test, Phase Result Contract, new blocker evidence, or explicit user choice.
+- Documentation-shaped primary outcomes remain allowed for governance/documentation Directions when the Direction objective or accepted contract makes them primary.
+- Registry, transport, runtime, and stage-prompt authority boundaries remain intact.
+- No Direction state is mutated by these regression cases.
+
 ## Read-back anchors
 
 - "Result-First Workflow Repair"
@@ -99,3 +146,8 @@ Expected:
 - "support_artifact_misclassified_as_phase_outcome"
 - "smallest_safe_route_becomes_smallest_lifecycle_container"
 - "post_bootstrap_no_code_for_two_weeks_failure"
+- "governance_documentation_primary_outcome_allowed"
+
+## End-of-file marker
+
+`END_OF_FILE: workflow/tests/regression/RESULT_FIRST_WORKFLOW_REPAIR.md`
