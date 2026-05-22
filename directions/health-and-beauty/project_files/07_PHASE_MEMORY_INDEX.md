@@ -38,8 +38,9 @@ Use this file before creating a materially new Phase after a Phase close. Do not
 
 ## Open carryovers
 
-- Minimal body-transformation metrics/state packet.
-- Scoped training/cardio/recovery decision slice after metrics packet.
+- First minimal weekly body-transformation correction loop.
+- Minimal body-transformation metrics/state packet as the first internal gate for that loop.
+- Scoped training/cardio/recovery decision slice after the first correction loop.
 - Optional Mealie/tool sync only if later reshaped.
 
 ## Do-not-repeat / duplicate patterns
@@ -52,13 +53,14 @@ Use this file before creating a materially new Phase after a Phase close. Do not
 
 ## Recommended next phase candidates
 
-- Define minimal body-transformation metrics/state packet for weekly AI correction.
+- First minimal weekly body-transformation correction loop: define the smallest state inputs needed for weekly AI correction and produce the first correction decision. This is the first minimal weekly body-transformation correction loop, not a support artifact by itself.
 
 ## Recommended next phase not
 
 - Project `Питание` setup repair v2.
 - MacroFactor-centered nutrition restart.
 - Full quantified-self tracker or food database.
+- Standalone metrics/readiness/documentation packet Phase that never produces a correction decision.
 
 ## Detail pointers
 
