@@ -74,6 +74,41 @@ log_entry:
     - Game Documentation promotion
 ```
 
+## 2026-05-22 — F0_FAST_DIRECT — bootstrap validation surface setup envelope formalization
+
+```yaml
+log_entry:
+  stage: F0_FAST_DIRECT
+  patch_id: f0_formalize_bootstrap_validation_surface_setup_envelope_2026_05_22
+  approval_source: user_message_APPROVE_AND_FORMALIZE
+  active_phase: project-bootstrap-validation-surface-setup
+  active_goal: bootstrap-validation-surface-setup-envelope
+  action: formalize_setup_validation_surface_setup_envelope
+  artifact_created: 01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md
+  artifact_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md"
+  status: formalized_pending_apply_readback_validation
+  scope_lock: readiness_envelope_only
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  product_repository_creation_allowed_now: false
+  product_code_allowed_now: false
+  task_master_graph_allowed_now: false
+  real_internal_tool_setup_allowed_now: false
+  unity_mcp_setup_allowed_now: false
+  old_code_transfer_allowed_now: false
+  old_code_audit_as_starting_point_allowed_now: false
+  game_documentation_promotion_allowed_now: false
+  validation_required:
+    - artifact_readback
+    - diff_verification
+    - forbidden_path_confirmation
+    - eof_marker_validation
+    - project_files_runtime_projection_classification
+  next_state: pending_apply_readback_validation
+  next_route_after_successful_f0_validation: R1_GOAL_REVIEW_DISTILL
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md`
