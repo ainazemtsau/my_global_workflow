@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_p9_core_coop_technical_foundation_selection_closed
-  last_updated: "2026-05-21"
+  freshness: fresh_after_g1_bootstrap_validation_surface_setup_envelope_formalized
+  last_updated: "2026-05-22"
 ```
 
 ## Purpose
@@ -32,11 +32,11 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: innovative-commercial-expedition-gas-sim-game
   map_confidence: medium
-  last_reviewed_stage: P9_PHASE_CLOSE
+  last_reviewed_stage: G1_GOAL_SHAPE
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
-  current_objective_architecture_node: P0_PHASE_START_after_core_coop_phase_close
-  next_safe_route: P0_PHASE_START
+  current_objective_architecture_node: bootstrap-validation-surface-setup-envelope
+  next_safe_route: E1_EXECUTION_BRIEF
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -164,8 +164,8 @@ objective_architecture:
     Codex-suitable development process, and durable validation surfaces.
   active_initiative: innovative-commercial-expedition-gas-sim-game
   active_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  next_safe_route: P9_PHASE_CLOSE
+  selected_frontier_node: bootstrap-validation-surface-setup-envelope
+  next_safe_route: E1_EXECUTION_BRIEF
 
 horizon_acceptance_proof:
   candidate_horizon: H1_playable_technical_nucleus
@@ -286,12 +286,20 @@ objective_graph:
       requires:
         - H1_G2_codex_development_operating_model_and_architecture_protocols
 
+    - id: bootstrap-validation-surface-setup-envelope
+      type: execution_readiness_envelope
+      status: shaped
+      requires:
+        - H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+      unlocks:
+        - E1_EXECUTION_BRIEF
+
     - id: H1_G4_durable_technical_nucleus
       type: implementation_slice
       status: premature
       blocked_by:
-        - P0_G0_G1_E1_route_selection_and_scope
-      premature_until: "P0/G0/G1/E1 selects and scopes durable technical nucleus implementation."
+        - E1_setup_validation_envelope_execution_brief
+      premature_until: "Later E1/route selection produces or route-gates the setup/validation envelope."
 
     - id: H2_unique_gas_coop_gameplay_proof
       type: horizon
@@ -310,20 +318,20 @@ objective_graph:
 
 active_frontier:
   ready_nodes:
-    - node_id: P0_PHASE_START
+    - node_id: bootstrap-validation-surface-setup-envelope
       reason_ready: >
-        Core Co-op Technical Foundation Selection closed complete by P9 after
-        H1_G3 readiness packet acceptance.
+        G1 formalized the setup/validation envelope Goal after P0 opened the
+        Project Bootstrap and Validation Surface Setup Phase.
       expected_unlock: >
-        Enables P0 to establish the next Phase from Phase Memory and Direction
-        Map without guessing or launching implementation directly.
+        Enables E1 to prepare the execution brief without guessing or launching
+        setup, implementation, or product execution directly.
   blocked_nodes:
     - node_id: codex_product_project_execution
       blocker: "Concrete project/tool bindings, validators, scope, permissions, and execution route are not verified."
       unblock_route: "Later E1/X0/X1 readiness only."
   premature_nodes:
     - node_id: H1_G4_durable_technical_nucleus
-      premature_because: "Implementation target exists conceptually, but P9/P0/G0/E1 has not selected and scoped durable technical nucleus implementation."
+      premature_because: "Implementation target exists conceptually, but the setup/validation envelope has not been produced or route-gated by E1/later route."
     - node_id: direct_X0_X1_EXECUTOR_ROUTE
       premature_because: "Executor setup/run remains blocked until E1 defines the readiness envelope, setup state, and bindings are verified."
   parked_nodes:
@@ -337,27 +345,26 @@ active_frontier:
       activation_trigger: "Accepted durable truths exist and documentation maintenance is explicitly authorized."
     - node_id: old_project_transfer_audit
       activation_trigger: "Only after requirements are clear and a later lifecycle route asks a targeted reference/audit question."
-  selected_next_node: P0_PHASE_START
+  selected_next_node: bootstrap-validation-surface-setup-envelope
   selection_reason: >
-    The foundation-selection Phase is closed; P0 is the smallest safe lifecycle
-    route to establish the next Phase without prematurely launching bootstrap,
-    implementation, or product execution.
+    G1 shaped the setup/validation envelope Goal; E1 is the smallest safe route
+    to prepare execution without prematurely launching bootstrap, implementation,
+    or product execution.
 
 next_action_proof:
   direction_objective: "Commercially viable co-op indie game with deep gas/3D-space gameplay core."
   current_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: P0_PHASE_START
+  selected_frontier_node: bootstrap-validation-surface-setup-envelope
   proposed_work: >
-    Start or reframe the next Phase after Core Co-op Technical Foundation
-    Selection closed complete by P9.
-  proposed_stage: P0_PHASE_START
+    Prepare the execution brief for producing or route-gating the setup/validation envelope.
+  proposed_stage: E1_EXECUTION_BRIEF
   desired_delta: >
-    A non-duplicate next Phase proposal with Phase Memory preserved and no
-    implementation or product execution launched.
+    A compact E1 execution brief with target, context, allowed surfaces,
+    forbidden surfaces, validation, evidence, stop rules, and next route.
   why_this_now: >
-    P9 closed the foundation-selection Phase. P0 must establish the next Phase
-    before any setup, implementation planning, durable technical nucleus work,
-    or Codex product/project execution.
+    G1 shaped the setup/validation envelope Goal. E1 must now define HOW to
+    produce or route-gate it before any setup, implementation planning, durable
+    technical nucleus work, or Codex product/project execution.
   prerequisite_check:
     satisfied:
       - "Current Direction Project Files 00-08 are available."
@@ -367,20 +374,20 @@ next_action_proof:
       - "H1_G2 Gas Coop Game Project Execution Profile is accepted."
       - "H1_G3 readiness packet is accepted."
     missing:
-      - "Exact P0_PHASE_START prompt for the next stage run."
+      - "Exact E1_EXECUTION_BRIEF prompt for the next stage run."
       - "Manual Project Files refresh after this repository maintenance patch."
     assumed: []
   active_frontier_check:
     is_on_frontier: true
     why_not_premature: >
-      P0 is allowed because P9 closed the Phase and the remaining bootstrap/
-      implementation surfaces belong to later lifecycle routes.
+      E1 is allowed because G1 shaped the Goal and the remaining bootstrap/
+      implementation surfaces remain blocked until a later route.
   expected_unlock: >
     Enables later selection of U1, D1, A1, S3, X0/X1, Context Request, Human Decision,
     Stop, or a setup route without inventing tool/project state.
   alternatives_considered:
-    - action: direct_E1_or_bootstrap_setup
-      why_rejected: "P0 must establish the next Phase before any later setup route."
+    - action: direct_X0_or_X1
+      why_rejected: "E1 must define the execution brief before executor setup/run."
     - action: direct_bootstrap_or_implementation
       why_rejected: "Execution readiness and project/tool bindings are not verified."
   evidence_basis:
@@ -401,7 +408,7 @@ next_action_proof:
     launch_allowed: true
     launch_condition: >
       After repository maintenance apply/read-back, manual Project Files refresh, and exact
-      P0_PHASE_START prompt availability.
+      E1_EXECUTION_BRIEF prompt availability.
 ```
 
 ## Compact Initiative Graph
@@ -491,30 +498,30 @@ compact_initiative_graph:
 ```yaml
 active_front:
   active_horizon: H1_playable_technical_nucleus
-  current_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
-  current_gate_status: r1_accepted_goal_complete
-  previous_gate: H1_G2_codex_development_operating_model_and_architecture_protocols
+  current_gate: bootstrap-validation-surface-setup-envelope
+  current_gate_status: goal_shaped_pending_E1_execution_brief
+  previous_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   previous_gate_status: r1_accepted_goal_complete
-  selected_next_node: P0_PHASE_START
-  selected_next_route: P0_PHASE_START
+  selected_next_node: bootstrap-validation-surface-setup-envelope
+  selected_next_route: E1_EXECUTION_BRIEF
   primary_reason: >
-    Core Co-op Technical Foundation Selection closed; P0 must establish the
-    next Phase before any setup, implementation planning, durable technical
-    nucleus work, or Codex product/project execution.
+    G1 shaped the setup/validation envelope Goal; E1 must prepare the
+    execution brief before any setup, implementation planning, durable
+    technical nucleus work, or Codex product/project execution.
   active_front_rule: >
-    Run P0_PHASE_START after P9 closed the foundation-selection Phase before
-    any new project bootstrap, durable technical nucleus implementation, Task
-    Master graph creation, or Codex product/project execution.
+    Run E1_EXECUTION_BRIEF after G1 formalization before any new project
+    bootstrap, durable technical nucleus implementation, Task Master graph
+    creation, or Codex product/project execution.
   codex_architecture_rule: >
     The foundation decision is sufficient only if minimum Codex-driven development rules,
     module/dependency boundaries, and validation protocol are accepted before implementation.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   immediate_next_after_gate:
-    - P0_PHASE_START_after_core_coop_phase_close
+    - E1_EXECUTION_BRIEF
   route_integrity_issue:
-    status: resolved_by_p9_phase_close
-    summary: "P9 closed the foundation-selection Phase and selected P0 as the next basis-valid route."
+    status: resolved_by_g1_goal_shape
+    summary: "G1 shaped the setup/validation envelope and selected E1 as the next basis-valid route."
   blocked_nodes:
     - H1_G4_durable_technical_nucleus
     - codex_product_project_execution
@@ -1154,6 +1161,43 @@ map_delta:
     H1_G4_durable_technical_nucleus:
       status: premature
       premature_until: "P0/G0/G1/E1 selects and scopes it."
+```
+
+## 2026-05-22 G1 map delta — bootstrap validation surface setup envelope shaped
+
+```yaml
+map_delta:
+  source_stage: G1_GOAL_SHAPE
+  delta_type:
+    - goal_shaped
+    - active_frontier_progressed_to_E1
+    - implementation_still_blocked
+  node: bootstrap-validation-surface-setup-envelope
+  result: goal_shaped_pending_E1_execution_brief
+  summary: >
+    G1 formalized the setup/validation envelope Goal for project bootstrap
+    before H1_G4. The Goal defines the contract surface for target evidence,
+    allowed and forbidden setup/readiness surfaces, validation expectations,
+    tool-binding verification, evidence, stop rules, and E1 as next route.
+  next_route: E1_EXECUTION_BRIEF
+  direction_map_status:
+    current_objective_architecture_node: bootstrap-validation-surface-setup-envelope
+    next_safe_route: E1_EXECUTION_BRIEF
+  active_front:
+    active_horizon: H1_playable_technical_nucleus
+    current_gate: bootstrap-validation-surface-setup-envelope
+    current_gate_status: goal_shaped_pending_E1_execution_brief
+    previous_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+    previous_gate_status: r1_accepted_goal_complete
+    next_route: E1_EXECUTION_BRIEF
+    implementation_allowed_now: false
+    codex_product_execution_allowed_now: false
+  objective_graph:
+    bootstrap-validation-surface-setup-envelope:
+      status: shaped
+    H1_G4_durable_technical_nucleus:
+      status: premature
+      premature_until: "Later E1/route selection produces or route-gates the setup/validation envelope."
 ```
 
 ## End-of-file marker

@@ -9,7 +9,7 @@ project_file_control:
     - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
     - "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p0_project_bootstrap_validation_surface_setup_started
+  source_freshness: fresh_after_g1_bootstrap_validation_surface_setup_envelope_formalized
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -18,8 +18,8 @@ project_file_control:
 ```yaml
 current_phase:
   state: active
-  current_phase_status: active_pending_G1_goal_shape
-  status: active_pending_G1_goal_shape
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  status: active_goal_shaped_pending_E1_execution_brief
   phase_name: Project Bootstrap and Validation Surface Setup
   phase_id: project-bootstrap-validation-surface-setup
   phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
@@ -31,9 +31,9 @@ current_phase:
   previous_phase_summary: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/phase_close_summary.md"
   phase_closed: false
   map_binding: "H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus"
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_bootstrap_validation_surface_setup_envelope
-  active_goal_id: none_active_pending_G1_goal_shape
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_bootstrap_validation_surface_setup_envelope_execution_brief
+  active_goal_id: bootstrap-validation-surface-setup-envelope
   selected_first_goal_candidate: bootstrap-validation-surface-setup-envelope
   last_completed_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   last_completed_goal_result: r1_accepted_goal_complete
@@ -49,23 +49,35 @@ current_phase:
 
 ```yaml
 active_goal_projection:
-  goal_id: none_active_pending_G1_goal_shape
-  status: none_active_pending_G1_goal_shape
-  selected_first_goal_candidate: bootstrap-validation-surface-setup-envelope
-  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  goal_id: bootstrap-validation-surface-setup-envelope
+  status: goal_shaped_pending_E1_execution_brief
   phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
+  goal_contract: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md"
   last_completed_goal_id: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
   last_completed_goal_result: r1_accepted_goal_complete
   accepted_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/project-bootstrap-tool-binding-validation-scene-readiness/execution_log.md"
   accepted_product_local_artifacts:
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\outbox\\H1_G3_READINESS_PACKET.md"
     - "C:\\projects\\Unity\\GasCoopGame\\.workflow\\evidence\\h1-g3-readiness-2026-05-21.md"
-  recommended_next_stage: G1_GOAL_SHAPE
-  next_route_mode: shape_bootstrap_validation_surface_setup_envelope
-  completion_scope: none_active_pending_G1_goal_shape
-  next_goal_candidate: bootstrap-validation-surface-setup-envelope
-  goal_shape_note: "P0 selected the setup/validation envelope seed for G1. No setup or product execution is authorized."
+  recommended_next_stage: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_bootstrap_validation_surface_setup_envelope_execution_brief
+  completion_scope: goal_shaped_pending_E1_execution_brief
+  goal_shape_note: "G1 shaped the setup/validation envelope Goal. No setup or product execution is authorized."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  task_master_graph_allowed_now: false
+```
+
+```yaml
+phase_progress_gate_after_g1_bootstrap_validation_surface_setup_envelope_formalization:
+  result: active_goal_shaped_pending_E1_execution_brief
+  p9_allowed_now: false
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_bootstrap_validation_surface_setup_envelope_execution_brief
+  reason: "G1 shaped the setup/validation envelope Goal. E1 is the smallest safe route to prepare execution without bootstrap or product execution."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -145,10 +157,10 @@ phase_closure_contract_status_update:
 
 - Active Phase unresolved: `no`
 - Active Phase: `Project Bootstrap and Validation Surface Setup`
-- Active Phase route state: `active_pending_G1_goal_shape`
+- Active Phase route state: `active_goal_shaped_pending_E1_execution_brief`
 - Active Goal unresolved: `no`
-- Active Goal: `none_active_pending_G1_goal_shape`
-- Active Goal status: `none_active_pending_G1_goal_shape`
+- Active Goal: `bootstrap-validation-surface-setup-envelope`
+- Active Goal status: `goal_shaped_pending_E1_execution_brief`
 - Selected first Goal candidate: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
 - Last completed Goal status: `r1_accepted_goal_complete`
@@ -162,7 +174,7 @@ phase_closure_contract_status_update:
 - Last closed Phase result: `p9_closed_complete`
 - Direction Map status: `initialized`
 - Map link: `H1_playable_technical_nucleus / H1_G3_project_bootstrap_tool_binding_validation_scene_readiness -> H1_G4_durable_technical_nucleus`
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `E1_EXECUTION_BRIEF`
 - Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
@@ -175,9 +187,9 @@ The closed Phase selected and accepted the foundation decision, first technical 
 
 ## Next route
 
-Run `G1_GOAL_SHAPE` after this P0 repository maintenance is committed/integrated and manual Project Files refresh is complete.
+Run `E1_EXECUTION_BRIEF` after this G1 repository maintenance is committed/integrated and manual Project Files refresh is complete.
 
-G1 must shape `bootstrap-validation-surface-setup-envelope` as a Goal Contract before any setup or execution planning.
+E1 must prepare the execution brief for `bootstrap-validation-surface-setup-envelope` before any setup or product execution.
 
 Do not proceed to project bootstrap, durable implementation planning, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, Unity MCP setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 
@@ -322,4 +334,27 @@ p0_project_bootstrap_validation_surface_setup_start:
   validation_signal: "Later E1/U1/X0/X1 or H1_G4 scoping can proceed without inventing project/tool state."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
+```
+
+## 2026-05-22 G1 formalization — bootstrap validation surface setup envelope
+
+```yaml
+g1_bootstrap_validation_surface_setup_envelope_formalization:
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal_id: bootstrap-validation-surface-setup-envelope
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md"
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_bootstrap_validation_surface_setup_envelope_execution_brief
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+  unity_bootstrap_allowed_now: false
+  task_master_graph_allowed_now: false
+summary: >
+  The setup/validation envelope Goal is shaped. E1 may prepare the execution
+  brief, but setup, Unity bootstrap, product repository creation, product code,
+  Codex product/project execution, Task Master graph creation, real internal
+  tool setup, Unity MCP setup, old-code transfer, and Game Documentation
+  promotion remain blocked.
 ```
