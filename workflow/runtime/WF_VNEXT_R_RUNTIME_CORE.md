@@ -376,7 +376,7 @@ If active Phase is missing:
   route to P0_PHASE_START.
 
 If active Phase exists and no active Goal exists:
-  route to G0_GOAL_SELECT or G1_GOAL_SHAPE depending on candidate/human seed.
+  check Phase Delivery Graph / phase_progress_gate when present, then route to G0_GOAL_SELECT or G1_GOAL_SHAPE only through the graph's next_node/ready nodes or an approved repair/reframe.
 
 If selected candidate or Goal seed exists but Goal Contract is missing:
   route to G1_GOAL_SHAPE.
@@ -511,10 +511,13 @@ Large or multi-surface Goals must not be forced through one monolithic execution
 
 This runtime uses branch/workstream execution as an E1-owned execution-planning mechanism.
 
+When a Phase Delivery Graph exists, branch/workstream topology must bind to the parent Work Node. Parallel branches are admitted under the parent Goal / graph node, not as multiple Active Goals; branches are not Active Goals.
+
 Core distinction:
 
 ```text
 Goal = the parent accepted result.
+Work Node = the Phase Delivery Graph node advanced by the parent Goal or topology.
 Branch / Workstream = bounded evidence, audit, decision-input, planning, or artifact work under the parent Goal.
 ```
 
@@ -557,15 +560,37 @@ Research-before-execution and audit-before-execution are branch routes or gates 
 
 ### Parallel safety gate
 
-Parallel branches are allowed only when E1 can confidently state that all required conditions are true:
+Sequential execution is default. Parallelism is admitted only when E1 proves independence, state safety, write safety, and material value through `parallel_safety_gate`.
 
-- branch A does not require branch B output;
-- branch B does not require branch A output;
-- all branches use the same stable parent Goal Contract and constraints;
-- branches do not mutate shared state;
-- each branch returns a bounded output;
-- conflicts can be resolved in parent synthesis;
-- no branch makes a final parent-level decision.
+Review-only/read-only parallelism is the safest default. Codex subagents are allowed for read/review/audit/evidence roles when explicitly requested. Parallel Codex worktrees/tasks are denied by default unless disjoint paths/worktrees and an integration plan are proven. The one writer by default rule governs repository/product mutation.
+
+```yaml
+parallel_safety_gate:
+  independence:
+    branches_do_not_depend_on_each_other: true | false
+    shared_inputs_are_stable: true | false
+    branch_outputs_can_be_merged_by_parent: true | false
+  state_safety:
+    no_branch_mutates_direction_state: true | false
+    no_branch_closes_goal_or_phase: true | false
+    no_branch_updates_project_files: true | false
+    no_branch_makes_final_decision: true | false
+  write_safety:
+    repository_mutation: none | one_writer_only | disjoint_worktrees | unsafe
+    allowed_paths_disjoint: true | false | not_applicable
+    integration_order_defined: true | false | not_applicable
+  value_check:
+    expected_speedup_material: true | false
+    quality_improves_or_stays_same: true | false
+    coordination_cost_acceptable: true | false
+    simpler_sequential_option_considered: true | false
+  verdict:
+    parallel_allowed: true | false
+    selected_topology:
+    reason:
+```
+
+Parallelism fails when the parent Goal/node contract is unstable, branch dependencies are unclear/material, parent synthesis is missing, branches need the same mutable state, no material speed/quality benefit exists, coordination cost exceeds expected speedup, or any branch wants to update Direction Project Files, close the parent Goal/Phase, make the final decision, or mutate Direction/Phase/Goal state.
 
 If dependency uncertainty is material, E1 must use `gated_sequential`, `gated_after`, or another safer topology instead of `parallel_safe`.
 
@@ -617,6 +642,7 @@ Every branch must return a compact `workstream_result_card.v1` containing:
 
 - `topology_id`;
 - `parent_goal_id`;
+- parent graph node / Work Node implications when relevant;
 - `branch_id`;
 - `branch_stage`;
 - `return_state`;
@@ -648,6 +674,7 @@ Parent synthesis must:
 - check required branch results;
 - check `synthesis_readiness`;
 - detect material conflicts;
+- produce graph_delta inputs for R1/P9 when branch evidence affects a Phase Delivery Graph;
 - request targeted full artifact sections only when needed;
 - choose the next route according to the registry and runtime gates.
 
@@ -695,8 +722,10 @@ E1 must not directly execute branch work inside E1.
 Branch chats must not:
 
 - update Direction files;
+- update Direction Project Files;
 - mutate parent Goal or Phase;
 - close the parent Goal;
+- close the parent Phase;
 - run parent R1;
 - run phase_progress_gate;
 - emit repository patches for parent state;
@@ -1518,6 +1547,7 @@ lifecycle_transition_triggers:
   - phase_progress_gate_result_changed
   - phase_closure_or_pause_state_changed
   - direction_map_active_front_changed
+  - graph_delta_changes_phase_projection
   - project_files_stale_against_fresh_evidence_detected
 ```
 
@@ -1535,6 +1565,8 @@ else:
 ```
 
 The gate distinguishes physical file changes from logical runtime state changes. A stage may create or verify a Goal artifact that changes the next route or active lifecycle state even when no Direction Project File was physically changed. In that case the output must not report only `project_files_cache_refresh_required: false`; it must classify semantic staleness.
+
+`graph_delta` is a lifecycle transition trigger when it changes current phase projection, `next_node`, Work Node statuses, required/optional closure projection, or closure candidate. If `graph_delta` makes `02_CURRENT_PHASE.md` stale, require `update_runtime_state_files`, a stale-but-nonblocking override for a named next stage, or Context Request.
 
 Required reconciliation packet fragment:
 
@@ -1652,11 +1684,21 @@ Required core fields must remain valid.
 
 Breaking changes require schema version bump, alias, or adapter.
 
+`phase_delivery_graph.v1` is additive optional state. Unknown Phase Delivery Graph extension fields should be preserved or ignored safely.
+
+`phase_work_map` remains a legacy readable alias / tolerant-read source until migrated.
+
+Branch result cards may include graph implications without changing packet schema.
+
 ## 20\. Route selection rules
 
 Default route = shortest safe path to the next Direction-visible result that preserves the Minimum Complete Outcome and required safety gates.
 
 A registry-valid route is necessary but not sufficient. For material next actions, the selected action must also be basis-valid: linked to the Direction objective, accepted horizon, active frontier, prerequisites, concrete target, acceptance/evidence path, and stage semantics.
+
+When an active Phase has a Phase Delivery Graph and no active Goal, next Goal selection should follow the graph's `next_node` or ready Work Nodes, not local candidate search. A Goal outside the graph requires graph repair, reframe, or human decision.
+
+Parallel route/topology requires `parallel_safety_gate`. If the graph is missing or contradictory when required, route to Context Request, P0/P9/R1 repair, M0, B1, Human Decision, or Stop.
 
 For material solution-shape decisions, the selected route must also be solution-minimal or explicitly not require solution-shape proof. Smallest safe route does not mean fragmenting the Goal below one complete usable loop.
 
@@ -1784,52 +1826,109 @@ Stage prompts are request-only by exact stage ID. Do not bulk-load all stage pro
 
 ### Phase Progress Gate and Phase Closure Contract
 
-Every active Phase must expose enough closure information for post-Goal routing.
+Every active Phase must expose enough graph/closure information for post-Goal routing.
 
-The Phase state should include:
+`phase_delivery_graph.v1` is preferred when present. Existing `phase_work_map` remains a legacy readable alias / tolerant-read source until migrated. If both are present and conflict, the current `phase_delivery_graph.v1` wins. If neither exists and continuation or closure depends on multi-Goal state, route to Context Request, P0/P9/R1 repair, or another registry-valid repair path before pretending continuation/closure is known.
+
+The Phase state should include a compact graph projection:
+
+```yaml
+phase_delivery_graph:
+  version: phase_delivery_graph.v1
+  phase_outcome:
+    outcome_id:
+    direction_visible_result:
+    definition_of_done:
+      - predicate:
+        evidence_required:
+  completion_logic:
+    closure_mode: all_required_nodes_done | single_primary_node_done | one_alternative_path_done | human_acceptance_after_evidence | blocked_reframe_required
+    required_nodes:
+    optional_nodes_do_not_block_closure: true
+  flow_policy:
+    max_active_goals: 1
+    branch_workstreams_are_not_active_goals: true
+    parallel_policy: sequential_by_default_parallel_by_admission
+  nodes:
+    - node_id:
+      node_type: result_slice | support_gate | research_gate | audit_gate | decision_gate | execution_package | validation_gate | fallback_path | optional_expansion | parked | parallel_bundle
+      status: candidate | ready | active | blocked | done | superseded | parked | rejected
+      required_for_closure: true | false
+      done_when:
+      evidence_required:
+  evidence_ledger:
+    - evidence_id:
+      node_id:
+      evidence_type:
+      source_path_or_return:
+      proves:
+  next_node:
+    node_id:
+    route:
+    reason:
+  graph_delta_policy:
+    seed_owner: P0_PHASE_START
+    next_node_selection_owner: G0_GOAL_SELECT
+    goal_binding_owner: G1_GOAL_SHAPE
+    execution_topology_owner: E1_EXECUTION_BRIEF
+    post_goal_delta_owner: R1_GOAL_REVIEW_DISTILL
+    closure_owner: P9_PHASE_CLOSE
+```
+
+Compatibility tolerant read:
 
 ```yaml
 phase_closure_contract:
-  closure_criteria:
-    - criterion:
-      evidence_required:
   phase_work_map:
-    required_for_closure:
-      - goal_id:
-        status:
-        evidence:
-    optional_expansion:
-      - candidate_id:
-        status:
-        reason_optional:
-  first_phase_closing_candidate_if_known:
-  completed_output_classification: primary_result | support_artifact | partial_slice | optional_reference | unknown
-  after_goal_gate_policy:
-    phase_progress_gate after R1: required
-    R1 must not route directly to G0 only because Active Goal is none: true
-    G0 allowed only after Phase Continue decision: true
-    P9 required when completed Goal may satisfy Phase Minimum Outcome: true
-    Context Request required when Phase Closure Contract is missing: true
+    legacy_readable_alias_for: phase_delivery_graph.v1
 ```
+
+Graph mutation ownership:
+
+- P0 seeds a compact graph skeleton for material normal lifecycle Phase start and does not overplan all nodes.
+- G0 selects one ready node by default; it does not mutate the graph except through an approved patch/launch proposal.
+- G1 binds the Goal to the selected node.
+- E1 binds execution topology/branches to the selected node.
+- R1 owns post-Goal graph_delta proposal/application after accepted parent Goal.
+- P9 owns closure graph_delta and Phase close.
+- Branch chats/workstreams never mutate graph/state directly.
+- M0 owns Direction Map, not routine phase graph mutation.
 
 After R1 accepts or verifies a Goal, the workflow must run a `phase_progress_gate` before selecting more Goals.
 
-After R1 accepts/verifies a Goal, phase_progress_gate must not create the next required Goal merely from an unresolved surface. If continuation is selected, the next Goal candidate must be basis-valid under the Objective Architecture Model or route to M0_DIRECTION_MAP, B1_PROBLEM, Context Request, Human Decision, or Stop.
+After R1 accepts/verifies a parent Goal, `phase_progress_gate` must classify the completed node/output, update or propose `graph_delta`, check Completion Logic, check the Evidence Ledger, distinguish remaining required nodes from optional parked nodes, and route:
+
+- to `P9_PHASE_CLOSE` when graph closure is a candidate;
+- to `G0_GOAL_SELECT` only after `continue_with_required_graph_node`;
+- to M0/B1/Context Request/Human Decision/Stop when the graph/frontier is stale, missing, contradictory, or strategically unclear.
+
+After R1 accepts/verifies a Goal, `phase_progress_gate` must not create the next required Goal merely from an unresolved surface. If continuation is selected, the next Goal candidate must be basis-valid under the Objective Architecture Model and bound to the graph's `next_node`/ready node, or route to M0_DIRECTION_MAP, B1_PROBLEM, Context Request, Human Decision, or Stop.
 
 `phase_progress_gate` checks:
 
 - whether the completed Goal satisfies or may satisfy the current Phase Minimum Outcome;
 - whether the completed output is `primary_result`, `support_artifact`, `partial_slice`, `optional_reference`, or `unknown`;
-- whether remaining Goals are required_for_closure or optional_expansion;
+- whether remaining Work Nodes are required_for_closure or optional parked nodes;
+- whether graph Evidence Ledger entries satisfy Completion Logic;
 - whether the Phase should route to `P9_PHASE_CLOSE`, continue to `G0_GOAL_SELECT`, pause, request context, or ask for a human decision.
 
 Phase closure must be evaluated against observable result-state movement, not only support-artifact production, unless the support artifact is primary by Direction, Goal, or Phase contract.
+
+With a Phase Delivery Graph, Phase closure must be evaluated against Completion Logic and aggregate evidence, not last-Goal optimism.
 
 If completed output is `support_artifact`:
 
 - default continuation is result-facing next Goal/gate using the artifact;
 - do not close the Phase or create the next support-artifact Phase unless Phase Result Contract and Documentation Admission Test pass;
 - repeated support/readiness/setup/documentation gates require new evidence, blocker, or named result action unlocked.
+
+Graph compactness rules:
+
+- Graph is compact runtime state, not backlog, roadmap, WBS, calendar, or architecture dump.
+- Default max visible nodes is 8-10.
+- Optional/future nodes are grouped or parked.
+- Full branch artifacts and reports are pointer-only/request-only by default.
+- If the graph cannot remain compact, route to reframe/split instead of expanding default Project Files.
 
 P9 next candidates must classify:
 

@@ -154,6 +154,143 @@ A Phase may include support artifacts, gates, research, setup, and validation, b
 
 A one-Goal Phase is allowed only when that Goal itself closes the Phase-level result or constraint. Readiness, setup, documentation, and validation gates default to an internal Goal/gate inside a larger result-facing Phase.
 
+## Phase Delivery Graph
+
+A Phase is one Direction-visible outcome. A Phase Delivery Graph is the compact typed state model for how the Phase reaches that Phase Outcome.
+
+The Phase Delivery Graph is not a backlog, roadmap, WBS, calendar, or technical architecture dump. It is compact Direction runtime state, normally stored in `02_CURRENT_PHASE.md`.
+
+`phase_delivery_graph.v1` upgrades and replaces `phase_work_map` semantics. Existing `phase_work_map` remains a legacy readable alias until Direction state is migrated; when both exist and conflict, `phase_delivery_graph.v1` is the preferred current projection.
+
+A Goal should bind to one active Work Node by default. Branches/workstreams may bind to a Work Node under that parent Goal or graph node, but branches are not Active Goals. Phase closure is evaluated against Completion Logic and aggregate Evidence Ledger entries, not last-Goal optimism.
+
+Compact graph fragment:
+
+```yaml
+phase_delivery_graph:
+  version: phase_delivery_graph.v1
+  phase_outcome:
+    outcome_id:
+    one_sentence_result:
+    direction_visible_result:
+    definition_of_done:
+      - predicate:
+        evidence_required:
+    not_done_if:
+  completion_logic:
+    closure_mode: all_required_nodes_done | single_primary_node_done | one_alternative_path_done | human_acceptance_after_evidence | blocked_reframe_required
+    required_nodes:
+    alternative_groups:
+    optional_nodes_do_not_block_closure: true
+  flow_policy:
+    max_active_goals: 1
+    branch_workstreams_are_not_active_goals: true
+    optional_expansion_policy: park_by_default
+    support_gate_policy: embed_unless_primary_or_blocking
+    parallel_policy: sequential_by_default_parallel_by_admission
+  nodes:
+    - node_id:
+      node_type: result_slice | support_gate | research_gate | audit_gate | decision_gate | execution_package | validation_gate | fallback_path | optional_expansion | parked | parallel_bundle
+      status: candidate | ready | active | blocked | done | superseded | parked | rejected
+      required_for_closure: true | false
+      why_needed_for_phase_outcome:
+      done_when:
+      evidence_required:
+      owner_stage:
+      next_allowed_stage:
+  edges:
+    - from:
+      to:
+      type: requires | unlocks | evidences | blocks | alternative_to | fallback_if | supersedes
+      reason:
+  evidence_ledger:
+    - evidence_id:
+      node_id:
+      evidence_type:
+      source_path_or_return:
+      proves:
+      accepted_by_stage:
+  next_node:
+    node_id:
+    route:
+    reason:
+  graph_delta_policy:
+    seed_owner: P0_PHASE_START
+    next_node_selection_owner: G0_GOAL_SELECT
+    goal_binding_owner: G1_GOAL_SHAPE
+    execution_topology_owner: E1_EXECUTION_BRIEF
+    post_goal_delta_owner: R1_GOAL_REVIEW_DISTILL
+    closure_owner: P9_PHASE_CLOSE
+```
+
+Compactness guards:
+
+- default max visible nodes: 8-10;
+- default max edges: 15;
+- default max Evidence Ledger entries: 12;
+- optional/future work is parked or grouped unless selected;
+- the graph stores pointers and evidence references, not full reports;
+- if the graph needs materially more visible nodes, route to M0/P0/Human Decision for reframe or split instead of expanding into a backlog;
+- detailed artifacts remain request-only or repository-persisted only after admission/approval.
+
+### Phase Graph Validity
+
+Reject or route to repair when:
+
+- a material Goal candidate does not bind to the Phase Outcome or active Work Node;
+- the selected Work Node is optional/parked without an activation trigger;
+- a `support_gate`, `research_gate`, or `audit_gate` becomes required continuation without explaining what it unlocks or proves for the Phase Outcome;
+- a `fallback_path` is activated without trigger;
+- a `parallel_bundle` is selected without `parallel_safety_gate`;
+- graph closure claims the Phase is complete without evidence satisfying Completion Logic;
+- the graph is being used as backlog, roadmap, WBS, calendar, or architecture dump.
+
+## Parallel Delivery Topology
+
+Parallelism is an acceleration topology, not default workflow mode. Single Active Goal remains default.
+
+Parallel branches/workstreams are allowed only under a parent Goal / graph node. Branches do not mutate Direction/Phase/Goal/Map state, do not close the parent Goal, do not run parent R1, and do not run `phase_progress_gate`. Parent synthesis is mandatory before R1/P9/state update.
+
+Parallelism must improve wall-clock speed and/or quality without unacceptable coordination or state risk. The one writer by default rule governs repository/product mutations. Read/review/audit/research subagents are safer defaults than parallel writers. Parallel write-heavy Codex work requires disjoint paths/worktrees and an explicit integration plan; otherwise it is denied.
+
+```yaml
+parallel_safety_gate:
+  candidate_work:
+  proposed_parallel_mode:
+  independence:
+    branches_do_not_depend_on_each_other: true | false
+    shared_inputs_are_stable: true | false
+    branch_outputs_can_be_merged_by_parent: true | false
+  state_safety:
+    no_branch_mutates_direction_state: true | false
+    no_branch_closes_goal_or_phase: true | false
+    no_branch_updates_project_files: true | false
+    no_branch_makes_final_decision: true | false
+  write_safety:
+    repository_mutation: none | one_writer_only | disjoint_worktrees | unsafe
+    allowed_paths_disjoint: true | false | not_applicable
+    integration_order_defined: true | false | not_applicable
+  value_check:
+    expected_speedup_material: true | false
+    quality_improves_or_stays_same: true | false
+    coordination_cost_acceptable: true | false
+    simpler_sequential_option_considered: true | false
+  verdict:
+    parallel_allowed: true | false
+    selected_topology:
+    reason:
+```
+
+Hard gates:
+
+- no stable parent Goal/node contract -> no parallel bundle;
+- dependencies between branches unclear/material -> use `gated_sequential`;
+- no parent synthesis -> no parallel bundle;
+- branches need the same mutable state -> no parallel write;
+- no material speed/quality benefit -> sequential;
+- coordination cost exceeds expected speedup -> sequential;
+- any branch wants to mutate Direction/Phase/Goal state -> reject and return parent synthesis only.
+
 ## Direction independence
 
 Each Direction has its own root objective, active initiative, active horizon, objective graph, active frontier, and next-action proofs.
@@ -446,6 +583,10 @@ minimum_sufficient_solution_proof:
     support_artifact_status: none | enabling | validation | optional_reference | misclassified_primary | unknown
     documentation_admission_status: not_required | inherited | proven | missing | failed
     phase_fragmentation_risk: none | possible | present | unknown
+    phase_delivery_graph_required: true | false
+    graph_bloat_risk: none | possible | present | unknown
+    parallel_safety_gate_status: not_required | inherited | proven | missing | failed
+    parallelism_value_status: not_required | proven | missing | failed
   dominant_constraint:
     type: human_burden | cognitive_load | context_persistence | safety | accuracy | cost | time | tooling | uncertainty | other
     evidence:
@@ -511,6 +652,9 @@ Reject or route to repair when:
 - the result is a micro-task rather than one complete usable loop;
 - the selected shape creates micro-Phase fragmentation rather than one complete result loop;
 - repeated support-artifact work is selected without new evidence, blocker, or named result action unlocked;
+- chat/workstream split has no material speed/quality benefit;
+- parallelism raises coordination, state, or write risk above the sequential path;
+- a compact Phase graph turns into backlog, roadmap, WBS, calendar, or architecture dump;
 - scoring is used to compensate for a violated hard constraint.
 ```
 
@@ -640,6 +784,7 @@ When a user-stated hard constraint exists, candidate scoring must not compensate
 Router:
 - must not choose a material route from registry validity alone;
 - must route toward the shortest safe path to the next Direction-visible result, not merely the smallest lifecycle container;
+- when an active Phase exists and no active Goal exists, must check Phase Delivery Graph / `phase_progress_gate` before G0/G1 routing if a graph exists;
 - must require basis-validity when selecting strategic Phase/Goal/research/audit/execution work;
 - must require Minimum Sufficient Solution Proof when material solution shape, architecture/process choice, recurring user burden, or user-example anchoring risk exists;
 - must route to B1_PROBLEM, S3_DECIDE, Context Request, Human Decision, or Stop when solution minimality is missing or false for material work;
@@ -648,14 +793,19 @@ Router:
 M0_DIRECTION_MAP:
 - owns horizon acceptance proof and active frontier derivation when the map is missing, stale, uninitialized, or materially affects strategic selection;
 - when deriving horizon/frontier, must keep dominant constraint and human-burden implications visible when they materially affect strategic selection;
+- may repair map/frontier when graph/phase coherence depends on map, but does not own routine graph mutation;
 - must not build a broad roadmap or backlog.
 
 P0_PHASE_START:
 - must use Phase Result Contract for material Phase selection;
+- seeds a compact Phase Delivery Graph skeleton for material normal lifecycle Phases;
+- does not overplan all nodes;
 - must not start a standalone support-artifact/readiness/documentation/setup Phase when the work can be the first Goal/gate inside a result-facing Phase.
 
 G0_GOAL_SELECT:
 - should select from active frontier ready nodes;
+- selects one ready Work Node by default when a Phase Delivery Graph exists;
+- outside-graph Goal candidates require graph_delta, reframe, or human decision;
 - must not select candidates merely because they match nonbinding user examples;
 - must reject or route away from parked, premature, or unsupported candidates.
 
@@ -667,6 +817,7 @@ G1_GOAL_SHAPE:
 - must define Minimum Complete Outcome before scope cutting;
 - must reject Goal shapes that are overbuilt, undercut, or anchored to nonbinding examples;
 - must not turn an ungrounded seed into a polished Goal Contract;
+- must bind the shaped Goal to a Work Node and expected Graph Delta when a Phase Delivery Graph exists;
 - must include the Goal's graph/frontier binding when relevant.
 
 A1_AUDIT:
@@ -682,6 +833,8 @@ D1_DEEP_RESEARCH:
 E1_EXECUTION_BRIEF:
 - must inherit or produce Next Action Proof before execution planning;
 - must not plan HOW until the selected solution shape passes Minimum Sufficient Solution Proof or is explicitly not required;
+- binds execution topology to the parent Work Node when a Phase Delivery Graph exists;
+- runs `parallel_safety_gate` before parallel branches, subagents, or worktrees;
 - must keep support documentation/handoff artifacts minimal and execution-unlocking;
 - must not create another planning/documentation chain unless new evidence or blocker requires it;
 - every durable artifact, template, recurring report, workstream, chat split, or repository-backed process must pass Component Necessity Test;
@@ -689,6 +842,7 @@ E1_EXECUTION_BRIEF:
 
 R1_GOAL_REVIEW_DISTILL:
 - after reviewing a Goal, must report graph/frontier implications when the Goal touched map-bound strategic work;
+- after accepted parent Goal, emits `graph_delta` or explicit `no_delta_reason`;
 - must classify accepted outputs as primary outcome versus support artifact;
 - after support-artifact acceptance, must default continuation toward result-facing work unless another support artifact passes admission test;
 - must report whether the delivered outcome created unnecessary operational burden;
@@ -697,6 +851,7 @@ R1_GOAL_REVIEW_DISTILL:
 - must check whether the proposed continuation is basis-valid and on the active frontier.
 
 P9_PHASE_CLOSE:
+- closes against Phase Delivery Graph Completion Logic and Evidence Ledger when a graph exists;
 - may update compact map/frontier state when closing a Phase;
 - must not seed next standalone support-artifact Phases by default;
 - must classify next candidates as standalone Phase versus first Goal/gate inside a result-facing Phase;
@@ -736,6 +891,12 @@ Do not treat documentation/readiness/setup/research artifacts as primary progres
 Do not convert each blocker or gate into its own Phase.
 Do not select another same-surface support-artifact Phase after a support-artifact-heavy Phase unless new evidence or a named result-unlocking need proves it.
 Do not interpret "smallest safe route" as "smallest lifecycle container."
+Do not treat Phase Delivery Graph as backlog, roadmap, WBS, calendar, or architecture dump.
+Do not select Goals outside the graph when a graph exists unless graph repair/reframe is approved.
+Do not close a Phase from last Goal optimism without graph completion evidence.
+Do not use parallelism for aesthetic/systematic reasons without speed/quality value.
+Do not allow branches/workstreams to mutate Direction/Phase/Goal state.
+Do not run parallel writers against shared mutable surfaces without disjoint path/worktree/integration proof.
 ```
 
 ## End-of-file marker
