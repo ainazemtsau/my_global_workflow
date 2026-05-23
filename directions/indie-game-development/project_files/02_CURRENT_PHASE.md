@@ -7,9 +7,9 @@ project_file_control:
   direction: directions/indie-game-development
   source_files:
     - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
-    - "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
+    - "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p9_h1_g4a_core_harness_foundation_close
+  source_freshness: fresh_after_p0_h1_g4b_grid_topology_foundation_start
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -17,79 +17,48 @@ project_file_control:
 
 ```yaml
 current_phase:
-  state: closed
-  current_phase_status: closed_complete_by_P9
-  status: closed_complete_by_P9
-  phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
-  phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-  phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
-  phase_brief: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
+  state: active
+  current_phase_status: active_pending_G1_goal_shape
+  status: active_pending_G1_goal_shape
+  phase_name: "H1_G4B Grid / Topology Foundation"
+  phase_id: h1-g4b-grid-topology-foundation
+  phase_path: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation"
+  phase_brief: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md"
   started_by_stage: P0_PHASE_START
-  started_at: "2026-05-22"
-  previous_phase_id: project-bootstrap-validation-surface-setup
+  started_at: "2026-05-23"
+  previous_phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   previous_phase_status: closed_complete_by_P9
-  previous_phase_summary: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md"
-  phase_closed: true
-  p9_consumed: true
-  closed_at: "2026-05-23"
-  phase_close_summary: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
-  map_binding: "H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation"
-  next_route: P0_PHASE_START
-  next_route_mode: start_next_phase_after_h1_g4a_close
-  active_goal_id: none_active_after_phase_close
-  active_goal_status: none_active_after_phase_close
-  closed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-  closed_goal_status: closed_with_phase
-  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
-  selected_first_goal_candidate: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  previous_phase_summary: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
+  phase_closed: false
+  map_binding: "H1_playable_technical_nucleus / H1_G4B_grid_topology_foundation"
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_h1_g4b_grid_topology_foundation
+  active_goal_id: none_active_pending_G1_goal_shape
+  active_goal_status: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4b-grid-topology-foundation
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
   last_completed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   last_completed_goal_result: r1_accepted_goal_complete
-  existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
-  existing_goal_artifact_status: accepted_route_gated_decision_map
-  previous_broad_phase_treatment: superseded_by_h1_g4a_boundary_repair
-  previous_broad_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
-  existing_x1_treatment: candidate_partial_evidence_only
-  current_critical_constraint: "H1_G4A foundation must be planned before execution resumes from the route-gated broad H1_G4 state."
-  minimum_outcome: "Runnable core harness with composition seams, validation entry point, topology interface contract, Unity-as-render/driver separation, and product persistence evidence; or concrete blocker/unblock packet."
-  validation_signal: "Product persistence evidence, Markdown Operator Report, validation command/result or Unity/manual checklist, changed-files rationale, and Unity-as-render-engine architecture evidence."
+  current_critical_constraint: "The product foundation has a topology interface seam but not yet an accepted topology substrate."
+  minimum_outcome: "Accepted or route-gated Grid/Topology foundation with cells/nodes, adjacency/connectivity, obstacle semantics, deterministic stepping, Unity debug/validation surface, and product evidence."
+  validation_signal: "Product evidence packet, validation command/result or Unity/manual debug checklist, changed-files rationale, and topology substrate inspectability."
   phase_closure_contract_required: true
-  completion_scope: parent_goal_complete
-  parent_goal_completion_state: complete
-  phase_progress_gate_status: phase_close_candidate
-  review_verdict: completed_verified
-  goal_review_verdict: accepted_complete
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
 ```
 
 ```yaml
 active_goal_projection:
-  goal_id: none_active_after_phase_close
-  status: none_active_after_phase_close
-  closed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-  closed_goal_status: closed_with_phase
-  phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
-  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
-  selected_first_goal_candidate: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  goal_id: none_active_pending_G1_goal_shape
+  status: none_active_pending_G1_goal_shape
+  phase_path: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation"
+  selected_first_goal_candidate: h1-g4b-grid-topology-foundation
   selected_first_goal_candidate_status: selected_for_G1_goal_shape
   last_completed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   last_completed_goal_result: r1_accepted_goal_complete
-  accepted_goal_artifact: "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
-  recommended_next_stage: P0_PHASE_START
-  next_route_mode: start_next_phase_after_h1_g4a_close
-  completion_scope: parent_goal_complete
-  parent_goal_completion_state: complete
-  phase_progress_gate_status: phase_close_candidate
-  accepted_result: accepted_h1_g4a_product_facing_foundation
-  accepted_evidence:
-    - "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
-    - "MODULE_MAP.md"
-    - ".workflow/outbox/H1_G4A_OPERATOR_REPORT.md"
-    - ".workflow/evidence/h1-g4a-foundation-2026-05-23.md"
-  goal_shape_note: "R1 accepted the H1_G4A product-facing foundation. P9 closed the Phase; P0 is required before any next material Phase route."
-  additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
+  recommended_next_stage: G1_GOAL_SHAPE
+  next_route_mode: shape_h1_g4b_grid_topology_foundation
+  goal_shape_note: "P0 selected H1_G4B as the active Phase; G1 must shape the Goal Contract before any E1/X1 planning."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -99,32 +68,63 @@ active_goal_projection:
 ```yaml
 phase_delivery_graph:
   schema: phase_delivery_graph.v1
-  phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  version: phase_delivery_graph.v1
+  phase_id: h1-g4b-grid-topology-foundation
   phase_outcome:
-    outcome_id: h1_g4a_foundation_exists
-    one_sentence_result: "GasCoopGame contains accepted H1_G4A foundation."
-    direction_visible_result: "Product repo has the first inspectable/runnable foundation seam for future Grid/Topology, Gas, Grid-Gas interaction, and Multiplayer boundary work."
+    outcome_id: h1_g4b_topology_foundation_exists
+    one_sentence_result: "GasCoopGame contains an accepted Grid/Topology foundation."
+    direction_visible_result: "The product repo has the spatial substrate needed for later Gas, Grid-Gas interaction, and multiplayer boundary work."
     definition_of_done:
-      - product_facing_foundation_exists
-      - core_harness_exists
-      - composition_boundary_exists
-      - validation_entry_exists
-      - topology_interface_contract_exists
-      - product_persistence_evidence_exists
+      - predicate: topology_cells_or_nodes_exist
+        evidence_required: "code/module evidence plus operator-readable changed-files rationale"
+      - predicate: adjacency_connectivity_semantics_exist
+        evidence_required: "validation result or manual/debug verification"
+      - predicate: obstacle_blocking_opening_semantics_exist
+        evidence_required: "validation result or manual/debug verification"
+      - predicate: deterministic_stepping_surface_exists
+        evidence_required: "test/harness/debug evidence"
+      - predicate: unity_debug_visualization_or_validation_surface_exists
+        evidence_required: "Unity debug scene/view/checklist or validation harness evidence"
+      - predicate: product_persistence_evidence_exists
+        evidence_required: "commit/evidence packet accepted by R1"
   completion_logic:
     closure_mode: single_primary_node_done
     required_nodes:
-      - h1_g4a_foundation
+      - h1_g4b_grid_topology_foundation
     optional_nodes_do_not_block_closure: true
+  flow_policy:
+    max_active_goals: 1
+    branch_workstreams_are_not_active_goals: true
+    optional_expansion_policy: park_by_default
+    support_gate_policy: embed_unless_primary_or_blocking
+    parallel_policy: sequential_by_default_parallel_by_admission
   nodes:
-    - node_id: h1_g4a_foundation
-      node_type: result_slice
-      status: done
-      required_for_closure: true
     - node_id: h1_g4b_grid_topology_foundation
-      node_type: parked
-      status: parked
+      node_type: result_slice
+      status: ready
+      required_for_closure: true
+      why_needed_for_phase_outcome: "This is the topology substrate foundation itself."
+      done_when: "Accepted product evidence proves the topology substrate or exact blocker/unblock packet."
+      evidence_required:
+        - "product commit/evidence"
+        - "validation result or manual Unity/debug verification"
+        - "changed-files rationale"
+      owner_stage: G1_GOAL_SHAPE
+      next_allowed_stage: G1_GOAL_SHAPE
+    - node_id: h1_g4b_validation_surface
+      node_type: validation_gate
+      status: candidate
       required_for_closure: false
+      why_needed_for_phase_outcome: "Support only if needed to prove the result slice."
+      owner_stage: E1_EXECUTION_BRIEF
+      next_allowed_stage: E1_EXECUTION_BRIEF
+    - node_id: h1_g4b_blocker_unblock_packet
+      node_type: fallback_path
+      status: candidate
+      required_for_closure: false
+      why_needed_for_phase_outcome: "Fallback if topology foundation cannot be safely executed."
+      owner_stage: E1_EXECUTION_BRIEF
+      next_allowed_stage: B1_PROBLEM
     - node_id: h1_g4c_gas_simulation_foundation
       node_type: parked
       status: parked
@@ -137,26 +137,20 @@ phase_delivery_graph:
       node_type: parked
       status: parked
       required_for_closure: false
-  evidence_ledger:
-    - evidence_id: gascoopgame_commit_236bc30
-      node_id: h1_g4a_foundation
-      evidence_type: product_commit
-      source_path_or_return: "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
-      proves: "Product-local H1_G4A foundation exists."
-    - evidence_id: h1_g4a_unity_validation_pass
-      node_id: h1_g4a_foundation
-      evidence_type: validation_result
-      source_path_or_return: ".workflow/evidence/h1-g4a-foundation-2026-05-23.md"
-      proves: "Unity batchmode validation PASS with topology/harness evidence."
-    - evidence_id: h1_g4a_operator_report
-      node_id: h1_g4a_foundation
-      evidence_type: operator_report
-      source_path_or_return: ".workflow/outbox/H1_G4A_OPERATOR_REPORT.md"
-      proves: "User-facing Markdown Operator Report exists."
+  edges:
+    - from: h1_g4b_grid_topology_foundation
+      to: h1_g4c_gas_simulation_foundation
+      type: unlocks
+      reason: "Gas foundation likely depends on topology substrate."
+    - from: h1_g4b_grid_topology_foundation
+      to: h1_g4d_grid_gas_interaction
+      type: unlocks
+      reason: "Grid-Gas interaction requires topology substrate."
+  evidence_ledger: []
   next_node:
-    node_id: p0_phase_start_after_h1_g4a_close
-    route: P0_PHASE_START
-    reason: "Single required primary result node is done, accepted, and closed by P9."
+    node_id: h1_g4b_grid_topology_foundation
+    route: G1_GOAL_SHAPE
+    reason: "This is the single required result node."
 ```
 
 ```yaml
@@ -676,4 +670,35 @@ summary: >
   H1_G4A is closed complete by P9. The Phase Delivery Graph remains close
   evidence; H1_G4B, H1_G4C, H1_G4D, and H1_G4E are parked optional future
   candidates until P0 selects a next result-facing Phase.
+```
+
+## 2026-05-23 P0 start — H1_G4B current Phase
+
+```yaml
+p0_h1_g4b_grid_topology_foundation_start:
+  state: active
+  current_phase_status: active_pending_G1_goal_shape
+  status: active_pending_G1_goal_shape
+  phase_name: "H1_G4B Grid / Topology Foundation"
+  phase_id: h1-g4b-grid-topology-foundation
+  phase_path: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation"
+  phase_brief: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md"
+  started_by_stage: P0_PHASE_START
+  started_at: "2026-05-23"
+  previous_phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  previous_phase_status: closed_complete_by_P9
+  previous_phase_summary: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
+  phase_closed: false
+  map_binding: "H1_playable_technical_nucleus / H1_G4B_grid_topology_foundation"
+  next_route: G1_GOAL_SHAPE
+  next_route_mode: shape_h1_g4b_grid_topology_foundation
+  active_goal_id: none_active_pending_G1_goal_shape
+  active_goal_status: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4b-grid-topology-foundation
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  P0 made H1_G4B the active Phase. G1 must shape the topology foundation Goal
+  before E1/X1 execution planning.
 ```

@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_p9_h1_g4a_core_harness_foundation_close
+projection_status: fresh_after_p0_h1_g4b_grid_topology_foundation_start
 activated_at: "2026-05-13"
 ```
 
@@ -55,14 +55,20 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 
 Load for work on the current Phase:
 
-- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md`
-  - Status: `closed_complete_by_P9`
-  - Load for `P0_PHASE_START` and any route that needs the latest closed H1_G4A foundation Phase frame.
+- `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md`
+  - Status: `active_phase_brief`
+  - Load for `G1_GOAL_SHAPE`.
+- `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/phase_execution_log.md`
+  - Status: `active_phase_log`
+  - Load for `G1_GOAL_SHAPE`.
 - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md`
   - Status: `latest_closed_phase_summary`
-  - Load for `P0_PHASE_START`.
+  - Load for `request_if_needed`.
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md`
+  - Status: `closed_complete_by_P9`
+  - Load for request-only anti-duplicate/background context.
 - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_execution_log.md`
-  - Status: `active_phase_log`
+  - Status: `closed_phase_log`
   - Request only when execution history is needed.
 - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md`
   - Status: `closed_with_phase`
@@ -83,7 +89,7 @@ Load for work on the current Phase:
   - Status: `superseded_broad_h1_g4_context`
   - Request only when superseded H1_G4 evidence/history is needed.
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md`
-  - Status: `latest_closed_phase_summary`
+  - Status: `older_closed_phase_summary`
   - Request if needed for anti-duplicate detail; not default active execution context for G1.
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_execution_log.md`
   - Status: `closed_phase_log`
@@ -93,6 +99,18 @@ Load for work on the current Phase:
   - Request only when older foundation-selection detail is needed.
 
 ## Active Goal context
+
+Active Goal after P0 H1_G4B grid topology foundation start:
+
+```yaml
+active_goal_after_p0_h1_g4b_grid_topology_foundation_start:
+  active_goal_id: none_active_pending_G1_goal_shape
+  active_goal_status: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4b-grid-topology-foundation
+  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  recommended_next_stage: G1_GOAL_SHAPE
+  recommended_next_mode: shape_h1_g4b_grid_topology_foundation
+```
 
 Active Goal after P0 H1_G4 first runnable build phase start:
 
@@ -855,3 +873,45 @@ required_context_after_p9_h1_g4a_close:
 ```
 
 P0 must use the refreshed Project Files, Phase Memory Bridge, Direction Map, and H1_G4A close summary. H1_G4B/C/D/E remain candidates only until P0 selects the next non-duplicate result-facing Phase.
+
+## Required context after P0 H1_G4B grid topology foundation start
+
+Recommended next stage: `G1_GOAL_SHAPE`.
+
+Recommended next mode: `shape_h1_g4b_grid_topology_foundation`.
+
+```yaml
+required_context_after_p0_h1_g4b_grid_topology_foundation_start:
+  recommended_next_stage: G1_GOAL_SHAPE
+  recommended_next_mode: shape_h1_g4b_grid_topology_foundation
+  active_phase_id: h1-g4b-grid-topology-foundation
+  active_phase_status: active_pending_G1_goal_shape
+  active_goal_id: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4b-grid-topology-foundation
+  load_for_G1:
+    - workflow/stage_prompts/G1_GOAL_SHAPE.md
+    - WORKFLOW_SOURCE_OF_TRUTH.md
+    - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+    - workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+    - workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
+    - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+    - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+    - workflow/stage_registry/STAGE_REGISTRY.md
+    - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+    - directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+    - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+    - directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+    - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+    - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+    - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+    - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+    - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md
+    - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/phase_execution_log.md
+  stale_but_nonblocking:
+    - "08_DIRECTION_MAP may still show P0 as current objective architecture node because P0 does not update 08_DIRECTION_MAP.md; for this named G1 launch, refreshed 02_CURRENT_PHASE, 04_ACTIVE_GOAL, this P0 result, and the H1_G4B phase brief are controlling."
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+G1 must use H1_G4B as controlling context. H1_G4C, H1_G4D, and H1_G4E remain parked request-only candidates.

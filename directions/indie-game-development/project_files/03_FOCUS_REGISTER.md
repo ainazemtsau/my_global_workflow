@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p9_h1_g4a_core_harness_foundation_close
+  source_freshness: fresh_after_p0_h1_g4b_grid_topology_foundation_start
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,44 +16,41 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run P0_PHASE_START after H1_G4A Phase close."
-  route_stage: P0_PHASE_START
-  route_mode: start_next_phase_after_h1_g4a_close
+  current_focus: "Run G1_GOAL_SHAPE for H1_G4B Grid / Topology Foundation."
+  route_stage: G1_GOAL_SHAPE
+  route_mode: shape_h1_g4b_grid_topology_foundation
   same_chat_allowed: false
-  boundary_trigger: p9_h1_g4a_phase_closed
+  boundary_trigger: p0_h1_g4b_grid_topology_foundation_started
   pending_state_carried: true
-  pending_patch_pointer: p9_close_h1_g4a_core_harness_foundation_2026_05_23
-  last_stage_result_pointer: "P9_PHASE_CLOSE closed h1-g4a-core-harness-composition-validation-topology-interface-foundation as closed_complete_by_P9."
+  pending_patch_pointer: p0_start_h1_g4b_grid_topology_foundation_2026_05_23
+  last_stage_result_pointer: "P0_PHASE_START selected h1-g4b-grid-topology-foundation as active_pending_G1_goal_shape."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   active_goal:
-    goal_id: none_active_after_phase_close
-    status: none_active_after_phase_close
-    closed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-    closed_goal_status: closed_with_phase
-    goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
-    previous_goal_id: h1-g4-first-runnable-technical-nucleus-slice
-    previous_goal_status: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+    goal_id: none_active_pending_G1_goal_shape
+    status: none_active_pending_G1_goal_shape
+    selected_first_goal_candidate: h1-g4b-grid-topology-foundation
   active_phase:
-    phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-    phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
-    phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
-    status: closed_complete_by_P9
-    map_binding: "H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation"
-    next_route: P0_PHASE_START
+    phase_id: h1-g4b-grid-topology-foundation
+    phase_name: "H1_G4B Grid / Topology Foundation"
+    phase_path: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation"
+    status: active_pending_G1_goal_shape
+    map_binding: "H1_playable_technical_nucleus / H1_G4B_grid_topology_foundation"
+    next_route: G1_GOAL_SHAPE
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `repository maintenance read-back and manual Project Files refresh required before P0 launch`
-- Human decision: `none pending for P0 launch after refresh`
-- Source conflict: `Project Files require P9 close read-back and manual refresh before P0 because this patch changes Project Files`
+- Missing context: `repository maintenance read-back and manual Project Files refresh required before G1 launch`
+- Human decision: `none pending for G1 launch after refresh`
+- Source conflict: `Project Files require P0 read-back and manual refresh before G1 because this patch changes Project Files`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/P0_PHASE_START.md`
-  - refreshed Project Files 00-08 after H1_G4A P9 close
-  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md`
+  - exact `workflow/stage_prompts/G1_GOAL_SHAPE.md`
+  - refreshed Project Files 00-08 after H1_G4B P0 patch
+  - `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md`
+  - `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/phase_execution_log.md`
   - `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
   - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
 
@@ -61,9 +58,9 @@ focus:
 
 G1 formalized `h1-g4a-core-harness-composition-validation-topology-interface-foundation` after A1 determined direct E1 repair of the broad H1_G4 route-gated state was not basis-valid.
 
-H1_G4A is the latest closed Phase.
+H1_G4A is the latest closed Phase; H1_G4B is now the active Phase pending G1 Goal shaping.
 
-The next focus is `P0_PHASE_START` after H1_G4A closed complete by P9. P0 must select or reframe the next result-facing Phase using Phase Memory and Direction Map. It must preserve H1_G4B, H1_G4C, H1_G4D, and H1_G4E as candidates only until P0 proves the selected candidate is non-duplicate and basis-valid. It must not start Grid/Topology implementation, Gas Simulation implementation, Grid-Gas interaction, Multiplayer implementation, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, broad vertical slice expansion, or Codex product/project execution directly.
+The next focus is `G1_GOAL_SHAPE` for H1_G4B Grid / Topology Foundation. G1 must shape the bounded Goal Contract before E1/X1 execution planning. It must not start Grid/Topology implementation, Gas Simulation implementation, Grid-Gas interaction, Multiplayer implementation, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, broad vertical slice expansion, or Codex product/project execution directly.
 
 Forbidden in this focus:
 
@@ -487,3 +484,39 @@ forbidden_scope_preserved:
 ```
 
 P0 is the next route after manual Project Files refresh. H1_G4B/C/D/E are candidate labels only until P0 selects one with a concrete result-visible delta.
+
+## 2026-05-23 focus update — H1_G4B Phase started
+
+Current focus:
+
+Run G1_GOAL_SHAPE for H1_G4B Grid / Topology Foundation.
+
+```yaml
+route_stage: G1_GOAL_SHAPE
+route_mode: shape_h1_g4b_grid_topology_foundation
+boundary_trigger: p0_h1_g4b_grid_topology_foundation_started
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+active_goal:
+  goal_id: none_active_pending_G1_goal_shape
+  status: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4b-grid-topology-foundation
+active_phase:
+  phase_id: h1-g4b-grid-topology-foundation
+  status: active_pending_G1_goal_shape
+required_context_for_next_stage:
+  - workflow/stage_prompts/G1_GOAL_SHAPE.md
+  - refreshed Project Files 00-08 after H1_G4B P0 patch
+  - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md
+  - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/phase_execution_log.md
+forbidden_scope_preserved:
+  - product_repo_mutation
+  - Codex_product_project_execution
+  - Unity_MCP_setup
+  - Task_Master_graph_creation
+  - old_code_transfer
+  - Game_Documentation_promotion
+  - H1_G4C_gas_simulation_execution
+  - H1_G4D_grid_gas_interaction_execution
+  - H1_G4E_multiplayer_boundary_execution
+```

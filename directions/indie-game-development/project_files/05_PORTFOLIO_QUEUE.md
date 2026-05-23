@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_p9_h1_g4a_core_harness_foundation_close
+projection_status: fresh_after_p0_h1_g4b_grid_topology_foundation_start
 activated_at: "2026-05-13"
 ```
 
@@ -15,20 +15,21 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-- Active Phase: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
-- Active Phase name: `H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation`
-- Active Phase status: `closed_complete_by_P9`
-- Map binding: `H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation`
+- Active Phase: `h1-g4b-grid-topology-foundation`
+- Active Phase name: `H1_G4B Grid / Topology Foundation`
+- Active Phase status: `active_pending_G1_goal_shape`
+- Map binding: `H1_playable_technical_nucleus / H1_G4B_grid_topology_foundation`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `none_active_after_phase_close`
-- Active Goal status: `none_active_after_phase_close`
+- Active Goal: `none_active_pending_G1_goal_shape`
+- Active Goal status: `none_active_pending_G1_goal_shape`
+- Selected first Goal candidate: `h1-g4b-grid-topology-foundation`
 - Last completed Goal: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
 - Old broad H1_G4 Goal treatment: `superseded_by_h1_g4a_boundary_repair_partial_evidence_only`
-- Next route: `P0_PHASE_START`
+- Next route: `G1_GOAL_SHAPE`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -37,17 +38,17 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Selected current Phase direction
 
-`H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation` is selected by the 2026-05-23 G1 boundary repair.
+`H1_G4B Grid / Topology Foundation` is selected by the 2026-05-23 P0 phase start.
 
-Purpose: replace the overbroad H1_G4 shape with a product-facing foundation boundary: core harness, composition/dependency seam, validation entry point, topology interface contract, and product persistence evidence.
+Purpose: shape the Grid/Topology foundation Goal before E1/X1 execution planning.
 
-Required H1_G4A foundation surface:
+Required H1_G4B foundation surface:
 
-- runnable core harness or exact blocker;
-- explicit composition/dependency boundary;
-- validation entry point;
-- topology interface contract;
-- Unity-as-render/driver separation;
+- explicit cells/nodes model;
+- adjacency/connectivity semantics;
+- obstacle/blocking/opening semantics;
+- deterministic stepping/update surface;
+- Unity debug visualization or validation harness/checklist;
 - product persistence evidence;
 - exact blocker/unblock route if the foundation cannot be produced safely.
 
@@ -72,7 +73,7 @@ Required H1_G4A foundation surface:
 - H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation — `r1_accepted_goal_complete`
   - Goal ID: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
   - Accepted product commit: `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63`
-  - Accepted scope: product-facing foundation only; H1_G4B/H1_G4C/H1_G4D/H1_G4E remain parked/request-only.
+  - Accepted scope: product-facing foundation only; H1_G4B is now the active pending-G1 Phase; H1_G4C/H1_G4D/H1_G4E remain parked/request-only.
 
 ## Preserved / paused
 
@@ -85,6 +86,7 @@ Required H1_G4A foundation surface:
 
 ## Queue items
 
+- H1_G4B Grid / Topology Foundation — `selected_for_G1_goal_shape`; id: `h1-g4b-grid-topology-foundation`; route: `G1_GOAL_SHAPE`; purpose: shape the Grid/Topology foundation Goal before E1/X1 execution planning.
 - H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation — `closed_complete_by_P9`; id: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`; route: `none_phase_closed`; purpose: preserved as the latest closed Phase evidence.
 - Project Bootstrap / Validation Surface Setup Envelope — `closed_with_phase`; id: `bootstrap-validation-surface-setup-envelope`; route: `none_goal_complete`; purpose: preserved as completed Phase evidence after setup/validation envelope acceptance.
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
@@ -99,7 +101,6 @@ Required H1_G4A foundation surface:
 
 Parked/request-only until selected by a later stage:
 
-- H1_G4B — Grid / Topology Foundation
 - H1_G4C — Gas Simulation Foundation
 - H1_G4D — Grid-Gas Interaction
 - H1_G4E — Multiplayer Boundary Foundation
@@ -533,3 +534,34 @@ queue_after_p9_h1_g4a_phase_close:
 ```
 
 The next queue movement is `P0_PHASE_START`. H1_G4B/C/D/E remain parked request-only candidates until P0 selects a non-duplicate result-facing Phase. Product execution and implementation remain blocked until a later basis-valid route authorizes them.
+
+## Queue update after P0 H1_G4B Phase start
+
+```yaml
+queue_after_p0_h1_g4b_grid_topology_foundation_start:
+  active_phase: h1-g4b-grid-topology-foundation
+  active_phase_name: "H1_G4B Grid / Topology Foundation"
+  active_phase_status: active_pending_G1_goal_shape
+  active_goal: none_active_pending_G1_goal_shape
+  active_goal_status: none_active_pending_G1_goal_shape
+  selected_first_goal_candidate: h1-g4b-grid-topology-foundation
+  next_route: G1_GOAL_SHAPE
+  required_queue_item:
+    id: h1-g4b-grid-topology-foundation
+    status: selected_for_G1_goal_shape
+    route: G1_GOAL_SHAPE
+    purpose: "Shape the Grid/Topology foundation Goal before E1/X1 execution planning."
+  parked_request_only_preserved:
+    - H1_G4C_gas_simulation_foundation
+    - H1_G4D_grid_gas_interaction
+    - H1_G4E_multiplayer_boundary_foundation
+    - product_execution
+    - Unity_MCP_setup
+    - Task_Master_graph_creation
+    - old_code_transfer
+    - Game_Documentation_promotion
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+The next queue movement is `G1_GOAL_SHAPE`. H1_G4C/D/E remain parked request-only candidates; product execution and implementation remain blocked.
