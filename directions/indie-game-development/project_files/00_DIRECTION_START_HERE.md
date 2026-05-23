@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_r1_h1_g4a_foundation_acceptance
+  freshness: fresh_after_p9_h1_g4a_core_harness_foundation_close
   last_updated: "2026-05-23"
-  next_action: "Run P9_PHASE_CLOSE for H1_G4A after repository maintenance read-back and manual Project Files refresh."
+  next_action: "Run P0_PHASE_START after H1_G4A close repository maintenance read-back and manual Project Files refresh."
 ```
 
 ## Direction identity
@@ -35,13 +35,13 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | --- | --- | --- |
 | Current Initiative | `innovative-commercial-expedition-gas-sim-game` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Active Horizon | `H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
-| Current Gate | `H1_G4A_core_harness_composition_validation_topology_interface_foundation` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
+| Current Gate | `P0_PHASE_START_after_h1_g4a_close` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation` |
-| Current Phase status | `active_goal_r1_accepted_pending_P9_phase_close` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md` |
+| Current Phase status | `closed_complete_by_P9` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md` |
-| Active Goal | `h1-g4a-core-harness-composition-validation-topology-interface-foundation` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation` |
-| Active Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal | `none_active_after_phase_close` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal status | `none_active_after_phase_close` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Last completed Goal | `h1-g4a-core-harness-composition-validation-topology-interface-foundation` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation` |
 | Last completed Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md` |
 | Last completed Goal Artifact | `GasCoopGame H1_G4A foundation evidence` | `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63` |
@@ -50,22 +50,22 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
 | Previous Phase status | `paused_superseded_not_closed` | Preserved as context/evidence, not closed by P9 |
-| Last closed Phase | `Project Bootstrap and Validation Surface Setup` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` |
-| latest_closed_phase_summary | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` | `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md` |
+| Last closed Phase | `h1-g4a-core-harness-composition-validation-topology-interface-foundation` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md` |
+| latest_closed_phase_summary | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md` |
 | Selected first Goal candidate | `h1-g4a-core-harness-composition-validation-topology-interface-foundation` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md` |
-| Next route | `P9_PHASE_CLOSE — close or pause H1_G4A after R1 accepted the product-facing foundation` | `workflow/stage_prompts/P9_PHASE_CLOSE.md` |
+| Next route | `P0_PHASE_START — start or reframe the next Phase after H1_G4A close` | `workflow/stage_prompts/P0_PHASE_START.md` |
 
 ## Current Phase meaning
 
-`H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation` exists to repair the overbroad H1_G4 result shape into the first product-facing foundation boundary.
+`H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation` repaired the overbroad H1_G4 result shape into the first product-facing foundation boundary and is now closed complete by P9.
 
-The current critical constraint is that accepted readiness/envelope state and partial X1 TechnicalNucleus evidence exist, but no accepted H1_G4A foundation exists yet.
+The accepted H1_G4A foundation exists at `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63`.
 
 Minimum outcome: a runnable core harness with composition seams, validation entry point, topology interface contract, Unity-as-render/driver separation, and product persistence evidence; or a concrete blocker/unblock packet.
 
 This Phase does not repeat the setup/validation envelope and does not accept the old gas-focused X1 progress as completion. The old broad H1_G4 phase/goal is preserved as superseded partial evidence.
 
-Implementation, Unity bootstrap, product repository creation, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked until a later basis-valid route authorizes concrete work.
+Implementation, Unity bootstrap, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked until a later basis-valid route authorizes concrete work.
 
 ## Default Project Files to load
 
@@ -495,4 +495,30 @@ summary: >
   P9_PHASE_CLOSE is now the next route. Product execution, implementation,
   Unity MCP setup, Task Master graph creation, old-code transfer, and Game
   Documentation promotion remain blocked.
+```
+
+## 2026-05-23 P9 close — H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation
+
+```yaml
+p9_h1_g4a_phase_closed:
+  current_phase: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  current_phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  current_phase_status: closed_complete_by_P9
+  active_goal: none_active_after_phase_close
+  active_goal_status: none_active_after_phase_close
+  closed_goal: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  closed_goal_status: closed_with_phase
+  last_completed_goal_result: r1_accepted_goal_complete
+  last_closed_phase: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  latest_closed_phase_summary: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
+  accepted_product_commit: "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+  next_route: P0_PHASE_START
+  next_action: "Run P0_PHASE_START after H1_G4A close repository maintenance read-back and manual Project Files refresh."
+  manual_project_files_refresh_required: true
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  P9 closed H1_G4A after R1 accepted the product-facing foundation.
+  H1_G4B, H1_G4C, H1_G4D, and H1_G4E remain parked candidates only until
+  P0 proves the next non-duplicate result-facing Phase.
 ```

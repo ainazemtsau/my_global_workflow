@@ -5,7 +5,7 @@ artifact_control:
   artifact_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation Phase Brief"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active_goal_r1_accepted_pending_P9_phase_close
+  status: closed_complete_by_P9
   created_by_stage: G1_GOAL_SHAPE
   created_at: "2026-05-23"
   repo_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
@@ -13,14 +13,20 @@ artifact_control:
 phase:
   id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
-  status: active_goal_r1_accepted_pending_P9_phase_close
+  status: closed_complete_by_P9
+  phase_closed: true
+  p9_consumed: true
+  closed_at: "2026-05-23"
+  phase_close_summary: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
   direction_id: indie_game_development
   parent_horizon: H1_playable_technical_nucleus
   previous_broad_phase_id: h1-g4-durable-technical-nucleus-first-runnable-build
-  active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-  next_route: P9_PHASE_CLOSE
-  next_route_mode: close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance
-  active_goal_status: r1_accepted_goal_complete
+  active_goal_id: none_active_after_phase_close
+  closed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  closed_goal_status: closed_with_phase
+  next_route: P0_PHASE_START
+  next_route_mode: start_next_phase_after_h1_g4a_close
+  active_goal_status: none_active_after_phase_close
   review_verdict: completed_verified
   goal_review_verdict: accepted_complete
   completion_scope: parent_goal_complete
@@ -160,7 +166,32 @@ r1_acceptance:
 
 ## Next Route
 
-`P9_PHASE_CLOSE — close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance`
+`P0_PHASE_START — start_next_phase_after_h1_g4a_close`
+
+## P9 Phase Close
+
+```yaml
+p9_phase_close:
+  stage: P9_PHASE_CLOSE
+  result: closed_complete_by_P9
+  closed_at: "2026-05-23"
+  phase_closed: true
+  p9_consumed: true
+  phase_close_summary: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
+  closed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  closed_goal_status: closed_with_phase
+  accepted_product_commit: "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+  required_graph_nodes_completed:
+    - h1_g4a_foundation
+  optional_nodes_parked:
+    - H1_G4B_grid_topology_foundation
+    - H1_G4C_gas_simulation_foundation
+    - H1_G4D_grid_gas_interaction
+    - H1_G4E_multiplayer_boundary_foundation
+  next_route: P0_PHASE_START
+```
+
+P9 closed H1_G4A after R1 accepted the product-facing foundation. Future H1_G4B/C/D/E candidates are parked until P0 selects the next non-duplicate result-facing Phase.
 
 ## End-of-file marker
 

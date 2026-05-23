@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_r1_h1_g4a_foundation_acceptance
+  source_freshness: fresh_after_p9_h1_g4a_core_harness_foundation_close
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,15 +16,17 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: r1_accepted_goal_complete
-  active_goal_state: r1_accepted_goal_complete
-  goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-  active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  state: none_active_after_phase_close
+  active_goal_state: none_active_after_phase_close
+  goal_id: none_active_after_phase_close
+  active_goal_id: none_active_after_phase_close
+  closed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  closed_goal_status: closed_with_phase
   goal_title: "Produce H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
   goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
   execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
   phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
-  status: r1_accepted_goal_complete
+  status: none_active_after_phase_close
   previous_active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
   previous_active_goal_title: "Produce or route-gate the first runnable H1_G4 durable technical nucleus slice"
   previous_active_goal_result: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
@@ -37,8 +39,8 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   previous_phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
   current_wave: none
-  next_route: P9_PHASE_CLOSE
-  next_route_mode: close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance
+  next_route: P0_PHASE_START
+  next_route_mode: start_next_phase_after_h1_g4a_close
   review_scope: completed_verified
   completion_scope: parent_goal_complete
   parent_goal_completion_state: complete
@@ -61,8 +63,8 @@ active_goal:
   unity_mcp_setup_allowed_now: false
   old_code_transfer_allowed_now: false
   game_documentation_promotion_allowed_now: false
-  next_goal_seed: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-  note: "R1 accepted the H1_G4A foundation Goal; P9 is required before the next Phase route."
+  next_goal_seed: none_after_phase_close
+  note: "R1 accepted the H1_G4A foundation Goal; P9 closed it with the Phase. P0 is required before the next Goal seed."
 ```
 
 ```yaml
@@ -627,4 +629,30 @@ summary: >
   R1 accepted the H1_G4A product-facing foundation. The active Goal is complete
   and ready for P9 phase close. H1_G4B/C/D/E remain parked request-only future
   candidates.
+```
+
+## 2026-05-23 P9 close — H1_G4A Goal closed with Phase
+
+```yaml
+p9_h1_g4a_goal_closed_with_phase:
+  active_goal_state: none_active_after_phase_close
+  active_goal_id: none_active_after_phase_close
+  closed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  closed_goal_status: closed_with_phase
+  last_completed_goal_result: r1_accepted_goal_complete
+  accepted_evidence:
+    - "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+    - "MODULE_MAP.md"
+    - ".workflow/outbox/H1_G4A_OPERATOR_REPORT.md"
+    - ".workflow/evidence/h1-g4a-foundation-2026-05-23.md"
+  next_route: P0_PHASE_START
+  next_goal_seed: none_after_phase_close
+  parked_future_candidates:
+    - H1_G4B
+    - H1_G4C
+    - H1_G4D
+    - H1_G4E
+summary: >
+  The H1_G4A Goal was already accepted by R1 and is now closed with the Phase.
+  No active Goal remains until P0 selects the next result-facing Phase route.
 ```

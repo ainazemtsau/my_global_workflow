@@ -8,7 +8,7 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_g1_h1_g4a_core_harness_boundary_repair
+  freshness: fresh_after_p9_h1_g4a_core_harness_foundation_close
   last_updated: "2026-05-23"
 ```
 
@@ -32,11 +32,11 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: innovative-commercial-expedition-gas-sim-game
   map_confidence: medium
-  last_reviewed_stage: R1_GOAL_REVIEW_DISTILL
+  last_reviewed_stage: P9_PHASE_CLOSE
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
-  current_objective_architecture_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
-  next_safe_route: P9_PHASE_CLOSE
+  current_objective_architecture_node: P0_PHASE_START_after_h1_g4a_close
+  next_safe_route: P0_PHASE_START
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -1407,6 +1407,39 @@ map_delta:
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
 ```
+
+## 2026-05-23 P9 map delta — H1_G4A Phase closed
+
+```yaml
+p9_h1_g4a_phase_close_map_delta:
+  source_stage: P9_PHASE_CLOSE
+  delta_type:
+    - phase_closed
+    - node_done_accepted
+    - phase_memory_bridge_updated
+    - active_frontier_requires_P0
+    - future_phase_candidates_parked
+  node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+  result: closed_complete_by_P9
+  next_route: P0_PHASE_START
+  next_safe_route: P0_PHASE_START
+  current_objective_architecture_node: P0_PHASE_START_after_h1_g4a_close
+  summary: "H1_G4A closed after accepted product-facing foundation; P0 must select the next result-facing Phase."
+  blocked_or_parked_nodes:
+    - H1_G4B_grid_topology_foundation
+    - H1_G4C_gas_simulation_foundation
+    - H1_G4D_grid_gas_interaction
+    - H1_G4E_multiplayer_boundary_foundation
+    - codex_product_project_execution
+    - Unity_MCP_setup
+    - Task_Master_graph_creation
+    - old_code_transfer
+    - Game_Documentation_promotion
+  avoid_large_roadmap_or_backlog: true
+  accepted_product_commit: "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+```
+
+P9 did not select H1_G4B, H1_G4C, H1_G4D, or H1_G4E. Those nodes are parked candidates until P0 proves the next non-duplicate result-facing Phase.
 
 ## End-of-file marker
 

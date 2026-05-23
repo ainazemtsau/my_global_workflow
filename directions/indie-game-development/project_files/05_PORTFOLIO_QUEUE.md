@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_h1_g4a_foundation_acceptance
+projection_status: fresh_after_p9_h1_g4a_core_harness_foundation_close
 activated_at: "2026-05-13"
 ```
 
@@ -17,23 +17,23 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 - Active Phase name: `H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation`
-- Active Phase status: `active_goal_r1_accepted_pending_P9_phase_close`
+- Active Phase status: `closed_complete_by_P9`
 - Map binding: `H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
-- Active Goal status: `r1_accepted_goal_complete`
+- Active Goal: `none_active_after_phase_close`
+- Active Goal status: `none_active_after_phase_close`
 - Last completed Goal: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
 - Old broad H1_G4 Goal treatment: `superseded_by_h1_g4a_boundary_repair_partial_evidence_only`
-- Next route: `P9_PHASE_CLOSE`
+- Next route: `P0_PHASE_START`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
 - Previous Goal status: `paused_superseded_partial_progress_not_accepted`
-- Last closed Phase: `project-bootstrap-validation-surface-setup`
+- Last closed Phase: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 
 ## Selected current Phase direction
 
@@ -85,7 +85,7 @@ Required H1_G4A foundation surface:
 
 ## Queue items
 
-- H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation — `r1_accepted_goal_complete`; id: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`; route: `P9_PHASE_CLOSE`; purpose: close or pause the H1_G4A Phase after accepted product-facing foundation evidence.
+- H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation — `closed_complete_by_P9`; id: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`; route: `none_phase_closed`; purpose: preserved as the latest closed Phase evidence.
 - Project Bootstrap / Validation Surface Setup Envelope — `closed_with_phase`; id: `bootstrap-validation-surface-setup-envelope`; route: `none_goal_complete`; purpose: preserved as completed Phase evidence after setup/validation envelope acceptance.
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
@@ -508,3 +508,28 @@ queue_update_after_r1_h1_g4a_foundation_acceptance:
 ```
 
 The next queue movement is `P9_PHASE_CLOSE`. Future H1_G4B/C/D/E candidates are parked/request-only until selected by a later lifecycle route. Implementation, bootstrap, and product execution remain blocked until a later basis-valid route authorizes them.
+
+## Queue update after P9 H1_G4A Phase close
+
+```yaml
+queue_after_p9_h1_g4a_phase_close:
+  active_phase: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  active_phase_status: closed_complete_by_P9
+  active_goal: none_active_after_phase_close
+  active_goal_status: none_active_after_phase_close
+  last_closed_phase: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  closed_goal: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  closed_goal_status: closed_with_phase
+  next_queue_movement: P0_PHASE_START
+  future_phase_candidates:
+    - H1_G4B
+    - H1_G4C
+    - H1_G4D
+    - H1_G4E
+  parked_request_only_boundaries_preserved: true
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+The next queue movement is `P0_PHASE_START`. H1_G4B/C/D/E remain parked request-only candidates until P0 selects a non-duplicate result-facing Phase. Product execution and implementation remain blocked until a later basis-valid route authorizes them.

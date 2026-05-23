@@ -8,14 +8,14 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md"
   default_load: yes
-  freshness: fresh_after_p9_project_bootstrap_validation_surface_setup_close
-  last_updated: "2026-05-22"
+  freshness: fresh_after_p9_h1_g4a_core_harness_foundation_close
+  last_updated: "2026-05-23"
 
 phase_memory_status:
-  latest_closed_phase_id: project-bootstrap-validation-surface-setup
-  latest_closed_phase_name: "Project Bootstrap and Validation Surface Setup"
-  latest_closed_phase_summary_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md"
-  latest_closed_at: "2026-05-22"
+  latest_closed_phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  latest_closed_phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  latest_closed_phase_summary_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
+  latest_closed_at: "2026-05-23"
   history_backfill_status: partial
 ```
 
@@ -160,6 +160,86 @@ evidence_pointer:
 backfill_quality: current_phase_fresh
 ```
 
+### h1-g4a-core-harness-composition-validation-topology-interface-foundation
+
+```yaml
+phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+status: closed_complete_by_P9
+started_at: "2026-05-22"
+closed_at: "2026-05-23"
+critical_constraint: "The Direction needed a product-facing first foundation boundary after the broad H1_G4 shape was repaired into H1_G4A."
+minimum_outcome: "Accepted H1_G4A product-facing foundation with core harness, composition boundary, validation entry, topology interface contract, Unity-as-render/driver separation, and product persistence evidence."
+completion_verdict: closed_complete_by_P9
+delivered_outcomes:
+  - "Accepted H1_G4A product-facing foundation in GasCoopGame."
+required_graph_nodes_completed:
+  - h1_g4a_foundation
+optional_nodes_parked:
+  - H1_G4B_grid_topology_foundation
+  - H1_G4C_gas_simulation_foundation
+  - H1_G4D_grid_gas_interaction
+  - H1_G4E_multiplayer_boundary_foundation
+durable_decisions:
+  - "The single required primary result node satisfies the Phase closure logic."
+  - "H1_G4B/C/D/E are parked P0 candidates only; P9 did not select or start them."
+  - "P0_PHASE_START is the next lifecycle route after repository maintenance and manual Project Files refresh."
+files_or_docs_created:
+  - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md
+carryovers:
+  - "P0 must select the next result-facing Phase from Phase Memory and Direction Map."
+  - "P0 must prove anti-duplicate and result-visible delta before selecting H1_G4B, H1_G4C, H1_G4D, or H1_G4E."
+do_not_repeat:
+  - "Do not create another H1_G4A foundation/validation/support phase."
+  - "Do not start broad vertical slice, Game Documentation promotion, old-code transfer, Unity MCP setup, or Task Master graph creation as the next Phase."
+duplicate_phase_patterns_to_avoid:
+  - "A renamed H1_G4A support phase that repeats the accepted harness/composition/validation/topology-interface foundation."
+recommended_next_phase_candidates:
+  - "P0 candidate only: H1_G4B — Grid / Topology Foundation."
+  - "P0 candidate only: H1_G4C — Gas Simulation Foundation."
+  - "P0 candidate only: H1_G4D — Grid-Gas Interaction."
+  - "P0 candidate only: H1_G4E — Multiplayer Boundary Foundation."
+recommended_next_phase_not:
+  - "Do not create another H1_G4A foundation/validation/support phase."
+  - "Do not start broad vertical slice, Game Documentation promotion, old-code transfer, Unity MCP setup, or Task Master graph creation as the next Phase."
+next_phase_candidate_result_first_check:
+  H1_G4B:
+    standalone_phase_allowed: true
+    embed_as_first_goal_or_gate_by_default: false
+    standalone_allowed_only_if: "P0 proves Grid/Topology is the next result-visible foundation delta after H1_G4A."
+    do_not_select_if: "Selection would only repeat H1_G4A harness/composition/validation work."
+    result_visible_delta: "Topology substrate with cells/nodes, adjacency, obstacles/connectivity, deterministic stepping surface, and Unity debug visualization."
+    support_artifacts_expected: "Only support needed to validate topology foundation."
+  H1_G4C:
+    standalone_phase_allowed: true
+    embed_as_first_goal_or_gate_by_default: false
+    standalone_allowed_only_if: "P0 proves gas simulation is the next result-visible foundation delta after topology/readiness constraints."
+    do_not_select_if: "Topology substrate is required first and not available."
+    result_visible_delta: "Extensible gas simulation operating on accepted/available substrate with validation."
+    support_artifacts_expected: "Only support needed to validate gas foundation."
+  H1_G4D:
+    standalone_phase_allowed: true
+    embed_as_first_goal_or_gate_by_default: false
+    standalone_allowed_only_if: "P0 proves Grid and Gas foundations are available or intentionally scoped together."
+    do_not_select_if: "Grid or Gas foundation is missing and the phase would become premature integration."
+    result_visible_delta: "Explicit authority/order/snapshot contract between topology and gas."
+    support_artifacts_expected: "Only support needed to validate interaction contract."
+  H1_G4E:
+    standalone_phase_allowed: true
+    embed_as_first_goal_or_gate_by_default: false
+    standalone_allowed_only_if: "P0 proves multiplayer boundary is the next result-visible foundation delta and not premature."
+    do_not_select_if: "Core single-process foundation surfaces are not stable enough for multiplayer boundary work."
+    result_visible_delta: "Multiplayer authority/replication boundary for the foundation without full multiplayer implementation."
+    support_artifacts_expected: "Only support needed to validate multiplayer boundary."
+close_summary_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
+evidence_pointer:
+  - "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+  - "MODULE_MAP.md"
+  - ".workflow/outbox/H1_G4A_OPERATOR_REPORT.md"
+  - ".workflow/evidence/h1-g4a-foundation-2026-05-23.md"
+backfill_quality: current_phase_fresh
+```
+
 ## Open carryovers
 
 - Use accepted minimum proof-core artifact only when shaping the next proof-related Phase or Goal.
@@ -168,6 +248,8 @@ backfill_quality: current_phase_fresh
 - P0 must preserve no-product-execution boundary until E1/X0/X1 readiness is proven.
 - P0 must not repeat Project Bootstrap and Validation Surface Setup; it must select a concrete new phase-level delta after this Phase closure.
 - H1_G4 durable technical nucleus remains premature until a later route selects and scopes it.
+- P0 must not repeat H1_G4A foundation/validation/support work; it must select a concrete next result-facing delta after H1_G4A close.
+- H1_G4B, H1_G4C, H1_G4D, and H1_G4E remain candidates only until selected by P0.
 
 ## Do-not-repeat / duplicate patterns
 
@@ -178,19 +260,23 @@ backfill_quality: current_phase_fresh
 - Do not create a broad foundation/planning phase that repeats accepted decision/spec/profile/readiness work.
 - Do not recreate Project Bootstrap and Validation Surface Setup without a concrete new delta.
 - Do not treat the accepted setup/validation envelope as product execution approval.
+- Do not create another H1_G4A foundation/validation/support phase without a concrete new delta.
+- Do not start broad vertical slice, Game Documentation promotion, old-code transfer, Unity MCP setup, or Task Master graph creation as the next Phase.
 
 ## Recommended next phase candidates
 
-- P0 candidate only: project bootstrap / validation surface setup.
-- P0 candidate only: durable technical nucleus implementation readiness.
-- P0 candidate only: bounded H1_G4 durable technical nucleus execution envelope.
-- P0 candidate only: route-gated project setup validation campaign, if P0 proves setup must be separated from implementation.
+- P0 candidate only: H1_G4B — Grid / Topology Foundation.
+- P0 candidate only: H1_G4C — Gas Simulation Foundation.
+- P0 candidate only: H1_G4D — Grid-Gas Interaction.
+- P0 candidate only: H1_G4E — Multiplayer Boundary Foundation.
 
 ## Recommended next phase not
 
 - Do not create a duplicate Expedition First Proof Checkpoint.
 - Do not start direct product execution, old-code transfer, broad commercialization, or Game Documentation promotion as the next Phase.
 - Do not start direct Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, or Unity MCP setup as the next Phase.
+- Do not create another H1_G4A foundation/validation/support phase.
+- Do not start broad vertical slice as the next Phase unless a later route proves a bounded result-visible foundation delta.
 
 ## Detail pointers
 
@@ -205,3 +291,6 @@ backfill_quality: current_phase_fresh
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md`
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/00_PHASE_BRIEF.md`
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md`
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md`
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md`
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md`

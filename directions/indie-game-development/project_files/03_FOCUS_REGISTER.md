@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_r1_h1_g4a_foundation_acceptance
+  source_freshness: fresh_after_p9_h1_g4a_core_harness_foundation_close
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,20 +16,22 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run P9 phase close for H1_G4A after accepted product-facing foundation."
-  route_stage: P9_PHASE_CLOSE
-  route_mode: close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance
+  current_focus: "Run P0_PHASE_START after H1_G4A Phase close."
+  route_stage: P0_PHASE_START
+  route_mode: start_next_phase_after_h1_g4a_close
   same_chat_allowed: false
-  boundary_trigger: r1_h1_g4a_foundation_accepted
+  boundary_trigger: p9_h1_g4a_phase_closed
   pending_state_carried: true
-  pending_patch_pointer: r1_accept_h1_g4a_foundation_and_prepare_p9_2026_05_23
-  last_stage_result_pointer: "R1_GOAL_REVIEW_DISTILL accepted h1-g4a-core-harness-composition-validation-topology-interface-foundation as r1_accepted_goal_complete."
+  pending_patch_pointer: p9_close_h1_g4a_core_harness_foundation_2026_05_23
+  last_stage_result_pointer: "P9_PHASE_CLOSE closed h1-g4a-core-harness-composition-validation-topology-interface-foundation as closed_complete_by_P9."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   active_goal:
-    goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-    status: r1_accepted_goal_complete
+    goal_id: none_active_after_phase_close
+    status: none_active_after_phase_close
+    closed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+    closed_goal_status: closed_with_phase
     goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
     previous_goal_id: h1-g4-first-runnable-technical-nucleus-slice
     previous_goal_status: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
@@ -37,25 +39,21 @@ focus:
     phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
     phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
     phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
-    status: active_goal_r1_accepted_pending_P9_phase_close
+    status: closed_complete_by_P9
     map_binding: "H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation"
-    next_route: P9_PHASE_CLOSE
+    next_route: P0_PHASE_START
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `repository maintenance read-back and manual Project Files refresh required before P9 launch`
-- Human decision: `none pending for P9 launch after refresh`
-- Source conflict: `Project Files require R1 acceptance read-back and manual refresh before P9 because this patch changes Project Files`
+- Missing context: `repository maintenance read-back and manual Project Files refresh required before P0 launch`
+- Human decision: `none pending for P0 launch after refresh`
+- Source conflict: `Project Files require P9 close read-back and manual refresh before P0 because this patch changes Project Files`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/P9_PHASE_CLOSE.md`
-  - refreshed Project Files 00-08 after H1_G4A R1 acceptance
-  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md`
-  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_execution_log.md`
-  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md`
-  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md`
-  - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md`
+  - exact `workflow/stage_prompts/P0_PHASE_START.md`
+  - refreshed Project Files 00-08 after H1_G4A P9 close
+  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md`
   - `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
   - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
 
@@ -63,9 +61,9 @@ focus:
 
 G1 formalized `h1-g4a-core-harness-composition-validation-topology-interface-foundation` after A1 determined direct E1 repair of the broad H1_G4 route-gated state was not basis-valid.
 
-H1_G4A is the controlling current focus.
+H1_G4A is the latest closed Phase.
 
-The next focus is `P9_PHASE_CLOSE` for H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation after R1 accepted the product-facing foundation. P9 must close or pause the H1_G4A Phase using the accepted evidence and compact Phase Delivery Graph. It must not start H1_G4B, Grid/Topology implementation, Gas Simulation implementation, Grid-Gas interaction, Multiplayer implementation, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, broad vertical slice expansion, or Codex product/project execution directly.
+The next focus is `P0_PHASE_START` after H1_G4A closed complete by P9. P0 must select or reframe the next result-facing Phase using Phase Memory and Direction Map. It must preserve H1_G4B, H1_G4C, H1_G4D, and H1_G4E as candidates only until P0 proves the selected candidate is non-duplicate and basis-valid. It must not start Grid/Topology implementation, Gas Simulation implementation, Grid-Gas interaction, Multiplayer implementation, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, broad vertical slice expansion, or Codex product/project execution directly.
 
 Forbidden in this focus:
 
@@ -456,3 +454,36 @@ implementation_allowed_now: false
 ```
 
 P9 must preserve the forbidden surfaces: H1_G4B start, Grid/Topology implementation, Gas Simulation implementation, Grid-Gas interaction, Multiplayer implementation, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, and product execution.
+
+## 2026-05-23 focus update — H1_G4A Phase closed
+
+Current focus:
+
+Run P0_PHASE_START after H1_G4A Phase close.
+
+```yaml
+route_stage: P0_PHASE_START
+route_mode: start_next_phase_after_h1_g4a_close
+boundary_trigger: p9_h1_g4a_phase_closed
+active_phase_status: closed_complete_by_P9
+active_goal_status: none_active_after_phase_close
+closed_goal:
+  goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  status: closed_with_phase
+required_context_for_next_stage:
+  - workflow/stage_prompts/P0_PHASE_START.md
+  - refreshed Project Files 00-08 after H1_G4A P9 close
+  - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md
+  - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+  - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+forbidden_scope_preserved:
+  - start_H1_G4B_or_H1_G4C_or_H1_G4D_or_H1_G4E_inside_P9
+  - product_repo_mutation
+  - Codex_product_project_execution
+  - Unity_MCP_setup
+  - Task_Master_graph_creation
+  - old_code_transfer
+  - Game_Documentation_promotion
+```
+
+P0 is the next route after manual Project Files refresh. H1_G4B/C/D/E are candidate labels only until P0 selects one with a concrete result-visible delta.

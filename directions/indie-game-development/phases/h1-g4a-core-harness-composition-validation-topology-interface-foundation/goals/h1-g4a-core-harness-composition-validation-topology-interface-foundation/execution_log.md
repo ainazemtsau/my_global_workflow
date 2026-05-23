@@ -60,6 +60,33 @@ execution_log_entry:
     Operator Report, and persisted validation evidence are present.
 ```
 
+## 2026-05-23 — P9_PHASE_CLOSE closed Goal with Phase
+
+```yaml
+entry_id: p9_goal_closed_with_phase_h1_g4a_2026_05_23
+stage: P9_PHASE_CLOSE
+result: closed_with_phase
+phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+summary: "Goal was already accepted by R1 and is now closed with the Phase."
+next_route: P0_PHASE_START
+evidence:
+  - "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+  - "MODULE_MAP.md"
+  - ".workflow/outbox/H1_G4A_OPERATOR_REPORT.md"
+  - ".workflow/evidence/h1-g4a-foundation-2026-05-23.md"
+forbidden_scope_preserved:
+  - product_repo_mutation
+  - H1_G4B_C_D_E_start
+  - Codex_product_project_execution
+  - Unity_MCP_setup
+  - Task_Master_graph_creation
+  - old_code_transfer
+  - Game_Documentation_promotion
+```
+
+The active Goal state is now `none_active_after_phase_close`; P0 must select the next Phase before any next Goal seed exists.
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md`

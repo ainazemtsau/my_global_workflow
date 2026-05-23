@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_r1_h1_g4a_foundation_acceptance
+projection_status: fresh_after_p9_h1_g4a_core_harness_foundation_close
 activated_at: "2026-05-13"
 ```
 
@@ -56,14 +56,17 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md`
-  - Status: `active_goal_r1_accepted_pending_P9_phase_close`
-  - Load for `P9_PHASE_CLOSE` and any route that needs the active H1_G4A foundation Phase frame.
+  - Status: `closed_complete_by_P9`
+  - Load for `P0_PHASE_START` and any route that needs the latest closed H1_G4A foundation Phase frame.
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md`
+  - Status: `latest_closed_phase_summary`
+  - Load for `P0_PHASE_START`.
 - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
 - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md`
-  - Status: `r1_accepted_goal_complete`
-  - Load for `P9_PHASE_CLOSE`.
+  - Status: `closed_with_phase`
+  - Request only when H1_G4A Goal detail is needed.
 - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md`
   - Status: `goal_execution_log`
   - Request when execution history is needed.
@@ -816,3 +819,39 @@ required_context_after_r1_h1_g4a_acceptance:
 ```
 
 P9 must use the accepted R1 evidence and compact phase_delivery_graph. H1_G4B/C/D/E are parked future phase candidates, not P9 implementation scope.
+
+## Required context after P9 H1_G4A close
+
+Recommended next stage: `P0_PHASE_START`.
+
+```yaml
+required_context_after_p9_h1_g4a_close:
+  recommended_next_stage: P0_PHASE_START
+  recommended_next_mode: start_next_phase_after_h1_g4a_close
+  latest_closed_phase: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  latest_closed_phase_summary: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md"
+  load_for_P0:
+    - workflow/stage_prompts/P0_PHASE_START.md
+    - WORKFLOW_SOURCE_OF_TRUTH.md
+    - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+    - workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+    - workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
+    - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+    - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+    - workflow/stage_registry/STAGE_REGISTRY.md
+    - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+    - directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+    - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+    - directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+    - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+    - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+    - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+    - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+    - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md
+  stage_prompt_copy_policy: "P0 prompt text is not copied into Project Files."
+  manual_project_files_refresh_required: true
+  blocking_before_next_material_run: true
+```
+
+P0 must use the refreshed Project Files, Phase Memory Bridge, Direction Map, and H1_G4A close summary. H1_G4B/C/D/E remain candidates only until P0 selects the next non-duplicate result-facing Phase.
