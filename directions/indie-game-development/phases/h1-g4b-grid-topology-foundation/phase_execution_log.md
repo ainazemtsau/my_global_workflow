@@ -32,3 +32,26 @@ entry:
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
 ```
+
+## 2026-05-23 — G1 Goal Shape formalized
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  stage: G1_GOAL_SHAPE
+  event: h1_g4b_goal_contract_formalized
+  phase_id: h1-g4b-grid-topology-foundation
+  goal_id: h1-g4b-grid-topology-foundation
+  goal_contract: directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md
+  result: active_goal_shaped_pending_E1_execution_brief
+  next_route: E1_EXECUTION_BRIEF
+  summary: >
+    H1_G4B was shaped as a production-grade, legacy-informed Grid /
+    Topology Core. The Goal requires topology ingestion through a replaceable
+    boundary, runtime topology state, dynamic topology mutation, deterministic
+    query/update, spatial change propagation, cross-system spatial coordination,
+    validation/debug evidence, old Grid/Gas evidence review, and product evidence
+    or exact blocker/unblock packet.
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```

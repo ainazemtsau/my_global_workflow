@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_p0_h1_g4b_grid_topology_foundation_start
+projection_status: fresh_after_g1_h1_g4b_grid_topology_goal_formalization
 activated_at: "2026-05-13"
 ```
 
@@ -17,11 +17,11 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `h1-g4b-grid-topology-foundation`
 - Active Phase name: `H1_G4B Grid / Topology Foundation`
-- Active Phase status: `active_pending_G1_goal_shape`
+- Active Phase status: `active_goal_shaped_pending_E1_execution_brief`
 - Map binding: `H1_playable_technical_nucleus / H1_G4B_grid_topology_foundation`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `none_active_pending_G1_goal_shape`
-- Active Goal status: `none_active_pending_G1_goal_shape`
+- Active Goal: `h1-g4b-grid-topology-foundation`
+- Active Goal status: `goal_shaped_pending_E1_execution_brief`
 - Selected first Goal candidate: `h1-g4b-grid-topology-foundation`
 - Last completed Goal: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 - Last completed Goal status: `r1_accepted_goal_complete`
@@ -29,7 +29,7 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
 - Old broad H1_G4 Goal treatment: `superseded_by_h1_g4a_boundary_repair_partial_evidence_only`
-- Next route: `G1_GOAL_SHAPE`
+- Next route: `E1_EXECUTION_BRIEF`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -38,9 +38,9 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Selected current Phase direction
 
-`H1_G4B Grid / Topology Foundation` is selected by the 2026-05-23 P0 phase start.
+`H1_G4B Grid / Topology Foundation` is selected by the 2026-05-23 P0 phase start and shaped by the 2026-05-23 G1 formalization.
 
-Purpose: shape the Grid/Topology foundation Goal before E1/X1 execution planning.
+Purpose: prepare the E1 execution brief for the production-grade, legacy-informed Grid / Topology Core before any X1 execution planning.
 
 Required H1_G4B foundation surface:
 
@@ -541,16 +541,20 @@ The next queue movement is `P0_PHASE_START`. H1_G4B/C/D/E remain parked request-
 queue_after_p0_h1_g4b_grid_topology_foundation_start:
   active_phase: h1-g4b-grid-topology-foundation
   active_phase_name: "H1_G4B Grid / Topology Foundation"
-  active_phase_status: active_pending_G1_goal_shape
-  active_goal: none_active_pending_G1_goal_shape
-  active_goal_status: none_active_pending_G1_goal_shape
+  active_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal: h1-g4b-grid-topology-foundation
+  active_goal_status: goal_shaped_pending_E1_execution_brief
   selected_first_goal_candidate: h1-g4b-grid-topology-foundation
-  next_route: G1_GOAL_SHAPE
+  next_route: E1_EXECUTION_BRIEF
   required_queue_item:
     id: h1-g4b-grid-topology-foundation
-    status: selected_for_G1_goal_shape
-    route: G1_GOAL_SHAPE
-    purpose: "Shape the Grid/Topology foundation Goal before E1/X1 execution planning."
+    status: goal_shaped_pending_E1_execution_brief
+    route: E1_EXECUTION_BRIEF
+    purpose: >
+      Prepare execution brief for production-grade, legacy-informed Grid /
+      Topology Core with replaceable topology ingestion, dynamic topology
+      mutation, spatial change propagation, cross-system coordination,
+      validation/debug, and legacy evidence gate.
   parked_request_only_preserved:
     - H1_G4C_gas_simulation_foundation
     - H1_G4D_grid_gas_interaction
@@ -564,4 +568,41 @@ queue_after_p0_h1_g4b_grid_topology_foundation_start:
   codex_product_execution_allowed_now: false
 ```
 
-The next queue movement is `G1_GOAL_SHAPE`. H1_G4C/D/E remain parked request-only candidates; product execution and implementation remain blocked.
+The next queue movement is `E1_EXECUTION_BRIEF`. H1_G4C/D/E remain parked request-only candidates; product execution and implementation remain blocked.
+
+## Queue update after G1 H1_G4B formalization
+
+```yaml
+queue_after_g1_h1_g4b_grid_topology_goal_formalization:
+  active_phase: h1-g4b-grid-topology-foundation
+  active_phase_name: "H1_G4B Grid / Topology Foundation"
+  active_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal: h1-g4b-grid-topology-foundation
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  goal_execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
+  next_route: E1_EXECUTION_BRIEF
+  required_queue_item:
+    id: h1-g4b-grid-topology-foundation
+    status: goal_shaped_pending_E1_execution_brief
+    route: E1_EXECUTION_BRIEF
+    purpose: >
+      Prepare execution brief for production-grade, legacy-informed Grid /
+      Topology Core with replaceable topology ingestion, dynamic topology
+      mutation, spatial change propagation, cross-system coordination,
+      validation/debug, and legacy evidence gate.
+  parked_request_only_preserved:
+    - H1_G4C_gas_simulation_foundation
+    - H1_G4D_grid_gas_interaction
+    - H1_G4E_multiplayer_boundary_foundation
+    - product_execution
+    - Unity_MCP_setup
+    - Task_Master_graph_creation
+    - old_code_transfer
+    - Game_Documentation_promotion
+    - broad_vertical_slice_expansion
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+H1_G4B Grid / Topology Foundation is shaped and pending E1. Future H1_G4C/H1_G4D/H1_G4E remain parked/request-only. Product execution, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, and broad vertical slice expansion remain blocked.

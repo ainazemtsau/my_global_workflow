@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_p0_h1_g4b_grid_topology_foundation_start
+projection_status: fresh_after_g1_h1_g4b_grid_topology_goal_formalization
 activated_at: "2026-05-13"
 ```
 
@@ -57,10 +57,16 @@ Load for work on the current Phase:
 
 - `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md`
   - Status: `active_phase_brief`
-  - Load for `G1_GOAL_SHAPE`.
+  - Load for `E1_EXECUTION_BRIEF`.
 - `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/phase_execution_log.md`
   - Status: `active_phase_log`
-  - Load for `G1_GOAL_SHAPE`.
+  - Load for `E1_EXECUTION_BRIEF`.
+- `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md`
+  - Status: `active_goal_contract`
+  - Load for `E1_EXECUTION_BRIEF`.
+- `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md`
+  - Status: `active_goal_execution_log`
+  - Load for `E1_EXECUTION_BRIEF`.
 - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md`
   - Status: `latest_closed_phase_summary`
   - Load for `request_if_needed`.
@@ -100,16 +106,19 @@ Load for work on the current Phase:
 
 ## Active Goal context
 
-Active Goal after P0 H1_G4B grid topology foundation start:
+Active Goal after G1 H1_G4B grid topology foundation formalization:
 
 ```yaml
-active_goal_after_p0_h1_g4b_grid_topology_foundation_start:
-  active_goal_id: none_active_pending_G1_goal_shape
-  active_goal_status: none_active_pending_G1_goal_shape
+active_goal_after_g1_h1_g4b_grid_topology_foundation_formalization:
+  active_goal_id: h1-g4b-grid-topology-foundation
+  active_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal_status: goal_shaped_pending_E1_execution_brief
   selected_first_goal_candidate: h1-g4b-grid-topology-foundation
-  selected_first_goal_candidate_status: selected_for_G1_goal_shape
-  recommended_next_stage: G1_GOAL_SHAPE
-  recommended_next_mode: shape_h1_g4b_grid_topology_foundation
+  selected_first_goal_candidate_status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
+  recommended_next_stage: E1_EXECUTION_BRIEF
+  recommended_next_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
 ```
 
 Active Goal after P0 H1_G4 first runnable build phase start:
@@ -915,3 +924,58 @@ required_context_after_p0_h1_g4b_grid_topology_foundation_start:
 ```
 
 G1 must use H1_G4B as controlling context. H1_G4C, H1_G4D, and H1_G4E remain parked request-only candidates.
+
+## Required context after G1 H1_G4B Grid / Topology Foundation formalization
+
+Recommended next stage: `E1_EXECUTION_BRIEF`.
+
+Recommended next mode: `prepare_h1_g4b_grid_topology_foundation_execution_brief`.
+
+```yaml
+required_context_after_g1_h1_g4b_grid_topology_foundation_formalization:
+  active_goal_id: h1-g4b-grid-topology-foundation
+  active_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
+  recommended_next_stage: E1_EXECUTION_BRIEF
+  recommended_next_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
+  load_for_E1:
+    - workflow/stage_prompts/E1_EXECUTION_BRIEF.md
+    - WORKFLOW_SOURCE_OF_TRUTH.md
+    - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+    - workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+    - workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
+    - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+    - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+    - workflow/stage_registry/STAGE_REGISTRY.md
+    - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+    - directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+    - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+    - directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+    - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+    - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+    - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+    - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+    - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md
+    - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/phase_execution_log.md
+    - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md
+    - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md
+  request_if_needed:
+    - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md
+    - directions/indie-game-development/domain_docs/game_documentation/technical-foundation-gas-and-grid-contract.md
+    - directions/indie-game-development/domain_docs/game_documentation/clean-start-transfer-boundary.md
+    - directions/indie-game-development/domain_docs/game_documentation/foundation-docs-index.md
+    - 01_OLD_PROJECT_GRID_TOPOLOGY_TECHNICAL_DOC.md
+    - 02_OLD_PROJECT_GAS_SIMULATION_TECHNICAL_DOC.md
+    - 03_OLD_PROJECT_GRID_GAS_INTERACTION_DOC.md
+    - old Unity source/code/tests/performance context, if E1 determines it is required
+  stale_but_nonblocking:
+    - "08_DIRECTION_MAP may remain stale on current_objective_architecture_node / active_front; for E1, refreshed 00-06, Phase Brief, and Goal Contract are controlling."
+  manual_project_files_refresh_required: true
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+Load for E1: exact E1_EXECUTION_BRIEF prompt; refreshed Project Files 00-08 after this repository maintenance; H1_G4B Phase Brief and phase execution log; H1_G4B Goal Contract and execution log; latest H1_G4A close summary request-if-needed; old Grid/Gas evidence docs request-if-needed; old source/tests/perf context via Context Request if required.

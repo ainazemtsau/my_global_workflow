@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p0_h1_g4b_grid_topology_foundation_start
+  source_freshness: fresh_after_g1_h1_g4b_grid_topology_goal_formalization
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,14 +16,17 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: none_active_pending_G1_goal_shape
-  active_goal_state: none_active_pending_G1_goal_shape
-  goal_id: none_active_pending_G1_goal_shape
-  active_goal_id: none_active_pending_G1_goal_shape
+  state: goal_shaped_pending_E1_execution_brief
+  active_goal_state: goal_shaped_pending_E1_execution_brief
+  goal_id: h1-g4b-grid-topology-foundation
+  active_goal_id: h1-g4b-grid-topology-foundation
   selected_first_goal_candidate: h1-g4b-grid-topology-foundation
-  selected_first_goal_candidate_status: selected_for_G1_goal_shape
+  selected_first_goal_candidate_status: goal_shaped_pending_E1_execution_brief
   phase_path: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation"
-  status: none_active_pending_G1_goal_shape
+  active_phase_status: active_goal_shaped_pending_E1_execution_brief
+  status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
   previous_active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
   previous_active_goal_title: "Produce or route-gate the first runnable H1_G4 durable technical nucleus slice"
   previous_active_goal_result: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
@@ -36,9 +39,11 @@ active_goal:
   existing_goal_artifact_status: accepted_route_gated_decision_map
   previous_phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
   current_wave: none
-  next_route: G1_GOAL_SHAPE
-  next_route_mode: shape_h1_g4b_grid_topology_foundation
-  smallest_useful_result: "Accepted or route-gated Grid/Topology foundation with cells/nodes, adjacency/connectivity, obstacle semantics, deterministic stepping, Unity debug/validation surface, and product evidence."
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
+  accepted_result: none_pending_execution
+  parent_goal_completion_state: incomplete_goal_shaped_only
+  smallest_useful_result: "Accepted or route-gated production-grade, legacy-informed Grid / Topology Core with replaceable topology ingestion, dynamic topology mutation, spatial change propagation, cross-system coordination, validation/debug surface, old-evidence review, and product evidence."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -50,7 +55,7 @@ active_goal:
   old_code_transfer_allowed_now: false
   game_documentation_promotion_allowed_now: false
   next_goal_seed: h1-g4b-grid-topology-foundation
-  note: "No active Goal exists yet. P0 selected H1_G4B as the first Goal candidate; G1 is required before E1/X1 execution planning."
+  note: "H1_G4B is the active shaped Goal pending E1. Product execution is not authorized."
 ```
 
 ```yaml
@@ -667,4 +672,30 @@ active_goal_after_p0_h1_g4b_start:
 summary: >
   H1_G4B has no active Goal yet. G1 must shape the topology foundation Goal
   Contract before any material execution route.
+```
+
+## 2026-05-23 G1 formalization — H1_G4B active Goal
+
+```yaml
+active_goal_after_g1_h1_g4b_formalization:
+  state: goal_shaped_pending_E1_execution_brief
+  active_goal_state: goal_shaped_pending_E1_execution_brief
+  goal_id: h1-g4b-grid-topology-foundation
+  active_goal_id: h1-g4b-grid-topology-foundation
+  status: goal_shaped_pending_E1_execution_brief
+  active_phase_status: active_goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
+  accepted_result: none_pending_execution
+  parent_goal_completion_state: incomplete_goal_shaped_only
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  H1_G4B is the active shaped Goal pending E1. It is a production-grade,
+  legacy-informed Grid / Topology Core with replaceable topology ingestion,
+  dynamic topology mutation, spatial change model, cross-system coordination,
+  legacy research gate, validation/debug evidence, and product evidence
+  requirements. Product execution is not authorized.
 ```

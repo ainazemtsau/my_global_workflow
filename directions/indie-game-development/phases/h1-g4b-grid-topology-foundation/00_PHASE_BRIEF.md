@@ -5,7 +5,7 @@ artifact_control:
   artifact_name: "H1_G4B Grid / Topology Foundation — Phase Brief"
   schema: phase_brief.v1
   owner_layer: direction_phase
-  status: active_pending_G1_goal_shape
+  status: active_goal_shaped_pending_E1_execution_brief
   repo_path: directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md
   started_by_stage: P0_PHASE_START
   started_at: "2026-05-23"
@@ -48,8 +48,8 @@ phase_closure_contract:
   required_goal_map:
     - goal_id: h1-g4b-grid-topology-foundation
       required_for_closure: true
-      status: selected_for_G1_goal_shape
-      expected_route: G1_GOAL_SHAPE
+      status: goal_shaped_pending_E1_execution_brief
+      expected_route: E1_EXECUTION_BRIEF
   optional_expansion_candidates_not_required_for_closure:
     - H1_G4C_gas_simulation_foundation
     - H1_G4D_grid_gas_interaction
@@ -101,16 +101,16 @@ phase_delivery_graph:
   nodes:
     - node_id: h1_g4b_grid_topology_foundation
       node_type: result_slice
-      status: ready
+      status: active
       required_for_closure: true
       why_needed_for_phase_outcome: "This is the topology substrate foundation itself."
-      done_when: "Accepted product evidence proves the topology substrate or exact blocker/unblock packet."
+      done_when: "Accepted product evidence proves the production-grade Grid / Topology Core or exact blocker/unblock packet."
       evidence_required:
         - "product commit/evidence"
         - "validation result or manual Unity/debug verification"
         - "changed-files rationale"
       owner_stage: G1_GOAL_SHAPE
-      next_allowed_stage: G1_GOAL_SHAPE
+      next_allowed_stage: E1_EXECUTION_BRIEF
     - node_id: h1_g4b_validation_surface
       node_type: validation_gate
       status: candidate
@@ -149,8 +149,8 @@ phase_delivery_graph:
   evidence_ledger: []
   next_node:
     node_id: h1_g4b_grid_topology_foundation
-    route: G1_GOAL_SHAPE
-    reason: "This is the single required result node."
+    route: E1_EXECUTION_BRIEF
+    reason: "G1 shaped the single required result node; E1 must prepare execution readiness."
 ```
 
 ## First Goal Candidate
@@ -158,7 +158,10 @@ phase_delivery_graph:
 ```yaml
 first_goal_candidate:
   goal_id: h1-g4b-grid-topology-foundation
-  recommended_next_stage: G1_GOAL_SHAPE
+  status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
+  recommended_next_stage: E1_EXECUTION_BRIEF
 ```
 
 ## Forbidden Scope
@@ -181,7 +184,32 @@ forbidden_scope:
 
 ```yaml
 next_route:
-  stage: G1_GOAL_SHAPE
-  mode: shape_h1_g4b_grid_topology_foundation
+  stage: E1_EXECUTION_BRIEF
+  mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
   executable_state: blocked_until_repository_patch_readback_and_manual_project_files_refresh
+```
+
+## 2026-05-23 G1 formalization — H1_G4B Goal shaped
+
+```yaml
+g1_h1_g4b_goal_formalized:
+  phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal_id: h1-g4b-grid-topology-foundation
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  active_goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  active_goal_execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
+  phase_delivery_graph_node:
+    node_id: h1_g4b_grid_topology_foundation
+    status: active
+    next_allowed_stage: E1_EXECUTION_BRIEF
+    done_when: "Accepted product evidence proves the production-grade Grid / Topology Core or exact blocker/unblock packet."
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  G1 formalized H1_G4B as a production-grade, legacy-informed Grid /
+  Topology Core with replaceable topology ingestion, dynamic topology mutation,
+  spatial change propagation, cross-system coordination, legacy evidence review,
+  and E1 as next route.
 ```

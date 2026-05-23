@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_p0_h1_g4b_grid_topology_foundation_start
+  source_freshness: fresh_after_g1_h1_g4b_grid_topology_goal_formalization
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,41 +16,45 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Run G1_GOAL_SHAPE for H1_G4B Grid / Topology Foundation."
-  route_stage: G1_GOAL_SHAPE
-  route_mode: shape_h1_g4b_grid_topology_foundation
+  current_focus: "Run E1_EXECUTION_BRIEF for H1_G4B Grid / Topology Foundation."
+  route_stage: E1_EXECUTION_BRIEF
+  route_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
   same_chat_allowed: false
-  boundary_trigger: p0_h1_g4b_grid_topology_foundation_started
+  boundary_trigger: g1_h1_g4b_grid_topology_goal_formalized
   pending_state_carried: true
-  pending_patch_pointer: p0_start_h1_g4b_grid_topology_foundation_2026_05_23
-  last_stage_result_pointer: "P0_PHASE_START selected h1-g4b-grid-topology-foundation as active_pending_G1_goal_shape."
+  pending_patch_pointer: g1_h1_g4b_grid_topology_goal_formalization_2026_05_23
+  last_stage_result_pointer: "G1_GOAL_SHAPE formalized h1-g4b-grid-topology-foundation as goal_shaped_pending_E1_execution_brief."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   active_goal:
-    goal_id: none_active_pending_G1_goal_shape
-    status: none_active_pending_G1_goal_shape
+    goal_id: h1-g4b-grid-topology-foundation
+    status: goal_shaped_pending_E1_execution_brief
+    goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+    execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
     selected_first_goal_candidate: h1-g4b-grid-topology-foundation
   active_phase:
     phase_id: h1-g4b-grid-topology-foundation
     phase_name: "H1_G4B Grid / Topology Foundation"
     phase_path: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation"
-    status: active_pending_G1_goal_shape
+    status: active_goal_shaped_pending_E1_execution_brief
     map_binding: "H1_playable_technical_nucleus / H1_G4B_grid_topology_foundation"
-    next_route: G1_GOAL_SHAPE
+    next_route: E1_EXECUTION_BRIEF
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `repository maintenance read-back and manual Project Files refresh required before G1 launch`
-- Human decision: `none pending for G1 launch after refresh`
-- Source conflict: `Project Files require P0 read-back and manual refresh before G1 because this patch changes Project Files`
+- Missing context: `repository maintenance read-back and manual Project Files refresh required before E1 launch`
+- Human decision: `none pending for E1 launch after refresh and exact prompt acquisition`
+- Source conflict: `Project Files require G1 read-back and manual refresh before E1 because this patch changes Project Files`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
-  - exact `workflow/stage_prompts/G1_GOAL_SHAPE.md`
-  - refreshed Project Files 00-08 after H1_G4B P0 patch
+  - exact `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
+  - refreshed Project Files 00-08 after H1_G4B G1 patch
   - `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md`
   - `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/phase_execution_log.md`
+  - `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md`
+  - `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md`
   - `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
   - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
 
@@ -58,9 +62,9 @@ focus:
 
 G1 formalized `h1-g4a-core-harness-composition-validation-topology-interface-foundation` after A1 determined direct E1 repair of the broad H1_G4 route-gated state was not basis-valid.
 
-H1_G4A is the latest closed Phase; H1_G4B is now the active Phase pending G1 Goal shaping.
+H1_G4A is the latest closed Phase; H1_G4B is now the active Phase with a shaped Goal pending E1 execution brief.
 
-The next focus is `G1_GOAL_SHAPE` for H1_G4B Grid / Topology Foundation. G1 must shape the bounded Goal Contract before E1/X1 execution planning. It must not start Grid/Topology implementation, Gas Simulation implementation, Grid-Gas interaction, Multiplayer implementation, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, broad vertical slice expansion, or Codex product/project execution directly.
+The next focus is `E1_EXECUTION_BRIEF` for H1_G4B Grid / Topology Foundation. E1 must handle legacy evidence sufficiency, replaceable topology ingestion, dynamic topology mutation, spatial change model, cross-system coordination, validation, and route gates before any product execution.
 
 Forbidden in this focus:
 
@@ -520,3 +524,44 @@ forbidden_scope_preserved:
   - H1_G4D_grid_gas_interaction_execution
   - H1_G4E_multiplayer_boundary_execution
 ```
+
+## 2026-05-23 focus update — H1_G4B Goal shaped
+
+Current focus:
+
+Run E1_EXECUTION_BRIEF for H1_G4B Grid / Topology Foundation.
+
+```yaml
+route_stage: E1_EXECUTION_BRIEF
+route_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
+boundary_trigger: g1_h1_g4b_grid_topology_goal_formalized
+implementation_allowed_now: false
+codex_product_execution_allowed_now: false
+active_goal:
+  goal_id: h1-g4b-grid-topology-foundation
+  status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
+active_phase:
+  phase_id: h1-g4b-grid-topology-foundation
+  status: active_goal_shaped_pending_E1_execution_brief
+required_context_for_next_stage:
+  - workflow/stage_prompts/E1_EXECUTION_BRIEF.md
+  - refreshed Project Files 00-08 after H1_G4B G1 patch
+  - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md
+  - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/phase_execution_log.md
+  - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md
+  - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md
+forbidden_scope_preserved:
+  - product_repo_mutation
+  - Codex_product_project_execution
+  - Unity_MCP_setup
+  - Task_Master_graph_creation
+  - old_code_transfer
+  - Game_Documentation_promotion
+  - H1_G4C_gas_simulation_execution
+  - H1_G4D_grid_gas_interaction_execution
+  - H1_G4E_multiplayer_boundary_execution
+```
+
+Current focus is E1 execution brief preparation for H1_G4B. E1 must handle legacy evidence sufficiency, replaceable topology ingestion, dynamic topology mutation, spatial change model, cross-system coordination, validation, and route gates before any product execution.

@@ -8,9 +8,9 @@ artifact_control:
   status: canonical
   repo_path: "directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md"
   default_load: yes
-  freshness: fresh_after_p0_h1_g4b_grid_topology_foundation_start
+  freshness: fresh_after_g1_h1_g4b_grid_topology_goal_formalization
   last_updated: "2026-05-23"
-  next_action: "Run G1_GOAL_SHAPE for H1_G4B Grid / Topology Foundation after repository maintenance read-back and manual Project Files refresh."
+  next_action: "Run E1_EXECUTION_BRIEF for H1_G4B Grid / Topology Foundation after repository maintenance read-back and manual Project Files refresh."
 ```
 
 ## Direction identity
@@ -38,14 +38,15 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Current Gate | `P0_PHASE_START_after_h1_g4a_close` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Required Codex / Architecture Gate | `H1_G2_codex_development_operating_model_and_architecture_protocols` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Current Phase | `H1_G4B Grid / Topology Foundation` | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation` |
-| Current Phase status | `active_pending_G1_goal_shape` | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md` |
+| Current Phase status | `active_goal_shaped_pending_E1_execution_brief` | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md` |
 | Current Phase Brief | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md` | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md` |
-| Active Goal | `none_active_pending_G1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
-| Active Goal status | `none_active_pending_G1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal | `h1-g4b-grid-topology-foundation` | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md` |
+| Active Goal status | `goal_shaped_pending_E1_execution_brief` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
 | Last completed Goal | `h1-g4a-core-harness-composition-validation-topology-interface-foundation` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation` |
 | Last completed Goal status | `r1_accepted_goal_complete` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md` |
 | Last completed Goal Artifact | `GasCoopGame H1_G4A foundation evidence` | `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63` |
-| Active Goal Contract | `none_active_pending_G1_goal_shape` | `directions/indie-game-development/project_files/04_ACTIVE_GOAL.md` |
+| Active Goal Contract | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md` | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md` |
+| Active Goal Execution Log | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md` | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md` |
 | Existing Goal Artifact | `Core Technical Foundation Decision Brief / Decision Map` | `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md` |
 | Direction Map | `initialized / active_horizon: H1_playable_technical_nucleus` | `directions/indie-game-development/project_files/08_DIRECTION_MAP.md` |
 | Previous Phase | `Expedition First Playable Proof Slice` | `directions/indie-game-development/phases/expedition-first-playable-proof-slice` |
@@ -53,19 +54,19 @@ This file is an active GitHub Direction runtime file. `WORKFLOW_SOURCE_OF_TRUTH.
 | Last closed Phase | `h1-g4a-core-harness-composition-validation-topology-interface-foundation` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md` |
 | latest_closed_phase_summary | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md` | `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_close_summary.md` |
 | Selected first Goal candidate | `h1-g4b-grid-topology-foundation` | `directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/00_PHASE_BRIEF.md` |
-| Next route | `G1_GOAL_SHAPE — shape H1_G4B Grid / Topology Foundation` | `workflow/stage_prompts/G1_GOAL_SHAPE.md` |
+| Next route | `E1_EXECUTION_BRIEF — prepare H1_G4B Grid / Topology Foundation execution brief` | `workflow/stage_prompts/E1_EXECUTION_BRIEF.md` |
 
 ## Current Phase meaning
 
-`H1_G4B Grid / Topology Foundation` is the active pending-G1 Phase after H1_G4A closed complete by P9.
+`H1_G4B Grid / Topology Foundation` is the active goal-shaped Phase after H1_G4A closed complete by P9.
 
 The accepted H1_G4A foundation exists at `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63` and provides the topology interface seam. The topology substrate itself is not yet accepted.
 
-Minimum outcome: an accepted or route-gated Grid/Topology foundation with explicit cells/nodes, adjacency/connectivity, obstacle/blocking/opening semantics, deterministic stepping surface, Unity debug/validation surface, and product evidence.
+Minimum outcome: an accepted or route-gated production-grade, legacy-informed Grid / Topology Core with replaceable topology ingestion, runtime topology state, dynamic topology mutation, deterministic query/update, spatial change propagation, cross-system coordination, validation/debug surface, and product evidence.
 
 This Phase does not repeat H1_G4A harness/composition/validation/topology-interface work, and it does not start H1_G4C gas simulation, H1_G4D grid-gas interaction, H1_G4E multiplayer boundary work, or a broad vertical slice.
 
-Implementation, Unity bootstrap, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked until a later basis-valid route authorizes concrete work.
+Implementation, Unity bootstrap, Codex product/project execution, Task Master graph creation, Unity MCP setup, old-code transfer, and Game Documentation promotion remain blocked until a later basis-valid route authorizes concrete work. E1 is next and must define HOW, evidence, old-context sufficiency, allowed/forbidden surfaces, validation, and route gates before any product execution.
 
 ## Default Project Files to load
 
@@ -543,4 +544,25 @@ p0_h1_g4b_grid_topology_foundation_started:
 summary: >
   P0 formalized H1_G4B as the next result-facing Phase after H1_G4A close.
   G1 is next; implementation and product execution remain blocked.
+```
+
+## 2026-05-23 G1 formalization — H1_G4B Grid / Topology Foundation shaped
+
+```yaml
+g1_h1_g4b_grid_topology_goal_formalized:
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal: h1-g4b-grid-topology-foundation
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  active_goal_contract: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/00_GOAL_CONTRACT.md"
+  active_goal_execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
+  manual_project_files_refresh_required: true
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  G1 shaped H1_G4B as a production-grade, legacy-informed Grid /
+  Topology Core. Product execution remains blocked until E1 defines
+  HOW, evidence, old-context sufficiency, allowed/forbidden surfaces,
+  validation, and route gates.
 ```
