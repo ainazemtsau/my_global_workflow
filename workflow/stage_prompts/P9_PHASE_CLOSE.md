@@ -157,6 +157,24 @@ Classify and report:
 
 Before `close_complete`, verify the Phase Result Contract / Phase Closure Contract and Phase Minimum Outcome evidence. Ask whether the Phase moved the Direction to the promised next observable state, or whether the output was only a support artifact. A Phase may close on a support artifact only when that artifact is the accepted primary outcome by Direction/Phase contract or directly unlocks a named result action and closure was explicitly contracted that way.
 
+When a Phase Delivery Graph exists, P9 must close by graph Completion Logic and aggregate Evidence Ledger, not last-Goal optimism.
+
+```yaml
+phase_close_graph_check:
+  graph_present: true | false
+  phase_outcome_reached: true | false
+  completion_logic_satisfied: true | false
+  required_nodes_done_or_superseded:
+  alternative_group_satisfied:
+  evidence_complete: true | false
+  optional_nodes_parked:
+  unresolved_blockers:
+  close_allowed: true | false
+  reason:
+```
+
+P9 must not keep optional/parked graph nodes as blockers. If graph state contradicts the Phase Result Contract, Direction Map, or evidence, route to repair, M0, B1, Human Decision, Context Request, or Stop according to registry and runtime gates.
+
 For formal closure, preserve Phase Memory Bridge obligations: update or propose update to `07_PHASE_MEMORY_INDEX.md`, create/update `phase_close_summary.md` when required, keep the compact index compact, and do not invent closed Phase history.
 
 Before selecting or proposing a next Phase, require a concrete delta from the closing Phase, an anti-duplicate line, accepted horizon/frontier link when strategic, and an explicit reason why `P0_PHASE_START` is the shortest safe path to the next Direction-visible result instead of `M0_DIRECTION_MAP`, `G0_GOAL_SELECT`, Stop, or `Direction pause/archive`.
@@ -233,6 +251,15 @@ Minimum `07_PHASE_MEMORY_INDEX.md` update fields:
 - latest_closed_phase_name;
 - latest_closed_phase_summary_path;
 - latest_closed_at;
+
+When a Phase Delivery Graph exists, Phase Memory should summarize graph outcome compactly:
+
+- result delivered;
+- required graph nodes completed/superseded;
+- optional nodes parked;
+- fallback nodes activated or not;
+- evidence pointers;
+- do-not-repeat and next candidates.
 - ledger entry with phase_id, phase_name, status, started_at, closed_at;
 - critical_constraint;
 - minimum_outcome;
@@ -385,6 +412,8 @@ Stable fields take priority over optional extensions. Tolerant-read unknown fiel
 Build a concise evidence matrix over:
 
 *   R1 review verdict.
+*   Phase Delivery Graph Completion Logic.
+*   Evidence Ledger / evidence pointers.
 *   R1 closure eligibility.
 *   Goal closed state.
 *   Phase closure eligibility.
@@ -418,6 +447,8 @@ Phase closure is eligible only when all applicable statements are true:
 *   Required G1/E1/F0 evidence is present when relevant.
 *   Required file read-back / diff verification / commit verification evidence is fresh.
 *   Phase Result Contract proves the promised next observable state was reached.
+*   When `phase_delivery_graph.v1` exists, Completion Logic is satisfied and required graph nodes are done or superseded.
+*   Evidence Ledger / aggregate evidence proves closure.
 *   Support artifact output, if dominant, is accepted as primary or explicitly contracted as directly unlocking a named result action.
 *   No unresolved Context Request blocks closure.
 *   No source-of-truth conflict blocks closure.
@@ -613,6 +644,8 @@ Apply these defaults:
 *   Do not convert each blocker/gate into its own Phase.
 *   Do not interpret smallest safe route as smallest lifecycle container.
 *   Do not produce Phase Memory candidates that anchor P0 into micro-phases.
+*   Do not close from last Goal optimism.
+*   Do not seed graph bloat, backlog, or WBS future work in next candidates.
 
 ## 15\. Final self-check before responding
 

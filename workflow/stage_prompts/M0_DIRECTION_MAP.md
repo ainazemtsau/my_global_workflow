@@ -63,6 +63,16 @@ M0 must not create a backlog, calendar roadmap, or broad roadmap. It must not pe
 
 If the horizon/frontier proof cannot be established because Direction state is missing, stale, or contradictory, return Context Request with exact paths. If the horizon/frontier choice is human-owned, return Human Decision.
 
+## Phase Delivery Graph boundary
+
+M0 remains Direction Map owner, not routine Phase Delivery Graph owner.
+
+M0 may read Phase Delivery Graph pointers when phase/map coherence depends on them, and may repair Direction Map / Active Front / Horizon Slice when graph selection exposes map staleness or contradiction.
+
+M0 must not mutate routine graph node statuses; that belongs to P0/G0/G1/E1/R1/P9 according to runtime behavior. M0 must not turn a Phase Delivery Graph into a Direction Map backlog, roadmap, or WBS.
+
+If the Phase graph itself is stale, contradictory, or missing required graph_delta, M0 may recommend P0/R1/P9 repair instead of editing graph state inside M0.
+
 ## Formalization Control
 
 The first response must be a Reviewable Brief unless direct formalization is explicitly approved.
@@ -136,6 +146,8 @@ Missing or contradictory progress returns Context Request, not invented state.
 Branch chats may return Node Result Cards, Evidence Packets, Audit Results, Decision Inputs, or map delta proposals only.
 
 Branch chats may not mutate `08_DIRECTION_MAP.md`.
+
+Branch chats still must not mutate Direction Map directly even when they reference a parent graph node.
 
 Parent synthesis owns the map update proposal.
 

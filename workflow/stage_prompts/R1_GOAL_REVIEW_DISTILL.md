@@ -44,6 +44,8 @@ For parent Goals that used branch/workstream execution, R1 should review the fin
 
 R1 must not run phase_progress_gate from a branch-only result.
 
+Branch outputs must not mutate state directly. Parent synthesis may provide `graph_delta` inputs, but R1 owns the reviewed parent Goal `graph_delta` after acceptance.
+
 ## Parent Goal completion rejection gate
 
 R1 is a parent Goal review stage. It must verify completion scope before any parent Goal review, closure, state mutation, or `phase_progress_gate`.
@@ -83,6 +85,7 @@ Reject normal parent-level completion when the completed work is a gated slice, 
 After accepting or verifying a parent Goal outcome, R1 must run or reference `phase_progress_gate` and report:
 
 - `phase_progress_gate_status`
+- `phase_delivery_graph_delta` or explicit `no_graph_delta_reason`
 - `map_frontier_impact: none | compact_delta_proposed | requires_M0 | blocked_missing_map | not_applicable`
 - `active_frontier_implication: advanced | unchanged | blocked | new_candidate | parked | unknown`
 - `burden_delta: reduced | unchanged | increased_acceptable | increased_problematic | unknown`
@@ -105,6 +108,30 @@ For any proposed continuation, classify and report:
 R1 may route to `P9_PHASE_CLOSE` when the completed Goal may satisfy Phase Minimum Outcome and P9 is registry-valid. R1 may route to `M0_DIRECTION_MAP` when map/frontier implications materially affect next selection and M0 is registry-valid. R1 may route to `P0_PHASE_START` only when a materially new Phase start/update is basis-valid or runtime state requires Phase repair and P0 is registry-valid. R1 may route to `G0_GOAL_SELECT` only when `phase_progress_gate` allows Phase continuation with required Goals.
 
 If runtime or Objective Architecture behavior indicates `E1_EXECUTION_BRIEF`, `B1_PROBLEM`, Context Request, or Human Decision, but the registry does not allow that outcome from R1, do not invent local route authority. Report `REGISTRY_REVIEW_CANDIDATE` and use the smallest registry-valid fallback or Stop.
+
+## Phase Delivery Graph delta
+
+After accepted/verified parent Goal, R1 must emit `phase_delivery_graph_delta` or explicit `no_graph_delta_reason`.
+
+```yaml
+phase_delivery_graph_delta:
+  required: true | false
+  graph_present: true | false
+  completed_node_id:
+  node_status_after:
+  output_classification:
+  evidence_added:
+  closure_predicates_satisfied:
+  new_nodes_discovered:
+  nodes_superseded:
+  optional_nodes_parked:
+  fallback_triggered:
+  next_recommended_node:
+  phase_closure_candidate: true | false
+  no_graph_delta_reason:
+```
+
+If the graph is missing, stale, or contradictory and needed for continuation/closure, R1 must route to Context Request, P0/P9 repair, M0, B1, Human Decision, or Stop according to registry and runtime gates.
 
 ## Runtime Projection Conflict Gate
 
@@ -341,10 +368,11 @@ After `completed_verified` parent Goal and only after `parent_goal_completion_st
 
 R1 must:
 
-- check the active Phase Closure Contract and Phase Minimum Outcome;
+- check the active Phase Delivery Graph or legacy Phase Closure Contract / `phase_work_map` and Phase Minimum Outcome;
 - identify whether the completed Goal may satisfy Phase Minimum Outcome;
 - classify the completed output as `primary_result`, `support_artifact`, `partial_slice`, `optional_reference`, or `unknown`;
-- classify remaining work as required_for_closure or optional_expansion when evidence allows;
+- classify remaining graph nodes/work as required_for_closure or optional_expansion when evidence allows;
+- update or propose `graph_delta` and Evidence Ledger entries when a graph exists;
 - route to P9 when the completed Goal may satisfy Phase Minimum Outcome;
 - route to G0 only after explicit continue_with_required_goals / Phase Continue decision;
 - prevent support artifact completion from triggering Phase closure or a next standalone support-artifact Phase unless Phase Result Contract and Documentation Admission Test pass;
@@ -563,6 +591,8 @@ Include:
 *   parent\_goal\_completion\_state:
 *   reviewed\_output\_classification:
 *   phase\_progress\_gate\_status:
+*   phase\_delivery\_graph\_delta:
+*   no\_graph\_delta\_reason:
 *   map\_frontier\_impact:
 *   active\_frontier\_implication:
 *   burden\_delta:

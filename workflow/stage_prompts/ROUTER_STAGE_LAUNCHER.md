@@ -288,7 +288,22 @@ Router Next Launch Cards to P0 after closure must include `07_PHASE_MEMORY_INDEX
 
 ### 5.3 Phase exists, no selected Goal
 
-If an active Phase exists but no active Goal is selected, first check whether a last completed parent Goal exists.
+If an active Phase exists but no active Goal is selected, first check whether the current Phase exposes `phase_delivery_graph.v1` or legacy `phase_work_map` / Phase Closure Contract state.
+
+When a Phase Delivery Graph exists:
+
+*   prefer the graph `next_node` or one ready required graph node;
+*   do not launch `G0_GOAL_SELECT` or `G1_GOAL_SHAPE` from local candidate search alone;
+*   if the graph is stale, contradictory, missing a required next node, or a closure candidate is possible, route to `R1_GOAL_REVIEW_DISTILL`, `P9_PHASE_CLOSE`, `M0_DIRECTION_MAP`, `B1_PROBLEM`, Context Request, Human Decision, or Stop according to registry and runtime gates.
+
+When no Phase Delivery Graph exists:
+
+*   use legacy `phase_work_map` / `phase_closure_contract` if present and fresh enough;
+*   if multi-Goal continuation depends on missing phase structure, return Context Request or route to P0/P9/R1 repair rather than guessing.
+
+Router must not create multiple Active Goals for parallelism. Parallel branch/topology routing must go through `E1_EXECUTION_BRIEF` or existing registry-valid stage routes plus parent synthesis. Parallelism is not a stage ID.
+
+If an active Phase exists but no active Goal is selected, also check whether a last completed parent Goal exists.
 
 If active Phase exists, active Goal is none, and last completed parent Goal exists, check Phase Progress Gate before G0. Do not blindly route to G0_GOAL_SELECT.
 

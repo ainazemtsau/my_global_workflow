@@ -220,6 +220,30 @@ If no binding is possible because `08_DIRECTION_MAP.md` is uninitialized, G1 mus
 
 Map binding is not a backlog. Do not list future map nodes or expand the Goal beyond WHAT / WHY / DONE.
 
+## 2.1.1 Phase Delivery Graph binding
+
+When the active Phase has `phase_delivery_graph.v1`, G1 must bind the shaped Goal to the selected graph node. If the candidate is outside the graph, G1 must not silently shape it; return the smallest registry-valid graph repair, M0, P0, Human Decision, Context Request, or Stop route as appropriate.
+
+The Goal Contract should include compact `goal_graph_binding`:
+
+```yaml
+goal_graph_binding:
+  phase_delivery_graph_version:
+  node_id:
+  node_type:
+  phase_outcome_supported:
+  why_this_goal_advances_node:
+  expected_graph_delta:
+  if_goal_succeeds:
+  if_goal_fails:
+  documentation_admission_required: true | false
+  support_artifact_handling:
+```
+
+G1 may keep the Goal small/testable, but must not cut away the graph node's `done_when` or Evidence Ledger requirement. If the proposed Goal is a support gate, research gate, audit gate, or decision gate, state what it unlocks/proves for the Phase Outcome.
+
+G1 must not create parallel branches. It may state that E1 should evaluate execution topology or `parallel_safety_gate` for the accepted Goal.
+
 ## 2.2 Goal shape proof and anti-anchor gate
 
 Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for Next Action Proof, Minimum Sufficient Solution Proof, anti-anchor handling, component necessity, human burden, and overcut guard.
@@ -254,6 +278,7 @@ If the proposed Goal is documentation, readiness, setup, research, checklist, en
 The Goal Contract must include compact proof-status lines:
 
 - map/frontier binding status;
+- Phase Delivery Graph / graph node binding status when relevant;
 - `next_action_proof` status;
 - `minimum_complete_outcome`;
 - `outcome_classification: primary_result | support_artifact | mixed | unknown`;
@@ -347,6 +372,7 @@ Convert the seed into a Goal Contract with:
 *   route recommendation
 *   close path
 *   map binding, when applicable
+*   goal_graph_binding, when applicable
 *   outcome\_classification
 *   result\_action\_unlocked
 *   documentation\_admission\_required

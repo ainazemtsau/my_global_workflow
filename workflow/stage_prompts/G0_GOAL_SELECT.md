@@ -151,6 +151,40 @@ G0 may select the next Goal only when one of these is true:
 
 Optional expansion candidates must not be selected as required Goals unless a Human Decision or Phase Continue decision explicitly adopts them.
 
+## 1.1.1 Phase Delivery Graph candidate gate
+
+If the active Phase has `phase_delivery_graph.v1`, G0 must select one ready graph node by default.
+
+The selected Goal candidate must bind to:
+
+- `node_id`;
+- `node_type`;
+- node status `ready` or `candidate` with activation basis;
+- `required_for_closure` or admitted support/decision/fallback role;
+- why this graph node is needed for the Phase Outcome.
+
+G0 must reject or route away from:
+
+- outside-graph candidates without `graph_delta`, reframe, or human decision;
+- optional/parked nodes without activation trigger;
+- fallback nodes without fallback trigger;
+- `support_gate`, `research_gate`, or `audit_gate` becoming required continuation without explaining what it unlocks/proves;
+- `parallel_bundle` nodes without future E1 `parallel_safety_gate`.
+
+G0 must not create multiple Active Goals. If the graph is missing but multi-Goal continuation depends on graph structure, route to P0/R1/P9 repair, M0, B1, Context Request, Human Decision, or Stop according to registry and runtime gates.
+
+```yaml
+goal_selection_graph_binding:
+  graph_present: true | false
+  selected_node_id:
+  node_type:
+  required_for_closure: true | false
+  why_this_node_now:
+  outside_graph_candidate: true | false
+  graph_delta_needed_before_goal: true | false
+  verdict:
+```
+
 ## 1.2 Active Frontier candidate gate
 
 Use `workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md` as authority for Active Frontier and Next Action Proof.
@@ -431,6 +465,8 @@ Briefly explain the selection using Phase Critical Constraint, Minimum Outcome, 
 
 Do not expose private chain-of-thought or long scoring analysis.
 
+Include compact `goal_selection_graph_binding` when a Phase Delivery Graph exists or when graph absence affects selection.
+
 ## 4\. Candidate disposition
 
 *   Considered:
@@ -468,6 +504,7 @@ Use canonical transport templates from `workflow/transport/*.md`. Preserve these
 - return state, selected registry-valid next stage, route reason, Direction and Phase identity;
 - freshness and selection basis: Phase Critical Constraint, Phase Minimum Outcome, validation signal, scope boundaries, constraints, and assumptions;
 - candidate handling: candidates considered count, cap applied, selected source, candidate classification, active_frontier status, nonbinding user example guard result, deferred/rejected summary, and untriaged extras count;
+- graph binding: `phase_delivery_graph.v1` presence, selected graph node, `graph_delta` need, and outside-graph verdict when relevant;
 - selected Goal seed: title, intended outcome, smallest testable slice, why now, validation signal, acceptance floor, explicit not-doing, key constraints, and confidence;
 - next_action_proof status for the selected Goal seed;
 - handoff summary, repository patch summary or explicit none, execution log entry, documentation maintenance gate, changed-files/context-refresh impact, and blocking reason if any.

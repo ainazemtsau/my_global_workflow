@@ -154,6 +154,36 @@ The Phase Closure Contract must include:
 
 P0 must not treat optional expansion candidates as required Goals. If closure criteria, required goal map, or after-goal gate policy cannot be made concrete enough, P0 must return Context Request or Human Decision instead of creating ambiguous Phase state.
 
+## 1.1.1 Phase Delivery Graph seed
+
+For material normal lifecycle Phases, P0 must seed a compact Phase Delivery Graph skeleton in the Phase state unless the Phase is explicitly `maintenance_direct` or graph is not required.
+
+The P0 seed is intentionally small:
+
+```yaml
+p0_phase_delivery_graph_seed:
+  version: phase_delivery_graph.v1
+  includes:
+    - phase_outcome / one Direction-visible result
+    - compact Completion Logic
+    - initial required graph nodes
+    - known support gates
+    - known decision/fallback nodes
+    - parked optional expansions
+    - Flow/WIP policy
+    - first next_node recommendation
+  max_active_goals: 1
+  branches_are_not_active_goals: true
+```
+
+P0 must not overplan all Goals or turn the graph into a backlog, WBS, calendar, roadmap, or architecture dump. P0 may mark `parallel_candidates` only as candidates; actual execution topology and `parallel_safety_gate` belong to `E1_EXECUTION_BRIEF`.
+
+Default one Active Goal policy applies: `max_active_goals: 1`, and branches are not Active Goals.
+
+When updating an existing Phase state that lacks `phase_delivery_graph.v1`, preserve tolerant-read compatibility for legacy `phase_work_map` instead of rewriting unrelated state. P0 must not modify Direction Project Files until approved/formalized repository patch behavior applies.
+
+Maintenance direct exception: a Workflow Governance maintenance container / `maintenance_direct` mode does not require normal lifecycle graph seeding unless the user explicitly asks for normal lifecycle operation.
+
 ## 1.2 Phase Memory Bridge intake requirement
 
 P0 must consume the Phase Memory Bridge before proposing a materially new Phase when any of these triggers apply:
@@ -798,6 +828,19 @@ Use this only when the user says `APPROVE AND FORMALIZE`, the Launch Card explic
 
 Produce 1-3 candidates only.
 
+## 5.5 Phase Delivery Graph seed
+
+- Graph required: true | false
+- `phase_delivery_graph.v1` seed summary:
+- Completion Logic:
+- initial required graph nodes:
+- known support/decision/fallback nodes:
+- parked optional expansions:
+- Flow/WIP policy:
+- first `next_node`:
+- `phase_work_map` legacy compatibility note:
+- graph bloat / backlog / WBS guard:
+
 For each:
 
 - Candidate ID:
@@ -895,6 +938,7 @@ Do not:
 
 *   write the whole Direction roadmap;
 *   create more than three Goal candidates;
+*   create multiple Active Goals;
 *   make stale context authoritative;
 *   create a duplicate active Phase;
 *   silently override an active Phase;
@@ -908,7 +952,8 @@ Do not:
 *   execute the first Goal;
 *   install anything into GitHub repository directly;
 *   produce material formal packets before approval;
-*   emit noncanonical local schemas.
+*   emit noncanonical local schemas;
+*   turn Phase Delivery Graph into backlog, WBS, calendar, roadmap, or architecture dump.
 
 ## 16\. Completion standard
 

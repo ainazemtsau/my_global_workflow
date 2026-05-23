@@ -217,6 +217,18 @@ Execution readiness requires explicit implementation target, allowed surfaces, v
 
 Classify execution mode/topology as `single_direct`, `gated_sequential`, `parallel_workstreams`, `parallel_then_gated_synthesis`, `decision_map`, `executor_work_package`, `human_decision_blocked`, or `blocked_missing_readiness`.
 
+When a Phase Delivery Graph exists, bind execution topology to the parent graph node:
+
+```yaml
+execution_graph_binding:
+  phase_node_id:
+  parent_goal_id:
+  topology_type:
+  graph_node_done_when:
+  evidence_to_return:
+  expected_graph_delta_input:
+```
+
 Run or reference Component Necessity Test for durable artifacts, templates, recurring reports, workstreams, chat splits, repository-backed processes, or Executor/Codex execution envelopes. Do not choose branch/workstream topology merely because it is systematic; topology must be necessary for material work surfaces, dependencies, context size, evidence quality, risk isolation, or executor work package need.
 
 If execution readiness, Next Action Proof, or MSSP is missing or failed for material work, do not plan execution. Return the smallest registry-valid correction or terminal outcome. If the needed correction route is not registry-valid for E1, report `REGISTRY_REVIEW_CANDIDATE` and use Stop or another registry-valid fallback rather than inventing prompt-local route authority.
@@ -484,7 +496,19 @@ branchability_gate:
 
 If `monolithic_execution_safe: false` and the Goal can be decomposed, E1 must produce a Topology Preview before formalization, or a `topology_launch_bundle.v1` after approval/formalization.
 
-Branches are not Goals. They are bounded workstreams under the parent Goal.
+Branches are not Goals. Branches are not Active Goals. They are bounded workstreams under the parent Goal and, when present, the parent graph node.
+
+E1 must run or inherit `parallel_safety_gate` before selecting `parallel_workstreams`, `parallel_then_gated_synthesis`, Codex subagents, parallel Codex worktrees/tasks, or review panel branches.
+
+Sequential remains default unless parallelism proves material speed/quality benefit and acceptable coordination/state/write risk. Safe defaults:
+
+- one Active Goal;
+- one writer by default for repository/product mutation;
+- read/review/audit/research branches are safer than parallel writers;
+- branches must not mutate Direction/Phase/Goal/Map state or Project Files;
+- parent synthesis is required before R1/P9/state update.
+
+Parallel write-heavy Codex work is denied by default unless disjoint paths/worktrees, integration order, post-integration validation, and parent integrator are explicit.
 
 Branch launch cards must target existing registry-valid stages only:
 
@@ -507,6 +531,7 @@ For every branch, specify:
 branch:
   branch_id:
   branch_name:
+  parent_graph_node_id:
   stage:
     id:
     source_path:
@@ -527,13 +552,15 @@ branch:
       parent_accessible_now:
   return_contract:
     output_type: workstream_result_card.v1
+    graph_node_implications:
   state_policy:
     may_mutate_parent_goal: false
     may_mutate_direction_state: false
+    may_mutate_phase_graph: false
     may_emit_repository_patch: false
 ```
 
-Parallel branches are allowed only when confidently independent. If dependency uncertainty is material, use `gated_sequential` or `gated_after`.
+Parallel branches are allowed only when confidently independent and admitted by `parallel_safety_gate`. If dependency uncertainty is material, use `gated_sequential` or `gated_after`.
 
 Heavy artifacts do not return to the parent chat by default. Branches return compact Workstream Result Cards. Parent synthesis reads full artifacts only on targeted demand.
 
@@ -617,6 +644,8 @@ When the shaped Goal includes `map_binding` or Direction Map node context, use t
 Preserve the existing research gate and Fast Direct entry guard. If map context conflicts with those gates, choose the safer gate result and explain the route.
 
 Branch outputs must be `Node Result Card` / `Evidence Packet` / `Audit Result` / `Decision Input` for parent synthesis. Branch chats must not mutate `08_DIRECTION_MAP.md`.
+
+When graph context exists, Workstream Result Cards should include graph node implications and evidence pointers for parent synthesis.
 
 E1 must not directly change the Direction Map. Any map update is a later parent-synthesis proposal, not execution-brief work.
 
@@ -796,6 +825,7 @@ Use this exact high-level shape.
 - next_action_proof_status:
 - mssp_status:
 - execution_topology:
+- execution_graph_binding:
 - component_necessity_status:
 - chosen_execution_route:
 - why_not_simpler:
@@ -958,6 +988,7 @@ It must include:
 
 - topology ID;
 - parent Goal identity;
+- parent graph node identity when a Phase Delivery Graph exists;
 - selected topology;
 - reason monolithic execution was rejected;
 - branch list;
@@ -966,6 +997,7 @@ It must include:
 - required and optional branch result list;
 - parent synthesis plan;
 - branch state-mutation prohibition;
+- `parallel_safety_gate` verdict when parallelism is selected;
 - return-to-parent instructions.
 
 It must not create new stage IDs or override `workflow/stage_registry/STAGE_REGISTRY.md`.
