@@ -164,8 +164,8 @@ objective_architecture:
     Codex-suitable development process, and durable validation surfaces.
   active_initiative: innovative-commercial-expedition-gas-sim-game
   active_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
-  next_safe_route: P0_PHASE_START
+  selected_frontier_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+  next_safe_route: E1_EXECUTION_BRIEF
 
 horizon_acceptance_proof:
   candidate_horizon: H1_playable_technical_nucleus
@@ -354,18 +354,18 @@ active_frontier:
 next_action_proof:
   direction_objective: "Commercially viable co-op indie game with deep gas/3D-space gameplay core."
   current_horizon: H1_playable_technical_nucleus
-  selected_frontier_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
+  selected_frontier_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
   proposed_work: >
-    Start or reframe the next Phase after Project Bootstrap and Validation
-    Surface Setup closed complete by P9.
-  proposed_stage: P0_PHASE_START
+    Prepare the H1_G4A Core Harness / Composition / Validation / Topology
+    Interface Foundation execution brief after boundary repair.
+  proposed_stage: E1_EXECUTION_BRIEF
   desired_delta: >
-    A next phase-level campaign selected from Phase Memory and Direction Map
-    with anti-duplicate reasoning and preserved execution blockers.
+    A bounded execution brief for the active H1_G4A foundation Goal, with
+    preserved execution blockers and no expansion into future H1_G4B/C/D/E work.
   why_this_now: >
-    P9 closed the setup/validation Phase. P0 must now choose the next Phase
-    before any setup, implementation planning, durable technical nucleus work,
-    or Codex product/project execution.
+    G1 repaired the stale broad H1_G4 projection into H1_G4A. E1 must now
+    prepare HOW, validation, allowed and forbidden surfaces, context
+    requirements, and blocker handling before any setup or product execution.
   prerequisite_check:
     satisfied:
       - "Current Direction Project Files 00-08 are available."
@@ -375,14 +375,15 @@ next_action_proof:
       - "H1_G2 Gas Coop Game Project Execution Profile is accepted."
       - "H1_G3 readiness packet is accepted."
     missing:
-      - "Exact P0_PHASE_START prompt for the next stage run."
+      - "Exact E1_EXECUTION_BRIEF prompt for the next stage run."
       - "Manual Project Files refresh after this repository maintenance patch."
     assumed: []
   active_frontier_check:
     is_on_frontier: true
     why_not_premature: >
-      P0 is allowed because the Phase is closed and the remaining bootstrap/
-      implementation surfaces remain blocked until a later route.
+      E1 is allowed because H1_G4A is shaped only and the remaining bootstrap,
+      product execution, and future H1_G4B/C/D/E surfaces remain blocked until
+      a later route.
   expected_unlock: >
     Enables later selection of G1, E1, U1, D1, A1, S3, X0/X1, Context Request,
     Human Decision, Stop, or a setup route without inventing tool/project state.
@@ -499,32 +500,36 @@ compact_initiative_graph:
 ```yaml
 active_front:
   active_horizon: H1_playable_technical_nucleus
-  current_gate: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
-  current_gate_status: ready_after_p9_phase_close
-  previous_gate: H1_G3_project_bootstrap_tool_binding_validation_scene_readiness
+  current_gate: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+  current_gate_status: goal_shaped_pending_E1_execution_brief
+  previous_gate: bootstrap-validation-surface-setup-envelope
   previous_gate_status: r1_accepted_goal_complete
-  selected_next_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
-  selected_next_route: P0_PHASE_START
+  selected_next_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+  selected_next_route: E1_EXECUTION_BRIEF
   primary_reason: >
-    P9 closed the setup/validation Phase after R1 accepted the envelope. P0
-    must select the next Phase before any setup, implementation planning,
-    durable technical nucleus work, or Codex product/project execution.
+    G1 repaired the stale broad H1_G4 route-gated state into the H1_G4A
+    foundation Goal. E1 must prepare the execution brief before any setup,
+    implementation planning, durable technical nucleus work, or Codex
+    product/project execution.
   active_front_rule: >
-    Run P9_PHASE_CLOSE after R1 acceptance before any new project bootstrap,
-    durable technical nucleus implementation, Task Master graph creation, or
-    Codex product/project execution.
+    Run E1_EXECUTION_BRIEF for H1_G4A before any new project bootstrap, durable
+    technical nucleus implementation, Task Master graph creation, or Codex
+    product/project execution.
   codex_architecture_rule: >
     The foundation decision is sufficient only if minimum Codex-driven development rules,
     module/dependency boundaries, and validation protocol are accepted before implementation.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   immediate_next_after_gate:
-    - P9_PHASE_CLOSE
+    - E1_EXECUTION_BRIEF
   route_integrity_issue:
-    status: resolved_by_r1_acceptance
-    summary: "R1 accepted the setup/validation envelope and selected P9 as the next basis-valid route."
+    status: resolved_by_h1_g4a_boundary_repair
+    summary: "G1 selected H1_G4A as the active foundation Goal and E1 as the next basis-valid route."
   blocked_nodes:
-    - H1_G4_durable_technical_nucleus
+    - H1_G4B_grid_topology_foundation
+    - H1_G4C_gas_simulation_foundation
+    - H1_G4D_grid_gas_interaction
+    - H1_G4E_multiplayer_boundary_foundation
     - codex_product_project_execution
     - unity_project_bootstrap
     - product_repository_creation

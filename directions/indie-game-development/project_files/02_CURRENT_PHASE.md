@@ -184,15 +184,16 @@ phase_closure_contract_status_update:
     - "Do not treat optional expansion candidates as required for closure."
 ```
 
-## Guard state
+## Historical guard state — not controlling current runtime state
 
-- Active Phase unresolved: `no`
-- Active Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
-- Active Phase route state: `active_goal_shaped_pending_E1_execution_brief`
-- Active Goal unresolved: `no`
-- Active Goal: `h1-g4-first-runnable-technical-nucleus-slice`
-- Active Goal status: `goal_shaped_pending_E1_execution_brief`
-- Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
+- not_controlling_current_runtime_state: `true`
+- Superseded Phase unresolved: `no`
+- Superseded Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
+- Superseded Phase route state: `active_goal_shaped_pending_E1_execution_brief`
+- Superseded Goal unresolved: `no`
+- Superseded Goal: `h1-g4-first-runnable-technical-nucleus-slice`
+- Superseded Goal status: `goal_shaped_pending_E1_execution_brief`
+- Superseded first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Previous accepted Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
@@ -204,23 +205,23 @@ phase_closure_contract_status_update:
 - Last closed Phase: `Project Bootstrap and Validation Surface Setup`
 - Last closed Phase result: `p9_closed_complete`
 - Direction Map status: `initialized`
-- Map link: `H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus`
-- Next route: `E1_EXECUTION_BRIEF`
+- Superseded Map link: `H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus`
+- Superseded next route: `E1_EXECUTION_BRIEF`
 - Tool/runtime blocker: `Codex product/project execution still requires verified concrete project/tool bindings before any product/project work.`
 
 ## Current phase meaning
 
-`H1_G4 Durable Technical Nucleus — First Runnable Build` exists to turn accepted setup/readiness/envelope work into the first real H1_G4 runnable build campaign or a concrete blocker/unblock route.
+`H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation` is the controlling current runtime phase. It narrows the old broad H1_G4 route-gated state into a foundation target for core harness composition, validation entry, topology interface contract, Unity-as-render/driver separation, and product persistence evidence.
 
 ## Почему это не повтор прошлой фазы
 
-The previous Phase accepted the setup/validation envelope. This Phase does not rebuild that envelope; it uses the accepted envelope as input and moves toward the first runnable H1_G4 technical nucleus slice, or an evidence-based blocker if that slice cannot be produced safely.
+The previous Phase accepted the setup/validation envelope. H1_G4A does not rebuild that envelope; it uses the accepted envelope as input and prepares the bounded foundation Goal before any setup or product execution resumes.
 
 ## Next route
 
 Run `E1_EXECUTION_BRIEF` after this G1 repository maintenance is committed/integrated and manual Project Files refresh is complete.
 
-E1 must prepare the execution brief for `h1-g4-first-runnable-technical-nucleus-slice` before any setup or product execution.
+E1 must prepare the execution brief for `h1-g4a-core-harness-composition-validation-topology-interface-foundation` before any setup or product execution.
 
 Do not proceed to project bootstrap, durable implementation planning, Codex product/project execution, old-code audit or transfer, Task Master graph creation, real internal tool setup, Unity MCP setup, or Game Documentation promotion until a later basis-valid lifecycle route authorizes that work.
 

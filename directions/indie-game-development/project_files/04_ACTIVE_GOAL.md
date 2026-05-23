@@ -102,7 +102,9 @@ previous_active_goal:
   preservation_rule: "Useful scaffold/evidence only; do not treat as Goal completion."
 ```
 
-## Active Goal snapshot
+## Historical stale active goal snapshot — not controlling current runtime state
+
+not_controlling_current_runtime_state: `true`
 
 Active Goal:
 
@@ -130,13 +132,13 @@ Last completed Goal:
 
 Accepted result: none pending execution.
 
-Goal Contract:
+Controlling Goal Contract:
 
-`directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md`
+`directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md`
 
-Execution log:
+Controlling execution log:
 
-`directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md`
+`directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md`
 
 ## R1-accepted active-front review
 

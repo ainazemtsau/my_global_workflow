@@ -44,9 +44,9 @@ focus:
 
 ## Blockers / required inputs
 
-- Missing context: `manual Project Files refresh blocks the next E1 run after H1_G4A G1 repository maintenance apply/read-back/commit/integration`
+- Missing context: `cleanup repository maintenance / read-back / manual refresh required before E1 if this cleanup patch changes Project Files`
 - Human decision: `none pending for E1 launch after refresh`
-- Source conflict: `Project Files stale until this G1 repository maintenance patch is applied/read back and manually refreshed`
+- Source conflict: `Project Files require cleanup read-back and manual refresh before E1 because this cleanup patch changes Project Files`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
   - exact `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
@@ -62,6 +62,8 @@ focus:
 ## Current focus boundary
 
 G1 formalized `h1-g4a-core-harness-composition-validation-topology-interface-foundation` after A1 determined direct E1 repair of the broad H1_G4 route-gated state was not basis-valid.
+
+H1_G4A is the controlling current focus.
 
 The next focus is `E1_EXECUTION_BRIEF` for H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation. E1 must prepare HOW, validation, allowed and forbidden surfaces, context requirements, and blocker handling. It must not run bootstrap, product repository creation, product code, real tool setup, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, broad vertical slice expansion, or Codex product/project execution directly.
 

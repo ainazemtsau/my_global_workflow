@@ -148,16 +148,17 @@ Build a commercially viable indie game direction focused on Expedition product j
 - Closed at: `2026-05-12`
 - Next route after close: `P0_PHASE_START`
 
-## Project Files export state
+## Historical stale export note — not controlling current runtime state
 
+- not_controlling_current_runtime_state: `true`
 - Last refresh: `requires_manual_refresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization_repository_maintenance_2026-05-22`
-- Required refresh: `before E1_EXECUTION_BRIEF after G1 goal formalization repository maintenance read-back/commit/integration`
-- Current route: `E1_EXECUTION_BRIEF`
-- Active Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
-- Active Phase status: `active_goal_shaped_pending_E1_execution_brief`
-- Active Goal: `h1-g4-first-runnable-technical-nucleus-slice`
-- Active Goal status: `goal_shaped_pending_E1_execution_brief`
-- Selected first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
+- Required refresh: `superseded_by_h1_g4a_boundary_repair_cleanup_2026-05-23`
+- Superseded route at stale export: `E1_EXECUTION_BRIEF`
+- Superseded Phase: `H1_G4 Durable Technical Nucleus — First Runnable Build`
+- Superseded Phase status: `active_goal_shaped_pending_E1_execution_brief`
+- Superseded Goal: `h1-g4-first-runnable-technical-nucleus-slice`
+- Superseded Goal status: `goal_shaped_pending_E1_execution_brief`
+- Superseded first Goal candidate: `h1-g4-first-runnable-technical-nucleus-slice`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Existing Goal Artifact: `04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
