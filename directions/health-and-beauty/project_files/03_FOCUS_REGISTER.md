@@ -16,25 +16,27 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Post-close P0 Phase Start using the Phase Memory Bridge after Project Files refresh."
-  route_stage: P0_PHASE_START
+  current_focus: "Shape the first Goal for the active Phase: Health/Body Operator training process v0."
+  route_stage: G1_GOAL_SHAPE
   same_chat_allowed: false
-  boundary_trigger: p9_phase_close_complete
-  pending_state_carried: false
-  pending_patch_pointer: "p9_close_ai_nutrition_operating_layer_2026_05_22"
-  last_stage_result_pointer: "P9_PHASE_CLOSE closed Phase ai-nutrition-operating-layer as closed_complete after R1 accepted nutrition-project-operational-setup-v0 complete."
-  human_correction: "Objective is outcome-first; AI/ChatGPT/Project/app/storage are optional tools, not requirements."
-  stale_prior_focus: "Old Project `Питание` E1/U1/R1 setup routes remain historical input only; next route is `P0_PHASE_START`."
+  boundary_trigger: p0_phase_start_complete
+  pending_state_carried: true
+  pending_patch_pointer: "p0_create_first_working_health_body_operator_training_v0_2026_05_23"
+  last_stage_result_pointer: "P0_PHASE_START created active Phase first-working-health-body-operator-training-v0 after user approval."
+  human_correction: "Workflow builds and changes the operational process. The Health/Body Operator Project runs daily nutrition/training/logging/adjustment. Workflow does not track daily execution."
+  stale_prior_focus: "Post-close P0 Phase Start is complete after repository patch/read-back. Old P0 route and Project `Питание` setup routes are historical only."
 ```
 
 ## Active Goal
 
 No active Goal.
 
-Latest completed Goal snapshot:
+## Recommended next route
 
-`directions/health-and-beauty/phases/ai-nutrition-operating-layer/goals/nutrition-project-operational-setup-v0`
+`G1_GOAL_SHAPE`
 
-The next route is `P0_PHASE_START` for a new Phase Start using `07_PHASE_MEMORY_INDEX.md` and, if needed, `directions/health-and-beauty/phases/ai-nutrition-operating-layer/phase_close_summary.md`.
+Shape the first Goal:
 
-The old Project `Питание` setup routes are stale historical evidence only, not active Goal work.
+`shape-operational-boundary-and-training-process-v0`
+
+The Goal must bind to graph node `operational_boundary_gate` and preserve the invariant that daily logs and corrections happen in the Operational Project, not in workflow.
