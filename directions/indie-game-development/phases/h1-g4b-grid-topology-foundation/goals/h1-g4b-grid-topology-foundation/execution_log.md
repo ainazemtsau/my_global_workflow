@@ -35,6 +35,67 @@ execution_log_entry:
   codex_product_execution_allowed_now: false
 ```
 
+## 2026-05-23 — E1 Execution Brief formalized
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  timestamp: "2026-05-23"
+  stage: E1_EXECUTION_BRIEF
+  event: e1_execution_brief_formalized_pending_a1_audit
+  direction_id: indie_game_development
+  phase_id: h1-g4b-grid-topology-foundation
+  goal_id: h1-g4b-grid-topology-foundation
+  result: e1_formalized_pending_repository_maintenance
+  selected_route: A1_AUDIT
+  execution_topology: gated_sequential
+  brief_artifact: directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/01_E1_EXECUTION_BRIEF.md
+  summary: >
+    E1 formalized the H1_G4B execution route as a gated sequential legacy
+    Grid / Topology architecture sufficiency audit before any X1 product
+    execution. The brief preserves the production-grade Grid / Topology Core
+    objective while blocking direct X1, old-code transfer, throwaway Grid,
+    hard-coupled ingestion, Grid god-object design, Unity MCP setup, Task Master
+    graph creation, Game Documentation promotion, and product repo mutation
+    inside E1.
+  repository_patch_required: true
+  next_stage: A1_AUDIT
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
 ## End-of-file marker
+
+## 2026-05-23 — A1 audit result and foundation multiplayer-readiness guardrail formalized
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  timestamp: "2026-05-23"
+  stage: A1_AUDIT
+  event: a1_audit_result_and_foundation_multiplayer_guardrail_formalized
+  direction_id: indie_game_development
+  phase_id: h1-g4b-grid-topology-foundation
+  goal_id: h1-g4b-grid-topology-foundation
+  result: DONE
+  sufficiency_verdict: partial_but_sufficient_for_guarded_E1_X1_package_preparation
+  direct_X1_allowed: false
+  E1_may_prepare_X1_package: true_with_scope_guards
+  artifacts:
+    - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/02_A1_AUDIT_RESULT.md
+    - directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/03_FOUNDATION_MULTIPLAYER_READINESS_GUARDRAIL.md
+  accepted_guardrail:
+    id: foundation_multiplayer_readiness_guardrail
+    summary: >
+      Until the multiplayer boundary is implemented and accepted, foundational/domain
+      systems must be designed as multiplayer-ready authoritative simulation cores
+      from first real implementation. Full multiplayer transport is not required
+      immediately, but stable IDs, command/intent boundary, authoritative tick or
+      explicit step boundary, snapshot/delta/change-set export, validation surface,
+      performance evidence for hot paths, and no transport dependency inside domain
+      core are required for foundation acceptance.
+  next_stage: E1_EXECUTION_BRIEF
+  product_project_execution_run: false
+```
 
 `END_OF_FILE: directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md`

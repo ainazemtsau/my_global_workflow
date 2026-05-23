@@ -78,6 +78,12 @@ phase_delivery_graph:
     outcome_id: h1_g4b_topology_foundation_exists
     one_sentence_result: "GasCoopGame contains an accepted Grid/Topology foundation."
     direction_visible_result: "The product repo has the spatial substrate needed for later Gas, Grid-Gas interaction, and multiplayer boundary work."
+    foundation_multiplayer_readiness_guardrail: >
+      H1_G4B Grid / Topology Core is not accepted as complete if it only works
+      as local single-player topology. It must expose stable spatial identity,
+      command/commit, version/change-set, snapshot/delta or equivalent observation
+      boundaries so later Gas, devices, and multiplayer can attach without rewriting
+      Grid core.
     definition_of_done:
       - predicate: topology_cells_or_nodes_exist
         evidence_required: "code/module evidence plus operator-readable changed-files rationale"
