@@ -35,6 +35,35 @@ execution_log_entry:
   codex_product_execution_allowed_now: false
 ```
 
+## 2026-05-23 — E1 Execution Brief formalized
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  timestamp: "2026-05-23"
+  stage: E1_EXECUTION_BRIEF
+  event: e1_execution_brief_formalized_pending_a1_audit
+  direction_id: indie_game_development
+  phase_id: h1-g4b-grid-topology-foundation
+  goal_id: h1-g4b-grid-topology-foundation
+  result: e1_formalized_pending_repository_maintenance
+  selected_route: A1_AUDIT
+  execution_topology: gated_sequential
+  brief_artifact: directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/01_E1_EXECUTION_BRIEF.md
+  summary: >
+    E1 formalized the H1_G4B execution route as a gated sequential legacy
+    Grid / Topology architecture sufficiency audit before any X1 product
+    execution. The brief preserves the production-grade Grid / Topology Core
+    objective while blocking direct X1, old-code transfer, throwaway Grid,
+    hard-coupled ingestion, Grid god-object design, Unity MCP setup, Task Master
+    graph creation, Game Documentation promotion, and product repo mutation
+    inside E1.
+  repository_patch_required: true
+  next_stage: A1_AUDIT
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md`
