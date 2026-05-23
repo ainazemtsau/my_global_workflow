@@ -32,11 +32,11 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: innovative-commercial-expedition-gas-sim-game
   map_confidence: medium
-  last_reviewed_stage: G1_GOAL_SHAPE
+  last_reviewed_stage: R1_GOAL_REVIEW_DISTILL
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
   current_objective_architecture_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
-  next_safe_route: E1_EXECUTION_BRIEF
+  next_safe_route: P9_PHASE_CLOSE
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -165,7 +165,7 @@ objective_architecture:
   active_initiative: innovative-commercial-expedition-gas-sim-game
   active_horizon: H1_playable_technical_nucleus
   selected_frontier_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
-  next_safe_route: E1_EXECUTION_BRIEF
+  next_safe_route: P9_PHASE_CLOSE
 
 horizon_acceptance_proof:
   candidate_horizon: H1_playable_technical_nucleus
@@ -1353,6 +1353,57 @@ map_delta:
     - old_code_transfer
     - Game_Documentation_promotion
     - broad_vertical_slice_expansion
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+## 2026-05-23 R1 map delta — H1_G4A accepted
+
+```yaml
+map_delta:
+  source_stage: R1_GOAL_REVIEW_DISTILL
+  delta_type:
+    - node_done_accepted
+    - phase_close_candidate
+    - compact_phase_delivery_graph_added
+    - future_phase_candidates_parked
+  node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+  result: r1_accepted_goal_complete
+  node_status: node_done_accepted
+  review_verdict: completed_verified
+  goal_review_verdict: accepted_complete
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  phase_progress_gate_status: phase_close_candidate
+  accepted_product_commit: "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+  summary: >
+    R1 accepted the H1_G4A product-facing foundation: module boundaries, core
+    harness, topology interface contract, composition seam, validation entry,
+    Operator Report, and persisted validation evidence are present.
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance
+  direction_map_status:
+    current_objective_architecture_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+    next_safe_route: P9_PHASE_CLOSE
+  objective_graph:
+    H1_G4A_core_harness_composition_validation_topology_interface_foundation:
+      status: node_done_accepted
+      role: accepted_primary_result_node
+      evidence:
+        - gascoopgame_commit_236bc30
+        - h1_g4a_module_map
+        - h1_g4a_corefoundation_files
+        - h1_g4a_topology_contract
+        - h1_g4a_unity_validation_pass
+        - h1_g4a_operator_report
+    H1_G4B_grid_topology_foundation:
+      status: parked_future_phase_candidate
+    H1_G4C_gas_simulation_foundation:
+      status: parked_future_phase_candidate
+    H1_G4D_grid_gas_interaction:
+      status: parked_future_phase_candidate
+    H1_G4E_multiplayer_boundary_foundation:
+      status: parked_future_phase_candidate
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
 ```

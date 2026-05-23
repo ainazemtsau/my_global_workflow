@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_g1_h1_g4a_core_harness_boundary_repair
+projection_status: fresh_after_r1_h1_g4a_foundation_acceptance
 activated_at: "2026-05-13"
 ```
 
@@ -17,18 +17,18 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 - Active Phase: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 - Active Phase name: `H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation`
-- Active Phase status: `active_goal_shaped_pending_E1_execution_brief`
+- Active Phase status: `active_goal_r1_accepted_pending_P9_phase_close`
 - Map binding: `H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
 - Active Goal: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
-- Active Goal status: `goal_shaped_pending_E1_execution_brief`
-- Last completed Goal: `bootstrap-validation-surface-setup-envelope`
+- Active Goal status: `r1_accepted_goal_complete`
+- Last completed Goal: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 - Last completed Goal status: `r1_accepted_goal_complete`
-- Accepted Goal Artifact: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md`
+- Accepted Goal Artifact: `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
 - Old broad H1_G4 Goal treatment: `superseded_by_h1_g4a_boundary_repair_partial_evidence_only`
-- Next route: `E1_EXECUTION_BRIEF`
+- Next route: `P9_PHASE_CLOSE`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
 - Previous Goal: `directions/indie-game-development/phases/expedition-first-playable-proof-slice/goals/first-playable-proof-slice-brief`
@@ -69,6 +69,10 @@ Required H1_G4A foundation surface:
 - Expedition Project Bootstrap / Tool Binding Readiness — `r1_accepted_goal_complete`
   - Goal ID: `H1_G3_project_bootstrap_tool_binding_validation_scene_readiness`
   - Accepted scope: readiness packet only; implementation/bootstrap remains blocked.
+- H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation — `r1_accepted_goal_complete`
+  - Goal ID: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
+  - Accepted product commit: `ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63`
+  - Accepted scope: product-facing foundation only; H1_G4B/H1_G4C/H1_G4D/H1_G4E remain parked/request-only.
 
 ## Preserved / paused
 
@@ -81,7 +85,7 @@ Required H1_G4A foundation surface:
 
 ## Queue items
 
-- H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation — `goal_shaped_pending_E1_execution_brief`; id: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`; route: `E1_EXECUTION_BRIEF`; purpose: prepare execution brief for the H1_G4A product-facing foundation Goal.
+- H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation — `r1_accepted_goal_complete`; id: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`; route: `P9_PHASE_CLOSE`; purpose: close or pause the H1_G4A Phase after accepted product-facing foundation evidence.
 - Project Bootstrap / Validation Surface Setup Envelope — `closed_with_phase`; id: `bootstrap-validation-surface-setup-envelope`; route: `none_goal_complete`; purpose: preserved as completed Phase evidence after setup/validation envelope acceptance.
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
@@ -468,3 +472,39 @@ queue_update_after_g1_h1_g4a_boundary_repair:
 ```
 
 The next queue movement is H1_G4A E1 execution-brief preparation. Future H1_G4B/C/D/E candidates are parked/request-only until selected by a later lifecycle route.
+
+## Queue update after R1 H1_G4A foundation acceptance
+
+```yaml
+queue_update_after_r1_h1_g4a_foundation_acceptance:
+  active_phase: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  active_phase_status: active_goal_r1_accepted_pending_P9_phase_close
+  active_goal: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_goal_status: r1_accepted_goal_complete
+  review_verdict: completed_verified
+  goal_review_verdict: accepted_complete
+  phase_progress_gate_status: phase_close_candidate
+  accepted_product_commit: "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+  next_queue_movement: P9_PHASE_CLOSE
+  next_route: P9_PHASE_CLOSE
+  route_mode: close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance
+  future_phase_candidates:
+    - "H1_G4B — Grid / Topology Foundation"
+    - "H1_G4C — Gas Simulation Foundation"
+    - "H1_G4D — Grid-Gas Interaction"
+    - "H1_G4E — Multiplayer Boundary Foundation"
+  parked_request_only_preserved:
+    - Unity MCP setup
+    - Task Master graph creation
+    - old-code transfer
+    - Game Documentation promotion
+    - full Grid/Topology implementation
+    - full Gas Simulation implementation
+    - Grid-Gas interaction implementation
+    - Multiplayer implementation
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+The next queue movement is `P9_PHASE_CLOSE`. Future H1_G4B/C/D/E candidates are parked/request-only until selected by a later lifecycle route. Implementation, bootstrap, and product execution remain blocked until a later basis-valid route authorizes them.

@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_g1_h1_g4a_core_harness_boundary_repair
+  source_freshness: fresh_after_r1_h1_g4a_foundation_acceptance
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,33 +16,38 @@ project_file_control:
 
 ```yaml
 active_goal:
-  state: goal_shaped_pending_E1_execution_brief
-  active_goal_state: goal_shaped_pending_E1_execution_brief
+  state: r1_accepted_goal_complete
+  active_goal_state: r1_accepted_goal_complete
   goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   goal_title: "Produce H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
   goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
   execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
   phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
-  status: goal_shaped_pending_E1_execution_brief
+  status: r1_accepted_goal_complete
   previous_active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
   previous_active_goal_title: "Produce or route-gate the first runnable H1_G4 durable technical nucleus slice"
   previous_active_goal_result: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
   previous_active_goal_artifact: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
   previous_active_goal_execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
-  last_completed_goal_id: bootstrap-validation-surface-setup-envelope
+  last_completed_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   last_completed_goal_result: r1_accepted_goal_complete
   previous_goal_superseded: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
   previous_phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
   current_wave: none
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
-  review_scope: none_pending_execution
-  completion_scope: goal_shaped_only
-  parent_goal_completion_state: incomplete
-  accepted_result: none_pending_execution
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance
+  review_scope: completed_verified
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  accepted_result: accepted_h1_g4a_product_facing_foundation
+  accepted_evidence:
+    - "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+    - "MODULE_MAP.md"
+    - ".workflow/outbox/H1_G4A_OPERATOR_REPORT.md"
+    - ".workflow/evidence/h1-g4a-foundation-2026-05-23.md"
   smallest_useful_result: "A runnable core harness with composition seams, validation entry point, topology interface contract, Unity-as-render/driver separation, and product persistence evidence; or a concrete blocker/unblock packet."
   previous_broad_h1_g4_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
   existing_x1_treatment: candidate_partial_evidence_only
@@ -57,7 +62,7 @@ active_goal:
   old_code_transfer_allowed_now: false
   game_documentation_promotion_allowed_now: false
   next_goal_seed: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-  note: "G1 repaired the broad H1_G4 shape into the H1_G4A foundation Goal; E1 is required before any implementation or product execution is authorized."
+  note: "R1 accepted the H1_G4A foundation Goal; P9 is required before the next Phase route."
 ```
 
 ```yaml
@@ -584,4 +589,42 @@ summary: >
   G1 replaced the broad route-gated H1_G4 Goal with the H1_G4A foundation Goal.
   The R1 route gate and X1 partial progress remain preserved evidence, not
   completion. E1 is the next route.
+```
+
+## 2026-05-23 R1 acceptance — H1_G4A active Goal complete
+
+```yaml
+active_goal:
+  state: r1_accepted_goal_complete
+  active_goal_state: r1_accepted_goal_complete
+  goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  goal_title: "Produce H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
+  phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
+  status: r1_accepted_goal_complete
+  review_verdict: completed_verified
+  goal_review_verdict: accepted_complete
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  accepted_result: accepted_h1_g4a_product_facing_foundation
+  accepted_evidence:
+    - "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+    - "MODULE_MAP.md"
+    - ".workflow/outbox/H1_G4A_OPERATOR_REPORT.md"
+    - ".workflow/evidence/h1-g4a-foundation-2026-05-23.md"
+  parked_request_only_future_candidates:
+    - H1_G4B_grid_topology_foundation
+    - H1_G4C_gas_simulation_foundation
+    - H1_G4D_grid_gas_interaction
+    - H1_G4E_multiplayer_boundary_foundation
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  R1 accepted the H1_G4A product-facing foundation. The active Goal is complete
+  and ready for P9 phase close. H1_G4B/C/D/E remain parked request-only future
+  candidates.
 ```

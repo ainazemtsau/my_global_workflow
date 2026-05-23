@@ -5,7 +5,7 @@ artifact_control:
   artifact_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation Phase Brief"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active
+  status: active_goal_r1_accepted_pending_P9_phase_close
   created_by_stage: G1_GOAL_SHAPE
   created_at: "2026-05-23"
   repo_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
@@ -13,13 +13,19 @@ artifact_control:
 phase:
   id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
-  status: active_goal_shaped_pending_E1_execution_brief
+  status: active_goal_r1_accepted_pending_P9_phase_close
   direction_id: indie_game_development
   parent_horizon: H1_playable_technical_nucleus
   previous_broad_phase_id: h1-g4-durable-technical-nucleus-first-runnable-build
   active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
-  next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
+  next_route: P9_PHASE_CLOSE
+  next_route_mode: close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance
+  active_goal_status: r1_accepted_goal_complete
+  review_verdict: completed_verified
+  goal_review_verdict: accepted_complete
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  phase_progress_gate_status: phase_close_candidate
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
 ```
@@ -133,9 +139,28 @@ Parked candidate boundaries, not current scope:
 
 Unity may drive, visualize, or validate the foundation, but Unity must not own core domain logic. Domain/business logic must remain separated from multiplayer transport.
 
+## R1 acceptance
+
+R1 accepted H1_G4A as a completed verified product-facing foundation. The accepted evidence is the GasCoopGame commit `236bc30e1cfc9aa081325144d778d1f28283aa63`, `MODULE_MAP.md`, `Assets/Scripts/GasCoopGame/CoreFoundation/**`, `Assets/Editor/GasCoopGame/H1G4A/**`, `.workflow/outbox/H1_G4A_OPERATOR_REPORT.md`, and `.workflow/evidence/h1-g4a-foundation-2026-05-23.md`.
+
+```yaml
+r1_acceptance:
+  stage_id: R1_GOAL_REVIEW_DISTILL
+  review_verdict: completed_verified
+  goal_review_verdict: accepted_complete
+  active_goal_status: r1_accepted_goal_complete
+  completion_scope: parent_goal_complete
+  parent_goal_completion_state: complete
+  phase_progress_gate_status: phase_close_candidate
+  accepted_product_commit: "ainazemtsau/GasCoopGame@236bc30e1cfc9aa081325144d778d1f28283aa63"
+  next_route: P9_PHASE_CLOSE
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
 ## Next Route
 
-`E1_EXECUTION_BRIEF — prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief`
+`P9_PHASE_CLOSE — close_or_pause_h1_g4a_core_harness_composition_validation_topology_interface_foundation_after_r1_acceptance`
 
 ## End-of-file marker
 
