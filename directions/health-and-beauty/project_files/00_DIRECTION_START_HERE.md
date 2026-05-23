@@ -16,30 +16,39 @@ project_file_control:
 
 ## Current pointers
 
-* Current Phase: `Собрать удобный, научно обоснованный процесс питания без тяжёлого трекинга` -> `directions/health-and-beauty/phases/ai-nutrition-operating-layer`
-* Current Phase status: `closed_complete`
+* Current Phase: `Первый рабочий Health/Body Operator: тренировочный процесс v0` -> `directions/health-and-beauty/phases/first-working-health-body-operator-training-v0`
+* Current Phase status: `active`
 * Active Goal pointer: `none`
-* Active Goal status: `none`; latest completed Goal `nutrition-project-operational-setup-v0` is closed under the closed Phase.
-* Current focus: post-phase-close Project Files refresh, then launch `P0_PHASE_START` in a new Health and Beauty workflow chat.
-* Next route: `P0_PHASE_START`
-* Direction Map: `08_DIRECTION_MAP.md` is the current routing authority after Objective Architecture migration; use verified GitHub read-back over stale Project Files cache.
+* Active Goal status: `none`
+* Latest closed Phase: `ai-nutrition-operating-layer`, status `closed_complete`
+* Current focus: shape the first Goal for the new Phase.
+* Next route: `G1_GOAL_SHAPE`
+* Direction Map link: `n2_first_weekly_body_transformation_correction_loop`
+* Direction Map update status: `08_DIRECTION_MAP.md` Active Front remains valid and is intentionally unchanged by P0. Its old route-binding text is stale-but-nonblocking only for the named next stage `G1_GOAL_SHAPE`.
 
-## Stale-state correction
+## Operational Boundary Invariant
 
-P9 2026-05-22 closed the AI Nutrition Operating Layer Phase as `closed_complete` after R1 accepted the repo-backed multi-chat Project `Питание` nutrition loop as complete for this Goal based on U1/setup/real-use validation.
+Workflow builds, repairs, audits, and evolves the operational health/body process. It does not run daily nutrition, training, metric logging, or week-to-week plan management.
 
-Do not execute old E1/U1/R1 Project `Питание` setup routes. The next material route is `P0_PHASE_START` after this repository maintenance/read-back and manual Project Files refresh.
+Daily operation happens inside the separate Health/Body Operator ChatGPT Project. That operational Project may contain specialist chats for nutrition, training, daily decisions, weekly review/metrics, and local process customization.
+
+The operational Project should not know workflow stages, phase IDs, goal IDs, Direction Map mechanics, or workflow routing. It should behave like a practical operator for the user.
+
+Workflow may know the operational Project structure, source files, protocols, and customization boundaries. Strategic redesign, new tools, major process changes, evidence-heavy decisions, or global dissatisfaction return to the Health and Beauty workflow.
+
+## Active Phase summary
+
+The active Phase creates the first working autonomous training/activity process v0 inside the unified Health/Body Operator Project.
+
+The Phase is not a daily logging workflow. Its validation is capability validation: the operational Project must demonstrate state -> plan -> log-inside-Project -> adjustment.
 
 ## Phase Memory Bridge
 
-Use these files before proposing the next Phase:
+Latest closed Phase summary remains:
+* `directions/health-and-beauty/phases/ai-nutrition-operating-layer/phase_close_summary.md`
+* `directions/health-and-beauty/project_files/07_PHASE_MEMORY_INDEX.md`
 
-* Phase close summary: `directions/health-and-beauty/phases/ai-nutrition-operating-layer/phase_close_summary.md`
-* Phase memory index: `07_PHASE_MEMORY_INDEX.md`
-
-The next Phase should not repeat Project `Питание` setup repair. The candidate frontier for P0 is `n2_first_weekly_body_transformation_correction_loop`.
-
-The minimal metrics/state packet is the first internal gate, not a standalone support-artifact Phase. Shape the next Phase around a result-facing weekly correction loop that can produce an actual body-transformation correction decision.
+Do not reopen Project `Питание` setup repair by default. The nutrition loop works enough to continue. Nutrition polish is deferred until concrete friction appears.
 
 ## Default Project Files to load
 
@@ -61,14 +70,6 @@ Also load shared runtime cache files defined in:
 workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
 ```
 
-If `08_DIRECTION_MAP.md` conflicts with these corrected runtime files, rely on verified GitHub read-back and return Context Request rather than inferring a downstream route.
-
-## Shared runtime file
-
-* `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
-
-Do not create or require a local runtime-core copy under this Direction `project_files/` folder.
-
 ## Superseded active work
 
-The prior Phase `MacroFactor Nutrition AI Support Setup` is superseded/paused, not completed. Its Goal files remain historical evidence and must not be executed as current work without explicit reshaping.
+Old Project `Питание` setup routes are historical evidence only. MacroFactor-heavy tracking remains superseded/paused. Standalone metrics/readiness work is not the current Phase.
