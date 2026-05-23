@@ -71,6 +71,8 @@ current_initiative:
     - "Codex is expected to be the primary code implementer; architecture and process must be designed for Codex-driven development."
     - "No production-code slice may be accepted without an explicit validation surface: test, harness, validation scene, debug evidence, or manual checklist."
     - "Gameplay/domain logic should be separated from multiplayer transport and Unity presentation to the degree needed for testability, replaceability, and safe foundation decisions."
+    - "Until H1_G4E multiplayer boundary is implemented and accepted, foundational/domain systems must be multiplayer-ready from first real implementation: stable IDs, command/intent boundary, authoritative tick or explicit step boundary, snapshot/delta/change-set output, validation/performance evidence for hot paths, and no transport dependency inside domain core."
+    - "Grid, Gas Simulation, Grid-Gas interaction, and simulation-affecting devices must not be accepted as complete if they would require core rewrite to support co-op observation/replication."
     - "Modules should be autonomous enough for Codex to work through bounded context instead of loading the whole project for small changes."
     - "Dependency/composition boundaries must be defined before durable nucleus implementation; exact DI package selection requires sufficient evidence or explicit decision."
 ```

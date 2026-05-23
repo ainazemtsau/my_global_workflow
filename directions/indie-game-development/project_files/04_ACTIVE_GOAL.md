@@ -44,6 +44,12 @@ active_goal:
   accepted_result: none_pending_execution
   parent_goal_completion_state: incomplete_goal_shaped_only
   smallest_useful_result: "Accepted or route-gated production-grade, legacy-informed Grid / Topology Core with replaceable topology ingestion, dynamic topology mutation, spatial change propagation, cross-system coordination, validation/debug surface, old-evidence review, and product evidence."
+  foundation_multiplayer_readiness_guardrail: >
+    The Grid / Topology Core must be accepted only as a multiplayer-ready authoritative
+    simulation foundation: stable spatial IDs, command/intent and deterministic commit
+    boundary, version/change-set or snapshot/delta observation surface, validation and
+    performance evidence, no local-single-player-only authority assumption, and no
+    FishNet/Steam/RPC/NetworkObject dependency inside Grid core.
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false

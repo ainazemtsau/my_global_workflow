@@ -940,6 +940,15 @@ required_context_after_g1_h1_g4b_grid_topology_foundation_formalization:
   execution_log: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/execution_log.md"
   recommended_next_stage: E1_EXECUTION_BRIEF
   recommended_next_mode: prepare_h1_g4b_grid_topology_foundation_execution_brief
+  additional_active_goal_artifacts_after_A1_and_guardrail_formalization:
+    a1_audit_result:
+      path: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/02_A1_AUDIT_RESULT.md"
+      status: "A1_AUDIT_DONE"
+      load_for: "E1_EXECUTION_BRIEF"
+    foundation_multiplayer_readiness_guardrail:
+      path: "directions/indie-game-development/phases/h1-g4b-grid-topology-foundation/goals/h1-g4b-grid-topology-foundation/03_FOUNDATION_MULTIPLAYER_READINESS_GUARDRAIL.md"
+      status: "accepted_user_intent"
+      load_for: "E1_EXECUTION_BRIEF and future H1_G4C/H1_G4D/H1_G4E foundation work"
   load_for_E1:
     - workflow/stage_prompts/E1_EXECUTION_BRIEF.md
     - WORKFLOW_SOURCE_OF_TRUTH.md

@@ -90,6 +90,8 @@ Build a commercially viable indie game direction focused on Expedition product j
 - The first technical nucleus specification must start from gameplay gas, spatial/level, Grid/topology, cross-system, destructibility compatibility, and validation needs.
 - The active technical foundation Goal must use staged decision mapping, not one-shot closure of all technical details.
 - Codex-driven development requires foundation-level engineering guardrails before implementation: modularity, testability, dependency/composition boundaries, validation gates, and separation of gameplay/domain logic from multiplayer transport.
+- Until H1_G4E multiplayer boundary is implemented and accepted, foundational/domain systems must be built as multiplayer-ready authoritative simulation cores from first real implementation: stable IDs, command/intent boundary, explicit tick/step boundary, snapshot/delta/change-set output, validation/performance evidence where foundational or hot-path, and no multiplayer transport dependency inside domain core.
+- Grid / Topology, Gas Simulation, Grid-Gas interaction, and simulation-affecting devices must not be accepted as complete if they assume local single-player-only authoritative state or would require core rewrite to support co-op observation/replication.
 - Game truths produced by Goals may move into permanent `Game Documentation` only through an explicit later documentation stage or approved documentation-maintenance patch.
 - Codex product/project execution requires verified concrete project/tool bindings.
 
