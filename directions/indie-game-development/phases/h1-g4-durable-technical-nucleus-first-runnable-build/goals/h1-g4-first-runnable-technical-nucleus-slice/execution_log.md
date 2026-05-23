@@ -73,6 +73,27 @@ Next route:
 
 E1 must produce the smallest repair execution brief for the existing H1_G4 TechnicalNucleus slice. It must not create a fake test task and must not configure Unity MCP.
 
+## 2026-05-23 — G1 boundary repair superseded broad Goal
+
+```yaml
+execution_log_entry:
+  stage_id: G1_GOAL_SHAPE
+  event: broad_goal_superseded_by_h1_g4a_boundary_repair
+  result: partial_progress_preserved_as_candidate_evidence
+  old_goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  active_replacement_goal: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_replacement_goal_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+  r1_route_gate_record_preserved: true
+  not_accepted_complete: true
+  summary: >
+    G1 boundary repair superseded broad Goal after A1 found direct E1 repair
+    was not basis-valid. R1 route-gate history is preserved. The active
+    replacement is H1_G4A Core Harness / Composition / Validation / Topology
+    Interface Foundation.
+```
+
+The active replacement is `h1-g4a-core-harness-composition-validation-topology-interface-foundation`.
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md`

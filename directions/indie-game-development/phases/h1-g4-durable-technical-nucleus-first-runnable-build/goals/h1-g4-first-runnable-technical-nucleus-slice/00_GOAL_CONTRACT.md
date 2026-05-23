@@ -5,7 +5,7 @@ artifact_control:
   artifact_name: "Goal Contract — H1_G4 First Runnable Technical Nucleus Slice"
   schema: goal_contract.v1
   owner_layer: persistence
-  status: goal_shaped_pending_E1_execution_brief
+  status: superseded_by_h1_g4a_boundary_repair
   repo_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
   created_by_stage: G1_GOAL_SHAPE
   created_at: "2026-05-22"
@@ -31,6 +31,20 @@ goal:
   old_code_transfer_allowed_now: false
   game_documentation_promotion_allowed_now: false
 ```
+
+## 2026-05-23 G1 repair — superseded broad Goal
+
+```yaml
+supersession_status:
+  status: superseded_by_h1_g4a_boundary_repair
+  active_replacement_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_replacement_goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+  not_accepted_complete: true
+  existing_x1_output_treatment: candidate_partial_evidence_only
+  old_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+```
+
+This broad Goal is not accepted complete. Existing X1 output remains partial candidate evidence only and may be reused only if a later E1/X1 preflight proves fit with the H1_G4A foundation boundary.
 
 ## WHAT
 

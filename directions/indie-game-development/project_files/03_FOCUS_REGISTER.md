@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/03_FOCUS_REGISTER.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
+  source_freshness: fresh_after_g1_h1_g4a_core_harness_boundary_repair
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -16,54 +16,54 @@ project_file_control:
 
 ```yaml
 focus:
-  current_focus: "Prepare E1 execution brief for the first H1_G4 runnable durable technical nucleus Goal."
+  current_focus: "Prepare E1 execution brief for H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation."
   route_stage: E1_EXECUTION_BRIEF
-  route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
   same_chat_allowed: false
-  boundary_trigger: g1_h1_g4_first_runnable_technical_nucleus_slice_formalized
+  boundary_trigger: g1_h1_g4a_core_harness_boundary_formalized
   pending_state_carried: true
-  pending_patch_pointer: g1_formalize_h1_g4_first_runnable_technical_nucleus_slice_2026_05_22
-  last_stage_result_pointer: "G1_GOAL_SHAPE formalized h1-g4-first-runnable-technical-nucleus-slice as goal_shaped_pending_E1_execution_brief."
+  pending_patch_pointer: g1_formalize_h1_g4a_core_harness_boundary_repair_2026_05_23
+  last_stage_result_pointer: "G1_GOAL_SHAPE formalized h1-g4a-core-harness-composition-validation-topology-interface-foundation as goal_shaped_pending_E1_execution_brief."
   last_codex_scope_validation: "Codex repository maintenance only; Codex product/project execution remains blocked until project/tool bindings and execution route are verified."
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   active_goal:
-    goal_id: h1-g4-first-runnable-technical-nucleus-slice
+    goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
     status: goal_shaped_pending_E1_execution_brief
-    goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
-    previous_goal_id: bootstrap-validation-surface-setup-envelope
-    previous_goal_status: r1_accepted_goal_complete
+    goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+    previous_goal_id: h1-g4-first-runnable-technical-nucleus-slice
+    previous_goal_status: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
   active_phase:
-    phase_id: h1-g4-durable-technical-nucleus-first-runnable-build
-    phase_name: "H1_G4 Durable Technical Nucleus — First Runnable Build"
-    phase_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
+    phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+    phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+    phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
     status: active_goal_shaped_pending_E1_execution_brief
-    map_binding: "H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus"
+    map_binding: "H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation"
     next_route: E1_EXECUTION_BRIEF
 ```
 
 ## Blockers / required inputs
 
-- Missing context: `manual Project Files refresh blocks the next E1 run after G1 repository maintenance apply/read-back/commit/integration`
+- Missing context: `manual Project Files refresh blocks the next E1 run after H1_G4A G1 repository maintenance apply/read-back/commit/integration`
 - Human decision: `none pending for E1 launch after refresh`
 - Source conflict: `Project Files stale until this G1 repository maintenance patch is applied/read back and manually refreshed`
 - Tool/runtime blocker: `project/tool bindings must be verified before Codex product/project execution`
 - Required attachments/context for next stage:
   - exact `workflow/stage_prompts/E1_EXECUTION_BRIEF.md`
-  - refreshed Project Files 00-08 after G1 Goal formalization
-  - `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md`
-  - `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/phase_execution_log.md`
-  - `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md`
-  - `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md`
+  - refreshed Project Files 00-08 after H1_G4A G1 boundary repair
+  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md`
+  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_execution_log.md`
+  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md`
+  - `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md`
   - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md`
   - `directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md`
   - `directions/indie-game-development/project_files/08_DIRECTION_MAP.md`
 
 ## Current focus boundary
 
-G1 formalized `h1-g4-first-runnable-technical-nucleus-slice` after `H1_G4 Durable Technical Nucleus — First Runnable Build` was started by P0.
+G1 formalized `h1-g4a-core-harness-composition-validation-topology-interface-foundation` after A1 determined direct E1 repair of the broad H1_G4 route-gated state was not basis-valid.
 
-The next focus is `E1_EXECUTION_BRIEF` for `h1-g4-first-runnable-technical-nucleus-slice`. E1 must prepare HOW, validation, allowed and forbidden surfaces, context requirements, and blocker handling. It must not run bootstrap, product repository creation, product code, real tool setup, Unity MCP setup, Task Master graph creation, or Codex product/project execution directly.
+The next focus is `E1_EXECUTION_BRIEF` for H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation. E1 must prepare HOW, validation, allowed and forbidden surfaces, context requirements, and blocker handling. It must not run bootstrap, product repository creation, product code, real tool setup, Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, broad vertical slice expansion, or Codex product/project execution directly.
 
 Forbidden in this focus:
 
@@ -383,4 +383,39 @@ E1 must require X1/Codex to return a user-facing Markdown report with:
 - product persistence state;
 - unresolved risks.
 
-YAML is forbidden as the user-facing Codex report format. YAML may be used only as hidden/technical workflow transport when required.
+YAML is forbidden as the user-facing Codex report format. YAML is not a user-facing Codex Operator Report format. YAML may be used only as hidden/technical workflow transport when required.
+
+## 2026-05-23 focus update — H1_G4A boundary formalized
+
+Current focus:
+
+Prepare E1 execution brief for H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation.
+
+```yaml
+route_stage: E1_EXECUTION_BRIEF
+route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
+boundary_trigger: g1_h1_g4a_core_harness_boundary_formalized
+active_goal:
+  goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+active_phase:
+  phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  status: active_goal_shaped_pending_E1_execution_brief
+required_context_for_next_stage:
+  - exact workflow/stage_prompts/E1_EXECUTION_BRIEF.md
+  - refreshed Project Files 00-08 after H1_G4A repository maintenance
+  - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md
+  - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_execution_log.md
+  - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md
+  - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md
+superseded_context_request_only:
+  - directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md
+  - directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/phase_execution_log.md
+  - directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md
+  - directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md
+codex_product_execution_allowed_now: false
+implementation_allowed_now: false
+```
+
+E1 must preserve the forbidden surfaces: Unity MCP setup, Task Master graph creation, old-code transfer, Game Documentation promotion, broad vertical slice expansion, and product execution before a valid execution route.

@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
+projection_status: fresh_after_g1_h1_g4a_core_harness_boundary_repair
 activated_at: "2026-05-13"
 ```
 
@@ -15,18 +15,19 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Current queue state
 
-- Active Phase: `h1-g4-durable-technical-nucleus-first-runnable-build`
-- Active Phase name: `H1_G4 Durable Technical Nucleus — First Runnable Build`
+- Active Phase: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
+- Active Phase name: `H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation`
 - Active Phase status: `active_goal_shaped_pending_E1_execution_brief`
-- Map binding: `H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus`
+- Map binding: `H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation`
 - Required H1_G2 surface/gate: `H1_G2_codex_development_operating_model_and_architecture_protocols`
-- Active Goal: `h1-g4-first-runnable-technical-nucleus-slice`
+- Active Goal: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 - Active Goal status: `goal_shaped_pending_E1_execution_brief`
 - Last completed Goal: `bootstrap-validation-surface-setup-envelope`
 - Last completed Goal status: `r1_accepted_goal_complete`
 - Accepted Goal Artifact: `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md`
 - Existing Goal Artifact: `directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md`
 - Existing artifact treatment: `accepted_route_gated_decision_map`
+- Old broad H1_G4 Goal treatment: `superseded_by_h1_g4a_boundary_repair_partial_evidence_only`
 - Next route: `E1_EXECUTION_BRIEF`
 - Previous Phase: `directions/indie-game-development/phases/expedition-first-playable-proof-slice`
 - Previous Phase status: `paused_superseded_not_closed`
@@ -36,19 +37,19 @@ This file is an active GitHub Direction runtime file. If it conflicts with anoth
 
 ## Selected current Phase direction
 
-`H1_G4 Durable Technical Nucleus — First Runnable Build` is selected by `P0_PHASE_START`.
+`H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation` is selected by the 2026-05-23 G1 boundary repair.
 
-Purpose: convert accepted setup/readiness/envelope work into the first runnable H1_G4 durable technical nucleus slice, or a concrete blocker/unblock route if that slice cannot be produced safely.
+Purpose: replace the overbroad H1_G4 shape with a product-facing foundation boundary: core harness, composition/dependency seam, validation entry point, topology interface contract, and product persistence evidence.
 
-Required first runnable technical nucleus surface:
+Required H1_G4A foundation surface:
 
-- concrete setup target;
-- allowed and forbidden setup surfaces;
-- minimal runnable slice definition;
-- validation scene/harness/test/manual checklist requirements;
-- stop conditions;
-- evidence requirements;
-- exact blocker/unblock route if runnable output cannot be produced safely.
+- runnable core harness or exact blocker;
+- explicit composition/dependency boundary;
+- validation entry point;
+- topology interface contract;
+- Unity-as-render/driver separation;
+- product persistence evidence;
+- exact blocker/unblock route if the foundation cannot be produced safely.
 
 ## Completed / accepted
 
@@ -80,7 +81,7 @@ Required first runnable technical nucleus surface:
 
 ## Queue items
 
-- H1_G4 first runnable durable technical nucleus slice — `goal_shaped_pending_E1_execution_brief`; id: `h1-g4-first-runnable-technical-nucleus-slice`; route: `E1_EXECUTION_BRIEF`; purpose: prepare execution brief for the first runnable H1_G4 durable technical nucleus Goal.
+- H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation — `goal_shaped_pending_E1_execution_brief`; id: `h1-g4a-core-harness-composition-validation-topology-interface-foundation`; route: `E1_EXECUTION_BRIEF`; purpose: prepare execution brief for the H1_G4A product-facing foundation Goal.
 - Project Bootstrap / Validation Surface Setup Envelope — `closed_with_phase`; id: `bootstrap-validation-surface-setup-envelope`; route: `none_goal_complete`; purpose: preserved as completed Phase evidence after setup/validation envelope acceptance.
 - Codex Development Operating Model / Architecture Protocols first-use workflow fit-check — `next_route: none_goal_complete`, node: `H1_G2_codex_development_operating_model_and_architecture_protocols`, status: `r1_accepted_goal_complete`
 - Grid/Gas/GridV2/GasV2R Transfer Boundary Audit — `superseded_after_human_clarification`; reference/evidence only, not current active queue item
@@ -89,6 +90,15 @@ Required first runnable technical nucleus surface:
 - Expedition System Synergy Research Pack — request-only until selected by a vNext-R stage result
 - Expedition Durable Skeleton Documentation Promotion — request-only until selected by a vNext-R stage result
 - Expedition Controlled Visual Probe Set — request-only until selected by a vNext-R stage result
+
+## Future phase candidates
+
+Parked/request-only until selected by a later stage:
+
+- H1_G4B — Grid / Topology Foundation
+- H1_G4C — Gas Simulation Foundation
+- H1_G4D — Grid-Gas Interaction
+- H1_G4E — Multiplayer Boundary Foundation
 
 ## Queue discipline
 
@@ -428,3 +438,33 @@ Still parked/forbidden:
 - old-code transfer;
 - Game Documentation promotion;
 - full vertical slice expansion.
+
+## Queue update after G1 H1_G4A boundary repair
+
+```yaml
+queue_update_after_g1_h1_g4a_boundary_repair:
+  active_phase: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  active_phase_status: active_goal_shaped_pending_E1_execution_brief
+  active_goal: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  old_broad_goal: h1-g4-first-runnable-technical-nucleus-slice
+  old_broad_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+  next_route: E1_EXECUTION_BRIEF
+  route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
+  future_phase_candidates:
+    - "H1_G4B — Grid / Topology Foundation"
+    - "H1_G4C — Gas Simulation Foundation"
+    - "H1_G4D — Grid-Gas Interaction"
+    - "H1_G4E — Multiplayer Boundary Foundation"
+  parked_request_only_preserved:
+    - Unity MCP setup
+    - Task Master graph creation
+    - old-code transfer
+    - Game Documentation promotion
+    - full vertical slice expansion
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+The next queue movement is H1_G4A E1 execution-brief preparation. Future H1_G4B/C/D/E candidates are parked/request-only until selected by a later lifecycle route.

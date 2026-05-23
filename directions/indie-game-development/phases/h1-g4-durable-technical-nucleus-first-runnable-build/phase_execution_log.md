@@ -69,6 +69,26 @@ Repair focus:
 - product worktree / batchmode policy;
 - product persistence evidence.
 
+## 2026-05-23 — G1 boundary repair to H1_G4A
+
+```yaml
+execution_log_entry:
+  stage_id: G1_GOAL_SHAPE
+  event: broad_phase_superseded_by_h1_g4a_boundary_repair
+  result: superseded_by_h1_g4a_boundary_repair
+  previous_phase_id: h1-g4-durable-technical-nucleus-first-runnable-build
+  active_continuation: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_continuation_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
+  old_broad_phase_preserved_as_superseded_evidence: true
+  p9_run_for_old_broad_phase: false
+  x1_evidence_treatment: candidate_partial_evidence_only
+  summary: >
+    A1 determined direct E1 repair of the broad H1_G4 result was not
+    basis-valid. G1 repaired the boundary into H1_G4A. P9 is not run for the
+    old broad phase; old broad phase preserved as superseded evidence/history.
+    The active continuation is h1-g4a-core-harness-composition-validation-topology-interface-foundation.
+```
+
 ## End-of-file marker
 
 `END_OF_FILE: directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/phase_execution_log.md`

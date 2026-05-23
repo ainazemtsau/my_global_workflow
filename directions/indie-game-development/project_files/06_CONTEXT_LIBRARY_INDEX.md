@@ -5,7 +5,7 @@ project_file_projection: 1
 schema: direction_project_file_projection.v1
 source_file: "directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md"
 canonical_source: GitHub repository file
-projection_status: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
+projection_status: fresh_after_g1_h1_g4a_core_harness_boundary_repair
 activated_at: "2026-05-13"
 ```
 
@@ -55,18 +55,30 @@ Stage prompts are request-only runtime inputs. Do not copy stage prompt files in
 
 Load for work on the current Phase:
 
-- `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md`
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md`
   - Status: `active_goal_shaped_pending_E1_execution_brief`
-  - Load for `E1_EXECUTION_BRIEF` and any route that needs the active H1_G4 first runnable build Phase frame.
-- `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/phase_execution_log.md`
+  - Load for `E1_EXECUTION_BRIEF` and any route that needs the active H1_G4A foundation Phase frame.
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_execution_log.md`
   - Status: `active_phase_log`
   - Request only when execution history is needed.
-- `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md`
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md`
   - Status: `goal_shaped_pending_E1_execution_brief`
   - Load for `E1_EXECUTION_BRIEF`.
-- `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md`
+- `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md`
   - Status: `goal_execution_log`
   - Request when execution history is needed.
+- `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md`
+  - Status: `superseded_broad_h1_g4_context`
+  - Request only when superseded H1_G4 evidence/history is needed.
+- `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/phase_execution_log.md`
+  - Status: `superseded_broad_h1_g4_context`
+  - Request only when superseded H1_G4 evidence/history is needed.
+- `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md`
+  - Status: `superseded_broad_h1_g4_context`
+  - Request only when superseded H1_G4 evidence/history is needed.
+- `directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md`
+  - Status: `superseded_broad_h1_g4_context`
+  - Request only when superseded H1_G4 evidence/history is needed.
 - `directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md`
   - Status: `latest_closed_phase_summary`
   - Request if needed for anti-duplicate detail; not default active execution context for G1.
@@ -701,3 +713,54 @@ required_context_after_g1_h1_g4_first_runnable_technical_nucleus_goal_formalizat
 ```
 
 E1 must prepare the execution brief for the shaped Goal. It must not run Unity bootstrap, product repository creation, product code, Codex product/project execution, Task Master graph creation, real internal tool setup, Unity MCP setup, old-code transfer, old-code audit as starting point, or Game Documentation promotion.
+
+## Required context after G1 H1_G4A core harness boundary repair
+
+Recommended next stage: `E1_EXECUTION_BRIEF`.
+
+Recommended next mode: `prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief`.
+
+```yaml
+required_context_after_g1_h1_g4a_core_harness_boundary_repair:
+  active_goal_after_g1_h1_g4a_core_harness_boundary_repair:
+    active_phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+    active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+    active_goal_status: goal_shaped_pending_E1_execution_brief
+    goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+    execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
+    recommended_next_stage: E1_EXECUTION_BRIEF
+    recommended_next_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
+  load_for_E1:
+    - workflow/stage_prompts/E1_EXECUTION_BRIEF.md
+    - WORKFLOW_SOURCE_OF_TRUTH.md
+    - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+    - workflow/runtime/OBJECTIVE_ARCHITECTURE_MODEL.md
+    - workflow/runtime/CONTEXT_ACQUISITION_POLICY.md
+    - workflow/runtime/GITHUB_LONG_FILE_READ_GUARD.md
+    - workflow/runtime/WORKFLOW_RUNTIME_CACHE_MANIFEST.md
+    - workflow/stage_registry/STAGE_REGISTRY.md
+    - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+    - directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+    - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+    - directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+    - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+    - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+    - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+    - directions/indie-game-development/project_files/07_PHASE_MEMORY_INDEX.md
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+    - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md
+    - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/phase_execution_log.md
+    - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md
+    - directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md
+  superseded_broad_h1_g4_context:
+    status: request_only_superseded_evidence
+    paths:
+      - directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md
+      - directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/phase_execution_log.md
+      - directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md
+      - directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+```
+
+E1 must use H1_G4A as controlling context. The old broad H1_G4 files are superseded evidence and request-only context.

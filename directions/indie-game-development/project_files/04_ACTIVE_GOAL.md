@@ -8,7 +8,7 @@ project_file_control:
   source_files:
     - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
+  source_freshness: fresh_after_g1_h1_g4a_core_harness_boundary_repair
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -18,18 +18,18 @@ project_file_control:
 active_goal:
   state: goal_shaped_pending_E1_execution_brief
   active_goal_state: goal_shaped_pending_E1_execution_brief
-  goal_id: h1-g4-first-runnable-technical-nucleus-slice
-  active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
-  goal_title: "Produce or route-gate the first runnable H1_G4 durable technical nucleus slice"
-  goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
-  phase_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
+  goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  goal_title: "Produce H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
+  phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
   status: goal_shaped_pending_E1_execution_brief
-  previous_active_goal_id: bootstrap-validation-surface-setup-envelope
-  previous_active_goal_title: "Сформировать setup/validation envelope для project bootstrap перед H1_G4"
-  previous_active_goal_result: r1_accepted_goal_complete
-  previous_active_goal_artifact: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md"
-  previous_active_goal_execution_log: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/execution_log.md"
+  previous_active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  previous_active_goal_title: "Produce or route-gate the first runnable H1_G4 durable technical nucleus slice"
+  previous_active_goal_result: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+  previous_active_goal_artifact: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
+  previous_active_goal_execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
   last_completed_goal_id: bootstrap-validation-surface-setup-envelope
   last_completed_goal_result: r1_accepted_goal_complete
   previous_goal_superseded: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/grid-gas-transfer-boundary-audit"
@@ -38,12 +38,14 @@ active_goal:
   previous_phase_path: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup"
   current_wave: none
   next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  next_route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
   review_scope: none_pending_execution
   completion_scope: goal_shaped_only
   parent_goal_completion_state: incomplete
   accepted_result: none_pending_execution
-  smallest_useful_result: "A shaped Goal Contract whose accepted outcome is either a first runnable nucleus slice with validation evidence or a concrete blocker/unblock packet."
+  smallest_useful_result: "A runnable core harness with composition seams, validation entry point, topology interface contract, Unity-as-render/driver separation, and product persistence evidence; or a concrete blocker/unblock packet."
+  previous_broad_h1_g4_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+  existing_x1_treatment: candidate_partial_evidence_only
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
   unity_bootstrap_allowed_now: false
@@ -54,8 +56,8 @@ active_goal:
   unity_mcp_setup_allowed_now: false
   old_code_transfer_allowed_now: false
   game_documentation_promotion_allowed_now: false
-  next_goal_seed: h1-g4-first-runnable-technical-nucleus-slice
-  note: "G1 shaped the first H1_G4 runnable technical nucleus Goal; E1 is required before any implementation or product execution is authorized."
+  next_goal_seed: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  note: "G1 repaired the broad H1_G4 shape into the H1_G4A foundation Goal; E1 is required before any implementation or product execution is authorized."
 ```
 
 ```yaml
@@ -104,11 +106,11 @@ previous_active_goal:
 
 Active Goal:
 
-`h1-g4-first-runnable-technical-nucleus-slice`
+`h1-g4a-core-harness-composition-validation-topology-interface-foundation`
 
 Goal title:
 
-`Produce or route-gate the first runnable H1_G4 durable technical nucleus slice`
+`Produce H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation`
 
 Status:
 
@@ -553,3 +555,31 @@ Explicitly forbidden:
 - Game Documentation promotion;
 - broad vertical slice expansion;
 - unrestricted scene/prefab mutation.
+
+## 2026-05-23 G1 repair — H1_G4A active Goal
+
+```yaml
+active_goal:
+  state: goal_shaped_pending_E1_execution_brief
+  active_goal_state: goal_shaped_pending_E1_execution_brief
+  goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  goal_title: "Produce H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
+  phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
+  previous_broad_h1_g4_goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  previous_broad_h1_g4_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+  r1_route_gate_preserved: true
+  existing_x1_treatment: candidate_partial_evidence_only
+  accepted_result: none_pending_execution
+  parent_goal_completion_state: incomplete_goal_shaped_only
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  G1 replaced the broad route-gated H1_G4 Goal with the H1_G4A foundation Goal.
+  The R1 route gate and X1 partial progress remain preserved evidence, not
+  completion. E1 is the next route.
+```

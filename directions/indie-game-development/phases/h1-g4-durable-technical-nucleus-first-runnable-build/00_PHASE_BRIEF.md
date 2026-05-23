@@ -5,7 +5,7 @@ artifact_control:
   artifact_name: "H1_G4 Durable Technical Nucleus — First Runnable Build Phase Brief"
   schema: phase_brief.v1
   owner_layer: persistence
-  status: active
+  status: superseded_by_h1_g4a_boundary_repair
   repo_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md"
   created_by_stage: P0_PHASE_START
   created_at: "2026-05-22"
@@ -13,7 +13,7 @@ artifact_control:
 phase:
   id: h1-g4-durable-technical-nucleus-first-runnable-build
   name: "H1_G4 Durable Technical Nucleus — First Runnable Build"
-  status: active_pending_G1_goal_shape
+  status: superseded_by_h1_g4a_boundary_repair
   direction_id: indie_game_development
   map_link: "H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus"
   previous_closed_phase: project-bootstrap-validation-surface-setup
@@ -23,6 +23,22 @@ phase:
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
 ```
+
+## 2026-05-23 G1 repair — superseded by H1_G4A boundary
+
+```yaml
+supersession:
+  status: superseded_by_h1_g4a_boundary_repair
+  old_phase_active_after_patch: false
+  replacement_phase: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
+  replacement_phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  replacement_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  old_x1_technical_nucleus_evidence_treatment: candidate_partial_evidence_only
+  old_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+  p9_allowed_for_old_broad_phase_now: false
+```
+
+This broad H1_G4 Phase is no longer active after the H1_G4A boundary repair. Its contents and X1/TechnicalNucleus evidence remain preserved history and candidate partial evidence only. Active continuation is the H1_G4A phase brief at `directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md`.
 
 ## Purpose
 

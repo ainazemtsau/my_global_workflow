@@ -7,9 +7,9 @@ project_file_control:
   direction: directions/indie-game-development
   source_files:
     - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
-    - "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md"
+    - "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
   activated_at: "2026-05-13"
-  source_freshness: fresh_after_g1_h1_g4_first_runnable_technical_nucleus_slice_formalization
+  source_freshness: fresh_after_g1_h1_g4a_core_harness_boundary_repair
   canonical_source: GitHub repository file
   conflict_rule: if this file conflicts with another current GitHub Direction file, return Context Request; do not invent state
   default_load: yes
@@ -20,31 +20,34 @@ current_phase:
   state: active
   current_phase_status: active_goal_shaped_pending_E1_execution_brief
   status: active_goal_shaped_pending_E1_execution_brief
-  phase_name: "H1_G4 Durable Technical Nucleus — First Runnable Build"
-  phase_id: h1-g4-durable-technical-nucleus-first-runnable-build
-  phase_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
-  phase_brief: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/00_PHASE_BRIEF.md"
+  phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
+  phase_brief: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
   started_by_stage: P0_PHASE_START
   started_at: "2026-05-22"
   previous_phase_id: project-bootstrap-validation-surface-setup
   previous_phase_status: closed_complete_by_P9
   previous_phase_summary: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/phase_close_summary.md"
   phase_closed: false
-  map_binding: "H1_playable_technical_nucleus / P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close -> H1_G4_durable_technical_nucleus"
+  map_binding: "H1_playable_technical_nucleus / H1_G4A_core_harness_composition_validation_topology_interface_foundation"
   next_route: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
-  active_goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  next_route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
+  active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   active_goal_status: goal_shaped_pending_E1_execution_brief
-  goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
-  selected_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
+  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
+  selected_first_goal_candidate: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   last_completed_goal_id: bootstrap-validation-surface-setup-envelope
   last_completed_goal_result: r1_accepted_goal_complete
   existing_goal_artifact: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
   existing_goal_artifact_status: accepted_route_gated_decision_map
-  current_critical_constraint: "Accepted readiness/envelope state exists, but no first runnable durable technical nucleus slice exists yet."
-  minimum_outcome: "Accepted or route-gated first runnable H1_G4 durable technical nucleus slice."
-  validation_signal: "Concrete runnable/evidence output or exact blocker/unblock route."
+  previous_broad_phase_treatment: superseded_by_h1_g4a_boundary_repair
+  previous_broad_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+  existing_x1_treatment: candidate_partial_evidence_only
+  current_critical_constraint: "H1_G4A foundation must be planned before execution resumes from the route-gated broad H1_G4 state."
+  minimum_outcome: "Runnable core harness with composition seams, validation entry point, topology interface contract, Unity-as-render/driver separation, and product persistence evidence; or concrete blocker/unblock packet."
+  validation_signal: "Product persistence evidence, Markdown Operator Report, validation command/result or Unity/manual checklist, changed-files rationale, and Unity-as-render-engine architecture evidence."
   phase_closure_contract_required: true
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
@@ -52,22 +55,22 @@ current_phase:
 
 ```yaml
 active_goal_projection:
-  goal_id: h1-g4-first-runnable-technical-nucleus-slice
+  goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   status: goal_shaped_pending_E1_execution_brief
-  phase_path: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build"
-  goal_contract: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/00_GOAL_CONTRACT.md"
-  execution_log: "directions/indie-game-development/phases/h1-g4-durable-technical-nucleus-first-runnable-build/goals/h1-g4-first-runnable-technical-nucleus-slice/execution_log.md"
-  selected_first_goal_candidate: h1-g4-first-runnable-technical-nucleus-slice
+  phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
+  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
+  selected_first_goal_candidate: h1-g4a-core-harness-composition-validation-topology-interface-foundation
   selected_first_goal_candidate_status: selected_for_G1_goal_shape
   last_completed_goal_id: bootstrap-validation-surface-setup-envelope
   last_completed_goal_result: r1_accepted_goal_complete
   accepted_goal_artifact: "directions/indie-game-development/phases/project-bootstrap-validation-surface-setup/goals/bootstrap-validation-surface-setup-envelope/01_BOOTSTRAP_VALIDATION_SURFACE_SETUP_ENVELOPE.md"
   recommended_next_stage: E1_EXECUTION_BRIEF
-  next_route_mode: prepare_h1_g4_first_runnable_technical_nucleus_slice_execution_brief
+  next_route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
   completion_scope: goal_shaped_only
   parent_goal_completion_state: incomplete_goal_shaped_only
   accepted_result: none_pending_execution
-  goal_shape_note: "G1 shaped the first H1_G4 runnable technical nucleus Goal. E1 is required before any setup or product execution is authorized."
+  goal_shape_note: "G1 repaired the broad H1_G4 shape into the H1_G4A foundation Goal. E1 is required before any setup or product execution is authorized."
   additional_goal_surface: "Project Engineering & Codex Development Operating Model / H1_G2"
   implementation_allowed_now: false
   codex_product_execution_allowed_now: false
@@ -511,3 +514,30 @@ E1 must repair the execution contract before another X1 acceptance attempt:
 - Unity-as-render-engine guardrail;
 - product worktree / batchmode policy;
 - product persistence evidence.
+
+## 2026-05-23 G1 repair — H1_G4A current phase projection
+
+```yaml
+g1_h1_g4a_core_harness_boundary_repair:
+  state: active
+  current_phase_status: active_goal_shaped_pending_E1_execution_brief
+  phase_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  phase_name: "H1_G4A Core Harness / Composition / Validation / Topology Interface Foundation"
+  phase_path: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation"
+  phase_brief: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_PHASE_BRIEF.md"
+  active_goal_id: h1-g4a-core-harness-composition-validation-topology-interface-foundation
+  active_goal_status: goal_shaped_pending_E1_execution_brief
+  goal_contract: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/00_GOAL_CONTRACT.md"
+  execution_log: "directions/indie-game-development/phases/h1-g4a-core-harness-composition-validation-topology-interface-foundation/goals/h1-g4a-core-harness-composition-validation-topology-interface-foundation/execution_log.md"
+  previous_broad_h1_g4_phase_status: r1_route_gated_or_stale_E1_projection
+  previous_broad_h1_g4_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+  existing_x1_treatment: candidate_partial_evidence_only
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
+summary: >
+  The old broad H1_G4 phase remains preserved as superseded evidence/history.
+  The active current phase projection is now H1_G4A; implementation and Codex
+  product execution remain blocked until E1/X1 or another valid route.
+```

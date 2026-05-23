@@ -8,8 +8,8 @@ artifact_control:
   status: active
   repo_path: "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
   default_load: yes
-  freshness: fresh_after_p9_project_bootstrap_validation_surface_setup_close
-  last_updated: "2026-05-22"
+  freshness: fresh_after_g1_h1_g4a_core_harness_boundary_repair
+  last_updated: "2026-05-23"
 ```
 
 ## Purpose
@@ -32,11 +32,11 @@ direction_map_status:
   map_state: initialized
   current_initiative_id: innovative-commercial-expedition-gas-sim-game
   map_confidence: medium
-  last_reviewed_stage: P9_PHASE_CLOSE
+  last_reviewed_stage: G1_GOAL_SHAPE
   migration_status: completed_by_m0_review
   objective_architecture_migration_status: completed_by_m0_review_2026_05_19
-  current_objective_architecture_node: P0_PHASE_START_after_project_bootstrap_validation_surface_setup_close
-  next_safe_route: P0_PHASE_START
+  current_objective_architecture_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+  next_safe_route: E1_EXECUTION_BRIEF
   migration_basis:
     - project_files/00_DIRECTION_START_HERE.md
     - project_files/01_DIRECTION_STATE.md
@@ -1304,6 +1304,52 @@ map_delta:
     - Unity MCP setup
     - fake test task
     - P9_PHASE_CLOSE
+```
+
+## 2026-05-23 G1 map delta — H1_G4A boundary formalized
+
+```yaml
+map_delta:
+  source_stage: G1_GOAL_SHAPE
+  delta_type:
+    - boundary_repair
+    - active_implementation_foundation_node_selected
+    - future_phase_candidates_not_active_scope
+  node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+  result: goal_shaped_pending_E1_execution_brief
+  previous_broad_node: H1_G4_durable_technical_nucleus
+  previous_broad_goal: h1-g4-first-runnable-technical-nucleus-slice
+  previous_broad_goal_treatment: superseded_by_h1_g4a_boundary_repair_partial_evidence_only
+  summary: >
+    G1 repaired the overbroad H1_G4 route-gated shape into the H1_G4A product-
+    facing foundation boundary: core harness, composition/dependency seam,
+    validation surface, topology interface contract, and product persistence
+    evidence.
+  next_route: E1_EXECUTION_BRIEF
+  next_route_mode: prepare_h1_g4a_core_harness_composition_validation_topology_interface_foundation_execution_brief
+  direction_map_status:
+    current_objective_architecture_node: H1_G4A_core_harness_composition_validation_topology_interface_foundation
+    next_safe_route: E1_EXECUTION_BRIEF
+  objective_graph:
+    H1_G4A_core_harness_composition_validation_topology_interface_foundation:
+      status: active_goal_shaped_pending_E1_execution_brief
+      role: active_implementation_foundation_node
+    H1_G4_durable_technical_nucleus:
+      status: superseded_by_h1_g4a_boundary_repair
+      evidence_treatment: superseded_partial_evidence_only
+  future_phase_candidates_not_active_scope:
+    H1_G4B: "Grid / Topology Foundation"
+    H1_G4C: "Gas Simulation Foundation"
+    H1_G4D: "Grid-Gas Interaction"
+    H1_G4E: "Multiplayer Boundary Foundation"
+  blocked_nodes:
+    - Unity_MCP_setup
+    - Task_Master_graph_creation
+    - old_code_transfer
+    - Game_Documentation_promotion
+    - broad_vertical_slice_expansion
+  implementation_allowed_now: false
+  codex_product_execution_allowed_now: false
 ```
 
 ## End-of-file marker
