@@ -28,6 +28,15 @@ commit_packet:
   proof_policy_result: pass | fail | needs_input
   human_gate_result: satisfied | not_required | blocked
   commit_verdict: committed | rejected | blocked_needs_context | blocked_needs_human_gate | blocked_invariant_failure | blocked_scope_violation
+  blocker_summary:
+    blocking_reason: string | null
+    blocking_protocol:
+      - verify | invariant | proof_policy | human_gate | commit_scope | storage | projection | tool_gate
+    details: string | null
+  residual_obligations:
+    - obligation_statement: string
+      reason: string
+      suggested_operator: string | null
   projection_updates_required: [string]
   storage_updates_required: [string]
 ```
@@ -38,6 +47,14 @@ Only `commit_verdict: committed` creates accepted state.
 
 Projection and storage updates are follow-up effects of committed Ledger delta. They do not replace Commit.
 
-If verification, invariant, proof policy, or human gate result blocks commit, the packet must state the blocker and residual Obligation.
+If verification, invariant, proof policy, or human gate result blocks commit, the packet must state the blocker in `blocker_summary` and identify `residual_obligations` when further work is needed.
+
+Blocked commit verdicts must include `blocker_summary`.
+
+Blocked commit verdicts should create or reference `residual_obligations` when further work is needed.
+
+Rejected commits may include `residual_obligations` only when recovery is allowed.
+
+Committed verdicts should normally have `blocker_summary: null` and `residual_obligations: []`.
 
 END_OF_FILE: proof_workflow/transport/COMMIT_PACKET.md
