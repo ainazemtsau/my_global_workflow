@@ -59,6 +59,10 @@ It records the outcome of one Operator invocation and includes produced claims, 
 
 Receipt Card is candidate state until committed.
 
+Receipt Card = proof result.
+
+If a Receipt needs persistence, it should be accompanied by a Codex Commit Handoff Card unless commit is intentionally deferred.
+
 ## Context Request Card
 
 Context Request Card serializes missing blocking context.
@@ -76,6 +80,14 @@ It may present options, consequences, and recommendation if any. It must not wri
 Commit Packet serializes proposed commit and verification state.
 
 It connects Receipt IDs, target Commit Scope, proposed Ledger delta, verification results, invariant results, proof policy result, human gate result, and storage or projection updates required after commit.
+
+## Codex Commit Handoff Card
+
+Codex Commit Handoff Card serializes copy-paste repository maintenance instructions for Codex.
+
+Commit Handoff Card = copy-paste repository maintenance instruction for Codex.
+
+It is not product/project execution and must not ask the user to infer repository paths or validation steps from the Receipt.
 
 ## Proof Relationship
 

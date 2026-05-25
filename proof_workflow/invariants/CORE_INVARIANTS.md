@@ -33,6 +33,10 @@ artifact_control:
 - No structured-format requirement for human decisions when intent is clear.
 - No needs_input verdict solely because the user omitted schema fields that can be safely defaulted or delegated.
 - No silent default: every default applied from human input normalization must be recorded in the Receipt.
+- No material run may end with technical Receipt/YAML only.
+- No user is required to manually construct Codex commit instructions from a Receipt.
+- No next-chat instruction may be only an Obligation ID without human-readable launch text.
+- If a commit is recommended, a Codex handoff must be provided or explicitly deferred with reason.
 
 ## Enforcement
 

@@ -18,6 +18,8 @@ Context Authority classifies loaded context before it is used as a claim basis.
 
 Human Input Normalization converts clear natural-language human choices into structured Receipt fields.
 
+Human-Facing Run Closure packages terminal outcome and handoff for the user.
+
 Adapters serialize protocol inputs and outputs.
 
 Projections render accepted state for human use.
@@ -63,6 +65,22 @@ It may apply explicit procedural defaults that preserve openness, delegate to ch
 It must not accept substantive claims that were not explicit in the selected option or current human input.
 
 Output: normalized decision, selected option if any, defaults applied, fields not accepted, residual Obligations, and remaining ambiguity.
+
+## Human-Facing Run Closure
+
+Purpose: end every material Operator invocation with a clear human-facing terminal outcome and any needed handoff.
+
+It runs at the end of every material Operator invocation.
+
+It does not create new semantic work.
+
+It packages terminal outcome and handoff for the user.
+
+If a commit-worthy Receipt exists, it must provide a Codex Commit Handoff Card or an explicit deferral reason.
+
+If another ChatGPT operator run is needed, it must provide a human-readable copy-paste prompt, not only an Obligation ID.
+
+Output: terminal outcome, human-readable next action, optional Codex Commit Handoff Card, optional next-chat prompt, and technical appendix.
 
 ## Obligation Admission
 

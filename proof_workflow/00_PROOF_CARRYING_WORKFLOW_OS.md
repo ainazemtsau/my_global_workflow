@@ -59,6 +59,7 @@ Protocols govern movement through the kernel:
 - Learn
 - Context Authority Policy
 - Human Input Normalization Policy
+- Human-Facing Run Closure Policy
 - Transport
 - Proof Policy
 - Human Gate Policy
@@ -68,7 +69,7 @@ Protocols are rules for movement. They are not additional semantic primitives.
 
 ### Tier 2: Runtime Adapters And Operational Forms
 
-Adapters serialize, request, route, or project runtime state. Examples include Launch Card, Receipt Card, Context Request Card, Human Decision Card, Operator Catalog, Process Macro, Projection Document, Dashboard, Strategic Path Map Projection, Horizon Projection, Active Frontier View, Inter-Scope Request, and a future Codex Work Package placeholder.
+Adapters serialize, request, route, or project runtime state. Examples include Launch Card, Receipt Card, Context Request Card, Human Decision Card, Codex Commit Handoff Card, Operator Catalog, Process Macro, Projection Document, Dashboard, Strategic Path Map Projection, Horizon Projection, Active Frontier View, Inter-Scope Request, and a future Codex Work Package placeholder.
 
 Adapters do not create truth. They may carry claims, point to evidence, or request action, but accepted state requires a verified Receipt committed to the Ledger.
 
@@ -97,6 +98,8 @@ Roadmaps do not create truth.
 Loaded context does not create truth.
 
 Human users do not need to speak in schemas; workflow normalizes clear intent into Receipts.
+
+Human-facing clarity is part of workflow correctness.
 
 Only verified Receipts committed to the Ledger create accepted state.
 

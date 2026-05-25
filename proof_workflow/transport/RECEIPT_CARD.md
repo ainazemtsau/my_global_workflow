@@ -67,6 +67,10 @@ receipt_card:
   proof_policy_result: pass | fail | needs_input
   invariant_check_summary: string
   commit_recommendation: commit | do_not_commit | needs_human_gate
+  handoff_required:
+    codex_commit_handoff: true | false
+    next_chat_prompt: true | false
+    reason: string
 ```
 
 ## Rules
@@ -82,5 +86,7 @@ Receipt must fail or return `needs_input` if it promotes candidate_context to ac
 Normalized human input must be visible in the Receipt and must not hide defaults.
 
 Every normalized Receipt must include raw user input reference, interpreted decision, selected option when applicable, defaults applied, fields not accepted, residual Obligations, and remaining ambiguity.
+
+If `commit_recommendation` is `commit`, the response must include either a Codex Commit Handoff Card or an explicit reason commit handoff is deferred.
 
 END_OF_FILE: proof_workflow/transport/RECEIPT_CARD.md

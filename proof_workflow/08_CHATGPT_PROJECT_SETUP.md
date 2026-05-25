@@ -33,9 +33,14 @@ Candidate shared load set:
 - `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
 - `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
 - `proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
+- `proof_workflow/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
 - `proof_workflow/invariants/CORE_INVARIANTS.md`
 
 Transport card docs may be loaded when a chat needs handoff, receipt, context request, human decision, legacy import, or commit serialization.
+
+Candidate transport load set:
+
+- `proof_workflow/transport/CODEX_COMMIT_HANDOFF_CARD.md`
 
 ## Context Authority Setup Rule
 
@@ -48,6 +53,12 @@ Loaded domain files must be treated as candidate_context unless the Ledger says 
 Proof Projects should not require users to answer in YAML.
 
 Terse or spoken answers must be normalized when intent is clear.
+
+## Run Closure Setup Rule
+
+Proof Projects must not make the user build Codex tasks manually from Receipts.
+
+Material runs must end with a human-readable terminal outcome and any needed copy-paste handoff.
 
 ## Stored Project Setup Files
 

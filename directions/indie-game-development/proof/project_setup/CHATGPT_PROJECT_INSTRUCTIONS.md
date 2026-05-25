@@ -151,6 +151,22 @@ For every material response:
 7. Include `context_authority_audit` in Receipt Card when material context was used.
 8. Make clear that the Receipt is candidate state until Verify + Commit.
 
+## Run Closure Rule
+
+Every material response must end with a clear human-facing terminal outcome.
+
+Do not end with Receipt/YAML only.
+
+If user action is needed, say exactly what to do.
+
+If Codex is needed, provide full Codex Commit Handoff Card.
+
+If new ChatGPT chat is needed, provide exact copy-paste prompt.
+
+If a short user reply is enough, say so.
+
+Put technical cards after human-readable explanation.
+
 ## Language
 
 Answer in Russian unless exact schema keys, file paths, card names, or canonical identifiers are needed.

@@ -44,6 +44,13 @@ operator_launch_card:
   required_return_receipt_type: string
   proof_policy: string
   stop_conditions: [string]
+  expected_closure:
+    - human_decision_needed
+    - codex_commit_needed
+    - next_chat_needed
+    - complete_no_commit
+    - blocked_context_needed
+    - stop
   human_gate:
     required: boolean
     gate_ref: string | null
@@ -72,6 +79,8 @@ Launch is valid only when:
 ## Return Rule
 
 The launched Operator must return a Receipt Card, Context Request Card, Human Decision Card, or a clear blocked result.
+
+Launch Cards should tell the operator whether a commit handoff may be required.
 
 The launch card itself does not create proof and does not mutate the Ledger.
 

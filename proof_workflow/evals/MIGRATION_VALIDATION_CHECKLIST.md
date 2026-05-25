@@ -67,6 +67,15 @@ artifact_control:
 - [ ] `Decision B` over A/B/C/D can become a satisfied Receipt when option B is clear and defaults are explicit.
 - [ ] Workflow still blocks ambiguous or high-risk silent defaults.
 
+## Gate 3.1 Human-Facing Run Closure Validation
+
+- [ ] Human-Facing Run Closure Policy exists.
+- [ ] Codex Commit Handoff Card exists.
+- [ ] Project Instructions require human-readable next action.
+- [ ] Receipt commit recommendation requires Codex handoff or explicit deferral.
+- [ ] Next Chat launch must include copy-paste human prompt, not only Obligation ID.
+- [ ] User does not need to understand YAML to proceed.
+
 ## Projection Validation
 
 - [ ] Strategic Path Map = projection from accepted strategic Receipts.
