@@ -65,9 +65,9 @@ The pre-proof vNext-R main snapshot is preserved at:
 - legacy branch: `legacy/vnext-r-main-before-proof-os-2026-05-25`
 - legacy tag: `vnext-r-main-before-proof-os-2026-05-25`
 
-Old `workflow/**` files remaining in `main` are temporary legacy surfaces until M3 cleanup.
+Old `workflow/codex/**`, `workflow/executor/**`, `workflow/tests/**`, `workflow/validation/**`, and `workflow/amendments/**` files remaining in `main` are legacy/future-inspection surfaces, not active workflow authority.
 
-Old workflow files are not active authority after this document is updated.
+Old vNext-R runtime, stage registry, stage prompt, and transport surfaces were removed from active `main` in M3. Use the legacy branch/tag if those historical files are needed.
 
 Old `directions/*/project_files/**` files are legacy evidence only unless explicitly imported through Legacy Import Receipt + Verify + Commit.
 

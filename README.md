@@ -19,7 +19,9 @@ The old vNext-R workflow is preserved at:
 - branch: `legacy/vnext-r-main-before-proof-os-2026-05-25`
 - tag: `vnext-r-main-before-proof-os-2026-05-25`
 
-Old `workflow/**` directories may still exist in `main` until cleanup, but they are legacy-only and are not active default authority.
+Old vNext-R runtime, stage registry, stage prompt, and transport directories were removed from active `main` after archival. Use the legacy branch/tag if those historical files are needed.
+
+Any remaining old `workflow/**` directories in `main` are legacy/future-inspection surfaces, not active default authority.
 
 Do not use old workflow stage files, runtime files, transport files, or Direction `project_files/00-08` as accepted proof state.
 

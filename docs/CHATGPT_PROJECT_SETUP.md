@@ -78,6 +78,8 @@ Do not load these by default for new proof workflow Projects:
 
 Old files may be used only as legacy evidence through Legacy Import Receipt + Verify + Commit.
 
+The old vNext-R runtime, stage registry, stage prompt, and transport files are not present as active surfaces in `main` after M3 cleanup. Use the legacy branch/tag if historical copies are needed.
+
 ## Currently Initialized Pilot
 
 Indie Game Development is the initialized proof pilot.

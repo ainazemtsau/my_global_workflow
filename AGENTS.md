@@ -17,4 +17,4 @@ Rules:
 - For Codex, repository maintenance is the default unless an explicit product execution task exists.
 - Do not run product/project execution by default.
 - Report Project Files refresh requirements when changed files are loaded in ChatGPT Projects.
-- If old workflow evidence is needed, use the legacy branch/tag and the Legacy Import Receipt process.
+- If old workflow runtime, stage, or transport evidence is needed, use the legacy branch/tag and the Legacy Import Receipt process.

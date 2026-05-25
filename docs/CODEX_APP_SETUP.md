@@ -12,6 +12,8 @@ Codex must treat `proof_workflow/**` as the active workflow authority.
 
 Codex must not treat old vNext-R runtime, stage, transport, or Direction `project_files/00-08` files as active authority.
 
+Old vNext-R runtime, stage, and transport files were removed from active `main`. Use the legacy branch/tag if historical copies are needed.
+
 Old files may be inspected as legacy evidence only when the task explicitly asks for that, and imported only through the Legacy Import Receipt process.
 
 ## Repository Maintenance Boundary
