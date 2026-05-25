@@ -27,16 +27,34 @@ The old vNext-R workflow is archived at:
 
 ## ChatGPT Project Restore
 
-New ChatGPT Projects should be restored from proof project setup files.
+New ChatGPT Projects should be restored from:
 
-When available, use:
+- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `proof_workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+
+Upload default packs:
+
+- `proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `proof_workflow/project_packs/PROOF_BASE_PACK.md`
+- `proof_workflow/project_packs/TRANSPORT_CORE_PACK.md`
+
+Upload Direction payload:
+
+- `directions/<direction-id>/proof/LEDGER.md`
+- `directions/<direction-id>/proof/OBLIGATIONS.md`
+- `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/proof/COMMIT_SCOPES.md`
+- `directions/<direction-id>/proof/DASHBOARD.md`
+- `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
+
+Per-Direction setup files remain under:
 
 - `directions/<direction-id>/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 - `directions/<direction-id>/proof/project_setup/PROJECT_FILES_MANIFEST.md`
 
-Upload Project Files exactly as listed in the manifest.
-
-If a Direction lacks `directions/<direction-id>/proof/project_setup/`, initialize the proof skeleton first. Do not fall back to old vNext-R setup as active runtime.
+U3 will switch those per-Direction manifests to the pack model.
 
 ## Legacy Files
 
@@ -48,10 +66,16 @@ Old vNext-R workflow files are available from the legacy branch/tag, not active 
 
 Use old files only when a proof workflow Obligation explicitly requests legacy evidence or Legacy Import.
 
+Do not upload old vNext-R runtime, stage, transport, old project files, or old project setup files as default Project Files.
+
 ## Codex Rules
 
 - Keep edits inside the named allowed paths.
 - Do not invent Direction proof state.
 - If required files are unavailable or reads are incomplete, return the exact path and blocker.
 - Repository maintenance is separate from product/project execution.
+- Execution Harness Pack is request-only unless execution readiness is admitted.
+- Product repo execution setup is target-repo-local, not workflow-repo-local.
 - Report Project Files refresh requirements when changed files are loaded in ChatGPT Projects.
+
+END_OF_FILE: docs/NEW_DEVICE_BOOTSTRAP.md

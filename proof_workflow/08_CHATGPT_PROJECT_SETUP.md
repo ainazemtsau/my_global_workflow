@@ -2,7 +2,7 @@
 artifact_control:
   namespace: proof_workflow
   artifact_type: chatgpt_project_setup_principles
-  status: gate_1_initial
+  status: u2_pack_model
   owner: proof_carrying_workflow_os
 ---
 
@@ -10,41 +10,71 @@ artifact_control:
 
 ## Scope
 
-This file defines future setup principles only.
+This file defines active setup principles for ChatGPT Direction Proof Projects.
 
-It does not edit actual ChatGPT Project Instructions, old project setup files, old workflow files, or Direction project files.
+Project setup files are storage/adapter surfaces. They do not create accepted Ledger state.
 
-The exact project setup switch is deferred to a later migration gate.
+Use `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md` for new Projects.
 
-## Future Default Load Set
+## Universal Setup Model
 
-New proof workflow ChatGPT Projects should load the shared kernel and protocol docs under `proof_workflow/`.
+New Direction Proof Projects use one setup model:
 
-Candidate shared load set:
+- Universal Project Shell
+- Shared Proof Runtime Packs
+- Direction Payload
+- Optional Capability Packs
+- Product Repo Execution Setup, handled separately in the target product repository
 
-- `proof_workflow/00_PROOF_CARRYING_WORKFLOW_OS.md`
-- `proof_workflow/01_SEMANTIC_KERNEL.md`
-- `proof_workflow/02_RUNTIME_PROTOCOLS.md`
-- `proof_workflow/03_PROOF_AND_COMMIT_POLICY.md`
-- `proof_workflow/04_TRANSPORT_PROTOCOL.md`
-- `proof_workflow/05_OPERATOR_CATALOG_POLICY.md`
-- `proof_workflow/06_PROJECTION_POLICY.md`
-- `proof_workflow/07_MIGRATION_PROTOCOL.md`
-- `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
-- `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
-- `proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
-- `proof_workflow/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
-- `proof_workflow/13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
-- `proof_workflow/invariants/CORE_INVARIANTS.md`
+## Default Upload Surface
 
-Transport card docs may be loaded when a chat needs handoff, receipt, context request, human decision, legacy import, or commit serialization.
+Use packs as the default shared upload surface:
 
-Candidate transport load set:
+- `proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `proof_workflow/project_packs/PROOF_BASE_PACK.md`
+- `proof_workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
-- `proof_workflow/transport/CODEX_COMMIT_HANDOFF_CARD.md`
-- `proof_workflow/transport/CHILD_OBLIGATION_REQUEST_CARD.md`
-- `proof_workflow/transport/CHILD_RESULT_RETURN_CARD.md`
-- `proof_workflow/transport/PARENT_RECOVERY_BLOCK.md`
+Upload Direction payload files individually:
+
+- `directions/<direction-id>/proof/LEDGER.md`
+- `directions/<direction-id>/proof/OBLIGATIONS.md`
+- `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/proof/COMMIT_SCOPES.md`
+- `directions/<direction-id>/proof/DASHBOARD.md`
+- `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
+
+## Transition Note
+
+Direction-specific manifests will be switched to the pack model in U3.
+
+Existing older 31-file manifests remain valid until U3.
+
+After U3, the pack-based manifests supersede the older 31-file Project Files model.
+
+## Request-Only Execution Harness
+
+`proof_workflow/project_packs/EXECUTION_HARNESS_PACK.md` is request-only.
+
+Do not default-load the Execution Harness Pack unless execution readiness, product repo setup, CodexRun, validation, human-guided execution, or complex technical mission work is admitted.
+
+Execution is not a semantic primitive.
+
+Codex is not the execution system.
+
+CodexRun is a gated Operator family inside execution.
+
+## Stored Project Setup Files
+
+Universal project setup sources live under:
+
+- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `proof_workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+
+Per-Direction generated setup files live under:
+
+- `directions/<direction-id>/proof/project_setup/`
 
 ## Context Authority Setup Rule
 
@@ -66,46 +96,13 @@ Material runs must end with a human-readable terminal outcome and any needed cop
 
 Proof Projects must expect Codex Commit Handoff Cards to be fully self-contained.
 
-Users should not manually construct repository maintenance wrappers from Receipts.
-
-If a Codex handoff is not self-contained, the correct response is to ask the Operator chat to regenerate the handoff, not to patch it manually.
-
-## Stored Project Setup Files
-
-Proof ChatGPT Project Instructions must be stored in repository files.
-
-Project Instructions provided only in chat are not restorable and are invalid for durable pilot setup.
-
-Pilot Project setup files may live under:
-
-- `directions/<direction-id>/proof/project_setup/`
-
-For Indie Game Development Proof Pilot:
-
-- `directions/indie-game-development/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
-- `directions/indie-game-development/proof/project_setup/PROJECT_FILES_MANIFEST.md`
-
-Stored proof Project setup files are adapter/storage surfaces. They do not create accepted Ledger state.
+If a Codex handoff is not self-contained, the correct response is to ask the Operator chat to regenerate the handoff.
 
 ## Legacy Non-Authority
 
-Old workflow runtime files, old stage prompts, old project files, and old project setup files must not be default authority for the new proof workflow.
+Old workflow runtime files, old stage prompts, old transport files, old Direction project files, and old project setup files must not be default authority for the proof workflow.
 
-They may be loaded later only as explicitly identified legacy evidence for a migration Obligation.
-
-## Direction Proof Files
-
-Direction proof files will be loaded only after a Direction is migrated or initialized under a future `directions/<direction-id>/proof/` namespace.
-
-Future direction load candidates:
-
-- `directions/<direction-id>/proof/LEDGER.md`
-- `directions/<direction-id>/proof/OBLIGATIONS.md`
-- `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/proof/COMMIT_SCOPES.md`
-- `directions/<direction-id>/proof/DASHBOARD.md`
-
-Direction-specific load sets become active only when their proof files exist and are selected by a stored Project Files manifest.
+They may be loaded only as explicitly identified legacy evidence for a Legacy Import Obligation.
 
 ## Chat Rule
 

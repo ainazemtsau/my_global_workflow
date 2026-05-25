@@ -34,6 +34,16 @@ Active shared setup sources:
 
 - `proof_workflow/08_CHATGPT_PROJECT_SETUP.md`
 - `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
+- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `proof_workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+
+Project pack runtime-cache files live under:
+
+- `proof_workflow/project_packs/`
+
+Project packs are upload convenience/runtime cache only. Canonical source files listed by each pack remain authority.
 
 Per-Direction proof project setup files live under:
 

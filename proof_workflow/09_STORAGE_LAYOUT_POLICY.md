@@ -2,7 +2,7 @@
 artifact_control:
   namespace: proof_workflow
   artifact_type: storage_layout_policy
-  status: gate_1_initial
+  status: u2_pack_model
   owner: proof_carrying_workflow_os
 ---
 
@@ -14,9 +14,9 @@ Storage is physical persistence and tooling.
 
 Storage does not create truth without Commit.
 
-GitHub files, Markdown documents, YAML sidecars, ChatGPT Project Files, API databases, Codex workspaces, and external tools / MCP are storage or tooling surfaces, not semantic primitives.
+GitHub files, Markdown documents, YAML sidecars, ChatGPT Project Files, API databases, Codex workspaces, external tools, MCP, Project setup files, and Project pack files are storage or tooling surfaces, not semantic primitives.
 
-## Shared Kernel Namespace
+## Shared Proof Workflow Namespace
 
 `proof_workflow/` stores shared proof workflow specifications:
 
@@ -28,11 +28,13 @@ GitHub files, Markdown documents, YAML sidecars, ChatGPT Project Files, API data
 - operator catalog policy
 - projection policy
 - migration protocol
-- future ChatGPT setup principles
+- ChatGPT setup principles
 - storage layout policy
 - transport card definitions
 - invariant definitions
 - validation checklists
+
+Canonical source files remain in `proof_workflow/**`.
 
 Shared execution specs live under:
 
@@ -40,15 +42,37 @@ Shared execution specs live under:
 proof_workflow/execution/
 ```
 
-## Future Direction Proof Storage
+## Project Setup And Packs
 
-Future per-Direction proof state should use:
+Universal setup docs live under:
+
+```text
+proof_workflow/project_setup/
+```
+
+`proof_workflow/project_setup/` stores installer, template, and validation docs for restoring Direction Proof Projects.
+
+Project pack files live under:
+
+```text
+proof_workflow/project_packs/
+```
+
+`proof_workflow/project_packs/` stores runtime cache / upload convenience files for ChatGPT Project Files.
+
+Packs are not canonical semantic authority.
+
+Canonical source files listed by each pack remain the authority. If a pack conflicts with a verified canonical source file, the canonical source wins.
+
+## Direction Proof Storage
+
+Per-Direction proof state uses:
 
 ```text
 directions/<direction-id>/proof/
 ```
 
-Approximate future structure:
+Structure:
 
 ```text
 directions/<direction-id>/proof/
@@ -65,7 +89,7 @@ directions/<direction-id>/proof/
   projections/
 ```
 
-This storage policy describes where Direction proof state lives. Creating or updating a Direction proof path requires an explicit admitted setup or migration action.
+Creating or updating a Direction proof path requires an explicit admitted setup or migration action.
 
 ## File Roles
 
@@ -81,23 +105,11 @@ This storage policy describes where Direction proof state lives. Creating or upd
 
 `MIGRATION_RECEIPT.md` stores the initial migration Receipt for a Direction when created.
 
-`project_setup/` stores restoration source for ChatGPT Project setup.
-
-`project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` stores restorable Project Instructions.
-
-`project_setup/PROJECT_FILES_MANIFEST.md` stores the Project Files upload manifest.
+Direction `project_setup/` stores restorable Project Instructions and Project Files manifests.
 
 `receipts/` stores Receipt records.
 
 `projections/` stores generated projection documents.
-
-## Project Setup Files
-
-Project setup files are storage/adapter surfaces, not semantic primitives.
-
-They do not create accepted Ledger state.
-
-They define how to restore the Project context safely.
 
 ## Project Files
 
@@ -106,6 +118,8 @@ ChatGPT Project Files may act as runtime cache.
 Project Files are not source of truth for accepted state unless they reflect committed Ledger state.
 
 If Project Files conflict with committed Ledger state, the Ledger wins.
+
+If Project pack files conflict with their canonical source files, the canonical source files win.
 
 ## Product/Project Technical Memory
 
@@ -119,7 +133,9 @@ AGENTS.md
 .execution/validation_profile.md
 .execution/module_map.md
 .execution/technical_ledger.md
+.execution/known_risks.md
 .execution/receipts/
+.execution/plans/
 ```
 
 Workflow/business documents receive clean projections only. They must not become the source of project-specific technical truth.

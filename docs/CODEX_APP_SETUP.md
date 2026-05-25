@@ -26,6 +26,18 @@ Product/project execution is separate from repository maintenance and must not b
 
 Do not run product/project execution unless an explicit admitted task authorizes it.
 
+## Execution Harness Boundary
+
+The Execution Harness is a request-only capability area.
+
+Execution is not a semantic primitive.
+
+Codex is not the execution system.
+
+CodexRun is a gated Operator family inside execution.
+
+Product repo execution setup is separate and target-repo-local. Do not create product `.execution/**` files inside this workflow repository.
+
 ## Default Codex Task Template
 
 ```text
@@ -108,3 +120,5 @@ codex_app_result:
   unresolved_risks:
   next_user_action:
 ```
+
+END_OF_FILE: docs/CODEX_APP_SETUP.md

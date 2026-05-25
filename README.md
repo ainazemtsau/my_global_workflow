@@ -9,8 +9,27 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 ## Active Workflow
 
 - Shared workflow kernel and runtime policies live under `proof_workflow/`.
+- Universal ChatGPT Project setup lives under `proof_workflow/project_setup/`.
+- Project pack runtime-cache files live under `proof_workflow/project_packs/`.
 - Direction proof state lives under `directions/<direction-id>/proof/`.
-- New ChatGPT Projects should be created or restored from proof project setup manifests under `directions/<direction-id>/proof/project_setup/`.
+- New ChatGPT Projects should be created or restored from the universal installer and, after U3, pack-based Direction manifests under `directions/<direction-id>/proof/project_setup/`.
+
+## Project Setup
+
+Use:
+
+- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `proof_workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+
+Default shared Project Files are:
+
+- `proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `proof_workflow/project_packs/PROOF_BASE_PACK.md`
+- `proof_workflow/project_packs/TRANSPORT_CORE_PACK.md`
+
+The Execution Harness Pack is request-only.
 
 ## Legacy Boundary
 
@@ -26,3 +45,5 @@ The top-level old `workflow/` directory has been removed from active `main`.
 Do not use old workflow stage files, runtime files, transport files, or Direction `project_files/00-08` as accepted proof state. Historical workflow files are available only from the legacy branch/tag.
 
 Old Direction data may become proof workflow state only through Legacy Import Receipt + Verify + Commit.
+
+END_OF_FILE: README.md

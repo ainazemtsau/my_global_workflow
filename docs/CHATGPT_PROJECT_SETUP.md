@@ -3,7 +3,7 @@
 ```yaml
 artifact_control:
   artifact_name: "ChatGPT Project Setup"
-  schema: proof_chatgpt_project_setup.v1
+  schema: proof_chatgpt_project_setup.v2
   owner_layer: setup_documentation
   status: active
   repo_path: "docs/CHATGPT_PROJECT_SETUP.md"
@@ -21,38 +21,33 @@ This file is setup documentation. It is not runtime state and does not create ac
 
 Create one ChatGPT Project per Direction.
 
-Each Direction Project should use:
+New Proof Projects should use:
 
-- Project Instructions source: `directions/<direction-id>/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
-- Project Files Manifest source: `directions/<direction-id>/proof/project_setup/PROJECT_FILES_MANIFEST.md`
+- Universal installer: `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- Universal instructions template: `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- Universal manifest template: `proof_workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- Setup validation checklist: `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
 
-The manifest defines the exact shared proof workflow files and Direction proof files to upload.
+Per-Direction manifests remain under:
 
-## Required Shared Proof Files
+- `directions/<direction-id>/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/<direction-id>/proof/project_setup/PROJECT_FILES_MANIFEST.md`
 
-Load shared files from `proof_workflow/**` according to the Direction's `PROJECT_FILES_MANIFEST.md`.
+U3 will switch those per-Direction manifests to the pack model.
 
-Typical shared sources include:
+## Default Shared Packs
 
-- `proof_workflow/00_PROOF_CARRYING_WORKFLOW_OS.md`
-- `proof_workflow/01_SEMANTIC_KERNEL.md`
-- `proof_workflow/02_RUNTIME_PROTOCOLS.md`
-- `proof_workflow/03_PROOF_AND_COMMIT_POLICY.md`
-- `proof_workflow/04_TRANSPORT_PROTOCOL.md`
-- `proof_workflow/08_CHATGPT_PROJECT_SETUP.md`
-- `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
-- `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
-- `proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
-- `proof_workflow/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
-- `proof_workflow/13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
-- `proof_workflow/invariants/CORE_INVARIANTS.md`
-- required transport cards under `proof_workflow/transport/`
+New Proof Projects should upload these shared packs:
 
-## Required Direction Proof Files
+- `proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `proof_workflow/project_packs/PROOF_BASE_PACK.md`
+- `proof_workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
-Load Direction proof files from `directions/<direction-id>/proof/**` according to the Direction's manifest.
+The packs are runtime cache / upload convenience files. They are not semantic authority. Canonical source files listed in each pack remain authority.
 
-Typical Direction proof sources include:
+## Required Direction Payload
+
+Upload Direction proof files from `directions/<direction-id>/proof/**`:
 
 - `directions/<direction-id>/proof/LEDGER.md`
 - `directions/<direction-id>/proof/OBLIGATIONS.md`
@@ -63,10 +58,17 @@ Typical Direction proof sources include:
 
 Receipt files may be uploaded when the manifest requires them or when a run needs direct receipt context.
 
+## Request-Only Capability Packs
+
+Load `proof_workflow/project_packs/EXECUTION_HARNESS_PACK.md` only when execution readiness, product repo setup, CodexRun, validation, human-guided execution, or complex technical mission work is admitted.
+
+The Execution Harness Pack is not a default load for all Projects.
+
 ## Forbidden Default Loads
 
 Do not load these by default for new proof workflow Projects:
 
+- `workflow/**`
 - `workflow/runtime/**`
 - `workflow/stage_registry/**`
 - `workflow/stage_prompts/**`
@@ -75,36 +77,29 @@ Do not load these by default for new proof workflow Projects:
 - `directions/*/project_setup/**`
 - old docs setup files
 - migration/admin files unless a Legacy Import Obligation requires them
+- product repo `.execution/**` files inside this workflow repository
 
 Old files may be used only as legacy evidence through Legacy Import Receipt + Verify + Commit.
 
 The old vNext-R `workflow/` tree is not present in active `main`. Use the legacy branch/tag if historical copies are needed.
 
-## Currently Initialized Pilot
+## Transition Note
 
-Indie Game Development is the initialized proof pilot.
+Existing per-Direction 31-file manifests remain valid until U3.
 
-Project Instructions source:
+After U3, new Project creation should use pack-based manifests.
 
-- `directions/indie-game-development/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
-
-Project Files Manifest source:
-
-- `directions/indie-game-development/proof/project_setup/PROJECT_FILES_MANIFEST.md`
-
-## Other Directions
-
-Other Directions require proof skeleton initialization before normal proof project setup.
-
-If a Direction lacks `directions/<direction-id>/proof/project_setup/`, initialize its proof skeleton first. Do not fall back to old vNext-R setup as active runtime.
+Do not fall back to old vNext-R setup as active runtime.
 
 ## Refresh Rule
 
 A GitHub commit does not update ChatGPT Project Files.
 
-Manually refresh uploaded Project Files when any file listed in a Project Files Manifest changes.
+If a pack source file changes, regenerate or refresh the pack and replace the uploaded Project File before the next material run that depends on it.
 
-Old ChatGPT Projects configured from vNext-R setup are obsolete for active workflow use. Create new proof workflow Projects or replace their instructions/files from the proof manifests.
+If a Direction payload file changes, refresh that uploaded Project File before the next material run that depends on it.
+
+Old ChatGPT Projects configured from vNext-R setup are obsolete for active workflow use. Create new proof workflow Projects or replace their instructions/files from the proof setup sources.
 
 ## Read Completeness Rule
 
