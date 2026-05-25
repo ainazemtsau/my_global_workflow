@@ -2,62 +2,54 @@
 
 Status: active
 
-Use this file to connect a new device or fresh ChatGPT/Codex workspace to the GitHub-only workflow runtime.
+Use this file to connect a new device, local worktree, or fresh ChatGPT/Codex workspace to the Proof-Carrying Workflow OS.
 
 ## Canonical Repository
 
 - Repository: `https://github.com/ainazemtsau/my_global_workflow`
-- Runtime source of truth: GitHub markdown files in this repository
+- Branch: `main`
 - Source-of-truth marker: `WORKFLOW_SOURCE_OF_TRUTH.md`
+- Active workflow authority: `proof_workflow/**`
+
+The old vNext-R workflow is archived at:
+
+- branch: `legacy/vnext-r-main-before-proof-os-2026-05-25`
+- tag: `vnext-r-main-before-proof-os-2026-05-25`
 
 ## Required Local Setup
 
 1. Clone the repository.
-2. Read root `AGENTS.md`.
-3. Read `WORKFLOW_SOURCE_OF_TRUTH.md`.
-4. For Direction work, read the target Direction `AGENTS.md`.
-5. Use only the target Direction folder plus shared workflow files required by the task.
+2. Use `main`.
+3. Read root `AGENTS.md`.
+4. Read `WORKFLOW_SOURCE_OF_TRUTH.md`.
+5. Read relevant `proof_workflow/**` files for the task.
+6. For Direction work, use `directions/<direction-id>/proof/**` after that Direction has a proof skeleton.
 
-## Direction Runtime Files
+## ChatGPT Project Restore
 
-Default Direction context lives in:
+New ChatGPT Projects should be restored from proof project setup files.
 
-- `directions/<direction-id>/project_files/00_DIRECTION_START_HERE.md`
-- `directions/<direction-id>/project_files/01_DIRECTION_STATE.md`
-- `directions/<direction-id>/project_files/02_CURRENT_PHASE.md`
-- `directions/<direction-id>/project_files/03_FOCUS_REGISTER.md`
-- `directions/<direction-id>/project_files/04_ACTIVE_GOAL.md`
-- `directions/<direction-id>/project_files/05_PORTFOLIO_QUEUE.md`
-- `directions/<direction-id>/project_files/06_CONTEXT_LIBRARY_INDEX.md`
+When available, use:
 
-Shared runtime files live in:
+- `directions/<direction-id>/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/<direction-id>/proof/project_setup/PROJECT_FILES_MANIFEST.md`
 
-- `workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md`
-- `workflow/stage_registry/STAGE_REGISTRY.md`
-- `workflow/stage_prompts/<requested-stage>.md`
-- `workflow/transport/*`
+Upload Project Files exactly as listed in the manifest.
+
+If a Direction lacks `directions/<direction-id>/proof/project_setup/`, initialize the proof skeleton first. Do not fall back to old vNext-R setup as active runtime.
+
+## Legacy Files
+
+Old `directions/<direction-id>/project_files/00-08` files are legacy evidence, not default setup.
+
+Old workflow runtime, stage registry, stage prompts, and old transport files are legacy-only in active `main` until cleanup.
+
+Use old files only when a proof workflow Obligation explicitly requests legacy evidence or Legacy Import.
 
 ## Codex Rules
 
-- Use GitHub files as workflow state.
-- Keep edits inside the named Direction unless the task explicitly expands scope.
-- Preview diffs before applying when requested.
-- Do not invent missing Direction, Phase, Goal, project, repository, or execution state.
-- If required files are unavailable, return `NEEDS_INPUT` with exact GitHub paths.
-- Use Repository Patch / `repository_patch.v1` terminology for workflow writes.
-
-## ChatGPT Project Rules
-
-Use `docs/CHATGPT_PROJECT_SETUP.md` for Project Instructions.
-
-Each Project should load only:
-
-- its own `directions/<direction-id>/**` files;
-- shared workflow runtime files needed for the requested stage;
-- transport schemas when packet formatting is needed.
-
-Do not use sibling Direction folders unless explicitly requested.
-
-## Migration/Admin Area
-
-The `migration/` folder is admin-only. It records historical migration inventory, manifests, logs, and deferred decisions. It is not default runtime context for Direction Projects.
+- Keep edits inside the named allowed paths.
+- Do not invent Direction proof state.
+- If required files are unavailable or reads are incomplete, return the exact path and blocker.
+- Repository maintenance is separate from product/project execution.
+- Report Project Files refresh requirements when changed files are loaded in ChatGPT Projects.

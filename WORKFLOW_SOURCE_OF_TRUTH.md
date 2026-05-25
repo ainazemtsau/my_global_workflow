@@ -4,31 +4,89 @@ Status: active
 
 Canonical AI workflow source: GitHub repository `ainazemtsau/my_global_workflow`.
 
-Runtime source-of-truth model: GitHub markdown files in this repository.
+Active workflow authority: `proof_workflow/**`.
 
-Migration status: closed.
+## Active Semantic Kernel
 
-Direction data rule:
-- Do not invent Direction, Direction Map, Phase, Goal, Portfolio Queue, Context Loading Index, or execution state.
-- Direction data must be read from current GitHub Direction files unless an explicit migration/admin task says otherwise.
-- Missing or contradictory source data must be returned as `NEEDS_INPUT` with the exact repository path and blocker.
+The active Proof-Carrying Workflow OS semantic kernel is limited to:
 
-Runtime rule:
-- ChatGPT and Codex should use GitHub markdown files for workflow state.
-- Runtime Direction files must not depend on migration/admin notes.
-- Runtime Direction files must not require a note-database layer.
-- Repository Patch / `repository_patch.v1` is the runtime write proposal format.
+- Ledger
+- Obligation
+- Operator
+- Receipt
+- Invariant
 
-Long file read transport rule:
-- A truncated, omitted, or tail-unverified GitHub connector read is not valid source authority for material workflow work.
-- Core workflow files required in every ChatGPT Project chat may be loaded as Project Files runtime cache, while GitHub remains the source of truth.
-- If a material workflow action depends on a long GitHub file that cannot be read or verified completely, return Context Request with the exact repository path.
-- Do not infer missing file content from memory, search snippets, compact results, or partial GitHub output.
+## Active Runtime Protocols
 
-Admin documentation:
-- Migration/admin docs remain under `migration/` and selected setup docs under `docs/`.
-- Migration/admin docs are not loaded by default in Direction Projects.
+Active runtime protocol and policy sources:
 
-## End-of-file marker
+- `proof_workflow/02_RUNTIME_PROTOCOLS.md`
+- `proof_workflow/03_PROOF_AND_COMMIT_POLICY.md`
+- `proof_workflow/04_TRANSPORT_PROTOCOL.md`
+- `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
+- `proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
+- `proof_workflow/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
+- `proof_workflow/13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
 
-`END_OF_FILE: WORKFLOW_SOURCE_OF_TRUTH.md`
+## Active Project Setup
+
+Active shared setup sources:
+
+- `proof_workflow/08_CHATGPT_PROJECT_SETUP.md`
+- `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
+
+Per-Direction proof project setup files live under:
+
+- `directions/<direction-id>/proof/project_setup/`
+
+## Active Direction State Model
+
+Accepted Direction proof state is stored under:
+
+- `directions/<direction-id>/proof/LEDGER.md`
+- `directions/<direction-id>/proof/OBLIGATIONS.md`
+- `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/proof/COMMIT_SCOPES.md`
+- `directions/<direction-id>/proof/DASHBOARD.md`
+- `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/proof/receipts/`
+- `directions/<direction-id>/proof/projections/`
+
+Only verified Receipts committed to the Ledger create accepted state.
+
+Documents and projections do not create truth.
+
+ChatGPT Project Files are runtime cache, not source of truth.
+
+## Legacy vNext-R Preservation
+
+The pre-proof vNext-R main snapshot is preserved at:
+
+- legacy branch: `legacy/vnext-r-main-before-proof-os-2026-05-25`
+- legacy tag: `vnext-r-main-before-proof-os-2026-05-25`
+
+Old `workflow/**` files remaining in `main` are temporary legacy surfaces until M3 cleanup.
+
+Old workflow files are not active authority after this document is updated.
+
+Old `directions/*/project_files/**` files are legacy evidence only unless explicitly imported through Legacy Import Receipt + Verify + Commit.
+
+Old Direction Map, Active Goal, Current Phase, and Portfolio Queue files are not accepted Proof Ledger state.
+
+The old vNext-R runtime, project_files/00-08 model, Direction Map, Phase, Goal, Portfolio Queue, and `repository_patch.v1` are demoted from active default authority.
+
+## Long File And Read Completeness Rule
+
+A truncated, omitted, or tail-unverified repository read is not sufficient authority for material workflow work.
+
+If material work depends on a file whose full content cannot be verified, return a Context Request naming the exact path and blocker.
+
+In the proof workflow, read-completeness and context-authority behavior is governed by `proof_workflow/**` policies plus future setup docs. Old vNext-R guard files are legacy until replaced or intentionally retained.
+
+## Admin Documentation
+
+Repository setup docs under `docs/` may explain setup and transition procedure, but they do not override `proof_workflow/**`.
+
+Migration/admin docs remain historical context unless a proof workflow Obligation explicitly admits them as legacy evidence.
+
+END_OF_FILE: WORKFLOW_SOURCE_OF_TRUTH.md

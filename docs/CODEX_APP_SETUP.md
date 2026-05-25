@@ -2,9 +2,27 @@
 
 Status: active
 
-Use this file as the user-facing task template for Codex app runs against this repository.
+Use this file as the user-facing setup guide for Codex repository maintenance runs against this repository.
 
 Canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
+
+## Active Authority
+
+Codex must treat `proof_workflow/**` as the active workflow authority.
+
+Codex must not treat old vNext-R runtime, stage, transport, or Direction `project_files/00-08` files as active authority.
+
+Old files may be inspected as legacy evidence only when the task explicitly asks for that, and imported only through the Legacy Import Receipt process.
+
+## Repository Maintenance Boundary
+
+Codex repository maintenance instructions should follow proof workflow transport rules when provided.
+
+Codex Commit Handoff Cards must be self-contained. A commit handoff must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and Project Files refresh requirements.
+
+Product/project execution is separate from repository maintenance and must not be inferred from a maintenance request.
+
+Do not run product/project execution unless an explicit admitted task authorizes it.
 
 ## Default Codex Task Template
 
@@ -12,97 +30,79 @@ Canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 Repository:
 ainazemtsau/my_global_workflow
 
-Target Direction:
-directions/<direction-id>
-
-Allowed scope:
-- directions/<direction-id>/**
-- workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md read-only unless task explicitly says runtime update
-- workflow/stage_registry/STAGE_REGISTRY.md read-only unless task explicitly says registry update
-- workflow/stage_prompts/<specific stage> only if task targets that stage
-- workflow/transport/* only when packet/schema work is required
-
-Forbidden scope:
-- directions/<other-direction>/**
-- unrelated stage prompts
-- unrelated workflow/codex contracts
-- docs/MIGRATION_FROM_TRILIUM.md unless the task is a migration/admin task
-- WORKFLOW_SOURCE_OF_TRUTH.md unless the task is a source-of-truth/admin step
-
-Task:
-[describe exact task]
+Target branch:
+main or named branch
 
 Mode:
-PREVIEW_DIFF first.
-Do not commit/apply until I approve.
+repository maintenance
+
+Allowed paths:
+[exact paths]
+
+Forbidden paths:
+[exact paths]
+
+Task:
+[describe exact maintenance task]
 
 Return:
-- files read
 - files changed
-- diff summary
-- validation performed
-- blockers or missing inputs
-- next user action
+- validation results
+- commit SHA if committed
+- push result if pushed
+- Project Files refresh requirements
+- risks or blockers
 ```
-
-## Direction IDs
-
-- `solo-max-productive`
-- `indie-game-development`
-- `health-and-beauty`
 
 ## Required Codex Behavior
 
 Codex must:
 
 - read `AGENTS.md` at repo root before material edits;
-- read the target Direction `AGENTS.md` before Direction edits;
 - keep edits inside the allowed scope;
-- use GitHub repository markdown files as the workflow state substrate;
-- use `Repository Patch` / `repository_patch.v1` language for workflow writes;
+- use GitHub repository markdown files as the storage substrate;
+- preserve the proof workflow rule: Receipt -> Verify -> Commit -> Ledger update;
 - return exact changed paths;
 - include validation evidence;
-- stop with `NEEDS_INPUT` when required state, credentials, paths, or permissions are missing;
+- report changed files, validation, commit SHA, push result, and Project Files refresh requirements when relevant;
+- stop with `NEEDS_INPUT` or `STUCK` when required state, credentials, paths, permissions, or conflict resolution authority is missing;
 - avoid cross-Direction changes unless the task explicitly names them.
 
 Codex must not:
 
-- invent Direction, Phase, Goal, Queue, Context Index, Wave, execution, or project data;
-- write before preview when the task requests preview-first;
+- invent Direction proof state;
+- treat old Direction project files as accepted state;
+- use old workflow runtime/stage files as active process authority;
 - commit or push unless explicitly authorized;
-- modify other Direction folders;
-- modify runtime prompts unless the task targets a prompt;
-- use migration/admin notes as runtime context;
-- delete files without explicit human approval.
+- delete files without explicit human approval;
+- infer product/project execution from repository maintenance.
 
-## Preview Validation Checklist
+## Validation Checklist
 
-Before apply/commit, verify:
+Before commit/push, verify:
 
 - scope is correct;
+- no forbidden paths changed;
 - no unrelated Direction files changed;
-- no runtime source-of-truth flip occurred unless a source-of-truth/admin task explicitly asks;
-- no invented Direction state appears;
-- `repository_patch.v1` terminology is preserved;
-- validation command or file-read verification is listed;
-- user approval is still required before apply/commit.
+- no old workflow authority was reintroduced;
+- no Direction proof state was invented;
+- validation command or read-back evidence is listed;
+- Project Files refresh impact is reported.
 
-## Apply Return Checklist
+## Return Checklist
 
-After approved apply/commit, return:
+After authorized commit/push, return:
 
 ```yaml
 codex_app_result:
   status: DONE | NEEDS_INPUT | STUCK
   repository: ainazemtsau/my_global_workflow
-  target_direction:
-  files_read:
   files_changed:
-  commit_sha:
   validation:
+  commit_sha:
+  push_result:
+  project_files_refresh_requirements:
   forbidden_scope_check:
   unresolved_risks:
   next_user_action:
 ```
-
-If no commit was authorized, set `commit_sha: none`.
