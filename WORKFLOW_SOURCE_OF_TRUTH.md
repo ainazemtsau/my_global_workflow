@@ -65,9 +65,9 @@ The pre-proof vNext-R main snapshot is preserved at:
 - legacy branch: `legacy/vnext-r-main-before-proof-os-2026-05-25`
 - legacy tag: `vnext-r-main-before-proof-os-2026-05-25`
 
-Old `workflow/codex/**`, `workflow/executor/**`, `workflow/tests/**`, `workflow/validation/**`, and `workflow/amendments/**` files remaining in `main` are legacy/future-inspection surfaces, not active workflow authority.
+The top-level `workflow/` directory has been removed from active `main`.
 
-Old vNext-R runtime, stage registry, stage prompt, and transport surfaces were removed from active `main` in M3. Use the legacy branch/tag if those historical files are needed.
+Old vNext-R workflow files are available only from the legacy branch/tag if historical evidence is needed.
 
 Old `directions/*/project_files/**` files are legacy evidence only unless explicitly imported through Legacy Import Receipt + Verify + Commit.
 
@@ -81,7 +81,7 @@ A truncated, omitted, or tail-unverified repository read is not sufficient autho
 
 If material work depends on a file whose full content cannot be verified, return a Context Request naming the exact path and blocker.
 
-In the proof workflow, read-completeness and context-authority behavior is governed by `proof_workflow/**` policies plus future setup docs. Old vNext-R guard files are legacy until replaced or intentionally retained.
+In the proof workflow, read-completeness and context-authority behavior is governed by `proof_workflow/**` policies plus future setup docs. Old vNext-R guard files are legacy evidence available from the legacy branch/tag only.
 
 ## Admin Documentation
 

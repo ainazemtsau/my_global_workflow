@@ -42,9 +42,9 @@ If a Direction lacks `directions/<direction-id>/proof/project_setup/`, initializ
 
 Old `directions/<direction-id>/project_files/00-08` files are legacy evidence, not default setup.
 
-Old workflow runtime, stage registry, stage prompts, and old transport files are legacy-only and are not default setup.
+The old vNext-R `workflow/` tree is not present in active `main`.
 
-After M3 cleanup, old vNext-R runtime, stage registry, stage prompt, and transport files are available from the legacy branch/tag, not active `main`.
+Old vNext-R workflow files are available from the legacy branch/tag, not active `main`.
 
 Use old files only when a proof workflow Obligation explicitly requests legacy evidence or Legacy Import.
 
