@@ -229,6 +229,14 @@ Human gates block commit or invocation until the required decision is supplied.
 
 Purpose: define when external tools, Codex workspace activity, repository mutation, product execution, release, or irreversible action may be invoked.
 
-Codex and product execution are future gated Operator concepts in this namespace. This Gate 1 install does not implement execution workflow.
+Gate 1 treated Codex and product execution as future gated Operator concepts.
+
+Gate 2 adds execution harness policy under `proof_workflow/execution/` without adding semantic primitives.
+
+No CodexRun may start without target binding, setup status, acceptance predicate, validation plan, allowed and forbidden surfaces, proof policy, and launch card.
+
+No done claim is valid without a Validation Receipt.
+
+Complex Technical Mission direct implementation is denied; mission-scale work must route through the complex mission protocol before slice execution.
 
 END_OF_FILE: proof_workflow/02_RUNTIME_PROTOCOLS.md

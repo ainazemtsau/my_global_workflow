@@ -22,6 +22,7 @@ GitHub files, Markdown documents, YAML sidecars, ChatGPT Project Files, API data
 
 - semantic kernel
 - runtime protocols
+- execution harness specifications
 - proof and commit policy
 - transport protocol
 - operator catalog policy
@@ -32,6 +33,12 @@ GitHub files, Markdown documents, YAML sidecars, ChatGPT Project Files, API data
 - transport card definitions
 - invariant definitions
 - validation checklists
+
+Shared execution specs live under:
+
+```text
+proof_workflow/execution/
+```
 
 ## Future Direction Proof Storage
 
@@ -99,5 +106,22 @@ ChatGPT Project Files may act as runtime cache.
 Project Files are not source of truth for accepted state unless they reflect committed Ledger state.
 
 If Project Files conflict with committed Ledger state, the Ledger wins.
+
+## Product/Project Technical Memory
+
+Project-specific technical memory lives in the target product/project repository, not in the workflow governance repository.
+
+Required project-local execution memory:
+
+```text
+AGENTS.md
+.execution/project_profile.md
+.execution/validation_profile.md
+.execution/module_map.md
+.execution/technical_ledger.md
+.execution/receipts/
+```
+
+Workflow/business documents receive clean projections only. They must not become the source of project-specific technical truth.
 
 END_OF_FILE: proof_workflow/09_STORAGE_LAYOUT_POLICY.md

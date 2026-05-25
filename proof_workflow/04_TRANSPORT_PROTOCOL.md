@@ -115,6 +115,30 @@ It is distinct from product/project execution and must not ask the user to infer
 
 It must include Project Files refresh requirements when changed files are part of a ChatGPT Project cache.
 
+## Codex Execution Launch Card
+
+Codex Execution Launch Card serializes one CodexRun over one execution Obligation.
+
+It is for product/project execution and is distinct from Codex Commit Handoff Card, which is repository maintenance after a Receipt.
+
+## Execution Receipt Card
+
+Execution Receipt Card serializes the return from one execution Operator invocation.
+
+It records changed surfaces, commands, validation receipts, reviewer/subagent receipts, technical memory delta, unresolved risks, rollback notes, ledger delta proposal, and commit recommendation.
+
+## Project Setup Receipt Card
+
+Project Setup Receipt Card serializes target binding, setup status, setup gaps, validation profile status, module map status, and next allowed execution.
+
+## Validation Receipt Card
+
+Validation Receipt Card serializes validation matrix, required and omitted levels, commands or checks run, evidence, failures, validation gaps, and commit allowance.
+
+## Human Action Card
+
+Human Action Card serializes human-guided execution steps, stop conditions, expected visible result, evidence to return, and human confirmation receipt.
+
 ## Proof Relationship
 
 Transport artifacts are not proof unless they contain or point to a valid Receipt.
