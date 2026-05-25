@@ -82,9 +82,22 @@ Minimal initial families:
 - ProjectDashboard
 - LegacyImport
 - PrepareExecutionObligation
-- CodexExecutionPlaceholder
+- ProjectSetup
+- TargetBind
+- TechnicalDiscover
+- CodexPlan
+- CodexRun
+- ValidateExecution
+- RepairExecution
+- SubagentReview
+- HumanGuidedExecute
+- LearnFromExecutionFailure
 - LearnFromFailure
 
-`CodexExecutionPlaceholder` is gated and intentionally minimal. This namespace does not implement product/project execution workflow in Gate 1.
+Gate 2 graduates the placeholder into a gated Codex Operator family.
+
+These operators are not always available. Operator Selection must prove target binding, setup status, validation plan, allowed/forbidden surfaces, proof policy, and launch readiness before use.
+
+CodexRun is one Operator family member, not the execution system.
 
 END_OF_FILE: proof_workflow/05_OPERATOR_CATALOG_POLICY.md

@@ -65,12 +65,13 @@ Protocols govern movement through the kernel:
 - Proof Policy
 - Human Gate Policy
 - Tool / Execution Gate Policy
+- Execution Harness Policy
 
 Protocols are rules for movement. They are not additional semantic primitives.
 
 ### Tier 2: Runtime Adapters And Operational Forms
 
-Adapters serialize, request, route, or project runtime state. Examples include Launch Card, Receipt Card, Context Request Card, Human Decision Card, Codex Commit Handoff Card, Child Obligation Request Card, Child Result Return Card, Parent Recovery Block, Operator Catalog, Process Macro, Projection Document, Dashboard, Strategic Path Map Projection, Horizon Projection, Active Frontier View, Inter-Scope Request, and a future Codex Work Package placeholder.
+Adapters serialize, request, route, or project runtime state. Examples include Launch Card, Receipt Card, Context Request Card, Human Decision Card, Human Action Card, Codex Commit Handoff Card, Codex Execution Launch Card, Execution Receipt Card, Project Setup Receipt Card, Validation Receipt Card, Child Obligation Request Card, Child Result Return Card, Parent Recovery Block, Operator Catalog, Process Macro, Projection Document, Dashboard, Strategic Path Map Projection, Horizon Projection, Active Frontier View, and Inter-Scope Request.
 
 Adapters do not create truth. They may carry claims, point to evidence, or request action, but accepted state requires a verified Receipt committed to the Ledger.
 
@@ -79,6 +80,14 @@ Adapters do not create truth. They may carry claims, point to evidence, or reque
 Physical storage and tooling include GitHub files, Markdown documents, YAML sidecars, ChatGPT Project Files, API databases, Codex workspaces, and external tools / MCP.
 
 Storage preserves and transports state. Storage does not create accepted state by itself.
+
+## Gate 2 Execution Harness
+
+Gate 2 execution specifications live under `proof_workflow/execution/`.
+
+Execution remains kernel-derived: `Obligation -> Operator -> Receipt -> Verify -> Commit`.
+
+Codex execution launch and execution receipt cards are Tier 2 adapters. They do not create new semantic primitives and do not revive a stage system.
 
 ## Core Doctrine
 

@@ -48,6 +48,9 @@ artifact_control:
 - No user is required to infer Codex run boundaries from a Receipt.
 - No partial Codex handoff may be labeled copy-paste runnable.
 - No Codex repository maintenance card may omit Project Files refresh requirements when cached files are changed.
+- No execution-ready receipt -> no CodexRun.
+- No validation receipt -> no done.
+- No direct implementation for mission-scale complex technical work.
 
 ## Enforcement
 
@@ -56,6 +59,8 @@ Invariant checks run during Verify and Commit.
 Hard invariant failure blocks commit.
 
 Invariant uncertainty must produce a residual Obligation, Context Request Card, or Human Decision Card.
+
+Execution-specific invariants are listed in `proof_workflow/invariants/EXECUTION_INVARIANTS.md`.
 
 ## Legacy Term Handling
 
