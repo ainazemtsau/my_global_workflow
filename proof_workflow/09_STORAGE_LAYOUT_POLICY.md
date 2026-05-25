@@ -51,11 +51,14 @@ directions/<direction-id>/proof/
   COMMIT_SCOPES.md
   DASHBOARD.md
   MIGRATION_RECEIPT.md
+  project_setup/
+    CHATGPT_PROJECT_INSTRUCTIONS.md
+    PROJECT_FILES_MANIFEST.md
   receipts/
   projections/
 ```
 
-This run does not create any `directions/<direction-id>/proof/` path.
+This storage policy describes where Direction proof state lives. Creating or updating a Direction proof path requires an explicit admitted setup or migration action.
 
 ## File Roles
 
@@ -71,9 +74,23 @@ This run does not create any `directions/<direction-id>/proof/` path.
 
 `MIGRATION_RECEIPT.md` stores the initial migration Receipt for a Direction when created.
 
+`project_setup/` stores restoration source for ChatGPT Project setup.
+
+`project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` stores restorable Project Instructions.
+
+`project_setup/PROJECT_FILES_MANIFEST.md` stores the Project Files upload manifest.
+
 `receipts/` stores Receipt records.
 
 `projections/` stores generated projection documents.
+
+## Project Setup Files
+
+Project setup files are storage/adapter surfaces, not semantic primitives.
+
+They do not create accepted Ledger state.
+
+They define how to restore the Project context safely.
 
 ## Project Files
 

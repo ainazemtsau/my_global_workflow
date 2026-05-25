@@ -42,6 +42,23 @@ Project Files may provide context, but only committed Ledger and Receipts provid
 
 Loaded domain files must be treated as candidate_context unless the Ledger says otherwise.
 
+## Stored Project Setup Files
+
+Proof ChatGPT Project Instructions must be stored in repository files.
+
+Project Instructions provided only in chat are not restorable and are invalid for durable pilot setup.
+
+Pilot Project setup files may live under:
+
+- `directions/<direction-id>/proof/project_setup/`
+
+For Indie Game Development Proof Pilot:
+
+- `directions/indie-game-development/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/indie-game-development/proof/project_setup/PROJECT_FILES_MANIFEST.md`
+
+Stored proof Project setup files are adapter/storage surfaces. They do not create accepted Ledger state.
+
 ## Legacy Non-Authority
 
 Old workflow runtime files, old stage prompts, old project files, and old project setup files must not be default authority for the new proof workflow.
@@ -60,7 +77,7 @@ Future direction load candidates:
 - `directions/<direction-id>/proof/COMMIT_SCOPES.md`
 - `directions/<direction-id>/proof/DASHBOARD.md`
 
-These are candidates only. This run creates none of them.
+Direction-specific load sets become active only when their proof files exist and are selected by a stored Project Files manifest.
 
 ## Chat Rule
 

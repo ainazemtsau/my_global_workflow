@@ -47,6 +47,17 @@ artifact_control:
 - [ ] Operator Launch Card separates accepted/candidate/projection/legacy context.
 - [ ] Loaded domain context cannot become root objective without explicit human decision or committed receipt.
 
+## Gate 2.2 Project Setup Persistence Validation
+
+- [ ] Project Instructions source file exists.
+- [ ] Project Files manifest exists.
+- [ ] Manifest includes `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`.
+- [ ] Manifest forbids old workflow runtime/stage/project_files default loading.
+- [ ] Project Instructions include Context Authority Rule.
+- [ ] Project Instructions do not treat old Direction files as accepted state.
+- [ ] Project setup files are not semantic primitives.
+- [ ] No old project_setup files changed.
+
 ## Projection Validation
 
 - [ ] Strategic Path Map = projection from accepted strategic Receipts.
