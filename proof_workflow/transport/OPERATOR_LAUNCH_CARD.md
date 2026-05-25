@@ -22,6 +22,8 @@ operator_launch_card:
   card_id: string
   target_obligation_id: string
   operator_id: string
+  parent_obligation_id: string | null
+  child_obligation_id: string | null
   ledger_snapshot_ref: string
   commit_scope_ref: string
   input_context:
@@ -61,6 +63,8 @@ operator_launch_card:
     forbidden_tools: [string]
     execution_allowed: boolean
   parent_or_controller_return_target: string
+  return_to_parent_instruction: string | null
+  recovery_reference: string | null
 ```
 
 ## Admission Rules

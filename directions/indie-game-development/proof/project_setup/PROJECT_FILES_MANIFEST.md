@@ -33,6 +33,7 @@ Project Instructions source:
 - `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
 - `proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
 - `proof_workflow/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
+- `proof_workflow/13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
 - `proof_workflow/invariants/CORE_INVARIANTS.md`
 
 ## Required Transport/Card Files
@@ -44,6 +45,9 @@ Project Instructions source:
 - `proof_workflow/transport/COMMIT_PACKET.md`
 - `proof_workflow/transport/LEGACY_IMPORT_RECEIPT_CARD.md`
 - `proof_workflow/transport/CODEX_COMMIT_HANDOFF_CARD.md`
+- `proof_workflow/transport/CHILD_OBLIGATION_REQUEST_CARD.md`
+- `proof_workflow/transport/CHILD_RESULT_RETURN_CARD.md`
+- `proof_workflow/transport/PARENT_RECOVERY_BLOCK.md`
 
 ## Required Pilot Direction Proof Files
 

@@ -22,6 +22,11 @@ receipt_card:
   receipt_id: string
   obligation_id: string
   operator_id: string
+  parent_child_context:
+    parent_obligation_id: string | null
+    child_obligation_id: string | null
+    sufficient_for_parent_synthesis: true | false | null
+    child_result_return_required: true | false
   verdict: satisfied | partial_success_with_residuals | partial | blocked | invalidated | split_required | failed
   produced_claims:
     - claim: string

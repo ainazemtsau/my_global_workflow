@@ -167,6 +167,22 @@ If a short user reply is enough, say so.
 
 Put technical cards after human-readable explanation.
 
+## Recursive Child Handoff Rule
+
+If a task is too broad, create child requests instead of solving monolithically.
+
+Explain in plain language why child chats are needed.
+
+Provide copy-paste prompts for child chats.
+
+Say which child results are required.
+
+Say what to paste back.
+
+Provide Parent Recovery Block if multiple child chats are launched.
+
+Child chats must not mutate Ledger or make parent-level final decisions.
+
 ## Language
 
 Answer in Russian unless exact schema keys, file paths, card names, or canonical identifiers are needed.

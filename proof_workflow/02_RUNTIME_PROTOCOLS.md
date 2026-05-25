@@ -20,6 +20,8 @@ Human Input Normalization converts clear natural-language human choices into str
 
 Human-Facing Run Closure packages terminal outcome and handoff for the user.
 
+Recursive Child Handoff packages child requests, child results, and parent recovery for compound Obligations.
+
 Adapters serialize protocol inputs and outputs.
 
 Projections render accepted state for human use.
@@ -82,6 +84,20 @@ If another ChatGPT operator run is needed, it must provide a human-readable copy
 
 Output: terminal outcome, human-readable next action, optional Codex Commit Handoff Card, optional next-chat prompt, and technical appendix.
 
+## Recursive Child Handoff
+
+Purpose: create focused child Obligation requests for a compound parent Obligation and recover parent work if the parent chat is lost.
+
+Recursive Child Handoff is runtime policy, not a semantic primitive.
+
+Child runs are ordinary Operator invocations over child Obligations.
+
+Child requests may run now, after dependencies, optionally, or after a blocking condition clears.
+
+Parent must provide copy-paste child prompts, return instructions, and Parent Recovery Block when needed.
+
+Output: child request cards, child result expectations, parent recovery block, and synthesis readiness rules.
+
 ## Obligation Admission
 
 Purpose: decide whether a proposed work item may become an open Obligation.
@@ -127,6 +143,12 @@ Output: selected Operator and selection rationale.
 
 Purpose: split a compound Obligation into child Obligations that can each be handled by one Operator invocation.
 
+Decompose may create Child Obligation Request Cards.
+
+Child requests may run now or after dependencies.
+
+Child runs do not mutate Ledger, close parent Obligations, or make parent-level final decisions.
+
 Recursion:
 
 ```text
@@ -163,7 +185,15 @@ Commit Scope is runtime authority policy over the Ledger. It is not a sixth sema
 
 Purpose: combine accepted child Receipts into a parent Receipt without inventing unsupported claims.
 
-Synthesis must cite child Receipt IDs.
+Synthesis reads child result cards and accepted child Receipts where available.
+
+Synthesis must cite child result IDs or child Receipt IDs.
+
+Parent synthesis waits for required child results.
+
+Missing required child results block synthesis.
+
+Parent recovery works from a Parent Recovery Block plus child results already received.
 
 ## Project
 

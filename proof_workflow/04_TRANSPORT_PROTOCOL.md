@@ -69,6 +69,24 @@ Context Request Card serializes missing blocking context.
 
 It must name the smallest sufficient context needed to continue and explain why continuing without it is unsafe.
 
+## Child Obligation Request Card
+
+Child Obligation Request Card serializes one copy-paste runnable child request from a parent Operator invocation.
+
+It names the parent Obligation, child Obligation, launch order, child prompt, forbidden actions, expected result, return instruction, and recovery reference.
+
+## Child Result Return Card
+
+Child Result Return Card serializes compact child output for parent synthesis.
+
+It is candidate parent input, not Ledger state.
+
+## Parent Recovery Block
+
+Parent Recovery Block serializes enough parent state to recover if the parent chat is lost.
+
+It lists child requests, received results, missing required results, synthesis rules, conflict policy, and copy-paste recovery prompt.
+
 ## Human Decision Card
 
 Human Decision Card serializes a human-owned decision request.

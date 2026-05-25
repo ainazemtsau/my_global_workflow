@@ -76,6 +76,18 @@ artifact_control:
 - [ ] Next Chat launch must include copy-paste human prompt, not only Obligation ID.
 - [ ] User does not need to understand YAML to proceed.
 
+## Gate 4.0 Recursive Child Handoff Validation
+
+- [ ] Recursive Child Handoff Policy exists.
+- [ ] No heavy parallel-mode architecture introduced.
+- [ ] Child request card exists.
+- [ ] Child result return card exists.
+- [ ] Parent recovery block exists.
+- [ ] Project Instructions include recovery behavior.
+- [ ] Child launches are copy-paste runnable.
+- [ ] Child runs cannot mutate Ledger.
+- [ ] Parent synthesis blocks on missing required children.
+
 ## Projection Validation
 
 - [ ] Strategic Path Map = projection from accepted strategic Receipts.

@@ -37,6 +37,12 @@ artifact_control:
 - No user is required to manually construct Codex commit instructions from a Receipt.
 - No next-chat instruction may be only an Obligation ID without human-readable launch text.
 - If a commit is recommended, a Codex handoff must be provided or explicitly deferred with reason.
+- No child run mutates Ledger.
+- No child run closes parent Obligation.
+- No child run makes parent-level final decision.
+- No parent synthesis with missing required child results.
+- No lost parent dependency when child runs are launched; provide Parent Recovery Block.
+- No child launch without copy-paste prompt and return instructions.
 
 ## Enforcement
 
