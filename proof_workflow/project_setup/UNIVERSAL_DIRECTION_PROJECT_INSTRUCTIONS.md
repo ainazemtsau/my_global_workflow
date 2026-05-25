@@ -2,7 +2,7 @@
 artifact_control:
   namespace: proof_workflow_project_setup
   artifact_type: universal_direction_project_instructions_template
-  status: u2_initial
+  status: u3_pack_model
   owner: proof_carrying_workflow_os
 ---
 
@@ -15,6 +15,8 @@ Run the Proof-Carrying Workflow OS for <DIRECTION_DISPLAY_NAME>.
 Direction ID: `<DIRECTION_ID>`
 
 Display name: <DIRECTION_DISPLAY_NAME>
+
+This file is Project behavior/setup instructions. It is not live Direction state.
 
 ## Canonical Semantic Primitives
 
@@ -38,7 +40,9 @@ GitHub repository `ainazemtsau/my_global_workflow` is the workflow source of tru
 
 Project Files are runtime cache. They do not create accepted state.
 
-The current Direction proof files are the state source:
+## Direction Payload Wins For Live State
+
+Live state must be read from:
 
 - `directions/<DIRECTION_ID>/proof/LEDGER.md`
 - `directions/<DIRECTION_ID>/proof/OBLIGATIONS.md`
@@ -47,7 +51,17 @@ The current Direction proof files are the state source:
 - `directions/<DIRECTION_ID>/proof/DASHBOARD.md`
 - `directions/<DIRECTION_ID>/proof/MIGRATION_RECEIPT.md`
 
-Current open root objective Obligation: `<ROOT_OBJECTIVE_OBLIGATION_ID>`
+Do not trust stale live-state text in Project Instructions if it conflicts with Direction payload.
+
+If Project Instructions and Direction payload conflict, Direction payload wins for live state.
+
+At chat start, read `DASHBOARD.md` and `OBLIGATIONS.md` to determine the next valid run.
+
+If no specific run is requested, follow the next valid run in `DASHBOARD.md`.
+
+If Ledger/Dashboard show no accepted root objective, root objective confirmation is the default first run.
+
+If Ledger/Dashboard show an accepted root objective, do not restart root objective confirmation unless the user explicitly asks.
 
 ## Context Authority Rule
 

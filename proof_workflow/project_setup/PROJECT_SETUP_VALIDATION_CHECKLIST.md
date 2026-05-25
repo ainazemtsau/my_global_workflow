@@ -2,7 +2,7 @@
 artifact_control:
   namespace: proof_workflow_project_setup
   artifact_type: project_setup_validation_checklist
-  status: u2_initial
+  status: u3_pack_model
   owner: proof_carrying_workflow_os
 ---
 
@@ -27,6 +27,9 @@ Use this checklist after creating or refreshing a ChatGPT Direction Proof Projec
 - Forbidden old files are not uploaded.
 - Execution Harness Pack is absent unless deliberately enabled.
 - Direction proof Ledger is loaded.
+- Direction manifest uses three shared packs plus six Direction payload files.
+- Direction Project Instructions do not hard-code stale live state.
+- Direction Project Instructions say Direction payload wins for live state.
 - Root objective status is visible.
 - No legacy state was imported automatically.
 - Project can answer `Давай подтвердим корневую цель этого направления.` without using old vNext-R files.

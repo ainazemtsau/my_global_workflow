@@ -54,7 +54,9 @@ Per-Direction setup files remain under:
 - `directions/<direction-id>/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 - `directions/<direction-id>/proof/project_setup/PROJECT_FILES_MANIFEST.md`
 
-U3 will switch those per-Direction manifests to the pack model.
+Per-Direction manifests use the pack model: three shared packs plus six Direction payload files.
+
+Project Instructions are behavior/setup instructions. Direction payload files are live state.
 
 ## Legacy Files
 

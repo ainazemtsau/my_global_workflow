@@ -8,7 +8,7 @@ artifact_control:
   status: active
   repo_path: "docs/CHATGPT_PROJECT_SETUP.md"
   authority: "Setup guide for Proof-Carrying Workflow OS ChatGPT Projects; proof_workflow/** and Direction proof ledgers remain authoritative"
-  freshness: refresh_when_proof_project_setup_or_manifest_changes
+  freshness: refresh_when_proof_project_setup_pack_or_manifest_changes
 ```
 
 ## Purpose
@@ -33,7 +33,7 @@ Per-Direction manifests remain under:
 - `directions/<direction-id>/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 - `directions/<direction-id>/proof/project_setup/PROJECT_FILES_MANIFEST.md`
 
-U3 will switch those per-Direction manifests to the pack model.
+Per-Direction manifests now use the pack model.
 
 ## Default Shared Packs
 
@@ -83,11 +83,15 @@ Old files may be used only as legacy evidence through Legacy Import Receipt + Ve
 
 The old vNext-R `workflow/` tree is not present in active `main`. Use the legacy branch/tag if historical copies are needed.
 
-## Transition Note
+## Active Manifest Model
 
-Existing per-Direction 31-file manifests remain valid until U3.
+The older per-Direction 31-file manifests are superseded.
 
-After U3, new Project creation should use pack-based manifests.
+New Project creation should use pack-based manifests.
+
+Default upload is three shared packs plus six Direction payload files.
+
+Project Instructions are behavior/setup instructions. Direction payload files are live state.
 
 Do not fall back to old vNext-R setup as active runtime.
 

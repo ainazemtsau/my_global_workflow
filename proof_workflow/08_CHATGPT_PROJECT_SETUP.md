@@ -2,7 +2,7 @@
 artifact_control:
   namespace: proof_workflow
   artifact_type: chatgpt_project_setup_principles
-  status: u2_pack_model
+  status: u3_pack_model
   owner: proof_carrying_workflow_os
 ---
 
@@ -43,13 +43,15 @@ Upload Direction payload files individually:
 - `directions/<direction-id>/proof/DASHBOARD.md`
 - `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
 
-## Transition Note
+## Active Manifest Model
 
-Direction-specific manifests will be switched to the pack model in U3.
+Direction-specific manifests use the pack model.
 
-Existing older 31-file manifests remain valid until U3.
+The older 31-file Project Files model is superseded.
 
-After U3, the pack-based manifests supersede the older 31-file Project Files model.
+Default upload is three shared packs plus six Direction payload files.
+
+Project Instructions are behavior/setup instructions. They must not store live state. Direction payload files win for live state.
 
 ## Request-Only Execution Harness
 

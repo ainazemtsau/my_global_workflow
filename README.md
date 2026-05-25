@@ -12,7 +12,7 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 - Universal ChatGPT Project setup lives under `proof_workflow/project_setup/`.
 - Project pack runtime-cache files live under `proof_workflow/project_packs/`.
 - Direction proof state lives under `directions/<direction-id>/proof/`.
-- New ChatGPT Projects should be created or restored from the universal installer and, after U3, pack-based Direction manifests under `directions/<direction-id>/proof/project_setup/`.
+- New ChatGPT Projects should be created or restored from the universal installer and pack-based Direction manifests under `directions/<direction-id>/proof/project_setup/`.
 
 ## Project Setup
 
@@ -30,6 +30,8 @@ Default shared Project Files are:
 - `proof_workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
 The Execution Harness Pack is request-only.
+
+Direction payload files are live state. Project Instructions are behavior/setup instructions.
 
 ## Legacy Boundary
 

@@ -2,7 +2,7 @@
 artifact_control:
   namespace: proof_workflow_project_setup
   artifact_type: universal_project_files_manifest_template
-  status: u2_initial
+  status: u3_pack_model
   owner: proof_carrying_workflow_os
 ---
 
@@ -40,6 +40,10 @@ Project Instructions source:
 
 Load request-only capability packs only when an admitted task needs them.
 
+## Request-Only Exact Canonical Files
+
+If a pack summary is insufficient or exact schema/source text is material, request or load the exact canonical source file listed in the relevant pack `source_manifest`.
+
 ## Do Not Load By Default
 
 - `workflow/**`
@@ -50,6 +54,7 @@ Load request-only capability packs only when an admitted task needs them.
 - `migration/**`
 - product repo `.execution/**` unless it is in the target product repo and explicitly relevant
 - old vNext-R runtime, stage, or transport files
+- raw chats, archive notes, or old rebuild packs
 
 ## Refresh Rule
 
@@ -62,5 +67,14 @@ If any Direction payload file changes, replace that uploaded Direction payload P
 ## Setup Validation
 
 Run `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md` after creating or refreshing a Project.
+
+## Project Files Count Summary
+
+```yaml
+default_upload_count: 9
+default_shared_packs: 3
+direction_payload_files: 6
+request_only_execution_pack: 1
+```
 
 END_OF_FILE: proof_workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md

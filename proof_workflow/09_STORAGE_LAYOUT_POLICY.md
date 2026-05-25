@@ -64,6 +64,8 @@ Packs are not canonical semantic authority.
 
 Canonical source files listed by each pack remain the authority. If a pack conflicts with a verified canonical source file, the canonical source wins.
 
+Direction Project manifests use pack-based default upload: three shared packs plus six Direction payload files.
+
 ## Direction Proof Storage
 
 Per-Direction proof state uses:

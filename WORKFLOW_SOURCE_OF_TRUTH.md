@@ -49,6 +49,10 @@ Per-Direction proof project setup files live under:
 
 - `directions/<direction-id>/proof/project_setup/`
 
+Per-Direction manifests use the active pack model: three shared packs plus six Direction payload files.
+
+Project Instructions are behavior/setup instructions. Direction payload files are live state.
+
 ## Active Direction State Model
 
 Accepted Direction proof state is stored under:

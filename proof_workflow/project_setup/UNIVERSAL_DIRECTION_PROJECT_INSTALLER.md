@@ -12,6 +12,8 @@ artifact_control:
 
 This file defines one universal setup protocol for all Direction ChatGPT Proof Projects.
 
+The pack-based Project Files model is active for Direction Proof Projects.
+
 It is the repository source for the project installation process. It does not create accepted Ledger state.
 
 ## Setup Model
@@ -34,6 +36,7 @@ Layer B - Shared Proof Runtime Packs:
 Layer C - Direction Payload:
 
 - the Direction proof files that carry accepted state and projections
+- the only live Direction state source for Project startup
 
 Layer D - Optional Capability Packs:
 
@@ -94,7 +97,11 @@ Old files may be loaded only as legacy evidence for an admitted Legacy Import Ob
 4. Upload the Direction payload files.
 5. Do not upload forbidden legacy files.
 6. Run the setup validation prompt/checklist.
-7. Start with root objective confirmation.
+7. Start with the next valid run shown by `DASHBOARD.md` / `OBLIGATIONS.md`.
+
+Project Instructions are behavior/setup instructions. They must not store live Direction state.
+
+Live state must be read from Direction payload files. If Project Instructions and Direction payload conflict, Direction payload wins for live state.
 
 ## Existing Direction No-Data-Loss Rule
 
@@ -153,12 +160,15 @@ Before using a new Direction Proof Project for material work, confirm:
 
 - required shared packs are uploaded
 - Direction payload files are uploaded
+- Project Instructions do not hard-code stale live state
+- Direction manifests use three shared packs plus six Direction payload files
 - forbidden old files are not uploaded
+- old vNext-R files are not default-loaded
 - Context Authority is present
 - Human Input Normalization is present
 - Human-Facing Run Closure is present
 - Direction Ledger starts clean unless accepted Receipts exist
 - Execution Harness Pack is absent unless intentionally enabled
-- Project can start with root objective confirmation
+- Project starts from the next valid run shown by `DASHBOARD.md` / `OBLIGATIONS.md`
 
 END_OF_FILE: proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md
