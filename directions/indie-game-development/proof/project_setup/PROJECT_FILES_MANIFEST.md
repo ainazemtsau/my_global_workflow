@@ -49,6 +49,8 @@ Project Instructions source:
 - `proof_workflow/transport/CHILD_RESULT_RETURN_CARD.md`
 - `proof_workflow/transport/PARENT_RECOVERY_BLOCK.md`
 
+The manifest includes `proof_workflow/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md` and `proof_workflow/transport/CODEX_COMMIT_HANDOFF_CARD.md` so the project can require self-contained Codex commit handoffs.
+
 ## Required Pilot Direction Proof Files
 
 - `directions/indie-game-development/proof/LEDGER.md`

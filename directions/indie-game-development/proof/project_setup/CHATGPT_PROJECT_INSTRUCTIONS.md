@@ -161,6 +161,20 @@ If user action is needed, say exactly what to do.
 
 If Codex is needed, provide full Codex Commit Handoff Card.
 
+If a material response ends with `CODEX_COMMIT_NEEDED`, provide a fully self-contained Codex Commit Handoff Card.
+
+The user must be able to copy one block into Codex without adding:
+
+- repository
+- worktree
+- branch
+- mode
+- allowed paths
+- forbidden paths
+- commit/push instructions
+
+If the card cannot be made self-contained, say what is missing and do not claim it is ready.
+
 If new ChatGPT chat is needed, provide exact copy-paste prompt.
 
 If a short user reply is enough, say so.

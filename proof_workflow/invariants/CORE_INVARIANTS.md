@@ -43,6 +43,11 @@ artifact_control:
 - No parent synthesis with missing required child results.
 - No lost parent dependency when child runs are launched; provide Parent Recovery Block.
 - No child launch without copy-paste prompt and return instructions.
+- No Codex commit handoff may require an external wrapper.
+- No commit-ready handoff without repository, worktree, branch, mode, allowed paths, forbidden paths, commit behavior, and push behavior.
+- No user is required to infer Codex run boundaries from a Receipt.
+- No partial Codex handoff may be labeled copy-paste runnable.
+- No Codex repository maintenance card may omit Project Files refresh requirements when cached files are changed.
 
 ## Enforcement
 

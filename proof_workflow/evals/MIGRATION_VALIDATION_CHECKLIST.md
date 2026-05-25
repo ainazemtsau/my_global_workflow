@@ -76,6 +76,17 @@ artifact_control:
 - [ ] Next Chat launch must include copy-paste human prompt, not only Obligation ID.
 - [ ] User does not need to understand YAML to proceed.
 
+## Gate 3.2 Self-Contained Codex Commit Handoff Validation
+
+- [ ] Codex Commit Handoff Card has required run header fields.
+- [ ] Handoff includes repository, worktree, branch, and mode.
+- [ ] Handoff includes allowed_paths and forbidden_paths.
+- [ ] Handoff includes git behavior and no-main-merge rule.
+- [ ] Handoff includes Project Files refresh requirements.
+- [ ] Receipt Card requires self-contained handoff when `commit_recommendation` is `commit`.
+- [ ] Project Instructions tell the operator not to make the user add wrappers.
+- [ ] Partial handoff cannot pass as copy-paste runnable.
+
 ## Gate 4.0 Recursive Child Handoff Validation
 
 - [ ] Recursive Child Handoff Policy exists.

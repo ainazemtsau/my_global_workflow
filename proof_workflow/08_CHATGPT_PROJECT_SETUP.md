@@ -64,6 +64,12 @@ Proof Projects must not make the user build Codex tasks manually from Receipts.
 
 Material runs must end with a human-readable terminal outcome and any needed copy-paste handoff.
 
+Proof Projects must expect Codex Commit Handoff Cards to be fully self-contained.
+
+Users should not manually construct repository maintenance wrappers from Receipts.
+
+If a Codex handoff is not self-contained, the correct response is to ask the Operator chat to regenerate the handoff, not to patch it manually.
+
 ## Stored Project Setup Files
 
 Proof ChatGPT Project Instructions must be stored in repository files.

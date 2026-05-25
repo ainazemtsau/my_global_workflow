@@ -74,6 +74,9 @@ receipt_card:
   commit_recommendation: commit | do_not_commit | needs_human_gate
   handoff_required:
     codex_commit_handoff: true | false
+    codex_commit_handoff_self_contained: true | false
+    missing_handoff_fields:
+      - field: string
     next_chat_prompt: true | false
     reason: string
 ```
@@ -92,6 +95,13 @@ Normalized human input must be visible in the Receipt and must not hide defaults
 
 Every normalized Receipt must include raw user input reference, interpreted decision, selected option when applicable, defaults applied, fields not accepted, residual Obligations, and remaining ambiguity.
 
-If `commit_recommendation` is `commit`, the response must include either a Codex Commit Handoff Card or an explicit reason commit handoff is deferred.
+If `commit_recommendation` is `commit`, the response must include either:
+
+- `codex_commit_handoff: true` with `codex_commit_handoff_self_contained: true`
+- explicit reason commit handoff is deferred
+
+Partial handoff is invalid.
+
+The handoff must not require the user to add repository, worktree, branch, mode, allowed paths, forbidden paths, commit behavior, push behavior, or no-main-merge instructions.
 
 END_OF_FILE: proof_workflow/transport/RECEIPT_CARD.md

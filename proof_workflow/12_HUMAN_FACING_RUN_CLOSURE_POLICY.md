@@ -32,7 +32,9 @@ The response must provide options in normal language and acceptable short replie
 
 A Receipt or commit-worthy delta exists and must be saved by Codex.
 
-The response must provide a full Codex Commit Handoff Card.
+The response must provide a fully self-contained Codex Commit Handoff Card.
+
+The user should be able to copy one block into Codex without adding repository, worktree, branch, mode, path boundaries, commit behavior, push behavior, or no-main-merge instructions.
 
 ### NEXT_CHAT_NEEDED
 
@@ -49,6 +51,12 @@ The run is complete and no repository state change is needed.
 Missing context blocks safe progress.
 
 The response must name the smallest blocking context.
+
+### CODEX_HANDOFF_BLOCKED
+
+Repository maintenance is needed, but the Operator cannot produce a self-contained Codex Commit Handoff Card because required run boundary fields are missing.
+
+The response must name the missing fields and must not claim the handoff is copy-paste runnable.
 
 ### STOP_UNSAFE_OR_OUT_OF_SCOPE
 
@@ -71,7 +79,7 @@ Every material response should use this order:
 - Do not end a material run with Receipt/YAML only.
 - Do not require the user to understand or manually construct YAML.
 - Do not require the user to manually build a Codex task from a Receipt.
-- If a Receipt needs persistence, the operator chat must output a complete Codex Commit Handoff Card.
+- If a Receipt needs persistence, the operator chat must output a complete and self-contained Codex Commit Handoff Card.
 - If next ChatGPT run is needed, output a human-readable copy-paste prompt, not only an Obligation ID.
 - Obligation IDs may be shown, but must not be the only instruction.
 - User-facing text should avoid workflow jargon unless needed.
@@ -82,16 +90,28 @@ Every material response should use this order:
 When terminal outcome is `CODEX_COMMIT_NEEDED`, the response must include:
 
 - concise human explanation
-- full Codex Commit Handoff Card
+- fully self-contained Codex Commit Handoff Card
+- repository
+- worktree
+- branch
+- mode
 - exact allowed paths
 - exact forbidden paths
+- protected paths and files not to touch
 - files to create/update
 - validation requirements
-- commit message
+- commit message and commit requirement
 - push expectation
+- explicit no-main-merge setting
 - Project Files refresh requirements
 
-The user should be able to paste the handoff into Codex without reconstructing the task from a Receipt.
+The user should be able to paste one block into Codex without reconstructing the task from a Receipt or adding an external wrapper.
+
+The response must not output only a Receipt plus a partial handoff.
+
+The response must not say "send this to Codex" unless the pasted block is runnable as-is.
+
+If the operator cannot produce a self-contained Codex handoff, it must clearly state the missing fields and return `BLOCKED_CONTEXT_NEEDED` or `CODEX_HANDOFF_BLOCKED`.
 
 ## Next Chat Rule
 

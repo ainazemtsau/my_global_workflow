@@ -101,11 +101,19 @@ It connects Receipt IDs, target Commit Scope, proposed Ledger delta, verificatio
 
 ## Codex Commit Handoff Card
 
-Codex Commit Handoff Card serializes copy-paste repository maintenance instructions for Codex.
+Codex Commit Handoff Card serializes a copy-paste repository maintenance request for Codex.
 
 Commit Handoff Card = copy-paste repository maintenance instruction for Codex.
 
-It is not product/project execution and must not ask the user to infer repository paths or validation steps from the Receipt.
+It is a transport adapter, not semantic authority.
+
+It must be self-contained.
+
+It must include repository, worktree, branch, mode, allowed paths, forbidden paths, protected paths, git behavior, commit behavior, push behavior, and no-main-merge behavior.
+
+It is distinct from product/project execution and must not ask the user to infer repository paths, execution boundaries, or validation steps from the Receipt.
+
+It must include Project Files refresh requirements when changed files are part of a ChatGPT Project cache.
 
 ## Proof Relationship
 
