@@ -14,6 +14,10 @@ Transport is serialization, not semantic authority.
 
 Transport artifacts carry instructions, context, missing-context requests, decisions, receipts, and commit proposals. They do not create accepted state unless Verify and Commit produce a committed Ledger delta.
 
+Transport may carry accepted state, candidate context, projections, or legacy evidence.
+
+Transport must label authority status when material.
+
 ## Transport Flow
 
 Chat A does not communicate by memory with Chat B.
@@ -34,10 +38,16 @@ It binds:
 - selected Operator
 - Ledger snapshot reference
 - Commit Scope reference
+- accepted state references
+- candidate context references
+- projection context references
+- legacy context references
 - proof policy
 - human and tool gates
 - stop conditions
 - return target
+
+Launch Card should separate `accepted_state_refs` from `candidate_context_refs` and `legacy_context_refs`.
 
 Launch Card is not a legacy stage launch and does not authorize work outside its target Obligation.
 

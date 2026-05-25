@@ -28,6 +28,17 @@ operator_launch_card:
     accepted_receipt_ids: [string]
     projection_refs: [string]
     additional_context_refs: [string]
+  context_authority:
+    accepted_state_refs: [string]
+    committed_receipt_refs: [string]
+    candidate_context_refs: [string]
+    projection_context_refs: [string]
+    legacy_evidence_refs: [string]
+    instruction_context_refs: [string]
+  context_use_rules:
+    candidate_context_may_define_options: true
+    candidate_context_may_define_accepted_state: false
+    legacy_evidence_requires_import_receipt: true
   constraints: [string]
   forbidden_actions: [string]
   required_return_receipt_type: string
@@ -54,6 +65,7 @@ Launch is valid only when:
 - Commit Scope is defined
 - proof policy is explicit
 - required context is present
+- context authority is classified
 - human and tool gates are satisfied or represented as blocking
 - forbidden actions are clear
 

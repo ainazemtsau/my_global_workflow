@@ -38,6 +38,15 @@ artifact_control:
 - [ ] Human Decision Card = human-owned decision request.
 - [ ] Commit Packet = commit proposal or result, not automatic truth.
 
+## Gate 2.1 Context Authority Validation
+
+- [ ] Context Authority Policy exists.
+- [ ] Project Files are context, not accepted truth.
+- [ ] Human Decision Card has decision framing guard.
+- [ ] Receipt Card has context authority audit.
+- [ ] Operator Launch Card separates accepted/candidate/projection/legacy context.
+- [ ] Loaded domain context cannot become root objective without explicit human decision or committed receipt.
+
 ## Projection Validation
 
 - [ ] Strategic Path Map = projection from accepted strategic Receipts.

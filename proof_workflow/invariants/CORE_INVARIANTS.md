@@ -26,6 +26,10 @@ artifact_control:
 - No launch without Run Admission.
 - No high-impact action without Human Gate where required.
 - No single chat for non-atomic compound Obligation unless it returns split_required.
+- No loaded context becomes accepted state without Receipt + Verify + Commit.
+- No candidate context may be promoted to root objective, constraint, Horizon, Active Frontier, roadmap, or execution precondition without explicit acceptance.
+- No Human Decision option may silently embed an unaccepted candidate constraint.
+- No Project File or projection overrides committed Ledger state.
 
 ## Enforcement
 

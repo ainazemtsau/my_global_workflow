@@ -33,6 +33,14 @@ human_decision_card:
   recommendation_if_any:
     option_id: string | null
     rationale: string | null
+  option_framing_audit:
+    unaccepted_candidate_constraints_present: [string]
+    options_that_embed_candidate_constraints:
+      - option_id: string
+        embedded_constraint: string
+        authority_status: accepted | candidate | unknown | legacy
+    neutral_or_broader_option_included: boolean
+    user_must_explicitly_accept_embedded_constraints: boolean
   what_user_must_decide: string
   what_happens_after_decision: string
 ```
@@ -42,6 +50,12 @@ human_decision_card:
 Use this card when the next move depends on preference, risk acceptance, priority, irreversible action, repository mutation approval, product/project execution, launch, publication, or other human-owned choice.
 
 The card may recommend, but the user supplies the decision.
+
+If a material decision option embeds an unaccepted candidate constraint, the card must label it.
+
+If all major options embed the same candidate constraint, the card is invalid unless the decision statement explicitly asks the user to accept that constraint.
+
+At least one broader, custom, or neutral option must be included unless the constraint is already accepted in Ledger.
 
 The decision becomes accepted state only through a Receipt and Commit.
 

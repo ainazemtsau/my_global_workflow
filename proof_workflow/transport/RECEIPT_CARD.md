@@ -35,6 +35,15 @@ receipt_card:
       source_ref: string
       summary: string
   assumptions: [string]
+  context_authority_audit:
+    accepted_state_used: [string]
+    committed_receipts_used: [string]
+    candidate_context_used: [string]
+    projection_context_used: [string]
+    legacy_evidence_used: [string]
+    assumptions_promoted_to_claims: boolean
+    unaccepted_constraints_embedded: boolean
+    notes: string | null
   confidence_uncertainty_labels:
     overall_confidence: high | medium | low | unknown
     material_uncertainties: [string]
@@ -55,5 +64,7 @@ Receipt Card must not claim committed state unless a later Commit Packet records
 Residual Obligations must be explicit when the verdict is partial, blocked, or split_required.
 
 Evidence references must be specific enough for verification.
+
+Receipt must fail or return `needs_input` if it promotes candidate_context to accepted claim without human decision or committed Receipt.
 
 END_OF_FILE: proof_workflow/transport/RECEIPT_CARD.md

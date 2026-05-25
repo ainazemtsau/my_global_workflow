@@ -31,9 +31,16 @@ Candidate shared load set:
 - `proof_workflow/06_PROJECTION_POLICY.md`
 - `proof_workflow/07_MIGRATION_PROTOCOL.md`
 - `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
+- `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
 - `proof_workflow/invariants/CORE_INVARIANTS.md`
 
 Transport card docs may be loaded when a chat needs handoff, receipt, context request, human decision, legacy import, or commit serialization.
+
+## Context Authority Setup Rule
+
+Project Files may provide context, but only committed Ledger and Receipts provide accepted proof state.
+
+Loaded domain files must be treated as candidate_context unless the Ledger says otherwise.
 
 ## Legacy Non-Authority
 

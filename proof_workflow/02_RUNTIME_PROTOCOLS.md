@@ -14,6 +14,8 @@ Semantic primitives are Ledger, Obligation, Operator, Receipt, and Invariant.
 
 Runtime protocols govern how primitives move.
 
+Context Authority classifies loaded context before it is used as a claim basis.
+
 Adapters serialize protocol inputs and outputs.
 
 Projections render accepted state for human use.
@@ -29,6 +31,18 @@ Operator(Obligation) -> Receipt
 One ChatGPT chat = one Operator invocation over one Obligation.
 
 If a chat receives a compound Obligation that cannot be completed atomically, it must return `split_required` or produce child Obligations through Decompose.
+
+## Context Authority
+
+Purpose: classify loaded context by authority before it is used in an Operator invocation, Human Decision Card, Receipt, projection, or commit.
+
+Every material Operator invocation must classify context before using it as claim basis.
+
+Candidate context cannot be used as accepted state.
+
+Project Files, projections, legacy files, and loaded domain material provide context only unless traced to committed Ledger state or current human input.
+
+Output: context authority classification, required caveats, and blockers when authority is unknown or insufficient.
 
 ## Obligation Admission
 

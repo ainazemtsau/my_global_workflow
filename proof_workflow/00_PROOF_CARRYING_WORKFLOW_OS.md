@@ -57,6 +57,7 @@ Protocols govern movement through the kernel:
 - Synthesize
 - Project
 - Learn
+- Context Authority Policy
 - Transport
 - Proof Policy
 - Human Gate Policy
@@ -91,6 +92,8 @@ Processes and macros do not create truth.
 Compatibility layers do not create truth.
 
 Roadmaps do not create truth.
+
+Loaded context does not create truth.
 
 Only verified Receipts committed to the Ledger create accepted state.
 
