@@ -22,7 +22,7 @@ receipt_card:
   receipt_id: string
   obligation_id: string
   operator_id: string
-  verdict: satisfied | partial | blocked | invalidated | split_required | failed
+  verdict: satisfied | partial_success_with_residuals | partial | blocked | invalidated | split_required | failed
   produced_claims:
     - claim: string
       claim_role: fact | inference | assumption | preference | decision | validation | forecast | constraint | artifact_quality
@@ -35,6 +35,18 @@ receipt_card:
       source_ref: string
       summary: string
   assumptions: [string]
+  human_input_normalization:
+    used: boolean
+    raw_user_input_ref: string | null
+    interpreted_decision: string | null
+    selected_option_id: string | null
+    selected_option_text: string | null
+    defaults_applied:
+      - field: string
+        value: string
+        reason: string
+    fields_not_accepted: [string]
+    ambiguity_remaining: [string]
   context_authority_audit:
     accepted_state_used: [string]
     committed_receipts_used: [string]
@@ -66,5 +78,9 @@ Residual Obligations must be explicit when the verdict is partial, blocked, or s
 Evidence references must be specific enough for verification.
 
 Receipt must fail or return `needs_input` if it promotes candidate_context to accepted claim without human decision or committed Receipt.
+
+Normalized human input must be visible in the Receipt and must not hide defaults.
+
+Every normalized Receipt must include raw user input reference, interpreted decision, selected option when applicable, defaults applied, fields not accepted, residual Obligations, and remaining ambiguity.
 
 END_OF_FILE: proof_workflow/transport/RECEIPT_CARD.md

@@ -78,6 +78,18 @@ Receipt does not mutate Ledger automatically.
 
 Projection update happens after committed Ledger delta.
 
+## Normalized Human Input Proof
+
+A Receipt based on normalized human input may pass proof policy when:
+
+- selected option is unambiguous
+- normalization records source as `current_human_input`
+- `context_authority_audit` is included
+- any defaulted fields are explicit
+- residual Obligations are opened for unresolved future work
+
+Normalization must not hide defaults or accept substantive claims not explicit in current human input or the selected option text.
+
 ## Commit Scope Policy
 
 Commit Scope is runtime authority policy over the Ledger. It limits where a commit may write accepted state, close Obligations, open residual Obligations, or update accepted Receipt indexes.

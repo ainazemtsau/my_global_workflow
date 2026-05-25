@@ -30,6 +30,9 @@ artifact_control:
 - No candidate context may be promoted to root objective, constraint, Horizon, Active Frontier, roadmap, or execution precondition without explicit acceptance.
 - No Human Decision option may silently embed an unaccepted candidate constraint.
 - No Project File or projection overrides committed Ledger state.
+- No structured-format requirement for human decisions when intent is clear.
+- No needs_input verdict solely because the user omitted schema fields that can be safely defaulted or delegated.
+- No silent default: every default applied from human input normalization must be recorded in the Receipt.
 
 ## Enforcement
 

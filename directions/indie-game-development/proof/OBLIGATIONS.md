@@ -42,6 +42,11 @@ blocks:
   - horizon commitment
   - active frontier view
   - execution obligations
+normalization_guidance:
+  - terse human selection of a provided option may satisfy the root objective decision if the option is unambiguous
+  - if success semantics are not supplied, delegation to O-IDG-SUCCESS-SEMANTICS-DEFINE is allowed
+  - if constraints are not supplied, selected-option constraints may be classified as accepted/candidate/unknown in the Receipt
+  - do not return needs_input solely because the user did not answer in schema format
 ```
 
 ## Blocked Obligations

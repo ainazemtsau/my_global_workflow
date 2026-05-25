@@ -32,6 +32,7 @@ Candidate shared load set:
 - `proof_workflow/07_MIGRATION_PROTOCOL.md`
 - `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
 - `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
+- `proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
 - `proof_workflow/invariants/CORE_INVARIANTS.md`
 
 Transport card docs may be loaded when a chat needs handoff, receipt, context request, human decision, legacy import, or commit serialization.
@@ -41,6 +42,12 @@ Transport card docs may be loaded when a chat needs handoff, receipt, context re
 Project Files may provide context, but only committed Ledger and Receipts provide accepted proof state.
 
 Loaded domain files must be treated as candidate_context unless the Ledger says otherwise.
+
+## Human Input Setup Rule
+
+Proof Projects should not require users to answer in YAML.
+
+Terse or spoken answers must be normalized when intent is clear.
 
 ## Stored Project Setup Files
 

@@ -58,6 +58,7 @@ Protocols govern movement through the kernel:
 - Project
 - Learn
 - Context Authority Policy
+- Human Input Normalization Policy
 - Transport
 - Proof Policy
 - Human Gate Policy
@@ -94,6 +95,8 @@ Compatibility layers do not create truth.
 Roadmaps do not create truth.
 
 Loaded context does not create truth.
+
+Human users do not need to speak in schemas; workflow normalizes clear intent into Receipts.
 
 Only verified Receipts committed to the Ledger create accepted state.
 

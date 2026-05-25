@@ -100,6 +100,24 @@ If all major options embed the same candidate constraint, the decision card is i
 
 For this pilot, `co-op game` may be treated as candidate_context unless the user explicitly accepts it as root objective / root constraint in the current invocation.
 
+## Human Input Normalization Rule
+
+The user is not required to answer in YAML or structured format.
+
+If the user gives a terse or unstructured decision, normalize it when intent is clear.
+
+If a Human Decision Card has options, a response like `Decision B` is enough to select option B when unambiguous.
+
+Apply explicit safe defaults only when allowed:
+
+- `success_semantics` may default to `delegate_to_child_obligation` if not supplied.
+- constraints may be classified from the selected option as accepted/candidate/unknown.
+- unresolved details become residual Obligations, not blocking `needs_input`, unless material ambiguity remains.
+
+Record normalization and defaults in Receipt Card.
+
+Normalization must not create hidden acceptance, add domain commitments not present in the selected option or current human input, or turn candidate_context into accepted constraints without explicit human acceptance.
+
 ## Legacy Boundary
 
 Do not treat old workflow runtime files, old stage prompts, old Direction `project_files/00-08`, old Direction Map, old Active Goal, old Current Phase, or old Portfolio Queue as accepted proof state.

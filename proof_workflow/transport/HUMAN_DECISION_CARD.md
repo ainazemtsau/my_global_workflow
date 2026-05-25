@@ -41,6 +41,11 @@ human_decision_card:
         authority_status: accepted | candidate | unknown | legacy
     neutral_or_broader_option_included: boolean
     user_must_explicitly_accept_embedded_constraints: boolean
+  input_normalization:
+    accepts_terse_option_reply: boolean
+    accepts_natural_language_reply: boolean
+    default_completion_policy: string | null
+    ambiguity_handling: ask_followup | normalize_with_caveat | reject
   what_user_must_decide: string
   what_happens_after_decision: string
 ```
@@ -56,6 +61,12 @@ If a material decision option embeds an unaccepted candidate constraint, the car
 If all major options embed the same candidate constraint, the card is invalid unless the decision statement explicitly asks the user to accept that constraint.
 
 At least one broader, custom, or neutral option must be included unless the constraint is already accepted in Ledger.
+
+If the user selects an option unambiguously, do not require them to restate all structured fields.
+
+Use the option content and `default_completion_policy` to produce a Receipt, with residual Obligations for unresolved fields.
+
+Normalization must not create hidden acceptance: substantive claims must be explicit in the selected option or current human input.
 
 The decision becomes accepted state only through a Receipt and Commit.
 

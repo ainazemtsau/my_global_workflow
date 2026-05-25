@@ -31,6 +31,7 @@ Project Instructions source:
 - `proof_workflow/08_CHATGPT_PROJECT_SETUP.md`
 - `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
 - `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
+- `proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
 - `proof_workflow/invariants/CORE_INVARIANTS.md`
 
 ## Required Transport/Card Files

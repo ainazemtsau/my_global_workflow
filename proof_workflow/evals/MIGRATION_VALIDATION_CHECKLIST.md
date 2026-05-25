@@ -58,6 +58,15 @@ artifact_control:
 - [ ] Project setup files are not semantic primitives.
 - [ ] No old project_setup files changed.
 
+## Gate 2.3 Human Input Normalization Validation
+
+- [ ] Human Input Normalization Policy exists.
+- [ ] Human Decision Card supports terse/natural-language replies.
+- [ ] Receipt Card records normalized input and defaults.
+- [ ] Project Instructions include low-friction human input rule.
+- [ ] `Decision B` over A/B/C/D can become a satisfied Receipt when option B is clear and defaults are explicit.
+- [ ] Workflow still blocks ambiguous or high-risk silent defaults.
+
 ## Projection Validation
 
 - [ ] Strategic Path Map = projection from accepted strategic Receipts.
