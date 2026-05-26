@@ -16,8 +16,10 @@ direction_id: indie-game-development
 proof_state: root_objective_accepted
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
+  - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
+  - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
 projections_state: root_objective_accepted_no_strategy_projection
@@ -36,9 +38,17 @@ Create and finish an indie game within the already selected concept, with two eq
 - Commercial success / meaningful revenue is a root-level value pillar.
 - Old concept/archive material remains legacy evidence only until admitted through valid workflow.
 
+## Accepted Success Semantics
+
+Full success requires all of the following:
+
+- technical-pride success: A player-visible, gameplay-relevant, non-trivial technical core must be central to the game's value and robust enough to build the game around.
+- game-completion success: The project must become a coherent playable game/product in the already selected concept, not remain only a research sandbox or isolated prototype.
+- commercial success: The game must demonstrate real market value and a credible path to meaningful revenue, while exact revenue targets, channels, pricing, launch route, and timeline remain unresolved.
+- personal-pride success: The user can reasonably be proud of the product because it combines distinctive technical identity, coherent gameplay, and commercial seriousness.
+
 ## Unresolved / Not Accepted
 
-- success semantics
 - hard technical constraints
 - hard product constraints
 - team/time/budget constraints
@@ -75,11 +85,12 @@ Direction proof files are storage and projection surfaces. They are not addition
 ## Accepted Receipts
 
 - R-IDG-ROOT-OBJECTIVE-DECISION-001
+- R-IDG-SUCCESS-SEMANTICS-DEFINE-001
 
 ## Current Work Boundary
 
-The next required runs are `O-IDG-SUCCESS-SEMANTICS-DEFINE` and `O-IDG-CONSTRAINTS-DEFINE`.
+The next required run is `O-IDG-CONSTRAINTS-DEFINE`.
 
-No Strategic Path Map, Horizon, Active Frontier, Roadmap, strategy, success semantics, constraints, execution package, Codex work package, product execution, monetization, launch strategy, or legacy import is created or admitted by this root-objective receipt.
+No Strategic Path Map, Horizon, Active Frontier, Roadmap, strategy, constraints, execution package, Codex work package, product execution, monetization, launch strategy, or legacy import is created or admitted by this success-semantics receipt.
 
 END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md

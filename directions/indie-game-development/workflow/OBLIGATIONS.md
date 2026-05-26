@@ -23,19 +23,6 @@ No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
 
-### O-IDG-SUCCESS-SEMANTICS-DEFINE
-
-```yaml
-obligation_id: O-IDG-SUCCESS-SEMANTICS-DEFINE
-type: clarify
-statement: Define what success means for this direction before strategy or execution.
-status: open
-priority: critical
-reason: Root objective is accepted, but success semantics remain unresolved.
-required_operator:
-  - ClarifyObjective
-```
-
 ### O-IDG-CONSTRAINTS-DEFINE
 
 ```yaml
@@ -69,6 +56,25 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 
 ## Satisfied Obligations
 
+### O-IDG-SUCCESS-SEMANTICS-DEFINE
+
+```yaml
+obligation_id: O-IDG-SUCCESS-SEMANTICS-DEFINE
+type: clarify
+statement: Define what success means for this direction before strategy or execution.
+status: satisfied
+priority: critical
+satisfied_by: R-IDG-SUCCESS-SEMANTICS-DEFINE-001
+accepted_result:
+  success_requires_all:
+    - technical_pride_success
+    - game_completion_success
+    - commercial_success
+    - personal_pride_success
+required_operator:
+  - ClarifyObjective
+```
+
 ### O-IDG-ROOT-OBJECTIVE-CONFIRM
 
 ```yaml
@@ -98,10 +104,8 @@ type: projection
 statement: Create Strategic Path Map projection only after accepted strategic Receipts exist.
 status: blocked
 blocked_by:
-  - O-IDG-SUCCESS-SEMANTICS-DEFINE
   - O-IDG-CONSTRAINTS-DEFINE
 blocked_until:
-  - success semantics accepted
   - constraints accepted
 ```
 
@@ -113,6 +117,6 @@ No CodexExecution operator may run.
 
 No roadmap item exists without admitted Obligation.
 
-Execution remains unavailable until required success semantics, strategy, constraints, and execution-ready precondition Receipts are accepted and committed.
+Execution remains unavailable until required constraints, strategy, and execution-ready precondition Receipts are accepted and committed.
 
 END_OF_FILE: directions/indie-game-development/workflow/OBLIGATIONS.md

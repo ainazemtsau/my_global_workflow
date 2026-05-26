@@ -26,6 +26,7 @@ accepted_root_objective: >
   commercially successful product that can generate meaningful revenue.
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
+  - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
 legacy_import_state: not_performed
 ```
 
@@ -40,9 +41,12 @@ Create and finish an indie game within the already selected concept, with two eq
 - Commercial success / meaningful revenue is a root-level value pillar.
 - Old concept/archive material remains legacy evidence only until admitted through valid workflow.
 
+## Accepted Success Semantics
+
+Full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
+
 ## Open Critical Obligations
 
-- O-IDG-SUCCESS-SEMANTICS-DEFINE
 - O-IDG-CONSTRAINTS-DEFINE
 
 ## Optional Available Obligation
@@ -64,15 +68,14 @@ Create and finish an indie game within the already selected concept, with two eq
 
 ## Next Valid Runs
 
-- ClarifyObjective over `O-IDG-SUCCESS-SEMANTICS-DEFINE`
 - ClarifyObjective over `O-IDG-CONSTRAINTS-DEFINE`
 - optional LegacyImport over `O-IDG-LEGACY-INVENTORY-OPTIONAL` only if explicitly selected
 
 ## Projection Availability
 
-Success semantics and constraints runs: available as next critical clarification runs.
+Constraints run: available as the next critical clarification run.
 
-Strategic Path Map projection: blocked until root objective, success semantics, and constraints are defined by accepted Receipts.
+Strategic Path Map projection: blocked until constraints are defined by accepted Receipts.
 
 Horizon projection: unavailable until committed orientation state exists.
 
