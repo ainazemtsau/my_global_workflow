@@ -70,6 +70,18 @@ Accepted inputs include:
 
 If the input is broad, narrow it to the concrete maintenance problem before proposing changes.
 
+## Real Transcript Review Summary
+
+Short requests such as `проверь чат`, `проверка чата`, `audit transcript`, `посмотри этот чат`, or any pasted completed transcript trigger audit-only transcript review.
+
+Do not require the user to build a formatted prompt. Treat the transcript as evidence, not accepted truth, and do not continue the original task, mutate repository state, create runtime artifacts, start Direction runtime behavior, or default-load live Direction payload files.
+
+Always run P0 Single Responsibility / Atomic Run first: identify declared bounded work, material work actually done, extra work, unfinished work, residual work, phase jumps, multiple independent jobs, unrelated continuation, and missing scope triage or splitting.
+
+Then detect the lifecycle surface and apply only relevant checks across correct project mode, source authority/context classification, surface-specific contracts, Codex handoff/result verification when applicable, and terminal outcome.
+
+Transcript review output must include verdict, bounded work, P0 result, detected lifecycle surface, findings by relevant gate only, transcript evidence, defect classes, affected workflow surfaces, minimal fix, whether Codex is needed, self-contained Codex handoff if persistence is needed, and terminal outcome.
+
 ## Response Shape
 
 Use this response shape when material:
