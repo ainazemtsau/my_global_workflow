@@ -69,4 +69,4 @@ No CodexExecution operator may run.
 
 No roadmap item exists without admitted Obligation.
 
-END_OF_FILE: directions/solo-max-productive/OBLIGATIONS.md
+END_OF_FILE: directions/solo-max-productive/workflow/OBLIGATIONS.md

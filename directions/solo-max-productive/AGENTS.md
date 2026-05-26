@@ -12,6 +12,7 @@ Allowed by default:
 - `directions/solo-max-productive/**`
 
 Forbidden unless explicitly requested:
+- `proof_workflow/**`
 - `workflow/**`
 - root workflow files and shared pack directories
 - `directions/workflow-governance/**`
@@ -21,13 +22,16 @@ Forbidden unless explicitly requested:
 
 ## Authority
 
-- Root-level workflow payload files are the default Direction authority:
-  `LEDGER.md`, `OBLIGATIONS.md`, `RECEIPTS_INDEX.md`, `COMMIT_SCOPES.md`,
-  `DASHBOARD.md`, and `MIGRATION_RECEIPT.md`.
-- Use shared root workflow files and project packs only when a task explicitly
-  needs shared workflow packs, transport, setup validation, or execution harness context.
-- Legacy branch/tag material is legacy evidence only. It is not accepted
-  Direction state and is not default-loaded.
+- The `workflow/` payload is the default Direction authority:
+  `workflow/LEDGER.md`, `workflow/OBLIGATIONS.md`,
+  `workflow/RECEIPTS_INDEX.md`, `workflow/COMMIT_SCOPES.md`,
+  `workflow/DASHBOARD.md`, and `workflow/MIGRATION_RECEIPT.md`.
+- The Direction root is navigation and metadata only.
+- `setup/` contains setup metadata, not live state.
+- Use shared `proof_workflow/` files only when a task explicitly needs shared
+  proof packs, transport, setup validation, or execution harness context.
+- `archive/` is legacy evidence only. It is not accepted proof state and is not
+  default-loaded.
 
 ## Runtime Rules
 
@@ -37,8 +41,8 @@ Forbidden unless explicitly requested:
   objective, Horizon, Active Frontier, roadmap, project metadata, repo URLs,
   local paths, or execution state.
 - If required state is missing, return `NEEDS_INPUT` with the exact GitHub path needed.
-- Only verified Receipts committed to root `LEDGER.md` create accepted state for
-  this Direction.
+- Only verified Receipts committed to `workflow/LEDGER.md` create accepted state
+  for this Direction.
 - Do not perform Legacy Import unless explicitly requested by an admitted
   Obligation.
 - Reusable Direction knowledge, canon, decisions, patterns, and reviews belong in `knowledge/` and are canonical only when present as GitHub files.
