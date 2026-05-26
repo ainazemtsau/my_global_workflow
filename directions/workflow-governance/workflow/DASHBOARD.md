@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: dashboard_projection
-  status: m4_initialized_skeleton
+  status: root_objective_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,20 +11,26 @@ artifact_control:
 
 Direction: Workflow Governance
 
-Proof state: initialized skeleton
+Proof state: root objective accepted
 
-Root objective: unresolved / pending human decision
+Root objective: maintain and harden Workflow OS around proof-carrying, one-obligation-at-a-time execution.
 
-Accepted receipts: none
+Accepted receipts:
+
+- R-WG-ROOT-OBJECTIVE-ATOMIC-RUN-001
 
 Open critical Obligation:
 
+- O-WG-ATOMIC-RUN-HARDEN
+
+Satisfied Obligations:
+
 - O-WG-ROOT-OBJECTIVE-CONFIRM
+- O-WG-SUCCESS-SEMANTICS-DEFINE
+- O-WG-CONSTRAINTS-DEFINE
 
 Blocked Obligations:
 
-- O-WG-SUCCESS-SEMANTICS-DEFINE
-- O-WG-CONSTRAINTS-DEFINE
 - O-WG-LEGACY-INVENTORY-OPTIONAL
 - O-WG-STRATEGIC-MAP-PROJECTION-CREATE
 
@@ -36,10 +42,11 @@ Forbidden now:
 - Roadmap
 - Codex/product execution
 - product/project implementation
+- workflow-core hardening outside O-WG-ATOMIC-RUN-HARDEN
 
 Next valid run:
 
-- O-WG-ROOT-OBJECTIVE-CONFIRM via ClarifyObjective / AskHumanDecision
+- O-WG-ATOMIC-RUN-HARDEN via GovernancePatch / RepositoryMaintenancePlan
 
 Projection warning: Dashboard is projection, not truth; Ledger wins.
 
