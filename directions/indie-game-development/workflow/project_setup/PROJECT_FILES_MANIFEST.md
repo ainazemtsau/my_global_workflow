@@ -50,7 +50,7 @@ Do not paste repository wrapper metadata, marker comments, or `END_OF_FILE` into
 
 ## Optional Receipt Records
 
-- `directions/indie-game-development/workflow/receipts/R-IDG-ROOT-OBJECTIVE-DECISION-B-001.md`
+None currently.
 
 ## Request-Only Capability Packs
 
