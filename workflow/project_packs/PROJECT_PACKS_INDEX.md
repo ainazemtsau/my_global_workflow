@@ -59,7 +59,7 @@ Default upload count excludes Project Instructions UI sources.
 
 The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, Parent Chat Problem Closure, child-handoff gating, Receipt scope audit, and same-parent continuation after Codex results.
 
-For the Workflow Governance Maintenance Project, `GOVERNANCE_MAINTENANCE_PACK.md` also summarizes audit-only real transcript review: short natural-language triggers plus pasted completed transcript, P0 Single Responsibility / Atomic Run as the first mandatory gate, lifecycle surface detection, relevant-only surface checks, Codex handoff/result verification when applicable, stable transcript defect classes, and explicit terminal outcome.
+For the Workflow Governance Maintenance Project, `GOVERNANCE_MAINTENANCE_PACK.md` contains the detailed Real Transcript Review procedure: short natural-language triggers plus pasted completed transcript, P0 Single Responsibility / Atomic Run as the first mandatory gate, lifecycle surface detection, relevant-only surface checks, Codex handoff/result verification when applicable, stable transcript defect classes, and explicit terminal outcome. The Project Instructions UI only bootstraps this procedure.
 
 For the Workflow Governance Maintenance Project, default upload is different:
 

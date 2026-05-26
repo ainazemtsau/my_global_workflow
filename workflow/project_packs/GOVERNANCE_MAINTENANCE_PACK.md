@@ -70,17 +70,130 @@ Accepted inputs include:
 
 If the input is broad, narrow it to the concrete maintenance problem before proposing changes.
 
-## Real Transcript Review Summary
+## Real Transcript Review Procedure
 
-Short requests such as `проверь чат`, `проверка чата`, `audit transcript`, `посмотри этот чат`, or any pasted completed transcript trigger audit-only transcript review.
+Trigger this procedure when the user says `проверь чат`, `проверка чата`, `audit transcript`, `посмотри этот чат`, or submits any completed chat transcript for review.
 
-Do not require the user to build a formatted prompt. Treat the transcript as evidence, not accepted truth, and do not continue the original task, mutate repository state, create runtime artifacts, start Direction runtime behavior, or default-load live Direction payload files.
+The user should only need a short natural-language request plus the pasted transcript. Do not require a formatted prompt, Wave Card, Receipt Card, Codex handoff, YAML, or other schema before reviewing the transcript.
 
-Always run P0 Single Responsibility / Atomic Run first: identify declared bounded work, material work actually done, extra work, unfinished work, residual work, phase jumps, multiple independent jobs, unrelated continuation, and missing scope triage or splitting.
+Transcript review is audit-only:
 
-Then detect the lifecycle surface and apply only relevant checks across correct project mode, source authority/context classification, surface-specific contracts, Codex handoff/result verification when applicable, and terminal outcome.
+- do not continue the original transcript task
+- do not mutate repository state
+- do not create runtime artifacts
+- treat the transcript as evidence, not accepted truth
+- do not default-load live Direction payload files
+- do not turn this maintenance console into an ordinary Direction runtime
 
-Transcript review output must include verdict, bounded work, P0 result, detected lifecycle surface, findings by relevant gate only, transcript evidence, defect classes, affected workflow surfaces, minimal fix, whether Codex is needed, self-contained Codex handoff if persistence is needed, and terminal outcome.
+Always run P0. Run it first. Do not run all later checks mechanically if irrelevant. Apply surface-specific checks after lifecycle detection, and apply only the surface-specific checks that matter for the transcript.
+
+Gate sequence:
+
+- P0 Single Responsibility / Atomic Run
+- P1 Correct Project Mode
+- P2 Source Authority / Context Classification
+- P3 Lifecycle Surface Detection
+- P4 Surface-Specific Contract Checks
+- P5 Codex Handoff / Codex Result Verification when applicable
+- P6 Terminal Outcome
+
+P0 Single Responsibility / Atomic Run is the first mandatory gate. Identify:
+
+- declared bounded work
+- material work actually done
+- extra work, unfinished work, residual work, and phase jumps
+- whether the chat handled multiple independent jobs
+- whether the assistant switched to unrelated work merely because the chat could continue
+- whether compound work was scope-triaged or split before material work
+
+Fail or warn P0 when one chat handled multiple independent jobs, when unrelated work was started without a new bounded objective, or when compound input was not triaged or split before material work.
+
+P1 Correct Project Mode checks whether the assistant preserved the maintenance-console boundary:
+
+- did not run product/project execution by default
+- did not start a Direction runtime
+- did not require Receipt Cards outside candidate results
+- did not use Ledger, Obligation, Receipt, Dashboard, or roadmap state as the controlling chat protocol by default
+
+P2 Source Authority / Context Classification checks whether the assistant separated:
+
+- repository authority from stale Project Files/Sources cache
+- candidate context from accepted state
+- pasted transcript claims from verified evidence
+- legacy evidence from current workflow state
+- pack summaries from exact canonical schema/source text when exact text was material
+
+P3 Lifecycle Surface Detection identifies the relevant Lifecycle Surface or surfaces:
+
+- Project setup/install
+- no accepted root objective
+- root objective clarification
+- success semantics / constraints clarification
+- open admitted Obligation
+- broad user input requiring triage
+- human decision / normalization
+- candidate Receipt
+- Verify + Commit boundary
+- projection / roadmap / dashboard
+- legacy import
+- Codex/execution request
+- Codex result verification
+- validation failed/unavailable
+- terminal closure
+
+P4 Surface-Specific Contract Checks apply only after lifecycle detection. Check the contracts relevant to the detected surface, including:
+
+- maintenance console boundary
+- source authority
+- lifecycle surface
+- runtime law
+- Codex handoff
+- Codex result verification
+- legacy boundary
+- execution gates
+- terminal outcome
+
+P5 Codex Handoff / Codex Result Verification applies when the transcript includes a Codex handoff request, execution request, or pasted Codex result. Check whether:
+
+- the handoff was self-contained before repository persistence
+- execution gates were present before CodexRun/execution
+- pasted Codex results were verified for branch, commit, changed files, forbidden paths, validation evidence, markers, residual risks, and Project Files refresh requirements
+
+P6 Terminal Outcome checks whether the assistant ended the transcript with a clear PASS/WARN/FAIL, DONE/NEEDS INPUT/STUCK when operating under an execution protocol, or an equivalent explicit terminal outcome for the maintenance problem. Do not mark DONE when validation failed, was unavailable, or was not evidenced.
+
+Stable defect classes:
+
+- WG-TR-FAIL-001 multi_work_in_one_chat
+- WG-TR-FAIL-002 no_scope_triage_on_compound_input
+- WG-TR-FAIL-003 maintenance_console_started_direction_runtime
+- WG-TR-FAIL-004 stale_cache_treated_as_truth
+- WG-TR-FAIL-005 candidate_context_promoted_to_accepted_state
+- WG-TR-FAIL-006 unauthorized_roadmap_or_projection
+- WG-TR-FAIL-007 hidden_human_acceptance
+- WG-TR-FAIL-008 codexrun_without_gates
+- WG-TR-FAIL-009 non_self_contained_codex_handoff
+- WG-TR-FAIL-010 codex_result_not_verified
+- WG-TR-FAIL-011 legacy_evidence_treated_as_current_state
+- WG-TR-FAIL-012 no_terminal_outcome
+- WG-TR-FAIL-013 user_forced_to_build_prompt_or_card
+- WG-TR-FAIL-014 no_validation_no_done_violation
+- WG-TR-FAIL-015 overbroad_fix_recommendation
+- WG-TR-FAIL-016 exact_schema_needed_but_pack_summary_used
+
+Required transcript review output:
+
+1. Verdict: PASS / WARN / FAIL.
+2. Bounded work identified.
+3. P0 Single Responsibility result.
+4. Lifecycle surface detected.
+5. Findings by relevant gate only.
+6. Transcript evidence for each material finding.
+7. Defect classes.
+8. Affected workflow surfaces.
+9. Recommended minimal fix.
+10. Whether Codex is needed.
+11. Self-contained Codex handoff if repository persistence is needed.
+12. Terminal outcome.
 
 ## Response Shape
 
