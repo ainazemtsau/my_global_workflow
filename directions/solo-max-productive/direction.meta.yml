@@ -1,21 +1,22 @@
 direction:
-  id: solo_max_productive
+  id: solo-max-productive
   name: Solo Max Productive
   status: active
   source_of_truth: github_markdown
   github_repo: https://github.com/ainazemtsau/my_global_workflow
   repo_path: directions/solo-max-productive
 chatgpt:
-  project_name: Solo Max Productive
+  project_name: Solo Max Productive — Proof
   default_files:
-  - directions/solo-max-productive/project_files/00_DIRECTION_START_HERE.md
-  - directions/solo-max-productive/project_files/01_DIRECTION_STATE.md
-  - directions/solo-max-productive/project_files/02_CURRENT_PHASE.md
-  - directions/solo-max-productive/project_files/03_FOCUS_REGISTER.md
-  - directions/solo-max-productive/project_files/04_ACTIVE_GOAL.md
-  - directions/solo-max-productive/project_files/05_PORTFOLIO_QUEUE.md
-  - directions/solo-max-productive/project_files/06_CONTEXT_LIBRARY_INDEX.md
-  - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+  - proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
+  - proof_workflow/project_packs/PROOF_BASE_PACK.md
+  - proof_workflow/project_packs/TRANSPORT_CORE_PACK.md
+  - directions/solo-max-productive/LEDGER.md
+  - directions/solo-max-productive/OBLIGATIONS.md
+  - directions/solo-max-productive/RECEIPTS_INDEX.md
+  - directions/solo-max-productive/COMMIT_SCOPES.md
+  - directions/solo-max-productive/DASHBOARD.md
+  - directions/solo-max-productive/MIGRATION_RECEIPT.md
 documentation:
   source_of_truth: github_markdown
   knowledge:
@@ -24,6 +25,9 @@ documentation:
   domain_docs:
     path: directions/solo-max-productive/domain_docs
     role: canonical domain documentation for this Direction
+  archive:
+    path: directions/solo-max-productive/archive
+    role: legacy evidence only; not accepted proof state and not default-loaded
 projects:
   embedded: []
   external_repos:

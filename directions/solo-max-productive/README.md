@@ -4,15 +4,22 @@ Status: active
 Source of truth: GitHub markdown
 Direction path: directions/solo-max-productive
 
-Use this folder as the canonical runtime and documentation space for the Solo Max Productive Direction.
+This Direction is a Proof Project. Live Direction state is carried by the
+root-level proof payload files in this folder:
 
-Runtime defaults:
-- project_files/00_DIRECTION_START_HERE.md
-- project_files/01_DIRECTION_STATE.md
-- project_files/02_CURRENT_PHASE.md
-- project_files/03_FOCUS_REGISTER.md
-- project_files/04_ACTIVE_GOAL.md
-- project_files/05_PORTFOLIO_QUEUE.md
-- project_files/06_CONTEXT_LIBRARY_INDEX.md
+- LEDGER.md
+- OBLIGATIONS.md
+- RECEIPTS_INDEX.md
+- COMMIT_SCOPES.md
+- DASHBOARD.md
+- MIGRATION_RECEIPT.md
 
-Knowledge and domain documentation are request-loaded by GitHub path, not loaded by default.
+Only verified Receipts committed to root LEDGER.md create accepted state for
+this Direction. The current Ledger has no accepted root objective and no
+Legacy Import has been performed.
+
+The `archive/` folder contains legacy vNext-R materials as evidence only. It is
+not accepted proof state and is not default-loaded.
+
+Knowledge and domain documentation are request-loaded by GitHub path, not loaded
+by default.

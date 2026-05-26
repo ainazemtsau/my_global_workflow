@@ -21,4 +21,4 @@ rules:
 
 No receipts are invented by this skeleton.
 
-END_OF_FILE: directions/solo-max-productive/proof/RECEIPTS_INDEX.md
+END_OF_FILE: directions/solo-max-productive/RECEIPTS_INDEX.md
