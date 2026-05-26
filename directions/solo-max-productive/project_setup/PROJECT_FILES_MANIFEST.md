@@ -14,7 +14,7 @@ Project name: Solo Max Productive — Proof
 
 Project Instructions source:
 
-- `directions/solo-max-productive/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/solo-max-productive/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 
 ## Default Shared Project Packs
 
@@ -24,12 +24,12 @@ Project Instructions source:
 
 ## Direction Payload
 
-- `directions/solo-max-productive/proof/LEDGER.md`
-- `directions/solo-max-productive/proof/OBLIGATIONS.md`
-- `directions/solo-max-productive/proof/RECEIPTS_INDEX.md`
-- `directions/solo-max-productive/proof/COMMIT_SCOPES.md`
-- `directions/solo-max-productive/proof/DASHBOARD.md`
-- `directions/solo-max-productive/proof/MIGRATION_RECEIPT.md`
+- `directions/solo-max-productive/LEDGER.md`
+- `directions/solo-max-productive/OBLIGATIONS.md`
+- `directions/solo-max-productive/RECEIPTS_INDEX.md`
+- `directions/solo-max-productive/COMMIT_SCOPES.md`
+- `directions/solo-max-productive/DASHBOARD.md`
+- `directions/solo-max-productive/MIGRATION_RECEIPT.md`
 
 ## Request-Only Capability Packs
 
@@ -44,7 +44,7 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 ## Do Not Load By Default
 
 - `workflow/**`
-- `directions/solo-max-productive/project_files/**`
+- `directions/solo-max-productive/archive/**`
 - `directions/solo-max-productive/project_setup/**`
 - `directions/*/project_files/**`
 - `directions/*/project_setup/**`
@@ -81,4 +81,4 @@ direction_payload_files: 6
 request_only_execution_pack: 1
 ```
 
-END_OF_FILE: directions/solo-max-productive/proof/project_setup/PROJECT_FILES_MANIFEST.md
+END_OF_FILE: directions/solo-max-productive/project_setup/PROJECT_FILES_MANIFEST.md

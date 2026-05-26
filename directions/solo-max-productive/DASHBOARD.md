@@ -43,4 +43,4 @@ Next valid run:
 
 Projection warning: Dashboard is projection, not truth; Ledger wins.
 
-END_OF_FILE: directions/solo-max-productive/proof/DASHBOARD.md
+END_OF_FILE: directions/solo-max-productive/DASHBOARD.md

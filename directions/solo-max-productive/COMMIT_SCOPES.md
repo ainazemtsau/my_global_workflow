@@ -53,4 +53,4 @@ Commit Scope does not create truth.
 
 Only committed Receipts update Ledger state.
 
-END_OF_FILE: directions/solo-max-productive/proof/COMMIT_SCOPES.md
+END_OF_FILE: directions/solo-max-productive/COMMIT_SCOPES.md
