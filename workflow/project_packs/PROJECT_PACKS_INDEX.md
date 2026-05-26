@@ -21,6 +21,7 @@ source_manifest:
   - workflow/project_packs/WORKFLOW_BASE_PACK.md
   - workflow/project_packs/TRANSPORT_CORE_PACK.md
   - workflow/project_packs/EXECUTION_HARNESS_PACK.md
+  - workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md
 ---
 
 # Project Packs Index
@@ -41,7 +42,7 @@ If this index conflicts with a pack or canonical source file, the more specific 
 
 ## Default Load Recommendation
 
-For ordinary Direction Workflow Projects, default upload can be reduced to:
+For ordinary Direction Workflow Projects, default upload is:
 
 - `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
 - `workflow/project_packs/WORKFLOW_BASE_PACK.md`
@@ -52,18 +53,33 @@ Direction payload files are the Direction Ledger, Obligations, Receipts index, C
 
 The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, Parent Chat Problem Closure, child-handoff gating, Receipt scope audit, and same-parent continuation after Codex results.
 
+For the Workflow Governance Maintenance Project, default upload is different:
+
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
+- `workflow/project_packs/PROJECT_PACKS_INDEX.md`
+- `docs/CHATGPT_PROJECT_SETUP.md`
+- `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+
+`workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is default only for the Workflow Governance Maintenance Project.
+
+It is not default for ordinary Direction Workflow Projects.
+
+Ordinary Direction Workflow Projects still use Universal Shell, Workflow Base, Transport Core, and Direction payload files.
+
+The maintenance console should not default-load Direction payload files.
+
 ## Request-Only Capability Packs
 
 Use `workflow/project_packs/EXECUTION_HARNESS_PACK.md` only when the Direction Project intentionally works on execution readiness, CodexRun, validation, complex technical missions, human-guided execution, or product repo technical memory.
 
 The execution harness pack is not a default load for every chat.
 
-Future optional request-only packs may include:
+Optional request-only packs may include:
 
 - `workflow/project_packs/MIGRATION_LEGACY_IMPORT_PACK.md`
-- `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
 
-Those future pack names are reserved only as recommendations. They are not created by this U1 patch.
+`workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is an actual pack for the Workflow Governance Maintenance Project, not a future optional ordinary Direction Project pack.
 
 ## Exact Schema Fallback
 

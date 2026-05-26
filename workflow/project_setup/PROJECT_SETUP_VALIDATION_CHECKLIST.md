@@ -8,9 +8,14 @@ artifact_control:
 
 # Project Setup Validation Checklist
 
-Use this checklist after creating or refreshing a ChatGPT Direction Workflow Project.
+Use this checklist after creating or refreshing a ChatGPT Project.
 
-## Required Checks
+First identify the Project type:
+
+- ordinary Direction Workflow Project
+- Workflow Governance Maintenance Project
+
+## Ordinary Direction Workflow Project Checks
 
 - Project Instructions source is correct.
 - Default packs are uploaded:
@@ -33,6 +38,34 @@ Use this checklist after creating or refreshing a ChatGPT Direction Workflow Pro
 - Root objective status is visible.
 - No legacy state was imported automatically.
 - Project can answer `Давай подтвердим корневую цель этого направления.` without using old vNext-R files.
+
+## Workflow Governance Maintenance Project Checks
+
+- Project Instructions source is `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
+- Project Files manifest source is `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`.
+- Default Project Files are only:
+  - `WORKFLOW_SOURCE_OF_TRUTH.md`
+  - `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
+  - `workflow/project_packs/PROJECT_PACKS_INDEX.md`
+  - `docs/CHATGPT_PROJECT_SETUP.md`
+  - `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+- Stale Direction runtime Project Files were removed from the ChatGPT Project.
+- `workflow/project_packs/WORKFLOW_BASE_PACK.md` is absent by default.
+- `workflow/project_packs/TRANSPORT_CORE_PACK.md` is absent by default.
+- `workflow/project_packs/EXECUTION_HARNESS_PACK.md` is absent by default.
+- Workflow Governance Direction payload files are absent by default:
+  - `directions/workflow-governance/workflow/LEDGER.md`
+  - `directions/workflow-governance/workflow/OBLIGATIONS.md`
+  - `directions/workflow-governance/workflow/RECEIPTS_INDEX.md`
+  - `directions/workflow-governance/workflow/COMMIT_SCOPES.md`
+  - `directions/workflow-governance/workflow/DASHBOARD.md`
+  - `directions/workflow-governance/workflow/MIGRATION_RECEIPT.md`
+- The Project does not start by reading Dashboard/Obligations next-valid-run state.
+- The Project does not ask for root objective by default.
+- The Project does not emit Receipt Cards by default.
+- The Project handles one concrete maintenance problem, audit, research request, setup question, Codex handoff, or Codex result verification per chat.
+- Repository persistence responses include a self-contained Codex handoff.
+- Pasted Codex output is verified for scope, changed files, validation, forbidden-path cleanliness, Project Files refresh requirements, and residual issues.
 
 ## Execution Pack Enabled Check
 

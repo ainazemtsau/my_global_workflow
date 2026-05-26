@@ -19,25 +19,74 @@ This file is setup documentation. It is not runtime state and does not create ac
 
 ## Project Model
 
-Create one ChatGPT Project per Direction.
+There are two supported ChatGPT Project types:
 
-New Workflow Projects should use:
+- Direction Workflow Project
+- Workflow Governance Maintenance Project
+
+## Project Types
+
+### Direction Workflow Project
+
+A Direction Workflow Project runs the Workflow OS for one Direction.
+
+Create one ChatGPT Project per ordinary Direction.
+
+Direction Workflow Projects use the universal runtime setup and the Direction payload for that Direction.
+
+They are allowed to use Dashboard/Obligations next-valid-run behavior according to their Project Instructions and manifest.
+
+### Workflow Governance Maintenance Project
+
+The Workflow Governance Maintenance Project services the Workflow OS repository.
+
+It is a maintenance, audit, debug, research, setup, Codex handoff, and Codex result verification console.
+
+It uses a different default upload set from ordinary Direction Workflow Projects.
+
+It must not start from Dashboard/Obligations next valid run.
+
+It must not ask for root objective unless the user's specific issue is about root objective state.
+
+It must not default-load Direction payload files.
+
+Its Project Instructions source is:
+
+- `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+
+Its Project Files manifest source is:
+
+- `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`
+
+Its default Project Files are:
+
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
+- `workflow/project_packs/PROJECT_PACKS_INDEX.md`
+- `docs/CHATGPT_PROJECT_SETUP.md`
+- `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+
+Workflow runtime packs and Workflow Governance Direction payload files are request-only in the maintenance project.
+
+## Direction Workflow Project Setup
+
+New ordinary Direction Workflow Projects should use:
 
 - Universal installer: `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
 - Universal instructions template: `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
 - Universal manifest template: `workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
 - Setup validation checklist: `workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
 
-Per-Direction manifests remain under:
+Per-Direction manifests for ordinary Direction Workflow Projects remain under:
 
 - `directions/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 - `directions/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md`
 
 Per-Direction manifests now use the pack model.
 
-## Default Shared Packs
+## Direction Default Shared Packs
 
-New Workflow Projects should upload these shared packs:
+Ordinary Direction Workflow Projects should upload these shared packs:
 
 - `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
 - `workflow/project_packs/WORKFLOW_BASE_PACK.md`
@@ -45,9 +94,9 @@ New Workflow Projects should upload these shared packs:
 
 The packs are runtime cache / upload convenience files. They are not semantic authority. Canonical source files listed in each pack remain authority.
 
-## Required Direction Payload
+## Direction Required Payload
 
-Upload Direction proof files from `directions/<direction-id>/**`:
+For ordinary Direction Workflow Projects, upload Direction proof files from `directions/<direction-id>/**`:
 
 - `directions/<direction-id>/LEDGER.md`
 - `directions/<direction-id>/OBLIGATIONS.md`
@@ -83,9 +132,11 @@ The active `workflow/` directory is the current Workflow OS namespace. Use the l
 
 The older per-Direction 31-file manifests are superseded.
 
-New Project creation should use pack-based manifests.
+Ordinary Direction Workflow Project creation should use pack-based manifests.
 
-Default upload is three shared packs plus six Direction payload files.
+Ordinary Direction default upload is three shared packs plus six Direction payload files.
+
+The Workflow Governance Maintenance Project default upload is the five-file maintenance-console set listed in Project Types.
 
 Project Instructions are behavior/setup instructions. Direction payload files are live state.
 

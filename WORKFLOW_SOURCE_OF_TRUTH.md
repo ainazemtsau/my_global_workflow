@@ -47,6 +47,15 @@ Project pack runtime-cache files live under:
 
 Project packs are upload convenience/runtime cache only. Canonical source files listed by each pack remain authority.
 
+ChatGPT Project setup has two active project types:
+
+- ordinary Direction Workflow Projects
+- Workflow Governance Maintenance Project
+
+Ordinary Direction Workflow Projects run the Workflow OS for one Direction.
+
+The Workflow Governance Maintenance Project services the Workflow OS repository and does not run the Workflow OS as a Direction runtime by default.
+
 Per-Direction project setup files live under:
 
 - `directions/<direction-id>/project_setup/`
@@ -57,7 +66,13 @@ Workflow Governance is the self-hosted governance Direction and uses `directions
 
 Other Direction-specific setup locations are declared by each Direction's `direction.meta.yml`.
 
-Per-Direction manifests use the active pack model: three shared packs plus six Direction payload files.
+Ordinary Direction manifests use the active pack model: three shared packs plus six Direction payload files.
+
+The Workflow Governance Maintenance Project uses a different five-file default upload set declared in:
+
+- `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`
+
+It must not default-load Workflow Governance live Direction payload files or ordinary workflow runtime packs.
 
 Project Instructions are behavior/setup instructions. Direction payload files are live state.
 

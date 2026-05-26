@@ -10,15 +10,32 @@ artifact_control:
 
 ## Scope
 
-This file defines active setup principles for ChatGPT Direction Workflow Projects.
+This file defines active setup principles for ChatGPT Project setup in the Workflow OS repository.
 
 Project setup files are storage/adapter surfaces. They do not create accepted Ledger state.
 
-Use `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md` for new Projects.
+Use `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md` for new ordinary Direction Workflow Projects.
+
+## Project Types
+
+There are two supported setup types:
+
+- ordinary Direction Workflow Projects
+- Workflow Governance Maintenance Project
+
+Ordinary Direction Workflow Projects run the Workflow OS for one Direction.
+
+The Workflow Governance Maintenance Project services the workflow repository as a maintenance, audit, debug, research, setup, Codex handoff, and Codex result verification console.
+
+The existing universal direction project instructions template is not the correct template for the Workflow Governance Maintenance Console.
+
+The maintenance console must not default to Dashboard/Obligations next-valid-run behavior, root objective confirmation, Obligation-controlled chat protocol, or Receipt Card output.
+
+The maintenance console must not default-load Direction payload files.
 
 ## Universal Setup Model
 
-New Direction Workflow Projects use one setup model:
+New ordinary Direction Workflow Projects use one setup model:
 
 - Universal Project Shell
 - Shared Workflow Runtime Packs
@@ -26,15 +43,28 @@ New Direction Workflow Projects use one setup model:
 - Optional Capability Packs
 - Product Repo Execution Setup, handled separately in the target product repository
 
+The Workflow Governance Maintenance Project uses its own Project Instructions and manifest:
+
+- `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`
+
+Its default upload set is:
+
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
+- `workflow/project_packs/PROJECT_PACKS_INDEX.md`
+- `docs/CHATGPT_PROJECT_SETUP.md`
+- `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+
 ## Default Upload Surface
 
-Use packs as the default shared upload surface:
+For ordinary Direction Workflow Projects, use packs as the default shared upload surface:
 
 - `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
 - `workflow/project_packs/WORKFLOW_BASE_PACK.md`
 - `workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
-Upload Direction payload files individually:
+For ordinary Direction Workflow Projects, upload Direction payload files individually:
 
 - `directions/<direction-id>/LEDGER.md`
 - `directions/<direction-id>/OBLIGATIONS.md`
@@ -49,7 +79,9 @@ Direction-specific manifests use the pack model.
 
 The older 31-file Project Files model is superseded.
 
-Default upload is three shared packs plus six Direction payload files.
+Ordinary Direction default upload is three shared packs plus six Direction payload files.
+
+Workflow Governance Maintenance Project default upload is the five-file maintenance-console set listed above.
 
 Project Instructions are behavior/setup instructions. They must not store live state. Direction payload files win for live state.
 
@@ -80,9 +112,11 @@ Per-Direction generated setup files live under:
 
 ## Context Authority Setup Rule
 
-Project Files may provide context, but only committed Ledger and Receipts provide accepted state.
+For ordinary Direction Workflow Projects, Project Files may provide context, but only committed Ledger and Receipts provide accepted state.
 
 Loaded domain files must be treated as candidate_context unless the Ledger says otherwise.
+
+For the Workflow Governance Maintenance Project, GitHub repository state is source of truth and Project Files are cache. Load exact affected files on demand. Ledger, Obligation, and Receipt concepts are analyzed subject matter unless the user explicitly asks to inspect or validate runtime state.
 
 ## Human Input Setup Rule
 
@@ -106,9 +140,9 @@ Old workflow runtime files, old stage prompts, old transport files, old Directio
 
 They may be loaded only as explicitly identified legacy evidence for a Legacy Import Obligation.
 
-## Chat Rule
+## Ordinary Direction Chat Rule
 
-One active target Obligation may be worked materially at a time.
+For ordinary Direction Workflow Projects, one active target Obligation may be worked materially at a time.
 
 One bounded user problem should remain in one parent chat until terminal outcome when safe.
 
@@ -121,5 +155,7 @@ Same-parent continuation is the default after `CODEX_COMMIT_NEEDED`: the user re
 If the work is compound, the chat must scope-triage, decompose only what is required for the current target Obligation, or return `split_required` instead of pretending completion.
 
 The parent chat must not switch to unrelated work merely because it can continue.
+
+The Workflow Governance Maintenance Project uses one concrete maintenance problem per chat and does not use Obligation framing as the controlling chat protocol by default.
 
 END_OF_FILE: workflow/policies/08_CHATGPT_PROJECT_SETUP.md
