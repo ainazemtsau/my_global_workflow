@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: transport_protocol
-  status: gate_1_initial
+  status: project_instruction_budget_residual_sweep
   owner: workflow_os
 ---
 
@@ -113,7 +113,15 @@ It must include repository, worktree, branch, mode, allowed paths, forbidden pat
 
 It is distinct from product/project execution and must not ask the user to infer repository paths, execution boundaries, or validation steps from the Receipt.
 
-It must include Project Files refresh requirements when changed files are part of a ChatGPT Project cache.
+It must include separated project refresh requirements when changed files affect ChatGPT Projects.
+
+Separated project refresh requirements must distinguish:
+
+- `project_instruction_ui_update_required`
+- `project_instruction_ui_payload_char_counts` when Project Instructions UI sources change
+- `project_sources_files_refresh_required`
+- `request_only_sources_refresh_required`
+- `do_not_upload_as_project_file`
 
 ## Codex Execution Launch Card
 

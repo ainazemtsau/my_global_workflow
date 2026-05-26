@@ -20,7 +20,7 @@ Old files may be inspected as legacy evidence only when the task explicitly asks
 
 Codex repository maintenance instructions should follow workflow transport rules when provided.
 
-Codex Commit Handoff Cards must be self-contained. A commit handoff must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and Project Files refresh requirements.
+Codex Commit Handoff Cards must be self-contained. A commit handoff must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
 
 Product/project execution is separate from repository maintenance and must not be inferred from a maintenance request.
 
@@ -64,7 +64,7 @@ Return:
 - validation results
 - commit SHA if committed
 - push result if pushed
-- Project Files refresh requirements
+- separated project refresh requirements
 - risks or blockers
 ```
 
@@ -78,7 +78,7 @@ Codex must:
 - preserve the workflow rule: Receipt -> Verify -> Commit -> Ledger update;
 - return exact changed paths;
 - include validation evidence;
-- report changed files, validation, commit SHA, push result, and Project Files refresh requirements when relevant;
+- report changed files, validation, commit SHA, push result, and separated project refresh requirements when relevant;
 - stop with `NEEDS_INPUT` or `STUCK` when required state, credentials, paths, permissions, or conflict resolution authority is missing;
 - avoid cross-Direction changes unless the task explicitly names them.
 
@@ -101,7 +101,7 @@ Before commit/push, verify:
 - no old workflow authority was reintroduced;
 - no Direction proof state was invented;
 - validation command or read-back evidence is listed;
-- Project Files refresh impact is reported.
+- separated project refresh impact is reported.
 
 ## Return Checklist
 
@@ -115,7 +115,11 @@ codex_app_result:
   validation:
   commit_sha:
   push_result:
-  project_files_refresh_requirements:
+  project_instruction_ui_update_required:
+  project_instruction_ui_payload_char_counts:
+  project_sources_files_refresh_required:
+  request_only_sources_refresh_required:
+  do_not_upload_as_project_file:
   forbidden_scope_check:
   unresolved_risks:
   next_user_action:

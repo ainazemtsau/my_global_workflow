@@ -5,10 +5,10 @@ artifact_control:
   pack_name: PROJECT_PACKS_INDEX
   pack_type: runtime_cache_upload_convenience_index
   intended_load_mode: request_only
-  status: project_instruction_budget_hardened
+  status: project_instruction_budget_residual_sweep
   owner: workflow_os
-  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
-  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
+  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this index if any source_manifest file changes."
 source_manifest:
@@ -45,6 +45,8 @@ This index is request-only. Do not upload it by default unless exact setup inspe
 Project Instructions UI is separate from Project Files/Sources. Repository instruction sources such as `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` are pasted into the ChatGPT Project Instructions field and are not uploaded as default Project Files/Sources.
 
 Project Instructions UI payloads must stay below the 8,000-character hard max, target 6,500 characters, and warn above 7,200 characters.
+
+Codex handoffs must use separated project refresh fields, including payload character counts when instruction sources change.
 
 ## Default Load Recommendation
 

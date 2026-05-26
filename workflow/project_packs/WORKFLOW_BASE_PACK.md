@@ -5,10 +5,10 @@ artifact_control:
   pack_name: WORKFLOW_BASE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: atomic_run_hardened
+  status: project_instruction_budget_residual_sweep
   owner: workflow_os
-  generated_from_ref: wg/root-objective-atomic-run@R-WG-ATOMIC-RUN-HARDEN-001
-  refreshed_for_receipt: R-WG-ATOMIC-RUN-HARDEN-001
+  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -112,5 +112,11 @@ Obligation -> Operator -> Receipt -> Verify -> Commit
 ```
 
 No validation means no done claim for execution work.
+
+## Project Refresh Boundary
+
+Repository maintenance handoffs must report separated project refresh requirements when changed files affect ChatGPT Projects.
+
+If Project Instructions UI sources change, handoffs must report measured payload character counts and must not list instruction sources as uploaded Project Files/Sources.
 
 END_OF_FILE: workflow/project_packs/WORKFLOW_BASE_PACK.md

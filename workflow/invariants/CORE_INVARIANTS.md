@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: core_invariants
-  status: atomic_run_hardened
+  status: project_instruction_budget_residual_sweep
   owner: workflow_os
 ---
 
@@ -59,7 +59,8 @@ artifact_control:
 - No commit-ready handoff without repository, worktree, branch, mode, allowed paths, forbidden paths, commit behavior, and push behavior.
 - No user is required to infer Codex run boundaries from a Receipt.
 - No partial Codex handoff may be labeled copy-paste runnable.
-- No Codex repository maintenance card may omit Project Files refresh requirements when cached files are changed.
+- No Codex repository maintenance card may omit separated project refresh fields when changed files affect ChatGPT Projects.
+- No Codex repository maintenance card may omit Project Instructions UI payload character counts when Project Instructions UI sources change.
 - No execution-ready receipt -> no CodexRun.
 - No validation receipt -> no done.
 - No direct implementation for mission-scale complex technical work.

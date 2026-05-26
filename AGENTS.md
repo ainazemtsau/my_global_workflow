@@ -16,5 +16,5 @@ Rules:
 - For repository maintenance, preserve the workflow rule: Receipt -> Verify -> Commit -> Ledger update.
 - For Codex, repository maintenance is the default unless an explicit product execution task exists.
 - Do not run product/project execution by default.
-- Report Project Files refresh requirements when changed files are loaded in ChatGPT Projects.
+- Report separated project refresh requirements when changed files affect ChatGPT Projects: Project Instructions UI updates, Project Instructions UI payload character counts when instruction sources change, Project Files/Sources refreshes, request-only source refreshes, and files that must not be uploaded as Project Files/Sources.
 - If old workflow runtime, stage, or transport evidence is needed, use the legacy branch/tag and the Legacy Import Receipt process.

@@ -35,4 +35,4 @@ Only verified Receipts committed to `workflow/LEDGER.md` create accepted state. 
 - Use this Direction for workflow governance and repository maintenance.
 - Do not run roadmap selection, Horizon selection, Active Frontier selection, or product execution from this Direction unless a committed Obligation explicitly admits it.
 - Do not modify sibling Directions or product repositories unless the current repository maintenance task explicitly lists those paths.
-- Keep changes small and report Project Files refresh requirements when uploaded Project sources change.
+- Keep changes small and report separated project refresh requirements when ChatGPT Project surfaces change.

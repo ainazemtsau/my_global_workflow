@@ -5,10 +5,10 @@ artifact_control:
   pack_name: TRANSPORT_CORE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: project_instruction_budget_hardened
+  status: project_instruction_budget_residual_sweep
   owner: workflow_os
-  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
-  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
+  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -67,7 +67,7 @@ Commit Packet proposes a candidate state transition for Verify and Commit. It is
 
 Legacy Import Receipt Card records evidence needed to import old data without treating legacy files as current truth.
 
-Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements.
+Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
 
 Project refresh requirements must distinguish:
 

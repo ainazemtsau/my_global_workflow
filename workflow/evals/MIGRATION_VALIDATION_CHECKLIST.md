@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: migration_validation_checklist
-  status: gate_1_initial
+  status: project_instruction_budget_residual_sweep
   owner: workflow_os
 ---
 
@@ -82,7 +82,7 @@ artifact_control:
 - [ ] Handoff includes repository, worktree, branch, and mode.
 - [ ] Handoff includes allowed_paths and forbidden_paths.
 - [ ] Handoff includes git behavior and no-main-merge rule.
-- [ ] Handoff includes Project Files refresh requirements.
+- [ ] Handoff includes separated project refresh requirements and Project Instructions UI payload character counts when instruction sources change.
 - [ ] Receipt Card requires self-contained handoff when `commit_recommendation` is `commit`.
 - [ ] Project Instructions tell the operator not to make the user add wrappers.
 - [ ] Partial handoff cannot pass as copy-paste runnable.

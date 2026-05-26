@@ -30,4 +30,4 @@ Use `directions/workflow-governance/workflow/` for live Workflow Governance stat
 
 - Use small diffs.
 - Preserve Receipt -> Verify -> Commit -> Ledger update.
-- Report changed files, validation evidence, and Project Files refresh requirements after edits.
+- Report changed files, validation evidence, and separated project refresh requirements after edits, including Project Instructions UI payload character counts when instruction sources change.

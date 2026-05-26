@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: obligations
-  status: project_instruction_budget_hardened
+  status: project_instruction_budget_residual_sweep
   owner: proof_carrying_workflow_os
 ---
 
@@ -89,6 +89,19 @@ obligations:
       - Payloads are compact behavioral instructions, not workflow documentation.
       - No product execution or Indie Game Development proof-state mutation is introduced.
 
+  - obligation_id: O-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP
+    type: workflow_setup_policy_patch
+    statement: >
+      Sweep active workflow/Codex-facing files for residual ambiguous Project Files
+      refresh wording after Project Instructions UI payload budget hardening.
+    status: satisfied
+    satisfied_by_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+    required_operator: GovernancePatch / RepositoryMaintenancePlan
+    acceptance_conditions:
+      - Active Codex-facing refresh wording uses separated project refresh fields.
+      - Project Instructions UI source changes require payload character counts.
+      - No product execution or forbidden Direction proof-state mutation is introduced.
+
   - obligation_id: O-WG-LEGACY-INVENTORY-OPTIONAL
     type: legacy_import
     statement: Optionally inspect old Workflow Governance files as legacy evidence only.
@@ -119,5 +132,7 @@ O-WG-ATOMIC-RUN-HARDEN is satisfied by R-WG-ATOMIC-RUN-HARDEN-001.
 O-WG-PROJECT-SURFACE-SEPARATION-HARDEN is satisfied by R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001.
 
 O-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN is satisfied by R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001.
+
+O-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP is satisfied by R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001.
 
 END_OF_FILE: directions/workflow-governance/workflow/OBLIGATIONS.md

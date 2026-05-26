@@ -5,9 +5,9 @@ artifact_control:
   pack_name: GOVERNANCE_MAINTENANCE_PACK
   pack_type: workflow_governance_maintenance_console
   intended_load_mode: default_for_workflow_governance_maintenance_project
-  status: project_instruction_budget_hardened
+  status: project_instruction_budget_residual_sweep
   owner: workflow_os
-  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
+  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
   do_not_use_as_authority: true
   refresh_rule: "Refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -115,7 +115,7 @@ Repository maintenance handoffs must include:
 - validation checks
 - commit and push instructions when needed
 - requested return fields
-- separated project refresh requirements when Project setup files change
+- separated project refresh requirements when ChatGPT Project surfaces change
 - Project Instructions UI payload character counts when instruction sources change
 
 Do not require the user to infer missing repository, branch, validation, allowed-path, forbidden-path, or commit details.

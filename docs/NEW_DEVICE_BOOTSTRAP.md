@@ -77,6 +77,6 @@ Do not upload old vNext-R runtime, stage, transport, old project files, or old p
 - Repository maintenance is separate from product/project execution.
 - Execution Harness Pack is request-only unless execution readiness is admitted.
 - Product repo execution setup is target-repo-local, not workflow-repo-local.
-- Report Project Files refresh requirements when changed files are loaded in ChatGPT Projects.
+- Report separated project refresh requirements when changed files affect ChatGPT Projects, including payload character counts when Project Instructions UI sources change.
 
 END_OF_FILE: docs/NEW_DEVICE_BOOTSTRAP.md
