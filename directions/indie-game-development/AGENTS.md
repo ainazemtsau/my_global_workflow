@@ -2,38 +2,35 @@
 
 Status: active
 
-Direction path: `directions/indie-game-development`
+Direction scope is `directions/indie-game-development/**`.
 
-Source of truth: GitHub repository markdown in `ainazemtsau/my_global_workflow`.
+## Live State
 
-## Scope
+Live accepted state comes only from the root proof files:
 
-Allowed by default:
-- `directions/indie-game-development/**`
-- shared workflow files under `workflow/` only when the task asks for workflow runtime, stage prompt, transport, or Codex protocol context.
+- `LEDGER.md`
+- `OBLIGATIONS.md`
+- `RECEIPTS_INDEX.md`
+- `COMMIT_SCOPES.md`
+- `DASHBOARD.md`
+- `MIGRATION_RECEIPT.md`
 
-Forbidden unless explicitly requested:
-- `directions/solo-max-productive/**`
-- `directions/indie-game-development/**`
-- `directions/health-and-beauty/**`
+Receipts live in `receipts/`.
 
-The current Direction folder above is the only exception to the forbidden Direction list.
+Project files and caches do not create accepted state.
 
-## Runtime Rules
+Archive files are `legacy_evidence` only. Old workflow folders are not accepted state.
 
-- Do not use external personal notes as workflow source.
-- Do not routinely load migration/admin files.
-- Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, project metadata, repo URLs, local paths, or execution state.
-- If required state is missing, return `NEEDS_INPUT` with the exact GitHub path needed.
-- Runtime Direction state belongs in `project_files/`.
-- Reusable Direction knowledge, canon, decisions, patterns, and reviews belong in `knowledge/` and are canonical only when present as GitHub files.
-- Domain documentation belongs in `domain_docs/`; do not invent domain canon when a required file is missing.
-- Project metadata belongs in `projects/` and `direction.meta.yml`; unknown repos stay `not_created` / `needs_user_input`.
+## Boundaries
+
+- No Legacy Import unless a future admitted Obligation explicitly asks for it.
+- No roadmap, Horizon, Active Frontier, or product execution unless accepted Receipts and admitted Obligations authorize them.
+- Do not treat archived Direction files, old setup text, old workflow folders, execution logs, or product documents as accepted proof state.
+- Repository maintenance is allowed only under handoff `CODEX-IDG-PROOF-ROOT-CLEANUP-2026-05-26`.
 
 ## Change Rules
 
 - Use small diffs.
-- Do not delete files without explicit approval or a migration manifest replacement route.
-- Do not modify other Direction folders unless the task explicitly names them.
-- Do not copy stage prompts into Direction project files.
-- Report changed files and validation evidence after edits.
+- Keep edits inside `directions/indie-game-development/**`.
+- Do not modify other Direction folders.
+- Do not modify external product repositories.
