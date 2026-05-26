@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: initialized_skeleton
+  status: root_objective_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,7 +12,11 @@ artifact_control:
 ## Receipt State
 
 ```yaml
-accepted_receipts: []
+root_state: root_objective_accepted
+accepted_receipts:
+  - receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
+    path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
+    summary: Accepted root objective for technically strong and commercially successful indie game within the already selected concept.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -20,7 +24,9 @@ receipt_storage_path: receipts/
 
 ## Accepted Receipts
 
-None.
+- receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
+  path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
+  summary: Accepted root objective for technically strong and commercially successful indie game within the already selected concept.
 
 ## Rules
 

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: initialized_skeleton
+  status: root_objective_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,29 +13,31 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: initialized_skeleton
-accepted_receipts: []
-accepted_claims: []
+proof_state: root_objective_accepted
+accepted_receipts:
+  - R-IDG-ROOT-OBJECTIVE-DECISION-001
+accepted_claims:
+  - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
-projections_state: initialized_skeleton_no_accepted_root_objective
+projections_state: root_objective_accepted_no_strategy_projection
 legacy_import_state: not_performed
 legacy_state_authority: false
 ```
 
 ## Accepted Root Objective
 
-No accepted root objective exists.
-
-Root objective status: unresolved.
+Create and finish an indie game within the already selected concept, with two equal top-level outcomes: a technically strong game the user can be proud of, and a commercially successful product that can generate meaningful revenue.
 
 ## Accepted Root-Level Constraints
 
-None.
+- Work within the already selected concept; do not restart concept discovery by default.
+- Technical strength / technical ambition is a root-level value pillar.
+- Commercial success / meaningful revenue is a root-level value pillar.
+- Old concept/archive material remains legacy evidence only until admitted through valid workflow.
 
 ## Unresolved / Not Accepted
 
-- root objective
 - success semantics
 - hard technical constraints
 - hard product constraints
@@ -44,15 +46,13 @@ None.
 - platform target
 - release ambition
 - engine choice
-- Unity or non-Unity commitment
 - networking stack
 - exact genre
 - monetization
 - timeline
 - visual style
 - launch strategy
-- specific gas algorithms
-- specific topology data model
+- specific algorithms/data models
 - Codex execution readiness
 - roadmap
 - Horizon
@@ -74,12 +74,12 @@ Direction proof files are storage and projection surfaces. They are not addition
 
 ## Accepted Receipts
 
-None.
+- R-IDG-ROOT-OBJECTIVE-DECISION-001
 
 ## Current Work Boundary
 
-The next required first run is `O-IDG-ROOT-OBJECTIVE-CONFIRM`.
+The next required runs are `O-IDG-SUCCESS-SEMANTICS-DEFINE` and `O-IDG-CONSTRAINTS-DEFINE`.
 
-No Strategic Path Map, Horizon, Active Frontier, Roadmap, strategy, success semantics, constraints, execution package, Codex work package, product execution, monetization, launch strategy, or legacy import is created or admitted by this skeleton state.
+No Strategic Path Map, Horizon, Active Frontier, Roadmap, strategy, success semantics, constraints, execution package, Codex work package, product execution, monetization, launch strategy, or legacy import is created or admitted by this root-objective receipt.
 
 END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md
