@@ -13,20 +13,21 @@ chatgpt:
     - project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
     - project_packs/WORKFLOW_BASE_PACK.md
     - project_packs/TRANSPORT_CORE_PACK.md
-    - directions/workflow-governance/LEDGER.md
-    - directions/workflow-governance/OBLIGATIONS.md
-    - directions/workflow-governance/RECEIPTS_INDEX.md
-    - directions/workflow-governance/COMMIT_SCOPES.md
-    - directions/workflow-governance/DASHBOARD.md
-    - directions/workflow-governance/MIGRATION_RECEIPT.md
+    - directions/workflow-governance/workflow/LEDGER.md
+    - directions/workflow-governance/workflow/OBLIGATIONS.md
+    - directions/workflow-governance/workflow/RECEIPTS_INDEX.md
+    - directions/workflow-governance/workflow/COMMIT_SCOPES.md
+    - directions/workflow-governance/workflow/DASHBOARD.md
+    - directions/workflow-governance/workflow/MIGRATION_RECEIPT.md
 
 documentation:
   source_of_truth: github_markdown
   workflow_layout:
-    payload_root: directions/workflow-governance
-    project_setup: directions/workflow-governance/project_setup
-    receipts: directions/workflow-governance/receipts
-    projections: directions/workflow-governance/projections
+    payload_root: directions/workflow-governance/workflow
+    project_setup: directions/workflow-governance/workflow/project_setup
+    receipts: directions/workflow-governance/workflow/receipts
+    projections: directions/workflow-governance/workflow/projections
+    archive: directions/workflow-governance/archive
 
 projects:
   embedded: []

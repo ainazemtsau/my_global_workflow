@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
@@ -27,4 +27,4 @@ next_possible_migration_step: optional LegacyImport Operator invocation after ro
 
 No old state is imported by this skeleton.
 
-END_OF_FILE: directions/workflow-governance/MIGRATION_RECEIPT.md
+END_OF_FILE: directions/workflow-governance/workflow/MIGRATION_RECEIPT.md

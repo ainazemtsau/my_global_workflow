@@ -49,6 +49,12 @@ Per-Direction project setup files live under:
 
 - `directions/<direction-id>/project_setup/`
 
+Workflow Governance is the self-hosted governance Direction and uses `directions/workflow-governance/workflow/` for active proof payload, not the Direction root:
+
+- `directions/workflow-governance/workflow/project_setup/`
+
+Other Direction-specific setup locations are declared by each Direction's `direction.meta.yml`.
+
 Per-Direction manifests use the active pack model: three shared packs plus six Direction payload files.
 
 Project Instructions are behavior/setup instructions. Direction payload files are live state.
@@ -65,6 +71,17 @@ Accepted Direction proof state is stored under:
 - `directions/<direction-id>/MIGRATION_RECEIPT.md`
 - `directions/<direction-id>/receipts/`
 - `directions/<direction-id>/projections/`
+
+Workflow Governance uses the workflow payload layout at:
+
+- `directions/workflow-governance/workflow/LEDGER.md`
+- `directions/workflow-governance/workflow/OBLIGATIONS.md`
+- `directions/workflow-governance/workflow/RECEIPTS_INDEX.md`
+- `directions/workflow-governance/workflow/COMMIT_SCOPES.md`
+- `directions/workflow-governance/workflow/DASHBOARD.md`
+- `directions/workflow-governance/workflow/MIGRATION_RECEIPT.md`
+- `directions/workflow-governance/workflow/receipts/`
+- `directions/workflow-governance/workflow/projections/`
 
 Only verified Receipts committed to the Ledger create accepted state.
 

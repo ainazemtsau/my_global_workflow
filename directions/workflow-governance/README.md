@@ -2,25 +2,33 @@
 
 Workflow Governance is the self-hosted Direction for maintaining the Workflow OS.
 
-## Active Payload
+The Direction root is a navigation layer. Root markdown and metadata files do not create accepted state.
 
-Accepted state for this Direction lives in the root payload:
+## Root Files
 
-- `LEDGER.md`
-- `OBLIGATIONS.md`
-- `RECEIPTS_INDEX.md`
-- `COMMIT_SCOPES.md`
-- `DASHBOARD.md`
-- `MIGRATION_RECEIPT.md`
-- `receipts/`
-- `projections/`
-- `project_setup/`
+- `README.md`
+- `AGENTS.md`
+- `direction.meta.yml`
 
-Only verified Receipts committed to `LEDGER.md` create accepted state. Documents, setup instructions, projections, and loaded context do not create truth by themselves.
+## Active Workflow State
+
+Accepted proof workflow state lives under `workflow/`:
+
+- `workflow/LEDGER.md`
+- `workflow/OBLIGATIONS.md`
+- `workflow/RECEIPTS_INDEX.md`
+- `workflow/COMMIT_SCOPES.md`
+- `workflow/DASHBOARD.md`
+- `workflow/MIGRATION_RECEIPT.md`
+- `workflow/receipts/`
+- `workflow/projections/`
+- `workflow/project_setup/`
+
+Only verified Receipts committed to `workflow/LEDGER.md` create accepted state. Documents, setup instructions, projections, and loaded context do not create truth by themselves.
 
 ## Legacy Boundary
 
-Old vNext-R Workflow Governance files are legacy evidence only. They are not accepted Direction state unless a future Legacy Import Receipt explicitly admits them through Verify and Commit.
+`archive/` is inert archive storage. Old vNext-R Workflow Governance files are legacy evidence only. They are not accepted proof state unless a future Legacy Import Receipt explicitly admits them through Verify and Commit.
 
 ## Operating Boundary
 
