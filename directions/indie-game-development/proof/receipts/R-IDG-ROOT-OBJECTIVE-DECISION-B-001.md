@@ -52,7 +52,7 @@ receipt_card:
     - claim: "Success semantics are delegated to a child Obligation rather than fully defined in this invocation."
       claim_role: decision
       evidence_refs:
-        - "proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md"
+        - "11_HUMAN_INPUT_NORMALIZATION_POLICY.md"
       confidence_label: high
       uncertainty_label: none
 
@@ -64,7 +64,7 @@ receipt_card:
 
     - evidence_id: E-IDG-HIN-POLICY-001
       kind: source_backed
-      source_ref: "proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md"
+      source_ref: "11_HUMAN_INPUT_NORMALIZATION_POLICY.md"
       summary: "Terse option replies such as Decision B may be normalized when unambiguous; missing success semantics may be delegated to a child Obligation when allowed."
 
     - evidence_id: E-IDG-LEDGER-SNAPSHOT-001

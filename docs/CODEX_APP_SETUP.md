@@ -8,7 +8,7 @@ Canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
 ## Active Authority
 
-Codex must treat `proof_workflow/**` as the active workflow authority.
+Codex must treat `00_*.md`, root workflow directories, and project pack files as the active workflow authority.
 
 Codex must not treat old vNext-R runtime, stage, transport, or Direction `project_files/00-08` files as active authority.
 
@@ -18,7 +18,7 @@ Old files may be inspected as legacy evidence only when the task explicitly asks
 
 ## Repository Maintenance Boundary
 
-Codex repository maintenance instructions should follow proof workflow transport rules when provided.
+Codex repository maintenance instructions should follow workflow transport rules when provided.
 
 Codex Commit Handoff Cards must be self-contained. A commit handoff must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and Project Files refresh requirements.
 
@@ -75,7 +75,7 @@ Codex must:
 - read `AGENTS.md` at repo root before material edits;
 - keep edits inside the allowed scope;
 - use GitHub repository markdown files as the storage substrate;
-- preserve the proof workflow rule: Receipt -> Verify -> Commit -> Ledger update;
+- preserve the workflow rule: Receipt -> Verify -> Commit -> Ledger update;
 - return exact changed paths;
 - include validation evidence;
 - report changed files, validation, commit SHA, push result, and Project Files refresh requirements when relevant;

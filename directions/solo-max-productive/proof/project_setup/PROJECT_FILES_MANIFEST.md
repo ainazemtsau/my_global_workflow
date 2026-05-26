@@ -1,16 +1,16 @@
 ---
 artifact_control:
-  namespace: direction_proof_project_setup
+  namespace: direction_workflow_project_setup
   direction_id: solo-max-productive
   artifact_type: project_files_manifest
-  project_name: "Solo Max Productive — Proof"
+  project_name: "Solo Max Productive"
   status: u3_pack_model
-  owner: proof_carrying_workflow_os
+  owner: workflow_os
 ---
 
-# Solo Max Productive — Proof Project Files Manifest
+# Solo Max Productive — Workflow Project Files Manifest
 
-Project name: Solo Max Productive — Proof
+Project name: Solo Max Productive
 
 Project Instructions source:
 
@@ -18,9 +18,9 @@ Project Instructions source:
 
 ## Default Shared Project Packs
 
-- `proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
-- `proof_workflow/project_packs/PROOF_BASE_PACK.md`
-- `proof_workflow/project_packs/TRANSPORT_CORE_PACK.md`
+- `project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `project_packs/WORKFLOW_BASE_PACK.md`
+- `project_packs/TRANSPORT_CORE_PACK.md`
 
 ## Direction Payload
 
@@ -33,7 +33,7 @@ Project Instructions source:
 
 ## Request-Only Capability Packs
 
-- `proof_workflow/project_packs/EXECUTION_HARNESS_PACK.md`
+- `project_packs/EXECUTION_HARNESS_PACK.md`
 
 Load request-only capability packs only when an admitted task needs them.
 
@@ -64,12 +64,12 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 
 ## Restoration Steps
 
-1. Create ChatGPT Project named "Solo Max Productive — Proof".
+1. Create ChatGPT Project named "Solo Max Productive".
 2. Paste Project Instructions from `CHATGPT_PROJECT_INSTRUCTIONS.md`.
 3. Upload the three default shared packs.
 4. Upload the six Direction payload files.
 5. Do not upload forbidden legacy files.
-6. Run setup validation using `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md` if needed.
+6. Run setup validation using `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md` if needed.
 7. Start with the next valid run shown by `DASHBOARD.md` / `OBLIGATIONS.md`.
 
 ## Project Files Count Summary

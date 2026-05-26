@@ -2,14 +2,14 @@
 
 Status: active
 
-Use this file to connect a new device, local worktree, or fresh ChatGPT/Codex workspace to the Proof-Carrying Workflow OS.
+Use this file to connect a new device, local worktree, or fresh ChatGPT/Codex workspace to the Workflow OS.
 
 ## Canonical Repository
 
 - Repository: `https://github.com/ainazemtsau/my_global_workflow`
 - Branch: `main`
 - Source-of-truth marker: `WORKFLOW_SOURCE_OF_TRUTH.md`
-- Active workflow authority: `proof_workflow/**`
+- Active workflow authority: root workflow files and root workflow directories
 
 The old vNext-R workflow is archived at:
 
@@ -22,23 +22,23 @@ The old vNext-R workflow is archived at:
 2. Use `main`.
 3. Read root `AGENTS.md`.
 4. Read `WORKFLOW_SOURCE_OF_TRUTH.md`.
-5. Read relevant `proof_workflow/**` files for the task.
+5. Read the relevant root workflow files and root workflow directories for the task.
 6. For Direction work, use `directions/<direction-id>/proof/**` after that Direction has a proof skeleton.
 
 ## ChatGPT Project Restore
 
 New ChatGPT Projects should be restored from:
 
-- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
-- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
-- `proof_workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
-- `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
 
 Upload default packs:
 
-- `proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
-- `proof_workflow/project_packs/PROOF_BASE_PACK.md`
-- `proof_workflow/project_packs/TRANSPORT_CORE_PACK.md`
+- `project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `project_packs/WORKFLOW_BASE_PACK.md`
+- `project_packs/TRANSPORT_CORE_PACK.md`
 
 Upload Direction payload:
 
@@ -66,7 +66,7 @@ The old vNext-R `workflow/` tree is not present in active `main`.
 
 Old vNext-R workflow files are available from the legacy branch/tag, not active `main`.
 
-Use old files only when a proof workflow Obligation explicitly requests legacy evidence or Legacy Import.
+Use old files only when a workflow Obligation explicitly requests legacy evidence or Legacy Import.
 
 Do not upload old vNext-R runtime, stage, transport, old project files, or old project setup files as default Project Files.
 

@@ -15,7 +15,7 @@ artifact_control:
 obligations:
   - obligation_id: O-SMP-ROOT-OBJECTIVE-CONFIRM
     type: human_decision / clarify_objective
-    statement: Confirm or redefine the root objective for this Direction under the Proof-Carrying Workflow OS.
+    statement: Confirm or redefine the root objective for this Direction under the Workflow OS.
     status: open
     required_operator: AskHumanDecision or ClarifyObjective
     acceptance_conditions:

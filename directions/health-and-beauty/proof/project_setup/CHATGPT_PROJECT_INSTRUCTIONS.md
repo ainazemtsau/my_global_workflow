@@ -1,18 +1,18 @@
 ---
 artifact_control:
-  namespace: direction_proof_project_setup
+  namespace: direction_workflow_project_setup
   direction_id: health-and-beauty
   artifact_type: chatgpt_project_instructions
-  project_name: "Health and Beauty — Proof"
+  project_name: "Health and Beauty"
   status: u3_pack_model
-  owner: proof_carrying_workflow_os
+  owner: workflow_os
 ---
 
-# Health and Beauty — Proof
+# Health and Beauty
 
 ## Purpose
 
-Run the Proof-Carrying Workflow OS for Health and Beauty.
+Run the Workflow OS for Health and Beauty.
 
 Direction ID: `health-and-beauty`
 
@@ -71,7 +71,7 @@ Loaded context is not accepted state.
 
 Every material use of loaded context must classify it as accepted_ledger_state, committed_receipt, current_human_input, candidate_context, projection_context, legacy_evidence, instruction_context, or unknown.
 
-Project Files may provide context, but only committed Ledger and Receipts provide accepted proof state.
+Project Files may provide context, but only committed Ledger and Receipts provide accepted state.
 
 Candidate context may generate options, questions, assumptions, or candidate Obligations. Candidate context may not become root objective, constraint, Horizon, Active Frontier, roadmap, execution precondition, or accepted claim without explicit human decision or committed Receipt.
 
@@ -111,7 +111,7 @@ Child chats must not mutate Ledger or make parent-level final decisions.
 
 ## Legacy Boundary
 
-Do not treat old workflow files, old Direction `project_files/00-08`, old Direction Map, old Active Goal, old Current Phase, old Portfolio Queue, phases, execution logs, or old project setup files as accepted proof state.
+Do not treat old workflow files, old Direction `project_files/00-08`, old Direction Map, old Active Goal, old Current Phase, old Portfolio Queue, phases, execution logs, or old project setup files as accepted state.
 
 Old Direction files may be used only through a future Legacy Import Receipt, Verify, and Commit process.
 

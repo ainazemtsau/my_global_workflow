@@ -4,11 +4,11 @@ Status: active
 
 Canonical AI workflow source: GitHub repository `ainazemtsau/my_global_workflow`.
 
-Active workflow authority: `proof_workflow/**`.
+Active workflow authority: root workflow files and root workflow directories.
 
 ## Active Semantic Kernel
 
-The active Proof-Carrying Workflow OS semantic kernel is limited to:
+The active Workflow OS semantic kernel is limited to:
 
 - Ledger
 - Obligation
@@ -20,28 +20,28 @@ The active Proof-Carrying Workflow OS semantic kernel is limited to:
 
 Active runtime protocol and policy sources:
 
-- `proof_workflow/02_RUNTIME_PROTOCOLS.md`
-- `proof_workflow/03_PROOF_AND_COMMIT_POLICY.md`
-- `proof_workflow/04_TRANSPORT_PROTOCOL.md`
-- `proof_workflow/10_CONTEXT_AUTHORITY_POLICY.md`
-- `proof_workflow/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
-- `proof_workflow/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
-- `proof_workflow/13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
+- `02_RUNTIME_PROTOCOLS.md`
+- `03_VERIFY_AND_COMMIT_POLICY.md`
+- `04_TRANSPORT_PROTOCOL.md`
+- `10_CONTEXT_AUTHORITY_POLICY.md`
+- `11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
+- `12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
+- `13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
 
 ## Active Project Setup
 
 Active shared setup sources:
 
-- `proof_workflow/08_CHATGPT_PROJECT_SETUP.md`
-- `proof_workflow/09_STORAGE_LAYOUT_POLICY.md`
-- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
-- `proof_workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
-- `proof_workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
-- `proof_workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+- `08_CHATGPT_PROJECT_SETUP.md`
+- `09_STORAGE_LAYOUT_POLICY.md`
+- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
 
 Project pack runtime-cache files live under:
 
-- `proof_workflow/project_packs/`
+- `project_packs/`
 
 Project packs are upload convenience/runtime cache only. Canonical source files listed by each pack remain authority.
 
@@ -85,7 +85,7 @@ Old vNext-R workflow files are available only from the legacy branch/tag if hist
 
 Old `directions/*/project_files/**` files are legacy evidence only unless explicitly imported through Legacy Import Receipt + Verify + Commit.
 
-Old Direction Map, Active Goal, Current Phase, and Portfolio Queue files are not accepted Proof Ledger state.
+Old Direction Map, Active Goal, Current Phase, and Portfolio Queue files are not accepted Ledger state.
 
 The old vNext-R runtime, project_files/00-08 model, Direction Map, Phase, Goal, Portfolio Queue, and `repository_patch.v1` are demoted from active default authority.
 
@@ -95,12 +95,12 @@ A truncated, omitted, or tail-unverified repository read is not sufficient autho
 
 If material work depends on a file whose full content cannot be verified, return a Context Request naming the exact path and blocker.
 
-In the proof workflow, read-completeness and context-authority behavior is governed by `proof_workflow/**` policies plus future setup docs. Old vNext-R guard files are legacy evidence available from the legacy branch/tag only.
+In the workflow, read-completeness and context-authority behavior is governed by root workflow files, root workflow directories, and future setup docs. Old vNext-R guard files are legacy evidence available from the legacy branch/tag only.
 
 ## Admin Documentation
 
-Repository setup docs under `docs/` may explain setup and transition procedure, but they do not override `proof_workflow/**`.
+Repository setup docs under `docs/` may explain setup and transition procedure, but they do not override root workflow files or root workflow directories.
 
-Migration/admin docs remain historical context unless a proof workflow Obligation explicitly admits them as legacy evidence.
+Migration/admin docs remain historical context unless a workflow Obligation explicitly admits them as legacy evidence.
 
 END_OF_FILE: WORKFLOW_SOURCE_OF_TRUTH.md
