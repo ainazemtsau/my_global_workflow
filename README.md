@@ -8,9 +8,9 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
 ## Active Workflow
 
-- Shared workflow kernel and runtime policies live under the repository root.
-- Universal ChatGPT Project setup lives under `project_setup/`.
-- Project pack runtime-cache files live under `project_packs/`.
+- Shared workflow kernel and runtime policies live under `workflow/`.
+- Universal ChatGPT Project setup lives under `workflow/project_setup/`.
+- Project pack runtime-cache files live under `workflow/project_packs/`.
 - Direction proof state lives under `directions/<direction-id>/proof/`.
 - New ChatGPT Projects should be created or restored from the universal installer and pack-based Direction manifests under `directions/<direction-id>/proof/project_setup/`.
 
@@ -18,16 +18,16 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
 Use:
 
-- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
-- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
-- `project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
-- `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+- `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
 
 Default shared Project Files are:
 
-- `project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
-- `project_packs/WORKFLOW_BASE_PACK.md`
-- `project_packs/TRANSPORT_CORE_PACK.md`
+- `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `workflow/project_packs/WORKFLOW_BASE_PACK.md`
+- `workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
 The Execution Harness Pack is request-only.
 
@@ -42,7 +42,7 @@ The old vNext-R workflow is preserved at:
 
 Old vNext-R runtime, stage registry, stage prompt, and transport directories were removed from active `main` after archival. Use the legacy branch/tag if those historical files are needed.
 
-The top-level old `workflow/` directory has been removed from active `main`.
+The active `workflow/` directory is the current Workflow OS namespace. It is not the old vNext-R workflow tree.
 
 Do not use old workflow stage files, runtime files, transport files, or Direction `project_files/00-08` as accepted state. Historical workflow files are available only from the legacy branch/tag.
 

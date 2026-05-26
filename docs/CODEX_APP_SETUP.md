@@ -8,11 +8,11 @@ Canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
 ## Active Authority
 
-Codex must treat `00_*.md`, root workflow directories, and project pack files as the active workflow authority.
+Codex must treat `workflow/**` as the active workflow authority.
 
 Codex must not treat old vNext-R runtime, stage, transport, or Direction `project_files/00-08` files as active authority.
 
-The old vNext-R `workflow/` tree was removed from active `main`. Use the legacy branch/tag if historical copies are needed.
+The active `workflow/` directory is the current Workflow OS namespace. Use the legacy branch/tag if old vNext-R historical copies are needed.
 
 Old files may be inspected as legacy evidence only when the task explicitly asks for that, and imported only through the Legacy Import Receipt process.
 

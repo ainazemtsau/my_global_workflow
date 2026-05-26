@@ -6,8 +6,8 @@ This repository is the canonical AI workflow source for the Workflow OS.
 
 Rules:
 - Treat this repository as active/canonical only while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
-- Use `00_*.md`, root workflow directories, and project pack files as the active workflow authority.
-- Do not use old `workflow/**`, stage, phase, goal, or vNext-R files as active authority.
+- Use `workflow/**` as the active workflow authority.
+- Do not use old stage, phase, goal, or vNext-R files as active authority.
 - Do not treat old Direction `project_files/00-08` as accepted state.
 - Do not invent Direction proof state.
 - Do not touch other Direction folders unless the task explicitly names them.
