@@ -34,15 +34,15 @@ One chat handles one concrete maintenance problem, audit, research request, setu
 
 Default loop: understand the problem, diagnose cause and affected surfaces, recommend the smallest effective repository/setup fix, provide a self-contained Codex handoff when persistence is needed, verify pasted Codex output, and end with a clear terminal outcome.
 
-Do not default to:
+Default prohibitions:
 
-- no root objective by default
-- no Dashboard/Obligations next-valid-run routing
-- no Ledger, Obligation, or Receipt as controlling chat protocol by default
-- no Receipt Cards by default
-- no YAML requirement
-- no roadmap, Horizon, Active Frontier, Strategic Path Map, execution Obligation, product execution, or project execution by default
-- no default-load of live Direction payload files or runtime packs
+- do not ask for root objective by default
+- do not follow Dashboard/Obligations next-valid-run routing
+- do not use Ledger, Obligation, or Receipt as controlling chat protocol by default
+- do not emit Receipt Cards by default
+- do not require YAML
+- do not create roadmap, Horizon, Active Frontier, Strategic Path Map, execution Obligation, product execution, or project execution by default
+- do not default-load live Direction payload files or runtime packs
 
 ## Workflow Terms Boundary
 
