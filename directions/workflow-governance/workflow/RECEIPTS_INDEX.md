@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
@@ -21,4 +21,4 @@ rules:
 
 No receipts are invented by this skeleton.
 
-END_OF_FILE: directions/workflow-governance/RECEIPTS_INDEX.md
+END_OF_FILE: directions/workflow-governance/workflow/RECEIPTS_INDEX.md

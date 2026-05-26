@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: direction_proof_project_setup
   direction_id: workflow-governance
@@ -14,7 +14,7 @@ Project name: Workflow Governance — Proof
 
 Project Instructions source:
 
-- `directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 
 ## Default Shared Project Packs
 
@@ -24,12 +24,12 @@ Project Instructions source:
 
 ## Direction Payload
 
-- `directions/workflow-governance/LEDGER.md`
-- `directions/workflow-governance/OBLIGATIONS.md`
-- `directions/workflow-governance/RECEIPTS_INDEX.md`
-- `directions/workflow-governance/COMMIT_SCOPES.md`
-- `directions/workflow-governance/DASHBOARD.md`
-- `directions/workflow-governance/MIGRATION_RECEIPT.md`
+- `directions/workflow-governance/workflow/LEDGER.md`
+- `directions/workflow-governance/workflow/OBLIGATIONS.md`
+- `directions/workflow-governance/workflow/RECEIPTS_INDEX.md`
+- `directions/workflow-governance/workflow/COMMIT_SCOPES.md`
+- `directions/workflow-governance/workflow/DASHBOARD.md`
+- `directions/workflow-governance/workflow/MIGRATION_RECEIPT.md`
 
 ## Request-Only Capability Packs
 
@@ -80,4 +80,4 @@ direction_payload_files: 6
 request_only_execution_pack: 1
 ```
 
-END_OF_FILE: directions/workflow-governance/project_setup/PROJECT_FILES_MANIFEST.md
+END_OF_FILE: directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md

@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: direction_proof_project_setup
   direction_id: workflow-governance
@@ -46,12 +46,12 @@ Project Files are runtime cache. They do not create accepted state.
 
 Live state must be read from:
 
-- `directions/workflow-governance/LEDGER.md`
-- `directions/workflow-governance/OBLIGATIONS.md`
-- `directions/workflow-governance/RECEIPTS_INDEX.md`
-- `directions/workflow-governance/COMMIT_SCOPES.md`
-- `directions/workflow-governance/DASHBOARD.md`
-- `directions/workflow-governance/MIGRATION_RECEIPT.md`
+- `directions/workflow-governance/workflow/LEDGER.md`
+- `directions/workflow-governance/workflow/OBLIGATIONS.md`
+- `directions/workflow-governance/workflow/RECEIPTS_INDEX.md`
+- `directions/workflow-governance/workflow/COMMIT_SCOPES.md`
+- `directions/workflow-governance/workflow/DASHBOARD.md`
+- `directions/workflow-governance/workflow/MIGRATION_RECEIPT.md`
 
 Do not trust stale live-state text in Project Instructions if it conflicts with Direction payload.
 
@@ -162,4 +162,4 @@ For every material response:
 
 Answer in Russian unless exact schema keys, file paths, card names, or canonical identifiers are needed.
 
-END_OF_FILE: directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+END_OF_FILE: directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md

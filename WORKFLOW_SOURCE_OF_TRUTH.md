@@ -1,4 +1,4 @@
-# Workflow Source of Truth
+﻿# Workflow Source of Truth
 
 Status: active
 
@@ -49,9 +49,9 @@ Per-Direction proof project setup files live under:
 
 - `directions/<direction-id>/proof/project_setup/`
 
-Workflow Governance is the self-hosted governance Direction and uses a flattened root payload layout:
+Workflow Governance is the self-hosted governance Direction and uses `directions/workflow-governance/workflow/` for active proof payload, not the Direction root:
 
-- `directions/workflow-governance/project_setup/`
+- `directions/workflow-governance/workflow/project_setup/`
 
 Ordinary Direction Proof Projects may still use `directions/<direction-id>/proof/` unless separately migrated.
 
@@ -72,16 +72,16 @@ Accepted Direction proof state is stored under:
 - `directions/<direction-id>/proof/receipts/`
 - `directions/<direction-id>/proof/projections/`
 
-Workflow Governance uses the root payload layout at:
+Workflow Governance uses the workflow payload layout at:
 
-- `directions/workflow-governance/LEDGER.md`
-- `directions/workflow-governance/OBLIGATIONS.md`
-- `directions/workflow-governance/RECEIPTS_INDEX.md`
-- `directions/workflow-governance/COMMIT_SCOPES.md`
-- `directions/workflow-governance/DASHBOARD.md`
-- `directions/workflow-governance/MIGRATION_RECEIPT.md`
-- `directions/workflow-governance/receipts/`
-- `directions/workflow-governance/projections/`
+- `directions/workflow-governance/workflow/LEDGER.md`
+- `directions/workflow-governance/workflow/OBLIGATIONS.md`
+- `directions/workflow-governance/workflow/RECEIPTS_INDEX.md`
+- `directions/workflow-governance/workflow/COMMIT_SCOPES.md`
+- `directions/workflow-governance/workflow/DASHBOARD.md`
+- `directions/workflow-governance/workflow/MIGRATION_RECEIPT.md`
+- `directions/workflow-governance/workflow/receipts/`
+- `directions/workflow-governance/workflow/projections/`
 
 Only verified Receipts committed to the Ledger create accepted state.
 

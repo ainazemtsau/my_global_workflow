@@ -53,10 +53,10 @@ Direction proof state lives under:
 directions/<direction-id>/proof/
 ```
 
-Workflow Governance is the self-hosted governance Direction and uses a flattened root payload layout:
+Workflow Governance is the self-hosted governance Direction and uses `directions/workflow-governance/workflow/` for active proof payload, not the Direction root:
 
 ```text
-directions/workflow-governance/
+directions/workflow-governance/workflow/
 ```
 
 Ordinary Direction Proof Projects may still use `directions/<direction-id>/proof/` unless separately migrated.

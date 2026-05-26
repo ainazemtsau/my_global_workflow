@@ -13,7 +13,7 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 - Project pack runtime-cache files live under `proof_workflow/project_packs/`.
 - Direction proof state lives under `directions/<direction-id>/proof/`.
 - New ChatGPT Projects should be created or restored from the universal installer and pack-based Direction manifests under `directions/<direction-id>/proof/project_setup/`.
-- Workflow Governance is self-hosted and uses root payload files under `directions/workflow-governance/`.
+- Workflow Governance is self-hosted and uses active payload files under `directions/workflow-governance/workflow/`.
 
 ## Project Setup
 

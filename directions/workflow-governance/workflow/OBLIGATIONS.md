@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
@@ -69,4 +69,4 @@ No CodexExecution operator may run.
 
 No roadmap item exists without admitted Obligation.
 
-END_OF_FILE: directions/workflow-governance/OBLIGATIONS.md
+END_OF_FILE: directions/workflow-governance/workflow/OBLIGATIONS.md
