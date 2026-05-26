@@ -21,8 +21,7 @@ archive:
   legacy_vnext_r: directions/indie-game-development/archive/legacy-vnext-r/
   authority: legacy_evidence_only_not_accepted_state
 accepted_state_summary:
-  accepted_receipts:
-    - R-IDG-ROOT-OBJECTIVE-DECISION-B-001
-  root_objective_status: accepted
+  accepted_receipts: []
+  root_objective_status: unresolved
   legacy_import_state: not_performed
   execution_state: not_admitted

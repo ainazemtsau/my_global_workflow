@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: root_objective_accepted
+  status: initialized_skeleton
   owner: proof_carrying_workflow_os
 ---
 
@@ -21,7 +21,7 @@ No CodexExecution operator may run.
 
 No roadmap item exists without admitted Obligation.
 
-## Satisfied Obligations
+## Open Obligations
 
 ### O-IDG-ROOT-OBJECTIVE-CONFIRM
 
@@ -29,40 +29,12 @@ No roadmap item exists without admitted Obligation.
 obligation_id: O-IDG-ROOT-OBJECTIVE-CONFIRM
 type: human_decision / clarify_objective
 statement: Confirm or redefine the root objective for Indie Game Development under the workflow.
-status: satisfied
-satisfied_by: R-IDG-ROOT-OBJECTIVE-DECISION-B-001
-accepted_result:
-  root_objective: "Create a systemic co-op indie game where the core value is built around gas simulation, level/topology interaction, and an extensible technical nucleus."
-  accepted_root_level_constraints:
-    - systemic co-op indie game
-    - gas simulation is a core value pillar
-    - level/topology interaction is a core value pillar
-    - extensible technical nucleus is a core foundation concept
-fields_not_accepted:
-  - success semantics
-  - hard technical constraints
-  - hard product constraints
-  - team/time/budget constraints
-  - risk tolerance
-  - platform target
-  - release ambition
-  - engine choice
-  - Unity or non-Unity commitment
-  - networking stack
-  - exact genre
-  - monetization
-  - timeline
-  - visual style
-  - launch strategy
-  - specific gas algorithms
-  - specific topology data model
-  - Codex execution readiness
-  - roadmap
-  - Horizon
-  - Active Frontier
+status: open
+priority: first_required_run
+reason: No root objective is accepted in the reset skeleton state.
+required_operator:
+  - ClarifyObjective
 ```
-
-## Open Obligations
 
 ### O-IDG-SUCCESS-SEMANTICS-DEFINE
 
@@ -70,9 +42,10 @@ fields_not_accepted:
 obligation_id: O-IDG-SUCCESS-SEMANTICS-DEFINE
 type: clarify
 statement: Define what success means for this direction before strategy or execution.
-status: open
-opened_by: R-IDG-ROOT-OBJECTIVE-DECISION-B-001
-reason: Success semantics were delegated by the accepted root objective Receipt.
+status: blocked
+blocked_until:
+  - O-IDG-ROOT-OBJECTIVE-CONFIRM accepted
+reason: Success semantics cannot be defined against an unresolved root objective.
 required_operator:
   - ClarifyObjective
 ```
@@ -83,9 +56,10 @@ required_operator:
 obligation_id: O-IDG-CONSTRAINTS-DEFINE
 type: clarify
 statement: Define hard constraints for the direction such as solo capacity, time, budget, acceptable risk, preferred product domain, and execution boundaries.
-status: open
-opened_by: R-IDG-ROOT-OBJECTIVE-DECISION-B-001
-reason: Detailed constraints remain unresolved; root-level constraints are accepted only as listed in the Receipt.
+status: blocked
+blocked_until:
+  - O-IDG-ROOT-OBJECTIVE-CONFIRM accepted
+reason: Constraints cannot be committed against an unresolved root objective.
 required_operator:
   - ClarifyObjective
 ```
@@ -118,6 +92,7 @@ type: projection
 statement: Create Strategic Path Map projection only after accepted strategic Receipts exist.
 status: blocked
 blocked_by:
+  - O-IDG-ROOT-OBJECTIVE-CONFIRM
   - O-IDG-SUCCESS-SEMANTICS-DEFINE
   - O-IDG-CONSTRAINTS-DEFINE
 ```

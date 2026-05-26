@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: root_objective_accepted
+  status: initialized_skeleton
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,31 +13,29 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: root_objective_accepted
-accepted_receipts:
-  - R-IDG-ROOT-OBJECTIVE-DECISION-B-001
-accepted_claims:
-  - "Root objective selected by human decision: systemic co-op indie game centered on gas simulation, level/topology interaction, and extensible technical nucleus."
+proof_state: initialized_skeleton
+accepted_receipts: []
+accepted_claims: []
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
-projections_state: dashboard_updated_from_committed_root_objective_receipt
+projections_state: initialized_skeleton_no_accepted_root_objective
 legacy_import_state: not_performed
 legacy_state_authority: false
 ```
 
 ## Accepted Root Objective
 
-Create a systemic co-op indie game where the core value is built around gas simulation, level/topology interaction, and an extensible technical nucleus.
+No accepted root objective exists.
+
+Root objective status: unresolved.
 
 ## Accepted Root-Level Constraints
 
-- systemic co-op indie game
-- gas simulation is a core value pillar
-- level/topology interaction is a core value pillar
-- extensible technical nucleus is a core foundation concept
+None.
 
 ## Unresolved / Not Accepted
 
+- root objective
 - success semantics
 - hard technical constraints
 - hard product constraints
@@ -59,6 +57,10 @@ Create a systemic co-op indie game where the core value is built around gas simu
 - roadmap
 - Horizon
 - Active Frontier
+- Strategic Path Map
+- strategy
+- product execution
+- legacy import
 
 ## Authority Boundary
 
@@ -66,18 +68,18 @@ This Ledger contains no imported old Direction facts.
 
 Old `project_files/00-08` are not accepted proof state.
 
-Old Direction files remain non-authority unless imported later through Legacy Import Receipt + Verify + Commit.
+Old archive files and old Direction files, including `archive/**` and `project_files/**`, remain legacy evidence only unless imported later through Legacy Import Receipt + Verify + Commit.
 
 Direction proof files are storage and projection surfaces. They are not additional semantic primitives.
 
 ## Accepted Receipts
 
-- `R-IDG-ROOT-OBJECTIVE-DECISION-B-001`: accepted root objective decision.
+None.
 
 ## Current Work Boundary
 
-Open follow-up Obligations are represented in `OBLIGATIONS.md`.
+The next required first run is `O-IDG-ROOT-OBJECTIVE-CONFIRM`.
 
-No Strategic Path Map, Horizon, Active Frontier, Roadmap, execution package, or Codex work package is created or admitted by this commit.
+No Strategic Path Map, Horizon, Active Frontier, Roadmap, strategy, success semantics, constraints, execution package, Codex work package, product execution, monetization, launch strategy, or legacy import is created or admitted by this skeleton state.
 
 END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md
