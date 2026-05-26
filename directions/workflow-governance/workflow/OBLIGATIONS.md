@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: obligations
-  status: project_surface_separation_hardened
+  status: project_instruction_budget_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -72,6 +72,23 @@ obligations:
       - Project Files manifests exclude Project Instructions sources from default upload count.
       - No product execution or Indie Game Development proof-state mutation is introduced.
 
+  - obligation_id: O-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN
+    type: workflow_setup_policy_patch
+    statement: >
+      Harden Project Instructions generation so UI payloads are compact,
+      paste-ready, below the ChatGPT Web UI character limit, and still preserve
+      critical Workflow OS behavior.
+    status: satisfied
+    satisfied_by_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
+    required_operator: GovernancePatch / RepositoryMaintenancePlan
+    acceptance_conditions:
+      - Project Instructions UI payload hard max is 8,000 characters.
+      - Project Instructions UI payload target max is 6,500 characters.
+      - Payload extraction and character-count validation are required.
+      - Ordinary Direction and Workflow Governance generated UI payloads fit within the target.
+      - Payloads are compact behavioral instructions, not workflow documentation.
+      - No product execution or Indie Game Development proof-state mutation is introduced.
+
   - obligation_id: O-WG-LEGACY-INVENTORY-OPTIONAL
     type: legacy_import
     statement: Optionally inspect old Workflow Governance files as legacy evidence only.
@@ -100,5 +117,7 @@ No roadmap item exists without admitted Obligation.
 O-WG-ATOMIC-RUN-HARDEN is satisfied by R-WG-ATOMIC-RUN-HARDEN-001.
 
 O-WG-PROJECT-SURFACE-SEPARATION-HARDEN is satisfied by R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001.
+
+O-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN is satisfied by R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001.
 
 END_OF_FILE: directions/workflow-governance/workflow/OBLIGATIONS.md

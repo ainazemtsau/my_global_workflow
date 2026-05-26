@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow_project_setup
   artifact_type: universal_direction_project_installer
-  status: canonical_setup_guide
+  status: project_instruction_budget_hardened
   owner: workflow_os
 ---
 
@@ -54,6 +54,12 @@ Product Repo Execution Setup is separate. Product/project technical memory belon
 ## Required Default Setup
 
 Step 1: paste or update Project Instructions in the ChatGPT Project Instructions UI using the generated instruction source.
+
+Paste only the compact UI payload between the `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` markers.
+
+Before paste, count the trimmed payload characters: target at or below 6,500, warn above 7,200, fail above 8,000.
+
+Do not paste repository wrapper metadata, artifact frontmatter, marker comments, or `END_OF_FILE`.
 
 Do not upload `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` as a Project File/Source.
 
@@ -171,6 +177,8 @@ ChatGPT Project surfaces are runtime cache. GitHub remains source of truth.
 
 If Project Instructions source changes, paste the updated UI payload into the ChatGPT Project Instructions field. Do not treat that action as a Project Files/Sources refresh.
 
+If Project Instructions source changes, extract the payload between markers and report its character count before paste.
+
 If any pack `source_manifest` file changes, regenerate or refresh that pack and replace the uploaded Project File/Source before the next material run that depends on it.
 
 If Direction payload files change, refresh the uploaded Direction payload file before the next material run.
@@ -184,6 +192,8 @@ Before using a new Direction Workflow Project for material work, confirm:
 - required shared packs are uploaded
 - Direction payload files are uploaded
 - Project Instructions are pasted into the Project Instructions UI
+- Project Instructions UI payload is at or below 8,000 characters and target at or below 6,500
+- Project Instructions UI payload omits repository wrapper metadata and `END_OF_FILE`
 - Project Instructions source files are not uploaded as Project Files/Sources
 - Project Instructions do not hard-code stale live state
 - Direction manifests use three shared packs plus six Direction payload files

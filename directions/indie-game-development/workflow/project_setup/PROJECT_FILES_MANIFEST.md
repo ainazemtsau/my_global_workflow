@@ -4,7 +4,7 @@ artifact_control:
   direction_id: indie-game-development
   artifact_type: project_files_manifest
   project_name: "Indie Game Development"
-  status: u3_pack_model
+  status: project_instruction_budget_hardened
   owner: workflow_os
 ---
 
@@ -22,9 +22,16 @@ Paste the UI payload from this source into the ChatGPT Project Instructions fiel
 project_instruction_ui_update_required: true
 do_not_upload_as_project_file:
   - directions/indie-game-development/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+project_instruction_ui_payload_budget:
+  hard_max_chars: 8000
+  target_max_chars: 6500
+  warning_threshold_chars: 7200
+  measured_scope: trimmed payload between BEGIN/END UI payload markers
 ```
 
 This source is not a Project File/Source and is excluded from the default upload count.
+
+Do not paste repository wrapper metadata, marker comments, or `END_OF_FILE` into the Project Instructions UI.
 
 ## Default Shared Project Packs
 
@@ -75,6 +82,7 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 ## Refresh Rule
 
 - If Project Instructions source changes, paste the updated UI payload into the ChatGPT Project Instructions field.
+- Before paste, extract the payload between markers, trim it, count characters, and fail validation if it exceeds 8,000 characters.
 - Do not upload `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` as a Project File/Source.
 - If a Direction payload file changes, refresh that uploaded Project File/Source.
 - If a project pack changes, refresh that uploaded pack.
@@ -101,6 +109,8 @@ direction_payload_files: 6
 project_instruction_sources_in_default_upload_count: 0
 request_only_execution_pack: 1
 request_only_project_packs_index: 1
+project_instruction_ui_payload_hard_max_chars: 8000
+project_instruction_ui_payload_target_max_chars: 6500
 ```
 
 END_OF_FILE: directions/indie-game-development/workflow/project_setup/PROJECT_FILES_MANIFEST.md

@@ -5,8 +5,9 @@ artifact_control:
   pack_name: GOVERNANCE_MAINTENANCE_PACK
   pack_type: workflow_governance_maintenance_console
   intended_load_mode: default_for_workflow_governance_maintenance_project
-  status: active
+  status: project_instruction_budget_hardened
   owner: workflow_os
+  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -21,7 +22,7 @@ source_manifest:
 
 ## Pack Boundary
 
-This pack is a ChatGPT Project Files runtime cache and upload convenience artifact for the Workflow Governance Maintenance Project.
+This pack is a ChatGPT Project Files/Sources runtime cache and upload convenience artifact for the Workflow Governance Maintenance Project.
 
 It is not semantic authority.
 
@@ -33,9 +34,11 @@ If this pack conflicts with a verified canonical source file, the canonical sour
 
 GitHub repository `ainazemtsau/my_global_workflow` is the source of truth while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
 
-Project Files are runtime cache and may be stale.
+Project Files/Sources are runtime cache and may be stale.
 
 When exact state matters, inspect or request exact repository files for the current problem.
+
+Project Instructions UI payloads must be compact behavior instructions, not repository documentation. Hard max is 8,000 characters; target is 6,500; warn above 7,200. Count only trimmed content between the BEGIN/END UI payload markers.
 
 ## Maintenance Console Behavior
 
@@ -112,7 +115,8 @@ Repository maintenance handoffs must include:
 - validation checks
 - commit and push instructions when needed
 - requested return fields
-- Project Files refresh requirements when Project setup files change
+- separated project refresh requirements when Project setup files change
+- Project Instructions UI payload character counts when instruction sources change
 
 Do not require the user to infer missing repository, branch, validation, allowed-path, forbidden-path, or commit details.
 
@@ -126,16 +130,17 @@ When Codex output is pasted back, verify:
 - requested behavior was implemented
 - validation evidence is credible
 - edited markdown files retain their `END_OF_FILE` marker
-- Project Files refresh requirements are explicit
+- separated project refresh requirements are explicit
+- Project Instructions UI payload character counts are reported when instruction sources changed
 - residual issues are named
 
 If evidence is missing, ask for the exact missing output or file diff.
 
-## Stale Project Files Warning
+## Stale Project Surfaces Warning
 
-A GitHub commit does not update ChatGPT Project Files.
+A GitHub commit does not update ChatGPT Project surfaces.
 
-After Project setup files or packs change, remove stale uploaded Project Files and re-upload the manifest defaults.
+After Project setup files or packs change, update Project Instructions UI separately from uploaded Project Files/Sources.
 
 Treat uploaded files as cache, not authority.
 

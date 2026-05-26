@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow_project_setup
   artifact_type: project_setup_validation_checklist
-  status: u3_pack_model
+  status: project_instruction_budget_hardened
   owner: workflow_os
 ---
 
@@ -19,6 +19,13 @@ First identify the Project type:
 
 - Project Instructions source is correct.
 - Project Instructions UI contains the current paste-ready UI payload.
+- UI payload was extracted between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
+- Extracted UI payload was trimmed and character-counted.
+- UI payload is at or below the 8,000-character hard max.
+- UI payload is reported as warning if above 7,200 characters.
+- UI payload target is at or below 6,500 characters.
+- UI payload is compact behavior instructions, not repository documentation or schema/card storage.
+- UI payload does not include artifact metadata, marker comments, or `END_OF_FILE`.
 - Project Instructions source file is not uploaded as a Project File/Source.
 - Default packs are uploaded:
   - `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
@@ -47,6 +54,11 @@ First identify the Project type:
 
 - Project Instructions source is `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
 - Project Instructions UI contains the current paste-ready UI payload.
+- UI payload was extracted between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
+- Extracted UI payload was trimmed and character-counted.
+- UI payload is at or below the 8,000-character hard max, with target at or below 6,500 characters.
+- UI payload is compact maintenance-console behavior instructions, not repository documentation or schema/card storage.
+- UI payload does not include artifact metadata, marker comments, or `END_OF_FILE`.
 - Project Instructions source file is not uploaded as a Project File/Source.
 - Project Files manifest source is `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`.
 - Default Project Files/Sources are only:
@@ -55,7 +67,7 @@ First identify the Project type:
   - `workflow/project_packs/PROJECT_PACKS_INDEX.md`
   - `docs/CHATGPT_PROJECT_SETUP.md`
   - `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
-- Stale Direction runtime Project Files were removed from the ChatGPT Project.
+- Stale Direction runtime Project Files/Sources were removed from the ChatGPT Project.
 - `workflow/project_packs/WORKFLOW_BASE_PACK.md` is absent by default.
 - `workflow/project_packs/TRANSPORT_CORE_PACK.md` is absent by default.
 - `workflow/project_packs/EXECUTION_HARNESS_PACK.md` is absent by default.

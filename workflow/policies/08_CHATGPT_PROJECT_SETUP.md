@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: chatgpt_project_setup_principles
-  status: project_surface_separation_hardened
+  status: project_instruction_budget_hardened
   owner: workflow_os
 ---
 
@@ -123,6 +123,27 @@ Workflow Governance Maintenance Project default upload is the five-file maintena
 Project Instructions source files are UI payload sources. They must not be uploaded as default Project Files/Sources, must not be included in the default upload count, and must not store live Direction state.
 
 Direction payload files win for live state.
+
+## Project Instructions UI Payload Budget
+
+Project Instructions UI payloads are compressed behavioral control text, not workflow documentation, schema storage, or Project File substitutes.
+
+Generated Project Instructions UI payloads must stay within this budget:
+
+```yaml
+hard_max_chars: 8000
+target_max_chars: 6500
+warning_threshold_chars: 7200
+measured_scope: trimmed content between BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD and END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
+```
+
+Validation fails if any generated UI payload exceeds 8,000 characters.
+
+Warn and report if any generated UI payload exceeds 7,200 characters.
+
+Target every generated UI payload at or below 6,500 characters.
+
+Payloads must use compact imperative rules, avoid long explanations, avoid full schemas/card definitions, avoid full path lists when generic path rules are enough, and tell the model to inspect exact canonical files when needed.
 
 ## Request-Only Execution Harness
 

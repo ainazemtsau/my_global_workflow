@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: dashboard_projection
-  status: project_surface_separation_hardened
+  status: project_instruction_budget_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Workflow Governance
 
-Proof state: project surface separation hardened
+Proof state: project instruction budget hardened
 
 Root objective: maintain and harden Workflow OS around proof-carrying, one-obligation-at-a-time execution.
 
@@ -20,6 +20,7 @@ Accepted receipts:
 - R-WG-ROOT-OBJECTIVE-ATOMIC-RUN-001
 - R-WG-ATOMIC-RUN-HARDEN-001
 - R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+- R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
 
 Open critical Obligation:
 
@@ -32,6 +33,7 @@ Satisfied Obligations:
 - O-WG-CONSTRAINTS-DEFINE
 - O-WG-ATOMIC-RUN-HARDEN
 - O-WG-PROJECT-SURFACE-SEPARATION-HARDEN
+- O-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN
 
 Blocked Obligations:
 
@@ -57,10 +59,15 @@ project_instruction_ui_update_required:
 - Workflow Governance: paste the updated UI payload from directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md into the ChatGPT Project Instructions field.
 - Indie Game Development: paste the updated UI payload from directions/indie-game-development/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md into the ChatGPT Project Instructions field.
 
+project_instruction_ui_payload_char_counts:
+
+- Workflow Governance: 3363 chars, target.
+- Indie Game Development: 3588 chars, target.
+
 project_sources_files_refresh_required:
 
 - Workflow Governance payload files: LEDGER.md, OBLIGATIONS.md, RECEIPTS_INDEX.md, DASHBOARD.md
-- Shared packs: UNIVERSAL_PROJECT_SHELL_PACK.md, TRANSPORT_CORE_PACK.md
+- Shared packs: GOVERNANCE_MAINTENANCE_PACK.md, UNIVERSAL_PROJECT_SHELL_PACK.md, TRANSPORT_CORE_PACK.md, PROJECT_PACKS_INDEX.md as applicable.
 
 request_only_sources_refresh_required:
 

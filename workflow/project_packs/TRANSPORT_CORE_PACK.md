@@ -5,10 +5,10 @@ artifact_control:
   pack_name: TRANSPORT_CORE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: atomic_run_hardened
+  status: project_instruction_budget_hardened
   owner: workflow_os
-  generated_from_ref: wg/project-surface-separation@R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
-  refreshed_for_receipt: R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
+  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -75,6 +75,8 @@ Project refresh requirements must distinguish:
 - `project_sources_files_refresh_required` for uploaded Project Files/Sources.
 - `request_only_sources_refresh_required` for request-only packs or exact sources.
 - `do_not_upload_as_project_file` for instruction source files such as `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
+
+When Project Instructions sources change, Codex handoff return fields must include `project_instruction_ui_payload_char_counts`.
 
 Child Obligation Request Card, Child Result Return Card, and Parent Recovery Block support recursive child handoff. Child chats are launched only when needed for the current target Obligation, return results to the parent, and do not mutate parent Ledger state or make parent-level final decisions.
 

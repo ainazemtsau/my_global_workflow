@@ -31,7 +31,23 @@ ChatGPT Project setup has separate surfaces:
 - Repository Project Instruction Source: a repository file or template that produces the text for the Project Instructions UI.
 - Request-only sources: files or packs loaded only when an admitted task requires them.
 
-Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are sources for the Project Instructions UI. Paste their UI payload into the Project Instructions field. Do not upload them as default Project Files/Sources.
+Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are sources for the Project Instructions UI. Paste only the compact UI payload between markers into the Project Instructions field. Do not upload them as default Project Files/Sources.
+
+## Project Instructions UI Payload Budget
+
+The ChatGPT Project Instructions UI has a practical payload limit.
+
+Generated Project Instructions UI payloads must be compact behavioral control text:
+
+- hard max: 8,000 characters
+- target max: 6,500 characters
+- warning threshold: 7,200 characters
+
+Count only the trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
+
+Validation fails if any generated payload exceeds 8,000 characters.
+
+Do not use the Project Instructions UI as workflow documentation, schema storage, or a Project File substitute. Put detailed workflow rules in canonical files and uploaded packs/files, and tell the model to inspect exact files when needed.
 
 ## Project Types
 
@@ -162,6 +178,8 @@ Do not fall back to old vNext-R setup as active runtime.
 A GitHub commit does not update ChatGPT Project surfaces.
 
 When Project Instructions source text changes, paste the updated UI payload into the ChatGPT Project Instructions field. Do not classify that update as an uploaded Project Files/Sources refresh.
+
+When Project Instructions source text changes, report the measured UI payload character count for each changed instruction source.
 
 If a pack source file changes, regenerate or refresh the pack and replace the uploaded Project File/Source before the next material run that depends on it.
 

@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow_project_setup
   artifact_type: universal_project_files_manifest_template
-  status: u3_pack_model
+  status: project_instruction_budget_hardened
   owner: workflow_os
 ---
 
@@ -25,9 +25,16 @@ Paste the UI payload from this source into the ChatGPT Project Instructions fiel
 project_instruction_ui_update_required: true
 do_not_upload_as_project_file:
   - directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md
+project_instruction_ui_payload_budget:
+  hard_max_chars: 8000
+  target_max_chars: 6500
+  warning_threshold_chars: 7200
+  measured_scope: trimmed payload between BEGIN/END UI payload markers
 ```
 
 This source is not a Project File/Source and is excluded from the default upload count.
+
+Do not paste repository wrapper metadata, marker comments, or `END_OF_FILE` into the Project Instructions UI.
 
 ## Default Shared Packs
 
@@ -73,6 +80,8 @@ Project Files/Sources are runtime cache.
 
 If the Project Instructions source changes, paste the updated UI payload into the ChatGPT Project Instructions field and do not upload the source file as a Project File/Source.
 
+Before paste, extract the UI payload between markers, trim leading/trailing whitespace, count characters, and fail setup validation if the payload exceeds 8,000 characters.
+
 If any pack `source_manifest` file changes, regenerate or refresh that pack and replace the uploaded Project File/Source before the next material run that depends on it.
 
 If any Direction payload file changes, replace that uploaded Direction payload Project File/Source before the next material run that depends on it.
@@ -98,6 +107,8 @@ default_shared_packs: 3
 direction_payload_files: 6
 project_instruction_sources_in_default_upload_count: 0
 request_only_execution_pack: 1
+project_instruction_ui_payload_hard_max_chars: 8000
+project_instruction_ui_payload_target_max_chars: 6500
 ```
 
 END_OF_FILE: workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md

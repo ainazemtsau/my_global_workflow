@@ -3,7 +3,7 @@ artifact_control:
   namespace: workflow
   artifact_type: transport_card
   card_type: codex_commit_handoff_card
-  status: gate_3_1_initial
+  status: project_instruction_budget_hardened
   owner: workflow_os
 ---
 
@@ -61,6 +61,10 @@ codex_commit_handoff_card:
   ledger_delta_to_apply: object
   validation_required:
     - check: string
+  project_instruction_ui_payload_char_counts:
+    - path: string
+      chars: integer
+      status: "target|warning|pass|fail"
   project_refresh_instructions_after_commit:
     project_instruction_ui_update_required:
       - instruction: string
@@ -81,6 +85,7 @@ codex_commit_handoff_card:
     - files_updated
     - forbidden_paths_touched
     - validation_results
+    - project_instruction_ui_payload_char_counts
     - commit_sha
     - push_result
     - project_instruction_ui_update_required
@@ -108,9 +113,11 @@ codex_commit_handoff_card:
 - It must not admit Codex product execution, implementation work, release work, roadmap creation, Horizon selection, or Active Frontier selection.
 - If files loaded into a ChatGPT Project are changed, the card must include `project_sources_files_refresh_required`.
 - If Project Instructions source files change, the card must include `project_instruction_ui_update_required` and `do_not_upload_as_project_file`.
+- If Project Instructions source files change, the card must include `project_instruction_ui_payload_char_counts` for every changed instruction source.
 - If request-only packs or exact sources change, the card must include `request_only_sources_refresh_required`.
 - The card must not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
 - The card must not group Project Instructions UI updates under Project Files/Sources refresh.
+- Project Instructions UI payload count status must use: `target` for <= 6,500 chars, `warning` for > 7,200 chars and <= 8,000 chars, `pass` for > 6,500 chars and <= 7,200 chars, and `fail` for > 8,000 chars.
 - If the source Receipt is too long, the card may include a compact receipt summary plus explicit instruction to paste or attach the full Receipt below; the run header and path boundaries must still be self-contained.
 - A partial handoff must not be labeled copy-paste runnable.
 

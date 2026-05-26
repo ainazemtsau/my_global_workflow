@@ -5,10 +5,10 @@ artifact_control:
   pack_name: UNIVERSAL_PROJECT_SHELL_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: atomic_run_hardened
+  status: project_instruction_budget_hardened
   owner: workflow_os
-  generated_from_ref: wg/project-surface-separation@R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
-  refreshed_for_receipt: R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
+  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -54,6 +54,8 @@ Project Instructions UI is the ChatGPT Project settings field where behavior ins
 Project Files/Sources are uploaded reference materials.
 
 Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are Project Instructions UI payload sources. They are not default Project Files/Sources and must not be included in default upload counts.
+
+Project Instructions UI payloads must be compact behavior instructions: hard max 8,000 characters, target 6,500, warn above 7,200. Count only trimmed content between the BEGIN/END UI payload markers.
 
 Direction proof state lives under:
 
@@ -121,6 +123,8 @@ If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff
 Refresh requirements must use `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, and `do_not_upload_as_project_file`.
 
 Do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
+
+When Project Instructions sources change, report `project_instruction_ui_payload_char_counts`.
 
 Same-parent continuation is the default for one bounded user problem, including after `CODEX_COMMIT_NEEDED`, Codex results, and child results.
 

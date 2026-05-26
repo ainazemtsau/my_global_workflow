@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: human_facing_run_closure_policy
-  status: atomic_run_hardened
+  status: project_instruction_budget_hardened
   owner: workflow_os
 ---
 
@@ -39,6 +39,8 @@ The user should be able to copy one block into Codex without adding repository, 
 After Codex returns, same-parent continuation is the default. The user should bring the Codex result back to the parent chat unless a next-chat criterion below is met.
 
 When changed files affect ChatGPT Projects, the handoff must separate Project Instructions UI updates from Project Files/Sources refreshes.
+
+When changed Project Instructions sources require UI updates, the handoff must report measured UI payload character counts.
 
 ### NEXT_CHAT_NEEDED
 
@@ -132,6 +134,7 @@ When terminal outcome is `CODEX_COMMIT_NEEDED`, the response must include:
   - `project_sources_files_refresh_required`
   - `request_only_sources_refresh_required`
   - `do_not_upload_as_project_file`
+- `project_instruction_ui_payload_char_counts` when Project Instructions sources changed
 
 The user should be able to paste one block into Codex without reconstructing the task from a Receipt or adding an external wrapper.
 
@@ -152,6 +155,8 @@ Codex handoffs and run closures must use `request_only_sources_refresh_required`
 Codex handoffs and run closures must use `do_not_upload_as_project_file` for repository Project Instruction Source files such as `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
 
 Do not group Project Instructions UI updates under uploaded Project Files/Sources refresh, do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh, and do not make default upload counts include Project Instructions.
+
+When Project Instructions source files change, run closures must report the extracted UI payload character count for each changed source and state whether each is under the 8,000-character hard max, over the 7,200-character warning threshold, or at/below the 6,500-character target.
 
 If the operator cannot produce a self-contained Codex handoff, it must clearly state the missing fields and return `BLOCKED_CONTEXT_NEEDED` or `CODEX_HANDOFF_BLOCKED`.
 
