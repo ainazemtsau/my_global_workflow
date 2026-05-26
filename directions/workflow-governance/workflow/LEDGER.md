@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: ledger
-  status: atomic_run_hardened
+  status: project_surface_separation_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,10 +11,11 @@ artifact_control:
 
 ```yaml
 direction_id: workflow-governance
-proof_state: atomic_run_hardened
+proof_state: project_surface_separation_hardened
 accepted_receipts:
   - R-WG-ROOT-OBJECTIVE-ATOMIC-RUN-001
   - R-WG-ATOMIC-RUN-HARDEN-001
+  - R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
 accepted_claims:
   - workflow_governance_root_objective_accepted
   - atomic_run_hardening_is_primary_governance_goal
@@ -28,6 +29,11 @@ accepted_claims:
   - child_handoff_gated_by_current_obligation_need
   - receipt_scope_audit_required
   - same_parent_chat_default_for_codex_results
+  - project_instruction_ui_is_distinct_from_project_files_sources
+  - chatgpt_project_instructions_sources_are_ui_payload_sources_not_default_uploads
+  - generated_project_instructions_must_be_ui_optimized
+  - refresh_handoffs_must_split_instruction_ui_updates_from_project_sources_refresh
+  - project_files_manifests_must_exclude_project_instruction_sources_from_default_upload_count
 root_objective: >
   Maintain and harden the Workflow OS so every Direction chat follows proof-carrying,
   one-obligation-at-a-time execution: broad user input is preserved and normalized,
@@ -42,7 +48,7 @@ legacy_state_authority: false
 next_valid_run: []
 ```
 
-This Ledger records the accepted Workflow Governance root objective and Atomic Run hardening.
+This Ledger records the accepted Workflow Governance root objective, Atomic Run hardening, and Project Surface Separation hardening.
 
 Old `project_files/00-08` are not accepted proof state.
 

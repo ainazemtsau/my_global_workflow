@@ -18,6 +18,8 @@ First identify the Project type:
 ## Ordinary Direction Workflow Project Checks
 
 - Project Instructions source is correct.
+- Project Instructions UI contains the current paste-ready UI payload.
+- Project Instructions source file is not uploaded as a Project File/Source.
 - Default packs are uploaded:
   - `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
   - `workflow/project_packs/WORKFLOW_BASE_PACK.md`
@@ -33,17 +35,21 @@ First identify the Project type:
 - Execution Harness Pack is absent unless deliberately enabled.
 - Direction proof Ledger is loaded.
 - Direction manifest uses three shared packs plus six Direction payload files.
+- Direction manifest default upload count excludes Project Instructions.
 - Direction Project Instructions do not hard-code stale live state.
 - Direction Project Instructions say Direction payload wins for live state.
 - Root objective status is visible.
 - No legacy state was imported automatically.
 - Project can answer `Давай подтвердим корневую цель этого направления.` without using old vNext-R files.
+- Refresh handoffs use separate `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, and `do_not_upload_as_project_file` fields.
 
 ## Workflow Governance Maintenance Project Checks
 
 - Project Instructions source is `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
+- Project Instructions UI contains the current paste-ready UI payload.
+- Project Instructions source file is not uploaded as a Project File/Source.
 - Project Files manifest source is `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`.
-- Default Project Files are only:
+- Default Project Files/Sources are only:
   - `WORKFLOW_SOURCE_OF_TRUTH.md`
   - `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
   - `workflow/project_packs/PROJECT_PACKS_INDEX.md`
@@ -65,7 +71,7 @@ First identify the Project type:
 - The Project does not emit Receipt Cards by default.
 - The Project handles one concrete maintenance problem, audit, research request, setup question, Codex handoff, or Codex result verification per chat.
 - Repository persistence responses include a self-contained Codex handoff.
-- Pasted Codex output is verified for scope, changed files, validation, forbidden-path cleanliness, Project Files refresh requirements, and residual issues.
+- Pasted Codex output is verified for scope, changed files, validation, forbidden-path cleanliness, separated project refresh requirements, and residual issues.
 
 ## Execution Pack Enabled Check
 

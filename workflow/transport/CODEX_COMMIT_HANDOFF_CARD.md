@@ -61,8 +61,15 @@ codex_commit_handoff_card:
   ledger_delta_to_apply: object
   validation_required:
     - check: string
-  project_files_refresh_required:
-    - path_or_instruction: string
+  project_refresh_instructions_after_commit:
+    project_instruction_ui_update_required:
+      - instruction: string
+    project_sources_files_refresh_required:
+      - path_or_instruction: string
+    request_only_sources_refresh_required:
+      - path_or_instruction: string
+    do_not_upload_as_project_file:
+      - path: string
   git_behavior:
     confirm_clean_before_write: true
     commit_required: true
@@ -76,7 +83,10 @@ codex_commit_handoff_card:
     - validation_results
     - commit_sha
     - push_result
-    - project_files_refresh_requirements
+    - project_instruction_ui_update_required
+    - project_sources_files_refresh_required
+    - request_only_sources_refresh_required
+    - do_not_upload_as_project_file
     - risks_or_deviations
 ```
 
@@ -91,12 +101,16 @@ codex_commit_handoff_card:
 - This card is repository maintenance, not product/project execution.
 - It must include exact allowed paths, forbidden paths, and protected paths.
 - It must include what must not be changed.
-- It must include Project Files refresh requirements.
+- It must include separated project refresh requirements for Project Instructions UI, Project Files/Sources, request-only sources, and do-not-upload instruction sources.
 - It must include validation/read-back requirements.
 - It must not ask the user to infer paths from the Receipt.
 - It must not create additional strategic work.
 - It must not admit Codex product execution, implementation work, release work, roadmap creation, Horizon selection, or Active Frontier selection.
-- If files loaded into a ChatGPT Project are changed, the card must include Project Files refresh requirements.
+- If files loaded into a ChatGPT Project are changed, the card must include `project_sources_files_refresh_required`.
+- If Project Instructions source files change, the card must include `project_instruction_ui_update_required` and `do_not_upload_as_project_file`.
+- If request-only packs or exact sources change, the card must include `request_only_sources_refresh_required`.
+- The card must not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
+- The card must not group Project Instructions UI updates under Project Files/Sources refresh.
 - If the source Receipt is too long, the card may include a compact receipt summary plus explicit instruction to paste or attach the full Receipt below; the run header and path boundaries must still be self-contained.
 - A partial handoff must not be labeled copy-paste runnable.
 

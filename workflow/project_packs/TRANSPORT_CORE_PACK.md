@@ -7,8 +7,8 @@ artifact_control:
   intended_load_mode: default_all_directions
   status: atomic_run_hardened
   owner: workflow_os
-  generated_from_ref: wg/root-objective-atomic-run@R-WG-ATOMIC-RUN-HARDEN-001
-  refreshed_for_receipt: R-WG-ATOMIC-RUN-HARDEN-001
+  generated_from_ref: wg/project-surface-separation@R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+  refreshed_for_receipt: R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -29,7 +29,7 @@ source_manifest:
 
 ## Cache Boundary
 
-This pack is a ChatGPT Project Files runtime cache / upload convenience artifact.
+This pack is a ChatGPT Project Files/Sources runtime cache / upload convenience artifact.
 
 It is not semantic authority.
 
@@ -37,7 +37,7 @@ Canonical source files listed in `source_manifest` remain authority.
 
 If this pack conflicts with a verified canonical source file, the canonical source wins.
 
-If any `source_manifest` file changes, regenerate and refresh this pack before using it as Project Files cache.
+If any `source_manifest` file changes, regenerate and refresh this pack before using it as Project Files/Sources cache.
 
 If an exact card schema is material to a run, request or load the canonical source card file from `source_manifest`.
 
@@ -67,7 +67,14 @@ Commit Packet proposes a candidate state transition for Verify and Commit. It is
 
 Legacy Import Receipt Card records evidence needed to import old data without treating legacy files as current truth.
 
-Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and Project Files refresh requirements.
+Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements.
+
+Project refresh requirements must distinguish:
+
+- `project_instruction_ui_update_required` for ChatGPT Project Instructions UI updates.
+- `project_sources_files_refresh_required` for uploaded Project Files/Sources.
+- `request_only_sources_refresh_required` for request-only packs or exact sources.
+- `do_not_upload_as_project_file` for instruction source files such as `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
 
 Child Obligation Request Card, Child Result Return Card, and Parent Recovery Block support recursive child handoff. Child chats are launched only when needed for the current target Obligation, return results to the parent, and do not mutate parent Ledger state or make parent-level final decisions.
 

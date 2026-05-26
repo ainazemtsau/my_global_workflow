@@ -38,6 +38,8 @@ The user should be able to copy one block into Codex without adding repository, 
 
 After Codex returns, same-parent continuation is the default. The user should bring the Codex result back to the parent chat unless a next-chat criterion below is met.
 
+When changed files affect ChatGPT Projects, the handoff must separate Project Instructions UI updates from Project Files/Sources refreshes.
+
 ### NEXT_CHAT_NEEDED
 
 A new ChatGPT operator run is needed.
@@ -125,13 +127,31 @@ When terminal outcome is `CODEX_COMMIT_NEEDED`, the response must include:
 - commit message and commit requirement
 - push expectation
 - explicit no-main-merge setting
-- Project Files refresh requirements
+- separated project refresh requirements:
+  - `project_instruction_ui_update_required`
+  - `project_sources_files_refresh_required`
+  - `request_only_sources_refresh_required`
+  - `do_not_upload_as_project_file`
 
 The user should be able to paste one block into Codex without reconstructing the task from a Receipt or adding an external wrapper.
 
 The response must not output only a Receipt plus a partial handoff.
 
 The response must not say "send this to Codex" unless the pasted block is runnable as-is.
+
+## Project Surface Refresh Rule
+
+Project Instructions UI and Project Files/Sources are separate ChatGPT surfaces.
+
+Codex handoffs and run closures must use `project_instruction_ui_update_required` when a repository instruction source changes and the user needs to paste updated text into the ChatGPT Project Instructions field.
+
+Codex handoffs and run closures must use `project_sources_files_refresh_required` only for uploaded Project Files/Sources such as shared packs and Direction payload files.
+
+Codex handoffs and run closures must use `request_only_sources_refresh_required` for request-only packs or exact sources that should be refreshed only if already uploaded or explicitly needed.
+
+Codex handoffs and run closures must use `do_not_upload_as_project_file` for repository Project Instruction Source files such as `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
+
+Do not group Project Instructions UI updates under uploaded Project Files/Sources refresh, do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh, and do not make default upload counts include Project Instructions.
 
 If the operator cannot produce a self-contained Codex handoff, it must clearly state the missing fields and return `BLOCKED_CONTEXT_NEEDED` or `CODEX_HANDOFF_BLOCKED`.
 

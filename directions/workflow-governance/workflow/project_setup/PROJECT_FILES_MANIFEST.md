@@ -8,15 +8,25 @@ artifact_control:
   owner: workflow_os
 ---
 
-# Workflow Governance Maintenance Console Project Files Manifest
+# Workflow Governance Maintenance Console Project Surface Manifest
 
 Project name: Workflow Governance
 
-Project Instructions source:
+## Project Instructions UI Source
 
 - `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 
-## Default Project Files
+Paste the UI payload from this source into the ChatGPT Project Instructions field.
+
+```yaml
+project_instruction_ui_update_required: true
+do_not_upload_as_project_file:
+  - directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+```
+
+This source is not a Project File/Source and is excluded from the default upload count.
+
+## Default Project Files/Sources
 
 Upload only this minimal maintenance-console default set:
 
@@ -25,6 +35,8 @@ Upload only this minimal maintenance-console default set:
 - `workflow/project_packs/PROJECT_PACKS_INDEX.md`
 - `docs/CHATGPT_PROJECT_SETUP.md`
 - `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+
+`PROJECT_PACKS_INDEX.md` is default only for this maintenance console because setup and pack inspection are part of its job. It remains request-only for ordinary Direction Workflow Projects.
 
 ## Request-Only Runtime Packs
 
@@ -77,9 +89,9 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 - old `proof_workflow` namespace
 - old vNext-R workflow evidence from legacy branch/tag
 - `directions/workflow-governance/project_files/**`
-- `directions/workflow-governance/project_setup/**`
+- `directions/workflow-governance/project_setup/**` as Project Files/Sources
 - `directions/*/project_files/**`
-- `directions/*/project_setup/**`
+- `directions/*/project_setup/**` as Project Files/Sources
 - `directions/*/phases/**`
 - `directions/*/execution_logs/**`
 - `migration/**`
@@ -89,17 +101,19 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 
 ## Refresh Rule
 
-- If a default Project File changes, refresh that uploaded Project File.
+- If Project Instructions source changes, paste the updated UI payload into the ChatGPT Project Instructions field.
+- Do not upload `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` as a Project File/Source.
+- If a default Project File/Source changes, refresh that uploaded Project File/Source.
 - If a request-only file was uploaded for a specific maintenance problem and later changes, refresh it before relying on the uploaded copy.
-- GitHub remains source of truth; Project Files are runtime cache and may be stale.
-- Remove stale Project Files from the ChatGPT Project after this patch and re-upload only the new manifest defaults.
+- GitHub remains source of truth; Project Files/Sources are runtime cache and may be stale.
+- Remove stale Project Files/Sources from the ChatGPT Project after this patch and re-upload only the new manifest defaults.
 
 ## Restoration Steps
 
 1. Create or open the ChatGPT Project named "Workflow Governance".
-2. Paste Project Instructions from `CHATGPT_PROJECT_INSTRUCTIONS.md`.
-3. Remove stale Project Files from the old Direction Workflow runtime setup.
-4. Upload only the five default Project Files listed above.
+2. Paste Project Instructions from `CHATGPT_PROJECT_INSTRUCTIONS.md` into the ChatGPT Project Instructions UI.
+3. Remove stale Project Files/Sources from the old Direction Workflow runtime setup.
+4. Upload only the five default Project Files/Sources listed above.
 5. Do not upload live Direction payload files by default.
 6. Do not upload `WORKFLOW_BASE_PACK`, `TRANSPORT_CORE_PACK`, or `EXECUTION_HARNESS_PACK` by default.
 7. Load request-only files only for the exact current maintenance problem.
@@ -111,6 +125,7 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 default_upload_count: 5
 default_maintenance_pack_files: 2
 default_setup_context_files: 3
+project_instruction_sources_in_default_upload_count: 0
 request_only_runtime_packs: 3
 direction_payload_files_default_loaded: 0
 ```

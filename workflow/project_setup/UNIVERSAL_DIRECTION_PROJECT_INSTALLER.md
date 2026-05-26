@@ -18,6 +18,13 @@ It is the repository source for the project installation process. It does not cr
 
 ## Setup Model
 
+Layer 0 - Project Instructions UI:
+
+- behavior instructions pasted into the ChatGPT Project Instructions field
+- generated from repository instruction sources such as `CHATGPT_PROJECT_INSTRUCTIONS.md`
+- not uploaded as a Project File/Source
+- not live Direction state
+
 Layer A - Universal Project Shell:
 
 - shared ChatGPT Project behavior
@@ -27,24 +34,32 @@ Layer A - Universal Project Shell:
 - recursive child handoff
 - legacy boundary
 
-Layer B - Shared Workflow Runtime Packs:
+Layer B - Shared Workflow Runtime Packs / Project Files/Sources:
 
 - semantic kernel and workflow runtime cache
 - normal transport/card cache
 - Project Files upload convenience
 
-Layer C - Direction Payload:
+Layer C - Direction Payload / Project Files/Sources:
 
 - the Direction proof files that carry accepted state and projections
 - the only live Direction state source for Project startup
 
-Layer D - Optional Capability Packs:
+Layer D - Optional Request-Only Sources:
 
 - request-only packs loaded only when an admitted task needs the capability
 
 Product Repo Execution Setup is separate. Product/project technical memory belongs in the target product repository, not this workflow repository.
 
-## Required Default Project Files
+## Required Default Setup
+
+Step 1: paste or update Project Instructions in the ChatGPT Project Instructions UI using the generated instruction source.
+
+Do not upload `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` as a Project File/Source.
+
+Step 2: upload the following default Project Files/Sources.
+
+## Default Shared Packs
 
 Upload these shared packs for all new Direction Workflow Projects:
 
@@ -67,6 +82,10 @@ Load this only when execution readiness, product repo setup, CodexRun, validatio
 
 - `workflow/project_packs/EXECUTION_HARNESS_PACK.md`
 
+Load this only when exact pack/setup inspection requires the index:
+
+- `workflow/project_packs/PROJECT_PACKS_INDEX.md`
+
 Future optional capability packs may be added later:
 
 - `workflow/project_packs/MIGRATION_LEGACY_IMPORT_PACK.md`
@@ -80,9 +99,9 @@ Do not upload these by default:
 
 - `workflow/**`
 - `directions/<direction-id>/project_files/**`
-- `directions/<direction-id>/project_setup/**`
+- `directions/<direction-id>/project_setup/**` as Project Files/Sources, including `CHATGPT_PROJECT_INSTRUCTIONS.md`
 - `directions/*/project_files/**`
-- `directions/*/project_setup/**`
+- `directions/*/project_setup/**` as Project Files/Sources
 - `migration/**`
 - old vNext-R runtime, stage, or transport files
 - product repo `.execution/**` files in this workflow repository
@@ -92,14 +111,14 @@ Old files may be loaded only as legacy evidence for an admitted Legacy Import Ob
 ## Restoration Steps
 
 1. Create a ChatGPT Project with the Direction project name.
-2. Paste Project Instructions from the universal template or the Direction-specific source generated from it.
-3. Upload the default shared packs.
-4. Upload the Direction payload files.
+2. Paste Project Instructions from the universal template or the Direction-specific source generated from it into the ChatGPT Project Instructions UI.
+3. Upload the default shared packs as Project Files/Sources.
+4. Upload the Direction payload files as Project Files/Sources.
 5. Do not upload forbidden legacy files.
 6. Run the setup validation prompt/checklist.
 7. Start with the next valid run shown by `DASHBOARD.md` / `OBLIGATIONS.md`.
 
-Project Instructions are behavior/setup instructions. They must not store live Direction state.
+Project Instructions are behavior/setup instructions in the Project Instructions UI. They must not store live Direction state and must not be uploaded as Project Files/Sources.
 
 Live state must be read from Direction payload files. If Project Instructions and Direction payload conflict, Direction payload wins for live state.
 
@@ -148,11 +167,15 @@ Do not create product repo `.execution/**` setup inside this workflow repository
 
 ## Refresh Rule
 
-Project Files are runtime cache. GitHub remains source of truth.
+ChatGPT Project surfaces are runtime cache. GitHub remains source of truth.
 
-If any pack `source_manifest` file changes, regenerate or refresh that pack and replace the uploaded Project File before the next material run that depends on it.
+If Project Instructions source changes, paste the updated UI payload into the ChatGPT Project Instructions field. Do not treat that action as a Project Files/Sources refresh.
+
+If any pack `source_manifest` file changes, regenerate or refresh that pack and replace the uploaded Project File/Source before the next material run that depends on it.
 
 If Direction payload files change, refresh the uploaded Direction payload file before the next material run.
+
+Refresh handoffs must separate `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, and `do_not_upload_as_project_file`.
 
 ## Validation Checklist
 
@@ -160,8 +183,11 @@ Before using a new Direction Workflow Project for material work, confirm:
 
 - required shared packs are uploaded
 - Direction payload files are uploaded
+- Project Instructions are pasted into the Project Instructions UI
+- Project Instructions source files are not uploaded as Project Files/Sources
 - Project Instructions do not hard-code stale live state
 - Direction manifests use three shared packs plus six Direction payload files
+- Direction manifests exclude Project Instructions from the default upload count
 - forbidden old files are not uploaded
 - old vNext-R files are not default-loaded
 - Context Authority is present

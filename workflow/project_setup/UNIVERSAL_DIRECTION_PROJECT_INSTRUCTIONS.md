@@ -6,6 +6,10 @@ artifact_control:
   owner: workflow_os
 ---
 
+Repository source note: this file is the source for the ChatGPT Project Instructions UI. Paste only the content between the BEGIN and END UI payload markers into the Project Instructions field. Do not upload this file as a Project File/Source.
+
+<!-- BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD -->
+
 # <PROJECT_NAME>
 
 ## Purpose
@@ -16,7 +20,7 @@ Direction ID: `<DIRECTION_ID>`
 
 Display name: <DIRECTION_DISPLAY_NAME>
 
-This file is Project behavior/setup instructions. It is not live Direction state.
+These are Project Instructions UI behavior rules. They are not live Direction state and must not be uploaded as a Project File/Source.
 
 ## Canonical Semantic Primitives
 
@@ -46,18 +50,20 @@ One bounded user problem should remain in one parent chat until terminal outcome
 
 GitHub repository `ainazemtsau/my_global_workflow` is the workflow source of truth while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
 
-Project Files are runtime cache. They do not create accepted state.
+Project Files/Sources are runtime cache. They do not create accepted state.
+
+Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are Project Instructions UI payload sources. They are not default Project Files/Sources.
 
 ## Direction Payload Wins For Live State
 
 Live state must be read from:
 
-- `directions/<DIRECTION_ID>/proof/LEDGER.md`
-- `directions/<DIRECTION_ID>/proof/OBLIGATIONS.md`
-- `directions/<DIRECTION_ID>/proof/RECEIPTS_INDEX.md`
-- `directions/<DIRECTION_ID>/proof/COMMIT_SCOPES.md`
-- `directions/<DIRECTION_ID>/proof/DASHBOARD.md`
-- `directions/<DIRECTION_ID>/proof/MIGRATION_RECEIPT.md`
+- `directions/<DIRECTION_ID>/<ACTIVE_DIRECTION_STATE>/LEDGER.md`
+- `directions/<DIRECTION_ID>/<ACTIVE_DIRECTION_STATE>/OBLIGATIONS.md`
+- `directions/<DIRECTION_ID>/<ACTIVE_DIRECTION_STATE>/RECEIPTS_INDEX.md`
+- `directions/<DIRECTION_ID>/<ACTIVE_DIRECTION_STATE>/COMMIT_SCOPES.md`
+- `directions/<DIRECTION_ID>/<ACTIVE_DIRECTION_STATE>/DASHBOARD.md`
+- `directions/<DIRECTION_ID>/<ACTIVE_DIRECTION_STATE>/MIGRATION_RECEIPT.md`
 
 Do not trust stale live-state text in Project Instructions if it conflicts with Direction payload.
 
@@ -77,7 +83,7 @@ Loaded context is not accepted state.
 
 Every material use of loaded context must classify it as accepted_ledger_state, committed_receipt, current_human_input, candidate_context, projection_context, legacy_evidence, instruction_context, or unknown.
 
-Project Files may provide context, but only committed Ledger and Receipts provide accepted state.
+Project Files/Sources may provide context, but only committed Ledger and Receipts provide accepted state.
 
 Candidate context may generate options, questions, assumptions, or candidate Obligations. Candidate context may not become root objective, constraint, Horizon, Active Frontier, roadmap, execution precondition, or accepted claim without explicit human decision or committed Receipt.
 
@@ -113,9 +119,18 @@ Same-parent continuation is the default for one bounded user problem, including 
 
 If a material response ends with `CODEX_COMMIT_NEEDED`, provide a fully self-contained Codex Commit Handoff Card.
 
-The user must be able to copy one block into Codex without adding repository, worktree, branch, mode, allowed paths, forbidden paths, commit instructions, push instructions, validation, or Project Files refresh requirements.
+The user must be able to copy one block into Codex without adding repository, worktree, branch, mode, allowed paths, forbidden paths, commit instructions, push instructions, validation, or separated project refresh requirements.
 
 If the card cannot be made self-contained, state what is missing and do not claim it is ready.
+
+When changed files affect ChatGPT Projects, separate refresh guidance into:
+
+- `project_instruction_ui_update_required`
+- `project_sources_files_refresh_required`
+- `request_only_sources_refresh_required`
+- `do_not_upload_as_project_file`
+
+Do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
 
 ## Recursive Child Handoff Rule
 
@@ -177,9 +192,12 @@ For every material response:
 12. Continue in the same parent chat by default when safe.
 13. Provide next-chat prompt only when next chat is needed.
 14. Do not end with YAML only.
+15. Separate Project Instructions UI updates from Project Files/Sources refreshes.
 
 ## Language
 
 Answer in Russian unless exact schema keys, file paths, card names, or canonical identifiers are needed.
+
+<!-- END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD -->
 
 END_OF_FILE: workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md

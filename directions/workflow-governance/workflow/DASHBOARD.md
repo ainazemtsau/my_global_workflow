@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: dashboard_projection
-  status: atomic_run_hardened
+  status: project_surface_separation_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Workflow Governance
 
-Proof state: atomic run hardened
+Proof state: project surface separation hardened
 
 Root objective: maintain and harden Workflow OS around proof-carrying, one-obligation-at-a-time execution.
 
@@ -19,6 +19,7 @@ Accepted receipts:
 
 - R-WG-ROOT-OBJECTIVE-ATOMIC-RUN-001
 - R-WG-ATOMIC-RUN-HARDEN-001
+- R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
 
 Open critical Obligation:
 
@@ -30,6 +31,7 @@ Satisfied Obligations:
 - O-WG-SUCCESS-SEMANTICS-DEFINE
 - O-WG-CONSTRAINTS-DEFINE
 - O-WG-ATOMIC-RUN-HARDEN
+- O-WG-PROJECT-SURFACE-SEPARATION-HARDEN
 
 Blocked Obligations:
 
@@ -50,12 +52,25 @@ Next valid run:
 
 - none admitted by this receipt
 
-Project Files refresh required:
+project_instruction_ui_update_required:
 
-- Workflow Governance payload files: LEDGER.md, OBLIGATIONS.md, RECEIPTS_INDEX.md, DASHBOARD.md, COMMIT_SCOPES.md, project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
-- Shared packs: UNIVERSAL_PROJECT_SHELL_PACK.md, WORKFLOW_BASE_PACK.md, TRANSPORT_CORE_PACK.md, PROJECT_PACKS_INDEX.md
-- Indie Game Development Project Instructions: directions/indie-game-development/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
-- Do not default-load EXECUTION_HARNESS_PACK.md
+- Workflow Governance: paste the updated UI payload from directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md into the ChatGPT Project Instructions field.
+- Indie Game Development: paste the updated UI payload from directions/indie-game-development/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md into the ChatGPT Project Instructions field.
+
+project_sources_files_refresh_required:
+
+- Workflow Governance payload files: LEDGER.md, OBLIGATIONS.md, RECEIPTS_INDEX.md, DASHBOARD.md
+- Shared packs: UNIVERSAL_PROJECT_SHELL_PACK.md, TRANSPORT_CORE_PACK.md
+
+request_only_sources_refresh_required:
+
+- PROJECT_PACKS_INDEX.md only if already uploaded or used for setup inspection.
+- EXECUTION_HARNESS_PACK.md remains request-only and unchanged.
+
+do_not_upload_as_project_file:
+
+- directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+- directions/indie-game-development/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
 
 Projection warning: Dashboard is projection, not truth; Ledger wins.
 

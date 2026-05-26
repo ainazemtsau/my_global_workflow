@@ -1,8 +1,8 @@
-﻿---
+---
 artifact_control:
   namespace: workflow
   artifact_type: chatgpt_project_setup_principles
-  status: atomic_run_hardened
+  status: project_surface_separation_hardened
   owner: workflow_os
 ---
 
@@ -37,6 +37,7 @@ The maintenance console must not default-load Direction payload files.
 
 New ordinary Direction Workflow Projects use one setup model:
 
+- Project Instructions UI
 - Universal Project Shell
 - Shared Workflow Runtime Packs
 - Direction Payload
@@ -56,7 +57,43 @@ Its default upload set is:
 - `docs/CHATGPT_PROJECT_SETUP.md`
 - `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
 
-## Default Upload Surface
+`PROJECT_PACKS_INDEX.md` is default only for the Workflow Governance Maintenance Project because that project is explicitly a setup and pack inspection console. It remains request-only for ordinary Direction Workflow Projects.
+
+## Project Surface Taxonomy
+
+Project Instructions UI:
+
+- The ChatGPT Project settings field for project-specific behavior instructions.
+- Users paste instruction text here.
+- This is not an uploaded Project File/Source.
+
+Project Files/Sources:
+
+- Uploaded reference materials / project sources.
+- Includes default shared workflow packs and Direction payload files for ordinary Direction Workflow Projects.
+- Includes the maintenance-console default upload set for the Workflow Governance Maintenance Project.
+
+Repository Project Instruction Source:
+
+- Repository source or template used to produce Project Instructions UI text.
+- It may live at `directions/<direction-id>/.../project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
+- It is not a default Project File/Source upload.
+- It must not store live Direction state.
+
+Request-only sources:
+
+- Files or packs loaded only when an admitted task requires them.
+- Includes `workflow/project_packs/EXECUTION_HARNESS_PACK.md`.
+- Includes `workflow/project_packs/PROJECT_PACKS_INDEX.md` for ordinary Direction Workflow Projects when exact setup inspection is needed.
+
+## Correct Default Setup
+
+1. Paste or update Project Instructions in the ChatGPT Project Instructions UI.
+2. Upload or replace Project Files/Sources for the Project type:
+   - ordinary Direction Workflow Projects: default shared packs plus Direction payload files.
+   - Workflow Governance Maintenance Project: the maintenance-console default upload set only.
+
+## Default Project Files/Sources
 
 For ordinary Direction Workflow Projects, use packs as the default shared upload surface:
 
@@ -83,13 +120,17 @@ Ordinary Direction default upload is three shared packs plus six Direction paylo
 
 Workflow Governance Maintenance Project default upload is the five-file maintenance-console set listed above.
 
-Project Instructions are behavior/setup instructions. They must not store live state. Direction payload files win for live state.
+Project Instructions source files are UI payload sources. They must not be uploaded as default Project Files/Sources, must not be included in the default upload count, and must not store live Direction state.
+
+Direction payload files win for live state.
 
 ## Request-Only Execution Harness
 
 `workflow/project_packs/EXECUTION_HARNESS_PACK.md` is request-only.
 
 Do not default-load the Execution Harness Pack unless execution readiness, product repo setup, CodexRun, validation, human-guided execution, or complex technical mission work is admitted.
+
+For ordinary Direction Workflow Projects, `workflow/project_packs/PROJECT_PACKS_INDEX.md` is request-only unless exact setup inspection requires it.
 
 Execution is not a semantic primitive.
 
@@ -112,11 +153,11 @@ Per-Direction generated setup files live under:
 
 ## Context Authority Setup Rule
 
-For ordinary Direction Workflow Projects, Project Files may provide context, but only committed Ledger and Receipts provide accepted state.
+For ordinary Direction Workflow Projects, Project Files/Sources may provide context, but only committed Ledger and Receipts provide accepted state.
 
 Loaded domain files must be treated as candidate_context unless the Ledger says otherwise.
 
-For the Workflow Governance Maintenance Project, GitHub repository state is source of truth and Project Files are cache. Load exact affected files on demand. Ledger, Obligation, and Receipt concepts are analyzed subject matter unless the user explicitly asks to inspect or validate runtime state.
+For the Workflow Governance Maintenance Project, GitHub repository state is source of truth and Project Files/Sources are cache. Load exact affected files on demand. Ledger, Obligation, and Receipt concepts are analyzed subject matter unless the user explicitly asks to inspect or validate runtime state.
 
 ## Human Input Setup Rule
 
@@ -131,6 +172,15 @@ Workflow Projects must not make the user build Codex tasks manually from Receipt
 Material runs must end with a human-readable terminal outcome and any needed copy-paste handoff.
 
 Workflow Projects must expect Codex Commit Handoff Cards to be fully self-contained.
+
+Handoffs and run closures must separate Project Instructions UI updates from Project Files/Sources refreshes using:
+
+- `project_instruction_ui_update_required`
+- `project_sources_files_refresh_required`
+- `request_only_sources_refresh_required`
+- `do_not_upload_as_project_file`
+
+Do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
 
 If a Codex handoff is not self-contained, the correct response is to ask the Operator chat to regenerate the handoff.
 

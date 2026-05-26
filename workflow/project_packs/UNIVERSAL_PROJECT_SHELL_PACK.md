@@ -7,8 +7,8 @@ artifact_control:
   intended_load_mode: default_all_directions
   status: atomic_run_hardened
   owner: workflow_os
-  generated_from_ref: wg/root-objective-atomic-run@R-WG-ATOMIC-RUN-HARDEN-001
-  refreshed_for_receipt: R-WG-ATOMIC-RUN-HARDEN-001
+  generated_from_ref: wg/project-surface-separation@R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+  refreshed_for_receipt: R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -31,7 +31,7 @@ source_manifest:
 
 ## Cache Boundary
 
-This pack is a ChatGPT Project Files runtime cache / upload convenience artifact.
+This pack is a ChatGPT Project Files/Sources runtime cache / upload convenience artifact.
 
 It is not semantic authority.
 
@@ -39,7 +39,7 @@ Canonical source files listed in `source_manifest` remain authority.
 
 If this pack conflicts with a verified canonical source file, the canonical source wins.
 
-If any `source_manifest` file changes, regenerate and refresh this pack before using it as Project Files cache.
+If any `source_manifest` file changes, regenerate and refresh this pack before using it as Project Files/Sources cache.
 
 ## Project Source Of Truth
 
@@ -47,7 +47,13 @@ GitHub repository `ainazemtsau/my_global_workflow` is the canonical AI workflow 
 
 The active workflow authority is `workflow/**`.
 
-ChatGPT Project Files are runtime cache. They do not create accepted state.
+ChatGPT Project surfaces are runtime cache. They do not create accepted state.
+
+Project Instructions UI is the ChatGPT Project settings field where behavior instructions are pasted.
+
+Project Files/Sources are uploaded reference materials.
+
+Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are Project Instructions UI payload sources. They are not default Project Files/Sources and must not be included in default upload counts.
 
 Direction proof state lives under:
 
@@ -64,6 +70,11 @@ directions/workflow-governance/workflow/
 Only verified Receipts committed to the Direction Ledger create accepted Direction state.
 
 ## Default Load Boundary
+
+Default setup is:
+
+1. Paste or update Project Instructions in the ChatGPT Project Instructions UI.
+2. Upload Project Files/Sources: default shared packs plus Direction payload files.
 
 New Workflow Projects should not load old vNext-R workflow files, old stage files, old transport files, or old Direction `project_files/00-08` by default.
 
@@ -105,7 +116,11 @@ Every material response must end with a clear terminal outcome for the user.
 
 Return the human-readable result first. Technical cards belong after the explanation.
 
-If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and Project Files refresh requirements.
+If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements.
+
+Refresh requirements must use `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, and `do_not_upload_as_project_file`.
+
+Do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
 
 Same-parent continuation is the default for one bounded user problem, including after `CODEX_COMMIT_NEEDED`, Codex results, and child results.
 

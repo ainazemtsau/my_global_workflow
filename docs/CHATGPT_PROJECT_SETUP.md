@@ -1,4 +1,4 @@
-﻿# ChatGPT Project Setup
+# ChatGPT Project Setup
 
 ```yaml
 artifact_control:
@@ -23,6 +23,15 @@ There are two supported ChatGPT Project types:
 
 - Direction Workflow Project
 - Workflow Governance Maintenance Project
+
+ChatGPT Project setup has separate surfaces:
+
+- Project Instructions UI: the ChatGPT Project settings field where behavior instructions are pasted.
+- Project Files/Sources: uploaded reference materials used as runtime context.
+- Repository Project Instruction Source: a repository file or template that produces the text for the Project Instructions UI.
+- Request-only sources: files or packs loaded only when an admitted task requires them.
+
+Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are sources for the Project Instructions UI. Paste their UI payload into the Project Instructions field. Do not upload them as default Project Files/Sources.
 
 ## Project Types
 
@@ -54,17 +63,19 @@ Its Project Instructions source is:
 
 - `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 
-Its Project Files manifest source is:
+Its Project Files/Sources manifest source is:
 
 - `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`
 
-Its default Project Files are:
+Its default Project Files/Sources are:
 
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
 - `workflow/project_packs/PROJECT_PACKS_INDEX.md`
 - `docs/CHATGPT_PROJECT_SETUP.md`
 - `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+
+`PROJECT_PACKS_INDEX.md` is default only for the Workflow Governance Maintenance Project because that project is explicitly a setup and pack inspection console. It remains request-only for ordinary Direction Workflow Projects.
 
 Workflow runtime packs and Workflow Governance Direction payload files are request-only in the maintenance project.
 
@@ -82,11 +93,11 @@ Per-Direction manifests for ordinary Direction Workflow Projects remain under:
 - `directions/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 - `directions/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md`
 
-Per-Direction manifests now use the pack model.
+Per-Direction Project Files manifests use the pack model and list only uploaded Project Files/Sources plus request-only sources.
 
 ## Direction Default Shared Packs
 
-Ordinary Direction Workflow Projects should upload these shared packs:
+After the Project Instructions UI is updated, ordinary Direction Workflow Projects should upload these shared packs as Project Files/Sources:
 
 - `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
 - `workflow/project_packs/WORKFLOW_BASE_PACK.md`
@@ -96,7 +107,7 @@ The packs are runtime cache / upload convenience files. They are not semantic au
 
 ## Direction Required Payload
 
-For ordinary Direction Workflow Projects, upload Direction proof files from `directions/<direction-id>/**`:
+For ordinary Direction Workflow Projects, upload Direction proof files from `directions/<direction-id>/**` as Project Files/Sources:
 
 - `directions/<direction-id>/LEDGER.md`
 - `directions/<direction-id>/OBLIGATIONS.md`
@@ -107,11 +118,13 @@ For ordinary Direction Workflow Projects, upload Direction proof files from `dir
 
 Receipt files may be uploaded when the manifest requires them or when a run needs direct receipt context.
 
-## Request-Only Capability Packs
+## Request-Only Sources
 
 Load `workflow/project_packs/EXECUTION_HARNESS_PACK.md` only when execution readiness, product repo setup, CodexRun, validation, human-guided execution, or complex technical mission work is admitted.
 
 The Execution Harness Pack is not a default load for all Projects.
+
+For ordinary Direction Workflow Projects, load `workflow/project_packs/PROJECT_PACKS_INDEX.md` only when a setup inspection task explicitly needs the index or it is already uploaded and must be refreshed.
 
 ## Forbidden Default Loads
 
@@ -119,7 +132,7 @@ Do not load these by default for new workflow Projects:
 
 - old vNext-R workflow evidence from legacy branch/tag
 - `directions/*/project_files/**`
-- `directions/*/project_setup/**`
+- `directions/*/project_setup/**` as Project Files/Sources, including `CHATGPT_PROJECT_INSTRUCTIONS.md`
 - old docs setup files
 - migration/admin files unless a Legacy Import Obligation requires them
 - product repo `.execution/**` files inside this workflow repository
@@ -138,19 +151,30 @@ Ordinary Direction default upload is three shared packs plus six Direction paylo
 
 The Workflow Governance Maintenance Project default upload is the five-file maintenance-console set listed in Project Types.
 
-Project Instructions are behavior/setup instructions. Direction payload files are live state.
+Project Instructions are pasted into the Project Instructions UI. They are not uploaded Project Files/Sources and do not count toward the default upload count.
+
+Direction payload files are live state.
 
 Do not fall back to old vNext-R setup as active runtime.
 
 ## Refresh Rule
 
-A GitHub commit does not update ChatGPT Project Files.
+A GitHub commit does not update ChatGPT Project surfaces.
 
-If a pack source file changes, regenerate or refresh the pack and replace the uploaded Project File before the next material run that depends on it.
+When Project Instructions source text changes, paste the updated UI payload into the ChatGPT Project Instructions field. Do not classify that update as an uploaded Project Files/Sources refresh.
 
-If a Direction payload file changes, refresh that uploaded Project File before the next material run that depends on it.
+If a pack source file changes, regenerate or refresh the pack and replace the uploaded Project File/Source before the next material run that depends on it.
 
-Old ChatGPT Projects configured from vNext-R setup are obsolete for active workflow use. Create new workflow Projects or replace their instructions/files from the workflow setup sources.
+If a Direction payload file changes, refresh that uploaded Project File/Source before the next material run that depends on it.
+
+Refresh handoffs must separate:
+
+- `project_instruction_ui_update_required`
+- `project_sources_files_refresh_required`
+- `request_only_sources_refresh_required`
+- `do_not_upload_as_project_file`
+
+Old ChatGPT Projects configured from vNext-R setup are obsolete for active workflow use. Create new workflow Projects or replace their Project Instructions UI content and Project Files/Sources from the workflow setup sources.
 
 ## Read Completeness Rule
 

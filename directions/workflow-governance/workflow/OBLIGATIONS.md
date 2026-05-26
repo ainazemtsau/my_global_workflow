@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: obligations
-  status: atomic_run_hardened
+  status: project_surface_separation_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -55,6 +55,23 @@ obligations:
       - Project setup instructions and runtime packs are refreshed when source files change.
       - No product execution, roadmap, Horizon, Active Frontier, or legacy import is introduced.
 
+  - obligation_id: O-WG-PROJECT-SURFACE-SEPARATION-HARDEN
+    type: workflow_setup_policy_patch
+    statement: >
+      Harden setup terminology and artifacts so ChatGPT Project Instructions UI,
+      Project Files/Sources, repo instruction sources, and request-only sources
+      cannot be conflated.
+    status: satisfied
+    satisfied_by_receipt: R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+    required_operator: GovernancePatch / RepositoryMaintenancePlan
+    acceptance_conditions:
+      - Project Instructions UI is defined separately from Project Files/Sources.
+      - `CHATGPT_PROJECT_INSTRUCTIONS.md` files are treated as UI payload sources, not default uploads.
+      - Generated Project Instructions are optimized for the Project Instructions UI.
+      - Handoffs split instruction UI updates from Project Files/Sources refresh.
+      - Project Files manifests exclude Project Instructions sources from default upload count.
+      - No product execution or Indie Game Development proof-state mutation is introduced.
+
   - obligation_id: O-WG-LEGACY-INVENTORY-OPTIONAL
     type: legacy_import
     statement: Optionally inspect old Workflow Governance files as legacy evidence only.
@@ -81,5 +98,7 @@ No CodexExecution operator may run.
 No roadmap item exists without admitted Obligation.
 
 O-WG-ATOMIC-RUN-HARDEN is satisfied by R-WG-ATOMIC-RUN-HARDEN-001.
+
+O-WG-PROJECT-SURFACE-SEPARATION-HARDEN is satisfied by R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001.
 
 END_OF_FILE: directions/workflow-governance/workflow/OBLIGATIONS.md
