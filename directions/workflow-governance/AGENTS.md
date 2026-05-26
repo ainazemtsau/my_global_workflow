@@ -1,41 +1,31 @@
-# Workflow Governance Direction Instructions
+# Workflow Governance Proof Direction Instructions
 
 Status: active
 
 Direction path: `directions/workflow-governance`
 
-Source of truth: GitHub repository markdown in `ainazemtsau/my_global_workflow`.
+Use `directions/workflow-governance/LEDGER.md` and the root payload files for live Workflow Governance state.
 
-## Purpose
+## Active Authority
 
-This Direction maintains and improves Workflow vNext-R. It is separate from Solo Max Productive and real product/game Directions.
+- Live state comes from `LEDGER.md`, `OBLIGATIONS.md`, `RECEIPTS_INDEX.md`, `COMMIT_SCOPES.md`, `DASHBOARD.md`, `MIGRATION_RECEIPT.md`, committed `receipts/`, and `projections/`.
+- Only committed Receipts in the Ledger create accepted proof state.
+- Project setup files are runtime cache/setup instructions, not accepted state.
 
-## Scope
+## Legacy Boundary
 
-Allowed by default:
-- `directions/workflow-governance/**`
-- shared workflow files under `workflow/` only when auditing workflow runtime, stage prompts, transport, registry, or Codex protocol behavior.
+- Do not use old `project_files/00-08` or old vNext-R files as accepted state.
+- Do not perform Legacy Import unless an admitted Obligation explicitly authorizes it.
+- Do not invent Direction proof state from legacy material.
 
-Allowed only when the audit explicitly targets real Direction behavior:
-- `directions/*/project_files/`
+## Execution Boundary
 
-Forbidden unless explicitly requested:
-- product/project execution
-- modifying sibling Directions
-- bulk-loading all stage prompts
-- changing runtime behavior without approved repository patch
-
-## Runtime Rules
-
-- Stage prompts are request-only by exact stage ID.
-- Do not invent workflow findings, source facts, runtime defects, or evaluation results.
-- Separate source-backed facts vs inference.
-- No repository patch until approval.
-- Return Context Request if a required GitHub path is missing.
+- Do not create a roadmap, select Horizon, select Active Frontier, admit execution obligations, or run product execution from this Direction unless a committed proof Obligation explicitly admits that work.
+- Repository maintenance is allowed only when explicitly requested and must stay within the named allowed paths.
+- Do not touch sibling Direction folders or product repositories unless the current task explicitly names them.
 
 ## Change Rules
 
 - Use small diffs.
-- Do not delete files without explicit approval.
-- Do not modify runtime core, stage prompts, stage registry, or sibling Directions unless the task explicitly approves those paths.
-- Report changed files and validation evidence after edits.
+- Preserve Receipt -> Verify -> Commit -> Ledger update.
+- Report changed files, validation evidence, and Project Files refresh requirements after edits.

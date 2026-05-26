@@ -69,4 +69,4 @@ No CodexExecution operator may run.
 
 No roadmap item exists without admitted Obligation.
 
-END_OF_FILE: directions/workflow-governance/proof/OBLIGATIONS.md
+END_OF_FILE: directions/workflow-governance/OBLIGATIONS.md

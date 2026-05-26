@@ -53,6 +53,14 @@ Direction proof state lives under:
 directions/<direction-id>/proof/
 ```
 
+Workflow Governance is the self-hosted governance Direction and uses a flattened root payload layout:
+
+```text
+directions/workflow-governance/
+```
+
+Ordinary Direction Proof Projects may still use `directions/<direction-id>/proof/` unless separately migrated.
+
 Only verified Receipts committed to the Direction Ledger create accepted Direction state.
 
 ## Default Load Boundary

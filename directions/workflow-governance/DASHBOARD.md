@@ -43,4 +43,4 @@ Next valid run:
 
 Projection warning: Dashboard is projection, not truth; Ledger wins.
 
-END_OF_FILE: directions/workflow-governance/proof/DASHBOARD.md
+END_OF_FILE: directions/workflow-governance/DASHBOARD.md
