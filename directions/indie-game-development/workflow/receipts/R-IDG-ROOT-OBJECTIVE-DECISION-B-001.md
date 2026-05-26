@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
@@ -69,12 +69,12 @@ receipt_card:
 
     - evidence_id: E-IDG-LEDGER-SNAPSHOT-001
       kind: source_backed
-      source_ref: "directions/indie-game-development/LEDGER.md"
+      source_ref: "directions/indie-game-development/workflow/LEDGER.md"
       summary: "Ledger was initialized skeleton with no accepted receipts, no accepted claims, and no imported legacy state before this commit."
 
     - evidence_id: E-IDG-COMMIT-SCOPE-ROOT-001
       kind: source_backed
-      source_ref: "directions/indie-game-development/COMMIT_SCOPES.md"
+      source_ref: "directions/indie-game-development/workflow/COMMIT_SCOPES.md"
       summary: "idg_root_scope controls root objective acceptance and requires verified Receipts and Commit."
 
   assumptions: []
@@ -233,11 +233,11 @@ ledger_updates:
     - O-IDG-CONSTRAINTS-DEFINE
   legacy_import_state: not_performed
 projection_updates_required:
-  - directions/indie-game-development/DASHBOARD.md
+  - directions/indie-game-development/workflow/DASHBOARD.md
 storage_updates_required:
-  - directions/indie-game-development/LEDGER.md
-  - directions/indie-game-development/RECEIPTS_INDEX.md
-  - directions/indie-game-development/OBLIGATIONS.md
+  - directions/indie-game-development/workflow/LEDGER.md
+  - directions/indie-game-development/workflow/RECEIPTS_INDEX.md
+  - directions/indie-game-development/workflow/OBLIGATIONS.md
 ```
 
 ## Fields Not Accepted
@@ -277,4 +277,4 @@ No old Direction files were imported as accepted truth.
 
 No Strategic Path Map, Horizon, Active Frontier, Roadmap, Codex readiness, product execution, or implementation plan was created.
 
-END_OF_FILE: directions/indie-game-development/receipts/R-IDG-ROOT-OBJECTIVE-DECISION-B-001.md
+END_OF_FILE: directions/indie-game-development/workflow/receipts/R-IDG-ROOT-OBJECTIVE-DECISION-B-001.md

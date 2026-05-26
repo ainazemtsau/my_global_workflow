@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
@@ -132,4 +132,4 @@ No roadmap item exists without admitted Obligation.
 
 Execution is unavailable until root objective, strategy, constraints, and execution-ready precondition Receipts are accepted and committed.
 
-END_OF_FILE: directions/indie-game-development/OBLIGATIONS.md
+END_OF_FILE: directions/indie-game-development/workflow/OBLIGATIONS.md

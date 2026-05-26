@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
@@ -72,4 +72,4 @@ Horizon projection: unavailable until committed orientation state exists.
 
 Active Frontier view: unavailable until constraints and open Obligation eligibility can be computed from accepted Receipts.
 
-END_OF_FILE: directions/indie-game-development/DASHBOARD.md
+END_OF_FILE: directions/indie-game-development/workflow/DASHBOARD.md

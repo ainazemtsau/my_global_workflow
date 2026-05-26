@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
@@ -18,8 +18,8 @@ accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-B-001
 accepted_claims:
   - "Root objective selected by human decision: systemic co-op indie game centered on gas simulation, level/topology interaction, and extensible technical nucleus."
-open_obligations_ref: directions/indie-game-development/OBLIGATIONS.md
-commit_scopes_ref: directions/indie-game-development/COMMIT_SCOPES.md
+open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
+commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
 projections_state: dashboard_updated_from_committed_root_objective_receipt
 legacy_import_state: not_performed
 legacy_state_authority: false
@@ -80,4 +80,4 @@ Open follow-up Obligations are represented in `OBLIGATIONS.md`.
 
 No Strategic Path Map, Horizon, Active Frontier, Roadmap, execution package, or Codex work package is created or admitted by this commit.
 
-END_OF_FILE: directions/indie-game-development/LEDGER.md
+END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md

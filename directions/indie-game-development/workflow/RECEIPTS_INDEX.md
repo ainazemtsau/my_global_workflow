@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
@@ -37,4 +37,4 @@ No legacy import Receipts exist yet.
 
 No accepted strategic Receipts exist yet.
 
-END_OF_FILE: directions/indie-game-development/RECEIPTS_INDEX.md
+END_OF_FILE: directions/indie-game-development/workflow/RECEIPTS_INDEX.md

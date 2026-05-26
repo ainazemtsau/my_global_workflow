@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_workflow_project_setup
   direction_id: indie-game-development
@@ -46,20 +46,20 @@ Project Files are runtime cache. They do not create accepted state.
 
 Live state must be read from:
 
-- `directions/indie-game-development/LEDGER.md`
-- `directions/indie-game-development/OBLIGATIONS.md`
-- `directions/indie-game-development/RECEIPTS_INDEX.md`
-- `directions/indie-game-development/COMMIT_SCOPES.md`
-- `directions/indie-game-development/DASHBOARD.md`
-- `directions/indie-game-development/MIGRATION_RECEIPT.md`
+- `directions/indie-game-development/workflow/LEDGER.md`
+- `directions/indie-game-development/workflow/OBLIGATIONS.md`
+- `directions/indie-game-development/workflow/RECEIPTS_INDEX.md`
+- `directions/indie-game-development/workflow/COMMIT_SCOPES.md`
+- `directions/indie-game-development/workflow/DASHBOARD.md`
+- `directions/indie-game-development/workflow/MIGRATION_RECEIPT.md`
 
 Do not trust stale live-state text in Project Instructions if it conflicts with Direction payload.
 
 If Project Instructions and Direction payload conflict, Direction payload wins for live state.
 
-At chat start, read `DASHBOARD.md` and `OBLIGATIONS.md` to determine the next valid run.
+At chat start, read `workflow/DASHBOARD.md` and `workflow/OBLIGATIONS.md` to determine the next valid run.
 
-If no specific run is requested, follow the next valid run in `DASHBOARD.md`.
+If no specific run is requested, follow the next valid run in `workflow/DASHBOARD.md`.
 
 If Ledger/Dashboard show no accepted root objective, root objective confirmation is the default first run.
 
@@ -111,7 +111,7 @@ Child chats must not mutate Ledger or make parent-level final decisions.
 
 ## Legacy Boundary
 
-Do not treat old workflow files, old Direction `project_files/00-08`, old Direction Map, old Active Goal, old Current Phase, old Portfolio Queue, phases, execution logs, or old project setup files as accepted proof state.
+Do not treat old workflow files, old Direction lifecycle caches, old Direction Map, old Active Goal, old Current Phase, old Portfolio Queue, historical phase material, execution logs, or old project setup files as accepted proof state.
 
 Old Direction files may be used only through a future Legacy Import Receipt, Verify, and Commit process.
 
@@ -162,4 +162,4 @@ For every material response:
 
 Answer in Russian unless exact schema keys, file paths, card names, or canonical identifiers are needed.
 
-END_OF_FILE: directions/indie-game-development/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+END_OF_FILE: directions/indie-game-development/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md

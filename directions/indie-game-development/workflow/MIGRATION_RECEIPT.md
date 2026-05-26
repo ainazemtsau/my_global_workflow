@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
@@ -19,6 +19,7 @@ It records that Gate 2 created proof storage for the pilot Direction without imp
 
 ```yaml
 migration_gate: Gate 2 skeleton only
+legacy_import_state: not_performed
 legacy_import_performed: false
 imported_claims: []
 accepted_legacy_claims: []
@@ -37,4 +38,4 @@ No old Direction Map, Active Goal, Current Phase, Portfolio Queue, or other lega
 
 Future legacy import requires an admitted Obligation, LegacyImport Operator invocation, Legacy Import Receipt, Verify, and Commit.
 
-END_OF_FILE: directions/indie-game-development/MIGRATION_RECEIPT.md
+END_OF_FILE: directions/indie-game-development/workflow/MIGRATION_RECEIPT.md

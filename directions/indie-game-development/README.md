@@ -4,21 +4,16 @@ Direction ID: `indie-game-development`
 
 Source of truth: GitHub repository markdown.
 
-## Proof-Root Layout
+## Layout
 
-Accepted proof state lives in these root files:
+Live workflow lives in `workflow/`.
 
-- `LEDGER.md`
-- `OBLIGATIONS.md`
-- `RECEIPTS_INDEX.md`
-- `COMMIT_SCOPES.md`
-- `DASHBOARD.md`
-- `MIGRATION_RECEIPT.md`
+Root is navigation only, not a dump of workflow files.
 
-Receipts live in `receipts/`.
+Accepted state is read from `workflow/LEDGER.md` and committed receipts.
 
-Project setup lives in `project_setup/`.
+Next valid run is read from `workflow/DASHBOARD.md` and `workflow/OBLIGATIONS.md`.
 
-The archive is `legacy_evidence` only. Do not load old archive files by default, and do not treat archived workflow folders as accepted live state.
+Project setup is under `workflow/project_setup/`.
 
-Next valid runs are read from `DASHBOARD.md` and `OBLIGATIONS.md`.
+Archive is `legacy_evidence` only. Do not load archive content by default, and do not treat archived material as accepted live state.

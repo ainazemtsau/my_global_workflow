@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_workflow_project_setup
   direction_id: indie-game-development
@@ -14,7 +14,7 @@ Project name: Indie Game Development
 
 Project Instructions source:
 
-- `directions/indie-game-development/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/indie-game-development/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 
 ## Default Shared Project Packs
 
@@ -24,12 +24,16 @@ Project Instructions source:
 
 ## Direction Payload
 
-- `directions/indie-game-development/LEDGER.md`
-- `directions/indie-game-development/OBLIGATIONS.md`
-- `directions/indie-game-development/RECEIPTS_INDEX.md`
-- `directions/indie-game-development/COMMIT_SCOPES.md`
-- `directions/indie-game-development/DASHBOARD.md`
-- `directions/indie-game-development/MIGRATION_RECEIPT.md`
+- `directions/indie-game-development/workflow/LEDGER.md`
+- `directions/indie-game-development/workflow/OBLIGATIONS.md`
+- `directions/indie-game-development/workflow/RECEIPTS_INDEX.md`
+- `directions/indie-game-development/workflow/COMMIT_SCOPES.md`
+- `directions/indie-game-development/workflow/DASHBOARD.md`
+- `directions/indie-game-development/workflow/MIGRATION_RECEIPT.md`
+
+## Optional Receipt Records
+
+- `directions/indie-game-development/workflow/receipts/R-IDG-ROOT-OBJECTIVE-DECISION-B-001.md`
 
 ## Request-Only Capability Packs
 
@@ -43,7 +47,7 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 
 ## Do Not Load By Default
 
-- `workflow/**`
+- `directions/indie-game-development/archive/**`
 - `directions/indie-game-development/project_files/**`
 - `directions/*/project_files/**`
 - other Direction `project_setup/**` folders
@@ -68,8 +72,8 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 3. Upload the three default shared packs.
 4. Upload the six Direction payload files.
 5. Do not upload forbidden legacy files.
-6. Run setup validation using `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md` if needed.
-7. Start with the next valid run shown by `DASHBOARD.md` / `OBLIGATIONS.md`.
+6. Confirm the uploaded file list against this manifest.
+7. Start with the next valid run shown by `workflow/DASHBOARD.md` / `workflow/OBLIGATIONS.md`.
 
 ## Project Files Count Summary
 
@@ -80,4 +84,4 @@ direction_payload_files: 6
 request_only_execution_pack: 1
 ```
 
-END_OF_FILE: directions/indie-game-development/project_setup/PROJECT_FILES_MANIFEST.md
+END_OF_FILE: directions/indie-game-development/workflow/project_setup/PROJECT_FILES_MANIFEST.md

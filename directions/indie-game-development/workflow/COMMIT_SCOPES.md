@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
@@ -73,4 +73,4 @@ blocked_until:
 rule: Execution readiness cannot admit product/project execution by itself.
 ```
 
-END_OF_FILE: directions/indie-game-development/COMMIT_SCOPES.md
+END_OF_FILE: directions/indie-game-development/workflow/COMMIT_SCOPES.md
