@@ -7,7 +7,7 @@ Direction: `health-and-beauty`
 Allowed default scope:
 
 - `directions/health-and-beauty/**`
-- `proof_workflow/project_packs/**` only as shared pack source/reference
+- `project_packs/**` only as shared pack source/reference
 
 Repository maintenance may edit files only under `directions/health-and-beauty` unless explicitly authorized.
 

@@ -21,4 +21,4 @@ rules:
 
 No receipts are invented by this skeleton.
 
-END_OF_FILE: directions/workflow-governance/proof/RECEIPTS_INDEX.md
+END_OF_FILE: directions/workflow-governance/RECEIPTS_INDEX.md

@@ -14,7 +14,7 @@ Project name: Workflow Governance
 
 Project Instructions source:
 
-- `directions/workflow-governance/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 
 ## Default Shared Project Packs
 
@@ -24,12 +24,12 @@ Project Instructions source:
 
 ## Direction Payload
 
-- `directions/workflow-governance/proof/LEDGER.md`
-- `directions/workflow-governance/proof/OBLIGATIONS.md`
-- `directions/workflow-governance/proof/RECEIPTS_INDEX.md`
-- `directions/workflow-governance/proof/COMMIT_SCOPES.md`
-- `directions/workflow-governance/proof/DASHBOARD.md`
-- `directions/workflow-governance/proof/MIGRATION_RECEIPT.md`
+- `directions/workflow-governance/LEDGER.md`
+- `directions/workflow-governance/OBLIGATIONS.md`
+- `directions/workflow-governance/RECEIPTS_INDEX.md`
+- `directions/workflow-governance/COMMIT_SCOPES.md`
+- `directions/workflow-governance/DASHBOARD.md`
+- `directions/workflow-governance/MIGRATION_RECEIPT.md`
 
 ## Request-Only Capability Packs
 
@@ -44,8 +44,7 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 ## Do Not Load By Default
 
 - `workflow/**`
-- `directions/workflow-governance/project_files/**`
-- `directions/workflow-governance/project_setup/**`
+- old Workflow Governance vNext-R Direction folders
 - `directions/*/project_files/**`
 - `directions/*/project_setup/**`
 - `directions/*/phases/**`
@@ -81,4 +80,4 @@ direction_payload_files: 6
 request_only_execution_pack: 1
 ```
 
-END_OF_FILE: directions/workflow-governance/proof/project_setup/PROJECT_FILES_MANIFEST.md
+END_OF_FILE: directions/workflow-governance/project_setup/PROJECT_FILES_MANIFEST.md

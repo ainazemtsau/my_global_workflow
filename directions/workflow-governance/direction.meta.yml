@@ -1,38 +1,32 @@
 direction:
-  id: workflow_governance
+  id: workflow-governance
   name: Workflow Governance
   status: active
   source_of_truth: github_markdown
   github_repo: https://github.com/ainazemtsau/my_global_workflow
   repo_path: directions/workflow-governance
-  purpose: Maintain and improve Workflow vNext-R through audits, research, findings, evaluations, and controlled improvement proposals.
+  purpose: Maintain the Proof-Carrying Workflow OS through proof-governed repository maintenance.
 
 chatgpt:
-  project_name: Workflow Governance
+  project_name: Workflow Governance - Proof
   default_files:
-    - directions/workflow-governance/project_files/00_DIRECTION_START_HERE.md
-    - directions/workflow-governance/project_files/01_DIRECTION_STATE.md
-    - directions/workflow-governance/project_files/02_CURRENT_PHASE.md
-    - directions/workflow-governance/project_files/03_FOCUS_REGISTER.md
-    - directions/workflow-governance/project_files/04_ACTIVE_GOAL.md
-    - directions/workflow-governance/project_files/05_PORTFOLIO_QUEUE.md
-    - directions/workflow-governance/project_files/06_CONTEXT_LIBRARY_INDEX.md
-    - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
+    - project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
+    - project_packs/WORKFLOW_BASE_PACK.md
+    - project_packs/TRANSPORT_CORE_PACK.md
+    - directions/workflow-governance/LEDGER.md
+    - directions/workflow-governance/OBLIGATIONS.md
+    - directions/workflow-governance/RECEIPTS_INDEX.md
+    - directions/workflow-governance/COMMIT_SCOPES.md
+    - directions/workflow-governance/DASHBOARD.md
+    - directions/workflow-governance/MIGRATION_RECEIPT.md
 
 documentation:
   source_of_truth: github_markdown
-  audits:
-    path: directions/workflow-governance/audits
-    role: Workflow Steward Audit launch prompts, audit modes, and audit outputs.
-  findings:
-    path: directions/workflow-governance/findings
-    role: Finding register, open findings, accepted changes, and rejected or deferred items.
-  research:
-    path: directions/workflow-governance/research
-    role: Source-backed research and best-practice tracking.
-  evals:
-    path: directions/workflow-governance/evals
-    role: Workflow evaluation suite, regression matrices, and contract checklists.
+  proof_layout:
+    payload_root: directions/workflow-governance
+    project_setup: directions/workflow-governance/project_setup
+    receipts: directions/workflow-governance/receipts
+    projections: directions/workflow-governance/projections
 
 projects:
   embedded: []

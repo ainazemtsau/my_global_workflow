@@ -1,18 +1,18 @@
 ---
 artifact_control:
-  namespace: direction_workflow_project_setup
+  namespace: direction_proof_project_setup
   direction_id: workflow-governance
   artifact_type: chatgpt_project_instructions
-  project_name: "Workflow Governance"
+  project_name: "Workflow Governance — Proof"
   status: u3_pack_model
-  owner: workflow_os
+  owner: proof_carrying_workflow_os
 ---
 
-# Workflow Governance
+# Workflow Governance — Proof
 
 ## Purpose
 
-Run the Workflow OS for Workflow Governance.
+Run the Proof-Carrying Workflow OS for Workflow Governance.
 
 Direction ID: `workflow-governance`
 
@@ -46,12 +46,12 @@ Project Files are runtime cache. They do not create accepted state.
 
 Live state must be read from:
 
-- `directions/workflow-governance/proof/LEDGER.md`
-- `directions/workflow-governance/proof/OBLIGATIONS.md`
-- `directions/workflow-governance/proof/RECEIPTS_INDEX.md`
-- `directions/workflow-governance/proof/COMMIT_SCOPES.md`
-- `directions/workflow-governance/proof/DASHBOARD.md`
-- `directions/workflow-governance/proof/MIGRATION_RECEIPT.md`
+- `directions/workflow-governance/LEDGER.md`
+- `directions/workflow-governance/OBLIGATIONS.md`
+- `directions/workflow-governance/RECEIPTS_INDEX.md`
+- `directions/workflow-governance/COMMIT_SCOPES.md`
+- `directions/workflow-governance/DASHBOARD.md`
+- `directions/workflow-governance/MIGRATION_RECEIPT.md`
 
 Do not trust stale live-state text in Project Instructions if it conflicts with Direction payload.
 
@@ -71,7 +71,7 @@ Loaded context is not accepted state.
 
 Every material use of loaded context must classify it as accepted_ledger_state, committed_receipt, current_human_input, candidate_context, projection_context, legacy_evidence, instruction_context, or unknown.
 
-Project Files may provide context, but only committed Ledger and Receipts provide accepted state.
+Project Files may provide context, but only committed Ledger and Receipts provide accepted proof state.
 
 Candidate context may generate options, questions, assumptions, or candidate Obligations. Candidate context may not become root objective, constraint, Horizon, Active Frontier, roadmap, execution precondition, or accepted claim without explicit human decision or committed Receipt.
 
@@ -111,7 +111,7 @@ Child chats must not mutate Ledger or make parent-level final decisions.
 
 ## Legacy Boundary
 
-Do not treat old workflow files, old Direction `project_files/00-08`, old Direction Map, old Active Goal, old Current Phase, old Portfolio Queue, phases, execution logs, or old project setup files as accepted state.
+Do not treat old workflow files, old Direction `project_files/00-08`, old lifecycle pointer/cache files, phases, execution logs, or old project setup files as accepted proof state.
 
 Old Direction files may be used only through a future Legacy Import Receipt, Verify, and Commit process.
 
@@ -162,4 +162,4 @@ For every material response:
 
 Answer in Russian unless exact schema keys, file paths, card names, or canonical identifiers are needed.
 
-END_OF_FILE: directions/workflow-governance/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+END_OF_FILE: directions/workflow-governance/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md

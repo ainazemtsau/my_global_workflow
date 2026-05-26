@@ -1,25 +1,30 @@
-# Workflow Governance Direction
+# Workflow Governance Proof Direction
 
-Workflow Governance is a long-lived Direction for maintaining and improving Workflow vNext-R itself.
+Workflow Governance is the self-hosted Direction for maintaining the Proof-Carrying Workflow OS.
 
-It is separate from Solo Max Productive and real product/game Directions. Its work is workflow auditing, research, findings, evaluation, decision records, and controlled improvement proposals.
+## Active Payload
 
-## Source of truth
+Accepted state for this Direction lives in the root payload:
 
-The canonical source is GitHub markdown in `ainazemtsau/my_global_workflow`.
+- `LEDGER.md`
+- `OBLIGATIONS.md`
+- `RECEIPTS_INDEX.md`
+- `COMMIT_SCOPES.md`
+- `DASHBOARD.md`
+- `MIGRATION_RECEIPT.md`
+- `receipts/`
+- `projections/`
+- `project_setup/`
 
-## Operating boundary
+Only verified Receipts committed to `LEDGER.md` create accepted state. Documents, setup instructions, projections, and loaded context do not create truth by themselves.
 
-- Use this Direction for workflow stewardship, not product/project execution.
-- Do not modify runtime files, stage prompts, or other Directions from this Direction without an approved repository patch.
-- No repository patch until approval.
-- Stage prompts are request-only by exact stage ID.
-- No bulk-loading all stage prompts.
+## Legacy Boundary
 
-## Primary entry points
+Old vNext-R Workflow Governance files are legacy evidence only. They are not accepted proof state unless a future Legacy Import Receipt explicitly admits them through Verify and Commit.
 
-- `project_files/00_DIRECTION_START_HERE.md`
-- `project_files/06_CONTEXT_LIBRARY_INDEX.md`
-- `audits/WORKFLOW_STEWARD_AUDIT_LAUNCH_PROMPT.md`
-- `findings/FINDING_REGISTER.md`
-- `evals/WORKFLOW_EVAL_SUITE.md`
+## Operating Boundary
+
+- Use this Direction for proof workflow governance and repository maintenance.
+- Do not run roadmap selection, Horizon selection, Active Frontier selection, or product execution from this Direction unless a committed proof Obligation explicitly admits it.
+- Do not modify sibling Directions or product repositories unless the current repository maintenance task explicitly lists those paths.
+- Keep changes small and report Project Files refresh requirements when uploaded Project sources change.
