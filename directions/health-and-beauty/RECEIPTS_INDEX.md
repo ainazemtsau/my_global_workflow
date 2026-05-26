@@ -21,4 +21,4 @@ rules:
 
 No receipts are invented by this skeleton.
 
-END_OF_FILE: directions/health-and-beauty/proof/RECEIPTS_INDEX.md
+END_OF_FILE: directions/health-and-beauty/RECEIPTS_INDEX.md

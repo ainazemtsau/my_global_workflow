@@ -14,7 +14,7 @@ Project name: Health and Beauty — Proof
 
 Project Instructions source:
 
-- `directions/health-and-beauty/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/health-and-beauty/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 
 ## Default Shared Project Packs
 
@@ -24,12 +24,12 @@ Project Instructions source:
 
 ## Direction Payload
 
-- `directions/health-and-beauty/proof/LEDGER.md`
-- `directions/health-and-beauty/proof/OBLIGATIONS.md`
-- `directions/health-and-beauty/proof/RECEIPTS_INDEX.md`
-- `directions/health-and-beauty/proof/COMMIT_SCOPES.md`
-- `directions/health-and-beauty/proof/DASHBOARD.md`
-- `directions/health-and-beauty/proof/MIGRATION_RECEIPT.md`
+- `directions/health-and-beauty/LEDGER.md`
+- `directions/health-and-beauty/OBLIGATIONS.md`
+- `directions/health-and-beauty/RECEIPTS_INDEX.md`
+- `directions/health-and-beauty/COMMIT_SCOPES.md`
+- `directions/health-and-beauty/DASHBOARD.md`
+- `directions/health-and-beauty/MIGRATION_RECEIPT.md`
 
 ## Request-Only Capability Packs
 
@@ -44,7 +44,7 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 ## Do Not Load By Default
 
 - `workflow/**`
-- `directions/health-and-beauty/project_files/**`
+- `directions/health-and-beauty/archive/**`
 - `directions/health-and-beauty/project_setup/**`
 - `directions/*/project_files/**`
 - `directions/*/project_setup/**`
@@ -81,4 +81,4 @@ direction_payload_files: 6
 request_only_execution_pack: 1
 ```
 
-END_OF_FILE: directions/health-and-beauty/proof/project_setup/PROJECT_FILES_MANIFEST.md
+END_OF_FILE: directions/health-and-beauty/project_setup/PROJECT_FILES_MANIFEST.md

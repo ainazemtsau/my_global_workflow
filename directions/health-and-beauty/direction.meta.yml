@@ -1,38 +1,25 @@
 direction:
-  id: health_and_beauty
+  id: health-and-beauty
   name: Health and Beauty
   status: active
   source_of_truth: github_markdown
   github_repo: https://github.com/ainazemtsau/my_global_workflow
   repo_path: directions/health-and-beauty
+
 chatgpt:
-  project_name: Health and Beauty
+  project_name: Health and Beauty — Proof
+  project_instructions: directions/health-and-beauty/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
   default_files:
-  - directions/health-and-beauty/project_files/00_DIRECTION_START_HERE.md
-  - directions/health-and-beauty/project_files/01_DIRECTION_STATE.md
-  - directions/health-and-beauty/project_files/02_CURRENT_PHASE.md
-  - directions/health-and-beauty/project_files/03_FOCUS_REGISTER.md
-  - directions/health-and-beauty/project_files/04_ACTIVE_GOAL.md
-  - directions/health-and-beauty/project_files/05_PORTFOLIO_QUEUE.md
-  - directions/health-and-beauty/project_files/06_CONTEXT_LIBRARY_INDEX.md
-  - workflow/runtime/WF_VNEXT_R_RUNTIME_CORE.md
-documentation:
-  source_of_truth: github_markdown
-  knowledge:
-    path: directions/health-and-beauty/knowledge
-    role: stable reusable Direction knowledge, decisions, canon, patterns, and reviews
-  domain_docs:
-    path: directions/health-and-beauty/domain_docs
-    role: canonical domain documentation for this Direction
-projects:
-  embedded: []
-  external_repos:
-  - id: health_and_beauty_main
-    name: Health and Beauty external project repo
-    github_repo: null
-    local_path_windows: null
-    local_path_mac: null
-    status: not_created
-    purpose: No source-backed external project repository is recorded yet.
-    codex_allowed: false
-    needs_user_input: true
+    - proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
+    - proof_workflow/project_packs/PROOF_BASE_PACK.md
+    - proof_workflow/project_packs/TRANSPORT_CORE_PACK.md
+    - directions/health-and-beauty/LEDGER.md
+    - directions/health-and-beauty/OBLIGATIONS.md
+    - directions/health-and-beauty/RECEIPTS_INDEX.md
+    - directions/health-and-beauty/COMMIT_SCOPES.md
+    - directions/health-and-beauty/DASHBOARD.md
+    - directions/health-and-beauty/MIGRATION_RECEIPT.md
+
+archive:
+  path: directions/health-and-beauty/archive
+  role: legacy evidence and preserved result artifacts; not accepted proof state

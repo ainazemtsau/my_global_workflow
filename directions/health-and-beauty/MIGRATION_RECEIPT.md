@@ -27,4 +27,4 @@ next_possible_migration_step: optional LegacyImport Operator invocation after ro
 
 No old state is imported by this skeleton.
 
-END_OF_FILE: directions/health-and-beauty/proof/MIGRATION_RECEIPT.md
+END_OF_FILE: directions/health-and-beauty/MIGRATION_RECEIPT.md

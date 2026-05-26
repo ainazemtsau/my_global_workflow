@@ -1,39 +1,52 @@
-# Health and Beauty Direction Instructions
+# Health and Beauty Proof Direction Instructions
 
-Status: active
-
-Direction path: `directions/health-and-beauty`
-
-Source of truth: GitHub repository markdown in `ainazemtsau/my_global_workflow`.
+Direction: `health-and-beauty`
 
 ## Scope
 
-Allowed by default:
+Allowed default scope:
+
 - `directions/health-and-beauty/**`
-- shared workflow files under `workflow/` only when the task asks for workflow runtime, stage prompt, transport, or Codex protocol context.
+- `proof_workflow/project_packs/**` only as shared pack source/reference
 
-Forbidden unless explicitly requested:
-- `directions/solo-max-productive/**`
-- `directions/indie-game-development/**`
-- `directions/health-and-beauty/**`
+Repository maintenance may edit files only under `directions/health-and-beauty` unless explicitly authorized.
 
-The current Direction folder above is the only exception to the forbidden Direction list.
+No sibling Direction edits.
 
-## Runtime Rules
+## Live State
 
-- Do not use external personal notes as workflow source.
-- Do not routinely load migration/admin files.
-- Do not invent Direction, Phase, Goal, Portfolio Queue, Context Loading Index, project metadata, repo URLs, local paths, or execution state.
-- If required state is missing, return `NEEDS_INPUT` with the exact GitHub path needed.
-- Runtime Direction state belongs in `project_files/`.
-- Reusable Direction knowledge, canon, decisions, patterns, and reviews belong in `knowledge/` and are canonical only when present as GitHub files.
-- Domain documentation belongs in `domain_docs/`; do not invent domain canon when a required file is missing.
-- Project metadata belongs in `projects/` and `direction.meta.yml`; unknown repos stay `not_created` / `needs_user_input`.
+Live state files are:
+
+- `LEDGER.md`
+- `OBLIGATIONS.md`
+- `RECEIPTS_INDEX.md`
+- `COMMIT_SCOPES.md`
+- `DASHBOARD.md`
+- `MIGRATION_RECEIPT.md`
+
+At chat start, read `DASHBOARD.md` and `OBLIGATIONS.md`.
+
+## Context Authority
+
+Loaded context is not accepted state.
+
+`archive/results` and old workflow files are `legacy_evidence` or `candidate_context` only.
+
+Only committed receipts in Ledger can create accepted Direction state.
+
+## Forbidden Unless Admitted By Proof Obligation
+
+- Legacy Import
+- Strategic Path Map
+- Horizon
+- Active Frontier
+- roadmap
+- Codex/product execution
+- product/project implementation
 
 ## Change Rules
 
-- Use small diffs.
-- Do not delete files without explicit approval or a migration manifest replacement route.
-- Do not modify other Direction folders unless the task explicitly names them.
-- Do not copy stage prompts into Direction project files.
+- Keep diffs small and scoped.
+- Do not delete files without explicit approval or an archive-preserving replacement route.
+- Do not invent Direction state.
 - Report changed files and validation evidence after edits.

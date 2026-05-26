@@ -53,4 +53,4 @@ Commit Scope does not create truth.
 
 Only committed Receipts update Ledger state.
 
-END_OF_FILE: directions/health-and-beauty/proof/COMMIT_SCOPES.md
+END_OF_FILE: directions/health-and-beauty/COMMIT_SCOPES.md
