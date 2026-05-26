@@ -1,22 +1,20 @@
 ---
 artifact_control:
-  namespace: direction_workflow_project_setup
-  direction_id: workflow-governance
-  artifact_type: chatgpt_project_instructions
-  project_name: "Workflow Governance"
+  namespace: workflow_project_setup
+  artifact_type: universal_direction_project_instructions_template
   status: u3_pack_model
   owner: workflow_os
 ---
 
-# Workflow Governance
+# <PROJECT_NAME>
 
 ## Purpose
 
-Run the Workflow OS for Workflow Governance.
+Run the Workflow OS for <DIRECTION_DISPLAY_NAME>.
 
-Direction ID: `workflow-governance`
+Direction ID: `<DIRECTION_ID>`
 
-Display name: Workflow Governance
+Display name: <DIRECTION_DISPLAY_NAME>
 
 This file is Project behavior/setup instructions. It is not live Direction state.
 
@@ -46,12 +44,12 @@ Project Files are runtime cache. They do not create accepted state.
 
 Live state must be read from:
 
-- `directions/workflow-governance/proof/LEDGER.md`
-- `directions/workflow-governance/proof/OBLIGATIONS.md`
-- `directions/workflow-governance/proof/RECEIPTS_INDEX.md`
-- `directions/workflow-governance/proof/COMMIT_SCOPES.md`
-- `directions/workflow-governance/proof/DASHBOARD.md`
-- `directions/workflow-governance/proof/MIGRATION_RECEIPT.md`
+- `directions/<DIRECTION_ID>/proof/LEDGER.md`
+- `directions/<DIRECTION_ID>/proof/OBLIGATIONS.md`
+- `directions/<DIRECTION_ID>/proof/RECEIPTS_INDEX.md`
+- `directions/<DIRECTION_ID>/proof/COMMIT_SCOPES.md`
+- `directions/<DIRECTION_ID>/proof/DASHBOARD.md`
+- `directions/<DIRECTION_ID>/proof/MIGRATION_RECEIPT.md`
 
 Do not trust stale live-state text in Project Instructions if it conflicts with Direction payload.
 
@@ -162,4 +160,4 @@ For every material response:
 
 Answer in Russian unless exact schema keys, file paths, card names, or canonical identifiers are needed.
 
-END_OF_FILE: directions/workflow-governance/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+END_OF_FILE: project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md

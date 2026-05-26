@@ -1,3 +1,0 @@
-# Task Completion
-
-For repository maintenance patches, verify the diff is limited to the allowed paths, run `git.exe diff --check`, read back requested anchors, stage only the intended files, commit with a concise message, push as requested, then report final state, commit SHA, changed files, diff scope, read-back anchors, validation output summary, and blockers. Leave unrelated dirty worktree changes untouched.

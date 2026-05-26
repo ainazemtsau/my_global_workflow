@@ -11,7 +11,7 @@ artifact_control:
 
 ## Admission Boundary
 
-These Obligations govern the Indie Game Development pilot under the proof workflow.
+These Obligations govern the Indie Game Development pilot under the workflow.
 
 No old Direction files are imported as accepted truth.
 
@@ -28,7 +28,7 @@ No roadmap item exists without admitted Obligation.
 ```yaml
 obligation_id: O-IDG-ROOT-OBJECTIVE-CONFIRM
 type: human_decision / clarify_objective
-statement: Confirm or redefine the root objective for Indie Game Development under the proof workflow.
+statement: Confirm or redefine the root objective for Indie Game Development under the workflow.
 status: satisfied
 satisfied_by: R-IDG-ROOT-OBJECTIVE-DECISION-B-001
 accepted_result:
