@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: runtime_protocols
-  status: gate_1_initial
+  status: atomic_run_hardened
   owner: workflow_os
 ---
 
@@ -16,9 +16,15 @@ Runtime protocols govern how primitives move.
 
 Context Authority classifies loaded context before it is used as a claim basis.
 
+Scope Triage classifies broad human input before material work.
+
 Human Input Normalization converts clear natural-language human choices into structured Receipt fields.
 
+Operator Independence prevents user urgency, examples, or channel mentions from bypassing workflow validity.
+
 Human-Facing Run Closure packages terminal outcome and handoff for the user.
+
+Parent Chat Problem Closure keeps one bounded user problem in the same parent chat until terminal outcome when safe.
 
 Recursive Child Handoff packages child requests, child results, and parent recovery for compound Obligations.
 
@@ -34,9 +40,22 @@ Storage preserves files, records, and tool state.
 Operator(Obligation) -> Receipt
 ```
 
-One ChatGPT chat = one Operator invocation over one Obligation.
+Atomic Run / Single Responsibility:
+
+- only one active target Obligation may be worked materially at a time
+- broad user input must be scope-triaged before material work
+- material output may use only the input relevant to the current target Obligation and necessary dependencies
+- off-scope but useful input must be parked as candidate/residual context
+- candidate structure cannot bypass atomicity
+- `one_obligation_scope` cannot pass if material output performs research, strategy, roadmap, execution, or structure creation not required by the target Obligation
+
+A ChatGPT parent chat may continue across turns, Codex handoffs, Codex results, and child results while solving the same bounded user problem.
+
+Atomicity governs the active material target Obligation, not the lifetime of the parent chat.
 
 If a chat receives a compound Obligation that cannot be completed atomically, it must return `split_required` or produce child Obligations through Decompose.
+
+Sequential internal steps are allowed only when they remain necessary to close the same bounded problem and each active target Obligation is declared.
 
 ## Context Authority
 
@@ -49,6 +68,43 @@ Candidate context cannot be used as accepted state.
 Project Files, projections, legacy files, and loaded domain material provide context only unless traced to committed Ledger state or current human input.
 
 Output: context authority classification, required caveats, and blockers when authority is unknown or insufficient.
+
+## Scope Triage Before Material Work
+
+Purpose: classify broad, messy, anxious, speculative, or phase-jumping human input before material work begins.
+
+Scope triage runs after Context Authority classification and before producing material output when input spans more than the target Obligation.
+
+Required categories:
+
+- `target_obligation`
+- `in_scope_used`
+- `necessary_dependencies`
+- `parked_residual_context`
+- `proposed_residual_obligations`
+- `blocked_or_forbidden`
+- `explicit_decisions`
+- `candidate_examples`
+
+The Operator may use `in_scope_used` and necessary dependencies for the current target Obligation.
+
+The Operator must preserve useful off-scope concerns as parked residual context or proposed residual Obligations, without acting on them prematurely.
+
+Scope triage must be recorded in the Receipt when the run produces candidate or commit-worthy state.
+
+## Operator Independence / Effectiveness Over Agreement
+
+Purpose: protect workflow validity and project effectiveness when user input contains urgency, anxiety, examples, brainstorming, or platform/channel/tool mentions.
+
+User examples are candidate_context by default.
+
+User urgency is not execution readiness.
+
+User anxiety or brainstorming does not authorize phase jumping.
+
+Platform, channel, or tool mentions are not commitments unless explicitly accepted through Receipt, Verify, and Commit.
+
+The Operator optimizes for workflow validity, evidence quality, and project effectiveness, not immediate agreement.
 
 ## Human Input Normalization
 
@@ -84,6 +140,14 @@ If another ChatGPT operator run is needed, it must provide a human-readable copy
 
 Output: terminal outcome, human-readable next action, optional Codex Commit Handoff Card, optional next-chat prompt, and technical appendix.
 
+Parent Chat Problem Closure is the default user experience: one bounded user problem should stay in one parent chat until terminal outcome when safe.
+
+`CODEX_COMMIT_NEEDED` does not imply `NEXT_CHAT_NEEDED`; the user should return Codex results to the parent chat unless context loss, explicit split, or unsafe scope change requires a new chat.
+
+`NEXT_CHAT_NEEDED` is exceptional, not default.
+
+The parent chat must not switch to unrelated work merely because it can continue.
+
 ## Recursive Child Handoff
 
 Purpose: create focused child Obligation requests for a compound parent Obligation and recover parent work if the parent chat is lost.
@@ -92,9 +156,13 @@ Recursive Child Handoff is runtime policy, not a semantic primitive.
 
 Child runs are ordinary Operator invocations over child Obligations.
 
-Child requests may run now, after dependencies, optionally, or after a blocking condition clears.
+Child requests may run now, after dependencies, or after a blocking condition clears only when the child result is required for the current target Obligation.
+
+Do not launch child chats for future topics, blocked phases, or mere thoroughness.
 
 Parent must provide copy-paste child prompts, return instructions, and Parent Recovery Block when needed.
+
+Child results return to the parent chat. The parent remains responsible for synthesis.
 
 Output: child request cards, child result expectations, parent recovery block, and synthesis readiness rules.
 
@@ -145,7 +213,7 @@ Purpose: split a compound Obligation into child Obligations that can each be han
 
 Decompose may create Child Obligation Request Cards.
 
-Child requests may run now or after dependencies.
+Child requests may run now or after dependencies only when needed for the current target Obligation.
 
 Child runs do not mutate Ledger, close parent Obligations, or make parent-level final decisions.
 

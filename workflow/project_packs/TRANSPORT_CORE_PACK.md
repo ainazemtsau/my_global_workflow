@@ -5,9 +5,10 @@ artifact_control:
   pack_name: TRANSPORT_CORE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: u1_initial
+  status: atomic_run_hardened
   owner: workflow_os
-  generated_from_ref: main@14bc73b11c609787e5919989a6e3fb6de2450c9e
+  generated_from_ref: wg/root-objective-atomic-run@R-WG-ATOMIC-RUN-HARDEN-001
+  refreshed_for_receipt: R-WG-ATOMIC-RUN-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -52,7 +53,11 @@ Human-readable result and terminal outcome should come first. Cards should follo
 
 Launch Card serializes one Operator invocation over one Obligation.
 
-Receipt Card records a receipt-backed result, including claims, evidence, assumptions, residual Obligations, invariant checks, verification policy result, and commit recommendation.
+Receipt Card records a receipt-backed result, including claims, evidence, assumptions, context authority audit, scope audit, parent chat continuity, residual Obligations, invariant checks, verification policy result, and commit recommendation.
+
+Receipt `scope_audit` names the target Obligation, in-scope input used, necessary dependencies, parked residual context, proposed residual Obligations, blocked/forbidden work, explicit decisions, candidate examples, child handoff need/reason, hidden acceptance check, and `one_obligation_scope`.
+
+Receipt `parent_chat_continuity` records whether same-parent continuation is safe and why any `NEXT_CHAT_NEEDED` exception exists.
 
 Context Request Card asks for the smallest blocking context needed to continue safely.
 
@@ -64,7 +69,7 @@ Legacy Import Receipt Card records evidence needed to import old data without tr
 
 Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and Project Files refresh requirements.
 
-Child Obligation Request Card, Child Result Return Card, and Parent Recovery Block support recursive child handoff. Child chats do not mutate parent Ledger state or make parent-level final decisions.
+Child Obligation Request Card, Child Result Return Card, and Parent Recovery Block support recursive child handoff. Child chats are launched only when needed for the current target Obligation, return results to the parent, and do not mutate parent Ledger state or make parent-level final decisions.
 
 ## Exact Schema Fallback
 

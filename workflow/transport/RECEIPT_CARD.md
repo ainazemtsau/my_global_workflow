@@ -3,7 +3,7 @@ artifact_control:
   namespace: workflow
   artifact_type: transport_card
   card_type: receipt_card
-  status: gate_1_initial
+  status: atomic_run_hardened
   owner: workflow_os
 ---
 
@@ -61,6 +61,26 @@ receipt_card:
     assumptions_promoted_to_claims: boolean
     unaccepted_constraints_embedded: boolean
     notes: string | null
+  scope_audit:
+    target_obligation: string
+    in_scope_used: [string]
+    necessary_dependencies: [string]
+    parked_residual_context: [string]
+    proposed_residual_obligations:
+      - obligation_statement: string
+        reason: string
+    blocked_or_forbidden: [string]
+    explicit_decisions: [string]
+    candidate_examples: [string]
+    child_handoff_needed: true | false
+    child_handoff_reason: string | null
+    hidden_acceptance_check: pass | fail | needs_input
+    one_obligation_scope: pass | fail | needs_input
+  parent_chat_continuity:
+    same_parent_chat_continuation: true | false
+    continuation_reason: string
+    next_chat_needed: true | false
+    next_chat_reason: string | null
   confidence_uncertainty_labels:
     overall_confidence: high | medium | low | unknown
     material_uncertainties: [string]
@@ -94,6 +114,22 @@ Receipt must fail or return `needs_input` if it promotes candidate_context to ac
 Normalized human input must be visible in the Receipt and must not hide defaults.
 
 Every normalized Receipt must include raw user input reference, interpreted decision, selected option when applicable, defaults applied, fields not accepted, residual Obligations, and remaining ambiguity.
+
+Every Receipt that uses broad, messy, anxious, speculative, or phase-jumping input must include `scope_audit`.
+
+`scope_audit.target_obligation` must name the single active target Obligation for the material work.
+
+`scope_audit.in_scope_used` and `scope_audit.necessary_dependencies` are the only broad-input fields that may drive material output.
+
+`scope_audit.parked_residual_context` and `scope_audit.proposed_residual_obligations` preserve useful off-scope input without acting on it prematurely.
+
+`scope_audit.blocked_or_forbidden` must list phase jumps, roadmap, Horizon, Active Frontier, execution, legacy import, or other forbidden work raised by the input.
+
+`scope_audit.hidden_acceptance_check` must fail when candidate context, examples, user urgency, anxiety, brainstorming, or platform/channel/tool mentions are treated as accepted state without Receipt, Verify, and Commit.
+
+`scope_audit.one_obligation_scope` must fail when material output performs research, strategy, roadmap, execution, or structure creation not required by the target Obligation.
+
+`parent_chat_continuity.same_parent_chat_continuation` should be true by default for one bounded user problem. `next_chat_needed` is exceptional and must include a reason.
 
 If `commit_recommendation` is `commit`, the response must include either:
 

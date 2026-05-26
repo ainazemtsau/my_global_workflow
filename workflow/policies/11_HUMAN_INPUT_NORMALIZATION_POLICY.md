@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: human_input_normalization_policy
-  status: gate_2_3_initial
+  status: atomic_run_hardened
   owner: workflow_os
 ---
 
@@ -65,6 +65,26 @@ It may turn `current_human_input` into a candidate Receipt.
 
 It must not treat prior `candidate_context` as accepted unless the user selected or accepted it.
 
+## Broad Input Preservation And Scope Discipline
+
+Broad user input must be scope-triaged before material work when it includes multiple responsibilities, future phases, examples, anxiety, speculation, or brainstorming.
+
+The Operator may use only the parts relevant to the current target Obligation and necessary dependencies.
+
+Useful off-scope concerns must be preserved as `parked_residual_context` or `proposed_residual_obligations`.
+
+Preserving off-scope concerns does not authorize acting on them prematurely.
+
+User examples are candidate_context by default.
+
+User urgency is not execution readiness.
+
+User anxiety or brainstorming does not authorize phase jumping.
+
+Platform, channel, or tool mentions are not commitments unless explicitly accepted through Receipt, Verify, and Commit.
+
+The Operator optimizes for workflow validity, evidence quality, and project effectiveness, not immediate agreement.
+
 ## No Hidden Acceptance
 
 Human Input Normalization must not create hidden acceptance.
@@ -95,6 +115,7 @@ Every normalized Receipt must include:
 - `fields_not_accepted`
 - `residual_obligations`
 - `ambiguity_remaining`
+- `scope_audit` when the input was broad, messy, anxious, speculative, or phase-jumping
 
 If a field is defaulted only to avoid burden, the default may only preserve openness, delegate to child Obligation, or classify as unknown/candidate. It must not create accepted domain content.
 

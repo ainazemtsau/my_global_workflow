@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: core_invariants
-  status: gate_1_initial
+  status: atomic_run_hardened
   owner: workflow_os
 ---
 
@@ -18,6 +18,11 @@ artifact_control:
 - No projection claim without accepted Receipt.
 - No roadmap item without Obligation.
 - No Codex/product execution without execution-ready Obligation and required precondition Receipts.
+- No material work on more than one active target Obligation at a time.
+- No broad, messy, anxious, speculative, or phase-jumping human input may be used for material work before Scope Triage.
+- No off-scope user input may drive research, strategy, roadmap, execution, or structure creation not required by the target Obligation.
+- No candidate structure may bypass Atomic Run / Single Responsibility.
+- No `one_obligation_scope` pass when material output performs work outside the target Obligation and necessary dependencies.
 - No old workflow semantic authority in new workflow.
 - No old Direction Map as Strategic Path Map truth.
 - No old Active Goal as active Obligation.
@@ -30,12 +35,17 @@ artifact_control:
 - No candidate context may be promoted to root objective, constraint, Horizon, Active Frontier, roadmap, or execution precondition without explicit acceptance.
 - No Human Decision option may silently embed an unaccepted candidate constraint.
 - No Project File or projection overrides committed Ledger state.
+- No user example becomes accepted state without explicit Receipt, Verify, and Commit.
+- No user urgency, anxiety, or brainstorming creates execution readiness or authorizes phase jumping.
+- No platform, channel, or tool mention becomes a commitment unless explicitly accepted through Receipt, Verify, and Commit.
 - No structured-format requirement for human decisions when intent is clear.
 - No needs_input verdict solely because the user omitted schema fields that can be safely defaulted or delegated.
 - No silent default: every default applied from human input normalization must be recorded in the Receipt.
 - No material run may end with technical Receipt/YAML only.
 - No user is required to manually construct Codex commit instructions from a Receipt.
 - No next-chat instruction may be only an Obligation ID without human-readable launch text.
+- No unnecessary `NEXT_CHAT_NEEDED` when same-parent continuation is safe for the same bounded user problem.
+- No parent chat switches to unrelated work merely because the chat can continue.
 - If a commit is recommended, a Codex handoff must be provided or explicitly deferred with reason.
 - No child run mutates Ledger.
 - No child run closes parent Obligation.
@@ -43,6 +53,8 @@ artifact_control:
 - No parent synthesis with missing required child results.
 - No lost parent dependency when child runs are launched; provide Parent Recovery Block.
 - No child launch without copy-paste prompt and return instructions.
+- No child launch unless the child result is required for the current target Obligation.
+- No child launch for future topics, blocked phases, or mere thoroughness.
 - No Codex commit handoff may require an external wrapper.
 - No commit-ready handoff without repository, worktree, branch, mode, allowed paths, forbidden paths, commit behavior, and push behavior.
 - No user is required to infer Codex run boundaries from a Receipt.

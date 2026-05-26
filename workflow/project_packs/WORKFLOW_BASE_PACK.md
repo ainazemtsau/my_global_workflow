@@ -5,9 +5,10 @@ artifact_control:
   pack_name: WORKFLOW_BASE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: u1_initial
+  status: atomic_run_hardened
   owner: workflow_os
-  generated_from_ref: main@14bc73b11c609787e5919989a6e3fb6de2450c9e
+  generated_from_ref: wg/root-objective-atomic-run@R-WG-ATOMIC-RUN-HARDEN-001
+  refreshed_for_receipt: R-WG-ATOMIC-RUN-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -61,6 +62,28 @@ One material Operator invocation works over one Obligation and returns a Receipt
 A Receipt is receipt-backed candidate state. It does not mutate the Ledger until Verify and Commit accept it under the relevant Commit Scope.
 
 Commit Scope is runtime policy for Ledger mutation. It is not a semantic primitive.
+
+## Atomic Run And Scope Discipline
+
+Only one active target Obligation may be worked materially at a time.
+
+Broad, messy, anxious, speculative, or phase-jumping human input must be scope-triaged before material work.
+
+Use only `in_scope_used` and necessary dependencies for the current target Obligation.
+
+Park useful off-scope input as residual context or proposed residual Obligations.
+
+Candidate structure cannot bypass Atomic Run / Single Responsibility. `one_obligation_scope` fails if material output performs research, strategy, roadmap, execution, or structure creation not required by the target Obligation.
+
+Operator Independence means user examples are candidate_context by default, urgency is not execution readiness, anxiety or brainstorming does not authorize phase jumping, and platform/channel/tool mentions are not commitments without Receipt, Verify, and Commit.
+
+## Parent Chat Continuity
+
+One bounded user problem should stay in one parent chat until terminal outcome when safe.
+
+The parent chat may continue across turns, Codex handoffs, Codex results, and child results while each active target Obligation remains declared and bounded.
+
+`NEXT_CHAT_NEEDED` is exceptional, not default. `CODEX_COMMIT_NEEDED` normally returns to the same parent chat after Codex finishes.
 
 ## Truth And Projection
 

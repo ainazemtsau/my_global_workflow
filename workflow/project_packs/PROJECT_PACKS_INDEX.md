@@ -5,9 +5,10 @@ artifact_control:
   pack_name: PROJECT_PACKS_INDEX
   pack_type: runtime_cache_upload_convenience_index
   intended_load_mode: request_only
-  status: u1_initial
+  status: atomic_run_hardened
   owner: workflow_os
-  generated_from_ref: main@14bc73b11c609787e5919989a6e3fb6de2450c9e
+  generated_from_ref: wg/root-objective-atomic-run@R-WG-ATOMIC-RUN-HARDEN-001
+  refreshed_for_receipt: R-WG-ATOMIC-RUN-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this index if any source_manifest file changes."
 source_manifest:
@@ -48,6 +49,8 @@ For ordinary Direction Workflow Projects, default upload can be reduced to:
 - Direction payload files under the Direction's active payload directory listed by its Project Files manifest.
 
 Direction payload files are the Direction Ledger, Obligations, Receipts index, Commit scopes, Dashboard, and Migration receipt.
+
+The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, Parent Chat Problem Closure, child-handoff gating, Receipt scope audit, and same-parent continuation after Codex results.
 
 ## Request-Only Capability Packs
 

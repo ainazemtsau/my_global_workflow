@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: chatgpt_project_setup_principles
-  status: u3_pack_model
+  status: atomic_run_hardened
   owner: workflow_os
 ---
 
@@ -108,8 +108,18 @@ They may be loaded only as explicitly identified legacy evidence for a Legacy Im
 
 ## Chat Rule
 
-One ChatGPT chat should handle one Operator invocation over one Obligation.
+One active target Obligation may be worked materially at a time.
 
-If the work is compound, the chat must decompose or return `split_required` instead of pretending completion.
+One bounded user problem should remain in one parent chat until terminal outcome when safe.
+
+A parent chat may continue across turns, Codex handoffs, Codex results, and child results while solving the same bounded problem.
+
+Same-parent continuation is the default after `CODEX_COMMIT_NEEDED`: the user returns the Codex result to the parent chat unless context loss, explicit split, or unsafe scope change requires otherwise.
+
+`NEXT_CHAT_NEEDED` is exceptional, not default.
+
+If the work is compound, the chat must scope-triage, decompose only what is required for the current target Obligation, or return `split_required` instead of pretending completion.
+
+The parent chat must not switch to unrelated work merely because it can continue.
 
 END_OF_FILE: workflow/policies/08_CHATGPT_PROJECT_SETUP.md

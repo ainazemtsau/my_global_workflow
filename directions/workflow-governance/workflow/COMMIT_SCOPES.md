@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: commit_scopes
-  status: m4_initialized_skeleton
+  status: atomic_run_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -18,6 +18,23 @@ commit_scopes:
       - root objective acceptance
       - human-owned direction decisions
       - hard constraints acceptance
+
+  - scope_id: wg_workflow_policy_scope
+    controls:
+      - Workflow OS runtime protocol maintenance
+      - Workflow OS policy maintenance
+      - core invariant maintenance
+      - transport card schema maintenance
+      - project setup instruction refresh
+      - project pack refresh
+      - Workflow Governance proof-state maintenance for policy receipts
+    blocked_actions:
+      - product execution
+      - roadmap creation
+      - Horizon selection
+      - Active Frontier selection
+      - legacy import
+      - unrelated Direction proof-state mutation
 
   - scope_id: wg_strategy_scope
     controls:

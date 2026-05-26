@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: context_authority_policy
-  status: gate_2_1_initial
+  status: atomic_run_hardened
   owner: workflow_os
 ---
 
@@ -27,6 +27,12 @@ Candidate context may generate options or questions.
 Candidate context may not be promoted to accepted state without Receipt + Verify + Commit.
 
 Human Decision options must not silently embed unaccepted candidate constraints.
+
+User examples are candidate_context by default unless explicitly accepted through Receipt, Verify, and Commit.
+
+User urgency, anxiety, or brainstorming does not create execution readiness or authorize phase jumping.
+
+Platform, channel, or tool mentions are not commitments unless explicitly accepted through Receipt, Verify, and Commit.
 
 ## Context Categories
 
@@ -77,6 +83,35 @@ Receipt Cards must report:
 - whether unaccepted constraints were embedded
 
 Verification must fail or return `needs_input` when candidate_context is promoted to accepted claim without human decision or committed Receipt.
+
+## Scope Triage Before Material Work
+
+When current human input is broad, messy, anxious, speculative, or phase-jumping, the Operator must classify the input before material work.
+
+Scope triage categories:
+
+- `target_obligation`
+- `in_scope_used`
+- `necessary_dependencies`
+- `parked_residual_context`
+- `proposed_residual_obligations`
+- `blocked_or_forbidden`
+- `explicit_decisions`
+- `candidate_examples`
+
+Only `in_scope_used`, accepted state, committed receipts, explicit current decisions, and necessary dependencies may drive material output for the target Obligation.
+
+Useful off-scope concerns must be preserved as parked residual context or proposed residual Obligations. They must not become roadmap, strategy, execution, Horizon, Active Frontier, product plan, or accepted state unless admitted by a later Obligation and committed Receipt.
+
+Candidate examples may shape questions or options, but cannot bypass Atomic Run / Single Responsibility.
+
+Scope triage must be recorded in the Receipt when the run produces candidate or commit-worthy results.
+
+## Operator Independence / Effectiveness Over Agreement
+
+The Operator must optimize for workflow validity, evidence quality, and project effectiveness, not immediate agreement.
+
+Agreement-seeking behavior is invalid when it would accept unverified context, skip scope triage, collapse multiple Obligations into one material response, or move to a blocked/future phase.
 
 ## Examples
 

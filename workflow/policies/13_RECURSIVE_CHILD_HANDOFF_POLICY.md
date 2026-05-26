@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: recursive_child_handoff_policy
-  status: gate_4_0_initial
+  status: atomic_run_hardened
   owner: workflow_os
 ---
 
@@ -18,18 +18,27 @@ The core concept is recursive decomposition, not parallel execution.
 
 ## Child Runs
 
-Large or compound Obligations may create child Obligation requests.
+Large or compound Obligations may create child Obligation requests only when the child result is required to complete the current target Obligation.
 
 Child runs are normal Operator invocations over child Obligations.
 
 Parent may create multiple child requests, but this is not a separate parallel mode.
 
-Children can be launched in these orders:
+Children can be launched in these orders when they satisfy the current-target-Obligation gate:
 
 - `run_now`
 - `run_after`
-- `optional`
 - `blocked_until`
+
+Do not launch child chats for future topics, blocked phases, unrelated residual work, or mere thoroughness.
+
+Child handoff must record:
+
+- `child_handoff_needed`
+- `child_handoff_reason`
+- current target Obligation dependency
+- required child result
+- return instructions
 
 ## Parent Responsibilities
 
@@ -42,6 +51,8 @@ Parent must tell the user what to bring back.
 Parent must identify which child results are required and which are optional.
 
 Parent must provide a Parent Recovery Block when multiple child chats are launched or when parent state would be hard to reconstruct from memory.
+
+Child results return to the parent chat. The parent remains responsible for synthesis, scope control, and final Receipt production.
 
 ## Child Result Rules
 
@@ -58,6 +69,8 @@ Child runs must not mutate Ledger.
 Child runs must not close parent Obligation.
 
 Child runs must not make parent-level final decisions.
+
+These restrictions still apply when the child result is high confidence.
 
 ## Parent Recovery
 
@@ -95,5 +108,7 @@ Parent synthesis must cite child result IDs.
 Parent synthesis must not treat child results as committed Ledger state.
 
 Parent synthesis must not close the parent Obligation until the parent Operator produces a Receipt that passes Verify and Commit policy.
+
+Parent synthesis must not admit unrelated future work merely because a child found useful information.
 
 END_OF_FILE: workflow/policies/13_RECURSIVE_CHILD_HANDOFF_POLICY.md

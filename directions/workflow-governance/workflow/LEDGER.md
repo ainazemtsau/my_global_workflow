@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: ledger
-  status: root_objective_accepted
+  status: atomic_run_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,15 +11,23 @@ artifact_control:
 
 ```yaml
 direction_id: workflow-governance
-proof_state: root_objective_accepted
+proof_state: atomic_run_hardened
 accepted_receipts:
   - R-WG-ROOT-OBJECTIVE-ATOMIC-RUN-001
+  - R-WG-ATOMIC-RUN-HARDEN-001
 accepted_claims:
   - workflow_governance_root_objective_accepted
   - atomic_run_hardening_is_primary_governance_goal
   - operator_independence_and_scope_triage_required
   - workflow_core_patch_requires_separate_admitted_obligation
   - codex_repository_maintenance_required_for_persistence
+  - atomic_run_single_responsibility_hardened
+  - operator_independence_hardened
+  - scope_triage_before_material_work_required
+  - parent_chat_problem_closure_required
+  - child_handoff_gated_by_current_obligation_need
+  - receipt_scope_audit_required
+  - same_parent_chat_default_for_codex_results
 root_objective: >
   Maintain and harden the Workflow OS so every Direction chat follows proof-carrying,
   one-obligation-at-a-time execution: broad user input is preserved and normalized,
@@ -28,14 +36,13 @@ root_objective: >
   Receipt, Verify, and Commit.
 open_obligations: directions/workflow-governance/workflow/OBLIGATIONS.md
 commit_scopes: directions/workflow-governance/workflow/COMMIT_SCOPES.md
-projections_state: none_available_until_receipts_committed
+projections_state: dashboard_updated_from_accepted_receipts
 legacy_import_state: not_performed
 legacy_state_authority: false
-next_valid_run:
-  - O-WG-ATOMIC-RUN-HARDEN
+next_valid_run: []
 ```
 
-This Ledger records the accepted Workflow Governance root objective only.
+This Ledger records the accepted Workflow Governance root objective and Atomic Run hardening.
 
 Old `project_files/00-08` are not accepted proof state.
 

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: obligations
-  status: root_objective_accepted
+  status: atomic_run_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -43,7 +43,8 @@ obligations:
     statement: >
       Harden Workflow OS with explicit Atomic Run / Single Responsibility,
       Operator Independence, Scope Triage, and child-handoff gating rules.
-    status: open
+    status: satisfied
+    satisfied_by_receipt: R-WG-ATOMIC-RUN-HARDEN-001
     required_operator: GovernancePatch / RepositoryMaintenancePlan
     acceptance_conditions:
       - Explicit Atomic Run / Single Responsibility invariant is added or strengthened.
@@ -78,5 +79,7 @@ No product execution Obligations are currently admitted.
 No CodexExecution operator may run.
 
 No roadmap item exists without admitted Obligation.
+
+O-WG-ATOMIC-RUN-HARDEN is satisfied by R-WG-ATOMIC-RUN-HARDEN-001.
 
 END_OF_FILE: directions/workflow-governance/workflow/OBLIGATIONS.md

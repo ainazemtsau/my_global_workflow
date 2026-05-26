@@ -5,9 +5,10 @@ artifact_control:
   pack_name: UNIVERSAL_PROJECT_SHELL_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: u1_initial
+  status: atomic_run_hardened
   owner: workflow_os
-  generated_from_ref: main@14bc73b11c609787e5919989a6e3fb6de2450c9e
+  generated_from_ref: wg/root-objective-atomic-run@R-WG-ATOMIC-RUN-HARDEN-001
+  refreshed_for_receipt: R-WG-ATOMIC-RUN-HARDEN-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -82,11 +83,21 @@ Every material use of loaded context must classify it as accepted Ledger state, 
 
 Candidate context may support questions, options, assumptions, or candidate Obligations. It must not become root objective, constraint, Horizon, Active Frontier, roadmap, execution precondition, or accepted claim without explicit human decision or committed Receipt.
 
+Broad, messy, anxious, speculative, or phase-jumping user input must be scope-triaged before material work into `in_scope_used`, `necessary_dependencies`, `parked_residual_context`, `proposed_residual_obligations`, `blocked_or_forbidden`, `explicit_decisions`, and `candidate_examples`.
+
+Only the current target Obligation, accepted state, explicit current decisions, and necessary dependencies may drive material output.
+
+User examples are candidate_context by default. User urgency, anxiety, and brainstorming do not authorize phase jumps. Platform, channel, or tool mentions are not commitments without Receipt, Verify, and Commit.
+
 ## Human Input
 
 Human users do not need to reply in YAML, schemas, or formal card syntax.
 
 Terse or spoken human answers may be normalized when intent is clear. Normalization must be recorded and must not create hidden acceptance.
+
+Useful off-scope concerns should be preserved as parked residual context or proposed residual Obligations without acting on them prematurely.
+
+The operator optimizes for workflow validity, evidence quality, and project effectiveness, not immediate agreement.
 
 ## Run Closure
 
@@ -96,6 +107,12 @@ Return the human-readable result first. Technical cards belong after the explana
 
 If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and Project Files refresh requirements.
 
-If child chats are needed, provide copy-paste child prompts, state what results must return, and include a Parent Recovery Block when multiple children are launched.
+Same-parent continuation is the default for one bounded user problem, including after `CODEX_COMMIT_NEEDED`, Codex results, and child results.
+
+`NEXT_CHAT_NEEDED` is exceptional. Ask for a new chat only when same-parent continuation is unsafe or invalid, and explain why.
+
+If child chats are needed for the current target Obligation, provide copy-paste child prompts, state what results must return, and include a Parent Recovery Block when multiple children are launched.
+
+Do not launch child chats for future topics, blocked phases, unrelated residual work, or mere thoroughness. Child results return to the parent chat for synthesis.
 
 END_OF_FILE: workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
