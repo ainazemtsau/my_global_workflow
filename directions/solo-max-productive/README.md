@@ -4,7 +4,7 @@ Status: active
 Source of truth: GitHub markdown
 Direction path: directions/solo-max-productive
 
-This Direction is a Proof Project with a structured root. Root files are
+This Direction is a Workflow Project with a structured root. Root files are
 navigation and metadata only:
 
 - README.md
@@ -13,11 +13,11 @@ navigation and metadata only:
 
 Top-level folders:
 
-- `workflow/` contains active proof workflow state:
+- `workflow/` contains active workflow state:
   `LEDGER.md`, `OBLIGATIONS.md`, `RECEIPTS_INDEX.md`, `COMMIT_SCOPES.md`,
   `DASHBOARD.md`, `MIGRATION_RECEIPT.md`, `receipts/`, and `projections/`.
 - `setup/` contains ChatGPT Project setup files.
-- `archive/` contains legacy evidence only. It is not accepted proof state and
+- `archive/` contains legacy evidence only. It is not accepted workflow state and
   is not default-loaded.
 - `knowledge/` contains reusable Direction knowledge when present as GitHub
   files.

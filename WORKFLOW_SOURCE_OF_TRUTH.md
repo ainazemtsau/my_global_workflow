@@ -4,7 +4,9 @@ Status: active
 
 Canonical AI workflow source: GitHub repository `ainazemtsau/my_global_workflow`.
 
-Active workflow authority: root workflow files and root workflow directories.
+Active workflow authority: `workflow/**`.
+
+The current `workflow/` directory is the active Workflow OS namespace, not the old vNext-R workflow directory.
 
 ## Active Semantic Kernel
 
@@ -20,28 +22,28 @@ The active Workflow OS semantic kernel is limited to:
 
 Active runtime protocol and policy sources:
 
-- `02_RUNTIME_PROTOCOLS.md`
-- `03_VERIFY_AND_COMMIT_POLICY.md`
-- `04_TRANSPORT_PROTOCOL.md`
-- `10_CONTEXT_AUTHORITY_POLICY.md`
-- `11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
-- `12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
-- `13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
+- `workflow/core/02_RUNTIME_PROTOCOLS.md`
+- `workflow/policies/03_VERIFY_AND_COMMIT_POLICY.md`
+- `workflow/policies/04_TRANSPORT_PROTOCOL.md`
+- `workflow/policies/10_CONTEXT_AUTHORITY_POLICY.md`
+- `workflow/policies/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
+- `workflow/policies/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
+- `workflow/policies/13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
 
 ## Active Project Setup
 
 Active shared setup sources:
 
-- `08_CHATGPT_PROJECT_SETUP.md`
-- `09_STORAGE_LAYOUT_POLICY.md`
-- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
-- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
-- `project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
-- `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+- `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+- `workflow/policies/09_STORAGE_LAYOUT_POLICY.md`
+- `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
 
 Project pack runtime-cache files live under:
 
-- `project_packs/`
+- `workflow/project_packs/`
 
 Project packs are upload convenience/runtime cache only. Canonical source files listed by each pack remain authority.
 
@@ -49,7 +51,7 @@ Per-Direction project setup files live under:
 
 - `directions/<direction-id>/project_setup/`
 
-Workflow Governance is the self-hosted governance Direction and uses `directions/workflow-governance/workflow/` for active proof payload, not the Direction root:
+Workflow Governance is the self-hosted governance Direction and uses `directions/workflow-governance/workflow/` for active workflow payload, not the Direction root:
 
 - `directions/workflow-governance/workflow/project_setup/`
 
@@ -96,9 +98,7 @@ The pre-proof vNext-R main snapshot is preserved at:
 - legacy branch: `legacy/vnext-r-main-before-proof-os-2026-05-25`
 - legacy tag: `vnext-r-main-before-proof-os-2026-05-25`
 
-The top-level `workflow/` directory has been removed from active `main`.
-
-Old vNext-R workflow files are available only from the legacy branch/tag if historical evidence is needed.
+Old vNext-R workflow files are available only from the legacy branch/tag if historical evidence is needed. The active `workflow/` namespace in this repository is the current Workflow OS, not that legacy tree.
 
 Old `directions/*/project_files/**` files are legacy evidence only unless explicitly imported through Legacy Import Receipt + Verify + Commit.
 
@@ -112,11 +112,11 @@ A truncated, omitted, or tail-unverified repository read is not sufficient autho
 
 If material work depends on a file whose full content cannot be verified, return a Context Request naming the exact path and blocker.
 
-In the workflow, read-completeness and context-authority behavior is governed by root workflow files, root workflow directories, and future setup docs. Old vNext-R guard files are legacy evidence available from the legacy branch/tag only.
+In the workflow, read-completeness and context-authority behavior is governed by `workflow/**` and future setup docs. Old vNext-R guard files are legacy evidence available from the legacy branch/tag only.
 
 ## Admin Documentation
 
-Repository setup docs under `docs/` may explain setup and transition procedure, but they do not override root workflow files or root workflow directories.
+Repository setup docs under `docs/` may explain setup and transition procedure, but they do not override `workflow/**`.
 
 Migration/admin docs remain historical context unless a workflow Obligation explicitly admits them as legacy evidence.
 

@@ -12,7 +12,7 @@ The Direction root is a navigation layer. Root markdown and metadata files do no
 
 ## Active Workflow State
 
-Accepted proof workflow state lives under `workflow/`:
+Accepted workflow state lives under `workflow/`:
 
 - `workflow/LEDGER.md`
 - `workflow/OBLIGATIONS.md`
@@ -28,7 +28,7 @@ Only verified Receipts committed to `workflow/LEDGER.md` create accepted state. 
 
 ## Legacy Boundary
 
-`archive/` is inert archive storage. Old vNext-R Workflow Governance files are legacy evidence only. They are not accepted proof state unless a future Legacy Import Receipt explicitly admits them through Verify and Commit.
+`archive/` is inert archive storage. Old vNext-R Workflow Governance files are legacy evidence only. They are not accepted workflow state unless a future Legacy Import Receipt explicitly admits them through Verify and Commit.
 
 ## Operating Boundary
 

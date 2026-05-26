@@ -1,6 +1,6 @@
 # Indie Game Development Workflow
 
-This is the live proof workflow area for Indie Game Development.
+This is the live workflow state area for Indie Game Development.
 
 - Ledger: `workflow/LEDGER.md`
 - Obligations: `workflow/OBLIGATIONS.md`

@@ -8,9 +8,9 @@ direction:
 chatgpt:
   project_name: Solo Max Productive — Proof
   default_files:
-  - proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
-  - proof_workflow/project_packs/PROOF_BASE_PACK.md
-  - proof_workflow/project_packs/TRANSPORT_CORE_PACK.md
+  - workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
+  - workflow/project_packs/WORKFLOW_BASE_PACK.md
+  - workflow/project_packs/TRANSPORT_CORE_PACK.md
   - directions/solo-max-productive/workflow/LEDGER.md
   - directions/solo-max-productive/workflow/OBLIGATIONS.md
   - directions/solo-max-productive/workflow/RECEIPTS_INDEX.md

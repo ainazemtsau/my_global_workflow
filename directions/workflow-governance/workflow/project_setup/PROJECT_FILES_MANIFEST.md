@@ -18,9 +18,9 @@ Project Instructions source:
 
 ## Default Shared Project Packs
 
-- `project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
-- `project_packs/WORKFLOW_BASE_PACK.md`
-- `project_packs/TRANSPORT_CORE_PACK.md`
+- `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `workflow/project_packs/WORKFLOW_BASE_PACK.md`
+- `workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
 ## Direction Payload
 
@@ -33,7 +33,7 @@ Project Instructions source:
 
 ## Request-Only Capability Packs
 
-- `project_packs/EXECUTION_HARNESS_PACK.md`
+- `workflow/project_packs/EXECUTION_HARNESS_PACK.md`
 
 Load request-only capability packs only when an admitted task needs them.
 
@@ -43,8 +43,10 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 
 ## Do Not Load By Default
 
-- `workflow/**`
-- old Workflow Governance vNext-R Direction folders
+- old `proof_workflow` namespace
+- old vNext-R workflow evidence from legacy branch/tag
+- `directions/workflow-governance/project_files/**`
+- `directions/workflow-governance/project_setup/**`
 - `directions/*/project_files/**`
 - `directions/*/project_setup/**`
 - `directions/*/phases/**`
@@ -68,7 +70,7 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 3. Upload the three default shared packs.
 4. Upload the six Direction payload files.
 5. Do not upload forbidden legacy files.
-6. Run setup validation using `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md` if needed.
+6. Run setup validation using `workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md` if needed.
 7. Start with the next valid run shown by `DASHBOARD.md` / `OBLIGATIONS.md`.
 
 ## Project Files Count Summary

@@ -12,7 +12,7 @@ artifact_control:
 
 ## Purpose
 
-Run the Proof-Carrying Workflow OS for Solo Max Productive.
+Run the Workflow OS for Solo Max Productive.
 
 Direction ID: `solo-max-productive`
 

@@ -7,7 +7,7 @@ artifact_control:
   owner_layer: setup_documentation
   status: active
   repo_path: "docs/CHATGPT_PROJECT_SETUP.md"
-  authority: "Setup guide for Workflow OS ChatGPT Projects; root workflow files and directories and Direction proof ledgers remain authoritative"
+  authority: "Setup guide for Workflow OS ChatGPT Projects; workflow/** and Direction proof ledgers remain authoritative"
   freshness: refresh_when_workflow_project_setup_pack_or_manifest_changes
 ```
 
@@ -23,10 +23,10 @@ Create one ChatGPT Project per Direction.
 
 New Workflow Projects should use:
 
-- Universal installer: `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
-- Universal instructions template: `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
-- Universal manifest template: `project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
-- Setup validation checklist: `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+- Universal installer: `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- Universal instructions template: `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- Universal manifest template: `workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- Setup validation checklist: `workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
 
 Per-Direction manifests remain under:
 
@@ -39,9 +39,9 @@ Per-Direction manifests now use the pack model.
 
 New Workflow Projects should upload these shared packs:
 
-- `project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
-- `project_packs/WORKFLOW_BASE_PACK.md`
-- `project_packs/TRANSPORT_CORE_PACK.md`
+- `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `workflow/project_packs/WORKFLOW_BASE_PACK.md`
+- `workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
 The packs are runtime cache / upload convenience files. They are not semantic authority. Canonical source files listed in each pack remain authority.
 
@@ -60,7 +60,7 @@ Receipt files may be uploaded when the manifest requires them or when a run need
 
 ## Request-Only Capability Packs
 
-Load `project_packs/EXECUTION_HARNESS_PACK.md` only when execution readiness, product repo setup, CodexRun, validation, human-guided execution, or complex technical mission work is admitted.
+Load `workflow/project_packs/EXECUTION_HARNESS_PACK.md` only when execution readiness, product repo setup, CodexRun, validation, human-guided execution, or complex technical mission work is admitted.
 
 The Execution Harness Pack is not a default load for all Projects.
 
@@ -68,11 +68,7 @@ The Execution Harness Pack is not a default load for all Projects.
 
 Do not load these by default for new workflow Projects:
 
-- `workflow/**`
-- `workflow/runtime/**`
-- `workflow/stage_registry/**`
-- `workflow/stage_prompts/**`
-- `workflow/transport/**`
+- old vNext-R workflow evidence from legacy branch/tag
 - `directions/*/project_files/**`
 - `directions/*/project_setup/**`
 - old docs setup files
@@ -81,7 +77,7 @@ Do not load these by default for new workflow Projects:
 
 Old files may be used only as legacy evidence through Legacy Import Receipt + Verify + Commit.
 
-The old vNext-R `workflow/` tree is not present in active `main`. Use the legacy branch/tag if historical copies are needed.
+The active `workflow/` directory is the current Workflow OS namespace. Use the legacy branch/tag if old vNext-R historical copies are needed.
 
 ## Active Manifest Model
 

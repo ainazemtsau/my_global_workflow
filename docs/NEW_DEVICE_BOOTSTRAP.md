@@ -9,7 +9,7 @@ Use this file to connect a new device, local worktree, or fresh ChatGPT/Codex wo
 - Repository: `https://github.com/ainazemtsau/my_global_workflow`
 - Branch: `main`
 - Source-of-truth marker: `WORKFLOW_SOURCE_OF_TRUTH.md`
-- Active workflow authority: root workflow files and root workflow directories
+- Active workflow authority: `workflow/**`
 
 The old vNext-R workflow is archived at:
 
@@ -22,37 +22,36 @@ The old vNext-R workflow is archived at:
 2. Use `main`.
 3. Read root `AGENTS.md`.
 4. Read `WORKFLOW_SOURCE_OF_TRUTH.md`.
-5. Read the relevant root workflow files and root workflow directories for the task.
-6. For Direction work, use `directions/<direction-id>/**` after that Direction has a proof skeleton.
+5. Read the relevant files under `workflow/**` for the task.
+6. For Direction work, use that Direction's active payload and project setup paths from its Project Files manifest.
 
 ## ChatGPT Project Restore
 
 New ChatGPT Projects should be restored from:
 
-- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
-- `project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
-- `project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
-- `project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+- `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
+- `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
+- `workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
 
 Upload default packs:
 
-- `project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
-- `project_packs/WORKFLOW_BASE_PACK.md`
-- `project_packs/TRANSPORT_CORE_PACK.md`
+- `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `workflow/project_packs/WORKFLOW_BASE_PACK.md`
+- `workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
 Upload Direction payload:
 
-- `directions/<direction-id>/LEDGER.md`
-- `directions/<direction-id>/OBLIGATIONS.md`
-- `directions/<direction-id>/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/COMMIT_SCOPES.md`
-- `directions/<direction-id>/DASHBOARD.md`
-- `directions/<direction-id>/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/<active-direction-state>/LEDGER.md`
+- `directions/<direction-id>/<active-direction-state>/OBLIGATIONS.md`
+- `directions/<direction-id>/<active-direction-state>/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/<active-direction-state>/COMMIT_SCOPES.md`
+- `directions/<direction-id>/<active-direction-state>/DASHBOARD.md`
+- `directions/<direction-id>/<active-direction-state>/MIGRATION_RECEIPT.md`
 
 Per-Direction setup files remain under:
 
-- `directions/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
-- `directions/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md`
+- the Direction's active project setup directory listed by its Project Files manifest.
 
 Per-Direction manifests use the pack model: three shared packs plus six Direction payload files.
 
@@ -62,7 +61,7 @@ Project Instructions are behavior/setup instructions. Direction payload files ar
 
 Old `directions/<direction-id>/project_files/00-08` files are legacy evidence, not default setup.
 
-The old vNext-R `workflow/` tree is not present in active `main`.
+The active `workflow/` directory is the current Workflow OS namespace, not the old vNext-R workflow tree.
 
 Old vNext-R workflow files are available from the legacy branch/tag, not active `main`.
 

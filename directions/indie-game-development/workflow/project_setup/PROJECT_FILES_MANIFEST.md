@@ -18,9 +18,9 @@ Project Instructions source:
 
 ## Default Shared Project Packs
 
-- `project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
-- `project_packs/WORKFLOW_BASE_PACK.md`
-- `project_packs/TRANSPORT_CORE_PACK.md`
+- `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
+- `workflow/project_packs/WORKFLOW_BASE_PACK.md`
+- `workflow/project_packs/TRANSPORT_CORE_PACK.md`
 
 ## Direction Payload
 
@@ -37,7 +37,7 @@ Project Instructions source:
 
 ## Request-Only Capability Packs
 
-- `project_packs/EXECUTION_HARNESS_PACK.md`
+- `workflow/project_packs/EXECUTION_HARNESS_PACK.md`
 
 Load request-only capability packs only when an admitted task needs them.
 
@@ -48,6 +48,8 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 ## Do Not Load By Default
 
 - `directions/indie-game-development/archive/**`
+- old `proof_workflow` namespace
+- old vNext-R workflow evidence from legacy branch/tag
 - `directions/indie-game-development/project_files/**`
 - `directions/*/project_files/**`
 - other Direction `project_setup/**` folders
@@ -72,8 +74,8 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 3. Upload the three default shared packs.
 4. Upload the six Direction payload files.
 5. Do not upload forbidden legacy files.
-6. Confirm the uploaded file list against this manifest.
-7. Start with the next valid run shown by `workflow/DASHBOARD.md` / `workflow/OBLIGATIONS.md`.
+6. Confirm the uploaded file list against this manifest and run setup validation using `workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md` if needed.
+7. Start with the next valid run shown by `directions/indie-game-development/workflow/DASHBOARD.md` / `directions/indie-game-development/workflow/OBLIGATIONS.md`.
 
 ## Project Files Count Summary
 

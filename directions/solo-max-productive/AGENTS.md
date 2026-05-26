@@ -12,9 +12,8 @@ Allowed by default:
 - `directions/solo-max-productive/**`
 
 Forbidden unless explicitly requested:
-- `proof_workflow/**`
-- `workflow/**`
-- root workflow files and shared pack directories
+- old `proof_workflow` namespace
+- repository shared workflow source files under `workflow/**` except explicitly listed shared Project packs
 - `directions/workflow-governance/**`
 - `directions/indie-game-development/**`
 - `directions/health-and-beauty/**`
@@ -28,8 +27,8 @@ Forbidden unless explicitly requested:
   `workflow/DASHBOARD.md`, and `workflow/MIGRATION_RECEIPT.md`.
 - The Direction root is navigation and metadata only.
 - `setup/` contains setup metadata, not live state.
-- Use shared `proof_workflow/` files only when a task explicitly needs shared
-  proof packs, transport, setup validation, or execution harness context.
+- Use shared `workflow/project_packs/` files only when a task explicitly needs
+  shared workflow packs, transport, setup validation, or execution harness context.
 - `archive/` is legacy evidence only. It is not accepted proof state and is not
   default-loaded.
 

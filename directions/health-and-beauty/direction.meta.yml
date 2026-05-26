@@ -15,9 +15,9 @@ chatgpt:
   project_name: Health and Beauty — Proof
   project_instructions: directions/health-and-beauty/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
   default_files:
-    - proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
-    - proof_workflow/project_packs/PROOF_BASE_PACK.md
-    - proof_workflow/project_packs/TRANSPORT_CORE_PACK.md
+    - workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
+    - workflow/project_packs/WORKFLOW_BASE_PACK.md
+    - workflow/project_packs/TRANSPORT_CORE_PACK.md
     - directions/health-and-beauty/workflow/LEDGER.md
     - directions/health-and-beauty/workflow/OBLIGATIONS.md
     - directions/health-and-beauty/workflow/RECEIPTS_INDEX.md
