@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: dashboard_projection
-  status: project_instruction_budget_residual_sweep
+  status: project_instruction_budget_active_direction_sweep
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Workflow Governance
 
-Proof state: project instruction budget residual sweep
+Proof state: project instruction budget active Direction sweep
 
 Root objective: maintain and harden Workflow OS around proof-carrying, one-obligation-at-a-time execution.
 
@@ -22,6 +22,7 @@ Accepted receipts:
 - R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
 - R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
 - R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+- R-WG-PROJECT-INSTRUCTION-BUDGET-ACTIVE-DIRECTION-SWEEP-001
 
 Open critical Obligation:
 
@@ -36,6 +37,7 @@ Satisfied Obligations:
 - O-WG-PROJECT-SURFACE-SEPARATION-HARDEN
 - O-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN
 - O-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP
+- O-WG-PROJECT-INSTRUCTION-BUDGET-ACTIVE-DIRECTION-SWEEP
 
 Blocked Obligations:
 
@@ -58,17 +60,17 @@ Next valid run:
 
 project_instruction_ui_update_required:
 
-- Health and Beauty: paste the updated UI payload from directions/health-and-beauty/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md into the ChatGPT Project Instructions field.
+- Solo Max Productive: paste the updated UI payload from directions/solo-max-productive/setup/CHATGPT_PROJECT_INSTRUCTIONS.md into the ChatGPT Project Instructions field.
 
 project_instruction_ui_payload_char_counts:
 
-- Health and Beauty: 6363 chars, target.
+- Solo Max Productive: 3626 chars, target.
 
 project_sources_files_refresh_required:
 
-- Root and Governance setup/navigation sources if uploaded: AGENTS.md, directions/workflow-governance/AGENTS.md, directions/workflow-governance/README.md.
+- Solo Max Productive setup manifest if uploaded: directions/solo-max-productive/setup/PROJECT_FILES_MANIFEST.md.
+- Health and Beauty setup manifest if uploaded: directions/health-and-beauty/workflow/project_setup/PROJECT_FILES_MANIFEST.md.
 - Workflow Governance proof files: LEDGER.md, OBLIGATIONS.md, RECEIPTS_INDEX.md, DASHBOARD.md.
-- Shared packs: GOVERNANCE_MAINTENANCE_PACK.md, WORKFLOW_BASE_PACK.md, TRANSPORT_CORE_PACK.md, PROJECT_PACKS_INDEX.md as applicable.
 
 request_only_sources_refresh_required:
 
@@ -80,6 +82,7 @@ do_not_upload_as_project_file:
 - directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
 - directions/indie-game-development/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
 - directions/health-and-beauty/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+- directions/solo-max-productive/setup/CHATGPT_PROJECT_INSTRUCTIONS.md
 
 Projection warning: Dashboard is projection, not truth; Ledger wins.
 

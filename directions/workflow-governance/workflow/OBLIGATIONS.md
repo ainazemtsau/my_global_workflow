@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: obligations
-  status: project_instruction_budget_residual_sweep
+  status: project_instruction_budget_active_direction_sweep
   owner: proof_carrying_workflow_os
 ---
 
@@ -102,6 +102,22 @@ obligations:
       - Project Instructions UI source changes require payload character counts.
       - No product execution or forbidden Direction proof-state mutation is introduced.
 
+  - obligation_id: O-WG-PROJECT-INSTRUCTION-BUDGET-ACTIVE-DIRECTION-SWEEP
+    type: workflow_setup_policy_patch
+    statement: >
+      Sweep active Direction Project Instructions sources and manifests for
+      Project Instructions UI payload budget compliance after the initial budget
+      hardening and residual refresh wording sweep.
+    status: satisfied
+    satisfied_by_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-ACTIVE-DIRECTION-SWEEP-001
+    required_operator: GovernancePatch / RepositoryMaintenancePlan
+    acceptance_conditions:
+      - Active Direction Project Instructions sources have UI payload markers and budget metadata.
+      - Active Direction UI payloads fit within the 8,000-character hard max and target 6,500 where possible.
+      - Active Direction manifests separate Project Instructions UI sources from Project Files/Sources.
+      - Active Direction manifests exclude instruction sources from default upload count.
+      - No ordinary Direction proof-state files are mutated.
+
   - obligation_id: O-WG-LEGACY-INVENTORY-OPTIONAL
     type: legacy_import
     statement: Optionally inspect old Workflow Governance files as legacy evidence only.
@@ -134,5 +150,7 @@ O-WG-PROJECT-SURFACE-SEPARATION-HARDEN is satisfied by R-WG-PROJECT-SURFACE-SEPA
 O-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN is satisfied by R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001.
 
 O-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP is satisfied by R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001.
+
+O-WG-PROJECT-INSTRUCTION-BUDGET-ACTIVE-DIRECTION-SWEEP is satisfied by R-WG-PROJECT-INSTRUCTION-BUDGET-ACTIVE-DIRECTION-SWEEP-001.
 
 END_OF_FILE: directions/workflow-governance/workflow/OBLIGATIONS.md

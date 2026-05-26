@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: ledger
-  status: project_instruction_budget_residual_sweep
+  status: project_instruction_budget_active_direction_sweep
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,13 +11,14 @@ artifact_control:
 
 ```yaml
 direction_id: workflow-governance
-proof_state: project_instruction_budget_residual_sweep
+proof_state: project_instruction_budget_active_direction_sweep
 accepted_receipts:
   - R-WG-ROOT-OBJECTIVE-ATOMIC-RUN-001
   - R-WG-ATOMIC-RUN-HARDEN-001
   - R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
   - R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
   - R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+  - R-WG-PROJECT-INSTRUCTION-BUDGET-ACTIVE-DIRECTION-SWEEP-001
 accepted_claims:
   - workflow_governance_root_objective_accepted
   - atomic_run_hardening_is_primary_governance_goal
@@ -44,6 +45,9 @@ accepted_claims:
   - residual_project_refresh_wording_swept_from_active_codex_and_workflow_surfaces
   - codex_handoffs_require_separated_project_refresh_fields
   - instruction_source_changes_require_payload_char_counts
+  - active_direction_project_instruction_sources_swept_for_payload_budget
+  - solo_max_productive_project_instruction_source_budget_hardened
+  - active_direction_manifests_exclude_instruction_sources_from_default_upload
 root_objective: >
   Maintain and harden the Workflow OS so every Direction chat follows proof-carrying,
   one-obligation-at-a-time execution: broad user input is preserved and normalized,
@@ -58,7 +62,7 @@ legacy_state_authority: false
 next_valid_run: []
 ```
 
-This Ledger records the accepted Workflow Governance root objective, Atomic Run hardening, Project Surface Separation hardening, Project Instructions UI payload budget hardening, and residual project refresh wording sweep.
+This Ledger records the accepted Workflow Governance root objective, Atomic Run hardening, Project Surface Separation hardening, Project Instructions UI payload budget hardening, residual project refresh wording sweep, and active Direction instruction source sweep.
 
 Old `project_files/00-08` are not accepted proof state.
 
