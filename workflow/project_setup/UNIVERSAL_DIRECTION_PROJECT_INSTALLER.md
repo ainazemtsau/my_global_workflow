@@ -20,10 +20,12 @@ It is the repository source for the project installation process. It does not cr
 
 Layer 0 - Project Instructions UI:
 
-- behavior instructions pasted into the ChatGPT Project Instructions field
+- compact bootstrap behavior instructions pasted into the ChatGPT Project Instructions field
 - generated from repository instruction sources such as `CHATGPT_PROJECT_INSTRUCTIONS.md`
 - not uploaded as a Project File/Source
 - not live Direction state
+- target 6000 characters or less between BEGIN/END UI payload markers; hard maximum 7500 characters
+- detailed schemas, long response requirements, full Codex rules, child handoff details, and long file/path explanations stay in packs or setup docs
 
 Layer A - Universal Project Shell:
 
@@ -56,6 +58,8 @@ Product Repo Execution Setup is separate. Product/project technical memory belon
 Step 1: paste or update Project Instructions in the ChatGPT Project Instructions UI using the generated instruction source.
 
 Do not upload `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` as a Project File/Source.
+
+Paste only the compact UI payload between the BEGIN/END UI payload markers. Do not paste repository frontmatter, repository source notes, or `END_OF_FILE` markers into the Project Instructions UI.
 
 Step 2: upload the following default Project Files/Sources.
 
@@ -184,6 +188,7 @@ Before using a new Direction Workflow Project for material work, confirm:
 - required shared packs are uploaded
 - Direction payload files are uploaded
 - Project Instructions are pasted into the Project Instructions UI
+- Project Instructions UI payload is compact, direct behavior text and at most 7500 characters between BEGIN/END markers
 - Project Instructions source files are not uploaded as Project Files/Sources
 - Project Instructions do not hard-code stale live state
 - Direction manifests use three shared packs plus six Direction payload files

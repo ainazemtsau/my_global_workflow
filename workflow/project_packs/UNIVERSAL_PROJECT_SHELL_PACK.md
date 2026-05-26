@@ -7,8 +7,8 @@ artifact_control:
   intended_load_mode: default_all_directions
   status: atomic_run_hardened
   owner: workflow_os
-  generated_from_ref: wg/project-surface-separation@R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
-  refreshed_for_receipt: R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+  generated_from_ref: wg/project-surface-separation@R-WG-COMPACT-PROJECT-INSTRUCTIONS-UI-001
+  refreshed_for_receipt: R-WG-COMPACT-PROJECT-INSTRUCTIONS-UI-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -51,9 +51,13 @@ ChatGPT Project surfaces are runtime cache. They do not create accepted state.
 
 Project Instructions UI is the ChatGPT Project settings field where behavior instructions are pasted.
 
+Project Instructions UI payloads are compact bootstrap text: target 6000 characters or less between BEGIN/END UI payload markers, with a hard maximum of 7500 characters.
+
 Project Files/Sources are uploaded reference materials.
 
 Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are Project Instructions UI payload sources. They are not default Project Files/Sources and must not be included in default upload counts.
+
+Detailed schemas, long response requirements, full Codex rules, child handoff details, and long file/path explanations belong in Project Files/Sources packs or setup docs, not in Project Instructions UI payloads.
 
 Direction proof state lives under:
 

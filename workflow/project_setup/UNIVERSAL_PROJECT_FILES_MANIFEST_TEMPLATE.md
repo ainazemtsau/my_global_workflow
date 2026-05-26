@@ -21,6 +21,8 @@ Project name:
 
 Paste the UI payload from this source into the ChatGPT Project Instructions field.
 
+The UI payload is compact bootstrap behavior text. Target 6000 characters or less between BEGIN/END UI payload markers; hard maximum 7500 characters. Do not paste repository frontmatter, source notes, or `END_OF_FILE` into the Project Instructions UI.
+
 ```yaml
 project_instruction_ui_update_required: true
 do_not_upload_as_project_file:

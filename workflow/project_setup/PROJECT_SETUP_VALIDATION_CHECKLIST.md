@@ -19,6 +19,9 @@ First identify the Project type:
 
 - Project Instructions source is correct.
 - Project Instructions UI contains the current paste-ready UI payload.
+- UI payload between BEGIN/END markers is 6000 characters or less when possible and never more than 7500 characters.
+- UI payload contains direct behavior instructions, not setup documentation.
+- UI payload does not contain YAML frontmatter or `END_OF_FILE`.
 - Project Instructions source file is not uploaded as a Project File/Source.
 - Default packs are uploaded:
   - `workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
@@ -47,6 +50,9 @@ First identify the Project type:
 
 - Project Instructions source is `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
 - Project Instructions UI contains the current paste-ready UI payload.
+- UI payload between BEGIN/END markers is 6000 characters or less when possible and never more than 7500 characters.
+- UI payload contains direct maintenance-console behavior instructions, not the full Governance Maintenance Pack.
+- UI payload does not contain YAML frontmatter or `END_OF_FILE`.
 - Project Instructions source file is not uploaded as a Project File/Source.
 - Project Files manifest source is `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`.
 - Default Project Files/Sources are only:

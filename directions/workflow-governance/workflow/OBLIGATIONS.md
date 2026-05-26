@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: obligations
-  status: project_surface_separation_hardened
+  status: compact_project_instructions_ui_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -72,6 +72,23 @@ obligations:
       - Project Files manifests exclude Project Instructions sources from default upload count.
       - No product execution or Indie Game Development proof-state mutation is introduced.
 
+  - obligation_id: O-WG-COMPACT-PROJECT-INSTRUCTIONS-UI
+    type: workflow_setup_policy_patch
+    statement: >
+      Compact generated ChatGPT Project Instructions UI payloads so they fit the
+      Project Instructions UI and keep detailed workflow rules in Project
+      Files/Sources packs and setup docs.
+    status: satisfied
+    satisfied_by_receipt: R-WG-COMPACT-PROJECT-INSTRUCTIONS-UI-001
+    required_operator: GovernancePatch / RepositoryMaintenancePlan
+    acceptance_conditions:
+      - Project Instructions UI payloads target 6000 characters or less and never exceed 7500 characters.
+      - UI payloads are direct ChatGPT Project behavior instructions, not setup documentation.
+      - Ordinary Direction and Governance Maintenance Project instruction sources use compact UI payloads.
+      - Detailed schemas, long response requirements, full Codex rules, child handoff details, and long file/path explanations remain in packs or setup docs.
+      - Separated project refresh fields remain preserved.
+      - No product execution or Indie Game Development proof-state mutation is introduced.
+
   - obligation_id: O-WG-LEGACY-INVENTORY-OPTIONAL
     type: legacy_import
     statement: Optionally inspect old Workflow Governance files as legacy evidence only.
@@ -100,5 +117,7 @@ No roadmap item exists without admitted Obligation.
 O-WG-ATOMIC-RUN-HARDEN is satisfied by R-WG-ATOMIC-RUN-HARDEN-001.
 
 O-WG-PROJECT-SURFACE-SEPARATION-HARDEN is satisfied by R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001.
+
+O-WG-COMPACT-PROJECT-INSTRUCTIONS-UI is satisfied by R-WG-COMPACT-PROJECT-INSTRUCTIONS-UI-001.
 
 END_OF_FILE: directions/workflow-governance/workflow/OBLIGATIONS.md

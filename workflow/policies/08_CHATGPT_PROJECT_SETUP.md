@@ -66,6 +66,9 @@ Project Instructions UI:
 - The ChatGPT Project settings field for project-specific behavior instructions.
 - Users paste instruction text here.
 - This is not an uploaded Project File/Source.
+- The pasted UI payload should target 6000 characters or less and must not exceed 7500 characters.
+- UI payloads must be direct ChatGPT Project behavior instructions, not repository documentation.
+- Detailed schemas, long response requirements, full Codex rules, child handoff details, and long file/path explanations belong in Project Files/Sources packs or setup docs, not in the UI payload.
 
 Project Files/Sources:
 
@@ -79,6 +82,7 @@ Repository Project Instruction Source:
 - It may live at `directions/<direction-id>/.../project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
 - It is not a default Project File/Source upload.
 - It must not store live Direction state.
+- It should keep frontmatter, repository source notes, and `END_OF_FILE` markers outside the BEGIN/END UI payload markers.
 
 Request-only sources:
 

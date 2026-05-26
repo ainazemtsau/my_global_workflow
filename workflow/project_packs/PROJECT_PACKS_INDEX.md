@@ -7,8 +7,8 @@ artifact_control:
   intended_load_mode: request_only
   status: atomic_run_hardened
   owner: workflow_os
-  generated_from_ref: wg/project-surface-separation@R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
-  refreshed_for_receipt: R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+  generated_from_ref: wg/project-surface-separation@R-WG-COMPACT-PROJECT-INSTRUCTIONS-UI-001
+  refreshed_for_receipt: R-WG-COMPACT-PROJECT-INSTRUCTIONS-UI-001
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this index if any source_manifest file changes."
 source_manifest:
@@ -43,6 +43,8 @@ If this index conflicts with a pack or canonical source file, the more specific 
 This index is request-only. Do not upload it by default unless exact setup inspection needs it or it is already uploaded and must be refreshed.
 
 Project Instructions UI is separate from Project Files/Sources. Repository instruction sources such as `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` are pasted into the ChatGPT Project Instructions field and are not uploaded as default Project Files/Sources.
+
+Project Instructions UI payloads should be compact direct behavior text: target 6000 characters or less between BEGIN/END UI payload markers, hard maximum 7500 characters.
 
 ## Default Load Recommendation
 

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: dashboard_projection
-  status: project_surface_separation_hardened
+  status: compact_project_instructions_ui_hardened
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Workflow Governance
 
-Proof state: project surface separation hardened
+Proof state: compact Project Instructions UI payloads hardened
 
 Root objective: maintain and harden Workflow OS around proof-carrying, one-obligation-at-a-time execution.
 
@@ -20,6 +20,7 @@ Accepted receipts:
 - R-WG-ROOT-OBJECTIVE-ATOMIC-RUN-001
 - R-WG-ATOMIC-RUN-HARDEN-001
 - R-WG-PROJECT-SURFACE-SEPARATION-HARDEN-001
+- R-WG-COMPACT-PROJECT-INSTRUCTIONS-UI-001
 
 Open critical Obligation:
 
@@ -32,6 +33,7 @@ Satisfied Obligations:
 - O-WG-CONSTRAINTS-DEFINE
 - O-WG-ATOMIC-RUN-HARDEN
 - O-WG-PROJECT-SURFACE-SEPARATION-HARDEN
+- O-WG-COMPACT-PROJECT-INSTRUCTIONS-UI
 
 Blocked Obligations:
 
@@ -60,12 +62,11 @@ project_instruction_ui_update_required:
 project_sources_files_refresh_required:
 
 - Workflow Governance payload files: LEDGER.md, OBLIGATIONS.md, RECEIPTS_INDEX.md, DASHBOARD.md
-- Shared packs: UNIVERSAL_PROJECT_SHELL_PACK.md, TRANSPORT_CORE_PACK.md
+- Refresh changed setup/packs only where currently uploaded: workflow/policies/08_CHATGPT_PROJECT_SETUP.md, workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md, workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md, workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md, workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md.
 
 request_only_sources_refresh_required:
 
 - PROJECT_PACKS_INDEX.md only if already uploaded or used for setup inspection.
-- EXECUTION_HARNESS_PACK.md remains request-only and unchanged.
 
 do_not_upload_as_project_file:
 
