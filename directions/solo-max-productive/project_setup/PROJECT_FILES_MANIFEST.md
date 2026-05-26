@@ -44,7 +44,6 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 ## Do Not Load By Default
 
 - `workflow/**`
-- `directions/solo-max-productive/archive/**`
 - `directions/solo-max-productive/project_setup/**`
 - `directions/*/project_files/**`
 - `directions/*/project_setup/**`

@@ -1,4 +1,4 @@
-# New Device Bootstrap
+﻿# New Device Bootstrap
 
 Status: active
 
@@ -23,7 +23,7 @@ The old vNext-R workflow is archived at:
 3. Read root `AGENTS.md`.
 4. Read `WORKFLOW_SOURCE_OF_TRUTH.md`.
 5. Read the relevant root workflow files and root workflow directories for the task.
-6. For Direction work, use `directions/<direction-id>/proof/**` after that Direction has a proof skeleton.
+6. For Direction work, use `directions/<direction-id>/**` after that Direction has a proof skeleton.
 
 ## ChatGPT Project Restore
 
@@ -42,17 +42,17 @@ Upload default packs:
 
 Upload Direction payload:
 
-- `directions/<direction-id>/proof/LEDGER.md`
-- `directions/<direction-id>/proof/OBLIGATIONS.md`
-- `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/proof/COMMIT_SCOPES.md`
-- `directions/<direction-id>/proof/DASHBOARD.md`
-- `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/LEDGER.md`
+- `directions/<direction-id>/OBLIGATIONS.md`
+- `directions/<direction-id>/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/COMMIT_SCOPES.md`
+- `directions/<direction-id>/DASHBOARD.md`
+- `directions/<direction-id>/MIGRATION_RECEIPT.md`
 
 Per-Direction setup files remain under:
 
-- `directions/<direction-id>/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
-- `directions/<direction-id>/proof/project_setup/PROJECT_FILES_MANIFEST.md`
+- `directions/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md`
 
 Per-Direction manifests use the pack model: three shared packs plus six Direction payload files.
 

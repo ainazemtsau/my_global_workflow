@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: workflow
   artifact_type: storage_layout_policy
@@ -71,13 +71,13 @@ Direction Project manifests use pack-based default upload: three shared packs pl
 Per-Direction proof state uses:
 
 ```text
-directions/<direction-id>/proof/
+directions/<direction-id>/
 ```
 
 Structure:
 
 ```text
-directions/<direction-id>/proof/
+directions/<direction-id>/
   LEDGER.md
   OBLIGATIONS.md
   RECEIPTS_INDEX.md
@@ -91,7 +91,7 @@ directions/<direction-id>/proof/
   projections/
 ```
 
-Creating or updating a Direction proof path requires an explicit admitted setup or migration action.
+Creating or updating a Direction payload path requires an explicit admitted setup or migration action.
 
 ## File Roles
 

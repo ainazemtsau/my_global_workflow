@@ -5,10 +5,10 @@ direction:
   source_of_truth: github_markdown
   github_repo: https://github.com/ainazemtsau/my_global_workflow
   repo_path: directions/workflow-governance
-  purpose: Maintain the Proof-Carrying Workflow OS through proof-governed repository maintenance.
+  purpose: Maintain the Workflow OS through workflow-governed repository maintenance.
 
 chatgpt:
-  project_name: Workflow Governance - Proof
+  project_name: Workflow Governance
   default_files:
     - project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
     - project_packs/WORKFLOW_BASE_PACK.md
@@ -22,7 +22,7 @@ chatgpt:
 
 documentation:
   source_of_truth: github_markdown
-  proof_layout:
+  workflow_layout:
     payload_root: directions/workflow-governance
     project_setup: directions/workflow-governance/project_setup
     receipts: directions/workflow-governance/receipts

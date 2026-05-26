@@ -44,7 +44,6 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 ## Do Not Load By Default
 
 - `workflow/**`
-- `directions/health-and-beauty/archive/**`
 - `directions/health-and-beauty/project_setup/**`
 - `directions/*/project_files/**`
 - `directions/*/project_setup/**`

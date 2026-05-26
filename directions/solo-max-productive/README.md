@@ -4,8 +4,8 @@ Status: active
 Source of truth: GitHub markdown
 Direction path: directions/solo-max-productive
 
-This Direction is a Proof Project. Live Direction state is carried by the
-root-level proof payload files in this folder:
+This Direction is a Workflow project. Live Direction state is carried by the
+root-level workflow payload files in this folder:
 
 - LEDGER.md
 - OBLIGATIONS.md
@@ -18,8 +18,8 @@ Only verified Receipts committed to root LEDGER.md create accepted state for
 this Direction. The current Ledger has no accepted root objective and no
 Legacy Import has been performed.
 
-The `archive/` folder contains legacy vNext-R materials as evidence only. It is
-not accepted proof state and is not default-loaded.
+Legacy vNext-R materials are evidence only. They are not accepted Direction
+state and are not default-loaded.
 
 Knowledge and domain documentation are request-loaded by GitHub path, not loaded
 by default.

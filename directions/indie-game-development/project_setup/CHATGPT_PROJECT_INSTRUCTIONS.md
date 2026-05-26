@@ -1,18 +1,18 @@
 ﻿---
 artifact_control:
-  namespace: direction_proof_project_setup
+  namespace: direction_workflow_project_setup
   direction_id: indie-game-development
   artifact_type: chatgpt_project_instructions
-  project_name: "Indie Game Development — Proof"
+  project_name: "Indie Game Development"
   status: u3_pack_model
-  owner: proof_carrying_workflow_os
+  owner: workflow_os
 ---
 
-# Indie Game Development — Proof
+# Indie Game Development
 
 ## Purpose
 
-Run the Proof-Carrying Workflow OS for Indie Game Development.
+Run the Workflow OS for Indie Game Development.
 
 Direction ID: `indie-game-development`
 

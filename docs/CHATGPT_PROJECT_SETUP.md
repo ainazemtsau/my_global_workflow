@@ -1,4 +1,4 @@
-# ChatGPT Project Setup
+﻿# ChatGPT Project Setup
 
 ```yaml
 artifact_control:
@@ -30,8 +30,8 @@ New Workflow Projects should use:
 
 Per-Direction manifests remain under:
 
-- `directions/<direction-id>/proof/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
-- `directions/<direction-id>/proof/project_setup/PROJECT_FILES_MANIFEST.md`
+- `directions/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md`
 
 Per-Direction manifests now use the pack model.
 
@@ -47,14 +47,14 @@ The packs are runtime cache / upload convenience files. They are not semantic au
 
 ## Required Direction Payload
 
-Upload Direction proof files from `directions/<direction-id>/proof/**`:
+Upload Direction proof files from `directions/<direction-id>/**`:
 
-- `directions/<direction-id>/proof/LEDGER.md`
-- `directions/<direction-id>/proof/OBLIGATIONS.md`
-- `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/proof/COMMIT_SCOPES.md`
-- `directions/<direction-id>/proof/DASHBOARD.md`
-- `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/LEDGER.md`
+- `directions/<direction-id>/OBLIGATIONS.md`
+- `directions/<direction-id>/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/COMMIT_SCOPES.md`
+- `directions/<direction-id>/DASHBOARD.md`
+- `directions/<direction-id>/MIGRATION_RECEIPT.md`
 
 Receipt files may be uploaded when the manifest requires them or when a run needs direct receipt context.
 

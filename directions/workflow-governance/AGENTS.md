@@ -1,4 +1,4 @@
-# Workflow Governance Proof Direction Instructions
+# Workflow Governance Direction Instructions
 
 Status: active
 
@@ -9,18 +9,18 @@ Use `directions/workflow-governance/LEDGER.md` and the root payload files for li
 ## Active Authority
 
 - Live state comes from `LEDGER.md`, `OBLIGATIONS.md`, `RECEIPTS_INDEX.md`, `COMMIT_SCOPES.md`, `DASHBOARD.md`, `MIGRATION_RECEIPT.md`, committed `receipts/`, and `projections/`.
-- Only committed Receipts in the Ledger create accepted proof state.
+- Only committed Receipts in the Ledger create accepted Direction state.
 - Project setup files are runtime cache/setup instructions, not accepted state.
 
 ## Legacy Boundary
 
 - Do not use old `project_files/00-08` or old vNext-R files as accepted state.
 - Do not perform Legacy Import unless an admitted Obligation explicitly authorizes it.
-- Do not invent Direction proof state from legacy material.
+- Do not invent Direction state from legacy material.
 
 ## Execution Boundary
 
-- Do not create a roadmap, select Horizon, select Active Frontier, admit execution obligations, or run product execution from this Direction unless a committed proof Obligation explicitly admits that work.
+- Do not create a roadmap, select Horizon, select Active Frontier, admit execution obligations, or run product execution from this Direction unless a committed Obligation explicitly admits that work.
 - Repository maintenance is allowed only when explicitly requested and must stay within the named allowed paths.
 - Do not touch sibling Direction folders or product repositories unless the current task explicitly names them.
 

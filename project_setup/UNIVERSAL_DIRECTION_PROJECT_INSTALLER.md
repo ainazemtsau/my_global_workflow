@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: workflow_project_setup
   artifact_type: universal_direction_project_installer
@@ -54,12 +54,12 @@ Upload these shared packs for all new Direction Workflow Projects:
 
 Upload these Direction payload files:
 
-- `directions/<direction-id>/proof/LEDGER.md`
-- `directions/<direction-id>/proof/OBLIGATIONS.md`
-- `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/proof/COMMIT_SCOPES.md`
-- `directions/<direction-id>/proof/DASHBOARD.md`
-- `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/LEDGER.md`
+- `directions/<direction-id>/OBLIGATIONS.md`
+- `directions/<direction-id>/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/COMMIT_SCOPES.md`
+- `directions/<direction-id>/DASHBOARD.md`
+- `directions/<direction-id>/MIGRATION_RECEIPT.md`
 
 ## Request-Only Capability Packs
 

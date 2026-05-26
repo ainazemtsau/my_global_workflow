@@ -1,18 +1,18 @@
 ---
 artifact_control:
-  namespace: direction_proof_project_setup
+  namespace: direction_workflow_project_setup
   direction_id: workflow-governance
   artifact_type: chatgpt_project_instructions
-  project_name: "Workflow Governance — Proof"
+  project_name: "Workflow Governance"
   status: u3_pack_model
-  owner: proof_carrying_workflow_os
+  owner: workflow_os
 ---
 
-# Workflow Governance — Proof
+# Workflow Governance
 
 ## Purpose
 
-Run the Proof-Carrying Workflow OS for Workflow Governance.
+Run the Workflow OS for Workflow Governance.
 
 Direction ID: `workflow-governance`
 

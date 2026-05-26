@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: workflow_project_packs
   artifact_type: project_pack_index
@@ -44,7 +44,7 @@ For ordinary Direction Workflow Projects, default upload can be reduced to:
 - `project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md`
 - `project_packs/WORKFLOW_BASE_PACK.md`
 - `project_packs/TRANSPORT_CORE_PACK.md`
-- Direction payload files under `directions/<direction-id>/proof/`
+- Direction payload files under `directions/<direction-id>/`
 
 Direction payload files are the Direction Ledger, Obligations, Receipts index, Commit scopes, Dashboard, and Migration receipt.
 

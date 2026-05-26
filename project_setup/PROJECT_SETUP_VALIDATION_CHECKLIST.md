@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: workflow_project_setup
   artifact_type: project_setup_validation_checklist
@@ -18,12 +18,12 @@ Use this checklist after creating or refreshing a ChatGPT Direction Workflow Pro
   - `project_packs/WORKFLOW_BASE_PACK.md`
   - `project_packs/TRANSPORT_CORE_PACK.md`
 - Direction payload is uploaded:
-  - `directions/<direction-id>/proof/LEDGER.md`
-  - `directions/<direction-id>/proof/OBLIGATIONS.md`
-  - `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
-  - `directions/<direction-id>/proof/COMMIT_SCOPES.md`
-  - `directions/<direction-id>/proof/DASHBOARD.md`
-  - `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
+  - `directions/<direction-id>/LEDGER.md`
+  - `directions/<direction-id>/OBLIGATIONS.md`
+  - `directions/<direction-id>/RECEIPTS_INDEX.md`
+  - `directions/<direction-id>/COMMIT_SCOPES.md`
+  - `directions/<direction-id>/DASHBOARD.md`
+  - `directions/<direction-id>/MIGRATION_RECEIPT.md`
 - Forbidden old files are not uploaded.
 - Execution Harness Pack is absent unless deliberately enabled.
 - Direction proof Ledger is loaded.

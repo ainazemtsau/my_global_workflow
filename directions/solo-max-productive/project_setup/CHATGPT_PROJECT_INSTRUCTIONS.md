@@ -1,18 +1,18 @@
 ---
 artifact_control:
-  namespace: direction_proof_project_setup
+  namespace: direction_workflow_project_setup
   direction_id: solo-max-productive
   artifact_type: chatgpt_project_instructions
-  project_name: "Solo Max Productive — Proof"
+  project_name: "Solo Max Productive"
   status: u3_pack_model
-  owner: proof_carrying_workflow_os
+  owner: workflow_os
 ---
 
-# Solo Max Productive — Proof
+# Solo Max Productive
 
 ## Purpose
 
-Run the Proof-Carrying Workflow OS for Solo Max Productive.
+Run the Workflow OS for Solo Max Productive.
 
 Direction ID: `solo-max-productive`
 

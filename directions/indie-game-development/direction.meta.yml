@@ -12,9 +12,6 @@ proof_payload:
   dashboard: directions/indie-game-development/DASHBOARD.md
   migration_receipt: directions/indie-game-development/MIGRATION_RECEIPT.md
   receipts_path: directions/indie-game-development/receipts/
-archive:
-  legacy_results_index: directions/indie-game-development/archive/legacy-results/RESULTS_INDEX.md
-  authority: legacy_evidence_only_not_accepted_state
 accepted_state_summary:
   accepted_receipts:
     - R-IDG-ROOT-OBJECTIVE-DECISION-B-001

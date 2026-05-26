@@ -7,7 +7,7 @@ direction:
   repo_path: directions/health-and-beauty
 
 chatgpt:
-  project_name: Health and Beauty — Proof
+  project_name: Health and Beauty
   project_instructions: directions/health-and-beauty/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
   default_files:
     - project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
@@ -19,7 +19,3 @@ chatgpt:
     - directions/health-and-beauty/COMMIT_SCOPES.md
     - directions/health-and-beauty/DASHBOARD.md
     - directions/health-and-beauty/MIGRATION_RECEIPT.md
-
-archive:
-  path: directions/health-and-beauty/archive
-  role: legacy evidence and preserved result artifacts; not accepted proof state

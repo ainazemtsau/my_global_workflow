@@ -21,13 +21,13 @@ Forbidden unless explicitly requested:
 
 ## Authority
 
-- Root-level proof payload files are the default Direction authority:
+- Root-level workflow payload files are the default Direction authority:
   `LEDGER.md`, `OBLIGATIONS.md`, `RECEIPTS_INDEX.md`, `COMMIT_SCOPES.md`,
   `DASHBOARD.md`, and `MIGRATION_RECEIPT.md`.
 - Use shared root workflow files and project packs only when a task explicitly
-  needs shared packs, transport, setup validation, or execution harness context.
-- `archive/` is legacy evidence only. It is not accepted proof state and is not
-  default-loaded.
+  needs shared workflow packs, transport, setup validation, or execution harness context.
+- Legacy branch/tag material is legacy evidence only. It is not accepted
+  Direction state and is not default-loaded.
 
 ## Runtime Rules
 
@@ -43,7 +43,7 @@ Forbidden unless explicitly requested:
   Obligation.
 - Reusable Direction knowledge, canon, decisions, patterns, and reviews belong in `knowledge/` and are canonical only when present as GitHub files.
 - Domain documentation belongs in `domain_docs/`; do not invent domain canon when a required file is missing.
-- Project metadata belongs in `projects/` and `direction.meta.yml`; unknown repos stay `not_created` / `needs_user_input`.
+- Project metadata belongs in `direction.meta.yml`; unknown repos stay `not_created` / `needs_user_input`.
 
 ## Change Rules
 

@@ -6,7 +6,7 @@ direction:
   github_repo: https://github.com/ainazemtsau/my_global_workflow
   repo_path: directions/solo-max-productive
 chatgpt:
-  project_name: Solo Max Productive — Proof
+  project_name: Solo Max Productive
   default_files:
   - project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
   - project_packs/WORKFLOW_BASE_PACK.md
@@ -25,9 +25,6 @@ documentation:
   domain_docs:
     path: directions/solo-max-productive/domain_docs
     role: canonical domain documentation for this Direction
-  archive:
-    path: directions/solo-max-productive/archive
-    role: legacy evidence only; not accepted proof state and not default-loaded
 projects:
   embedded: []
   external_repos:

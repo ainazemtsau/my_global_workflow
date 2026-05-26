@@ -1,4 +1,4 @@
-# My Global Workflow
+﻿# My Global Workflow
 
 Status: active
 
@@ -11,8 +11,8 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 - Shared workflow kernel and runtime policies live under the repository root.
 - Universal ChatGPT Project setup lives under `project_setup/`.
 - Project pack runtime-cache files live under `project_packs/`.
-- Direction proof state lives under `directions/<direction-id>/proof/`.
-- New ChatGPT Projects should be created or restored from the universal installer and pack-based Direction manifests under `directions/<direction-id>/proof/project_setup/`.
+- Direction proof state lives under `directions/<direction-id>/`.
+- New ChatGPT Projects should be created or restored from the universal installer and pack-based Direction manifests under `directions/<direction-id>/project_setup/`.
 - Workflow Governance is self-hosted and uses root payload files under `directions/workflow-governance/`.
 
 ## Project Setup

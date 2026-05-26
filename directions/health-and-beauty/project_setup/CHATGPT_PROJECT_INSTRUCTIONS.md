@@ -1,18 +1,18 @@
 ---
 artifact_control:
-  namespace: direction_proof_project_setup
+  namespace: direction_workflow_project_setup
   direction_id: health-and-beauty
   artifact_type: chatgpt_project_instructions
-  project_name: "Health and Beauty — Proof"
+  project_name: "Health and Beauty"
   status: u3_pack_model
-  owner: proof_carrying_workflow_os
+  owner: workflow_os
 ---
 
-# Health and Beauty — Proof
+# Health and Beauty
 
 ## Purpose
 
-Run the Proof-Carrying Workflow OS for Health and Beauty.
+Run the Workflow OS for Health and Beauty.
 
 Direction ID: `health-and-beauty`
 

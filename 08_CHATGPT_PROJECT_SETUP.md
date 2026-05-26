@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: workflow
   artifact_type: chatgpt_project_setup_principles
@@ -36,12 +36,12 @@ Use packs as the default shared upload surface:
 
 Upload Direction payload files individually:
 
-- `directions/<direction-id>/proof/LEDGER.md`
-- `directions/<direction-id>/proof/OBLIGATIONS.md`
-- `directions/<direction-id>/proof/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/proof/COMMIT_SCOPES.md`
-- `directions/<direction-id>/proof/DASHBOARD.md`
-- `directions/<direction-id>/proof/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/LEDGER.md`
+- `directions/<direction-id>/OBLIGATIONS.md`
+- `directions/<direction-id>/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/COMMIT_SCOPES.md`
+- `directions/<direction-id>/DASHBOARD.md`
+- `directions/<direction-id>/MIGRATION_RECEIPT.md`
 
 ## Active Manifest Model
 
@@ -76,7 +76,7 @@ Universal project setup sources live under:
 
 Per-Direction generated setup files live under:
 
-- `directions/<direction-id>/proof/project_setup/`
+- `directions/<direction-id>/project_setup/`
 
 ## Context Authority Setup Rule
 

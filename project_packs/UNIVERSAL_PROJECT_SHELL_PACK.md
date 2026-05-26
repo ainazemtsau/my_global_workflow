@@ -1,4 +1,4 @@
----
+﻿---
 artifact_control:
   namespace: workflow_project_packs
   artifact_type: project_pack
@@ -50,16 +50,8 @@ ChatGPT Project Files are runtime cache. They do not create accepted state.
 Direction proof state lives under:
 
 ```text
-directions/<direction-id>/proof/
+directions/<direction-id>/
 ```
-
-Workflow Governance is the self-hosted governance Direction and uses a flattened root payload layout:
-
-```text
-directions/workflow-governance/
-```
-
-Ordinary Direction Proof Projects may still use `directions/<direction-id>/proof/` unless separately migrated.
 
 Only verified Receipts committed to the Direction Ledger create accepted Direction state.
 
