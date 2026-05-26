@@ -6,17 +6,17 @@ direction:
   github_repo: https://github.com/ainazemtsau/my_global_workflow
   repo_path: directions/solo-max-productive
 chatgpt:
-  project_name: Solo Max Productive
+  project_name: Solo Max Productive — Proof
   default_files:
-  - project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
-  - project_packs/WORKFLOW_BASE_PACK.md
-  - project_packs/TRANSPORT_CORE_PACK.md
-  - directions/solo-max-productive/LEDGER.md
-  - directions/solo-max-productive/OBLIGATIONS.md
-  - directions/solo-max-productive/RECEIPTS_INDEX.md
-  - directions/solo-max-productive/COMMIT_SCOPES.md
-  - directions/solo-max-productive/DASHBOARD.md
-  - directions/solo-max-productive/MIGRATION_RECEIPT.md
+  - proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
+  - proof_workflow/project_packs/PROOF_BASE_PACK.md
+  - proof_workflow/project_packs/TRANSPORT_CORE_PACK.md
+  - directions/solo-max-productive/workflow/LEDGER.md
+  - directions/solo-max-productive/workflow/OBLIGATIONS.md
+  - directions/solo-max-productive/workflow/RECEIPTS_INDEX.md
+  - directions/solo-max-productive/workflow/COMMIT_SCOPES.md
+  - directions/solo-max-productive/workflow/DASHBOARD.md
+  - directions/solo-max-productive/workflow/MIGRATION_RECEIPT.md
 documentation:
   source_of_truth: github_markdown
   knowledge:
@@ -25,6 +25,9 @@ documentation:
   domain_docs:
     path: directions/solo-max-productive/domain_docs
     role: canonical domain documentation for this Direction
+  archive:
+    path: directions/solo-max-productive/archive
+    role: legacy evidence only; not accepted proof state and not default-loaded
 projects:
   embedded: []
   external_repos:
