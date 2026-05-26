@@ -1,4 +1,4 @@
-# Health and Beauty Proof Direction Instructions
+# Health and Beauty Workflow Direction Instructions
 
 Direction: `health-and-beauty`
 
@@ -7,7 +7,7 @@ Direction: `health-and-beauty`
 Allowed default scope:
 
 - `directions/health-and-beauty/**`
-- `project_packs/**` only as shared pack source/reference
+- root `project_packs/**` only as shared pack source/reference
 
 Repository maintenance may edit files only under `directions/health-and-beauty` unless explicitly authorized.
 
@@ -30,11 +30,11 @@ At chat start, read `DASHBOARD.md` and `OBLIGATIONS.md`.
 
 Loaded context is not accepted state.
 
-`archive/results` and old workflow files are `legacy_evidence` or `candidate_context` only.
+Legacy branch/tag material and old workflow files are `legacy_evidence` or `candidate_context` only.
 
 Only committed receipts in Ledger can create accepted Direction state.
 
-## Forbidden Unless Admitted By Proof Obligation
+## Forbidden Unless Admitted By Obligation
 
 - Legacy Import
 - Strategic Path Map
