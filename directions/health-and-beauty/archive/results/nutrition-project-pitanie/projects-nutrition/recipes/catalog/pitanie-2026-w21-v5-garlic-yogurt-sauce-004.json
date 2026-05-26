@@ -1,0 +1,137 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
+  "name": "Заготовка: чесночно-йогуртовый соус",
+  "mealie_slug": "pitanie-2026-w21-v5-garlic-yogurt-sauce",
+  "purpose": "Соус для куриных блюд.",
+  "servings": 8,
+  "prep_time_minutes": 7,
+  "cook_time_minutes": 0,
+  "total_time_minutes": 7,
+  "equipment": [
+    "миска"
+  ],
+  "categories": [
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "low-friction",
+    "batch-prep"
+  ],
+  "ingredients": [
+    {
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 400,
+      "unit": "г"
+    },
+    {
+      "item": "чеснок",
+      "amount": 2,
+      "unit": "зубчика",
+      "prep_note_ru": "натереть"
+    },
+    {
+      "item": "лимонный сок",
+      "amount": 25,
+      "unit": "мл"
+    },
+    {
+      "item": "соль",
+      "amount": 0.5,
+      "unit": "ч. л."
+    },
+    {
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "укроп или петрушка",
+      "amount": 15,
+      "unit": "г",
+      "prep_note_ru": "по желанию"
+    },
+    {
+      "item": "вода для разбавления",
+      "amount": 30,
+      "unit": "мл"
+    }
+  ],
+  "instructions": [
+    "Смешай йогурт, чеснок, лимонный сок, соль, перец и зелень, если используешь.",
+    "Добавляй воду по 1 ст. л., пока соус не станет нужной консистенции.",
+    "Храни отдельно от горячей еды."
+  ],
+  "storage": [
+    "Храни в холодильнике 2–3 дня."
+  ],
+  "reheating": [
+    "Не разогревать."
+  ],
+  "substitutions": [
+    "Skyr можно заменить греческим йогуртом.",
+    "Добавь огурец, если нужен соус в стиле дзадзики."
+  ],
+  "meal_prep_notes": [
+    "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "25-50 ккал",
+    "protein": "3-6 г",
+    "fat": "0-2 г",
+    "carbs": "2-4 г"
+  },
+  "why_it_fits_weekly_plan": "Добавляет вкус без отдельного сложного процесса готовки.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
+  },
+  "description": "Соус для куриных блюд.",
+  "ingredients_structured": [
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 400,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "чеснок",
+      "amount": 2,
+      "unit": "зубчика",
+      "note": "натереть"
+    },
+    {
+      "food": "лимонный сок",
+      "amount": 25,
+      "unit": "мл",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": 0.5,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "укроп или петрушка",
+      "amount": 15,
+      "unit": "г",
+      "note": "по желанию"
+    },
+    {
+      "food": "вода для разбавления",
+      "amount": 30,
+      "unit": "мл",
+      "note": null
+    }
+  ],
+  "meal_plan_usage": "prep_reference_only_not_scheduled"
+}

@@ -4,37 +4,30 @@ Direction: `health-and-beauty`
 
 ## Scope
 
-Allowed default scope:
-
-- `directions/health-and-beauty/**`
-- root `project_packs/**` only as shared pack source/reference
-
-Repository maintenance may edit files only under `directions/health-and-beauty` unless explicitly authorized.
+Repository maintenance may edit `directions/health-and-beauty/**` only unless explicitly authorized.
 
 No sibling Direction edits.
 
-## Live State
+## Active Workflow State
 
-Live state files are:
+- `directions/health-and-beauty/workflow/LEDGER.md`
+- `directions/health-and-beauty/workflow/OBLIGATIONS.md`
+- `directions/health-and-beauty/workflow/RECEIPTS_INDEX.md`
+- `directions/health-and-beauty/workflow/COMMIT_SCOPES.md`
+- `directions/health-and-beauty/workflow/DASHBOARD.md`
+- `directions/health-and-beauty/workflow/MIGRATION_RECEIPT.md`
 
-- `LEDGER.md`
-- `OBLIGATIONS.md`
-- `RECEIPTS_INDEX.md`
-- `COMMIT_SCOPES.md`
-- `DASHBOARD.md`
-- `MIGRATION_RECEIPT.md`
-
-At chat start, read `DASHBOARD.md` and `OBLIGATIONS.md`.
+At chat start, read `workflow/DASHBOARD.md` and `workflow/OBLIGATIONS.md`.
 
 ## Context Authority
 
 Loaded context is not accepted state.
 
-Legacy branch/tag material and old workflow files are `legacy_evidence` or `candidate_context` only.
+`archive/` is `legacy_evidence` or `candidate_context` only.
 
-Only committed receipts in Ledger can create accepted Direction state.
+Only committed receipts in `workflow/LEDGER.md` can create accepted Direction state.
 
-## Forbidden Unless Admitted By Obligation
+## Forbidden Unless Admitted By Proof Obligation
 
 - Legacy Import
 - Strategic Path Map

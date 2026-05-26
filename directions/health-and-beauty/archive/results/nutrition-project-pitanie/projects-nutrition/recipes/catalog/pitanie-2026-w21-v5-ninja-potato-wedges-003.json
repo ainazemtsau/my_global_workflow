@@ -1,0 +1,131 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-ninja-potato-wedges-003",
+  "name": "Заготовка: картофельные дольки",
+  "mealie_slug": "pitanie-2026-w21-v5-ninja-potato-wedges",
+  "purpose": "Картофельная база для loaded potato, crunchwrap и питы с тунцом.",
+  "servings": 8,
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 30,
+  "total_time_minutes": 45,
+  "equipment": [
+    "аэрогриль",
+    "миска"
+  ],
+  "categories": [
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "low-friction",
+    "air-fryer",
+    "ninja",
+    "batch-prep"
+  ],
+  "ingredients": [
+    {
+      "item": "картофель",
+      "amount": 3000,
+      "unit": "г"
+    },
+    {
+      "item": "оливковое масло",
+      "amount": 25,
+      "unit": "мл"
+    },
+    {
+      "item": "копчёная паприка",
+      "amount": 2,
+      "unit": "ч. л."
+    },
+    {
+      "item": "сушёный чеснок",
+      "amount": 2,
+      "unit": "ч. л."
+    },
+    {
+      "item": "соль",
+      "amount": 2,
+      "unit": "ч. л."
+    },
+    {
+      "item": "чёрный перец",
+      "amount": 1,
+      "unit": "ч. л."
+    }
+  ],
+  "instructions": [
+    "Нарежь картофель дольками или крупными кубиками.",
+    "Промой и хорошо обсуши.",
+    "Смешай с маслом, копчёной паприкой, сушёным чесноком, солью и перцем.",
+    "Готовь в Ninja при 190–200°C 22–30 минут.",
+    "Встряхни 1–2 раза во время готовки.",
+    "Остуди и порционируй отдельно."
+  ],
+  "storage": [
+    "Храни в холодильнике до 3–4 дней.",
+    "Лучшая текстура после разогрева в Ninja."
+  ],
+  "reheating": [
+    "Ninja 180°C 4–6 минут.",
+    "Микроволновка подходит для боулов, но убирает хруст."
+  ],
+  "substitutions": [
+    "В некоторых боулах картофель можно заменить рисом."
+  ],
+  "meal_prep_notes": [
+    "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "250-350 ккал",
+    "protein": "5-8 г",
+    "fat": "3-6 г",
+    "carbs": "50-70 г"
+  },
+  "why_it_fits_weekly_plan": "Простой повторяемый гарнир для сытных блюд.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-ninja-potato-wedges-003",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
+  },
+  "description": "Картофельная база для loaded potato, crunchwrap и питы с тунцом.",
+  "ingredients_structured": [
+    {
+      "food": "картофель",
+      "amount": 3000,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "оливковое масло",
+      "amount": 25,
+      "unit": "мл",
+      "note": null
+    },
+    {
+      "food": "копчёная паприка",
+      "amount": 2,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "сушёный чеснок",
+      "amount": 2,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": 2,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "чёрный перец",
+      "amount": 1,
+      "unit": "ч. л.",
+      "note": null
+    }
+  ],
+  "meal_plan_usage": "prep_reference_only_not_scheduled"
+}

@@ -6,16 +6,25 @@ direction:
   github_repo: https://github.com/ainazemtsau/my_global_workflow
   repo_path: directions/health-and-beauty
 
+layout:
+  root_role: direction_index
+  workflow_path: directions/health-and-beauty/workflow
+  archive_path: directions/health-and-beauty/archive
+
 chatgpt:
-  project_name: Health and Beauty
-  project_instructions: directions/health-and-beauty/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+  project_name: Health and Beauty — Proof
+  project_instructions: directions/health-and-beauty/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
   default_files:
-    - project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
-    - project_packs/WORKFLOW_BASE_PACK.md
-    - project_packs/TRANSPORT_CORE_PACK.md
-    - directions/health-and-beauty/LEDGER.md
-    - directions/health-and-beauty/OBLIGATIONS.md
-    - directions/health-and-beauty/RECEIPTS_INDEX.md
-    - directions/health-and-beauty/COMMIT_SCOPES.md
-    - directions/health-and-beauty/DASHBOARD.md
-    - directions/health-and-beauty/MIGRATION_RECEIPT.md
+    - proof_workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
+    - proof_workflow/project_packs/PROOF_BASE_PACK.md
+    - proof_workflow/project_packs/TRANSPORT_CORE_PACK.md
+    - directions/health-and-beauty/workflow/LEDGER.md
+    - directions/health-and-beauty/workflow/OBLIGATIONS.md
+    - directions/health-and-beauty/workflow/RECEIPTS_INDEX.md
+    - directions/health-and-beauty/workflow/COMMIT_SCOPES.md
+    - directions/health-and-beauty/workflow/DASHBOARD.md
+    - directions/health-and-beauty/workflow/MIGRATION_RECEIPT.md
+
+archive:
+  path: directions/health-and-beauty/archive
+  role: legacy evidence and preserved result artifacts; not accepted proof state

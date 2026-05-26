@@ -1,0 +1,8 @@
+[mcp_servers.mealie]
+command = "uv"
+args = ["--directory", "C:\\my_global_workflow_tools\\mealie-mcp-server\\src", "run", "server.py"]
+startup_timeout_sec = 20
+tool_timeout_sec = 120
+enabled = false
+required = false
+default_tools_approval_mode = "prompt"

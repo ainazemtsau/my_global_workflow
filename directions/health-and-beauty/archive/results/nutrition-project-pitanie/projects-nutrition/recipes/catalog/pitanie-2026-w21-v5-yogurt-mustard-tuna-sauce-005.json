@@ -1,0 +1,124 @@
+{
+  "recipe_id": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005",
+  "name": "Заготовка: йогуртово-горчичный соус для тунца",
+  "mealie_slug": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce",
+  "purpose": "Соус для tuna melt и питы с тунцом.",
+  "servings": 4,
+  "prep_time_minutes": 7,
+  "cook_time_minutes": 0,
+  "total_time_minutes": 7,
+  "equipment": [
+    "миска"
+  ],
+  "categories": [
+    "Питание / Meal Prep"
+  ],
+  "tags": [
+    "chatgpt-pitanie",
+    "approved-menu",
+    "low-friction",
+    "batch-prep"
+  ],
+  "ingredients": [
+    {
+      "item": "греческий йогурт или skyr без сахара",
+      "amount": 250,
+      "unit": "г"
+    },
+    {
+      "item": "горчица",
+      "amount": 2,
+      "unit": "ч. л."
+    },
+    {
+      "item": "лимонный сок",
+      "amount": 15,
+      "unit": "мл"
+    },
+    {
+      "item": "маринованные огурцы",
+      "amount": 100,
+      "unit": "г",
+      "prep_note_ru": "мелко нарезать"
+    },
+    {
+      "item": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу"
+    },
+    {
+      "item": "соль",
+      "amount": 1,
+      "unit": "щепотка"
+    }
+  ],
+  "instructions": [
+    "Смешай йогурт, горчицу, лимонный сок, маринованные огурцы, перец и щепотку соли.",
+    "Пробуй перед добавлением соли: тунец и огурцы уже солёные.",
+    "Храни отдельно."
+  ],
+  "storage": [
+    "Храни в холодильнике 2–3 дня."
+  ],
+  "reheating": [
+    "Не разогревать."
+  ],
+  "substitutions": [
+    "Небольшая часть йогурта может быть заменена лёгким майонезом, если нужно."
+  ],
+  "meal_prep_notes": [
+    "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
+  ],
+  "nutrition_estimate_per_serving": {
+    "calories": "40-70 ккал",
+    "protein": "4-8 г",
+    "fat": "0-3 г",
+    "carbs": "4-8 г"
+  },
+  "why_it_fits_weekly_plan": "Делает консервированный тунец вкусным запасным белком без сладких перекусов.",
+  "extras": {
+    "pitanie_recipe_id": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005",
+    "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+    "menu_version": "v6_ru_standalone_shopping_safe"
+  },
+  "description": "Соус для tuna melt и питы с тунцом.",
+  "ingredients_structured": [
+    {
+      "food": "греческий йогурт или skyr без сахара",
+      "amount": 250,
+      "unit": "г",
+      "note": null
+    },
+    {
+      "food": "горчица",
+      "amount": 2,
+      "unit": "ч. л.",
+      "note": null
+    },
+    {
+      "food": "лимонный сок",
+      "amount": 15,
+      "unit": "мл",
+      "note": null
+    },
+    {
+      "food": "маринованные огурцы",
+      "amount": 100,
+      "unit": "г",
+      "note": "мелко нарезать"
+    },
+    {
+      "food": "чёрный перец",
+      "amount": null,
+      "unit": "по вкусу",
+      "note": null
+    },
+    {
+      "food": "соль",
+      "amount": 1,
+      "unit": "щепотка",
+      "note": null
+    }
+  ],
+  "meal_plan_usage": "prep_reference_only_not_scheduled"
+}

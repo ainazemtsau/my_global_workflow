@@ -4,9 +4,21 @@ Direction ID: `health-and-beauty`
 
 Source of truth: GitHub repo `ainazemtsau/my_global_workflow` while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
 
-## Active Direction State
+The Direction root is an index, not the workflow state container.
 
-Active state files live at the Direction root:
+Active workflow/proof state lives under:
+
+- `directions/health-and-beauty/workflow/`
+
+## Root Files
+
+- `README.md`
+- `AGENTS.md`
+- `direction.meta.yml`
+
+## Workflow
+
+`workflow/` contains:
 
 - `LEDGER.md`
 - `OBLIGATIONS.md`
@@ -14,9 +26,14 @@ Active state files live at the Direction root:
 - `COMMIT_SCOPES.md`
 - `DASHBOARD.md`
 - `MIGRATION_RECEIPT.md`
+- `project_setup/`
+- `receipts/`
+- `projections/`
 
-Project Files are runtime cache only.
+## Archive
 
-Old vNext-R files, old project_files, phases, execution logs, Direction Map, Active Goal, Current Phase, and Portfolio Queue are legacy evidence only and not accepted Direction state.
+`archive/` contains legacy evidence and preserved result artifacts.
 
-Next run must be read from `DASHBOARD.md` and `OBLIGATIONS.md`.
+`archive/` is not accepted proof state.
+
+Next run must be read from `workflow/DASHBOARD.md` and `workflow/OBLIGATIONS.md`.

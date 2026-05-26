@@ -1,0 +1,3685 @@
+{
+  "schema": "mealie_recipe_bundle.v2",
+  "bundle_status": "approved_for_codex_update_and_mealie_resync",
+  "menu_version": "v6_ru_standalone_shopping_safe",
+  "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+  "source_weekly_plan": "directions/health-and-beauty/projects/nutrition/weeks/current/WEEKLY_PLAN.md",
+  "rules_for_all_recipes": {
+    "user_facing_language": "ru",
+    "ingredient_rows_are_grocery_items_only": true,
+    "no_prepared_subrecipe_ingredients": true,
+    "each_scheduled_recipe_has_full_raw_ingredients": true,
+    "each_scheduled_recipe_has_full_from_scratch_steps": true,
+    "each_scheduled_recipe_has_batch_prep_shortcut_steps": true,
+    "preserve_recipe_ids": true,
+    "preserve_mealie_slugs_where_existing": true
+  },
+  "existing_recipes_to_reuse": [],
+  "recipes_to_upsert": [
+    {
+      "recipe_id": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips-001",
+      "name": "Заготовка: куриное филе шаурма-стайл",
+      "mealie_slug": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips",
+      "purpose": "Одна куриная белковая база для лаваша, боулов и завтраков.",
+      "servings": 6,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 15,
+      "total_time_minutes": 60,
+      "equipment": [
+        "аэрогриль",
+        "миска",
+        "контейнеры"
+      ],
+      "categories": [
+        "Питание / Meal Prep"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "air-fryer",
+        "ninja",
+        "batch-prep"
+      ],
+      "ingredients": [
+        {
+          "item": "куриное филе",
+          "amount": 1500,
+          "unit": "г",
+          "prep_note_ru": "нарезать полосками 1.5–2 см"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 180,
+          "unit": "г"
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 30,
+          "unit": "мл"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 15,
+          "unit": "мл"
+        },
+        {
+          "item": "чеснок",
+          "amount": 4,
+          "unit": "зубчика",
+          "prep_note_ru": "натереть"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "молотый кориандр",
+          "amount": 1,
+          "unit": "ч. л."
+        },
+        {
+          "item": "куркума",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "корица",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "соль",
+          "amount": 1.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "чёрный перец",
+          "amount": 1,
+          "unit": "ч. л."
+        }
+      ],
+      "instructions": [
+        "Нарежь куриное филе полосками толщиной 1.5–2 см.",
+        "Смешай йогурт, лимонный сок, оливковое масло, чеснок, зиру, копчёную паприку, кориандр, куркуму, корицу, соль и чёрный перец.",
+        "Полностью покрой курицу маринадом.",
+        "Маринуй минимум 30 минут. Дольше можно, если курица стоит в холодильнике.",
+        "Разогрей Ninja до 200°C в течение 3 минут.",
+        "Выложи курицу одним слоем; готовь партиями, если нужно.",
+        "Готовь в режиме Air Fry при 200°C 12 минут.",
+        "Переверни или встряхни в середине готовки.",
+        "Проверь готовность; при необходимости добавь 2–3 минуты. Не пересушивай филе.",
+        "Дай курице отдохнуть 5 минут перед порционированием."
+      ],
+      "storage": [
+        "Остуди перед герметичным хранением.",
+        "Порции на четверг–пятницу держи в холодильнике.",
+        "Порции на субботу–воскресенье вакуумируй и заморозь."
+      ],
+      "reheating": [
+        "Ninja 170°C 4–6 минут.",
+        "Для боулов можно разогреть в микроволновке 60–120 секунд."
+      ],
+      "substitutions": [
+        "В этой версии не используй бёдра: нужна стабильность филе.",
+        "Филе индейки можно использовать только если курицы нет."
+      ],
+      "meal_prep_notes": [
+        "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "250-330 ккал",
+        "protein": "45-55 г",
+        "fat": "4-10 г",
+        "carbs": "2-6 г"
+      },
+      "why_it_fits_weekly_plan": "Высокобелковая низкофрикционная база для нескольких разных блюд.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-shawarma-chicken-fillet-strips-001",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Одна куриная белковая база для лаваша, боулов и завтраков.",
+      "ingredients_structured": [
+        {
+          "food": "куриное филе",
+          "amount": 1500,
+          "unit": "г",
+          "note": "нарезать полосками 1.5–2 см"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 180,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 30,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 15,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "чеснок",
+          "amount": 4,
+          "unit": "зубчика",
+          "note": "натереть"
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "молотый кориандр",
+          "amount": 1,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "куркума",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "корица",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": 1.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": 1,
+          "unit": "ч. л.",
+          "note": null
+        }
+      ],
+      "meal_plan_usage": "prep_reference_only_not_scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-smoky-turkey-chili-mince-002",
+      "name": "Заготовка: густая индейка chili",
+      "mealie_slug": "pitanie-2026-w21-v5-smoky-turkey-chili-mince",
+      "purpose": "Одна индюшачья белковая база для картофеля, риса, лаваша и завтрака с яйцами.",
+      "servings": 6,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "total_time_minutes": 40,
+      "equipment": [
+        "мультиварка-скороварка",
+        "лопатка",
+        "контейнеры"
+      ],
+      "categories": [
+        "Питание / Meal Prep"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "instant-pot",
+        "multicooker",
+        "batch-prep"
+      ],
+      "ingredients": [
+        {
+          "item": "фарш индейки 5–10%",
+          "amount": 1700,
+          "unit": "г"
+        },
+        {
+          "item": "жёлтый лук",
+          "amount": 2,
+          "unit": "шт.",
+          "prep_note_ru": "нарезать"
+        },
+        {
+          "item": "сладкий перец",
+          "amount": 2,
+          "unit": "шт.",
+          "prep_note_ru": "нарезать кубиком"
+        },
+        {
+          "item": "чеснок",
+          "amount": 4,
+          "unit": "зубчика",
+          "prep_note_ru": "измельчить"
+        },
+        {
+          "item": "резаные томаты в банке",
+          "amount": 800,
+          "unit": "г"
+        },
+        {
+          "item": "томатная паста",
+          "amount": 60,
+          "unit": "г"
+        },
+        {
+          "item": "консервированная фасоль",
+          "amount": 2,
+          "unit": "банки",
+          "prep_note_ru": "слить жидкость и промыть"
+        },
+        {
+          "item": "вода или бульон",
+          "amount": 250,
+          "unit": "мл"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 10,
+          "unit": "мл"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "паприка",
+          "amount": 1,
+          "unit": "ч. л."
+        },
+        {
+          "item": "орегано",
+          "amount": 1,
+          "unit": "ч. л."
+        },
+        {
+          "item": "хлопья чили или чили-порошок",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "соль",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "чёрный перец",
+          "amount": 1,
+          "unit": "ч. л."
+        },
+        {
+          "item": "лимонный или лаймовый сок",
+          "amount": 20,
+          "unit": "мл"
+        }
+      ],
+      "instructions": [
+        "Включи Instant Pro в режиме Sauté High.",
+        "Добавь оливковое масло, лук и сладкий перец. Готовь 4–5 минут.",
+        "Добавь чеснок и специи. Перемешивай 30–45 секунд.",
+        "Добавь фарш индейки. Разбей лопаткой и готовь 6–8 минут, пока фарш почти не побелеет.",
+        "Влей 100 мл воды или бульона и тщательно соскреби со дна, чтобы не получить предупреждение Burn.",
+        "Добавь резаные томаты, томатную пасту, фасоль и оставшуюся воду или бульон.",
+        "Готовь Pressure Cook High 5 минут.",
+        "Сделай Natural Release 7 минут.",
+        "Если масса слишком жидкая, включи Sauté Medium на 5–8 минут до густой консистенции.",
+        "В конце добавь лимонный или лаймовый сок и отрегулируй соль."
+      ],
+      "storage": [
+        "Остуди перед герметичным хранением.",
+        "Порции на четверг–пятницу держи в холодильнике.",
+        "Порции на субботу–воскресенье вакуумируй и заморозь."
+      ],
+      "reheating": [
+        "Микроволновка 2–3 минуты, перемешать в середине.",
+        "Или разогреть на сковороде с 1–2 ст. л. воды."
+      ],
+      "substitutions": [
+        "Куриный фарш может заменить индейку.",
+        "Не добавляй картофель в эту базу: картофель хранится отдельно для гибкости."
+      ],
+      "meal_prep_notes": [
+        "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "420-600 ккал",
+        "protein": "45-60 г",
+        "fat": "12-25 г",
+        "carbs": "25-45 г"
+      },
+      "why_it_fits_weekly_plan": "Высокобелковая база, которую можно использовать на завтрак, обед и ужин.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-smoky-turkey-chili-mince-002",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Одна индюшачья белковая база для картофеля, риса, лаваша и завтрака с яйцами.",
+      "ingredients_structured": [
+        {
+          "food": "фарш индейки 5–10%",
+          "amount": 1700,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "жёлтый лук",
+          "amount": 2,
+          "unit": "шт.",
+          "note": "нарезать"
+        },
+        {
+          "food": "сладкий перец",
+          "amount": 2,
+          "unit": "шт.",
+          "note": "нарезать кубиком"
+        },
+        {
+          "food": "чеснок",
+          "amount": 4,
+          "unit": "зубчика",
+          "note": "измельчить"
+        },
+        {
+          "food": "резаные томаты в банке",
+          "amount": 800,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "томатная паста",
+          "amount": 60,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "консервированная фасоль",
+          "amount": 2,
+          "unit": "банки",
+          "note": "слить жидкость и промыть"
+        },
+        {
+          "food": "вода или бульон",
+          "amount": 250,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 10,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "паприка",
+          "amount": 1,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "орегано",
+          "amount": 1,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "хлопья чили или чили-порошок",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": 1,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "лимонный или лаймовый сок",
+          "amount": 20,
+          "unit": "мл",
+          "note": null
+        }
+      ],
+      "meal_plan_usage": "prep_reference_only_not_scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-ninja-potato-wedges-003",
+      "name": "Заготовка: картофельные дольки",
+      "mealie_slug": "pitanie-2026-w21-v5-ninja-potato-wedges",
+      "purpose": "Картофельная база для loaded potato, crunchwrap и питы с тунцом.",
+      "servings": 8,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 30,
+      "total_time_minutes": 45,
+      "equipment": [
+        "аэрогриль",
+        "миска"
+      ],
+      "categories": [
+        "Питание / Meal Prep"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "low-friction",
+        "air-fryer",
+        "ninja",
+        "batch-prep"
+      ],
+      "ingredients": [
+        {
+          "item": "картофель",
+          "amount": 3000,
+          "unit": "г"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 25,
+          "unit": "мл"
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "сушёный чеснок",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "соль",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "чёрный перец",
+          "amount": 1,
+          "unit": "ч. л."
+        }
+      ],
+      "instructions": [
+        "Нарежь картофель дольками или крупными кубиками.",
+        "Промой и хорошо обсуши.",
+        "Смешай с маслом, копчёной паприкой, сушёным чесноком, солью и перцем.",
+        "Готовь в Ninja при 190–200°C 22–30 минут.",
+        "Встряхни 1–2 раза во время готовки.",
+        "Остуди и порционируй отдельно."
+      ],
+      "storage": [
+        "Храни в холодильнике до 3–4 дней.",
+        "Лучшая текстура после разогрева в Ninja."
+      ],
+      "reheating": [
+        "Ninja 180°C 4–6 минут.",
+        "Микроволновка подходит для боулов, но убирает хруст."
+      ],
+      "substitutions": [
+        "В некоторых боулах картофель можно заменить рисом."
+      ],
+      "meal_prep_notes": [
+        "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "250-350 ккал",
+        "protein": "5-8 г",
+        "fat": "3-6 г",
+        "carbs": "50-70 г"
+      },
+      "why_it_fits_weekly_plan": "Простой повторяемый гарнир для сытных блюд.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-ninja-potato-wedges-003",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Картофельная база для loaded potato, crunchwrap и питы с тунцом.",
+      "ingredients_structured": [
+        {
+          "food": "картофель",
+          "amount": 3000,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 25,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "сушёный чеснок",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": 1,
+          "unit": "ч. л.",
+          "note": null
+        }
+      ],
+      "meal_plan_usage": "prep_reference_only_not_scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
+      "name": "Заготовка: чесночно-йогуртовый соус",
+      "mealie_slug": "pitanie-2026-w21-v5-garlic-yogurt-sauce",
+      "purpose": "Соус для куриных блюд.",
+      "servings": 8,
+      "prep_time_minutes": 7,
+      "cook_time_minutes": 0,
+      "total_time_minutes": 7,
+      "equipment": [
+        "миска"
+      ],
+      "categories": [
+        "Питание / Meal Prep"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "low-friction",
+        "batch-prep"
+      ],
+      "ingredients": [
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 400,
+          "unit": "г"
+        },
+        {
+          "item": "чеснок",
+          "amount": 2,
+          "unit": "зубчика",
+          "prep_note_ru": "натереть"
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 25,
+          "unit": "мл"
+        },
+        {
+          "item": "соль",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "укроп или петрушка",
+          "amount": 15,
+          "unit": "г",
+          "prep_note_ru": "по желанию"
+        },
+        {
+          "item": "вода для разбавления",
+          "amount": 30,
+          "unit": "мл"
+        }
+      ],
+      "instructions": [
+        "Смешай йогурт, чеснок, лимонный сок, соль, перец и зелень, если используешь.",
+        "Добавляй воду по 1 ст. л., пока соус не станет нужной консистенции.",
+        "Храни отдельно от горячей еды."
+      ],
+      "storage": [
+        "Храни в холодильнике 2–3 дня."
+      ],
+      "reheating": [
+        "Не разогревать."
+      ],
+      "substitutions": [
+        "Skyr можно заменить греческим йогуртом.",
+        "Добавь огурец, если нужен соус в стиле дзадзики."
+      ],
+      "meal_prep_notes": [
+        "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "25-50 ккал",
+        "protein": "3-6 г",
+        "fat": "0-2 г",
+        "carbs": "2-4 г"
+      },
+      "why_it_fits_weekly_plan": "Добавляет вкус без отдельного сложного процесса готовки.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-garlic-yogurt-sauce-004",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Соус для куриных блюд.",
+      "ingredients_structured": [
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 400,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "чеснок",
+          "amount": 2,
+          "unit": "зубчика",
+          "note": "натереть"
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 25,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "укроп или петрушка",
+          "amount": 15,
+          "unit": "г",
+          "note": "по желанию"
+        },
+        {
+          "food": "вода для разбавления",
+          "amount": 30,
+          "unit": "мл",
+          "note": null
+        }
+      ],
+      "meal_plan_usage": "prep_reference_only_not_scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005",
+      "name": "Заготовка: йогуртово-горчичный соус для тунца",
+      "mealie_slug": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce",
+      "purpose": "Соус для tuna melt и питы с тунцом.",
+      "servings": 4,
+      "prep_time_minutes": 7,
+      "cook_time_minutes": 0,
+      "total_time_minutes": 7,
+      "equipment": [
+        "миска"
+      ],
+      "categories": [
+        "Питание / Meal Prep"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "low-friction",
+        "batch-prep"
+      ],
+      "ingredients": [
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 250,
+          "unit": "г"
+        },
+        {
+          "item": "горчица",
+          "amount": 2,
+          "unit": "ч. л."
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 15,
+          "unit": "мл"
+        },
+        {
+          "item": "маринованные огурцы",
+          "amount": 100,
+          "unit": "г",
+          "prep_note_ru": "мелко нарезать"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "соль",
+          "amount": 1,
+          "unit": "щепотка"
+        }
+      ],
+      "instructions": [
+        "Смешай йогурт, горчицу, лимонный сок, маринованные огурцы, перец и щепотку соли.",
+        "Пробуй перед добавлением соли: тунец и огурцы уже солёные.",
+        "Храни отдельно."
+      ],
+      "storage": [
+        "Храни в холодильнике 2–3 дня."
+      ],
+      "reheating": [
+        "Не разогревать."
+      ],
+      "substitutions": [
+        "Небольшая часть йогурта может быть заменена лёгким майонезом, если нужно."
+      ],
+      "meal_prep_notes": [
+        "Это справочный prep-рецепт. Его не добавлять в meal planner, чтобы не дублировать покупки."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "40-70 ккал",
+        "protein": "4-8 г",
+        "fat": "0-3 г",
+        "carbs": "4-8 г"
+      },
+      "why_it_fits_weekly_plan": "Делает консервированный тунец вкусным запасным белком без сладких перекусов.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-yogurt-mustard-tuna-sauce-005",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Соус для tuna melt и питы с тунцом.",
+      "ingredients_structured": [
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 250,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "горчица",
+          "amount": 2,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 15,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "маринованные огурцы",
+          "amount": 100,
+          "unit": "г",
+          "note": "мелко нарезать"
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": 1,
+          "unit": "щепотка",
+          "note": null
+        }
+      ],
+      "meal_plan_usage": "prep_reference_only_not_scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
+      "name": "Хрустящий лаваш с тунцом и плавленым сыром",
+      "mealie_slug": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash",
+      "purpose": "Быстрый несладкий завтрак или fallback без мясной заготовки.",
+      "servings": 1,
+      "prep_time_minutes": 5,
+      "cook_time_minutes": 7,
+      "total_time_minutes": 12,
+      "equipment": [
+        "сковорода или аэрогриль",
+        "миска"
+      ],
+      "categories": [
+        "Питание / Завтрак",
+        "Питание / Fallback"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "breakfast",
+        "fallback"
+      ],
+      "ingredients": [
+        {
+          "item": "лаваш или тортилья",
+          "amount": 1,
+          "unit": "шт.",
+          "prep_note_ru": "большой лист"
+        },
+        {
+          "item": "консервированный тунец",
+          "amount": 2,
+          "unit": "банка",
+          "prep_note_ru": "слить жидкость"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 80,
+          "unit": "г"
+        },
+        {
+          "item": "горчица",
+          "amount": 1,
+          "unit": "ч. л."
+        },
+        {
+          "item": "маринованные огурцы",
+          "amount": 50,
+          "unit": "г",
+          "prep_note_ru": "мелко нарезать"
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 10,
+          "unit": "мл"
+        },
+        {
+          "item": "сыр",
+          "amount": 50,
+          "unit": "г",
+          "prep_note_ru": "для плавления"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        }
+      ],
+      "instructions": [
+        "Слить жидкость из тунца и размять тунец вилкой.",
+        "Добавить йогурт, горчицу, маринованные огурцы, лимонный сок и перец.",
+        "Перемешать до густой начинки; она не должна течь.",
+        "Положить часть сыра на лаваш, сверху тунцовую начинку и оставшийся сыр.",
+        "Завернуть плотно: боковые края внутрь, затем рулетом.",
+        "Поджарить швом вниз на сковороде 2–3 минуты с каждой стороны или в аэрогриле 190°C 5–7 минут.",
+        "Есть сразу, когда лаваш хрустит, а сыр расплавился."
+      ],
+      "storage": [
+        "Лучше готовить свежим."
+      ],
+      "reheating": [
+        "При необходимости Ninja 180°C 2–3 минуты."
+      ],
+      "substitutions": [
+        "Для большего белка можно использовать 2 банки тунца.",
+        "Питу можно использовать вместо лаваша."
+      ],
+      "meal_prep_notes": [
+        "Рецепт не требует batch-prep и подходит сразу после магазина."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "550-800 ккал",
+        "protein": "45-75 г",
+        "fat": "20-35 г",
+        "carbs": "35-65 г"
+      },
+      "why_it_fits_weekly_plan": "Несладкий высокобелковый завтрак или fallback без готовой мясной базы.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Быстрый несладкий завтрак или fallback без мясной заготовки.",
+      "ingredients_structured": [
+        {
+          "food": "лаваш или тортилья",
+          "amount": 1,
+          "unit": "шт.",
+          "note": "большой лист"
+        },
+        {
+          "food": "консервированный тунец",
+          "amount": 2,
+          "unit": "банка",
+          "note": "слить жидкость"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 80,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "горчица",
+          "amount": 1,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "маринованные огурцы",
+          "amount": 50,
+          "unit": "г",
+          "note": "мелко нарезать"
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 10,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "сыр",
+          "amount": 50,
+          "unit": "г",
+          "note": "для плавления"
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
+      "name": "Настоящая шаурма с курицей в лаваше",
+      "mealie_slug": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap",
+      "purpose": "Настоящий завёрнутый и поджаренный лаваш с курицей, а не омлет рядом с хлебом.",
+      "servings": 1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "total_time_minutes": 50,
+      "equipment": [
+        "аэрогриль",
+        "сковорода опционально",
+        "миска"
+      ],
+      "categories": [
+        "Питание / Обед",
+        "Питание / Ужин"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "lunch",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "item": "куриное филе",
+          "amount": 320,
+          "unit": "г",
+          "prep_note_ru": "сырое, нарезать полосками"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 40,
+          "unit": "г",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 8,
+          "unit": "мл",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 3,
+          "unit": "мл",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "prep_note_ru": "часть в маринад, часть в соус"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "молотый кориандр",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "куркума",
+          "amount": 0.125,
+          "unit": "ч. л."
+        },
+        {
+          "item": "корица",
+          "amount": 1,
+          "unit": "щепотка"
+        },
+        {
+          "item": "соль",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "prep_note_ru": "плюс по вкусу в соус"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "лаваш или тортилья",
+          "amount": 1,
+          "unit": "шт.",
+          "prep_note_ru": "большой лист"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 70,
+          "unit": "г",
+          "prep_note_ru": "для чесночного соуса"
+        },
+        {
+          "item": "огурец",
+          "amount": 80,
+          "unit": "г",
+          "prep_note_ru": "тонко нарезать"
+        },
+        {
+          "item": "помидор",
+          "amount": 80,
+          "unit": "г",
+          "prep_note_ru": "тонко нарезать"
+        },
+        {
+          "item": "красный лук",
+          "amount": 20,
+          "unit": "г",
+          "prep_note_ru": "тонко нарезать"
+        },
+        {
+          "item": "фета",
+          "amount": 30,
+          "unit": "г",
+          "prep_note_ru": "опционально"
+        },
+        {
+          "item": "маринованные огурцы",
+          "amount": 30,
+          "unit": "г",
+          "prep_note_ru": "опционально"
+        }
+      ],
+      "instructions": [
+        "Если batch-prep курицы уже сделан: возьми готовую порцию и перейди к сборке.",
+        "Если готовишь с нуля: нарежь куриное филе полосками 1.5–2 см.",
+        "Смешай йогурт, лимонный сок, масло, часть чеснока, зиру, паприку, кориандр, куркуму, корицу, соль и перец.",
+        "Обмажь курицу маринадом и оставь минимум на 30 минут, если есть время.",
+        "Готовь курицу в аэрогриле 200°C 12–15 минут, перевернув в середине; дай постоять 5 минут.",
+        "Смешай соус из йогурта, оставшегося чеснока, лимона, соли и перца.",
+        "Нарежь огурец, помидор и красный лук тонко.",
+        "Прогрей лаваш 20–30 секунд, намажь соус, выложи курицу, овощи, фету и маринованный огурец.",
+        "Заверни плотно и поджарь швом вниз 2 минуты с каждой стороны или 190°C 4–5 минут в аэрогриле."
+      ],
+      "storage": [
+        "Не храни собранное блюдо несколько дней.",
+        "Храни компоненты отдельно."
+      ],
+      "reheating": [
+        "Разогрей курицу перед сборкой; готовый лаваш коротко поджарь."
+      ],
+      "substitutions": [
+        "Если курица закончилась, можно заменить индейкой chili, но это уже не куриная шаурма."
+      ],
+      "meal_prep_notes": [
+        "В ингредиентах указаны продукты из магазина. Готовая куриная заготовка не должна быть ингредиентом в Mealie."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "700-950 ккал",
+        "protein": "60-85 г",
+        "fat": "20-35 г",
+        "carbs": "55-90 г"
+      },
+      "why_it_fits_weekly_plan": "Сытный высокобелковый обед, который действительно соответствует формату шаурмы.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Настоящий завёрнутый и поджаренный лаваш с курицей, а не омлет рядом с хлебом.",
+      "ingredients_structured": [
+        {
+          "food": "куриное филе",
+          "amount": 320,
+          "unit": "г",
+          "note": "сырое, нарезать полосками"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 40,
+          "unit": "г",
+          "note": "для маринада"
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 8,
+          "unit": "мл",
+          "note": "для маринада"
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 3,
+          "unit": "мл",
+          "note": "для маринада"
+        },
+        {
+          "food": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "note": "часть в маринад, часть в соус"
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "молотый кориандр",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "куркума",
+          "amount": 0.125,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "корица",
+          "amount": 1,
+          "unit": "щепотка",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": "плюс по вкусу в соус"
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "лаваш или тортилья",
+          "amount": 1,
+          "unit": "шт.",
+          "note": "большой лист"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 70,
+          "unit": "г",
+          "note": "для чесночного соуса"
+        },
+        {
+          "food": "огурец",
+          "amount": 80,
+          "unit": "г",
+          "note": "тонко нарезать"
+        },
+        {
+          "food": "помидор",
+          "amount": 80,
+          "unit": "г",
+          "note": "тонко нарезать"
+        },
+        {
+          "food": "красный лук",
+          "amount": 20,
+          "unit": "г",
+          "note": "тонко нарезать"
+        },
+        {
+          "food": "фета",
+          "amount": 30,
+          "unit": "г",
+          "note": "опционально"
+        },
+        {
+          "food": "маринованные огурцы",
+          "amount": 30,
+          "unit": "г",
+          "note": "опционально"
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-loaded-turkey-chili-potato-008",
+      "name": "Картофель с индейкой chili и йогуртовым соусом",
+      "mealie_slug": "pitanie-2026-w21-v5-loaded-turkey-chili-potato",
+      "purpose": "Сытный ужин: картофель, густая индейка chili, йогурт, зелень.",
+      "servings": 1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 35,
+      "total_time_minutes": 50,
+      "equipment": [
+        "мультиварка-скороварка",
+        "аэрогриль",
+        "миска"
+      ],
+      "categories": [
+        "Питание / Ужин",
+        "Питание / Fallback"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "dinner",
+        "fallback"
+      ],
+      "ingredients": [
+        {
+          "item": "фарш индейки 5–10%",
+          "amount": 350,
+          "unit": "г",
+          "prep_note_ru": "сырой"
+        },
+        {
+          "item": "репчатый лук",
+          "amount": 50,
+          "unit": "г",
+          "prep_note_ru": "мелко нарезать"
+        },
+        {
+          "item": "сладкий перец",
+          "amount": 60,
+          "unit": "г",
+          "prep_note_ru": "кубиком"
+        },
+        {
+          "item": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "prep_note_ru": "измельчить"
+        },
+        {
+          "item": "резаные томаты в банке",
+          "amount": 160,
+          "unit": "г"
+        },
+        {
+          "item": "томатная паста",
+          "amount": 12,
+          "unit": "г"
+        },
+        {
+          "item": "консервированная фасоль",
+          "amount": 90,
+          "unit": "г",
+          "prep_note_ru": "слить жидкость и промыть"
+        },
+        {
+          "item": "вода или бульон",
+          "amount": 50,
+          "unit": "мл"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "паприка",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "орегано",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "чили flakes или chili powder",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "соль",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "prep_note_ru": "скорректировать по вкусу"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "картофель",
+          "amount": 450,
+          "unit": "г",
+          "prep_note_ru": "сырой, нарезать дольками"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 8,
+          "unit": "мл",
+          "prep_note_ru": "для картофеля и индейки"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 60,
+          "unit": "г",
+          "prep_note_ru": "для подачи"
+        },
+        {
+          "item": "фета или сыр",
+          "amount": 30,
+          "unit": "г",
+          "prep_note_ru": "опционально"
+        },
+        {
+          "item": "зелёный лук или петрушка",
+          "amount": 10,
+          "unit": "г",
+          "prep_note_ru": "опционально"
+        },
+        {
+          "item": "лимонный или лаймовый сок",
+          "amount": 5,
+          "unit": "мл",
+          "prep_note_ru": "в конце"
+        }
+      ],
+      "instructions": [
+        "Если batch-prep уже сделан: возьми готовую индейку chili и готовый картофель, затем перейди к сборке.",
+        "Если готовишь с нуля: нарежь картофель дольками, промой, обсуши, смешай с частью масла, солью, перцем и копчёной паприкой.",
+        "Готовь картофель в аэрогриле 190–200°C 22–30 минут, встряхнув 1–2 раза.",
+        "Для индейки обжарь лук и перец 4–5 минут.",
+        "Добавь чеснок, специи, соль и перец, перемешивай 30–45 секунд.",
+        "Добавь фарш индейки и разбивай лопаткой 6–8 минут.",
+        "Влей воду/бульон, соскреби дно, добавь томаты, томатную пасту и фасоль.",
+        "Готовь под давлением 5 минут с Natural Release 7 минут или туши до густоты.",
+        "В конце добавь лимон/лайм.",
+        "Сборка: горячий картофель в миску, сверху индейку chili, йогурт, фету/сыр и зелень."
+      ],
+      "storage": [
+        "Храни картофель и индейку отдельно."
+      ],
+      "reheating": [
+        "Для лучшей текстуры разогревай компоненты отдельно."
+      ],
+      "substitutions": [
+        "Картофель можно заменить рисом.",
+        "Курицу можно использовать вместо индейки, тогда добавь чесночно-йогуртовый соус."
+      ],
+      "meal_prep_notes": [
+        "В ингредиентах нет готовой индейки chili или картофельных долек; указаны продукты из магазина."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "750-1000 ккал",
+        "protein": "55-80 г",
+        "fat": "18-35 г",
+        "carbs": "75-115 г"
+      },
+      "why_it_fits_weekly_plan": "Плотный высокобелковый ужин, который собирается из готовых баз.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-loaded-turkey-chili-potato-008",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Сытный ужин: картофель, густая индейка chili, йогурт, зелень.",
+      "ingredients_structured": [
+        {
+          "food": "фарш индейки 5–10%",
+          "amount": 350,
+          "unit": "г",
+          "note": "сырой"
+        },
+        {
+          "food": "репчатый лук",
+          "amount": 50,
+          "unit": "г",
+          "note": "мелко нарезать"
+        },
+        {
+          "food": "сладкий перец",
+          "amount": 60,
+          "unit": "г",
+          "note": "кубиком"
+        },
+        {
+          "food": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "note": "измельчить"
+        },
+        {
+          "food": "резаные томаты в банке",
+          "amount": 160,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "томатная паста",
+          "amount": 12,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "консервированная фасоль",
+          "amount": 90,
+          "unit": "г",
+          "note": "слить жидкость и промыть"
+        },
+        {
+          "food": "вода или бульон",
+          "amount": 50,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "паприка",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "орегано",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "чили flakes или chili powder",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": "скорректировать по вкусу"
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "картофель",
+          "amount": 450,
+          "unit": "г",
+          "note": "сырой, нарезать дольками"
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 8,
+          "unit": "мл",
+          "note": "для картофеля и индейки"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 60,
+          "unit": "г",
+          "note": "для подачи"
+        },
+        {
+          "food": "фета или сыр",
+          "amount": 30,
+          "unit": "г",
+          "note": "опционально"
+        },
+        {
+          "food": "зелёный лук или петрушка",
+          "amount": 10,
+          "unit": "г",
+          "note": "опционально"
+        },
+        {
+          "food": "лимонный или лаймовый сок",
+          "amount": 5,
+          "unit": "мл",
+          "note": "в конце"
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
+      "name": "Завтрачный crunchwrap с курицей и яйцами",
+      "mealie_slug": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap",
+      "purpose": "Несладкий плотный завтрак: яйца, курица, картофель, сыр, лаваш.",
+      "servings": 1,
+      "prep_time_minutes": 12,
+      "cook_time_minutes": 25,
+      "total_time_minutes": 45,
+      "equipment": [
+        "сковорода",
+        "аэрогриль опционально",
+        "миска"
+      ],
+      "categories": [
+        "Питание / Завтрак"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "breakfast"
+      ],
+      "ingredients": [
+        {
+          "item": "куриное филе",
+          "amount": 220,
+          "unit": "г",
+          "prep_note_ru": "сырое, нарезать полосками"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 30,
+          "unit": "г",
+          "prep_note_ru": "для маринада курицы"
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 6,
+          "unit": "мл",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "prep_note_ru": "часть в маринад, часть в соус"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "соль",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "картофель",
+          "amount": 160,
+          "unit": "г",
+          "prep_note_ru": "сырой, дольками или кубиком"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 6,
+          "unit": "мл",
+          "prep_note_ru": "для курицы/картофеля"
+        },
+        {
+          "item": "яйца",
+          "amount": 3,
+          "unit": "шт."
+        },
+        {
+          "item": "лаваш или тортилья",
+          "amount": 1,
+          "unit": "шт.",
+          "prep_note_ru": "большой лист"
+        },
+        {
+          "item": "сыр",
+          "amount": 40,
+          "unit": "г",
+          "prep_note_ru": "для плавления"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 40,
+          "unit": "г",
+          "prep_note_ru": "для соуса"
+        }
+      ],
+      "instructions": [
+        "Если batch-prep уже сделан: возьми готовую курицу и картофель, затем перейди к яйцам.",
+        "Если готовишь с нуля: нарежь курицу, смешай с йогуртом, лимоном, чесноком, зирой, паприкой, солью, перцем и частью масла.",
+        "Готовь курицу в аэрогриле 200°C 12–15 минут.",
+        "Картофель нарежь, смешай с маслом, солью и паприкой; готовь 190–200°C 20–25 минут.",
+        "Смешай быстрый йогуртовый соус с чесноком, солью и перцем.",
+        "Яйца взбей вилкой и сделай мягкий скрэмбл 2–3 минуты.",
+        "В центр лаваша положи сыр, яйца, курицу, картофель и немного соуса.",
+        "Сложи края к центру, положи швом вниз на сковороду и готовь 2–3 минуты.",
+        "Переверни и готовь ещё 2 минуты или 190°C 5–7 минут в аэрогриле."
+      ],
+      "storage": [
+        "Готовь свежим.",
+        "Храни базы отдельно."
+      ],
+      "reheating": [
+        "Если блюдо собрано заранее, разогрей в Ninja 180°C 2–3 минуты."
+      ],
+      "substitutions": [
+        "Индейка chili может заменить курицу, но это станет завтраком с индейкой."
+      ],
+      "meal_prep_notes": [
+        "В Mealie ingredients указаны сырые продукты, чтобы shopping list был нормальным."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "750-950 ккал",
+        "protein": "60-80 г",
+        "fat": "30-45 г",
+        "carbs": "45-75 г"
+      },
+      "why_it_fits_weekly_plan": "Белковый несладкий завтрак под предпочтение по сытости.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Несладкий плотный завтрак: яйца, курица, картофель, сыр, лаваш.",
+      "ingredients_structured": [
+        {
+          "food": "куриное филе",
+          "amount": 220,
+          "unit": "г",
+          "note": "сырое, нарезать полосками"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 30,
+          "unit": "г",
+          "note": "для маринада курицы"
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 6,
+          "unit": "мл",
+          "note": "для маринада"
+        },
+        {
+          "food": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "note": "часть в маринад, часть в соус"
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "картофель",
+          "amount": 160,
+          "unit": "г",
+          "note": "сырой, дольками или кубиком"
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 6,
+          "unit": "мл",
+          "note": "для курицы/картофеля"
+        },
+        {
+          "food": "яйца",
+          "amount": 3,
+          "unit": "шт.",
+          "note": null
+        },
+        {
+          "food": "лаваш или тортилья",
+          "amount": 1,
+          "unit": "шт.",
+          "note": "большой лист"
+        },
+        {
+          "food": "сыр",
+          "amount": 40,
+          "unit": "г",
+          "note": "для плавления"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 40,
+          "unit": "г",
+          "note": "для соуса"
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
+      "name": "Боул с рисом и курицей шаурма-стайл",
+      "mealie_slug": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl",
+      "purpose": "Обед из риса, курицы, чесночного йогурта и греческой стороны.",
+      "servings": 1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 25,
+      "total_time_minutes": 45,
+      "equipment": [
+        "аэрогриль",
+        "мультиварка или кастрюля",
+        "миска"
+      ],
+      "categories": [
+        "Питание / Обед"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "lunch"
+      ],
+      "ingredients": [
+        {
+          "item": "куриное филе",
+          "amount": 320,
+          "unit": "г",
+          "prep_note_ru": "сырое, нарезать полосками"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 40,
+          "unit": "г",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 8,
+          "unit": "мл",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 5,
+          "unit": "мл",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "prep_note_ru": "часть в маринад, часть в соус"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "молотый кориандр",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "куркума",
+          "amount": 0.125,
+          "unit": "ч. л."
+        },
+        {
+          "item": "соль",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "рис",
+          "amount": 90,
+          "unit": "г",
+          "prep_note_ru": "сухой"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 70,
+          "unit": "г",
+          "prep_note_ru": "для соуса"
+        },
+        {
+          "item": "огурец",
+          "amount": 150,
+          "unit": "г"
+        },
+        {
+          "item": "помидор",
+          "amount": 150,
+          "unit": "г"
+        },
+        {
+          "item": "красный лук",
+          "amount": 20,
+          "unit": "г"
+        },
+        {
+          "item": "фета",
+          "amount": 40,
+          "unit": "г"
+        },
+        {
+          "item": "оливки",
+          "amount": 30,
+          "unit": "г"
+        },
+        {
+          "item": "орегано",
+          "amount": null,
+          "unit": "по вкусу",
+          "prep_note_ru": "для греческой стороны"
+        }
+      ],
+      "instructions": [
+        "Если batch-prep уже сделан: возьми готовую курицу, готовый рис и компоненты греческой стороны.",
+        "Если готовишь с нуля: промой и приготовь 90 г сухого риса.",
+        "Нарежь курицу полосками и замаринуй в йогурте, лимоне, масле, чесноке, специях, соли и перце.",
+        "Готовь курицу 200°C 12–15 минут.",
+        "Сделай соус из йогурта, чеснока, лимона, соли и перца.",
+        "Нарежь огурец, помидор и красный лук, добавь фету, оливки и орегано.",
+        "Собери боул: рис, сверху курица, рядом греческая сторона, соус сверху или отдельно."
+      ],
+      "storage": [
+        "Храни компоненты отдельно."
+      ],
+      "reheating": [
+        "Разогревай только горячие компоненты; соус и салат не грей."
+      ],
+      "substitutions": [
+        "Картофельные дольки могут заменить рис."
+      ],
+      "meal_prep_notes": [
+        "Быстрая сборка из готовых баз."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "750-950 ккал",
+        "protein": "65-85 г",
+        "fat": "15-30 г",
+        "carbs": "85-120 г"
+      },
+      "why_it_fits_weekly_plan": "Высокобелковый обед без дополнительного процесса готовки.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Обед из риса, курицы, чесночного йогурта и греческой стороны.",
+      "ingredients_structured": [
+        {
+          "food": "куриное филе",
+          "amount": 320,
+          "unit": "г",
+          "note": "сырое, нарезать полосками"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 40,
+          "unit": "г",
+          "note": "для маринада"
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 8,
+          "unit": "мл",
+          "note": "для маринада"
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 5,
+          "unit": "мл",
+          "note": "для маринада"
+        },
+        {
+          "food": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "note": "часть в маринад, часть в соус"
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "молотый кориандр",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "куркума",
+          "amount": 0.125,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "рис",
+          "amount": 90,
+          "unit": "г",
+          "note": "сухой"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 70,
+          "unit": "г",
+          "note": "для соуса"
+        },
+        {
+          "food": "огурец",
+          "amount": 150,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "помидор",
+          "amount": 150,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "красный лук",
+          "amount": 20,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "фета",
+          "amount": 40,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "оливки",
+          "amount": 30,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "орегано",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": "для греческой стороны"
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011",
+      "name": "Боул с тунцом-стейком в кунжуте",
+      "mealie_slug": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl",
+      "purpose": "Свежий рыбный ужин, единственный белок недели, который готовится день-в-день.",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 10,
+      "total_time_minutes": 20,
+      "equipment": [
+        "аэрогриль или гриль",
+        "миска"
+      ],
+      "categories": [
+        "Питание / Ужин"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "ninja",
+        "dinner"
+      ],
+      "ingredients": [
+        {
+          "item": "стейк тунца",
+          "amount": 250,
+          "unit": "г",
+          "prep_note_ru": "сырой"
+        },
+        {
+          "item": "соевый соус",
+          "amount": 15,
+          "unit": "мл"
+        },
+        {
+          "item": "лимонный или лаймовый сок",
+          "amount": 15,
+          "unit": "мл"
+        },
+        {
+          "item": "кунжутное или оливковое масло",
+          "amount": 5,
+          "unit": "мл"
+        },
+        {
+          "item": "кунжут",
+          "amount": 12,
+          "unit": "г"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "рис",
+          "amount": 80,
+          "unit": "г",
+          "prep_note_ru": "сухой"
+        },
+        {
+          "item": "огурец",
+          "amount": 120,
+          "unit": "г"
+        },
+        {
+          "item": "помидор",
+          "amount": 120,
+          "unit": "г"
+        },
+        {
+          "item": "фета",
+          "amount": 30,
+          "unit": "г"
+        },
+        {
+          "item": "оливки",
+          "amount": 25,
+          "unit": "г"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 60,
+          "unit": "г",
+          "prep_note_ru": "для соуса"
+        },
+        {
+          "item": "горчица",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "prep_note_ru": "для соуса"
+        }
+      ],
+      "instructions": [
+        "Если рис уже приготовлен batch-prep: возьми готовую порцию. Если нет — приготовь 80 г сухого риса.",
+        "Тунец обсуши бумажным полотенцем.",
+        "Смешай соевый соус, лимон/лайм, масло и перец, обмажь тунец на 10 минут.",
+        "Прижми кунжут к двум сторонам стейка.",
+        "Готовь при 200°C 2–3 минуты, переверни и готовь ещё 2–3 минуты; для полной прожарки добавь 1–2 минуты.",
+        "Дай постоять 1–2 минуты и нарежь ломтиками.",
+        "Смешай йогурт и горчицу для соуса.",
+        "Собери боул: рис, тунец, огурец, помидор, фета, оливки и соус."
+      ],
+      "storage": [
+        "Лучше готовить свежим.",
+        "Если остался тунец, храни в холодильнике и используй за 1–2 дня."
+      ],
+      "reheating": [
+        "Остатки тунца лучше есть холодными.",
+        "Если греешь, Ninja 180–200°C только 1–2 минуты."
+      ],
+      "substitutions": [
+        "Если стейка тунца нет, используй хрустящий лаваш с тунцом."
+      ],
+      "meal_prep_notes": [
+        "Не готовь стейки тунца заранее партиями."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "650-900 ккал",
+        "protein": "55-75 г",
+        "fat": "12-25 г",
+        "carbs": "65-95 г"
+      },
+      "why_it_fits_weekly_plan": "Даёт разнообразие при минимальной дополнительной готовке.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Свежий рыбный ужин, единственный белок недели, который готовится день-в-день.",
+      "ingredients_structured": [
+        {
+          "food": "стейк тунца",
+          "amount": 250,
+          "unit": "г",
+          "note": "сырой"
+        },
+        {
+          "food": "соевый соус",
+          "amount": 15,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "лимонный или лаймовый сок",
+          "amount": 15,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "кунжутное или оливковое масло",
+          "amount": 5,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "кунжут",
+          "amount": 12,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "рис",
+          "amount": 80,
+          "unit": "г",
+          "note": "сухой"
+        },
+        {
+          "food": "огурец",
+          "amount": 120,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "помидор",
+          "amount": 120,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "фета",
+          "amount": 30,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "оливки",
+          "amount": 25,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 60,
+          "unit": "г",
+          "note": "для соуса"
+        },
+        {
+          "food": "горчица",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": "для соуса"
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012",
+      "name": "Лаваш с индейкой chili и яйцами",
+      "mealie_slug": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap",
+      "purpose": "Несладкий завтрак из индейки, яиц и лаваша.",
+      "servings": 1,
+      "prep_time_minutes": 12,
+      "cook_time_minutes": 25,
+      "total_time_minutes": 40,
+      "equipment": [
+        "мультиварка-скороварка или сковорода",
+        "сковорода"
+      ],
+      "categories": [
+        "Питание / Завтрак"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "breakfast"
+      ],
+      "ingredients": [
+        {
+          "item": "фарш индейки 5–10%",
+          "amount": 300,
+          "unit": "г",
+          "prep_note_ru": "сырой"
+        },
+        {
+          "item": "репчатый лук",
+          "amount": 40,
+          "unit": "г",
+          "prep_note_ru": "мелко нарезать"
+        },
+        {
+          "item": "сладкий перец",
+          "amount": 50,
+          "unit": "г",
+          "prep_note_ru": "кубиком"
+        },
+        {
+          "item": "чеснок",
+          "amount": 1,
+          "unit": "зубчик"
+        },
+        {
+          "item": "резаные томаты в банке",
+          "amount": 120,
+          "unit": "г"
+        },
+        {
+          "item": "томатная паста",
+          "amount": 10,
+          "unit": "г"
+        },
+        {
+          "item": "консервированная фасоль",
+          "amount": 70,
+          "unit": "г",
+          "prep_note_ru": "слить жидкость"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "соль",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "яйца",
+          "amount": 3,
+          "unit": "шт."
+        },
+        {
+          "item": "лаваш или пита",
+          "amount": 1,
+          "unit": "шт."
+        },
+        {
+          "item": "сыр или фета",
+          "amount": 30,
+          "unit": "г"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 5,
+          "unit": "мл"
+        }
+      ],
+      "instructions": [
+        "Если batch-prep индейки уже сделан: возьми готовую порцию и перейди к яйцам.",
+        "Если готовишь с нуля: разогрей масло, обжарь лук и сладкий перец 4–5 минут.",
+        "Добавь чеснок, зиру, паприку, соль и перец на 30–45 секунд.",
+        "Добавь фарш индейки и разбивай лопаткой 6–8 минут.",
+        "Добавь томаты, томатную пасту и фасоль, готовь 5–8 минут до густоты.",
+        "Сделай углубления, вбей яйца и готовь 3–5 минут или сделай мягкий скрэмбл с индейкой.",
+        "Добавь сыр/фету, прогрей лаваш, выложи начинку, заверни и поджарь 1–2 минуты."
+      ],
+      "storage": [
+        "Готовь свежим из готовой базы индейки."
+      ],
+      "reheating": [
+        "После добавления яиц блюдо плохо подходит для повторного разогрева."
+      ],
+      "substitutions": [
+        "Куриная база может заменить индейку, но тогда используй чесночно-йогуртовый соус."
+      ],
+      "meal_prep_notes": [
+        "Заранее готовится только база индейки; яйца свежие."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "700-950 ккал",
+        "protein": "60-85 г",
+        "fat": "30-45 г",
+        "carbs": "35-70 г"
+      },
+      "why_it_fits_weekly_plan": "Сытный несладкий завтрак из одной базы индейки.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Несладкий завтрак из индейки, яиц и лаваша.",
+      "ingredients_structured": [
+        {
+          "food": "фарш индейки 5–10%",
+          "amount": 300,
+          "unit": "г",
+          "note": "сырой"
+        },
+        {
+          "food": "репчатый лук",
+          "amount": 40,
+          "unit": "г",
+          "note": "мелко нарезать"
+        },
+        {
+          "food": "сладкий перец",
+          "amount": 50,
+          "unit": "г",
+          "note": "кубиком"
+        },
+        {
+          "food": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "note": null
+        },
+        {
+          "food": "резаные томаты в банке",
+          "amount": 120,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "томатная паста",
+          "amount": 10,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "консервированная фасоль",
+          "amount": 70,
+          "unit": "г",
+          "note": "слить жидкость"
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "яйца",
+          "amount": 3,
+          "unit": "шт.",
+          "note": null
+        },
+        {
+          "food": "лаваш или пита",
+          "amount": 1,
+          "unit": "шт.",
+          "note": null
+        },
+        {
+          "food": "сыр или фета",
+          "amount": 30,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 5,
+          "unit": "мл",
+          "note": null
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
+      "name": "Боул с рисом и индейкой chili",
+      "mealie_slug": "pitanie-2026-w21-v5-turkey-chili-rice-bowl",
+      "purpose": "Обед из риса, густой индейки chili и йогурта.",
+      "servings": 1,
+      "prep_time_minutes": 12,
+      "cook_time_minutes": 25,
+      "total_time_minutes": 40,
+      "equipment": [
+        "мультиварка-скороварка",
+        "кастрюля или мультиварка для риса"
+      ],
+      "categories": [
+        "Питание / Обед"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "lunch"
+      ],
+      "ingredients": [
+        {
+          "item": "фарш индейки 5–10%",
+          "amount": 350,
+          "unit": "г",
+          "prep_note_ru": "сырой"
+        },
+        {
+          "item": "репчатый лук",
+          "amount": 50,
+          "unit": "г",
+          "prep_note_ru": "мелко нарезать"
+        },
+        {
+          "item": "сладкий перец",
+          "amount": 60,
+          "unit": "г",
+          "prep_note_ru": "кубиком"
+        },
+        {
+          "item": "чеснок",
+          "amount": 1,
+          "unit": "зубчик"
+        },
+        {
+          "item": "резаные томаты в банке",
+          "amount": 160,
+          "unit": "г"
+        },
+        {
+          "item": "томатная паста",
+          "amount": 12,
+          "unit": "г"
+        },
+        {
+          "item": "консервированная фасоль",
+          "amount": 90,
+          "unit": "г",
+          "prep_note_ru": "слить жидкость"
+        },
+        {
+          "item": "вода или бульон",
+          "amount": 50,
+          "unit": "мл"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "паприка",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "орегано",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "соль",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "рис",
+          "amount": 80,
+          "unit": "г",
+          "prep_note_ru": "сухой"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 60,
+          "unit": "г",
+          "prep_note_ru": "для подачи"
+        },
+        {
+          "item": "зелёный лук или петрушка",
+          "amount": 10,
+          "unit": "г",
+          "prep_note_ru": "опционально"
+        },
+        {
+          "item": "лимонный или лаймовый сок",
+          "amount": 5,
+          "unit": "мл",
+          "prep_note_ru": "в конце"
+        }
+      ],
+      "instructions": [
+        "Если batch-prep уже сделан: возьми готовую индейку chili и готовый рис.",
+        "Если готовишь с нуля: приготовь 80 г сухого риса.",
+        "Обжарь лук и перец 4–5 минут, добавь чеснок и специи на 30–45 секунд.",
+        "Добавь фарш индейки, разбивай 6–8 минут.",
+        "Влей воду/бульон, добавь томаты, томатную пасту и фасоль.",
+        "Готовь под давлением 5 минут или туши 10–15 минут до густоты.",
+        "В конце добавь лимон/лайм.",
+        "Собери боул: рис, индейка, йогурт/skyr и зелень."
+      ],
+      "storage": [
+        "Храни рис и индейку отдельно."
+      ],
+      "reheating": [
+        "Разогревай только горячие компоненты; соус и салат не грей."
+      ],
+      "substitutions": [
+        "Картофельные дольки могут заменить рис."
+      ],
+      "meal_prep_notes": [
+        "Если базы готовы, новая готовка не нужна."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "700-950 ккал",
+        "protein": "55-80 г",
+        "fat": "15-35 г",
+        "carbs": "75-115 г"
+      },
+      "why_it_fits_weekly_plan": "Низкофрикционный высокобелковый обед.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Обед из риса, густой индейки chili и йогурта.",
+      "ingredients_structured": [
+        {
+          "food": "фарш индейки 5–10%",
+          "amount": 350,
+          "unit": "г",
+          "note": "сырой"
+        },
+        {
+          "food": "репчатый лук",
+          "amount": 50,
+          "unit": "г",
+          "note": "мелко нарезать"
+        },
+        {
+          "food": "сладкий перец",
+          "amount": 60,
+          "unit": "г",
+          "note": "кубиком"
+        },
+        {
+          "food": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "note": null
+        },
+        {
+          "food": "резаные томаты в банке",
+          "amount": 160,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "томатная паста",
+          "amount": 12,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "консервированная фасоль",
+          "amount": 90,
+          "unit": "г",
+          "note": "слить жидкость"
+        },
+        {
+          "food": "вода или бульон",
+          "amount": 50,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "паприка",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "орегано",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "рис",
+          "amount": 80,
+          "unit": "г",
+          "note": "сухой"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 60,
+          "unit": "г",
+          "note": "для подачи"
+        },
+        {
+          "food": "зелёный лук или петрушка",
+          "amount": 10,
+          "unit": "г",
+          "note": "опционально"
+        },
+        {
+          "food": "лимонный или лаймовый сок",
+          "amount": 5,
+          "unit": "мл",
+          "note": "в конце"
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
+      "name": "Хрустящая лепёшка с курицей шаурма-стайл",
+      "mealie_slug": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread",
+      "purpose": "Ужин в формате поджаренной лепёшки с курицей, соусом и овощами.",
+      "servings": 1,
+      "prep_time_minutes": 15,
+      "cook_time_minutes": 20,
+      "total_time_minutes": 45,
+      "equipment": [
+        "аэрогриль или сковорода",
+        "миска"
+      ],
+      "categories": [
+        "Питание / Ужин",
+        "Питание / Fallback"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "dinner",
+        "fallback"
+      ],
+      "ingredients": [
+        {
+          "item": "куриное филе",
+          "amount": 320,
+          "unit": "г",
+          "prep_note_ru": "сырое, нарезать полосками"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 40,
+          "unit": "г",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 8,
+          "unit": "мл",
+          "prep_note_ru": "для маринада"
+        },
+        {
+          "item": "оливковое масло",
+          "amount": 5,
+          "unit": "мл"
+        },
+        {
+          "item": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "prep_note_ru": "часть в маринад, часть в соус"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "молотый кориандр",
+          "amount": 0.25,
+          "unit": "ч. л."
+        },
+        {
+          "item": "соль",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "лаваш или лепёшка",
+          "amount": 1,
+          "unit": "шт."
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 70,
+          "unit": "г",
+          "prep_note_ru": "для соуса"
+        },
+        {
+          "item": "фета или сыр",
+          "amount": 30,
+          "unit": "г"
+        },
+        {
+          "item": "огурец",
+          "amount": 80,
+          "unit": "г"
+        },
+        {
+          "item": "помидор",
+          "amount": 80,
+          "unit": "г"
+        },
+        {
+          "item": "красный лук",
+          "amount": 15,
+          "unit": "г"
+        }
+      ],
+      "instructions": [
+        "Если batch-prep уже сделан: возьми готовую курицу и перейди к сборке.",
+        "Если готовишь с нуля: нарежь курицу, замаринуй в йогурте, лимоне, масле, чесноке, зире, паприке, кориандре, соли и перце.",
+        "Готовь курицу в аэрогриле 200°C 12–15 минут.",
+        "Смешай отдельный соус из йогурта, чеснока, лимона, соли и перца.",
+        "На лаваш нанеси тонкий слой соуса, добавь курицу, фету/сыр, огурец, помидор и красный лук.",
+        "Сложи лепёшку так, чтобы начинка не выпадала.",
+        "Поджарь 2–3 минуты с каждой стороны или в аэрогриле 190°C 5–6 минут."
+      ],
+      "storage": [
+        "Храни компоненты отдельно."
+      ],
+      "reheating": [
+        "Поджаривай собранную лепёшку свежей."
+      ],
+      "substitutions": [
+        "Если лаваша нет, собери это как рисовый боул."
+      ],
+      "meal_prep_notes": [
+        "Форма другая, но куриная база та же."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "700-950 ккал",
+        "protein": "60-85 г",
+        "fat": "20-35 г",
+        "carbs": "55-90 г"
+      },
+      "why_it_fits_weekly_plan": "Меняет форму блюда, не меняя куриную базу.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Ужин в формате поджаренной лепёшки с курицей, соусом и овощами.",
+      "ingredients_structured": [
+        {
+          "food": "куриное филе",
+          "amount": 320,
+          "unit": "г",
+          "note": "сырое, нарезать полосками"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 40,
+          "unit": "г",
+          "note": "для маринада"
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 8,
+          "unit": "мл",
+          "note": "для маринада"
+        },
+        {
+          "food": "оливковое масло",
+          "amount": 5,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "note": "часть в маринад, часть в соус"
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "молотый кориандр",
+          "amount": 0.25,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "лаваш или лепёшка",
+          "amount": 1,
+          "unit": "шт.",
+          "note": null
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 70,
+          "unit": "г",
+          "note": "для соуса"
+        },
+        {
+          "food": "фета или сыр",
+          "amount": 30,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "огурец",
+          "amount": 80,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "помидор",
+          "amount": 80,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "красный лук",
+          "amount": 15,
+          "unit": "г",
+          "note": null
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
+      "name": "Пита с тунцом, яйцом и картофелем",
+      "mealie_slug": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets",
+      "purpose": "Сытный белковый обед без новой мясной готовки.",
+      "servings": 1,
+      "prep_time_minutes": 10,
+      "cook_time_minutes": 25,
+      "total_time_minutes": 35,
+      "equipment": [
+        "миска",
+        "кастрюля",
+        "аэрогриль или сковорода опционально"
+      ],
+      "categories": [
+        "Питание / Обед",
+        "Питание / Fallback"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "lunch",
+        "fallback"
+      ],
+      "ingredients": [
+        {
+          "item": "консервированный тунец",
+          "amount": 2,
+          "unit": "банка",
+          "prep_note_ru": "слить жидкость"
+        },
+        {
+          "item": "яйца",
+          "amount": 2,
+          "unit": "шт.",
+          "prep_note_ru": "сварить вкрутую"
+        },
+        {
+          "item": "картофель",
+          "amount": 300,
+          "unit": "г",
+          "prep_note_ru": "сырой, затем приготовить"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 90,
+          "unit": "г"
+        },
+        {
+          "item": "горчица",
+          "amount": 1,
+          "unit": "ч. л."
+        },
+        {
+          "item": "маринованные огурцы",
+          "amount": 50,
+          "unit": "г",
+          "prep_note_ru": "мелко нарезать"
+        },
+        {
+          "item": "лимонный сок",
+          "amount": 10,
+          "unit": "мл"
+        },
+        {
+          "item": "пита или лаваш",
+          "amount": 1,
+          "unit": "шт."
+        },
+        {
+          "item": "зелёный лук или укроп",
+          "amount": 10,
+          "unit": "г",
+          "prep_note_ru": "опционально"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "соль",
+          "amount": null,
+          "unit": "по вкусу",
+          "prep_note_ru": "осторожно"
+        }
+      ],
+      "instructions": [
+        "Если яйца и картофель уже готовы: возьми готовые порции и перейди к сборке.",
+        "Если готовишь с нуля: свари яйца 9–10 минут, охлади и очисти.",
+        "Картофель нарежь и приготовь в аэрогриле 190–200°C 22–30 минут или отвари до мягкости.",
+        "Слей жидкость из тунца.",
+        "Нарежь яйца и картофель.",
+        "Смешай йогурт, горчицу, лимонный сок, маринованные огурцы, перец и немного соли.",
+        "Добавь тунец, яйца и картофель, перемешай аккуратно.",
+        "Прогрей питу/лаваш, начини смесью и опционально поджарь 2–3 минуты."
+      ],
+      "storage": [
+        "Лучше собирать в день еды.",
+        "Тунец, яйца, картофель и соус держи отдельно до подачи."
+      ],
+      "reheating": [
+        "Если поджарено, ешь сразу."
+      ],
+      "substitutions": [
+        "Если аппетит ниже, можно использовать 1 банку тунца.",
+        "Рис может заменить картофель, но для питы он менее удобен."
+      ],
+      "meal_prep_notes": [
+        "Яйца отвариваются во время четвергового prep."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "750-950 ккал",
+        "protein": "70-95 г",
+        "fat": "20-35 г",
+        "carbs": "55-90 г"
+      },
+      "why_it_fits_weekly_plan": "Быстрый высокобелковый формат protein-salad/pita.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Сытный белковый обед без новой мясной готовки.",
+      "ingredients_structured": [
+        {
+          "food": "консервированный тунец",
+          "amount": 2,
+          "unit": "банка",
+          "note": "слить жидкость"
+        },
+        {
+          "food": "яйца",
+          "amount": 2,
+          "unit": "шт.",
+          "note": "сварить вкрутую"
+        },
+        {
+          "food": "картофель",
+          "amount": 300,
+          "unit": "г",
+          "note": "сырой, затем приготовить"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 90,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "горчица",
+          "amount": 1,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "маринованные огурцы",
+          "amount": 50,
+          "unit": "г",
+          "note": "мелко нарезать"
+        },
+        {
+          "food": "лимонный сок",
+          "amount": 10,
+          "unit": "мл",
+          "note": null
+        },
+        {
+          "food": "пита или лаваш",
+          "amount": 1,
+          "unit": "шт.",
+          "note": null
+        },
+        {
+          "food": "зелёный лук или укроп",
+          "amount": 10,
+          "unit": "г",
+          "note": "опционально"
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": "осторожно"
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    },
+    {
+      "recipe_id": "pitanie-2026-w21-v5-closeout-bowl-016",
+      "name": "Боул закрытия с индейкой chili",
+      "mealie_slug": "pitanie-2026-w21-v5-closeout-bowl",
+      "purpose": "Фиксированный воскресный ужин из индейки chili, чтобы shopping list не был неопределённым.",
+      "servings": 1,
+      "prep_time_minutes": 12,
+      "cook_time_minutes": 25,
+      "total_time_minutes": 40,
+      "equipment": [
+        "мультиварка-скороварка или сковорода",
+        "кастрюля или мультиварка для риса"
+      ],
+      "categories": [
+        "Питание / Ужин",
+        "Питание / Fallback"
+      ],
+      "tags": [
+        "chatgpt-pitanie",
+        "approved-menu",
+        "high-protein",
+        "dinner",
+        "fallback"
+      ],
+      "ingredients": [
+        {
+          "item": "фарш индейки 5–10%",
+          "amount": 300,
+          "unit": "г",
+          "prep_note_ru": "сырой"
+        },
+        {
+          "item": "репчатый лук",
+          "amount": 40,
+          "unit": "г",
+          "prep_note_ru": "мелко нарезать"
+        },
+        {
+          "item": "сладкий перец",
+          "amount": 50,
+          "unit": "г",
+          "prep_note_ru": "кубиком"
+        },
+        {
+          "item": "чеснок",
+          "amount": 1,
+          "unit": "зубчик"
+        },
+        {
+          "item": "резаные томаты в банке",
+          "amount": 140,
+          "unit": "г"
+        },
+        {
+          "item": "томатная паста",
+          "amount": 10,
+          "unit": "г"
+        },
+        {
+          "item": "консервированная фасоль",
+          "amount": 80,
+          "unit": "г",
+          "prep_note_ru": "слить жидкость"
+        },
+        {
+          "item": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л."
+        },
+        {
+          "item": "соль",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу"
+        },
+        {
+          "item": "рис",
+          "amount": 70,
+          "unit": "г",
+          "prep_note_ru": "сухой; можно заменить картофелем"
+        },
+        {
+          "item": "греческий йогурт или skyr без сахара",
+          "amount": 60,
+          "unit": "г",
+          "prep_note_ru": "для подачи"
+        },
+        {
+          "item": "огурец",
+          "amount": 100,
+          "unit": "г",
+          "prep_note_ru": "для греческой стороны"
+        },
+        {
+          "item": "помидор",
+          "amount": 100,
+          "unit": "г",
+          "prep_note_ru": "для греческой стороны"
+        },
+        {
+          "item": "фета",
+          "amount": 30,
+          "unit": "г",
+          "prep_note_ru": "для греческой стороны"
+        },
+        {
+          "item": "оливки",
+          "amount": 20,
+          "unit": "г",
+          "prep_note_ru": "для греческой стороны"
+        },
+        {
+          "item": "лимонный или лаймовый сок",
+          "amount": 5,
+          "unit": "мл",
+          "prep_note_ru": "в конце"
+        }
+      ],
+      "instructions": [
+        "Если batch-prep уже сделан: возьми готовую индейку chili и готовый рис, затем перейди к сборке.",
+        "Если готовишь с нуля: приготовь 70 г сухого риса.",
+        "Обжарь лук и перец 4–5 минут.",
+        "Добавь чеснок, зиру, копчёную паприку, соль и перец на 30–45 секунд.",
+        "Добавь фарш индейки, разбивай 6–8 минут.",
+        "Добавь томаты, томатную пасту и фасоль; туши до густоты 10–15 минут или готовь под давлением 5 минут.",
+        "В конце добавь лимон/лайм.",
+        "Собери: рис, сверху индейка chili, затем йогурт.",
+        "Рядом добавь греческую сторону: огурец, помидор, фета, оливки."
+      ],
+      "storage": [
+        "Используй оставшиеся охлаждённые или замороженные порции."
+      ],
+      "reheating": [
+        "Разогревай только горячие компоненты; соус добавляй после разогрева."
+      ],
+      "substitutions": [
+        "Если остатков нет, можно использовать консервированный тунец."
+      ],
+      "meal_prep_notes": [
+        "Блюдо специально закрывает неделю без новой готовки."
+      ],
+      "nutrition_estimate_per_serving": {
+        "calories": "650-950 ккал",
+        "protein": "50-80 г",
+        "fat": "15-35 г",
+        "carbs": "55-100 г"
+      },
+      "why_it_fits_weekly_plan": "Снижает отходы и оставляет воскресенье простым.",
+      "extras": {
+        "pitanie_recipe_id": "pitanie-2026-w21-v5-closeout-bowl-016",
+        "week_id": "2026-W21-calibration-2026-05-21_to_2026-05-24",
+        "menu_version": "v6_ru_standalone_shopping_safe"
+      },
+      "description": "Фиксированный воскресный ужин из индейки chili, чтобы shopping list не был неопределённым.",
+      "ingredients_structured": [
+        {
+          "food": "фарш индейки 5–10%",
+          "amount": 300,
+          "unit": "г",
+          "note": "сырой"
+        },
+        {
+          "food": "репчатый лук",
+          "amount": 40,
+          "unit": "г",
+          "note": "мелко нарезать"
+        },
+        {
+          "food": "сладкий перец",
+          "amount": 50,
+          "unit": "г",
+          "note": "кубиком"
+        },
+        {
+          "food": "чеснок",
+          "amount": 1,
+          "unit": "зубчик",
+          "note": null
+        },
+        {
+          "food": "резаные томаты в банке",
+          "amount": 140,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "томатная паста",
+          "amount": 10,
+          "unit": "г",
+          "note": null
+        },
+        {
+          "food": "консервированная фасоль",
+          "amount": 80,
+          "unit": "г",
+          "note": "слить жидкость"
+        },
+        {
+          "food": "молотая зира / кумин",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "копчёная паприка",
+          "amount": 0.5,
+          "unit": "ч. л.",
+          "note": null
+        },
+        {
+          "food": "соль",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "чёрный перец",
+          "amount": null,
+          "unit": "по вкусу",
+          "note": null
+        },
+        {
+          "food": "рис",
+          "amount": 70,
+          "unit": "г",
+          "note": "сухой; можно заменить картофелем"
+        },
+        {
+          "food": "греческий йогурт или skyr без сахара",
+          "amount": 60,
+          "unit": "г",
+          "note": "для подачи"
+        },
+        {
+          "food": "огурец",
+          "amount": 100,
+          "unit": "г",
+          "note": "для греческой стороны"
+        },
+        {
+          "food": "помидор",
+          "amount": 100,
+          "unit": "г",
+          "note": "для греческой стороны"
+        },
+        {
+          "food": "фета",
+          "amount": 30,
+          "unit": "г",
+          "note": "для греческой стороны"
+        },
+        {
+          "food": "оливки",
+          "amount": 20,
+          "unit": "г",
+          "note": "для греческой стороны"
+        },
+        {
+          "food": "лимонный или лаймовый сок",
+          "amount": 5,
+          "unit": "мл",
+          "note": "в конце"
+        }
+      ],
+      "meal_plan_usage": "scheduled"
+    }
+  ],
+  "meal_plan_entries": [
+    {
+      "date": "2026-05-21",
+      "meal_type": "breakfast",
+      "recipe_id": "pitanie-2026-w21-v5-crispy-tuna-melt-lavash-006",
+      "title": "Хрустящий лаваш с тунцом и плавленым сыром",
+      "notes": "Готовится сразу после магазина; без мясной заготовки."
+    },
+    {
+      "date": "2026-05-21",
+      "meal_type": "lunch",
+      "recipe_id": "pitanie-2026-w21-v5-real-chicken-shawarma-wrap-007",
+      "title": "Настоящая шаурма с курицей в лаваше",
+      "notes": "В ingredients должны быть продукты из магазина, не готовая курица."
+    },
+    {
+      "date": "2026-05-21",
+      "meal_type": "dinner",
+      "recipe_id": "pitanie-2026-w21-v5-loaded-turkey-chili-potato-008",
+      "title": "Картофель с индейкой chili и йогуртовым соусом",
+      "notes": "В ingredients должны быть фарш индейки, картофель и остальные продукты, не готовая заготовка."
+    },
+    {
+      "date": "2026-05-22",
+      "meal_type": "breakfast",
+      "recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
+      "title": "Завтрачный crunchwrap с курицей и яйцами",
+      "notes": "Полный рецепт с сырым куриным филе в ingredient rows."
+    },
+    {
+      "date": "2026-05-22",
+      "meal_type": "lunch",
+      "recipe_id": "pitanie-2026-w21-v5-chicken-shawarma-rice-bowl-010",
+      "title": "Боул с рисом и курицей шаурма-стайл",
+      "notes": "Полный recipe ingredients: куриное филе, рис сухой, йогурт, овощи."
+    },
+    {
+      "date": "2026-05-22",
+      "meal_type": "dinner",
+      "recipe_id": "pitanie-2026-w21-v5-sesame-tuna-steak-rice-bowl-011",
+      "title": "Боул с тунцом-стейком в кунжуте",
+      "notes": "Готовить свежим; заменить на tuna melt, если стейка нет."
+    },
+    {
+      "date": "2026-05-23",
+      "meal_type": "breakfast",
+      "recipe_id": "pitanie-2026-w21-v5-turkey-chili-egg-skillet-wrap-012",
+      "title": "Лаваш с индейкой chili и яйцами",
+      "notes": "Ingredient rows: фарш индейки и продукты, не готовая индейка chili."
+    },
+    {
+      "date": "2026-05-23",
+      "meal_type": "lunch",
+      "recipe_id": "pitanie-2026-w21-v5-turkey-chili-rice-bowl-013",
+      "title": "Боул с рисом и индейкой chili",
+      "notes": "Ingredient rows: фарш индейки, рис сухой, томаты, фасоль, специи."
+    },
+    {
+      "date": "2026-05-23",
+      "meal_type": "dinner",
+      "recipe_id": "pitanie-2026-w21-v5-crispy-chicken-shawarma-flatbread-014",
+      "title": "Хрустящая лепёшка с курицей шаурма-стайл",
+      "notes": "Ingredient rows: сырое куриное филе и остальные продукты."
+    },
+    {
+      "date": "2026-05-24",
+      "meal_type": "breakfast",
+      "recipe_id": "pitanie-2026-w21-v5-chicken-egg-breakfast-crunchwrap-009",
+      "title": "Завтрачный crunchwrap с курицей и яйцами",
+      "notes": "Повтор рецепта; Mealie shopping list должен суммировать реальные продукты."
+    },
+    {
+      "date": "2026-05-24",
+      "meal_type": "lunch",
+      "recipe_id": "pitanie-2026-w21-v5-tuna-egg-potato-pita-pockets-015",
+      "title": "Пита с тунцом, яйцом и картофелем",
+      "notes": "Ingredient rows: тунец, яйца, картофель, йогурт, пита."
+    },
+    {
+      "date": "2026-05-24",
+      "meal_type": "dinner",
+      "recipe_id": "pitanie-2026-w21-v5-closeout-bowl-016",
+      "title": "Боул закрытия с индейкой chili",
+      "notes": "Базовая версия фиксирована с индейкой, чтобы shopping list был определённым."
+    }
+  ],
+  "controlled_morning_slots": [
+    {
+      "date": "2026-05-21",
+      "title": "Контролируемый утренний слот",
+      "notes": "Опционально только при голоде: 30 г whey с водой, 2 варёных яйца или 200 г skyr/греческого йогурта."
+    },
+    {
+      "date": "2026-05-22",
+      "title": "Контролируемый утренний слот",
+      "notes": "Опционально только при голоде: 30 г whey с водой или 2 варёных яйца."
+    },
+    {
+      "date": "2026-05-23",
+      "title": "Контролируемый утренний слот",
+      "notes": "Опционально только при голоде: 30 г whey с водой или 200 г skyr/греческого йогурта."
+    },
+    {
+      "date": "2026-05-24",
+      "title": "Контролируемый утренний слот",
+      "notes": "Опционально только при голоде: 30 г whey с водой или 2 варёных яйца."
+    }
+  ]
+}
