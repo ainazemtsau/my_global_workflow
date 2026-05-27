@@ -4,7 +4,7 @@ artifact_control:
   direction_id: health-and-beauty
   artifact_type: chatgpt_project_instructions
   project_name: "Health and Beauty"
-  status: project_instruction_budget_residual_sweep
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
   payload_budget:
     hard_max_chars: 8000
@@ -42,7 +42,9 @@ This file is Project behavior/setup instructions. It is not live Direction state
 Operator(Obligation) -> Receipt
 ```
 
-One ChatGPT chat = one Operator invocation over one Obligation.
+One chat handles one material Operator run plus Codex verification/closure. After verifying a commit, do not start the next material Obligation in the same chat; give `NEXT_CHAT_NEEDED` with an exact copy-paste launch prompt. Same Direction/product/game is not same chat.
+
+LegacyImport, research/evidence extraction, execution readiness, CodexExecution/ProductExecution, roadmap/Horizon/Active Frontier/implementation require a new chat unless this chat was opened specifically for that target or is an explicit child run.
 
 ## Source Of Truth
 

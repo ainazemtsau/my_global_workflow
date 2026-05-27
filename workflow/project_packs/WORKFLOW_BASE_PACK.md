@@ -5,10 +5,10 @@ artifact_control:
   pack_name: WORKFLOW_BASE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: project_instruction_budget_residual_sweep
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
-  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
-  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+  generated_from_ref: wg/single-material-run-chat-boundary-2026-05-27
+  refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -77,13 +77,15 @@ Candidate structure cannot bypass Atomic Run / Single Responsibility. `one_oblig
 
 Operator Independence means user examples are candidate_context by default, urgency is not execution readiness, anxiety or brainstorming does not authorize phase jumping, and platform/channel/tool mentions are not commitments without Receipt, Verify, and Commit.
 
-## Parent Chat Continuity
+## Single Material Run Chat Boundary
 
-One bounded user problem should stay in one parent chat until terminal outcome when safe.
+Ordinary Direction chats default to one material Operator run plus Codex verification/closure.
 
-The parent chat may continue across turns, Codex handoffs, Codex results, and child results while each active target Obligation remains declared and bounded.
+Atomicity governs both the active target Obligation and the chat episode boundary.
 
-`NEXT_CHAT_NEEDED` is exceptional, not default. `CODEX_COMMIT_NEEDED` normally returns to the same parent chat after Codex finishes.
+Codex results return to the same chat only to verify/close the current run. After commit verification, the next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact launch prompt.
+
+Same Direction / same product / same game is not sufficient reason for same-chat continuation.
 
 ## Truth And Projection
 

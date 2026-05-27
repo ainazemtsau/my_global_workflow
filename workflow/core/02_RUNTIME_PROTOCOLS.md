@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: runtime_protocols
-  status: atomic_run_hardened
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
 ---
 
@@ -24,7 +24,7 @@ Operator Independence prevents user urgency, examples, or channel mentions from 
 
 Human-Facing Run Closure packages terminal outcome and handoff for the user.
 
-Parent Chat Problem Closure keeps one bounded user problem in the same parent chat until terminal outcome when safe.
+Single Material Run Chat Boundary keeps ordinary Direction chats to one material Operator run plus Codex verification/closure by default.
 
 Recursive Child Handoff packages child requests, child results, and parent recovery for compound Obligations.
 
@@ -49,13 +49,19 @@ Atomic Run / Single Responsibility:
 - candidate structure cannot bypass atomicity
 - `one_obligation_scope` cannot pass if material output performs research, strategy, roadmap, execution, or structure creation not required by the target Obligation
 
-A ChatGPT parent chat may continue across turns, Codex handoffs, Codex results, and child results while solving the same bounded user problem.
+Single Material Run Chat Boundary:
 
-Atomicity governs the active material target Obligation, not the lifetime of the parent chat.
+- ordinary Direction ChatGPT chats default to one material Operator run / one minimal bounded episode
+- Atomicity governs both the active material target Obligation and the chat episode boundary
+- a Direction, product, game, long-term goal, Horizon, roadmap, or implementation stream is not itself a bounded chat problem
+- Codex result returns to the same chat only to verify and close the current run
+- after commit verification, the next material target must launch in a new chat by default
+
+The same chat may still answer non-material questions, verify failed commits, repair the current handoff, provide recovery prompts, or produce the exact next-chat prompt.
 
 If a chat receives a compound Obligation that cannot be completed atomically, it must return `split_required` or produce child Obligations through Decompose.
 
-Sequential internal steps are allowed only when they remain necessary to close the same bounded problem and each active target Obligation is declared.
+Sequential internal steps are allowed only when they remain necessary to close the same chat episode target and each active target Obligation is declared.
 
 ## Context Authority
 
@@ -140,13 +146,13 @@ If another ChatGPT operator run is needed, it must provide a human-readable copy
 
 Output: terminal outcome, human-readable next action, optional Codex Commit Handoff Card, optional next-chat prompt, and technical appendix.
 
-Parent Chat Problem Closure is the default user experience: one bounded user problem should stay in one parent chat until terminal outcome when safe.
+Single Material Run Chat Boundary is the default ordinary Direction user experience: one chat handles one material Operator run plus Codex verification/closure.
 
-`CODEX_COMMIT_NEEDED` does not imply `NEXT_CHAT_NEEDED`; the user should return Codex results to the parent chat unless context loss, explicit split, or unsafe scope change requires a new chat.
+`CODEX_COMMIT_NEEDED` returns to the same chat only so the current Codex result can be verified, repaired if needed, and closed.
 
-`NEXT_CHAT_NEEDED` is exceptional, not default.
+After a commit is verified, opening the next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact copy-paste launch prompt.
 
-The parent chat must not switch to unrelated work merely because it can continue.
+The parent chat must not start a different material target merely because the Direction, product, game, roadmap, or implementation stream is the same.
 
 ## Recursive Child Handoff
 

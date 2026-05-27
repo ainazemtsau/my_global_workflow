@@ -3,7 +3,7 @@ artifact_control:
   namespace: workflow
   artifact_type: transport_card
   card_type: receipt_card
-  status: atomic_run_hardened
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
 ---
 
@@ -77,10 +77,15 @@ receipt_card:
     hidden_acceptance_check: pass | fail | needs_input
     one_obligation_scope: pass | fail | needs_input
   parent_chat_continuity:
+    chat_episode_target: string
+    material_run_count_in_chat: integer
     same_parent_chat_continuation: true | false
     continuation_reason: string
+    codex_result_verification_only: true | false
+    next_material_target_requires_new_chat: true | false
     next_chat_needed: true | false
     next_chat_reason: string | null
+    next_chat_prompt_required: true | false
   confidence_uncertainty_labels:
     overall_confidence: high | medium | low | unknown
     material_uncertainties: [string]
@@ -129,7 +134,15 @@ Every Receipt that uses broad, messy, anxious, speculative, or phase-jumping inp
 
 `scope_audit.one_obligation_scope` must fail when material output performs research, strategy, roadmap, execution, or structure creation not required by the target Obligation.
 
-`parent_chat_continuity.same_parent_chat_continuation` should be true by default for one bounded user problem. `next_chat_needed` is exceptional and must include a reason.
+`parent_chat_continuity.chat_episode_target` must name the target Obligation for the current chat episode.
+
+`parent_chat_continuity.material_run_count_in_chat` must be recorded. Ordinary Direction chats default to `1`.
+
+`parent_chat_continuity.same_parent_chat_continuation` is not true by default after material run closure. It may be true only for current-run verification/closure, non-material explanation, failed validation repair for the same handoff, recovery / next-chat prompt production, or child-result synthesis required for the current target Obligation.
+
+`parent_chat_continuity.codex_result_verification_only` must be true when a Codex result returns after `CODEX_COMMIT_NEEDED`.
+
+`parent_chat_continuity.next_material_target_requires_new_chat`, `next_chat_needed`, and `next_chat_prompt_required` must be true when a new target Obligation is opened for future material work.
 
 If `commit_recommendation` is `commit`, the response must include either:
 
