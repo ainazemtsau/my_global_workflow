@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: concept_identity_from_legacy_evidence_admitted
+  status: concept_identity_from_legacy_evidence_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,7 +13,7 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: concept_identity_from_legacy_evidence_admitted
+proof_state: concept_identity_from_legacy_evidence_committed
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
@@ -24,6 +24,7 @@ accepted_receipts:
   - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
   - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
   - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
+  - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
   - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
@@ -36,15 +37,26 @@ accepted_claims:
   - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001 creates no strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine/networking commitment, old-code transfer, or full legacy import.
   - Human decision accepted to admit O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE as the only open next bounded obligation after R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001.
   - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001 admits only the next bounded concept identity clarification obligation from Legacy evidence only. It does not execute the obligation, accept concept identity content, create strategy, create a roadmap, select Horizon, select Active Frontier, admit product execution, admit CodexExecution, create Steam launch strategy, commit engine/networking choices, transfer old code, or import Legacy documents wholesale.
+  - Bounded concept identity accepted from legacy evidence and current human correction: the game identity is a co-op reactive gas-ecology expedition game / systemic atmospheric survival-puzzle-action frame. Gas is not merely an ambient hazard; it is a reactive multi-gas ecology. Grid/topology is the shared spatial gameplay substrate for gas movement, containment, ventilation, verticality, source/sink anchors, topology changes, reaction locations, and future pressure/temperature/environment hooks.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
 projections_state: strategic_map_projection_created_no_strategy_commitment
 legacy_import_state: bounded_concept_evidence_inventory_committed
 legacy_state_authority: false
 orientation_frame_state: bounded_post_inventory_orientation_frame_committed
-concept_identity_from_legacy_evidence_admission_state: admitted_not_executed
-open_next_obligations:
-  - O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE
+concept_identity_from_legacy_evidence_admission_state: satisfied
+concept_identity_from_legacy_evidence_state: committed
+open_next_obligations: []
+strategy_admitted: false
+roadmap_admitted: false
+horizon_selected: false
+active_frontier_selected: false
+product_execution_admitted: false
+codex_execution_admitted: false
+steam_launch_strategy_admitted: false
+engine_commitment_admitted: false
+networking_stack_commitment_admitted: false
+old_code_transfer_admitted: false
 ```
 
 ## Accepted Root Objective
@@ -125,6 +137,7 @@ Direction proof files are storage and projection surfaces. They are not addition
 - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
 - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
 - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
+- R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001
 
 ## Accepted Projection Artifacts
 
@@ -156,12 +169,12 @@ Only bounded concept evidence inventory is accepted; old Direction state authori
 
 O-IDG-POST-INVENTORY-ORIENTATION-FRAME is satisfied by `R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001`.
 
-O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE is admitted by `R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001` as the only open next obligation.
+O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE is satisfied by `R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001`.
 
-The admitted concept identity clarification obligation is not executed yet. Legacy documents remain evidence-only input, and no accepted concept identity content is created by this admission.
+The committed bounded concept identity is a co-op reactive gas-ecology expedition game / systemic atmospheric survival-puzzle-action frame. Gas is not merely an ambient hazard; it is a reactive multi-gas ecology, and grid/topology is the shared spatial gameplay substrate for gas movement, containment, ventilation, verticality, source/sink anchors, topology changes, reaction locations, and future pressure/temperature/environment hooks.
 
-Future obligations are candidate/proposed only until separately admitted by Receipt -> Verify -> Commit.
+Future obligations are candidate/proposed only until separately admitted by Receipt -> Verify -> Commit. No new open next obligation is admitted by this concept identity receipt.
 
-No next strategy state, roadmap, Horizon, Active Frontier, execution package, Codex work package, product execution, monetization model, Steam launch strategy, engine commitment, networking stack decision, old-code transfer, full legacy import, accepted concept identity content, or accepted Strategic Path Map commitment is created or admitted by this receipt.
+No next strategy state, roadmap, Horizon, Active Frontier, execution package, Codex work package, product execution, monetization model, Steam launch strategy, engine commitment, networking stack decision, old-code transfer, full legacy import, or accepted Strategic Path Map commitment is created or admitted by this receipt.
 
 END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md
