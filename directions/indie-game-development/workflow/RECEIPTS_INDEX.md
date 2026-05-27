@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: concept_identity_from_legacy_evidence_committed
+  status: gas_ecology_identity_boundary_clarify_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,7 +12,7 @@ artifact_control:
 ## Receipt State
 
 ```yaml
-root_state: concept_identity_from_legacy_evidence_committed
+root_state: gas_ecology_identity_boundary_clarify_admitted
 accepted_receipts:
   - receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
     path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
@@ -44,6 +44,9 @@ accepted_receipts:
   - receipt_id: R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001
     path: receipts/R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001.md
     summary: Accepted bounded concept identity frame from legacy evidence and current human correction, centered on co-op reactive multi-gas ecology, gas/grid/topology gameplay role, player fantasy, co-op framing, gameplay promise, remaining gaps, and candidate next obligations, without admitting strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine/networking commitment, old-code transfer, or full legacy import.
+  - receipt_id: R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
+    path: receipts/R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001.md
+    summary: Accepted human decision to admit O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY as the next bounded obligation only, without executing the obligation or admitting final gas taxonomy, final reaction system, strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine/networking commitment, old-code transfer, or implementation.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -90,6 +93,10 @@ receipt_storage_path: receipts/
 - receipt_id: R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001
   path: receipts/R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001.md
   summary: Accepted bounded concept identity frame from legacy evidence and current human correction, centered on co-op reactive multi-gas ecology, gas/grid/topology gameplay role, player fantasy, co-op framing, gameplay promise, remaining gaps, and candidate next obligations, without admitting strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine/networking commitment, old-code transfer, or full legacy import.
+
+- receipt_id: R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
+  path: receipts/R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001.md
+  summary: Accepted human decision to admit O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY as the next bounded obligation only, without executing the obligation or admitting final gas taxonomy, final reaction system, strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine/networking commitment, old-code transfer, or implementation.
 
 ## Rules
 

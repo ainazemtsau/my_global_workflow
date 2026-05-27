@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: concept_identity_from_legacy_evidence_committed
+  status: gas_ecology_identity_boundary_clarify_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -22,6 +22,53 @@ No CodexExecution operator may run.
 No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
+
+### O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY
+
+```yaml
+obligation_id: O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY
+type: clarify_objective / identity_boundary / human_decision
+statement: >
+  Clarify which parts of the accepted reactive multi-gas ecology are core
+  identity versus future expansion, including gas types, reactions,
+  transformations, special gases, beneficial gases, hostile gases, and
+  anomalous gases, without producing a final gas taxonomy, final reaction
+  system, implementation, strategy, roadmap, Horizon, Active Frontier, product
+  execution, CodexExecution, Steam launch strategy, engine commitment,
+  networking commitment, or old-code transfer.
+status: open_next
+priority: next
+admitted_by: R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
+admission_only: true
+target_executed: false
+allowed_inputs:
+  - admission decision for preferred target
+  - accepted concept identity
+  - no open_next_obligations
+acceptance_conditions:
+  - clarify core-identity versus future-expansion boundary for multi-gas ecology
+  - preserve gas ecology as accepted concept identity
+  - identify unresolved gas ecology questions without final taxonomy or implementation
+  - preserve all strategy, roadmap, Horizon, Active Frontier, execution, Steam, engine, networking, old-code, and implementation prohibitions
+  - create a receipt and update proof surfaces through Receipt -> Verify -> Commit before any accepted state change
+forbidden_outputs:
+  - final gas taxonomy
+  - final reaction system
+  - strategy
+  - roadmap
+  - Horizon selection
+  - Active Frontier selection
+  - product execution
+  - CodexExecution
+  - Steam launch strategy
+  - engine commitment
+  - networking commitment
+  - old-code transfer
+  - implementation
+required_operator:
+  - ClarifyObjective
+  - HumanDecision
+```
 
 ### O-IDG-LEGACY-INVENTORY-OPTIONAL
 
