@@ -5,10 +5,10 @@ artifact_control:
   pack_name: UNIVERSAL_PROJECT_SHELL_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: project_instruction_budget_hardened
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
-  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
-  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-HARDEN-001
+  generated_from_ref: wg/single-material-run-chat-boundary-2026-05-27
+  refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -130,12 +130,14 @@ Do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/
 
 When Project Instructions sources change, report `project_instruction_ui_payload_char_counts`.
 
-Same-parent continuation is the default for one bounded user problem, including after `CODEX_COMMIT_NEEDED`, Codex results, and child results.
+Single Material Run Chat Boundary is the default for ordinary Direction chats: one material Operator run plus Codex verification/closure.
 
-`NEXT_CHAT_NEEDED` is exceptional. Ask for a new chat only when same-parent continuation is unsafe or invalid, and explain why.
+Codex results return to the same chat only to verify/close the current run. After commit verification, the next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact launch prompt.
+
+Same Direction / same product / same game is not sufficient reason for same-chat continuation. Same chat remains allowed for non-material explanation, failed validation repair for the same handoff, recovery prompts, and child result synthesis required for the current target.
 
 If child chats are needed for the current target Obligation, provide copy-paste child prompts, state what results must return, and include a Parent Recovery Block when multiple children are launched.
 
-Do not launch child chats for future topics, blocked phases, unrelated residual work, or mere thoroughness. Child results return to the parent chat for synthesis.
+Do not launch child chats for future topics, blocked phases, unrelated residual work, or mere thoroughness. Child results return to the parent chat for synthesis. Child chats are not a substitute for the next-chat boundary after a completed material run.
 
 END_OF_FILE: workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md

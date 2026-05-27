@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: recursive_child_handoff_policy
-  status: atomic_run_hardened
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
 ---
 
@@ -39,6 +39,16 @@ Child handoff must record:
 - current target Obligation dependency
 - required child result
 - return instructions
+
+## Child Chat vs Next Chat
+
+A child chat serves the current parent target Obligation and returns its result to the parent chat.
+
+A next chat starts a newly opened material Obligation after the parent run closes.
+
+Child chat is not a substitute for the next-chat boundary after a completed material run.
+
+If the parent run is closed and the next material target differs from the chat episode target, the operator must use `NEXT_CHAT_NEEDED` even when the Direction, product, game, roadmap, or implementation stream is the same.
 
 ## Parent Responsibilities
 

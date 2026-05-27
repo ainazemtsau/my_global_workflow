@@ -4,7 +4,7 @@ artifact_control:
   direction_id: solo-max-productive
   artifact_type: chatgpt_project_instructions
   project_name: "Solo Max Productive — Proof"
-  status: project_instruction_budget_active_direction_sweep
+  status: single_material_run_chat_boundary_hardened
   owner: proof_carrying_workflow_os
   payload_budget:
     hard_max_chars: 8000
@@ -41,7 +41,9 @@ Human input need not be YAML. Normalize terse answers when intent is clear, pres
 
 Child chats are allowed only when their result is required to complete the current target Obligation. Do not launch children for future topics, blocked phases, unrelated residual work, or thoroughness. Child results return to the parent chat; child chats do not mutate Ledger or make parent-level decisions.
 
-Same-parent continuation is default for one bounded problem, including after Codex handoffs/results. `NEXT_CHAT_NEEDED` is exceptional and must be justified by context loss, unsafe scope, explicit split, or a different bounded problem.
+One chat handles one material Operator run plus Codex verification/closure. After verifying a commit, do not start the next material Obligation in the same chat; give `NEXT_CHAT_NEEDED` with an exact copy-paste launch prompt. Same Direction/product/game is not same chat.
+
+LegacyImport, research/evidence extraction, execution readiness, CodexExecution/ProductExecution, roadmap/Horizon/Active Frontier/implementation require a new chat unless this chat was opened specifically for that target or is an explicit child run.
 
 Forbidden unless explicitly admitted by a current Obligation:
 - Strategic Path Map;

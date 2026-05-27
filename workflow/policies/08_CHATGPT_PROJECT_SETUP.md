@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: chatgpt_project_setup_principles
-  status: project_instruction_budget_hardened
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
 ---
 
@@ -221,17 +221,17 @@ They may be loaded only as explicitly identified legacy evidence for a Legacy Im
 
 For ordinary Direction Workflow Projects, one active target Obligation may be worked materially at a time.
 
-One bounded user problem should remain in one parent chat until terminal outcome when safe.
+One chat = one material Operator run plus Codex verification/closure.
 
-A parent chat may continue across turns, Codex handoffs, Codex results, and child results while solving the same bounded problem.
+Same Direction / same product / same game does not imply same chat.
 
-Same-parent continuation is the default after `CODEX_COMMIT_NEEDED`: the user returns the Codex result to the parent chat unless context loss, explicit split, or unsafe scope change requires otherwise.
+After each committed material run, the next material Obligation must start in a new chat by default with `NEXT_CHAT_NEEDED` and an exact launch prompt.
 
-`NEXT_CHAT_NEEDED` is exceptional, not default.
+The same chat is allowed only for non-material explanation, verifying the Codex result for the current handoff, failed validation repair for the same handoff, or producing a recovery / next-chat prompt.
 
-If the work is compound, the chat must scope-triage, decompose only what is required for the current target Obligation, or return `split_required` instead of pretending completion.
+If the work is compound, the chat must scope-triage, decompose only what is required for the current target Obligation, return child prompts governed by child handoff rules, or return `split_required` instead of pretending completion.
 
-The parent chat must not switch to unrelated work merely because it can continue.
+Child chats serve the current parent target Obligation. They are not a substitute for the new-chat boundary after a completed material run.
 
 The Workflow Governance Maintenance Project uses one concrete maintenance problem per chat and does not use Obligation framing as the controlling chat protocol by default.
 

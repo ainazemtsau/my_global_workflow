@@ -5,10 +5,10 @@ artifact_control:
   pack_name: PROJECT_PACKS_INDEX
   pack_type: runtime_cache_upload_convenience_index
   intended_load_mode: request_only
-  status: workflow_source_of_truth_locator_refresh
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
-  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
-  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+  generated_from_ref: wg/single-material-run-chat-boundary-2026-05-27
+  refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this index if any source_manifest file changes."
 source_manifest:
@@ -65,7 +65,7 @@ Direction payload files are the Direction Ledger, Obligations, Receipts index, C
 
 Default upload count excludes Project Instructions UI sources.
 
-The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, Parent Chat Problem Closure, child-handoff gating, Receipt scope audit, and same-parent continuation after Codex results.
+The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, Single Material Run Chat Boundary, child-handoff gating, Receipt scope audit, and next-chat default after committed material runs.
 
 For the Workflow Governance Maintenance Project, `GOVERNANCE_MAINTENANCE_PACK.md` contains the detailed Real Transcript Review procedure: short natural-language triggers plus pasted completed transcript, P0 Single Responsibility / Atomic Run as the first mandatory gate, lifecycle surface detection, relevant-only surface checks, Codex handoff/result verification when applicable, stable transcript defect classes, and explicit terminal outcome. The Project Instructions UI only bootstraps this procedure.
 

@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: core_invariants
-  status: project_instruction_budget_residual_sweep
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
 ---
 
@@ -44,7 +44,12 @@ artifact_control:
 - No material run may end with technical Receipt/YAML only.
 - No user is required to manually construct Codex commit instructions from a Receipt.
 - No next-chat instruction may be only an Obligation ID without human-readable launch text.
-- No unnecessary `NEXT_CHAT_NEEDED` when same-parent continuation is safe for the same bounded user problem.
+- No `NEXT_CHAT_NEEDED` may be omitted when the next material target is a newly opened Obligation after commit verification.
+- No ordinary Direction chat may start a newly opened material Obligation after verifying the commit for the previous material run.
+- No same Direction / same product / same game may be used as sufficient reason for same-chat continuation.
+- No LegacyImport / research / evidence extraction / execution readiness / CodexExecution / ProductExecution may start in a chat that was not opened for that target, unless it is a child run explicitly required for the current parent target and governed by child handoff rules.
+- No roadmap / Horizon / Active Frontier / implementation work may start in a chat that was not opened for that target, unless it is a child run explicitly required for the current parent target and governed by child handoff rules.
+- No user chat-boundary question may be bypassed by continuing workflow verification or next-run work.
 - No parent chat switches to unrelated work merely because the chat can continue.
 - If a commit is recommended, a Codex handoff must be provided or explicitly deferred with reason.
 - No child run mutates Ledger.

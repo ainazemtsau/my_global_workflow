@@ -2,7 +2,7 @@
 artifact_control:
   namespace: workflow
   artifact_type: human_facing_run_closure_policy
-  status: project_instruction_budget_hardened
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
 ---
 
@@ -36,7 +36,9 @@ The response must provide a fully self-contained Codex Commit Handoff Card.
 
 The user should be able to copy one block into Codex without adding repository, worktree, branch, mode, path boundaries, commit behavior, push behavior, or no-main-merge instructions.
 
-After Codex returns, same-parent continuation is the default. The user should bring the Codex result back to the parent chat unless a next-chat criterion below is met.
+After Codex returns, the Codex result returns to the same chat only for verification and closure of the current material run.
+
+The same chat must not begin the next material Obligation after commit verification by default.
 
 When changed files affect ChatGPT Projects, the handoff must separate Project Instructions UI updates from Project Files/Sources refreshes.
 
@@ -48,9 +50,20 @@ A new ChatGPT operator run is needed.
 
 The response must provide an exact copy-paste prompt for the new chat.
 
-`NEXT_CHAT_NEEDED` is exceptional, not default.
+`NEXT_CHAT_NEEDED` is the default terminal outcome when the next material target is a newly opened Obligation after current run closure.
 
-Use it only when context loss, explicit human request, unsafe scope change, model/tool limits, or a required split makes same-parent continuation unsafe or invalid.
+Mandatory `NEXT_CHAT_NEEDED` triggers:
+
+- next material target differs from the current chat episode target
+- newly opened target is LegacyImport
+- research, evidence extraction, or import
+- execution readiness
+- CodexExecution or ProductExecution
+- roadmap, Horizon, Active Frontier, or implementation work
+- user raises a chat-boundary or governance question
+- context is long/noisy or the assistant missed a direct user question
+
+The same chat remains allowed for non-material explanation, verifying the Codex result for the current handoff, failed validation repair for the same handoff, and producing a recovery or next-chat prompt.
 
 ### COMPLETE_NO_COMMIT
 
@@ -93,23 +106,25 @@ Every material response should use this order:
 - Do not burden the user with YAML unless it is needed for Receipt, Codex handoff, or exact transport.
 - Receipt Cards are required for candidate or commit-worthy state, but ordinary clarifications can be plain language.
 - If a Receipt needs persistence, the operator chat must output a complete and self-contained Codex Commit Handoff Card.
-- Do not ask the user to open a new chat unless next-chat criteria are met.
+- Do not ask the user to open a new chat for non-material closure or same-handoff repair, but require it when next-chat criteria are met.
 - If next ChatGPT run is needed, output a human-readable copy-paste prompt, not only an Obligation ID.
 - Obligation IDs may be shown, but must not be the only instruction.
 - User-facing text should avoid workflow jargon unless needed.
 - Internal IDs belong in technical appendix.
 
-## Same Parent Chat Default
+## Single Material Run Chat Boundary
 
-One bounded user problem should stay in one parent chat until terminal outcome when safe.
+One chat handles one material Operator run plus Codex verification/closure.
 
-A parent chat may continue across multiple turns, Codex handoffs, Codex results, and child results while solving the same bounded problem.
+Ordinary Direction chats default to one minimal bounded episode. Atomicity governs both the target Obligation and the chat episode boundary.
 
-Sequential internal steps are allowed only when they remain necessary to close the same bounded problem and each active target Obligation is declared.
+A Direction, product, game, long-term goal, Horizon, roadmap, or implementation stream is not itself a bounded chat problem.
 
-The parent chat must not switch to unrelated work merely because it can continue.
+`CODEX_COMMIT_NEEDED` is a repository persistence step. The user returns the Codex result to the same chat only to verify the commit result, repair failed validation for the same handoff, and close the current material run.
 
-`CODEX_COMMIT_NEEDED` is a repository persistence step, not a command to abandon the parent chat. The user returns the Codex result to the parent chat for synthesis, closure, or the next declared target Obligation in the same bounded problem.
+After commit verification, the next material target must be launched in a new chat by default with `NEXT_CHAT_NEEDED` and an exact copy-paste prompt.
+
+The same chat may still answer non-material questions, verify failed commits, repair the current handoff, or provide recovery / next-chat prompts.
 
 ## Codex Handoff Rule
 
@@ -182,6 +197,6 @@ When terminal outcome is `NEXT_CHAT_NEEDED`, the response must include a plain-l
 
 The prompt may include Obligation IDs, but must also describe the work in normal language.
 
-The response must state why same-parent continuation is unsafe or invalid.
+The response must state why the new chat is required. When the next target is newly opened after current run closure, the reason is Single Material Run Chat Boundary.
 
 END_OF_FILE: workflow/policies/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md

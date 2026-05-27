@@ -5,10 +5,10 @@ artifact_control:
   pack_name: TRANSPORT_CORE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: project_instruction_budget_residual_sweep
+  status: single_material_run_chat_boundary_hardened
   owner: workflow_os
-  generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
-  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+  generated_from_ref: wg/single-material-run-chat-boundary-2026-05-27
+  refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -53,11 +53,11 @@ Human-readable result and terminal outcome should come first. Cards should follo
 
 Launch Card serializes one Operator invocation over one Obligation.
 
-Receipt Card records a receipt-backed result, including claims, evidence, assumptions, context authority audit, scope audit, parent chat continuity, residual Obligations, invariant checks, verification policy result, and commit recommendation.
+Receipt Card records a receipt-backed result, including claims, evidence, assumptions, context authority audit, scope audit, chat episode continuity, residual Obligations, invariant checks, verification policy result, and commit recommendation.
 
 Receipt `scope_audit` names the target Obligation, in-scope input used, necessary dependencies, parked residual context, proposed residual Obligations, blocked/forbidden work, explicit decisions, candidate examples, child handoff need/reason, hidden acceptance check, and `one_obligation_scope`.
 
-Receipt `parent_chat_continuity` records whether same-parent continuation is safe and why any `NEXT_CHAT_NEEDED` exception exists.
+Receipt `parent_chat_continuity` records the chat episode target, material run count, whether a Codex result is verification-only, and whether the next material target requires a new chat and prompt.
 
 Context Request Card asks for the smallest blocking context needed to continue safely.
 
@@ -84,7 +84,7 @@ Project refresh requirements must distinguish:
 
 When Project Instructions sources change, Codex handoff return fields must include `project_instruction_ui_payload_char_counts`.
 
-Child Obligation Request Card, Child Result Return Card, and Parent Recovery Block support recursive child handoff. Child chats are launched only when needed for the current target Obligation, return results to the parent, and do not mutate parent Ledger state or make parent-level final decisions.
+Child Obligation Request Card, Child Result Return Card, and Parent Recovery Block support recursive child handoff. Child chats are launched only when needed for the current target Obligation, return results to the parent, and do not mutate parent Ledger state or make parent-level final decisions. Child chats do not replace the next-chat boundary after a completed material run.
 
 ## Exact Schema Fallback
 
