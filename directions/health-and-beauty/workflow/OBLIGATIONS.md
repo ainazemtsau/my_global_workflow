@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: m4_initialized_skeleton
+  status: root_objective_and_constraints_accepted_objective_delta_pending
   owner: proof_carrying_workflow_os
 ---
 
@@ -16,7 +16,9 @@ obligations:
   - obligation_id: O-HB-ROOT-OBJECTIVE-CONFIRM
     type: human_decision / clarify_objective
     statement: Confirm or redefine the root objective for this Direction under the Workflow OS.
-    status: open
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
     required_operator: AskHumanDecision or ClarifyObjective
     acceptance_conditions:
       - root objective statement accepted
@@ -33,16 +35,30 @@ obligations:
   - obligation_id: O-HB-SUCCESS-SEMANTICS-DEFINE
     type: clarify
     statement: Define what success means for this Direction before strategy or execution.
-    status: blocked
-    blocked_by:
-      - O-HB-ROOT-OBJECTIVE-CONFIRM
+    status: open
+    unblocked_by:
+      - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
 
   - obligation_id: O-HB-CONSTRAINTS-DEFINE
     type: clarify
     statement: Define hard constraints for this Direction such as capacity, time, budget, acceptable risk, domain boundaries, and execution boundaries.
-    status: blocked
-    blocked_by:
-      - O-HB-ROOT-OBJECTIVE-CONFIRM
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-CONSTRAINTS-DEFINE-2026-05-26
+    unblocked_by:
+      - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
+
+  - obligation_id: O-HB-ROOT-OBJECTIVE-AMEND-TO-35KG
+    type: clarify_objective_amendment
+    statement: Confirm whether accepted root objective should change from -25 kg to -35 kg / target about 90 kg based on current user input.
+    status: open
+    unblocked_by:
+      - R-HB-CONSTRAINTS-DEFINE-2026-05-26
+    required_operator: ClarifyObjective / AskHumanDecision
+    acceptance_conditions:
+      - explicit confirmation or rejection of -35 kg target
+      - if accepted, root objective amendment receipt created
+      - if rejected, target delta handled as candidate context only
 
   - obligation_id: O-HB-LEGACY-INVENTORY-OPTIONAL
     type: legacy_import
@@ -58,9 +74,8 @@ obligations:
     statement: Create Strategic Path Map projection only after accepted strategic Receipts exist.
     status: blocked
     blocked_by:
-      - O-HB-ROOT-OBJECTIVE-CONFIRM
       - O-HB-SUCCESS-SEMANTICS-DEFINE
-      - O-HB-CONSTRAINTS-DEFINE
+      - O-HB-ROOT-OBJECTIVE-AMEND-TO-35KG
 ```
 
 No execution Obligations are currently admitted.

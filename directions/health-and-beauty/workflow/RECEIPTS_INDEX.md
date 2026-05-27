@@ -3,14 +3,16 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: receipts_index
-  status: m4_initialized_skeleton
+  status: root_objective_and_constraints_accepted_objective_delta_pending
   owner: proof_carrying_workflow_os
 ---
 
 # Health and Beauty Receipts Index
 
 ```yaml
-accepted_receipts: []
+accepted_receipts:
+  - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
+  - R-HB-CONSTRAINTS-DEFINE-2026-05-26
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -19,6 +21,6 @@ rules:
   - receipt is candidate until Verify + Commit
 ```
 
-No receipts are invented by this skeleton.
+Accepted receipts are listed only after Verify + Commit.
 
 END_OF_FILE: directions/health-and-beauty/workflow/RECEIPTS_INDEX.md
