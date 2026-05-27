@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: root_objective_amended_and_constraints_accepted_success_semantics_pending
+  status: root_objective_constraints_and_success_semantics_accepted_strategy_projection_pending
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: root objective amended, constraints accepted, success semantics pending
+Proof state: root objective, constraints, and success semantics accepted; strategic projection pending
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -20,10 +20,15 @@ Accepted receipts:
 - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
 - R-HB-CONSTRAINTS-DEFINE-2026-05-26
 - R-HB-ROOT-OBJECTIVE-AMEND-TO-35KG-2026-05-27
+- R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 
 Constraints:
 
 - accepted by R-HB-CONSTRAINTS-DEFINE-2026-05-26
+
+Success semantics:
+
+- accepted by R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 
 Objective delta:
 
@@ -31,15 +36,10 @@ Objective delta:
 
 Open critical Obligations:
 
-- O-HB-SUCCESS-SEMANTICS-DEFINE
+- O-HB-STRATEGIC-MAP-PROJECTION-CREATE
 
-Blocked Obligations:
+Blocked / forbidden now:
 
-- O-HB-STRATEGIC-MAP-PROJECTION-CREATE until success semantics are accepted
-
-Forbidden now:
-
-- Strategic Path Map confident claims
 - Horizon selection
 - Active Frontier selection
 - roadmap
@@ -50,8 +50,8 @@ Forbidden now:
 
 Next valid run:
 
-- O-HB-SUCCESS-SEMANTICS-DEFINE via ClarifySuccessSemantics
+- O-HB-STRATEGIC-MAP-PROJECTION-CREATE via Projection
 
-Projection warning: Dashboard is projection, not truth; Ledger wins.
+Projection warning: Dashboard is projection, not truth; Ledger wins. Strategic Map must be projection only until future Receipts admit further Obligations.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md

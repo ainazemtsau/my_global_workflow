@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: root_objective_amended_and_constraints_accepted_success_semantics_pending
+  status: root_objective_constraints_and_success_semantics_accepted_strategy_projection_pending
   owner: proof_carrying_workflow_os
 ---
 
@@ -35,7 +35,9 @@ obligations:
   - obligation_id: O-HB-SUCCESS-SEMANTICS-DEFINE
     type: clarify
     statement: Define what success means for this Direction before strategy or execution.
-    status: open
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
     unblocked_by:
       - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
 
@@ -73,10 +75,10 @@ obligations:
 
   - obligation_id: O-HB-STRATEGIC-MAP-PROJECTION-CREATE
     type: projection
-    statement: Create Strategic Path Map projection only after accepted strategic Receipts exist.
-    status: blocked
-    blocked_by:
-      - O-HB-SUCCESS-SEMANTICS-DEFINE
+    statement: Create Strategic Path Map projection from accepted root objective, constraints, and success semantics. Projection only; no Horizon, Active Frontier, roadmap, execution, diet plan, training plan, or tracking implementation may be accepted in this obligation unless separately admitted.
+    status: open
+    unblocked_by:
+      - R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 ```
 
 No execution Obligations are currently admitted.
