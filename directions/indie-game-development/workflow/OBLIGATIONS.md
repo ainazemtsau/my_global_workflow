@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: post_inventory_orientation_frame_obligation_admitted
+  status: post_inventory_orientation_frame_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -22,51 +22,6 @@ No CodexExecution operator may run.
 No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
-
-### O-IDG-POST-INVENTORY-ORIENTATION-FRAME
-
-```yaml
-obligation_id: O-IDG-POST-INVENTORY-ORIENTATION-FRAME
-type: orientation / projection_boundary
-statement: >
-  Create a bounded post-inventory orientation frame from accepted receipts and the
-  accepted bounded legacy concept evidence inventory only. Classify accepted facts,
-  legacy-evidence-only facts, candidate context, unresolved decisions, evidence gaps,
-  and safe next route classes without selecting strategy, Horizon, Active Frontier,
-  roadmap, engine, networking stack, Steam launch strategy, product execution, or
-  CodexExecution.
-status: open_next
-priority: next
-required_operator:
-  - Projection
-  - ClarifyObjective
-acceptance_conditions:
-  - Receipt created and committed.
-  - Uses only accepted Ledger state, committed Receipts, and bounded inventory evidence.
-  - Classifies context authority explicitly.
-  - Produces no strategy commitment.
-  - Produces no Horizon selection.
-  - Produces no Active Frontier selection.
-  - Produces no roadmap.
-  - Produces no product/Codex execution readiness.
-  - Produces no engine commitment.
-  - Produces no networking stack commitment.
-  - Produces no Steam launch strategy.
-  - Produces no old-code transfer.
-  - Any future obligations are proposed as candidates only unless separately admitted.
-blocked_or_forbidden:
-  - strategy selection
-  - roadmap creation
-  - Horizon selection
-  - Active Frontier selection
-  - product execution
-  - CodexExecution
-  - Steam launch strategy
-  - engine commitment
-  - networking stack commitment
-  - old-code transfer
-  - full legacy state import
-```
 
 ### O-IDG-LEGACY-INVENTORY-OPTIONAL
 
@@ -87,6 +42,39 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 ```
 
 ## Satisfied Obligations
+
+### O-IDG-POST-INVENTORY-ORIENTATION-FRAME
+
+```yaml
+obligation_id: O-IDG-POST-INVENTORY-ORIENTATION-FRAME
+type: orientation / projection_boundary
+statement: >
+  Create a bounded post-inventory orientation frame from accepted receipts and the
+  accepted bounded legacy concept evidence inventory only. Classify accepted facts,
+  legacy-evidence-only facts, candidate context, unresolved decisions, evidence gaps,
+  and safe next route classes without selecting strategy, Horizon, Active Frontier,
+  roadmap, engine, networking stack, Steam launch strategy, product execution, or
+  CodexExecution.
+status: satisfied
+priority: next
+satisfied_by: R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
+accepted_result:
+  accepted_state_kind: bounded_post_inventory_orientation_frame
+  no_strategy: true
+  no_roadmap: true
+  no_horizon: true
+  no_active_frontier: true
+  no_product_execution: true
+  no_codex_execution: true
+  no_steam_launch_strategy: true
+  no_engine_commitment: true
+  no_networking_stack_commitment: true
+  no_old_code_transfer: true
+  no_next_obligation_admitted: true
+required_operator:
+  - Projection
+  - ClarifyObjective
+```
 
 ### O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
 

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: post_inventory_orientation_frame_obligation_admitted
+  status: post_inventory_orientation_frame_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,7 +13,7 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: post_inventory_orientation_frame_obligation_admitted
+proof_state: post_inventory_orientation_frame_committed
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
@@ -22,6 +22,7 @@ accepted_receipts:
   - R-IDG-STRATEGIC-ROUTE-DECIDE-001
   - R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
   - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
+  - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
   - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
@@ -30,11 +31,14 @@ accepted_claims:
   - Strategic route decision accepted: next route is bounded legacy concept evidence inventory before concept-specific strategy decisions.
   - Legacy concept evidence inventory accepted as bounded evidence only: concept premise, gameplay core, gas simulation role, player fantasy candidate, genre/frame candidate, commercial hooks candidate, technical gameplay pillars, and explicit unknowns were inventoried. This creates no accepted strategy, Horizon, Active Frontier, roadmap, execution, monetization model, Steam launch strategy, engine commitment, networking stack decision, old-code transfer, or old Direction state authority.
   - Human decision accepted to admit O-IDG-POST-INVENTORY-ORIENTATION-FRAME as the next bounded obligation after accepted legacy concept evidence inventory. This creates no accepted strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine commitment, networking stack commitment, old-code transfer, or full legacy state import.
+  - Bounded post-inventory orientation frame accepted: accepted state, legacy-evidence-only facts, candidate context, unresolved decisions, evidence gaps, and proposed safe route classes are classified from accepted Receipts and bounded legacy evidence only.
+  - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001 creates no strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine/networking commitment, old-code transfer, or full legacy import.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
 projections_state: strategic_map_projection_created_no_strategy_commitment
 legacy_import_state: bounded_concept_evidence_inventory_committed
 legacy_state_authority: false
+orientation_frame_state: bounded_post_inventory_orientation_frame_committed
 ```
 
 ## Accepted Root Objective
@@ -113,6 +117,7 @@ Direction proof files are storage and projection surfaces. They are not addition
 - R-IDG-STRATEGIC-ROUTE-DECIDE-001
 - R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
 - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
+- R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
 
 ## Accepted Projection Artifacts
 
@@ -142,8 +147,12 @@ Old archive/project_files remain legacy evidence only.
 
 Only bounded concept evidence inventory is accepted; old Direction state authority remains false.
 
-O-IDG-POST-INVENTORY-ORIENTATION-FRAME is now the single admitted next bounded obligation. It may produce an orientation frame only; it must not select strategy, Horizon, Active Frontier, roadmap, or execution.
+O-IDG-POST-INVENTORY-ORIENTATION-FRAME is satisfied by `R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001`.
 
-No next strategy state, roadmap, Horizon, Active Frontier, execution package, Codex work package, product execution, monetization model, Steam launch strategy, engine commitment, networking stack decision, old-code transfer, or accepted Strategic Path Map commitment is created or admitted by this receipt.
+No next obligation is admitted.
+
+Future obligations are candidate/proposed only until separately admitted by Receipt -> Verify -> Commit.
+
+No next strategy state, roadmap, Horizon, Active Frontier, execution package, Codex work package, product execution, monetization model, Steam launch strategy, engine commitment, networking stack decision, old-code transfer, full legacy import, or accepted Strategic Path Map commitment is created or admitted by this receipt.
 
 END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md

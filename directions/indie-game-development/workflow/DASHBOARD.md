@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: post_inventory_orientation_frame_obligation_admitted
+  status: post_inventory_orientation_frame_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, and an admitted post-inventory orientation frame obligation. It does not create strategy commitment.
+This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, and a completed bounded post-inventory orientation frame. It does not create strategy commitment.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: post_inventory_orientation_frame_obligation_admitted
+proof_state: post_inventory_orientation_frame_committed
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -32,13 +32,19 @@ accepted_receipts:
   - R-IDG-STRATEGIC-ROUTE-DECIDE-001
   - R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
   - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
+  - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 route_decision:
   selected_route: A_LEGACY_CONCEPT_EVIDENCE_FIRST
   satisfied_obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
   legacy_facts_imported: bounded_concept_evidence_inventory_only
-admitted_next_obligation: O-IDG-POST-INVENTORY-ORIENTATION-FRAME
+orientation_frame:
+  satisfied_obligation: O-IDG-POST-INVENTORY-ORIENTATION-FRAME
+  satisfied_by: R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
+  result_kind: bounded_post_inventory_orientation_frame
+open_next_obligations: []
+next_valid_runs_admitted_by_this_receipt: []
 legacy_import_state: bounded_concept_evidence_inventory_committed
 legacy_state_authority: false
 strategy_admitted: false
@@ -85,7 +91,8 @@ Full success requires technical-pride success, game-completion success, commerci
 - Steam launch strategy is not accepted.
 - Unity plugin ownership is candidate context, not engine commitment.
 - Bounded legacy concept evidence inventory is completed; old Direction state authority remains false.
-- O-IDG-POST-INVENTORY-ORIENTATION-FRAME is admitted as the single open next obligation; the orientation frame has not been run.
+- O-IDG-POST-INVENTORY-ORIENTATION-FRAME is satisfied by `R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001`.
+- No next obligation is admitted by the orientation frame receipt.
 
 ## Projection Artifact Summary
 
@@ -101,6 +108,7 @@ Full success requires technical-pride success, game-completion success, commerci
 
 ## Satisfied Obligations
 
+- O-IDG-POST-INVENTORY-ORIENTATION-FRAME satisfied by `R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001`.
 - O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY satisfied by `R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001`.
 - O-IDG-STRATEGIC-ROUTE-DECIDE satisfied by `R-IDG-STRATEGIC-ROUTE-DECIDE-001`.
 - O-IDG-STRATEGIC-MAP-PROJECTION-CREATE satisfied by `R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001`.
@@ -111,7 +119,7 @@ None.
 
 ## Open Next Obligations
 
-- O-IDG-POST-INVENTORY-ORIENTATION-FRAME
+None.
 
 ## Optional Available Obligation
 
@@ -135,9 +143,20 @@ None.
 - networking stack commitment
 - old-code transfer
 
+## Candidate Safe Route Classes
+
+All route classes below are candidate/proposed only and are not admitted obligations.
+
+- Concept Identity Clarification
+- Technical Gameplay Evidence Gap Audit
+- Commercial Hook Evidence Gap Audit
+- Legacy Code/Test Value Audit
+- Strategy Admission Decision
+- Horizon Projection Eligibility Audit
+
 ## Next Valid Runs
 
-- Run O-IDG-POST-INVENTORY-ORIENTATION-FRAME only.
+None admitted by this receipt.
 
 ## Projection Availability
 
@@ -145,8 +164,8 @@ Constraints run: satisfied by `R-IDG-CONSTRAINTS-DEFINE-001`.
 
 Strategic Path Map projection: created as `IDG-STRATEGIC-PATH-MAP-PROJECTION-001`; no accepted strategy commitment is created.
 
-Horizon projection: unavailable until committed orientation state exists.
+Horizon projection: candidate/eligibility-dependent only; not selected and not admitted.
 
-Active Frontier view: unavailable until projection eligibility can be computed from accepted Receipts.
+Active Frontier view: candidate/eligibility-dependent only; not selected and not admitted.
 
 END_OF_FILE: directions/indie-game-development/workflow/DASHBOARD.md
