@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_minimal_daily_ops_core_defined_downstream_not_started
+  status: h1_program_blueprint_route_defined_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -127,8 +127,26 @@ obligations:
       - downstream implementation remains not_started
       - no Active Frontier, roadmap, diet plan, meal plan, calorie prescription, macro prescription, training plan, 12-week plan, annual plan, tracking implementation, ChatGPT Project setup, Health Operating Project implementation, Codex/product execution, or legacy import created
 
-proposed_residual_obligations:
   - obligation_id: O-HB-H1-PROGRAM-BLUEPRINT-DEFINE
+    type: clarify_or_design
+    statement: Define the first Program Blueprint Authority Route after accepted Minimal Daily Ops Core, without creating actual diet plan, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, accepted 12-week plan, annual plan, Active Frontier, roadmap, Daily Ops implementation, ChatGPT Project setup, tracking implementation, Codex/product execution, or legacy import.
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
+    admitted_by: current human input after Minimal Daily Ops Core acceptance
+    required_operator: ClarifyDesign / AskHumanDecision
+    unblocked_by:
+      - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
+    acceptance_conditions:
+      - Program Blueprint authority route selected
+      - route options compared
+      - selected route separates blueprint authority from actual nutrition/training plans
+      - tools/apps/templates are not authority
+      - downstream implementation remains not_started
+      - no forbidden plan or implementation surfaces created
+
+proposed_residual_obligations:
+  - obligation_id: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
     status: proposed_only_not_admitted

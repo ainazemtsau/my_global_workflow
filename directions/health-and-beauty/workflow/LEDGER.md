@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: h1_minimal_daily_ops_core_defined_downstream_not_started
+  status: h1_program_blueprint_route_defined_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: h1_minimal_daily_ops_core_defined_downstream_not_started
+proof_state: h1_program_blueprint_route_defined_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -20,6 +20,7 @@ accepted_receipts:
   - R-HB-STRATEGIC-MAP-PROJECTION-CREATE-2026-05-27
   - R-HB-HORIZON-SELECT-2026-05-27
   - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
+  - R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -47,6 +48,10 @@ accepted_claims:
   - C-HB-H1-HEVY-TOOL-NOT-PROGRAM-AUTHORITY-2026-05-27
   - C-HB-H1-PLAN-AUTHORITY-CONTRACT-REQUIRED-2026-05-27
   - C-HB-H1-OPTIONAL-INFRASTRUCTURE-NOT-HARD-REQUIREMENT-2026-05-27
+  - C-HB-H1-PROGRAM-BLUEPRINT-ROUTE-DEFINED-2026-05-27
+  - C-HB-H1-HYBRID-BASELINE-INFORMED-STARTER-BLUEPRINT-SELECTED-2026-05-27
+  - C-HB-H1-PROGRAM-BLUEPRINT-AUTHORITY-WORKFLOW-RECEIPT-NOT-TOOL-2026-05-27
+  - C-HB-H1-EXTERNAL-EXPERT-OPTIONAL-REVIEW-NOT-HARD-REQUIREMENT-2026-05-27
   - C-HB-H1-DOWNSTREAM-IMPLEMENTATION-STILL-NOT-STARTED-2026-05-27
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
@@ -79,6 +84,14 @@ h1_minimal_daily_ops_core:
   hevy_authority_boundary: candidate_tool_surface_not_program_authority
   optional_infrastructure_boundary: HomeLab_and_Mealie_Miali_Recipes_not_hard_requirements
   future_extensions_state: candidate_projection_only
+program_blueprint_route:
+  defined_by: R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
+  route_id: HYBRID_BASELINE_INFORMED_RESEARCHED_STARTER_BLUEPRINT
+  authority: future_workflow_receipt_only
+  tools_are_authority: false
+  external_expert_required: false
+  external_expert_role: optional_review_or_escalation
+  downstream_implementation_state: not_started
 downstream_implementation_state: not_started
 legacy_import_state: not_performed
 legacy_state_authority: false

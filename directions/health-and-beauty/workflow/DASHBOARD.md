@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_minimal_daily_ops_core_defined_downstream_not_started
+  status: h1_program_blueprint_route_defined_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: H1 Minimal Daily Ops Core defined; downstream work not started
+Proof state: Program Blueprint Route defined; downstream work not started
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -24,6 +24,7 @@ Accepted receipts:
 - R-HB-STRATEGIC-MAP-PROJECTION-CREATE-2026-05-27
 - R-HB-HORIZON-SELECT-2026-05-27
 - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
+- R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
 
 Constraints:
 
@@ -61,6 +62,15 @@ Daily Ops Core:
 - Context Pollution Control
 - Review / Escalation Gate
 
+Program Blueprint Route:
+
+- route_id: HYBRID_BASELINE_INFORMED_RESEARCHED_STARTER_BLUEPRINT
+- authority: future Workflow-approved Program Blueprint receipt
+- tools/apps/templates: input/evidence/tool surfaces only, not authority
+- external trainer/dietitian: optional review/escalation, not hard requirement
+- baseline: useful input, not hard blocker for route selection
+- downstream implementation: not_started
+
 Tool boundary:
 
 - Hevy / H-E-V-Y is candidate tool surface for workout logging/social/training records, not accepted program authority.
@@ -72,7 +82,7 @@ Open critical Obligations:
 
 Proposed next bounded runs, not admitted:
 
-- O-HB-H1-PROGRAM-BLUEPRINT-DEFINE
+- O-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE
 - O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
 - O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
 - O-HB-BASELINE-MEASUREMENTS-COLLECT
@@ -90,8 +100,8 @@ Forbidden now:
 
 Next valid run:
 
-- none admitted by this commit
+- none admitted by this commit unless future bounded run is created by later human input
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon and Minimal Daily Ops Core operating shell are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, or tracking implementation.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, and Program Blueprint Route are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, annual plan, or tracking implementation.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md
