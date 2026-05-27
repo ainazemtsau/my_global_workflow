@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: root_objective_and_constraints_accepted_objective_delta_pending
+  status: root_objective_amended_and_constraints_accepted_success_semantics_pending
   owner: proof_carrying_workflow_os
 ---
 
@@ -51,7 +51,9 @@ obligations:
   - obligation_id: O-HB-ROOT-OBJECTIVE-AMEND-TO-35KG
     type: clarify_objective_amendment
     statement: Confirm whether accepted root objective should change from -25 kg to -35 kg / target about 90 kg based on current user input.
-    status: open
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-ROOT-OBJECTIVE-AMEND-TO-35KG-2026-05-27
     unblocked_by:
       - R-HB-CONSTRAINTS-DEFINE-2026-05-26
     required_operator: ClarifyObjective / AskHumanDecision
@@ -75,7 +77,6 @@ obligations:
     status: blocked
     blocked_by:
       - O-HB-SUCCESS-SEMANTICS-DEFINE
-      - O-HB-ROOT-OBJECTIVE-AMEND-TO-35KG
 ```
 
 No execution Obligations are currently admitted.
