@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: root_objective_accepted
+  status: constraints_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects root objective accepted state and does not create new accepted claims.
+This dashboard reflects constraints accepted state and does not create new accepted claims.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: root objective accepted
+proof_state: constraints accepted
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -27,6 +27,7 @@ accepted_root_objective: >
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
+  - R-IDG-CONSTRAINTS-DEFINE-001
 legacy_import_state: not_performed
 ```
 
@@ -45,9 +46,30 @@ Create and finish an indie game within the already selected concept, with two eq
 
 Full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
 
+## Accepted Constraints
+
+- Solo developer by default, with AI/Codex/workflow assistance allowed; no human team assumed by default.
+- Weekly time capacity is 50-80 hours/week.
+- Budget is low-spend by default: current liquidity approximately $200, about $100/month ChatGPT spend, normal envelope around $1000, and extended ceiling up to $3000 only for clearly worthwhile/high-leverage expenses.
+- The project should generate some money/income/revenue flow within 9 months from acceptance of `R-IDG-CONSTRAINTS-DEFINE-001`.
+- High risk tolerance is accepted, but no technology for technology's sake.
+- Gameplay depth outranks technical complexity by itself; systems such as gas simulation must create interesting gameplay depth rather than pursue physical accuracy for its own sake.
+- Steam-only / PC-via-Steam is accepted as the platform/distribution boundary.
+- Marketing/business execution is allowed, but the workflow must provide a clear process/playbook for actions, publishing locations, timing, and result evaluation.
+
+## Boundary Notes
+
+- Steam-only target is accepted.
+- Steam launch strategy is not accepted.
+- Unity plugin ownership is candidate context, not engine commitment.
+
 ## Open Critical Obligations
 
-- O-IDG-CONSTRAINTS-DEFINE
+None.
+
+## Open Next Obligations
+
+- O-IDG-STRATEGIC-MAP-PROJECTION-CREATE (projection-only next run)
 
 ## Optional Available Obligation
 
@@ -55,30 +77,30 @@ Full success requires technical-pride success, game-completion success, commerci
 
 ## Blocked Obligations
 
-- O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
+None.
 
 ## Forbidden Now
 
-- Strategic Path Map confident claims
 - Horizon selection
 - Active Frontier selection
 - Roadmap
 - Codex/product execution
 - Steam/game/product implementation
+- strategy claims beyond accepted receipts
 
 ## Next Valid Runs
 
-- ClarifyObjective over `O-IDG-CONSTRAINTS-DEFINE`
+- Projection-only run over `O-IDG-STRATEGIC-MAP-PROJECTION-CREATE`
 - optional LegacyImport over `O-IDG-LEGACY-INVENTORY-OPTIONAL` only if explicitly selected
 
 ## Projection Availability
 
-Constraints run: available as the next critical clarification run.
+Constraints run: satisfied by `R-IDG-CONSTRAINTS-DEFINE-001`.
 
-Strategic Path Map projection: blocked until constraints are defined by accepted Receipts.
+Strategic Path Map projection: available as a projection-only next run; no Strategic Path Map file is created by this constraints receipt.
 
 Horizon projection: unavailable until committed orientation state exists.
 
-Active Frontier view: unavailable until constraints and open Obligation eligibility can be computed from accepted Receipts.
+Active Frontier view: unavailable until projection eligibility can be computed from accepted Receipts.
 
 END_OF_FILE: directions/indie-game-development/workflow/DASHBOARD.md

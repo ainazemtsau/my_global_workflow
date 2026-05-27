@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: root_objective_accepted
+  status: constraints_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,7 +12,7 @@ artifact_control:
 ## Receipt State
 
 ```yaml
-root_state: root_objective_accepted
+root_state: constraints_accepted
 accepted_receipts:
   - receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
     path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
@@ -20,6 +20,9 @@ accepted_receipts:
   - receipt_id: R-IDG-SUCCESS-SEMANTICS-DEFINE-001
     path: receipts/R-IDG-SUCCESS-SEMANTICS-DEFINE-001.md
     summary: Accepted success semantics for technical-pride, game-completion, commercial, and personal-pride success.
+  - receipt_id: R-IDG-CONSTRAINTS-DEFINE-001
+    path: receipts/R-IDG-CONSTRAINTS-DEFINE-001.md
+    summary: Accepted hard constraints for solo capacity, 50-80 hours/week, lean budget, 9-month income pressure, high risk bounded by gameplay depth, Steam-only distribution, and workflow-driven marketing execution.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -34,6 +37,10 @@ receipt_storage_path: receipts/
 - receipt_id: R-IDG-SUCCESS-SEMANTICS-DEFINE-001
   path: receipts/R-IDG-SUCCESS-SEMANTICS-DEFINE-001.md
   summary: Accepted success semantics for technical-pride, game-completion, commercial, and personal-pride success.
+
+- receipt_id: R-IDG-CONSTRAINTS-DEFINE-001
+  path: receipts/R-IDG-CONSTRAINTS-DEFINE-001.md
+  summary: Accepted hard constraints for solo capacity, 50-80 hours/week, lean budget, 9-month income pressure, high risk bounded by gameplay depth, Steam-only distribution, and workflow-driven marketing execution.
 
 ## Rules
 

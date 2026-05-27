@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: root_objective_accepted
+  status: constraints_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -23,17 +23,20 @@ No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
 
-### O-IDG-CONSTRAINTS-DEFINE
+### O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
 
 ```yaml
-obligation_id: O-IDG-CONSTRAINTS-DEFINE
-type: clarify
-statement: Define hard constraints for the direction such as solo capacity, time, budget, acceptable risk, preferred product domain, and execution boundaries.
-status: open
+obligation_id: O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
+type: projection
+statement: Run the next projection-only strategy step from accepted proof state; do not create Horizon, Active Frontier, roadmap, or product execution in this constraints commit.
+status: open_next
 priority: critical
-reason: Root objective is accepted, but hard constraints remain unresolved.
-required_operator:
-  - ClarifyObjective
+ready_basis:
+  - O-IDG-CONSTRAINTS-DEFINE satisfied by R-IDG-CONSTRAINTS-DEFINE-001
+boundaries:
+  - projection-only next run
+  - no Strategic Path Map file is created by this commit
+  - no Horizon, Active Frontier, roadmap, or product execution is admitted
 ```
 
 ### O-IDG-LEGACY-INVENTORY-OPTIONAL
@@ -55,6 +58,29 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 ```
 
 ## Satisfied Obligations
+
+### O-IDG-CONSTRAINTS-DEFINE
+
+```yaml
+obligation_id: O-IDG-CONSTRAINTS-DEFINE
+type: clarify
+statement: Define hard constraints for the direction such as solo capacity, time, budget, acceptable risk, preferred product domain, and execution boundaries.
+status: satisfied
+priority: critical
+satisfied_by: R-IDG-CONSTRAINTS-DEFINE-001
+accepted_result:
+  constraints:
+    - solo developer by default, with AI/Codex/workflow assistance allowed and no human team assumed by default
+    - 50-80 hours/week available for the game direction
+    - low-spend default with about $200 current liquidity, about $100/month ChatGPT spend, $1000 normal budget envelope, and up to $3000 justified ceiling
+    - income/revenue flow should exist within 9 months of accepting the constraints receipt, while exact amount, pricing, launch date, and monetization model remain unresolved
+    - high risk tolerance accepted, bounded by no technology for technology's sake
+    - gameplay depth is more important than technical complexity or physical accuracy for its own sake
+    - Steam-only / PC-via-Steam accepted as platform/distribution boundary
+    - marketing/business execution is allowed, but requires a workflow-provided playbook for actions, publishing, timing, and evaluation
+required_operator:
+  - ClarifyObjective
+```
 
 ### O-IDG-SUCCESS-SEMANTICS-DEFINE
 
@@ -96,18 +122,7 @@ required_operator:
 
 ## Blocked Obligations
 
-### O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
-
-```yaml
-obligation_id: O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
-type: projection
-statement: Create Strategic Path Map projection only after accepted strategic Receipts exist.
-status: blocked
-blocked_by:
-  - O-IDG-CONSTRAINTS-DEFINE
-blocked_until:
-  - constraints accepted
-```
+None.
 
 ## Execution Boundary
 

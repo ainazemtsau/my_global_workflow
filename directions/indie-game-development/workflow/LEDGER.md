@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: root_objective_accepted
+  status: constraints_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,16 +13,18 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: root_objective_accepted
+proof_state: constraints_accepted
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
+  - R-IDG-CONSTRAINTS-DEFINE-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
   - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
+  - Constraints accepted: solo/AI-assisted capacity, 50-80 hours/week, lean budget with $1000 normal envelope and $3000 justified ceiling, 9-month income constraint, high risk tolerance bounded by gameplay depth, Steam-only distribution boundary, and workflow-driven marketing execution requirement.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
-projections_state: root_objective_accepted_no_strategy_projection
+projections_state: constraints_accepted_no_strategy_projection
 legacy_import_state: not_performed
 legacy_state_authority: false
 ```
@@ -47,21 +49,31 @@ Full success requires all of the following:
 - commercial success: The game must demonstrate real market value and a credible path to meaningful revenue, while exact revenue targets, channels, pricing, launch route, and timeline remain unresolved.
 - personal-pride success: The user can reasonably be proud of the product because it combines distinctive technical identity, coherent gameplay, and commercial seriousness.
 
+## Accepted Constraints
+
+- Solo developer by default, with AI/Codex/workflow assistance allowed; no human team is assumed by default.
+- Weekly time capacity is 50-80 hours/week for the game direction.
+- Budget is low-spend by default, with current liquidity around $200, about $100/month going to ChatGPT, a normal envelope around $1000, and an extended ceiling up to $3000 only for clearly worthwhile/high-leverage expenses.
+- Within 9 months from acceptance of this constraints receipt, the project should already generate some money/income/revenue flow.
+- High risk tolerance is accepted, but no technology for technology's sake.
+- Gameplay depth is more important than technical complexity by itself; technical systems, including gas simulation, must create interesting gameplay depth rather than pursue physical accuracy as an end in itself.
+- Steam-only / PC-via-Steam is accepted as the current platform/distribution boundary.
+- The user is willing to execute marketing/business tasks as needed, but the workflow must provide a clear process/playbook for what to do, where to publish, when to publish, and how to evaluate results.
+
 ## Unresolved / Not Accepted
 
-- hard technical constraints
-- hard product constraints
-- team/time/budget constraints
-- risk tolerance
-- platform target
-- release ambition
+- exact production/release schedule
+- exact launch date
+- exact revenue target
+- exact profit definition
+- exact monetization model
+- pricing
+- Steam launch strategy
+- Steam tactics
 - engine choice
 - networking stack
 - exact genre
-- monetization
-- timeline
 - visual style
-- launch strategy
 - specific algorithms/data models
 - Codex execution readiness
 - roadmap
@@ -86,11 +98,12 @@ Direction proof files are storage and projection surfaces. They are not addition
 
 - R-IDG-ROOT-OBJECTIVE-DECISION-001
 - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
+- R-IDG-CONSTRAINTS-DEFINE-001
 
 ## Current Work Boundary
 
-The next required run is `O-IDG-CONSTRAINTS-DEFINE`.
+Constraints are accepted by `R-IDG-CONSTRAINTS-DEFINE-001`.
 
-No Strategic Path Map, Horizon, Active Frontier, Roadmap, strategy, constraints, execution package, Codex work package, product execution, monetization, launch strategy, or legacy import is created or admitted by this success-semantics receipt.
+No Strategic Path Map, Horizon, Active Frontier, roadmap, strategy, execution package, Codex work package, product execution, monetization model, Steam launch strategy, or legacy import is created or admitted by this constraints receipt.
 
 END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md
