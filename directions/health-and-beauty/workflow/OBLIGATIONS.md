@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: root_objective_constraints_and_success_semantics_accepted_strategy_projection_pending
+  status: strategic_map_projection_committed_horizon_selection_pending
   owner: proof_carrying_workflow_os
 ---
 
@@ -76,9 +76,29 @@ obligations:
   - obligation_id: O-HB-STRATEGIC-MAP-PROJECTION-CREATE
     type: projection
     statement: Create Strategic Path Map projection from accepted root objective, constraints, and success semantics. Projection only; no Horizon, Active Frontier, roadmap, execution, diet plan, training plan, or tracking implementation may be accepted in this obligation unless separately admitted.
-    status: open
+    status: closed
+    resolution: projection_committed
+    satisfied_by: R-HB-STRATEGIC-MAP-PROJECTION-CREATE-2026-05-27
     unblocked_by:
       - R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
+
+  - obligation_id: O-HB-HORIZON-SELECT
+    type: human_decision
+    statement: Select the first Horizon from the committed Strategic Path Map projection. Selection only; do not create Active Frontier, roadmap, execution, diet plan, training plan, tracking implementation, ChatGPT Project setup, or Health Operating Project implementation in this obligation.
+    status: open
+    unblocked_by:
+      - R-HB-STRATEGIC-MAP-PROJECTION-CREATE-2026-05-27
+    required_operator: AskHumanDecision / ClarifyObjective
+    candidate_options:
+      - H1_HEALTH_OPERATING_PROJECT_BOOTSTRAP
+      - H2_BASELINE_AND_7_DAY_START
+      - H3_NUTRITION_FIRST_STRICT_MENU_SYSTEM
+      - H4_TRAINING_PRESERVATION_FOUNDATION
+    acceptance_conditions:
+      - one Horizon selected by explicit human decision
+      - selected Horizon is recorded by Receipt
+      - non-selected Horizon options remain candidate/projection context
+      - no Active Frontier, roadmap, execution, diet plan, training plan, tracking implementation, ChatGPT Project setup, or Health Operating Project implementation accepted
 ```
 
 No execution Obligations are currently admitted.
