@@ -5,7 +5,7 @@ artifact_control:
   pack_name: GOVERNANCE_MAINTENANCE_PACK
   pack_type: workflow_governance_maintenance_console
   intended_load_mode: default_for_workflow_governance_maintenance_project
-  status: project_instruction_budget_residual_sweep
+  status: workflow_source_of_truth_locator_refresh
   owner: workflow_os
   refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
   do_not_use_as_authority: true
@@ -32,7 +32,11 @@ If this pack conflicts with a verified canonical source file, the canonical sour
 
 ## Source Of Truth
 
-GitHub repository `ainazemtsau/my_global_workflow` is the source of truth while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
+GitHub repository `ainazemtsau/my_global_workflow` is the canonical repository while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
+
+`WORKFLOW_SOURCE_OF_TRUTH.md` is an authority locator and bootstrap sentinel only.
+
+Active Workflow OS authority is governed by verified canonical files under `workflow/**`.
 
 Project Files/Sources are runtime cache and may be stale.
 

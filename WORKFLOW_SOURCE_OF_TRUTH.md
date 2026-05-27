@@ -1,138 +1,65 @@
-﻿# Workflow Source of Truth
+# Workflow Source of Truth
 
 Status: active
 
-Canonical AI workflow source: GitHub repository `ainazemtsau/my_global_workflow`.
+Purpose: repository authority locator and active-workflow bootstrap sentinel.
 
-Active workflow authority: `workflow/**`.
+This file answers only bootstrapping questions:
 
-The current `workflow/` directory is the active Workflow OS namespace, not the old vNext-R workflow directory.
+- which repository is canonical
+- whether the current active workflow namespace is active or legacy
+- where exact authority must be read from when material workflow work depends on it
 
-## Active Semantic Kernel
+This file is not semantic authority, not runtime policy, not accepted Direction state, not a Receipt, not a project pack, and not a replacement for exact canonical files.
 
-The active Workflow OS semantic kernel is limited to:
+Canonical AI workflow repository: `ainazemtsau/my_global_workflow`.
 
-- Ledger
-- Obligation
-- Operator
-- Receipt
-- Invariant
+Active Workflow OS namespace: `workflow/**`.
 
-## Active Runtime Protocols
+If this file conflicts with a verified canonical file under `workflow/**`, the canonical `workflow/**` file wins.
 
-Active runtime protocol and policy sources:
+If exact state matters, inspect the exact repository file from GitHub `main` instead of relying on uploaded ChatGPT Project Files/Sources cache.
 
-- `workflow/core/02_RUNTIME_PROTOCOLS.md`
-- `workflow/policies/03_VERIFY_AND_COMMIT_POLICY.md`
-- `workflow/policies/04_TRANSPORT_PROTOCOL.md`
-- `workflow/policies/10_CONTEXT_AUTHORITY_POLICY.md`
-- `workflow/policies/11_HUMAN_INPUT_NORMALIZATION_POLICY.md`
-- `workflow/policies/12_HUMAN_FACING_RUN_CLOSURE_POLICY.md`
-- `workflow/policies/13_RECURSIVE_CHILD_HANDOFF_POLICY.md`
+## Canonical Authority Boundary
 
-## Active Project Setup
+Workflow OS semantics, runtime protocols, policies, transport schemas, project setup rules, validation rules, execution rules, and storage rules are governed by verified files under `workflow/**`.
 
-Active shared setup sources:
+Direction accepted proof state is governed by verified Direction payload files and committed Ledger/Receipt state under the relevant active Direction payload directory.
 
-- `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
-- `workflow/policies/09_STORAGE_LAYOUT_POLICY.md`
-- `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`
-- `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`
-- `workflow/project_setup/UNIVERSAL_PROJECT_FILES_MANIFEST_TEMPLATE.md`
-- `workflow/project_setup/PROJECT_SETUP_VALIDATION_CHECKLIST.md`
+Workflow Governance uses its active workflow payload under:
 
-Project pack runtime-cache files live under:
+- `directions/workflow-governance/workflow/**`
 
-- `workflow/project_packs/`
+Ordinary Direction Workflow Projects use the active payload directory declared by their setup/manifest files.
 
-Project packs are upload convenience/runtime cache only. Canonical source files listed by each pack remain authority.
+ChatGPT Project Files/Sources, project packs, setup docs, projections, dashboards, copied snippets, and uploaded files are cache/context unless traced to verified repository state and, where required, committed Ledger/Receipt state.
 
-ChatGPT Project setup has two active project types:
+## Project Setup Boundary
 
-- ordinary Direction Workflow Projects
-- Workflow Governance Maintenance Project
+ChatGPT Project setup has separate surfaces:
 
-Ordinary Direction Workflow Projects run the Workflow OS for one Direction.
+- Project Instructions UI
+- Project Files/Sources
+- repository Project Instruction Sources
+- request-only sources
 
-The Workflow Governance Maintenance Project services the Workflow OS repository and does not run the Workflow OS as a Direction runtime by default.
+Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are sources for the Project Instructions UI. They are not default Project Files/Sources.
 
-Per-Direction project setup files live under:
+The Workflow Governance Maintenance Project may upload this file as part of its default maintenance-console context, but this file remains an authority locator, not semantic authority.
 
-- `directions/<direction-id>/project_setup/`
-
-Workflow Governance is the self-hosted governance Direction and uses `directions/workflow-governance/workflow/` for active workflow payload, not the Direction root:
-
-- `directions/workflow-governance/workflow/project_setup/`
-
-Other Direction-specific setup locations are declared by each Direction's `direction.meta.yml`.
-
-Ordinary Direction manifests use the active pack model: three shared packs plus six Direction payload files.
-
-The Workflow Governance Maintenance Project uses a different five-file default upload set declared in:
-
-- `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`
-
-It must not default-load Workflow Governance live Direction payload files or ordinary workflow runtime packs.
-
-Project Instructions are behavior/setup instructions. Direction payload files are live state.
-
-## Active Direction State Model
-
-Accepted Direction proof state is stored under:
-
-- `directions/<direction-id>/LEDGER.md`
-- `directions/<direction-id>/OBLIGATIONS.md`
-- `directions/<direction-id>/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/COMMIT_SCOPES.md`
-- `directions/<direction-id>/DASHBOARD.md`
-- `directions/<direction-id>/MIGRATION_RECEIPT.md`
-- `directions/<direction-id>/receipts/`
-- `directions/<direction-id>/projections/`
-
-Workflow Governance uses the workflow payload layout at:
-
-- `directions/workflow-governance/workflow/LEDGER.md`
-- `directions/workflow-governance/workflow/OBLIGATIONS.md`
-- `directions/workflow-governance/workflow/RECEIPTS_INDEX.md`
-- `directions/workflow-governance/workflow/COMMIT_SCOPES.md`
-- `directions/workflow-governance/workflow/DASHBOARD.md`
-- `directions/workflow-governance/workflow/MIGRATION_RECEIPT.md`
-- `directions/workflow-governance/workflow/receipts/`
-- `directions/workflow-governance/workflow/projections/`
-
-Only verified Receipts committed to the Ledger create accepted state.
-
-Documents and projections do not create truth.
-
-ChatGPT Project Files are runtime cache, not source of truth.
-
-## Legacy vNext-R Preservation
+## Legacy Boundary
 
 The pre-proof vNext-R main snapshot is preserved at:
 
 - legacy branch: `legacy/vnext-r-main-before-proof-os-2026-05-25`
 - legacy tag: `vnext-r-main-before-proof-os-2026-05-25`
 
-Old vNext-R workflow files are available only from the legacy branch/tag if historical evidence is needed. The active `workflow/` namespace in this repository is the current Workflow OS, not that legacy tree.
+Old vNext-R workflow files, old Direction `project_files/00-08`, old Direction Map, Active Goal, Current Phase, Portfolio Queue, old transport, old stage prompts, and `repository_patch.v1` are legacy evidence only unless explicitly imported by the current workflow.
 
-Old `directions/*/project_files/**` files are legacy evidence only unless explicitly imported through Legacy Import Receipt + Verify + Commit.
-
-Old Direction Map, Active Goal, Current Phase, and Portfolio Queue files are not accepted Ledger state.
-
-The old vNext-R runtime, project_files/00-08 model, Direction Map, Phase, Goal, Portfolio Queue, and `repository_patch.v1` are demoted from active default authority.
-
-## Long File And Read Completeness Rule
+## Read Completeness
 
 A truncated, omitted, or tail-unverified repository read is not sufficient authority for material workflow work.
 
 If material work depends on a file whose full content cannot be verified, return a Context Request naming the exact path and blocker.
-
-In the workflow, read-completeness and context-authority behavior is governed by `workflow/**` and future setup docs. Old vNext-R guard files are legacy evidence available from the legacy branch/tag only.
-
-## Admin Documentation
-
-Repository setup docs under `docs/` may explain setup and transition procedure, but they do not override `workflow/**`.
-
-Migration/admin docs remain historical context unless a workflow Obligation explicitly admits them as legacy evidence.
 
 END_OF_FILE: WORKFLOW_SOURCE_OF_TRUTH.md
