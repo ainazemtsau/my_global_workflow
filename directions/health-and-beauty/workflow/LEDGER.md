@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: h1_program_blueprint_route_defined_downstream_not_started
+  status: h1_candidate_first_program_blueprint_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: h1_program_blueprint_route_defined_downstream_not_started
+proof_state: h1_candidate_first_program_blueprint_created_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -21,6 +21,7 @@ accepted_receipts:
   - R-HB-HORIZON-SELECT-2026-05-27
   - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
   - R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
+  - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -53,6 +54,15 @@ accepted_claims:
   - C-HB-H1-PROGRAM-BLUEPRINT-AUTHORITY-WORKFLOW-RECEIPT-NOT-TOOL-2026-05-27
   - C-HB-H1-EXTERNAL-EXPERT-OPTIONAL-REVIEW-NOT-HARD-REQUIREMENT-2026-05-27
   - C-HB-H1-DOWNSTREAM-IMPLEMENTATION-STILL-NOT-STARTED-2026-05-27
+  - C-HB-H1-FIRST-PROGRAM-BLUEPRINT-CANDIDATE-CREATED-2026-05-27
+  - C-HB-H1-FIRST-PROGRAM-BLUEPRINT-BLUEPRINT-LEVEL-ONLY-2026-05-27
+  - C-HB-H1-NUTRITION-PRINCIPLES-SEPARATED-FROM-PRESCRIPTION-2026-05-27
+  - C-HB-H1-TRAINING-PRINCIPLES-SEPARATED-FROM-PRESCRIPTION-2026-05-27
+  - C-HB-H1-BASELINE-INPUTS-AND-REVIEW-GATES-DEFINED-2026-05-27
+  - C-HB-H1-GYM-ACCESS-VIA-BIKE-COMMUTE-AVAILABLE-2026-05-27
+  - C-HB-H1-GYM-BIKE-SURFACE-NOT-TRAINING-PRESCRIPTION-2026-05-27
+  - C-HB-H1-FIRST-PROGRAM-BLUEPRINT-NOT-DAILY-OPS-AUTHORITY-2026-05-27
+  - C-HB-H1-FIRST-PROGRAM-BLUEPRINT-DOWNSTREAM-IMPLEMENTATION-NOT-STARTED-2026-05-27
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 constraints_state: accepted_by_R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -91,6 +101,22 @@ program_blueprint_route:
   tools_are_authority: false
   external_expert_required: false
   external_expert_role: optional_review_or_escalation
+  downstream_implementation_state: not_started
+h1_first_program_blueprint:
+  defined_by: R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
+  blueprint_id: HB-H1-FIRST-PROGRAM-BLUEPRINT-CANDIDATE-2026-05-27
+  blueprint_status: candidate_strategy_artifact
+  daily_ops_authority_status: not_authority
+  future_activation_requires_separate_workflow_receipt: true
+  available_training_surfaces:
+    - home_dumbbells
+    - VR_boxing_or_Beat_Saber
+    - bicycle
+    - gym_access_via_bicycle_commute
+  gym_required: false
+  bike_commute_to_gym_estimate: about_30_minutes_one_way_user_estimate
+  nutrition_prescription_created: false
+  training_prescription_created: false
   downstream_implementation_state: not_started
 downstream_implementation_state: not_started
 legacy_import_state: not_performed

@@ -145,14 +145,39 @@ obligations:
       - downstream implementation remains not_started
       - no forbidden plan or implementation surfaces created
 
-proposed_residual_obligations:
   - obligation_id: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE
+    type: clarify_or_design
+    statement: Create candidate first nutrition/training Program Blueprint structure/content at blueprint level only, separating nutrition principles from actual meal/calorie/macro prescription and training principles from actual training/session prescription, defining baseline inputs and review gates, and recording gym access via bicycle commute as optional future training surface, without creating Daily Ops implementation or any forbidden plan surfaces.
+    status: closed
+    resolution: candidate_blueprint_created
+    satisfied_by: R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
+    admitted_by: current human input after Program Blueprint Authority Route acceptance
+    required_operator: ClarifyDesign / AskHumanDecision
+    unblocked_by:
+      - R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
+    acceptance_conditions:
+      - candidate first Program Blueprint structure/content defined at blueprint level only
+      - nutrition blueprint principles separated from actual meal plan/calorie/macro prescription
+      - training blueprint principles separated from actual training plan/session prescription
+      - gym access via bicycle commute recorded as optional future training surface
+      - baseline inputs needed now vs unknown allowed recorded
+      - review gates recorded
+      - candidate blueprint is not Daily Ops authority
+      - downstream implementation remains not_started
+      - no Active Frontier, roadmap, actual diet plan, meal plan, calorie prescription, macro prescription, actual training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, Daily Ops implementation, ChatGPT Project setup, tracking implementation, Codex/product execution, or legacy import created
+
+proposed_residual_obligations:
+  - obligation_id: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
+    status: proposed_only_not_admitted
+  - obligation_id: O-HB-BASELINE-MEASUREMENTS-COLLECT
+    status: proposed_only_not_admitted
+  - obligation_id: O-HB-H1-NUTRITION-PLAN-CREATE
+    status: proposed_only_not_admitted
+  - obligation_id: O-HB-H1-TRAINING-PLAN-CREATE
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
-    status: proposed_only_not_admitted
-  - obligation_id: O-HB-BASELINE-MEASUREMENTS-COLLECT
     status: proposed_only_not_admitted
 ```
 

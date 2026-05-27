@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: receipts_index
-  status: h1_program_blueprint_route_defined_downstream_not_started
+  status: h1_candidate_first_program_blueprint_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -19,6 +19,7 @@ accepted_receipts:
   - R-HB-HORIZON-SELECT-2026-05-27
   - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
   - R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
+  - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/

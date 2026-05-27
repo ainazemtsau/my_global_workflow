@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_program_blueprint_route_defined_downstream_not_started
+  status: h1_candidate_first_program_blueprint_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: Program Blueprint Route defined; downstream work not started
+Proof state: Candidate first Program Blueprint created; downstream work not started
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -25,6 +25,7 @@ Accepted receipts:
 - R-HB-HORIZON-SELECT-2026-05-27
 - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
 - R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
+- R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
 
 Constraints:
 
@@ -71,6 +72,18 @@ Program Blueprint Route:
 - baseline: useful input, not hard blocker for route selection
 - downstream implementation: not_started
 
+Candidate First Program Blueprint:
+
+- blueprint_id: HB-H1-FIRST-PROGRAM-BLUEPRINT-CANDIDATE-2026-05-27
+- status: candidate strategy artifact; not Daily Ops authority
+- nutrition: principles only; no calories, macros, meals, menu, recipes, or shopping list
+- training: principles only; no exercises, sets, reps, sessions, split, progression, 12-week or annual plan
+- gym: available optional future training surface via bicycle commute
+- bicycle commute: user-estimated about 30 minutes one way; future plan must account for it as possible load/recovery factor
+- baseline: required-now fields accepted; unresolved fields gated for future prescription
+- review_gates: authority, medical safety, nutrition conversion, training conversion, baseline sufficiency, review escalation, implementation
+- downstream implementation: not_started
+
 Tool boundary:
 
 - Hevy / H-E-V-Y is candidate tool surface for workout logging/social/training records, not accepted program authority.
@@ -82,10 +95,12 @@ Open critical Obligations:
 
 Proposed next bounded runs, not admitted:
 
-- O-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE
+- O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
+- O-HB-BASELINE-MEASUREMENTS-COLLECT
+- O-HB-H1-NUTRITION-PLAN-CREATE
+- O-HB-H1-TRAINING-PLAN-CREATE
 - O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
 - O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
-- O-HB-BASELINE-MEASUREMENTS-COLLECT
 
 Forbidden now:
 
@@ -96,12 +111,20 @@ Forbidden now:
 - ChatGPT Project setup
 - Health Operating Project implementation
 - diet/training prescription as accepted plan
+- meal plan
+- calorie/macro prescription
+- training plan
+- gym schedule
+- cycling prescription
+- accepted 12-week plan
+- annual plan
 - tracking implementation
+- legacy import
 
 Next valid run:
 
 - none admitted by this commit unless future bounded run is created by later human input
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, and Program Blueprint Route are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, annual plan, or tracking implementation.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, and candidate first Program Blueprint are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md
