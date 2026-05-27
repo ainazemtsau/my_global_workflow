@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: strategic_route_decision_accepted
+  status: legacy_concept_evidence_inventory_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -22,35 +22,6 @@ No CodexExecution operator may run.
 No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
-
-### O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
-
-```yaml
-obligation_id: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
-type: legacy_import
-statement: >
-  Inspect old Indie Game Development concept/archive material as legacy evidence only,
-  extracting bounded concept facts needed for future strategy: concept premise,
-  gameplay core, gas simulation role, player fantasy, genre/frame, commercial hooks,
-  technical gameplay pillars, and explicit unknowns.
-status: open_next
-priority: critical
-required_operator:
-  - LegacyImport
-boundaries:
-  - evidence inventory only
-  - no old Direction Map as truth
-  - no old Active Goal as current obligation
-  - no old Current Phase as current state
-  - no old Portfolio Queue as backlog
-  - no old roadmap import
-  - no product execution
-  - no CodexExecution
-  - no Horizon selection
-  - no Active Frontier selection
-  - no Steam launch strategy
-  - no engine commitment
-```
 
 ### O-IDG-LEGACY-INVENTORY-OPTIONAL
 
@@ -71,6 +42,46 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 ```
 
 ## Satisfied Obligations
+
+### O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+
+```yaml
+obligation_id: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+type: legacy_import
+statement: >
+  Inspect old Indie Game Development concept/archive material as legacy evidence only,
+  extracting bounded concept facts needed for future strategy: concept premise,
+  gameplay core, gas simulation role, player fantasy, genre/frame, commercial hooks,
+  technical gameplay pillars, and explicit unknowns.
+status: satisfied
+priority: critical
+satisfied_by: R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
+accepted_result:
+  accepted_state_kind: bounded_legacy_evidence_inventory_only
+  legacy_state_authority: false
+  inventoried_fields:
+    - concept premise
+    - gameplay core
+    - gas simulation role
+    - player fantasy candidate
+    - genre/frame candidate
+    - commercial hooks candidate
+    - technical gameplay pillars
+    - explicit unknowns
+  no_strategy: true
+  no_roadmap: true
+  no_horizon: true
+  no_active_frontier: true
+  no_product_execution: true
+  no_codex_execution: true
+  no_steam_launch_strategy: true
+  no_engine_commitment: true
+  no_networking_stack_commitment: true
+  no_old_code_transfer: true
+  no_next_obligation_created: true
+required_operator:
+  - LegacyImport
+```
 
 ### O-IDG-STRATEGIC-ROUTE-DECIDE
 

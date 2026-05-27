@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: strategic_route_decision_accepted
+  status: legacy_concept_evidence_inventory_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,7 +12,7 @@ artifact_control:
 ## Receipt State
 
 ```yaml
-root_state: strategic_route_decision_accepted
+root_state: legacy_concept_evidence_inventory_committed
 accepted_receipts:
   - receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
     path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
@@ -29,6 +29,9 @@ accepted_receipts:
   - receipt_id: R-IDG-STRATEGIC-ROUTE-DECIDE-001
     path: receipts/R-IDG-STRATEGIC-ROUTE-DECIDE-001.md
     summary: Accepted route decision to perform bounded legacy concept evidence inventory next.
+  - receipt_id: R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
+    path: receipts/R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001.md
+    summary: Accepted bounded legacy concept evidence inventory without importing old Direction state, strategy, roadmap, Horizon, Active Frontier, product execution, Steam launch strategy, engine commitment, networking stack decision, or old-code transfer.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -56,6 +59,10 @@ receipt_storage_path: receipts/
   path: receipts/R-IDG-STRATEGIC-ROUTE-DECIDE-001.md
   summary: Accepted route decision to perform bounded legacy concept evidence inventory next.
 
+- receipt_id: R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
+  path: receipts/R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001.md
+  summary: Accepted bounded legacy concept evidence inventory without importing old Direction state, strategy, roadmap, Horizon, Active Frontier, product execution, Steam launch strategy, engine commitment, networking stack decision, or old-code transfer.
+
 ## Rules
 
 No receipt -> no progress.
@@ -64,7 +71,9 @@ Receipt is candidate until Verify + Commit.
 
 Accepted Receipts are Ledger authority only after Commit.
 
-No legacy import Receipts exist yet.
+No full legacy state import Receipt exists.
+
+The only accepted legacy import Receipt is bounded concept evidence inventory.
 
 Accepted strategic decision receipt exists for route selection only. Projection receipt exists but creates no strategy commitment.
 

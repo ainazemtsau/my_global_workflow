@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: strategic_route_decision_accepted
+  status: legacy_concept_evidence_inventory_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,23 +13,25 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: strategic_route_decision_accepted
+proof_state: legacy_concept_evidence_inventory_committed
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
   - R-IDG-CONSTRAINTS-DEFINE-001
   - R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
   - R-IDG-STRATEGIC-ROUTE-DECIDE-001
+  - R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
   - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
   - Constraints accepted: solo/AI-assisted capacity, 50-80 hours/week, lean budget with $1000 normal envelope and $3000 justified ceiling, 9-month income constraint, high risk tolerance bounded by gameplay depth, Steam-only distribution boundary, and workflow-driven marketing execution requirement.
   - Strategic Path Map Projection created as projection-only artifact; it creates no accepted strategy, Horizon, Active Frontier, roadmap, execution, monetization model, Steam launch strategy, or legacy import.
   - Strategic route decision accepted: next route is bounded legacy concept evidence inventory before concept-specific strategy decisions.
+  - Legacy concept evidence inventory accepted as bounded evidence only: concept premise, gameplay core, gas simulation role, player fantasy candidate, genre/frame candidate, commercial hooks candidate, technical gameplay pillars, and explicit unknowns were inventoried. This creates no accepted strategy, Horizon, Active Frontier, roadmap, execution, monetization model, Steam launch strategy, engine commitment, networking stack decision, old-code transfer, or old Direction state authority.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
 projections_state: strategic_map_projection_created_no_strategy_commitment
-legacy_import_state: not_performed
+legacy_import_state: bounded_concept_evidence_inventory_committed
 legacy_state_authority: false
 ```
 
@@ -86,11 +88,13 @@ Full success requires all of the following:
 - accepted Strategic Path Map commitments
 - accepted strategy
 - product execution
-- legacy import
+- full legacy state import
 
 ## Authority Boundary
 
 This Ledger contains no imported old Direction facts.
+
+The only committed legacy import state is the bounded concept evidence inventory accepted by `R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001`.
 
 Old `project_files/00-08` are not accepted proof state.
 
@@ -105,6 +109,7 @@ Direction proof files are storage and projection surfaces. They are not addition
 - R-IDG-CONSTRAINTS-DEFINE-001
 - R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
 - R-IDG-STRATEGIC-ROUTE-DECIDE-001
+- R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
 
 ## Accepted Projection Artifacts
 
@@ -128,12 +133,12 @@ Strategic route decision is accepted by `R-IDG-STRATEGIC-ROUTE-DECIDE-001`.
 
 The route decision selected `A_LEGACY_CONCEPT_EVIDENCE_FIRST`.
 
-Next required run is `O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY`.
+The required inventory run `O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY` is satisfied by `R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001`.
 
 Old archive/project_files remain legacy evidence only.
 
-No legacy facts are imported by the route decision.
+Only bounded concept evidence inventory is accepted; old Direction state authority remains false.
 
-No strategy, roadmap, Horizon, Active Frontier, execution package, Codex work package, product execution, monetization model, Steam launch strategy, legacy import receipt, or accepted Strategic Path Map commitment is created or admitted by this route decision.
+No next strategy state, roadmap, Horizon, Active Frontier, execution package, Codex work package, product execution, monetization model, Steam launch strategy, engine commitment, networking stack decision, old-code transfer, or accepted Strategic Path Map commitment is created or admitted by this receipt.
 
 END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md
