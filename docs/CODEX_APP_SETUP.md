@@ -20,7 +20,7 @@ Old files may be inspected as legacy evidence only when the task explicitly asks
 
 Codex repository maintenance instructions should follow workflow transport rules when provided.
 
-Codex Commit Handoff Cards must be self-contained. A commit handoff must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
+Codex Commit Handoff Cards must be self-contained. A commit handoff must include repository, worktree, branch, mode, `branch_policy`, worktree policy, main update policy, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
 
 Product/project execution is separate from repository maintenance and must not be inferred from a maintenance request.
 
@@ -46,6 +46,15 @@ ainazemtsau/my_global_workflow
 
 Target branch:
 main or named branch
+
+Branch policy:
+review_branch_required or direct_to_main_allowed
+
+Worktree policy:
+use existing Direction worktree; do not switch to local main; do not use global main worktree
+
+Main update policy:
+review branch push, or push HEAD to origin/main after fetch, clean rebase, validation, and SHA verification
 
 Mode:
 repository maintenance
@@ -76,6 +85,9 @@ Codex must:
 - keep edits inside the allowed scope;
 - use GitHub repository markdown files as the storage substrate;
 - preserve the workflow rule: Receipt -> Verify -> Commit -> Ledger update;
+- treat missing or unclear `branch_policy` as `review_branch_required`;
+- allow direct-to-main only for eligible simple single-Direction proof-state commits with exact paths, passing validation, clean rebase onto `origin/main`, post-rebase validation, `git push origin HEAD:main`, and remote SHA verification;
+- for direct-to-main, stay in the existing Direction worktree and do not switch to local `main` or use a global main worktree;
 - return exact changed paths;
 - include validation evidence;
 - report changed files, validation, commit SHA, push result, and separated project refresh requirements when relevant;
@@ -100,6 +112,7 @@ Before commit/push, verify:
 - no unrelated Direction files changed;
 - no old workflow authority was reintroduced;
 - no Direction proof state was invented;
+- `direct_to_main_allowed`, if used, is limited to eligible simple single-Direction proof-state changes and did not bypass validation;
 - validation command or read-back evidence is listed;
 - separated project refresh impact is reported.
 
@@ -115,6 +128,17 @@ codex_app_result:
   validation:
   commit_sha:
   push_result:
+  branch_policy_used:
+  worktree_policy_used:
+  main_update_policy_used:
+  auto_main_update_attempted:
+  rebase_result:
+  push_target:
+  origin_main_sha_after_push:
+  local_head_sha:
+  direct_to_main_eligibility_result:
+  direct_to_main_blockers:
+  whether_user_merge_turn_required:
   project_instruction_ui_update_required:
   project_instruction_ui_payload_char_counts:
   project_sources_files_refresh_required:

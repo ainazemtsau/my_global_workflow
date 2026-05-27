@@ -227,11 +227,16 @@ Repository maintenance handoffs must include:
 - required changes
 - validation checks
 - commit and push instructions when needed
+- branch policy, where missing or unclear means `review_branch_required`
 - requested return fields
 - separated project refresh requirements when ChatGPT Project surfaces change
 - Project Instructions UI payload character counts when instruction sources change
 
 Do not require the user to infer missing repository, branch, validation, allowed-path, forbidden-path, or commit details.
+
+Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits. Workflow core/setup, docs/setup, Project setup, migration, multi-Direction, product/execution work, risky changes, conflicts, uncertain validation, or unverifiable changed paths require `review_branch_required`.
+
+Direct-to-main handoffs must require full validation, clean rebase onto `origin/main`, post-rebase validation, `HEAD` push to `origin/main`, remote SHA verification, no local `main` checkout, no global main worktree, and no second human merge command after success.
 
 ## Codex Result Verification Rules
 

@@ -48,6 +48,8 @@ Project Instructions UI payloads must stay below the 8,000-character hard max, t
 
 Codex handoffs must use separated project refresh fields, including payload character counts when instruction sources change.
 
+Codex handoffs must declare `branch_policy`. `review_branch_required` is the default and is required for workflow core/setup, docs/setup, Project setup, risky, migration, multi-Direction, product, execution-package, legacy-import, conflict, or unverifiable changed-path work. `direct_to_main_allowed` is limited to eligible simple single-Direction proof-state commits and still requires validation, clean rebase onto `origin/main`, `HEAD` push to `origin/main`, and remote SHA verification without switching to local `main` or using a global main worktree. Legacy merge flags do not authorize this fast path by themselves.
+
 ## Default Load Recommendation
 
 For ordinary Direction Workflow Projects, default upload is:

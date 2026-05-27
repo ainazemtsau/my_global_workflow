@@ -67,7 +67,13 @@ Commit Packet proposes a candidate state transition for Verify and Commit. It is
 
 Legacy Import Receipt Card records evidence needed to import old data without treating legacy files as current truth.
 
-Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
+Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, branch policy, worktree policy, main update policy, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
+
+`review_branch_required` is the default and fallback branch policy. `direct_to_main_allowed` may be used only for eligible simple single-Direction proof-state commits with exact path boundaries, full validation, clean rebase onto `origin/main`, post-rebase validation, `HEAD` push to `origin/main`, and remote SHA verification. Workflow core, docs/setup, Project setup, risky, migration, multi-Direction, product, execution-package, legacy-import, conflict, or unverifiable changed-path cases require review branch behavior.
+
+Direct-to-main must stay in the existing Direction worktree. It must not switch to local `main`, use a global main worktree, bypass validation, or ask for a second human merge command after success.
+
+Legacy merge fields do not authorize direct-to-main by themselves; the fast path requires `branch_policy: direct_to_main_allowed` and a matching main update policy.
 
 Project refresh requirements must distinguish:
 

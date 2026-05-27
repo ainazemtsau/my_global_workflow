@@ -109,7 +109,7 @@ It is a transport adapter, not semantic authority.
 
 It must be self-contained.
 
-It must include repository, worktree, branch, mode, allowed paths, forbidden paths, protected paths, git behavior, commit behavior, push behavior, and no-main-merge behavior.
+It must include repository, worktree, branch, mode, branch policy, worktree policy, main update policy, allowed paths, forbidden paths, protected paths, git behavior, commit behavior, push behavior, and no-main-merge behavior.
 
 It is distinct from product/project execution and must not ask the user to infer repository paths, execution boundaries, or validation steps from the Receipt.
 
@@ -122,6 +122,23 @@ Separated project refresh requirements must distinguish:
 - `project_sources_files_refresh_required`
 - `request_only_sources_refresh_required`
 - `do_not_upload_as_project_file`
+
+Branch policy has two valid values:
+
+- `review_branch_required`
+- `direct_to_main_allowed`
+
+If branch policy is absent or unclear, Codex must assume `review_branch_required`.
+
+Legacy merge fields do not authorize direct-to-main by themselves. Direct-to-main requires `branch_policy: direct_to_main_allowed` plus a matching main update policy.
+
+`review_branch_required` remains required by default and for workflow core, docs/setup, Project setup, multi-Direction changes, migrations, product implementation, execution packages, legacy imports, risky changes, ambiguous validation, conflicts, or any case where exact changed paths cannot be verified.
+
+`direct_to_main_allowed` may be used only for eligible simple single-Direction proof-state commits. It does not bypass validation. The handoff must provide exact allowed and forbidden paths, and Codex must verify eligibility before commit and before any main update.
+
+For eligible direct-to-main runs, Codex may auto-update `origin/main` only after full validation, clean rebase onto `origin/main`, post-rebase validation, push of current `HEAD` to `origin/main`, and remote SHA verification.
+
+Direct-to-main must stay in the existing Direction worktree/branch. It must not switch to local `main` and must not depend on a global main worktree.
 
 ## Codex Execution Launch Card
 

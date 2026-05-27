@@ -118,7 +118,11 @@ Every material response must end with a clear terminal outcome for the user.
 
 Return the human-readable result first. Technical cards belong after the explanation.
 
-If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements.
+If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, `branch_policy`, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements.
+
+Missing or unclear `branch_policy` means `review_branch_required`. Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits. Workflow core/setup, docs/setup, Project setup, migration, multi-Direction, product/execution work, risky changes, conflicts, or uncertain validation require review branch behavior.
+
+Direct-to-main must keep Codex in the existing Direction worktree, must not switch to local `main` or use a global main worktree, and must verify `origin/main` SHA after pushing `HEAD:main`.
 
 Refresh requirements must use `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, and `do_not_upload_as_project_file`.
 

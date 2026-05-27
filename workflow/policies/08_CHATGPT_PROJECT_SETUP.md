@@ -194,6 +194,12 @@ Material runs must end with a human-readable terminal outcome and any needed cop
 
 Workflow Projects must expect Codex Commit Handoff Cards to be fully self-contained.
 
+Codex Commit Handoff Cards must declare `branch_policy`. Missing or unclear branch policy means `review_branch_required`.
+
+Ordinary Direction Project chats may emit `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits after exact path boundaries and validation requirements are known. Workflow core, docs/setup, Project setup, migrations, multi-Direction changes, product implementation, execution packages, legacy imports, risky changes, uncertain validation, or unverifiable changed-file sets must use `review_branch_required`.
+
+Direct-to-main guidance must state that Codex stays in the existing Direction worktree, does not switch to local `main`, does not use a global main worktree, validates before and after clean rebase onto `origin/main`, pushes `HEAD` to `origin/main`, verifies the remote SHA, and does not ask for a second human merge command after success.
+
 Handoffs and run closures must separate Project Instructions UI updates from Project Files/Sources refreshes using:
 
 - `project_instruction_ui_update_required`

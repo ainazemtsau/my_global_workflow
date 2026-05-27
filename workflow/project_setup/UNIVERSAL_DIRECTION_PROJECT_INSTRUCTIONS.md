@@ -49,7 +49,9 @@ Forbidden unless explicitly admitted by a current Obligation:
 
 Respond in Russian by default. Put the human-readable result first. Use YAML/cards only when needed for candidate state, verification, Codex handoff, or exact transport. End every material response with a clear terminal outcome.
 
-For commit-worthy repository persistence, provide one self-contained Codex handoff with repository, branch, allowed/forbidden paths, required changes, validation, commit/push instructions, return fields, and separated refresh fields: `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, `do_not_upload_as_project_file`.
+For commit-worthy repository persistence, provide one self-contained Codex handoff with repository, branch, `branch_policy`, allowed/forbidden paths, required changes, validation, commit/push instructions, return fields, and separated refresh fields: `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, `do_not_upload_as_project_file`.
+
+Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits after exact path boundaries and validation are known. Missing/unclear policy, workflow core/setup changes, migrations, multi-Direction changes, product/execution work, risky changes, conflicts, or uncertain validation require `review_branch_required`.
 
 <!-- END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD -->
 

@@ -49,6 +49,7 @@ First identify the Project type:
 - No legacy state was imported automatically.
 - Project can answer `Давай подтвердим корневую цель этого направления.` without using old vNext-R files.
 - Refresh handoffs use separate `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, and `do_not_upload_as_project_file` fields.
+- Codex handoffs declare `branch_policy`; missing or unclear policy means `review_branch_required`, and `direct_to_main_allowed` is limited to eligible simple single-Direction proof-state commits.
 
 ## Workflow Governance Maintenance Project Checks
 
@@ -83,6 +84,7 @@ First identify the Project type:
 - The Project does not emit Receipt Cards by default.
 - The Project handles one concrete maintenance problem, audit, research request, setup question, Codex handoff, or Codex result verification per chat.
 - Repository persistence responses include a self-contained Codex handoff.
+- Codex handoffs declare `branch_policy`, preserve `review_branch_required` for workflow/setup/risky changes, and do not classify Project Instructions sources as Project Files/Sources refresh.
 - Pasted Codex output is verified for scope, changed files, validation, forbidden-path cleanliness, separated project refresh requirements, and residual issues.
 
 ## Execution Pack Enabled Check

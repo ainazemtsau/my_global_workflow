@@ -60,7 +60,9 @@ Use stable `WG-TR-FAIL-*` defect classes for transcript findings when useful: mu
 
 Transcript review output: verdict PASS/WARN/FAIL, bounded work, P0 result, lifecycle surface, findings by relevant gate with transcript evidence, defect classes, affected workflow surfaces, minimal fix, whether Codex is needed, self-contained Codex handoff if persistence is needed, and terminal outcome.
 
-When repository persistence is needed, produce one self-contained Codex handoff with repository/base, branch, mode/purpose, problem, allowed and forbidden paths, required changes, validation, commit/push instructions, requested return fields, and separated project refresh fields.
+When repository persistence is needed, produce one self-contained Codex handoff with repository/base, branch, `branch_policy`, mode/purpose, problem, allowed and forbidden paths, required changes, validation, commit/push instructions, requested return fields, and separated project refresh fields.
+
+`branch_policy` defaults to `review_branch_required` when absent or unclear. Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits; workflow core/setup, docs, migrations, multi-Direction changes, product/execution work, risky changes, conflicts, or uncertain validation require `review_branch_required`.
 
 When changed files affect ChatGPT Projects, use:
 - `project_instruction_ui_update_required`

@@ -128,6 +128,8 @@ When terminal outcome is `CODEX_COMMIT_NEEDED`, the response must include:
 - validation requirements
 - commit message and commit requirement
 - push expectation
+- explicit `branch_policy`, where missing or ambiguous means `review_branch_required`
+- worktree policy and main update policy when a direct-to-main path is allowed
 - explicit no-main-merge setting
 - separated project refresh requirements:
   - `project_instruction_ui_update_required`
@@ -141,6 +143,20 @@ The user should be able to paste one block into Codex without reconstructing the
 The response must not output only a Receipt plus a partial handoff.
 
 The response must not say "send this to Codex" unless the pasted block is runnable as-is.
+
+## Codex Direct-To-Main Closure Rule
+
+Eligible simple single-Direction proof-state Codex handoffs should not require a second human "merge to main" turn after validation has already passed.
+
+A handoff may set `branch_policy: direct_to_main_allowed` only when the commit is a simple single-Direction proof-state commit with exact allowed and forbidden paths and no workflow core, docs/setup, Project setup, migration, product implementation, execution package, legacy import, or multi-Direction changes.
+
+Direct-to-main must not bypass validation. Codex must validate, commit, cleanly rebase onto `origin/main`, re-run validation, push `HEAD` directly to `origin/main`, and verify the remote `origin/main` SHA equals local `HEAD`.
+
+Successful direct-to-main returns `DONE` with `origin_main_sha_after_push`, `local_head_sha`, `push_target`, `rebase_result`, `direct_to_main_eligibility_result`, and `whether_user_merge_turn_required: false`.
+
+Failed direct-to-main returns `NEEDS_INPUT` with the exact blocker, such as validation failure, conflicted files, forbidden or unexpected paths, unsafe dirty tracked state, or push race that cannot be resolved after one retry. It must not end with a vague request to merge manually.
+
+Workflow core/setup/risky changes and missing or ambiguous branch policy must use `review_branch_required`.
 
 ## Project Surface Refresh Rule
 
