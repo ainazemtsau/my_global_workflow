@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: receipts_index
-  status: root_objective_accepted
+  status: root_objective_and_constraints_accepted_objective_delta_pending
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,6 +12,7 @@ artifact_control:
 ```yaml
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
+  - R-HB-CONSTRAINTS-DEFINE-2026-05-26
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
