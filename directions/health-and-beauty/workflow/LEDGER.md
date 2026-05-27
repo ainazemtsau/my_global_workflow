@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: h1_candidate_first_program_blueprint_created_downstream_not_started
+  status: h1_blueprint_activation_obligation_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: h1_candidate_first_program_blueprint_created_downstream_not_started
+proof_state: h1_blueprint_activation_obligation_admitted_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -22,6 +22,7 @@ accepted_receipts:
   - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
   - R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
   - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
+  - R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -63,6 +64,9 @@ accepted_claims:
   - C-HB-H1-GYM-BIKE-SURFACE-NOT-TRAINING-PRESCRIPTION-2026-05-27
   - C-HB-H1-FIRST-PROGRAM-BLUEPRINT-NOT-DAILY-OPS-AUTHORITY-2026-05-27
   - C-HB-H1-FIRST-PROGRAM-BLUEPRINT-DOWNSTREAM-IMPLEMENTATION-NOT-STARTED-2026-05-27
+  - C-HB-H1-NEXT-BOUNDED-RUN-SELECTED-ACTIVATE-BLUEPRINT-2026-05-27
+  - C-HB-H1-ACTIVATION-RUN-BOUNDARY-NO-PRESCRIPTIONS-2026-05-27
+  - C-HB-H1-BASELINE-AND-PLAN-RUNS-PARKED-2026-05-27
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 constraints_state: accepted_by_R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -118,6 +122,12 @@ h1_first_program_blueprint:
   nutrition_prescription_created: false
   training_prescription_created: false
   downstream_implementation_state: not_started
+next_admitted_obligation:
+  obligation_id: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
+  admitted_by: R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
+  status: open
+  execution_state: not_started
+  scope_boundary: limited Daily Ops authority activation only; no plans or implementation
 downstream_implementation_state: not_started
 legacy_import_state: not_performed
 legacy_state_authority: false

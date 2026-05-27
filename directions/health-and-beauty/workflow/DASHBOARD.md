@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_candidate_first_program_blueprint_created_downstream_not_started
+  status: h1_blueprint_activation_obligation_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: Candidate first Program Blueprint created; downstream work not started
+Proof state: Blueprint activation obligation admitted; downstream work not started.
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -26,6 +26,7 @@ Accepted receipts:
 - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
 - R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
 - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
+- R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
 
 Constraints:
 
@@ -84,6 +85,13 @@ Candidate First Program Blueprint:
 - review_gates: authority, medical safety, nutrition conversion, training conversion, baseline sufficiency, review escalation, implementation
 - downstream implementation: not_started
 
+Selected next admitted Obligation:
+
+- O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
+- admitted by R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
+- status: open / not_started
+- scope: limited Daily Ops authority activation only
+
 Tool boundary:
 
 - Hevy / H-E-V-Y is candidate tool surface for workout logging/social/training records, not accepted program authority.
@@ -91,16 +99,16 @@ Tool boundary:
 
 Open critical Obligations:
 
-- none
-
-Proposed next bounded runs, not admitted:
-
 - O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
-- O-HB-BASELINE-MEASUREMENTS-COLLECT
-- O-HB-H1-NUTRITION-PLAN-CREATE
-- O-HB-H1-TRAINING-PLAN-CREATE
-- O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
-- O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
+
+Proposed next bounded runs:
+
+- selected/admitted: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
+- not admitted: O-HB-BASELINE-MEASUREMENTS-COLLECT
+- not admitted: O-HB-H1-NUTRITION-PLAN-CREATE
+- not admitted: O-HB-H1-TRAINING-PLAN-CREATE
+- not admitted: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
+- not admitted: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
 
 Forbidden now:
 
@@ -123,7 +131,7 @@ Forbidden now:
 
 Next valid run:
 
-- none admitted by this commit unless future bounded run is created by later human input
+- O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
 
 Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, and candidate first Program Blueprint are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
 

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_program_blueprint_route_defined_downstream_not_started
+  status: h1_blueprint_activation_obligation_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -166,9 +166,53 @@ obligations:
       - downstream implementation remains not_started
       - no Active Frontier, roadmap, actual diet plan, meal plan, calorie prescription, macro prescription, actual training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, Daily Ops implementation, ChatGPT Project setup, tracking implementation, Codex/product execution, or legacy import created
 
+  - obligation_id: O-HB-H1-NEXT-BOUNDED-RUN-SELECT
+    type: human_decision / workflow_triage
+    statement: Select and admit the next single bounded Health and Beauty Obligation after candidate first Program Blueprint creation.
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
+    admitted_by: current human input after R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
+    required_operator: ClarifyDesign / AskHumanDecision
+    acceptance_conditions:
+      - GitHub main state verified
+      - six Dashboard proposed next runs compared
+      - one next bounded Obligation selected
+      - no downstream implementation or prescription created
+    selection_result:
+      selected_next_obligation: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
+      downstream_implementation_state: not_started
+
+  - obligation_id: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
+    type: authority_activation / clarify_or_design
+    statement: >
+      Activate the candidate first Program Blueprint as limited Daily Ops
+      authority for blueprint-level boundaries, gate logic, escalation
+      rules, and Plan Authority Contract use only, without creating
+      actual nutrition or training prescriptions, Daily Ops
+      implementation, ChatGPT Project setup, tracking implementation,
+      roadmap, Active Frontier, Codex/product execution, or legacy import.
+    status: open
+    resolution: not_started
+    admitted_by: R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
+    required_operator: ClarifyDesign / AskHumanDecision
+    unblocked_by:
+      - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
+      - R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
+    acceptance_conditions:
+      - candidate first Program Blueprint activation boundary recorded
+      - Daily Ops authority scope limited to blueprint-level gates, boundaries, escalation rules, and Plan Authority Contract
+      - nutrition principles remain separated from actual meal plan, calorie prescription, macro prescription, recipes, menus, and shopping list
+      - training principles remain separated from actual exercises, sets, reps, sessions, split, progression, gym schedule, cycling prescription, accepted 12-week plan, or annual plan
+      - baseline unknowns preserved as blockers/gates for future prescriptions, not silently waived
+      - gym access via bicycle commute remains optional future training surface
+      - bike commute remains possible future load/recovery factor, not cardio prescription
+      - downstream implementation remains not_started
+      - no ChatGPT Project setup, tracking implementation, Codex/product execution, or legacy import created
+
 proposed_residual_obligations:
   - obligation_id: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
-    status: proposed_only_not_admitted
+    status: admitted_not_started
   - obligation_id: O-HB-BASELINE-MEASUREMENTS-COLLECT
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-NUTRITION-PLAN-CREATE
