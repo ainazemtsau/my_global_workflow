@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: receipts_index
-  status: root_objective_constraints_and_success_semantics_accepted_strategy_projection_pending
+  status: strategic_map_projection_committed_horizon_selection_pending
   owner: proof_carrying_workflow_os
 ---
 
@@ -15,6 +15,7 @@ accepted_receipts:
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
   - R-HB-ROOT-OBJECTIVE-AMEND-TO-35KG-2026-05-27
   - R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
+  - R-HB-STRATEGIC-MAP-PROJECTION-CREATE-2026-05-27
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
