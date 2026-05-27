@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: strategic_route_decision_accepted
+  status: legacy_concept_evidence_inventory_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects constraints accepted state, a projection-only artifact, and an accepted route decision. It does not create strategy commitment.
+This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, and a completed bounded legacy concept evidence inventory. It does not create strategy commitment.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: route decision accepted
+proof_state: legacy concept evidence inventory committed
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -30,13 +30,25 @@ accepted_receipts:
   - R-IDG-CONSTRAINTS-DEFINE-001
   - R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
   - R-IDG-STRATEGIC-ROUTE-DECIDE-001
+  - R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 route_decision:
   selected_route: A_LEGACY_CONCEPT_EVIDENCE_FIRST
-  next_obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
-  legacy_facts_imported: false
-legacy_import_state: not_performed
+  satisfied_obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+  legacy_facts_imported: bounded_concept_evidence_inventory_only
+legacy_import_state: bounded_concept_evidence_inventory_committed
+legacy_state_authority: false
+strategy_admitted: false
+roadmap_admitted: false
+horizon_selected: false
+active_frontier_selected: false
+product_execution_admitted: false
+codex_execution_admitted: false
+steam_launch_strategy_admitted: false
+engine_commitment_admitted: false
+networking_stack_commitment_admitted: false
+old_code_transfer_admitted: false
 ```
 
 ## Accepted Root Objective
@@ -70,6 +82,7 @@ Full success requires technical-pride success, game-completion success, commerci
 - Steam-only target is accepted.
 - Steam launch strategy is not accepted.
 - Unity plugin ownership is candidate context, not engine commitment.
+- Bounded legacy concept evidence inventory is completed; old Direction state authority remains false.
 
 ## Projection Artifact Summary
 
@@ -78,12 +91,14 @@ Full success requires technical-pride success, game-completion success, commerci
 ## Accepted Route Decision
 
 - selected route: A_LEGACY_CONCEPT_EVIDENCE_FIRST
-- next obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
-- no legacy facts imported by the route decision
-- no strategy, roadmap, Horizon, Active Frontier, or execution admitted
+- satisfied obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+- bounded concept evidence inventory committed by `R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001`
+- no old Direction state authority imported
+- no strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine commitment, networking stack commitment, or old-code transfer admitted
 
 ## Satisfied Obligations
 
+- O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY satisfied by `R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001`.
 - O-IDG-STRATEGIC-ROUTE-DECIDE satisfied by `R-IDG-STRATEGIC-ROUTE-DECIDE-001`.
 - O-IDG-STRATEGIC-MAP-PROJECTION-CREATE satisfied by `R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001`.
 
@@ -93,7 +108,7 @@ None.
 
 ## Open Next Obligations
 
-- O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+None.
 
 ## Optional Available Obligation
 
@@ -109,13 +124,17 @@ None.
 - Horizon selection
 - Active Frontier selection
 - Roadmap
-- Codex/product execution
+- CodexExecution/product execution
 - Steam/game/product implementation
+- Steam launch strategy
+- engine commitment
+- networking stack commitment
+- old-code transfer
 - accepted strategy claims beyond committed receipts
 
 ## Next Valid Runs
 
-- LegacyImport over `O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY`
+None admitted by this receipt.
 
 ## Projection Availability
 
