@@ -5,7 +5,7 @@ artifact_control:
   pack_name: PROJECT_PACKS_INDEX
   pack_type: runtime_cache_upload_convenience_index
   intended_load_mode: request_only
-  status: project_instruction_budget_residual_sweep
+  status: workflow_source_of_truth_locator_refresh
   owner: workflow_os
   generated_from_ref: wg/project-instruction-budget@R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
   refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
@@ -33,6 +33,8 @@ Project Packs are ChatGPT Project Files/Sources runtime cache / upload convenien
 They are not semantic authority.
 
 Canonical source files remain separate and remain authority.
+
+`WORKFLOW_SOURCE_OF_TRUTH.md` is an authority locator and bootstrap sentinel only, not semantic authority.
 
 If a pack conflicts with a verified canonical source file, the canonical source wins.
 
@@ -74,6 +76,8 @@ For the Workflow Governance Maintenance Project, default upload is different:
 - `workflow/project_packs/PROJECT_PACKS_INDEX.md`
 - `docs/CHATGPT_PROJECT_SETUP.md`
 - `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+
+`WORKFLOW_SOURCE_OF_TRUTH.md` is included here as maintenance-console bootstrap context, not as semantic authority.
 
 `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is default only for the Workflow Governance Maintenance Project.
 
