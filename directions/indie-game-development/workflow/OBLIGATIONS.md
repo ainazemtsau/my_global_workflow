@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: concept_identity_from_legacy_evidence_admitted
+  status: concept_identity_from_legacy_evidence_committed
   owner: proof_carrying_workflow_os
 ---
 
@@ -22,66 +22,6 @@ No CodexExecution operator may run.
 No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
-
-### O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE
-
-```yaml
-obligation_id: O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE
-type: clarify_objective / legacy_evidence_review / human_decision
-statement: >
-  Clarify concept identity from Legacy concept evidence only. Legacy documents
-  may be reviewed as evidence-only input and must not be accepted wholesale.
-  The obligation may extract and verify concept identity candidates, gaps, and
-  candidate next obligations without creating strategy, roadmap, Horizon, Active
-  Frontier, product execution, CodexExecution, Steam launch strategy, engine
-  commitment, networking stack commitment, old-code transfer, or full legacy
-  import.
-status: open_next
-priority: next
-admitted_by: R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
-legacy_documents_authority: evidence_only
-executes_obligation_now: false
-allowed_outputs:
-  - concept identity frame
-  - player fantasy wording
-  - co-op framing
-  - genre/frame candidate
-  - gameplay promise
-  - gas/grid/topology gameplay role
-  - evidence gaps
-  - candidate next obligations
-forbidden_outputs:
-  - accepted strategy
-  - roadmap
-  - Horizon selection
-  - Active Frontier selection
-  - product execution
-  - CodexExecution
-  - Steam launch strategy
-  - engine commitment
-  - networking stack commitment
-  - old-code transfer
-  - accepting Legacy documents wholesale
-accepted_result:
-  admitted_only: true
-  satisfied: false
-  concept_identity_content_accepted: false
-  no_strategy: true
-  no_roadmap: true
-  no_horizon_selection: true
-  no_active_frontier_selection: true
-  no_product_execution: true
-  no_codex_execution: true
-  no_steam_launch_strategy: true
-  no_engine_commitment: true
-  no_networking_stack_commitment: true
-  no_old_code_transfer: true
-  no_full_legacy_import: true
-required_operator:
-  - ClarifyObjective
-  - HumanDecision
-  - LegacyImport
-```
 
 ### O-IDG-LEGACY-INVENTORY-OPTIONAL
 
@@ -102,6 +42,51 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 ```
 
 ## Satisfied Obligations
+
+### O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE
+
+```yaml
+obligation_id: O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE
+type: clarify_objective / legacy_evidence_review / human_decision
+statement: >
+  Clarify concept identity from Legacy concept evidence only. Legacy documents
+  may be reviewed as evidence-only input and must not be accepted wholesale.
+  The obligation may extract and verify concept identity candidates, gaps, and
+  candidate next obligations without creating strategy, roadmap, Horizon, Active
+  Frontier, product execution, CodexExecution, Steam launch strategy, engine
+  commitment, networking stack commitment, old-code transfer, or full legacy
+  import.
+status: satisfied
+priority: next
+admitted_by: R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
+satisfied_by: R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001
+legacy_documents_authority: evidence_only
+legacy_documents_accepted_wholesale: false
+accepted_result:
+  accepted_state_kind: bounded_concept_identity_from_legacy_evidence
+  result_kind: bounded_concept_identity_frame
+  concept_identity_content_accepted: true
+  identity_frame: co-op reactive gas-ecology expedition game / systemic atmospheric survival-puzzle-action
+  gas_ecology_boundary: reactive multi-gas ecology, not gas-as-hazard only
+  grid_topology_role: shared spatial gameplay substrate for gas movement, containment, ventilation, verticality, source/sink anchors, topology changes, reaction locations, and future pressure/temperature/environment hooks
+  candidate_next_obligations_only: true
+  no_next_obligation_admitted: true
+  no_strategy: true
+  no_roadmap: true
+  no_horizon_selection: true
+  no_active_frontier_selection: true
+  no_product_execution: true
+  no_codex_execution: true
+  no_steam_launch_strategy: true
+  no_engine_commitment: true
+  no_networking_stack_commitment: true
+  no_old_code_transfer: true
+  no_full_legacy_import: true
+required_operator:
+  - ClarifyObjective
+  - LegacyEvidenceReview
+  - HumanDecision
+```
 
 ### O-IDG-POST-INVENTORY-ORIENTATION-FRAME
 
