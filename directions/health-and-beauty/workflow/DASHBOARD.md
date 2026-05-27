@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: strategic_map_projection_committed_horizon_selection_pending
+  status: horizon_selected_h1_health_operating_project_bootstrap_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: strategic map projection committed; Horizon selection pending
+Proof state: Horizon selected: H1_HEALTH_OPERATING_PROJECT_BOOTSTRAP; downstream work not started
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -22,6 +22,7 @@ Accepted receipts:
 - R-HB-ROOT-OBJECTIVE-AMEND-TO-35KG-2026-05-27
 - R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 - R-HB-STRATEGIC-MAP-PROJECTION-CREATE-2026-05-27
+- R-HB-HORIZON-SELECT-2026-05-27
 
 Constraints:
 
@@ -40,11 +41,22 @@ Strategic Path Map:
 - projection committed at directions/health-and-beauty/workflow/projections/STRATEGIC_PATH_MAP.md
 - primary projected path: Health Operating Project Bootstrap
 
+Selected Horizon:
+
+- H1_HEALTH_OPERATING_PROJECT_BOOTSTRAP
+- selected by R-HB-HORIZON-SELECT-2026-05-27
+- selection intent: MINIMAL-USABLE-CORE-FIRST / Minimal usable Daily Ops core first.
+- scope boundary: Horizon selection only; downstream implementation not started.
+
 Open critical Obligations:
 
-- O-HB-HORIZON-SELECT
+- none
 
-Blocked / forbidden now:
+Proposed next bounded run, not admitted:
+
+- Define/admit H1 Minimal Daily Ops Core after this commit.
+
+Forbidden now:
 
 - Active Frontier selection
 - roadmap
@@ -57,8 +69,8 @@ Blocked / forbidden now:
 
 Next valid run:
 
-- O-HB-HORIZON-SELECT via AskHumanDecision / ClarifyObjective
+- none admitted by this commit; any H1 Minimal Daily Ops Core work requires a later bounded run and Receipt
 
-Projection warning: Strategic Path Map is a projection from accepted Receipts. It does not select Horizon, Active Frontier, roadmap, execution, ChatGPT Project setup, or Health Operating Project implementation.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon is accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, or tracking implementation.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md
