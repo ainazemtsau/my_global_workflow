@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: strategic_map_projection_created_no_strategy_commitment
+  status: strategic_route_decision_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects constraints accepted state plus a projection-only artifact and does not create strategy commitment.
+This dashboard reflects constraints accepted state, a projection-only artifact, and an accepted route decision. It does not create strategy commitment.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: constraints accepted
+proof_state: route decision accepted
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -29,8 +29,13 @@ accepted_receipts:
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
   - R-IDG-CONSTRAINTS-DEFINE-001
   - R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
+  - R-IDG-STRATEGIC-ROUTE-DECIDE-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
+route_decision:
+  selected_route: A_LEGACY_CONCEPT_EVIDENCE_FIRST
+  next_obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+  legacy_facts_imported: false
 legacy_import_state: not_performed
 ```
 
@@ -70,8 +75,16 @@ Full success requires technical-pride success, game-completion success, commerci
 
 - IDG-STRATEGIC-PATH-MAP-PROJECTION-001: projection-only Strategic Path Map artifact from accepted root objective, success semantics, and constraints; creates no accepted strategy, Horizon, Active Frontier, roadmap, execution, Steam launch strategy, monetization model, or legacy import.
 
+## Accepted Route Decision
+
+- selected route: A_LEGACY_CONCEPT_EVIDENCE_FIRST
+- next obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+- no legacy facts imported by the route decision
+- no strategy, roadmap, Horizon, Active Frontier, or execution admitted
+
 ## Satisfied Obligations
 
+- O-IDG-STRATEGIC-ROUTE-DECIDE satisfied by `R-IDG-STRATEGIC-ROUTE-DECIDE-001`.
 - O-IDG-STRATEGIC-MAP-PROJECTION-CREATE satisfied by `R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001`.
 
 ## Open Critical Obligations
@@ -80,7 +93,7 @@ None.
 
 ## Open Next Obligations
 
-- O-IDG-STRATEGIC-ROUTE-DECIDE
+- O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
 
 ## Optional Available Obligation
 
@@ -92,6 +105,7 @@ None.
 
 ## Forbidden Now
 
+- accepting old legacy facts before LegacyImport receipt
 - Horizon selection
 - Active Frontier selection
 - Roadmap
@@ -101,8 +115,7 @@ None.
 
 ## Next Valid Runs
 
-- HumanDecision over `O-IDG-STRATEGIC-ROUTE-DECIDE`
-- optional LegacyImport over `O-IDG-LEGACY-INVENTORY-OPTIONAL` only if explicitly selected
+- LegacyImport over `O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY`
 
 ## Projection Availability
 

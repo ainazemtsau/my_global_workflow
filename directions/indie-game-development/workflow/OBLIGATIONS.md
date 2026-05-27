@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: strategic_map_projection_created_no_strategy_commitment
+  status: strategic_route_decision_accepted
   owner: proof_carrying_workflow_os
 ---
 
@@ -23,22 +23,33 @@ No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
 
-### O-IDG-STRATEGIC-ROUTE-DECIDE
+### O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
 
 ```yaml
-obligation_id: O-IDG-STRATEGIC-ROUTE-DECIDE
-type: human_decision
-statement: Decide which strategic route to admit next from the projection map, without selecting Horizon, Active Frontier, roadmap, or execution.
+obligation_id: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+type: legacy_import
+statement: >
+  Inspect old Indie Game Development concept/archive material as legacy evidence only,
+  extracting bounded concept facts needed for future strategy: concept premise,
+  gameplay core, gas simulation role, player fantasy, genre/frame, commercial hooks,
+  technical gameplay pillars, and explicit unknowns.
 status: open_next
 priority: critical
+required_operator:
+  - LegacyImport
 boundaries:
-  - decision gate only
-  - no Horizon selection
-  - no Active Frontier selection
-  - no roadmap
+  - evidence inventory only
+  - no old Direction Map as truth
+  - no old Active Goal as current obligation
+  - no old Current Phase as current state
+  - no old Portfolio Queue as backlog
+  - no old roadmap import
   - no product execution
   - no CodexExecution
-  - no legacy import unless explicitly chosen as the route
+  - no Horizon selection
+  - no Active Frontier selection
+  - no Steam launch strategy
+  - no engine commitment
 ```
 
 ### O-IDG-LEGACY-INVENTORY-OPTIONAL
@@ -60,6 +71,28 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 ```
 
 ## Satisfied Obligations
+
+### O-IDG-STRATEGIC-ROUTE-DECIDE
+
+```yaml
+obligation_id: O-IDG-STRATEGIC-ROUTE-DECIDE
+type: human_decision
+statement: Decide which strategic route to admit next from the projection map, without selecting Horizon, Active Frontier, roadmap, or execution.
+status: satisfied
+priority: critical
+satisfied_by: R-IDG-STRATEGIC-ROUTE-DECIDE-001
+accepted_result:
+  selected_route: A_LEGACY_CONCEPT_EVIDENCE_FIRST
+  next_obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
+  no_legacy_facts_imported: true
+  no_strategy: true
+  no_horizon: true
+  no_active_frontier: true
+  no_roadmap: true
+  no_execution: true
+required_operator:
+  - HumanDecision
+```
 
 ### O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
 
