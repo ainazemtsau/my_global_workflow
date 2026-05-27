@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: receipts_index
-  status: horizon_selected_h1_health_operating_project_bootstrap_downstream_not_started
+  status: h1_minimal_daily_ops_core_defined_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -17,6 +17,7 @@ accepted_receipts:
   - R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
   - R-HB-STRATEGIC-MAP-PROJECTION-CREATE-2026-05-27
   - R-HB-HORIZON-SELECT-2026-05-27
+  - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/

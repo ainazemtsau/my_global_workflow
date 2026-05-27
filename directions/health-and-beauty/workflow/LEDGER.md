@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: horizon_selected_h1_health_operating_project_bootstrap_downstream_not_started
+  status: h1_minimal_daily_ops_core_defined_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: horizon_selected_h1_health_operating_project_bootstrap_downstream_not_started
+proof_state: h1_minimal_daily_ops_core_defined_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -19,6 +19,7 @@ accepted_receipts:
   - R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
   - R-HB-STRATEGIC-MAP-PROJECTION-CREATE-2026-05-27
   - R-HB-HORIZON-SELECT-2026-05-27
+  - R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -42,6 +43,11 @@ accepted_claims:
   - C-HB-NEXT-VALID-HORIZON-SELECTION-2026-05-27
   - C-HB-HORIZON-H1-SELECTED-2026-05-27
   - C-HB-H1-SELECTION-INTENT-MINIMAL-USABLE-CORE-FIRST-2026-05-27
+  - C-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINED-2026-05-27
+  - C-HB-H1-HEVY-TOOL-NOT-PROGRAM-AUTHORITY-2026-05-27
+  - C-HB-H1-PLAN-AUTHORITY-CONTRACT-REQUIRED-2026-05-27
+  - C-HB-H1-OPTIONAL-INFRASTRUCTURE-NOT-HARD-REQUIREMENT-2026-05-27
+  - C-HB-H1-DOWNSTREAM-IMPLEMENTATION-STILL-NOT-STARTED-2026-05-27
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 constraints_state: accepted_by_R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -58,6 +64,21 @@ selected_horizon:
   selection_intent_id: MINIMAL-USABLE-CORE-FIRST
   selection_intent: "Minimal usable Daily Ops core first."
   scope_boundary: "Horizon selection only; no downstream implementation."
+h1_minimal_daily_ops_core:
+  defined_by: R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
+  definition: operating_shell_only
+  immediate_modules:
+    - Daily Intake Gateway
+    - Food Event Protocol
+    - Training Event Protocol
+    - Plan Authority Contract
+    - Tool Abstraction Contract
+    - GitHub-backed State Contract
+    - Context Pollution Control
+    - Review / Escalation Gate
+  hevy_authority_boundary: candidate_tool_surface_not_program_authority
+  optional_infrastructure_boundary: HomeLab_and_Mealie_Miali_Recipes_not_hard_requirements
+  future_extensions_state: candidate_projection_only
 downstream_implementation_state: not_started
 legacy_import_state: not_performed
 legacy_state_authority: false

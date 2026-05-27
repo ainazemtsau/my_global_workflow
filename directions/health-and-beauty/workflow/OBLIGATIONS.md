@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: horizon_selected_h1_health_operating_project_bootstrap_downstream_not_started
+  status: h1_minimal_daily_ops_core_defined_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -107,6 +107,35 @@ obligations:
       selection_intent_id: MINIMAL-USABLE-CORE-FIRST
       selection_intent: Minimal usable Daily Ops core first.
       downstream_implementation_state: not_started
+
+  - obligation_id: O-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE
+    type: clarify_or_design
+    statement: Define the minimal usable Health Operating Project / Daily Ops core after accepted H1, including corrected tool/program authority boundaries, without creating Active Frontier, roadmap, diet plan, meal plan, calorie prescription, training plan, 12-week plan, annual plan, tracking implementation, ChatGPT Project setup, Health Operating Project implementation, or Codex/product execution.
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-MINIMAL-DAILY-OPS-CORE-DEFINE-2026-05-27
+    admitted_by: current human input after H1 selection
+    required_operator: ClarifyDesign / AskHumanDecision
+    unblocked_by:
+      - R-HB-HORIZON-SELECT-2026-05-27
+    acceptance_conditions:
+      - minimal Daily Ops core modules defined
+      - Hevy/tool authority boundary recorded
+      - Plan Authority Contract recorded
+      - immediate usable core separated from future extensions
+      - forbidden/out-of-scope list recorded
+      - downstream implementation remains not_started
+      - no Active Frontier, roadmap, diet plan, meal plan, calorie prescription, macro prescription, training plan, 12-week plan, annual plan, tracking implementation, ChatGPT Project setup, Health Operating Project implementation, Codex/product execution, or legacy import created
+
+proposed_residual_obligations:
+  - obligation_id: O-HB-H1-PROGRAM-BLUEPRINT-DEFINE
+    status: proposed_only_not_admitted
+  - obligation_id: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
+    status: proposed_only_not_admitted
+  - obligation_id: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
+    status: proposed_only_not_admitted
+  - obligation_id: O-HB-BASELINE-MEASUREMENTS-COLLECT
+    status: proposed_only_not_admitted
 ```
 
 No execution Obligations are currently admitted.
