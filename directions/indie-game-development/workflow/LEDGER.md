@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: constraints_accepted
+  status: strategic_map_projection_created_no_strategy_commitment
   owner: proof_carrying_workflow_os
 ---
 
@@ -18,13 +18,15 @@ accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
   - R-IDG-CONSTRAINTS-DEFINE-001
+  - R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
   - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
   - Constraints accepted: solo/AI-assisted capacity, 50-80 hours/week, lean budget with $1000 normal envelope and $3000 justified ceiling, 9-month income constraint, high risk tolerance bounded by gameplay depth, Steam-only distribution boundary, and workflow-driven marketing execution requirement.
+  - Strategic Path Map Projection created as projection-only artifact; it creates no accepted strategy, Horizon, Active Frontier, roadmap, execution, monetization model, Steam launch strategy, or legacy import.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
-projections_state: constraints_accepted_no_strategy_projection
+projections_state: strategic_map_projection_created_no_strategy_commitment
 legacy_import_state: not_performed
 legacy_state_authority: false
 ```
@@ -79,8 +81,8 @@ Full success requires all of the following:
 - roadmap
 - Horizon
 - Active Frontier
-- Strategic Path Map
-- strategy
+- accepted Strategic Path Map commitments
+- accepted strategy
 - product execution
 - legacy import
 
@@ -99,11 +101,26 @@ Direction proof files are storage and projection surfaces. They are not addition
 - R-IDG-ROOT-OBJECTIVE-DECISION-001
 - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
 - R-IDG-CONSTRAINTS-DEFINE-001
+- R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
+
+## Accepted Projection Artifacts
+
+```yaml
+- projection_id: IDG-STRATEGIC-PATH-MAP-PROJECTION-001
+  path: directions/indie-game-development/workflow/projections/IDG_STRATEGIC_PATH_MAP_PROJECTION_001.md
+  source_receipt_ids:
+    - R-IDG-ROOT-OBJECTIVE-DECISION-001
+    - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
+    - R-IDG-CONSTRAINTS-DEFINE-001
+  creates_truth: false
+```
 
 ## Current Work Boundary
 
 Constraints are accepted by `R-IDG-CONSTRAINTS-DEFINE-001`.
 
-No Strategic Path Map, Horizon, Active Frontier, roadmap, strategy, execution package, Codex work package, product execution, monetization model, Steam launch strategy, or legacy import is created or admitted by this constraints receipt.
+Strategic Path Map Projection `IDG-STRATEGIC-PATH-MAP-PROJECTION-001` is created as a projection-only artifact.
+
+No accepted Strategic Path Map commitments, Horizon, Active Frontier, roadmap, strategy, execution package, Codex work package, product execution, monetization model, Steam launch strategy, or legacy import is created or admitted by this projection receipt.
 
 END_OF_FILE: directions/indie-game-development/workflow/LEDGER.md

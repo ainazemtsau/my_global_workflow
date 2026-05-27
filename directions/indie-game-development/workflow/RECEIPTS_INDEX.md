@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: constraints_accepted
+  status: strategic_map_projection_created_no_strategy_commitment
   owner: proof_carrying_workflow_os
 ---
 
@@ -23,6 +23,9 @@ accepted_receipts:
   - receipt_id: R-IDG-CONSTRAINTS-DEFINE-001
     path: receipts/R-IDG-CONSTRAINTS-DEFINE-001.md
     summary: Accepted hard constraints for solo capacity, 50-80 hours/week, lean budget, 9-month income pressure, high risk bounded by gameplay depth, Steam-only distribution, and workflow-driven marketing execution.
+  - receipt_id: R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
+    path: receipts/R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001.md
+    summary: Created Strategic Path Map Projection v0 as a projection-only artifact from accepted root objective, success semantics, and constraints.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -42,6 +45,10 @@ receipt_storage_path: receipts/
   path: receipts/R-IDG-CONSTRAINTS-DEFINE-001.md
   summary: Accepted hard constraints for solo capacity, 50-80 hours/week, lean budget, 9-month income pressure, high risk bounded by gameplay depth, Steam-only distribution, and workflow-driven marketing execution.
 
+- receipt_id: R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
+  path: receipts/R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001.md
+  summary: Created Strategic Path Map Projection v0 as a projection-only artifact from accepted root objective, success semantics, and constraints.
+
 ## Rules
 
 No receipt -> no progress.
@@ -52,6 +59,6 @@ Accepted Receipts are Ledger authority only after Commit.
 
 No legacy import Receipts exist yet.
 
-No accepted strategic Receipts exist yet.
+No accepted strategic decision Receipts exist yet. Projection receipt exists but creates no strategy commitment.
 
 END_OF_FILE: directions/indie-game-development/workflow/RECEIPTS_INDEX.md

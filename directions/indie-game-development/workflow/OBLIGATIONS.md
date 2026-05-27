@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: constraints_accepted
+  status: strategic_map_projection_created_no_strategy_commitment
   owner: proof_carrying_workflow_os
 ---
 
@@ -23,20 +23,22 @@ No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
 
-### O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
+### O-IDG-STRATEGIC-ROUTE-DECIDE
 
 ```yaml
-obligation_id: O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
-type: projection
-statement: Run the next projection-only strategy step from accepted proof state; do not create Horizon, Active Frontier, roadmap, or product execution in this constraints commit.
+obligation_id: O-IDG-STRATEGIC-ROUTE-DECIDE
+type: human_decision
+statement: Decide which strategic route to admit next from the projection map, without selecting Horizon, Active Frontier, roadmap, or execution.
 status: open_next
 priority: critical
-ready_basis:
-  - O-IDG-CONSTRAINTS-DEFINE satisfied by R-IDG-CONSTRAINTS-DEFINE-001
 boundaries:
-  - projection-only next run
-  - no Strategic Path Map file is created by this commit
-  - no Horizon, Active Frontier, roadmap, or product execution is admitted
+  - decision gate only
+  - no Horizon selection
+  - no Active Frontier selection
+  - no roadmap
+  - no product execution
+  - no CodexExecution
+  - no legacy import unless explicitly chosen as the route
 ```
 
 ### O-IDG-LEGACY-INVENTORY-OPTIONAL
@@ -58,6 +60,27 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 ```
 
 ## Satisfied Obligations
+
+### O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
+
+```yaml
+obligation_id: O-IDG-STRATEGIC-MAP-PROJECTION-CREATE
+type: projection
+statement: Run the projection-only strategic path map step from accepted proof state; do not create Horizon, Active Frontier, roadmap, or product execution.
+status: satisfied
+priority: critical
+satisfied_by: R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
+accepted_result:
+  projection_id: IDG-STRATEGIC-PATH-MAP-PROJECTION-001
+  projection_only: true
+  no_horizon: true
+  no_active_frontier: true
+  no_roadmap: true
+  no_execution: true
+  no_legacy_import: true
+required_operator:
+  - Projection
+```
 
 ### O-IDG-CONSTRAINTS-DEFINE
 

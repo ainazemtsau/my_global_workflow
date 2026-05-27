@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: constraints_accepted
+  status: strategic_map_projection_created_no_strategy_commitment
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,7 +13,7 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects constraints accepted state and does not create new accepted claims.
+This dashboard reflects constraints accepted state plus a projection-only artifact and does not create strategy commitment.
 
 ## Current State
 
@@ -28,6 +28,9 @@ accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
   - R-IDG-CONSTRAINTS-DEFINE-001
+  - R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
+projection_artifact:
+  - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 legacy_import_state: not_performed
 ```
 
@@ -63,13 +66,21 @@ Full success requires technical-pride success, game-completion success, commerci
 - Steam launch strategy is not accepted.
 - Unity plugin ownership is candidate context, not engine commitment.
 
+## Projection Artifact Summary
+
+- IDG-STRATEGIC-PATH-MAP-PROJECTION-001: projection-only Strategic Path Map artifact from accepted root objective, success semantics, and constraints; creates no accepted strategy, Horizon, Active Frontier, roadmap, execution, Steam launch strategy, monetization model, or legacy import.
+
+## Satisfied Obligations
+
+- O-IDG-STRATEGIC-MAP-PROJECTION-CREATE satisfied by `R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001`.
+
 ## Open Critical Obligations
 
 None.
 
 ## Open Next Obligations
 
-- O-IDG-STRATEGIC-MAP-PROJECTION-CREATE (projection-only next run)
+- O-IDG-STRATEGIC-ROUTE-DECIDE
 
 ## Optional Available Obligation
 
@@ -86,18 +97,18 @@ None.
 - Roadmap
 - Codex/product execution
 - Steam/game/product implementation
-- strategy claims beyond accepted receipts
+- accepted strategy claims beyond committed receipts
 
 ## Next Valid Runs
 
-- Projection-only run over `O-IDG-STRATEGIC-MAP-PROJECTION-CREATE`
+- HumanDecision over `O-IDG-STRATEGIC-ROUTE-DECIDE`
 - optional LegacyImport over `O-IDG-LEGACY-INVENTORY-OPTIONAL` only if explicitly selected
 
 ## Projection Availability
 
 Constraints run: satisfied by `R-IDG-CONSTRAINTS-DEFINE-001`.
 
-Strategic Path Map projection: available as a projection-only next run; no Strategic Path Map file is created by this constraints receipt.
+Strategic Path Map projection: created as `IDG-STRATEGIC-PATH-MAP-PROJECTION-001`; no accepted strategy commitment is created.
 
 Horizon projection: unavailable until committed orientation state exists.
 
