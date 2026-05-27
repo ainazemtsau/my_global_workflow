@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: post_inventory_orientation_frame_committed
+  status: concept_identity_from_legacy_evidence_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,7 +12,7 @@ artifact_control:
 ## Receipt State
 
 ```yaml
-root_state: post_inventory_orientation_frame_committed
+root_state: concept_identity_from_legacy_evidence_admitted
 accepted_receipts:
   - receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
     path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
@@ -38,6 +38,9 @@ accepted_receipts:
   - receipt_id: R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
     path: receipts/R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001.md
     summary: Accepted bounded post-inventory orientation frame only, with no strategy, roadmap, Horizon, Active Frontier, execution, engine/networking commitment, old-code transfer, Steam launch strategy, or full legacy state import.
+  - receipt_id: R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
+    path: receipts/R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001.md
+    summary: Accepted human decision to admit the next bounded concept identity clarification obligation only, using Legacy concept material as evidence-only input and without executing the obligation or accepting concept identity content.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -76,6 +79,10 @@ receipt_storage_path: receipts/
 - receipt_id: R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
   path: receipts/R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001.md
   summary: Accepted bounded post-inventory orientation frame only, with no strategy, roadmap, Horizon, Active Frontier, execution, engine/networking commitment, old-code transfer, Steam launch strategy, or full legacy state import.
+
+- receipt_id: R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
+  path: receipts/R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001.md
+  summary: Accepted human decision to admit the next bounded concept identity clarification obligation only, using Legacy concept material as evidence-only input and without executing the obligation or accepting concept identity content.
 
 ## Rules
 

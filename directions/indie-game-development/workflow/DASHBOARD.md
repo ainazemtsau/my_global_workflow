@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: post_inventory_orientation_frame_committed
+  status: concept_identity_from_legacy_evidence_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, and a completed bounded post-inventory orientation frame. It does not create strategy commitment.
+This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, and admission of the next bounded concept identity clarification obligation. It does not create strategy commitment.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: post_inventory_orientation_frame_committed
+proof_state: concept_identity_from_legacy_evidence_admitted
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -33,6 +33,7 @@ accepted_receipts:
   - R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
   - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
   - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
+  - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 route_decision:
@@ -43,8 +44,17 @@ orientation_frame:
   satisfied_obligation: O-IDG-POST-INVENTORY-ORIENTATION-FRAME
   satisfied_by: R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001
   result_kind: bounded_post_inventory_orientation_frame
-open_next_obligations: []
-next_valid_runs_admitted_by_this_receipt: []
+concept_identity_clarification:
+  admitted_obligation: O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE
+  admitted_by: R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
+  execution_state: admitted_not_executed
+  legacy_documents_authority: evidence_only
+  concept_identity_content_accepted: false
+open_next_obligations:
+  - O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE
+next_valid_runs_admitted_by_this_receipt:
+  - obligation_id: O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE
+    state: admitted_not_executed
 legacy_import_state: bounded_concept_evidence_inventory_committed
 legacy_state_authority: false
 strategy_admitted: false
@@ -92,7 +102,8 @@ Full success requires technical-pride success, game-completion success, commerci
 - Unity plugin ownership is candidate context, not engine commitment.
 - Bounded legacy concept evidence inventory is completed; old Direction state authority remains false.
 - O-IDG-POST-INVENTORY-ORIENTATION-FRAME is satisfied by `R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001`.
-- No next obligation is admitted by the orientation frame receipt.
+- O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE is admitted by `R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001` as the only open next obligation.
+- The concept identity clarification obligation is admitted but not executed; Legacy documents remain evidence-only input and no accepted concept identity content exists yet.
 
 ## Projection Artifact Summary
 
@@ -119,7 +130,7 @@ None.
 
 ## Open Next Obligations
 
-None.
+- O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE admitted by `R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001`; status: admitted, not executed.
 
 ## Optional Available Obligation
 
@@ -145,9 +156,8 @@ None.
 
 ## Candidate Safe Route Classes
 
-All route classes below are candidate/proposed only and are not admitted obligations.
+Remaining route classes below are candidate/proposed only and are not admitted obligations.
 
-- Concept Identity Clarification
 - Technical Gameplay Evidence Gap Audit
 - Commercial Hook Evidence Gap Audit
 - Legacy Code/Test Value Audit
@@ -156,7 +166,7 @@ All route classes below are candidate/proposed only and are not admitted obligat
 
 ## Next Valid Runs
 
-None admitted by this receipt.
+- O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE is admitted as the next valid run, but it has not been executed.
 
 ## Projection Availability
 
