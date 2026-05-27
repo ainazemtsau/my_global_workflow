@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: legacy_concept_evidence_inventory_committed
+  status: post_inventory_orientation_frame_obligation_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,7 +12,7 @@ artifact_control:
 ## Receipt State
 
 ```yaml
-root_state: legacy_concept_evidence_inventory_committed
+root_state: post_inventory_orientation_frame_obligation_admitted
 accepted_receipts:
   - receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
     path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
@@ -32,6 +32,9 @@ accepted_receipts:
   - receipt_id: R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
     path: receipts/R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001.md
     summary: Accepted bounded legacy concept evidence inventory without importing old Direction state, strategy, roadmap, Horizon, Active Frontier, product execution, Steam launch strategy, engine commitment, networking stack decision, or old-code transfer.
+  - receipt_id: R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
+    path: receipts/R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001.md
+    summary: Accepted human decision to admit O-IDG-POST-INVENTORY-ORIENTATION-FRAME as the next bounded obligation after legacy concept evidence inventory, without admitting strategy, roadmap, Horizon, Active Frontier, execution, Steam launch strategy, engine/networking commitment, old-code transfer, or full legacy state import.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -62,6 +65,10 @@ receipt_storage_path: receipts/
 - receipt_id: R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
   path: receipts/R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001.md
   summary: Accepted bounded legacy concept evidence inventory without importing old Direction state, strategy, roadmap, Horizon, Active Frontier, product execution, Steam launch strategy, engine commitment, networking stack decision, or old-code transfer.
+
+- receipt_id: R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
+  path: receipts/R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001.md
+  summary: Accepted human decision to admit O-IDG-POST-INVENTORY-ORIENTATION-FRAME as the next bounded obligation after legacy concept evidence inventory, without admitting strategy, roadmap, Horizon, Active Frontier, execution, Steam launch strategy, engine/networking commitment, old-code transfer, or full legacy state import.
 
 ## Rules
 

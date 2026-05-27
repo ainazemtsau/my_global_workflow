@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: legacy_concept_evidence_inventory_committed
+  status: post_inventory_orientation_frame_obligation_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, and a completed bounded legacy concept evidence inventory. It does not create strategy commitment.
+This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, and an admitted post-inventory orientation frame obligation. It does not create strategy commitment.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: legacy concept evidence inventory committed
+proof_state: post_inventory_orientation_frame_obligation_admitted
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -31,12 +31,14 @@ accepted_receipts:
   - R-IDG-STRATEGIC-MAP-PROJECTION-CREATE-001
   - R-IDG-STRATEGIC-ROUTE-DECIDE-001
   - R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
+  - R-IDG-POST-INVENTORY-ORIENTATION-FRAME-ADMIT-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 route_decision:
   selected_route: A_LEGACY_CONCEPT_EVIDENCE_FIRST
   satisfied_obligation: O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY
   legacy_facts_imported: bounded_concept_evidence_inventory_only
+admitted_next_obligation: O-IDG-POST-INVENTORY-ORIENTATION-FRAME
 legacy_import_state: bounded_concept_evidence_inventory_committed
 legacy_state_authority: false
 strategy_admitted: false
@@ -83,6 +85,7 @@ Full success requires technical-pride success, game-completion success, commerci
 - Steam launch strategy is not accepted.
 - Unity plugin ownership is candidate context, not engine commitment.
 - Bounded legacy concept evidence inventory is completed; old Direction state authority remains false.
+- O-IDG-POST-INVENTORY-ORIENTATION-FRAME is admitted as the single open next obligation; the orientation frame has not been run.
 
 ## Projection Artifact Summary
 
@@ -108,7 +111,7 @@ None.
 
 ## Open Next Obligations
 
-None.
+- O-IDG-POST-INVENTORY-ORIENTATION-FRAME
 
 ## Optional Available Obligation
 
@@ -121,6 +124,7 @@ None.
 ## Forbidden Now
 
 - accepting old legacy facts before LegacyImport receipt
+- strategy beyond committed receipts
 - Horizon selection
 - Active Frontier selection
 - Roadmap
@@ -130,11 +134,10 @@ None.
 - engine commitment
 - networking stack commitment
 - old-code transfer
-- accepted strategy claims beyond committed receipts
 
 ## Next Valid Runs
 
-None admitted by this receipt.
+- Run O-IDG-POST-INVENTORY-ORIENTATION-FRAME only.
 
 ## Projection Availability
 
