@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_baseline_measurements_collected_downstream_not_started
+  status: h1_nutrition_plan_create_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: Baseline Measurements collected; downstream work not started.
+Proof state: Nutrition Plan Create admitted; downstream work not started.
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -30,6 +30,7 @@ Accepted receipts:
 - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
 - R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 - R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
+- R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 
 Constraints:
 
@@ -90,11 +91,11 @@ First Program Blueprint:
 
 Latest closed Obligation:
 
-- O-HB-BASELINE-MEASUREMENTS-COLLECT
-- admitted by R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- O-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT
+- admitted by current human input after R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
 - status: closed / accepted
-- satisfied by R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
-- scope: baseline collection only; no prescriptions, implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
+- satisfied by R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- scope: select and admit exactly one next bounded run; no plans, prescriptions, implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
 
 Tool boundary:
 
@@ -112,11 +113,15 @@ Baseline Measurements:
 
 Open critical Obligations:
 
-- none
+- O-HB-H1-NUTRITION-PLAN-CREATE
+
+Current downstream implementation state:
+
+- downstream_implementation_state: not_started
 
 Proposed next bounded runs:
 
-- O-HB-H1-NUTRITION-PLAN-CREATE: not admitted
+- O-HB-H1-NUTRITION-PLAN-CREATE: selected_admitted
 - O-HB-H1-TRAINING-PLAN-CREATE: not admitted
 - O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE: not admitted
 - O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP: not admitted
@@ -129,7 +134,8 @@ Forbidden now:
 - product/project implementation
 - ChatGPT Project setup
 - Health Operating Project implementation
-- diet/training prescription as accepted plan
+- diet/training prescription beyond admitted future nutrition-plan authority scope
+- nutrition plan in this commit
 - meal plan
 - calorie/macro prescription
 - training plan
@@ -142,8 +148,8 @@ Forbidden now:
 
 Next valid run:
 
-- none admitted by this commit unless future bounded run is created by later human input
+- O-HB-H1-NUTRITION-PLAN-CREATE
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, and baseline measurement collection are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, baseline measurement collection, and next bounded run selection are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription beyond the admitted future nutrition-plan obligation, nutrition plan in this commit, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md

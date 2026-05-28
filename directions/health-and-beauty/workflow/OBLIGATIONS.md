@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_baseline_measurements_collected_downstream_not_started
+  status: h1_nutrition_plan_create_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -249,9 +249,50 @@ obligations:
       - downstream implementation remains not_started
       - no nutrition plan, training plan, meal plan, calorie/macro prescription, gym schedule, cycling prescription, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import created
 
-proposed_residual_obligations:
+  - obligation_id: O-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT
+    type: human_decision / workflow_triage
+    statement: Select and admit the next single bounded Health and Beauty Obligation after Baseline Measurements collection left no next admitted obligation.
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    admitted_by: current human input after R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
+    required_operator: ClarifyDesign / AskHumanDecision
+    selection_result:
+      selected_next_obligation: O-HB-H1-NUTRITION-PLAN-CREATE
+      downstream_implementation_state: not_started
+
   - obligation_id: O-HB-H1-NUTRITION-PLAN-CREATE
-    status: proposed_only_not_admitted
+    type: clarify_or_design / nutrition_plan_creation
+    statement: >
+      Create the first bounded H1 nutrition plan authority artifact using
+      the accepted root objective, constraints, success semantics, activated
+      first Program Blueprint, and collected baseline measurements, while
+      preserving safety gates and avoiding premature Daily Ops implementation.
+    status: open
+    admitted_by: R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    required_operator: ClarifyDesign / AskHumanDecision
+    unblocked_by:
+      - R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
+      - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+    acceptance_conditions:
+      - nutrition plan authority artifact created for future Daily Ops use
+      - safety gates from baseline collection preserved, not waived
+      - unknown/deferred BP, HR, labs, medications, waist/photos policy, and exact tracking capacity handled explicitly
+      - meal repetition tolerance handled as unknown/deferred or explicitly resolved
+      - plan separates principles, target ranges, tracking protocol, review gates, and escalation triggers
+      - downstream implementation remains not_started
+      - no training plan created
+      - no gym schedule created
+      - no cycling prescription created
+      - no Daily Ops implementation created
+      - no ChatGPT Project setup created
+      - no tracking implementation created
+      - no roadmap created
+      - no Active Frontier selected
+      - no Codex/product execution performed
+      - no legacy import performed
+
+proposed_residual_obligations:
   - obligation_id: O-HB-H1-TRAINING-PLAN-CREATE
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE

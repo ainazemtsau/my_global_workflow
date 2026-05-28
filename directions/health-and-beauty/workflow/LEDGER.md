@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: h1_baseline_measurements_collected_downstream_not_started
+  status: h1_nutrition_plan_create_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: h1_baseline_measurements_collected_downstream_not_started
+proof_state: h1_nutrition_plan_create_admitted_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -26,6 +26,7 @@ accepted_receipts:
   - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
   - R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
   - R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
+  - R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -85,6 +86,9 @@ accepted_claims:
   - C-HB-BASELINE-SCHEDULE-TRACKING-CAPACITY-RECORDED-2026-05-28
   - C-HB-BASELINE-GYM-BIKE-PRACTICALS-RECORDED-AS-OPTIONAL-SURFACE-2026-05-28
   - C-HB-H1-PRESCRIPTION-AND-IMPLEMENTATION-STILL-SEPARATELY-GATED-AFTER-BASELINE-2026-05-28
+  - C-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECTED-NUTRITION-PLAN-2026-05-28
+  - C-HB-H1-NUTRITION-PLAN-CREATE-ADMITTED-2026-05-28
+  - C-HB-H1-TRAINING-IMPLEMENTATION-SETUP-RUNS-REMAIN-PARKED-2026-05-28
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 constraints_state: accepted_by_R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -161,7 +165,12 @@ last_admitted_obligation:
   satisfied_by: R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
   execution_state: accepted
   scope_boundary: baseline collection only; no nutrition plan, training plan, implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
-next_admitted_obligation: none
+next_admitted_obligation:
+  obligation_id: O-HB-H1-NUTRITION-PLAN-CREATE
+  admitted_by: R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+  status: open
+  execution_state: admitted_not_started
+  scope_boundary: nutrition plan creation only; no training plan, meal plan, execution beyond nutrition-plan authority scope, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
 downstream_implementation_state: not_started
 legacy_import_state: not_performed
 legacy_state_authority: false
