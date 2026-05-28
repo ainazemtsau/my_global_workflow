@@ -129,6 +129,8 @@ codex_commit_handoff_card:
 - No external wrapper is allowed.
 - If repository, worktree, branch, or mode are unknown, the Operator chat must not emit a commit-ready handoff; it must return `CODEX_HANDOFF_BLOCKED` with missing fields.
 - A self-contained card must include exact allowed paths and forbidden paths.
+- A self-contained card must include internally consistent path boundaries: no allowed path may be matched by any forbidden path glob.
+- `allowed_paths` is the positive whitelist for changed files.
 - A self-contained card must state whether merge to main is allowed; default is false.
 - A self-contained card must include `branch_policy`; valid values are `review_branch_required` and `direct_to_main_allowed`.
 - If `branch_policy` is absent, ambiguous, or unsupported, Codex must assume `review_branch_required`.
@@ -152,6 +154,49 @@ codex_commit_handoff_card:
 - If the source Receipt is too long, the card may include a compact receipt summary plus explicit instruction to paste or attach the full Receipt below; the run header and path boundaries must still be self-contained.
 - A partial handoff must not be labeled copy-paste runnable.
 
+## Path Boundary Consistency Rule
+
+A Codex Commit Handoff Card is invalid if any `allowed_path` is matched by any `forbidden_paths` glob.
+
+No file may be both allowed and forbidden.
+
+`allowed_paths` is the positive whitelist for changed files. Validation must prove that `changed_files` is an exact subset of `allowed_paths`.
+
+Sibling-Direction protection must not be encoded as `directions/*/workflow/**` when `allowed_paths` includes `directions/<direction-id>/workflow/**`. That blanket forbidden glob also matches the active Direction workflow payload and makes the handoff contradictory.
+
+Sibling-Direction protection should use `files_not_to_touch` and/or non-overlapping `protected_paths`, plus validation that `changed_files` is an exact subset of `allowed_paths`.
+
+Before a handoff is labeled copy-paste runnable, preflight validation must check every `allowed_path` against every `forbidden_paths` glob and fail if any allowed path is forbidden.
+
+Simple single-Direction proof-state path-boundary example:
+
+```yaml
+path_boundaries:
+  allowed_paths:
+    - directions/health-and-beauty/workflow/LEDGER.md
+    - directions/health-and-beauty/workflow/OBLIGATIONS.md
+    - directions/health-and-beauty/workflow/RECEIPTS_INDEX.md
+    - directions/health-and-beauty/workflow/receipts/R-HB-EXAMPLE.md
+  forbidden_paths:
+    - workflow/**
+    - docs/**
+    - README.md
+    - AGENTS.md
+    - directions/*/project_files/**
+    - directions/*/legacy/**
+  protected_paths:
+    - directions/workflow-governance/workflow/**
+    - directions/another-direction/workflow/**
+files_not_to_touch:
+  - path: directions/workflow-governance/workflow/**
+    reason: sibling Direction workflow payload
+  - path: directions/another-direction/workflow/**
+    reason: sibling Direction workflow payload
+validation_required:
+  - check: changed_files is an exact subset of path_boundaries.allowed_paths
+  - check: no path in path_boundaries.allowed_paths is matched by path_boundaries.forbidden_paths
+```
+
 ## Branch Policy Semantics
 
 `review_branch_required` is the default and fallback.
@@ -164,7 +209,7 @@ Direct-to-main eligibility requires all criteria to pass:
 
 - the commit is a simple single-Direction proof-state commit;
 - every changed path is inside one Direction's active workflow payload path;
-- the handoff has exact `allowed_paths` and `forbidden_paths`;
+- the handoff has exact non-overlapping `allowed_paths` and `forbidden_paths`;
 - no `workflow/**`, `docs/**`, `project_setup/**`, `project_files/**`, `archive/**`, product implementation, execution package, migration, multi-Direction, or legacy import paths are changed;
 - validation passes;
 - the current worktree can be cleanly rebased onto `origin/main`;

@@ -111,6 +111,8 @@ It must be self-contained.
 
 It must include repository, worktree, branch, mode, branch policy, worktree policy, main update policy, allowed paths, forbidden paths, protected paths, git behavior, commit behavior, push behavior, and no-main-merge behavior.
 
+It must include internally consistent path boundaries: no `allowed_paths` entry may be covered by `forbidden_paths` or `protected_paths`.
+
 It is distinct from product/project execution and must not ask the user to infer repository paths, execution boundaries, or validation steps from the Receipt.
 
 It must include separated project refresh requirements when changed files affect ChatGPT Projects.
@@ -139,6 +141,16 @@ Legacy merge fields do not authorize direct-to-main by themselves. Direct-to-mai
 For eligible direct-to-main runs, Codex may auto-update `origin/main` only after full validation, clean rebase onto `origin/main`, post-rebase validation, push of current `HEAD` to `origin/main`, and remote SHA verification.
 
 Direct-to-main must stay in the existing Direction worktree/branch. It must not switch to local `main` and must not depend on a global main worktree.
+
+### Path Boundary Consistency Rule
+
+Codex Commit Handoff path boundaries must be internally consistent.
+
+`forbidden_paths` and `protected_paths` must not cover `allowed_paths`.
+
+Changed files must be validated as an exact subset of `allowed_paths`.
+
+Cross-Direction protection must not use overlapping blanket globs. In particular, do not use `directions/*/workflow/**` as a forbidden path when `allowed_paths` includes `directions/<direction-id>/workflow/**`; protect sibling Direction workflow payloads with non-overlapping `protected_paths` / `files_not_to_touch` plus exact changed-files subset validation.
 
 ## Codex Execution Launch Card
 

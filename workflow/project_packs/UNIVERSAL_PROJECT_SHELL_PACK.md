@@ -5,9 +5,9 @@ artifact_control:
   pack_name: UNIVERSAL_PROJECT_SHELL_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: no_next_valid_run_recovery_refreshed
+  status: path_boundary_consistency_refreshed
   owner: workflow_os
-  generated_from_ref: wg/no-next-run-recovery-protocol-2026-05-28
+  generated_from_ref: wg/codex-handoff-path-boundary-consistency-2026-05-28
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
@@ -133,9 +133,11 @@ Return the human-readable result first. Technical cards belong after the explana
 
 No-next-run recovery returns `HUMAN_DECISION_NEEDED` only when the chat was opened for admission; otherwise return `NEXT_CHAT_NEEDED` with an exact recovery prompt. It must not trigger execution.
 
-If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, `branch_policy`, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements.
+If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, `branch_policy`, allowed paths, forbidden paths, protected paths, non-overlapping path boundaries, validation, commit behavior, push behavior, and separated project refresh requirements.
 
-Missing or unclear `branch_policy` means `review_branch_required`. Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits. Workflow core/setup, docs/setup, Project setup, migration, multi-Direction, product/execution work, risky changes, conflicts, or uncertain validation require review branch behavior.
+`allowed_paths` is the changed-files whitelist. No allowed path may be covered by forbidden/protected paths, and changed files must validate as an exact subset of `allowed_paths`. Do not use `directions/*/workflow/**` as a forbidden path when the active Direction workflow path is allowed.
+
+Missing or unclear `branch_policy` means `review_branch_required`. Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits with exact non-overlapping path boundaries. Workflow core/setup, docs/setup, Project setup, migration, multi-Direction, product/execution work, risky changes, conflicts, or uncertain validation require review branch behavior.
 
 Direct-to-main must keep Codex in the existing Direction worktree, must not switch to local `main` or use a global main worktree, and must verify `origin/main` SHA after pushing `HEAD:main`.
 

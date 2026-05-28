@@ -5,9 +5,9 @@ artifact_control:
   pack_name: TRANSPORT_CORE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: single_material_run_chat_boundary_hardened
+  status: path_boundary_consistency_refreshed
   owner: workflow_os
-  generated_from_ref: wg/single-material-run-chat-boundary-2026-05-27
+  generated_from_ref: wg/codex-handoff-path-boundary-consistency-2026-05-28
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
@@ -67,9 +67,11 @@ Commit Packet proposes a candidate state transition for Verify and Commit. It is
 
 Legacy Import Receipt Card records evidence needed to import old data without treating legacy files as current truth.
 
-Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, branch policy, worktree policy, main update policy, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
+Codex Commit Handoff Card is a self-contained repository maintenance instruction. It must include repository, worktree, branch, mode, branch policy, worktree policy, main update policy, allowed paths, forbidden paths, protected paths, path-boundary consistency, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
 
-`review_branch_required` is the default and fallback branch policy. `direct_to_main_allowed` may be used only for eligible simple single-Direction proof-state commits with exact path boundaries, full validation, clean rebase onto `origin/main`, post-rebase validation, `HEAD` push to `origin/main`, and remote SHA verification. Workflow core, docs/setup, Project setup, risky, migration, multi-Direction, product, execution-package, legacy-import, conflict, or unverifiable changed-path cases require review branch behavior.
+Codex Commit Handoff path boundaries are invalid if any allowed path is covered by forbidden or protected globs. `allowed_paths` is the changed-files whitelist; changed files must validate as an exact subset of it. Do not protect sibling Direction workflow files with an overlapping forbidden glob such as `directions/*/workflow/**` when the active Direction workflow path is allowed; use non-overlapping protected/not-to-touch paths plus exact changed-files validation.
+
+`review_branch_required` is the default and fallback branch policy. `direct_to_main_allowed` may be used only for eligible simple single-Direction proof-state commits with exact non-overlapping path boundaries, full validation, clean rebase onto `origin/main`, post-rebase validation, `HEAD` push to `origin/main`, and remote SHA verification. Workflow core, docs/setup, Project setup, risky, migration, multi-Direction, product, execution-package, legacy-import, conflict, or unverifiable changed-path cases require review branch behavior.
 
 Direct-to-main must stay in the existing Direction worktree. It must not switch to local `main`, use a global main worktree, bypass validation, or ask for a second human merge command after success.
 

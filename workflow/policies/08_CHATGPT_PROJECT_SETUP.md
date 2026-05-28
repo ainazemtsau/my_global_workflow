@@ -206,6 +206,8 @@ Workflow Projects must expect Codex Commit Handoff Cards to be fully self-contai
 
 Codex Commit Handoff Cards must declare `branch_policy`. Missing or unclear branch policy means `review_branch_required`.
 
+Generated Codex handoffs must not contain allowed/forbidden/protected path overlap. `allowed_paths` is the changed-files whitelist; validation must prove changed files are an exact subset of `allowed_paths` and no allowed path is matched by `forbidden_paths` or protected sibling globs. Do not use `directions/*/workflow/**` as forbidden when the active Direction workflow path is allowed; protect siblings with exact allowed-path validation and concrete protected/not-to-touch paths.
+
 Ordinary Direction Project chats may emit `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits after exact path boundaries and validation requirements are known. Workflow core, docs/setup, Project setup, migrations, multi-Direction changes, product implementation, execution packages, legacy imports, risky changes, uncertain validation, or unverifiable changed-file sets must use `review_branch_required`.
 
 Direct-to-main guidance must state that Codex stays in the existing Direction worktree, does not switch to local `main`, does not use a global main worktree, validates before and after clean rebase onto `origin/main`, pushes `HEAD` to `origin/main`, verifies the remote SHA, and does not ask for a second human merge command after success.

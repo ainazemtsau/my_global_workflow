@@ -5,9 +5,10 @@ artifact_control:
   pack_name: GOVERNANCE_MAINTENANCE_PACK
   pack_type: workflow_governance_maintenance_console
   intended_load_mode: default_for_workflow_governance_maintenance_project
-  status: workflow_source_of_truth_locator_refresh
+  status: path_boundary_consistency_refreshed
   owner: workflow_os
-  refreshed_for_receipt: R-WG-PROJECT-INSTRUCTION-BUDGET-RESIDUAL-SWEEP-001
+  generated_from_ref: wg/codex-handoff-path-boundary-consistency-2026-05-28
+  refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Refresh this pack if any source_manifest file changes."
 source_manifest:
@@ -175,6 +176,8 @@ P4 Surface-Specific Contract Checks apply only after lifecycle detection. Check 
 P5 Codex Handoff / Codex Result Verification applies when the transcript includes a Codex handoff request, execution request, or pasted Codex result. Check whether:
 
 - the handoff was self-contained before repository persistence
+- handoff path boundaries had no allowed/forbidden/protected overlap
+- changed files were validated as an exact subset of `allowed_paths`
 - execution gates were present before CodexRun/execution
 - pasted Codex results were verified for branch, commit, changed files, forbidden paths, validation evidence, markers, residual risks, and Project Files refresh requirements
 
@@ -240,6 +243,9 @@ Repository maintenance handoffs must include:
 - goal and problem statement
 - allowed paths
 - forbidden paths
+- protected paths and files not to touch
+- path-boundary consistency: no allowed path is matched by forbidden/protected paths
+- validation that changed files are an exact subset of allowed paths
 - required changes
 - validation checks
 - commit and push instructions when needed
@@ -250,7 +256,9 @@ Repository maintenance handoffs must include:
 
 Do not require the user to infer missing repository, branch, validation, allowed-path, forbidden-path, or commit details.
 
-Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits. Workflow core/setup, docs/setup, Project setup, migration, multi-Direction, product/execution work, risky changes, conflicts, uncertain validation, or unverifiable changed paths require `review_branch_required`.
+Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits with exact non-overlapping path boundaries. Workflow core/setup, docs/setup, Project setup, migration, multi-Direction, product/execution work, risky changes, conflicts, uncertain validation, or unverifiable changed paths require `review_branch_required`.
+
+Do not use `directions/*/workflow/**` as a forbidden path when the active Direction workflow path is allowed; protect sibling Directions with non-overlapping protected/not-to-touch paths plus exact changed-files validation.
 
 Direct-to-main handoffs must require full validation, clean rebase onto `origin/main`, post-rebase validation, `HEAD` push to `origin/main`, remote SHA verification, no local `main` checkout, no global main worktree, and no second human merge command after success.
 

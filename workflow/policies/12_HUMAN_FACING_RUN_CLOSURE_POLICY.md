@@ -34,7 +34,7 @@ A Receipt or commit-worthy delta exists and must be saved by Codex.
 
 The response must provide a fully self-contained Codex Commit Handoff Card.
 
-The user should be able to copy one block into Codex without adding repository, worktree, branch, mode, path boundaries, commit behavior, push behavior, or no-main-merge instructions.
+The user should be able to copy one block into Codex without adding repository, worktree, branch, mode, non-overlapping path boundaries, commit behavior, push behavior, or no-main-merge instructions.
 
 After Codex returns, the Codex result returns to the same chat only for verification and closure of the current material run.
 
@@ -77,7 +77,7 @@ The response must name the smallest blocking context.
 
 ### CODEX_HANDOFF_BLOCKED
 
-Repository maintenance is needed, but the Operator cannot produce a self-contained Codex Commit Handoff Card because required run boundary fields are missing.
+Repository maintenance is needed, but the Operator cannot produce a self-contained Codex Commit Handoff Card because required run boundary fields are missing or exact non-overlapping path boundaries cannot be produced.
 
 The response must name the missing fields and must not claim the handoff is copy-paste runnable.
 
@@ -143,7 +143,7 @@ Open the current Direction payload and handle no-next-valid-run recovery only. T
 When terminal outcome is `CODEX_COMMIT_NEEDED`, the response must include:
 
 - concise human explanation
-- fully self-contained Codex Commit Handoff Card
+- fully self-contained Codex Commit Handoff Card with non-overlapping path boundaries
 - repository
 - worktree
 - branch
@@ -151,6 +151,8 @@ When terminal outcome is `CODEX_COMMIT_NEEDED`, the response must include:
 - exact allowed paths
 - exact forbidden paths
 - protected paths and files not to touch
+- validation that no allowed path is matched by forbidden/protected path boundaries
+- validation that changed files are an exact subset of allowed paths
 - files to create/update
 - validation requirements
 - commit message and commit requirement
@@ -171,11 +173,21 @@ The response must not output only a Receipt plus a partial handoff.
 
 The response must not say "send this to Codex" unless the pasted block is runnable as-is.
 
+### Path Boundary Consistency Rule
+
+`fully self-contained` includes exact, non-overlapping path boundaries.
+
+No file may be both allowed and forbidden. `allowed_paths` is the positive whitelist for changed files, and changed files must be validated as an exact subset of `allowed_paths`.
+
+Codex handoffs must not protect sibling Directions with an overlapping blanket forbidden glob such as `directions/*/workflow/**` when `allowed_paths` includes `directions/<direction-id>/workflow/**`. Use non-overlapping `protected_paths` / `files_not_to_touch` plus exact changed-files subset validation.
+
+If exact non-overlapping boundaries cannot be produced, the run closure must return `CODEX_HANDOFF_BLOCKED` and must not claim the handoff is copy-paste runnable.
+
 ## Codex Direct-To-Main Closure Rule
 
 Eligible simple single-Direction proof-state Codex handoffs should not require a second human "merge to main" turn after validation has already passed.
 
-A handoff may set `branch_policy: direct_to_main_allowed` only when the commit is a simple single-Direction proof-state commit with exact allowed and forbidden paths and no workflow core, docs/setup, Project setup, migration, product implementation, execution package, legacy import, or multi-Direction changes.
+A handoff may set `branch_policy: direct_to_main_allowed` only when the commit is a simple single-Direction proof-state commit with exact non-overlapping allowed and forbidden paths and no workflow core, docs/setup, Project setup, migration, product implementation, execution package, legacy import, or multi-Direction changes.
 
 Direct-to-main must not bypass validation. Codex must validate, commit, cleanly rebase onto `origin/main`, re-run validation, push `HEAD` directly to `origin/main`, and verify the remote `origin/main` SHA equals local `HEAD`.
 
@@ -201,7 +213,7 @@ Do not group Project Instructions UI updates under uploaded Project Files/Source
 
 When Project Instructions source files change, run closures must report the extracted UI payload character count for each changed source and state whether each is under the 8,000-character hard max, over the 7,200-character warning threshold, or at/below the 6,500-character target.
 
-If the operator cannot produce a self-contained Codex handoff, it must clearly state the missing fields and return `BLOCKED_CONTEXT_NEEDED` or `CODEX_HANDOFF_BLOCKED`.
+If the operator cannot produce a self-contained Codex handoff with exact non-overlapping path boundaries, it must clearly state the missing fields and return `BLOCKED_CONTEXT_NEEDED` or `CODEX_HANDOFF_BLOCKED`.
 
 ## Next Chat Rule
 

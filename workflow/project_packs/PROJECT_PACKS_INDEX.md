@@ -5,9 +5,9 @@ artifact_control:
   pack_name: PROJECT_PACKS_INDEX
   pack_type: runtime_cache_upload_convenience_index
   intended_load_mode: default_workflow_governance_maintenance_request_only_ordinary_directions
-  status: no_next_valid_run_recovery_refreshed
+  status: path_boundary_consistency_refreshed
   owner: workflow_os
-  generated_from_ref: wg/no-next-run-recovery-protocol-2026-05-28
+  generated_from_ref: wg/codex-handoff-path-boundary-consistency-2026-05-28
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this index if any source_manifest file changes."
@@ -50,7 +50,9 @@ Project Instructions UI payloads must stay below the 8,000-character hard max, t
 
 Codex handoffs must use separated project refresh fields, including payload character counts when instruction sources change.
 
-Codex handoffs must declare `branch_policy`. `review_branch_required` is the default and is required for workflow core/setup, docs/setup, Project setup, risky, migration, multi-Direction, product, execution-package, legacy-import, conflict, or unverifiable changed-path work. `direct_to_main_allowed` is limited to eligible simple single-Direction proof-state commits and still requires validation, clean rebase onto `origin/main`, `HEAD` push to `origin/main`, and remote SHA verification without switching to local `main` or using a global main worktree. Legacy merge flags do not authorize this fast path by themselves.
+Codex handoffs must have non-overlapping path boundaries. `allowed_paths` is the changed-files whitelist; no allowed path may be covered by forbidden/protected paths, and changed files must validate as an exact subset of `allowed_paths`. Do not use `directions/*/workflow/**` as a forbidden path when the active Direction workflow path is allowed.
+
+Codex handoffs must declare `branch_policy`. `review_branch_required` is the default and is required for workflow core/setup, docs/setup, Project setup, risky, migration, multi-Direction, product, execution-package, legacy-import, conflict, or unverifiable changed-path work. `direct_to_main_allowed` is limited to eligible simple single-Direction proof-state commits with exact non-overlapping path boundaries and still requires validation, clean rebase onto `origin/main`, `HEAD` push to `origin/main`, and remote SHA verification without switching to local `main` or using a global main worktree. Legacy merge flags do not authorize this fast path by themselves.
 
 ## Default Load Recommendation
 
@@ -65,7 +67,7 @@ Direction payload files are the Direction Ledger, Obligations, Receipts index, C
 
 Default upload count excludes Project Instructions UI sources.
 
-The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, no-next-valid-run `paused_for_admission` recovery, Single Material Run Chat Boundary, child-handoff gating, Receipt scope audit, and next-chat default after committed material runs.
+The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, no-next-valid-run `paused_for_admission` recovery, Single Material Run Chat Boundary, child-handoff gating, Receipt scope audit, Codex handoff path-boundary consistency, and next-chat default after committed material runs.
 
 For the Workflow Governance Maintenance Project, `GOVERNANCE_MAINTENANCE_PACK.md` contains the detailed Real Transcript Review procedure: short natural-language triggers plus pasted completed transcript, P0 Single Responsibility / Atomic Run as the first mandatory gate, lifecycle surface detection, relevant-only surface checks, Codex handoff/result verification when applicable, stable transcript defect classes, and explicit terminal outcome. The Project Instructions UI only bootstraps this procedure.
 

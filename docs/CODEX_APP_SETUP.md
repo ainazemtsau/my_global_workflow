@@ -20,7 +20,7 @@ Old files may be inspected as legacy evidence only when the task explicitly asks
 
 Codex repository maintenance instructions should follow workflow transport rules when provided.
 
-Codex Commit Handoff Cards must be self-contained. A commit handoff must include repository, worktree, branch, mode, `branch_policy`, worktree policy, main update policy, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
+Codex Commit Handoff Cards must be self-contained. A commit handoff must include repository, worktree, branch, mode, `branch_policy`, worktree policy, main update policy, allowed paths, forbidden paths, path-boundary consistency, validation, commit behavior, push behavior, and separated project refresh requirements when ChatGPT Project surfaces are affected.
 
 Product/project execution is separate from repository maintenance and must not be inferred from a maintenance request.
 
@@ -65,6 +65,9 @@ Allowed paths:
 Forbidden paths:
 [exact paths]
 
+Path-boundary consistency:
+allowed_paths and forbidden_paths/protected_paths do not overlap; changed files must be an exact subset of allowed paths; no allowed path is forbidden
+
 Task:
 [describe exact maintenance task]
 
@@ -86,6 +89,7 @@ Codex must:
 - use GitHub repository markdown files as the storage substrate;
 - preserve the workflow rule: Receipt -> Verify -> Commit -> Ledger update;
 - treat missing or unclear `branch_policy` as `review_branch_required`;
+- validate path-boundary consistency before commit: changed files are an exact subset of allowed paths and no allowed path is forbidden;
 - allow direct-to-main only for eligible simple single-Direction proof-state commits with exact paths, passing validation, clean rebase onto `origin/main`, post-rebase validation, `git push origin HEAD:main`, and remote SHA verification;
 - for direct-to-main, stay in the existing Direction worktree and do not switch to local `main` or use a global main worktree;
 - return exact changed paths;
@@ -108,6 +112,8 @@ Codex must not:
 Before commit/push, verify:
 
 - scope is correct;
+- changed files are an exact subset of allowed paths;
+- no allowed path is matched by forbidden paths or protected paths;
 - no forbidden paths changed;
 - no unrelated Direction files changed;
 - no old workflow authority was reintroduced;

@@ -55,6 +55,8 @@ Respond in Russian by default. Put the human-readable result first. Use YAML/car
 
 For commit-worthy repository persistence, provide one self-contained Codex handoff with repository, branch, `branch_policy`, allowed/forbidden paths, required changes, validation, commit/push instructions, return fields, and separated refresh fields: `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, `do_not_upload_as_project_file`.
 
+Codex handoff `allowed_paths` and `forbidden_paths` must not overlap; do not use `directions/*/workflow/**` as forbidden when `allowed_paths` contains the active Direction workflow path; enforce sibling-Direction protection by exact `allowed_paths` validation and concrete protected/not-to-touch paths.
+
 Use `direct_to_main_allowed` only for eligible simple single-Direction proof-state commits after exact path boundaries and validation are known. Missing/unclear policy, workflow core/setup changes, migrations, multi-Direction changes, product/execution work, risky changes, conflicts, or uncertain validation require `review_branch_required`.
 
 <!-- END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD -->
