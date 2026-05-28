@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: foundation_core_execution_readiness_framed
+  status: first_foundation_nucleus_execution_readiness_packaged
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,7 +12,7 @@ artifact_control:
 ## Receipt State
 
 ```yaml
-root_state: foundation_core_execution_readiness_framed
+root_state: first_foundation_nucleus_execution_readiness_packaged
 accepted_receipts:
   - receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
     path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
@@ -56,6 +56,9 @@ accepted_receipts:
   - receipt_id: R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
     path: receipts/R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001.md
     summary: Accepted foundation-core execution-readiness decision frame as bounded readiness framing only, keeping product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, and old-code transfer unadmitted; separate technical evidence audit remains conditional, not mandatory before readiness.
+  - receipt_id: R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001
+    path: receipts/R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001.md
+    summary: Accepted first no-player foundation nucleus execution-readiness package, including Grid as extensible spatial substrate, bounded topology mutation/breach readiness, event/change-set/snapshot contract, gas profile/effect-hook extensibility, validation tests, stop conditions, and future performance/scale evidence requirements, without admitting product execution, CodexExecution, implementation, engine/networking commitment, old-code transfer, final gas taxonomy, or final reaction graph.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -119,6 +122,10 @@ receipt_storage_path: receipts/
   path: receipts/R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001.md
   summary: Accepted foundation-core execution-readiness decision frame as bounded readiness framing only, keeping product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, and old-code transfer unadmitted; separate technical evidence audit remains conditional, not mandatory before readiness.
 
+- receipt_id: R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001
+  path: receipts/R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001.md
+  summary: Accepted first no-player foundation nucleus execution-readiness package, including Grid as extensible spatial substrate, bounded topology mutation/breach readiness, event/change-set/snapshot contract, gas profile/effect-hook extensibility, validation tests, stop conditions, and future performance/scale evidence requirements, without admitting product execution, CodexExecution, implementation, engine/networking commitment, old-code transfer, final gas taxonomy, or final reaction graph.
+
 ## Rules
 
 No receipt -> no progress.
@@ -132,6 +139,8 @@ No full legacy state import Receipt exists.
 The accepted legacy import Receipts are bounded concept evidence inventory and bounded legacy core compression import only.
 
 The accepted foundation-core execution-readiness Receipt is a bounded readiness frame only and creates no product execution or CodexExecution.
+
+The accepted first foundation nucleus execution-readiness package Receipt is accepted after Verify + Commit and creates no product execution, CodexExecution, implementation, engine/networking commitment, old-code transfer, final gas taxonomy, or final reaction graph.
 
 Accepted strategic decision receipt exists for route selection only. Projection receipt exists but creates no strategy commitment.
 

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: foundation_core_execution_readiness_framed
+  status: first_foundation_nucleus_execution_readiness_packaged
   owner: proof_carrying_workflow_os
 ---
 
@@ -50,11 +50,58 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 
 Candidate/proposed only. None are admitted as open_next obligations.
 
-- O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
 - O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
 - O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
 
 ## Satisfied Obligations
+
+### O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
+
+```yaml
+obligation_id: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
+type: clarify_objective / readiness_package / human_decision
+statement: >
+  Accept the first no-player foundation nucleus execution-readiness package as
+  bounded proof-state persistence only, including Grid as authoritative
+  extensible spatial substrate, bounded topology mutation/breach readiness,
+  event/change-set/snapshot contract surfaces, and gas profile/effect-hook
+  extensibility, without admitting product execution, CodexExecution,
+  implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch
+  strategy, engine commitment, networking stack commitment, old-code transfer,
+  final gas taxonomy, or final reaction graph.
+status: satisfied
+priority: next
+admitted_by: current_human_decision_2026-05-28
+satisfied_by: R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001
+accepted_result:
+  accepted_state_kind: first_foundation_nucleus_execution_readiness_package
+  proof_state_after_commit: first_foundation_nucleus_execution_readiness_packaged
+  admits_only: bounded_no_player_foundation_nucleus_readiness_package
+  executes_only: readiness_packaging
+  grid_spatial_substrate_extensibility: accepted_for_package
+  bounded_topology_mutation_breach_readiness: accepted_for_package
+  event_change_set_snapshot_contract: accepted_for_package
+  gas_profile_effect_hook_extensibility: accepted_for_package
+  technical_evidence_audit_before_this_package: conditional_not_mandatory
+  open_next_obligations: []
+  no_strategy: true
+  no_roadmap: true
+  no_horizon_selection: true
+  no_active_frontier_selection: true
+  no_product_execution: true
+  no_codex_execution: true
+  no_implementation: true
+  no_steam_launch_strategy: true
+  no_engine_commitment: true
+  no_networking_stack_commitment: true
+  no_old_code_transfer: true
+  no_final_gas_taxonomy: true
+  no_final_reaction_graph: true
+required_operator:
+  - ClarifyObjective
+  - ReadinessPackage
+  - HumanDecision
+```
 
 ### O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS
 
@@ -439,6 +486,8 @@ No CodexExecution operator may run.
 No roadmap item exists without admitted Obligation.
 
 Execution remains unavailable until required constraints, strategy, and execution-ready precondition Receipts are accepted and committed.
+
+The first foundation nucleus execution-readiness package satisfies one bounded obligation only. It creates no product execution, CodexExecution, implementation, roadmap, Horizon, Active Frontier, Steam launch strategy, engine commitment, networking stack commitment, old-code transfer, final gas taxonomy, or final reaction graph.
 
 The legacy core compression import creates candidate follow-up obligations only. It does not admit a next run.
 
