@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: gas_ecology_identity_boundary_clarify_admitted
+  status: gas_ecology_identity_boundary_clarified
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, a committed bounded concept identity frame, and one admitted open_next gas ecology identity boundary clarification obligation. It does not create strategy commitment.
+This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, a committed bounded concept identity frame, and a committed bounded gas ecology identity boundary clarification. It does not create strategy commitment.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: gas_ecology_identity_boundary_clarify_admitted
+proof_state: gas_ecology_identity_boundary_clarified
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -36,6 +36,7 @@ accepted_receipts:
   - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-ADMIT-001
   - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001
   - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
+  - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 route_decision:
@@ -58,23 +59,27 @@ concept_identity_clarification:
   identity_frame: co-op reactive gas-ecology expedition game / systemic atmospheric survival-puzzle-action
   gas_ecology_boundary: reactive multi-gas ecology, not gas-as-hazard only
 gas_ecology_identity_boundary_clarification:
-  admitted_obligation: O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY
+  satisfied_obligation: O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY
   admitted_by: R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
-  obligation_status: open_next
-  execution_state: not_executed
-  admission_only: true
-open_next_obligations:
-  - O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY
-next_valid_runs_admitted_by_this_receipt:
-  - O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY
-candidate_next_obligations:
+  satisfied_by: R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001
+  obligation_status: satisfied
+  execution_state: satisfied
+  result_kind: bounded_gas_ecology_identity_boundary
+  candidate_follow_up_obligations_only: true
+open_next_obligations: []
+next_valid_runs_admitted_by_this_receipt: []
+candidate_follow_up_obligations:
   - obligation_id: O-IDG-REACTIVE-GAS-CORE-LOOP-CLARIFY
     status: candidate_proposed_only
   - obligation_id: O-IDG-GAS-READABILITY-AND-VISUAL-IDENTITY-GAP-AUDIT
     status: candidate_proposed_only
-  - obligation_id: O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
+  - obligation_id: O-IDG-GAS-ROLE-SPECTRUM-QUESTION-INVENTORY
     status: candidate_proposed_only
-  - obligation_id: O-IDG-STRATEGY-ADMISSION-DECISION
+  - obligation_id: O-IDG-GAS-TOPOLOGY-AFFORDANCE-BOUNDARY-CLARIFY
+    status: candidate_proposed_only
+  - obligation_id: O-IDG-GAS-CONTAINMENT-AND-RUPTURE-BOUNDARY-CLARIFY
+    status: candidate_proposed_only
+  - obligation_id: O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
     status: candidate_proposed_only
 legacy_import_state: bounded_concept_evidence_inventory_committed
 legacy_state_authority: false
@@ -125,8 +130,8 @@ Full success requires technical-pride success, game-completion success, commerci
 - O-IDG-POST-INVENTORY-ORIENTATION-FRAME is satisfied by `R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001`.
 - O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE is satisfied by `R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001`.
 - Legacy documents remain evidence-only input and are not accepted wholesale.
-- O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY is admitted by `R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001` as open_next.
-- The gas ecology identity boundary clarification obligation itself has not been executed.
+- O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY is satisfied by `R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001`.
+- The gas ecology identity boundary is clarified only as bounded identity state; final gas taxonomy, final reaction system, implementation, strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine/networking commitment, old-code transfer, and final lore selection remain outside accepted state.
 
 ## Bounded Concept Identity Summary
 
@@ -149,6 +154,7 @@ Full success requires technical-pride success, game-completion success, commerci
 
 ## Satisfied Obligations
 
+- O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY satisfied by `R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001`.
 - O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE satisfied by `R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001`.
 - O-IDG-POST-INVENTORY-ORIENTATION-FRAME satisfied by `R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001`.
 - O-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY satisfied by `R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001`.
@@ -161,7 +167,7 @@ None.
 
 ## Open Next Obligations
 
-- O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY admitted/open_next by `R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001`; not executed.
+None.
 
 ## Optional Available Obligation
 
@@ -191,12 +197,14 @@ Remaining obligations below are candidate/proposed only and are not admitted obl
 
 - O-IDG-REACTIVE-GAS-CORE-LOOP-CLARIFY
 - O-IDG-GAS-READABILITY-AND-VISUAL-IDENTITY-GAP-AUDIT
+- O-IDG-GAS-ROLE-SPECTRUM-QUESTION-INVENTORY
+- O-IDG-GAS-TOPOLOGY-AFFORDANCE-BOUNDARY-CLARIFY
+- O-IDG-GAS-CONTAINMENT-AND-RUPTURE-BOUNDARY-CLARIFY
 - O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
-- O-IDG-STRATEGY-ADMISSION-DECISION
 
 ## Next Valid Runs
 
-O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY is admitted as the next bounded proof obligation. It has not been executed.
+None.
 
 Remaining candidate/proposed obligations require a separate Receipt -> Verify -> Commit admission before becoming valid next runs.
 
