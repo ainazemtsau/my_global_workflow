@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_training_plan_authority_created_downstream_not_started
+  status: h1_daily_ops_implementation_readiness_define_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -337,9 +337,53 @@ obligations:
       - no Codex/product execution performed
       - no legacy import performed
 
-proposed_residual_obligations:
+  - obligation_id: O-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT
+    type: human_decision / workflow_triage
+    statement: Select and admit the next single bounded Health and Beauty Obligation after Training Plan Authority creation left no next admitted obligation.
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    admitted_by: current human input after R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
+    required_operator: ClarifyDesign / AskHumanDecision
+    selection_result:
+      selected_next_obligation: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
+      downstream_implementation_state: not_started
+
   - obligation_id: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
-    status: proposed_only_not_admitted
+    type: clarify_or_design / implementation_readiness_definition
+    statement: >
+      Define the Daily Ops implementation readiness gates, target binding,
+      minimal surfaces, allowed and forbidden implementation surfaces,
+      validation/read-back requirements, context authority boundaries, stop
+      conditions, and handoff requirements needed before any Health and Beauty
+      Daily Ops implementation, ChatGPT Project setup, or tracking
+      implementation may be created, using accepted nutrition and training
+      authority artifacts, without creating implementation or setup.
+    status: open
+    execution_state: admitted_not_started
+    admitted_by: R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    required_operator: ClarifyDesign / AskHumanDecision
+    unblocked_by:
+      - R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
+      - R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
+      - R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
+    acceptance_conditions:
+      - accepted nutrition authority and training authority are used as boundaries
+      - Daily Ops implementation readiness gates are defined
+      - target implementation surface is bounded without creating it
+      - allowed files/surfaces and forbidden files/surfaces are defined
+      - validation/read-back requirements are defined
+      - context authority and anti-stale-cache rules are defined
+      - tracking/photo/voice/text capture readiness is defined without implementation
+      - ChatGPT Project setup remains not created
+      - Daily Ops implementation remains not_started
+      - tracking implementation remains not_started
+      - no roadmap created
+      - no Active Frontier selected
+      - no Codex/product execution performed
+      - no legacy import performed
+
+proposed_residual_obligations:
   - obligation_id: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
     status: proposed_only_not_admitted
 ```

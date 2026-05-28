@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_training_plan_authority_created_downstream_not_started
+  status: h1_daily_ops_implementation_readiness_define_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: Training Plan Authority created; downstream work not started.
+Proof state: Daily Ops Implementation Readiness Define admitted; downstream work not started.
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -34,6 +34,7 @@ Accepted receipts:
 - R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
 - R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 - R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
+- R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 
 Constraints:
 
@@ -102,10 +103,10 @@ Latest closed Obligation:
 
 Latest workflow-triage closed run:
 
-- O-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT
+- O-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT
 - status: closed / accepted
-- satisfied by R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-- selected next obligation: O-HB-H1-TRAINING-PLAN-CREATE
+- satisfied by R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- selected next obligation: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
 - selected obligation execution state: admitted_not_started
 
 Tool boundary:
@@ -151,7 +152,7 @@ Training Plan Authority:
 
 Open critical Obligations:
 
-- none
+- O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
 
 Current downstream implementation state:
 
@@ -159,11 +160,10 @@ Current downstream implementation state:
 
 Next admitted Obligation:
 
-- next_admitted_obligation: none
+- next_admitted_obligation: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
 
 Proposed next bounded runs:
 
-- O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE: not admitted
 - O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP: not admitted
 
 Forbidden now:
@@ -188,8 +188,8 @@ Forbidden now:
 
 Next valid run:
 
-- next_valid_run: none_admitted__paused_for_admission
+- next_valid_run: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, baseline measurement collection, next bounded run selection, nutrition plan authority artifact, and training plan authority artifact are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, product/project implementation, Daily Ops implementation, tracking implementation, meal plan, actual menu, recipes, shopping list, exact training sessions, gym schedule, cycling prescription, accepted 12-week plan, annual plan, or legacy import.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, baseline measurement collection, next bounded run selections, nutrition plan authority artifact, training plan authority artifact, and Daily Ops implementation readiness definition admission are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, product/project implementation, Daily Ops implementation, tracking implementation, meal plan, actual menu, recipes, shopping list, exact training sessions, gym schedule, cycling prescription, accepted 12-week plan, annual plan, or legacy import.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md
