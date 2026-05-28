@@ -19,6 +19,14 @@ This archive is preserved evidence only. It does not create accepted state, choo
 - `archive/results/` stores archived result digests or preserved result evidence.
 - `archive/legacy-vnext-r/` stores legacy workflow material from the retired runtime family when preservation is needed.
 
+## Preserved Material
+
+- `archive/legacy-vnext-r/snapshots/direction_payload/` preserves the old
+  vNext-R Direction payload from `legacy/vnext-r-main-before-proof-os-2026-05-25`
+  at commit `b6e1b85`.
+- `archive/results/legacy-results/RESULTS_INDEX.md` preserves the legacy results
+  digest that previously lived at `archive/legacy-results/RESULTS_INDEX.md`.
+
 Do not load archive content by default.
 
 END_OF_FILE: directions/indie-game-development/archive/ARCHIVE_INDEX.md
