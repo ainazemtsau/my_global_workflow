@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: foundation_core_execution_readiness_framed
+  status: first_foundation_nucleus_execution_readiness_packaged
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard is projection only; Ledger wins. It reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, a committed bounded concept identity frame, a committed bounded gas ecology identity boundary clarification, a bounded legacy core compression import, and a committed foundation-core execution-readiness decision frame. It does not create strategy commitment or admit execution.
+This dashboard is projection only; Ledger wins. It reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, a committed bounded concept identity frame, a committed bounded gas ecology identity boundary clarification, a bounded legacy core compression import, a committed foundation-core execution-readiness decision frame, and a committed first foundation nucleus execution-readiness package. It does not create strategy commitment or admit execution.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: foundation_core_execution_readiness_framed
+proof_state: first_foundation_nucleus_execution_readiness_packaged
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -39,6 +39,7 @@ accepted_receipts:
   - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001
   - R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
   - R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
+  - R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 route_decision:
@@ -94,6 +95,26 @@ foundation_core_execution_readiness:
   product_execution_admitted: false
   codex_execution_admitted: false
   old_code_transfer_admitted: false
+first_foundation_nucleus_execution_readiness_package:
+  satisfied_obligation: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
+  satisfied_by: R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001
+  accepted_state_kind: first_foundation_nucleus_execution_readiness_package
+  proof_state_after_commit: first_foundation_nucleus_execution_readiness_packaged
+  grid_spatial_substrate_extensibility: accepted_for_package
+  bounded_topology_mutation_breach_readiness: accepted_for_package
+  event_change_set_snapshot_contract: accepted_for_package
+  gas_profile_effect_hook_extensibility: accepted_for_package
+  no_player_validation: required
+  performance_scale_evidence_before_future_implementation_execution: required
+  technical_evidence_audit_before_this_package: conditional_not_mandatory
+  product_execution_admitted: false
+  codex_execution_admitted: false
+  implementation_admitted: false
+  engine_commitment_admitted: false
+  networking_stack_commitment_admitted: false
+  old_code_transfer_admitted: false
+  final_gas_taxonomy_admitted: false
+  final_reaction_graph_admitted: false
 open_next_obligations: []
 next_valid_runs_admitted_by_this_receipt: []
 candidate_follow_up_obligations:
@@ -109,8 +130,6 @@ candidate_follow_up_obligations:
     status: candidate_proposed_only
   - obligation_id: O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
     status: candidate_proposed_only
-  - obligation_id: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
-    status: candidate_proposed_only
   - obligation_id: O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
     status: candidate_proposed_only
   - obligation_id: O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
@@ -123,10 +142,13 @@ horizon_selected: false
 active_frontier_selected: false
 product_execution_admitted: false
 codex_execution_admitted: false
+implementation_admitted: false
 steam_launch_strategy_admitted: false
 engine_commitment_admitted: false
 networking_stack_commitment_admitted: false
 old_code_transfer_admitted: false
+final_gas_taxonomy_admitted: false
+final_reaction_graph_admitted: false
 ```
 
 ## Accepted Root Objective
@@ -170,6 +192,8 @@ Full success requires technical-pride success, game-completion success, commerci
 - The bounded legacy core compression import accepts restored domain/game documentation and supporting technical evidence with amendments only. It imports no old workflow state and admits no product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, old-code transfer, final gas taxonomy, or final reaction system.
 - O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS is satisfied by `R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001`.
 - The foundation-core execution-readiness decision frame admits only bounded readiness framing. Product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, and old-code transfer remain forbidden. A separate technical evidence audit is conditional, not mandatory before readiness.
+- O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE is satisfied by `R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001`.
+- The first foundation nucleus execution-readiness package frames Grid as authoritative extensible spatial substrate, bounded topology mutation/breach readiness, event/change-set/snapshot contract surfaces, gas profile/effect-hook extensibility, no-player validation, and performance/scale evidence requirements before future implementation execution. It admits no product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, old-code transfer, final gas taxonomy, or final reaction graph.
 
 ## Bounded Concept Identity Summary
 
@@ -193,6 +217,19 @@ Full success requires technical-pride success, game-completion success, commerci
 - Preferred candidate next obligation: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE.
 - Separate technical evidence audit is conditional, not mandatory before readiness.
 
+## First Foundation Nucleus Execution Readiness Package
+
+- Satisfied obligation: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE.
+- Satisfied by: `R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001`.
+- Accepted state kind: first_foundation_nucleus_execution_readiness_package.
+- Grid spatial substrate extensibility is accepted for the package; Gas is the first required hard consumer, not the owner of Grid authority.
+- Bounded topology mutation/breach readiness is accepted for the package, with exact destructibility, debris, fragments, structural collapse, and VFX deferred.
+- Event/change-set/snapshot contract surfaces are accepted for the package without committing a final EventBus implementation.
+- Gas profile/effect-hook extensibility is accepted for the package without final gas taxonomy or final reaction graph.
+- No-player validation is required before later implementation execution can be considered.
+- Performance/scale evidence is required before future implementation execution; exact numeric budgets are deferred.
+- Technical evidence audit remains conditional_not_mandatory for this package.
+
 ## Projection Artifact Summary
 
 - IDG-STRATEGIC-PATH-MAP-PROJECTION-001: projection-only Strategic Path Map artifact from accepted root objective, success semantics, and constraints; creates no accepted strategy, Horizon, Active Frontier, roadmap, execution, Steam launch strategy, monetization model, or legacy import.
@@ -207,6 +244,7 @@ Full success requires technical-pride success, game-completion success, commerci
 
 ## Satisfied Obligations
 
+- O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE satisfied by `R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001`.
 - O-IDG-LEGACY-CORE-COMPRESSION-IMPORT satisfied by `R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001`.
 - O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS satisfied by `R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001`.
 - O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY satisfied by `R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001`.
@@ -246,6 +284,8 @@ None.
 - engine commitment
 - networking stack commitment
 - old-code transfer
+- final gas taxonomy
+- final reaction graph
 
 ## Candidate Next Obligations
 
@@ -257,7 +297,6 @@ Remaining obligations below are candidate/proposed only and are not admitted obl
 - O-IDG-GAS-TOPOLOGY-AFFORDANCE-BOUNDARY-CLARIFY
 - O-IDG-GAS-CONTAINMENT-AND-RUPTURE-BOUNDARY-CLARIFY
 - O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
-- O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
 - O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
 - O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
 
