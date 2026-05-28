@@ -43,11 +43,13 @@ If any `source_manifest` file changes, regenerate and refresh this pack before u
 
 ## Project Source Of Truth
 
-GitHub repository `ainazemtsau/my_global_workflow` is the canonical AI workflow source while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
+GitHub repository `ainazemtsau/my_global_workflow`, branch `main`, is the exact repository source while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
 
-The active workflow authority is `workflow/**`.
+`WORKFLOW_SOURCE_OF_TRUTH.md` is a bootstrap authority locator, not semantic authority.
 
-ChatGPT Project surfaces are runtime cache. They do not create accepted state.
+Verified canonical files under `workflow/**`, Direction metadata, and Direction Project Files manifests govern setup.
+
+ChatGPT Project Files/Sources and project packs are runtime cache. They do not create accepted state.
 
 Project Instructions UI is the ChatGPT Project settings field where behavior instructions are pasted.
 
@@ -57,19 +59,26 @@ Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are Project Instruction
 
 Project Instructions UI payloads must be compact behavior instructions: hard max 8,000 characters, target 6,500, warn above 7,200. Count only trimmed content between the BEGIN/END UI payload markers.
 
-Direction proof state lives under the Direction's active payload directory:
+For ordinary Direction Workflow Projects, active Direction payload files are:
 
 ```text
-directions/<direction-id>/<active-direction-state>/
+LEDGER.md
+OBLIGATIONS.md
+RECEIPTS_INDEX.md
+COMMIT_SCOPES.md
+DASHBOARD.md
+MIGRATION_RECEIPT.md
 ```
 
-For the currently inspected active Directions, `direction.meta.yml` and Project Files manifests resolve `<active-direction-state>` to `workflow`.
+These files are uploaded from the Direction active payload directory declared by `direction.meta.yml` and/or the Direction `PROJECT_FILES_MANIFEST.md`. Do not hard-code `directions/<direction-id>/proof/`, `directions/<direction-id>/project_setup/`, or Direction root payload paths.
 
-Workflow Governance is the self-hosted governance Direction and uses `directions/workflow-governance/workflow/` for active proof payload, not the Direction root:
+For new ordinary Direction Workflow Projects, the preferred setup location is:
 
 ```text
-directions/workflow-governance/workflow/
+directions/<direction-id>/workflow/project_setup/
 ```
+
+Existing Directions may have a different declared active setup directory. Read it from exact `direction.meta.yml` and the exact Project Files manifest.
 
 Only verified Receipts committed to the Direction Ledger create accepted Direction state.
 

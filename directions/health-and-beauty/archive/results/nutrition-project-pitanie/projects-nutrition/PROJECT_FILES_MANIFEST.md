@@ -1,3 +1,10 @@
+# ARCHIVED RESULT ARTIFACT / LEGACY EVIDENCE ONLY
+
+This file is not active Workflow OS Project setup, not accepted Direction state, and must not be uploaded or pasted for active Workflow Projects. See:
+
+- directions/health-and-beauty/archive/ARCHIVE_INDEX.md
+- directions/health-and-beauty/workflow/project_setup/PROJECT_FILES_MANIFEST.md
+
 # Project Files Manifest - Project `Питание`
 
 Status: active clean rebuild

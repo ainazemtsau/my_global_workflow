@@ -6,7 +6,7 @@ Status: active
 
 The old `proof_workflow` namespace is gone. The old vNext-R workflow layout is legacy-only evidence preserved on the legacy branch/tag and is not active authority.
 
-Direction accepted state remains under `directions/<direction-id>/proof/`.
+Direction accepted workflow state lives under each Direction's active payload directory declared by the exact `direction.meta.yml` and/or the exact Project Files manifest. Do not hard-code `directions/<direction-id>/proof/`, Direction root payload paths, or setup paths as active state without that declaration.
 
 ## Layout
 

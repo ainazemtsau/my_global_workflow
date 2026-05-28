@@ -42,7 +42,7 @@ Layer B - Shared Workflow Runtime Packs / Project Files/Sources:
 
 Layer C - Direction Payload / Project Files/Sources:
 
-- the Direction proof files that carry accepted state and projections
+- the Direction payload files that carry accepted state and projections
 - the only live Direction state source for Project startup
 
 Layer D - Optional Request-Only Sources:
@@ -92,10 +92,11 @@ Load this only when exact pack/setup inspection requires the index:
 
 - `workflow/project_packs/PROJECT_PACKS_INDEX.md`
 
-Additional request-only or project-specific packs may exist:
+Additional request-only or project-specific packs must be actual committed pack files.
 
-- `workflow/project_packs/MIGRATION_LEGACY_IMPORT_PACK.md`
-- `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` for the Workflow Governance Maintenance Project only
+`workflow/project_packs/MIGRATION_LEGACY_IMPORT_PACK.md` is not currently present. Treat that filename as future-only/non-present unless a future committed source adds it.
+
+`workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is for the Workflow Governance Maintenance Project only.
 
 These packs are not ordinary Direction Workflow Project defaults.
 

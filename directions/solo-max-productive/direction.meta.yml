@@ -5,8 +5,13 @@ direction:
   source_of_truth: github_markdown
   github_repo: https://github.com/ainazemtsau/my_global_workflow
   repo_path: directions/solo-max-productive
+layout:
+  active_payload_root: directions/solo-max-productive/workflow
+  active_project_setup: directions/solo-max-productive/setup
 chatgpt:
   project_name: Solo Max Productive — Proof
+  project_instructions: directions/solo-max-productive/setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+  project_files_manifest: directions/solo-max-productive/setup/PROJECT_FILES_MANIFEST.md
   default_files:
   - workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
   - workflow/project_packs/WORKFLOW_BASE_PACK.md

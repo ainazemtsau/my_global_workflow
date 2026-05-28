@@ -4,7 +4,7 @@ artifact_control:
   artifact_type: project_pack_index
   pack_name: PROJECT_PACKS_INDEX
   pack_type: runtime_cache_upload_convenience_index
-  intended_load_mode: request_only
+  intended_load_mode: default_workflow_governance_maintenance_request_only_ordinary_directions
   status: single_material_run_chat_boundary_hardened
   owner: workflow_os
   generated_from_ref: wg/single-material-run-chat-boundary-2026-05-27
@@ -42,7 +42,7 @@ If any file listed in a pack `source_manifest` changes, regenerate and refresh t
 
 If this index conflicts with a pack or canonical source file, the more specific canonical source wins.
 
-This index is request-only. Do not upload it by default unless exact setup inspection needs it or it is already uploaded and must be refreshed.
+This index is default for the Workflow Governance Maintenance Project and request-only for ordinary Direction Workflow Projects. Do not upload it by default for ordinary Direction Workflow Projects unless exact setup inspection needs it or it is already uploaded and must be refreshed.
 
 Project Instructions UI is separate from Project Files/Sources. Repository instruction sources such as `directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md` are pasted into the ChatGPT Project Instructions field and are not uploaded as default Project Files/Sources.
 
@@ -93,9 +93,7 @@ Use `workflow/project_packs/EXECUTION_HARNESS_PACK.md` only when the Direction P
 
 The execution harness pack is not a default load for every chat.
 
-Optional request-only packs may include:
-
-- `workflow/project_packs/MIGRATION_LEGACY_IMPORT_PACK.md`
+No `workflow/project_packs/MIGRATION_LEGACY_IMPORT_PACK.md` file is currently present. Treat that filename as future-only/non-present unless a future committed source adds it.
 
 `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is an actual pack for the Workflow Governance Maintenance Project, not a future optional ordinary Direction Project pack.
 

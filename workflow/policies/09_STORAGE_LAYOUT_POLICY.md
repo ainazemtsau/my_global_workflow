@@ -66,9 +66,9 @@ Canonical source files listed by each pack remain the authority. If a pack confl
 
 Direction Project manifests use pack-based default upload: three shared packs plus six Direction payload files from the Direction's active payload directory.
 
-## Direction Proof Storage
+## Direction Payload Storage
 
-Per-Direction proof state uses:
+Per-Direction accepted workflow state uses:
 
 ```text
 directions/<direction-id>/<active-direction-state>/
@@ -89,7 +89,17 @@ directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md
 directions/<direction-id>/<active-project-setup>/PROJECT_FILES_MANIFEST.md
 ```
 
-For the inspected active Directions, `direction.meta.yml` and the Project Files manifests resolve `<active-direction-state>` to `workflow` and `<active-project-setup>` to `workflow/project_setup`.
+Active payload and setup paths are derived from the exact Direction `direction.meta.yml` and/or the exact Project Files manifest.
+
+Current ordinary Direction payload roots resolve to `directions/<direction-id>/workflow/` unless a manifest says otherwise.
+
+For new ordinary Direction Workflow Projects, the preferred setup location is:
+
+```text
+directions/<direction-id>/workflow/project_setup/
+```
+
+Existing active setup paths must be read from exact repository files.
 
 Creating or updating a Direction payload path requires an explicit admitted setup or migration action.
 
