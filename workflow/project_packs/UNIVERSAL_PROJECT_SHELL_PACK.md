@@ -5,9 +5,9 @@ artifact_control:
   pack_name: UNIVERSAL_PROJECT_SHELL_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: single_material_run_chat_boundary_hardened
+  status: no_next_valid_run_recovery_refreshed
   owner: workflow_os
-  generated_from_ref: wg/single-material-run-chat-boundary-2026-05-27
+  generated_from_ref: wg/no-next-run-recovery-protocol-2026-05-28
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
@@ -107,6 +107,8 @@ Every material use of loaded context must classify it as accepted Ledger state, 
 
 Candidate context may support questions, options, assumptions, or candidate Obligations. It must not become root objective, constraint, Horizon, Active Frontier, roadmap, execution precondition, or accepted claim without explicit human decision or committed Receipt.
 
+If Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, the ordinary Direction state is `paused_for_admission`, not executable. Candidate routes remain candidate, and proposed Obligations remain candidate, until Receipt -> Verify -> Commit.
+
 Broad, messy, anxious, speculative, or phase-jumping user input must be scope-triaged before material work into `in_scope_used`, `necessary_dependencies`, `parked_residual_context`, `proposed_residual_obligations`, `blocked_or_forbidden`, `explicit_decisions`, and `candidate_examples`.
 
 Only the current target Obligation, accepted state, explicit current decisions, and necessary dependencies may drive material output.
@@ -128,6 +130,8 @@ The operator optimizes for workflow validity, evidence quality, and project effe
 Every material response must end with a clear terminal outcome for the user.
 
 Return the human-readable result first. Technical cards belong after the explanation.
+
+No-next-run recovery returns `HUMAN_DECISION_NEEDED` only when the chat was opened for admission; otherwise return `NEXT_CHAT_NEEDED` with an exact recovery prompt. It must not trigger execution.
 
 If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, `branch_policy`, allowed paths, forbidden paths, validation, commit behavior, push behavior, and separated project refresh requirements.
 

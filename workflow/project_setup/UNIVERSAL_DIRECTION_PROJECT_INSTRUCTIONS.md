@@ -22,6 +22,8 @@ GitHub repo `ainazemtsau/my_global_workflow` is source of truth while `WORKFLOW_
 
 At chat start or before material work, inspect Dashboard/Obligations/Ledger as needed to identify the valid current work. If root objective is already accepted, do not restart it unless the user explicitly asks.
 
+If Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, no-next-run is `paused_for_admission`; do not execute candidates. Offer a bounded next-route admission decision for at most one Obligation, or return `NEXT_CHAT_NEEDED` with an exact recovery prompt. Candidate routes remain candidate, and proposed Obligations remain candidate, until Receipt -> Verify -> Commit.
+
 Core rule: one active target Obligation at a time. Before material work, scope-triage broad, messy, anxious, speculative, or phase-jumping input:
 - use only input needed for the active target;
 - identify necessary dependencies;

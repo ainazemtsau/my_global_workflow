@@ -45,6 +45,7 @@ First identify the Project type:
 - Direction manifest default upload count excludes Project Instructions.
 - Direction Project Instructions do not hard-code stale live state.
 - Direction Project Instructions say Direction payload wins for live state.
+- Project handles no-next-valid-run state by returning a human admission decision or `NEXT_CHAT_NEEDED` recovery prompt without treating candidate routes as accepted or executable.
 - Root objective status is visible.
 - No legacy state was imported automatically.
 - Project can answer `Давай подтвердим корневую цель этого направления.` without using old vNext-R files.

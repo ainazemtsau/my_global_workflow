@@ -186,6 +186,18 @@ Inputs:
 
 Output: open Obligation, rejected proposal, or Context Request Card.
 
+## No Next Valid Run Recovery
+
+Purpose: recover from valid accepted Direction state when there is no admitted next valid run, no open next obligation, or `next_valid_runs` is empty.
+
+This state is `paused_for_admission`. It is not executable and is not terminal by default.
+
+The only permitted recovery move is a bounded HumanDecision / ObligationAdmission move that may select at most one next bounded Obligation.
+
+Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
+
+This recovery state does not authorize strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, implementation, or legacy import unless separately admitted.
+
 ## Run Admission
 
 Purpose: decide whether an Operator invocation may begin.

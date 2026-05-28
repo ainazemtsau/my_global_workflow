@@ -180,6 +180,16 @@ Loaded domain files must be treated as candidate_context unless the Ledger says 
 
 For the Workflow Governance Maintenance Project, GitHub repository state is source of truth and Project Files/Sources are cache. Load exact affected files on demand. Ledger, Obligation, and Receipt concepts are analyzed subject matter unless the user explicitly asks to inspect or validate runtime state.
 
+## No Next Valid Run Setup Rule
+
+For ordinary Direction Workflow Projects, if Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, treat the Direction as `paused_for_admission`.
+
+In `paused_for_admission`, do not execute candidate routes or proposed Obligations. The Project may only offer a bounded HumanDecision / ObligationAdmission choice for at most one next bounded Obligation, or return `NEXT_CHAT_NEEDED` with an exact recovery prompt when the chat was not opened for admission.
+
+Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
+
+This ordinary Direction rule does not apply to the Workflow Governance Maintenance Project. The maintenance console must not default to Dashboard/Obligations next-valid-run behavior.
+
 ## Human Input Setup Rule
 
 Workflow Projects should not require users to answer in YAML.

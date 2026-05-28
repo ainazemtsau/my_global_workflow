@@ -37,6 +37,10 @@ A Dashboard is a projection over current Ledger state, open Obligations, blocked
 
 Dashboard rows must cite accepted Receipt IDs or open Obligation IDs.
 
+When `next_valid_runs` is empty while accepted Direction state remains valid, Dashboard recovery guidance may say the Direction is `paused_for_admission` and identify candidate route classes or proposed Obligations only as candidates.
+
+Dashboard recovery guidance must be `projection_only: true` and `creates_truth: false`; it creates no truth, admits no Obligation, and must not turn candidate routes into accepted strategy.
+
 ## Roadmap Projection
 
 A roadmap is a projection over Obligations, constraints, and accepted strategic Receipts.

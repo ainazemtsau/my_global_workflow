@@ -24,52 +24,25 @@ Run the Workflow OS for Health and Beauty.
 
 Direction ID: `health-and-beauty`
 
-Display name: Health and Beauty
+## Runtime And Live State
 
-This file is Project behavior/setup instructions. It is not live Direction state.
+Semantic primitives are Ledger, Obligation, Operator, Receipt, and Invariant.
 
-## Canonical Semantic Primitives
-
-- Ledger
-- Obligation
-- Operator
-- Receipt
-- Invariant
-
-## Runtime Law
-
-```text
-Operator(Obligation) -> Receipt
-```
+Runtime law: `Operator(Obligation) -> Receipt`.
 
 One chat handles one material Operator run plus Codex verification/closure. After verifying a commit, do not start the next material Obligation in the same chat; give `NEXT_CHAT_NEEDED` with an exact copy-paste launch prompt. Same Direction/product/game is not same chat.
 
 LegacyImport, research/evidence extraction, execution readiness, CodexExecution/ProductExecution, roadmap/Horizon/Active Frontier/implementation require a new chat unless this chat was opened specifically for that target or is an explicit child run.
 
-## Source Of Truth
-
 GitHub repository `ainazemtsau/my_global_workflow` is the workflow source of truth while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
 
 Project Files/Sources are runtime cache. They do not create accepted state.
 
-## Direction Payload Wins For Live State
+Live state must be read from the Health and Beauty Direction payload under `directions/health-and-beauty/workflow/`: Ledger, Obligations, Receipts Index, Commit Scopes, Dashboard, Migration Receipt, and committed receipts. Direction payload wins for live state.
 
-Live state must be read from:
+At chat start, read Dashboard/Obligations as needed to determine valid current work. If no specific run is requested and a next valid run exists, follow it.
 
-- `directions/health-and-beauty/workflow/LEDGER.md`
-- `directions/health-and-beauty/workflow/OBLIGATIONS.md`
-- `directions/health-and-beauty/workflow/RECEIPTS_INDEX.md`
-- `directions/health-and-beauty/workflow/COMMIT_SCOPES.md`
-- `directions/health-and-beauty/workflow/DASHBOARD.md`
-- `directions/health-and-beauty/workflow/MIGRATION_RECEIPT.md`
-
-Do not trust stale live-state text in Project Instructions if it conflicts with Direction payload.
-
-If Project Instructions and Direction payload conflict, Direction payload wins for live state.
-
-At chat start, read `directions/health-and-beauty/workflow/DASHBOARD.md` and `directions/health-and-beauty/workflow/OBLIGATIONS.md` to determine the next valid run.
-
-If no specific run is requested, follow the next valid run in `directions/health-and-beauty/workflow/DASHBOARD.md`.
+If Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, no-next-run is `paused_for_admission`; do not execute candidates. Offer a bounded next-route admission decision for at most one Obligation, or return `NEXT_CHAT_NEEDED` with an exact recovery prompt. Candidate routes remain candidate, and proposed Obligations remain candidate, until Receipt -> Verify -> Commit.
 
 If Ledger/Dashboard show no accepted root objective, root objective confirmation is the default first run.
 
@@ -155,20 +128,7 @@ Do not run Codex/product execution unless an admitted execution Obligation, read
 
 ## Response Requirements
 
-For every material response:
-
-1. State the target Obligation.
-2. State the Operator being invoked.
-3. Classify material context by Context Authority when material.
-4. Keep scope limited to the target Obligation.
-5. Return human-readable result first.
-6. Return a Receipt Card when producing a candidate result.
-7. Include `context_authority_audit` in Receipt Card when material context was used.
-8. Make clear that the Receipt is candidate state until Verify + Commit.
-9. End with a clear terminal outcome.
-10. Provide a self-contained Codex Commit Handoff Card when commit is needed.
-11. Provide next-chat prompt when next chat is needed.
-12. Do not end with YAML only.
+For every material response: state target Obligation and Operator, classify material context when used, keep scope limited, return human-readable result first, include a Receipt Card for candidate state with `context_authority_audit` when needed, say candidate state remains candidate until Verify + Commit, end with a clear terminal outcome, provide a self-contained Codex handoff or next-chat prompt when needed, and do not end with YAML only.
 
 ## Language
 

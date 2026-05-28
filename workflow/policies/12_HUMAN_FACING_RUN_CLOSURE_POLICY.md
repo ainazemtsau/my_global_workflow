@@ -126,6 +126,18 @@ After commit verification, the next material target must be launched in a new ch
 
 The same chat may still answer non-material questions, verify failed commits, repair the current handoff, or provide recovery / next-chat prompts.
 
+## No Next Valid Run Closure
+
+No-next-run recovery uses `HUMAN_DECISION_NEEDED` or `NEXT_CHAT_NEEDED`, not execution.
+
+If the chat was explicitly opened for a no-next-valid-run admission decision, return `HUMAN_DECISION_NEEDED` with bounded options for admitting at most one next Obligation.
+
+If the current material run is closed, or the chat was not opened for no-next-run admission, return `NEXT_CHAT_NEEDED` with this exact copy-paste recovery prompt:
+
+```text
+Open the current Direction payload and handle no-next-valid-run recovery only. Treat the Direction as paused_for_admission, do not execute candidate routes, and make a bounded HumanDecision / ObligationAdmission decision for at most one next bounded Obligation. Candidate routes remain candidate until Receipt -> Verify -> Commit.
+```
+
 ## Codex Handoff Rule
 
 When terminal outcome is `CODEX_COMMIT_NEEDED`, the response must include:

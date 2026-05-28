@@ -5,9 +5,9 @@ artifact_control:
   pack_name: WORKFLOW_BASE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: single_material_run_chat_boundary_hardened
+  status: no_next_valid_run_recovery_refreshed
   owner: workflow_os
-  generated_from_ref: wg/single-material-run-chat-boundary-2026-05-27
+  generated_from_ref: wg/no-next-run-recovery-protocol-2026-05-28
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
@@ -63,6 +63,8 @@ A Receipt is receipt-backed candidate state. It does not mutate the Ledger until
 
 Commit Scope is runtime policy for Ledger mutation. It is not a semantic primitive.
 
+No next valid run is `paused_for_admission`: not executable and not terminal by default. Recovery may only make a bounded HumanDecision / ObligationAdmission move for at most one next bounded Obligation. Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
+
 ## Atomic Run And Scope Discipline
 
 Only one active target Obligation may be worked materially at a time.
@@ -90,6 +92,8 @@ Same Direction / same product / same game is not sufficient reason for same-chat
 ## Truth And Projection
 
 Documents, dashboards, maps, roadmaps, and projections do not create truth.
+
+When a Dashboard shows empty `next_valid_runs`, any recovery guidance must be `projection_only: true` and `creates_truth: false`; it may identify candidates but cannot admit Obligations or strategy.
 
 A Strategic Path Map is valid only as a projection from accepted Receipts and open Obligations.
 
