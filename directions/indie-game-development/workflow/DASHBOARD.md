@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: legacy_core_compression_imported
+  status: foundation_core_execution_readiness_framed
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, a committed bounded concept identity frame, a committed bounded gas ecology identity boundary clarification, and a bounded legacy core compression import. It does not create strategy commitment.
+This dashboard is projection only; Ledger wins. It reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, a committed bounded concept identity frame, a committed bounded gas ecology identity boundary clarification, a bounded legacy core compression import, and a committed foundation-core execution-readiness decision frame. It does not create strategy commitment or admit execution.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: legacy_core_compression_imported
+proof_state: foundation_core_execution_readiness_framed
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -38,6 +38,7 @@ accepted_receipts:
   - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
   - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001
   - R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
+  - R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 route_decision:
@@ -80,6 +81,19 @@ legacy_core_compression_import:
   technical_invariants: adopted_with_amendments
   first_nucleus_or_mvp_route: split_candidate_only
   candidate_follow_up_obligations_only: true
+foundation_core_execution_readiness:
+  satisfied_obligation: O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS
+  satisfied_by: R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
+  result_kind: foundation_core_execution_readiness_decision_frame
+  foundation_core_execution_readiness_state: committed
+  admits_only: bounded_readiness_framing
+  executes_only: bounded_readiness_framing
+  separate_technical_evidence_audit_before_readiness: conditional_not_mandatory
+  preferred_candidate_next_obligation: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
+  candidate_next_obligations_only: true
+  product_execution_admitted: false
+  codex_execution_admitted: false
+  old_code_transfer_admitted: false
 open_next_obligations: []
 next_valid_runs_admitted_by_this_receipt: []
 candidate_follow_up_obligations:
@@ -95,7 +109,7 @@ candidate_follow_up_obligations:
     status: candidate_proposed_only
   - obligation_id: O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
     status: candidate_proposed_only
-  - obligation_id: O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS
+  - obligation_id: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
     status: candidate_proposed_only
   - obligation_id: O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
     status: candidate_proposed_only
@@ -154,6 +168,8 @@ Full success requires technical-pride success, game-completion success, commerci
 - The gas ecology identity boundary is clarified only as bounded identity state; final gas taxonomy, final reaction system, implementation, strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine/networking commitment, old-code transfer, and final lore selection remain outside accepted state.
 - O-IDG-LEGACY-CORE-COMPRESSION-IMPORT is satisfied by `R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001`.
 - The bounded legacy core compression import accepts restored domain/game documentation and supporting technical evidence with amendments only. It imports no old workflow state and admits no product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, old-code transfer, final gas taxonomy, or final reaction system.
+- O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS is satisfied by `R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001`.
+- The foundation-core execution-readiness decision frame admits only bounded readiness framing. Product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, and old-code transfer remain forbidden. A separate technical evidence audit is conditional, not mandatory before readiness.
 
 ## Bounded Concept Identity Summary
 
@@ -167,6 +183,15 @@ Full success requires technical-pride success, game-completion success, commerci
 - Adopted with amendments: Expedition / session-structured living reactive gas sandbox; 2-4 player co-op framing; gas/topology/cargo/extraction judgment loop; explicit non-goals and anti-audience.
 - Adopted with amendments: Gas/Grid peer foundation, separated responsibilities, shared contract surfaces, fail-fast validation, diagnostics/readability, no-player validation, and multiplayer-ready domain boundaries.
 - Split as candidate-only: Minimum Expedition Proof Core and first technical nucleus route are inputs for later execution-readiness, not execution authorization.
+
+## Foundation Core Execution Readiness
+
+- Satisfied obligation: O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS.
+- Receipt: `R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001`.
+- Accepted state kind: foundation_core_execution_readiness_decision_frame.
+- Scope: bounded readiness framing only.
+- Preferred candidate next obligation: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE.
+- Separate technical evidence audit is conditional, not mandatory before readiness.
 
 ## Projection Artifact Summary
 
@@ -183,6 +208,7 @@ Full success requires technical-pride success, game-completion success, commerci
 ## Satisfied Obligations
 
 - O-IDG-LEGACY-CORE-COMPRESSION-IMPORT satisfied by `R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001`.
+- O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS satisfied by `R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001`.
 - O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY satisfied by `R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001`.
 - O-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE satisfied by `R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001`.
 - O-IDG-POST-INVENTORY-ORIENTATION-FRAME satisfied by `R-IDG-POST-INVENTORY-ORIENTATION-FRAME-001`.
@@ -210,11 +236,12 @@ None.
 
 - accepting old legacy facts before LegacyImport receipt
 - strategy beyond committed receipts
+- Roadmap
 - Horizon selection
 - Active Frontier selection
-- Roadmap
-- CodexExecution/product execution
-- Steam/game/product implementation
+- product execution
+- CodexExecution
+- implementation
 - Steam launch strategy
 - engine commitment
 - networking stack commitment
@@ -230,7 +257,7 @@ Remaining obligations below are candidate/proposed only and are not admitted obl
 - O-IDG-GAS-TOPOLOGY-AFFORDANCE-BOUNDARY-CLARIFY
 - O-IDG-GAS-CONTAINMENT-AND-RUPTURE-BOUNDARY-CLARIFY
 - O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
-- O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS
+- O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
 - O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
 - O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
 

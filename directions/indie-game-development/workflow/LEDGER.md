@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: legacy_core_compression_imported
+  status: foundation_core_execution_readiness_framed
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,7 +13,7 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: legacy_core_compression_imported
+proof_state: foundation_core_execution_readiness_framed
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
@@ -28,6 +28,7 @@ accepted_receipts:
   - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
   - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001
   - R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
+  - R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
   - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
@@ -48,6 +49,7 @@ accepted_claims:
   - Foundation core boundary accepted with amendments: Gas is gameplay simulation truth and Grid/topology is shared spatial substrate; Gas/Grid responsibilities, shared contract surfaces, fail-fast validation, diagnostics/readability, no-player validation, and multiplayer-ready domain boundaries are adopted only at architecture-boundary level.
   - Clean-start transfer boundary and old technical artifacts are preserved as evidence only: no old code/modules/assets/tests are authorized for transfer, GridV2 is not a default replacement path, and old Grid/Gas/GasV2R evidence does not create a reuse/rewrite/discard verdict.
   - Minimum Expedition Proof Core and first technical nucleus route are split: adopted as candidate execution-readiness inputs only, while playable proof design, implementation, Task Master graph, exact engine/networking/data model, performance budgets, gas taxonomy, reaction graph, and old-code reuse remain deferred.
+  - Foundation-core execution-readiness decision frame accepted: this commits bounded readiness framing only, keeps product execution and CodexExecution false, treats separate technical evidence audit as conditional rather than mandatory before readiness, preserves old-code transfer as false, and leaves O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE as the preferred candidate next obligation only.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
 projections_state: strategic_map_projection_created_no_strategy_commitment
@@ -63,6 +65,7 @@ domain_game_documentation_claims_state: committed_with_amendments
 foundation_core_boundary_state: committed_with_amendments
 technical_invariants_state: committed_with_amendments
 first_nucleus_or_mvp_candidate_state: split_candidate_committed
+foundation_core_execution_readiness_state: committed
 open_next_obligations: []
 candidate_follow_up_obligations_only: true
 strategy_admitted: false
@@ -159,6 +162,7 @@ Direction proof files are storage and projection surfaces. They are not addition
 - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
 - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001
 - R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
+- R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
 
 ## Accepted Projection Artifacts
 
@@ -203,6 +207,10 @@ O-IDG-LEGACY-CORE-COMPRESSION-IMPORT is satisfied by `R-IDG-LEGACY-CORE-COMPRESS
 The bounded legacy core compression import accepts, with amendments, the high-signal restored legacy domain/game documentation as compressed proof evidence for the Expedition product bet, foundation core, Gas/Grid contract, clean-start transfer boundary, architecture-level technical invariants, and first nucleus / Minimum Expedition Proof Core candidate route.
 
 The imported baseline preserves the current proof authority boundary. It does not import old workflow state, old Horizon, old Active Frontier, old roadmap, old stage route, old phase/goal status, product execution, CodexExecution, Steam launch strategy, engine commitment, networking stack commitment, old-code transfer, final gas taxonomy, final reaction graph, exact implementation sequence, or direct old-code reuse verdict.
+
+O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS is satisfied by `R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001`.
+
+The foundation-core execution-readiness decision frame is committed as bounded readiness framing only. It does not admit product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine commitment, networking stack commitment, or old-code transfer. Separate technical evidence audit remains conditional, not mandatory before readiness. The preferred candidate next obligation is `O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE`.
 
 There are no open_next obligations after this commit. Candidate follow-up obligations remain candidate/proposed only until separately admitted by Receipt -> Verify -> Commit.
 
