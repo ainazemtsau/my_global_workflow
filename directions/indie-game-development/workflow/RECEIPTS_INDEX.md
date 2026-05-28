@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: receipts_index
-  status: legacy_core_compression_imported
+  status: foundation_core_execution_readiness_framed
   owner: proof_carrying_workflow_os
 ---
 
@@ -12,7 +12,7 @@ artifact_control:
 ## Receipt State
 
 ```yaml
-root_state: legacy_core_compression_imported
+root_state: foundation_core_execution_readiness_framed
 accepted_receipts:
   - receipt_id: R-IDG-ROOT-OBJECTIVE-DECISION-001
     path: receipts/R-IDG-ROOT-OBJECTIVE-DECISION-001.md
@@ -53,6 +53,9 @@ accepted_receipts:
   - receipt_id: R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
     path: receipts/R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001.md
     summary: Accepted bounded legacy core compression import from restored domain/game documentation and supporting technical evidence, adopting with amendments the Expedition product bet, foundation core, Gas/Grid contract, clean-start transfer boundary, technical invariants, and split first nucleus/proof-core candidate route without importing old workflow state, strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, engine/networking commitment, Steam launch strategy, or old-code transfer.
+  - receipt_id: R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
+    path: receipts/R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001.md
+    summary: Accepted foundation-core execution-readiness decision frame as bounded readiness framing only, keeping product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, and old-code transfer unadmitted; separate technical evidence audit remains conditional, not mandatory before readiness.
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
@@ -112,6 +115,10 @@ receipt_storage_path: receipts/
   path: receipts/R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001.md
   summary: Accepted bounded legacy core compression import from restored domain/game documentation and supporting technical evidence, adopting with amendments the Expedition product bet, foundation core, Gas/Grid contract, clean-start transfer boundary, technical invariants, and split first nucleus/proof-core candidate route without importing old workflow state, strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, engine/networking commitment, Steam launch strategy, or old-code transfer.
 
+- receipt_id: R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
+  path: receipts/R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001.md
+  summary: Accepted foundation-core execution-readiness decision frame as bounded readiness framing only, keeping product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, and old-code transfer unadmitted; separate technical evidence audit remains conditional, not mandatory before readiness.
+
 ## Rules
 
 No receipt -> no progress.
@@ -123,6 +130,8 @@ Accepted Receipts are Ledger authority only after Commit.
 No full legacy state import Receipt exists.
 
 The accepted legacy import Receipts are bounded concept evidence inventory and bounded legacy core compression import only.
+
+The accepted foundation-core execution-readiness Receipt is a bounded readiness frame only and creates no product execution or CodexExecution.
 
 Accepted strategic decision receipt exists for route selection only. Projection receipt exists but creates no strategy commitment.
 

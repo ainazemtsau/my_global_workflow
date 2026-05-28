@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: legacy_core_compression_imported
+  status: foundation_core_execution_readiness_framed
   owner: proof_carrying_workflow_os
 ---
 
@@ -46,7 +46,60 @@ acceptance_conditions:
 rule: Old files must not become evidence or accepted state without explicit LegacyImport Operator invocation.
 ```
 
+## Candidate-Only Next Obligations
+
+Candidate/proposed only. None are admitted as open_next obligations.
+
+- O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
+- O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
+- O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
+
 ## Satisfied Obligations
+
+### O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS
+
+```yaml
+obligation_id: O-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS
+type: clarify_objective / readiness_frame / human_decision
+statement: >
+  Accept the foundation-core execution-readiness decision frame as bounded
+  readiness framing only, without admitting product execution, CodexExecution,
+  implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch
+  strategy, engine commitment, networking stack commitment, or old-code
+  transfer.
+status: satisfied
+priority: next
+admitted_by: current_human_handoff_2026-05-28
+satisfied_by: R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
+accepted_result:
+  accepted_state_kind: foundation_core_execution_readiness_decision_frame
+  proof_state_after_commit: foundation_core_execution_readiness_framed
+  admits_only: bounded_readiness_framing
+  executes_only: bounded_readiness_framing
+  foundation_core_execution_readiness_state: committed
+  separate_technical_evidence_audit_before_readiness: conditional_not_mandatory
+  preferred_candidate_next_obligation: O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
+  candidate_follow_up_obligations_only: true
+  open_next_obligations: []
+  no_strategy: true
+  no_roadmap: true
+  no_horizon_selection: true
+  no_active_frontier_selection: true
+  no_product_execution: true
+  no_codex_execution: true
+  no_steam_launch_strategy: true
+  no_engine_commitment: true
+  no_networking_stack_commitment: true
+  no_old_code_transfer: true
+  no_implementation: true
+candidate_next_obligations_only:
+  - O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE
+  - O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
+  - O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
+required_operator:
+  - ClarifyObjective
+  - HumanDecision
+```
 
 ### O-IDG-LEGACY-CORE-COMPRESSION-IMPORT
 
