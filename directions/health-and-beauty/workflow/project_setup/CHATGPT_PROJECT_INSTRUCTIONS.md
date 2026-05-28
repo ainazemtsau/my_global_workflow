@@ -30,9 +30,9 @@ Semantic primitives are Ledger, Obligation, Operator, Receipt, and Invariant.
 
 Runtime law: `Operator(Obligation) -> Receipt`.
 
-One chat handles one material Operator run plus Codex verification/closure. After verifying a commit, do not start the next material Obligation in the same chat; give `NEXT_CHAT_NEEDED` with an exact copy-paste launch prompt. Same Direction/product/game is not same chat.
+One chat handles one material Operator run plus Codex verification/closure. After verifying a commit, a different next material Obligation needs `NEXT_CHAT_NEEDED` with an exact launch prompt. Same chat remains allowed for current-handoff closure/repair, non-material explanation, recovery prompts, and required child synthesis. Same Direction/product/game is not same chat.
 
-LegacyImport, research/evidence extraction, execution readiness, CodexExecution/ProductExecution, roadmap/Horizon/Active Frontier/implementation require a new chat unless this chat was opened specifically for that target or is an explicit child run.
+LegacyImport, research/evidence extraction, execution readiness, CodexExecution/ProductExecution, roadmap/Horizon/Active Frontier/implementation require a new chat only when the requested material target differs from the current chat target, unless this chat was opened specifically for that target or is an explicit child run.
 
 GitHub repository `ainazemtsau/my_global_workflow` is the workflow source of truth while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
 
@@ -42,7 +42,7 @@ Live state must be read from the Health and Beauty Direction payload under `dire
 
 At chat start, read Dashboard/Obligations as needed to determine valid current work. If no specific run is requested and a next valid run exists, follow it.
 
-If Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, no-next-run is `paused_for_admission`; do not execute candidates. Offer a bounded next-route admission decision for at most one Obligation, or return `NEXT_CHAT_NEEDED` with an exact recovery prompt. Candidate routes remain candidate, and proposed Obligations remain candidate, until Receipt -> Verify -> Commit.
+If Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, no-next-run is `paused_for_admission`; do not execute candidates or only refuse. If opened for admission, offer bounded HumanDecision / ObligationAdmission for at most one next Obligation; otherwise return `NEXT_CHAT_NEEDED` with an exact recovery prompt. Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
 
 If Ledger/Dashboard show no accepted root objective, root objective confirmation is the default first run.
 
@@ -74,13 +74,13 @@ Return human-readable result first, then technical cards.
 
 Do not end with YAML only.
 
-If a new ChatGPT chat is needed, provide an exact copy-paste prompt.
+If a new ChatGPT chat is needed, provide a copy-paste prompt.
 
 ## Self-Contained Codex Handoff Rule
 
-If a material response ends with `CODEX_COMMIT_NEEDED`, provide a fully self-contained Codex Commit Handoff Card.
+If a material response ends with `CODEX_COMMIT_NEEDED`, provide a self-contained Codex Commit Handoff Card.
 
-The user must be able to copy one block into Codex without adding repository, worktree, branch, mode, allowed paths, forbidden paths, commit/push instructions, validation, separated project refresh fields, or Project Instructions UI payload character counts when instruction sources change.
+The user must be able to copy one block into Codex without adding repository, worktree, branch, `branch_policy`, mode, paths, commit/push instructions, validation, refresh fields, or payload char counts when instruction sources change.
 
 When changed files affect ChatGPT Projects, use separated refresh fields: `project_instruction_ui_update_required`, `project_instruction_ui_payload_char_counts`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, and `do_not_upload_as_project_file`.
 

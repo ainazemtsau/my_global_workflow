@@ -150,7 +150,7 @@ Single Material Run Chat Boundary is the default ordinary Direction user experie
 
 `CODEX_COMMIT_NEEDED` returns to the same chat only so the current Codex result can be verified, repaired if needed, and closed.
 
-After a commit is verified, opening the next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact copy-paste launch prompt.
+After a commit is verified, opening a different next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact copy-paste launch prompt.
 
 The parent chat must not start a different material target merely because the Direction, product, game, roadmap, or implementation stream is the same.
 
@@ -193,6 +193,10 @@ Purpose: recover from valid accepted Direction state when there is no admitted n
 This state is `paused_for_admission`. It is not executable and is not terminal by default.
 
 The only permitted recovery move is a bounded HumanDecision / ObligationAdmission move that may select at most one next bounded Obligation.
+
+If the chat was opened for no-next-valid-run admission, the bounded HumanDecision / ObligationAdmission move may select at most one next bounded Obligation.
+
+If the chat was not opened for no-next-valid-run admission, return `NEXT_CHAT_NEEDED` with an exact recovery prompt that opens the current Direction payload only for bounded admission.
 
 Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
 

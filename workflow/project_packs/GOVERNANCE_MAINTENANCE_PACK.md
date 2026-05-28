@@ -5,9 +5,9 @@ artifact_control:
   pack_name: GOVERNANCE_MAINTENANCE_PACK
   pack_type: workflow_governance_maintenance_console
   intended_load_mode: default_for_workflow_governance_maintenance_project
-  status: path_boundary_consistency_refreshed
+  status: overblocking_admission_guardrails_refreshed
   owner: workflow_os
-  generated_from_ref: wg/codex-handoff-path-boundary-consistency-2026-05-28
+  generated_from_ref: wg/overblocking-admission-guardrails-fix
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Refresh this pack if any source_manifest file changes."
@@ -67,6 +67,8 @@ Live Workflow Governance Direction payload files are request-only for maintenanc
 
 One chat handles one concrete maintenance problem.
 
+Broad input is scope-triaged to one clear concrete maintenance slice and may proceed when safe. Ask only when no safe bounded slice can be selected without hidden acceptance.
+
 The default loop is:
 
 1. Understand the problem.
@@ -88,7 +90,7 @@ Accepted inputs include:
 - setup question
 - request to inspect or repair workflow documentation
 
-If the input is broad, narrow it to the concrete maintenance problem before proposing changes.
+If the input is broad, narrow it by scope-triage to the concrete maintenance problem before proposing changes.
 
 ## Real Transcript Review Procedure
 

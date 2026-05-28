@@ -5,9 +5,9 @@ artifact_control:
   pack_name: WORKFLOW_BASE_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: no_next_valid_run_recovery_refreshed
+  status: overblocking_admission_guardrails_refreshed
   owner: workflow_os
-  generated_from_ref: wg/no-next-run-recovery-protocol-2026-05-28
+  generated_from_ref: wg/overblocking-admission-guardrails-fix
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
@@ -63,7 +63,7 @@ A Receipt is receipt-backed candidate state. It does not mutate the Ledger until
 
 Commit Scope is runtime policy for Ledger mutation. It is not a semantic primitive.
 
-No next valid run is `paused_for_admission`: not executable and not terminal by default. Recovery may only make a bounded HumanDecision / ObligationAdmission move for at most one next bounded Obligation. Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
+No next valid run is `paused_for_admission`: not executable and not terminal by default. Recovery is admission, not execution: if opened for admission, make a bounded HumanDecision / ObligationAdmission move for at most one next bounded Obligation; otherwise return `NEXT_CHAT_NEEDED` with an exact recovery prompt. Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
 
 ## Atomic Run And Scope Discipline
 
@@ -85,7 +85,7 @@ Ordinary Direction chats default to one material Operator run plus Codex verific
 
 Atomicity governs both the active target Obligation and the chat episode boundary.
 
-Codex results return to the same chat only to verify/close the current run. After commit verification, the next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact launch prompt.
+Codex results return to the same chat to verify/close the current run or repair failed validation for the same handoff. After commit verification, a different next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact launch prompt unless the current chat was opened for that same target.
 
 Same Direction / same product / same game is not sufficient reason for same-chat continuation.
 

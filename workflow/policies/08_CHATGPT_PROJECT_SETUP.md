@@ -184,7 +184,7 @@ For the Workflow Governance Maintenance Project, GitHub repository state is sour
 
 For ordinary Direction Workflow Projects, if Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, treat the Direction as `paused_for_admission`.
 
-In `paused_for_admission`, do not execute candidate routes or proposed Obligations. The Project may only offer a bounded HumanDecision / ObligationAdmission choice for at most one next bounded Obligation, or return `NEXT_CHAT_NEEDED` with an exact recovery prompt when the chat was not opened for admission.
+In `paused_for_admission`, do not execute candidate routes or proposed Obligations, and do not only refuse. The Project must expose either a bounded HumanDecision / ObligationAdmission choice for at most one next bounded Obligation when the chat was opened for admission, or `NEXT_CHAT_NEEDED` with an exact recovery prompt when the chat was not opened for admission.
 
 Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
 
@@ -215,6 +215,7 @@ Direct-to-main guidance must state that Codex stays in the existing Direction wo
 Handoffs and run closures must separate Project Instructions UI updates from Project Files/Sources refreshes using:
 
 - `project_instruction_ui_update_required`
+- `project_instruction_ui_payload_char_counts`
 - `project_sources_files_refresh_required`
 - `request_only_sources_refresh_required`
 - `do_not_upload_as_project_file`
@@ -237,9 +238,9 @@ One chat = one material Operator run plus Codex verification/closure.
 
 Same Direction / same product / same game does not imply same chat.
 
-After each committed material run, the next material Obligation must start in a new chat by default with `NEXT_CHAT_NEEDED` and an exact launch prompt.
+After each committed material run, a different next material Obligation must start in a new chat by default with `NEXT_CHAT_NEEDED` and an exact launch prompt unless the current chat was explicitly opened for that same target.
 
-The same chat is allowed only for non-material explanation, verifying the Codex result for the current handoff, failed validation repair for the same handoff, or producing a recovery / next-chat prompt.
+The same chat is allowed for non-material explanation, verifying and closing the Codex result for the current handoff, failed validation repair for the same handoff, producing a recovery / next-chat prompt, or child-result synthesis required for the current parent target.
 
 If the work is compound, the chat must scope-triage, decompose only what is required for the current target Obligation, return child prompts governed by child handoff rules, or return `split_required` instead of pretending completion.
 

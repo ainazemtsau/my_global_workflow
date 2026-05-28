@@ -50,20 +50,20 @@ A new ChatGPT operator run is needed.
 
 The response must provide an exact copy-paste prompt for the new chat.
 
-`NEXT_CHAT_NEEDED` is the default terminal outcome when the next material target is a newly opened Obligation after current run closure.
+`NEXT_CHAT_NEEDED` is the default terminal outcome when the requested next material target differs from the current chat episode target, or when the current chat was not opened for that requested target.
 
 Mandatory `NEXT_CHAT_NEEDED` triggers:
 
-- next material target differs from the current chat episode target
-- newly opened target is LegacyImport
-- research, evidence extraction, or import
-- execution readiness
-- CodexExecution or ProductExecution
-- roadmap, Horizon, Active Frontier, or implementation work
-- user raises a chat-boundary or governance question
-- context is long/noisy or the assistant missed a direct user question
+- next material target differs from the current chat episode target, including a newly opened Obligation after current run closure
+- current chat was not opened for the requested LegacyImport target
+- current chat was not opened for the requested research, evidence extraction, or import target
+- current chat was not opened for the requested execution readiness target
+- current chat was not opened for the requested CodexExecution or ProductExecution target
+- current chat was not opened for the requested roadmap, Horizon, Active Frontier, or implementation target
+- material chat-boundary or governance work would require a different target than the current chat episode
+- context is long/noisy or the assistant missed a direct user question, and the requested material target cannot be confirmed as the current chat episode target
 
-The same chat remains allowed for non-material explanation, verifying the Codex result for the current handoff, failed validation repair for the same handoff, and producing a recovery or next-chat prompt.
+The same chat remains allowed for non-material explanation, verifying and closing the Codex result for the current handoff, failed validation repair for the same handoff, producing a recovery or next-chat prompt, and child-result synthesis required for the current parent target.
 
 ### COMPLETE_NO_COMMIT
 
@@ -122,15 +122,15 @@ A Direction, product, game, long-term goal, Horizon, roadmap, or implementation 
 
 `CODEX_COMMIT_NEEDED` is a repository persistence step. The user returns the Codex result to the same chat only to verify the commit result, repair failed validation for the same handoff, and close the current material run.
 
-After commit verification, the next material target must be launched in a new chat by default with `NEXT_CHAT_NEEDED` and an exact copy-paste prompt.
+After commit verification, a different next material target must be launched in a new chat by default with `NEXT_CHAT_NEEDED` and an exact copy-paste prompt.
 
-The same chat may still answer non-material questions, verify failed commits, repair the current handoff, or provide recovery / next-chat prompts.
+The same chat may still answer non-material questions, verify and close the current handoff, repair failed validation for the same handoff, provide recovery / next-chat prompts, or synthesize child results required for the current parent target.
 
 ## No Next Valid Run Closure
 
-No-next-run recovery uses `HUMAN_DECISION_NEEDED` or `NEXT_CHAT_NEEDED`, not execution.
+No-next-run recovery is an admission move, not execution. It uses `HUMAN_DECISION_NEEDED` or `NEXT_CHAT_NEEDED`.
 
-If the chat was explicitly opened for a no-next-valid-run admission decision, return `HUMAN_DECISION_NEEDED` with bounded options for admitting at most one next Obligation.
+If the chat was explicitly opened for a no-next-valid-run admission decision, return `HUMAN_DECISION_NEEDED` with bounded HumanDecision / ObligationAdmission options for admitting at most one next bounded Obligation.
 
 If the current material run is closed, or the chat was not opened for no-next-run admission, return `NEXT_CHAT_NEEDED` with this exact copy-paste recovery prompt:
 

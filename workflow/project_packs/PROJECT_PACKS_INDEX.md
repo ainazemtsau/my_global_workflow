@@ -5,9 +5,9 @@ artifact_control:
   pack_name: PROJECT_PACKS_INDEX
   pack_type: runtime_cache_upload_convenience_index
   intended_load_mode: default_workflow_governance_maintenance_request_only_ordinary_directions
-  status: path_boundary_consistency_refreshed
+  status: overblocking_admission_guardrails_refreshed
   owner: workflow_os
-  generated_from_ref: wg/codex-handoff-path-boundary-consistency-2026-05-28
+  generated_from_ref: wg/overblocking-admission-guardrails-fix
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this index if any source_manifest file changes."
@@ -67,9 +67,9 @@ Direction payload files are the Direction Ledger, Obligations, Receipts index, C
 
 Default upload count excludes Project Instructions UI sources.
 
-The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, no-next-valid-run `paused_for_admission` recovery, Single Material Run Chat Boundary, child-handoff gating, Receipt scope audit, Codex handoff path-boundary consistency, and next-chat default after committed material runs.
+The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, no-next-valid-run `paused_for_admission` bounded admission or recovery prompt, Single Material Run Chat Boundary with same-handoff closure/repair allowance, child-handoff gating, Receipt scope audit, Codex handoff path-boundary consistency, and next-chat default for different next material targets after committed material runs.
 
-For the Workflow Governance Maintenance Project, `GOVERNANCE_MAINTENANCE_PACK.md` contains the detailed Real Transcript Review procedure: short natural-language triggers plus pasted completed transcript, P0 Single Responsibility / Atomic Run as the first mandatory gate, lifecycle surface detection, relevant-only surface checks, Codex handoff/result verification when applicable, stable transcript defect classes, and explicit terminal outcome. The Project Instructions UI only bootstraps this procedure.
+For the Workflow Governance Maintenance Project, `GOVERNANCE_MAINTENANCE_PACK.md` contains the detailed Real Transcript Review procedure: short natural-language triggers plus pasted completed transcript, P0 Single Responsibility / Atomic Run as the first mandatory gate, broad-input scope triage to one safe maintenance slice, lifecycle surface detection, relevant-only surface checks, Codex handoff/result verification when applicable, stable transcript defect classes, and explicit terminal outcome. The Project Instructions UI only bootstraps this procedure.
 
 For the Workflow Governance Maintenance Project, default upload is different:
 

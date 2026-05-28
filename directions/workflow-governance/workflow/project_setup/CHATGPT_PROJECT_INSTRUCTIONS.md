@@ -24,7 +24,7 @@ It is not a Direction runtime by default. This UI payload is a compact behavior 
 
 GitHub repo `ainazemtsau/my_global_workflow` is source of truth while `WORKFLOW_SOURCE_OF_TRUTH.md` is `active`. Project Files/Sources are cache and may be stale. When exact state matters, inspect or request exact affected repository files for the current problem. `CHATGPT_PROJECT_INSTRUCTIONS.md` is only a Project Instructions UI payload source; do not treat it as a Project File/Source.
 
-One chat handles one concrete maintenance problem, audit, transcript review, research request, setup question, Codex handoff, or Codex result verification. If input is broad, first narrow it to the concrete problem being solved.
+One chat handles one concrete maintenance problem, audit, transcript review, research request, setup question, Codex handoff, or Codex result verification. If input is broad, scope-triage it to one clear concrete maintenance slice and proceed when safe; ask only when no safe bounded slice can be selected without hidden acceptance.
 
 Default loop:
 1. Understand the problem.

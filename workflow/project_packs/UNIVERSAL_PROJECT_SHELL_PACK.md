@@ -5,9 +5,9 @@ artifact_control:
   pack_name: UNIVERSAL_PROJECT_SHELL_PACK
   pack_type: runtime_cache_upload_convenience
   intended_load_mode: default_all_directions
-  status: path_boundary_consistency_refreshed
+  status: overblocking_admission_guardrails_refreshed
   owner: workflow_os
-  generated_from_ref: wg/codex-handoff-path-boundary-consistency-2026-05-28
+  generated_from_ref: wg/overblocking-admission-guardrails-fix
   refreshed_for_receipt: null
   do_not_use_as_authority: true
   refresh_rule: "Regenerate and refresh this pack if any source_manifest file changes."
@@ -107,7 +107,7 @@ Every material use of loaded context must classify it as accepted Ledger state, 
 
 Candidate context may support questions, options, assumptions, or candidate Obligations. It must not become root objective, constraint, Horizon, Active Frontier, roadmap, execution precondition, or accepted claim without explicit human decision or committed Receipt.
 
-If Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, the ordinary Direction state is `paused_for_admission`, not executable. Candidate routes remain candidate, and proposed Obligations remain candidate, until Receipt -> Verify -> Commit.
+If Dashboard/Obligations show no next valid run, no open next obligation, or empty `next_valid_runs`, the ordinary Direction state is `paused_for_admission`, not executable. Do not only refuse: expose bounded admission when opened for admission, or `NEXT_CHAT_NEEDED` recovery when not opened for admission. Candidate routes remain candidate, and proposed Obligations remain candidate, until Receipt -> Verify -> Commit.
 
 Broad, messy, anxious, speculative, or phase-jumping user input must be scope-triaged before material work into `in_scope_used`, `necessary_dependencies`, `parked_residual_context`, `proposed_residual_obligations`, `blocked_or_forbidden`, `explicit_decisions`, and `candidate_examples`.
 
@@ -131,7 +131,7 @@ Every material response must end with a clear terminal outcome for the user.
 
 Return the human-readable result first. Technical cards belong after the explanation.
 
-No-next-run recovery returns `HUMAN_DECISION_NEEDED` only when the chat was opened for admission; otherwise return `NEXT_CHAT_NEEDED` with an exact recovery prompt. It must not trigger execution.
+No-next-run recovery is admission, not execution. It returns `HUMAN_DECISION_NEEDED` only when the chat was opened for bounded HumanDecision / ObligationAdmission; otherwise return `NEXT_CHAT_NEEDED` with an exact recovery prompt.
 
 If a Codex commit is needed, provide a fully self-contained Codex Commit Handoff Card with repository, worktree, branch, mode, `branch_policy`, allowed paths, forbidden paths, protected paths, non-overlapping path boundaries, validation, commit behavior, push behavior, and separated project refresh requirements.
 
@@ -149,9 +149,9 @@ When Project Instructions sources change, report `project_instruction_ui_payload
 
 Single Material Run Chat Boundary is the default for ordinary Direction chats: one material Operator run plus Codex verification/closure.
 
-Codex results return to the same chat only to verify/close the current run. After commit verification, the next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact launch prompt.
+Codex results return to the same chat to verify/close the current run or repair failed validation for the same handoff. After commit verification, a different next material Obligation requires `NEXT_CHAT_NEEDED` by default with an exact launch prompt unless the current chat was opened for that same target.
 
-Same Direction / same product / same game is not sufficient reason for same-chat continuation. Same chat remains allowed for non-material explanation, failed validation repair for the same handoff, recovery prompts, and child result synthesis required for the current target.
+Same Direction / same product / same game is not sufficient reason for same-chat continuation. Same chat remains allowed for non-material explanation, current-handoff closure/repair, recovery prompts, and child result synthesis required for the current target.
 
 If child chats are needed for the current target Obligation, provide copy-paste child prompts, state what results must return, and include a Parent Recovery Block when multiple children are launched.
 
