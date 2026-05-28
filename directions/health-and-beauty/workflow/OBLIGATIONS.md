@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_nutrition_plan_create_admitted_downstream_not_started
+  status: h1_nutrition_plan_authority_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -268,7 +268,9 @@ obligations:
       the accepted root objective, constraints, success semantics, activated
       first Program Blueprint, and collected baseline measurements, while
       preserving safety gates and avoiding premature Daily Ops implementation.
-    status: open
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
     admitted_by: R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
     required_operator: ClarifyDesign / AskHumanDecision
     unblocked_by:
@@ -298,6 +300,8 @@ proposed_residual_obligations:
   - obligation_id: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
+    status: proposed_only_not_admitted
+  - obligation_id: O-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT
     status: proposed_only_not_admitted
 ```
 

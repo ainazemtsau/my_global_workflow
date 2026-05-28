@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: h1_nutrition_plan_create_admitted_downstream_not_started
+  status: h1_nutrition_plan_authority_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: h1_nutrition_plan_create_admitted_downstream_not_started
+proof_state: h1_nutrition_plan_authority_created_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -27,6 +27,7 @@ accepted_receipts:
   - R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
   - R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
   - R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+  - R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -89,6 +90,13 @@ accepted_claims:
   - C-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECTED-NUTRITION-PLAN-2026-05-28
   - C-HB-H1-NUTRITION-PLAN-CREATE-ADMITTED-2026-05-28
   - C-HB-H1-TRAINING-IMPLEMENTATION-SETUP-RUNS-REMAIN-PARKED-2026-05-28
+  - C-HB-H1-NUTRITION-PLAN-AUTHORITY-CREATED-2026-05-28
+  - C-HB-H1-NUTRITION-INITIAL-TARGET-BANDS-DEFINED-2026-05-28
+  - C-HB-H1-NUTRITION-MEAL-ARCHITECTURE-CONTRACT-DEFINED-2026-05-28
+  - C-HB-H1-NUTRITION-TRACKING-PROTOCOL-CONTRACT-DEFINED-NOT-IMPLEMENTED-2026-05-28
+  - C-HB-H1-NUTRITION-REVIEW-AND-ESCALATION-GATES-DEFINED-2026-05-28
+  - C-HB-H1-NUTRITION-SAFETY-UNKNOWNS-PRESERVED-2026-05-28
+  - C-HB-H1-DOWNSTREAM-IMPLEMENTATION-STILL-NOT-STARTED-AFTER-NUTRITION-PLAN-2026-05-28
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 constraints_state: accepted_by_R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -157,20 +165,24 @@ baseline_measurements_collection:
   prescription_created: false
   nutrition_prescription_created: false
   training_prescription_created: false
+nutrition_plan_authority:
+  defined_by: R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
+  artifact_id: HB-H1-NUTRITION-PLAN-AUTHORITY-CANDIDATE-2026-05-28
+  status: accepted_nutrition_authority_artifact
+  scope: nutrition_only_future_daily_ops_authority
+  downstream_implementation_state: not_started
+  meal_plan_created: false
+  training_plan_created: false
+  tracking_implementation_created: false
 last_admitted_obligation:
-  obligation_id: O-HB-BASELINE-MEASUREMENTS-COLLECT
-  admitted_by: R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-  status: closed
-  resolution: accepted
-  satisfied_by: R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
-  execution_state: accepted
-  scope_boundary: baseline collection only; no nutrition plan, training plan, implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
-next_admitted_obligation:
   obligation_id: O-HB-H1-NUTRITION-PLAN-CREATE
   admitted_by: R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-  status: open
-  execution_state: admitted_not_started
-  scope_boundary: nutrition plan creation only; no training plan, meal plan, execution beyond nutrition-plan authority scope, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
+  status: closed
+  resolution: accepted
+  satisfied_by: R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
+  execution_state: accepted
+  scope_boundary: nutrition plan authority artifact only; no training plan, meal plan, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
+next_admitted_obligation: none
 downstream_implementation_state: not_started
 legacy_import_state: not_performed
 legacy_state_authority: false

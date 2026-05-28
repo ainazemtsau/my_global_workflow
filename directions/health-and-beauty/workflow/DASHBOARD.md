@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_nutrition_plan_create_admitted_downstream_not_started
+  status: h1_nutrition_plan_authority_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: Nutrition Plan Create admitted; downstream work not started.
+Proof state: Nutrition Plan Authority created; downstream work not started.
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -31,6 +31,7 @@ Accepted receipts:
 - R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 - R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
 - R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
 
 Constraints:
 
@@ -91,11 +92,11 @@ First Program Blueprint:
 
 Latest closed Obligation:
 
-- O-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT
-- admitted by current human input after R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
+- O-HB-H1-NUTRITION-PLAN-CREATE
+- admitted by R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 - status: closed / accepted
-- satisfied by R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-- scope: select and admit exactly one next bounded run; no plans, prescriptions, implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
+- satisfied by R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
+- scope: nutrition plan authority artifact only; no training plan, meal plan, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
 
 Tool boundary:
 
@@ -111,9 +112,19 @@ Baseline Measurements:
 - schedule/tracking capacity: high time availability for about 6 months, ChatGPT-first photo/voice/short text tracking, low manual burden; exact weekly schedule and maximum daily tracking minutes unknown/deferred
 - gym/bike practicals: gym access via bicycle commute recorded as optional future surface; gym not required now; about 30 minutes one way user estimate; exact distance, route safety, parking/storage, weather, membership, equipment, and facilities unknown/deferred
 
+Nutrition Plan Authority:
+
+- nutrition-only future Daily Ops authority artifact
+- initial calorie band: 2200-2600 kcal/day, default about 2400
+- protein band: 160-200 g/day unless medical/lab/medication issue later contraindicates
+- meal architecture contract defined; no actual menu, recipes, or shopping list created
+- tracking protocol contract defined; tracking implementation not created
+- review and escalation gates defined
+- BP/HR/labs/medications/waist/photos/tracking capacity unknowns preserved
+
 Open critical Obligations:
 
-- O-HB-H1-NUTRITION-PLAN-CREATE
+- none admitted
 
 Current downstream implementation state:
 
@@ -121,10 +132,10 @@ Current downstream implementation state:
 
 Proposed next bounded runs:
 
-- O-HB-H1-NUTRITION-PLAN-CREATE: selected_admitted
 - O-HB-H1-TRAINING-PLAN-CREATE: not admitted
 - O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE: not admitted
 - O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP: not admitted
+- O-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT: proposed_only_not_admitted
 
 Forbidden now:
 
@@ -134,10 +145,11 @@ Forbidden now:
 - product/project implementation
 - ChatGPT Project setup
 - Health Operating Project implementation
-- diet/training prescription beyond admitted future nutrition-plan authority scope
-- nutrition plan in this commit
+- diet/training prescription beyond accepted nutrition authority scope
 - meal plan
-- calorie/macro prescription
+- actual menu
+- recipes
+- shopping list
 - training plan
 - gym schedule
 - cycling prescription
@@ -148,8 +160,8 @@ Forbidden now:
 
 Next valid run:
 
-- O-HB-H1-NUTRITION-PLAN-CREATE
+- none admitted
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, baseline measurement collection, and next bounded run selection are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription beyond the admitted future nutrition-plan obligation, nutrition plan in this commit, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, baseline measurement collection, next bounded run selection, and nutrition plan authority artifact are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription beyond the accepted nutrition authority scope, meal plan, actual menu, recipes, shopping list, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md
