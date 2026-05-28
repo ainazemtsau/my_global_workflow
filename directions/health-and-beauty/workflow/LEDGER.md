@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: h1_blueprint_activation_obligation_admitted_downstream_not_started
+  status: h1_first_program_blueprint_limited_daily_ops_authority_activated_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: h1_blueprint_activation_obligation_admitted_downstream_not_started
+proof_state: h1_first_program_blueprint_limited_daily_ops_authority_activated_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -23,6 +23,7 @@ accepted_receipts:
   - R-HB-H1-PROGRAM-BLUEPRINT-DEFINE-2026-05-27
   - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
   - R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
+  - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -67,6 +68,12 @@ accepted_claims:
   - C-HB-H1-NEXT-BOUNDED-RUN-SELECTED-ACTIVATE-BLUEPRINT-2026-05-27
   - C-HB-H1-ACTIVATION-RUN-BOUNDARY-NO-PRESCRIPTIONS-2026-05-27
   - C-HB-H1-BASELINE-AND-PLAN-RUNS-PARKED-2026-05-27
+  - C-HB-H1-FIRST-PROGRAM-BLUEPRINT-LIMITED-DAILY-OPS-AUTHORITY-ACTIVATED-2026-05-27
+  - C-HB-H1-ACTIVATION-SCOPE-BOUNDARIES-GATES-ESCALATION-PAC-ONLY-2026-05-27
+  - C-HB-H1-PRESCRIPTION-CONVERSION-REMAINS-SEPARATELY-GATED-2026-05-27
+  - C-HB-H1-BASELINE-UNKNOWNS-PRESERVED-AS-FUTURE-GATES-2026-05-27
+  - C-HB-H1-GYM-BIKE-REMAINS-OPTIONAL-SURFACE-NOT-PRESCRIPTION-2026-05-27
+  - C-HB-H1-DOWNSTREAM-IMPLEMENTATION-STILL-NOT-STARTED-AFTER-ACTIVATION-2026-05-27
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 constraints_state: accepted_by_R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -109,9 +116,15 @@ program_blueprint_route:
 h1_first_program_blueprint:
   defined_by: R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
   blueprint_id: HB-H1-FIRST-PROGRAM-BLUEPRINT-CANDIDATE-2026-05-27
-  blueprint_status: candidate_strategy_artifact
-  daily_ops_authority_status: not_authority
-  future_activation_requires_separate_workflow_receipt: true
+  blueprint_status: limited_daily_ops_authority_strategy_artifact
+  daily_ops_authority_status: limited_authority_blueprint_boundaries_gates_escalation_plan_authority_contract_only
+  activated_by: R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+  authority_scope:
+    - blueprint_level_authority_boundaries
+    - gate_logic
+    - escalation_rules
+    - Plan_Authority_Contract_use
+  future_prescription_conversion_requires_separate_workflow_receipt: true
   available_training_surfaces:
     - home_dumbbells
     - VR_boxing_or_Beat_Saber
@@ -122,12 +135,15 @@ h1_first_program_blueprint:
   nutrition_prescription_created: false
   training_prescription_created: false
   downstream_implementation_state: not_started
-next_admitted_obligation:
+last_admitted_obligation:
   obligation_id: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
   admitted_by: R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
-  status: open
-  execution_state: not_started
+  status: closed
+  resolution: accepted
+  satisfied_by: R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+  execution_state: accepted
   scope_boundary: limited Daily Ops authority activation only; no plans or implementation
+next_admitted_obligation: none
 downstream_implementation_state: not_started
 legacy_import_state: not_performed
 legacy_state_authority: false

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_blueprint_activation_obligation_admitted_downstream_not_started
+  status: h1_first_program_blueprint_limited_daily_ops_authority_activated_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -192,9 +192,10 @@ obligations:
       actual nutrition or training prescriptions, Daily Ops
       implementation, ChatGPT Project setup, tracking implementation,
       roadmap, Active Frontier, Codex/product execution, or legacy import.
-    status: open
-    resolution: not_started
+    status: closed
+    resolution: accepted
     admitted_by: R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
+    satisfied_by: R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
     required_operator: ClarifyDesign / AskHumanDecision
     unblocked_by:
       - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
@@ -211,8 +212,6 @@ obligations:
       - no ChatGPT Project setup, tracking implementation, Codex/product execution, or legacy import created
 
 proposed_residual_obligations:
-  - obligation_id: O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
-    status: admitted_not_started
   - obligation_id: O-HB-BASELINE-MEASUREMENTS-COLLECT
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-NUTRITION-PLAN-CREATE
