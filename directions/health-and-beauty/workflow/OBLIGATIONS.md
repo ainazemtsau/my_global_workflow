@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_daily_ops_implementation_readiness_defined_downstream_not_started
+  status: h1_daily_ops_chatgpt_project_setup_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -384,9 +384,48 @@ obligations:
       - no Codex/product execution performed
       - no legacy import performed
 
-proposed_residual_obligations:
+  - obligation_id: O-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT
+    type: human_decision / workflow_triage / obligation_admission
+    statement: Select and admit the next single bounded Health and Beauty Obligation after Daily Ops Implementation Readiness definition left no next admitted obligation.
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    admitted_by: current human input after R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
+    required_operator: ClarifyDesign / AskHumanDecision / workflow_triage
+    selection_result:
+      selected_next_obligation: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
+      downstream_implementation_state: not_started
+
   - obligation_id: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
-    status: proposed_only_not_admitted
+    type: project_setup / chatgpt_project_setup
+    statement: >
+      Create the bounded Health and Beauty Daily Ops ChatGPT Project setup
+      surface in a future separate run, using accepted Daily Ops implementation
+      readiness and target binding HB-H1-DAILY-OPS-MINIMAL-RUNTIME-SURFACE-V0,
+      without creating Daily Ops implementation, tracking implementation,
+      templates/files/apps/integrations outside the bounded setup scope,
+      roadmap, Active Frontier, Codex/product execution, or legacy import.
+    status: open
+    execution_state: admitted_not_started
+    admitted_by: R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    required_operator: ClarifyDesign / AskHumanDecision
+    unblocked_by:
+      - R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
+    acceptance_conditions:
+      - GitHub main state and committed readiness receipt verified before setup work
+      - setup bounded to HB-H1-DAILY-OPS-MINIMAL-RUNTIME-SURFACE-V0
+      - ChatGPT Project setup created only inside this future admitted setup Obligation, not by the admission commit
+      - no Daily Ops implementation created
+      - no tracking implementation created
+      - no templates/files/apps/integrations outside bounded setup scope created
+      - no roadmap created
+      - no Active Frontier selected
+      - no execution Obligations admitted
+      - no CodexExecution allowed
+      - no Codex/product execution performed
+      - no legacy import performed
+
+proposed_residual_obligations: []
 ```
 
 No execution Obligations are currently admitted.

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_daily_ops_implementation_readiness_defined_downstream_not_started
+  status: h1_daily_ops_chatgpt_project_setup_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: Daily Ops Implementation Readiness Defined; downstream work not started.
+Proof state: Daily Ops ChatGPT Project Setup admitted; downstream work not started.
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -36,6 +36,7 @@ Accepted receipts:
 - R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
 - R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 - R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
+- R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 
 Constraints:
 
@@ -96,19 +97,19 @@ First Program Blueprint:
 
 Latest closed Obligation:
 
-- O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
-- admitted by R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- O-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT
+- admitted by current human input after R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
 - status: closed / accepted
-- satisfied by R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
-- scope: readiness definition only; no Daily Ops implementation, ChatGPT Project setup, tracking implementation, templates/files/apps/integrations, roadmap, Active Frontier, Codex/product execution, or legacy import
+- satisfied by R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- scope: selection/admission only; selected O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP as open / admitted_not_started and created no setup or implementation artifacts
 
 Latest workflow-triage closed run:
 
-- O-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT
+- O-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT
 - status: closed / accepted
-- satisfied by R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-- selected next obligation: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
-- selected obligation result: closed / accepted by R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
+- satisfied by R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- selected next obligation: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
+- selected obligation execution_state: admitted_not_started
 
 Tool boundary:
 
@@ -163,9 +164,21 @@ Daily Ops Implementation Readiness:
 - stop conditions and future handoff requirements defined
 - downstream implementation remains not_started
 
+Daily Ops ChatGPT Project Setup:
+
+- status: open
+- execution_state: admitted_not_started
+- admitted by R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- target binding: HB-H1-DAILY-OPS-MINIMAL-RUNTIME-SURFACE-V0
+- setup created: false
+- Daily Ops implementation created: false
+- tracking implementation created: false
+- templates/files/apps/integrations created: false
+- downstream implementation remains not_started
+
 Open critical Obligations:
 
-- none admitted
+- O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
 
 Current downstream implementation state:
 
@@ -173,37 +186,27 @@ Current downstream implementation state:
 
 Next admitted Obligation:
 
-- next_admitted_obligation: none
+- next_admitted_obligation: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
 
 Proposed next bounded runs:
 
-- O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP: not admitted
+- none
 
 Forbidden now:
 
-- Active Frontier selection
-- roadmap
-- Codex/product execution
-- product/project implementation
-- ChatGPT Project setup
-- Health Operating Project implementation
 - Daily Ops implementation
 - tracking implementation
-- templates/files/apps/integrations
-- meal plan
-- actual menu
-- recipes
-- shopping list
-- gym schedule
-- cycling prescription
-- accepted 12-week plan
-- annual plan
+- templates/files/apps/integrations outside future bounded ChatGPT Project setup scope
+- ChatGPT Project setup execution outside O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
+- roadmap
+- Active Frontier
+- Codex/product execution
 - legacy import
 
 Next valid run:
 
-- next_valid_run: none admitted
+- next_valid_run: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, baseline measurement collection, next bounded run selections, nutrition plan authority artifact, training plan authority artifact, and Daily Ops implementation readiness definition are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, product/project implementation, Daily Ops implementation, tracking implementation, templates/files/apps/integrations, meal plan, actual menu, recipes, shopping list, exact training sessions, gym schedule, cycling prescription, accepted 12-week plan, annual plan, or legacy import.
+Projection warning: This commit admits the next setup Obligation only. It does not create ChatGPT Project setup, Daily Ops implementation, tracking implementation, templates/files/apps/integrations, roadmap, Active Frontier, Codex/product execution, or legacy import.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md
