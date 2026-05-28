@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: receipts_index
-  status: h1_nutrition_plan_authority_created_downstream_not_started
+  status: h1_training_plan_create_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -26,6 +26,7 @@ accepted_receipts:
   - R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
   - R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
   - R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
+  - R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_nutrition_plan_authority_created_downstream_not_started
+  status: h1_training_plan_create_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -294,14 +294,52 @@ obligations:
       - no Codex/product execution performed
       - no legacy import performed
 
-proposed_residual_obligations:
+  - obligation_id: O-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT
+    type: human_decision / workflow_triage
+    statement: Select and admit the next single bounded Health and Beauty Obligation after Nutrition Plan Authority creation left no next admitted obligation.
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    admitted_by: current human input after R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
+    required_operator: ClarifyDesign / AskHumanDecision
+    selection_result:
+      selected_next_obligation: O-HB-H1-TRAINING-PLAN-CREATE
+      downstream_implementation_state: not_started
+
   - obligation_id: O-HB-H1-TRAINING-PLAN-CREATE
-    status: proposed_only_not_admitted
+    type: clarify_or_design / training_plan_creation
+    statement: >
+      Create the first bounded H1 training plan authority artifact using
+      the accepted root objective, constraints, success semantics, activated
+      first Program Blueprint, collected baseline measurements, and accepted
+      nutrition authority boundary, while preserving safety gates and avoiding
+      premature Daily Ops implementation.
+    status: open
+    execution_state: admitted_not_started
+    admitted_by: R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    required_operator: ClarifyDesign / AskHumanDecision
+    unblocked_by:
+      - R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
+      - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+      - R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
+    acceptance_conditions:
+      - training plan authority artifact created for future Daily Ops use
+      - safety gates from baseline collection preserved, not waived
+      - gym access via bicycle commute handled as optional training surface / possible load and recovery factor, not forced schedule or cycling prescription
+      - training principles, structure, progression boundaries, review gates, and escalation triggers separated from Daily Ops implementation
+      - downstream implementation remains not_started
+      - no Daily Ops implementation created
+      - no ChatGPT Project setup created
+      - no tracking implementation created
+      - no roadmap created
+      - no Active Frontier selected
+      - no Codex/product execution performed
+      - no legacy import performed
+
+proposed_residual_obligations:
   - obligation_id: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
-    status: proposed_only_not_admitted
-  - obligation_id: O-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT
     status: proposed_only_not_admitted
 ```
 
