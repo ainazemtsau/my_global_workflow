@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_baseline_measurements_collect_admitted_downstream_not_started
+  status: h1_baseline_measurements_collected_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: Baseline Measurements Collect admitted; downstream work not started.
+Proof state: Baseline Measurements collected; downstream work not started.
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -29,6 +29,7 @@ Accepted receipts:
 - R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
 - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
 - R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
 
 Constraints:
 
@@ -89,28 +90,36 @@ First Program Blueprint:
 
 Latest closed Obligation:
 
-- O-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT
-- admitted by current human input after R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+- O-HB-BASELINE-MEASUREMENTS-COLLECT
+- admitted by R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 - status: closed / accepted
-- satisfied by R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-- scope: select and admit exactly one next bounded run; no prescriptions, implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
+- satisfied by R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
+- scope: baseline collection only; no prescriptions, implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
 
 Tool boundary:
 
 - Hevy / H-E-V-Y is candidate tool surface for workout logging/social/training records, not accepted program authority.
 - HomeLab and Mealie/Miali Recipes are optional candidate infrastructure, not hard requirements.
 
+Baseline Measurements:
+
+- anthropometrics collected: 35M, 182 cm, 125 kg, BMI estimate 37.7, target weight context about 90 kg
+- waist/photos policy: unknown/deferred
+- safety: no chronic conditions, hypertension, cardiovascular conditions, diabetes, or specific joint limits reported; BP/HR/labs/medications unknown/deferred and not waived
+- activity/training: low steps, very low recent training, prior strength/VR/boxing/Beat Saber/cardio/P90X/judo/martial arts experience, about 10 pushups; formal strength/cardio/mobility checks deferred/gated
+- schedule/tracking capacity: high time availability for about 6 months, ChatGPT-first photo/voice/short text tracking, low manual burden; exact weekly schedule and maximum daily tracking minutes unknown/deferred
+- gym/bike practicals: gym access via bicycle commute recorded as optional future surface; gym not required now; about 30 minutes one way user estimate; exact distance, route safety, parking/storage, weather, membership, equipment, and facilities unknown/deferred
+
 Open critical Obligations:
 
-- O-HB-BASELINE-MEASUREMENTS-COLLECT
+- none
 
 Proposed next bounded runs:
 
-- selected/admitted: O-HB-BASELINE-MEASUREMENTS-COLLECT
-- not admitted: O-HB-H1-NUTRITION-PLAN-CREATE
-- not admitted: O-HB-H1-TRAINING-PLAN-CREATE
-- not admitted: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
-- not admitted: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
+- O-HB-H1-NUTRITION-PLAN-CREATE: not admitted
+- O-HB-H1-TRAINING-PLAN-CREATE: not admitted
+- O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE: not admitted
+- O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP: not admitted
 
 Forbidden now:
 
@@ -133,8 +142,8 @@ Forbidden now:
 
 Next valid run:
 
-- O-HB-BASELINE-MEASUREMENTS-COLLECT
+- none admitted by this commit unless future bounded run is created by later human input
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, and next baseline collection obligation admission are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, and baseline measurement collection are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md

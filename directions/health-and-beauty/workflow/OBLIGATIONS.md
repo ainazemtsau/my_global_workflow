@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_baseline_measurements_collect_admitted_downstream_not_started
+  status: h1_baseline_measurements_collected_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -226,7 +226,9 @@ obligations:
   - obligation_id: O-HB-BASELINE-MEASUREMENTS-COLLECT
     type: clarify / baseline_collection
     statement: Collect or explicitly mark unknown/deferred the minimum baseline measurements, safety-relevant facts, schedule/tracking capacity, and gym/bike practical constraints needed to unblock future nutrition and training prescription obligations, without creating nutrition plan, training plan, meal plan, calorie/macro prescription, gym schedule, cycling prescription, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import.
-    status: open
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-BASELINE-MEASUREMENTS-COLLECT-2026-05-28
     admitted_by: R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
     required_operator: ClarifyData / AskHumanDecision
     unblocked_by:
