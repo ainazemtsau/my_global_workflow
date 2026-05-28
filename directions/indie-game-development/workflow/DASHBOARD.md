@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: dashboard_projection
-  status: first_foundation_nucleus_execution_readiness_packaged
+  status: first_expedition_proof_execution_readiness_package_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,13 +13,13 @@ artifact_control:
 
 Dashboard is projection, not truth; Ledger wins.
 
-This dashboard is projection only; Ledger wins. It reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, a committed bounded concept identity frame, a committed bounded gas ecology identity boundary clarification, a bounded legacy core compression import, a committed foundation-core execution-readiness decision frame, and a committed first foundation nucleus execution-readiness package. It does not create strategy commitment or admit execution.
+This dashboard is projection only; Ledger wins. It reflects constraints accepted state, a projection-only artifact, an accepted route decision, a completed bounded legacy concept evidence inventory, a completed bounded post-inventory orientation frame, a committed bounded concept identity frame, a committed bounded gas ecology identity boundary clarification, a bounded legacy core compression import, a committed foundation-core execution-readiness decision frame, a committed first foundation nucleus execution-readiness package, and an admission-only first Expedition proof execution-readiness package obligation. It does not create strategy commitment or admit execution.
 
 ## Current State
 
 ```yaml
 direction: Indie Game Development
-proof_state: first_foundation_nucleus_execution_readiness_packaged
+proof_state: first_expedition_proof_execution_readiness_package_admitted
 accepted_root_objective: >
   Create and finish an indie game within the already selected concept, with two equal
   top-level outcomes: a technically strong game the user can be proud of, and a
@@ -40,6 +40,7 @@ accepted_receipts:
   - R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
   - R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
   - R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001
+  - R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001
 projection_artifact:
   - IDG-STRATEGIC-PATH-MAP-PROJECTION-001
 route_decision:
@@ -115,8 +116,23 @@ first_foundation_nucleus_execution_readiness_package:
   old_code_transfer_admitted: false
   final_gas_taxonomy_admitted: false
   final_reaction_graph_admitted: false
-open_next_obligations: []
-next_valid_runs_admitted_by_this_receipt: []
+first_expedition_proof_execution_readiness_package_admission:
+  admitted_obligation: O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
+  admitted_by: R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001
+  admission_only: true
+  technical_evidence_audit_before_this_package: conditional_not_mandatory
+  product_execution_admitted: false
+  codex_execution_admitted: false
+  implementation_admitted: false
+  engine_commitment_admitted: false
+  networking_stack_commitment_admitted: false
+  old_code_transfer_admitted: false
+  final_gas_taxonomy_admitted: false
+  final_reaction_graph_admitted: false
+open_next_obligations:
+  - O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
+next_valid_runs_admitted_by_this_receipt:
+  - O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
 candidate_follow_up_obligations:
   - obligation_id: O-IDG-REACTIVE-GAS-CORE-LOOP-CLARIFY
     status: candidate_proposed_only
@@ -131,8 +147,6 @@ candidate_follow_up_obligations:
   - obligation_id: O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
     status: candidate_proposed_only
   - obligation_id: O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
-    status: candidate_proposed_only
-  - obligation_id: O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
     status: candidate_proposed_only
 legacy_import_state: bounded_concept_evidence_inventory_committed
 legacy_state_authority: false
@@ -194,6 +208,8 @@ Full success requires technical-pride success, game-completion success, commerci
 - The foundation-core execution-readiness decision frame admits only bounded readiness framing. Product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, and old-code transfer remain forbidden. A separate technical evidence audit is conditional, not mandatory before readiness.
 - O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE is satisfied by `R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001`.
 - The first foundation nucleus execution-readiness package frames Grid as authoritative extensible spatial substrate, bounded topology mutation/breach readiness, event/change-set/snapshot contract surfaces, gas profile/effect-hook extensibility, no-player validation, and performance/scale evidence requirements before future implementation execution. It admits no product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, old-code transfer, final gas taxonomy, or final reaction graph.
+- O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE is admitted as the only open_next obligation by `R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001`.
+- This first Expedition proof execution-readiness package admission is admission only and does not execute the obligation. Technical evidence audit remains conditional_not_mandatory and candidate/proposed only.
 
 ## Bounded Concept Identity Summary
 
@@ -230,6 +246,14 @@ Full success requires technical-pride success, game-completion success, commerci
 - Performance/scale evidence is required before future implementation execution; exact numeric budgets are deferred.
 - Technical evidence audit remains conditional_not_mandatory for this package.
 
+## First Expedition Proof Execution Readiness Package Admission
+
+- Admitted obligation: O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE.
+- Admitted by: `R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001`.
+- Admission only: true.
+- Technical evidence audit remains conditional_not_mandatory and candidate/proposed only.
+- Product execution, CodexExecution, implementation, Steam launch strategy, engine commitment, networking stack commitment, old-code transfer, final gas taxonomy, and final reaction graph remain false.
+
 ## Projection Artifact Summary
 
 - IDG-STRATEGIC-PATH-MAP-PROJECTION-001: projection-only Strategic Path Map artifact from accepted root objective, success semantics, and constraints; creates no accepted strategy, Horizon, Active Frontier, roadmap, execution, Steam launch strategy, monetization model, or legacy import.
@@ -260,7 +284,7 @@ None.
 
 ## Open Next Obligations
 
-None.
+- O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
 
 ## Optional Available Obligation
 
@@ -298,11 +322,10 @@ Remaining obligations below are candidate/proposed only and are not admitted obl
 - O-IDG-GAS-CONTAINMENT-AND-RUPTURE-BOUNDARY-CLARIFY
 - O-IDG-LORE-PREMISE-CANDIDATE-CLARIFY
 - O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
-- O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
 
 ## Next Valid Runs
 
-None.
+O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE is the only next valid admitted run.
 
 Remaining candidate/proposed obligations require a separate Receipt -> Verify -> Commit admission before becoming valid next runs.
 

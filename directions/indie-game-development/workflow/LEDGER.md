@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: first_foundation_nucleus_execution_readiness_packaged
+  status: first_expedition_proof_execution_readiness_package_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,7 +13,7 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: first_foundation_nucleus_execution_readiness_packaged
+proof_state: first_expedition_proof_execution_readiness_package_admitted
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
@@ -30,6 +30,7 @@ accepted_receipts:
   - R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
   - R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
   - R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001
+  - R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
   - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
@@ -52,6 +53,7 @@ accepted_claims:
   - Minimum Expedition Proof Core and first technical nucleus route are split: adopted as candidate execution-readiness inputs only, while playable proof design, implementation, Task Master graph, exact engine/networking/data model, performance budgets, gas taxonomy, reaction graph, and old-code reuse remain deferred.
   - Foundation-core execution-readiness decision frame accepted: this commits bounded readiness framing only, keeps product execution and CodexExecution false, treats separate technical evidence audit as conditional rather than mandatory before readiness, preserves old-code transfer as false, and leaves O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE as the preferred candidate next obligation only.
   - First no-player foundation nucleus execution-readiness package accepted: Grid is authoritative extensible spatial substrate, Gas is first hard consumer, bounded topology mutation/breach readiness, event/change-set/snapshot contract, multi-gas profile and exposure/effect hooks, validation/stop conditions, and performance/scale evidence requirements are framed without implementation or product execution.
+  - Human decision accepted to admit O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE as the next bounded obligation after the committed first foundation nucleus execution-readiness package. The technical evidence audit remains conditional_not_mandatory and not blocking now. This admission creates no product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine/networking commitment, old-code transfer, final gas taxonomy, or final reaction graph.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
 projections_state: strategic_map_projection_created_no_strategy_commitment
@@ -69,8 +71,10 @@ technical_invariants_state: committed_with_amendments
 first_nucleus_or_mvp_candidate_state: split_candidate_committed
 foundation_core_execution_readiness_state: committed
 first_foundation_nucleus_execution_readiness_package_state: committed
-open_next_obligations: []
-candidate_follow_up_obligations_only: true
+first_expedition_proof_execution_readiness_package_admission_state: committed
+open_next_obligations:
+  - O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
+candidate_follow_up_obligations_only: false
 strategy_admitted: false
 roadmap_admitted: false
 horizon_selected: false
@@ -170,6 +174,7 @@ Direction proof files are storage and projection surfaces. They are not addition
 - R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
 - R-IDG-FOUNDATION-CORE-ACCEPTANCE-AND-EXECUTION-READINESS-001
 - R-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE-001
+- R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001
 
 ## Accepted Projection Artifacts
 
@@ -223,7 +228,9 @@ O-IDG-FIRST-FOUNDATION-NUCLEUS-EXECUTION-READINESS-PACKAGE is satisfied by `R-ID
 
 The first no-player foundation nucleus execution-readiness package is committed as proof-state persistence only. It frames Grid as the authoritative extensible spatial substrate, Gas as the first required hard consumer, bounded topology mutation/breach readiness, event/change-set/snapshot contract surfaces, multi-gas profile and exposure/effect hook extensibility, validation tests, stop conditions, and future performance/scale evidence requirements. It does not admit product execution, CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier, Steam launch strategy, engine commitment, networking stack commitment, old-code transfer, final gas taxonomy, or final reaction graph. Exact cell size, final destructibility, debris/fragments, structural collapse, final EventBus implementation, final gas VFX, and player mechanics remain deferred.
 
-There are no open_next obligations after this commit. Candidate follow-up obligations remain candidate/proposed only until separately admitted by Receipt -> Verify -> Commit.
+O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE is admitted as the only open_next obligation by R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001. This is admission only and does not execute the obligation.
+
+Remaining candidate follow-up obligations remain candidate/proposed only until separately admitted by Receipt -> Verify -> Commit. O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS remains candidate/conditional and conditional_not_mandatory.
 
 No next strategy state, roadmap, Horizon, Active Frontier, execution package, Codex work package, product execution, monetization model, Steam launch strategy, engine commitment, networking stack decision, old-code transfer, full legacy import, or accepted Strategic Path Map commitment is created or admitted by this receipt.
 

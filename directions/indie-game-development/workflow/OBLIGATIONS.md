@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: first_foundation_nucleus_execution_readiness_packaged
+  status: first_expedition_proof_execution_readiness_package_admitted
   owner: proof_carrying_workflow_os
 ---
 
@@ -23,7 +23,37 @@ No roadmap item exists without admitted Obligation.
 
 ## Open Obligations
 
-No open_next obligations.
+### O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
+
+```yaml
+obligation_id: O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
+type: clarify_objective / readiness_package / human_decision
+statement: >
+  Create a bounded first Expedition proof execution-readiness package from
+  accepted state and committed receipt/import-packet claims only. The package may
+  define the first Expedition proof acceptance surface, scenario proof boundary,
+  evidence requirements, dependencies, stop conditions, and preconditions for
+  later implementation consideration, without admitting product execution,
+  CodexExecution, implementation, strategy, roadmap, Horizon, Active Frontier,
+  Steam launch strategy, engine commitment, networking stack commitment,
+  old-code transfer, final gas taxonomy, or final reaction graph.
+status: open_next
+priority: next
+admitted_by: R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001
+acceptance_conditions:
+  - readiness package only, not execution
+  - accepted first foundation nucleus package used as dependency
+  - technical evidence audit classified as conditional_not_mandatory unless triggering conditions occur
+  - no old archive files treated as accepted state
+  - no product repository mutation
+  - no implementation work
+  - no engine/networking commitment
+  - no final gas taxonomy or reaction graph
+required_operator:
+  - ClarifyObjective
+  - ReadinessPackage
+  - HumanDecision
+```
 
 ### O-IDG-LEGACY-INVENTORY-OPTIONAL
 
@@ -48,10 +78,9 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 
 ## Candidate-Only Next Obligations
 
-Candidate/proposed only. None are admitted as open_next obligations.
+Remaining candidate/proposed obligations only. O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS remains candidate/proposed only and conditional_not_mandatory unless triggering conditions occur.
 
 - O-IDG-TECHNICAL-EVIDENCE-AUDIT-FOR-FOUNDATION-BLOCKERS
-- O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE
 
 ## Satisfied Obligations
 
@@ -488,6 +517,8 @@ No roadmap item exists without admitted Obligation.
 Execution remains unavailable until required constraints, strategy, and execution-ready precondition Receipts are accepted and committed.
 
 The first foundation nucleus execution-readiness package satisfies one bounded obligation only. It creates no product execution, CodexExecution, implementation, roadmap, Horizon, Active Frontier, Steam launch strategy, engine commitment, networking stack commitment, old-code transfer, final gas taxonomy, or final reaction graph.
+
+O-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE is admitted as open_next only by R-IDG-FIRST-EXPEDITION-PROOF-EXECUTION-READINESS-PACKAGE-ADMIT-001. This admission does not satisfy or execute the obligation and creates no product execution, CodexExecution, implementation, roadmap, Horizon, Active Frontier, Steam launch strategy, engine commitment, networking stack commitment, old-code transfer, final gas taxonomy, or final reaction graph.
 
 The legacy core compression import creates candidate follow-up obligations only. It does not admit a next run.
 
