@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_first_program_blueprint_limited_daily_ops_authority_activated_downstream_not_started
+  status: h1_baseline_measurements_collect_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -211,9 +211,43 @@ obligations:
       - downstream implementation remains not_started
       - no ChatGPT Project setup, tracking implementation, Codex/product execution, or legacy import created
 
-proposed_residual_obligations:
+  - obligation_id: O-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT
+    type: human_decision / workflow_triage
+    statement: Select and admit the next single bounded Health and Beauty Obligation after First Program Blueprint activation left no next admitted obligation.
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    admitted_by: current human input after R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+    required_operator: ClarifyDesign / AskHumanDecision
+    selection_result:
+      selected_next_obligation: O-HB-BASELINE-MEASUREMENTS-COLLECT
+      downstream_implementation_state: not_started
+
   - obligation_id: O-HB-BASELINE-MEASUREMENTS-COLLECT
-    status: proposed_only_not_admitted
+    type: clarify / baseline_collection
+    statement: Collect or explicitly mark unknown/deferred the minimum baseline measurements, safety-relevant facts, schedule/tracking capacity, and gym/bike practical constraints needed to unblock future nutrition and training prescription obligations, without creating nutrition plan, training plan, meal plan, calorie/macro prescription, gym schedule, cycling prescription, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import.
+    status: open
+    admitted_by: R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+    required_operator: ClarifyData / AskHumanDecision
+    unblocked_by:
+      - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+    acceptance_conditions:
+      - current measurement baseline collected or explicitly marked unknown/deferred
+      - waist circumference collected or explicitly marked unknown/deferred
+      - resting blood pressure collected or explicitly marked unknown/deferred
+      - resting heart rate collected or explicitly marked unknown/deferred
+      - recent labs or medical check status collected or explicitly marked unknown/deferred
+      - medication status collected or explicitly marked unknown/deferred
+      - current pain, injury, and joint limitations collected or explicitly marked unknown/deferred
+      - baseline strength, cardio, and mobility checks collected, deferred, or gated
+      - exact weekly schedule preference collected or explicitly marked unknown/deferred
+      - maximum daily tracking capacity collected or explicitly marked unknown/deferred
+      - preferred meal repetition tolerance collected or explicitly marked unknown/deferred
+      - gym/bike practical baseline collected or marked not currently needed unless future gym/hybrid plan is selected
+      - downstream implementation remains not_started
+      - no nutrition plan, training plan, meal plan, calorie/macro prescription, gym schedule, cycling prescription, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import created
+
+proposed_residual_obligations:
   - obligation_id: O-HB-H1-NUTRITION-PLAN-CREATE
     status: proposed_only_not_admitted
   - obligation_id: O-HB-H1-TRAINING-PLAN-CREATE

@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_first_program_blueprint_limited_daily_ops_authority_activated_downstream_not_started
+  status: h1_baseline_measurements_collect_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: First Program Blueprint activated as limited Daily Ops authority; downstream work not started.
+Proof state: Baseline Measurements Collect admitted; downstream work not started.
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -28,6 +28,7 @@ Accepted receipts:
 - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
 - R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
 - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+- R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 
 Constraints:
 
@@ -88,11 +89,11 @@ First Program Blueprint:
 
 Latest closed Obligation:
 
-- O-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS
-- admitted by R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
+- O-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT
+- admitted by current human input after R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
 - status: closed / accepted
-- satisfied by R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
-- scope: limited Daily Ops authority activation for blueprint-level boundaries, gate logic, escalation rules, and Plan Authority Contract use only
+- satisfied by R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- scope: select and admit exactly one next bounded run; no prescriptions, implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
 
 Tool boundary:
 
@@ -101,12 +102,11 @@ Tool boundary:
 
 Open critical Obligations:
 
-- none
+- O-HB-BASELINE-MEASUREMENTS-COLLECT
 
 Proposed next bounded runs:
 
-- selected/admitted: none
-- not admitted: O-HB-BASELINE-MEASUREMENTS-COLLECT
+- selected/admitted: O-HB-BASELINE-MEASUREMENTS-COLLECT
 - not admitted: O-HB-H1-NUTRITION-PLAN-CREATE
 - not admitted: O-HB-H1-TRAINING-PLAN-CREATE
 - not admitted: O-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE
@@ -133,8 +133,8 @@ Forbidden now:
 
 Next valid run:
 
-- none admitted
+- O-HB-BASELINE-MEASUREMENTS-COLLECT
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, and first Program Blueprint limited Daily Ops authority are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, and next baseline collection obligation admission are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, diet/training prescription, nutrition plan, meal plan, calorie prescription, macro prescription, training plan, gym schedule, cycling prescription, accepted 12-week plan, annual plan, tracking implementation, or legacy import.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md

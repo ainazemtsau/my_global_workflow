@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: receipts_index
-  status: h1_first_program_blueprint_limited_daily_ops_authority_activated_downstream_not_started
+  status: h1_baseline_measurements_collect_admitted_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -22,6 +22,7 @@ accepted_receipts:
   - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-CREATE-2026-05-27
   - R-HB-H1-NEXT-BOUNDED-RUN-SELECT-2026-05-27
   - R-HB-H1-FIRST-PROGRAM-BLUEPRINT-ACTIVATE-FOR-DAILY-OPS-2026-05-27
+  - R-HB-H1-AFTER-ACTIVATION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/
