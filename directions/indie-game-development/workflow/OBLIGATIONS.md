@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: obligations_storage
-  status: gas_ecology_identity_boundary_clarified
+  status: legacy_core_compression_imported
   owner: proof_carrying_workflow_os
 ---
 
@@ -47,6 +47,56 @@ rule: Old files must not become evidence or accepted state without explicit Lega
 ```
 
 ## Satisfied Obligations
+
+### O-IDG-LEGACY-CORE-COMPRESSION-IMPORT
+
+```yaml
+obligation_id: O-IDG-LEGACY-CORE-COMPRESSION-IMPORT
+type: legacy_import_compression / clarify_objective / human_decision
+statement: >
+  Rapidly compress and import useful restored Legacy progress about game
+  concept, foundation core, technical foundation, first nucleus/MVP/proof core,
+  and related documentation, without importing old workflow state wholesale and
+  without admitting product execution, CodexExecution, implementation, engine or
+  networking commitments, strategy, roadmap, Horizon, Active Frontier,
+  Steam launch strategy, old-code transfer, final gas taxonomy, or final
+  reaction graph.
+status: satisfied
+priority: critical
+admitted_by: current_human_handoff_2026-05-28
+satisfied_by: R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
+accepted_result:
+  accepted_state_kind: bounded_legacy_core_compression_import
+  proof_state_after_commit: legacy_core_compression_imported
+  import_packet: directions/indie-game-development/workflow/import_packets/IDG_LEGACY_CORE_COMPRESSION_IMPORT_PACKET_001.md
+  legacy_documents_authority: evidence_only
+  legacy_documents_accepted_wholesale: false
+  domain_game_documentation_claims: adopted_with_amendments
+  legacy_game_concept: adopted_with_amendments
+  foundation_core: adopted_with_amendments
+  technical_invariants: adopted_with_amendments
+  first_nucleus_or_mvp_route: split_candidate_only
+  candidate_follow_up_obligations_only: true
+  open_next_obligations: []
+  no_strategy: true
+  no_roadmap: true
+  no_horizon_selection: true
+  no_active_frontier_selection: true
+  no_product_execution: true
+  no_codex_execution: true
+  no_steam_launch_strategy: true
+  no_engine_commitment: true
+  no_networking_stack_commitment: true
+  no_old_code_transfer: true
+  no_implementation: true
+  no_old_workflow_state_import: true
+  no_final_gas_taxonomy: true
+  no_final_reaction_system: true
+required_operator:
+  - LegacyEvidenceReview
+  - ClarifyObjective
+  - HumanDecision
+```
 
 ### O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY
 
@@ -336,5 +386,7 @@ No CodexExecution operator may run.
 No roadmap item exists without admitted Obligation.
 
 Execution remains unavailable until required constraints, strategy, and execution-ready precondition Receipts are accepted and committed.
+
+The legacy core compression import creates candidate follow-up obligations only. It does not admit a next run.
 
 END_OF_FILE: directions/indie-game-development/workflow/OBLIGATIONS.md
