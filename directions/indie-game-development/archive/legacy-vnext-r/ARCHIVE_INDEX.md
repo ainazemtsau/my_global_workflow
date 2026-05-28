@@ -24,6 +24,26 @@ code transfer authorization.
 `directions/indie-game-development/` payload from
 `legacy/vnext-r-main-before-proof-os-2026-05-25` at commit `b6e1b85`.
 
+## High-Signal Restored Evidence
+
+The most important restored material for bounded game/core import is under:
+
+- `snapshots/direction_payload/domain_docs/game_documentation/`
+- `snapshots/direction_payload/knowledge/canon/`
+
+Critical restored domain/game documentation includes:
+
+- `snapshots/direction_payload/domain_docs/game_documentation/foundation-docs-index.md`
+- `snapshots/direction_payload/domain_docs/game_documentation/game-foundation.md`
+- `snapshots/direction_payload/domain_docs/game_documentation/primary-product-bet-expedition.md`
+- `snapshots/direction_payload/domain_docs/game_documentation/expedition-experience-model.md`
+- `snapshots/direction_payload/domain_docs/game_documentation/expedition-skeleton-document.md`
+- `snapshots/direction_payload/domain_docs/game_documentation/expedition-proof-handoff.md`
+- `snapshots/direction_payload/domain_docs/game_documentation/technical-foundation-gas-and-grid-contract.md`
+- `snapshots/direction_payload/domain_docs/game_documentation/clean-start-transfer-boundary.md`
+
 Do not default-load this archive. Any future use as accepted state requires an
 explicit admitted Legacy Import obligation, verification, and a committed
 Receipt.
+
+END_OF_FILE: directions/indie-game-development/archive/legacy-vnext-r/ARCHIVE_INDEX.md

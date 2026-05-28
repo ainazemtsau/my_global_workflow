@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: ledger_storage
-  status: gas_ecology_identity_boundary_clarified
+  status: legacy_core_compression_imported
   owner: proof_carrying_workflow_os
 ---
 
@@ -13,7 +13,7 @@ artifact_control:
 
 ```yaml
 direction_id: indie-game-development
-proof_state: gas_ecology_identity_boundary_clarified
+proof_state: legacy_core_compression_imported
 accepted_receipts:
   - R-IDG-ROOT-OBJECTIVE-DECISION-001
   - R-IDG-SUCCESS-SEMANTICS-DEFINE-001
@@ -27,6 +27,7 @@ accepted_receipts:
   - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001
   - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
   - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001
+  - R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
 accepted_claims:
   - Root objective accepted: create and finish an indie game within the already selected concept, with equal technical-pride and commercial-success pillars.
   - Success semantics accepted: full success requires technical-pride success, game-completion success, commercial success, and personal-pride success.
@@ -42,6 +43,11 @@ accepted_claims:
   - Bounded concept identity accepted from legacy evidence and current human correction: the game identity is a co-op reactive gas-ecology expedition game / systemic atmospheric survival-puzzle-action frame. Gas is not merely an ambient hazard; it is a reactive multi-gas ecology. Grid/topology is the shared spatial gameplay substrate for gas movement, containment, ventilation, verticality, source/sink anchors, topology changes, reaction locations, and future pressure/temperature/environment hooks.
   - Human decision admitted O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY as next bounded obligation only.
   - Bounded gas ecology identity boundary accepted: gas ecology is identity-bearing; multi-gas qualitative distinction, reaction/transform potential, topology-mediated gas play, player-readable atmospheric manipulation, hostile/beneficial/special/anomalous role spectrum, and co-op systemic event potential are core, while final gas taxonomy, reaction graph, role mechanics, lore premise, economy, core loop, mission/team design, engine, networking, algorithms, roadmap, strategy, Steam/product plans, implementation, and old-code transfer remain future expansion or forbidden.
+  - Bounded legacy core compression import accepted as candidate branch proof state: strong legacy domain/game documentation is compressed into current proof workflow as evidence for Expedition product bet, foundation core, Gas/Grid contract, clean-start transfer boundary, technical invariants, and first nucleus/proof-core candidate boundaries.
+  - Legacy game concept baseline accepted with amendments: Expedition / session-structured living reactive gas sandbox, 2-4 player co-op framing, gas/topology/cargo/extraction judgment loop, and explicit non-goals are imported without old workflow state, roadmap, strategy, Horizon, Active Frontier, product execution, CodexExecution, engine/networking commitment, or old-code transfer.
+  - Foundation core boundary accepted with amendments: Gas is gameplay simulation truth and Grid/topology is shared spatial substrate; Gas/Grid responsibilities, shared contract surfaces, fail-fast validation, diagnostics/readability, no-player validation, and multiplayer-ready domain boundaries are adopted only at architecture-boundary level.
+  - Clean-start transfer boundary and old technical artifacts are preserved as evidence only: no old code/modules/assets/tests are authorized for transfer, GridV2 is not a default replacement path, and old Grid/Gas/GasV2R evidence does not create a reuse/rewrite/discard verdict.
+  - Minimum Expedition Proof Core and first technical nucleus route are split: adopted as candidate execution-readiness inputs only, while playable proof design, implementation, Task Master graph, exact engine/networking/data model, performance budgets, gas taxonomy, reaction graph, and old-code reuse remain deferred.
 open_obligations_ref: directions/indie-game-development/workflow/OBLIGATIONS.md
 commit_scopes_ref: directions/indie-game-development/workflow/COMMIT_SCOPES.md
 projections_state: strategic_map_projection_created_no_strategy_commitment
@@ -52,6 +58,11 @@ concept_identity_from_legacy_evidence_admission_state: satisfied
 concept_identity_from_legacy_evidence_state: committed
 gas_ecology_identity_boundary_clarify_admission_state: satisfied
 gas_ecology_identity_boundary_state: committed
+legacy_core_compression_import_state: committed
+domain_game_documentation_claims_state: committed_with_amendments
+foundation_core_boundary_state: committed_with_amendments
+technical_invariants_state: committed_with_amendments
+first_nucleus_or_mvp_candidate_state: split_candidate_committed
 open_next_obligations: []
 candidate_follow_up_obligations_only: true
 strategy_admitted: false
@@ -147,6 +158,7 @@ Direction proof files are storage and projection surfaces. They are not addition
 - R-IDG-CONCEPT-IDENTITY-CLARIFY-FROM-LEGACY-EVIDENCE-001
 - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-ADMIT-001
 - R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001
+- R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001
 
 ## Accepted Projection Artifacts
 
@@ -185,6 +197,12 @@ The committed bounded concept identity is a co-op reactive gas-ecology expeditio
 O-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY is satisfied by `R-IDG-GAS-ECOLOGY-IDENTITY-BOUNDARY-CLARIFY-001`.
 
 The gas ecology identity boundary clarification is accepted as a bounded identity boundary only. It does not create final gas taxonomy, final reaction system, implementation, strategy, roadmap, Horizon, Active Frontier, product execution, CodexExecution, Steam launch strategy, engine commitment, networking commitment, old-code transfer, or final lore selection.
+
+O-IDG-LEGACY-CORE-COMPRESSION-IMPORT is satisfied by `R-IDG-LEGACY-CORE-COMPRESSION-IMPORT-001`.
+
+The bounded legacy core compression import accepts, with amendments, the high-signal restored legacy domain/game documentation as compressed proof evidence for the Expedition product bet, foundation core, Gas/Grid contract, clean-start transfer boundary, architecture-level technical invariants, and first nucleus / Minimum Expedition Proof Core candidate route.
+
+The imported baseline preserves the current proof authority boundary. It does not import old workflow state, old Horizon, old Active Frontier, old roadmap, old stage route, old phase/goal status, product execution, CodexExecution, Steam launch strategy, engine commitment, networking stack commitment, old-code transfer, final gas taxonomy, final reaction graph, exact implementation sequence, or direct old-code reuse verdict.
 
 There are no open_next obligations after this commit. Candidate follow-up obligations remain candidate/proposed only until separately admitted by Receipt -> Verify -> Commit.
 
