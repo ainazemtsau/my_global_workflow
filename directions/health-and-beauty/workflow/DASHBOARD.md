@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: dashboard_projection
-  status: h1_training_plan_create_admitted_downstream_not_started
+  status: h1_training_plan_authority_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 Direction: Health and Beauty
 
-Proof state: Training Plan Create admitted; downstream work not started.
+Proof state: Training Plan Authority created; downstream work not started.
 
 Root objective: Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя.
 
@@ -33,6 +33,7 @@ Accepted receipts:
 - R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 - R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
 - R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
 
 Constraints:
 
@@ -93,11 +94,11 @@ First Program Blueprint:
 
 Latest closed Obligation:
 
-- O-HB-H1-NUTRITION-PLAN-CREATE
-- admitted by R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+- O-HB-H1-TRAINING-PLAN-CREATE
+- admitted by R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
 - status: closed / accepted
-- satisfied by R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
-- scope: nutrition plan authority artifact only; no training plan, meal plan, Daily Ops implementation, ChatGPT Project setup, tracking implementation, roadmap, Active Frontier, Codex/product execution, or legacy import
+- satisfied by R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
+- scope: training plan authority artifact only; experienced-returner assertive-but-gated profile accepted; no Daily Ops implementation, ChatGPT Project setup, tracking implementation, gym schedule, cycling prescription, roadmap, Active Frontier, Codex/product execution, or legacy import
 
 Latest workflow-triage closed run:
 
@@ -131,14 +132,34 @@ Nutrition Plan Authority:
 - review and escalation gates defined
 - BP/HR/labs/medications/waist/photos/tracking capacity unknowns preserved
 
+Training Plan Authority:
+
+- training-only future Daily Ops authority artifact
+- user treated as experienced returner, not complete beginner
+- assertive-returner load mode with conservative rebuild fallback defined
+- strength envelope 3-4 exposures/week for future plan generation
+- conditioning envelope 2-4 exposures/week for future plan generation
+- mobility/function envelope 3-6 short exposures/week for future plan generation
+- RPE 6-8 normal work allowed under gates
+- hard VR/striking/bike exposures count as real load
+- progression boundaries defined
+- review and escalation gates defined
+- gym access via bicycle commute remains optional surface and possible load/recovery factor
+- no gym schedule and no cycling prescription created
+- BP/HR/labs/medications/formal movement checks/gym-bike practical unknowns preserved
+- downstream implementation remains not_started
+
 Open critical Obligations:
 
-- O-HB-H1-TRAINING-PLAN-CREATE
-- status: open / admitted_not_started
+- none
 
 Current downstream implementation state:
 
 - downstream_implementation_state: not_started
+
+Next admitted Obligation:
+
+- next_admitted_obligation: none
 
 Proposed next bounded runs:
 
@@ -154,7 +175,6 @@ Forbidden now:
 - ChatGPT Project setup
 - Health Operating Project implementation
 - Daily Ops implementation
-- diet/training prescription beyond accepted nutrition authority scope and admitted future training authority creation
 - meal plan
 - actual menu
 - recipes
@@ -168,8 +188,8 @@ Forbidden now:
 
 Next valid run:
 
-- O-HB-H1-TRAINING-PLAN-CREATE
+- next_valid_run: none_admitted__paused_for_admission
 
-Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, baseline measurement collection, next bounded run selection, nutrition plan authority artifact, and training plan creation admission are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, product/project implementation, Daily Ops implementation, tracking implementation, meal plan, actual menu, recipes, shopping list, training plan content, gym schedule, cycling prescription, accepted 12-week plan, annual plan, or legacy import.
+Projection warning: Strategic Path Map remains projection context. The selected Horizon, Minimal Daily Ops Core operating shell, Program Blueprint Route, first Program Blueprint limited Daily Ops authority, baseline measurement collection, next bounded run selection, nutrition plan authority artifact, and training plan authority artifact are accepted by Receipt, but this commit does not create Active Frontier, roadmap, execution, ChatGPT Project setup, Health Operating Project implementation, product/project implementation, Daily Ops implementation, tracking implementation, meal plan, actual menu, recipes, shopping list, exact training sessions, gym schedule, cycling prescription, accepted 12-week plan, annual plan, or legacy import.
 
 END_OF_FILE: directions/health-and-beauty/workflow/DASHBOARD.md

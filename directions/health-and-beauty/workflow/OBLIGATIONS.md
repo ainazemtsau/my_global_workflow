@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_training_plan_create_admitted_downstream_not_started
+  status: h1_training_plan_authority_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -314,8 +314,9 @@ obligations:
       first Program Blueprint, collected baseline measurements, and accepted
       nutrition authority boundary, while preserving safety gates and avoiding
       premature Daily Ops implementation.
-    status: open
-    execution_state: admitted_not_started
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
     admitted_by: R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
     required_operator: ClarifyDesign / AskHumanDecision
     unblocked_by:

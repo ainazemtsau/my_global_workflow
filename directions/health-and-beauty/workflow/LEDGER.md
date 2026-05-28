@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: h1_training_plan_create_admitted_downstream_not_started
+  status: h1_training_plan_authority_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: h1_training_plan_create_admitted_downstream_not_started
+proof_state: h1_training_plan_authority_created_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -29,6 +29,7 @@ accepted_receipts:
   - R-HB-H1-AFTER-BASELINE-NEXT-BOUNDED-RUN-SELECT-2026-05-28
   - R-HB-H1-NUTRITION-PLAN-CREATE-2026-05-28
   - R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+  - R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -101,6 +102,14 @@ accepted_claims:
   - C-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECTED-TRAINING-PLAN-2026-05-28
   - C-HB-H1-TRAINING-PLAN-CREATE-ADMITTED-2026-05-28
   - C-HB-H1-IMPLEMENTATION-SETUP-RUNS-REMAIN-PARKED-2026-05-28
+  - C-HB-H1-TRAINING-PLAN-AUTHORITY-CREATED-2026-05-28
+  - C-HB-H1-TRAINING-READINESS-PROFILE-EXPERIENCED-RETURNER-2026-05-28
+  - C-HB-H1-TRAINING-STRUCTURE-CONTRACT-DEFINED-2026-05-28
+  - C-HB-H1-TRAINING-ASSERTIVE-GATED-PROGRESSION-DEFINED-2026-05-28
+  - C-HB-H1-TRAINING-GYM-BIKE-OPTIONAL-LOAD-BOUNDARY-DEFINED-2026-05-28
+  - C-HB-H1-TRAINING-REVIEW-AND-ESCALATION-GATES-DEFINED-2026-05-28
+  - C-HB-H1-TRAINING-SAFETY-UNKNOWNS-PRESERVED-2026-05-28
+  - C-HB-H1-DOWNSTREAM-IMPLEMENTATION-STILL-NOT-STARTED-AFTER-TRAINING-PLAN-2026-05-28
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 constraints_state: accepted_by_R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -178,13 +187,31 @@ nutrition_plan_authority:
   meal_plan_created: false
   training_plan_created: false
   tracking_implementation_created: false
+training_plan_authority:
+  defined_by: R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
+  artifact_id: HB-H1-TRAINING-PLAN-AUTHORITY-CANDIDATE-2026-05-28
+  status: accepted_training_authority_artifact
+  scope: training_only_future_daily_ops_authority
+  readiness_profile: experienced_returner_not_zero_start
+  load_mode: assertive_returner_mode_with_conservative_rebuild_fallback
+  strength_authority_band: 3_to_4_exposures_per_week_future_plan_envelope
+  conditioning_authority_band: 2_to_4_exposures_per_week_future_plan_envelope
+  mobility_authority_band: 3_to_6_short_exposures_per_week_future_plan_envelope
+  downstream_implementation_state: not_started
+  gym_schedule_created: false
+  cycling_prescription_created: false
+  exact_exercises_created: false
+  sets_reps_created: false
+  tracking_implementation_created: false
+  daily_ops_implementation_created: false
 last_admitted_obligation:
   obligation_id: O-HB-H1-TRAINING-PLAN-CREATE
   admitted_by: R-HB-H1-AFTER-NUTRITION-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-  status: open
-  execution_state: admitted_not_started
-  scope_boundary: training plan authority artifact only; no training plan execution in this commit, no gym schedule, no cycling prescription, no Daily Ops implementation, no ChatGPT Project setup, no tracking implementation, no roadmap, no Active Frontier, no Codex/product execution, no legacy import
-next_admitted_obligation: O-HB-H1-TRAINING-PLAN-CREATE
+  status: closed
+  resolution: accepted
+  satisfied_by: R-HB-H1-TRAINING-PLAN-CREATE-2026-05-28
+  scope_boundary: training plan authority artifact only; experienced-returner assertive-but-gated profile accepted; no Daily Ops implementation, no ChatGPT Project setup, no tracking implementation, no gym schedule, no cycling prescription, no roadmap, no Active Frontier, no Codex/product execution, no legacy import
+next_admitted_obligation: none
 downstream_implementation_state: not_started
 legacy_import_state: not_performed
 legacy_state_authority: false
