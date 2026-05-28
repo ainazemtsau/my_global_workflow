@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_daily_ops_implementation_readiness_define_admitted_downstream_not_started
+  status: h1_daily_ops_implementation_readiness_defined_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -359,8 +359,9 @@ obligations:
       Daily Ops implementation, ChatGPT Project setup, or tracking
       implementation may be created, using accepted nutrition and training
       authority artifacts, without creating implementation or setup.
-    status: open
-    execution_state: admitted_not_started
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
     admitted_by: R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
     required_operator: ClarifyDesign / AskHumanDecision
     unblocked_by:
