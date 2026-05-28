@@ -19,8 +19,10 @@ It records that Gate 2 created proof storage for the pilot Direction without imp
 
 ```yaml
 migration_gate: Gate 2 skeleton only
-legacy_import_state: not_performed
-legacy_import_performed: false
+full_legacy_state_import_performed: false
+bounded_legacy_evidence_inventory_committed: true
+bounded_inventory_receipt: R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
+legacy_state_authority: false
 imported_claims: []
 accepted_legacy_claims: []
 rejected_legacy_claims: []
@@ -29,7 +31,11 @@ contamination_check:
   old_active_goal_as_obligation: false
   old_current_phase_as_ledger_state: false
   old_portfolio_queue_as_backlog: false
-next_possible_migration_step: optional LegacyImport Operator invocation after root objective confirmation
+future_legacy_import_requires:
+  - admitted LegacyImport obligation
+  - Legacy Import Receipt
+  - Verify
+  - Commit
 ```
 
 ## Non-Import Statement

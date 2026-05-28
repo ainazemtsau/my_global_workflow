@@ -64,11 +64,11 @@ If a pack summary is insufficient or exact schema/source text is material, reque
 
 ## Do Not Load By Default
 
-- `workflow/**`
+- unlisted `workflow/**` files beyond the required shared packs and explicitly requested canonical sources
 - `directions/<direction-id>/project_files/**`
-- `directions/<direction-id>/project_setup/**` as Project Files/Sources
+- `directions/<direction-id>/<active-project-setup>/**` as Project Files/Sources
 - `directions/*/project_files/**`
-- `directions/*/project_setup/**` as Project Files/Sources
+- `directions/*/*/project_setup/**` as Project Files/Sources
 - `migration/**`
 - product repo `.execution/**` unless it is in the target product repo and explicitly relevant
 - old vNext-R runtime, stage, or transport files

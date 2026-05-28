@@ -20,8 +20,6 @@ archive:
   results: directions/indie-game-development/archive/results/
   legacy_vnext_r: directions/indie-game-development/archive/legacy-vnext-r/
   authority: legacy_evidence_only_not_accepted_state
-accepted_state_summary:
-  accepted_receipts: []
-  root_objective_status: unresolved
-  legacy_import_state: not_performed
-  execution_state: not_admitted
+accepted_state_authority: directions/indie-game-development/workflow/LEDGER.md
+do_not_duplicate_accepted_state: true
+accepted_state_note: Read accepted state from the Ledger and committed Receipts; this metadata file must not restate receipt lists or root objective status.

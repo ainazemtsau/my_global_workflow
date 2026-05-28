@@ -39,6 +39,8 @@ accepted_anchors:
 
 This artifact is a projection surface only. It does not accept a strategy, choose a Horizon, select an Active Frontier, create a roadmap, admit product execution, admit Codex execution, import legacy material, or convert old concept/archive details into accepted claims.
 
+Current-state note: the candidate next obligation below is historical projection context. `O-IDG-STRATEGIC-ROUTE-DECIDE` was later satisfied by `R-IDG-STRATEGIC-ROUTE-DECIDE-001`. Read current next state from `directions/indie-game-development/workflow/LEDGER.md`, `directions/indie-game-development/workflow/OBLIGATIONS.md`, and `directions/indie-game-development/workflow/DASHBOARD.md`.
+
 ## Strategic Surfaces
 
 ```yaml
@@ -93,7 +95,7 @@ unsupported_or_unresolved_claims:
 ```yaml
 candidate_next_obligation:
   id: O-IDG-STRATEGIC-ROUTE-DECIDE
-  status: proposed_not_truth_until_committed
+  status: historical_candidate_superseded_by_R-IDG-STRATEGIC-ROUTE-DECIDE-001
   purpose: Decide which strategic route to admit next.
 refresh_policy: Refresh after any Ledger change affecting root objective, success semantics, constraints, strategic receipts, legacy import, Horizon, Active Frontier, roadmap, or execution readiness.
 ```

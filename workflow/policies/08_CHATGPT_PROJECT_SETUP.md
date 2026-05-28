@@ -76,7 +76,7 @@ Project Files/Sources:
 Repository Project Instruction Source:
 
 - Repository source or template used to produce Project Instructions UI text.
-- It may live at `directions/<direction-id>/.../project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`.
+- It may live at `directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md`.
 - It is not a default Project File/Source upload.
 - It must not store live Direction state.
 
@@ -103,12 +103,12 @@ For ordinary Direction Workflow Projects, use packs as the default shared upload
 
 For ordinary Direction Workflow Projects, upload Direction payload files individually:
 
-- `directions/<direction-id>/LEDGER.md`
-- `directions/<direction-id>/OBLIGATIONS.md`
-- `directions/<direction-id>/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/COMMIT_SCOPES.md`
-- `directions/<direction-id>/DASHBOARD.md`
-- `directions/<direction-id>/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/<active-direction-state>/LEDGER.md`
+- `directions/<direction-id>/<active-direction-state>/OBLIGATIONS.md`
+- `directions/<direction-id>/<active-direction-state>/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/<active-direction-state>/COMMIT_SCOPES.md`
+- `directions/<direction-id>/<active-direction-state>/DASHBOARD.md`
+- `directions/<direction-id>/<active-direction-state>/MIGRATION_RECEIPT.md`
 
 ## Active Manifest Model
 
@@ -170,7 +170,7 @@ Universal project setup sources live under:
 
 Per-Direction generated setup files live under:
 
-- `directions/<direction-id>/project_setup/`
+- `directions/<direction-id>/<active-project-setup>/`
 
 ## Context Authority Setup Rule
 
@@ -207,7 +207,7 @@ Handoffs and run closures must separate Project Instructions UI updates from Pro
 - `request_only_sources_refresh_required`
 - `do_not_upload_as_project_file`
 
-Do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
+Do not list `directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
 
 If a Codex handoff is not self-contained, the correct response is to ask the Operator chat to regenerate the handoff.
 

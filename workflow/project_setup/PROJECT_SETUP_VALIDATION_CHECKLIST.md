@@ -32,12 +32,12 @@ First identify the Project type:
   - `workflow/project_packs/WORKFLOW_BASE_PACK.md`
   - `workflow/project_packs/TRANSPORT_CORE_PACK.md`
 - Direction payload is uploaded:
-  - `directions/<direction-id>/LEDGER.md`
-  - `directions/<direction-id>/OBLIGATIONS.md`
-  - `directions/<direction-id>/RECEIPTS_INDEX.md`
-  - `directions/<direction-id>/COMMIT_SCOPES.md`
-  - `directions/<direction-id>/DASHBOARD.md`
-  - `directions/<direction-id>/MIGRATION_RECEIPT.md`
+  - `directions/<direction-id>/<active-direction-state>/LEDGER.md`
+  - `directions/<direction-id>/<active-direction-state>/OBLIGATIONS.md`
+  - `directions/<direction-id>/<active-direction-state>/RECEIPTS_INDEX.md`
+  - `directions/<direction-id>/<active-direction-state>/COMMIT_SCOPES.md`
+  - `directions/<direction-id>/<active-direction-state>/DASHBOARD.md`
+  - `directions/<direction-id>/<active-direction-state>/MIGRATION_RECEIPT.md`
 - Forbidden old files are not uploaded.
 - Execution Harness Pack is absent unless deliberately enabled.
 - Direction proof Ledger is loaded.

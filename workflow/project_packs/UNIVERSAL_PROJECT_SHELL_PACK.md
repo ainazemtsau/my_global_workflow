@@ -57,11 +57,13 @@ Repository files named `CHATGPT_PROJECT_INSTRUCTIONS.md` are Project Instruction
 
 Project Instructions UI payloads must be compact behavior instructions: hard max 8,000 characters, target 6,500, warn above 7,200. Count only trimmed content between the BEGIN/END UI payload markers.
 
-Direction proof state lives under:
+Direction proof state lives under the Direction's active payload directory:
 
 ```text
-directions/<direction-id>/
+directions/<direction-id>/<active-direction-state>/
 ```
+
+For the currently inspected active Directions, `direction.meta.yml` and Project Files manifests resolve `<active-direction-state>` to `workflow`.
 
 Workflow Governance is the self-hosted governance Direction and uses `directions/workflow-governance/workflow/` for active proof payload, not the Direction root:
 
@@ -126,7 +128,7 @@ Direct-to-main must keep Codex in the existing Direction worktree, must not swit
 
 Refresh requirements must use `project_instruction_ui_update_required`, `project_sources_files_refresh_required`, `request_only_sources_refresh_required`, and `do_not_upload_as_project_file`.
 
-Do not list `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
+Do not list `directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md` under Project Files/Sources refresh.
 
 When Project Instructions sources change, report `project_instruction_ui_payload_char_counts`.
 

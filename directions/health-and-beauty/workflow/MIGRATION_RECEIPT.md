@@ -22,7 +22,11 @@ contamination_check:
   old_active_goal_as_obligation: false
   old_current_phase_as_ledger_state: false
   old_portfolio_queue_as_backlog: false
-next_possible_migration_step: optional LegacyImport Operator invocation after root objective confirmation
+future_legacy_import_requires:
+  - admitted LegacyImport obligation
+  - Legacy Import Receipt
+  - Verify
+  - Commit
 ```
 
 No old state is imported by this skeleton.

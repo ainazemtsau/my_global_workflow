@@ -34,3 +34,5 @@ No root audit, audits, decision, decisions, evol, evols, or aude folders were pr
 ## Future Import Rule
 
 Archive can only become accepted proof state through Legacy Import Receipt -> Verify -> Commit.
+
+END_OF_FILE: directions/health-and-beauty/archive/ARCHIVE_INDEX.md

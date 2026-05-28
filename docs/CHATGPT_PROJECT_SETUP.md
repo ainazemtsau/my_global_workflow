@@ -106,8 +106,8 @@ New ordinary Direction Workflow Projects should use:
 
 Per-Direction manifests for ordinary Direction Workflow Projects remain under:
 
-- `directions/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
-- `directions/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md`
+- `directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/<direction-id>/<active-project-setup>/PROJECT_FILES_MANIFEST.md`
 
 Per-Direction Project Files manifests use the pack model and list only uploaded Project Files/Sources plus request-only sources.
 
@@ -123,14 +123,14 @@ The packs are runtime cache / upload convenience files. They are not semantic au
 
 ## Direction Required Payload
 
-For ordinary Direction Workflow Projects, upload Direction proof files from `directions/<direction-id>/**` as Project Files/Sources:
+For ordinary Direction Workflow Projects, upload Direction proof files from the Direction's active payload directory as Project Files/Sources. For the inspected Directions, `direction.meta.yml` and the Project Files manifest resolve `<active-direction-state>` to `workflow`:
 
-- `directions/<direction-id>/LEDGER.md`
-- `directions/<direction-id>/OBLIGATIONS.md`
-- `directions/<direction-id>/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/COMMIT_SCOPES.md`
-- `directions/<direction-id>/DASHBOARD.md`
-- `directions/<direction-id>/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/<active-direction-state>/LEDGER.md`
+- `directions/<direction-id>/<active-direction-state>/OBLIGATIONS.md`
+- `directions/<direction-id>/<active-direction-state>/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/<active-direction-state>/COMMIT_SCOPES.md`
+- `directions/<direction-id>/<active-direction-state>/DASHBOARD.md`
+- `directions/<direction-id>/<active-direction-state>/MIGRATION_RECEIPT.md`
 
 Receipt files may be uploaded when the manifest requires them or when a run needs direct receipt context.
 
@@ -148,7 +148,7 @@ Do not load these by default for new workflow Projects:
 
 - old vNext-R workflow evidence from legacy branch/tag
 - `directions/*/project_files/**`
-- `directions/*/project_setup/**` as Project Files/Sources, including `CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/*/*/project_setup/**` as Project Files/Sources, including `CHATGPT_PROJECT_INSTRUCTIONS.md`
 - old docs setup files
 - migration/admin files unless a Legacy Import Obligation requires them
 - product repo `.execution/**` files inside this workflow repository

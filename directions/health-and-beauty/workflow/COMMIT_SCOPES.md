@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: commit_scopes
-  status: m4_initialized_skeleton
+  status: active_payload_layout_aligned
   owner: proof_carrying_workflow_os
 ---
 

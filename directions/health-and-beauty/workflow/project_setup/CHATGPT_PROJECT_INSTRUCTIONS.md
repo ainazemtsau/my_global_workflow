@@ -67,9 +67,9 @@ Do not trust stale live-state text in Project Instructions if it conflicts with 
 
 If Project Instructions and Direction payload conflict, Direction payload wins for live state.
 
-At chat start, read `workflow/DASHBOARD.md` and `workflow/OBLIGATIONS.md` to determine the next valid run.
+At chat start, read `directions/health-and-beauty/workflow/DASHBOARD.md` and `directions/health-and-beauty/workflow/OBLIGATIONS.md` to determine the next valid run.
 
-If no specific run is requested, follow the next valid run in `workflow/DASHBOARD.md`.
+If no specific run is requested, follow the next valid run in `directions/health-and-beauty/workflow/DASHBOARD.md`.
 
 If Ledger/Dashboard show no accepted root objective, root objective confirmation is the default first run.
 

@@ -64,32 +64,32 @@ Packs are not canonical semantic authority.
 
 Canonical source files listed by each pack remain the authority. If a pack conflicts with a verified canonical source file, the canonical source wins.
 
-Direction Project manifests use pack-based default upload: three shared packs plus six Direction payload files.
+Direction Project manifests use pack-based default upload: three shared packs plus six Direction payload files from the Direction's active payload directory.
 
 ## Direction Proof Storage
 
 Per-Direction proof state uses:
 
 ```text
-directions/<direction-id>/
+directions/<direction-id>/<active-direction-state>/
 ```
 
-Structure:
+Active payload and setup paths:
 
 ```text
-directions/<direction-id>/
-  LEDGER.md
-  OBLIGATIONS.md
-  RECEIPTS_INDEX.md
-  COMMIT_SCOPES.md
-  DASHBOARD.md
-  MIGRATION_RECEIPT.md
-  project_setup/
-    CHATGPT_PROJECT_INSTRUCTIONS.md
-    PROJECT_FILES_MANIFEST.md
-  receipts/
-  projections/
+directions/<direction-id>/<active-direction-state>/LEDGER.md
+directions/<direction-id>/<active-direction-state>/OBLIGATIONS.md
+directions/<direction-id>/<active-direction-state>/RECEIPTS_INDEX.md
+directions/<direction-id>/<active-direction-state>/COMMIT_SCOPES.md
+directions/<direction-id>/<active-direction-state>/DASHBOARD.md
+directions/<direction-id>/<active-direction-state>/MIGRATION_RECEIPT.md
+directions/<direction-id>/<active-direction-state>/receipts/
+directions/<direction-id>/<active-direction-state>/projections/
+directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md
+directions/<direction-id>/<active-project-setup>/PROJECT_FILES_MANIFEST.md
 ```
+
+For the inspected active Directions, `direction.meta.yml` and the Project Files manifests resolve `<active-direction-state>` to `workflow` and `<active-project-setup>` to `workflow/project_setup`.
 
 Creating or updating a Direction payload path requires an explicit admitted setup or migration action.
 
@@ -107,7 +107,7 @@ Creating or updating a Direction payload path requires an explicit admitted setu
 
 `MIGRATION_RECEIPT.md` stores the initial migration Receipt for a Direction when created.
 
-Direction `project_setup/` stores restorable Project Instructions and Project Files manifests.
+Direction `<active-project-setup>/` stores restorable Project Instructions and Project Files manifests.
 
 `receipts/` stores Receipt records.
 

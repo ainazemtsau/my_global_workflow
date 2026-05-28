@@ -61,7 +61,7 @@ Before paste, count the trimmed payload characters: target at or below 6,500, wa
 
 Do not paste repository wrapper metadata, artifact frontmatter, marker comments, or `END_OF_FILE`.
 
-Do not upload `project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` as a Project File/Source.
+Do not upload `directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md` as a Project File/Source.
 
 Step 2: upload the following default Project Files/Sources.
 
@@ -75,12 +75,12 @@ Upload these shared packs for all new Direction Workflow Projects:
 
 Upload these Direction payload files:
 
-- `directions/<direction-id>/LEDGER.md`
-- `directions/<direction-id>/OBLIGATIONS.md`
-- `directions/<direction-id>/RECEIPTS_INDEX.md`
-- `directions/<direction-id>/COMMIT_SCOPES.md`
-- `directions/<direction-id>/DASHBOARD.md`
-- `directions/<direction-id>/MIGRATION_RECEIPT.md`
+- `directions/<direction-id>/<active-direction-state>/LEDGER.md`
+- `directions/<direction-id>/<active-direction-state>/OBLIGATIONS.md`
+- `directions/<direction-id>/<active-direction-state>/RECEIPTS_INDEX.md`
+- `directions/<direction-id>/<active-direction-state>/COMMIT_SCOPES.md`
+- `directions/<direction-id>/<active-direction-state>/DASHBOARD.md`
+- `directions/<direction-id>/<active-direction-state>/MIGRATION_RECEIPT.md`
 
 ## Request-Only Capability Packs
 
@@ -92,22 +92,22 @@ Load this only when exact pack/setup inspection requires the index:
 
 - `workflow/project_packs/PROJECT_PACKS_INDEX.md`
 
-Future optional capability packs may be added later:
+Additional request-only or project-specific packs may exist:
 
 - `workflow/project_packs/MIGRATION_LEGACY_IMPORT_PACK.md`
-- `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
+- `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` for the Workflow Governance Maintenance Project only
 
-These future packs are not created by this installer unless those files exist in the repository.
+These packs are not ordinary Direction Workflow Project defaults.
 
 ## Forbidden Default Loads
 
 Do not upload these by default:
 
-- `workflow/**`
+- unlisted `workflow/**` files beyond the required shared packs and any explicitly requested canonical sources
 - `directions/<direction-id>/project_files/**`
-- `directions/<direction-id>/project_setup/**` as Project Files/Sources, including `CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `directions/<direction-id>/<active-project-setup>/**` as Project Files/Sources, including `CHATGPT_PROJECT_INSTRUCTIONS.md`
 - `directions/*/project_files/**`
-- `directions/*/project_setup/**` as Project Files/Sources
+- `directions/*/*/project_setup/**` as Project Files/Sources
 - `migration/**`
 - old vNext-R runtime, stage, or transport files
 - product repo `.execution/**` files in this workflow repository

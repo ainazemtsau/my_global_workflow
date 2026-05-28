@@ -12,6 +12,8 @@ artifact_control:
 
 Projection status: projection only, not accepted truth by itself.
 
+Current-state note: `H1_HEALTH_OPERATING_PROJECT_BOOTSTRAP` was later selected by `R-HB-HORIZON-SELECT-2026-05-27`. The candidate options in this projection remain historical projection context; read current state from the active Ledger, Obligations, and Dashboard.
+
 Source receipts:
 
 - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26

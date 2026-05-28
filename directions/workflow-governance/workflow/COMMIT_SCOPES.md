@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: workflow-governance
   artifact_type: commit_scopes
-  status: atomic_run_hardened
+  status: active_payload_layout_aligned
   owner: proof_carrying_workflow_os
 ---
 

@@ -33,7 +33,10 @@ type: legacy_import
 statement: Optionally inspect old Indie Game Development files as legacy evidence only.
 status: open_optional
 optional: true
-legacy_import_performed: false
+full_legacy_state_import_performed: false
+bounded_legacy_evidence_inventory_committed: true
+bounded_inventory_receipt: R-IDG-LEGACY-CONCEPT-EVIDENCE-INVENTORY-001
+legacy_state_authority: false
 required_operator_before_evidence_use:
   - LegacyImport
 acceptance_conditions:

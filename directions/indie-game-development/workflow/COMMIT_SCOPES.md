@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: indie-game-development
   artifact_type: commit_scope_policy_storage
-  status: initialized_skeleton
+  status: active_payload_layout_aligned
   owner: proof_carrying_workflow_os
 ---
 

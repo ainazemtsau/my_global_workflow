@@ -10,15 +10,22 @@ direction:
 chatgpt:
   project_name: Workflow Governance
   default_files:
-    - project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
-    - project_packs/WORKFLOW_BASE_PACK.md
-    - project_packs/TRANSPORT_CORE_PACK.md
+    - WORKFLOW_SOURCE_OF_TRUTH.md
+    - workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md
+    - workflow/project_packs/PROJECT_PACKS_INDEX.md
+    - docs/CHATGPT_PROJECT_SETUP.md
+    - workflow/policies/08_CHATGPT_PROJECT_SETUP.md
+  request_only_files:
+    - workflow/project_packs/UNIVERSAL_PROJECT_SHELL_PACK.md
+    - workflow/project_packs/WORKFLOW_BASE_PACK.md
+    - workflow/project_packs/TRANSPORT_CORE_PACK.md
     - directions/workflow-governance/workflow/LEDGER.md
     - directions/workflow-governance/workflow/OBLIGATIONS.md
     - directions/workflow-governance/workflow/RECEIPTS_INDEX.md
     - directions/workflow-governance/workflow/COMMIT_SCOPES.md
     - directions/workflow-governance/workflow/DASHBOARD.md
     - directions/workflow-governance/workflow/MIGRATION_RECEIPT.md
+  request_only_note: Workflow Governance live payload files are request-only for maintenance-console work; they are not default Project Files/Sources.
 
 documentation:
   source_of_truth: github_markdown

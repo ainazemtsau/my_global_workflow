@@ -52,6 +52,18 @@ It services the Workflow OS repository.
 
 It does not run the Workflow OS as a Direction runtime by default.
 
+## Default Upload Set
+
+The Workflow Governance Maintenance Project default upload set is:
+
+- `WORKFLOW_SOURCE_OF_TRUTH.md`
+- `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
+- `workflow/project_packs/PROJECT_PACKS_INDEX.md`
+- `docs/CHATGPT_PROJECT_SETUP.md`
+- `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
+
+Live Workflow Governance Direction payload files are request-only for maintenance-console work.
+
 One chat handles one concrete maintenance problem.
 
 The default loop is:
