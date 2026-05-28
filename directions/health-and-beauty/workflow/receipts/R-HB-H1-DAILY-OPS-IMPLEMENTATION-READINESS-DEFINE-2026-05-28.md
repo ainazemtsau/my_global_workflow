@@ -1,11 +1,12 @@
+---
 artifact_control:
-namespace: direction_proof
-direction_id: health-and-beauty
-artifact_type: receipt
-receipt_id: R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
-status: committed
-owner: proof_carrying_workflow_os
----------------------------------
+  namespace: direction_proof
+  direction_id: health-and-beauty
+  artifact_type: receipt
+  receipt_id: R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
+  status: committed
+  owner: proof_carrying_workflow_os
+---
 
 # Receipt: R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
 
