@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: receipts_index
-  status: h1_daily_ops_chatgpt_project_setup_admitted_downstream_not_started
+  status: h1_daily_ops_chatgpt_project_setup_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -31,6 +31,7 @@ accepted_receipts:
   - R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
   - R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
   - R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+  - R-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP-2026-05-28
 candidate_receipts: []
 rejected_receipts: []
 receipt_storage_path: receipts/

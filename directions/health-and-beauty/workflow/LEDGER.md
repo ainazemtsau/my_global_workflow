@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: ledger
-  status: h1_daily_ops_chatgpt_project_setup_admitted_downstream_not_started
+  status: h1_daily_ops_chatgpt_project_setup_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -11,7 +11,7 @@ artifact_control:
 
 ```yaml
 direction_id: health-and-beauty
-proof_state: h1_daily_ops_chatgpt_project_setup_admitted_downstream_not_started
+proof_state: h1_daily_ops_chatgpt_project_setup_created_downstream_not_started
 accepted_receipts:
   - R-HB-ROOT-OBJECTIVE-CONFIRM-2026-05-26
   - R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -33,6 +33,7 @@ accepted_receipts:
   - R-HB-H1-AFTER-TRAINING-NEXT-BOUNDED-RUN-SELECT-2026-05-28
   - R-HB-H1-DAILY-OPS-IMPLEMENTATION-READINESS-DEFINE-2026-05-28
   - R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
+  - R-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP-2026-05-28
 accepted_claims:
   - C-HB-ROOT-OBJECTIVE-2026-05-26
   - C-HB-ROOT-OBJECTIVE-AMENDED-35KG-2026-05-27
@@ -134,6 +135,14 @@ accepted_claims:
   - C-HB-H1-TRACKING-IMPLEMENTATION-REMAINS-NOT-ADMITTED-AFTER-SETUP-ADMISSION-2026-05-28
   - C-HB-H1-NO-EXECUTION-OBLIGATIONS-ADMITTED-AFTER-READINESS-2026-05-28
   - C-HB-H1-DOWNSTREAM-IMPLEMENTATION-STILL-NOT-STARTED-AFTER-SETUP-ADMISSION-2026-05-28
+  - C-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP-CREATED-2026-05-28
+  - C-HB-H1-DAILY-OPS-PROJECT-INSTRUCTIONS-SOURCE-CREATED-2026-05-28
+  - C-HB-H1-DAILY-OPS-PROJECT-FILES-MANIFEST-CREATED-2026-05-28
+  - C-HB-H1-DAILY-OPS-PROJECT-SETUP-BOUNDED-TO-MINIMAL-RUNTIME-SURFACE-V0-2026-05-28
+  - C-HB-H1-DAILY-OPS-IMPLEMENTATION-NOT-CREATED-AFTER-SETUP-2026-05-28
+  - C-HB-H1-TRACKING-IMPLEMENTATION-NOT-CREATED-AFTER-SETUP-2026-05-28
+  - C-HB-H1-NO-EXECUTION-OBLIGATIONS-ADMITTED-AFTER-SETUP-2026-05-28
+  - C-HB-H1-DOWNSTREAM-IMPLEMENTATION-STILL-NOT-STARTED-AFTER-SETUP-2026-05-28
 root_objective: "Снижение массы тела на 35 кг: с текущих 125 кг примерно до 90 кг, при сохранении или минимальной потери физической силы, общей физической формы, гибкости/подвижности и функционального самочувствия; построение управляемой системы, где ChatGPT помогает вести питание, тренировки, трекинг, исследования и решения с минимальной нагрузкой на пользователя."
 success_semantics_state: accepted_by_R-HB-SUCCESS-SEMANTICS-DEFINE-2026-05-27
 constraints_state: accepted_by_R-HB-CONSTRAINTS-DEFINE-2026-05-26
@@ -239,23 +248,29 @@ daily_ops_implementation_readiness:
   template_files_apps_integrations_created: false
   future_implementation_requires_separate_admitted_obligation: true
 daily_ops_chatgpt_project_setup:
-  admitted_by: R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-  status: open
-  execution_state: admitted_not_started
-  setup_created: false
-  project_instruction_ui_source_created: false
-  project_files_manifest_created: false
+  defined_by: R-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP-2026-05-28
+  status: accepted_setup_surface
+  project_name: "Health and Beauty — Daily Ops"
+  setup_created: true
+  project_instruction_ui_source_created: true
+  project_files_manifest_created: true
+  project_instruction_ui_source: directions/health-and-beauty/workflow/project_setup/daily_ops/CHATGPT_PROJECT_INSTRUCTIONS.md
+  project_files_manifest: directions/health-and-beauty/workflow/project_setup/daily_ops/PROJECT_FILES_MANIFEST.md
+  project_instruction_ui_payload_chars: 4203
+  target_binding: HB-H1-DAILY-OPS-MINIMAL-RUNTIME-SURFACE-V0
+  default_project_files_count: 9
   daily_ops_implementation_created: false
   tracking_implementation_created: false
   templates_files_apps_integrations_created: false
-  target_binding: HB-H1-DAILY-OPS-MINIMAL-RUNTIME-SURFACE-V0
 last_admitted_obligation:
   obligation_id: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
   admitted_by: R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
-  status: open
-  execution_state: admitted_not_started
-  scope_boundary: ChatGPT Project setup future run only; this admission commit creates no setup, no Daily Ops implementation, no tracking implementation, no templates/files/apps/integrations, no roadmap, no Active Frontier, no Codex/product execution, no legacy import
-next_admitted_obligation: O-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP
+  status: closed
+  resolution: accepted
+  satisfied_by: R-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP-2026-05-28
+  execution_state: completed
+  scope_boundary: ChatGPT Project setup surface only; no Daily Ops implementation, no tracking implementation, no templates/files/apps/integrations outside setup scope, no roadmap, no Active Frontier, no Codex/product execution, no legacy import
+next_admitted_obligation: none
 downstream_implementation_state: not_started
 legacy_import_state: not_performed
 legacy_state_authority: false

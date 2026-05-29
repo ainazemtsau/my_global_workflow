@@ -3,7 +3,7 @@ artifact_control:
   namespace: direction_proof
   direction_id: health-and-beauty
   artifact_type: obligations
-  status: h1_daily_ops_chatgpt_project_setup_admitted_downstream_not_started
+  status: h1_daily_ops_chatgpt_project_setup_created_downstream_not_started
   owner: proof_carrying_workflow_os
 ---
 
@@ -400,13 +400,15 @@ obligations:
     type: project_setup / chatgpt_project_setup
     statement: >
       Create the bounded Health and Beauty Daily Ops ChatGPT Project setup
-      surface in a future separate run, using accepted Daily Ops implementation
+      surface in a separate run, using accepted Daily Ops implementation
       readiness and target binding HB-H1-DAILY-OPS-MINIMAL-RUNTIME-SURFACE-V0,
       without creating Daily Ops implementation, tracking implementation,
       templates/files/apps/integrations outside the bounded setup scope,
       roadmap, Active Frontier, Codex/product execution, or legacy import.
-    status: open
-    execution_state: admitted_not_started
+    status: closed
+    resolution: accepted
+    satisfied_by: R-HB-H1-DAILY-OPS-CHATGPT-PROJECT-SETUP-2026-05-28
+    execution_state: completed
     admitted_by: R-HB-H1-AFTER-READINESS-NEXT-BOUNDED-RUN-SELECT-2026-05-28
     required_operator: ClarifyDesign / AskHumanDecision
     unblocked_by:
@@ -414,7 +416,7 @@ obligations:
     acceptance_conditions:
       - GitHub main state and committed readiness receipt verified before setup work
       - setup bounded to HB-H1-DAILY-OPS-MINIMAL-RUNTIME-SURFACE-V0
-      - ChatGPT Project setup created only inside this future admitted setup Obligation, not by the admission commit
+      - ChatGPT Project setup created only inside this admitted setup Obligation
       - no Daily Ops implementation created
       - no tracking implementation created
       - no templates/files/apps/integrations outside bounded setup scope created
