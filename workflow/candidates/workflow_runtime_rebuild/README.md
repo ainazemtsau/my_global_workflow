@@ -6,7 +6,10 @@ status: candidate
 
 Этот пакет является кандидатом архитектуры Workflow Runtime Rebuild.
 
-Stage 1 остается candidate baseline. Stage 2 candidate documentation добавлена как transport / adapter setup layer. Stage 3 candidate documentation добавляется как operational control layer: Signals / Handlers / Action Inbox / Console / Quality.
+Stage 1 remains candidate baseline.
+Stage 2 candidate documentation is the transport / adapter setup layer.
+Stage 3 candidate documentation is the operational control layer: Signals / Handlers / Action Inbox / Console / Quality.
+Stage 4 candidate documentation is the pilot scenarios / integration acceptance layer.
 
 Он является документацией, а не рабочей средой:
 
@@ -52,7 +55,9 @@ ChatGPT, Codex, Claude Code, Deep Research, GitHub, будущие AI providers 
 - Stage 3 — Signals / Action Inbox / Console / Quality.
 - Stage 4 — Pilot Scenarios + Integration Acceptance.
 
-Стадии не смешиваются. Этот пакет фиксирует Stage 1 baseline, Stage 2 candidate documentation и Stage 3 candidate documentation. Stage 4 не завершен.
+Стадии не смешиваются. Этот пакет фиксирует Stage 1 baseline, Stage 2 candidate documentation, Stage 3 candidate documentation и Stage 4 candidate documentation.
+
+Stage 4 не активирует runtime. Stage 4 только дает pilot scenarios, examples, acceptance checklist и candidate next steps для parent/integration review.
 
 ## Candidate package contents
 
@@ -80,12 +85,31 @@ Stage 3 signals / console / quality:
 - `RUNTIME_CONSOLE_MODEL.md`
 - `QUALITY_GATES_AND_FAILURE_RECOVERY.md`
 
+Stage 4 pilot scenarios / integration acceptance:
+
+- `PILOT_SCENARIOS.md`
+- `END_TO_END_EXAMPLES.md`
+- `CONCEPT_ACCEPTANCE_CHECKLIST.md`
+- `IMPLEMENTATION_NEXT_STEPS.md`
+
 ## Следующий шаг
 
-Следующий шаг: parent/integration review для Stage 3 candidate documentation перед Stage 4 pilot scenarios / integration acceptance.
+Следующий шаг: parent/integration review для Stage 4 candidate package.
+
+Review должен решить только candidate path:
+
+- accept candidate concept for integration planning;
+- revise specific weak area;
+- reject / restart concept;
+- design storage layout;
+- design Project setup integration;
+- design first real direction pilot separately;
+- design migration/non-migration policy.
+
+Ни один из этих вариантов сам по себе не активирует runtime и не заменяет текущий Workflow OS.
 
 ## Устаревший кандидат
 
-Старый `workflow/candidates/clean_runtime/**` является obsolete и удален этим изменением. Он не используется как baseline для этого пакета.
+Старый `workflow/candidates/clean_runtime/**` является obsolete и не используется как baseline для этого пакета.
 
 END_OF_FILE: workflow/candidates/workflow_runtime_rebuild/README.md

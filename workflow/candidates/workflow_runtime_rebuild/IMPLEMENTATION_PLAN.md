@@ -6,7 +6,7 @@ status: candidate
 
 Стадии нельзя смешивать. Каждая стадия должна завершаться проверяемым результатом, review и явным решением о переходе дальше.
 
-До Stage 4 нельзя:
+До отдельного будущего activation plan нельзя:
 
 - replace active runtime;
 - migrate active directions;
@@ -55,7 +55,7 @@ status: candidate
 
 Спроектировать, как runtime передает bounded work между adapters и как возвращает results без активации production runtime.
 
-Stage 2 candidate docs добавляются и сохраняются в этом candidate package как документация. Это не означает acceptance, rollout или runtime activation.
+Stage 2 candidate docs добавлены и сохраняются в этом candidate package как документация. Это не означает acceptance, rollout или runtime activation.
 
 ### Includes
 
@@ -124,28 +124,54 @@ Stage 3 candidate docs are added and persisted as documentation only. This does 
 
 ### Goal
 
-Проверить кандидата на ограниченных pilot scenarios и принять или отклонить integration path.
+Проверить кандидата на realistic pilot scenarios и определить, достаточно ли концепция целостна для дальнейшего integration planning.
+
+Stage 4 candidate docs are added and persisted as documentation only. This does not mean acceptance, rollout, migration or runtime activation.
 
 ### Includes
 
-- selected pilot scenarios;
-- integration acceptance criteria;
-- comparison with current Workflow OS behavior;
-- explicit acceptance/update path for Accepted State;
-- decision on whether any later rollout work is allowed.
+- pilot scenarios for ordinary human input, Direction Spine, Active Front, local Work Graph, Work Chat, Codex bounded package, Codex Result verification, child/parent return, Action Inbox, Runtime Console and failure recovery;
+- human-readable end-to-end examples;
+- concept acceptance checklist;
+- candidate next steps after Stage 4;
+- explicit separation between candidate concept pass and runtime activation;
+- README index update for Stage 4 files.
 
 ### Done when
 
-- pilots have evidence;
-- integration review has a clear decision;
-- accepted transitions are recorded through the explicit acceptance/update path;
-- any future activation or migration work is separately authorized.
+- `PILOT_SCENARIOS.md` exists and covers required scenarios;
+- `END_TO_END_EXAMPLES.md` exists and shows practical examples;
+- `CONCEPT_ACCEPTANCE_CHECKLIST.md` exists and preserves core invariants;
+- `IMPLEMENTATION_NEXT_STEPS.md` exists and keeps future steps candidate-only;
+- README file index lists Stage 4 docs;
+- all edited/created markdown files have END_OF_FILE markers;
+- validation confirms required strings and no forbidden path changes;
+- parent/integration review can choose whether to accept candidate concept for integration planning, revise, reject, or design a later candidate layer.
 
 ### Not included
 
 - automatic migration of active Directions;
 - silent replacement of active runtime;
 - uncontrolled deletion of current runtime files;
-- treating chat output, Codex output, document existence, Signal, Handler result or Project Files as accepted state.
+- treating chat output, Codex output, document existence, Signal, Handler result or Project Files as accepted state;
+- Project Instructions rollout;
+- production storage layout;
+- full schema standard;
+- real product execution;
+- merge to main.
+
+## After Stage 4
+
+After Stage 4, possible candidate paths are:
+
+1. accept candidate concept for integration planning;
+2. revise specific weak area;
+3. reject / restart concept;
+4. design storage layout;
+5. design Project setup integration;
+6. design first real direction pilot separately;
+7. design migration/non-migration policy.
+
+Activation remains a future separate decision and requires its own plan, evidence, validation and acceptance.
 
 END_OF_FILE: workflow/candidates/workflow_runtime_rebuild/IMPLEMENTATION_PLAN.md
