@@ -55,19 +55,23 @@ status: candidate
 
 Спроектировать, как runtime передает bounded work между adapters и как возвращает results без активации production runtime.
 
+Stage 2 candidate docs добавляются и сохраняются в этом candidate package как документация. Это не означает acceptance, rollout или runtime activation.
+
 ### Includes
 
 - high-level Launch Packet and Result Packet boundaries;
 - adapter setup rules for ChatGPT, Codex, Claude Code, Deep Research, GitHub, future AI providers and human actions;
 - minimal handoff expectations for work chats and Codex implementation packages;
 - generic canonical storage wording without exact storage layout;
-- separation between adapter output and Accepted State.
+- separation between adapter output and Accepted State;
+- persisted candidate docs for transport protocol, chat types, packet formats, Codex workflow and adapter context access.
 
 ### Done when
 
 - transport boundary is documented;
 - adapters are described as role implementations, not core runtime primitives;
 - no provider output is treated as accepted by itself;
+- Stage 2 candidate docs are present in `workflow/candidates/workflow_runtime_rebuild/`;
 - Stage 2 review confirms that design can support pilot scenarios later.
 
 ### Not included

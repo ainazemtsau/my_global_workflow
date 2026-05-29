@@ -4,7 +4,9 @@ status: candidate
 
 ## Статус и границы
 
-Этот пакет является кандидатом архитектуры Workflow Runtime Rebuild Stage 1.
+Этот пакет является кандидатом архитектуры Workflow Runtime Rebuild.
+
+Stage 1 остается candidate baseline. Stage 2 candidate documentation добавляется в этот пакет как transport / adapter setup layer.
 
 Он является документацией, а не рабочей средой:
 
@@ -50,11 +52,30 @@ ChatGPT, Codex, Claude Code, Deep Research, GitHub, будущие AI providers 
 - Stage 3 — Signals / Action Inbox / Console / Quality.
 - Stage 4 — Pilot Scenarios + Integration Acceptance.
 
-Стадии не смешиваются. Этот пакет фиксирует только Stage 1.
+Стадии не смешиваются. Этот пакет фиксирует Stage 1 baseline и добавляет Stage 2 candidate documentation. Stage 3 и Stage 4 не завершены.
+
+## Candidate package contents
+
+Stage 1 baseline:
+
+- `README.md`
+- `IMPLEMENTATION_PLAN.md`
+- `ROOT_RUNTIME_MODEL.md`
+- `OPERATING_FLOW.md`
+- `CORE_ENTITIES.md`
+- `GLOSSARY.md`
+
+Stage 2 transport / adapter setup:
+
+- `TRANSPORT_AND_INTERACTION_PROTOCOL.md`
+- `CHAT_TYPES.md`
+- `PACKET_FORMATS.md`
+- `CODEX_WORKFLOW.md`
+- `ADAPTER_SETUP_AND_CONTEXT_ACCESS.md`
 
 ## Следующий шаг
 
-Следующий шаг: parent/integration review, затем Stage 2 design.
+Следующий шаг: parent/integration review для Stage 2 candidate documentation перед любой следующей стадией.
 
 ## Устаревший кандидат
 
