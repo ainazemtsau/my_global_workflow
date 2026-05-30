@@ -1,0 +1,41 @@
+# Current Status
+
+status: clean_start_runtime_root_created
+direction_id: indie-game-development
+adoption_mode: clean_start
+legacy_import: none
+imported_legacy_state: none
+
+## Summary
+
+The Workflow v3 runtime root exists for Indie Game Development.
+
+The Direction Spine is not yet defined.
+
+accepted_product_root_result: pending_current_human_decision
+accepted_success_conditions: pending_current_human_decision
+
+## Current Front
+
+active_front_id: AF-0001-current-direction-definition
+active_front_status: active
+active_front_result: pending_current_human_decision
+
+## Project Setup Status
+
+Project Instructions UI update: none
+Project Files/Sources refresh: none
+request-only sources refresh: none
+future Project name: Workflow v3 — Indie Game Development
+
+## Legacy Boundary
+
+Old directions/indie-game-development/** files are legacy_evidence only.
+
+No old Ledger, Obligations, Receipts, Dashboard, Migration receipt, project_setup, project_files, archive, or run history becomes accepted_v3_state.
+
+## Runtime Console
+
+Runtime Console: read-only
+
+END_OF_FILE: directions_v3/indie-game-development/runtime/state/CURRENT_STATUS.md
