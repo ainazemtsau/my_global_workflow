@@ -97,6 +97,16 @@ Goal:
 Boundary:
   No active Direction migration happens without separate explicit approval and evidence.
 
+### 8. design activation and replacement boundary
+
+Use this path before any future Workflow v3 activation package.
+
+Goal:
+  Define the candidate-only activation boundary, replacement boundary, future production namespace, pilot boundary, migration vs non-migration options, Project setup gates, validation gates, coexistence and rollback model.
+
+Boundary:
+  Activation and replacement boundary design is still candidate documentation. It does not activate runtime, replace the current Workflow OS, migrate active Directions, update Project Instructions UI or create production runtime files.
+
 ## What still cannot be done automatically
 
 The candidate cannot automatically:

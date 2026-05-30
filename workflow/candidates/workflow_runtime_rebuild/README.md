@@ -96,6 +96,7 @@ Post-Stage-4 candidate design docs:
 
 - `STORAGE_LAYOUT.md`
 - `PROJECT_SETUP_INTEGRATION.md`
+- `ACTIVATION_AND_REPLACEMENT_BOUNDARY.md`
 
 ## Следующий шаг
 
