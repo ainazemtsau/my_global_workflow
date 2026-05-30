@@ -92,6 +92,10 @@ Stage 4 pilot scenarios / integration acceptance:
 - `CONCEPT_ACCEPTANCE_CHECKLIST.md`
 - `IMPLEMENTATION_NEXT_STEPS.md`
 
+Post-Stage-4 candidate design docs:
+
+- `STORAGE_LAYOUT.md`
+
 ## Следующий шаг
 
 Следующий шаг: parent/integration review для Stage 4 candidate package.
