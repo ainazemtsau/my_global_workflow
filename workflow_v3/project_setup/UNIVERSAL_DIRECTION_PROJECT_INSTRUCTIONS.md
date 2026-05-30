@@ -1,6 +1,6 @@
 # Universal Direction Project Instructions Source
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Purpose
 
@@ -60,4 +60,4 @@ Next Move:
 - Always say exactly what should happen next: open a bounded Work Chat, run a Check Job, send a Codex package, provide missing source, request human decision, perform acceptance review, or stop.
 END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
-END_OF_FILE: workflow/runtime/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md
+END_OF_FILE: workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md

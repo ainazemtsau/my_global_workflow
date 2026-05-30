@@ -1,6 +1,6 @@
 # Workflow v3 Quality and Recovery
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Core rules
 
@@ -108,4 +108,4 @@ Use the smallest sufficient recovery outcome.
 
 `future package split` - park work for a later explicit package when the need is real but outside current scope.
 
-END_OF_FILE: workflow/runtime/QUALITY_AND_RECOVERY.md
+END_OF_FILE: workflow_v3/QUALITY_AND_RECOVERY.md

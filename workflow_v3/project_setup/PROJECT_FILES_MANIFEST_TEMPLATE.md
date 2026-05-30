@@ -1,6 +1,6 @@
 # Workflow v3 Project Files Manifest Template
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Purpose
 
@@ -71,7 +71,7 @@ do_not_upload_sources:
     reason:
 ```
 
-By default in this skeleton slice, all `workflow/runtime/**` files are do-not-upload sources until a later explicit Project setup rollout/adoption package says otherwise.
+By default in this skeleton slice, all `workflow_v3/**` files are do-not-upload sources until a later explicit Project setup rollout/adoption package says otherwise.
 
 ## Refresh requirements
 
@@ -99,4 +99,4 @@ Repository commits do not update ChatGPT Projects by themselves.
 [ ] No actual Project update is implied by this manifest.
 ```
 
-END_OF_FILE: workflow/runtime/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md
+END_OF_FILE: workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md

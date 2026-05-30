@@ -80,12 +80,12 @@ They may include shared future runtime packs and selected Direction runtime file
 
 The following shared packs are future-only names, not active files:
 
-- `workflow/runtime/project_packs/RUNTIME_PROJECT_SHELL_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_BASE_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_TRANSPORT_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_CONSOLE_QUALITY_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_PROJECT_SHELL_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_BASE_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_TRANSPORT_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_CONSOLE_QUALITY_PACK.md`
 
-The following future Direction runtime default files may come from `directions/<direction-id>/runtime/`:
+The following future Direction runtime default files may come from `directions_v3/<direction-id>/runtime/`:
 
 - `state/DIRECTION_SPINE.md`
 - `state/ACTIVE_FRONT.md`
@@ -130,13 +130,13 @@ The source authority hierarchy is:
 
 - accepted activation / migration decision controls whether future runtime is active;
 - future production runtime source files control runtime rules only after activation;
-- Direction accepted state lives under `directions/<direction-id>/runtime/` only after activation;
+- Direction accepted state lives under `directions_v3/<direction-id>/runtime/` only after activation;
 - GitHub/repository exact file read at ref/branch wins over Project Files cache;
 - Project Files/Sources are cache/context only;
 - Chat output, Codex output, Result Packet, Project File, Signal, Handler result, Action Inbox item or document existence cannot create accepted state by itself;
 - candidate docs under `workflow/candidates/workflow_runtime_rebuild/` are not active authority.
 
-## Relation to directions/<direction-id>/runtime/
+## Relation to directions_v3/<direction-id>/runtime/
 
 The proposed runtime root stores:
 
@@ -152,7 +152,7 @@ The proposed runtime root stores:
 
 Project setup files may later live under:
 
-- `directions/<direction-id>/runtime/project_setup/`
+- `directions_v3/<direction-id>/runtime/project_setup/`
 
 Those files are adapter/setup surfaces, not accepted state by themselves.
 
@@ -223,10 +223,12 @@ Current setup remains active until a separate activation plan is accepted.
 
 Proposed future production namespaces, without creating or activating them:
 
-- `workflow/runtime/`
-- `workflow/runtime/project_setup/`
-- `workflow/runtime/project_packs/`
-- `directions/<direction-id>/runtime/`
+- `workflow_v3/`
+- `workflow_v3/project_setup/`
+- `workflow_v3/project_packs/`
+- `directions_v3/<direction-id>/runtime/`
+
+Namespace correction: earlier `workflow/runtime/**` and `directions/<direction-id>/runtime/**` future-path proposals are superseded by `workflow_v3/**` and `directions_v3/<direction-id>/runtime/**`.
 
 Current candidate documentation remains under:
 

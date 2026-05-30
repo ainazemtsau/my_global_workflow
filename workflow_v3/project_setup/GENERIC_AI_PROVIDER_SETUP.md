@@ -1,6 +1,6 @@
 # Workflow v3 Generic AI Provider Setup
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Purpose
 
@@ -88,4 +88,4 @@ A future provider may participate if it can obey packet boundaries, source limit
 
 Provider-specific features are adapter features only. They do not change Workflow v3 authority, accepted-state rules, or Project setup boundaries.
 
-END_OF_FILE: workflow/runtime/project_setup/GENERIC_AI_PROVIDER_SETUP.md
+END_OF_FILE: workflow_v3/project_setup/GENERIC_AI_PROVIDER_SETUP.md

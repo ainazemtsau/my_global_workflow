@@ -55,7 +55,7 @@ The replacement boundary should:
 
 - keep the current Workflow OS active until a future Activation Decision passes;
 - introduce Workflow v3 through a clean production namespace instead of mutating old runtime surfaces in place;
-- prefer clean Direction runtime state under directions/<direction-id>/runtime/;
+- prefer clean Direction runtime state under directions_v3/<direction-id>/runtime/;
 - allow selective bridge or import from the old Workflow OS only through explicit decision and evidence;
 - disfavor bulk migration until a separate migration policy exists;
 - require each replaced behavior to have validation evidence and rollback coverage.
@@ -68,14 +68,16 @@ The future production namespace is a proposal only.
 
 No path in this section is active now, and no path in this section should be created before a future Activation Decision accepts it.
 
+Namespace correction: earlier `workflow/runtime/**` and `directions/<direction-id>/runtime/**` proposals are superseded. Future Workflow v3 roots are `workflow_v3/**` and `directions_v3/<direction-id>/runtime/**`.
+
 Proposed Workflow v3 production namespace:
 
-- workflow/runtime/
-- workflow/runtime/project_setup/
-- workflow/runtime/project_packs/
-- directions/<direction-id>/runtime/
+- workflow_v3/
+- workflow_v3/project_setup/
+- workflow_v3/project_packs/
+- directions_v3/<direction-id>/runtime/
 
-The preferred Direction state model is clean runtime state under directions/<direction-id>/runtime/ after explicit activation or pilot acceptance.
+The preferred Direction state model is clean runtime state under directions_v3/<direction-id>/runtime/ after explicit activation or pilot acceptance.
 
 ## What remains candidate-only
 
@@ -128,7 +130,7 @@ For a future pilot or production activation, rollback must be designed before ac
 - old Workflow OS files still present and unrenamed;
 - no overwritten Direction accepted state;
 - clear branch or tag archive for the pre-activation state;
-- a way to stop using directions/<direction-id>/runtime/ for the pilot Direction;
+- a way to stop using directions_v3/<direction-id>/runtime/ for the pilot Direction;
 - Project setup rollback instructions if Project Instructions UI or Project Files/Sources were updated;
 - evidence that active Directions not in the pilot were not migrated.
 
@@ -255,7 +257,7 @@ Validation for this candidate document should prove that:
 - it does not modify Project setup files;
 - it names activation and replacement boundaries without activating them;
 - it preserves the rule that the candidate does not activate runtime, does not replace current Workflow OS and does not migrate active Directions;
-- it includes workflow/runtime/ and directions/<direction-id>/runtime/ as future proposal paths only;
+- it includes workflow_v3/ and directions_v3/<direction-id>/runtime/ as future proposal paths only;
 - it keeps rollback, pilot Direction and migration vs non-migration decisions explicit.
 
 END_OF_FILE: workflow/candidates/workflow_runtime_rebuild/ACTIVATION_AND_REPLACEMENT_BOUNDARY.md

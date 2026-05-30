@@ -1,6 +1,6 @@
 # Workflow v3 Legacy Evidence Policy
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Purpose
 
@@ -52,4 +52,4 @@ The default existing Direction adoption mode should be `clean_start` from an exp
 
 Clean start means old files can be inspected as legacy_evidence, but v3 state begins from a current accepted Direction Spine, Active Front, Current Status, and Next Move created through a later adoption package.
 
-END_OF_FILE: workflow/runtime/LEGACY_EVIDENCE_POLICY.md
+END_OF_FILE: workflow_v3/LEGACY_EVIDENCE_POLICY.md

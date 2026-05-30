@@ -1,6 +1,6 @@
 # Workflow v3 Activation Status
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Status matrix
 
@@ -17,7 +17,7 @@ status: active_skeleton
 
 Activated means only this:
 
-- the repository now has the initial `workflow/runtime/**` documentation/setup skeleton;
+- the repository now has the initial `workflow_v3/**` documentation/setup skeleton;
 - the skeleton defines Workflow v3 production namespace boundaries for later packages;
 - the skeleton may be cited as the starting source for future Workflow v3 setup work.
 
@@ -28,7 +28,7 @@ Activation at this slice does not mean a live runtime exists. It does not create
 Not activated in this slice:
 
 - any Direction adoption;
-- any `directions/<direction-id>/runtime/**` state root;
+- any `directions_v3/<direction-id>/runtime/**` state root;
 - any old Direction state import;
 - any bridge from old Direction files into accepted v3 state;
 - any actual ChatGPT Project Instructions UI update;
@@ -40,11 +40,11 @@ Not activated in this slice:
 
 Allowed future packages must be separate, explicit, bounded, and validated. Examples:
 
-- production runtime rule refinement under `workflow/runtime/**`;
+- production runtime rule refinement under `workflow_v3/**`;
 - future Project setup rollout package with measured payload character counts;
 - future project pack generation package;
 - one per-Direction adoption package after an explicit adoption decision;
-- clean-start Direction runtime state package under `directions/<direction-id>/runtime/**`;
+- clean-start Direction runtime state package under `directions_v3/<direction-id>/runtime/**`;
 - bridge or selective import package only after explicit policy and evidence;
 - rollback/coexistence verification package.
 
@@ -61,4 +61,4 @@ Forbidden as an implicit follow-up to this slice:
 - deleting, renaming, moving, replacing, or decommissioning old Workflow OS files;
 - using candidate docs as accepted Direction state.
 
-END_OF_FILE: workflow/runtime/ACTIVATION_STATUS.md
+END_OF_FILE: workflow_v3/ACTIVATION_STATUS.md

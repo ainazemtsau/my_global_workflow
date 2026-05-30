@@ -100,6 +100,10 @@ Post-Stage-4 candidate design docs:
 - `WORKFLOW_V3_ROLLOUT_SETUP.md`
 - `FIRST_PILOT_DIRECTION_PLAN.md`
 
+## Namespace Correction Note
+
+Earlier candidate proposals that named `workflow/runtime/**` or `directions/<direction-id>/runtime/**` as future Workflow v3 roots are superseded by the namespace correction. The corrected future roots are `workflow_v3/**` and `directions_v3/<direction-id>/runtime/**`.
+
 ## Следующий шаг
 
 Следующий шаг: parent/integration review для Stage 4 candidate package.

@@ -1,6 +1,6 @@
 # Workflow v3 Project Setup Model
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Purpose
 
@@ -59,6 +59,6 @@ For this slice:
 - `project_instruction_ui_update_required`: no actual ChatGPT Project UI update;
 - `project_sources_files_refresh_required`: no current Project Files/Sources refresh;
 - `request_only_sources_refresh_required`: no request-only source refresh;
-- `do_not_upload_as_project_file`: all `workflow/runtime/**` files until a later explicit Project setup rollout/adoption package says otherwise.
+- `do_not_upload_as_project_file`: all `workflow_v3/**` files until a later explicit Project setup rollout/adoption package says otherwise.
 
-END_OF_FILE: workflow/runtime/PROJECT_SETUP_MODEL.md
+END_OF_FILE: workflow_v3/PROJECT_SETUP_MODEL.md
