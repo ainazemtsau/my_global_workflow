@@ -202,6 +202,8 @@ evidence_required:
 
 ## First Launch Packet
 
+Note: The parent/integration chat must supply the current candidate baseline ref when launching the dry-run. The sample must not be treated as a fixed source ref.
+
 ```text
 LAUNCH PACKET
 
@@ -213,7 +215,7 @@ Test whether Workflow Runtime Rebuild can take ordinary human input through Dire
 
 source_refs:
 repo: ainazemtsau/my_global_workflow
-ref: 74fa94d00a54c759a9d771c7a7235151003682cb
+ref: <current candidate baseline ref supplied by parent/integration review>
 candidate_path: workflow/candidates/workflow_runtime_rebuild/
 
 context_included:
