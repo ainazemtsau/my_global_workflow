@@ -1,10 +1,10 @@
 # Workflow v3 Storage Layout
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Production rules/setup namespace
 
-`workflow/runtime/**` is the Workflow v3 production rules/setup namespace.
+`workflow_v3/**` is the Workflow v3 production rules/setup namespace.
 
 It stores shared runtime model documentation, setup templates, future pack source notes, quality boundaries, and project setup guidance.
 
@@ -15,19 +15,19 @@ It does not store accepted per-Direction runtime state in this slice.
 The future per-Direction runtime state root is:
 
 ```text
-directions/<direction-id>/runtime/
+directions_v3/<direction-id>/runtime/
 ```
 
 That path may be created only after a separate per-Direction adoption package with explicit acceptance, scope, validation, and rollback/coexistence evidence.
 
-No `directions/**` files are created in this slice.
+No `directions_v3/<direction-id>/runtime/**` root is created in this correction package.
 
 ## Future per-Direction layout
 
 Future adopted Directions may use this layout:
 
 ```text
-directions/<direction-id>/runtime/
+directions_v3/<direction-id>/runtime/
   state/
   fronts/
   records/
@@ -102,6 +102,6 @@ Console sources support status/navigation views only. They do not execute work o
 
 ## Non-creation statement
 
-This slice creates no `directions/**` files and no per-Direction runtime state. Old Direction files remain legacy evidence unless a later package explicitly adopts, bridges, or imports them.
+This correction package creates no per-Direction runtime state. Old Direction files under `directions/**` remain legacy evidence unless a later package explicitly adopts, bridges, or imports them.
 
-END_OF_FILE: workflow/runtime/STORAGE_LAYOUT.md
+END_OF_FILE: workflow_v3/STORAGE_LAYOUT.md

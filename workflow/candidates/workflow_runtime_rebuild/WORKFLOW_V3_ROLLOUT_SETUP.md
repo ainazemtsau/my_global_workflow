@@ -17,8 +17,8 @@ This document is candidate documentation only. It:
 - does not activate Workflow v3;
 - does not replace current Workflow OS;
 - does not migrate active Directions;
-- does not create `workflow/runtime/**`;
-- does not create `directions/<direction-id>/runtime/**`;
+- does not create `workflow_v3/**`;
+- does not create `directions_v3/<direction-id>/runtime/**`;
 - does not update Project Instructions UI;
 - does not refresh Project Files/Sources;
 - does not treat old Ledger, Obligations, Receipts or other old Direction records as accepted v3 state;
@@ -53,17 +53,19 @@ No candidate document, dry-run, branch, commit, Project File cache or chat resul
 
 The future production namespaces are future-only proposals:
 
-- `workflow/runtime/`
-- `workflow/runtime/project_setup/`
-- `workflow/runtime/project_packs/`
-- `directions/<direction-id>/runtime/`
+- `workflow_v3/`
+- `workflow_v3/project_setup/`
+- `workflow_v3/project_packs/`
+- `directions_v3/<direction-id>/runtime/`
+
+Namespace correction: earlier `workflow/runtime/**` and `directions/<direction-id>/runtime/**` proposals are superseded. Workflow v3 uses the clean roots `workflow_v3/**` and `directions_v3/<direction-id>/runtime/**`.
 
 Path meanings:
 
-- `workflow/runtime/` = accepted Workflow v3 runtime rules after activation;
-- `workflow/runtime/project_setup/` = provider/project setup templates;
-- `workflow/runtime/project_packs/` = generated upload/cache packs;
-- `directions/<direction-id>/runtime/` = accepted v3 runtime state for one adopted Direction.
+- `workflow_v3/` = accepted Workflow v3 runtime rules after activation;
+- `workflow_v3/project_setup/` = provider/project setup templates;
+- `workflow_v3/project_packs/` = generated upload/cache packs;
+- `directions_v3/<direction-id>/runtime/` = accepted v3 runtime state for one adopted Direction.
 
 Do not create any of these paths from this candidate package. They require separate activation, Project setup or per-Direction adoption packages.
 
@@ -76,7 +78,7 @@ Required sequence:
 1. Choose one Direction.
 2. Accept an explicit per-Direction adoption decision.
 3. Create a new ChatGPT Project named `Workflow v3 — <Direction Name>`.
-4. Create `directions/<direction-id>/runtime/` only in a later allowed package.
+4. Create `directions_v3/<direction-id>/runtime/` only in a later allowed package.
 5. Create v3 Direction Spine, Active Front, Current Status and Current Next Move from an explicit current decision.
 6. Do not import old Direction files automatically.
 7. Use old files only as `legacy_evidence`.
@@ -174,7 +176,7 @@ A thin per-Direction manifest or wrapper is allowed when it identifies the Direc
 
 Direction-specific customization lives under:
 
-- `directions/<direction-id>/runtime/config/`
+- `directions_v3/<direction-id>/runtime/config/`
 
 This keeps behavior stable across Direction Projects while keeping Direction-specific facts in repository-controlled runtime state.
 
@@ -182,14 +184,14 @@ This keeps behavior stable across Direction Projects while keeping Direction-spe
 
 Accepted Direction-specific Workflow v3 data belongs under:
 
-- `directions/<direction-id>/runtime/state/`
-- `directions/<direction-id>/runtime/fronts/`
-- `directions/<direction-id>/runtime/records/`
-- `directions/<direction-id>/runtime/memory/`
-- `directions/<direction-id>/runtime/operations/`
-- `directions/<direction-id>/runtime/indexes/`
-- `directions/<direction-id>/runtime/config/`
-- `directions/<direction-id>/runtime/console/`
+- `directions_v3/<direction-id>/runtime/state/`
+- `directions_v3/<direction-id>/runtime/fronts/`
+- `directions_v3/<direction-id>/runtime/records/`
+- `directions_v3/<direction-id>/runtime/memory/`
+- `directions_v3/<direction-id>/runtime/operations/`
+- `directions_v3/<direction-id>/runtime/indexes/`
+- `directions_v3/<direction-id>/runtime/config/`
+- `directions_v3/<direction-id>/runtime/console/`
 
 These paths are future-only until activation and per-Direction adoption decisions create them through allowed packages.
 
@@ -201,10 +203,10 @@ Project Files/Sources are cache/context, not truth.
 
 Future shared packs:
 
-- `workflow/runtime/project_packs/RUNTIME_PROJECT_SHELL_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_BASE_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_TRANSPORT_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_CONSOLE_QUALITY_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_PROJECT_SHELL_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_BASE_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_TRANSPORT_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_CONSOLE_QUALITY_PACK.md`
 
 Future default Direction files:
 
@@ -324,21 +326,21 @@ Immediate candidate file created by this package:
 
 Later production files, explicitly not to create now:
 
-- `workflow/runtime/README.md`
-- `workflow/runtime/RUNTIME_MODEL.md`
-- `workflow/runtime/STORAGE_LAYOUT.md`
-- `workflow/runtime/PROJECT_SETUP_MODEL.md`
-- `workflow/runtime/ACTIVATION_POLICY.md`
-- `workflow/runtime/project_setup/UNIVERSAL_DIRECTION_RUNTIME_PROJECT_INSTRUCTIONS.md`
-- `workflow/runtime/project_setup/CHATGPT_PROJECT_SETUP.md`
-- `workflow/runtime/project_setup/CODEX_SETUP.md`
-- `workflow/runtime/project_setup/GENERIC_AI_PROVIDER_SETUP.md`
-- `workflow/runtime/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md`
-- `workflow/runtime/project_packs/RUNTIME_PROJECT_SHELL_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_BASE_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_TRANSPORT_PACK.md`
-- `workflow/runtime/project_packs/RUNTIME_CONSOLE_QUALITY_PACK.md`
-- `directions/<direction-id>/runtime/**` only after per-Direction adoption decision.
+- `workflow_v3/README.md`
+- `workflow_v3/RUNTIME_MODEL.md`
+- `workflow_v3/STORAGE_LAYOUT.md`
+- `workflow_v3/PROJECT_SETUP_MODEL.md`
+- `workflow_v3/ACTIVATION_POLICY.md`
+- `workflow_v3/project_setup/UNIVERSAL_DIRECTION_RUNTIME_PROJECT_INSTRUCTIONS.md`
+- `workflow_v3/project_setup/CHATGPT_PROJECT_SETUP.md`
+- `workflow_v3/project_setup/CODEX_SETUP.md`
+- `workflow_v3/project_setup/GENERIC_AI_PROVIDER_SETUP.md`
+- `workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md`
+- `workflow_v3/project_packs/RUNTIME_PROJECT_SHELL_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_BASE_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_TRANSPORT_PACK.md`
+- `workflow_v3/project_packs/RUNTIME_CONSOLE_QUALITY_PACK.md`
+- `directions_v3/<direction-id>/runtime/**` only after per-Direction adoption decision.
 
 ## Exact allowed next implementation slices
 
@@ -346,7 +348,7 @@ Slice 1: persist this candidate rollout setup doc and README index only.
 
 Slice 2: optional naming cleanup of older candidate docs, separate package only.
 
-Slice 3: production `workflow/runtime/` skeleton, separate activation package only.
+Slice 3: production `workflow_v3/` skeleton, separate activation package only.
 
 Slice 4: one Direction runtime root, separate per-Direction adoption package only.
 

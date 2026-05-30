@@ -11,7 +11,7 @@ This evidence is candidate-only. It:
 - does not activate Workflow v3;
 - does not replace current Workflow OS;
 - does not migrate active Directions;
-- does not create `directions/pilot-v3-sandbox/runtime/`;
+- does not create `directions/pilot-v3-sandbox/runtime/` (`superseded_pre_namespace_correction` historical path reference only);
 - does not update Project Instructions UI;
 - does not refresh Project Files/Sources;
 - does not create accepted runtime authority.
@@ -94,7 +94,7 @@ Parent accepted dry-run as candidate evidence after minor ref repair.
 
 - repository was not mutated by the dry-run;
 - Codex was not run during the dry-run;
-- `directions/pilot-v3-sandbox/runtime/` was not created;
+- `directions/pilot-v3-sandbox/runtime/` was not created (`superseded_pre_namespace_correction` historical path reference only);
 - `workflow/candidates/workflow_runtime_rebuild/pilots/pilot-v3-sandbox/` was not created until this evidence persistence package;
 - Project Instructions UI was not updated;
 - Project Files/Sources were not refreshed;

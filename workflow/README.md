@@ -4,6 +4,8 @@ Status: active
 
 `workflow/` is the active Workflow OS namespace for shared kernel, policy, transport, setup, pack, invariant, and evaluation sources.
 
+`workflow/**` is not the Workflow v3 production namespace. Workflow v3 clean-start skeleton sources live under `workflow_v3/**`.
+
 The old `proof_workflow` namespace is gone. The old vNext-R workflow layout is legacy-only evidence preserved on the legacy branch/tag and is not active authority.
 
 Direction accepted workflow state lives under each Direction's active payload directory declared by the exact `direction.meta.yml` and/or the exact Project Files manifest. Do not hard-code `directions/<direction-id>/proof/`, Direction root payload paths, or setup paths as active state without that declaration.

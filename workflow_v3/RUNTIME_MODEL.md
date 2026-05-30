@@ -1,6 +1,6 @@
 # Workflow v3 Runtime Model
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## One-line model
 
@@ -74,4 +74,4 @@ Runtime Console is read-only. It may summarize status, show uncertainty, list ca
 
 Runtime Console must not execute material work, mutate accepted state, accept evidence, promote Memory, launch Codex directly, or become a hidden controller.
 
-END_OF_FILE: workflow/runtime/RUNTIME_MODEL.md
+END_OF_FILE: workflow_v3/RUNTIME_MODEL.md

@@ -16,7 +16,17 @@ Canonical AI workflow repository: `ainazemtsau/my_global_workflow`.
 
 Active Workflow OS namespace: `workflow/**`.
 
-If this file conflicts with a verified canonical file under `workflow/**`, the canonical `workflow/**` file wins.
+Current Workflow OS / rollback namespace: `workflow/**`.
+
+Workflow v3 clean-start skeleton namespace: `workflow_v3/**`.
+
+Old Direction evidence namespace for Workflow v3: `directions/**`.
+
+Future Workflow v3 Direction namespace: `directions_v3/**`.
+
+If this file conflicts with a verified canonical file under `workflow/**`, the canonical `workflow/**` file wins for the current Workflow OS.
+
+If this file conflicts with a verified canonical file under `workflow_v3/**`, the canonical `workflow_v3/**` file wins for Workflow v3 skeleton boundaries.
 
 If exact state matters, inspect the exact repository file from GitHub `main` instead of relying on uploaded ChatGPT Project Files/Sources cache.
 
@@ -24,7 +34,11 @@ If exact state matters, inspect the exact repository file from GitHub `main` ins
 
 Workflow OS semantics, runtime protocols, policies, transport schemas, project setup rules, validation rules, execution rules, and storage rules are governed by verified files under `workflow/**`.
 
+Workflow v3 skeleton boundaries, setup sources, and clean-start namespace rules are governed by verified files under `workflow_v3/**`.
+
 Direction accepted proof state is governed by verified Direction payload files and committed Ledger/Receipt state under the relevant active Direction payload directory.
+
+Old Direction files under `directions/**` are legacy evidence for Workflow v3 unless a verified bridge/import/adoption policy says otherwise. Future Workflow v3 Direction runtime state belongs under `directions_v3/<direction-id>/runtime/**` only after an explicit adoption package creates it.
 
 Workflow Governance uses its active workflow payload under:
 

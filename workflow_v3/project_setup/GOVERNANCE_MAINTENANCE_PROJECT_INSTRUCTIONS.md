@@ -1,6 +1,6 @@
 # Governance Maintenance Project Instructions Source
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Purpose
 
@@ -57,4 +57,4 @@ Closure:
 - End maintenance work with a Result Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
 END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
-END_OF_FILE: workflow/runtime/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md
+END_OF_FILE: workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md

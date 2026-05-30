@@ -39,19 +39,21 @@ The existence of this file does not make the proposed layout active. Any use of 
 Preferred future active storage root:
 
 ```text
-directions/<direction-id>/runtime/
+directions_v3/<direction-id>/runtime/
 ```
 
 This is a proposed future runtime state root. It is not active now.
 
-Use of `directions/<direction-id>/runtime/` requires separate activation, migration or non-migration acceptance before any Direction writes runtime state there.
+Use of `directions_v3/<direction-id>/runtime/` requires separate activation, migration or non-migration acceptance before any Direction writes runtime state there.
+
+Namespace correction: earlier `directions/<direction-id>/runtime/**` proposals are superseded by `directions_v3/<direction-id>/runtime/**`.
 
 ## Top-level future layout
 
 Proposed future layout:
 
 ```text
-directions/<direction-id>/runtime/
+directions_v3/<direction-id>/runtime/
 
   state/
     DIRECTION_SPINE.md

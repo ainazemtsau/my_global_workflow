@@ -7,7 +7,7 @@ candidate_draft
 
 This document defines the first safe pilot Direction for Workflow Runtime Rebuild.
 
-It does not activate runtime, does not replace current Workflow OS, does not migrate active Directions, does not create directions/<pilot-id>/runtime/ yet, and does not update Project setup.
+It does not activate runtime, does not replace current Workflow OS, does not migrate active Directions, does not create directions_v3/<pilot-id>/runtime/ yet, and does not update Project setup.
 
 The plan is for parent/integration review and future bounded pilot design only. It does not start the pilot and does not make Workflow v3 active authority.
 
@@ -100,8 +100,10 @@ Rules:
 Future accepted pilot root:
 
 ```text
-directions/pilot-v3-sandbox/runtime/
+directions_v3/pilot-v3-sandbox/runtime/
 ```
+
+Namespace correction: earlier `directions/pilot-v3-sandbox/runtime/**` pilot-root proposals are superseded by `directions_v3/pilot-v3-sandbox/runtime/**`.
 
 Rules:
 
@@ -238,7 +240,7 @@ in_scope:
 out_of_scope:
 
 - accepting pilot as active state
-- creating directions/pilot-v3-sandbox/runtime/
+- creating directions_v3/pilot-v3-sandbox/runtime/
 - creating candidate pilot storage root
 - editing repository files
 - launching Codex
@@ -283,7 +285,7 @@ must_not_decide:
 - new test Direction selected, not existing real Direction;
 - clean start only;
 - all pilot planning remains under candidate package;
-- directions/pilot-v3-sandbox/runtime/ is future-only;
+- directions_v3/pilot-v3-sandbox/runtime/ is future-only;
 - Project setup remains untouched;
 - active Workflow OS remains untouched;
 - active Directions remain untouched;
@@ -364,7 +366,7 @@ Risks:
 - candidate docs mistaken for active authority;
 - synthetic pilot too shallow;
 - accidental Project setup update;
-- accidental directions/<pilot-id>/runtime/ creation;
+- accidental directions_v3/<pilot-id>/runtime/ creation;
 - Action Inbox becomes backlog;
 - Runtime Console becomes hidden controller;
 - clean-start pass does not prove migration.

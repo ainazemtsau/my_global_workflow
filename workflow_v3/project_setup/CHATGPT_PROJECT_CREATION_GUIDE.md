@@ -1,6 +1,6 @@
 # Workflow v3 ChatGPT Project Creation Guide
 
-status: active_skeleton
+status: active_skeleton_namespace_corrected
 
 ## Purpose
 
@@ -50,4 +50,4 @@ No Projects are created or updated by this repository commit.
 
 No current Project Files/Sources refresh is required by this slice.
 
-END_OF_FILE: workflow/runtime/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md
+END_OF_FILE: workflow_v3/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md

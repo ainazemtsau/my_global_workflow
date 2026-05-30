@@ -15,6 +15,15 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 - New ChatGPT Projects should be created or restored from the universal installer and the pack-based manifest in each Direction's active project setup directory.
 - Workflow Governance is self-hosted and uses active payload files under `directions/workflow-governance/workflow/`.
 
+## Workflow v3 Namespace Separation
+
+- Current and rollback Workflow OS namespace: `workflow/**`.
+- Workflow v3 clean-start skeleton namespace: `workflow_v3/**`.
+- Old Direction namespace for Workflow v3: `directions/**` as `legacy_evidence` only, unless an explicit bridge/import/adoption policy says otherwise.
+- Future Workflow v3 Direction namespace: `directions_v3/**`.
+
+Workflow v3 does not decommission the old/current Workflow OS. The `workflow/**` namespace remains available as current Workflow OS and rollback context unless a later explicit package changes that boundary.
+
 ## Project Setup
 
 Use:
