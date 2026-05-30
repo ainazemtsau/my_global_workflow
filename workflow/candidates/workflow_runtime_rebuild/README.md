@@ -97,6 +97,7 @@ Post-Stage-4 candidate design docs:
 - `STORAGE_LAYOUT.md`
 - `PROJECT_SETUP_INTEGRATION.md`
 - `ACTIVATION_AND_REPLACEMENT_BOUNDARY.md`
+- `WORKFLOW_V3_ROLLOUT_SETUP.md`
 - `FIRST_PILOT_DIRECTION_PLAN.md`
 
 ## Следующий шаг
