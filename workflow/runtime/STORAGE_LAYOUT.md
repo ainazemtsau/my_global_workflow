@@ -1,0 +1,107 @@
+# Workflow v3 Storage Layout
+
+status: active_skeleton
+
+## Production rules/setup namespace
+
+`workflow/runtime/**` is the Workflow v3 production rules/setup namespace.
+
+It stores shared runtime model documentation, setup templates, future pack source notes, quality boundaries, and project setup guidance.
+
+It does not store accepted per-Direction runtime state in this slice.
+
+## Future per-Direction runtime state root
+
+The future per-Direction runtime state root is:
+
+```text
+directions/<direction-id>/runtime/
+```
+
+That path may be created only after a separate per-Direction adoption package with explicit acceptance, scope, validation, and rollback/coexistence evidence.
+
+No `directions/**` files are created in this slice.
+
+## Future per-Direction layout
+
+Future adopted Directions may use this layout:
+
+```text
+directions/<direction-id>/runtime/
+  state/
+  fronts/
+  records/
+  memory/
+  operations/
+  archive/
+  indexes/
+  config/
+  console/
+```
+
+## state
+
+`state/` stores small current-state files needed to resume the adopted Direction:
+
+- Direction Spine;
+- Active Front;
+- Current Status;
+- Current Next Move.
+
+## fronts
+
+`fronts/` stores Active Front workspaces and local Work Graph material. A front may contain nodes, local context, local indexes, contracts, runs, evidence references, decisions, and closure summaries.
+
+## records
+
+`records/` stores dated proof records:
+
+- Work Contracts;
+- Runs;
+- Result Packets;
+- Evidence;
+- Acceptance Decisions.
+
+Records are evidence and history. Accepted state changes still require explicit acceptance/update paths.
+
+## memory
+
+`memory/` stores Memory Candidates, promoted Memory Artifacts, and indexes.
+
+Raw chat notes or run output do not become Memory Artifacts without promotion.
+
+## operations
+
+`operations/` stores operational support surfaces such as Signals, Action Inbox, closed actions, and recovery records.
+
+Signals and Action Inbox items are candidates only and do not mutate accepted state.
+
+## archive
+
+`archive/` stores closed, superseded, or compacted fronts, nodes, records, and supporting history while preserving evidence links.
+
+Archive/compaction must not hide accepted decisions, evidence references, final state transitions, or unresolved blockers.
+
+## indexes
+
+`indexes/` stores lookup files for fronts, nodes, runs, evidence, acceptance, and memory.
+
+Indexes support read-back and navigation. They are not an alternate acceptance path.
+
+## config
+
+`config/` stores adopted Direction-specific configuration such as customization profile, handlers, adapter context access, and quality gates.
+
+Direction-specific config must preserve the core Workflow v3 acceptance and adapter boundaries.
+
+## console
+
+`console/` stores read-only Runtime Console source indexes.
+
+Console sources support status/navigation views only. They do not execute work or mutate accepted state.
+
+## Non-creation statement
+
+This slice creates no `directions/**` files and no per-Direction runtime state. Old Direction files remain legacy evidence unless a later package explicitly adopts, bridges, or imports them.
+
+END_OF_FILE: workflow/runtime/STORAGE_LAYOUT.md
