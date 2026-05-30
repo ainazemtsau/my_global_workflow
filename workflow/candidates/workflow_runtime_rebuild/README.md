@@ -95,6 +95,7 @@ Stage 4 pilot scenarios / integration acceptance:
 Post-Stage-4 candidate design docs:
 
 - `STORAGE_LAYOUT.md`
+- `PROJECT_SETUP_INTEGRATION.md`
 
 ## Следующий шаг
 
