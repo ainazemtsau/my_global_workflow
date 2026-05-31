@@ -54,11 +54,11 @@ Project setup reporting uses these categories:
 
 This slice does not update actual ChatGPT Projects.
 
-For this slice:
+For this repository completion framework:
 
 - `project_instruction_ui_update_required`: no actual ChatGPT Project UI update;
 - `project_sources_files_refresh_required`: no current Project Files/Sources refresh;
 - `request_only_sources_refresh_required`: no request-only source refresh;
-- `do_not_upload_as_project_file`: all `workflow_v3/**` files until a later explicit Project setup rollout/adoption package says otherwise.
+- `do_not_upload_as_project_file`: all `workflow_v3/**` files until a later explicit Project setup rollout/adoption package says otherwise, including `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/runbooks/**`, `workflow_v3/evals/**`, and Project Instructions source files.
 
 END_OF_FILE: workflow_v3/PROJECT_SETUP_MODEL.md

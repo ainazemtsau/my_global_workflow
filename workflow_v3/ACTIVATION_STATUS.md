@@ -8,10 +8,13 @@ status: active_skeleton_namespace_corrected
 | --- | --- |
 | workflow_v3_production_namespace_skeleton | active |
 | workflow_v3_interface_layer | active_repository_documentation_setup_only |
+| workflow_v3_repository_completion_framework | active_repository_documentation_setup_only |
 | direction_adoption | none |
 | legacy_state_import | none |
 | chatgpt_project_ui_update | none |
 | project_files_sources_refresh | none |
+| request_only_sources_refresh | none |
+| generated_project_pack_upload | none |
 | old_workflow_os_decommission | none |
 
 ## What is activated at this slice
@@ -20,6 +23,7 @@ Activated means only this:
 
 - the repository now has the initial `workflow_v3/**` documentation/setup skeleton;
 - the repository now has an interface layer refinement under `workflow_v3/interfaces/**`;
+- the repository now has completion, adoption-template, runbook, and eval readiness files under `workflow_v3/**`;
 - the skeleton defines Workflow v3 production namespace boundaries for later packages;
 - the skeleton may be cited as the starting source for future Workflow v3 setup work.
 
@@ -37,6 +41,7 @@ Not activated in this slice:
 - any current Project Files/Sources refresh;
 - any request-only source refresh;
 - any generated Project Pack;
+- any generated Project Pack upload;
 - any old Workflow OS archive, deletion, rename, move, replacement, or decommission.
 
 ## Allowed future packages

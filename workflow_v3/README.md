@@ -10,6 +10,8 @@ This slice activates only the documentation/setup skeleton under `workflow_v3/**
 
 The current Workflow OS remains the legacy and rollback system until a later explicit activation and adoption package says otherwise.
 
+The repository-side completion framework adds clean-start adoption templates, operational runbooks, validation evals, and a final completion matrix. It remains documentation/setup only.
+
 ## Scope of this slice
 
 Created in this slice:
@@ -24,6 +26,7 @@ Not created in this slice:
 - Project Instructions UI updates;
 - Project Files/Sources refreshes;
 - request-only source refreshes;
+- generated pack uploads;
 - old Workflow OS deletion, rename, move, replacement, or decommission.
 
 ## Source boundary
@@ -64,6 +67,39 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/PROJECT_SETUP_MODEL.md` - future ChatGPT Project setup model and refresh categories.
 - `workflow_v3/LEGACY_EVIDENCE_POLICY.md` - legacy/rollback and old Direction evidence policy.
 - `workflow_v3/QUALITY_AND_RECOVERY.md` - quality gates and recovery outcomes.
+- `workflow_v3/completion/README.md` - repository-side completion package index.
+- `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md` - final surface and entity coverage matrix.
+- `workflow_v3/completion/WORKFLOW_V3_REPOSITORY_COMPLETION_AUDIT.md` - completion validation audit.
+- `workflow_v3/completion/POST_COMPLETION_REMAINING_NON_GOALS.md` - intentionally remaining non-goals.
+- `workflow_v3/adoption/README.md` - clean-start Direction adoption package model.
+- `workflow_v3/adoption/CLEAN_START_DIRECTION_ADOPTION_PACKAGE_TEMPLATE.md` - future adoption package template.
+- `workflow_v3/adoption/DIRECTION_RUNTIME_ROOT_MANIFEST_TEMPLATE.md` - future runtime root manifest template.
+- `workflow_v3/adoption/DIRECTION_BOOTSTRAP_DECISION_TEMPLATE.md` - explicit bootstrap decision template.
+- `workflow_v3/adoption/DIRECTION_RUNTIME_CREATION_CHECKLIST.md` - future runtime creation checklist.
+- `workflow_v3/adoption/LEGACY_EVIDENCE_REVIEW_TEMPLATE.md` - legacy evidence review template.
+- `workflow_v3/adoption/ADOPTION_RESULT_PACKET_TEMPLATE.md` - adoption result packet template.
+- `workflow_v3/runbooks/README.md` - runtime operation runbook index.
+- `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md` - Direction bootstrap operating path.
+- `workflow_v3/runbooks/DIRECTION_SPINE_CHAT_RUNBOOK.md` - bounded Direction Spine chat runbook.
+- `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md` - bounded Direction Map chat runbook.
+- `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md` - Active Front selection runbook.
+- `workflow_v3/runbooks/WORK_GRAPH_OPENING_RUNBOOK.md` - local Work Graph opening runbook.
+- `workflow_v3/runbooks/WORK_CONTRACT_RUNBOOK.md` - Work Contract operating path.
+- `workflow_v3/runbooks/EVENT_LOOP_CLOSURE_RUNBOOK.md` - Event Loop Closure and Progression Router runbook.
+- `workflow_v3/runbooks/PARENT_CHILD_CHAT_RUNBOOK.md` - parent/child chat runbook.
+- `workflow_v3/runbooks/CODEX_HANDOFF_VERIFICATION_RUNBOOK.md` - Codex handoff verification runbook.
+- `workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md` - Project setup rollout runbook.
+- `workflow_v3/runbooks/RUNTIME_CONSOLE_RUNBOOK.md` - Runtime Console read-only runbook.
+- `workflow_v3/evals/README.md` - validation eval index.
+- `workflow_v3/evals/WORKFLOW_V3_COMPLETION_VALIDATION_CHECKLIST.md` - completion validation checklist.
+- `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md` - Direction runtime bootstrap eval.
+- `workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md` - Direction Map, Active Front, and Work Graph eval.
+- `workflow_v3/evals/SIGNAL_HANDLER_LIFECYCLE_EVAL.md` - Signal/Handler lifecycle eval.
+- `workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md` - chat lifecycle/handoff eval.
+- `workflow_v3/evals/CODEX_HANDOFF_RESULT_EVAL.md` - Codex handoff result eval.
+- `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md` - Project setup rollout eval.
+- `workflow_v3/evals/LEGACY_EVIDENCE_BOUNDARY_EVAL.md` - legacy evidence boundary eval.
+- `workflow_v3/evals/NO_HIDDEN_STATE_OR_ROUTE_EVAL.md` - no hidden state or route eval.
 - `workflow_v3/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md` - future Project creation guide and naming rules.
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for ordinary Direction Projects.
 - `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for the Governance Maintenance Console.

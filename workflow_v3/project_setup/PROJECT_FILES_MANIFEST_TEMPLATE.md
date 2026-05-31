@@ -71,7 +71,19 @@ do_not_upload_sources:
     reason:
 ```
 
-By default in this skeleton slice, all `workflow_v3/**` files are do-not-upload sources until a later explicit Project setup rollout/adoption package says otherwise.
+By default in this repository completion framework, all `workflow_v3/**` files are do-not-upload sources until a later explicit Project setup rollout/adoption package says otherwise.
+
+At minimum, list these as do-not-upload:
+
+```text
+workflow_v3/interfaces/**
+workflow_v3/templates/**
+workflow_v3/completion/**
+workflow_v3/adoption/**
+workflow_v3/runbooks/**
+workflow_v3/evals/**
+workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md
+```
 
 ## Refresh requirements
 

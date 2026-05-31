@@ -24,9 +24,10 @@ Context classification:
 - Old Direction files are legacy_evidence unless a separate accepted v3 adoption/import package says otherwise.
 
 Workflow model:
-- Direction Spine -> Active Front -> Work Graph -> Work Contract / Run / Evidence / Acceptance -> Memory -> Signals / Handlers / Action Inbox -> Next Move.
+- Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract / Run / Evidence / Acceptance -> Memory -> Signals / Handlers / Action Inbox -> Next Move.
 - Work on one bounded target at a time.
 - Do not turn the Direction Spine into a full backlog.
+- Do not flatten Direction Map into Direction Spine, roadmap, backlog, Work Graph, or Action Inbox.
 - Work Graph is local to the Active Front.
 
 Material work:
@@ -66,5 +67,14 @@ Runtime Console:
 Next Move:
 - Always say exactly what should happen next: open a bounded Work Chat, run a Check Job, send a Codex package, provide missing source, request human decision, perform acceptance review, or stop.
 END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
+
+## Repository refresh classification
+
+For this source file:
+
+- `project_instruction_ui_update_required`: future manual rollout only when authorized.
+- `project_sources_files_refresh_required`: false for current Projects unless a later rollout package authorizes refresh.
+- `request_only_sources_refresh_required`: false unless a later rollout package authorizes refresh.
+- `do_not_upload_as_project_file`: this Project Instructions source is pasted into Project Instructions UI and is not uploaded as a Project File/Source by default.
 
 END_OF_FILE: workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md

@@ -31,6 +31,17 @@ Future packs may compact shared runtime model, transport, adapter, setup, consol
 
 Project Files/Sources remain cache/context only and do not create accepted state, Direction adoption, migration/import, or Project setup authority.
 
+`workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/runbooks/**`, and `workflow_v3/evals/**` are source docs for repository operation and validation. They are not generated pack artifacts and are not uploaded as Project Files/Sources by default.
+
+## Refresh reporting
+
+Future pack packages must report these fields separately:
+
+- `project_instruction_ui_update_required`;
+- `project_sources_files_refresh_required`;
+- `request_only_sources_refresh_required`;
+- `do_not_upload_as_project_file`.
+
 ## Current slice boundary
 
 No actual pack files are generated in this slice.

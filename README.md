@@ -24,6 +24,8 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
 Workflow v3 does not decommission the old/current Workflow OS. The `workflow/**` namespace remains available as current Workflow OS and rollback context unless a later explicit package changes that boundary.
 
+Workflow v3 repository-side completion docs now live under `workflow_v3/completion/**`, with future clean-start adoption templates under `workflow_v3/adoption/**`, runbooks under `workflow_v3/runbooks/**`, and evals under `workflow_v3/evals/**`. These are repository documentation/setup only and do not adopt Directions or update ChatGPT Projects.
+
 ## Project Setup
 
 Use:

@@ -63,6 +63,13 @@ Templates may be copied into future accepted packages as structure for candidate
 
 The template itself is not accepted state and does not authorize state mutation.
 
+## Related operating docs
+
+- `workflow_v3/adoption/**` contains future clean-start adoption package templates.
+- `workflow_v3/runbooks/**` contains operating paths for using these templates.
+- `workflow_v3/evals/**` contains validation gates for packages that use these templates.
+- `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md` maps templates to surfaces and entity coverage.
+
 ## Boundary
 
 This index is a template index only.
