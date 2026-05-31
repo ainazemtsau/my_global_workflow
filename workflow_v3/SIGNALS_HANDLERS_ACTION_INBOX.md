@@ -140,11 +140,13 @@ Next material chat starts only after the current material target is accepted, pe
 
 Normal progress is not a hard-coded chain.
 
-Direction Spine -> Active Front -> Work Graph -> Work Contract is the runtime model.
+Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract is the object hierarchy.
 
 The next concrete step is routed by Event Loop Closure and `progression_router_handler`.
 
 Handler output is candidate until accepted or explicitly launched.
+
+Chat intuition is not route authority.
 
 ## Minimal emit points
 
@@ -204,6 +206,37 @@ Recommended handler status values:
 - `inbox_signal` - Action Inbox/Q growth, duplicate candidates, stale items, or handler flood.
 - `recovery_signal` - blocked runs, missing child results, failed validation, lost parent context, or recovery needs.
 - `legacy_signal` - old Workflow OS, old Direction state, legacy evidence, import boundary, rollback, or coexistence facts.
+- `lifecycle_signal` - Direction lifecycle facts about runtime adoption, Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, front closure, map staleness, track imbalance, or blocked lifecycle transitions.
+
+## Direction lifecycle signals
+
+Lifecycle signals are facts only. They do not execute work or mutate accepted state.
+
+Baseline lifecycle signals:
+
+- `direction_runtime_missing`;
+- `direction_adoption_needed`;
+- `direction_spine_missing`;
+- `direction_spine_candidate_returned`;
+- `direction_spine_accepted`;
+- `direction_map_missing`;
+- `direction_map_candidate_returned`;
+- `direction_map_accepted`;
+- `active_front_missing`;
+- `active_front_candidate_returned`;
+- `active_front_accepted`;
+- `work_graph_missing`;
+- `work_graph_created`;
+- `work_graph_node_ready`;
+- `work_contract_created`;
+- `work_contract_complete`;
+- `active_front_complete`;
+- `direction_map_update_needed`;
+- `direction_map_stale`;
+- `track_imbalance_detected`;
+- `blocked_lifecycle_transition`.
+
+Lifecycle transitions are not a hard-coded chain and are not selected by chat intuition. They become visible through Signal, Handler, Event Loop Closure, Progression Router, and acceptance/update path when state changes.
 
 ## Default handler registry
 
@@ -219,6 +252,14 @@ The default registry is the baseline for future per-Direction handler config. Di
 | `child_missing_handler` | `recovery_signal` or `adapter_signal` where Child Chat, Codex, Check Job, or other child result is missing, incomplete, or did not return. | Parent Recovery Block, rerun/narrow candidate, missing-result request, or blocked result. | Synthesize missing evidence, assume child completion, or accept partial child output silently. | Inline, Action Inbox candidate, Check Job, blocked result, repair Next Move, human decision request. |
 | `inbox_hygiene_handler` | `inbox_signal` where Action Inbox/Q has duplicates, stale candidates, vague items, handler flood, or no run condition. | Merge/drop/supersede candidate, hygiene Check Job, or prioritized candidate list. | Store raw untriaged Signals as backlog, auto-run items, or close items without reason. | Inline, Action Inbox candidate, Check Job, repair Next Move, human decision request. |
 | `legacy_import_guard_handler` | `legacy_signal` where old Workflow OS, old Direction files, legacy evidence, import, rollback, or coexistence boundary is touched. | Blocked result, candidate legacy import receipt path, rollback/coexistence warning, or human decision request. | Invent Direction proof state, import/migrate by implication, weaken rollback, or mutate `directions/**`. | Inline, Action Inbox candidate, Check Job, blocked result, repair Next Move, candidate Launch Packet, human decision request. |
+| `direction_adoption_guard_handler` | `lifecycle_signal` where runtime is missing, adoption is needed, or lifecycle transition would imply adoption. | Blocked result, adoption decision request, or bounded adoption package candidate. | Create runtime state, import legacy state, or adopt a Direction by implication. | Inline, Check Job, blocked result, repair Next Move, human decision request, candidate Launch Packet. |
+| `direction_spine_creation_handler` | `lifecycle_signal` for missing, returned, or accepted Direction Spine facts. | Candidate Spine review packet, acceptance/update request, or blocked result if source is missing. | Invent Spine state or mutate accepted Spine directly. | Inline, Check Job, blocked result, candidate Launch Packet, human decision request. |
+| `direction_map_creation_handler` | `lifecycle_signal` for missing, returned, or accepted Direction Map facts. | Candidate Direction Map review packet, acceptance/update request, or source/evidence Check Job. | Treat roadmap, backlog, Work Graph, or Action Inbox as Direction Map. | Inline, Check Job, blocked result, candidate Launch Packet, human decision request. |
+| `active_front_selection_handler` | `lifecycle_signal` for missing Active Front or candidate Active Front returned. | Candidate front selection packet with map areas, alternatives, exit criteria, and acceptance question. | Select Active Front by chat intuition or accept the front directly. | Inline, Action Inbox candidate, Check Job, candidate Launch Packet, human decision request. |
+| `work_graph_opening_handler` | `lifecycle_signal` where accepted Active Front lacks local Work Graph. | Candidate local Work Graph seed or opening packet. | Build global roadmap/backlog or overwrite Direction Map. | Inline, Check Job, candidate Launch Packet, repair Next Move. |
+| `work_contract_creation_handler` | `lifecycle_signal` where a Work Graph node is ready for bounded execution. | Candidate Work Contract or Launch Packet. | Execute work directly or expand node scope. | Inline, candidate Launch Packet, human decision request. |
+| `front_closure_handler` | `lifecycle_signal` where Active Front exit criteria appear complete. | Candidate front closure summary, acceptance question, map update candidate, or Check Job. | Close the front without evidence/acceptance or silently open a new front. | Inline, Check Job, human decision request, transition_packet. |
+| `direction_map_update_handler` | `lifecycle_signal` where map update is needed, stale, or track imbalance appears. | Candidate Direction Map update packet, Check Job, or human decision request. | Mutate Direction Map without accepted update path. | Inline, Check Job, action_inbox_candidate, human decision request, transition_packet. |
 | `progression_router_handler` | Closure Signals and Handler Results for `material_run_closed`, `check_job_closed`, `codex_result_verified`, `acceptance_decision_recorded`, `work_contract_complete`, `active_front_complete`, or `blocked_result_returned`. | One `primary_next_move`, optional `secondary_candidates`, `same_chat_allowed`, `new_chat_needed`, Transition Packet or next-chat prompt if needed, or stop. | Execute the next step, silently launch child chats, bypass acceptance, import legacy state, use Action Inbox as a hidden roadmap, or continue product work after a blocking signal. | Primary next move, secondary candidate, next-chat prompt, Transition Packet, stop condition. |
 
 ## Execution order
@@ -262,6 +303,8 @@ Event Loop Closure can remain in chat unless persistence is needed.
 
 Persist Signals, Action Inbox/Q updates, Check Jobs, or handler registry changes only through explicit acceptance/update package.
 
+Persisted Check Jobs and persisted Event Loop Closures require explicit acceptance/update package. These operational records do not mutate accepted state.
+
 Direction runtime storage location for persisted signals:
 
 ```text
@@ -272,6 +315,18 @@ Direction action inbox:
 
 ```text
 directions_v3/<direction-id>/runtime/operations/action_inbox/
+```
+
+Direction Check Jobs:
+
+```text
+directions_v3/<direction-id>/runtime/operations/check_jobs/
+```
+
+Direction Event Loop Closures:
+
+```text
+directions_v3/<direction-id>/runtime/operations/event_loop_closures/
 ```
 
 Direction handler registry:

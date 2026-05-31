@@ -29,10 +29,20 @@ Future adopted Directions may use this layout:
 ```text
 directions_v3/<direction-id>/runtime/
   state/
+    DIRECTION_SPINE.md
+    DIRECTION_MAP.md
+    ACTIVE_FRONT.md
+    CURRENT_STATUS.md
+    CURRENT_NEXT_MOVE.md
   fronts/
   records/
   memory/
   operations/
+    signals/
+    action_inbox/
+    check_jobs/
+    event_loop_closures/
+    recovery/
   archive/
   indexes/
   config/
@@ -44,6 +54,7 @@ directions_v3/<direction-id>/runtime/
 `state/` stores small current-state files needed to resume the adopted Direction:
 
 - Direction Spine;
+- Direction Map;
 - Active Front;
 - Current Status;
 - Current Next Move.
@@ -86,9 +97,21 @@ Direction Action Inbox/Q belongs under:
 directions_v3/<direction-id>/runtime/operations/action_inbox/
 ```
 
+Direction Check Jobs belong under:
+
+```text
+directions_v3/<direction-id>/runtime/operations/check_jobs/
+```
+
+Direction Event Loop Closures belong under:
+
+```text
+directions_v3/<direction-id>/runtime/operations/event_loop_closures/
+```
+
 Action Inbox stores candidate actions, not raw signals.
 
-Signals and Action Inbox items are candidates only and do not mutate accepted state.
+Signals, Action Inbox items, Check Jobs, and Event Loop Closures are operational surfaces only and do not mutate accepted state.
 
 ## archive
 

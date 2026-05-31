@@ -22,6 +22,30 @@ Checks:
 
 Fails when required source is missing, stale cache is treated as truth, or repository state is guessed.
 
+## Entity coverage gate
+
+Checks:
+
+- every entity in `workflow_v3/interfaces/00_ENTITY_REGISTRY.md` appears in `workflow_v3/interfaces/99_COVERAGE_MATRIX.md`;
+- each entity has a canonical definition file/interface;
+- storage location is identified when applicable;
+- related Signals, Handlers, packets/templates, state mutation rights, and acceptance/update requirements are visible where applicable;
+- unresolved risks are named instead of hidden.
+
+Fails when an interface entity can be lost, redefined independently, or routed without coverage.
+
+## Direction lifecycle gate
+
+Checks:
+
+- Direction lifecycle transitions use visible lifecycle Signals and lifecycle Handlers;
+- lifecycle Handler output remains candidate only;
+- Direction Spine, Direction Map, Active Front, Work Graph, and Work Contract transitions are not selected by chat intuition;
+- every state-changing lifecycle transition has Event Loop Closure and acceptance/update path;
+- blocked lifecycle transition stops product work until repaired, accepted, or split.
+
+Fails when lifecycle state is invented, accepted silently, or advanced without visible closure.
+
 ## Scope gate
 
 Checks:
@@ -110,6 +134,26 @@ Recovery:
 - choose one `primary_next_move`;
 - provide a complete Transition Packet when transfer is needed;
 - return for human/parent acceptance when acceptance is unclear.
+
+## Chat lifecycle/handoff gate
+
+Checks:
+
+- child chat, parent chat, next material chat, Check Job, Codex run, Codex result verification, human decision surface, and Runtime Console/status chat boundaries are explicit;
+- child chat serves the current parent target and returns to parent;
+- child chat is not next material chat;
+- next material chat starts only after current material target is accepted, persisted, verified, or explicitly stopped;
+- required child results are returned before parent synthesis;
+- Parent Recovery Block exists when multiple children are launched.
+
+Fails when child work becomes an independent execution track, missing child evidence is synthesized, or next material chat starts before the current target is closed.
+
+Recovery:
+
+- stop synthesis when required child result is missing;
+- request missing child result or rerun a narrowed child prompt;
+- produce Parent Recovery Block;
+- rerun Event Loop Closure and Progression Router after child/parent status is clear.
 
 ## Codex validation gate
 

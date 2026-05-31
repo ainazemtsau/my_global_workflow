@@ -7,6 +7,7 @@ status: active_skeleton_namespace_corrected
 | Surface | Status |
 | --- | --- |
 | workflow_v3_production_namespace_skeleton | active |
+| workflow_v3_interface_layer | active_repository_documentation_setup_only |
 | direction_adoption | none |
 | legacy_state_import | none |
 | chatgpt_project_ui_update | none |
@@ -18,10 +19,11 @@ status: active_skeleton_namespace_corrected
 Activated means only this:
 
 - the repository now has the initial `workflow_v3/**` documentation/setup skeleton;
+- the repository now has an interface layer refinement under `workflow_v3/interfaces/**`;
 - the skeleton defines Workflow v3 production namespace boundaries for later packages;
 - the skeleton may be cited as the starting source for future Workflow v3 setup work.
 
-Activation at this slice does not mean a live runtime exists. It does not create accepted Direction state, accepted v3 state, migration authority, Project setup authority, or decommission authority.
+Activation at this slice does not mean a live runtime exists. It does not create accepted Direction state, accepted v3 state, migration authority, Project setup authority, Project UI update authority, Project Files/Sources refresh authority, request-only source refresh authority, legacy import authority, or decommission authority.
 
 ## What remains not activated
 
@@ -34,6 +36,7 @@ Not activated in this slice:
 - any actual ChatGPT Project Instructions UI update;
 - any current Project Files/Sources refresh;
 - any request-only source refresh;
+- any generated Project Pack;
 - any old Workflow OS archive, deletion, rename, move, replacement, or decommission.
 
 ## Allowed future packages

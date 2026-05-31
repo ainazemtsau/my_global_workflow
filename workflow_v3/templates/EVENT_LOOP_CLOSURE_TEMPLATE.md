@@ -8,6 +8,8 @@ status: template
 
 `closure_status`:
 
+`closure_signal`:
+
 `material_work_or_review_closed`:
 
 `signals_emitted`:
@@ -25,6 +27,12 @@ status: template
 `persistence_needed`:
 
 `accepted_or_converted_outputs`:
+
+`lifecycle_transition_candidate`:
+
+`parent_child_status`:
+
+`coverage_or_interface_risk`:
 
 `primary_next_move`:
 

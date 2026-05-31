@@ -2,11 +2,23 @@
 
 status: active_skeleton_namespace_corrected
 
-## One-line model
+## Overview model
 
-Direction Spine -> Active Front -> Work Graph -> Work Contract / Run / Evidence / Acceptance -> Memory -> Signals / Handlers / Action Inbox -> Next Move
+Object hierarchy:
 
-This model describes how future Workflow v3 work should be bounded, executed, evidenced, accepted, remembered, and resumed.
+```text
+Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract
+```
+
+Operational movement:
+
+```text
+Signal -> Handler -> Candidate Output -> Event Loop Closure -> Progression Router -> Transition Packet / Next Move -> Acceptance/update path
+```
+
+This model describes how future Workflow v3 work should be structurally bounded, operationally routed, executed, evidenced, accepted, remembered, and resumed.
+
+Detailed interface contracts live under `workflow_v3/interfaces/**`. Future work must reconcile with that interface layer instead of redefining Direction structure, lifecycle routing, packets, storage, or adapter boundaries independently.
 
 ## Direction Spine
 
@@ -14,17 +26,25 @@ Direction Spine is the stable axis of one Direction: root result, success condit
 
 Direction Spine changes only through an explicit acceptance/update path.
 
+## Direction Map
+
+Direction Map is the global structural map between Direction Spine and Active Front. It contains map areas, track relationships, strategic dependencies, strategic uncertainties, candidate fronts, closed fronts, blocked areas, evidence links, and accepted/candidate/unresolved labels.
+
+Direction Map is not a roadmap, backlog, Work Graph, or Action Inbox.
+
+Direction Map changes only through an explicit acceptance/update path.
+
 ## Active Front
 
-Active Front is the selected part of the Direction Spine that is moving now. It limits attention and prevents the whole project from becoming active at once.
+Active Front is the accepted focus selected from the Direction Map that is moving now. It limits attention and prevents the whole project from becoming active at once.
 
 Active Front is not global backlog state.
 
 ## Work Graph
 
-Work Graph is local to the Active Front. It identifies bounded nodes, dependencies, and the next useful result.
+Work Graph is local to the Active Front. It derives from Front Exit Criteria and identifies bounded nodes, dependencies, and the next useful result.
 
-Work Graph is not a copy of the Direction Spine and not a permanent graph for the whole Direction.
+Work Graph is not a copy of the Direction Spine, not the Direction Map, and not a permanent graph for the whole Direction.
 
 ## Work Contract / Run / Evidence / Acceptance
 
@@ -67,6 +87,8 @@ When material work closes, the next concrete step is selected through Event Loop
 The progression output remains candidate until accepted or explicitly launched.
 
 If transfer is needed, the router assembles the complete Transition Packet for the selected next step.
+
+Chat does not choose route by intuition. Route-changing steps must be visible through Signal, Handler, Event Loop Closure, Progression Router, Transition Packet/Next Move, and acceptance/update path when state changes.
 
 ## Adapter boundary
 

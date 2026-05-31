@@ -12,6 +12,8 @@ status: template
 
 `relation`:
 
+Relation may point to Direction Map, Direction Map area, Active Front, Work Graph, Work Graph Node, Work Contract, lifecycle signal, Check Job, chat handoff, Codex handoff, evidence, or general Direction context.
+
 `source_signal_id`:
 
 `candidate_action`:
@@ -33,6 +35,8 @@ status: template
 ## Boundary
 
 Action Inbox stores candidate actions, not raw signals.
+
+Action Inbox is not a backlog, roadmap, or auto-run queue.
 
 An Action Inbox/Q item is candidate only and does not mutate accepted state.
 

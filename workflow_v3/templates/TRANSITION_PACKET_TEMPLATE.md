@@ -14,6 +14,8 @@ status: template
 
 `selected_next_step_target`:
 
+`closure_signal`:
+
 `same_chat_allowed`:
 
 `external_run_needed`:
@@ -37,6 +39,12 @@ status: template
 `event_loop_closure_required`:
 
 `return_destination`:
+
+`parent_chat_id_or_return_destination`:
+
+`child_or_next_chat_boundary`:
+
+`required_return_fields`:
 
 `copy_paste_packet`:
 

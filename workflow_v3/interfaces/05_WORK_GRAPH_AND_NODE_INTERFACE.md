@@ -1,0 +1,62 @@
+# Work Graph and Node Interface
+
+status: active_interface_layer
+
+## Purpose
+
+This interface defines the local Work Graph and node model under an Active Front.
+
+## Work Graph
+
+Work Graph is local to one Active Front.
+
+Work Graph is derived from Front Exit Criteria and current evidence. It identifies bounded nodes, dependencies, local sequencing, and the next useful result inside the Active Front.
+
+Work Graph is not:
+
+- Direction Map;
+- Direction Spine;
+- roadmap;
+- backlog;
+- Action Inbox;
+- permanent graph for the whole Direction.
+
+## Work Graph Node
+
+A Work Graph Node must have:
+
+- purpose;
+- relation to Active Front and map area;
+- dependencies;
+- boundaries;
+- expected evidence;
+- closure condition;
+- current status;
+- known blockers or uncertainties.
+
+## Work Contract
+
+One Work Contract may execute:
+
+- one bounded Work Graph Node; or
+- one bounded slice of a node when the node is too large.
+
+The Work Contract must state target, allowed paths/surfaces, forbidden paths/surfaces, expected result, evidence required, adapter/human role, and return destination.
+
+## Node closure
+
+When a node closes, a Node Closure summary is required.
+
+The closure summary must include:
+
+- node result;
+- evidence links;
+- acceptance decision or acceptance status;
+- unresolved blockers;
+- effects on Front Exit Criteria;
+- whether Direction Map update is needed;
+- next node/front candidate if any.
+
+Node closure is not implicit from a chat answer, file existence, or Codex commit.
+
+END_OF_FILE: workflow_v3/interfaces/05_WORK_GRAPH_AND_NODE_INTERFACE.md

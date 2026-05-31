@@ -16,6 +16,10 @@ status: template
 
 `persistence_required`:
 
+`direction_lifecycle_transition_candidate`:
+
+`selected_front_or_node_candidate`:
+
 `next_work_graph_node_candidate`:
 
 `active_front_transition_candidate`:
@@ -31,6 +35,8 @@ status: template
 `new_chat_needed`:
 
 `transition_packet_type`:
+
+`closure_signal`:
 
 `transition_packet`:
 

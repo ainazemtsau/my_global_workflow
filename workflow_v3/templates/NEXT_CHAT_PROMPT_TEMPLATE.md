@@ -6,9 +6,13 @@ status: template
 
 `title`:
 
+`chat_role`:
+
 `source_authority`:
 
 `runtime_root`:
+
+`parent_context`:
 
 `target`:
 
@@ -19,6 +23,14 @@ status: template
 `out_of_scope`:
 
 `expected_result`:
+
+`closure_signal_required`:
+
+`required_return_fields`:
+
+`not_allowed_to_decide`:
+
+`parent_recovery_note_if_applicable`:
 
 `event_loop_closure_required`:
 

@@ -32,9 +32,31 @@ The candidate design baseline lives under `workflow/candidates/workflow_runtime_
 
 Repository files under `workflow_v3/**` are future Workflow v3 setup/rule sources only within the limits stated here. They are not proof that any Direction runtime state exists.
 
+## Interface package
+
+`workflow_v3/interfaces/**` is the active Workflow v3 interface layer for this skeleton. It locks the Direction structure, Direction Map, lifecycle Signals/Handlers, Active Front selection, Work Graph/node model, chat handoffs, Event Loop routing, packets, storage, adapter boundaries, Project setup context, quality/recovery gates, and coverage matrix.
+
+Future detailed docs and workstreams must reconcile with the interface layer instead of redefining those contracts independently.
+
 ## File index
 
 - `workflow_v3/README.md` - namespace overview and index.
+- `workflow_v3/interfaces/README.md` - Workflow v3 interface package index.
+- `workflow_v3/interfaces/00_ENTITY_REGISTRY.md` - canonical Workflow v3 entity registry.
+- `workflow_v3/interfaces/01_DIRECTION_STRUCTURE_INTERFACE.md` - Direction structure interface.
+- `workflow_v3/interfaces/02_DIRECTION_MAP_INTERFACE.md` - Direction Map interface.
+- `workflow_v3/interfaces/03_DIRECTION_LIFECYCLE_SIGNAL_INTERFACE.md` - Direction lifecycle Signal/Handler interface.
+- `workflow_v3/interfaces/04_ACTIVE_FRONT_SELECTION_INTERFACE.md` - Active Front selection interface.
+- `workflow_v3/interfaces/05_WORK_GRAPH_AND_NODE_INTERFACE.md` - Work Graph and node interface.
+- `workflow_v3/interfaces/06_CHAT_LIFECYCLE_AND_HANDOFF_INTERFACE.md` - chat lifecycle and handoff interface.
+- `workflow_v3/interfaces/07_EVENT_LOOP_AND_ROUTING_INTERFACE.md` - Event Loop and routing interface.
+- `workflow_v3/interfaces/08_PACKET_AND_TRANSFER_INTERFACE.md` - packet and transfer interface.
+- `workflow_v3/interfaces/09_STORAGE_STATE_INTERFACE.md` - storage and state interface.
+- `workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md` - adapter, Codex, and provider interface.
+- `workflow_v3/interfaces/11_PROJECT_SETUP_CONTEXT_INTERFACE.md` - Project setup/context interface.
+- `workflow_v3/interfaces/12_QUALITY_RECOVERY_INTERFACE.md` - quality and recovery interface.
+- `workflow_v3/interfaces/13_PARALLEL_WORKSTREAM_BRANCH_POLICY.md` - branch/workstream policy interface.
+- `workflow_v3/interfaces/99_COVERAGE_MATRIX.md` - entity/interface coverage matrix.
 - `workflow_v3/ACTIVATION_STATUS.md` - current activation status matrix and allowed next packages.
 - `workflow_v3/RUNTIME_MODEL.md` - compact Workflow v3 runtime model and boundaries.
 - `workflow_v3/SIGNALS_HANDLERS_ACTION_INBOX.md` - operational event loop for Signals, Handlers, Action Inbox/Q, Check Jobs, Progression Router, Transition Packets, and Event Loop Closure.

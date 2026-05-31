@@ -8,7 +8,11 @@ status: template
 
 `question`:
 
+`source_question`:
+
 `why_it_matters`:
+
+`relation`:
 
 `sources_to_check`:
 
@@ -18,9 +22,13 @@ status: template
 
 `expected_finding_format`:
 
+`expected_finding`:
+
 `confidence_and_limitations`:
 
 `return_destination`:
+
+`closure_signal`:
 
 `next_move_if_blocked`:
 
