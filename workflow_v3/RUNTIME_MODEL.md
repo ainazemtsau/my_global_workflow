@@ -62,6 +62,12 @@ Next Move is the exact next instruction after material work or review. It tells 
 
 Next Move is not accepted state.
 
+When material work closes, the next concrete step is selected through Event Loop Closure and `progression_router_handler`.
+
+The progression output remains candidate until accepted or explicitly launched.
+
+If transfer is needed, the router assembles the complete Transition Packet for the selected next step.
+
 ## Adapter boundary
 
 ChatGPT, Codex, Claude Code/future code assistants, Deep Research/research agents, GitHub access, future AI providers, and human actions are adapters or role implementations.

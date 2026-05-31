@@ -42,6 +42,9 @@ Result closure:
 - Emit Signals for notable closure facts; match handler registry; Handler output is candidate only.
 - Signal is not an Action Inbox item; Action Inbox stores candidate actions, not raw signals.
 - Do not run handlers as hidden automation.
+- Use progression_router_handler in EVENT LOOP CLOSURE to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste next-chat prompt.
+- If the selected next step requires transfer, provide a complete Transition Packet.
+- Do not make the user build Codex/check/child/next-chat prompts manually.
 
 Acceptance:
 - Your output is candidate until explicit Acceptance Decision / acceptance-update path accepts it.

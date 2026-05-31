@@ -10,6 +10,8 @@ status: template
 
 `matched_reason`:
 
+`handler_result_type`:
+
 `output_type`:
 
 `candidate_output`:
@@ -28,8 +30,21 @@ status: template
 - `blocked_result`;
 - `repair_next_move`;
 - `candidate_launch_packet`;
+- `primary_next_move`;
+- `secondary_candidate`;
+- `next_chat_prompt`;
+- `transition_packet`;
+- `stop_condition`;
 - `human_decision_request`;
 - `no_action_with_reason`.
+
+## Allowed handler_result_type values
+
+- `primary_next_move`;
+- `secondary_candidate`;
+- `next_chat_prompt`;
+- `transition_packet`;
+- `stop_condition`.
 
 ## Boundary
 

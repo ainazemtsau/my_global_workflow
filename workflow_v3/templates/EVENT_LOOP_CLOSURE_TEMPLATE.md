@@ -6,6 +6,8 @@ status: template
 
 `closure_id`:
 
+`closure_status`:
+
 `material_work_or_review_closed`:
 
 `signals_emitted`:
@@ -23,6 +25,28 @@ status: template
 `persistence_needed`:
 
 `accepted_or_converted_outputs`:
+
+`primary_next_move`:
+
+`secondary_candidates`:
+
+`same_chat_allowed`:
+
+`new_chat_needed`:
+
+`transition_packet_type`:
+
+`transition_packet`:
+
+`returns_to_current_chat`:
+
+`next_material_chat_needed`:
+
+`next_chat_prompt_if_needed`:
+
+`progression_router_result`:
+
+`stop_condition_if_any`:
 
 `limitations`:
 

@@ -28,7 +28,7 @@ Handler is a registry rule/process that reacts to Signal.
 
 Handler output is candidate only.
 
-Handler output may be no action, inline note, Action Inbox candidate, Check Job, blocked result, repair Next Move, candidate Launch Packet, or human decision request.
+Handler output may be no action, inline note, Action Inbox candidate, Check Job, blocked result, repair Next Move, primary Next Move, secondary candidate, candidate Launch Packet, Transition Packet, next-chat prompt, stop condition, or human decision request.
 
 Action Inbox/Q is the candidate action queue.
 
@@ -43,6 +43,108 @@ Event Loop Closure is the required closure phase for material work/review. It su
 No accepted-state mutation from Signal, Handler, or Action Inbox.
 
 Accepted State changes only through the explicit acceptance/update path defined by the runtime model.
+
+## Progression Router
+
+Progression Router is a default handler class that runs during Event Loop Closure after ordinary handler matches are visible.
+
+It consumes closure Signals and Handler Results, then selects one `primary_next_move` and optional `secondary_candidates`.
+
+It may produce a candidate Launch Packet, next-chat prompt, or Transition Packet for the selected next step.
+
+It must not execute work, accept state, launch Codex, launch child chats, mutate files, bypass acceptance, import legacy state, use Action Inbox as a hidden roadmap, or continue product work after a blocking signal.
+
+`progression_router_handler` matches closure Signals and Handler Results for:
+
+- `material_run_closed`;
+- `check_job_closed`;
+- `codex_result_verified`;
+- `acceptance_decision_recorded`;
+- `work_contract_complete`;
+- `active_front_complete`;
+- `blocked_result_returned`.
+
+`progression_router_handler` outputs:
+
+- `primary_next_move`;
+- `optional_secondary_candidates`;
+- `same_chat_allowed`;
+- `new_chat_needed`;
+- candidate Launch Packet, next-chat prompt, or Transition Packet when transfer is needed;
+- `stop` when no safe next move exists.
+
+`progression_router_handler` must not:
+
+- execute the next step;
+- silently launch child chats;
+- bypass acceptance;
+- import legacy state;
+- use Action Inbox as a hidden roadmap;
+- continue product work after a blocking signal.
+
+## Progression priority ladder
+
+Use this priority order when routing a closed material run or review:
+
+1. Blocking source, validation, or recovery issue -> block or Check Job.
+2. Unclear acceptance -> human/parent decision.
+3. Accepted result needs persistence -> Codex package.
+4. Persistence result needs verification -> Codex result verification.
+5. Current Work Contract complete and accepted -> next Work Graph node or close Active Front.
+6. Active Front complete -> propose next Active Front or Direction-level decision.
+7. Off-scope useful candidate -> Action Inbox candidate.
+8. No safe useful next move -> stop.
+
+## Transition Packet
+
+Transition Packet is the complete copy-paste packet assembled by `progression_router_handler` for the selected next step when the step requires transfer to a human, Codex, Check Job, child chat, next material chat, or other external run surface.
+
+The router must produce a complete packet, not merely say "create package". The `copy_paste_packet` must be sufficient for the user to paste into the selected surface without manually building Codex, check, child-chat, or next-chat prompts.
+
+`transition_packet_type` enum:
+
+- `human_decision_request`;
+- `codex_handoff`;
+- `codex_result_verification_request`;
+- `check_job_launch`;
+- `child_chat_launch`;
+- `next_material_chat_launch`;
+- `stop`;
+- `blocked_result`.
+
+Transition Packet fields:
+
+- `transition_packet_type`;
+- `same_chat_allowed`;
+- `external_run_needed`;
+- `external_run_type`;
+- `returns_to_current_chat`;
+- `next_material_chat_needed`;
+- `copy_paste_packet`.
+
+`same_chat_allowed` states whether the selected next move can be completed in the current chat without losing source, scope, or acceptance clarity.
+
+`external_run_needed` states whether the next move requires a separate surface.
+
+`external_run_type` identifies that surface, such as `human`, `codex`, `codex_verification`, `check_job`, `child_chat`, `next_material_chat`, or `none`.
+
+`returns_to_current_chat` states whether the external run result must come back to the current chat for verification, acceptance review, or Event Loop Closure.
+
+`next_material_chat_needed` states whether the next accepted unit of material work needs a new material chat.
+
+Codex handoff returns to the same current chat for verification and closure.
+
+Next material chat starts only after the current material target is accepted, persisted, verified, or explicitly stopped.
+
+## Normal progress routing
+
+Normal progress is not a hard-coded chain.
+
+Direction Spine -> Active Front -> Work Graph -> Work Contract is the runtime model.
+
+The next concrete step is routed by Event Loop Closure and `progression_router_handler`.
+
+Handler output is candidate until accepted or explicitly launched.
 
 ## Minimal emit points
 
@@ -117,6 +219,7 @@ The default registry is the baseline for future per-Direction handler config. Di
 | `child_missing_handler` | `recovery_signal` or `adapter_signal` where Child Chat, Codex, Check Job, or other child result is missing, incomplete, or did not return. | Parent Recovery Block, rerun/narrow candidate, missing-result request, or blocked result. | Synthesize missing evidence, assume child completion, or accept partial child output silently. | Inline, Action Inbox candidate, Check Job, blocked result, repair Next Move, human decision request. |
 | `inbox_hygiene_handler` | `inbox_signal` where Action Inbox/Q has duplicates, stale candidates, vague items, handler flood, or no run condition. | Merge/drop/supersede candidate, hygiene Check Job, or prioritized candidate list. | Store raw untriaged Signals as backlog, auto-run items, or close items without reason. | Inline, Action Inbox candidate, Check Job, repair Next Move, human decision request. |
 | `legacy_import_guard_handler` | `legacy_signal` where old Workflow OS, old Direction files, legacy evidence, import, rollback, or coexistence boundary is touched. | Blocked result, candidate legacy import receipt path, rollback/coexistence warning, or human decision request. | Invent Direction proof state, import/migrate by implication, weaken rollback, or mutate `directions/**`. | Inline, Action Inbox candidate, Check Job, blocked result, repair Next Move, candidate Launch Packet, human decision request. |
+| `progression_router_handler` | Closure Signals and Handler Results for `material_run_closed`, `check_job_closed`, `codex_result_verified`, `acceptance_decision_recorded`, `work_contract_complete`, `active_front_complete`, or `blocked_result_returned`. | One `primary_next_move`, optional `secondary_candidates`, `same_chat_allowed`, `new_chat_needed`, Transition Packet or next-chat prompt if needed, or stop. | Execute the next step, silently launch child chats, bypass acceptance, import legacy state, use Action Inbox as a hidden roadmap, or continue product work after a blocking signal. | Primary next move, secondary candidate, next-chat prompt, Transition Packet, stop condition. |
 
 ## Execution order
 
@@ -127,6 +230,7 @@ Run handler matching in this order when multiple Signals are present:
 3. Scope and legacy guard before product work.
 4. Inbox hygiene after material closure unless it is blocking.
 5. Non-blocking watch items last.
+6. Progression router after candidate outputs and blockers are visible.
 
 No handler may silently launch work.
 
@@ -143,7 +247,8 @@ Default is same-message inline processing:
 3. Match the handler registry.
 4. List candidate outputs.
 5. State whether anything needs persistence.
-6. Provide exact Next Move.
+6. Run `progression_router_handler`.
+7. Provide exact Next Move and a complete Transition Packet when transfer is needed.
 
 New chat is required only for Child Chat, Check Job with separate context, Codex package, long parent review, or human action.
 
@@ -183,6 +288,9 @@ This file does not create any per-Direction runtime state and does not authorize
 - `workflow_v3/templates/HANDLER_RESULT_TEMPLATE.md`;
 - `workflow_v3/templates/ACTION_INBOX_ITEM_TEMPLATE.md`;
 - `workflow_v3/templates/CHECK_JOB_TEMPLATE.md`;
-- `workflow_v3/templates/EVENT_LOOP_CLOSURE_TEMPLATE.md`.
+- `workflow_v3/templates/EVENT_LOOP_CLOSURE_TEMPLATE.md`;
+- `workflow_v3/templates/PROGRESSION_ROUTER_RESULT_TEMPLATE.md`;
+- `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md`;
+- `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md`.
 
 END_OF_FILE: workflow_v3/SIGNALS_HANDLERS_ACTION_INBOX.md

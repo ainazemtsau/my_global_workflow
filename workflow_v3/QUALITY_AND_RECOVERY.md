@@ -83,6 +83,34 @@ Recovery:
 - convert only selected candidate actions into Check Jobs, Launch Packets, repair Next Moves, or human decision requests;
 - use `legacy_import_guard_handler` before touching legacy state.
 
+## Progression Router misuse gate
+
+Checks:
+
+- Event Loop Closure uses `progression_router_handler` after material work or review closes;
+- one `primary_next_move` is selected before any optional secondary candidates;
+- transfer steps include a complete Transition Packet or next-chat prompt;
+- Codex handoff returns to the same current chat for verification and closure;
+- next material chat waits until the current material target is accepted, persisted, verified, or explicitly stopped;
+- Action Inbox remains candidate storage, not a roadmap.
+
+Fails when:
+
+- next step is guessed without closure;
+- multiple next steps are launched silently;
+- Action Inbox becomes roadmap;
+- acceptance or persistence is skipped;
+- a transfer step only says to create a package instead of providing the complete packet;
+- product work continues after a blocking signal.
+
+Recovery:
+
+- stop the unsafe continuation;
+- rerun EVENT LOOP CLOSURE with `progression_router_handler`;
+- choose one `primary_next_move`;
+- provide a complete Transition Packet when transfer is needed;
+- return for human/parent acceptance when acceptance is unclear.
+
 ## Codex validation gate
 
 Checks:
