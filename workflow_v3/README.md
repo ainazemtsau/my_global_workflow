@@ -104,6 +104,7 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for ordinary Direction Projects.
 - `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for the Governance Maintenance Console.
 - `workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md` - template for future Project Files/Sources manifests.
+- `workflow_v3/project_setup/rollouts/GOVERNANCE_MAINTENANCE_PROJECT_ROLLOUT_PACKET.md` - manual rollout packet for Workflow v3 Governance Maintenance Console Project Instructions UI.
 - `workflow_v3/project_setup/GENERIC_AI_PROVIDER_SETUP.md` - setup contract for ChatGPT, Codex, Claude Code/future assistants, research agents, GitHub access, human actions, and future providers.
 - `workflow_v3/project_packs/README.md` - future pack source model.
 - `workflow_v3/templates/README.md` - Workflow v3 template package index for operational records, runtime state, front/graph/node records, evidence/acceptance records, memory, and recovery.
