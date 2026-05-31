@@ -42,6 +42,8 @@ Repository files under `workflow_v3/**` are future Workflow v3 setup/rule source
 - `workflow_v3/PROJECT_SETUP_MODEL.md` - future ChatGPT Project setup model and refresh categories.
 - `workflow_v3/LEGACY_EVIDENCE_POLICY.md` - legacy/rollback and old Direction evidence policy.
 - `workflow_v3/QUALITY_AND_RECOVERY.md` - quality gates and recovery outcomes.
+- `workflow_v3/interfaces/README.md` - Workflow v3 interface layer index.
+- `workflow_v3/interfaces/**` - cross-surface contracts for source/context, runtime state, work/run/acceptance, event loop/routing, packets/transfer, storage/adoption/legacy, adapters/Codex/providers, Project setup/packs, quality/recovery, and parallel workstream branch policy.
 - `workflow_v3/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md` - future Project creation guide and naming rules.
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for ordinary Direction Projects.
 - `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for the Governance Maintenance Console.

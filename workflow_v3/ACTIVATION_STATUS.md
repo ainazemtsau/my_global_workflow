@@ -19,6 +19,7 @@ Activated means only this:
 
 - the repository now has the initial `workflow_v3/**` documentation/setup skeleton;
 - the skeleton defines Workflow v3 production namespace boundaries for later packages;
+- the interface layer under `workflow_v3/interfaces/**` is repository documentation/setup authority for future Workflow v3 interface contracts only;
 - the skeleton may be cited as the starting source for future Workflow v3 setup work.
 
 Activation at this slice does not mean a live runtime exists. It does not create accepted Direction state, accepted v3 state, migration authority, Project setup authority, or decommission authority.
