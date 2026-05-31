@@ -72,7 +72,21 @@ Raw chat notes or run output do not become Memory Artifacts without promotion.
 
 ## operations
 
-`operations/` stores operational support surfaces such as Signals, Action Inbox, closed actions, and recovery records.
+`operations/` stores operational support surfaces such as Signals, Action Inbox/Q, closed actions, Check Jobs, Event Loop Closure records, and recovery records.
+
+Persisted signal history for an adopted Direction belongs under:
+
+```text
+directions_v3/<direction-id>/runtime/operations/signals/
+```
+
+Direction Action Inbox/Q belongs under:
+
+```text
+directions_v3/<direction-id>/runtime/operations/action_inbox/
+```
+
+Action Inbox stores candidate actions, not raw signals.
 
 Signals and Action Inbox items are candidates only and do not mutate accepted state.
 
@@ -91,6 +105,12 @@ Indexes support read-back and navigation. They are not an alternate acceptance p
 ## config
 
 `config/` stores adopted Direction-specific configuration such as customization profile, handlers, adapter context access, and quality gates.
+
+The Direction handler registry belongs at:
+
+```text
+directions_v3/<direction-id>/runtime/config/HANDLERS.md
+```
 
 Direction-specific config must preserve the core Workflow v3 acceptance and adapter boundaries.
 

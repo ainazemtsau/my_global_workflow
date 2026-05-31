@@ -55,6 +55,10 @@ Runtime Console:
 
 Closure:
 - End maintenance work with a Result Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
+- End material runs/reviews with Result Packet plus EVENT LOOP CLOSURE.
+- Emit Signals for notable closure facts; match handler registry; Handler output is candidate only.
+- Signal is not an Action Inbox item; Action Inbox stores candidate actions, not raw signals.
+- Do not run handlers as hidden automation.
 END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 END_OF_FILE: workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md

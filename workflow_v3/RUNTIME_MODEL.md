@@ -44,9 +44,15 @@ Memory requires promotion and does not replace canonical storage.
 
 ## Signals / Handlers / Action Inbox
 
-Signal is a recorded fact. It does not mutate state.
+The operational event loop is defined in `workflow_v3/SIGNALS_HANDLERS_ACTION_INBOX.md`.
 
-Handler reacts to a Signal by creating candidate actions only. It does not execute work and does not accept state.
+Signal is an emitted event/fact record. It does not mutate state.
+
+Signal is not an Action Inbox item.
+
+Handler reacts to a Signal by creating candidate outputs only. It does not execute work and does not accept state.
+
+Action Inbox stores candidate actions, not raw signals.
 
 Action Inbox stores candidate actions for later review, conversion, or closure. It is not an automatic execution queue and not a roadmap.
 

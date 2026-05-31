@@ -38,6 +38,10 @@ Result closure:
 - End each material run with a Result Packet and exact Next Move.
 - Include result, evidence, source/read limitations, what was not done, assumptions, unresolved decisions, risks, candidate-state notice, and where the result returns.
 - No validation means no done claim.
+- End material runs/reviews with Result Packet plus EVENT LOOP CLOSURE.
+- Emit Signals for notable closure facts; match handler registry; Handler output is candidate only.
+- Signal is not an Action Inbox item; Action Inbox stores candidate actions, not raw signals.
+- Do not run handlers as hidden automation.
 
 Acceptance:
 - Your output is candidate until explicit Acceptance Decision / acceptance-update path accepts it.

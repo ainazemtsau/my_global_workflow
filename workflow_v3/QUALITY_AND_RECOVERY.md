@@ -55,6 +55,34 @@ Checks:
 
 Fails when acceptance is inferred or hidden.
 
+## Signal/Handler misuse gate
+
+Checks:
+
+- Signal remains an emitted event/fact record;
+- Signal is not an Action Inbox item;
+- Handler remains a registry rule/process that creates candidate output only;
+- Action Inbox stores candidate actions, not raw signals;
+- Check Job remains bounded verification;
+- Event Loop Closure appears after material work/review;
+- legacy import signal is handled by `legacy_import_guard_handler`;
+- no accepted-state mutation from Signal, Handler, or Action Inbox.
+
+Fails when:
+
+- Signal treated as accepted state;
+- Handler executes work;
+- Action Inbox stores raw untriaged signals as backlog;
+- event loop closure omitted after material work;
+- legacy import signal ignored.
+
+Recovery:
+
+- block or reject the unsafe result;
+- rerun same-scope closure with EVENT LOOP CLOSURE;
+- convert only selected candidate actions into Check Jobs, Launch Packets, repair Next Moves, or human decision requests;
+- use `legacy_import_guard_handler` before touching legacy state.
+
 ## Codex validation gate
 
 Checks:

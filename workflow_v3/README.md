@@ -37,6 +37,7 @@ Repository files under `workflow_v3/**` are future Workflow v3 setup/rule source
 - `workflow_v3/README.md` - namespace overview and index.
 - `workflow_v3/ACTIVATION_STATUS.md` - current activation status matrix and allowed next packages.
 - `workflow_v3/RUNTIME_MODEL.md` - compact Workflow v3 runtime model and boundaries.
+- `workflow_v3/SIGNALS_HANDLERS_ACTION_INBOX.md` - operational event loop for Signals, Handlers, Action Inbox/Q, Check Jobs, and Event Loop Closure.
 - `workflow_v3/STORAGE_LAYOUT.md` - production rules/setup namespace and future Direction runtime state root.
 - `workflow_v3/PROJECT_SETUP_MODEL.md` - future ChatGPT Project setup model and refresh categories.
 - `workflow_v3/LEGACY_EVIDENCE_POLICY.md` - legacy/rollback and old Direction evidence policy.
@@ -47,5 +48,10 @@ Repository files under `workflow_v3/**` are future Workflow v3 setup/rule source
 - `workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md` - template for future Project Files/Sources manifests.
 - `workflow_v3/project_setup/GENERIC_AI_PROVIDER_SETUP.md` - setup contract for ChatGPT, Codex, Claude Code/future assistants, research agents, GitHub access, human actions, and future providers.
 - `workflow_v3/project_packs/README.md` - future pack source model.
+- `workflow_v3/templates/SIGNAL_RECORD_TEMPLATE.md` - Signal record template.
+- `workflow_v3/templates/HANDLER_RESULT_TEMPLATE.md` - Handler result template.
+- `workflow_v3/templates/ACTION_INBOX_ITEM_TEMPLATE.md` - Action Inbox/Q item template.
+- `workflow_v3/templates/CHECK_JOB_TEMPLATE.md` - Check Job template.
+- `workflow_v3/templates/EVENT_LOOP_CLOSURE_TEMPLATE.md` - Event Loop Closure template.
 
 END_OF_FILE: workflow_v3/README.md
