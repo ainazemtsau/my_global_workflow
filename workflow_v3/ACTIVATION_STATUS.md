@@ -11,7 +11,7 @@ status: active_skeleton_namespace_corrected
 | workflow_v3_repository_completion_framework | active_repository_documentation_setup_only |
 | direction_adoption | none |
 | legacy_state_import | none |
-| chatgpt_project_ui_update | none |
+| chatgpt_project_ui_update | governance_maintenance_project_completed_manual_external_recorded; ordinary_direction_projects_none |
 | project_files_sources_refresh | none |
 | request_only_sources_refresh | none |
 | generated_project_pack_upload | none |
@@ -29,6 +29,14 @@ Activated means only this:
 
 Activation at this slice does not mean a live runtime exists. It does not create accepted Direction state, accepted v3 state, migration authority, Project setup authority, Project UI update authority, Project Files/Sources refresh authority, request-only source refresh authority, legacy import authority, or decommission authority.
 
+## Recorded external Project UI evidence
+
+- The Governance Maintenance Console Project Instructions UI was manually updated from the rollout packet and behavior-verified.
+- This repository records the evidence only; the repository commit did not perform the external UI update.
+- No Project Files/Sources were refreshed.
+- No request-only sources were refreshed.
+- No Direction adoption or runtime root was created.
+
 ## What remains not activated
 
 Not activated in this slice:
@@ -37,7 +45,7 @@ Not activated in this slice:
 - any `directions_v3/<direction-id>/runtime/**` state root;
 - any old Direction state import;
 - any bridge from old Direction files into accepted v3 state;
-- any actual ChatGPT Project Instructions UI update;
+- any ordinary Direction Project Instructions UI update;
 - any current Project Files/Sources refresh;
 - any request-only source refresh;
 - any generated Project Pack;
@@ -63,7 +71,7 @@ Forbidden as an implicit follow-up to this slice:
 - adopting a Direction automatically;
 - importing old Direction state automatically;
 - treating old Ledger, Obligations, Receipts, or project files as accepted_v3_state;
-- updating actual ChatGPT Projects from these files;
+- updating additional actual ChatGPT Projects from these files;
 - refreshing current Project Files/Sources from these files;
 - uploading these files as current Project Files/Sources without a later explicit rollout/adoption package;
 - deleting, renaming, moving, replacing, or decommissioning old Workflow OS files;
