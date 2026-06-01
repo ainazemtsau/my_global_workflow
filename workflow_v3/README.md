@@ -80,6 +80,7 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/adoption/ADOPTION_RESULT_PACKET_TEMPLATE.md` - adoption result packet template.
 - `workflow_v3/runbooks/README.md` - runtime operation runbook index.
 - `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md` - Direction bootstrap operating path.
+- `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md` - first ordinary Direction Project root bootstrap runbook.
 - `workflow_v3/runbooks/DIRECTION_SPINE_CHAT_RUNBOOK.md` - bounded Direction Spine chat runbook.
 - `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md` - bounded Direction Map chat runbook.
 - `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md` - Active Front selection runbook.
@@ -93,6 +94,7 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/evals/README.md` - validation eval index.
 - `workflow_v3/evals/WORKFLOW_V3_COMPLETION_VALIDATION_CHECKLIST.md` - completion validation checklist.
 - `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md` - Direction runtime bootstrap eval.
+- `workflow_v3/evals/DIRECTION_PROJECT_SETUP_EVAL.md` - ordinary Direction Project setup behavior eval.
 - `workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md` - Direction Map, Active Front, and Work Graph eval.
 - `workflow_v3/evals/SIGNAL_HANDLER_LIFECYCLE_EVAL.md` - Signal/Handler lifecycle eval.
 - `workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md` - chat lifecycle/handoff eval.
@@ -101,7 +103,12 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/evals/LEGACY_EVIDENCE_BOUNDARY_EVAL.md` - legacy evidence boundary eval.
 - `workflow_v3/evals/NO_HIDDEN_STATE_OR_ROUTE_EVAL.md` - no hidden state or route eval.
 - `workflow_v3/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md` - future Project creation guide and naming rules.
+- `workflow_v3/project_setup/README.md` - Workflow v3 Project setup index.
+- `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md` - installer for a future ordinary Direction ChatGPT Project.
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for ordinary Direction Projects.
+- `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md` - ordinary Direction Project Files/Sources manifest template.
+- `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md` - first-chat root bootstrap launch packet template.
+- `workflow_v3/project_setup/DIRECTION_PROJECT_SETUP_VALIDATION_CHECKLIST.md` - manual ordinary Direction Project setup validation checklist.
 - `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for the Governance Maintenance Console.
 - `workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md` - template for future Project Files/Sources manifests.
 - `workflow_v3/project_setup/rollouts/GOVERNANCE_MAINTENANCE_PROJECT_ROLLOUT_PACKET.md` - manual rollout packet for Workflow v3 Governance Maintenance Console Project Instructions UI.

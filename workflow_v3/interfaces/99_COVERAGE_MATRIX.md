@@ -56,13 +56,13 @@ This matrix proves that every major entity in `00_ENTITY_REGISTRY.md` has interf
 The matrix rows above are preserved and are now supported by these repository completion files:
 
 - Completion matrix and audit: `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md`, `workflow_v3/completion/WORKFLOW_V3_REPOSITORY_COMPLETION_AUDIT.md`.
-- Direction and runtime root adoption: `workflow_v3/adoption/README.md`, `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md`.
+- Direction and runtime root adoption: `workflow_v3/adoption/README.md`, `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md`, `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md`.
 - Direction Spine and Direction Map: `workflow_v3/runbooks/DIRECTION_SPINE_CHAT_RUNBOOK.md`, `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md`.
 - Active Front, Work Graph, and Work Contract: `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md`, `workflow_v3/runbooks/WORK_GRAPH_OPENING_RUNBOOK.md`, `workflow_v3/runbooks/WORK_CONTRACT_RUNBOOK.md`.
 - Signal, Handler, Action Inbox, Check Job, Event Loop Closure, and Progression Router: `workflow_v3/runbooks/EVENT_LOOP_CLOSURE_RUNBOOK.md`, `workflow_v3/evals/SIGNAL_HANDLER_LIFECYCLE_EVAL.md`, `workflow_v3/evals/NO_HIDDEN_STATE_OR_ROUTE_EVAL.md`.
 - Chat lifecycle, packets, and parent recovery: `workflow_v3/runbooks/PARENT_CHILD_CHAT_RUNBOOK.md`, `workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md`.
 - Codex and adapters: `workflow_v3/runbooks/CODEX_HANDOFF_VERIFICATION_RUNBOOK.md`, `workflow_v3/evals/CODEX_HANDOFF_RESULT_EVAL.md`.
-- Project setup and context: `workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md`, `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md`.
+- Project setup and context: `workflow_v3/project_setup/README.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md`, `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md`, `workflow_v3/project_setup/DIRECTION_PROJECT_SETUP_VALIDATION_CHECKLIST.md`, `workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md`, `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md`, `workflow_v3/evals/DIRECTION_PROJECT_SETUP_EVAL.md`.
 - Legacy evidence and rollback/coexistence: `workflow_v3/adoption/LEGACY_EVIDENCE_REVIEW_TEMPLATE.md`, `workflow_v3/evals/LEGACY_EVIDENCE_BOUNDARY_EVAL.md`.
 
 END_OF_FILE: workflow_v3/interfaces/99_COVERAGE_MATRIX.md
