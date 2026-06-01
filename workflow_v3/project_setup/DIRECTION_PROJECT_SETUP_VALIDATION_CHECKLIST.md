@@ -32,6 +32,12 @@ The checklist verifies setup behavior only. It does not approve Direction adopti
 [ ] First chat returned bounded root bootstrap status.
 [ ] First chat returned Event Loop Closure.
 [ ] First chat returned exact next move.
+[ ] Binding source is generated for the concrete Direction package when applicable.
+[ ] Per-Direction Project Instructions source is generated when applicable.
+[ ] Manual Project Instructions UI update requirement is reported.
+[ ] Next chat can resolve Direction without prior chat memory.
+[ ] Project title is not treated as binding authority.
+[ ] Status request test is included.
 [ ] Refresh categories are separated.
 [ ] No actual Project Files/Sources refresh is implied by repository docs alone.
 [ ] No actual Project UI update is implied by repository commit alone.
@@ -49,6 +55,10 @@ request_only_sources_decision:
 do_not_upload_as_project_file:
 first_chat_launch_packet_used:
 first_chat_result:
+binding_source_check:
+per_direction_project_instructions_source_check:
+manual_project_instruction_ui_update_required:
+status_request_test_result:
 validation_result:
 unresolved_questions:
 residual_risks:

@@ -44,8 +44,10 @@ directions_v3/<direction-id>/runtime/**
 6. Ask whether old `directions/**` files are read-only `legacy_evidence` or not used.
 7. Do not treat old `workflow/**` or `directions/**` as v3 target state.
 8. Produce a clean-start adoption/root package only after the user confirms that this is the desired next step.
-9. Do not create actual runtime root files until a bounded Codex package is accepted and merged.
-10. Return a bounded root bootstrap status, missing inputs or candidate package, and exact next move.
+9. If the user confirms a clean-start root package, require the package to include runtime binding config and per-Direction Project setup source generation.
+10. Do not create actual runtime root files until a bounded Codex package is accepted and merged.
+11. Treat root bootstrap as incomplete for later chats until binding capsule/manual UI update is planned or completed.
+12. Return a bounded root bootstrap status, missing inputs or candidate package, binding installation next move, and exact next move.
 
 ## Closure
 
@@ -60,6 +62,7 @@ primary_next_move:
 return_destination:
 blocked_reason_if_any:
 project_refresh_requirements:
+binding_installation_next_move:
 ```
 
 `primary_next_move` must be exactly one of:
@@ -67,6 +70,7 @@ project_refresh_requirements:
 - request missing Direction identity or adoption decision;
 - request explicit user confirmation for a clean-start adoption/root package;
 - prepare a bounded Codex package for accepted runtime root creation;
+- prepare or apply post-bootstrap Project Binding and per-Direction Project Instructions source;
 - perform acceptance review of a returned package;
 - stop.
 

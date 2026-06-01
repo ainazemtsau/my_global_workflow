@@ -34,6 +34,7 @@ project_instruction_ui_payload_char_count:
 ## Default upload recommendation for v3
 
 - Do not upload `workflow_v3/**` source docs by default unless a later explicit rollout says otherwise.
+- Do not upload `workflow_v3/**` source docs by default as Project Files/Sources for ordinary Direction Projects.
 - Do not use old `workflow/**` as v3 authority.
 - Do not use old `directions/**` as accepted v3 state.
 - Do not upload old Direction files as default Project Files/Sources.
@@ -52,6 +53,14 @@ default_project_files_sources:
 For a newly created ordinary Direction Project before runtime root creation, the default recommendation is no default uploaded `workflow_v3/**` source docs.
 
 Future Direction runtime payload files may be considered only after explicit runtime root creation under `directions_v3/<direction-id>/runtime/**`.
+
+After concrete runtime root creation, an optional small binding Project File cache may be used:
+
+```text
+directions_v3/<direction-id>/runtime/config/DIRECTION_PROJECT_BINDING.md
+```
+
+If used, it is cache/context only and cannot override exact runtime binding source.
 
 ## Request-only sources
 

@@ -20,11 +20,20 @@ Project Instructions UI is a compact behavior bootstrap. It should state:
 
 Project Instructions UI is not long documentation, not accepted Direction state, and not default Project Files/Sources.
 
+Ordinary Direction Projects have two setup phases:
+
+- pre-binding universal setup from `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`;
+- post-binding per-Direction setup from `directions_v3/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` after an accepted runtime root package creates canonical binding.
+
+After the per-Direction Project Instructions source is generated or changed, a manual Project Instructions UI update is required. Repository commit alone does not perform that update.
+
 ## Project Files/Sources role
 
 Project Files/Sources are cache/context only. They may help orientation and repeated context access, but they do not prove latest repository state, acceptance, successful implementation, runtime activation, or Direction adoption.
 
 If Project Files/Sources conflict with exact repository files at a known ref/path, the exact repository read wins.
+
+Project Files/Sources refresh remains separate from Project Instructions UI updates. Optional binding file cache refresh is allowed only after concrete runtime binding exists and remains cache/context only.
 
 ## Request-only sources
 

@@ -34,6 +34,8 @@ Repository commits do not update actual ChatGPT Projects.
 - `ACTIVE_FRONT_TEMPLATE.md`
 - `CURRENT_STATUS_TEMPLATE.md`
 - `CURRENT_NEXT_MOVE_TEMPLATE.md`
+- `DIRECTION_PROJECT_BINDING_TEMPLATE.md`
+- `DIRECTION_CONSOLE_TEMPLATE.md`
 
 ## Front/graph/node templates
 

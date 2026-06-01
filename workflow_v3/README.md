@@ -108,6 +108,9 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for ordinary Direction Projects.
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md` - ordinary Direction Project Files/Sources manifest template.
 - `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md` - first-chat root bootstrap launch packet template.
+- `workflow_v3/project_setup/DIRECTION_PROJECT_BINDING_AND_CONTINUATION_PROTOCOL.md` - ordinary Direction Project binding and later-chat continuation protocol.
+- `workflow_v3/project_setup/PER_DIRECTION_PROJECT_INSTRUCTIONS_SOURCE_TEMPLATE.md` - future per-Direction Project Instructions source template.
+- `workflow_v3/project_setup/PER_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md` - future per-Direction Project Files/Sources manifest template.
 - `workflow_v3/project_setup/DIRECTION_PROJECT_SETUP_VALIDATION_CHECKLIST.md` - manual ordinary Direction Project setup validation checklist.
 - `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for the Governance Maintenance Console.
 - `workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md` - template for future Project Files/Sources manifests.
@@ -124,5 +127,9 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/templates/PROGRESSION_ROUTER_RESULT_TEMPLATE.md` - Progression Router result template.
 - `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md` - Transition Packet template.
 - `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md` - Next chat prompt template.
+- `workflow_v3/templates/DIRECTION_PROJECT_BINDING_TEMPLATE.md` - future runtime Project Binding config template.
+- `workflow_v3/templates/DIRECTION_CONSOLE_TEMPLATE.md` - future read-only Direction Console template.
+- `workflow_v3/runbooks/DIRECTION_PROJECT_CONTINUATION_RUNBOOK.md` - later-chat binding/status/continuation runbook for ordinary Direction Projects.
+- `workflow_v3/evals/DIRECTION_PROJECT_CONTINUATION_EVAL.md` - later-chat binding/status/continuation eval.
 
 END_OF_FILE: workflow_v3/README.md

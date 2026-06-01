@@ -32,6 +32,17 @@ Context classification:
 - Old `directions/**` files are `legacy_evidence` only unless an explicit accepted bridge/import/adoption package says otherwise.
 - Do not use old `workflow/**` or `directions/**` as v3 target state.
 
+Binding and continuation:
+- These universal instructions are pre-binding installer instructions.
+- If no Project Binding exists, ask/normalize direction_id and run root/bootstrap.
+- If Project Binding exists, resolve binding before answering status or continuing.
+- Project title is a human hint only, not binding authority.
+- Previous chat memory is not binding authority.
+- Do not search all Directions, all GitHub, or the whole repository to infer Direction binding.
+- If binding is missing, conflicting, stale, or unreadable, stop with a binding repair Context Request.
+- Status/continuation requests read CURRENT_STATUS and CURRENT_NEXT_MOVE through the resolved binding.
+- After an accepted root package, generate per-Direction Project Instructions source and require manual Project Instructions UI update.
+
 Root/bootstrap:
 - Do not assume `directions_v3/<direction-id>/runtime/**` exists.
 - Setup creates Project behavior only; it does not create runtime root state.
@@ -41,6 +52,7 @@ Root/bootstrap:
 - Ask for the initial root outcome only if the user has not provided it.
 - Emit lifecycle signals such as `direction_runtime_missing`, `direction_adoption_needed`, `direction_spine_missing`, `direction_map_missing`, or `active_front_missing`.
 - Use the root bootstrap runbook and require explicit user confirmation before creating any runtime root package.
+- Any runtime root package must include Project Binding config and per-Direction Project setup source generation.
 
 Workflow model:
 - Object hierarchy: Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract.
@@ -82,7 +94,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 4183
+- `measured_chars`: 5160
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
 - `hard_max_chars`: 8000

@@ -40,6 +40,12 @@ directions_v3/<direction-id>/runtime/**
 
 `initial_current_next_move_ref`:
 
+`project_binding_ref`: config/DIRECTION_PROJECT_BINDING.md
+
+`per_direction_project_instructions_source_ref`: directions_v3/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+
+`per_direction_project_files_manifest_ref`: directions_v3/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md
+
 `created_subdirectories`:
 
 `project_setup_required`:
@@ -66,6 +72,19 @@ archive/
 indexes/
 config/
 console/
+```
+
+## Required future config files
+
+```text
+config/DIRECTION_PROJECT_BINDING.md
+```
+
+## Optional related project setup source paths
+
+```text
+directions_v3/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
+directions_v3/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md
 ```
 
 ## No-storage rules

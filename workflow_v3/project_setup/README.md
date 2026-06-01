@@ -36,6 +36,9 @@ Repository setup files define behavior surfaces, manifests, launch packets, and 
 - `UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md` - compact Project Instructions UI payload source for ordinary Direction Projects.
 - `UNIVERSAL_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md` - template for future ordinary Direction Project Files/Sources decisions.
 - `DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md` - first-chat launch packet template for a newly created ordinary Direction Project.
+- `DIRECTION_PROJECT_BINDING_AND_CONTINUATION_PROTOCOL.md` - binding and later-chat continuation protocol for ordinary Direction Projects.
+- `PER_DIRECTION_PROJECT_INSTRUCTIONS_SOURCE_TEMPLATE.md` - template for future bound per-Direction Project Instructions source.
+- `PER_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md` - template for future bound per-Direction Project Files/Sources manifest.
 - `DIRECTION_PROJECT_SETUP_VALIDATION_CHECKLIST.md` - manual validation checklist for ordinary Direction Project creation.
 - `PROJECT_FILES_MANIFEST_TEMPLATE.md` - general Workflow v3 Project Files/Sources manifest template.
 - `GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` - compact Project Instructions UI payload source for the Governance Maintenance Console.

@@ -43,6 +43,10 @@ Forbidden:
 Expected first result:
 - Bounded root bootstrap status.
 - Missing inputs or candidate root bootstrap package.
+- Candidate Project Binding plan.
+- If a runtime root package is prepared, require runtime config binding and per-Direction Project setup sources.
+- Manual Project Instructions UI update requirement after merge.
+- Post-bootstrap continuation packet.
 - Lifecycle signal such as `direction_runtime_missing` or `direction_adoption_needed`.
 - Event Loop Closure.
 - Exact next move.

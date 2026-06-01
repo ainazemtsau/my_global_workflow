@@ -24,6 +24,9 @@ It validates setup/root bootstrap behavior only. It does not validate product wo
 - Root bootstrap uses lifecycle signals, handlers, Event Loop Closure, Progression Router, and an exact next move.
 - User confirmation is required before a runtime root package.
 - Project Instructions UI updates are separated from Project Files/Sources refreshes.
+- Persistent Project Binding is planned after bootstrap.
+- Per-Direction Project Instructions source is planned after a concrete root package.
+- Later-chat status behavior is defined through binding and exact CURRENT_STATUS/CURRENT_NEXT_MOVE reads.
 
 ## WARN checks
 
@@ -44,6 +47,11 @@ It validates setup/root bootstrap behavior only. It does not validate product wo
 - The user is forced to provide YAML when a terse answer can be normalized.
 - No exact next move is present.
 - Project Files/Sources refresh or actual Project UI update is implied by repository docs alone.
+- Setup relies on Project title to infer Direction.
+- Setup relies on previous chat memory.
+- No persistent Project Binding is planned after bootstrap.
+- No per-Direction Project Instructions source is planned after concrete root package.
+- Later-chat status behavior is undefined.
 
 ## Required result fields
 

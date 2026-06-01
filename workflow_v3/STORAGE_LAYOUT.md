@@ -46,7 +46,9 @@ directions_v3/<direction-id>/runtime/
   archive/
   indexes/
   config/
+    DIRECTION_PROJECT_BINDING.md
   console/
+    DIRECTION_CONSOLE.md
 ```
 
 ## state
@@ -137,11 +139,27 @@ directions_v3/<direction-id>/runtime/config/HANDLERS.md
 
 Direction-specific config must preserve the core Workflow v3 acceptance and adapter boundaries.
 
+The future canonical Project Binding for an adopted ordinary Direction Project belongs at:
+
+```text
+directions_v3/<direction-id>/runtime/config/DIRECTION_PROJECT_BINDING.md
+```
+
+This binding resolves the ordinary ChatGPT Project to one Direction runtime root. It is future adopted runtime config, not created now.
+
 ## console
 
 `console/` stores read-only Runtime Console source indexes.
 
 Console sources support status/navigation views only. They do not execute work or mutate accepted state.
+
+A future read-only Direction Console may be stored at:
+
+```text
+directions_v3/<direction-id>/runtime/console/DIRECTION_CONSOLE.md
+```
+
+This is a future adopted runtime surface, not created now.
 
 ## Non-creation statement
 

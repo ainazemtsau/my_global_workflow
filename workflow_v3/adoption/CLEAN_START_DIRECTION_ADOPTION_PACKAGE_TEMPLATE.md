@@ -59,6 +59,10 @@ Do not create that path from this template alone.
 - accepted initial Direction Map or explicit blocked reason;
 - accepted initial Active Front or explicit blocked reason;
 - runtime root creation plan or explicit no-creation decision;
+- project_binding_artifacts_required;
+- per_direction_project_setup_sources_required;
+- manual_project_instruction_ui_update_required;
+- continuation_protocol_ready;
 - Project setup impact classification;
 - separated refresh requirements;
 - rollback/coexistence notes;
