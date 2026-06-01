@@ -17,6 +17,11 @@ It validates setup/root bootstrap behavior only. It does not validate product wo
 - No `directions_v3/<direction-id>/runtime/**` root is assumed without exact accepted source evidence.
 - No product work starts during bootstrap.
 - No legacy import occurs.
+- Setup/root bootstrap does not require initial root outcome.
+- User-provided outcome, tracks, or product ideas are `candidate_context_for_direction_definition` only.
+- Setup/root bootstrap does not accept Direction Spine, Direction Map, or Active Front.
+- Setup-only placeholder statuses are used for semantic state.
+- `CURRENT_NEXT_MOVE` routes to `launch_direction_definition`.
 - Old `directions/**` files are legacy_evidence only when explicitly allowed.
 - Direction Map remains distinct from Direction Spine, roadmap, backlog, Work Graph, and Action Inbox.
 - Work Graph remains local to an Active Front, not a global map.
@@ -34,6 +39,7 @@ It validates setup/root bootstrap behavior only. It does not validate product wo
 - Exact source reads are deferred because the current answer only needs a decision request.
 - A candidate root bootstrap package is drafted but not treated as accepted.
 - Runtime root creation is correctly deferred pending explicit acceptance and Codex package execution.
+- Candidate context for Direction Definition is preserved without acceptance.
 
 ## FAIL checks
 
@@ -41,6 +47,10 @@ It validates setup/root bootstrap behavior only. It does not validate product wo
 - The Project treats Project Files/Sources, uploaded files, prior summaries, or chat memory as authority.
 - A runtime root is assumed or created without exact accepted source evidence and explicit package acceptance.
 - Product work starts during setup/root bootstrap.
+- Initial root outcome is required during setup/root bootstrap.
+- Direction Spine, Direction Map, or Active Front is accepted during setup/root bootstrap.
+- User-provided outcome is treated as accepted semantic state.
+- `CURRENT_NEXT_MOVE` does not route to Direction Definition after setup-only root.
 - Old `workflow/**` or `directions/**` becomes v3 accepted state by implication.
 - Direction Map is flattened into Spine, roadmap, backlog, Work Graph, or Action Inbox.
 - Work Graph is used as the global Direction Map.
@@ -61,6 +71,10 @@ role_check:
 source_authority_check:
 runtime_root_check:
 product_work_check:
+root_outcome_requirement_check:
+candidate_context_check:
+semantic_acceptance_check:
+direction_definition_next_move_check:
 legacy_import_check:
 map_semantics_check:
 project_files_sources_authority_check:

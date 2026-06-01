@@ -26,6 +26,8 @@ Memory Candidate is not Memory Artifact and not accepted state.
 
 It requires explicit review and promotion before becoming a Memory Artifact.
 
+Promotion uses `workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md` and `workflow_v3/evals/MEMORY_ARTIFACT_PROMOTION_EVAL.md`.
+
 It does not replace canonical Direction state or accepted records.
 
 END_OF_FILE: workflow_v3/templates/MEMORY_CANDIDATE_TEMPLATE.md

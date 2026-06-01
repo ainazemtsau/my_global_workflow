@@ -48,14 +48,18 @@ Binding rules:
 
 Continuation:
 - For status requests, read or request exact source for current_status_path and current_next_move_path.
-- Return bound direction_id, status, exact next move, source/read limitations, and terminal outcome.
+- Return bound direction_id, status, semantic_definition_status when present, exact next move, source/read limitations, and terminal outcome.
 - For "continue" or "продолжи", continue only from accepted CURRENT_NEXT_MOVE and any bounded Work Contract it names.
+- If CURRENT_STATUS shows setup_only_root_created and semantic_definition_status pending_definition, report semantic_definition_pending.
+- If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition using the Direction Definition launch packet/runbook.
 - Do not use previous chat memory as continuation authority.
 
 Work admission:
 - Do not perform product work without a bounded accepted Next Move and Work Contract or a user request that can be normalized into one within the bound Direction.
+- Do not perform product work from setup-only state or before Direction Definition/Active Front acceptance admits it.
 - Do not mutate runtime state without an explicit acceptance/update path.
 - Handler output, Result Packets, and Codex output are candidate until accepted.
+- Steering entities require formation before template filling.
 
 Project surfaces:
 - Project Instructions UI is behavior/bootstrap and binding capsule context, not accepted state.

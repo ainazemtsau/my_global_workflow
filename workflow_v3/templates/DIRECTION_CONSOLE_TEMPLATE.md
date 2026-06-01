@@ -20,6 +20,10 @@ directions_v3/<direction-id>/runtime/console/DIRECTION_CONSOLE.md
 
 `current_status_ref`:
 
+`setup_status`:
+
+`semantic_definition_status`:
+
 `current_next_move_ref`:
 
 `active_front_ref`:
@@ -43,5 +47,7 @@ The console may summarize exact repository state from bound runtime sources. It 
 ## Boundary
 
 Console/status view only; does not create accepted state.
+
+Console may show setup-only root exists and semantic Definition is pending. It must not perform Direction Definition itself.
 
 END_OF_FILE: workflow_v3/templates/DIRECTION_CONSOLE_TEMPLATE.md

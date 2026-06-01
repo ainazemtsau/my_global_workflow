@@ -12,6 +12,10 @@ status: template
 
 `graph_status`:
 
+`formation_runbook_ref`: workflow_v3/formation/WORK_GRAPH_FORMATION_RUNBOOK.md
+
+`formation_eval_ref`: workflow_v3/evals/WORK_GRAPH_FORMATION_EVAL.md
+
 `nodes_index`:
 
 `dependencies`:
@@ -31,5 +35,7 @@ Work Graph is local to one Active Front.
 It is not Direction Map, a roadmap, or a backlog.
 
 Work Graph creation or persistence does not accept Direction state without the required acceptance/update path.
+
+Work Graph must not be created before an Active Front is accepted or a bounded package explicitly admits a candidate-only graph.
 
 END_OF_FILE: workflow_v3/templates/WORK_GRAPH_TEMPLATE.md

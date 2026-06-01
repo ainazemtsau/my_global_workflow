@@ -6,7 +6,11 @@ status: template
 
 `front_id`:
 
-`front_status`: candidate | accepted | closed | superseded
+`front_status`: none_selected | pending_definition | candidate | accepted | closed | superseded
+
+`formation_runbook_ref`: workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md
+
+`formation_eval_ref`: workflow_v3/evals/ACTIVE_FRONT_FORMATION_EVAL.md
 
 `source_direction_map_ref`:
 
@@ -43,6 +47,8 @@ status: template
 Active Front is not global Direction state, a roadmap, or all active work.
 
 The front remains candidate until accepted through an explicit acceptance/update path.
+
+`none_selected` or `pending_definition` is valid for setup-only root placeholders only. It is not accepted semantic content.
 
 This template does not adopt a Direction, create runtime state, or authorize `directions_v3/<direction-id>/runtime/**`.
 

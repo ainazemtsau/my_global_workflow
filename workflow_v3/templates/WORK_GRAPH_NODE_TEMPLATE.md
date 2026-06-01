@@ -48,4 +48,6 @@ It is not an unbounded project task, roadmap item, or Direction route claim.
 
 Node closure and state changes require evidence and the applicable acceptance/update path.
 
+Work Graph Nodes derive from a local Work Graph under one Active Front. They are not Direction Definition, setup-only root content, or backlog items.
+
 END_OF_FILE: workflow_v3/templates/WORK_GRAPH_NODE_TEMPLATE.md

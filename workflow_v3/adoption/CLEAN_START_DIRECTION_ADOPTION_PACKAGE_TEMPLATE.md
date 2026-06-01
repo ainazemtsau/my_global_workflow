@@ -6,7 +6,11 @@ status: template
 
 This template is for a future explicit package. It does not adopt a Direction now and does not create runtime state now.
 
-Clean-start adoption begins a Workflow v3 Direction from current explicit decisions. Old `directions/**` files are `legacy_evidence` only and must not be imported, migrated, or accepted by implication.
+Clean-start adoption begins semantic Workflow v3 Direction definition/adoption from current explicit decisions. It is not the setup-only root creation package.
+
+Use `workflow_v3/adoption/SETUP_ONLY_DIRECTION_RUNTIME_ROOT_PACKAGE_TEMPLATE.md` when the task is only to create technical root placeholders and binding before semantic Definition.
+
+Old `directions/**` files are `legacy_evidence` only and must not be imported, migrated, or accepted by implication.
 
 ## Required package fields
 
@@ -25,6 +29,8 @@ Clean-start adoption begins a Workflow v3 Direction from current explicit decisi
 `accepted_initial_direction_map`:
 
 `accepted_initial_active_front`:
+
+`formation_runbook_refs`:
 
 `project_setup_required`: true | false
 
@@ -55,9 +61,9 @@ Do not create that path from this template alone.
 ## Required outputs
 
 - adoption decision summary;
-- accepted initial Direction Spine or explicit blocked reason;
-- accepted initial Direction Map or explicit blocked reason;
-- accepted initial Active Front or explicit blocked reason;
+- accepted initial Direction Spine or explicit blocked reason, after Direction Spine formation and acceptance;
+- accepted initial Direction Map or explicit blocked reason, after Direction Map formation and acceptance;
+- accepted initial Active Front or explicit blocked reason, after Active Front formation and acceptance;
 - runtime root creation plan or explicit no-creation decision;
 - project_binding_artifacts_required;
 - per_direction_project_setup_sources_required;
@@ -74,6 +80,8 @@ Stop and return a Context Request if:
 
 - Direction identity is unclear;
 - adoption mode is unclear;
+- setup-only root creation is being attempted through this semantic adoption template;
+- required entity formation has not happened for semantic Spine/Map/Front;
 - the package attempts implicit migration;
 - acceptance decision is missing;
 - old state would be imported without explicit bridge/import authority;

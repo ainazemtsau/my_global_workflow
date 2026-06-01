@@ -24,6 +24,8 @@ directions_v3/<direction-id>/runtime/**
 
 `adoption_mode`:
 
+`setup_mode`: setup_only_root_bootstrap | semantic_adoption
+
 `clean_start_reason`:
 
 `legacy_evidence_allowed`:
@@ -35,6 +37,12 @@ directions_v3/<direction-id>/runtime/**
 `accepted_initial_direction_map_ref`:
 
 `accepted_initial_active_front_ref`:
+
+`direction_spine_status`: pending_definition | candidate | accepted | superseded
+
+`direction_map_status`: pending_definition | candidate | accepted | superseded
+
+`active_front_status`: none_selected | pending_definition | candidate | accepted | closed | superseded
 
 `initial_current_status_ref`:
 
@@ -80,6 +88,20 @@ console/
 config/DIRECTION_PROJECT_BINDING.md
 ```
 
+## Setup-only root state allowance
+
+For setup-only root creation, semantic state files may exist as placeholders only:
+
+```text
+state/DIRECTION_SPINE.md      status: pending_definition
+state/DIRECTION_MAP.md        status: pending_definition
+state/ACTIVE_FRONT.md         status: none_selected or pending_definition
+state/CURRENT_STATUS.md       setup_status: setup_only_root_created; semantic_definition_status: pending_definition
+state/CURRENT_NEXT_MOVE.md    primary_next_move: launch_direction_definition
+```
+
+This allowance does not accept semantic Direction content.
+
 ## Optional related project setup source paths
 
 ```text
@@ -93,5 +115,6 @@ directions_v3/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md
 - Project Files/Sources are external cache/context and not source authority.
 - Result Packets, Evidence, and Acceptance Decisions are stored as records if persisted; they are not accepted state unless an accepted update mutates state files.
 - Legacy evidence remains outside the runtime root unless a later explicit bridge/import package authorizes a copy or reference.
+- Pending setup-only state is not accepted semantic Direction state.
 
 END_OF_FILE: workflow_v3/adoption/DIRECTION_RUNTIME_ROOT_MANIFEST_TEMPLATE.md

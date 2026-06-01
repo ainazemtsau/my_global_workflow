@@ -6,6 +6,10 @@ status: template
 
 `acceptance_decision_id`:
 
+`formation_runbook_ref`: workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md
+
+`formation_eval_ref`: workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md
+
 `decision_status`: accepted | rejected | repair_required | blocked | parked
 
 `candidate_result_ref`:
@@ -35,6 +39,8 @@ status: template
 Adapters cannot accept their own output.
 
 Acceptance Decision must be explicit, sourced, and separate from Result Packet, Evidence, Run, Signal, Handler, Action Inbox, or chat intuition.
+
+Acceptance formation must separate result quality from state mutation authorization.
 
 Only accepted decisions and authorized update paths may mutate accepted state.
 

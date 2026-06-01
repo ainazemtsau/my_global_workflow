@@ -6,7 +6,7 @@ status: template_only
 
 This is the copy-paste launch packet for the first chat in a newly created ordinary Workflow v3 Direction Project.
 
-It does not create a Direction, import old state, update Project Files/Sources, or create runtime root files.
+It is setup-only root bootstrap. It does not define semantic Direction content, create a Direction by itself, import old state, update Project Files/Sources, or create runtime root files.
 
 ## Copy-paste launch packet
 
@@ -28,28 +28,31 @@ No accepted runtime root exists unless exact repository path evidence proves `di
 
 User-facing start:
 - Ask for and normalize `direction_id` if missing.
-- Ask for and normalize `adoption_mode` if missing.
+- Ask for and normalize setup mode if missing: setup_only_root_bootstrap.
 - Ask whether legacy files are read-only `legacy_evidence` or not used.
-- Ask for and normalize the initial root outcome only if the user has not provided it.
+- Do not ask for or require initial root outcome.
+- If the user provides outcome, tracks, product ideas, constraints, or goals, classify them as candidate_context_for_direction_definition only.
 
 Forbidden:
 - Do not execute product work.
 - Do not import old state.
+- Do not accept Direction Spine, Direction Map, Active Front, Work Graph, or product strategy.
 - Do not create runtime root files without an explicit accepted package.
 - Do not refresh Project Files/Sources.
 - Do not treat Project Files/Sources as authority.
 - Do not flatten Direction Map into Spine, roadmap, backlog, Work Graph, or Action Inbox.
 
 Expected first result:
-- Bounded root bootstrap status.
-- Missing inputs or candidate root bootstrap package.
+- Bounded setup-only root bootstrap status.
+- Missing inputs or candidate setup-only root package.
+- Placeholder status plan: DIRECTION_SPINE pending_definition, DIRECTION_MAP pending_definition, ACTIVE_FRONT none_selected or pending_definition, CURRENT_STATUS setup_only_root_created, CURRENT_NEXT_MOVE launch_direction_definition.
 - Candidate Project Binding plan.
 - If a runtime root package is prepared, require runtime config binding and per-Direction Project setup sources.
 - Manual Project Instructions UI update requirement after merge.
-- Post-bootstrap continuation packet.
+- Direction Definition launch packet as the post-bootstrap continuation.
 - Lifecycle signal such as `direction_runtime_missing` or `direction_adoption_needed`.
 - Event Loop Closure.
-- Exact next move.
+- Exact next move: launch_direction_definition.
 ```
 
 END_OF_FILE: workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md

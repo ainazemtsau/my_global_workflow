@@ -52,12 +52,28 @@ This matrix proves that every major entity in `00_ENTITY_REGISTRY.md` has interf
 | Request-only Sources | `11_PROJECT_SETUP_CONTEXT_INTERFACE.md` | External/project load list | Bounded context | Task need | source signals | `missing_source_handler`, `stale_context_handler` | Check Job/manifest; binding/continuation protocol | Loaded by admitted task only | Refresh report required | source/context gate | Not default upload; bound continuation requests exact paths instead of broad loading. |
 | legacy_evidence | `12_QUALITY_RECOVERY_INTERFACE.md` | `directions/**` or legacy branch/tag | Evidence candidates | Explicit legacy reads | `legacy_signal` | `legacy_import_guard_handler` | Legacy import receipt path | No v3 mutation by implication | Explicit bridge/import/adoption | rollback/coexistence gate | Candidate evidence only. |
 
+## Formation references
+
+Steering entities in this matrix are now also covered by the entity formation layer:
+
+- Direction Spine: `workflow_v3/formation/DIRECTION_SPINE_FORMATION_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_SPINE_FORMATION_EVAL.md`.
+- Direction Map: `workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_MAP_FORMATION_EVAL.md`.
+- Candidate Active Front / Active Front: `workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md`, `workflow_v3/evals/ACTIVE_FRONT_FORMATION_EVAL.md`.
+- Work Graph: `workflow_v3/formation/WORK_GRAPH_FORMATION_RUNBOOK.md`, `workflow_v3/evals/WORK_GRAPH_FORMATION_EVAL.md`.
+- Work Contract: `workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md`, `workflow_v3/evals/WORK_CONTRACT_FORMATION_EVAL.md`.
+- Next Move: `workflow_v3/formation/CURRENT_NEXT_MOVE_FORMATION_RUNBOOK.md`, `workflow_v3/evals/CURRENT_NEXT_MOVE_FORMATION_EVAL.md`.
+- Acceptance Decision: `workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md`, `workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md`.
+- Memory Artifact: `workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md`, `workflow_v3/evals/MEMORY_ARTIFACT_PROMOTION_EVAL.md`.
+
+Operational entities remain template/closure/evidence driven, but they must preserve source, candidate/accepted, evidence, limitation, and closure boundaries.
+
 ## Repository completion references
 
 The matrix rows above are preserved and are now supported by these repository completion files:
 
 - Completion matrix and audit: `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md`, `workflow_v3/completion/WORKFLOW_V3_REPOSITORY_COMPLETION_AUDIT.md`.
 - Direction and runtime root adoption: `workflow_v3/adoption/README.md`, `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md`, `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md`.
+- Setup-only root and Direction Definition: `workflow_v3/project_setup/DIRECTION_SETUP_ONLY_ROOT_BOOTSTRAP_PROTOCOL.md`, `workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md`, `workflow_v3/runbooks/DIRECTION_DEFINITION_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_SETUP_ONLY_BOOTSTRAP_EVAL.md`, `workflow_v3/evals/DIRECTION_DEFINITION_EVAL.md`.
 - Direction Spine and Direction Map: `workflow_v3/runbooks/DIRECTION_SPINE_CHAT_RUNBOOK.md`, `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md`.
 - Active Front, Work Graph, and Work Contract: `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md`, `workflow_v3/runbooks/WORK_GRAPH_OPENING_RUNBOOK.md`, `workflow_v3/runbooks/WORK_CONTRACT_RUNBOOK.md`.
 - Signal, Handler, Action Inbox, Check Job, Event Loop Closure, and Progression Router: `workflow_v3/runbooks/EVENT_LOOP_CLOSURE_RUNBOOK.md`, `workflow_v3/evals/SIGNAL_HANDLER_LIFECYCLE_EVAL.md`, `workflow_v3/evals/NO_HIDDEN_STATE_OR_ROUTE_EVAL.md`.

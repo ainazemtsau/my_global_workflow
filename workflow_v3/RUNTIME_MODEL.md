@@ -20,9 +20,23 @@ This model describes how future Workflow v3 work should be structurally bounded,
 
 Detailed interface contracts live under `workflow_v3/interfaces/**`. Future work must reconcile with that interface layer instead of redefining Direction structure, lifecycle routing, packets, storage, or adapter boundaries independently.
 
+Steering entities are formed through `workflow_v3/formation/**` before templates are filled or candidates are proposed for acceptance.
+
+## Setup-only root and Direction Definition
+
+Ordinary Direction Project root/bootstrap is technical setup only.
+
+Setup-only root may create placeholder pending semantic state, Project Binding, per-Direction Project setup sources, `CURRENT_STATUS = setup_only_root_created`, and `CURRENT_NEXT_MOVE = launch_direction_definition`.
+
+Setup-only root must not require or accept root outcome, Direction Spine, Direction Map, Active Front, Work Graph, or product strategy.
+
+Direction Definition is the separate semantic formation process that forms candidate Direction Spine, Direction Map, and first Active Front after setup-only root exists.
+
 ## Direction Spine
 
 Direction Spine is the stable axis of one Direction: root result, success conditions, spine points, and tracks. It is not a complete roadmap and not a backlog.
+
+Direction Spine formation uses `workflow_v3/formation/DIRECTION_SPINE_FORMATION_RUNBOOK.md`.
 
 Direction Spine changes only through an explicit acceptance/update path.
 
@@ -32,6 +46,8 @@ Direction Map is the global structural map between Direction Spine and Active Fr
 
 Direction Map is not a roadmap, backlog, Work Graph, or Action Inbox.
 
+Direction Map formation uses `workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md`.
+
 Direction Map changes only through an explicit acceptance/update path.
 
 ## Active Front
@@ -40,15 +56,21 @@ Active Front is the accepted focus selected from the Direction Map that is movin
 
 Active Front is not global backlog state.
 
+Active Front formation uses `workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md`.
+
 ## Work Graph
 
 Work Graph is local to the Active Front. It derives from Front Exit Criteria and identifies bounded nodes, dependencies, and the next useful result.
 
 Work Graph is not a copy of the Direction Spine, not the Direction Map, and not a permanent graph for the whole Direction.
 
+Work Graph formation uses `workflow_v3/formation/WORK_GRAPH_FORMATION_RUNBOOK.md`.
+
 ## Work Contract / Run / Evidence / Acceptance
 
 Work Contract states the bounded target, allowed and forbidden surfaces, expected result, and evidence requirements.
+
+Work Contract formation uses `workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md`.
 
 Run is execution of that contract through an adapter or human action.
 
@@ -56,11 +78,15 @@ Evidence is the verifiable output of a Run. Evidence alone does not change accep
 
 Acceptance is the explicit decision to accept, reject, or return a result for repair. Accepted State changes only through the explicit acceptance/update path.
 
+Acceptance Decision formation uses `workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md`.
+
 ## Memory
 
 Memory stores useful promoted context for later continuation. Raw chat output, Result Packets, Signals, run logs, or notes are not Memory Artifacts automatically.
 
 Memory requires promotion and does not replace canonical storage.
+
+Memory Artifact promotion uses `workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md`.
 
 ## Signals / Handlers / Action Inbox
 
@@ -81,6 +107,8 @@ Action Inbox stores candidate actions for later review, conversion, or closure. 
 Next Move is the exact next instruction after material work or review. It tells the user what to open, paste, verify, decide, or stop.
 
 Next Move is not accepted state.
+
+Current Next Move formation uses `workflow_v3/formation/CURRENT_NEXT_MOVE_FORMATION_RUNBOOK.md`.
 
 When material work closes, the next concrete step is selected through Event Loop Closure and `progression_router_handler`.
 

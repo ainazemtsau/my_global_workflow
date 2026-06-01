@@ -10,7 +10,7 @@ This slice activates only the documentation/setup skeleton under `workflow_v3/**
 
 The current Workflow OS remains the legacy and rollback system until a later explicit activation and adoption package says otherwise.
 
-The repository-side completion framework adds clean-start adoption templates, operational runbooks, validation evals, and a final completion matrix. It remains documentation/setup only.
+The repository-side completion framework adds clean-start adoption templates, operational runbooks, validation evals, formation protocols, and a final completion matrix. It remains documentation/setup only.
 
 ## Scope of this slice
 
@@ -41,6 +41,18 @@ Repository files under `workflow_v3/**` are future Workflow v3 setup/rule source
 
 Future detailed docs and workstreams must reconcile with the interface layer instead of redefining those contracts independently.
 
+## Formation layer
+
+`workflow_v3/formation/**` defines the repository-side entity-formation layer for steering entities. Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Current Next Move, Acceptance Decision, and Memory Artifact promotion require formation before template filling.
+
+Formation produces candidate entities by default. Accepted state still requires explicit Acceptance Decision or accepted update path.
+
+## Setup-only root and Direction Definition
+
+Ordinary Direction Project root/bootstrap is setup-only. It may create future technical placeholders and binding, but must not require or accept root outcome, Direction Spine, Direction Map, Active Front, Work Graph, or product strategy.
+
+Direction Definition is the separate semantic process after setup-only root, using Spine, Map, and Active Front formation runbooks.
+
 ## File index
 
 - `workflow_v3/README.md` - namespace overview and index.
@@ -67,12 +79,20 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/PROJECT_SETUP_MODEL.md` - future ChatGPT Project setup model and refresh categories.
 - `workflow_v3/LEGACY_EVIDENCE_POLICY.md` - legacy/rollback and old Direction evidence policy.
 - `workflow_v3/QUALITY_AND_RECOVERY.md` - quality gates and recovery outcomes.
+- `workflow_v3/formation/README.md` - entity formation layer index.
+- `workflow_v3/formation/ENTITY_FORMATION_CANON.md` - canonical formation rules.
+- `workflow_v3/formation/DECISION_QUALITY_PROTOCOL.md` - decision quality protocol.
+- `workflow_v3/formation/FOCUS_AND_WASTE_CUT_PROTOCOL.md` - focus and waste cut protocol.
+- `workflow_v3/formation/EVIDENCE_AND_HYPOTHESIS_PROTOCOL.md` - evidence and hypothesis protocol.
+- `workflow_v3/formation/ANTI_BIAS_AND_RED_TEAM_PROTOCOL.md` - anti-bias and red-team protocol.
+- `workflow_v3/formation/STEERING_ENTITY_FORMATION_CHAT_PROTOCOL.md` - formation chat protocol.
 - `workflow_v3/completion/README.md` - repository-side completion package index.
 - `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md` - final surface and entity coverage matrix.
 - `workflow_v3/completion/WORKFLOW_V3_REPOSITORY_COMPLETION_AUDIT.md` - completion validation audit.
 - `workflow_v3/completion/POST_COMPLETION_REMAINING_NON_GOALS.md` - intentionally remaining non-goals.
 - `workflow_v3/adoption/README.md` - clean-start Direction adoption package model.
 - `workflow_v3/adoption/CLEAN_START_DIRECTION_ADOPTION_PACKAGE_TEMPLATE.md` - future adoption package template.
+- `workflow_v3/adoption/SETUP_ONLY_DIRECTION_RUNTIME_ROOT_PACKAGE_TEMPLATE.md` - future setup-only runtime root package template.
 - `workflow_v3/adoption/DIRECTION_RUNTIME_ROOT_MANIFEST_TEMPLATE.md` - future runtime root manifest template.
 - `workflow_v3/adoption/DIRECTION_BOOTSTRAP_DECISION_TEMPLATE.md` - explicit bootstrap decision template.
 - `workflow_v3/adoption/DIRECTION_RUNTIME_CREATION_CHECKLIST.md` - future runtime creation checklist.
@@ -81,6 +101,15 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/runbooks/README.md` - runtime operation runbook index.
 - `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md` - Direction bootstrap operating path.
 - `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md` - first ordinary Direction Project root bootstrap runbook.
+- `workflow_v3/runbooks/DIRECTION_DEFINITION_RUNBOOK.md` - semantic Direction Definition runbook after setup-only root.
+- `workflow_v3/formation/DIRECTION_SPINE_FORMATION_RUNBOOK.md` - Direction Spine formation runbook.
+- `workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md` - Direction Map formation runbook.
+- `workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md` - Active Front formation runbook.
+- `workflow_v3/formation/WORK_GRAPH_FORMATION_RUNBOOK.md` - Work Graph formation runbook.
+- `workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md` - Work Contract formation runbook.
+- `workflow_v3/formation/CURRENT_NEXT_MOVE_FORMATION_RUNBOOK.md` - Current Next Move formation runbook.
+- `workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md` - Acceptance Decision formation runbook.
+- `workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md` - Memory Artifact promotion runbook.
 - `workflow_v3/runbooks/DIRECTION_SPINE_CHAT_RUNBOOK.md` - bounded Direction Spine chat runbook.
 - `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md` - bounded Direction Map chat runbook.
 - `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md` - Active Front selection runbook.
@@ -95,6 +124,16 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/evals/WORKFLOW_V3_COMPLETION_VALIDATION_CHECKLIST.md` - completion validation checklist.
 - `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md` - Direction runtime bootstrap eval.
 - `workflow_v3/evals/DIRECTION_PROJECT_SETUP_EVAL.md` - ordinary Direction Project setup behavior eval.
+- `workflow_v3/evals/DIRECTION_SETUP_ONLY_BOOTSTRAP_EVAL.md` - setup-only bootstrap eval.
+- `workflow_v3/evals/DIRECTION_DEFINITION_EVAL.md` - Direction Definition eval.
+- `workflow_v3/evals/DIRECTION_SPINE_FORMATION_EVAL.md` - Direction Spine formation eval.
+- `workflow_v3/evals/DIRECTION_MAP_FORMATION_EVAL.md` - Direction Map formation eval.
+- `workflow_v3/evals/ACTIVE_FRONT_FORMATION_EVAL.md` - Active Front formation eval.
+- `workflow_v3/evals/WORK_GRAPH_FORMATION_EVAL.md` - Work Graph formation eval.
+- `workflow_v3/evals/WORK_CONTRACT_FORMATION_EVAL.md` - Work Contract formation eval.
+- `workflow_v3/evals/CURRENT_NEXT_MOVE_FORMATION_EVAL.md` - Current Next Move formation eval.
+- `workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md` - Acceptance Decision formation eval.
+- `workflow_v3/evals/MEMORY_ARTIFACT_PROMOTION_EVAL.md` - Memory Artifact promotion eval.
 - `workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md` - Direction Map, Active Front, and Work Graph eval.
 - `workflow_v3/evals/SIGNAL_HANDLER_LIFECYCLE_EVAL.md` - Signal/Handler lifecycle eval.
 - `workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md` - chat lifecycle/handoff eval.
@@ -108,6 +147,8 @@ Future detailed docs and workstreams must reconcile with the interface layer ins
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md` - compact future UI payload source for ordinary Direction Projects.
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md` - ordinary Direction Project Files/Sources manifest template.
 - `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md` - first-chat root bootstrap launch packet template.
+- `workflow_v3/project_setup/DIRECTION_SETUP_ONLY_ROOT_BOOTSTRAP_PROTOCOL.md` - setup-only root bootstrap protocol.
+- `workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md` - Direction Definition launch packet template.
 - `workflow_v3/project_setup/DIRECTION_PROJECT_BINDING_AND_CONTINUATION_PROTOCOL.md` - ordinary Direction Project binding and later-chat continuation protocol.
 - `workflow_v3/project_setup/PER_DIRECTION_PROJECT_INSTRUCTIONS_SOURCE_TEMPLATE.md` - future per-Direction Project Instructions source template.
 - `workflow_v3/project_setup/PER_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md` - future per-Direction Project Files/Sources manifest template.

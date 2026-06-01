@@ -34,6 +34,18 @@ Checks:
 
 Fails when an interface entity can be lost, redefined independently, or routed without coverage.
 
+## Steering entity formation gate
+
+Checks:
+
+- Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Current Next Move, Acceptance Decision, and Memory Artifact promotion use their formation runbooks before template filling;
+- alternatives, criteria, evidence, risks, rejected/deferred options, focus/waste cuts, source limits, acceptance question, Event Loop Closure, and exact next move are visible;
+- child research/check chats are bounded support only and return to the parent formation chat;
+- candidate and accepted boundaries are preserved;
+- setup-only root does not accept semantic Direction content.
+
+Fails when a steering entity is created by filling a template, user input is accepted without formation, child chats decide the entity, or Direction setup/root bootstrap accepts Spine/Map/Front.
+
 ## Direction lifecycle gate
 
 Checks:

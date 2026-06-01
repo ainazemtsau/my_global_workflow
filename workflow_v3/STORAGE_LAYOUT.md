@@ -10,6 +10,14 @@ It stores shared runtime model documentation, setup templates, future pack sourc
 
 It does not store accepted per-Direction runtime state in this slice.
 
+Formation protocols and steering entity runbooks live under:
+
+```text
+workflow_v3/formation/
+```
+
+They are repository rule/setup sources, not runtime state.
+
 ## Future per-Direction runtime state root
 
 The future per-Direction runtime state root is:
@@ -51,6 +59,18 @@ directions_v3/<direction-id>/runtime/
     DIRECTION_CONSOLE.md
 ```
 
+Setup-only root packages may create this future runtime root with semantic placeholders only:
+
+```text
+state/DIRECTION_SPINE.md      pending_definition
+state/DIRECTION_MAP.md        pending_definition
+state/ACTIVE_FRONT.md         none_selected or pending_definition
+state/CURRENT_STATUS.md       setup_only_root_created
+state/CURRENT_NEXT_MOVE.md    launch_direction_definition
+```
+
+These placeholders are not accepted semantic Direction content.
+
 ## state
 
 `state/` stores small current-state files needed to resume the adopted Direction:
@@ -82,6 +102,8 @@ Records are evidence and history. Accepted state changes still require explicit 
 `memory/` stores Memory Candidates, promoted Memory Artifacts, and indexes.
 
 Raw chat notes or run output do not become Memory Artifacts without promotion.
+
+Memory Artifact promotion must use the formation and acceptance path before storage under `memory/artifacts/`.
 
 ## operations
 

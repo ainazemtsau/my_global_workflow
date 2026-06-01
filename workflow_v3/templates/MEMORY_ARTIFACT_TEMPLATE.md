@@ -6,6 +6,10 @@ status: template
 
 `memory_artifact_id`:
 
+`formation_runbook_ref`: workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md
+
+`formation_eval_ref`: workflow_v3/evals/MEMORY_ARTIFACT_PROMOTION_EVAL.md
+
 `promoted_from_candidate_ref`:
 
 `accepted_scope_of_use`:

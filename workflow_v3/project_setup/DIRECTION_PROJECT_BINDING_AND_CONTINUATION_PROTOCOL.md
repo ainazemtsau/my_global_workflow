@@ -10,7 +10,7 @@ It is repository source only. It does not create a concrete Direction runtime ro
 
 ## Problem statement
 
-The universal ordinary Direction Project setup is intentionally pre-binding. It can start the first root/bootstrap chat before `direction_id` and `runtime_root` are accepted.
+The universal ordinary Direction Project setup is intentionally pre-binding. It can start the first setup-only root/bootstrap chat before `direction_id` and `runtime_root` are accepted.
 
 After that first chat, future chats in the same ChatGPT Project have no reliable memory of the bootstrap result. Without a persistent binding artifact and compact Project Instructions UI binding capsule, a new chat cannot safely determine:
 
@@ -58,9 +58,19 @@ The model must:
 - avoid concrete runtime root creation unless a bounded accepted package authorizes it;
 - stop with a Context Request when required source or user decision is missing.
 
-## Post-bootstrap state
+## Setup-only post-bootstrap state
 
-After an accepted runtime root package creates a concrete runtime root, the package must also create or update the canonical runtime binding file and generate the per-Direction Project setup sources.
+After an accepted setup-only runtime root package creates a concrete runtime root, the package must also create or update the canonical runtime binding file and generate the per-Direction Project setup sources.
+
+Project Binding may exist while semantic Direction definition is still pending. In that state:
+
+- `DIRECTION_SPINE.md` is `pending_definition`;
+- `DIRECTION_MAP.md` is `pending_definition`;
+- `ACTIVE_FRONT.md` is `none_selected` or `pending_definition`;
+- `CURRENT_STATUS.md` reports `setup_status: setup_only_root_created` and `semantic_definition_status: pending_definition`;
+- `CURRENT_NEXT_MOVE.md` reports `primary_next_move: launch_direction_definition`.
+
+The binding is stable enough for later chats to resolve status and route to Direction Definition. It is not proof of accepted semantic Direction content.
 
 Later chats are stable only when at least one of these is available:
 
@@ -96,7 +106,7 @@ The canonical binding must include:
 
 ## How binding is created
 
-1. A clean-start or authorized adoption/root package prepares the future runtime root package.
+1. A setup-only root package or later authorized semantic adoption/root package prepares the future runtime root package.
 2. The package includes `directions_v3/<direction-id>/runtime/config/DIRECTION_PROJECT_BINDING.md` from `workflow_v3/templates/DIRECTION_PROJECT_BINDING_TEMPLATE.md`.
 3. The package records the accepted root package ref and acceptance decision ref.
 4. The package derives the compact binding capsule payload from the canonical runtime binding source.
@@ -156,6 +166,7 @@ For a status request such as `какой статус проекта?`, `what is
 5. Return:
    - bound `direction_id`;
    - status summary from `CURRENT_STATUS.md`;
+   - `semantic_definition_pending` when setup-only root exists and Direction Definition has not been accepted;
    - exact next move from `CURRENT_NEXT_MOVE.md`;
    - source/read limitations;
    - terminal outcome: answered, Context Request, binding repair required, or blocked.
@@ -213,5 +224,19 @@ Material binding, repair, bootstrap, status review, and continuation work must c
 - binding status;
 - exact next move or Context Request;
 - terminal outcome.
+
+## Setup-only continuation route
+
+When binding resolves and exact state shows:
+
+```text
+setup_status: setup_only_root_created
+semantic_definition_status: pending_definition
+primary_next_move: launch_direction_definition
+```
+
+the next admitted material step is Direction Definition through `workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md` and `workflow_v3/runbooks/DIRECTION_DEFINITION_RUNBOOK.md`.
+
+Do not start product work, Work Graph, or Work Contract from setup-only state.
 
 END_OF_FILE: workflow_v3/project_setup/DIRECTION_PROJECT_BINDING_AND_CONTINUATION_PROTOCOL.md

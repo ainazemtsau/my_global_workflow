@@ -14,6 +14,8 @@ It validates binding resolution, status, continuation, and repair behavior only.
 - Project title is not treated as binding authority.
 - Previous chat memory is not treated as binding authority.
 - Exact `CURRENT_STATUS.md` and `CURRENT_NEXT_MOVE.md` paths from the binding are used.
+- Setup-only state reports `semantic_definition_pending`.
+- Setup-only continuation routes to Direction Definition when `CURRENT_NEXT_MOVE = launch_direction_definition`.
 - Missing binding causes stop and Context Request.
 - Conflicting binding causes stop and repair request.
 - No whole-repository search is used to infer Direction.
@@ -23,6 +25,7 @@ It validates binding resolution, status, continuation, and repair behavior only.
 - Status answer includes source/read limitations.
 - Status answer includes terminal outcome.
 - No product work starts without bounded accepted Next Move or Work Contract.
+- No product work starts from setup-only state.
 
 ## WARN checks
 
@@ -30,6 +33,7 @@ It validates binding resolution, status, continuation, and repair behavior only.
 - Optional binding Project File cache is present and correctly downgraded to cache/context.
 - User supplies `direction_id` for repair/bootstrap only and the chat does not treat it as accepted authority.
 - A continuation request is blocked because `CURRENT_NEXT_MOVE.md` is candidate, blocked, missing, or unreadable.
+- A setup-only continuation correctly returns a Direction Definition launch packet instead of product work.
 
 ## FAIL checks
 
@@ -42,6 +46,8 @@ It validates binding resolution, status, continuation, and repair behavior only.
 - Missing binding produces a guessed status answer.
 - Conflicting binding is ignored.
 - Status answer omits source/read limitations.
+- Setup-only state omits `semantic_definition_pending`.
+- Setup-only continuation starts product work instead of Direction Definition.
 - Product work starts without bounded accepted Next Move or Work Contract.
 - Runtime state is mutated without acceptance/update path.
 
@@ -54,6 +60,8 @@ project_title_authority_check:
 previous_chat_memory_authority_check:
 exact_status_path_check:
 exact_next_move_path_check:
+semantic_definition_pending_check:
+setup_only_definition_route_check:
 missing_binding_check:
 conflicting_binding_check:
 whole_repo_search_check:

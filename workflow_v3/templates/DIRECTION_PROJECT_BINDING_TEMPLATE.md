@@ -20,6 +20,8 @@ directions_v3/<direction-id>/runtime/config/DIRECTION_PROJECT_BINDING.md
 
 `project_type`: ordinary_direction_project
 
+`semantic_definition_status`: pending_definition | candidate | accepted | blocked
+
 `runtime_root`: directions_v3/<direction-id>/runtime/
 
 `current_status_path`: directions_v3/<direction-id>/runtime/state/CURRENT_STATUS.md
@@ -99,6 +101,7 @@ source_authority: exact repo/path/ref wins; Project title, previous chat memory,
 - It does not create accepted Direction state.
 - It does not authorize product execution.
 - It does not replace Direction Map, Active Front, Work Graph, Work Contract, Current Status, or Current Next Move.
+- It may exist while semantic Direction definition is pending.
 
 ## Boundary
 

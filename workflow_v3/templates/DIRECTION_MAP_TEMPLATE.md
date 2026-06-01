@@ -6,7 +6,11 @@ status: template
 
 `direction_id`:
 
-`map_status`: candidate | accepted | superseded
+`map_status`: pending_definition | candidate | accepted | superseded
+
+`formation_runbook_ref`: workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md
+
+`formation_eval_ref`: workflow_v3/evals/DIRECTION_MAP_FORMATION_EVAL.md
 
 `source_spine_ref`:
 
@@ -55,5 +59,7 @@ Map claims must be sourced and labeled as accepted, candidate, unresolved, or hy
 This template does not adopt a Direction, create runtime state, or authorize `directions_v3/<direction-id>/runtime/**`.
 
 Direction Map changes only through an explicit acceptance/update path.
+
+`pending_definition` is valid for setup-only root placeholders only. It is not accepted semantic content.
 
 END_OF_FILE: workflow_v3/templates/DIRECTION_MAP_TEMPLATE.md

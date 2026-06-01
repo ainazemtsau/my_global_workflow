@@ -6,6 +6,10 @@ status: template
 
 `work_contract_id`:
 
+`formation_runbook_ref`: workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md
+
+`formation_eval_ref`: workflow_v3/evals/WORK_CONTRACT_FORMATION_EVAL.md
+
 `related_direction`:
 
 `related_front`:
@@ -43,6 +47,8 @@ status: template
 ## Boundary
 
 Work Contract has one bounded target.
+
+If the target contains multiple independent jobs, return `split_required` instead of widening the contract.
 
 It carries no route authority, product-meaning authority, scope-expansion authority, or acceptance authority.
 

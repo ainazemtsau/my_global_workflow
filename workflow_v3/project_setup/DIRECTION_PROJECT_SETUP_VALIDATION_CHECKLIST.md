@@ -28,8 +28,13 @@ The checklist verifies setup behavior only. It does not approve Direction adopti
 [ ] First chat identified as ordinary Direction Project.
 [ ] First chat did not start product work.
 [ ] First chat did not import legacy state.
+[ ] First chat did not require initial root outcome.
+[ ] Any user-provided outcome, tracks, or product ideas were classified as candidate_context_for_direction_definition only.
+[ ] First chat did not accept Direction Spine, Direction Map, or Active Front.
 [ ] First chat did not create `directions_v3/<direction-id>/runtime/**` without an explicit accepted package.
-[ ] First chat returned bounded root bootstrap status.
+[ ] First chat returned setup-only root bootstrap status.
+[ ] Setup-only root package, if drafted, uses pending_definition/none_selected placeholder semantic statuses.
+[ ] CURRENT_NEXT_MOVE points to launch_direction_definition after setup-only root.
 [ ] First chat returned Event Loop Closure.
 [ ] First chat returned exact next move.
 [ ] Binding source is generated for the concrete Direction package when applicable.
@@ -55,6 +60,9 @@ request_only_sources_decision:
 do_not_upload_as_project_file:
 first_chat_launch_packet_used:
 first_chat_result:
+candidate_context_for_direction_definition:
+setup_only_root_status_check:
+direction_definition_next_move_check:
 binding_source_check:
 per_direction_project_instructions_source_check:
 manual_project_instruction_ui_update_required:

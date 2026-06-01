@@ -81,8 +81,9 @@ For `какой статус проекта?` or equivalent:
 3. Read exact `current_next_move_path` or ask Context Request.
 4. Summarize status from `CURRENT_STATUS.md`.
 5. Report exact next move from `CURRENT_NEXT_MOVE.md`.
-6. Include source/read limitations.
-7. Include terminal outcome: answered, Context Request, binding repair required, or blocked.
+6. If setup-only root exists and semantic definition is pending, report `semantic_definition_pending`.
+7. Include source/read limitations.
+8. Include terminal outcome: answered, Context Request, binding repair required, or blocked.
 
 ## Continuation flow
 
@@ -91,9 +92,11 @@ For `продолжи` or equivalent:
 1. Resolve binding.
 2. Read exact `CURRENT_NEXT_MOVE.md`.
 3. Confirm the next move is accepted, not candidate or blocked.
-4. If it names a bounded Work Contract or Launch Packet, continue only within that boundary.
-5. If no bounded next move exists, stop and request one.
-6. Do not start product work unless the current next move admits it.
+4. If the next move is `launch_direction_definition`, use `workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md` and `workflow_v3/runbooks/DIRECTION_DEFINITION_RUNBOOK.md`.
+5. If it names a bounded Work Contract or Launch Packet, continue only within that boundary.
+6. If no bounded next move exists, stop and request one.
+7. Do not start product work unless the current next move admits it.
+8. Do not start product work from setup-only state.
 
 ## No whole-repo search
 
@@ -118,6 +121,7 @@ direction_id:
 sources_read:
 source_read_limitations:
 status_summary:
+semantic_definition_status:
 exact_next_move:
 not_done:
 unresolved_questions:

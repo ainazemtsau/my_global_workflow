@@ -29,7 +29,9 @@ ordinary Direction Project
 6. Do not upload `workflow_v3/**` source docs as default Project Files/Sources unless a later explicit rollout says otherwise.
 7. Use exact GitHub/repository source reads when material setup, adoption, bootstrap, or runtime state decisions depend on repository state.
 8. Start the first Project chat with `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md`.
-9. After an accepted runtime root package exists, require Project Binding installation and per-Direction Project setup source generation before treating later chats as stable.
+9. The first chat performs setup-only root bootstrap. It does not require root outcome or accept semantic Direction content.
+10. After an accepted setup-only runtime root package exists, require Project Binding installation and per-Direction Project setup source generation before treating later chats as stable.
+11. Launch semantic Direction Definition from `workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md` when `CURRENT_NEXT_MOVE = launch_direction_definition`.
 
 ## Non-creation boundary
 
@@ -41,6 +43,7 @@ It does not create:
 - accepted Direction Spine;
 - accepted Direction Map;
 - accepted Active Front;
+- Direction Definition;
 - product work;
 - Project Files/Sources refreshes;
 - request-only source refreshes;
@@ -52,19 +55,25 @@ The first chat in the new ordinary Direction Project must:
 
 - identify itself as an ordinary Workflow v3 Direction Project;
 - ask for and normalize `direction_id` if missing;
-- classify `adoption_mode`;
+- classify setup mode and legacy policy;
 - emit the lifecycle signal for root bootstrap, usually `direction_runtime_missing` or `direction_adoption_needed`;
 - use `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md`;
+- not require initial root outcome;
+- classify any user-provided outcome, tracks, or product ideas as `candidate_context_for_direction_definition` only;
 - stop if a required source or decision is missing;
 - require explicit user acceptance before preparing a runtime root package;
-- if a runtime root package is prepared, require `runtime/config/DIRECTION_PROJECT_BINDING.md` and per-Direction Project setup sources in the package;
-- return a bounded root bootstrap status, Event Loop Closure, binding installation next move, and exact next move.
+- if a setup-only runtime root package is prepared, require placeholder pending Definition statuses, `runtime/config/DIRECTION_PROJECT_BINDING.md`, and per-Direction Project setup sources in the package;
+- return setup-only root status, Event Loop Closure, binding installation next move, and exact next move `launch_direction_definition`.
 
 ## Post-bootstrap Project Binding requirement
 
-After an accepted runtime root package creates `directions_v3/<direction-id>/runtime/**`, the package must also:
+After an accepted setup-only runtime root package creates `directions_v3/<direction-id>/runtime/**`, the package must also:
 
 - create canonical runtime binding from `workflow_v3/templates/DIRECTION_PROJECT_BINDING_TEMPLATE.md`;
+- write `state/DIRECTION_SPINE.md` and `state/DIRECTION_MAP.md` as `pending_definition`;
+- write `state/ACTIVE_FRONT.md` as `none_selected` or `pending_definition`;
+- write `state/CURRENT_STATUS.md` as `setup_only_root_created` with `semantic_definition_status: pending_definition`;
+- write `state/CURRENT_NEXT_MOVE.md` with `primary_next_move: launch_direction_definition`;
 - generate `directions_v3/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md` from `workflow_v3/project_setup/PER_DIRECTION_PROJECT_INSTRUCTIONS_SOURCE_TEMPLATE.md`;
 - generate `directions_v3/<direction-id>/project_setup/PROJECT_FILES_MANIFEST.md` from `workflow_v3/project_setup/PER_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md`;
 - report manual Project Instructions UI update requirements separately from Project Files/Sources refreshes;
@@ -88,8 +97,10 @@ user_confirmation:
 first_chat_launch_packet_path:
 first_chat_started:
 first_chat_result_summary:
+candidate_context_for_direction_definition:
 post_bootstrap_binding_plan:
 per_direction_project_setup_sources:
+direction_definition_launch_packet_path:
 manual_project_instruction_ui_update_required:
 project_instruction_ui_update_required: true_for_future_manual_creation_only
 project_sources_files_refresh_required: false
@@ -101,6 +112,6 @@ request_only_sources_refresh_required: false
 - `project_instruction_ui_update_required`: true for future ordinary Direction Project manual creation only; not performed by repository commit.
 - `project_sources_files_refresh_required`: false.
 - `request_only_sources_refresh_required`: false.
-- `do_not_upload_as_project_file`: `workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md`, `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/runbooks/**`, and `workflow_v3/evals/**`.
+- `do_not_upload_as_project_file`: `workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md`, `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/runbooks/**`, `workflow_v3/evals/**`, and `workflow_v3/formation/**`.
 
 END_OF_FILE: workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md
