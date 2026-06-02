@@ -16,6 +16,28 @@ status: template
 
 `source_progression_router_result_ref`:
 
+`entrypoint`:
+
+`run_surface_type`:
+
+`procedure_ref`:
+
+`required_source_reads`:
+
+`source_integrity_requirement`:
+
+`allowed_operations`:
+
+`forbidden_operations`:
+
+`write_admission`:
+
+`acceptance_admission`:
+
+`legacy_policy`:
+
+`stop_conditions`:
+
 `primary_next_move`:
 
 Allowed setup-only value:
@@ -46,7 +68,11 @@ launch_direction_definition
 
 Next Move is not accepted state by itself.
 
-Route-changing or state-changing next moves require visible Event Loop Closure, Progression Router output, and acceptance/update path when state changes.
+Next Move is not action admission by itself.
+
+Route-changing or state-changing next moves require procedure registry lookup, run surface contract, visible Event Loop Closure, Progression Router output, admission, and acceptance/update path when state changes.
+
+`same_chat_allowed` means non-mutating continuation only unless `storage_update_adapter` is explicitly admitted.
 
 This template does not adopt a Direction, create runtime state, or launch work.
 

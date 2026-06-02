@@ -22,6 +22,8 @@ status: template
 
 `action_inbox_candidates`:
 
+`signals_disposition`:
+
 `blocked_or_human_decision_needed`:
 
 `persistence_needed`:
@@ -54,6 +56,16 @@ status: template
 
 `progression_router_result`:
 
+`admission_status_for_next_move`:
+
+`run_surface_boundary_crossed`:
+
+`storage_update_needed`:
+
+`storage_update_package_ref_or_inline`:
+
+`exception_packet_if_any`:
+
 `stop_condition_if_any`:
 
 `limitations`:
@@ -65,5 +77,7 @@ status: template
 Event Loop Closure may remain in chat unless persistence is needed.
 
 Persist only through explicit acceptance/update package.
+
+Closure does not silently launch next material work.
 
 END_OF_FILE: workflow_v3/templates/EVENT_LOOP_CLOSURE_TEMPLATE.md

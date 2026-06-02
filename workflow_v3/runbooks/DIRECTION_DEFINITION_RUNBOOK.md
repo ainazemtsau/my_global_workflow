@@ -8,6 +8,12 @@ Direction Definition is the first semantic entity-formation process after setup-
 
 It forms candidate Direction Spine, Direction Map, and first Active Front. It does not execute product work and does not open Work Graph before Active Front acceptance.
 
+Direction Definition may sequence Spine -> Map -> Active Front only as candidate formation surfaces.
+
+It may not persist accepted Spine/Map/Front, status, next move, acceptance records, or event loop closure files.
+
+Each acceptance signal routes to acceptance/storage procedure; it does not authorize Definition chat writes.
+
 ## Trigger
 
 Use when setup-only root exists and:
@@ -49,6 +55,8 @@ Default: one steering entity per material formation chat. A parent Definition ch
 Definition returns candidate entities.
 
 Acceptance requires explicit Acceptance Decision/update path. No Direction Spine, Direction Map, or Active Front becomes accepted merely because Definition produced it.
+
+Definition chat is a `formation_chat` surface and is non-mutating.
 
 ## Closure
 

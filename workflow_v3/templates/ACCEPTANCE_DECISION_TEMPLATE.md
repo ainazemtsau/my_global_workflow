@@ -44,4 +44,12 @@ Acceptance formation must separate result quality from state mutation authorizat
 
 Only accepted decisions and authorized update paths may mutate accepted state.
 
+Acceptance Decision may authorize that storage update is needed.
+
+It does not itself admit the producing chat to write.
+
+Storage mutation requires Storage Update Package / `storage_update_adapter` admission.
+
+Human acceptance input is not storage authorization unless an admitted storage update package exists.
+
 END_OF_FILE: workflow_v3/templates/ACCEPTANCE_DECISION_TEMPLATE.md

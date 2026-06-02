@@ -60,4 +60,10 @@ The contract may launch work only when explicitly accepted or launched by the hu
 
 Return `split_required` if the target combines independent jobs or cannot be validated as one bounded run.
 
+## Run-surface boundary
+
+Formation chat is non-mutating.
+
+After acceptance-like human input, stop with Transition Packet to `acceptance_review` / `storage_update_adapter`. Do not create acceptance records, mutate repository state, update CURRENT_STATUS, update CURRENT_NEXT_MOVE, persist Event Loop Closure files, launch Codex, or continue across role boundary.
+
 END_OF_FILE: workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md

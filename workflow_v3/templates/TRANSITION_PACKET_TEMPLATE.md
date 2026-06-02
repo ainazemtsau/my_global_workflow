@@ -14,6 +14,18 @@ status: template
 
 `selected_next_step_target`:
 
+`entrypoint`:
+
+`run_surface_type`:
+
+`procedure_ref`:
+
+`required_source_reads`:
+
+`allowed_operations`:
+
+`forbidden_operations`:
+
 `closure_signal`:
 
 `same_chat_allowed`:
@@ -68,5 +80,7 @@ Codex handoff returns to the same current chat for verification and closure.
 Next material chat starts only after the current material target is accepted, persisted, verified, or explicitly stopped.
 
 Do not make the user build Codex, check, child-chat, or next-chat prompts manually.
+
+Transfer packets must include entrypoint, run surface, procedure ref, required source reads, allowed/forbidden operations, return destination, and copy-paste packet.
 
 END_OF_FILE: workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md

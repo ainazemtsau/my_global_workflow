@@ -40,9 +40,40 @@ Check Job is bounded verification. It answers a scoped question, checks evidence
 
 Event Loop Closure is the required closure phase for material work/review. It summarizes emitted Signals, Handler matches, candidate outputs, accepted conversions if any, persistence needs, and exact Next Move.
 
+Closure/router output does not silently launch next work.
+
 No accepted-state mutation from Signal, Handler, or Action Inbox.
 
 Accepted State changes only through the explicit acceptance/update path defined by the runtime model.
+
+## Phase-based signal disposition
+
+Signals are disposed according to the current chat lifecycle phase.
+
+Allowed dispositions:
+
+```text
+handle_inline_now
+defer_to_closure
+create_action_inbox_candidate
+create_signal_chat_packet
+create_codex_handoff
+create_check_job
+stop_current_run
+ignore_with_reason
+```
+
+Preparation/admission phase handles only blocking source, procedure, role, write, legacy, or acceptance issues inline.
+
+Execution phase handles only run-safety issues inline.
+
+Persistence/verification phase handles adapter, validation, and write-scope failures inline.
+
+Closure phase may match handler registry and route one primary next move.
+
+Non-blocking or off-scope signals may produce a Signal Chat Packet or Action Inbox candidate instead of hijacking the current run.
+
+Multiple matched handlers do not all launch. Progression Router selects one primary disposition or Next Move and returns secondary candidates.
 
 ## Progression Router
 

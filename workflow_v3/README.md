@@ -75,6 +75,15 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/ACTIVATION_STATUS.md` - current activation status matrix and allowed next packages.
 - `workflow_v3/RUNTIME_MODEL.md` - compact Workflow v3 runtime model and boundaries.
 - `workflow_v3/SIGNALS_HANDLERS_ACTION_INBOX.md` - operational event loop for Signals, Handlers, Action Inbox/Q, Check Jobs, Progression Router, Transition Packets, and Event Loop Closure.
+- `workflow_v3/control_plane/README.md` - Workflow v3 action-admission control plane index.
+- `workflow_v3/control_plane/ACTION_ADMISSION_PROTOCOL.md` - before-action admission sequence, stop conditions, and Admission Packet rules.
+- `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` - registered entrypoints, procedure refs, and run surface types.
+- `workflow_v3/control_plane/RUN_SURFACE_CONTRACTS.md` - allowed/forbidden operations by run surface.
+- `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` - material chat phases from intake through closure/transfer.
+- `workflow_v3/control_plane/SOURCE_INTEGRITY_PROTOCOL.md` - exact source read, EOF, and source lock rules.
+- `workflow_v3/control_plane/SIGNAL_ROUTING_PROTOCOL.md` - phase-based signal disposition rules.
+- `workflow_v3/control_plane/EXCEPTION_PROTOCOL.md` - blocked exception packet and exception types.
+- `workflow_v3/control_plane/STORAGE_UPDATE_PROTOCOL.md` - storage update adapter package and write boundary.
 - `workflow_v3/STORAGE_LAYOUT.md` - production rules/setup namespace and future Direction runtime state root.
 - `workflow_v3/PROJECT_SETUP_MODEL.md` - future ChatGPT Project setup model and refresh categories.
 - `workflow_v3/LEGACY_EVIDENCE_POLICY.md` - legacy/rollback and old Direction evidence policy.
@@ -141,6 +150,10 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md` - Project setup rollout eval.
 - `workflow_v3/evals/LEGACY_EVIDENCE_BOUNDARY_EVAL.md` - legacy evidence boundary eval.
 - `workflow_v3/evals/NO_HIDDEN_STATE_OR_ROUTE_EVAL.md` - no hidden state or route eval.
+- `workflow_v3/evals/ACTION_ADMISSION_EVAL.md` - action admission eval.
+- `workflow_v3/evals/CHAT_LIFECYCLE_EVAL.md` - control-plane chat lifecycle eval.
+- `workflow_v3/evals/SOURCE_INTEGRITY_EVAL.md` - exact source authority eval.
+- `workflow_v3/evals/STORAGE_UPDATE_PACKAGE_EVAL.md` - storage update adapter package eval.
 - `workflow_v3/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md` - future Project creation guide and naming rules.
 - `workflow_v3/project_setup/README.md` - Workflow v3 Project setup index.
 - `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md` - installer for a future ordinary Direction ChatGPT Project.
@@ -168,6 +181,17 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/templates/PROGRESSION_ROUTER_RESULT_TEMPLATE.md` - Progression Router result template.
 - `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md` - Transition Packet template.
 - `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md` - Next chat prompt template.
+- `workflow_v3/templates/RUN_ADMISSION_PACKET_TEMPLATE.md` - run admission packet template.
+- `workflow_v3/templates/WORK_PLAN_TEMPLATE.md` - admitted work plan template.
+- `workflow_v3/templates/SOURCE_LOCK_TEMPLATE.md` - source lock template.
+- `workflow_v3/templates/SIGNAL_DISPOSITION_TEMPLATE.md` - phase-based signal disposition template.
+- `workflow_v3/templates/STORAGE_UPDATE_PACKAGE_TEMPLATE.md` - storage update package template.
+- `workflow_v3/templates/EXCEPTION_PACKET_TEMPLATE.md` - exception packet template.
+- `workflow_v3/procedures/GENERIC_ANSWER_PROCEDURE.md` - lightweight generic answer procedure.
+- `workflow_v3/procedures/STATUS_REVIEW_PROCEDURE.md` - read-only status review procedure.
+- `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` - Codex handoff package procedure.
+- `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md` - Codex result verification procedure.
+- `workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md` - suspect runtime state recovery review procedure.
 - `workflow_v3/templates/DIRECTION_PROJECT_BINDING_TEMPLATE.md` - future runtime Project Binding config template.
 - `workflow_v3/templates/DIRECTION_CONSOLE_TEMPLATE.md` - future read-only Direction Console template.
 - `workflow_v3/runbooks/DIRECTION_PROJECT_CONTINUATION_RUNBOOK.md` - later-chat binding/status/continuation runbook for ordinary Direction Projects.

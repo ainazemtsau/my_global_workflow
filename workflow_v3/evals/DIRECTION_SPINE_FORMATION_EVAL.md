@@ -28,5 +28,7 @@ Validate Direction Spine formation quality.
 - No alternatives or criteria are shown without warning.
 - Product roadmap/backlog content is embedded in the Spine.
 - Acceptance is implied or hidden.
+- Formation chat creates an acceptance record.
+- Formation chat writes repository state, updates CURRENT_STATUS, updates CURRENT_NEXT_MOVE, persists Event Loop Closure files, launches Codex, or crosses into storage update.
 
 END_OF_FILE: workflow_v3/evals/DIRECTION_SPINE_FORMATION_EVAL.md

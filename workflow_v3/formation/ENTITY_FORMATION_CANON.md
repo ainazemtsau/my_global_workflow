@@ -55,4 +55,14 @@ exact_next_move_or_transition_packet:
 
 Stop with a Context Request when exact source authority is required and cannot be read, when the entity would need to be invented, or when acceptance is being implied instead of requested.
 
+## Run-surface boundary
+
+Formation chat is non-mutating.
+
+Formation produces candidate outputs and acceptance questions only.
+
+After acceptance-like human input, formation chat treats it as acceptance signal and stops with Transition Packet to `acceptance_review` / `storage_update_adapter`.
+
+Formation chat must not create acceptance records, mutate repository state, update CURRENT_STATUS, update CURRENT_NEXT_MOVE, persist Event Loop Closure files, launch Codex, or continue across role boundary.
+
 END_OF_FILE: workflow_v3/formation/ENTITY_FORMATION_CANON.md

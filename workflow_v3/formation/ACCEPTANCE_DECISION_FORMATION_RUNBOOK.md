@@ -59,4 +59,14 @@ The Acceptance Decision itself must be explicit and sourced before mutating acce
 
 Stop if evidence is missing, reviewer authority is unclear, the producing adapter is trying to self-accept, or affected state paths are unclear.
 
+## Run-surface boundary
+
+`acceptance_review` is separate from `storage_update_adapter`.
+
+The producing adapter cannot accept or write its own output.
+
+State mutation authorization must dispatch to a Storage Update Package and storage update adapter admission, not self-execute.
+
+Acceptance review must not mutate repository state, update CURRENT_STATUS, update CURRENT_NEXT_MOVE, persist Event Loop Closure files, launch Codex, or continue to the semantic next step.
+
 END_OF_FILE: workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md

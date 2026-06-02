@@ -57,4 +57,10 @@ Promotion requires explicit review/update. Memory does not replace canonical sta
 
 Stop if the memory is only an interesting note, source refs are missing, accepted promotion authority is absent, or the artifact would override exact repository state.
 
+## Run-surface boundary
+
+Formation chat is non-mutating.
+
+After acceptance-like human input, stop with Transition Packet to `acceptance_review` / `storage_update_adapter`. Do not create acceptance records, mutate repository state, update CURRENT_STATUS, update CURRENT_NEXT_MOVE, persist Event Loop Closure files, launch Codex, or continue across role boundary.
+
 END_OF_FILE: workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md

@@ -16,11 +16,29 @@ Operational movement:
 Signal -> Handler -> Candidate Output -> Event Loop Closure -> Progression Router -> Transition Packet / Next Move -> Acceptance/update path
 ```
 
+Control-plane movement:
+
+```text
+Intake -> Action Admission -> Procedure Source Read -> Run Surface Contract -> Admission Packet / Work Plan -> admitted action or exception
+```
+
 This model describes how future Workflow v3 work should be structurally bounded, operationally routed, executed, evidenced, accepted, remembered, and resumed.
 
 Detailed interface contracts live under `workflow_v3/interfaces/**`. Future work must reconcile with that interface layer instead of redefining Direction structure, lifecycle routing, packets, storage, or adapter boundaries independently.
 
 Steering entities are formed through `workflow_v3/formation/**` before templates are filled or candidates are proposed for acceptance.
+
+## Control-plane boundary
+
+Workflow movement passes through action admission before material action.
+
+Next Move, Signal, Handler, Event Loop Closure, and Progression Router are not launch authority by themselves. Closure/router output does not silently launch next work.
+
+Every material action has `run_surface_type` and explicit allowed and forbidden operations.
+
+Storage mutation is a separate `storage_update_adapter` run. GitHub write tools are default-denied by workflow policy unless that adapter is admitted by exact package.
+
+Accepted state remains canonical repository state only after accepted update path and verification.
 
 ## Setup-only root and Direction Definition
 
