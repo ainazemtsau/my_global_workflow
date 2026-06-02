@@ -51,6 +51,8 @@ Formation produces candidate entities by default. Accepted state still requires 
 
 Ordinary Direction Project root/bootstrap is setup-only. It may create future technical placeholders and binding, but must not require or accept root outcome, Direction Spine, Direction Map, Active Front, Work Graph, or product strategy.
 
+The registered setup/root bootstrap entrypoint is `direction_project_root_bootstrap`, with run surface type `setup_only_root_bootstrap` and procedure source `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md`.
+
 Direction Definition is the separate semantic process after setup-only root, using Spine, Map, and Active Front formation runbooks.
 
 ## File index

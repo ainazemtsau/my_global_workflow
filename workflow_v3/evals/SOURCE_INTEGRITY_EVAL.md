@@ -12,6 +12,7 @@ Validate exact source authority before admitted action.
 - Treats snippets as non-authority.
 - Treats Project Files/Sources and chat memory as cache/context only.
 - Reads exact repository path/ref/sha where material work depends on source.
+- Records resolved commit SHA for branch refs and full file blob SHA where available in source locks.
 - Verifies EOF marker when the file has one.
 - Returns `SOURCE_INTEGRITY_EXCEPTION` on incomplete, stale, conflicting, or truncated source.
 
@@ -23,6 +24,7 @@ Validate exact source authority before admitted action.
 
 - Snippets, search, partial reads, Project Files/Sources, or chat memory are treated as source authority.
 - Missing EOF or truncation risk is ignored.
+- Source lock uses only an abbreviated SHA or branch name when full commit/blob identity is available.
 - Conflicting refs are merged by intuition.
 - Material work continues after unreadable required source.
 

@@ -9,6 +9,9 @@ status: active_control_plane
 - Project Files/Sources are cache only.
 - Chat memory is not source authority.
 - Exact repo path/ref/sha wins.
+- Material admission should include the resolved commit SHA when the requested source ref is a branch such as `main`.
+- File source locks should include exact path and full blob SHA where available.
+- Abbreviated SHAs may be shown only as display summaries when the full SHA is stored inline or linked.
 - Partial read is not enough when omitted lines may affect the action.
 - EOF marker is required where the file has an `END_OF_FILE` marker.
 - Missing EOF, truncation risk, conflicting ref, stale source, or incomplete read => SOURCE_INTEGRITY_EXCEPTION.
@@ -18,11 +21,13 @@ status: active_control_plane
 ```text
 repository:
 ref_or_commit:
+resolved_commit_sha:
 path:
 read_method:
 full_read_status:
 eof_marker_status:
-sha_if_available:
+full_blob_sha_if_available:
+display_sha_if_any:
 limitations:
 ```
 

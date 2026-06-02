@@ -8,6 +8,8 @@ status: template
 
 `ref_or_commit`:
 
+`resolved_commit_sha`:
+
 `path`:
 
 `read_method`:
@@ -16,12 +18,14 @@ status: template
 
 `eof_marker_status`:
 
-`sha_if_available`:
+`full_blob_sha_if_available`:
+
+`display_sha_if_any`:
 
 `limitations`:
 
 ## Boundary
 
-Search result is navigation only. Snippet is not source authority. Partial read is insufficient when omitted lines may affect the action.
+Search result is navigation only. Snippet is not source authority. Partial read is insufficient when omitted lines may affect the action. File locks should store exact path plus full blob SHA where available; abbreviated SHAs are display summaries only.
 
 END_OF_FILE: workflow_v3/templates/SOURCE_LOCK_TEMPLATE.md

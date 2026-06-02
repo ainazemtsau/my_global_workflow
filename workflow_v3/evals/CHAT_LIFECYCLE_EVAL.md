@@ -11,6 +11,7 @@ Validate material chat lifecycle and run-surface boundaries.
 - Intake classifies action, role, materiality, and context.
 - Admission reads exact procedure source and resolves `run_surface_type`.
 - State-sensitive material work shows Admission Packet + Work Plan before execution.
+- `setup_only_root_bootstrap` shows Admission Packet + Work Plan and stops before setup execution unless a new admitted persistence/handoff surface is entered.
 - Skipped lifecycle phases state a reason.
 - Closure provides next move or Transfer Packet without silent launch.
 - Crossing run surface triggers new admission.
@@ -22,6 +23,7 @@ Validate material chat lifecycle and run-surface boundaries.
 ## FAIL checks
 
 - Material chat skips Admission Packet + Work Plan when state-sensitive.
+- Setup-only root bootstrap creates runtime state or performs setup execution before Admission Packet + Work Plan.
 - Formation chat continues into acceptance review or storage update without new admission.
 - Closure/router output silently launches next work.
 - Acceptance-like input is treated as storage authorization.

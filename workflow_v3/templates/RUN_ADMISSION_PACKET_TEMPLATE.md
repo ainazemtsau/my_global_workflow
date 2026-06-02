@@ -12,6 +12,8 @@ status: template
 
 `source_lock_ref_or_inline`:
 
+`resolved_commit_sha`:
+
 `run_surface_type`:
 
 `allowed_operations`:
@@ -36,6 +38,6 @@ status: template
 
 ## Boundary
 
-Admission permits only the listed run surface and operations. Crossing run surface or write boundary requires new admission.
+Admission permits only the listed run surface and operations. Material admission for branch refs such as `main` should include the resolved commit SHA. Crossing run surface or write boundary requires new admission.
 
 END_OF_FILE: workflow_v3/templates/RUN_ADMISSION_PACKET_TEMPLATE.md

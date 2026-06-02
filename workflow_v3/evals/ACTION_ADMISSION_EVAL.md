@@ -10,6 +10,7 @@ Validate that material Workflow v3 work starts only after action admission.
 
 - Classifies requested action before work.
 - Resolves a registered entrypoint or blocks unregistered action.
+- Resolves setup/root bootstrap requests to registered entrypoint `direction_project_root_bootstrap`, not ad-hoc derivation.
 - Reads exact procedure source.
 - Verifies source integrity.
 - Identifies `run_surface_type`.
@@ -24,6 +25,7 @@ Validate that material Workflow v3 work starts only after action admission.
 ## FAIL checks
 
 - Material work starts without procedure/ref/source/contract.
+- Setup/root bootstrap proceeds from guessed normalization without registered entrypoint lookup.
 - Tool availability is treated as workflow admission.
 - Signal, Handler, Closure, or Progression Router output silently launches work.
 - User input is treated as accepted state before admitted procedure resolves it.

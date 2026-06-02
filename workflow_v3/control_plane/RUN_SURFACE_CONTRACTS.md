@@ -47,6 +47,67 @@ required_outputs:
 stop_conditions:
 - missing binding, unreadable state, conflicting state, or stale cache pressure.
 
+## `setup_only_root_bootstrap`
+
+allowed_operations:
+- read exact control-plane, setup, bootstrap, storage layout, and project setup sources;
+- resolve or normalize `direction_id`;
+- classify setup mode and legacy policy;
+- check whether the requested runtime root already exists;
+- treat user purpose/goals only as `candidate_context_for_direction_definition`;
+- prepare candidate setup-only root/bootstrap package;
+- prepare Project Binding plan;
+- prepare per-Direction Project Instructions source plan if required by setup procedure;
+- prepare Project Files manifest plan if required by setup procedure;
+- prepare Storage Update Package or Codex handoff if persistence is needed;
+- produce Result Packet and Event Loop Closure.
+
+forbidden_operations:
+- mutate repository directly;
+- create runtime files directly in the setup chat;
+- define or accept Direction Spine;
+- define or accept Direction Map;
+- define or accept Active Front;
+- create Work Graph;
+- create Work Contract;
+- define root outcome as accepted state;
+- define product strategy, roadmap, backlog, or implementation plan;
+- import `workflow/**` or `directions/**` as accepted Workflow v3 state;
+- read legacy evidence unless the setup procedure explicitly requires it;
+- create acceptance records;
+- update CURRENT_STATUS or CURRENT_NEXT_MOVE directly;
+- update actual ChatGPT Project Instructions UI;
+- refresh Project Files/Sources externally;
+- launch Codex without a bounded Codex handoff.
+
+required_inputs:
+- repository;
+- base ref / source ref;
+- direction_id or direction_id normalization input;
+- setup mode;
+- legacy policy;
+- exact setup/control-plane procedure sources;
+- mutation policy.
+
+required_outputs:
+- blocked result or candidate setup-only root/bootstrap package;
+- source locks;
+- candidate Project Binding plan;
+- Storage Update Package or Codex handoff if persistence is needed;
+- Result Packet;
+- Event Loop Closure;
+- exact next move.
+
+stop_conditions:
+- required source is missing, truncated, unreadable, stale, or lacks required EOF;
+- runtime root already exists or conflicts with clean-start setup;
+- semantic Direction content would be defined during setup;
+- legacy import pressure appears;
+- write is requested without storage_update_adapter package;
+- actual Project UI / Project Files refresh is attempted directly;
+- source lock lacks resolved main commit SHA or required file identity;
+- action crosses from setup_only_root_bootstrap to formation_chat, acceptance_review, or storage_update_adapter without new admission.
+
 ## `formation_chat`
 
 allowed_operations:

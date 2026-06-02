@@ -8,6 +8,7 @@ status: active_control_plane
 | --- | --- | --- |
 | `generic_answer` | `workflow_v3/procedures/GENERIC_ANSWER_PROCEDURE.md` | `generic_answer` |
 | `status_review` | `workflow_v3/procedures/STATUS_REVIEW_PROCEDURE.md` | `status_review` |
+| `direction_project_root_bootstrap` | `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md` | `setup_only_root_bootstrap` |
 | `launch_direction_definition` | `workflow_v3/runbooks/DIRECTION_DEFINITION_RUNBOOK.md` | `formation_chat` |
 | `form_direction_spine` | `workflow_v3/formation/DIRECTION_SPINE_FORMATION_RUNBOOK.md` | `formation_chat` |
 | `form_direction_map` | `workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md` | `formation_chat` |
