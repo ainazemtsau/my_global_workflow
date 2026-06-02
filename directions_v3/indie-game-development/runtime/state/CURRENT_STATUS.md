@@ -5,7 +5,7 @@ direction_id: indie-game-development
 status_refreshed_at_or_record_ref: setup_only_root_package_candidate
 setup_status: setup_only_root_created
 semantic_definition_status: pending_definition
-project_binding_status: candidate
+project_binding_status: accepted
 
 current_phase: setup_only_root
 
@@ -24,7 +24,7 @@ current_open_decisions:
 - Active Front pending Direction Definition
 
 current_evidence_status:
-- setup-only root package candidate; requires human acceptance/merge before becoming accepted runtime root state
+- setup-only root package is intended to become accepted runtime root state after human acceptance/merge
 
 current_project_setup_status:
 - per-Direction Project Instructions source generated

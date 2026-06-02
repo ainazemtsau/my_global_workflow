@@ -2,7 +2,7 @@
 
 direction_id: indie-game-development
 
-next_move_status: candidate
+next_move_status: accepted
 formation_runbook_ref: workflow_v3/formation/CURRENT_NEXT_MOVE_FORMATION_RUNBOOK.md
 formation_eval_ref: workflow_v3/evals/CURRENT_NEXT_MOVE_FORMATION_EVAL.md
 

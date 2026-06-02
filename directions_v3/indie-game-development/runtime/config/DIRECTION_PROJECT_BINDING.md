@@ -2,7 +2,7 @@
 
 direction_id: indie-game-development
 
-binding_status: candidate
+binding_status: accepted
 project_type: ordinary_direction_project
 semantic_definition_status: pending_definition
 
@@ -18,8 +18,8 @@ project_setup_source_path: directions_v3/indie-game-development/project_setup/CH
 project_files_manifest_path: directions_v3/indie-game-development/project_setup/PROJECT_FILES_MANIFEST.md
 
 project_instruction_payload_source_ref: directions_v3/indie-game-development/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
-accepted_root_package_ref: pending_human_acceptance_after_codex_return
-acceptance_decision_ref: pending_human_acceptance_after_codex_return
+accepted_root_package_ref: human_acceptance_merge_of_setup_only_root_package
+acceptance_decision_ref: human_acceptance_merge_decision_for_setup_only_root_package
 
 source_authority:
 Exact repository files at named repo/path/ref win over Project Files/Sources, uploaded files, generated packs, summaries, chat memory, Project title, and optional binding cache.
