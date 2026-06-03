@@ -61,7 +61,7 @@ finish_self_audit:
 
 Each check value must be PASS or FAIL.
 
-If any check is FAIL, FINISH_PACKET status must be repair_required or blocked.
+If any check is FAIL, result_packet.status must be repair_required or blocked.
 
 ## result_packet
 
