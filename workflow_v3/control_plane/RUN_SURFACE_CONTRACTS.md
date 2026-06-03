@@ -6,6 +6,20 @@ status: active_control_plane
 
 Every admitted material action has a `run_surface_type`. The run surface contract defines allowed operations, forbidden operations, required inputs, required outputs, and stop conditions.
 
+## Lifecycle integration
+
+Every run_surface_type is executed only inside RUN.
+
+RUN can execute only the procedure selected in START.
+
+A run surface contract cannot authorize procedure switching.
+
+A run surface contract cannot authorize state mutation unless run_surface_type is storage_update_adapter.
+
+A run surface contract cannot authorize acceptance by the same chat that produced the candidate output.
+
+Every material run surface must return FINISH_REQUEST before FINISH.
+
 ## `generic_answer`
 
 allowed_operations:
@@ -128,17 +142,23 @@ forbidden_operations:
 - launch Codex unless separately admitted;
 - create Work Graph before accepted Active Front;
 - treat user context as acceptance;
-- treat acceptance signal as storage authorization.
+- treat acceptance signal as storage authorization;
+- execute more than one steering entity unless the selected procedure itself is explicitly admitted as a single bounded procedure and START_PACKET names that single procedure;
+- continue from one steering entity to another by conversation momentum;
+- enter FINISH without FINISH_REQUEST and explicit FINISH or ФИНИШ token.
 
 required_inputs:
-- target entity or admitted Definition sequence;
+- target entity or selected Direction Definition procedure;
 - exact procedure source;
 - source authority and required reads;
 - return destination.
 
 required_outputs:
 - candidate entity or blocked result;
-- evidence, read limitations, acceptance question, Event Loop Closure, exact next move or Transition Packet.
+- evidence, read limitations, acceptance question, Event Loop Closure, exact next move or Transition Packet;
+- FINISH_REQUEST before FINISH;
+- selected procedure result only;
+- no hidden next procedure launch.
 
 stop_conditions:
 - missing source, target drift, role boundary crossing, acceptance ambiguity, write request, or forbidden sequencing.

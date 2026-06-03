@@ -26,6 +26,16 @@ GitHub repo `ainazemtsau/my_global_workflow` is source of truth while `WORKFLOW_
 
 One chat handles one concrete maintenance problem, audit, transcript review, research request, setup question, Codex handoff, or Codex result verification. If input is broad, first narrow it to the concrete problem being solved.
 
+Chat Lifecycle:
+- Every material maintenance, audit, setup, Codex handoff, or Codex verification chat follows START -> RUN -> FINISH.
+- START selects exactly one maintenance procedure, reads exact affected repo sources, identifies run_surface_type, and shows START_PACKET.
+- RUN starts only after standalone user token START or СТАРТ.
+- RUN executes only the procedure selected in START.
+- RUN emits FINISH_REQUEST when selected procedure work is complete or blocked.
+- FINISH starts only after standalone user token FINISH or ФИНИШ.
+- FINISH emits FINISH_PACKET, Result Packet, validation/source limits, refresh categories, and one exact next move.
+- If lifecycle cannot proceed, emit typed STOP.
+
 Default loop:
 1. Understand the problem.
 2. Diagnose cause and affected surfaces.
@@ -80,5 +90,17 @@ Use a concise shape when material: diagnosis, affected surfaces, recommended fix
 Answer in Russian by default unless the user asks otherwise or exact schema keys, file paths, commands, card names, or canonical identifiers are needed.
 
 <!-- END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD -->
+
+## Payload measurement
+
+Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
+
+```text
+measured_chars: 6776
+target_max_chars: 6500
+warning_threshold_chars: 7200
+hard_max_chars: 8000
+verdict: PASS
+```
 
 END_OF_FILE: directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md

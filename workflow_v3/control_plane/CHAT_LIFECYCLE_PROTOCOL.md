@@ -2,57 +2,99 @@
 
 status: active_control_plane
 
-## Material chat lifecycle
+## Authority
 
-```text
-Phase 0 Intake
-Phase 1 Admission / Source Read
-Phase 2 Admission Packet + Work Plan
-Phase 3 Execution
-Phase 4 Review / Acceptance handling
-Phase 5 Persistence / Adapter Run
-Phase 6 Verification
-Phase 7 Closure / Transfer
-```
+This file is the authoritative Workflow v3 chat lifecycle kernel for material and state-sensitive chats.
 
-Not every chat enters every phase. Skipped phases require reason.
+## Universal law
 
-## Phase rules
+Every material or state-sensitive chat response must enter START before work, execute exactly one admitted procedure in RUN, and close through FINISH or typed STOP.
 
-Phase 0 Intake:
-- classify requested action, context, role, and materiality;
-- normalize bounded user request into a registered entrypoint when safe.
+## State machine
 
-Phase 1 Admission / Source Read:
-- resolve procedure registry entry;
-- read exact procedure source;
-- verify source integrity and EOF status;
-- identify `run_surface_type`.
+START -> RUN -> FINISH
+START -> STOP
+RUN -> STOP
+RUN -> FINISH_REQUEST
+FINISH_REQUEST -> FINISH
+FINISH -> closed
 
-Phase 2 Admission Packet + Work Plan:
-- show Admission Packet and Work Plan before state-sensitive or material execution;
-- default start condition for material/governance work is `user_start_required` unless the user already explicitly asked for immediate execution and the action is non-mutating.
+## START
 
-Phase 3 Execution:
-- perform only allowed operations for the admitted run surface;
-- stop on boundary crossing.
+START selects one procedure and proves that it can be executed.
 
-Phase 4 Review / Acceptance handling:
-- treat acceptance-like input as a signal unless admitted acceptance review resolves it;
-- do not mutate state.
+START must:
+- classify the user input;
+- detect requested work items;
+- select exactly one work item;
+- return SPLIT_REQUIRED when more than one independent work item is requested;
+- resolve selected procedure through Procedure Registry;
+- read exact required source files;
+- identify run_surface_type;
+- read the matching run surface contract;
+- show START_PACKET;
+- wait for explicit user token START or СТАРТ before RUN.
 
-Phase 5 Persistence / Adapter Run:
-- enter only through `storage_update_adapter` admission with Storage Update Package.
+## RUN
 
-Phase 6 Verification:
-- verify exact changed files, validation, source integrity, EOF markers, payload counts when relevant, and return fields.
+RUN executes only the procedure selected in START.
 
-Phase 7 Closure / Transfer:
-- closure selects next move but does not launch it invisibly;
-- provide Transition Packet or next-chat prompt when transfer is needed.
+RUN must:
+- execute only selected_procedure_ref;
+- obey selected run_surface_type;
+- obey allowed_operations, forbidden_operations, required_inputs, required_outputs, and stop_conditions;
+- treat any request for another procedure as BOUNDARY_CROSSING_STOP;
+- produce FINISH_REQUEST when the selected procedure reaches its completion condition;
+- never mutate state unless the selected procedure is storage_update_adapter;
+- never accept its own output.
 
-## Surface crossing
+## FINISH_REQUEST
 
-Crossing `run_surface_type` requires a new admission decision. A formation chat cannot become an acceptance review or storage update adapter by continuing the same reasoning thread.
+FINISH_REQUEST is the only transition from RUN to FINISH.
+
+FINISH_REQUEST must:
+- summarize selected work result;
+- list unresolved items;
+- list candidate state;
+- state that FINISH requires explicit user token FINISH or ФИНИШ;
+- not emit final Event Loop Closure.
+
+## FINISH
+
+FINISH closes the chat.
+
+FINISH must:
+- read CHAT_FINISH_PROTOCOL.md before emitting final closure;
+- audit that START selected one procedure and RUN did not switch procedures;
+- emit FINISH_PACKET;
+- emit Result Packet;
+- emit Event Loop Closure;
+- select exactly one primary next move;
+- not launch the next move invisibly.
+
+## STOP
+
+STOP is terminal for the current attempted transition.
+
+STOP types:
+- SPLIT_REQUIRED
+- CONTEXT_REQUEST
+- UNREGISTERED_ACTION_EXCEPTION
+- SOURCE_AUTHORITY_CONFLICT
+- BINDING_CONFLICT
+- MISSING_RUN_SURFACE_TYPE
+- BOUNDARY_CROSSING_STOP
+- WRITE_NOT_ADMITTED
+- ACCEPTANCE_AMBIGUITY
+- LEGACY_BOUNDARY_STOP
+- VALIDATION_REQUIRED_STOP
+- SOURCE_INTEGRITY_STOP
+
+## Phase mapping
+
+START contains old Phase 0, Phase 1, and Phase 2.
+RUN contains old Phase 3 and selected-procedure execution.
+FINISH contains old Phase 4, Phase 5, Phase 6, and Phase 7 only when those boundaries are admitted.
+Skipped old phases require a reason in FINISH_PACKET.
 
 END_OF_FILE: workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md

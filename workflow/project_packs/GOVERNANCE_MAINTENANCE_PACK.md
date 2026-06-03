@@ -67,6 +67,14 @@ Live Workflow Governance Direction payload files are request-only for maintenanc
 
 One chat handles one concrete maintenance problem.
 
+Material maintenance work follows START -> RUN -> FINISH.
+
+Material maintenance work must show START_PACKET before RUN.
+
+RUN cannot execute a procedure not selected in START.
+
+FINISH must include FINISH_PACKET, Result Packet, Event Loop Closure, and refresh categories when project surfaces changed.
+
 The default loop is:
 
 1. Understand the problem.
@@ -117,6 +125,8 @@ Gate sequence:
 - P5 Codex Handoff / Codex Result Verification when applicable
 - P6 Terminal Outcome
 
+P0 Single Responsibility / Atomic Run is the audit form of START Single Procedure Gate.
+
 P0 Single Responsibility / Atomic Run is the first mandatory gate. Identify:
 
 - declared bounded work
@@ -127,6 +137,8 @@ P0 Single Responsibility / Atomic Run is the first mandatory gate. Identify:
 - whether compound work was scope-triaged or split before material work
 
 Fail or warn P0 when one chat handled multiple independent jobs, when unrelated work was started without a new bounded objective, or when compound input was not triaged or split before material work.
+
+When lifecycle mode applies, fail transcript review when material work started before START_PACKET, RUN executed a different procedure than selected in START, or FINISH emitted without FINISH_REQUEST or user FINISH token.
 
 P1 Correct Project Mode checks whether the assistant preserved the maintenance-console boundary:
 
@@ -160,6 +172,8 @@ P3 Lifecycle Surface Detection identifies the relevant Lifecycle Surface or surf
 - Codex result verification
 - validation failed/unavailable
 - terminal closure
+
+P3 must identify whether START -> RUN -> FINISH lifecycle mode applies and whether SPLIT_REQUIRED was required before material work.
 
 P4 Surface-Specific Contract Checks apply only after lifecycle detection. Check the contracts relevant to the detected surface, including:
 
@@ -201,6 +215,9 @@ Stable defect classes:
 - WG-TR-FAIL-014 no_validation_no_done_violation
 - WG-TR-FAIL-015 overbroad_fix_recommendation
 - WG-TR-FAIL-016 exact_schema_needed_but_pack_summary_used
+- WG-TR-FAIL-017 material_work_before_start_packet
+- WG-TR-FAIL-018 run_procedure_mismatch
+- WG-TR-FAIL-019 finish_without_gate
 
 Required transcript review output:
 

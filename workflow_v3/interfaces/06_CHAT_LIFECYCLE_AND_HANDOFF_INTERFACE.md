@@ -1,10 +1,18 @@
 # Chat Lifecycle and Handoff Interface
 
-status: active_interface_layer
+status: active_lifecycle_handoff_interface
 
 ## Purpose
 
 This interface defines parent, child, next chat, Codex, Check Job, human decision, and Runtime Console boundaries.
+
+## Lifecycle authority
+
+`workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` is the runtime lifecycle kernel.
+
+This file is a lifecycle/handoff interface. It does not replace the runtime lifecycle kernel.
+
+Handoff surfaces must obey START -> RUN -> FINISH when material or state-sensitive.
 
 ## Chat and run surfaces
 

@@ -16,9 +16,14 @@ status: active_repository_completion_framework
 - parent target;
 - child launch packet if any;
 - child result or missing-result evidence;
+- FINISH_PACKET when lifecycle mode applies;
 - return destination;
 - Parent Recovery Block when multiple children are launched;
 - Event Loop Closure.
+
+## Lifecycle precheck
+
+For material or state-sensitive chats, run CHAT_LIFECYCLE_PROTOCOL_EVAL before handoff-specific checks.
 
 ## PASS criteria
 
@@ -40,6 +45,7 @@ status: active_repository_completion_framework
 - Missing child evidence synthesized.
 - Parent Recovery Block missing when multiple children are launched.
 - Transition Packet requires manual user assembly.
+- Handoff emitted without FINISH_PACKET when lifecycle mode applies.
 
 ## Common failure modes
 

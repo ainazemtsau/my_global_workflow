@@ -40,6 +40,17 @@ Work admission:
 - Handler output, Result Packets, and Codex output are candidate until accepted.
 - Steering entities require formation before template filling.
 
+Chat Lifecycle:
+- Every material or state-sensitive chat follows START -> RUN -> FINISH.
+- START selects exactly one procedure through Procedure Registry, reads exact required repo sources, identifies run_surface_type, and shows START_PACKET.
+- RUN starts only after standalone user token START or СТАРТ.
+- RUN executes only the procedure selected in START.
+- RUN cannot switch procedures, mutate state, accept output, launch Codex, or start another entity unless that exact procedure was selected in START.
+- RUN emits FINISH_REQUEST when selected procedure work is complete or blocked.
+- FINISH starts only after standalone user token FINISH or ФИНИШ.
+- FINISH reads the finish protocol, emits FINISH_PACKET, Result Packet, Event Loop Closure, and one exact next move.
+- If lifecycle cannot proceed, emit typed STOP instead of guessing.
+
 Project surfaces:
 - Project Instructions UI is behavior/bootstrap and binding capsule context, not accepted state.
 - Project Files/Sources are cache/context only and cannot override exact repository source.
@@ -61,12 +72,12 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
 ```text
-measured_chars: 3604
+measured_chars: 4444
 target_max_chars: 6500
 warning_threshold_chars: 7200
 hard_max_chars: 8000
 verdict: PASS
-````
+```
 
 ## Refresh classification
 

@@ -6,9 +6,9 @@ status: active_direction_definition_runbook
 
 Direction Definition is the first semantic entity-formation process after setup-only root exists.
 
-It forms candidate Direction Spine, Direction Map, and first Active Front. It does not execute product work and does not open Work Graph before Active Front acceptance.
+Direction Definition is a procedure family for forming the next required steering entity candidate after setup-only root exists.
 
-Direction Definition may sequence Spine -> Map -> Active Front only as candidate formation surfaces.
+It does not execute product work and does not open Work Graph before Active Front acceptance.
 
 It may not persist accepted Spine/Map/Front, status, next move, acceptance records, or event loop closure files.
 
@@ -36,6 +36,25 @@ Read:
 
 Stop if exact source cannot be read or if setup-only root is not confirmed.
 
+## Direction Definition execution policy
+
+Direction Definition is a procedure family. A single chat RUN executes exactly one selected procedure.
+
+Default selection order:
+1. If no accepted Direction Spine exists, select form_direction_spine only.
+2. If accepted Direction Spine exists and no accepted Direction Map exists, select form_direction_map only.
+3. If accepted Direction Map exists and no accepted Active Front exists, select form_active_front only.
+
+The selected procedure must be named in START_PACKET.
+
+A chat must not form Direction Spine, Direction Map, and Active Front in one RUN.
+
+A chat must not continue from Spine to Map or from Map to Active Front during RUN.
+
+After the selected procedure reaches completion, emit FINISH_REQUEST.
+
+Next entity formation requires a new START after FINISH.
+
 ## Candidate context handling
 
 Use `candidate_context_for_direction_definition` as candidate context only.
@@ -44,11 +63,9 @@ It may seed alternatives, constraints, or evidence questions. It cannot bypass f
 
 ## Formation sequence
 
-1. Direction Spine Formation creates candidate Spine with alternatives, proof signals, non-goals, risks, cuts, acceptance question, closure, and next move.
-2. Direction Map Formation creates candidate Map from the Spine candidate and evidence labels.
-3. Active Front Formation creates first candidate Active Front from Direction Map areas.
+The selected formation procedure creates only its selected candidate with alternatives, proof signals, non-goals, risks, cuts, acceptance question, closure inputs, and next move.
 
-Default: one steering entity per material formation chat. A parent Definition chat may sequence these if each entity's candidate, evidence, risks, cuts, acceptance question, closure, and next move remain separate.
+Unselected formation procedures are deferred and require a separate START after FINISH.
 
 ## Acceptance boundary
 
@@ -64,14 +81,12 @@ Return:
 
 ```text
 result_packet:
-candidate_spine:
-candidate_map:
-candidate_active_front:
+selected_procedure_result:
 evidence:
 source_read_limitations:
 risks:
 cuts:
-acceptance_questions:
+acceptance_question:
 event_loop_closure:
 primary_next_move:
 ```
