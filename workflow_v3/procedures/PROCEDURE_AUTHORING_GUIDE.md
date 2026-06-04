@@ -6,6 +6,37 @@ status: active_procedure_framework
 
 Use this guide when writing Workflow v3 procedure files. A good procedure is neither rigid micro-steps nor a vague "do well" instruction. It names the work boundary, required sources, material stages, gates, allowed expansion, stop conditions, and output contract.
 
+## Canonical procedure location and naming
+
+Write new Procedure Definition Framework procedures under:
+
+```text
+workflow_v3/procedures/**
+```
+
+Name new procedure files as:
+
+```text
+*_PROCEDURE.md
+```
+
+When migrating an old runbook or playbook into the Procedure Definition Framework, do not preserve `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or legacy runbook/playbook directory placement merely to minimize diff size.
+
+The migration plan must identify:
+
+```text
+old_source_path:
+new_procedure_path:
+registry_entrypoint:
+registry_delta:
+legacy_file_disposition: delete | archive | compatibility_shim
+exception_if_not_canonical:
+```
+
+The registry must point to the canonical migrated procedure file after migration. Existing unmigrated registry entries may temporarily point to legacy paths only as coexistence; that does not authorize new migrated procedures to remain there.
+
+A compatibility shim is allowed only when explicitly justified and separately admitted. It must not remain the controlling procedure source.
+
 ## Write the boundary first
 
 Keep the trigger short:
