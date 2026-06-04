@@ -12,6 +12,8 @@ Every run_surface_type is executed only inside RUN.
 
 RUN can execute only the procedure selected in START.
 
+Procedures using the Procedure Definition Framework execute as bounded stage/gate loops inside RUN.
+
 A run surface contract cannot authorize procedure switching.
 
 A run surface contract cannot authorize state mutation unless run_surface_type is storage_update_adapter.
@@ -214,6 +216,52 @@ required_outputs:
 
 stop_conditions:
 - missing package, missing allowed files, forbidden paths, expected diff absent, validation absent, or source integrity failure.
+
+## `procedure_authoring`
+
+allowed_operations:
+- read exact Workflow v3 procedure framework, registry, control-plane, eval, and existing procedure sources;
+- design candidate procedure definitions;
+- design registry entry proposals;
+- design run surface compatibility statements;
+- design eval proposals;
+- design migration plans for simple procedures;
+- produce Codex/storage handoff candidates only when separately requested and bounded;
+- produce Result Packet and Event Loop Closure.
+
+forbidden_operations:
+- mutate repository/runtime state directly;
+- update actual ChatGPT Project Instructions UI;
+- accept its own output;
+- execute the procedure being authored;
+- migrate complex formation/entity procedures unless separately scoped;
+- launch Codex without a separately admitted `codex_handoff`;
+- touch Direction runtime state;
+- import legacy evidence as current state.
+
+required_inputs:
+- target procedure name or intent;
+- expected trigger and output;
+- target run surface or candidate run surface;
+- source files to inspect;
+- requested integration scope;
+- repository/base ref when repository work is requested.
+
+required_outputs:
+- candidate procedure definition or integration plan;
+- registry entry proposal;
+- run surface compatibility statement;
+- eval proposal;
+- allowed/forbidden paths if handoff is needed;
+- Result Packet;
+- Event Loop Closure;
+- exact next move.
+
+stop_conditions:
+- target procedure is unbounded;
+- requested work crosses into execution, acceptance, storage, or complex formation migration;
+- required sources are missing or unreadable;
+- procedure would authorize hidden mutation or self-acceptance.
 
 ## `codex_handoff`
 

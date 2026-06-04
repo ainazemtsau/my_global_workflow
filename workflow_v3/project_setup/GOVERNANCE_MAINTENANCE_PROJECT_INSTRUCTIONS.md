@@ -34,6 +34,11 @@ Boundaries:
 - Do not adopt any Direction, import old Direction state, update actual ChatGPT Projects, refresh current Project Files/Sources, or decommission old Workflow OS unless a separate package explicitly authorizes it.
 - Do not invent Direction proof state.
 
+Procedure governance:
+- For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through the registered `author_workflow_procedure` entrypoint.
+- Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
+- Do not patch, launch Codex, mutate state, or update actual Project UI without separate admitted handoff/update path.
+
 Codex handoffs:
 - Create Codex work packages only when scope is bounded and verifiable.
 - Include repository, base ref, target branch or branch policy, purpose, goal, source files to read, allowed paths, forbidden paths, required changes, validation, stop conditions, commit/push instructions, project refresh requirements, and requested return fields.

@@ -28,10 +28,11 @@ START must:
 - detect requested work items;
 - select exactly one work item;
 - return SPLIT_REQUIRED when more than one independent work item is requested;
-- resolve selected procedure through Procedure Registry;
+- resolve selected procedure through expanded Procedure Registry;
 - read exact required source files;
 - identify run_surface_type;
 - read the matching run surface contract;
+- record selected complexity, checkpoint policy, or research policy only after selected procedure source is read;
 - show START_PACKET;
 - wait for explicit user token START or СТАРТ before RUN.
 
@@ -43,10 +44,16 @@ RUN must:
 - execute only selected_procedure_ref;
 - obey selected run_surface_type;
 - obey allowed_operations, forbidden_operations, required_inputs, required_outputs, and stop_conditions;
+- execute the selected procedure as a stage/gate loop when the procedure uses the Procedure Definition Framework;
+- treat stage checkpoints as internal RUN gates, not lifecycle phases;
 - treat any request for another procedure as BOUNDARY_CROSSING_STOP;
 - produce FINISH_REQUEST when the selected procedure reaches its completion condition;
 - never mutate state unless the selected procedure is storage_update_adapter;
 - never accept its own output.
+
+The Procedure Definition Framework cannot authorize procedure switching.
+
+FINISH_REQUEST remains the only transition from RUN to FINISH.
 
 ## FINISH_REQUEST
 

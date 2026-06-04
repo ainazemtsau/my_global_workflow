@@ -155,6 +155,8 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/evals/ACTION_ADMISSION_EVAL.md` - action admission eval.
 - `workflow_v3/evals/CHAT_LIFECYCLE_EVAL.md` - control-plane chat lifecycle eval.
 - `workflow_v3/evals/SOURCE_INTEGRITY_EVAL.md` - exact source authority eval.
+- `workflow_v3/evals/PROCEDURE_DEFINITION_EVAL.md` - procedure definition quality eval.
+- `workflow_v3/evals/PROCEDURE_EXECUTION_EVAL.md` - procedure execution lifecycle/gate eval.
 - `workflow_v3/evals/STORAGE_UPDATE_PACKAGE_EVAL.md` - storage update adapter package eval.
 - `workflow_v3/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md` - future Project creation guide and naming rules.
 - `workflow_v3/project_setup/README.md` - Workflow v3 Project setup index.
@@ -189,6 +191,10 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/templates/SIGNAL_DISPOSITION_TEMPLATE.md` - phase-based signal disposition template.
 - `workflow_v3/templates/STORAGE_UPDATE_PACKAGE_TEMPLATE.md` - storage update package template.
 - `workflow_v3/templates/EXCEPTION_PACKET_TEMPLATE.md` - exception packet template.
+- `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md` - canonical Workflow v3 procedure definition framework.
+- `workflow_v3/procedures/PROCEDURE_AUTHORING_GUIDE.md` - guide for writing Workflow v3 procedure files.
+- `workflow_v3/procedures/PROCEDURE_TEMPLATE.md` - reusable template for new Workflow v3 procedures.
+- `workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md` - non-mutating procedure authoring and integration entrypoint.
 - `workflow_v3/procedures/GENERIC_ANSWER_PROCEDURE.md` - lightweight generic answer procedure.
 - `workflow_v3/procedures/STATUS_REVIEW_PROCEDURE.md` - read-only status review procedure.
 - `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` - Codex handoff package procedure.

@@ -29,6 +29,12 @@ Preparation/admission phase handles only blocking source, procedure, role, write
 
 Execution phase handles only run-safety issues inline.
 
+Ordinary procedure checkpoints are not Signals by default.
+
+Emit Signals only for notable workflow facts: material run closed, blocking source issue, scope drift, validation failure, acceptance ambiguity, child/check/Codex missing result, legacy boundary touched, or other closure/recovery relevant facts.
+
+Do not emit a Signal for every stage pass, minor checkpoint, or ordinary user confirmation.
+
 Persistence/verification phase handles adapter, validation, and write-scope failures inline.
 
 Closure phase may match handler registry and route one primary next move.

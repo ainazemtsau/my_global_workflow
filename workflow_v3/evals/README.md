@@ -19,5 +19,7 @@ Evals do not create accepted state. They classify evidence as PASS, WARN, or FAI
 - `PROJECT_SETUP_ROLLOUT_EVAL.md`
 - `LEGACY_EVIDENCE_BOUNDARY_EVAL.md`
 - `NO_HIDDEN_STATE_OR_ROUTE_EVAL.md`
+- `PROCEDURE_DEFINITION_EVAL.md`
+- `PROCEDURE_EXECUTION_EVAL.md`
 
 END_OF_FILE: workflow_v3/evals/README.md
