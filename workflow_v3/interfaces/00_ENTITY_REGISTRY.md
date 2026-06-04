@@ -8,12 +8,17 @@ This file is the canonical registry of Workflow v3 entities for the current skel
 
 Every entity below is candidate-only or interface-only unless an accepted Direction adoption/update path later creates per-Direction state.
 
+Goal Evidence Graph, Goal Evidence Node, Active Unresolved Cut, Parent Integration Result, Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, Derived Gate Check, and Memory Index are steering/control/projection/record artifacts. They are not semantic primitives, do not mutate accepted state by existence, and are not launch authority by themselves.
+
 | Entity | Short definition | Not-this boundary | Canonical owner file/interface | State mutation rights |
 | --- | --- | --- | --- | --- |
 | Direction | Long-lived project/result system with its own runtime state after adoption. | Not a single file, chat, backlog, Project, or prompt. | `01_DIRECTION_STRUCTURE_INTERFACE.md` | Created/adopted only through explicit Direction adoption package. |
 | Direction Runtime Root | Future per-Direction root at `directions_v3/<direction-id>/runtime/`. | Not created by this interface package. | `09_STORAGE_STATE_INTERFACE.md` | Created only through accepted per-Direction adoption. |
 | Direction Spine | Stable axis for root result, success conditions, spine points, and tracks. | Not roadmap, backlog, or full Work Graph. | `01_DIRECTION_STRUCTURE_INTERFACE.md` | Mutates only through acceptance/update path. |
 | Direction Map | Global structural map between Direction Spine and Active Front. | Not roadmap, backlog, unreviewed task list, or local Work Graph. | `02_DIRECTION_MAP_INTERFACE.md` | Mutates only through acceptance/update path. |
+| Goal Evidence Graph | Direction Map-associated steering/control graph of claims, alternatives, obstacles, evidence requirements, and candidate focus paths. | Not semantic primitive, roadmap, backlog, accepted state, or launch authority. | `14_GOAL_EVIDENCE_GRAPH_INTERFACE.md` | Candidate/control projection; mutates accepted state only through acceptance/update path. |
+| Goal Evidence Node | Graph node carrying a claim, obstacle, evidence need, relation to parent, status, and acceptance policy. | Not Work Graph node or accepted proof by existence. | `14_GOAL_EVIDENCE_GRAPH_INTERFACE.md` | Candidate/control projection until accepted. |
+| Active Unresolved Cut | Selected unresolved graph frontier used to inform Active Front selection. | Not Work Graph, backlog, roadmap, or launch authority. | `14_GOAL_EVIDENCE_GRAPH_INTERFACE.md` | Candidate selection mechanism only. |
 | Track | Stable strategic lane within the Direction Spine/Map. | Not a task list or workstream branch by itself. | `02_DIRECTION_MAP_INTERFACE.md` | Changes only through accepted Spine/Map update. |
 | Map Area | Named part of Direction Map that can host risks, dependencies, candidate fronts, or closed fronts. | Not a Work Graph node or backlog item. | `02_DIRECTION_MAP_INTERFACE.md` | Changes only through accepted Map update. |
 | Strategic Dependency | Dependency that affects sequencing or viability across map areas/tracks. | Not ordinary task dependency inside a local Work Graph. | `02_DIRECTION_MAP_INTERFACE.md` | Accepted only through Map/decision update. |
@@ -29,6 +34,11 @@ Every entity below is candidate-only or interface-only unless an accepted Direct
 | FINISH_PACKET | Final lifecycle closure wrapper after explicit FINISH. | Not acceptance or launch authority. | `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` | Candidate closure only. |
 | Result Packet | Returned candidate result, evidence, limits, and next surface. | Not accepted state. | `08_PACKET_AND_TRANSFER_INTERFACE.md` | Candidate until accepted. |
 | Next Move Packet | Single selected next move with type, boundary, destination, and blocker fields. | Not hidden launch or separate route authority. | `08_PACKET_AND_TRANSFER_INTERFACE.md` | Candidate/transport until acted on or accepted. |
+| Parent Integration Result | Typed fan-in record comparing returned child/work results to parent criteria. | Not acceptance, evidence synthesis, mutation, or launch authority. | `15_PARENT_INTEGRATION_AND_IMPACT_INTERFACE.md` | Candidate record until accepted or acted on by admitted path. |
+| Graph Delta | Candidate graph change record for Goal Evidence Graph structure/status/evidence links. | Not accepted graph mutation by existence. | `15_PARENT_INTEGRATION_AND_IMPACT_INTERFACE.md` | Candidate record until acceptance/update path. |
+| Upstream Escalation Packet | Typed packet escalating a lower-layer issue to the required parent layer. | Not accepted route change or launch authority. | `15_PARENT_INTEGRATION_AND_IMPACT_INTERFACE.md` | Candidate packet until acted on by admitted path. |
+| Downstream Delta Packet | Typed packet carrying parent-context change to affected child/work surfaces. | Not silent cancellation, launch, or accepted state. | `15_PARENT_INTEGRATION_AND_IMPACT_INTERFACE.md` | Candidate packet until acted on by admitted path. |
+| Derived Gate Check | Internal procedure check record for strategy, discovery, delivery, verification, interface dependency, risk, or memory-learning boundaries. | Not separate runtime entity or route authority. | `15_PARENT_INTEGRATION_AND_IMPACT_INTERFACE.md` | Candidate/internal check only. |
 | Transfer Packet | Complete copy-paste transfer packet for selected external/surface step. | Not a vague instruction to make a prompt. | `08_PACKET_AND_TRANSFER_INTERFACE.md` | Candidate until launched/accepted. |
 | Next Chat Prompt | Copy-paste prompt for next material chat when needed. | Not child chat prompt or accepted state. | `08_PACKET_AND_TRANSFER_INTERFACE.md` | Candidate until explicitly launched. |
 | Check Job | Bounded verification task. | Not material work or acceptance. | `06_CHAT_LIFECYCLE_AND_HANDOFF_INTERFACE.md` | Returns candidate findings only. |
@@ -37,6 +47,7 @@ Every entity below is candidate-only or interface-only unless an accepted Direct
 | Accepted State | Canonical state after accepted update. | Not chat memory, Project Files/Sources, packet output, check output, or document existence. | `09_STORAGE_STATE_INTERFACE.md` | Mutates only through explicit acceptance/update path. |
 | Memory Candidate | Candidate context that may be useful later. | Not Memory Artifact or accepted state. | `09_STORAGE_STATE_INTERFACE.md` | Candidate until promoted. |
 | Memory Artifact | Promoted memory with source and use boundary. | Not replacement for canonical state. | `09_STORAGE_STATE_INTERFACE.md` | Promoted only through explicit review/update. |
+| Memory Index | Lookup surface for promoted Memory Artifacts with load/exclusion/refresh rules. | Not raw notes, accepted state, or source replacement. | `09_STORAGE_STATE_INTERFACE.md` | Index updates only through accepted memory/update path. |
 | Child Chat | Chat serving current parent target and returning to parent. | Not next material chat or independent track. | `06_CHAT_LIFECYCLE_AND_HANDOFF_INTERFACE.md` | Produces candidate result for parent synthesis. |
 | Parent Chat | Current synthesis authority for a target with child returns. | Not automatic acceptor of missing child evidence. | `06_CHAT_LIFECYCLE_AND_HANDOFF_INTERFACE.md` | Synthesizes candidates; acceptance still explicit. |
 | Runtime Console | Read-only status/navigation surface. | Not execution controller or state mutator. | `10_ADAPTER_CODEX_PROVIDER_INTERFACE.md` | Read-only; may draft candidate packets. |

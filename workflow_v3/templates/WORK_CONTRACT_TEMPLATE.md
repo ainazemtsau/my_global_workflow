@@ -16,6 +16,8 @@ status: template
 
 `related_work_graph_node`:
 
+`parent_graph_node_or_front_trace`:
+
 `target`:
 
 `source_authority`:

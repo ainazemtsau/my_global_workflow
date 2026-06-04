@@ -18,6 +18,8 @@ status: template
 
 `promotion_question`:
 
+`memory_index_update_candidate_ref`:
+
 `status`:
 
 ## Boundary

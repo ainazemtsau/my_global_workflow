@@ -37,13 +37,13 @@ Repository files under `workflow_v3/**` are future Workflow v3 setup/rule source
 
 ## Interface package
 
-`workflow_v3/interfaces/**` is the active Workflow v3 interface layer for this skeleton. It locks the Direction structure, Direction Map, lifecycle outputs, Active Front selection, Work Graph/node model, chat handoffs, packets, storage, adapter boundaries, Project setup context, quality/recovery gates, and coverage matrix.
+`workflow_v3/interfaces/**` is the active Workflow v3 interface layer for this skeleton. It locks the Direction structure, Direction Map, Goal Evidence Graph, Active Unresolved Cut, lifecycle outputs, Active Front selection, Work Graph/node model, parent integration/impact outputs, chat handoffs, packets, storage, adapter boundaries, Project setup context, quality/recovery gates, and coverage matrix.
 
 Future detailed docs and workstreams must reconcile with the interface layer instead of redefining those contracts independently.
 
 ## Procedure layer
 
-`workflow_v3/procedures/**` defines the repository-side procedure layer for steering entities and runtime operations. Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Work Contract execution, Parent Integration, Impact Propagation, Current Next Move, Acceptance Decision, Memory Artifact promotion, and Storage Update use canonical procedure files.
+`workflow_v3/procedures/**` defines the repository-side procedure layer for steering entities and runtime operations. Direction Spine, Direction Map with associated Goal Evidence Graph, Active Front, Work Graph, Work Contract, Work Contract execution, Parent Integration, Impact Propagation, Current Next Move, Acceptance Decision, Memory Artifact promotion, and Storage Update use canonical procedure files.
 
 Unauthored procedure bodies are represented by self-contained stubs that stop when selected. Accepted state still requires explicit Acceptance Decision or accepted update path.
 
@@ -72,6 +72,8 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/interfaces/11_PROJECT_SETUP_CONTEXT_INTERFACE.md` - Project setup/context interface.
 - `workflow_v3/interfaces/12_QUALITY_RECOVERY_INTERFACE.md` - quality and recovery interface.
 - `workflow_v3/interfaces/13_PARALLEL_WORKSTREAM_BRANCH_POLICY.md` - branch/workstream policy interface.
+- `workflow_v3/interfaces/14_GOAL_EVIDENCE_GRAPH_INTERFACE.md` - Goal Evidence Graph and Active Unresolved Cut interface.
+- `workflow_v3/interfaces/15_PARENT_INTEGRATION_AND_IMPACT_INTERFACE.md` - parent integration and impact interface.
 - `workflow_v3/interfaces/99_COVERAGE_MATRIX.md` - entity/interface coverage matrix.
 - `workflow_v3/ACTIVATION_STATUS.md` - current activation status matrix and allowed next packages.
 - `workflow_v3/RUNTIME_MODEL.md` - compact Workflow v3 runtime model and boundaries.
@@ -125,6 +127,14 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md` - Acceptance Decision formation eval.
 - `workflow_v3/evals/MEMORY_ARTIFACT_PROMOTION_EVAL.md` - Memory Artifact promotion eval.
 - `workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md` - Direction Map, Active Front, and Work Graph eval.
+- `workflow_v3/evals/GOAL_EVIDENCE_GRAPH_EVAL.md` - Goal Evidence Graph eval.
+- `workflow_v3/evals/ACTIVE_UNRESOLVED_CUT_EVAL.md` - Active Unresolved Cut eval.
+- `workflow_v3/evals/PARENT_INTEGRATION_RESULT_EVAL.md` - Parent Integration Result eval.
+- `workflow_v3/evals/IMPACT_PROPAGATION_EVAL.md` - Impact Propagation eval.
+- `workflow_v3/evals/DERIVED_GATE_CHECK_EVAL.md` - Derived Gate Check eval.
+- `workflow_v3/evals/MEMORY_INDEX_EVAL.md` - Memory Index eval.
+- `workflow_v3/evals/NO_HOLLOW_LAYER_EVAL.md` - no hollow parent layer eval.
+- `workflow_v3/evals/NO_SINGLE_TRACK_COLLAPSE_EVAL.md` - no single-track collapse eval.
 - `workflow_v3/evals/FINISH_PACKET_EVAL.md` - FINISH_PACKET validation eval.
 - `workflow_v3/evals/NEXT_MOVE_PACKET_EVAL.md` - Next Move Packet validation eval.
 - `workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md` - chat lifecycle/handoff eval.
@@ -193,6 +203,15 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` - Storage Update pending-authoring stub.
 - `workflow_v3/templates/DIRECTION_PROJECT_BINDING_TEMPLATE.md` - future runtime Project Binding config template.
 - `workflow_v3/templates/DIRECTION_CONSOLE_TEMPLATE.md` - future read-only Direction Console template.
+- `workflow_v3/templates/GOAL_EVIDENCE_GRAPH_TEMPLATE.md` - Goal Evidence Graph template.
+- `workflow_v3/templates/GOAL_EVIDENCE_NODE_TEMPLATE.md` - Goal Evidence Node template.
+- `workflow_v3/templates/ACTIVE_UNRESOLVED_CUT_TEMPLATE.md` - Active Unresolved Cut template.
+- `workflow_v3/templates/PARENT_INTEGRATION_RESULT_TEMPLATE.md` - Parent Integration Result template.
+- `workflow_v3/templates/GRAPH_DELTA_TEMPLATE.md` - Graph Delta template.
+- `workflow_v3/templates/UPSTREAM_ESCALATION_PACKET_TEMPLATE.md` - Upstream Escalation Packet template.
+- `workflow_v3/templates/DOWNSTREAM_DELTA_PACKET_TEMPLATE.md` - Downstream Delta Packet template.
+- `workflow_v3/templates/DERIVED_GATE_CHECK_TEMPLATE.md` - Derived Gate Check template.
+- `workflow_v3/templates/MEMORY_INDEX_TEMPLATE.md` - Memory Index template.
 - `workflow_v3/evals/DIRECTION_PROJECT_CONTINUATION_EVAL.md` - later-chat binding/status/continuation eval.
 
 END_OF_FILE: workflow_v3/README.md

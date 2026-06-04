@@ -7,7 +7,7 @@ status: active_skeleton_namespace_corrected
 Object hierarchy:
 
 ```text
-Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract
+Direction Spine -> Direction Map / Goal Evidence Graph -> Active Unresolved Cut -> Active Front -> Work Graph -> Work Contract
 ```
 
 Procedure movement:
@@ -27,6 +27,21 @@ This model describes how future Workflow v3 work is structurally bounded, execut
 Detailed interface contracts live under `workflow_v3/interfaces/**`. Future work must reconcile with that interface layer instead of redefining Direction structure, lifecycle closure, packets, storage, or adapter boundaries independently.
 
 Steering entities are formed through registered procedures before templates are filled or candidates are proposed for acceptance.
+
+Object movement:
+
+```text
+Direction Spine
+-> Direction Map / Goal Evidence Graph
+-> Active Unresolved Cut
+-> Active Front
+-> Work Graph
+-> Work Contract
+-> Run/Evidence
+-> Parent Integration
+-> Graph Delta / Escalation / Downstream Delta / Acceptance
+-> Next Move Packet
+```
 
 ## Control-plane boundary
 
@@ -64,17 +79,31 @@ Direction Map is not a roadmap, backlog, Work Graph, or unreviewed task list.
 
 Direction Map changes only through an explicit acceptance/update path.
 
+## Goal Evidence Graph
+
+Goal Evidence Graph is a Direction Map-associated steering/control artifact. It traces the root outcome through claims, alternatives, obstacles, evidence requirements, and candidate focus choices.
+
+It is not a semantic primitive and is not accepted state by existence.
+
+Goal Evidence Graph output is candidate until accepted through the explicit acceptance/update path. It may be embedded in Direction Map or associated as a split artifact after a future accepted runtime package.
+
+Route-changing effects from graph review are represented by typed outputs such as Parent Integration Result, Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, Derived Gate Check, Acceptance Decision, and Next Move Packet, not by legacy event/signal routing.
+
 ## Active Front
 
 Active Front is the accepted focus selected from the Direction Map that is moving now. It limits attention and prevents the whole project from becoming active at once.
 
 Active Front is not global backlog state.
 
+When a Goal Evidence Graph exists, Active Front selection should reference the Active Unresolved Cut and explain why the selected unresolved nodes matter now.
+
 ## Work Graph
 
 Work Graph is local to the Active Front. It derives from Front Exit Criteria and identifies bounded nodes, dependencies, and the next useful result.
 
 Work Graph is not a copy of the Direction Spine, not the Direction Map, and not a permanent graph for the whole Direction.
+
+Work Graph nodes preserve trace to their parent front, map claim, or Goal Evidence Graph node.
 
 ## Work Contract / Run / Evidence / Acceptance
 
@@ -112,7 +141,17 @@ Procedure stages and gates return typed outputs:
 - `STOP`
 - `TRANSFER`
 
-Future typed output packets may include Parent Integration, Graph Delta, Upstream Escalation, Downstream Delta, and Memory Candidate. These are candidate outputs until accepted or routed through an admitted procedure.
+Future typed output packets may include Parent Integration Result, Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, Derived Gate Check, and Memory Candidate. These are candidate outputs until accepted or routed through an admitted procedure.
+
+Procedure gate lenses are internal procedure checks, not separate runtime entities:
+
+- `strategy`
+- `discovery`
+- `delivery_flow`
+- `verification`
+- `interface_dependency`
+- `risk_gate`
+- `memory_learning`
 
 ## Next Move
 

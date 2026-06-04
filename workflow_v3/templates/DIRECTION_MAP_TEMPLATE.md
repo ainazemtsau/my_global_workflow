@@ -14,6 +14,10 @@ status: template
 
 `source_spine_ref`:
 
+`goal_evidence_graph_ref_or_embed`:
+
+`active_unresolved_cut_ref`:
+
 `map_claim_discipline`:
 
 `tracks`:
@@ -28,7 +32,17 @@ status: template
 
 `strategic_uncertainties`:
 
+`required_claims`:
+
+`alternatives`:
+
+`obstacles`:
+
+`evidence_gaps`:
+
 `candidate_active_fronts`:
+
+`candidate_active_unresolved_cuts`:
 
 `accepted_or_closed_fronts`:
 
@@ -53,6 +67,8 @@ status: template
 ## Boundary
 
 Direction Map is not a roadmap, backlog, unreviewed task list, or local Work Graph.
+
+Goal Evidence Graph may be embedded or associated, but it remains a steering/control projection and not accepted state by existence.
 
 Map claims must be sourced and labeled as accepted, candidate, unresolved, or hypothetical.
 

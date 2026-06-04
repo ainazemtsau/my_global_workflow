@@ -39,6 +39,8 @@ Bridges Direction Spine to Active Front selection. It explains how future work i
 
 - read accepted/candidate Spine context;
 - create candidate Goal Evidence Graph nodes/edges;
+- use `workflow_v3/interfaces/14_GOAL_EVIDENCE_GRAPH_INTERFACE.md`;
+- produce candidates compatible with `workflow_v3/templates/GOAL_EVIDENCE_GRAPH_TEMPLATE.md`, `GOAL_EVIDENCE_NODE_TEMPLATE.md`, and `ACTIVE_UNRESOLVED_CUT_TEMPLATE.md`;
 - identify required claims and OR alternatives;
 - label accepted/candidate/unresolved/hypothetical items;
 - identify obstacles, dependencies, evidence gaps;
@@ -56,6 +58,7 @@ Bridges Direction Spine to Active Front selection. It explains how future work i
 ## required_outputs_when_authored
 
 - candidate Direction Map / Goal Evidence Graph package or blocked result;
+- candidate Active Unresolved Cut refs when available;
 - risks and evidence gaps;
 - acceptance question;
 - FINISH_PACKET;

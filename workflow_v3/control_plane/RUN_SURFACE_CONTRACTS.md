@@ -250,8 +250,8 @@ stop_conditions:
 allowed_operations:
 - review child/result packets;
 - compare evidence to parent criteria;
-- produce parent integration result;
-- produce Graph Delta, Upstream Escalation, or Downstream Delta candidates when needed.
+- produce Parent Integration Result;
+- produce Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, or Derived Gate Check candidates when needed.
 
 forbidden_operations:
 - invent missing child evidence;
@@ -265,7 +265,7 @@ required_inputs:
 - return destination.
 
 required_outputs:
-- parent integration result;
+- Parent Integration Result;
 - missing/conflicting evidence list when applicable;
 - candidate graph/escalation/delta packet when applicable;
 - Next Move Packet.

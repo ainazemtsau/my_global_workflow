@@ -21,6 +21,8 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Output contract is downstream-usable.
 - Stop conditions prevent invention and boundary crossing.
 - Procedure closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
+- Procedure gate lenses remain internal checks and do not become separate runtime entities.
+- Route-changing outputs are represented by typed packets/records and Next Move Packet boundaries.
 - Procedure Definition Framework procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming, or state an explicit bounded exception.
 - Stub procedures include target role, workflow integration, future body outline, required outputs, and STOP behavior until authored.
 
@@ -40,6 +42,7 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Stop conditions are absent.
 - Procedure can mutate state outside `storage_update_adapter`.
 - Procedure can accept its own output.
+- Procedure creates a separate route authority outside Procedure Registry, typed outputs, and FINISH/Next Move closure.
 - Complex procedure forces one-shot final artifact with no checkpoint.
 - Procedure uses `*_RUNBOOK.md`, uses `*_PLAYBOOK.md`, or otherwise preserves obsolete runbook/playbook naming without an explicit bounded exception.
 - Stub procedure lacks target role, workflow integration, future body outline, output contract, or STOP behavior.

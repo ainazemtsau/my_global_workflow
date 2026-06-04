@@ -41,8 +41,9 @@ Converts invalidation/blocker findings into local repair, parent replan, Directi
 - identify changed/invalidated node or assumption;
 - trace affected parents/children/interfaces;
 - determine lowest layer that can absorb change;
-- produce Upstream Escalation Packet if needed;
-- produce Downstream Delta Packet for affected active work;
+- produce Upstream Escalation Packet using `UPSTREAM_ESCALATION_PACKET_TEMPLATE.md` if needed;
+- produce Downstream Delta Packet using `DOWNSTREAM_DELTA_PACKET_TEMPLATE.md` for affected active work;
+- produce Graph Delta or Derived Gate Check candidate using `GRAPH_DELTA_TEMPLATE.md` or `DERIVED_GATE_CHECK_TEMPLATE.md` when needed;
 - produce repair/stop/decision next move.
 
 ## future_body_must_not
@@ -54,7 +55,7 @@ Converts invalidation/blocker findings into local repair, parent replan, Directi
 ## required_outputs_when_authored
 
 - impact radius result or blocked result;
-- repair/escalation/delta candidate if needed;
+- repair/escalation/delta/gate candidate if needed;
 - evidence and limitations;
 - FINISH_PACKET;
 - Result Packet;

@@ -39,11 +39,17 @@ directions_v3/<direction-id>/runtime/
   state/
     DIRECTION_SPINE.md
     DIRECTION_MAP.md
+    GOAL_EVIDENCE_GRAPH.md
     ACTIVE_FRONT.md
     CURRENT_STATUS.md
     CURRENT_NEXT_MOVE.md
   fronts/
   records/
+    parent_integration/
+    graph_deltas/
+    upstream_escalations/
+    downstream_deltas/
+    derived_gate_checks/
     result_packets/
     evidence/
     acceptance/
@@ -56,11 +62,15 @@ directions_v3/<direction-id>/runtime/
     recovery/
   archive/
   indexes/
+    GOAL_EVIDENCE_INDEX.md
+    MEMORY_INDEX.md
   config/
     DIRECTION_PROJECT_BINDING.md
   console/
     DIRECTION_CONSOLE.md
 ```
+
+`state/GOAL_EVIDENCE_GRAPH.md` is an optional future split file. A future package may instead embed or reference Goal Evidence Graph structure from `state/DIRECTION_MAP.md`.
 
 Setup-only root packages may create this future runtime root with semantic placeholders only:
 
@@ -80,6 +90,7 @@ These placeholders are not accepted semantic Direction content.
 
 - Direction Spine;
 - Direction Map;
+- optional Goal Evidence Graph split or Direction Map reference;
 - Active Front;
 - Current Status;
 - Current Next Move.
@@ -87,6 +98,8 @@ These placeholders are not accepted semantic Direction content.
 ## fronts
 
 `fronts/` stores Active Front workspaces and local Work Graph material. A front may contain nodes, local context, local indexes, contracts, runs, evidence references, decisions, and closure summaries.
+
+Front records may reference Active Unresolved Cut candidates, parent integration results, graph deltas, upstream escalation packets, downstream delta packets, and derived gate checks when a future accepted package creates those records.
 
 ## records
 
@@ -96,9 +109,16 @@ These placeholders are not accepted semantic Direction content.
 - Runs;
 - Result Packets;
 - Evidence;
-- Acceptance Decisions.
+- Acceptance Decisions;
+- Parent Integration Results;
+- Graph Deltas;
+- Upstream Escalation Packets;
+- Downstream Delta Packets;
+- Derived Gate Checks.
 
 Records are evidence and history. Accepted state changes still require explicit acceptance/update paths.
+
+Records, evidence, packets, parent integration results, graph deltas, downstream deltas, upstream escalations, and derived gate checks do not mutate accepted state by existence.
 
 ## memory
 
@@ -138,9 +158,16 @@ Archive/compaction must not hide accepted decisions, evidence references, final 
 
 ## indexes
 
-`indexes/` stores lookup files for fronts, nodes, runs, evidence, acceptance, and memory.
+`indexes/` stores lookup files for fronts, nodes, runs, evidence, acceptance, Goal Evidence Graph references, and memory.
 
 Indexes support read-back and navigation. They are not an alternate acceptance path.
+
+Future optional indexes include:
+
+```text
+indexes/GOAL_EVIDENCE_INDEX.md
+indexes/MEMORY_INDEX.md
+```
 
 ## config
 

@@ -45,10 +45,14 @@ Completion is valid only if these boundaries remain explicit:
 
 - Direction Spine is not Direction Map.
 - Direction Map is not roadmap, backlog, Work Graph, or unreviewed task list.
+- Goal Evidence Graph is not a semantic primitive, accepted state by existence, roadmap, backlog, or global Work Graph.
+- Active Unresolved Cut is not a Work Graph, backlog, launch authority, or the whole Direction becoming active.
 - Active Front is not all active work or Work Graph.
 - Work Graph is local to one Active Front and not global Direction Map.
 - Work Contract is not route authority.
 - Run, Result Packet, Evidence, and Codex commit are not Acceptance Decision.
+- Parent Integration Result is not Acceptance Decision and cannot synthesize missing child/work evidence.
+- Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, and Derived Gate Check are not accepted state mutation by existence.
 - Result Packet is not acceptance.
 - Next Move Packet is not hidden continuation.
 - Transfer Packet is not manual user assembly.

@@ -8,6 +8,8 @@ status: template
 
 `front_id`:
 
+`parent_graph_or_map_claim_refs`:
+
 `source_front_exit_criteria`:
 
 `graph_status`:
@@ -17,6 +19,8 @@ status: template
 `formation_eval_ref`: workflow_v3/evals/WORK_GRAPH_FORMATION_EVAL.md
 
 `nodes_index`:
+
+`node_relation_to_parent_summary`:
 
 `dependencies`:
 

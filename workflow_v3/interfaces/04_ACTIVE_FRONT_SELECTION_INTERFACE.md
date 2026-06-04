@@ -13,6 +13,7 @@ Active Front selection requires:
 - exact Direction source authority;
 - accepted Direction Spine;
 - accepted or candidate Direction Map;
+- Goal Evidence Graph and Active Unresolved Cut when available;
 - current accepted/candidate/unresolved map labels;
 - available evidence and accepted records;
 - relevant lifecycle facts and prior Result Packets;
@@ -25,6 +26,7 @@ Every Candidate Active Front must include:
 
 - candidate front name;
 - source map areas;
+- source Active Unresolved Cut or Goal Evidence Graph nodes when available;
 - touched tracks;
 - bottleneck or uncertainty;
 - `why_now`;
@@ -39,13 +41,16 @@ Every Candidate Active Front must include:
 
 Use these criteria as decision support:
 
-- root outcome leverage;
+- root criticality;
+- bottleneck relief;
 - critical uncertainty reduction;
 - dependency unlock;
-- evidence speed;
+- evidence value;
 - risk reduction;
 - scope control;
 - track coverage/balance;
+- success-dimension balance;
+- WIP/capacity;
 - feasibility now;
 - reversibility;
 - explicit user priority/decision.
@@ -61,5 +66,7 @@ A chat, Check Job, child chat, Codex run, Result Packet, or Next Move Packet may
 ## Work Graph seed
 
 The first Work Graph seed must derive from the Candidate Active Front exit criteria and boundaries. It must not import unrelated roadmap or unreviewed task-list items.
+
+Front exit criteria must tie to Goal Evidence Graph nodes or Direction Map claims when those structures exist.
 
 END_OF_FILE: workflow_v3/interfaces/04_ACTIVE_FRONT_SELECTION_INTERFACE.md

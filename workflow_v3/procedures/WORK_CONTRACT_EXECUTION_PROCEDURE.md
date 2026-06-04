@@ -43,7 +43,7 @@ This is the missing execution bridge between Work Contract formation and Parent 
 - or produce Transfer Packet for child chat, check job, Codex, human action;
 - collect result/evidence;
 - return Result Packet;
-- route to Parent Integration or Acceptance Review.
+- route to Parent Integration or Acceptance Review boundary through visible Next Move Packet.
 
 ## future_body_must_not
 
@@ -55,6 +55,7 @@ This is the missing execution bridge between Work Contract formation and Parent 
 ## required_outputs_when_authored
 
 - candidate Result Packet with evidence or blocked result;
+- next move to Parent Integration or Acceptance Review boundary;
 - Transfer Packet when execution must move surfaces;
 - validation/source limitations;
 - FINISH_PACKET;
