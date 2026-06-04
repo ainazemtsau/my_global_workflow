@@ -8,7 +8,7 @@ Validate Work Graph formation quality.
 
 ## PASS checks
 
-- Uses `workflow_v3/formation/WORK_GRAPH_FORMATION_RUNBOOK.md`.
+- Uses the registered canonical `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` source; legacy formation source may be cited only through the selected procedure's old_source_path / migration source during migration.
 - Derives from Active Front exit criteria.
 - Includes minimum nodes needed to close the front, dependency structure, proof path, and explicit non-nodes/cut items.
 - Keeps graph local to one Active Front.

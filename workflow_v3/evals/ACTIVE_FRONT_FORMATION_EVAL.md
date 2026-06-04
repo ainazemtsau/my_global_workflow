@@ -8,7 +8,7 @@ Validate Active Front formation quality.
 
 ## PASS checks
 
-- Uses `workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md`.
+- Uses the registered canonical `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` source; legacy formation source may be cited only through the selected procedure's old_source_path / migration source during migration.
 - Selects from Direction Map areas.
 - Shows candidate fronts and rejected/deferred alternatives.
 - Includes touched tracks, bottleneck/constraint check, uncertainty reduction, evidence speed, dependency unlock, scope control, reversibility, and exit criteria.

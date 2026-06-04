@@ -23,7 +23,7 @@ Runtime Console may read verified state/indexes/records. It is not authority to 
 
 - `workflow_v3/templates/CURRENT_STATUS_TEMPLATE.md`
 - `workflow_v3/templates/CURRENT_NEXT_MOVE_TEMPLATE.md`
-- `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md`
+- `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md`
 - `workflow_v3/templates/EVENT_LOOP_CLOSURE_TEMPLATE.md`
 
 ## Operating path

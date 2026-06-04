@@ -8,7 +8,7 @@ status: template
 
 `front_status`: none_selected | pending_definition | candidate | accepted | closed | superseded
 
-`formation_runbook_ref`: workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md
+`procedure_ref`: workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/ACTIVE_FRONT_FORMATION_EVAL.md
 

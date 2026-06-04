@@ -22,8 +22,7 @@ Repository commits do not update actual ChatGPT Projects.
 - `FINISH_PACKET_TEMPLATE.md`
 - `NEXT_MOVE_PACKET_TEMPLATE.md`
 - `TRANSFER_PACKET_TEMPLATE.md`
-- `SIGNAL_DISPOSITION_TEMPLATE.md`
-- `TRANSITION_PACKET_TEMPLATE.md`
+- `TYPED_GATE_OUTPUT_TEMPLATE.md`
 - `NEXT_CHAT_PROMPT_TEMPLATE.md`
 
 ## Runtime state templates

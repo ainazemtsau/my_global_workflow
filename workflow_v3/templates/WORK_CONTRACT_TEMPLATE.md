@@ -6,7 +6,7 @@ status: template
 
 `work_contract_id`:
 
-`formation_runbook_ref`: workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md
+`procedure_ref`: workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/WORK_CONTRACT_FORMATION_EVAL.md
 

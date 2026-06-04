@@ -108,7 +108,7 @@ stop behavior: Return blocked_context_request and exact missing source/decision.
 - `REWORK`: revise scope, source frame, or classification before outcome.
 - `EXPAND`: request exact source or propose bounded later check/Codex/storage path without launching it.
 - `STOP`: block when required evidence is missing, source authority is unclear, or user requests mutation/acceptance.
-- `TRANSFER`: return candidate next move or Transition Packet for separate repair, acceptance, rollback, check job, Codex handoff, or storage update.
+- `TRANSFER`: return candidate next move or Transfer Packet for separate repair, acceptance, rollback, check job, Codex handoff, or storage update.
 
 ## Optional Expansion
 

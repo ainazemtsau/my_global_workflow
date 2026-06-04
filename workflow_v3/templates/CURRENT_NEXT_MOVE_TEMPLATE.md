@@ -8,7 +8,7 @@ status: template
 
 `next_move_status`: candidate | accepted | blocked | stopped
 
-`formation_runbook_ref`: workflow_v3/formation/CURRENT_NEXT_MOVE_FORMATION_RUNBOOK.md
+`procedure_ref`: workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/CURRENT_NEXT_MOVE_FORMATION_EVAL.md
 

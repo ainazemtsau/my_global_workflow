@@ -6,7 +6,7 @@ status: template
 
 `memory_artifact_id`:
 
-`formation_runbook_ref`: workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md
+`procedure_ref`: workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/MEMORY_ARTIFACT_PROMOTION_EVAL.md
 

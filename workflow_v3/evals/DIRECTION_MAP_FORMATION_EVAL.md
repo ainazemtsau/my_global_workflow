@@ -8,7 +8,7 @@ Validate Direction Map formation quality.
 
 ## PASS checks
 
-- Uses `workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md`.
+- Uses the registered canonical `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` source; legacy formation source may be cited only through the selected procedure's old_source_path / migration source during migration.
 - Forms tracks, map areas, strategic dependencies, strategic uncertainties, risk zones, candidate fronts, and source/status labels.
 - Labels claims as accepted, candidate, unresolved, or hypothetical.
 - Generates alternative map structures unless blocked.

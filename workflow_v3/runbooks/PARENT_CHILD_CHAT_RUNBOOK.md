@@ -22,7 +22,7 @@ Parent-supplied exact sources and accepted records are authority. Child output i
 
 ## Required templates
 
-- `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md`
+- `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md`
 - `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md`
 - `workflow_v3/templates/PARENT_RECOVERY_BLOCK_TEMPLATE.md`
 - `workflow_v3/templates/RESULT_PACKET_TEMPLATE.md`

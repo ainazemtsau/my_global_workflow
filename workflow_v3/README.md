@@ -62,7 +62,7 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/interfaces/00_ENTITY_REGISTRY.md` - canonical Workflow v3 entity registry.
 - `workflow_v3/interfaces/01_DIRECTION_STRUCTURE_INTERFACE.md` - Direction structure interface.
 - `workflow_v3/interfaces/02_DIRECTION_MAP_INTERFACE.md` - Direction Map interface.
-- `workflow_v3/interfaces/03_DIRECTION_LIFECYCLE_SIGNAL_INTERFACE.md` - Direction lifecycle output interface.
+- `workflow_v3/interfaces/03_DIRECTION_LIFECYCLE_OUTPUT_INTERFACE.md` - Direction lifecycle output interface.
 - `workflow_v3/interfaces/04_ACTIVE_FRONT_SELECTION_INTERFACE.md` - Active Front selection interface.
 - `workflow_v3/interfaces/05_WORK_GRAPH_AND_NODE_INTERFACE.md` - Work Graph and node interface.
 - `workflow_v3/interfaces/06_CHAT_LIFECYCLE_AND_HANDOFF_INTERFACE.md` - chat lifecycle and handoff interface.
@@ -110,14 +110,14 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md` - Direction bootstrap operating path.
 - `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md` - first ordinary Direction Project root bootstrap runbook.
 - `workflow_v3/runbooks/DIRECTION_DEFINITION_RUNBOOK.md` - semantic Direction Definition runbook after setup-only root.
-- `workflow_v3/formation/DIRECTION_SPINE_FORMATION_RUNBOOK.md` - Direction Spine formation runbook.
-- `workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md` - Direction Map formation runbook.
-- `workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md` - Active Front formation runbook.
-- `workflow_v3/formation/WORK_GRAPH_FORMATION_RUNBOOK.md` - Work Graph formation runbook.
-- `workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md` - Work Contract formation runbook.
-- `workflow_v3/formation/CURRENT_NEXT_MOVE_FORMATION_RUNBOOK.md` - Current Next Move formation runbook.
-- `workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md` - Acceptance Decision formation runbook.
-- `workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md` - Memory Artifact promotion runbook.
+- `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` - Direction Spine formation procedure stub.
+- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` - Direction Map formation procedure stub.
+- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` - Active Front formation procedure stub.
+- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` - Work Graph formation procedure stub.
+- `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` - Work Contract formation procedure stub.
+- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation procedure stub.
+- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation procedure stub.
+- `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion procedure stub.
 - `workflow_v3/runbooks/DIRECTION_SPINE_CHAT_RUNBOOK.md` - bounded Direction Spine chat runbook.
 - `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md` - bounded Direction Map chat runbook.
 - `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md` - Active Front selection runbook.
@@ -178,12 +178,11 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/templates/FINISH_PACKET_TEMPLATE.md` - FINISH_PACKET template.
 - `workflow_v3/templates/NEXT_MOVE_PACKET_TEMPLATE.md` - Next Move Packet template.
 - `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md` - Transfer Packet template.
-- `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md` - Transition Packet template.
 - `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md` - Next chat prompt template.
 - `workflow_v3/templates/RUN_ADMISSION_PACKET_TEMPLATE.md` - run admission packet template.
 - `workflow_v3/templates/WORK_PLAN_TEMPLATE.md` - admitted work plan template.
 - `workflow_v3/templates/SOURCE_LOCK_TEMPLATE.md` - source lock template.
-- `workflow_v3/templates/SIGNAL_DISPOSITION_TEMPLATE.md` - typed gate output template.
+- `workflow_v3/templates/TYPED_GATE_OUTPUT_TEMPLATE.md` - typed gate output template.
 - `workflow_v3/templates/STORAGE_UPDATE_PACKAGE_TEMPLATE.md` - storage update package template.
 - `workflow_v3/templates/EXCEPTION_PACKET_TEMPLATE.md` - exception packet template.
 - `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md` - canonical Workflow v3 procedure definition framework.

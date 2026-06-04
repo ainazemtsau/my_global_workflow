@@ -6,7 +6,7 @@ status: template
 
 `acceptance_decision_id`:
 
-`formation_runbook_ref`: workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md
+`procedure_ref`: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md
 

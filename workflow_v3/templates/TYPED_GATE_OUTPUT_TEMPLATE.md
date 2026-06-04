@@ -37,4 +37,4 @@ Allowed values:
 
 Typed Gate Output is an internal procedure output. It does not mutate accepted state, switch procedures, or launch work by itself.
 
-END_OF_FILE: workflow_v3/templates/SIGNAL_DISPOSITION_TEMPLATE.md
+END_OF_FILE: workflow_v3/templates/TYPED_GATE_OUTPUT_TEMPLATE.md

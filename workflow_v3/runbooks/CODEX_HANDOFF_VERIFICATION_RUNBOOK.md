@@ -26,7 +26,7 @@ Exact repository branch/commit/diff is authority for Codex results. Codex narrat
 - `workflow_v3/templates/RUN_RECORD_TEMPLATE.md`
 - `workflow_v3/templates/RESULT_PACKET_TEMPLATE.md`
 - `workflow_v3/templates/EVIDENCE_RECORD_TEMPLATE.md`
-- `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md`
+- `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md`
 - `workflow_v3/templates/EVENT_LOOP_CLOSURE_TEMPLATE.md`
 
 ## Required handoff fields

@@ -6,7 +6,7 @@ status: active_repository_completion_framework
 
 - `workflow_v3/interfaces/06_CHAT_LIFECYCLE_AND_HANDOFF_INTERFACE.md`
 - `workflow_v3/interfaces/08_PACKET_AND_TRANSFER_INTERFACE.md`
-- `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md`
+- `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md`
 - `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md`
 - `workflow_v3/templates/PARENT_RECOVERY_BLOCK_TEMPLATE.md`
 - `workflow_v3/runbooks/PARENT_CHILD_CHAT_RUNBOOK.md`
@@ -44,7 +44,7 @@ For material or state-sensitive chats, run CHAT_LIFECYCLE_PROTOCOL_EVAL before h
 - Child chat treated as next material chat.
 - Missing child evidence synthesized.
 - Parent Recovery Block missing when multiple children are launched.
-- Transition Packet requires manual user assembly.
+- Transfer Packet requires manual user assembly.
 - Handoff emitted without FINISH_PACKET when lifecycle mode applies.
 
 ## Common failure modes
