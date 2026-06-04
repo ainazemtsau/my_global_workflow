@@ -42,8 +42,9 @@ Implements fan-in. Child/work results are candidate evidence. Parent Integration
 - compare evidence against parent acceptance policy;
 - identify missing/conflicting evidence;
 - update candidate statuses;
-- produce parent integration result;
-- produce Graph Delta / Upstream Escalation / Downstream Delta candidates when needed;
+- produce Parent Integration Result using `PARENT_INTEGRATION_RESULT_TEMPLATE.md`;
+- produce Graph Delta, Upstream Escalation Packet, or Downstream Delta Packet candidates using `GRAPH_DELTA_TEMPLATE.md`, `UPSTREAM_ESCALATION_PACKET_TEMPLATE.md`, or `DOWNSTREAM_DELTA_PACKET_TEMPLATE.md` when needed;
+- produce Derived Gate Check candidate using `DERIVED_GATE_CHECK_TEMPLATE.md` when a boundary gate is required;
 - select next move packet.
 
 ## future_body_must_not
@@ -55,9 +56,9 @@ Implements fan-in. Child/work results are candidate evidence. Parent Integration
 
 ## required_outputs_when_authored
 
-- parent integration result or blocked result;
+- Parent Integration Result or blocked result;
 - missing/conflicting evidence list;
-- candidate graph/escalation/delta packet if needed;
+- candidate graph/escalation/delta/gate packet refs if needed;
 - FINISH_PACKET;
 - Result Packet;
 - Next Move Packet.

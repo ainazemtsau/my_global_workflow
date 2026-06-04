@@ -38,7 +38,8 @@ Produces the executable contract that a chat, child chat, Codex, human action, c
 ## future_body_scope
 
 - select one node/slice;
-- define target and relation to parent node/front;
+- define target and relation to parent graph/front/node;
+- preserve parent graph/front/node trace;
 - define source reads;
 - define in-scope/out-of-scope;
 - define allowed/forbidden surfaces;
@@ -56,6 +57,7 @@ Produces the executable contract that a chat, child chat, Codex, human action, c
 ## required_outputs_when_authored
 
 - candidate Work Contract or split/block result;
+- parent graph/front/node trace;
 - evidence and validation requirements;
 - launch/acceptance question;
 - FINISH_PACKET;

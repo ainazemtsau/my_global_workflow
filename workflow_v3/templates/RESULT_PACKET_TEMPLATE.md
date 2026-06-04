@@ -24,6 +24,16 @@ status: template
 
 `candidate_state_changes`:
 
+`parent_integration_result_ref_if_any`:
+
+`graph_delta_ref_if_any`:
+
+`upstream_escalation_ref_if_any`:
+
+`downstream_delta_ref_if_any`:
+
+`derived_gate_check_ref_if_any`:
+
 `acceptance_question`:
 
 `recommended_next_move`:

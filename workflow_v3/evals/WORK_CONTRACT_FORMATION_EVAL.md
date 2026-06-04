@@ -10,7 +10,7 @@ Validate Work Contract formation quality.
 
 - Uses the registered canonical `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` source; if the procedure is still a stub, it stops with `PROCEDURE_BODY_NOT_AUTHORED`.
 - Forms one bounded run target.
-- Includes target, allowed/forbidden paths or surfaces, source reads, expected result, validation/evidence, return destination, and stop conditions.
+- Includes target, parent graph/front/node trace, allowed/forbidden paths or surfaces, source reads, expected result, validation/evidence, return destination, and stop conditions.
 - Returns `split_required` when the target combines independent jobs.
 - Does not grant route, acceptance, product-meaning, or scope-expansion authority.
 - Returns Launch Packet or exact next move.
@@ -24,6 +24,7 @@ Validate Work Contract formation quality.
 
 - Contract combines multiple independent jobs.
 - Allowed/forbidden surfaces are missing.
+- Parent graph/front/node trace is missing.
 - Evidence requirement is missing.
 - Adapter output is treated as accepted.
 

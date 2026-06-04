@@ -16,9 +16,15 @@ It may include:
 
 - tracks;
 - map areas;
+- embedded or associated Goal Evidence Graph;
+- required claims;
+- alternatives;
+- obstacles;
+- evidence gaps;
 - dependencies;
 - strategic uncertainties;
 - candidate fronts;
+- candidate Active Unresolved Cuts;
 - closed fronts;
 - blocked areas;
 - evidence links;
@@ -39,6 +45,8 @@ Direction Map is not:
 - a chat-authored plan without source labels;
 - a storage replacement for accepted records/evidence.
 
+Goal Evidence Graph may explain the evidence/control structure associated with Direction Map claims. It remains a steering/control projection, not a semantic primitive or accepted state by existence.
+
 ## Claim discipline
 
 Every map claim must be backed by accepted records/evidence or marked `candidate`, `unresolved`, or `hypothetical`.
@@ -49,9 +57,12 @@ A map claim without status and source is not accepted Direction state.
 
 Active Front selection must reference Direction Map areas.
 
+When a Goal Evidence Graph exists, Active Front selection should also reference the Active Unresolved Cut and the relevant graph nodes or map claims.
+
 A proposed Active Front must identify:
 
 - source map area or areas;
+- source Goal Evidence Graph node or Active Unresolved Cut when available;
 - touched tracks;
 - bottleneck or uncertainty;
 - why this focus matters now;

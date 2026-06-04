@@ -38,6 +38,7 @@ Produces the one current focus candidate that prevents the whole Direction from 
 ## future_body_scope
 
 - identify active unresolved cut;
+- use `workflow_v3/templates/ACTIVE_UNRESOLVED_CUT_TEMPLATE.md` and `workflow_v3/interfaces/14_GOAL_EVIDENCE_GRAPH_INTERFACE.md` when graph context exists;
 - compare candidate fronts;
 - state why this front now;
 - define front exit criteria;
@@ -56,6 +57,7 @@ Produces the one current focus candidate that prevents the whole Direction from 
 ## required_outputs_when_authored
 
 - candidate Active Front package or blocked result;
+- graph/cut/map trace for selected exit criteria;
 - rejected/deferred alternatives;
 - acceptance question;
 - FINISH_PACKET;

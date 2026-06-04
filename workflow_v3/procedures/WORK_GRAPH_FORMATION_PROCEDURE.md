@@ -39,7 +39,8 @@ Converts an accepted/candidate Active Front into bounded local nodes that can be
 
 - read Active Front and exit criteria;
 - derive minimum necessary nodes;
-- define node relations to front closure;
+- preserve graph/front/map trace;
+- define node relation to parent graph node, map claim, or front closure;
 - define dependencies;
 - define proof path and closure condition;
 - identify non-nodes / cut items;
@@ -55,6 +56,7 @@ Converts an accepted/candidate Active Front into bounded local nodes that can be
 ## required_outputs_when_authored
 
 - candidate Work Graph package or blocked result;
+- node relation-to-parent summary;
 - node dependency/evidence summary;
 - acceptance or launch question;
 - FINISH_PACKET;

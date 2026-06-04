@@ -36,6 +36,8 @@ Detailed files may explain examples, storage shape, setup model, and operational
 - `workflow_v3/interfaces/11_PROJECT_SETUP_CONTEXT_INTERFACE.md` - Project setup/context boundaries.
 - `workflow_v3/interfaces/12_QUALITY_RECOVERY_INTERFACE.md` - quality gates and recovery outcomes.
 - `workflow_v3/interfaces/13_PARALLEL_WORKSTREAM_BRANCH_POLICY.md` - branch and workstream policy.
+- `workflow_v3/interfaces/14_GOAL_EVIDENCE_GRAPH_INTERFACE.md` - Goal Evidence Graph and Active Unresolved Cut interface.
+- `workflow_v3/interfaces/15_PARENT_INTEGRATION_AND_IMPACT_INTERFACE.md` - Parent Integration, Graph Delta, escalation, downstream delta, and impact interface.
 - `workflow_v3/interfaces/99_COVERAGE_MATRIX.md` - entity/interface coverage matrix.
 
 END_OF_FILE: workflow_v3/interfaces/README.md

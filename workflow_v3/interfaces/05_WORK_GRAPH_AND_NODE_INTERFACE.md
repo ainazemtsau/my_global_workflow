@@ -10,7 +10,7 @@ This interface defines the local Work Graph and node model under an Active Front
 
 Work Graph is local to one Active Front.
 
-Work Graph is derived from Front Exit Criteria and current evidence. It identifies bounded nodes, dependencies, local sequencing, and the next useful result inside the Active Front.
+Work Graph is derived from Front Exit Criteria, parent graph/map claims, and current evidence. It identifies bounded nodes, dependencies, local sequencing, and the next useful result inside the Active Front.
 
 Work Graph is not:
 
@@ -26,7 +26,8 @@ Work Graph is not:
 A Work Graph Node must have:
 
 - purpose;
-- relation to Active Front and map area;
+- relation to Active Front, map area, and parent Goal Evidence Graph node or Direction Map claim when available;
+- relation to parent;
 - dependencies;
 - boundaries;
 - expected evidence;
@@ -41,7 +42,7 @@ One Work Contract may execute:
 - one bounded Work Graph Node; or
 - one bounded slice of a node when the node is too large.
 
-The Work Contract must state target, allowed paths/surfaces, forbidden paths/surfaces, expected result, evidence required, adapter/human role, and return destination.
+The Work Contract must state target, parent graph/front/node trace, allowed paths/surfaces, forbidden paths/surfaces, expected result, evidence required, adapter/human role, and return destination.
 
 ## Node closure
 

@@ -29,6 +29,8 @@ Repository commits do not update actual ChatGPT Projects.
 
 - `DIRECTION_SPINE_TEMPLATE.md`
 - `DIRECTION_MAP_TEMPLATE.md`
+- `GOAL_EVIDENCE_GRAPH_TEMPLATE.md`
+- `GOAL_EVIDENCE_NODE_TEMPLATE.md`
 - `ACTIVE_FRONT_TEMPLATE.md`
 - `CURRENT_STATUS_TEMPLATE.md`
 - `CURRENT_NEXT_MOVE_TEMPLATE.md`
@@ -40,6 +42,7 @@ Steering runtime state templates reference canonical procedures where relevant. 
 ## Front/graph/node templates
 
 - `FRONT_TEMPLATE.md`
+- `ACTIVE_UNRESOLVED_CUT_TEMPLATE.md`
 - `WORK_GRAPH_TEMPLATE.md`
 - `WORK_GRAPH_NODE_TEMPLATE.md`
 - `NODE_CLOSURE_SUMMARY_TEMPLATE.md`
@@ -52,11 +55,17 @@ Steering runtime state templates reference canonical procedures where relevant. 
 - `RESULT_PACKET_TEMPLATE.md`
 - `EVIDENCE_RECORD_TEMPLATE.md`
 - `ACCEPTANCE_DECISION_TEMPLATE.md`
+- `PARENT_INTEGRATION_RESULT_TEMPLATE.md`
+- `GRAPH_DELTA_TEMPLATE.md`
+- `UPSTREAM_ESCALATION_PACKET_TEMPLATE.md`
+- `DOWNSTREAM_DELTA_PACKET_TEMPLATE.md`
+- `DERIVED_GATE_CHECK_TEMPLATE.md`
 
 ## Memory/closure/recovery templates
 
 - `MEMORY_CANDIDATE_TEMPLATE.md`
 - `MEMORY_ARTIFACT_TEMPLATE.md`
+- `MEMORY_INDEX_TEMPLATE.md`
 - `PARENT_RECOVERY_BLOCK_TEMPLATE.md`
 
 ## Use rule

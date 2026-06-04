@@ -43,6 +43,7 @@ Keeps long-term memory useful without polluting context or replacing accepted st
 - define scope_of_use;
 - define loading and exclusion rules;
 - define refresh/expiry;
+- propose Memory Index update candidate using `workflow_v3/templates/MEMORY_INDEX_TEMPLATE.md` when promoted;
 - return promoted Memory Artifact candidate.
 
 ## future_body_must_not
@@ -55,6 +56,7 @@ Keeps long-term memory useful without polluting context or replacing accepted st
 
 - promoted Memory Artifact candidate or blocked result;
 - source references and loading rules;
+- Memory Index update candidate if promoted;
 - refresh/expiry rule;
 - FINISH_PACKET;
 - Result Packet;

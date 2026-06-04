@@ -14,6 +14,8 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - Complexity level was justified.
 - Required stages were activated or skipped with reasons.
 - Gates were applied visibly enough for review.
+- Procedure gate lenses stayed internal to RUN.
+- Route-changing effects were emitted as typed outputs, Result Packet, or Next Move Packet rather than hidden continuation.
 - Checkpoints occurred when required.
 - Expansion, research, child, or check work was bounded.
 - No procedure switch occurred during RUN.
@@ -40,6 +42,7 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - Research, child, or check work becomes independent material work.
 - External routing output emitted for every minor checkpoint.
 - Final closure launches next work invisibly.
+- Parent integration, graph delta, escalation, downstream delta, or derived gate output mutates accepted state by existence.
 - Procedure authoring preserves obsolete runbook/playbook path or naming without an explicit bounded exception.
 - Stub execution attempts detailed body work instead of stopping.
 - Registry points outside canonical procedure files.

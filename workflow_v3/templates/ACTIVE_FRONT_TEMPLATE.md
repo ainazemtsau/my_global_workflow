@@ -14,19 +14,31 @@ status: template
 
 `source_direction_map_ref`:
 
+`source_goal_evidence_graph_ref`:
+
+`active_unresolved_cut_ref`:
+
 `source_map_areas`:
 
+`source_graph_node_refs`:
+
 `touched_tracks`:
+
+`success_dimensions_touched`:
 
 `bottleneck_or_uncertainty`:
 
 `why_now`:
+
+`selection_reason`: root_criticality | bottleneck_relief | uncertainty_reduction | dependency_unlock | evidence_value | reversibility | WIP_capacity | success_dimension_balance | explicit_user_priority
 
 `selection_evidence`:
 
 `rejected_or_deferred_alternatives`:
 
 `front_exit_criteria`:
+
+`exit_criteria_graph_or_map_claim_refs`:
 
 `in_scope`:
 
