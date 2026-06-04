@@ -9,7 +9,7 @@ status: active_skeleton_namespace_corrected
 | workflow_v3_production_namespace_skeleton | active |
 | workflow_v3_interface_layer | active_repository_documentation_setup_only |
 | workflow_v3_repository_completion_framework | active_repository_documentation_setup_only |
-| workflow_v3_entity_formation_layer | ready_repository_source_only |
+| workflow_v3_steering_procedure_stub_layer | ready_repository_source_only |
 | setup_only_root_direction_definition_split | ready_repository_source_only |
 | ordinary_direction_project_installer | ready_repository_source_only |
 | direction_project_binding_protocol | ready_repository_source_only |

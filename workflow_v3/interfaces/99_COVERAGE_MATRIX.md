@@ -54,9 +54,9 @@ This matrix proves that every major entity in `00_ENTITY_REGISTRY.md` has interf
 | Request-only Sources | `11_PROJECT_SETUP_CONTEXT_INTERFACE.md` | External/project load list | Bounded context | Task need | Check Job/manifest | Loaded by admitted task only | Refresh report required | source/context gate | Not default upload; bound continuation requests exact paths instead of broad loading. |
 | legacy_evidence | `12_QUALITY_RECOVERY_INTERFACE.md` | `directions/**` or legacy branch/tag | Evidence candidates | Explicit legacy reads | Legacy import receipt path | No v3 mutation by implication | Explicit bridge/import/adoption | rollback/coexistence gate | Candidate evidence only. |
 
-## Formation references
+## Procedure Stub References
 
-Steering entities in this matrix are now covered by canonical procedure stubs until detailed migration occurs:
+Steering entities in this matrix are now covered by canonical procedure stubs until detailed procedure body authoring occurs:
 
 - Direction Definition: `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md`.
 - Direction Spine: `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md`, `workflow_v3/evals/DIRECTION_SPINE_FORMATION_EVAL.md`.

@@ -106,7 +106,7 @@ Records are evidence and history. Accepted state changes still require explicit 
 
 Raw chat notes or run output do not become Memory Artifacts without promotion.
 
-Memory Artifact promotion must use the formation and acceptance path before storage under `memory/artifacts/`.
+Memory Artifact promotion must use the registered Memory Artifact Promotion procedure and explicit acceptance/update path before storage under `memory/artifacts/`.
 
 ## operations
 

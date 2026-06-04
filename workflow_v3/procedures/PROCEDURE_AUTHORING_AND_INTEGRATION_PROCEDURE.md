@@ -57,7 +57,7 @@ Classify inputs as canonical repository source, current human input, candidate c
 ## Complexity Selector
 
 - `standard`: default for bounded procedure design or revision.
-- `checkpointed`: use when the design boundary, registry mapping, canonical path/naming, legacy file disposition, or eval plan needs user review before final proposal.
+- `checkpointed`: use when the design boundary, registry mapping, canonical path/naming, stub/body status, deleted-source independence, or eval plan needs user review before final proposal.
 - `research_backed`: use only when current external documentation is explicitly needed.
 - `delegated_or_tool_mediated`: use only to prepare a bounded handoff/check plan, not to launch it.
 
@@ -177,7 +177,7 @@ stop behavior: Return missing eval coverage.
 stage_id: integration_plan
 purpose: Identify run surface compatibility and any future Codex/storage handoff boundary.
 activation conditions: Always.
-inputs: Registry delta, canonical path decision, legacy file disposition plan, run surface contract, requested integration scope.
+inputs: Registry delta, canonical path decision, stub/body status and deleted-source independence, run surface contract, requested integration scope.
 required intermediate output: Run surface compatibility statement and allowed/forbidden path proposal if needed.
 gate: PASS if integration is non-mutating and bounded; TRANSFER if a separate admitted handoff is needed.
 checkpoint rule: Checkpoint before any proposed repository mutation package.
@@ -213,13 +213,13 @@ Research is forbidden by default. Use external research only when the user asks 
 
 ## Checkpoint Policy
 
-No checkpoint is required for simple bounded procedure edits that remain canonical. Checkpoint when scope, registry mapping, canonical path/naming, legacy file disposition, complex eval design, or future mutation boundaries are ambiguous.
+No checkpoint is required for simple bounded procedure edits that remain canonical. Checkpoint when scope, registry mapping, canonical path/naming, stub/body status, deleted-source independence, complex eval design, or future mutation boundaries are ambiguous.
 
 ## Output Contract
 
 ```text
 candidate_procedure_definition_or_patch_plan:
-canonical_location_and_legacy_disposition:
+canonical_location_and_stub_status:
 registry_entry_proposal:
 run_surface_compatibility_statement:
 eval_proposal:
