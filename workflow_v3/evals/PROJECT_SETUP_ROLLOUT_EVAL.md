@@ -9,7 +9,7 @@ status: active_repository_completion_framework
 - `workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md`
 - Project Instructions source files under `workflow_v3/project_setup/**`
 - `workflow_v3/project_packs/README.md`
-- `workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md`
+- `workflow_v3/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md`
 
 ## Evidence required
 
@@ -26,7 +26,7 @@ status: active_repository_completion_framework
 - Payload count is measured for changed instruction sources.
 - Payload is at or below 8,000 characters.
 - Project Instruction sources are not listed as Project Files/Sources uploads.
-- `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/runbooks/**`, and `workflow_v3/evals/**` remain do-not-upload unless later explicit rollout says otherwise.
+- `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, and `workflow_v3/evals/**` remain do-not-upload unless later explicit rollout says otherwise.
 
 ## WARN criteria
 

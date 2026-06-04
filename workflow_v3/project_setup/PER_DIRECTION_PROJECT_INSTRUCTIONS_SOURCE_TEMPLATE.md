@@ -51,7 +51,7 @@ Continuation:
 - Return bound direction_id, status, semantic_definition_status when present, exact next move, source/read limitations, and terminal outcome.
 - For "continue" or "продолжи", continue only from accepted CURRENT_NEXT_MOVE and any bounded Work Contract it names.
 - If CURRENT_STATUS shows setup_only_root_created and semantic_definition_status pending_definition, report semantic_definition_pending.
-- If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition using the Direction Definition launch packet/runbook.
+- If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition using the Direction Definition launch packet/procedure.
 - Do not use previous chat memory as continuation authority.
 
 Work admission:

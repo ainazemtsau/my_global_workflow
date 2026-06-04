@@ -62,7 +62,7 @@ Root/bootstrap:
 - If `direction_id` is missing, ask/normalize it; classify setup mode and legacy policy.
 - Do not require or accept root outcome, Direction Spine, Direction Map, Active Front, Work Graph, or product strategy during setup.
 - If user mentions outcomes/tracks/goals/product ideas, record only as candidate_context_for_direction_definition.
-- Use the root bootstrap runbook and require explicit user confirmation before any runtime root package.
+- Use the root bootstrap procedure and require explicit user confirmation before any runtime root package.
 - A setup-only root package must write pending semantic statuses and `CURRENT_NEXT_MOVE = launch_direction_definition`.
 
 Workflow model:

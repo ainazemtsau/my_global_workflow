@@ -45,27 +45,44 @@ Procedure files should use compact markdown sections for:
 
 Do not bury routing logic in project instructions. Keep registry entries compact and place execution detail in the procedure file.
 
-## Canonical location and naming
+## Canonical Location and Naming
 
-The canonical location for new or migrated Procedure Definition Framework procedures is:
+The canonical location for Workflow v3 Procedure Definition Framework procedures is:
 
 ```text
 workflow_v3/procedures/**
 ```
 
-Use procedure naming for new or migrated Procedure Definition Framework files:
+Use procedure naming for Procedure Definition Framework files:
 
 ```text
 *_PROCEDURE.md
 ```
 
-Do not preserve obsolete `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or runbook/playbook directory placement merely because a pre-migration registry entry pointed there.
+Do not preserve obsolete `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or runbook/playbook directory placement as active procedure source.
 
-During migration, existing registry entries may temporarily point to legacy runbook, formation, or other operational paths only as coexistence for not-yet-migrated procedures. That coexistence is not precedent for new or migrated procedures.
+Every active registry entry must point to a canonical procedure file under `workflow_v3/procedures/**`.
 
-After a procedure is migrated into this framework, update `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` so `procedure_ref` points to the canonical migrated procedure file. Remove, archive, or explicitly mark the old runbook/playbook file as a compatibility shim through a separately admitted repository update path.
+Detailed procedure body authoring happens in separate bounded `author_workflow_procedure` chats. Until authored, the canonical procedure file may be a self-contained stub target spec.
 
-Any exception to canonical location or naming must be explicit, bounded, and justified in the migration plan and registry delta. Silent path-preserving migration is not allowed.
+Any exception to canonical location or naming must be explicit, bounded, and justified in the authoring plan and registry delta.
+
+## Self-contained Stub Procedure Requirements
+
+A stub procedure must include:
+
+- purpose;
+- trigger;
+- non-trigger;
+- required inputs;
+- target workflow role;
+- workflow integration;
+- future body outline;
+- output contract;
+- STOP behavior until authored;
+- procedure closure using FINISH_PACKET, Result Packet, and Next Move Packet.
+
+A stub is sufficient registry source only for selecting and stopping. It must not execute detailed procedure logic until a later bounded `author_workflow_procedure` run authors the body.
 
 ## Stage Card model
 

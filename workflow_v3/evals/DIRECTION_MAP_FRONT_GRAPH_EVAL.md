@@ -10,9 +10,9 @@ status: active_repository_completion_framework
 - `workflow_v3/templates/DIRECTION_MAP_TEMPLATE.md`
 - `workflow_v3/templates/ACTIVE_FRONT_TEMPLATE.md`
 - `workflow_v3/templates/WORK_GRAPH_TEMPLATE.md`
-- `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md`
-- `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md`
-- `workflow_v3/runbooks/WORK_GRAPH_OPENING_RUNBOOK.md`
+- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md`
+- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md`
+- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md`
 
 ## Evidence required
 
@@ -50,6 +50,6 @@ status: active_repository_completion_framework
 
 ## Required recovery/repair action
 
-Block continuation, restore the missing distinct surface, rerun the appropriate runbook, and require acceptance/update before any state mutation.
+Block continuation, restore the missing distinct surface, rerun the appropriate procedure, and require acceptance/update before any state mutation.
 
 END_OF_FILE: workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md

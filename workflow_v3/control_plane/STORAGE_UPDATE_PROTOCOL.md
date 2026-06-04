@@ -6,7 +6,7 @@ status: active_control_plane
 
 Storage update is a separate adapter surface. It is the only control-plane surface that may write accepted repository/runtime state after admission.
 
-Acceptance Decision may authorize that storage update is needed. It does not grant the producing formation/acceptance chat permission to write.
+Acceptance Decision may authorize that storage update is needed. It does not grant the producing candidate or acceptance chat permission to write.
 
 Canonical persistence requires storage_update_adapter admission.
 

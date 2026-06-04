@@ -8,7 +8,7 @@ Validate Direction Spine formation quality.
 
 ## PASS checks
 
-- Uses the registered canonical `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` source; legacy formation source may be cited only through the selected procedure's old_source_path / migration source during migration.
+- Uses the registered canonical `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` source; if the procedure is still a stub, it stops with `PROCEDURE_BODY_NOT_AUTHORED`.
 - Does not simply ask for root outcome or fill the template.
 - Generates alternatives unless trivial or blocked.
 - Defines criteria before selecting candidate.

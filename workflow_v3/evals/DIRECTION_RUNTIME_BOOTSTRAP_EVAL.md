@@ -7,7 +7,7 @@ status: active_repository_completion_framework
 - `workflow_v3/STORAGE_LAYOUT.md`
 - `workflow_v3/LEGACY_EVIDENCE_POLICY.md`
 - `workflow_v3/adoption/**`
-- `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md`
+- `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`
 - future adoption package and runtime root diff
 
 ## Evidence required

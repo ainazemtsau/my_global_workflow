@@ -8,7 +8,7 @@ This audit covers the repository-side Workflow v3 completion framework:
 
 - completion matrix;
 - clean-start adoption package model;
-- runtime operation runbooks;
+- canonical procedure stubs and runtime operation procedures;
 - evals and validation gates;
 - Project setup and pack source readiness alignment;
 - index reconciliation.
@@ -32,7 +32,7 @@ Project Files/Sources, pasted excerpts, prior chat summaries, generated packs, a
 | No runtime root | No `directions_v3/<direction-id>/runtime/**` created. | required per package result |
 | Entity coverage preserved | Registry entity count and interface coverage rows do not decrease. | required per package result |
 | Completion matrix coverage | Every registry entity appears in `WORKFLOW_V3_COMPLETION_MATRIX.md`. | required per package result |
-| Runbook completeness | Every retained migration source includes trigger, source authority, inputs, outputs, closure fact, return destination, acceptance/update rule, and stop condition. | required per package result |
+| Procedure stub completeness | Every unauthored procedure stub includes target role, workflow integration, future body scope, required outputs, closure shape, and STOP behavior. | required per package result |
 | Eval completeness | Every eval includes PASS/WARN/FAIL criteria and recovery action. | required per package result |
 | Project setup separation | Project UI, Project Files/Sources, request-only refresh, and do-not-upload categories reported separately. | required per package result |
 | Project Instructions payload counts | If Project Instructions sources changed, UI payload marker counts measured against 8,000 hard max. | required per package result |

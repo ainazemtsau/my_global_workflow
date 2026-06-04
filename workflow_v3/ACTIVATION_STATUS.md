@@ -27,10 +27,10 @@ Activated means only this:
 
 - the repository now has the initial `workflow_v3/**` documentation/setup skeleton;
 - the repository now has an interface layer refinement under `workflow_v3/interfaces/**`;
-- the repository now has completion, adoption-template, runbook, and eval readiness files under `workflow_v3/**`;
-- the repository now has an entity-formation layer under `workflow_v3/formation/**` for steering-entity candidate formation;
+- the repository now has completion, adoption-template, procedure, and eval readiness files under `workflow_v3/**`;
+- the repository now has canonical procedure stubs under `workflow_v3/procedures/**` for steering-entity candidate formation;
 - the repository now separates ordinary Direction setup-only root bootstrap from semantic Direction Definition;
-- the repository now has universal ordinary Direction Project installer, setup manifest, launch packet, runbook, and eval sources for future manual Project creation;
+- the repository now has universal ordinary Direction Project installer, setup manifest, launch packet, procedure, and eval sources for future manual Project creation;
 - the repository now has repository-only Direction Project binding and continuation protocol sources for future post-bootstrap setup;
 - the skeleton defines Workflow v3 production namespace boundaries for later packages;
 - the skeleton may be cited as the starting source for future Workflow v3 setup work.
@@ -68,7 +68,7 @@ Not activated in this slice:
 Allowed future packages must be separate, explicit, bounded, and validated. Examples:
 
 - production runtime rule refinement under `workflow_v3/**`;
-- formation layer refinement under `workflow_v3/formation/**`;
+- procedure body authoring under `workflow_v3/procedures/**`;
 - future setup-only root package for one Direction, followed by separate Direction Definition;
 - future Project setup rollout package with measured payload character counts;
 - future manual ordinary Direction Project creation from `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`;

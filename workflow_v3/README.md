@@ -10,7 +10,7 @@ This slice activates only the documentation/setup skeleton under `workflow_v3/**
 
 The current Workflow OS remains the legacy and rollback system until a later explicit activation and adoption package says otherwise.
 
-The repository-side completion framework adds clean-start adoption templates, operational runbooks, validation evals, formation protocols, and a final completion matrix. It remains documentation/setup only.
+The repository-side completion framework adds clean-start adoption templates, canonical procedure stubs, validation evals, setup protocols, and a final completion matrix. It remains documentation/setup only.
 
 ## Scope of this slice
 
@@ -41,11 +41,11 @@ Repository files under `workflow_v3/**` are future Workflow v3 setup/rule source
 
 Future detailed docs and workstreams must reconcile with the interface layer instead of redefining those contracts independently.
 
-## Formation layer
+## Procedure layer
 
-`workflow_v3/formation/**` defines the repository-side entity-formation layer for steering entities. Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Current Next Move, Acceptance Decision, and Memory Artifact promotion require formation before template filling.
+`workflow_v3/procedures/**` defines the repository-side procedure layer for steering entities and runtime operations. Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Work Contract execution, Parent Integration, Impact Propagation, Current Next Move, Acceptance Decision, Memory Artifact promotion, and Storage Update use canonical procedure files.
 
-Formation produces candidate entities by default. Accepted state still requires explicit Acceptance Decision or accepted update path.
+Unauthored procedure bodies are represented by self-contained stubs that stop when selected. Accepted state still requires explicit Acceptance Decision or accepted update path.
 
 ## Setup-only root and Direction Definition
 
@@ -53,7 +53,7 @@ Ordinary Direction Project root/bootstrap is setup-only. It may create future te
 
 The registered setup/root bootstrap entrypoint is `direction_project_root_bootstrap`, with run surface type `setup_only_root_bootstrap` and procedure source `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`.
 
-Direction Definition is the separate semantic process after setup-only root, using Spine, Map, and Active Front formation runbooks.
+Direction Definition is the separate semantic process after setup-only root, using canonical procedure stubs for Spine, Map, and Active Front formation until detailed bodies are authored.
 
 ## File index
 
@@ -87,13 +87,6 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/PROJECT_SETUP_MODEL.md` - future ChatGPT Project setup model and refresh categories.
 - `workflow_v3/LEGACY_EVIDENCE_POLICY.md` - legacy/rollback and old Direction evidence policy.
 - `workflow_v3/QUALITY_AND_RECOVERY.md` - quality gates and recovery outcomes.
-- `workflow_v3/formation/README.md` - entity formation layer index.
-- `workflow_v3/formation/ENTITY_FORMATION_CANON.md` - canonical formation rules.
-- `workflow_v3/formation/DECISION_QUALITY_PROTOCOL.md` - decision quality protocol.
-- `workflow_v3/formation/FOCUS_AND_WASTE_CUT_PROTOCOL.md` - focus and waste cut protocol.
-- `workflow_v3/formation/EVIDENCE_AND_HYPOTHESIS_PROTOCOL.md` - evidence and hypothesis protocol.
-- `workflow_v3/formation/ANTI_BIAS_AND_RED_TEAM_PROTOCOL.md` - anti-bias and red-team protocol.
-- `workflow_v3/formation/STEERING_ENTITY_FORMATION_CHAT_PROTOCOL.md` - formation chat protocol.
 - `workflow_v3/completion/README.md` - repository-side completion package index.
 - `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md` - final surface and entity coverage matrix.
 - `workflow_v3/completion/WORKFLOW_V3_REPOSITORY_COMPLETION_AUDIT.md` - completion validation audit.
@@ -106,27 +99,17 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/adoption/DIRECTION_RUNTIME_CREATION_CHECKLIST.md` - future runtime creation checklist.
 - `workflow_v3/adoption/LEGACY_EVIDENCE_REVIEW_TEMPLATE.md` - legacy evidence review template.
 - `workflow_v3/adoption/ADOPTION_RESULT_PACKET_TEMPLATE.md` - adoption result packet template.
-- `workflow_v3/runbooks/README.md` - runtime operation runbook index.
-- `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md` - Direction bootstrap operating path.
-- `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md` - first ordinary Direction Project root bootstrap runbook.
-- `workflow_v3/runbooks/DIRECTION_DEFINITION_RUNBOOK.md` - semantic Direction Definition runbook after setup-only root.
 - `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` - Direction Spine formation procedure stub.
 - `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` - Direction Map formation procedure stub.
 - `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` - Active Front formation procedure stub.
 - `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` - Work Graph formation procedure stub.
 - `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` - Work Contract formation procedure stub.
+- `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` - Work Contract execution procedure stub.
+- `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` - Parent Integration Check procedure stub.
+- `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` - Impact Propagation procedure stub.
 - `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation procedure stub.
 - `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation procedure stub.
 - `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion procedure stub.
-- `workflow_v3/runbooks/DIRECTION_SPINE_CHAT_RUNBOOK.md` - bounded Direction Spine chat runbook.
-- `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md` - bounded Direction Map chat runbook.
-- `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md` - Active Front selection runbook.
-- `workflow_v3/runbooks/WORK_GRAPH_OPENING_RUNBOOK.md` - local Work Graph opening runbook.
-- `workflow_v3/runbooks/WORK_CONTRACT_RUNBOOK.md` - Work Contract operating path.
-- `workflow_v3/runbooks/PARENT_CHILD_CHAT_RUNBOOK.md` - parent/child chat runbook.
-- `workflow_v3/runbooks/CODEX_HANDOFF_VERIFICATION_RUNBOOK.md` - Codex handoff verification runbook.
-- `workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md` - Project setup rollout runbook.
-- `workflow_v3/runbooks/RUNTIME_CONSOLE_RUNBOOK.md` - Runtime Console read-only runbook.
 - `workflow_v3/evals/README.md` - validation eval index.
 - `workflow_v3/evals/WORKFLOW_V3_COMPLETION_VALIDATION_CHECKLIST.md` - completion validation checklist.
 - `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md` - Direction runtime bootstrap eval.
@@ -194,20 +177,22 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` - Codex handoff package procedure.
 - `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md` - Codex result verification procedure.
 - `workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md` - suspect runtime state recovery review procedure.
-- `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md` - setup-only root bootstrap migration stub.
-- `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md` - Direction Definition migration stub.
-- `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` - Direction Spine formation migration stub.
-- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` - Direction Map formation migration stub.
-- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` - Active Front formation migration stub.
-- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` - Work Graph formation migration stub.
-- `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` - Work Contract formation migration stub.
-- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation migration stub.
-- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation migration stub.
-- `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion migration stub.
-- `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` - storage update migration stub.
+- `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md` - setup-only root bootstrap pending-authoring stub.
+- `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md` - Direction Definition pending-authoring stub.
+- `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` - Direction Spine formation pending-authoring stub.
+- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` - Direction Map formation pending-authoring stub.
+- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` - Active Front formation pending-authoring stub.
+- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` - Work Graph formation pending-authoring stub.
+- `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` - Work Contract formation pending-authoring stub.
+- `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` - Work Contract execution pending-authoring stub.
+- `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` - Parent Integration Check pending-authoring stub.
+- `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` - Impact Propagation pending-authoring stub.
+- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation pending-authoring stub.
+- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation pending-authoring stub.
+- `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion pending-authoring stub.
+- `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` - Storage Update pending-authoring stub.
 - `workflow_v3/templates/DIRECTION_PROJECT_BINDING_TEMPLATE.md` - future runtime Project Binding config template.
 - `workflow_v3/templates/DIRECTION_CONSOLE_TEMPLATE.md` - future read-only Direction Console template.
-- `workflow_v3/runbooks/DIRECTION_PROJECT_CONTINUATION_RUNBOOK.md` - later-chat binding/status/continuation runbook for ordinary Direction Projects.
 - `workflow_v3/evals/DIRECTION_PROJECT_CONTINUATION_EVAL.md` - later-chat binding/status/continuation eval.
 
 END_OF_FILE: workflow_v3/README.md

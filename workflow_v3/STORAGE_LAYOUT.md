@@ -10,13 +10,13 @@ It stores shared runtime model documentation, setup templates, future pack sourc
 
 It does not store accepted per-Direction runtime state in this slice.
 
-Formation protocols and steering entity migration sources live under:
+Steering entity and runtime operations are represented by canonical procedure files under:
 
 ```text
-workflow_v3/formation/
+workflow_v3/procedures/
 ```
 
-They are repository rule/setup sources, not runtime state.
+Those procedure files are repository rule/setup sources, not runtime state.
 
 ## Future per-Direction runtime state root
 

@@ -9,7 +9,7 @@ status: active_repository_completion_framework
 - `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md`
 - `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md`
 - `workflow_v3/templates/PARENT_RECOVERY_BLOCK_TEMPLATE.md`
-- `workflow_v3/runbooks/PARENT_CHILD_CHAT_RUNBOOK.md`
+- `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md`
 
 ## Evidence required
 

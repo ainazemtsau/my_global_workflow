@@ -15,6 +15,9 @@ status: active_control_plane
 | `form_active_front` | `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` | `formation_chat` | Candidate Active Front selection. |
 | `form_work_graph` | `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` | `formation_chat` | Candidate local Work Graph formation. |
 | `form_work_contract` | `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` | `formation_chat` | Candidate bounded Work Contract formation. |
+| `execute_work_contract` | `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` | `work_contract_execution` | Execute one admitted Work Contract or transfer it to an allowed surface. |
+| `parent_integration_check` | `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` | `parent_integration` | Integrate returned child/work results into parent target. |
+| `impact_propagation` | `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` | `recovery_review` | Determine impact of invalidated assumptions or changed parent context. |
 | `form_current_next_move` | `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` | `formation_chat` | Candidate Current Next Move formation. |
 | `accept_candidate_entity` | `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` | `acceptance_review` | Acceptance review for candidate entity output. |
 | `promote_memory_artifact` | `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` | `formation_chat` | Candidate Memory Artifact promotion. |
@@ -22,7 +25,7 @@ status: active_control_plane
 | `codex_handoff` | `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` | `codex_handoff` | Package bounded work for Codex. |
 | `codex_result_verification` | `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md` | `codex_result_verification` | Verify returned Codex result evidence. |
 | `recovery_review` | `workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md` | `recovery_review` | Review suspect state, evidence, or routing. |
-| `author_workflow_procedure` | `workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md` | `procedure_authoring` | Use when creating, revising, migrating, or integrating Workflow v3 procedure definitions; non-mutating design only. |
+| `author_workflow_procedure` | `workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md` | `procedure_authoring` | Use when creating, revising, authoring, or integrating Workflow v3 procedure definitions; non-mutating design only. |
 
 ## Lookup rule
 
@@ -40,7 +43,7 @@ If multiple independent work items are requested, return `SPLIT_REQUIRED`.
 
 Do not resolve by chat intuition when procedure boundaries conflict.
 
-## Stub migration rule
+## Stub Authoring Rule
 
 Every active registry entry must point to a canonical procedure file under:
 
@@ -48,10 +51,10 @@ Every active registry entry must point to a canonical procedure file under:
 workflow_v3/procedures/**
 ```
 
-Unmigrated procedure logic is represented by an explicit stub procedure with `status: stub_procedure_pending_migration`.
+Unauthored or unimplemented procedure logic is represented by an explicit self-contained stub procedure with `status: stub_procedure_pending_authoring`.
 
-Stub procedures must stop with a migration-required result instead of executing old procedure logic. The old source file remains retained for a later bounded migration package.
+Stub procedures must STOP when selected for execution. A stub must include target role, workflow integration, expected output, future body scope, and stop behavior without requiring any deleted or external procedure source.
 
-The registry hint must not carry compatibility logic. Migration detail belongs in the canonical procedure file and the separately admitted migration/update package.
+The registry hint must not carry execution logic. Detailed procedure body authoring happens in a separate bounded `author_workflow_procedure` run based on the canonical stub target spec.
 
 END_OF_FILE: workflow_v3/control_plane/PROCEDURE_REGISTRY.md

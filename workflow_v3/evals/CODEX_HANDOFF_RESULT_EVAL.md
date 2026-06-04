@@ -5,7 +5,7 @@ status: active_repository_completion_framework
 ## Source files to inspect
 
 - `workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md`
-- `workflow_v3/runbooks/CODEX_HANDOFF_VERIFICATION_RUNBOOK.md`
+- `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md`
 - `workflow_v3/templates/WORK_CONTRACT_TEMPLATE.md`
 - `workflow_v3/templates/RESULT_PACKET_TEMPLATE.md`
 - git branch, commit/diff, changed files, and validation output

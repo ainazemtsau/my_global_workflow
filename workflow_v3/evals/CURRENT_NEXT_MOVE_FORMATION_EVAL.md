@@ -8,7 +8,7 @@ Validate Current Next Move formation quality.
 
 ## PASS checks
 
-- Uses the registered canonical `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` source; legacy formation source may be cited only through the selected procedure's old_source_path / migration source during migration.
+- Uses the registered canonical `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` source; if the procedure is still a stub, it stops with `PROCEDURE_BODY_NOT_AUTHORED`.
 - Uses Result Packet, Next Move Packet, blockers, accepted state, pending acceptance, and current bottleneck.
 - Selects exactly one primary next move.
 - Provides reason, destination surface, acceptance/launch requirement, and complete Transfer Packet or Next Chat Prompt when needed.

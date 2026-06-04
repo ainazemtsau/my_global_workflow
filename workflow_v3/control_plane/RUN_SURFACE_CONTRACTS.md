@@ -217,17 +217,75 @@ required_outputs:
 stop_conditions:
 - missing package, missing allowed files, forbidden paths, expected diff absent, validation absent, or source integrity failure.
 
+## `work_contract_execution`
+
+allowed_operations:
+- execute same-chat bounded work if the admitted Work Contract allows it;
+- produce Transfer Packet for external execution;
+- collect result and evidence from the allowed execution surface;
+- return Result Packet.
+
+forbidden_operations:
+- accept result;
+- mutate state;
+- change parent route;
+- broaden contract scope.
+
+required_inputs:
+- admitted Work Contract;
+- allowed execution surface;
+- expected result and evidence requirements;
+- return destination.
+
+required_outputs:
+- blocked result, Transfer Packet, or candidate Result Packet with evidence and limitations;
+- Next Move Packet to parent integration, acceptance review, or stop.
+
+stop_conditions:
+- Work Contract is missing, unaccepted, unbounded, or grants no allowed execution surface;
+- requested execution would mutate state, accept output, change parent route, or broaden scope.
+
+## `parent_integration`
+
+allowed_operations:
+- review child/result packets;
+- compare evidence to parent criteria;
+- produce parent integration result;
+- produce Graph Delta, Upstream Escalation, or Downstream Delta candidates when needed.
+
+forbidden_operations:
+- invent missing child evidence;
+- accept state;
+- launch next work invisibly.
+
+required_inputs:
+- parent Work Graph node, Active Front, or Goal Evidence Graph target;
+- returned child/work Result Packets;
+- parent acceptance criteria and evidence requirements;
+- return destination.
+
+required_outputs:
+- parent integration result;
+- missing/conflicting evidence list when applicable;
+- candidate graph/escalation/delta packet when applicable;
+- Next Move Packet.
+
+stop_conditions:
+- required parent target is missing;
+- required child/work result is missing or conflicting;
+- integration would accept state, synthesize evidence, or open new work invisibly.
+
 ## `procedure_authoring`
 
 allowed_operations:
 - read exact Workflow v3 procedure framework, registry, control-plane, eval, and existing procedure sources;
 - design candidate procedure definitions;
 - design canonical procedure location and naming decisions;
-- design old-file disposition for migrated runbook/playbook/operational sources;
+- design self-contained stub target specs and detailed procedure bodies;
 - design registry entry proposals;
 - design run surface compatibility statements;
 - design eval proposals;
-- design migration plans for simple procedures;
+- design authoring plans for simple procedures;
 - produce Codex/storage handoff candidates only when separately requested and bounded;
 - produce Result Packet and Next Move Packet.
 
@@ -236,9 +294,9 @@ forbidden_operations:
 - update actual ChatGPT Project Instructions UI;
 - accept its own output;
 - execute the procedure being authored;
-- migrate complex formation/entity procedures unless separately scoped;
-- preserve obsolete runbook/playbook path or naming for a migrated procedure without explicit bounded exception;
-- leave a migrated registry entry pointing to an obsolete runbook/playbook controlling source;
+- author complex procedure bodies unless separately scoped;
+- preserve obsolete runbook/playbook path or naming for a procedure;
+- leave a registry entry pointing outside canonical procedure files;
 - launch Codex without a separately admitted `codex_handoff`;
 - touch Direction runtime state;
 - import legacy evidence as current state.
@@ -250,12 +308,11 @@ required_inputs:
 - source files to inspect;
 - requested integration scope;
 - repository/base ref when repository work is requested;
-- old source path, current registry entrypoint, proposed new procedure path, and old-file disposition when migrating an existing runbook/playbook/operational source.
+- current registry entrypoint, proposed procedure path, and current stub target spec when authoring a stub body.
 
 required_outputs:
-- candidate procedure definition or integration plan;
+- candidate procedure definition, stub target spec, or integration plan;
 - canonical location and naming decision;
-- old-file disposition plan for migrations;
 - registry entry proposal or registry delta;
 - run surface compatibility statement;
 - eval proposal;
@@ -266,11 +323,11 @@ required_outputs:
 
 stop_conditions:
 - target procedure is unbounded;
-- requested work crosses into execution, acceptance, storage, or complex formation migration;
+- requested work crosses into execution, acceptance, storage, or complex procedure body authoring;
 - required sources are missing or unreadable;
 - procedure would authorize hidden mutation or self-acceptance;
-- migrated procedure would keep obsolete runbook/playbook path or naming without explicit bounded exception;
-- registry delta would leave a migrated procedure pointed at an obsolete controlling source.
+- procedure would keep obsolete runbook/playbook path or naming;
+- registry delta would leave a procedure pointed outside canonical procedure files.
 
 ## `codex_handoff`
 

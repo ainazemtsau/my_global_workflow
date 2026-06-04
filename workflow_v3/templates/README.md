@@ -35,7 +35,7 @@ Repository commits do not update actual ChatGPT Projects.
 - `DIRECTION_PROJECT_BINDING_TEMPLATE.md`
 - `DIRECTION_CONSOLE_TEMPLATE.md`
 
-Steering runtime state templates reference formation runbooks where relevant. Formation creates candidate content; templates store candidate/accepted/pending fields only when an authorized package supplies source authority, evidence, and acceptance/update path.
+Steering runtime state templates reference canonical procedures where relevant. Procedures create candidate content; templates store candidate/accepted/pending fields only when an authorized package supplies source authority, evidence, and acceptance/update path.
 
 ## Front/graph/node templates
 
@@ -70,8 +70,7 @@ Setup-only root may use `pending_definition`, `none_selected`, `setup_only_root_
 ## Related operating docs
 
 - `workflow_v3/adoption/**` contains future clean-start adoption package templates.
-- `workflow_v3/formation/**` contains steering entity formation protocols/runbooks.
-- `workflow_v3/runbooks/**` contains operating paths for using these templates.
+- `workflow_v3/procedures/**` contains canonical procedure files and self-contained pending-authoring stubs.
 - `workflow_v3/evals/**` contains validation gates for packages that use these templates.
 - `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md` maps templates to surfaces and entity coverage.
 

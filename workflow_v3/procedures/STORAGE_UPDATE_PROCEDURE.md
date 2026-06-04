@@ -1,92 +1,81 @@
-﻿# Procedure: Storage Update
+# Procedure: Storage Update
 
 title: Storage Update
-
-status: stub_procedure_pending_migration
-
+status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
-
-## migration_source
-
-old_source_path: workflow_v3/control_plane/STORAGE_UPDATE_PROTOCOL.md
-
-old_file_retained_as_migration_source: true
+entrypoint: persist_accepted_state
+run_surface_type: storage_update_adapter
 
 ## purpose
 
-Represent the registered storage update adapter entrypoint without executing the old source body in the active procedure model.
+Self-contained target spec for persisting accepted state or accepted records from an admitted storage update package. The detailed procedure body is not authored yet.
 
-## trigger_when_to_use
+## target_role
 
-- Use when START selects `persist_accepted_state`.
+Persist accepted state or accepted records only from an admitted storage update package.
+
+## workflow_integration
+
+This is the only procedure surface that can mutate allowed repository/runtime state after explicit acceptance/update authorization.
+
+## when_to_use
+
+- START selected `persist_accepted_state`.
+- A complete admitted storage update package lists exact allowed files and validation.
 
 ## when_not_to_use
 
-- Do not use to mutate repository or runtime state until the body is migrated.
-- Do not use to migrate this procedure body in the same run.
+- Do not decide acceptance.
+- Do not broaden write scope.
+- Do not create Direction state without adoption.
 
 ## required_inputs
 
-- entrypoint: `persist_accepted_state`
-- run_surface_type: `storage_update_adapter`
-- admitted storage package context.
+- accepted update package;
+- exact allowed files and forbidden paths;
+- validation commands;
+- project refresh reporting requirements.
 
-## source_requirements
+## future_body_scope
 
-- Read this stub procedure.
-- Treat `old_source_path` as retained migration source only.
-- Do not execute or import detailed old source logic.
+- verify accepted update package;
+- verify allowed/forbidden paths;
+- write only listed files;
+- preserve EOF markers;
+- return changed files and validation;
+- report project refresh requirements.
 
-## context_classification
+## future_body_must_not
 
-- this stub: canonical source
-- old_source_path: migration source
-- user input: current human input until accepted through the admitted procedure
+- decide acceptance;
+- broaden write scope;
+- create Direction state without adoption.
 
-## stage_cards
+## required_outputs_when_authored
+
+- changed files and validation output or blocked result;
+- project refresh requirements;
+- source/read limitations;
+- FINISH_PACKET;
+- Result Packet;
+- Next Move Packet.
+
+## stop_behavior_until_authored
 
 ```text
-stage_id: migration_guard
-purpose: prevent execution of unmigrated storage mutation logic
-activation conditions: always
-inputs: selected entrypoint and old_source_path
-required intermediate output: MIGRATION_REQUIRED result
-gate: STOP
-checkpoint rule: no checkpoint
-expansion rule: no expansion
-stop behavior: return blocked Result Packet and Next Move Packet
+result_packet.status: blocked
+result_packet.result: PROCEDURE_BODY_NOT_AUTHORED
+result_packet.evidence: canonical stub exists and describes target role
+result_packet.not_done: author detailed body in separate bounded author_workflow_procedure run
+next_move_packet.primary_next_move: author this procedure body in separate bounded author_workflow_procedure run
+next_move_packet.next_move_type: next_material_chat | same_chat_continuation
+next_move_packet.blocking_reason_if_any: PROCEDURE_BODY_NOT_AUTHORED
 ```
 
-## output_contract
+## finish_closure_shape
 
-```text
-result_packet:
-  status: blocked
-  result: MIGRATION_REQUIRED / PROCEDURE_BODY_NOT_MIGRATED
-  evidence: old_source_path retained for future migration
-  changed_files: none
-  validation: not run
-  source_read_limitations: detailed body not migrated
-  not_done: migrate procedure body
-  project_refresh_requirements: none
-  residual_risks: entrypoint cannot execute until migrated
-  exact_next_move: migrate this procedure in a separate bounded author_workflow_procedure run
-next_move_packet:
-  primary_next_move: migrate this procedure in a separate bounded author_workflow_procedure run
-  next_move_type: same_chat_continuation
-  return_destination: current chat
-  transfer_packet_if_needed: not needed
-  persistence_boundary: no persistence
-  acceptance_boundary: no acceptance
-  blocking_reason_if_any: PROCEDURE_BODY_NOT_MIGRATED
-```
-
-## stop_conditions
-
-- Stop whenever this stub is selected for execution.
-
-## procedure_closure
-
-Return FINISH_REQUEST if lifecycle FINISH is active, then close with FINISH_PACKET, Result Packet, and Next Move Packet. The Result Packet status must be blocked and name `MIGRATION_REQUIRED / PROCEDURE_BODY_NOT_MIGRATED`.
+- FINISH_PACKET
+- Result Packet
+- Next Move Packet
 
 END_OF_FILE: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md

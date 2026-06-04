@@ -6,7 +6,7 @@ status: template_only
 
 This is the copy-paste packet for the first semantic Direction Definition chat after setup-only root exists.
 
-It forms candidate Direction Spine, Direction Map, and first Active Front through formation runbooks. It does not execute product work and does not create Work Graph before Active Front acceptance.
+It forms candidate Direction Spine, Direction Map, and first Active Front through canonical procedure files. It does not execute product work and does not create Work Graph before Active Front acceptance.
 
 ## Copy-paste launch packet
 
@@ -31,7 +31,7 @@ Required reads:
 - Read CURRENT_NEXT_MOVE.md from current_next_move_path.
 - Confirm CURRENT_STATUS shows setup_only_root_created.
 - Confirm CURRENT_NEXT_MOVE is launch_direction_definition.
-- Read Workflow v3 formation protocols and the relevant formation runbooks.
+- Read the relevant Workflow v3 procedure files.
 
 Candidate context:
 - If `candidate_context_for_direction_definition` exists, classify it as candidate context only.

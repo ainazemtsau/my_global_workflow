@@ -64,6 +64,9 @@ Steering entities in this matrix are now covered by canonical procedure stubs un
 - Candidate Active Front / Active Front: `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md`, `workflow_v3/evals/ACTIVE_FRONT_FORMATION_EVAL.md`.
 - Work Graph: `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md`, `workflow_v3/evals/WORK_GRAPH_FORMATION_EVAL.md`.
 - Work Contract: `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md`, `workflow_v3/evals/WORK_CONTRACT_FORMATION_EVAL.md`.
+- Work Contract Execution: `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md`.
+- Parent Integration: `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md`.
+- Impact Propagation: `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md`.
 - Next Move: `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md`, `workflow_v3/evals/CURRENT_NEXT_MOVE_FORMATION_EVAL.md`.
 - Acceptance Decision: `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md`, `workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md`.
 - Memory Artifact: `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md`, `workflow_v3/evals/MEMORY_ARTIFACT_PROMOTION_EVAL.md`.
@@ -75,13 +78,13 @@ Operational entities remain packet/evidence driven, but they must preserve sourc
 The matrix rows above are supported by these repository completion files:
 
 - Completion matrix and audit: `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md`, `workflow_v3/completion/WORKFLOW_V3_REPOSITORY_COMPLETION_AUDIT.md`.
-- Direction and runtime root adoption: `workflow_v3/adoption/README.md`, `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md`, `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md`, `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md`.
+- Direction and runtime root adoption: `workflow_v3/adoption/README.md`, `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`, `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md`.
 - Setup-only root and Direction Definition: `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`, `workflow_v3/control_plane/RUN_SURFACE_CONTRACTS.md`, `workflow_v3/project_setup/DIRECTION_SETUP_ONLY_ROOT_BOOTSTRAP_PROTOCOL.md`, `workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md`, `workflow_v3/evals/ACTION_ADMISSION_EVAL.md`, `workflow_v3/evals/CHAT_LIFECYCLE_EVAL.md`, `workflow_v3/evals/DIRECTION_SETUP_ONLY_BOOTSTRAP_EVAL.md`, `workflow_v3/evals/DIRECTION_DEFINITION_EVAL.md`.
 - Direction Spine and Direction Map: `workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md`.
 - Active Front, Work Graph, and Work Contract: procedure files under `workflow_v3/procedures/**`.
 - Chat lifecycle, packets, and parent recovery: `workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md`, `workflow_v3/evals/FINISH_PACKET_EVAL.md`, `workflow_v3/evals/NEXT_MOVE_PACKET_EVAL.md`.
-- Codex and adapters: `workflow_v3/runbooks/CODEX_HANDOFF_VERIFICATION_RUNBOOK.md`, `workflow_v3/evals/CODEX_HANDOFF_RESULT_EVAL.md`.
-- Project setup, binding, and continuation: `workflow_v3/project_setup/README.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md`, `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md`, `workflow_v3/project_setup/DIRECTION_PROJECT_BINDING_AND_CONTINUATION_PROTOCOL.md`, `workflow_v3/project_setup/PER_DIRECTION_PROJECT_INSTRUCTIONS_SOURCE_TEMPLATE.md`, `workflow_v3/project_setup/PER_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md`, `workflow_v3/project_setup/DIRECTION_PROJECT_SETUP_VALIDATION_CHECKLIST.md`, `workflow_v3/runbooks/DIRECTION_PROJECT_CONTINUATION_RUNBOOK.md`, `workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md`, `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md`, `workflow_v3/evals/DIRECTION_PROJECT_SETUP_EVAL.md`, `workflow_v3/evals/DIRECTION_PROJECT_CONTINUATION_EVAL.md`.
+- Codex and adapters: `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md`, `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md`, `workflow_v3/evals/CODEX_HANDOFF_RESULT_EVAL.md`.
+- Project setup, binding, and continuation: `workflow_v3/project_setup/README.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md`, `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md`, `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md`, `workflow_v3/project_setup/DIRECTION_PROJECT_BINDING_AND_CONTINUATION_PROTOCOL.md`, `workflow_v3/project_setup/PER_DIRECTION_PROJECT_INSTRUCTIONS_SOURCE_TEMPLATE.md`, `workflow_v3/project_setup/PER_DIRECTION_PROJECT_FILES_MANIFEST_TEMPLATE.md`, `workflow_v3/project_setup/DIRECTION_PROJECT_SETUP_VALIDATION_CHECKLIST.md`, `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md`, `workflow_v3/evals/DIRECTION_PROJECT_SETUP_EVAL.md`, `workflow_v3/evals/DIRECTION_PROJECT_CONTINUATION_EVAL.md`.
 - Legacy evidence and rollback/coexistence: `workflow_v3/adoption/LEGACY_EVIDENCE_REVIEW_TEMPLATE.md`, `workflow_v3/evals/LEGACY_EVIDENCE_BOUNDARY_EVAL.md`.
 
 END_OF_FILE: workflow_v3/interfaces/99_COVERAGE_MATRIX.md

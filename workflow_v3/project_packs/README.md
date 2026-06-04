@@ -31,7 +31,7 @@ Future packs may compact shared runtime model, transport, adapter, setup, consol
 
 Project Files/Sources remain cache/context only and do not create accepted state, Direction adoption, migration/import, or Project setup authority.
 
-`workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/runbooks/**`, and `workflow_v3/evals/**` are source docs for repository operation and validation. They are not generated pack artifacts and are not uploaded as Project Files/Sources by default.
+`workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, and `workflow_v3/evals/**` are source docs for repository operation and validation. They are not generated pack artifacts and are not uploaded as Project Files/Sources by default.
 
 ## Refresh reporting
 

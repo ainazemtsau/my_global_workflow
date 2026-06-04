@@ -35,7 +35,7 @@ Exact source files used:
 - `ainazemtsau/my_global_workflow/workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/README.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/completion/POST_COMPLETION_REMAINING_NON_GOALS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/project_packs/README.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
@@ -145,7 +145,7 @@ Do not upload these as Project Files/Sources by default:
 - `workflow_v3/templates/**`
 - `workflow_v3/completion/**`
 - `workflow_v3/adoption/**`
-- `workflow_v3/runbooks/**`
+- `workflow_v3/procedures/**`
 - `workflow_v3/evals/**`
 - `workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md`
 
