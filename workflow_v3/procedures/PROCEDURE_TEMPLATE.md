@@ -6,6 +6,26 @@ status: draft_procedure
 
 `draft_procedure` until accepted by the relevant repository update path.
 
+## Canonical Location
+
+Target path:
+
+```text
+workflow_v3/procedures/<NAME>_PROCEDURE.md
+```
+
+For migrated procedures:
+
+```text
+old_source_path:
+legacy_file_disposition: delete | archive | compatibility_shim
+registry_entrypoint:
+registry_delta_required: true | false
+canonical_path_exception_if_any:
+```
+
+New or migrated Procedure Definition Framework procedures should not use `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or legacy runbook/playbook directory placement unless an explicit bounded exception is justified.
+
 ## Purpose
 
 State the bounded work this procedure performs.
@@ -86,10 +106,13 @@ exact_next_move:
 - Required sources were read or limitations stated.
 - Required stages passed or stopped.
 - Output satisfies downstream use.
+- New/migrated procedure path and filename follow canonical procedure location/naming policy or declare an explicit exception.
+- Migrated procedures include registry delta and old-file disposition.
 
 ## Stop Conditions
 
 - Stop when ...
+- Stop if a new/migrated procedure preserves obsolete runbook/playbook path or naming without explicit exception.
 
 ## Procedure Closure
 
