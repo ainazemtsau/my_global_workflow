@@ -222,6 +222,8 @@ stop_conditions:
 allowed_operations:
 - read exact Workflow v3 procedure framework, registry, control-plane, eval, and existing procedure sources;
 - design candidate procedure definitions;
+- design canonical procedure location and naming decisions;
+- design old-file disposition for migrated runbook/playbook/operational sources;
 - design registry entry proposals;
 - design run surface compatibility statements;
 - design eval proposals;
@@ -235,6 +237,8 @@ forbidden_operations:
 - accept its own output;
 - execute the procedure being authored;
 - migrate complex formation/entity procedures unless separately scoped;
+- preserve obsolete runbook/playbook path or naming for a migrated procedure without explicit bounded exception;
+- leave a migrated registry entry pointing to an obsolete runbook/playbook controlling source;
 - launch Codex without a separately admitted `codex_handoff`;
 - touch Direction runtime state;
 - import legacy evidence as current state.
@@ -245,11 +249,14 @@ required_inputs:
 - target run surface or candidate run surface;
 - source files to inspect;
 - requested integration scope;
-- repository/base ref when repository work is requested.
+- repository/base ref when repository work is requested;
+- old source path, current registry entrypoint, proposed new procedure path, and old-file disposition when migrating an existing runbook/playbook/operational source.
 
 required_outputs:
 - candidate procedure definition or integration plan;
-- registry entry proposal;
+- canonical location and naming decision;
+- old-file disposition plan for migrations;
+- registry entry proposal or registry delta;
 - run surface compatibility statement;
 - eval proposal;
 - allowed/forbidden paths if handoff is needed;
@@ -261,7 +268,9 @@ stop_conditions:
 - target procedure is unbounded;
 - requested work crosses into execution, acceptance, storage, or complex formation migration;
 - required sources are missing or unreadable;
-- procedure would authorize hidden mutation or self-acceptance.
+- procedure would authorize hidden mutation or self-acceptance;
+- migrated procedure would keep obsolete runbook/playbook path or naming without explicit bounded exception;
+- registry delta would leave a migrated procedure pointed at an obsolete controlling source.
 
 ## `codex_handoff`
 
