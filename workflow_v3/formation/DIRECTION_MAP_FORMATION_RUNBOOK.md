@@ -206,7 +206,9 @@ Do not checkpoint every minor edit. Ordinary stage passes are not Signals by def
 
 ## Output Contract
 
-Return a candidate Direction Map package compatible with the active Direction Map template/interface and containing:
+Return a candidate Direction Map package compatible with `workflow_v3/interfaces/02_DIRECTION_MAP_INTERFACE.md` and `workflow_v3/templates/DIRECTION_MAP_TEMPLATE.md`, while also satisfying the formation output shape from `workflow_v3/formation/ENTITY_FORMATION_CANON.md`.
+
+The formation wrapper must contain:
 
 ```text
 target_entity:
@@ -226,16 +228,31 @@ event_loop_closure:
 exact_next_move_or_transition_packet:
 ```
 
-The `candidate_entity` must include:
+The `candidate_entity` must include Direction Map fields compatible with the active template:
 
 ```text
+direction_id:
+map_status:
+formation_runbook_ref:
+formation_eval_ref:
+source_spine_ref:
+map_claim_discipline:
 tracks:
 map_areas:
 strategic_dependencies:
 strategic_uncertainties:
+candidate_active_fronts:
+accepted_or_closed_fronts:
+blocked_areas:
 risk_zones:
-candidate_fronts:
-accepted_candidate_unresolved_hypothetical_labels:
+evidence_links:
+accepted_labels:
+candidate_labels:
+unresolved_labels:
+hypothetical_labels:
+update_candidates:
+acceptance_decision_ref:
+limitations:
 ```
 
 ## Eval / Quality Checks
