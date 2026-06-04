@@ -40,4 +40,18 @@ If multiple independent work items are requested, return `SPLIT_REQUIRED`.
 
 Do not resolve by chat intuition when procedure boundaries conflict.
 
+## Migration path rule
+
+Existing registry entries may temporarily point to legacy runbook, formation, or other operational paths while those entries are not yet migrated into the Procedure Definition Framework.
+
+After an entrypoint is migrated into the Procedure Definition Framework, its `procedure_ref` must point to the canonical migrated procedure file under:
+
+```text
+workflow_v3/procedures/**
+```
+
+Migrated procedure files should use `*_PROCEDURE.md` naming. Do not leave a migrated entrypoint pointed at a `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or legacy runbook/playbook path unless an explicit bounded compatibility exception is recorded by an admitted repository update.
+
+The registry hint must not carry compatibility logic. Compatibility shims, if any, belong in the explicitly admitted migration/update package and must not replace the canonical procedure source.
+
 END_OF_FILE: workflow_v3/control_plane/PROCEDURE_REGISTRY.md
