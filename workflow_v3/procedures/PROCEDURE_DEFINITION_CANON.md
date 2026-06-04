@@ -45,6 +45,28 @@ Procedure files should use compact markdown sections for:
 
 Do not bury routing logic in project instructions. Keep registry entries compact and place execution detail in the procedure file.
 
+## Canonical location and naming
+
+The canonical location for new or migrated Procedure Definition Framework procedures is:
+
+```text
+workflow_v3/procedures/**
+```
+
+Use procedure naming for new or migrated Procedure Definition Framework files:
+
+```text
+*_PROCEDURE.md
+```
+
+Do not preserve obsolete `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or runbook/playbook directory placement merely because a pre-migration registry entry pointed there.
+
+During migration, existing registry entries may temporarily point to legacy runbook, formation, or other operational paths only as coexistence for not-yet-migrated procedures. That coexistence is not precedent for new or migrated procedures.
+
+After a procedure is migrated into this framework, update `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` so `procedure_ref` points to the canonical migrated procedure file. Remove, archive, or explicitly mark the old runbook/playbook file as a compatibility shim through a separately admitted repository update path.
+
+Any exception to canonical location or naming must be explicit, bounded, and justified in the migration plan and registry delta. Silent path-preserving migration is not allowed.
+
 ## Stage Card model
 
 Each material stage should be expressed as a Stage Card with:
