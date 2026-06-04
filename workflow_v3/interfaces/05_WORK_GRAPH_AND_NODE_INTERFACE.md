@@ -18,7 +18,7 @@ Work Graph is not:
 - Direction Spine;
 - roadmap;
 - backlog;
-- Action Inbox;
+- unreviewed task list;
 - permanent graph for the whole Direction.
 
 ## Work Graph Node

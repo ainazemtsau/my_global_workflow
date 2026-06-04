@@ -134,7 +134,7 @@ Checkpoint when:
 - research or child/check/Codex work changes the available evidence;
 - a gate failure may require scope repair.
 
-Do not checkpoint every minor stage. Ordinary checkpoints are internal RUN gates and are not Signals by default.
+Do not checkpoint every minor stage. Ordinary checkpoints are internal RUN gates and return typed gate outputs when action is needed.
 
 ## Research and expansion
 

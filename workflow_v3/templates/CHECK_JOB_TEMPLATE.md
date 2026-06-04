@@ -28,7 +28,7 @@ status: template
 
 `return_destination`:
 
-`closure_signal`:
+`closure_fact`:
 
 `next_move_if_blocked`:
 

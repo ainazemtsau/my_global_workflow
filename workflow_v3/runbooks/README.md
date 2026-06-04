@@ -26,9 +26,9 @@ Do not add new Procedure Definition Framework procedures to this directory.
 
 Do not keep a migrated procedure in this directory merely because an old registry entry pointed here.
 
-Existing registry entries may temporarily point here only while the corresponding entrypoint has not yet been migrated. After migration, the registry `procedure_ref` must point to the canonical procedure file in `workflow_v3/procedures/**`, unless an explicit bounded compatibility exception is recorded by an admitted repository update.
+Active registry entries must not point here. If a runbook-backed entrypoint is not migrated, represent it through a canonical stub procedure under `workflow_v3/procedures/**`.
 
-Compatibility shims, if any, must be explicitly bounded and must not replace the canonical procedure source.
+Compatibility shims, if any, must be explicitly bounded by a later admitted repository update and must not replace the canonical procedure source.
 
 ## Non-authority boundary
 
@@ -44,7 +44,6 @@ These files remain as legacy/transitional operating references until their entry
 - `ACTIVE_FRONT_SELECTION_RUNBOOK.md`
 - `WORK_GRAPH_OPENING_RUNBOOK.md`
 - `WORK_CONTRACT_RUNBOOK.md`
-- `EVENT_LOOP_CLOSURE_RUNBOOK.md`
 - `PARENT_CHILD_CHAT_RUNBOOK.md`
 - `CODEX_HANDOFF_VERIFICATION_RUNBOOK.md`
 - `PROJECT_SETUP_ROLLOUT_RUNBOOK.md`
@@ -52,6 +51,6 @@ These files remain as legacy/transitional operating references until their entry
 
 ## Common operating rule
 
-Every material run or review ends with visible Event Loop Closure, a closure signal, and one exact Next Move. State changes require explicit acceptance/update path.
+Every material run or review in the active procedure model closes with FINISH_PACKET, Result Packet, and Next Move Packet. State changes require explicit acceptance/update path.
 
 END_OF_FILE: workflow_v3/runbooks/README.md

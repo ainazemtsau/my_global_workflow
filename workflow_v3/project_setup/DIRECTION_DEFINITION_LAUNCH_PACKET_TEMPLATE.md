@@ -56,7 +56,7 @@ Expected result:
 - risks and cuts;
 - acceptance questions;
 - Result Packet;
-- Event Loop Closure;
+- FINISH_PACKET, Result Packet, and Next Move Packet;
 - exact next move.
 ```
 

@@ -21,7 +21,7 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - For migrated procedures, registry delta points `procedure_ref` to the canonical migrated procedure file unless an explicit bounded exception was recorded.
 - FINISH_REQUEST happened before FINISH.
 - Result Packet includes procedure limitations and validation.
-- Event Loop Closure selects exactly one primary next move.
+- Next Move Packet selects exactly one primary next move.
 
 ## WARN checks
 
@@ -38,7 +38,7 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - Weak final artifact despite unmet gate.
 - Checkpoint skipped when procedure requires it.
 - Research, child, or check work becomes independent material work.
-- Signals emitted for every minor checkpoint.
+- External routing output emitted for every minor checkpoint.
 - Final closure launches next work invisibly.
 - Procedure authoring/migration preserves obsolete runbook/playbook path or naming for a migrated procedure without an explicit bounded exception.
 - Migrated procedure output omits registry delta or old-file disposition.

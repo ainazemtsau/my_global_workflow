@@ -1,223 +1,193 @@
 # Workflow v3 Quality and Recovery
 
-status: active_skeleton_namespace_corrected
+status: active_repository_completion_framework
 
-## Core rules
+## Purpose
 
-No hidden state change.
+This file defines quality gates and recovery actions for Workflow v3 repository packages and future Direction runtime work.
 
 No validation means no done claim.
 
-Chat output, Codex output, Project Files/Sources, Signals, Handler results, Action Inbox items, Check Jobs, and document existence do not create accepted state.
+Chat output, Codex output, Project Files/Sources, Result Packets, Next Move Packets, Transfer Packets, Check Jobs, and document existence do not create accepted state.
 
 ## Context/source gate
 
 Checks:
 
-- source authority is identified;
-- exact repo/path/ref is known when exact state matters;
-- read completeness and limitations are stated;
-- Project Files/Sources are classified as cache/context;
-- missing or stale source is visible.
+- exact source path/ref is named;
+- Project Files/Sources and pasted excerpts are treated as cache/context unless verified;
+- source read limitations are named;
+- stale or missing source blocks material claims.
 
-Fails when required source is missing, stale cache is treated as truth, or repository state is guessed.
+Fails when source authority is guessed or stale cache is treated as canonical.
+
+Recovery:
+
+- stop the material claim;
+- request or read the exact source;
+- rerun the same procedure with source limitations visible.
 
 ## Entity coverage gate
 
 Checks:
 
-- every entity in `workflow_v3/interfaces/00_ENTITY_REGISTRY.md` appears in `workflow_v3/interfaces/99_COVERAGE_MATRIX.md`;
 - each entity has a canonical definition file/interface;
 - storage location is identified when applicable;
-- related Signals, Handlers, packets/templates, state mutation rights, and acceptance/update requirements are visible where applicable;
+- related packets/templates, state mutation rights, and acceptance/update requirements are visible where applicable;
 - unresolved risks are named instead of hidden.
 
-Fails when an interface entity can be lost, redefined independently, or routed without coverage.
+Fails when a package invents an entity, storage path, or mutation right.
 
-## Steering entity formation gate
+Recovery:
+
+- block the package;
+- add or cite the missing interface/template/eval;
+- return a bounded repair Next Move Packet.
+
+## Formation quality gate
 
 Checks:
 
-- Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Current Next Move, Acceptance Decision, and Memory Artifact promotion use their formation runbooks before template filling;
-- alternatives, criteria, evidence, risks, rejected/deferred options, focus/waste cuts, source limits, acceptance question, Event Loop Closure, and exact next move are visible;
+- Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Current Next Move, Acceptance Decision, and Memory Artifact promotion use registered procedures before template filling;
+- alternatives, criteria, evidence, risks, rejected/deferred options, focus/waste cuts, source limits, acceptance question, Result Packet, and Next Move Packet are visible;
 - child research/check chats are bounded support only and return to the parent formation chat;
-- candidate and accepted boundaries are preserved;
-- setup-only root does not accept semantic Direction content.
+- candidate and accepted boundaries are preserved.
 
-Fails when a steering entity is created by filling a template, user input is accepted without formation, child chats decide the entity, or Direction setup/root bootstrap accepts Spine/Map/Front.
+Fails when formation becomes roadmap drafting, backlog dumping, or hidden acceptance.
+
+Recovery:
+
+- stop formation;
+- restate the selected procedure and source boundaries;
+- produce a blocked or repair Result Packet.
 
 ## Direction lifecycle gate
 
 Checks:
 
-- Direction lifecycle transitions use visible lifecycle Signals and lifecycle Handlers;
-- lifecycle Handler output remains candidate only;
+- lifecycle transitions are visible as typed procedure outputs;
 - Direction Spine, Direction Map, Active Front, Work Graph, and Work Contract transitions are not selected by chat intuition;
-- every state-changing lifecycle transition has Event Loop Closure and acceptance/update path;
+- every state-changing lifecycle transition has FINISH_PACKET, Result Packet, Next Move Packet, and acceptance/update path;
 - blocked lifecycle transition stops product work until repaired, accepted, or split.
 
-Fails when lifecycle state is invented, accepted silently, or advanced without visible closure.
+Fails when lifecycle state changes by implication.
 
-## Scope gate
+Recovery:
 
-Checks:
-
-- work has one bounded target;
-- in-scope and out-of-scope boundaries are explicit;
-- allowed and forbidden paths/surfaces are known;
-- no unrelated continuation or phase jump occurs.
-
-Fails when scope expands, mixes independent jobs, or requires forbidden surfaces.
+- stop continuation;
+- return a human decision request or repair Next Move Packet;
+- require explicit acceptance/update before mutation.
 
 ## Evidence gate
 
 Checks:
 
-- expected evidence is defined;
-- result includes evidence or an explicit no-evidence reason;
-- validation output supports the claim;
-- conflicting evidence is named.
+- evidence backs every done or accepted claim;
+- validation output is included when validation is required;
+- failed validation forces blocked or repair_required status;
+- source limitations are not hidden.
 
-Fails when a done claim lacks validation or evidence.
+Fails when result quality is asserted without evidence.
+
+Recovery:
+
+- block done claim;
+- request same-scope repair or verification;
+- return a check job or repair Next Move Packet.
 
 ## Acceptance gate
 
 Checks:
 
-- result remains candidate unless explicitly accepted;
-- Acceptance Decision is separate and visible;
-- no adapter accepts its own output;
-- human action is not assumed complete without confirmation.
+- candidate result remains candidate until explicit Acceptance Decision/update path;
+- adapter output is not self-accepted;
+- human approval is separated from storage authorization unless an admitted package grants write scope.
 
 Fails when acceptance is inferred or hidden.
 
-## Signal/Handler misuse gate
+Recovery:
+
+- block mutation;
+- request explicit decision or storage package;
+- name acceptance boundary in Next Move Packet.
+
+## Procedure output misuse gate
 
 Checks:
 
-- Signal remains an emitted event/fact record;
-- Signal is not an Action Inbox item;
-- Handler remains a registry rule/process that creates candidate output only;
-- Action Inbox stores candidate actions, not raw signals;
+- procedure outputs remain candidate unless accepted;
 - Check Job remains bounded verification;
-- Event Loop Closure appears after material work/review;
-- legacy import signal is handled by `legacy_import_guard_handler`;
-- no accepted-state mutation from Signal, Handler, or Action Inbox.
+- FINISH_PACKET appears after material work/review when lifecycle FINISH is active;
+- no accepted-state mutation occurs from packet output alone.
 
-Fails when:
-
-- Signal treated as accepted state;
-- Handler executes work;
-- Action Inbox stores raw untriaged signals as backlog;
-- event loop closure omitted after material work;
-- legacy import signal ignored.
+Fails when packet output executes work, accepts state, or becomes hidden automation.
 
 Recovery:
 
 - block or reject the unsafe result;
-- rerun same-scope closure with EVENT LOOP CLOSURE;
-- convert only selected candidate actions into Check Jobs, Launch Packets, repair Next Moves, or human decision requests;
-- use `legacy_import_guard_handler` before touching legacy state.
+- rerun same-scope FINISH closure;
+- convert only the selected primary next move into a Transfer Packet, Check Job, repair Next Move, or human decision request.
 
-## Progression Router misuse gate
+## Next Move Packet misuse gate
 
 Checks:
 
-- Event Loop Closure uses `progression_router_handler` after material work or review closes;
-- one `primary_next_move` is selected before any optional secondary candidates;
-- transfer steps include a complete Transition Packet or next-chat prompt;
+- FINISH selects one `primary_next_move`;
+- transfer steps include a complete Transfer Packet or next-chat prompt;
 - Codex handoff returns to the same current chat for verification and closure;
 - next material chat waits until the current material target is accepted, persisted, verified, or explicitly stopped;
-- Action Inbox remains candidate storage, not a roadmap.
+- unreviewed task lists remain candidate context, not roadmap.
 
 Fails when:
 
-- next step is guessed without closure;
+- next step is guessed without FINISH closure;
 - multiple next steps are launched silently;
-- Action Inbox becomes roadmap;
+- unreviewed task list becomes roadmap;
 - acceptance or persistence is skipped;
-- a transfer step only says to create a package instead of providing the complete packet;
-- product work continues after a blocking signal.
+- a transfer step only says to create a package instead of providing the complete packet.
 
 Recovery:
 
 - stop the unsafe continuation;
-- rerun EVENT LOOP CLOSURE with `progression_router_handler`;
+- repair FINISH_PACKET and Next Move Packet;
 - choose one `primary_next_move`;
-- provide a complete Transition Packet when transfer is needed;
-- return for human/parent acceptance when acceptance is unclear.
+- provide a complete Transfer Packet when transfer is needed;
+- preserve acceptance/update boundary.
 
-## Chat lifecycle/handoff gate
+## Parent/child recovery gate
 
 Checks:
 
-- child chat, parent chat, next material chat, Check Job, Codex run, Codex result verification, human decision surface, and Runtime Console/status chat boundaries are explicit;
-- child chat serves the current parent target and returns to parent;
-- child chat is not next material chat;
-- next material chat starts only after current material target is accepted, persisted, verified, or explicitly stopped;
-- required child results are returned before parent synthesis;
-- Parent Recovery Block exists when multiple children are launched.
+- child result returns to parent;
+- parent remains synthesis authority;
+- missing required child result blocks synthesis;
+- Parent Recovery Block is used when multiple children or missing returns create ambiguity.
 
-Fails when child work becomes an independent execution track, missing child evidence is synthesized, or next material chat starts before the current target is closed.
+Fails when child output becomes independent execution track or missing child result is invented.
 
 Recovery:
 
-- stop synthesis when required child result is missing;
+- stop parent synthesis;
 - request missing child result or rerun a narrowed child prompt;
 - produce Parent Recovery Block;
-- rerun Event Loop Closure and Progression Router after child/parent status is clear.
+- rerun FINISH closure after child/parent status is clear.
 
 ## Codex validation gate
 
 Checks:
 
-- branch name;
-- commit SHA when committed;
-- changed files;
-- allowed paths only;
-- forbidden paths unchanged;
-- validation results;
-- EOF markers for Markdown;
-- residual risks;
-- project refresh requirements.
+- branch/commit/diff is named;
+- changed files match allowed paths;
+- validation commands and outputs are present;
+- EOF markers are checked where repository convention requires them;
+- project refresh requirements are separated.
 
-Fails when Codex changes forbidden paths, omits evidence, returns unverifiable changes, or claims done after failed validation.
+Fails when Codex result is accepted without verification.
 
-## Project setup refresh gate
+Recovery:
 
-Checks:
-
-- Project Instructions UI update requirement is reported separately;
-- Project Files/Sources refresh requirement is reported separately;
-- request-only source refresh requirement is reported separately;
-- do-not-upload sources are identified;
-- actual Project updates are not implied by repository commits.
-
-Fails when a file change implies a Project UI update or Project Files/Sources refresh without a separate authorized rollout package.
-
-## Rollback/coexistence gate
-
-Checks:
-
-- current Workflow OS remains available as legacy/rollback;
-- old files are not deleted, renamed, moved, or decommissioned;
-- non-adopted Directions remain under the old Workflow OS;
-- rollback path is not weakened.
-
-Fails when a package silently replaces old Workflow OS behavior or old Direction state.
-
-## Recovery outcomes
-
-Use the smallest sufficient recovery outcome.
-
-`blocked result` - return when work cannot safely continue because source, scope, permission, validation, or acceptance is missing.
-
-`same-package repair` - repair within the same allowed scope when validation failed and the repair does not need broader authority.
-
-`human decision request` - ask for a decision when safe progress depends on judgment, acceptance, scope, permission, or credentials.
-
-`rollback/revert` - undo or reject a candidate change when it violated boundaries or cannot be repaired safely.
-
-`future package split` - park work for a later explicit package when the need is real but outside current scope.
+- block acceptance;
+- request same-scope repair or verification;
+- return exact residual risks and next move.
 
 END_OF_FILE: workflow_v3/QUALITY_AND_RECOVERY.md

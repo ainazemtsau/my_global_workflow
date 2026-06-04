@@ -191,7 +191,7 @@ stage_id: closure
 purpose: Return the candidate design and next move.
 activation conditions: Always after completed or stopped stages.
 inputs: Stage outputs.
-required intermediate output: Result Packet and Event Loop Closure.
+required intermediate output: Result Packet and Next Move Packet.
 gate: PASS if required outputs are present; PASS_WITH_RISK if limitations are named.
 checkpoint rule: None.
 expansion rule: None.
@@ -224,7 +224,7 @@ run_surface_compatibility_statement:
 eval_proposal:
 allowed_forbidden_path_proposal_if_codex_or_storage_needed:
 result_packet:
-event_loop_closure:
+next_move_packet:
 ```
 
 ## Eval / Quality Checks
@@ -236,7 +236,7 @@ event_loop_closure:
 - New or migrated procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming unless an explicit exception is justified.
 - Migrated procedures include registry delta and old-file disposition.
 - Registry hint proposal is compact and does not replace procedure source.
-- Closure uses FINISH_REQUEST, Result Packet, and Event Loop Closure correctly.
+- Closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
 
 ## Stop Conditions
 

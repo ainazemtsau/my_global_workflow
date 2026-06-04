@@ -76,7 +76,7 @@ allowed_operations:
 - prepare per-Direction Project Instructions source plan if required by setup procedure;
 - prepare Project Files manifest plan if required by setup procedure;
 - prepare Storage Update Package or Codex handoff if persistence is needed;
-- produce Result Packet and Event Loop Closure.
+- produce Result Packet and Next Move Packet.
 
 forbidden_operations:
 - mutate repository directly;
@@ -111,7 +111,7 @@ required_outputs:
 - candidate Project Binding plan;
 - Storage Update Package or Codex handoff if persistence is needed;
 - Result Packet;
-- Event Loop Closure;
+- Next Move Packet;
 - exact next move.
 
 stop_conditions:
@@ -133,7 +133,7 @@ allowed_operations:
 - form candidate entity;
 - ask acceptance question;
 - produce Result Packet;
-- produce Event Loop Closure in chat.
+- produce Next Move Packet in chat.
 
 forbidden_operations:
 - mutate repository;
@@ -144,7 +144,7 @@ forbidden_operations:
 - launch Codex unless separately admitted;
 - create Work Graph before accepted Active Front;
 - treat user context as acceptance;
-- treat acceptance signal as storage authorization;
+- treat acceptance wording as storage authorization;
 - execute more than one steering entity unless the selected procedure itself is explicitly admitted as a single bounded procedure and START_PACKET names that single procedure;
 - continue from one steering entity to another by conversation momentum;
 - enter FINISH without FINISH_REQUEST and explicit FINISH or ФИНИШ token.
@@ -157,7 +157,7 @@ required_inputs:
 
 required_outputs:
 - candidate entity or blocked result;
-- evidence, read limitations, acceptance question, Event Loop Closure, exact next move or Transition Packet;
+- evidence, read limitations, acceptance question, Result Packet, Next Move Packet, and Transfer Packet when transfer is needed;
 - FINISH_REQUEST before FINISH;
 - selected procedure result only;
 - no hidden next procedure launch.
@@ -188,7 +188,7 @@ required_inputs:
 required_outputs:
 - Acceptance Decision candidate or explicit human decision request;
 - storage update need if applicable;
-- Event Loop Closure and next move.
+- Result Packet and Next Move Packet.
 
 stop_conditions:
 - evidence missing, reviewer authority unclear, self-acceptance risk, unclear affected paths, or write request.
@@ -229,7 +229,7 @@ allowed_operations:
 - design eval proposals;
 - design migration plans for simple procedures;
 - produce Codex/storage handoff candidates only when separately requested and bounded;
-- produce Result Packet and Event Loop Closure.
+- produce Result Packet and Next Move Packet.
 
 forbidden_operations:
 - mutate repository/runtime state directly;
@@ -261,7 +261,7 @@ required_outputs:
 - eval proposal;
 - allowed/forbidden paths if handoff is needed;
 - Result Packet;
-- Event Loop Closure;
+- Next Move Packet;
 - exact next move.
 
 stop_conditions:

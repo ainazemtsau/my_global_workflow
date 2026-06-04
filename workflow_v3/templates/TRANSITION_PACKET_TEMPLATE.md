@@ -26,7 +26,7 @@ status: template
 
 `forbidden_operations`:
 
-`closure_signal`:
+`closure_fact`:
 
 `same_chat_allowed`:
 
@@ -48,7 +48,7 @@ status: template
 
 `validation_or_evidence_required`:
 
-`event_loop_closure_required`:
+`finish_packet_required`:
 
 `return_destination`:
 

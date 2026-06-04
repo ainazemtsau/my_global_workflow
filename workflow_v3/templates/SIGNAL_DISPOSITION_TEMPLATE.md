@@ -1,44 +1,40 @@
-# Signal Disposition Template
+# Typed Gate Output Template
 
 status: template
 
-## Signal Disposition
+## Typed Gate Output
 
-`signal_id`:
+`gate_output_id`:
 
-`phase`:
+`procedure_ref`:
 
-`disposition`:
+`stage_id`:
 
-`reason`:
+`gate_outcome`:
 
-`handled_inline_result`:
+Allowed values:
 
-`candidate_action_ref`:
+- `PASS`
+- `PASS_WITH_RISK`
+- `REWORK`
+- `EXPAND`
+- `STOP`
+- `TRANSFER`
 
-`signal_chat_packet_ref_or_inline`:
+`observed_fact`:
 
-`codex_handoff_ref`:
+`required_action_if_any`:
 
-`check_job_ref`:
+`result_packet_ref_if_any`:
 
-`stop_current_run`:
+`next_move_packet_ref_if_any`:
 
-`secondary_candidates`:
+`transfer_packet_ref_if_any`:
 
-`return_destination`:
+`limitations`:
 
-## Disposition enum
+## Boundary
 
-```text
-handle_inline_now
-defer_to_closure
-create_action_inbox_candidate
-create_signal_chat_packet
-create_codex_handoff
-create_check_job
-stop_current_run
-ignore_with_reason
-```
+Typed Gate Output is an internal procedure output. It does not mutate accepted state, switch procedures, or launch work by itself.
 
 END_OF_FILE: workflow_v3/templates/SIGNAL_DISPOSITION_TEMPLATE.md

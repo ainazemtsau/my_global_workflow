@@ -52,7 +52,7 @@ status: template
 
 ## Boundary
 
-Direction Map is not a roadmap, backlog, Action Inbox, or local Work Graph.
+Direction Map is not a roadmap, backlog, unreviewed task list, or local Work Graph.
 
 Map claims must be sourced and labeled as accepted, candidate, unresolved, or hypothetical.
 

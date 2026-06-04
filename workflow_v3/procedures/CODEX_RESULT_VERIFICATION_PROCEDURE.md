@@ -163,7 +163,7 @@ exact_next_move:
 
 ## Procedure Closure
 
-Verification does not accept state. If lifecycle FINISH is active, close through FINISH_REQUEST, Result Packet, and Event Loop Closure.
+Verification does not accept state. If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
 
 If the result needs acceptance, storage, or repair, return the exact next move or Transition Packet; do not launch it.
 

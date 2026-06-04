@@ -9,7 +9,7 @@ Validate Current Next Move formation quality.
 ## PASS checks
 
 - Uses `workflow_v3/formation/CURRENT_NEXT_MOVE_FORMATION_RUNBOOK.md`.
-- Uses Event Loop Closure, blockers, accepted state, pending acceptance, and current bottleneck.
+- Uses Result Packet, Next Move Packet, blockers, accepted state, pending acceptance, and current bottleneck.
 - Selects exactly one primary next move.
 - Provides reason, destination surface, acceptance/launch requirement, and complete Transition Packet or Next Chat Prompt when needed.
 - Rejects vague "continue" without exact packet.

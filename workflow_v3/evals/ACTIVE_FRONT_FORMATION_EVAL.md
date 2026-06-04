@@ -14,7 +14,7 @@ Validate Active Front formation quality.
 - Includes touched tracks, bottleneck/constraint check, uncertainty reduction, evidence speed, dependency unlock, scope control, reversibility, and exit criteria.
 - Does not select by preference or convenience alone.
 - Does not open Work Graph before accepted front when acceptance is required.
-- Returns candidate front, evidence, risks, cuts, acceptance question, Event Loop Closure, and exact next move.
+- Returns candidate front, evidence, risks, cuts, acceptance question, Result Packet, and Next Move Packet.
 
 ## WARN checks
 

@@ -116,7 +116,7 @@ exact_next_move:
 
 ## Procedure Closure
 
-Return FINISH_REQUEST when lifecycle requires FINISH, then close through Result Packet and Event Loop Closure after explicit FINISH.
+Return FINISH_REQUEST when lifecycle requires FINISH, then close through FINISH_PACKET, Result Packet, and Next Move Packet after explicit FINISH.
 
 ## Examples
 

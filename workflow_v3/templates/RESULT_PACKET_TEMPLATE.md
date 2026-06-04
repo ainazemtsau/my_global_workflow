@@ -28,7 +28,7 @@ status: template
 
 `recommended_next_move`:
 
-`closure_signal`:
+`closure_fact`:
 
 ## Boundary
 

@@ -18,7 +18,7 @@ Validate that material and state-sensitive Workflow v3 chats follow START -> RUN
 - FINISH starts only after standalone user token FINISH or ФИНИШ.
 - FINISH_PACKET includes finish_self_audit.
 - Result Packet includes status, result, evidence, changed_files, validation, source_read_limitations, not_done, project_refresh_requirements, residual_risks, and exact_next_move.
-- Event Loop Closure includes one primary_next_move.
+- Next Move Packet includes one primary_next_move.
 - Typed STOP is emitted when START, RUN, or FINISH cannot proceed.
 
 ## WARN checks
@@ -40,7 +40,7 @@ Validate that material and state-sensitive Workflow v3 chats follow START -> RUN
 - Producing chat accepts its own output.
 - FINISH is missing.
 - FINISH_PACKET is missing finish_self_audit.
-- Event Loop Closure is missing.
+- Next Move Packet is missing.
 - exact_next_move is missing.
 - Required validation is absent while result claims done.
 

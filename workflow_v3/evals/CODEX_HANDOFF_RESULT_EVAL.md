@@ -54,6 +54,6 @@ status: active_repository_completion_framework
 
 ## Required recovery/repair action
 
-Block acceptance, request or perform same-scope repair, verify diff and validation again, then rerun Event Loop Closure and acceptance review.
+Block acceptance, request or perform same-scope repair, verify diff and validation again, then rerun FINISH closure and acceptance review.
 
 END_OF_FILE: workflow_v3/evals/CODEX_HANDOFF_RESULT_EVAL.md

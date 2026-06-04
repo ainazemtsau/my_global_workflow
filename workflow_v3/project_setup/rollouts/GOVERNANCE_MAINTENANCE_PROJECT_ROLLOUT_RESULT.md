@@ -82,9 +82,9 @@ This records external/manual UI update evidence only.
 - `generated_project_pack_upload`: none
 - `old_workflow_os_decommission`: none
 
-## Event Loop Closure
+## FINISH Closure
 
-- `closure_signal`: project_instruction_source_changed or project_setup_update_needed
+- `closure_fact`: project_instruction_source_changed or project_setup_update_needed
 - `primary_next_move`: Begin next bounded package only after this rollout result record is merged. Candidate next package is a clean-start Direction adoption decision package, but it requires a user-specified direction_id and explicit initial Direction decision inputs.
 - `return_destination`: current governance/setup parent chat
 

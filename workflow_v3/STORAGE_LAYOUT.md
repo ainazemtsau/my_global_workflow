@@ -10,7 +10,7 @@ It stores shared runtime model documentation, setup templates, future pack sourc
 
 It does not store accepted per-Direction runtime state in this slice.
 
-Formation protocols and steering entity runbooks live under:
+Formation protocols and steering entity migration sources live under:
 
 ```text
 workflow_v3/formation/
@@ -44,12 +44,15 @@ directions_v3/<direction-id>/runtime/
     CURRENT_NEXT_MOVE.md
   fronts/
   records/
+    result_packets/
+    evidence/
+    acceptance/
   memory/
+    candidates/
+    artifacts/
   operations/
-    signals/
-    action_inbox/
     check_jobs/
-    event_loop_closures/
+    transfer_packets/
     recovery/
   archive/
   indexes/
@@ -107,19 +110,11 @@ Memory Artifact promotion must use the formation and acceptance path before stor
 
 ## operations
 
-`operations/` stores operational support surfaces such as Signals, Action Inbox/Q, closed actions, Check Jobs, Event Loop Closure records, and recovery records.
+`operations/` stores operational support surfaces that are separate from accepted state:
 
-Persisted signal history for an adopted Direction belongs under:
-
-```text
-directions_v3/<direction-id>/runtime/operations/signals/
-```
-
-Direction Action Inbox/Q belongs under:
-
-```text
-directions_v3/<direction-id>/runtime/operations/action_inbox/
-```
+- `check_jobs/` for bounded verification work;
+- `transfer_packets/` for copy-paste handoff packets when a transfer must be retained;
+- `recovery/` for recovery records.
 
 Direction Check Jobs belong under:
 
@@ -127,15 +122,13 @@ Direction Check Jobs belong under:
 directions_v3/<direction-id>/runtime/operations/check_jobs/
 ```
 
-Direction Event Loop Closures belong under:
+Direction Transfer Packets belong under:
 
 ```text
-directions_v3/<direction-id>/runtime/operations/event_loop_closures/
+directions_v3/<direction-id>/runtime/operations/transfer_packets/
 ```
 
-Action Inbox stores candidate actions, not raw signals.
-
-Signals, Action Inbox items, Check Jobs, and Event Loop Closures are operational surfaces only and do not mutate accepted state.
+Check Jobs and Transfer Packets are operational surfaces only and do not mutate accepted state.
 
 ## archive
 
@@ -151,13 +144,7 @@ Indexes support read-back and navigation. They are not an alternate acceptance p
 
 ## config
 
-`config/` stores adopted Direction-specific configuration such as customization profile, handlers, adapter context access, and quality gates.
-
-The Direction handler registry belongs at:
-
-```text
-directions_v3/<direction-id>/runtime/config/HANDLERS.md
-```
+`config/` stores adopted Direction-specific configuration such as customization profile, adapter context access, and quality gates.
 
 Direction-specific config must preserve the core Workflow v3 acceptance and adapter boundaries.
 

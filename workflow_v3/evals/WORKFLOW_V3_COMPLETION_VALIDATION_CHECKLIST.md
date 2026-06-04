@@ -32,7 +32,7 @@ status: active_repository_completion_framework
 - Every new/edited Markdown file has `END_OF_FILE`.
 - Registry entity count and coverage matrix entity row count do not decrease.
 - Every registry entity has completion matrix coverage.
-- Every runbook has trigger, source authority, inputs, outputs, closure signal, return destination, acceptance/update rule, and stop condition.
+- Every retained migration source has trigger, source authority, inputs, outputs, closure fact, return destination, acceptance/update rule, and stop condition.
 - Every eval has PASS/WARN/FAIL criteria and recovery action.
 - Project setup refresh categories are separated.
 - `git diff --check` passes or only line-ending warnings are reported separately.

@@ -27,7 +27,7 @@ Validate that material Workflow v3 work starts only after action admission.
 - Material work starts without procedure/ref/source/contract.
 - Setup/root bootstrap proceeds from guessed normalization without registered entrypoint lookup.
 - Tool availability is treated as workflow admission.
-- Signal, Handler, Closure, or Progression Router output silently launches work.
+- FINISH output, Result Packet, Next Move Packet, or Transfer Packet silently launches work.
 - User input is treated as accepted state before admitted procedure resolves it.
 - STOP condition is bypassed by guessing.
 

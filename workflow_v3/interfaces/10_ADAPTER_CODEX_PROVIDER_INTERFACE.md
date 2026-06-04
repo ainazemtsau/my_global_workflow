@@ -53,7 +53,7 @@ Codex is a bounded repository-work adapter.
 
 Codex handoff must include repository, base ref, target branch/branch policy, allowed paths, forbidden paths, required reads, required changes, validation, stop conditions, commit/push instruction, and requested return fields.
 
-Codex result returns to the requesting/current chat for verification and Event Loop Closure.
+Codex result returns to the requesting/current chat for verification and FINISH closure.
 
 Codex result verification must check branch, commit/diff, changed files, allowed paths, forbidden paths, validation output, EOF markers where relevant, project refresh requirements, and residual risks.
 

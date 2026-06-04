@@ -12,8 +12,8 @@ Validate Direction Map formation quality.
 - Forms tracks, map areas, strategic dependencies, strategic uncertainties, risk zones, candidate fronts, and source/status labels.
 - Labels claims as accepted, candidate, unresolved, or hypothetical.
 - Generates alternative map structures unless blocked.
-- Does not become roadmap, backlog, Work Graph, or Action Inbox.
-- Includes evidence, risks, cuts, acceptance question, Event Loop Closure, and exact next move.
+- Does not become roadmap, backlog, Work Graph, or unreviewed task list.
+- Includes evidence, risks, cuts, acceptance question, Result Packet, and Next Move Packet.
 
 ## WARN checks
 

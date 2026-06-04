@@ -16,14 +16,13 @@ Do not create `directions_v3/<direction-id>/runtime/**` from these templates unl
 
 Repository commits do not update actual ChatGPT Projects.
 
-## Operational/event-loop templates
+## Procedure closure and transfer templates
 
-- `SIGNAL_RECORD_TEMPLATE.md`
-- `HANDLER_RESULT_TEMPLATE.md`
-- `ACTION_INBOX_ITEM_TEMPLATE.md`
 - `CHECK_JOB_TEMPLATE.md`
-- `EVENT_LOOP_CLOSURE_TEMPLATE.md`
-- `PROGRESSION_ROUTER_RESULT_TEMPLATE.md`
+- `FINISH_PACKET_TEMPLATE.md`
+- `NEXT_MOVE_PACKET_TEMPLATE.md`
+- `TRANSFER_PACKET_TEMPLATE.md`
+- `SIGNAL_DISPOSITION_TEMPLATE.md`
 - `TRANSITION_PACKET_TEMPLATE.md`
 - `NEXT_CHAT_PROMPT_TEMPLATE.md`
 

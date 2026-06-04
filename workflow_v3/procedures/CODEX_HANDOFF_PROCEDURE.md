@@ -176,6 +176,6 @@ requested_return_fields:
 
 Return the handoff package as candidate output. Codex result remains candidate evidence until verification and acceptance.
 
-If lifecycle FINISH is active, close through FINISH_REQUEST, Result Packet, and Event Loop Closure. Do not launch Codex invisibly.
+If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet. Do not launch Codex invisibly.
 
 END_OF_FILE: workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md

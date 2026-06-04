@@ -38,9 +38,9 @@ status: template
 
 `return_destination`:
 
-`closure_signal_required`:
+`closure_fact_required`:
 
-`event_loop_closure_required`:
+`finish_packet_required`:
 
 `limitations`:
 

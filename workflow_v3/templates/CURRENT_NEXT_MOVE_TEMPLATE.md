@@ -12,9 +12,9 @@ status: template
 
 `formation_eval_ref`: workflow_v3/evals/CURRENT_NEXT_MOVE_FORMATION_EVAL.md
 
-`source_event_loop_closure_ref`:
+`source_finish_packet_ref`:
 
-`source_progression_router_result_ref`:
+`source_next_move_packet_ref`:
 
 `entrypoint`:
 
@@ -70,7 +70,7 @@ Next Move is not accepted state by itself.
 
 Next Move is not action admission by itself.
 
-Route-changing or state-changing next moves require procedure registry lookup, run surface contract, visible Event Loop Closure, Progression Router output, admission, and acceptance/update path when state changes.
+Route-changing or state-changing next moves require procedure registry lookup, run surface contract, FINISH_PACKET, Next Move Packet, admission, and acceptance/update path when state changes.
 
 `same_chat_allowed` means non-mutating continuation only unless `storage_update_adapter` is explicitly admitted.
 

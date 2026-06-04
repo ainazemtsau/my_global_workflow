@@ -24,7 +24,7 @@ status: active_repository_completion_framework
 ## PASS criteria
 
 - Direction Map is present and distinct from Direction Spine.
-- Direction Map is not roadmap, backlog, Work Graph, or Action Inbox.
+- Direction Map is not roadmap, backlog, Work Graph, or unreviewed task list.
 - Active Front selection cites map areas, touched tracks, why-now, evidence, alternatives, exit criteria, and acceptance question.
 - Work Graph is local to one Active Front and contains bounded nodes.
 
@@ -45,7 +45,7 @@ status: active_repository_completion_framework
 ## Common failure modes
 
 - Treating all active work as Active Front.
-- Treating Action Inbox candidates as map areas.
+- Treating unreviewed task-list candidates as map areas.
 - Selecting front by chat intuition.
 
 ## Required recovery/repair action

@@ -20,7 +20,7 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Research or expansion policy exists where relevant.
 - Output contract is downstream-usable.
 - Stop conditions prevent invention and boundary crossing.
-- Procedure closure uses FINISH_REQUEST, Result Packet, and Event Loop Closure correctly.
+- Procedure closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
 - New or migrated Procedure Definition Framework procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming, or state an explicit bounded exception.
 - Migrated procedures include old source path, new procedure path, registry delta, and old-file disposition.
 

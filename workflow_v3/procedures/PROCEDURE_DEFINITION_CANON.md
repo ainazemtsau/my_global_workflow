@@ -20,7 +20,7 @@ A procedure is not:
 - a hidden router;
 - permission to switch procedures during RUN.
 
-START selects the procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes only that selected procedure. FINISH_REQUEST, Result Packet, and Event Loop Closure remain controlled by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
+START selects the procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes only that selected procedure. FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet remain controlled by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
 
 ## Procedure file model
 
@@ -114,7 +114,7 @@ The selected complexity can be recorded only after START has read the selected p
 
 Checkpoints are internal RUN gates. They are not lifecycle phases.
 
-Checkpoints are not Signals by default. Emit a Signal only when the checkpoint reveals a notable workflow fact such as a blocking source issue, validation failure, scope drift, acceptance ambiguity, or missing child/check/Codex result.
+Checkpoints return typed gate outputs such as `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, or `TRANSFER`. Blocking source issues, validation failures, scope drift, acceptance ambiguity, and missing child/check/Codex results must become typed stop, repair, transfer, or check-job outputs rather than a separate routing event.
 
 FINISH_REQUEST remains the only lifecycle transition from RUN to FINISH.
 
@@ -131,7 +131,7 @@ Procedure closure must:
 - satisfy or explicitly fail the output contract;
 - state source limitations and unresolved gates;
 - emit FINISH_REQUEST before FINISH when the lifecycle requires it;
-- use Result Packet and Event Loop Closure as defined by `CHAT_FINISH_PROTOCOL.md`;
+- use FINISH_PACKET, Result Packet, and Next Move Packet as defined by `CHAT_FINISH_PROTOCOL.md`;
 - select exactly one primary next move at closure.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md

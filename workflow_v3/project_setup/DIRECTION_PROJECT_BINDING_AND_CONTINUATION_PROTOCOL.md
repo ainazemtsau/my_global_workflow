@@ -211,7 +211,7 @@ A bound ordinary Direction Project loads only its bound Direction runtime root b
 
 Other Directions may be read only when a bounded task, accepted Direction Map relation, Check Job, or explicit user request names them.
 
-## Event Loop Closure requirements
+## FINISH closure requirements
 
 Material binding, repair, bootstrap, status review, and continuation work must close with:
 

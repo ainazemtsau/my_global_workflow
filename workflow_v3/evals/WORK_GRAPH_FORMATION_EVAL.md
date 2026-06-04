@@ -12,8 +12,8 @@ Validate Work Graph formation quality.
 - Derives from Active Front exit criteria.
 - Includes minimum nodes needed to close the front, dependency structure, proof path, and explicit non-nodes/cut items.
 - Keeps graph local to one Active Front.
-- Avoids roadmap, global backlog, Direction Map, and Action Inbox drift.
-- Returns candidate graph, evidence, risks, cuts, acceptance question, Event Loop Closure, and exact next move.
+- Avoids roadmap, global backlog, Direction Map, and unreviewed task-list drift.
+- Returns candidate graph, evidence, risks, cuts, acceptance question, Result Packet, and Next Move Packet.
 
 ## WARN checks
 

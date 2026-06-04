@@ -32,7 +32,7 @@ Project Files/Sources, pasted excerpts, prior chat summaries, generated packs, a
 | No runtime root | No `directions_v3/<direction-id>/runtime/**` created. | required per package result |
 | Entity coverage preserved | Registry entity count and interface coverage rows do not decrease. | required per package result |
 | Completion matrix coverage | Every registry entity appears in `WORKFLOW_V3_COMPLETION_MATRIX.md`. | required per package result |
-| Runbook completeness | Every runbook includes trigger, source authority, inputs, outputs, closure signal, return destination, acceptance/update rule, and stop condition. | required per package result |
+| Runbook completeness | Every retained migration source includes trigger, source authority, inputs, outputs, closure fact, return destination, acceptance/update rule, and stop condition. | required per package result |
 | Eval completeness | Every eval includes PASS/WARN/FAIL criteria and recovery action. | required per package result |
 | Project setup separation | Project UI, Project Files/Sources, request-only refresh, and do-not-upload categories reported separately. | required per package result |
 | Project Instructions payload counts | If Project Instructions sources changed, UI payload marker counts measured against 8,000 hard max. | required per package result |
@@ -44,16 +44,15 @@ Project Files/Sources, pasted excerpts, prior chat summaries, generated packs, a
 Completion is valid only if these boundaries remain explicit:
 
 - Direction Spine is not Direction Map.
-- Direction Map is not roadmap, backlog, Work Graph, or Action Inbox.
+- Direction Map is not roadmap, backlog, Work Graph, or unreviewed task list.
 - Active Front is not all active work or Work Graph.
 - Work Graph is local to one Active Front and not global Direction Map.
 - Work Contract is not route authority.
 - Run, Result Packet, Evidence, and Codex commit are not Acceptance Decision.
-- Signal is not task; Handler is not executor.
-- Action Inbox is not backlog; Check Job is not material work.
-- Event Loop Closure is not hidden continuation.
-- Progression Router is not execution engine.
-- Transition Packet is not manual user assembly.
+- Result Packet is not acceptance.
+- Next Move Packet is not hidden continuation.
+- Transfer Packet is not manual user assembly.
+- Check Job is not material work.
 - Child Chat is not next material chat or independent execution track.
 - Runtime Console is not hidden controller.
 - Project Instructions UI is not documentation storage.

@@ -20,12 +20,15 @@ directions_v3/<direction-id>/runtime/
     CURRENT_NEXT_MOVE.md
   fronts/
   records/
+    result_packets/
+    evidence/
+    acceptance/
   memory/
+    candidates/
+    artifacts/
   operations/
-    signals/
-    action_inbox/
     check_jobs/
-    event_loop_closures/
+    transfer_packets/
     recovery/
   archive/
   indexes/
@@ -46,10 +49,11 @@ This interface package is repository documentation/setup only.
 ## State rules
 
 - `DIRECTION_MAP.md` is part of the future state model.
+- `records/result_packets/` stores persisted Result Packets.
 - `operations/check_jobs/` is an explicit operations surface.
-- `operations/event_loop_closures/` is an explicit operations surface.
+- `operations/transfer_packets/` is an explicit operations surface when a transfer packet must be retained.
 - Accepted state mutates only through acceptance/update path.
-- Signals, Handler Results, Action Inbox Items, Check Jobs, Event Loop Closures, Result Packets, and Codex output do not mutate accepted state alone.
+- Result Packets, Next Move Packets, Transfer Packets, Check Jobs, Codex output, and Project cache do not mutate accepted state alone.
 
 ## Storage mapping
 
@@ -67,10 +71,8 @@ This interface package is repository documentation/setup only.
 | Acceptance Decision | `records/acceptance/` |
 | Memory Candidate | `memory/candidates/` |
 | Memory Artifact | `memory/artifacts/` |
-| Signal | `operations/signals/` |
-| Action Inbox Item | `operations/action_inbox/` |
 | Check Job | `operations/check_jobs/` |
-| Event Loop Closure | `operations/event_loop_closures/` |
+| Transfer Packet | `operations/transfer_packets/` |
 | Recovery record | `operations/recovery/` |
 | Runtime Console source | `console/` |
 
