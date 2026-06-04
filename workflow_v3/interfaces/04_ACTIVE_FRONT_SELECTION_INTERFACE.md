@@ -15,7 +15,7 @@ Active Front selection requires:
 - accepted or candidate Direction Map;
 - current accepted/candidate/unresolved map labels;
 - available evidence and accepted records;
-- relevant Signals and Handler Results;
+- relevant lifecycle facts and prior Result Packets;
 - known blockers and strategic uncertainties;
 - user priorities or decisions if supplied.
 
@@ -56,10 +56,10 @@ Scoring is decision support, not automatic truth.
 
 Accepted Active Front requires acceptance/update path.
 
-A chat, Handler, Check Job, child chat, Codex run, or Progression Router Result may propose a front, but cannot accept it.
+A chat, Check Job, child chat, Codex run, Result Packet, or Next Move Packet may propose a front, but cannot accept it.
 
 ## Work Graph seed
 
-The first Work Graph seed must derive from the Candidate Active Front exit criteria and boundaries. It must not import unrelated roadmap or Action Inbox items.
+The first Work Graph seed must derive from the Candidate Active Front exit criteria and boundaries. It must not import unrelated roadmap or unreviewed task-list items.
 
 END_OF_FILE: workflow_v3/interfaces/04_ACTIVE_FRONT_SELECTION_INTERFACE.md

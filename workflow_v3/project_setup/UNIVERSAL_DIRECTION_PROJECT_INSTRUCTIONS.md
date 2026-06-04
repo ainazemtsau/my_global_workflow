@@ -53,7 +53,7 @@ Chat Lifecycle:
 - RUN cannot switch procedures, mutate state, accept output, launch Codex, or start another entity unless that exact procedure was selected in START.
 - RUN emits FINISH_REQUEST when selected procedure work is complete or blocked.
 - FINISH starts only after standalone user token FINISH or ФИНИШ.
-- FINISH reads the finish protocol, emits FINISH_PACKET, Result Packet, Event Loop Closure, and one exact next move.
+- FINISH reads the finish protocol and emits FINISH_PACKET, Result Packet, Next Move Packet, and one exact next move.
 - If lifecycle cannot proceed, emit typed STOP instead of guessing.
 
 Root/bootstrap:
@@ -62,23 +62,23 @@ Root/bootstrap:
 - If `direction_id` is missing, ask/normalize it; classify setup mode and legacy policy.
 - Do not require or accept root outcome, Direction Spine, Direction Map, Active Front, Work Graph, or product strategy during setup.
 - If user mentions outcomes/tracks/goals/product ideas, record only as candidate_context_for_direction_definition.
-- Use the root bootstrap runbook and require explicit user confirmation before any runtime root package.
+- Use the root bootstrap procedure and require explicit user confirmation before any runtime root package.
 - A setup-only root package must write pending semantic statuses and `CURRENT_NEXT_MOVE = launch_direction_definition`.
 
 Workflow model:
 - Object hierarchy: Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract.
-- Operational loop: Signal -> Handler -> Event Loop Closure -> Progression Router -> Transition Packet / Next Move.
+- Procedure closure: START -> RUN -> FINISH -> FINISH_PACKET + Result Packet + Next Move Packet.
 - Steering entities require formation before template filling.
 - Direction Definition after setup-only root selects one next entity procedure per START/RUN/FINISH lifecycle.
 - Work on one bounded target at a time.
-- Do not flatten Direction Map into Spine, roadmap, backlog, Work Graph, or Action Inbox.
-- Handler output is candidate only; closure/router selects one next move but does not silently launch it.
+- Do not flatten Direction Map into Spine, roadmap, backlog, Work Graph, or unreviewed task list.
+- Next Move Packet selects one next move but does not silently launch it.
 
 Acceptance and formation:
 - All outputs are candidate until explicit Acceptance Decision / acceptance-update path accepts them.
-- Formation chat is non-mutating and produces candidate outputs, acceptance questions, Result Packets, and Event Loop Closure only.
+- Formation chat is non-mutating and produces candidate outputs, acceptance questions, Result Packets, and Next Move Packets only.
 - Do not create accepted state, choose route, adopt Direction, import legacy state, create records, update state, persist closure files, launch Codex, or cross role boundary by implication.
-- Acceptance signal is not storage authorization; human acceptance input is not storage authorization unless an admitted Storage Update Package exists.
+- Human acceptance input is not storage authorization unless an admitted Storage Update Package exists.
 
 Project surfaces:
 - Project Instructions UI is compact behavior bootstrap, not documentation or accepted state.
@@ -91,7 +91,7 @@ Storage, Codex, and closure:
 - If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition instead of product work.
 - Codex handoffs include repo, base ref, branch policy, path bounds, reads/changes, validation, stop conditions, commit/push policy, return fields.
 - Codex results are candidate evidence until verified and accepted.
-- End material setup/bootstrap/review work with Result Packet plus Event Loop Closure, source limits, not done, risks, return destination, and exact next move.
+- End material setup/bootstrap/review work with FINISH_PACKET, Result Packet, Next Move Packet, source limits, not done, risks, return destination, and exact next move.
 - Stop and ask for missing exact source or decision instead of guessing.
 END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 

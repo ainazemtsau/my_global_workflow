@@ -24,7 +24,7 @@ status: template
 
 `human_decisions_needed`:
 
-`closure_signal`: active_front_complete or blocked_lifecycle_transition
+`closure_fact`: active_front_complete or blocked_lifecycle_transition
 
 `acceptance_question`:
 

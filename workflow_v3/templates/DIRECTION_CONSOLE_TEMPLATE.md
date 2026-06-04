@@ -30,7 +30,7 @@ directions_v3/<direction-id>/runtime/console/DIRECTION_CONSOLE.md
 
 `current_work_graph_ref`:
 
-`last_event_loop_closure_ref`:
+`last_finish_packet_ref`:
 
 `open_blockers`:
 

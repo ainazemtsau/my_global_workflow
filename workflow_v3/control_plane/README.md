@@ -24,7 +24,7 @@ Project Instructions bootloader
 -> run surface contract
 -> source integrity gate
 -> chat lifecycle
--> signal routing by phase
+-> typed procedure outputs
 -> exception protocol
 -> storage update adapter boundary
 ```

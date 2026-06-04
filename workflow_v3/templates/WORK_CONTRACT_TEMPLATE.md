@@ -6,7 +6,7 @@ status: template
 
 `work_contract_id`:
 
-`formation_runbook_ref`: workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md
+`procedure_ref`: workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/WORK_CONTRACT_FORMATION_EVAL.md
 
@@ -38,9 +38,9 @@ status: template
 
 `return_destination`:
 
-`closure_signal_required`:
+`closure_fact_required`:
 
-`event_loop_closure_required`:
+`finish_packet_required`:
 
 `limitations`:
 

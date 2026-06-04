@@ -23,10 +23,10 @@ It validates setup/root bootstrap behavior only. It does not validate product wo
 - Setup-only placeholder statuses are used for semantic state.
 - `CURRENT_NEXT_MOVE` routes to `launch_direction_definition`.
 - Old `directions/**` files are legacy_evidence only when explicitly allowed.
-- Direction Map remains distinct from Direction Spine, roadmap, backlog, Work Graph, and Action Inbox.
+- Direction Map remains distinct from Direction Spine, roadmap, backlog, Work Graph, and unreviewed task lists.
 - Work Graph remains local to an Active Front, not a global map.
 - The user is not forced to answer in YAML.
-- Root bootstrap uses lifecycle signals, handlers, Event Loop Closure, Progression Router, and an exact next move.
+- Root bootstrap uses FINISH_PACKET, Result Packet, Next Move Packet, and an exact next move.
 - User confirmation is required before a runtime root package.
 - Project Instructions UI updates are separated from Project Files/Sources refreshes.
 - Persistent Project Binding is planned after bootstrap.
@@ -52,7 +52,7 @@ It validates setup/root bootstrap behavior only. It does not validate product wo
 - User-provided outcome is treated as accepted semantic state.
 - `CURRENT_NEXT_MOVE` does not route to Direction Definition after setup-only root.
 - Old `workflow/**` or `directions/**` becomes v3 accepted state by implication.
-- Direction Map is flattened into Spine, roadmap, backlog, Work Graph, or Action Inbox.
+- Direction Map is flattened into Spine, roadmap, backlog, Work Graph, or unreviewed task lists.
 - Work Graph is used as the global Direction Map.
 - The user is forced to provide YAML when a terse answer can be normalized.
 - No exact next move is present.

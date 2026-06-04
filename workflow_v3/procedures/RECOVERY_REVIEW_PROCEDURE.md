@@ -11,7 +11,7 @@ This procedure reviews and classifies recovery needs. It must not repair any run
 ## Trigger / When to Use
 
 - Runtime state, acceptance state, routing, evidence, or persistence may be contaminated, missing, stale, or conflicting.
-- A prior run, Codex result, check job, Signal, Handler, or closure result may be incomplete or unsafe to rely on.
+- A prior run, Codex result, check job, transfer packet, or closure result may be incomplete or unsafe to rely on.
 - The user asks to classify recovery need before repair, acceptance, rollback, or storage work.
 
 ## When Not to Use
@@ -108,7 +108,7 @@ stop behavior: Return blocked_context_request and exact missing source/decision.
 - `REWORK`: revise scope, source frame, or classification before outcome.
 - `EXPAND`: request exact source or propose bounded later check/Codex/storage path without launching it.
 - `STOP`: block when required evidence is missing, source authority is unclear, or user requests mutation/acceptance.
-- `TRANSFER`: return candidate next move or Transition Packet for separate repair, acceptance, rollback, check job, Codex handoff, or storage update.
+- `TRANSFER`: return candidate next move or Transfer Packet for separate repair, acceptance, rollback, check job, Codex handoff, or storage update.
 
 ## Optional Expansion
 
@@ -166,6 +166,6 @@ blocked_context_request
 
 Recovery review produces candidate outcome only. It does not repair, mutate, accept, import, or persist.
 
-If lifecycle FINISH is active, close through FINISH_REQUEST, Result Packet, and Event Loop Closure.
+If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
 
 END_OF_FILE: workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md

@@ -56,14 +56,14 @@ The first chat in the new ordinary Direction Project must:
 - identify itself as an ordinary Workflow v3 Direction Project;
 - ask for and normalize `direction_id` if missing;
 - classify setup mode and legacy policy;
-- emit the lifecycle signal for root bootstrap, usually `direction_runtime_missing` or `direction_adoption_needed`;
-- use `workflow_v3/runbooks/DIRECTION_PROJECT_ROOT_BOOTSTRAP_RUNBOOK.md`;
+- emit the lifecycle fact for root bootstrap, usually `direction_runtime_missing` or `direction_adoption_needed`;
+- use `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`;
 - not require initial root outcome;
 - classify any user-provided outcome, tracks, or product ideas as `candidate_context_for_direction_definition` only;
 - stop if a required source or decision is missing;
 - require explicit user acceptance before preparing a runtime root package;
 - if a setup-only runtime root package is prepared, require placeholder pending Definition statuses, `runtime/config/DIRECTION_PROJECT_BINDING.md`, and per-Direction Project setup sources in the package;
-- return setup-only root status, Event Loop Closure, binding installation next move, and exact next move `launch_direction_definition`.
+- return setup-only root status, FINISH_PACKET, Result Packet, Next Move Packet, binding installation next move, and exact next move `launch_direction_definition`.
 
 ## Post-bootstrap Project Binding requirement
 
@@ -112,6 +112,6 @@ request_only_sources_refresh_required: false
 - `project_instruction_ui_update_required`: true for future ordinary Direction Project manual creation only; not performed by repository commit.
 - `project_sources_files_refresh_required`: false.
 - `request_only_sources_refresh_required`: false.
-- `do_not_upload_as_project_file`: `workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md`, `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/runbooks/**`, `workflow_v3/evals/**`, and `workflow_v3/formation/**`.
+- `do_not_upload_as_project_file`: `workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md`, `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, and `workflow_v3/evals/**`.
 
 END_OF_FILE: workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md

@@ -73,7 +73,7 @@ The setup-only package must include per-Direction Project Instructions source an
 
 After the setup-only root package is merged, the human must manually update the Project Instructions UI from the generated per-Direction source. Repository commit alone does not perform that update.
 
-## Event Loop Closure requirements
+## FINISH closure requirements
 
 Setup-only bootstrap closes with:
 

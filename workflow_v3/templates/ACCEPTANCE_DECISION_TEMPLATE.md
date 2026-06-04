@@ -6,7 +6,7 @@ status: template
 
 `acceptance_decision_id`:
 
-`formation_runbook_ref`: workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md
+`procedure_ref`: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md
 
@@ -30,7 +30,7 @@ status: template
 
 `codex_or_human_action_needed`:
 
-`event_loop_closure_ref`:
+`finish_packet_ref`:
 
 `limitations`:
 
@@ -38,7 +38,7 @@ status: template
 
 Adapters cannot accept their own output.
 
-Acceptance Decision must be explicit, sourced, and separate from Result Packet, Evidence, Run, Signal, Handler, Action Inbox, or chat intuition.
+Acceptance Decision must be explicit, sourced, and separate from Result Packet, Evidence, Run, FINISH_PACKET, Next Move Packet, Transfer Packet, or chat intuition.
 
 Acceptance formation must separate result quality from state mutation authorization.
 

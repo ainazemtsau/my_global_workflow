@@ -53,7 +53,7 @@ Before accepted Project Binding exists, the universal ordinary Direction Project
 The model must:
 
 - ask for and normalize `direction_id` if missing;
-- run root/bootstrap behavior from the bounded launch packet and bootstrap runbook;
+- run root/bootstrap behavior from the bounded launch packet and bootstrap procedure;
 - avoid product work;
 - avoid concrete runtime root creation unless a bounded accepted package authorizes it;
 - stop with a Context Request when required source or user decision is missing.
@@ -211,7 +211,7 @@ A bound ordinary Direction Project loads only its bound Direction runtime root b
 
 Other Directions may be read only when a bounded task, accepted Direction Map relation, Check Job, or explicit user request names them.
 
-## Event Loop Closure requirements
+## FINISH closure requirements
 
 Material binding, repair, bootstrap, status review, and continuation work must close with:
 
@@ -235,7 +235,7 @@ semantic_definition_status: pending_definition
 primary_next_move: launch_direction_definition
 ```
 
-the next admitted material step is Direction Definition through `workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md` and `workflow_v3/runbooks/DIRECTION_DEFINITION_RUNBOOK.md`.
+the next admitted material step is Direction Definition through `workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md` and `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md`.
 
 Do not start product work, Work Graph, or Work Contract from setup-only state.
 

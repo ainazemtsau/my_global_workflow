@@ -35,7 +35,7 @@ Exact source files used:
 - `ainazemtsau/my_global_workflow/workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/README.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/completion/POST_COMPLETION_REMAINING_NON_GOALS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
 - `ainazemtsau/my_global_workflow/workflow_v3/project_packs/README.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
@@ -93,12 +93,10 @@ Runtime Console:
 
 Closure:
 - End maintenance work with a Result Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
-- End material runs/reviews with Result Packet plus EVENT LOOP CLOSURE.
-- Emit Signals for notable closure facts; match handler registry; Handler output is candidate only.
-- Signal is not an Action Inbox item; Action Inbox stores candidate actions, not raw signals.
-- Do not run handlers as hidden automation.
-- Use progression_router_handler in EVENT LOOP CLOSURE to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste next-chat prompt.
-- If the selected next step requires transfer, provide a complete Transition Packet.
+- End material runs/reviews with FINISH_PACKET, Result Packet, and Next Move Packet.
+- Do not run follow-up selection as hidden automation.
+- Use Next Move Packet to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste next-chat prompt.
+- If the selected next step requires transfer, provide a complete Transfer Packet.
 - Do not make the user build Codex/check/child/next-chat prompts manually.
 ```
 
@@ -147,7 +145,7 @@ Do not upload these as Project Files/Sources by default:
 - `workflow_v3/templates/**`
 - `workflow_v3/completion/**`
 - `workflow_v3/adoption/**`
-- `workflow_v3/runbooks/**`
+- `workflow_v3/procedures/**`
 - `workflow_v3/evals/**`
 - `workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md`
 
@@ -178,9 +176,9 @@ Do not upload these as Project Files/Sources by default:
 - project_sources_files_refresh_required: false unless separately authorized
 - request_only_sources_refresh_required: false unless separately authorized
 
-## Event Loop Closure
+## FINISH Closure
 
-- `closure_signal`: project_instruction_source_changed or project_setup_update_needed
+- `closure_fact`: project_instruction_source_changed or project_setup_update_needed
 - `primary_next_move`: After manual UI update, verify the Project setup surface by opening a new or current governance maintenance chat and asking it to identify itself as Workflow v3 Governance Maintenance Console, source authority, do-not-upload rules, and exact next move.
 - `return_destination`: current governance/setup parent chat
 

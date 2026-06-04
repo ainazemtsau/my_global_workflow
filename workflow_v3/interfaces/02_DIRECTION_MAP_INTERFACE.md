@@ -6,7 +6,7 @@ status: active_interface_layer
 
 Direction Map is the global structural map between Direction Spine and Active Front.
 
-It prevents the Direction Spine, Active Front, Work Graph, Action Inbox, and chat intuition from redefining one another.
+It prevents the Direction Spine, Active Front, Work Graph, unreviewed task lists, and chat intuition from redefining one another.
 
 ## Definition
 
@@ -34,7 +34,7 @@ Direction Map is not:
 - a roadmap;
 - a backlog;
 - a Work Graph;
-- an Action Inbox;
+- an unreviewed task list;
 - a list of tasks;
 - a chat-authored plan without source labels;
 - a storage replacement for accepted records/evidence.
@@ -63,7 +63,7 @@ A proposed Active Front must identify:
 
 Direction Map updates only through acceptance/update path.
 
-Handler output, Action Inbox items, Check Jobs, child chats, and Codex results may propose map updates, but they cannot accept them.
+Result Packets, Next Move Packets, Check Jobs, child chats, and Codex results may propose map updates, but they cannot accept them.
 
 ## Future storage target
 

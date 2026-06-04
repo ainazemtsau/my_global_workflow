@@ -8,34 +8,37 @@ Use this guide when writing Workflow v3 procedure files. A good procedure is nei
 
 ## Canonical procedure location and naming
 
-Write new Procedure Definition Framework procedures under:
+Write Procedure Definition Framework procedures under:
 
 ```text
 workflow_v3/procedures/**
 ```
 
-Name new procedure files as:
+Name procedure files as:
 
 ```text
 *_PROCEDURE.md
 ```
 
-When migrating an old runbook or playbook into the Procedure Definition Framework, do not preserve `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or legacy runbook/playbook directory placement merely to minimize diff size.
+Do not preserve `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or obsolete runbook/playbook directory placement as active procedure source.
 
-The migration plan must identify:
+When a detailed body is not authored yet, create a self-contained stub target spec that identifies:
 
 ```text
-old_source_path:
-new_procedure_path:
+procedure_path:
 registry_entrypoint:
 registry_delta:
-legacy_file_disposition: delete | archive | compatibility_shim
+target_role:
+workflow_integration:
+future_body_outline:
+required_outputs_when_authored:
+stop_behavior_until_authored:
 exception_if_not_canonical:
 ```
 
-The registry must point to the canonical migrated procedure file after migration. Existing unmigrated registry entries may temporarily point to legacy paths only as coexistence; that does not authorize new migrated procedures to remain there.
+The registry must point to the canonical procedure file. A stub may serve as the canonical procedure source only to stop execution until a later bounded authoring run fills the detailed body.
 
-A compatibility shim is allowed only when explicitly justified and separately admitted. It must not remain the controlling procedure source.
+A compatibility shim is allowed only when explicitly justified and separately admitted. It must not become controlling procedure source.
 
 ## Write the boundary first
 
@@ -134,7 +137,7 @@ Checkpoint when:
 - research or child/check/Codex work changes the available evidence;
 - a gate failure may require scope repair.
 
-Do not checkpoint every minor stage. Ordinary checkpoints are internal RUN gates and are not Signals by default.
+Do not checkpoint every minor stage. Ordinary checkpoints are internal RUN gates and return typed gate outputs when action is needed.
 
 ## Research and expansion
 

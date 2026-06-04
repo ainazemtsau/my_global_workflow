@@ -97,10 +97,9 @@ request_only_sources:
   - workflow_v3/interfaces/**
   - workflow_v3/templates/**
   - workflow_v3/adoption/**
-  - workflow_v3/runbooks/**
+  - workflow_v3/procedures/**
   - workflow_v3/evals/**
   - workflow_v3/completion/**
-  - workflow_v3/formation/**
   - directions_v3/<direction-id>/runtime/records/**
   - directions_v3/<direction-id>/runtime/fronts/**
   - directions_v3/<direction-id>/runtime/operations/**
@@ -114,9 +113,8 @@ workflow_v3/interfaces/**
 workflow_v3/templates/**
 workflow_v3/completion/**
 workflow_v3/adoption/**
-workflow_v3/runbooks/**
+workflow_v3/procedures/**
 workflow_v3/evals/**
-workflow_v3/formation/**
 directions_v3/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
 ```
 

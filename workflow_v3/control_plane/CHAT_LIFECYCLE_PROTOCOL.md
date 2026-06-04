@@ -64,7 +64,7 @@ FINISH_REQUEST must:
 - list unresolved items;
 - list candidate state;
 - state that FINISH requires explicit user token FINISH or ФИНИШ;
-- not emit final Event Loop Closure.
+- not emit FINISH_PACKET before explicit FINISH.
 
 ## FINISH
 
@@ -75,7 +75,7 @@ FINISH must:
 - audit that START selected one procedure and RUN did not switch procedures;
 - emit FINISH_PACKET;
 - emit Result Packet;
-- emit Event Loop Closure;
+- emit Next Move Packet;
 - select exactly one primary next move;
 - not launch the next move invisibly.
 

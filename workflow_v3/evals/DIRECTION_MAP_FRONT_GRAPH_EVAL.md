@@ -10,9 +10,9 @@ status: active_repository_completion_framework
 - `workflow_v3/templates/DIRECTION_MAP_TEMPLATE.md`
 - `workflow_v3/templates/ACTIVE_FRONT_TEMPLATE.md`
 - `workflow_v3/templates/WORK_GRAPH_TEMPLATE.md`
-- `workflow_v3/runbooks/DIRECTION_MAP_CHAT_RUNBOOK.md`
-- `workflow_v3/runbooks/ACTIVE_FRONT_SELECTION_RUNBOOK.md`
-- `workflow_v3/runbooks/WORK_GRAPH_OPENING_RUNBOOK.md`
+- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md`
+- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md`
+- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md`
 
 ## Evidence required
 
@@ -24,7 +24,7 @@ status: active_repository_completion_framework
 ## PASS criteria
 
 - Direction Map is present and distinct from Direction Spine.
-- Direction Map is not roadmap, backlog, Work Graph, or Action Inbox.
+- Direction Map is not roadmap, backlog, Work Graph, or unreviewed task list.
 - Active Front selection cites map areas, touched tracks, why-now, evidence, alternatives, exit criteria, and acceptance question.
 - Work Graph is local to one Active Front and contains bounded nodes.
 
@@ -45,11 +45,11 @@ status: active_repository_completion_framework
 ## Common failure modes
 
 - Treating all active work as Active Front.
-- Treating Action Inbox candidates as map areas.
+- Treating unreviewed task-list candidates as map areas.
 - Selecting front by chat intuition.
 
 ## Required recovery/repair action
 
-Block continuation, restore the missing distinct surface, rerun the appropriate runbook, and require acceptance/update before any state mutation.
+Block continuation, restore the missing distinct surface, rerun the appropriate procedure, and require acceptance/update before any state mutation.
 
 END_OF_FILE: workflow_v3/evals/DIRECTION_MAP_FRONT_GRAPH_EVAL.md

@@ -6,10 +6,10 @@ status: active_repository_completion_framework
 
 - `workflow_v3/interfaces/06_CHAT_LIFECYCLE_AND_HANDOFF_INTERFACE.md`
 - `workflow_v3/interfaces/08_PACKET_AND_TRANSFER_INTERFACE.md`
-- `workflow_v3/templates/TRANSITION_PACKET_TEMPLATE.md`
+- `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md`
 - `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md`
 - `workflow_v3/templates/PARENT_RECOVERY_BLOCK_TEMPLATE.md`
-- `workflow_v3/runbooks/PARENT_CHILD_CHAT_RUNBOOK.md`
+- `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md`
 
 ## Evidence required
 
@@ -19,7 +19,7 @@ status: active_repository_completion_framework
 - FINISH_PACKET when lifecycle mode applies;
 - return destination;
 - Parent Recovery Block when multiple children are launched;
-- Event Loop Closure.
+- FINISH_PACKET, Result Packet, and Next Move Packet.
 
 ## Lifecycle precheck
 
@@ -44,7 +44,7 @@ For material or state-sensitive chats, run CHAT_LIFECYCLE_PROTOCOL_EVAL before h
 - Child chat treated as next material chat.
 - Missing child evidence synthesized.
 - Parent Recovery Block missing when multiple children are launched.
-- Transition Packet requires manual user assembly.
+- Transfer Packet requires manual user assembly.
 - Handoff emitted without FINISH_PACKET when lifecycle mode applies.
 
 ## Common failure modes
@@ -55,6 +55,6 @@ For material or state-sensitive chats, run CHAT_LIFECYCLE_PROTOCOL_EVAL before h
 
 ## Required recovery/repair action
 
-Stop synthesis or launch, request missing child result or create Parent Recovery Block, rerun parent Event Loop Closure, and require explicit acceptance/update for state changes.
+Stop synthesis or launch, request missing child result or create Parent Recovery Block, rerun parent FINISH closure, and require explicit acceptance/update for state changes.
 
 END_OF_FILE: workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md

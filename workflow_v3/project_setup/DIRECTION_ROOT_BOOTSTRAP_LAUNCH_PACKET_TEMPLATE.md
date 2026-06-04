@@ -40,7 +40,7 @@ Forbidden:
 - Do not create runtime root files without an explicit accepted package.
 - Do not refresh Project Files/Sources.
 - Do not treat Project Files/Sources as authority.
-- Do not flatten Direction Map into Spine, roadmap, backlog, Work Graph, or Action Inbox.
+- Do not flatten Direction Map into Spine, roadmap, backlog, Work Graph, or unreviewed task list.
 
 Expected first result:
 - Bounded setup-only root bootstrap status.
@@ -50,8 +50,8 @@ Expected first result:
 - If a runtime root package is prepared, require runtime config binding and per-Direction Project setup sources.
 - Manual Project Instructions UI update requirement after merge.
 - Direction Definition launch packet as the post-bootstrap continuation.
-- Lifecycle signal such as `direction_runtime_missing` or `direction_adoption_needed`.
-- Event Loop Closure.
+- Lifecycle fact such as `direction_runtime_missing` or `direction_adoption_needed`.
+- FINISH_PACKET, Result Packet, and Next Move Packet.
 - Exact next move: launch_direction_definition.
 ```
 

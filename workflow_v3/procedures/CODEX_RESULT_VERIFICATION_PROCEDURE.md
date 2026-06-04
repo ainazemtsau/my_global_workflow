@@ -111,7 +111,7 @@ stop behavior: Return blocked status and exact missing evidence.
 - `REWORK`: same-scope repair is needed before acceptance/storage reliance.
 - `EXPAND`: inspect exact repo/branch/commit/diff evidence within the returned scope.
 - `STOP`: block when required evidence is missing, forbidden paths are touched, validation is absent/failed, EOF fails, or payload counts are missing when required.
-- `TRANSFER`: return a candidate next move or Transition Packet for acceptance, storage, or repair; do not launch it.
+- `TRANSFER`: return a candidate next move or Transfer Packet for acceptance, storage, or repair; do not launch it.
 
 ## Optional Expansion
 
@@ -163,8 +163,8 @@ exact_next_move:
 
 ## Procedure Closure
 
-Verification does not accept state. If lifecycle FINISH is active, close through FINISH_REQUEST, Result Packet, and Event Loop Closure.
+Verification does not accept state. If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
 
-If the result needs acceptance, storage, or repair, return the exact next move or Transition Packet; do not launch it.
+If the result needs acceptance, storage, or repair, return the exact next move or Transfer Packet; do not launch it.
 
 END_OF_FILE: workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md

@@ -12,10 +12,10 @@ status: active_control_plane
 - MUST: No state mutation without storage_update_adapter admission.
 - MUST: No procedure switch during RUN.
 - MUST: No route change from chat intuition.
-- MUST: No hidden launch from Signal, Handler, Closure, or Progression Router.
+- MUST: No hidden launch from FINISH output, Result Packet, Next Move Packet, or Transfer Packet.
 - MUST: Tool availability is not workflow admission.
 - MUST: User input is current human input until accepted through the admitted procedure.
-- MUST: Acceptance signal is not storage authorization.
+- MUST: Human acceptance input is not storage authorization.
 - MUST: STOP beats guessing.
 
 ## Single Procedure Gate

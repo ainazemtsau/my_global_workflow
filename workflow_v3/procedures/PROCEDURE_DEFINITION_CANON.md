@@ -20,7 +20,7 @@ A procedure is not:
 - a hidden router;
 - permission to switch procedures during RUN.
 
-START selects the procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes only that selected procedure. FINISH_REQUEST, Result Packet, and Event Loop Closure remain controlled by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
+START selects the procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes only that selected procedure. FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet remain controlled by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
 
 ## Procedure file model
 
@@ -45,27 +45,44 @@ Procedure files should use compact markdown sections for:
 
 Do not bury routing logic in project instructions. Keep registry entries compact and place execution detail in the procedure file.
 
-## Canonical location and naming
+## Canonical Location and Naming
 
-The canonical location for new or migrated Procedure Definition Framework procedures is:
+The canonical location for Workflow v3 Procedure Definition Framework procedures is:
 
 ```text
 workflow_v3/procedures/**
 ```
 
-Use procedure naming for new or migrated Procedure Definition Framework files:
+Use procedure naming for Procedure Definition Framework files:
 
 ```text
 *_PROCEDURE.md
 ```
 
-Do not preserve obsolete `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or runbook/playbook directory placement merely because a pre-migration registry entry pointed there.
+Do not preserve obsolete `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or runbook/playbook directory placement as active procedure source.
 
-During migration, existing registry entries may temporarily point to legacy runbook, formation, or other operational paths only as coexistence for not-yet-migrated procedures. That coexistence is not precedent for new or migrated procedures.
+Every active registry entry must point to a canonical procedure file under `workflow_v3/procedures/**`.
 
-After a procedure is migrated into this framework, update `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` so `procedure_ref` points to the canonical migrated procedure file. Remove, archive, or explicitly mark the old runbook/playbook file as a compatibility shim through a separately admitted repository update path.
+Detailed procedure body authoring happens in separate bounded `author_workflow_procedure` chats. Until authored, the canonical procedure file may be a self-contained stub target spec.
 
-Any exception to canonical location or naming must be explicit, bounded, and justified in the migration plan and registry delta. Silent path-preserving migration is not allowed.
+Any exception to canonical location or naming must be explicit, bounded, and justified in the authoring plan and registry delta.
+
+## Self-contained Stub Procedure Requirements
+
+A stub procedure must include:
+
+- purpose;
+- trigger;
+- non-trigger;
+- required inputs;
+- target workflow role;
+- workflow integration;
+- future body outline;
+- output contract;
+- STOP behavior until authored;
+- procedure closure using FINISH_PACKET, Result Packet, and Next Move Packet.
+
+A stub is sufficient registry source only for selecting and stopping. It must not execute detailed procedure logic until a later bounded `author_workflow_procedure` run authors the body.
 
 ## Stage Card model
 
@@ -114,7 +131,7 @@ The selected complexity can be recorded only after START has read the selected p
 
 Checkpoints are internal RUN gates. They are not lifecycle phases.
 
-Checkpoints are not Signals by default. Emit a Signal only when the checkpoint reveals a notable workflow fact such as a blocking source issue, validation failure, scope drift, acceptance ambiguity, or missing child/check/Codex result.
+Checkpoints return typed gate outputs such as `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, or `TRANSFER`. Blocking source issues, validation failures, scope drift, acceptance ambiguity, and missing child/check/Codex results must become typed stop, repair, transfer, or check-job outputs rather than a separate routing event.
 
 FINISH_REQUEST remains the only lifecycle transition from RUN to FINISH.
 
@@ -131,7 +148,7 @@ Procedure closure must:
 - satisfy or explicitly fail the output contract;
 - state source limitations and unresolved gates;
 - emit FINISH_REQUEST before FINISH when the lifecycle requires it;
-- use Result Packet and Event Loop Closure as defined by `CHAT_FINISH_PROTOCOL.md`;
+- use FINISH_PACKET, Result Packet, and Next Move Packet as defined by `CHAT_FINISH_PROTOCOL.md`;
 - select exactly one primary next move at closure.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md

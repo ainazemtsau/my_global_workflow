@@ -32,6 +32,6 @@ status: template
 
 ## Boundary
 
-Acceptance signal is not storage authorization. Storage update requires adapter admission and exact package fields.
+Human acceptance input is not storage authorization. Storage update requires adapter admission and exact package fields.
 
 END_OF_FILE: workflow_v3/templates/STORAGE_UPDATE_PACKAGE_TEMPLATE.md

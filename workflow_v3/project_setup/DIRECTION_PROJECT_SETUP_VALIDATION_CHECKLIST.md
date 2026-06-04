@@ -35,7 +35,7 @@ The checklist verifies setup behavior only. It does not approve Direction adopti
 [ ] First chat returned setup-only root bootstrap status.
 [ ] Setup-only root package, if drafted, uses pending_definition/none_selected placeholder semantic statuses.
 [ ] CURRENT_NEXT_MOVE points to launch_direction_definition after setup-only root.
-[ ] First chat returned Event Loop Closure.
+[ ] First chat returned FINISH_PACKET, Result Packet, and Next Move Packet.
 [ ] First chat returned exact next move.
 [ ] Binding source is generated for the concrete Direction package when applicable.
 [ ] Per-Direction Project Instructions source is generated when applicable.

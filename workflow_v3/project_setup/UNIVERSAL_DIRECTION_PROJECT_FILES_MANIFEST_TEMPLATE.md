@@ -69,7 +69,7 @@ request_only_sources:
   - workflow_v3/interfaces/**
   - workflow_v3/templates/**
   - workflow_v3/adoption/**
-  - workflow_v3/runbooks/**
+  - workflow_v3/procedures/**
   - workflow_v3/evals/**
   - workflow_v3/completion/**
 ```
@@ -84,7 +84,7 @@ workflow_v3/interfaces/**
 workflow_v3/templates/**
 workflow_v3/completion/**
 workflow_v3/adoption/**
-workflow_v3/runbooks/**
+workflow_v3/procedures/**
 workflow_v3/evals/**
 ```
 

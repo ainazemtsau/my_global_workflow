@@ -8,13 +8,13 @@ Validate Active Front formation quality.
 
 ## PASS checks
 
-- Uses `workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md`.
+- Uses the registered canonical `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` source; if the procedure is still a stub, it stops with `PROCEDURE_BODY_NOT_AUTHORED`.
 - Selects from Direction Map areas.
 - Shows candidate fronts and rejected/deferred alternatives.
 - Includes touched tracks, bottleneck/constraint check, uncertainty reduction, evidence speed, dependency unlock, scope control, reversibility, and exit criteria.
 - Does not select by preference or convenience alone.
 - Does not open Work Graph before accepted front when acceptance is required.
-- Returns candidate front, evidence, risks, cuts, acceptance question, Event Loop Closure, and exact next move.
+- Returns candidate front, evidence, risks, cuts, acceptance question, Result Packet, and Next Move Packet.
 
 ## WARN checks
 

@@ -8,7 +8,7 @@ Validate Acceptance Decision formation quality.
 
 ## PASS checks
 
-- Uses `workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md`.
+- Uses the registered canonical `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` source; if the procedure is still a stub, it stops with `PROCEDURE_BODY_NOT_AUTHORED`.
 - Separates result quality from acceptance.
 - Includes candidate result ref, evidence refs, accepted changes, rejected changes, repair/block/park options, state mutation authorization, and residual risk.
 - Prevents adapter self-acceptance.

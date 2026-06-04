@@ -12,7 +12,7 @@ This procedure is non-mutating. It produces candidate definitions, patch plans, 
 
 - User asks to create a new Workflow v3 procedure.
 - User asks to revise an existing procedure.
-- User asks to migrate a procedure into the new procedure-definition framework.
+- User asks to author a detailed body for a self-contained stub procedure.
 - User asks to integrate a procedure into Workflow v3 registry/control-plane setup.
 
 ## When Not to Use
@@ -21,7 +21,7 @@ This procedure is non-mutating. It produces candidate definitions, patch plans, 
 - Do not use to mutate repository directly.
 - Do not use to accept candidate output.
 - Do not use to update actual ChatGPT Project UI.
-- Do not use to migrate complex formation/entity procedures unless separately scoped.
+- Do not use to author complex procedure bodies unless separately scoped.
 
 ## Required Inputs
 
@@ -33,14 +33,16 @@ This procedure is non-mutating. It produces candidate definitions, patch plans, 
 - source files to inspect;
 - requested integration scope.
 
-For migrations from an old runbook/playbook/operational path, also require:
+For authoring from a self-contained stub, also require:
 
 ```text
-old_source_path:
 current_registry_entrypoint:
 current_registry_procedure_ref:
-proposed_new_procedure_path:
-legacy_file_disposition: delete | archive | compatibility_shim
+canonical_procedure_path:
+target_role:
+workflow_integration:
+future_body_outline:
+required_outputs_when_authored:
 canonical_path_exception_if_any:
 ```
 
@@ -55,7 +57,7 @@ Classify inputs as canonical repository source, current human input, candidate c
 ## Complexity Selector
 
 - `standard`: default for bounded procedure design or revision.
-- `checkpointed`: use when the design boundary, registry mapping, canonical path/naming, legacy file disposition, or eval plan needs user review before final proposal.
+- `checkpointed`: use when the design boundary, registry mapping, canonical path/naming, stub/body status, deleted-source independence, or eval plan needs user review before final proposal.
 - `research_backed`: use only when current external documentation is explicitly needed.
 - `delegated_or_tool_mediated`: use only to prepare a bounded handoff/check plan, not to launch it.
 
@@ -67,22 +69,21 @@ New Procedure Definition Framework procedures must live under:
 workflow_v3/procedures/**
 ```
 
-New or migrated procedure files must use procedure naming:
+Procedure files must use procedure naming:
 
 ```text
 *_PROCEDURE.md
 ```
 
-When migrating an old runbook/playbook/operational source into the Procedure Definition Framework:
+When authoring or revising a procedure in the Procedure Definition Framework:
 
-- do not keep the controlling procedure source under `workflow_v3/runbooks/**` merely because the pre-migration registry pointed there;
 - do not keep `*_RUNBOOK.md` or `*_PLAYBOOK.md` naming merely to reduce path churn;
-- propose a canonical `workflow_v3/procedures/*_PROCEDURE.md` target path;
-- propose a registry delta so `procedure_ref` points to the canonical migrated procedure file;
-- propose disposition for the old file: `delete`, `archive`, or explicitly bounded `compatibility_shim`;
+- use a canonical `workflow_v3/procedures/*_PROCEDURE.md` target path;
+- propose a registry delta so `procedure_ref` points to the canonical procedure file;
+- base detailed body authoring on the canonical stub target spec when a stub exists;
 - mark any non-canonical location or naming as an exception requiring explicit justification.
 
-Existing registry entries may temporarily point to legacy runbook/formation paths only while those entries are not yet migrated. That coexistence is not precedent for migrated procedures.
+Registry entries must point to canonical procedure files.
 
 ## Stage Cards
 
@@ -118,13 +119,13 @@ stop behavior: Return source or compatibility blocker.
 
 ```text
 stage_id: canonical_location_and_registry_fit
-purpose: For new or migrated procedures, select canonical file path/naming and registry mapping before drafting.
-activation conditions: Always for new procedures and migrations; optional for same-path revisions that are already canonical.
-inputs: Procedure Definition Canon, Procedure Authoring Guide, Procedure Registry, old source path if any, current procedure_ref if any.
-required intermediate output: Canonical path decision, registry delta need, and old-file disposition plan.
-gate: PASS if the controlling procedure path is under workflow_v3/procedures/** with *_PROCEDURE.md naming; REWORK if a migration preserves runbook/playbook naming without explicit exception; STOP if registry mapping would remain ambiguous.
-checkpoint rule: Checkpoint when changing path, deleting/archiving old files, or using a compatibility shim.
-expansion rule: Inspect exact registry/source references only; do not infer migration policy from stale Project Files or chat memory.
+purpose: Select canonical file path/naming and registry mapping before drafting.
+activation conditions: Always for new procedures and stub body authoring; optional for same-path revisions that are already canonical.
+inputs: Procedure Definition Canon, Procedure Authoring Guide, Procedure Registry, current procedure_ref if any.
+required intermediate output: Canonical path decision, registry delta need, and stub authoring status.
+gate: PASS if the controlling procedure path is under workflow_v3/procedures/** with *_PROCEDURE.md naming; REWORK if obsolete naming is preserved without explicit exception; STOP if registry mapping would remain ambiguous.
+checkpoint rule: Checkpoint when changing path, registry mapping, or stub/body status.
+expansion rule: Inspect exact registry/procedure references only; do not infer authoring policy from stale Project Files or chat memory.
 stop behavior: Return canonical path or registry blocker.
 ```
 
@@ -147,10 +148,10 @@ stop behavior: Return rework notes.
 ```text
 stage_id: registry_delta
 purpose: Propose compact registry entry and run_surface_type mapping.
-activation conditions: Integration scope includes registry or canonical path/naming migration changes procedure_ref.
+activation conditions: Integration scope includes registry or canonical path/naming changes that affect procedure_ref.
 inputs: Procedure draft, canonical path decision, Procedure Registry.
 required intermediate output: Registry entry proposal.
-gate: PASS if one entrypoint is selected with a short selection hint and procedure_ref points to the canonical procedure path after migration; REWORK if the registry would keep a migrated procedure pointed at an obsolete runbook/playbook path; STOP if multiple independent entrypoints are needed.
+gate: PASS if one entrypoint is selected with a short selection hint and procedure_ref points to the canonical procedure path; REWORK if the registry would keep a procedure pointed at obsolete path or naming; STOP if multiple independent entrypoints are needed.
 checkpoint rule: None by default.
 expansion rule: Propose SPLIT_REQUIRED when multiple independent entrypoints are needed.
 stop behavior: Return routing conflict.
@@ -176,7 +177,7 @@ stop behavior: Return missing eval coverage.
 stage_id: integration_plan
 purpose: Identify run surface compatibility and any future Codex/storage handoff boundary.
 activation conditions: Always.
-inputs: Registry delta, canonical path decision, legacy file disposition plan, run surface contract, requested integration scope.
+inputs: Registry delta, canonical path decision, stub/body status and deleted-source independence, run surface contract, requested integration scope.
 required intermediate output: Run surface compatibility statement and allowed/forbidden path proposal if needed.
 gate: PASS if integration is non-mutating and bounded; TRANSFER if a separate admitted handoff is needed.
 checkpoint rule: Checkpoint before any proposed repository mutation package.
@@ -191,7 +192,7 @@ stage_id: closure
 purpose: Return the candidate design and next move.
 activation conditions: Always after completed or stopped stages.
 inputs: Stage outputs.
-required intermediate output: Result Packet and Event Loop Closure.
+required intermediate output: Result Packet and Next Move Packet.
 gate: PASS if required outputs are present; PASS_WITH_RISK if limitations are named.
 checkpoint rule: None.
 expansion rule: None.
@@ -212,19 +213,19 @@ Research is forbidden by default. Use external research only when the user asks 
 
 ## Checkpoint Policy
 
-No checkpoint is required for simple bounded procedure edits that remain canonical. Checkpoint when scope, registry mapping, canonical path/naming, legacy file disposition, complex eval design, or future mutation boundaries are ambiguous.
+No checkpoint is required for simple bounded procedure edits that remain canonical. Checkpoint when scope, registry mapping, canonical path/naming, stub/body status, deleted-source independence, complex eval design, or future mutation boundaries are ambiguous.
 
 ## Output Contract
 
 ```text
 candidate_procedure_definition_or_patch_plan:
-canonical_location_and_legacy_disposition:
+canonical_location_and_stub_status:
 registry_entry_proposal:
 run_surface_compatibility_statement:
 eval_proposal:
 allowed_forbidden_path_proposal_if_codex_or_storage_needed:
 result_packet:
-event_loop_closure:
+next_move_packet:
 ```
 
 ## Eval / Quality Checks
@@ -232,24 +233,24 @@ event_loop_closure:
 - Procedure has distinguishable trigger and non-trigger.
 - Required inputs and exact source requirements are explicit.
 - Stage Cards produce intermediate outputs and use material gates.
-- Stop conditions prevent invention, hidden mutation, self-acceptance, and complex formation migration by implication.
-- New or migrated procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming unless an explicit exception is justified.
-- Migrated procedures include registry delta and old-file disposition.
+- Stop conditions prevent invention, hidden mutation, self-acceptance, and complex body authoring by implication.
+- Procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming unless an explicit exception is justified.
+- Stub procedure body authoring preserves target role, workflow integration, output contract, and STOP behavior until authored.
 - Registry hint proposal is compact and does not replace procedure source.
-- Closure uses FINISH_REQUEST, Result Packet, and Event Loop Closure correctly.
+- Closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
 
 ## Stop Conditions
 
 - target procedure is unbounded;
 - requested procedure would silently mutate state;
-- requested procedure crosses into complex formation migration without separate scope;
+- requested procedure crosses into complex body authoring without separate scope;
 - required sources are missing;
-- migrated procedure keeps obsolete runbook/playbook path or naming without explicit exception;
-- registry delta would leave a migrated procedure pointing to an obsolete controlling source;
+- procedure keeps obsolete runbook/playbook path or naming without explicit exception;
+- registry delta would leave a procedure pointing outside canonical procedure files;
 - user asks to patch repository without Codex/storage admission.
 
 ## Procedure Closure
 
-Close with the candidate design outputs, limitations, canonical path/registry/legacy-file disposition, and exact next move. If repository changes are needed later, return a bounded handoff/update proposal rather than applying changes inside this procedure.
+Close with the candidate design outputs, limitations, canonical path/registry/stub status, and exact next move. If repository changes are needed later, return a bounded handoff/update proposal rather than applying changes inside this procedure.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md

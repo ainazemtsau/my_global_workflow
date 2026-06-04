@@ -45,10 +45,10 @@ Work Contract is one bounded execution agreement for a node or node slice.
 The operational movement is:
 
 ```text
-Signal -> Handler -> Candidate Output -> Event Loop Closure -> Progression Router -> Transition Packet / Next Move -> Acceptance/update path
+Procedure output -> FINISH_PACKET -> Result Packet -> Next Move Packet -> Transfer Packet if needed -> Acceptance/update path
 ```
 
-Operational movement does not replace object hierarchy. A Signal or Handler cannot mutate the Spine, Map, Active Front, Work Graph, or accepted state.
+Operational movement does not replace object hierarchy. Procedure output cannot mutate the Spine, Map, Active Front, Work Graph, or accepted state by itself.
 
 ## Movement rules
 

@@ -10,29 +10,29 @@ Object hierarchy:
 Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract
 ```
 
-Operational movement:
+Procedure movement:
 
 ```text
-Signal -> Handler -> Candidate Output -> Event Loop Closure -> Progression Router -> Transition Packet / Next Move -> Acceptance/update path
+START -> RUN -> FINISH -> FINISH_PACKET + Result Packet + Next Move Packet
 ```
 
 Control-plane movement:
 
 ```text
-Intake -> Action Admission -> Procedure Source Read -> Run Surface Contract -> Admission Packet / Work Plan -> admitted action or exception
+Intake -> Procedure Registry -> Procedure Source Read -> Run Surface Contract -> START_PACKET -> admitted RUN or typed STOP
 ```
 
-This model describes how future Workflow v3 work should be structurally bounded, operationally routed, executed, evidenced, accepted, remembered, and resumed.
+This model describes how future Workflow v3 work is structurally bounded, executed, evidenced, accepted, remembered, transferred, and resumed.
 
-Detailed interface contracts live under `workflow_v3/interfaces/**`. Future work must reconcile with that interface layer instead of redefining Direction structure, lifecycle routing, packets, storage, or adapter boundaries independently.
+Detailed interface contracts live under `workflow_v3/interfaces/**`. Future work must reconcile with that interface layer instead of redefining Direction structure, lifecycle closure, packets, storage, or adapter boundaries independently.
 
-Steering entities are formed through `workflow_v3/formation/**` before templates are filled or candidates are proposed for acceptance.
+Steering entities are formed through registered procedures before templates are filled or candidates are proposed for acceptance.
 
 ## Control-plane boundary
 
 Workflow movement passes through action admission before material action.
 
-Next Move, Signal, Handler, Event Loop Closure, and Progression Router are not launch authority by themselves. Closure/router output does not silently launch next work.
+Next Move Packet output is not launch authority by itself. FINISH output does not silently launch next work.
 
 Every material action has `run_surface_type` and explicit allowed and forbidden operations.
 
@@ -54,17 +54,13 @@ Direction Definition is the separate semantic formation process that forms candi
 
 Direction Spine is the stable axis of one Direction: root result, success conditions, spine points, and tracks. It is not a complete roadmap and not a backlog.
 
-Direction Spine formation uses `workflow_v3/formation/DIRECTION_SPINE_FORMATION_RUNBOOK.md`.
-
 Direction Spine changes only through an explicit acceptance/update path.
 
 ## Direction Map
 
 Direction Map is the global structural map between Direction Spine and Active Front. It contains map areas, track relationships, strategic dependencies, strategic uncertainties, candidate fronts, closed fronts, blocked areas, evidence links, and accepted/candidate/unresolved labels.
 
-Direction Map is not a roadmap, backlog, Work Graph, or Action Inbox.
-
-Direction Map formation uses `workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md`.
+Direction Map is not a roadmap, backlog, Work Graph, or unreviewed task list.
 
 Direction Map changes only through an explicit acceptance/update path.
 
@@ -74,21 +70,15 @@ Active Front is the accepted focus selected from the Direction Map that is movin
 
 Active Front is not global backlog state.
 
-Active Front formation uses `workflow_v3/formation/ACTIVE_FRONT_FORMATION_RUNBOOK.md`.
-
 ## Work Graph
 
 Work Graph is local to the Active Front. It derives from Front Exit Criteria and identifies bounded nodes, dependencies, and the next useful result.
 
 Work Graph is not a copy of the Direction Spine, not the Direction Map, and not a permanent graph for the whole Direction.
 
-Work Graph formation uses `workflow_v3/formation/WORK_GRAPH_FORMATION_RUNBOOK.md`.
-
 ## Work Contract / Run / Evidence / Acceptance
 
 Work Contract states the bounded target, allowed and forbidden surfaces, expected result, and evidence requirements.
-
-Work Contract formation uses `workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md`.
 
 Run is execution of that contract through an adapter or human action.
 
@@ -96,29 +86,33 @@ Evidence is the verifiable output of a Run. Evidence alone does not change accep
 
 Acceptance is the explicit decision to accept, reject, or return a result for repair. Accepted State changes only through the explicit acceptance/update path.
 
-Acceptance Decision formation uses `workflow_v3/formation/ACCEPTANCE_DECISION_FORMATION_RUNBOOK.md`.
+## Procedure Closure Output Model
 
-## Memory
+Procedure closure uses:
 
-Memory stores useful promoted context for later continuation. Raw chat output, Result Packets, Signals, run logs, or notes are not Memory Artifacts automatically.
+- FINISH_REQUEST when RUN reaches completion or a terminal blocked state;
+- FINISH_PACKET after explicit user FINISH;
+- one Result Packet;
+- one Next Move Packet.
 
-Memory requires promotion and does not replace canonical storage.
+The Result Packet carries status, result, evidence, changed files, validation, source limits, not done, refresh requirements, residual risks, and exact next move.
 
-Memory Artifact promotion uses `workflow_v3/formation/MEMORY_ARTIFACT_PROMOTION_RUNBOOK.md`.
+The Next Move Packet selects exactly one primary next move and names its type, return destination, transfer packet if needed, persistence boundary, acceptance boundary, and blocking reason if any.
 
-## Signals / Handlers / Action Inbox
+FINISH output may request a same-chat continuation, next material chat, child chat, check job, Codex run, Codex verification, human decision, storage update, or stop. It must not launch any of them invisibly.
 
-The operational event loop is defined in `workflow_v3/SIGNALS_HANDLERS_ACTION_INBOX.md`.
+## Typed procedure outputs
 
-Signal is an emitted event/fact record. It does not mutate state.
+Procedure stages and gates return typed outputs:
 
-Signal is not an Action Inbox item.
+- `PASS`
+- `PASS_WITH_RISK`
+- `REWORK`
+- `EXPAND`
+- `STOP`
+- `TRANSFER`
 
-Handler reacts to a Signal by creating candidate outputs only. It does not execute work and does not accept state.
-
-Action Inbox stores candidate actions, not raw signals.
-
-Action Inbox stores candidate actions for later review, conversion, or closure. It is not an automatic execution queue and not a roadmap.
+Future typed output packets may include Parent Integration, Graph Delta, Upstream Escalation, Downstream Delta, and Memory Candidate. These are candidate outputs until accepted or routed through an admitted procedure.
 
 ## Next Move
 
@@ -126,15 +120,17 @@ Next Move is the exact next instruction after material work or review. It tells 
 
 Next Move is not accepted state.
 
-Current Next Move formation uses `workflow_v3/formation/CURRENT_NEXT_MOVE_FORMATION_RUNBOOK.md`.
+Current Next Move formation remains a bounded procedure. When material work closes, FINISH selects one primary next move inside the Next Move Packet.
 
-When material work closes, the next concrete step is selected through Event Loop Closure and `progression_router_handler`.
+If transfer is needed, FINISH includes or references a complete Transfer Packet for the selected next step.
 
-The progression output remains candidate until accepted or explicitly launched.
+Chat does not choose route by intuition. Route-changing steps must be visible through FINISH_PACKET, Result Packet, Next Move Packet, and acceptance/update path when state changes.
 
-If transfer is needed, the router assembles the complete Transition Packet for the selected next step.
+## Memory
 
-Chat does not choose route by intuition. Route-changing steps must be visible through Signal, Handler, Event Loop Closure, Progression Router, Transition Packet/Next Move, and acceptance/update path when state changes.
+Memory stores useful promoted context for later continuation. Raw chat output, Result Packets, run logs, or notes are not Memory Artifacts automatically.
+
+Memory requires promotion and does not replace canonical storage.
 
 ## Adapter boundary
 
@@ -144,13 +140,13 @@ Adapters may perform a Run and return candidate result/evidence. They do not dec
 
 ## No hidden accepted state
 
-Accepted State does not live in chat memory, Project Files/Sources, candidate docs, Codex output, Result Packets, Signals, Handler results, Action Inbox items, or document existence.
+Accepted State does not live in chat memory, Project Files/Sources, candidate docs, Codex output, Result Packets, transfer packets, check-job output, or document existence.
 
 If accepted state matters, use canonical repository storage and explicit acceptance/update records.
 
 ## Runtime Console boundary
 
-Runtime Console is read-only. It may summarize status, show uncertainty, list candidate actions, and draft candidate Launch Packets or Next Moves.
+Runtime Console is read-only. It may summarize status, show uncertainty, list candidate actions, and draft candidate launch packets or Next Moves.
 
 Runtime Console must not execute material work, mutate accepted state, accept evidence, promote Memory, launch Codex directly, or become a hidden controller.
 

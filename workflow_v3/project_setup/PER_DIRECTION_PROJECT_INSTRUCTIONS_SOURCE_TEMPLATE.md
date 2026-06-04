@@ -51,14 +51,14 @@ Continuation:
 - Return bound direction_id, status, semantic_definition_status when present, exact next move, source/read limitations, and terminal outcome.
 - For "continue" or "продолжи", continue only from accepted CURRENT_NEXT_MOVE and any bounded Work Contract it names.
 - If CURRENT_STATUS shows setup_only_root_created and semantic_definition_status pending_definition, report semantic_definition_pending.
-- If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition using the Direction Definition launch packet/runbook.
+- If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition using the Direction Definition launch packet/procedure.
 - Do not use previous chat memory as continuation authority.
 
 Work admission:
 - Do not perform product work without a bounded accepted Next Move and Work Contract or a user request that can be normalized into one within the bound Direction.
 - Do not perform product work from setup-only state or before Direction Definition/Active Front acceptance admits it.
 - Do not mutate runtime state without an explicit acceptance/update path.
-- Handler output, Result Packets, and Codex output are candidate until accepted.
+- Result Packets, Next Move Packets, and Codex output are candidate until accepted.
 - Steering entities require formation before template filling.
 
 Project surfaces:
@@ -67,10 +67,10 @@ Project surfaces:
 - Optional uploaded DIRECTION_PROJECT_BINDING.md is cache only.
 - Project title is a human hint only.
 
-Event Loop Closure and transfers:
-- End material work, review, repair, bootstrap, status review, or continuation routing with Event Loop Closure.
+FINISH closure and transfers:
+- End material work, review, repair, bootstrap, status review, or continuation routing with FINISH_PACKET, Result Packet, and Next Move Packet.
 - Include result, evidence/source refs, source/read limits, not done, assumptions, unresolved decisions, risks, candidate-state notice, return destination, and exact next move.
-- Use Transition Packets or copy-paste Next Chat Prompts when transfer is needed.
+- Use Transfer Packets or copy-paste Next Chat Prompts when transfer is needed.
 
 Context Request:
 - If exact source cannot be read, stop and request the exact repo/path/ref.

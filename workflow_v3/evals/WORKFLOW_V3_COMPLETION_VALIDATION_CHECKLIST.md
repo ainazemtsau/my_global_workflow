@@ -18,7 +18,7 @@ status: active_repository_completion_framework
 - registry entity count;
 - coverage matrix entity row count;
 - completion matrix entity crosswalk;
-- runbook field validation;
+- procedure stub field validation;
 - eval field validation;
 - EOF marker validation;
 - Project Instructions payload counts when instruction sources changed;
@@ -32,7 +32,7 @@ status: active_repository_completion_framework
 - Every new/edited Markdown file has `END_OF_FILE`.
 - Registry entity count and coverage matrix entity row count do not decrease.
 - Every registry entity has completion matrix coverage.
-- Every runbook has trigger, source authority, inputs, outputs, closure signal, return destination, acceptance/update rule, and stop condition.
+- Every unauthored procedure stub has target role, workflow integration, future body scope, required outputs, closure shape, and STOP behavior.
 - Every eval has PASS/WARN/FAIL criteria and recovery action.
 - Project setup refresh categories are separated.
 - `git diff --check` passes or only line-ending warnings are reported separately.

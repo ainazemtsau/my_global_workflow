@@ -8,12 +8,12 @@ Validate Direction Map formation quality.
 
 ## PASS checks
 
-- Uses `workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md`.
+- Uses the registered canonical `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` source; if the procedure is still a stub, it stops with `PROCEDURE_BODY_NOT_AUTHORED`.
 - Forms tracks, map areas, strategic dependencies, strategic uncertainties, risk zones, candidate fronts, and source/status labels.
 - Labels claims as accepted, candidate, unresolved, or hypothetical.
 - Generates alternative map structures unless blocked.
-- Does not become roadmap, backlog, Work Graph, or Action Inbox.
-- Includes evidence, risks, cuts, acceptance question, Event Loop Closure, and exact next move.
+- Does not become roadmap, backlog, Work Graph, or unreviewed task list.
+- Includes evidence, risks, cuts, acceptance question, Result Packet, and Next Move Packet.
 
 ## WARN checks
 

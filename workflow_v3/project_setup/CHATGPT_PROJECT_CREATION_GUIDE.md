@@ -19,7 +19,7 @@ Future Project creation requires a separate rollout/adoption package that states
 - refresh requirements;
 - validation evidence.
 
-Use `workflow_v3/runbooks/PROJECT_SETUP_ROLLOUT_RUNBOOK.md` and `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md` for future rollout preparation and verification.
+Use `workflow_v3/project_setup/rollouts/` rollout packets and `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md` for future rollout preparation and verification.
 
 Repository commits alone do not update ChatGPT Project UI or files.
 

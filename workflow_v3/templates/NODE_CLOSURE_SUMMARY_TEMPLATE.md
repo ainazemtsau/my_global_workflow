@@ -26,7 +26,7 @@ status: template
 
 `next_move_candidate`:
 
-`closure_signal`:
+`closure_fact`:
 
 `limitations`:
 

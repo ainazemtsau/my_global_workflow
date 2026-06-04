@@ -24,6 +24,6 @@ Validate storage update adapter admission and package completeness.
 - Producing formation or acceptance chat writes state itself.
 - GitHub write tools are used without storage_update_adapter admission.
 - Adapter broadens state changes or touches unlisted paths.
-- Acceptance signal is treated as storage authorization.
+- Human acceptance input is treated as storage authorization.
 
 END_OF_FILE: workflow_v3/evals/STORAGE_UPDATE_PACKAGE_EVAL.md

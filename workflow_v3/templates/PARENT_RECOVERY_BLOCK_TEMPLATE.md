@@ -28,7 +28,7 @@ status: template
 
 `return_destination`:
 
-`next_event_loop_closure_needed`:
+`next_finish_required`:
 
 `limitations`:
 

@@ -8,7 +8,7 @@ status: template
 
 `map_status`: pending_definition | candidate | accepted | superseded
 
-`formation_runbook_ref`: workflow_v3/formation/DIRECTION_MAP_FORMATION_RUNBOOK.md
+`procedure_ref`: workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/DIRECTION_MAP_FORMATION_EVAL.md
 
@@ -52,7 +52,7 @@ status: template
 
 ## Boundary
 
-Direction Map is not a roadmap, backlog, Action Inbox, or local Work Graph.
+Direction Map is not a roadmap, backlog, unreviewed task list, or local Work Graph.
 
 Map claims must be sourced and labeled as accepted, candidate, unresolved, or hypothetical.
 

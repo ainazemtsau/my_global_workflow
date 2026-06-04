@@ -40,7 +40,7 @@ FINISH_PACKET:
   finished_work:
   finish_self_audit:
   result_packet:
-  event_loop_closure:
+  next_move_packet:
 ```
 
 ## finish_self_audit
@@ -81,18 +81,33 @@ result_packet:
   exact_next_move:
 ```
 
-## event_loop_closure
+## next_move_packet
 
-event_loop_closure must contain exactly these fields:
+next_move_packet must contain exactly these fields:
 
 ```text
-event_loop_closure:
-  signals:
-  handler_candidates:
+next_move_packet:
+  primary_next_move:
+  next_move_type:
+  return_destination:
+  transfer_packet_if_needed:
   persistence_boundary:
   acceptance_boundary:
-  return_destination:
-  primary_next_move:
+  blocking_reason_if_any:
 ```
+
+`next_move_type` allowed values:
+
+- `same_chat_continuation`
+- `next_material_chat`
+- `child_chat`
+- `check_job`
+- `codex`
+- `codex_verification`
+- `human_decision`
+- `storage_update`
+- `stop`
+
+`transfer_packet_if_needed` is `not needed` when the next move can be fully understood in the current chat. When transfer is required, it must name or include the complete Transfer Packet.
 
 END_OF_FILE: workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md

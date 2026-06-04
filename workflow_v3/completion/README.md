@@ -6,7 +6,7 @@ status: active_repository_completion_framework
 
 This directory records the repository-side completion framework for Workflow v3.
 
-It completes shared documentation, runbook, validation, adoption-template, and Project setup readiness surfaces only. It does not adopt a Direction, create runtime state, migrate old Direction state, update a ChatGPT Project, refresh Project Files/Sources, upload a pack, execute product work, or decommission the old Workflow OS.
+It completes shared documentation, procedure, validation, adoption-template, and Project setup readiness surfaces only. It does not adopt a Direction, create runtime state, migrate old Direction state, update a ChatGPT Project, refresh Project Files/Sources, upload a pack, execute product work, or decommission the old Workflow OS.
 
 ## Files
 

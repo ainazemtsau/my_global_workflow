@@ -1,16 +1,16 @@
-# Direction Lifecycle Signal Interface
+# Direction Lifecycle Output Interface
 
 status: active_interface_layer
 
 ## Purpose
 
-This interface defines the signal-driven Direction lifecycle for Workflow v3.
+This interface defines typed Direction lifecycle facts for Workflow v3.
 
-Lifecycle signals record facts about missing, candidate, accepted, stale, blocked, or complete lifecycle surfaces. They do not execute material work and do not mutate state.
+Lifecycle facts record missing, candidate, accepted, stale, blocked, or complete lifecycle surfaces. They do not execute material work and do not mutate state.
 
-## Lifecycle signals
+## Lifecycle facts
 
-| Signal | Meaning |
+| Fact | Meaning |
 | --- | --- |
 | `direction_runtime_missing` | No adopted runtime root exists for the Direction. |
 | `direction_adoption_needed` | Work requires explicit adoption before accepted v3 state can exist. |
@@ -34,25 +34,25 @@ Lifecycle signals record facts about missing, candidate, accepted, stale, blocke
 | `track_imbalance_detected` | Track coverage/balance concern is visible. |
 | `blocked_lifecycle_transition` | A lifecycle transition cannot safely continue. |
 
-## Lifecycle handlers
+## Follow-up outputs
 
-| Handler | Matches | Candidate outputs |
+| Output | Matches | Candidate outputs |
 | --- | --- | --- |
-| `direction_adoption_guard_handler` | Missing runtime, adoption-needed, or legacy boundary signals. | Blocked result, adoption decision request, or bounded adoption package candidate. |
-| `direction_spine_creation_handler` | Missing Spine or returned Spine candidate. | Candidate Spine review packet or acceptance/update request. |
-| `direction_map_creation_handler` | Missing Map or returned Map candidate. | Candidate Map review packet or acceptance/update request. |
-| `active_front_selection_handler` | Missing Active Front or candidate returned. | Candidate front selection packet with alternatives and acceptance question. |
-| `work_graph_opening_handler` | Accepted Active Front with missing Work Graph. | Candidate local Work Graph seed/opening packet. |
-| `work_contract_creation_handler` | Ready node without Work Contract. | Candidate Work Contract or Launch Packet. |
-| `front_closure_handler` | Active Front complete or front closure evidence. | Candidate front closure summary, acceptance question, and map update candidate. |
-| `direction_map_update_handler` | Map update needed, stale map, track imbalance, or closed front impact. | Candidate Direction Map update packet or Check Job. |
+| `direction_adoption_guard` | Missing runtime, adoption-needed, or legacy boundary facts. | Blocked result, adoption decision request, or bounded adoption package candidate. |
+| `direction_spine_creation` | Missing Spine or returned Spine candidate. | Candidate Spine review packet or acceptance/update request. |
+| `direction_map_creation` | Missing Map or returned Map candidate. | Candidate Map review packet or acceptance/update request. |
+| `active_front_selection` | Missing Active Front or candidate returned. | Candidate front selection packet with alternatives and acceptance question. |
+| `work_graph_opening` | Accepted Active Front with missing Work Graph. | Candidate local Work Graph seed/opening packet. |
+| `work_contract_creation` | Ready node without Work Contract. | Candidate Work Contract or Launch Packet. |
+| `front_closure` | Active Front complete or front closure evidence. | Candidate front closure summary, acceptance question, and map update candidate. |
+| `direction_map_update` | Map update needed, stale map, track imbalance, or closed front impact. | Candidate Direction Map update packet or Check Job. |
 
 ## Hard rules
 
-- Lifecycle handler output is candidate only.
-- No lifecycle handler executes material work directly.
-- No lifecycle handler accepts state.
-- Every lifecycle transition that changes state must have visible Event Loop Closure and an acceptance/update path.
+- Follow-up output is candidate only.
+- No lifecycle fact executes material work directly.
+- No lifecycle fact accepts state.
+- Every lifecycle transition that changes state must close with FINISH_PACKET, Result Packet, Next Move Packet, and an acceptance/update path.
 - A blocked lifecycle transition stops product work until the blocker is resolved or explicitly split into a future package.
 
-END_OF_FILE: workflow_v3/interfaces/03_DIRECTION_LIFECYCLE_SIGNAL_INTERFACE.md
+END_OF_FILE: workflow_v3/interfaces/03_DIRECTION_LIFECYCLE_OUTPUT_INTERFACE.md

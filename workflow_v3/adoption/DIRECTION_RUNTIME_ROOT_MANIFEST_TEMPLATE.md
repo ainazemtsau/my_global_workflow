@@ -71,10 +71,8 @@ state/
 fronts/
 records/
 memory/
-operations/signals/
-operations/action_inbox/
 operations/check_jobs/
-operations/event_loop_closures/
+operations/transfer_packets/
 operations/recovery/
 archive/
 indexes/

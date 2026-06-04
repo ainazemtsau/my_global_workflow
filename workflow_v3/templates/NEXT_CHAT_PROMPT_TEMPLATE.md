@@ -36,7 +36,7 @@ status: template
 
 `expected_result`:
 
-`closure_signal_required`:
+`closure_fact_required`:
 
 `required_return_fields`:
 
@@ -44,7 +44,7 @@ status: template
 
 `parent_recovery_note_if_applicable`:
 
-`event_loop_closure_required`:
+`finish_packet_required`:
 
 `return_destination`:
 

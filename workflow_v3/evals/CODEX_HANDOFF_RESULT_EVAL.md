@@ -5,7 +5,7 @@ status: active_repository_completion_framework
 ## Source files to inspect
 
 - `workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md`
-- `workflow_v3/runbooks/CODEX_HANDOFF_VERIFICATION_RUNBOOK.md`
+- `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md`
 - `workflow_v3/templates/WORK_CONTRACT_TEMPLATE.md`
 - `workflow_v3/templates/RESULT_PACKET_TEMPLATE.md`
 - git branch, commit/diff, changed files, and validation output
@@ -54,6 +54,6 @@ status: active_repository_completion_framework
 
 ## Required recovery/repair action
 
-Block acceptance, request or perform same-scope repair, verify diff and validation again, then rerun Event Loop Closure and acceptance review.
+Block acceptance, request or perform same-scope repair, verify diff and validation again, then rerun FINISH closure and acceptance review.
 
 END_OF_FILE: workflow_v3/evals/CODEX_HANDOFF_RESULT_EVAL.md

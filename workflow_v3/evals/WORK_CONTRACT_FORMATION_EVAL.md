@@ -8,7 +8,7 @@ Validate Work Contract formation quality.
 
 ## PASS checks
 
-- Uses `workflow_v3/formation/WORK_CONTRACT_FORMATION_RUNBOOK.md`.
+- Uses the registered canonical `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` source; if the procedure is still a stub, it stops with `PROCEDURE_BODY_NOT_AUTHORED`.
 - Forms one bounded run target.
 - Includes target, allowed/forbidden paths or surfaces, source reads, expected result, validation/evidence, return destination, and stop conditions.
 - Returns `split_required` when the target combines independent jobs.
