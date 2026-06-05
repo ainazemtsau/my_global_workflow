@@ -1,12 +1,15 @@
 # Procedure Authoring and Integration Procedure
 
 status: active_procedure
+procedure_class: core_material
 
 ## Purpose
 
-Use this procedure to design or revise Workflow v3 procedure definitions and their registry/eval integration.
+Use this procedure to create, revise, author, or integrate Workflow v3 procedure definitions and their registry/eval/run-surface relationships.
 
-This procedure is non-mutating. It produces candidate definitions, patch plans, and integration proposals only.
+This procedure is non-mutating. It produces candidate definitions, patch plans, utility handoff packets, and integration proposals only.
+
+For non-trivial authoring, it must proceed through staged/checkpointed design before detailed body drafting.
 
 ## Trigger / When to Use
 
@@ -14,16 +17,21 @@ This procedure is non-mutating. It produces candidate definitions, patch plans, 
 - User asks to revise an existing procedure.
 - User asks to author a detailed body for a self-contained stub procedure.
 - User asks to integrate a procedure into Workflow v3 registry/control-plane setup.
+- User asks to prepare a procedure-related repository patch plan or bounded Codex handoff.
 
 ## When Not to Use
 
 - Do not use to execute the procedure being authored.
-- Do not use to mutate repository directly.
+- Do not use to mutate repository/runtime state directly.
 - Do not use to accept candidate output.
 - Do not use to update actual ChatGPT Project UI.
-- Do not use to author complex procedure bodies unless separately scoped.
+- Do not use to author unrelated target procedure bodies in the same run.
+- Do not use to import legacy evidence, deleted runbooks, or obsolete formation sources as current authority.
+- Do not use to start ordinary Direction runtime or accept Direction state.
 
 ## Required Inputs
+
+General inputs:
 
 - target procedure name or intent;
 - target run surface or candidate run surface;
@@ -31,9 +39,16 @@ This procedure is non-mutating. It produces candidate definitions, patch plans, 
 - expected output;
 - known boundaries;
 - source files to inspect;
-- requested integration scope.
+- requested integration scope;
+- repository/base ref when repository work is requested.
 
-For authoring from a self-contained stub, also require:
+Mode classification:
+
+```text
+mode: new_procedure | existing_revision | stub_body_authoring
+```
+
+For authoring from a self-contained stub, also require or extract from exact source:
 
 ```text
 current_registry_entrypoint:
@@ -41,25 +56,46 @@ current_registry_procedure_ref:
 canonical_procedure_path:
 target_role:
 workflow_integration:
-future_body_outline:
+future_body_scope:
+future_body_must_not:
 required_outputs_when_authored:
+stop_behavior_until_authored:
 canonical_path_exception_if_any:
 ```
 
 ## Source Requirements
 
-Read exact relevant Workflow v3 framework, registry, control-plane, eval, and existing procedure sources needed for the requested design scope. Verify EOF where markers exist. Treat Project Files/Sources and chat memory as cache/context only.
+Read exact relevant Workflow v3 framework, registry, control-plane, utility, eval, template, and existing procedure sources needed for the requested design scope. Verify EOF where markers exist.
+
+Required source classes for material procedure authoring:
+
+- `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`
+- selected procedure source when revising or authoring a stub body
+- `workflow_v3/control_plane/RUN_SURFACE_CONTRACTS.md`
+- `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` when lifecycle boundaries are involved
+- `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` when closure boundaries are involved
+- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when procedure class, utility category, Codex/check/child/storage package, or external return is involved
+- Procedure Definition Canon, Procedure Authoring Guide, Procedure Template, and eval sources as needed
+
+Treat Project Files/Sources and chat memory as cache/context only.
+
+Do not read or require deleted runbooks or obsolete formation sources as current authority.
 
 ## Context Classification
 
-Classify inputs as canonical repository source, current human input, candidate context, verified excerpt, Project Files cache/context, legacy_evidence, or unknown/unverified.
+Classify inputs as canonical repository source, accepted record, current human input, candidate context, adapter evidence, verified excerpt, Project Files cache/context, legacy_evidence, or unknown/unverified.
+
+Exact repository files at named repo/path/ref win over cache/context.
 
 ## Complexity Selector
 
-- `standard`: default for bounded procedure design or revision.
-- `checkpointed`: use when the design boundary, registry mapping, canonical path/naming, stub/body status, deleted-source independence, or eval plan needs user review before final proposal.
-- `research_backed`: use only when current external documentation is explicitly needed.
-- `delegated_or_tool_mediated`: use only to prepare a bounded handoff/check plan, not to launch it.
+Use the smallest authoring path that satisfies the output contract:
+
+- `simple`: compact same-path revision, small source-mechanical correction, or self-contained stub target spec with no disputed method design.
+- `standard`: bounded procedure creation/revision using internal Workflow v3 framework sources, no external research, and no user checkpoint before final draft unless ambiguity appears.
+- `checkpointed`: non-trivial procedure design where method, target role, integration boundary, source grounding, procedure class, utility policy, or eval plan should be approved before detailed body drafting.
+- `research_backed`: external/current research is required by Stage 3 before final detailed body drafting.
+- `delegated_or_tool_mediated`: bounded check, child research, Codex, storage package, provider/tool, or external-return work is needed; this procedure may only produce allowed packets or embedded verification gates.
 
 ## Canonical Location and Naming Policy
 
@@ -79,178 +115,281 @@ When authoring or revising a procedure in the Procedure Definition Framework:
 
 - do not keep `*_RUNBOOK.md` or `*_PLAYBOOK.md` naming merely to reduce path churn;
 - use a canonical `workflow_v3/procedures/*_PROCEDURE.md` target path;
-- propose a registry delta so `procedure_ref` points to the canonical procedure file;
+- propose a registry delta so `procedure_ref` points to the canonical procedure file when required;
 - base detailed body authoring on the canonical stub target spec when a stub exists;
+- preserve the stub's target role, workflow integration, future scope, must-not constraints, required outputs, and stop behavior unless explicitly revising the stub itself;
 - mark any non-canonical location or naming as an exception requiring explicit justification.
 
 Registry entries must point to canonical procedure files.
 
+## Procedure Class and Utility Policy
+
+Procedure authoring must decide and document:
+
+```text
+procedure_class:
+allowed_utility_categories:
+external_handoff_policy:
+external_return_policy:
+embedded_verification_policy:
+storage_boundary:
+```
+
+Use `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for class and utility category semantics.
+
+A procedure may use embedded utility/adapter categories only when the selected procedure source and matching run surface allow them. Embedded utility use is not a new owner procedure and must not become hidden procedure switching.
+
 ## Stage Cards
 
-### Fit and Scope
+### Stage 0 - Source Lock / Procedure Selection
 
 ```text
-stage_id: fit_and_scope
-purpose: Confirm the requested procedure is bounded and belongs in Workflow v3.
+stage_id: source_lock_procedure_selection
+purpose: Confirm the selected work belongs to author_workflow_procedure and lock exact source authority before design.
 activation conditions: Always.
-inputs: Target intent, trigger, expected output, known boundaries.
-required intermediate output: Scope statement and non-goals.
-gate: PASS if bounded; STOP if unbounded or mutation/acceptance is hidden.
-checkpoint rule: Checkpoint only if scope is ambiguous.
-expansion rule: Ask for missing scope or inspect named sources.
-stop behavior: Return blocked scope result.
+inputs: User request, Procedure Registry, selected procedure source, run surface contract, utility protocol when relevant, requested source refs.
+required intermediate output: selected_entrypoint, selected_procedure_ref, run_surface_type, procedure_class, source_lock, context_classification.
+gate: PASS if registry entry, selected source, run surface, procedure class, and source authority are verified; STOP if any required source is missing, stale, unreadable, or conflicting.
+checkpoint rule: None by default.
+expansion rule: Read only exact framework/control/eval/procedure sources needed for the admitted authoring task.
+stop behavior: Return SOURCE_INTEGRITY_STOP, UNREGISTERED_ACTION_EXCEPTION, or SPLIT_REQUIRED.
 ```
 
-### Existing Workflow Fit
+### Stage 1 - Procedure Identity Brief
 
 ```text
-stage_id: existing_workflow_fit
-purpose: Map the candidate procedure to existing registry, lifecycle, run surface, and eval rules.
+stage_id: procedure_identity_brief
+purpose: Explain what the target procedure is, why it exists, and how it fits into Workflow before drafting.
 activation conditions: Always.
-inputs: Relevant control-plane and procedure sources.
-required intermediate output: Fit notes and conflicts.
-gate: PASS if compatible; REWORK if wording conflicts; STOP if required sources are missing.
-checkpoint rule: None by default.
-expansion rule: Inspect only exact relevant sources.
-stop behavior: Return source or compatibility blocker.
+inputs: User target, registry/source facts, existing procedure source or candidate target intent.
+required intermediate output: procedure_name, entrypoint, canonical_path, procedure_class, target_role, workflow_integration, when_to_use, when_not_to_use, expected_output, non_goals, mode.
+gate: PASS if the identity brief is specific and bounded; REWORK if role or integration is vague; STOP if the target is not a Workflow v3 procedure authoring task.
+checkpoint rule: Checkpoint if identity, class, integration, or mode is disputed.
+expansion rule: Ask for missing target intent only when it cannot be inferred from exact source and current human input.
+stop behavior: Return bounded identity blocker.
 ```
 
-### Canonical Location and Registry Fit
+### Stage 2 - Stub / Source Grounding
 
 ```text
-stage_id: canonical_location_and_registry_fit
-purpose: Select canonical file path/naming and registry mapping before drafting.
-activation conditions: Always for new procedures and stub body authoring; optional for same-path revisions that are already canonical.
-inputs: Procedure Definition Canon, Procedure Authoring Guide, Procedure Registry, current procedure_ref if any.
-required intermediate output: Canonical path decision, registry delta need, and stub authoring status.
-gate: PASS if the controlling procedure path is under workflow_v3/procedures/** with *_PROCEDURE.md naming; REWORK if obsolete naming is preserved without explicit exception; STOP if registry mapping would remain ambiguous.
-checkpoint rule: Checkpoint when changing path, registry mapping, or stub/body status.
-expansion rule: Inspect exact registry/procedure references only; do not infer authoring policy from stale Project Files or chat memory.
-stop behavior: Return canonical path or registry blocker.
-```
-
-### Procedure Draft
-
-```text
-stage_id: procedure_draft
-purpose: Produce the candidate procedure definition or revision plan.
-activation conditions: Fit gate and canonical_location_and_registry_fit gate passed.
-inputs: Procedure canon, template, guide, existing source if revising.
-required intermediate output: Candidate procedure definition or patch plan.
-gate: PASS if it has specific purpose, triggers, sources, stages, gates, outputs, stops, and canonical path/registry disposition.
-checkpoint rule: Checkpoint for complex or high-impact procedure design.
-expansion rule: Use Procedure Definition Eval as a check.
-stop behavior: Return rework notes.
-```
-
-### Registry Delta
-
-```text
-stage_id: registry_delta
-purpose: Propose compact registry entry and run_surface_type mapping.
-activation conditions: Integration scope includes registry or canonical path/naming changes that affect procedure_ref.
-inputs: Procedure draft, canonical path decision, Procedure Registry.
-required intermediate output: Registry entry proposal.
-gate: PASS if one entrypoint is selected with a short selection hint and procedure_ref points to the canonical procedure path; REWORK if the registry would keep a procedure pointed at obsolete path or naming; STOP if multiple independent entrypoints are needed.
-checkpoint rule: None by default.
-expansion rule: Propose SPLIT_REQUIRED when multiple independent entrypoints are needed.
-stop behavior: Return routing conflict.
-```
-
-### Eval Plan
-
-```text
-stage_id: eval_plan
-purpose: Propose definition and execution eval checks for the procedure.
-activation conditions: Integration scope includes evals or procedure is non-trivial.
-inputs: Procedure draft and eval sources.
-required intermediate output: Eval proposal.
-gate: PASS if checks can catch boundary, source, gate, checkpoint, closure, canonical path/naming, and registry mapping failures.
-checkpoint rule: None by default.
-expansion rule: Add check job proposal only when validation question is bounded.
-stop behavior: Return missing eval coverage.
-```
-
-### Integration Plan
-
-```text
-stage_id: integration_plan
-purpose: Identify run surface compatibility and any future Codex/storage handoff boundary.
+stage_id: stub_source_grounding
+purpose: Ground authoring in the canonical existing source or self-contained stub target spec.
 activation conditions: Always.
-inputs: Registry delta, canonical path decision, stub/body status and deleted-source independence, run surface contract, requested integration scope.
-required intermediate output: Run surface compatibility statement and allowed/forbidden path proposal if needed.
-gate: PASS if integration is non-mutating and bounded; TRANSFER if a separate admitted handoff is needed.
+inputs: Selected procedure source, existing procedure file, stub target spec when present, requested revision scope.
+required intermediate output: existing_source_status, stub_status, extracted_target_role, extracted_workflow_integration, extracted_future_body_scope, extracted_future_body_must_not, extracted_required_outputs_when_authored, source_limitations.
+gate: PASS if the source or stub is self-contained enough to support the requested authoring; REWORK if target spec needs repair; STOP if the task depends on deleted, stale, or non-authoritative sources.
+checkpoint rule: Checkpoint when stub meaning, source authority, or deleted-source independence is unclear.
+expansion rule: Do not infer from Project Files, chat memory, or obsolete context. Use exact repository source or verified excerpts only.
+stop behavior: Return source grounding blocker.
+```
+
+### Stage 3 - Complexity and Research Need Gate
+
+```text
+stage_id: complexity_research_need_gate
+purpose: Select the smallest sufficient authoring path and decide whether external/current research is forbidden, optional, or required.
+activation conditions: Always after Stage 2.
+inputs: Identity brief, source grounding, requested output, target impact, method uncertainty.
+required intermediate output: complexity_class, research_decision, research_reason, research_questions_if_required, evidence_plan_if_required, source_policy_if_required.
+gate: PASS if complexity and research policy are justified; RUN_EXTERNAL_HANDOFF, TRANSFER, or STOP if required research/check/tool work is outside current scope.
+checkpoint rule: If research is required, stop before final body drafting until user approves the research questions/evidence plan or provides approved research context.
+expansion rule: Research is required only for complex method design, high-impact decision logic, non-obvious best practices, external tooling/provider behavior, current external constraints, or explicit user request. Do not make research mandatory for simple procedure edits.
+stop behavior: Return research approval checkpoint or bounded research/check handoff candidate.
+```
+
+### Stage 4 - Method / Best-Practice Design Plan
+
+```text
+stage_id: method_best_practice_design_plan
+purpose: Explain the planned procedure logic before drafting the detailed body.
+activation conditions: Required for checkpointed, research_backed, delegated_or_tool_mediated, new non-trivial procedures, major revisions, or stub body authoring with high impact.
+inputs: Stage 1 identity, Stage 2 grounding, Stage 3 complexity/research decision, Procedure Definition Canon, Procedure Authoring Guide, Utility Adapter Protocol.
+required intermediate output: method_summary, applicable_techniques_patterns_or_workflow_principles, overcomplexity_control, integration_with_START_RUN_FINISH, integration_with_Result_Packet_and_Next_Move_Packet, integration_with_utility_adapter_boundaries, integration_with_parent_or_evidence_boundaries_where_relevant, acceptance_and_update_boundaries, approval_checkpoint_question.
+gate: PASS only after user approval when the procedure is non-trivial; REWORK if the method is too vague, too complex, or violates boundaries.
+checkpoint rule: User approval required before Stage 5 for non-trivial procedure body authoring.
+expansion rule: May propose bounded check/research/handoff candidates, but must not launch them invisibly.
+stop behavior: Return method checkpoint requiring user approval.
+```
+
+### Stage 5 - Detailed Procedure Body Draft
+
+```text
+stage_id: detailed_procedure_body_draft
+purpose: Create or revise the actual procedure body after source, complexity, research, utility, and method gates pass.
+activation conditions: Stage 4 passed or was explicitly not required for simple/standard work.
+inputs: Approved method plan when required, Procedure Definition Canon, template, guide, selected source, utility protocol, eval sources.
+required intermediate output: candidate_procedure_body_or_revision_package, changed_sections, retained_sections, removed_or_replaced_sections, procedure_class, utility_policy, external_handoff_policy, stop_conditions, output_contract.
+gate: PASS if the body includes purpose, triggers, non-triggers, required inputs, source requirements, context classification, complexity selector, stage cards, gates, checkpoint policy, optional expansion, research policy, utility policy, output contract, eval checks, stop conditions, and closure.
+checkpoint rule: Checkpoint only if the draft introduces new boundaries, new handoff paths, new eval requirements, or unresolved design choices.
+expansion rule: Use eval sources as checks; do not broaden into authoring unrelated procedure bodies.
+stop behavior: Return draft insufficiency or boundary blocker.
+```
+
+### Stage 6 - Eval / Registry / Integration Plan
+
+```text
+stage_id: eval_registry_integration_plan
+purpose: Identify required or optional changes outside the procedure body.
+activation conditions: Always after Stage 5.
+inputs: Candidate body/revision package, Procedure Registry, run surface contract, Utility Adapter Protocol, definition/execution evals, closure templates.
+required intermediate output: eval_implications, registry_delta_if_required, procedure_class_delta_if_required, run_surface_delta_if_required, project_refresh_categories, codex_or_storage_handoff_need, allowed_paths_if_later_handoff_needed, forbidden_paths_if_later_handoff_needed.
+gate: PASS if integration impact is explicit and bounded; RUN_EXTERNAL_HANDOFF or TRANSFER only as an allowed typed output; STOP if required integration cannot be bounded.
 checkpoint rule: Checkpoint before any proposed repository mutation package.
-expansion rule: Prepare handoff candidate only when separately requested and bounded.
-stop behavior: Return admission blocker.
+expansion rule: Propose Codex/storage/check work only as candidate packet or allowed RUN_EXTERNAL_HANDOFF, not as hidden launch.
+stop behavior: Return integration blocker or handoff-needed candidate.
 ```
 
-### Closure
+### Stage 7 - Closure
 
 ```text
 stage_id: closure
-purpose: Return the candidate design and next move.
-activation conditions: Always after completed or stopped stages.
+purpose: Return the candidate revision package, limitations, residual risks, and exact next move.
+activation conditions: Always after completed or stopped stages and after required external returns are resolved or blocked.
 inputs: Stage outputs.
-required intermediate output: Result Packet and Next Move Packet.
-gate: PASS if required outputs are present; PASS_WITH_RISK if limitations are named.
+required intermediate output: candidate_revision_package, exact_patch_plan, eval_implications, handoff_need, source_limitations, residual_risks, FINISH_REQUEST.
+gate: PASS if the candidate package is complete; PASS_WITH_RISK if limitations are explicit; STOP if required outputs are absent or required external returns are pending.
 checkpoint rule: None.
 expansion rule: None.
-stop behavior: Return blocked result and exact source/scope need.
+stop behavior: Return blocked result and exact missing requirement.
 ```
 
 ## Gate Outcomes
 
-Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, and `TRANSFER`. `TRANSFER` is limited to candidate handoff/update paths; it does not launch them.
+Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `RUN_EXTERNAL_HANDOFF`, and `RUN_EXTERNAL_RETURN`.
+
+`RUN_EXTERNAL_HANDOFF` is limited to allowed utility categories and does not launch them invisibly.
 
 ## Optional Expansion
 
-Allowed expansion is limited to exact source inspection, bounded eval/check planning, or a candidate Codex/storage handoff when separately requested and bounded.
+Allowed expansion is limited to exact source inspection, bounded eval/check planning, bounded research planning, embedded verification of returned evidence, or a candidate Codex/storage handoff when requested and bounded.
+
+Expansion must remain subordinate to the selected owner procedure.
 
 ## Research Policy
 
-Research is forbidden by default. Use external research only when the user asks for current outside documentation and the question remains non-state-mutating.
+Research is not mandatory by default.
+
+Use the smallest sufficient research posture:
+
+- `forbidden`: simple procedure edits, source-mechanical revisions, registry/path cleanup, or cases where exact internal Workflow v3 framework sources are sufficient.
+- `optional`: design may benefit from outside methods, but internal sources are enough to produce a safe candidate if limitations are stated.
+- `required`: the procedure involves complex method design, high-impact decision logic, non-obvious best practices, external tooling/provider behavior, current external constraints, or the user explicitly requests research.
+
+When research is required, do not draft the final detailed procedure body immediately. First return:
+
+```text
+research_questions:
+evidence_plan:
+source_policy:
+approval_checkpoint:
+```
+
+Proceed to detailed body drafting only after user approval or after the user provides approved research context.
+
+## Utility / Adapter Policy
+
+Allowed utility categories for this procedure when permitted by the run surface:
+
+- `codex_handoff_packet` for bounded repository maintenance patches derived from the selected authoring run;
+- `codex_return_verification` for returned results from a Codex handoff emitted by the same selected authoring run;
+- `check_job_packet` for bounded source/evidence/consistency/validation questions;
+- `child_research_packet` for approved research questions/evidence plans;
+- `storage_update_package` only as a candidate next-surface package after acceptance/update authority is clear;
+- `project_refresh_instruction_packet` for reporting refresh requirements only.
+
+If this procedure emits `RUN_EXTERNAL_HANDOFF`, it must include the complete packet, expected return fields, validation requirements, and same-owner resume rule.
+
+Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any other utility adapter as a new owner procedure during this RUN.
 
 ## Checkpoint Policy
 
-No checkpoint is required for simple bounded procedure edits that remain canonical. Checkpoint when scope, registry mapping, canonical path/naming, stub/body status, deleted-source independence, complex eval design, or future mutation boundaries are ambiguous.
+No checkpoint is required for simple bounded procedure edits that remain canonical.
+
+Checkpoint when scope, registry mapping, canonical path/naming, stub/body status, deleted-source independence, procedure class, utility policy, complex method design, eval design, or future mutation boundaries are ambiguous.
+
+For non-trivial procedure authoring, Stage 4 method approval is required before Stage 5 detailed body drafting.
 
 ## Output Contract
 
 ```text
-candidate_procedure_definition_or_patch_plan:
-canonical_location_and_stub_status:
-registry_entry_proposal:
-run_surface_compatibility_statement:
-eval_proposal:
-allowed_forbidden_path_proposal_if_codex_or_storage_needed:
-result_packet:
-next_move_packet:
+candidate_revision_package:
+  target_file:
+  revision_type:
+  source_basis:
+  procedure_identity_brief:
+  stub_or_source_grounding:
+  complexity_and_research_decision:
+  method_design_plan:
+  procedure_class_and_utility_policy:
+  candidate_body_or_patch_plan:
+  eval_registry_integration_plan:
+  source_limitations:
+  residual_risks:
+
+exact_patch_plan:
+  files_to_change:
+  sections_to_replace:
+  sections_to_add:
+  sections_to_preserve:
+  validation_checks:
+
+eval_implications:
+  procedure_definition_eval:
+  procedure_execution_eval:
+  additional_eval_changes_required:
+
+handoff_need:
+  needed:
+  handoff_type:
+  reason:
+  candidate_allowed_paths:
+  candidate_forbidden_paths:
+  copy_paste_packet_if_required:
+
+closure:
+  external_handoff_status:
+  FINISH_REQUEST:
+  FINISH_PACKET_after_explicit_FINISH:
+  Result_Packet_after_explicit_FINISH:
+  Next_Move_Packet_after_explicit_FINISH:
 ```
 
 ## Eval / Quality Checks
 
 - Procedure has distinguishable trigger and non-trigger.
 - Required inputs and exact source requirements are explicit.
+- Context classification includes adapter evidence where relevant.
+- Procedure class matches registry metadata.
+- Utility/adapter policy is explicit when utility categories are allowed.
 - Stage Cards produce intermediate outputs and use material gates.
-- Stop conditions prevent invention, hidden mutation, self-acceptance, and complex body authoring by implication.
+- Non-trivial authoring explains method before drafting detailed body.
+- Research posture is justified and does not force research for simple edits.
+- Stop conditions prevent invention, hidden mutation, self-acceptance, hidden procedure switching, and complex body authoring by implication.
 - Procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming unless an explicit exception is justified.
-- Stub procedure body authoring preserves target role, workflow integration, output contract, and STOP behavior until authored.
+- Stub procedure body authoring preserves target role, workflow integration, output contract, future scope, must-not constraints, and STOP behavior until authored.
 - Registry hint proposal is compact and does not replace procedure source.
 - Closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
+- FINISH_REQUEST is not emitted while a required external return is pending.
 
 ## Stop Conditions
 
 - target procedure is unbounded;
 - requested procedure would silently mutate state;
-- requested procedure crosses into complex body authoring without separate scope;
+- requested procedure crosses into unrelated body authoring without separate scope;
 - required sources are missing;
 - procedure keeps obsolete runbook/playbook path or naming without explicit exception;
 - registry delta would leave a procedure pointing outside canonical procedure files;
-- user asks to patch repository without Codex/storage admission.
+- user asks to patch repository without admitted utility handoff or storage boundary;
+- research is required but questions/evidence/source policy are not approved;
+- embedded utility use would become hidden procedure switching, acceptance, mutation, or unbounded external wait;
+- required external return is missing or cannot be matched to the emitted handoff.
 
 ## Procedure Closure
 
-Close with the candidate design outputs, limitations, canonical path/registry/stub status, and exact next move. If repository changes are needed later, return a bounded handoff/update proposal rather than applying changes inside this procedure.
+Close with the candidate design outputs, limitations, canonical path/registry/stub status, procedure class/utility status, and exact next move.
+
+If repository changes are needed later, return a bounded Codex/storage/update packet or RUN_EXTERNAL_HANDOFF rather than applying changes directly inside this procedure.
+
+FINISH_REQUEST may be emitted only after required external handoffs have returned, been verified, or been explicitly stopped/abandoned.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md
