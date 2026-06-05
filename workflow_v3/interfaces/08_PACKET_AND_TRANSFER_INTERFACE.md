@@ -14,6 +14,8 @@ This interface defines packet transfer surfaces for Workflow v3.
 | FINISH_PACKET | Closes a selected procedure after explicit FINISH. | lifecycle_state, finished_work, finish_self_audit, result_packet, next_move_packet. |
 | Result Packet | Returns candidate result and evidence. | status, result, evidence, changed files, validation, source/read limitations, not done, project refresh requirements, residual risks, exact next move. |
 | Next Move Packet | Selects exactly one primary next move. | primary_next_move, next_move_type, return_destination, transfer_packet_if_needed, persistence_boundary, acceptance_boundary, blocking_reason_if_any. |
+| RUN_EXTERNAL_HANDOFF | Pauses the selected owner RUN for required external adapter evidence. | See `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`; must include complete copy_paste_packet, expected_return_packet, validation, and same-owner resume rule. |
+| RUN_EXTERNAL_RETURN | Returns external adapter evidence to the same selected owner RUN. | See `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`; must match the emitted handoff and include returned artifacts, verification result, unresolved items, and resume decision. |
 | Parent Integration Result | Integrates returned child/work results against parent criteria. | parent target, input result refs, required results status, evidence fit, conflicts, missing evidence, decision, candidate delta/escalation refs, next move ref. |
 | Graph Delta | Proposes Goal Evidence Graph changes. | graph ref, change type, affected nodes, evidence refs, candidate status updates, acceptance boundary, downstream delta need, limitations. |
 | Upstream Escalation Packet | Carries a lower-layer issue to a required parent decision. | source ref, affected parent, issue type, impact radius, options, recommendation, human decision need, evidence refs, next move ref. |
@@ -30,7 +32,7 @@ This interface defines packet transfer surfaces for Workflow v3.
 ## Required transfer concepts
 
 - `return_destination` states where the result must come back.
-- `returns_to_current_chat` states whether the external surface returns to the current chat for verification or closure.
+- `returns_to_current_chat` states whether the external surface returns to the current chat for verification, closure, or same-owner RUN_EXTERNAL_RETURN.
 - `closure_fact` states the fact emitted when the transfer returns/closes.
 - `copy_paste_packet` must be complete enough that the user does not build prompts manually.
 
@@ -39,7 +41,8 @@ This interface defines packet transfer surfaces for Workflow v3.
 - User must not build prompts manually.
 - A packet that says only "create a prompt/package" is incomplete.
 - Child chat launch is not next material chat launch.
-- Codex result returns for verification/closure before acceptance.
+- Codex result returns as adapter evidence for verification before acceptance. When embedded, it returns through RUN_EXTERNAL_RETURN before FINISH_REQUEST.
+- Next Move Packet is closure routing, not the mid-RUN RUN_EXTERNAL_HANDOFF mechanism.
 - Transfer output remains candidate until accepted or explicitly launched.
 - Parent Integration Result, Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, and Derived Gate Check are typed outputs/records, not accepted state or launch authority.
 

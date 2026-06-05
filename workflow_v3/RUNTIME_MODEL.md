@@ -13,7 +13,9 @@ Direction Spine -> Direction Map / Goal Evidence Graph -> Active Unresolved Cut 
 Procedure movement:
 
 ```text
-START -> RUN -> FINISH -> FINISH_PACKET + Result Packet + Next Move Packet
+START -> RUN
+RUN -> RUN_EXTERNAL_HANDOFF -> RUN_EXTERNAL_RETURN -> RUN
+RUN -> FINISH_REQUEST -> FINISH -> FINISH_PACKET + Result Packet + Next Move Packet
 ```
 
 Control-plane movement:
@@ -25,6 +27,8 @@ Intake -> Procedure Registry -> Procedure Source Read -> Run Surface Contract ->
 This model describes how future Workflow v3 work is structurally bounded, executed, evidenced, accepted, remembered, transferred, and resumed.
 
 Detailed interface contracts live under `workflow_v3/interfaces/**`. Future work must reconcile with that interface layer instead of redefining Direction structure, lifecycle closure, packets, storage, or adapter boundaries independently.
+
+Embedded utility/adapter use, RUN_EXTERNAL_HANDOFF, RUN_EXTERNAL_RETURN, same-owner resume, and adapter evidence boundaries are governed by `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`.
 
 Steering entities are formed through registered procedures before templates are filled or candidates are proposed for acceptance.
 
@@ -48,6 +52,8 @@ Direction Spine
 Workflow movement passes through action admission before material action.
 
 Next Move Packet output is not launch authority by itself. FINISH output does not silently launch next work.
+
+Next Move Packet is closure routing after the selected owner procedure completes or stops. It is not the mid-RUN external handoff mechanism.
 
 Every material action has `run_surface_type` and explicit allowed and forbidden operations.
 
@@ -109,7 +115,9 @@ Work Graph nodes preserve trace to their parent front, map claim, or Goal Eviden
 
 Work Contract states the bounded target, allowed and forbidden surfaces, expected result, and evidence requirements.
 
-Run is execution of that contract through an adapter or human action.
+Run is execution of that contract by the selected owner procedure through an allowed same-chat action, adapter, or human action.
+
+RUN_EXTERNAL_HANDOFF and RUN_EXTERNAL_RETURN are internal RUN gates. They are not separate lifecycle phases and do not switch the selected owner procedure.
 
 Evidence is the verifiable output of a Run. Evidence alone does not change accepted state.
 
@@ -140,6 +148,8 @@ Procedure stages and gates return typed outputs:
 - `EXPAND`
 - `STOP`
 - `TRANSFER`
+- `RUN_EXTERNAL_HANDOFF`
+- `RUN_EXTERNAL_RETURN`
 
 Future typed output packets may include Parent Integration Result, Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, Derived Gate Check, and Memory Candidate. These are candidate outputs until accepted or routed through an admitted procedure.
 
@@ -176,6 +186,8 @@ Memory requires promotion and does not replace canonical storage.
 ChatGPT, Codex, Claude Code/future code assistants, Deep Research/research agents, GitHub access, future AI providers, and human actions are adapters or role implementations.
 
 Adapters may perform a Run and return candidate result/evidence. They do not decide acceptance, route, product meaning, scope expansion, or Direction adoption.
+
+Codex and other external adapters return evidence only. They do not perform ChatGPT FINISH.
 
 ## No hidden accepted state
 

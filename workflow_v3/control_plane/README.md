@@ -22,6 +22,7 @@ Project Instructions bootloader
 -> action admission
 -> procedure registry
 -> run surface contract
+-> utility adapter protocol when adapter categories or external returns are relevant
 -> source integrity gate
 -> chat lifecycle
 -> typed procedure outputs

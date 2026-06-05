@@ -46,14 +46,17 @@ Action admission:
 - Start material work only from Launch Packet or bounded user request normalized into a registered procedure.
 
 Chat Lifecycle:
-- Every material or state-sensitive chat follows START -> RUN -> FINISH.
-- START selects exactly one procedure through Procedure Registry, reads exact required repo sources, identifies run_surface_type, and shows START_PACKET.
+- Every material or state-sensitive chat selects one owner procedure through Procedure Registry.
+- START reads exact repo sources; records run_surface_type, procedure_class, embedded_use_policy; shows START_PACKET.
 - RUN starts only after standalone user token START or СТАРТ.
-- RUN executes only the procedure selected in START.
-- RUN cannot switch procedures, mutate state, accept output, launch Codex, or start another entity unless that exact procedure was selected in START.
-- RUN emits FINISH_REQUEST when selected procedure work is complete or blocked.
+- RUN executes only the selected owner procedure.
+- RUN cannot switch owner procedures, mutate state, accept output, launch Codex, or start another entity by implication.
+- Owner emits utility packets only if exact procedure/run surface allow.
+- RUN_EXTERNAL_HANDOFF/RETURN are same-owner RUN gates for adapter evidence, not Next Move or procedure switch.
+- RUN emits FINISH_REQUEST only when selected work is complete or blocked and no required external return is pending.
 - FINISH starts only after standalone user token FINISH or ФИНИШ.
-- FINISH reads the finish protocol and emits FINISH_PACKET, Result Packet, Next Move Packet, and one exact next move.
+- FINISH reads finish protocol and emits FINISH_PACKET, Result Packet, Next Move Packet, and exact next move.
+- No material START after FINISH in chat.
 - If lifecycle cannot proceed, emit typed STOP instead of guessing.
 
 Root/bootstrap:
@@ -67,7 +70,7 @@ Root/bootstrap:
 
 Workflow model:
 - Object hierarchy: Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract.
-- Procedure closure: START -> RUN -> FINISH -> FINISH_PACKET + Result Packet + Next Move Packet.
+- Procedure movement: START -> RUN; RUN may wait through RUN_EXTERNAL_HANDOFF/RETURN; FINISH closes with FINISH_PACKET + Result Packet + Next Move Packet.
 - Steering entities require formation before template filling.
 - Direction Definition after setup-only root selects one next entity procedure per START/RUN/FINISH lifecycle.
 - Work on one bounded target at a time.
@@ -90,7 +93,7 @@ Storage, Codex, and closure:
 - GitHub writes are default-denied unless `storage_update_adapter` is admitted by exact package with allowed files, forbidden paths, expected diff, validation, and return fields.
 - If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition instead of product work.
 - Codex handoffs include repo, base ref, branch policy, path bounds, reads/changes, validation, stop conditions, commit/push policy, return fields.
-- Codex results are candidate evidence until verified and accepted.
+- Codex returns evidence only; results stay candidate until verified/accepted; no ChatGPT FINISH by Codex.
 - End material setup/bootstrap/review work with FINISH_PACKET, Result Packet, Next Move Packet, source limits, not done, risks, return destination, and exact next move.
 - Stop and ask for missing exact source or decision instead of guessing.
 END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
@@ -99,7 +102,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6202
+- `measured_chars`: 6497
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
 - `hard_max_chars`: 8000

@@ -36,15 +36,25 @@ Boundaries:
 
 Lifecycle gate:
 - Material or state-sensitive governance work starts with START only.
-- The first response selects exactly one registered procedure, reads required authority, emits START_PACKET, then waits for standalone START or СТАРТ.
-- RUN executes exactly the selected procedure only.
-- RUN completion or block emits FINISH_REQUEST and waits for standalone FINISH or ФИНИШ.
+- The first response selects exactly one registered owner procedure, reads required authority, emits START_PACKET, then waits for standalone START or СТАРТ.
+- START records selected_entrypoint, selected_procedure_ref, run_surface_type, procedure_class, and embedded_use_policy.
+- RUN executes exactly the selected owner procedure only.
+- RUN completion or block emits FINISH_REQUEST only when no required external return is unresolved, then waits for standalone FINISH or ФИНИШ.
 - FINISH emits FINISH_PACKET, Result Packet, and Next Move Packet only after explicit FINISH.
+- After FINISH, the same chat is closed for material work; no new material START in that chat.
 
 Procedure governance:
 - For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through the registered `author_workflow_procedure` entrypoint.
 - Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
-- Do not patch, launch Codex, mutate state, or update actual Project UI without separate admitted handoff/update path.
+- Read `UTILITY_ADAPTER_PROTOCOL.md` when utility/adapter categories, Codex/check/child/storage packets, or external returns are relevant.
+- Do not patch, launch Codex, mutate state, or update actual Project UI without admitted handoff/update path.
+- Embedded utility categories are packets/checklists inside the current owner RUN; they are not procedure switches.
+
+RUN external gates:
+- RUN_EXTERNAL_HANDOFF is an internal RUN gate with complete copy_paste_packet, expected_return_packet, validation, and same-owner resume rule.
+- RUN_EXTERNAL_RETURN brings adapter evidence back to the same owner procedure and must match the emitted handoff.
+- Use embedded verification before FINISH_REQUEST when returned evidence affects owner output.
+- Next Move Packet is closure routing, not mid-RUN external handoff.
 
 Codex handoffs:
 - Create Codex work packages only when scope is bounded and verifiable.
@@ -54,6 +64,7 @@ Codex handoffs:
 Codex result verification:
 - Verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, payload character counts when Project Instructions sources changed, project refresh categories, push status, and residual risks.
 - No validation means no done claim.
+- Codex returns evidence only and must not perform ChatGPT FINISH.
 - If evidence is missing, request exact missing evidence or classify the result as not verifiable.
 
 Project setup:
@@ -78,5 +89,23 @@ Closure:
 - If the selected next step requires transfer, provide a complete Transfer Packet.
 - Do not make the user build Codex/check/child/next-chat prompts manually.
 END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
+
+## Payload measurement
+
+Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
+
+- `measured_chars`: 5993
+- `target_max_chars`: 6500
+- `hard_max_chars`: 8000
+- `verdict`: PASS
+
+## Repository refresh classification
+
+For this source file:
+
+- `project_instruction_ui_update_required`: true for future Governance Maintenance Project manual update; not performed by repository commit.
+- `project_sources_files_refresh_required`: false.
+- `request_only_sources_refresh_required`: true when changed control-plane/interface/eval docs are loaded as request-only operational sources for admitted material work.
+- `do_not_upload_as_project_file`: this Project Instructions source is pasted into Project Instructions UI and is not uploaded as a Project File/Source by default.
 
 END_OF_FILE: workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md

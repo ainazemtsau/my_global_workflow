@@ -12,6 +12,7 @@ Validate that closure selects exactly one primary next move with explicit bounda
 - `next_move_type` is one of the allowed values in `CHAT_FINISH_PROTOCOL.md`.
 - Transfer Packet is complete when transfer is needed.
 - External transfer next_move_type has a complete Transfer Packet with copy_paste_packet.
+- Evidence shows this is closure routing after the selected procedure completes or stops, not a mid-RUN RUN_EXTERNAL_HANDOFF.
 
 ## PASS criteria
 
@@ -20,6 +21,7 @@ Validate that closure selects exactly one primary next move with explicit bounda
 - Persistence and acceptance boundaries are explicit.
 - Blocking reason is present when the result is blocked.
 - When an external surface is selected, packet content is complete enough to copy/paste.
+- RUN_EXTERNAL_HANDOFF is used instead when the selected owner RUN must wait for external evidence before FINISH_REQUEST.
 
 ## FAIL criteria
 
@@ -28,6 +30,8 @@ Validate that closure selects exactly one primary next move with explicit bounda
 - Transfer is needed but packet content is incomplete.
 - External transfer next_move_type has placeholder or vague `transfer_packet_if_needed`.
 - User must assemble the Codex/check/child/next-chat prompt manually.
+- Next Move Packet is used for a mid-RUN external handoff.
+- `human_decision` is used to avoid a known required Transfer Packet.
 - `transfer_packet_if_needed` says only "needed", "use previous package", "prepare prompt", or equivalent.
 - A next move is treated as accepted state without an acceptance/update path.
 

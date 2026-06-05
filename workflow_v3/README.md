@@ -79,9 +79,10 @@ Direction Definition is the separate semantic process after setup-only root, usi
 - `workflow_v3/RUNTIME_MODEL.md` - compact Workflow v3 runtime model and boundaries.
 - `workflow_v3/control_plane/README.md` - Workflow v3 action-admission control plane index.
 - `workflow_v3/control_plane/ACTION_ADMISSION_PROTOCOL.md` - before-action admission sequence, stop conditions, and Admission Packet rules.
-- `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` - registered entrypoints, procedure refs, and run surface types.
+- `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` - registered entrypoints, procedure refs, run surface types, procedure classes, and embedded use policies.
 - `workflow_v3/control_plane/RUN_SURFACE_CONTRACTS.md` - allowed/forbidden operations by run surface.
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` - material chat phases from intake through closure/transfer.
+- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` - utility/adapter taxonomy, embedded use, RUN_EXTERNAL_HANDOFF/RETURN, same-owner resume, and storage/verification boundaries.
 - `workflow_v3/control_plane/SOURCE_INTEGRITY_PROTOCOL.md` - exact source read, EOF, and source lock rules.
 - `workflow_v3/control_plane/EXCEPTION_PROTOCOL.md` - blocked exception packet and exception types.
 - `workflow_v3/control_plane/STORAGE_UPDATE_PROTOCOL.md` - storage update adapter package and write boundary.

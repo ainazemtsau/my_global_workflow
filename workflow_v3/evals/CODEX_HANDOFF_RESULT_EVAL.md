@@ -13,6 +13,7 @@ status: active_repository_completion_framework
 ## Evidence required
 
 - self-contained handoff;
+- matching handoff id or exact emitted handoff when embedded;
 - branch policy and branch name;
 - base ref;
 - commit SHA or diff;
@@ -30,6 +31,8 @@ status: active_repository_completion_framework
 - Required validation passes or limitations are explicit.
 - Markdown EOF markers pass when relevant.
 - Codex result returns to current chat for verification and closure.
+- Embedded Codex result returns through RUN_EXTERNAL_RETURN to the same selected owner procedure when the handoff was embedded.
+- Embedded codex_return_verification occurs before FINISH_REQUEST when the result affects owner output.
 - Project refresh fields are separated.
 
 ## WARN criteria
@@ -45,11 +48,14 @@ status: active_repository_completion_framework
 - EOF validation failed.
 - Project UI update or Project Files/Sources refresh conflated with repository commit.
 - Result Packet treated as accepted state.
+- Codex result cannot be matched to the emitted embedded handoff.
+- Codex is asked to close the ChatGPT lifecycle.
 
 ## Common failure modes
 
 - Codex routes product meaning.
 - Codex expands scope beyond package.
+- Embedded verification treated as acceptance.
 - Changed file list omitted.
 
 ## Required recovery/repair action

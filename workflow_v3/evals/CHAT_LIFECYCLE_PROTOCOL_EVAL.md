@@ -4,16 +4,19 @@ status: active_eval
 
 ## Purpose
 
-Validate that material and state-sensitive Workflow v3 chats follow START -> RUN -> FINISH.
+Validate that material and state-sensitive Workflow v3 chats follow START -> RUN -> FINISH, including internal RUN_EXTERNAL_HANDOFF / RUN_EXTERNAL_RETURN gates when present.
 
 ## PASS checks
 
 - START_PACKET appears before material RUN.
 - START_PACKET selects exactly one work item.
-- START_PACKET names selected_entrypoint, selected_procedure_ref, and run_surface_type.
+- START_PACKET names selected_entrypoint, selected_procedure_ref, run_surface_type, procedure_class, and embedded_use_policy.
 - START_PACKET includes source_lock with EOF status for required markdown sources.
 - RUN starts only after standalone user token START or СТАРТ.
 - RUN executes only the procedure selected in START.
+- RUN_EXTERNAL_HANDOFF is typed, complete, and does not switch owner procedure when present.
+- RUN_EXTERNAL_RETURN matches the emitted handoff and resumes the same owner procedure when present.
+- External return verification occurs before FINISH_REQUEST when returned evidence affects output.
 - RUN emits FINISH_REQUEST before FINISH.
 - FINISH starts only after standalone user token FINISH or ФИНИШ.
 - FINISH_PACKET includes finish_self_audit.
@@ -36,6 +39,12 @@ Validate that material and state-sensitive Workflow v3 chats follow START -> RUN
 - Compound input is executed without SPLIT_REQUIRED.
 - RUN executes a procedure not selected in START.
 - RUN switches from one steering entity to another.
+- RUN_EXTERNAL_HANDOFF is incomplete or lacks expected return fields.
+- RUN_EXTERNAL_RETURN cannot be matched to the emitted handoff.
+- External result is relied on before required verification.
+- Codex or another adapter is asked to perform ChatGPT lifecycle FINISH.
+- FINISH_REQUEST is emitted while required external return is unresolved.
+- Same chat starts a new material START after FINISH.
 - RUN mutates state without storage_update_adapter.
 - Producing chat accepts its own output.
 - FINISH is missing.

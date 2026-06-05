@@ -6,6 +6,8 @@ status: active_interface_layer
 
 This interface defines provider/adapter boundaries.
 
+Embedded adapter use is governed by `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`.
+
 ## Adapter classes
 
 Adapters include:
@@ -53,8 +55,12 @@ Codex is a bounded repository-work adapter.
 
 Codex handoff must include repository, base ref, target branch/branch policy, allowed paths, forbidden paths, required reads, required changes, validation, stop conditions, commit/push instruction, and requested return fields.
 
-Codex result returns to the requesting/current chat for verification and FINISH closure.
+Codex handoff may be embedded as RUN_EXTERNAL_HANDOFF when the selected owner procedure and run surface allow Codex evidence before completion.
+
+Codex result returns as adapter evidence to the requesting/current chat. When embedded, it returns through RUN_EXTERNAL_RETURN to the same selected owner procedure before FINISH_REQUEST.
 
 Codex result verification must check branch, commit/diff, changed files, allowed paths, forbidden paths, validation output, EOF markers where relevant, project refresh requirements, and residual risks.
+
+Codex must not perform ChatGPT lifecycle FINISH and must not decide acceptance.
 
 END_OF_FILE: workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md

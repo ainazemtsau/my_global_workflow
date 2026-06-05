@@ -14,6 +14,8 @@ status: active_repository_completion_framework
 ## Evidence required
 
 - parent target;
+- RUN_EXTERNAL_HANDOFF packet if mid-RUN external evidence is required;
+- expected return fields for RUN_EXTERNAL_HANDOFF if present;
 - child launch packet if any;
 - child result or missing-result evidence;
 - FINISH_PACKET when lifecycle mode applies;
@@ -32,6 +34,9 @@ For material or state-sensitive chats, run CHAT_LIFECYCLE_PROTOCOL_EVAL before h
 - Parent remains synthesis authority.
 - Missing required child result blocks synthesis.
 - Transfer Packet or Next Chat Prompt is complete enough for copy-paste use.
+- RUN_EXTERNAL_HANDOFF is distinguished from closure Transfer Packet / Next Move Packet.
+- RUN_EXTERNAL_HANDOFF includes complete copy_paste_packet, expected_return_packet, validation requirements, and same-owner resume rule.
+- RUN_EXTERNAL_RETURN matches the emitted handoff before synthesis or closure relies on it.
 
 ## WARN criteria
 
@@ -45,6 +50,9 @@ For material or state-sensitive chats, run CHAT_LIFECYCLE_PROTOCOL_EVAL before h
 - Missing child evidence synthesized.
 - Parent Recovery Block missing when multiple children are launched.
 - Transfer Packet requires manual user assembly.
+- Mid-RUN external handoff is represented as Next Move Packet instead of RUN_EXTERNAL_HANDOFF.
+- RUN_EXTERNAL_HANDOFF lacks copy_paste_packet or expected return fields.
+- RUN_EXTERNAL_RETURN resumes a different owner procedure.
 - Handoff emitted without FINISH_PACKET when lifecycle mode applies.
 
 ## Common failure modes
