@@ -108,6 +108,10 @@ next_move_packet:
 - `storage_update`
 - `stop`
 
-`transfer_packet_if_needed` is `not needed` when the next move can be fully understood in the current chat. When transfer is required, it must name or include the complete Transfer Packet.
+`transfer_packet_if_needed` is `not needed` only when the next move can be completed in the same chat without an external surface.
+
+If `next_move_type` is `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`, `transfer_packet_if_needed` must include or reference a complete Transfer Packet with a complete `copy_paste_packet`.
+
+`Needed if using X`, `use previous approved package`, `prepare a prompt`, and equivalent placeholders are invalid transfer packets.
 
 END_OF_FILE: workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md

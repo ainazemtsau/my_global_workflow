@@ -38,4 +38,10 @@ Allowed values:
 
 Transfer Packet is complete copy-paste transport for the selected next move. It remains candidate until explicitly launched or accepted where acceptance is required.
 
+`copy_paste_packet` must be complete and standalone.
+
+If `transfer_packet_type` is `codex_handoff`, `copy_paste_packet` must include either the complete Codex package or a complete `codex_handoff` procedure launch prompt. It must not be a placeholder.
+
+If the source package is in a previous chat, summarize or include the package in `copy_paste_packet`; do not tell the user to reconstruct it.
+
 END_OF_FILE: workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md

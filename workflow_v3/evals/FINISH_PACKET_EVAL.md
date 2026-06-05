@@ -14,6 +14,7 @@ Validate that FINISH closes one selected procedure with the required packet shap
 - FINISH_PACKET contains lifecycle_state, finished_work, finish_self_audit, result_packet, and next_move_packet.
 - Result Packet is present exactly once.
 - Next Move Packet is present exactly once.
+- Next Move Packet includes a required complete transfer packet when it selects an external surface.
 
 ## PASS criteria
 
@@ -21,6 +22,7 @@ Validate that FINISH closes one selected procedure with the required packet shap
 - FINISH_PACKET does not mutate accepted state.
 - FINISH_PACKET does not launch the selected next move invisibly.
 - Source/read limitations are stated.
+- FINISH self-audit fails if next_move_packet lacks a required complete transfer packet.
 
 ## FAIL criteria
 
@@ -28,6 +30,7 @@ Validate that FINISH closes one selected procedure with the required packet shap
 - More than one selected procedure is closed.
 - Result Packet or Next Move Packet is missing.
 - FINISH output mutates state or launches work by implication.
+- next_move_packet selects an external surface but lacks a complete Transfer Packet with copy_paste_packet.
 
 ## Required recovery/repair action
 
