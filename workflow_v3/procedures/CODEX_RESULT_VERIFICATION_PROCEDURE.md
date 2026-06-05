@@ -67,7 +67,7 @@ Project Files/Sources, chat memory, summaries, and unverified snippets are not e
 
 ## Context Classification
 
-Classify Codex return content as adapter evidence. Classify repository files/diffs as canonical repository source only when exact branch/commit/path evidence is inspected. Treat Result Packets and validation text as candidate evidence until verified.
+Classify Codex return content as adapter evidence. Classify repository files/diffs as canonical repository source only when exact branch/commit/path evidence is inspected. Treat FINISH_PACKET results and validation text as candidate evidence until verified.
 
 ## Complexity Selector
 
@@ -195,7 +195,7 @@ exact_next_move:
 
 ## Procedure Closure
 
-Verification does not accept state. If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
+Verification does not accept state. If lifecycle FINISH is active, close through CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
 
 If the result needs acceptance, storage, or repair, return the exact next move or Transfer Packet; do not launch it.
 

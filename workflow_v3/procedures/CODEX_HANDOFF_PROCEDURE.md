@@ -23,7 +23,7 @@ When embedded inside another selected main procedure, this file supplies handoff
 
 Embedded use does not change `selected_entrypoint` or `selected_procedure_path` and does not start a new lifecycle.
 
-Embedded use emits UTILITY_CALL, not FINISH_REQUEST.
+Embedded use emits UTILITY_CALL, not FINISH closure artifacts.
 
 ## Trigger / When to Use
 
@@ -66,7 +66,7 @@ Project Files/Sources, chat memory, snippets, and pasted excerpts are cache/cont
 
 Classify inputs as canonical repository source, current human input, verified excerpt, Project Files cache/context, candidate context, legacy_evidence, or unknown/unverified.
 
-Do not treat Codex output, handoff text, validation output, or Result Packets as accepted state.
+Do not treat Codex output, handoff text, validation output, or FINISH_PACKET results as accepted state.
 
 ## Complexity Selector
 
@@ -212,6 +212,6 @@ requested_return_fields:
 
 Return the handoff package as candidate output. Codex returns evidence only, and that result remains candidate evidence until verification and acceptance.
 
-If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet only for this selected adapter run. Do not launch Codex invisibly and do not ask Codex to close the ChatGPT lifecycle.
+If lifecycle FINISH is active, close through CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation only for this selected adapter run. Do not launch Codex invisibly and do not ask Codex to close the ChatGPT lifecycle.
 
 END_OF_FILE: workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md

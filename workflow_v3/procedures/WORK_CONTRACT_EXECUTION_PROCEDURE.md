@@ -42,8 +42,8 @@ This is the missing execution bridge between Work Contract formation and Parent 
 - execute same-chat work only if allowed by procedure boundary;
 - or produce Transfer Packet for child chat, check job, Codex, human action;
 - collect result/evidence;
-- return Result Packet;
-- route to Parent Integration or Acceptance Review boundary through visible Next Move Packet.
+- return FINISH_PACKET result;
+- route to Parent Integration or Acceptance Review boundary through visible NEXT_CHAT_CARD continuation.
 
 ## future_body_must_not
 
@@ -54,12 +54,13 @@ This is the missing execution bridge between Work Contract formation and Parent 
 
 ## required_outputs_when_authored
 
-- candidate Result Packet with evidence or blocked result;
+- candidate FINISH_PACKET result with evidence or blocked result;
 - next move to Parent Integration or Acceptance Review boundary;
 - Transfer Packet when execution must move surfaces;
 - validation/source limitations;
+- CLOSURE_CHECK;
 - FINISH_PACKET;
-- Next Move Packet.
+- NEXT_CHAT_CARD or no_next_chat_needed.
 
 ## Completion Contract
 
@@ -72,19 +73,29 @@ completion:
 ## stop_behavior_until_authored
 
 ```text
-result_packet.status: blocked
-result_packet.result: PROCEDURE_BODY_NOT_AUTHORED
-result_packet.evidence: canonical stub exists and describes target role
-result_packet.not_done: author detailed body in separate bounded author_workflow_procedure run
-next_move_packet.primary_next_move: author this procedure body in separate bounded author_workflow_procedure run
-next_move_packet.next_move_type: next_material_chat | same_chat_continuation
-next_move_packet.blocking_reason_if_any: PROCEDURE_BODY_NOT_AUTHORED
+CLOSURE_CHECK:
+  status: blocked
+  result: PROCEDURE_BODY_NOT_AUTHORED
+  evidence: canonical stub exists and describes target role
+  not_done: author detailed body in separate bounded author_workflow_procedure run
+FINISH_PACKET:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  evidence: canonical stub source and target role are present
+  residual_risks: detailed body is not authored
+NEXT_CHAT_CARD:
+  title: Author this procedure body
+  why: PROCEDURE_BODY_NOT_AUTHORED
+  main_procedure_to_start: author_workflow_procedure
+  context_to_paste: this procedure file and target role
+  expected_result: authored detailed procedure body
+  evidence_or_return_needed: updated procedure source with completion block
+  start_instruction: START with author_workflow_procedure for this file
 ```
 
-## finish_closure_shape
+## procedure_closure_shape
 
+- CLOSURE_CHECK
 - FINISH_PACKET
-- Result Packet
-- Next Move Packet
+- NEXT_CHAT_CARD or no_next_chat_needed
 
 END_OF_FILE: workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md

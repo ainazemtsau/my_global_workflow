@@ -115,6 +115,6 @@ escalation_if_state_sensitive:
 
 ## Procedure Closure
 
-Return the output contract directly for non-material inline answers. If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
+Return the output contract directly for non-material inline answers. If lifecycle FINISH is active, close through CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
 
 END_OF_FILE: workflow_v3/procedures/GENERIC_ANSWER_PROCEDURE.md

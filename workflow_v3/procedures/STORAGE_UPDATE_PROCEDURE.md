@@ -28,7 +28,7 @@ Use this procedure when all are true:
 Typical upstream sources:
 
 - an Acceptance Decision result that identifies `storage_update_need`;
-- a Current Next Move Packet with `next_move_type: storage_update` and a complete Transfer Packet;
+- a Current NEXT_CHAT_CARD continuation naming `storage_update` with complete transfer content in `context_to_paste`;
 - a parent procedure result that already carries admitted storage authority and a complete Storage Update Package.
 
 ## When Not to Use
@@ -429,7 +429,7 @@ stage_id: storage_evidence_closure
 purpose: Return storage evidence without choosing the next semantic step.
 activation conditions: Always after validation gate or blocked/no-op result.
 inputs: all stage outputs.
-required intermediate output: storage_update_result, changed files, validation, source limitations, refresh requirements, residual risks, FINISH_REQUEST.
+required intermediate output: storage_update_result, changed files, validation, source limitations, refresh requirements, residual risks, CLOSURE_CHECK.
 gate: PASS if output contract is complete; PASS_WITH_RISK if limitations are explicit; STOP if required return evidence is missing.
 checkpoint rule: None.
 expansion rule: None.
@@ -521,7 +521,7 @@ external_return_verification:
   - verify branch/commit/diff/changed files/EOF/validation only when a separately admitted same-owner external storage policy exists
 
 embedded_verification_policy:
-  - post-write verification is mandatory before FINISH_REQUEST
+  - post-write verification is mandatory before FINISH is requested
 
 storage_boundary:
   - write only exact listed paths
@@ -560,7 +560,7 @@ validation_required_on_return:
 resume_rule: resume the same selected main procedure
 ```
 
-FINISH_REQUEST must not be emitted while a required utility return is pending.
+FINISH must not be requested while a required utility return is pending.
 
 ## Project Refresh Reporting
 
@@ -641,10 +641,10 @@ storage_update_result:
     do_not_upload_as_project_file:
   source_read_limitations:
   residual_risks:
-  FINISH_REQUEST:
+  CLOSURE_CHECK:
   FINISH_PACKET_after_explicit_FINISH:
-  Result_Packet_after_explicit_FINISH:
-  Next_Move_Packet_after_explicit_FINISH:
+  FINISH_PACKET_result_after_explicit_FINISH:
+  NEXT_CHAT_CARD_or_no_next_chat_needed_after_explicit_FINISH:
 ```
 
 Output rules:
@@ -668,7 +668,7 @@ Procedure Definition checks:
 - Stop conditions prevent invention, hidden mutation, hidden acceptance, and boundary crossing.
 - Utility/storage policy is explicit.
 - External handoff/resume policy is explicit.
-- Closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
+- Closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
 - Canonical path and `*_PROCEDURE.md` naming are preserved.
 - Procedure class matches registry metadata.
 
@@ -682,8 +682,8 @@ Procedure Execution checks:
 - Forbidden paths were untouched.
 - EOF markers were verified where required.
 - Listed validation ran or produced a typed stop.
-- FINISH_REQUEST was emitted only after all required write/verification evidence resolved.
-- Next Move Packet selected exactly one closure move and did not launch it.
+- FINISH was requested only after all required write/verification evidence resolved.
+- NEXT_CHAT_CARD continuation selected exactly one closure move and did not launch it.
 
 Cross-boundary checks:
 
@@ -733,7 +733,7 @@ Block/no-op outcomes:
 
 ## Procedure Closure
 
-RUN completion emits FINISH_REQUEST only after:
+RUN completion requests FINISH only after:
 
 - no required utility return is pending;
 - write was applied, blocked, failed, or confirmed no-op;
@@ -745,11 +745,11 @@ RUN completion emits FINISH_REQUEST only after:
 
 After explicit FINISH or ФИНИШ, close with:
 
+- CLOSURE_CHECK;
 - FINISH_PACKET;
-- Result Packet;
-- Next Move Packet.
+- NEXT_CHAT_CARD or no_next_chat_needed.
 
-Next Move Packet must not launch the next semantic step. It may return storage evidence to the parent, acceptance, current-next-move, verification, or human review boundary.
+NEXT_CHAT_CARD continuation must not launch the next semantic step. It may return storage evidence to the parent, acceptance, current-next-move, verification, or human review boundary.
 
 After FINISH, the same chat is closed for material work.
 
@@ -787,7 +787,7 @@ Result: STOP with WRITE_NOT_ADMITTED or package-needed return.
 Bad use:
 
 ```text
-Current Next Move says next_move_type: storage_update but transfer_packet_if_needed says "use previous approved package".
+Current Next Move says storage_update but NEXT_CHAT_CARD.context_to_paste says "use previous approved package".
 Result: STOP because placeholders are invalid.
 ```
 

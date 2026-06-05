@@ -121,7 +121,7 @@ Do not invent missing evidence, authority, scope, or update permission. Missing 
 
 Candidate result/evidence:
 
-- The artifact, result packet, return packet, diff, validation, source excerpt, or proposed state that is being reviewed.
+- The artifact, closure result, return packet, diff, validation, source excerpt, or proposed state that is being reviewed.
 - It is candidate context or adapter evidence until this procedure forms an explicit decision.
 
 Reviewer authority:
@@ -218,10 +218,10 @@ acceptance_decision_record:
     storage_update_need:
     update_authorization:
     storage_update_package_if_applicable:
-    next_move_type:
-    transfer_packet_if_needed:
+    continuation_target:
+    next_chat_card_context_to_paste:
   closure:
-    result_packet_status:
+    closure_result_status:
     residual_risks:
     exact_next_move:
 ```
@@ -261,7 +261,7 @@ parked
 `repair_required`:
 
 - Use when the candidate may become acceptable after bounded repair, additional evidence, validation, scope reduction, or source correction.
-- If the repair surface is known and external, include a complete Transfer Packet in the Next Move Packet.
+- If the repair surface is known and external, include a complete Transfer Packet in the NEXT_CHAT_CARD continuation.
 
 `blocked`:
 
@@ -298,7 +298,7 @@ Before forming a decision, read and verify:
 - update authorization and storage package if persistence may be needed;
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` for `acceptance_review`;
 - `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for adapter, utility, storage, and external write boundaries;
-- `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` for Result Packet and Next Move Packet closure;
+- `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` for FINISH_PACKET result and NEXT_CHAT_CARD continuation closure;
 - `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` when a Storage Update Package is referenced or prepared.
 
 Source authority rules:
@@ -335,7 +335,7 @@ Classification rules:
 - storage return evidence is evidence, not acceptance;
 - update authorization is not storage execution;
 - a Storage Update Package is not a write;
-- a Next Move Packet is routing, not accepted state.
+- a NEXT_CHAT_CARD continuation is routing, not accepted state.
 
 ## Complexity Selector
 
@@ -442,7 +442,7 @@ stage_id: consequence_storage_boundary_gate
 purpose: Determine storage update need, update authorization, and next move without executing storage or hidden work.
 activation conditions: Always after Stage 5.
 inputs: decision, update_context, affected paths, Storage Update Package if known, return destination.
-required intermediate output: storage_update_need, update_authorization, storage package completeness, next_move_type, transfer_packet_if_needed.
+required intermediate output: storage_update_need, update_authorization, storage package completeness, continuation_target, next_chat_card_context_to_paste.
 gate: PASS if consequences match the decision and storage boundaries remain separate; REWORK if a candidate package can be completed from exact fields; STOP if storage-ready status would require missing authority, missing paths, missing validation, or direct mutation.
 checkpoint rule: Checkpoint if update authorization is possible but not explicit.
 expansion rule: May prepare a complete `storage_update_package.v1` candidate or transfer packet only from exact fields.
@@ -453,10 +453,10 @@ stop behavior: Return STORAGE_UPDATE_BOUNDARY_MISSING or WRITE_NOT_ADMITTED.
 
 ```text
 stage_id: closure
-purpose: Return the decision record, Result Packet, Next Move Packet, limitations, residual risks, and FINISH_REQUEST readiness.
+purpose: Return the decision record, FINISH_PACKET result, NEXT_CHAT_CARD continuation, limitations, residual risks, and CLOSURE_CHECK readiness.
 activation conditions: Always after decision or blocked result.
 inputs: all prior stage outputs.
-required intermediate output: acceptance_decision_record, result_packet, next_move_packet, source_limitations, residual_risks, FINISH_REQUEST.
+required intermediate output: acceptance_decision_record, closure_result, continuation, source_limitations, residual_risks, CLOSURE_CHECK.
 gate: PASS if decision record and closure packets are complete; PASS_WITH_RISK if limitations are explicit; STOP if closure would hide acceptance, mutation, next work, or pending utility return.
 checkpoint rule: None.
 expansion rule: None.
@@ -472,7 +472,7 @@ Use:
 - `REWORK` only before decision when exact missing fields can be supplied without inference.
 - `EXPAND` only for bounded evidence, verification, or source checks needed for this acceptance review.
 - `STOP` when source, authority, independence, scope, evidence, or storage boundary is unsafe.
-- `TRANSFER` only as a closure Next Move Packet artifact; it does not launch the transfer.
+- `TRANSFER` only as a closure NEXT_CHAT_CARD continuation artifact; it does not launch the transfer.
 - `UTILITY_CALL` only when this selected acceptance review needs external evidence before forming the decision.
 - `UTILITY_RETURN` only to resume this same selected review after matching returned evidence.
 
@@ -575,9 +575,9 @@ validation_required_on_return:
 resume_rule: resume the same selected main procedure
 ```
 
-`next_move_packet.transfer_packet_if_needed` is a closure artifact after this procedure forms or blocks the decision. It does not launch work and must be complete when the next surface is `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`.
+`NEXT_CHAT_CARD.context_to_paste` is a closure artifact after this procedure forms or blocks the decision. It does not launch work and must carry complete transfer content when the next surface is `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`.
 
-FINISH_REQUEST must not be emitted while a required utility return is pending.
+FINISH must not be requested while a required utility return is pending.
 
 ## Checkpoint Policy
 
@@ -624,14 +624,14 @@ acceptance_decision_result:
   storage_update_package_if_applicable:
     package_version: storage_update_package.v1 | not_applicable
     canonical_schema_ref: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
-  next_move_packet:
+  continuation:
   validation:
   source_limitations:
   residual_risks:
-  FINISH_REQUEST:
+  CLOSURE_CHECK:
 ```
 
-After explicit FINISH or ФИНИШ, closure must include FINISH_PACKET, Result Packet, and Next Move Packet as defined by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
+After explicit FINISH or ФИНИШ, closure must include FINISH_PACKET and a NEXT_CHAT_CARD or no_next_chat_needed continuation as defined by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
 
 ## Storage Update Package Requirements
 
@@ -695,7 +695,7 @@ Procedure Definition checks:
 - Candidate quality, acceptance, update authorization, and storage execution are separate.
 - Utility Decision Gate and adapter policy are explicit.
 - External handoff/resume policy is explicit.
-- Closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
+- Closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
 - Canonical path and procedure class match registry metadata.
 
 Procedure Execution checks:
@@ -707,8 +707,8 @@ Procedure Execution checks:
 - Acceptance scope did not broaden beyond evidence and authority.
 - No direct storage mutation occurred.
 - Storage Update Package v1 was used as canonical executable storage schema.
-- FINISH_REQUEST was emitted only after decision or blocked result and no pending required utility return.
-- Next Move Packet selected exactly one primary next move and did not launch it.
+- FINISH was requested only after decision or blocked result and no pending required utility return.
+- NEXT_CHAT_CARD continuation selected exactly one primary next move and did not launch it.
 
 Cross-boundary checks:
 
@@ -732,12 +732,12 @@ Stop or return `blocked` when:
 - direct storage mutation is requested;
 - a Storage Update Package would require alternate schema fields instead of `storage_update_package.v1`;
 - a required Transfer Packet is missing or a placeholder;
-- required utility return is pending before FINISH_REQUEST;
+- required utility return is pending before FINISH is requested;
 - the procedure would launch repair, storage, Codex, child, check, or next material work directly.
 
 ## Procedure Closure
 
-RUN completion emits FINISH_REQUEST only after:
+RUN completion requests FINISH only after:
 
 - exactly one decision is formed or a blocked result explains why not;
 - forbidden shortcut checks are recorded;
@@ -746,13 +746,13 @@ RUN completion emits FINISH_REQUEST only after:
 - storage/update consequence is explicit;
 - any required Transfer Packet is complete or the blocker is stated;
 - no required utility return is pending;
-- Result Packet and Next Move Packet are ready.
+- FINISH_PACKET result and NEXT_CHAT_CARD continuation are ready.
 
 After explicit FINISH or ФИНИШ, close with:
 
+- CLOSURE_CHECK;
 - FINISH_PACKET;
-- Result Packet;
-- Next Move Packet.
+- NEXT_CHAT_CARD or no_next_chat_needed.
 
 After FINISH, the same chat is closed for material work. The selected next move may be started only through its emitted Transfer Packet or a new admitted lifecycle, never by hidden continuation.
 
@@ -779,8 +779,8 @@ storage_update_package_if_applicable:
 ```text
 decision: repair_required
 reason: Evidence supports the target role, but storage package lacks validation.commands_or_checks.
-next_move_type: codex
-transfer_packet_if_needed: complete bounded repair packet required
+continuation_target: codex_handoff
+next_chat_card_context_to_paste: complete bounded repair packet required
 storage_update_need: blocked_missing_update_boundary
 ```
 

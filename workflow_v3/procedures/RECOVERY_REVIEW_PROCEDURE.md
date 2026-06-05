@@ -174,6 +174,6 @@ blocked_context_request
 
 Recovery review produces candidate outcome only. It does not repair, mutate, accept, import, or persist.
 
-If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
+If lifecycle FINISH is active, close through CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
 
 END_OF_FILE: workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md
