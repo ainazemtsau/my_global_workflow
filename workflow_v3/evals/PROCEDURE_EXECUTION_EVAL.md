@@ -19,6 +19,11 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - Checkpoints occurred when required.
 - Expansion, research, child, or check work was bounded.
 - No procedure switch occurred during RUN.
+- One owner procedure stayed selected through RUN.
+- Embedded utility handoff was typed and complete.
+- Returned external result matched the emitted handoff.
+- Embedded verification occurred before FINISH_REQUEST when required.
+- No new material START occurred after FINISH in the same chat.
 - For procedure authoring, canonical path/naming and stub/body status were evaluated.
 - Registry delta points `procedure_ref` to the canonical procedure file unless an explicit bounded exception was recorded.
 - FINISH_REQUEST happened before FINISH.
@@ -35,6 +40,12 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 ## FAIL checks
 
 - Procedure switch during RUN.
+- New material START inside the same chat after FINISH.
+- Utility adapter treated as new owner procedure inside active RUN.
+- Codex result accepted without verification.
+- Codex asked to close ChatGPT lifecycle.
+- FINISH_REQUEST emitted while required external return is unresolved.
+- `human_decision` used to avoid a materially known external transfer packet.
 - Hidden mutation.
 - Hidden acceptance.
 - Weak final artifact despite unmet gate.

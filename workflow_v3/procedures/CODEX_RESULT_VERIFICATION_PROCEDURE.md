@@ -2,11 +2,32 @@
 
 status: active_procedure
 
+## Procedure Class
+
+```text
+procedure_class: verification_adapter
+embedded_use_policy: standalone_or_embedded_verification_schema
+```
+
 ## Purpose
 
 Use `codex_result_verification` to verify a Codex return before acceptance or storage update reliance.
 
 Verification is candidate evidence, not acceptance by itself. This procedure does not repair runtime state, launch follow-up work, or treat a Codex commit as accepted state.
+
+## Embedded Verification Mode
+
+If the current owner procedure emitted the Codex handoff and the user returns the Codex result in the same active RUN, use this verification procedure as schema/checklist only.
+
+Do not select `codex_result_verification` as a new `selected_procedure_ref` during embedded use.
+
+Embedded verification must verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, Project refresh categories, push status, and residual risks.
+
+No validation means no done claim.
+
+Verification does not equal acceptance.
+
+Standalone verification remains valid when the user's primary work item is only Codex result verification.
 
 ## Trigger / When to Use
 
@@ -25,6 +46,7 @@ Verification is candidate evidence, not acceptance by itself. This procedure doe
 
 - Codex return fields;
 - original handoff or allowed/forbidden path boundary;
+- matching_handoff_id or exact emitted handoff packet when embedded;
 - branch;
 - commit_sha;
 - changed_files;
@@ -143,6 +165,7 @@ exact_next_move:
 ## Eval / Quality Checks
 
 - Branch, commit SHA, changed files, and push status are verified or missing evidence is named.
+- Returned evidence matches the emitted handoff when verification is embedded.
 - Changed files are compared against allowed and forbidden paths.
 - Validation output is present; no validation means no done claim.
 - EOF markers are checked for Markdown files that require them.
@@ -159,6 +182,7 @@ exact_next_move:
 - required EOF marker is missing or mismatched;
 - Project Instructions source changed but payload count is missing;
 - project refresh categories are missing when relevant;
+- embedded return cannot be matched to the emitted handoff;
 - verification would imply acceptance, storage mutation, repair, or hidden next launch.
 
 ## Procedure Closure

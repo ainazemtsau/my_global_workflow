@@ -8,6 +8,12 @@ This file is the authoritative Workflow v3 protocol for procedure classes, utili
 
 This protocol keeps the Procedure Registry as the single START routing source. It does not create a second router or a procedure call graph.
 
+## Purpose
+
+This protocol lets one selected owner procedure emit and resume from typed utility/adapter packets during RUN without switching procedures, opening a second material START, or hiding mutation/acceptance behind adapter work.
+
+It defines standalone adapter use, embedded adapter use, RUN_EXTERNAL_HANDOFF, RUN_EXTERNAL_RETURN, embedded verification, and storage boundaries.
+
 ## Procedure classes
 
 Allowed `procedure_class` values:
@@ -38,7 +44,7 @@ Allowed `utility_category` values:
 - `storage_update_package` - package for later storage execution after acceptance/update authority is clear; it is not embedded storage execution.
 - `project_refresh_instruction_packet` - reporting instruction for Project UI or Project Files refresh; it does not perform refresh.
 
-## Standalone utility selection
+## Standalone vs embedded use
 
 A utility or verification adapter may be selected directly by START only when the user request is primarily to prepare or verify that adapter artifact.
 
@@ -48,8 +54,6 @@ Examples:
 - use `codex_result_verification` directly when the selected work is only to verify a returned Codex result.
 
 Standalone selection still obeys START -> RUN -> FINISH and must not mutate, accept, or launch another material step unless the selected run surface explicitly allows that operation.
-
-## Embedded utility use
 
 Embedded utility use is internal to RUN of the selected owner procedure.
 
@@ -73,16 +77,18 @@ Required shape:
 
 ```text
 RUN_EXTERNAL_HANDOFF:
+  handoff_id:
   lifecycle_state: RUN_WAITING_FOR_EXTERNAL_RETURN
   owner_entrypoint:
   owner_procedure_ref:
   utility_category:
   external_surface:
-  handoff_purpose:
+  handoff_reason:
   copy_paste_packet:
   expected_return_packet:
-  validation_required_before_resume:
+  validation_required_on_return:
   resume_rule:
+  unresolved_until_returned:
 ```
 
 `resume_rule` must state that the same selected owner procedure resumes after the user returns external results.
@@ -93,9 +99,23 @@ While a required `RUN_EXTERNAL_HANDOFF` is pending, RUN must not emit FINISH_REQ
 
 Use `RUN_EXTERNAL_RETURN` when the user returns evidence from a prior `RUN_EXTERNAL_HANDOFF`.
 
+Required shape:
+
+```text
+RUN_EXTERNAL_RETURN:
+  lifecycle_state:
+  owner_entrypoint:
+  matching_handoff_id:
+  returned_artifacts:
+  verification_result:
+  unresolved_items:
+  resume_decision:
+```
+
 Required checks:
 
 - match the return to the pending owner procedure and utility category;
+- match the return to the emitted handoff id or exact emitted packet;
 - classify the return as adapter evidence, not accepted state;
 - verify required branch, commit, changed files, diff, validation, EOF, push, and residual-risk evidence where applicable;
 - continue the same selected owner procedure only after required verification passes or returns a typed blocked/failed result.
@@ -114,9 +134,9 @@ If the original handoff is missing, the return does not match, or required evide
 
 Storage execution is never embedded inside another owner procedure.
 
-A selected owner procedure may emit a `storage_update_package` only as candidate next-surface output after acceptance/update authority is clear. Actual storage mutation requires a separate admitted `storage_adapter` run with exact allowed files and validation.
+A selected owner procedure may emit a `storage_update_package` only as candidate next-surface output after acceptance/update authority is clear, unless the selected run surface is already `storage_update_adapter`. Actual storage mutation requires a separate admitted `storage_adapter` run with exact allowed files and validation.
 
-## FINISH and Next Move boundary
+## Finish and Next Move boundary
 
 FINISH_REQUEST may be emitted only after required external handoffs have returned, been verified, or been explicitly abandoned as blocked/stopped.
 
@@ -126,7 +146,48 @@ Do not use `human_decision` to avoid producing a required transfer packet when t
 
 After FINISH, the chat is closed for material work. A new material START in the same chat is forbidden. Post-FINISH responses may explain the closed result or point to emitted packets; they must not begin a new material lifecycle.
 
-## Eval lenses
+## Forbidden patterns
+
+- selecting `codex_handoff` or `codex_result_verification` as a new owner procedure inside an active RUN;
+- emitting FINISH_REQUEST while a required external return is unresolved;
+- using Next Move Packet for a mid-RUN external handoff;
+- asking Codex or another external surface to perform ChatGPT FINISH;
+- treating embedded verification as acceptance;
+- using `human_decision` to avoid a materially known complete transfer packet;
+- embedding storage execution as hidden mutation.
+
+## Output envelopes
+
+Use these envelopes for embedded handoff and return gates:
+
+```text
+RUN_EXTERNAL_HANDOFF:
+  handoff_id:
+  lifecycle_state:
+  owner_entrypoint:
+  owner_procedure_ref:
+  utility_category:
+  external_surface:
+  handoff_reason:
+  copy_paste_packet:
+  expected_return_packet:
+  validation_required_on_return:
+  resume_rule:
+  unresolved_until_returned:
+```
+
+```text
+RUN_EXTERNAL_RETURN:
+  lifecycle_state:
+  owner_entrypoint:
+  matching_handoff_id:
+  returned_artifacts:
+  verification_result:
+  unresolved_items:
+  resume_decision:
+```
+
+## Eval hooks
 
 A valid execution must preserve these invariants:
 

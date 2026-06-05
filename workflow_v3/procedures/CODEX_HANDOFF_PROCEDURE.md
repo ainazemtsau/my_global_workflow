@@ -2,11 +2,28 @@
 
 status: active_procedure
 
+## Procedure Class
+
+```text
+procedure_class: utility_adapter
+embedded_use_policy: standalone_or_embedded_utility_schema
+```
+
 ## Purpose
 
 Use `codex_handoff` to create a self-contained Codex package for bounded repository maintenance or implementation.
 
 The procedure produces a candidate handoff package only. It does not launch Codex invisibly, authorize acceptance, mutate state, or broaden product execution by implication.
+
+## Utility Adapter Mode
+
+When selected by START, this procedure prepares a standalone Codex handoff package.
+
+When embedded inside another selected owner procedure, this file supplies handoff schema and quality checks only.
+
+Embedded use does not change `selected_entrypoint` or `selected_procedure_ref` and does not start a new lifecycle.
+
+Embedded use emits RUN_EXTERNAL_HANDOFF, not FINISH_REQUEST.
 
 ## Trigger / When to Use
 
@@ -116,6 +133,7 @@ stop behavior: Return incomplete package blocker.
 - `EXPAND`: inspect exact repository source only to complete source/path boundaries.
 - `STOP`: return blocked result when required handoff authority or fields are missing.
 - `TRANSFER`: return a candidate handoff packet for a later Codex adapter run.
+- `RUN_EXTERNAL_HANDOFF`: when embedded in an owner procedure and the Codex result is required before that owner can complete RUN, return the complete handoff envelope and expected return packet.
 
 ## Optional Expansion
 
@@ -132,6 +150,11 @@ No checkpoint is required by default for a complete bounded handoff. Checkpoint 
 ## Output Contract
 
 ```text
+handoff_id:
+owner_entrypoint:
+owner_procedure_ref:
+utility_category: codex_handoff_packet
+external_surface: Codex
 repository:
 base_ref:
 target_branch_or_branch_policy:
@@ -145,6 +168,10 @@ validation:
 stop_conditions:
 commit_push_instructions:
 project_refresh_requirements:
+copy_paste_packet:
+expected_return_packet:
+validation_required_on_return:
+resume_rule:
 requested_return_fields:
 ```
 
@@ -158,6 +185,7 @@ requested_return_fields:
 - Package does not authorize product execution by implication.
 - Package does not omit forbidden paths or validation.
 - Package does not permit Codex to decide acceptance.
+- Package does not instruct Codex to perform ChatGPT lifecycle FINISH.
 
 ## Stop Conditions
 
@@ -174,8 +202,8 @@ requested_return_fields:
 
 ## Procedure Closure
 
-Return the handoff package as candidate output. Codex result remains candidate evidence until verification and acceptance.
+Return the handoff package as candidate output. Codex returns evidence only, and that result remains candidate evidence until verification and acceptance.
 
-If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet. Do not launch Codex invisibly.
+If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet only for this selected adapter run. Do not launch Codex invisibly and do not ask Codex to close the ChatGPT lifecycle.
 
 END_OF_FILE: workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md

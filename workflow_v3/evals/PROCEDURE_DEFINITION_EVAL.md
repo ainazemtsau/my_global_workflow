@@ -24,13 +24,20 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure gate lenses remain internal checks and do not become separate runtime entities.
 - Route-changing outputs are represented by typed packets/records and Next Move Packet boundaries.
 - Procedure Definition Framework procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming, or state an explicit bounded exception.
+- Procedure declares `procedure_class` when using the Procedure Definition Framework.
+- Utility/adapter use is explicit when applicable.
+- External handoff/resume policy exists when the procedure can emit external handoff packets.
 - Stub procedures include target role, workflow integration, future body outline, required outputs, and STOP behavior until authored.
+- Stub-body authoring extracts target role, workflow integration, future scope, must-not constraints, and required outputs from the self-contained stub.
+- Procedure authoring explains target identity before detailed body drafting.
 
 ## WARN checks
 
 - Simple procedure has more stages than needed.
 - Registry selection hint is carrying execution logic that belongs in the procedure file.
 - Checkpoint policy is present but vague.
+- Utility categories are allowed but broader than existing run surface operations.
+- External handoff policy exists but expected return packet is terse.
 - A procedure is still a stub, but it is self-contained and stops with `PROCEDURE_BODY_NOT_AUTHORED`.
 - Detailed body authoring is deferred to a separate bounded `author_workflow_procedure` run.
 
@@ -43,6 +50,12 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure can mutate state outside `storage_update_adapter`.
 - Procedure can accept its own output.
 - Procedure creates a separate route authority outside Procedure Registry, typed outputs, and FINISH/Next Move closure.
+- Procedure calls another procedure as a hidden RUN switch.
+- Procedure emits FINISH_REQUEST while required external return is pending.
+- Procedure uses `human_decision` to avoid a required transfer packet.
+- Utility adapter can mutate or accept output by implication.
+- Non-trivial authoring proceeds directly to detailed body without method/checkpoint stage.
+- Research is mandatory for every procedure or forbidden for high-impact/non-obvious method design.
 - Complex procedure forces one-shot final artifact with no checkpoint.
 - Procedure uses `*_RUNBOOK.md`, uses `*_PLAYBOOK.md`, or otherwise preserves obsolete runbook/playbook naming without an explicit bounded exception.
 - Stub procedure lacks target role, workflow integration, future body outline, output contract, or STOP behavior.

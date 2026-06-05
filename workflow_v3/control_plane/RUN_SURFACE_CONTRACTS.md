@@ -30,6 +30,16 @@ workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
 
 `allowed_utility_categories` is a maximum run-surface boundary. The selected procedure source may narrow it. `none` means no embedded utility category is allowed on that surface.
 
+## Utility adapter compatibility
+
+Default is no embedded utility category unless both the selected procedure source and this run surface allow it.
+
+Utility use cannot authorize procedure switching, hidden mutation, hidden acceptance, or hidden next work.
+
+RUN_EXTERNAL_HANDOFF and RUN_EXTERNAL_RETURN are governed by `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`.
+
+Run surface `allowed_operations` still control what can be emitted. An allowed utility category is packet/schema compatibility, not a broadening of the surface.
+
 ## `generic_answer`
 
 allowed_operations:
@@ -113,6 +123,10 @@ allowed_utility_categories:
 - `storage_update_package`;
 - `project_refresh_instruction_packet`.
 
+utility_policy:
+- Candidate Codex handoff packets and storage update packages are allowed only where existing allowed operations permit persistence planning.
+- No direct mutation, hidden acceptance, or Direction runtime mutation is authorized.
+
 required_inputs:
 - repository;
 - base ref / source ref;
@@ -171,6 +185,9 @@ allowed_utility_categories:
 - `child_chat_packet`;
 - `child_research_packet`;
 - `storage_update_package` only as candidate next-surface output after the selected formation result is ready for acceptance/update routing.
+
+utility_policy:
+- Utility packets must match the selected formation procedure and must not broaden into unrelated entity formation.
 
 required_inputs:
 - target entity or selected Direction Definition procedure;
@@ -238,6 +255,10 @@ forbidden_operations:
 allowed_utility_categories:
 - none.
 
+utility_policy:
+- Storage execution is allowed only under selected `storage_update_adapter`.
+- Embedded storage packages from other owner procedures are candidate next-surface inputs, not hidden mutation.
+
 required_inputs:
 - complete Storage Update Package.
 
@@ -266,6 +287,10 @@ allowed_utility_categories:
 - `codex_return_verification` for a returned result of a Codex handoff emitted by the same selected work-contract run;
 - `check_job_packet`;
 - `child_chat_packet`.
+
+utility_policy:
+- Utility packets are allowed only when the admitted Work Contract names the external execution or verification surface.
+- Returned Codex evidence must match the emitted handoff before reliance.
 
 required_inputs:
 - admitted Work Contract;
@@ -298,6 +323,9 @@ allowed_utility_categories:
 - `check_job_packet`;
 - `child_chat_packet`;
 - `child_research_packet`.
+
+utility_policy:
+- Check, child, or research packets must remain bounded to the parent integration target and cannot accept state.
 
 required_inputs:
 - parent Work Graph node, Active Front, or Goal Evidence Graph target;
@@ -351,6 +379,12 @@ allowed_utility_categories:
 - `storage_update_package` only as candidate next-surface output;
 - `project_refresh_instruction_packet`.
 
+utility_policy:
+- Codex handoff packets are limited to bounded repository maintenance patches of the selected authoring result.
+- Codex return verification is limited to evidence from the same emitted handoff.
+- Check job and child research packets require bounded questions.
+- Embedded storage execution, hidden acceptance, Direction runtime mutation, and unrelated procedure authoring by utility expansion are forbidden.
+
 required_inputs:
 - target procedure name or intent;
 - expected trigger and output;
@@ -393,6 +427,11 @@ forbidden_operations:
 allowed_utility_categories:
 - produces `codex_handoff_packet`; no embedded child utility categories.
 
+utility_policy:
+- This is a `utility_adapter` surface.
+- When selected by START it prepares a standalone package.
+- Embedded use supplies packet schema and quality checks only; it is not the selected owner procedure.
+
 required_inputs:
 - repository, base_ref, branch policy, goal, source files, path boundaries, validation, stop conditions.
 
@@ -414,6 +453,11 @@ forbidden_operations:
 
 allowed_utility_categories:
 - produces `codex_return_verification`; no embedded child utility categories.
+
+utility_policy:
+- This is a `verification_adapter` surface.
+- When selected by START it performs standalone verification.
+- Embedded use verifies returned evidence matching an emitted handoff; it is not the selected owner procedure.
 
 required_inputs:
 - Codex return fields and exact branch/commit context.
@@ -485,6 +529,9 @@ forbidden_operations:
 allowed_utility_categories:
 - `check_job_packet`;
 - `codex_return_verification` only when reviewing returned Codex evidence as suspect evidence.
+
+utility_policy:
+- Utility use is limited to evidence checks for the selected recovery review and cannot repair, mutate, or accept state.
 
 required_inputs:
 - suspect state refs, evidence refs, source locks, recovery question.

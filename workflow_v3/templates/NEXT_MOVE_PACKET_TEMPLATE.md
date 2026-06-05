@@ -32,9 +32,13 @@ Allowed values:
 
 ## Boundary
 
-Next Move Packet selects exactly one primary next move. It must not launch work invisibly and must include a complete Transfer Packet when another surface is needed.
+Next Move Packet selects exactly one primary next move for closure or route after the selected procedure completes or stops. It must not launch work invisibly and must include a complete Transfer Packet when another surface is needed.
+
+Mid-RUN external utility handoff uses RUN_EXTERNAL_HANDOFF under `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`, not Next Move Packet.
 
 For `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`, `transfer_packet_if_needed` must include a complete Transfer Packet with `copy_paste_packet`.
+
+`human_decision` must not be used merely to avoid preparing a known required transfer packet.
 
 Invalid examples:
 

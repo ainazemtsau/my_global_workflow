@@ -143,7 +143,7 @@ Use the smallest level that can satisfy the output contract:
 - `standard` - normal source-sensitive procedure without separate checkpoints.
 - `checkpointed` - user-visible checkpoint needed before later stages.
 - `research_backed` - external or current-source research is needed and bounded.
-- `delegated_or_tool_mediated` - child/check/Codex/provider work is needed.
+- `delegated_or_tool_mediated` - child/check/Codex/provider work is needed. Utility adapter categories may be used only as bounded packets or gates under the selected owner procedure.
 
 The selected complexity can be recorded only after START has read the selected procedure source.
 

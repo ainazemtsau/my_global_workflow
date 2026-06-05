@@ -74,7 +74,8 @@ finish_self_audit:
   no_unadmitted_state_mutation:
   no_hidden_acceptance:
   no_pending_required_external_return:
-  utility_outputs_were_not_procedure_switches:
+  no_post_finish_material_start:
+  utility_outputs_not_procedure_switches:
   required_outputs_present:
   source_limitations_stated:
   next_move_single:

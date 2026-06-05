@@ -34,6 +34,7 @@ Declare the registry-aligned class:
 
 ```text
 procedure_class: core_material | utility_adapter | verification_adapter | storage_adapter | readonly_console
+embedded_use_policy:
 ```
 
 Class and embedded utility semantics are controlled by:
@@ -130,8 +131,10 @@ Use this section when the procedure can produce utility packets, wait for extern
 
 ```text
 allowed_utility_categories:
+forbidden_utility_categories:
 external_handoff_policy:
 external_return_policy:
+external_return_verification:
 embedded_verification_policy:
 storage_boundary:
 ```
@@ -148,7 +151,7 @@ If allowed, define:
 external_surface:
 copy_paste_packet_required:
 expected_return_packet:
-validation_required_before_resume:
+validation_required_on_return:
 resume_rule: resume the same selected owner procedure
 ```
 
@@ -175,7 +178,9 @@ exact_next_move:
 - Output satisfies downstream use.
 - Procedure class matches registry metadata.
 - Utility/adapter policy is explicit when the procedure can use utility categories.
+- Forbidden utility categories are explicit when utility use is allowed.
 - External handoff/resume policy is explicit when the procedure can wait for external return.
+- External return verification is explicit when returned evidence can affect output.
 - Procedure path and filename follow canonical procedure location/naming policy or declare an explicit exception.
 - Stub procedures include procedure class, target role, workflow integration, future body outline, required outputs, and STOP behavior.
 

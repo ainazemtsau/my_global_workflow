@@ -2,6 +2,7 @@
 
 status: active_procedure
 procedure_class: core_material
+embedded_use_policy: owner_may_emit_utility_packets
 
 ## Purpose
 
@@ -128,9 +129,12 @@ Procedure authoring must decide and document:
 
 ```text
 procedure_class:
+embedded_use_policy:
 allowed_utility_categories:
+forbidden_utility_categories:
 external_handoff_policy:
 external_return_policy:
+external_return_verification:
 embedded_verification_policy:
 storage_boundary:
 ```
