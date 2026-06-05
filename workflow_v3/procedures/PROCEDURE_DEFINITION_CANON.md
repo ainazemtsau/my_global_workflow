@@ -4,9 +4,9 @@ status: active_procedure_framework
 
 ## Purpose
 
-A Workflow v3 procedure is a source-aware, outcome-gated work contract executed inside RUN after START selects exactly one entrypoint.
+A Workflow v3 procedure is a source-aware, outcome-gated work contract executed inside RUN after START selects exactly one owner entrypoint.
 
-A procedure defines how a bounded kind of work is performed, what sources are authoritative, which gates must pass, when expansion is allowed, and what output must be returned.
+A procedure defines how a bounded kind of work is performed, what sources are authoritative, which gates must pass, when expansion is allowed, which utility/adapter categories may be used, and what output must be returned.
 
 ## Boundaries
 
@@ -16,16 +16,31 @@ A procedure is not:
 - a template;
 - the chat lifecycle;
 - acceptance;
-- storage mutation;
+- storage mutation unless selected through `storage_update_adapter`;
 - a hidden router;
 - permission to switch procedures during RUN.
 
-START selects the procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes only that selected procedure. FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet remain controlled by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
+START selects the owner procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes only that selected owner procedure. Embedded utility/adapter packets may be used only as internal RUN gates under `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`; they do not select a new owner procedure.
+
+FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet remain controlled by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
+
+## Procedure class model
+
+Procedure files must align with the registry `procedure_class`:
+
+- `core_material` - owns a material workflow task.
+- `utility_adapter` - prepares bounded utility packets or external handoffs.
+- `verification_adapter` - verifies returned evidence.
+- `storage_adapter` - performs admitted storage mutation only from exact packages.
+- `readonly_console` - reads or summarizes without material execution.
+
+Detailed class semantics live in `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` and should not be duplicated as a second router.
 
 ## Procedure file model
 
 Procedure files should use compact markdown sections for:
 
+- status and procedure class;
 - purpose;
 - trigger / when to use;
 - when not to use;
@@ -37,6 +52,8 @@ Procedure files should use compact markdown sections for:
 - gates;
 - optional expansion;
 - research policy;
+- utility / adapter policy;
+- external handoff and return policy;
 - checkpoint policy;
 - output contract;
 - eval / quality checks;
@@ -75,6 +92,7 @@ A stub procedure must include:
 - trigger;
 - non-trigger;
 - required inputs;
+- procedure class;
 - target workflow role;
 - workflow integration;
 - future body outline;
@@ -112,6 +130,8 @@ Allowed gate outcomes:
 - `EXPAND` - activate an allowed expansion path.
 - `STOP` - halt the current procedure and return a blocked or exception result.
 - `TRANSFER` - produce a bounded handoff or next-surface packet.
+- `RUN_EXTERNAL_HANDOFF` - pause RUN with a complete external utility packet when the selected owner procedure needs external evidence before completion.
+- `RUN_EXTERNAL_RETURN` - resume the same selected owner procedure after returned external evidence is provided.
 
 Gates must test material sufficiency. They must not be decorative status labels.
 
@@ -131,15 +151,31 @@ The selected complexity can be recorded only after START has read the selected p
 
 Checkpoints are internal RUN gates. They are not lifecycle phases.
 
-Checkpoints return typed gate outputs such as `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, or `TRANSFER`. Blocking source issues, validation failures, scope drift, acceptance ambiguity, and missing child/check/Codex results must become typed stop, repair, transfer, or check-job outputs rather than a separate routing event.
+Checkpoints return typed gate outputs such as `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `RUN_EXTERNAL_HANDOFF`, or `RUN_EXTERNAL_RETURN`. Blocking source issues, validation failures, scope drift, acceptance ambiguity, missing child/check/Codex results, and missing external returns must become typed stop, repair, transfer, external-handoff, or check-job outputs rather than a separate routing event.
 
 FINISH_REQUEST remains the only lifecycle transition from RUN to FINISH.
 
 ## Expansion
 
-Optional expansion must be bounded by the selected procedure. Expansion may include research, child chat, check job, Codex handoff, or tool-mediated work only when the procedure and run surface allow it.
+Optional expansion must be bounded by the selected owner procedure. Expansion may include research, child chat, check job, Codex handoff, embedded Codex-return verification, provider work, or tool-mediated work only when the procedure, run surface, and Utility Adapter Protocol allow it.
 
 Expansion does not authorize independent material work, hidden mutation, acceptance, or procedure switching.
+
+## Utility / Adapter Policy
+
+A procedure that can use utility/adapter categories must state:
+
+```text
+allowed_utility_categories:
+external_handoff_policy:
+external_return_policy:
+embedded_verification_policy:
+storage_boundary:
+```
+
+Utility/adapter policy must reference `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` as the authority for class and category semantics.
+
+A utility packet produced inside RUN is not a new owner procedure. A standalone utility adapter run is selected by START only when the user's primary request is the utility artifact.
 
 ## Closure
 
@@ -147,8 +183,10 @@ Procedure closure must:
 
 - satisfy or explicitly fail the output contract;
 - state source limitations and unresolved gates;
+- resolve, verify, or explicitly block any required external return before FINISH_REQUEST;
 - emit FINISH_REQUEST before FINISH when the lifecycle requires it;
 - use FINISH_PACKET, Result Packet, and Next Move Packet as defined by `CHAT_FINISH_PROTOCOL.md`;
-- select exactly one primary next move at closure.
+- select exactly one primary next move at closure;
+- never start a new material lifecycle after FINISH in the same chat.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md
