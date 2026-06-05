@@ -4,23 +4,31 @@ status: active_control_plane
 
 ## Purpose
 
-Every admitted material action has a `run_surface_type`. The run surface contract defines allowed operations, forbidden operations, required inputs, required outputs, and stop conditions.
+Every admitted material action has a `run_surface_type`. The run surface contract defines allowed operations, forbidden operations, required inputs, required outputs, allowed embedded utility categories, and stop conditions.
 
 ## Lifecycle integration
 
 Every run_surface_type is executed only inside RUN.
 
-RUN can execute only the procedure selected in START.
+RUN can execute only the owner procedure selected in START.
 
 Procedures using the Procedure Definition Framework execute as bounded stage/gate loops inside RUN.
 
 A run surface contract cannot authorize procedure switching.
 
-A run surface contract cannot authorize state mutation unless run_surface_type is storage_update_adapter.
+A run surface contract cannot authorize state mutation unless run_surface_type is `storage_update_adapter`.
 
 A run surface contract cannot authorize acceptance by the same chat that produced the candidate output.
 
 Every material run surface must return FINISH_REQUEST before FINISH.
+
+Embedded utility/adapter use is governed by:
+
+```text
+workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
+```
+
+`allowed_utility_categories` is a maximum run-surface boundary. The selected procedure source may narrow it. `none` means no embedded utility category is allowed on that surface.
 
 ## `generic_answer`
 
@@ -32,6 +40,9 @@ forbidden_operations:
 - mutate state;
 - infer current Direction status;
 - perform acceptance, recovery, Codex, or Next Move work.
+
+allowed_utility_categories:
+- none.
 
 required_inputs:
 - bounded question that does not depend on current canonical state.
@@ -52,7 +63,10 @@ allowed_operations:
 forbidden_operations:
 - execute material work;
 - mutate state;
-- accept evidence or launch next work.
+- accept evidence or start next work.
+
+allowed_utility_categories:
+- none.
 
 required_inputs:
 - direction binding or exact runtime state path when status is Direction-specific.
@@ -73,28 +87,31 @@ allowed_operations:
 - treat user purpose/goals only as `candidate_context_for_direction_definition`;
 - prepare candidate setup-only root/bootstrap package;
 - prepare Project Binding plan;
-- prepare per-Direction Project Instructions source plan if required by setup procedure;
-- prepare Project Files manifest plan if required by setup procedure;
-- prepare Storage Update Package or Codex handoff if persistence is needed;
+- prepare Project Instructions source plan if required;
+- prepare Project Files manifest plan if required;
+- prepare storage package or Codex handoff packet if persistence work is needed;
 - produce Result Packet and Next Move Packet.
 
 forbidden_operations:
 - mutate repository directly;
 - create runtime files directly in the setup chat;
-- define or accept Direction Spine;
-- define or accept Direction Map;
-- define or accept Active Front;
-- create Work Graph;
-- create Work Contract;
+- define or accept semantic Direction entities;
 - define root outcome as accepted state;
 - define product strategy, roadmap, backlog, or implementation plan;
-- import `workflow/**` or `directions/**` as accepted Workflow v3 state;
+- import legacy files as accepted Workflow v3 state;
 - read legacy evidence unless the setup procedure explicitly requires it;
 - create acceptance records;
 - update CURRENT_STATUS or CURRENT_NEXT_MOVE directly;
 - update actual ChatGPT Project Instructions UI;
 - refresh Project Files/Sources externally;
-- launch Codex without a bounded Codex handoff.
+- start Codex without a bounded handoff packet.
+
+allowed_utility_categories:
+- `codex_handoff_packet`;
+- `codex_return_verification` only for a result returned from a handoff emitted by the same selected setup run;
+- `check_job_packet`;
+- `storage_update_package`;
+- `project_refresh_instruction_packet`.
 
 required_inputs:
 - repository;
@@ -109,7 +126,7 @@ required_outputs:
 - blocked result or candidate setup-only root/bootstrap package;
 - source locks;
 - candidate Project Binding plan;
-- Storage Update Package or Codex handoff if persistence is needed;
+- storage package or Codex handoff packet if persistence work is needed;
 - Result Packet;
 - Next Move Packet;
 - exact next move.
@@ -141,13 +158,19 @@ forbidden_operations:
 - update `CURRENT_STATUS.md`;
 - update `CURRENT_NEXT_MOVE.md`;
 - accept own output;
-- launch Codex unless separately admitted;
-- create Work Graph before accepted Active Front;
+- start Codex unless the selected procedure separately admits a bounded packet;
+- create downstream entities before accepted prerequisites;
 - treat user context as acceptance;
 - treat acceptance wording as storage authorization;
 - execute more than one steering entity unless the selected procedure itself is explicitly admitted as a single bounded procedure and START_PACKET names that single procedure;
 - continue from one steering entity to another by conversation momentum;
 - enter FINISH without FINISH_REQUEST and explicit FINISH or ФИНИШ token.
+
+allowed_utility_categories:
+- `check_job_packet`;
+- `child_chat_packet`;
+- `child_research_packet`;
+- `storage_update_package` only as candidate next-surface output after the selected formation result is ready for acceptance/update routing.
 
 required_inputs:
 - target entity or selected Direction Definition procedure;
@@ -160,7 +183,7 @@ required_outputs:
 - evidence, read limitations, acceptance question, Result Packet, Next Move Packet, and Transfer Packet when transfer is needed;
 - FINISH_REQUEST before FINISH;
 - selected procedure result only;
-- no hidden next procedure launch.
+- no hidden next procedure start.
 
 stop_conditions:
 - missing source, target drift, role boundary crossing, acceptance ambiguity, write request, or forbidden sequencing.
@@ -178,6 +201,10 @@ forbidden_operations:
 - treat validation/file existence as acceptance;
 - broaden accepted changes beyond candidate/evidence;
 - continue to semantic next step.
+
+allowed_utility_categories:
+- `check_job_packet`;
+- `storage_update_package` only after acceptance/update need is explicitly formed as candidate output.
 
 required_inputs:
 - candidate result ref;
@@ -208,6 +235,9 @@ forbidden_operations:
 - continue to next semantic step;
 - use chat memory/cache as accepted state.
 
+allowed_utility_categories:
+- none.
+
 required_inputs:
 - complete Storage Update Package.
 
@@ -231,6 +261,12 @@ forbidden_operations:
 - change parent route;
 - broaden contract scope.
 
+allowed_utility_categories:
+- `codex_handoff_packet` when the admitted Work Contract allows Codex execution;
+- `codex_return_verification` for a returned result of a Codex handoff emitted by the same selected work-contract run;
+- `check_job_packet`;
+- `child_chat_packet`.
+
 required_inputs:
 - admitted Work Contract;
 - allowed execution surface;
@@ -251,12 +287,17 @@ allowed_operations:
 - review child/result packets;
 - compare evidence to parent criteria;
 - produce Parent Integration Result;
-- produce Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, or Derived Gate Check candidates when needed.
+- produce graph, escalation, delta, or derived-check candidates when needed.
 
 forbidden_operations:
 - invent missing child evidence;
 - accept state;
-- launch next work invisibly.
+- start next work invisibly.
+
+allowed_utility_categories:
+- `check_job_packet`;
+- `child_chat_packet`;
+- `child_research_packet`.
 
 required_inputs:
 - parent Work Graph node, Active Front, or Goal Evidence Graph target;
@@ -286,7 +327,8 @@ allowed_operations:
 - design run surface compatibility statements;
 - design eval proposals;
 - design authoring plans for simple procedures;
-- produce Codex/storage handoff candidates only when separately requested and bounded;
+- produce bounded Codex/check/research/storage handoff packets when requested by the selected authoring scope and allowed by the procedure;
+- verify returned Codex evidence for a handoff emitted by the same selected authoring run before relying on it;
 - produce Result Packet and Next Move Packet.
 
 forbidden_operations:
@@ -297,9 +339,17 @@ forbidden_operations:
 - author complex procedure bodies unless separately scoped;
 - preserve obsolete runbook/playbook path or naming for a procedure;
 - leave a registry entry pointing outside canonical procedure files;
-- launch Codex without a separately admitted `codex_handoff`;
+- start Codex without a bounded handoff packet;
 - touch Direction runtime state;
 - import legacy evidence as current state.
+
+allowed_utility_categories:
+- `codex_handoff_packet`;
+- `codex_return_verification` for a returned result of a Codex handoff emitted by the same selected authoring run;
+- `check_job_packet`;
+- `child_research_packet`;
+- `storage_update_package` only as candidate next-surface output;
+- `project_refresh_instruction_packet`.
 
 required_inputs:
 - target procedure name or intent;
@@ -340,6 +390,9 @@ forbidden_operations:
 - omit validation or return fields;
 - authorize writes outside allowed paths.
 
+allowed_utility_categories:
+- produces `codex_handoff_packet`; no embedded child utility categories.
+
 required_inputs:
 - repository, base_ref, branch policy, goal, source files, path boundaries, validation, stop conditions.
 
@@ -358,6 +411,9 @@ forbidden_operations:
 - claim done without validation;
 - accept result by verification alone;
 - repair runtime state unless separately admitted.
+
+allowed_utility_categories:
+- produces `codex_return_verification`; no embedded child utility categories.
 
 required_inputs:
 - Codex return fields and exact branch/commit context.
@@ -378,6 +434,9 @@ forbidden_operations:
 - execute material work;
 - mutate state;
 - accept results.
+
+allowed_utility_categories:
+- produces `check_job_packet`; no embedded child utility categories.
 
 required_inputs:
 - scoped question, exact sources, return destination.
@@ -400,6 +459,9 @@ forbidden_operations:
 - accept output;
 - become independent execution track.
 
+allowed_utility_categories:
+- produces `child_research_packet`; no embedded child utility categories.
+
 required_inputs:
 - parent target, child question, source boundary, required return fields.
 
@@ -420,6 +482,10 @@ forbidden_operations:
 - retroactively accept state without explicit record;
 - invent proof state.
 
+allowed_utility_categories:
+- `check_job_packet`;
+- `codex_return_verification` only when reviewing returned Codex evidence as suspect evidence.
+
 required_inputs:
 - suspect state refs, evidence refs, source locks, recovery question.
 
@@ -439,7 +505,10 @@ forbidden_operations:
 - execute material work;
 - mutate state;
 - accept evidence;
-- launch Codex directly.
+- start Codex directly.
+
+allowed_utility_categories:
+- none.
 
 required_inputs:
 - exact binding/status/next move sources.
