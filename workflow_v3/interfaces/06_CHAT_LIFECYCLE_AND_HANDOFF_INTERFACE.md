@@ -41,7 +41,7 @@ Embedded utility/adapter packets stay inside the current selected owner RUN. The
 - Child missing result blocks synthesis when the child result is required.
 - When multiple children are launched, Parent Recovery Block is required.
 - Child chat must not commit independently, accept state, route product meaning, launch unrelated work, or become a substitute for the next material chat boundary.
-- Embedded utility categories may emit utility/adapter packets only when the selected owner procedure and run surface allow them.
+- Core/material owners may invoke registered utilities through the Utility Use Gate; the return goes back to the same owner RUN and is not a procedure switch.
 - RUN_EXTERNAL_HANDOFF must include complete copy_paste_packet and expected return fields.
 - RUN_EXTERNAL_RETURN must match the emitted handoff and resume the same owner procedure.
 - No chat may accept state by intuition or route product meaning without FINISH_PACKET, Result Packet, Next Move Packet, and acceptance/update path.

@@ -6,7 +6,7 @@ status: active_procedure_framework
 
 A Workflow v3 procedure is a source-aware, outcome-gated work contract executed inside RUN after START selects exactly one owner entrypoint.
 
-A procedure defines how a bounded kind of work is performed, what sources are authoritative, which gates must pass, when expansion is allowed, which utility/adapter categories may be used, and what output must be returned.
+A procedure defines how a bounded kind of work is performed, what sources are authoritative, which gates must pass, when expansion is allowed, how utility decisions are made, and what output must be returned.
 
 ## Boundaries
 
@@ -20,7 +20,7 @@ A procedure is not:
 - a hidden router;
 - permission to switch procedures during RUN.
 
-START selects the owner procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes only that selected owner procedure. Embedded utility/adapter packets may be used only as internal RUN gates under `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`; they do not select a new owner procedure.
+START selects the owner procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes only that selected owner procedure. Utility/adapter packets may be used as internal RUN gates through the global Utility Use Gate under `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`; they do not select a new owner procedure.
 
 FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet remain controlled by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
 
@@ -52,7 +52,7 @@ Procedure files should use compact markdown sections for:
 - gates;
 - optional expansion;
 - research policy;
-- utility / adapter policy;
+- utility decision gate and adapter policy;
 - external handoff and return policy;
 - checkpoint policy;
 - output contract;
@@ -143,7 +143,7 @@ Use the smallest level that can satisfy the output contract:
 - `standard` - normal source-sensitive procedure without separate checkpoints.
 - `checkpointed` - user-visible checkpoint needed before later stages.
 - `research_backed` - external or current-source research is needed and bounded.
-- `delegated_or_tool_mediated` - child/check/Codex/provider work is needed. Utility adapter categories may be used only as bounded packets or gates under the selected owner procedure.
+- `delegated_or_tool_mediated` - child/check/Codex/provider work is needed. Utility resources may be used only as bounded packets or gates under the selected owner procedure.
 
 The selected complexity can be recorded only after START has read the selected procedure source.
 
@@ -157,16 +157,23 @@ FINISH_REQUEST remains the only lifecycle transition from RUN to FINISH.
 
 ## Expansion
 
-Optional expansion must be bounded by the selected owner procedure. Expansion may include research, child chat, check job, Codex handoff, embedded Codex-return verification, provider work, or tool-mediated work only when the procedure, run surface, and Utility Adapter Protocol allow it.
+Optional expansion must be bounded by the selected owner procedure. Expansion may include research, child chat, check job, Codex handoff, embedded Codex-return verification, provider work, or tool-mediated work when the global Utility Use Gate passes.
 
 Expansion does not authorize independent material work, hidden mutation, acceptance, or procedure switching.
 
+## Utility Decision Gate
+
+Owner procedures may invoke registered utility resources during RUN when needed to complete the selected work.
+
+Procedures do not need to pre-enumerate every utility. Procedure-specific docs may customize common utility choices or forbid utilities for source, safety, policy, or write-boundary reasons, but global utility access is not blocked by absent prelisting.
+
 ## Utility / Adapter Policy
 
-A procedure that can use utility/adapter categories must state:
+A procedure that commonly uses utilities should state:
 
 ```text
-allowed_utility_categories:
+common_utility_choices:
+forbidden_utility_categories:
 external_handoff_policy:
 external_return_policy:
 embedded_verification_policy:

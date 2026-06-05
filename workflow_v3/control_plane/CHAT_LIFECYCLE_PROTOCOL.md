@@ -57,11 +57,11 @@ RUN executes only the owner procedure selected in START.
 RUN must:
 - execute only selected_procedure_ref;
 - obey selected run_surface_type;
-- obey allowed_operations, forbidden_operations, required_inputs, required_outputs, allowed utility categories, and stop_conditions;
+- obey allowed_operations, forbidden_operations, required_inputs, required_outputs, utility notes, Utility Use Gate, and stop_conditions;
 - execute the selected procedure as a stage/gate loop when the procedure uses the Procedure Definition Framework;
 - treat stage checkpoints and embedded utility/adapter gates as internal RUN gates, not lifecycle phases;
-- treat any request for another owner procedure as BOUNDARY_CROSSING_STOP unless the selected procedure emits a bounded utility packet allowed by its source and run surface;
-- produce RUN_EXTERNAL_HANDOFF when an allowed external utility result is required before completion;
+- treat any request for another owner procedure as BOUNDARY_CROSSING_STOP unless the selected procedure emits a bounded utility packet through the Utility Use Gate;
+- produce RUN_EXTERNAL_HANDOFF when an external utility result is required before completion and the Utility Use Gate passes;
 - resume the same selected owner procedure after RUN_EXTERNAL_RETURN;
 - produce FINISH_REQUEST only when the selected procedure reaches its completion or blocked condition and no required external return is pending;
 - never mutate state unless the selected procedure is storage_update_adapter;

@@ -20,7 +20,8 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - Expansion, research, child, or check work was bounded.
 - No procedure switch occurred during RUN.
 - One owner procedure stayed selected through RUN.
-- Embedded utility handoff was typed and complete.
+- Same owner procedure invoked needed utility, received the return, verified evidence, and then closed when utility work was required.
+- Utility handoff was typed, bounded, and complete.
 - Returned external result matched the emitted handoff.
 - Embedded verification occurred before FINISH_REQUEST when required.
 - No new material START occurred after FINISH in the same chat.
@@ -42,6 +43,9 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - Procedure switch during RUN.
 - New material START inside the same chat after FINISH.
 - Utility adapter treated as new owner procedure inside active RUN.
+- Core owner procedure forces a separate next material lifecycle solely because utility use was not prelisted.
+- Core owner procedure closes before invoking a needed registered utility required to complete current owner work.
+- Utility invocation becomes core procedure switching.
 - Codex result accepted without verification.
 - Codex asked to close ChatGPT lifecycle.
 - FINISH_REQUEST emitted while required external return is unresolved.

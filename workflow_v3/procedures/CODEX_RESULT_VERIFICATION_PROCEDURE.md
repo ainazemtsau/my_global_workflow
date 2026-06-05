@@ -6,7 +6,7 @@ status: active_procedure
 
 ```text
 procedure_class: verification_adapter
-embedded_use_policy: standalone_or_embedded_verification_schema
+embedded_use_policy: callable_verification_utility
 ```
 
 ## Purpose

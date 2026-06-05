@@ -51,7 +51,7 @@ Chat Lifecycle:
 - RUN starts only after standalone user token START or СТАРТ.
 - RUN executes only the selected owner procedure.
 - RUN cannot switch owner procedures, mutate state, accept output, launch Codex, or start another entity by implication.
-- Owner emits utility packets only if exact procedure/run surface allow.
+- Owner may use global utility layer through Utility Use Gate.
 - RUN_EXTERNAL_HANDOFF/RETURN are same-owner RUN gates for adapter evidence, not Next Move or procedure switch.
 - RUN emits FINISH_REQUEST only when selected work is complete or blocked and no required external return is pending.
 - FINISH starts only after standalone user token FINISH or ФИНИШ.
@@ -102,7 +102,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6497
+- `measured_chars`: 6487
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
 - `hard_max_chars`: 8000

@@ -42,15 +42,19 @@ Produces candidate Spine for acceptance review. It is the top success axis for D
 - define success dimensions / tracks;
 - define constraints and non-goals;
 - identify failure modes and proof indicators;
+- invoke research/check child utilities when required evidence is missing and the Utility Use Gate passes;
+- checkpoint with the user before any persistence route;
+- use Codex/storage utility packages only for approved persistence routing;
+- verify returned utility evidence before FINISH_REQUEST when relied on;
 - cut roadmap/backlog/work-graph content;
 - return candidate Spine + acceptance question.
 
 ## future_body_must_not
 
 - accept its own output;
-- create roadmap/backlog;
-- create Direction Map or Active Front;
-- mutate repository state.
+- mutate repository state or persist hidden state;
+- switch to another core procedure;
+- create roadmap, backlog, Direction Map, Active Front, or front state.
 
 ## required_outputs_when_authored
 

@@ -6,7 +6,7 @@ status: active_procedure
 
 ```text
 procedure_class: utility_adapter
-embedded_use_policy: standalone_or_embedded_utility_schema
+embedded_use_policy: callable_utility
 ```
 
 ## Purpose

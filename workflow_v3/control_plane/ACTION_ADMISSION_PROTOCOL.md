@@ -9,7 +9,7 @@ status: active_control_plane
 - MUST: No material or state-sensitive RUN without START selecting exactly one owner procedure.
 - MUST: No procedure without exact source read.
 - MUST: No material work without run_surface_type.
-- MUST: No embedded utility category without selected procedure, run surface, and Utility Adapter Protocol permission.
+- MUST: No utility invocation unless the selected owner, registered utility, source/policy/safety/write boundaries, and Utility Adapter Protocol pass the Utility Use Gate.
 - MUST: No state mutation without storage_update_adapter admission.
 - MUST: No procedure switch during RUN.
 - MUST: No FINISH_REQUEST while a required external return is unresolved.
@@ -59,7 +59,7 @@ procedure_class:
 embedded_use_policy:
 allowed_operations:
 forbidden_operations:
-allowed_utility_categories:
+utility_decision_gate:
 utility_policy:
 required_inputs:
 required_outputs:
@@ -84,7 +84,7 @@ Return an exception packet before action when any condition applies:
 - binding or state conflict;
 - missing run_surface_type;
 - missing allowed or forbidden operations;
-- embedded utility category is not allowed by selected procedure or run surface;
+- utility invocation fails the Utility Use Gate;
 - RUN_EXTERNAL_HANDOFF is incomplete or lacks expected return fields;
 - required RUN_EXTERNAL_RETURN is unresolved;
 - write requested without storage update package;

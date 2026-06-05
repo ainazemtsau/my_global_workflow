@@ -41,13 +41,13 @@ source_lock:
 Must list exact files read for lifecycle, registry, surface contract, selected procedure, and required state sources. Include `UTILITY_ADAPTER_PROTOCOL.md` when utility/adapter categories or external handoff boundaries are relevant. Each listed markdown file must include EOF status.
 
 surface_contract:
-Must list allowed_operations, forbidden_operations, required_inputs, required_outputs, stop_conditions, and allowed_utility_categories when relevant from the selected run_surface_type.
+Must list allowed_operations, forbidden_operations, required_inputs, required_outputs, stop_conditions, and utility notes when relevant from the selected run_surface_type.
 
 execution_boundaries:
 Must state write_admission, acceptance_admission, procedure_switch_policy, utility_policy when relevant, external_handoff_policy when relevant, and return_destination.
 
 run_plan:
-Must list only actions allowed by selected_procedure_ref and run_surface_type.
+Must list only actions allowed by selected_procedure_ref, run_surface_type, and the Utility Use Gate when utilities are needed.
 
 next_transition:
 Must be WAITING_FOR_USER_START when START passes.

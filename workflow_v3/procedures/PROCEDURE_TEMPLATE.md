@@ -34,7 +34,7 @@ Declare the registry-aligned class:
 
 ```text
 procedure_class: core_material | utility_adapter | verification_adapter | storage_adapter | readonly_console
-embedded_use_policy:
+embedded_use_policy: may_use_global_utility_layer | callable_utility | callable_verification_utility | callable_persistence_utility_with_write_gate | no_material_utility_by_default
 ```
 
 Class and embedded utility semantics are controlled by:
@@ -121,6 +121,12 @@ Name any allowed research, child, check, Codex, provider, or tool-mediated expan
 
 Expansion must remain subordinate to the selected owner procedure and must not become hidden mutation, acceptance, or procedure switching.
 
+## Utility Decision Gate
+
+Owner procedures may invoke registered utility resources during RUN when needed to complete selected work.
+
+Procedure docs do not need to pre-enumerate every utility. Common utility choices may be named, but absent prelisting does not block the global utility layer.
+
 ## Research Policy
 
 State whether research is forbidden, optional, or required, and which sources are allowed.
@@ -130,7 +136,7 @@ State whether research is forbidden, optional, or required, and which sources ar
 Use this section when the procedure can produce utility packets, wait for external return, or use embedded verification:
 
 ```text
-allowed_utility_categories:
+common_utility_choices:
 forbidden_utility_categories:
 external_handoff_policy:
 external_return_policy:
@@ -177,8 +183,8 @@ exact_next_move:
 - Required stages passed or stopped.
 - Output satisfies downstream use.
 - Procedure class matches registry metadata.
-- Utility/adapter policy is explicit when the procedure can use utility categories.
-- Forbidden utility categories are explicit when utility use is allowed.
+- Utility decision gate and adapter policy are explicit when utility boundaries matter.
+- Utility forbiddances are explicit when source, safety, policy, or write boundaries restrict global utility use.
 - External handoff/resume policy is explicit when the procedure can wait for external return.
 - External return verification is explicit when returned evidence can affect output.
 - Procedure path and filename follow canonical procedure location/naming policy or declare an explicit exception.

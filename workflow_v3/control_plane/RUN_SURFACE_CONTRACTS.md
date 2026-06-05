@@ -4,7 +4,7 @@ status: active_control_plane
 
 ## Purpose
 
-Every admitted material action has a `run_surface_type`. The run surface contract defines allowed operations, forbidden operations, required inputs, required outputs, allowed embedded utility categories, and stop conditions.
+Every admitted material action has a `run_surface_type`. The run surface contract defines semantic operations, forbidden operations, required inputs, required outputs, utility boundary notes, and stop conditions.
 
 ## Lifecycle integration
 
@@ -28,17 +28,19 @@ Embedded utility/adapter use is governed by:
 workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
 ```
 
-`allowed_utility_categories` is a maximum run-surface boundary. The selected procedure source may narrow it. `none` means no embedded utility category is allowed on that surface.
+Run surfaces do not whitelist every utility. Utility notes name common affordances or explicit restrictions only.
+
+The global utility layer is available to `core_material` owner procedures through the Utility Use Gate unless source, policy, safety, forbidden-operation, or write boundaries explicitly forbid the utility.
 
 ## Utility adapter compatibility
 
-Default is no embedded utility category unless both the selected procedure source and this run surface allow it.
+Default for `core_material` owners is global utility availability through the Utility Use Gate.
 
 Utility use cannot authorize procedure switching, hidden mutation, hidden acceptance, or hidden next work.
 
 RUN_EXTERNAL_HANDOFF and RUN_EXTERNAL_RETURN are governed by `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`.
 
-Run surface `allowed_operations` still control what can be emitted. An allowed utility category is packet/schema compatibility, not a broadening of the surface.
+Run surface `allowed_operations` and `forbidden_operations` still control semantic work. A utility note is packet/schema compatibility or an explicit boundary, not a broadening of the surface.
 
 ## `generic_answer`
 
@@ -51,8 +53,8 @@ forbidden_operations:
 - infer current Direction status;
 - perform acceptance, recovery, Codex, or Next Move work.
 
-allowed_utility_categories:
-- none.
+utility_notes:
+- no material utility by default.
 
 required_inputs:
 - bounded question that does not depend on current canonical state.
@@ -75,8 +77,8 @@ forbidden_operations:
 - mutate state;
 - accept evidence or start next work.
 
-allowed_utility_categories:
-- none.
+utility_notes:
+- no material utility by default.
 
 required_inputs:
 - direction binding or exact runtime state path when status is Direction-specific.
@@ -116,7 +118,7 @@ forbidden_operations:
 - refresh Project Files/Sources externally;
 - start Codex without a bounded handoff packet.
 
-allowed_utility_categories:
+utility_notes:
 - `codex_handoff_packet`;
 - `codex_return_verification` only for a result returned from a handoff emitted by the same selected setup run;
 - `check_job_packet`;
@@ -172,7 +174,7 @@ forbidden_operations:
 - update `CURRENT_STATUS.md`;
 - update `CURRENT_NEXT_MOVE.md`;
 - accept own output;
-- start Codex unless the selected procedure separately admits a bounded packet;
+- start Codex without a bounded packet and Utility Use Gate pass;
 - create downstream entities before accepted prerequisites;
 - treat user context as acceptance;
 - treat acceptance wording as storage authorization;
@@ -180,7 +182,7 @@ forbidden_operations:
 - continue from one steering entity to another by conversation momentum;
 - enter FINISH without FINISH_REQUEST and explicit FINISH or ФИНИШ token.
 
-allowed_utility_categories:
+utility_notes:
 - `check_job_packet`;
 - `child_chat_packet`;
 - `child_research_packet`;
@@ -188,6 +190,7 @@ allowed_utility_categories:
 
 utility_policy:
 - Utility packets must match the selected formation procedure and must not broaden into unrelated entity formation.
+- Do not block `codex_handoff_packet` solely because Codex is absent from these notes; apply the global Utility Use Gate and source/safety/write boundaries.
 
 required_inputs:
 - target entity or selected Direction Definition procedure;
@@ -219,7 +222,7 @@ forbidden_operations:
 - broaden accepted changes beyond candidate/evidence;
 - continue to semantic next step.
 
-allowed_utility_categories:
+utility_notes:
 - `check_job_packet`;
 - `storage_update_package` only after acceptance/update need is explicitly formed as candidate output.
 
@@ -252,8 +255,8 @@ forbidden_operations:
 - continue to next semantic step;
 - use chat memory/cache as accepted state.
 
-allowed_utility_categories:
-- none.
+utility_notes:
+- storage execution uses the storage write gate; no additional material utility by default.
 
 utility_policy:
 - Storage execution is allowed only under selected `storage_update_adapter`.
@@ -282,7 +285,7 @@ forbidden_operations:
 - change parent route;
 - broaden contract scope.
 
-allowed_utility_categories:
+utility_notes:
 - `codex_handoff_packet` when the admitted Work Contract allows Codex execution;
 - `codex_return_verification` for a returned result of a Codex handoff emitted by the same selected work-contract run;
 - `check_job_packet`;
@@ -319,7 +322,7 @@ forbidden_operations:
 - accept state;
 - start next work invisibly.
 
-allowed_utility_categories:
+utility_notes:
 - `check_job_packet`;
 - `child_chat_packet`;
 - `child_research_packet`.
@@ -371,7 +374,7 @@ forbidden_operations:
 - touch Direction runtime state;
 - import legacy evidence as current state.
 
-allowed_utility_categories:
+utility_notes:
 - `codex_handoff_packet`;
 - `codex_return_verification` for a returned result of a Codex handoff emitted by the same selected authoring run;
 - `check_job_packet`;
@@ -424,7 +427,7 @@ forbidden_operations:
 - omit validation or return fields;
 - authorize writes outside allowed paths.
 
-allowed_utility_categories:
+utility_notes:
 - produces `codex_handoff_packet`; no embedded child utility categories.
 
 utility_policy:
@@ -451,7 +454,7 @@ forbidden_operations:
 - accept result by verification alone;
 - repair runtime state unless separately admitted.
 
-allowed_utility_categories:
+utility_notes:
 - produces `codex_return_verification`; no embedded child utility categories.
 
 utility_policy:
@@ -479,7 +482,7 @@ forbidden_operations:
 - mutate state;
 - accept results.
 
-allowed_utility_categories:
+utility_notes:
 - produces `check_job_packet`; no embedded child utility categories.
 
 required_inputs:
@@ -503,7 +506,7 @@ forbidden_operations:
 - accept output;
 - become independent execution track.
 
-allowed_utility_categories:
+utility_notes:
 - produces `child_research_packet`; no embedded child utility categories.
 
 required_inputs:
@@ -526,7 +529,7 @@ forbidden_operations:
 - retroactively accept state without explicit record;
 - invent proof state.
 
-allowed_utility_categories:
+utility_notes:
 - `check_job_packet`;
 - `codex_return_verification` only when reviewing returned Codex evidence as suspect evidence.
 
@@ -554,8 +557,8 @@ forbidden_operations:
 - accept evidence;
 - start Codex directly.
 
-allowed_utility_categories:
-- none.
+utility_notes:
+- no material utility by default.
 
 required_inputs:
 - exact binding/status/next move sources.

@@ -24,13 +24,43 @@ Allowed `procedure_class` values:
 - `storage_adapter` - mutates allowed repository/runtime state only from an admitted storage update package. Storage execution is never embedded inside another procedure.
 - `readonly_console` - reads or summarizes bounded state/context without material execution or mutation.
 
+Allowed `embedded_use_policy` values:
+
+- `may_use_global_utility_layer` - core/material owner may invoke registered utilities through the Utility Use Gate.
+- `callable_utility` - utility adapter may be called as a resource or selected standalone when it is the primary work item.
+- `callable_verification_utility` - verification adapter may be called as a verification resource or selected standalone when it is the primary work item.
+- `callable_persistence_utility_with_write_gate` - storage utility requires admitted storage write gate and exact package.
+- `no_material_utility_by_default` - read-only surface does not perform material utility work by default.
+
 ## Owner procedure rule
 
 START selects exactly one owner procedure for a material chat.
 
 During RUN, the selected owner procedure remains fixed. Embedded utility/adapter use does not change `selected_entrypoint`, does not change `selected_procedure_ref`, and does not authorize a second START.
 
-A core/material procedure does not call another procedure. It may emit typed utility packets or use embedded adapter checks only when its selected procedure source and matching run surface allow the relevant utility category.
+A core/material procedure does not call another core/material procedure. Utility procedures are callable resource protocols/functions, not owner procedure switches.
+
+## Global Utility Resource Rule
+
+Any `core_material` owner procedure may invoke any registered `utility_adapter`, `verification_adapter`, storage utility package, or utility child resource needed to complete the current owner work.
+
+Utility invocation stays inside RUN of the same owner procedure. The utility result returns to that same owner RUN as adapter evidence, verification evidence, or a typed blocked result.
+
+Procedure-specific docs may name common utility choices or explicit forbiddances, but absence from a procedure or run-surface prelist does not block global utility access.
+
+## Utility Use Gate
+
+A selected owner procedure may invoke a utility resource only when all are true:
+
+1. START has selected exactly one owner procedure;
+2. the utility is registered or otherwise admitted as a bounded utility child resource;
+3. the utility is needed to complete the current owner work;
+4. source authority, policy, safety, and write boundaries do not forbid it;
+5. storage mutation uses the storage write gate and is not hidden inside another owner procedure;
+6. the handoff is bounded, has expected return fields, and cannot become an unbounded external wait;
+7. the utility result will be integrated, verified, or explicitly blocked before FINISH_REQUEST when required.
+
+Utility use must not become procedure switching, hidden mutation, hidden acceptance, hidden next work, or unbounded external wait.
 
 ## Utility categories
 
@@ -57,13 +87,7 @@ Standalone selection still obeys START -> RUN -> FINISH and must not mutate, acc
 
 Embedded utility use is internal to RUN of the selected owner procedure.
 
-Embedded utility use is allowed only when all are true:
-
-1. the selected procedure source allows the utility category;
-2. the matching run surface contract allows the utility category;
-3. the utility packet is bounded and complete;
-4. no state mutation, acceptance, or procedure switch is implied;
-5. external return expectations are explicit when the owner procedure needs the result before completion.
+Embedded utility use is allowed through the global Utility Use Gate, not through hardcoded per-core or per-run-surface whitelists.
 
 Embedded utility use is represented as a typed intermediate output, not as a new procedure selection.
 
@@ -149,6 +173,7 @@ After FINISH, the chat is closed for material work. A new material START in the 
 ## Forbidden patterns
 
 - selecting `codex_handoff` or `codex_result_verification` as a new owner procedure inside an active RUN;
+- forcing a separate next material lifecycle solely because needed utility use was not prelisted;
 - emitting FINISH_REQUEST while a required external return is unresolved;
 - using Next Move Packet for a mid-RUN external handoff;
 - asking Codex or another external surface to perform ChatGPT FINISH;
@@ -193,7 +218,8 @@ A valid execution must preserve these invariants:
 
 - one owner procedure selected by START;
 - no procedure switch during RUN;
-- embedded utility packets are typed, bounded, and allowed;
+- utility use passes the global Utility Use Gate;
+- utility packets are typed, bounded, and returned to the same owner RUN;
 - required external returns are resolved before FINISH_REQUEST;
 - returned external evidence is verified before reliance;
 - no unadmitted mutation, acceptance, or launch;

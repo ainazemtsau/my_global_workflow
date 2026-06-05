@@ -48,7 +48,7 @@ Procedure governance:
 - Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
 - Read `UTILITY_ADAPTER_PROTOCOL.md` when utility/adapter categories, Codex/check/child/storage packets, or external returns are relevant.
 - Do not patch, launch Codex, mutate state, or update actual Project UI without admitted handoff/update path.
-- Embedded utility categories are packets/checklists inside the current owner RUN; they are not procedure switches.
+- Core owners may use global utility layer through Utility Use Gate; utility returns to same owner RUN.
 
 RUN external gates:
 - RUN_EXTERNAL_HANDOFF is an internal RUN gate with complete copy_paste_packet, expected_return_packet, validation, and same-owner resume rule.
@@ -94,7 +94,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 5993
+- `measured_chars`: 5981
 - `target_max_chars`: 6500
 - `hard_max_chars`: 8000
 - `verdict`: PASS

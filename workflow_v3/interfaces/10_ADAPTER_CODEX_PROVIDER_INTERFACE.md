@@ -55,7 +55,7 @@ Codex is a bounded repository-work adapter.
 
 Codex handoff must include repository, base ref, target branch/branch policy, allowed paths, forbidden paths, required reads, required changes, validation, stop conditions, commit/push instruction, and requested return fields.
 
-Codex handoff may be embedded as RUN_EXTERNAL_HANDOFF when the selected owner procedure and run surface allow Codex evidence before completion.
+Codex handoff may be embedded as RUN_EXTERNAL_HANDOFF when Codex evidence is needed before completion and the Utility Use Gate passes.
 
 Codex result returns as adapter evidence to the requesting/current chat. When embedded, it returns through RUN_EXTERNAL_RETURN to the same selected owner procedure before FINISH_REQUEST.
 

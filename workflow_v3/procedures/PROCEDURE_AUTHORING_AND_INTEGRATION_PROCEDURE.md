@@ -2,7 +2,7 @@
 
 status: active_procedure
 procedure_class: core_material
-embedded_use_policy: owner_may_emit_utility_packets
+embedded_use_policy: may_use_global_utility_layer
 
 ## Purpose
 
@@ -130,7 +130,7 @@ Procedure authoring must decide and document:
 ```text
 procedure_class:
 embedded_use_policy:
-allowed_utility_categories:
+common_utility_choices:
 forbidden_utility_categories:
 external_handoff_policy:
 external_return_policy:
@@ -139,9 +139,9 @@ embedded_verification_policy:
 storage_boundary:
 ```
 
-Use `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for class and utility category semantics.
+Use `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for class, utility category, and Utility Use Gate semantics.
 
-A procedure may use embedded utility/adapter categories only when the selected procedure source and matching run surface allow them. Embedded utility use is not a new owner procedure and must not become hidden procedure switching.
+A procedure may name common utility choices or explicit forbiddances. Absent prelisting does not block global utility access through the Utility Use Gate. Embedded utility use is not a new owner procedure and must not become hidden procedure switching.
 
 ## Stage Cards
 
@@ -261,7 +261,7 @@ stop behavior: Return blocked result and exact missing requirement.
 
 Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `RUN_EXTERNAL_HANDOFF`, and `RUN_EXTERNAL_RETURN`.
 
-`RUN_EXTERNAL_HANDOFF` is limited to allowed utility categories and does not launch them invisibly.
+`RUN_EXTERNAL_HANDOFF` is limited to registered utility resources and does not launch them invisibly.
 
 ## Optional Expansion
 
@@ -292,7 +292,7 @@ Proceed to detailed body drafting only after user approval or after the user pro
 
 ## Utility / Adapter Policy
 
-Allowed utility categories for this procedure when permitted by the run surface:
+Common utility choices for this procedure through the Utility Use Gate:
 
 - `codex_handoff_packet` for bounded repository maintenance patches derived from the selected authoring run;
 - `codex_return_verification` for returned results from a Codex handoff emitted by the same selected authoring run;
@@ -364,7 +364,7 @@ closure:
 - Required inputs and exact source requirements are explicit.
 - Context classification includes adapter evidence where relevant.
 - Procedure class matches registry metadata.
-- Utility/adapter policy is explicit when utility categories are allowed.
+- Utility decision gate and adapter policy are explicit when utility boundaries matter.
 - Stage Cards produce intermediate outputs and use material gates.
 - Non-trivial authoring explains method before drafting detailed body.
 - Research posture is justified and does not force research for simple edits.
