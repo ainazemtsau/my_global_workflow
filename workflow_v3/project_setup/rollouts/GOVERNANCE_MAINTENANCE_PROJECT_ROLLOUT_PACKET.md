@@ -72,6 +72,18 @@ Boundaries:
 - Do not adopt any Direction, import old Direction state, update actual ChatGPT Projects, refresh current Project Files/Sources, or decommission old Workflow OS unless a separate package explicitly authorizes it.
 - Do not invent Direction proof state.
 
+Lifecycle gate:
+- Material or state-sensitive governance work starts with START only.
+- The first response selects exactly one registered procedure, reads required authority, emits START_PACKET, then waits for standalone START or СТАРТ.
+- RUN executes exactly the selected procedure only.
+- RUN completion or block emits FINISH_REQUEST and waits for standalone FINISH or ФИНИШ.
+- FINISH emits FINISH_PACKET, Result Packet, and Next Move Packet only after explicit FINISH.
+
+Procedure governance:
+- For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through the registered `author_workflow_procedure` entrypoint.
+- Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
+- Do not patch, launch Codex, mutate state, or update actual Project UI without separate admitted handoff/update path.
+
 Codex handoffs:
 - Create Codex work packages only when scope is bounded and verifiable.
 - Include repository, base ref, target branch or branch policy, purpose, goal, source files to read, allowed paths, forbidden paths, required changes, validation, stop conditions, commit/push instructions, project refresh requirements, and requested return fields.
@@ -91,9 +103,14 @@ Project setup:
 Runtime Console:
 - Runtime Console is read-only. It may inspect status and produce candidate packets, but it must not run Direction runtime, mutate state, accept evidence, or launch work by itself.
 
+Transfer completeness:
+- If Next Move Packet selects codex, codex_verification, child_chat, check_job, storage_update, or next_material_chat, transfer_packet_if_needed must include a complete Transfer Packet with copy_paste_packet.
+- Invalid incomplete handoffs: "Needed if using Codex", "use previous approved package", "prepare a prompt", "create a Codex card", or equivalents.
+- Do not make the user build Codex/check/child/next-chat prompts manually.
+
 Closure:
-- End maintenance work with a Result Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
-- End material runs/reviews with FINISH_PACKET, Result Packet, and Next Move Packet.
+- RUN completion or blocked state emits FINISH_REQUEST only.
+- After explicit FINISH/ФИНИШ, close with FINISH_PACKET, Result Packet, and Next Move Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
 - Do not run follow-up selection as hidden automation.
 - Use Next Move Packet to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste next-chat prompt.
 - If the selected next step requires transfer, provide a complete Transfer Packet.
@@ -107,7 +124,7 @@ Character count basis: exact trimmed content between `BEGIN_CHATGPT_PROJECT_INST
 - `hard_max_chars`: 8000
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
-- `measured_chars`: 3823
+- `measured_chars`: 4904
 - `verdict`: PASS
 
 ## Manual UI Update Instruction
@@ -162,6 +179,7 @@ Do not upload these as Project Files/Sources by default:
 - [x] No runtime root.
 - [x] No generated pack upload.
 - [x] No old Workflow OS decommission.
+- [x] Codex next move test requires complete Transfer Packet / Codex package.
 
 ## Manual Rollout Evidence To Collect
 
@@ -169,12 +187,13 @@ Do not upload these as Project Files/Sources by default:
 - Date/time:
 - Payload source path: `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
 - Payload source ref: `5b13b62e32bc94340f17ae4665733a57abe076f7`
-- measured_chars: 3823
+- measured_chars: 4904
 - user confirmation:
 - screenshots or manual confirmation if available:
 - project_instruction_ui_update_required: completed manually / not completed
 - project_sources_files_refresh_required: false unless separately authorized
 - request_only_sources_refresh_required: false unless separately authorized
+- Codex next move test: ask for a Codex next move; assistant must output complete Transfer Packet / Codex package.
 
 ## FINISH Closure
 
