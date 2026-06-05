@@ -72,6 +72,19 @@ Boundaries:
 - Do not adopt any Direction, import old Direction state, update actual ChatGPT Projects, refresh current Project Files/Sources, or decommission old Workflow OS unless a separate package explicitly authorizes it.
 - Do not invent Direction proof state.
 
+Lifecycle gate:
+- Material or state-sensitive governance work must first do START only.
+- The first response selects exactly one registered procedure, reads required authority, and returns START_PACKET.
+- Wait for a standalone START or СТАРТ before RUN.
+- RUN executes exactly the selected procedure only and no hidden next procedure.
+- When RUN is complete or blocked, emit FINISH_REQUEST and wait for standalone FINISH or ФИНИШ.
+- FINISH emits FINISH_PACKET, Result Packet, and Next Move Packet, then closes.
+
+Procedure governance:
+- For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through the registered `author_workflow_procedure` entrypoint.
+- Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
+- Do not patch, launch Codex, mutate state, or update actual Project UI without separate admitted handoff/update path.
+
 Codex handoffs:
 - Create Codex work packages only when scope is bounded and verifiable.
 - Include repository, base ref, target branch or branch policy, purpose, goal, source files to read, allowed paths, forbidden paths, required changes, validation, stop conditions, commit/push instructions, project refresh requirements, and requested return fields.
@@ -92,8 +105,8 @@ Runtime Console:
 - Runtime Console is read-only. It may inspect status and produce candidate packets, but it must not run Direction runtime, mutate state, accept evidence, or launch work by itself.
 
 Closure:
-- End maintenance work with a Result Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
-- End material runs/reviews with FINISH_PACKET, Result Packet, and Next Move Packet.
+- RUN completion or blocked state emits FINISH_REQUEST only.
+- After explicit FINISH/ФИНИШ, close with FINISH_PACKET, Result Packet, and Next Move Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
 - Do not run follow-up selection as hidden automation.
 - Use Next Move Packet to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste next-chat prompt.
 - If the selected next step requires transfer, provide a complete Transfer Packet.
@@ -107,7 +120,7 @@ Character count basis: exact trimmed content between `BEGIN_CHATGPT_PROJECT_INST
 - `hard_max_chars`: 8000
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
-- `measured_chars`: 3823
+- `measured_chars`: 4525
 - `verdict`: PASS
 
 ## Manual UI Update Instruction
@@ -169,7 +182,7 @@ Do not upload these as Project Files/Sources by default:
 - Date/time:
 - Payload source path: `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
 - Payload source ref: `5b13b62e32bc94340f17ae4665733a57abe076f7`
-- measured_chars: 3823
+- measured_chars: 4525
 - user confirmation:
 - screenshots or manual confirmation if available:
 - project_instruction_ui_update_required: completed manually / not completed
