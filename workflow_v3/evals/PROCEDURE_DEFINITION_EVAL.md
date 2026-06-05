@@ -14,10 +14,14 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Source requirements are explicit.
 - Context classification exists when source or state matters.
 - Complexity selector exists.
+- `procedure_class` is present and matches the registry.
 - Stages use Stage Card format.
 - Gates have real outcomes, including `STOP`, `REWORK`, and `EXPAND` where applicable.
 - Checkpoint policy exists.
 - Research or expansion policy exists where relevant.
+- Utility/adapter policy is present when the procedure can produce or verify utility packets.
+- External handoff/resume policy is present when the procedure can emit `RUN_EXTERNAL_HANDOFF` or consume `RUN_EXTERNAL_RETURN`.
+- Non-trivial procedure authoring includes staged authoring and a method checkpoint before detailed body drafting.
 - Output contract is downstream-usable.
 - Stop conditions prevent invention and boundary crossing.
 - Procedure closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
@@ -43,7 +47,11 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure can mutate state outside `storage_update_adapter`.
 - Procedure can accept its own output.
 - Procedure creates a separate route authority outside Procedure Registry, typed outputs, and FINISH/Next Move closure.
+- Procedure calls another procedure or uses an adapter as a hidden RUN procedure switch.
 - Complex procedure forces one-shot final artifact with no checkpoint.
+- FINISH_REQUEST can occur while a required external return is pending.
+- Utility adapter can mutate, accept, repair, store, or launch follow-up work by implication.
+- `human_decision` can avoid a required Transfer Packet when the external surface is materially known.
 - Procedure uses `*_RUNBOOK.md`, uses `*_PLAYBOOK.md`, or otherwise preserves obsolete runbook/playbook naming without an explicit bounded exception.
 - Stub procedure lacks target role, workflow integration, future body outline, output contract, or STOP behavior.
 - Registry points outside canonical procedure files.

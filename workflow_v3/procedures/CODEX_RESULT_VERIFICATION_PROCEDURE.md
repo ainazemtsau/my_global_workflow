@@ -1,12 +1,34 @@
 # Codex Result Verification Procedure
 
 status: active_procedure
+procedure_class: verification_adapter
 
 ## Purpose
 
 Use `codex_result_verification` to verify a Codex return before acceptance or storage update reliance.
 
 Verification is candidate evidence, not acceptance by itself. This procedure does not repair runtime state, launch follow-up work, or treat a Codex commit as accepted state.
+
+Class and embedded verification semantics are governed by:
+
+```text
+workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
+```
+
+## Verification Adapter Mode
+
+standalone_selection:
+
+- START may select `codex_result_verification` directly only when the user's primary request is to verify a Codex return artifact.
+- Standalone mode follows START -> RUN -> FINISH and returns verification findings as candidate evidence.
+- Standalone mode does not accept state, repair state, mutate storage, or start next work.
+
+embedded_verification_gate:
+
+- A selected owner procedure may use this file as an embedded verification schema/quality gate only when its procedure source and run surface allow `codex_return_verification`.
+- Embedded verification supports returned Codex evidence from a same-owner `RUN_EXTERNAL_HANDOFF`.
+- Embedded verification does not change `selected_entrypoint`, does not change `selected_procedure_ref`, and does not select `codex_result_verification` as a new owner procedure.
+- Returned Codex content is adapter evidence until verification passes. No validation means no done claim.
 
 ## Trigger / When to Use
 
@@ -20,6 +42,7 @@ Verification is candidate evidence, not acceptance by itself. This procedure doe
 - Do not use to mutate repository/runtime state.
 - Do not use to repair the result unless a separate procedure is admitted.
 - Do not use when branch, commit/diff, changed files, or validation evidence is absent; request missing evidence instead.
+- Do not use embedded mode unless the return matches a pending same-owner Codex handoff or an explicitly supplied original handoff.
 
 ## Required Inputs
 
@@ -36,6 +59,15 @@ Verification is candidate evidence, not acceptance by itself. This procedure doe
 - project refresh categories;
 - push status;
 - residual risks.
+
+Embedded mode also requires:
+
+- owner_entrypoint;
+- owner_procedure_ref;
+- pending_handoff_ref or original handoff packet;
+- expected_return_packet;
+- validation_required_before_resume;
+- resume_rule from the original `RUN_EXTERNAL_HANDOFF`.
 
 ## Source Requirements
 
@@ -112,6 +144,7 @@ stop behavior: Return blocked status and exact missing evidence.
 - `EXPAND`: inspect exact repo/branch/commit/diff evidence within the returned scope.
 - `STOP`: block when required evidence is missing, forbidden paths are touched, validation is absent/failed, EOF fails, or payload counts are missing when required.
 - `TRANSFER`: return a candidate next move or Transfer Packet for acceptance, storage, or repair; do not launch it.
+- `RUN_EXTERNAL_RETURN`: in embedded mode, resume the same selected owner procedure with verified, failed, or blocked Codex return evidence.
 
 ## Optional Expansion
 
@@ -121,6 +154,51 @@ Allowed expansion is limited to exact repo/branch/commit/diff inspection and bou
 
 External research is forbidden. Exact repo/branch/commit/diff inspection is allowed or required. Project Files/Sources and chat memory are not evidence.
 
+## Utility / Adapter Policy
+
+allowed_utility_categories:
+
+- produces `codex_return_verification`;
+- no embedded child utility categories.
+
+external_handoff_policy:
+
+- This procedure does not emit Codex handoffs.
+
+external_return_policy:
+
+- Standalone mode verifies an explicitly supplied Codex return against the supplied handoff/path boundary.
+- Embedded mode verifies returned adapter evidence against the pending same-owner `RUN_EXTERNAL_HANDOFF`.
+- Missing or mismatched handoff evidence returns blocked/missing-evidence status rather than a done claim.
+
+embedded_verification_policy:
+
+- Embedded verification is a RUN gate for the selected owner procedure.
+- Verification may support reliance by that owner procedure only after required checks pass; it does not accept state by itself.
+
+storage_boundary:
+
+- Verification does not perform storage mutation.
+- If storage is needed after verification, return a candidate next move or Transfer Packet for separate admitted storage/update work.
+
+## External Return and Resume Policy
+
+Embedded `RUN_EXTERNAL_RETURN` output must include:
+
+```text
+RUN_EXTERNAL_RETURN:
+  owner_entrypoint:
+  owner_procedure_ref:
+  utility_category: codex_return_verification
+  matched_pending_handoff:
+  returned_content_classification: adapter evidence
+  verification_status: passed | failed | blocked
+  validation_required_before_resume:
+  resume_rule: resume the same selected owner procedure after verification passes or blocks
+```
+
+FINISH_REQUEST by the owner procedure is allowed only after the required return is verified, failed, or explicitly blocked.
+
 ## Checkpoint Policy
 
 No checkpoint is required by default. Checkpoint or request missing evidence when the Codex return is incomplete instead of guessing.
@@ -128,6 +206,10 @@ No checkpoint is required by default. Checkpoint or request missing evidence whe
 ## Output Contract
 
 ```text
+standalone_or_embedded_mode:
+owner_entrypoint_if_embedded:
+owner_procedure_ref_if_embedded:
+matched_pending_handoff:
 verification_status: passed | failed | blocked
 branch:
 commit_sha:
@@ -137,6 +219,7 @@ validation_output:
 payload_character_counts:
 project_refresh_categories:
 residual_risks:
+external_handoff_status:
 exact_next_move:
 ```
 
@@ -149,6 +232,7 @@ exact_next_move:
 - Project Instructions source changes include measured payload count and refresh classification.
 - Forbidden path changes block acceptance.
 - Verification result does not accept state or launch next work.
+- Embedded verification preserves the selected owner procedure and returns `RUN_EXTERNAL_RETURN` rather than selecting a new procedure.
 
 ## Stop Conditions
 
@@ -163,7 +247,11 @@ exact_next_move:
 
 ## Procedure Closure
 
-Verification does not accept state. If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet.
+Verification does not accept state.
+
+In standalone mode, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet when lifecycle FINISH is active.
+
+In embedded mode, return `RUN_EXTERNAL_RETURN` to the same selected owner procedure. This is a RUN gate, not standalone FINISH and not a new material START.
 
 If the result needs acceptance, storage, or repair, return the exact next move or Transfer Packet; do not launch it.
 

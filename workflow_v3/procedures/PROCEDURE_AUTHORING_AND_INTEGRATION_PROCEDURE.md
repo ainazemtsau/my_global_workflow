@@ -301,6 +301,16 @@ If this procedure emits `RUN_EXTERNAL_HANDOFF`, it must include the complete pac
 
 Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any other utility adapter as a new owner procedure during this RUN.
 
+## External Handoff and Resume Policy
+
+This procedure may emit `RUN_EXTERNAL_HANDOFF` only when bounded external evidence is required before completing the selected authoring run and the utility category is allowed by both this procedure and the `procedure_authoring` run surface.
+
+Same-run Codex return verification may be used only for returned evidence from a Codex handoff emitted by this selected owner procedure. The returned content is adapter evidence until matched to the pending handoff and verified through `codex_return_verification`.
+
+`RUN_EXTERNAL_RETURN` resumes this same selected owner procedure. If the return is missing, mismatched, or unverified, Stage 7 must return a typed blocked/missing-evidence result instead of FINISH_REQUEST.
+
+FINISH_REQUEST may be emitted only after required external returns are verified, failed, or explicitly blocked/abandoned.
+
 ## Checkpoint Policy
 
 No checkpoint is required for simple bounded procedure edits that remain canonical.

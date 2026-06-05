@@ -1,12 +1,34 @@
 # Codex Handoff Procedure
 
 status: active_procedure
+procedure_class: utility_adapter
 
 ## Purpose
 
 Use `codex_handoff` to create a self-contained Codex package for bounded repository maintenance or implementation.
 
 The procedure produces a candidate handoff package only. It does not launch Codex invisibly, authorize acceptance, mutate state, or broaden product execution by implication.
+
+Class and embedded utility semantics are governed by:
+
+```text
+workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
+```
+
+## Utility Adapter Mode
+
+standalone_selection:
+
+- START may select `codex_handoff` directly only when the user's primary request is to prepare a Codex handoff artifact.
+- Standalone mode follows START -> RUN -> FINISH and returns a handoff package as candidate output.
+- Standalone mode does not execute Codex, decide acceptance, perform storage mutation, or open follow-up material work.
+
+embedded_packet_schema:
+
+- A selected owner procedure may use this file as a packet schema/quality gate only when its procedure source and run surface allow `codex_handoff_packet`.
+- Embedded use does not change `selected_entrypoint`, does not change `selected_procedure_ref`, and does not open a new lifecycle.
+- Embedded use returns a typed `codex_handoff_packet`; when the owner procedure requires the Codex result before completion, the gate outcome is `RUN_EXTERNAL_HANDOFF`.
+- Codex must return evidence to the owner procedure. Codex must not perform ChatGPT lifecycle FINISH or decide acceptance.
 
 ## Trigger / When to Use
 
@@ -21,6 +43,7 @@ The procedure produces a candidate handoff package only. It does not launch Code
 - Do not use to decide acceptance or permit Codex to decide acceptance.
 - Do not use when forbidden paths, validation, stop conditions, or return fields are missing.
 - Do not use to launch Codex without a separate explicit handoff/adapter action.
+- Do not use embedded mode unless the selected owner procedure and run surface allow `codex_handoff_packet`.
 
 ## Required Inputs
 
@@ -38,6 +61,16 @@ The procedure produces a candidate handoff package only. It does not launch Code
 - commit_push_instructions;
 - project_refresh_requirements;
 - requested_return_fields.
+
+Embedded mode also requires:
+
+- owner_entrypoint;
+- owner_procedure_ref;
+- utility_category: `codex_handoff_packet`;
+- handoff_purpose;
+- expected_return_packet;
+- validation_required_before_resume;
+- resume_rule.
 
 ## Source Requirements
 
@@ -116,6 +149,7 @@ stop behavior: Return incomplete package blocker.
 - `EXPAND`: inspect exact repository source only to complete source/path boundaries.
 - `STOP`: return blocked result when required handoff authority or fields are missing.
 - `TRANSFER`: return a candidate handoff packet for a later Codex adapter run.
+- `RUN_EXTERNAL_HANDOFF`: in embedded mode, pause the same selected owner procedure with a complete Codex handoff packet when returned evidence is required before owner completion.
 
 ## Optional Expansion
 
@@ -125,6 +159,53 @@ Allowed expansion is limited to exact repository source inspection needed for so
 
 External research is forbidden by default. Exact repository source inspection is allowed or required when needed for source/path boundaries. Do not use research to infer acceptance, Direction runtime state, or Project UI state.
 
+## Utility / Adapter Policy
+
+allowed_utility_categories:
+
+- produces `codex_handoff_packet`;
+- no embedded child utility categories.
+
+external_handoff_policy:
+
+- Standalone mode returns a Codex package for a later external action.
+- Embedded mode may emit `RUN_EXTERNAL_HANDOFF` only for the same selected owner procedure.
+
+external_return_policy:
+
+- Returned Codex content is adapter evidence until verified.
+- The owner procedure resumes only after `RUN_EXTERNAL_RETURN` matches the pending handoff and required verification passes or blocks.
+
+embedded_verification_policy:
+
+- This procedure does not verify returned Codex results.
+- Same-run verification uses the `codex_return_verification` category as an embedded RUN gate when the selected owner procedure and run surface allow it.
+
+storage_boundary:
+
+- The handoff may ask Codex to edit allowed repository paths, but accepted Workflow state still requires later verification and acceptance/update authority.
+- Storage execution is never embedded in this procedure.
+
+## External Handoff and Resume Policy
+
+Embedded `RUN_EXTERNAL_HANDOFF` output must include:
+
+```text
+RUN_EXTERNAL_HANDOFF:
+  lifecycle_state: RUN_WAITING_FOR_EXTERNAL_RETURN
+  owner_entrypoint:
+  owner_procedure_ref:
+  utility_category: codex_handoff_packet
+  external_surface: Codex
+  handoff_purpose:
+  copy_paste_packet:
+  expected_return_packet:
+  validation_required_before_resume:
+  resume_rule: resume the same selected owner procedure after RUN_EXTERNAL_RETURN
+```
+
+FINISH_REQUEST is forbidden while a required embedded Codex return is pending.
+
 ## Checkpoint Policy
 
 No checkpoint is required by default for a complete bounded handoff. Checkpoint when the user must decide path boundaries, commit/push policy, validation scope, return fields, or whether Codex is authorized after the package draft.
@@ -132,6 +213,9 @@ No checkpoint is required by default for a complete bounded handoff. Checkpoint 
 ## Output Contract
 
 ```text
+standalone_or_embedded_mode:
+owner_entrypoint_if_embedded:
+owner_procedure_ref_if_embedded:
 repository:
 base_ref:
 target_branch_or_branch_policy:
@@ -146,6 +230,7 @@ stop_conditions:
 commit_push_instructions:
 project_refresh_requirements:
 requested_return_fields:
+resume_rule_if_embedded:
 ```
 
 ## Eval / Quality Checks
@@ -158,6 +243,7 @@ requested_return_fields:
 - Package does not authorize product execution by implication.
 - Package does not omit forbidden paths or validation.
 - Package does not permit Codex to decide acceptance.
+- Embedded mode preserves the selected owner procedure and emits `RUN_EXTERNAL_HANDOFF` only when external evidence is required before owner completion.
 
 ## Stop Conditions
 
@@ -174,7 +260,11 @@ requested_return_fields:
 
 ## Procedure Closure
 
-Return the handoff package as candidate output. Codex result remains candidate evidence until verification and acceptance.
+In standalone mode, return the handoff package as candidate output and close through FINISH when lifecycle FINISH is active.
+
+In embedded mode, return `RUN_EXTERNAL_HANDOFF` to the same selected owner procedure when returned Codex evidence is required before completion. This is not FINISH_REQUEST, FINISH, or Next Move closure.
+
+Codex result remains adapter evidence until verification and acceptance.
 
 If lifecycle FINISH is active, close through FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet. Do not launch Codex invisibly.
 

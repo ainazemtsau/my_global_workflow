@@ -9,6 +9,7 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 ## PASS checks
 
 - START selected exactly one entrypoint.
+- START selected exactly one owner procedure and RUN kept that owner fixed.
 - Selected procedure source was read.
 - Matching run surface contract was obeyed.
 - Complexity level was justified.
@@ -19,6 +20,9 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - Checkpoints occurred when required.
 - Expansion, research, child, or check work was bounded.
 - No procedure switch occurred during RUN.
+- Embedded utility packets were typed, bounded, and allowed by both selected procedure source and run surface.
+- External return evidence matched a pending handoff before reliance.
+- Returned Codex or adapter evidence was verified before FINISH_REQUEST or done/reliance claims.
 - For procedure authoring, canonical path/naming and stub/body status were evaluated.
 - Registry delta points `procedure_ref` to the canonical procedure file unless an explicit bounded exception was recorded.
 - FINISH_REQUEST happened before FINISH.
@@ -35,6 +39,7 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 ## FAIL checks
 
 - Procedure switch during RUN.
+- Treating a utility adapter as a new owner procedure during an active RUN.
 - Hidden mutation.
 - Hidden acceptance.
 - Weak final artifact despite unmet gate.
@@ -42,6 +47,9 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - Research, child, or check work becomes independent material work.
 - External routing output emitted for every minor checkpoint.
 - Final closure launches next work invisibly.
+- New material START after FINISH in the same chat.
+- Codex result accepted without verification.
+- Codex or another external tool is asked to close ChatGPT lifecycle FINISH.
 - Parent integration, graph delta, escalation, downstream delta, or derived gate output mutates accepted state by existence.
 - Procedure authoring preserves obsolete runbook/playbook path or naming without an explicit bounded exception.
 - Stub execution attempts detailed body work instead of stopping.
