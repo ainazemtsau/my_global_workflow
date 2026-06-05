@@ -28,7 +28,7 @@ Ordinary Direction Projects have two setup phases:
 Ordinary Direction Projects also separate technical setup from semantic Definition:
 
 - setup-only root bootstrap creates technical placeholders, binding, and continuation surfaces;
-- Direction Definition later forms candidate Direction Spine, Direction Map, and Active Front through canonical procedure files.
+- Direction Definition later selects or prepares one next procedure step through canonical procedure files, starting with Direction Spine formation.
 
 Setup-only root bootstrap must not require or accept root outcome, Direction Spine, Direction Map, Active Front, Work Graph, or product strategy. User-provided semantic content during setup is `candidate_context_for_direction_definition` only.
 

@@ -26,6 +26,7 @@ Repository setup files define behavior surfaces, manifests, launch packets, and 
 - Governance Maintenance Console Project Instructions UI was already manually updated and recorded in `workflow_v3/project_setup/rollouts/GOVERNANCE_MAINTENANCE_PROJECT_ROLLOUT_RESULT.md`.
 - Ordinary Direction Project setup is repository-ready, but no ordinary Direction Project has been manually created from these files.
 - Ordinary Direction Project first chat is setup-only root bootstrap; semantic Direction Definition is a separate later step.
+- No ordinary Direction Project binding or concrete Direction runtime root is present after this cleanup.
 - No Direction adoption happens from setup docs alone.
 - No `directions_v3/<direction-id>/runtime/**` root is created from setup docs alone.
 - Actual Project Instructions UI updates, Project Files/Sources refreshes, and request-only source refreshes require explicit future user action or rollout evidence.

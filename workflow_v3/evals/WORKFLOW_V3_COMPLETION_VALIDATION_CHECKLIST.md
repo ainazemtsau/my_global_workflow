@@ -18,6 +18,7 @@ status: active_repository_completion_framework
 - registry entity count;
 - coverage matrix entity row count;
 - completion matrix entity crosswalk;
+- deleted Direction stale-reference grep output when a cleanup package deletes a Direction;
 - procedure stub field validation;
 - eval field validation;
 - EOF marker validation;
@@ -27,8 +28,10 @@ status: active_repository_completion_framework
 ## PASS criteria
 
 - Changes are limited to allowed paths.
-- No `workflow/**`, `directions/**`, product repository, or real runtime root files changed.
-- No `directions_v3/<direction-id>/runtime/**` exists from this package.
+- No `workflow/**`, unrelated `directions/**`, product repository, or unauthorized runtime root files changed.
+- No `directions_v3/<direction-id>/runtime/**` exists from this package unless the package explicitly authorizes creation.
+- Explicitly authorized cleanup packages may delete named concrete Direction folders, but may not modify unrelated Direction folders.
+- No stale references to deleted Direction IDs remain outside allowed historical/legacy references; any remaining historical references are explicitly marked `legacy_evidence` or are absent.
 - Every new/edited Markdown file has `END_OF_FILE`.
 - Registry entity count and coverage matrix entity row count do not decrease.
 - Every registry entity has completion matrix coverage.
@@ -46,7 +49,9 @@ status: active_repository_completion_framework
 ## FAIL criteria
 
 - Forbidden paths changed.
-- Runtime root created without explicit adoption package.
+- Runtime root created without explicit adoption or runtime-root package.
+- Cleanup package modifies unrelated Direction folders.
+- Deleted Direction ID remains referenced as active state or unmarked non-legacy evidence.
 - Legacy state imported or accepted by implication.
 - Project UI update or Project Files/Sources refresh is implied by repository commit.
 - Project Instructions payload exceeds 8,000 characters.

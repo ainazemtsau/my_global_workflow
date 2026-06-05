@@ -18,13 +18,17 @@ GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 ## Workflow v3 Namespace Separation
 
 - Current and rollback Workflow OS namespace: `workflow/**`.
-- Workflow v3 clean-start skeleton namespace: `workflow_v3/**`.
+- Workflow v3 canonical control-plane, setup, procedure, template, completion, adoption, and eval source namespace: `workflow_v3/**`.
+- Workflow v3 clean-start Direction namespace: `directions_v3/**`.
 - Old Direction namespace for Workflow v3: `directions/**` as `legacy_evidence` only, unless an explicit bridge/import/adoption policy says otherwise.
-- Future Workflow v3 Direction namespace: `directions_v3/**`.
 
 Workflow v3 does not decommission the old/current Workflow OS. The `workflow/**` namespace remains available as current Workflow OS and rollback context unless a later explicit package changes that boundary.
 
-Workflow v3 repository-side completion docs now live under `workflow_v3/completion/**`, with future clean-start adoption templates under `workflow_v3/adoption/**`, runbooks under `workflow_v3/runbooks/**`, and evals under `workflow_v3/evals/**`. These are repository documentation/setup only and do not adopt Directions or update ChatGPT Projects.
+Workflow v3 repository-side sources now live under `workflow_v3/**`, including `workflow_v3/control_plane/**`, `workflow_v3/project_setup/**`, `workflow_v3/procedures/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, and `workflow_v3/evals/**`. These are repository documentation/setup sources only and do not adopt Directions or update ChatGPT Projects.
+
+No `indie-game-development` Direction exists after this cleanup in either the clean-start Workflow v3 namespace or the old Direction namespace.
+
+Old `directions/**` material is not accepted Workflow v3 state.
 
 ## Project Setup
 

@@ -14,8 +14,11 @@ status: active_skeleton_namespace_corrected
 | ordinary_direction_project_installer | ready_repository_source_only |
 | direction_project_binding_protocol | ready_repository_source_only |
 | direction_adoption | none |
+| concrete_direction_runtime_roots | none |
+| ordinary_direction_project_bindings | none |
+| governance_maintenance_project_ui_update | completed_manual_external_recorded |
+| ordinary_direction_project_ui_update | none |
 | legacy_state_import | none |
-| chatgpt_project_ui_update | governance_maintenance_project_completed_manual_external_recorded; ordinary_direction_projects_none |
 | project_files_sources_refresh | none |
 | request_only_sources_refresh | none |
 | generated_project_pack_upload | none |

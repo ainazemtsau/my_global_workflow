@@ -73,7 +73,7 @@ Setup-only root may create placeholder pending semantic state, Project Binding, 
 
 Setup-only root must not require or accept root outcome, Direction Spine, Direction Map, Active Front, Work Graph, or product strategy.
 
-Direction Definition is the separate semantic formation process that forms candidate Direction Spine, Direction Map, and first Active Front after setup-only root exists.
+Direction Definition is the separate semantic formation process after setup-only root exists. It selects or prepares one next procedure step at a time, starting with `form_direction_spine`; later Direction Map and Active Front formation require explicit Next Move / Transfer Packet or separately admitted lifecycle boundaries.
 
 ## Direction Spine
 

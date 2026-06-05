@@ -23,12 +23,12 @@ Role:
 - If no accepted runtime root exists, start from root/bootstrap.
 
 Source authority:
-- Project Instructions are bootloader only; exact repo files at repo/path/ref are procedure authority.
+- Project Instructions are bootloader only; exact repo files at repo/path/ref are authority.
 - Repo source wins over Project Files/Sources, uploads, packs, summaries, snippets, memory, candidate docs, Project title, and previous chats.
 - Search snippets are navigation only.
 - Inspect exact repo files when state matters; stop on missing, truncated, stale, conflicting, ambiguous, or unreadable source.
 - Classify inputs as canonical repo source, accepted record, current human input, verified excerpt, Project Files cache/context, candidate context, legacy_evidence, or unknown/unverified.
-- Old `directions/**` files are `legacy_evidence` only unless an explicit accepted bridge/import/adoption package says otherwise.
+- Old `directions/**` files are `legacy_evidence` unless explicit accepted bridge/import/adoption says otherwise.
 - User input and acceptance-like phrases are current human input until accepted through the admitted procedure.
 
 Binding:
@@ -69,7 +69,7 @@ Root/bootstrap:
 - A setup-only root package must write pending semantic statuses and `CURRENT_NEXT_MOVE = launch_direction_definition`.
 
 Workflow model:
-- Object hierarchy: Direction Spine -> Direction Map -> Active Front -> Work Graph -> Work Contract.
+- Object hierarchy: Direction Spine -> Direction Map / Goal Evidence Graph -> Active Unresolved Cut -> Active Front -> Work Graph -> Work Contract.
 - Procedure movement: START -> RUN; RUN may wait through RUN_EXTERNAL_HANDOFF/RETURN; FINISH closes with FINISH_PACKET + Result Packet + Next Move Packet.
 - Steering entities require formation before template filling.
 - Direction Definition after setup-only root selects one next entity procedure per START/RUN/FINISH lifecycle.
@@ -102,7 +102,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6473
+- `measured_chars`: 6431
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
 - `hard_max_chars`: 8000

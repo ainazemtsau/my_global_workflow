@@ -15,6 +15,8 @@ This audit covers the repository-side Workflow v3 completion framework:
 
 It explicitly does not cover actual Direction adoption, runtime root creation, legacy import, ChatGPT Project UI update, Project Files/Sources refresh, request-only source refresh, generated pack upload, product execution, or old Workflow OS decommission.
 
+Explicitly authorized decommission/cleanup packages may delete named concrete Direction folders. They must not modify unrelated Direction folders, and they must validate that stale references to the deleted Direction ID do not remain in active v3/current setup docs.
+
 ## Required source authority
 
 Material decisions must use exact repository files at a named repo/path/ref.
@@ -27,9 +29,10 @@ Project Files/Sources, pasted excerpts, prior chat summaries, generated packs, a
 | --- | --- | --- |
 | Base ref verified | `origin/main` SHA is at or after the accepted Workflow v3 templates package merge commit. | required per package result |
 | Required reads completed | Root/source, accepted v3 docs, interfaces, templates, project setup sources, and project pack source model read from repository files. | required per package result |
-| Allowed paths only | Changes limited to `workflow_v3/**`, `README.md`, and `directions_v3/README.md`. | required per package result |
-| Forbidden paths untouched | No `workflow/**`, `directions/**`, product repository, or runtime-root paths changed. | required per package result |
-| No runtime root | No `directions_v3/<direction-id>/runtime/**` created. | required per package result |
+| Allowed paths only | Changes limited to the package's explicit allowed paths. Standard completion packages use `workflow_v3/**`, `README.md`, and `directions_v3/README.md`; authorized cleanup packages may include named concrete Direction folders for deletion. | required per package result |
+| Forbidden paths untouched | No `workflow/**`, unrelated `directions/**`, product repository, or unauthorized runtime-root paths changed. | required per package result |
+| No unadmitted runtime root | No `directions_v3/<direction-id>/runtime/**` created without explicit package authority. | required per package result |
+| Cleanup stale-reference validation | For authorized decommission packages, deleted Direction IDs have no active stale references outside allowed historical/legacy evidence. | required per package result |
 | Entity coverage preserved | Registry entity count and interface coverage rows do not decrease. | required per package result |
 | Completion matrix coverage | Every registry entity appears in `WORKFLOW_V3_COMPLETION_MATRIX.md`. | required per package result |
 | Procedure stub completeness | Every unauthored procedure stub includes target role, workflow integration, future body scope, required outputs, closure shape, and STOP behavior. | required per package result |

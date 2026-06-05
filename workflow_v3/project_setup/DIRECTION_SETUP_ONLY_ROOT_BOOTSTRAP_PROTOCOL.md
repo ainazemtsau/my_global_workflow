@@ -12,7 +12,7 @@ Setup-only root bootstrap creates the technical continuation surface for a futur
 
 Setup-only root bootstrap may decide technical identity and setup shape.
 
-Direction Definition is the later material entity-formation process that forms candidate Direction Spine, Direction Map, and Active Front.
+Direction Definition is the later material process that selects or prepares one next entity-formation procedure at a time, starting with Direction Spine formation.
 
 ## Setup may decide
 
@@ -85,7 +85,7 @@ semantic_definition_status: pending_definition
 project_binding_status:
 project_refresh_requirements:
 primary_next_move: launch_direction_definition
-transition_packet_or_next_chat_prompt:
+transfer_packet_or_next_chat_prompt:
 ```
 
 ## Boundary

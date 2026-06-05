@@ -53,7 +53,7 @@ Ordinary Direction Project root/bootstrap is setup-only. It may create future te
 
 The registered setup/root bootstrap entrypoint is `direction_project_root_bootstrap`, with run surface type `setup_only_root_bootstrap` and procedure source `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`.
 
-Direction Definition is the separate semantic process after setup-only root, using canonical procedure stubs for Spine, Map, and Active Front formation until detailed bodies are authored.
+Direction Definition is the separate semantic process after setup-only root. It selects one next procedure step at a time, starting with Direction Spine formation; later Map and Active Front formation require explicit Next Move / Transfer Packet or separately admitted lifecycle boundaries until detailed bodies are authored.
 
 ## File index
 

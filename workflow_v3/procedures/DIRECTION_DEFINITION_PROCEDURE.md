@@ -12,7 +12,7 @@ Self-contained target spec for semantic Direction Definition after setup-only ro
 
 ## target_role
 
-Coordinate semantic Direction Definition after setup-only root exists by producing bounded next-step packets for Spine, Map, and first Active Front formation.
+Coordinate semantic Direction Definition after setup-only root exists by producing one bounded next-step packet at a time. The first next procedure is `form_direction_spine`; later Map and Active Front formation require explicit Next Move / Transfer Packet or separately admitted lifecycle boundaries.
 
 ## workflow_integration
 
@@ -40,7 +40,7 @@ Does not silently run multiple procedures. It sequences definition work through 
 - inspect setup-only root status;
 - confirm Direction Definition is admitted;
 - select exact next definition step;
-- prepare transfer packet to form Direction Spine, then Map, then Active Front as separate procedures.
+- prepare a transfer packet for the selected single next definition step.
 
 ## future_body_must_not
 

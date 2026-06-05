@@ -54,7 +54,7 @@ launch_direction_definition
 
 `new_chat_needed`:
 
-`transition_packet_ref_or_inline`:
+`transfer_packet_ref_or_inline`:
 
 `blocked_if`:
 

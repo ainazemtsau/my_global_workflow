@@ -142,11 +142,8 @@ STOP types:
 - EXTERNAL_RETURN_REQUIRED_STOP
 - UTILITY_BOUNDARY_STOP
 
-## Phase mapping
+## Legacy terminology note
 
-START contains old Phase 0, Phase 1, and Phase 2.
-RUN contains old Phase 3, selected-procedure execution, and any allowed RUN_EXTERNAL_HANDOFF / RUN_EXTERNAL_RETURN gates.
-FINISH contains old Phase 4, Phase 5, Phase 6, and Phase 7 only when those boundaries are admitted.
-Skipped old phases or utility gates require a reason in FINISH_PACKET.
+Old phase terminology is legacy/migration context only and is not active lifecycle authority.
 
 END_OF_FILE: workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md

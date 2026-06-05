@@ -40,6 +40,8 @@ Direction accepted proof state is governed by verified Direction payload files a
 
 Old Direction files under `directions/**` are legacy evidence for Workflow v3 unless a verified bridge/import/adoption policy says otherwise. Future Workflow v3 Direction runtime state belongs under `directions_v3/<direction-id>/runtime/**` only after an explicit adoption package creates it.
 
+This file does not certify that any active Workflow v3 Direction currently exists.
+
 Workflow Governance uses its active workflow payload under:
 
 - `directions/workflow-governance/workflow/**`

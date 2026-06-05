@@ -14,7 +14,15 @@ No Direction is adopted by this correction package.
 
 No `directions_v3/<direction-id>/runtime/**` root is created by this correction package.
 
-Future clean-start adoption packages must use `workflow_v3/adoption/**`, `workflow_v3/runbooks/DIRECTION_BOOTSTRAP_RUNBOOK.md`, and `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md` before creating any runtime root.
+No concrete `directions_v3/<direction-id>/runtime/**` root exists after this cleanup unless a future accepted package creates one.
+
+Future clean-start adoption and setup packages must use canonical Workflow v3 sources such as:
+
+- `workflow_v3/adoption/**`;
+- `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md`;
+- `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`;
+- `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md`;
+- `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md`.
 
 `directions/**` remains `legacy_evidence` for Workflow v3 and may be used only through explicit bridge, import, or adoption policy.
 
