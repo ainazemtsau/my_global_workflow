@@ -14,6 +14,14 @@ This file defines active setup principles for ChatGPT Project setup in the Workf
 
 Project setup files are storage/adapter surfaces. They do not create accepted Ledger state.
 
+This file documents current/rollback Workflow OS Project setup. It is not Workflow v3 governance authority.
+
+Workflow v3 Governance Maintenance Project behavior is governed by:
+
+- `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
+
+Exact repository files under `workflow_v3/**` win for Workflow v3 governance maintenance.
+
 Use `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md` for new ordinary Direction Workflow Projects.
 
 ## Project Types
@@ -21,11 +29,11 @@ Use `workflow/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md` for new or
 There are two supported setup types:
 
 - ordinary Direction Workflow Projects
-- Workflow Governance Maintenance Project
+- current/rollback Workflow OS Governance Maintenance Project
 
 Ordinary Direction Workflow Projects run the Workflow OS for one Direction.
 
-The Workflow Governance Maintenance Project services the workflow repository as a maintenance, audit, debug, research, setup, Codex handoff, and Codex result verification console.
+The current/rollback Workflow OS Governance Maintenance Project services the workflow repository as a maintenance, audit, debug, research, setup, Codex handoff, and Codex result verification console.
 
 The existing universal direction project instructions template is not the correct template for the Workflow Governance Maintenance Console.
 
@@ -44,7 +52,7 @@ New ordinary Direction Workflow Projects use one setup model:
 - Optional Capability Packs
 - Product Repo Execution Setup, handled separately in the target product repository
 
-The Workflow Governance Maintenance Project uses its own Project Instructions and manifest:
+The current/rollback Workflow OS Governance Maintenance Project uses its own Project Instructions and manifest:
 
 - `directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md`
 - `directions/workflow-governance/workflow/project_setup/PROJECT_FILES_MANIFEST.md`
@@ -57,7 +65,9 @@ Its default upload set is:
 - `docs/CHATGPT_PROJECT_SETUP.md`
 - `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
 
-`PROJECT_PACKS_INDEX.md` is default only for the Workflow Governance Maintenance Project because that project is explicitly a setup and pack inspection console. It remains request-only for ordinary Direction Workflow Projects.
+`PROJECT_PACKS_INDEX.md` is default only for the current/rollback Workflow OS Governance Maintenance Project because that project is explicitly a setup and pack inspection console. It remains request-only for ordinary Direction Workflow Projects.
+
+This default upload set is current/rollback Workflow OS cache. Do not use it as Workflow v3 Governance Maintenance authority.
 
 ## Project Surface Taxonomy
 
@@ -71,7 +81,7 @@ Project Files/Sources:
 
 - Uploaded reference materials / project sources.
 - Includes default shared workflow packs and Direction payload files for ordinary Direction Workflow Projects.
-- Includes the maintenance-console default upload set for the Workflow Governance Maintenance Project.
+- Includes the maintenance-console default upload set for the current/rollback Workflow OS Governance Maintenance Project.
 
 Repository Project Instruction Source:
 
@@ -91,7 +101,7 @@ Request-only sources:
 1. Paste or update Project Instructions in the ChatGPT Project Instructions UI.
 2. Upload or replace Project Files/Sources for the Project type:
    - ordinary Direction Workflow Projects: default shared packs plus Direction payload files.
-   - Workflow Governance Maintenance Project: the maintenance-console default upload set only.
+   - current/rollback Workflow OS Governance Maintenance Project: the maintenance-console default upload set only.
 
 ## Default Project Files/Sources
 
@@ -118,7 +128,7 @@ The older 31-file Project Files model is superseded.
 
 Ordinary Direction default upload is three shared packs plus six Direction payload files.
 
-Workflow Governance Maintenance Project default upload is the five-file maintenance-console set listed above.
+Current/rollback Workflow OS Governance Maintenance Project default upload is the five-file maintenance-console set listed above.
 
 Project Instructions source files are UI payload sources. They must not be uploaded as default Project Files/Sources, must not be included in the default upload count, and must not store live Direction state.
 
@@ -178,7 +188,7 @@ For ordinary Direction Workflow Projects, Project Files/Sources may provide cont
 
 Loaded domain files must be treated as candidate_context unless the Ledger says otherwise.
 
-For the Workflow Governance Maintenance Project, GitHub repository state is source of truth and Project Files/Sources are cache. Load exact affected files on demand. Ledger, Obligation, and Receipt concepts are analyzed subject matter unless the user explicitly asks to inspect or validate runtime state.
+For the current/rollback Workflow OS Governance Maintenance Project, GitHub repository state is source of truth and Project Files/Sources are cache. Load exact affected files on demand. Ledger, Obligation, and Receipt concepts are analyzed subject matter unless the user explicitly asks to inspect or validate runtime state.
 
 ## No Next Valid Run Setup Rule
 
@@ -188,7 +198,7 @@ In `paused_for_admission`, do not execute candidate routes or proposed Obligatio
 
 Candidate routes and proposed Obligations remain candidate until Receipt -> Verify -> Commit.
 
-This ordinary Direction rule does not apply to the Workflow Governance Maintenance Project. The maintenance console must not default to Dashboard/Obligations next-valid-run behavior.
+This ordinary Direction rule does not apply to the current/rollback Workflow OS Governance Maintenance Project. The maintenance console must not default to Dashboard/Obligations next-valid-run behavior.
 
 ## Human Input Setup Rule
 
@@ -245,6 +255,6 @@ If the work is compound, the chat must scope-triage, decompose only what is requ
 
 Child chats serve the current parent target Obligation. They are not a substitute for the new-chat boundary after a completed material run.
 
-The Workflow Governance Maintenance Project uses one concrete maintenance problem per chat and does not use Obligation framing as the controlling chat protocol by default.
+The current/rollback Workflow OS Governance Maintenance Project uses one concrete maintenance problem per chat and does not use Obligation framing as the controlling chat protocol by default.
 
 END_OF_FILE: workflow/policies/08_CHATGPT_PROJECT_SETUP.md

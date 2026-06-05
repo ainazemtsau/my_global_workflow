@@ -17,12 +17,20 @@ Use this file to create or refresh ChatGPT Projects for the Workflow OS.
 
 This file is setup documentation. It is not runtime state and does not create accepted Ledger state.
 
+This file documents current/rollback Workflow OS Project setup. It is not Workflow v3 governance authority.
+
+Workflow v3 Governance Maintenance Project behavior is governed by:
+
+- `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
+
+Exact repository files under `workflow_v3/**` win for Workflow v3 governance maintenance.
+
 ## Project Model
 
 There are two supported ChatGPT Project types:
 
 - Direction Workflow Project
-- Workflow Governance Maintenance Project
+- current/rollback Workflow OS Governance Maintenance Project
 
 ChatGPT Project setup has separate surfaces:
 
@@ -61,13 +69,15 @@ Direction Workflow Projects use the universal runtime setup and the Direction pa
 
 They are allowed to use Dashboard/Obligations next-valid-run behavior according to their Project Instructions and manifest.
 
-### Workflow Governance Maintenance Project
+### Current/Rollback Workflow OS Governance Maintenance Project
 
-The Workflow Governance Maintenance Project services the Workflow OS repository.
+The current/rollback Workflow OS Governance Maintenance Project services the Workflow OS repository.
 
 It is a maintenance, audit, debug, research, setup, Codex handoff, and Codex result verification console.
 
 It uses a different default upload set from ordinary Direction Workflow Projects.
+
+This default upload set is current/rollback Workflow OS cache. Do not use it as Workflow v3 Governance Maintenance authority.
 
 It must not start from Dashboard/Obligations next valid run.
 
@@ -91,9 +101,11 @@ Its default Project Files/Sources are:
 - `docs/CHATGPT_PROJECT_SETUP.md`
 - `workflow/policies/08_CHATGPT_PROJECT_SETUP.md`
 
-`PROJECT_PACKS_INDEX.md` is default only for the Workflow Governance Maintenance Project because that project is explicitly a setup and pack inspection console. It remains request-only for ordinary Direction Workflow Projects.
+`PROJECT_PACKS_INDEX.md` is default only for the current/rollback Workflow OS Governance Maintenance Project because that project is explicitly a setup and pack inspection console. It remains request-only for ordinary Direction Workflow Projects.
 
 Workflow runtime packs and Workflow Governance Direction payload files are request-only in the maintenance project.
+
+Workflow v3 Governance Maintenance uses repository authority under `workflow_v3/**`, with `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` as the Project Instructions UI source.
 
 ## Direction Workflow Project Setup
 
@@ -165,7 +177,7 @@ Ordinary Direction Workflow Project creation should use pack-based manifests.
 
 Ordinary Direction default upload is three shared packs plus six Direction payload files.
 
-The Workflow Governance Maintenance Project default upload is the five-file maintenance-console set listed in Project Types.
+The current/rollback Workflow OS Governance Maintenance Project default upload is the five-file maintenance-console set listed in Project Types.
 
 Project Instructions are pasted into the Project Instructions UI. They are not uploaded Project Files/Sources and do not count toward the default upload count.
 

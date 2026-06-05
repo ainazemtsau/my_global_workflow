@@ -4,8 +4,8 @@ artifact_control:
   artifact_type: project_pack
   pack_name: GOVERNANCE_MAINTENANCE_PACK
   pack_type: workflow_governance_maintenance_console
-  intended_load_mode: default_for_workflow_governance_maintenance_project
-  status: path_boundary_consistency_refreshed
+  intended_load_mode: default_for_current_workflow_os_governance_maintenance_project_only
+  status: legacy_current_workflow_os_cache_not_v3_authority
   owner: workflow_os
   generated_from_ref: wg/codex-handoff-path-boundary-consistency-2026-05-28
   refreshed_for_receipt: null
@@ -23,7 +23,7 @@ source_manifest:
 
 ## Pack Boundary
 
-This pack is a ChatGPT Project Files/Sources runtime cache and upload convenience artifact for the Workflow Governance Maintenance Project.
+This pack is a ChatGPT Project Files/Sources runtime cache and upload convenience artifact for the current/rollback Workflow OS Governance Maintenance Project.
 
 It is not semantic authority.
 
@@ -31,13 +31,25 @@ Canonical repository files remain authority.
 
 If this pack conflicts with a verified canonical source file, the canonical source wins.
 
+This pack is legacy/current Workflow OS cache for the current/rollback Workflow Governance Maintenance Project.
+
+It is not Workflow v3 Governance Maintenance authority and must not be default-loaded as Workflow v3 authority.
+
+Workflow v3 Governance Maintenance behavior is superseded by:
+
+- `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
+
+Exact repository files under `workflow_v3/**` win for Workflow v3 governance maintenance.
+
 ## Source Of Truth
 
 GitHub repository `ainazemtsau/my_global_workflow` is the canonical repository while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
 
 `WORKFLOW_SOURCE_OF_TRUTH.md` is an authority locator and bootstrap sentinel only.
 
-Active Workflow OS authority is governed by verified canonical files under `workflow/**`.
+Active current/rollback Workflow OS authority is governed by verified canonical files under `workflow/**`.
+
+Workflow v3 authority is governed separately by verified canonical files under `workflow_v3/**`.
 
 Project Files/Sources are runtime cache and may be stale.
 
@@ -55,7 +67,7 @@ It does not run the Workflow OS as a Direction runtime by default.
 
 ## Default Upload Set
 
-The Workflow Governance Maintenance Project default upload set is:
+The current/rollback Workflow OS Governance Maintenance Project default upload set is:
 
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
@@ -67,13 +79,15 @@ Live Workflow Governance Direction payload files are request-only for maintenanc
 
 One chat handles one concrete maintenance problem.
 
-Material maintenance work follows START -> RUN -> FINISH.
+For current Workflow OS maintenance cache use, material maintenance work follows START -> RUN -> FINISH.
 
 Material maintenance work must show START_PACKET before RUN.
 
 RUN cannot execute a procedure not selected in START.
 
-FINISH must include FINISH_PACKET, Result Packet, Event Loop Closure, and refresh categories when project surfaces changed.
+FINISH must include FINISH_PACKET, Result Packet, Next Move Packet, and refresh categories when project surfaces changed.
+
+Legacy/current Workflow OS terminology in this pack is not Workflow v3 routing.
 
 The default loop is:
 

@@ -42,7 +42,15 @@ If any file listed in a pack `source_manifest` changes, regenerate and refresh t
 
 If this index conflicts with a pack or canonical source file, the more specific canonical source wins.
 
-This index is default for the Workflow Governance Maintenance Project and request-only for ordinary Direction Workflow Projects. Do not upload it by default for ordinary Direction Workflow Projects unless exact setup inspection needs it or it is already uploaded and must be refreshed.
+This index is default for the current/rollback Workflow OS Governance Maintenance Project and request-only for ordinary Direction Workflow Projects. Do not upload it by default for ordinary Direction Workflow Projects unless exact setup inspection needs it or it is already uploaded and must be refreshed.
+
+This index and the packs under `workflow/project_packs/**` are current/rollback Workflow OS cache and upload convenience artifacts. They are not Workflow v3 authority.
+
+Workflow v3 Governance Maintenance behavior is governed by:
+
+- `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
+
+Exact repository files under `workflow_v3/**` win for Workflow v3 governance maintenance.
 
 Project Instructions UI is separate from Project Files/Sources. Repository instruction sources such as `directions/<direction-id>/<active-project-setup>/CHATGPT_PROJECT_INSTRUCTIONS.md` are pasted into the ChatGPT Project Instructions field and are not uploaded as default Project Files/Sources.
 
@@ -69,9 +77,9 @@ Default upload count excludes Project Instructions UI sources.
 
 The default packs now summarize Atomic Run / Single Responsibility, Scope Triage Before Material Work, Operator Independence / Effectiveness Over Agreement, no-next-valid-run `paused_for_admission` recovery, Single Material Run Chat Boundary, child-handoff gating, Receipt scope audit, Codex handoff path-boundary consistency, and next-chat default after committed material runs.
 
-For the Workflow Governance Maintenance Project, `GOVERNANCE_MAINTENANCE_PACK.md` contains the detailed Real Transcript Review procedure: short natural-language triggers plus pasted completed transcript, P0 Single Responsibility / Atomic Run as the first mandatory gate, lifecycle surface detection, relevant-only surface checks, Codex handoff/result verification when applicable, stable transcript defect classes, and explicit terminal outcome. The Project Instructions UI only bootstraps this procedure.
+For the current/rollback Workflow OS Governance Maintenance Project, `GOVERNANCE_MAINTENANCE_PACK.md` contains the detailed Real Transcript Review procedure: short natural-language triggers plus pasted completed transcript, P0 Single Responsibility / Atomic Run as the first mandatory gate, lifecycle surface detection, relevant-only surface checks, Codex handoff/result verification when applicable, stable transcript defect classes, and explicit terminal outcome. The Project Instructions UI only bootstraps this procedure.
 
-For the Workflow Governance Maintenance Project, default upload is different:
+For the current/rollback Workflow OS Governance Maintenance Project, default upload is different:
 
 - `WORKFLOW_SOURCE_OF_TRUTH.md`
 - `workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md`
@@ -81,7 +89,9 @@ For the Workflow Governance Maintenance Project, default upload is different:
 
 `WORKFLOW_SOURCE_OF_TRUTH.md` is included here as maintenance-console bootstrap context, not as semantic authority.
 
-`workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is default only for the Workflow Governance Maintenance Project.
+`workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is default only for the current/rollback Workflow OS Governance Maintenance Project.
+
+It must not be default-loaded as Workflow v3 Governance Maintenance authority.
 
 It is not default for ordinary Direction Workflow Projects.
 
@@ -97,7 +107,7 @@ The execution harness pack is not a default load for every chat.
 
 No `workflow/project_packs/MIGRATION_LEGACY_IMPORT_PACK.md` file is currently present. Treat that filename as future-only/non-present unless a future committed source adds it.
 
-`workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is an actual pack for the Workflow Governance Maintenance Project, not a future optional ordinary Direction Project pack.
+`workflow/project_packs/GOVERNANCE_MAINTENANCE_PACK.md` is an actual pack for the current/rollback Workflow OS Governance Maintenance Project, not a future optional ordinary Direction Project pack and not Workflow v3 governance authority.
 
 ## Exact Schema Fallback
 
