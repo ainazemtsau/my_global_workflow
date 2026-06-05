@@ -4,146 +4,178 @@ status: active_control_plane
 
 ## Authority
 
-This file is the authoritative Workflow v3 chat lifecycle kernel for material and state-sensitive chats.
+This file is the Workflow v3 runtime kernel for material and state-sensitive chats.
 
-Embedded utility/adapter behavior is governed by:
+Procedure selection is owned by `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. Utility calls are governed by `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`. Final audit is governed by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
+
+## State Model
 
 ```text
-workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
+START -> RUN -> CHECK -> FINISH -> CLOSED
+RUN -> UTILITY -> RUN
+CHECK -> RUN
+CHECK -> blocked escalation
+FINISH -> RUN repair
+FINISH -> blocked escalation
 ```
 
-## Universal law
+`UTILITY` is optional and subordinate to the selected main procedure. It never switches the selected main procedure.
 
-Every material or state-sensitive chat response must enter START before work, execute exactly one admitted owner procedure in RUN, and close through FINISH or typed STOP.
+## Universal Rules
 
-## State machine
-
-START -> RUN
-START -> STOP
-RUN -> RUN_EXTERNAL_HANDOFF
-RUN_EXTERNAL_HANDOFF -> RUN_EXTERNAL_RETURN
-RUN_EXTERNAL_RETURN -> RUN
-RUN -> STOP
-RUN -> FINISH_REQUEST
-FINISH_REQUEST -> FINISH
-FINISH -> closed
-
-`RUN_EXTERNAL_HANDOFF` and `RUN_EXTERNAL_RETURN` are internal RUN gates. They are not lifecycle phases that select another procedure.
-
-After FINISH, the chat is closed for material work. A new material START in the same chat is forbidden.
+- One material chat selects exactly one main procedure.
+- The selected main procedure defines completion through its `completion:` block.
+- Runtime executes visible material stages one at a time.
+- Utility calls return to the same selected main procedure and are verified before reliance.
+- CHECK compares actual result to the selected procedure completion contract.
+- FINISH closes only after CHECK passes or the selected procedure's blocked completion condition is explicit.
+- CLOSED chats do not start new material work.
 
 ## START
 
-START selects one owner procedure and proves that it can be executed.
+START selects and prepares the main procedure. It must not perform material work.
 
 START must:
-- classify the user input;
-- detect requested work items;
-- select exactly one work item;
-- return SPLIT_REQUIRED when more than one independent work item is requested;
-- resolve selected owner procedure through expanded Procedure Registry;
-- read exact required source files;
-- identify run_surface_type and procedure_class;
-- read the matching run surface contract;
-- read `UTILITY_ADAPTER_PROTOCOL.md` when utility/adapter categories or external handoff boundaries are relevant;
-- record selected complexity, checkpoint policy, research policy, or utility policy only after selected procedure source is read;
-- show START_PACKET;
-- wait for explicit user token START or СТАРТ before RUN.
+
+- classify the user request and identify one concrete work item;
+- return `SPLIT_REQUIRED` if multiple independent work items are requested;
+- read `PROCEDURE_REGISTRY.md` and select exactly one main procedure;
+- read the selected procedure file and verify source availability;
+- show a human-readable start contract;
+- show the selected procedure's `completion:` contract;
+- show the procedure's material stages when present;
+- show allowed boundaries, including write and utility boundaries;
+- wait for standalone `START` or `СТАРТ` before RUN.
+
+START contract shape:
+
+```text
+START_CONTRACT:
+  selected_entrypoint:
+  selected_procedure_path:
+  kind:
+  task:
+  completion_contract:
+  material_stages:
+  allowed_boundaries:
+  required_sources:
+  user_confirmation_required: START | СТАРТ
+```
 
 ## RUN
 
-RUN executes only the owner procedure selected in START.
+RUN executes only the selected main procedure.
 
 RUN must:
-- execute only selected_procedure_ref;
-- obey selected run_surface_type;
-- obey allowed_operations, forbidden_operations, required_inputs, required_outputs, utility notes, Utility Use Gate, and stop_conditions;
-- execute the selected procedure as a stage/gate loop when the procedure uses the Procedure Definition Framework;
-- treat stage checkpoints and embedded utility/adapter gates as internal RUN gates, not lifecycle phases;
-- treat any request for another owner procedure as BOUNDARY_CROSSING_STOP unless the selected procedure emits a bounded utility packet through the Utility Use Gate;
-- produce RUN_EXTERNAL_HANDOFF when an external utility result is required before completion and the Utility Use Gate passes;
-- resume the same selected owner procedure after RUN_EXTERNAL_RETURN;
-- produce FINISH_REQUEST only when the selected procedure reaches its completion or blocked condition and no required external return is pending;
-- never perform direct in-chat state mutation unless the selected procedure is storage_update_adapter;
-- treat external utility writes as adapter evidence until RUN_EXTERNAL_RETURN verification and acceptance/update boundaries pass;
-- never accept its own output.
 
-The Procedure Definition Framework and Utility Adapter Protocol cannot authorize procedure switching.
+- execute one visible material stage at a time;
+- emit `STAGE_RESULT` after each material stage;
+- wait for user `CONTINUE` or `ДАЛЬШЕ` before the next material stage unless the next step is explicitly `internal_check`;
+- run `internal_check` steps only as mechanical checks inside the current stage;
+- keep utility calls subordinate to the same selected main procedure;
+- prevent direct mutation unless the selected main procedure or a verified utility write path admits exact writes;
+- avoid hidden launches, hidden acceptance, and procedure switching.
 
-FINISH_REQUEST remains the only transition from RUN to FINISH.
+STAGE_RESULT shape:
 
-## RUN_EXTERNAL_HANDOFF
+```text
+STAGE_RESULT:
+  stage:
+  result:
+  proof:
+  limitations:
+  next_stage_or_check:
+  user_confirmation_required:
+```
 
-RUN_EXTERNAL_HANDOFF is a typed internal RUN gate used when the selected owner procedure needs an external utility result before completion.
+## UTILITY
 
-RUN_EXTERNAL_HANDOFF must follow `UTILITY_ADAPTER_PROTOCOL.md` and include a complete `copy_paste_packet`, expected return fields, validation requirements, and same-owner resume rule.
+UTILITY is a supporting call made during RUN because the selected procedure or current stage needs help.
 
-RUN_EXTERNAL_HANDOFF must not:
-- select a new owner procedure;
-- emit FINISH_REQUEST;
-- ask the external surface to perform ChatGPT lifecycle FINISH;
-- authorize mutation, acceptance, or hidden next work beyond the packet.
+UTILITY must:
 
-## RUN_EXTERNAL_RETURN
+- state why the utility is needed;
+- name the target utility or surface;
+- include a complete packet or call boundary when external user action is required;
+- state expected return;
+- resume the same selected main procedure;
+- verify returned evidence before relying on it.
 
-RUN_EXTERNAL_RETURN resumes the same selected owner procedure after the user returns external evidence.
+Use `UTILITY_CALL` and `UTILITY_RETURN` from `UTILITY_ADAPTER_PROTOCOL.md`.
 
-RUN_EXTERNAL_RETURN must:
-- match the returned evidence to the pending handoff;
-- classify the return as adapter evidence until verified;
-- perform required embedded verification or stop with exact missing evidence;
-- continue only the selected owner procedure.
+## CHECK
 
-## FINISH_REQUEST
+CHECK compares the actual result against the selected procedure's completion contract.
 
-FINISH_REQUEST is the only transition from RUN to FINISH.
+CLOSURE_CHECK must:
 
-FINISH_REQUEST must:
-- summarize selected work result;
-- list unresolved items;
-- list candidate state;
-- state that FINISH requires explicit user token FINISH or ФИНИШ;
-- confirm that required external handoffs have returned, been verified, or been explicitly stopped/abandoned;
-- not emit FINISH_PACKET before explicit FINISH.
+```text
+CLOSURE_CHECK:
+  selected_entrypoint:
+  selected_procedure_path:
+  completion_contract:
+  actual_result:
+  proof:
+  gaps:
+  decision: pass | return_to_run_repair | blocked
+  next_action:
+```
+
+CHECK may request FINISH only when the contract is satisfied or when the selected procedure explicitly allows blocked completion. If gaps remain, return to RUN repair or blocked escalation.
 
 ## FINISH
 
-FINISH closes the chat.
+FINISH is final audit and closure after CHECK passes or blocks according to the selected procedure.
 
 FINISH must:
-- read CHAT_FINISH_PROTOCOL.md before emitting final closure;
-- audit that START selected one owner procedure and RUN did not switch procedures;
-- audit that no required external return is pending;
-- emit FINISH_PACKET;
-- emit Result Packet;
-- emit Next Move Packet;
-- select exactly one primary next move;
-- not launch the next move invisibly.
 
-After FINISH, only non-material clarification about the closed result or pointers to emitted packets are allowed in the same chat.
+- read `CHAT_FINISH_PROTOCOL.md`;
+- audit the run against START and the selected procedure completion contract;
+- confirm no unresolved utility return is being relied on;
+- close only if the audit passes;
+- return to RUN repair or blocked escalation if the audit fails;
+- include a human-readable result;
+- include `NEXT_CHAT_CARD` when workflow continuation is needed, or `no_next_chat_needed` with reason.
 
-## STOP
+## CLOSED
 
-STOP is terminal for the current attempted transition.
+CLOSED means the material workflow chat is complete for the selected main procedure. No new material START may occur in the same chat.
 
-STOP types:
-- SPLIT_REQUIRED
-- CONTEXT_REQUEST
-- UNREGISTERED_ACTION_EXCEPTION
-- SOURCE_AUTHORITY_CONFLICT
-- BINDING_CONFLICT
-- MISSING_RUN_SURFACE_TYPE
-- BOUNDARY_CROSSING_STOP
-- WRITE_NOT_ADMITTED
-- ACCEPTANCE_AMBIGUITY
-- LEGACY_BOUNDARY_STOP
-- VALIDATION_REQUIRED_STOP
-- SOURCE_INTEGRITY_STOP
-- EXTERNAL_RETURN_REQUIRED_STOP
-- UTILITY_BOUNDARY_STOP
+A closed material workflow chat must include either:
 
-## Legacy terminology note
+```text
+NEXT_CHAT_CARD:
+  title:
+  why:
+  main_procedure_to_start:
+  context_to_paste:
+  expected_result:
+  evidence_or_return_needed:
+  start_instruction:
+```
 
-Old phase terminology is legacy/migration context only and is not active lifecycle authority.
+or:
+
+```text
+no_next_chat_needed:
+  reason:
+```
+
+## STOP / Blocked Escalation
+
+Use a blocked escalation when the lifecycle cannot safely proceed because source, boundary, utility return, validation, completion proof, or user authority is missing.
+
+Common blocked reasons:
+
+- `SPLIT_REQUIRED`
+- `CONTEXT_REQUEST`
+- `UNREGISTERED_ACTION_EXCEPTION`
+- `SOURCE_AUTHORITY_CONFLICT`
+- `BOUNDARY_CROSSING_STOP`
+- `WRITE_NOT_ADMITTED`
+- `VALIDATION_REQUIRED_STOP`
+- `SOURCE_INTEGRITY_STOP`
+- `UTILITY_RETURN_REQUIRED_STOP`
+- `COMPLETION_CONTRACT_NOT_SATISFIED`
 
 END_OF_FILE: workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md

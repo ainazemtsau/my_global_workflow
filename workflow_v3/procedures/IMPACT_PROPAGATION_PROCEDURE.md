@@ -4,7 +4,7 @@ title: Impact Propagation
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md
 entrypoint: impact_propagation
-run_surface_type: recovery_review
+procedure_boundary: recovery_review
 
 ## purpose
 
@@ -61,6 +61,14 @@ Converts invalidation/blocker findings into local repair, parent replan, Directi
 - Result Packet;
 - Next Move Packet.
 
+## Completion Contract
+
+```text
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source exists and describes impact propagation target role
+  blocked_if: selected for execution before detailed body is authored
+```
 ## stop_behavior_until_authored
 
 ```text

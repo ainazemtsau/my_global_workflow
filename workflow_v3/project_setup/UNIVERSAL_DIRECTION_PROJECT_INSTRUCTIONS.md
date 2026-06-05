@@ -40,20 +40,20 @@ Binding:
 - After accepted root, generate per-Direction Project Instructions source and require manual UI update.
 
 Action admission:
-- Before material work: classify action, resolve entrypoint, read exact procedure, verify EOF/source integrity, identify `run_surface_type`, obey allowed/forbidden operations, and stop on missing source or boundary conflict.
+- Before material work: classify action, resolve entrypoint, read exact procedure, verify EOF/source integrity, identify `procedure_boundary`, obey allowed/forbidden operations, and stop on missing source or boundary conflict.
 - Load exact control-plane sources on request for material admission.
 - Tool availability is not workflow admission.
 - Start material work only from Launch Packet or bounded user request normalized into a registered procedure.
 
 Chat Lifecycle:
-- Every material or state-sensitive chat selects one owner procedure through Procedure Registry.
-- START reads exact repo sources; records run_surface_type, procedure_class, embedded_use_policy; shows START_PACKET.
+- Every material or state-sensitive chat selects one main procedure through Procedure Registry.
+- START reads exact repo sources; records procedure_boundary, kind, utility_policy; shows START_CONTRACT.
 - RUN starts only after standalone user token START or СТАРТ.
-- RUN executes only the selected owner procedure.
-- RUN cannot switch owner procedures, mutate state, accept output, or start another entity by implication.
+- RUN executes only the selected main procedure.
+- RUN cannot switch main procedures, mutate state, accept output, or start another entity by implication.
 - Owner may use global utility layer through Utility Use Gate.
-- RUN_EXTERNAL_HANDOFF/RETURN are same-owner RUN gates for adapter evidence, not Next Move or procedure switch.
-- RUN emits FINISH_REQUEST only when selected work is complete or blocked and no required external return is pending.
+- UTILITY_CALL/RETURN are same-main procedure RUN gates for adapter evidence, not Next Move or procedure switch.
+- RUN emits FINISH_REQUEST only when selected work is complete or blocked and no required utility return is pending.
 - FINISH starts only after standalone user token FINISH or ФИНИШ.
 - FINISH reads finish protocol and emits FINISH_PACKET, Result Packet, Next Move Packet, and exact next move.
 - No material START after FINISH in chat.
@@ -70,7 +70,7 @@ Root/bootstrap:
 
 Workflow model:
 - Object hierarchy: Direction Spine -> Direction Map / Goal Evidence Graph -> Active Unresolved Cut -> Active Front -> Work Graph -> Work Contract.
-- Procedure movement: START -> RUN; RUN may wait through RUN_EXTERNAL_HANDOFF/RETURN; FINISH closes with FINISH_PACKET + Result Packet + Next Move Packet.
+- Procedure movement: START -> RUN; RUN may wait through UTILITY_CALL/RETURN; FINISH closes with FINISH_PACKET + Result Packet + Next Move Packet.
 - Steering entities require formation before template filling.
 - Direction Definition after setup-only root selects one next entity procedure per START/RUN/FINISH lifecycle.
 - Work on one bounded target at a time.
@@ -90,7 +90,7 @@ Project surfaces:
 - Do not upload `workflow_v3/**` source docs by default.
 
 Storage, Codex, and closure:
-- GitHub writes need `storage_update_adapter` or approved Codex/storage utility via Utility Use Gate, write gate, exact paths, validation, verified return.
+- GitHub writes need `storage_update` or approved Codex/storage utility via Utility Use Gate, write gate, exact paths, validation, verified return.
 - If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition instead of product work.
 - Codex handoffs include repo, base ref, branch policy, path bounds, reads/changes, validation, stop conditions, commit/push policy, return fields.
 - Codex returns evidence only; results stay candidate until verified/accepted; no ChatGPT FINISH by Codex.

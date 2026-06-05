@@ -1,43 +1,26 @@
-# Run Admission Packet Template
+# START Contract Template
 
 status: template
 
-## Run Admission Packet
+## START_CONTRACT
 
-`requested_action`:
-
-`normalized_entrypoint`:
-
-`procedure_ref`:
-
-`source_lock_ref_or_inline`:
-
-`resolved_commit_sha`:
-
-`run_surface_type`:
-
-`allowed_operations`:
-
-`forbidden_operations`:
-
-`required_inputs`:
-
-`required_outputs`:
-
-`write_admission`:
-
-`acceptance_admission`:
-
-`legacy_policy`:
-
-`validation_required`:
-
-`stop_conditions`:
-
-`return_destination`:
+```text
+START_CONTRACT:
+  selected_entrypoint:
+  selected_procedure_path:
+  kind:
+  task:
+  completion_contract:
+  material_stages:
+  allowed_boundaries:
+  required_sources:
+  utility_boundaries:
+  write_boundaries:
+  user_confirmation_required: START | СТАРТ
+```
 
 ## Boundary
 
-Admission permits only the listed run surface and operations. Material admission for branch refs such as `main` should include the resolved commit SHA. Crossing run surface or write boundary requires new admission.
+Use this as the human-readable START contract before material work. START selects one main procedure, reads its source, shows its completion contract, and waits for explicit user START / СТАРТ.
 
 END_OF_FILE: workflow_v3/templates/RUN_ADMISSION_PACKET_TEMPLATE.md

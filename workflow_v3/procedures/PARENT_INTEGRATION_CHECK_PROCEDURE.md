@@ -4,7 +4,7 @@ title: Parent Integration Check
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md
 entrypoint: parent_integration_check
-run_surface_type: parent_integration
+procedure_boundary: parent_integration
 
 ## purpose
 
@@ -63,6 +63,14 @@ Implements fan-in. Child/work results are candidate evidence. Parent Integration
 - Result Packet;
 - Next Move Packet.
 
+## Completion Contract
+
+```text
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source exists and describes parent integration target role
+  blocked_if: selected for execution before detailed body is authored
+```
 ## stop_behavior_until_authored
 
 ```text

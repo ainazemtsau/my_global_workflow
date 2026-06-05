@@ -4,34 +4,34 @@ status: active_control_plane
 
 ## Purpose
 
-`workflow_v3/control_plane/**` is Workflow v3's action-admission layer.
+`workflow_v3/control_plane/**` defines the Workflow v3 runtime kernel, procedure selection, utility-call boundary, final audit, source integrity, exceptions, and storage boundary.
 
-The control plane governs how chats become admitted runs. It does not execute product work, does not mutate Direction runtime state by itself, and does not replace procedure source.
+The control plane does not execute product work, mutate Direction runtime state by itself, or replace selected procedure source.
 
 ## Authority
 
-- The control plane is active repository source for Workflow v3 action admission.
-- Project Instructions are bootloader only.
-- GitHub/repository procedure files are dynamic canonical source after exact path/ref read and integrity verification.
-- Every material chat or run must use admission before action.
+- `PROCEDURE_REGISTRY.md` selects exactly one main procedure.
+- `CHAT_LIFECYCLE_PROTOCOL.md` governs START, RUN, UTILITY, CHECK, FINISH, and CLOSED.
+- `UTILITY_ADAPTER_PROTOCOL.md` governs provider-neutral utility calls and returns.
+- `CHAT_FINISH_PROTOCOL.md` governs final audit and closure.
+- Source and storage protocols remain supporting boundaries.
 
-## Admission flow
+## Runtime Flow
 
 ```text
 Project Instructions bootloader
--> action admission
--> procedure registry
--> run surface contract
--> utility adapter protocol when adapter categories or external returns are relevant
--> source integrity gate
--> chat lifecycle
--> typed procedure outputs
--> exception protocol
--> storage update adapter boundary
+-> Procedure Registry
+-> selected procedure source read
+-> START_CONTRACT
+-> RUN stage-by-stage
+-> optional UTILITY_CALL / UTILITY_RETURN
+-> CLOSURE_CHECK
+-> FINISH audit
+-> CLOSED with NEXT_CHAT_CARD or no_next_chat_needed
 ```
 
 ## Boundary
 
-Control-plane files define permission, routing, stop, and return rules. They do not authorize a chat to invent accepted state, execute a semantic next step, perform direct in-chat writes without storage_update_adapter admission, or perform external utility writes without Utility Use Gate, write gate, exact paths, validation, and return verification.
+Control-plane files do not authorize hidden accepted state, hidden launches, procedure switching, direct writes outside an admitted storage_update, or reliance on unverified utility evidence.
 
 END_OF_FILE: workflow_v3/control_plane/README.md

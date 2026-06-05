@@ -84,6 +84,14 @@ Research is forbidden unless the user asks an up-to-date/external question. Rese
 
 No checkpoint by default.
 
+## Completion Contract
+
+```text
+completion:
+  result: bounded lightweight answer with limitations or explicit escalation
+  proof: answer avoids current-state claims unless exact source was read; limitations are stated
+  blocked_if: question depends on repository state, Direction runtime state, acceptance, mutation, recovery, code-assistant work, or current next move
+```
 ## Output Contract
 
 ```text

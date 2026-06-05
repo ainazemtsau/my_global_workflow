@@ -4,35 +4,38 @@ status: template
 
 ## FINISH_PACKET
 
-`lifecycle_state`:
-
-`finished_work`:
-
-`finish_self_audit`:
-
 ```text
-selected_one_owner_procedure_in_START:
-executed_only_selected_owner_procedure_in_RUN:
-no_procedure_switch:
-no_unadmitted_state_mutation:
-no_hidden_acceptance:
-no_pending_required_external_return:
-no_post_finish_material_start:
-utility_outputs_not_procedure_switches:
-required_outputs_present:
-source_limitations_stated:
-next_move_single:
-no_hidden_next_launch:
+FINISH_PACKET:
+  selected_entrypoint:
+  selected_procedure_path:
+  completion_contract:
+  closure_check:
+  finish_audit:
+  result:
+  evidence:
+  validation:
+  project_refresh_requirements:
+  residual_risks:
+  continuation:
 ```
 
-`result_packet`:
+`continuation` must contain either `NEXT_CHAT_CARD` or `no_next_chat_needed` with reason.
 
-`next_move_packet`:
+## Required Audit Fields
+
+```text
+finish_audit:
+  start_selected_exactly_one_main_procedure:
+  selected_completion_contract_was_shown:
+  run_executed_only_selected_main_procedure:
+  material_stages_emitted_stage_result:
+  utility_returns_verified_before_reliance:
+  closure_check_passed:
+  no_hidden_launch_or_acceptance:
+```
 
 ## Boundary
 
-FINISH_PACKET closes the selected chat procedure after explicit FINISH. It is not acceptance, persistence, launch authority, or permission to switch procedures.
-
-FINISH_PACKET cannot close unresolved external handoff work.
+FINISH_PACKET closes the selected chat procedure after explicit FINISH and passed audit. It is not acceptance, persistence, launch authority, or permission to switch procedures.
 
 END_OF_FILE: workflow_v3/templates/FINISH_PACKET_TEMPLATE.md

@@ -2,48 +2,18 @@
 
 status: draft_procedure
 
-## Status
-
-`draft_procedure` until accepted by the relevant repository update path.
-
 ## Canonical Location
-
-Target path:
 
 ```text
 workflow_v3/procedures/<NAME>_PROCEDURE.md
 ```
 
-For self-contained stubs:
+## Registry Alignment
 
 ```text
-status: stub_procedure_pending_authoring
-procedure_class:
-target_role:
-workflow_integration:
-future_body_outline:
-required_outputs_when_authored:
-stop_behavior_until_authored:
+entrypoint:
+kind: core | utility | verification | storage | readonly
 ```
-
-Procedure Definition Framework procedures should not use `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or obsolete runbook/playbook directory placement unless an explicit bounded exception is justified.
-
-## Procedure Class
-
-Declare the registry-aligned class:
-
-```text
-procedure_class: core_material | utility_adapter | verification_adapter | storage_adapter | readonly_console
-embedded_use_policy: may_use_global_utility_layer | callable_utility | callable_verification_utility | callable_persistence_utility_with_write_gate | no_material_utility_by_default
-```
-
-Class and embedded utility semantics are controlled by:
-
-```text
-workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
-```
-
-START selects one owner procedure. Embedded utility/adapter use does not select a new owner procedure.
 
 ## Purpose
 
@@ -69,103 +39,77 @@ State the bounded work this procedure performs.
 - EOF or integrity checks:
 - Source limitations to report:
 
+## Completion Contract
+
+```text
+completion:
+  result:
+  proof:
+  blocked_if:
+```
+
+The selected procedure owns these completion semantics. CHECK compares actual result to this block.
+
 ## Self-contained Stub Mode
 
 Use this section when the detailed body is not authored yet:
 
 ```text
 status: stub_procedure_pending_authoring
-procedure_class:
 target_role:
 workflow_integration:
 future_body_outline:
 required_outputs_when_authored:
 stop_behavior_until_authored:
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source and target role are present
+  blocked_if: selected for execution before detailed body is authored
 ```
 
-Stub mode must be self-contained enough to author the future procedure body without reading deleted or obsolete procedure sources. If selected for execution before authored, the procedure must STOP with `PROCEDURE_BODY_NOT_AUTHORED`.
+Stub mode must be self-contained enough to author the future procedure body without reading removed or obsolete sources. If selected for execution before authored, the procedure must stop with `PROCEDURE_BODY_NOT_AUTHORED`.
 
 ## Context Classification
 
-Classify relevant context as canonical source, accepted record, current human input, verified excerpt, Project Files cache/context, candidate context, adapter evidence, legacy_evidence, or unknown/unverified.
+Classify relevant context as canonical source, accepted record, current human input, verified excerpt, Project Files cache/context, candidate context, adapter evidence, historical evidence, or unknown/unverified.
 
-## Complexity Selector
+## Stage Model
 
-- `inline`:
-- `standard`:
-- `checkpointed`:
-- `research_backed`:
-- `delegated_or_tool_mediated`:
-
-## Stage Cards
+Material stages are user-visible and run one at a time. Internal checks are mechanical checks inside a material stage.
 
 ```text
 stage_id:
+stage_type: material stage
 purpose:
-activation conditions:
 inputs:
-required intermediate output:
+required_stage_result:
 gate:
-checkpoint rule:
-expansion rule:
-stop behavior:
+utility_allowed_if:
+blocked_if:
 ```
-
-## Gate Outcomes
-
-Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `RUN_EXTERNAL_HANDOFF`, and `RUN_EXTERNAL_RETURN` where applicable.
-
-## Optional Expansion
-
-Name any allowed research, child, check, Codex, provider, or tool-mediated expansion and its boundary.
-
-Expansion must remain subordinate to the selected owner procedure and must not become hidden mutation, acceptance, or procedure switching.
-
-## Utility Decision Gate
-
-Owner procedures may invoke registered utility resources during RUN when needed to complete selected work.
-
-Procedure docs do not need to pre-enumerate every utility. Common utility choices may be named, but absent prelisting does not block the global utility layer.
-
-## Research Policy
-
-State whether research is forbidden, optional, or required, and which sources are allowed.
-
-## Utility / Adapter Policy
-
-Use this section when the procedure can produce utility packets, wait for external return, or use embedded verification:
 
 ```text
-common_utility_choices:
-forbidden_utility_categories:
-external_handoff_policy:
-external_return_policy:
-external_return_verification:
-embedded_verification_policy:
-storage_boundary:
+check_id:
+stage_type: internal_check
+purpose:
+pass_if:
+blocked_if:
 ```
 
-Reference `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for category semantics.
+RUN emits `STAGE_RESULT` after each material stage and waits for `CONTINUE` / `ДАЛЬШЕ` before the next material stage unless the next step is an `internal_check`.
 
-## External Handoff and Resume Policy
-
-State whether the procedure may emit `RUN_EXTERNAL_HANDOFF`.
-
-If allowed, define:
+## Utility Policy
 
 ```text
-external_surface:
-copy_paste_packet_required:
-expected_return_packet:
-validation_required_on_return:
-resume_rule: resume the same selected owner procedure
+utility_policy:
+  allowed_when:
+  common_targets:
+  forbidden_when:
+  return_verification:
+  same_main_procedure_resume:
 ```
 
-FINISH_REQUEST must not be emitted while a required external return is pending.
-
-## Checkpoint Policy
-
-State when internal RUN checkpoints are required. State when no checkpoint is needed by default.
+Utility calls use `UTILITY_CALL` / `UTILITY_RETURN` and must resume this selected procedure.
 
 ## Output Contract
 
@@ -173,38 +117,28 @@ State when internal RUN checkpoints are required. State when no checkpoint is ne
 field:
 field:
 limitations:
-external_handoff_status:
-exact_next_move:
+continuation:
 ```
 
 ## Eval / Quality Checks
 
 - Required sources were read or limitations stated.
-- Required stages passed or stopped.
-- Output satisfies downstream use.
-- Procedure class matches registry metadata.
-- Utility decision gate and adapter policy are explicit when utility boundaries matter.
-- Utility forbiddances are explicit when source, safety, policy, or write boundaries restrict global utility use.
-- External handoff/resume policy is explicit when the procedure can wait for external return.
-- External return verification is explicit when returned evidence can affect output.
-- Procedure path and filename follow canonical procedure location/naming policy or declare an explicit exception.
-- Stub procedures include procedure class, target role, workflow integration, future body outline, required outputs, and STOP behavior.
+- Material stages emitted `STAGE_RESULT`.
+- User confirmation occurred before the next material stage when required.
+- Utility calls returned to the same selected procedure and were verified before reliance.
+- Output satisfies the procedure's `completion:` block or names the blocker.
+- `CLOSURE_CHECK` compares actual result to the selected completion block.
+- Closure includes `NEXT_CHAT_CARD` when continuation is needed or `no_next_chat_needed` with reason.
 
 ## Stop Conditions
 
-- Stop when ...
-- Stop if a procedure preserves obsolete runbook/playbook path or naming without explicit exception.
-- Stop if embedded utility use would become procedure switching, hidden mutation, hidden acceptance, or an unbounded external wait.
+- Stop when required sources are missing or conflicting.
+- Stop when requested work exceeds this procedure boundary.
+- Stop when utility use would become hidden mutation, hidden acceptance, procedure switching, or unbounded wait.
+- Stop when completion proof cannot be produced.
 
 ## Procedure Closure
 
-Return FINISH_REQUEST when lifecycle requires FINISH, only after required external handoffs have returned, been verified, or been explicitly stopped/abandoned. Then close through FINISH_PACKET, Result Packet, and Next Move Packet after explicit FINISH.
-
-After FINISH, the same chat must not open a new material START.
-
-## Examples
-
-- Good use:
-- Bad use:
+Return `CLOSURE_CHECK` when RUN reaches completion or blocked state. Request FINISH only when the selected procedure completion contract is satisfied or explicitly blocked. After FINISH passes, the same chat is CLOSED for material work.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_TEMPLATE.md

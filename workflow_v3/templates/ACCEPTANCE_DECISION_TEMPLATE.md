@@ -6,7 +6,7 @@ status: template
 
 `acceptance_decision_id`:
 
-`procedure_ref`: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
+`procedure_path`: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md
 
@@ -48,7 +48,7 @@ Acceptance Decision may authorize that storage update is needed.
 
 It does not itself admit the producing chat to write.
 
-Direct ChatGPT storage mutation requires Storage Update Package / `storage_update_adapter` admission; external utility writes require Utility Use Gate, write gate, exact paths, validation, and verified return.
+Direct ChatGPT storage mutation requires Storage Update Package / `storage_update` admission; external utility writes require Utility Use Gate, write gate, exact paths, validation, and verified return.
 
 Human acceptance input is not storage authorization unless an admitted storage update package exists.
 

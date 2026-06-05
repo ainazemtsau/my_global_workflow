@@ -23,7 +23,7 @@ stop_conditions:
 
 ## Optional metadata
 
-procedure_ref:
+procedure_path:
 formation_eval_ref:
 related_direction:
 related_front:

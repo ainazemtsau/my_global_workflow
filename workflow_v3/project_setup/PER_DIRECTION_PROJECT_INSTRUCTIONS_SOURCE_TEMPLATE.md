@@ -70,7 +70,7 @@ Project surfaces:
 FINISH closure and transfers:
 - End material work, review, repair, bootstrap, status review, or continuation routing with FINISH_PACKET, Result Packet, and Next Move Packet.
 - Include result, evidence/source refs, source/read limits, not done, assumptions, unresolved decisions, risks, candidate-state notice, return destination, and exact next move.
-- Use Transfer Packets or copy-paste Next Chat Prompts when transfer is needed.
+- Use Transfer Packets or copy-paste NEXT_CHAT_CARDs when transfer is needed.
 
 Context Request:
 - If exact source cannot be read, stop and request the exact repo/path/ref.

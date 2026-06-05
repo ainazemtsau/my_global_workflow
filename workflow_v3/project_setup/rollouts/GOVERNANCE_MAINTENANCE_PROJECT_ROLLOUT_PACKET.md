@@ -74,7 +74,7 @@ Boundaries:
 
 Lifecycle gate:
 - Material or state-sensitive governance work starts with START only.
-- The first response selects exactly one registered procedure, reads required authority, emits START_PACKET, then waits for standalone START or СТАРТ.
+- The first response selects exactly one registered procedure, reads required authority, emits START_CONTRACT, then waits for standalone START or СТАРТ.
 - RUN executes exactly the selected procedure only.
 - RUN completion or block emits FINISH_REQUEST and waits for standalone FINISH or ФИНИШ.
 - FINISH emits FINISH_PACKET, Result Packet, and Next Move Packet only after explicit FINISH.
@@ -106,15 +106,15 @@ Runtime Console:
 Transfer completeness:
 - If Next Move Packet selects codex, codex_verification, child_chat, check_job, storage_update, or next_material_chat, transfer_packet_if_needed must include a complete Transfer Packet with copy_paste_packet.
 - Invalid incomplete handoffs: "Needed if using Codex", "use previous approved package", "prepare a prompt", "create a Codex card", or equivalents.
-- Do not make the user build Codex/check/child/next-chat prompts manually.
+- Do not make the user build Codex/check/child/NEXT_CHAT_CARDs manually.
 
 Closure:
 - RUN completion or blocked state emits FINISH_REQUEST only.
 - After explicit FINISH/ФИНИШ, close with FINISH_PACKET, Result Packet, and Next Move Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
 - Do not run follow-up selection as hidden automation.
-- Use Next Move Packet to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste next-chat prompt.
+- Use Next Move Packet to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste NEXT_CHAT_CARD.
 - If the selected next step requires transfer, provide a complete Transfer Packet.
-- Do not make the user build Codex/check/child/next-chat prompts manually.
+- Do not make the user build Codex/check/child/NEXT_CHAT_CARDs manually.
 ```
 
 ## Payload Character Count

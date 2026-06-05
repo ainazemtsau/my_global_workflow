@@ -4,7 +4,7 @@ title: Direction Definition
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md
 entrypoint: launch_direction_definition
-run_surface_type: formation_chat
+procedure_boundary: formation_chat
 
 ## purpose
 
@@ -58,6 +58,14 @@ Does not silently run multiple procedures. It sequences definition work through 
 - Result Packet;
 - Next Move Packet.
 
+## Completion Contract
+
+```text
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source exists and describes semantic Direction Definition target role
+  blocked_if: selected for execution before detailed body is authored
+```
 ## stop_behavior_until_authored
 
 ```text

@@ -4,9 +4,9 @@ title: Acceptance Decision Formation
 status: active_procedure
 canonical_location: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
 entrypoint: accept_candidate_entity
-run_surface_type: acceptance_review
-procedure_class: core_material
-embedded_use_policy: may_use_global_utility_layer
+procedure_boundary: acceptance_review
+kind: core
+utility_policy: utility_allowed_when_needed
 
 ## Purpose
 
@@ -27,7 +27,7 @@ This procedure must not write repository or runtime state directly. Acceptance i
 Use this procedure when all are true:
 
 - START selected `accept_candidate_entity`.
-- The selected run surface is `acceptance_review`.
+- The selected procedure boundary is `acceptance_review`.
 - A candidate result, artifact, record, return packet, or proposed state change needs explicit review.
 - Reviewer authority and affected scope can be supplied or bounded.
 - The output needed is an acceptance decision record or a blocked result explaining why a decision cannot be formed.
@@ -61,10 +61,10 @@ Required START/lifecycle inputs:
 
 ```text
 selected_entrypoint: accept_candidate_entity
-selected_procedure_ref: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
-run_surface_type: acceptance_review
-procedure_class: core_material
-embedded_use_policy: may_use_global_utility_layer
+selected_procedure_path: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
+procedure_boundary: acceptance_review
+kind: core
+utility_policy: utility_allowed_when_needed
 ```
 
 Required review packet:
@@ -110,7 +110,7 @@ ACCEPTANCE_REVIEW_PACKET:
     project_refresh_requirements_if_known:
   return_context:
     parent_handoff_id:
-    parent_owner_entrypoint:
+    parent_selected_entrypoint:
     return_destination:
     requested_next_move_boundary:
 ```
@@ -296,7 +296,7 @@ Before forming a decision, read and verify:
 - reviewer authority source and independence statement;
 - affected state/path boundary;
 - update authorization and storage package if persistence may be needed;
-- `workflow_v3/control_plane/RUN_SURFACE_CONTRACTS.md` for `acceptance_review`;
+- `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` for `acceptance_review`;
 - `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for adapter, utility, storage, and external write boundaries;
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` for Result Packet and Next Move Packet closure;
 - `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` when a Storage Update Package is referenced or prepared.
@@ -357,7 +357,7 @@ Complexity selection does not authorize mutation, self-acceptance, or hidden nex
 stage_id: acceptance_review_source_lock
 purpose: Lock exact candidate, evidence, authority, scope, and procedure sources before review.
 activation conditions: Always.
-inputs: ACCEPTANCE_REVIEW_PACKET, Procedure Registry metadata, run surface contract, required source refs.
+inputs: ACCEPTANCE_REVIEW_PACKET, Procedure Registry metadata, procedure boundary contract, required source refs.
 required intermediate output: source_lock, candidate_ref, evidence_refs, reviewer_authority_ref, affected_scope, source_limitations.
 gate: PASS if required sources and EOF/integrity checks are available; REWORK if a bounded missing ref can be supplied; STOP if source authority is missing, stale, unreadable, or conflicting.
 checkpoint rule: None by default.
@@ -457,7 +457,7 @@ purpose: Return the decision record, Result Packet, Next Move Packet, limitation
 activation conditions: Always after decision or blocked result.
 inputs: all prior stage outputs.
 required intermediate output: acceptance_decision_record, result_packet, next_move_packet, source_limitations, residual_risks, FINISH_REQUEST.
-gate: PASS if decision record and closure packets are complete; PASS_WITH_RISK if limitations are explicit; STOP if closure would hide acceptance, mutation, next work, or pending external return.
+gate: PASS if decision record and closure packets are complete; PASS_WITH_RISK if limitations are explicit; STOP if closure would hide acceptance, mutation, next work, or pending utility return.
 checkpoint rule: None.
 expansion rule: None.
 stop behavior: Return ACCEPTANCE_CLOSURE_INCOMPLETE.
@@ -473,8 +473,8 @@ Use:
 - `EXPAND` only for bounded evidence, verification, or source checks needed for this acceptance review.
 - `STOP` when source, authority, independence, scope, evidence, or storage boundary is unsafe.
 - `TRANSFER` only as a closure Next Move Packet artifact; it does not launch the transfer.
-- `RUN_EXTERNAL_HANDOFF` only when this selected acceptance review needs external evidence before forming the decision.
-- `RUN_EXTERNAL_RETURN` only to resume this same selected review after matching returned evidence.
+- `UTILITY_CALL` only when this selected acceptance review needs external evidence before forming the decision.
+- `UTILITY_RETURN` only to resume this same selected review after matching returned evidence.
 
 ## Forbidden Shortcut Checks
 
@@ -521,7 +521,7 @@ Use `optional` or `required` research only when the acceptance question depends 
 
 ## Utility Decision Gate
 
-This procedure is a `core_material` owner and may use the global utility layer only through the Utility Use Gate.
+This procedure is a `core` owner and may use the global utility layer only through the Utility Use Gate.
 
 Utility use is allowed only when needed to complete this acceptance review. It must not become procedure switching, hidden mutation, hidden acceptance, hidden next work, or an unbounded external wait.
 
@@ -545,11 +545,11 @@ forbidden_utility_categories:
 ## Utility / Adapter Policy
 
 ```text
-external_handoff_policy:
-  RUN_EXTERNAL_HANDOFF may be emitted only when this selected acceptance review cannot form the decision without external evidence.
+utility_call_policy:
+  UTILITY_CALL may be emitted only when this selected acceptance review cannot form the decision without external evidence.
 
 external_return_policy:
-  RUN_EXTERNAL_RETURN must resume this same selected procedure and match the emitted handoff.
+  UTILITY_RETURN must resume this same selected procedure and match the emitted handoff.
 
 external_return_verification:
   Returned evidence must be classified as adapter evidence and verified before it affects the acceptance decision.
@@ -563,21 +563,21 @@ storage_boundary:
 
 External utility writes require Utility Use Gate, write gate, exact paths, validation, and verified return. This procedure does not execute those writes directly.
 
-## External Handoff and Return Policy
+## Utility Call and Return Policy
 
-`RUN_EXTERNAL_HANDOFF` is a mid-RUN gate for missing evidence before decision formation. It must include:
+`UTILITY_CALL` is a mid-RUN gate for missing evidence before decision formation. It must include:
 
 ```text
 external_surface:
 copy_paste_packet_required:
 expected_return_packet:
 validation_required_on_return:
-resume_rule: resume the same selected owner procedure
+resume_rule: resume the same selected main procedure
 ```
 
 `next_move_packet.transfer_packet_if_needed` is a closure artifact after this procedure forms or blocks the decision. It does not launch work and must be complete when the next surface is `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`.
 
-FINISH_REQUEST must not be emitted while a required external return is pending.
+FINISH_REQUEST must not be emitted while a required utility return is pending.
 
 ## Checkpoint Policy
 
@@ -593,6 +593,14 @@ Checkpoint or stop when:
 
 Do not use checkpoints to imply acceptance or storage authority.
 
+## Completion Contract
+
+```text
+completion:
+  result: acceptance decision result with exactly one scoped decision or blocked decision record
+  proof: candidate identity, reviewer authority, evidence review, scope boundary, consequence, storage/update need, validation, and limitations are recorded
+  blocked_if: candidate identity is ambiguous, evidence is insufficient, reviewer authority is absent, update boundary is missing, direct mutation is requested, or required utility return is pending
+```
 ## Output Contract
 
 ```yaml
@@ -692,14 +700,14 @@ Procedure Definition checks:
 
 Procedure Execution checks:
 
-- START selected exactly one owner procedure.
+- START selected exactly one main procedure.
 - RUN executed only this selected procedure.
 - No adapter or external surface accepted its own output.
 - Evidence review occurred before acceptance decision.
 - Acceptance scope did not broaden beyond evidence and authority.
 - No direct storage mutation occurred.
 - Storage Update Package v1 was used as canonical executable storage schema.
-- FINISH_REQUEST was emitted only after decision or blocked result and no pending required external return.
+- FINISH_REQUEST was emitted only after decision or blocked result and no pending required utility return.
 - Next Move Packet selected exactly one primary next move and did not launch it.
 
 Cross-boundary checks:
@@ -724,7 +732,7 @@ Stop or return `blocked` when:
 - direct storage mutation is requested;
 - a Storage Update Package would require alternate schema fields instead of `storage_update_package.v1`;
 - a required Transfer Packet is missing or a placeholder;
-- required external return is pending before FINISH_REQUEST;
+- required utility return is pending before FINISH_REQUEST;
 - the procedure would launch repair, storage, Codex, child, check, or next material work directly.
 
 ## Procedure Closure
@@ -737,7 +745,7 @@ RUN completion emits FINISH_REQUEST only after:
 - acceptance scope and explicitly not accepted scope are separated;
 - storage/update consequence is explicit;
 - any required Transfer Packet is complete or the blocker is stated;
-- no required external return is pending;
+- no required utility return is pending;
 - Result Packet and Next Move Packet are ready.
 
 After explicit FINISH or ФИНИШ, close with:

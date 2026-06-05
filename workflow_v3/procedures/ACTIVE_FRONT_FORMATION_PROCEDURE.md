@@ -4,7 +4,7 @@ title: Active Front Formation
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md
 entrypoint: form_active_front
-run_surface_type: formation_chat
+procedure_boundary: formation_chat
 
 ## purpose
 
@@ -64,6 +64,14 @@ Produces the one current focus candidate that prevents the whole Direction from 
 - Result Packet;
 - Next Move Packet.
 
+## Completion Contract
+
+```text
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source exists and describes candidate Active Front target role
+  blocked_if: selected for execution before detailed body is authored
+```
 ## stop_behavior_until_authored
 
 ```text

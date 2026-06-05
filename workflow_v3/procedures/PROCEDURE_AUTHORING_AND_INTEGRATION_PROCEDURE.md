@@ -1,12 +1,12 @@
 # Procedure Authoring and Integration Procedure
 
 status: active_procedure
-procedure_class: core_material
-embedded_use_policy: may_use_global_utility_layer
+kind: core
+utility_policy: utility_allowed_when_needed
 
 ## Purpose
 
-Use this procedure to create, revise, author, or integrate Workflow v3 procedure definitions and their registry/eval/run-surface relationships.
+Use this procedure to create, revise, author, or integrate Workflow v3 procedure definitions and their registry/eval/procedure-boundary relationships.
 
 This procedure is non-mutating. It produces candidate definitions, patch plans, utility handoff packets, and integration proposals only.
 
@@ -35,7 +35,7 @@ For non-trivial authoring, it must proceed through staged/checkpointed design be
 General inputs:
 
 - target procedure name or intent;
-- target run surface or candidate run surface;
+- target procedure boundary or candidate procedure boundary;
 - expected trigger;
 - expected output;
 - known boundaries;
@@ -53,7 +53,7 @@ For authoring from a self-contained stub, also require or extract from exact sou
 
 ```text
 current_registry_entrypoint:
-current_registry_procedure_ref:
+current_registry_procedure_path:
 canonical_procedure_path:
 target_role:
 workflow_integration:
@@ -72,10 +72,10 @@ Required source classes for material procedure authoring:
 
 - `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`
 - selected procedure source when revising or authoring a stub body
-- `workflow_v3/control_plane/RUN_SURFACE_CONTRACTS.md`
+- `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md`
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` when lifecycle boundaries are involved
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` when closure boundaries are involved
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when procedure class, utility category, Codex/check/child/storage package, or external return is involved
+- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when procedure class, utility category, Codex/check/child/storage package, or utility return is involved
 - Procedure Definition Canon, Procedure Authoring Guide, Procedure Template, and eval sources as needed
 
 Treat Project Files/Sources and chat memory as cache/context only.
@@ -116,23 +116,23 @@ When authoring or revising a procedure in the Procedure Definition Framework:
 
 - do not keep `*_RUNBOOK.md` or `*_PLAYBOOK.md` naming merely to reduce path churn;
 - use a canonical `workflow_v3/procedures/*_PROCEDURE.md` target path;
-- propose a registry delta so `procedure_ref` points to the canonical procedure file when required;
+- propose a registry delta so `procedure_path` points to the canonical procedure file when required;
 - base detailed body authoring on the canonical stub target spec when a stub exists;
 - preserve the stub's target role, workflow integration, future scope, must-not constraints, required outputs, and stop behavior unless explicitly revising the stub itself;
 - mark any non-canonical location or naming as an exception requiring explicit justification.
 
 Registry entries must point to canonical procedure files.
 
-## Procedure Class and Utility Policy
+## Procedure Kind and Utility Policy
 
 Procedure authoring must decide and document:
 
 ```text
-procedure_class:
-embedded_use_policy:
+kind:
+utility_policy:
 common_utility_choices:
 forbidden_utility_categories:
-external_handoff_policy:
+utility_call_policy:
 external_return_policy:
 external_return_verification:
 embedded_verification_policy:
@@ -141,7 +141,7 @@ storage_boundary:
 
 Use `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for class, utility category, and Utility Use Gate semantics.
 
-A procedure may name common utility choices or explicit forbiddances. Absent prelisting does not block global utility access through the Utility Use Gate. Embedded utility use is not a new owner procedure and must not become hidden procedure switching.
+A procedure may name common utility choices or explicit forbiddances. Absent prelisting does not block global utility access through the Utility Use Gate. Embedded utility use is not a new main procedure and must not become hidden procedure switching.
 
 ## Stage Cards
 
@@ -151,9 +151,9 @@ A procedure may name common utility choices or explicit forbiddances. Absent pre
 stage_id: source_lock_procedure_selection
 purpose: Confirm the selected work belongs to author_workflow_procedure and lock exact source authority before design.
 activation conditions: Always.
-inputs: User request, Procedure Registry, selected procedure source, run surface contract, utility protocol when relevant, requested source refs.
-required intermediate output: selected_entrypoint, selected_procedure_ref, run_surface_type, procedure_class, source_lock, context_classification.
-gate: PASS if registry entry, selected source, run surface, procedure class, and source authority are verified; STOP if any required source is missing, stale, unreadable, or conflicting.
+inputs: User request, Procedure Registry, selected procedure source, procedure boundary contract, utility protocol when relevant, requested source refs.
+required intermediate output: selected_entrypoint, selected_procedure_path, procedure_boundary, kind, source_lock, context_classification.
+gate: PASS if registry entry, selected source, procedure boundary, procedure class, and source authority are verified; STOP if any required source is missing, stale, unreadable, or conflicting.
 checkpoint rule: None by default.
 expansion rule: Read only exact framework/control/eval/procedure sources needed for the admitted authoring task.
 stop behavior: Return SOURCE_INTEGRITY_STOP, UNREGISTERED_ACTION_EXCEPTION, or SPLIT_REQUIRED.
@@ -166,7 +166,7 @@ stage_id: procedure_identity_brief
 purpose: Explain what the target procedure is, why it exists, and how it fits into Workflow before drafting.
 activation conditions: Always.
 inputs: User target, registry/source facts, existing procedure source or candidate target intent.
-required intermediate output: procedure_name, entrypoint, canonical_path, procedure_class, target_role, workflow_integration, when_to_use, when_not_to_use, expected_output, non_goals, mode.
+required intermediate output: procedure_name, entrypoint, canonical_path, kind, target_role, workflow_integration, when_to_use, when_not_to_use, expected_output, non_goals, mode.
 gate: PASS if the identity brief is specific and bounded; REWORK if role or integration is vague; STOP if the target is not a Workflow v3 procedure authoring task.
 checkpoint rule: Checkpoint if identity, class, integration, or mode is disputed.
 expansion rule: Ask for missing target intent only when it cannot be inferred from exact source and current human input.
@@ -195,7 +195,7 @@ purpose: Select the smallest sufficient authoring path and decide whether extern
 activation conditions: Always after Stage 2.
 inputs: Identity brief, source grounding, requested output, target impact, method uncertainty.
 required intermediate output: complexity_class, research_decision, research_reason, research_questions_if_required, evidence_plan_if_required, source_policy_if_required.
-gate: PASS if complexity and research policy are justified; RUN_EXTERNAL_HANDOFF, TRANSFER, or STOP if required research/check/tool work is outside current scope.
+gate: PASS if complexity and research policy are justified; UTILITY_CALL, TRANSFER, or STOP if required research/check/tool work is outside current scope.
 checkpoint rule: If research is required, stop before final body drafting until user approves the research questions/evidence plan or provides approved research context.
 expansion rule: Research is required only for complex method design, high-impact decision logic, non-obvious best practices, external tooling/provider behavior, current external constraints, or explicit user request. Do not make research mandatory for simple procedure edits.
 stop behavior: Return research approval checkpoint or bounded research/check handoff candidate.
@@ -208,7 +208,7 @@ stage_id: method_best_practice_design_plan
 purpose: Explain the planned procedure logic before drafting the detailed body.
 activation conditions: Required for checkpointed, research_backed, delegated_or_tool_mediated, new non-trivial procedures, major revisions, or stub body authoring with high impact.
 inputs: Stage 1 identity, Stage 2 grounding, Stage 3 complexity/research decision, Procedure Definition Canon, Procedure Authoring Guide, Utility Adapter Protocol.
-required intermediate output: method_summary, applicable_techniques_patterns_or_workflow_principles, overcomplexity_control, integration_with_START_RUN_FINISH, integration_with_Result_Packet_and_Next_Move_Packet, integration_with_utility_adapter_boundaries, integration_with_parent_or_evidence_boundaries_where_relevant, acceptance_and_update_boundaries, approval_checkpoint_question.
+required intermediate output: method_summary, applicable_techniques_patterns_or_workflow_principles, overcomplexity_control, integration_with_START_RUN_FINISH, integration_with_Result_Packet_and_Next_Move_Packet, integration_with_utility_boundaries, integration_with_parent_or_evidence_boundaries_where_relevant, acceptance_and_update_boundaries, approval_checkpoint_question.
 gate: PASS only after user approval when the procedure is non-trivial; REWORK if the method is too vague, too complex, or violates boundaries.
 checkpoint rule: User approval required before Stage 5 for non-trivial procedure body authoring.
 expansion rule: May propose bounded check/research/handoff candidates, but must not launch them invisibly.
@@ -222,7 +222,7 @@ stage_id: detailed_procedure_body_draft
 purpose: Create or revise the actual procedure body after source, complexity, research, utility, and method gates pass.
 activation conditions: Stage 4 passed or was explicitly not required for simple/standard work.
 inputs: Approved method plan when required, Procedure Definition Canon, template, guide, selected source, utility protocol, eval sources.
-required intermediate output: candidate_procedure_body_or_revision_package, changed_sections, retained_sections, removed_or_replaced_sections, procedure_class, utility_policy, external_handoff_policy, stop_conditions, output_contract.
+required intermediate output: candidate_procedure_body_or_revision_package, changed_sections, retained_sections, removed_or_replaced_sections, kind, utility_policy, utility_call_policy, stop_conditions, output_contract.
 gate: PASS if the body includes purpose, triggers, non-triggers, required inputs, source requirements, context classification, complexity selector, stage cards, gates, checkpoint policy, optional expansion, research policy, utility policy, output contract, eval checks, stop conditions, and closure.
 checkpoint rule: Checkpoint only if the draft introduces new boundaries, new handoff paths, new eval requirements, or unresolved design choices.
 expansion rule: Use eval sources as checks; do not broaden into authoring unrelated procedure bodies.
@@ -235,11 +235,11 @@ stop behavior: Return draft insufficiency or boundary blocker.
 stage_id: eval_registry_integration_plan
 purpose: Identify required or optional changes outside the procedure body.
 activation conditions: Always after Stage 5.
-inputs: Candidate body/revision package, Procedure Registry, run surface contract, Utility Adapter Protocol, definition/execution evals, closure templates.
-required intermediate output: eval_implications, registry_delta_if_required, procedure_class_delta_if_required, run_surface_delta_if_required, project_refresh_categories, codex_or_storage_handoff_need, allowed_paths_if_later_handoff_needed, forbidden_paths_if_later_handoff_needed.
-gate: PASS if integration impact is explicit and bounded; RUN_EXTERNAL_HANDOFF or TRANSFER only as an allowed typed output; STOP if required integration cannot be bounded.
+inputs: Candidate body/revision package, Procedure Registry, procedure boundary contract, Utility Adapter Protocol, definition/execution evals, closure templates.
+required intermediate output: eval_implications, registry_delta_if_required, kind_delta_if_required, run_surface_delta_if_required, project_refresh_categories, codex_or_storage_handoff_need, allowed_paths_if_later_handoff_needed, forbidden_paths_if_later_handoff_needed.
+gate: PASS if integration impact is explicit and bounded; UTILITY_CALL or TRANSFER only as an allowed typed output; STOP if required integration cannot be bounded.
 checkpoint rule: Checkpoint before any proposed repository mutation package.
-expansion rule: Propose Codex/storage/check work only as candidate packet or allowed RUN_EXTERNAL_HANDOFF, not as hidden launch.
+expansion rule: Propose Codex/storage/check work only as candidate packet or allowed UTILITY_CALL, not as hidden launch.
 stop behavior: Return integration blocker or handoff-needed candidate.
 ```
 
@@ -248,10 +248,10 @@ stop behavior: Return integration blocker or handoff-needed candidate.
 ```text
 stage_id: closure
 purpose: Return the candidate revision package, limitations, residual risks, and exact next move.
-activation conditions: Always after completed or stopped stages and after required external returns are resolved or blocked.
+activation conditions: Always after completed or stopped stages and after required utility returns are resolved or blocked.
 inputs: Stage outputs.
 required intermediate output: candidate_revision_package, exact_patch_plan, eval_implications, handoff_need, source_limitations, residual_risks, FINISH_REQUEST.
-gate: PASS if the candidate package is complete; PASS_WITH_RISK if limitations are explicit; STOP if required outputs are absent or required external returns are pending.
+gate: PASS if the candidate package is complete; PASS_WITH_RISK if limitations are explicit; STOP if required outputs are absent or required utility returns are pending.
 checkpoint rule: None.
 expansion rule: None.
 stop behavior: Return blocked result and exact missing requirement.
@@ -259,15 +259,15 @@ stop behavior: Return blocked result and exact missing requirement.
 
 ## Gate Outcomes
 
-Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `RUN_EXTERNAL_HANDOFF`, and `RUN_EXTERNAL_RETURN`.
+Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `UTILITY_CALL`, and `UTILITY_RETURN`.
 
-`RUN_EXTERNAL_HANDOFF` is limited to registered utility resources and does not launch them invisibly.
+`UTILITY_CALL` is limited to registered utility resources and does not launch them invisibly.
 
 ## Optional Expansion
 
 Allowed expansion is limited to exact source inspection, bounded eval/check planning, bounded research planning, embedded verification of returned evidence, or a candidate Codex/storage handoff when requested and bounded.
 
-Expansion must remain subordinate to the selected owner procedure.
+Expansion must remain subordinate to the selected main procedure.
 
 ## Research Policy
 
@@ -301,9 +301,9 @@ Common utility choices for this procedure through the Utility Use Gate:
 - `storage_update_package` only as a candidate next-surface package after acceptance/update authority is clear;
 - `project_refresh_instruction_packet` for reporting refresh requirements only.
 
-If this procedure emits `RUN_EXTERNAL_HANDOFF`, it must include the complete packet, expected return fields, validation requirements, and same-owner resume rule.
+If this procedure emits `UTILITY_CALL`, it must include the complete packet, expected return fields, validation requirements, and same-owner resume rule.
 
-Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any other utility adapter as a new owner procedure during this RUN.
+Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any other utility adapter as a new main procedure during this RUN.
 
 ## Checkpoint Policy
 
@@ -313,6 +313,14 @@ Checkpoint when scope, registry mapping, canonical path/naming, stub/body status
 
 For non-trivial procedure authoring, Stage 4 method approval is required before Stage 5 detailed body drafting.
 
+## Completion Contract
+
+```text
+completion:
+  result: candidate procedure revision package, exact patch plan, utility package if needed, eval update plan, and NEXT_CHAT_CARD or no_next_chat_needed
+  proof: target identity, source basis, method design, kind/utility policy, candidate body or patch plan, eval/registry impact, limitations, and residual risks are recorded
+  blocked_if: target procedure is unbounded, required sources are missing, requested patch lacks selected/utility write path, research/check evidence is absent, or utility return cannot be verified
+```
 ## Output Contract
 
 ```text
@@ -324,7 +332,7 @@ candidate_revision_package:
   stub_or_source_grounding:
   complexity_and_research_decision:
   method_design_plan:
-  procedure_class_and_utility_policy:
+  kind_and_utility_policy:
   candidate_body_or_patch_plan:
   eval_registry_integration_plan:
   source_limitations:
@@ -351,7 +359,7 @@ handoff_need:
   copy_paste_packet_if_required:
 
 closure:
-  external_handoff_status:
+  utility_return_status:
   FINISH_REQUEST:
   FINISH_PACKET_after_explicit_FINISH:
   Result_Packet_after_explicit_FINISH:
@@ -373,7 +381,7 @@ closure:
 - Stub procedure body authoring preserves target role, workflow integration, output contract, future scope, must-not constraints, and STOP behavior until authored.
 - Registry hint proposal is compact and does not replace procedure source.
 - Closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
-- FINISH_REQUEST is not emitted while a required external return is pending.
+- FINISH_REQUEST is not emitted while a required utility return is pending.
 
 ## Stop Conditions
 
@@ -386,14 +394,14 @@ closure:
 - user asks to patch repository without admitted utility handoff or storage boundary;
 - research is required but questions/evidence/source policy are not approved;
 - embedded utility use would become hidden procedure switching, acceptance, mutation, or unbounded external wait;
-- required external return is missing or cannot be matched to the emitted handoff.
+- required utility return is missing or cannot be matched to the emitted handoff.
 
 ## Procedure Closure
 
 Close with the candidate design outputs, limitations, canonical path/registry/stub status, procedure class/utility status, and exact next move.
 
-If repository changes are needed later, return a bounded Codex/storage/update packet or RUN_EXTERNAL_HANDOFF rather than applying changes directly inside this procedure.
+If repository changes are needed later, return a bounded Codex/storage/update packet or UTILITY_CALL rather than applying changes directly inside this procedure.
 
-FINISH_REQUEST may be emitted only after required external handoffs have returned, been verified, or been explicitly stopped/abandoned.
+FINISH_REQUEST may be emitted only after required utility calls have returned, been verified, or been explicitly stopped/abandoned.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md

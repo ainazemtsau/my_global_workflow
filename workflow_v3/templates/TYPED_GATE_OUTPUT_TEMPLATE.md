@@ -6,7 +6,7 @@ status: template
 
 `gate_output_id`:
 
-`procedure_ref`:
+`procedure_path`:
 
 `stage_id`:
 

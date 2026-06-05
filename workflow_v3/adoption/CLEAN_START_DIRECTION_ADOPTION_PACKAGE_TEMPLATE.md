@@ -30,7 +30,7 @@ Old `directions/**` files are `legacy_evidence` only and must not be imported, m
 
 `accepted_initial_active_front`:
 
-`formation_procedure_refs`:
+`formation_procedure_paths`:
 
 `project_setup_required`: true | false
 

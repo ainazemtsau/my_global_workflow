@@ -4,7 +4,7 @@ title: Direction Spine Formation
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md
 entrypoint: form_direction_spine
-run_surface_type: formation_chat
+procedure_boundary: formation_chat
 
 ## purpose
 
@@ -65,6 +65,14 @@ Produces candidate Spine for acceptance review. It is the top success axis for D
 - Result Packet;
 - Next Move Packet.
 
+## Completion Contract
+
+```text
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source exists and describes candidate Direction Spine target role
+  blocked_if: selected for execution before detailed body is authored
+```
 ## stop_behavior_until_authored
 
 ```text

@@ -8,7 +8,7 @@ status: template
 
 `map_status`: pending_definition | candidate | accepted | superseded
 
-`procedure_ref`: workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md
+`procedure_path`: workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/DIRECTION_MAP_FORMATION_EVAL.md
 

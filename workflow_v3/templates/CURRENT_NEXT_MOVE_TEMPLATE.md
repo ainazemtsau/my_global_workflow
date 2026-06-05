@@ -8,7 +8,7 @@ status: template
 
 `next_move_status`: candidate | accepted | blocked | stopped
 
-`procedure_ref`: workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md
+`procedure_path`: workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/CURRENT_NEXT_MOVE_FORMATION_EVAL.md
 
@@ -18,9 +18,9 @@ status: template
 
 `entrypoint`:
 
-`run_surface_type`:
+`procedure_boundary`:
 
-`procedure_ref`:
+`procedure_path`:
 
 `required_source_reads`:
 
@@ -70,9 +70,9 @@ Next Move is not accepted state by itself.
 
 Next Move is not action admission by itself.
 
-Route-changing or state-changing next moves require procedure registry lookup, run surface contract, FINISH_PACKET, Next Move Packet, admission, and acceptance/update path when state changes.
+Route-changing or state-changing next moves require procedure registry lookup, procedure boundary contract, FINISH_PACKET, Next Move Packet, admission, and acceptance/update path when state changes.
 
-`same_chat_allowed` means non-mutating continuation only unless direct `storage_update_adapter` admission or gated external utility write authority is explicit.
+`same_chat_allowed` means non-mutating continuation only unless direct `storage_update` admission or gated external utility write authority is explicit.
 
 This template does not adopt a Direction, create runtime state, or launch work.
 

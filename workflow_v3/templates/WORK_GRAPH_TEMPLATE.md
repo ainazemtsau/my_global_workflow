@@ -14,7 +14,7 @@ status: template
 
 `graph_status`:
 
-`procedure_ref`: workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md
+`procedure_path`: workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/WORK_GRAPH_FORMATION_EVAL.md
 

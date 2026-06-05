@@ -1,68 +1,48 @@
-# Adapter, Codex, and Provider Interface
+# Adapter Code and Provider Interface
 
-status: active_interface_layer
+status: interface_summary
 
 ## Purpose
 
-This interface defines provider/adapter boundaries.
+This interface summarizes code-assistant and provider boundaries for Workflow v3. It is provider-neutral: Codex, Claude Code, future code assistants, GitHub/file tools, research agents, check jobs, and human decisions are utility surfaces when used during RUN.
 
-Embedded adapter use is governed by `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`.
+## Authority
 
-## Adapter classes
+Provider-neutral utility calls are governed by:
 
-Adapters include:
+```text
+workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
+```
 
-- ChatGPT;
-- Codex;
-- Claude/future code assistants;
-- research agents;
-- GitHub access;
-- human actions;
-- future providers.
+Provider returns are evidence. They are not accepted state, procedure completion, or ChatGPT FINISH by themselves.
 
-## Adapter contract
+## Utility Use
 
-Adapters receive bounded context in and return evidence/result/limitations out.
+A selected main procedure may call a provider only through visible `UTILITY_CALL` when the current stage needs it. The return must come back as `UTILITY_RETURN`, match the call, resume the same selected main procedure, and be verified before reliance.
 
-Every adapter run must define:
+## Code-Assistant Package
 
-- target;
-- source authority;
-- bounded context in;
-- in scope;
-- out of scope;
-- expected result;
-- evidence required;
-- return destination;
-- blocked conditions;
-- forbidden decisions.
+A code-assistant package should include:
 
-## Adapter limits
+```text
+repository:
+base_ref:
+target_branch_or_branch_policy:
+purpose:
+goal:
+source_files_to_read:
+allowed_paths:
+forbidden_paths:
+required_changes:
+validation:
+stop_conditions:
+commit_push_instructions:
+requested_return_fields:
+project_refresh_requirements:
+```
 
-Adapters cannot:
+## Verification
 
-- accept state;
-- route product meaning;
-- expand scope;
-- adopt a Direction;
-- mutate Direction Map or Active Front by implication;
-- silently launch children;
-- treat Project Files/Sources as authority over exact repository source.
-
-## Codex
-
-Codex is a bounded repository-work adapter.
-
-Codex handoff must include repository, base ref, target branch/branch policy, allowed paths, forbidden paths, required reads, required changes, validation, stop conditions, commit/push instruction, and requested return fields.
-
-Codex handoff may be embedded as RUN_EXTERNAL_HANDOFF when Codex evidence is needed before completion and the Utility Use Gate passes.
-
-When Codex/storage utility is used for persistence, the handoff must also include explicit approval/update authority, write gate, exact path boundaries, validation, and expected return evidence.
-
-Codex result returns as adapter evidence to the requesting/current chat. When embedded, it returns through RUN_EXTERNAL_RETURN to the same selected owner procedure before FINISH_REQUEST.
-
-Codex result verification must check branch, commit/diff, changed files, allowed paths, forbidden paths, validation output, EOF markers where relevant, project refresh requirements, and residual risks.
-
-Codex must not perform ChatGPT lifecycle FINISH, decide acceptance, or make its output accepted state by itself.
+Returned provider evidence should be checked for branch/ref, commit or artifact identity, changed files, forbidden-path cleanliness, validation output, EOF markers when relevant, project refresh categories, push/publication status when relevant, and residual risks.
 
 END_OF_FILE: workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md

@@ -90,6 +90,14 @@ External research is forbidden. Status must come from exact current repository/r
 
 No checkpoint by default. Surface binding/source conflicts before any summary.
 
+## Completion Contract
+
+```text
+completion:
+  result: read-only status review with source refs and limitations
+  proof: required status/next-move sources are read through the resolved binding and EOF/source checks are reported where relevant
+  blocked_if: binding is missing, required status source is unreadable, sources conflict, or user asks to execute/mutate/accept/launch work
+```
 ## Output Contract
 
 ```text

@@ -4,7 +4,7 @@ title: Work Contract Execution
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md
 entrypoint: execute_work_contract
-run_surface_type: work_contract_execution
+procedure_boundary: work_contract_execution
 
 ## purpose
 
@@ -39,7 +39,7 @@ This is the missing execution bridge between Work Contract formation and Parent 
 ## future_body_scope
 
 - verify Work Contract is admitted and bounded;
-- execute same-chat work only if allowed by run surface;
+- execute same-chat work only if allowed by procedure boundary;
 - or produce Transfer Packet for child chat, check job, Codex, human action;
 - collect result/evidence;
 - return Result Packet;
@@ -61,6 +61,14 @@ This is the missing execution bridge between Work Contract formation and Parent 
 - FINISH_PACKET;
 - Next Move Packet.
 
+## Completion Contract
+
+```text
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source exists and describes admitted Work Contract execution target role
+  blocked_if: selected for execution before detailed body is authored
+```
 ## stop_behavior_until_authored
 
 ```text

@@ -4,247 +4,111 @@ status: active_control_plane
 
 ## Authority
 
-This file is the authoritative Workflow v3 protocol for procedure classes, utility categories, embedded adapter use, RUN external handoff/return, and the boundary between mid-RUN external work and FINISH / Next Move closure.
+This file governs provider-neutral utility calls made by a selected Workflow v3 main procedure during RUN.
 
-This protocol keeps the Procedure Registry as the single START routing source. It does not create a second router or a procedure call graph.
+It does not choose the main procedure. It does not create a second router. It does not allow a utility to become the selected main procedure unless START selected that utility entrypoint as the user's primary request.
 
 ## Purpose
 
-This protocol lets one selected owner procedure emit and resume from typed utility/adapter packets during RUN without switching procedures, opening a second material START, or hiding mutation/acceptance behind adapter work.
+A utility call helps the selected main procedure complete a stage or verification need. Utility return is evidence, not accepted state by itself.
 
-It defines standalone adapter use, embedded adapter use, RUN_EXTERNAL_HANDOFF, RUN_EXTERNAL_RETURN, embedded verification, and storage boundaries.
+## Utility Surfaces
 
-## Run surface taxonomy alignment
+Utility surfaces may include:
 
-`selected_owner_run_surface` is selected through Procedure Registry for one owner procedure.
+- Codex;
+- Claude Code or future code assistants;
+- child chat;
+- check job;
+- research agent;
+- GitHub or file access;
+- storage update;
+- human decision;
+- future admitted providers.
 
-`utility_child_surface` is a bounded utility, check, child, or research surface used through this protocol. It is not an owner procedure switch and is not a separate material START unless independently registered and selected.
+Codex is one possible utility surface, not the default or only path.
 
-`readonly_surface` reads or summarizes only and cannot execute material work or mutate state.
+## Utility Call Rule
 
-Utility categories are packet/resource categories for the selected owner RUN. They are not a second router, procedure call graph, or owner-selection source.
+A selected main procedure may use a utility only when all are true:
 
-## Procedure classes
+- the selected main procedure or current stage needs the utility to complete;
+- the utility boundary is visible to the user;
+- the call is bounded by exact task, scope, expected return, and verification;
+- any external user action receives a complete copy-paste packet;
+- the return resumes the same selected main procedure;
+- returned evidence is verified before reliance;
+- the utility does not mutate state unless an admitted write path, exact paths, validation, and return evidence are present.
 
-Allowed `procedure_class` values:
+## UTILITY_CALL
 
-- `core_material` - owns a material workflow task selected by START and executed through RUN.
-- `utility_adapter` - prepares bounded supporting packets or external-surface handoffs. It may be selected standalone only when the user's primary request is the utility artifact.
-- `verification_adapter` - verifies returned evidence. It may be selected standalone only when the user's primary request is verification.
-- `storage_adapter` - applies direct in-chat repository/runtime writes only when selected by START from an admitted storage update package.
-- `readonly_console` - reads or summarizes bounded state/context without material execution or mutation.
-
-Allowed `embedded_use_policy` values:
-
-- `may_use_global_utility_layer` - core/material owner may invoke registered utilities through the Utility Use Gate.
-- `callable_utility` - utility adapter may be called as a resource or selected standalone when it is the primary work item.
-- `callable_verification_utility` - verification adapter may be called as a verification resource or selected standalone when it is the primary work item.
-- `callable_persistence_utility_with_write_gate` - persistence utility requires write gate, exact paths, validation, and return verification.
-- `no_material_utility_by_default` - read-only surface does not perform material utility work by default.
-
-## Owner procedure rule
-
-START selects exactly one owner procedure for a material chat.
-
-During RUN, the selected owner procedure remains fixed. Embedded utility/adapter use does not change `selected_entrypoint`, does not change `selected_procedure_ref`, and does not authorize a second START.
-
-A core/material procedure does not call another core/material procedure. Utility procedures are callable resource protocols/functions, not owner procedure switches.
-
-## Global Utility Resource Rule
-
-Any `core_material` owner procedure may invoke any registered `utility_adapter`, `verification_adapter`, storage utility package, or utility child resource needed to complete the current owner work.
-
-Utility invocation stays inside RUN of the same owner procedure. The utility result returns to that same owner RUN as adapter evidence, verification evidence, or a typed blocked result.
-
-Procedure-specific docs may name common utility choices or explicit forbiddances, but absence from a procedure or run-surface prelist does not block global utility access.
-
-## Utility Use Gate
-
-A selected owner procedure may invoke a utility resource only when all are true:
-
-1. START has selected exactly one owner procedure;
-2. the utility is registered or otherwise admitted as a bounded utility child resource;
-3. the utility is needed to complete the current owner work;
-4. source authority, policy, safety, and write boundaries do not forbid it;
-5. direct ChatGPT mutation uses `storage_update_adapter`; external utility writes use the write gate, exact paths, validation, and return verification;
-6. the handoff is bounded, has expected return fields, and cannot become an unbounded external wait;
-7. the utility result will be integrated, verified, or explicitly blocked before FINISH_REQUEST when required.
-
-Utility use must not become procedure switching, hidden mutation, hidden acceptance, hidden next work, or unbounded external wait.
-
-## Utility categories
-
-Allowed `utility_category` values:
-
-- `codex_handoff_packet` - complete copy-paste package for a bounded Codex run.
-- `codex_return_verification` - verification of the returned result for a Codex handoff emitted by the same owner procedure or by an explicitly supplied handoff.
-- `check_job_packet` - bounded source/evidence/consistency/validation question for a check surface.
-- `child_chat_packet` - bounded child-chat package for delegated supporting work.
-- `child_research_packet` - bounded child research package with questions, evidence plan, and source policy.
-- `storage_update_package` - bounded persistence package after acceptance/update authority is clear; direct ChatGPT writes still require `storage_update_adapter`.
-- `project_refresh_instruction_packet` - reporting instruction for Project UI or Project Files refresh; it does not perform refresh.
-
-## Standalone vs embedded use
-
-A utility or verification adapter may be selected directly by START only when the user request is primarily to prepare or verify that adapter artifact.
-
-Examples:
-
-- use `codex_handoff` directly when the selected work is only to package bounded Codex work;
-- use `codex_result_verification` directly when the selected work is only to verify a returned Codex result.
-
-Standalone selection still obeys START -> RUN -> FINISH and must not mutate, accept, or launch another material step unless the selected run surface explicitly allows that operation.
-
-Embedded utility use is internal to RUN of the selected owner procedure.
-
-Embedded utility use is allowed through the global Utility Use Gate, not through hardcoded per-core or per-run-surface whitelists.
-
-Embedded utility use is represented as a typed intermediate output, not as a new procedure selection.
-
-## RUN_EXTERNAL_HANDOFF
-
-Use `RUN_EXTERNAL_HANDOFF` when the selected owner procedure requires an external utility result before it can complete RUN.
-
-`RUN_EXTERNAL_HANDOFF` is an internal RUN gate. It is not FINISH_REQUEST, not FINISH, not Next Move Packet closure, and not procedure switching.
+Use `UTILITY_CALL` when supporting work must leave the current chat, use a tool/provider, ask a human, or wait for external evidence.
 
 Required shape:
 
 ```text
-RUN_EXTERNAL_HANDOFF:
-  handoff_id:
-  lifecycle_state: RUN_WAITING_FOR_EXTERNAL_RETURN
-  owner_entrypoint:
-  owner_procedure_ref:
-  utility_category:
-  external_surface:
-  handoff_reason:
-  copy_paste_packet:
-  expected_return_packet:
-  validation_required_on_return:
-  resume_rule:
+UTILITY_CALL:
+  utility_call_id:
+  selected_entrypoint:
+  selected_procedure_path:
+  why_needed:
+  target_utility_or_surface:
+  packet_or_call_boundary:
+  expected_return:
+  verification_required_on_return:
+  same_main_procedure_resume:
   unresolved_until_returned:
 ```
 
-`resume_rule` must state that the same selected owner procedure resumes after the user returns external results.
+When external user action is required, `packet_or_call_boundary` must contain complete copy-paste content. Placeholders are invalid.
 
-While a required `RUN_EXTERNAL_HANDOFF` is pending, RUN must not emit FINISH_REQUEST.
+## UTILITY_RETURN
 
-## RUN_EXTERNAL_RETURN
-
-Use `RUN_EXTERNAL_RETURN` when the user returns evidence from a prior `RUN_EXTERNAL_HANDOFF`.
+Use `UTILITY_RETURN` when evidence or output comes back from a previous `UTILITY_CALL`.
 
 Required shape:
 
 ```text
-RUN_EXTERNAL_RETURN:
-  lifecycle_state:
-  owner_entrypoint:
-  matching_handoff_id:
+UTILITY_RETURN:
+  utility_call_id:
+  selected_entrypoint:
+  selected_procedure_path:
   returned_artifacts:
   verification_result:
-  unresolved_items:
+  evidence_status:
+  gaps_or_blockers:
   resume_decision:
 ```
 
 Required checks:
 
-- match the return to the pending owner procedure and utility category;
-- match the return to the emitted handoff id or exact emitted packet;
-- classify the return as adapter evidence, not accepted state;
-- verify required branch, commit, changed files, diff, validation, EOF, push, and residual-risk evidence where applicable;
-- continue the same selected owner procedure only after required verification passes or returns a typed blocked/failed result.
+- match the return to the emitted utility call;
+- confirm the same selected main procedure resumes;
+- classify the return as evidence, not accepted state;
+- verify required branch, commit, changed files, validation, EOF, source, or decision evidence where applicable;
+- rely on the return only after verification passes or a blocked result is explicit.
 
-External tools and Codex must return evidence. They must not perform ChatGPT lifecycle FINISH or decide acceptance.
+## Storage Boundary
 
-## Embedded verification
+Direct in-chat mutation is allowed only when the selected main procedure is a storage_update and the package includes authority, exact paths, exact changes, validation, and verification.
 
-`codex_return_verification` may be embedded when the same owner procedure emitted the Codex handoff and the user returns the corresponding result.
+A core procedure may use an external storage or code utility only through a visible `UTILITY_CALL` with exact write boundaries and verified `UTILITY_RETURN`. If write authority, path boundaries, or validation are absent, return a blocked result or a candidate package instead of writing.
 
-Embedded verification uses the verification adapter's schema and quality checks as a RUN gate. It does not select `codex_result_verification` as a new owner procedure.
+## Finish Boundary
 
-If the original handoff is missing, the return does not match, or required evidence is absent, return a typed blocked result or request exact missing evidence. Do not guess from summaries.
+CHECK and FINISH must not rely on unresolved utility returns. If a required utility return is missing or unverified, return to RUN repair or blocked escalation.
 
-## Storage boundary
+A closure continuation uses `NEXT_CHAT_CARD` or a complete Transfer Packet; it is not a hidden utility launch.
 
-Direct in-chat storage mutation by ChatGPT is forbidden unless the selected owner `run_surface_type` is `storage_update_adapter`.
+## Forbidden Patterns
 
-A core/material owner procedure may use Codex/storage utility as an external child/resource to persist approved current-owner output during the same RUN only when all are true:
-
-1. the Utility Use Gate passes;
-2. user approval or accepted update authority is explicit;
-3. exact allowed paths and forbidden paths are listed;
-4. expected return packet and validation are defined;
-5. returned evidence is verified before reliance or FINISH_REQUEST.
-
-This external utility write is not a procedure switch and not hidden mutation because it is emitted as RUN_EXTERNAL_HANDOFF and verified through RUN_EXTERNAL_RETURN.
-
-If write authority, path boundaries, or validation are absent, the owner procedure must emit a blocked result or candidate package, not write.
-
-## Finish and Next Move boundary
-
-FINISH_REQUEST may be emitted only after required external handoffs have returned, been verified, or been explicitly abandoned as blocked/stopped.
-
-Next Move Packet is for closure after the selected procedure completes or stops. It is not the mid-RUN external handoff mechanism.
-
-Do not use `human_decision` to avoid producing a required transfer packet when the next external surface is materially known and the selected procedure is responsible for producing the packet.
-
-After FINISH, the chat is closed for material work. A new material START in the same chat is forbidden. Post-FINISH responses may explain the closed result or point to emitted packets; they must not begin a new material lifecycle.
-
-## Forbidden patterns
-
-- selecting `codex_handoff` or `codex_result_verification` as a new owner procedure inside an active RUN;
-- forcing a separate next material lifecycle solely because needed utility use was not prelisted;
-- emitting FINISH_REQUEST while a required external return is unresolved;
-- using Next Move Packet for a mid-RUN external handoff;
-- asking Codex or another external surface to perform ChatGPT FINISH;
-- treating embedded verification as acceptance;
-- using `human_decision` to avoid a materially known complete transfer packet;
-- performing direct ChatGPT storage mutation outside `storage_update_adapter`;
-- performing external utility writes without Utility Use Gate, write gate, exact paths, validation, and return verification.
-
-## Output envelopes
-
-Use these envelopes for embedded handoff and return gates:
-
-```text
-RUN_EXTERNAL_HANDOFF:
-  handoff_id:
-  lifecycle_state:
-  owner_entrypoint:
-  owner_procedure_ref:
-  utility_category:
-  external_surface:
-  handoff_reason:
-  copy_paste_packet:
-  expected_return_packet:
-  validation_required_on_return:
-  resume_rule:
-  unresolved_until_returned:
-```
-
-```text
-RUN_EXTERNAL_RETURN:
-  lifecycle_state:
-  owner_entrypoint:
-  matching_handoff_id:
-  returned_artifacts:
-  verification_result:
-  unresolved_items:
-  resume_decision:
-```
-
-## Eval hooks
-
-A valid execution must preserve these invariants:
-
-- one owner procedure selected by START;
-- no procedure switch during RUN;
-- utility use passes the global Utility Use Gate;
-- utility packets are typed, bounded, and returned to the same owner RUN;
-- external utility writes use the write gate and verified return evidence before reliance;
-- required external returns are resolved before FINISH_REQUEST;
-- returned external evidence is verified before reliance;
-- no unadmitted mutation, acceptance, or launch;
-- no material START after FINISH in the same chat.
+- switching the selected main procedure during RUN;
+- hiding a utility launch behind a summary;
+- treating utility return as accepted state;
+- relying on unverified returned evidence;
+- asking an external utility to perform ChatGPT FINISH;
+- using a human decision placeholder to avoid a known required packet;
+- performing writes without exact authority, paths, validation, and return evidence;
+- closing while a required utility return is unresolved.
 
 END_OF_FILE: workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md

@@ -133,7 +133,7 @@ Recovery:
 Checks:
 
 - FINISH selects one `primary_next_move`;
-- transfer steps include a complete Transfer Packet or next-chat prompt;
+- transfer steps include a complete Transfer Packet or NEXT_CHAT_CARD;
 - Codex handoff returns to the same current chat for verification and closure;
 - next material chat waits until the current material target is accepted, persisted, verified, or explicitly stopped;
 - unreviewed task lists remain candidate context, not roadmap.

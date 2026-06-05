@@ -24,10 +24,10 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure gate lenses remain internal checks and do not become separate runtime entities.
 - Route-changing outputs are represented by typed packets/records and Next Move Packet boundaries.
 - Procedure Definition Framework procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming, or state an explicit bounded exception.
-- Procedure declares `procedure_class` when using the Procedure Definition Framework.
+- Procedure declares `kind` when using the Procedure Definition Framework.
 - Utility Decision Gate is present when utility use can affect completion.
 - Common utility choices may be named without becoming an exhaustive whitelist.
-- External handoff/resume policy exists when the procedure can emit external handoff packets.
+- External handoff/resume policy exists when the procedure can emit utility call packets.
 - Stub procedures include target role, workflow integration, future body outline, required outputs, and STOP behavior until authored.
 - Stub-body authoring extracts target role, workflow integration, future scope, must-not constraints, and required outputs from the self-contained stub.
 - Procedure authoring explains target identity before detailed body drafting.
@@ -49,14 +49,14 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure is only a final template with no stage/gate production logic.
 - Source authority handling is absent.
 - Stop conditions are absent.
-- Procedure permits direct ChatGPT state mutation outside `storage_update_adapter`.
-- Procedure rejects same-owner Codex/storage utility persistence solely because persistence is not a separate `storage_adapter` owner run.
+- Procedure permits direct ChatGPT state mutation outside `storage_update`.
+- Procedure rejects same-owner Codex/storage utility persistence solely because persistence is not a separate `storage` owner run.
 - Procedure permits external utility write without Utility Use Gate, user approval/update authority, exact paths, validation, and return verification.
 - Procedure can accept its own output.
 - Procedure creates a separate route authority outside Procedure Registry, typed outputs, and FINISH/Next Move closure.
 - Procedure calls another procedure as a hidden RUN switch.
 - Procedure blocks global utility access solely because a utility was not prelisted.
-- Procedure emits FINISH_REQUEST while required external return is pending.
+- Procedure emits FINISH_REQUEST while required utility return is pending.
 - Procedure uses `human_decision` to avoid a required transfer packet.
 - Utility adapter can mutate or accept output by implication.
 - Non-trivial authoring proceeds directly to detailed body without method/checkpoint stage.

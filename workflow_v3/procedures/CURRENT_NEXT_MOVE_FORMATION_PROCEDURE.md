@@ -4,9 +4,9 @@ title: Current Next Move Formation
 status: active_procedure
 canonical_location: workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md
 entrypoint: form_current_next_move
-run_surface_type: formation_chat
-procedure_class: core_material
-embedded_use_policy: may_use_global_utility_layer
+procedure_boundary: formation_chat
+kind: core
+utility_policy: utility_allowed_when_needed
 
 ## Purpose
 
@@ -38,7 +38,7 @@ Do not use this procedure to:
 - accept candidate output;
 - persist accepted state;
 - verify Codex results as a standalone verification run;
-- replace `RUN_EXTERNAL_HANDOFF` while the current owner RUN still needs external evidence before completion;
+- replace `UTILITY_CALL` while the current main procedure RUN still needs external evidence before completion;
 - use `human_decision` to avoid producing a materially known required Transfer Packet;
 - emit multiple primary next moves;
 - continue from one steering entity to another by conversation momentum;
@@ -52,11 +52,11 @@ Required closure inputs:
 closure_state:
   lifecycle_state:
   selected_entrypoint:
-  selected_procedure_ref:
-  run_surface_type:
-  procedure_class:
+  selected_procedure_path:
+  procedure_boundary:
+  kind:
   finished_or_blocked_work:
-  external_handoff_status:
+  utility_return_status:
   unresolved_items:
 
 result_packet:
@@ -170,14 +170,14 @@ Minimum schema:
 ```text
 transfer_packet:
   transfer_type:
-  source_owner_entrypoint:
-  source_owner_procedure_ref:
-  source_run_surface_type:
+  source_selected_entrypoint:
+  source_selected_procedure_path:
+  source_procedure_boundary:
   source_lifecycle_state:
   source_result_summary:
   target_surface_type:
   target_entrypoint_or_adapter:
-  target_procedure_ref_if_known:
+  target_procedure_path_if_known:
   purpose:
   scope:
   non_goals:
@@ -287,7 +287,7 @@ Required additions:
 child_chat_transfer_packet:
   parent_handoff_id:
   child_id:
-  parent_owner_entrypoint:
+  parent_selected_entrypoint:
   child_task_type:
   child_scope:
   child_non_goals:
@@ -325,8 +325,8 @@ Required additions:
 ```text
 storage_update_transfer_packet:
   target_entrypoint: persist_accepted_state
-  target_run_surface_type: storage_update_adapter
-  target_procedure_ref: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
+  target_procedure_boundary: storage_update
+  target_procedure_path: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
   admitted_storage_update_package:
     package_version: storage_update_package.v1
     canonical_schema_ref: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
@@ -393,10 +393,10 @@ Required additions:
 next_material_chat_transfer_packet:
   target_project_or_context:
   target_entrypoint:
-  target_procedure_ref:
-  target_run_surface_type:
-  procedure_class:
-  embedded_use_policy:
+  target_procedure_path:
+  target_procedure_boundary:
+  kind:
+  utility_policy:
   purpose:
   source_authority:
   required_sources:
@@ -422,7 +422,7 @@ Required source classes:
 - exact persistence/storage boundary, if storage or accepted state is relevant;
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` for Next Move Packet fields and allowed values;
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` when lifecycle state or same-chat closure matters;
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when utility, adapter, Codex, check, child, storage, external handoff, or return boundaries are relevant;
+- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when utility, adapter, Codex, check, child, storage, utility call, or return boundaries are relevant;
 - exact target adapter/procedure stub or active procedure source when the next move names a specific target surface.
 
 EOF or source-integrity checks are required where the source being relied on has an EOF marker.
@@ -504,7 +504,7 @@ stop behavior: Return SOURCE_INTEGRITY_STOP or BLOCKED_NEXT_MOVE_SOURCE_MISSING.
 stage_id: boundary_classification
 purpose: Separate acceptance, persistence, adapter evidence, candidate output, and blocked state.
 activation conditions: Always after Stage 0.
-inputs: result_packet, acceptance_boundary, persistence_boundary, external_handoff_status, validation, changed_files, not_done.
+inputs: result_packet, acceptance_boundary, persistence_boundary, utility_return_status, validation, changed_files, not_done.
 required intermediate output: acceptance_boundary_final, persistence_boundary_final, adapter_evidence_status, unresolved_items, prohibited_next_moves.
 gate: PASS if acceptance and persistence boundaries are explicit and separate; REWORK if labels are present but ambiguous; STOP if selecting a next move would create acceptance or persistence by implication.
 checkpoint rule: Checkpoint if human authority is required to decide acceptance or persistence and no accepted boundary exists.
@@ -529,7 +529,7 @@ stop behavior: Return NEXT_MOVE_UNDETERMINED or SPLIT_REQUIRED.
 Candidate selection priority:
 
 1. If required source, closure state, result packet, accepted boundary, destination, or required transfer packet is missing, choose a blocked/repair/human decision path according to material cause.
-2. If a required mid-RUN external return is still pending, do not form closure next move; stop because FINISH_REQUEST is premature.
+2. If a required mid-RUN utility return is still pending, do not form closure next move; stop because FINISH_REQUEST is premature.
 3. If accepted decision plus explicit update authority and complete `storage_update_package.v1` exist, choose `storage_update`.
 4. If repair is required and the repair surface is known, choose bounded repair through `codex`, `check_job`, `child_chat`, or `next_material_chat` with a complete transfer packet.
 5. If Codex result verification is required and evidence is available but unverified, choose `codex_verification`.
@@ -583,11 +583,11 @@ stop behavior: Return NEXT_MOVE_PACKET_INVALID.
 
 ```text
 stage_id: closure_readiness
-purpose: Verify the procedure can close without pending required external returns or hidden continuation.
+purpose: Verify the procedure can close without pending required utility returns or hidden continuation.
 activation conditions: Always.
-inputs: next_move_packet, result status, external_handoff_status, unresolved_items.
+inputs: next_move_packet, result status, utility_return_status, unresolved_items.
 required intermediate output: closure_readiness_result, unresolved_items_final, FINISH_REQUEST readiness.
-gate: PASS if no required RUN_EXTERNAL_HANDOFF return is pending and the Next Move Packet is complete; STOP if closure would happen before required external return; PASS_WITH_RISK if limitations are explicit and non-blocking.
+gate: PASS if no required UTILITY_CALL return is pending and the Next Move Packet is complete; STOP if closure would happen before required utility return; PASS_WITH_RISK if limitations are explicit and non-blocking.
 checkpoint rule: None.
 expansion rule: None.
 stop behavior: Return EXTERNAL_RETURN_REQUIRED_STOP or CLOSURE_BLOCKED.
@@ -604,22 +604,22 @@ REWORK
 EXPAND
 STOP
 TRANSFER
-RUN_EXTERNAL_HANDOFF
-RUN_EXTERNAL_RETURN
+UTILITY_CALL
+UTILITY_RETURN
 ```
 
 `TRANSFER` in this procedure means producing a closure transfer packet as part of the Next Move Packet. It does not launch the transfer.
 
-`RUN_EXTERNAL_HANDOFF` is allowed only if this selected `form_current_next_move` RUN itself requires an external utility result before it can complete the Next Move Packet. It is not the same as a closure `transfer_packet_if_needed`.
+`UTILITY_CALL` is allowed only if this selected `form_current_next_move` RUN itself requires an external utility result before it can complete the Next Move Packet. It is not the same as a closure `transfer_packet_if_needed`.
 
 ## Optional Expansion
 
 Allowed expansion is limited to:
 
-- reading exact target procedure, adapter, or run-surface sources needed to complete the selected Transfer Packet;
+- reading exact target procedure, adapter, or procedure-boundary sources needed to complete the selected Transfer Packet;
 - producing a bounded check/child/Codex/storage transfer packet as a closure artifact;
 - asking for a human decision only when the missing information is genuinely not derivable and not a materially known required transfer;
-- verifying a returned external result only if the same selected RUN emitted a `RUN_EXTERNAL_HANDOFF` and the return is needed before closure.
+- verifying a returned external result only if the same selected RUN emitted a `UTILITY_CALL` and the return is needed before closure.
 
 Expansion must not:
 
@@ -651,7 +651,7 @@ If research is required, this procedure must not invent the answer. It must prod
 
 ## Utility Decision Gate
 
-This procedure is a `core_material` owner and may use the global utility layer only through the Utility Use Gate.
+This procedure is a `core` owner and may use the global utility layer only through the Utility Use Gate.
 
 Utility use is allowed only when needed to complete the current Next Move Packet formation work. Utility use must not become procedure switching, hidden mutation, hidden acceptance, hidden next work, or an unbounded external wait.
 
@@ -670,17 +670,17 @@ forbidden_utility_categories:
   - any utility used to launch the selected next move invisibly
   - any utility used to mutate state without admitted write gate and verified return
   - any utility used to accept this procedure's own output
-  - any utility used to convert Next Move Packet into a mid-RUN external handoff
+  - any utility used to convert Next Move Packet into a mid-RUN utility call
 ```
 
 ## Utility / Adapter Policy
 
 ```text
-external_handoff_policy:
-  RUN_EXTERNAL_HANDOFF may be emitted only when this selected owner RUN cannot complete Next Move Packet formation without an external utility result.
+utility_call_policy:
+  UTILITY_CALL may be emitted only when this selected main procedure RUN cannot complete Next Move Packet formation without an external utility result.
 
 external_return_policy:
-  RUN_EXTERNAL_RETURN must resume the same selected owner procedure and match the emitted handoff.
+  UTILITY_RETURN must resume the same selected main procedure and match the emitted handoff.
 
 external_return_verification:
   Returned evidence must be classified as adapter evidence and verified before it affects the Next Move Packet.
@@ -692,11 +692,11 @@ storage_boundary:
   This procedure may produce a storage_update Transfer Packet when acceptance/update authority and a complete Storage Update Package exist. It must not perform storage mutation.
 ```
 
-## External Handoff and Return Policy
+## Utility Call and Return Policy
 
 Distinguish two different mechanisms:
 
-1. `RUN_EXTERNAL_HANDOFF` during RUN:
+1. `UTILITY_CALL` during RUN:
    - used only before this procedure can complete;
    - requires complete copy-paste packet, expected return packet, validation, and same-owner resume rule;
    - blocks FINISH_REQUEST until returned, verified, or explicitly abandoned as blocked.
@@ -708,7 +708,7 @@ Distinguish two different mechanisms:
    - does not keep this RUN open;
    - must be complete for external next surfaces.
 
-The Next Move Packet must never be used as the substitute for a required mid-RUN external handoff.
+The Next Move Packet must never be used as the substitute for a required mid-RUN utility call.
 
 ## Project Refresh Reporting
 
@@ -738,9 +738,17 @@ Checkpoint or stop when:
 - the destination is missing;
 - multiple primary next moves are materially plausible;
 - the required transfer packet cannot be completed;
-- the closure state indicates a pending required RUN_EXTERNAL_HANDOFF return;
+- the closure state indicates a pending required UTILITY_CALL return;
 - selecting the next move would decide acceptance, mutate storage, or launch work.
 
+## Completion Contract
+
+```text
+completion:
+  result: next move formation result with one primary next move and complete NEXT_CHAT_CARD or no_next_chat_needed
+  proof: source closure state, boundary classification, rejected alternatives, transfer/card completeness, validation, and limitations are recorded
+  blocked_if: closure state, selected procedure context, acceptance/persistence boundary, return destination, transfer/card content, or required utility return is missing
+```
 ## Output Contract
 
 Primary output:
@@ -781,7 +789,7 @@ FINISH_REQUEST:
   selected_work:
   run_result_summary:
   unresolved_items:
-  external_handoff_status:
+  utility_return_status:
   finish_gate:
 ```
 
@@ -807,7 +815,7 @@ Procedure Definition checks:
 - Context classification exists.
 - Complexity selector exists.
 - Stage Cards use material gates.
-- Gate outcomes include STOP, REWORK, EXPAND, TRANSFER, RUN_EXTERNAL_HANDOFF, and RUN_EXTERNAL_RETURN where applicable.
+- Gate outcomes include STOP, REWORK, EXPAND, TRANSFER, UTILITY_CALL, and UTILITY_RETURN where applicable.
 - Output contract is downstream-usable.
 - Stop conditions prevent invention, boundary crossing, hidden mutation, hidden acceptance, and hidden next launch.
 - Utility Decision Gate is explicit.
@@ -817,15 +825,15 @@ Procedure Definition checks:
 
 Procedure Execution checks:
 
-- START selected exactly one owner procedure.
+- START selected exactly one main procedure.
 - RUN executed only this selected procedure.
 - No procedure switch occurred.
 - Required sources were read or limitations stated.
 - Closure next move selects exactly one primary next move.
 - Required transfer packet is complete for `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`.
 - `human_decision` is not used as transfer avoidance.
-- Next Move Packet is not used for mid-RUN `RUN_EXTERNAL_HANDOFF`.
-- FINISH_REQUEST is not emitted while a required external return is pending.
+- Next Move Packet is not used for mid-RUN `UTILITY_CALL`.
+- FINISH_REQUEST is not emitted while a required utility return is pending.
 - Final closure does not launch next work.
 
 Cross-boundary checks:
@@ -835,7 +843,7 @@ Cross-boundary checks:
   - `repair_required` may route to bounded repair through an allowed next surface with complete transfer packet where required;
   - blocked, parked, or rejected decisions preserve acceptance and persistence boundaries and do not silently start work.
 - Compatible with Storage Update:
-  - `storage_update` next move requires complete copy-paste packet for `storage_update_adapter`;
+  - `storage_update` next move requires complete copy-paste packet for `storage_update`;
   - full admitted `storage_update_package.v1` must be included;
   - incomplete storage package blocks or routes to materially correct repair/human decision, not placeholder transfer.
 
@@ -858,8 +866,8 @@ Stop or return blocked result when:
 - next move selection would mutate repository/runtime state;
 - next move selection would accept candidate output;
 - next move selection would launch work;
-- Next Move Packet is being used as mid-RUN `RUN_EXTERNAL_HANDOFF`;
-- required external return is still pending before FINISH_REQUEST;
+- Next Move Packet is being used as mid-RUN `UTILITY_CALL`;
+- required utility return is still pending before FINISH_REQUEST;
 - exact repository/source authority cannot support the selected packet.
 
 ## Procedure Closure
@@ -884,14 +892,14 @@ After FINISH, the same chat is closed for material work. The selected next move 
 
 ```text
 next_move_packet:
-  primary_next_move: Persist the accepted procedure update through storage_update_adapter.
+  primary_next_move: Persist the accepted procedure update through storage_update.
   next_move_type: storage_update
   return_destination: parent governance run
   transfer_packet_if_needed:
     transfer_packet:
       transfer_type: storage_update
       target_entrypoint: persist_accepted_state
-      target_run_surface_type: storage_update_adapter
+      target_procedure_boundary: storage_update
       admitted_storage_update_package:
         package_version: storage_update_package.v1
         canonical_schema_ref: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md

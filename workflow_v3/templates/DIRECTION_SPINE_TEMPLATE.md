@@ -8,7 +8,7 @@ status: template
 
 `spine_status`: pending_definition | candidate | accepted | superseded
 
-`procedure_ref`: workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md
+`procedure_path`: workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md
 
 `formation_eval_ref`: workflow_v3/evals/DIRECTION_SPINE_FORMATION_EVAL.md
 

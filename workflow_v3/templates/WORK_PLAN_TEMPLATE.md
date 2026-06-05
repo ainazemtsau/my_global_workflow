@@ -26,6 +26,6 @@ status: template
 
 ## Boundary
 
-Work Plan is not permission by itself. It must match an admitted run surface and stop when the admission boundary changes.
+Work Plan is not permission by itself. It must match an admitted procedure boundary and stop when the admission boundary changes.
 
 END_OF_FILE: workflow_v3/templates/WORK_PLAN_TEMPLATE.md

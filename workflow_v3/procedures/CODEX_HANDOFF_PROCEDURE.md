@@ -2,11 +2,11 @@
 
 status: active_procedure
 
-## Procedure Class
+## Procedure Kind
 
 ```text
-procedure_class: utility_adapter
-embedded_use_policy: callable_utility
+kind: utility
+utility_policy: callable_utility
 ```
 
 ## Purpose
@@ -19,11 +19,11 @@ The procedure produces a candidate handoff package only. It does not launch Code
 
 When selected by START, this procedure prepares a standalone Codex handoff package.
 
-When embedded inside another selected owner procedure, this file supplies handoff schema and quality checks only.
+When embedded inside another selected main procedure, this file supplies handoff schema and quality checks only.
 
-Embedded use does not change `selected_entrypoint` or `selected_procedure_ref` and does not start a new lifecycle.
+Embedded use does not change `selected_entrypoint` or `selected_procedure_path` and does not start a new lifecycle.
 
-Embedded use emits RUN_EXTERNAL_HANDOFF, not FINISH_REQUEST.
+Embedded use emits UTILITY_CALL, not FINISH_REQUEST.
 
 ## Trigger / When to Use
 
@@ -133,7 +133,7 @@ stop behavior: Return incomplete package blocker.
 - `EXPAND`: inspect exact repository source only to complete source/path boundaries.
 - `STOP`: return blocked result when required handoff authority or fields are missing.
 - `TRANSFER`: return a candidate handoff packet for a later Codex adapter run.
-- `RUN_EXTERNAL_HANDOFF`: when embedded in an owner procedure and the Codex result is required before that owner can complete RUN, return the complete handoff envelope and expected return packet.
+- `UTILITY_CALL`: when embedded in an main procedure and the Codex result is required before that owner can complete RUN, return the complete handoff envelope and expected return packet.
 
 ## Optional Expansion
 
@@ -147,12 +147,20 @@ External research is forbidden by default. Exact repository source inspection is
 
 No checkpoint is required by default for a complete bounded handoff. Checkpoint when the user must decide path boundaries, commit/push policy, validation scope, return fields, or whether Codex is authorized after the package draft.
 
+## Completion Contract
+
+```text
+completion:
+  result: complete code-assistant handoff package for bounded work
+  proof: repository, base ref, goal, source reads, allowed/forbidden paths, required changes, validation, stop conditions, commit/push policy, refresh requirements, and requested return fields are present
+  blocked_if: work is unbounded, mutation authority is unclear, paths or validation are missing, or package would let the utility accept its own output
+```
 ## Output Contract
 
 ```text
 handoff_id:
-owner_entrypoint:
-owner_procedure_ref:
+selected_entrypoint:
+selected_procedure_path:
 utility_category: codex_handoff_packet
 external_surface: Codex
 repository:

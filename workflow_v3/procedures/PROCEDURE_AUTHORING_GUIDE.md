@@ -4,11 +4,11 @@ status: active_procedure_framework
 
 ## Purpose
 
-Use this guide when writing Workflow v3 procedure files. A good procedure is neither rigid micro-steps nor a vague "do well" instruction. It names the work boundary, required sources, material stages, gates, allowed expansion, stop conditions, and output contract.
+Use this guide when writing Workflow v3 procedure files. A good procedure names the work boundary, required sources, completion contract, material stages, internal checks, utility boundaries, stop conditions, and output contract.
 
-## Canonical procedure location and naming
+## Canonical Procedure Location
 
-Write Procedure Definition Framework procedures under:
+Write procedures under:
 
 ```text
 workflow_v3/procedures/**
@@ -20,45 +20,45 @@ Name procedure files as:
 *_PROCEDURE.md
 ```
 
-Do not preserve `*_RUNBOOK.md`, `*_PLAYBOOK.md`, or obsolete runbook/playbook directory placement as active procedure source.
-
 When a detailed body is not authored yet, create a self-contained stub target spec that identifies:
 
 ```text
 procedure_path:
 registry_entrypoint:
-registry_delta:
+kind:
 target_role:
 workflow_integration:
 future_body_outline:
 required_outputs_when_authored:
 stop_behavior_until_authored:
-exception_if_not_canonical:
+completion:
+  result:
+  proof:
+  blocked_if:
 ```
 
 The registry must point to the canonical procedure file. A stub may serve as the canonical procedure source only to stop execution until a later bounded authoring run fills the detailed body.
 
-A compatibility shim is allowed only when explicitly justified and separately admitted. It must not become controlling procedure source.
+## Write the Boundary First
 
-## Write the boundary first
+Keep the trigger short and concrete. If the boundary touches accepted state, Direction runtime, Codex, Project setup, repository mutation, utility calls, or storage, say so directly.
 
-Keep the trigger short:
+## Required Completion Block
 
-- Good: "Use for current status questions without executing material work."
-- Bad: "Use whenever the user asks anything about the project."
+Every selectable procedure must include:
 
-Keep the non-trigger equally clear:
+```text
+completion:
+  result:
+  proof:
+  blocked_if:
+```
 
-- Good: "Do not use to accept candidate output or mutate state."
-- Bad: "Do not use for inappropriate situations."
+Use the procedure's own purpose and output contract as the source. Do not copy a global done list.
 
-If the boundary touches accepted state, Direction runtime, Codex, Project setup, or repository mutation, say so directly.
+## Sources
 
-## Required inputs and sources
-
-Required inputs are what the user or START must provide before RUN can proceed.
-
-Source requirements are exact files, bindings, refs, EOF checks, and authority rules that must be satisfied before material claims are made.
+Required inputs are what the user or START must provide before RUN can proceed. Source requirements are exact files, bindings, refs, EOF checks, and authority rules that must be satisfied before material claims are made.
 
 Good source requirement:
 
@@ -66,91 +66,60 @@ Good source requirement:
 Read exact CURRENT_STATUS.md and CURRENT_NEXT_MOVE.md through the resolved binding; verify EOF where markers exist.
 ```
 
-Bad source requirement:
+## Context Classification
 
-```text
-Check the project files if useful.
-```
+Classify input as canonical source, accepted record, current human input, verified excerpt, Project Files cache/context, candidate context, adapter evidence, historical evidence, or unknown/unverified when source or state matters.
 
-## Context classification
+## Stage Design
 
-Classify input as canonical source, accepted record, current human input, verified excerpt, Project Files cache/context, candidate context, legacy_evidence, or unknown/unverified when source or state matters.
+Use material stages only when the user needs to see progress or make a continuation decision. Each material stage emits `STAGE_RESULT` and waits for `CONTINUE` / `ДАЛЬШЕ` before the next material stage.
 
-Simple non-state-sensitive procedures may state that no state classification is required unless the answer becomes source-sensitive.
+Use `internal_check` for mechanical checks inside a material stage. Internal checks do not require separate user confirmation unless they change scope, need a utility call, or block.
 
-## Complexity selector
-
-Choose the smallest level that works:
-
-- `inline` for lightweight non-state-sensitive answers.
-- `standard` for normal source-sensitive reads.
-- `checkpointed` when later stages depend on an intermediate user-visible gate.
-- `research_backed` when current external sources are needed.
-- `delegated_or_tool_mediated` when child/check/Codex/provider work is needed.
-
-Do not force a simple procedure into a complex run shape.
-
-## Stage Cards
-
-Stage Cards should be short and material. Each stage must produce an intermediate output and pass a gate.
-
-Good Stage Card:
+Good material stage:
 
 ```text
 stage_id: source_check
+stage_type: material stage
 purpose: Confirm exact source authority before status summary.
-activation conditions: Status depends on current runtime state.
 inputs: Binding, CURRENT_STATUS.md, CURRENT_NEXT_MOVE.md.
-required intermediate output: Source refs and read limitations.
+required_stage_result: Source refs and read limitations.
 gate: PASS if exact sources are available and consistent; STOP otherwise.
-checkpoint rule: None by default.
-expansion rule: Request exact source only if missing.
-stop behavior: Return SOURCE_INTEGRITY_STOP or BINDING_CONFLICT.
+utility_allowed_if: exact source access requires an admitted file/GitHub utility.
+blocked_if: source binding is missing or conflicting.
 ```
 
-Bad Stage Card:
+Good internal check:
 
 ```text
-stage_id: do_status
-purpose: Do a good status review.
-gate: Make sure it is good.
+check_id: eof_check
+stage_type: internal_check
+purpose: Confirm required markdown source markers.
+pass_if: required files are readable and markers match.
+blocked_if: required marker is missing or source is truncated.
 ```
 
-## Gates
+## Utility Calls
 
-Material gates answer whether the stage is sufficient to continue, not whether the model feels confident.
+Research, child chats, check jobs, Codex, file/GitHub access, storage updates, human decisions, or future providers must stay subordinate to the selected procedure. They must not become independent material work, mutate state silently, accept output, or switch the selected procedure.
 
-Use real outcomes: `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, or `TRANSFER`.
+State allowed utility use with:
 
-Examples:
+```text
+utility_policy:
+  allowed_when:
+  common_targets:
+  forbidden_when:
+  return_verification:
+  same_main_procedure_resume:
+```
 
-- `PASS if exact sources are available and agree.`
-- `STOP if source binding is missing or conflicting.`
-- `EXPAND only to a bounded check job when validation evidence is absent.`
+## Keep Project Instructions Small
 
-## Checkpointing
+Project Instructions are bootloader-level. They may say which registry to read first and how START/RUN/CHECK/FINISH behave. They should not contain full procedures, long routing cards, or execution logic that belongs in repository procedure files.
 
-Checkpoint when:
+## Keep Simple Procedures Simple
 
-- a later stage would be wasteful without user review;
-- source conflicts must be surfaced before drafting;
-- research or child/check/Codex work changes the available evidence;
-- a gate failure may require scope repair.
-
-Do not checkpoint every minor stage. Ordinary checkpoints are internal RUN gates and return typed gate outputs when action is needed.
-
-## Research and expansion
-
-Research, child chats, check jobs, Codex, or tools must stay subordinate to the selected procedure. They must not become independent material work, mutate state, accept output, or switch the procedure.
-
-State the allowed expansion path and stop when expansion exceeds it.
-
-## Keep Project Instructions small
-
-Project Instructions are bootloader-level. They may say which entrypoint to use and which registry to read first. They should not contain full procedures, long routing cards, or execution logic that belongs in repository procedure files.
-
-## Keep simple procedures simple
-
-A simple procedure can still use the framework with one Stage Card, one gate, no checkpoint, and a compact output contract. Do not add research, child chats, or check jobs unless the procedure genuinely needs them.
+A simple procedure can use one material stage, no utility calls, and a compact completion contract. Do not add research, child chats, or check jobs unless the procedure genuinely needs them.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_AUTHORING_GUIDE.md

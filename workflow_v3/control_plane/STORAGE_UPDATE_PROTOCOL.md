@@ -8,9 +8,9 @@ Storage update is the direct in-chat adapter surface for writing accepted reposi
 
 Acceptance Decision may authorize that storage update is needed. It does not grant the producing candidate or acceptance chat permission to write.
 
-Direct ChatGPT canonical persistence requires storage_update_adapter admission.
+Direct ChatGPT canonical persistence requires storage_update admission.
 
-External Codex/storage utility persistence may occur inside a core owner RUN only through Utility Use Gate, write gate, exact path boundaries, validation, and verified RUN_EXTERNAL_RETURN.
+External Codex/storage utility persistence may occur inside a core main procedure RUN only through Utility Use Gate, write gate, exact path boundaries, validation, and verified UTILITY_RETURN.
 
 GitHub write tools are default-denied by workflow policy.
 

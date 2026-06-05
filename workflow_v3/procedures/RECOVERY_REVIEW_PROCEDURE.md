@@ -122,6 +122,14 @@ External research is forbidden. Exact repository/runtime/evidence sources are re
 
 No checkpoint is required by default. Checkpoint when suspected affected scope is ambiguous or a user decision is needed before proposing repair, rollback, acceptance, or storage path.
 
+## Completion Contract
+
+```text
+completion:
+  result: recovery review status with suspect refs, evidence refs, outcome, storage/update need, and exact next move or card
+  proof: required source/evidence refs are read or limitations stated; recovery outcome does not repair, mutate, accept, import, or persist by itself
+  blocked_if: source/evidence is missing, authority is unclear, recovery would require direct write, acceptance authority is absent, or Direction proof state would be invented
+```
 ## Output Contract
 
 ```text

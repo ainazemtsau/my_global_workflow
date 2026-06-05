@@ -4,7 +4,7 @@ title: Direction Project Root Bootstrap
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md
 entrypoint: direction_project_root_bootstrap
-run_surface_type: setup_only_root_bootstrap
+procedure_boundary: setup_only_root_bootstrap
 
 ## purpose
 
@@ -62,6 +62,14 @@ Runs before Direction Definition. Produces setup-only candidate package and next
 - Result Packet;
 - Next Move Packet.
 
+## Completion Contract
+
+```text
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source exists and describes setup-only root bootstrap target role
+  blocked_if: selected for execution before detailed body is authored
+```
 ## stop_behavior_until_authored
 
 ```text

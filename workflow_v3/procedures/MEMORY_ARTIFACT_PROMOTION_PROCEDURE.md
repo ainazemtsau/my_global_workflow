@@ -4,7 +4,7 @@ title: Memory Artifact Promotion
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md
 entrypoint: promote_memory_artifact
-run_surface_type: formation_chat
+procedure_boundary: formation_chat
 
 ## purpose
 
@@ -62,6 +62,14 @@ Keeps long-term memory useful without polluting context or replacing accepted st
 - Result Packet;
 - Next Move Packet.
 
+## Completion Contract
+
+```text
+completion:
+  result: blocked stub result explaining PROCEDURE_BODY_NOT_AUTHORED
+  proof: canonical stub source exists and describes Memory Artifact promotion target role
+  blocked_if: selected for execution before detailed body is authored
+```
 ## stop_behavior_until_authored
 
 ```text

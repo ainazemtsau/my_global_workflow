@@ -4,9 +4,9 @@ title: Storage Update
 status: active_procedure
 canonical_location: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
 entrypoint: persist_accepted_state
-run_surface_type: storage_update_adapter
-procedure_class: storage_adapter
-embedded_use_policy: callable_persistence_utility_with_write_gate
+procedure_boundary: storage_update
+kind: storage
+utility_policy: callable_storage_utility_with_write_gate
 
 ## Purpose
 
@@ -19,7 +19,7 @@ This procedure is a mechanical storage/write adapter. It verifies write authorit
 Use this procedure when all are true:
 
 - START selected `persist_accepted_state`.
-- The selected run surface is `storage_update_adapter`.
+- The selected procedure boundary is `storage_update`.
 - A complete Storage Update Package is provided.
 - The package names exact allowed files, exact required changes, forbidden paths, validation requirements, and return fields.
 - The package carries explicit accepted update authority or admitted storage authority.
@@ -55,10 +55,10 @@ Required START/lifecycle inputs:
 
 ```text
 selected_entrypoint: persist_accepted_state
-selected_procedure_ref: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
-run_surface_type: storage_update_adapter
-procedure_class: storage_adapter
-embedded_use_policy: callable_persistence_utility_with_write_gate
+selected_procedure_path: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
+procedure_boundary: storage_update
+kind: storage
+utility_policy: callable_storage_utility_with_write_gate
 ```
 
 Required task inputs:
@@ -95,8 +95,8 @@ storage_update_package:
   package_id: string
   produced_by:
     source_entrypoint: string
-    source_procedure_ref: string
-    source_run_surface_type: string
+    source_procedure_path: string
+    source_procedure_boundary: string
     source_result_ref: string
     source_finish_ref: string | not_applicable
 
@@ -116,7 +116,7 @@ storage_update_package:
     base_ref: branch | tag | commit | runtime_state_ref
     target_ref: branch | runtime_state_ref
     expected_head_sha_before_write: string | not_applicable
-    write_surface: direct_storage_update_adapter
+    write_surface: direct_storage_update
     commit_policy: commit_required | commit_not_required | runtime_write
     push_policy: push_required | push_not_required | runtime_write
 
@@ -302,9 +302,9 @@ If complexity would require semantic decision-making, switch to STOP rather than
 stage_id: lifecycle_surface_admission
 purpose: Confirm this RUN is the selected storage adapter and not an embedded semantic step.
 activation conditions: Always.
-inputs: START_PACKET, Procedure Registry metadata, run surface type, user/parent packet.
-required intermediate output: selected_entrypoint, selected_procedure_ref, run_surface_type, procedure_class, embedded_use_policy.
-gate: PASS if selected_entrypoint is persist_accepted_state and run_surface_type is storage_update_adapter; STOP otherwise.
+inputs: START_CONTRACT, Procedure Registry metadata, procedure boundary type, user/parent packet.
+required intermediate output: selected_entrypoint, selected_procedure_path, procedure_boundary, kind, utility_policy.
+gate: PASS if selected_entrypoint is persist_accepted_state and procedure_boundary is storage_update; STOP otherwise.
 checkpoint rule: None.
 expansion rule: None.
 stop behavior: Return STORAGE_SURFACE_NOT_SELECTED or BOUNDARY_CROSSING_STOP.
@@ -446,8 +446,8 @@ Use:
 - `EXPAND` only for exact listed source readback or listed validation checks.
 - `STOP` for missing package, missing authority, path broadening, source conflict, validation absence/failure, EOF invalidity, or write boundary violation.
 - `TRANSFER` only as closure output if the package cannot be executed in this surface and a complete next-surface packet is included.
-- `RUN_EXTERNAL_HANDOFF` is not used by default by this selected storage adapter.
-- `RUN_EXTERNAL_RETURN` is not used unless a separately admitted storage execution policy explicitly requires same-owner return verification.
+- `UTILITY_CALL` is not used by default by this selected storage adapter.
+- `UTILITY_RETURN` is not used unless a separately admitted storage execution policy explicitly requires same-owner return verification.
 
 ## Optional Expansion
 
@@ -480,11 +480,11 @@ If external tool/provider behavior is uncertain and affects write safety, STOP w
 
 ## Utility Decision Gate
 
-This procedure is itself a `storage_adapter`.
+This procedure is itself a `storage`.
 
 Utility use rules:
 
-- Direct in-chat storage mutation is allowed only because START selected `storage_update_adapter`.
+- Direct in-chat storage mutation is allowed only because START selected `storage_update`.
 - The storage write gate must pass before any write.
 - No additional material utility is available by default.
 - Validation tools may be used only when they are listed in the package and needed to verify the write.
@@ -509,7 +509,7 @@ forbidden_utility_categories:
   - check_job_packet unless separately admitted before storage and not used to decide acceptance
   - project refresh execution
 
-external_handoff_policy:
+utility_call_policy:
   - not used by default
   - missing direct write capability produces STOP unless a complete admitted Transfer Packet is already present
 
@@ -530,11 +530,11 @@ storage_boundary:
   - never continue to semantic next step
 ```
 
-## External Handoff and Resume Policy
+## Utility Call and Resume Policy
 
 This procedure should normally execute directly or stop.
 
-It must not emit `RUN_EXTERNAL_HANDOFF` merely because another tool such as Codex could perform the write. If storage cannot execute directly, return a blocked result or a complete closure Transfer Packet only when the selected context requires it.
+It must not emit `UTILITY_CALL` merely because another tool such as Codex could perform the write. If storage cannot execute directly, return a blocked result or a complete closure Transfer Packet only when the selected context requires it.
 
 If a separately admitted future storage policy allows same-owner external storage execution, the handoff must include:
 
@@ -557,10 +557,10 @@ validation_required_on_return:
   - verify only listed paths changed
   - verify EOF
   - verify listed validation
-resume_rule: resume the same selected owner procedure
+resume_rule: resume the same selected main procedure
 ```
 
-FINISH_REQUEST must not be emitted while a required external return is pending.
+FINISH_REQUEST must not be emitted while a required utility return is pending.
 
 ## Project Refresh Reporting
 
@@ -587,6 +587,14 @@ Checkpoint before write only when:
 
 Do not use checkpoints to repair vague packages after write starts. Missing authority, missing paths, missing validation, or ambiguous scope must STOP.
 
+## Completion Contract
+
+```text
+completion:
+  result: storage update result with applied, no-op, blocked, or failed status and exact changed/no-op evidence
+  proof: authority, exact paths, pre/post refs, diff or no-op evidence, validation, EOF checks, refresh categories, and residual risks are recorded
+  blocked_if: storage package is missing or incomplete, authority is absent, paths are broad or unlisted, source state mismatches, validation is absent, forbidden paths are touched, or requested action would update actual Project UI
+```
 ## Output Contract
 
 ```yaml
@@ -666,9 +674,9 @@ Procedure Definition checks:
 
 Procedure Execution checks:
 
-- START selected exactly one owner procedure.
+- START selected exactly one main procedure.
 - RUN did not switch procedures.
-- Direct mutation occurred only under `storage_update_adapter`.
+- Direct mutation occurred only under `storage_update`.
 - No write occurred before package, authority, path, source, and validation gates passed.
 - Only listed files changed.
 - Forbidden paths were untouched.
@@ -727,7 +735,7 @@ Block/no-op outcomes:
 
 RUN completion emits FINISH_REQUEST only after:
 
-- no required external return is pending;
+- no required utility return is pending;
 - write was applied, blocked, failed, or confirmed no-op;
 - changed files or no-op evidence are listed;
 - validation output or validation blocker is listed;

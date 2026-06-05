@@ -22,7 +22,7 @@ Validate storage update adapter admission and package completeness.
 
 - Storage update package omits allowed files, forbidden paths, validation, or return fields.
 - Producing formation or acceptance chat writes state itself.
-- GitHub write tools are used without storage_update_adapter admission or gated external utility write authority.
+- GitHub write tools are used without storage_update admission or gated external utility write authority.
 - Adapter broadens state changes or touches unlisted paths.
 - Human acceptance input is treated as storage authorization.
 

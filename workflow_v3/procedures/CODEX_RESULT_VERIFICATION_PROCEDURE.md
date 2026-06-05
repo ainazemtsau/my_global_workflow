@@ -2,11 +2,11 @@
 
 status: active_procedure
 
-## Procedure Class
+## Procedure Kind
 
 ```text
-procedure_class: verification_adapter
-embedded_use_policy: callable_verification_utility
+kind: verification
+utility_policy: callable_verification
 ```
 
 ## Purpose
@@ -17,9 +17,9 @@ Verification is candidate evidence, not acceptance by itself. This procedure doe
 
 ## Embedded Verification Mode
 
-If the current owner procedure emitted the Codex handoff and the user returns the Codex result in the same active RUN, use this verification procedure as schema/checklist only.
+If the current main procedure emitted the Codex handoff and the user returns the Codex result in the same active RUN, use this verification procedure as schema/checklist only.
 
-Do not select `codex_result_verification` as a new `selected_procedure_ref` during embedded use.
+Do not select `codex_result_verification` as a new `selected_procedure_path` during embedded use.
 
 Embedded verification must verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, Project refresh categories, push status, and residual risks.
 
@@ -147,6 +147,14 @@ External research is forbidden. Exact repo/branch/commit/diff inspection is allo
 
 No checkpoint is required by default. Checkpoint or request missing evidence when the Codex return is incomplete instead of guessing.
 
+## Completion Contract
+
+```text
+completion:
+  result: verification result classifying returned code-assistant evidence as passed, failed, or blocked
+  proof: branch/ref, commit/artifact identity, changed files, forbidden-path check, validation, EOF markers, payload counts, refresh categories, push status, and residual risks are verified or missing evidence is named
+  blocked_if: required return evidence is missing, forbidden paths were touched, validation is absent or failed, EOF markers are missing, or verification would imply acceptance/storage/repair by itself
+```
 ## Output Contract
 
 ```text
