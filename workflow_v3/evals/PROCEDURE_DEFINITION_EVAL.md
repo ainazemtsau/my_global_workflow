@@ -49,7 +49,9 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure is only a final template with no stage/gate production logic.
 - Source authority handling is absent.
 - Stop conditions are absent.
-- Procedure can mutate state outside `storage_update_adapter`.
+- Procedure permits direct ChatGPT state mutation outside `storage_update_adapter`.
+- Procedure rejects same-owner Codex/storage utility persistence solely because persistence is not a separate `storage_adapter` owner run.
+- Procedure permits external utility write without Utility Use Gate, user approval/update authority, exact paths, validation, and return verification.
 - Procedure can accept its own output.
 - Procedure creates a separate route authority outside Procedure Registry, typed outputs, and FINISH/Next Move closure.
 - Procedure calls another procedure as a hidden RUN switch.

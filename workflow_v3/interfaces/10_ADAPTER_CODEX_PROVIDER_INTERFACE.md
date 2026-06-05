@@ -57,10 +57,12 @@ Codex handoff must include repository, base ref, target branch/branch policy, al
 
 Codex handoff may be embedded as RUN_EXTERNAL_HANDOFF when Codex evidence is needed before completion and the Utility Use Gate passes.
 
+When Codex/storage utility is used for persistence, the handoff must also include explicit approval/update authority, write gate, exact path boundaries, validation, and expected return evidence.
+
 Codex result returns as adapter evidence to the requesting/current chat. When embedded, it returns through RUN_EXTERNAL_RETURN to the same selected owner procedure before FINISH_REQUEST.
 
 Codex result verification must check branch, commit/diff, changed files, allowed paths, forbidden paths, validation output, EOF markers where relevant, project refresh requirements, and residual risks.
 
-Codex must not perform ChatGPT lifecycle FINISH and must not decide acceptance.
+Codex must not perform ChatGPT lifecycle FINISH, decide acceptance, or make its output accepted state by itself.
 
 END_OF_FILE: workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md

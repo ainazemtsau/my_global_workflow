@@ -10,7 +10,8 @@ status: active_control_plane
 - MUST: No procedure without exact source read.
 - MUST: No material work without run_surface_type.
 - MUST: No utility invocation unless the selected owner, registered utility, source/policy/safety/write boundaries, and Utility Adapter Protocol pass the Utility Use Gate.
-- MUST: No state mutation without storage_update_adapter admission.
+- MUST: No direct in-chat state mutation without storage_update_adapter admission.
+- MUST: No external utility write without Utility Use Gate, write gate, exact allowed paths, validation, and return verification.
 - MUST: No procedure switch during RUN.
 - MUST: No FINISH_REQUEST while a required external return is unresolved.
 - MUST: No route change from chat intuition.
@@ -87,7 +88,7 @@ Return an exception packet before action when any condition applies:
 - utility invocation fails the Utility Use Gate;
 - RUN_EXTERNAL_HANDOFF is incomplete or lacks expected return fields;
 - required RUN_EXTERNAL_RETURN is unresolved;
-- write requested without storage update package;
+- write requested without storage_update_adapter admission or gated external utility write package;
 - acceptance ambiguity;
 - role boundary crossing;
 - RUN attempts to execute a procedure not selected in START;

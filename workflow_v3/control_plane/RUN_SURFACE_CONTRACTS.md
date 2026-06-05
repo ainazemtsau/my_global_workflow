@@ -16,7 +16,9 @@ Procedures using the Procedure Definition Framework execute as bounded stage/gat
 
 A run surface contract cannot authorize procedure switching.
 
-A run surface contract cannot authorize state mutation unless run_surface_type is `storage_update_adapter`.
+A run surface contract cannot authorize direct in-chat state mutation unless run_surface_type is `storage_update_adapter`.
+
+External utility writes through Codex/storage utility require Utility Use Gate, write gate, exact path boundaries, validation, and RUN_EXTERNAL_RETURN verification. They remain subordinate to the same owner RUN and do not select a new owner procedure.
 
 A run surface contract cannot authorize acceptance by the same chat that produced the candidate output.
 
@@ -191,6 +193,7 @@ utility_notes:
 utility_policy:
 - Utility packets must match the selected formation procedure and must not broaden into unrelated entity formation.
 - Do not block `codex_handoff_packet` solely because Codex is absent from these notes; apply the global Utility Use Gate and source/safety/write boundaries.
+- Persistence may use same-owner external utility handoff only when approval/update authority, path boundaries, validation, and return verification are explicit; otherwise emit a blocked result or candidate package.
 
 required_inputs:
 - target entity or selected Direction Definition procedure;
@@ -259,8 +262,8 @@ utility_notes:
 - storage execution uses the storage write gate; no additional material utility by default.
 
 utility_policy:
-- Storage execution is allowed only under selected `storage_update_adapter`.
-- Embedded storage packages from other owner procedures are candidate next-surface inputs, not hidden mutation.
+- Direct in-chat storage execution is allowed only under selected `storage_update_adapter`.
+- Same-owner external Codex/storage utility writes are adapter work, not selected storage owners, and require write gate plus verified RUN_EXTERNAL_RETURN.
 
 required_inputs:
 - complete Storage Update Package.
@@ -386,7 +389,7 @@ utility_policy:
 - Codex handoff packets are limited to bounded repository maintenance patches of the selected authoring result.
 - Codex return verification is limited to evidence from the same emitted handoff.
 - Check job and child research packets require bounded questions.
-- Embedded storage execution, hidden acceptance, Direction runtime mutation, and unrelated procedure authoring by utility expansion are forbidden.
+- Hidden storage execution, hidden acceptance, Direction runtime mutation, and unrelated procedure authoring by utility expansion are forbidden.
 
 required_inputs:
 - target procedure name or intent;

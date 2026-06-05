@@ -57,7 +57,11 @@ Next Move Packet is closure routing after the selected owner procedure completes
 
 Every material action has `run_surface_type` and explicit allowed and forbidden operations.
 
-Storage mutation is a separate `storage_update_adapter` run. GitHub write tools are default-denied by workflow policy unless that adapter is admitted by exact package.
+Direct ChatGPT storage mutation is allowed only in a selected `storage_update_adapter` run.
+
+External Codex/storage utility persistence can occur inside a core owner RUN only through RUN_EXTERNAL_HANDOFF / RUN_EXTERNAL_RETURN with Utility Use Gate, write gate, exact path boundaries, validation, and return verification.
+
+Codex output/evidence is not accepted state by itself.
 
 Accepted state remains canonical repository state only after accepted update path and verification.
 

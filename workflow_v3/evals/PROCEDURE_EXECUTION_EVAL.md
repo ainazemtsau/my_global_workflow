@@ -21,6 +21,7 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - No procedure switch occurred during RUN.
 - One owner procedure stayed selected through RUN.
 - Same owner procedure invoked needed utility, received the return, verified evidence, and then closed when utility work was required.
+- Same owner procedure used Codex/storage utility for approved persistence, verified return evidence, and closed only after required return was resolved.
 - Utility handoff was typed, bounded, and complete.
 - Returned external result matched the emitted handoff.
 - Embedded verification occurred before FINISH_REQUEST when required.
@@ -44,8 +45,11 @@ Check whether a Workflow v3 procedure execution in a chat or Codex run followed 
 - New material START inside the same chat after FINISH.
 - Utility adapter treated as new owner procedure inside active RUN.
 - Core owner procedure forces a separate next material lifecycle solely because utility use was not prelisted.
+- Core owner procedure rejects Codex/storage utility persistence solely because persistence was not a separate `storage_adapter` owner run.
 - Core owner procedure closes before invoking a needed registered utility required to complete current owner work.
 - Utility invocation becomes core procedure switching.
+- External write occurs without Utility Use Gate, user approval/update authority, exact allowed paths, validation, or return verification.
+- External Codex/storage utility write is treated as accepted state without verification/acceptance boundary.
 - Codex result accepted without verification.
 - Codex asked to close ChatGPT lifecycle.
 - FINISH_REQUEST emitted while required external return is unresolved.

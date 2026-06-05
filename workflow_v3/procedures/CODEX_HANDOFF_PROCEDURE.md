@@ -37,7 +37,7 @@ Embedded use emits RUN_EXTERNAL_HANDOFF, not FINISH_REQUEST.
 - Do not use to mutate repository or runtime state directly.
 - Do not use to decide acceptance or permit Codex to decide acceptance.
 - Do not use when forbidden paths, validation, stop conditions, or return fields are missing.
-- Do not use to launch Codex without a separate explicit handoff/adapter action.
+- Do not use to launch Codex without an explicit bounded handoff and return-verification contract.
 
 ## Required Inputs
 

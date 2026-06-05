@@ -47,7 +47,7 @@ Procedure governance:
 - For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through the registered `author_workflow_procedure` entrypoint.
 - Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
 - Read `UTILITY_ADAPTER_PROTOCOL.md` when utility/adapter categories, Codex/check/child/storage packets, or external returns are relevant.
-- Do not patch, launch Codex, mutate state, or update actual Project UI without admitted handoff/update path.
+- Do not patch, launch Codex by implication, mutate state, or update actual Project UI without admitted handoff/update path.
 - Core owners may use global utility layer through Utility Use Gate; utility returns to same owner RUN.
 
 RUN external gates:
@@ -94,7 +94,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 5981
+- `measured_chars`: 5996
 - `target_max_chars`: 6500
 - `hard_max_chars`: 8000
 - `verdict`: PASS

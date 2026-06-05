@@ -48,7 +48,7 @@ Acceptance Decision may authorize that storage update is needed.
 
 It does not itself admit the producing chat to write.
 
-Storage mutation requires Storage Update Package / `storage_update_adapter` admission.
+Direct ChatGPT storage mutation requires Storage Update Package / `storage_update_adapter` admission; external utility writes require Utility Use Gate, write gate, exact paths, validation, and verified return.
 
 Human acceptance input is not storage authorization unless an admitted storage update package exists.
 

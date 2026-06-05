@@ -21,7 +21,7 @@ Allowed `procedure_class` values:
 - `core_material` - owns a material workflow task selected by START and executed through RUN.
 - `utility_adapter` - prepares bounded supporting packets or external-surface handoffs. It may be selected standalone only when the user's primary request is the utility artifact.
 - `verification_adapter` - verifies returned evidence. It may be selected standalone only when the user's primary request is verification.
-- `storage_adapter` - mutates allowed repository/runtime state only from an admitted storage update package. Storage execution is never embedded inside another procedure.
+- `storage_adapter` - applies direct in-chat repository/runtime writes only when selected by START from an admitted storage update package.
 - `readonly_console` - reads or summarizes bounded state/context without material execution or mutation.
 
 Allowed `embedded_use_policy` values:
@@ -29,7 +29,7 @@ Allowed `embedded_use_policy` values:
 - `may_use_global_utility_layer` - core/material owner may invoke registered utilities through the Utility Use Gate.
 - `callable_utility` - utility adapter may be called as a resource or selected standalone when it is the primary work item.
 - `callable_verification_utility` - verification adapter may be called as a verification resource or selected standalone when it is the primary work item.
-- `callable_persistence_utility_with_write_gate` - storage utility requires admitted storage write gate and exact package.
+- `callable_persistence_utility_with_write_gate` - persistence utility requires write gate, exact paths, validation, and return verification.
 - `no_material_utility_by_default` - read-only surface does not perform material utility work by default.
 
 ## Owner procedure rule
@@ -56,7 +56,7 @@ A selected owner procedure may invoke a utility resource only when all are true:
 2. the utility is registered or otherwise admitted as a bounded utility child resource;
 3. the utility is needed to complete the current owner work;
 4. source authority, policy, safety, and write boundaries do not forbid it;
-5. storage mutation uses the storage write gate and is not hidden inside another owner procedure;
+5. direct ChatGPT mutation uses `storage_update_adapter`; external utility writes use the write gate, exact paths, validation, and return verification;
 6. the handoff is bounded, has expected return fields, and cannot become an unbounded external wait;
 7. the utility result will be integrated, verified, or explicitly blocked before FINISH_REQUEST when required.
 
@@ -71,7 +71,7 @@ Allowed `utility_category` values:
 - `check_job_packet` - bounded source/evidence/consistency/validation question for a check surface.
 - `child_chat_packet` - bounded child-chat package for delegated supporting work.
 - `child_research_packet` - bounded child research package with questions, evidence plan, and source policy.
-- `storage_update_package` - package for later storage execution after acceptance/update authority is clear; it is not embedded storage execution.
+- `storage_update_package` - bounded persistence package after acceptance/update authority is clear; direct ChatGPT writes still require `storage_update_adapter`.
 - `project_refresh_instruction_packet` - reporting instruction for Project UI or Project Files refresh; it does not perform refresh.
 
 ## Standalone vs embedded use
@@ -156,9 +156,19 @@ If the original handoff is missing, the return does not match, or required evide
 
 ## Storage boundary
 
-Storage execution is never embedded inside another owner procedure.
+Direct in-chat storage mutation by ChatGPT is forbidden unless the selected owner `run_surface_type` is `storage_update_adapter`.
 
-A selected owner procedure may emit a `storage_update_package` only as candidate next-surface output after acceptance/update authority is clear, unless the selected run surface is already `storage_update_adapter`. Actual storage mutation requires a separate admitted `storage_adapter` run with exact allowed files and validation.
+A core/material owner procedure may use Codex/storage utility as an external child/resource to persist approved current-owner output during the same RUN only when all are true:
+
+1. the Utility Use Gate passes;
+2. user approval or accepted update authority is explicit;
+3. exact allowed paths and forbidden paths are listed;
+4. expected return packet and validation are defined;
+5. returned evidence is verified before reliance or FINISH_REQUEST.
+
+This external utility write is not a procedure switch and not hidden mutation because it is emitted as RUN_EXTERNAL_HANDOFF and verified through RUN_EXTERNAL_RETURN.
+
+If write authority, path boundaries, or validation are absent, the owner procedure must emit a blocked result or candidate package, not write.
 
 ## Finish and Next Move boundary
 
@@ -179,7 +189,8 @@ After FINISH, the chat is closed for material work. A new material START in the 
 - asking Codex or another external surface to perform ChatGPT FINISH;
 - treating embedded verification as acceptance;
 - using `human_decision` to avoid a materially known complete transfer packet;
-- embedding storage execution as hidden mutation.
+- performing direct ChatGPT storage mutation outside `storage_update_adapter`;
+- performing external utility writes without Utility Use Gate, write gate, exact paths, validation, and return verification.
 
 ## Output envelopes
 
@@ -220,6 +231,7 @@ A valid execution must preserve these invariants:
 - no procedure switch during RUN;
 - utility use passes the global Utility Use Gate;
 - utility packets are typed, bounded, and returned to the same owner RUN;
+- external utility writes use the write gate and verified return evidence before reliance;
 - required external returns are resolved before FINISH_REQUEST;
 - returned external evidence is verified before reliance;
 - no unadmitted mutation, acceptance, or launch;

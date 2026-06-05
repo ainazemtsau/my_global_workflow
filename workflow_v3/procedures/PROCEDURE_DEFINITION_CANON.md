@@ -16,7 +16,7 @@ A procedure is not:
 - a template;
 - the chat lifecycle;
 - acceptance;
-- storage mutation unless selected through `storage_update_adapter`;
+- direct ChatGPT storage mutation unless selected through `storage_update_adapter`;
 - a hidden router;
 - permission to switch procedures during RUN.
 
@@ -160,6 +160,8 @@ FINISH_REQUEST remains the only lifecycle transition from RUN to FINISH.
 Optional expansion must be bounded by the selected owner procedure. Expansion may include research, child chat, check job, Codex handoff, embedded Codex-return verification, provider work, or tool-mediated work when the global Utility Use Gate passes.
 
 Expansion does not authorize independent material work, hidden mutation, acceptance, or procedure switching.
+
+External Codex/storage utility writes may occur inside the same owner RUN only through Utility Use Gate, write gate, exact path boundaries, validation, and verified RUN_EXTERNAL_RETURN.
 
 ## Utility Decision Gate
 

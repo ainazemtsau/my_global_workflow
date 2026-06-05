@@ -33,6 +33,7 @@ status: active_repository_completion_framework
 - Codex result returns to current chat for verification and closure.
 - Embedded Codex result returns through RUN_EXTERNAL_RETURN to the same selected owner procedure when the handoff was embedded.
 - Embedded codex_return_verification occurs before FINISH_REQUEST when the result affects owner output.
+- Persistence handoff includes approval/update authority, exact path boundaries, validation, and verified same-owner return when Codex/storage utility writes.
 - Project refresh fields are separated.
 
 ## WARN criteria
@@ -50,6 +51,7 @@ status: active_repository_completion_framework
 - Result Packet treated as accepted state.
 - Codex result cannot be matched to the emitted embedded handoff.
 - Codex is asked to close the ChatGPT lifecycle.
+- Codex/storage utility write is treated as accepted state without verification and acceptance/update boundary.
 
 ## Common failure modes
 

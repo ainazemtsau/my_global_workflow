@@ -16,7 +16,7 @@ Review candidate result/evidence and form an explicit accept, reject, repair, bl
 
 ## workflow_integration
 
-Separates candidate output from accepted state. Acceptance can authorize update need, but storage mutation still requires storage update adapter.
+Separates candidate output from accepted state. Acceptance can authorize update need; direct ChatGPT storage mutation requires storage_update_adapter, and external utility write requires Utility Use Gate, write gate, exact paths, validation, and verified return.
 
 ## when_to_use
 

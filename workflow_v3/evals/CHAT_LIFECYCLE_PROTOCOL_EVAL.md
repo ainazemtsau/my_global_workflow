@@ -17,6 +17,7 @@ Validate that material and state-sensitive Workflow v3 chats follow START -> RUN
 - RUN_EXTERNAL_HANDOFF is typed, complete, and does not switch owner procedure when present.
 - RUN_EXTERNAL_RETURN matches the emitted handoff and resumes the same owner procedure when present.
 - External return verification occurs before FINISH_REQUEST when returned evidence affects output.
+- Approved external Codex/storage utility write returns through the same owner RUN and is verified before closure when used.
 - RUN emits FINISH_REQUEST before FINISH.
 - FINISH starts only after standalone user token FINISH or ФИНИШ.
 - FINISH_PACKET includes finish_self_audit.
@@ -45,7 +46,8 @@ Validate that material and state-sensitive Workflow v3 chats follow START -> RUN
 - Codex or another adapter is asked to perform ChatGPT lifecycle FINISH.
 - FINISH_REQUEST is emitted while required external return is unresolved.
 - Same chat starts a new material START after FINISH.
-- RUN mutates state without storage_update_adapter.
+- RUN performs direct in-chat mutation without storage_update_adapter.
+- External Codex/storage utility write lacks Utility Use Gate, approval/update authority, exact paths, validation, or verified RUN_EXTERNAL_RETURN.
 - Producing chat accepts its own output.
 - FINISH is missing.
 - FINISH_PACKET is missing finish_self_audit.

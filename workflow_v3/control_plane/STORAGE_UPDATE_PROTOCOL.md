@@ -4,11 +4,13 @@ status: active_control_plane
 
 ## Purpose
 
-Storage update is a separate adapter surface. It is the only control-plane surface that may write accepted repository/runtime state after admission.
+Storage update is the direct in-chat adapter surface for writing accepted repository/runtime state after admission.
 
 Acceptance Decision may authorize that storage update is needed. It does not grant the producing candidate or acceptance chat permission to write.
 
-Canonical persistence requires storage_update_adapter admission.
+Direct ChatGPT canonical persistence requires storage_update_adapter admission.
+
+External Codex/storage utility persistence may occur inside a core owner RUN only through Utility Use Gate, write gate, exact path boundaries, validation, and verified RUN_EXTERNAL_RETURN.
 
 GitHub write tools are default-denied by workflow policy.
 

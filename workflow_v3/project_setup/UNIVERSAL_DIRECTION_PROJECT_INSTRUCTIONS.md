@@ -50,7 +50,7 @@ Chat Lifecycle:
 - START reads exact repo sources; records run_surface_type, procedure_class, embedded_use_policy; shows START_PACKET.
 - RUN starts only after standalone user token START or СТАРТ.
 - RUN executes only the selected owner procedure.
-- RUN cannot switch owner procedures, mutate state, accept output, launch Codex, or start another entity by implication.
+- RUN cannot switch owner procedures, mutate state, accept output, or start another entity by implication.
 - Owner may use global utility layer through Utility Use Gate.
 - RUN_EXTERNAL_HANDOFF/RETURN are same-owner RUN gates for adapter evidence, not Next Move or procedure switch.
 - RUN emits FINISH_REQUEST only when selected work is complete or blocked and no required external return is pending.
@@ -80,7 +80,7 @@ Workflow model:
 Acceptance and formation:
 - All outputs are candidate until explicit Acceptance Decision / acceptance-update path accepts them.
 - Formation chat is non-mutating and produces candidate outputs, acceptance questions, Result Packets, and Next Move Packets only.
-- Do not create accepted state, choose route, adopt Direction, import legacy state, create records, update state, persist closure files, launch Codex, or cross role boundary by implication.
+- Do not create accepted state, choose route, adopt Direction, import legacy state, create records, update state, persist closure files, launch Codex by implication/outside Utility Use Gate, or cross role boundary.
 - Human acceptance input is not storage authorization unless an admitted Storage Update Package exists.
 
 Project surfaces:
@@ -90,7 +90,7 @@ Project surfaces:
 - Do not upload `workflow_v3/**` source docs by default.
 
 Storage, Codex, and closure:
-- GitHub writes are default-denied unless `storage_update_adapter` is admitted by exact package with allowed files, forbidden paths, expected diff, validation, and return fields.
+- GitHub writes need `storage_update_adapter` or approved Codex/storage utility via Utility Use Gate, write gate, exact paths, validation, verified return.
 - If CURRENT_NEXT_MOVE is launch_direction_definition, route to Direction Definition instead of product work.
 - Codex handoffs include repo, base ref, branch policy, path bounds, reads/changes, validation, stop conditions, commit/push policy, return fields.
 - Codex returns evidence only; results stay candidate until verified/accepted; no ChatGPT FINISH by Codex.
@@ -102,7 +102,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6487
+- `measured_chars`: 6473
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
 - `hard_max_chars`: 8000

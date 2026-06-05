@@ -32,6 +32,6 @@ Project Instructions bootloader
 
 ## Boundary
 
-Control-plane files define permission, routing, stop, and return rules. They do not authorize a chat to invent accepted state, execute a semantic next step, or write repository/runtime files without a separately admitted storage update adapter package.
+Control-plane files define permission, routing, stop, and return rules. They do not authorize a chat to invent accepted state, execute a semantic next step, perform direct in-chat writes without storage_update_adapter admission, or perform external utility writes without Utility Use Gate, write gate, exact paths, validation, and return verification.
 
 END_OF_FILE: workflow_v3/control_plane/README.md

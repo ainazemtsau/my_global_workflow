@@ -64,7 +64,8 @@ RUN must:
 - produce RUN_EXTERNAL_HANDOFF when an external utility result is required before completion and the Utility Use Gate passes;
 - resume the same selected owner procedure after RUN_EXTERNAL_RETURN;
 - produce FINISH_REQUEST only when the selected procedure reaches its completion or blocked condition and no required external return is pending;
-- never mutate state unless the selected procedure is storage_update_adapter;
+- never perform direct in-chat state mutation unless the selected procedure is storage_update_adapter;
+- treat external utility writes as adapter evidence until RUN_EXTERNAL_RETURN verification and acceptance/update boundaries pass;
 - never accept its own output.
 
 The Procedure Definition Framework and Utility Adapter Protocol cannot authorize procedure switching.
