@@ -72,6 +72,8 @@ Steering runtime state templates reference canonical procedures where relevant. 
 
 Templates may be copied into future accepted packages as structure for candidate records, accepted records, or runtime state only when that package supplies the required source authority, evidence, acceptance/update path, allowed paths, and validation.
 
+Transfer Packet and Work Contract templates define required core fields first. Optional transport or metadata fields clarify mechanics only and do not broaden authority.
+
 The template itself is not accepted state and does not authorize state mutation.
 
 Setup-only root may use `pending_definition`, `none_selected`, `setup_only_root_created`, and `launch_direction_definition` placeholder values. Those values do not accept semantic Direction content.

@@ -10,7 +10,7 @@ Validate that closure selects exactly one primary next move with explicit bounda
 
 - Next Move Packet includes primary_next_move, next_move_type, return_destination, transfer_packet_if_needed, persistence_boundary, acceptance_boundary, and blocking_reason_if_any.
 - `next_move_type` is one of the allowed values in `CHAT_FINISH_PROTOCOL.md`.
-- Transfer Packet is complete when transfer is needed.
+- Transfer Packet is complete when transfer is needed and includes transfer_target, why_transfer_needed, source_context, exact_task, allowed_scope, forbidden_scope, required_sources, required_outputs, return_destination, and copy_paste_packet.
 - External transfer next_move_type has a complete Transfer Packet with copy_paste_packet.
 - Evidence shows this is closure routing after the selected procedure completes or stops, not a mid-RUN RUN_EXTERNAL_HANDOFF.
 
@@ -27,12 +27,12 @@ Validate that closure selects exactly one primary next move with explicit bounda
 
 - Multiple primary next moves are selected.
 - Required fields are missing.
-- Transfer is needed but packet content is incomplete.
+- Transfer is needed but packet content lacks required core Transfer Packet fields.
 - External transfer next_move_type has placeholder or vague `transfer_packet_if_needed`.
 - User must assemble the Codex/check/child/next-chat prompt manually.
 - Next Move Packet is used for a mid-RUN external handoff.
 - `human_decision` is used to avoid a known required Transfer Packet.
-- `transfer_packet_if_needed` says only "needed", "use previous package", "prepare prompt", or equivalent.
+- `transfer_packet_if_needed` says only "needed if using Codex", "use previous approved package", "prepare a prompt", "create Codex card", or equivalent.
 - A next move is treated as accepted state without an acceptance/update path.
 
 ## Required recovery/repair action

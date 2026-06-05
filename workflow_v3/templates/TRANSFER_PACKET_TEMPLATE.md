@@ -2,46 +2,41 @@
 
 status: template
 
-## Transfer Packet
+## Core Transfer Packet
 
-`transfer_packet_type`:
+transfer_target:
+why_transfer_needed:
+source_context:
+exact_task:
+allowed_scope:
+forbidden_scope:
+required_sources:
+required_outputs:
+return_destination:
+copy_paste_packet:
 
-Allowed values:
+## Optional transport metadata
 
-- `human_decision_request`
-- `codex_handoff`
-- `codex_result_verification_request`
-- `check_job_launch`
-- `child_chat_launch`
-- `next_material_chat_launch`
-- `storage_update_request`
-- `stop`
-- `blocked_result`
-
-`selected_target`:
-
-`same_chat_allowed`:
-
-`external_run_needed`:
-
-`external_run_type`:
-
-`returns_to_current_chat`:
-
-`next_material_chat_needed`:
-
-`return_destination`:
-
-`copy_paste_packet`:
+transfer_packet_type:
+external_surface:
+same_chat_allowed:
+external_run_needed:
+returns_to_current_chat:
+next_material_chat_needed:
+selected_target_or_ref:
 
 ## Boundary
+
+Core fields are required whenever a Transfer Packet is needed.
+
+Optional transport metadata is used only when it clarifies transport mechanics.
 
 Transfer Packet is complete copy-paste transport for the selected next move. It remains candidate until explicitly launched or accepted where acceptance is required.
 
 `copy_paste_packet` must be complete and standalone.
 
-If `transfer_packet_type` is `codex_handoff`, `copy_paste_packet` must include either the complete Codex package or a complete `codex_handoff` procedure launch prompt. It must not be a placeholder.
+For Codex, `copy_paste_packet` must include the complete Codex package. It must not be a placeholder.
 
-If the source package is in a previous chat, summarize or include the package in `copy_paste_packet`; do not tell the user to reconstruct it.
+Do not tell the user to reconstruct a prompt or package from previous chat memory.
 
 END_OF_FILE: workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md

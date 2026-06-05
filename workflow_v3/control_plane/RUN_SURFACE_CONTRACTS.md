@@ -6,6 +6,13 @@ status: active_control_plane
 
 Every admitted material action has a `run_surface_type`. The run surface contract defines semantic operations, forbidden operations, required inputs, required outputs, utility boundary notes, and stop conditions.
 
+## Run surface taxonomy
+
+- `selected_owner_run_surface`: a `run_surface_type` selected through Procedure Registry for one owner procedure.
+- `utility_child_surface`: a bounded utility/check/child/research surface used through Utility Adapter Protocol; not a new selected owner procedure unless independently registered and selected.
+- `readonly_surface`: a surface that reads or summarizes only and cannot execute material work or mutate state.
+- `storage_update_adapter`: direct write surface only when selected from an admitted storage package.
+
 ## Lifecycle integration
 
 Every run_surface_type is executed only inside RUN.
@@ -30,7 +37,7 @@ Embedded utility/adapter use is governed by:
 workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
 ```
 
-Run surfaces do not whitelist every utility. Utility notes name common affordances or explicit restrictions only.
+Run surfaces do not whitelist every utility. Utility notes name common affordances or explicit restrictions only. They are compatibility and boundary notes, not routing authority.
 
 The global utility layer is available to `core_material` owner procedures through the Utility Use Gate unless source, policy, safety, forbidden-operation, or write boundaries explicitly forbid the utility.
 
@@ -244,6 +251,8 @@ stop_conditions:
 - evidence missing, reviewer authority unclear, self-acceptance risk, unclear affected paths, or write request.
 
 ## `storage_update_adapter`
+
+surface_taxonomy: `storage_update_adapter`
 
 allowed_operations:
 - write only when a Storage Update Package exists and lists exact allowed files;
@@ -476,6 +485,8 @@ stop_conditions:
 
 ## `check_job`
 
+surface_taxonomy: `utility_child_surface`
+
 allowed_operations:
 - answer a bounded source, evidence, consistency, or validation question;
 - return candidate findings.
@@ -498,6 +509,8 @@ stop_conditions:
 - question expands into material work or required source is missing.
 
 ## `child_research_chat`
+
+surface_taxonomy: `utility_child_surface`
 
 allowed_operations:
 - perform bounded supporting research/checks for a parent target;
@@ -550,6 +563,8 @@ stop_conditions:
 
 ## `runtime_console_readonly`
 
+surface_taxonomy: `readonly_surface`
+
 allowed_operations:
 - summarize exact status from bound sources;
 - draft candidate packets and next moves.
@@ -558,7 +573,8 @@ forbidden_operations:
 - execute material work;
 - mutate state;
 - accept evidence;
-- start Codex directly.
+- start Codex directly;
+- act as an execution controller.
 
 utility_notes:
 - no material utility by default.

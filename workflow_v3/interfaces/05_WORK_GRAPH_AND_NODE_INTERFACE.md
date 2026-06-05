@@ -42,7 +42,9 @@ One Work Contract may execute:
 - one bounded Work Graph Node; or
 - one bounded slice of a node when the node is too large.
 
-The Work Contract must state target, parent graph/front/node trace, allowed paths/surfaces, forbidden paths/surfaces, expected result, evidence required, adapter/human role, and return destination.
+The Work Contract must state target, parent_graph_node_ref, parent_front_ref, parent_work_graph_node_ref, relation_to_parent, source_authority, in_scope, out_of_scope, allowed_surfaces, forbidden_surfaces, expected_result, evidence_required, validation_required, return_destination, and stop_conditions.
+
+Repository path boundaries are required only when repository/file mutation or inspection makes paths material.
 
 ## Node closure
 

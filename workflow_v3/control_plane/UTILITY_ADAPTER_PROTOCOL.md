@@ -14,6 +14,16 @@ This protocol lets one selected owner procedure emit and resume from typed utili
 
 It defines standalone adapter use, embedded adapter use, RUN_EXTERNAL_HANDOFF, RUN_EXTERNAL_RETURN, embedded verification, and storage boundaries.
 
+## Run surface taxonomy alignment
+
+`selected_owner_run_surface` is selected through Procedure Registry for one owner procedure.
+
+`utility_child_surface` is a bounded utility, check, child, or research surface used through this protocol. It is not an owner procedure switch and is not a separate material START unless independently registered and selected.
+
+`readonly_surface` reads or summarizes only and cannot execute material work or mutate state.
+
+Utility categories are packet/resource categories for the selected owner RUN. They are not a second router, procedure call graph, or owner-selection source.
+
 ## Procedure classes
 
 Allowed `procedure_class` values:
