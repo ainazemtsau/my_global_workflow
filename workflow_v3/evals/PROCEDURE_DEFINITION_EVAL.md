@@ -20,7 +20,7 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Research or expansion policy exists where relevant.
 - Output contract is downstream-usable.
 - Stop conditions prevent invention and boundary crossing.
-- Procedure closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
+- Procedure closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD_or_no_next_chat_needed correctly.
 - Procedure gate lenses remain internal checks and do not become separate runtime entities.
 - Route-changing outputs are represented by typed packets/records and Next Move Packet boundaries.
 - Procedure Definition Framework procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming, or state an explicit bounded exception.
@@ -56,7 +56,7 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure creates a separate route authority outside Procedure Registry, typed outputs, and FINISH/Next Move closure.
 - Procedure calls another procedure as a hidden RUN switch.
 - Procedure blocks global utility access solely because a utility was not prelisted.
-- Procedure emits FINISH_REQUEST while required utility return is pending.
+- Procedure lets CLOSURE_CHECK pass while required utility return is pending.
 - Procedure uses `human_decision` to avoid a required transfer packet.
 - Utility adapter can mutate or accept output by implication.
 - Non-trivial authoring proceeds directly to detailed body without method/checkpoint stage.

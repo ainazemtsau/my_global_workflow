@@ -23,4 +23,4 @@ START_CONTRACT:
 
 Use this as the human-readable START contract before material work. START selects one main procedure, reads its source, shows its completion contract, and waits for explicit user START / СТАРТ.
 
-END_OF_FILE: workflow_v3/templates/RUN_ADMISSION_PACKET_TEMPLATE.md
+END_OF_FILE: workflow_v3/templates/START_CONTRACT_TEMPLATE.md

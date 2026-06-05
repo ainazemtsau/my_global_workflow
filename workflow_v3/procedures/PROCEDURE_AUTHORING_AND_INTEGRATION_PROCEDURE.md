@@ -72,10 +72,9 @@ Required source classes for material procedure authoring:
 
 - `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`
 - selected procedure source when revising or authoring a stub body
-- `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md`
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` when lifecycle boundaries are involved
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` when closure boundaries are involved
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when procedure class, utility category, Codex/check/child/storage package, or utility return is involved
+- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when kind, utility category, Codex/check/child/storage package, or utility return is involved
 - Procedure Definition Canon, Procedure Authoring Guide, Procedure Template, and eval sources as needed
 
 Treat Project Files/Sources and chat memory as cache/context only.
@@ -153,7 +152,7 @@ purpose: Confirm the selected work belongs to author_workflow_procedure and lock
 activation conditions: Always.
 inputs: User request, Procedure Registry, selected procedure source, procedure boundary contract, utility protocol when relevant, requested source refs.
 required intermediate output: selected_entrypoint, selected_procedure_path, procedure_boundary, kind, source_lock, context_classification.
-gate: PASS if registry entry, selected source, procedure boundary, procedure class, and source authority are verified; STOP if any required source is missing, stale, unreadable, or conflicting.
+gate: PASS if registry entry, selected source, procedure boundary, kind, and source authority are verified; STOP if any required source is missing, stale, unreadable, or conflicting.
 checkpoint rule: None by default.
 expansion rule: Read only exact framework/control/eval/procedure sources needed for the admitted authoring task.
 stop behavior: Return SOURCE_INTEGRITY_STOP, UNREGISTERED_ACTION_EXCEPTION, or SPLIT_REQUIRED.
@@ -208,7 +207,7 @@ stage_id: method_best_practice_design_plan
 purpose: Explain the planned procedure logic before drafting the detailed body.
 activation conditions: Required for checkpointed, research_backed, delegated_or_tool_mediated, new non-trivial procedures, major revisions, or stub body authoring with high impact.
 inputs: Stage 1 identity, Stage 2 grounding, Stage 3 complexity/research decision, Procedure Definition Canon, Procedure Authoring Guide, Utility Adapter Protocol.
-required intermediate output: method_summary, applicable_techniques_patterns_or_workflow_principles, overcomplexity_control, integration_with_START_RUN_FINISH, integration_with_Result_Packet_and_Next_Move_Packet, integration_with_utility_boundaries, integration_with_parent_or_evidence_boundaries_where_relevant, acceptance_and_update_boundaries, approval_checkpoint_question.
+required intermediate output: method_summary, applicable_techniques_patterns_or_workflow_principles, overcomplexity_control, integration_with_START_RUN_CHECK_FINISH, integration_with_CLOSURE_CHECK_and_NEXT_CHAT_CARD, integration_with_utility_boundaries, integration_with_parent_or_evidence_boundaries_where_relevant, acceptance_and_update_boundaries, approval_checkpoint_question.
 gate: PASS only after user approval when the procedure is non-trivial; REWORK if the method is too vague, too complex, or violates boundaries.
 checkpoint rule: User approval required before Stage 5 for non-trivial procedure body authoring.
 expansion rule: May propose bounded check/research/handoff candidates, but must not launch them invisibly.
@@ -250,8 +249,8 @@ stage_id: closure
 purpose: Return the candidate revision package, limitations, residual risks, and exact next move.
 activation conditions: Always after completed or stopped stages and after required utility returns are resolved or blocked.
 inputs: Stage outputs.
-required intermediate output: candidate_revision_package, exact_patch_plan, eval_implications, handoff_need, source_limitations, residual_risks, FINISH_REQUEST.
-gate: PASS if the candidate package is complete; PASS_WITH_RISK if limitations are explicit; STOP if required outputs are absent or required utility returns are pending.
+required intermediate output: candidate_revision_package, exact_patch_plan, eval_implications, handoff_need, source_limitations, residual_risks, CLOSURE_CHECK.
+gate: PASS if the candidate package is complete and CLOSURE_CHECK can compare it to this procedure's completion contract; PASS_WITH_RISK if limitations are explicit; STOP if required outputs are absent or required utility returns are pending.
 checkpoint rule: None.
 expansion rule: None.
 stop behavior: Return blocked result and exact missing requirement.
@@ -360,10 +359,9 @@ handoff_need:
 
 closure:
   utility_return_status:
-  FINISH_REQUEST:
+  CLOSURE_CHECK:
   FINISH_PACKET_after_explicit_FINISH:
-  Result_Packet_after_explicit_FINISH:
-  Next_Move_Packet_after_explicit_FINISH:
+  NEXT_CHAT_CARD_or_no_next_chat_needed:
 ```
 
 ## Eval / Quality Checks
@@ -371,7 +369,7 @@ closure:
 - Procedure has distinguishable trigger and non-trigger.
 - Required inputs and exact source requirements are explicit.
 - Context classification includes adapter evidence where relevant.
-- Procedure class matches registry metadata.
+- Kind matches registry metadata.
 - Utility decision gate and adapter policy are explicit when utility boundaries matter.
 - Stage Cards produce intermediate outputs and use material gates.
 - Non-trivial authoring explains method before drafting detailed body.
@@ -380,8 +378,8 @@ closure:
 - Procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming unless an explicit exception is justified.
 - Stub procedure body authoring preserves target role, workflow integration, output contract, future scope, must-not constraints, and STOP behavior until authored.
 - Registry hint proposal is compact and does not replace procedure source.
-- Closure uses FINISH_REQUEST, FINISH_PACKET, Result Packet, and Next Move Packet correctly.
-- FINISH_REQUEST is not emitted while a required utility return is pending.
+- Closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD_or_no_next_chat_needed correctly.
+- CLOSURE_CHECK does not pass while a required utility return is pending.
 
 ## Stop Conditions
 
@@ -398,10 +396,10 @@ closure:
 
 ## Procedure Closure
 
-Close with the candidate design outputs, limitations, canonical path/registry/stub status, procedure class/utility status, and exact next move.
+Close with the candidate design outputs, limitations, canonical path/registry/stub status, kind/utility status, and exact next move.
 
 If repository changes are needed later, return a bounded Codex/storage/update packet or UTILITY_CALL rather than applying changes directly inside this procedure.
 
-FINISH_REQUEST may be emitted only after required utility calls have returned, been verified, or been explicitly stopped/abandoned.
+CLOSURE_CHECK may pass only after required utility calls have returned, been verified, or been explicitly stopped/abandoned.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md

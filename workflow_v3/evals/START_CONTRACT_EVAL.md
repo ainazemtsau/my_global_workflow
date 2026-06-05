@@ -4,7 +4,7 @@ status: active_eval
 
 ## Purpose
 
-Validate that material work is gated by START and selected-procedure completion, not by a separate old before-action layer.
+Validate that material work is gated by START and selected-procedure completion.
 
 ## Required Checks
 
@@ -24,4 +24,4 @@ Validate that material work is gated by START and selected-procedure completion,
 - Direct mutation occurs without selected/utility write path and verification.
 - Runtime depends on removed control-plane files or old routing terms.
 
-END_OF_FILE: workflow_v3/evals/ACTION_ADMISSION_EVAL.md
+END_OF_FILE: workflow_v3/evals/START_CONTRACT_EVAL.md
