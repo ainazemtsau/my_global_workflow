@@ -18,7 +18,7 @@ Repository setup files define behavior surfaces, manifests, launch packets, and 
 
 ## Project types
 
-- Governance Maintenance Console: repository governance, setup maintenance, audits, repair design, Codex handoffs, and Codex result verification.
+- Governance Maintenance Console: repository governance, setup maintenance, audits, repair design, code-assistant handoffs, and returned evidence verification.
 - Ordinary Direction Project: one ChatGPT Project for one Workflow v3 Direction after the user chooses to create it.
 
 ## Current status

@@ -55,9 +55,10 @@ Expected result:
 - evidence and source/read limitations;
 - risks and cuts;
 - acceptance/update boundary for any candidate state;
-- Result Packet;
-- FINISH_PACKET, Result Packet, and Next Move Packet;
-- exact next move.
+- CLOSURE_CHECK against the selected procedure completion contract;
+- FINISH_PACKET after audit pass;
+- NEXT_CHAT_CARD for `form_direction_spine` continuation when needed, otherwise no_next_chat_needed;
+- exact next step expressed inside NEXT_CHAT_CARD when continuation is needed.
 ```
 
 END_OF_FILE: workflow_v3/project_setup/DIRECTION_DEFINITION_LAUNCH_PACKET_TEMPLATE.md

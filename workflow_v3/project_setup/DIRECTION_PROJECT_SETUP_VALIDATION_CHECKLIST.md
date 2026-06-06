@@ -35,9 +35,12 @@ The checklist verifies setup behavior only. It does not approve Direction adopti
 [ ] First chat returned setup-only root bootstrap status.
 [ ] Setup-only root package, if drafted, uses pending_definition/none_selected placeholder semantic statuses.
 [ ] CURRENT_NEXT_MOVE points to launch_direction_definition after setup-only root.
-[ ] First chat returned FINISH_PACKET, Result Packet, and Next Move Packet.
-[ ] First chat returned exact next move.
-[ ] Codex next move test asks for a Codex next move and requires complete Transfer Packet / Codex package.
+[ ] First chat showed START_CONTRACT before material work.
+[ ] First chat emitted CLOSURE_CHECK against the selected completion contract.
+[ ] First chat closed with FINISH_PACKET after audit pass.
+[ ] First chat included NEXT_CHAT_CARD or no_next_chat_needed.
+[ ] Continuation copy-paste content is complete when NEXT_CHAT_CARD is needed.
+[ ] Code-assistant utility transfer test requires complete UTILITY_CALL or transfer packet.
 [ ] Binding source is generated for the concrete Direction package when applicable.
 [ ] Per-Direction Project Instructions source is generated when applicable.
 [ ] Manual Project Instructions UI update requirement is reported.
@@ -64,7 +67,7 @@ first_chat_result:
 candidate_context_for_direction_definition:
 setup_only_root_status_check:
 direction_definition_next_move_check:
-codex_next_move_transfer_packet_test_result:
+code_assistant_utility_transfer_test_result:
 binding_source_check:
 per_direction_project_instructions_source_check:
 manual_project_instruction_ui_update_required:

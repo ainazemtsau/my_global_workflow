@@ -51,8 +51,9 @@ Expected first result:
 - Manual Project Instructions UI update requirement after merge.
 - Direction Definition launch packet as the post-bootstrap continuation.
 - Lifecycle fact such as `direction_runtime_missing` or `direction_adoption_needed`.
-- FINISH_PACKET, Result Packet, and Next Move Packet.
-- Exact next move: launch_direction_definition.
+- CLOSURE_CHECK against the root bootstrap completion contract.
+- FINISH_PACKET after audit pass.
+- NEXT_CHAT_CARD for `launch_direction_definition` when continuation is needed, otherwise no_next_chat_needed.
 ```
 
 END_OF_FILE: workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md

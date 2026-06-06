@@ -58,7 +58,7 @@ Work admission:
 - Do not perform product work without a bounded accepted Next Move and Work Contract or a user request that can be normalized into one within the bound Direction.
 - Do not perform product work from setup-only state or before Direction Definition/Active Front acceptance admits it.
 - Do not mutate runtime state without an explicit acceptance/update path.
-- Result Packets, Next Move Packets, and Codex output are candidate until accepted.
+- Outputs, continuation cards, utility returns, and code-assistant evidence are candidate until accepted.
 - Steering entities require formation before template filling.
 
 Project surfaces:
@@ -68,8 +68,10 @@ Project surfaces:
 - Project title is a human hint only.
 
 FINISH closure and transfers:
-- End material work, review, repair, bootstrap, status review, or continuation routing with FINISH_PACKET, Result Packet, and Next Move Packet.
-- Include result, evidence/source refs, source/read limits, not done, assumptions, unresolved decisions, risks, candidate-state notice, return destination, and exact next move.
+- CHECK emits CLOSURE_CHECK against the selected completion contract.
+- FINISH emits FINISH_PACKET after audit pass.
+- CLOSED includes NEXT_CHAT_CARD when workflow continuation is needed, otherwise no_next_chat_needed.
+- Include result, evidence/source refs, source/read limits, assumptions, unresolved decisions, risks, candidate-state notice, and continuation.
 - Use Transfer Packets or copy-paste NEXT_CHAT_CARDs when transfer is needed.
 
 Context Request:

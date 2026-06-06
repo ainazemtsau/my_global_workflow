@@ -63,7 +63,10 @@ The first chat in the new ordinary Direction Project must:
 - stop if a required source or decision is missing;
 - require explicit user acceptance before preparing a runtime root package;
 - if a setup-only runtime root package is prepared, require placeholder pending Definition statuses, `runtime/config/DIRECTION_PROJECT_BINDING.md`, and per-Direction Project setup sources in the package;
-- return setup-only root status, FINISH_PACKET, Result Packet, Next Move Packet, binding installation next move, and exact next move `launch_direction_definition`.
+- return setup-only root status;
+- emit CLOSURE_CHECK against the root bootstrap completion contract;
+- close with FINISH_PACKET after audit pass;
+- include NEXT_CHAT_CARD for `launch_direction_definition` or no_next_chat_needed if blocked/terminal.
 
 ## Post-bootstrap Project Binding requirement
 

@@ -12,8 +12,9 @@ Project Instructions UI is a compact behavior bootstrap. It should state:
 
 - source authority rules;
 - context classification;
-- Launch Packet and Result Packet requirements;
-- exact Next Move requirement;
+- START_CONTRACT and selected procedure completion contract requirements;
+- CLOSURE_CHECK and FINISH_PACKET after audit pass;
+- NEXT_CHAT_CARD or no_next_chat_needed continuation;
 - no hidden accepted state;
 - no migration/import by default;
 - Runtime Console read-only boundary.
@@ -44,9 +45,9 @@ Project Files/Sources refresh remains separate from Project Instructions UI upda
 
 ## Request-only sources
 
-Request-only sources are loaded only when a Launch Packet, Check Job, Codex package, review, or human decision needs them.
+Request-only sources are loaded only when a bounded launch packet, check job, code-assistant utility call, review, or human decision needs them.
 
-Examples include exact node workspaces, Work Contract records, Run records, Result Packets, Evidence records, Acceptance Decisions, Memory Artifacts beyond indexes, raw run logs, archives, old Direction files used as legacy_evidence, and candidate docs used for maintenance review.
+Examples include exact node workspaces, Work Contract records, Run records, FINISH_PACKET records, Evidence records, Acceptance Decisions, Memory Artifacts beyond indexes, raw run logs, archives, old Direction files used as legacy_evidence, and candidate docs used for maintenance review.
 
 ## Future Project types
 

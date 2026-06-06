@@ -49,7 +49,7 @@ This records external/manual UI update evidence only.
 
 ## Verified behavior
 
-- `role`: governance maintenance for audit, design, repair, and verification of Workflow v3 repository setup; bounded Codex handoffs; Codex result verification; source authority, setup manifest, refresh category, and rollback/coexistence maintenance.
+- `role`: governance maintenance for audit, design, repair, and verification of Workflow v3 repository setup; bounded code-assistant handoffs; returned evidence verification; source authority, setup manifest, refresh category, and rollback/coexistence maintenance.
 - `source_authority`: exact repository files at a named repo/path/ref are authority; repository state beats Project Files, pasted excerpts, chat memory, uploaded files, candidate docs, and stale summaries.
 - `project_files_sources_boundary`: Project Files/Sources are cache/context only, not accepted state and not source authority.
 - `ordinary_direction_runtime_default`: no ordinary Direction runtime by default.

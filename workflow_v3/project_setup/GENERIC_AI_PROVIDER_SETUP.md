@@ -14,7 +14,7 @@ Every provider must:
 
 - receive a Launch Packet or bounded equivalent;
 - perform a bounded Run;
-- return a Result Packet and/or evidence;
+- return evidence, output, and limitations in the expected return shape;
 - state source limitations;
 - not create Accepted State;
 - not decide acceptance, route, product meaning, or scope expansion.
@@ -38,9 +38,9 @@ forbidden_decisions:
 
 ## ChatGPT
 
-ChatGPT is used for planning, synthesis, bounded work chats, child/parent coordination, Codex work package creation, Codex result verification, and human-readable closure.
+ChatGPT is used for planning, synthesis, bounded work chats, child/parent coordination, code-assistant work package creation, returned evidence verification, and human-readable closure.
 
-ChatGPT setup requires compact Project Instructions UI, exact source refs when state matters, Project Files/Sources classified as cache/context, and explicit Launch Packet / Result Packet / Next Move boundaries.
+ChatGPT setup requires compact Project Instructions UI, exact source refs when state matters, Project Files/Sources classified as cache/context, and explicit START_CONTRACT, STAGE_RESULT, UTILITY_CALL / UTILITY_RETURN, CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed boundaries.
 
 ## Codex
 
@@ -52,7 +52,7 @@ Codex must stop when repository state, source access, branch state, or validatio
 
 ## Claude Code / future code assistants
 
-Claude Code or a future code assistant may participate if it receives equivalent Codex-style boundaries.
+Claude Code or a future code assistant may participate if it receives equivalent code-assistant boundaries.
 
 If it cannot commit or push, it may return a patch, diff summary, implementation notes, or validation evidence as candidate output.
 
