@@ -45,7 +45,7 @@ Work Contract is one bounded execution agreement for a node or node slice.
 The operational movement is:
 
 ```text
-Procedure output -> FINISH_PACKET -> Result Packet -> Next Move Packet -> Transfer Packet if needed -> Acceptance/update path
+STAGE_RESULT -> CLOSURE_CHECK -> FINISH_PACKET -> NEXT_CHAT_CARD or no_next_chat_needed -> Acceptance/update path when state changes
 ```
 
 Operational movement does not replace object hierarchy. Procedure output cannot mutate the Spine, Map, Active Front, Work Graph, or accepted state by itself.

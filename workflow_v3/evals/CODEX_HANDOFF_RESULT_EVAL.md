@@ -7,7 +7,7 @@ status: active_repository_completion_framework
 - `workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md`
 - `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md`
 - `workflow_v3/templates/WORK_CONTRACT_TEMPLATE.md`
-- `workflow_v3/templates/RESULT_PACKET_TEMPLATE.md`
+- `workflow_v3/templates/FINISH_PACKET_TEMPLATE.md`
 - git branch, commit/diff, changed files, and validation output
 
 ## Evidence required
@@ -48,7 +48,7 @@ status: active_repository_completion_framework
 - Validation failed or missing with done claim.
 - EOF validation failed.
 - Project UI update or Project Files/Sources refresh conflated with repository commit.
-- Result Packet treated as accepted state.
+- Codex returned evidence treated as accepted state.
 - Codex result cannot be matched to the emitted embedded handoff.
 - Codex is asked to close the ChatGPT lifecycle.
 - Codex/storage utility write is treated as accepted state without verification and acceptance/update boundary.

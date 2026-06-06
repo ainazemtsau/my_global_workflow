@@ -22,7 +22,7 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Stop conditions prevent invention and boundary crossing.
 - Procedure closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD_or_no_next_chat_needed correctly.
 - Procedure gate lenses remain internal checks and do not become separate runtime entities.
-- Route-changing outputs are represented by typed packets/records and Next Move Packet boundaries.
+- Route-changing outputs are represented by typed packets/cards and continuation boundaries.
 - Procedure Definition Framework procedures use canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming, or state an explicit bounded exception.
 - Procedure declares `kind` when using the Procedure Definition Framework.
 - Utility Decision Gate is present when utility use can affect completion.
@@ -53,7 +53,7 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure rejects same-owner Codex/storage utility persistence solely because persistence is not a separate `storage` owner run.
 - Procedure permits external utility write without Utility Use Gate, user approval/update authority, exact paths, validation, and return verification.
 - Procedure can accept its own output.
-- Procedure creates a separate route authority outside Procedure Registry, typed outputs, and FINISH/Next Move closure.
+- Procedure creates a separate route authority outside Procedure Registry, typed outputs, and FINISH/continuation closure.
 - Procedure calls another procedure as a hidden RUN switch.
 - Procedure blocks global utility access solely because a utility was not prelisted.
 - Procedure lets CLOSURE_CHECK pass while required utility return is pending.

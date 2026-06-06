@@ -10,22 +10,22 @@ Validate that Workflow v3 state, procedure selection, and next movement are expl
 
 - `workflow_v3/RUNTIME_MODEL.md`
 - `workflow_v3/interfaces/**`
-- relevant FINISH_PACKET, Result Packets, Next Move Packets, Acceptance Decisions, and Project setup reports
+- relevant STAGE_RESULTs, FINISH_PACKET, NEXT_CHAT_CARD or no_next_chat_needed, Acceptance Decisions, and Project setup reports
 
 ## Evidence required
 
 - exact source authority;
 - candidate versus accepted classification;
 - FINISH_PACKET;
-- Result Packet;
-- Next Move Packet;
+- STAGE_RESULT;
+- NEXT_CHAT_CARD or no_next_chat_needed;
 - Acceptance Decision when state changes;
 - Project setup refresh classification when setup surfaces are touched.
 
 ## PASS criteria
 
 - Accepted state lives only in canonical storage and accepted records.
-- Result Packet, Evidence, Next Move Packet, Transfer Packet, Check Job, Codex output, and Project Files/Sources remain candidate/context until accepted.
+- STAGE_RESULT, Evidence, FINISH_PACKET, NEXT_CHAT_CARD, Transfer Packet, Check Job, Codex output, and Project Files/Sources remain candidate/context until accepted.
 - FINISH selects the next move visibly.
 - Repository commit is not treated as actual ChatGPT Project update.
 
@@ -38,7 +38,7 @@ Validate that Workflow v3 state, procedure selection, and next movement are expl
 ## FAIL criteria
 
 - Chat intuition route replaces procedure registry and FINISH closure.
-- Result Packet treated as accepted state.
+- STAGE_RESULT or FINISH_PACKET treated as accepted state.
 - Evidence treated as acceptance.
 - Project Files/Sources cache treated as source authority.
 - Codex commit treated as Direction acceptance.
@@ -47,6 +47,6 @@ Validate that Workflow v3 state, procedure selection, and next movement are expl
 
 ## Required recovery/repair action
 
-Block the route/state claim, produce or repair FINISH_PACKET and Next Move Packet, create or request the missing Acceptance Decision/update path, and re-verify source authority before continuing.
+Block the route/state claim, produce or repair CLOSURE_CHECK, FINISH_PACKET, and continuation state, create or request the missing Acceptance Decision/update path, and re-verify source authority before continuing.
 
 END_OF_FILE: workflow_v3/evals/NO_HIDDEN_STATE_OR_ROUTE_EVAL.md

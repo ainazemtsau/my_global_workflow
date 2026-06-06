@@ -8,11 +8,11 @@ This interface defines the parent integration and impact propagation boundary fo
 
 ## Parent integration boundary
 
-Parent Integration compares returned child/work Result Packets and evidence against the parent target criteria.
+Parent Integration compares returned child/work outputs and evidence against the parent target criteria.
 
 The parent target may be a Work Graph node, Active Front, Direction Map claim, or Goal Evidence Graph node.
 
-Parent Integration may synthesize a candidate decision, repair need, local replan, closure candidate, Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, Derived Gate Check, or Next Move Packet.
+Parent Integration may synthesize a candidate decision, repair need, local replan, closure candidate, Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, Derived Gate Check, or NEXT_CHAT_CARD.
 
 It does not accept state, invent missing evidence, mutate graph/state, or launch next work by itself.
 

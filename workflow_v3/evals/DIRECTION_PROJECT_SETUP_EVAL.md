@@ -26,7 +26,7 @@ It validates setup/root bootstrap behavior only. It does not validate product wo
 - Direction Map remains distinct from Direction Spine, roadmap, backlog, Work Graph, and unreviewed task lists.
 - Work Graph remains local to an Active Front, not a global map.
 - The user is not forced to answer in YAML.
-- Root bootstrap uses FINISH_PACKET, Result Packet, Next Move Packet, and an exact next move.
+- Root bootstrap uses CLOSURE_CHECK, FINISH_PACKET, NEXT_CHAT_CARD or no_next_chat_needed, and an exact next move.
 - User confirmation is required before a runtime root package.
 - Project Instructions UI updates are separated from Project Files/Sources refreshes.
 - Persistent Project Binding is planned after bootstrap.

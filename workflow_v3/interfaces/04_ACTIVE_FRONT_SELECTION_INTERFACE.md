@@ -16,7 +16,7 @@ Active Front selection requires:
 - Goal Evidence Graph and Active Unresolved Cut when available;
 - current accepted/candidate/unresolved map labels;
 - available evidence and accepted records;
-- relevant lifecycle facts and prior Result Packets;
+- relevant lifecycle facts and prior stage, finish, or evidence records;
 - known blockers and strategic uncertainties;
 - user priorities or decisions if supplied.
 
@@ -61,7 +61,7 @@ Scoring is decision support, not automatic truth.
 
 Accepted Active Front requires acceptance/update path.
 
-A chat, Check Job, child chat, Codex run, Result Packet, or Next Move Packet may propose a front, but cannot accept it.
+A chat, Check Job, child chat, Codex run, STAGE_RESULT, FINISH_PACKET, or NEXT_CHAT_CARD may propose a front, but cannot accept it.
 
 ## Work Graph seed
 

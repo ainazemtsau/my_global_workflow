@@ -14,7 +14,7 @@ Validate Work Graph formation quality.
 - Includes minimum nodes needed to close the front, dependency structure, proof path, and explicit non-nodes/cut items.
 - Keeps graph local to one Active Front.
 - Avoids roadmap, global backlog, Direction Map, and unreviewed task-list drift.
-- Returns candidate graph, evidence, risks, cuts, acceptance question, Result Packet, and Next Move Packet.
+- Returns candidate graph, evidence, risks, cuts, acceptance question, STAGE_RESULT/FINISH_PACKET evidence as applicable, and NEXT_CHAT_CARD or no_next_chat_needed when closure is reached.
 
 ## WARN checks
 

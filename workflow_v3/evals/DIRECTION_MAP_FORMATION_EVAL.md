@@ -14,7 +14,7 @@ Validate Direction Map formation quality.
 - Labels claims as accepted, candidate, unresolved, or hypothetical.
 - Generates alternative map structures unless blocked.
 - Does not become roadmap, backlog, Work Graph, or unreviewed task list.
-- Includes evidence, risks, cuts, acceptance question, Result Packet, and Next Move Packet.
+- Includes evidence, risks, cuts, acceptance question, STAGE_RESULT/FINISH_PACKET evidence as applicable, and NEXT_CHAT_CARD or no_next_chat_needed when closure is reached.
 - Keeps graph output candidate until accepted.
 
 ## WARN checks

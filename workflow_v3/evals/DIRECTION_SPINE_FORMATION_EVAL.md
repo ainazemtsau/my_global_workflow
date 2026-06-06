@@ -15,7 +15,7 @@ Validate Direction Spine formation quality.
 - Forms root outcome candidate, success conditions, constraints, non-goals, proof indicators, tracks or success dimensions, failure modes, and open uncertainties.
 - Attacks risks, contradictions, and user-impulse overfit.
 - Cuts roadmap, backlog, Work Graph, and product execution content.
-- Returns candidate Spine, evidence, source limits, acceptance question, Result Packet, and Next Move Packet.
+- Returns candidate Spine, evidence, source limits, acceptance question, STAGE_RESULT/FINISH_PACKET evidence as applicable, and NEXT_CHAT_CARD or no_next_chat_needed when closure is reached.
 
 ## WARN checks
 

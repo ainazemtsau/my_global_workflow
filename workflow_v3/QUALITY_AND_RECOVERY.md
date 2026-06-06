@@ -8,7 +8,7 @@ This file defines quality gates and recovery actions for Workflow v3 repository 
 
 No validation means no done claim.
 
-Chat output, Codex output, Project Files/Sources, Result Packets, Next Move Packets, Transfer Packets, Check Jobs, and document existence do not create accepted state.
+Chat output, Codex output, Project Files/Sources, STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, Transfer Packets, Check Jobs, and document existence do not create accepted state.
 
 ## Context/source gate
 
@@ -42,14 +42,14 @@ Recovery:
 
 - block the package;
 - add or cite the missing interface/template/eval;
-- return a bounded repair Next Move Packet.
+- return bounded repair guidance or a NEXT_CHAT_CARD when a new material chat is needed.
 
 ## Formation quality gate
 
 Checks:
 
 - Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Current Next Move, Acceptance Decision, and Memory Artifact promotion use registered procedures before template filling;
-- alternatives, criteria, evidence, risks, rejected/deferred options, focus/waste cuts, source limits, acceptance question, Result Packet, and Next Move Packet are visible;
+- alternatives, criteria, evidence, risks, rejected/deferred options, focus/waste cuts, source limits, acceptance question, STAGE_RESULT, FINISH_PACKET, and continuation state are visible when applicable;
 - child research/check chats are bounded support only and return to the parent formation chat;
 - candidate and accepted boundaries are preserved.
 
@@ -59,7 +59,7 @@ Recovery:
 
 - stop formation;
 - restate the selected procedure and source boundaries;
-- produce a blocked or repair Result Packet.
+- produce a blocked or repair STAGE_RESULT or FINISH_PACKET, depending on lifecycle position.
 
 ## Direction lifecycle gate
 
@@ -67,7 +67,7 @@ Checks:
 
 - lifecycle transitions are visible as typed procedure outputs;
 - Direction Spine, Direction Map, Active Front, Work Graph, and Work Contract transitions are not selected by chat intuition;
-- every state-changing lifecycle transition has FINISH_PACKET, Result Packet, Next Move Packet, and acceptance/update path;
+- every state-changing lifecycle transition has CLOSURE_CHECK, FINISH_PACKET, continuation state, and acceptance/update path;
 - blocked lifecycle transition stops product work until repaired, accepted, or split.
 
 Fails when lifecycle state changes by implication.
@@ -75,7 +75,7 @@ Fails when lifecycle state changes by implication.
 Recovery:
 
 - stop continuation;
-- return a human decision request or repair Next Move Packet;
+- return a human decision request or repair continuation card;
 - require explicit acceptance/update before mutation.
 
 ## Evidence gate
@@ -93,7 +93,7 @@ Recovery:
 
 - block done claim;
 - request same-scope repair or verification;
-- return a check job or repair Next Move Packet.
+- return a check job or repair continuation card.
 
 ## Acceptance gate
 
@@ -109,7 +109,7 @@ Recovery:
 
 - block mutation;
 - request explicit decision or storage package;
-- name acceptance boundary in Next Move Packet.
+- name acceptance boundary in FINISH_PACKET or NEXT_CHAT_CARD.
 
 ## Procedure output misuse gate
 
@@ -128,11 +128,11 @@ Recovery:
 - rerun same-scope FINISH closure;
 - convert only the selected primary next move into a Transfer Packet, Check Job, repair Next Move, or human decision request.
 
-## Next Move Packet misuse gate
+## Continuation misuse gate
 
 Checks:
 
-- FINISH selects one `primary_next_move`;
+- FINISH selects one continuation outcome;
 - transfer steps include a complete Transfer Packet or NEXT_CHAT_CARD;
 - Codex handoff returns to the same current chat for verification and closure;
 - next material chat waits until the current material target is accepted, persisted, verified, or explicitly stopped;
@@ -149,8 +149,8 @@ Fails when:
 Recovery:
 
 - stop the unsafe continuation;
-- repair FINISH_PACKET and Next Move Packet;
-- choose one `primary_next_move`;
+- repair FINISH_PACKET and continuation state;
+- choose one continuation outcome;
 - provide a complete Transfer Packet when transfer is needed;
 - preserve acceptance/update boundary.
 

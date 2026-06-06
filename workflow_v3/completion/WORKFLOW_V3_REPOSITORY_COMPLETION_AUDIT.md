@@ -64,11 +64,11 @@ Completion is valid only if these boundaries remain explicit:
 - Active Front is not all active work or Work Graph.
 - Work Graph is local to one Active Front and not global Direction Map.
 - Work Contract is not route authority.
-- Run, Result Packet, Evidence, and Codex commit are not Acceptance Decision.
+- Run, STAGE_RESULT, Evidence, and Codex commit are not Acceptance Decision.
 - Parent Integration Result is not Acceptance Decision and cannot synthesize missing child/work evidence.
 - Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, and Derived Gate Check are not accepted state mutation by existence.
-- Result Packet is not acceptance.
-- Next Move Packet is not hidden continuation.
+- FINISH_PACKET is not acceptance.
+- NEXT_CHAT_CARD is not hidden continuation.
 - Transfer Packet is not manual user assembly.
 - Check Job is not material work.
 - Child Chat is not next material chat or independent execution track.

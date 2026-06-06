@@ -17,7 +17,7 @@ This interface defines interface-level quality gates and recovery outcomes.
 | evidence gate | Result claims are backed by validation/evidence or explicit no-evidence limitation. |
 | acceptance gate | Candidate result remains candidate until explicit Acceptance Decision/update path. |
 | procedure output misuse gate | Procedure outputs are candidate only until accepted. |
-| next move packet misuse gate | One primary next move, no hidden launches, no chat-intuition routing. |
+| continuation misuse gate | One continuation outcome, no hidden launches, no chat-intuition routing. |
 | chat lifecycle/handoff gate | Child/parent/next chat boundaries and return destinations are explicit. |
 | Codex validation gate | Branch, commit/diff, changed files, allowed paths, forbidden paths, validation, EOF markers, refresh report. |
 | Project setup refresh gate | Project UI, Project Files/Sources, request-only refresh, and do-not-upload status are reported separately. |

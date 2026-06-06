@@ -52,7 +52,7 @@ Lifecycle facts record missing, candidate, accepted, stale, blocked, or complete
 - Follow-up output is candidate only.
 - No lifecycle fact executes material work directly.
 - No lifecycle fact accepts state.
-- Every lifecycle transition that changes state must close with FINISH_PACKET, Result Packet, Next Move Packet, and an acceptance/update path.
+- Every lifecycle transition that changes state must close with CLOSURE_CHECK, FINISH_PACKET, continuation state, and an acceptance/update path.
 - A blocked lifecycle transition stops product work until the blocker is resolved or explicitly split into a future package.
 
 END_OF_FILE: workflow_v3/interfaces/03_DIRECTION_LIFECYCLE_OUTPUT_INTERFACE.md

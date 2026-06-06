@@ -16,7 +16,7 @@ Validate Active Front formation quality.
 - Ties exit criteria to graph nodes or map claims.
 - Does not select by preference or convenience alone.
 - Does not open Work Graph before accepted front when acceptance is required.
-- Returns candidate front, evidence, risks, cuts, acceptance question, Result Packet, and Next Move Packet.
+- Returns candidate front, evidence, risks, cuts, acceptance question, STAGE_RESULT/FINISH_PACKET evidence as applicable, and NEXT_CHAT_CARD or no_next_chat_needed when closure is reached.
 
 ## WARN checks
 
