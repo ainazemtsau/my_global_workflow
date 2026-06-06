@@ -4,45 +4,44 @@ status: template
 
 ## Boundary
 
-Old `directions/**` files are `legacy_evidence` only. This review may inform a current decision, but it must not import, migrate, accept, or rewrite old state by implication.
+This template records evidence review only.
+
+It does not import, accept, bridge, migrate, persist, or create runtime state by itself. Old `directions/**` files remain `legacy_evidence` unless a later accepted bridge/import/adoption package changes the status for named artifacts through an explicit acceptance/update path.
 
 ## Review fields
 
-`review_id`:
+```text
+legacy_direction_id:
+legacy_path:
+legacy_workflow_version:
 
-`direction_id`:
+evidence_inventory:
+  old_ledger:
+  obligations:
+  receipts:
+  project_files:
+  dashboard:
+  migration_receipt:
+  run_history:
+  other:
 
-`adoption_mode`:
+evidence_classification:
+  legacy_evidence_only:
+  candidate_migration_context:
+  accepted_v3_state: false
 
-`clean_start_reason`:
+proposed_migration_mode:
+  clean_start | bridge_only | selective_import | full_migration | no_adoption | undecided
 
-`legacy_evidence_allowed`: true | false
+import_candidates:
+explicitly_not_imported:
+unresolved_questions:
+required_acceptance_update_path:
+rollback_coexistence_notes:
 
-`legacy_evidence_paths`:
-
-`source_ref_and_read_completeness`:
-
-`evidence_summary`:
-
-`candidate_relevance_to_initial_direction_spine`:
-
-`candidate_relevance_to_initial_direction_map`:
-
-`candidate_relevance_to_initial_active_front`:
-
-`explicitly_not_imported`:
-
-`conflicts_or_gaps`:
-
-`project_setup_required`: true | false
-
-`project_refresh_required`: true | false
-
-`rollback/coexistence notes`:
-
-`acceptance_decision_ref`:
-
-`limitations`:
+decision_status:
+  not_reviewed | reviewed_candidate | accepted_for_adoption_package | rejected | parked
+```
 
 ## Allowed use
 
@@ -50,10 +49,10 @@ Legacy evidence may be cited as context for a current acceptance decision only w
 
 ## Forbidden use
 
-Do not treat old Ledger, Obligations, Receipts, Dashboard, Commit Scopes, Project setup files, old Direction Map, old project files, or old migration receipts as accepted Workflow v3 state.
+Do not treat old Ledger, Obligations, Receipts, Dashboard, Commit Scopes, Project setup files, old Direction Map, old project files, old migration receipts, or review output from this template as accepted Workflow v3 state.
 
 ## Stop conditions
 
-Stop if review pressure becomes implicit migration, old-state import, invented Direction proof state, or Project setup action without authorization.
+Stop if review pressure becomes implicit migration, old-state import, invented Direction proof state, runtime root creation, legacy folder deletion, or Project setup action without authorization.
 
 END_OF_FILE: workflow_v3/adoption/LEGACY_EVIDENCE_REVIEW_TEMPLATE.md
