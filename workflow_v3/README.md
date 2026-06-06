@@ -10,7 +10,7 @@ This slice activates only the documentation/setup skeleton under `workflow_v3/**
 
 The current Workflow OS remains the legacy and rollback system until a later explicit activation and adoption package says otherwise.
 
-The repository-side completion framework adds clean-start adoption templates, canonical procedure stubs, validation evals, setup protocols, and a final completion matrix. It remains documentation/setup only.
+The repository-side completion framework adds clean-start adoption templates, canonical procedure files, validation evals, setup protocols, and a final completion matrix. Procedure files may be active procedures or pending-authoring stubs. This slice remains documentation/setup only.
 
 ## Scope of this slice
 
@@ -110,8 +110,8 @@ Direction Definition is the separate semantic process after setup-only root. It 
 - `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` - Work Contract execution procedure stub.
 - `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` - Parent Integration Check procedure stub.
 - `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` - Impact Propagation procedure stub.
-- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation procedure stub.
-- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation procedure stub.
+- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation active procedure.
+- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation active procedure.
 - `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion procedure stub.
 - `workflow_v3/evals/README.md` - validation eval index.
 - `workflow_v3/evals/WORKFLOW_V3_COMPLETION_VALIDATION_CHECKLIST.md` - completion validation checklist.
@@ -198,10 +198,10 @@ Direction Definition is the separate semantic process after setup-only root. It 
 - `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` - Work Contract execution pending-authoring stub.
 - `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` - Parent Integration Check pending-authoring stub.
 - `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` - Impact Propagation pending-authoring stub.
-- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation pending-authoring stub.
-- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation pending-authoring stub.
+- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation active procedure.
+- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation active procedure.
 - `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion pending-authoring stub.
-- `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` - Storage Update pending-authoring stub.
+- `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` - Storage Update active storage adapter procedure.
 - `workflow_v3/templates/DIRECTION_PROJECT_BINDING_TEMPLATE.md` - future runtime Project Binding config template.
 - `workflow_v3/templates/DIRECTION_CONSOLE_TEMPLATE.md` - future read-only Direction Console template.
 - `workflow_v3/templates/GOAL_EVIDENCE_GRAPH_TEMPLATE.md` - Goal Evidence Graph template.
