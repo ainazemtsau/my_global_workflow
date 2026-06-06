@@ -93,7 +93,7 @@ Use the smallest authoring path that satisfies the output contract:
 
 - `simple`: compact same-path revision, small source-mechanical correction, or self-contained stub target spec with no disputed method design.
 - `standard`: bounded procedure creation/revision using internal Workflow v3 framework sources, no external research, and no user checkpoint before final draft unless ambiguity appears.
-- `checkpointed`: non-trivial procedure design where method, target role, integration boundary, source grounding, procedure class, utility policy, or eval plan should be approved before detailed body drafting.
+- `checkpointed`: non-trivial procedure design where method, target role, integration boundary, source grounding, kind, utility policy, or eval plan should be approved before detailed body drafting.
 - `research_backed`: external/current research is required by Stage 3 before final detailed body drafting.
 - `delegated_or_tool_mediated`: bounded check, child research, Codex, storage package, provider/tool, or external-return work is needed; this procedure may only produce allowed packets or embedded verification gates.
 
@@ -308,7 +308,7 @@ Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any 
 
 No checkpoint is required for simple bounded procedure edits that remain canonical.
 
-Checkpoint when scope, registry mapping, canonical path/naming, stub/body status, deleted-source independence, procedure class, utility policy, complex method design, eval design, or future mutation boundaries are ambiguous.
+Checkpoint when scope, registry mapping, canonical path/naming, stub/body status, deleted-source independence, kind, utility policy, complex method design, eval design, or future mutation boundaries are ambiguous.
 
 For non-trivial procedure authoring, Stage 4 method approval is required before Stage 5 detailed body drafting.
 

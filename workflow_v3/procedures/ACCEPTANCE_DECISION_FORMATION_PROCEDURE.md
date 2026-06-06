@@ -696,7 +696,7 @@ Procedure Definition checks:
 - Utility Decision Gate and adapter policy are explicit.
 - External handoff/resume policy is explicit.
 - Closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
-- Canonical path and procedure class match registry metadata.
+- Canonical path matches registry metadata, and kind matches registry metadata.
 
 Procedure Execution checks:
 

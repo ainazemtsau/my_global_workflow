@@ -53,7 +53,7 @@ Chat Lifecycle:
 - RUN cannot switch main procedures, mutate state, accept output, or start another entity by implication.
 - Owner may use global utility layer through Utility Use Gate.
 - UTILITY_CALL/RETURN are same-main procedure RUN gates for adapter evidence, not Next Move or procedure switch.
-- RUN emits FINISH_REQUEST only when selected work is complete or blocked and no required utility return is pending.
+- CHECK may request FINISH only when selected work is complete or blocked and no required utility return is pending.
 - FINISH starts only after standalone user token FINISH or ФИНИШ.
 - FINISH reads finish protocol and emits FINISH_PACKET, Result Packet, Next Move Packet, and exact next move.
 - No material START after FINISH in chat.
@@ -102,7 +102,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6431
+- `measured_chars`: 6481
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
 - `hard_max_chars`: 8000

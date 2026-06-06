@@ -76,7 +76,7 @@ Lifecycle gate:
 - Material or state-sensitive governance work starts with START only.
 - The first response selects exactly one registered procedure, reads required authority, emits START_CONTRACT, then waits for standalone START or СТАРТ.
 - RUN executes exactly the selected procedure only.
-- RUN completion or block emits FINISH_REQUEST and waits for standalone FINISH or ФИНИШ.
+- CHECK emits CLOSURE_CHECK and may request standalone FINISH or ФИНИШ only after pass or allowed blocked completion.
 - FINISH emits FINISH_PACKET, Result Packet, and Next Move Packet only after explicit FINISH.
 
 Procedure governance:
@@ -109,7 +109,7 @@ Transfer completeness:
 - Do not make the user build Codex/check/child/NEXT_CHAT_CARDs manually.
 
 Closure:
-- RUN completion or blocked state emits FINISH_REQUEST only.
+- RUN completion or blocked state proceeds to CHECK, which emits CLOSURE_CHECK only.
 - After explicit FINISH/ФИНИШ, close with FINISH_PACKET, Result Packet, and Next Move Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
 - Do not run follow-up selection as hidden automation.
 - Use Next Move Packet to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste NEXT_CHAT_CARD.
@@ -119,12 +119,12 @@ Closure:
 
 ## Payload Character Count
 
-Character count basis: exact trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` in `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`; marker lines excluded.
+Character count basis: exact trimmed content in the `Extracted UI Payload` fenced block above; fence lines excluded.
 
 - `hard_max_chars`: 8000
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
-- `measured_chars`: 4904
+- `measured_chars`: 5016
 - `verdict`: PASS
 
 ## Manual UI Update Instruction
