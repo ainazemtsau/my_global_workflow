@@ -11,9 +11,9 @@ utility_policy: callable_verification
 
 ## Purpose
 
-Use `codex_result_verification` to verify a Codex return before acceptance or storage update reliance.
+Use `codex_result_verification` to verify a Codex `CHILD_PROCEDURE_RETURN` before a parent RUN relies on it for CHECK, FINISH, acceptance, or storage update decisions.
 
-Verification is candidate evidence, not acceptance by itself. This procedure does not repair runtime state, launch follow-up work, or treat a Codex commit as accepted state.
+Verification is child-return verification when embedded. It is candidate evidence, not acceptance by itself. This procedure does not close the parent lifecycle, repair runtime state, launch follow-up work, or treat a Codex commit as accepted state.
 
 ## Embedded Verification Mode
 
@@ -21,11 +21,11 @@ If the current main procedure emitted the Codex handoff and the user returns the
 
 Do not select `codex_result_verification` as a new `selected_procedure_path` during embedded use.
 
-Embedded verification must verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, Project refresh categories, push status, and residual risks.
+Embedded verification must verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, Project refresh categories, push status, residual risks, and match to the emitted `CHILD_PROCEDURE_CALL`.
 
 No validation means no done claim.
 
-Verification does not equal acceptance.
+Verification does not equal acceptance and does not close the parent lifecycle by itself. It may unblock parent RUN only after branch, commit, changed files, validation, EOF, refresh, push, and residual risk evidence are verified or the result is explicitly blocked.
 
 Standalone verification remains valid when the user's primary work item is only Codex result verification.
 
@@ -33,7 +33,7 @@ Standalone verification remains valid when the user's primary work item is only 
 
 - A Codex adapter run returns branch, commit, diff, changed files, validation output, push status, or residual risk evidence.
 - The user asks whether a Codex result satisfies its handoff boundaries.
-- Acceptance, storage, or repair decisions need verified Codex evidence first.
+- Parent RUN, acceptance, storage, or repair decisions need verified Codex child evidence first.
 
 ## When Not to Use
 
@@ -41,12 +41,13 @@ Standalone verification remains valid when the user's primary work item is only 
 - Do not use to mutate repository/runtime state.
 - Do not use to repair the result unless a separate procedure is admitted.
 - Do not use when branch, commit/diff, changed files, or validation evidence is absent; request missing evidence instead.
+- Do not use to close the parent lifecycle, perform ChatGPT FINISH, or convert a handoff/card/package into completion.
 
 ## Required Inputs
 
 - Codex return fields;
 - original handoff or allowed/forbidden path boundary;
-- matching_handoff_id or exact emitted handoff packet when embedded;
+- matching_child_call_id or exact emitted child call packet when embedded;
 - branch;
 - commit_sha;
 - changed_files;
@@ -151,7 +152,7 @@ No checkpoint is required by default. Checkpoint or request missing evidence whe
 
 ```text
 completion:
-  result: verification result classifying returned code-assistant evidence as passed, failed, or blocked
+  result: verification result classifying returned code-assistant child evidence as passed, failed, or blocked
   proof: branch/ref, commit/artifact identity, changed files, forbidden-path check, validation, EOF markers, payload counts, refresh categories, push status, and residual risks are verified or missing evidence is named
   blocked_if: required return evidence is missing, forbidden paths were touched, validation is absent or failed, EOF markers are missing, or verification would imply acceptance/storage/repair by itself
 ```
@@ -159,6 +160,7 @@ completion:
 
 ```text
 verification_status: passed | failed | blocked
+child_call_id:
 branch:
 commit_sha:
 changed_files:
@@ -173,13 +175,14 @@ exact_next_move:
 ## Eval / Quality Checks
 
 - Branch, commit SHA, changed files, and push status are verified or missing evidence is named.
-- Returned evidence matches the emitted handoff when verification is embedded.
+- Returned evidence matches the emitted `CHILD_PROCEDURE_CALL` when verification is embedded.
 - Changed files are compared against allowed and forbidden paths.
 - Validation output is present; no validation means no done claim.
 - EOF markers are checked for Markdown files that require them.
 - Project Instructions source changes include measured payload count and refresh classification.
 - Forbidden path changes block acceptance.
-- Verification result does not accept state or launch next work.
+- Verification result does not accept state, close parent lifecycle, or launch next work.
+- Missing branch/commit/changed files/validation/EOF/refresh/push evidence makes verification blocked, not passed.
 
 ## Stop Conditions
 
@@ -190,13 +193,15 @@ exact_next_move:
 - required EOF marker is missing or mismatched;
 - Project Instructions source changed but payload count is missing;
 - project refresh categories are missing when relevant;
-- embedded return cannot be matched to the emitted handoff;
-- verification would imply acceptance, storage mutation, repair, or hidden next launch.
+- embedded return cannot be matched to the emitted child call;
+- verification would imply acceptance, storage mutation, parent FINISH, repair, or hidden next launch.
 
 ## Procedure Closure
 
-Verification does not accept state. If lifecycle FINISH is active, close through CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
+Verification does not accept state and does not close the parent lifecycle by itself. When embedded, it returns child-return verification evidence to the parent RUN. The parent may proceed toward CHECK only after required return evidence is matched and verified, or after the result is explicitly blocked.
 
 If the result needs acceptance, storage, or repair, return the exact next move or Transfer Packet; do not launch it.
+
+NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed.
 
 END_OF_FILE: workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md

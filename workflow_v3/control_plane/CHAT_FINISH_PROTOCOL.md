@@ -6,7 +6,7 @@ status: active_control_plane
 
 FINISH performs final audit and closure for the selected Workflow v3 main procedure.
 
-FINISH is not first reveal of work, acceptance by itself, persistence by itself, utility launch authority, or permission to start a new material lifecycle in the same chat.
+FINISH is not first reveal of work, acceptance by itself, persistence by itself, child-call launch authority, or permission to start a new material lifecycle in the same chat.
 
 ## Load Rule
 
@@ -20,24 +20,40 @@ FINISH must audit:
 
 ```text
 finish_audit:
+  start_goal_was_explicit:
+  start_goal_satisfied_or_explicitly_blocked:
   start_selected_exactly_one_main_procedure:
   selected_procedure_source_was_read:
   selected_completion_contract_was_shown:
   run_executed_only_selected_main_procedure:
+  declared_stage_sequence_not_compressed:
   material_stages_emitted_stage_result:
   user_confirmation_observed_between_material_stages:
-  utility_calls_returned_to_same_main_procedure:
-  utility_returns_verified_before_reliance:
+  child_procedure_calls_returned_to_same_main_procedure:
+  no_open_child_procedure_calls:
+  all_required_child_returns_received:
+  all_required_child_returns_verified:
   closure_check_compared_actual_result_to_completion:
+  no_handoff_card_or_package_used_as_completion:
+  required_validation_present_when_work_required_validation:
+  closure_check_gaps_empty_or_blocked_completion_explicit:
+  next_chat_card_not_used_for_unfinished_child_work:
   no_unadmitted_state_mutation:
   no_hidden_launch_or_acceptance:
-  no_unresolved_required_utility_return:
   next_chat_card_or_no_next_chat_needed_present:
 ```
 
 Each value is `PASS`, `FAIL`, or `not_applicable`.
 
-If any required audit item fails, FINISH must not close. Return to RUN repair or blocked escalation.
+If any required audit item is `FAIL`, FINISH must not close. Return to RUN repair or blocked escalation.
+
+Additional hard gates:
+
+- If `CLOSURE_CHECK.gaps` is non-empty and the selected completion contract does not explicitly allow blocked completion, FINISH must fail.
+- If blocked completion is allowed, the result must be marked blocked, not completed.
+- If `actual_result` is only a child call, handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or `NEXT_CHAT_CARD`, FINISH must fail.
+- If `open_child_calls != empty`, any required child return is missing, or any required child return is unverified, FINISH must fail.
+- If required validation or evidence is absent, FINISH must fail.
 
 ## FINISH Output
 
@@ -80,12 +96,14 @@ no_next_chat_needed:
   reason:
 ```
 
+NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It may appear only inside FINISH_PACKET after FINISH audit passes, or as a clearly named post-closed continuation. It is for a new independent lifecycle after the current START goal is completed or explicitly blocked. It must not represent unfinished child work, replace `CHILD_PROCEDURE_CALL`, or make the user assemble a missing child call from scattered earlier text.
+
 ## Failure Behavior
 
 FINISH failure must return one of:
 
 - `RUN_REPAIR_REQUIRED` when the selected procedure can repair the gap in the same lifecycle;
-- `BLOCKED_ESCALATION` when source, authority, validation, utility return, or completion proof is missing;
+- `BLOCKED_ESCALATION` when source, authority, validation, child return, or completion proof is missing;
 - `CONTEXT_REQUEST` when exact user input or source excerpts are required.
 
 FINISH failure must not emit a closed-chat result.

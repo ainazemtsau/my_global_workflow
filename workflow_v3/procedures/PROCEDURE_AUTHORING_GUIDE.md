@@ -4,7 +4,7 @@ status: active_procedure_framework
 
 ## Purpose
 
-Use this guide when writing Workflow v3 procedure files. A good procedure names the work boundary, required sources, completion contract, material stages, internal checks, utility boundaries, stop conditions, and output contract.
+Use this guide when writing Workflow v3 procedure files. A good procedure names the work boundary, required sources, completion contract, material stages, internal checks, child/adaptor boundaries, stop conditions, and output contract.
 
 ## Canonical Procedure Location
 
@@ -54,7 +54,29 @@ completion:
   blocked_if:
 ```
 
-Use the procedure's own purpose and output contract as the source. Do not copy a global done list.
+Use the procedure's own purpose and output contract as the source. Do not copy a global done list. The result must not be only a handoff, package, Codex package, check packet, storage packet, child-chat card, copy-paste packet, or `NEXT_CHAT_CARD`.
+
+## START Output Requirements
+
+Procedure authors must support the lifecycle START format. START must begin with an operator-readable `Operator Brief` before technical fields. It must state the goal of the chat, the selected main procedure, why that procedure was selected, the terminal condition for this chat, whether any `CHILD_PROCEDURE_CALL` may be required, and what the operator should review before sending START / СТАРТ.
+
+Technical START fields must include:
+
+```text
+selected_entrypoint:
+selected_procedure_path:
+kind:
+start_goal:
+terminal_condition:
+completion_contract:
+material_stages:
+child_call_policy:
+required_sources:
+write_boundaries:
+user_confirmation_required: START | СТАРТ
+```
+
+START must not perform material work and must not describe a package, handoff, card, or child-call envelope as the terminal condition.
 
 ## Sources
 
@@ -74,7 +96,9 @@ Classify input as canonical source, accepted record, current human input, verifi
 
 Use material stages only when the user needs to see progress or make a continuation decision. Each material stage emits `STAGE_RESULT` and waits for `CONTINUE` / `ДАЛЬШЕ` before the next material stage.
 
-Use `internal_check` for mechanical checks inside a material stage. Internal checks do not require separate user confirmation unless they change scope, need a utility call, or block.
+Use `internal_check` for mechanical checks inside a material stage. Internal checks do not require separate user confirmation unless they change scope, need a child call, or block.
+
+Runtime must execute the selected procedure's declared stages. START/RUN must not invent ad hoc simple, compact, shortcut, or single-stage compression that bypasses declared stages. A procedure may define a small declared stage list, but runtime cannot merge declared stages into one undeclared stage. A declared stage may end quickly or be marked not_applicable with evidence, but it must still be represented in progression when applicable.
 
 Good material stage:
 
@@ -99,14 +123,29 @@ pass_if: required files are readable and markers match.
 blocked_if: required marker is missing or source is truncated.
 ```
 
-## Utility Calls
+STAGE_RESULT must be operator-readable first when the stage contains material conclusions, blockers, repair needs, or child calls. It must say what changed in understanding, what evidence was checked, and what the human should review. Technical fields follow:
+
+```text
+stage:
+result:
+proof:
+limitations:
+child_calls_opened:
+child_returns_verified:
+next_stage_or_check:
+user_confirmation_required:
+```
+
+STAGE_RESULT does not accept state, close the chat, or launch hidden child work.
+
+## Child Procedure Calls
 
 Research, child chats, check jobs, Codex, file/GitHub access, storage updates, human decisions, or future providers must stay subordinate to the selected procedure. They must not become independent material work, mutate state silently, accept output, or switch the selected procedure.
 
-State allowed utility use with:
+State allowed child/adaptor use with:
 
 ```text
-utility_policy:
+child_call_policy:
   allowed_when:
   common_targets:
   forbidden_when:
@@ -114,12 +153,18 @@ utility_policy:
   same_main_procedure_resume:
 ```
 
+Use `CHILD_PROCEDURE_CALL` and `CHILD_PROCEDURE_RETURN` as canonical lifecycle terms. `UTILITY_CALL` and `UTILITY_RETURN` may appear only as adapter-level compatibility aliases. `open_child_calls != empty`, a missing child return, an unverified child return, or missing required validation/evidence blocks CHECK, FINISH, and CLOSED.
+
 ## Keep Project Instructions Small
 
 Project Instructions are bootloader-level. They may say which registry to read first and how START/RUN/CHECK/FINISH behave. They should not contain full procedures, long routing cards, or execution logic that belongs in repository procedure files.
 
-## Keep Simple Procedures Simple
+## Keep Small Procedures Small
 
-A simple procedure can use one material stage, no utility calls, and a compact completion contract. Do not add research, child chats, or check jobs unless the procedure genuinely needs them.
+A small procedure can use one declared material stage, no child calls, and a compact completion contract. Do not add research, child chats, or check jobs unless the procedure genuinely needs them. A small stage list is authored in the procedure; it is not runtime compression of a larger declared stage sequence.
+
+## NEXT_CHAT_CARD Boundary
+
+NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished child work from the current START goal or replace `CHILD_PROCEDURE_CALL`.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_AUTHORING_GUIDE.md

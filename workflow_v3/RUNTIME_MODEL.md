@@ -8,12 +8,13 @@ Workflow v3 runtime is main-procedure driven:
 
 ```text
 Registry selects exactly one main procedure
--> selected procedure defines completion
--> chat executes stages
--> optional utility calls support the same procedure
--> CHECK compares actual result to completion
--> FINISH audits and closes
--> CLOSED includes NEXT_CHAT_CARD or no_next_chat_needed
+-> START shows the selected procedure contract and waits
+-> RUN executes the declared stage sequence
+-> child procedure calls support RUN only when required
+-> child procedure returns are matched and verified
+-> CHECK compares actual result to selected completion
+-> FINISH audits open gates and closes
+-> CLOSED carries only post-closed continuation or no continuation
 ```
 
 Detailed interface summaries live under `workflow_v3/interfaces/**`. Runtime authority lives under `workflow_v3/control_plane/**` and selected procedure files.
@@ -21,8 +22,16 @@ Detailed interface summaries live under `workflow_v3/interfaces/**`. Runtime aut
 ## Lifecycle Movement
 
 ```text
-START -> RUN -> CHECK -> FINISH -> CLOSED
-RUN -> UTILITY_CALL -> UTILITY_RETURN -> RUN
+START
+-> RUN_STAGE
+-> STAGE_RESULT
+-> RUN_WAITING_FOR_CHILD_RETURN when a child call is required
+-> CHILD_RETURN_VERIFICATION
+-> RUN_STAGE or CHECK
+-> CHECK
+-> FINISH
+-> CLOSED
+
 CHECK -> RUN repair
 CHECK -> blocked escalation
 FINISH -> RUN repair or blocked escalation if audit fails
@@ -30,13 +39,25 @@ FINISH -> RUN repair or blocked escalation if audit fails
 
 START performs no material work. It selects one main procedure through the registry, reads that procedure, shows its completion contract, shows material stages and boundaries, and waits for START / СТАРТ.
 
-RUN executes the selected main procedure only. It emits `STAGE_RESULT` after each material stage and waits for CONTINUE / ДАЛЬШЕ before the next material stage unless the next step is `internal_check`.
+RUN executes the selected main procedure only. Runtime must execute the selected procedure's declared stages. It must not invent ad hoc simple, compact, shortcut, or single-stage compression that bypasses declared stages. A stage may end quickly or be marked not_applicable with evidence, but applicable declared stages remain represented in progression. RUN emits `STAGE_RESULT` after each material stage and waits for CONTINUE / ДАЛЬШЕ before the next material stage unless the next step is `internal_check`.
 
-UTILITY_CALL is a visible supporting call to Codex, another code assistant, child chat, check job, research agent, GitHub/file access, storage update, human decision, or future admitted provider. UTILITY_RETURN is evidence and must be verified before reliance.
+`CHILD_PROCEDURE_CALL` is the canonical runtime object for external or subordinate work. Codex, child chat, check job, storage update, research agent, GitHub/file access, human decision, and future providers are child/adapters under this model. `UTILITY_CALL` and `UTILITY_RETURN` may remain as adapter-level compatibility labels, but they are not a separate lifecycle model.
+
+`CHILD_PROCEDURE_RETURN` is evidence and must be matched to the open child call, verified, and integrated before reliance.
 
 CHECK emits `CLOSURE_CHECK` against the selected procedure `completion:` contract.
 
 FINISH closes only when audit passes. CLOSED means no new material START in the same chat.
+
+## Closure Blockers
+
+The following invariants block CHECK, FINISH, and CLOSED:
+
+- `open_child_calls != empty`;
+- `missing_child_return`;
+- `unverified_child_return`;
+- missing required validation or evidence;
+- actual result is only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or other child-call artifact.
 
 ## Object Hierarchy
 
@@ -50,7 +71,7 @@ Steering entities are formed through registered procedures before templates are 
 
 Work Contract states a bounded target, allowed and forbidden execution boundaries, expected result, and evidence requirements.
 
-Run is execution of that contract by the selected main procedure, with optional utility support. Evidence is the verifiable output of a Run. Evidence alone does not change accepted state.
+Run is execution of that contract by the selected main procedure, with optional child/adaptor support. Evidence is the verifiable output of a Run. Evidence alone does not change accepted state.
 
 Acceptance is the explicit decision to accept, reject, or return a result for repair. Accepted State changes only through the explicit acceptance/update path.
 
@@ -61,9 +82,9 @@ Procedure closure uses:
 - `CLOSURE_CHECK` comparing actual result to selected procedure completion;
 - `FINISH_PACKET` after explicit FINISH and passed audit;
 - human-readable result and evidence;
-- `NEXT_CHAT_CARD` when workflow continuation is needed, otherwise `no_next_chat_needed` with reason.
+- post-closed `NEXT_CHAT_CARD` when a new independent lifecycle is needed, otherwise `no_next_chat_needed` with reason.
 
-NEXT_CHAT_CARD is not a hardcoded next-step enum. It is derived from selected main procedure, actual result, completion check, unresolved work, and the next intended workflow step.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It must not carry unfinished child work required by the current START goal.
 
 ## Direction Entities
 

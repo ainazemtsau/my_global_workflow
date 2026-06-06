@@ -12,8 +12,8 @@ status: active_repository_completion_framework
 
 ## Evidence required
 
-- self-contained handoff;
-- matching handoff id or exact emitted handoff when embedded;
+- self-contained Codex child-call schema;
+- matching child_call_id or exact emitted `CHILD_PROCEDURE_CALL` when embedded;
 - branch policy and branch name;
 - base ref;
 - commit SHA or diff;
@@ -23,6 +23,7 @@ status: active_repository_completion_framework
 - EOF marker check for Markdown;
 - Project refresh fields;
 - residual risks.
+- parent verification contract and resume rule.
 
 ## PASS criteria
 
@@ -30,11 +31,12 @@ status: active_repository_completion_framework
 - Commit/diff and changed files are verifiable.
 - Required validation passes or limitations are explicit.
 - Markdown EOF markers pass when relevant.
-- Codex result returns to current chat for verification and closure.
-- Embedded Codex result returns through UTILITY_RETURN to the same selected main procedure when the handoff was embedded.
+- Codex result returns to current chat for parent verification.
+- Embedded Codex result returns through `CHILD_PROCEDURE_RETURN` to the same selected main procedure when the call was embedded.
 - Embedded codex_return_verification occurs before CLOSURE_CHECK passes when the result affects owner output.
 - Persistence handoff includes approval/update authority, exact path boundaries, validation, and verified same-owner return when Codex/storage utility writes.
 - Project refresh fields are separated.
+- Parent lifecycle does not CHECK, FINISH, or CLOSED while Codex return is open, missing, unverified, or missing required validation/evidence.
 
 ## WARN criteria
 
@@ -44,14 +46,18 @@ status: active_repository_completion_framework
 ## FAIL criteria
 
 - Codex commit treated as done or accepted state.
+- Codex, child, check, storage, handoff, package, card, or copy-paste packet treated as parent lifecycle completion.
 - Forbidden paths changed.
 - Validation failed or missing with done claim.
 - EOF validation failed.
 - Project UI update or Project Files/Sources refresh conflated with repository commit.
 - Codex returned evidence treated as accepted state.
-- Codex result cannot be matched to the emitted embedded handoff.
+- Codex result cannot be matched to the emitted embedded `CHILD_PROCEDURE_CALL`.
 - Codex is asked to close the ChatGPT lifecycle.
 - Codex/storage utility write is treated as accepted state without verification and acceptance/update boundary.
+- Branch, commit, changed files, validation, EOF, refresh, push, or residual-risk evidence is missing but verification passes.
+- FINISH closes with open Codex child call or non-empty gaps not explicitly classified as blocked completion.
+- `NEXT_CHAT_CARD` carries unfinished Codex child work.
 
 ## Common failure modes
 
@@ -59,9 +65,10 @@ status: active_repository_completion_framework
 - Codex expands scope beyond package.
 - Embedded verification treated as acceptance.
 - Changed file list omitted.
+- User is asked to assemble a Codex child call from scattered prior text.
 
 ## Required recovery/repair action
 
-Block acceptance, request or perform same-scope repair, verify diff and validation again, then rerun FINISH closure and acceptance review.
+Block acceptance and parent closure, request or perform same-scope repair, verify diff and validation again, then resume parent RUN before CHECK/FINISH.
 
 END_OF_FILE: workflow_v3/evals/CODEX_HANDOFF_RESULT_EVAL.md
