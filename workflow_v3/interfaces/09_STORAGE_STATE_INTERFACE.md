@@ -26,7 +26,8 @@ directions_v3/<direction-id>/runtime/
     upstream_escalations/
     downstream_deltas/
     derived_gate_checks/
-    result_packets/
+    stage_results/
+    finish_packets/
     evidence/
     acceptance/
   memory/
@@ -60,7 +61,8 @@ This interface package is repository documentation/setup only.
 
 - `DIRECTION_MAP.md` is part of the future state model.
 - Goal Evidence Graph may be stored as optional split state, embedded/reference state, and supporting indexes.
-- `records/result_packets/` stores persisted stage/finish result records when an explicit package authorizes them.
+- `records/stage_results/` stores persisted stage result records when an explicit package authorizes them.
+- `records/finish_packets/` stores persisted finish packet records when an explicit package authorizes them.
 - `records/parent_integration/`, `records/graph_deltas/`, `records/upstream_escalations/`, `records/downstream_deltas/`, and `records/derived_gate_checks/` store typed records/packets when persisted.
 - `operations/check_jobs/` is an explicit operations surface.
 - `operations/transfer_packets/` is an explicit operations surface when a transfer packet must be retained.
@@ -81,7 +83,8 @@ This interface package is repository documentation/setup only.
 | Work Graph Node | `fronts/<front-id>/nodes/<node-id>/NODE.md` |
 | Work Contract | `records/contracts/` and node indexes |
 | Run | `records/runs/` |
-| STAGE_RESULT / FINISH_PACKET record | `records/result_packets/` |
+| STAGE_RESULT record | `records/stage_results/` |
+| FINISH_PACKET record | `records/finish_packets/` |
 | Evidence | `records/evidence/` |
 | Acceptance Decision | `records/acceptance/` |
 | Parent Integration Result | `records/parent_integration/` |
