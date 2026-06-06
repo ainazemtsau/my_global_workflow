@@ -30,6 +30,8 @@ There is no separate start protocol, before-action protocol, or old operation-su
 
 ## Procedure Completion
 
+Procedure implementation status is authoritative only in each procedure file header. README, interface, and completion files summarize routing and coverage; they do not define procedure readiness.
+
 Every selectable procedure contains:
 
 ```text

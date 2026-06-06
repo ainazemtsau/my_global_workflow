@@ -2,6 +2,8 @@
 
 status: interface_summary
 
+This matrix records interface/coverage mapping only. Current procedure implementation status is authoritative only in the referenced procedure file header.
+
 ## Control Plane Coverage
 
 | Surface | Authority | Coverage |

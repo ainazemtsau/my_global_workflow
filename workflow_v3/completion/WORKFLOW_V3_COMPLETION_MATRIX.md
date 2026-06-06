@@ -2,16 +2,22 @@
 
 status: active_completion_summary
 
+## Purpose
+
+This matrix summarizes repository-side Workflow v3 framework coverage under the main-procedure runtime kernel.
+
+Completion here means repository-side framework coverage. It does not mean live Direction runtime activation, Direction adoption, legacy migration/import, Project UI update, Project Files/Sources refresh, product execution, or old Workflow OS decommission.
+
 ## Authority Coverage
 
 | Area | Authority | Templates / Interfaces | Evals | Status | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Procedure selection | `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` | `workflow_v3/interfaces/99_COVERAGE_MATRIX.md` | `workflow_v3/evals/PROCEDURE_EXECUTION_EVAL.md` | complete | Registry is compact: entrypoint, procedure_path, kind, trigger. |
-| Lifecycle kernel | `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` | `workflow_v3/templates/START_CONTRACT_TEMPLATE.md` | `workflow_v3/evals/START_CONTRACT_EVAL.md`; `workflow_v3/evals/CHAT_LIFECYCLE_PROTOCOL_EVAL.md`; `workflow_v3/evals/CHAT_LIFECYCLE_EVAL.md` | complete | START/RUN/UTILITY/CHECK/FINISH/CLOSED is the active runtime model. |
-| Procedure completion | `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md`; selected procedure files | `workflow_v3/procedures/PROCEDURE_TEMPLATE.md` | `workflow_v3/evals/PROCEDURE_EXECUTION_EVAL.md` | complete | Completion contract lives in selected procedure `completion:` block. |
-| Utility calls | `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` | `workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md` | `workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md` | complete | Utility calls are provider-neutral and return to same main procedure. |
-| Finish and closure | `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` | `workflow_v3/templates/FINISH_PACKET_TEMPLATE.md`; `workflow_v3/templates/RESULT_PACKET_TEMPLATE.md`; `workflow_v3/templates/NEXT_MOVE_PACKET_TEMPLATE.md` | `workflow_v3/evals/FINISH_PACKET_EVAL.md`; `workflow_v3/evals/NEXT_MOVE_PACKET_EVAL.md` | complete | FINISH closes only after CLOSURE_CHECK/audit pass. |
-| Continuation | `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md`; `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` | `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md`; `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md` | `workflow_v3/evals/NEXT_MOVE_PACKET_EVAL.md` | complete | Material closure includes NEXT_CHAT_CARD or no_next_chat_needed. |
+| Procedure selection | `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` | `workflow_v3/interfaces/99_COVERAGE_MATRIX.md` | `workflow_v3/evals/PROCEDURE_EXECUTION_EVAL.md` | repository_framework_coverage_complete | Registry is compact: entrypoint, procedure_path, kind, trigger. |
+| Lifecycle kernel | `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` | `workflow_v3/templates/START_CONTRACT_TEMPLATE.md` | `workflow_v3/evals/START_CONTRACT_EVAL.md`; `workflow_v3/evals/CHAT_LIFECYCLE_PROTOCOL_EVAL.md`; `workflow_v3/evals/CHAT_LIFECYCLE_EVAL.md` | repository_framework_coverage_complete | START/RUN/UTILITY/CHECK/FINISH/CLOSED is the active runtime model. |
+| Procedure completion | `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md`; selected procedure files | `workflow_v3/procedures/PROCEDURE_TEMPLATE.md` | `workflow_v3/evals/PROCEDURE_EXECUTION_EVAL.md` | repository_framework_coverage_complete | Completion contract lives in selected procedure `completion:` block; procedure implementation status remains authoritative in the selected procedure file header. |
+| Utility calls | `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` | `workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md` | `workflow_v3/evals/CHAT_LIFECYCLE_HANDOFF_EVAL.md` | repository_framework_coverage_complete | Utility calls are provider-neutral and return to same main procedure. |
+| Finish and closure | `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` | `workflow_v3/templates/FINISH_PACKET_TEMPLATE.md`; `workflow_v3/templates/RESULT_PACKET_TEMPLATE.md`; `workflow_v3/templates/NEXT_MOVE_PACKET_TEMPLATE.md` | `workflow_v3/evals/FINISH_PACKET_EVAL.md`; `workflow_v3/evals/NEXT_MOVE_PACKET_EVAL.md` | repository_framework_coverage_complete | FINISH closes only after CLOSURE_CHECK/audit pass. |
+| Continuation | `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md`; `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` | `workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md`; `workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md` | `workflow_v3/evals/NEXT_MOVE_PACKET_EVAL.md` | repository_framework_coverage_complete | Material closure includes NEXT_CHAT_CARD or no_next_chat_needed. |
 
 ## Removed Authority
 
