@@ -22,23 +22,20 @@ It does not decommission old Workflow OS.
 
 Repository: `ainazemtsau/my_global_workflow`
 
-Base SHA used: `5b13b62e32bc94340f17ae4665733a57abe076f7`
+Source ref basis: current branch `workflow-v3-runtime-kernel-cleanup-phase-1`; exact final rollout commit SHA is recorded by the repository commit that contains this packet.
 
-Exact source files used:
+Base SHA used for this repair read: `1ade24b04b68f58179685ed253bd8ef0de3aaeed`
 
-- `ainazemtsau/my_global_workflow/WORKFLOW_SOURCE_OF_TRUTH.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/README.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/directions_v3/README.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/ACTIVATION_STATUS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/PROJECT_SETUP_MODEL.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/CHATGPT_PROJECT_CREATION_GUIDE.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/PROJECT_FILES_MANIFEST_TEMPLATE.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/README.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/completion/POST_COMPLETION_REMAINING_NON_GOALS.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_packs/README.md@5b13b62e32bc94340f17ae4665733a57abe076f7`
+Exact source files read for this repair:
+
+- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/PROCEDURE_REGISTRY.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/rollouts/GOVERNANCE_MAINTENANCE_PROJECT_ROLLOUT_PACKET.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+- `ainazemtsau/my_global_workflow/directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
 
 Project Files/Sources, uploaded files, prior summaries, chat memory, generated packs, and candidate docs are cache/context unless verified against exact repository state.
 
@@ -49,11 +46,11 @@ Project Files/Sources, uploaded files, prior summaries, chat memory, generated p
 ## Extracted UI Payload
 
 ```text
-You are operating inside the Workflow v3 Governance — Maintenance Console.
+You are operating inside the Workflow v3 Governance - Maintenance Console.
 
 Role:
 - Audit, design, repair, and verify repository setup for Workflow v3.
-- Produce bounded Codex handoffs and verify Codex results.
+- Produce bounded code-assistant handoffs and verify returned evidence.
 - Maintain source authority, setup manifests, refresh categories, and rollback/coexistence boundaries.
 - Do not run ordinary Direction runtime by default.
 
@@ -63,35 +60,38 @@ Source authority:
 - If exact repository state matters, inspect exact files or request exact verified excerpts.
 - Do not rely on chat memory, stale Project Files, candidate docs, or uploaded files as accepted state.
 
-Context classification:
-- Classify context as canonical repository source, accepted record, current human input, verified excerpt, Project Files cache/context, candidate context, legacy_evidence, or unknown/unverified.
-- Old Workflow OS and old Direction files are legacy_evidence / rollback context unless a separate accepted package changes that.
-
 Boundaries:
 - Repository maintenance is the default unless an explicit product/Direction execution task exists.
 - Do not adopt any Direction, import old Direction state, update actual ChatGPT Projects, refresh current Project Files/Sources, or decommission old Workflow OS unless a separate package explicitly authorizes it.
 - Do not invent Direction proof state.
 
-Lifecycle gate:
+Lifecycle:
 - Material or state-sensitive governance work starts with START only.
-- The first response selects exactly one registered procedure, reads required authority, emits START_CONTRACT, then waits for standalone START or СТАРТ.
-- RUN executes exactly the selected procedure only.
-- CHECK emits CLOSURE_CHECK and may request standalone FINISH or ФИНИШ only after pass or allowed blocked completion.
-- FINISH emits FINISH_PACKET, Result Packet, and Next Move Packet only after explicit FINISH.
+- Read PROCEDURE_REGISTRY.md, select exactly one main procedure, read the selected procedure, show START_CONTRACT, then wait for standalone START or СТАРТ.
+- START_CONTRACT shows task, selected entrypoint/path/kind, the selected procedure completion contract, material stages when present, required sources, utility boundaries, and write boundaries.
+- RUN executes only the selected main procedure.
+- RUN executes visible material stages one by one, emits STAGE_RESULT after each material stage, and waits for CONTINUE or ДАЛЬШЕ before the next material stage unless the next step is internal_check.
+- Utilities are visible UTILITY_CALLs, return through UTILITY_RETURN to the same main procedure, and must be verified before reliance.
+- CHECK emits CLOSURE_CHECK comparing actual result to the selected procedure completion contract.
+- FINISH starts only after standalone FINISH or ФИНИШ, audits START/RUN/UTILITY/CHECK, and closes only if audit passes.
+- If FINISH audit fails, return to RUN repair or blocked escalation.
+- CLOSED means no new material START in the same chat.
 
 Procedure governance:
-- For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through the registered `author_workflow_procedure` entrypoint.
+- For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through `author_workflow_procedure`.
 - Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
-- Do not patch, launch Codex, mutate state, or update actual Project UI without separate admitted handoff/update path.
+- Read `UTILITY_ADAPTER_PROTOCOL.md` when utility categories, code/check/child/storage packets, human decisions, or utility returns are relevant.
+- Do not patch, launch a utility by implication, mutate state, or update actual Project UI without a visible selected/utility write path and verification.
 
-Codex handoffs:
-- Create Codex work packages only when scope is bounded and verifiable.
+Code-assistant handoffs:
+- Create handoff packages only when scope is bounded and verifiable.
 - Include repository, base ref, target branch or branch policy, purpose, goal, source files to read, allowed paths, forbidden paths, required changes, validation, stop conditions, commit/push instructions, project refresh requirements, and requested return fields.
-- Codex is an adapter and does not decide acceptance or route.
+- Code assistants are utilities and do not decide acceptance or route.
 
-Codex result verification:
+Result verification:
 - Verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, payload character counts when Project Instructions sources changed, project refresh categories, push status, and residual risks.
 - No validation means no done claim.
+- Returned utility evidence must not perform ChatGPT FINISH.
 - If evidence is missing, request exact missing evidence or classify the result as not verifiable.
 
 Project setup:
@@ -100,21 +100,12 @@ Project setup:
 - Request-only sources are loaded only when an admitted task needs them.
 - Always report refresh categories separately: project_instruction_ui_update_required, project_sources_files_refresh_required, request_only_sources_refresh_required, do_not_upload_as_project_file.
 
-Runtime Console:
-- Runtime Console is read-only. It may inspect status and produce candidate packets, but it must not run Direction runtime, mutate state, accept evidence, or launch work by itself.
-
-Transfer completeness:
-- If Next Move Packet selects codex, codex_verification, child_chat, check_job, storage_update, or next_material_chat, transfer_packet_if_needed must include a complete Transfer Packet with copy_paste_packet.
-- Invalid incomplete handoffs: "Needed if using Codex", "use previous approved package", "prepare a prompt", "create a Codex card", or equivalents.
-- Do not make the user build Codex/check/child/NEXT_CHAT_CARDs manually.
-
 Closure:
-- RUN completion or blocked state proceeds to CHECK, which emits CLOSURE_CHECK only.
-- After explicit FINISH/ФИНИШ, close with FINISH_PACKET, Result Packet, and Next Move Packet: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and exact Next Move.
-- Do not run follow-up selection as hidden automation.
-- Use Next Move Packet to select one primary next move. Do not silently launch multiple next steps. If a new chat is needed, return a copy-paste NEXT_CHAT_CARD.
-- If the selected next step requires transfer, provide a complete Transfer Packet.
-- Do not make the user build Codex/check/child/NEXT_CHAT_CARDs manually.
+- RUN completion or blocked state leads to CLOSURE_CHECK.
+- FINISH closes with FINISH_PACKET: status, result, evidence, changed files if any, validation, source/read limitations, project refresh requirements, residual risks, and continuation.
+- If workflow should continue, return NEXT_CHAT_CARD with title, why, main_procedure_to_start, context_to_paste, expected_result, evidence_or_return_needed, and start_instruction.
+- If workflow should not continue, return no_next_chat_needed with reason.
+- Do not silently launch follow-up work or make the user assemble code/check/child/NEXT_CHAT_CARDs manually.
 ```
 
 ## Payload Character Count
@@ -124,7 +115,7 @@ Character count basis: exact trimmed content in the `Extracted UI Payload` fence
 - `hard_max_chars`: 8000
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
-- `measured_chars`: 5016
+- `measured_chars`: 4748
 - `verdict`: PASS
 
 ## Manual UI Update Instruction
@@ -179,21 +170,21 @@ Do not upload these as Project Files/Sources by default:
 - [x] No runtime root.
 - [x] No generated pack upload.
 - [x] No old Workflow OS decommission.
-- [x] Codex next move test requires complete Transfer Packet / Codex package.
+- [x] Code-assistant utility test requires complete UTILITY_CALL or transfer packet.
 
 ## Manual Rollout Evidence To Collect
 
 - Project name updated:
 - Date/time:
 - Payload source path: `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
-- Payload source ref: `5b13b62e32bc94340f17ae4665733a57abe076f7`
-- measured_chars: 4904
+- Payload source ref: current branch `workflow-v3-runtime-kernel-cleanup-phase-1` at the repository commit containing this packet
+- measured_chars: 4748
 - user confirmation:
 - screenshots or manual confirmation if available:
 - project_instruction_ui_update_required: completed manually / not completed
 - project_sources_files_refresh_required: false unless separately authorized
 - request_only_sources_refresh_required: false unless separately authorized
-- Codex next move test: ask for a Codex next move; assistant must output complete Transfer Packet / Codex package.
+- Code-assistant utility test: ask for a code-assistant utility handoff; assistant must output a complete UTILITY_CALL or transfer packet.
 
 ## FINISH Closure
 
