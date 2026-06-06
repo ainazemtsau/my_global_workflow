@@ -50,7 +50,8 @@ directions_v3/<direction-id>/runtime/
     upstream_escalations/
     downstream_deltas/
     derived_gate_checks/
-    result_packets/
+    stage_results/
+    finish_packets/
     evidence/
     acceptance/
   memory/
@@ -107,7 +108,8 @@ Front records may reference Active Unresolved Cut candidates, parent integration
 
 - Work Contracts;
 - Runs;
-- Result Packets;
+- Stage Results;
+- Finish Packets;
 - Evidence;
 - Acceptance Decisions;
 - Parent Integration Results;

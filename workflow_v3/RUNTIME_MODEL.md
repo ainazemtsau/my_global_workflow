@@ -83,7 +83,7 @@ Adapters may perform utility work and return candidate result/evidence. They do 
 
 ## No Hidden Accepted State
 
-Accepted State does not live in chat memory, Project Files/Sources, candidate docs, code-assistant output, Result Packets, transfer packets, check-job output, or document existence.
+Accepted State does not live in chat memory, Project Files/Sources, candidate docs, code-assistant output, STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, transfer packets, check-job output, or document existence.
 
 If accepted state matters, use canonical repository storage and explicit acceptance/update records.
 
