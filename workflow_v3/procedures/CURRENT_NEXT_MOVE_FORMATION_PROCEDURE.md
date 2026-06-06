@@ -428,6 +428,12 @@ Source authority order:
 4. Project Files/Sources only as cache/context;
 5. legacy evidence only as rollback or historical context, not current authority.
 
+Legacy path boundary:
+
+- Project Files/Sources are cache/context only.
+- `directions/**` may be used only as `legacy_evidence` or migration evidence when an admitted task needs it.
+- `directions/**` must not be automatically imported, automatically discarded, or treated as `accepted_v3_state` by implication.
+
 ## Context Classification
 
 Classify relevant context as:
@@ -476,6 +482,14 @@ delegated_or_tool_mediated:
 Complexity selection does not authorize procedure switching or next move launch.
 
 ## Stage Cards
+
+Stage runtime rule:
+
+- The listed Stage Cards are material stages unless a future card explicitly declares `stage_type: internal_check`.
+- RUN executes one visible material stage at a time.
+- After each material stage, runtime emits `STAGE_RESULT` with `stage`, `result`, `proof`, `limitations`, `next_stage_or_check`, and `user_confirmation_required`.
+- Runtime waits for `CONTINUE / ДАЛЬШЕ` before the next material stage unless the next step is explicitly `internal_check`.
+- Schema-heavy Stage Card fields are procedure-definition fields, not runtime output packets.
 
 ### Stage 0 - Source and Closure Lock
 
@@ -705,7 +719,9 @@ The NEXT_CHAT_CARD continuation must never be used as the substitute for a requi
 
 ## Project Refresh Reporting
 
-For this Phase 1 system blocker procedure persistence batch, report refresh requirements as:
+Report refresh requirements according to the actual source or artifact affected by the selected continuation.
+
+Default for this procedure source when changed or loaded as a request-only operational source:
 
 ```yaml
 project_instruction_ui_update_required: false
@@ -714,7 +730,9 @@ request_only_sources_refresh_required: true
 do_not_upload_as_project_file: true
 ```
 
-Do not update ChatGPT Project Instructions UI or Project Files/Sources from this procedure. Report refresh requirements only.
+If a continuation concerns another source category, carry that package's own refresh requirements instead of inheriting historical batch defaults.
+
+Do not update ChatGPT Project Instructions UI or Project Files/Sources from this procedure. Report categories only.
 
 ## Checkpoint Policy
 
