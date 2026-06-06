@@ -16,11 +16,14 @@ status: active_skeleton_namespace_corrected
 | direction_adoption | none |
 | concrete_direction_runtime_roots | none |
 | ordinary_direction_project_bindings | none |
-| governance_maintenance_project_ui_update | completed_manual_external_recorded |
+| governance_maintenance_project_ui_update | pending_manual_update_after_source_change |
 | ordinary_direction_project_ui_update | none |
 | legacy_state_import | none |
 | project_files_sources_refresh | none |
-| request_only_sources_refresh | none |
+| request_only_sources_refresh | none_performed |
+| project_instruction_ui_update_required | true |
+| project_sources_files_refresh_required | false |
+| request_only_sources_refresh_required | true |
 | generated_project_pack_upload | none |
 | old_workflow_os_decommission | none |
 
@@ -42,11 +45,20 @@ Activation at this slice does not mean a live runtime exists. It does not create
 
 ## Recorded external Project UI evidence
 
-- The Governance Maintenance Console Project Instructions UI was manually updated from the rollout packet and behavior-verified.
+- The Governance Maintenance Console Project Instructions UI was previously manually updated from an older rollout packet and behavior-verified.
+- That external record is historical evidence only and is superseded by a later Project Instructions source change.
+- Current Governance Maintenance Console Project Instructions UI update status: `pending_manual_update_after_source_change`.
 - This repository records the evidence only; the repository commit did not perform the external UI update.
 - No Project Files/Sources were refreshed.
 - No request-only sources were refreshed.
 - No Direction adoption or runtime root was created.
+
+## Current Project refresh status
+
+- `project_instruction_ui_update_required`: true for current Governance Maintenance Project manual UI update.
+- `project_sources_files_refresh_required`: false.
+- `request_only_sources_refresh_required`: true until needed request-only sources are loaded where admitted.
+- `do_not_upload_as_project_file`: Project Instructions sources remain UI payload sources, not Project Files/Sources uploads by default.
 
 ## What remains not activated
 
@@ -57,6 +69,7 @@ Not activated in this slice:
 - any old Direction state import;
 - any bridge from old Direction files into accepted v3 state;
 - any ordinary Direction Project Instructions UI update;
+- current Governance Maintenance Console Project Instructions UI update after the source change;
 - any ordinary Direction Project binding installed in a concrete runtime root;
 - any semantic Direction Definition accepted for a concrete Direction;
 - any ordinary Direction Project manual creation;

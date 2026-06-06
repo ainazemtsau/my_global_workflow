@@ -1,6 +1,6 @@
 # Workflow v3 Governance Maintenance Project Rollout Result
 
-status: manual_project_instruction_ui_update_verified
+status: historical_manual_project_instruction_ui_update_verified_superseded_by_source_change
 
 ## Target Project
 
@@ -47,6 +47,18 @@ This records external/manual UI update evidence only.
 - `verification_chat_repository_inspection`: not performed
 - `evidence_limitation`: verification was Project behavior evidence, not repository file inspection
 
+## Supersession / Current applicability
+
+- `superseded_by_source_change`: true
+- `previous_manual_ui_update_verified_for_older_payload`: true
+- `superseding_source_path`: `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
+- `superseding_source_ref`: Package D / current branch source after `699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `current_manual_ui_update_required`: true
+- `current_project_files_refresh_required`: false
+- `current_request_only_sources_refresh_required`: true
+- `current_actual_chatgpt_project_ui_update_status`: pending_manual_update_after_source_change
+- `applicability_note`: the completed manual update recorded above applies to the older payload/source ref, not the current Project Instructions source.
+
 ## Verified behavior
 
 - `role`: governance maintenance for audit, design, repair, and verification of Workflow v3 repository setup; bounded code-assistant handoffs; returned evidence verification; source authority, setup manifest, refresh category, and rollback/coexistence maintenance.
@@ -59,9 +71,9 @@ This records external/manual UI update evidence only.
 
 ## Refresh classification
 
-- `project_instruction_ui_update_required`: completed_manually_for_governance_maintenance_project
+- `project_instruction_ui_update_required`: current_manual_ui_update_required_after_source_change
 - `project_sources_files_refresh_required`: false
-- `request_only_sources_refresh_required`: false
+- `request_only_sources_refresh_required`: true
 - `do_not_upload_as_project_file`:
 
   - `workflow_v3/interfaces/**`
@@ -74,7 +86,7 @@ This records external/manual UI update evidence only.
 
 ## Activation impact
 
-- `governance_maintenance_project_ui_update`: completed_manual_external_recorded
+- `governance_maintenance_project_ui_update`: previous_completed_manual_external_recorded_superseded_by_source_change
 - `ordinary_direction_project_ui_update`: none
 - `direction_adoption`: none
 - `legacy_state_import`: none

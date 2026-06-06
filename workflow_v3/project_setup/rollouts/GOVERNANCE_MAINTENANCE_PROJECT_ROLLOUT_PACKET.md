@@ -22,20 +22,25 @@ It does not decommission old Workflow OS.
 
 Repository: `ainazemtsau/my_global_workflow`
 
-Source ref basis: current branch `workflow-v3-runtime-kernel-cleanup-phase-1`; exact final rollout commit SHA is recorded by the repository commit that contains this packet.
+Source ref basis: repository commit containing this packet.
 
-Base SHA used for this repair read: `1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+Base SHA used for this rollout packet refresh read: `699468b43e061266ce34233b9ad68a1627a8fe0e`
 
-Exact source files read for this repair:
+Payload source path: `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
 
-- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/PROCEDURE_REGISTRY.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
-- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
-- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
-- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
-- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/rollouts/GOVERNANCE_MAINTENANCE_PROJECT_ROLLOUT_PACKET.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
-- `ainazemtsau/my_global_workflow/directions/workflow-governance/workflow/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md@1ade24b04b68f58179685ed253bd8ef0de3aaeed`
+Payload source ref: repository commit containing this packet; base/current source was read from `699468b43e061266ce34233b9ad68a1627a8fe0e`.
+
+Exact source files read for this rollout packet refresh:
+
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTRUCTIONS.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/rollouts/GOVERNANCE_MAINTENANCE_PROJECT_ROLLOUT_PACKET.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `ainazemtsau/my_global_workflow/workflow_v3/project_setup/rollouts/GOVERNANCE_MAINTENANCE_PROJECT_ROLLOUT_RESULT.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `ainazemtsau/my_global_workflow/workflow_v3/PROJECT_SETUP_MODEL.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `ainazemtsau/my_global_workflow/workflow_v3/ACTIVATION_STATUS.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `ainazemtsau/my_global_workflow/workflow_v3/README.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
+- `ainazemtsau/my_global_workflow/workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md@699468b43e061266ce34233b9ad68a1627a8fe0e`
 
 Project Files/Sources, uploaded files, prior summaries, chat memory, generated packs, and candidate docs are cache/context unless verified against exact repository state.
 
@@ -49,7 +54,7 @@ Project Files/Sources, uploaded files, prior summaries, chat memory, generated p
 You are operating inside the Workflow v3 Governance - Maintenance Console.
 
 Role:
-- Audit, design, repair, and verify repository setup for Workflow v3.
+- Audit, design, repair, and verify repository setup for the Workflow v3 long-horizon Direction OS.
 - Produce bounded code-assistant handoffs and verify returned evidence.
 - Maintain source authority, setup manifests, refresh categories, and rollback/coexistence boundaries.
 - Do not run ordinary Direction runtime by default.
@@ -115,7 +120,7 @@ Character count basis: exact trimmed content in the `Extracted UI Payload` fence
 - `hard_max_chars`: 8000
 - `target_max_chars`: 6500
 - `warning_threshold_chars`: 7200
-- `measured_chars`: 4748
+- `measured_chars`: 4778
 - `verdict`: PASS
 
 ## Manual UI Update Instruction
@@ -126,10 +131,10 @@ Paste the extracted payload into the ChatGPT Project Instructions UI for `Workfl
 
 ## Project Refresh Categories
 
-- `project_instruction_ui_update_required`: true for future manual rollout only; not performed by repository commit
+- `project_instruction_ui_update_required`: true for manual rollout only; not performed by repository commit
 - `project_sources_files_refresh_required`: false
-- `request_only_sources_refresh_required`: false
-- `do_not_upload_as_project_file`: see Do-Not-Upload List
+- `request_only_sources_refresh_required`: true after source/control-plane changes until loaded where needed; not refreshed by this packet
+- `do_not_upload_as_project_file`: this Project Instructions source
 
 The repository completion docs remain do-not-upload by default unless a later explicit rollout authorizes source uploads.
 
@@ -177,13 +182,14 @@ Do not upload these as Project Files/Sources by default:
 - Project name updated:
 - Date/time:
 - Payload source path: `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`
-- Payload source ref: current branch `workflow-v3-runtime-kernel-cleanup-phase-1` at the repository commit containing this packet
-- measured_chars: 4748
+- Payload source ref: repository commit containing this packet
+- measured_chars: 4778
+- manual_ui_update_status: completed manually / not completed
 - user confirmation:
 - screenshots or manual confirmation if available:
 - project_instruction_ui_update_required: completed manually / not completed
 - project_sources_files_refresh_required: false unless separately authorized
-- request_only_sources_refresh_required: false unless separately authorized
+- request_only_sources_refresh_required: true until loaded where needed; not completed by this packet
 - Code-assistant utility test: ask for a code-assistant utility handoff; assistant must output a complete UTILITY_CALL or transfer packet.
 
 ## FINISH Closure
