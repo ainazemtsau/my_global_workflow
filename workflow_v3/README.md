@@ -55,6 +55,14 @@ When changed files affect ChatGPT Projects, report:
 - `request_only_sources_refresh_required`
 - `do_not_upload_as_project_file`
 
+## Setup-Only Root And Direction Definition
+
+Ordinary Direction Project root/bootstrap is setup-only. It may prepare future technical placeholders and binding, but must not require or accept root outcome, Direction Spine, Direction Map, Active Front, Work Graph, or product strategy.
+
+The registered setup/root bootstrap entrypoint is `direction_project_root_bootstrap`, with procedure source `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`.
+
+Direction Definition is the separate semantic process after setup-only root. It selects one next procedure step at a time, starting with Direction Spine formation.
+
 ## Key Directories
 
 - `workflow_v3/control_plane/**` - runtime kernel and supporting source/storage/exception protocols.
@@ -64,5 +72,8 @@ When changed files affect ChatGPT Projects, report:
 - `workflow_v3/evals/**` - invariant checks.
 - `workflow_v3/project_setup/**` - Project Instructions and setup sources.
 - `workflow_v3/completion/**` - completion and coverage summaries.
+- `workflow_v3/adoption/**` - future adoption templates and legacy review surfaces.
+- `workflow_v3/project_packs/**` - future pack source model.
+- `workflow_v3/tools/**` - repository validation helpers such as procedure status/index sync checks.
 
 END_OF_FILE: workflow_v3/README.md

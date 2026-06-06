@@ -14,6 +14,9 @@ This matrix records interface/coverage mapping only. Current procedure implement
 | Finish audit | `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` | Final audit closes only after CHECK passes or blocked completion is explicit. |
 | Procedure framework | `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md` | Completion block, material stage, internal check, utility policy, closure requirements. |
 | Packet and transfer | `workflow_v3/interfaces/08_PACKET_AND_TRANSFER_INTERFACE.md` | START_CONTRACT, STAGE_RESULT, UTILITY_CALL, UTILITY_RETURN, CLOSURE_CHECK, FINISH_PACKET, NEXT_CHAT_CARD. |
+| Procedure status/index sync | `workflow_v3/tools/check_procedure_status_index_sync.py` | Verifies registry entries, procedure files, status headers, and index labels remain synchronized. |
+| Project setup | `workflow_v3/PROJECT_SETUP_MODEL.md`; `workflow_v3/project_setup/**` | Project Instructions source files are canonical copy sources; repository commits do not update actual Project UI. |
+| Legacy evidence | `workflow_v3/LEGACY_EVIDENCE_POLICY.md`; `directions/README_LEGACY_EVIDENCE_ONLY.md`; `directions/MIGRATION_EVIDENCE_INDEX.md` | Old Direction files remain legacy_evidence only; no automatic import or discard. |
 
 ## Removed Authority
 
