@@ -4,6 +4,7 @@ title: Memory Artifact Promotion
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md
 entrypoint: promote_memory_artifact
+kind: core
 procedure_boundary: formation_chat
 
 ## purpose

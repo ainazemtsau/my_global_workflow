@@ -4,6 +4,7 @@ title: Direction Map Formation
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md
 entrypoint: form_direction_map
+kind: core
 procedure_boundary: formation_chat
 
 ## purpose

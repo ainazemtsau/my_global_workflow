@@ -4,6 +4,7 @@ title: Impact Propagation
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md
 entrypoint: impact_propagation
+kind: core
 procedure_boundary: recovery_review
 
 ## purpose

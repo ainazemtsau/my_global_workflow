@@ -55,10 +55,16 @@ The selected procedure owns these completion semantics. CHECK compares actual re
 Use this section when the detailed body is not authored yet:
 
 ```text
+title:
 status: stub_procedure_pending_authoring
+canonical_location:
+entrypoint:
+kind:
+procedure_boundary:
 target_role:
 workflow_integration:
-future_body_outline:
+future_body_scope:
+future_body_must_not:
 required_outputs_when_authored:
 stop_behavior_until_authored:
 completion:

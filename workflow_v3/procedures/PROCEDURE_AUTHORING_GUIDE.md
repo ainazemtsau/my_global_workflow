@@ -23,12 +23,16 @@ Name procedure files as:
 When a detailed body is not authored yet, create a self-contained stub target spec that identifies:
 
 ```text
-procedure_path:
-registry_entrypoint:
+title:
+status: stub_procedure_pending_authoring
+canonical_location:
+entrypoint:
 kind:
+procedure_boundary:
 target_role:
 workflow_integration:
-future_body_outline:
+future_body_scope:
+future_body_must_not:
 required_outputs_when_authored:
 stop_behavior_until_authored:
 completion:

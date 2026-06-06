@@ -4,6 +4,7 @@ title: Direction Definition
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md
 entrypoint: launch_direction_definition
+kind: core
 procedure_boundary: formation_chat
 
 ## purpose
