@@ -8,7 +8,7 @@ This guide describes future ChatGPT Project creation for Workflow v3. It does no
 
 ## Future Project creation
 
-Future Project creation requires a separate rollout/adoption package that states:
+Future Project creation requires a separate setup/adoption package that states:
 
 - Project type;
 - source authority;
@@ -19,7 +19,7 @@ Future Project creation requires a separate rollout/adoption package that states
 - refresh requirements;
 - validation evidence.
 
-Use `workflow_v3/project_setup/rollouts/` rollout packets and `workflow_v3/evals/PROJECT_SETUP_ROLLOUT_EVAL.md` for future rollout preparation and verification.
+Project Instructions source files are the canonical copy source for manual UI updates. For the Governance Maintenance Console, copy only the trimmed payload between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` from `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` after final repository cleanup is complete.
 
 Repository commits alone do not update ChatGPT Project UI or files.
 

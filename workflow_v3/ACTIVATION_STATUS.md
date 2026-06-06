@@ -16,14 +16,14 @@ status: active_skeleton_namespace_corrected
 | direction_adoption | none |
 | concrete_direction_runtime_roots | none |
 | ordinary_direction_project_bindings | none |
-| governance_maintenance_project_ui_update | pending_manual_update_after_source_change |
+| governance_maintenance_project_ui_update | deferred_until_final_repository_cleanup |
 | ordinary_direction_project_ui_update | none |
 | legacy_state_import | none |
 | project_files_sources_refresh | none |
 | request_only_sources_refresh | none_performed |
 | project_instruction_ui_update_required | true |
 | project_sources_files_refresh_required | false |
-| request_only_sources_refresh_required | true |
+| request_only_sources_refresh_required | false_or_on_demand_only |
 | generated_project_pack_upload | none |
 | old_workflow_os_decommission | none |
 
@@ -43,21 +43,23 @@ Activated means only this:
 
 Activation at this slice does not mean a live runtime exists. It does not create accepted Direction state, accepted v3 state, migration authority, actual Project UI update authority, Project Files/Sources refresh authority, request-only source refresh authority, legacy import authority, or decommission authority.
 
-## Recorded external Project UI evidence
+## Governance Project UI status
 
-- The Governance Maintenance Console Project Instructions UI was previously manually updated from an older rollout packet and behavior-verified.
-- That external record is historical evidence only and is superseded by a later Project Instructions source change.
-- Current Governance Maintenance Console Project Instructions UI update status: `pending_manual_update_after_source_change`.
-- This repository records the evidence only; the repository commit did not perform the external UI update.
+- The Governance Maintenance Project Instructions source has changed.
+- The actual Governance Maintenance Project Instructions UI is not updated to the current source yet.
+- Manual UI update is intentionally deferred until final repository cleanup is complete.
+- The canonical copy source is `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`.
+- The human copies only the trimmed payload between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
+- Repository commits do not perform external ChatGPT Project UI updates.
 - No Project Files/Sources were refreshed.
 - No request-only sources were refreshed.
 - No Direction adoption or runtime root was created.
 
 ## Current Project refresh status
 
-- `project_instruction_ui_update_required`: true for current Governance Maintenance Project manual UI update.
+- `project_instruction_ui_update_required`: true, deferred until final repository cleanup is complete.
 - `project_sources_files_refresh_required`: false.
-- `request_only_sources_refresh_required`: true until needed request-only sources are loaded where admitted.
+- `request_only_sources_refresh_required`: false by default; request-only sources are loaded on demand by admitted future tasks.
 - `do_not_upload_as_project_file`: Project Instructions sources remain UI payload sources, not Project Files/Sources uploads by default.
 
 ## What remains not activated
@@ -69,7 +71,7 @@ Not activated in this slice:
 - any old Direction state import;
 - any bridge from old Direction files into accepted v3 state;
 - any ordinary Direction Project Instructions UI update;
-- current Governance Maintenance Console Project Instructions UI update after the source change;
+- current Governance Maintenance Console Project Instructions UI update after final repository cleanup;
 - any ordinary Direction Project binding installed in a concrete runtime root;
 - any semantic Direction Definition accepted for a concrete Direction;
 - any ordinary Direction Project manual creation;
@@ -86,7 +88,7 @@ Allowed future packages must be separate, explicit, bounded, and validated. Exam
 - production runtime rule refinement under `workflow_v3/**`;
 - procedure body authoring under `workflow_v3/procedures/**`;
 - future setup-only root package for one Direction, followed by separate Direction Definition;
-- future Project setup rollout package with measured payload character counts;
+- future Project setup package with measured payload character counts;
 - future manual ordinary Direction Project creation from `workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md`;
 - future project pack generation package;
 - one per-Direction adoption package after an explicit adoption decision;

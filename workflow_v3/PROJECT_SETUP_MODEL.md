@@ -35,6 +35,8 @@ Setup-only root bootstrap must not require or accept root outcome, Direction Spi
 
 After the per-Direction Project Instructions source is generated or changed, a manual Project Instructions UI update is required. Repository commit alone does not perform that update.
 
+Project Instructions source files are the canonical copy source for manual UI updates. Do not create separate rollout packets by default. Manual UI update happens by copying the marked payload from the relevant source file after the repository cleanup package that changes it is final and accepted.
+
 ## Project Files/Sources role
 
 Project Files/Sources are cache/context only. They may help orientation and repeated context access, but they do not prove latest repository state, acceptance, successful implementation, runtime activation, or Direction adoption.
@@ -76,6 +78,6 @@ For this repository completion framework:
 - `project_instruction_ui_update_required`: no actual ChatGPT Project UI update;
 - `project_sources_files_refresh_required`: no current Project Files/Sources refresh;
 - `request_only_sources_refresh_required`: no request-only source refresh;
-- `do_not_upload_as_project_file`: all `workflow_v3/**` files until a later explicit Project setup rollout/adoption package says otherwise, including `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, `workflow_v3/evals/**`, and Project Instructions source files.
+- `do_not_upload_as_project_file`: all `workflow_v3/**` files until a later explicit Project setup/adoption package says otherwise, including `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, `workflow_v3/evals/**`, and Project Instructions source files.
 
 END_OF_FILE: workflow_v3/PROJECT_SETUP_MODEL.md

@@ -23,13 +23,14 @@ Repository setup files define behavior surfaces, manifests, launch packets, and 
 
 ## Current status
 
-- Governance Maintenance Console Project Instructions UI was already manually updated and recorded in `workflow_v3/project_setup/rollouts/GOVERNANCE_MAINTENANCE_PROJECT_ROLLOUT_RESULT.md`.
+- Governance Maintenance Console Project Instructions source is current; actual Project Instructions UI update is deferred until final repository cleanup is complete.
+- Manual UI update uses only the trimmed payload between markers in `workflow_v3/project_setup/GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md`.
 - Ordinary Direction Project setup is repository-ready, but no ordinary Direction Project has been manually created from these files.
 - Ordinary Direction Project first chat is setup-only root bootstrap; semantic Direction Definition is a separate later step.
 - No ordinary Direction Project binding or concrete Direction runtime root is present after this cleanup.
 - No Direction adoption happens from setup docs alone.
 - No `directions_v3/<direction-id>/runtime/**` root is created from setup docs alone.
-- Actual Project Instructions UI updates, Project Files/Sources refreshes, and request-only source refreshes require explicit future user action or rollout evidence.
+- Actual Project Instructions UI updates require explicit future user action from the canonical source payload. Project Files/Sources refreshes and request-only source loading remain separate.
 
 ## Index
 
@@ -47,6 +48,5 @@ Repository setup files define behavior surfaces, manifests, launch packets, and 
 - `PROJECT_FILES_MANIFEST_TEMPLATE.md` - general Workflow v3 Project Files/Sources manifest template.
 - `GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` - compact Project Instructions UI payload source for the Governance Maintenance Console.
 - `GENERIC_AI_PROVIDER_SETUP.md` - setup contract for supported AI/provider adapters.
-- `rollouts/` - recorded external/manual rollout evidence.
 
 END_OF_FILE: workflow_v3/project_setup/README.md
