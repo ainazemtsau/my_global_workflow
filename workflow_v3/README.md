@@ -10,7 +10,7 @@ This slice activates only the documentation/setup skeleton under `workflow_v3/**
 
 The current Workflow OS remains the legacy and rollback system until a later explicit activation and adoption package says otherwise.
 
-The repository-side completion framework adds clean-start adoption templates, canonical procedure files, validation evals, setup protocols, and a final completion matrix. Procedure files may be active procedures or pending-authoring stubs. This slice remains documentation/setup only.
+The repository-side completion framework adds clean-start adoption templates, canonical procedure files, validation evals, setup protocols, and a final completion matrix. Procedure implementation status is authoritative only in each procedure file header. This slice remains documentation/setup only.
 
 ## Scope of this slice
 
@@ -102,17 +102,17 @@ Direction Definition is the separate semantic process after setup-only root. It 
 - `workflow_v3/adoption/DIRECTION_RUNTIME_CREATION_CHECKLIST.md` - future runtime creation checklist.
 - `workflow_v3/adoption/LEGACY_EVIDENCE_REVIEW_TEMPLATE.md` - legacy evidence review template.
 - `workflow_v3/adoption/ADOPTION_RESULT_PACKET_TEMPLATE.md` - adoption result packet template.
-- `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` - Direction Spine formation procedure stub.
-- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` - Direction Map formation procedure stub.
-- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` - Active Front formation procedure stub.
-- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` - Work Graph formation procedure stub.
-- `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` - Work Contract formation procedure stub.
-- `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` - Work Contract execution procedure stub.
-- `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` - Parent Integration Check procedure stub.
-- `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` - Impact Propagation procedure stub.
-- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation active procedure.
-- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation active procedure.
-- `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion procedure stub.
+- `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` - Direction Spine formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` - Direction Map formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` - Active Front formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` - Work Graph formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` - Work Contract formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` - Work Contract execution procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` - Parent Integration Check procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` - Impact Propagation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion procedure source. Status is authoritative in the file header.
 - `workflow_v3/evals/README.md` - validation eval index.
 - `workflow_v3/evals/WORKFLOW_V3_COMPLETION_VALIDATION_CHECKLIST.md` - completion validation checklist.
 - `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md` - Direction runtime bootstrap eval.
@@ -182,26 +182,26 @@ Direction Definition is the separate semantic process after setup-only root. It 
 - `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md` - canonical Workflow v3 procedure definition framework.
 - `workflow_v3/procedures/PROCEDURE_AUTHORING_GUIDE.md` - guide for writing Workflow v3 procedure files.
 - `workflow_v3/procedures/PROCEDURE_TEMPLATE.md` - reusable template for new Workflow v3 procedures.
-- `workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md` - non-mutating procedure authoring and integration entrypoint.
-- `workflow_v3/procedures/GENERIC_ANSWER_PROCEDURE.md` - lightweight generic answer procedure.
-- `workflow_v3/procedures/STATUS_REVIEW_PROCEDURE.md` - read-only status review procedure.
-- `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` - Codex handoff package procedure.
-- `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md` - Codex result verification procedure.
-- `workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md` - suspect runtime state recovery review procedure.
-- `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md` - setup-only root bootstrap pending-authoring stub.
-- `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md` - Direction Definition pending-authoring stub.
-- `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` - Direction Spine formation pending-authoring stub.
-- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` - Direction Map formation pending-authoring stub.
-- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` - Active Front formation pending-authoring stub.
-- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` - Work Graph formation pending-authoring stub.
-- `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` - Work Contract formation pending-authoring stub.
-- `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` - Work Contract execution pending-authoring stub.
-- `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` - Parent Integration Check pending-authoring stub.
-- `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` - Impact Propagation pending-authoring stub.
-- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation active procedure.
-- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation active procedure.
-- `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion pending-authoring stub.
-- `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` - Storage Update active storage adapter procedure.
+- `workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md` - procedure authoring and integration procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/GENERIC_ANSWER_PROCEDURE.md` - generic answer procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/STATUS_REVIEW_PROCEDURE.md` - status review procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` - Codex handoff procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md` - Codex result verification procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md` - recovery review procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md` - setup-only root bootstrap procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md` - Direction Definition procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md` - Direction Spine formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/DIRECTION_MAP_FORMATION_PROCEDURE.md` - Direction Map formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md` - Active Front formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md` - Work Graph formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/WORK_CONTRACT_FORMATION_PROCEDURE.md` - Work Contract formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md` - Work Contract execution procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md` - Parent Integration Check procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/IMPACT_PROPAGATION_PROCEDURE.md` - Impact Propagation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` - Current Next Move formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` - Acceptance Decision formation procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` - Memory Artifact promotion procedure source. Status is authoritative in the file header.
+- `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` - Storage Update procedure source. Status is authoritative in the file header.
 - `workflow_v3/templates/DIRECTION_PROJECT_BINDING_TEMPLATE.md` - future runtime Project Binding config template.
 - `workflow_v3/templates/DIRECTION_CONSOLE_TEMPLATE.md` - future read-only Direction Console template.
 - `workflow_v3/templates/GOAL_EVIDENCE_GRAPH_TEMPLATE.md` - Goal Evidence Graph template.

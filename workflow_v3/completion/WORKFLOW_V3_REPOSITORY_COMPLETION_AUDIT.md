@@ -4,11 +4,11 @@ status: active_repository_completion_framework
 
 ## Audit scope
 
-This audit covers the repository-side Workflow v3 completion framework:
+This audit is a repository framework coverage audit. It covers the repository-side Workflow v3 completion framework:
 
 - completion matrix;
 - clean-start adoption package model;
-- canonical procedure files, including active procedures and pending-authoring stubs;
+- canonical procedure files, whose implementation status remains authoritative in each procedure file header;
 - evals and validation gates;
 - Project setup and pack source readiness alignment;
 - index reconciliation.
@@ -16,6 +16,17 @@ This audit covers the repository-side Workflow v3 completion framework:
 It explicitly does not cover actual Direction adoption, runtime root creation, legacy import, ChatGPT Project UI update, Project Files/Sources refresh, request-only source refresh, generated pack upload, product execution, or old Workflow OS decommission.
 
 Explicitly authorized decommission/cleanup packages may delete named concrete Direction folders. They must not modify unrelated Direction folders, and they must validate that stale references to the deleted Direction ID do not remain in active v3/current setup docs.
+
+## Status taxonomy
+
+This audit may support the following repository/runtime distinction:
+
+- `repository_framework_coverage_complete` - repository-side framework surfaces have the required coverage and validation hooks.
+- `runtime_not_created` - no `directions_v3/<direction-id>/runtime/**` root is created by this audit.
+- `directions_not_adopted` - no Direction is adopted by this audit.
+- `migration_not_performed` - no legacy Direction state is migrated, bridged, imported, or accepted by this audit.
+- `project_ui_not_updated` - no actual ChatGPT Project Instructions UI is updated by this audit.
+- `project_files_not_refreshed` - no Project Files/Sources or request-only sources are refreshed by this audit.
 
 ## Required source authority
 
@@ -71,6 +82,8 @@ Completion is valid only if these boundaries remain explicit:
 
 ## Completion finding
 
-The repository completion framework is complete when all validation checks pass without requiring a real Direction adoption, runtime root, legacy import, Project UI update, Project Files/Sources refresh, generated pack upload, product execution, or old Workflow OS decommission.
+The repository completion framework finding is `repository_framework_coverage_complete` when all validation checks pass.
+
+That finding is not runtime completion, Direction adoption, legacy migration/import, Project UI update, Project Files/Sources refresh, generated pack upload, product execution, or old Workflow OS decommission. It cannot be used as proof that Workflow v3 ordinary Direction runtime is live or ready without the separate packages and external actions named above.
 
 END_OF_FILE: workflow_v3/completion/WORKFLOW_V3_REPOSITORY_COMPLETION_AUDIT.md
