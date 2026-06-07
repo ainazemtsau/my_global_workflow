@@ -6,7 +6,8 @@ canonical_location: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDU
 entrypoint: accept_candidate_entity
 procedure_boundary: acceptance_review
 kind: core
-utility_policy: utility_allowed_when_needed
+utility_policy: compatibility_alias_for_child_call_policy
+child_call_policy: child_call_allowed_when_needed
 
 ## Purpose
 
@@ -64,7 +65,8 @@ selected_entrypoint: accept_candidate_entity
 selected_procedure_path: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
 procedure_boundary: acceptance_review
 kind: core
-utility_policy: utility_allowed_when_needed
+utility_policy: compatibility_alias_for_child_call_policy
+child_call_policy: child_call_allowed_when_needed
 ```
 
 Required review packet:
@@ -297,7 +299,7 @@ Before forming a decision, read and verify:
 - affected state/path boundary;
 - update authorization and storage package if persistence may be needed;
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` for `acceptance_review`;
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for adapter, utility, storage, and external write boundaries;
+- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for child/adaptor, storage, and external write boundaries;
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` for FINISH_PACKET result and NEXT_CHAT_CARD continuation closure;
 - `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` when a Storage Update Package is referenced or prepared.
 
@@ -457,7 +459,7 @@ purpose: Return the decision record, FINISH_PACKET result, NEXT_CHAT_CARD contin
 activation conditions: Always after decision or blocked result.
 inputs: all prior stage outputs.
 required intermediate output: acceptance_decision_record, closure_result, continuation, source_limitations, residual_risks, CLOSURE_CHECK.
-gate: PASS if decision record and closure packets are complete; PASS_WITH_RISK if limitations are explicit; STOP if closure would hide acceptance, mutation, next work, or pending utility return.
+gate: PASS if decision record and closure packets are complete; PASS_WITH_RISK if limitations are explicit; STOP if closure would hide acceptance, mutation, next work, or pending child/adaptor return.
 checkpoint rule: None.
 expansion rule: None.
 stop behavior: Return ACCEPTANCE_CLOSURE_INCOMPLETE.
@@ -473,8 +475,9 @@ Use:
 - `EXPAND` only for bounded evidence, verification, or source checks needed for this acceptance review.
 - `STOP` when source, authority, independence, scope, evidence, or storage boundary is unsafe.
 - `TRANSFER` only as a closure NEXT_CHAT_CARD continuation artifact; it does not launch the transfer.
-- `UTILITY_CALL` only when this selected acceptance review needs external evidence before forming the decision.
-- `UTILITY_RETURN` only to resume this same selected review after matching returned evidence.
+- `CHILD_PROCEDURE_CALL` only when this selected acceptance review needs external evidence before forming the decision.
+- `CHILD_PROCEDURE_RETURN` only to resume this same selected review after matching returned evidence.
+- Legacy `UTILITY_CALL` and `UTILITY_RETURN` labels are compatibility aliases only for those child/adaptor fields.
 
 ## Forbidden Shortcut Checks
 
@@ -519,37 +522,37 @@ Research posture is `forbidden` by default for ordinary acceptance review.
 
 Use `optional` or `required` research only when the acceptance question depends on current external facts that cannot be resolved from exact internal sources and verified evidence. If research is required, emit a bounded check/research transfer or blocked result; do not invent external facts.
 
-## Utility Decision Gate
+## Child / Adapter Decision Gate
 
-This procedure is a `core` owner and may use the global utility layer only through the Utility Use Gate.
+This procedure is a `core` owner and may use global child/adaptor support only through the child-call gate.
 
-Utility use is allowed only when needed to complete this acceptance review. It must not become procedure switching, hidden mutation, hidden acceptance, hidden next work, or an unbounded external wait.
+Child/adaptor use is allowed only when needed to complete this acceptance review. It must not become procedure switching, hidden mutation, hidden acceptance, hidden next work, or an unbounded external wait.
 
-Common utility choices:
+Common child/adaptor choices:
 
 ```text
-common_utility_choices:
+common_child_adapter_choices:
   - check_job_packet for bounded evidence/source/consistency checks
   - codex_return_verification for returned Codex evidence supplied to this review
   - child_chat_packet only for bounded supporting evidence collection
   - storage_update_package only as a candidate or closure transfer artifact after acceptance/update boundaries are explicit
   - project_refresh_instruction_packet for reporting refresh requirements only
 
-forbidden_utility_categories:
-  - any utility used to accept its own output
-  - any utility used to mutate state directly from this procedure
-  - any utility used to bypass update authorization or Storage Update Package v1
-  - any utility used to launch the selected next move invisibly
+forbidden_child_adapter_categories:
+  - any child/adaptor used to accept its own output
+  - any child/adaptor used to mutate state directly from this procedure
+  - any child/adaptor used to bypass update authorization or Storage Update Package v1
+  - any child/adaptor used to launch the selected next move invisibly
 ```
 
-## Utility / Adapter Policy
+## Child / Adapter Policy
 
 ```text
-utility_call_policy:
-  UTILITY_CALL may be emitted only when this selected acceptance review cannot form the decision without external evidence.
+child_call_policy:
+  CHILD_PROCEDURE_CALL may be emitted only when this selected acceptance review cannot form the decision without external evidence.
 
 external_return_policy:
-  UTILITY_RETURN must resume this same selected procedure and match the emitted handoff.
+  CHILD_PROCEDURE_RETURN must resume this same selected procedure and match the emitted child call.
 
 external_return_verification:
   Returned evidence must be classified as adapter evidence and verified before it affects the acceptance decision.
@@ -561,11 +564,11 @@ storage_boundary:
   Acceptance Decision may produce storage_update_need or a candidate/transfer `storage_update_package.v1` only when update authority and exact package fields are explicit. It must not perform storage mutation.
 ```
 
-External utility writes require Utility Use Gate, write gate, exact paths, validation, and verified return. This procedure does not execute those writes directly.
+External child/adaptor writes require visible `CHILD_PROCEDURE_CALL`, write gate, exact paths, validation, and verified `CHILD_PROCEDURE_RETURN`. This procedure does not execute those writes directly.
 
-## Utility Call and Return Policy
+## Child Call and Return Policy
 
-`UTILITY_CALL` is a mid-RUN gate for missing evidence before decision formation. It must include:
+`CHILD_PROCEDURE_CALL` is a mid-RUN gate for missing evidence before decision formation. It must include:
 
 ```text
 external_surface:
@@ -577,7 +580,7 @@ resume_rule: resume the same selected main procedure
 
 `NEXT_CHAT_CARD.context_to_paste` is a closure artifact after this procedure forms or blocks the decision. It does not launch work and must carry complete transfer content when the next surface is `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`.
 
-FINISH must not be requested while a required utility return is pending.
+FINISH must not be requested while a required child/adaptor return is pending, missing, or unverified.
 
 ## Checkpoint Policy
 
@@ -599,7 +602,7 @@ Do not use checkpoints to imply acceptance or storage authority.
 completion:
   result: acceptance decision result with exactly one scoped decision or blocked decision record
   proof: candidate identity, reviewer authority, evidence review, scope boundary, consequence, storage/update need, validation, and limitations are recorded
-  blocked_if: candidate identity is ambiguous, evidence is insufficient, reviewer authority is absent, update boundary is missing, direct mutation is requested, or required utility return is pending
+  blocked_if: candidate identity is ambiguous, evidence is insufficient, reviewer authority is absent, update boundary is missing, direct mutation is requested, or required child/adaptor return is pending, missing, or unverified
 ```
 ## Output Contract
 
@@ -669,7 +672,7 @@ storage_update_package_if_applicable: not_applicable
 
 ## Project Refresh Reporting
 
-For this Phase 1 system blocker procedure persistence batch, report refresh requirements as:
+Report refresh requirements for the scoped acceptance decision context as:
 
 ```yaml
 project_instruction_ui_update_required: false
@@ -693,8 +696,8 @@ Procedure Definition checks:
 - Stage Cards produce intermediate outputs and real gates.
 - Forbidden shortcut checks are mandatory.
 - Candidate quality, acceptance, update authorization, and storage execution are separate.
-- Utility Decision Gate and adapter policy are explicit.
-- External handoff/resume policy is explicit.
+- Child-call decision gate and adapter policy are explicit.
+- External child-call/resume policy is explicit.
 - Closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
 - Canonical path matches registry metadata, and kind matches registry metadata.
 
@@ -707,14 +710,14 @@ Procedure Execution checks:
 - Acceptance scope did not broaden beyond evidence and authority.
 - No direct storage mutation occurred.
 - Storage Update Package v1 was used as canonical executable storage schema.
-- FINISH was requested only after decision or blocked result and no pending required utility return.
+- FINISH was requested only after decision or blocked result and no pending, missing, or unverified required child/adaptor return.
 - NEXT_CHAT_CARD continuation selected exactly one primary next move and did not launch it.
 
 Cross-boundary checks:
 
 - Storage Update verifies and executes storage packages; Acceptance Decision does not write state directly.
 - Current Next Move may route an acceptance result to storage only with a complete Storage Update Package v1 transfer packet.
-- External writes require Utility Use Gate, write gate, exact paths, validation, and verified return.
+- External writes require visible `CHILD_PROCEDURE_CALL`, write gate, exact paths, validation, and verified `CHILD_PROCEDURE_RETURN`.
 
 ## Stop Conditions
 
@@ -732,7 +735,7 @@ Stop or return `blocked` when:
 - direct storage mutation is requested;
 - a Storage Update Package would require alternate schema fields instead of `storage_update_package.v1`;
 - a required Transfer Packet is missing or a placeholder;
-- required utility return is pending before FINISH is requested;
+- required child/adaptor return is pending, missing, or unverified before FINISH is requested;
 - the procedure would launch repair, storage, Codex, child, check, or next material work directly.
 
 ## Procedure Closure
@@ -745,7 +748,7 @@ RUN completion requests FINISH only after:
 - acceptance scope and explicitly not accepted scope are separated;
 - storage/update consequence is explicit;
 - any required Transfer Packet is complete or the blocker is stated;
-- no required utility return is pending;
+- no required child/adaptor return is pending, missing, or unverified;
 - FINISH_PACKET result and NEXT_CHAT_CARD continuation are ready.
 
 After explicit FINISH or ФИНИШ, close with:

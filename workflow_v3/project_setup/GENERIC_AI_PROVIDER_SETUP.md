@@ -40,13 +40,13 @@ forbidden_decisions:
 
 ChatGPT is used for planning, synthesis, bounded work chats, child/parent coordination, code-assistant work package creation, returned evidence verification, and human-readable closure.
 
-ChatGPT setup requires compact Project Instructions UI, exact source refs when state matters, Project Files/Sources classified as cache/context, and explicit START_CONTRACT, STAGE_RESULT, UTILITY_CALL / UTILITY_RETURN, CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed boundaries.
+ChatGPT setup requires compact Project Instructions UI, exact source refs when state matters, Project Files/Sources classified as cache/context, and explicit Operator Brief, START_CONTRACT, STAGE_RESULT, CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN, RUN_WAITING_FOR_CHILD_RETURN, CHILD_RETURN_VERIFICATION, CLOSURE_CHECK, FINISH_PACKET, and post-closed NEXT_CHAT_CARD or no_next_chat_needed boundaries. Legacy UTILITY_CALL / UTILITY_RETURN labels are compatibility aliases only for child/adaptor packets.
 
 ## Codex
 
 Codex is used for bounded repository work.
 
-Codex setup requires repository, base ref, target branch or branch policy, allowed paths, forbidden paths, required changes, validation, stop conditions, commit/push instructions when authorized, and requested return fields.
+Codex setup requires repository, base ref, target branch or branch policy, allowed paths, forbidden paths, required changes, validation, stop conditions, commit/push instructions when authorized, requested return fields, expected `CHILD_PROCEDURE_RETURN`, and parent verification contract.
 
 Codex must stop when repository state, source access, branch state, or validation makes the package unsafe.
 

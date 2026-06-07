@@ -4,11 +4,11 @@ status: interface_summary
 
 ## Purpose
 
-This interface summarizes code-assistant and provider boundaries for Workflow v3. It is provider-neutral: Codex, Claude Code, future code assistants, GitHub/file tools, research agents, check jobs, and human decisions are utility surfaces when used during RUN.
+This interface summarizes code-assistant and provider boundaries for Workflow v3. It is provider-neutral: Codex, Claude Code, future code assistants, GitHub/file tools, research agents, check jobs, and human decisions are child/adaptor surfaces when used during RUN.
 
 ## Authority
 
-Provider-neutral utility calls are governed by:
+Provider-neutral child/adaptor calls are governed by:
 
 ```text
 workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
@@ -16,13 +16,13 @@ workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
 
 Provider returns are evidence. They are not accepted state, procedure completion, or ChatGPT FINISH by themselves.
 
-## Utility Use
+## Child / Adaptor Use
 
-A selected main procedure may call a provider only through visible `UTILITY_CALL` when the current stage needs it. The return must come back as `UTILITY_RETURN`, match the call, resume the same selected main procedure, and be verified before reliance.
+A selected main procedure may call a provider only through visible `CHILD_PROCEDURE_CALL` when the current stage needs it. The parent enters `RUN_WAITING_FOR_CHILD_RETURN`; the return must come back as `CHILD_PROCEDURE_RETURN`, match the call, resume the same selected main procedure, and pass `CHILD_RETURN_VERIFICATION` before reliance. Legacy `UTILITY_CALL` / `UTILITY_RETURN` labels are compatibility aliases only.
 
-## Code-Assistant Package
+## Code-Assistant Child-Call Packet
 
-A code-assistant package should include:
+A code-assistant child-call packet should include:
 
 ```text
 repository:
@@ -39,6 +39,8 @@ stop_conditions:
 commit_push_instructions:
 requested_return_fields:
 project_refresh_requirements:
+parent_verification_contract:
+unresolved_until_returned:
 ```
 
 ## Verification

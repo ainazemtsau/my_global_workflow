@@ -27,8 +27,8 @@ Child procedure calls may support the selected main procedure under `workflow_v3
 Procedure files should align with the registry `kind`:
 
 - `core` - selectable main procedure for material workflow work.
-- `utility` - selectable as a utility artifact or callable during RUN.
-- `verification` - selectable for verification or callable during RUN.
+- `utility` - child/adaptor schema callable during RUN under a selected main/core parent; not a standalone terminal artifact.
+- `verification` - child/adaptor verification schema callable under the same parent lifecycle or admitted verification owner; not standalone package completion.
 - `storage` - selectable for admitted bounded persistence.
 - `readonly` - selectable for non-material reads or answers.
 

@@ -6,7 +6,8 @@ canonical_location: workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE
 entrypoint: form_current_next_move
 procedure_boundary: formation_chat
 kind: core
-utility_policy: utility_allowed_when_needed
+utility_policy: compatibility_alias_for_child_call_policy
+child_call_policy: child_call_allowed_when_needed
 
 ## Purpose
 
@@ -38,7 +39,7 @@ Do not use this procedure to:
 - accept candidate output;
 - persist accepted state;
 - verify Codex results as a standalone verification run;
-- replace `UTILITY_CALL` while the current main procedure RUN still needs external evidence before completion;
+- replace `CHILD_PROCEDURE_CALL` while the current main procedure RUN still needs external evidence before completion;
 - use `human_decision` to avoid producing a materially known required Transfer Packet;
 - emit multiple primary next moves;
 - continue from one steering entity to another by conversation momentum;
@@ -56,7 +57,7 @@ closure_state:
   procedure_boundary:
   kind:
   finished_or_blocked_work:
-  utility_return_status:
+  child_return_status:
   unresolved_items:
 
 closure_result:
@@ -389,7 +390,7 @@ next_material_chat_transfer_packet:
   target_procedure_path:
   target_procedure_boundary:
   kind:
-  utility_policy:
+  child_call_policy:
   purpose:
   source_authority:
   required_sources:
@@ -415,7 +416,7 @@ Required source classes:
 - exact persistence/storage boundary, if storage or accepted state is relevant;
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` for NEXT_CHAT_CARD continuation fields and allowed values;
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` when lifecycle state or same-chat closure matters;
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when utility, adapter, Codex, check, child, storage, utility call, or return boundaries are relevant;
+- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when child/adaptor, Codex, check, child, storage, child call, or return boundaries are relevant;
 - exact target adapter/procedure stub or active procedure source when the next move names a specific target surface.
 
 EOF or source-integrity checks are required where the source being relied on has an EOF marker.
@@ -497,7 +498,7 @@ stop behavior: Return SOURCE_INTEGRITY_STOP or BLOCKED_NEXT_MOVE_SOURCE_MISSING.
 stage_id: boundary_classification
 purpose: Separate acceptance, persistence, adapter evidence, candidate output, and blocked state.
 activation conditions: Always after Stage 0.
-inputs: closure_result, acceptance_boundary, persistence_boundary, utility_return_status, validation, changed_files, not_done.
+inputs: closure_result, acceptance_boundary, persistence_boundary, child_return_status, validation, changed_files, not_done.
 required intermediate output: acceptance_boundary_final, persistence_boundary_final, adapter_evidence_status, unresolved_items, prohibited_next_moves.
 gate: PASS if acceptance and persistence boundaries are explicit and separate; REWORK if labels are present but ambiguous; STOP if selecting a next move would create acceptance or persistence by implication.
 checkpoint rule: Checkpoint if human authority is required to decide acceptance or persistence and no accepted boundary exists.
@@ -522,7 +523,7 @@ stop behavior: Return NEXT_MOVE_UNDETERMINED or SPLIT_REQUIRED.
 Candidate selection priority:
 
 1. If required source, closure state, closure result, accepted boundary, destination, or required transfer packet is missing, choose a blocked/repair/human decision path according to material cause.
-2. If a required mid-RUN utility return is still pending, do not form closure next move; stop because FINISH is premature.
+2. If a required mid-RUN child/adaptor return is still pending, missing, or unverified, do not form closure next move; stop because FINISH is premature.
 3. If accepted decision plus explicit update authority and complete `storage_update_package.v1` exist, choose `storage_update`.
 4. If repair is required and the repair surface is known, choose bounded repair through `codex`, `check_job`, `child_chat`, or `next_material_chat` with a complete transfer packet.
 5. If Codex result verification is required and evidence is available but unverified, choose `codex_verification`.
@@ -576,11 +577,11 @@ stop behavior: Return CONTINUATION_INVALID.
 
 ```text
 stage_id: closure_readiness
-purpose: Verify the procedure can close without pending required utility returns or hidden continuation.
+purpose: Verify the procedure can close without pending required child/adaptor returns or hidden continuation.
 activation conditions: Always.
-inputs: continuation, result status, utility_return_status, unresolved_items.
+inputs: continuation, result status, child_return_status, unresolved_items.
 required intermediate output: closure_readiness_result, unresolved_items_final, CLOSURE_CHECK readiness.
-gate: PASS if no required UTILITY_CALL return is pending and the NEXT_CHAT_CARD continuation is complete; STOP if closure would happen before required utility return; PASS_WITH_RISK if limitations are explicit and non-blocking.
+gate: PASS if no required CHILD_PROCEDURE_CALL return is pending, missing, or unverified and the NEXT_CHAT_CARD continuation is complete; STOP if closure would happen before required child/adaptor return verification; PASS_WITH_RISK if limitations are explicit and non-blocking.
 checkpoint rule: None.
 expansion rule: None.
 stop behavior: Return EXTERNAL_RETURN_REQUIRED_STOP or CLOSURE_BLOCKED.
@@ -597,13 +598,13 @@ REWORK
 EXPAND
 STOP
 TRANSFER
-UTILITY_CALL
-UTILITY_RETURN
+CHILD_PROCEDURE_CALL
+CHILD_PROCEDURE_RETURN
 ```
 
 `TRANSFER` in this procedure means producing a closure transfer packet as part of the NEXT_CHAT_CARD continuation. It does not launch the transfer.
 
-`UTILITY_CALL` is allowed only if this selected `form_current_next_move` RUN itself requires an external utility result before it can complete the NEXT_CHAT_CARD continuation. It is not the same as closure transfer content carried inside `NEXT_CHAT_CARD.context_to_paste`.
+`CHILD_PROCEDURE_CALL` is allowed only if this selected `form_current_next_move` RUN itself requires an external child/adaptor result before it can complete the NEXT_CHAT_CARD continuation. It is not the same as closure transfer content carried inside `NEXT_CHAT_CARD.context_to_paste`. Legacy `UTILITY_CALL` and `UTILITY_RETURN` labels are compatibility aliases only for child/adaptor call and return fields.
 
 ## Optional Expansion
 
@@ -612,7 +613,7 @@ Allowed expansion is limited to:
 - reading exact target procedure, adapter, or procedure-boundary sources needed to complete the selected Transfer Packet;
 - producing a bounded check/child/Codex/storage transfer packet as a closure artifact;
 - asking for a human decision only when the missing information is genuinely not derivable and not a materially known required transfer;
-- verifying a returned external result only if the same selected RUN emitted a `UTILITY_CALL` and the return is needed before closure.
+- verifying a returned external result only if the same selected RUN emitted a `CHILD_PROCEDURE_CALL` and the return is needed before closure.
 
 Expansion must not:
 
@@ -642,16 +643,16 @@ required:
 
 If research is required, this procedure must not invent the answer. It must produce a bounded check/research handoff or blocked/human decision path, according to the material blocker.
 
-## Utility Decision Gate
+## Child / Adapter Decision Gate
 
-This procedure is a `core` owner and may use the global utility layer only through the Utility Use Gate.
+This procedure is a `core` owner and may use global child/adaptor support only through the child-call gate.
 
-Utility use is allowed only when needed to complete the current NEXT_CHAT_CARD continuation formation work. Utility use must not become procedure switching, hidden mutation, hidden acceptance, hidden next work, or an unbounded external wait.
+Child/adaptor use is allowed only when needed to complete the current NEXT_CHAT_CARD continuation formation work. It must not become procedure switching, hidden mutation, hidden acceptance, hidden next work, or an unbounded external wait.
 
-Common utility choices:
+Common child/adaptor choices:
 
 ```text
-common_utility_choices:
+common_child_adapter_choices:
   - check_job_packet for bounded source/evidence/consistency checks needed before selecting the next move
   - child_chat_packet for bounded supporting work needed before selecting the next move
   - codex_handoff_packet only as a closure transfer artifact, not as a launched run
@@ -659,21 +660,21 @@ common_utility_choices:
   - storage_update_package only as closure transfer artifact after acceptance/update authority is clear
   - project_refresh_instruction_packet for reporting refresh requirements only
 
-forbidden_utility_categories:
-  - any utility used to launch the selected next move invisibly
-  - any utility used to mutate state without admitted write gate and verified return
-  - any utility used to accept this procedure's own output
-  - any utility used to convert NEXT_CHAT_CARD continuation into a mid-RUN utility call
+forbidden_child_adapter_categories:
+  - any child/adaptor used to launch the selected next move invisibly
+  - any child/adaptor used to mutate state without admitted write gate and verified return
+  - any child/adaptor used to accept this procedure's own output
+  - any child/adaptor used to convert NEXT_CHAT_CARD continuation into a mid-RUN child call
 ```
 
-## Utility / Adapter Policy
+## Child / Adapter Policy
 
 ```text
-utility_call_policy:
-  UTILITY_CALL may be emitted only when this selected main procedure RUN cannot complete NEXT_CHAT_CARD continuation formation without an external utility result.
+child_call_policy:
+  CHILD_PROCEDURE_CALL may be emitted only when this selected main procedure RUN cannot complete NEXT_CHAT_CARD continuation formation without an external child/adaptor result.
 
 external_return_policy:
-  UTILITY_RETURN must resume the same selected main procedure and match the emitted handoff.
+  CHILD_PROCEDURE_RETURN must resume the same selected main procedure and match the emitted child call.
 
 external_return_verification:
   Returned evidence must be classified as adapter evidence and verified before it affects the NEXT_CHAT_CARD continuation.
@@ -685,11 +686,11 @@ storage_boundary:
   This procedure may produce a storage_update Transfer Packet when acceptance/update authority and a complete Storage Update Package exist. It must not perform storage mutation.
 ```
 
-## Utility Call and Return Policy
+## Child Call and Return Policy
 
 Distinguish two different mechanisms:
 
-1. `UTILITY_CALL` during RUN:
+1. `CHILD_PROCEDURE_CALL` during RUN:
    - used only before this procedure can complete;
    - requires complete copy-paste packet, expected return packet, validation, and same-owner resume rule;
    - blocks FINISH until returned, verified, or explicitly abandoned as blocked.
@@ -701,11 +702,11 @@ Distinguish two different mechanisms:
    - does not keep this RUN open;
    - must include complete transfer content for external next surfaces.
 
-The NEXT_CHAT_CARD continuation must never be used as the substitute for a required mid-RUN utility call.
+The NEXT_CHAT_CARD continuation must never be used as the substitute for a required mid-RUN `CHILD_PROCEDURE_CALL`.
 
 ## Project Refresh Reporting
 
-For this Phase 1 system blocker procedure persistence batch, report refresh requirements as:
+Report refresh requirements for the scoped current-next-move formation context as:
 
 ```yaml
 project_instruction_ui_update_required: false
@@ -731,7 +732,7 @@ Checkpoint or stop when:
 - the destination is missing;
 - multiple primary next moves are materially plausible;
 - the required transfer packet cannot be completed;
-- the closure state indicates a pending required UTILITY_CALL return;
+- the closure state indicates a pending, missing, or unverified required `CHILD_PROCEDURE_CALL` return;
 - selecting the next move would decide acceptance, mutate storage, or launch work.
 
 ## Completion Contract
@@ -740,7 +741,7 @@ Checkpoint or stop when:
 completion:
   result: next move formation result with one primary next move and complete NEXT_CHAT_CARD or no_next_chat_needed
   proof: source closure state, boundary classification, rejected alternatives, transfer/card completeness, validation, and limitations are recorded
-  blocked_if: closure state, selected procedure context, acceptance/persistence boundary, return destination, transfer/card content, or required utility return is missing
+  blocked_if: closure state, selected procedure context, acceptance/persistence boundary, return destination, transfer/card content, or required child/adaptor return is missing or unverified
 ```
 ## Output Contract
 
@@ -782,7 +783,7 @@ CLOSURE_CHECK:
   selected_work:
   run_result_summary:
   unresolved_items:
-  utility_return_status:
+  child_return_status:
   finish_gate:
 ```
 
@@ -809,11 +810,11 @@ Procedure Definition checks:
 - Context classification exists.
 - Complexity selector exists.
 - Stage Cards use material gates.
-- Gate outcomes include STOP, REWORK, EXPAND, TRANSFER, UTILITY_CALL, and UTILITY_RETURN where applicable.
+- Gate outcomes include STOP, REWORK, EXPAND, TRANSFER, CHILD_PROCEDURE_CALL, and CHILD_PROCEDURE_RETURN where applicable.
 - Output contract is downstream-usable.
 - Stop conditions prevent invention, boundary crossing, hidden mutation, hidden acceptance, and hidden next launch.
-- Utility Decision Gate is explicit.
-- External handoff/resume policy is explicit.
+- Child-call decision gate is explicit.
+- External child-call/resume policy is explicit.
 - Closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation correctly.
 - Canonical path matches registry metadata, and kind matches registry metadata.
 
@@ -826,8 +827,8 @@ Procedure Execution checks:
 - Closure next move selects exactly one primary next move.
 - Required transfer packet is complete for `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`.
 - `human_decision` is not used as transfer avoidance.
-- NEXT_CHAT_CARD continuation is not used for mid-RUN `UTILITY_CALL`.
-- FINISH is not requested while a required utility return is pending.
+- NEXT_CHAT_CARD continuation is not used for mid-RUN `CHILD_PROCEDURE_CALL`.
+- FINISH is not requested while a required child/adaptor return is pending, missing, or unverified.
 - Final closure does not launch next work.
 
 Cross-boundary checks:
@@ -860,8 +861,8 @@ Stop or return blocked result when:
 - next move selection would mutate repository/runtime state;
 - next move selection would accept candidate output;
 - next move selection would launch work;
-- NEXT_CHAT_CARD continuation is being used as mid-RUN `UTILITY_CALL`;
-- required utility return is still pending before FINISH is requested;
+- NEXT_CHAT_CARD continuation is being used as mid-RUN `CHILD_PROCEDURE_CALL`;
+- required child/adaptor return is still pending, missing, or unverified before FINISH is requested;
 - exact repository/source authority cannot support the selected packet.
 
 ## Procedure Closure

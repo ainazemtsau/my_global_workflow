@@ -10,7 +10,7 @@ Acceptance Decision may authorize that storage update is needed. It does not gra
 
 Direct ChatGPT canonical persistence requires storage_update admission.
 
-External Codex/storage utility persistence may occur inside a core main procedure RUN only through Utility Use Gate, write gate, exact path boundaries, validation, and verified UTILITY_RETURN.
+External Codex/storage child/adaptor persistence may occur inside a core main procedure RUN only through visible `CHILD_PROCEDURE_CALL`, write gate, exact path boundaries, validation, and verified `CHILD_PROCEDURE_RETURN`. Legacy `UTILITY_CALL` / `UTILITY_RETURN` labels are compatibility aliases only and do not define standalone write completion.
 
 GitHub write tools are default-denied by workflow policy.
 

@@ -42,7 +42,7 @@ Runs before Direction Definition. Produces setup-only candidate package and next
 - prepare setup-only runtime root package;
 - prepare placeholder state files with `pending_definition` / `none_selected` values;
 - prepare Project Binding / setup source plan if applicable;
-- output storage update or Codex handoff package only if explicitly authorized.
+- output a candidate storage update package or Codex `CHILD_PROCEDURE_CALL` envelope only when explicitly authorized by the selected parent/core goal, with return verification required before parent closure.
 
 ## future_body_must_not
 
@@ -91,6 +91,8 @@ NEXT_CHAT_CARD:
   evidence_or_return_needed: updated procedure source with completion block
   start_instruction: START with author_workflow_procedure for this file
 ```
+
+This stub remains blocked until the detailed body is authored. Its NEXT_CHAT_CARD is post-closed continuation for a separate authoring lifecycle and must not carry unfinished child work from a current bootstrap RUN.
 
 ## procedure_closure_shape
 

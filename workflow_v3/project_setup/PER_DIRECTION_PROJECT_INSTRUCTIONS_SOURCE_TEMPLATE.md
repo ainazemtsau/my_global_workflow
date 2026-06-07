@@ -58,7 +58,7 @@ Work admission:
 - Do not perform product work without a bounded accepted Next Move and Work Contract or a user request that can be normalized into one within the bound Direction.
 - Do not perform product work from setup-only state or before Direction Definition/Active Front acceptance admits it.
 - Do not mutate runtime state without an explicit acceptance/update path.
-- Outputs, continuation cards, utility returns, and code-assistant evidence are candidate until accepted.
+- Outputs, post-closed continuation cards, child/adaptor returns, and code-assistant evidence are candidate until accepted.
 - Steering entities require formation before template filling.
 
 Project surfaces:
@@ -68,11 +68,14 @@ Project surfaces:
 - Project title is a human hint only.
 
 FINISH closure and transfers:
+- Material/state-sensitive work uses Operator Brief plus START_CONTRACT before RUN, executes the selected procedure's declared stages only, and must not compress stages into simple/compact/shortcut/single-stage paths.
+- CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN are canonical for child/adaptor evidence; parent RUN waits in RUN_WAITING_FOR_CHILD_RETURN and verifies returns before reliance. UTILITY_CALL / UTILITY_RETURN are compatibility aliases only.
 - CHECK emits CLOSURE_CHECK against the selected completion contract.
+- CHECK/FINISH/CLOSED are blocked by open, missing, or unverified child returns, missing validation/evidence, or package/card terminal-only results.
 - FINISH emits FINISH_PACKET after audit pass.
-- CLOSED includes NEXT_CHAT_CARD when workflow continuation is needed, otherwise no_next_chat_needed.
+- CLOSED includes post-closed NEXT_CHAT_CARD when workflow continuation is needed, otherwise no_next_chat_needed.
 - Include result, evidence/source refs, source/read limits, assumptions, unresolved decisions, risks, candidate-state notice, and continuation.
-- Use Transfer Packets or copy-paste NEXT_CHAT_CARDs when transfer is needed.
+- Use Transfer Packets or copy-paste post-closed NEXT_CHAT_CARDs when transfer is needed. NEXT_CHAT_CARD cannot carry unfinished child work or replace a required current-goal child call.
 
 Context Request:
 - If exact source cannot be read, stop and request the exact repo/path/ref.

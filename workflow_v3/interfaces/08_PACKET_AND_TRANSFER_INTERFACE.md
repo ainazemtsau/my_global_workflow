@@ -12,11 +12,11 @@ This interface summarizes user-visible packets. Runtime authority remains in the
 | --- | --- | --- |
 | `START_CONTRACT` | Shows selected main procedure, completion contract, stages, and boundaries before RUN. | Waits for START / СТАРТ. |
 | `STAGE_RESULT` | Reports one completed material stage. | Waits for CONTINUE / ДАЛЬШЕ before next material stage unless next step is `internal_check`. |
-| `UTILITY_CALL` | Sends bounded supporting work to a utility surface. | Must name why, target, packet/call boundary, expected return, verification, and same-procedure resume. |
-| `UTILITY_RETURN` | Brings utility evidence back. | Must match the call and verify evidence before reliance. |
+| `CHILD_PROCEDURE_CALL` | Sends bounded supporting work to a child/adaptor surface. | Must name why, target, packet/call boundary, expected return, verification, same-procedure resume, and unresolved-until-returned status. |
+| `CHILD_PROCEDURE_RETURN` | Brings child/adaptor evidence back. | Must match the call, resume the same selected main procedure, and pass verification before reliance. |
 | `CLOSURE_CHECK` | Compares actual result to selected procedure completion. | Pass, repair, or blocked decision. |
 | `FINISH_PACKET` | Final audit and closure. | Includes result and continuation. |
-| `NEXT_CHAT_CARD` | Copy-paste continuation for a new material chat. | Complete enough that the user does not assemble the next prompt manually. |
+| `NEXT_CHAT_CARD` | Post-closed copy-paste continuation for a new material chat. | Complete enough that the user does not assemble the next prompt manually; cannot carry unfinished current-goal child work. |
 
 ## NEXT_CHAT_CARD Shape
 
@@ -33,6 +33,6 @@ NEXT_CHAT_CARD:
 
 ## Transfer Boundary
 
-Transfer packets and next-chat cards are candidates until explicitly launched. They do not accept state or start work invisibly.
+Transfer packets may be post-closed continuation content or the body of a visible `CHILD_PROCEDURE_CALL`, depending on lifecycle position. They do not accept state, start work invisibly, or substitute for a required current-goal `CHILD_PROCEDURE_CALL`. `NEXT_CHAT_CARD` is post-closed continuation only and must not carry unfinished child work.
 
 END_OF_FILE: workflow_v3/interfaces/08_PACKET_AND_TRANSFER_INTERFACE.md

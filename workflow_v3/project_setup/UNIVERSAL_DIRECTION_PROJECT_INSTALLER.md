@@ -58,6 +58,9 @@ The first chat in the new ordinary Direction Project must:
 - classify setup mode and legacy policy;
 - emit the lifecycle fact for root bootstrap, usually `direction_runtime_missing` or `direction_adoption_needed`;
 - use `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`;
+- show Operator Brief plus START_CONTRACT with start_goal, terminal_condition, completion contract, declared stages, child_call_policy, boundaries, and sources before material RUN;
+- execute declared stages with STAGE_RESULT and no runtime stage compression after START;
+- treat code assistants, storage, checks, child chats, research, GitHub/file access, and human decisions as child/adaptors requiring CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN and parent verification when used before closure;
 - not require initial root outcome;
 - classify any user-provided outcome, tracks, or product ideas as `candidate_context_for_direction_definition` only;
 - stop if a required source or decision is missing;
@@ -65,8 +68,9 @@ The first chat in the new ordinary Direction Project must:
 - if a setup-only runtime root package is prepared, require placeholder pending Definition statuses, `runtime/config/DIRECTION_PROJECT_BINDING.md`, and per-Direction Project setup sources in the package;
 - return setup-only root status;
 - emit CLOSURE_CHECK against the root bootstrap completion contract;
-- close with FINISH_PACKET after audit pass;
-- include NEXT_CHAT_CARD for `launch_direction_definition` or no_next_chat_needed if blocked/terminal.
+- block CLOSURE_CHECK/FINISH on open, missing, or unverified child returns or missing validation/evidence;
+- close with FINISH_PACKET after audit pass and never by handoff/card/package/check/storage/copy-paste packet alone;
+- include post-closed NEXT_CHAT_CARD for `launch_direction_definition` or no_next_chat_needed if blocked/terminal.
 
 ## Post-bootstrap Project Binding requirement
 

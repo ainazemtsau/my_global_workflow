@@ -25,7 +25,7 @@ Validate Acceptance Decision formation quality.
 - Evidence refs are missing.
 - Acceptance is implied from validation or file existence.
 - State mutation authorization is unclear.
-- Acceptance review performs direct repository write without Storage Update Package / `storage_update` admission, or external utility write without Utility Use Gate and verified return.
+- Acceptance review performs direct repository write without Storage Update Package / `storage_update` admission, or external child/adaptor write without visible `CHILD_PROCEDURE_CALL` and verified `CHILD_PROCEDURE_RETURN`.
 - Producing adapter accepts or writes its own output.
 
 END_OF_FILE: workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md
