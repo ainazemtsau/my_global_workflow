@@ -933,23 +933,30 @@ NEXT_CHAT_CARD:
 
 ```text
 NEXT_CHAT_CARD:
-  title: Send bounded repair patch to Codex.
-  why: Repair is required and the bounded Codex package is complete.
-  main_procedure_to_start: codex_handoff
+  title: Start bounded repair owner run.
+  why: Current lifecycle is explicitly blocked or completed, and a separate repair owner run is required.
+  main_procedure_to_start: author_workflow_procedure
   context_to_paste:
-    return_destination: same parent owner run for verification
-    transfer_packet:
-      transfer_type: codex
-      copy_paste_packet: complete bounded Codex package
-      expected_return_packet:
-        changed_files:
-        validation_outputs:
-        final_main_commit_sha_after_push:
-    persistence_boundary: Codex may change only allowed paths; returned evidence is not accepted state.
-    acceptance_boundary: Repair output requires verification and acceptance after return.
-  expected_result: Codex return evidence or typed blocker.
-  evidence_or_return_needed: changed files, validation outputs, and final commit/branch if applicable.
-  start_instruction: START with codex_handoff using the pasted bounded package.
+    repair_goal: apply bounded repair through the registered owner procedure.
+    current_goal_boundary: If repair is still required for the current START goal, emit CHILD_PROCEDURE_CALL before closure and do not use NEXT_CHAT_CARD.
+    child_call_needed_if_repair_requires_codex:
+      CHILD_PROCEDURE_CALL:
+        target_child_or_adapter: Codex
+        unresolved_until_returned: true
+        expected_return_packet:
+          changed_files:
+          validation_outputs:
+          final_commit_sha:
+        parent_verification_required:
+          - branch/commit/changed files
+          - allowed/forbidden paths
+          - validation
+          - EOF markers
+          - refresh categories
+    boundary: Codex is child/adaptor evidence only, not selected main procedure and not completion.
+  expected_result: owner procedure completes or blocks after child return verification.
+  evidence_or_return_needed: verified child return evidence or explicit blocked result.
+  start_instruction: START with the registered core owner procedure for the repair goal.
 ```
 
 ### Example: missing human choice is real
