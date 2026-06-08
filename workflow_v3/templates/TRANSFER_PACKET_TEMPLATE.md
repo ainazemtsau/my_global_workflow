@@ -38,6 +38,8 @@ A Transfer Packet is complete copy-paste transport for the selected surface. Dep
 
 It remains candidate until explicitly launched or accepted where acceptance is required. It cannot substitute for a required current-goal `CHILD_PROCEDURE_CALL`, cannot satisfy parent completion by itself, and cannot carry unfinished child work inside a post-closed `NEXT_CHAT_CARD`.
 
+When the selected RUN requires current-goal child/adaptor repair, transfer content must be embedded inside the opened `CHILD_PROCEDURE_CALL` body. It must not be left as future operator action while the parent continues to later stages, CHECK, FINISH, or CLOSED.
+
 `copy_paste_packet` must be standalone. Do not tell the user to reconstruct a prompt or package from previous chat memory.
 
 END_OF_FILE: workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md

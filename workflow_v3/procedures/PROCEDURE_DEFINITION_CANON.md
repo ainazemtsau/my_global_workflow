@@ -86,6 +86,8 @@ Runtime output should be simple `STAGE_RESULT`, not schema-heavy stage cards.
 
 Runtime must execute the selected procedure's declared stages. START/RUN must not invent ad hoc simple, compact, shortcut, or single-stage compression that bypasses declared stages. A procedure may be designed with a small declared stage list, but runtime cannot merge multiple declared stages into one undeclared stage. A declared stage may end quickly or be marked not_applicable with evidence, but it must still be represented in progression when applicable. Each material stage emits `STAGE_RESULT` and waits for CONTINUE / ДАЛЬШЕ unless the next step is `internal_check`.
 
+When the operator writes Russian, START and STAGE_RESULT human-facing summaries should use the Russian operator-first shapes from the lifecycle/template files: `## Коротко` for START, `## Коротко по шагу` for STAGE_RESULT, and `## Техническая часть` for compact canonical fields. The human summary must be enough to understand the goal, result, review need, and next step without reading raw technical fields first.
+
 ## Child Call Policy
 
 A procedure that may use child/adaptor work should state:
@@ -108,6 +110,7 @@ Procedure closure must:
 - produce or explicitly fail its `completion:` contract;
 - state source limitations and unresolved gates;
 - verify any required `CHILD_PROCEDURE_RETURN` before reliance;
+- open `CHILD_PROCEDURE_CALL` when required child/adaptor repair is detected and the parent cannot mutate directly;
 - block CHECK, FINISH, and CLOSED while `open_child_calls != empty`, a required return is missing, a required return is unverified, or required validation/evidence is missing;
 - emit `CLOSURE_CHECK` against the selected completion contract;
 - request FINISH only after CHECK passes or the blocked completion condition is explicit;

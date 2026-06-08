@@ -43,6 +43,8 @@ RUN executes the selected main procedure only. Runtime must execute the selected
 
 `CHILD_PROCEDURE_CALL` is the canonical runtime object for external or subordinate work. Codex, child chat, check job, storage update, research agent, GitHub/file access, human decision, and future providers are child/adapters under this model. `UTILITY_CALL` and `UTILITY_RETURN` may remain as adapter-level compatibility labels, but they are not a separate lifecycle model.
 
+Required current-goal repair through a child/adaptor is deterministic. If RUN detects repair needed and the selected parent cannot mutate directly, RUN emits/opens `CHILD_PROCEDURE_CALL`, records the call in `open_child_calls`, enters `RUN_WAITING_FOR_CHILD_RETURN`, and waits for matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`. CONTINUE / ДАЛЬШЕ, CHECK, FINISH, and CLOSED are invalid until the return is verified or an explicit blocked result is produced.
+
 `CHILD_PROCEDURE_RETURN` is evidence and must be matched to the open child call, verified, and integrated before reliance.
 
 CHECK emits `CLOSURE_CHECK` against the selected procedure `completion:` contract.
@@ -56,6 +58,7 @@ The following invariants block CHECK, FINISH, and CLOSED:
 - `open_child_calls != empty`;
 - `missing_child_return`;
 - `unverified_child_return`;
+- `required_child_work_detected = true` with `child_call_opened = false`;
 - missing required validation or evidence;
 - actual result is only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or other child-call artifact.
 
@@ -110,8 +113,8 @@ If accepted state matters, use canonical repository storage and explicit accepta
 
 ## Runtime Console Boundary
 
-Runtime Console is read-only. It may summarize status, show uncertainty, list candidate actions, and draft candidate launch packets or next-chat cards.
+Runtime Console is read-only. It may summarize status, show uncertainty, list candidate actions, and draft future launch or next-chat cards when no current-goal repair is required.
 
-Runtime Console must not execute material work, mutate accepted state, accept evidence, promote Memory, launch utilities directly, or become a hidden controller.
+Runtime Console must not execute material work, mutate accepted state, accept evidence, promote Memory, launch utilities directly, defer required current-goal child/adaptor repair into future operator action while continuing, or become a hidden controller.
 
 END_OF_FILE: workflow_v3/RUNTIME_MODEL.md

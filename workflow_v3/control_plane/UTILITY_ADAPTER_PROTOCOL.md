@@ -42,6 +42,8 @@ A selected main procedure may use a child/adaptor only when all are true:
 - returned evidence is verified before reliance;
 - the child/adaptor does not mutate state unless an admitted write path, exact paths, validation, and return evidence are present.
 
+If child/adaptor work is required to satisfy the current START goal, the parent must open a visible `CHILD_PROCEDURE_CALL`. The call is `unresolved_until_returned`, `open_child_calls` must include the call id, the next state is `RUN_WAITING_FOR_CHILD_RETURN`, and the next required input is the matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`. CONTINUE / ДАЛЬШЕ, CHECK, FINISH, and CLOSED are invalid while that required call is open, missing, or unverified.
+
 ## CHILD_PROCEDURE_CALL
 
 Use `CHILD_PROCEDURE_CALL` when supporting work must leave the current chat, use a tool/provider, ask a human, or wait for external evidence.
@@ -108,7 +110,7 @@ UTILITY_RETURN:
 
 Direct in-chat mutation is allowed only when the selected main procedure is a storage_update and the package includes authority, exact paths, exact changes, validation, and verification.
 
-A core procedure may use an external storage or code child/adaptor only through a visible `CHILD_PROCEDURE_CALL` with exact write boundaries and verified `CHILD_PROCEDURE_RETURN`. If write authority, path boundaries, or validation are absent, return a blocked result or a candidate child-call packet instead of writing.
+A core procedure may use an external storage or code child/adaptor only through a visible `CHILD_PROCEDURE_CALL` with exact write boundaries and verified `CHILD_PROCEDURE_RETURN`. If required current-goal repair exists and the parent cannot mutate directly, open the child call when complete boundaries and validation are available; otherwise return an explicit blocked result naming the missing authority, path boundary, validation, or return contract.
 
 ## Finish Boundary
 
@@ -127,6 +129,7 @@ NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a u
 - asking an external utility to perform ChatGPT FINISH;
 - using a human decision placeholder to avoid a known required packet;
 - performing writes without exact authority, paths, validation, and return evidence;
+- finding required current-goal child/adaptor repair but continuing to later stages, CHECK, FINISH, or CLOSED without opening and verifying the child call;
 - closing while a required child return is unresolved.
 
 END_OF_FILE: workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md

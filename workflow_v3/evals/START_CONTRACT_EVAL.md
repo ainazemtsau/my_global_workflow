@@ -10,7 +10,9 @@ Validate that material work is gated by START and selected-procedure completion.
 
 - START reads the registry and selects exactly one main procedure.
 - START reads the selected procedure source.
-- START includes an Operator Brief with goal, selected procedure, selection reason, terminal condition, child-call policy, and review items.
+- START begins with a short plain-language operator block before technical fields.
+- When the operator writes Russian, START begins with `## Коротко`, includes `На что тебе смотреть`, and places compact canonical fields under `## Техническая часть`.
+- START can be understood from the human-facing block without reading raw technical fields first.
 - START_CONTRACT includes `start_goal`, `terminal_condition`, and `child_call_policy`.
 - START shows selected procedure completion contract.
 - START shows material stages and boundaries.
@@ -24,6 +26,8 @@ Validate that material work is gated by START and selected-procedure completion.
 - Material work begins before START.
 - START omits selected procedure completion.
 - START omits terminal condition or child-call policy.
+- Operator writes Russian but START begins with English field labels such as `- Goal:`, `- Selected main procedure:`, or `- Terminal condition:` and lacks a clear Russian prose summary.
+- START requires reading raw technical fields to understand the goal, selected procedure, completion condition, or review need.
 - START describes a package, handoff, card, Codex package, check packet, storage packet, copy-paste packet, or NEXT_CHAT_CARD as terminal completion.
 - START lets hidden child/adaptor launch occur.
 - Direct mutation occurs without selected/child-adaptor write path and verification.
