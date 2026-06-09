@@ -4,6 +4,7 @@ title: Work Graph Formation
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/WORK_GRAPH_FORMATION_PROCEDURE.md
 entrypoint: form_work_graph
+kind: core
 procedure_boundary: formation_chat
 
 ## purpose

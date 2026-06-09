@@ -4,6 +4,7 @@ title: Active Front Formation
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md
 entrypoint: form_active_front
+kind: core
 procedure_boundary: formation_chat
 
 ## purpose

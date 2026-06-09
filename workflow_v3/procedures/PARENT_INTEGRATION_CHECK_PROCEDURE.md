@@ -4,6 +4,7 @@ title: Parent Integration Check
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md
 entrypoint: parent_integration_check
+kind: core
 procedure_boundary: parent_integration
 
 ## purpose

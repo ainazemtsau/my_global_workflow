@@ -4,6 +4,7 @@ title: Direction Project Root Bootstrap
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md
 entrypoint: direction_project_root_bootstrap
+kind: core
 procedure_boundary: setup_only_root_bootstrap
 
 ## purpose

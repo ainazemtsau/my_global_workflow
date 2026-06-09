@@ -4,6 +4,7 @@ title: Work Contract Execution
 status: stub_procedure_pending_authoring
 canonical_location: workflow_v3/procedures/WORK_CONTRACT_EXECUTION_PROCEDURE.md
 entrypoint: execute_work_contract
+kind: core
 procedure_boundary: work_contract_execution
 
 ## purpose
