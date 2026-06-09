@@ -6,17 +6,20 @@ status: active_skeleton_namespace_corrected
 
 `workflow_v3/**` is the clean-start Workflow v3 skeleton namespace.
 
-Workflow v3 is now main-procedure driven: the registry selects one main procedure, the selected procedure defines completion, lifecycle executes visible declared stages, child/adaptor calls support the same procedure when required, CHECK verifies completion, and FINISH closes only after audit passes.
+Workflow v3 is main-procedure driven: the registry selects one main procedure, the selected procedure defines completion, lifecycle executes visible declared stages, dependency calls support the same procedure when required, CHECK verifies completion, and FINISH closes only after audit passes.
+
+This README is an orientation summary only. Exact control-plane, procedure, template, and eval files remain the authority for runtime behavior.
 
 ## Runtime Kernel
 
 Active runtime authority:
 
 - `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` - compact procedure selector with `entrypoint`, `procedure_path`, `kind`, and `trigger`.
-- `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` - START, RUN stages, child-return waits, CHECK, FINISH, CLOSED.
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` - provider-neutral child/adaptor calls and returns; utility labels are compatibility aliases only.
+- `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` - START, RUN stages, dependency-return waits, CHECK, FINISH, CLOSED.
+- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` - dependency type selection, execution-surface routing, wrong-surface behavior, and compatibility mapping.
+- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` - support-adapter dependency shape; utility and child labels are compatibility aliases only.
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` - final audit and closure.
-- `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md` - procedure completion, material stages, internal checks, and child-call policy.
+- `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md` - procedure completion, material stages, internal checks, and dependency policy.
 
 There is no separate start protocol, before-action protocol, or old operation-surface contract in active Workflow v3 authority.
 
@@ -24,10 +27,12 @@ There is no separate start protocol, before-action protocol, or old operation-su
 
 - `START_CONTRACT` before material work.
 - `STAGE_RESULT` after each material stage.
-- `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` when supporting child/adaptor work is needed.
-- `RUN_WAITING_FOR_CHILD_RETURN` and `CHILD_RETURN_VERIFICATION` while returned evidence is unresolved.
+- `DEPENDENCY_CALL` / `DEPENDENCY_RETURN` when external or subordinate dependency work is needed.
+- `RUN_WAITING_FOR_DEPENDENCY_RETURN` and `DEPENDENCY_RETURN_VERIFICATION` while returned evidence is unresolved.
 - `CLOSURE_CHECK` before FINISH.
 - post-closed `NEXT_CHAT_CARD` when a closed material workflow needs a new independent continuation.
+
+`CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN`, `RUN_WAITING_FOR_CHILD_RETURN`, and `CHILD_RETURN_VERIFICATION` are compatibility aliases only during transition.
 
 ## Procedure Completion
 

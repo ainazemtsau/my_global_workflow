@@ -6,7 +6,7 @@ status: active_control_plane
 
 FINISH performs final audit and closure for the selected Workflow v3 main procedure.
 
-FINISH is not first reveal of work, acceptance by itself, persistence by itself, child-call launch authority, or permission to start a new material lifecycle in the same chat.
+FINISH is not first reveal of work, acceptance by itself, persistence by itself, dependency-call launch authority, or permission to start a new material lifecycle in the same chat.
 
 ## Load Rule
 
@@ -29,16 +29,16 @@ finish_audit:
   declared_stage_sequence_not_compressed:
   material_stages_emitted_stage_result:
   user_confirmation_observed_between_material_stages:
-  child_procedure_calls_returned_to_same_main_procedure:
-  required_child_work_opened_when_detected:
-  no_open_child_procedure_calls:
-  all_required_child_returns_received:
-  all_required_child_returns_verified:
+  dependency_calls_returned_to_same_main_procedure:
+  required_dependency_work_opened_when_detected:
+  no_open_dependencies:
+  all_required_dependency_returns_received:
+  all_required_dependency_returns_verified:
   closure_check_compared_actual_result_to_completion:
   no_handoff_card_or_package_used_as_completion:
   required_validation_present_when_work_required_validation:
   closure_check_gaps_empty_or_blocked_completion_explicit:
-  next_chat_card_not_used_for_unfinished_child_work:
+  next_chat_card_not_used_for_unfinished_dependency_work:
   no_unadmitted_state_mutation:
   no_hidden_launch_or_acceptance:
   next_chat_card_or_no_next_chat_needed_present:
@@ -52,10 +52,10 @@ Additional hard gates:
 
 - If `CLOSURE_CHECK.gaps` is non-empty and the selected completion contract does not explicitly allow blocked completion, FINISH must fail.
 - If blocked completion is allowed, the result must be marked blocked, not completed.
-- If `actual_result` is only a child call, handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or `NEXT_CHAT_CARD`, FINISH must fail.
-- If `open_child_calls != empty`, any required child return is missing, or any required child return is unverified, FINISH must fail.
-- If `required_child_work_detected = true` and `child_call_opened = false`, FINISH must fail.
-- If `repair_needed = true` and the selected parent cannot mutate directly, then a patch plan, draft packet, deferred launch instruction, or handoff text cannot satisfy RUN completion; the required path is `CHILD_PROCEDURE_CALL` -> `RUN_WAITING_FOR_CHILD_RETURN` -> verified `CHILD_PROCEDURE_RETURN`.
+- If `actual_result` is only a dependency call, handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, compatibility child-chat card, or `NEXT_CHAT_CARD`, FINISH must fail.
+- If `open_dependencies != empty`, any required dependency return is missing (`missing_dependency_return`), or any required dependency return is unverified (`unverified_dependency_return`), FINISH must fail.
+- If `required_dependency_work_detected = true` and `dependency_call_opened = false`, FINISH must fail.
+- If `repair_needed = true` and the selected parent cannot mutate directly, then a patch plan, draft packet, deferred launch instruction, or handoff text cannot satisfy RUN completion; the required path is `DEPENDENCY_CALL` -> `RUN_WAITING_FOR_DEPENDENCY_RETURN` -> verified `DEPENDENCY_RETURN`.
 - If required validation or evidence is absent, FINISH must fail.
 
 ## FINISH Output
@@ -99,14 +99,16 @@ no_next_chat_needed:
   reason:
 ```
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It may appear only inside FINISH_PACKET after FINISH audit passes, or as a clearly named post-closed continuation. It is for a new independent lifecycle after the current START goal is completed or explicitly blocked. It must not represent unfinished child work, replace `CHILD_PROCEDURE_CALL`, or make the user assemble a missing child call from scattered earlier text.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It may appear only inside FINISH_PACKET after FINISH audit passes, or as a clearly named post-closed continuation. It is for a new independent lifecycle after the current START goal is completed or explicitly blocked. It must not represent unfinished dependency work, replace `DEPENDENCY_CALL`, or make the user assemble a missing dependency call from scattered earlier text.
+
+`CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN`, `RUN_WAITING_FOR_CHILD_RETURN`, `CHILD_RETURN_VERIFICATION`, and `open_child_calls` are compatibility aliases only during transition; the hard gates above use dependency-neutral fields.
 
 ## Failure Behavior
 
 FINISH failure must return one of:
 
 - `RUN_REPAIR_REQUIRED` when the selected procedure can repair the gap in the same lifecycle;
-- `BLOCKED_ESCALATION` when source, authority, validation, child return, or completion proof is missing;
+- `BLOCKED_ESCALATION` when source, authority, validation, dependency return, or completion proof is missing;
 - `CONTEXT_REQUEST` when exact user input or source excerpts are required.
 
 FINISH failure must not emit a closed-chat result.
