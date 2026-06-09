@@ -10,7 +10,7 @@ status: template
 
 `procedure_path`: workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md
 
-`formation_eval_ref`: workflow_v3/evals/CURRENT_NEXT_MOVE_FORMATION_EVAL.md
+`quality_check_owner`: workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md#quality-checks
 
 `source_finish_packet_ref`:
 

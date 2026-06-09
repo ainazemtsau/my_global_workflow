@@ -98,6 +98,13 @@ Active Unresolved Cut is the selected frontier of unresolved graph nodes whose r
 
 It is a selection mechanism for Active Front formation. It is not a Work Graph, backlog, roadmap, launch packet, or accepted state by itself.
 
+## Quality Checks
+
+- Graph structure traces root outcome to claims, evidence, obstacles, alternatives, gaps, and candidate focus.
+- Every material node has relation_to_parent and status; AND-required and OR-strategy relationships are visible.
+- Active Unresolved Cut derives from unresolved root-path nodes and does not make the whole Direction active.
+- Candidate fronts trace to cut, graph nodes, or map claims and preserve accepted/candidate/unresolved boundaries.
+
 ## Hard rules
 
 - No work may proceed without trace to a Goal Evidence Graph node, Active Front, Work Graph node, or Direction Map claim.

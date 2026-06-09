@@ -683,7 +683,7 @@ do_not_upload_as_project_file: true
 
 Do not update ChatGPT Project Instructions UI or Project Files/Sources from this procedure. Report refresh requirements only.
 
-## Eval / Quality Checks
+## Quality Checks
 
 Procedure Definition checks:
 
@@ -707,7 +707,9 @@ Procedure Execution checks:
 - RUN executed only this selected procedure.
 - No adapter or external surface accepted its own output.
 - Evidence review occurred before acceptance decision.
+- Evidence refs, candidate identity, reviewer authority, decision scope, and residual limitations are explicit.
 - Acceptance scope did not broaden beyond evidence and authority.
+- Decision is one of `accepted`, `rejected`, `repair_required`, `blocked`, or `parked`.
 - No direct storage mutation occurred.
 - Storage Update Package v1 was used as canonical executable storage schema.
 - FINISH was requested only after decision or blocked result and no pending, missing, or unverified required child/adaptor return.

@@ -821,7 +821,7 @@ no_next_chat_needed:
 
 A `NEXT_CHAT_CARD` is post-closed continuation only. It must not carry unfinished child work from the current START goal and must not replace a required `CHILD_PROCEDURE_CALL`.
 
-## Eval / Quality Checks
+## Quality Checks
 
 Procedure definition checks:
 
@@ -852,6 +852,7 @@ Setup-only checks:
 - `CURRENT_STATUS` is `setup_only_root_created` with `semantic_definition_status: pending_definition`.
 - `CURRENT_NEXT_MOVE` is `launch_direction_definition`.
 - candidate semantic text is classified as `candidate_context_for_direction_definition`.
+- semantic Direction Definition remains a later one-next-step procedure boundary, not bootstrap body content.
 - no semantic Direction content is accepted.
 - no legacy state is imported.
 - no Project UI update or Project Files/Sources refresh is performed.

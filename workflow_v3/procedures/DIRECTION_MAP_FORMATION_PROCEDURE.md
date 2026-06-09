@@ -66,6 +66,17 @@ Bridges Direction Spine to Active Front selection. It explains how future work i
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- map areas, dependencies, uncertainties, risk zones, candidate fronts, and candidate active unresolved cuts are explicit;
+- Goal Evidence Graph nodes trace root outcome to claims, evidence, obstacles, alternatives, gaps, and candidate work focus;
+- accepted, candidate, unresolved, and hypothetical labels remain visible and source-backed;
+- OR alternatives and AND-required relations are distinguishable when graph structure is used;
+- Direction Map and Goal Evidence Graph output remain candidate-only until an explicit acceptance/update path admits mutation;
+- roadmap, backlog, global Work Graph, product execution, and preference-only front selection are excluded.
+
 ## Completion Contract
 
 ```text

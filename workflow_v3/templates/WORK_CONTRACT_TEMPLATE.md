@@ -24,7 +24,7 @@ stop_conditions:
 ## Optional metadata
 
 procedure_path:
-formation_eval_ref:
+quality_check_owner:
 related_direction:
 related_front:
 related_work_graph_node:

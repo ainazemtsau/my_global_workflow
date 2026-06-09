@@ -8,7 +8,7 @@ status: template
 
 `procedure_path`: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md
 
-`formation_eval_ref`: workflow_v3/evals/ACCEPTANCE_DECISION_FORMATION_EVAL.md
+`quality_check_owner`: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md#quality-checks
 
 `decision_status`: accepted | rejected | repair_required | blocked | parked
 

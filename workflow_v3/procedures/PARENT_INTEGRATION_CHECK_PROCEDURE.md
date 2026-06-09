@@ -64,6 +64,17 @@ Implements fan-in. Child/work results are candidate evidence. Parent Integration
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- every required child/work result is accounted for as present, missing, conflicting, blocked, explicitly deferred, or no longer required by accepted parent change;
+- returned evidence is compared against parent acceptance criteria before closure, repair, replan, close, escalate, delta, continue, or stop is selected;
+- missing and conflicting evidence remain visible and block closure unless parent policy explicitly allows partial closure;
+- candidate Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, Derived Gate Check, and NEXT_CHAT_CARD outputs are visible when needed;
+- child/adaptor outputs remain candidate evidence and cannot accept parent state;
+- parent integration does not synthesize missing evidence, mutate accepted state, or silently open a new front.
+
 ## Completion Contract
 
 ```text

@@ -10,7 +10,7 @@ status: template
 
 `procedure_path`: workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md
 
-`formation_eval_ref`: workflow_v3/evals/DIRECTION_SPINE_FORMATION_EVAL.md
+`quality_check_owner`: workflow_v3/procedures/DIRECTION_SPINE_FORMATION_PROCEDURE.md#future_body_quality_requirements
 
 `root_result`:
 

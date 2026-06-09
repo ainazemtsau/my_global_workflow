@@ -8,7 +8,7 @@ status: template
 
 `procedure_path`: workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md
 
-`formation_eval_ref`: workflow_v3/evals/MEMORY_ARTIFACT_PROMOTION_EVAL.md
+`quality_check_owner`: workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md#future_body_quality_requirements
 
 `promoted_from_candidate_ref`:
 

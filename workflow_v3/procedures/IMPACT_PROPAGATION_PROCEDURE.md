@@ -62,6 +62,17 @@ Converts invalidation/blocker findings into local repair, parent replan, Directi
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- impact radius names affected parent, child, interface, state, and active-work surfaces;
+- the lowest layer that can absorb the change is selected before escalation;
+- local repair is preferred when higher claims, parent acceptance policy, and interface dependencies are unaffected;
+- upstream escalation, downstream delta, graph delta, and derived gate packets are produced only when their boundary is materially needed;
+- affected work cannot continue against stale parent context without visible delta, repair, pause, replan, stop, or decision output;
+- impact propagation does not silently mutate graph/state, cancel work without a visible packet, or invent an accepted route.
+
 ## Completion Contract
 
 ```text

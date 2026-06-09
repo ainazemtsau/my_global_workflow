@@ -65,6 +65,17 @@ Produces the executable contract that a chat, child chat, Codex, human action, c
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- one contract has one bounded target: one Work Graph node or one bounded node slice;
+- parent graph, front, node, source authority, in-scope/out-of-scope, allowed surfaces, forbidden surfaces, expected result, evidence, validation, return destination, and stop conditions are explicit;
+- repository path boundaries are included when repository/file mutation or inspection makes paths material;
+- `split_required` is returned when multiple independent jobs are present;
+- adapter or child output remains candidate until verified and accepted by the applicable parent boundary;
+- contract formation does not execute the work, broaden scope, grant acceptance authority, or become a roadmap.
+
 ## Completion Contract
 
 ```text

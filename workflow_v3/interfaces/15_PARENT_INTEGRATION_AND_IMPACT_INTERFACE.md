@@ -66,4 +66,11 @@ Parent Integration Result, Graph Delta, Upstream Escalation Packet, Downstream D
 
 They do not mutate accepted state, accept evidence, launch work, or change route by existence alone.
 
+## Quality Checks
+
+- Parent Integration accounts for every required child/work result and names missing, conflicting, blocked, explicitly deferred, or no-longer-required inputs.
+- Parent closure compares evidence against parent criteria before continue, repair, replan, close, escalate, delta, or stop is selected.
+- Impact Propagation names affected parent, child, interface, state, and active-work surfaces and selects the lowest absorbing layer.
+- Upstream escalation, downstream delta, graph delta, and derived gate outputs are visible when required; silent rerouting or stale-context execution is invalid.
+
 END_OF_FILE: workflow_v3/interfaces/15_PARENT_INTEGRATION_AND_IMPACT_INTERFACE.md

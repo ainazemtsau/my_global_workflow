@@ -28,6 +28,8 @@ status: template
 
 `next_move_packet_ref`:
 
+`quality_check_owner`: workflow_v3/procedures/PARENT_INTEGRATION_CHECK_PROCEDURE.md#future_body_quality_requirements
+
 ## Boundary
 
 Parent Integration Result is a typed synthesis record. It does not accept parent state, synthesize missing evidence, mutate graph/state, or launch next work by itself.

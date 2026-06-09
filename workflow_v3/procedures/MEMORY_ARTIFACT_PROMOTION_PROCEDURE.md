@@ -63,6 +63,16 @@ Keeps long-term memory useful without polluting context or replacing accepted st
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- Memory Candidate source references are checked and limitations remain visible;
+- promoted artifacts are reusable, scoped, source-backed, and bounded by when-to-load, when-not-to-use, and refresh/expiry rules;
+- Memory Index update output remains a candidate unless an explicit acceptance/update path admits persistence;
+- raw chat notes, broad always-load memory, hidden state replacement, and override of exact repository or accepted records are excluded;
+- promotion result includes acceptance status, source refs, loading rules, limitations, CLOSURE_CHECK, FINISH_PACKET, and continuation/no-continuation.
+
 ## Completion Contract
 
 ```text

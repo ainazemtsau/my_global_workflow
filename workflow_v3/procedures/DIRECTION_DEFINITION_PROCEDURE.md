@@ -59,6 +59,19 @@ Does not silently run multiple procedures. It sequences definition work through 
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- setup-only root status exists and is read before semantic definition work;
+- CURRENT_STATUS and CURRENT_NEXT_MOVE are read from exact admitted sources;
+- CURRENT_STATUS confirms `setup_only_root_created` and semantic content is still pending/candidate-only;
+- CURRENT_NEXT_MOVE confirms `launch_direction_definition`;
+- Direction Definition selects exactly one next semantic step, normally `form_direction_spine`;
+- continuation returns a bounded next-step packet or Transfer Packet instead of running another procedure inline;
+- candidate context remains candidate-only until an explicit acceptance/update path admits mutation;
+- Work Graph, product execution, and accepted Spine/Map/Front creation do not start inside this procedure.
+
 ## Completion Contract
 
 ```text

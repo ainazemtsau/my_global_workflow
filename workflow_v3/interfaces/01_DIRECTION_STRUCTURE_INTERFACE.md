@@ -60,4 +60,11 @@ Operational movement does not replace object hierarchy. Procedure output cannot 
 - Chat intuition does not choose route, front, or next material target.
 - Adapter output is candidate until verified and accepted.
 
+## Quality Checks
+
+- Direction Definition preserves one-next-step movement and does not create Spine, Map, Active Front, or Work Graph state inside its own boundary.
+- Spine, Map, Front, Work Graph, and Work Contract layers keep separate scope, evidence, and acceptance/update boundaries.
+- No layer may close by passing through a child/adaptor result without evidence, integration, escalation, or explicit blocker handling.
+- No single track may silently collapse multi-dimensional success criteria; deferred dimensions need reason and trigger.
+
 END_OF_FILE: workflow_v3/interfaces/01_DIRECTION_STRUCTURE_INTERFACE.md

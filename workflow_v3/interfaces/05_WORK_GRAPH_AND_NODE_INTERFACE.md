@@ -62,4 +62,11 @@ The closure summary must include:
 
 Node closure is not implicit from a chat answer, file existence, or Codex commit.
 
+## Quality Checks
+
+- Work Graph remains local to one Active Front and derives from exit criteria, evidence needs, and parent trace.
+- Nodes state relation to parent graph node, map claim, front closure, dependencies, proof path, closure condition, and non-node cut items where applicable.
+- Work Contract formation preserves one bounded target and returns `split_required` instead of widening scope across independent jobs.
+- Work Graph and node records do not become roadmap, backlog, Direction Map, or product execution authority.
+
 END_OF_FILE: workflow_v3/interfaces/05_WORK_GRAPH_AND_NODE_INTERFACE.md

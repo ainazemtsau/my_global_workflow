@@ -827,7 +827,7 @@ FINISH_PACKET:
     NEXT_CHAT_CARD or no_next_chat_needed
 ```
 
-## Eval / Quality Checks
+## Quality Checks
 
 Procedure Definition checks:
 
@@ -853,7 +853,9 @@ Procedure Execution checks:
 - No procedure switch occurred.
 - Required sources were read or limitations stated.
 - Closure next move selects exactly one primary next move.
+- The selected next move is justified from FINISH/CLOSURE evidence, accepted decision state, pending blockers, or current bottleneck.
 - Required nested transfer packet is complete for `codex`, `codex_verification`, `child_chat`, `check_job`, `storage_update`, or `next_material_chat`.
+- Vague continuation, multiple simultaneous next steps, and hidden procedure launch are invalid.
 - `human_decision` is not used as transfer avoidance.
 - NEXT_CHAT_CARD continuation is not used for mid-RUN `CHILD_PROCEDURE_CALL`.
 - FINISH is not requested while a required child/adaptor return is pending, missing, or unverified.

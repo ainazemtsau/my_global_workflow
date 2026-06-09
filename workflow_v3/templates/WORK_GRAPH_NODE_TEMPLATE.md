@@ -40,6 +40,8 @@ status: template
 
 `limitations`:
 
+`quality_check_owner`: workflow_v3/interfaces/05_WORK_GRAPH_AND_NODE_INTERFACE.md#quality-checks
+
 ## Boundary
 
 Work Graph Node is a bounded local unit under one Work Graph and Active Front.

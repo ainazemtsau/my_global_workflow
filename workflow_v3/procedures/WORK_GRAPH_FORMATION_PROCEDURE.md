@@ -64,6 +64,17 @@ Converts an accepted/candidate Active Front into bounded local nodes that can be
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- Work Graph is local to one Active Front and derives from that front's exit criteria, evidence needs, and parent trace;
+- nodes include relation to parent graph node, map claim, or front closure where applicable;
+- dependencies, proof path, closure condition, non-nodes, and cut items are explicit;
+- only the minimum useful local nodes are proposed;
+- candidate Work Graph remains candidate-only until an explicit acceptance/update path or bounded launch package admits it;
+- roadmap, global backlog, Direction Map duplication, unrelated product work, and node execution are excluded.
+
 ## Completion Contract
 
 ```text

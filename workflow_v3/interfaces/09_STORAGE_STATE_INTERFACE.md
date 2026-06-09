@@ -100,4 +100,11 @@ This interface package is repository documentation/setup only.
 | Recovery record | `operations/recovery/` |
 | Runtime Console source | `console/` |
 
+## Memory Quality Checks
+
+- Memory Candidates are not accepted state and require explicit promotion review before becoming Memory Artifacts.
+- Memory Artifacts must be source-backed, reusable, scoped, and bounded by when-to-load, when-not-to-use, and refresh/expiry rules.
+- Memory Index updates remain candidate output unless an explicit acceptance/update path admits persistence.
+- Memory records do not replace exact repository state, accepted Direction records, or source authority.
+
 END_OF_FILE: workflow_v3/interfaces/09_STORAGE_STATE_INTERFACE.md

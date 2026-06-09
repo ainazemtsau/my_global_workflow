@@ -82,7 +82,7 @@ Setup-only root may use `pending_definition`, `none_selected`, `setup_only_root_
 
 - `workflow_v3/adoption/**` contains future clean-start adoption package templates.
 - `workflow_v3/procedures/**` contains canonical procedure files and self-contained pending-authoring stubs.
-- `workflow_v3/evals/**` contains validation gates for packages that use these templates.
+- Owning procedure, interface, and template quality sections contain package checks for their surfaces.
 - `workflow_v3/completion/WORKFLOW_V3_COMPLETION_MATRIX.md` maps templates to surfaces and entity coverage.
 
 ## Boundary

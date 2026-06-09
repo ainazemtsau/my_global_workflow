@@ -66,6 +66,17 @@ Produces candidate Spine for acceptance review. It is the top success axis for D
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- root outcome, success dimensions/tracks, constraints, non-goals, proof indicators, failure modes, uncertainties, and risks are explicit;
+- alternatives and tradeoffs are visible before a candidate Spine is returned;
+- source authority and evidence limitations are labeled;
+- candidate Spine output remains candidate-only until an explicit acceptance/update path admits it;
+- roadmap, backlog, Direction Map, Active Front, Work Graph, product execution, and hidden persistence are excluded;
+- closure returns candidate Spine package, acceptance question, limitations, CLOSURE_CHECK, FINISH_PACKET, and continuation/no-continuation.
+
 ## Completion Contract
 
 ```text

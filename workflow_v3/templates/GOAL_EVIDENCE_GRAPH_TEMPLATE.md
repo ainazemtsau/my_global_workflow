@@ -30,6 +30,8 @@ status: template
 
 `limitations`:
 
+`quality_check_owner`: workflow_v3/interfaces/14_GOAL_EVIDENCE_GRAPH_INTERFACE.md#quality-checks
+
 ## Boundary
 
 Goal Evidence Graph is a Direction Map-associated steering/control artifact, not a semantic primitive, roadmap, backlog, accepted state, or launch authority.

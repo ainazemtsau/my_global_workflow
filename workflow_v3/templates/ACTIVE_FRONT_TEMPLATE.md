@@ -10,7 +10,7 @@ status: template
 
 `procedure_path`: workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md
 
-`formation_eval_ref`: workflow_v3/evals/ACTIVE_FRONT_FORMATION_EVAL.md
+`quality_check_owner`: workflow_v3/procedures/ACTIVE_FRONT_FORMATION_PROCEDURE.md#future_body_quality_requirements
 
 `source_direction_map_ref`:
 

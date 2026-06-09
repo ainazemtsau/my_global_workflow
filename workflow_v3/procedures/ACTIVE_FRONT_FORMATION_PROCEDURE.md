@@ -65,6 +65,17 @@ Produces the one current focus candidate that prevents the whole Direction from 
 - FINISH_PACKET;
 - NEXT_CHAT_CARD or no_next_chat_needed.
 
+## future_body_quality_requirements
+
+When the detailed body is authored, it must preserve these invariants:
+
+- candidate front selection traces to Direction Map areas and, when available, Goal Evidence Graph nodes or Active Unresolved Cut;
+- touched tracks, success dimensions, evidence value, risk, dependency unlock, reversibility, WIP/capacity, and bottleneck relief are considered;
+- rejected or deferred alternatives are named with reasons;
+- front exit criteria tie back to graph nodes, cut items, or map claims when those structures exist;
+- candidate Active Front remains candidate-only until an explicit acceptance/update path admits mutation;
+- preference-only selection, whole-Direction activation, global backlog, hidden acceptance, and Work Graph launch before required acceptance are excluded.
+
 ## Completion Contract
 
 ```text

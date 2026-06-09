@@ -69,4 +69,11 @@ The first Work Graph seed must derive from the Candidate Active Front exit crite
 
 Front exit criteria must tie to Goal Evidence Graph nodes or Direction Map claims when those structures exist.
 
+## Quality Checks
+
+- Candidate front selection names source map areas, graph/cut refs when available, touched tracks, evidence, risks, dependencies, reversibility, WIP/capacity, and success dimensions.
+- Rejected and deferred alternatives are explicit with reasons.
+- Selection is not based on convenience, preference, or chat intuition alone.
+- Work Graph formation stays blocked until the front is accepted or a bounded package explicitly admits candidate-only graph work.
+
 END_OF_FILE: workflow_v3/interfaces/04_ACTIVE_FRONT_SELECTION_INTERFACE.md

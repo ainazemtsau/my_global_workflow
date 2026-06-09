@@ -76,6 +76,13 @@ Direction Map updates only through acceptance/update path.
 
 STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, Check Jobs, child chats, and Codex results may propose map updates, but they cannot accept them.
 
+## Quality Checks
+
+- Map areas, tracks, dependencies, strategic uncertainties, obstacles, evidence gaps, alternatives, candidate fronts, and candidate cuts are visible when material.
+- Each claim carries source/status discipline: accepted, candidate, unresolved, or hypothetical.
+- Goal Evidence Graph references trace root outcome, required claims, evidence, blockers, alternatives, and gaps without becoming a roadmap or backlog.
+- Active Front candidates trace to map areas and, when available, graph nodes or Active Unresolved Cut.
+
 ## Future storage target
 
 After a Direction adoption package creates runtime state, the future storage target is:
