@@ -58,7 +58,7 @@ completion:
   blocked_if:
 ```
 
-Use the procedure's own purpose and output contract as the source. Do not copy a global done list. The result must not be only a handoff, package, Codex package, check packet, storage packet, child-chat card, copy-paste packet, or `NEXT_CHAT_CARD`.
+Use the procedure's own purpose and output contract as the source. Do not copy a global done list. The result must not be only a handoff, package, Codex package, check packet, storage packet, compatibility child-chat card, copy-paste packet, or `NEXT_CHAT_CARD`.
 
 ## START Output Requirements
 
@@ -134,14 +134,16 @@ stage:
 result:
 proof:
 limitations:
-child_calls_opened:
-child_returns_verified:
-required_child_work_detected:
-child_call_opened:
+dependency_calls_opened:
+dependency_returns_verified:
+required_dependency_work_detected:
+dependency_call_opened:
 next_state:
 next_stage_or_check:
 user_confirmation_required:
 ```
+
+Older child-call fields may appear only as compatibility aliases mapped to these dependency fields.
 
 STAGE_RESULT does not accept state, close the chat, or launch hidden dependency work.
 

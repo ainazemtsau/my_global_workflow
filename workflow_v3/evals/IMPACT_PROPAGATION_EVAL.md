@@ -22,7 +22,7 @@ Validate impact radius, lowest absorbing layer reasoning, and visible upstream/d
 ## FAIL checks
 
 - Route changes silently.
-- Affected child work continues without needed delta.
+- Affected dependency work continues without needed delta.
 - Higher claim invalidation is repaired only locally without escalation.
 
 ## Required recovery/repair action

@@ -6,8 +6,8 @@ canonical_location: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
 entrypoint: persist_accepted_state
 procedure_boundary: storage_update
 kind: storage
-utility_policy: compatibility_alias_for_storage_child_adapter_policy
-child_call_policy: direct_storage_default_external_child_adapter_only_when_admitted
+routing_dependency_policy: direct_storage_default_external_dependency_only_when_admitted
+adapter_compatibility_policy: child_call_and_utility_labels_are_compatibility_aliases_only
 
 ## Purpose
 
@@ -59,8 +59,8 @@ selected_entrypoint: persist_accepted_state
 selected_procedure_path: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
 procedure_boundary: storage_update
 kind: storage
-utility_policy: compatibility_alias_for_storage_child_adapter_policy
-child_call_policy: direct_storage_default_external_child_adapter_only_when_admitted
+routing_dependency_policy: direct_storage_default_external_dependency_only_when_admitted
+adapter_compatibility_policy: child_call_and_utility_labels_are_compatibility_aliases_only
 ```
 
 Required task inputs:
@@ -307,7 +307,7 @@ stage_id: lifecycle_surface_admission
 purpose: Confirm this RUN is the selected storage adapter and not an embedded semantic step.
 activation conditions: Always.
 inputs: START_CONTRACT, Procedure Registry metadata, procedure boundary type, user/parent packet.
-required intermediate output: selected_entrypoint, selected_procedure_path, procedure_boundary, kind, child_call_policy.
+required intermediate output: selected_entrypoint, selected_procedure_path, procedure_boundary, kind, routing_dependency_policy.
 gate: PASS if selected_entrypoint is persist_accepted_state and procedure_boundary is storage_update; STOP otherwise.
 checkpoint rule: None.
 expansion rule: None.
@@ -450,9 +450,9 @@ Use:
 - `EXPAND` only for exact listed source readback or listed validation checks.
 - `STOP` for missing package, missing authority, path broadening, source conflict, validation absence/failure, EOF invalidity, or write boundary violation.
 - `TRANSFER` only as closure output if the package cannot be executed in this surface and a complete next-surface packet is included.
-- `CHILD_PROCEDURE_CALL` is not used by default by this selected storage adapter.
-- `CHILD_PROCEDURE_RETURN` is not used unless a separately admitted storage execution policy explicitly requires same-owner return verification.
-- Legacy `UTILITY_CALL` and `UTILITY_RETURN` labels are compatibility aliases only for those child/adaptor fields.
+- `DEPENDENCY_CALL` is not used by default by this selected storage adapter.
+- `DEPENDENCY_RETURN` is not used unless a separately admitted storage execution policy explicitly requires same-owner return verification.
+- Legacy `CHILD_PROCEDURE_CALL`, `CHILD_PROCEDURE_RETURN`, `UTILITY_CALL`, and `UTILITY_RETURN` labels are compatibility aliases only for dependency call/return fields.
 
 ## Optional Expansion
 
@@ -470,7 +470,7 @@ Forbidden expansion:
 - semantic acceptance review;
 - Direction runtime adoption;
 - Codex handoff by implication;
-- child chat/research by implication;
+- support dependency/research by implication;
 - broad repository search to discover files to write;
 - Project UI update or Project Files/Sources refresh;
 - next semantic task execution.
@@ -483,44 +483,44 @@ Storage Update is a mechanical persistence procedure. It should rely on exact in
 
 If external tool/provider behavior is uncertain and affects write safety, STOP with `STORAGE_SURFACE_UNVERIFIED` rather than researching during storage execution.
 
-## Child / Adapter Decision Gate
+## Routing / Dependency Decision Gate
 
 This procedure is itself a `storage`.
 
-Child/adaptor use rules:
+Dependency use rules:
 
 - Direct in-chat storage mutation is allowed only because START selected `storage_update`.
 - The storage write gate must pass before any write.
-- No additional material child/adaptor is available by default.
+- No additional material dependency is available by default.
 - Validation tools may be used only when they are listed in the package and needed to verify the write.
 - Project refresh instructions may be reported but not executed.
 
-Child/adaptor use must not become procedure switching, hidden mutation outside allowed paths, hidden acceptance, or hidden next work.
+Dependency use must not become procedure switching, hidden mutation outside allowed paths, hidden acceptance, or hidden next work.
 
-## Child / Adapter Policy
+## Routing / Dependency Policy
 
 ```text
-common_child_adapter_choices:
+common_dependency_choices:
   - direct repository/runtime file readback for listed files
   - direct repository/runtime write primitive for listed changes
   - listed validation command/check execution
   - project_refresh_instruction_packet for reporting only
 
-forbidden_child_adapter_categories:
+forbidden_dependency_categories:
   - codex_handoff_packet by implication
   - codex_return_verification by implication
-  - child_chat_packet by implication
-  - child_research_packet by implication
+  - support_adapter_dependency by implication
+  - support_adapter_dependency for research by implication
   - check_job_packet unless separately admitted before storage and not used to decide acceptance
   - project refresh execution
 
-child_call_policy:
+routing_dependency_policy:
   - not used by default
   - missing direct write capability produces STOP unless a complete admitted Transfer Packet is already present
 
 external_return_policy:
   - not used by default
-  - returned external evidence must come back as CHILD_PROCEDURE_RETURN and is not accepted state unless separately verified and accepted by the appropriate boundary
+  - returned external evidence must come back as DEPENDENCY_RETURN and is not accepted state unless separately verified and accepted by the appropriate boundary
 
 external_return_verification:
   - verify branch/commit/diff/changed files/EOF/validation only when a separately admitted same-owner external storage policy exists
@@ -535,15 +535,17 @@ storage_boundary:
   - never continue to semantic next step
 ```
 
-## Child Call and Resume Policy
+## Dependency Call and Resume Policy
 
 This procedure should normally execute directly or stop.
 
-It must not emit `CHILD_PROCEDURE_CALL` merely because another tool such as Codex could perform the write. If storage cannot execute directly, return a blocked result or a complete closure Transfer Packet only when the selected context requires it. Legacy `UTILITY_CALL` is a compatibility alias only and must not define a standalone utility lifecycle.
+It must not emit `DEPENDENCY_CALL` merely because another tool such as Codex could perform the write. If storage cannot execute directly, return a blocked result or a complete closure Transfer Packet only when the selected context requires it. Legacy `CHILD_PROCEDURE_CALL` and `UTILITY_CALL` labels are compatibility aliases only and must not define a standalone dependency or utility lifecycle.
 
-If a separately admitted future storage policy allows same-owner external storage execution, the child/adaptor call must include:
+If a separately admitted future storage policy allows same-owner external storage execution, the dependency call must include:
 
 ```text
+dependency_id:
+dependency_type:
 external_surface:
 copy_paste_packet_required: complete storage update package
 expected_return_packet:
@@ -558,14 +560,14 @@ expected_return_packet:
   - push_status
   - residual_risks
 validation_required_on_return:
-  - match child_call_id
+  - match dependency_id
   - verify only listed paths changed
   - verify EOF
   - verify listed validation
 resume_rule: resume the same selected main procedure
 ```
 
-FINISH must not be requested while a required child/adaptor return is pending, missing, or unverified.
+FINISH must not be requested while a required dependency return is pending, missing, or unverified.
 
 ## Project Refresh Reporting
 
@@ -678,8 +680,8 @@ Procedure Definition checks:
 - Complexity selector exists.
 - Stage Cards produce intermediate outputs and real gates.
 - Stop conditions prevent invention, hidden mutation, hidden acceptance, and boundary crossing.
-- Child/adaptor and storage policy is explicit.
-- External child-call/resume policy is explicit.
+- Dependency and storage policy is explicit.
+- External dependency-call/resume policy is explicit.
 - Closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
 - Canonical path and `*_PROCEDURE.md` naming are preserved.
 - Procedure class matches registry metadata.
@@ -747,7 +749,7 @@ Block/no-op outcomes:
 
 RUN completion requests FINISH only after:
 
-- no required child/adaptor return is pending, missing, or unverified;
+- no required dependency return is pending, missing, or unverified;
 - write was applied, blocked, failed, or confirmed no-op;
 - changed files or no-op evidence are listed;
 - validation output or validation blocker is listed;
