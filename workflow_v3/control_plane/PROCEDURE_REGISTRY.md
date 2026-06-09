@@ -12,7 +12,7 @@ It lets START choose exactly one main procedure, then load that procedure file. 
 
 | entrypoint | procedure_path | kind | trigger |
 | --- | --- | --- | --- |
-| `generic_answer` | `workflow_v3/procedures/GENERIC_ANSWER_PROCEDURE.md` | `readonly` | Lightweight non-state-sensitive answer. |
+| `generic_answer` | `workflow_v3/procedures/GENERIC_ANSWER_PROCEDURE.md` | `readonly` | Lightweight non-state-sensitive answer, clarification, or default guidance. |
 | `status_review` | `workflow_v3/procedures/STATUS_REVIEW_PROCEDURE.md` | `readonly` | Current status read without executing work. |
 | `direction_project_root_bootstrap` | `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md` | `core` | Setup-only runtime root bootstrap for a future Direction. |
 | `launch_direction_definition` | `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md` | `core` | Semantic Direction Definition after setup-only root. |
@@ -27,7 +27,7 @@ It lets START choose exactly one main procedure, then load that procedure file. 
 | `form_current_next_move` | `workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` | `core` | Candidate Current Next Move / continuation-card formation. |
 | `accept_candidate_entity` | `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` | `core` | Acceptance review for candidate entity output. |
 | `promote_memory_artifact` | `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` | `core` | Candidate Memory Artifact promotion. |
-| `persist_accepted_state` | `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` | `storage` | Persist accepted state from an admitted storage package. |
+| `persist_accepted_state` | `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` | `storage` | Persist from a complete admitted Storage Update Package only. |
 | `codex_handoff` | `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` | `utility` | Child/adaptor schema for bounded Codex or future code-assistant work under a selected parent RUN. |
 | `codex_result_verification` | `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md` | `verification` | Verify returned code-assistant result evidence. |
 | `recovery_review` | `workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md` | `core` | Review suspect state, evidence, or routing. |
@@ -45,13 +45,17 @@ Allowed `kind` values:
 
 ## Lookup Rule
 
-START reads this registry first and selects exactly one entrypoint for the current concrete work item.
+START reads this registry first and selects exactly one entrypoint for the current concrete work item. Selection is exact-fit, not nearest-fit.
 
 After selection, START reads the selected `procedure_path` and uses that procedure's completion block as the completion authority for CHECK and FINISH. If the user asks for multiple independent work items, return `SPLIT_REQUIRED` before material work.
 
 The `trigger` text helps choose the file. It is not execution logic, a child/adaptor call graph, or a completion rule.
 
-If no entry matches and the request cannot be safely normalized into one registered entrypoint, return `UNREGISTERED_ACTION_EXCEPTION`.
+Specialized `core`, `storage`, `utility`, or `verification` entries must not be selected by keyword overlap, indirect semantic similarity, user momentum, or closest available match. Before specialized selection, the current concrete work item must fit the entry's trigger, kind, work boundary, and required inputs.
+
+`generic_answer` may be selected only for lightweight, non-material, non-state-sensitive guidance when no more specific exact-fit entry applies.
+
+If no entry matches and the request cannot be safely normalized into one registered entrypoint, return `UNREGISTERED_ACTION_EXCEPTION`. If the unmatched request is material or state-sensitive, return `CONTEXT_REQUEST`, `UNREGISTERED_ACTION_EXCEPTION`, `BOUNDARY_CROSSING_STOP`, or the selected procedure's explicit blocked escalation instead of selecting a nearby procedure.
 
 If the user asks only for a Codex card, handoff, package, check packet, storage packet, or other child/adaptor envelope without an admitted parent/core procedure goal, START must route to a registered owner procedure that can own the material goal, or return `UNREGISTERED_ACTION_EXCEPTION` / blocked scope. A child/adaptor entry must not become a standalone package material chat.
 

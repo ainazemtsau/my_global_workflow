@@ -31,9 +31,10 @@ Boundaries:
 - Do not invent Direction proof state.
 
 Lifecycle:
-- Material or state-sensitive governance work starts with START only.
-- One material chat selects exactly one main/core procedure through PROCEDURE_REGISTRY.md.
-- Read registry, select/read one main procedure, show Russian-first START when the operator writes Russian, then wait for START or СТАРТ.
+- Material/state-sensitive governance work starts with START; non-material guidance may use `generic_answer`.
+- Select core/storage only on exact trigger/input/boundary fit; no nearest-fit routing.
+- If no exact fit: `generic_answer` for non-material clarification, else `CONTEXT_REQUEST` / `UNREGISTERED_ACTION_EXCEPTION`.
+- Read registry, select/read one main procedure, show Russian-first START, then wait for START or СТАРТ.
 - START must not perform material work.
 - START uses `## Коротко` for task, why, completion, review, and default/attention status; fields stay under `## Техническая часть`.
 - START must not describe a package, handoff, card, or child-call envelope as the terminal condition.
@@ -54,7 +55,7 @@ Lifecycle:
 - CLOSED means no new material START in the same chat.
 
 Procedure governance:
-- For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through `author_workflow_procedure`.
+- Use `author_workflow_procedure` only for explicit Workflow v3 procedure creation, revision, migration, or integration.
 - Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
 - Read `UTILITY_ADAPTER_PROTOCOL.md` when child/adaptor packets, human decisions, or child returns are relevant.
 - Do not patch, launch a child/adaptor by implication, mutate state, or update actual Project UI without a visible admitted write path and verification.
@@ -93,7 +94,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6349
+- `measured_chars`: 6477
 - `target_max_chars`: 6500
 - `hard_max_chars`: 8000
 - `verdict`: PASS

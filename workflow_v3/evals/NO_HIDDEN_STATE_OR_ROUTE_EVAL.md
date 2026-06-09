@@ -34,6 +34,7 @@ Validate that Workflow v3 state, procedure selection, and next movement are expl
 - Candidate content is useful but not accepted.
 - Project setup refresh is needed but not performed.
 - Exact source read limitation is named.
+- `generic_answer` gives useful route guidance but does not clearly say the guidance is non-executing.
 
 ## FAIL criteria
 
@@ -44,6 +45,11 @@ Validate that Workflow v3 state, procedure selection, and next movement are expl
 - Codex commit treated as Direction acceptance.
 - Project Instructions source commit treated as actual UI update.
 - More than one primary next move is launched.
+- Specialized procedure selected by nearest-fit, keyword overlap, indirect semantic similarity, or lack of a better match.
+- `persist_accepted_state` selected without a complete admitted Storage Update Package or equivalent explicit storage authority.
+- `author_workflow_procedure` selected from generic audit, fix, or problem wording when Workflow v3 procedure authoring was not explicit.
+- `generic_answer` should have handled non-material clarification, but a core or storage procedure was selected instead.
+- Material/state-sensitive request has no exact registered fit, but chat selects a nearby procedure instead of `CONTEXT_REQUEST`, `UNREGISTERED_ACTION_EXCEPTION`, or boundary stop.
 
 ## Required recovery/repair action
 
