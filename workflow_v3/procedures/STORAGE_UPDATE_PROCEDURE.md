@@ -569,16 +569,23 @@ FINISH must not be requested while a required child/adaptor return is pending, m
 
 ## Project Refresh Reporting
 
-Report refresh requirements for the scoped storage update context as:
+Report refresh requirements from the admitted Storage Update Package and the actual scoped change result.
 
-```yaml
-project_instruction_ui_update_required: false
-project_sources_files_refresh_required: false
-request_only_sources_refresh_required: true
-do_not_upload_as_project_file: true
-```
+Do not use fixed historical batch wording, fixed default category sets, Project Files/Sources cache, or chat-memory inference to decide refresh categories.
 
-Do not update ChatGPT Project Instructions UI or Project Files/Sources from this procedure. Report refresh requirements only.
+Required refresh-reporting fields:
+
+- `project_instruction_ui_update_required`: report whether the admitted package and actual scoped change require a Project Instructions UI update.
+- `project_sources_files_refresh_required`: report whether the admitted package and actual scoped change require a Project Files/Sources refresh.
+- `request_only_sources_refresh_required`: report whether the admitted package and actual scoped change require request-only source refresh.
+- `do_not_upload_as_project_file`: report whether changed Project Instructions UI payload sources must be kept out of Project Files/Sources unless separately authorized.
+- `refresh_notes`: record the package evidence, scoped-change basis, and any refresh-reporting limitations.
+
+If package refresh requirements are missing, inconsistent with the scoped change, or unverifiable from admitted package evidence, STOP before write. If the inconsistency is discovered after write work begins, return blocked evidence instead of inventing refresh values.
+
+Report actual Project Instructions UI, Project Files/Sources, and request-only source refresh requirements only. Do not perform those updates from this procedure.
+
+Do not upload Project Instructions UI payload sources as Project Files/Sources unless separately authorized.
 
 ## Checkpoint Policy
 
