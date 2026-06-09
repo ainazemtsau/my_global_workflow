@@ -115,4 +115,14 @@ FINISH failure must not emit a closed-chat result.
 
 After FINISH passes, the chat enters CLOSED. Same-chat follow-up may clarify the closed result or point to the emitted card, but it must not start new material work.
 
+## Quality Check Ownership
+
+This protocol owns FINISH audit quality checks. Ordinary FINISH does not load a separate eval file.
+
+- FINISH follows passed CLOSURE_CHECK or an explicit blocked completion condition from the selected procedure.
+- FINISH audits START, RUN, child returns, declared stage progression, validation/evidence, and selected procedure completion before closure.
+- FINISH_PACKET includes human-readable result, evidence, validation, project refresh requirements when relevant, residual risks, and exactly one continuation state.
+- FINISH fails when it would be first reveal of work, close with completion gaps, rely on open/missing/unverified child returns, omit required validation/evidence, treat package/card/handoff/child-call output as completion, or use NEXT_CHAT_CARD for unfinished current-goal child work.
+- FINISH failure returns to RUN repair, blocked escalation, or Context Request; it must not emit a closed-chat result.
+
 END_OF_FILE: workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md

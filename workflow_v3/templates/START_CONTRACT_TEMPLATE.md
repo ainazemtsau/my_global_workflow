@@ -48,4 +48,12 @@ START_CONTRACT:
 
 Use this as the human-readable START contract before material work. When the operator writes Russian, the human-facing block comes first in Russian and technical fields stay compact below `## Техническая часть`. START selects one main procedure, reads its source, shows its completion contract, states the child/adaptor and write boundaries, and waits for explicit user START / СТАРТ. The terminal condition must be verified completion or explicit blocked result, not a handoff, package, card, child-call envelope, or post-closed continuation.
 
+## Quality Checks
+
+- START_CONTRACT appears before material RUN.
+- START names exactly one selected entrypoint and procedure path, reads the selected source, and shows selected procedure completion.
+- The human-facing block can be understood before raw technical fields; Russian operator output begins with `## Коротко` and puts compact fields under `## Техническая часть`.
+- START_CONTRACT includes `start_goal`, `terminal_condition`, `child_call_policy`, material stages, source requirements, and write boundaries.
+- START blocks hidden child/adaptor launch and direct mutation unless the selected procedure or verified child/adaptor write path admits exact writes.
+
 END_OF_FILE: workflow_v3/templates/START_CONTRACT_TEMPLATE.md

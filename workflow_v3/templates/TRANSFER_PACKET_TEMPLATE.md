@@ -42,4 +42,10 @@ When the selected RUN requires current-goal child/adaptor repair, transfer conte
 
 `copy_paste_packet` must be standalone. Do not tell the user to reconstruct a prompt or package from previous chat memory.
 
+## Quality Checks
+
+- Transfer target, reason, source context, exact task, allowed scope, forbidden scope, required sources, required outputs, return destination, and copy-paste packet are present.
+- Transfer content is complete enough for the selected external surface or new material chat without assembling missing pieces manually.
+- Transfer Packet is not terminal parent completion and cannot avoid a required current-goal CHILD_PROCEDURE_CALL.
+
 END_OF_FILE: workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md

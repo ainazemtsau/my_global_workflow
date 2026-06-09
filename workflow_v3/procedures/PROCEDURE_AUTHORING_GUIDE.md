@@ -176,4 +176,15 @@ A small procedure can use one declared material stage, no child calls, and a com
 
 NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished child work from the current START goal or replace `CHILD_PROCEDURE_CALL`.
 
+## Authoring Quality Checks
+
+Use these owner checks when drafting or revising a procedure:
+
+- Define purpose, trigger, non-trigger, required inputs, source requirements, context classification, completion contract, stage model, child/adaptor policy, stop conditions, and output contract before detailed body polish.
+- Keep runtime gate lenses inside the procedure; do not create a separate route controller, separate check runner, mandatory check-file loading, or hidden procedure switch.
+- For non-trivial authoring, explain target identity and method/checkpoints before drafting the detailed body.
+- Permit exact-source expansion or research only when it is relevant to method, source authority, or high-impact/non-obvious procedure design.
+- Preserve canonical `workflow_v3/procedures/**` location and `*_PROCEDURE.md` naming unless a bounded exception is explicit.
+- When authoring a stub body, extract role, integration, future scope, must-not constraints, required outputs, and STOP behavior from the self-contained stub instead of removed or obsolete sources.
+
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_AUTHORING_GUIDE.md

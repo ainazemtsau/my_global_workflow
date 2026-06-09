@@ -172,10 +172,11 @@ residual_risks:
 exact_next_move:
 ```
 
-## Eval / Quality Checks
+## Quality Checks
 
 - Branch, commit SHA, changed files, and push status are verified or missing evidence is named.
 - Returned evidence matches the emitted `CHILD_PROCEDURE_CALL` when verification is embedded.
+- Returned evidence resumes the same selected main procedure and remains adapter evidence until accepted through an admitted owner path.
 - Required Codex repair cannot be verified as complete unless the parent opened `CHILD_PROCEDURE_CALL`, waited in `RUN_WAITING_FOR_CHILD_RETURN`, and received matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`.
 - Changed files are compared against allowed and forbidden paths.
 - Validation output is present; no validation means no done claim.

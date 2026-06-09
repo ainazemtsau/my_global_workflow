@@ -37,4 +37,11 @@ Use `NEXT_CHAT_CARD` only as post-closed continuation when workflow continuation
 
 `NEXT_CHAT_CARD` is not a child call, not a utility launch, and not evidence that the current START goal completed. It must not carry unfinished child work, replace `CHILD_PROCEDURE_CALL`, or ask the user to assemble missing child-call content from earlier chat text.
 
+## Quality Checks
+
+- `context_to_paste` is complete enough for a new chat without previous chat memory.
+- `main_procedure_to_start`, expected result, evidence or return needed, and start instruction are present.
+- The card is emitted only after current START goal completion or explicit blocked closure.
+- The card does not represent unfinished current-goal child work and does not replace CHILD_PROCEDURE_CALL.
+
 END_OF_FILE: workflow_v3/templates/NEXT_CHAT_PROMPT_TEMPLATE.md

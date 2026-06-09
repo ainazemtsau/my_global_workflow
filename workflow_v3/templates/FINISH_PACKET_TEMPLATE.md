@@ -53,4 +53,12 @@ finish_audit:
 
 FINISH_PACKET closes the selected chat procedure after explicit FINISH and passed audit. It is not acceptance, persistence, launch authority, permission to switch procedures, or completion by package/card/handoff alone. It must fail when required child/adaptor repair was detected but no child call was opened, child calls are open, returns are missing or unverified, validation/evidence is absent, completion gaps are non-empty without explicit blocked completion, or `NEXT_CHAT_CARD` carries unfinished current-goal child work.
 
+## Quality Checks
+
+- FINISH_PACKET follows passed CLOSURE_CHECK or explicit blocked completion from the selected procedure.
+- FINISH audit compares START, RUN, child returns, declared stage sequence, validation/evidence, and selected procedure completion.
+- FINISH_PACKET includes human-readable result, evidence, validation, project refresh requirements when relevant, residual risks, and continuation.
+- Continuation is exactly post-closed NEXT_CHAT_CARD for a new independent lifecycle or `no_next_chat_needed` with reason.
+- FINISH_PACKET must not be first reveal of work, close with non-empty gaps unless blocked completion is explicit, or silently launch next work.
+
 END_OF_FILE: workflow_v3/templates/FINISH_PACKET_TEMPLATE.md

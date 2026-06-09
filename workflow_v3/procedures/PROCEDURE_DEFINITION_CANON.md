@@ -119,4 +119,16 @@ Procedure closure must:
 
 NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished child work needed by the current START goal.
 
+## Definition Quality Checks
+
+Procedure definition quality checks live in this framework and in the procedure file itself. They are internal authoring and closure checks, not a separate route authority.
+
+- Purpose is specific and bounded; trigger, non-trigger, required inputs, source requirements, and context classification are explicit.
+- Completion uses the procedure-specific `completion:` block; CHECK must not invent global done semantics or accept handoff/package/card-only outputs.
+- Material stages and internal checks are distinguishable; gates have real outcomes such as PASS, PASS_WITH_RISK, REWORK, EXPAND, STOP, TRANSFER, or CHILD_PROCEDURE_CALL where applicable.
+- Derived gates are generated from boundary crossings, evidence gaps, risks, or required decisions, name the blocked action, and remain internal procedure checks.
+- Child/adaptor policy is explicit where child work can affect completion; common child/adaptor choices may be named without becoming an exhaustive whitelist.
+- Route-changing outputs use typed packets/cards and continuation boundaries; a procedure must not create hidden route authority, switch procedures during RUN, or use `human_decision` to avoid a required packet.
+- Stub procedures are self-contained, include target role, workflow integration, future body scope, required outputs, and STOP behavior, and stop with `PROCEDURE_BODY_NOT_AUTHORED` until authored.
+
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md

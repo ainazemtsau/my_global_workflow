@@ -300,4 +300,14 @@ Common blocked reasons:
 - `CHILD_PROCEDURE_RETURN_REQUIRED_STOP`
 - `COMPLETION_CONTRACT_NOT_SATISFIED`
 
+## Quality Check Ownership
+
+This protocol owns lifecycle quality checks for START, RUN, CHECK, FINISH admission, and CLOSED boundaries. Ordinary runtime must not load a separate eval file to apply these checks.
+
+- START selects exactly one main procedure, reads the selected procedure source, shows its completion contract, states child/write boundaries, and waits for START / СТАРТ.
+- RUN executes only the selected procedure, represents declared material stages without ad hoc compression, emits operator-readable STAGE_RESULT output, and waits for CONTINUE / ДАЛЬШЕ between material stages unless the next step is `internal_check`.
+- Required child/adaptor work opens visible CHILD_PROCEDURE_CALL, enters RUN_WAITING_FOR_CHILD_RETURN, and blocks CONTINUE / ДАЛЬШЕ, CHECK, FINISH, and CLOSED until the matching return is verified or the result is explicitly blocked.
+- CHECK compares actual result to the selected procedure completion contract and blocks on open, missing, or unverified child returns, missing validation/evidence, hidden procedure switching, or package/card-only completion.
+- CLOSED output includes post-closed NEXT_CHAT_CARD for a new independent lifecycle or `no_next_chat_needed` with reason; NEXT_CHAT_CARD must not carry unfinished current-goal child work.
+
 END_OF_FILE: workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md

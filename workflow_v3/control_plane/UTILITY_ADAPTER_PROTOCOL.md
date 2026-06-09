@@ -132,4 +132,14 @@ NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a u
 - finding required current-goal child/adaptor repair but continuing to later stages, CHECK, FINISH, or CLOSED without opening and verifying the child call;
 - closing while a required child return is unresolved.
 
+## Quality Check Ownership
+
+This protocol owns child/adaptor and return-verification checks. Ordinary runtime must not depend on a separate eval file for child-call authority.
+
+- CHILD_PROCEDURE_CALL states why the child/adaptor is needed, names the target surface, includes complete packet/call boundaries, expected return, verification requirements, same-main-procedure resume, and `unresolved_until_returned`.
+- External user action receives complete copy-paste content; placeholders or scattered prior context are invalid.
+- CHILD_PROCEDURE_RETURN matches an emitted call, resumes the same selected main procedure, and is classified as evidence rather than accepted state.
+- Returned evidence is verified before reliance, including branch, commit, changed files, validation, EOF, Project refresh, push, source, or decision evidence where applicable.
+- A child/adaptor package, handoff, check packet, storage packet, copy-paste packet, or return envelope is not parent lifecycle completion by itself.
+
 END_OF_FILE: workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md

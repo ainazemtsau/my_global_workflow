@@ -35,4 +35,11 @@ NEXT_CHAT_CARD:
 
 Next Move Packet must select one primary next move and must not launch work invisibly. If another surface or chat is needed, include a complete Transfer Packet or `NEXT_CHAT_CARD` with copy-paste-ready content.
 
+## Quality Checks
+
+- Closure derives continuation from the selected main procedure, actual result, CLOSURE_CHECK outcome, resolved child-call status, and next intended workflow step.
+- If continuation is needed, NEXT_CHAT_CARD has title, why, main procedure to start, complete context to paste, expected result, evidence or return needed, and start instruction.
+- If continuation is not needed, closure states `no_next_chat_needed` with reason.
+- The packet is not a placeholder, hardcoded global next-step enum, terminal completion substitute, or carrier for unfinished child work.
+
 END_OF_FILE: workflow_v3/templates/NEXT_MOVE_PACKET_TEMPLATE.md

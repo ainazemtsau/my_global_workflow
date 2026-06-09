@@ -667,7 +667,7 @@ Output rules:
 - do not choose the next semantic task;
 - return evidence usable by parent, Acceptance Decision, Current Next Move, or verification surfaces.
 
-## Eval / Quality Checks
+## Quality Checks
 
 Procedure Definition checks:
 
@@ -690,10 +690,12 @@ Procedure Execution checks:
 - RUN did not switch procedures.
 - Direct mutation occurred only under `storage_update`.
 - No write occurred before package, authority, path, source, and validation gates passed.
+- Storage Update Package included source acceptance decision or admitted source authority, candidate result, allowed files, forbidden paths, exact changes, expected diff or file states, validation, source integrity requirements, stop conditions, commit policy, push policy, and return fields.
 - Only listed files changed.
 - Forbidden paths were untouched.
 - EOF markers were verified where required.
 - Listed validation ran or produced a typed stop.
+- Project Instructions payload count and refresh categories were returned when those sources changed.
 - FINISH was requested only after all required write/verification evidence resolved.
 - NEXT_CHAT_CARD continuation selected exactly one closure move and did not launch it.
 
@@ -703,6 +705,7 @@ Cross-boundary checks:
 - Acceptance alone is not write execution.
 - Current Next Move may route to storage_update only when its transfer packet contains a complete Storage Update Package.
 - Placeholders in transfer packets are invalid.
+- Human acceptance input is not storage execution authority; `storage_update` independently verifies package admission before writing.
 - Storage Update returns evidence to parent/next surfaces without deciding the next semantic task.
 
 ## Stop Conditions

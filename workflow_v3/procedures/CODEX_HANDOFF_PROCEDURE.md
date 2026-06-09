@@ -191,13 +191,15 @@ requested_return_fields:
 unresolved_until_returned: true
 ```
 
-## Eval / Quality Checks
+## Quality Checks
 
 - Child-call schema identifies exact source reads and path boundaries.
 - Child-call schema includes validation and stop conditions.
 - Child-call schema states commit/push policy.
 - Child-call schema states Project refresh reporting requirements when changed files affect ChatGPT Projects.
 - Child-call schema includes expected return and parent verification fields sufficient for later verification.
+- Child-call schema includes resume rule and `unresolved_until_returned`.
+- External user action has complete copy-paste content when needed.
 - Child-call schema does not authorize product execution by implication.
 - Child-call schema does not omit forbidden paths or validation.
 - Child-call schema does not permit Codex to decide acceptance.

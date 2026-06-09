@@ -207,9 +207,11 @@ limitations:
 continuation:
 ```
 
-## Eval / Quality Checks
+## Quality Checks
 
 - Required sources were read or limitations stated.
+- Purpose, trigger/non-trigger, required inputs, source requirements, context classification, completion contract, stages, child/adaptor policy, stop conditions, and output contract are explicit.
+- Procedure gates have real outcomes and remain internal checks rather than separate route authority.
 - Material stages emitted `STAGE_RESULT`.
 - User confirmation occurred before the next material stage when required.
 - Child procedure calls returned to the same selected procedure and were verified before reliance.
