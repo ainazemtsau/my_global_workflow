@@ -58,7 +58,7 @@ Work admission:
 - Do not perform product work without a bounded accepted Next Move and Work Contract or a user request that can be normalized into one within the bound Direction.
 - Do not perform product work from setup-only state or before Direction Definition/Active Front acceptance admits it.
 - Do not mutate runtime state without an explicit acceptance/update path.
-- Outputs, post-closed continuation cards, child/adaptor returns, and code-assistant evidence are candidate until accepted.
+- Outputs, post-closed continuation cards, dependency returns, and code-assistant evidence are candidate until accepted.
 - Steering entities require formation before template filling.
 
 Project surfaces:
@@ -69,14 +69,14 @@ Project surfaces:
 
 FINISH closure and transfers:
 - Material/state-sensitive work uses Russian operator-first START when the operator writes Russian: `## Коротко` first, compact START_CONTRACT under `## Техническая часть`, then waits for START/СТАРТ.
-- RUN executes the selected procedure's declared stages only, must not compress stages into simple/compact/shortcut/single-stage paths, and uses `## Коротко по шагу` before compact STAGE_RESULT fields when conclusions/blockers/repair/child calls exist.
-- CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN are canonical for child/adaptor evidence; parent RUN waits in RUN_WAITING_FOR_CHILD_RETURN and verifies returns before reliance. If required child/adaptor repair is detected and parent cannot mutate directly, open CHILD_PROCEDURE_CALL now; no plan/package/deferred launch may continue to CHECK/FINISH/CLOSED.
+- RUN executes the selected procedure's declared stages only, must not compress stages into simple/compact/shortcut/single-stage paths, and uses `## Коротко по шагу` before compact STAGE_RESULT fields when conclusions/blockers/repair/dependency calls exist.
+- DEPENDENCY_CALL / DEPENDENCY_RETURN are canonical for dependency evidence; parent RUN waits in RUN_WAITING_FOR_DEPENDENCY_RETURN and verifies returns before reliance. If required dependency repair is detected and parent cannot mutate directly, open DEPENDENCY_CALL now; no plan/package/deferred launch may continue to CHECK/FINISH/CLOSED. Child/utility labels are compatibility aliases only.
 - CHECK emits CLOSURE_CHECK against the selected completion contract.
-- CHECK/FINISH/CLOSED are blocked by open, missing, or unverified child returns, missing validation/evidence, or package/card terminal-only results.
+- CHECK/FINISH/CLOSED are blocked by open, missing, or unverified dependency returns, missing validation/evidence, or package/card terminal-only results.
 - FINISH emits FINISH_PACKET after audit pass.
 - CLOSED includes post-closed NEXT_CHAT_CARD when workflow continuation is needed, otherwise no_next_chat_needed.
 - Include result, evidence/source refs, source/read limits, assumptions, unresolved decisions, risks, candidate-state notice, and continuation.
-- Use Transfer Packets or copy-paste post-closed NEXT_CHAT_CARDs when transfer is needed. NEXT_CHAT_CARD cannot carry unfinished child work or replace a required current-goal child call.
+- Use Transfer Packets or copy-paste post-closed NEXT_CHAT_CARDs when transfer is needed. NEXT_CHAT_CARD cannot carry unfinished dependency work or replace a required current-goal dependency call.
 
 Context Request:
 - If exact source cannot be read, stop and request the exact repo/path/ref.

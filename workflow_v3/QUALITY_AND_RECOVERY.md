@@ -8,7 +8,7 @@ This file defines quality gates and recovery actions for Workflow v3 repository 
 
 No validation means no done claim.
 
-Chat output, Codex output, Project Files/Sources, STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, Transfer Packets, Check Jobs, child/adaptor returns, and document existence do not create accepted state or parent lifecycle completion by themselves.
+Chat output, Codex output, Project Files/Sources, STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, Transfer Packets, Check Jobs, dependency returns, and document existence do not create accepted state or parent lifecycle completion by themselves.
 
 ## Context/source gate
 
@@ -50,7 +50,7 @@ Checks:
 
 - Direction Spine, Direction Map, Active Front, Work Graph, Work Contract, Current Next Move, Acceptance Decision, and Memory Artifact promotion use registered procedures before template filling;
 - alternatives, criteria, evidence, risks, rejected/deferred options, focus/waste cuts, source limits, acceptance question, STAGE_RESULT, FINISH_PACKET, and continuation state are visible when applicable;
-- child research/check chats are bounded support only, return to the parent formation chat, and require verified child/adaptor return before reliance;
+- support research/check dependencies are bounded support only, return to the parent formation chat, and require verified dependency return before reliance;
 - candidate and accepted boundaries are preserved.
 
 Fails when formation becomes roadmap drafting, backlog dumping, or hidden acceptance.
@@ -134,8 +134,8 @@ Checks:
 
 - FINISH selects one continuation outcome;
 - transfer steps include a complete Transfer Packet or post-closed NEXT_CHAT_CARD;
-- Codex child/adaptor calls return to the same current chat for verification and closure;
-- next material chat waits until the current material target is completed or explicitly blocked, with required child returns verified and any acceptance/persistence boundary preserved;
+- Codex/code-assistant calls use `code_repository_dependency` and return to the same current chat for verification and closure;
+- next material chat waits until the current material target is completed or explicitly blocked, with required dependency returns verified and any acceptance/persistence boundary preserved;
 - unreviewed task lists remain candidate context, not roadmap.
 
 Fails when:
@@ -152,26 +152,26 @@ Recovery:
 - stop the unsafe continuation;
 - repair FINISH_PACKET and continuation state;
 - choose one continuation outcome;
-- provide a complete Transfer Packet when transfer is needed, or a visible `CHILD_PROCEDURE_CALL` when current-goal child work is required before closure;
+- provide a complete Transfer Packet when transfer is needed, or a visible `DEPENDENCY_CALL` when current-goal dependency work is required before closure;
 - preserve acceptance/update boundary.
 
-## Parent/child recovery gate
+## Parent/Dependency Recovery Gate
 
 Checks:
 
-- child result returns to parent;
+- dependency result returns to parent;
 - parent remains synthesis authority;
-- missing or unverified required child result blocks synthesis, CHECK, FINISH, and CLOSED;
-- Parent Recovery Block is used when multiple children or missing returns create ambiguity.
+- missing or unverified required dependency result blocks synthesis, CHECK, FINISH, and CLOSED;
+- Parent Recovery Block is used when multiple dependencies or missing returns create ambiguity.
 
-Fails when child output becomes independent execution track or missing child result is invented.
+Fails when dependency output becomes independent execution track or missing dependency result is invented.
 
 Recovery:
 
 - stop parent synthesis;
-- request missing child result or rerun a narrowed child prompt;
+- request missing dependency result or rerun a narrowed dependency prompt;
 - produce Parent Recovery Block;
-- rerun FINISH closure after child/parent status is clear.
+- rerun FINISH closure after dependency/parent status is clear.
 
 ## Codex validation gate
 
