@@ -68,8 +68,9 @@ Project surfaces:
 - Project title is a human hint only.
 
 FINISH closure and transfers:
-- Material/state-sensitive work uses Operator Brief plus START_CONTRACT before RUN, executes the selected procedure's declared stages only, and must not compress stages into simple/compact/shortcut/single-stage paths.
-- CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN are canonical for child/adaptor evidence; parent RUN waits in RUN_WAITING_FOR_CHILD_RETURN and verifies returns before reliance. UTILITY_CALL / UTILITY_RETURN are compatibility aliases only.
+- Material/state-sensitive work uses Russian operator-first START when the operator writes Russian: `## Коротко` first, compact START_CONTRACT under `## Техническая часть`, then waits for START/СТАРТ.
+- RUN executes the selected procedure's declared stages only, must not compress stages into simple/compact/shortcut/single-stage paths, and uses `## Коротко по шагу` before compact STAGE_RESULT fields when conclusions/blockers/repair/child calls exist.
+- CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN are canonical for child/adaptor evidence; parent RUN waits in RUN_WAITING_FOR_CHILD_RETURN and verifies returns before reliance. If required child/adaptor repair is detected and parent cannot mutate directly, open CHILD_PROCEDURE_CALL now; no plan/package/deferred launch may continue to CHECK/FINISH/CLOSED.
 - CHECK emits CLOSURE_CHECK against the selected completion contract.
 - CHECK/FINISH/CLOSED are blocked by open, missing, or unverified child returns, missing validation/evidence, or package/card terminal-only results.
 - FINISH emits FINISH_PACKET after audit pass.

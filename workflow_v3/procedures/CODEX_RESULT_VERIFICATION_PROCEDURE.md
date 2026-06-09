@@ -25,7 +25,7 @@ Embedded verification must verify branch, commit SHA, changed files, allowed pat
 
 No validation means no done claim.
 
-Verification does not equal acceptance and does not close the parent lifecycle by itself. It may unblock parent RUN only after branch, commit, changed files, validation, EOF, refresh, push, and residual risk evidence are verified or the result is explicitly blocked.
+Verification does not equal acceptance and does not close the parent lifecycle by itself. It may unblock parent RUN only after branch, commit, changed files, validation, EOF, refresh, push, residual risk evidence, and the matching open child-call id are verified or the result is explicitly blocked. If required Codex repair was detected but no parent `CHILD_PROCEDURE_CALL` was opened, verification must block because there is no same-owner call to match.
 
 Standalone verification remains valid when the user's primary work item is only Codex result verification.
 
@@ -176,6 +176,7 @@ exact_next_move:
 
 - Branch, commit SHA, changed files, and push status are verified or missing evidence is named.
 - Returned evidence matches the emitted `CHILD_PROCEDURE_CALL` when verification is embedded.
+- Required Codex repair cannot be verified as complete unless the parent opened `CHILD_PROCEDURE_CALL`, waited in `RUN_WAITING_FOR_CHILD_RETURN`, and received matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`.
 - Changed files are compared against allowed and forbidden paths.
 - Validation output is present; no validation means no done claim.
 - EOF markers are checked for Markdown files that require them.
@@ -194,6 +195,7 @@ exact_next_move:
 - Project Instructions source changed but payload count is missing;
 - project refresh categories are missing when relevant;
 - embedded return cannot be matched to the emitted child call;
+- required Codex repair has no emitted parent child call to match;
 - verification would imply acceptance, storage mutation, parent FINISH, repair, or hidden next launch.
 
 ## Procedure Closure

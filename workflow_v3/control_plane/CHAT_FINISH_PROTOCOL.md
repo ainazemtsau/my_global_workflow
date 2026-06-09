@@ -30,6 +30,7 @@ finish_audit:
   material_stages_emitted_stage_result:
   user_confirmation_observed_between_material_stages:
   child_procedure_calls_returned_to_same_main_procedure:
+  required_child_work_opened_when_detected:
   no_open_child_procedure_calls:
   all_required_child_returns_received:
   all_required_child_returns_verified:
@@ -53,6 +54,8 @@ Additional hard gates:
 - If blocked completion is allowed, the result must be marked blocked, not completed.
 - If `actual_result` is only a child call, handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or `NEXT_CHAT_CARD`, FINISH must fail.
 - If `open_child_calls != empty`, any required child return is missing, or any required child return is unverified, FINISH must fail.
+- If `required_child_work_detected = true` and `child_call_opened = false`, FINISH must fail.
+- If `repair_needed = true` and the selected parent cannot mutate directly, then a patch plan, draft packet, deferred launch instruction, or handoff text cannot satisfy RUN completion; the required path is `CHILD_PROCEDURE_CALL` -> `RUN_WAITING_FOR_CHILD_RETURN` -> verified `CHILD_PROCEDURE_RETURN`.
 - If required validation or evidence is absent, FINISH must fail.
 
 ## FINISH Output

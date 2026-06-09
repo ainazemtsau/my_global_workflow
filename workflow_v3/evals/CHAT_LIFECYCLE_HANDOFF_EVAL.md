@@ -18,6 +18,7 @@ Validate child procedure calls, adapter returns, and continuation cards.
 - Returned evidence is verified before reliance.
 - Child return is not accepted state by itself.
 - Child call does not switch main procedure.
+- Required current-goal child/adaptor repair opens `CHILD_PROCEDURE_CALL`, enters `RUN_WAITING_FOR_CHILD_RETURN`, and requires matching return verification before parent continuation.
 - Codex, child, check, storage, handoff, package, card, or copy-paste packet is not terminal parent completion.
 - Closure continuation uses post-closed `NEXT_CHAT_CARD` only when a new independent lifecycle is needed.
 
@@ -29,6 +30,7 @@ Validate child procedure calls, adapter returns, and continuation cards.
 - Returned evidence is relied on without verification.
 - CHECK, FINISH, or CLOSED proceeds while a required child call is open, missing, or unverified.
 - Codex child call is required but no return exists and CHECK passes.
+- Required child/adaptor repair is found but parent output remains only a plan, packet, handoff, card, or future launch instruction while parent RUN continues.
 - Child return exists but branch, commit, changed files, validation, EOF, refresh, push, or residual-risk evidence is missing and verification passes.
 - A package, handoff, card, Codex packet, check packet, storage packet, or child-chat card is used as parent completion.
 - `NEXT_CHAT_CARD` represents unfinished child work or replaces `CHILD_PROCEDURE_CALL`.

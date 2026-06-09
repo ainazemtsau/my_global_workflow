@@ -9,7 +9,7 @@ child_call_policy: child_call_allowed_when_needed
 
 Use this procedure to create, revise, author, or integrate Workflow v3 procedure definitions and their registry/eval/procedure-boundary relationships.
 
-This procedure is non-mutating. It produces candidate definitions, patch plans, child-call envelopes, and integration proposals only.
+This procedure is non-mutating. It produces candidate definitions/design evidence, patch plans, child-call envelopes, and integration proposals only. If repository mutation is required for the current START goal and the parent chat cannot mutate directly, the visible stage output must emit/open `CHILD_PROCEDURE_CALL` and pause the parent RUN until the matching return is verified.
 
 For non-trivial authoring, it must proceed through staged/checkpointed design before detailed body drafting.
 
@@ -200,7 +200,7 @@ required intermediate output: complexity_class, research_decision, research_reas
 gate: PASS if complexity and research policy are justified; CHILD_PROCEDURE_CALL, TRANSFER, or STOP if required research/check/tool work is outside current scope.
 checkpoint rule: If research is required, stop before final body drafting until user approves the research questions/evidence plan or provides approved research context.
 expansion rule: Research is required only for complex method design, high-impact decision logic, non-obvious best practices, external tooling/provider behavior, current external constraints, or explicit user request. Do not make research mandatory for small bounded procedure edits.
-stop behavior: Return research approval checkpoint or bounded research/check handoff candidate.
+stop behavior: Return research approval checkpoint, bounded research/check child-call framing, or a blocked result.
 ```
 
 ### Stage 4 - Method / Best-Practice Design Plan
@@ -213,7 +213,7 @@ inputs: Stage 1 identity, Stage 2 grounding, Stage 3 complexity/research decisio
 required intermediate output: method_summary, applicable_techniques_patterns_or_workflow_principles, overcomplexity_control, integration_with_START_RUN_CHECK_FINISH, integration_with_CLOSURE_CHECK_and_NEXT_CHAT_CARD, integration_with_child_call_boundaries, integration_with_parent_or_evidence_boundaries_where_relevant, acceptance_and_update_boundaries, approval_checkpoint_question.
 gate: PASS only after user approval when the procedure is non-trivial; REWORK if the method is too vague, too complex, or violates boundaries.
 checkpoint rule: User approval required before Stage 5 for non-trivial procedure body authoring.
-expansion rule: May propose bounded check/research/handoff candidates, but must not launch them invisibly.
+expansion rule: May frame bounded check/research/child-call needs, but must not launch them invisibly.
 stop behavior: Return method checkpoint requiring user approval.
 ```
 
@@ -227,7 +227,7 @@ inputs: Approved method plan when required, Procedure Definition Canon, template
 required intermediate output: candidate_procedure_body_or_revision_package, changed_sections, retained_sections, removed_or_replaced_sections, kind, child_call_policy, stop_conditions, output_contract.
 gate: PASS if the body includes purpose, triggers, non-triggers, required inputs, source requirements, context classification, complexity selector, declared stage cards, gates, checkpoint policy, optional expansion, research policy, child-call policy, output contract, eval checks, stop conditions, and closure.
 checkpoint rule: Checkpoint only if the draft introduces new boundaries, new handoff paths, new eval requirements, or unresolved design choices.
-expansion rule: Use eval sources as checks; do not broaden into authoring unrelated procedure bodies.
+expansion rule: Use eval sources as checks; do not broaden into authoring unrelated procedure bodies. Stage 5 may identify `repair_needed` and draft exact patch content internally, but if applying that repair is required for the current START goal and the parent cannot mutate directly, the visible output must open `CHILD_PROCEDURE_CALL`, not stop at a package or plan.
 stop behavior: Return draft insufficiency or boundary blocker.
 ```
 
@@ -240,9 +240,9 @@ activation conditions: Always after Stage 5.
 inputs: Candidate body/revision package, Procedure Registry, procedure boundary contract, Utility Adapter Protocol, definition/execution evals, closure templates.
 required intermediate output: eval_implications, registry_delta_if_required, kind_delta_if_required, project_refresh_categories, codex_or_storage_child_call_need, allowed_paths_if_later_child_call_needed, forbidden_paths_if_later_child_call_needed.
 gate: PASS if integration impact is explicit and bounded; CHILD_PROCEDURE_CALL or TRANSFER only as an allowed typed output; STOP if required integration cannot be bounded.
-checkpoint rule: Checkpoint before any proposed repository mutation package.
-expansion rule: Propose Codex/storage/check work only as candidate packet or allowed `CHILD_PROCEDURE_CALL`, not as hidden launch.
-stop behavior: Return integration blocker or handoff-needed candidate.
+checkpoint rule: Checkpoint before optional future mutation planning, but not before opening a required current-goal child call when the task already requires it and boundaries are complete.
+expansion rule: If Codex/storage/check work is required for current START-goal repair, emit/open `CHILD_PROCEDURE_CALL`; otherwise frame optional future work as non-material context or transfer content. Hidden launch is forbidden.
+stop behavior: Return integration blocker, opened child call, or explicit blocked result.
 ```
 
 ### Stage 7 - Closure
@@ -253,7 +253,7 @@ purpose: Return the candidate revision package, limitations, residual risks, and
 activation conditions: Always after completed or stopped stages and after required child returns are resolved or blocked.
 inputs: Stage outputs.
 required intermediate output: candidate_revision_package, exact_patch_plan, eval_implications, child_calls, source_limitations, residual_risks, CLOSURE_CHECK.
-gate: PASS if the candidate package is complete, required child returns are verified, and CLOSURE_CHECK can compare it to this procedure's completion contract; PASS_WITH_RISK if limitations are explicit; STOP if required outputs are absent or required child returns are pending.
+gate: PASS if the revision/design evidence is complete, required child returns are verified, and CLOSURE_CHECK can compare it to this procedure's completion contract; PASS_WITH_RISK if limitations are explicit; STOP if required outputs are absent, required child/adaptor repair was identified but no child call is open/returned/verified, or required child returns are pending.
 checkpoint rule: None.
 expansion rule: None.
 stop behavior: Return blocked result and exact missing requirement.
@@ -267,9 +267,11 @@ Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `CHILD_PRO
 
 ## Optional Expansion
 
-Allowed expansion is limited to exact source inspection, bounded eval/check planning, bounded research planning, embedded verification of returned evidence, or a candidate Codex/storage handoff when requested and bounded.
+Allowed expansion is limited to exact source inspection, bounded eval/check planning, bounded research planning, embedded verification of returned evidence, optional non-material future transfer framing, or required current-goal `CHILD_PROCEDURE_CALL` opening.
 
 Expansion must remain subordinate to the selected main procedure.
+
+Required current-goal repair is not optional expansion. When repository mutation is required for the current START goal and the parent chat cannot mutate directly, the same `STAGE_RESULT` must emit/open `CHILD_PROCEDURE_CALL`, show `open_child_calls` with the call id, set `next_state: RUN_WAITING_FOR_CHILD_RETURN`, and require matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`. Stage progression pauses until the matching return is verified.
 
 ## Research Policy
 
@@ -360,13 +362,6 @@ child_calls:
   expected_return_contract:
   parent_verification_contract:
 
-handoff_need:
-  needed:
-  handoff_type:
-  reason:
-  candidate_allowed_paths:
-  candidate_forbidden_paths:
-
 closure:
   child_return_status:
   CLOSURE_CHECK:
@@ -390,6 +385,7 @@ closure:
 - Registry hint proposal is compact and does not replace procedure source.
 - Closure uses CLOSURE_CHECK, FINISH_PACKET, and post-closed NEXT_CHAT_CARD_or_no_next_chat_needed correctly.
 - CLOSURE_CHECK does not pass while a required child return is pending, missing, unverified, or required validation/evidence is absent.
+- CLOSURE_CHECK fails when `repair_needed = true`, the parent cannot mutate directly, and no opened/returned/verified child call evidence exists.
 - A patch plan, child-call packet, handoff, card, package, or copy-paste packet is intermediate only and not terminal parent completion.
 
 ## Stop Conditions
@@ -403,6 +399,7 @@ closure:
 - user asks to patch repository without admitted child-call or storage boundary;
 - research is required but questions/evidence/source policy are not approved;
 - embedded child/adaptor use would become hidden procedure switching, acceptance, mutation, or unbounded external wait;
+- required repository mutation for the current START goal is identified but no `CHILD_PROCEDURE_CALL` can be opened with exact boundaries and return verification;
 - required child return is missing, unverified, or cannot be matched to the emitted call.
 
 ## Procedure Closure

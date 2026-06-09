@@ -24,6 +24,8 @@ Embedded use emits `CHILD_PROCEDURE_CALL`, not FINISH closure artifacts. The par
 
 If the user asks only for a Codex card without an active parent/core procedure goal, require an admitted parent/core procedure goal or return `UNREGISTERED_ACTION_EXCEPTION` / blocked scope. Do not create a lifecycle whose only artifact is a package.
 
+For required current-goal repair, a complete Codex packet emitted by the parent opens a child call. It is not a draft-only artifact, optional launch instruction, standalone material chat, terminal result, or escape hatch from parent verification. If a parent only wants a documentation example and no current repair is required, label it non-material documentation/example content and do not represent it as RUN repair output.
+
 ## Trigger / When to Use
 
 - A selected parent RUN needs bounded repository maintenance or implementation work from Codex.
@@ -37,7 +39,7 @@ If the user asks only for a Codex card without an active parent/core procedure g
 - Do not use to decide acceptance or permit Codex to decide acceptance.
 - Do not use when forbidden paths, validation, stop conditions, or return fields are missing.
 - Do not use to launch Codex without an explicit bounded child call and return-verification contract.
-- Do not use when the only proposed outcome would be a candidate child-call packet.
+- Do not use when the only proposed outcome would be a standalone packet instead of an opened child call or clearly non-material documentation example.
 - Do not use as a replacement for a parent/core procedure START goal.
 - Do not ask Codex to perform ChatGPT CHECK, FINISH, or CLOSED.
 
@@ -137,7 +139,7 @@ stop behavior: Return incomplete child-call blocker.
 - `REWORK`: revise missing or vague child-call fields before closure.
 - `EXPAND`: inspect exact repository source only to complete source/path boundaries.
 - `STOP`: return blocked result when required child-call authority or fields are missing.
-- `TRANSFER`: return a candidate child-call packet only when a parent procedure has admitted that packet as an intermediate artifact.
+- `TRANSFER`: return only clearly non-material documentation/example content, or post-closed continuation content, when no current-goal repair is required and the selected parent admits that output.
 - `CHILD_PROCEDURE_CALL`: when embedded in a main procedure and the Codex result is required before that owner can complete RUN, return the complete child-call envelope and expected return packet.
 
 ## Optional Expansion
@@ -217,7 +219,7 @@ unresolved_until_returned: true
 
 ## Procedure Closure
 
-Return the child-call schema as candidate child-call output only when embedded under a parent procedure. Codex returns evidence only, and that result remains child evidence until matched, verified by the parent, and routed through the selected parent completion contract.
+Return the child-call schema only under a parent procedure boundary. When required for the current START goal, emitting the complete schema opens `CHILD_PROCEDURE_CALL` and the parent waits for `CODEX_RETURN_PACKET` / `CHILD_PROCEDURE_RETURN`. Codex returns evidence only, and that result remains child evidence until matched, verified by the parent, and routed through the selected parent completion contract.
 
 If Codex work is required for the current START goal, the parent cannot CHECK, FINISH, or CLOSED until the matching `CHILD_PROCEDURE_RETURN` is verified. NEXT_CHAT_CARD is post-closed continuation only and must not carry unfinished Codex child work from the current START goal.
 

@@ -62,7 +62,7 @@ Use the procedure's own purpose and output contract as the source. Do not copy a
 
 ## START Output Requirements
 
-Procedure authors must support the lifecycle START format. START must begin with an operator-readable `Operator Brief` before technical fields. It must state the goal of the chat, the selected main procedure, why that procedure was selected, the terminal condition for this chat, whether any `CHILD_PROCEDURE_CALL` may be required, and what the operator should review before sending START / СТАРТ.
+Procedure authors must support the lifecycle START format. START must begin with a short operator-readable plain-language block before technical fields. When the operator writes Russian, use `## Коротко` first and put canonical technical fields under `## Техническая часть`. The human-facing block must state what this chat will do, why the selected procedure applies, what completion means, what the operator should review, whether this step is default/no-action or requires attention, and what happens after START / СТАРТ.
 
 Technical START fields must include:
 
@@ -127,7 +127,7 @@ pass_if: required files are readable and markers match.
 blocked_if: required marker is missing or source is truncated.
 ```
 
-STAGE_RESULT must be operator-readable first when the stage contains material conclusions, blockers, repair needs, or child calls. It must say what changed in understanding, what evidence was checked, and what the human should review. Technical fields follow:
+STAGE_RESULT must be operator-readable first when the stage contains material conclusions, blockers, repair needs, or child calls. When the operator writes Russian, use `## Коротко по шагу` first and `## Техническая часть` for compact fields. The human-facing block must say what was done, what was found, what the human should review, and what happens next. Technical fields follow:
 
 ```text
 stage:
@@ -136,6 +136,9 @@ proof:
 limitations:
 child_calls_opened:
 child_returns_verified:
+required_child_work_detected:
+child_call_opened:
+next_state:
 next_stage_or_check:
 user_confirmation_required:
 ```
@@ -158,6 +161,8 @@ child_call_policy:
 ```
 
 Use `CHILD_PROCEDURE_CALL` and `CHILD_PROCEDURE_RETURN` as canonical lifecycle terms. `UTILITY_CALL` and `UTILITY_RETURN` may appear only as adapter-level compatibility aliases. `open_child_calls != empty`, a missing child return, an unverified child return, or missing required validation/evidence blocks CHECK, FINISH, and CLOSED.
+
+Required current-goal repair has no draft-only child/adaptor mode. If a stage detects required child/adaptor repair and the parent cannot mutate directly, the stage must open `CHILD_PROCEDURE_CALL`, enter `RUN_WAITING_FOR_CHILD_RETURN`, and require matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET` before CONTINUE / ДАЛЬШЕ, CHECK, FINISH, or CLOSED.
 
 ## Keep Project Instructions Small
 

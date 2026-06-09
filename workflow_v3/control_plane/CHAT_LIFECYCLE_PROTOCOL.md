@@ -40,6 +40,7 @@ FINISH -> blocked escalation
 - `open_child_calls != empty` blocks CHECK, FINISH, and CLOSED.
 - `missing_child_return` blocks CHECK, FINISH, and CLOSED.
 - `unverified_child_return` blocks CHECK, FINISH, and CLOSED.
+- If `required_child_work_detected = true` and the parent cannot satisfy the current START goal directly, the parent must emit/open `CHILD_PROCEDURE_CALL`; `child_call_opened = false` blocks CHECK, FINISH, and CLOSED.
 - Missing required validation or evidence blocks CHECK, FINISH, and CLOSED.
 - A handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or `NEXT_CHAT_CARD` cannot satisfy a parent START goal by itself.
 - CHECK compares actual result to the selected procedure completion contract.
@@ -57,8 +58,9 @@ START must:
 - return `SPLIT_REQUIRED` if multiple independent work items are requested;
 - read `PROCEDURE_REGISTRY.md` and select exactly one main procedure;
 - read the selected procedure file and verify source availability;
-- begin with a short operator-readable `Operator Brief`;
-- state in plain language the chat goal, selected main procedure, selection reason, terminal condition, possible child procedure need, and what the operator should review before START / СТАРТ;
+- begin with a short operator-readable plain-language block;
+- when the operator writes Russian, put the human-facing block in Russian before technical fields;
+- state what this chat will do, why the selected procedure applies, what completion means, what the operator should review, whether the step is default/no-action or requires attention, and what happens after START / СТАРТ;
 - show the selected procedure's `completion:` contract;
 - show the procedure's material stages when present;
 - show allowed boundaries, including write and child-call boundaries;
@@ -67,14 +69,26 @@ START must:
 START output shape:
 
 ```text
-## Operator Brief
+## Коротко
 
-- Goal: <plain-language goal of this chat>
-- Selected main procedure: <entrypoint and procedure path>
-- Why this procedure: <selection reason>
-- Terminal condition: <completed or explicitly blocked result required for this chat>
-- Child procedure calls: <none expected | may be required for exact reason>
-- Before START / СТАРТ, review: <sources, boundaries, terminal condition, and write/child-call policy>
+В этом чате я буду <простое описание работы>.
+
+Зачем:
+<1-3 строки простым языком>.
+
+Какая процедура ведёт чат:
+<entrypoint>. Она выбрана потому, что <простая причина>.
+
+Когда задача будет считаться завершённой:
+<проверяемое завершение>. Если понадобится Codex или другой child для текущей цели, я открою CHILD_PROCEDURE_CALL и остановлюсь ждать return.
+
+На что тебе смотреть:
+<короткий список важных проверок>. Если всё стандартно: "Особого решения сейчас не нужно; проверь только цель и target."
+
+Что будет дальше:
+После START / СТАРТ я пройду stage 0. После каждого важного stage дам короткое резюме и остановлюсь на CONTINUE / ДАЛЬШЕ.
+
+## Техническая часть
 
 START_CONTRACT:
   selected_entrypoint:
@@ -93,14 +107,26 @@ START_CONTRACT:
 Compact example:
 
 ```text
-## Operator Brief
+## Коротко
 
-- Goal: revise one Workflow v3 procedure source to remove a stale closure rule.
-- Selected main procedure: author_workflow_procedure at workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md.
-- Why this procedure: the request changes Workflow v3 procedure authority and eval relationships.
-- Terminal condition: selected START goal is satisfied by verified procedure revision evidence, or explicitly blocked with exact missing source or child return.
-- Child procedure calls: Codex may be required if repository mutation is needed; if opened, the parent RUN waits for return verification before CHECK.
-- Before START / СТАРТ, review: selected source path, allowed files, completion contract, declared stages, and child-call policy.
+В этом чате я буду чинить одно правило в источнике Workflow v3.
+
+Зачем:
+Нужно убрать устаревшее правило закрытия, чтобы процедура не закрывала чат раньше проверки.
+
+Какая процедура ведёт чат:
+author_workflow_procedure. Она выбрана потому, что запрос меняет authority процедуры Workflow v3 и связанные eval-проверки.
+
+Когда задача будет считаться завершённой:
+Изменение будет подтверждено источниками, diff/validation и CLOSURE_CHECK. Если потребуется Codex для записи в репозиторий, я открою CHILD_PROCEDURE_CALL и остановлюсь ждать return.
+
+На что тебе смотреть:
+Проверь цель, target-файл и границы записи. Особого решения сейчас не нужно, если они верны.
+
+Что будет дальше:
+После START / СТАРТ я пройду stage 0. После каждого важного stage дам короткое резюме и остановлюсь на CONTINUE / ДАЛЬШЕ.
+
+## Техническая часть
 
 START_CONTRACT:
   selected_entrypoint: author_workflow_procedure
@@ -130,20 +156,31 @@ RUN must:
 - keep child procedure calls subordinate to the same selected main procedure;
 - enter `RUN_WAITING_FOR_CHILD_RETURN` when required external or subordinate work is opened;
 - verify every required `CHILD_PROCEDURE_RETURN` before the returned evidence can affect CHECK or FINISH;
+- when a stage determines that external child/adaptor repair is required for the current START goal and the parent cannot mutate directly, emit/open `CHILD_PROCEDURE_CALL`, record the call id in `open_child_calls`, set `next_state: RUN_WAITING_FOR_CHILD_RETURN`, and require matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`;
+- reject any later-stage, CHECK, FINISH, or CLOSED progression while required child/adaptor repair has not been opened, returned, and verified;
 - prevent direct mutation unless the selected main procedure or a verified child/adaptor write path admits exact writes;
 - avoid hidden launches, hidden acceptance, and procedure switching.
 
-STAGE_RESULT must be operator-readable first when the stage contains material conclusions, blockers, repair needs, or child calls. It must say what changed in understanding, what evidence was checked, and what the human should review. Technical fields follow. STAGE_RESULT does not accept state, close the chat, or launch hidden child work.
+STAGE_RESULT must be operator-readable first when the stage contains material conclusions, blockers, repair needs, or child calls. When the operator writes Russian, the human-facing block is Russian. It must say what happened, what was found, what the human should review, and what happens next. Technical fields follow. STAGE_RESULT does not accept state, close the chat, or launch hidden child work.
 
 STAGE_RESULT output shape:
 
 ```text
-## Operator Brief
+## Коротко по шагу
 
-- Stage: <stage id/name>
-- What changed: <material conclusion, blocker, repair need, or child-call need>
-- Evidence checked: <exact evidence/source checked>
-- Review before continuing: <what the operator should inspect>
+Что сделал:
+<простое описание>.
+
+Что нашёл:
+<no issue / issue / blocker / child required>.
+
+На что тебе смотреть:
+<что проверить, либо "ничего особого; это стандартный шаг">.
+
+Что будет дальше:
+<next stage / child wait / blocked / check>.
+
+## Техническая часть
 
 STAGE_RESULT:
   stage:
@@ -152,6 +189,9 @@ STAGE_RESULT:
   limitations:
   child_calls_opened:
   child_returns_verified:
+  required_child_work_detected:
+  child_call_opened:
+  next_state:
   next_stage_or_check:
   user_confirmation_required:
 ```
@@ -169,6 +209,8 @@ CHILD_PROCEDURE_CALL must:
 - resume the same selected main procedure;
 - verify returned evidence before relying on it;
 - remain unresolved until the matching `CHILD_PROCEDURE_RETURN` is received and verified.
+
+Required current-goal repair has no separate prepared-only state. If the stage output says `repair_needed: true` and the selected parent cannot mutate directly, the same visible output must open `CHILD_PROCEDURE_CALL`, include the call id in `open_child_calls`, enter `RUN_WAITING_FOR_CHILD_RETURN`, and make CONTINUE / ДАЛЬШЕ invalid until the matching return is verified.
 
 Codex, child chat, check job, storage update, research agent, GitHub/file access, human decision, and future providers are child/adapters under this model. Use `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN`; `UTILITY_CALL` / `UTILITY_RETURN` are compatibility aliases only where older adapter packets still name them.
 
@@ -188,13 +230,15 @@ CLOSURE_CHECK:
   open_child_calls:
   missing_child_returns:
   unverified_child_returns:
+  required_child_work_detected:
+  child_call_opened:
   required_validation_evidence:
   gaps:
   decision: pass | return_to_run_repair | blocked
   next_action:
 ```
 
-CHECK may request FINISH only when the contract is satisfied or when the selected procedure explicitly allows blocked completion. If gaps remain, return to RUN repair or blocked escalation. If any child call is open, missing, unverified, or required evidence/validation is absent, CHECK must block or return to RUN repair and must not pass.
+CHECK may request FINISH only when the contract is satisfied or when the selected procedure explicitly allows blocked completion. If gaps remain, return to RUN repair or blocked escalation. If any child call is open, missing, unverified, or required evidence/validation is absent, CHECK must block or return to RUN repair and must not pass. If `required_child_work_detected = true` and `child_call_opened = false`, CHECK must block or return to RUN repair. The invalid transition is: required repair found -> draft/package-only output -> next stage/CHECK/FINISH. The valid transition is: required repair found -> `CHILD_PROCEDURE_CALL` -> `RUN_WAITING_FOR_CHILD_RETURN`.
 
 ## FINISH
 
@@ -206,6 +250,7 @@ FINISH must:
 - audit the run against START and the selected procedure completion contract;
 - confirm declared stage progression was not compressed;
 - confirm no open, missing, or unverified child procedure return is being relied on;
+- confirm required child/adaptor repair was either opened, returned, and verified or explicitly blocked;
 - confirm actual result is not only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or `NEXT_CHAT_CARD`;
 - close only if the audit passes;
 - return to RUN repair or blocked escalation if the audit fails;

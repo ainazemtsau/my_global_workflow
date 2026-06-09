@@ -34,6 +34,7 @@ status: active_repository_completion_framework
 - Codex result returns to current chat for parent verification.
 - Embedded Codex result returns through `CHILD_PROCEDURE_RETURN` to the same selected main procedure when the call was embedded.
 - Embedded codex_return_verification occurs before CLOSURE_CHECK passes when the result affects owner output.
+- Required current-goal Codex repair has an opened parent `CHILD_PROCEDURE_CALL`, parent wait state, and matching returned `CODEX_RETURN_PACKET` / `CHILD_PROCEDURE_RETURN` before parent CHECK/FINISH.
 - Persistence handoff includes approval/update authority, exact path boundaries, validation, and verified same-owner return when Codex/storage utility writes.
 - Project refresh fields are separated.
 - Parent lifecycle does not CHECK, FINISH, or CLOSED while Codex return is open, missing, unverified, or missing required validation/evidence.
@@ -53,6 +54,7 @@ status: active_repository_completion_framework
 - Project UI update or Project Files/Sources refresh conflated with repository commit.
 - Codex returned evidence treated as accepted state.
 - Codex result cannot be matched to the emitted embedded `CHILD_PROCEDURE_CALL`.
+- Required Codex repair exists but the parent only emits a patch plan, package, handoff, or deferred launch instruction.
 - Codex is asked to close the ChatGPT lifecycle.
 - Codex/storage utility write is treated as accepted state without verification and acceptance/update boundary.
 - Branch, commit, changed files, validation, EOF, refresh, push, or residual-risk evidence is missing but verification passes.
