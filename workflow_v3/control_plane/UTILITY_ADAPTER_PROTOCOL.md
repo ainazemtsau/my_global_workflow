@@ -4,59 +4,46 @@ status: active_control_plane
 
 ## Authority
 
-This file governs provider-neutral child procedure calls and adapter aliases made by a selected Workflow v3 main procedure during RUN.
+This file governs `support_adapter_dependency` packet shape and adapter compatibility aliases used by a selected Workflow v3 main procedure during RUN.
 
-It does not choose the main procedure. It does not create a second router. It does not allow a child/adaptor to become the selected main procedure.
+It does not choose the main procedure, choose the dependency type, decide execution surface, create a second router, or allow an adapter to become the selected main procedure. Dependency type selection and wrong-surface behavior live in `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`.
 
 ## Purpose
 
-A child procedure call helps the selected main procedure complete a stage, verification need, external mutation, research/check need, or human decision need. Child return is evidence, not accepted state by itself.
+A support adapter dependency helps the selected main procedure complete a bounded non-mutating check, research, analysis, evidence, or human decision need.
 
-`CHILD_PROCEDURE_CALL` and `CHILD_PROCEDURE_RETURN` are the canonical lifecycle terms. Existing `UTILITY_CALL` and `UTILITY_RETURN` labels may be retained only as compatibility names for adapter-level packets.
+Support adapter output is evidence only. It is not accepted state, persistence, parent completion, ChatGPT CHECK, ChatGPT FINISH, or a repository/code mutation route.
 
-## Child / Adapter Surfaces
+`DEPENDENCY_CALL` and `DEPENDENCY_RETURN` are the preferred lifecycle terms. `CHILD_PROCEDURE_CALL` and `CHILD_PROCEDURE_RETURN` may remain compatibility aliases or subtype labels. Existing `UTILITY_CALL` and `UTILITY_RETURN` labels may be retained only as adapter-level compatibility names.
 
-Child/adaptor surfaces may include:
+## Support Adapter Rule
 
-- Codex;
-- Claude Code or future code assistants;
-- child chat;
-- check job;
-- research agent;
-- GitHub or file access;
-- storage update;
-- human decision;
-- future admitted providers.
+A selected main procedure may use a support adapter dependency only when all are true:
 
-Codex is one possible child/adaptor surface, not the default or only path.
-
-## Child Call Rule
-
-A selected main procedure may use a child/adaptor only when all are true:
-
-- the selected main procedure or current stage needs the child/adaptor to complete;
-- the child/adaptor boundary is visible to the user;
+- the selected main procedure or current stage needs the support result to complete;
+- the dependency boundary is visible to the user;
 - the call is bounded by exact task, scope, expected return, and verification;
 - any external user action receives a complete copy-paste packet;
 - the return resumes the same selected main procedure;
 - returned evidence is verified before reliance;
-- the child/adaptor does not mutate state unless an admitted write path, exact paths, validation, and return evidence are present.
+- the adapter does not mutate repository state, runtime state, Project UI, Project Files/Sources, or accepted state.
 
-If child/adaptor work is required to satisfy the current START goal, the parent must open a visible `CHILD_PROCEDURE_CALL`. The call is `unresolved_until_returned`, `open_child_calls` must include the call id, the next state is `RUN_WAITING_FOR_CHILD_RETURN`, and the next required input is the matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`. CONTINUE / ДАЛЬШЕ, CHECK, FINISH, and CLOSED are invalid while that required call is open, missing, or unverified.
+If required support adapter work is needed to satisfy the current START goal, the parent opens a visible `DEPENDENCY_CALL`, records it in `open_dependencies`, enters `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and waits for matching `DEPENDENCY_RETURN`. Compatibility fields may map this to `CHILD_PROCEDURE_CALL`, `open_child_calls`, `RUN_WAITING_FOR_CHILD_RETURN`, and `CHILD_PROCEDURE_RETURN` during transition.
 
-## CHILD_PROCEDURE_CALL
+## DEPENDENCY_CALL
 
-Use `CHILD_PROCEDURE_CALL` when supporting work must leave the current chat, use a tool/provider, ask a human, or wait for external evidence.
+Use `DEPENDENCY_CALL` with `dependency_type: support_adapter_dependency` when non-mutating support work must leave the current chat, use a provider, ask a real human decision, or wait for external evidence.
 
 Required shape:
 
 ```text
-CHILD_PROCEDURE_CALL:
-  child_call_id:
+DEPENDENCY_CALL:
+  dependency_id:
+  dependency_type: support_adapter_dependency
   selected_entrypoint:
   selected_procedure_path:
   why_needed:
-  target_child_or_adapter:
+  support_surface:
   packet_or_call_boundary:
   expected_return:
   verification_required_on_return:
@@ -66,22 +53,26 @@ CHILD_PROCEDURE_CALL:
 
 When external user action is required, `packet_or_call_boundary` must contain complete copy-paste content. Placeholders are invalid.
 
-Adapter compatibility alias:
+Compatibility aliases:
 
 ```text
+CHILD_PROCEDURE_CALL:
+  compatibility_for: DEPENDENCY_CALL
+
 UTILITY_CALL:
-  compatibility_for: CHILD_PROCEDURE_CALL
+  compatibility_for: DEPENDENCY_CALL
 ```
 
-## CHILD_PROCEDURE_RETURN
+## DEPENDENCY_RETURN
 
-Use `CHILD_PROCEDURE_RETURN` when evidence or output comes back from a previous `CHILD_PROCEDURE_CALL`.
+Use `DEPENDENCY_RETURN` when evidence or output comes back from a previous support adapter dependency.
 
 Required shape:
 
 ```text
-CHILD_PROCEDURE_RETURN:
-  child_call_id:
+DEPENDENCY_RETURN:
+  dependency_id:
+  dependency_type: support_adapter_dependency
   selected_entrypoint:
   selected_procedure_path:
   returned_artifacts:
@@ -93,43 +84,49 @@ CHILD_PROCEDURE_RETURN:
 
 Required checks:
 
-- match the return to the emitted child call;
+- match the return to the emitted dependency call;
 - confirm the same selected main procedure resumes;
 - classify the return as evidence, not accepted state;
-- verify required branch, commit, changed files, validation, EOF, source, or decision evidence where applicable;
+- verify required source, decision, consistency, or validation evidence where applicable;
 - rely on the return only after verification passes or a blocked result is explicit.
 
-Adapter compatibility alias:
+Compatibility aliases:
 
 ```text
+CHILD_PROCEDURE_RETURN:
+  compatibility_for: DEPENDENCY_RETURN
+
 UTILITY_RETURN:
-  compatibility_for: CHILD_PROCEDURE_RETURN
+  compatibility_for: DEPENDENCY_RETURN
 ```
 
-## Storage Boundary
+## Repository and Storage Boundary
 
-Direct in-chat mutation is allowed only when the selected main procedure is a storage_update and the package includes authority, exact paths, exact changes, validation, and verification.
+Code/repository mutation, patching, branch creation, commits, pushes, file writes, implementation, write probes, and repository-side validation requiring writes are not support adapter dependencies. They are `code_repository_dependency` and route only to Codex/code assistant under `CODEX_HANDOFF_PROCEDURE.md` and `CODEX_RESULT_VERIFICATION_PROCEDURE.md`.
 
-A core procedure may use an external storage or code child/adaptor only through a visible `CHILD_PROCEDURE_CALL` with exact write boundaries and verified `CHILD_PROCEDURE_RETURN`. If required current-goal repair exists and the parent cannot mutate directly, open the child call when complete boundaries and validation are available; otherwise return an explicit blocked result naming the missing authority, path boundary, validation, or return contract.
+GitHub or file access from the ChatGPT parent is read or verification only unless a separately admitted write executor returns verifiable write evidence. It must not be named as a ChatGPT parent write surface.
+
+Direct in-chat persistence is allowed only when the selected main procedure is `storage_update` and the package includes authority, exact paths, exact changes, validation, and verification. External repository writes still require an admitted write executor and verified return unless a storage authority separately and explicitly admits them.
 
 ## Finish Boundary
 
-CHECK and FINISH must not rely on unresolved child returns. If a required child return is missing or unverified, return to RUN repair or blocked escalation. `open_child_calls != empty`, `missing_child_return`, `unverified_child_return`, or missing required validation/evidence blocks CHECK, FINISH, and CLOSED.
+CHECK and FINISH must not rely on unresolved dependency returns. If a required dependency return is missing or unverified, return to RUN repair or blocked escalation. `open_dependencies != empty`, `missing_dependency_return`, `unverified_dependency_return`, or missing required validation/evidence blocks CHECK, FINISH, and CLOSED.
 
-A handoff, package, Codex package, check packet, child-chat card, storage packet, copy-paste packet, or child-call envelope is never parent lifecycle completion. These are technical forms of `CHILD_PROCEDURE_CALL` or child evidence until verified by the parent RUN.
+A handoff, package, Codex package, check packet, child-chat card, storage packet, copy-paste packet, or dependency envelope is never parent lifecycle completion. These are technical forms of dependency call or dependency evidence until verified by the parent RUN.
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It must not carry unfinished child work from the current START goal.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It must not carry unfinished dependency work from the current START goal.
 
 ## Forbidden Patterns
 
 - switching the selected main procedure during RUN;
-- hiding a child/adaptor launch behind a summary;
-- treating child return as accepted state;
+- hiding a dependency launch behind a summary;
+- treating dependency return as accepted state;
 - relying on unverified returned evidence;
 - asking an external utility to perform ChatGPT FINISH;
 - using a human decision placeholder to avoid a known required packet;
-- performing writes without exact authority, paths, validation, and return evidence;
-- finding required current-goal child/adaptor repair but continuing to later stages, CHECK, FINISH, or CLOSED without opening and verifying the child call;
-- closing while a required child return is unresolved.
+- performing writes through support adapter dependency;
+- treating GitHub or file access as a ChatGPT parent write surface;
+- finding required current-goal dependency repair but continuing to later stages, CHECK, FINISH, or CLOSED without opening and verifying the dependency call;
+- closing while a required dependency return is unresolved.
 
 END_OF_FILE: workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md

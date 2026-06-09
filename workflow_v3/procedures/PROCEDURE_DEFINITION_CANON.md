@@ -4,7 +4,7 @@ status: active_procedure_framework
 
 ## Purpose
 
-A Workflow v3 procedure defines the work, stages, child/adaptor boundaries, output, and completion contract for one selectable main procedure or callable child/adaptor schema.
+A Workflow v3 procedure defines the work, stages, routing/dependency boundaries, output, and completion contract for one selectable main procedure or callable dependency schema.
 
 The lifecycle selects exactly one main procedure through `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. RUN executes that selected procedure stage-by-stage. CHECK and FINISH use the selected procedure's own `completion:` block; they do not invent a global completion enum.
 
@@ -20,15 +20,15 @@ A procedure is not:
 - hidden state mutation;
 - permission to switch procedures during RUN.
 
-Child procedure calls may support the selected main procedure under `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`, but they always return to the same selected main procedure. Adapter labels such as `UTILITY_CALL` / `UTILITY_RETURN` are compatibility names for `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN`.
+Dependency calls may support the selected main procedure under `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`, but they always return to the same selected main procedure. `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and adapter labels such as `UTILITY_CALL` / `UTILITY_RETURN` are compatibility names for `DEPENDENCY_CALL` / `DEPENDENCY_RETURN`.
 
 ## Procedure Kind Model
 
 Procedure files should align with the registry `kind`:
 
 - `core` - selectable main procedure for material workflow work.
-- `utility` - child/adaptor schema callable during RUN under a selected main/core parent; not a standalone terminal artifact.
-- `verification` - child/adaptor verification schema callable under the same parent lifecycle or admitted verification owner; not standalone package completion.
+- `utility` - dependency schema callable during RUN under a selected main/core parent; not a standalone terminal artifact.
+- `verification` - dependency verification schema callable under the same parent lifecycle or admitted verification owner; not standalone package completion.
 - `storage` - selectable for admitted bounded persistence.
 - `readonly` - selectable for non-material reads or answers.
 
@@ -88,20 +88,23 @@ Runtime must execute the selected procedure's declared stages. START/RUN must no
 
 When the operator writes Russian, START and STAGE_RESULT human-facing summaries should use the Russian operator-first shapes from the lifecycle/template files: `## Коротко` for START, `## Коротко по шагу` for STAGE_RESULT, and `## Техническая часть` for compact canonical fields. The human summary must be enough to understand the goal, result, review need, and next step without reading raw technical fields first.
 
-## Child Call Policy
+## Routing / Dependency Policy
 
-A procedure that may use child/adaptor work should state:
+A procedure that may use dependency work should state:
 
 ```text
-child_call_policy:
-  allowed_when:
-  common_targets:
+routing_dependency_policy:
+  same_chat_allowed_work:
+  allowed_dependency_types:
+  code_repository_dependency_route:
   forbidden_when:
   return_verification:
+  compatibility_aliases:
   same_main_procedure_resume:
+  closure_blockers:
 ```
 
-Procedure-specific child-call policy may narrow or explain adapter use. Provider-neutral child-call authority remains in `UTILITY_ADAPTER_PROTOCOL.md`.
+Procedure-specific dependency policy may narrow or explain dependency use. Dependency type selection and wrong-surface behavior remain in `ROUTING_AND_DEPENDENCY_PROTOCOL.md`; support adapter packet aliases remain in `UTILITY_ADAPTER_PROTOCOL.md`.
 
 ## Closure
 
@@ -109,14 +112,15 @@ Procedure closure must:
 
 - produce or explicitly fail its `completion:` contract;
 - state source limitations and unresolved gates;
-- verify any required `CHILD_PROCEDURE_RETURN` before reliance;
-- open `CHILD_PROCEDURE_CALL` when required child/adaptor repair is detected and the parent cannot mutate directly;
-- block CHECK, FINISH, and CLOSED while `open_child_calls != empty`, a required return is missing, a required return is unverified, or required validation/evidence is missing;
+- verify any required `DEPENDENCY_RETURN` before reliance;
+- open `DEPENDENCY_CALL` when required dependency repair is detected and the parent cannot complete directly;
+- route code/repository mutation only through `code_repository_dependency` to Codex/code assistant;
+- block CHECK, FINISH, and CLOSED while `open_dependencies != empty`, a required return is missing, a required return is unverified, or required validation/evidence is missing;
 - emit `CLOSURE_CHECK` against the selected completion contract;
 - request FINISH only after CHECK passes or the blocked completion condition is explicit;
 - include post-closed `NEXT_CHAT_CARD` when a new independent lifecycle is needed, otherwise `no_next_chat_needed` with reason;
 - never start a new material lifecycle after CLOSED in the same chat.
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished child work needed by the current START goal.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished dependency work needed by the current START goal.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md

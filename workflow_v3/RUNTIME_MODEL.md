@@ -10,14 +10,14 @@ Workflow v3 runtime is main-procedure driven:
 Registry selects exactly one main procedure
 -> START shows the selected procedure contract and waits
 -> RUN executes the declared stage sequence
--> child procedure calls support RUN only when required
--> child procedure returns are matched and verified
+-> dependency calls support RUN only when required
+-> dependency returns are matched and verified
 -> CHECK compares actual result to selected completion
 -> FINISH audits open gates and closes
 -> CLOSED carries only post-closed continuation or no continuation
 ```
 
-Detailed interface summaries live under `workflow_v3/interfaces/**`. Runtime authority lives under `workflow_v3/control_plane/**` and selected procedure files.
+Detailed interface summaries live under `workflow_v3/interfaces/**`. Runtime authority lives under `workflow_v3/control_plane/**` and selected procedure files. Dependency type selection and wrong-surface behavior live in `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`.
 
 ## Lifecycle Movement
 
@@ -25,8 +25,8 @@ Detailed interface summaries live under `workflow_v3/interfaces/**`. Runtime aut
 START
 -> RUN_STAGE
 -> STAGE_RESULT
--> RUN_WAITING_FOR_CHILD_RETURN when a child call is required
--> CHILD_RETURN_VERIFICATION
+-> RUN_WAITING_FOR_DEPENDENCY_RETURN when a dependency is required
+-> DEPENDENCY_RETURN_VERIFICATION
 -> RUN_STAGE or CHECK
 -> CHECK
 -> FINISH
@@ -41,11 +41,11 @@ START performs no material work. It selects one main procedure through the regis
 
 RUN executes the selected main procedure only. Runtime must execute the selected procedure's declared stages. It must not invent ad hoc simple, compact, shortcut, or single-stage compression that bypasses declared stages. A stage may end quickly or be marked not_applicable with evidence, but applicable declared stages remain represented in progression. RUN emits `STAGE_RESULT` after each material stage and waits for CONTINUE / ДАЛЬШЕ before the next material stage unless the next step is `internal_check`.
 
-`CHILD_PROCEDURE_CALL` is the canonical runtime object for external or subordinate work. Codex, child chat, check job, storage update, research agent, GitHub/file access, human decision, and future providers are child/adapters under this model. `UTILITY_CALL` and `UTILITY_RETURN` may remain as adapter-level compatibility labels, but they are not a separate lifecycle model.
+`DEPENDENCY_CALL` is the preferred runtime object for external or subordinate work needed before the selected owner can complete. `CHILD_PROCEDURE_CALL` may remain as a compatibility alias or subtype label. `UTILITY_CALL` and `UTILITY_RETURN` may remain as adapter-level compatibility labels, but they are not a separate lifecycle model.
 
-Required current-goal repair through a child/adaptor is deterministic. If RUN detects repair needed and the selected parent cannot mutate directly, RUN emits/opens `CHILD_PROCEDURE_CALL`, records the call in `open_child_calls`, enters `RUN_WAITING_FOR_CHILD_RETURN`, and waits for matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`. CONTINUE / ДАЛЬШЕ, CHECK, FINISH, and CLOSED are invalid until the return is verified or an explicit blocked result is produced.
+Required current-goal repair through a dependency is deterministic. If RUN detects repair needed and the selected parent cannot complete directly, RUN emits/opens `DEPENDENCY_CALL`, records the call in `open_dependencies`, enters `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and waits for matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET`. CONTINUE / ДАЛЬШЕ, CHECK, FINISH, and CLOSED are invalid until the return is verified or an explicit blocked result is produced.
 
-`CHILD_PROCEDURE_RETURN` is evidence and must be matched to the open child call, verified, and integrated before reliance.
+`DEPENDENCY_RETURN` is evidence and must be matched to the open dependency call, verified, and integrated before reliance.
 
 CHECK emits `CLOSURE_CHECK` against the selected procedure `completion:` contract.
 
@@ -55,12 +55,12 @@ FINISH closes only when audit passes. CLOSED means no new material START in the 
 
 The following invariants block CHECK, FINISH, and CLOSED:
 
-- `open_child_calls != empty`;
-- `missing_child_return`;
-- `unverified_child_return`;
-- `required_child_work_detected = true` with `child_call_opened = false`;
+- `open_dependencies != empty`;
+- `missing_dependency_return`;
+- `unverified_dependency_return`;
+- `required_dependency_work_detected = true` with `dependency_call_opened = false`;
 - missing required validation or evidence;
-- actual result is only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or other child-call artifact.
+- actual result is only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or other dependency artifact.
 
 ## Object Hierarchy
 
@@ -74,7 +74,7 @@ Steering entities are formed through registered procedures before templates are 
 
 Work Contract states a bounded target, allowed and forbidden execution boundaries, expected result, and evidence requirements.
 
-Run is execution of that contract by the selected main procedure, with optional child/adaptor support. Evidence is the verifiable output of a Run. Evidence alone does not change accepted state.
+Run is execution of that contract by the selected main procedure, with optional dependency support. Evidence is the verifiable output of a Run. Evidence alone does not change accepted state.
 
 Acceptance is the explicit decision to accept, reject, or return a result for repair. Accepted State changes only through the explicit acceptance/update path.
 
@@ -87,7 +87,7 @@ Procedure closure uses:
 - human-readable result and evidence;
 - post-closed `NEXT_CHAT_CARD` when a new independent lifecycle is needed, otherwise `no_next_chat_needed` with reason.
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It must not carry unfinished child work required by the current START goal.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It must not carry unfinished dependency work required by the current START goal.
 
 ## Direction Entities
 
@@ -99,15 +99,17 @@ Goal Evidence Graph traces root outcome through claims, alternatives, obstacles,
 
 Active Front is the accepted focus selected from the Direction Map that is moving now. Work Graph is local to the Active Front. Work Contract is the bounded executable unit.
 
-## Adapter Boundary
+## Dependency Boundary
 
-ChatGPT, Codex, Claude Code/future code assistants, research agents, GitHub/file access, future AI providers, and human actions are adapters or role implementations.
+Execution/dependency surface is separate from the selected owner procedure. Workflow v3 recognizes typed dependencies including support adapter, code repository, core lifecycle, storage persistence, and human decision dependencies.
 
-Adapters may perform utility work and return candidate result/evidence. They do not decide acceptance, route, product meaning, scope expansion, or Direction adoption.
+Code/repository mutation routes only through Codex/code assistant as `code_repository_dependency`. ChatGPT parent may draft packets and verify returns, but must not write, probe writes, create branches, commit, push, or apply patches.
+
+Dependencies may return candidate result/evidence. They do not decide acceptance, product meaning, scope expansion, Direction adoption, CHECK, FINISH, or CLOSED.
 
 ## No Hidden Accepted State
 
-Accepted State does not live in chat memory, Project Files/Sources, candidate docs, code-assistant output, STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, transfer packets, check-job output, or document existence.
+Accepted State does not live in chat memory, Project Files/Sources, candidate docs, code-assistant output, STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, transfer packets, dependency output, check-job output, or document existence.
 
 If accepted state matters, use canonical repository storage and explicit acceptance/update records.
 
@@ -115,6 +117,6 @@ If accepted state matters, use canonical repository storage and explicit accepta
 
 Runtime Console is read-only. It may summarize status, show uncertainty, list candidate actions, and draft future launch or next-chat cards when no current-goal repair is required.
 
-Runtime Console must not execute material work, mutate accepted state, accept evidence, promote Memory, launch utilities directly, defer required current-goal child/adaptor repair into future operator action while continuing, or become a hidden controller.
+Runtime Console must not execute material work, mutate accepted state, accept evidence, promote Memory, launch dependencies directly, defer required current-goal dependency repair into future operator action while continuing, or become a hidden controller.
 
 END_OF_FILE: workflow_v3/RUNTIME_MODEL.md

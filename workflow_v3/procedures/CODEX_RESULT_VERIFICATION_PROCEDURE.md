@@ -11,9 +11,9 @@ utility_policy: callable_verification
 
 ## Purpose
 
-Use `codex_result_verification` to verify a Codex `CHILD_PROCEDURE_RETURN` before a parent RUN relies on it for CHECK, FINISH, acceptance, or storage update decisions.
+Use `codex_result_verification` to verify a Codex/code-assistant `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` for a `code_repository_dependency` before a parent RUN relies on it for CHECK, FINISH, acceptance, or storage update decisions.
 
-Verification is child-return verification when embedded. It is candidate evidence, not acceptance by itself. This procedure does not close the parent lifecycle, repair runtime state, launch follow-up work, or treat a Codex commit as accepted state.
+Verification is dependency-return verification when embedded. It is candidate evidence, not acceptance by itself. This procedure does not close the parent lifecycle, repair runtime state, launch follow-up work, or treat a Codex commit as accepted state.
 
 ## Embedded Verification Mode
 
@@ -21,11 +21,11 @@ If the current main procedure emitted the Codex handoff and the user returns the
 
 Do not select `codex_result_verification` as a new `selected_procedure_path` during embedded use.
 
-Embedded verification must verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, Project refresh categories, push status, residual risks, and match to the emitted `CHILD_PROCEDURE_CALL`.
+Embedded verification must verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, Project refresh categories, push status, residual risks, and match to the emitted `DEPENDENCY_CALL`.
 
 No validation means no done claim.
 
-Verification does not equal acceptance and does not close the parent lifecycle by itself. It may unblock parent RUN only after branch, commit, changed files, validation, EOF, refresh, push, residual risk evidence, and the matching open child-call id are verified or the result is explicitly blocked. If required Codex repair was detected but no parent `CHILD_PROCEDURE_CALL` was opened, verification must block because there is no same-owner call to match.
+Verification does not equal acceptance and does not close the parent lifecycle by itself. It may unblock parent RUN only after branch, commit, changed files, validation, EOF, refresh, push, residual risk evidence, and the matching open dependency id are verified or the result is explicitly blocked. If required Codex repair was detected but no parent `DEPENDENCY_CALL` was opened, verification must block because there is no same-owner call to match. Old `child_call_id` values may be matched as compatibility aliases when the emitted packet used `CHILD_PROCEDURE_CALL`.
 
 Standalone verification remains valid when the user's primary work item is only Codex result verification.
 
@@ -47,7 +47,8 @@ Standalone verification remains valid when the user's primary work item is only 
 
 - Codex return fields;
 - original handoff or allowed/forbidden path boundary;
-- matching_child_call_id or exact emitted child call packet when embedded;
+- matching_dependency_id or exact emitted dependency call packet when embedded;
+- matching_child_call_id when verifying an older compatibility packet;
 - branch;
 - commit_sha;
 - changed_files;
@@ -152,7 +153,7 @@ No checkpoint is required by default. Checkpoint or request missing evidence whe
 
 ```text
 completion:
-  result: verification result classifying returned code-assistant child evidence as passed, failed, or blocked
+  result: verification result classifying returned code-assistant dependency evidence as passed, failed, or blocked
   proof: branch/ref, commit/artifact identity, changed files, forbidden-path check, validation, EOF markers, payload counts, refresh categories, push status, and residual risks are verified or missing evidence is named
   blocked_if: required return evidence is missing, forbidden paths were touched, validation is absent or failed, EOF markers are missing, or verification would imply acceptance/storage/repair by itself
 ```
@@ -160,7 +161,8 @@ completion:
 
 ```text
 verification_status: passed | failed | blocked
-child_call_id:
+dependency_id:
+child_call_id_if_compatibility_alias:
 branch:
 commit_sha:
 changed_files:
@@ -175,8 +177,9 @@ exact_next_move:
 ## Eval / Quality Checks
 
 - Branch, commit SHA, changed files, and push status are verified or missing evidence is named.
-- Returned evidence matches the emitted `CHILD_PROCEDURE_CALL` when verification is embedded.
-- Required Codex repair cannot be verified as complete unless the parent opened `CHILD_PROCEDURE_CALL`, waited in `RUN_WAITING_FOR_CHILD_RETURN`, and received matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET`.
+- Returned evidence matches the emitted `DEPENDENCY_CALL` when verification is embedded.
+- Required Codex repair cannot be verified as complete unless the parent opened `DEPENDENCY_CALL`, waited in `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and received matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET`.
+- Old `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` identifiers remain matchable as compatibility aliases only.
 - Changed files are compared against allowed and forbidden paths.
 - Validation output is present; no validation means no done claim.
 - EOF markers are checked for Markdown files that require them.
@@ -194,8 +197,8 @@ exact_next_move:
 - required EOF marker is missing or mismatched;
 - Project Instructions source changed but payload count is missing;
 - project refresh categories are missing when relevant;
-- embedded return cannot be matched to the emitted child call;
-- required Codex repair has no emitted parent child call to match;
+- embedded return cannot be matched to the emitted dependency call;
+- required Codex repair has no emitted parent dependency call to match;
 - verification would imply acceptance, storage mutation, parent FINISH, repair, or hidden next launch.
 
 ## Procedure Closure

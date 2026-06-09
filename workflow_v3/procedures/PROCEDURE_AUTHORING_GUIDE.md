@@ -4,7 +4,7 @@ status: active_procedure_framework
 
 ## Purpose
 
-Use this guide when writing Workflow v3 procedure files. A good procedure names the work boundary, required sources, completion contract, material stages, internal checks, child/adaptor boundaries, stop conditions, and output contract.
+Use this guide when writing Workflow v3 procedure files. A good procedure names the work boundary, required sources, completion contract, material stages, internal checks, routing/dependency boundaries, stop conditions, and output contract.
 
 ## Canonical Procedure Location
 
@@ -74,13 +74,13 @@ start_goal:
 terminal_condition:
 completion_contract:
 material_stages:
-child_call_policy:
+routing_dependency_policy:
 required_sources:
 write_boundaries:
 user_confirmation_required: START | СТАРТ
 ```
 
-START must not perform material work and must not describe a package, handoff, card, or child-call envelope as the terminal condition.
+START must not perform material work and must not describe a package, handoff, card, or dependency envelope as the terminal condition.
 
 ## Sources
 
@@ -100,7 +100,7 @@ Classify input as canonical source, accepted record, current human input, verifi
 
 Use material stages only when the user needs to see progress or make a continuation decision. Each material stage emits `STAGE_RESULT` and waits for `CONTINUE` / `ДАЛЬШЕ` before the next material stage.
 
-Use `internal_check` for mechanical checks inside a material stage. Internal checks do not require separate user confirmation unless they change scope, need a child call, or block.
+Use `internal_check` for mechanical checks inside a material stage. Internal checks do not require separate user confirmation unless they change scope, need a dependency call, or block.
 
 Runtime must execute the selected procedure's declared stages. START/RUN must not invent ad hoc simple, compact, shortcut, or single-stage compression that bypasses declared stages. A procedure may define a small declared stage list, but runtime cannot merge declared stages into one undeclared stage. A declared stage may end quickly or be marked not_applicable with evidence, but it must still be represented in progression when applicable.
 
@@ -127,7 +127,7 @@ pass_if: required files are readable and markers match.
 blocked_if: required marker is missing or source is truncated.
 ```
 
-STAGE_RESULT must be operator-readable first when the stage contains material conclusions, blockers, repair needs, or child calls. When the operator writes Russian, use `## Коротко по шагу` first and `## Техническая часть` for compact fields. The human-facing block must say what was done, what was found, what the human should review, and what happens next. Technical fields follow:
+STAGE_RESULT must be operator-readable first when the stage contains material conclusions, blockers, repair needs, or dependency calls. When the operator writes Russian, use `## Коротко по шагу` first and `## Техническая часть` for compact fields. The human-facing block must say what was done, what was found, what the human should review, and what happens next. Technical fields follow:
 
 ```text
 stage:
@@ -143,26 +143,39 @@ next_stage_or_check:
 user_confirmation_required:
 ```
 
-STAGE_RESULT does not accept state, close the chat, or launch hidden child work.
+STAGE_RESULT does not accept state, close the chat, or launch hidden dependency work.
 
-## Child Procedure Calls
+## Routing / Dependency Guidance
 
-Research, child chats, check jobs, Codex, file/GitHub access, storage updates, human decisions, or future providers must stay subordinate to the selected procedure. They must not become independent material work, mutate state silently, accept output, or switch the selected procedure.
+Use `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` for dependency type selection and wrong-surface behavior. Use `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` only for non-mutating support adapter packet shape and compatibility aliases.
 
-State allowed child/adaptor use with:
+State the valid route first:
+
+- same-chat non-mutating work when the selected owner can complete directly;
+- `support_adapter_dependency` for non-mutating check, research, analysis, evidence, or real human decision support;
+- `code_repository_dependency` through Codex/code assistant only for repository/code mutation, patching, branch creation, commits, pushes, implementation, file writes, write probes, and write validation;
+- `core_lifecycle_dependency` when another registered core procedure lifecycle blocks the current RUN;
+- `storage_persistence_dependency` when accepted-state persistence or update authority is the work;
+- `human_decision_dependency` only for real human choices.
+
+Add prohibitions only for real capabilities or risks in that procedure. Do not write broad negative lists that imply all providers are equivalent execution surfaces.
+
+State dependency use with:
 
 ```text
-child_call_policy:
-  allowed_when:
-  common_targets:
+routing_dependency_policy:
+  same_chat_allowed_work:
+  allowed_dependency_types:
+  code_repository_dependency_route:
   forbidden_when:
   return_verification:
+  compatibility_aliases:
   same_main_procedure_resume:
 ```
 
-Use `CHILD_PROCEDURE_CALL` and `CHILD_PROCEDURE_RETURN` as canonical lifecycle terms. `UTILITY_CALL` and `UTILITY_RETURN` may appear only as adapter-level compatibility aliases. `open_child_calls != empty`, a missing child return, an unverified child return, or missing required validation/evidence blocks CHECK, FINISH, and CLOSED.
+Use `DEPENDENCY_CALL` and `DEPENDENCY_RETURN` as preferred lifecycle terms. `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and `UTILITY_CALL` / `UTILITY_RETURN` may appear only as compatibility aliases or subtype labels. `open_dependencies != empty`, a missing dependency return, an unverified dependency return, or missing required validation/evidence blocks CHECK, FINISH, and CLOSED.
 
-Required current-goal repair has no draft-only child/adaptor mode. If a stage detects required child/adaptor repair and the parent cannot mutate directly, the stage must open `CHILD_PROCEDURE_CALL`, enter `RUN_WAITING_FOR_CHILD_RETURN`, and require matching `CHILD_PROCEDURE_RETURN` / `CODEX_RETURN_PACKET` before CONTINUE / ДАЛЬШЕ, CHECK, FINISH, or CLOSED.
+Required current-goal repair has no draft-only dependency mode. If a stage detects required dependency repair and the parent cannot complete directly, the stage must open `DEPENDENCY_CALL`, enter `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and require matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` before CONTINUE / ДАЛЬШЕ, CHECK, FINISH, or CLOSED.
 
 ## Keep Project Instructions Small
 
@@ -170,10 +183,10 @@ Project Instructions are bootloader-level. They may say which registry to read f
 
 ## Keep Small Procedures Small
 
-A small procedure can use one declared material stage, no child calls, and a compact completion contract. Do not add research, child chats, or check jobs unless the procedure genuinely needs them. A small stage list is authored in the procedure; it is not runtime compression of a larger declared stage sequence.
+A small procedure can use one declared material stage, no dependencies, and a compact completion contract. Do not add support adapters, code-repository dependencies, or checks unless the procedure genuinely needs them. A small stage list is authored in the procedure; it is not runtime compression of a larger declared stage sequence.
 
 ## NEXT_CHAT_CARD Boundary
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished child work from the current START goal or replace `CHILD_PROCEDURE_CALL`.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished dependency work from the current START goal or replace `DEPENDENCY_CALL`.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_AUTHORING_GUIDE.md
