@@ -1,12 +1,18 @@
 # Workflow v3 Evals
 
-status: active_repository_completion_framework
+status: active_repository_validation_aids
+runtime_authority: false
+procedure_authority: false
+load_rule: do_not_load_for_runtime; use only when an exact procedure or repository validation task explicitly names an eval file
+conflict_rule: selected procedure and lifecycle/control-plane protocols win
 
 ## Purpose
 
-This directory contains concrete validation gates for repository-side Workflow v3 packages and future Direction runtime packages.
+This directory contains repository-side validation aids for Workflow v3 packages and future Direction runtime packages.
 
-Evals do not create accepted state. They classify evidence as PASS, WARN, or FAIL and require recovery when boundaries are violated.
+Evals do not create accepted state, define runtime stages, define completion, or override selected `*_PROCEDURE.md` files. Procedure-local `Quality Checks`, gates, stop conditions, completion contracts, `CLOSURE_CHECK`, and `FINISH` compatibility are the primary validation surface for runtime procedure work.
+
+Individual eval files may classify evidence as PASS, WARN, or FAIL for repository review only. A file marked `status: active_eval` is active only as a repository validation aid; it is not runtime or procedure authority. Domain-specific eval files must not require work that belongs to registered procedures. Useful checks from a retired eval should be migrated into procedure-local `Quality Checks`, template guidance, or returned as material for the owning authoring run.
 
 ## Eval index
 

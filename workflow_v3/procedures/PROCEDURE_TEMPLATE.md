@@ -207,7 +207,9 @@ limitations:
 continuation:
 ```
 
-## Eval / Quality Checks
+## Quality Checks
+
+These checks are procedure-local. They do not require or create an external eval-layer dependency unless an exact repository validation task explicitly names a separate eval file.
 
 - Required sources were read or limitations stated.
 - Material stages emitted `STAGE_RESULT`.

@@ -7,7 +7,7 @@ child_call_policy: child_call_allowed_when_needed
 
 ## Purpose
 
-Use this procedure to create, revise, author, or integrate Workflow v3 procedure definitions and their registry/eval/procedure-boundary relationships.
+Use this procedure to create, revise, author, or integrate Workflow v3 procedure definitions and their registry, procedure-local quality-check, and procedure-boundary relationships.
 
 This procedure is non-mutating. It produces candidate definitions/design evidence, patch plans, child-call envelopes, and integration proposals only. If repository mutation is required for the current START goal and the parent chat cannot mutate directly, the visible stage output must emit/open `CHILD_PROCEDURE_CALL` and pause the parent RUN until the matching return is verified.
 
@@ -67,7 +67,7 @@ canonical_path_exception_if_any:
 
 ## Source Requirements
 
-Read exact relevant Workflow v3 framework, registry, control-plane, child/adaptor, eval, template, and existing procedure sources needed for the requested design scope. Verify EOF where markers exist.
+Read exact relevant Workflow v3 framework, registry, control-plane, child/adaptor, template, procedure-local quality-check, and existing procedure sources needed for the requested design scope. Verify EOF where markers exist.
 
 Required source classes for material procedure authoring:
 
@@ -76,7 +76,8 @@ Required source classes for material procedure authoring:
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` when lifecycle boundaries are involved
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` when closure boundaries are involved
 - `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when kind, child/adaptor category, Codex/check/child/storage packet, or child return is involved
-- Procedure Definition Canon, Procedure Authoring Guide, Procedure Template, and eval sources as needed
+- Procedure Definition Canon, Procedure Authoring Guide, Procedure Template, and procedure-local quality-check sections as needed
+- Repository validation aids under `workflow_v3/evals/**` only when explicitly in scope; they are not runtime or procedure authority
 
 Treat Project Files/Sources and chat memory as cache/context only.
 
@@ -94,7 +95,7 @@ Use the smallest authoring path that satisfies the output contract:
 
 - `small_bounded_revision`: compact same-path revision, small source-mechanical correction, or self-contained stub target spec with no disputed method design.
 - `standard`: bounded procedure creation/revision using internal Workflow v3 framework sources, no external research, and no user checkpoint before final draft unless ambiguity appears.
-- `checkpointed`: non-trivial procedure design where method, target role, integration boundary, source grounding, kind, child-call policy, or eval plan should be approved before detailed body drafting.
+- `checkpointed`: non-trivial procedure design where method, target role, integration boundary, source grounding, kind, child-call policy, or quality-check plan should be approved before detailed body drafting.
 - `research_backed`: external/current research is required by Stage 3 before final detailed body drafting.
 - `delegated_or_tool_mediated`: bounded check, child research, Codex, storage packet, provider/tool, or external-return work is needed; this procedure may only produce `CHILD_PROCEDURE_CALL` envelopes or embedded verification gates.
 
@@ -157,7 +158,7 @@ inputs: User request, Procedure Registry, selected procedure source, procedure b
 required intermediate output: selected_entrypoint, selected_procedure_path, procedure_boundary, kind, source_lock, context_classification.
 gate: PASS if registry entry, selected source, procedure boundary, kind, and source authority are verified; STOP if any required source is missing, stale, unreadable, or conflicting.
 checkpoint rule: None by default.
-expansion rule: Read only exact framework/control/eval/procedure sources needed for the admitted authoring task.
+expansion rule: Read only exact framework/control/procedure-local quality/procedure sources needed for the admitted authoring task.
 stop behavior: Return SOURCE_INTEGRITY_STOP, UNREGISTERED_ACTION_EXCEPTION, or SPLIT_REQUIRED.
 ```
 
@@ -223,22 +224,22 @@ stop behavior: Return method checkpoint requiring user approval.
 stage_id: detailed_procedure_body_draft
 purpose: Create or revise the actual procedure body after source, complexity, research, child-call, and method gates pass.
 activation conditions: Stage 4 passed or was explicitly not required for small bounded revision or standard work.
-inputs: Approved method plan when required, Procedure Definition Canon, template, guide, selected source, child/adaptor protocol, eval sources.
+inputs: Approved method plan when required, Procedure Definition Canon, template, guide, selected source, child/adaptor protocol, procedure-local quality checks, and explicitly scoped repository validation aids.
 required intermediate output: candidate_procedure_body_or_revision_package, changed_sections, retained_sections, removed_or_replaced_sections, kind, child_call_policy, stop_conditions, output_contract.
-gate: PASS if the body includes purpose, triggers, non-triggers, required inputs, source requirements, context classification, complexity selector, declared stage cards, gates, checkpoint policy, optional expansion, research policy, child-call policy, output contract, eval checks, stop conditions, and closure.
-checkpoint rule: Checkpoint only if the draft introduces new boundaries, new handoff paths, new eval requirements, or unresolved design choices.
-expansion rule: Use eval sources as checks; do not broaden into authoring unrelated procedure bodies. Stage 5 may identify `repair_needed` and draft exact patch content internally, but if applying that repair is required for the current START goal and the parent cannot mutate directly, the visible output must open `CHILD_PROCEDURE_CALL`, not stop at a package or plan.
+gate: PASS if the body includes purpose, triggers, non-triggers, required inputs, source requirements, context classification, complexity selector, declared stage cards, gates, checkpoint policy, optional expansion, research policy, child-call policy, output contract, quality checks, stop conditions, and closure.
+checkpoint rule: Checkpoint only if the draft introduces new boundaries, new handoff paths, new quality-check requirements, or unresolved design choices.
+expansion rule: Use procedure-local quality checks as checks; repository eval files under `workflow_v3/evals/**` are non-runtime validation aids only and must not broaden into authoring unrelated procedure bodies. Stage 5 may identify `repair_needed` and draft exact patch content internally, but if applying that repair is required for the current START goal and the parent cannot mutate directly, the visible output must open `CHILD_PROCEDURE_CALL`, not stop at a package or plan.
 stop behavior: Return draft insufficiency or boundary blocker.
 ```
 
-### Stage 6 - Eval / Registry / Integration Plan
+### Stage 6 - Quality / Registry / Integration Plan
 
 ```text
-stage_id: eval_registry_integration_plan
+stage_id: quality_registry_integration_plan
 purpose: Identify required or optional changes outside the procedure body.
 activation conditions: Always after Stage 5.
-inputs: Candidate body/revision package, Procedure Registry, procedure boundary contract, Utility Adapter Protocol, definition/execution evals, closure templates.
-required intermediate output: eval_implications, registry_delta_if_required, kind_delta_if_required, project_refresh_categories, codex_or_storage_child_call_need, allowed_paths_if_later_child_call_needed, forbidden_paths_if_later_child_call_needed.
+inputs: Candidate body/revision package, Procedure Registry, procedure boundary contract, Utility Adapter Protocol, procedure-local quality checks, explicitly scoped repository validation aids, closure templates.
+required intermediate output: quality_implications, registry_delta_if_required, kind_delta_if_required, project_refresh_categories, codex_or_storage_child_call_need, allowed_paths_if_later_child_call_needed, forbidden_paths_if_later_child_call_needed.
 gate: PASS if integration impact is explicit and bounded; CHILD_PROCEDURE_CALL or TRANSFER only as an allowed typed output; STOP if required integration cannot be bounded.
 checkpoint rule: Checkpoint before optional future mutation planning, but not before opening a required current-goal child call when the task already requires it and boundaries are complete.
 expansion rule: If Codex/storage/check work is required for current START-goal repair, emit/open `CHILD_PROCEDURE_CALL`; otherwise frame optional future work as non-material context or transfer content. Hidden launch is forbidden.
@@ -252,7 +253,7 @@ stage_id: closure
 purpose: Return the candidate revision package, limitations, residual risks, and exact next move.
 activation conditions: Always after completed or stopped stages and after required child returns are resolved or blocked.
 inputs: Stage outputs.
-required intermediate output: candidate_revision_package, exact_patch_plan, eval_implications, child_calls, source_limitations, residual_risks, CLOSURE_CHECK.
+required intermediate output: candidate_revision_package, exact_patch_plan, quality_implications, child_calls, source_limitations, residual_risks, CLOSURE_CHECK.
 gate: PASS if the revision/design evidence is complete, required child returns are verified, and CLOSURE_CHECK can compare it to this procedure's completion contract; PASS_WITH_RISK if limitations are explicit; STOP if required outputs are absent, required child/adaptor repair was identified but no child call is open/returned/verified, or required child returns are pending.
 checkpoint rule: None.
 expansion rule: None.
@@ -267,7 +268,7 @@ Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `CHILD_PRO
 
 ## Optional Expansion
 
-Allowed expansion is limited to exact source inspection, bounded eval/check planning, bounded research planning, embedded verification of returned evidence, optional non-material future transfer framing, or required current-goal `CHILD_PROCEDURE_CALL` opening.
+Allowed expansion is limited to exact source inspection, bounded quality/check planning, bounded research planning, embedded verification of returned evidence, optional non-material future transfer framing, or required current-goal `CHILD_PROCEDURE_CALL` opening.
 
 Expansion must remain subordinate to the selected main procedure.
 
@@ -313,7 +314,7 @@ Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any 
 
 No checkpoint is required for small bounded procedure edits that remain canonical.
 
-Checkpoint when scope, registry mapping, canonical path/naming, stub/body status, deleted-source independence, kind, child-call policy, complex method design, eval design, or future mutation boundaries are ambiguous.
+Checkpoint when scope, registry mapping, canonical path/naming, stub/body status, deleted-source independence, kind, child-call policy, complex method design, quality-check design, or future mutation boundaries are ambiguous.
 
 For non-trivial procedure authoring, Stage 4 method approval is required before Stage 5 detailed body drafting.
 
@@ -322,7 +323,7 @@ For non-trivial procedure authoring, Stage 4 method approval is required before 
 ```text
 completion:
   result: verified candidate procedure revision/design evidence or explicit blocked result with exact missing sources, child returns, or validation
-  proof: target identity, source basis, method design, kind/child-call policy, candidate body or patch plan, eval/registry impact, child-call status, limitations, and residual risks are recorded
+  proof: target identity, source basis, method design, kind/child-call policy, candidate body or patch plan, quality/registry impact, child-call status, limitations, and residual risks are recorded
   blocked_if: target procedure is unbounded, required sources are missing, repository mutation requires an open child call, research/check evidence is absent, required validation is missing, or child return cannot be verified
 ```
 ## Output Contract
@@ -338,7 +339,7 @@ candidate_revision_package:
   method_design_plan:
   kind_and_child_call_policy:
   candidate_body_or_patch_plan:
-  eval_registry_integration_plan:
+  quality_registry_integration_plan:
   source_limitations:
   residual_risks:
 
@@ -349,10 +350,10 @@ exact_patch_plan:
   sections_to_preserve:
   validation_checks:
 
-eval_implications:
-  procedure_definition_eval:
-  procedure_execution_eval:
-  additional_eval_changes_required:
+quality_implications:
+  procedure_definition_quality:
+  procedure_execution_quality:
+  additional_quality_changes_required:
 
 child_calls:
   opened:
@@ -369,7 +370,7 @@ closure:
   NEXT_CHAT_CARD_or_no_next_chat_needed:
 ```
 
-## Eval / Quality Checks
+## Quality Checks
 
 - Procedure has distinguishable trigger and non-trigger.
 - Required inputs and exact source requirements are explicit.
