@@ -43,10 +43,10 @@ Produces candidate Spine for acceptance review. It is the top success axis for D
 - define success dimensions / tracks;
 - define constraints and non-goals;
 - identify failure modes and proof indicators;
-- invoke research/check child/adaptor calls when required evidence is missing and the child-call gate passes;
+- invoke support dependencies when required research/check evidence is missing and the routing/dependency gate passes;
 - checkpoint with the user before any persistence route;
-- use Codex/storage child-call or storage packages only for approved persistence routing;
-- verify returned child/adaptor evidence before FINISH is requested when relied on;
+- use `code_repository_dependency`, `storage_persistence_dependency`, or storage packages only for approved persistence routing;
+- verify returned dependency evidence before FINISH is requested when relied on;
 - cut roadmap/backlog/work-graph content;
 - return candidate Spine + acceptance question.
 

@@ -6,7 +6,7 @@ status: active_skeleton_namespace_corrected
 
 This file defines setup expectations for ChatGPT, Codex, Claude Code/future code assistants, Deep Research/research agents, GitHub context access, human actions, and generic future AI providers.
 
-Providers are adapters. They do not become runtime authority or acceptance authority.
+Providers are execution surfaces. They do not become runtime authority or acceptance authority.
 
 ## Minimum provider contract
 
@@ -38,15 +38,15 @@ forbidden_decisions:
 
 ## ChatGPT
 
-ChatGPT is used for planning, synthesis, bounded work chats, child/parent coordination, code-assistant work package creation, returned evidence verification, and human-readable closure.
+ChatGPT is used for planning, synthesis, bounded work chats, dependency/parent coordination, code-assistant work package creation, returned evidence verification, and human-readable closure.
 
-ChatGPT setup requires compact Project Instructions UI, exact source refs when state matters, Project Files/Sources classified as cache/context, and explicit Operator Brief, START_CONTRACT, STAGE_RESULT, CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN, RUN_WAITING_FOR_CHILD_RETURN, CHILD_RETURN_VERIFICATION, CLOSURE_CHECK, FINISH_PACKET, and post-closed NEXT_CHAT_CARD or no_next_chat_needed boundaries. Legacy UTILITY_CALL / UTILITY_RETURN labels are compatibility aliases only for child/adaptor packets.
+ChatGPT setup requires compact Project Instructions UI, exact source refs when state matters, Project Files/Sources classified as cache/context, and explicit Operator Brief, START_CONTRACT, STAGE_RESULT, DEPENDENCY_CALL / DEPENDENCY_RETURN, RUN_WAITING_FOR_DEPENDENCY_RETURN, DEPENDENCY_RETURN_VERIFICATION, CLOSURE_CHECK, FINISH_PACKET, and post-closed NEXT_CHAT_CARD or no_next_chat_needed boundaries. prior packet labels are unsupported.
 
 ## Codex
 
 Codex is used for bounded repository work.
 
-Codex setup requires repository, base ref, target branch or branch policy, allowed paths, forbidden paths, required changes, validation, stop conditions, commit/push instructions when authorized, requested return fields, expected `CHILD_PROCEDURE_RETURN`, and parent verification contract.
+Codex setup requires repository, base ref, target branch or branch policy, allowed paths, forbidden paths, required changes, validation, stop conditions, commit/push instructions when authorized, requested return fields, expected `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET`, and parent verification contract.
 
 Codex must stop when repository state, source access, branch state, or validation makes the package unsafe.
 
@@ -86,6 +86,6 @@ Human confirmation is evidence, not automatic accepted state.
 
 A future provider may participate if it can obey packet boundaries, source limitations, and acceptance boundaries.
 
-Provider-specific features are adapter features only. They do not change Workflow v3 authority, accepted-state rules, or Project setup boundaries.
+Provider-specific features are provider-surface features only. They do not change Workflow v3 authority, accepted-state rules, or Project setup boundaries.
 
 END_OF_FILE: workflow_v3/project_setup/GENERIC_AI_PROVIDER_SETUP.md

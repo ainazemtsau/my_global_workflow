@@ -41,7 +41,7 @@ This is the missing execution bridge between Work Contract formation and Parent 
 
 - verify Work Contract is admitted and bounded;
 - execute same-chat work only if allowed by procedure boundary;
-- or produce Transfer Packet for child chat, check job, Codex, human action;
+- or produce Transfer Packet for dependency chat, check job, Codex, human action;
 - collect result/evidence;
 - return FINISH_PACKET result;
 - route to Parent Integration or Acceptance Review boundary through visible NEXT_CHAT_CARD continuation.

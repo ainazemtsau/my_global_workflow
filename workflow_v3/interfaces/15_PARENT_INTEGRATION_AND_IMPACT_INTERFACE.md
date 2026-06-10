@@ -4,11 +4,11 @@ status: active_interface_layer
 
 ## Purpose
 
-This interface defines the parent integration and impact propagation boundary for returned work, child results, graph deltas, upstream escalation, downstream deltas, and derived gate checks.
+This interface defines the parent integration and impact propagation boundary for returned work, dependency results, graph deltas, upstream escalation, downstream deltas, and derived gate checks.
 
 ## Parent integration boundary
 
-Parent Integration compares returned child/work outputs and evidence against the parent target criteria.
+Parent Integration compares returned dependency/work outputs and evidence against the parent target criteria.
 
 The parent target may be a Work Graph node, Active Front, Direction Map claim, or Goal Evidence Graph node.
 
@@ -18,15 +18,15 @@ It does not accept state, invent missing evidence, mutate graph/state, or launch
 
 ## Fan-in rule
 
-When parent closure depends on multiple required child/work results, all required results must be accounted for before synthesis.
+When parent closure depends on multiple required dependency/work results, all required results must be accounted for before synthesis.
 
 Each required input must be classified as present, missing, conflicting, blocked, deferred by explicit parent policy, or no longer required by accepted parent change.
 
-## Missing required child blocks synthesis
+## Missing required dependency blocks synthesis
 
-If a required child/work result is missing, Parent Integration must block closure synthesis unless the parent acceptance policy explicitly allows partial closure.
+If a required dependency/work result is missing, Parent Integration must block closure synthesis unless the parent acceptance policy explicitly allows partial closure.
 
-Missing evidence must be named. It must not be replaced with inference, confidence, chat memory, or adapter self-approval.
+Missing evidence must be named. It must not be replaced with inference, confidence, chat memory, or producer self-approval.
 
 ## Graph Delta semantics
 
@@ -42,7 +42,7 @@ Use it when local repair cannot absorb the issue because parent acceptance polic
 
 ## Downstream Delta semantics
 
-Downstream Delta Packet carries an accepted or candidate parent-context change to affected child/work surfaces.
+Downstream Delta Packet carries an accepted or candidate parent-context change to affected dependency/work surfaces.
 
 Affected work must pause, repair, replan, continue with new constraints, or close according to the packet. It must not keep executing against stale parent context.
 

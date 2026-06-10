@@ -66,13 +66,13 @@ Completion is valid only if these boundaries remain explicit:
 - Work Graph is local to one Active Front and not global Direction Map.
 - Work Contract is not route authority.
 - Run, STAGE_RESULT, Evidence, and Codex commit are not Acceptance Decision.
-- Parent Integration Result is not Acceptance Decision and cannot synthesize missing child/work evidence.
+- Parent Integration Result is not Acceptance Decision and cannot synthesize missing dependency/work evidence.
 - Graph Delta, Upstream Escalation Packet, Downstream Delta Packet, and Derived Gate Check are not accepted state mutation by existence.
 - FINISH_PACKET is not acceptance.
 - NEXT_CHAT_CARD is not hidden continuation.
 - Transfer Packet is not manual user assembly.
 - Check Job is not material work.
-- Child Chat is not next material chat or independent execution track.
+- Dependency Chat is not next material chat or independent execution track.
 - Runtime Console is not hidden controller.
 - Project Instructions UI is not documentation storage.
 - Project Files/Sources are not source authority.

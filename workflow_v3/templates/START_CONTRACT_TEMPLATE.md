@@ -16,7 +16,7 @@ status: template
 <entrypoint>. Она выбрана потому, что <простая причина>.
 
 Когда задача будет считаться завершённой:
-<проверяемое завершение>. Если понадобится Codex или другой child для текущей цели, я открою CHILD_PROCEDURE_CALL и остановлюсь ждать return.
+<проверяемое завершение>. Если для текущей цели понадобится внешняя зависимость, я открою DEPENDENCY_CALL и остановлюсь ждать return.
 
 На что тебе смотреть:
 <короткий список важных проверок>. Если всё стандартно: "Особого решения сейчас не нужно; проверь только цель и target."
@@ -38,7 +38,7 @@ START_CONTRACT:
   terminal_condition:
   completion_contract:
   material_stages:
-  child_call_policy:
+  routing_dependency_policy:
   required_sources:
   write_boundaries:
   user_confirmation_required: START | СТАРТ
@@ -46,14 +46,14 @@ START_CONTRACT:
 
 ## Boundary
 
-Use this as the human-readable START contract before material work. When the operator writes Russian, the human-facing block comes first in Russian and technical fields stay compact below `## Техническая часть`. START selects one main procedure, reads its source, shows its completion contract, states the child/adaptor and write boundaries, and waits for explicit user START / СТАРТ. The terminal condition must be verified completion or explicit blocked result, not a handoff, package, card, child-call envelope, or post-closed continuation.
+Use this as the human-readable START contract before material work. When the operator writes Russian, the human-facing block comes first in Russian and technical fields stay compact below `## Техническая часть`. START selects one main procedure, reads its source, shows its completion contract, states the dependency and write boundaries, and waits for explicit user START / СТАРТ. The terminal condition must be verified completion or explicit blocked result, not a handoff, package, card, dependency envelope, or post-closed continuation.
 
 ## Quality Checks
 
 - START_CONTRACT appears before material RUN.
 - START names exactly one selected entrypoint and procedure path, reads the selected source, and shows selected procedure completion.
 - The human-facing block can be understood before raw technical fields; Russian operator output begins with `## Коротко` and puts compact fields under `## Техническая часть`.
-- START_CONTRACT includes `start_goal`, `terminal_condition`, `child_call_policy`, material stages, source requirements, and write boundaries.
-- START blocks hidden child/adaptor launch and direct mutation unless the selected procedure or verified child/adaptor write path admits exact writes.
+- START_CONTRACT includes `start_goal`, `terminal_condition`, `dependency_policy`, material stages, source requirements, and write boundaries.
+- START blocks hidden dependency launch and direct mutation unless the selected procedure or verified dependency write path admits exact writes.
 
 END_OF_FILE: workflow_v3/templates/START_CONTRACT_TEMPLATE.md

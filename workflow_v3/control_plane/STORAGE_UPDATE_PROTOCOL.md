@@ -4,13 +4,13 @@ status: active_control_plane
 
 ## Purpose
 
-Storage update is the direct in-chat adapter surface for writing accepted repository/runtime state after admission.
+Storage update is the direct in-chat storage surface for writing accepted repository/runtime state after admission.
 
 Acceptance Decision may authorize that storage update is needed. It does not grant the producing candidate or acceptance chat permission to write.
 
 Direct ChatGPT canonical persistence requires storage_update admission.
 
-External Codex/storage child/adaptor persistence may occur inside a core main procedure RUN only through visible `CHILD_PROCEDURE_CALL`, write gate, exact path boundaries, validation, and verified `CHILD_PROCEDURE_RETURN`. Legacy `UTILITY_CALL` / `UTILITY_RETURN` labels are compatibility aliases only and do not define standalone write completion.
+External Codex/storage dependency persistence may occur inside a core main procedure RUN only through visible `DEPENDENCY_CALL`, write gate, exact path boundaries, validation, and verified `DEPENDENCY_RETURN`. Code/repository mutation routes through `code_repository_dependency` to Codex/code assistant. Prior packet labels are unsupported and do not define standalone write completion.
 
 GitHub write tools are default-denied by workflow policy.
 
@@ -34,9 +34,9 @@ push_policy:
 return_fields:
 ```
 
-## Adapter boundary
+## Execution Surface boundary
 
-The adapter may apply only listed changes to listed files, run listed checks, and return evidence. It must not decide acceptance, broaden scope, touch unlisted paths, continue to the next semantic step, or use chat memory/cache as accepted state.
+The surface may apply only listed changes to listed files, run listed checks, and return evidence. It must not decide acceptance, broaden scope, touch unlisted paths, continue to the next semantic step, or use chat memory/cache as accepted state.
 
 If storage update touches `Project Instructions` source, payload character count must be recalculated and refresh classifications must be returned.
 

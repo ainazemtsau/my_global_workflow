@@ -34,11 +34,11 @@ NEXT_CHAT_CARD:
 
 ## Boundary
 
-A Transfer Packet is complete copy-paste transport for the selected surface. Depending on lifecycle position, it may be post-closed continuation content or the body of a visible `CHILD_PROCEDURE_CALL`.
+A Transfer Packet is complete copy-paste transport for the selected surface. Depending on lifecycle position, it may be post-closed continuation content or the body of a visible `DEPENDENCY_CALL`.
 
-It remains candidate until explicitly launched or accepted where acceptance is required. It cannot substitute for a required current-goal `CHILD_PROCEDURE_CALL`, cannot satisfy parent completion by itself, and cannot carry unfinished child work inside a post-closed `NEXT_CHAT_CARD`.
+It remains candidate until explicitly launched or accepted where acceptance is required. It cannot substitute for a required current-goal `DEPENDENCY_CALL`, cannot satisfy parent completion by itself, and cannot carry unfinished dependency work inside a post-closed `NEXT_CHAT_CARD`.
 
-When the selected RUN requires current-goal child/adaptor repair, transfer content must be embedded inside the opened `CHILD_PROCEDURE_CALL` body. It must not be left as future operator action while the parent continues to later stages, CHECK, FINISH, or CLOSED.
+When the selected RUN requires current-goal dependency repair, transfer content must be embedded inside the opened `DEPENDENCY_CALL` body. It must not be left as future operator action while the parent continues to later stages, CHECK, FINISH, or CLOSED.
 
 `copy_paste_packet` must be standalone. Do not tell the user to reconstruct a prompt or package from previous chat memory.
 
@@ -46,6 +46,6 @@ When the selected RUN requires current-goal child/adaptor repair, transfer conte
 
 - Transfer target, reason, source context, exact task, allowed scope, forbidden scope, required sources, required outputs, return destination, and copy-paste packet are present.
 - Transfer content is complete enough for the selected external surface or new material chat without assembling missing pieces manually.
-- Transfer Packet is not terminal parent completion and cannot avoid a required current-goal CHILD_PROCEDURE_CALL.
+- Transfer Packet is not terminal parent completion and cannot avoid a required current-goal `DEPENDENCY_CALL`.
 
 END_OF_FILE: workflow_v3/templates/TRANSFER_PACKET_TEMPLATE.md

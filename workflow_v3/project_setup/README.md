@@ -18,7 +18,7 @@ Repository setup files define behavior surfaces, manifests, launch packets, and 
 
 ## Project types
 
-- Governance Maintenance Console: repository governance, setup maintenance, audits, repair design, code-assistant handoffs, and returned evidence verification.
+- Governance Maintenance Console: repository governance, setup maintenance, audits, repair design, code-assistant dependency packets, and returned evidence verification.
 - Ordinary Direction Project: one ChatGPT Project for one Workflow v3 Direction after the user chooses to create it.
 
 ## Current status
@@ -54,6 +54,6 @@ Repository setup files define behavior surfaces, manifests, launch packets, and 
 - `DIRECTION_PROJECT_SETUP_VALIDATION_CHECKLIST.md` - manual validation checklist for ordinary Direction Project creation.
 - `PROJECT_FILES_MANIFEST_TEMPLATE.md` - general Workflow v3 Project Files/Sources manifest template.
 - `GOVERNANCE_MAINTENANCE_PROJECT_INSTRUCTIONS.md` - compact Project Instructions UI payload source for the Governance Maintenance Console.
-- `GENERIC_AI_PROVIDER_SETUP.md` - setup contract for supported AI/provider adapters.
+- `GENERIC_AI_PROVIDER_SETUP.md` - setup contract for supported AI/provider execution surfaces.
 
 END_OF_FILE: workflow_v3/project_setup/README.md

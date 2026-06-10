@@ -18,7 +18,7 @@ This interface defines interface-level quality gates and recovery outcomes.
 | acceptance gate | Candidate result remains candidate until explicit Acceptance Decision/update path. |
 | procedure output misuse gate | Procedure outputs are candidate only until accepted. |
 | continuation misuse gate | One continuation outcome, no hidden launches, no chat-intuition routing. |
-| chat lifecycle/handoff gate | Child/parent/next chat boundaries and return destinations are explicit. |
+| chat lifecycle/handoff gate | Dependency/parent/next chat boundaries and return destinations are explicit. |
 | Codex validation gate | Branch, commit/diff, changed files, allowed paths, forbidden paths, validation, EOF markers, refresh report. |
 | Project setup refresh gate | Project UI, Project Files/Sources, request-only refresh, and do-not-upload status are reported separately. |
 | rollback/coexistence gate | Old Workflow OS is not deleted, renamed, moved, decommissioned, or weakened. |

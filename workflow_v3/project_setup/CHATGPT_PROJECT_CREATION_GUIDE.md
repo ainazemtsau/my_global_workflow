@@ -51,7 +51,7 @@ It does not import old Direction files by default and does not treat Project Fil
 
 ## Governance Maintenance Console
 
-The Governance Maintenance Console is for repository governance, setup maintenance, audits, repair design, code-assistant handoffs, and returned evidence verification.
+The Governance Maintenance Console is for repository governance, setup maintenance, audits, repair design, code-assistant dependency packets, and returned evidence verification.
 
 It does not run Direction runtime by default and does not mutate Direction accepted state.
 

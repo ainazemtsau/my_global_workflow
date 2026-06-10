@@ -12,15 +12,16 @@ Project Instructions UI is a compact behavior bootstrap. It should state:
 
 - source authority rules;
 - context classification;
-- Operator Brief, START_CONTRACT, selected procedure completion contract, declared stages, and child_call_policy requirements;
-- CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN, RUN_WAITING_FOR_CHILD_RETURN, and return verification requirements when child/adaptor support is needed;
+- Operator Brief, START_CONTRACT, selected procedure completion contract, declared stages, and `routing_dependency_policy` requirements;
+- `DEPENDENCY_CALL` / `DEPENDENCY_RETURN`, `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and `DEPENDENCY_RETURN_VERIFICATION` requirements when external or subordinate dependency work is needed;
+- prior dependency labels are unsupported;
 - CLOSURE_CHECK and FINISH_PACKET after audit pass;
 - post-closed NEXT_CHAT_CARD or no_next_chat_needed continuation;
 - no hidden accepted state;
 - no migration/import by default;
 - Runtime Console read-only boundary.
 
-Project Instructions UI is not long documentation, not accepted Direction state, and not default Project Files/Sources.
+Project Instructions UI is not long documentation, not a duplicate of control-plane/procedure authority, not accepted Direction state, and not default Project Files/Sources.
 
 Ordinary Direction Projects have two setup phases:
 
@@ -48,7 +49,7 @@ Project Files/Sources refresh remains separate from Project Instructions UI upda
 
 ## Request-only sources
 
-Request-only sources are loaded only when a bounded launch packet, check job, code-assistant child/adaptor call, review, or human decision needs them.
+Request-only sources are loaded only when a bounded launch packet, check job, code-assistant dependency call, review, or human decision needs them.
 
 Examples include exact node workspaces, Work Contract records, Run records, FINISH_PACKET records, Evidence records, Acceptance Decisions, Memory Artifacts beyond indexes, raw run logs, archives, old Direction files used as legacy_evidence, and candidate docs used for maintenance review.
 

@@ -33,14 +33,14 @@ Converts invalidation/blocker findings into local repair, parent replan, Directi
 ## required_inputs
 
 - changed or invalidated node/assumption/interface;
-- affected parent/child context;
+- affected parent/dependency context;
 - evidence and source limitations;
 - return destination.
 
 ## future_body_scope
 
 - identify changed/invalidated node or assumption;
-- trace affected parents/children/interfaces;
+- trace affected parents/dependencyren/interfaces;
 - determine lowest layer that can absorb change;
 - produce Upstream Escalation Packet using `UPSTREAM_ESCALATION_PACKET_TEMPLATE.md` if needed;
 - produce Downstream Delta Packet using `DOWNSTREAM_DELTA_PACKET_TEMPLATE.md` for affected active work;

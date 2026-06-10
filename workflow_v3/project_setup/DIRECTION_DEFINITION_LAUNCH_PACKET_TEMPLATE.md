@@ -46,7 +46,7 @@ Direction Definition step selection:
 Boundaries:
 - Do not perform product execution.
 - Do not create Work Graph before accepted prerequisites.
-- Child research/check chats may support the current formation target only and return to the parent.
+- Dependency research/check chats may support the current formation target only and return to the parent.
 - Each entity remains candidate until explicit Acceptance Decision/update path.
 
 Expected result:

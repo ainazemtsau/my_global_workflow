@@ -34,6 +34,6 @@ Run is not Acceptance Decision.
 
 A Run produces candidate result, evidence, and limitations only.
 
-Adapters and human execution surfaces cannot accept their own output.
+Execution Surfaces and human execution surfaces cannot accept their own output.
 
 END_OF_FILE: workflow_v3/templates/RUN_RECORD_TEMPLATE.md

@@ -40,12 +40,12 @@ Forbidden files/surfaces:
 - Review branch is required for repository maintenance that changes shared workflow rules.
 - Do not push directly to main.
 
-## Child chat boundary
+## Support Dependency Boundary
 
-Child chats are bounded support/decomposition/review surfaces for the current parent target.
+Support dependencies are bounded support/decomposition/review surfaces for the current parent target.
 
-They may perform only the specific bounded child work requested by the parent prompt. They are not independent execution tracks.
+They may perform only the specific bounded dependency work requested by the parent prompt. They are not independent execution tracks.
 
-Child outputs return to parent/integration synthesis. They must not commit independently, accept state, route product meaning, launch unrelated work, or become a substitute for the next material chat boundary.
+Dependency outputs return to parent/integration synthesis. They must not commit independently, accept state, route product meaning, launch unrelated work, or become a substitute for the next material chat boundary.
 
 END_OF_FILE: workflow_v3/interfaces/13_PARALLEL_WORKSTREAM_BRANCH_POLICY.md

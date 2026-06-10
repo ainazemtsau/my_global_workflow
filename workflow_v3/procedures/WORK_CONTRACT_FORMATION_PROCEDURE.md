@@ -17,7 +17,7 @@ Form one bounded Work Contract for one Work Graph node or node slice.
 
 ## workflow_integration
 
-Produces the executable contract that a chat, child chat, Codex, human action, check job, or other adapter can run.
+Produces the executable contract that a chat, dependency chat, Codex, human action, check job, or other execution surface can run.
 
 ## when_to_use
 
@@ -73,7 +73,7 @@ When the detailed body is authored, it must preserve these invariants:
 - parent graph, front, node, source authority, in-scope/out-of-scope, allowed surfaces, forbidden surfaces, expected result, evidence, validation, return destination, and stop conditions are explicit;
 - repository path boundaries are included when repository/file mutation or inspection makes paths material;
 - `split_required` is returned when multiple independent jobs are present;
-- adapter or child output remains candidate until verified and accepted by the applicable parent boundary;
+- dependency output remains candidate until verified and accepted by the applicable parent boundary;
 - contract formation does not execute the work, broaden scope, grant acceptance authority, or become a roadmap.
 
 ## Completion Contract

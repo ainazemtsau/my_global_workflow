@@ -32,7 +32,7 @@ Detailed files may explain examples, storage shape, setup model, and operational
 - `workflow_v3/interfaces/06_CHAT_LIFECYCLE_AND_HANDOFF_INTERFACE.md` - chat lifecycle and handoff boundaries.
 - `workflow_v3/interfaces/08_PACKET_AND_TRANSFER_INTERFACE.md` - packet and transfer surfaces.
 - `workflow_v3/interfaces/09_STORAGE_STATE_INTERFACE.md` - storage and state mapping.
-- `workflow_v3/interfaces/10_ADAPTER_CODEX_PROVIDER_INTERFACE.md` - adapter and provider boundaries.
+- `workflow_v3/interfaces/10_CODEX_PROVIDER_INTERFACE.md` - provider and dependency boundaries.
 - `workflow_v3/interfaces/11_PROJECT_SETUP_CONTEXT_INTERFACE.md` - Project setup/context boundaries.
 - `workflow_v3/interfaces/12_QUALITY_RECOVERY_INTERFACE.md` - quality gates and recovery outcomes.
 - `workflow_v3/interfaces/13_PARALLEL_WORKSTREAM_BRANCH_POLICY.md` - branch and workstream policy.
