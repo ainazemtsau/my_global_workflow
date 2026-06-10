@@ -87,14 +87,14 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-Record these fields in the concrete generated source:
+The fields below are template placeholders only. Do not treat this template file as a measured concrete Project Instructions payload. When a concrete per-Direction source is generated, measure the trimmed payload after generation and then record concrete numeric values and verdict in that generated source.
 
 ```text
-measured_chars:
+measured_chars: <computed_after_generation>
 target_max_chars: 6500
 warning_threshold_chars: 7200
 hard_max_chars: 8000
-verdict: PASS | WARN | FAIL
+verdict: PASS | WARN | FAIL based on concrete measured_chars
 ```
 
 ## Refresh classification
