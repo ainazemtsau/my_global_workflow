@@ -1,23 +1,23 @@
 # Repository Agent Instructions
 
-Status: active
+This repository is the **Direction OS** — the owner's workflow system. Rules: `os/KERNEL.md`. Live direction state: `live/<direction-id>/`. Everything else (`workflow/**`, `workflow_v3/**`, `directions/**`, `directions_v3/**`, `WORKFLOW_SOURCE_OF_TRUTH.md`) is frozen legacy: read-only evidence, never authority, never a target of edits.
 
-This repository is the canonical AI workflow source for Workflow governance and Workflow v3 maintenance.
+## Recognize your job from the input
 
-Rules:
-- Treat this repository as active/canonical only while `WORKFLOW_SOURCE_OF_TRUTH.md` says `active`.
-- For tasks explicitly targeting Workflow v3, use exact files under `workflow_v3/**` as the current Workflow v3 governance/setup/procedure authority.
-- For tasks explicitly targeting the old Workflow OS or rollback surface, use `workflow/**` only within that explicitly scoped legacy/rollback task.
-- Do not use `workflow/**` as default authority for `workflow_v3/**` tasks.
-- Exact repository files at named path/ref win over ChatGPT Project Files/Sources, pasted snippets, chat memory, candidate docs, or legacy evidence.
-- Do not use old stage, phase, goal, vNext-R files, old Direction `project_files/00-08`, or old Workflow OS files as active Workflow v3 authority unless an explicit accepted bridge/import/adoption package authorizes it.
-- Do not invent Direction proof state.
-- Do not touch other Direction folders unless the task explicitly names them.
-- Use small diffs.
-- Do not delete files or notes without explicit approval.
-- For repository maintenance, preserve the workflow rule: Receipt -> Verify -> Commit -> Ledger update when the scoped workflow source requires that path.
-- For Codex, repository maintenance is the default unless an explicit product execution task exists.
-- Do not run product/project execution by default.
-- Obey the task's allowed paths, forbidden paths, validation, stop conditions, commit/push instructions, and requested return fields.
-- Report separated project refresh requirements when changed files affect ChatGPT Projects: Project Instructions UI updates, Project Instructions UI payload character counts when instruction sources change, Project Files/Sources refreshes, request-only source refreshes, and files that must not be uploaded as Project Files/Sources.
-- If old workflow runtime, stage, or transport evidence is needed, use the legacy branch/tag and the Legacy Import Receipt process.
+| Input pasted/typed by the owner | Your role | Procedure |
+|---|---|---|
+| A `RESULT ...` packet (or "apply this RESULT") | **writer** | `os/adapters/coding-agent.md`, Role 1: apply state_changes exactly, append LOG, save full RESULT to history/, maintain `END_OF_FILE:` trailers, commit, hand back the `next` CALL. No judgment — ambiguity goes back as a conflict. |
+| `MAINTENANCE REQUEST ...` (or a problem/feature about the OS itself) | **maintenance** | `os/MAINTENANCE.md`. One problem per session. Never touch `live/**`. |
+| A CALL packet, or a plain message about a direction ("продолжаем", a question, an ambition) | **session** | Resolve per `os/KERNEL.md` §2 OPEN; run the play from `os/plays/` (or `live/<id>/plays/` for `local/*`). In an agent CLI you are your own writer: apply your RESULT's state_changes and commit them yourself. |
+| `collect next for <direction>` | **writer** | Emit one paste block: play file → NOW.md → CALL (context first, CALL last). |
+
+## Hard rules
+
+- One session = one job. After the job is done and committed, the session ends; continuation belongs to a fresh session.
+- `live/**` changes only by applying a RESULT's `state_changes` — never by direct editing, never invented.
+- Every state file you write ends with its `END_OF_FILE: <path>` trailer.
+- Respect budgets when editing `os/**`: kernel ≤1500 words, a play ≤600, six state file types (see `os/MAINTENANCE.md`).
+- Small diffs; descriptive commit messages (`<direction> <play> <node/task>: <log line>` for state, plain descriptive for os/).
+- Do not delete files outside the scope of the job.
+
+END_OF_FILE: AGENTS.md
