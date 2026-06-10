@@ -25,5 +25,7 @@ The task's done_when is met with evidence, or the task is closed as blocked/obso
 - Two-strikes rule applies: after two failed correction rounds, close with a handoff note and let a fresh session continue.
 - Waiting on a human-world event (playtest answers, an email reply) is normal: close with task → blocked and the unblock condition in NOW.md. The pulse play watches blocked items.
 - A work CALL may target a recurring obligation (`recurring: r-N` instead of `task:`): same lifecycle, evidence per its done_when; the RESULT updates `last_done` instead of a task status. If it can't finish, close with the reason — `last_done` stays, pulse re-raises it.
+- Long task, platform switch, or a degrading session: close with a checkpoint RESULT — partial outcome, task stays active with a progress note, next = continuation CALL. A fresh session anywhere resumes from it.
+- Any CALL you issue (child, executor) goes into state_changes for NOW.md → open_calls, so the in-flight picture survives this chat.
 
 END_OF_FILE: os/plays/work.md

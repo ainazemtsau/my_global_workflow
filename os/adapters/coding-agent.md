@@ -12,9 +12,10 @@ Contract:
 - Maintain the `END_OF_FILE: <path>` trailer on every state file it writes (truncation guard, schema/direction-files.md).
 - No judgment: if a state_change is ambiguous or conflicts with current files, do NOT improvise — reply with the conflict (this routes to repair).
 - Also emits the `next` CALL back to the owner/orchestrator if one is present.
+- Record CALLs issued in state_changes into `NOW.md → open_calls`; clear an entry when its RESULT arrives.
 - `collect` command: on "collect next for <direction>" (or a CALL id), emit ONE paste-ready block for chat platforms: the play file, then NOW.md, then the CALL last (context first, CALL last). This replaces the owner assembling three sources by hand on platforms without a reliable connector.
 
-The cheapest manual loop today: keep one long-running Claude Code/Codex session on this repo as the standing writer; paste RESULTs into it as they arrive.
+**The writer is ephemeral — never a standing chat.** Every RESULT is self-contained, so the writer needs no memory; a long-lived writer session is accumulated noise and cost (one chat = one job applies to the writer too). Manual loop: open a fresh agent session → paste the RESULT → it applies, commits, hands back the next CALL → close it. Headless one-shot invocations (`claude -p` / `codex exec`) do the same without a chat at all; an orchestrator replaces the hop entirely at autonomy stage 2+.
 
 ## Role 2: executor (kind: engineering)
 

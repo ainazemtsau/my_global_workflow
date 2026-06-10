@@ -42,6 +42,7 @@ evidence: |
    source links. A claim without evidence is not an outcome.>
 state_changes: |
   <exact edits: NOW.md task statuses, TREE.md node changes, files added to work/.
+   Includes CALLs issued by this session, for NOW.md → open_calls.
    Written so a mechanical executor can apply them without judgment.>
 captures:
   - <one line each: emergent work/ideas for later triage>
