@@ -16,7 +16,7 @@ The cheapest manual loop today: keep one long-running Claude Code/Codex session 
 
 ## Role 2: executor (kind: engineering)
 
-Receives a business task CALL targeting a product repo (`repo:` field).
+Receives a business task CALL targeting a product repo (`repo:` field). The full engineering process — plan gate, autonomous build, validation gates, retry/escalation, final report — is defined in `os/engineering/CONTOUR.md`; repo bootstrap in `os/engineering/PROJECT_SETUP.md`. The contract summary:
 
 Contract:
 - The CALL gives goal / context / boundaries / done_when / return / budget. The agent owns everything else: design, implementation, refactoring, branch/PR mechanics.
