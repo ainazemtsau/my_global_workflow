@@ -13,8 +13,8 @@ It does not select registry entrypoints by itself. It does not execute work, mut
 - `PROCEDURE_REGISTRY.md` owns owner procedure selection.
 - `CHAT_LIFECYCLE_PROTOCOL.md` owns the START/RUN/CHECK/FINISH/CLOSED state machine and hard gates.
 - `ROUTING_AND_DEPENDENCY_PROTOCOL.md` owns dependency type selection and wrong-surface handling.
-- `CODEX_HANDOFF_PROCEDURE.md` owns code repository dependency packet schema.
-- `CODEX_RESULT_VERIFICATION_PROCEDURE.md` owns code repository dependency return verification.
+- `CODE_REPOSITORY_DEPENDENCY_PROCEDURE.md` owns code repository dependency packet schema.
+- `CODE_REPOSITORY_DEPENDENCY_RETURN_VERIFICATION_PROCEDURE.md` owns code repository dependency return verification.
 - `CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md` owns post-closed `NEXT_CHAT_CARD` continuation.
 
 ## Core Rule
@@ -100,7 +100,7 @@ DEPENDENCY_RETURN:
   resume_decision:
 ```
 
-Prior dependency packet labels are unsupported. A packet that uses an prior packet label must be rejected or rewritten to the canonical dependency shape before the parent RUN can rely on it.
+Prior dependency packet labels are unsupported. A packet that uses a prior packet label must be rejected or rewritten to the canonical dependency shape before the parent RUN can rely on it.
 
 ## Waiting State
 

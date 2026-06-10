@@ -1,4 +1,4 @@
-# Codex Handoff Procedure
+# Procedure: Code Repository Dependency
 
 status: active_procedure
 
@@ -12,9 +12,9 @@ routing_dependency_policy: callable_code_repository_dependency
 
 ## Purpose
 
-Use `codex_handoff` as the `code_repository_dependency` packet schema for bounded Codex/code-assistant repository maintenance or implementation work inside a parent RUN.
+Use this procedure to define the `code_repository_dependency` packet schema for bounded Codex/code-assistant repository maintenance or implementation work inside a parent RUN.
 
-This file may remain at the same path for registry/path stability, but it is not a standalone terminal lifecycle whose only artifact is a package. It defines the required fields, boundaries, and return obligation for a `DEPENDENCY_CALL` to Codex/code assistant. It does not launch Codex invisibly, authorize acceptance, mutate state, close the parent lifecycle, or broaden product execution by implication.
+This procedure is not a standalone terminal lifecycle whose only artifact is a package. It defines the required fields, boundaries, and return obligation for a `DEPENDENCY_CALL` to Codex/code assistant. It does not launch Codex invisibly, authorize acceptance, mutate state, close the parent lifecycle, or broaden product execution by implication.
 
 ## Code Repository Dependency Mode
 
@@ -22,9 +22,9 @@ When embedded inside another selected main procedure, this file supplies the Cod
 
 Embedded use emits `DEPENDENCY_CALL` with `dependency_type: code_repository_dependency`, not FINISH closure artifacts. The parent RUN enters `RUN_WAITING_FOR_DEPENDENCY_RETURN` and remains unresolved until the matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` is received and verified. Prior packet labels are unsupported.
 
-If the user asks only for a Codex card without an active parent/core procedure goal, require an admitted parent/core procedure goal or return `UNREGISTERED_ACTION_EXCEPTION` / blocked scope. Do not create a lifecycle whose only artifact is a package.
+If the user asks only for a code repository dependency packet without an active parent/core procedure goal, require an admitted parent/core procedure goal or return `UNREGISTERED_ACTION_EXCEPTION` / blocked scope. Do not create a lifecycle whose only artifact is a package.
 
-For required current-goal repair, a complete Codex packet emitted by the parent opens a code repository dependency. It is not a draft-only artifact, optional launch instruction, standalone material chat, terminal result, or escape hatch from parent verification. If a parent only wants a documentation example and no current repair is required, label it non-material documentation/example content and do not represent it as RUN repair output.
+For required current-goal repair, a complete code repository dependency packet emitted by the parent opens a code repository dependency. It is not a draft-only artifact, optional launch instruction, standalone material chat, terminal result, or escape hatch from parent verification. If a parent only wants a documentation example and no current repair is required, label it non-material documentation/example content and do not represent it as RUN repair output.
 
 If this packet is pasted into ChatGPT parent for execution, ChatGPT must not execute it. ChatGPT must return `wrong_execution_surface` and instruct the operator to run the packet in Codex/code assistant. ChatGPT parent may draft the packet and verify returned evidence only.
 
@@ -226,4 +226,4 @@ Return the dependency schema only under a parent procedure boundary. When requir
 
 If Codex/code-assistant work is required for the current START goal, the parent cannot CHECK, FINISH, or CLOSED until the matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` is verified. NEXT_CHAT_CARD is post-closed continuation only and must not carry unfinished code repository dependency work from the current START goal.
 
-END_OF_FILE: workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md
+END_OF_FILE: workflow_v3/procedures/CODE_REPOSITORY_DEPENDENCY_PROCEDURE.md

@@ -82,7 +82,7 @@ Required checks:
 
 ## Repository and Storage Boundary
 
-Code/repository mutation, patching, branch creation, commits, pushes, file writes, implementation, write probes, and repository-side validation requiring writes are not support dependencies. They are `code_repository_dependency` and route only to Codex/code assistant under `CODEX_HANDOFF_PROCEDURE.md` and `CODEX_RESULT_VERIFICATION_PROCEDURE.md`.
+Code/repository mutation, patching, branch creation, commits, pushes, file writes, implementation, write probes, and repository-side validation requiring writes are not support dependencies. They are `code_repository_dependency` and route only to Codex/code assistant under `CODE_REPOSITORY_DEPENDENCY_PROCEDURE.md` and `CODE_REPOSITORY_DEPENDENCY_RETURN_VERIFICATION_PROCEDURE.md`.
 
 GitHub or file access from the ChatGPT parent is read or verification only unless a separately admitted write executor returns verifiable write evidence. It must not be named as a ChatGPT parent write surface.
 

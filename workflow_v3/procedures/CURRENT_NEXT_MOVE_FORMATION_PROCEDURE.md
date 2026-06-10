@@ -38,7 +38,7 @@ Do not use this procedure to:
 - perform repository or runtime mutation;
 - accept candidate output;
 - persist accepted state;
-- verify Codex results as a standalone verification run;
+- verify code repository dependency returns as a standalone verification run;
 - replace `DEPENDENCY_CALL` while the current main procedure RUN still needs external evidence before completion;
 - use `human_decision` to avoid producing a materially known required Transfer Packet;
 - emit multiple primary next moves;
@@ -150,7 +150,7 @@ Field requirements:
 
 `NEXT_CHAT_CARD.main_procedure_to_start` identifies the registered owner procedure for the new independent lifecycle, or an explicit human decision surface when no registered procedure owns the decision.
 
-It must not name dependency surfaces such as Codex/code assistant, `codex_verification`, dependency chat, or check job.
+It must not name dependency surfaces such as Codex/code assistant, `verify_code_repository_dependency_return`, dependency chat, or check job.
 
 When the selected continuation requires dependency work, `NEXT_CHAT_CARD.context_to_paste` must carry a complete Transfer Packet that describes the nested dependency target.
 
@@ -158,7 +158,7 @@ When the selected continuation requires dependency work, `NEXT_CHAT_CARD.context
 
 ```text
 codex
-codex_verification
+verify_code_repository_dependency_return
 dependency_chat
 check_job
 storage_update
@@ -214,7 +214,7 @@ Invalid transfer packet placeholders include, but are not limited to:
 - `Needed if using Codex`
 - `use previous approved package`
 - `prepare a prompt`
-- `create a Codex card`
+- `create a code repository dependency packet`
 - `make a storage package later`
 - `continue in a new chat`
 - `verify this somehow`
@@ -263,16 +263,16 @@ Codex must not decide acceptance and must not perform ChatGPT FINISH.
 
 This specialized transfer packet is valid only inside NEXT_CHAT_CARD.context_to_paste or inside a `DEPENDENCY_CALL` body under a registered owner procedure.
 It is not a value for `NEXT_CHAT_CARD.main_procedure_to_start`.
-It does not create an independent Codex, `codex_handoff`, or `codex_result_verification` material lifecycle.
+It does not create an independent Codex, `code_repository_dependency`, or `verify_code_repository_dependency_return` material lifecycle.
 
 If Codex/code assistant is required before the current owner can complete, the current owner must emit `DEPENDENCY_CALL` and wait for return verification before CHECK/FINISH/CLOSED.
 
-### `codex_verification`
+### `verify_code_repository_dependency_return`
 
 Required additions:
 
 ```text
-codex_verification_transfer_packet:
+verify_code_repository_dependency_return_transfer_packet:
   repository:
   expected_base_ref:
   expected_branch_or_ref:
@@ -293,11 +293,11 @@ codex_verification_transfer_packet:
     exact_next_move:
 ```
 
-Verification does not accept the Codex result by itself.
+Verification does not accept the returned dependency evidence by itself.
 
 This specialized transfer packet is valid only inside NEXT_CHAT_CARD.context_to_paste or inside a `DEPENDENCY_CALL` body under a registered owner procedure.
 It is not a value for `NEXT_CHAT_CARD.main_procedure_to_start`.
-It does not create an independent Codex, `codex_handoff`, or `codex_result_verification` material lifecycle.
+It does not create an independent Codex, `code_repository_dependency`, or `verify_code_repository_dependency_return` material lifecycle.
 
 If Codex verification is required before the current owner can complete, the current owner must emit `DEPENDENCY_CALL` and wait for return verification before CHECK/FINISH/CLOSED.
 
@@ -555,7 +555,7 @@ Candidate selection priority:
 2. If a required mid-RUN dependency return is still pending, missing, or unverified, do not form closure next move; stop because FINISH is premature.
 3. If accepted decision plus explicit update authority and complete `storage_update_package.v1` exist, choose `storage_update` as the registered owner procedure.
 4. If repair is required and the repair surface is known, choose a registered repair owner procedure and place `codex`, `check_job`, `dependency_chat`, or `next_material_chat` as a nested Transfer Packet target when needed.
-5. If Codex result verification is required and evidence is available but unverified, choose a registered owner procedure for the verification lifecycle and place `codex_verification` as a nested Transfer Packet target when needed.
+5. If code repository dependency return verification is required and evidence is available but unverified, choose a registered owner procedure for the verification lifecycle and place `verify_code_repository_dependency_return` as a nested Transfer Packet target when needed.
 6. If parent/dependency integration is required, choose the registered owner procedure and place `dependency_chat` or `next_material_chat` as a nested Transfer Packet target according to the parent return contract.
 7. If no further work should occur, choose `stop`.
 8. Use `human_decision` only when a real human choice is missing and no materially known transfer packet can be completed.
@@ -579,7 +579,7 @@ stop behavior: Return MULTIPLE_NEXT_MOVES_BLOCKED or INVALID_CONTINUATION_TARGET
 ```text
 stage_id: transfer_packet_completeness_gate
 purpose: Ensure required external-surface next moves include complete Transfer Packets.
-activation conditions: Required when the selected continuation requires a nested transfer target such as codex, codex_verification, dependency_chat, check_job, storage_update, or next_material_chat.
+activation conditions: Required when the selected continuation requires a nested transfer target such as codex, verify_code_repository_dependency_return, dependency_chat, check_job, storage_update, or next_material_chat.
 inputs: selected next move, target surface requirements, source authority, acceptance_boundary, persistence_boundary.
 required intermediate output: complete_transfer_packet or transfer_blocker.
 gate: PASS if the required Transfer Packet includes complete copy_paste_packet, expected return packet, validation, boundaries, stop conditions, and return destination; REWORK if minor exact fields can be completed from source; STOP if only a placeholder or materially incomplete packet can be produced.
@@ -684,8 +684,8 @@ Common dependency choices:
 common_dependency_choices:
   - check_job_packet for bounded source/evidence/consistency checks needed before selecting the next move
   - dependency_chat_packet for bounded supporting work needed before selecting the next move
-  - codex_handoff_packet only as a closure transfer artifact nested under an owner procedure, not as a launched run
-  - codex_return_verification only for evidence from a matching handoff when verification is part of current owner work and remains nested under the owner
+  - code_repository_dependency_packet only as a closure transfer artifact nested under an owner procedure, not as a launched run
+  - verify_code_repository_dependency_return only for evidence from a matching dependency call when verification is part of current owner work and remains nested under the owner
   - storage_update_package only as closure transfer artifact after acceptance/update authority is clear
   - project_refresh_instruction_packet for reporting refresh requirements only
 
@@ -854,7 +854,7 @@ Procedure Execution checks:
 - No procedure switch occurred.
 - Required sources were read or limitations stated.
 - Closure next move selects exactly one primary next move.
-- Required nested transfer packet is complete for `codex`, `codex_verification`, `dependency_chat`, `check_job`, `storage_update`, or `next_material_chat`.
+- Required nested transfer packet is complete for `codex`, `verify_code_repository_dependency_return`, `dependency_chat`, `check_job`, `storage_update`, or `next_material_chat`.
 - `human_decision` is not used as transfer avoidance.
 - NEXT_CHAT_CARD continuation is not used for mid-RUN `DEPENDENCY_CALL`.
 - FINISH is not requested while a required dependency return is pending, missing, or unverified.
@@ -958,7 +958,7 @@ NEXT_CHAT_CARD:
   start_instruction: START with storage_update using the pasted package.
 ```
 
-### Example: repair required but Codex packet is known
+### Example: repair required but dependency packet is known
 
 ```text
 NEXT_CHAT_CARD:

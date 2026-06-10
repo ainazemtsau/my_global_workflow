@@ -1,4 +1,4 @@
-# Codex Result Verification Procedure
+# Procedure: Code Repository Dependency Return Verification
 
 status: active_procedure
 
@@ -11,15 +11,15 @@ dependency_schema_policy: callable_verification
 
 ## Purpose
 
-Use `codex_result_verification` to verify a Codex/code-assistant `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` for a `code_repository_dependency` before a parent RUN relies on it for CHECK, FINISH, acceptance, or storage update decisions.
+Use `verify_code_repository_dependency_return` to verify a Codex/code-assistant `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` for a `code_repository_dependency` before a parent RUN relies on it for CHECK, FINISH, acceptance, or storage update decisions.
 
 Verification is dependency-return verification when embedded. It is candidate evidence, not acceptance by itself. This procedure does not close the parent lifecycle, repair runtime state, launch follow-up work, or treat a Codex commit as accepted state.
 
 ## Embedded Verification Mode
 
-If the current main procedure emitted the Codex handoff and the user returns the Codex result in the same active RUN, use this verification procedure as schema/checklist only.
+If the current main procedure emitted the code repository dependency and the user returns the Codex result in the same active RUN, use this verification procedure as schema/checklist only.
 
-Do not select `codex_result_verification` as a new `selected_procedure_path` during embedded use.
+Do not select `verify_code_repository_dependency_return` as a new `selected_procedure_path` during embedded use.
 
 Embedded verification must verify branch, commit SHA, changed files, allowed paths, forbidden paths, validation output, EOF markers, Project refresh categories, push status, residual risks, and match to the emitted `DEPENDENCY_CALL`.
 
@@ -32,7 +32,7 @@ Standalone verification remains valid when the user's primary work item is only 
 ## Trigger / When to Use
 
 - A Codex dependency run returns branch, commit, diff, changed files, validation output, push status, or residual risk evidence.
-- The user asks whether a Codex result satisfies its handoff boundaries.
+- The user asks whether a Codex result satisfies its dependency boundaries.
 - Parent RUN, acceptance, storage, or repair decisions need verified Codex dependency evidence first.
 
 ## When Not to Use
@@ -46,7 +46,7 @@ Standalone verification remains valid when the user's primary work item is only 
 ## Required Inputs
 
 - Codex return fields;
-- original handoff or allowed/forbidden path boundary;
+- original dependency call or allowed/forbidden path boundary;
 - matching_dependency_id or exact emitted dependency call packet when embedded;
 - branch;
 - commit_sha;
@@ -83,7 +83,7 @@ Classify Codex return content as dependency evidence. Classify repository files/
 stage_id: codex_return_intake
 purpose: Verify that branch, commit SHA, pushed status, changed files, and return fields are present.
 activation conditions: Always.
-inputs: Codex return, original handoff if available.
+inputs: Codex return, original dependency call if available.
 required intermediate output: Intake evidence list and missing fields.
 gate: PASS if branch/commit/diff/changed-files evidence is present; STOP if required evidence is missing.
 checkpoint rule: Request missing evidence when incomplete instead of guessing.
@@ -207,4 +207,4 @@ If the result needs acceptance, storage, or repair, return the exact next move o
 
 NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a support launch, and not evidence that the current START goal has completed.
 
-END_OF_FILE: workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md
+END_OF_FILE: workflow_v3/procedures/CODE_REPOSITORY_DEPENDENCY_RETURN_VERIFICATION_PROCEDURE.md

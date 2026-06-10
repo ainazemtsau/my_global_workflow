@@ -534,7 +534,7 @@ Common dependency choices:
 ```text
 common_dependency_choices:
   - support_dependency for bounded evidence/source/consistency checks
-  - codex_return_verification for returned Codex evidence supplied to this review
+  - verify_code_repository_dependency_return for returned Codex evidence supplied to this review
   - support_dependency only for bounded supporting evidence collection
   - storage_update_package only as a candidate or closure transfer artifact after acceptance/update boundaries are explicit
   - project_refresh_instruction_packet for reporting refresh requirements only
@@ -580,7 +580,7 @@ validation_required_on_return:
 resume_rule: resume the same selected main procedure
 ```
 
-`NEXT_CHAT_CARD.context_to_paste` is a closure artifact after this procedure forms or blocks the decision. It does not launch work and must carry complete transfer content when the next surface is `codex`, `codex_verification`, `support_dependency`, `check_job`, `storage_update`, or `next_material_chat`.
+`NEXT_CHAT_CARD.context_to_paste` is a closure artifact after this procedure forms or blocks the decision. It does not launch work and must carry complete transfer content when the next surface is `codex`, `verify_code_repository_dependency_return`, `support_dependency`, `check_job`, `storage_update`, or `next_material_chat`.
 
 FINISH must not be requested while a required dependency return is pending, missing, or unverified.
 
@@ -784,7 +784,7 @@ storage_update_package_if_applicable:
 ```text
 decision: repair_required
 reason: Evidence supports the target role, but storage package lacks validation.commands_or_checks.
-continuation_target: codex_handoff
+continuation_target: code_repository_dependency
 next_chat_card_context_to_paste: complete bounded repair packet required
 storage_update_need: blocked_missing_update_boundary
 ```

@@ -469,7 +469,7 @@ Forbidden expansion:
 
 - semantic acceptance review;
 - Direction runtime adoption;
-- Codex handoff by implication;
+- code repository dependency by implication;
 - support dependency/research by implication;
 - broad repository search to discover files to write;
 - Project UI update or Project Files/Sources refresh;
@@ -507,8 +507,8 @@ common_dependency_choices:
   - project_refresh_instruction_packet for reporting only
 
 forbidden_dependency_categories:
-  - codex_handoff_packet by implication
-  - codex_return_verification by implication
+  - code_repository_dependency_packet by implication
+  - verify_code_repository_dependency_return by implication
   - support_dependency by implication
   - support_dependency for research by implication
   - check_job_packet unless separately admitted before storage and not used to decide acceptance

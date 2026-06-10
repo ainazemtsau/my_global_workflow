@@ -300,7 +300,7 @@ Proceed to detailed body drafting only after user approval or after the user pro
 Common dependency choices for this procedure through the routing/dependency gate:
 
 - `code_repository_dependency` for bounded repository maintenance patches derived from the selected authoring run;
-- `codex_return_verification` for returned results from a Codex/code-assistant dependency emitted by the same selected authoring run;
+- `verify_code_repository_dependency_return` for returned results from a Codex/code-assistant dependency emitted by the same selected authoring run;
 - `support_dependency` for bounded source/evidence/consistency/validation questions;
 - `support_dependency` for approved research questions/evidence plans;
 - `storage_persistence_dependency` only when accepted-state persistence/update authority is explicitly in scope;
@@ -308,7 +308,7 @@ Common dependency choices for this procedure through the routing/dependency gate
 
 If this procedure emits `DEPENDENCY_CALL`, it must include the complete packet, dependency type, execution surface, expected return fields, validation requirements, and same-owner resume rule. The parent RUN enters `RUN_WAITING_FOR_DEPENDENCY_RETURN` and remains unresolved until a matching `DEPENDENCY_RETURN` is verified.
 
-Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any other execution surface as a new main procedure during this RUN.
+Do not select `code_repository_dependency`, `verify_code_repository_dependency_return`, `check_job`, or any other execution surface as a new main procedure during this RUN.
 
 Prior packet labels are unsupported and must not be accepted as active dependency packets.
 

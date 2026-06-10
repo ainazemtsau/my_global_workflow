@@ -1,11 +1,11 @@
-# Codex Handoff Result Eval
+# Code Repository Dependency Result Eval
 
 status: active_repository_completion_framework
 
 ## Source files to inspect
 
 - `workflow_v3/interfaces/10_CODEX_PROVIDER_INTERFACE.md`
-- `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md`
+- `workflow_v3/procedures/CODE_REPOSITORY_DEPENDENCY_RETURN_VERIFICATION_PROCEDURE.md`
 - `workflow_v3/templates/WORK_CONTRACT_TEMPLATE.md`
 - `workflow_v3/templates/FINISH_PACKET_TEMPLATE.md`
 - git branch, commit/diff, changed files, and validation output
@@ -34,9 +34,9 @@ status: active_repository_completion_framework
 - Markdown EOF markers pass when relevant.
 - Codex result returns to current chat for parent verification.
 - Embedded Codex result returns through `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` to the same selected main procedure when the call was embedded.
-- Embedded codex_return_verification occurs before CLOSURE_CHECK passes when the result affects owner output.
+- Embedded verify_code_repository_dependency_return occurs before CLOSURE_CHECK passes when the result affects owner output.
 - Required current-goal Codex repair has an opened parent `DEPENDENCY_CALL` with `dependency_type: code_repository_dependency`, parent wait state, and matching returned `CODEX_RETURN_PACKET` / `DEPENDENCY_RETURN` before parent CHECK/FINISH.
-- Persistence handoff includes approval/update authority, exact path boundaries, validation, and verified same-owner return when Codex/storage dependency writes.
+- Persistence dependency packet includes approval/update authority, exact path boundaries, validation, and verified same-owner return when Codex/storage dependency writes.
 - Project refresh fields are separated.
 - Parent lifecycle does not CHECK, FINISH, or CLOSED while Codex return is open, missing, unverified, or missing required validation/evidence.
 
@@ -55,7 +55,7 @@ status: active_repository_completion_framework
 - Project UI update or Project Files/Sources refresh conflated with repository commit.
 - Codex returned evidence treated as accepted state.
 - Codex result cannot be matched to the emitted embedded `DEPENDENCY_CALL`.
-- Required Codex repair exists but the parent only emits a patch plan, package, handoff, or deferred launch instruction.
+- Required code repository repair exists but the parent only emits a patch plan, package, dependency packet, or deferred launch instruction.
 - Codex is asked to close the ChatGPT lifecycle.
 - Codex/storage dependency write is treated as accepted state without verification and acceptance/update boundary.
 - Branch, commit, changed files, validation, EOF, refresh, push, or residual-risk evidence is missing but verification passes.
@@ -74,4 +74,4 @@ status: active_repository_completion_framework
 
 Block acceptance and parent closure, request or perform same-scope repair, verify diff and validation again, then resume parent RUN before CHECK/FINISH.
 
-END_OF_FILE: workflow_v3/evals/CODEX_HANDOFF_RESULT_EVAL.md
+END_OF_FILE: workflow_v3/evals/CODE_REPOSITORY_DEPENDENCY_RESULT_EVAL.md

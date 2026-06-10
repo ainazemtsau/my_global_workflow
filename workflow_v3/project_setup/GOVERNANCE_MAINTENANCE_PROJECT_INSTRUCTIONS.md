@@ -55,8 +55,8 @@ Procedure governance:
 - Read `SUPPORT_DEPENDENCY_PROTOCOL.md` only for support dependency packet.
 - Do not patch, launch dependency work by implication, mutate state, or update actual Project UI without a visible admitted write path and verification.
 
-Code-assistant handoffs:
-- Code assistant work is code_repository_dependency work, not terminal handoff output.
+Code-assistant dependency packets:
+- Code assistant work is code_repository_dependency work, not terminal dependency packet output.
 - Create Codex/code-assistant packets only when scope is bounded and verifiable; include repository/base, branch policy, goal, sources, paths, changes, validation, stop conditions, commit/push, refresh, expected return, parent verification, resume rule, and return fields.
 - Code assistants do not decide acceptance, route, CHECK, FINISH, or CLOSED.
 
@@ -83,7 +83,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6410
+- `measured_chars`: 6430
 - `target_max_chars`: 6500
 - `hard_max_chars`: 8000
 - `verdict`: PASS

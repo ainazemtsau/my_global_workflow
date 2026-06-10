@@ -18,7 +18,7 @@ status: active_repository_completion_framework
 - Project Files/Sources manifest impact;
 - request-only sources impact;
 - do-not-upload list;
-- Codex next move test requiring complete Transfer Packet / Codex package;
+- Code repository dependency next move test requiring complete Transfer Packet / code repository dependency packet;
 - explicit statement whether actual UI update or refresh occurred.
 
 ## PASS criteria
@@ -27,7 +27,7 @@ status: active_repository_completion_framework
 - Payload count is measured for changed instruction sources.
 - Payload is at or below 8,000 characters.
 - Project Instruction sources are not listed as Project Files/Sources uploads.
-- Codex next move test requires a complete Transfer Packet / Codex package when that next move is selected.
+- Code repository dependency next move test requires a complete Transfer Packet / code repository dependency packet when that next move is selected.
 - `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, and `workflow_v3/evals/**` remain do-not-upload unless later explicit rollout says otherwise.
 
 ## WARN criteria
@@ -42,7 +42,7 @@ status: active_repository_completion_framework
 - Project Files/Sources treated as authority.
 - Project Files/Sources refresh implied without authorization.
 - Request-only sources uploaded by default.
-- Codex next move test permits an incomplete handoff or makes the user assemble the Codex prompt manually.
+- Code repository dependency next move test permits an incomplete dependency packet or makes the user assemble the code-assistant prompt manually.
 - Do-not-upload list missing required Workflow v3 source paths.
 
 ## Common failure modes
