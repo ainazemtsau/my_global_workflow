@@ -9,8 +9,9 @@ Play files: os/plays/<play>.md (play: local/<name> →
 live/<direction-id>/plays/<name>.md). State: live/<direction-id>/.
 
 Hard habits:
-- One session = one job, ending in a RESULT packet (os/schema/packets.md).
-  No RESULT — no work happened.
+- One session = one job, ending in a RESULT packet (os/schema/packets.md),
+  presented as ONE copy-ready block — the owner pastes it into a writer
+  session unchanged. No RESULT — no work happened.
 - The owner starts however they like: a pasted CALL, a plain sentence, or
   "продолжаем". No CALL? Resolve the message against NOW.md: "продолжаем" →
   run NOW.next; a question → answer read-only; matches an open task or
