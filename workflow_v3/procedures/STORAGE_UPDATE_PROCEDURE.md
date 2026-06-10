@@ -7,13 +7,13 @@ entrypoint: persist_accepted_state
 procedure_boundary: storage_update
 kind: storage
 routing_dependency_policy: direct_storage_default_external_dependency_only_when_admitted
-adapter_compatibility_policy: child_call_and_utility_labels_are_compatibility_aliases_only
+dependency_model_policy: dependency_labels_only_old_labels_unsupported
 
 ## Purpose
 
 Persist accepted state, accepted records, or accepted repository/runtime files only from a complete admitted Storage Update Package.
 
-This procedure is a mechanical storage/write adapter. It verifies write authority, exact path boundaries, exact listed changes, source integrity, EOF requirements, validation requirements, and return evidence. It does not decide whether candidate work should be accepted.
+This procedure is a mechanical storage/write surface. It verifies write authority, exact path boundaries, exact listed changes, source integrity, EOF requirements, validation requirements, and return evidence. It does not decide whether candidate work should be accepted.
 
 ## Trigger / When to Use
 
@@ -60,7 +60,7 @@ selected_procedure_path: workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md
 procedure_boundary: storage_update
 kind: storage
 routing_dependency_policy: direct_storage_default_external_dependency_only_when_admitted
-adapter_compatibility_policy: child_call_and_utility_labels_are_compatibility_aliases_only
+dependency_model_policy: dependency_labels_only_old_labels_unsupported
 ```
 
 Required task inputs:
@@ -304,7 +304,7 @@ Runtime stage normalization: material stages emit `STAGE_RESULT`, wait for `CONT
 
 ```text
 stage_id: lifecycle_surface_admission
-purpose: Confirm this RUN is the selected storage adapter and not an embedded semantic step.
+purpose: Confirm this RUN is the selected storage surface and not an embedded semantic step.
 activation conditions: Always.
 inputs: START_CONTRACT, Procedure Registry metadata, procedure boundary type, user/parent packet.
 required intermediate output: selected_entrypoint, selected_procedure_path, procedure_boundary, kind, routing_dependency_policy.
@@ -388,7 +388,7 @@ stop behavior: Return EXACT_CHANGE_PLAN_INVALID.
 
 ```text
 stage_id: write_execution_gate
-purpose: Apply only listed changes through the selected storage update adapter.
+purpose: Apply only listed changes through the selected storage update surface.
 activation conditions: Only after Stages 0-5 PASS or allowed no-op result.
 inputs: exact write plan, pre_write_refs, repository_target.
 required intermediate output: write_attempt_result, changed files, created files, deleted files, unchanged files, post_write_refs, commit/push status when applicable.
@@ -450,9 +450,9 @@ Use:
 - `EXPAND` only for exact listed source readback or listed validation checks.
 - `STOP` for missing package, missing authority, path broadening, source conflict, validation absence/failure, EOF invalidity, or write boundary violation.
 - `TRANSFER` only as closure output if the package cannot be executed in this surface and a complete next-surface packet is included.
-- `DEPENDENCY_CALL` is not used by default by this selected storage adapter.
+- `DEPENDENCY_CALL` is not used by default by this selected storage surface.
 - `DEPENDENCY_RETURN` is not used unless a separately admitted storage execution policy explicitly requires same-owner return verification.
-- Legacy `CHILD_PROCEDURE_CALL`, `CHILD_PROCEDURE_RETURN`, `UTILITY_CALL`, and `UTILITY_RETURN` labels are compatibility aliases only for dependency call/return fields.
+- Prior packet labels are unsupported for dependency call/return fields.
 
 ## Optional Expansion
 
@@ -509,8 +509,8 @@ common_dependency_choices:
 forbidden_dependency_categories:
   - codex_handoff_packet by implication
   - codex_return_verification by implication
-  - support_adapter_dependency by implication
-  - support_adapter_dependency for research by implication
+  - support_dependency by implication
+  - support_dependency for research by implication
   - check_job_packet unless separately admitted before storage and not used to decide acceptance
   - project refresh execution
 
@@ -539,7 +539,7 @@ storage_boundary:
 
 This procedure should normally execute directly or stop.
 
-It must not emit `DEPENDENCY_CALL` merely because another tool such as Codex could perform the write. If storage cannot execute directly, return a blocked result or a complete closure Transfer Packet only when the selected context requires it. Legacy `CHILD_PROCEDURE_CALL` and `UTILITY_CALL` labels are compatibility aliases only and must not define a standalone dependency or utility lifecycle.
+It must not emit `DEPENDENCY_CALL` merely because another tool such as Codex could perform the write. If storage cannot execute directly, return a blocked result or a complete closure Transfer Packet only when the selected context requires it. Prior packet labels are unsupported and must not define a standalone dependency lifecycle.
 
 If a separately admitted future storage policy allows same-owner external storage execution, the dependency call must include:
 

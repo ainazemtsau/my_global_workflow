@@ -6,7 +6,7 @@ status: active_control_plane
 
 This file is the Workflow v3 runtime kernel for material and state-sensitive chats.
 
-Procedure selection is owned by `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. Dependency type selection and wrong-surface behavior are governed by `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`. Support adapter packets and compatibility aliases are governed by `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`. Final audit is governed by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
+Procedure selection is owned by `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`. Dependency type selection and wrong-surface behavior are governed by `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`. Support dependency packets and prior packet labels are governed by `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md`. Final audit is governed by `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`.
 
 ## State Model
 
@@ -27,7 +27,7 @@ FINISH -> RUN repair
 FINISH -> blocked escalation
 ```
 
-`DEPENDENCY_CALL` and `DEPENDENCY_RETURN` are the preferred lifecycle terms for external or subordinate work needed before the selected owner can complete. `CHILD_PROCEDURE_CALL` and `CHILD_PROCEDURE_RETURN` may remain compatibility aliases or subtype labels. Existing `UTILITY_CALL` and `UTILITY_RETURN` labels may be used only as adapter-level compatibility names under this model. They do not define a separate runtime loop and never switch the selected main procedure.
+`DEPENDENCY_CALL` and `DEPENDENCY_RETURN` are the canonical lifecycle terms for external or subordinate work needed before the selected owner can complete. Prior packet labels are unsupported and do not define a separate runtime loop or switch the selected main procedure.
 
 ## Universal Rules
 
@@ -45,11 +45,11 @@ FINISH -> blocked escalation
 - Code/repository mutation is not executable by the ChatGPT parent. It routes only through a `code_repository_dependency` to Codex/code assistant.
 - A `core_lifecycle_dependency` does not switch the parent procedure; the target chat runs its own START/RUN/CHECK/FINISH and returns a verified FINISH or blocked result.
 - Missing required validation or evidence blocks CHECK, FINISH, and CLOSED.
-- A handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or `NEXT_CHAT_CARD` cannot satisfy a parent START goal by itself.
+- A handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, dependency packet, or `NEXT_CHAT_CARD` cannot satisfy a parent START goal by itself.
 - CHECK compares actual result to the selected procedure completion contract.
 - FINISH closes only after CHECK passes or the selected procedure's blocked completion condition is explicit.
 - CLOSED chats do not start new material work.
-- `NEXT_CHAT_CARD` is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed.
+- `NEXT_CHAT_CARD` is post-closed continuation only. It is not a dependency call, not a support launch, and not evidence that the current START goal has completed.
 
 ## START
 
@@ -175,13 +175,13 @@ STAGE_RESULT output shape:
 <простое описание>.
 
 Что нашёл:
-<no issue / issue / blocker / child required>.
+<no issue / issue / blocker / dependency required>.
 
 На что тебе смотреть:
 <что проверить, либо "ничего особого; это стандартный шаг">.
 
 Что будет дальше:
-<next stage / child wait / blocked / check>.
+<next stage / dependency wait / blocked / check>.
 
 ## Техническая часть
 
@@ -215,7 +215,7 @@ Dependency work is supporting work made during RUN because the selected procedur
 
 Required current-goal repair has no separate prepared-only state. If the stage output says `repair_needed: true` and the selected parent cannot complete directly, the same visible output must open `DEPENDENCY_CALL`, include the call id in `open_dependencies`, enter `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and make CONTINUE / ДАЛЬШЕ invalid until the matching return is verified.
 
-Use `ROUTING_AND_DEPENDENCY_PROTOCOL.md` to choose exactly one dependency type. `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` remain compatibility aliases or subtype labels for `DEPENDENCY_CALL` / `DEPENDENCY_RETURN`; `UTILITY_CALL` / `UTILITY_RETURN` are compatibility aliases only where older adapter packets still name them.
+Use `ROUTING_AND_DEPENDENCY_PROTOCOL.md` to choose exactly one dependency type. Prior packet labels are unsupported; active packets must use `DEPENDENCY_CALL` and `DEPENDENCY_RETURN`.
 
 When the dependency is repository/code mutation, patching, branch creation, commits, pushes, file writes, implementation, write probes, or repository-side validation requiring writes, it is a `code_repository_dependency` and the execution surface is Codex/code assistant only. ChatGPT parent returns `wrong_execution_surface` if asked to execute that packet.
 
@@ -256,7 +256,7 @@ FINISH must:
 - confirm declared stage progression was not compressed;
 - confirm no open, missing, or unverified dependency return is being relied on;
 - confirm required dependency repair was either opened, returned, and verified or explicitly blocked;
-- confirm actual result is not only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or `NEXT_CHAT_CARD`;
+- confirm actual result is not only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, dependency packet, or `NEXT_CHAT_CARD`;
 - close only if the audit passes;
 - return to RUN repair or blocked escalation if the audit fails;
 - include a human-readable result;

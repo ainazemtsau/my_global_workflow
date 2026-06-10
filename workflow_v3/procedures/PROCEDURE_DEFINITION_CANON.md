@@ -20,14 +20,14 @@ A procedure is not:
 - hidden state mutation;
 - permission to switch procedures during RUN.
 
-Dependency calls may support the selected main procedure under `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`, but they always return to the same selected main procedure. `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and adapter labels such as `UTILITY_CALL` / `UTILITY_RETURN` are compatibility names for `DEPENDENCY_CALL` / `DEPENDENCY_RETURN`.
+Dependency calls may support the selected main procedure under `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`, but they always return to the same selected main procedure. Prior packet labels are unsupported; active procedure definitions use `DEPENDENCY_CALL` and `DEPENDENCY_RETURN`.
 
 ## Procedure Kind Model
 
 Procedure files should align with the registry `kind`:
 
 - `core` - selectable main procedure for material workflow work.
-- `utility` - dependency schema callable during RUN under a selected main/core parent; not a standalone terminal artifact.
+- `dependency` - dependency schema callable during RUN under a selected main/core parent; not a standalone terminal artifact.
 - `verification` - dependency verification schema callable under the same parent lifecycle or admitted verification owner; not standalone package completion.
 - `storage` - selectable for admitted bounded persistence.
 - `readonly` - selectable for non-material reads or answers.
@@ -48,7 +48,7 @@ completion:
 - `result` names the procedure-specific output that satisfies the procedure.
 - `proof` names the evidence or checks needed to trust that output.
 - `blocked_if` names the procedure-specific conditions that prevent completion.
-- `result` must not be only a handoff, package, Codex package, check packet, storage packet, child-chat card, copy-paste packet, or `NEXT_CHAT_CARD`.
+- `result` must not be only a handoff, package, Codex package, check packet, storage packet, dependency packet, copy-paste packet, or `NEXT_CHAT_CARD`.
 
 Do not define a repository-wide fixed list of done or result types. The selected procedure's completion block is the authority for CHECK.
 
@@ -57,7 +57,7 @@ Do not define a repository-wide fixed list of done or result types. The selected
 Procedures may define two step types:
 
 - `material stage` - user-visible work that emits `STAGE_RESULT` and requires user `CONTINUE` / `ДАЛЬШЕ` before the next material stage.
-- `internal_check` - mechanical check inside a material stage; it does not require a separate user confirmation unless it changes scope, needs a utility call, or blocks.
+- `internal_check` - mechanical check inside a material stage; it does not require a separate user confirmation unless it changes scope, needs a dependency call, or blocks.
 
 A material stage should include:
 
@@ -68,7 +68,7 @@ purpose:
 inputs:
 required_stage_result:
 gate:
-utility_allowed_if:
+dependency_allowed_if:
 blocked_if:
 ```
 
@@ -99,12 +99,12 @@ routing_dependency_policy:
   code_repository_dependency_route:
   forbidden_when:
   return_verification:
-  compatibility_aliases:
+  unsupported_prior_labels:
   same_main_procedure_resume:
   closure_blockers:
 ```
 
-Procedure-specific dependency policy may narrow or explain dependency use. Dependency type selection and wrong-surface behavior remain in `ROUTING_AND_DEPENDENCY_PROTOCOL.md`; support adapter packet aliases remain in `UTILITY_ADAPTER_PROTOCOL.md`.
+Procedure-specific dependency policy may narrow or explain dependency use. Dependency type selection and wrong-surface behavior remain in `ROUTING_AND_DEPENDENCY_PROTOCOL.md`; support dependency packet shape remains in `SUPPORT_DEPENDENCY_PROTOCOL.md`.
 
 ## Closure
 
@@ -121,6 +121,6 @@ Procedure closure must:
 - include post-closed `NEXT_CHAT_CARD` when a new independent lifecycle is needed, otherwise `no_next_chat_needed` with reason;
 - never start a new material lifecycle after CLOSED in the same chat.
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished dependency work needed by the current START goal.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a support launch, and not evidence that the current START goal has completed. It must not represent unfinished dependency work needed by the current START goal.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md

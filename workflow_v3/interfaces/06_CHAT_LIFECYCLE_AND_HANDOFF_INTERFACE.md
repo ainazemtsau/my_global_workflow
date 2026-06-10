@@ -16,10 +16,10 @@ Routing and dependency authority lives in:
 workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md
 ```
 
-Support adapter packet compatibility authority lives in:
+Support dependency packet authority lives in:
 
 ```text
-workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md
+workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md
 ```
 
 Final audit/closure authority lives in:
@@ -43,7 +43,7 @@ START selects exactly one main procedure, reads that procedure, shows its comple
 
 RUN executes visible material stages one at a time, emits `STAGE_RESULT`, and waits for CONTINUE / ДАЛЬШЕ before the next material stage unless the next step is `internal_check`.
 
-Dependency calls support the same selected main procedure and return as evidence through verified `DEPENDENCY_RETURN`. `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and legacy `UTILITY_CALL` / `UTILITY_RETURN` labels are compatibility aliases only.
+Dependency calls support the same selected main procedure and return as evidence through verified `DEPENDENCY_RETURN`. Prior packet labels are unsupported.
 
 CHECK emits `CLOSURE_CHECK` by comparing actual result to the selected procedure's `completion:` block.
 

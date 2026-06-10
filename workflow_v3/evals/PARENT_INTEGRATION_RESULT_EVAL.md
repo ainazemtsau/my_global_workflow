@@ -8,7 +8,7 @@ Validate parent integration fan-in, evidence comparison, missing evidence handli
 
 ## PASS checks
 
-- Required child/work results are accounted for.
+- Required dependency/work results are accounted for.
 - Evidence is compared to parent criteria.
 - Missing and conflicting evidence are visible.
 - Decision is one of continue, repair, replan, close, escalate, delta, or stop.
@@ -22,8 +22,8 @@ Validate parent integration fan-in, evidence comparison, missing evidence handli
 ## FAIL checks
 
 - Missing evidence is synthesized.
-- Child output accepts parent.
-- Parent closure occurs without required child/work results.
+- Dependency output accepts parent.
+- Parent closure occurs without required dependency/work results.
 
 ## Required recovery/repair action
 

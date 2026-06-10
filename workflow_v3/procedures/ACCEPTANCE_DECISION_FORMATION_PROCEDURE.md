@@ -7,7 +7,7 @@ entrypoint: accept_candidate_entity
 procedure_boundary: acceptance_review
 kind: core
 routing_dependency_policy: dependency_allowed_when_needed
-adapter_compatibility_policy: child_call_and_utility_labels_are_compatibility_aliases_only
+dependency_model_policy: dependency_labels_only_old_labels_unsupported
 
 ## Purpose
 
@@ -21,7 +21,7 @@ Review a candidate result and its evidence, then form exactly one explicit scope
 
 This procedure separates candidate quality from acceptance, acceptance from update authorization, and update authorization from storage execution. It may identify `storage_update_need` and may prepare a bounded candidate or transfer Storage Update Package only when update authority, exact path boundaries, exact changes, EOF requirements, validation, and return fields are explicit.
 
-This procedure must not write repository or runtime state directly. Acceptance is not implied by validation success, file existence, Codex return, storage return, adapter confidence, silence, or conversation momentum.
+This procedure must not write repository or runtime state directly. Acceptance is not implied by validation success, file existence, Codex return, storage return, producer confidence, silence, or conversation momentum.
 
 ## Trigger / When to Use
 
@@ -48,7 +48,7 @@ Do not use this procedure to:
 - mutate repository/runtime state;
 - persist accepted state;
 - execute a Storage Update Package;
-- let an adapter, Codex run, support dependency, check job, or storage surface accept its own output;
+- let an execution surface, Codex run, support dependency, check job, or storage surface accept its own output;
 - infer acceptance from silence, validation success, existing files, push status, or returned artifacts;
 - accept a scope broader than the reviewed evidence supports;
 - continue into a semantic next step;
@@ -66,7 +66,7 @@ selected_procedure_path: workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PR
 procedure_boundary: acceptance_review
 kind: core
 routing_dependency_policy: dependency_allowed_when_needed
-adapter_compatibility_policy: child_call_and_utility_labels_are_compatibility_aliases_only
+dependency_model_policy: dependency_labels_only_old_labels_unsupported
 ```
 
 Required review packet:
@@ -124,12 +124,12 @@ Do not invent missing evidence, authority, scope, or update permission. Missing 
 Candidate result/evidence:
 
 - The artifact, closure result, return packet, diff, validation, source excerpt, or proposed state that is being reviewed.
-- It is candidate context or adapter evidence until this procedure forms an explicit decision.
+- It is candidate context or dependency evidence until this procedure forms an explicit decision.
 
 Reviewer authority:
 
 - The explicit human, parent procedure, governance record, or accepted review role allowed to form the decision for the named scope.
-- Reviewer authority must be independent from the producing adapter or surface.
+- Reviewer authority must be independent from the producing surface or surface.
 
 Quality decision:
 
@@ -299,8 +299,8 @@ Before forming a decision, read and verify:
 - affected state/path boundary;
 - update authorization and storage package if persistence may be needed;
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` for `acceptance_review`;
-- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` for dependency type selection, execution surface, code/repository routing, and compatibility mapping;
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` for support-adapter dependency packet shape and adapter compatibility labels;
+- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` for dependency type selection, execution surface, code/repository routing, and prior-packet-label rejection;
+- `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md` for support-dependency packet shape and prior execution-surface labels;
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` for FINISH_PACKET result and NEXT_CHAT_CARD continuation closure;
 - `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` when a Storage Update Package is referenced or prepared.
 
@@ -323,7 +323,7 @@ canonical_repository_source
 accepted_record
 current_human_input
 verified_excerpt
-adapter_evidence
+dependency_evidence
 candidate_context
 Project_Files_cache_context
 legacy_evidence
@@ -333,7 +333,7 @@ unknown_unverified
 Classification rules:
 
 - candidate output is not accepted state by existence;
-- adapter evidence is not accepted state;
+- dependency evidence is not accepted state;
 - validation success is evidence, not acceptance;
 - storage return evidence is evidence, not acceptance;
 - update authorization is not storage execution;
@@ -386,7 +386,7 @@ stop behavior: Return CANDIDATE_IDENTITY_UNCLEAR.
 
 ```text
 stage_id: reviewer_authority_independence_gate
-purpose: Confirm the reviewer can decide this scope and is not the producing adapter/surface accepting its own output.
+purpose: Confirm the reviewer can decide this scope and is not the producing surface/surface accepting its own output.
 activation conditions: Always after Stage 1.
 inputs: reviewer_authority block, candidate producer, authority source, independence check.
 required intermediate output: authority_scope, independence_result, self_acceptance_risk.
@@ -478,7 +478,7 @@ Use:
 - `TRANSFER` only as a closure NEXT_CHAT_CARD continuation artifact; it does not launch the transfer.
 - `DEPENDENCY_CALL` only when this selected acceptance review needs external evidence before forming the decision.
 - `DEPENDENCY_RETURN` only to resume this same selected review after matching returned evidence.
-- Legacy `CHILD_PROCEDURE_CALL`, `CHILD_PROCEDURE_RETURN`, `UTILITY_CALL`, and `UTILITY_RETURN` labels are compatibility aliases only for dependency call/return fields.
+- Prior packet labels are unsupported for dependency call/return fields.
 
 ## Forbidden Shortcut Checks
 
@@ -490,7 +490,7 @@ no_acceptance_from_validation_success_alone
 no_acceptance_from_file_existence
 no_acceptance_from_codex_return_alone
 no_acceptance_from_storage_return_alone
-no_adapter_self_acceptance
+no_execution surface_self_acceptance
 no_scope_broadening
 no_direct_storage_mutation
 no_hidden_next_work
@@ -511,7 +511,7 @@ Allowed expansion:
 Forbidden expansion:
 
 - direct storage mutation;
-- acceptance by producing adapter or external surface;
+- acceptance by producing surface or external surface;
 - hidden repair execution;
 - hidden next work launch;
 - broad repository search to invent accepted scope;
@@ -533,9 +533,9 @@ Common dependency choices:
 
 ```text
 common_dependency_choices:
-  - support_adapter_dependency for bounded evidence/source/consistency checks
+  - support_dependency for bounded evidence/source/consistency checks
   - codex_return_verification for returned Codex evidence supplied to this review
-  - support_adapter_dependency only for bounded supporting evidence collection
+  - support_dependency only for bounded supporting evidence collection
   - storage_update_package only as a candidate or closure transfer artifact after acceptance/update boundaries are explicit
   - project_refresh_instruction_packet for reporting refresh requirements only
 
@@ -556,7 +556,7 @@ external_return_policy:
   DEPENDENCY_RETURN must resume this same selected procedure and match the emitted dependency call.
 
 external_return_verification:
-  Returned evidence must be classified as adapter evidence and verified before it affects the acceptance decision.
+  Returned evidence must be classified as dependency evidence and verified before it affects the acceptance decision.
 
 embedded_verification_policy:
   Verification supports evidence review; it does not accept the result by itself.
@@ -580,7 +580,7 @@ validation_required_on_return:
 resume_rule: resume the same selected main procedure
 ```
 
-`NEXT_CHAT_CARD.context_to_paste` is a closure artifact after this procedure forms or blocks the decision. It does not launch work and must carry complete transfer content when the next surface is `codex`, `codex_verification`, `support_adapter_dependency`, `check_job`, `storage_update`, or `next_material_chat`.
+`NEXT_CHAT_CARD.context_to_paste` is a closure artifact after this procedure forms or blocks the decision. It does not launch work and must carry complete transfer content when the next surface is `codex`, `codex_verification`, `support_dependency`, `check_job`, `storage_update`, or `next_material_chat`.
 
 FINISH must not be requested while a required dependency return is pending, missing, or unverified.
 
@@ -698,7 +698,7 @@ Procedure Definition checks:
 - Stage Cards produce intermediate outputs and real gates.
 - Forbidden shortcut checks are mandatory.
 - Candidate quality, acceptance, update authorization, and storage execution are separate.
-- Dependency decision gate and adapter policy are explicit.
+- Dependency decision gate and execution surface policy are explicit.
 - External dependency-call/resume policy is explicit.
 - Closure uses CLOSURE_CHECK, FINISH_PACKET, and NEXT_CHAT_CARD or no_next_chat_needed continuation.
 - Canonical path matches registry metadata, and kind matches registry metadata.
@@ -707,7 +707,7 @@ Procedure Execution checks:
 
 - START selected exactly one main procedure.
 - RUN executed only this selected procedure.
-- No adapter or external surface accepted its own output.
+- No producing surface or external surface accepted its own output.
 - Evidence review occurred before acceptance decision.
 - Acceptance scope did not broaden beyond evidence and authority.
 - No direct storage mutation occurred.
@@ -732,7 +732,7 @@ Stop or return `blocked` when:
 - independence check fails or self-acceptance risk exists;
 - evidence is insufficient and no bounded repair/evidence path exists;
 - accepted scope would exceed reviewed evidence or authority;
-- acceptance would rely on silence, validation success alone, file existence, Codex return alone, storage return alone, or adapter confidence;
+- acceptance would rely on silence, validation success alone, file existence, Codex return alone, storage return alone, or producer confidence;
 - update authorization is absent but storage-ready status is requested;
 - direct storage mutation is requested;
 - a Storage Update Package would require alternate schema fields instead of `storage_update_package.v1`;
@@ -793,8 +793,8 @@ storage_update_need: blocked_missing_update_boundary
 
 ```text
 decision: blocked
-reason: Producing adapter attempted to accept its own return.
-forbidden_shortcut_checks.no_adapter_self_acceptance: FAIL
+reason: Producing surface attempted to accept its own return.
+forbidden_shortcut_checks.no_execution surface_self_acceptance: FAIL
 ```
 
 ### Example: parked

@@ -70,7 +70,7 @@ Project surfaces:
 FINISH closure and transfers:
 - Material/state-sensitive work uses Russian operator-first START when the operator writes Russian: `## Коротко` first, compact START_CONTRACT under `## Техническая часть`, then waits for START/СТАРТ.
 - RUN executes the selected procedure's declared stages only, must not compress stages into simple/compact/shortcut/single-stage paths, and uses `## Коротко по шагу` before compact STAGE_RESULT fields when conclusions/blockers/repair/dependency calls exist.
-- DEPENDENCY_CALL / DEPENDENCY_RETURN are canonical for dependency evidence; parent RUN waits in RUN_WAITING_FOR_DEPENDENCY_RETURN and verifies returns before reliance. If required dependency repair is detected and parent cannot mutate directly, open DEPENDENCY_CALL now; no plan/package/deferred launch may continue to CHECK/FINISH/CLOSED. Child/utility labels are compatibility aliases only.
+- DEPENDENCY_CALL / DEPENDENCY_RETURN are canonical for dependency evidence; parent RUN waits in RUN_WAITING_FOR_DEPENDENCY_RETURN and verifies returns before reliance. If required dependency repair is detected and parent cannot mutate directly, open DEPENDENCY_CALL now; no plan/package/deferred launch may continue to CHECK/FINISH/CLOSED. Prior packet labels are unsupported.
 - CHECK emits CLOSURE_CHECK against the selected completion contract.
 - CHECK/FINISH/CLOSED are blocked by open, missing, or unverified dependency returns, missing validation/evidence, or package/card terminal-only results.
 - FINISH emits FINISH_PACKET after audit pass.

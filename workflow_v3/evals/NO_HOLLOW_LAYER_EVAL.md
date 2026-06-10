@@ -11,18 +11,18 @@ Validate that each parent layer has evidence requirements, integration policy, a
 - Parent layer has evidence requirement.
 - Parent layer has integration rule.
 - Parent layer has escalation or closure rule.
-- Missing child/work evidence blocks closure or is explicitly permitted by parent policy.
+- Missing dependency/work evidence blocks closure or is explicitly permitted by parent policy.
 
 ## WARN checks
 
 - Parent layer is intentionally thin, and the evidence/integration/closure boundary is still explicit.
-- Closure is deferred because child/work results are incomplete.
+- Closure is deferred because dependency/work results are incomplete.
 
 ## FAIL checks
 
 - Parent only passes messages.
 - No acceptance or evidence policy exists.
-- Parent closure occurs by child output alone.
+- Parent closure occurs by dependency output alone.
 
 ## Required recovery/repair action
 

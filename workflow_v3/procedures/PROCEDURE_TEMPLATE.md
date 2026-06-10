@@ -12,7 +12,7 @@ workflow_v3/procedures/<NAME>_PROCEDURE.md
 
 ```text
 entrypoint:
-kind: core | utility | verification | storage | readonly
+kind: core | dependency_schema | verification | storage | readonly
 ```
 
 ## Purpose
@@ -48,7 +48,7 @@ completion:
   blocked_if:
 ```
 
-The selected procedure owns these completion semantics. CHECK compares actual result to this block. The result must not be only a handoff, package, Codex package, check packet, storage packet, child-chat card, copy-paste packet, or `NEXT_CHAT_CARD`.
+The selected procedure owns these completion semantics. CHECK compares actual result to this block. The result must not be only a handoff, package, Codex package, check packet, storage packet, dependency packet, copy-paste packet, or `NEXT_CHAT_CARD`.
 
 ## START Output Support
 
@@ -119,7 +119,7 @@ Stub mode must be self-contained enough to author the future procedure body with
 
 ## Context Classification
 
-Classify relevant context as canonical source, accepted record, current human input, verified excerpt, Project Files cache/context, candidate context, adapter evidence, historical evidence, or unknown/unverified.
+Classify relevant context as canonical source, accepted record, current human input, verified excerpt, Project Files cache/context, candidate context, dependency evidence, historical evidence, or unknown/unverified.
 
 ## Stage Model
 
@@ -132,7 +132,7 @@ purpose:
 inputs:
 required_stage_result:
 gate:
-utility_allowed_if:
+dependency_allowed_if:
 blocked_if:
 ```
 
@@ -157,13 +157,13 @@ STAGE_RESULT must be operator-readable first when the stage contains material co
 <простое описание>.
 
 Что нашёл:
-<no issue / issue / blocker / child required>.
+<no issue / issue / blocker / dependency required>.
 
 На что тебе смотреть:
 <что проверить, либо "ничего особого; это стандартный шаг">.
 
 Что будет дальше:
-<next stage / child wait / blocked / check>.
+<next stage / dependency wait / blocked / check>.
 
 ## Техническая часть
 
@@ -190,20 +190,20 @@ routing_dependency_policy:
   same_chat_allowed_work:
   allowed_dependency_types:
   code_repository_dependency_route:
-  support_adapter_dependency_route:
+  support_dependency_route:
   core_lifecycle_dependency_route:
   storage_persistence_dependency_route:
   human_decision_dependency_route:
   forbidden_when:
   return_verification:
-  compatibility_aliases:
+  unsupported_prior_labels:
   same_main_procedure_resume:
   closure_blockers:
 ```
 
-Dependency type selection is governed by `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`. Support adapter packet aliases are governed by `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`.
+Dependency type selection is governed by `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`. Support dependency packet shape is governed by `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md`.
 
-Dependency calls use `DEPENDENCY_CALL` / `DEPENDENCY_RETURN` and must resume this selected procedure. `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and `UTILITY_CALL` / `UTILITY_RETURN` may appear only as compatibility aliases or subtype labels. `open_dependencies != empty`, a missing dependency return, an unverified dependency return, or missing required validation/evidence blocks CHECK, FINISH, and CLOSED.
+Dependency calls use `DEPENDENCY_CALL` / `DEPENDENCY_RETURN` and must resume this selected procedure. Prior packet labels are unsupported. `open_dependencies != empty`, a missing dependency return, an unverified dependency return, or missing required validation/evidence blocks CHECK, FINISH, and CLOSED.
 
 Code/repository mutation, patching, branch creation, commits, pushes, file writes, implementation, write probes, and repository-side validation requiring writes route only through `code_repository_dependency` to Codex/code assistant. ChatGPT parent may draft the packet and verify return evidence only.
 
@@ -242,6 +242,6 @@ continuation:
 
 Return `CLOSURE_CHECK` when RUN reaches completion or blocked state. Request FINISH only when the selected procedure completion contract is satisfied or explicitly blocked. After FINISH passes, the same chat is CLOSED for material work.
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It must not represent unfinished dependency work from the current START goal.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a support dependency launch, and not evidence that the current START goal has completed. It must not represent unfinished dependency work from the current START goal.
 
 END_OF_FILE: workflow_v3/procedures/PROCEDURE_TEMPLATE.md

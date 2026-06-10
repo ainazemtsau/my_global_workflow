@@ -9,20 +9,20 @@ procedure_boundary: parent_integration
 
 ## purpose
 
-Self-contained target spec for integrating child/work results into the parent target. The detailed procedure body is not authored yet.
+Self-contained target spec for integrating dependency/work results into the parent target. The detailed procedure body is not authored yet.
 
 ## target_role
 
-Integrate child/work results into parent Work Graph node, Active Front, or Goal Evidence Graph node.
+Integrate dependency/work results into parent Work Graph node, Active Front, or Goal Evidence Graph node.
 
 ## workflow_integration
 
-Implements fan-in. Child/work results are candidate evidence. Parent Integration decides continue, repair, local replan, close parent, escalate, or produce graph delta.
+Implements fan-in. Dependency/work results are candidate evidence. Parent Integration decides continue, repair, local replan, close parent, escalate, or produce graph delta.
 
 ## when_to_use
 
 - START selected `parent_integration_check`.
-- One or more child/work FINISH_PACKET results returned to a parent target.
+- One or more dependency/work FINISH_PACKET results returned to a parent target.
 
 ## when_not_to_use
 
@@ -33,13 +33,13 @@ Implements fan-in. Child/work results are candidate evidence. Parent Integration
 ## required_inputs
 
 - parent Work Graph node, Active Front, or Goal Evidence Graph target;
-- required child/work results;
+- required dependency/work results;
 - parent acceptance criteria;
 - return destination.
 
 ## future_body_scope
 
-- verify required child results received;
+- verify required dependency results received;
 - compare evidence against parent acceptance policy;
 - identify missing/conflicting evidence;
 - update candidate statuses;
@@ -51,7 +51,7 @@ Implements fan-in. Child/work results are candidate evidence. Parent Integration
 ## future_body_must_not
 
 - synthesize missing evidence;
-- let child accept parent state;
+- let dependency surface accept parent state;
 - mutate accepted state;
 - silently open new front.
 

@@ -26,6 +26,6 @@ Validate Work Contract formation quality.
 - Allowed/forbidden surfaces are missing.
 - Parent graph/front/node refs or relation_to_parent are missing.
 - Evidence or validation requirement is missing.
-- Adapter output is treated as accepted.
+- Execution Surface output is treated as accepted.
 
 END_OF_FILE: workflow_v3/evals/WORK_CONTRACT_FORMATION_EVAL.md

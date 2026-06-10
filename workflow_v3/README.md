@@ -16,8 +16,8 @@ Active runtime authority:
 
 - `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` - compact procedure selector with `entrypoint`, `procedure_path`, `kind`, and `trigger`.
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` - START, RUN stages, dependency-return waits, CHECK, FINISH, CLOSED.
-- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` - dependency type selection, execution-surface routing, wrong-surface behavior, and compatibility mapping.
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` - support-adapter dependency shape; utility and child labels are compatibility aliases only.
+- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` - dependency type selection, execution-surface routing, wrong-surface behavior, and prior-packet-label rejection.
+- `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md` - support-dependency shape; prior packet labels are unsupported.
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` - final audit and closure.
 - `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md` - procedure completion, material stages, internal checks, and dependency policy.
 
@@ -32,7 +32,7 @@ There is no separate start protocol, before-action protocol, or old operation-su
 - `CLOSURE_CHECK` before FINISH.
 - post-closed `NEXT_CHAT_CARD` when a closed material workflow needs a new independent continuation.
 
-`CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN`, `RUN_WAITING_FOR_CHILD_RETURN`, and `CHILD_RETURN_VERIFICATION` are compatibility aliases only during transition.
+Old dependency packet and waiting-state labels are unsupported. Use only the canonical dependency fields in active Workflow v3 sources.
 
 ## Procedure Completion
 

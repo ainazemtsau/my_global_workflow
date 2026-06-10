@@ -5,8 +5,8 @@ status: active_procedure
 ## Procedure Kind
 
 ```text
-kind: utility
-utility_policy: code_repository_dependency_schema
+kind: dependency_schema
+dependency_schema_policy: code_repository_dependency_schema
 routing_dependency_policy: callable_code_repository_dependency
 ```
 
@@ -20,7 +20,7 @@ This file may remain at the same path for registry/path stability, but it is not
 
 When embedded inside another selected main procedure, this file supplies the Codex/code-assistant dependency schema and quality checks. Embedded use does not change `selected_entrypoint` or `selected_procedure_path` and does not start a new lifecycle.
 
-Embedded use emits `DEPENDENCY_CALL` with `dependency_type: code_repository_dependency`, not FINISH closure artifacts. The parent RUN enters `RUN_WAITING_FOR_DEPENDENCY_RETURN` and remains unresolved until the matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` is received and verified. `CHILD_PROCEDURE_CALL` and `CHILD_PROCEDURE_RETURN` remain compatibility aliases or subtype labels for older packets.
+Embedded use emits `DEPENDENCY_CALL` with `dependency_type: code_repository_dependency`, not FINISH closure artifacts. The parent RUN enters `RUN_WAITING_FOR_DEPENDENCY_RETURN` and remains unresolved until the matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET` is received and verified. Prior packet labels are unsupported.
 
 If the user asks only for a Codex card without an active parent/core procedure goal, require an admitted parent/core procedure goal or return `UNREGISTERED_ACTION_EXCEPTION` / blocked scope. Do not create a lifecycle whose only artifact is a package.
 
@@ -41,7 +41,7 @@ If this packet is pasted into ChatGPT parent for execution, ChatGPT must not exe
 - Do not use to decide acceptance or permit Codex to decide acceptance.
 - Do not use when forbidden paths, validation, stop conditions, or return fields are missing.
 - Do not use to launch Codex without an explicit bounded dependency call and return-verification contract.
-- Do not use when the only proposed outcome would be a standalone packet instead of an opened child call or clearly non-material documentation example.
+- Do not use when the only proposed outcome would be a standalone packet instead of an opened dependency call or clearly non-material documentation example.
 - Do not use as a replacement for a parent/core procedure START goal.
 - Do not ask Codex to perform ChatGPT CHECK, FINISH, or CLOSED.
 
@@ -75,11 +75,11 @@ Project Files/Sources, chat memory, snippets, and pasted excerpts are cache/cont
 
 Classify inputs as canonical repository source, current human input, verified excerpt, Project Files cache/context, candidate context, legacy_evidence, or unknown/unverified.
 
-Do not treat Codex output, child-call text, validation output, or FINISH_PACKET results as accepted state.
+Do not treat Codex output, dependency-call text, validation output, or FINISH_PACKET results as accepted state.
 
 ## Complexity Selector
 
-- `standard`: default for a complete bounded child call schema.
+- `standard`: default for a complete bounded dependency call schema.
 - `checkpointed`: use when path boundaries, validation, branch policy, commit/push policy, or return fields are ambiguous.
 - `delegated_or_tool_mediated`: applies because the output is a code repository dependency call to Codex/code assistant; this file creates the schema only and does not launch Codex by itself.
 - `research_backed`: not used by default.
@@ -87,21 +87,21 @@ Do not treat Codex output, child-call text, validation output, or FINISH_PACKET 
 ## Stage Cards
 
 ```text
-stage_id: child_call_fit
+stage_id: dependency_call_fit
 purpose: Confirm the requested repository/code work is bounded and belongs to Codex/code assistant.
 activation conditions: Always.
 inputs: User request, target repository, purpose, goal, known boundaries.
 required intermediate output: Fit decision and dependency scope statement.
 gate: PASS if the target is bounded repository maintenance or implementation; STOP if scope is product execution by implication, mutation authority is unclear, or target is unbounded.
-checkpoint rule: Checkpoint if user must decide whether Codex is actually authorized after the child-call draft.
+checkpoint rule: Checkpoint if user must decide whether Codex is actually authorized after the dependency-call draft.
 expansion rule: Request missing scope only; do not broaden the target.
-stop behavior: Return blocked child-call scope result.
+stop behavior: Return blocked dependency-call scope result.
 ```
 
 ```text
 stage_id: source_and_path_frame
 purpose: Identify source files to read, allowed paths, forbidden paths, and source integrity requirements.
-activation conditions: child_call_fit passes.
+activation conditions: dependency_call_fit passes.
 inputs: Source files, allowed paths, forbidden paths, repository/base ref.
 required intermediate output: Source-read list, path boundary list, source integrity requirements.
 gate: PASS if required sources and path boundaries are explicit; STOP if required sources or path boundaries are missing.
@@ -118,7 +118,7 @@ inputs: Required changes, validation needs, stop conditions, commit/push policy,
 required intermediate output: Validation and return contract.
 gate: PASS if validation and requested return fields are complete; STOP if validation or return fields are missing.
 checkpoint rule: Checkpoint when commit/push policy or validation responsibility is ambiguous.
-expansion rule: Add bounded validation requirements only within the child-call scope.
+expansion rule: Add bounded validation requirements only within the dependency-call scope.
 stop behavior: Return validation/return-contract blocker.
 ```
 
@@ -131,14 +131,14 @@ required intermediate output: Complete Codex/code-assistant dependency schema wi
 gate: PASS only if all required dependency fields are present and the return obligation is explicit.
 checkpoint rule: None by default.
 expansion rule: None.
-stop behavior: Return incomplete child-call blocker.
+stop behavior: Return incomplete dependency-call blocker.
 ```
 
 ## Gate Outcomes
 
 - `PASS`: required dependency scope, sources, paths, validation, stop conditions, and return fields are present.
 - `PASS_WITH_RISK`: schema is usable but limitations are explicit and bounded.
-- `REWORK`: revise missing or vague child-call fields before closure.
+- `REWORK`: revise missing or vague dependency-call fields before closure.
 - `EXPAND`: inspect exact repository source only to complete source/path boundaries.
 - `STOP`: return blocked result when required dependency authority or fields are missing.
 - `TRANSFER`: return only clearly non-material documentation/example content, or post-closed continuation content, when no current-goal repair is required and the selected parent admits that output.
@@ -154,7 +154,7 @@ External research is forbidden by default. Exact repository source inspection is
 
 ## Checkpoint Policy
 
-No checkpoint is required by default for a complete bounded child-call schema. Checkpoint when the user must decide path boundaries, commit/push policy, validation scope, return fields, or whether Codex is authorized after the child-call draft.
+No checkpoint is required by default for a complete bounded dependency-call schema. Checkpoint when the user must decide path boundaries, commit/push policy, validation scope, return fields, or whether Codex is authorized after the dependency-call draft.
 
 ## Completion Contract
 
@@ -192,8 +192,6 @@ resume_rule:
 requested_return_fields:
 unresolved_until_returned: true
 ```
-
-Compatibility shape may still label the same packet as `CHILD_PROCEDURE_CALL` with the same fields plus `compatibility_for: DEPENDENCY_CALL`.
 
 ## Eval / Quality Checks
 

@@ -61,7 +61,7 @@ Scoring is decision support, not automatic truth.
 
 Accepted Active Front requires acceptance/update path.
 
-A chat, Check Job, child chat, Codex run, STAGE_RESULT, FINISH_PACKET, or NEXT_CHAT_CARD may propose a front, but cannot accept it.
+A chat, Check Job, dependency chat, Codex run, STAGE_RESULT, FINISH_PACKET, or NEXT_CHAT_CARD may propose a front, but cannot accept it.
 
 ## Work Graph seed
 

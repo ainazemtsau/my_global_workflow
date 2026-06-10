@@ -60,7 +60,7 @@ The first chat in the new ordinary Direction Project must:
 - use `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`;
 - show Operator Brief plus START_CONTRACT with start_goal, terminal_condition, completion contract, declared stages, routing_dependency_policy, boundaries, and sources before material RUN;
 - execute declared stages with STAGE_RESULT and no runtime stage compression after START;
-- use `ROUTING_AND_DEPENDENCY_PROTOCOL.md` for typed dependencies before closure; code/repo mutation routes only to Codex/code assistant, and old child/utility packet labels are compatibility aliases only;
+- use `ROUTING_AND_DEPENDENCY_PROTOCOL.md` for typed dependencies before closure; code/repo mutation routes only to Codex/code assistant, and prior dependency packet labels are unsupported;
 - not require initial root outcome;
 - classify any user-provided outcome, tracks, or product ideas as `candidate_context_for_direction_definition` only;
 - stop if a required source or decision is missing;

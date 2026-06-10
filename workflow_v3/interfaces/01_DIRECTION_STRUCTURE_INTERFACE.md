@@ -8,7 +8,7 @@ This interface defines Direction as the long-lived runtime state system for Work
 
 ## Direction is not just a file
 
-A Direction is a long-lived project/result system with canonical state, evidence, acceptance records, operational surfaces, and adapter handoffs after adoption.
+A Direction is a long-lived project/result system with canonical state, evidence, acceptance records, operational surfaces, and execution surface handoffs after adoption.
 
 A Direction is not:
 
@@ -58,6 +58,6 @@ Operational movement does not replace object hierarchy. Procedure output cannot 
 - Work Graph is derived from the accepted Active Front and Front Exit Criteria.
 - Work Contract scope must stay bounded to one node or bounded node slice.
 - Chat intuition does not choose route, front, or next material target.
-- Adapter output is candidate until verified and accepted.
+- Execution Surface output is candidate until verified and accepted.
 
 END_OF_FILE: workflow_v3/interfaces/01_DIRECTION_STRUCTURE_INTERFACE.md

@@ -173,9 +173,9 @@ indexes/MEMORY_INDEX.md
 
 ## config
 
-`config/` stores adopted Direction-specific configuration such as customization profile, adapter context access, and quality gates.
+`config/` stores adopted Direction-specific configuration such as customization profile, execution-surface context access, and quality gates.
 
-Direction-specific config must preserve the core Workflow v3 acceptance and adapter boundaries.
+Direction-specific config must preserve the core Workflow v3 acceptance and execution-surface boundaries.
 
 The future canonical Project Binding for an adopted ordinary Direction Project belongs at:
 

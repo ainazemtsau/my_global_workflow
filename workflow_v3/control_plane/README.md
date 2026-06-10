@@ -13,7 +13,7 @@ The control plane does not execute product work, mutate Direction runtime state 
 - `PROCEDURE_REGISTRY.md` selects exactly one main procedure.
 - `CHAT_LIFECYCLE_PROTOCOL.md` governs START, RUN stages, dependency-return waits, CHECK, FINISH, and CLOSED.
 - `ROUTING_AND_DEPENDENCY_PROTOCOL.md` governs dependency type selection, execution surface separation, and wrong-surface behavior.
-- `UTILITY_ADAPTER_PROTOCOL.md` governs non-mutating support adapter dependency packets and compatibility aliases.
+- `SUPPORT_DEPENDENCY_PROTOCOL.md` governs non-mutating support dependency packets and prior packet labels.
 - `CHAT_FINISH_PROTOCOL.md` governs final audit and closure.
 - Source and storage protocols remain supporting boundaries.
 

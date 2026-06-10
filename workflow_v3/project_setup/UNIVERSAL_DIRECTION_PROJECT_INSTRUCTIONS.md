@@ -41,7 +41,7 @@ Procedure gate and lifecycle:
 - Load exact control-plane sources only when needed; tool availability is not workflow authority.
 - If no registry entry safely matches, stop with UNREGISTERED_ACTION_EXCEPTION or a Context Request.
 - RUN starts only after START/СТАРТ, executes declared stages without shortcut compression, emits STAGE_RESULT, and cannot switch procedures, mutate state, accept output, or start another entity.
-- Routing protocol chooses dependency type/surface. DEPENDENCY_CALL/DEPENDENCY_RETURN are same-procedure gates; parent waits in RUN_WAITING_FOR_DEPENDENCY_RETURN and verifies before reliance. Child/utility labels compatibility only.
+- Routing protocol chooses dependency type/surface. DEPENDENCY_CALL/DEPENDENCY_RETURN are same-procedure gates; parent waits in RUN_WAITING_FOR_DEPENDENCY_RETURN and verifies before reliance. Prior packet labels are unsupported.
 - STAGE_RESULT uses `## Коротко по шагу` first for conclusions/blockers/repair/dependency calls; fields stay under `## Техническая часть`.
 - Required repair + no direct parent mutation opens DEPENDENCY_CALL now; CHECK/FINISH/CLOSED wait for DEPENDENCY_RETURN_VERIFICATION.
 - CHECK emits CLOSURE_CHECK against selected completion contract and may request FINISH only when complete/blocked with no open, missing, or unverified dependency return and required validation/evidence present.
@@ -68,7 +68,7 @@ Acceptance, storage, utilities:
 - Human acceptance input is not storage authorization unless an admitted Storage Update Package exists.
 - Code/repo mutation routes only via code_repository_dependency to Codex/code assistant; ChatGPT parent must not write, probe, branch, commit, push, apply patches, or use GitHub/file access as write surface.
 - Code-assistant dependency calls include repo, base ref, branch policy, path bounds, reads/changes, validation, stops, commit/push, return fields, parent verification, and refresh fields.
-- Code-assistant returns are dependency evidence only; results stay candidate until verified/accepted; external adapters do not perform ChatGPT FINISH.
+- Code-assistant returns are dependency evidence only; results stay candidate until verified/accepted; external execution surfaces do not perform ChatGPT FINISH.
 
 Project surfaces and closure:
 - Project Instructions UI is compact behavior bootstrap, not documentation or accepted state.
@@ -81,7 +81,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6492
+- `measured_chars`: 6498
 - `target_max_chars`: 6500
 - `warning_threshold`: 7200
 - `hard_max_chars`: 8000

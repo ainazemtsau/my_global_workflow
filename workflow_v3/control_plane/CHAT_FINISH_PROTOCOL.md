@@ -52,7 +52,7 @@ Additional hard gates:
 
 - If `CLOSURE_CHECK.gaps` is non-empty and the selected completion contract does not explicitly allow blocked completion, FINISH must fail.
 - If blocked completion is allowed, the result must be marked blocked, not completed.
-- If `actual_result` is only a dependency call, handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, compatibility child-chat card, or `NEXT_CHAT_CARD`, FINISH must fail.
+- If `actual_result` is only a dependency call, handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, dependency packet, or `NEXT_CHAT_CARD`, FINISH must fail.
 - If `open_dependencies != empty`, any required dependency return is missing (`missing_dependency_return`), or any required dependency return is unverified (`unverified_dependency_return`), FINISH must fail.
 - If `required_dependency_work_detected = true` and `dependency_call_opened = false`, FINISH must fail.
 - If `repair_needed = true` and the selected parent cannot mutate directly, then a patch plan, draft packet, deferred launch instruction, or handoff text cannot satisfy RUN completion; the required path is `DEPENDENCY_CALL` -> `RUN_WAITING_FOR_DEPENDENCY_RETURN` -> verified `DEPENDENCY_RETURN`.
@@ -99,9 +99,9 @@ no_next_chat_needed:
   reason:
 ```
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It may appear only inside FINISH_PACKET after FINISH audit passes, or as a clearly named post-closed continuation. It is for a new independent lifecycle after the current START goal is completed or explicitly blocked. It must not represent unfinished dependency work, replace `DEPENDENCY_CALL`, or make the user assemble a missing dependency call from scattered earlier text.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a support dependency launch, and not evidence that the current START goal has completed. It may appear only inside FINISH_PACKET after FINISH audit passes, or as a clearly named post-closed continuation. It is for a new independent lifecycle after the current START goal is completed or explicitly blocked. It must not represent unfinished dependency work, replace `DEPENDENCY_CALL`, or make the user assemble a missing dependency call from scattered earlier text.
 
-`CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN`, `RUN_WAITING_FOR_CHILD_RETURN`, `CHILD_RETURN_VERIFICATION`, and `open_child_calls` are compatibility aliases only during transition; the hard gates above use dependency-neutral fields.
+Old dependency packet and waiting-state labels are unsupported; the hard gates above use dependency-neutral fields.
 
 ## Failure Behavior
 

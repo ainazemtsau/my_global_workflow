@@ -6,7 +6,7 @@ status: active_procedure
 
 Use `recovery_review` when runtime state, acceptance state, routing, evidence, or persistence may be suspect.
 
-This procedure reviews and classifies recovery needs. It must not repair any runtime files unless a later storage update adapter package is admitted.
+This procedure reviews and classifies recovery needs. It must not repair any runtime files unless a later storage update surface package is admitted.
 
 ## Trigger / When to Use
 
@@ -40,7 +40,7 @@ Do not infer accepted state from chat memory, Project Files/Sources cache, candi
 
 ## Context Classification
 
-Classify each input as canonical repository source, accepted record, adapter evidence, current human input, verified excerpt, Project Files cache/context, candidate context, legacy_evidence, or unknown/unverified.
+Classify each input as canonical repository source, accepted record, dependency evidence, current human input, verified excerpt, Project Files cache/context, candidate context, legacy_evidence, or unknown/unverified.
 
 Recovery claims must name source limitations and unresolved authority gaps.
 

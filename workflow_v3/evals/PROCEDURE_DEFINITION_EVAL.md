@@ -59,8 +59,8 @@ Validate Workflow v3 procedure definition files before they are treated as usabl
 - Procedure blocks global dependency access solely because a dependency was not prelisted.
 - Procedure lets CLOSURE_CHECK pass while required dependency return is open, missing, or unverified.
 - Procedure uses `human_decision` to avoid a required transfer packet.
-- Dependency/adaptor can mutate or accept output by implication.
-- Procedure defines completion as only a handoff, package, card, Codex package, check packet, storage packet, copy-paste packet, compatibility child-chat card, or NEXT_CHAT_CARD.
+- Dependency surface can mutate or accept output by implication.
+- Procedure defines completion as only a handoff, package, card, Codex package, check packet, storage packet, copy-paste packet, dependency packet, or NEXT_CHAT_CARD.
 - Non-trivial authoring proceeds directly to detailed body without method/checkpoint stage.
 - Research is mandatory for every procedure or forbidden for high-impact/non-obvious method design.
 - Complex procedure forces one-shot final artifact with no checkpoint.

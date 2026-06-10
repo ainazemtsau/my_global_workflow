@@ -101,7 +101,7 @@ It is a selection mechanism for Active Front formation. It is not a Work Graph, 
 ## Hard rules
 
 - No work may proceed without trace to a Goal Evidence Graph node, Active Front, Work Graph node, or Direction Map claim.
-- No parent closure may be claimed without required child/work evidence or an explicit missing-evidence block.
+- No parent closure may be claimed without required dependency/work evidence or an explicit missing-evidence block.
 - Graph output is candidate until accepted through the explicit acceptance/update path.
 - Goal Evidence Graph must not drift into roadmap, backlog, task list, or global Work Graph.
 - Active Unresolved Cut must not make the whole Direction active.

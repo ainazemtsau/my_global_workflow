@@ -27,6 +27,6 @@ status: active_eval
 - Dependency call becomes a procedure switch or standalone terminal chat.
 - Procedure relies on unverified dependency evidence.
 - Procedure identifies required external repair but leaves it as a plan, package, or future launch instruction while continuing.
-- Procedure completion is only a handoff, package, card, Codex package, check packet, storage packet, copy-paste packet, compatibility child-chat card, or NEXT_CHAT_CARD.
+- Procedure completion is only a handoff, package, card, Codex package, check packet, storage packet, copy-paste packet, dependency packet, or NEXT_CHAT_CARD.
 
 END_OF_FILE: workflow_v3/evals/PROCEDURE_EXECUTION_EVAL.md

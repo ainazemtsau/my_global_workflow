@@ -3,7 +3,7 @@
 status: active_procedure
 kind: core
 routing_dependency_policy: dependency_allowed_when_needed
-adapter_compatibility_policy: child_call_and_utility_labels_are_compatibility_aliases_only
+dependency_model_policy: dependency_labels_only_old_labels_unsupported
 
 ## Purpose
 
@@ -67,7 +67,7 @@ canonical_path_exception_if_any:
 
 ## Source Requirements
 
-Read exact relevant Workflow v3 framework, registry, control-plane, routing/dependency, support-adapter, eval, template, and existing procedure sources needed for the requested design scope. Verify EOF where markers exist.
+Read exact relevant Workflow v3 framework, registry, control-plane, routing/dependency, support-dependency, eval, template, and existing procedure sources needed for the requested design scope. Verify EOF where markers exist.
 
 Required source classes for material procedure authoring:
 
@@ -75,8 +75,8 @@ Required source classes for material procedure authoring:
 - selected procedure source when revising or authoring a stub body
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` when lifecycle boundaries are involved
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` when closure boundaries are involved
-- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` when dependency type, execution surface, code-repository routing, wrong-surface behavior, or compatibility mapping is involved
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` when `support_adapter_dependency`, adapter compatibility labels, check/research support, or non-mutating support return is involved
+- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` when dependency type, execution surface, code-repository routing, wrong-surface behavior, or prior-packet-label rejection is involved
+- `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md` when `support_dependency`, prior execution-surface labels, check/research support, or non-mutating support return is involved
 - Procedure Definition Canon, Procedure Authoring Guide, Procedure Template, and eval sources as needed
 
 Treat Project Files/Sources and chat memory as cache/context only.
@@ -85,7 +85,7 @@ Do not read or require deleted runbooks or obsolete formation sources as current
 
 ## Context Classification
 
-Classify inputs as canonical repository source, accepted record, current human input, candidate context, adapter evidence, verified excerpt, Project Files cache/context, legacy_evidence, or unknown/unverified.
+Classify inputs as canonical repository source, accepted record, current human input, candidate context, dependency evidence, verified excerpt, Project Files cache/context, legacy_evidence, or unknown/unverified.
 
 Exact repository files at named repo/path/ref win over cache/context.
 
@@ -142,9 +142,9 @@ embedded_verification_policy:
 storage_boundary:
 ```
 
-Use `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` for dependency type selection, execution-surface routing, and wrong-surface behavior. Use `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` only for `support_adapter_dependency` packet shape and adapter compatibility labels.
+Use `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` for dependency type selection, execution-surface routing, and wrong-surface behavior. Use `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md` only for `support_dependency` packet shape.
 
-A procedure may name common dependency choices or explicit forbiddances. Absent prelisting does not block global dependency access through the routing/dependency gate. Embedded dependency use is not a new main procedure and must not become hidden procedure switching. `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and utility labels may appear only as compatibility aliases or subtype labels for `DEPENDENCY_CALL` / `DEPENDENCY_RETURN`.
+A procedure may name common dependency choices or explicit forbiddances. Absent prelisting does not block global dependency access through the routing/dependency gate. Embedded dependency use is not a new main procedure and must not become hidden procedure switching. Prior packet labels are unsupported.
 
 ## Stage Cards
 
@@ -210,7 +210,7 @@ stop behavior: Return research approval checkpoint, bounded research/check depen
 stage_id: method_best_practice_design_plan
 purpose: Explain the planned procedure logic before drafting the detailed body.
 activation conditions: Required for checkpointed, research_backed, delegated_or_tool_mediated, new non-trivial procedures, major revisions, or stub body authoring with high impact.
-inputs: Stage 1 identity, Stage 2 grounding, Stage 3 complexity/research decision, Procedure Definition Canon, Procedure Authoring Guide, Routing and Dependency Protocol, Utility Adapter Protocol when support-adapter details are relevant.
+inputs: Stage 1 identity, Stage 2 grounding, Stage 3 complexity/research decision, Procedure Definition Canon, Procedure Authoring Guide, Routing and Dependency Protocol, Support Dependency Protocol when support-dependency details are relevant.
 required intermediate output: method_summary, applicable_techniques_patterns_or_workflow_principles, overcomplexity_control, integration_with_START_RUN_CHECK_FINISH, integration_with_CLOSURE_CHECK_and_NEXT_CHAT_CARD, integration_with_dependency_boundaries, integration_with_parent_or_evidence_boundaries_where_relevant, acceptance_and_update_boundaries, approval_checkpoint_question.
 gate: PASS only after user approval when the procedure is non-trivial; REWORK if the method is too vague, too complex, or violates boundaries.
 checkpoint rule: User approval required before Stage 5 for non-trivial procedure body authoring.
@@ -264,7 +264,7 @@ stop behavior: Return blocked result and exact missing requirement.
 
 Use `PASS`, `PASS_WITH_RISK`, `REWORK`, `EXPAND`, `STOP`, `TRANSFER`, `DEPENDENCY_CALL`, and `DEPENDENCY_RETURN`.
 
-`DEPENDENCY_CALL` is limited to a selected dependency type and declared execution surface under `ROUTING_AND_DEPENDENCY_PROTOCOL.md`; it does not launch work invisibly. `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and `UTILITY_CALL` / `UTILITY_RETURN` may be used only as compatibility aliases or subtype labels.
+`DEPENDENCY_CALL` is limited to a selected dependency type and declared execution surface under `ROUTING_AND_DEPENDENCY_PROTOCOL.md`; it does not launch work invisibly. Prior packet labels are unsupported.
 
 ## Optional Expansion
 
@@ -301,16 +301,16 @@ Common dependency choices for this procedure through the routing/dependency gate
 
 - `code_repository_dependency` for bounded repository maintenance patches derived from the selected authoring run;
 - `codex_return_verification` for returned results from a Codex/code-assistant dependency emitted by the same selected authoring run;
-- `support_adapter_dependency` for bounded source/evidence/consistency/validation questions;
-- `support_adapter_dependency` for approved research questions/evidence plans;
+- `support_dependency` for bounded source/evidence/consistency/validation questions;
+- `support_dependency` for approved research questions/evidence plans;
 - `storage_persistence_dependency` only when accepted-state persistence/update authority is explicitly in scope;
 - `project_refresh_instruction_packet` for reporting refresh requirements only.
 
 If this procedure emits `DEPENDENCY_CALL`, it must include the complete packet, dependency type, execution surface, expected return fields, validation requirements, and same-owner resume rule. The parent RUN enters `RUN_WAITING_FOR_DEPENDENCY_RETURN` and remains unresolved until a matching `DEPENDENCY_RETURN` is verified.
 
-Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any other adapter as a new main procedure during this RUN.
+Do not select `codex_handoff`, `codex_result_verification`, `check_job`, or any other execution surface as a new main procedure during this RUN.
 
-Compatibility labels such as `CHILD_PROCEDURE_CALL`, `CHILD_PROCEDURE_RETURN`, `UTILITY_CALL`, and `UTILITY_RETURN` are allowed only when explicitly mapped to `DEPENDENCY_CALL` / `DEPENDENCY_RETURN`.
+Prior packet labels are unsupported and must not be accepted as active dependency packets.
 
 ## Checkpoint Policy
 
@@ -376,9 +376,9 @@ closure:
 
 - Procedure has distinguishable trigger and non-trigger.
 - Required inputs and exact source requirements are explicit.
-- Context classification includes adapter evidence where relevant.
+- Context classification includes dependency evidence where relevant.
 - Kind matches registry metadata.
-- Dependency decision gate and adapter policy are explicit when dependency or support-adapter boundaries matter.
+- Dependency decision gate and execution surface policy are explicit when dependency or support-dependency boundaries matter.
 - Stage Cards produce intermediate outputs and use material gates.
 - Non-trivial authoring explains method before drafting detailed body.
 - Research posture is justified and does not force research for small bounded edits.

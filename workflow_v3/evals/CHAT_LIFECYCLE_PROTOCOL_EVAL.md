@@ -22,7 +22,7 @@ Validate that Workflow v3 chats follow the main-procedure runtime kernel.
 - STAGE_RESULT includes an operator-readable summary when material conclusions, blockers, repair needs, or dependency calls exist; when the operator writes Russian, it uses `## Коротко по шагу` and `## Техническая часть`.
 - User `CONTINUE` / `ДАЛЬШЕ` is required before the next material stage unless the next step is `internal_check`.
 - `DEPENDENCY_CALL` returns through `DEPENDENCY_RETURN` to the same selected main procedure.
-- `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` are accepted only as compatibility aliases or subtype labels for dependency calls/returns.
+- Prior packet labels are rejected for dependency calls/returns.
 - Required dependency repair opens `DEPENDENCY_CALL`, enters `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and pauses CONTINUE / ДАЛЬШЕ, CHECK, FINISH, and CLOSED until matching return verification.
 - Dependency return is verified before reliance.
 - `open_dependencies != empty`, missing dependency returns, unverified dependency returns, and missing required validation/evidence block CHECK, FINISH, and CLOSED.

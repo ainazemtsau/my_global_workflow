@@ -6,7 +6,7 @@ status: active_procedure
 
 ```text
 kind: verification
-utility_policy: callable_verification
+dependency_schema_policy: callable_verification
 ```
 
 ## Purpose
@@ -25,15 +25,15 @@ Embedded verification must verify branch, commit SHA, changed files, allowed pat
 
 No validation means no done claim.
 
-Verification does not equal acceptance and does not close the parent lifecycle by itself. It may unblock parent RUN only after branch, commit, changed files, validation, EOF, refresh, push, residual risk evidence, and the matching open dependency id are verified or the result is explicitly blocked. If required Codex repair was detected but no parent `DEPENDENCY_CALL` was opened, verification must block because there is no same-owner call to match. Old `child_call_id` values may be matched as compatibility aliases when the emitted packet used `CHILD_PROCEDURE_CALL`.
+Verification does not equal acceptance and does not close the parent lifecycle by itself. It may unblock parent RUN only after branch, commit, changed files, validation, EOF, refresh, push, residual risk evidence, and the matching open dependency id are verified or the result is explicitly blocked. If required Codex repair was detected but no parent `DEPENDENCY_CALL` was opened, verification must block because there is no same-owner call to match. Prior packet labels are unsupported.
 
 Standalone verification remains valid when the user's primary work item is only Codex result verification.
 
 ## Trigger / When to Use
 
-- A Codex adapter run returns branch, commit, diff, changed files, validation output, push status, or residual risk evidence.
+- A Codex dependency run returns branch, commit, diff, changed files, validation output, push status, or residual risk evidence.
 - The user asks whether a Codex result satisfies its handoff boundaries.
-- Parent RUN, acceptance, storage, or repair decisions need verified Codex child evidence first.
+- Parent RUN, acceptance, storage, or repair decisions need verified Codex dependency evidence first.
 
 ## When Not to Use
 
@@ -48,7 +48,6 @@ Standalone verification remains valid when the user's primary work item is only 
 - Codex return fields;
 - original handoff or allowed/forbidden path boundary;
 - matching_dependency_id or exact emitted dependency call packet when embedded;
-- matching_child_call_id when verifying an older compatibility packet;
 - branch;
 - commit_sha;
 - changed_files;
@@ -69,7 +68,7 @@ Project Files/Sources, chat memory, summaries, and unverified snippets are not e
 
 ## Context Classification
 
-Classify Codex return content as adapter evidence. Classify repository files/diffs as canonical repository source only when exact branch/commit/path evidence is inspected. Treat FINISH_PACKET results and validation text as candidate evidence until verified.
+Classify Codex return content as dependency evidence. Classify repository files/diffs as canonical repository source only when exact branch/commit/path evidence is inspected. Treat FINISH_PACKET results and validation text as candidate evidence until verified.
 
 ## Complexity Selector
 
@@ -162,7 +161,6 @@ completion:
 ```text
 verification_status: passed | failed | blocked
 dependency_id:
-child_call_id_if_compatibility_alias:
 branch:
 commit_sha:
 changed_files:
@@ -179,7 +177,7 @@ exact_next_move:
 - Branch, commit SHA, changed files, and push status are verified or missing evidence is named.
 - Returned evidence matches the emitted `DEPENDENCY_CALL` when verification is embedded.
 - Required Codex repair cannot be verified as complete unless the parent opened `DEPENDENCY_CALL`, waited in `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and received matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET`.
-- Old `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` identifiers remain matchable as compatibility aliases only.
+- Prior packet labels are unsupported and must not be treated as matchable dependency identifiers.
 - Changed files are compared against allowed and forbidden paths.
 - Validation output is present; no validation means no done claim.
 - EOF markers are checked for Markdown files that require them.
@@ -203,10 +201,10 @@ exact_next_move:
 
 ## Procedure Closure
 
-Verification does not accept state and does not close the parent lifecycle by itself. When embedded, it returns child-return verification evidence to the parent RUN. The parent may proceed toward CHECK only after required return evidence is matched and verified, or after the result is explicitly blocked.
+Verification does not accept state and does not close the parent lifecycle by itself. When embedded, it returns dependency-return verification evidence to the parent RUN. The parent may proceed toward CHECK only after required return evidence is matched and verified, or after the result is explicitly blocked.
 
 If the result needs acceptance, storage, or repair, return the exact next move or Transfer Packet; do not launch it.
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a utility launch, and not evidence that the current START goal has completed.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a support launch, and not evidence that the current START goal has completed.
 
 END_OF_FILE: workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md

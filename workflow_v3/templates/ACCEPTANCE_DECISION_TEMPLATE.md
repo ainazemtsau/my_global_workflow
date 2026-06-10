@@ -36,7 +36,7 @@ status: template
 
 ## Boundary
 
-Adapters cannot accept their own output.
+Execution Surfaces cannot accept their own output.
 
 Acceptance Decision must be explicit, sourced, and separate from Result Packet, Evidence, Run, FINISH_PACKET, Next Move Packet, Transfer Packet, or chat intuition.
 

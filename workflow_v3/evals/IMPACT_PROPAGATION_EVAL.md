@@ -10,7 +10,7 @@ Validate impact radius, lowest absorbing layer reasoning, and visible upstream/d
 
 - Impact radius is stated.
 - Lowest absorbing layer is considered.
-- Affected parents, children, interfaces, and active work are named.
+- Affected parents, dependencyren, interfaces, and active work are named.
 - Upstream Escalation Packet or Downstream Delta Packet is used when needed.
 - Local repair is preferred when parent acceptance policy and higher claims are unaffected.
 

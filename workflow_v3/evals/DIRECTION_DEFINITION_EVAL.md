@@ -22,7 +22,7 @@ This eval checks the semantic Direction Definition process after setup-only root
 ## WARN checks
 
 - A parent Definition chat sequences multiple entity formations but keeps boundaries separate.
-- Child research/check chats are used and return to parent without deciding.
+- Dependency research/check chats are used and return to parent without deciding.
 - Some evidence gaps remain and are labeled unresolved.
 
 ## FAIL checks

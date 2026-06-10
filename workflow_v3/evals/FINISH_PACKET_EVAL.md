@@ -24,7 +24,7 @@ status: active_eval
 - FINISH closes despite completion gaps.
 - FINISH passes when actual result is only a patch plan, package, handoff, or card for required current-goal repair.
 - FINISH closes with non-empty gaps unless blocked completion is explicit and result is marked blocked.
-- FINISH closes when actual_result is only a dependency call, handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, compatibility child-chat card, or `NEXT_CHAT_CARD`.
+- FINISH closes when actual_result is only a dependency call, handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, dependency packet, or `NEXT_CHAT_CARD`.
 - FINISH uses `NEXT_CHAT_CARD` for unfinished dependency work.
 - FINISH omits continuation card or no-continuation reason.
 - FINISH silently launches next work.

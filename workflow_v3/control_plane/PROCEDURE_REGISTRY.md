@@ -28,7 +28,7 @@ It lets START choose exactly one main procedure, then load that procedure file. 
 | `accept_candidate_entity` | `workflow_v3/procedures/ACCEPTANCE_DECISION_FORMATION_PROCEDURE.md` | `core` | Acceptance review for candidate entity output. |
 | `promote_memory_artifact` | `workflow_v3/procedures/MEMORY_ARTIFACT_PROMOTION_PROCEDURE.md` | `core` | Candidate Memory Artifact promotion. |
 | `persist_accepted_state` | `workflow_v3/procedures/STORAGE_UPDATE_PROCEDURE.md` | `storage` | Persist accepted state from an admitted storage package. |
-| `codex_handoff` | `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` | `utility` | Dependency schema for bounded Codex or future code-assistant work under a selected parent RUN. |
+| `codex_handoff` | `workflow_v3/procedures/CODEX_HANDOFF_PROCEDURE.md` | `dependency_schema` | Dependency schema for bounded Codex or future code-assistant work under a selected parent RUN. |
 | `codex_result_verification` | `workflow_v3/procedures/CODEX_RESULT_VERIFICATION_PROCEDURE.md` | `verification` | Verify returned code-assistant result evidence. |
 | `recovery_review` | `workflow_v3/procedures/RECOVERY_REVIEW_PROCEDURE.md` | `core` | Review suspect state, evidence, or routing. |
 | `author_workflow_procedure` | `workflow_v3/procedures/PROCEDURE_AUTHORING_AND_INTEGRATION_PROCEDURE.md` | `core` | Author or integrate Workflow v3 procedures. |
@@ -38,7 +38,7 @@ It lets START choose exactly one main procedure, then load that procedure file. 
 Allowed `kind` values:
 
 - `core` - selectable main procedure for material Workflow v3 work.
-- `utility` - dependency or adapter schema callable only during RUN under a selected main/core parent; not a standalone material chat or terminal artifact.
+- `dependency_schema` - dependency schema callable only during RUN under a selected main/core parent; not a standalone material chat or terminal artifact.
 - `verification` - dependency return verification schema callable during RUN or through an admitted parent/core verification owner; not standalone package completion.
 - `storage` - selectable only for an admitted persistence package; writes are bounded by that procedure.
 - `readonly` - selectable for non-material reads or answers.
@@ -53,7 +53,7 @@ The `trigger` text helps choose the file. It is not execution logic, a dependenc
 
 If no entry matches and the request cannot be safely normalized into one registered entrypoint, return `UNREGISTERED_ACTION_EXCEPTION`.
 
-If the user asks only for a Codex card, handoff, package, check packet, storage packet, or other dependency envelope without an admitted parent/core procedure goal, START must route to a registered owner procedure that can own the material goal, or return `UNREGISTERED_ACTION_EXCEPTION` / blocked scope. A dependency/adapter entry must not become a standalone package material chat.
+If the user asks only for a Codex card, handoff, package, check packet, storage packet, or other dependency envelope without an admitted parent/core procedure goal, START must route to a registered owner procedure that can own the material goal, or return `UNREGISTERED_ACTION_EXCEPTION` / blocked scope. A dependency surface entry must not become a standalone package material chat.
 
 ## Boundary
 

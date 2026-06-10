@@ -17,7 +17,7 @@ Form one bounded Work Contract for one Work Graph node or node slice.
 
 ## workflow_integration
 
-Produces the executable contract that a chat, child chat, Codex, human action, check job, or other adapter can run.
+Produces the executable contract that a chat, dependency chat, Codex, human action, check job, or other execution surface can run.
 
 ## when_to_use
 

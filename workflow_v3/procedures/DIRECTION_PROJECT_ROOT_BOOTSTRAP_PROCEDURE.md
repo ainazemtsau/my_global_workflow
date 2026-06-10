@@ -286,7 +286,7 @@ Allowed outputs without direct write:
 - setup-only root bootstrap result;
 - candidate setup-only root package;
 - candidate Storage Update Package;
-- complete `DEPENDENCY_CALL` packet for a bounded code repository, storage persistence, or support adapter dependency if mutation/check/readback is explicitly admitted;
+- complete `DEPENDENCY_CALL` packet for a bounded code repository, storage persistence, or support dependency if mutation/check/readback is explicitly admitted;
 - blocked result.
 
 A candidate Storage Update Package must include:
@@ -381,7 +381,7 @@ Always required:
 - `workflow_v3/control_plane/PROCEDURE_REGISTRY.md`
 - `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md`
-- `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md`
+- `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md`
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md`
 
 Required when generating or validating setup package content:
@@ -436,7 +436,7 @@ candidate_context:
   - unaccepted setup package, proposed binding, proposed project setup source
 legacy_evidence:
   - old Direction files or migration/adoption evidence
-adapter_evidence:
+dependency_evidence:
   - GitHub/file readback, code-assistant return, storage return, validation/check result
 unknown_unverified:
   - any source not read or not matched to exact authority
@@ -468,7 +468,7 @@ purpose: Confirm this RUN is the selected setup-only root bootstrap procedure an
 inputs: START_CONTRACT, Procedure Registry metadata, current user request, project type, setup mode.
 required_stage_result: selected_entrypoint, selected_procedure_path, project_type, setup_mode, source authority statement, boundary classification.
 gate: PASS if selected_entrypoint is direction_project_root_bootstrap, kind is core, project type is ordinary_direction_project, and setup mode is setup_only_root_bootstrap. STOP if this is Governance maintenance, product work, semantic definition, storage_update, or unregistered action.
-utility_allowed_if: Exact source read is needed to verify registry/procedure/lifecycle source.
+dependency_allowed_if: Exact source read is needed to verify registry/procedure/lifecycle source.
 blocked_if: selected source is missing, project type is wrong, setup mode is not setup-only, or request requires semantic Direction content.
 ```
 
@@ -481,7 +481,7 @@ purpose: Normalize one path-safe direction_id and classify legacy/input policy w
 inputs: user-provided direction id/name, project title hint, legacy policy, candidate semantic text.
 required_stage_result: normalized direction_id, rejected/accepted normalization notes, legacy_policy, candidate_context_for_direction_definition, unresolved input questions.
 gate: PASS if one concrete path-safe direction_id is present and legacy policy is not_used, legacy_evidence_read_only, or migration_or_adoption_requires_separate_package. STOP if direction_id is unsafe, missing, multi-Direction, or depends on Project title/memory as authority.
-utility_allowed_if: None by default; exact source read may be used only to verify a named existing binding/path.
+dependency_allowed_if: None by default; exact source read may be used only to verify a named existing binding/path.
 blocked_if: direction_id contains unsafe path characters, is a placeholder, conflicts with exact binding evidence, or user asks to import legacy state in this procedure.
 ```
 
@@ -494,7 +494,7 @@ purpose: Determine whether an accepted runtime root or binding already exists us
 inputs: normalized direction_id, repository/ref, exact runtime root path, exact binding path, accepted_root_package_ref if any.
 required_stage_result: root_state_classification, binding_evidence, source_read_limitations, conflict status.
 gate: PASS if exact evidence shows runtime root missing, setup/adoption need, already_bootstrapped, or a bounded conflict/blocker. STOP if binding evidence is conflicting, stale, unreadable, or cannot be resolved without inference.
-utility_allowed_if: Exact GitHub/file read is needed for named runtime root/binding/current status paths.
+dependency_allowed_if: Exact GitHub/file read is needed for named runtime root/binding/current status paths.
 blocked_if: source read is required but unavailable, binding conflicts with direction_id, existing accepted root should be used instead of bootstrapped, or broad search would be needed to infer state.
 ```
 
@@ -507,7 +507,7 @@ purpose: Build the setup-only root package design with placeholder state, bindin
 inputs: direction_id, root_state_classification, setup source templates, binding template, project setup templates, explicit setup confirmation when needed.
 required_stage_result: candidate setup-only package, target paths, placeholder statuses, binding plan, per-Direction project setup source plan, candidate_context handling.
 gate: PASS if the package is setup-only and uses only placeholder semantic statuses. REWORK if package content is too vague but repairable. STOP if it includes accepted semantic content, legacy import, product work, or unbounded paths.
-utility_allowed_if: Exact source reads for setup templates or current target files are needed.
+dependency_allowed_if: Exact source reads for setup templates or current target files are needed.
 blocked_if: explicit setup confirmation is required but missing, package would define Direction semantics, or package would create/update unlisted paths.
 ```
 
@@ -520,7 +520,7 @@ purpose: Decide whether the result remains candidate-only, becomes a candidate S
 inputs: candidate setup package, mutation_policy, storage protocol, storage package template, routing/dependency protocol, exact path boundaries.
 required_stage_result: storage_boundary_decision, storage_update_package_candidate if applicable, dependency_call_need, allowed files, forbidden paths, validation and return contract.
 gate: PASS if no direct mutation occurs and every possible write path is exact, visible, bounded, validated, and return-verifiable. DEPENDENCY_CALL only if external mutation/check work is admitted and complete. STOP if mutation is requested without exact authority, paths, validation, or return contract.
-utility_allowed_if: Dependency call is needed for exact mutation/check/readback and the complete DEPENDENCY_CALL packet is emitted.
+dependency_allowed_if: Dependency call is needed for exact mutation/check/readback and the complete DEPENDENCY_CALL packet is emitted.
 blocked_if: hidden write, unbounded Codex/storage request, missing storage authority, broad globs, missing validation, or actual Project UI/File refresh is requested.
 ```
 
@@ -533,7 +533,7 @@ purpose: Validate setup-only boundaries, placeholder values, source integrity ne
 inputs: setup package, binding plan, project setup source plan, storage/dependency boundary decision, validation checklist.
 required_stage_result: validation_result, placeholder_status_check, no_semantic_content_check, path_boundary_check, payload_measurement_need, refresh_classification, residual risks.
 gate: PASS if validation checks are explicit and no setup-only boundary violation remains. PASS_WITH_RISK only when limitations are explicit and do not affect safety. STOP if validation is absent or boundary checks fail.
-utility_allowed_if: Exact payload measurement/check may be used when concrete Project Instructions source is generated.
+dependency_allowed_if: Exact payload measurement/check may be used when concrete Project Instructions source is generated.
 blocked_if: Project UI update is implied, Project Files/Sources refresh is implied, payload count is missing when required, semantic content appears, or storage/dependency returns are open/unverified.
 ```
 
@@ -546,7 +546,7 @@ purpose: Return the setup-only bootstrap result, CLOSURE_CHECK, FINISH readiness
 inputs: all previous stage outputs, dependency return evidence if any, validation result, completion contract.
 required_stage_result: root_bootstrap_result, CLOSURE_CHECK, source limitations, residual risks, continuation decision.
 gate: PASS if the completion contract is satisfied or blocked explicitly. STOP if required dependency return is open, missing, or unverified; required validation is absent; or actual result is only a package/card/handoff.
-utility_allowed_if: None.
+dependency_allowed_if: None.
 blocked_if: open_dependencies is non-empty, dependency return is missing/unverified, validation/evidence is missing, or continuation would carry unfinished dependency work.
 ```
 
@@ -603,7 +603,7 @@ routing_dependency_policy:
     - exact validation/check evidence is needed
     - repository/runtime mutation is explicitly admitted and exact write boundaries are available
   allowed_dependency_types:
-    - support_adapter_dependency for non-mutating source readback, validation checks, and reporting support
+    - support_dependency for non-mutating source readback, validation checks, and reporting support
     - storage_persistence_dependency for candidate storage_update package boundaries
     - code_repository_dependency for exact repository mutation through Codex/code assistant only
   forbidden_when:
@@ -630,7 +630,7 @@ routing_dependency_policy:
   same_main_procedure_resume: true
 ```
 
-`CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and `UTILITY_CALL` / `UTILITY_RETURN` may appear only as compatibility aliases for `DEPENDENCY_CALL` and `DEPENDENCY_RETURN`.
+Prior packet labels are unsupported; active dependency packets use `DEPENDENCY_CALL` and `DEPENDENCY_RETURN`.
 
 CHECK, FINISH, and CLOSED are blocked while any required dependency return is open, missing, unverified, or required validation/evidence is absent.
 
@@ -725,8 +725,8 @@ root_bootstrap_result:
       execution_surface:
       expected_return:
       verification_required_on_return:
-      compatibility_aliases:
-        child_call_id_if_legacy:
+      unsupported_prior_labels:
+        status:
     dependency_return_verification:
       required: true | false
       status: not_applicable | verified | missing | unverified | blocked

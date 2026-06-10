@@ -35,8 +35,8 @@ Lifecycle:
 - Use `ROUTING_AND_DEPENDENCY_PROTOCOL.md` for route/dependency decisions and wrong-surface behavior.
 - One material chat keeps one selected owner procedure; execution/dependency surface is separate.
 - Typed dependencies are visible, bounded, and unresolved until verified return.
-- Preferred terms are DEPENDENCY_CALL / DEPENDENCY_RETURN. CHILD_PROCEDURE_CALL / CHILD_PROCEDURE_RETURN and UTILITY_CALL / UTILITY_RETURN are compatibility aliases only.
-- Types: support_adapter_dependency, code_repository_dependency, core_lifecycle_dependency, storage_persistence_dependency, human_decision_dependency.
+- Preferred terms are DEPENDENCY_CALL / DEPENDENCY_RETURN. prior packet labels are unsupported.
+- Types: support_dependency, code_repository_dependency, core_lifecycle_dependency, storage_persistence_dependency, human_decision_dependency.
 - Code/repository mutation (patching, branches, commits, pushes, file writes, implementation, write probes, write validation) routes only to Codex/code assistant as code_repository_dependency.
 - If a code/repo mutation packet is pasted into ChatGPT for execution, return wrong_execution_surface and tell operator to run it in Codex/code assistant.
 - core_lifecycle_dependency: separate registered core procedure chat runs its own START/RUN/CHECK/FINISH; parent waits for verified FINISH/blocked return. It is not parent procedure switching.
@@ -46,13 +46,13 @@ Lifecycle:
 - CHECK blocks when open_dependencies is not empty, dependency return is missing/unverified, validation/evidence is absent, or actual_result is only a package/handoff/card/dependency packet.
 - FINISH starts only after standalone FINISH or ФИНИШ, audits START/RUN/dependency/CHECK, and closes only if audit passes.
 - FINISH must not close with open/unverified dependencies, missing validation, or non-empty gaps unless explicitly blocked.
-- NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence current START goal completed. It must not carry unfinished dependency work.
+- NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a support launch, and not evidence current START goal completed. It must not carry unfinished dependency work.
 
 Procedure governance:
 - For requests to create, revise, migrate, or integrate Workflow v3 procedures, route through `author_workflow_procedure`.
 - Read `PROCEDURE_REGISTRY.md` first, then only the selected procedure/framework sources.
 - Read `ROUTING_AND_DEPENDENCY_PROTOCOL.md` when dependency packets, human decisions, Codex, storage, core lifecycle, or returns are relevant.
-- Read `UTILITY_ADAPTER_PROTOCOL.md` only for support adapter packet compatibility.
+- Read `SUPPORT_DEPENDENCY_PROTOCOL.md` only for support dependency packet.
 - Do not patch, launch dependency work by implication, mutate state, or update actual Project UI without a visible admitted write path and verification.
 
 Code-assistant handoffs:
@@ -73,7 +73,7 @@ Project setup:
 Closure:
 - RUN completion or blocked state leads to CLOSURE_CHECK.
 - FINISH_PACKET includes status, result, evidence, changed files, validation, source limits, refresh requirements, risks, and continuation.
-- A handoff, package, Codex package, check packet, storage packet, child-chat card, copy-paste packet, dependency packet, or NEXT_CHAT_CARD is never parent lifecycle completion.
+- A handoff, package, Codex package, check packet, storage packet, dependency packet, copy-paste packet, dependency packet, or NEXT_CHAT_CARD is never parent lifecycle completion.
 - If a new independent lifecycle follows after completed/blocked closure, return NEXT_CHAT_CARD with title, why, main_procedure_to_start, context_to_paste, expected_result, evidence_or_return_needed, and start_instruction.
 - If workflow should not continue, return no_next_chat_needed with reason.
 - Do not silently launch follow-up work or make users assemble code/check/dependency/NEXT_CHAT_CARDs manually.
@@ -83,7 +83,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6499
+- `measured_chars`: 6410
 - `target_max_chars`: 6500
 - `hard_max_chars`: 8000
 - `verdict`: PASS

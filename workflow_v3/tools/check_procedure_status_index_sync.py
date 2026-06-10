@@ -31,7 +31,7 @@ STALE_STUB_TERMS = (
 )
 ACTIVE_LABEL_TERMS = (
     "active procedure",
-    "active storage adapter procedure",
+    "active storage surface procedure",
 )
 GLOBAL_FORBIDDEN_PHRASES = (
     "procedure stubs under `workflow_v3/procedures/**`",

@@ -14,7 +14,7 @@ Project Instructions UI is a compact behavior bootstrap. It should state:
 - context classification;
 - Operator Brief, START_CONTRACT, selected procedure completion contract, declared stages, and `routing_dependency_policy` requirements;
 - `DEPENDENCY_CALL` / `DEPENDENCY_RETURN`, `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and `DEPENDENCY_RETURN_VERIFICATION` requirements when external or subordinate dependency work is needed;
-- old child/adaptor labels only as compatibility aliases for dependency calls/returns during transition;
+- prior dependency labels are unsupported;
 - CLOSURE_CHECK and FINISH_PACKET after audit pass;
 - post-closed NEXT_CHAT_CARD or no_next_chat_needed continuation;
 - no hidden accepted state;

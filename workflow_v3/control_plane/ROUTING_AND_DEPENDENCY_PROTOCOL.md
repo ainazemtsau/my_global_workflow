@@ -25,7 +25,7 @@ External work needed before the current goal can complete opens one typed depend
 
 ## Dependency Types
 
-### `support_adapter_dependency`
+### `support_dependency`
 
 Non-mutating check, research, analysis, evidence gathering, or bounded human decision support.
 
@@ -68,7 +68,7 @@ It is not a placeholder to avoid a known packet, dependency type, storage packag
 
 ## Packet Shapes
 
-Preferred dependency call shape:
+Canonical dependency call shape:
 
 ```text
 DEPENDENCY_CALL:
@@ -85,7 +85,7 @@ DEPENDENCY_CALL:
   unresolved_until_returned: true
 ```
 
-Preferred dependency return shape:
+Canonical dependency return shape:
 
 ```text
 DEPENDENCY_RETURN:
@@ -100,15 +100,11 @@ DEPENDENCY_RETURN:
   resume_decision:
 ```
 
-Compatibility mapping:
-
-- `CHILD_PROCEDURE_CALL` is a compatibility alias or subtype of `DEPENDENCY_CALL`.
-- `CHILD_PROCEDURE_RETURN` is a compatibility alias or subtype of `DEPENDENCY_RETURN`.
-- `UTILITY_CALL` and `UTILITY_RETURN` are adapter-level compatibility aliases only.
+Prior dependency packet labels are unsupported. A packet that uses an prior packet label must be rejected or rewritten to the canonical dependency shape before the parent RUN can rely on it.
 
 ## Waiting State
 
-Preferred lifecycle terms:
+Canonical lifecycle terms:
 
 - `RUN_WAITING_FOR_DEPENDENCY_RETURN`;
 - `DEPENDENCY_RETURN_VERIFICATION`;
@@ -116,13 +112,7 @@ Preferred lifecycle terms:
 - `missing_dependency_return`;
 - `unverified_dependency_return`.
 
-Compatibility aliases may remain mapped during transition:
-
-- `RUN_WAITING_FOR_CHILD_RETURN`;
-- `CHILD_RETURN_VERIFICATION`;
-- `open_child_calls`;
-- `missing_child_return`;
-- `unverified_child_return`.
+Prior waiting-state labels are unsupported. Active RUN state uses the canonical dependency fields above.
 
 ## Wrong-Surface Behavior
 

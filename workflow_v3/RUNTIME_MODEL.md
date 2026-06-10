@@ -41,7 +41,7 @@ START performs no material work. It selects one main procedure through the regis
 
 RUN executes the selected main procedure only. Runtime must execute the selected procedure's declared stages. It must not invent ad hoc simple, compact, shortcut, or single-stage compression that bypasses declared stages. A stage may end quickly or be marked not_applicable with evidence, but applicable declared stages remain represented in progression. RUN emits `STAGE_RESULT` after each material stage and waits for CONTINUE / ДАЛЬШЕ before the next material stage unless the next step is `internal_check`.
 
-`DEPENDENCY_CALL` is the preferred runtime object for external or subordinate work needed before the selected owner can complete. `CHILD_PROCEDURE_CALL` may remain as a compatibility alias or subtype label. `UTILITY_CALL` and `UTILITY_RETURN` may remain as adapter-level compatibility labels, but they are not a separate lifecycle model.
+`DEPENDENCY_CALL` is the canonical runtime object for external or subordinate work needed before the selected owner can complete. Prior packet labels are unsupported and must be rejected or rewritten before the parent RUN relies on them.
 
 Required current-goal repair through a dependency is deterministic. If RUN detects repair needed and the selected parent cannot complete directly, RUN emits/opens `DEPENDENCY_CALL`, records the call in `open_dependencies`, enters `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and waits for matching `DEPENDENCY_RETURN` / `CODEX_RETURN_PACKET`. CONTINUE / ДАЛЬШЕ, CHECK, FINISH, and CLOSED are invalid until the return is verified or an explicit blocked result is produced.
 
@@ -60,7 +60,7 @@ The following invariants block CHECK, FINISH, and CLOSED:
 - `unverified_dependency_return`;
 - `required_dependency_work_detected = true` with `dependency_call_opened = false`;
 - missing required validation or evidence;
-- actual result is only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, child-chat card, or other dependency artifact.
+- actual result is only a handoff, card, package, copy-paste packet, Codex package, check packet, storage packet, dependency packet, or other dependency artifact.
 
 ## Object Hierarchy
 
@@ -87,7 +87,7 @@ Procedure closure uses:
 - human-readable result and evidence;
 - post-closed `NEXT_CHAT_CARD` when a new independent lifecycle is needed, otherwise `no_next_chat_needed` with reason.
 
-NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a utility launch, and not evidence that the current START goal has completed. It must not carry unfinished dependency work required by the current START goal.
+NEXT_CHAT_CARD is post-closed continuation only. It is not a dependency call, not a support launch, and not evidence that the current START goal has completed. It must not carry unfinished dependency work required by the current START goal.
 
 ## Direction Entities
 
@@ -101,7 +101,7 @@ Active Front is the accepted focus selected from the Direction Map that is movin
 
 ## Dependency Boundary
 
-Execution/dependency surface is separate from the selected owner procedure. Workflow v3 recognizes typed dependencies including support adapter, code repository, core lifecycle, storage persistence, and human decision dependencies.
+Execution/dependency surface is separate from the selected owner procedure. Workflow v3 recognizes typed dependencies including support dependency, code repository, core lifecycle, storage persistence, and human decision dependencies.
 
 Code/repository mutation routes only through Codex/code assistant as `code_repository_dependency`. ChatGPT parent may draft packets and verify returns, but must not write, probe writes, create branches, commit, push, or apply patches.
 

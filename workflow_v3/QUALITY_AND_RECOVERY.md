@@ -100,7 +100,7 @@ Recovery:
 Checks:
 
 - candidate result remains candidate until explicit Acceptance Decision/update path;
-- adapter output is not self-accepted;
+- dependency output is not self-accepted;
 - human approval is separated from storage authorization unless an admitted package grants write scope.
 
 Fails when acceptance is inferred or hidden.

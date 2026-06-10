@@ -4,7 +4,7 @@ status: active_eval
 
 ## Purpose
 
-Validate dependency calls, adapter returns, and continuation cards.
+Validate dependency calls, dependency returns, and continuation cards.
 
 ## Required Checks
 
@@ -12,7 +12,7 @@ Validate dependency calls, adapter returns, and continuation cards.
 - `DEPENDENCY_CALL` names dependency type and execution surface.
 - `DEPENDENCY_CALL` includes packet/call boundary and expected return.
 - `DEPENDENCY_CALL` includes `expected_return_contract`, `parent_verification_contract`, `resume_rule`, and `unresolved_until_returned`.
-- `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` are accepted only as compatibility aliases or subtype labels for dependency calls/returns.
+- Prior packet labels are rejected for dependency calls/returns.
 - External user action has complete copy-paste content.
 - `DEPENDENCY_RETURN` matches the emitted call.
 - Return resumes the same selected main procedure.

@@ -74,7 +74,7 @@ A proposed Active Front must identify:
 
 Direction Map updates only through acceptance/update path.
 
-STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, Check Jobs, child chats, and Codex results may propose map updates, but they cannot accept them.
+STAGE_RESULTs, FINISH_PACKETs, NEXT_CHAT_CARDs, Check Jobs, dependency chats, and Codex results may propose map updates, but they cannot accept them.
 
 ## Future storage target
 

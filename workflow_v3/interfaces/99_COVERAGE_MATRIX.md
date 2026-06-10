@@ -10,7 +10,7 @@ This matrix records interface/coverage mapping only. Current procedure implement
 | --- | --- | --- |
 | Procedure selection | `workflow_v3/control_plane/PROCEDURE_REGISTRY.md` | START selects exactly one main procedure from compact registry table. |
 | Lifecycle kernel | `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` | START, declared RUN stages, RUN_WAITING_FOR_DEPENDENCY_RETURN, DEPENDENCY_RETURN_VERIFICATION, CHECK, FINISH, CLOSED. |
-| Routing/dependency calls | `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`; `workflow_v3/control_plane/UTILITY_ADAPTER_PROTOCOL.md` | DEPENDENCY_CALL/DEPENDENCY_RETURN, same main procedure resume, verification before reliance; child/utility labels are compatibility aliases only. |
+| Routing/dependency calls | `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md`; `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md` | DEPENDENCY_CALL/DEPENDENCY_RETURN, same main procedure resume, verification before reliance; prior packet labels are unsupported. |
 | Finish audit | `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` | Final audit closes only after CHECK passes or blocked completion is explicit. |
 | Procedure framework | `workflow_v3/procedures/PROCEDURE_DEFINITION_CANON.md` | Completion block, material stage, internal check, routing dependency policy, closure requirements. |
 | Packet and transfer | `workflow_v3/interfaces/08_PACKET_AND_TRANSFER_INTERFACE.md` | START_CONTRACT, STAGE_RESULT, DEPENDENCY_CALL, DEPENDENCY_RETURN, CLOSURE_CHECK, FINISH_PACKET, post-closed NEXT_CHAT_CARD. |
@@ -30,7 +30,7 @@ No separate start protocol, before-action protocol, or old operation-surface con
 - The selected procedure owns completion through `completion:`.
 - RUN emits `STAGE_RESULT` one material stage at a time.
 - Dependency calls use `DEPENDENCY_CALL` / `DEPENDENCY_RETURN`, enter `RUN_WAITING_FOR_DEPENDENCY_RETURN`, and resume the same main procedure after verification.
-- Legacy `CHILD_PROCEDURE_CALL` / `CHILD_PROCEDURE_RETURN` and `UTILITY_CALL` / `UTILITY_RETURN` labels are compatibility aliases only and do not define standalone completion.
+- Prior packet labels are unsupported and do not define standalone completion.
 - CHECK emits `CLOSURE_CHECK` against actual result and selected completion.
 - FINISH closes only when audit passes.
 - CLOSED includes `NEXT_CHAT_CARD` when workflow continuation is needed, otherwise `no_next_chat_needed` with reason.

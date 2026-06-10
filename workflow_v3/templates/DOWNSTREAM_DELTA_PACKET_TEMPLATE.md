@@ -8,7 +8,7 @@ status: template
 
 `changed_parent_ref`:
 
-`affected_child_or_work_refs`:
+`affected_dependency_or_work_refs`:
 
 `action_per_affected_item`:
 
@@ -20,6 +20,6 @@ status: template
 
 ## Boundary
 
-Downstream Delta Packet carries a parent-context change to affected child/work surfaces. It does not accept state or silently cancel, launch, or reroute work.
+Downstream Delta Packet carries a parent-context change to affected dependency/work surfaces. It does not accept state or silently cancel, launch, or reroute work.
 
 END_OF_FILE: workflow_v3/templates/DOWNSTREAM_DELTA_PACKET_TEMPLATE.md

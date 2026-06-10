@@ -72,7 +72,7 @@ Next Move is not action admission by itself.
 
 Route-changing or state-changing next moves require procedure registry lookup, procedure boundary contract, FINISH_PACKET, Next Move Packet, admission, and acceptance/update path when state changes.
 
-`same_chat_allowed` means non-mutating continuation only unless direct `storage_update` admission or gated external utility write authority is explicit.
+`same_chat_allowed` means non-mutating continuation only unless direct `storage_update` admission or gated external dependency write authority is explicit.
 
 This template does not adopt a Direction, create runtime state, or launch work.
 

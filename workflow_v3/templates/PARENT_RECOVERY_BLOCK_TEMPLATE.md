@@ -12,15 +12,15 @@ status: template
 
 `current_material_target`:
 
-`child_chats_launched`:
+`dependency_chats_launched`:
 
-`required_child_results`:
+`required_dependency_results`:
 
-`optional_child_results`:
+`optional_dependency_results`:
 
-`child_results_received`:
+`dependency_results_received`:
 
-`child_results_missing`:
+`dependency_results_missing`:
 
 `synthesis_blockers`:
 
@@ -36,7 +36,7 @@ status: template
 
 Parent Recovery Block is recovery support only and is not accepted state.
 
-Child chats must not become independent execution tracks, accept state, commit independently, or route product meaning.
+Dependency chats must not become independent execution tracks, accept state, commit independently, or route product meaning.
 
 The parent remains the synthesis authority for the current material target.
 

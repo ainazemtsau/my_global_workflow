@@ -27,7 +27,7 @@ If a pack conflicts with exact repository files under `workflow_v3/**`, the cano
 
 ## Use model
 
-Future packs may compact shared runtime model, transport, adapter, setup, console, quality, and recovery guidance for Project Files/Sources.
+Future packs may compact shared runtime model, transport, execution surface, setup, console, quality, and recovery guidance for Project Files/Sources.
 
 Project Files/Sources remain cache/context only and do not create accepted state, Direction adoption, migration/import, or Project setup authority.
 

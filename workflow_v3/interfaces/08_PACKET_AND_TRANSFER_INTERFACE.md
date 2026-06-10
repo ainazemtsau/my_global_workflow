@@ -14,8 +14,6 @@ This interface summarizes user-visible packets. Runtime authority remains in the
 | `STAGE_RESULT` | Reports one completed material stage. | Waits for CONTINUE / ДАЛЬШЕ before next material stage unless next step is `internal_check`. |
 | `DEPENDENCY_CALL` | Sends bounded supporting work to a typed dependency surface. | Must name why, dependency type, execution surface, packet/call boundary, expected return, verification, same-procedure resume, and unresolved-until-returned status. |
 | `DEPENDENCY_RETURN` | Brings dependency evidence back. | Must match the call, resume the same selected main procedure, and pass verification before reliance. |
-| `CHILD_PROCEDURE_CALL` | Compatibility alias or subtype for `DEPENDENCY_CALL`. | Must not become a standalone global route or selected main procedure. |
-| `CHILD_PROCEDURE_RETURN` | Compatibility alias or subtype for `DEPENDENCY_RETURN`. | Must match the originating dependency and pass verification before reliance. |
 | `CLOSURE_CHECK` | Compares actual result to selected procedure completion. | Pass, repair, or blocked decision. |
 | `FINISH_PACKET` | Final audit and closure. | Includes result and continuation. |
 | `NEXT_CHAT_CARD` | Post-closed copy-paste continuation for a new material chat. | Complete enough that the user does not assemble the next prompt manually; cannot carry unfinished current-goal dependency work. |
