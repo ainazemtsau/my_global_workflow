@@ -15,7 +15,7 @@ Precondition: no active bet in this direction (gate G1), node chosen by owner or
 4. **Scope hammer** — challenge every element: "what breaks if we cut this?" Cut until something genuinely hurts. Record the cut list (≥1 real cut — gate G6); cuts go to `parked` or captures, not into the bet.
 5. **Lens sweep** — for each lens in CHARTER.md: does this bet need work from this lens? Verdict per lens: a task, or `not_needed: <reason>` (gate G6). Silent skipping is invalid.
 6. **Riskiest assumption** — list the assumptions this bet rests on, ranked by kill-power. The top one gets a task that tests it as early and cheaply as possible (gate G6).
-7. **Tasks** — 3–7 tasks, each ≤ half a focused day, each with verifiable done_when. Order them so the riskiest-assumption task comes first or near-first. Mark which tasks are executor work (engineering) vs session work.
+7. **Tasks** — 3–7 tasks, each ≤ half a focused day, each with verifiable done_when. Order them so the riskiest-assumption task comes first or near-first. Mark each task's kind: session work, executor work (engineering), or guide work (the owner operates a tool the agents can't reach — os/plays/guide.md).
 8. **Kill criteria** — kill_by: metric + threshold + date (gate G4). If the bet reaches the date or breaches the threshold, review triggers automatically.
 9. **Close** — show the bet to the owner in one screen: appetite, tasks, cut list, lens verdicts, kill_by. On approval, RESULT: node → `active`, NOW.md gets the bet, next = CALL for work on the first task.
 

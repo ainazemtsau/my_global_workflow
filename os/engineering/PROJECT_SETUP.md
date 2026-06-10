@@ -4,7 +4,7 @@ A procedure executed by a coding agent (as an engineering CALL) when a direction
 
 ## Step 1 — Stack interview (with the owner, short)
 
-Ask only what the direction's CALL doesn't answer: target platform, hard constraints, owner's stack preferences. Then propose the stack with an outside view (what do shipped projects of this kind use) and record the choice as ADR-0001.
+Check `os/engineering/profiles/<stack>.md` first: an existing profile is the entry point (conventions, boundary tooling, default thresholds, known landmines). Then ask only what the direction's CALL and profile don't answer: target platform, hard constraints, owner's stack preferences. Propose the stack with an outside view (what do shipped projects of this kind use) and record the choice as ADR-0001. If no profile exists for the chosen stack, create one as a byproduct of this setup (≤100 lines, format in `profiles/README.md`) and return it in the RESULT's `state_changes` — the writer commits it to the workflow repo (the executor never writes there directly).
 
 ## Step 2 — Architecture skeleton
 
@@ -18,6 +18,7 @@ Ask only what the direction's CALL doesn't answer: target platform, hard constra
 - `REVIEW.md` — the validation rubric (see VALIDATION.md §rubric): severity definitions for THIS repo, always-check rules, skip rules, nit cap, file:line evidence bar.
 - `docs/adr/` — architecture decision records; the agent proposes an ADR whenever it makes a decision a future session would otherwise re-litigate.
 - `validation.config` — gate thresholds: retry budget, mutation kill-rate floor, escalation rules (machine-readable; the run loop reads it).
+- `docs/FRICTION.md` — the repo's friction log (same format as os/FRICTION.md). Change discipline mirrors os/MAINTENANCE.md: REVIEW.md, validation.config, and the stack profile change only on an explicit owner request or ≥2 entries on the same point. Factual corrections in AGENTS.md (wrong command, wrong path) stay immediate — facts are fixed on sight, rules by friction.
 - Constitution section in AGENTS.md (3–7 immutable principles, e.g. "modular always", "no second source of truth", "reuse before write") — the validator checks changes against it.
 
 ## Step 4 — Toolchain (the feedback loop itself)
@@ -38,7 +39,8 @@ Ask only what the direction's CALL doesn't answer: target platform, hard constra
 - [ ] one-command check passes locally and in CI (format+lint+type+tests)
 - [ ] dependency-boundary check exists and fails on a seeded violation
 - [ ] root AGENTS.md ≤150 lines with working commands; ≥1 module AGENTS.md
-- [ ] REVIEW.md, validation.config, docs/adr/ADR-0001, openspec/ exist
+- [ ] REVIEW.md, validation.config, docs/adr/ADR-0001, docs/FRICTION.md, openspec/ exist
+- [ ] stack profile created or updated, returned in the RESULT's state_changes
 - [ ] `_scratch/` exists and a seeded file in it cannot be committed
 - [ ] test-hygiene gates fail on seeded violations (test outside tests/, skipped test, assertion-free test)
 - [ ] notification hook fires a test push
