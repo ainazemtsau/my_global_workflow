@@ -12,7 +12,7 @@ Per direction:
 1. **Decisions** — is the decision inbox empty? If not: re-surface to the owner in one batch, with recommendations.
 2. **Liveness** — does the active bet have a next task ready? If the direction has no active bet and no pending decision: flag as idle, propose shape or explicit pause.
 3. **Kill dates** — any kill_by date passed or threshold breached? → trigger a review CALL (do not review here).
-4. **Blocked items** — any task blocked longer than its unblock condition suggests? Propose: nudge, drop, or re-route.
+4. **Blocked & in-flight** — any task blocked longer than its unblock condition suggests, or open_calls entry older than its budget? Propose: nudge, re-issue, or drop.
 5. **Captures** — triage capture backlog: each becomes a parked node, merges into an existing node, or is dropped. Captures don't accumulate beyond one pulse.
 6. **Parking lot** — anything parked that current learnings make urgent, or that has been parked so long it should be dropped? Propose, don't decide.
 7. **Recurring** — any recurring obligation past its cadence (today vs last_done)? → put its ready work CALL into the decision batch. Pulse never executes recurring work itself.

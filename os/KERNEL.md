@@ -13,13 +13,13 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 ## 2. Session contract
 
-1. **OPEN** — read the direction's `NOW.md` plus the files the active play lists. Restate in ≤5 lines: play, goal, done_when. If the input CALL is missing or contradicts state, switch to the repair play.
+1. **OPEN** — input is a CALL **or a plain owner message** (typed or dictated). Read the direction's `NOW.md` plus the files the active play lists. With a plain message, resolve it against NOW.md: "продолжаем" → run `NOW.next`; a question → read-only; it matches an open task or recurring → that work; a new ambition where no state exists → frame; otherwise propose an interpretation in one line and confirm. Restate in ≤5 lines: play, goal, done_when. If state is unreadable or contradicts the input — repair. Structured CALLs are for machines and copy-paste; the owner never has to compose one.
 2. **WORK** — follow the play. Cross-cutting moves available in any session:
    - `call:research` — spawn a bounded child question (CALL packet, §4); children may spawn their own.
    - `call:executor` — delegate execution to a working agent (CALL packet, §4).
    - `capture` — record emergent work or an idea as one line in RESULT.captures. Never act on a capture in the same session; it is triaged at shape or pulse.
    - `decision` — put a question to the owner in RESULT.decisions_needed, always with 2–3 options and a recommendation.
-3. **CLOSE** — emit RESULT (§4). A writer agent applies state_changes and commits. The session is dead after RESULT; continuation happens in a fresh session via RESULT.next.
+3. **CLOSE** — emit RESULT (§4). A writer agent applies state_changes and commits. The session is dead after RESULT; continuation happens in a fresh session via RESULT.next. A session may close early with a **checkpoint** RESULT (partial outcome, task stays active, continuation CALL) — switching platforms or splitting long work is normal; unwritten conversation is RAM and is expected to be lost.
 
 **Orientation header.** Every owner-facing reply starts with one line:
 `📍 <direction> / <node> / <task> — <play>: <current step> | нужно от тебя: <ничего | вопрос>`
@@ -36,7 +36,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 |---|---|---|
 | `CHARTER.md` | mission, measurable success criteria, constraints, lenses, product repos | frame |
 | `TREE.md` | recursive goal tree — outcomes only, no tasks | frame, shape, review |
-| `NOW.md` | the active bet, its tasks, recurring obligations, decision inbox, ready next CALL | every session |
+| `NOW.md` | the active bet, its tasks, recurring obligations, open calls (in-flight registry), decision inbox, ready next CALL | every session |
 | `LOG.md` | append-only: one line per session + link | every session |
 | `history/` | full RESULT of every session, one file each | append-only |
 | `knowledge/` | accepted facts and decisions; each entry names who reads it and when | review, pulse |

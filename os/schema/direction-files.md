@@ -74,6 +74,13 @@ tasks:                         # ≤3 active (G1); each ≤ half a focused day
     status: open               # open | active | blocked | done
     # blocked adds: unblock_when: <...>
 
+open_calls:                    # in-flight registry: issued CALLs awaiting their RESULT
+  - id: c-117
+    to: executor               # session | research | executor
+    for: t-2                   # task / recurring / node it serves
+    issued: <date>
+    note: "прототип в репо игры"
+
 recurring:                     # standing obligations that outlive bets; ≤3 per direction
   - id: r-1                    # adding/removing an entry is an owner decision (G7)
     goal: <e.g. "devlog post">
@@ -92,6 +99,8 @@ next:                          # ready-to-send CALL for the next session
 ```
 
 Recurring rules: entries are NOT tasks (G1/G2 untouched — they have their own ≤3 budget). Only pulse instantiates a due entry, as a ready work CALL in its decision batch; pulse never executes it. A recurring run that can't finish closes with the reason; `last_done` stays unchanged and pulse re-raises it next time.
+
+Open-calls rules: this is how a fresh session on ANY platform sees what is already running and who waits for whom — the recovery point after a crashed chat or a provider switch. A closing RESULT lists the CALLs it issued in `state_changes`; the writer records them here; a returning RESULT clears its entry. Pulse flags entries older than their budget. If a chat died mid-work: nothing is lost except its unwritten conversation — restart from `NOW.next` or the relevant open_calls entry.
 
 ## LOG.md
 
