@@ -76,6 +76,6 @@ A session that cannot pass a gate stops and reports — it never improvises arou
 
 ## 7. Changing the OS
 
-The OS is infrastructure, not a direction. It changes only in maintenance sessions on this repo, only in response to friction logged in `os/FRICTION.md` (≥2 entries on the same point), and never beyond budgets: kernel ≤1500 words, a play ≤600 words, six state file types. Wanting more structure is usually the wrong problem.
+The OS is infrastructure, not a direction. It changes only in maintenance sessions on this repo following `os/MAINTENANCE.md`: an explicit owner request is a sufficient trigger; self-initiated changes need ≥2 entries on the same point in `os/FRICTION.md`. Budgets are absolute: kernel ≤1500 words, a play ≤600 words, six state file types. Wanting more structure is usually the wrong problem.
 
 END_OF_FILE: os/KERNEL.md

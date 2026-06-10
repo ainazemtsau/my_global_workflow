@@ -1,0 +1,41 @@
+# MAINTENANCE — how the OS itself gets changed
+
+The OS is infrastructure, not a direction: no charter, no tree, no bets. It changes through **maintenance sessions** — fresh Claude Code / Codex sessions on this repo. One problem or request = one session. This file is the procedure those sessions follow.
+
+## Entry
+
+The owner opens a fresh agent session on this repo and pastes:
+
+```
+MAINTENANCE REQUEST
+what: |
+  <проблема или фича: что произошло / чего не хватает, своими словами>
+where: |
+  <если известно: направление, play, файл, цитата из чата — что угодно>
+expected: |
+  <как должно быть>
+```
+
+No other setup. The session reads this file and runs the procedure below.
+
+## Procedure
+
+1. **Locate.** Read `os/FRICTION.md` and the named files; grep for the responsible rule. Restate the problem in ≤3 lines and classify:
+   - (a) rule defect — a rule is wrong/ambiguous/contradictory;
+   - (b) gap — a needed capability has no home;
+   - (c) customization — owner wants different behavior;
+   - (d) one-off accident — rules are fine, an execution slipped → no rule change; log friction, suggest the repair play if state is affected;
+   - (e) unclear / single occurrence of a suspected pattern → log friction only, no change yet.
+2. **Trigger check.** An explicit owner request is a sufficient trigger for (a)–(c). Self-initiated improvements (nobody asked) need ≥2 FRICTION entries on the same point. Never both fix the request AND slip in unrelated "improvements".
+3. **Design the smallest change** that resolves the case, inside the budgets: kernel ≤1500 words, a play ≤600, six state file types, two packet types. If the fix wants to exceed a budget — simplify the fix or propose removing something else in the same change; growing past budgets is solving the wrong problem.
+4. **Consistency sweep.** Grep every term/file the change touches and update all cross-references. If `os/adapters/SESSION_PAYLOAD.md` changed, say so explicitly in the reply — the owner must re-paste platform instructions (politely degradable, not urgent).
+5. **Verify.** Re-read the changed files end-to-end for contradictions; walk one affected scenario (use the validation trace in `os/docs/DESIGN.md` §4 as the test track). A change that can't survive the walkthrough doesn't ship.
+6. **Log & close.** Append the case to `os/FRICTION.md` with `→ fixed <commit>` (or `→ logged, watching` for (d)/(e)). Commit with a descriptive message. Reply to the owner with: what changed and where, why this is the smallest fix, and anything the owner must do (usually nothing).
+
+## Boundaries
+
+- A maintenance session never touches `live/**` — direction state is the repair play's territory.
+- One problem per session. A second problem surfacing mid-session → one line into FRICTION.md, not a second fix.
+- No speculative structure: nothing is added "for the future". The parking lot for OS ideas is FRICTION.md with `→ idea, watching`.
+
+END_OF_FILE: os/MAINTENANCE.md
