@@ -1,6 +1,6 @@
 # Validation — the gate pipeline
 
-The strictest practical validation for autonomously-built code. Gates run cheap-to-expensive; a change is done only when all gates are green with attached evidence. Thresholds live in the repo's `validation.config`; rubric in its `REVIEW.md`. Per-repo customization changes thresholds and rubric content — never the gate order or the independence rules.
+The strictest practical validation for autonomously-built code. Gates run cheap-to-expensive; a change is done only when all gates are green with attached evidence. Thresholds live in the repo's `validation.config`; rubric in its `REVIEW.md`. Per-repo customization changes thresholds and rubric content — never the gate order or the independence rules. Threshold and rubric changes follow the repo's `docs/FRICTION.md` discipline: an explicit owner request, or ≥2 entries on the same point.
 
 ## Gates
 

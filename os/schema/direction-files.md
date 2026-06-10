@@ -74,6 +74,14 @@ tasks:                         # ≤3 active (G1); each ≤ half a focused day
     status: open               # open | active | blocked | done
     # blocked adds: unblock_when: <...>
 
+recurring:                     # standing obligations that outlive bets; ≤3 per direction
+  - id: r-1                    # adding/removing an entry is an owner decision (G7)
+    goal: <e.g. "devlog post">
+    done_when: <verifiable>
+    cadence: weekly            # pulse checks: today vs last_done + cadence
+    lens: audience
+    last_done: <date>
+
 decisions:                     # the owner's inbox; answered items move to history
   - q: <question>
     options: [<a>, <b>, <c>]
@@ -82,6 +90,8 @@ decisions:                     # the owner's inbox; answered items move to histo
 next:                          # ready-to-send CALL for the next session
   <CALL packet, see packets.md>
 ```
+
+Recurring rules: entries are NOT tasks (G1/G2 untouched — they have their own ≤3 budget). Only pulse instantiates a due entry, as a ready work CALL in its decision batch; pulse never executes it. A recurring run that can't finish closes with the reason; `last_done` stays unchanged and pulse re-raises it next time.
 
 ## LOG.md
 
@@ -107,5 +117,13 @@ accepted: <date>   read_by: <which play/lens reads this, when>   status: current
 ```
 
 An entry without a real `read_by` consumer does not get written (pulse enforces staleness).
+
+## work/
+
+Products of the direction (documents, scans, assets). Large binaries (.blend, art, video, builds) do not go into git directly: use git-lfs or external storage, leaving a small `.md` pointer in work/ with the link and access note. Git holds what is diff-able.
+
+## Truncation guard
+
+Every state file ends with a trailer line `END_OF_FILE: <path>`. The writer maintains the trailer on every file it writes. A session that reads a state file without its trailer must treat the file as truncated by the transport: say so and do not rely on the unseen tail.
 
 END_OF_FILE: os/schema/direction-files.md

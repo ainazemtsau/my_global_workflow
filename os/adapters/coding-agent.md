@@ -9,8 +9,10 @@ Applies a RESULT's `state_changes` to `live/**` and commits.
 Contract:
 - Input: a RESULT packet (or its state_changes section).
 - Apply edits exactly as written; append the log line to LOG.md; save the full RESULT to `history/<date>-<session-id>.md`; commit with a descriptive message (`<direction> <play> <node/task>: <log line>`).
+- Maintain the `END_OF_FILE: <path>` trailer on every state file it writes (truncation guard, schema/direction-files.md).
 - No judgment: if a state_change is ambiguous or conflicts with current files, do NOT improvise — reply with the conflict (this routes to repair).
 - Also emits the `next` CALL back to the owner/orchestrator if one is present.
+- `collect` command: on "collect next for <direction>" (or a CALL id), emit ONE paste-ready block for chat platforms: the play file, then NOW.md, then the CALL last (context first, CALL last). This replaces the owner assembling three sources by hand on platforms without a reliable connector.
 
 The cheapest manual loop today: keep one long-running Claude Code/Codex session on this repo as the standing writer; paste RESULTs into it as they arrive.
 

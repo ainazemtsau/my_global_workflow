@@ -38,6 +38,8 @@ CALL (business task from a direction)
     assumptions made; anything cut for budget; cost;
     manual acceptance instructions for the owner — generated from the SAME
     verification scripts the validator ran (one source of truth, two consumers).
+    Non-trivial manual steps (editor setup, device checks) may be issued as a
+    guide CALL (os/plays/guide.md) instead of a flat instruction list.
 ```
 
 The owner returns to a finished, verified change and checks the evidence, not every line. Tier-2 actions (publish, spend, delete non-versioned data) are never auto-approved regardless of plan approval.

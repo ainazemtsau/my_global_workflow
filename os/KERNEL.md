@@ -28,7 +28,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 **Two-strikes rule.** After two failed correction rounds on the same point: stop, close with a handoff note in RESULT, continue in a fresh session.
 
-**Read-only exception.** Answering owner questions from state needs no play and no RESULT — and must change nothing.
+**Read-only exception.** Answering owner questions from state needs no play and no RESULT — and must change nothing. Owner-initiated exploration or brainstorming that starts producing ideas worth keeping runs as a research session instead (`play: research, goal: explore X`), so captures return via RESULT.
 
 ## 3. Direction state — six file types, never more
 
@@ -36,7 +36,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 |---|---|---|
 | `CHARTER.md` | mission, measurable success criteria, constraints, lenses, product repos | frame |
 | `TREE.md` | recursive goal tree — outcomes only, no tasks | frame, shape, review |
-| `NOW.md` | the active bet, its tasks, decision inbox, ready next CALL | every session |
+| `NOW.md` | the active bet, its tasks, recurring obligations, decision inbox, ready next CALL | every session |
 | `LOG.md` | append-only: one line per session + link | every session |
 | `history/` | full RESULT of every session, one file each | append-only |
 | `knowledge/` | accepted facts and decisions; each entry names who reads it and when | review, pulse |
@@ -72,7 +72,7 @@ A session that cannot pass a gate stops and reports — it never improvises arou
 
 ## 6. Plays
 
-`frame · shape · work · review · research · pulse · repair` — defined in `os/plays/`. A session that does not know its play is in repair.
+`frame · shape · work · guide · review · research · pulse · repair` — defined in `os/plays/`. Directions may add local plays in `live/<id>/plays/` (procedure files, not state; same format and budget; invoked as `play: local/<name>` — see `os/EXTENDING.md`). A session that does not know its play is in repair.
 
 ## 7. Changing the OS
 

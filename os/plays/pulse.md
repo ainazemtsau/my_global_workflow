@@ -15,12 +15,13 @@ Per direction:
 4. **Blocked items** — any task blocked longer than its unblock condition suggests? Propose: nudge, drop, or re-route.
 5. **Captures** — triage capture backlog: each becomes a parked node, merges into an existing node, or is dropped. Captures don't accumulate beyond one pulse.
 6. **Parking lot** — anything parked that current learnings make urgent, or that has been parked so long it should be dropped? Propose, don't decide.
+7. **Recurring** — any recurring obligation past its cadence (today vs last_done)? → put its ready work CALL into the decision batch. Pulse never executes recurring work itself.
 
 Global:
 
-7. **WIP across directions** — how many directions had sessions since last pulse? If owner attention is spread thinner than 2–3 directions, recommend which to pause (Little's law applies to the owner too).
-8. **Knowledge staleness** — any knowledge entry past its relevance (check `read_by` and dates)? Mark stale.
-9. **Friction** — any os/FRICTION.md point with ≥2 entries? Recommend one maintenance session (and nothing more).
+8. **WIP across directions** — how many directions had sessions since last pulse? If owner attention is spread thinner than 2–3 directions, recommend which to pause (Little's law applies to the owner too).
+9. **Knowledge staleness** — any knowledge entry past its relevance (check `read_by` and dates)? Mark stale.
+10. **Friction** — any os/FRICTION.md point with ≥2 entries? Recommend one maintenance session (and nothing more).
 
 ## Close
 
@@ -28,11 +29,11 @@ RESULT: the boolean report, batched decisions_needed across directions, state_ch
 
 ## Done when
 
-All nine items have explicit answers; the owner has one consolidated decision batch.
+All ten items have explicit answers; the owner has one consolidated decision batch.
 
 ## Notes
 
 - Pulse never does object-level work and never reshapes bets — it routes.
-- Keep the report on one screen: nine lines plus the decision batch.
+- Keep the report on one screen: ten lines plus the decision batch.
 
 END_OF_FILE: os/plays/pulse.md
