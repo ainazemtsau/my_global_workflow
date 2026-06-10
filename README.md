@@ -1,8 +1,23 @@
 ﻿# My Global Workflow
 
-Status: active
+## ACTIVE SYSTEM: Direction OS (`os/` + `live/`)
 
-This repository is the canonical AI workflow source for the Workflow OS.
+The active workflow system is **Direction OS**:
+
+- Rules: `os/KERNEL.md` (start here), plays in `os/plays/`, schemas in `os/schema/`, platform adapters in `os/adapters/`.
+- How to start: `os/BOOTSTRAP.md`.
+- Live direction state: `live/<direction-id>/`.
+- Rationale: `os/docs/` (requirements, research basis, design).
+
+Everything below this section — `workflow/**`, `workflow_v3/**`, `directions/**`, `directions_v3/**`, `WORKFLOW_SOURCE_OF_TRUTH.md` — is **frozen legacy**, kept as archive and evidence only. No session should treat it as rules. Content (plans, knowledge) may be imported into `live/**` deliberately; mechanics may not.
+
+---
+
+# Legacy (frozen 2026-06-10)
+
+Status: archived
+
+This repository was previously the canonical AI workflow source for the Workflow OS.
 
 GitHub canonical activation is recorded in `WORKFLOW_SOURCE_OF_TRUTH.md`.
 
