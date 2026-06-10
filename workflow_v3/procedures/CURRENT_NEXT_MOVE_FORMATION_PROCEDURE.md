@@ -26,7 +26,7 @@ Use it when a completed or blocked material result needs a closure next move, in
 - a FINISH / closure package needs a valid `continuation`;
 - a FINISH_PACKET result needs one exact next action;
 - a parent or governance run needs to convert current result state into a bounded next-surface routing packet;
-- an Acceptance Decision result needs a post-closed next move to storage update, repair, check, Codex/code assistant, dependency chat, next material chat, human decision, or stop;
+- an Acceptance Decision result needs a post-closed next move to storage update, repair, check, code repository dependency, dependency chat, next material chat, human decision, or stop;
 - a blocked run needs a clear blocked next move without silently launching repair work.
 
 ## When Not to Use
@@ -34,7 +34,7 @@ Use it when a completed or blocked material result needs a closure next move, in
 Do not use this procedure to:
 
 - execute the selected next move;
-- launch Codex, a dependency chat, a check job, storage update, or a next material chat;
+- launch code repository dependency work, a dependency chat, a check job, storage update, or a next material chat;
 - perform repository or runtime mutation;
 - accept candidate output;
 - persist accepted state;
@@ -150,14 +150,14 @@ Field requirements:
 
 `NEXT_CHAT_CARD.main_procedure_to_start` identifies the registered owner procedure for the new independent lifecycle, or an explicit human decision surface when no registered procedure owns the decision.
 
-It must not name dependency surfaces such as Codex/code assistant, `verify_code_repository_dependency_return`, dependency chat, or check job.
+It must not name dependency surfaces such as code repository dependency, `verify_code_repository_dependency_return`, dependency chat, or check job.
 
 When the selected continuation requires dependency work, `NEXT_CHAT_CARD.context_to_paste` must carry a complete Transfer Packet that describes the nested dependency target.
 
 `target_surface_type` / `transfer_type` inside the Transfer Packet may name:
 
 ```text
-codex
+code_repository_dependency
 verify_code_repository_dependency_return
 dependency_chat
 check_job
@@ -211,7 +211,7 @@ Field descriptions:
 
 Invalid transfer packet placeholders include, but are not limited to:
 
-- `Needed if using Codex`
+- `Needed if using code repository dependency`
 - `use previous approved package`
 - `prepare a prompt`
 - `create a code repository dependency packet`
@@ -228,18 +228,23 @@ If a required transfer packet cannot be produced, the procedure must not emit a 
 
 ## Specialized Transfer Packet Requirements
 
-### `codex`
+### `code_repository_dependency`
 
 Required additions:
 
 ```text
-codex_transfer_packet:
+code_repository_dependency_transfer_packet:
   repository:
-  base_ref:
-  target_ref:
-  worktree_policy:
-  branch_policy:
-  pr_policy:
+  repository_role:
+  target_integration_ref:
+  expected_base_commit_sha:
+  workspace_policy_id:
+  workspace_binding_required:
+  integration_policy_id:
+  integration_required:
+  allowed_publication_outcomes:
+  runtime_selects_internal_ref_mechanics: true
+  local_path_is_not_canonical_authority: true
   purpose:
   goal:
   source_files_to_read:
@@ -248,24 +253,39 @@ codex_transfer_packet:
   required_changes:
   validation:
   stop_conditions:
-  commit_push_instructions:
   requested_return_fields:
-    base_main_commit_sha_before_work:
-    final_main_commit_sha_after_push:
-    branch_used:
-    pr_created:
+    target_integration_ref:
+    expected_base_commit_sha:
+    observed_base_commit_sha:
+    base_matches_expected:
+    workspace_binding_used:
+    internal_work_ref:
+    internal_branch_if_any:
+      return_only: true
     changed_files:
-    validation_outputs:
+    forbidden_paths_touched:
+    unlisted_paths_touched:
+    validation_output:
+    result_commit_sha:
+    integration_required:
+    integration_status:
+    final_target_commit_sha:
+    target_contains_result_commit:
+    target_remote_verification:
+    push_status:
+    pending_integration_reason:
+    exact_next_action_if_not_integrated:
+    project_refresh_requirements:
     residual_risks:
 ```
 
-Codex must not decide acceptance and must not perform ChatGPT FINISH.
+The Code Assistant Development Runtime must not decide acceptance and must not perform ChatGPT CHECK, FINISH, or CLOSED.
 
 This specialized transfer packet is valid only inside NEXT_CHAT_CARD.context_to_paste or inside a `DEPENDENCY_CALL` body under a registered owner procedure.
 It is not a value for `NEXT_CHAT_CARD.main_procedure_to_start`.
-It does not create an independent Codex, `code_repository_dependency`, or `verify_code_repository_dependency_return` material lifecycle.
+It does not create an independent Code Assistant Development Runtime, `code_repository_dependency`, or `verify_code_repository_dependency_return` material lifecycle.
 
-If Codex/code assistant is required before the current owner can complete, the current owner must emit `DEPENDENCY_CALL` and wait for return verification before CHECK/FINISH/CLOSED.
+If code repository dependency work is required before the current owner can complete, the current owner must emit `DEPENDENCY_CALL` and wait for `DEPENDENCY_RETURN` verification before CHECK/FINISH/CLOSED.
 
 ### `verify_code_repository_dependency_return`
 
@@ -297,9 +317,9 @@ Verification does not accept the returned dependency evidence by itself.
 
 This specialized transfer packet is valid only inside NEXT_CHAT_CARD.context_to_paste or inside a `DEPENDENCY_CALL` body under a registered owner procedure.
 It is not a value for `NEXT_CHAT_CARD.main_procedure_to_start`.
-It does not create an independent Codex, `code_repository_dependency`, or `verify_code_repository_dependency_return` material lifecycle.
+It does not create an independent Code Assistant Development Runtime, `code_repository_dependency`, or `verify_code_repository_dependency_return` material lifecycle.
 
-If Codex verification is required before the current owner can complete, the current owner must emit `DEPENDENCY_CALL` and wait for return verification before CHECK/FINISH/CLOSED.
+If code repository dependency verification is required before the current owner can complete, the current owner must emit `DEPENDENCY_CALL` and wait for return verification before CHECK/FINISH/CLOSED.
 
 ### `dependency_chat`
 
@@ -444,7 +464,7 @@ Required source classes:
 - exact persistence/storage boundary, if storage or accepted state is relevant;
 - `workflow_v3/control_plane/CHAT_FINISH_PROTOCOL.md` for NEXT_CHAT_CARD continuation fields and allowed values;
 - `workflow_v3/control_plane/CHAT_LIFECYCLE_PROTOCOL.md` when lifecycle state or same-chat closure matters;
-- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` when dependency-vs-continuation, dependency type, wrong-surface, Codex/code-assistant, core lifecycle, storage, or human decision boundaries are relevant;
+- `workflow_v3/control_plane/ROUTING_AND_DEPENDENCY_PROTOCOL.md` when dependency-vs-continuation, dependency type, wrong-surface, code repository dependency, core lifecycle, storage, or human decision boundaries are relevant;
 - `workflow_v3/control_plane/SUPPORT_DEPENDENCY_PROTOCOL.md` when non-mutating support dependency packet or prior packet label boundaries are relevant;
 - exact target execution surface/procedure stub or active procedure source when the next move names a specific target surface.
 
@@ -500,7 +520,7 @@ research_backed:
   Normally not used. Use only if the next move depends on current external constraints that cannot be resolved from Workflow source.
 
 delegated_or_tool_mediated:
-  Use when forming the next move requires a bounded dependency/check/Codex/storage transfer packet or verification of returned dependency evidence before closure.
+  Use when forming the next move requires a bounded dependency/check/code repository/storage transfer packet or verification of returned dependency evidence before closure.
 ```
 
 Complexity selection does not authorize procedure switching or next move launch.
@@ -640,7 +660,7 @@ DEPENDENCY_RETURN
 Allowed expansion is limited to:
 
 - reading exact target procedure, dependency surface, or procedure-boundary sources needed to complete the selected Transfer Packet;
-- producing a bounded check/dependency/Codex/storage transfer packet as a closure artifact;
+- producing a bounded check/dependency/code repository/storage transfer packet as a closure artifact;
 - asking for a human decision only when the missing information is genuinely not derivable and not a materially known required transfer;
 - verifying a returned external result only if the same selected RUN emitted a `DEPENDENCY_CALL` and the return is needed before closure.
 
@@ -664,10 +684,10 @@ forbidden:
   Default for ordinary NEXT_CHAT_CARD continuation formation from Workflow closure state.
 
 optional:
-  Only when external tool/provider behavior affects packet wording but internal Workflow sources are sufficient.
+  Only when external execution-surface behavior affects packet wording but internal Workflow sources are sufficient.
 
 required:
-  Only when a next move depends on current external constraints that cannot be safely specified from internal source, such as provider-specific availability, legal/regulatory constraints, or current repository protection behavior not present in source.
+  Only when a next move depends on current external constraints that cannot be safely specified from internal source, such as execution-surface availability, legal/regulatory constraints, or current repository protection behavior not present in source.
 ```
 
 If research is required, this procedure must not invent the answer. It must produce a bounded check/research handoff or blocked/human decision path, according to the material blocker.
@@ -709,7 +729,7 @@ external_return_verification:
   Returned evidence must be classified as dependency evidence and verified before it affects the NEXT_CHAT_CARD continuation.
 
 embedded_verification_policy:
-  Embedded verification may check a returned Codex/check/dependency/storage result only when it belongs to the current selected RUN or was explicitly supplied as the object to route.
+  Embedded verification may check a returned code repository/check/dependency/storage result only when it belongs to the current selected RUN or was explicitly supplied as the object to route.
 
 storage_boundary:
   This procedure may produce a storage_update Transfer Packet when acceptance/update authority and a complete Storage Update Package exist. It must not perform storage mutation.
@@ -828,7 +848,7 @@ FINISH_PACKET:
     NEXT_CHAT_CARD or no_next_chat_needed
 ```
 
-## Quality Checks
+## Eval / Quality Checks
 
 Procedure Definition checks:
 
@@ -854,9 +874,7 @@ Procedure Execution checks:
 - No procedure switch occurred.
 - Required sources were read or limitations stated.
 - Closure next move selects exactly one primary next move.
-- The selected next move is justified from FINISH/CLOSURE evidence, accepted decision state, pending blockers, or current bottleneck.
 - Required nested transfer packet is complete for `codex`, `verify_code_repository_dependency_return`, `dependency_chat`, `check_job`, `storage_update`, or `next_material_chat`.
-- Vague continuation, multiple simultaneous next steps, and hidden procedure launch are invalid.
 - `human_decision` is not used as transfer avoidance.
 - NEXT_CHAT_CARD continuation is not used for mid-RUN `DEPENDENCY_CALL`.
 - FINISH is not requested while a required dependency return is pending, missing, or unverified.
@@ -970,22 +988,32 @@ NEXT_CHAT_CARD:
   context_to_paste:
     repair_goal: apply bounded repair through the registered owner procedure.
     current_goal_boundary: If repair is still required for the current START goal, emit DEPENDENCY_CALL before closure and do not use NEXT_CHAT_CARD.
-    dependency_needed_if_repair_requires_codex:
+    dependency_needed_if_repair_requires_code_repository_work:
       DEPENDENCY_CALL:
         dependency_type: code_repository_dependency
-        execution_surface: Codex/code assistant
+        execution_surface: Code Assistant Development Runtime
         unresolved_until_returned: true
         expected_return_packet:
+          target_integration_ref:
+          observed_base_commit_sha:
+          internal_work_ref:
+          internal_branch_if_any:
+            return_only: true
           changed_files:
-          validation_outputs:
-          final_commit_sha:
+          validation_output:
+          result_commit_sha:
+          integration_status:
+          final_target_commit_sha:
+          target_contains_result_commit:
         parent_verification_required:
-          - branch/commit/changed files
+          - target integration evidence
+          - result commit and changed files
           - allowed/forbidden paths
           - validation
+          - integration status and target containment proof
           - EOF markers
           - refresh categories
-    boundary: Codex/code-assistant output is dependency evidence only, not selected main procedure and not completion.
+    boundary: Code assistant output is dependency evidence only, not selected main procedure and not completion.
   expected_result: owner procedure completes or blocks after dependency return verification.
   evidence_or_return_needed: verified dependency return evidence or explicit blocked result.
   start_instruction: START with the registered core owner procedure for the repair goal.
@@ -1007,14 +1035,14 @@ NEXT_CHAT_CARD:
   start_instruction: Ask the human for the routing decision before starting material continuation.
 ```
 
-This is valid only when the procedure cannot materially know the target. It is invalid when a required Codex, storage, check, dependency, or next-chat transfer packet is already materially known.
+This is valid only when the procedure cannot materially know the target. It is invalid when a required code repository, storage, check, dependency, or next-chat transfer packet is already materially known.
 
 ### Example: invalid placeholder
 
 ```text
-NEXT_CHAT_CARD.context_to_paste: Needed if using Codex
+NEXT_CHAT_CARD.context_to_paste: Needed if using code repository dependency
 ```
 
-This is invalid. The procedure must instead emit a complete Codex transfer packet or block with the exact missing fields.
+This is invalid. The procedure must instead emit a complete code repository dependency transfer packet or block with the exact missing fields.
 
 END_OF_FILE: workflow_v3/procedures/CURRENT_NEXT_MOVE_FORMATION_PROCEDURE.md
