@@ -73,7 +73,7 @@ Project setup:
 Closure:
 - RUN completion or blocked state leads to CLOSURE_CHECK.
 - FINISH_PACKET includes status, result, evidence, changed files, validation, source limits, refresh requirements, risks, and continuation.
-- A handoff, package, Codex package, check packet, storage packet, dependency packet, copy-paste packet, dependency packet, or NEXT_CHAT_CARD is never parent lifecycle completion.
+- A handoff, package, code repository dependency packet, check packet, storage packet, dependency packet, copy-paste packet, or NEXT_CHAT_CARD is never parent lifecycle completion.
 - If a new independent lifecycle follows after completed/blocked closure, return NEXT_CHAT_CARD with title, why, main_procedure_to_start, context_to_paste, expected_result, evidence_or_return_needed, and start_instruction.
 - If workflow should not continue, return no_next_chat_needed with reason.
 - Do not silently launch follow-up work or make users assemble code/check/dependency/NEXT_CHAT_CARDs manually.
@@ -83,7 +83,7 @@ END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD
 
 Measured scope: trimmed content between `BEGIN_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD` and `END_CHATGPT_PROJECT_INSTRUCTIONS_UI_PAYLOAD`.
 
-- `measured_chars`: 6430
+- `measured_chars`: 6431
 - `target_max_chars`: 6500
 - `hard_max_chars`: 8000
 - `verdict`: PASS
