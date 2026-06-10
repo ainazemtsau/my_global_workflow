@@ -134,7 +134,7 @@ NEXT_CHAT_CARD is post-closed continuation only. It is not a child call, not a u
 
 ## Quality Check Ownership
 
-This protocol owns child/adaptor and return-verification checks. Ordinary runtime must not depend on a separate eval file for child-call authority.
+This protocol owns child/adaptor and return-verification checks. Ordinary runtime uses this protocol for child-call authority and does not require an external check file.
 
 - CHILD_PROCEDURE_CALL states why the child/adaptor is needed, names the target surface, includes complete packet/call boundaries, expected return, verification requirements, same-main-procedure resume, and `unresolved_until_returned`.
 - External user action receives complete copy-paste content; placeholders or scattered prior context are invalid.

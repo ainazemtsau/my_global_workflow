@@ -302,7 +302,7 @@ Common blocked reasons:
 
 ## Quality Check Ownership
 
-This protocol owns lifecycle quality checks for START, RUN, CHECK, FINISH admission, and CLOSED boundaries. Ordinary runtime must not load a separate eval file to apply these checks.
+This protocol owns lifecycle quality checks for START, RUN, CHECK, FINISH admission, and CLOSED boundaries. Ordinary runtime applies these checks from this protocol and does not require an external check file.
 
 - START selects exactly one main procedure, reads the selected procedure source, shows its completion contract, states child/write boundaries, and waits for START / СТАРТ.
 - RUN executes only the selected procedure, represents declared material stages without ad hoc compression, emits operator-readable STAGE_RESULT output, and waits for CONTINUE / ДАЛЬШЕ between material stages unless the next step is `internal_check`.

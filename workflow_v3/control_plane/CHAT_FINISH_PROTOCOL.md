@@ -117,7 +117,7 @@ After FINISH passes, the chat enters CLOSED. Same-chat follow-up may clarify the
 
 ## Quality Check Ownership
 
-This protocol owns FINISH audit quality checks. Ordinary FINISH does not load a separate eval file.
+This protocol owns FINISH audit quality checks. Ordinary FINISH applies these checks from this protocol and does not require an external check file.
 
 - FINISH follows passed CLOSURE_CHECK or an explicit blocked completion condition from the selected procedure.
 - FINISH audits START, RUN, child returns, declared stage progression, validation/evidence, and selected procedure completion before closure.
