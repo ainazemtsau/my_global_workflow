@@ -32,6 +32,13 @@ Repository setup files define behavior surfaces, manifests, launch packets, and 
 - No `directions_v3/<direction-id>/runtime/**` root is created from setup docs alone.
 - Actual Project Instructions UI updates require explicit future user action from the canonical source payload. Project Files/Sources refreshes and request-only source loading remain separate.
 
+## Quality Checks
+
+- Project setup docs do not update actual ChatGPT Project UI, refresh Project Files/Sources, create runtime roots, or accept Direction state by existence.
+- Ordinary Direction Project setup keeps Project title, Project Files/Sources, uploaded files, prior summaries, and chat memory below exact repository source authority.
+- Setup-only bootstrap routes to Direction Definition after technical root setup and does not start product work.
+- Rollout reports Project Instructions UI update, Project Files/Sources refresh, request-only source refresh, do-not-upload files, and payload counts when instruction payloads change.
+
 ## Index
 
 - `CHATGPT_PROJECT_CREATION_GUIDE.md` - future Project creation guide and naming rules.

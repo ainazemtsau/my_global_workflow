@@ -94,12 +94,13 @@ Use exact repository reads for source authority and request-only loading for bou
 
 ```text
 request_only_sources:
+  - workflow_v3/control_plane/**
   - workflow_v3/interfaces/**
   - workflow_v3/templates/**
   - workflow_v3/adoption/**
   - workflow_v3/procedures/**
-  - workflow_v3/evals/**
   - workflow_v3/completion/**
+  - workflow_v3/QUALITY_AND_RECOVERY.md
   - directions_v3/<direction-id>/runtime/records/**
   - directions_v3/<direction-id>/runtime/fronts/**
   - directions_v3/<direction-id>/runtime/operations/**
@@ -114,7 +115,8 @@ workflow_v3/templates/**
 workflow_v3/completion/**
 workflow_v3/adoption/**
 workflow_v3/procedures/**
-workflow_v3/evals/**
+workflow_v3/control_plane/**
+workflow_v3/QUALITY_AND_RECOVERY.md
 directions_v3/<direction-id>/project_setup/CHATGPT_PROJECT_INSTRUCTIONS.md
 ```
 

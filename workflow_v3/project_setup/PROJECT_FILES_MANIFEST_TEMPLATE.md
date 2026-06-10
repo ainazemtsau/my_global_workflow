@@ -76,12 +76,13 @@ By default in this repository completion framework, all `workflow_v3/**` files a
 At minimum, list these as do-not-upload:
 
 ```text
+workflow_v3/control_plane/**
 workflow_v3/interfaces/**
 workflow_v3/templates/**
 workflow_v3/completion/**
 workflow_v3/adoption/**
 workflow_v3/procedures/**
-workflow_v3/evals/**
+workflow_v3/QUALITY_AND_RECOVERY.md
 workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md
 ```
 
@@ -108,6 +109,7 @@ Repository commits do not update ChatGPT Projects by themselves.
 [ ] Old Direction files are excluded from default v3 Project Files/Sources.
 [ ] Do-not-upload sources are listed.
 [ ] Refresh categories are separated.
+[ ] Owner quality/check source docs are used instead of Project Files/Sources as authority.
 [ ] No actual Project update is implied by this manifest.
 ```
 

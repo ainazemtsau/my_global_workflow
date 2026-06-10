@@ -41,8 +41,59 @@ Fails when a package invents an entity, storage path, or mutation right.
 Recovery:
 
 - block the package;
-- add or cite the missing interface/template/eval;
+- add or cite the missing interface, template, procedure, protocol, or owner-quality source;
 - return bounded repair guidance or a NEXT_CHAT_CARD when a new material chat is needed.
+
+## Repository completion audit gate
+
+Checks:
+
+- base ref, allowed paths, forbidden paths, changed files, and deleted files are reported;
+- no unauthorized runtime root, legacy import, Project UI update, or Project Files/Sources refresh is implied;
+- registry/status sync, completion matrix coverage, EOF markers, diff validation, and refresh categories are reported;
+- Project Instructions payload counts are measured when Project Instructions source payloads change;
+- owner quality/check sections expose pass/warn/fail-equivalent criteria and recovery action where material.
+
+Fails when repository completion is treated as Direction adoption, runtime activation, Project update, or product execution.
+
+Recovery:
+
+- block completion;
+- repair the missing evidence, coverage, payload count, or refresh classification;
+- rerun the same bounded validation before claiming completion.
+
+## Source integrity and hidden-state gate
+
+Checks:
+
+- exact repository path/ref/SHA is source authority for material decisions;
+- Project Files/Sources, chat memory, pasted excerpts, uploads, generated packs, snippets, and partial reads remain cache/context until verified;
+- hidden state, hidden route changes, and hidden accepted-state mutation are absent;
+- incomplete, stale, conflicting, or truncated required sources produce a visible source-integrity exception.
+
+Fails when material work proceeds from cache, memory, snippet, stale source, or unverified route/state claims.
+
+Recovery:
+
+- stop the route or state claim;
+- read or request the exact source;
+- repair CLOSURE_CHECK, FINISH_PACKET, continuation state, and any missing acceptance/update path before continuing.
+
+## Layer integrity gate
+
+Checks:
+
+- every repository layer has an owning source, evidence requirement, validation path, and recovery path;
+- parent layers integrate child/work evidence instead of passing through missing or unverified results;
+- multi-track and success-dimension coverage is preserved, with deferred dimensions named by reason and trigger.
+
+Fails when a layer is hollow documentation, a child result is treated as parent closure, or one comfortable track silently replaces the stated success dimensions.
+
+Recovery:
+
+- block the closure or package;
+- add the missing owner/evidence/validation/recovery link;
+- split, repair, or escalate the affected layer with visible residual risk.
 
 ## Formation quality gate
 

@@ -119,6 +119,6 @@ request_only_sources_refresh_required: false
 - `project_instruction_ui_update_required`: true for future ordinary Direction Project manual creation only; not performed by repository commit.
 - `project_sources_files_refresh_required`: false.
 - `request_only_sources_refresh_required`: false.
-- `do_not_upload_as_project_file`: `workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md`, `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, and `workflow_v3/evals/**`.
+- `do_not_upload_as_project_file`: `workflow_v3/project_setup/*PROJECT_INSTRUCTIONS*.md`, `workflow_v3/control_plane/**`, `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, and `workflow_v3/QUALITY_AND_RECOVERY.md`.
 
 END_OF_FILE: workflow_v3/project_setup/UNIVERSAL_DIRECTION_PROJECT_INSTALLER.md

@@ -111,6 +111,8 @@ Accepted State does not live in chat memory, Project Files/Sources, candidate do
 
 If accepted state matters, use canonical repository storage and explicit acceptance/update records.
 
+No hidden route or hidden accepted-state mutation is valid. A route-changing or state-changing claim must name its exact source authority, visible lifecycle output, acceptance/update path when needed, and refresh/reporting impact when Project setup surfaces are touched.
+
 ## Runtime Console Boundary
 
 Runtime Console is read-only. It may summarize status, show uncertainty, list candidate actions, and draft future launch or next-chat cards when no current-goal repair is required.

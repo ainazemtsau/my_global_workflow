@@ -66,12 +66,13 @@ If used, it is cache/context only and cannot override exact runtime binding sour
 
 ```text
 request_only_sources:
+  - workflow_v3/control_plane/**
   - workflow_v3/interfaces/**
   - workflow_v3/templates/**
   - workflow_v3/adoption/**
   - workflow_v3/procedures/**
-  - workflow_v3/evals/**
   - workflow_v3/completion/**
+  - workflow_v3/QUALITY_AND_RECOVERY.md
 ```
 
 Load request-only sources only when a bounded task needs the exact source.
@@ -85,7 +86,8 @@ workflow_v3/templates/**
 workflow_v3/completion/**
 workflow_v3/adoption/**
 workflow_v3/procedures/**
-workflow_v3/evals/**
+workflow_v3/control_plane/**
+workflow_v3/QUALITY_AND_RECOVERY.md
 ```
 
 ## Future Direction runtime payload

@@ -70,7 +70,7 @@ Direction Definition is the separate semantic process after setup-only root. It 
 - `workflow_v3/procedures/**` - selectable procedure source and framework.
 - `workflow_v3/templates/**` - user-visible packet/card templates.
 - `workflow_v3/interfaces/**` - summaries that point back to authority.
-- `workflow_v3/evals/**` - invariant checks.
+- owner quality/check sections live in the responsible procedures, control-plane protocols, templates, interfaces, quality/recovery docs, project setup docs, completion/audit docs, and source/legacy policies.
 - `workflow_v3/project_setup/**` - Project Instructions and setup sources.
 - `workflow_v3/completion/**` - completion and coverage summaries.
 - `workflow_v3/adoption/**` - future adoption templates and legacy review surfaces.

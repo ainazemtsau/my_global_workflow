@@ -22,7 +22,7 @@ Future clean-start adoption and setup packages must use canonical Workflow v3 so
 - `workflow_v3/project_setup/DIRECTION_ROOT_BOOTSTRAP_LAUNCH_PACKET_TEMPLATE.md`;
 - `workflow_v3/procedures/DIRECTION_PROJECT_ROOT_BOOTSTRAP_PROCEDURE.md`;
 - `workflow_v3/procedures/DIRECTION_DEFINITION_PROCEDURE.md`;
-- `workflow_v3/evals/DIRECTION_RUNTIME_BOOTSTRAP_EVAL.md`.
+- `workflow_v3/PROJECT_SETUP_MODEL.md`, `workflow_v3/STORAGE_LAYOUT.md`, and `workflow_v3/LEGACY_EVIDENCE_POLICY.md`.
 
 `directions/**` remains `legacy_evidence` for Workflow v3 and may be used only through explicit bridge, import, or adoption policy.
 

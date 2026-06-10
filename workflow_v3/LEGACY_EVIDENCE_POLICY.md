@@ -63,4 +63,12 @@ The default boundary is `no_automatic_import`.
 
 No legacy Direction is imported, bridged, discarded, or adopted unless a later explicit package names that Direction, chooses a migration/adoption mode, reviews the evidence, and passes the required acceptance/update path.
 
+## Quality Checks
+
+- Legacy evidence review must name exact legacy paths, read completeness, evidence classification, and selected migration/adoption mode.
+- Legacy evidence remains `legacy_evidence` unless a later accepted bridge/import/adoption package changes named artifacts through an explicit acceptance/update path.
+- Evidence review does not create `directions_v3/<direction-id>/runtime/**`, mutate legacy folders, update Project setup surfaces, or discard old evidence by implication.
+- Old Project Files, Project setup files, Ledger, Obligations, Receipts, Dashboard, Direction Map, Active Goal, run history, and migration receipts are context only until explicitly accepted.
+- Unauthorized import, discard, runtime root creation, or legacy mutation must stop and route to bounded repair or explicit adoption-policy decision.
+
 END_OF_FILE: workflow_v3/LEGACY_EVIDENCE_POLICY.md

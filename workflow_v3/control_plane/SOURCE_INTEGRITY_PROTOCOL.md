@@ -35,4 +35,11 @@ limitations:
 
 For procedure, template, runtime state, and affected source files, the read must cover the exact file path and ref needed for the action. If the file contains an EOF marker, the marker must be visible and match the path.
 
+## Quality Checks
+
+- PASS when material work names exact repository/path/ref, records resolved commit SHA for branch refs, records full blob SHA where available, verifies EOF when present, and treats Project Files/Sources, chat memory, uploads, snippets, generated packs, and pasted excerpts as cache/context until verified.
+- WARN when a source is intentionally partial or unavailable but the limitation is named and no material claim relies on omitted content.
+- FAIL when cache, memory, snippet, search output, stale ref, or partial read is treated as authority; when a required source is unreadable; or when conflicting source evidence is ignored.
+- Recovery is `SOURCE_INTEGRITY_EXCEPTION`: stop the material claim, request or read the exact source, and rerun the same bounded procedure with limitations visible.
+
 END_OF_FILE: workflow_v3/control_plane/SOURCE_INTEGRITY_PROTOCOL.md

@@ -70,6 +70,14 @@ Project setup reporting uses these categories:
 - `request_only_sources_refresh_required`;
 - `do_not_upload_as_project_file`.
 
+## Project Setup Quality Checks
+
+- Ordinary Direction Project setup must identify the Project type, use exact repository sources, downgrade Project Files/Sources to cache/context, and not infer `direction_id`, runtime root, or next move from Project title or chat memory.
+- Setup-only root bootstrap must remain technical setup only: pending placeholders, binding/per-Direction setup sources when admitted, and `CURRENT_NEXT_MOVE = launch_direction_definition`; product work, Work Graph, Work Contract, accepted Spine/Map/Front, and root outcome acceptance are excluded.
+- Runtime root creation is allowed only through an explicit accepted setup/adoption/runtime package with exact paths, validation, rollback/coexistence evidence, and refresh reporting.
+- Repository commits, Project Instructions UI updates, Project Files/Sources refreshes, and request-only source refreshes must be reported as separate surfaces.
+- If Project Instructions source payload content changes, measured payload chars, target max, hard max, and verdict are required before claiming the package complete.
+
 ## Current slice refresh status
 
 This slice does not update actual ChatGPT Projects.
@@ -79,6 +87,6 @@ For this repository completion framework:
 - `project_instruction_ui_update_required`: no actual ChatGPT Project UI update;
 - `project_sources_files_refresh_required`: no current Project Files/Sources refresh;
 - `request_only_sources_refresh_required`: no request-only source refresh;
-- `do_not_upload_as_project_file`: all `workflow_v3/**` files until a later explicit Project setup/adoption package says otherwise, including `workflow_v3/interfaces/**`, `workflow_v3/templates/**`, `workflow_v3/completion/**`, `workflow_v3/adoption/**`, `workflow_v3/procedures/**`, `workflow_v3/evals/**`, and Project Instructions source files.
+- `do_not_upload_as_project_file`: all `workflow_v3/**` source docs until a later explicit Project setup/adoption package says otherwise, including owner procedures, protocols, interfaces, templates, completion/audit docs, adoption docs, project setup docs, quality/recovery docs, and Project Instructions source files.
 
 END_OF_FILE: workflow_v3/PROJECT_SETUP_MODEL.md

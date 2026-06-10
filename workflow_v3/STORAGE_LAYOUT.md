@@ -164,6 +164,8 @@ Archive/compaction must not hide accepted decisions, evidence references, final 
 
 Indexes support read-back and navigation. They are not an alternate acceptance path.
 
+Memory Index entries must keep source refs, tags, applies-to scope, load-when, do-not-load-when, and refresh/expiry rules. Memory index output cannot replace exact source reads, accepted state, or Memory Artifact promotion evidence.
+
 Future optional indexes include:
 
 ```text
