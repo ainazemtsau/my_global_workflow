@@ -23,6 +23,7 @@ return: |
   <expected format of the RESULT's outcome/evidence>
 budget: <e.g. one session | 2h | 15 tool calls>
 parent: <session-id>                     # for children: where the result returns
+surface: <optional routing hint: chatgpt | claude | cli | any>
 ```
 
 Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | mechanical`:
