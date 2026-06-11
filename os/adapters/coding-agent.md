@@ -17,6 +17,8 @@ Contract:
 
 **The writer is ephemeral — never a standing chat.** Every RESULT is self-contained, so the writer needs no memory; a long-lived writer session is accumulated noise and cost (one chat = one job applies to the writer too). Manual loop: open a fresh agent session → paste the RESULT → it applies, commits, hands back the next CALL → close it. Headless one-shot invocations (`claude -p` / `codex exec`) do the same without a chat at all; an orchestrator replaces the hop entirely at autonomy stage 2+.
 
+**Concurrency.** Parallel directions: one git worktree per direction, writers of different directions run in parallel; within one direction RESULTs apply one at a time. Sync/push protocol and rules: `os/adapters/worktrees.md`.
+
 ## Role 2: executor (kind: engineering)
 
 Receives a business task CALL targeting a product repo (`repo:` field). The full engineering process — plan gate, autonomous build, validation gates, retry/escalation, final report — is defined in `os/engineering/CONTOUR.md`; repo bootstrap in `os/engineering/PROJECT_SETUP.md`. The contract summary:
