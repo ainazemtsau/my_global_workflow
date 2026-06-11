@@ -21,5 +21,8 @@ The question is answered in the requested format within budget, or a budget/feas
 - A research child never makes decisions for the parent and never touches state. It informs.
 - If the answer reveals work to do, that is a capture in the RESULT — the parent or shape triages it.
 - Respect the budget literally: better a partial answer on time than a perfect answer that burned the budget twice over.
+- Multiple generator children on one question run independently in parallel (nominal group); merge and dedupe afterwards — never a shared brainstorm thread.
+- A parent may request a strategic_search child: pick ONE operator per brief (baseline-deletion / constraint-inversion / far-analogy / small-team-asymmetry / AI-leverage-with-named-evaluator / failure-inversion), ask for a distribution of structurally different variants including low-probability ones (cull weak tails), collapse synonyms with a log, return 3–5 survivors distinct on target, mechanism, proof-channel, or main assumption — each refuted once — plus a recommended first probe. The child informs, never decides.
+- A parent may also send miner briefs: fetch one rare case, one far analogy, or the strongest argument against the default path — raw material for generation, not advice.
 
 END_OF_FILE: os/plays/research.md
