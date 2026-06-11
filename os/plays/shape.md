@@ -10,14 +10,14 @@ Precondition: no active bet in this direction (gate G1), node chosen by owner or
 ## Steps
 
 1. **Recite** — restate the node's goal and done_when, and its parent's goal. If the node's goal is an activity ("do marketing") rather than an outcome ("500 wishlists"), fix it first.
-2. **Appetite first** — ask or propose: how much time is this outcome worth (not how long it takes)? Fix appetite before any solution talk (gate G3). Sanity-check with the outside view: name 1–3 comparable past efforts; if inside-view sizing conflicts with comparables, trust the comparables.
-3. **Approaches, then minimal solution** — before sketching anything, name 2–3 structurally different ways to satisfy done_when within appetite (different mechanism, not different size — e.g. build it / fake-or-reuse it / a route that makes most of the work unnecessary), each with the one assumption it bets on. Pick one with a one-line why-over-the-others; losing approaches go to captures. Then sketch the smallest version of the chosen approach. Explicitly state what this version does NOT include.
+2. **Appetite first** — ask or propose: how much time is this outcome worth (not how long it takes)? Fix appetite before any solution talk (gate G3). Outside-view check: name 1–3 comparables; on conflict trust them.
+3. **Approaches, then minimal solution** — before sketching anything, name 2–3 structurally different ways to satisfy done_when within appetite (different mechanism, not different size — build / fake-or-reuse / make-most-work-unnecessary), each with the one assumption it bets on. If the owner brought an approach, generate the alternatives first, then rank all on equal footing — no automatic privilege for it. Pick one with a one-line why-over-the-others; losing approaches go to captures. Then sketch the smallest version of the chosen approach. Explicitly state what this version does NOT include.
 4. **Scope hammer** — challenge every element: "what breaks if we cut this?" Cut until something genuinely hurts. Record the cut list (≥1 real cut — gate G6); cuts go to `parked` or captures, not into the bet.
 5. **Lens sweep** — for each lens in CHARTER.md: does this bet need work from this lens? Verdict per lens: a task, or `not_needed: <reason>` (gate G6). Silent skipping is invalid.
-6. **Riskiest assumption** — list the assumptions this bet rests on, starting with the chosen approach's bet from step 3, ranked by kill-power. The top one gets a task that tests it as early and cheaply as possible (gate G6).
-7. **Tasks** — 3–7 tasks, each ≤ half a focused day, each with verifiable done_when. Order them so the riskiest-assumption task comes first or near-first. Mark each task's kind: session work, executor work (engineering), or guide work (the owner operates a tool the agents can't reach — os/plays/guide.md).
-8. **Kill criteria** — kill_by: metric + threshold + date (gate G4). If the bet reaches the date or breaches the threshold, review triggers automatically.
-9. **Close** — show the bet to the owner in one screen: appetite, tasks, cut list, lens verdicts, kill_by. On approval, RESULT: node → `active`, NOW.md gets the bet, next = CALL for work on the first task.
+6. **Riskiest assumption** — list the assumptions this bet rests on, starting with the chosen approach's bet from step 3, ranked by kill-power. The top one gets a task that tests it as early and cheaply as possible (gate G6). Calibrate test depth to the charter's risk_posture.
+7. **Tasks** — 3–7 tasks, each ≤ half a focused day, each with verifiable done_when. Order them so the riskiest-assumption task comes first or near-first. Mark each task's kind: session, executor (engineering), or guide (owner-operated tool — os/plays/guide.md). Executor-heavy bets name the evaluator and rollback first.
+8. **Kill criteria** — kill_by: metric + threshold + date (gate G4). If the bet reaches the date or breaches the threshold, review triggers automatically. State next_if_true / next_if_false — which branch opens, dies, or mutates either way.
+9. **Close** — show the bet to the owner in one screen: appetite, tasks, cut list, lens verdicts, kill_by, forecast and against (per NOW bet fields). On approval, RESULT: node → `active`, NOW.md gets the bet, next = CALL for work on the first task.
 
 ## Done when
 
@@ -25,7 +25,7 @@ NOW.md contains an approved bet passing gates G1–G6; next CALL is ready.
 
 ## Notes
 
-- Shape is one session. If shaping stalls on an unknown, spawn `call:research` and close awaiting its return — do not pad the bet with guesses.
-- Shaping a node may reveal it needs children instead of tasks (too big for one appetite). Then: split into 2–4 child outcome nodes in TREE.md (each shown as a card with its why and approved by the owner in-session — gate G9), recommend which child to shape, close. That is a valid shape result — recursion happens here, on demand, never in advance.
+- Shape is one session — or two when appetite exceeds a week: close with a checkpoint once approaches are on the table; choose in the next session (≥1 night — incubation). If shaping stalls on an unknown, spawn `call:research` and close awaiting its return — do not pad the bet with guesses.
+- Shaping a node may reveal it needs children instead of tasks (too big for one appetite). Then: split into 2–4 child outcome nodes in TREE.md (each shown as a card with its why and approved by the owner in-session — gate G9), recommend which child to shape, close — a valid result. Recursion happens here, on demand, never in advance.
 
 END_OF_FILE: os/plays/shape.md
