@@ -30,4 +30,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-06-11 пилот indie-game-development, чат map №2: первый ответ без нумерованного плана шагов play (G10 opening contract неполный; header, human-first, search-first при этом соблюдены — фикс 6edf302 в остальном сработал), если транскрипт полный → logged, watching: повтор → усиливающая строка в SESSION_PAYLOAD
 
+2026-06-11 вопрос владельца после 39390e3 («гарантирует ли map не-дженерик карту?»): 5-агентный аудит — гарантии нет by design (mode collapse ожидаем, контрмеры вероятностные с фальсификаторами); жанровая проверка: нестандартность исторически концентрируется в money/audience/distribution ветках (Eco SBIR-грант, Barotrauma free-first, Prison Architect paid-alpha, OHOL open-core, UGG кинофонд; tech/gameplay ветки дженеричны у всех победителей), плюс fusion-паттерн (деньги+аудитория+релиз одним артефактом); 13 непокрытых путей дженеричности при полном соблюдении правил — сильнейший кандидат фикса: сверка итогового дерева с названным baseline на Close → idea, watching; полный разбор: os/docs/MAP_GENERICNESS_AUDIT.md
+
 END_OF_FILE: os/FRICTION.md
