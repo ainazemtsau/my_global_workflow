@@ -26,6 +26,12 @@ premortem:               # ≥5 distinct failure reasons → response
 
 outside_view: <paragraph: 2-3 reference cases and what they imply>
 
+edges:                   # 3-5 concrete owner advantages; each cites one past fact proving it
+  - <edge — provenance: <fact>>
+
+risk_posture: explore    # explore | guarded — sets the evidence burden (shape reads it);
+                         # guarded covers safety-critical until such a direction exists
+
 repos:                   # product repositories, if any
   - <org/repo>: <what it is>
 ```
@@ -62,6 +68,8 @@ bet:
   goal: <copied from tree — recitation>
   appetite: 2w (started <date>)
   kill_by: <metric + threshold + date>
+  forecast: <earliest signal + what we expect to see>   # set in shape; review checks it
+  against: <strongest case against + switch trigger>
   cut_list:                    # what this bet deliberately does NOT include
     - <cut item>
   lens_verdicts:
