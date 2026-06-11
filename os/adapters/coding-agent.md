@@ -11,6 +11,7 @@ Contract:
 - Apply edits exactly as written; append the log line to LOG.md; save the full RESULT to `history/<date>-<session-id>.md`; commit with a descriptive message (`<direction> <play> <node/task>: <log line>`).
 - Maintain the `END_OF_FILE: <path>` trailer on every state file it writes (truncation guard, schema/direction-files.md).
 - No judgment: if a state_change is ambiguous or conflicts with current files, do NOT improvise — reply with the conflict (this routes to repair).
+- Reject CHARTER.md/TREE.md changes whose RESULT carries no `owner_approved` mark (gate G9) — reply with the missing approval instead of applying.
 - Also emits the `next` CALL back to the owner/orchestrator if one is present.
 - Record CALLs issued in state_changes into `NOW.md → open_calls`; clear an entry when its RESULT arrives.
 - `collect` command: on "collect next for <direction>" (or a CALL id), emit ONE paste-ready block for chat platforms: the play file, then NOW.md, then the CALL last (context first, CALL last). This replaces the owner assembling three sources by hand on platforms without a reliable connector.

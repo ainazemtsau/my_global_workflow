@@ -26,6 +26,6 @@ NOW.md contains an approved bet passing gates G1–G6; next CALL is ready.
 ## Notes
 
 - Shape is one session. If shaping stalls on an unknown, spawn `call:research` and close awaiting its return — do not pad the bet with guesses.
-- Shaping a node may reveal it needs children instead of tasks (too big for one appetite). Then: split into 2–4 child outcome nodes in TREE.md, recommend which child to shape, close. That is a valid shape result — recursion happens here, on demand, never in advance.
+- Shaping a node may reveal it needs children instead of tasks (too big for one appetite). Then: split into 2–4 child outcome nodes in TREE.md (each shown as a card with its why and approved by the owner in-session — gate G9), recommend which child to shape, close. That is a valid shape result — recursion happens here, on demand, never in advance.
 
 END_OF_FILE: os/plays/shape.md

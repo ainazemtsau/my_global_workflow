@@ -41,6 +41,8 @@ repos:                   # product repositories, if any
     - id: g-xxxx          # stable 4-hex id, never reused
       goal: <verifiable change in the world, not an activity>
       done_when: <how we'll know>
+      why: <one line: how this node leads to the parent's success>   # mandatory, G9
+      # detail: history/<file>.md   # optional ref to the planning session's full rationale
       status: parked      # parked | shaped | active | done | dropped
       # shaped/active nodes add:
       # appetite: <e.g. 2w>
@@ -48,7 +50,7 @@ repos:                   # product repositories, if any
       children: []        # expand only when a node approaches activation
 ```
 
-Rules: outcomes only — tasks never appear here (G2). One `active` node per direction (G1). Width ≤7 open children per node. `dropped` nodes keep one line with the reason — pruning is information.
+Rules: outcomes only — tasks never appear here (G2). One `active` node per direction (G1). Width ≤7 open children per node. `dropped` nodes keep one line with the reason — pruning is information. Every non-root node carries its one-line `why`; the full rationale is already stored in the planning session's history file — store rich, load minimal, fetch detail on demand.
 
 ## NOW.md
 

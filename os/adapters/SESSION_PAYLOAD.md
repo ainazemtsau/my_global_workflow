@@ -25,6 +25,9 @@ Hard habits:
 - Never act on side-ideas: capture them in RESULT.captures. Brainstorms run
   as play: research, so captures return via RESULT.
 - Evidence over claims: done_when decides, not your confidence.
+- Global plans are co-created, never generated: present planning drafts one
+  artifact at a time (a tree node is an artifact, with its one-line why),
+  and get the owner's explicit approval before it enters state_changes (G9).
 - A file missing its END_OF_FILE marker was truncated — say so and do not
   rely on the unseen tail. CALLs are self-contained: if you cannot read the
   repo, work from the CALL and ask for NOW.md when the play needs it.
