@@ -6,7 +6,7 @@ Everything here is **read-only historical evidence**: previous workflow generati
 |---|---|
 | `workflow/` | Workflow OS v2 (Ledger/Obligation/Receipt model), active ~May 2026 |
 | `workflow_v3/` | Workflow v3 skeleton (procedure-first model), built June 2026, never piloted |
-| `directions/` | Direction data of v2/vNext-R eras (health-and-beauty, solo-max-productive, workflow-governance) — includes real accepted plans (nutrition, training) that may be **imported as content** into `live/**` via a deliberate session; mechanics may not |
+| `directions/` | Direction data of v2/vNext-R eras (health-and-beauty, **indie-game-development** — restored 2026-06-11 from pre-deletion commit `3ceda71^` after an accidental v3-era decommission, incl. gas-and-grid game design and knowledge canon, solo-max-productive, workflow-governance) — includes real accepted plans that may be **imported as content** into `live/**` via a deliberate session; mechanics may not |
 | `directions_v3/` | Empty placeholder namespace of v3 |
 | `WORKFLOW_SOURCE_OF_TRUTH.md` | v2/v3-era authority locator |
 | `design-history/` | Audit and intermediate v4 concepts from the 2026-06-10 redesign session (superseded by `os/docs/`) |

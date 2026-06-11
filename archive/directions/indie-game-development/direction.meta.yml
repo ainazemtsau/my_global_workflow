@@ -1,0 +1,25 @@
+direction:
+  id: indie-game-development
+  name: Indie Game Development
+  status: active
+  source_of_truth: github_markdown
+  repo_path: directions/indie-game-development
+workflow:
+  root: directions/indie-game-development/workflow
+  ledger: directions/indie-game-development/workflow/LEDGER.md
+  obligations: directions/indie-game-development/workflow/OBLIGATIONS.md
+  receipts_index: directions/indie-game-development/workflow/RECEIPTS_INDEX.md
+  receipts: directions/indie-game-development/workflow/receipts/
+  commit_scopes: directions/indie-game-development/workflow/COMMIT_SCOPES.md
+  dashboard: directions/indie-game-development/workflow/DASHBOARD.md
+  migration_receipt: directions/indie-game-development/workflow/MIGRATION_RECEIPT.md
+  project_setup: directions/indie-game-development/workflow/project_setup/
+  projections: directions/indie-game-development/workflow/projections/
+archive:
+  index: directions/indie-game-development/archive/ARCHIVE_INDEX.md
+  results: directions/indie-game-development/archive/results/
+  legacy_vnext_r: directions/indie-game-development/archive/legacy-vnext-r/
+  authority: legacy_evidence_only_not_accepted_state
+accepted_state_authority: directions/indie-game-development/workflow/LEDGER.md
+do_not_duplicate_accepted_state: true
+accepted_state_note: Read accepted state from the Ledger and committed Receipts; this metadata file must not restate receipt lists or root objective status.
