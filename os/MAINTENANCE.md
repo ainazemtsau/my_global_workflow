@@ -16,6 +16,8 @@ expected: |
   <как должно быть>
 ```
 
+A problem chat transcript is an equally valid entry: paste the transcript (whole or fragment) plus one line on what felt wrong — the session derives what/where/expected itself.
+
 No other setup. The session reads this file and runs the procedure below.
 
 ## Procedure
@@ -26,11 +28,13 @@ No other setup. The session reads this file and runs the procedure below.
    - (c) customization — owner wants different behavior;
    - (d) one-off accident — rules are fine, an execution slipped → no rule change; log friction, suggest the repair play if state is affected;
    - (e) unclear / single occurrence of a suspected pattern → log friction only, no change yet.
+
+   With a transcript: replay it against its play step by step — behavior vs rule text — and give the verdict BEFORE designing anything: the session broke the rule (→ d), the rule produced the behavior (→ a/b), the platform did (connector cache, project chat history → adapter fix or friction watch), or the expectation itself was wrong (explain to the owner; no change). The owner's proposed mechanism is a hunch, not a spec: extract the underlying problem and judge it independently — "rules are fine, usage was wrong" is a valid resolution.
 2. **Trigger check.** An explicit owner request is a sufficient trigger for (a)–(c). Self-initiated improvements (nobody asked) need ≥2 FRICTION entries on the same point. Never both fix the request AND slip in unrelated "improvements".
 3. **Design the smallest change** that resolves the case, inside the budgets: kernel ≤1500 words, a play ≤600, six state file types, two packet types. If the fix wants to exceed a budget — simplify the fix or propose removing something else in the same change; growing past budgets is solving the wrong problem.
 4. **Consistency sweep.** Grep every term/file the change touches and update all cross-references. If `os/adapters/SESSION_PAYLOAD.md` changed, say so explicitly in the reply — the owner must re-paste platform instructions (politely degradable, not urgent).
 5. **Verify.** Re-read the changed files end-to-end for contradictions; walk one affected scenario (use the validation trace in `os/docs/DESIGN.md` §4 as the test track). A change that can't survive the walkthrough doesn't ship.
-6. **Log & close.** Append the case to `os/FRICTION.md` with `→ fixed <commit>` (or `→ logged, watching` for (d)/(e)). Commit with a descriptive message. Reply to the owner with: what changed and where, why this is the smallest fix, and anything the owner must do (usually nothing).
+6. **Log & close.** Append the case to `os/FRICTION.md` with `→ fixed <commit>` (or `→ logged, watching` for (d)/(e)). Commit with a descriptive message. Reply to the owner with: what changed and where, why this is the smallest fix, anything the owner must do (usually nothing), and a one-line litmus to re-test it in his next chat.
 
 ## Boundaries
 

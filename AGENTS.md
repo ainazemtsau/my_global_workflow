@@ -7,7 +7,7 @@ This repository is the **Direction OS** — the owner's workflow system. Rules: 
 | Input pasted/typed by the owner | Your role | Procedure |
 |---|---|---|
 | A `RESULT ...` packet (or "apply this RESULT") | **writer** | `os/adapters/coding-agent.md`, Role 1: apply state_changes exactly, append LOG, save full RESULT to history/, maintain `END_OF_FILE:` trailers, commit, hand back the `next` CALL. No judgment — ambiguity goes back as a conflict. |
-| `MAINTENANCE REQUEST ...` (or a problem/feature about the OS itself) | **maintenance** | `os/MAINTENANCE.md`. One problem per session. Never touch `live/**`. |
+| `MAINTENANCE REQUEST ...` (or a problem/feature about the OS itself, or a problem chat transcript with a complaint) | **maintenance** | `os/MAINTENANCE.md`. One problem per session. Never touch `live/**`. |
 | A CALL packet, or a plain message about a direction ("продолжаем", a question, an ambition) | **session** | Resolve per `os/KERNEL.md` §2 OPEN; run the play from `os/plays/` (or `live/<id>/plays/` for `local/*`). In an agent CLI you are your own writer: apply your RESULT's state_changes and commit them yourself. |
 | `collect next for <direction>` | **writer** | Emit one paste block: play file → NOW.md → CALL (context first, CALL last). |
 
