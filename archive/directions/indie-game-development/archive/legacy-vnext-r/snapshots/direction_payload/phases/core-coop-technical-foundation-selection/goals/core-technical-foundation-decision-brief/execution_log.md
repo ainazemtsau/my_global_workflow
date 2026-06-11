@@ -1,0 +1,384 @@
+# Execution Log — Core Technical Foundation Decision Brief
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  persist: true
+  target_log_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md"
+  event_type: stage_run
+  timestamp: "2026-05-14"
+  direction:
+    name: Indie Game Development
+    path: directions/indie-game-development
+  phase:
+    name: Core Co-op Technical Foundation Selection
+    path: directions/indie-game-development/phases/core-coop-technical-foundation-selection
+    status: active
+  goal:
+    title: "Сформировать Core Technical Foundation Decision Brief"
+    path: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief
+    status: active_goal_shaped_pending_E1
+  stage:
+    id: G1_GOAL_SHAPE
+    name: Goal Shape
+  route:
+    next_stage: E1_EXECUTION_BRIEF
+  return_state: DONE
+  input_sources:
+    - source: "P0 launch card and Project Files 00-07"
+      freshness: fresh_after_p0_repository_apply_readback
+    - source: "User amendment: include Codex/project engineering operating model"
+      freshness: current_user_message
+    - source: "User clarification: one Goal is acceptable only if work is staged and not one-shot technical closure"
+      freshness: current_user_message
+  outputs_created:
+    - "Goal Contract shaped and persisted."
+    - "Decision status model added for foundation surfaces."
+    - "E1 route prepared for staged execution decomposition."
+  decisions_made:
+    - "Use one Goal for the accepted technical foundation decision brief."
+    - "Do not require all technical details to be decided in one stage/request."
+    - "Include Project Engineering & Codex Development Operating Model as one decision surface."
+    - "Do not execute implementation, Unity bootstrap, code transfer, or Codex product/project execution inside G1."
+  repository_patch:
+    required: true
+    patch_id: g1_goal_shape_core_technical_foundation_decision_map_2026-05-14
+    summary: "Create Goal Contract and update active Project File projections."
+  changed_files_context_refresh:
+    required: true
+    files:
+      - 00_DIRECTION_START_HERE.md
+      - 01_DIRECTION_STATE.md
+      - 02_CURRENT_PHASE.md
+      - 03_FOCUS_REGISTER.md
+      - 04_ACTIVE_GOAL.md
+      - 05_PORTFOLIO_QUEUE.md
+      - 06_CONTEXT_LIBRARY_INDEX.md
+  evidence_pointers:
+    - "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+  friction:
+    - "Exact current external networking/tooling evidence not loaded in G1; route to D1 if E1 finds it blocking."
+    - "Old project code/docs not loaded in G1; request/audit only if transfer boundary needs them."
+  human_burden:
+    level: H1
+    notes: "User approved formalization and later confirmed staged decision-map correction."
+  ai_failure_mode:
+    - "Prevent scope expansion into one-shot technical mega-goal."
+    - "Prevent scope expansion into full engineering handbook or implementation."
+  blocker: []
+  next_route: E1_EXECUTION_BRIEF
+  next_launch_card_created: true
+```
+
+---
+```yaml
+execution_log_entry:
+  workflow_packet: 1
+  schema: execution_log_entry.v1
+  persist: true
+  target_log_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md"
+  event_type: stage_run
+  timestamp: "2026-05-15"
+  direction:
+    name: Indie Game Development
+    path: directions/indie-game-development
+  phase:
+    name: Core Co-op Technical Foundation Selection
+    path: directions/indie-game-development/phases/core-coop-technical-foundation-selection
+    status: active_after_p0_map_alignment_pending_g1_repair_update
+  goal:
+    title: "Сформировать Core Technical Foundation Decision Brief"
+    path: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief
+    status: artifact_exists_pending_G1_repair_update
+  stage:
+    id: P0_PHASE_START
+    name: Phase Start
+  route:
+    next_stage: G1_GOAL_SHAPE
+    mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
+  return_state: DONE
+  input_sources:
+    - source: "User approval: APPROVE AND FORMALIZE"
+      freshness: current_user_message
+    - source: "User follow-up approving workflow continuation"
+      freshness: current_user_message
+    - source: "08_DIRECTION_MAP.md initialized by M0"
+      freshness: fresh_after_m0_review
+    - source: "Active Phase Brief / Goal Contract / existing decision brief"
+      freshness: current_repository_files
+  outputs_created:
+    - "P0 formalized active Phase keep/update decision."
+    - "Map binding to H1/H1_G1/H1_G2 added as required state."
+    - "Existing decision brief classified as review candidate/evidence artifact."
+    - "Next route set to G1_GOAL_SHAPE repair/update."
+  decisions_made:
+    - "Keep current Phase; do not replace/start new Phase."
+    - "Keep current Goal; do not duplicate Goal."
+    - "Do not route directly from P0 to E1 or R1."
+    - "Do not treat existing decision brief as accepted by P0."
+    - "Do not run product/project execution."
+  repository_patch:
+    required: true
+    patch_id: p0_phase_start_indie_game_development_map_alignment_2026_05_15
+    summary: "Update Project Files and Phase Brief for post-M0 P0 map alignment and G1 repair/update route."
+  changed_files_context_refresh:
+    required: true
+    files:
+      - directions/indie-game-development/project_files/00_DIRECTION_START_HERE.md
+      - directions/indie-game-development/project_files/01_DIRECTION_STATE.md
+      - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+      - directions/indie-game-development/project_files/03_FOCUS_REGISTER.md
+      - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+      - directions/indie-game-development/project_files/05_PORTFOLIO_QUEUE.md
+      - directions/indie-game-development/project_files/06_CONTEXT_LIBRARY_INDEX.md
+      - directions/indie-game-development/phases/core-coop-technical-foundation-selection/00_PHASE_BRIEF.md
+      - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md
+  evidence_pointers:
+    - "directions/indie-game-development/project_files/08_DIRECTION_MAP.md"
+    - "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+  friction:
+    - "Current Project Files contain E1/G1/R1 route mismatch until patch is applied/read back/refreshed."
+    - "G1 prompt still required before next stage execution."
+  human_burden:
+    level: H1
+    notes: "Next burden is Codex repository maintenance apply/read-back and manual Project Files refresh."
+  ai_failure_mode:
+    - "Previous assistant response explained Phase meaning but did not emit full formal packets; this entry repairs the workflow close."
+  blocker:
+    - "G1 launch blocked until repository maintenance apply/read-back/commit verification and Project Files refresh."
+  next_route: G1_GOAL_SHAPE
+  next_launch_card_created: true
+```
+---
+```yaml
+execution_log_entry:
+  workflow_packet: 1
+  schema: execution_log_entry.v1
+  persist: true
+  target_log_path: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md"
+  event_type: stage_run
+  timestamp: "2026-05-15"
+  direction:
+    name: Indie Game Development
+    path: directions/indie-game-development
+  phase:
+    name: Core Co-op Technical Foundation Selection
+    path: directions/indie-game-development/phases/core-coop-technical-foundation-selection
+    status: active_after_p0_map_alignment_pending_g1_repair_update
+  goal:
+    title: "Сформировать Core Technical Foundation Decision Brief"
+    path: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief
+    status: artifact_exists_pending_G1_repair_update
+  stage:
+    id: P0_PHASE_START
+    name: Phase Start / validation repair
+  route:
+    next_stage: G1_GOAL_SHAPE
+    mode: repair_update_existing_active_goal_against_initialized_direction_map_and_existing_artifact
+  return_state: DONE
+  input_sources:
+    - source: "Codex repository maintenance return for p0_phase_start_indie_game_development_map_alignment_2026_05_15"
+      freshness: current_user_message
+    - source: "GitHub read-back of 02_CURRENT_PHASE.md and 04_ACTIVE_GOAL.md after main merge"
+      freshness: verified_current_repository_files
+    - source: "User approval: APPROVE AND FORMALIZE REPAIR"
+      freshness: current_user_message
+  outputs_created:
+    - "Narrow repair patch for stale E1 projection blocks."
+    - "02_CURRENT_PHASE.md phase_closure_contract_status_update repaired to G1 repair/update."
+    - "04_ACTIVE_GOAL.md shaped_goal block repaired to current runtime status while preserving previous E1 shape as historical context."
+  decisions_made:
+    - "Do not launch G1 until repair patch is applied, read back, committed, and Project Files cache refreshed."
+    - "Do not mutate 08_DIRECTION_MAP.md."
+    - "Do not mutate 07_PHASE_MEMORY_INDEX.md."
+    - "Do not run product/project execution."
+  repository_patch:
+    required: true
+    patch_id: p0_validation_repair_stale_e1_projection_blocks_2026_05_15
+    summary: "Repair residual stale E1 projection blocks in 02_CURRENT_PHASE.md and 04_ACTIVE_GOAL.md."
+  changed_files_context_refresh:
+    required: true
+    files:
+      - directions/indie-game-development/project_files/02_CURRENT_PHASE.md
+      - directions/indie-game-development/project_files/04_ACTIVE_GOAL.md
+      - directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md
+  evidence_pointers:
+    - "directions/indie-game-development/project_files/02_CURRENT_PHASE.md"
+    - "directions/indie-game-development/project_files/04_ACTIVE_GOAL.md"
+  friction:
+    - "Manual Project Files cache refresh remains blocking before G1."
+  human_burden:
+    level: H1
+    notes: "Run Codex repository maintenance apply/read-back; then refresh 02 and 04 Project Files cache before next G1 material run."
+  ai_failure_mode:
+    - "Patch validation found residual stale projection blocks after a broader state repair."
+  blocker:
+    - "G1 launch blocked until repair repository maintenance apply/read-back/commit verification and Project Files refresh."
+  next_route: G1_GOAL_SHAPE
+  next_launch_card_created: true
+```
+
+## End-of-file marker
+
+`END_OF_FILE: directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/execution_log.md`
+
+---
+```yaml
+execution_log_entry:
+  workflow_packet: 1
+  schema: execution_log_entry.v1
+  timestamp: "2026-05-15"
+  stage_id: M0_DIRECTION_MAP
+  event_type: direction_map_migration_formalized
+  direction: indie_game_development
+  phase_id: core-coop-technical-foundation-selection
+  goal_id: core-technical-foundation-decision-brief
+  summary: "M0_DIRECTION_MAP migration formalized 08_DIRECTION_MAP.md from uninitialized stub into initialized strategic map."
+  user_approval: "ok давай продолжать миграцию"
+  changed_files:
+    - directions/indie-game-development/project_files/08_DIRECTION_MAP.md
+  decisions:
+    - "Current Initiative set to innovative-commercial-expedition-gas-sim-game."
+    - "Active horizon set to H1_playable_technical_nucleus."
+    - "Current active Goal bound as H1_G1 inside H1 rather than treated as the whole map."
+    - "Codex Development Operating Model & Architecture Protocols added as explicit H1_G2 gate."
+    - "No-code-without-validation and bounded Codex slice principles captured as development protocol seeds."
+  not_performed:
+    - "No Phase change."
+    - "No Goal change."
+    - "No Portfolio Queue mutation."
+    - "No Unity project creation."
+    - "No code transfer."
+    - "No Codex product/project execution."
+    - "No Game Documentation promotion."
+  next_action: "Run Codex repository maintenance apply/read-back, then refresh ChatGPT Project File cache for 08_DIRECTION_MAP.md before next material workflow run."
+```
+
+## 2026-05-16 — G1_GOAL_SHAPE formalization: decision brief route/state repair
+
+```yaml
+execution_log_entry:
+  schema: execution_log_entry.v1
+  log_type: stage_execution
+  stage_id: G1_GOAL_SHAPE
+  stage_name: "Goal Shape / Ruthless Cut"
+  direction:
+    id: indie_game_development
+    name: "Indie Game Development"
+  phase:
+    id: core-coop-technical-foundation-selection
+    name: "Core Co-op Technical Foundation Selection"
+  goal:
+    id: core-technical-foundation-decision-brief
+    title: "Сформировать Core Technical Foundation Decision Brief"
+  input:
+    existing_goal_contract: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/00_GOAL_CONTRACT.md"
+    existing_decision_brief: "directions/indie-game-development/phases/core-coop-technical-foundation-selection/goals/core-technical-foundation-decision-brief/04_CORE_TECHNICAL_FOUNDATION_DECISION_BRIEF.md"
+    prior_route_state: "artifact_exists_pending_G1_repair_update"
+  result:
+    return_state: DONE
+    artifact_classification: review_ready_candidate
+    accepted_by_g1: false
+    accepted_by_r1: false
+    duplicate_or_rewrite_required: false
+    selected_next_stage: B1_PROBLEM
+  route_reason: >
+    Existing decision brief appears review-ready, but direct G1_GOAL_SHAPE -> R1_GOAL_REVIEW_DISTILL
+    is not registry-valid. B1_PROBLEM is selected narrowly for route-integrity recovery and review
+    handoff repair.
+  scope_cuts:
+    - "No decision brief rewrite."
+    - "No R1 review inside G1."
+    - "No E1 execution decomposition inside G1."
+    - "No A1/D1/S3 work inside G1."
+    - "No Unity project creation."
+    - "No code transfer."
+    - "No Codex product/project execution."
+    - "No Task Master graph."
+    - "No Game Documentation promotion."
+  downstream_gates_preserved:
+    - "A1_AUDIT for Grid/GridV2 and GasV2R transfer safety if needed."
+    - "D1_DEEP_RESEARCH for current external evidence if needed."
+    - "S3_DECIDE if a human-owned tradeoff is reopened."
+    - "E1_EXECUTION_BRIEF before implementation planning or Codex execution."
+  repository_patch:
+    status: requested_after_user_approval
+    patch_id: g1_goal_shape_route_repair_core_technical_foundation_decision_brief_2026_05_16
+  changed_files_context_refresh_required: true
+```
+
+## 2026-05-16 — R1_GOAL_REVIEW_DISTILL formalization: accepted route-gated decision map
+
+```yaml
+execution_log_entry:
+  workflow_packet: 1
+  schema: execution_log_entry.v1
+  persist: true
+  event_type: stage_run
+  timestamp: "2026-05-16"
+  stage:
+    id: R1_GOAL_REVIEW_DISTILL
+    name: "Goal Review / Distill"
+  direction:
+    id: indie_game_development
+    name: "Indie Game Development"
+  phase:
+    id: core-coop-technical-foundation-selection
+    name: "Core Co-op Technical Foundation Selection"
+    status_after_r1: active_r1_accepted_decision_map_pending_grid_gas_transfer_audit
+  goal:
+    id: core-technical-foundation-decision-brief
+    title: "Сформировать Core Technical Foundation Decision Brief"
+    result_status: r1_accepted_route_gated_decision_map
+  input:
+    - "Existing Core Technical Foundation Decision Brief."
+    - "Goal Contract."
+    - "Phase Brief."
+    - "Owner confirmation that multiplayer decision is reliable."
+    - "Codex read-only result confirming decision_brief_status: accept_as_route_gated_decision_map."
+    - "Codex read-only result confirming B1 was route-integrity repair only."
+    - "Technical Foundation — Gas and Grid Contract."
+    - "Clean-start Transfer Boundary."
+  review:
+    review_verdict: completed_verified
+    closure_eligibility: eligible_for_goal_acceptance_not_phase_closure
+    accepted_result: accepted_route_gated_decision_map
+  accepted_surfaces:
+    multiplayer:
+      status: decided
+      default: "FishNet + Steamworks / Steam Networking / Steam Datagram Relay"
+      fallback: "Photon Fusion 2"
+      architecture: "player-hosted / listen-host co-op, no dedicated authoritative server by default"
+    project_engineering_codex_operating_model:
+      status: decided_at_decision_map_level
+  gated_surfaces:
+    legacy_grid:
+      status: audit_needed_A1
+    gridv2:
+      status: audit_needed_A1
+      note: "Not a silent replacement for legacy Grid."
+    gasv2r:
+      status: audit_needed_A1
+    grid_gas_interaction:
+      status: decision_gate_audit_surface
+  phase_progress_gate:
+    result: continue_with_required_goal
+    p9_allowed_now: false
+    next_required_goal_candidate:
+      id: grid-gas-transfer-boundary-audit
+      title: "Провести аудит transfer boundary для legacy Grid, GridV2, GasV2R и Gas↔Grid interaction"
+      recommended_next_stage: G1_GOAL_SHAPE
+      expected_route_after_G1: A1_AUDIT
+  not_performed:
+    - "No Unity project creation."
+    - "No code transfer."
+    - "No Codex product/project execution."
+    - "No Task Master graph."
+    - "No Game Documentation promotion."
+    - "No implementation planning."
+  repository_patch:
+    required: true
+    patch_id: r1_accept_route_gated_decision_map_and_select_grid_gas_audit_2026_05_16
+  changed_files_context_refresh_required: true
+  next_route: G1_GOAL_SHAPE
+```
