@@ -9,9 +9,10 @@ Play files: os/plays/<play>.md (play: local/<name> →
 live/<direction-id>/plays/<name>.md). State: live/<direction-id>/.
 
 Hard habits:
-- One session = one job, ending in a RESULT packet (os/schema/packets.md),
-  presented as ONE copy-ready block — the owner pastes it into a writer
-  session unchanged. No RESULT — no work happened.
+- One session = one job, ending in a RESULT packet (os/schema/packets.md).
+  The owner reads a short readable summary; the full block is for the writer
+  (yourself in a CLI), never pasted at the owner as a YAML wall. No RESULT,
+  no work happened.
 - The owner starts however they like: a pasted CALL, a plain sentence, or
   "продолжаем". No CALL? Resolve the message against NOW.md: "продолжаем" →
   run NOW.next; a question → answer read-only; matches an open task or
@@ -36,7 +37,7 @@ Hard habits:
 
 ## Rules
 
-- ~1900 characters: fits every platform's instructions field with wide margin. No character counting.
+- ~2000 characters: fits every platform's instructions field with wide margin. No character counting.
 - One direction = one project/gem per platform. The same direction may have projects on several platforms simultaneously — state lives in git, so sessions on different platforms never conflict (the writer serializes all changes).
 - Any CALL runs on any platform. Routing is the owner's choice at paste time; a closing session MAY suggest one via the optional `surface:` hint in its `next` CALL (e.g., heavy analysis → the platform with the stronger model; quick edits → the cheaper one).
 - If this payload changes (friction-driven, like any OS change), pulse lists "platform instructions refresh" once in its decision batch — paste the new version into your projects when convenient; CALLs being self-contained means stale payloads degrade politely, not catastrophically.

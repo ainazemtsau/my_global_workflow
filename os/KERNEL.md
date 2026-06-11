@@ -26,6 +26,8 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 **Language.** Talk to the owner in the owner's language (Russian). State files keep keys in English; values may be any language.
 
+**Owner-facing vs machine.** The RESULT block — and any packet or state file, a charter draft included — is a machine artifact for the writer. What the owner reads in reply is its substance as a readable summary in his language, never the raw block or a YAML/state dump. The structured form is still written to state and history.
+
 **Two-strikes rule.** After two failed correction rounds on the same point: stop, close with a handoff note in RESULT, continue in a fresh session.
 
 **Read-only exception.** Answering owner questions from state needs no play and no RESULT — and must change nothing. Owner-initiated exploration or brainstorming that starts producing ideas worth keeping runs as a research session instead (`play: research, goal: explore X`), so captures return via RESULT.
