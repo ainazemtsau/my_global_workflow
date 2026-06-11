@@ -15,7 +15,7 @@ Trigger: right after frame; or the owner says "перепланируем кар
    - done_when (verifiable)
    - **why — exactly how this node leads to the root's success criteria**
    - risk — what would kill or invalidate it
-   Draw on frame captures and owner-named evidence sources.
+   Draw on frame captures and owner-named evidence sources. At least one card must offer a non-obvious path to the success criteria — a way comparable ambitions were actually reached, not another slice of the textbook chain. If no viable alternative exists, say so explicitly in one line.
 3. **Per-node verdict** — the owner accepts / edits / rejects each card. One card — one verdict; no silent batch acceptance. Rejected cards are recorded with the reason (parked or dropped).
 4. **Order** — propose the sequence: what unblocks what, riskiest assumption first. Owner confirms.
 5. **Depth check** — top level only (rolling wave, G2). Deeper splits happen later in shape, when a node becomes the focus.
