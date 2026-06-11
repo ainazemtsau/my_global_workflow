@@ -22,6 +22,7 @@ Global:
 8. **WIP across directions** — how many directions had sessions since last pulse? If owner attention is spread thinner than 2–3 directions, recommend which to pause (Little's law applies to the owner too).
 9. **Knowledge staleness** — any knowledge entry past its relevance (check `read_by` and dates)? Mark stale.
 10. **Friction** — any os/FRICTION.md point with ≥2 entries? Recommend one maintenance session (and nothing more).
+11. **Market contact** (per direction with an active bet) — were decisions since last pulse checked against at least one external signal (market/audience numbers, live users), with the number cited?
 
 ## Close
 
@@ -29,11 +30,11 @@ RESULT: the boolean report, batched decisions_needed across directions, state_ch
 
 ## Done when
 
-All ten items have explicit answers; the owner has one consolidated decision batch.
+All eleven items have explicit answers; the owner has one consolidated decision batch.
 
 ## Notes
 
 - Pulse never does object-level work and never reshapes bets — it routes.
-- Keep the report on one screen: ten lines plus the decision batch.
+- Keep the report on one screen: eleven lines plus the decision batch.
 
 END_OF_FILE: os/plays/pulse.md
