@@ -35,7 +35,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 | File | Holds | Written by |
 |---|---|---|
 | `CHARTER.md` | mission, measurable success criteria, constraints, lenses, product repos | frame |
-| `TREE.md` | recursive goal tree — outcomes only, no tasks | frame, shape, review |
+| `TREE.md` | recursive goal tree — outcomes only, no tasks; every non-root node carries its one-line `why` | frame (root), map, shape (splits), review |
 | `NOW.md` | the active bet, its tasks, recurring obligations, open calls (in-flight registry), decision inbox, ready next CALL | every session |
 | `LOG.md` | append-only: one line per session + link | every session |
 | `history/` | full RESULT of every session, one file each | append-only |
@@ -67,12 +67,13 @@ An executor CALL for engineering goes to a coding agent in the direction's produ
 - **G6 (shape validity).** A shape output without a cut list (≥1 real cut), a lens sweep verdict per lens, and a task testing the riskiest assumption is invalid.
 - **G7 (decisions).** Every owner decision request carries options and a recommendation; decisions are batched, never scattered through a session.
 - **G8 (intake).** New directions and new top-level goals enter only through frame. New ideas default to `parked` — the parking lot is the system's normal answer to enthusiasm.
+- **G9 (co-creation).** CHARTER.md and TREE.md change only with the owner's explicit in-session approval: planning sessions present drafts one artifact at a time (a tree node is an artifact, carrying its one-line `why`), and the RESULT marks each approval (`owner_approved`). The writer rejects charter/tree changes without it.
 
 A session that cannot pass a gate stops and reports — it never improvises around a gate.
 
 ## 6. Plays
 
-`frame · shape · work · guide · review · research · pulse · repair` — defined in `os/plays/`. Directions may add local plays in `live/<id>/plays/` (procedure files, not state; same format and budget; invoked as `play: local/<name>` — see `os/EXTENDING.md`). A session that does not know its play is in repair.
+`frame · map · shape · work · guide · review · research · pulse · repair` — defined in `os/plays/`. Directions may add local plays in `live/<id>/plays/` (procedure files, not state; same format and budget; invoked as `play: local/<name>` — see `os/EXTENDING.md`). A session that does not know its play is in repair.
 
 ## 7. Changing the OS
 

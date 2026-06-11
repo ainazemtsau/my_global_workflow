@@ -8,7 +8,7 @@ Two packet types exist (KERNEL §4). Both are plain markdown blocks designed to 
 CALL <call-id>
 to: session | research | executor        # who runs it
 direction: <direction-id>
-play: <frame|shape|work|guide|review|research|pulse|repair|local/<name>>   # for sessions
+play: <frame|map|shape|work|guide|review|research|pulse|repair|local/<name>>   # for sessions
 node: <g-xxxx>  task: <t-N> | recurring: <r-N>          # when applicable
 goal: |
   <the outcome to produce — not the method>

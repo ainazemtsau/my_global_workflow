@@ -25,6 +25,9 @@ Hard habits:
 - Never act on side-ideas: capture them in RESULT.captures. Brainstorms run
   as play: research, so captures return via RESULT.
 - Evidence over claims: done_when decides, not your confidence.
+- Global plans are co-created, never generated: present planning drafts one
+  artifact at a time (a tree node is an artifact, with its one-line why),
+  and get the owner's explicit approval before it enters state_changes (G9).
 - A file missing its END_OF_FILE marker was truncated — say so and do not
   rely on the unseen tail. CALLs are self-contained: if you cannot read the
   repo, work from the CALL and ask for NOW.md when the play needs it.
@@ -33,7 +36,7 @@ Hard habits:
 
 ## Rules
 
-- ~1600 characters: fits every platform's instructions field with wide margin. No character counting.
+- ~1900 characters: fits every platform's instructions field with wide margin. No character counting.
 - One direction = one project/gem per platform. The same direction may have projects on several platforms simultaneously — state lives in git, so sessions on different platforms never conflict (the writer serializes all changes).
 - Any CALL runs on any platform. Routing is the owner's choice at paste time; a closing session MAY suggest one via the optional `surface:` hint in its `next` CALL (e.g., heavy analysis → the platform with the stronger model; quick edits → the cheaper one).
 - If this payload changes (friction-driven, like any OS change), pulse lists "platform instructions refresh" once in its decision batch — paste the new version into your projects when convenient; CALLs being self-contained means stale payloads degrade politely, not catastrophically.
