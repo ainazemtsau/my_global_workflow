@@ -36,7 +36,7 @@ Hard habits:
 
 ## Rules
 
-- ~1600 characters: fits every platform's instructions field with wide margin. No character counting.
+- ~1900 characters: fits every platform's instructions field with wide margin. No character counting.
 - One direction = one project/gem per platform. The same direction may have projects on several platforms simultaneously — state lives in git, so sessions on different platforms never conflict (the writer serializes all changes).
 - Any CALL runs on any platform. Routing is the owner's choice at paste time; a closing session MAY suggest one via the optional `surface:` hint in its `next` CALL (e.g., heavy analysis → the platform with the stronger model; quick edits → the cheaper one).
 - If this payload changes (friction-driven, like any OS change), pulse lists "platform instructions refresh" once in its decision batch — paste the new version into your projects when convenient; CALLs being self-contained means stale payloads degrade politely, not catastrophically.
