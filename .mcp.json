@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "trilium": {
+      "command": "npx",
+      "args": ["-y", "triliumnext-mcp"],
+      "env": {
+        "TRILIUM_API_URL": "${TRILIUM_API_URL:-http://localhost:8080/etapi}",
+        "TRILIUM_API_TOKEN": "${TRILIUM_API_TOKEN}",
+        "PERMISSIONS": "READ;WRITE"
+      }
+    }
+  }
+}
