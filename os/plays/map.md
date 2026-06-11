@@ -18,7 +18,7 @@ Trigger: after frame; «перепланируем карту»; or a review har
    - **why — exactly how this node leads to the root's success criteria**
    - edge — why this owner/AI setup specifically (cite a charter edge), and why an incumbent won't follow
    - risk — what would kill or invalidate it
-   At least one card must offer a non-obvious path to the success criteria — how comparable ambitions were actually reached, not another slice of the textbook chain. Seed it from exactly one rare example — an outlier win or far analogy, not a moodboard of domain hits. No-viable-alternative is claimable only against a fresh map_evidence, in one line. Acceptance check: with the direction's nouns replaced by placeholders a card must stop reading useful — otherwise anchor it in an edge, state fact, or named evidence.
+   At least one card must offer a non-obvious path to the success criteria — how comparable ambitions were actually reached, not another slice of the textbook chain. Seed it from exactly one rare example — an outlier win or far analogy, not a moodboard of domain hits. If no viable alternative exists, say so in one line. Acceptance check: with the direction's nouns replaced by placeholders a card must stop reading useful — otherwise anchor it in an edge, state fact, or named evidence.
 5. **Per-node verdict (owner)** — accept / edit / reject, one card — one verdict, no silent batch acceptance. Rejections are recorded with reason (parked or dropped).
 6. **Order (owner)** — confirm the order, adjusted by verdicts: what unblocks what, riskiest assumption first.
 7. **Depth check** — top level only (rolling wave, G2). Deeper splits happen later, in shape.
