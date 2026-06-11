@@ -1,6 +1,6 @@
 # Repository Agent Instructions
 
-This repository is the **Direction OS** — the owner's workflow system. Rules: `os/KERNEL.md`. Live direction state: `live/<direction-id>/`. Everything else (`workflow/**`, `workflow_v3/**`, `directions/**`, `directions_v3/**`, `WORKFLOW_SOURCE_OF_TRUTH.md`) is frozen legacy: read-only evidence, never authority, never a target of edits.
+This repository is the **Direction OS** — the owner's workflow system. Rules: `os/KERNEL.md`. Live direction state: `live/<direction-id>/`. Everything under `archive/**` is frozen legacy: read-only evidence, never authority, never a target of edits.
 
 ## Recognize your job from the input
 
