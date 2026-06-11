@@ -33,6 +33,7 @@ Receives a business task CALL targeting a product repo (`repo:` field). The full
 Contract:
 - The CALL gives goal / context / boundaries / done_when / return / budget. The agent owns everything else: design, implementation, refactoring, branch/PR mechanics.
 - Repo-internal conventions (build, test, style, architecture rules) live in that repo's AGENTS.md / CLAUDE.md — command-first, written once per repo. The OS never duplicates them.
+- The run contract installed in the repo's root AGENTS.md at setup governs the run (roles, gates, retry/escalation). No run contract → the repo is uninitialized: stop and report — the first CALL for this repo is setup per `os/engineering/PROJECT_SETUP.md` (interactive: stack interview with the owner).
 - Exit report (= the RESULT's evidence): descriptive commits or PR link, diff summary, output of the checks run (tests/build), explicit list of assumptions made, anything cut for budget.
 - "Done" is the CALL's done_when verified by a runnable check, not the agent's assertion. A task that can't carry a runnable check should say how it is to be verified instead — at CALL time, not after.
 - Blockers surface early: if the task looks infeasible or 2x over budget, stop and report — a fast "blocked, because" is a good result; days of silent struggle are not.

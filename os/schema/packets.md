@@ -29,7 +29,7 @@ surface: <optional routing hint: chatgpt | claude | cli | any>
 **CALL hygiene.** `goal`/`context`/`boundaries` never restate or paraphrase the play's procedure — the play file is the only procedure source. A CALL that summarizes steps ("one card at a time", "ask first") invites the session to follow the paraphrase instead of the play; the writer bounces such CALLs at collect/apply time.
 
 Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | mechanical`:
-- `engineering` — a business task in a product repo. The agent owns design and implementation; evidence = commits/PR + check output (tests, build). Conventions live in that repo's AGENTS.md/CLAUDE.md, not in the OS.
+- `engineering` — a business task in a product repo. The agent owns design and implementation; evidence = commits/PR + check output (tests, build). Conventions and the run contract live in that repo's AGENTS.md/CLAUDE.md, not in the OS. `goal`/`done_when` stay business-level — hygiene extends to architecture; `context` may point to the direction's `work/` design-exploration docs as input evidence for the planner, never as a binding spec. A direction's first engineering CALL while no initialized product repo exists is repo setup — interactive (stack interview), its `context` points to `os/engineering/PROJECT_SETUP.md` and `os/engineering/profiles/`.
 - `mechanical` — apply exact state_changes to `live/**` (the writer role). No judgment, no interpretation: apply, commit, report the commit hash.
 
 ## RESULT

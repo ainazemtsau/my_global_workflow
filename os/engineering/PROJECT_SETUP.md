@@ -15,6 +15,7 @@ Check `os/engineering/profiles/<stack>.md` first: an existing profile is the ent
 ## Step 3 — Root contract files
 
 - `AGENTS.md` (root, ≤150 lines, command-first): what the project is, exact build/test/lint commands (single-command AND file-scoped variants), conventions, definition of done. `CLAUDE.md` = one line importing AGENTS.md + platform-specific notes. Prune on every agent mistake — this file is a feedback loop, not documentation.
+- **Run contract section in root AGENTS.md** (≤10 lines, distilled from `os/engineering/CONTOUR.md` at setup): roles separated (planner / builder / validator); cycle = plan → ledger → build → gates → report; the builder never edits the ledger, the spec, or acceptance criteria; retries ≤3 per gate, then escalate; cross-module work goes through module public APIs (their AGENTS.md) — changing another module's internals is a separate feature leg; done = gates green + evidence attached. Thresholds and rubric live in `validation.config` and `REVIEW.md`.
 - `REVIEW.md` — the validation rubric (see VALIDATION.md §rubric): severity definitions for THIS repo, always-check rules, skip rules, nit cap, file:line evidence bar.
 - `docs/adr/` — architecture decision records; the agent proposes an ADR whenever it makes a decision a future session would otherwise re-litigate.
 - `validation.config` — gate thresholds: retry budget, mutation kill-rate floor, escalation rules (machine-readable; the run loop reads it).
@@ -39,6 +40,7 @@ Check `os/engineering/profiles/<stack>.md` first: an existing profile is the ent
 - [ ] one-command check passes locally and in CI (format+lint+type+tests)
 - [ ] dependency-boundary check exists and fails on a seeded violation
 - [ ] root AGENTS.md ≤150 lines with working commands; ≥1 module AGENTS.md
+- [ ] run contract section present in root AGENTS.md (clauses per step 3)
 - [ ] REVIEW.md, validation.config, docs/adr/ADR-0001, docs/FRICTION.md, openspec/ exist
 - [ ] stack profile created or updated, returned in the RESULT's state_changes
 - [ ] `_scratch/` exists and a seeded file in it cannot be committed

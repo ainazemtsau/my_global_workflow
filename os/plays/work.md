@@ -9,7 +9,7 @@ Writes: NOW.md (task status), LOG.md, work/ artifacts via state_changes.
 
 1. **Recite** — restate the task's goal and done_when, and the bet it serves. If the task is already obsolete or blocked, say so and close with that finding — that is a valid result.
 2. **Do the work** — this is an ordinary working conversation: drafting, analyzing, deciding, producing. The session is the specialist (marketer, designer, analyst — whatever the task needs).
-   - Engineering or repo execution → `call:executor` with a full CALL (goal, context, boundaries, done_when, return, budget). Close the session awaiting the return, or continue other steps of the same task if they don't depend on it.
+   - Engineering or repo execution → `call:executor` with a full CALL (goal, context, boundaries, done_when, return, budget). The session frames the outcome and evidence pointers; it never designs the solution — architecture is the contour's PLAN, where the owner participates. Close the session awaiting the return, or continue other steps of the same task if they don't depend on it.
    - A bounded side question → `call:research`.
    - Ideas and discovered work → `capture`, one line each. Never expand scope in-session (the bet's cut list is law).
 3. **Self-check** — compare the actual output against done_when point by point. Evidence is the artifact itself (file in work/, executor's commits/PR + checks), not a claim.

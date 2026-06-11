@@ -2,7 +2,14 @@
 
 The second loop of the OS: what happens after a `call:executor (kind: engineering)` leaves a direction. The direction sends a business task; this contour owns everything from plan to verified code. Files here are read by coding agents (Claude Code / Codex / any), not by chat sessions.
 
-Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` (the gate pipeline), `TOOLING.md` (what tools are in/out and why).
+Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` (the gate pipeline), `TOOLING.md` (what tools are in/out and why). PROJECT_SETUP installs this contour's distilled **run contract** into each product repo's root AGENTS.md — the repo is self-sufficient at run time; this file stays the source.
+
+## Boundary with the direction
+
+- The direction (chat sessions) owns WHAT and the acceptance bar: outcome, business-level done_when, boundaries, budget, evidence pointers. It never prescribes architecture, design, or file layout.
+- The contour owns HOW: architecture, design, implementation, validation. Architecture is decided in PLAN — with the owner, in the product repo — and recorded there (ADRs, change specs, module docs). It never lives in direction state; business-relevant assumptions return via REPORT into the direction's review.
+- Design exploration from chats (`work/` docs, research findings) arrives as CALL context pointers: input evidence for the planner, never a binding spec.
+- Feasibility questions ("can this be built within budget at all?") are direction work (research/work spikes); solution design belongs to PLAN.
 
 ## Roles (always separated)
 
@@ -14,11 +21,16 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ```
 CALL (business task from a direction)
-  → PLAN (interactive): planner interviews the owner if needed, writes the
-    change spec: per-feature acceptance criteria as a machine-readable
-    ledger (all entries start failing), plus the verification plan the
-    validator approves BEFORE any code. Owner approves the plan. This is
-    the owner's last mandatory appearance until the final report.
+  → PLAN (interactive): the planner first names the change class — module
+    boundaries / new module / new dependency / core algorithm (simulation,
+    netcode, determinism) / data formats / perf-critical path touched =
+    architectural: options with a recommendation, an owner conversation,
+    an ADR; none touched = light: a short plan, one-message approval.
+    Then it interviews the owner if needed and writes the change spec:
+    per-feature acceptance criteria as a machine-readable ledger (all
+    entries start failing), plus the verification plan the validator
+    approves BEFORE any code. Owner approves the plan. This is the
+    owner's last mandatory appearance until the final report.
   → BUILD (autonomous): one feature at a time, smallest-first.
     Reuse-first rule: before writing anything, search for an existing
     implementation; the duplicate you would have written becomes a call.
@@ -52,6 +64,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 - Model routing: frontier + high effort for PLAN and architecture; default tier for BUILD legs; cheap tier for evaluators/plumbing. Fallback chain configured so overnight runs survive provider errors.
 - Sizing: one autonomous run ≤ the approved change; one feature leg ≤ a focused half-day equivalent. Bigger means the plan needed smaller features.
 - For high-ambiguity features: best-of-N parallel attempts (where the platform supports it) judged by the validator beats in-place retries.
+- Module-scoped contexts: where the platform supports it, scope builder subagents to module boundaries (module + its docs fit one context by PROJECT_SETUP design) — a recommended pattern, not a rule.
 
 ## Non-negotiables (mechanical, enforced by hooks/CI — not prose)
 
