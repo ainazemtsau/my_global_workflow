@@ -26,6 +26,8 @@ parent: <session-id>                     # for children: where the result return
 surface: <optional routing hint: chatgpt | claude | cli | any>
 ```
 
+**CALL hygiene.** `goal`/`context`/`boundaries` never restate or paraphrase the play's procedure — the play file is the only procedure source. A CALL that summarizes steps ("one card at a time", "ask first") invites the session to follow the paraphrase instead of the play; the writer bounces such CALLs at collect/apply time.
+
 Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | mechanical`:
 - `engineering` — a business task in a product repo. The agent owns design and implementation; evidence = commits/PR + check output (tests, build). Conventions live in that repo's AGENTS.md/CLAUDE.md, not in the OS.
 - `mechanical` — apply exact state_changes to `live/**` (the writer role). No judgment, no interpretation: apply, commit, report the commit hash.
@@ -48,6 +50,10 @@ captures:
   - <one line each: emergent work/ideas for later triage>
 decisions_needed:
   - q: <question>  options: [a, b]  recommendation: <a, because ...>
+play_check:
+  - <step# name>: done | skipped <why>
+  # one line per play step; steps the play marks (owner) cite the owner's
+  # actual words (his answer, verdict, or explicit waiver) — gate G10
 log: <one line for LOG.md>
 next: |
   <ready CALL for the continuation | awaiting_decision | return-to-parent <id>>
@@ -85,6 +91,11 @@ state_changes: |
 captures:
   - идея: gif-нарезка сцены 3 для devlog — кандидат в задачи audience-линзы
 decisions_needed: []
+play_check:
+  - 1 recite: done
+  - 2 do the work: done
+  - 3 self-check: done (сверка по done_when попунктно)
+  - 4 close: done (владелец принял: "хук отличный, берём")
 log: work t-2: сценарий трейлера готов и принят
 next: |
   CALL c-118: to: session, play: work, task: t-3 (запись черновика
