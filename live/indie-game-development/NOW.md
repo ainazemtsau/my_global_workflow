@@ -19,67 +19,49 @@ open_calls:
 decision_inbox: []
 
 next: |
-  CALL c-arch-001
+  CALL c-shape-003
   to: session
   direction: indie-game-development
-  play: research
+  play: shape
   node: g-9c41
   goal: |
-    The g-9c41 core architecture is decided at contract level, ready to feed the
-    approach choice in c-shape-003. Five bound sub-questions, answered so they
-    compose: (a) gas-field model — granularity ladder with configurable cell size
-    (25/50cm working points, R2) and the role of a T1/T2-style hierarchy; (b) grid
-    as integration fabric — what the grid owns; how mechanics communicate (owner's
-    "each mechanic in its own layer, synced via the grid" hypothesis weighed as
-    candidate #1 against >=2 alternatives on equal footing) + buy-vs-build sweep of
-    existing solutions; (c) procgen ingestion — the adapter contract (what the core
-    consumes), how DA/PGG geometry becomes sim topology, PGG day-one verdict (R3);
-    (d) scale & network arithmetic — a huge procedurally generated level profile
-    (R1): memory / tick cost / bandwidth on min-spec CPU and a listen-server
-    uplink, dormancy of inactive regions, chunked-delta stream shape under the
-    chosen model; (e) integration brief — 2-3 ranked whole-architecture candidates,
-    recommendation, draft contracts, riskiest assumptions for the future bet.
+    The shaping of g-9c41 paused at s-shape-002 is finished into the direction's
+    first owner-approved bet, with the architecture brief on the table: approach
+    chosen by the owner (A/B/C/hybrid), R1-vs-node-wording resolved under G9,
+    minimal solution with explicit not-included list, real cut list (G6), lens
+    sweep verdict per lens (G6), riskiest-assumption task first, <=3 tasks sized
+    <=half a focused day, kill_by fixed (G4), g-9c41 -> active with the bet in
+    NOW.md.
   context: |
-    live/indie-game-development/work/shape-g-9c41-approaches-2026-06-12.md (plain-
-    language state of the shape: approaches A/B/C + hybrid, glossary, what is
-    already locked);
-    live/indie-game-development/history/s-shape-002.md (captures R1-R4 — the
-    owner's standing requirements; this CALL's origin);
-    live/indie-game-development/TREE.md (g-9c41 done_when 1-8; note: node wording
-    "small representative scene" collides with R1 — rewording belongs to
-    c-shape-003 under G9, not to this research);
-    live/indie-game-development/history/s-map-002.md (P6/P7/P12 judge conditions;
-    PGG asset link in captures); history/s-shape-001.md (appetite FIXED 6w to
-    2026-07-24);
-    archive evidence (read-only; import only with explicit reason per clean-start):
-    old grid substrate, nucleus T1/T2 functional spec — T1+T2 worked single-player,
-    evidence FOR feasibility; A1 audit (adapter boundary, no direct code transfer);
-    multiplayer-readiness guardrail;
-    precedent internals: SS14 atmos (open source), Stationeers, Noita Entangled
-    Worlds, ONI; Unity DOTS/NfE docs; Dungeon Architect / PGG (beta) docs.
+    live/indie-game-development/work/research-g-9c41-core-architecture-2026-06-12.md
+    (architecture brief: granularity ladder, grid verdict, TopologyDocument
+    contract + PGG verdict, scale/net arithmetic, ARCH-1/2/3 + draft contracts +
+    risk ranking; ARCH-1 contains approaches C and A as configurations);
+    live/indie-game-development/work/shape-g-9c41-approaches-2026-06-12.md
+    (approaches A/B/C + hybrid, glossary);
+    live/indie-game-development/history/s-shape-002.md (R1-R4 captures);
+    live/indie-game-development/history/s-shape-001.md (appetite FIXED 6w /
+    2026-07-24 / clip ~07-10; approaches detail);
+    live/indie-game-development/history/s-arch-001.md (research RESULT);
+    live/indie-game-development/TREE.md (g-9c41 done_when 1-8);
+    live/indie-game-development/history/s-map-002.md (P6/P7/P12 conditions).
   boundaries: |
-    P6 network MODEL is not re-litigated: host-authoritative sim, custom
-    chunked-delta gas stream, ghosts only for players/objects, GPU never
-    authoritative, rollback/lockstep at most a future timeboxed spike — this
-    research shapes WHAT flows through that model. Informs, never decides:
-    approach choice (A/B/C/hybrid) and any TREE/CHARTER wording stay with the
-    owner in c-shape-003. No production code (throwaway arithmetic allowed).
-    Appetite end 2026-07-24 is fixed — the hard stop below is real.
+    Appetite FIXED (G3): 6 weeks to 2026-07-24 — not re-litigated, never
+    extended. P6 network model stays locked. Approach choice and any TREE
+    wording change are the owner's in-session calls (G9); the brief informs,
+    never decides. Shape only g-9c41; no CHARTER edits (c-frame-002 queued
+    separately).
   done_when: |
-    An architecture brief exists (returned via RESULT for work/) holding: the
-    granularity ladder incl. configurable cell size; grid ownership +
-    communication verdict (owner hypothesis vs alternatives, buy-vs-build sweep
-    with sources); procgen-ingestion contract draft incl. PGG day-one verdict;
-    scale/network arithmetic for the huge-level profile in numbers, not
-    adjectives; 2-3 ranked whole-architecture candidates + recommendation + draft
-    contracts + riskiest assumptions; established-vs-inference separated, sources
-    dated; every archive import carries its explicit reason.
+    NOW.md holds the owner-approved bet on g-9c41 (G3/G4 valid: appetite
+    6w/2026-07-24, done_when, kill_by) with <=3 tasks <=half a focused day
+    each, riskiest assumption first; cut list + lens sweep verdicts recorded
+    (G6); R1-vs-node-wording decision recorded (TREE edit only with
+    owner_approved, G9); next = first work-session CALL.
   return: |
-    RESULT with the brief (file for work/ via state_changes) + key verdicts
-    summarized; captures; log line; next = c-shape-003 (resume shape on g-9c41
-    with the brief on the table).
-  budget: 2-3 deep sessions (children allowed per play), hard stop 2026-06-15 EOD
-  parent: s-shape-002
-  surface: cli (Fable 5 window until 2026-06-22)
+    RESULT with the approved bet + tasks, log line, next CALL (first work
+    session).
+  budget: one session
+  parent: s-arch-001
+  surface: any (Fable 5 window until 2026-06-22 — early engineering CALLs benefit)
 
 END_OF_FILE: live/indie-game-development/NOW.md
