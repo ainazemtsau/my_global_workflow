@@ -19,39 +19,40 @@ open_calls:
 decision_inbox: []
 
 next: |
-  CALL c-shape-001
+  CALL c-shape-002
   to: session
   direction: indie-game-development
   play: shape
   node: g-9c41
   goal: |
-    g-9c41 ("networked gas+grid core lives") is shaped into the direction's first bet:
-    appetite set, done_when + kill_by fixed (G3/G4), real cut list (G6), <=3 tasks with
-    the riskiest assumption first (networked chunked-delta gas slice on min-spec), and
-    the product-repo decision made (GasCoopGame@236bc30e / TheLastExit / fresh start).
+    The shaping of g-9c41 started in s-shape-001 is finished into the direction's first
+    owner-approved bet: approach chosen from the three tabled (or a sharper hybrid),
+    minimal solution sketched with explicit not-included list, real cut list (G6), lens
+    sweep verdict per lens (G6), riskiest-assumption task first, <=3 tasks sized <=half
+    a focused day, kill_by fixed (G4), product-repo decision sealed in the bet,
+    g-9c41 -> active with the bet in NOW.md.
   context: |
+    live/indie-game-development/history/s-shape-001.md (FIXED appetite 6w / end
+    2026-07-24 / clip target ~2026-07-10; approaches A/B/C with bet-assumptions and
+    kill conditions; repo finding: GasCoopGame@236bc30e canonical in all three,
+    preliminary recommendation A+C-scope);
     live/indie-game-development/TREE.md (g-9c41 + root map_order);
-    live/indie-game-development/history/s-map-002.md (audit amendments P1/P6/P7/P11 with
-    judge conditions; captures: Fable 5 window to 2026-06-22, DA+PGG adapter rule,
-    lore/gas raw material, agent-drivable harness notes);
-    live/indie-game-development/work/audit-tree-2026-06-12.md §5 (shape-level tactics:
-    replication model, min-spec validation options, render-slice stack, harness spec);
-    archive evidence (read-only): clean-start set (Gas.Config/Foundation/Topology/T1/T2 +
-    Grid substrate), multiplayer-readiness guardrail, old nucleus functional spec (MTS
-    scenes), A1 audit (adapter boundary, no DA hard-coupling), FishNet-default brief
-    (superseded to "NfE default, model locked / vendor swappable" by amendment P6).
+    live/indie-game-development/history/s-map-002.md (amendments P1/P6/P7/P11 + captures);
+    live/indie-game-development/work/audit-tree-2026-06-12.md §5 (shape tactics);
+    archive evidence (read-only): clean-start set, multiplayer-readiness guardrail,
+    old nucleus functional spec (MTS scenes), A1 audit, FishNet brief (superseded by P6).
   boundaries: |
-    Shape only g-9c41 — no deep splits of other nodes, no CHARTER edits (c-frame-002 is
-    queued separately). Alternatives weighed at map and recorded: g-d3a8-first (rejected:
-    the core is unconditional, the Fable-5 window closes 2026-06-22, executable-config
-    validation needs the core), g-5b07-first (rejected: nothing to show yet; its calendar
-    slice starts at the first-clip milestone per map_order). Recommendation: g-9c41 first.
+    Appetite is FIXED (G3): 6 weeks to 2026-07-24 — not re-litigated, never extended.
+    Shape only g-9c41; no CHARTER edits (c-frame-002 queued; repo canonization rides it
+    after bet approval). Approach choice is the owner's call this session, >=1 night
+    after s-shape-001 (2026-06-12).
   done_when: |
-    NOW.md holds the shaped bet on g-9c41 (G3/G4 valid: appetite, done_when, kill_by)
-    with <=3 tasks sized <=half a focused day each, riskiest assumption first; cut list
-    recorded; G6 valid (cut list + lens sweep verdict per lens + riskiest-assumption task).
+    NOW.md holds the owner-approved bet on g-9c41 (appetite 6w/2026-07-24, done_when,
+    kill_by — G3/G4) with <=3 tasks <=half a focused day each, riskiest assumption
+    first; cut list recorded; lens sweep verdict per lens; G1-G6 pass; next = first
+    work-session CALL.
   return: |
-    RESULT with the bet + tasks, log line, next CALL (first work session).
+    RESULT with the approved bet + tasks, log line, next CALL (first work session).
   budget: one session
 
 END_OF_FILE: live/indie-game-development/NOW.md
