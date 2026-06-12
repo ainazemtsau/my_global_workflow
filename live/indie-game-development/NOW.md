@@ -56,7 +56,10 @@ next: |
     live/indie-game-development/history/s-shape-002.md (R1-R4),
     history/s-arch-002.md (research RESULT, R5-R11 echo),
     history/s-shape-001.md (appetite FIXED 6w / 2026-07-24 / clip ~07-10),
-    TREE.md (g-9c41 done_when 1-8), history/s-map-002.md (P6/P7/P12).
+    TREE.md (g-9c41 done_when 1-8), history/s-map-002.md (P6/P7/P12);
+    optional: work/research-g-9c41-analytic-representations-2026-06-12.md
+    (exploratory note s-arch-003 — VFX-puff candidate for the render slice /
+    clip, NetAdapter borrowings, harness exactness oracle; informs only).
   boundaries: |
     Appetite FIXED (G3): 6 weeks to 2026-07-24 — not re-litigated, never
     extended. P6 network model stays locked. Approach choice, the 5
