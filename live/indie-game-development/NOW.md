@@ -19,40 +19,67 @@ open_calls:
 decision_inbox: []
 
 next: |
-  CALL c-shape-002
+  CALL c-arch-001
   to: session
   direction: indie-game-development
-  play: shape
+  play: research
   node: g-9c41
   goal: |
-    The shaping of g-9c41 started in s-shape-001 is finished into the direction's first
-    owner-approved bet: approach chosen from the three tabled (or a sharper hybrid),
-    minimal solution sketched with explicit not-included list, real cut list (G6), lens
-    sweep verdict per lens (G6), riskiest-assumption task first, <=3 tasks sized <=half
-    a focused day, kill_by fixed (G4), product-repo decision sealed in the bet,
-    g-9c41 -> active with the bet in NOW.md.
+    The g-9c41 core architecture is decided at contract level, ready to feed the
+    approach choice in c-shape-003. Five bound sub-questions, answered so they
+    compose: (a) gas-field model — granularity ladder with configurable cell size
+    (25/50cm working points, R2) and the role of a T1/T2-style hierarchy; (b) grid
+    as integration fabric — what the grid owns; how mechanics communicate (owner's
+    "each mechanic in its own layer, synced via the grid" hypothesis weighed as
+    candidate #1 against >=2 alternatives on equal footing) + buy-vs-build sweep of
+    existing solutions; (c) procgen ingestion — the adapter contract (what the core
+    consumes), how DA/PGG geometry becomes sim topology, PGG day-one verdict (R3);
+    (d) scale & network arithmetic — a huge procedurally generated level profile
+    (R1): memory / tick cost / bandwidth on min-spec CPU and a listen-server
+    uplink, dormancy of inactive regions, chunked-delta stream shape under the
+    chosen model; (e) integration brief — 2-3 ranked whole-architecture candidates,
+    recommendation, draft contracts, riskiest assumptions for the future bet.
   context: |
-    live/indie-game-development/history/s-shape-001.md (FIXED appetite 6w / end
-    2026-07-24 / clip target ~2026-07-10; approaches A/B/C with bet-assumptions and
-    kill conditions; repo finding: GasCoopGame@236bc30e canonical in all three,
-    preliminary recommendation A+C-scope);
-    live/indie-game-development/TREE.md (g-9c41 + root map_order);
-    live/indie-game-development/history/s-map-002.md (amendments P1/P6/P7/P11 + captures);
-    live/indie-game-development/work/audit-tree-2026-06-12.md §5 (shape tactics);
-    archive evidence (read-only): clean-start set, multiplayer-readiness guardrail,
-    old nucleus functional spec (MTS scenes), A1 audit, FishNet brief (superseded by P6).
+    live/indie-game-development/work/shape-g-9c41-approaches-2026-06-12.md (plain-
+    language state of the shape: approaches A/B/C + hybrid, glossary, what is
+    already locked);
+    live/indie-game-development/history/s-shape-002.md (captures R1-R4 — the
+    owner's standing requirements; this CALL's origin);
+    live/indie-game-development/TREE.md (g-9c41 done_when 1-8; note: node wording
+    "small representative scene" collides with R1 — rewording belongs to
+    c-shape-003 under G9, not to this research);
+    live/indie-game-development/history/s-map-002.md (P6/P7/P12 judge conditions;
+    PGG asset link in captures); history/s-shape-001.md (appetite FIXED 6w to
+    2026-07-24);
+    archive evidence (read-only; import only with explicit reason per clean-start):
+    old grid substrate, nucleus T1/T2 functional spec — T1+T2 worked single-player,
+    evidence FOR feasibility; A1 audit (adapter boundary, no direct code transfer);
+    multiplayer-readiness guardrail;
+    precedent internals: SS14 atmos (open source), Stationeers, Noita Entangled
+    Worlds, ONI; Unity DOTS/NfE docs; Dungeon Architect / PGG (beta) docs.
   boundaries: |
-    Appetite is FIXED (G3): 6 weeks to 2026-07-24 — not re-litigated, never extended.
-    Shape only g-9c41; no CHARTER edits (c-frame-002 queued; repo canonization rides it
-    after bet approval). Approach choice is the owner's call this session, >=1 night
-    after s-shape-001 (2026-06-12).
+    P6 network MODEL is not re-litigated: host-authoritative sim, custom
+    chunked-delta gas stream, ghosts only for players/objects, GPU never
+    authoritative, rollback/lockstep at most a future timeboxed spike — this
+    research shapes WHAT flows through that model. Informs, never decides:
+    approach choice (A/B/C/hybrid) and any TREE/CHARTER wording stay with the
+    owner in c-shape-003. No production code (throwaway arithmetic allowed).
+    Appetite end 2026-07-24 is fixed — the hard stop below is real.
   done_when: |
-    NOW.md holds the owner-approved bet on g-9c41 (appetite 6w/2026-07-24, done_when,
-    kill_by — G3/G4) with <=3 tasks <=half a focused day each, riskiest assumption
-    first; cut list recorded; lens sweep verdict per lens; G1-G6 pass; next = first
-    work-session CALL.
+    An architecture brief exists (returned via RESULT for work/) holding: the
+    granularity ladder incl. configurable cell size; grid ownership +
+    communication verdict (owner hypothesis vs alternatives, buy-vs-build sweep
+    with sources); procgen-ingestion contract draft incl. PGG day-one verdict;
+    scale/network arithmetic for the huge-level profile in numbers, not
+    adjectives; 2-3 ranked whole-architecture candidates + recommendation + draft
+    contracts + riskiest assumptions; established-vs-inference separated, sources
+    dated; every archive import carries its explicit reason.
   return: |
-    RESULT with the approved bet + tasks, log line, next CALL (first work session).
-  budget: one session
+    RESULT with the brief (file for work/ via state_changes) + key verdicts
+    summarized; captures; log line; next = c-shape-003 (resume shape on g-9c41
+    with the brief on the table).
+  budget: 2-3 deep sessions (children allowed per play), hard stop 2026-06-15 EOD
+  parent: s-shape-002
+  surface: cli (Fable 5 window until 2026-06-22)
 
 END_OF_FILE: live/indie-game-development/NOW.md
