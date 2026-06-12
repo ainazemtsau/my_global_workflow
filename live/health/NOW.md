@@ -11,56 +11,58 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-health-map-001
+  CALL c-health-shape-starter-kit-001
   to: session
   direction: health
-  play: map
-  node: g-health-root
+  play: shape
+  node: g-health-starter-kit
   goal: |
-    Разложить shaped root g-health-root направления health на owner-approved child outcome nodes,
-    grounded in the evidence pack from c-health-map-evidence-001.
+    Shape g-health-starter-kit into the first actionable bet that produces a practical starter kit:
+    initial nutrition starter plus initial training/activity starter, so the owner can begin immediately
+    while Health AI System is built in parallel.
   context: |
-    Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md, and the stored history RESULT
-    for s-health-map-evidence-001.
+    Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
+    live/health/history/2026-06-12-s-health-map-evidence-001.md,
+    and live/health/history/2026-06-12-s-health-map-001.md.
 
-    Current state:
-    - TREE root g-health-root is shaped and has no children.
-    - active_bet is null; tasks are empty.
-    - Charter success criteria: 90–95 kg held 12 months; first 5–10% loss in 6 months; strength/athletic look; maintenance system; Health AI System as working layer.
-    - Owner baseline: 35-year-old male, 182 cm, 125 kg, BMI ≈37.7; no stated injuries, diagnoses, medications or restrictions.
-    - Owner priorities: discipline, energy, health; quality bar: weight gone without rebound, strength up, athletic look.
-    - Owner failure fears: weight regain and low activity.
-    - Assets: VR, bicycle, 24 kg dumbbells, gym access, cooking equipment, scales, willingness to buy HR tracker/wearable if useful, prior sport and diet experience.
-    - Architecture constraint: Health AI System belongs inside health as a working layer; Direction OS remains strategic and does not store daily raw weight/food/set data.
+    Approved map summary:
+    - g-health-root has 4 top-level children:
+      1. g-health-starter-kit
+      2. g-health-ai-core
+      3. g-health-nutrition-system
+      4. g-health-training-activity-system
+    - Next work should start with g-health-starter-kit.
+    - Owner intent:
+      The first output should let him start eating/training now.
+      Direction OS should not become a daily health tracker.
+      Health AI System will later handle tracking/state/procedures/integrations.
+      Starter kit should become a seed for later nutrition and training/activity systems, not a random one-off.
 
-    Evidence implications to use:
-    - Competent default path is staged chronic-care, not a short hard challenge:
-      baseline/safety → first 5–10% loss by 6 months → scale toward 90–95 kg → 12-month maintenance.
-    - The first proof milestone from 125 kg is about 112.5–118.75 kg.
-    - Effective program components: reduced-calorie eating plan, physical activity, strength work, self-monitoring, feedback/support, relapse recovery and maintenance.
-    - Activity lane should include both structured exercise and NEAT: CDC minimum is 150 min/week moderate activity plus 2 muscle-strengthening days; maintenance often needs 150–300+ min/week activity and weekly weighing.
-    - Strength/body-composition lane is separate from weight loss: resistance training and adequate protein protect the "athletic" criterion.
-    - Nutrition lane should be repeatable meal-prep/defaults/fallback foods, not a brittle diet.
-    - Relapse/maintenance should be a child outcome from the beginning.
-    - Health AI System should coordinate state, summaries, check-ins, food photos, recipes, Hevy/wearable imports and research prompts, while respecting privacy, AI fallibility and non-medical-authority boundaries.
-    - A clinician-led medical escalation gate should exist for baseline findings, stalled first milestone, symptoms, comorbidities, medication discussion or bariatric eligibility questions.
-
+    Relevant owner assets:
+    - 35-year-old male, 182 cm, 125 kg, BMI approx 37.7.
+    - No stated injuries, diagnoses, medications, or restrictions.
+    - Assets: VR, bicycle, 24 kg dumbbells, gym access, cooking equipment, scales.
+    - Likes gameful/competitive activity, including Beat Saber and VR boxing/fitness.
+    - Interested in Strava-like or self-hosted activity tools later.
+    - Has prior sport and diet experience.
   boundaries: |
-    Do not create tasks or active_bet.
-    Do not make a detailed diet or training plan.
-    Do not store daily tracking data in Direction OS.
-    Do not split Health AI System into a separate direction.
-    Do not make medical prescriptions; map outcomes and safety/escalation gates only.
-    Follow G9: TREE child outcome edits require explicit owner approval in-session.
+    Do not create a detailed long-term diet or full training program.
+    Do not store daily raw weight/food/set/activity data in Direction OS.
+    Do not build Health AI System core in this shape; only shape starter-kit.
+    Do not make medical prescriptions.
+    Include safety/medical escalation gates at the level needed for a starter kit.
+    Respect G6: shape output must include appetite, kill_by, cut list, lens sweep verdict per lens,
+    and tasks that test the riskiest assumption.
+    Respect G9 if TREE/NOW edits require owner approval.
   done_when: |
-    TREE root has owner-approved child outcome nodes grounded in the evidence pack and charter lenses,
-    with each child staying outcome-level and carrying a one-line why.
-    No tasks, active bet, detailed plan, or daily tracking data are created.
+    g-health-starter-kit is shaped into a valid bet with appetite, kill_by, cut list, lens sweep,
+    and <=3 tasks sized to produce the first practical starter kit artifact:
+    nutrition starter + training/activity starter + feedback path.
+    No daily tracking data, full Health AI System build, or long-term detailed plan is created.
   return: |
-    RESULT with proposed/approved TREE child outcome edits, owner approval evidence for G9,
-    any captures/decisions_needed, and next CALL for shape or awaiting_decision.
-
-  budget: one map session
+    RESULT with approved shape edits, NOW active_bet/tasks proposal, evidence, play_check,
+    and next CALL for work on the starter kit.
+  budget: one shape session
   surface: chatgpt
 
 END_OF_FILE: live/health/NOW.md
