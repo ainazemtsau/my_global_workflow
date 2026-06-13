@@ -61,4 +61,10 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-06-13 направление health, чат guide t-2: RESULT дважды пытался закрыть active bet и активировать g-health-ai-core прямо из task-play (второй раз с owner_approved, но без валидного shape/NOW active_bet); writer удержал state, но причина была не только G9 — task-play lifecycle не был writer-enforced → fixed: guide last-task→review rule + writer task-play lifecycle validation
 
+2026-06-13 os code-review (ветка wt/indie-game-development, g-9c41): writer, применявший s-setup-001, не поставил END_OF_FILE-трейлер на байпродукт-профиль os/engineering/profiles/unity.md (все соседи по os/engineering/ его несут, schema/direction-files.md §Truncation guard требует) → fixed этим коммитом; watching: повтор пропуска трейлера на новых os/-файлах (особенно profile-байпродуктах PROJECT_SETUP) → проверка трейлера в writer-чеклисте / пути создания профиля.
+
+2026-06-13 os code-review (g-9c41): запись принятого владельцем решения (роутинг моделей) ушла в history/s-decide-001.md под play «decide», которого нет в os/plays/ (KERNEL §6), и не как полный RESULT (нет play_check/outcome/evidence/log) — G10 такой RESULT должен был отклонить; корень: у «зафиксировать уже принятое решение» нет санкционированного дома → idea, watching: повтор → решить путь (research/knowledge-запись либо лёгкая запись решения, без 7-го типа состояния).
+
+2026-06-13 os code-review (g-9c41): NOW.md использует task-статусы ready / blocked_on <id>, а schema/direction-files.md разрешает только open|active|blocked|done (+unblock_when) — writer-команда audit это пометит; системно, не введено этой веткой → watching: повтор/охват по направлениям → согласовать схему с практикой одной maintenance-правкой (вероятно схему под ready/blocked_on, не файлы).
+
 END_OF_FILE: os/FRICTION.md
