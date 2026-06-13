@@ -65,7 +65,7 @@ active_bet:
 tasks:
   - id: t-1
     node: g-health-ai-core
-    status: open
+    status: done
     kind: session
     goal: >
       Produce work/health-ai-core-contract-v0.md: the minimal Health AI Core Contract with
@@ -79,6 +79,9 @@ tasks:
       - Artifact includes five dry-run scenarios.
       - Artifact does not choose integrations, build implementation, request raw logs,
         or store raw daily data in Direction OS.
+    evidence:
+      - work/health-ai-core-contract-v0.md
+      - session s-health-ai-core-t-1-work-001 self-check matched every t-1 done_when item
 
   - id: t-2
     node: g-health-ai-core
@@ -117,31 +120,31 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-health-ai-core-t-1-work-001
+  CALL c-health-ai-core-t-2-work-001
   to: session
   direction: health
   play: work
   node: g-health-ai-core
-  task: t-1
+  task: t-2
   goal: |
-    Produce work/health-ai-core-contract-v0.md: the minimal Health AI Core Contract with
-    source-of-truth boundaries, state model, new-chat operating protocol, planning/menu/training/
-    food-log/recipe/review loops, explicit non-goals, and five dry-run scenarios.
+    Produce work/health-ai-core-state-skeleton-v0.md: a minimal source-of-truth skeleton
+    for profile, preferences, metrics summaries, active plans, food logs, recipes,
+    training/activity state, feedback, reviews/incidents, and pending patches.
   context: |
     Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
+    work/health-ai-core-contract-v0.md,
+    live/health/history/2026-06-13-s-health-ai-core-t-1-work-001.md,
     live/health/history/2026-06-13-s-health-starter-kit-t-2-guide-003.md,
-    and RESULT s-health-ai-core-shape-001 plus approval RESULT s-health-ai-core-shape-001-approval.
+    and live/health/history/2026-06-13-s-health-ai-core-shape-001-approval.md.
 
-    Owner rejected work/health-starter-kit-v0.md as the wrong artifact shape and asked not
-    to spend more time polishing it.
+    t-1 produced the minimal Health AI Core Contract. The contract fixes the boundaries:
+    Direction OS is strategic only; Health AI System is the operational source of truth;
+    future integrations are optional and unchosen; AI chats propose patches instead of
+    silently overwriting state.
 
-    The Health AI core must support:
-    - AI chats from anywhere asking for today's menu or today's training;
-    - detecting missing weekly plan and guiding creation;
-    - food logging from text/voice/photo-style input with limited skippable follow-ups;
-    - saving available data with confidence and giving same-day advice;
-    - durable recipe artifacts, likely GitHub-backed initially;
-    - Direction OS receiving only summary/problems/decisions/CALLs, not daily raw logs.
+    The skeleton should instantiate the contract's record families:
+    profile, preferences, metrics summaries, active plans, food logs, recipes,
+    training/activity state, feedback, reviews/incidents, and pending patches.
   boundaries: |
     Do not build an app.
     Do not choose Hevy/Strava-like/wearable/VR/recipe-manager integrations.
@@ -150,17 +153,17 @@ next: |
     Do not ask for raw logs.
     Do not make medical prescriptions.
     Do not polish or revive work/health-starter-kit-v0.md.
+    Do not change the contract except to note a blocker or contradiction.
   done_when: |
-    work/health-ai-core-contract-v0.md content is ready for writer application and contains:
-    - source-of-truth boundaries;
-    - minimal state model;
-    - new-chat operating protocol;
-    - planning/menu/training/food-log/recipe/review loops;
-    - explicit non-goals and cut list;
-    - five dry-run scenarios that test cross-chat continuation and missing-state behavior.
+    work/health-ai-core-state-skeleton-v0.md content is ready for writer application and:
+    - lists concrete files/records and required fields;
+    - states which records may contain operational raw data inside Health AI System;
+    - states that Direction OS receives only strategic summary/problem/decision/CALL output;
+    - includes recipe-card, food-log-entry, weekly-plan, training-output, and review/incident templates;
+    - remains integration-neutral.
   return: |
     RESULT with artifact content or exact work/ file addition, evidence mapped to done_when,
-    no raw daily logs, and next CALL for t-2.
+    no raw daily logs, and next CALL for t-3.
   budget: one work session
   surface: chatgpt
 
