@@ -101,7 +101,13 @@ root:
           и следующие CALL.
         - Питание встроено в body outcome: оно должно поддерживать снижение веса, достаточную сытость,
           белок, повторяемость и плохие недели, но не превращаться в crash diet или бесконечный research.
-      status: parked
+      status: active
+      appetite: 1 week (set 2026-06-13 by repair s-health-nutrition-repair-001)
+      kill_by: >
+        2026-06-20: if the chat-first weekly-plan experience is not usable to the owner after a real
+        live run, or write-back cannot persist logs/recipes to GitHub without the owner editing files,
+        reshape instead of building more. v1 shipped to product repo health-ai
+        (github.com/ainazemtsau/health-ai).
       children: []
 
     - id: g-health-training-activity-system

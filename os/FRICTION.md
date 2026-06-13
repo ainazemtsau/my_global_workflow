@@ -67,4 +67,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-06-13 os code-review (g-9c41): NOW.md использует task-статусы ready / blocked_on <id>, а schema/direction-files.md разрешает только open|active|blocked|done (+unblock_when) — writer-команда audit это пометит; системно, не введено этой веткой → watching: повтор/охват по направлениям → согласовать схему с практикой одной maintenance-правкой (вероятно схему под ready/blocked_on, не файлы).
 
+2026-06-13 направление health, repair s-health-nutrition-repair-001: ставка g-health-nutrition-system собрана как реальный продукт (репо health-ai) в свободной co-creation сессии ВНЕ петли OS — NOW остался на устаревшем CALL c-health-nutrition-system-shape-001; глубже — g-health-ai-core ранее помечен done через AI-against-AI review без единой owner-валидации реального артефакта (контракт/скелет владелец не видел), хотя work.md шаг 2 (313ce9a) уже был: системный артефакт классифицирован как non-owner-content и владелец пропущен. ЧЕТВЁРТЫЙ случай класса «owner-level контент без владельца» (ср. записи 50, 58, G9-frame) → logged, watching: кандидат-правило (≥2 записи уже есть) — узел продукт-направления нельзя метить done, пока владелец не подтвердил РЕАЛЬНЫЙ артефакт, а не кнопку A/B/C; desync-обход применён здесь (repair фиксирует co-creation/build вне петли до продолжения).
+
 END_OF_FILE: os/FRICTION.md

@@ -115,7 +115,8 @@ constraints:
     Быстрый старт по тренировкам и питанию нужен раньше полной архитектуры
     системы; полноценная система не должна блокировать начало движения.
   - |
-    product_repos: []
+    product_repos:
+      - health-ai: https://github.com/ainazemtsau/health-ai
 
 lenses:
   - id: weight-nutrition
