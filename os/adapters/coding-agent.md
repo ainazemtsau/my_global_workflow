@@ -16,6 +16,7 @@ Contract:
   - RESULT fields complete per os/schema/packets.md, `play_check` included (one line per play step);
   - `(owner)`-marked steps in play_check carry the owner's actual words, not a bare "done";
   - the `next` CALL's goal is an outcome with no method/procedure paraphrase (CALL hygiene, schema/packets.md).
+  - task-play lifecycle: for `play: work|guide`, reject `TREE.md` edits, active_bet removal/done/retargeting, or activation of another node. If the RESULT marks the last open/active task of the current active bet done, `next` must be a `review` CALL for that same node. Review closes bets and harvests TREE; repair may reconstruct contradictory state under its own play.
   A bounced RESULT routes back to its session (or repair) — same path as a state_changes conflict.
 - Also emits the `next` CALL back to the owner/orchestrator if one is present.
 - Record CALLs issued in state_changes into `NOW.md → open_calls`; clear an entry when its RESULT arrives.

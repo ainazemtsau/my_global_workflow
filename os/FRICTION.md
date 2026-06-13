@@ -59,4 +59,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-06-12 направление health, тот же чат: work-CALL исполнен при repo NOW active_bet:null и отсутствующем shape-history — RESULT shape-сессии не дошёл до writer (relay пропустил применение, CALL скопирован напрямую из чата shape); сессия противоречие state↔input сама заметила («NOW.md still has no active bet… requires repair?») и продолжила вместо остановки в repair (KERNEL §2 OPEN) → logged, watching (вторая проблема, не чиним в этой сессии): повтор «заметил дрейф — продолжил» → кандидат-строка в SESSION_PAYLOAD «обнаруженное противоречие = стоп, работа не начинается»; обход: RESULT того чата не применять, shape перезапустить с готового NOW.next (c-health-shape-starter-kit-001)
 
+2026-06-13 направление health, чат guide t-2: RESULT дважды пытался закрыть active bet и активировать g-health-ai-core прямо из task-play (второй раз с owner_approved, но без валидного shape/NOW active_bet); writer удержал state, но причина была не только G9 — task-play lifecycle не был writer-enforced → fixed: guide last-task→review rule + writer task-play lifecycle validation
+
 END_OF_FILE: os/FRICTION.md

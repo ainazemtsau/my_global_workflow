@@ -11,7 +11,7 @@ Writes: NOW.md (task status), LOG.md via state_changes.
 2. **Path** — lay out 3–7 checkpoints from the current state to done_when. Show the path before starting.
 3. **Per checkpoint, loop:** ONE action at a time → the owner does it → the owner confirms with a screenshot or a short answer → verify against the expected state. On mismatch: diagnose from the screenshot and adjust. Two failed adjustments on the same step → propose an alternative route, or close the checkpoint as blocked (two-strikes, KERNEL §2).
 4. **Evidence** — the owner's confirmation per checkpoint plus a final screenshot or artifact. done_when decides, not the session's impression.
-5. **Close** — RESULT: outcome, evidence, captures (ideas and problems seen along the way), log line, next.
+5. **Close** — RESULT: outcome, evidence, task status only, captures (ideas and problems seen along the way), log line, next. If this marks the last open/active task done or kill_by is breached, next = review CALL for the same node; guide never edits TREE.md, closes the bet, or activates another node. Future-system ideas go to captures/decisions, not immediate execution.
 
 ## Done when
 
