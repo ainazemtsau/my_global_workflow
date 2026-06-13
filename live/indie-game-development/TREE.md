@@ -45,8 +45,9 @@ root:
 
   - id: g-9c41
     goal: |
-      A small representative networked co-op scene runs and holds: 2–4 players on a
-      player-hosted listen-server, host-authoritative multi-gas simulation on grid/room
+      A representative networked co-op scene runs and holds, on a core architected for
+      huge procedural levels: 2–4 players on a player-hosted session (one player hosts; no
+      dedicated server), host-authoritative multi-gas simulation on sector-band grid/room
       topology with doors/vents and at least one destruction-driven topology change,
       levels fed from procedural generators (Dungeon Architect at minimum, ideally also
       Procedural Generation Grid) through a replaceable ingestion adapter — solo-maintainable.
@@ -58,7 +59,8 @@ root:
       2. Replication model locked: host/server-authoritative sim + chunked-delta gas
          stream; entity ghosts only for players/objects; rollback/lockstep at most one
          1–2-week timeboxed spike; GPU compute never authoritative for networked state
-         (Netcode for Entities = default vendor; model locked, vendor swappable).
+         (default vendor FishNet — Steam-only, free, GameObject-native; model locked,
+         vendor swappable).
       3. 2+ networked clients see consistent gas behavior across a topology change; debug
          surfaces expose mass/flows/tick/topology revision; reproducible build + video.
       4. Gas types are declarative and two-level: meta-gas = behavior archetype (own
@@ -74,7 +76,13 @@ root:
          input (no bots).
       8. Named milestone reached: first spectacular clip captured from a harness scene —
          it opens the parallel tracks (see root map_order).
-    status: parked
+      9. Scale architecture (R1): the coarse simulation tier is designed and
+         arithmetic-validated to hold a huge procedurally generated level profile
+         (≈200×200×40 m class, ≥1000 volumes) within measured memory/tick/bandwidth
+         budgets on the min-spec profile. Building that scale (sector subdivision,
+         1000-object ingest gate) may be a later bet; this node requires the architecture
+         and the numbers, not the full content.
+    status: active
     detail: history/s-map-002.md
 
   - id: g-d3a8
