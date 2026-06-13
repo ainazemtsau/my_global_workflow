@@ -103,7 +103,7 @@ tasks:
 
   - id: t-3
     node: g-health-ai-core
-    status: open
+    status: done
     kind: guide
     goal: >
       Validate the contract and skeleton by running the five core flows with synthetic or minimal seed data,
@@ -115,6 +115,9 @@ tasks:
       - Flow 4 tested: today's training requested → system answers from current plan/safety state or marks missing plan.
       - Flow 5 tested: review/incident → system compresses summary and Direction OS escalation.
       - Validation identifies blockers or confirms the slice is usable enough for next nutrition/training-system shaping.
+    evidence:
+      - work/health-ai-core-validation-summary-v0.md
+      - session s-health-ai-core-t-3-guide-001 dry-ran five flows plus guidance/governance with synthetic/minimal seeds; no raw daily data entered Direction OS
 
 recurring: []
 
@@ -123,31 +126,35 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-health-ai-core-t-3-guide-001
+  CALL c-health-ai-core-review-001
   to: session
   direction: health
-  play: guide
+  play: review
   node: g-health-ai-core
-  task: t-3
   goal: |
-    Health AI Core Contract and State Skeleton are validated against the five core flows;
-    a compact validation summary exists for Direction OS.
+    The g-health-ai-core bet has a verified review verdict, harvested learnings,
+    and a ready owner decision for the next health bet.
   context: |
     Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
     work/health-ai-core-contract-v0.md,
     work/health-ai-core-state-skeleton-v0.md,
+    work/health-ai-core-validation-summary-v0.md,
     live/health/history/2026-06-13-s-health-ai-core-t-1-work-001.md,
     live/health/history/2026-06-13-s-health-ai-core-t-2-work-001.md,
+    live/health/history/2026-06-13-s-health-ai-core-t-3-guide-001.md,
     live/health/history/2026-06-13-s-health-starter-kit-t-2-guide-003.md,
     and live/health/history/2026-06-13-s-health-ai-core-shape-001-approval.md.
 
-    t-1 produced the contract. t-2 produced the state skeleton. The owner accepted
-    the correction that Health AI Core must include a guidance/governance contour:
-    it should guide next best actions, run bounded investigations, adapt plans,
-    and feel like a health team while keeping one chat = one job internally.
+    The active bet's tasks are complete:
+    - t-1 produced the Health AI Core Contract v0.
+    - t-2 produced the State Skeleton v0 with the owner-accepted guidance/governance contour.
+    - t-3 produced the compact validation summary and found the slice usable enough
+      for review and next nutrition/training-system shaping.
 
-    Validate with synthetic/minimal seed data only. Direction OS must receive only
-    compact validation summary/problems/decisions/CALLs, not raw daily data.
+    Known non-blocking gap from t-3:
+    - the contract implies guidance through protocol/loops, while the skeleton makes
+      guidance/governance first-class. A later contract revision can promote this
+      if the core continues.
   boundaries: |
     Do not build an app or implementation.
     Do not choose Hevy/Strava-like/wearable/VR/recipe-manager integrations.
@@ -156,21 +163,14 @@ next: |
     Do not ask for raw logs.
     Do not make medical prescriptions.
     Do not polish or revive work/health-starter-kit-v0.md.
-    Do not change the contract or skeleton except to record blockers/contradictions.
   done_when: |
-    Compact validation summary is ready and:
-    - Flow 1 tested: no weekly plan exists → system guides plan creation.
-    - Flow 2 tested: today's menu requested → system answers from plan/preferences or marks missing plan.
-    - Flow 3 tested: food log with skipped follow-ups → system saves available data with confidence and gives same-day advice.
-    - Flow 4 tested: today's training requested → system answers from current plan/safety state or marks missing plan.
-    - Flow 5 tested: review/incident → system compresses summary and Direction OS escalation.
-    - Validation checks the accepted guidance/governance contour by testing "what should I do next?"
-      or a problem-investigation path.
-    - Validation identifies blockers or confirms the slice is usable enough for next nutrition/training-system shaping.
+    Review RESULT gives a verdict for g-health-ai-core, preserves the no-raw-daily-data
+    boundary, records any approved TREE/knowledge/NOW updates, and leaves a next-bet
+    owner decision or awaiting_decision state.
   return: |
-    RESULT with compact validation summary, evidence mapped to done_when, no raw daily logs,
-    and next CALL for review because this is the last open task of the active bet.
-  budget: one guide session
+    RESULT with verdict, evidence, harvested learnings, approved state_changes only,
+    decisions_needed for the next bet, and a ready next CALL or awaiting_decision.
+  budget: one review session
   surface: chatgpt
 
 END_OF_FILE: live/health/NOW.md
