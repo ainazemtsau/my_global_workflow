@@ -9,5 +9,6 @@
 - 2026-06-13 — health/g-health-ai-core shape approval: owner approved option A; g-health-ai-core activated with 6-day appetite, kill_by 2026-06-19, tasks t-1..t-3; next c-health-ai-core-t-1-work-001. → history/2026-06-13-s-health-ai-core-shape-001-approval.md
 - 2026-06-13 — health/g-health-ai-core/t-1 work: Health AI Core Contract v0 created with boundaries, state model, chat protocol, loops, non-goals, and five dry-runs; next t-2 state skeleton. → history/2026-06-13-s-health-ai-core-t-1-work-001.md
 - 2026-06-13 — health/g-health-ai-core/t-2 work: Health AI Core State Skeleton v0 created with records, raw-data boundaries, templates, procedure registry, roles, guidance/governance contour, and Direction OS bridge; next t-3 validation. → history/2026-06-13-s-health-ai-core-t-2-work-001.md
+- 2026-06-13 — health/g-health-ai-core review: bet met; cuts held 0 missed/10; guidance/governance promoted to knowledge; next-bet decision pending. → history/2026-06-13-s-health-ai-core-review-001.md
 
 END_OF_FILE: live/health/LOG.md
