@@ -68,7 +68,7 @@ active_tasks:
           fixed run;
       (4) FishNet viability verdict recorded (packet limits, headless x3, Steam transport).
     kind: executor (Fable 5)
-    status: ready
+    status: active   # c-exec-001 executor CALL in flight (engineering session pending launch in GasCoopGame)
   - id: t-2
     goal: Toy gas field + custom chunked-delta stream + breach + first wire measurement.
     done_when: |
@@ -105,46 +105,100 @@ open_calls:
       charter's existing reframe letter); NEW hard wall = the game earning for real by
       ~12 months (EA no later than ~Q2 2027). Map session s-map-002 could not edit the
       charter (play boundary).
+  - id: c-exec-001
+    status: in_flight
+    note: |
+      Executor (engineering) CALL for t-1 -> repo GasCoopGame: the network-first spike
+      (engine-free core HEADLESS build boundary + 3-mode composition root + FishNet
+      host+2 headless clients agreeing on a per-tick hash of a trivial field + honest
+      FishNet verdict). This CALL is the X1 authorization for t-1's trivial-field scope
+      (repo is A1_SETUP_ONLY; networking was parked to H1_G4E). Adding FishNet needs owner
+      approval in PLAN. Full CALL in `next`. Run in the Fable-5 window (closes 2026-06-22).
+      Clears when its RESULT arrives (DONE/NEEDS INPUT/STUCK).
 
 decision_inbox: []   # d-arch-001 answered at s-shape-003 (see history/s-shape-003.md outcome a-e)
 
 next: |
-  CALL c-work-001
-  to: session
+  CALL c-exec-001
+  to: executor
+  kind: engineering
+  repo: github.com/ainazemtsau/GasCoopGame (local C:\projects\Unity\GasCoopGame; Codex
+        worktree C:\projects\Unity\GasCoopGame_codex; Unity 6000.4.7f1)
   direction: indie-game-development
-  play: work
-  node: g-9c41
-  task: t-1
+  node: g-9c41   task: t-1
+  parent: c-work-001
   goal: |
-    Task t-1 is met in GasCoopGame: an engine-free C# sim-core scaffold with a 3-mode
-    composition root (pure-local / local host-loop / networked host+clients — R13/R14)
-    and a networked harness handshake where a FishNet player-host + 2 headless clients
-    run a deterministic fixed-tick loop and agree on a per-tick state hash of a trivial
-    field over a fixed run, with a recorded FishNet viability verdict.
+    t-1 met in GasCoopGame: an engine-free C# sim-core that BUILDS AND RUNS HEADLESS with
+    zero Unity references; a composition root selectable into 3 modes (pure-local / local
+    host-loop / networked host+clients) with no network logic in business/core classes; and
+    a networked harness in which a FishNet player-host + 2 headless clients run a
+    deterministic fixed-tick loop and AGREE on a per-tick state hash of a TRIVIAL field over
+    a fixed run — plus a recorded honest FishNet viability verdict. This is the network-first
+    spike (riskiest assumption #1), NOT gas simulation.
   context: |
-    live/indie-game-development/NOW.md (active bet: rules R12-R15, vendor=FishNet,
-    kill_by, t-1 done_when);
-    work/research-g-9c41-core-architecture-2026-06-12-v2.md (§3.9 six components, §3.4
-    tick phases, §5 day-one stub-not-skip contracts);
-    product repo GasCoopGame@236bc30e (foundation accepted 2026-05-23: harness,
-    composition seams, validation entry, topology interface);
-    os/engineering/CONTOUR.md + os/engineering/PROJECT_SETUP.md (engineering run contract).
+    - THIS CALL IS THE X1 WORK PACKAGE authorizing product execution for t-1: the repo is
+      A1_SETUP_ONLY until X1, and networking was parked to "H1_G4E" — this CALL supersedes
+      that parking for t-1's trivial-field scope only.
+    - Authoritative done_when (4 points): this NOW.md active_tasks t-1.
+    - Bet rules: R13 (core = pure C# lib, 0 Unity refs, headless; Unity = render/input/
+      transport adapters only), R14 (networking is an edge wrapper, never in business logic;
+      3 build modes chosen at the composition root/DI; test scenes pick mode freely), vendor
+      default FishNet (Steam-only, free, GameObject-native, free Steam transport/relay) —
+      verified here, P6 fallback NGO/NfE if red, no tree change.
+    - Architecture brief (INPUT EVIDENCE, not a binding spec): work/research-g-9c41-core-
+      architecture-2026-06-12-v2.md — §3.4 tick phases P1..P8 (deterministic loop shape),
+      §3.9 six components, §5 day-one "stub-but-not-skip" contracts. t-1 = SCAFFOLD + net
+      handshake; the real stream/gas is t-2/t-3.
+    - REUSE-FIRST (do not re-create): Assets/Scripts/GasCoopGame/CoreFoundation/** and
+      GridTopology/** (engine-light harness, ITopologyReadModel, composition seam,
+      deterministic mutation/changeset) — good homes for the trivial field + composition
+      root. NOTE: today they compile into Unity Assembly-CSharp; there is NO asmdef/.csproj
+      boundary, so "0 Unity refs / headless build" is NOT yet structurally proven —
+      establishing that boundary is part of t-1.
+    - Repo run contract + mechanics: root AGENTS.md (codex-native-execution-layer skill;
+      wave_graph_plan -> wave_execute; Codex worktree; do NOT run batchmode/generated
+      mutation in the user main repo if the Editor may be open) and
+      .workflow/process/GASCOOPGAME_CODEX_EXECUTION_CONTRACT.md.
   boundaries: |
-    First action: confirm GasCoopGame carries a run contract (root AGENTS.md). If not,
-    this CALL is repo setup (interactive stack interview) BEFORE any t-1 build — do not
-    improvise on an uninitialized repo. Net model locked (P6). Vendor default FishNet,
-    but record the viability verdict honestly: a red verdict triggers the P6 fallback,
-    not a silent lock-in. Trivial field only — no real gas sim yet (that is
-    post-stream-lock, t-2+). Stay inside t-1 done_when; t-2/t-3 are separate tasks.
+    - TRIVIAL field only (one scalar per topology node, pure deterministic tick rule). NO
+      gas sim / bands / diffusion — that is t-2+ and explicitly OUT.
+    - Net MODEL is locked (P6: one player hosts, no dedicated server, ever). Do not redesign.
+    - Vendor = FishNet by default, but the verdict must be HONEST: record packet/channel
+      limits, headless-x3 behavior, Steam transport reality. A RED verdict is a VALID result
+      triggering the P6 fallback — never silently force FishNet to "pass".
+    - Adding FishNet is a DEPENDENCY change -> owner approval in PLAN (repo Human Approval
+      Gate). Do not add packages without it.
+    - Do NOT mutate the user main Unity folder with batchmode/generated files; use the Codex
+      worktree.
+    - Stay inside t-1 done_when. t-2 / t-3 are separate tasks — do not pull them forward.
+    - Follow the repo's plan->build->validate->report cycle and non-negotiables (builder
+      cannot weaken the oracle; validation is fresh-context/read-only, ideally a different
+      model family). New dependency + core determinism/netcode = architectural -> ADR + owner
+      conversation in PLAN.
   done_when: |
-    t-1 done_when (NOW.md) verified by a runnable check: headless 3-instance run with
-    per-tick hash equality on the trivial field; the core library builds with ZERO Unity
-    references; the 3 composition modes selectable at the root; FishNet verdict recorded.
+    All verified by a RUNNABLE check, not assertion:
+    1. The sim core builds and runs HEADLESS with ZERO Unity references — proven by a build/
+       test that runs OUTSIDE Unity (e.g. dotnet build/test of an asmdef-isolated / separate-
+       project core) AND a boundary check that FAILS on a seeded UnityEngine reference in core.
+    2. A composition root exposes the 3 modes (pure-local / local host-loop / networked
+       host+clients); a test scene/harness selects a mode; business/core classes contain no
+       network types (verified by file-scope / dependency inspection, check-enforced).
+    3. FishNet player-host + 2 HEADLESS clients connect and run a deterministic fixed-tick
+       loop; the per-tick state hash of the trivial field is EQUAL across all three over a
+       fixed run, reproducible from a fixed seed (a mid-run topology-change event is allowed
+       but the trivial field stays the only state).
+    4. A FishNet viability verdict is RECORDED (green | yellow | red) with evidence: packet/
+       channel limits encountered, headless-x3 behavior, Steam transport notes, and the first
+       honest measurement opportunities flagged for t-2.
   return: |
-    RESULT (executor evidence: commits/PR + check output) advancing t-1 to done, or a
-    fast "blocked, because"; next = c-work-002 (t-2) or repair.
-  budget: one focused half-day of human-equivalent work (executor sizing rule)
-  parent: s-shape-003
-  surface: cli (Fable 5 window until 2026-06-22 — t-1 is the hardest net task; run it here)
+    REPORT with executor evidence: descriptive commits or PR link on a codex/* branch
+    (integrated to main when safe), the OUTPUT of the headless build + boundary check + the
+    3-instance hash-equality run, the recorded FishNet verdict, assumptions made, anything
+    cut for budget, and a Russian operator report. Final state DONE | NEEDS INPUT | STUCK. A
+    fast "blocked, because" beats silent struggle (surface at ~2x budget). On DONE -> a fresh
+    session verifies (G5 refute-test, different model) and advances t-1; next = c-work-002
+    (t-2). On a RED FishNet verdict -> P6 fallback spike, not a forced pass.
+  budget: one focused half-day of human-equivalent work (executor sizing rule); 2x over -> stop & report.
+  surface: cli, Fable 5 window (closes 2026-06-22) — hardest net task; owner present for PLAN.
 
 END_OF_FILE: live/indie-game-development/NOW.md
