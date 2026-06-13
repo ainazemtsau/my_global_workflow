@@ -85,7 +85,7 @@ tasks:
 
   - id: t-2
     node: g-health-ai-core
-    status: open
+    status: done
     kind: session
     goal: >
       Produce work/health-ai-core-state-skeleton-v0.md: a minimal source-of-truth skeleton
@@ -97,6 +97,9 @@ tasks:
       - Skeleton states that Direction OS receives only strategic summary/problem/decision/CALL output.
       - Skeleton includes recipe-card, food-log-entry, weekly-plan, training-output, and review/incident templates.
       - Skeleton remains integration-neutral.
+    evidence:
+      - work/health-ai-core-state-skeleton-v0.md
+      - session s-health-ai-core-t-2-work-001 incorporated owner-accepted guidance/governance contour
 
   - id: t-3
     node: g-health-ai-core
@@ -120,51 +123,54 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-health-ai-core-t-2-work-001
+  CALL c-health-ai-core-t-3-guide-001
   to: session
   direction: health
-  play: work
+  play: guide
   node: g-health-ai-core
-  task: t-2
+  task: t-3
   goal: |
-    Produce work/health-ai-core-state-skeleton-v0.md: a minimal source-of-truth skeleton
-    for profile, preferences, metrics summaries, active plans, food logs, recipes,
-    training/activity state, feedback, reviews/incidents, and pending patches.
+    Health AI Core Contract and State Skeleton are validated against the five core flows;
+    a compact validation summary exists for Direction OS.
   context: |
     Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
     work/health-ai-core-contract-v0.md,
+    work/health-ai-core-state-skeleton-v0.md,
     live/health/history/2026-06-13-s-health-ai-core-t-1-work-001.md,
+    live/health/history/2026-06-13-s-health-ai-core-t-2-work-001.md,
     live/health/history/2026-06-13-s-health-starter-kit-t-2-guide-003.md,
     and live/health/history/2026-06-13-s-health-ai-core-shape-001-approval.md.
 
-    t-1 produced the minimal Health AI Core Contract. The contract fixes the boundaries:
-    Direction OS is strategic only; Health AI System is the operational source of truth;
-    future integrations are optional and unchosen; AI chats propose patches instead of
-    silently overwriting state.
+    t-1 produced the contract. t-2 produced the state skeleton. The owner accepted
+    the correction that Health AI Core must include a guidance/governance contour:
+    it should guide next best actions, run bounded investigations, adapt plans,
+    and feel like a health team while keeping one chat = one job internally.
 
-    The skeleton should instantiate the contract's record families:
-    profile, preferences, metrics summaries, active plans, food logs, recipes,
-    training/activity state, feedback, reviews/incidents, and pending patches.
+    Validate with synthetic/minimal seed data only. Direction OS must receive only
+    compact validation summary/problems/decisions/CALLs, not raw daily data.
   boundaries: |
-    Do not build an app.
+    Do not build an app or implementation.
     Do not choose Hevy/Strava-like/wearable/VR/recipe-manager integrations.
     Do not create a long-term detailed diet or full progressive training program.
     Do not store daily raw health data in Direction OS.
     Do not ask for raw logs.
     Do not make medical prescriptions.
     Do not polish or revive work/health-starter-kit-v0.md.
-    Do not change the contract except to note a blocker or contradiction.
+    Do not change the contract or skeleton except to record blockers/contradictions.
   done_when: |
-    work/health-ai-core-state-skeleton-v0.md content is ready for writer application and:
-    - lists concrete files/records and required fields;
-    - states which records may contain operational raw data inside Health AI System;
-    - states that Direction OS receives only strategic summary/problem/decision/CALL output;
-    - includes recipe-card, food-log-entry, weekly-plan, training-output, and review/incident templates;
-    - remains integration-neutral.
+    Compact validation summary is ready and:
+    - Flow 1 tested: no weekly plan exists → system guides plan creation.
+    - Flow 2 tested: today's menu requested → system answers from plan/preferences or marks missing plan.
+    - Flow 3 tested: food log with skipped follow-ups → system saves available data with confidence and gives same-day advice.
+    - Flow 4 tested: today's training requested → system answers from current plan/safety state or marks missing plan.
+    - Flow 5 tested: review/incident → system compresses summary and Direction OS escalation.
+    - Validation checks the accepted guidance/governance contour by testing "what should I do next?"
+      or a problem-investigation path.
+    - Validation identifies blockers or confirms the slice is usable enough for next nutrition/training-system shaping.
   return: |
-    RESULT with artifact content or exact work/ file addition, evidence mapped to done_when,
-    no raw daily logs, and next CALL for t-3.
-  budget: one work session
+    RESULT with compact validation summary, evidence mapped to done_when, no raw daily logs,
+    and next CALL for review because this is the last open task of the active bet.
+  budget: one guide session
   surface: chatgpt
 
 END_OF_FILE: live/health/NOW.md
