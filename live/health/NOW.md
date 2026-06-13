@@ -2,7 +2,7 @@
 
 active_bet:
   id: g-health-starter-kit
-  status: active
+  status: done
   appetite: 7 calendar days
   kill_by: >
     2026-06-19: if corrected starter kit v0 and compressed feedback path are not usable by then,
@@ -73,7 +73,7 @@ tasks:
 
   - id: t-2
     node: g-health-starter-kit
-    status: open
+    status: done
     goal: >
       Guide the owner through compressed feedback on corrected work/health-starter-kit-v0.md
       and turn that feedback into a concise next-step adjustment without storing daily raw health data
@@ -82,7 +82,13 @@ tasks:
       - Owner feedback is compressed into what worked, what failed, safety/Achilles flags,
         nutrition adjustment, training/activity adjustment, and next recommended action.
       - Direction OS receives only summary/problems/decisions/next CALL, not daily raw logs.
-    evidence: []
+    evidence:
+      - owner compressed feedback in session s-health-starter-kit-t-2-guide-003
+      - work/health-starter-kit-v0.md rejected as an artifact to iterate
+    note: >
+      Owner rejected the starter-kit document as a bad artifact and explicitly asked not
+      to spend more time polishing it. The useful output is compressed feedback and a
+      pivot to Health AI System core/source-of-truth work.
 
 recurring: []
 
@@ -91,62 +97,57 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-health-starter-kit-t-2-guide-001
+  CALL c-health-ai-core-shape-001
   to: session
   direction: health
-  play: guide
-  node: g-health-starter-kit
-  task: t-2
+  play: shape
+  node: g-health-ai-core
   goal: |
-    Guide the owner through compressed feedback on corrected work/health-starter-kit-v0.md
-    and turn that feedback into a concise next-step adjustment without storing
-    daily raw health data in Direction OS.
+    Shape the first Health AI System core slice: source-of-truth, operating protocol,
+    and minimal state model for planning, food logging, recipes, training/activity
+    outputs, and cross-chat continuation.
   context: |
-    Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
-    work/health-starter-kit-v0.md, and
-    live/health/history/2026-06-13-s-health-repair-starter-kit-state-002.md.
+    Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md, and
+    the t-2 guide RESULT s-health-starter-kit-t-2-guide-003.
 
-    Corrected starter kit:
-    - training frame A+:
-      - 3 strength sessions/week is the normal minimum;
-      - strength is at home with dumbbells + long bands + short fabric bands;
-      - no bench;
-      - morning VR/Beat Saber; pre-lunch strength;
-      - bicycle as low-impact cardio;
-      - no squats, no single-leg lower body, no running, no jumps, no calf work;
-      - prior Achilles irritation is a safety constraint;
-      - optional 4th upper/back/arms pump only if safety markers are green.
-    - nutrition frame A-food:
-      - breakfast: omelet with meat/tuna/beans;
-      - main meals: chicken + rice/pasta + Greek salad;
-      - dessert/snack: творог + strawberries;
-      - tools: multicooker, air fryer, oven, gas stove, pans;
-      - no microwave;
-      - simple first-week restoration, not interesting cooking yet.
+    Owner rejected work/health-starter-kit-v0.md as the wrong artifact shape and asked
+    not to spend more time polishing that file.
 
-    Owner should paste the exact feedback prompt from section "6. Exact feedback prompt for t-2".
+    Owner's intended system, compressed:
+    - system stores data, metrics, preferences, plans, recipes, feedback, and state;
+    - owner can open an AI chat from anywhere and ask for today's menu or today's training;
+    - if no weekly plan exists, AI should detect that and guide creation of one;
+    - food logging should accept text/voice/photo-style input, ask follow-up questions,
+      allow skipped questions, save with available data, and give same-day advice;
+    - recipes should be durable stored artifacts, probably GitHub-backed as source-of-truth;
+    - later research may evaluate a self-hosted open-source recipe manager/API integration,
+      but this session must not choose that integration;
+    - Direction OS must remain strategic and receive only summary/problems/decisions/CALLs,
+      not daily raw logs.
+
+    This CALL is node-level shape work. It intentionally does not refer to a pre-existing
+    g-health-ai-core/t-1 task. The shape RESULT should create any valid active_bet/tasks
+    with appetite/kill_by if activation is approved.
   boundaries: |
+    Do not create a long-term detailed diet or full progressive training program.
+    Do not build the implementation.
+    Do not choose Hevy/Strava-like/wearable/VR/recipe-manager integrations.
     Do not store daily raw weight/food/set/activity data in Direction OS.
     Do not ask for raw logs.
-    Do not build Health AI System core or data architecture.
-    Do not choose Hevy/Strava-like/wearable/VR integrations.
     Do not make medical prescriptions.
-    Do not create a long-term detailed diet or full progressive training program.
-    If owner reports safety red flags or Achilles worsening, prioritize safety escalation/regression over optimization.
   done_when: |
-    Owner feedback on corrected starter kit v0 is compressed into:
-    - what worked;
-    - what failed;
-    - safety/Achilles flags;
-    - nutrition adjustment needed;
-    - training/activity adjustment needed;
-    - whether to keep A+ / A-food, add 4th upper pump, lighten, add simple recipe variety, or redesign;
-    - next recommended action.
-    Direction OS receives only summary/problems/decisions/next CALL, not daily raw logs.
+    A concise shape exists for the first Health AI System core slice:
+    - source-of-truth boundaries;
+    - minimal state model;
+    - operating protocol for new chats;
+    - planning/menu/training/logging/review loops;
+    - what lives in GitHub/work files vs future app/tool integrations vs Direction OS;
+    - whether to activate g-health-ai-core now, with valid appetite/kill_by and tasks if yes;
+    - first implementation-ready next CALL if activation is approved.
   return: |
-    RESULT with compressed feedback summary, safety assessment, suggested v1 adjustment
-    or escalation, any decisions_needed, NOW task status update, and next CALL.
-  budget: one guide session
+    RESULT with shaped core slice, explicit non-goals, any owner_approved state_changes,
+    decisions_needed, and next CALL or awaiting_decision.
+  budget: one shape session
   surface: chatgpt
 
 END_OF_FILE: live/health/NOW.md
