@@ -53,7 +53,7 @@ active_bet:
     faster agents simply move the wave faster. Pull-forward ladder (first bet-2 items if
     running ahead): (1) sector subdivision, (2) T2 windows around players, (3) frequency
     ladder + hotness.
-  forecast: "net consistency holds — every working precedent (SS14/Stationeers/Noita) does chunked single-writer delta; the plan kills this risk first; the Fable-5 window catches the hardest net tasks"
+  forecast: "net consistency holds — every working precedent (SS14/Stationeers/Noita) does chunked single-writer delta; the plan kills this risk first (the hardest net task t-1 runs first)"
   against: "novel band solver (risk #2, no direct precedent) + a custom stream + UNAUDITED agent throughput on this project could eat the window; the first week of t-1..t-3 turns that into a measured fact"
 
 active_tasks:
@@ -67,7 +67,7 @@ active_tasks:
           loop, per-tick state hash of a TRIVIAL field equal across all three over a
           fixed run;
       (4) FishNet viability verdict recorded (packet limits, headless x3, Steam transport).
-    kind: executor (Fable 5)
+    kind: executor (Opus 4.8 — Fable 5 unavailable; build model per next.model_routing)
     status: ready   # repo setup DONE 2026-06-13 (c-setup-001; CI green, commit 5fe3b3b on main); next = c-exec-002 build CALL
   - id: t-2
     goal: Toy gas field + custom chunked-delta stream + breach + first wire measurement.
@@ -79,7 +79,7 @@ active_tasks:
           breach (two rooms merge);
       (3) deadband + per-client clamp + aggregate host clamp all engaged;
       (4) FIRST measured numbers recorded: honest dirty-chunk wire size (bytes) + dirty-rate.
-    kind: executor (Fable 5)
+    kind: executor (Opus 4.8 — Fable 5 unavailable)
     status: blocked_on t-1
   - id: t-3
     goal: Breach-load consistency hold + stream lock (kill-gate).
@@ -91,7 +91,7 @@ active_tasks:
       (3) stream wire-format + revision barrier declared LOCKED (precondition for building
           band sim on top);
       (4) reproducible build + machine-readable telemetry artifact.
-    kind: executor (Fable 5 if before 2026-06-22, else Opus 4.8)
+    kind: executor (Opus 4.8 — Fable 5 unavailable)
     status: blocked_on t-2
 
 recurring: []
