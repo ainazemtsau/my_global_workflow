@@ -49,3 +49,5 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
   cannot drive the Hub GUI; treat "install Unity + create project" as the owner's physical step.
 - **TFMs:** core `netstandard2.1` (Unity loads it on the default scripting runtime); tests `net8.0`.
 - .NET SDK must be installed separately for the headless build (`dotnet`) — not bundled with Unity Hub.
+
+END_OF_FILE: os/engineering/profiles/unity.md
