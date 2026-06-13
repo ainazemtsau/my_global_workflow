@@ -36,7 +36,11 @@ root:
           и следующий CALL.
         - Starter kit спроектирован так, чтобы позже стать первым seed для nutrition system
           и training/activity system, а не одноразовой случайной выдачей.
-      status: parked
+      status: active
+      appetite: 7 calendar days
+      kill_by: >
+        2026-06-19: if corrected starter kit v0 and compressed feedback path are not usable by then,
+        stop and review instead of extending the bet.
       children: []
 
     - id: g-health-ai-core
