@@ -1,94 +1,114 @@
 # NOW — health
 
 active_bet:
-  id: g-health-starter-kit
-  status: done
-  appetite: 7 calendar days
+  id: g-health-ai-core
+  status: active
+  appetite: 6 calendar days
   kill_by: >
-    2026-06-19: if corrected starter kit v0 and compressed feedback path are not usable by then,
-    stop and review instead of extending the bet.
+    2026-06-19: if there is no usable Health AI Core Contract, no minimal source-of-truth skeleton,
+    or the five required dry-runs cannot be completed without raw Direction OS logs,
+    kill/review instead of extending.
   goal: >
-    Стартовый комплект питания и тренировок выдан и пригоден к немедленному началу:
-    owner может начать есть и тренироваться по первому рабочему варианту до завершения
-    Health AI System.
+    Ядро Health AI System создано как расширяемый продукт внутри направления health:
+    оно умеет хранить health-состояние, принимать апдейты, поддерживать AI-роли/процедуры
+    и служить основой для будущих nutrition/training/activity модулей.
   done_when:
-    - work/health-starter-kit-v0.md exists.
-    - Artifact covers first nutrition starter and first training/activity starter.
-    - Artifact includes safety stop/escalation gates.
-    - Artifact includes bad-week minimum.
-    - Artifact states what not to track in Direction OS.
-    - Artifact includes exact compressed feedback prompt for t-2.
-    - No daily raw health data is stored in Direction OS.
-    - No long-term detailed diet, full progressive training program, Health AI System core, or app integration choice is created.
-  reconstructed_by: s-health-repair-starter-kit-state-002
-  reconstruction_reason: >
-    Previous work/repair RESULT could not apply because NOW.md still had active_bet: null and tasks: [].
-    This repair reconstructs the missing shaped state and records the owner-approved A+ / A-food starter.
+    - There is a Health AI Core Contract artifact covering source-of-truth boundaries,
+      minimal state model, AI operating protocol, loops, and non-goals.
+    - There is a minimal source-of-truth skeleton for profile, preferences, metrics summaries,
+      active plans, food logs, recipes, training/activity state, feedback, reviews/incidents,
+      and pending patches.
+    - The five core flows are dry-run without storing raw daily health data in Direction OS.
+    - The core stays integration-neutral and does not choose Hevy/Strava-like/wearable/VR/recipe-manager tools.
+    - Direction OS receives only summary/problems/decisions/CALLs.
   cut_list:
-    - Do not create a detailed long-term diet.
-    - Do not create a full progressive training program.
-    - Do not build Health AI System core or data architecture.
-    - Do not choose Hevy/Strava-like/wearable/VR integrations.
-    - Do not store daily raw weight/food/set/activity data in Direction OS.
-    - Do not make medical prescriptions.
-    - Do not include squats, single-leg lower-body work, running, jumps, or calf work in v0.
+    - Cut dedicated app UI.
+    - Cut API/database implementation.
+    - Cut recipe-manager selection.
+    - Cut Hevy/Strava/wearable/VR integration decisions.
+    - Cut full macro/calorie algorithm.
+    - Cut full long-term training progression.
+    - Cut raw logs in Direction OS.
+    - Cut photo-understanding pipeline; accept photo-style owner descriptions for now.
+    - Cut automatic cross-tool sync.
+    - Cut broad health dashboard.
   lens_sweep:
     - weight-nutrition: >
-        Covered by A-food: omelet, chicken + rice/pasta + Greek salad, творог + strawberries,
-        simple first-week prep and no raw food logs in Direction OS.
+        Needs work; covered by state model for preferences, plans, recipes, food logs,
+        same-day advice, and planning/menu loop.
     - strength-body-composition: >
-        Covered by A+: 3 home strength sessions using dumbbells and bands, with protein anchors
-        and no full progressive program.
+        Needs work; covered by training_activity state, current plan/today output protocol,
+        safety gates, and no full progressive program.
     - activity-conditioning: >
-        Covered by morning VR/Beat Saber and bicycle as easy/moderate low-impact activity.
+        Needs work; covered by activity options, current-week outputs, summaries,
+        and future integration pointers without choosing tools now.
     - adherence-relapse: >
-        Covered by bad-week minimum and exact compressed feedback prompt for t-2.
+        Needs work; covered by low-friction logging, skippable questions, fallback plans,
+        weekly review, and escalation when the system becomes too heavy.
     - medical-safety: >
-        Covered by Achilles-specific exclusions, pain/recovery red flags, urgent stop signs,
-        and clinician-baseline gate before intensification.
+        Needs work; covered by safety flags, pain/fatigue checks, non-prescriptive boundaries,
+        and escalation/stop logic for concerning signals.
     - ai-system-data-architecture: >
-        Covered by explicit Direction OS exclusions; Health AI System and integrations are deferred.
+        Primary lens; covered by source-of-truth boundaries, minimal state model,
+        chat protocol, writer/update boundary, and Direction OS bridge.
+  assumptions:
+    - GitHub-backed minimal state/protocol layer can support useful cross-chat continuation before app/integration work.
+    - Owner will tolerate a small amount of structured health state if it produces useful daily outputs.
+    - AI chats can follow the operating protocol without turning Direction OS into a diary.
+    - Recipes/plans/logs can start as durable artifacts and later migrate/sync without rework.
+    - Dry-run scenarios can reveal the biggest schema/protocol flaws before implementation.
+  forecast: >
+    The first slice can be made useful without building an app or choosing integrations.
+  against: >
+    The core may still feel like another document unless dry-runs prove it answers real menu/training/logging flows.
 
 tasks:
   - id: t-1
-    node: g-health-starter-kit
-    status: done
+    node: g-health-ai-core
+    status: open
+    kind: session
     goal: >
-      Produce work/health-starter-kit-v0.md: one practical starter artifact with
-      initial nutrition starter, initial training/activity starter, safety boundaries,
-      bad-week minimum, and compressed feedback path.
+      Produce work/health-ai-core-contract-v0.md: the minimal Health AI Core Contract with
+      source-of-truth boundaries, state model, new-chat operating protocol, loops, non-goals,
+      and five dry-run scenarios.
     done_when:
-      - work/health-starter-kit-v0.md exists.
-      - It covers nutrition starter.
-      - It covers training/activity starter.
-      - It covers safety stop/escalation gates.
-      - It covers bad-week minimum.
-      - It states what not to track in Direction OS.
-      - It includes exact owner feedback prompt for t-2.
-    evidence:
-      - work/health-starter-kit-v0.md
-      - live/health/history/2026-06-13-s-health-repair-starter-kit-state-002.md
-    note: >
-      Corrected A+ / A-food version supersedes earlier generic/unapplyable drafts.
+      - Artifact defines Direction OS vs Health AI System vs future integrations boundaries.
+      - Artifact defines minimal state model.
+      - Artifact defines operating protocol for new chats.
+      - Artifact covers planning/menu/training/food-log/recipe/review loops.
+      - Artifact includes five dry-run scenarios.
+      - Artifact does not choose integrations, build implementation, request raw logs,
+        or store raw daily data in Direction OS.
 
   - id: t-2
-    node: g-health-starter-kit
-    status: done
+    node: g-health-ai-core
+    status: open
+    kind: session
     goal: >
-      Guide the owner through compressed feedback on corrected work/health-starter-kit-v0.md
-      and turn that feedback into a concise next-step adjustment without storing daily raw health data
-      in Direction OS.
+      Produce work/health-ai-core-state-skeleton-v0.md: a minimal source-of-truth skeleton
+      for profile, preferences, metrics summaries, active plans, food logs, recipes,
+      training/activity state, feedback, reviews/incidents, and pending patches.
     done_when:
-      - Owner feedback is compressed into what worked, what failed, safety/Achilles flags,
-        nutrition adjustment, training/activity adjustment, and next recommended action.
-      - Direction OS receives only summary/problems/decisions/next CALL, not daily raw logs.
-    evidence:
-      - owner compressed feedback in session s-health-starter-kit-t-2-guide-003
-      - work/health-starter-kit-v0.md rejected as an artifact to iterate
-    note: >
-      Owner rejected the starter-kit document as a bad artifact and explicitly asked not
-      to spend more time polishing it. The useful output is compressed feedback and a
-      pivot to Health AI System core/source-of-truth work.
+      - Skeleton lists concrete files/records and required fields.
+      - Skeleton states which records may contain operational raw data inside Health AI System.
+      - Skeleton states that Direction OS receives only strategic summary/problem/decision/CALL output.
+      - Skeleton includes recipe-card, food-log-entry, weekly-plan, training-output, and review/incident templates.
+      - Skeleton remains integration-neutral.
+
+  - id: t-3
+    node: g-health-ai-core
+    status: open
+    kind: guide
+    goal: >
+      Validate the contract and skeleton by running the five core flows with synthetic or minimal seed data,
+      producing only a compact validation summary for Direction OS.
+    done_when:
+      - Flow 1 tested: no weekly plan exists → system guides plan creation.
+      - Flow 2 tested: today's menu requested → system answers from plan/preferences or marks missing plan.
+      - Flow 3 tested: food log with skipped follow-ups → system saves available data with confidence and gives same-day advice.
+      - Flow 4 tested: today's training requested → system answers from current plan/safety state or marks missing plan.
+      - Flow 5 tested: review/incident → system compresses summary and Direction OS escalation.
+      - Validation identifies blockers or confirms the slice is usable enough for next nutrition/training-system shaping.
 
 recurring: []
 
@@ -97,57 +117,51 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-health-ai-core-shape-001
+  CALL c-health-ai-core-t-1-work-001
   to: session
   direction: health
-  play: shape
+  play: work
   node: g-health-ai-core
+  task: t-1
   goal: |
-    Shape the first Health AI System core slice: source-of-truth, operating protocol,
-    and minimal state model for planning, food logging, recipes, training/activity
-    outputs, and cross-chat continuation.
+    Produce work/health-ai-core-contract-v0.md: the minimal Health AI Core Contract with
+    source-of-truth boundaries, state model, new-chat operating protocol, planning/menu/training/
+    food-log/recipe/review loops, explicit non-goals, and five dry-run scenarios.
   context: |
-    Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md, and
-    the t-2 guide RESULT s-health-starter-kit-t-2-guide-003.
+    Read live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
+    live/health/history/2026-06-13-s-health-starter-kit-t-2-guide-003.md,
+    and RESULT s-health-ai-core-shape-001 plus approval RESULT s-health-ai-core-shape-001-approval.
 
-    Owner rejected work/health-starter-kit-v0.md as the wrong artifact shape and asked
-    not to spend more time polishing that file.
+    Owner rejected work/health-starter-kit-v0.md as the wrong artifact shape and asked not
+    to spend more time polishing it.
 
-    Owner's intended system, compressed:
-    - system stores data, metrics, preferences, plans, recipes, feedback, and state;
-    - owner can open an AI chat from anywhere and ask for today's menu or today's training;
-    - if no weekly plan exists, AI should detect that and guide creation of one;
-    - food logging should accept text/voice/photo-style input, ask follow-up questions,
-      allow skipped questions, save with available data, and give same-day advice;
-    - recipes should be durable stored artifacts, probably GitHub-backed as source-of-truth;
-    - later research may evaluate a self-hosted open-source recipe manager/API integration,
-      but this session must not choose that integration;
-    - Direction OS must remain strategic and receive only summary/problems/decisions/CALLs,
-      not daily raw logs.
-
-    This CALL is node-level shape work. It intentionally does not refer to a pre-existing
-    g-health-ai-core/t-1 task. The shape RESULT should create any valid active_bet/tasks
-    with appetite/kill_by if activation is approved.
+    The Health AI core must support:
+    - AI chats from anywhere asking for today's menu or today's training;
+    - detecting missing weekly plan and guiding creation;
+    - food logging from text/voice/photo-style input with limited skippable follow-ups;
+    - saving available data with confidence and giving same-day advice;
+    - durable recipe artifacts, likely GitHub-backed initially;
+    - Direction OS receiving only summary/problems/decisions/CALLs, not daily raw logs.
   boundaries: |
-    Do not create a long-term detailed diet or full progressive training program.
-    Do not build the implementation.
+    Do not build an app.
     Do not choose Hevy/Strava-like/wearable/VR/recipe-manager integrations.
-    Do not store daily raw weight/food/set/activity data in Direction OS.
+    Do not create a long-term detailed diet or full progressive training program.
+    Do not store daily raw health data in Direction OS.
     Do not ask for raw logs.
     Do not make medical prescriptions.
+    Do not polish or revive work/health-starter-kit-v0.md.
   done_when: |
-    A concise shape exists for the first Health AI System core slice:
+    work/health-ai-core-contract-v0.md content is ready for writer application and contains:
     - source-of-truth boundaries;
     - minimal state model;
-    - operating protocol for new chats;
-    - planning/menu/training/logging/review loops;
-    - what lives in GitHub/work files vs future app/tool integrations vs Direction OS;
-    - whether to activate g-health-ai-core now, with valid appetite/kill_by and tasks if yes;
-    - first implementation-ready next CALL if activation is approved.
+    - new-chat operating protocol;
+    - planning/menu/training/food-log/recipe/review loops;
+    - explicit non-goals and cut list;
+    - five dry-run scenarios that test cross-chat continuation and missing-state behavior.
   return: |
-    RESULT with shaped core slice, explicit non-goals, any owner_approved state_changes,
-    decisions_needed, and next CALL or awaiting_decision.
-  budget: one shape session
+    RESULT with artifact content or exact work/ file addition, evidence mapped to done_when,
+    no raw daily logs, and next CALL for t-2.
+  budget: one work session
   surface: chatgpt
 
 END_OF_FILE: live/health/NOW.md

@@ -68,7 +68,12 @@ root:
         - Есть escalation bridge: если в системе ломается питание, тренировки, мотивация, боль,
           безопасность, трекинг или tooling, она формирует сжатый incident/review для Direction OS,
           а не сливает туда daily raw logs.
-      status: parked
+      status: active
+      appetite: 6 calendar days
+      kill_by: >
+        2026-06-19: if there is no usable Health AI Core Contract, no minimal source-of-truth skeleton,
+        or the five required dry-runs cannot be completed without raw Direction OS logs,
+        kill/review instead of extending.
       children: []
 
     - id: g-health-nutrition-system
