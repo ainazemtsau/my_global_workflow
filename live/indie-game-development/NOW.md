@@ -155,6 +155,13 @@ next: |
     STUCK. On DONE -> a fresh session verifies (G5, refute, different model) and advances t-1; next =
     c-work-002 (t-2). Red FishNet verdict -> P6 fallback spike, not a forced pass.
   budget: one focused half-day (executor sizing); 2x over -> stop & report.
-  surface: cli, Fable 5 window (closes 2026-06-22) — hardest net task; owner present for the PLAN/FishNet step.
+  surface: cli — START IN A NEW CHAT / CLEAN CONTEXT, working dir = the product-repo dev worktree
+        C:\projects\Unity\GasCoopGame_dev (it reads that repo's AGENTS.md run contract). t-1 is its own job.
+  model_routing: (owner-confirmed 2026-06-13; Fable 5 unavailable) BUILD = Claude Code + Opus 4.8
+        (planner + builder; reserve ultracode for bounded legs — Claude Pro has no hard token cap).
+        VALIDATE = Codex CLI + GPT-5.5 xhigh, read-only / fresh-context (different-family GATE-RUNNER,
+        NOT the authority — it is the weaker model). Binding acceptance = green gates + evidence + owner
+        spot-review on novel netcode. Owner present for the PLAN / FishNet-dependency step. Flip if
+        Fable 5 restored, Claude Pro can't sustain the build, or work turns terminal/sandbox-heavy.
 
 END_OF_FILE: live/indie-game-development/NOW.md
