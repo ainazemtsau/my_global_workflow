@@ -68,7 +68,7 @@ active_tasks:
           fixed run;
       (4) FishNet viability verdict recorded (packet limits, headless x3, Steam transport).
     kind: executor (Fable 5)
-    status: blocked_on c-setup-001   # product repo being RE-CREATED from scratch (PROJECT_SETUP, NEW repo, Unity 6.3 LTS); t-1 build CALL issues after setup DONE
+    status: ready   # repo setup DONE 2026-06-13 (c-setup-001; CI green, commit 5fe3b3b on main); next = c-exec-002 build CALL
   - id: t-2
     goal: Toy gas field + custom chunked-delta stream + breach + first wire measurement.
     done_when: |
@@ -105,81 +105,56 @@ open_calls:
       charter's existing reframe letter); NEW hard wall = the game earning for real by
       ~12 months (EA no later than ~Q2 2027). Map session s-map-002 could not edit the
       charter (play boundary).
-  - id: c-setup-001
-    status: in_flight
-    note: |
-      Setup executor (engineering) CALL — repo bootstrap per os/engineering/PROJECT_SETUP.md.
-      Owner decided 2026-06-13: FULL clean RE-CREATE of the product repo on a NEW repo, latest
-      Unity 6.3 LTS (old repo was Unity 6.4 tech-stream + codex-native-execution-layer harness —
-      both retired). ADR-0001 architecture: engine-free C# core (.csproj, netstandard2.1,
-      headless dotnet build/test, 0 Unity refs) + Unity render/input/transport adapters; core-CI
-      day-1, Unity PlayMode-CI deferred; byproduct os/engineering/profiles/unity.md. SUPERSEDES
-      retired c-exec-001 (built on the now-to-be-deleted foundation). Full CALL in `next`. Owner
-      physical step: install Unity 6.3 LTS via Hub. Clears on its RESULT (DONE/NEEDS INPUT/STUCK).
 
 decision_inbox: []   # d-arch-001 answered at s-shape-003 (see history/s-shape-003.md outcome a-e)
 
 next: |
-  CALL c-setup-001
+  CALL c-exec-002
   to: executor
-  kind: engineering (repo bootstrap — os/engineering/PROJECT_SETUP.md)
-  repo: NEW github.com/ainazemtsau/GasCoopGame (fresh; old repo renamed -> GasCoopGame-archive,
-        kept read-only as evidence; local C:\projects\Unity\GasCoopGame re-created clean)
+  kind: engineering
+  repo: github.com/ainazemtsau/GasCoopGame — work in the dev worktree
+        C:\projects\Unity\GasCoopGame_dev (branch dev); merge to main when gates green (per repo AGENTS.md)
   direction: indie-game-development
-  node: g-9c41   task: t-1 (PRECONDITION — setup runs BEFORE the t-1 build)
+  node: g-9c41   task: t-1
   parent: c-work-001
   goal: |
-    A fresh, OS-aligned product repo exists and PASSES the PROJECT_SETUP done-when checklist:
-    a clean Unity 6.3 LTS project whose architecture puts ALL game logic in an engine-free C#
-    core that builds & tests HEADLESS (zero Unity refs, mechanically enforced), with Unity
-    reduced to render/input/transport adapters — set up entirely through OUR process, not the
-    old harness. This is the precondition the t-1 net-spike then builds on.
+    t-1 met on the clean repo: the engine-free C# core gains a real deterministic sim-core with a
+    composition root selectable into 3 modes (pure-local / local host-loop / networked host+clients;
+    no network logic in core/business classes), and a networked harness where a FishNet player-host +
+    2 headless clients run a deterministic fixed-tick loop and AGREE on a per-tick state hash of a
+    TRIVIAL field over a fixed seeded run — plus a recorded honest FishNet viability verdict. The
+    network-first spike (riskiest assumption #1), NOT gas simulation.
   context: |
-    - REPLACES the old GasCoopGame (codex-native-execution-layer harness, Unity 6.4 tech-stream,
-      A1_SETUP_ONLY). Full clean slate, owner-decided 2026-06-13 (R1 delete+recreate, R2 strictly
-      our process, R3 latest Unity, R4 new repo). Old repo archived as evidence, never a build target.
-    - Owner stack interview (PROJECT_SETUP step 1) -> ADR-0001:
-      * Unity 6.3 LTS (6000.3.x, latest patch in Hub; LTS to Dec 2027). NOT the 6.4 tech stream.
-      * Engine-free core = standalone .NET project (.csproj/.sln), TARGET netstandard2.1 (Unity can
-        always load it); test project TARGET net8.0 via `dotnet test`. (R13.)
-      * Unity = render/input/transport adapters only; networking is an edge wrapper (R14).
-      * Net vendor FishNet enters in t-1, NOT setup (transport seam left empty).
-      * Core-gate CI from day one (dotnet build/test + dependency-boundary lint — no Unity license);
-        Unity PlayMode CI (GameCI + license secret) DEFERRED until engine-dependent tests exist.
-    - Run contract to INSTALL = os/engineering/CONTOUR.md distilled into root AGENTS.md
-      (planner/builder/validator; plan->ledger->build->gates->report; builder cannot weaken the
-      oracle; retries<=3 then escalate; done = gates green + evidence). NOT the codex layer.
-    - Bet rules R12-R15 (this NOW.md) constrain the architecture.
+    - Repo is OS-aligned and CI-green (setup c-setup-001 DONE 2026-06-13, main @5fe3b3b). Build ON the
+      existing scaffold: Assets/GasCoopGame/Core (asmdef noEngineReferences) + headless
+      core/GasCoopGame.Core.csproj + tests/ (net8.0 NUnit) + tools/check.ps1 + core CI. Replace the
+      CoreBuildMarker placeholder with the real core; reuse its FNV-1a as the per-tick state hash.
+    - Conventions live in the repo — follow them, the OS does not restate them: root AGENTS.md (run
+      contract + dev-worktree workflow + commands), Assets/GasCoopGame/Core/AGENTS.md (engine-free +
+      determinism), REVIEW.md, validation.config, docs/adr/ADR-0001.
+    - Authoritative done_when (4 points): this NOW.md active_tasks t-1.
+    - Architecture brief (input evidence, not binding): work/research-g-9c41-core-architecture-
+      2026-06-12-v2.md §3.4 tick phases, §5 day-one stub-but-not-skip contracts.
+    - Bet rules R12-R15. FishNet = default vendor; verdict HONEST (red -> P6 fallback, never a forced pass).
   boundaries: |
-    - Owner has NO deep Unity experience: make every Unity-specific choice yourself with a
-      plain-language rationale in the report; do not ask the owner to adjudicate Unity internals.
-    - Owner physical step (cannot be automated — Hub GUI): install Unity 6.3 LTS + create the Unity
-      project. Everything else (core .csproj, asmdefs, gates, CI, profile, run contract) is yours.
-    - GitHub destructive ops (rename/archive the old repo, create the new one) need an explicit
-      owner go at execution time before running them.
-    - NO gameplay / gas / networking code in setup — the empty, gated skeleton only (t-1+ fill it).
-    - Do NOT import old code/foundation (R2 clean slate). Old CoreFoundation/GridTopology are
-      reference-only; re-create only what t-1 needs, fresh, in the new module layout.
+    - TRIVIAL field only (one scalar per node, pure deterministic tick). NO gas sim/bands/diffusion (t-2+).
+    - Net model locked (P6: one player hosts, no dedicated server). Do not redesign.
+    - Adding FishNet is a NEW DEPENDENCY -> owner approval in PLAN; determinism + netcode = architectural
+      -> ADR + owner conversation BEFORE building.
+    - Work in the dev worktree; never edit the main checkout (owner's Unity Editor). Merge to main when green.
+    - Stay inside t-1 done_when; t-2/t-3 are separate.
   done_when: |
-    The PROJECT_SETUP "Done when" checklist passes WITH EVIDENCE:
-    - one-command check (format+lint+type+tests) green locally AND in CI;
-    - dependency-boundary check exists and FAILS on a seeded violation (e.g. UnityEngine ref in core);
-    - the engine-free core builds & tests HEADLESS via `dotnet` with ZERO Unity refs;
-    - root AGENTS.md <=150 lines with working commands + the run-contract section; >=1 module AGENTS.md;
-    - REVIEW.md, validation.config, docs/adr/ADR-0001 (the stack decision above), docs/FRICTION.md,
-      openspec/ exist;
-    - `_scratch/` exists and a seeded file in it cannot be committed;
-    - test-hygiene gates fail on seeded violations;
-    - os/engineering/profiles/unity.md CREATED (byproduct) and returned in state_changes;
-    - Unity PlayMode CI with license recorded as DEFERRED (explicitly out until adapters exist).
+    t-1's 4 points, each by a runnable check: (1) core builds/tests headless, 0 Unity refs (existing
+    gate); (2) 3-mode composition root, a test selects a mode, no net types in core (dependency check);
+    (3) FishNet host + 2 HEADLESS clients, deterministic fixed-tick, per-tick TRIVIAL-field hash EQUAL
+    across all three over a fixed seeded run; (4) FishNet verdict recorded (green|yellow|red: packet/
+    channel limits, headless x3, Steam transport).
   return: |
-    REPORT: the PROJECT_SETUP checklist with evidence per item (commands + outputs), the new repo
-    URL, ADR-0001 text, the created os/engineering/profiles/unity.md (in state_changes for the
-    workflow repo), assumptions, anything deferred. State DONE | NEEDS INPUT | STUCK. Surface
-    blockers early (Unity license, Hub install). On DONE -> next = the t-1 build CALL on the clean
-    repo (engine-free core scaffold + 3-mode composition root + FishNet host+2-client hash handshake
-    + honest FishNet verdict; the retired c-exec-001 is the template for it).
-  budget: a focused one-time setup pass; 2x over or a hard blocker (license/Hub) -> stop & report.
-  surface: cli; owner installs Unity 6.3 LTS via Hub in parallel.
+    REPORT: commits/PR on dev (merged to main when green), outputs of the headless build + the
+    3-instance hash-equality run, the FishNet verdict, assumptions, anything cut. DONE | NEEDS INPUT |
+    STUCK. On DONE -> a fresh session verifies (G5, refute, different model) and advances t-1; next =
+    c-work-002 (t-2). Red FishNet verdict -> P6 fallback spike, not a forced pass.
+  budget: one focused half-day (executor sizing); 2x over -> stop & report.
+  surface: cli, Fable 5 window (closes 2026-06-22) — hardest net task; owner present for the PLAN/FishNet step.
 
 END_OF_FILE: live/indie-game-development/NOW.md
