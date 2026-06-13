@@ -10,5 +10,6 @@
 - 2026-06-13 — health/g-health-ai-core/t-1 work: Health AI Core Contract v0 created with boundaries, state model, chat protocol, loops, non-goals, and five dry-runs; next t-2 state skeleton. → history/2026-06-13-s-health-ai-core-t-1-work-001.md
 - 2026-06-13 — health/g-health-ai-core/t-2 work: Health AI Core State Skeleton v0 created with records, raw-data boundaries, templates, procedure registry, roles, guidance/governance contour, and Direction OS bridge; next t-3 validation. → history/2026-06-13-s-health-ai-core-t-2-work-001.md
 - 2026-06-13 — health/g-health-ai-core review: bet met; cuts held 0 missed/10; guidance/governance promoted to knowledge; next-bet decision pending. → history/2026-06-13-s-health-ai-core-review-001.md
+- 2026-06-13 — health/g-health-ai-core review approval: owner chose A; next c-health-nutrition-system-shape-001. → history/2026-06-13-s-health-ai-core-review-001-approval.md
 
 END_OF_FILE: live/health/LOG.md
