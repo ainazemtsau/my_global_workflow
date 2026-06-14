@@ -22,4 +22,20 @@ This repository is the **Direction OS** — the owner's workflow system. Rules: 
 - Small diffs; descriptive commit messages (`<direction> <play> <node/task>: <log line>` for state, plain descriptive for os/).
 - Do not delete files outside the scope of the job.
 
+<!-- BEGIN: Codex multi-agent section — splice into repo-root AGENTS.md. Keep terse (32 KiB cap). -->
+
+## Codex: how to work this OS
+
+When running as **Codex** in this repo, you are a Direction-OS session/writer like any other coding agent. Three rules:
+
+1. **Follow the direction-os skill.** The job-recognition table and hard rules above are authoritative. For the full procedure load the `direction-os` skill (`.agents/skills/direction-os/SKILL.md`) — it points at `os/KERNEL.md`, the play, and `os/adapters/coding-agent.md` (the binding authority for the writer's validate-before-apply checks). Read state from `live/<id>/`; write state ONLY via a RESULT's `state_changes`.
+
+2. **Realize a play's parallel children as subagents — but only when the play calls for it.** A play that mandates in-leg fan-out (research nominal-group generators + miner + strategic_search; converge/converge-arch miners + strategic_search) is run by spawning the matching role worker once per child, then merging/deduping their reports yourself. The role text lives in `.codex/agents/*.toml` (`explorer`, `researcher`, `validator`; `builder` is for product repos only). **Codex spawns a subagent only when explicitly told to** — so fan out only where the play/CALL says to. **Known limitation:** on the desktop app / Windows, spawning a custom agent BY NAME may be unavailable (openai/codex #15250, #26828) — fall back to spawning the generic `explorer`/`worker` and injecting that role's `developer_instructions` as the prompt; see the `parallel-verify` skill. **Mechanical legs stay single-agent** (writer apply, a single `work` task, digest, audit): no subagents.
+
+3. **Route the authoritative G5 refutation to a different model family (Claude).** Gate G5 ("done" needs evidence) is verified by *trying to refute* a claim in a SEPARATE session, ideally by a different model family. All Codex subagents are OpenAI = same family, so they do NOT satisfy the cross-family gate. A Codex `validator` child may do a same-family pre-pass (it returns SURVIVED-INTRA-FAMILY, never "verified"), but the binding G5 pass is a cross-tool hand-off to a Claude session — never a Codex subagent. State this in your RESULT when a node closes on evidence.
+
+Setup, replication, the by-name-spawn limitation, and version caveats: `.codex/README-CODEX-KIT.md`.
+
+<!-- END: Codex multi-agent section -->
+
 END_OF_FILE: AGENTS.md
