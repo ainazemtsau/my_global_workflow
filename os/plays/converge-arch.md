@@ -21,7 +21,7 @@ Precondition: converge WHAT spec closed (converge done) AND node is sibling-bear
 §CONTRACTS: every TREE-checked interaction has an entry; no consumed contract dangles (producer named, even if unbuilt); no line cites an open §WHAT/term; no HOW token (push/poll/format/cadence) — those are `→ PLAN`. Heavy: zero open high-risk architecture questions; every pick has a refuted comparison + signed recommendation; seams recorded as contracts; no architecture-on-paper leaked into done_when (`context`-only). `§SIGNOFF` exists for Declare and (heavy) Architect. Set handed to converge-verify before shape.
 
 ## Notes
-- Owner asks fold into the converge set's three-batch G7 limit: Declare's contract sign-off and (heavy) the architecture picks — never scattered.
+- Owner decisions (Declare's contracts, heavy architecture picks) are batched, never scattered — never silently auto-decided; surface every genuine fork.
 - Contract-order trap: a consumer (gas) may reference an unconverged producer (grid). Either converge the producer FIRST, or record an owner-confirmed dangling dependency the producer's later converge consumes unchanged.
 - HONEST: the layer gives a researched recommendation; PLAN owns the binding ADR. The firewall keeps architecture-on-paper out of done_when — only WHAT acceptance criteria + contract requirements are copied there by shape.
 

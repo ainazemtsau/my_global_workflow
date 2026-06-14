@@ -1,6 +1,6 @@
 # Play: converge
 
-Purpose: drive a non-trivial node from a TREE-node to a closed, owner-signed WHAT spec shape consumes — disputed terms locked, requirements a cited node-on-paper, every committed mechanism decomposed to the questions it forces. Contracts and heavy architecture ride converge-arch; the closed set is refuted by converge-verify before shape. Closure is this play's Done-when.
+Purpose: drive a non-trivial node from a TREE-node to a closed, owner-signed WHAT spec shape consumes — disputed terms locked, requirements a cited node-on-paper, every committed mechanism decomposed to the questions it forces. Contracts and heavy architecture ride converge-arch; the closed set is refuted by converge-verify before shape.
 
 Reads: TREE.md (node), CHARTER.md (lenses, risk_posture), NOW.md, knowledge/ + the node's history/.
 Writes: work/converge-<node>.md (removable assembly surface), NOW.md (open_calls, decisions), LOG.md. Proposes glossary canon for review/pulse; never writes knowledge/.
@@ -21,7 +21,7 @@ Precondition: node chosen, no bet conflict (G1). Reached via CALL `to: session, 
 Forward-clean (`rg -c` `open`/`deferred` = 0), backward-clean (every weight-bearing line/acceptance/glossary row cited), coverage complete, `§SIGNOFF` for Define and Resolve, set handed to converge-verify.
 
 ## Notes
-- Owner asks batch into AT MOST THREE G7 points across the converge set, one per gated movement. Each writes `§SIGNOFF: owner approved <movement> @ <date> — "<owner words>"` (grep-able, satisfies G10).
+- Owner decisions are BATCHED per movement/wave, never one-by-one — but NEVER silently auto-decided to fit a budget; every genuine owner fork surfaces, however many. Each writes `§SIGNOFF: owner approved <movement> @ <date> — "<owner words>"` (G10).
 - HONEST: coverage is mechanical; completeness rests on converge-verify, correctness on the owner gate.
 
 END_OF_FILE: os/plays/converge.md
