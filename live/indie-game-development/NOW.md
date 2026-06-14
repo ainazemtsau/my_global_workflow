@@ -98,7 +98,7 @@ recurring: []
 
 open_calls:
   - id: c-exec-003
-    status: dispatched   # executor leg for t-2; opens with interactive PLAN + ADR-0003 in the product repo (owner present), then autonomous build legs
+    status: ON_HOLD   # ⛔ HOLD 2026-06-14 — do NOT start the PLAN / freeze ADR-0003 until c-shape-004 re-scopes the bet. Stress-test wf_454d6859-4e4: freezing C1–C22 against the OLD single-layer/scripted-breach scope before the re-shape = freezing the wrong contract. (Was: dispatched — interactive PLAN + ADR-0003, owner present, then build legs.)
     note: framed at s-work-004 (c-work-002); hardened via an 8-agent ground+draft+adversarial-verify pass (wf_7dbb52a9-1c1); full CALL in next:; converge set wired in as mandatory PLAN input per d-converge-001=A (s-decide-002); → history/s-work-004.md
   - id: c-frame-002
     status: queued
