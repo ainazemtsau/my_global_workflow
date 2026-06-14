@@ -26,7 +26,7 @@ A row that NAMES a mechanism still runs Resolve 3(c) decomposition (closing a me
 | I4 | history/2026-06-14-s-health-reframe-charter-001.md | Core-first: strong core first; nutrition/training are MODULES on it sharing metrics/phases with cross-module exchange. | owner "ok" | #5, #8 | YES → which concepts core OWNS; day-level coupling depth (recon Q4) |
 | I5 | history/2026-06-14-s-health-reframe-map-001.md | Tree re-mapped core-first: g-health-core converges first; g-health-ai-core dropped (artifacts = dirty input); modules reframed. | owner "ok" | node scope/framing | NO |
 | I6 | history/2026-06-14-s-health-reframe-map-001.md | PLAN-vs-LOG + anchors-vs-derived is the core SPINE (LLM resolves daily numbers from stored anchors; modeled on plain-text-accounting + flat-text program DSLs). | owner "ok" (part of approved re-map) | #4, #5 ("PLAN-vs-LOG"), #3 (typed boundary) | YES → which fields are owner_facts vs derived_anchors; protein ref weight (Q1); resolve-on-read vs materialize (Q3); EMA/expenditure windows |
-| I7 | knowledge/health-ai-core-guidance-governance.md | Direction OS ↔ Health AI System boundary: Direction OS strategic-only; receives only summary/problem/decision/incident/evidence-pointer/CALL; raw daily data lives in Health AI System. Core is a guidance/governance layer, not only a data store. | promoted to knowledge after owner review 2026-06-13 (review-001 approval, owner chose A) | #9 (boundary preserved) | YES → exact upward-set membership + raw-vs-summary threshold + escalation rules → **routed to owner Gate G7-3** |
+| I7 | knowledge/health-ai-core-guidance-governance.md | Direction OS ↔ Health AI System boundary: Direction OS strategic-only; raw daily data lives in Health AI System. Core is a guidance/governance layer, not only a data store. | promoted to knowledge after owner review 2026-06-13 (review-001 approval, owner chose A) | #9 (boundary preserved) | **RECONCILED by G7-3 SIGNOFF (2026-06-14):** the boundary is a ONE-WAY visibility/dependency — Direction OS reads ALL of Health AI on demand; Health AI carries ZERO reference to Direction OS. "Receives only summary/…" is refined to: Direction OS does not DUPLICATE raw data into its own state (not-a-diary), but is NOT limited to a filtered feed for reading. → cross-repo contract for converge-arch |
 
 **NOT imported** (held OPEN — owner approval is absent or explicitly deferred): the **research-and-decide
 operational membership test** (flagged in the nutrition Define draft as a CANDIDATE that must hit an owner
@@ -64,6 +64,10 @@ Covers terms: `research-and-decide (principle + membership test)` · `owner fact
 - citations: nutrition-draft L19–24 (membership test, "meals/day ⇒ DECIDE (the v1 bug)"), L85–88 (open edge:
   cooking-time = fact or cadence?); nutrition-input L102 (the crux); recon L10 (owner FACTS list) vs
   nutrition-draft L27–28 (narrow personal-fact); CHARTER L125–128 (principle, no test).
+- ✅ **SIGNED (2026-06-14): reading A.** Owner: "Совсем остальным согласен." Membership test locked
+  (researchable-from-evidence+profile ⇒ DECIDE, else ⇒ ASK; carve-out only by named constraint;
+  goal-weight/protect-strength system-proposed/owner-ratified; cooking-time = personal fact;
+  non-blocking skippable setup). NOTE: the non-blocking property is reinforced system-wide by G7-2 (R3/R4).
 
 **G7-2 — the autonomy dial ("leader with brakes"): how much the system may auto-apply vs must surface.**
 Covers terms: `autonomy / leads (leader with brakes)` · `system-decided variable (auto-apply envelope)` ·
@@ -80,6 +84,18 @@ Covers terms: `autonomy / leads (leader with brakes)` · `system-decided variabl
   **C** configurable autonomy level the owner flips over time (default = A).
 - citations: nutrition-draft L36–37 (leader-with-brakes), recon L45–48 (three autonomy levels, "config flag for
   how much the review may auto-apply"), recon Q2 (open, owner-signed); CHARTER L199–204 (guarded).
+- ✅ **SIGNED (2026-06-14): A's drive/auto-apply posture KEPT; the ASKING posture AMENDED by the owner.**
+  Owner verbatim: "система может спрашивать и много … если я вот явно скажу что на это я не буду отвечать,
+  то она не должна мне дальше морозить … должна как дефолт или примерный взять. Но я буду стараться всегда
+  отвечать … может что-то не записал или не помню … с этим надо голову не дурить." Locked:
+  (R2) the system MAY ask freely — minimize-asking is NOT the target;
+  (R3) every question is NON-BLOCKING — on decline / "no data" / "don't remember" / "won't answer" → take a
+  sensible default or estimate, record it as a revisable default, proceed, and do NOT re-pester that point;
+  (R4) best-effort answering is the norm but missing/forgotten/unrecorded data is never made a problem.
+  KEPT (accepted under "остальным согласен"): decide-and-inform on expert variables; review PROPOSES changes;
+  the safety brakes-list still applies, with the conservative/safe option as the default-on-non-answer.
+  ⇒ "non-blocking + graceful-default-on-decline + no-re-pester" is a SYSTEM-WIDE invariant for Resolve
+  (attach to parse, clarify-question, setup-intake, review terms).
 
 **G7-3 — the Direction OS boundary: the closed upward set + the raw-vs-summary "never a diary" line.**
 Covers term: `Direction OS boundary — summary/decision/problem/CALL vs raw daily data` (done_when #9; reconciles I7).
@@ -92,6 +108,18 @@ Covers term: `Direction OS boundary — summary/decision/problem/CALL vs raw dai
   periodic (weekly) summaries allowed up.
 - citations: TREE done_when #9 (4-item) vs knowledge/health-ai-core-guidance-governance.md L5 (6-item);
   CHARTER L104–105, L284 ("стратегический review … только по значимым рубежам").
+- ✅ **SIGNED (2026-06-14): REFRAMED by the owner** — supersedes the A/B/C upward-filter framing.
+  Owner verbatim: "Direction OS … мы разрабатываем этот проект health AI … тут то что нужно для разработки,
+  для новых фич … Direction OS знает про health AI, оно может зайти и почитать все данные. Health AI не знает
+  про direction OS." Locked (R5): the relationship is a **ONE-WAY visibility/dependency** — Direction OS is
+  the development + strategic layer for Health AI and may read **ALL** of Health AI's data on demand (for
+  development, features, strategy, review). Health AI does **NOT** know about / depend on / write up to
+  Direction OS — it is a self-contained operational system. Raw daily data is **owned and stored in Health
+  AI**; Direction OS does not duplicate it into its own state (stays not-a-diary) but reads it directly when
+  needed; its own persistent state stays strategic. ⇒ The "raw-vs-summary" line is an OWNERSHIP/STORAGE rule,
+  not a flow filter; the binding fact is the visibility DIRECTION. Cross-repo CONTRACT for converge-arch:
+  the Health AI product repo carries ZERO reference to / dependency on Direction OS; Direction OS gets full
+  read access to Health AI.
 
 ### B. SYSTEM-LOCKED terms (system picks reading + evidence; converge-verify refutes; owner NOT asked)
 FIREWALL applied: every concrete magnitude/format is `→ PLAN`, never frozen into the WHAT glossary.
@@ -139,9 +167,18 @@ FIREWALL applied: every concrete magnitude/format is `→ PLAN`, never frozen in
 ---
 
 ## §SIGNOFF — Define
-status: **PENDING OWNER** — three batched G7 decisions presented (G7-1, G7-2, G7-3 above) in
-history/2026-06-14-s-health-core-converge-001.md RESULT.decisions_needed. Resolve does not start until these are signed.
-`§SIGNOFF: owner approved Define @ <date> — "<owner words>"`  ← to be written by the session that applies the owner's answer.
+**§SIGNOFF: owner approved Define @ 2026-06-14** (session s-health-core-converge-002). The three batched
+G7 readings are locked (✅ SIGNED in §GLOSSARY A above):
+- **G7-1 = A** — owner: "Совсем остальным согласен."
+- **G7-2 = A drive/auto-apply + AMENDED asking posture** (R2 ask-freely / R3 non-blocking + graceful-default /
+  R4 forgiving) — owner: "система может спрашивать и много … если я вот явно скажу что на это я не буду
+  отвечать, то она не должна мне дальше морозить … должна как дефолт или примерный взять … может что-то не
+  записал или не помню … с этим надо голову не дурить."
+- **G7-3 = REFRAMED, one-way visibility** (R5) — owner: "Direction OS знает про health AI, оно может зайти и
+  почитать все данные. Health AI не знает про direction OS."
+
+Owner gates spent: **1 of ≤3** across the converge set (Define). Resolve + converge-arch share the rest.
+Resolve (§WHAT) may now start (next session, c-health-core-converge-003).
 
 ## §WHAT — Resolve
 status: **NOT STARTED** — built in the next session (converge Resolve) once §SIGNOFF Define exists, because every

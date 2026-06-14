@@ -14,13 +14,16 @@ active_bet:
     CLEARED and rebuilt in place at build time (same repo, git history preserves v1); the actual
     wipe needs explicit owner confirmation at that step.
 
-    CONVERGE g-health-core IN PROGRESS (2026-06-14): Define done — node typed HEAVY, 7 owner-approved
-    decisions imported born-closed (I1–I7), ~30-term disputed glossary built + partitioned
-    owner-vs-system, ~28 expert readings system-locked, safety floor charter-locked. Assembly surface
-    = work/converge-g-health-core.md. AWAITING owner Define §SIGNOFF (3 batched G7 — see decisions).
-    Resolve (§WHAT) does not start until signed. The paused nutrition Define
-    (work/converge-nutrition-define-draft.md) + recon (work/health-core-recon-research.md) remain
-    DIRTY input evidence, never authority.
+    CONVERGE g-health-core IN PROGRESS (2026-06-14): Define DONE + §SIGNOFF applied. Node typed HEAVY,
+    7 owner-approved decisions imported born-closed (I1–I7), ~30-term disputed glossary built +
+    partitioned owner-vs-system, ~28 expert readings system-locked, safety floor charter-locked.
+    Owner signed the 3 batched G7 (2026-06-14): G7-1 = A (research-and-decide membership test); G7-2 =
+    A's drive posture but ASKING amended — system may ask freely yet every question is NON-BLOCKING
+    with a graceful default on decline and no re-pestering (a system-wide invariant); G7-3 = REFRAMED
+    to a ONE-WAY visibility (Direction OS reads ALL of Health AI; Health AI carries zero reference to
+    Direction OS — a cross-repo contract for converge-arch). Assembly surface =
+    work/converge-g-health-core.md (§SIGNOFF Define). NEXT = Resolve (§WHAT). The paused nutrition
+    Define + recon remain DIRTY input evidence, never authority.
 
 tasks: []
 
@@ -30,77 +33,47 @@ open_calls:
   - id: c-health-core-converge-001
     play: converge
     node: g-health-core
-    status: in-flight (parked at the Define gate)
+    status: done (Define complete + §SIGNOFF applied 2026-06-14)
     note: >
-      Heavy-node converge. Define complete; surface at work/converge-g-health-core.md. Continuation
-      = c-health-core-converge-002 (Resolve) once the 3 batched G7 decisions below are signed.
+      Heavy-node converge Define + owner gate. Surface at work/converge-g-health-core.md (§SIGNOFF Define).
+  - id: c-health-core-converge-003
+    play: converge
+    node: g-health-core
+    status: in-flight (Resolve — §WHAT)
+    note: >
+      Build the cited §WHAT on the SIGNED readings (G7-1 A; G7-2 ask-freely-but-non-blocking;
+      G7-3 one-way visibility). Three-source derivation + recursive mechanism decomposition of
+      I2/I3/I4/I6/I7. Then converge-arch. Owner gates: 1 of ≤3 spent.
 
-decisions:
-  - id: G7-1
-    movement: converge Define (g-health-core)
-    question: >
-      research-and-decide membership test + the askable personal-facts set (what the system DECIDES
-      vs ASKS; which facts are your irreducible-personal).
-    options:
-      A: researchable-from-evidence+profile ⇒ DECIDE, else ⇒ ASK; carve-out only by NAMED constraint;
-        askable = irreducible facts + logging cadence; goal-weight/protect-strength system-proposed,
-        owner-ratified; cooking-time = personal fact; non-blocking skippable setup. (recommended)
-      B: wide askable set (re-opens v1 over-asking).
-      C: A but cooking-time = system-decided cadence.
-    recommendation: A
-    status: pending_owner
-  - id: G7-2
-    movement: converge Define (g-health-core)
-    question: >
-      the autonomy dial ("leader with brakes") — how much the system may auto-apply/commit vs must
-      surface for explicit OK.
-    options:
-      A: decide-and-inform; asks only on an enumerable brakes-list; review proposes, OK on braked
-        items only. (recommended, with C's dial available)
-      B: propose-and-wait (= the v1 over-asker).
-      C: configurable autonomy level, default = A.
-    recommendation: A (+ optional C dial)
-    status: pending_owner
-  - id: G7-3
-    movement: converge Define (g-health-core)
-    question: >
-      the Direction OS boundary — the closed upward set + the raw-vs-summary "never a diary" line.
-    options:
-      A: strict 4-item {summary, decision, problem, CALL}.
-      B: 6-item {summary, problem, decision, incident, evidence-pointer, CALL}; raw never crosses;
-        summary by significant milestone only. (recommended membership + strict raw rule)
-      C: 4-item + periodic weekly summaries up.
-    recommendation: B-membership + A-strictness
-    status: pending_owner
+decisions: []
 
 next: |
-  awaiting_decision — owner signs the 3 batched G7 Define decisions above (G7-1, G7-2, G7-3).
-  On the owner's answer, a fresh session applies it as the writer of §SIGNOFF Define and runs Resolve:
-
-  CALL c-health-core-converge-002
+  CALL c-health-core-converge-003
   to: session
   direction: health
   play: converge
   node: g-health-core
   goal: |
-    Apply the owner's Define §SIGNOFF (G7-1/2/3) with his exact words; lock the owner-gate readings;
-    then run Resolve — build the cited §WHAT as a node-on-paper (three sources: each done_when
-    criterion; each cross-node edge; mechanism decomposition of I2/I3/I4/I6/I7 + every committed
-    mechanism, recursive), tag acceptance rows, firewall HOW→PLAN. Then route to converge-arch.
+    Run Resolve — build the cited §WHAT node-on-paper for g-health-core from THREE sources (each
+    done_when criterion; each cross-node edge; recursive mechanism decomposition of I2/I3/I4/I6/I7 +
+    every committed mechanism), tag acceptance rows, firewall HOW→PLAN, then route to converge-arch.
   context: |
-    RUN IN A FRESH CHAT. Define is DONE — surface at work/converge-g-health-core.md (§TRIAGE,
-    §IMPORTS I1–I7, §GLOSSARY A owner-gate / B system-locked / C charter-locked / D undisputed-named,
-    §SIGNOFF Define = PENDING). FIRST step: write §SIGNOFF Define quoting the owner's words for
-    G7-1/2/3, lock the recommended (or owner-amended) readings. System-locked readings (§GLOSSARY B)
-    feed Resolve directly and are refuted later by converge-verify, NOT re-signed. PLAN-agenda is
-    pre-seeded in the converge-001 RESULT captures (resolve-on-read vs materialize; EMA window;
-    carb tiers; FDC schema; registry-line syntax). Owner gates already spent 1 of ≤3.
+    RUN IN A FRESH CHAT. Define is SIGNED — surface at work/converge-g-health-core.md (§SIGNOFF Define +
+    §GLOSSARY A ✅ SIGNED, B system-locked, C charter-locked, D undisputed-named). Build §WHAT on the
+    SIGNED readings: G7-1 A membership test; G7-2 amended = ask-freely BUT non-blocking +
+    graceful-default-on-decline + no-re-pester (a SYSTEM-WIDE invariant on parse/clarify/setup/review) +
+    decide-and-inform + review-proposes + conservative-default on safety brakes; G7-3 = one-way
+    visibility (Direction OS reads all Health AI; Health AI zero-reference to Direction OS; raw
+    owned/stored in Health AI). System-locked readings (§GLOSSARY B) feed Resolve directly;
+    converge-verify refutes them later. PLAN-agenda pre-seeded in the converge-001 captures
+    (resolve-on-read vs materialize; EMA window; carb tiers; FDC schema; registry-line syntax).
+    FIRST: if the owner flags any echo (R2–R5 in §SIGNOFF) as misread, correct it before building §WHAT.
   boundaries: |
-    Import nothing new as authority; auto-fill nothing. No raw daily data in Direction OS; no medical
-    prescriptions. Converge only (then converge-arch, converge-verify, shape).
+    Import nothing new as authority; auto-fill nothing. Owner gates: 1 of ≤3 spent (Resolve +
+    converge-arch share the rest). No raw daily data stored in Direction OS; no medical prescriptions.
   done_when: |
-    §SIGNOFF Define written (owner words); §WHAT closed (forward-clean: no open/deferred; backward-clean:
-    every weight-bearing line + acceptance + glossary row cited); converge_coverage complete; next = converge-arch.
+    §WHAT closed (forward-clean: no open/deferred; backward-clean: every weight-bearing line +
+    acceptance + glossary row cited); converge_coverage complete; §SIGNOFF Resolve; next = converge-arch.
   return: |
     RESULT with the closed §WHAT surface, §SIGNOFF Resolve, decisions_needed (if any remaining gate),
     and next CALL (converge-arch).
