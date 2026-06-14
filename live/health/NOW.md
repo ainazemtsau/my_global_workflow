@@ -1,77 +1,16 @@
 # NOW — health
 
 active_bet:
-  id: g-health-nutrition-system
-  status: active
-  appetite: 1 week (set 2026-06-13 by repair s-health-nutrition-repair-001)
-  kill_by: >
-    2026-06-20: if the chat-first weekly-plan experience is not usable to the owner after a real
-    live run, or write-back cannot persist logs/recipes to GitHub without the owner editing files,
-    reshape instead of building more.
-  goal: >
-    Nutrition system is live and usable by the owner through chat, from the single GitHub
-    source of truth (product repo health-ai) — not as a document.
-  shipped: >
-    v1 co-created with the owner and pushed to product repo health-ai
-    (github.com/ainazemtsau/health-ai, commit 6c1f651): SYSTEM brain, evidence-base v1,
-    five processes, owner state, templates. Built this session from owner co-creation plus a
-    verified deep-research pass (workflow w8l06dhq0). Design chosen with owner: "leader with
-    brakes" operating mode; an updatable evidence base rather than research-from-scratch each time.
-  done_when:
-    - Owner has connected a ChatGPT or Claude project to the system and run at least one live
-      weekly-plan request he accepts (or rejects with a concrete reason).
-    - A write-back path exists so food logs and recipes persist to the GitHub source of truth
-      without the owner editing files by hand.
-    - Evidence-base round-2 fills the four flagged gaps (tracking precision, maintenance-vs-regain
-      predictors, calorie floors / red-flag list, recalc & diet-break cadence) or defers each explicitly.
-  forecast: >
-    The chat-first system can be made genuinely usable within a week because the content is already
-    owner-validated and grounded; the main open risk is write-back without owner file-editing.
-  against: >
-    It may still feel heavy if the live weekly-plan flow asks too much or write-back forces manual
-    steps — that is exactly what t-1 tests first.
+  status: none
+  note: >
+    v1 nutrition approach RESET (2026-06-13). The chat-first "director + flat setup-gate" build
+    did NOT work: it asked the owner expert questions it should research and decide (e.g. "how many
+    meals per day"). Root cause is STRUCTURAL — no typed boundary between owner-only facts and
+    system-decided expert variables. The node is reset to be re-derived from scratch via the
+    converge play in a FRESH chat. Everything from v1 (architecture, evidence-base numbers, all
+    prior decisions, the health-ai repo content) is DIRTY — input evidence only, never authority.
 
-tasks:
-  - id: t-1
-    node: g-health-nutrition-system
-    kind: guide
-    status: open
-    goal: >
-      Owner runs the system live for one weekly plan and judges whether the chat-first experience
-      is the convenience he wanted; missing preferences are captured into the product repo.
-    done_when:
-      - Owner connected a ChatGPT or Claude project to repo health-ai (or loaded its files).
-      - Owner made at least one real "plan my week" request and got a plan with the "why".
-      - Owner's verdict (usable / not, and why) is recorded.
-      - Missing preferences (disliked foods, allergies, real cooking time, budget, meals/day)
-        are captured into state/preferences.md of the product repo.
-      - No raw daily food/weight/training data is stored in Direction OS.
-
-  - id: t-2
-    node: g-health-nutrition-system
-    kind: executor
-    status: open
-    repo: health-ai
-    goal: >
-      Food logs and recipes saved through a chat persist to the GitHub source of truth without
-      the owner editing files.
-    done_when:
-      - Owner can log a meal or save a recipe in a chat and it lands in repo health-ai.
-      - Verified by a real commit produced from a chat action, with the owner touching no files.
-      - Mechanism stays simple and is documented in the repo (writer chat / HomeLab service / app).
-
-  - id: t-3
-    node: g-health-nutrition-system
-    kind: session
-    status: open
-    goal: >
-      The four flagged evidence-base gaps are answered with current cited evidence or explicitly
-      deferred, and evidence-base.md is updated.
-    done_when:
-      - Round-2 research covers tracking precision, maintenance-vs-regain predictors, calorie floors /
-        red-flag list, and recalc / diet-break cadence.
-      - evidence-base.md gets a round-2 section with sources and confidence tags, or a clear
-        "still open" note per gap.
+tasks: []
 
 recurring: []
 
@@ -80,32 +19,56 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-health-nutrition-live-week-001
+  CALL c-health-nutrition-converge-001
   to: session
   direction: health
-  play: guide
+  play: converge
   node: g-health-nutrition-system
-  task: t-1
   goal: |
-    Owner has run the health-ai system live for one weekly plan and judged whether the
-    chat-first experience is usable, with missing preferences captured into the product repo.
+    The nutrition system node is converged from scratch into a closed, owner-signed WHAT spec for a
+    professional, research-and-decide nutrition system — ready for shape.
   context: |
-    Product repo: github.com/ainazemtsau/health-ai (private). Brain = SYSTEM.md; defaults =
-    evidence-base.md; flows = processes.md; owner state = state/. v1 was co-created with the
-    owner this session and verified by deep-research workflow w8l06dhq0.
-    Owner interacts ONLY through chat and never edits files.
+    RUN THIS IN A FRESH CHAT. Treat EVERYTHING as dirty: the current product repo
+    github.com/ainazemtsau/health-ai (C:\projects\health-ai), the evidence-base numbers, the
+    architecture (director + program-spine + domain-modules), and ALL prior decisions are INPUT
+    EVIDENCE ONLY — re-derive and re-confirm with the owner; import nothing as born-closed;
+    auto-fill no answers.
+
+    Why the reset (the trouble): v1 asked the owner "how many meals per day?" — an expert decision
+    the system must research and decide. Root cause: no typed boundary between owner-only facts and
+    system-decided variables.
+
+    Owner's bar: a super-professional health/nutrition agent that RESEARCHES and DECIDES everything
+    expert (meals/day, timing, macros, food choice) and asks the owner ONLY irreducible personal
+    facts (allergies, dislikes, budget, cooking-time, equipment) — minimal, skippable. Each process
+    deeply worked out (not a shallow prompt). Chat-first, GitHub = single source of truth, owner
+    never edits files. Extensible to training/water/etc. Must not become procrastination; tracking
+    stays light. Guarded safety, non-prescriptive.
+
+    A first-pass converge analysis (this chat, DIRTY input — do NOT treat as decided) is saved at
+    live/health/work/converge-health-nutrition-input.md: the located defect, a disputed-term
+    glossary, ~67 candidate WHAT questions tagged system-decides / owner-only / PLAN, and 5
+    architecture options with a recommendation (Option E: typed personal-facts vs decided-variables
+    split + generated plan artifact + per-process depth specs + thin router) + 7 high-risk
+    architecture questions. Use it as a candidate set to refute and confirm — NOT as answers.
+
+    Read: os/plays/converge.md, os/plays/converge-arch.md, os/plays/converge-verify.md,
+    os/docs/converge-design.md, live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
+    and the input doc above.
   boundaries: |
-    Do not store raw daily food/weight/training data in Direction OS.
-    Do not rebuild the system; this is a live usability run plus preference capture.
-    Safety and training-intensity changes need the owner's explicit ok (leader with brakes).
-    Do not make medical prescriptions.
+    Run the FULL converge process with its owner gates — do not skip the questions.
+    Treat all prior state/decisions/data as dirty candidates; import nothing as authority; auto-fill nothing.
+    Do not build or shape in this CALL; converge only (then converge-arch, converge-verify, then shape).
+    Do not store raw daily data in Direction OS. No medical prescriptions.
   done_when: |
-    Owner completed at least one live weekly-plan run and gave a usable/not verdict, and missing
-    preferences are captured into the product repo's state/preferences.md.
+    converge produces work/converge-g-health-nutrition-system.md: triage, signed glossary, a closed
+    cited §WHAT (forward+backward clean), the research-and-decide principle ratified, coverage
+    complete; next = converge-arch (architecture incl. the personal-vs-decided boundary rule), then
+    converge-verify, then shape.
   return: |
-    RESULT with the owner's verdict, captured preferences, any problems, and next CALL
-    (write-back t-2 and/or round-2 research t-3), or awaiting_decision.
-  budget: one guide session
-  surface: chatgpt-or-claude-project
+    RESULT with the converge spec surface, owner §SIGNOFFs, decisions_needed, and next CALL
+    (converge-arch) or awaiting_decision.
+  budget: converge movement (may span sessions; owner gates batched <=3)
+  surface: fresh chat (Claude Code or ChatGPT/Claude project)
 
 END_OF_FILE: live/health/NOW.md
