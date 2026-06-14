@@ -108,8 +108,32 @@ open_calls:
       charter's existing reframe letter); NEW hard wall = the game earning for real by
       ~12 months (EA no later than ~Q2 2027). Map session s-map-002 could not edit the
       charter (play boundary).
+  - id: c-converge-001
+    status: checkpoint   # converge FORM pass DONE — parallel retrofit on g-9c41 (does NOT touch the bet)
+    note: |
+      First real converge run (RETROFIT/FORM). Produced work/converge-g-9c41.md: triage HEAVY,
+      14 glossary terms, I1–I23 born-closed imports, mechanism C1–C22 + criteria A1–A8 + edges
+      B1–B31, 3-source coverage map. Success test PASS (names as questions exactly ADR-0003's
+      ad-hoc values; witness independently confirmed). Hardened by 2 multi-agent passes. → history/s-converge-001.md
+  - id: c-converge-002
+    status: queued   # converge-arch on g-9c41 cross-node contracts (parallel retrofit; gated by d-converge-001)
+    note: |
+      Declare the §WHAT-B cross-node contracts consumer-driven (gas-type seam, render seam, the
+      shared field-sampling oracle B31, ingestion adapter/TopologyDocument, grid↔gas) so the
+      open→PLAN stream magnitudes are frozen against contracts that bound them. Full CALL in
+      history/s-converge-001.md RESULT.next. Resolve d-converge-001 first.
 
-decision_inbox: []   # d-arch-001 answered at s-shape-003 (see history/s-shape-003.md outcome a-e)
+decision_inbox:
+  - id: d-converge-001
+    status: open
+    note: |
+      Feed work/converge-g-9c41.md into the in-flight c-exec-003 PLAN before ADR-0003 freezes the
+      stream magnitudes (C1–C22), or keep the retrofit parallel/demonstrative? Options A/B/C +
+      recommendation A (feed as input evidence to the already-interactive, owner-present PLAN —
+      cheapest capture of the retrofit's value, esp. the 4 params the c-exec-003 CALL left implicit
+      C19/C20/C21/C22, without re-opening the bet or risking the G3 wall). See work/converge-g-9c41.md
+      §ROUTE + history/s-converge-001.md decisions_needed.
+      # d-arch-001 answered at s-shape-003 (see history/s-shape-003.md outcome a-e)
 
 next: |
   CALL c-exec-003
