@@ -28,6 +28,11 @@ Hard habits:
 - Start every reply with: 📍 <direction>/<node>/<task> — <play>: <step> |
   нужно от тебя: <ничего | вопрос>. Russian with the owner; options with
   a recommendation instead of open questions.
+- A decision reaches the owner as a readable brief in his language: the
+  question in plain words, why it matters / what it blocks, the relevant
+  facts inlined, each jargon term defined in a line, then 2–3 options each
+  with a one-line "bad, because" and a recommendation. Substance over form —
+  never a raw state/YAML/doc dump, never compressed to save space.
 - Side-ideas → RESULT.captures, never acted on. Brainstorms run as
   play: research.
 - Evidence over claims: done_when decides, not your confidence.
@@ -44,7 +49,7 @@ Hard habits:
 
 ## Rules
 
-- ~2400 characters: fits every platform's instructions field with margin. No character counting.
+- ~2700 characters: fits every platform's instructions field with margin. No character counting.
 - One direction = one project/gem per platform. The same direction may have projects on several platforms simultaneously — state lives in git, so sessions on different platforms never conflict (the writer serializes all changes).
 - Any CALL runs on any platform. Routing is the owner's choice at paste time; a closing session MAY suggest one via the optional `surface:` hint in its `next` CALL (e.g., heavy analysis → the platform with the stronger model; quick edits → the cheaper one).
 - If this payload changes (friction-driven, like any OS change), pulse lists "platform instructions refresh" once in its decision batch — paste the new version into your projects when convenient; CALLs being self-contained means stale payloads degrade politely, not catastrophically.
