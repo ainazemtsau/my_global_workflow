@@ -3,12 +3,21 @@
 active_bet:
   status: none
   note: >
-    v1 nutrition approach RESET (2026-06-13). The chat-first "director + flat setup-gate" build
-    did NOT work: it asked the owner expert questions it should research and decide (e.g. "how many
-    meals per day"). Root cause is STRUCTURAL — no typed boundary between owner-only facts and
-    system-decided expert variables. The node is reset to be re-derived from scratch via the
-    converge play in a FRESH chat. Everything from v1 (architecture, evidence-base numbers, all
-    prior decisions, the health-ai repo content) is DIRTY — input evidence only, never authority.
+    CORE-FIRST RE-FRAME (2026-06-14). Owner redirected the whole direction: build a strong,
+    structured, provider-independent CORE first (programs-as-plan + daily tracking + records +
+    shared metrics/phases/review, Markdown/YAML in git, NL/voice/photo input, self-extensible
+    via workflow), then nutrition and training as MODULES attached to it. The tree was re-mapped
+    and CHARTER amended with a system-architecture constraint (owner approved, "ok").
+
+    g-health-ai-core (was done) is SUPERSEDED/dropped — its artifacts (product repo health-ai,
+    contract/skeleton v0) are dirty input, not authority. The product repo health-ai will be
+    CLEARED and rebuilt in place at build time (same repo, git history preserves v1); the actual
+    wipe needs explicit owner confirmation at that step.
+
+    The prior nutrition converge is PAUSED; its Define output (triage + 16-term glossary +
+    research-and-decide principle) is preserved DIRTY at work/converge-nutrition-define-draft.md,
+    and a best-practice recon pass at work/health-core-recon-research.md — both are input evidence
+    for the core converge, never authority. next = converge g-health-core from this evidence.
 
 tasks: []
 
@@ -19,52 +28,44 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-health-nutrition-converge-001
+  CALL c-health-core-converge-001
   to: session
   direction: health
   play: converge
-  node: g-health-nutrition-system
+  node: g-health-core
   goal: |
-    The nutrition system node is converged from scratch into a closed, owner-signed WHAT spec for a
-    professional, research-and-decide nutrition system — ready for shape.
+    Converge g-health-core into a closed, owner-signed WHAT spec for a strong, provider-independent,
+    self-extensible Markdown/YAML health core (programs-as-plan + daily tracking + shared
+    metrics/phases/review + NL/voice/photo input), ready for converge-arch then shape.
   context: |
-    RUN THIS IN A FRESH CHAT. Treat EVERYTHING as dirty: the current product repo
-    github.com/ainazemtsau/health-ai (C:\projects\health-ai), the evidence-base numbers, the
-    architecture (director + program-spine + domain-modules), and ALL prior decisions are INPUT
-    EVIDENCE ONLY — re-derive and re-confirm with the owner; import nothing as born-closed;
-    auto-fill no answers.
+    RUN IN A FRESH CHAT. Core-first re-frame approved 2026-06-14
+    (history/2026-06-14-s-health-reframe-charter-001.md + -map-001.md).
 
-    Why the reset (the trouble): v1 asked the owner "how many meals per day?" — an expert decision
-    the system must research and decide. Root cause: no typed boundary between owner-only facts and
-    system-decided variables.
-
-    Owner's bar: a super-professional health/nutrition agent that RESEARCHES and DECIDES everything
-    expert (meals/day, timing, macros, food choice) and asks the owner ONLY irreducible personal
-    facts (allergies, dislikes, budget, cooking-time, equipment) — minimal, skippable. Each process
-    deeply worked out (not a shallow prompt). Chat-first, GitHub = single source of truth, owner
-    never edits files. Extensible to training/water/etc. Must not become procrastination; tracking
-    stays light. Guarded safety, non-prescriptive.
-
-    A first-pass converge analysis (this chat, DIRTY input — do NOT treat as decided) is saved at
-    live/health/work/converge-health-nutrition-input.md: the located defect, a disputed-term
-    glossary, ~67 candidate WHAT questions tagged system-decides / owner-only / PLAN, and 5
-    architecture options with a recommendation (Option E: typed personal-facts vs decided-variables
-    split + generated plan artifact + per-process depth specs + thin router) + 7 high-risk
-    architecture questions. Use it as a candidate set to refute and confirm — NOT as answers.
-
-    Read: os/plays/converge.md, os/plays/converge-arch.md, os/plays/converge-verify.md,
-    os/docs/converge-design.md, live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
-    and the input doc above.
+    INPUT EVIDENCE (refute/confirm — import NOTHING as authority, auto-fill nothing):
+    - work/health-core-recon-research.md — best-practice recon (MacroFactor, Cronometer, USDA FDC,
+      Hevy/Liftosaur, Wendler 5/3/1, Beancount, Obsidian, peer-reviewed protein/trend/autoregulation):
+      anchors/profile file as the typed owner-fact-vs-decided-variable fix; PLAN-vs-LOG split;
+      shared metrics (trend weight / biofeedback / adherence); phase as the cross-module lever;
+      a value-type grammar; PARSE-vs-VALUES firewall + clarify-only-on-material-ambiguity;
+      definition library by stable id; append-only dated logs; review = no-mutation reconciliation
+      that PROPOSES (owner ratifies); provider-independence via MD/YAML+git+AGENTS.md; YAML
+      robust-edit discipline; + 10 open questions for the converge.
+    - work/converge-nutrition-define-draft.md — UN-RATIFIED paused nutrition Define: triage +
+      16-term glossary + research-and-decide principle. Many terms are now CORE concepts (the
+      anchors split, deficit-as-outcome-gated-band, fallback-counts-toward-targets, review-must-mutate).
+      Re-derive at the core level; do not import as answered.
+    - CHARTER.md (the system-architecture constraint) and TREE.md (g-health-core done_when).
+    - DIRTY: product repo health-ai (will be cleared + rebuilt in place at build time; explicit
+      owner confirmation before the wipe).
   boundaries: |
-    Run the FULL converge process with its owner gates — do not skip the questions.
-    Treat all prior state/decisions/data as dirty candidates; import nothing as authority; auto-fill nothing.
-    Do not build or shape in this CALL; converge only (then converge-arch, converge-verify, then shape).
-    Do not store raw daily data in Direction OS. No medical prescriptions.
+    Full converge with owner gates (batched <=3 across the converge set). Import nothing as authority;
+    auto-fill nothing. Converge only (then converge-arch for contracts+architecture, then
+    converge-verify, then shape). No raw daily data in Direction OS. No medical prescriptions.
   done_when: |
-    converge produces work/converge-g-health-nutrition-system.md: triage, signed glossary, a closed
-    cited §WHAT (forward+backward clean), the research-and-decide principle ratified, coverage
-    complete; next = converge-arch (architecture incl. the personal-vs-decided boundary rule), then
-    converge-verify, then shape.
+    work/converge-g-health-core.md: triage, signed glossary, closed cited §WHAT (research-and-decide
+    principle + the owner-fact/decided-variable boundary ratified; provider-independence + NL/voice/photo
+    input + self-extensibility as acceptance properties; shared-concept ownership; PLAN-vs-LOG; review
+    mechanism), coverage complete; next = converge-arch.
   return: |
     RESULT with the converge spec surface, owner §SIGNOFFs, decisions_needed, and next CALL
     (converge-arch) or awaiting_decision.
