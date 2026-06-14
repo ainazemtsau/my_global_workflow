@@ -21,9 +21,15 @@ active_bet:
     A's drive posture but ASKING amended — system may ask freely yet every question is NON-BLOCKING
     with a graceful default on decline and no re-pestering (a system-wide invariant); G7-3 = REFRAMED
     to a ONE-WAY visibility (Direction OS reads ALL of Health AI; Health AI carries zero reference to
-    Direction OS — a cross-repo contract for converge-arch). Assembly surface =
-    work/converge-g-health-core.md (§SIGNOFF Define). NEXT = Resolve (§WHAT). The paused nutrition
-    Define + recon remain DIRTY input evidence, never authority.
+    Direction OS — a cross-repo contract for converge-arch). RESOLVE built + owner-CONFIRMED (2026-06-14,
+    "CONFIRM"): §WHAT closed and binding (12 acceptance criteria + W1–W64 + P1–P22). CONVERGE-ARCH DONE
+    (2026-06-14): §CONTRACTS CA1–CA7 closed (consumer-driven; all TREE interactions covered; build-order deps
+    for the parked modules) + §ARCH architecture-on-paper (Q1–Q6 refuted chains → picks: pure resolve-on-read,
+    read-only git/connector, one-entity-per-file, additive namespaced extension, two extension classes,
+    one-entity-commit+lint-barrier write-path; ride PLAN, refuted by converge-verify). Owner gates spent: still
+    1 (Define) — converge-arch added NO new owner decision (all picks system-decided). NEXT = converge-verify
+    (separate refutation session) → then shape. Assembly surface = work/converge-g-health-core.md.
+    The paused nutrition Define + recon remain DIRTY input evidence, never authority.
 
 tasks: []
 
@@ -39,45 +45,58 @@ open_calls:
   - id: c-health-core-converge-003
     play: converge
     node: g-health-core
-    status: in-flight (Resolve — §WHAT)
+    status: done (Resolve §WHAT built + owner-confirmed "CONFIRM" 2026-06-14; §SIGNOFF Resolve written)
     note: >
-      Build the cited §WHAT on the SIGNED readings (G7-1 A; G7-2 ask-freely-but-non-blocking;
-      G7-3 one-way visibility). Three-source derivation + recursive mechanism decomposition of
-      I2/I3/I4/I6/I7. Then converge-arch. Owner gates: 1 of ≤3 spent.
+      §WHAT closed + binding at work/converge-g-health-core.md (§WHAT-A 12 acceptance, §WHAT-R W1–W64,
+      §WHAT-C CA1–CA7, §PLAN-AGENDA P1–P22). Owner gate at Resolve = none new.
+  - id: c-health-core-converge-004
+    play: converge-arch
+    node: g-health-core
+    status: done (Resolve §SIGNOFF applied + CA1–CA7 contracts closed + §ARCH Q1–Q6; verifier PASS; no new owner gate)
+    note: >
+      §CONTRACTS + §ARCH at work/converge-g-health-core.md. owner_gate_batch = []; architecture-on-paper rides
+      PLAN as input evidence. Reconciled an agent's partial §CONTRACTS write to the authoritative CA1–CA7.
+  - id: c-health-core-converge-005
+    play: converge-verify
+    node: g-health-core
+    status: ready (separate refutation session — attack completeness with an independent oracle + trace every value)
+    note: >
+      Precondition met: converge (Define+Resolve) + converge-arch closed. converge-verify re-derives independently
+      (does NOT read the deciding sessions' reasoning), authors a node-class decision-class checklist if none exists,
+      and only a clean verify reaches shape.
 
 decisions: []
 
 next: |
-  CALL c-health-core-converge-003
+  CALL c-health-core-converge-005
   to: session
   direction: health
-  play: converge
+  play: converge-verify
   node: g-health-core
   goal: |
-    Run Resolve — build the cited §WHAT node-on-paper for g-health-core from THREE sources (each
-    done_when criterion; each cross-node edge; recursive mechanism decomposition of I2/I3/I4/I6/I7 +
-    every committed mechanism), tag acceptance rows, firewall HOW→PLAN, then route to converge-arch.
+    Refute the closed g-health-core spec before shape consumes it: attack (1) the question set is COMPLETE and
+    (2) no answer leans on an unresolved question — with an INDEPENDENT oracle. Only a clean verify reaches shape.
   context: |
-    RUN IN A FRESH CHAT. Define is SIGNED — surface at work/converge-g-health-core.md (§SIGNOFF Define +
-    §GLOSSARY A ✅ SIGNED, B system-locked, C charter-locked, D undisputed-named). Build §WHAT on the
-    SIGNED readings: G7-1 A membership test; G7-2 amended = ask-freely BUT non-blocking +
-    graceful-default-on-decline + no-re-pester (a SYSTEM-WIDE invariant on parse/clarify/setup/review) +
-    decide-and-inform + review-proposes + conservative-default on safety brakes; G7-3 = one-way
-    visibility (Direction OS reads all Health AI; Health AI zero-reference to Direction OS; raw
-    owned/stored in Health AI). System-locked readings (§GLOSSARY B) feed Resolve directly;
-    converge-verify refutes them later. PLAN-agenda pre-seeded in the converge-001 captures
-    (resolve-on-read vs materialize; EMA window; carb tiers; FDC schema; registry-line syntax).
-    FIRST: if the owner flags any echo (R2–R5 in §SIGNOFF) as misread, correct it before building §WHAT.
+    RUN IN A FRESH CHAT (independence matters — do NOT read the deciding sessions' reasoning; re-derive).
+    converge (Define+Resolve) + converge-arch are closed in work/converge-g-health-core.md: §GLOSSARY (signed),
+    §WHAT-A (12 binding acceptance WA1–WA12), §WHAT-R (W1–W64), §WHAT-C + §CONTRACTS (CA1–CA7), §ARCH (Q1–Q6
+    picks riding PLAN), §PLAN-AGENDA (P1–P22), §DEFERRED, §SIGNOFFs (Define, Resolve, converge-arch).
+    Attack completeness with a THIRD source: AUTHOR the node-class decision-class checklist for an
+    "LLM-managed provider-independent flat-file life-OS core" (knowledge/ has none yet — an empty oracle is a
+    BLOCKED close, never auto-PASS), name it, propose it as canon; split every compound done_when criterion
+    atomically and map each to a §WHAT row; trace every weight-bearing value/acceptance to a cited resolved row
+    or frozen canon (untraceable = smuggled → bounce). Re-check the firewall. Watch the gap-hunt residual
+    (write-path → PLAN P3) is named, not smuggled into done_when.
   boundaries: |
-    Import nothing new as authority; auto-fill nothing. Owner gates: 1 of ≤3 spent (Resolve +
-    converge-arch share the rest). No raw daily data stored in Direction OS; no medical prescriptions.
+    Refute or pass only; never answer a question (a finding bounces a row back to converge/converge-arch).
+    No raw daily data in Direction OS; no medical prescriptions. Same row bouncing twice → two-strikes, handoff.
   done_when: |
-    §WHAT closed (forward-clean: no open/deferred; backward-clean: every weight-bearing line +
-    acceptance + glossary row cited); converge_coverage complete; §SIGNOFF Resolve; next = converge-arch.
-  return: |
-    RESULT with the closed §WHAT surface, §SIGNOFF Resolve, decisions_needed (if any remaining gate),
-    and next CALL (converge-arch).
-  budget: converge Resolve movement (may span sessions; owner gates batched ≤3 across the set, 1 spent)
+    Both refutations fail to find a hole (or every hole is bounced + a later verify passes);
+    §SIGNOFF converge-verify passed; shape's CALL carries the §WHAT-A acceptance + §CONTRACTS rows to COPY into
+    the executor done_when + the §PLAN-AGENDA (P1–P22) as the PLAN agenda. next = shape.
+  return: RESULT with verify verdict (complete=PASS/FAIL, smuggling=PASS/FAIL), the authored decision-class
+    checklist (proposed canon), and next CALL (shape) or a bounce CALL.
+  budget: converge-verify movement (single refutation session)
   surface: fresh chat (Claude Code or ChatGPT/Claude project)
 
 END_OF_FILE: live/health/NOW.md

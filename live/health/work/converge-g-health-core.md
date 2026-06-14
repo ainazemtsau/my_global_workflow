@@ -180,10 +180,258 @@ G7 readings are locked (✅ SIGNED in §GLOSSARY A above):
 Owner gates spent: **1 of ≤3** across the converge set (Define). Resolve + converge-arch share the rest.
 Resolve (§WHAT) may now start (next session, c-health-core-converge-003).
 
-## §WHAT — Resolve
-status: **NOT STARTED** — built in the next session (converge Resolve) once §SIGNOFF Define exists, because every
-§WHAT line cites a §GLOSSARY reading and the owner-gate readings are not yet locked. Resolve will derive rows from
-THREE sources: (a) each done_when criterion; (b) each cross-node edge; (c) mechanism decomposition of every
-born-closed import that NAMES a mechanism (I2, I3, I4, I6, I7) + each committed mechanism, recursively.
+## §WHAT — Resolve (built s-health-core-converge-003 @ 2026-06-14)
+Derived via a 4-slice workflow (wf_c4459fb4-86f) + an INDEPENDENT coverage oracle + a firewall/owner-gate auditor.
+127 raw rows → consolidated below. Coverage: all 9 done_when criteria atomically split → ≥1 row; all named-mechanism
+imports (I2/I3/I4/I6/I7) + e1RM/EMA/expenditure/protein/floor decomposed. Firewall: clean (no HOW magnitude in any
+acceptance/WHAT line). **Owner gate at Resolve: NONE NEW** — the auditor's owner_gate_batch = [] : every owner-relevant
+reading was already signed at Define (G7-1/2/3); the §WHAT is derived + system-decided evidence. Resolve closes with a
+lightweight owner CONFIRM of the binding acceptance criteria, not a new decision.
+ORACLE FIXES APPLIED: (+1 missing row W56 menu = system-generated under research-and-decide); 3 dup-merges with tags
+reconciled (protein-ref W19; safety-floor W22/W38; phase ownership/enum W34/W35); 3 mis-deferred →G7 rows CLOSED by the
+system per the signed readings (program-start W26 → owner-triggered action under G7-1; autonomy-dial W40 → optional dial
+under G7-2; phase-enum W35 → SYSTEM-LOCKED per §GLOSSARY B, not an owner ask).
+
+### §WHAT-A — ACCEPTANCE criteria (BINDING — shape copies these VERBATIM into the executor done_when, G5)
+- **WA1** Two providers reading the same files reach the same computed answer for any derived number. →done_when#2 / →GLOSSARY:numbers-in-files
+- **WA2** The system ASKS the owner ONLY for irreducible un-researchable personal facts + sustainable logging cadence; it never asks the owner to supply/choose/approve an expert variable. →done_when#3 / →GLOSSARY:research-and-decide (G7-1 A)
+- **WA3** A daily prescription is verifiable as derived: changing one anchor and re-reading changes the affected days with no per-day edit; no day exists as a stored literal independent of anchors+formula. →done_when#4
+- **WA4** PLAN files and LOG files are non-overlapping: recording an actual never edits a PLAN; a PLAN never carries a dated actual; reconciliation is derived across the two, never stored back. →done_when#5
+- **WA5** The three shared metrics are defined once in the core; a module reads weight+trend/biofeedback/adherence from the core and holds no duplicate definition or stored copy of a derived metric. →done_when#5
+- **WA6** Two providers parsing the same input against the same library files produce the same numeric record (numbers from files, documented arithmetic). →done_when#6 / →import I1
+- **WA7** Every question on the parse/clarify surface is NON-BLOCKING with a graceful revisable default on non-answer, and the same point is not re-asked. →done_when#6 / G7-2(R3)
+- **WA8** Adding a new domain requires exactly 1 folder + 1 registry line and triggers no core rewrite. →done_when#7
+- **WA9** A module attaches to the core as a thin additive layer and never edits any core file. →done_when#8
+- **WA10** Modules consume core-owned concepts (metric trio, phase, PLAN-vs-LOG, review) and do not redefine/duplicate them. →done_when#8
+- **WA11** The Health AI repo contains ZERO reference to / dependency on Direction OS; it never knows about, depends on, or writes up to it — self-contained. →done_when#9 / G7-3(R5)
+- **WA12** Two providers operating the same core + an attached module reach the same contract-mediated shared state (phase + metric trio) — module attachment doesn't break provider-independence. →done_when#8 / →done_when#2
+
+### §WHAT-R — requirements (derived/answered, cited; [P#] = a deferred HOW magnitude in §PLAN-AGENDA)
+**done_when#1 — storage / no-runtime / owner-never-edits:**
+- **W1** All state is human-readable Markdown/YAML in git; no runtime/DB/server; git is the system of record + audit/sync. →done_when#1 / →GLOSSARY:no runtime [P1 layout]
+- **W2** No auto-firing scheduler/cron anywhere: every recurring action (review, procedure) is TRIGGERED (owner / chat turn / checkpoint), never self-firing. →GLOSSARY:no runtime / →GLOSSARY:self-extensibility
+- **W3** Markdown prose body (for the owner) layered against shallow YAML frontmatter (machine leaves); one entity per small file; the dated log is append-only. →GLOSSARY:D.1a / →GLOSSARY:PLAN-vs-LOG [P1]
+- **W4** The owner never hand-edits files; the LLM is the sole writer; authority resides in the committed GitHub files, not chat memory. →done_when#1 / →GLOSSARY:owner-never-edits
+- **W5** Revision is done by editing upstream anchors/plan facts (edit-the-anchor-not-the-output); a change cascades through formulas, never a hand-patched derived output. →GLOSSARY:owner-never-edits / →W19 [P3 write-back path]
+- **W6** Write discipline (corruption control): prefer append over in-place; quote string scalars; shallow/flat frontmatter; target by stable anchor/heading not line; lint/parse YAML before commit. →GLOSSARY:provider-independence
+- **W7** Single-writer assumption; concurrent-write/merge handling is a NAMED residual risk (low urgency, solo owner). →GLOSSARY:provider-independence
+
+**done_when#2 — provider-independence / conventions / determinism / value-grammar:**
+- **W8** Provider-independence = best-effort portability with NAMED residual risks (not assumed byte-determinism); identical files+conventions, no dependence on a provider's proprietary memory/threads/vector-store/tools; the files are the durable asset, the agent is swappable. →done_when#2 / →GLOSSARY:provider-independence
+- **W9** Determinism: store raw NUMBERS in files; do all arithmetic via documented public formulas over a constrained vocabulary, so any provider recomputes the same result. →GLOSSARY:numbers-in-files [P4 formula/constant set]
+- **W10** Conventions live in plain Markdown file CONTENT carried by THREE deliberately-redundant carriers (AGENTS.md, CLAUDE.md→AGENTS.md, portable system-prompt); never rely on per-tool auto-load (a named residual risk). →done_when#2 / →GLOSSARY:conventions [P5 budgets]
+- **W11** A constrained documented vocabulary is mandatory + pinned in core docs: a value-type grammar `fixed | range | relative{of:anchor} | amrap` as sparse maps, a unit enum, a stable slug/ID convention, the RPE half-point enum, and namespaced `x_<domain>_*` keys. →GLOSSARY:D.2d [P6 literal tokens]
+- **W12** Residual risks are named, not assumed away: per-tool AGENTS.md auto-load divergence (mitigated by the system-prompt carrier), silent YAML coercion (weakest write surface), single-writer/concurrent-write. →GLOSSARY:provider-independence / →W6 / →W7 / →W10
+
+**done_when#3 — anchored profile / research-and-decide / setup / safety floor:**
+- **W13** The owner-facts-vs-system-decided boundary is ONE anchored `profile` with two typed sections: `owner_facts` (irreducible facts, asked once) and `derived_anchors` (system-decided compute roots, updated only at review with recorded rationale+evidence). →done_when#3 / →GLOSSARY:anchor / →import I6 [P7 field table]
+- **W14** `owner_facts` = sex/height (objective, owner-supplied), dislikes, allergies, meds, hard schedule, budget, real cooking-time, equipment, sustainable logging cadence. →GLOSSARY:anchor (G7-1 A)
+- **W15** `derived_anchors` = estimated expenditure, per-lift training-max/e1RM, protein g/kg + reference weight, target rate-of-change — each with rationale+evidence, updated only at review. →GLOSSARY:anchor / →GLOSSARY:system-decided-variable
+- **W16** Placement of every variable is decided by the research-and-decide MEMBERSHIP TEST: researchable-from-evidence+profile ⇒ system DECIDES (a derived_anchor); irreducible un-researchable ⇒ system ASKS (an owner_fact). →done_when#3 / →GLOSSARY:research-and-decide (G7-1 A)
+- **W17** The system DECIDES every expert variable (meals/day, timing, macro split, deficit band, tracking precision, food selection), recording rationale+evidence; meals/day being decided-not-asked is the explicit v1 fix. →GLOSSARY:research-and-decide / →W16
+- **W18** A variable is carved OUT of decide into ASK ONLY by a NAMED CONSTRAINT (safety/medical limit or irreducible fact), never by owner wish. →GLOSSARY:research-and-decide / →GLOSSARY:C.safety-floor
+- **W19** goal-weight and protect-strength are system-PROPOSED targets the owner RATIFIES; protein reference weight (current/goal/lean) is system-decided (lean/goal-based, literature-consistent) then owner-ratified — one merged decision (oracle dup-merge), not a new gate. →GLOSSARY:research-and-decide / →GLOSSARY:anchor [P9 protein g/kg]
+- **W20** Setup intake is thin, typed, NON-BLOCKING + skippable: skipping never blocks; the system fills a decided default/estimate recorded as REVISABLE and proceeds. →GLOSSARY:setup-intake (G7-1 A) / →W21
+- **W21** SYSTEM-WIDE invariant (G7-2): the system MAY ask freely, but every question is non-blocking — on decline / "no data" / "don't remember" / "won't answer" it takes a sensible default/estimate, records it as revisable, proceeds, and does NOT re-pester; missing/forgotten data is never made a problem. →done_when#3 (G7-2) / →GLOSSARY:autonomy
+- **W22** Safety/medical floor = a non-overridable HARD layer ABOVE research-and-decide (the decide-pass cannot relax calorie/protein floors or the red-flag list); on any safety-braked question the conservative/safe option is the default-on-non-answer. (Merged with W38.) →GLOSSARY:C.safety-floor (charter-locked) [P9 floor magnitudes]
+
+**done_when#4 — program-as-plan / daily prescription:**
+- **W23** A program is a first-class core object: a named multi-phase arc (start_date, ordered phase sequence, checkpoints, documented progression rule) parameterized by stored anchors, not concrete daily numbers. →done_when#4 / →GLOSSARY:program / →import I6 [P10 phase counts/weeks]
+- **W24** Every daily prescription is a FORMULA off the anchors (%-of-anchor / range / fixed / remainder), never a hardcoded per-day value; revision = editing a few anchors, after which downstream days re-derive. →done_when#4 / →GLOSSARY:daily-prescription / →GLOSSARY:якоря-derived
+- **W25** Concrete daily numbers are resolved ON READ from program+anchors (not materialized day-files at start); "не захардкоженные" is settled; resolve-on-read is the locked direction (file-layout of the resolve path → converge-arch CA2). →GLOSSARY:daily-prescription / →import I6
+- **W26** Program start ("старт") is an owner-TRIGGERED action (the system PROPOSES the program, the owner triggers/ratifies the start, per G7-1) — consistent with no auto-firing scheduler. (Closed by the system; not a new gate.) →GLOSSARY:program / G7-1 / →W2
+
+**done_when#5 — shared concepts (metrics / phase / PLAN-vs-LOG / review / cadence):**
+- **W27** PLAN-vs-LOG = TWO file families: a dateless PLAN/template (intent: ranges, %, RPE, target macros; edited rarely, never overwritten to record a result) and a dated append-only LOG (actuals, processed by date field). →GLOSSARY:PLAN-vs-LOG / →GLOSSARY:plan/PLAN / →import I6 [P12 format]
+- **W28** The LOG family is append-only, one-entity/one-day per small file; corrections are new dated entries; git is the audit trail. →GLOSSARY:PLAN-vs-LOG / →GLOSSARY:no runtime
+- **W29** The core OWNS the three shared metrics (defines each FORMULA once): weight+trend, biofeedback, adherence; raw inputs stored, trend/adherence derived-on-read, never stored as source-of-truth. →GLOSSARY:metrics-ownership / →done_when#5 / →import I4
+- **W30** trend weight = a derived smoothed series computed on read from stored RAW daily weights; never act on a single reading; the ONE metric both modules consume. →GLOSSARY:trend / →import I6 [P4 EMA window]
+- **W31** Energy expenditure (TDEE) = back-calculated from logged intake + smoothed trend (intake ± stored-energy-change), recalibrated at review cadence; never a static formula. →GLOSSARY:numbers-in-files / →import I6 [P4 ~7700 kcal/kg + min-data window]
+- **W32** biofeedback = core-owned subjective 0–5 daily self-reports (sleep/energy/hunger/stress) stored raw; objective HRV/RHR/readiness EXCLUDED/deferred (evidence). →GLOSSARY:biofeedback [P13 scale items] · see §DEFERRED
+- **W33** adherence = core-owned, derived-at-read, never stored: consistency-of-logging (days logged, days ≥2 eating-occasions, % targets met) with logging-consistency primary; fallback/"lazy" food COUNTS, not a slip. →GLOSSARY:adherence
+- **W34** phase = a CORE-OWNED first-class shared lever carried as plan metadata, gating BOTH modules' targets; the day-log frontmatter back-references {phase, week, day} (the low-frequency coupling carrier → contract CA3). →GLOSSARY:phase / →done_when#5 / →import I4
+- **W35** The phase enum {cut, maintain, build, deload, diet-break} is SYSTEM-LOCKED (§GLOSSARY B — system picks reading, converge-verify refutes, owner NOT asked); labels are → PLAN. (Closed by the system; not a new gate.) →GLOSSARY:phase [P11 labels]
+- **W36** review = a no-mutation reconciliation: computes desired-vs-observed (trend slope vs target, inferred expenditure, adherence %) and PROPOSES changes (rationale + rule cited); never self-mutates PLAN/anchors. →GLOSSARY:review-mechanism / →import I6
+- **W37** review has TWO triggers: owner-PULL (a reported problem → MUST produce a proposed mutation) and system-PUSH (a date/signal reached → MUST emit a decision); neither self-fires (PUSH fires when next invoked). →GLOSSARY:review-mechanism / →GLOSSARY:no runtime
+- **W38** Before surfacing a proposal, review runs declarative guardrail/floor pre-checks against the non-overridable safety floor; a floor-breaching proposal is blocked. →GLOSSARY:review-mechanism / →W22 [P9]
+- **W39** review autonomy = decide-and-inform: auto-applies + logs best-effort, surfacing for ratification ONLY on the brakes-list (safety / below-floor / intensity-up / sharp-course-change), conservative default on a braked non-answer; the W21 non-blocking invariant applies. →GLOSSARY:review-mechanism / G7-2 / →W21
+- **W40** An optional single autonomy dial (Coached/Collaborative/Manual) ships defaulting to decide-and-inform (G7-2's "A with C's dial available"); it is optional config, not a required setup question. (Closed by the system; not a new gate.) →GLOSSARY:autonomy / G7-2
+- **W41** cadence is set BY THE PROGRAM/PHASE (per-phase decision_interval), not globally fixed. →GLOSSARY:cadence / →done_when#5 / →done_when#4 [P14]
+- **W42** A cadence tick alone does not move a lever: a lever moves only when observed slope deviates from target_rate beyond noise AND persists N windows (deviation-gated), and never faster than a minimum-data floor. →GLOSSARY:cadence / →import I6 / →W31 [P14]
+
+**done_when#6 — daily tracking / parse-firewall / clarify / library:**
+- **W43** Daily tracking accepts text / voice transcript / photo as the entry surface for the append-only LOG. →done_when#6 / →import I2
+- **W44** Parsing runs a fixed 4-stage pipeline: (1) parse raw NL/voice/photo → (2) emit a PROPOSED structured draft → (3) map each item to a definition-library entry by slug → (4) pull numeric values from the matched files; the draft is never committed before mapping. →GLOSSARY:parse / →import I2
+- **W45** Every numeric value in a record is looked up from a library file and scaled by the logged quantity; the LLM never invents a number that exists in the files. →GLOSSARY:parse / →done_when#6 / →W9
+- **W46** The parser maps against the ACTIVE program/library (foods/, exercises/ by slug) as a closed reference vocabulary, using the active program/menu as a disambiguation signal. →GLOSSARY:active-program/library/сверка / →done_when#6
+- **W47** A clarifying question is emitted ONLY on MATERIAL ambiguity (interpretations genuinely diverge AND the divergence changes the day's accounting); otherwise log a best-effort entry silently. →GLOSSARY:clarifying-question / →done_when#6 [P15 cutoff/wording]
+- **W48** When a question IS warranted, ask in priority order portion > food-type > prep, asking only the dimension that resolves materiality. →GLOSSARY:clarifying-question / →import I2 [P16 impact weights]
+- **W49** Every parsed estimate carries `estimate_confidence` (low/med/high) + `source` (photo / photo+desc / text / barcode / verified-db) metadata. →GLOSSARY:parse / →import I2 [P17 schema tokens]
+- **W50** A low-confidence item is RECORDED-WITH-FLAG by default (best-effort entry the review can resurface), not blocked on a question; the question path is taken only when materiality (W47) is met. →GLOSSARY:clarifying-question / →W47
+- **W51** No mandatory per-entry ratify gate: the system parses-and-commits when confident (decide-and-inform); ratification is reserved for braked items, not routine logging. →GLOSSARY:parse / G7-2
+- **W52** The definition LIBRARY holds each food/exercise defined ONCE in its own slug-addressed file (food = canonical per-100g + provenance/source id); PLAN/LOG reference by slug + quantity; the library grows lazily (new slug file from label/barcode/FDC). →GLOSSARY:active-program/library/сверка / →import I3 [P18 FDC schema]
+
+**done_when#7 — self-extensibility:**
+- **W53** Self-extensibility = a structural SEAM: a typed procedure-definition CONTRACT lets a new GLOBAL procedure be authored + registered via the defined workflow without rewriting the core. →GLOSSARY:self-extensibility / →done_when#7 / →import I3 [P19 contract template]
+- **W54** TWO distinct extension classes: (1) a new DOMAIN = 1 folder + 1 namespaced registry line, no core edit; (2) a new GLOBAL PROCEDURE = a richer authored-via-workflow contract — not the same mechanism. →GLOSSARY:new-domain-vs-procedure / →done_when#7 [P20 registry syntax]
+- **W55** A global procedure is TRIGGERED (owner/chat/checkpoint), never a self-firing cron, and is bounded by an explicit scope + stop condition in its contract. →GLOSSARY:self-extensibility / →GLOSSARY:no runtime
+- **W56** menu/menu-cycle is SYSTEM-GENERATED, not owner-picked (an expert variable the system decides under research-and-decide); the program/plan/menu hierarchy + re-solve rule are a downstream nutrition-module/arch concern. →GLOSSARY:menu / →GLOSSARY:research-and-decide / →W17  *(oracle-added)*
+
+**done_when#8 — modules / contract:**
+- **W57** A module (nutrition, training) attaches as a thin additive layer (adds rows, not rewrites): a new domain = 1 folder + 1 namespaced registry line, no edit to the core schema. →done_when#8 / →GLOSSARY:module / →import I4 [P20/P21]
+- **W58** A module may add ONLY namespaced `x_<domain>_*` fields; it never widens/mutates core-owned schema; the core exposes a defined attach-point for declarative registration. →GLOSSARY:module / →import I4 [P21 attach-point]
+- **W59** Modules consume core-owned concepts (metric trio, phase, PLAN-vs-LOG, review) and do not redefine/duplicate them; modules reference core metrics rather than recomputing/persisting their own. →done_when#8 / →GLOSSARY:metrics-ownership
+- **W60** The module↔core exchange is low-frequency shared state — phase + the metric trio — published by the core and read by both modules through a defined contract (→ converge-arch CA4). →done_when#8 / →GLOSSARY:contract
+- **W61** Exactly one genuine high-frequency cross-module link: a coarse `day_type` from training sets that day's carb target in nutrition; kept COARSE (a few tiers, never per-minute timing); no module-to-module coupling outside the core-published contract. →GLOSSARY:contract / →import I4 [P22 carb tiers] (day_type provenance → converge-arch CA5)
+
+**done_when#9 — Direction OS boundary (G7-3 reframed):**
+- **W62** The Direction OS ↔ Health AI relationship is ONE-WAY visibility/dependency: Direction OS (dev+strategic layer) may READ ALL of Health AI on demand; the arrow points only that way. →done_when#9 / →GLOSSARY:Direction-OS-boundary / →import I7
+- **W63** The Health AI repo carries ZERO reference to / dependency on Direction OS; never knows about / depends on / writes up to it — self-contained. →GLOSSARY:Direction-OS-boundary / →done_when#9
+- **W64** Raw daily data (the LOG family) is owned + stored in Health AI; Direction OS does NOT duplicate raw data into its own state (not-a-diary) but is not limited to a filtered feed when reading; Direction OS's own state stays strategic (summary/decision/problem/incident/evidence-pointer/CALL). →GLOSSARY:Direction-OS-boundary / →import I7
+
+### §WHAT-C — cross-node CONTRACTS to close in converge-arch (named here, NOT closed in Resolve)
+- **CA1** One-way visibility wiring: the cross-repo read interface by which Direction OS reads all of Health AI (and the guarantee Health AI holds zero reference up). →W62/W63/W64
+- **CA2** resolve-on-read vs materialized day-files: the concrete file layout for the resolve path (recon recommends resolve-on-read). →W25
+- **CA3** The {phase, week, day} back-reference shape (low-frequency coupling carrier). →W34
+- **CA4** The module attach-point + `x_<domain>_*` consume contract (phase + metric trio). →W58/W60
+- **CA5** `day_type` provenance for the carb link (PLANNED program vs LOGGED session). →W61
+- **CA6** nutrition-as-reusable-template recursion (is nutrition itself the module template training instantiates?). →W57
+- **CA7** parse/library/extensibility surface as a core-owned contract both modules reuse. →W44/W52/W53
+
+## §CONTRACTS — converge-arch (Declare; consumer-driven, observable; HOW → PLAN)
+> Produced by converge-arch, session running 2026-06-14. Each entry states WHAT flows, the DIRECTION, the
+> TRIGGER, in behavioral terms. Wire format / push-vs-poll / file layout / read mechanism stay `→ PLAN`.
+> Completeness checked against TREE: nodes touched = Direction OS (sibling system, exists), g-health-nutrition-system
+> (PARKED), g-health-training-activity-system (PARKED), the core's own LOG family (internal).
+
+- **CA1 — one-way Direction OS ↔ Health AI visibility** (closes W62/W63/W64; G7-3 R5).
+  - consumer: **Direction OS** (the dev + strategic layer; the reader).
+  - producer: **g-health-core** (Health AI core; the read-only source).
+  - flow: the entire Health AI file corpus — anchored profile, programs/plans, the append-only LOG family,
+    reviews, definition libraries — is READABLE in full by Direction OS; nothing is filtered out at the
+    boundary. Reverse guarantee: the Health AI repo emits NO data, reference, or dependency toward Direction
+    OS (zero up-pointer; Health AI does not know Direction OS exists).
+  - direction: ONE-WAY, Health AI core → Direction OS (read-only). No arrow back.
+  - trigger: on Direction OS demand (a development / feature / strategy / review need pulls Health AI data);
+    Health AI never pushes and never initiates.
+  - status: **closed** (WHAT side). The read MECHANISM (cross-repo read interface: connector vs path vs
+    sync, auth, cadence) is `→ PLAN`. No new owner gate (signed at Define, G7-3).
+
+- **CA2 — daily prescription resolve-on-read** (closes W25; the WHAT side of the resolve-vs-materialize fork).
+  - consumer: the **daily-prescription read path** — any provider (ChatGPT/Claude/Claude Code/Codex)
+    resolving "what is prescribed for date D"; downstream both PARKED modules read their day-targets through it.
+  - producer: **g-health-core** program object + the anchored profile (`program + anchors`).
+  - flow: a concrete daily prescription (the day's targets/sets/macros as resolved numbers) is PRODUCED on
+    read by applying the program's documented formulas to the stored anchors; no day exists as a stored
+    literal independent of anchors+formula, and editing one anchor changes the affected days on the next read
+    with no per-day edit (observable property = WA3).
+  - direction: producer (program+anchors) → consumer (read path), pull.
+  - trigger: on any read for a given date (a logging turn, a review, a module asking for the day's targets).
+  - status: **closed** (WHAT side; resolve-on-read is the locked direction per W25/I6). The concrete file
+    layout of the resolve path (materialized cache vs pure-derive, day-file shape) is `→ PLAN`/arch (P2).
+
+- **CA3 — {phase, week, day} back-reference publication** (closes W34; the low-frequency coupling carrier).
+  - consumer: **both PARKED modules** (g-health-nutrition-system, g-health-training-activity-system) AND the
+    core's own dated LOG family.
+  - producer: **g-health-core** program (the phase-bearing plan object).
+  - flow: the core program publishes the ACTIVE {phase, week, day} coordinate for any given date; a LOG entry
+    and each module's day-targets back-reference that coordinate (phase enum gates both modules' targets;
+    week/day index the program arc). Consumers READ the coordinate; they do not own, duplicate, or recompute it.
+  - direction: producer (core program) → consumers (modules + LOG), one-way publish/read.
+  - trigger: on each log entry written and on each module day-resolution (whenever a dated entry or a module
+    target needs to know "which phase/week/day is this").
+  - status: **closed** (WHAT side). PRODUCER = this node (g-health-core), CONSUMERS = the two PARKED modules →
+    explicit **BUILD-ORDER dependency**: g-health-core converges FIRST as producer; the later nutrition and
+    training converges consume this contract UNCHANGED. The coordinate's concrete shape (frontmatter key
+    names, week/day numbering, phase labels) is `→ PLAN` (P11/P12 + CA3 arch shape).
+
+- **CA4 — module attach: phase + metric trio** (closes W58/W60/W59; WA9/WA10/WA12).
+  - consumer: nutrition + training modules (both PARKED). producer: **g-health-core**.
+  - flow: a module READS the current phase + the three core-owned metrics (weight+trend, biofeedback, adherence,
+    each defined ONCE in core); it ADDS ONLY namespaced `x_<domain>_*` fields, holds no duplicate definition or
+    stored derived metric, never edits/widens core schema; attaches as a thin additive layer registered by one
+    declarative line. Two providers on core+module reach the same shared state.
+  - direction: core publishes → module reads; module writes only its own namespaced fields (never up into core).
+  - trigger: on module computation needing phase/shared-metric; registration once at attach.
+  - status: **closed** (WHAT side). BUILD-ORDER: core first; PARKED modules consume unchanged. Attach-point
+    format + x_key syntax + push-vs-poll `→ PLAN` (P21/P20).
+
+- **CA5 — coarse day_type → carb target** (closes W61; the one genuine high-frequency cross-module link).
+  - consumer: nutrition module (PARKED). producer: day_type from the training surface (PLANNED) + the LOG (LOGGED).
+  - flow: nutrition reads a coarse day_type (a few tiers) for a date to set that day's carb target; kept COARSE.
+    PROVENANCE (closed): day_type = the LOGGED session's when one exists (actuals are truth), else FALLS BACK to
+    the PLANNED program's day_type (so a future/un-logged day still has a carb target that re-derives once the
+    session lands). Nutrition never writes day_type back.
+  - direction: training/plan+log → day_type → read by nutrition. one-way.
+  - trigger: when nutrition resolves a date's carb target (logged overrides planned on the next read).
+  - status: **closed** (WHAT side incl. provenance = logged-overrides-planned-fallback). BUILD-ORDER: planned
+    producer = core (now); logged producer matures with the PARKED training module; the provenance rule is fixed
+    HERE, both later converges consume unchanged. Tier set + per-tier carb magnitudes `→ PLAN` (P22).
+
+- **CA6 — the reusable template is CORE-owned, NOT nutrition** (closes W57; refutes nutrition-as-parent).
+  - STANCE (closed): nutrition is NOT the template training instantiates — that edge is **REFUTED**. The reusable
+    template is CORE-owned (the five-stage shape anchor/definition → plan prescription → resolve-on-read day →
+    logged actual → review reconciliation, + the CA7 surface). BOTH modules instantiate the CORE template
+    independently; training never reads/imports nutrition files; the only cross-module flow is CA5.
+  - effect: **removes a would-be nutrition→training build-order edge** → after core, the two modules may converge
+    in EITHER order.
+  - status: **closed.** System-decided (architecture).
+
+- **CA7 — core parse/library/value-grammar/procedure surface** (closes W44/W52/W53/W54; the genuine reusable template).
+  - consumer: both modules (PARKED). producer: **g-health-core**.
+  - flow: core PUBLISHES one reusable surface both modules consume without duplicating: (1) the 4-stage PARSE
+    pipeline (raw → proposed draft → slug-map → numbers-from-files); (2) the definition LIBRARY (foods/exercises,
+    slug-addressed, canonical + provenance, grows lazily); (3) the value-type grammar (fixed|range|relative{of:anchor}|amrap
+    + unit/slug/RPE/x_key vocab); (4) the procedure-definition SEAM (new domain = folder+line; new global procedure
+    = typed authored contract, triggered, bounded). Modules add only namespaced entries; never re-implement.
+  - direction: core publishes → both modules consume.
+  - trigger: parse on every domain input; library on every map/reference; grammar on every leaf; seam on authoring
+    (triggered, never self-firing).
+  - status: **closed.** BUILD-ORDER: core first; PARKED modules consume unchanged. Literal tokens/schemas
+    `→ PLAN` (P6/P17/P18/P19/P20).
+
+§CONTRACTS completeness (verifier, independent): all four live TREE interactions covered — core↔Direction OS (CA1),
+core↔nutrition (CA3/CA4/CA5/CA6/CA7), core↔training (CA3/CA4/CA6/CA7 + CA5 producer-side), nutrition↔training-via-core
+(phase/deload via CA3+CA4; protein/calories-under-volume via CA5; CA6 refutes any module-to-module edge). No dangling
+contract; no HOW token leaked into a flow.
+
+## §ARCH — converge-arch (Architect; architecture-on-paper — rides PLAN as INPUT EVIDENCE only, never into done_when)
+**Decompose:** 10 sub-systems (profile/anchors engine · PLAN store · LOG store · definition library · parse pipeline ·
+resolve-on-read engine · review/cadence engine · metric/phase ownership layer · self-extensibility seam ·
+provider-portability/convention layer). **Sub-nodes: NONE** — internal seams suffice; the only sub-nodes are the
+already-tree'd modules (nutrition, training). 6 internal seams recorded (anchors→resolve; PLAN+resolve→LOG phase-stamp;
+library→parse; metric/phase→review→proposed-anchor-changes; convention-layer→all sub-systems; self-ext-seam→core additive-only).
+
+**High-risk architecture questions** worked as refuted chains (ALL system-decided per research-and-decide; ride PLAN; refuted later by converge-verify):
+- **Q1 file/store model → pure resolve-on-read** (no day on disk; PLAN=program+anchors, LOG=actuals). Refuted: materialize-at-start (breaks anchor-cascade + owner-never-edits), hybrid cache (no driver in a no-runtime system; stale-invalidation risk), append-derived-to-LOG (PLAN-vs-LOG firewall violation). →PLAN: cache-vs-derive layout, day-file shape (P1/P2).
+- **Q2 cross-repo read → plain read-only git clone/path read** (repo sessions) + **read-only connector** (chat sessions); all wiring on the Direction OS side. Refuted: submodule (brittle coupling), sync/copy (makes Direction OS a diary — WA12), any Health-AI push (forbidden up-pointer — WA11). →PLAN: interface/auth/cadence (P1/P3).
+- **Q3 directory/granularity → one entity per small file, foldered by type, LOG append-only one-file-per-day, addressed by slug/id/date.** Refuted: few large aggregates (corruption blast-radius; breaks attach), DB-normalized (fights no-runtime/readability), one-file-mixing-PLAN+LOG (firewall). →PLAN: names/schema/grammar (P1/P12/P18).
+- **Q4 module attachment → additive namespaced extension over a FROZEN core value-type grammar** (module = `x_<domain>_*` leaves reusing the core grammar + new slug files + 1 registry line; zero core edits). Refuted: widen core schema (rewrite + per-module drift), per-module private grammar (determinism leak), free-form bag (vocab/collision). →PLAN: x_key syntax, registry/attach-point format (P6/P20/P21).
+- **Q5 self-extensibility → two distinct declarative classes** (domain = folder+line; global procedure = typed authored-via-workflow contract w/ explicit scope+stop+trigger, never self-firing). Refuted: unified mechanism (conflates data vs behavior; runaway risk), self-scheduling cron (no-runtime), opaque scripts (provider-independence/no-runtime). →PLAN: contract template, registry grammar (P19/P20).
+- **Q6 write-path / single-writer (gap-hunt) → one-entity-per-file commit + write barrier (parse → YAML lint/parse-check → commit) + append-only LOG (corrections = new dated entries) + single-writer as a git-native NAMED residual risk (pull/rebase; append-only ⇒ conflict-free merges), NO lock/runtime.** Justified by the read-only-connector asymmetry (only Codex + the @claude app write; ChatGPT/Claude.ai connectors are read-only → contention ~nil) + recon (append safest, YAML riskiest, lint-before-commit). Refuted: batched multi-file commit (couples entities — allowed only as a rare atomic-semantic exception), repo lock/lease (ceremony vs a non-problem; coordination state no provider must honor), materialize-the-write (WA3/W5 violation). →PLAN: P3 (per-provider commit path, lint tooling, branch policy, commit-message audit grammar).
+**Gap-hunt:** Q6 was the one unasked high-risk question — now worked + closed, so **zero open high-risk architecture questions**. Remaining residuals are low-risk → PLAN (lazy library seeding/provenance write flow; menu/plan re-solve hierarchy — re-examined at the nutrition converge, not core).
+
+### §PLAN-AGENDA — HOW magnitudes/formats (born here as named slots; values set at PLAN, refuted by converge-verify)
+P1 file/dir layout + YAML frontmatter schema · P2 (=CA2) resolve-on-read file layout · P3 chat→GitHub write-back path per provider · P4 formula/constant set (7-day EMA, 4/4/9, ~7700 kcal/kg, e1RM Epley/Brzycki, %-of-anchor) + min-data window · P5 instruction-file budgets (~150–300w) · P6 constrained-vocab literal tokens (unit enum, slug regex, RPE enum, x_key syntax) · P7 owner_facts/derived_anchors field table + rationale/evidence schema · P9 safety-floor + protein magnitudes (calorie/protein floor, intensity-step thresholds, red-flag list, protein g/kg) · P10 phase counts/weeks per program · P11 phase enum labels · P12 PLAN/LOG file naming + frontmatter shape · P13 biofeedback scale items · P14 cadence magnitudes (weekly default, N, ~2–3wk floor, 0.5–1%/wk band, decision_interval_days) · P15 parse materiality cutoff + question wording · P16 question-order impact weights · P17 confidence/source schema tokens · P18 FDC food-record schema + source-id + slug grammar · P19 procedure-definition contract template · P20 extension registry path + line grammar + folder structure · P21 module attach-point format + x_key syntax · P22 carb-by-day_type tiers + per-tier carb magnitudes.
+
+### §DEFERRED (named, out of core scope pending evidence)
+- Objective recovery metrics (HRV/RHR/sleep-device): DEFERRED pending a clean-evidence pass (marketing-dominated evidence; recon Q7). Subjective 0–5 is IN (W32).
+
+## §SIGNOFF — Resolve
+**§SIGNOFF: owner ratified Resolve (§WHAT) @ 2026-06-14 — "CONFIRM"** (session s-health-core-converge-004).
+The 12 binding acceptance criteria (§WHAT-A) + the full §WHAT are owner-ratified; shape copies §WHAT-A verbatim
+into the executor done_when (G5). No new owner decision was taken at Resolve (auditor owner_gate_batch = []).
+Owner gates spent across the converge set: 1 (Define). converge-arch may use the rest. → routing to converge-arch.
+
+## §SIGNOFF — converge-arch (Declare + Architect)
+status: **CLOSED, no new owner decision** (session s-health-core-converge-004, 2026-06-14). Independent verifier
+(wf_f75c6c5a-c5a): completeness vs TREE COMPLETE (all 4 live interactions → CA1–CA7, matching §WHAT-C; every
+parked-consumer contract carries a build-order dep; none dangling); firewall CLEAN (no HOW token in any contract
+flow); no architecture pick leaked into done_when (arch-on-paper rides PLAN as input evidence); **owner_gate_batch
+= []** — all 7 contracts + 6 architecture picks (Q1–Q6) are system-decided (research-and-decide); the one
+owner-owned boundary (CA1) was already signed at Define G7-3. Owner gates spent across the converge set: still 1
+(Define). NOTE: a Declare agent wrote a partial §CONTRACTS (CA1–CA3) directly to this file mid-run; reconciled by
+the writer to the authoritative CA1–CA7 + §ARCH. → next = **converge-verify** (a SEPARATE refutation session that
+attacks completeness with an independent oracle + traces every weight-bearing value; only a clean verify reaches shape).
 
 END_OF_FILE: live/health/work/converge-g-health-core.md
