@@ -78,7 +78,7 @@ A session that cannot pass a gate stops and reports — it never improvises arou
 
 ## 6. Plays
 
-`frame · map · shape · work · guide · review · research · pulse · repair` — defined in `os/plays/`. Directions may add local plays in `live/<id>/plays/` (procedure files, not state; same format and budget; invoked as `play: local/<name>` — see `os/EXTENDING.md`). A session that does not know its play is in repair.
+`frame · map · shape · converge · converge-arch · converge-verify · work · guide · review · research · pulse · repair` — defined in `os/plays/`. Directions may add local plays in `live/<id>/plays/` (procedure files, not state; same format and budget; invoked as `play: local/<name>` — see `os/EXTENDING.md`). A session that does not know its play is in repair.
 
 ## 7. Changing the OS
 

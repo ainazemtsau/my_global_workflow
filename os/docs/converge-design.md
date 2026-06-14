@@ -1,6 +1,6 @@
 # CONVERGE — design rationale (v4)
 
-The durable record of why the converge layer exists and how it is shaped. The procedure itself lives in the plays (`live/<id>/plays/converge*.md`); this file is the reasoning a fresh session or a second direction reads to understand the *why*. Status: local to `indie-game-development`, first real run pending on g-9c41. Promotion to `os/plays/` waits for proof in a second direction (EXTENDING rule 3).
+The durable record of why the converge layer exists and how it is shaped. The procedure itself lives in the plays (`os/plays/converge*.md`); this file is the reasoning any session or direction reads to understand the *why*. Status: GENERAL — promoted to `os/plays/` by owner decision (2026-06-14), available to every direction (current and future) like any core play. First real run pending on g-9c41 (heavy); health's first use will be its next non-trivial node (training-activity, currently parked).
 
 ## The gap it closes
 
@@ -50,13 +50,13 @@ The universal spine is TRIAGE → DEFINE → RESOLVE → VERIFY → copy-into-th
 
 ## Fit to physics
 
-Zero kernel words (1488/1500). No 7th state-file type. Three local plays (≤600 words each; indie was at 0/5). Reuses research (compete), G5 (verify discipline), G7 (owner decisions), G10 (play_check validation), review (canon promotion). The writer-DoR adapter edit is deferred to when the first handoff needs it.
+Three core plays in `os/plays/` (≤600 words each: 599/600/598). Kernel §6 play list + packets.md `play:` enum gained the converge family (kernel 1494/1500). No 7th state-file type. Reuses research (compete), G5 (verify discipline), G7 (owner decisions), G10 (play_check validation), review (canon promotion). The writer-DoR adapter edit is deferred to when the first handoff needs it. Per-direction parts stay direction-local: node-class decision-class checklists live in each direction's `knowledge/` (the play is general; its oracles are direction data).
 
 ## Open decisions (carried to the owner)
 
 - D-1 three plays vs two: landed on three (converge / converge-arch / converge-verify) — the separate verify is load-bearing and indie has the local-play budget.
 - D-2 canon forcing-function (handoff blocked until WHAT promoted to knowledge/): deferred with the adapter edit; first runs prove the shape before enforcement is wired.
-- D-3 general vs engineering-only: built general (the spine), engineering-heavy parts predicate-skipped; promotion to os/ after a second direction.
+- D-3 general vs engineering-only: built general (the spine), engineering-heavy parts predicate-skipped; promoted to `os/plays/` immediately by owner decision (all directions + future ones get it), rather than waiting for a second direction's proof.
 
 ## Validation & hardening
 

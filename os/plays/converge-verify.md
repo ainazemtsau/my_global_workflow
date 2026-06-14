@@ -5,7 +5,7 @@ Purpose: a SEPARATE refutation session that tries to BREAK a converged node's sp
 Reads: work/converge-<node>.md (closed §GLOSSARY/§WHAT/§CONTRACTS), TREE.md (node done_when), CHARTER.md, knowledge/ (node-class decision-class checklists, sibling canon). It does NOT read the deciding sessions' reasoning — it re-derives independently.
 Writes: NOW.md (decisions, open_calls — a finding bounces a row), LOG.md. Never writes knowledge/. Never answers a question; it only refutes or passes.
 
-Precondition: local/converge done (and local/converge-arch done if the node is heavy or sibling-bearing). Reached via CALL `to: session, play: local/converge-verify`.
+Precondition: converge done (and converge-arch done if the node is heavy or sibling-bearing). Reached via CALL `to: session, play: converge-verify`.
 
 ## Steps
 
@@ -15,7 +15,7 @@ Precondition: local/converge done (and local/converge-arch done if the node is h
 
 3. **Attack smuggling.** For each weight-bearing §WHAT line and each acceptance criterion, name every value or fact it leans on and check each traces to a cited resolved row (`→Wn` / `→GLOSSARY`) or a frozen canon id. An untraceable value is a smuggled assumption → bounce that row to `open`. Re-check the FIREWALL: any HOW magnitude/format that drifted into an acceptance line → `→ PLAN`.
 
-4. **Close.** If either attack finds anything: `next` = a CALL back to local/converge (or local/converge-arch) carrying the bounced rows; verify re-runs after they re-close. If both pass clean: write `§SIGNOFF: converge-verify passed @ <date>`; emit play_check `verify: complete=PASS smuggling=PASS`; `next` = a CALL for shape on this node, whose context names the §WHAT `acceptance` rows + §CONTRACTS requirements to COPY into the executor done_when (binding by G5) and the `→ PLAN` rows as the PLAN-agenda.
+4. **Close.** If either attack finds anything: `next` = a CALL back to converge (or converge-arch) carrying the bounced rows; verify re-runs after they re-close. If both pass clean: write `§SIGNOFF: converge-verify passed @ <date>`; emit play_check `verify: complete=PASS smuggling=PASS`; `next` = a CALL for shape on this node, whose context names the §WHAT `acceptance` rows + §CONTRACTS requirements to COPY into the executor done_when (binding by G5) and the `→ PLAN` rows as the PLAN-agenda.
 
 ## Done when
 Both refutations fail to find a hole (or every hole found is bounced and a later verify passes); `§SIGNOFF: converge-verify passed` exists; shape's CALL carries the acceptance + contract rows to copy and the PLAN-agenda.
@@ -25,4 +25,4 @@ Both refutations fail to find a hole (or every hole found is bounced and a later
 - Decision-class checklists are cross-node canon (knowledge/, read_by converge-verify of that node-class); review/pulse promote them.
 - No new owner G7 point — verify routes findings; the owner already signed the answers in converge. Same row bouncing twice → two-strikes (KERNEL §2): close with a handoff note.
 
-END_OF_FILE: live/indie-game-development/plays/converge-verify.md
+END_OF_FILE: os/plays/converge-verify.md

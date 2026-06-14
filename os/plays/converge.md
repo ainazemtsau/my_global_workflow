@@ -1,11 +1,11 @@
 # Play: converge
 
-Purpose: drive a non-trivial node from a TREE-node to a closed, owner-signed WHAT spec shape consumes — disputed terms locked, requirements a cited node-on-paper, every committed mechanism decomposed to the questions it forces. Contracts and heavy architecture ride local/converge-arch; the closed set is refuted by local/converge-verify before shape. Closure is this play's Done-when.
+Purpose: drive a non-trivial node from a TREE-node to a closed, owner-signed WHAT spec shape consumes — disputed terms locked, requirements a cited node-on-paper, every committed mechanism decomposed to the questions it forces. Contracts and heavy architecture ride converge-arch; the closed set is refuted by converge-verify before shape. Closure is this play's Done-when.
 
 Reads: TREE.md (node), CHARTER.md (lenses, risk_posture), NOW.md, knowledge/ + the node's history/.
 Writes: work/converge-<node>.md (removable assembly surface), NOW.md (open_calls, decisions), LOG.md. Proposes glossary canon for review/pulse; never writes knowledge/.
 
-Precondition: node chosen, no bet conflict (G1). Reached via CALL `to: session, play: local/converge`. A node already shaped or in-flight runs as RETROFIT: import settled decisions (step 1), then frame only what is still open.
+Precondition: node chosen, no bet conflict (G1). Reached via CALL `to: session, play: converge`. A node already shaped or in-flight runs as RETROFIT: import settled decisions (step 1), then frame only what is still open.
 
 ## Steps
 
@@ -15,7 +15,7 @@ Precondition: node chosen, no bet conflict (G1). Reached via CALL `to: session, 
 
 3. **Resolve** — flat §WHAT list, one question/line, tagged `open|answered|deferred`. Derive from THREE sources (the no-white-spots net): (a) every done_when criterion; (b) every cross-node edge the boundaries name; (c) MECHANISM DECOMPOSITION — any committed mechanism (chosen, imported, or locked in done_when, e.g. "chunked-delta stream") splits atomically into one row per internal parameter it forces (quant, divergence bound, settle/keyframe, channel reliability); RECURSIVE — a sub-mechanism re-runs the split. Build-deciding parameters are born HERE, not at task time. Node-on-paper: every weight-bearing sentence carries an inline citation (`→Wn`, `→GLOSSARY:term[property]`); a sentence citing `open` is itself `open`. FIREWALL: vendor/algorithm/layout/magnitude = HOW → `→ PLAN`; owner-owned design facts + acceptance PROPERTIES → G7; a row carrying BOTH splits (property → G7, magnitude → PLAN), never routed whole; ambiguous defaults to PLAN. Tag acceptance criteria `acceptance` — shape copies them verbatim into the executor done_when. Contested/big → a `call:research` strategic_search child (3–5 refuted options), `deferred → c-research-NNN`; a row reopens ≤2 times, then forces an owner decision. Sign WHAT (G7).
 
-4. **Close & route** — never emit the executor CALL. Emit play_check `imported: [ids]`, `converge_coverage:` (every criterion + edge + mechanism parameter → a §WHAT row or `covered_by`), `canon_proposed: [glossary ids]`. `next`: heavy/sibling node → local/converge-arch; else → local/converge-verify. Shape runs only after verify passes.
+4. **Close & route** — never emit the executor CALL. Emit play_check `imported: [ids]`, `converge_coverage:` (every criterion + edge + mechanism parameter → a §WHAT row or `covered_by`), `canon_proposed: [glossary ids]`. `next`: heavy/sibling node → converge-arch; else → converge-verify. Shape runs only after verify passes.
 
 ## Done when
 Forward-clean (`rg -c` `open`/`deferred` = 0), backward-clean (every weight-bearing line/acceptance/glossary row cited), coverage complete, `§SIGNOFF` for Define and Resolve, set handed to converge-verify.
@@ -24,4 +24,4 @@ Forward-clean (`rg -c` `open`/`deferred` = 0), backward-clean (every weight-bear
 - Owner asks batch into AT MOST THREE G7 points across the converge set, one per gated movement. Each writes `§SIGNOFF: owner approved <movement> @ <date> — "<owner words>"` (grep-able, satisfies G10).
 - HONEST: coverage is mechanical; completeness rests on converge-verify, correctness on the owner gate.
 
-END_OF_FILE: live/indie-game-development/plays/converge.md
+END_OF_FILE: os/plays/converge.md
