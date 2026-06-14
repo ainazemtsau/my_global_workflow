@@ -99,7 +99,7 @@ recurring: []
 open_calls:
   - id: c-exec-003
     status: dispatched   # executor leg for t-2; opens with interactive PLAN + ADR-0003 in the product repo (owner present), then autonomous build legs
-    note: framed at s-work-004 (c-work-002); hardened via an 8-agent ground+draft+adversarial-verify pass (wf_7dbb52a9-1c1); full CALL in next:; → history/s-work-004.md
+    note: framed at s-work-004 (c-work-002); hardened via an 8-agent ground+draft+adversarial-verify pass (wf_7dbb52a9-1c1); full CALL in next:; converge set wired in as mandatory PLAN input per d-converge-001=A (s-decide-002); → history/s-work-004.md
   - id: c-frame-002
     status: queued
     note: |
@@ -121,18 +121,18 @@ open_calls:
       Declare the §WHAT-B cross-node contracts consumer-driven (gas-type seam, render seam, the
       shared field-sampling oracle B31, ingestion adapter/TopologyDocument, grid↔gas) so the
       open→PLAN stream magnitudes are frozen against contracts that bound them. Full CALL in
-      history/s-converge-001.md RESULT.next. Resolve d-converge-001 first.
+      history/s-converge-001.md RESULT.next. (d-converge-001 resolved = A; converge-arch runs in
+      parallel and refines the B-row contracts — it does NOT gate the c-exec-003 PLAN under A.)
 
 decision_inbox:
   - id: d-converge-001
-    status: open
+    status: answered   # owner 2026-06-14 «давай вариант A» → converge set wired into c-exec-003 context + leg_opens_with as mandatory PLAN input evidence (s-decide-002)
     note: |
-      Feed work/converge-g-9c41.md into the in-flight c-exec-003 PLAN before ADR-0003 freezes the
-      stream magnitudes (C1–C22), or keep the retrofit parallel/demonstrative? Options A/B/C +
-      recommendation A (feed as input evidence to the already-interactive, owner-present PLAN —
-      cheapest capture of the retrofit's value, esp. the 4 params the c-exec-003 CALL left implicit
-      C19/C20/C21/C22, without re-opening the bet or risking the G3 wall). See work/converge-g-9c41.md
-      §ROUTE + history/s-converge-001.md decisions_needed.
+      A CHOSEN: feed work/converge-g-9c41.md into the in-flight c-exec-003 PLAN before ADR-0003
+      freezes the stream magnitudes (C1–C22); the PLAN RATIFIES the named §WHAT-C questions instead of
+      re-inventing — special attention to the 4 the c-exec-003 CALL left implicit (C19 client-recon
+      arithmetic determinism, C20 client apply-order/keyframe interleave, C21 layer registry vs
+      revision feed, C22 lossy mass-conservation bound). Wired into NOW.next (context + leg_opens_with).
       # d-arch-001 answered at s-shape-003 (see history/s-shape-003.md outcome a-e)
 
 next: |
@@ -144,6 +144,9 @@ next: |
     PLAN — interactive, plan mode, owner present, frontier model, in the product-repo dev worktree
     C:\projects\Unity\GasCoopGame_dev (branch dev; FIRST sync dev to current main HEAD @7af478a — dev
     is 5 commits behind; the tail is MCP/tooling cleanup, no core/sim change, t-1 contracts intact).
+    FIRST PLAN STEP (owner decision d-converge-001 = A): read work/converge-g-9c41.md and RATIFY its
+    §WHAT-C questions (C1–C22) — ADR-0003 freezes the magnitudes AGAINST that named set, not from
+    scratch; explicitly resolve C19/C20/C21/C22 (the params this CALL left implicit) in the ADR.
     The custom field-state stream is architectural (new transport plane + data/wire format) -> ADR-0003
     + owner approval BEFORE any code; no build before ADR-0003 is accepted and the G0 ledger is frozen.
     PLAN must DECIDE and FREEZE in ADR-0003 + the G0 ledger (builder cannot change): integer/fixed-point
@@ -173,6 +176,13 @@ next: |
     under-load (that is t-3).
   context: |
     Pointers (input evidence for PLAN, NOT a binding spec — PLAN owns the design):
+    - ⭐ CONVERGE SET (owner decision d-converge-001 = A, 2026-06-14): work/converge-g-9c41.md (in the OS
+      state repo — carry its §WHAT-C parameter table + §COVERAGE MAP + WITNESS CHECK into the PLAN; cross-
+      repo, so the relay must include it). It NAMES, as questions, exactly the ADR-0003 ad-hoc values
+      (Q/divergence/deadband/clamps/channel/settle-N/keyframe-K/wire/scene/repro/fault/late-join = rows
+      C1–C22) PLUS 4 forced params this CALL left implicit: C19 (client-recon arithmetic determinism),
+      C20 (client apply-order/keyframe interleave), C21 (layer registry distinct from revision feed),
+      C22 (lossy mass-conservation bound). PLAN RATIFIES this named set in ADR-0003; it does NOT re-derive.
     - Authoritative t-2 done_when (the 4 points, made machine-testable here): this NOW.md active_tasks t-2.
     - Bet rules R12-R15 + kill_by: this NOW.md active_bet. Load-bearing: R13 engine-free pure-C# core /
       Unity = adapters only; R14 net is an edge wrapper composed at the DI root, never in business logic;
