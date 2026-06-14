@@ -220,7 +220,7 @@ under G7-2; phase-enum W35 → SYSTEM-LOCKED per §GLOSSARY B, not an owner ask)
 - **W8** Provider-independence = best-effort portability with NAMED residual risks (not assumed byte-determinism); identical files+conventions, no dependence on a provider's proprietary memory/threads/vector-store/tools; the files are the durable asset, the agent is swappable. →done_when#2 / →GLOSSARY:provider-independence
 - **W9** Determinism: store raw NUMBERS in files; do all arithmetic via documented public formulas over a constrained vocabulary, so any provider recomputes the same result. →GLOSSARY:numbers-in-files [P4 formula/constant set]
 - **W10** Conventions live in plain Markdown file CONTENT carried by THREE deliberately-redundant carriers (AGENTS.md, CLAUDE.md→AGENTS.md, portable system-prompt); never rely on per-tool auto-load (a named residual risk). →done_when#2 / →GLOSSARY:conventions [P5 budgets]
-- **W11** A constrained documented vocabulary is mandatory + pinned in core docs: a value-type grammar `fixed | range | relative{of:anchor} | amrap` as sparse maps, a unit enum, a stable slug/ID convention, the RPE half-point enum, and namespaced `x_<domain>_*` keys. →GLOSSARY:D.2d [P6 literal tokens]
+- **W11** A constrained documented vocabulary is mandatory + pinned in core docs: the value-type grammar (four value-types as sparse maps), the unit enum, the stable slug/ID convention, the RPE enum, and the namespaced extension-key convention — each named here; literal tokens/regex live ONLY in the P-slot. →GLOSSARY:D.2d [P6 literal tokens]  *(firewall-fixed §VERIFY-2 B12)*
 - **W12** Residual risks are named, not assumed away: per-tool AGENTS.md auto-load divergence (mitigated by the system-prompt carrier), silent YAML coercion (weakest write surface), single-writer/concurrent-write. →GLOSSARY:provider-independence / →W6 / →W7 / →W10
 
 **done_when#3 — anchored profile / research-and-decide / setup / safety floor:**
@@ -247,15 +247,15 @@ under G7-2; phase-enum W35 → SYSTEM-LOCKED per §GLOSSARY B, not an owner ask)
 - **W29** The core OWNS the three shared metrics (defines each FORMULA once): weight+trend, biofeedback, adherence; raw inputs stored, trend/adherence derived-on-read, never stored as source-of-truth. →GLOSSARY:metrics-ownership / →done_when#5 / →import I4
 - **W30** trend weight = a derived smoothed series computed on read from stored RAW daily weights; never act on a single reading; the ONE metric both modules consume. →GLOSSARY:trend / →import I6 [P4 EMA window]
 - **W31** Energy expenditure (TDEE) = back-calculated from logged intake + smoothed trend (intake ± stored-energy-change), recalibrated at review cadence; never a static formula. →GLOSSARY:numbers-in-files / →import I6 [P4 ~7700 kcal/kg + min-data window]
-- **W32** biofeedback = core-owned subjective 0–5 daily self-reports (sleep/energy/hunger/stress) stored raw; objective HRV/RHR/readiness EXCLUDED/deferred (evidence). →GLOSSARY:biofeedback [P13 scale items] · see §DEFERRED
+- **W32** biofeedback = core-owned subjective daily self-reports on a small fixed ordinal scale (scale + item set named by the biofeedback-scale convention) stored raw; objective HRV/RHR/readiness EXCLUDED/deferred (evidence). →GLOSSARY:biofeedback [P13 scale + items] · see §DEFERRED  *(firewall-fixed §VERIFY-2 B12)*
 - **W33** adherence = core-owned, derived-at-read, never stored: consistency-of-logging (days logged, days ≥2 eating-occasions, % targets met) with logging-consistency primary; fallback/"lazy" food COUNTS, not a slip. →GLOSSARY:adherence
 - **W34** phase = a CORE-OWNED first-class shared lever carried as plan metadata, gating BOTH modules' targets; the day-log frontmatter back-references {phase, week, day} (the low-frequency coupling carrier → contract CA3). →GLOSSARY:phase / →done_when#5 / →import I4
-- **W35** The phase enum {cut, maintain, build, deload, diet-break} is SYSTEM-LOCKED (§GLOSSARY B — system picks reading, converge-verify refutes, owner NOT asked); labels are → PLAN. (Closed by the system; not a new gate.) →GLOSSARY:phase [P11 labels]
+- **W35** The phase enum is SYSTEM-LOCKED (§GLOSSARY B — system picks reading, converge-verify refutes, owner NOT asked); its concrete labels are named by the phase-enum convention and live ONLY in the P-slot. (Closed by the system; not a new gate.) →GLOSSARY:phase [P11 phase enum labels]  *(firewall-fixed §VERIFY-2 B12)*
 - **W36** review = a no-mutation reconciliation: computes desired-vs-observed (trend slope vs target, inferred expenditure, adherence %) and PROPOSES changes (rationale + rule cited); never self-mutates PLAN/anchors. →GLOSSARY:review-mechanism / →import I6
 - **W37** review has TWO triggers: owner-PULL (a reported problem → MUST produce a proposed mutation) and system-PUSH (a date/signal reached → MUST emit a decision); neither self-fires (PUSH fires when next invoked). →GLOSSARY:review-mechanism / →GLOSSARY:no runtime
 - **W38** Before surfacing a proposal, review runs declarative guardrail/floor pre-checks against the non-overridable safety floor; a floor-breaching proposal is blocked. →GLOSSARY:review-mechanism / →W22 [P9]
 - **W39** review autonomy = decide-and-inform: auto-applies + logs best-effort, surfacing for ratification ONLY on the brakes-list (safety / below-floor / intensity-up / sharp-course-change), conservative default on a braked non-answer; the W21 non-blocking invariant applies. →GLOSSARY:review-mechanism / G7-2 / →W21
-- **W40** An optional single autonomy dial (Coached/Collaborative/Manual) ships defaulting to decide-and-inform (G7-2's "A with C's dial available"); it is optional config, not a required setup question. (Closed by the system; not a new gate.) →GLOSSARY:autonomy / G7-2
+- **W40** An optional single autonomy dial ships defaulting to decide-and-inform (G7-2's "A with C's dial available"); the level enum's labels are → PLAN; it is optional config, not a required setup question. (Closed by the system; not a new gate.) →GLOSSARY:autonomy / G7-2 [P27 autonomy-dial labels]  *(firewall-fixed §VERIFY-2 B12)*
 - **W41** cadence is set BY THE PROGRAM/PHASE (per-phase decision_interval), not globally fixed. →GLOSSARY:cadence / →done_when#5 / →done_when#4 [P14]
 - **W42** A cadence tick alone does not move a lever: a lever moves only when observed slope deviates from target_rate beyond noise AND persists N windows (deviation-gated), and never faster than a minimum-data floor. →GLOSSARY:cadence / →import I6 / →W31 [P14]
 
@@ -266,7 +266,7 @@ under G7-2; phase-enum W35 → SYSTEM-LOCKED per §GLOSSARY B, not an owner ask)
 - **W46** The parser maps against the ACTIVE program/library (foods/, exercises/ by slug) as a closed reference vocabulary, using the active program/menu as a disambiguation signal. →GLOSSARY:active-program/library/сверка / →done_when#6
 - **W47** A clarifying question is emitted ONLY on MATERIAL ambiguity (interpretations genuinely diverge AND the divergence changes the day's accounting); otherwise log a best-effort entry silently. →GLOSSARY:clarifying-question / →done_when#6 [P15 cutoff/wording]
 - **W48** When a question IS warranted, ask in priority order portion > food-type > prep, asking only the dimension that resolves materiality. →GLOSSARY:clarifying-question / →import I2 [P16 impact weights]
-- **W49** Every parsed estimate carries `estimate_confidence` (low/med/high) + `source` (photo / photo+desc / text / barcode / verified-db) metadata. →GLOSSARY:parse / →import I2 [P17 schema tokens]
+- **W49** Every parsed estimate carries an `estimate_confidence` leaf + a `source` leaf, each from a fixed enum named by the confidence/source schema convention; the literal enum tokens live ONLY in the P-slot. →GLOSSARY:parse / →import I2 [P17 schema tokens]  *(firewall-fixed §VERIFY-2 B12)*
 - **W50** A low-confidence item is RECORDED-WITH-FLAG by default (best-effort entry the review can resurface), not blocked on a question; the question path is taken only when materiality (W47) is met. →GLOSSARY:clarifying-question / →W47
 - **W51** No mandatory per-entry ratify gate: the system parses-and-commits when confident (decide-and-inform); ratification is reserved for braked items, not routine logging. →GLOSSARY:parse / G7-2
 - **W52** The definition LIBRARY holds each food/exercise defined ONCE in its own slug-addressed file (food = canonical per-100g + provenance/source id); PLAN/LOG reference by slug + quantity; the library grows lazily (new slug file from label/barcode/FDC). →GLOSSARY:active-program/library/сверка / →import I3 [P18 FDC schema]
@@ -412,7 +412,7 @@ library→parse; metric/phase→review→proposed-anchor-changes; convention-lay
 **Gap-hunt:** Q6 was the one unasked high-risk question — now worked + closed, so **zero open high-risk architecture questions**. Remaining residuals are low-risk → PLAN (lazy library seeding/provenance write flow; menu/plan re-solve hierarchy — re-examined at the nutrition converge, not core).
 
 ### §PLAN-AGENDA — HOW magnitudes/formats (born here as named slots; values set at PLAN, refuted by converge-verify)
-P1 file/dir layout + YAML frontmatter schema · P2 (=CA2) resolve-on-read file layout · P3 chat→GitHub write-back path per provider · P4 formula/constant set (7-day EMA, 4/4/9, ~7700 kcal/kg, e1RM Epley/Brzycki, %-of-anchor) + min-data window · P5 instruction-file budgets (~150–300w) · P6 constrained-vocab literal tokens (unit enum, slug regex, RPE enum, x_key syntax) · P7 owner_facts/derived_anchors field table + rationale/evidence schema · P9 safety-floor + protein magnitudes (calorie/protein floor, intensity-step thresholds, red-flag list, protein g/kg) · P10 phase counts/weeks per program · P11 phase enum labels · P12 PLAN/LOG file naming + frontmatter shape · P13 biofeedback scale items · P14 cadence magnitudes (weekly default, N, ~2–3wk floor, 0.5–1%/wk band, decision_interval_days) · P15 parse materiality cutoff + question wording · P16 question-order impact weights · P17 confidence/source schema tokens · P18 FDC food-record schema + source-id + slug grammar · P19 procedure-definition contract template · P20 extension registry path + line grammar + folder structure · P21 module attach-point format + x_key syntax · P22 carb-by-day_type tiers + per-tier carb magnitudes.
+P1 file/dir layout + YAML frontmatter schema · P2 (=CA2) resolve-on-read file layout · P3 chat→GitHub write-back path per provider · P4 formula/constant set (7-day EMA, 4/4/9, ~7700 kcal/kg, e1RM Epley/Brzycki, %-of-anchor) + min-data window · P5 instruction-file budgets (~150–300w) · P6 constrained-vocab literal tokens (unit enum, slug regex, RPE enum, x_key syntax) · P7 owner_facts/derived_anchors field table + rationale/evidence schema · P9 safety-floor + protein magnitudes (calorie/protein floor, intensity-step thresholds, red-flag list, protein g/kg) · P10 phase counts/weeks per program · P11 phase enum labels · P12 PLAN/LOG file naming + frontmatter shape · P13 biofeedback scale items · P14 cadence magnitudes (weekly default, N, ~2–3wk floor, 0.5–1%/wk band, decision_interval_days) · P15 parse materiality cutoff + question wording · P16 question-order impact weights · P17 confidence/source schema tokens · P18 FDC food-record schema + source-id + slug grammar · P19 procedure-definition contract template · P20 extension registry path + line grammar + folder structure · P21 module attach-point format + x_key syntax · P22 carb-by-day_type tiers + per-tier carb magnitudes · **P23** schema_version marker format + migration-note format (per-version what-changed + forward-migration recipe) + back-compat reader rule · **P24** rounding/precision magnitudes per formula (decimal places / sig-figs / rounding mode; plate-increment for e1RM; kg/kcal/g precision, beside P4) · **P25** thin always-loaded index format + lazy-load policy (what's in the index vs fetched-on-demand; load triggers; LCD budget) · **P26** program-resume / re-anchor-on-actuals algorithm (how the last LOG entry drives next-step progression across gaps; partial-day handling) · **P27** autonomy-dial level enum labels (e.g. Coached/Collaborative/Manual).  *(P23–P27 added §VERIFY-2)*
 
 ### §DEFERRED (named, out of core scope pending evidence)
 - Objective recovery metrics (HRV/RHR/sleep-device): DEFERRED pending a clean-evidence pass (marketing-dominated evidence; recon Q7). Subjective 0–5 is IN (W32).
@@ -433,5 +433,80 @@ owner-owned boundary (CA1) was already signed at Define G7-3. Owner gates spent 
 (Define). NOTE: a Declare agent wrote a partial §CONTRACTS (CA1–CA3) directly to this file mid-run; reconciled by
 the writer to the authoritative CA1–CA7 + §ARCH. → next = **converge-verify** (a SEPARATE refutation session that
 attacks completeness with an independent oracle + traces every weight-bearing value; only a clean verify reaches shape).
+
+## §VERIFY-1 — converge-verify pass 1 (s-health-core-converge-005, 2026-06-14) — verdict: NOT CLEAN → close + re-verify  *(→ ALL B1–B14 CLOSED in §VERIFY-2, verify=PASS)*
+Independent refutation (wf_c14c0715-f31): an oracle agent authored a 21-class decision-class checklist FROM FIRST
+PRINCIPLES (did NOT read this §WHAT), then 3 attackers hit completeness / smuggling / build-blockers. **Traceability =
+PASS** (every WA + load-bearing row traces to a cited resolved anchor; no smuggled value). **Completeness = FAIL,
+Firewall = FAIL, build-blocker = should-fix cluster.** All findings are SYSTEM-DECIDABLE (research-and-decide /
+charter-grounded) — NO new owner decision. Bounced items to close (then re-verify):
+
+| id | sev | finding | close direction |
+|---|---|---|---|
+| B1 | **blocker** | DC17 migration/versioning — no schema_version, no back-compat, no migration path; collides with owner-never-edits when the v1 grammar evolves | §WHAT rows: every file carries `schema_version`; LLM migrates older files forward on read/touch (owner never edits); back-compat rule. +P-slot |
+| B2 | **blocker** | DC3 rounding/precision absent → WA1 "same computed answer" not guaranteed (providers round differently) | §WHAT row: a documented rounding/precision policy is part of "arithmetic in documented formulas". +P-slot (magnitudes) |
+| B3 | should-fix | DC16 program-resume after missed/partial days unstated (resolve-on-read of a dateless arc vs gaps) | row: progression keys off work-actually-done (last LOG), re-anchors on actuals; missed days need no special handling |
+| B4 | should-fix | DC15 context strategy — no thin-index/lazy-load for the growing corpus (limited-context providers) | row: thin always-loaded index + lazy-load detail (libraries/history/programs on demand). +P-slot |
+| B5 | should-fix | DC21 minimum-viable-data — anti-bloat scattered, not a named principle (charter's dominant abandonment risk) | PRINCIPLE row: smallest core tracked-signal set is deliberate; bias adherence-over-completeness; modules justify additions (cite CHARTER pre_mortem) |
+| B6 | should-fix | DC11 red-flag BEHAVIOR — list → P9 but the response only at charter altitude | row: on red-flag/symptom → HALT progression + surface to owner + recommend medical check (non-diagnostic) |
+| B7 | minor | DC10/DC18 change-record for AUTO-applied (non-braked) changes thin | row: every applied change (auto or ratified) writes a dated record w/ rationale+rule (git + anchor rationale) |
+| B8 | minor | DC2 rename-stability not an explicit invariant | row: a slug, once minted, never changes; relabels are display-only; history never breaks on rename |
+| B9 | should-fix | core never shown independently build-and-verifiable (WA3/WA4 leaves are module-domain, both PARKED) | row: the minimal CORE-ONLY program/day (phase + week/day + weight/trend target + value-grammar leaves) is exhibited; WA3/WA4 apply to it without a module |
+| B10 | should-fix | WA3 "no stored day literal" appears to pre-decide the cache-vs-derive fork P2/CA2 reserve | clarify WA3/CA2: WA3 = no AUTHORITATIVE stored literal; a derived read-through cache (if ever at PLAN) is a dependent re-derived artifact, so WA3 holds |
+| B11 | should-fix | cold-start — graceful-default-on-decline (W20/W21) undefined for irreducible owner_facts (sex/height/current-weight) that are INPUTS to the decide-pass | row: irreducible-fact skip ≠ fabricate; dependent derived_anchors marked pending + system runs reduced (logging works, prescriptions wait) until minimum facts supplied |
+| B12 | **firewall** | W11/W32/W35/W40/W49 froze HOW literal tokens inline despite [P#] | rewrite those rows to reference grammar/enum BY NAME + [P#]; strip the literal tokens (they live only in the P-slot) |
+| B13 | minor | convention-carrier required-content checklist unnamed | note: which W-rows are load-bearing-for-determinism and MUST appear in the convention carriers |
+| B14 | minor | parser cold-start before first program | note: parse degrades to library-only mapping when no active program (active program = a signal, not a precondition) |
+
+**Decision-class checklist (PROPOSED CANON for `knowledge/`** — node-class "LLM-managed, provider-independent,
+flat-file personal-health life-OS core"; read_by: converge-verify of this node-class; promote at review/pulse):
+DC1 representation/value-model · DC2 identity/addressing · DC3 determinism/computation(+rounding) · DC4 planned-vs-actual ·
+DC5 derivation/no-double-storage · DC6 ask-vs-decide · DC7 NL/photo capture+parse-firewall · DC8 ambiguity/clarify ·
+DC9 adjustment control-law & cadence · DC10 autonomy/ratification · DC11 safety/medical floor · DC12 extensibility ·
+DC13 cross-system governance/boundary · DC14 write-safety/concurrency · DC15 provider-portability + context strategy ·
+DC16 recovery/missed-or-partial · DC17 migration/versioning · DC18 audit/observability · DC19 phase/lifecycle shared lever ·
+DC20 definition-library/provenance · DC21 scope/anti-bloat/minimum-viable-data.
+
+## §WHAT-R — pass-2 additions (close converge-verify B1–B14; all system-decided / charter-grounded, NO new owner gate)
+- **W65** [derived] Every file family carries a `schema_version` frontmatter leaf declaring the grammar/field-shape version it was written against. →B1/DC17 / →W3 / →done_when#1 [P23]
+- **W66** [derived] On reading/touching a file whose `schema_version` is older than the current grammar, the LLM migrates it forward in place per documented migration notes and re-stamps it — the owner never hand-edits to migrate (W4 holds across grammar evolution). →B1/DC17 / →W4 / →W65 [P23]
+- **W67** [derived] Back-compat: a reader keys behaviour off each file's own `schema_version`, so an un-migrated older file is still read correctly until next touched (no big-bang rewrite). →B1/DC17 / →W65/W66 [P23]
+- **W68** [derived] A documented rounding/precision policy is PART of "arithmetic in documented formulas": each formula pins its output rounding + significant-figures so two providers reach byte-identical derived numbers (closes WA1's residual). →B2/DC3 / →WA1 / →W9 / →done_when#2 [P24]
+- **W69** [acceptance] The core declares its smallest core tracked-signal set as a deliberate PRINCIPLE and biases adherence-over-completeness; any new metric/module must justify each added signal against adherence cost (anti-bloat is owned, not incidental). →B5/DC21 / →CHARTER pre_mortem ("трекинг тяжёлый", kill_by 14d) + mitigation "минимальный набор данных" / →W32 / →§DEFERRED
+- **W70** [acceptance] On a red-flag/symptom the system HALTS progression (no intensity/deficit escalation), surfaces it to the owner, and recommends a medical check — strictly non-diagnostic, never prescribing — as a behaviour of the non-overridable safety floor. →B6/DC11 / →CHARTER L90-93 + medical-safety lens / →W22 [P9 red-flag list]
+- **W71** [derived] Every APPLIED change (auto-applied OR owner-ratified) writes a dated change-record with rationale + the rule/evidence that drove it (git commit + derived_anchor rationale/evidence), not only surfaced proposals. →B7/DC10/DC18 / →W15/W39/W28
+- **W72** [acceptance] A slug, once minted, never changes; it is the stable identity all PLAN/LOG/library references use; relabels are display-only and never break history or a reference on rename. →B8/DC2 / →GLOSSARY:active-program/library/сверка / →W11/W52
+- **W73** [acceptance] The minimal CORE-ONLY program/day is exhibited from core-owned leaves alone (a phase, a week/day coordinate, a weight/trend target, value-grammar leaves), so WA3 + WA4 are verifiable on the core BY ITSELF, before any module attaches. →B9 / →WA3/WA4 / →W23/W24/W34/W11
+- **W74** [acceptance] The graceful-default-on-decline invariant does NOT fabricate an irreducible owner_fact (sex/height/current weight): the dependent derived_anchors are marked PENDING and the system runs reduced (logging works; anchor-dependent prescriptions wait) until the minimum facts are supplied. →B11 / →W14/W20/W21/W13
+- **W75** [derived] Irreducible-fact skip is the ONE place a skip degrades capability (prescriptions deferred) rather than auto-filling a default — it never silently invents the fact. →B11 / →W74/W21/W18
+- **W76** [→PLAN] The determinism-load-bearing rows (W9, W11, W68, W27/WA4, W24/W25, W45, W65/W66) MUST appear as a required-content checklist in all three convention carriers (AGENTS.md/CLAUDE.md/system-prompt) so two builders' instruction files don't diverge. →B13/DC15 / →W10 [P5]
+- **W77** [derived] The parse pipeline degrades to library-only mapping when no active program exists: the active program is a disambiguation SIGNAL, not a precondition; the parser still maps by slug + pulls numbers from files. →B14 / →W44/W46/W52
+- **W78** [→PLAN] Program progression keys off WORK-ACTUALLY-DONE (the last LOG entry), not the calendar; resolve-on-read of the dateless arc re-anchors on actuals, so a missed/partial day needs no special handling and never desyncs. →B3/DC16 / →W25 / →recon L114-116 / →CHARTER L156 [P26]
+- **W79** [→PLAN] The corpus is read through a thin ALWAYS-LOADED index + lazy-load of detail (libraries/history/programs on demand), assuming only LCD provider capabilities, so a limited-context provider never overflows. →B4/DC15 / →W10 / →recon L133 / →CHARTER L166 [P25]
+- **WA3-note** (clarification — NOT a new acceptance criterion; WA3 stays verbatim/owner-ratified): WA3 bars only an AUTHORITATIVE stored day literal; a derived read-through cache (if ever added at PLAN/CA2) is a dependent artifact re-derived from anchors+formula + invalidated on anchor change — so WA3 holds and the P2/CA2 cache-vs-derive fork stays open at PLAN. →B10 / →WA3/CA2/§ARCH-Q1
+
+## §ARCH — pass-2 additions (ride PLAN as input evidence; not done_when)
+- **AA1** (B3): progression keyed off work-actually-done; resolve-on-read re-anchors on actuals; missed/partial day = no special handling, no desync. Resume algorithm → P26.
+- **AA2** (B4): thin always-loaded index + lazy-load of detail = the context strategy for a growing multi-year corpus (LCD capabilities only). Index format/load policy → P25.
+- **AA3** (B10): the cache-vs-derive fork stays open at PLAN — WA3 bars only an authoritative stored literal; a PLAN-time pure-derived, anchor-invalidated cache is consistent with WA3.
+- **CA8** (B1): schema_version + forward-migration is a CORE-owned cross-cutting convention every file family stamps; both PARKED modules inherit it unchanged (build-order: core first). → P23.
+- **CA9** (B13): the convention-carrier required-content checklist (W76) is the seam guaranteeing builder-determinism — the convention layer is the single source from which all determinism-load-bearing rules load into every provider. → P5.
+
+## §VERIFY-2 — converge-verify pass 2 (s-health-core-converge-005, 2026-06-14) — verdict: **verify=PASS**
+Independent re-verify (wf_883c7f32-050) of the B1–B14 closes: **all 14 closed adequately + cited**; **firewall_clean =
+true** (W11/W32/W35/W40/W49 literal tokens stripped to P-slots; adversarial token sweep clean); **still_open = []**.
+Both converge-verify propositions now hold: (1) the question set is complete (21/21 decision-classes covered; all 9
+done_when compounds atomically mapped), (2) no answer leans on an unresolved question (traceability PASS in pass 1,
+unchanged). Only mechanical writer-side P-slot renumbering remained (applied: P23 migration, P24 rounding, P25 index,
+P26 resume, P27 autonomy-labels). No new owner gate.
+
+## §SIGNOFF — converge-verify
+**§SIGNOFF: converge-verify passed @ 2026-06-14** (s-health-core-converge-005; pass 1 bounced B1–B14, pass 2 PASS).
+The converge set for g-health-core is **COMPLETE and refuted-clean**: Define (signed) + Resolve (owner CONFIRM) +
+converge-arch (closed) + converge-verify (passed). Ready for **shape**. Shape's CALL must COPY into the executor
+done_when: the §WHAT-A acceptance criteria WA1–WA12 (+ the pass-2 acceptance rows W69/W70/W72/W73/W74) and the
+§CONTRACTS CA1–CA9 requirements (binding by G5); and carry the §PLAN-AGENDA P1–P27 as the PLAN agenda + the §ARCH
+picks (Q1–Q6, AA1–AA3) as architecture-on-paper input evidence. Owner gates spent across the converge set: **1
+(Define only)**. The node-class decision-class checklist (DC1–DC21) is PROPOSED as `knowledge/` canon (promote at review/pulse).
 
 END_OF_FILE: live/health/work/converge-g-health-core.md

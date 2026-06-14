@@ -1,0 +1,49 @@
+# Codex project-scoped configuration for the Direction OS repo.
+# Lives at the repo root in .codex/config.toml. Codex reads this file ONLY
+# when the project is marked TRUSTED (otherwise project-scoped .codex/ layers
+# are skipped and only ~/.codex/config.toml + /etc/codex apply). Trust the
+# project once via the Codex desktop app's project-trust prompt, or by running
+# Codex in this folder and approving when asked.
+#
+# Precedence (highest wins, verified against developers.openai.com/codex
+# config-basic on 2026-06-14):
+#   CLI flags / --config
+#     > THIS project config (.codex/config.toml, repo-root down to cwd)
+#     > profile files (--profile, $CODEX_HOME/<name>.config.toml)
+#     > user config (~/.codex/config.toml)
+#     > system config (/etc/codex/config.toml)
+#     > built-in defaults.
+# So values here override the user-global ~/.codex/config.toml for work in this
+# repo, AND a --profile file does NOT override them; only a CLI flag / --config
+# wins over this file.
+#
+# NOTE: a handful of keys are NEVER honored from a project-scoped config even
+# when trusted (Codex prints a startup warning and ignores them):
+#   model_provider, model_providers, profile, profiles, notify, otel,
+#   openai_base_url, chatgpt_base_url, apps_mcp_product_sku.
+# The [agents] table below is NOT in that list -- it IS honored from here.
+#
+# Verified: the [agents] table and all three keys below are real, and a
+# project-scoped trust-gated .codex/config.toml is a supported layer.
+
+[agents]
+# Max subagent threads open CONCURRENTLY across the whole run (Codex default 6).
+# Tokens are not a constraint here, so bias toward wide fan-out for the plays
+# that benefit from it (research nominal-group generators, converge miners /
+# strategic_search). 12 gives a comfortably wide pool without thrashing.
+# (Some builds historically clamped to 6 -- see smoke tests; dial to 8-10 if
+# you see thrashing or silent clamping.)
+max_threads = 12
+
+# Max nesting depth for spawned agents (root = depth 0; Codex default 1).
+# 2 permits ONE level of nesting: a leg-agent (depth 1) may spawn its own
+# children (depth 2), e.g. a converge miner that fans out sub-searches.
+# Kept at 2 (not deeper) to avoid runaway recursive trees.
+max_depth = 2
+
+# Per-worker timeout (seconds) for spawn_agents_on_csv jobs; Codex default 1800.
+# Kept BOUNDED so a stuck child cannot run unbounded even with tokens to spare.
+# 2700s (45 min) gives thorough legs room to finish while still capping cost.
+# NOTE: this is documented for spawn_agents_on_csv batch jobs; it may not cap a
+# non-CSV interactively-spawned child that hangs.
+job_max_runtime_seconds = 2700

@@ -27,9 +27,12 @@ active_bet:
     for the parked modules) + §ARCH architecture-on-paper (Q1–Q6 refuted chains → picks: pure resolve-on-read,
     read-only git/connector, one-entity-per-file, additive namespaced extension, two extension classes,
     one-entity-commit+lint-barrier write-path; ride PLAN, refuted by converge-verify). Owner gates spent: still
-    1 (Define) — converge-arch added NO new owner decision (all picks system-decided). NEXT = converge-verify
-    (separate refutation session) → then shape. Assembly surface = work/converge-g-health-core.md.
-    The paused nutrition Define + recon remain DIRTY input evidence, never authority.
+    1 (Define) — converge-arch added NO new owner decision (all picks system-decided). CONVERGE-VERIFY done
+    (2026-06-14): pass1 caught real holes (blockers DC17 versioning/migration + DC3 rounding, + should-fix
+    cluster, all system-decidable), closed them (W65–W79 + firewall fixes + P23–P27), pass2 = verify=PASS,
+    firewall clean. **CONVERGE SET COMPLETE + refuted-clean** (Define+Resolve+converge-arch+converge-verify).
+    NEXT = shape (turn the spec into a committed bet; owner-approved appetite/kill_by/tasks). Assembly surface =
+    work/converge-g-health-core.md. The paused nutrition Define + recon remain DIRTY input evidence, never authority.
 
 tasks: []
 
@@ -59,44 +62,45 @@ open_calls:
   - id: c-health-core-converge-005
     play: converge-verify
     node: g-health-core
-    status: ready (separate refutation session — attack completeness with an independent oracle + trace every value)
+    status: done (pass 1 bounced B1–B14 → all closed system-decided → pass 2 verify=PASS; §SIGNOFF converge-verify passed)
     note: >
-      Precondition met: converge (Define+Resolve) + converge-arch closed. converge-verify re-derives independently
-      (does NOT read the deciding sessions' reasoning), authors a node-class decision-class checklist if none exists,
-      and only a clean verify reaches shape.
+      Independent 21-class oracle. Pass1: traceability PASS, completeness FAIL (blockers DC17 versioning/migration,
+      DC3 rounding) + firewall FAIL + should-fix cluster — all SYSTEM-DECIDABLE. Closed as W65–W79 + WA3-note +
+      §ARCH AA1–AA3/CA8–CA9 + P23–P27 + 5 firewall rewrites (no new owner gate). Pass2 (wf_883c7f32-050):
+      verify=PASS, firewall clean, still_open=[]. CONVERGE SET COMPLETE + refuted-clean → ready for shape.
+      Decision-class checklist (DC1–DC21) proposed as knowledge/ canon (promote at review/pulse).
 
 decisions: []
 
 next: |
-  CALL c-health-core-converge-005
+  CALL c-health-core-shape-001
   to: session
   direction: health
-  play: converge-verify
+  play: shape
   node: g-health-core
   goal: |
-    Refute the closed g-health-core spec before shape consumes it: attack (1) the question set is COMPLETE and
-    (2) no answer leans on an unresolved question — with an INDEPENDENT oracle. Only a clean verify reaches shape.
+    Turn the converged, refuted-clean g-health-core spec into a committed BET: appetite + kill_by + ≤3 tasks,
+    a cut list (≥1 real cut), a lens sweep verdict, and a task testing the riskiest assumption (G6). Shape may
+    split g-health-core into child nodes (G9), each re-entering TRIAGE. The executor CALL is emitted by shape, not here.
   context: |
-    RUN IN A FRESH CHAT (independence matters — do NOT read the deciding sessions' reasoning; re-derive).
-    converge (Define+Resolve) + converge-arch are closed in work/converge-g-health-core.md: §GLOSSARY (signed),
-    §WHAT-A (12 binding acceptance WA1–WA12), §WHAT-R (W1–W64), §WHAT-C + §CONTRACTS (CA1–CA7), §ARCH (Q1–Q6
-    picks riding PLAN), §PLAN-AGENDA (P1–P22), §DEFERRED, §SIGNOFFs (Define, Resolve, converge-arch).
-    Attack completeness with a THIRD source: AUTHOR the node-class decision-class checklist for an
-    "LLM-managed provider-independent flat-file life-OS core" (knowledge/ has none yet — an empty oracle is a
-    BLOCKED close, never auto-PASS), name it, propose it as canon; split every compound done_when criterion
-    atomically and map each to a §WHAT row; trace every weight-bearing value/acceptance to a cited resolved row
-    or frozen canon (untraceable = smuggled → bounce). Re-check the firewall. Watch the gap-hunt residual
-    (write-path → PLAN P3) is named, not smuggled into done_when.
+    RUN IN A FRESH CHAT. converge for g-health-core is COMPLETE + refuted-clean (work/converge-g-health-core.md:
+    §GLOSSARY signed, §WHAT-A WA1–WA12 + pass-2 acceptance W69/W70/W72/W73/W74, §WHAT-R W1–W79, §CONTRACTS CA1–CA9,
+    §ARCH Q1–Q6 + AA1–AA3, §PLAN-AGENDA P1–P27, §SIGNOFFs Define/Resolve/converge-arch/converge-verify=PASS).
+    BINDING by G5 — shape COPIES into the executor done_when: the §WHAT-A acceptance criteria WA1–WA12 + the pass-2
+    acceptance rows (W69 minimum-viable-data, W70 red-flag-halt, W72 slug-immutability, W73 core-only-buildable,
+    W74 cold-start-reduced-mode) and the §CONTRACTS CA1–CA9. CARRY as PLAN-agenda + architecture-on-paper input
+    evidence: §PLAN-AGENDA P1–P27 + §ARCH Q1–Q6/AA1–AA3 (PLAN owns the binding ADRs; never into done_when).
+    Build at the product repo health-ai (DIRTY — cleared + rebuilt in place at build time; explicit owner
+    confirmation required before the wipe). Owner gates: 1 of the converge set spent (Define); shape's bet
+    commitment (appetite/kill_by/tasks, G6) + any tree split (G9) are owner-approved.
   boundaries: |
-    Refute or pass only; never answer a question (a finding bounces a row back to converge/converge-arch).
-    No raw daily data in Direction OS; no medical prescriptions. Same row bouncing twice → two-strikes, handoff.
+    One active bet (G1). Appetite set before tasks + never extended (G3). No raw daily data in Direction OS;
+    no medical prescriptions. The product-repo wipe needs explicit owner confirmation.
   done_when: |
-    Both refutations fail to find a hole (or every hole is bounced + a later verify passes);
-    §SIGNOFF converge-verify passed; shape's CALL carries the §WHAT-A acceptance + §CONTRACTS rows to COPY into
-    the executor done_when + the §PLAN-AGENDA (P1–P22) as the PLAN agenda. next = shape.
-  return: RESULT with verify verdict (complete=PASS/FAIL, smuggling=PASS/FAIL), the authored decision-class
-    checklist (proposed canon), and next CALL (shape) or a bounce CALL.
-  budget: converge-verify movement (single refutation session)
+    A shaped bet on g-health-core (appetite, kill_by, ≤3 tasks, cut list ≥1, lens sweep, riskiest-assumption task),
+    owner-approved (G6/G9); the executor CALL carries the copied acceptance + contract done_when + the PLAN agenda.
+  return: RESULT with the shaped bet (or tree split), owner approval, and the next CALL (executor/work or PLAN).
+  budget: one shape movement
   surface: fresh chat (Claude Code or ChatGPT/Claude project)
 
 END_OF_FILE: live/health/NOW.md
