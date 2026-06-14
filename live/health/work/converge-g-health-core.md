@@ -305,10 +305,9 @@ P1 file/dir layout + YAML frontmatter schema · P2 (=CA2) resolve-on-read file l
 - Objective recovery metrics (HRV/RHR/sleep-device): DEFERRED pending a clean-evidence pass (marketing-dominated evidence; recon Q7). Subjective 0–5 is IN (W32).
 
 ## §SIGNOFF — Resolve
-status: **PENDING OWNER CONFIRM** — the §WHAT is built and independently coverage-checked; the owner gate is a
-lightweight ratification of the 12 binding acceptance criteria (§WHAT-A), NOT a new decision (auditor owner_gate_batch
-= []; every owner-relevant reading was signed at Define). On confirm:
-`§SIGNOFF: owner ratified Resolve (§WHAT) @ <date> — "<owner words>"` → route to converge-arch.
-Owner gates spent across the converge set: 1 (Define). Resolve adds no new decision; converge-arch may use the rest.
+**§SIGNOFF: owner ratified Resolve (§WHAT) @ 2026-06-14 — "CONFIRM"** (session s-health-core-converge-004).
+The 12 binding acceptance criteria (§WHAT-A) + the full §WHAT are owner-ratified; shape copies §WHAT-A verbatim
+into the executor done_when (G5). No new owner decision was taken at Resolve (auditor owner_gate_batch = []).
+Owner gates spent across the converge set: 1 (Define). converge-arch may use the rest. → routing to converge-arch.
 
 END_OF_FILE: live/health/work/converge-g-health-core.md

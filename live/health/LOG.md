@@ -18,5 +18,6 @@
 - 2026-06-14 — health/g-health-core converge (Define): heavy; imported I1–I7 born-closed; ~30-term glossary partitioned owner-vs-system (3 batched G7) + independent completeness oracle added the safety-floor miss; stopped at Define gate; next = owner signs, then Resolve. → history/2026-06-14-s-health-core-converge-001.md
 - 2026-06-14 — health/g-health-core converge (Define §SIGNOFF): owner signed — G7-1=A, G7-2 amended (ask-freely + non-blocking graceful-default, no re-pester), G7-3 reframed (one-way visibility Direction OS→Health AI); pushed + merged to main; next = Resolve. → history/2026-06-14-s-health-core-converge-002.md
 - 2026-06-14 — health/g-health-core converge (Resolve): §WHAT built (12 binding acceptance + W1–W64 + CA1–CA7 + P1–P22), independent coverage oracle (all 9 done_when + mechanism imports covered, firewall clean, 4 defects fixed); owner gate at Resolve = NONE NEW; awaiting lightweight owner confirm, then converge-arch. → history/2026-06-14-s-health-core-converge-003.md
+- 2026-06-14 — health/g-health-core converge (Resolve §SIGNOFF): owner confirmed "CONFIRM"; §WHAT binding; converge-arch started (CA1–CA7 + heavy architecture). → history/2026-06-14-s-health-core-converge-004.md
 
 END_OF_FILE: live/health/LOG.md

@@ -21,12 +21,11 @@ active_bet:
     A's drive posture but ASKING amended — system may ask freely yet every question is NON-BLOCKING
     with a graceful default on decline and no re-pestering (a system-wide invariant); G7-3 = REFRAMED
     to a ONE-WAY visibility (Direction OS reads ALL of Health AI; Health AI carries zero reference to
-    Direction OS — a cross-repo contract for converge-arch). RESOLVE built (2026-06-14): §WHAT closed —
-    12 binding acceptance criteria + W1–W64 requirements + CA1–CA7 contracts-for-arch + P1–P22 PLAN-agenda,
-    independently coverage-checked (all 9 done_when + named-mechanism imports covered; firewall clean).
-    Owner gate at Resolve = NONE NEW (all traces to the Define signoff) → awaiting a lightweight owner CONFIRM
-    of §WHAT-A, then converge-arch. Assembly surface = work/converge-g-health-core.md. The paused nutrition
-    Define + recon remain DIRTY input evidence, never authority.
+    Direction OS — a cross-repo contract for converge-arch). RESOLVE built + owner-CONFIRMED (2026-06-14,
+    "CONFIRM"): §WHAT closed and binding — 12 acceptance criteria + W1–W64 + CA1–CA7 contracts-for-arch +
+    P1–P22 PLAN-agenda (§SIGNOFF Resolve written). CONVERGE-ARCH IN PROGRESS: closing the 7 cross-node
+    contracts (CA1–CA7) + heavy architecture. Owner gates spent: 1 (Define). Assembly surface =
+    work/converge-g-health-core.md. The paused nutrition Define + recon remain DIRTY input evidence, never authority.
 
 tasks: []
 
@@ -42,23 +41,19 @@ open_calls:
   - id: c-health-core-converge-003
     play: converge
     node: g-health-core
-    status: done-pending-confirm (Resolve §WHAT built + coverage-checked; awaiting owner confirm of §SIGNOFF Resolve)
+    status: done (Resolve §WHAT built + owner-confirmed "CONFIRM" 2026-06-14; §SIGNOFF Resolve written)
     note: >
-      §WHAT built at work/converge-g-health-core.md (§WHAT-A 12 binding acceptance criteria, §WHAT-R W1–W64,
-      §WHAT-C CA1–CA7 contracts→converge-arch, §PLAN-AGENDA P1–P22). Independent coverage oracle: all 9
-      done_when + all named-mechanism imports covered; firewall clean; 4 oracle defects fixed. Owner gate at
-      Resolve = NONE NEW (everything traces to the Define signoff) → lightweight CONFIRM only.
+      §WHAT closed + binding at work/converge-g-health-core.md (§WHAT-A 12 acceptance, §WHAT-R W1–W64,
+      §WHAT-C CA1–CA7, §PLAN-AGENDA P1–P22). Owner gate at Resolve = none new.
+  - id: c-health-core-converge-004
+    play: converge-arch
+    node: g-health-core
+    status: in-flight (closing CA1–CA7 contracts + heavy architecture)
+    note: >
+      Consumer-driven contracts for CA1–CA7 + high-risk architecture as a refuted chain → architecture-on-paper
+      riding PLAN. HOW magnitudes stay → PLAN (P1–P22). Owner gates: 1 of ≤3 spent; contract/arch picks may use the rest.
 
-decisions:
-  - id: RESOLVE-CONFIRM
-    movement: converge Resolve (g-health-core)
-    type: ratification (NOT a new decision — owner_gate_batch was empty)
-    question: >
-      Confirm the §WHAT — specifically the 12 binding acceptance criteria (§WHAT-A) that shape will copy
-      verbatim into the executor done_when. No new decision is the owner's; everything derives from the
-      Define signoff + system-decided evidence. Confirm to route to converge-arch, or flag any criterion to fix.
-    recommendation: confirm (then converge-arch)
-    status: pending_owner
+decisions: []
 
 next: |
   awaiting owner CONFIRM of §SIGNOFF Resolve (RESOLVE-CONFIRM above — a ratification of §WHAT-A, not a new
