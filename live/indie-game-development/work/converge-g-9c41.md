@@ -54,6 +54,7 @@ wf_cfafde76-73f). TERM-PROPERTY RULE: a §WHAT line cites a term only for a prop
 | G:player-count | player count / player-hosted / 1-player / co-op | clean 1-player must run; count = first-class CONFIG input, no bots; fantasy range 2–4 co-op-first | CONFIG-INPUT parametric (#7, g-d3a8) vs FIXED 3-PEER net-spike topology (t-2: 1 host + 2 clients) vs PLAYER-HOSTED listen topology (R12) |
 | G:ingestion | procedural generators / ingestion adapter (DA / PGG) | REPLACEABLE adapter is the WHAT (seam survives); generator behind it is HOW; DA day-one minimum, PGG parked | NAIVE day-one adapter ~100–300 objects vs FULL occupancy+1000-object gate (bet-2) vs REPLACEABLE-SEAM proven on DA alone (PGG behind same seam) |
 | G:settle | settle / quiescence point | the tick at which lossy client MUST equal host bit-exact; defines C8's predicate N + the non-vacuous post-breach settle assertion | NETWORK quiescence (dirty-chunks==0 for N ticks) vs PHYSICAL re-equilibration after breach (brief §3.1/§3.5 merged rooms relax) vs HASH-equality convergence — conflated in the "settle/keyframe" kill-gate wording; resolve must also sign that post-breach physical re-equilibration is GUARANTEED to produce a network-quiescence settle (else C8's assertion can fail to fire) |
+| G:temperature | температура / energy | **RESOLVED 2026-06-14 (s-converge-002):** a thin DYNAMIC LAYER in the core — own data structure + minimal optimized sim, sibling of gas, on the grid event/revision bus (subscribes to events, can feed/read reactions); in core to PROVE layer-extensibility + cross-system interaction, NOT for gameplay/aesthetics | STATIC field for stratification/R4 contract (brief §3.8) vs THIN DYNAMIC LAYER for architecture proof (owner R2/R3) vs NONE — resolved = thin dynamic layer (see §RESOLVED-1) |
 
 `canon_proposed (glossary ids -> review/pulse promote to knowledge/)`: G:chunk, G:consistency,
 G:replication, G:coarse-tier, G:topology-change (the net-consistency vocabulary t-3 + future net work
@@ -92,7 +93,7 @@ property half may be `answered`, the magnitude half `open→PLAN`). No row is si
 | I18 | d-arch-001(d): SUPERSEDED by the R5 reframe — scalar source/sink driver day-one; velocity/agent removed (not merely deferred). | answered | history/s-shape-003 |
 | I19 | d-arch-001(e): the perception-ceiling question is answered inside the render slice (criterion 6). | answered | history/s-shape-003 |
 | I20 | Late-join / join-baseline is OUT of t-2 scope: all 3 peers present from tick 0; only the revision/keyframe baseline FORM is declared; mid-run join → bet-2. | answered | NOW boundaries |
-| I21 | Node-vs-bet scope (cut_list): physical destruction → scripted-breach event only (no destruction system); T2 / sector-subdivision / freq-ladder / DA occupancy+1000-object gate → bet-2; PGG / 2nd generator → parked; tick rate = 10 Hz day-one. | answered | history/s-shape-003 (cut_list) |
+| I21 | Node-vs-bet scope (cut_list): physical destruction → scripted-breach event only (no destruction system); T2 / sector-subdivision / freq-ladder / DA occupancy+1000-object gate → bet-2; PGG / 2nd generator → parked; tick rate = 10 Hz day-one. ⚠ **PARTIALLY SUPERSEDED 2026-06-14 (s-converge-002):** "scripted-breach only" → RESOLVED-2 (real CONTROLLED breach); cut_list "day-one static temperature field" → RESOLVED-1 (thin DYNAMIC temperature layer). Other cuts (T2/sector/freq-ladder/DA-gate/PGG/10Hz) STAND. | answered (partial supersede) | history/s-shape-003 (cut_list) + history/s-converge-002 |
 | I22 | Process: the G0 ledger is frozen BEFORE build, default-FAIL (every entry opened failing, flipped only on opened evidence), builder never edits ledger/spec/criteria/config. | answered | NOW (leg_opens_with + Process) |
 | I23 | Replication criterion-2 sub-clause: rollback/lockstep is bounded to AT MOST one 1–2-week timeboxed spike; inputs ride lockstep (ADR-0002), the field never as inputs; the P6 spike (FishNet↔NGO, last-resort rollback) is the only escape, not an extend. | answered | history/s-shape-003 (node #2) + NOW kill_by (P6 1–2wk timebox) + ADR-0002 via NOW |
 
@@ -316,17 +317,48 @@ is consumed — letting PLAN re-invent precisely what this pass exists to pre-em
 demonstration question the design doc names (slice #2): does converge merely *reproduce* the ad-hoc list as
 a proof, or does it *feed* the live ADR-0003? Touching the bet is an owner call → `decisions_needed`.
 
-## §SIGNOFF — PENDING (FORM pass; no owner gate fired)
+## §RESOLVED — owner sign-off (2026-06-14, session s-converge-002)
 
-This pass forms the set only; the G7 owner gates are deferred to the resolve passes, batched into AT
-MOST THREE points across the converge set (one per gated movement):
+`§SIGNOFF: owner approved RESOLVE (temperature + destruction + extensibility) @ 2026-06-14 — "да, A" +
+R1–R13 confirmed (voice, this session).` Three design questions closed below. They re-shape the bet →
+shape card c-shape-004 (owner approved the DIRECTION "A"; the specific re-shaped done_when needs G9
+in-session approval). HOW magnitudes still → PLAN; reaction CONTENT stays g-d3a8.
 
-- `§SIGNOFF: Define (glossary readings) — PENDING` (a resolve pass signs the disputed-term readings).
-- `§SIGNOFF: Resolve (WHAT acceptance) — PENDING` (a resolve pass signs the open→G7 rows, batched).
+**RESOLVED-1 — TEMPERATURE** (supersedes I21 "static field day-one"; closes A8.8; new term G:temperature):
+Temperature is a **thin DYNAMIC LAYER** in the core — its own data structure + its own minimal optimized
+sim, a sibling of gas (R2/R3), **not static**. It talks only through the grid event/revision bus: events
+(reaction / gas-spread / breach, by coordinates) flow through the grid; temperature **subscribes** and
+responds — rises then decays (R4). Its job in the core is to **prove the layered architecture supports
+adding layers + cross-system interaction** (R5), **not** gameplay/aesthetics — temperature gameplay design
+→ g-d3a8 (R1). Only in this form (R6). *Grounding:* the seam already anticipates it — reaction batches
+carry enthalpy and reactions read a temperature window (brief §3.2), so temperature↔reactions is a natural
+loop; keep the sim TRIVIAL (scalar rise/decay). Sim structure/magnitude → PLAN.
+
+**RESOLVED-2 — DESTRUCTION** (supersedes I21 "scripted-breach only"; B30; G:destruction/G:topology-change
+"scripted" reading): **No scripted breach.** Real but **CONTROLLED, LOCAL** destructibility in the core: a
+destructible wall is breached (explosion / player) → a hole opens → topology changes → gas flows out
+(R7/R8). Few walls, count TBD. **No collapse / structural physics / level-wide change** (R9). Shards/
+fragments (tied to loot-with-gas carry, trip-over) = deferred super-extra (R10). *Grounding:* maps exactly
+onto the designed topology-change = "add a breach portal between immutable volumes" (brief §3.7) — only the
+TRIGGER changes from scripted to real-controlled; no architecture change needed.
+
+**RESOLVED-3 — EXTENSIBILITY** (R11/R12/R13, governing principle): everything in the core is built so ALL
+of it can be extended later (each system, esp. temperature, gains functionality). **Healthy form
+(owner-confirmed):** make the **SEAMS/abstractions extensible** (cheap to extend later); keep
+**IMPLEMENTATIONS minimal now** (do NOT build future functionality early — that breaks G3 / the 24.07
+wall). No scripted finals; simplest impls only for tests. *Grounding:* already the spine — engine-free
+core, layer registry + named extension points (a new layer/driver plugs in without core edits), R4
+"asset survives the concept".
+
+## §SIGNOFF — partial (resolve in progress)
+
+G7 owner gates batched into AT MOST THREE points (one per gated movement):
+
+- `§SIGNOFF: Define (glossary readings) — PENDING` (a resolve pass signs the remaining disputed-term readings).
+- `§SIGNOFF: Resolve (WHAT acceptance) — PARTIAL` — temperature / destruction / extensibility SIGNED 2026-06-14 (s-converge-002, see §RESOLVED); remaining open→G7 rows still pending.
 - `§SIGNOFF: converge-arch (cross-node contracts) — PENDING` (the B-rows ride converge-arch).
 
-No row is signed; no HOW value decided; converge-verify NOT run. Forward-clean is intentionally NOT
-satisfied (open rows are the deliverable).
+Remaining open rows are still the deliverable for later resolve/arch/verify; converge-verify NOT run.
 
 ## play_check (FORM pass)
 

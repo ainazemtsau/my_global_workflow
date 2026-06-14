@@ -123,6 +123,14 @@ open_calls:
       open→PLAN stream magnitudes are frozen against contracts that bound them. Full CALL in
       history/s-converge-001.md RESULT.next. (d-converge-001 resolved = A; converge-arch runs in
       parallel and refines the B-row contracts — it does NOT gate the c-exec-003 PLAN under A.)
+  - id: c-shape-004
+    status: queued   # re-shape g-9c41 bet under option A (owner approved the DIRECTION 2026-06-14 «да, A»); G9 final approval of the specific re-shaped done_when happens in-session
+    note: |
+      Owner resolved (s-converge-002): core proves a minimal-but-REAL LAYERED architecture over the net —
+      gas layer + thin temperature layer + real controlled destruction-topology, extensible seams,
+      network-first. Re-shape card drafted in s-converge-002 RESULT.next; shape session finalizes the cut
+      trades (esp. the ~07-10 clip risk) + applies to TREE/NOW with owner G9 approval. Bet / t-1/t-2/t-3 /
+      c-exec-003 UNCHANGED until c-shape-004's done_when is owner-approved.
 
 decision_inbox:
   - id: d-converge-001
