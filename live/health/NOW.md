@@ -3,72 +3,81 @@
 active_bet:
   status: none
   note: >
-    v1 nutrition approach RESET (2026-06-13). The chat-first "director + flat setup-gate" build
-    did NOT work: it asked the owner expert questions it should research and decide (e.g. "how many
-    meals per day"). Root cause is STRUCTURAL — no typed boundary between owner-only facts and
-    system-decided expert variables. The node is reset to be re-derived from scratch via the
-    converge play in a FRESH chat. Everything from v1 (architecture, evidence-base numbers, all
-    prior decisions, the health-ai repo content) is DIRTY — input evidence only, never authority.
+    CORE-FIRST RE-FRAME (2026-06-14). Owner redirected the whole direction: build a strong,
+    structured, provider-independent CORE first (programs-as-plan + daily tracking + records +
+    shared metrics/phases/review, Markdown/YAML in git, NL/voice/photo input, self-extensible
+    via workflow), then nutrition and training as MODULES attached to it. The tree was re-mapped
+    and CHARTER amended with a system-architecture constraint (owner approved, "ok").
+
+    g-health-ai-core (was done) is SUPERSEDED/dropped — its artifacts (product repo health-ai,
+    contract/skeleton v0) are dirty input, not authority. The product repo health-ai will be
+    CLEARED and rebuilt in place at build time (same repo, git history preserves v1); the actual
+    wipe needs explicit owner confirmation at that step.
+
+    CONVERGE g-health-core IN PROGRESS (2026-06-14): Define DONE + §SIGNOFF applied. Node typed HEAVY,
+    7 owner-approved decisions imported born-closed (I1–I7), ~30-term disputed glossary built +
+    partitioned owner-vs-system, ~28 expert readings system-locked, safety floor charter-locked.
+    Owner signed the 3 batched G7 (2026-06-14): G7-1 = A (research-and-decide membership test); G7-2 =
+    A's drive posture but ASKING amended — system may ask freely yet every question is NON-BLOCKING
+    with a graceful default on decline and no re-pestering (a system-wide invariant); G7-3 = REFRAMED
+    to a ONE-WAY visibility (Direction OS reads ALL of Health AI; Health AI carries zero reference to
+    Direction OS — a cross-repo contract for converge-arch). Assembly surface =
+    work/converge-g-health-core.md (§SIGNOFF Define). NEXT = Resolve (§WHAT). The paused nutrition
+    Define + recon remain DIRTY input evidence, never authority.
 
 tasks: []
 
 recurring: []
 
-open_calls: []
+open_calls:
+  - id: c-health-core-converge-001
+    play: converge
+    node: g-health-core
+    status: done (Define complete + §SIGNOFF applied 2026-06-14)
+    note: >
+      Heavy-node converge Define + owner gate. Surface at work/converge-g-health-core.md (§SIGNOFF Define).
+  - id: c-health-core-converge-003
+    play: converge
+    node: g-health-core
+    status: in-flight (Resolve — §WHAT)
+    note: >
+      Build the cited §WHAT on the SIGNED readings (G7-1 A; G7-2 ask-freely-but-non-blocking;
+      G7-3 one-way visibility). Three-source derivation + recursive mechanism decomposition of
+      I2/I3/I4/I6/I7. Then converge-arch. Owner gates: 1 of ≤3 spent.
 
 decisions: []
 
 next: |
-  CALL c-health-nutrition-converge-001
+  CALL c-health-core-converge-003
   to: session
   direction: health
   play: converge
-  node: g-health-nutrition-system
+  node: g-health-core
   goal: |
-    The nutrition system node is converged from scratch into a closed, owner-signed WHAT spec for a
-    professional, research-and-decide nutrition system — ready for shape.
+    Run Resolve — build the cited §WHAT node-on-paper for g-health-core from THREE sources (each
+    done_when criterion; each cross-node edge; recursive mechanism decomposition of I2/I3/I4/I6/I7 +
+    every committed mechanism), tag acceptance rows, firewall HOW→PLAN, then route to converge-arch.
   context: |
-    RUN THIS IN A FRESH CHAT. Treat EVERYTHING as dirty: the current product repo
-    github.com/ainazemtsau/health-ai (C:\projects\health-ai), the evidence-base numbers, the
-    architecture (director + program-spine + domain-modules), and ALL prior decisions are INPUT
-    EVIDENCE ONLY — re-derive and re-confirm with the owner; import nothing as born-closed;
-    auto-fill no answers.
-
-    Why the reset (the trouble): v1 asked the owner "how many meals per day?" — an expert decision
-    the system must research and decide. Root cause: no typed boundary between owner-only facts and
-    system-decided variables.
-
-    Owner's bar: a super-professional health/nutrition agent that RESEARCHES and DECIDES everything
-    expert (meals/day, timing, macros, food choice) and asks the owner ONLY irreducible personal
-    facts (allergies, dislikes, budget, cooking-time, equipment) — minimal, skippable. Each process
-    deeply worked out (not a shallow prompt). Chat-first, GitHub = single source of truth, owner
-    never edits files. Extensible to training/water/etc. Must not become procrastination; tracking
-    stays light. Guarded safety, non-prescriptive.
-
-    A first-pass converge analysis (this chat, DIRTY input — do NOT treat as decided) is saved at
-    live/health/work/converge-health-nutrition-input.md: the located defect, a disputed-term
-    glossary, ~67 candidate WHAT questions tagged system-decides / owner-only / PLAN, and 5
-    architecture options with a recommendation (Option E: typed personal-facts vs decided-variables
-    split + generated plan artifact + per-process depth specs + thin router) + 7 high-risk
-    architecture questions. Use it as a candidate set to refute and confirm — NOT as answers.
-
-    Read: os/plays/converge.md, os/plays/converge-arch.md, os/plays/converge-verify.md,
-    os/docs/converge-design.md, live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md,
-    and the input doc above.
+    RUN IN A FRESH CHAT. Define is SIGNED — surface at work/converge-g-health-core.md (§SIGNOFF Define +
+    §GLOSSARY A ✅ SIGNED, B system-locked, C charter-locked, D undisputed-named). Build §WHAT on the
+    SIGNED readings: G7-1 A membership test; G7-2 amended = ask-freely BUT non-blocking +
+    graceful-default-on-decline + no-re-pester (a SYSTEM-WIDE invariant on parse/clarify/setup/review) +
+    decide-and-inform + review-proposes + conservative-default on safety brakes; G7-3 = one-way
+    visibility (Direction OS reads all Health AI; Health AI zero-reference to Direction OS; raw
+    owned/stored in Health AI). System-locked readings (§GLOSSARY B) feed Resolve directly;
+    converge-verify refutes them later. PLAN-agenda pre-seeded in the converge-001 captures
+    (resolve-on-read vs materialize; EMA window; carb tiers; FDC schema; registry-line syntax).
+    FIRST: if the owner flags any echo (R2–R5 in §SIGNOFF) as misread, correct it before building §WHAT.
   boundaries: |
-    Run the FULL converge process with its owner gates — do not skip the questions.
-    Treat all prior state/decisions/data as dirty candidates; import nothing as authority; auto-fill nothing.
-    Do not build or shape in this CALL; converge only (then converge-arch, converge-verify, then shape).
-    Do not store raw daily data in Direction OS. No medical prescriptions.
+    Import nothing new as authority; auto-fill nothing. Owner gates: 1 of ≤3 spent (Resolve +
+    converge-arch share the rest). No raw daily data stored in Direction OS; no medical prescriptions.
   done_when: |
-    converge produces work/converge-g-health-nutrition-system.md: triage, signed glossary, a closed
-    cited §WHAT (forward+backward clean), the research-and-decide principle ratified, coverage
-    complete; next = converge-arch (architecture incl. the personal-vs-decided boundary rule), then
-    converge-verify, then shape.
+    §WHAT closed (forward-clean: no open/deferred; backward-clean: every weight-bearing line +
+    acceptance + glossary row cited); converge_coverage complete; §SIGNOFF Resolve; next = converge-arch.
   return: |
-    RESULT with the converge spec surface, owner §SIGNOFFs, decisions_needed, and next CALL
-    (converge-arch) or awaiting_decision.
-  budget: converge movement (may span sessions; owner gates batched <=3)
+    RESULT with the closed §WHAT surface, §SIGNOFF Resolve, decisions_needed (if any remaining gate),
+    and next CALL (converge-arch).
+  budget: converge Resolve movement (may span sessions; owner gates batched ≤3 across the set, 1 spent)
   surface: fresh chat (Claude Code or ChatGPT/Claude project)
 
 END_OF_FILE: live/health/NOW.md
