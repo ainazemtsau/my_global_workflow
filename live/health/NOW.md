@@ -59,11 +59,12 @@ open_calls:
   - id: c-health-core-converge-005
     play: converge-verify
     node: g-health-core
-    status: ready (separate refutation session — attack completeness with an independent oracle + trace every value)
+    status: in-progress (pass 1 = NOT CLEAN — independent 21-class oracle bounced B1–B14; closing now, then re-verify)
     note: >
-      Precondition met: converge (Define+Resolve) + converge-arch closed. converge-verify re-derives independently
-      (does NOT read the deciding sessions' reasoning), authors a node-class decision-class checklist if none exists,
-      and only a clean verify reaches shape.
+      Verify pass1 (wf_c14c0715-f31): traceability PASS; completeness FAIL (blockers DC17 versioning/migration,
+      DC3 rounding) + firewall FAIL (W11/W32/W35/W40/W49 froze literal tokens) + should-fix cluster. All findings
+      SYSTEM-DECIDABLE → closing (no new owner gate), then verify re-runs. §VERIFY-1 + the proposed decision-class
+      canon are in work/converge-g-health-core.md. Only a clean re-verify reaches shape (G5).
 
 decisions: []
 

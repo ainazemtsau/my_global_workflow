@@ -434,4 +434,42 @@ owner-owned boundary (CA1) was already signed at Define G7-3. Owner gates spent 
 the writer to the authoritative CA1–CA7 + §ARCH. → next = **converge-verify** (a SEPARATE refutation session that
 attacks completeness with an independent oracle + traces every weight-bearing value; only a clean verify reaches shape).
 
+## §VERIFY-1 — converge-verify pass 1 (s-health-core-converge-005, 2026-06-14) — verdict: NOT CLEAN → close + re-verify
+Independent refutation (wf_c14c0715-f31): an oracle agent authored a 21-class decision-class checklist FROM FIRST
+PRINCIPLES (did NOT read this §WHAT), then 3 attackers hit completeness / smuggling / build-blockers. **Traceability =
+PASS** (every WA + load-bearing row traces to a cited resolved anchor; no smuggled value). **Completeness = FAIL,
+Firewall = FAIL, build-blocker = should-fix cluster.** All findings are SYSTEM-DECIDABLE (research-and-decide /
+charter-grounded) — NO new owner decision. Bounced items to close (then re-verify):
+
+| id | sev | finding | close direction |
+|---|---|---|---|
+| B1 | **blocker** | DC17 migration/versioning — no schema_version, no back-compat, no migration path; collides with owner-never-edits when the v1 grammar evolves | §WHAT rows: every file carries `schema_version`; LLM migrates older files forward on read/touch (owner never edits); back-compat rule. +P-slot |
+| B2 | **blocker** | DC3 rounding/precision absent → WA1 "same computed answer" not guaranteed (providers round differently) | §WHAT row: a documented rounding/precision policy is part of "arithmetic in documented formulas". +P-slot (magnitudes) |
+| B3 | should-fix | DC16 program-resume after missed/partial days unstated (resolve-on-read of a dateless arc vs gaps) | row: progression keys off work-actually-done (last LOG), re-anchors on actuals; missed days need no special handling |
+| B4 | should-fix | DC15 context strategy — no thin-index/lazy-load for the growing corpus (limited-context providers) | row: thin always-loaded index + lazy-load detail (libraries/history/programs on demand). +P-slot |
+| B5 | should-fix | DC21 minimum-viable-data — anti-bloat scattered, not a named principle (charter's dominant abandonment risk) | PRINCIPLE row: smallest core tracked-signal set is deliberate; bias adherence-over-completeness; modules justify additions (cite CHARTER pre_mortem) |
+| B6 | should-fix | DC11 red-flag BEHAVIOR — list → P9 but the response only at charter altitude | row: on red-flag/symptom → HALT progression + surface to owner + recommend medical check (non-diagnostic) |
+| B7 | minor | DC10/DC18 change-record for AUTO-applied (non-braked) changes thin | row: every applied change (auto or ratified) writes a dated record w/ rationale+rule (git + anchor rationale) |
+| B8 | minor | DC2 rename-stability not an explicit invariant | row: a slug, once minted, never changes; relabels are display-only; history never breaks on rename |
+| B9 | should-fix | core never shown independently build-and-verifiable (WA3/WA4 leaves are module-domain, both PARKED) | row: the minimal CORE-ONLY program/day (phase + week/day + weight/trend target + value-grammar leaves) is exhibited; WA3/WA4 apply to it without a module |
+| B10 | should-fix | WA3 "no stored day literal" appears to pre-decide the cache-vs-derive fork P2/CA2 reserve | clarify WA3/CA2: WA3 = no AUTHORITATIVE stored literal; a derived read-through cache (if ever at PLAN) is a dependent re-derived artifact, so WA3 holds |
+| B11 | should-fix | cold-start — graceful-default-on-decline (W20/W21) undefined for irreducible owner_facts (sex/height/current-weight) that are INPUTS to the decide-pass | row: irreducible-fact skip ≠ fabricate; dependent derived_anchors marked pending + system runs reduced (logging works, prescriptions wait) until minimum facts supplied |
+| B12 | **firewall** | W11/W32/W35/W40/W49 froze HOW literal tokens inline despite [P#] | rewrite those rows to reference grammar/enum BY NAME + [P#]; strip the literal tokens (they live only in the P-slot) |
+| B13 | minor | convention-carrier required-content checklist unnamed | note: which W-rows are load-bearing-for-determinism and MUST appear in the convention carriers |
+| B14 | minor | parser cold-start before first program | note: parse degrades to library-only mapping when no active program (active program = a signal, not a precondition) |
+
+**Decision-class checklist (PROPOSED CANON for `knowledge/`** — node-class "LLM-managed, provider-independent,
+flat-file personal-health life-OS core"; read_by: converge-verify of this node-class; promote at review/pulse):
+DC1 representation/value-model · DC2 identity/addressing · DC3 determinism/computation(+rounding) · DC4 planned-vs-actual ·
+DC5 derivation/no-double-storage · DC6 ask-vs-decide · DC7 NL/photo capture+parse-firewall · DC8 ambiguity/clarify ·
+DC9 adjustment control-law & cadence · DC10 autonomy/ratification · DC11 safety/medical floor · DC12 extensibility ·
+DC13 cross-system governance/boundary · DC14 write-safety/concurrency · DC15 provider-portability + context strategy ·
+DC16 recovery/missed-or-partial · DC17 migration/versioning · DC18 audit/observability · DC19 phase/lifecycle shared lever ·
+DC20 definition-library/provenance · DC21 scope/anti-bloat/minimum-viable-data.
+
+## §SIGNOFF — converge-verify
+status: **PENDING (pass 1 = NOT CLEAN).** 17/21 decision-classes adequate; traceability clean; but B1–B14 must close,
+then verify re-runs (G5: a clean verify is the only route to shape). All bounced items are system-decidable — no new
+owner gate. `§SIGNOFF: converge-verify passed @ <date>` is written only when a re-verify passes.
+
 END_OF_FILE: live/health/work/converge-g-health-core.md
