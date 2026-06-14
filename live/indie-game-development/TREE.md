@@ -51,6 +51,11 @@ root:
       topology with doors/vents and at least one destruction-driven topology change,
       levels fed from procedural generators (Dungeon Architect at minimum, ideally also
       Procedural Generation Grid) through a replaceable ingestion adapter — solo-maintainable.
+      The core is a REAL EXTENSIBLE LAYERED architecture (RE-SHAPED 2026-06-14, s-shape-004): independent
+      system-layers ride one seam (gas + a thin DYNAMIC temperature layer + the topology/grid), communicate
+      via grid events, and a REAL controlled destruction (a destructible wall breached → hole → topology
+      change → gas flows; no scripted, no structural collapse) drives a topology change — a new layer/driver
+      plugs in without core edits. Delivered in WAVES.
     why: every root criterion stands on this core; the direction's riskiest assumption dies first here, the moat — first commercial co-op expedition on a fine-grained multi-gas sim with destruction-driven topology (SS13/SS14 = 2D legacy and seed audience, not refutation) — lives here, and the tech stays reusable even if the game fails.
     done_when: |
       All hold in the validation harness:
@@ -74,14 +79,22 @@ root:
          with a ms-budget check on the min-spec class.
       7. The core runs a clean 1-player session; player count is a first-class config
          input (no bots).
-      8. Named milestone reached: first spectacular clip captured from a harness scene —
-         it opens the parallel tracks (see root map_order).
+      8. (DEFERRED 2026-06-14, s-shape-004 — owner «клип не паримся») First spectacular clip
+         is DROPPED from the core bet; a genuinely spectacular clip is g-7e15's later job once
+         real visuals exist. The parallel-track gate that hung on this clip (root map_order)
+         needs a map-level re-check (follow-up).
       9. Scale architecture (R1): the coarse simulation tier is designed and
          arithmetic-validated to hold a huge procedurally generated level profile
          (≈200×200×40 m class, ≥1000 volumes) within measured memory/tick/bandwidth
          budgets on the min-spec profile. Building that scale (sector subdivision,
          1000-object ingest gate) may be a later bet; this node requires the architecture
          and the numbers, not the full content.
+      10. (ADDED 2026-06-14, s-shape-004) Layered architecture PROVEN: ≥2 independent
+          system-layers (gas + a thin dynamic temperature layer) ride ONE seam and are
+          networked-consistent together; a cross-layer interaction is observable
+          (reaction/heat → temperature responds); a new layer/driver plugs in without core
+          edits (extensible seams, R13); and the destruction-driven topology change of
+          criteria 2/3 is a REAL controlled wall-breach, not a scripted stub.
     status: active
     detail: history/s-map-002.md
 

@@ -5,17 +5,35 @@ active_bet:
   phase: shape -> work
   appetite: 6 weeks, hard end 2026-07-24 (G3 — fixed, never extended)
   approach: |
-    Hybrid in ARCH-1v2 edition — "network first, coarse truth = sector bands, clip from
-    band state, T2 deferred". The riskiest assumption (networked chunked-delta gas
-    consistency) dies first via a net spike over a primitive field; real band sim is
-    built strictly AFTER stream lock; the spectacular clip (~2026-07-10) is rendered from
-    band state with NO T2 dependency. C and A are degenerate configs of this design, so
-    fallback migrations are cheap. Brief: work/research-g-9c41-core-architecture-2026-06-12-v2.md.
+    NETWORK-FIRST, minimal-but-REAL LAYERED CORE (RE-SHAPED 2026-06-14, s-shape-004 — owner «фокус на ядро,
+    клип не паримся», «да A»). The riskiest assumption (networked chunked-delta gas consistency) dies first
+    via a net spike, THEN the real core is built on the locked stream in WAVES. The bet proves the core is a
+    REAL extensible LAYERED architecture over the network: gas layer + a thin DYNAMIC temperature layer +
+    REAL controlled destruction (wall breach -> topology -> gas flows) on ONE seam, networked-consistent.
+    Sims stay TRIVIAL, seams REAL + extensible (R13). NO clip in this bet (the spectacular clip is g-7e15's
+    later job — deferred; see s-converge-002 + plan stress-test wf_454d6859-4e4).
+    Brief: work/research-g-9c41-core-architecture-2026-06-12-v2.md.
   done_when: |
-    The day-one staged cut of g-9c41 (brief v2 §5): net stream locked, band state live,
-    naive DA adapter, render proof slice + first clip, node criteria met. The full-node
-    bar is TREE.md g-9c41 done_when 1–9; this bet delivers the day-one stage of it and
-    proves the architecture that scales to the rest.
+    Delivered in WAVES on the fixed-but-soft 2026-07-24 wall (move tail waves if needed — owner). By the end:
+    (1) chunked-delta stream LOCKED — 2 clients reconstruct, consistency across a REAL controlled breach
+        (kill-gate "A"); (2) the seam proven MULTI-LAYER — gas + a thin temperature scalar both reconstructed
+        consistently; (3) REAL controlled wall-breach -> topology change -> gas flows (no scripted, no
+        collapse); (4) cross-layer interaction visible (reaction/heat -> temperature responds); (5) everything
+        on EXTENSIBLE seams (a new layer/driver plugs in without core edits); (6) min-spec budget + harness +
+        debug surfaces + reproducibility. NO spectacular clip in this bet. The full-node bar (TREE g-9c41
+        done_when, being realigned this session) is delivered across this bet + bet-2+ (detailed near-player
+        tier + big levels + real gas types = later waves; full core ~= 12-16 solo-weeks per brief).
+  wave_plan: |   # rolling wave — <=3 active tasks; plan each wave knowing the last one's result
+    Wave 1 (NETWORK — t-1 done, t-2/t-3): gas synchronises over the net on a thin field + the seam carries
+      >=2 trivial layers (gas + temp scalar) + a REAL controlled breach. Output: networking PROVEN,
+      stream/format LOCKED. (Loopback proves correctness + byte-size; real-uplink behaviour = later.)
+    Wave 2 (REAL COARSE SIM + GRID + LEVELS): band solver + grid from Dungeon Architect (naive adapter) +
+      the thin temperature layer, on the proven stream. Output: real coarse gas+grid on real (small) levels,
+      networked. (converge-arch c-converge-002 contracts feed this wave.)
+    Wave 3 (DETAIL NEAR PLAYER): the T2 detailed per-cell window + optimisations. Output: detailed gas at the
+      player.
+    Wave 4+: real controlled destruction fully, reaction MECHANISM, scale to big levels. Each wave = short
+      PLAN (its architecture) -> build -> measure -> next.
   rules:   # owner voice, this session — duplicated here until the maintenance home exists
     - "R12: one player hosts; no dedicated server, ever (not researched — decided)."
     - "R13: sim core = pure C# library, zero Unity refs, builds/runs headless; Unity = render/input/transport adapters only (Burst/Jobs behind a seam the core never sees)."
@@ -30,22 +48,22 @@ active_bet:
     - "DA occupancy voxelization + 1000-object gate -> bet-2 (day-one naive adapter ~100-300 objects)"
     - "PGG / second generator -> parked (adapter seam proven on DA alone)"
     - "directed/agent gases + 'hands in fog' effects -> removed from concept / g-d3a8 design"
-    - "dynamic thermics, plume entrainment -> bet-2 (day-one static temperature field)"
-    - "physical destruction -> scripted breach event only (no destruction system)"
+    - "dynamic sector-to-sector heat exchange + plume entrainment -> bet-2; day-one = a THIN DYNAMIC temperature LAYER (own minimal sim on the grid event bus) — SUPERSEDED from 'static field' per owner RESOLVED-1 (s-converge-002)"
+    - "structural collapse / level-wide destruction / debris physics -> OUT (never, R9); day-one = REAL CONTROLLED LOCAL destructibility (destructible wall -> breach -> topology -> gas flows) — SUPERSEDED from 'scripted breach only' per owner RESOLVED-2 (s-converge-002)"
     - "matchmaking / lobby browser -> planned-for-EA, non-gating (harness = direct connect)"
     - "save/load -> none (ephemeral harness sessions; reproducibility from deterministic seeds)"
   lens_verdicts:
-    - "commercial/traction: TASK — first spectacular clip ~07-10 opens the parallel tracks"
+    - "commercial/traction: DEFERRED — spectacular clip dropped from this bet (owner «клип не паримся»; it is g-7e15's later job); the parallel-track gating that hung on the ~07-10 clip needs a map-level re-check (follow-up)"
     - "core depth: not_needed as design (re-homed to g-d3a8); substrate proven incidentally (param gas + 1 reaction)"
     - "co-op-first: TASK — 2-4 clients see consistent gas across a topology change (the net spike)"
     - "technical feasibility: TASK — net consistency = riskiest assumption, the first task"
     - "scope/production: not_needed as a task — held by the cut list + G3 appetite"
     - "audience workflow: not_needed as bet work — the clip artifact feeds g-e6f2 (parked, <=10% until clip)"
   kill_by:
-    metric: "per-tick state-hash consistency host + 2 clients through a scripted breach with both clamps engaged; measured dirty-chunk wire size within the aggregate host clamp at target tick"
+    metric: "per-tick state-hash consistency host + 2 clients through a REAL controlled wall-breach with both clamps engaged; measured dirty-chunk wire size within the aggregate host clamp at target tick"
     checkpoint_2026-06-30: "if consistency cannot be made to hold after reasonable iteration OR the steady dirty-rate irrecoverably blows the aggregate clamp -> P6 model/vendor spike (1-2wk timebox: FishNet<->NGO, last-resort rollback) or kill the bet"
     hard_2026-07-24: "day-one done_when unmet -> bet dies (G3, no extend); continuation = re-shape bet-2"
-    next_if_true: "stream locked -> roll the wave (band sim after lock -> naive DA -> render slice + clip)"
+    next_if_true: "stream locked -> roll to Wave 2 (band sim + grid from DA + temperature layer; NO clip)"
     next_if_false: "model/vendor spike, or narrow to the Barotrauma-hybrid (client-local diffusion + threshold corrections)"
   early_finish: |
     Early finish = success. If the day-one done_when is met before 2026-07-24, close the
@@ -80,7 +98,7 @@ active_tasks:
       (3) deadband + per-client clamp + aggregate host clamp all engaged;
       (4) FIRST measured numbers recorded: honest dirty-chunk wire size (bytes) + dirty-rate.
     kind: executor (Opus 4.8 — Fable 5 unavailable)
-    status: active   # 2026-06-13 dispatched as c-exec-003 (s-work-004). kill-gate "consistency" = owner-approved dual-guarantee "A": (i) LOSSLESS (deadband off) per-tick host-vs-client FIELD-cell hash bit-exact incl. breach; (ii) LOSSY (deadband + per-client clamp + aggregate host clamp) bounded divergence (<=quant step Q) every tick + bit-exact at settle/keyframe. Resolves the literal p2-vs-p3 tension (two runs, not one). Awaiting executor return (leg opens with PLAN + ADR-0003).
+    status: active   # 2026-06-13 dispatched as c-exec-003 (s-work-004). kill-gate "consistency" = owner-approved dual-guarantee "A": (i) LOSSLESS (deadband off) per-tick host-vs-client FIELD-cell hash bit-exact incl. breach; (ii) LOSSY (deadband + per-client clamp + aggregate host clamp) bounded divergence (<=quant step Q) every tick + bit-exact at settle/keyframe. Resolves the literal p2-vs-p3 tension (two runs, not one). Awaiting executor return (leg opens with PLAN + ADR-0003). RE-SCOPED 2026-06-14 (s-shape-004): the toy field carries >=2 TRIVIAL layers (gas + a temp scalar) to prove the seam is MULTI-LAYER, and the breach is a REAL controlled wall-breach (not scripted); networking proof (consistency + measurement) unchanged.
   - id: t-3
     goal: Breach-load consistency hold + stream lock (kill-gate).
     done_when: |
@@ -92,13 +110,13 @@ active_tasks:
           band sim on top);
       (4) reproducible build + machine-readable telemetry artifact.
     kind: executor (Opus 4.8 — Fable 5 unavailable)
-    status: blocked_on t-2
+    status: blocked_on t-2   # RE-SCOPED 2026-06-14 (s-shape-004): t-3 also proves CROSS-LAYER interaction (reaction/heat -> temperature layer responds) + the REAL controlled breach under load, on the locked stream
 
 recurring: []
 
 open_calls:
   - id: c-exec-003
-    status: ON_HOLD   # ⛔ HOLD 2026-06-14 — do NOT start the PLAN / freeze ADR-0003 until c-shape-004 re-scopes the bet. Stress-test wf_454d6859-4e4: freezing C1–C22 against the OLD single-layer/scripted-breach scope before the re-shape = freezing the wrong contract. (Was: dispatched — interactive PLAN + ADR-0003, owner present, then build legs.)
+    status: ready   # ✅ HOLD LIFTED 2026-06-14 (s-shape-004 re-scoped the bet). The t-2 PLAN now opens against the RE-SCOPED scope: toy field carries >=2 trivial layers (gas + temp scalar), breach is a REAL controlled wall-breach, NO clip. See active_bet approach/done_when/wave_plan + work/converge-g-9c41.md §RESOLVED-1/2; PLAN ratifies the converge §WHAT-C set into ADR-0003.
     note: framed at s-work-004 (c-work-002); hardened via an 8-agent ground+draft+adversarial-verify pass (wf_7dbb52a9-1c1); full CALL in next:; converge set wired in as mandatory PLAN input per d-converge-001=A (s-decide-002); → history/s-work-004.md
   - id: c-frame-002
     status: queued
@@ -124,13 +142,7 @@ open_calls:
       history/s-converge-001.md RESULT.next. (d-converge-001 resolved = A; converge-arch runs in
       parallel and refines the B-row contracts — it does NOT gate the c-exec-003 PLAN under A.)
   - id: c-shape-004
-    status: queued   # re-shape g-9c41 bet under option A (owner approved the DIRECTION 2026-06-14 «да, A»); G9 final approval of the specific re-shaped done_when happens in-session
-    note: |
-      Owner resolved (s-converge-002): core proves a minimal-but-REAL LAYERED architecture over the net —
-      gas layer + thin temperature layer + real controlled destruction-topology, extensible seams,
-      network-first. Re-shape card drafted in s-converge-002 RESULT.next; shape session finalizes the cut
-      trades (esp. the ~07-10 clip risk) + applies to TREE/NOW with owner G9 approval. Bet / t-1/t-2/t-3 /
-      c-exec-003 UNCHANGED until c-shape-004's done_when is owner-approved.
+    status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
   - id: d-converge-001
@@ -149,6 +161,11 @@ next: |
   direction: indie-game-development   node: g-9c41   task: t-2
   parent: c-work-002 (s-work-004)
   leg_opens_with: |
+    ⭐ RE-SCOPED 2026-06-14 (s-shape-004): t-2's toy field carries >=2 TRIVIAL LAYERS (gas + a temperature
+    scalar) to prove the seam is MULTI-LAYER; the breach is a REAL CONTROLLED wall-breach (destructible wall
+    -> hole -> topology -> gas flows), NOT scripted; NO clip in this bet. The PLAN re-derives t-2's exact
+    scope from active_bet (approach/done_when/wave_plan) + work/converge-g-9c41.md §RESOLVED-1/2. Everything
+    below stands except where it says "scripted breach" (now real controlled) / "single toy layer" (now >=2).
     PLAN — interactive, plan mode, owner present, frontier model, in the product-repo dev worktree
     C:\projects\Unity\GasCoopGame_dev (branch dev; FIRST sync dev to current main HEAD @7af478a — dev
     is 5 commits behind; the tail is MCP/tooling cleanup, no core/sim change, t-1 contracts intact).
