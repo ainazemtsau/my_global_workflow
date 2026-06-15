@@ -36,6 +36,12 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
 - **Hand-authored core/test files have no `.meta`** until Unity imports them — fine for headless
   `dotnet` build; Unity generates `.meta` on first import. Run a batchmode import in the dev
   worktree to finalize asmdef GUID references before wiring adapters.
+- **`.meta`-tracking hygiene gate (git-aware) — a tracked `.cs` requires a tracked `.cs.meta`:**
+  the hygiene script (§2) FAILS when a git-tracked `Assets/**/*.cs` has no git-tracked `.cs.meta`
+  sibling (or an orphan `.cs.meta` exists). This catches the refresh→commit timing gap — a `.cs`
+  committed while its Unity-generated `.meta` stays untracked — which the headless `dotnet` build
+  and the batchmode-import step above do NOT cover (the seam between the Unity/git world and the
+  `dotnet` world has no other guard).
 - **The dependency-boundary gate is the headless core build itself** — no separate linter needed:
   no Unity reference in the core csproj → any `using UnityEngine;` in core fails `dotnet build`.
 
