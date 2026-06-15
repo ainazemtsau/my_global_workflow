@@ -69,9 +69,9 @@ active_bet:
   against: >
     The strongest case against is that the copied acceptance/contract matrix is too large for
     3 focused half-days, or that provider-independence cannot be evidenced without a heavier harness.
-  review_status: partially_met_pending_corrected_g5_review
-  review_checkpoint: 2026-06-15 c-health-core-review-001
-  product_evidence_status: clean_prepass
+  review_status: corrected_g5_met_pending_owner_close_decision
+  review_checkpoint: 2026-06-15 c-health-core-review-002
+  product_evidence_status: clean_binding_g5_met
   product_evidence_commits:
     - a67a34e109aac5f70284b048af4480be38fb8cd5
     - ee25a894e22d83485525f7d798f02e0fa9d48189
@@ -80,8 +80,8 @@ active_bet:
   non_blocking_gaps:
     - P8
     - existing-v1-input
-  binding_g5_status: pending_corrected_review
-  verdict: partially_met
+  binding_g5_status: met
+  verdict: met
 
 tasks:
   - id: t-1
@@ -129,99 +129,22 @@ tasks:
 
 recurring: []
 
-open_calls:
-  - id: c-health-core-review-002
-    to: session
-    for: g-health-core corrected G5 review
-    issued: 2026-06-15
-    note: >
-      Product evidence pre-pass is clean. Owner removed the hard cross-family requirement;
-      g-health-core needs a fresh corrected review/refutation session, separate from executor t-3,
-      to return the binding G5 verdict.
+open_calls: []
 
 decisions:
-  - id: d-health-next-bet-after-core-review
+  - id: d-health-core-close-and-next-bet
     status: awaiting_owner
     question: >
-      If corrected G5 review returns met, which next bet should health shape next?
+      Approve closing g-health-core as done based on corrected G5 verdict=met,
+      and choose the next health bet posture?
     options:
-      - A: Shape g-health-nutrition-system next.
-      - B: Shape g-health-training-activity-system next.
-      - C: Pause the direction after core and review priorities.
+      - A: Approve g-health-core done; shape g-health-nutrition-system next.
+      - B: Approve g-health-core done; shape g-health-training-activity-system next.
+      - C: Approve g-health-core done; pause the direction after core.
     recommendation: A
-    activation_condition: only after corrected G5 review returns met.
+    activation_condition: immediate after c-health-core-review-002
 
 next: |
-  CALL c-health-core-review-002
-  to: session
-  direction: health
-  play: review
-  node: g-health-core
-  goal: |
-    g-health-core has a corrected binding G5 review verdict: met, partially met, or not met.
-  context: |
-    Previous review checkpoint: c-health-core-review-001 returned partially_met because product
-    evidence is clean but it treated cross-family verification as a hard requirement.
-    Owner removed that hard requirement on 2026-06-15: "A, снимаем hard cross-family requirement".
-
-    Corrected evaluator:
-    - G5 requires a fresh review/refutation session separate from executor t-3.
-    - A different model family may be used as extra rigor when explicitly requested.
-    - A different model family is not required to close this bet.
-
-    Direction OS state:
-    - live/health/CHARTER.md
-    - live/health/TREE.md
-    - live/health/NOW.md
-    - live/health/work/converge-g-health-core.md
-
-    health-ai product evidence:
-    - t-1 commit a67a34e109aac5f70284b048af4480be38fb8cd5
-      "core acceptance harness: map converged spec"
-    - t-2 commit ee25a894e22d83485525f7d798f02e0fa9d48189
-      "core slice: replace v1 structure"
-    - t-3 commit 8bc980ad21d3f54cbd27b28dcb363e0198c46751
-      "core evidence: package t-3 dry-run proof"
-    - key paths:
-      acceptance/core/matrix.json
-      acceptance/core/evidence-summary.md
-      acceptance/core/fixtures/core-only/fixture.json
-      acceptance/core/clearance.md
-      tools/check_acceptance_matrix.py
-      tools/check_core_slice.py
-      tools/check_core_evidence.py
-
-    Same-family pre-pass findings to refute:
-    - matrix carries WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
-    - evidence-summary reports:
-      python tools/check_acceptance_matrix.py => PASS; 17 acceptance rows, 9 contract rows,
-      27 PLAN rows, 9 architecture inputs, blocker gaps 0.
-      python tools/check_core_slice.py => PASS; 32 core files, schema/frontmatter ok,
-      matrix target files ok, WA73 formula ok, PLAN/LOG separation ok,
-      forbidden module/runtime directories absent.
-      python tools/check_core_evidence.py => PASS; 11 dry-run scenarios, 26 acceptance/contract
-      rows pass, 0 fail, blocker gaps 0.
-    - non-blocking gaps: P8 and existing-v1-input; existing-v1-input should be checked against
-      acceptance/core/clearance.md owner confirmation.
-    - The previous blocker was model-family routing, not a product blocker. Re-check the evidence
-      under the corrected evaluator instead of requiring Claude/non-OpenAI by default.
-  boundaries: |
-    Do not store raw daily health data in Direction OS.
-    Do not build or change product repo implementation during review.
-    Do not build nutrition/training/activity modules, app UI, runtime, DB, server, cron, or scheduler.
-    Do not make medical prescriptions.
-    Do not require a non-OpenAI model family as a hard gate.
-    Do not close the bet merely because the cross-family requirement was removed; still run refutation
-    against the evidence and done_when.
-  done_when: |
-    - Fresh review/refutation explicitly handles WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
-    - It explicitly handles check output, gap classification, product scope cuts, owner clearance, and Direction OS boundary.
-    - It returns a corrected binding G5 review verdict: met, partially met, or not met.
-    - If met, it prepares owner-facing decisions for approving any TREE status change and choosing the next bet.
-    - If not met or partially met, it returns exact blocker/refutation gaps and the next CALL.
-  return: |
-    RESULT with corrected binding G5 verdict, refutation evidence, state_changes, decisions_needed, and next CALL/awaiting_decision.
-  budget: one focused review session
-  surface: any capable fresh review session; cross-family optional, not required
+  awaiting_decision d-health-core-close-and-next-bet
 
 END_OF_FILE: live/health/NOW.md
