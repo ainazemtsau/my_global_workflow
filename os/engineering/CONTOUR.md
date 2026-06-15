@@ -52,6 +52,11 @@ CALL (business task from a direction)
     verification scripts the validator ran (one source of truth, two consumers).
     Non-trivial manual steps (editor setup, device checks) may be issued as a
     guide CALL (os/plays/guide.md) instead of a flat instruction list.
+    The RESULT is the leg's GATED closing artifact at a known repo path
+    (PROJECT_SETUP stamps the path + fields + an executable check into the
+    repo, so the agent produces it with no OS access); a prose chat summary
+    does not close the leg. It ends with `next:` naming the direction as the
+    carry-back target — the builder NEVER authors the next task CALL (#6).
 ```
 
 The owner returns to a finished, verified change and checks the evidence, not every line. Tier-2 actions (publish, spend, delete non-versioned data) are never auto-approved regardless of plan approval.
@@ -73,6 +78,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 3. Validator is read-only and fresh-context, always.
 4. All exploratory artifacts (scripts, test scenes) go to the single scratch dir; nothing from it reaches a commit.
 5. Done = gates green + evidence attached. A narrative claim is not done.
+6. Closing artifact is a CHECK, not prose: a leg cannot merge/deliver unless its RESULT exists at the known repo path with its required fields (a prose summary fails the check). Owner signals ("finish it", "merged?", "summary") TRIGGER the report, never replace it; the builder never authors the next CALL (continuation is the direction's, KERNEL §4).
 
 Key sources: Anthropic long-running harness & three-agent harness (planner/generator/evaluator, default-FAIL ledger, evidence gate), Claude Code best practices (/goal, hooks, fresh-context review), OpenAI Codex long-horizon guidance (plans on disk, compaction), retry research (gains plateau at ~3, non-convergence = same error repeating). Full links: os/docs/RESEARCH_BASIS.md and the engineering research session history.
 
