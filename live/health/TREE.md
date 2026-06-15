@@ -87,7 +87,7 @@ root:
           (общие метрики, фаза) по определённому контракту.
         - Граница Direction OS сохранена: вверх идут только summary/decision/problem/CALL; сырые
           ежедневные данные живут в Health AI System.
-      status: active
+      status: done
       appetite: 3 focused half-days
       kill_by: >
         2026-06-19: if there is not a committed health-ai core-only slice with zero
