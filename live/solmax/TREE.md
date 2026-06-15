@@ -39,7 +39,10 @@ root:
         (tier-2 без аппрува отклонён).
       why: механизм SC2 + предохранитель от «вечного черновика» (pre-mortem #1).
       detail: history/s-map-001.md
-      status: parked
+      appetite: "1 calendar week / 3 focused executor-sized increments; no extension"
+      kill_by: "2026-06-22: kill/review if W0 acceptance cannot be made green without a 6th kernel part, if third plugin requires kernel edits, or if repo setup/CI is still absent."
+      shaped_detail: history/s-shape-001.md
+      status: active
       children: []
 
     - id: g-engine
