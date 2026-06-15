@@ -1,5 +1,6 @@
 # LOG — health
 
+- 2026-06-15 — health/g-health-core/t-3 work: health-ai evidence package committed and pushed (8bc980a); dry-runs PASS, 26/26 acceptance/contract rows PASS, blocker gaps 0; next review. → history/2026-06-15-s-health-core-t-3-executor-001.md
 - 2026-06-15 — health/g-health-core/t-2 work: owner-confirmed wipe applied; health-ai core-only slice committed and pushed (ee25a89), checks passed, old v1 modules absent; next t-3 validation. → history/2026-06-15-s-health-core-t-2-executor-001.md
 - 2026-06-15 — health/g-health-core/t-1 work: health-ai acceptance harness committed and pushed (a67a34e); WA/W/CA matrix complete, WA73 core-only fixture present, check passed, blocker gaps 0; next t-2 core slice. → history/2026-06-15-s-health-core-t-1-executor-001.md
 - 2026-06-15 — health/g-health-core shape: owner approved option A; g-health-core activated with 3 focused half-days, kill_by 2026-06-19, tasks t-1..t-3; next c-health-core-t-1-executor-001. → history/2026-06-15-s-health-core-shape-001.md

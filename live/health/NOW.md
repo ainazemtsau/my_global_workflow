@@ -102,7 +102,7 @@ tasks:
 
   - id: t-3
     node: g-health-core
-    status: open
+    status: done
     kind: executor
     goal: >
       Validate the core-only slice and package evidence for G5 review.
@@ -117,61 +117,61 @@ tasks:
 recurring: []
 
 open_calls:
-  - id: c-health-core-t-3-executor-001
-    to: executor
-    for: t-3
+  - id: c-health-core-review-001
+    to: session
+    for: g-health-core review
     issued: 2026-06-15
     note: >
-      health-ai core-only slice validation and G5 evidence packaging. Binding G5 review after t-3
-      still needs a separate cross-family refutation pass.
+      Fresh review/refutation of g-health-core. Binding G5 should be cross-family,
+      ideally Claude; Codex can only be a same-family pre-pass.
 
 decisions: []
 
 next: |
-  CALL c-health-core-t-3-executor-001
-  to: executor
+  CALL c-health-core-review-001
+  to: session
   direction: health
+  play: review
   node: g-health-core
-  task: t-3
-  repo: ainazemtsau/health-ai
-  kind: engineering
   goal: |
-    Evidence in health-ai demonstrates whether the committed core-only slice satisfies the copied
-    acceptance and contract rows with zero blocker gaps.
+    g-health-core has a verified bet verdict and the direction has a ready next-bet decision.
   context: |
     Direction OS state: live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md.
-    Converged spec: live/health/work/converge-g-health-core.md. The converge set is COMPLETE
-    and refuted-clean: WA1-WA12, W69/W70/W72/W73/W74, CA1-CA9, PLAN agenda P1-P27
-    (P8 absent in the source and carried as a non-blocking source gap), ARCH Q1-Q6/AA1-AA3.
+    Converged spec: live/health/work/converge-g-health-core.md.
 
     health-ai evidence so far:
     - t-1 commit a67a34e core acceptance harness: map converged spec; pushed to origin/main
     - t-2 commit ee25a89 core slice: replace v1 structure; pushed to origin/main
-    - harness paths: acceptance/core/matrix.json, acceptance/core/fixture-map.md,
-      acceptance/core/fixtures/core-only/fixture.json, tools/check_acceptance_matrix.py
-    - core slice paths: core/, AGENTS.md, CLAUDE.md, SYSTEM.md, README.md, tools/check_core_slice.py
-    - wipe evidence: acceptance/core/clearance.md records owner confirmation "давай стерем старую
-      структуру я подтвержадю это"; old v1 targets state/, reviews/, program/, nutrition/,
-      evidence-base.md were deleted after pre-clear status main...origin/main @ a67a34e, clean porcelain.
-    - checks after t-2: python tools/check_acceptance_matrix.py => PASS; python tools/check_core_slice.py
-      => PASS with 32 core files, schema/frontmatter ok, matrix target files ok, WA73 formula check ok,
-      PLAN/LOG fixture separation ok, forbidden module/runtime directories absent.
+    - t-3 commit 8bc980a core evidence: package t-3 dry-run proof; pushed to origin/main
+    - key evidence paths: acceptance/core/matrix.json, acceptance/core/evidence-summary.md,
+      acceptance/core/fixtures/core-only/fixture.json, tools/check_acceptance_matrix.py,
+      tools/check_core_slice.py, tools/check_core_evidence.py
+    - wipe evidence: acceptance/core/clearance.md records owner confirmation before t-2 destructive clear.
+    - latest checks after t-3:
+      python tools/check_acceptance_matrix.py => PASS; 17 acceptance rows, 9 contract rows,
+      27 PLAN rows, 9 architecture inputs, blocker gaps 0.
+      python tools/check_core_slice.py => PASS; 32 core files, schema/frontmatter ok,
+      matrix target files ok, WA73 formula check ok, PLAN/LOG separation ok,
+      forbidden module/runtime directories absent.
+      python tools/check_core_evidence.py => PASS; 11 dry-run scenarios, 26 acceptance/contract
+      rows pass, 0 fail, blocker gaps 0; non-blocking gaps P8 and existing-v1-input.
+    - G5 note: t-3 was executed by Codex/OpenAI. A Codex validator can only do a same-family
+      pre-pass; binding G5 verification should be a fresh cross-family pass, ideally Claude.
   boundaries: |
     Do not store raw daily health data in Direction OS.
-    Do not build nutrition or training/activity modules.
-    Do not build app UI, runtime, DB, server, cron, or automatic scheduler.
+    Do not build or change product repo implementation during review.
+    Do not build nutrition/training/activity modules, app UI, runtime, DB, server, cron, or scheduler.
     Do not make medical prescriptions.
-    Keep Direction OS changes out of the product repo.
+    Do not treat the Codex t-3 pass as the binding cross-family G5 pass.
   done_when: |
-    - Dry-runs with synthetic/minimal seed data cover deterministic derived numbers, anchor cascade,
-      PLAN-vs-LOG separation, parse/library lookup, red-flag halt, graceful default/reduced mode,
-      slug immutability, dummy module attach, and zero external strategic workflow dependency.
-    - Evidence summary maps every copied acceptance/contract row to pass/fail output.
-    - Remaining gaps are classified; zero blocker gaps are required to close the bet.
-    - Next review CALL is ready.
+    - g-health-core has a review verdict: met, partially met, or not met.
+    - The verdict explicitly handles WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9, check output,
+      gap classification, and the cross-family G5 status.
+    - Direction state is updated according to the review verdict, with any TREE changes owner-approved.
+    - The next-bet decision is ready or awaiting owner decision.
   return: |
-    RESULT with commit/patch evidence, check output, blocker-gap list, and next CALL for review if unblocked.
-  budget: one focused half-day
-  surface: Codex or Claude Code in product repo
+    RESULT with review verdict, refutation evidence, state_changes, decisions_needed, and next CALL/awaiting_decision.
+  budget: one review session
+  surface: Claude preferred for binding cross-family G5; Codex only for same-family pre-pass
 
 END_OF_FILE: live/health/NOW.md
