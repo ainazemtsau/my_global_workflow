@@ -98,7 +98,7 @@ active_tasks:
       (3) deadband + per-client clamp + aggregate host clamp all engaged;
       (4) FIRST measured numbers recorded: honest dirty-chunk wire size (bytes) + dirty-rate.
     kind: executor (Opus 4.8 — Fable 5 unavailable)
-    status: active   # 2026-06-13 dispatched as c-exec-003 (s-work-004). kill-gate "consistency" = owner-approved dual-guarantee "A": (i) LOSSLESS (deadband off) per-tick host-vs-client FIELD-cell hash bit-exact incl. breach; (ii) LOSSY (deadband + per-client clamp + aggregate host clamp) bounded divergence (<=quant step Q) every tick + bit-exact at settle/keyframe. Resolves the literal p2-vs-p3 tension (two runs, not one). Awaiting executor return (leg opens with PLAN + ADR-0003). RE-SCOPED 2026-06-14 (s-shape-004): the toy field carries >=2 TRIVIAL layers (gas + a temp scalar) to prove the seam is MULTI-LAYER, and the breach is a REAL controlled wall-breach (not scripted); networking proof (consistency + measurement) unchanged.
+    status: done   # 2026-06-15 c-exec-003 RETURNED GREEN/GREEN (recorded s-work-005). Multi-layer host-authoritative chunked-delta field-state stream: dual lossless⇄lossy through ONE codec (lossless per-tick bit-exact incl. breach; lossy |Δ|≤Q every tick + bit-exact at every converged settle); REAL LayerRegistry+RevisionFeed fabric (gas=L0, temp=L1, single-writer token, pinned P0→P3 phases); REAL controlled breach over the lockstep input plane; 3 flow controls proven engaged via negative tests; deterministic fault tolerance (revision barrier never applies a stale chunk). ADR-0003 v2 frozen (C1–C22). dotnet 71/71 + FishNet PlayMode 6/6 (Tugboat loopback); merged main @b9edbce+30f9e45; 2 independent 5-skeptic audits, 0 blockers. FIRST leg to dogfood the new RESULT.md -Deliver gate. clampVerdict stamped DEFERRED-T3 (t-3 pronounces it). → history/2026-06-15-c-exec-003-t-2-result.md
   - id: t-3
     goal: Breach-load consistency hold + stream lock (kill-gate).
     done_when: |
@@ -110,14 +110,22 @@ active_tasks:
           band sim on top);
       (4) reproducible build + machine-readable telemetry artifact.
     kind: executor (Opus 4.8 — Fable 5 unavailable)
-    status: blocked_on t-2   # RE-SCOPED 2026-06-14 (s-shape-004): t-3 also proves CROSS-LAYER interaction (reaction/heat -> temperature layer responds) + the REAL controlled breach under load, on the locked stream
+    status: active   # 2026-06-15 UNBLOCKED (t-2 done) + dispatched as c-exec-004 (s-work-005). KILL-GATE FINALE of Wave 1: PRONOUNCES the sustained-breach-load steady-rate VERDICT (single binary predicate; clampVerdict DEFERRED-T3 → HOLD|BLOWN), decides+realizes the production channel (C7) + keyframe K (C9), proves cross-layer reaction→temperature (with a suppressed-event NEGATIVE oracle) under load on the locked stream, declares the stream LOCKED. Two failure halves route differently: consistency-fail → P6 model/vendor spike; rate-BLOWN → Barotrauma-hybrid. Framed+hardened via wf frame-c-exec-004-t3 (draft + 3 adversarial lenses). Opens with interactive PLAN + ADR-0004/v3 (owner present); 6 owner decisions at the table.
 
 recurring: []
 
 open_calls:
   - id: c-exec-003
-    status: ready   # ✅ HOLD LIFTED 2026-06-14 (s-shape-004 re-scoped the bet). The t-2 PLAN now opens against the RE-SCOPED scope: toy field carries >=2 trivial layers (gas + temp scalar), breach is a REAL controlled wall-breach, NO clip. See active_bet approach/done_when/wave_plan + work/converge-g-9c41.md §RESOLVED-1/2; PLAN ratifies the converge §WHAT-C set into ADR-0003.
-    note: framed at s-work-004 (c-work-002); hardened via an 8-agent ground+draft+adversarial-verify pass (wf_7dbb52a9-1c1); full CALL in next:; converge set wired in as mandatory PLAN input per d-converge-001=A (s-decide-002); → history/s-work-004.md
+    status: done   # 2026-06-15 RETURNED GREEN/GREEN (recorded s-work-005); t-2 → done. RESULT → history/2026-06-15-c-exec-003-t-2-result.md
+    note: framed at s-work-004 (c-work-002); hardened via an 8-agent pass; PLAN ratified converge §WHAT-C into ADR-0003 v2 (C1–C22 frozen). → history/s-work-004.md
+  - id: c-exec-004
+    status: ready   # 2026-06-15 framed for t-3 (s-work-005); hardened via wf frame-c-exec-004-t3 (draft + 3 adversarial lenses). Full copy-ready CALL in work/c-exec-004-call.md (and summarized in next:). Opens with interactive PLAN + ADR-0004/v3 (owner present).
+    note: |
+      t-3 kill-gate finale. PLAN freezes (ADR-0004 or ADR-0003 v3, C1–C22 UNTOUCHED — t-3 only ADDS): sustained-load
+      test shape; the steady-rate VERDICT predicate (single binary, irrecoverable-vs-transient encoded); production
+      channel reliability C7 + fault model; keyframe K C9; min-resend C14; cross-layer integer rule; late-join
+      gate-or-defer. 6 owner decisions surfaced at the PLAN (see next.owner_decisions). t-3 OPENS C7/C9/C13/C14,
+      only EXTENDS frozen C16/C18. Builds on the t-2 stream → history/2026-06-15-c-exec-003-t-2-result.md.
   - id: c-frame-002
     status: queued
     note: |
@@ -156,196 +164,45 @@ decision_inbox:
       # d-arch-001 answered at s-shape-003 (see history/s-shape-003.md outcome a-e)
 
 next: |
-  CALL c-exec-003
+  CALL c-exec-004 — full copy-ready CALL in work/c-exec-004-call.md (paste THAT into the GasCoopGame_dev chat).
   to: executor (coding agent)   repo: GasCoopGame   kind: engineering
-  direction: indie-game-development   node: g-9c41   task: t-2
-  parent: c-work-002 (s-work-004)
-  leg_opens_with: |
-    ⭐ RE-SCOPED 2026-06-14 (s-shape-004): t-2's toy field carries >=2 TRIVIAL LAYERS (gas + a temperature
-    scalar) to prove the seam is MULTI-LAYER; the breach is a REAL CONTROLLED wall-breach (destructible wall
-    -> hole -> topology -> gas flows), NOT scripted; NO clip in this bet. The PLAN re-derives t-2's exact
-    scope from active_bet (approach/done_when/wave_plan) + work/converge-g-9c41.md §RESOLVED-1/2. Everything
-    below stands except where it says "scripted breach" (now real controlled) / "single toy layer" (now >=2).
-    PLAN — interactive, plan mode, owner present, frontier model, in the product-repo dev worktree
-    C:\projects\Unity\GasCoopGame_dev (branch dev; FIRST sync dev to current main HEAD @7af478a — dev
-    is 5 commits behind; the tail is MCP/tooling cleanup, no core/sim change, t-1 contracts intact).
-    FIRST PLAN STEP (owner decision d-converge-001 = A): read work/converge-g-9c41.md and RATIFY its
-    §WHAT-C questions (C1–C22) — ADR-0003 freezes the magnitudes AGAINST that named set, not from
-    scratch; explicitly resolve C19/C20/C21/C22 (the params this CALL left implicit) in the ADR.
-    The custom field-state stream is architectural (new transport plane + data/wire format) -> ADR-0003
-    + owner approval BEFORE any code; no build before ADR-0003 is accepted and the G0 ledger is frozen.
-    PLAN must DECIDE and FREEZE in ADR-0003 + the G0 ledger (builder cannot change): integer/fixed-point
-    field representation + quantization step Q; the divergence threshold (recommend = Q — a provable
-    consequence of deadband+quantization, not a tuned number); deadband magnitude + per-client clamp
-    (~150 KB/s) + aggregate host clamp (~250-300 KB/s); the gas-plane channel reliability (unreliable-
-    sequenced vs reliable — its OWN decision, NOT a default carryover from the input plane's reliable
-    bus); the settle predicate N (dirty-chunks==0 for N ticks) + keyframe cadence K (or quiescence-only
-    if keyframes are out of t-2 scope); the frozen toy-field scene profile (room count, chunk grid,
-    total chunk count) committed as a config/seed file; the reproducibility constants (seed, run length,
-    breach tick, target-tick offset); whether t-2 injects synthetic chunk loss/reorder or defers to t-3;
-    late-join out of scope.
-  model_routing: |
-    BUILD = Claude Code + Opus 4.8 (planner frontier/high-effort owner-facing; builder default-tier
-    autonomous, one feature smallest-first, reuse-first). VALIDATE = Codex + GPT-5.5 xhigh — read-only,
-    fresh-context, different family, did not author; reproduces the dotnet core + dual-mode gates as a
-    regression check; MUST NOT certify the transport/PlayMode axis from a dotnet run. Weaker model =
-    gate-runner, never authority. Binding acceptance = green gates + evidence + owner spot-review on the
-    novel netcode (s-decide-001). Fallback chain so overnight legs survive provider errors.
-  goal: |
-    Two co-op clients joined to a host see the host's gas field — a toy diffusing field — reconstructed
-    on their own machines in step with the host, fed ONLY by the host streaming the chunks that changed;
-    and when a scripted breach merges two rooms mid-run, that burst still arrives correctly and within a
-    bounded bandwidth budget, with the FIRST honest numbers for how big that change-traffic is recorded
-    as machine-readable artifacts. This is the net spike that retires the bet's riskiest assumption
-    (networked chunked-delta gas consistency). t-2 TAKES the measurement; it does not judge it sustained-
-    under-load (that is t-3).
-  context: |
-    Pointers (input evidence for PLAN, NOT a binding spec — PLAN owns the design):
-    - ⭐ CONVERGE SET (owner decision d-converge-001 = A, 2026-06-14): work/converge-g-9c41.md (in the OS
-      state repo — carry its §WHAT-C parameter table + §COVERAGE MAP + WITNESS CHECK into the PLAN; cross-
-      repo, so the relay must include it). It NAMES, as questions, exactly the ADR-0003 ad-hoc values
-      (Q/divergence/deadband/clamps/channel/settle-N/keyframe-K/wire/scene/repro/fault/late-join = rows
-      C1–C22) PLUS 4 forced params this CALL left implicit: C19 (client-recon arithmetic determinism),
-      C20 (client apply-order/keyframe interleave), C21 (layer registry distinct from revision feed),
-      C22 (lossy mass-conservation bound). PLAN RATIFIES this named set in ADR-0003; it does NOT re-derive.
-    - Authoritative t-2 done_when (the 4 points, made machine-testable here): this NOW.md active_tasks t-2.
-    - Bet rules R12-R15 + kill_by: this NOW.md active_bet. Load-bearing: R13 engine-free pure-C# core /
-      Unity = adapters only; R14 net is an edge wrapper composed at the DI root, never in business logic;
-      "gas rides OUR custom chunked-delta channel regardless of vendor".
-    - Architecture brief v2 (fabric contracts, stream controls, honest dirty-chunk sizing, stub-but-not-
-      skip list): work/research-g-9c41-core-architecture-2026-06-12-v2.md (status: informs, does not decide).
-    - t-1 GREEN — the REAL contracts you build ON (do NOT redesign): engine-free integer-only 3-mode core
-      + the ITickInputBus seam (InMemoryTickInputBus; SimHostFactory.CreateNetworked(seed,localPeerId,
-      injectedBus) = the DI point), SimState/Fnv1a64 pinned-order hashing, and the FishNet adapter
-      FishNetTickInputBus (host-relay lockstep over reliable-ordered broadcasts) + TickInputBroadcasts.
-      Sources: Assets/GasCoopGame/Core/Sim/*.cs + Core/Hashing/Fnv1a64.cs; Assets/GasCoopGame/Net/FishNet/*.cs.
-      → history/s-work-003.md
-    - ADR-0002 (lockstep, field-never-networked-as-inputs; prediction/[Replicate]/[Reconcile]/
-      NetworkTransform/SyncVars rejected). The field-STATE stream is the NEW concern -> ADR-0003.
-    - Run contract / gates / review rubric / scratch rule / dev-worktree workflow: repo AGENTS.md +
-      CLAUDE.md, validation.config (schema v1: core_build = the R13 dependency-boundary gate, tests,
-      hygiene; one-shot `pwsh tools/check.ps1` -> "OK: all gates green"), REVIEW.md,
-      openspec/specs/sim-core/spec.md (lifecycle propose->apply->verify->archive; archiving is part of done).
-    - Editor/transport loop = the free IvanMurzak Unity MCP (agent runs PlayMode/EditMode + reads console).
-      No CI on the transport/PlayMode axis (Unity Personal = no unattended activation) — see done_when p2.
-    THE PIVOT (state it plainly to PLAN): t-1 networks INPUTS (lockstep, every peer recomputes the field,
-    field never sent); t-2 networks the FIELD ITSELF as chunked quantized deltas — authoritative host =
-    single writer, clients RECONSTRUCT without running the sim. This is a SECOND plane ALONGSIDE the input
-    bus, not a change to it. The existing lockstep input path is reused ONLY to agree deterministically on
-    WHICH tick the breach fires.
-    THE KILL-GATE (owner-approved 2026-06-13, "A" — dual guarantee): "consistency holds" = (i) LOSSLESS
-    (deadband disabled): per-tick host-vs-each-client FIELD hash bit-exact over the whole run incl. the
-    breach — the correctness oracle; (ii) LOSSY (deadband + both clamps on): bounded divergence every tick
-    + convergence to bit-exact at settle/keyframe points — where the honest wire numbers are measured.
-  boundaries: |
-    - TOY gas field ONLY (trivial room-graph diffusion as a throwaway chunk-traffic generator). NOT the
-      band/sector solver, NOT stratification/strips, NOT the quasi-steady pressure solve, NOT the T2 grid
-      — all post-stream-lock (t-3+/bet-2). Build the field thin; build the CONTRACTS it rides real.
-    - Stub-but-not-skip (FORM declared now, exercised by one toy layer): the layer registry + the
-      revision/change feed + the revision barrier — these survive to the band sim. Single-writer-per-
-      (layer x phase), the phase-ordering form, and a resolution key in the wire are PLAN-shaped candidates
-      whose exact form ADR-0003 fixes — NOT pre-decided here (NOW.md t-2 p1 gates only "layer registry +
-      revision feed"). If PLAN hard-gates single-writer, prove enforcement by a NEGATIVE/seeded-violation
-      test (a second writer to the same (layer x phase) is rejected -> red test), not happy-path-only.
-    - The gas plane is OUR own channel ALONGSIDE FishNet; whether it is unreliable-sequenced or reliable is
-      an ADR-0003 decision, NOT a default-to-reliable carryover from the input bus. Do NOT retrofit field
-      state into ITickInputBus/TickInput/InMemoryTickInputBus/TickInputBroadcasts (input-only).
-    - Net model LOCKED — no P6 / vendor re-open here; FishNet stays.
-    - Do NOT redesign or weaken the proven t-1 core: keep the engine-free boundary (R13; core_build is the
-      gate) and the determinism contract (no float/double, unchecked, no wall-clock, seeded RNG, pinned
-      hash order, stable input order); the 8 core tests + the golden vector must stay green (a broken golden
-      hash = blocker). No FishNet prediction/[Replicate]/[Reconcile]/NetworkTransform/SyncVars for the field.
-    - Stay inside t-2's done_when. t-3 (sustained-breach-load consistency-HOLD + the clamp VERDICT +
-      declaring the wire-format LOCKED) is a separate leg — t-2 RECORDS the honest numbers, does NOT
-      pronounce the clamp-sustained verdict. Late-join / join-baseline is OUT of t-2 scope (all 3 peers
-      present from tick 0; the revision/keyframe FORM is declared, mid-run join deferred to bet-2).
-    - Builder must NOT edit validation.config / the ledger / the spec / REVIEW.md / acceptance criteria,
-      nor touch the vendored Packages/com.firstgeargames.fishnet/. Nothing under _scratch/ is committed.
-      Work ONLY in the dev worktree; never the main checkout (owner keeps Unity open on main).
-  done_when: |
-    Each of NOW.md t-2's 4 authoritative points is made verifiable by a runnable check; the concrete
-    design values (Q, threshold, N, K, deadband, clamps, scene profile, reproducibility constants, loss-
-    injection scope) are FROZEN in ADR-0003 + the G0 ledger BEFORE build and the builder cannot change them.
-    (p1) Toy field through REAL contracts — an automated (EditMode/dotnet) test proves the host advances
-      the room-graph diffusion driven through a real layer registry + a real revision/change feed (the
-      contracts exercised by a test, not asserted in prose).
-    (p2) Stream + reconstruct + the LOSSLESS correctness proof — host streams only changed chunks as
-      quantized deltas over our own channel; clients reconstruct the field WITHOUT running the sim. The
-      field hash = Fnv1a64 (pinned little-endian order, reused from t-1) over the RECONSTRUCTED FIELD CELLS
-      ONLY (host's streamed cells vs each client's reconstructed cells — NOT the whole SimState.Hash(),
-      which folds Delta + RNG the non-simulating client lacks; the breach-affected cells must be inside the
-      hashed domain). In LOSSLESS mode (deadband disabled), per-tick host-vs-each-client field hash is
-      BIT-EXACT EQUAL every tick over the whole run INCLUDING the breach. PRIMARY proof runs headless in
-      pure dotnet over an in-memory analogue of the delta channel (host->2-client reconstruction),
-      validator-reproducible via `dotnet test` + a committed golden vector — mirroring t-1's in-memory
-      convergence proof; the FishNet/PlayMode loopback run (host + 2 real clients) is the transport-axis
-      confirmation (agent-run via Unity MCP, or owner-run if MCP can't drive it — state which). "Lossless"
-      is the PROPERTY "reconstruction is provably bit-exact"; HOW (full-precision wire vs exact-resend/
-      keyframe) is ADR-0003. Lost/reordered chunks: include >=1 deterministic fault-injection variant
-      (drop/reorder a chunk on a seeded schedule) asserting the revision barrier + keyframe/resend recovers
-      to bit-exact at the next settle — OR, if PLAN defers fault-injection to t-3, downgrade this oracle's
-      claim to "serialization/round-trip (clean channel)", note the unreliable-path correctness is NOT yet
-      retired, and define the client's gap-recovery behavior. (Recommend: inject in t-2.)
-    (p3) All three flow controls + the LOSSY bounded-divergence proof — deadband + per-client clamp +
-      aggregate host clamp ALL live and exercised together. In LOSSY mode, machine-checked every tick:
-      (a) bounded divergence — divergence(tick) = max over hashed field cells of |client_cell - host_cell|
-      after dequantization <= the frozen threshold (recommend = the quantization step Q; any tick exceeding
-      Q is a reconstruction bug, not lossy behavior); AND (b) convergence to bit-exact at settle points — a
-      settle tick = host dirty-chunk count == 0 for N consecutive ticks (N frozen), where client hash ==
-      host hash bit-exact; if keyframes are in scope, the tick after a keyframe (every K) is bit-exact. The
-      test asserts >=1 quiescence settle AND (if keyframes in scope) >=1 post-keyframe equality actually
-      occur (non-vacuous), INCLUDING the post-breach settle once merged rooms re-equilibrate. Lossless (p2)
-      and lossy (p3) MUST share the SAME reconstruction code path (anti-gaming). NOTE: NOW.md p2 (per-tick
-      hash equal across the breach) and p3 (deadband + clamps engaged) are satisfied in TWO DIFFERENT RUNS,
-      not one — a single deadband-on run is not expected to be per-tick bit-exact.
-    (p4) First honest MEASUREMENTS as machine-readable artifacts — taken in lossy mode through the breach:
-      (a) honest dirty-chunk wire size in BYTES (on-wire payload after deadband+quantization; state whether
-      transport framing is included) and (b) dirty-rate. Emitted as committed machine-readable artifacts
-      under a named path OUTSIDE _scratch (e.g. docs/measurements/) with a fixed schema {seed, runTicks,
-      breachTick, targetTick, sceneProfileHash, mode, perClientClampKBs, aggregateClampKBs, series:[{tick,
-      onWirePayloadBytes, headerOverheadBytes, dirtyChunkCount}], peakTick, dirtyChunksPerSec, windowSeconds,
-      perClient[], aggregate}. target tick = the tick of MAX aggregate dirty-chunk count in the breach burst
-      (worst-case, not cherry-picked); the full per-tick series is included with the peak flagged; tick rate
-      pinned (10 Hz day-one) so chunks/sec is derivable from chunks/tick. t-2 records the instantaneous
-      peak-through-breach, explicitly NOT the steady dirty-rate t-3 judges. The brief's 0.6-6 KB is a logged
-      SANITY reference only — t-2 records the measured number, it does NOT gate on landing in that range (no
-      clamp verdict here — t-3). Both modes emit distinct named artifacts; "both present + non-empty +
-      covering the breach tick range" is a checkable ledger line so a silently-dropped mode is a mechanical FAIL.
-    Reproducibility: fixed toy-field seed, fixed run length, deterministic breach tick (broadcast over the
-      lockstep input plane so all peers fire on the SAME tick), defined target-tick; the frozen scene profile
-      committed as a config/seed file so t-3 reuses byte-for-byte the same topology. Peer count = exactly
-      1 host + 2 clients = 3 peers (!= the brief's scene-load "профиль 32/12/2", which denotes scene size —
-      decode to concrete counts). Environment honesty: t-2 measures on loopback with software clamps — the
-      byte size + per-tick dirty-chunk COUNT are the honest, environment-independent numbers; the real-uplink
-      sustained question is t-3.
-    Process: ADR-0003 owner-approved before code; G0 ledger frozen (every entry opened failing, flipped only
-      on opened evidence; builder never edits ledger/spec/criteria/config); all repo gates green on dev
-      (`pwsh tools/check.ps1` -> "OK: all gates green"); the openspec change for t-2 archived; _scratch clean.
-      Merge dev->main is owner-authorized at the final report.
-  return: |
-    A RESULT carrying: PR/commits on dev (+ owner-authorized merge to main); green gate outputs
-    (tools/check.ps1) + the dotnet dual-mode artifacts (validator-reproducible) + the PlayMode/transport
-    run output (MCP-run or owner-run, state which); the default-FAIL ledger in FINAL state (entries passing
-    with opened evidence as a runnable command or file:line); the dual-mode hash/divergence evidence
-    (lossless per-tick bit-exact incl. breach; lossy bounded-divergence-every-tick + bit-exact-at-settle);
-    the TWO measured numbers as the committed artifacts (schema above); ADR-0003 (Status/Context/Decision/
-    owner echo-numbered Rn/alternatives/consequences + the frozen design values); validator REVIEW.md
-    (file:line, severity, nit cap 10; dotnet gates reproduced); manual owner-acceptance steps generated from
-    the SAME verification scripts the validator ran; assumptions, anything cut, cost. Surface blockers early;
-    stop if infeasible or 2x over budget.
-  budget: |
-    t-2 ONLY (toy field + custom chunked-delta stream + scripted breach + first honest wire measurement);
-    band sim, sector subdivision, frequency ladder, DA occupancy, fp16 wire are OUT (bet-2/t-3+). One focused
-    interactive PLAN with the owner first (architecture + ADR-0003), then a few autonomous build legs against
-    the fixed 2026-07-24 G3 hard wall — one feature per leg, smallest-first, <= a focused half-day human-
-    equivalent; split larger at shape. Overnight legs run the dotnet/in-memory correctness path as the PRIMARY
-    autonomous evidence; the FishNet/PlayMode confirmation is a gated checkpoint that may wait for the owner
-    without marking the leg failed. Retries <=2 in-context + 1 fresh-context per gate, hard cap 3; same finding
-    class twice = non-convergence -> stop + escalate. Escalate (the only mid-run owner contact) on: retry
-    budget exhausted, non-convergence, an out-of-plan decision (new dependency/scope/irreversible), or a
-    sandbox/permission boundary. Tier-2 actions (merge/publish/delete non-versioned) + any new dependency are
-    never auto-approved regardless of PLAN approval.
-  surface: executor leg = a fresh session in the product-repo dev worktree C:\projects\Unity\GasCoopGame_dev;
-        opens with an interactive PLAN (owner present), then autonomous build legs.
+  direction: indie-game-development   node: g-9c41   task: t-3
+  parent: s-work-005 (recorded the c-exec-003 return + framed this); framed+hardened via wf frame-c-exec-004-t3
+  summary: |
+    t-3 = KILL-GATE FINALE of Wave 1. Under a SUSTAINED breach wave, host + 2 clients keep the reconstructed
+    field bit-exact-when-it-should-be and bounded-when-it-can't (both clamps engaged), and the STEADY (not peak)
+    aggregate dirty-rate is evaluated by a SINGLE BINARY predicate — frozen in ADR-0004 BEFORE code, with the
+    "irrecoverable vs transient catch-up" test encoded INSIDE it so it returns PASS/FAIL with no human judgement
+    → clampVerdict flips DEFERRED-T3 → HOLD | BLOWN. On HOLD: declare the stream LOCKED (the immutable precondition
+    Wave 2's band sim builds on). Prove the layer fabric is REAL via a cross-layer reaction→temperature (LayerKey1)
+    interaction on the locked stream, WITH a suppressed-event NEGATIVE oracle, running UNDER the sustained load.
+    Build ON the frozen t-2 stream (ADR-0003 v2, C1–C22) — do NOT redesign or re-open it. t-3 OPENS C7 (channel
+    reliability) / C9 (keyframe K) / C13 (fault scope) / C14 (min-resend); only EXTENDS frozen C16/C18. NO code
+    until ADR-0004 (or ADR-0003 v3) + a default-FAIL G0 ledger are owner-approved. Two failure halves route
+    DIFFERENTLY: p1 consistency-cannot-hold → P6 model/vendor spike (1–2wk timebox); p2 rate-BLOWN → narrow to the
+    Barotrauma-hybrid contingency — the RESULT must name WHICH half failed; the owner decides contingency-vs-kill.
+    The leg CLOSES with a structured RESULT.md gated by `pwsh tools/check.ps1 -Deliver`; the builder routes it
+    home to this direction and does NOT author the next CALL. This IS the 2026-06-30 kill-gate checkpoint against
+    the never-extended 2026-07-24 wall. Full leg_opens_with / context / boundaries / done_when (p1–p6) / return /
+    budget / model_routing / surface: work/c-exec-004-call.md.
+  owner_decisions (decided AT the PLAN — not blocking dispatch):
+    1. ADR vehicle: NEW ADR-0004 vs ADR-0003 v3 (C1–C22 untouched either way). Rec: ADR-0004 (a new concern;
+       avoids the appearance of re-opening frozen C1–C22).
+    2. Sustained-measurement environment: loopback+software-clamps (fast, honesty-caveated) vs real uplink (slower,
+       eats budget). Rec: loopback+software-clamps WITH the honesty boundary stated (byte size + per-tick
+       dirty-chunk COUNT are environment-independent; real-link latency/loss is NOT) — don't spend t-3 on infra.
+    3. Production channel reliability (C7): unreliable-sequenced vs reliable-ordered + the fault model the verdict
+       must survive. Rec: PLAN decides+realizes it, promotes t-2's test-decorator fault-injection to a gated
+       production property; the steady-rate verdict is measured WITH that fault model active.
+    4. Mid-run late-join: a t-3 GATE or stays bet-2-deferred? Rec: stays deferred (default) unless the verdict's
+       honesty genuinely needs a join-baseline (record the reason).
+    5. Periodic keyframe cadence K (C9): does sustained load FORCE a periodic K (value?) or does quiescence-only
+       recovery still suffice? Rec: PLAN decides from the wave shape; pin recovery-under-load either way.
+    6. Confirm kill-gate routing in ADR-0004: p1-fail → P6 spike; p2-BLOWN → Barotrauma-hybrid; the owner decides
+       contingency-vs-kill if the gate trips, not the builder.
+  surface: fresh session in the product-repo dev worktree C:\projects\Unity\GasCoopGame_dev; the interactive
+        PLAN (owner present, plan mode, frontier model) freezes ADR-0004/v3 + the default-FAIL G0 ledger,
+        then autonomous build legs; the closing RESULT.md (gated by `pwsh tools/check.ps1 -Deliver`) routes
+        home to this direction. Full CALL: work/c-exec-004-call.md.
 
 END_OF_FILE: live/indie-game-development/NOW.md

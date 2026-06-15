@@ -34,12 +34,16 @@ root:
   status: active
 
   map_order: |
-    g-9c41 is the spine. Three calendar-anchored parallel tracks start DURING g-9c41 work,
-    gated by the named milestone "first spectacular harness clip": gas visibility (g-7e15),
-    the Steam-page slice of g-5b07, and the posting cadence of g-e6f2. Before the first
-    clip, parallel tracks take <=10% of weekly hours. Fest go/no-go checkpoint ~late
-    September 2026; pre-committed decision gate 2026-10-05 (see g-5b07). g-d3a8 deepens
-    after the core exists (executable-config validation needs g-9c41 alive).
+    g-9c41 is the spine and the priority. Parallel tracks run alongside it at an OWNER-SET cadence
+    (the owner correlates load; the engine bet always comes first). The old "<=10% of weekly hours
+    until the first spectacular harness clip" gate is RETIRED — that clip milestone was dropped
+    2026-06-14 (s-shape-004), so the gate hung on a trigger that no longer exists. Parallel tracks:
+    the creative/CANON track (g-d3a8 design + lore) runs now via the canon track (repo
+    gas_coop_game_canon + local/canon-forge); gas visibility (g-7e15), the Steam-page slice of
+    g-5b07, and the posting cadence of g-e6f2 stay parked, started when the owner chooses. The
+    g-d3a8 EXECUTABLE-CONFIG validation sub-part still needs g-9c41 alive (its lore/design-on-paper
+    does not). Calendar that still holds: Fest go/no-go checkpoint ~late September 2026;
+    pre-committed decision gate 2026-10-05 (see g-5b07).
 
   children:
 
@@ -124,7 +128,14 @@ root:
          once g-9c41 exists (timeboxed layer over the harness, not a separate project).
       6. Owner's explicit verdict recorded: proud of this design.
     status: parked
-    detail: history/s-map-002.md
+    detail: |
+      history/s-map-002.md. CANON TRACK (wired 2026-06-15): this node is worked in PARALLEL as the
+      creative/canon track. Content repo github.com/ainazemtsau/gas_coop_game_canon (clone
+      C:\projects\gas_coop_game_canon). Procedures: local/canon-forge (forge ONE question — 3 options →
+      owner picks → draft → craft gates → optional consistent images → freeze a canon card) and
+      local/canon-status (render-only — what is actionable / parallel / blocked / cluster-ready).
+      Full design + form-plan: work/canon-track-design-2026-06-15.md. Advanced via canon-forge sessions
+      in separate chats; NOT a second active bet — stays parked, the g-9c41 bet is untouched (G1).
 
   - id: g-7e15
     goal: |
