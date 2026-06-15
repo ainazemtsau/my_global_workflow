@@ -87,7 +87,12 @@ root:
           (общие метрики, фаза) по определённому контракту.
         - Граница Direction OS сохранена: вверх идут только summary/decision/problem/CALL; сырые
           ежедневные данные живут в Health AI System.
-      status: parked
+      status: active
+      appetite: 3 focused half-days
+      kill_by: >
+        2026-06-19: if there is not a committed health-ai core-only slice with zero
+        blocker gaps against WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9, plus passing
+        YAML/formula/dry-run evidence, stop and review instead of extending.
       children: []
 
     - id: g-health-nutrition-system
