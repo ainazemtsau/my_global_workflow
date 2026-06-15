@@ -88,7 +88,7 @@ tasks:
 
   - id: t-2
     node: g-health-core
-    status: open
+    status: done
     kind: executor
     goal: >
       Build the minimal provider-independent core file-system slice in health-ai.
@@ -117,63 +117,60 @@ tasks:
 recurring: []
 
 open_calls:
-  - id: c-health-core-t-2-executor-001
+  - id: c-health-core-t-3-executor-001
     to: executor
-    for: t-2
+    for: t-3
     issued: 2026-06-15
     note: >
-      health-ai minimal core-only slice. Must record current product repo branch/status and ask
-      explicit owner confirmation before any clear, delete, reset, or wipe.
+      health-ai core-only slice validation and G5 evidence packaging. Binding G5 review after t-3
+      still needs a separate cross-family refutation pass.
 
 decisions: []
 
 next: |
-  CALL c-health-core-t-2-executor-001
+  CALL c-health-core-t-3-executor-001
   to: executor
   direction: health
   node: g-health-core
-  task: t-2
+  task: t-3
   repo: ainazemtsau/health-ai
   kind: engineering
   goal: |
-    A minimal provider-independent core file-system slice exists in health-ai and passes the committed
-    core acceptance harness without nutrition/training modules.
+    Evidence in health-ai demonstrates whether the committed core-only slice satisfies the copied
+    acceptance and contract rows with zero blocker gaps.
   context: |
     Direction OS state: live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md.
     Converged spec: live/health/work/converge-g-health-core.md. The converge set is COMPLETE
     and refuted-clean: WA1-WA12, W69/W70/W72/W73/W74, CA1-CA9, PLAN agenda P1-P27
     (P8 absent in the source and carried as a non-blocking source gap), ARCH Q1-Q6/AA1-AA3.
 
-    health-ai t-1 evidence:
-    - commit a67a34e core acceptance harness: map converged spec
-    - pushed to origin/main
+    health-ai evidence so far:
+    - t-1 commit a67a34e core acceptance harness: map converged spec; pushed to origin/main
+    - t-2 commit ee25a89 core slice: replace v1 structure; pushed to origin/main
     - harness paths: acceptance/core/matrix.json, acceptance/core/fixture-map.md,
       acceptance/core/fixtures/core-only/fixture.json, tools/check_acceptance_matrix.py
-    - check output: python tools/check_acceptance_matrix.py => PASS; 17 acceptance rows,
-      9 contract rows, 27 PLAN rows, 9 architecture inputs, blocker gaps 0, destructive clear false.
-
-    Wipe/dirty-input status from t-1: pre-work product repo status was main...origin/main with clean
-    porcelain; no clear, wipe, reset, or delete was performed; owner wipe confirmation was not requested
-    because t-1 did not perform clearing. The existing nutrition-first v1 input still exists and is not
-    authority. Record current branch/status again before t-2 work. If destructive cleanup is needed,
-    ask the owner explicitly first; without that confirmation, return blocked without clearing.
+    - core slice paths: core/, AGENTS.md, CLAUDE.md, SYSTEM.md, README.md, tools/check_core_slice.py
+    - wipe evidence: acceptance/core/clearance.md records owner confirmation "давай стерем старую
+      структуру я подтвержадю это"; old v1 targets state/, reviews/, program/, nutrition/,
+      evidence-base.md were deleted after pre-clear status main...origin/main @ a67a34e, clean porcelain.
+    - checks after t-2: python tools/check_acceptance_matrix.py => PASS; python tools/check_core_slice.py
+      => PASS with 32 core files, schema/frontmatter ok, matrix target files ok, WA73 formula check ok,
+      PLAN/LOG fixture separation ok, forbidden module/runtime directories absent.
   boundaries: |
-    Do not clear, delete, reset, or wipe health-ai until the owner explicitly confirms that action in-session.
     Do not store raw daily health data in Direction OS.
     Do not build nutrition or training/activity modules.
     Do not build app UI, runtime, DB, server, cron, or automatic scheduler.
     Do not make medical prescriptions.
     Keep Direction OS changes out of the product repo.
   done_when: |
-    - Core files cover schema_version/migration notes, profile owner_facts/derived_anchors,
-      program-as-plan, PLAN/LOG separation, formulas/rounding, shared metrics/phase/review,
-      parse/library surface, procedure/extension registry, and convention carriers.
-    - AGENTS.md, CLAUDE.md, and portable system-prompt carry the determinism-load-bearing checklist.
-    - YAML/frontmatter parsing and documented formula checks pass on the core-only fixture.
-    - No app UI, runtime, DB, cron, nutrition module, or training module is built.
+    - Dry-runs with synthetic/minimal seed data cover deterministic derived numbers, anchor cascade,
+      PLAN-vs-LOG separation, parse/library lookup, red-flag halt, graceful default/reduced mode,
+      slug immutability, dummy module attach, and zero external strategic workflow dependency.
+    - Evidence summary maps every copied acceptance/contract row to pass/fail output.
+    - Remaining gaps are classified; zero blocker gaps are required to close the bet.
+    - Next review CALL is ready.
   return: |
-    RESULT with commit/patch evidence, check output, wipe-confirmation evidence or no-clear/blocked status,
-    blocker-gap list, and next CALL for t-3 if unblocked.
+    RESULT with commit/patch evidence, check output, blocker-gap list, and next CALL for review if unblocked.
   budget: one focused half-day
   surface: Codex or Claude Code in product repo
 
