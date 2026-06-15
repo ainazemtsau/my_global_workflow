@@ -131,7 +131,14 @@ active_bet:
 
 active_tasks:
   - id: t-1
-    status: ready
+    status: blocked
+    blocked_reason: |
+      Executor could not initialize `github.com/ainazemtsau/zaratusta`: repo is not
+      accessible through the current GitHub App installation, and local path
+      `C:\projects\Zaratusta` is not available in the executor environment.
+    unblock_condition: |
+      Owner creates/connects `ainazemtsau/zaratusta` to the GitHub App with write/PR/CI
+      access, or explicitly redirects the product repo; then rerun c-work-kernel-t1.
     kind: executor
     goal: |
       Zaratusta product repo exists with an agent-ready feedback loop and W0 RLK acceptance
@@ -173,58 +180,22 @@ open_calls:
   - id: c-shape-001
     status: done
   - id: c-work-kernel-t1
-    status: ready
-    note: "Executor CALL for g-kernel/t-1 repo setup + W0 acceptance harness."
+    status: blocked
+    note: |
+      Returned exact blocker: product repo unavailable to executor; no repo setup or W0
+      harness created.
 
-decision_inbox: []
+decision_inbox:
+  - q: "Which product repo should executor use for Zaratusta, and how should write/CI access be granted?"
+    options:
+      - "Create/connect `ainazemtsau/zaratusta` to the GitHub App and rerun c-work-kernel-t1."
+      - "Redirect product repo to existing `ainazemtsau/health-ai` by explicit owner decision."
+      - "Provide a mounted local repo/archive/git bundle, then connect remote CI later."
+    recommendation: "Create/connect `ainazemtsau/zaratusta`; it preserves the charter boundary and lets PROJECT_SETUP produce commit/PR/check evidence."
 
 next: |
-  CALL c-work-kernel-t1
-  to: executor
-  direction: solmax
-  node: g-kernel   task: t-1
-  repo: github.com/ainazemtsau/zaratusta
-  kind: engineering
-  goal: |
-    Zaratusta product repo exists with an agent-ready feedback loop and W0 RLK acceptance
-    spec/harness prepared, so background agents can build the tiny RLK under mechanical gates.
-  context: |
-    - Direction state: live/solmax/NOW.md, live/solmax/TREE.md, live/solmax/CHARTER.md.
-    - g-kernel full rationale: live/solmax/history/s-map-001.md.
-    - Product repo proposed: github.com/ainazemtsau/zaratusta; local path C:\projects\Zaratusta.
-    - Engineering setup procedure: os/engineering/PROJECT_SETUP.md.
-    - Stack profiles: os/engineering/profiles/README.md; check for existing matching profile first.
-    - W0 RLK acceptance target:
-      exactly 5 parts and no more:
-        1. Capability Registry;
-        2. append-only JSONL-ledger with schema_version and reserved upcaster seam;
-        3. typed CALL/RESULT envelope + boundary validator;
-        4. effect-tier gate 0/1/2 -> owner approval for tier-2;
-        5. Engine + Store seams.
-    - Build mode: background agents, small independently-verifiable increments.
-  boundaries: |
-    - Do not write to the workflow OS repo.
-    - Do not implement real claude/codex/API engine; only fake/no-op Engine seam if needed.
-    - Do not build channels, UI/surface, memory/RAG, deployment, auth, marketplace, or OS-read capability.
-    - Do not add a 6th kernel component.
-    - Do not author the next OS CALL; executor returns RESULT.md/evidence only.
-    - If stack choice is missing, run the short PROJECT_SETUP stack interview and record ADR-0001.
-  done_when: |
-    All hold or exact blocker is reported:
-      - repo exists locally and/or remotely at the proposed locations;
-      - one-command check + CI feedback loop exists per PROJECT_SETUP;
-      - root AGENTS.md, CLAUDE.md, REVIEW.md, validation.config, docs/adr/ADR-0001,
-        docs/FRICTION.md, openspec/, _scratch/, and module AGENTS.md exist as applicable;
-      - dependency-boundary check and seeded violation proof exist;
-      - deliver-time RESULT.md gate exists and fails on missing/invalid RESULT.md;
-      - W0 RLK OpenSpec/change exists with acceptance criteria/tests for 0-diff plugin proof,
-        JSONL replay, and tier-2 gate rejection;
-      - setup checklist evidence is reported item by item.
-  return: |
-    Executor RESULT.md with:
-      outcome, evidence, assumptions, cuts, cost, manual-acceptance, next.
-    Include commit/PR links or local commit hash, check output, seeded-failure evidence,
-    and any stack-profile state_changes that the workflow writer must apply.
-  budget: one executor increment
+  awaiting_decision:
+    owner must create/connect `ainazemtsau/zaratusta` to the GitHub App with write/PR/CI access
+    or explicitly redirect the product repo, then rerun c-work-kernel-t1.
 
 END_OF_FILE: live/solmax/NOW.md
