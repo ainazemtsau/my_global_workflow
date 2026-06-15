@@ -1,5 +1,6 @@
 # LOG — health
 
+- 2026-06-15 — health/g-health-core repair: owner removed the hard cross-family G5 requirement ("A, снимаем hard cross-family requirement"); NOW rerouted from c-health-core-cross-family-g5-002 to c-health-core-review-002, g-health-core remains active pending corrected fresh review. → history/2026-06-15-s-health-core-cross-family-repair-001.md
 - 2026-06-15 — c-health-core-review-001 review: g-health-core verdict partially_met. Product evidence at a67a34e/ee25a89/8bc980a is clean pre-pass: WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9 mapped and reported PASS, checks reported PASS, product blocker gaps 0, add-back 0/8. Binding G5 remains open because required cross-family review is missing. Next: c-health-core-cross-family-g5-002, surface Claude preferred.
 - 2026-06-15 — health/g-health-core/t-3 work: health-ai evidence package committed and pushed (8bc980a); dry-runs PASS, 26/26 acceptance/contract rows PASS, blocker gaps 0; next review. → history/2026-06-15-s-health-core-t-3-executor-001.md
 - 2026-06-15 — health/g-health-core/t-2 work: owner-confirmed wipe applied; health-ai core-only slice committed and pushed (ee25a89), checks passed, old v1 modules absent; next t-3 validation. → history/2026-06-15-s-health-core-t-2-executor-001.md

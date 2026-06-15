@@ -23,9 +23,9 @@ active_bet:
     - Direction OS remains strategic-only and raw daily data is not duplicated here.
     - Product repo clearing was explicitly owner-confirmed before any destructive wipe.
   evaluator: >
-    After t-3, review/refutation must try to break the done claim. A Codex validator may
-    only be an intra-family pre-pass; binding G5 verification needs a separate cross-family
-    pass, ideally Claude.
+    After t-3, review/refutation must try to break the done claim in a fresh session
+    separate from the executor. Cross-family review may be used as extra rigor when
+    explicitly requested, but it is not a hard G5 gate for this bet.
   rollback: >
     health-ai is dirty input, not authority. Before clearing it, the executor must record the
     current branch/status and receive explicit owner confirmation; without that confirmation
@@ -69,7 +69,7 @@ active_bet:
   against: >
     The strongest case against is that the copied acceptance/contract matrix is too large for
     3 focused half-days, or that provider-independence cannot be evidenced without a heavier harness.
-  review_status: partially_met_pending_cross_family_g5
+  review_status: partially_met_pending_corrected_g5_review
   review_checkpoint: 2026-06-15 c-health-core-review-001
   product_evidence_status: clean_prepass
   product_evidence_commits:
@@ -80,7 +80,7 @@ active_bet:
   non_blocking_gaps:
     - P8
     - existing-v1-input
-  binding_g5_status: missing_cross_family
+  binding_g5_status: pending_corrected_review
   verdict: partially_met
 
 tasks:
@@ -130,38 +130,44 @@ tasks:
 recurring: []
 
 open_calls:
-  - id: c-health-core-cross-family-g5-002
+  - id: c-health-core-review-002
     to: session
-    for: g-health-core binding cross-family G5 review
+    for: g-health-core corrected G5 review
     issued: 2026-06-15
     note: >
-      Product evidence pre-pass is clean, but g-health-core cannot close until a non-OpenAI
-      family, ideally Claude, freshly tries to refute WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9,
-      check output, gap classification, and Direction OS boundary.
+      Product evidence pre-pass is clean. Owner removed the hard cross-family requirement;
+      g-health-core needs a fresh corrected review/refutation session, separate from executor t-3,
+      to return the binding G5 verdict.
 
 decisions:
-  - id: d-health-next-bet-after-core-g5
+  - id: d-health-next-bet-after-core-review
     status: awaiting_owner
     question: >
-      If cross-family G5 returns met, which next bet should health shape next?
+      If corrected G5 review returns met, which next bet should health shape next?
     options:
       - A: Shape g-health-nutrition-system next.
       - B: Shape g-health-training-activity-system next.
       - C: Pause the direction after core and review priorities.
     recommendation: A
-    activation_condition: only after binding cross-family G5 returns met.
+    activation_condition: only after corrected G5 review returns met.
 
 next: |
-  CALL c-health-core-cross-family-g5-002
+  CALL c-health-core-review-002
   to: session
   direction: health
   play: review
   node: g-health-core
   goal: |
-    g-health-core has a binding cross-family G5 verdict: met, partially met, or not met.
+    g-health-core has a corrected binding G5 review verdict: met, partially met, or not met.
   context: |
     Previous review checkpoint: c-health-core-review-001 returned partially_met because product
-    evidence is clean but binding cross-family G5 is missing.
+    evidence is clean but it treated cross-family verification as a hard requirement.
+    Owner removed that hard requirement on 2026-06-15: "A, снимаем hard cross-family requirement".
+
+    Corrected evaluator:
+    - G5 requires a fresh review/refutation session separate from executor t-3.
+    - A different model family may be used as extra rigor when explicitly requested.
+    - A different model family is not required to close this bet.
 
     Direction OS state:
     - live/health/CHARTER.md
@@ -197,22 +203,25 @@ next: |
       rows pass, 0 fail, blocker gaps 0.
     - non-blocking gaps: P8 and existing-v1-input; existing-v1-input should be checked against
       acceptance/core/clearance.md owner confirmation.
-    - binding G5 has NOT yet happened; do not treat Codex/OpenAI evidence as binding.
+    - The previous blocker was model-family routing, not a product blocker. Re-check the evidence
+      under the corrected evaluator instead of requiring Claude/non-OpenAI by default.
   boundaries: |
     Do not store raw daily health data in Direction OS.
     Do not build or change product repo implementation during review.
     Do not build nutrition/training/activity modules, app UI, runtime, DB, server, cron, or scheduler.
     Do not make medical prescriptions.
-    Do not treat Codex/OpenAI t-3 or ChatGPT review as binding cross-family G5 evidence.
+    Do not require a non-OpenAI model family as a hard gate.
+    Do not close the bet merely because the cross-family requirement was removed; still run refutation
+    against the evidence and done_when.
   done_when: |
-    - Fresh cross-family refutation explicitly handles WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
+    - Fresh review/refutation explicitly handles WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
     - It explicitly handles check output, gap classification, product scope cuts, owner clearance, and Direction OS boundary.
-    - It returns a binding G5 verdict: met, partially met, or not met.
+    - It returns a corrected binding G5 review verdict: met, partially met, or not met.
     - If met, it prepares owner-facing decisions for approving any TREE status change and choosing the next bet.
     - If not met or partially met, it returns exact blocker/refutation gaps and the next CALL.
   return: |
-    RESULT with binding cross-family verdict, refutation evidence, state_changes, decisions_needed, and next CALL/awaiting_decision.
-  budget: one focused cross-family review session
-  surface: Claude preferred / non-OpenAI family required for binding G5
+    RESULT with corrected binding G5 verdict, refutation evidence, state_changes, decisions_needed, and next CALL/awaiting_decision.
+  budget: one focused review session
+  surface: any capable fresh review session; cross-family optional, not required
 
 END_OF_FILE: live/health/NOW.md

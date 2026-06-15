@@ -9,8 +9,8 @@ description: >-
   workers; for adversarial verification use multiple validators and
   majority-refute; for loop-until-dry keep going until K empty rounds. Also
   covers the honest limits of Codex's model-driven loop, the named-subagent
-  spawn limitation, and when to route the authoritative cross-family gate to a
-  Claude agent.
+  spawn limitation, and the distinction between in-session validator pre-passes
+  and binding fresh G5 review sessions.
 ---
 
 # parallel-verify — fan-out + verification (Codex)
@@ -107,9 +107,9 @@ After merge, verify with `validator` children (separate from the generators):
   reasonable default; raise it for a high-stakes node). Each round may use fresh
   validator children so a new round is not anchored on the last.
 
-Note: a `validator` child returns a NON-BINDING intra-family verdict
-(`SURVIVED-INTRA-FAMILY` / `REFUTED` / `INCONCLUSIVE`) — never the word
-"verified." Surviving the intra-family pass is NOT a closed G5 (see §5).
+Note: a `validator` child returns a NON-BINDING in-session verdict
+(`SURVIVED-PREPASS` / `REFUTED` / `INCONCLUSIVE`) — never the word
+"verified." Surviving the in-session pass is NOT a closed G5 (see §5).
 
 ## 4. HONEST LIMIT — the model-driven loop does not guarantee termination
 
@@ -134,18 +134,17 @@ required. Surface the option to the owner whenever a leg's correctness depends
 on an exact count or an exact number of rounds; do not normalize it for routine
 legs.
 
-## 5. The authoritative cross-family gate (G5) is NOT a Codex subagent
+## 5. Authoritative G5 is a fresh session, not an in-session subagent
 
-Gate G5 ("a claim is verified in a DIFFERENT session by trying to REFUTE it,
-ideally by a DIFFERENT MODEL FAMILY"): every Codex subagent is an OpenAI model
-— **same family**. So Codex validators, however many, give you a strong
-intra-family pass but NOT the cross-family refutation G5 wants. The authoritative
-final refutation must route to a **Claude agent** as a separate, cross-tool step
-(this is `converge-verify` as a separate session, or `review`'s G5 pass run in a
-fresh session of a different model family). It is explicitly NOT a Codex
-subagent. State this in the parent's RESULT: which checks were intra-family
-(Codex children, labelled SURVIVED-INTRA-FAMILY) and that the binding
-cross-family G5 refutation is handed to a Claude session.
+Gate G5 ("a claim is verified in a DIFFERENT session by trying to REFUTE it")
+is not satisfied by a child validator inside the same parent session. Codex
+validators, however many, give you a useful pre-pass but NOT the binding G5
+review, because they are part of the same leg. The authoritative final
+refutation must be a **fresh session** (`converge-verify` as its own session, or
+`review`'s G5 pass run separately from the executor/work session). A different
+model family can be requested by a CALL or direction state for extra rigor, but
+it is not the default hard gate. State this in the parent's RESULT: which checks
+were in-session pre-passes and which fresh session provides the binding review.
 
 ## 6. What never fans out
 
