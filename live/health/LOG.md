@@ -1,5 +1,6 @@
 # LOG — health
 
+- 2026-06-15 — health/g-health-core shape: owner approved option A; g-health-core activated with 3 focused half-days, kill_by 2026-06-19, tasks t-1..t-3; next c-health-core-t-1-executor-001. → history/2026-06-15-s-health-core-shape-001.md
 - 2026-06-13 — health/g-health-ai-core/t-3 guide: Health AI Core validation summary completed; five flows plus guidance/governance passed with synthetic/minimal seeds; no raw daily data stored; next review. → history/2026-06-13-s-health-ai-core-t-3-guide-001.md
 - 2026-06-12 — map s-health-map-001: root g-health-root approved with 4 child outcomes; next c-health-shape-starter-kit-001. → history/2026-06-12-s-health-map-001.md
 - 2026-06-12 — health research c-health-map-evidence-001: evidence pack for root map ready; next c-health-map-001. → history/2026-06-12-s-health-map-evidence-001.md
