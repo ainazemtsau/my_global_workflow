@@ -1,5 +1,6 @@
 # LOG — health
 
+- 2026-06-15 — health/g-health-core/t-1 work: health-ai acceptance harness committed and pushed (a67a34e); WA/W/CA matrix complete, WA73 core-only fixture present, check passed, blocker gaps 0; next t-2 core slice. → history/2026-06-15-s-health-core-t-1-executor-001.md
 - 2026-06-15 — health/g-health-core shape: owner approved option A; g-health-core activated with 3 focused half-days, kill_by 2026-06-19, tasks t-1..t-3; next c-health-core-t-1-executor-001. → history/2026-06-15-s-health-core-shape-001.md
 - 2026-06-13 — health/g-health-ai-core/t-3 guide: Health AI Core validation summary completed; five flows plus guidance/governance passed with synthetic/minimal seeds; no raw daily data stored; next review. → history/2026-06-13-s-health-ai-core-t-3-guide-001.md
 - 2026-06-12 — map s-health-map-001: root g-health-root approved with 4 child outcomes; next c-health-shape-starter-kit-001. → history/2026-06-12-s-health-map-001.md

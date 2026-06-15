@@ -73,7 +73,7 @@ active_bet:
 tasks:
   - id: t-1
     node: g-health-core
-    status: open
+    status: done
     kind: executor
     goal: >
       In health-ai, after explicit owner confirmation before any repo clearing, produce a committed
@@ -117,100 +117,63 @@ tasks:
 recurring: []
 
 open_calls:
-  - id: c-health-core-t-1-executor-001
+  - id: c-health-core-t-2-executor-001
     to: executor
-    for: t-1
+    for: t-2
     issued: 2026-06-15
     note: >
-      health-ai core-only acceptance harness + fixture map. Must ask explicit owner confirmation
-      before clearing the dirty product repo.
+      health-ai minimal core-only slice. Must record current product repo branch/status and ask
+      explicit owner confirmation before any clear, delete, reset, or wipe.
 
 decisions: []
 
 next: |
-  CALL c-health-core-t-1-executor-001
+  CALL c-health-core-t-2-executor-001
   to: executor
   direction: health
   node: g-health-core
-  task: t-1
+  task: t-2
   repo: ainazemtsau/health-ai
   kind: engineering
   goal: |
-    A committed health-ai acceptance harness and core-only fixture map show whether the converged
-    g-health-core spec is buildable without nutrition/training modules.
+    A minimal provider-independent core file-system slice exists in health-ai and passes the committed
+    core acceptance harness without nutrition/training modules.
   context: |
     Direction OS state: live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md.
     Converged spec: live/health/work/converge-g-health-core.md. The converge set is COMPLETE
-    and refuted-clean: §WHAT-A WA1-WA12, pass-2 acceptance W69/W70/W72/W73/W74, §CONTRACTS
-    CA1-CA9, §ARCH Q1-Q6 + AA1-AA3, §PLAN-AGENDA P1-P27, signoffs Define/Resolve/
-    converge-arch/converge-verify=PASS.
+    and refuted-clean: WA1-WA12, W69/W70/W72/W73/W74, CA1-CA9, PLAN agenda P1-P27
+    (P8 absent in the source and carried as a non-blocking source gap), ARCH Q1-Q6/AA1-AA3.
 
-    The product repo health-ai is dirty input, not authority. It will be cleared and rebuilt in
-    place at build time only after explicit owner confirmation. Record current branch/status before
-    any clearing. If the owner does not confirm the wipe, return blocked without clearing.
+    health-ai t-1 evidence:
+    - commit a67a34e core acceptance harness: map converged spec
+    - pushed to origin/main
+    - harness paths: acceptance/core/matrix.json, acceptance/core/fixture-map.md,
+      acceptance/core/fixtures/core-only/fixture.json, tools/check_acceptance_matrix.py
+    - check output: python tools/check_acceptance_matrix.py => PASS; 17 acceptance rows,
+      9 contract rows, 27 PLAN rows, 9 architecture inputs, blocker gaps 0, destructive clear false.
 
-    PLAN agenda to carry as input evidence, not Direction OS done_when:
-    P1 file/dir layout + YAML frontmatter schema; P2 resolve-on-read file layout; P3 chat-to-GitHub
-    write-back path per provider; P4 formula/constant set + min-data window; P5 instruction-file
-    budgets; P6 constrained-vocab literal tokens; P7 owner_facts/derived_anchors field table +
-    rationale/evidence schema; P9 safety floor + protein magnitudes; P10 phase counts/weeks;
-    P11 phase enum labels; P12 PLAN/LOG naming + frontmatter; P13 biofeedback scale items;
-    P14 cadence magnitudes; P15 parse materiality cutoff + wording; P16 question-order weights;
-    P17 confidence/source schema tokens; P18 food-record schema + source-id + slug grammar;
-    P19 procedure-definition contract template; P20 extension registry path + line grammar +
-    folder structure; P21 module attach-point + x_key syntax; P22 carb-by-day_type tiers;
-    P23 schema_version + migration-note + back-compat reader rule; P24 rounding/precision
-    magnitudes; P25 thin always-loaded index + lazy-load policy; P26 program-resume/re-anchor
-    algorithm; P27 autonomy-dial labels.
-
-    Architecture-on-paper input evidence: Q1 pure resolve-on-read; Q2 read-only git/connector
-    Direction OS read; Q3 one entity per small file; Q4 additive namespaced extension over frozen
-    core value grammar; Q5 two declarative extension classes; Q6 one-entity commit + lint barrier +
-    append-only LOG + single-writer residual risk; AA1 work-actually-done progression; AA2 thin index
-    + lazy-load context strategy; AA3 cache-vs-derive remains a PLAN fork only.
+    Wipe/dirty-input status from t-1: pre-work product repo status was main...origin/main with clean
+    porcelain; no clear, wipe, reset, or delete was performed; owner wipe confirmation was not requested
+    because t-1 did not perform clearing. The existing nutrition-first v1 input still exists and is not
+    authority. Record current branch/status again before t-2 work. If destructive cleanup is needed,
+    ask the owner explicitly first; without that confirmation, return blocked without clearing.
   boundaries: |
-    Do not clear, delete, reset, or wipe health-ai until the owner explicitly confirms that action.
+    Do not clear, delete, reset, or wipe health-ai until the owner explicitly confirms that action in-session.
     Do not store raw daily health data in Direction OS.
     Do not build nutrition or training/activity modules.
     Do not build app UI, runtime, DB, server, cron, or automatic scheduler.
     Do not make medical prescriptions.
-    The executor owns implementation details; keep Direction OS changes out of the product repo.
+    Keep Direction OS changes out of the product repo.
   done_when: |
-    A commit or patch in health-ai produces the t-1 acceptance harness and fixture map:
-    - Owner wipe confirmation is recorded before any clearing, or the task returns blocked without clearing.
-    - Every copied acceptance row is present in the harness with a planned file/check/evidence target:
-      WA1 Two providers reading the same files reach the same computed answer for any derived number.
-      WA2 The system asks only for irreducible un-researchable personal facts + sustainable logging cadence.
-      WA3 A daily prescription is verifiable as derived from anchors+formula, not stored as a literal.
-      WA4 PLAN files and LOG files are non-overlapping.
-      WA5 The three shared metrics are defined once in the core.
-      WA6 Two providers parsing the same input against the same library files produce the same numeric record.
-      WA7 Every parse/clarify question is non-blocking with graceful default and no re-ask.
-      WA8 Adding a new domain requires exactly 1 folder + 1 registry line and no core rewrite.
-      WA9 A module attaches as a thin additive layer and never edits any core file.
-      WA10 Modules consume core-owned concepts and do not redefine or duplicate them.
-      WA11 The Health AI repo contains zero reference to or dependency on Direction OS.
-      WA12 Two providers operating the same core + attached module reach the same shared state.
-      W69 The core declares the smallest tracked-signal set and biases adherence over completeness.
-      W70 Red-flag/symptom halts progression, surfaces to owner, and recommends medical check non-diagnostically.
-      W72 Minted slugs never change; relabels are display-only.
-      W73 A minimal core-only program/day is exhibited from core-owned leaves alone.
-      W74 Graceful-default-on-decline never fabricates irreducible owner_facts; reduced mode works.
-    - Every copied contract is present in the harness with a planned file/check/evidence target:
-      CA1 one-way Direction OS read visibility, zero Health AI dependency on Direction OS.
-      CA2 daily prescription resolve-on-read from program + anchors.
-      CA3 core publishes {phase, week, day} back-reference to LOG and modules.
-      CA4 module attach reads phase + metric trio and writes only namespaced fields.
-      CA5 coarse day_type provenance: logged overrides planned fallback for nutrition carb target.
-      CA6 reusable template is core-owned, not nutrition-owned.
-      CA7 core parse/library/value-grammar/procedure surface is reusable by modules.
-      CA8 schema_version + forward migration is core-owned and inherited by modules.
-      CA9 convention-carrier checklist is the determinism seam across providers.
-    - A minimal core-only fixture exists or is precisely specified for WA73.
-    - The task reports blocker gaps explicitly; zero blocker gaps are required to proceed cleanly to t-2.
+    - Core files cover schema_version/migration notes, profile owner_facts/derived_anchors,
+      program-as-plan, PLAN/LOG separation, formulas/rounding, shared metrics/phase/review,
+      parse/library surface, procedure/extension registry, and convention carriers.
+    - AGENTS.md, CLAUDE.md, and portable system-prompt carry the determinism-load-bearing checklist.
+    - YAML/frontmatter parsing and documented formula checks pass on the core-only fixture.
+    - No app UI, runtime, DB, cron, nutrition module, or training module is built.
   return: |
-    RESULT with commit/patch evidence, check output if available, wipe-confirmation evidence or blocked status,
-    blocker-gap list, and next CALL for t-2 if unblocked.
+    RESULT with commit/patch evidence, check output, wipe-confirmation evidence or no-clear/blocked status,
+    blocker-gap list, and next CALL for t-3 if unblocked.
   budget: one focused half-day
   surface: Codex or Claude Code in product repo
 
