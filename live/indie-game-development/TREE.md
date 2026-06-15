@@ -124,7 +124,14 @@ root:
          once g-9c41 exists (timeboxed layer over the harness, not a separate project).
       6. Owner's explicit verdict recorded: proud of this design.
     status: parked
-    detail: history/s-map-002.md
+    detail: |
+      history/s-map-002.md. CANON TRACK (wired 2026-06-15): this node is worked in PARALLEL as the
+      creative/canon track. Content repo github.com/ainazemtsau/gas_coop_game_canon (clone
+      C:\projects\gas_coop_game_canon). Procedures: local/canon-forge (forge ONE question — 3 options →
+      owner picks → draft → craft gates → optional consistent images → freeze a canon card) and
+      local/canon-status (render-only — what is actionable / parallel / blocked / cluster-ready).
+      Full design + form-plan: work/canon-track-design-2026-06-15.md. Advanced via canon-forge sessions
+      in separate chats; NOT a second active bet — stays parked, the g-9c41 bet is untouched (G1).
 
   - id: g-7e15
     goal: |
