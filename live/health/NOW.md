@@ -69,6 +69,19 @@ active_bet:
   against: >
     The strongest case against is that the copied acceptance/contract matrix is too large for
     3 focused half-days, or that provider-independence cannot be evidenced without a heavier harness.
+  review_status: partially_met_pending_cross_family_g5
+  review_checkpoint: 2026-06-15 c-health-core-review-001
+  product_evidence_status: clean_prepass
+  product_evidence_commits:
+    - a67a34e109aac5f70284b048af4480be38fb8cd5
+    - ee25a894e22d83485525f7d798f02e0fa9d48189
+    - 8bc980ad21d3f54cbd27b28dcb363e0198c46751
+  product_blocker_gaps: 0
+  non_blocking_gaps:
+    - P8
+    - existing-v1-input
+  binding_g5_status: missing_cross_family
+  verdict: partially_met
 
 tasks:
   - id: t-1
@@ -117,61 +130,89 @@ tasks:
 recurring: []
 
 open_calls:
-  - id: c-health-core-review-001
+  - id: c-health-core-cross-family-g5-002
     to: session
-    for: g-health-core review
+    for: g-health-core binding cross-family G5 review
     issued: 2026-06-15
     note: >
-      Fresh review/refutation of g-health-core. Binding G5 should be cross-family,
-      ideally Claude; Codex can only be a same-family pre-pass.
+      Product evidence pre-pass is clean, but g-health-core cannot close until a non-OpenAI
+      family, ideally Claude, freshly tries to refute WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9,
+      check output, gap classification, and Direction OS boundary.
 
-decisions: []
+decisions:
+  - id: d-health-next-bet-after-core-g5
+    status: awaiting_owner
+    question: >
+      If cross-family G5 returns met, which next bet should health shape next?
+    options:
+      - A: Shape g-health-nutrition-system next.
+      - B: Shape g-health-training-activity-system next.
+      - C: Pause the direction after core and review priorities.
+    recommendation: A
+    activation_condition: only after binding cross-family G5 returns met.
 
 next: |
-  CALL c-health-core-review-001
+  CALL c-health-core-cross-family-g5-002
   to: session
   direction: health
   play: review
   node: g-health-core
   goal: |
-    g-health-core has a verified bet verdict and the direction has a ready next-bet decision.
+    g-health-core has a binding cross-family G5 verdict: met, partially met, or not met.
   context: |
-    Direction OS state: live/health/CHARTER.md, live/health/TREE.md, live/health/NOW.md.
-    Converged spec: live/health/work/converge-g-health-core.md.
+    Previous review checkpoint: c-health-core-review-001 returned partially_met because product
+    evidence is clean but binding cross-family G5 is missing.
 
-    health-ai evidence so far:
-    - t-1 commit a67a34e core acceptance harness: map converged spec; pushed to origin/main
-    - t-2 commit ee25a89 core slice: replace v1 structure; pushed to origin/main
-    - t-3 commit 8bc980a core evidence: package t-3 dry-run proof; pushed to origin/main
-    - key evidence paths: acceptance/core/matrix.json, acceptance/core/evidence-summary.md,
-      acceptance/core/fixtures/core-only/fixture.json, tools/check_acceptance_matrix.py,
-      tools/check_core_slice.py, tools/check_core_evidence.py
-    - wipe evidence: acceptance/core/clearance.md records owner confirmation before t-2 destructive clear.
-    - latest checks after t-3:
+    Direction OS state:
+    - live/health/CHARTER.md
+    - live/health/TREE.md
+    - live/health/NOW.md
+    - live/health/work/converge-g-health-core.md
+
+    health-ai product evidence:
+    - t-1 commit a67a34e109aac5f70284b048af4480be38fb8cd5
+      "core acceptance harness: map converged spec"
+    - t-2 commit ee25a894e22d83485525f7d798f02e0fa9d48189
+      "core slice: replace v1 structure"
+    - t-3 commit 8bc980ad21d3f54cbd27b28dcb363e0198c46751
+      "core evidence: package t-3 dry-run proof"
+    - key paths:
+      acceptance/core/matrix.json
+      acceptance/core/evidence-summary.md
+      acceptance/core/fixtures/core-only/fixture.json
+      acceptance/core/clearance.md
+      tools/check_acceptance_matrix.py
+      tools/check_core_slice.py
+      tools/check_core_evidence.py
+
+    Same-family pre-pass findings to refute:
+    - matrix carries WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
+    - evidence-summary reports:
       python tools/check_acceptance_matrix.py => PASS; 17 acceptance rows, 9 contract rows,
       27 PLAN rows, 9 architecture inputs, blocker gaps 0.
       python tools/check_core_slice.py => PASS; 32 core files, schema/frontmatter ok,
-      matrix target files ok, WA73 formula check ok, PLAN/LOG separation ok,
+      matrix target files ok, WA73 formula ok, PLAN/LOG separation ok,
       forbidden module/runtime directories absent.
       python tools/check_core_evidence.py => PASS; 11 dry-run scenarios, 26 acceptance/contract
-      rows pass, 0 fail, blocker gaps 0; non-blocking gaps P8 and existing-v1-input.
-    - G5 note: t-3 was executed by Codex/OpenAI. A Codex validator can only do a same-family
-      pre-pass; binding G5 verification should be a fresh cross-family pass, ideally Claude.
+      rows pass, 0 fail, blocker gaps 0.
+    - non-blocking gaps: P8 and existing-v1-input; existing-v1-input should be checked against
+      acceptance/core/clearance.md owner confirmation.
+    - binding G5 has NOT yet happened; do not treat Codex/OpenAI evidence as binding.
   boundaries: |
     Do not store raw daily health data in Direction OS.
     Do not build or change product repo implementation during review.
     Do not build nutrition/training/activity modules, app UI, runtime, DB, server, cron, or scheduler.
     Do not make medical prescriptions.
-    Do not treat the Codex t-3 pass as the binding cross-family G5 pass.
+    Do not treat Codex/OpenAI t-3 or ChatGPT review as binding cross-family G5 evidence.
   done_when: |
-    - g-health-core has a review verdict: met, partially met, or not met.
-    - The verdict explicitly handles WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9, check output,
-      gap classification, and the cross-family G5 status.
-    - Direction state is updated according to the review verdict, with any TREE changes owner-approved.
-    - The next-bet decision is ready or awaiting owner decision.
+    - Fresh cross-family refutation explicitly handles WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
+    - It explicitly handles check output, gap classification, product scope cuts, owner clearance, and Direction OS boundary.
+    - It returns a binding G5 verdict: met, partially met, or not met.
+    - If met, it prepares owner-facing decisions for approving any TREE status change and choosing the next bet.
+    - If not met or partially met, it returns exact blocker/refutation gaps and the next CALL.
   return: |
-    RESULT with review verdict, refutation evidence, state_changes, decisions_needed, and next CALL/awaiting_decision.
-  budget: one review session
-  surface: Claude preferred for binding cross-family G5; Codex only for same-family pre-pass
+    RESULT with binding cross-family verdict, refutation evidence, state_changes, decisions_needed, and next CALL/awaiting_decision.
+  budget: one focused cross-family review session
+  surface: Claude preferred / non-OpenAI family required for binding G5
 
 END_OF_FILE: live/health/NOW.md
