@@ -113,13 +113,17 @@ open_calls:
       feedback. NAME the deferral, do not silently drop it. Fold the Wave-2
       cleanup card (Codex round-3). converge-arch c-converge-002 contracts feed this. Builds on ADR-0004 §LOCK +
       knowledge/g9c41-wave1-*.
-      ⚠ CONTRACT GATE (UPDATED 2026-06-16 — c-converge-003 DONE): the 2 verify holes are REPAIRED (F1 coarse-tier
-      replication = CR1/CR2/CR3; F2 dissolved via XL1/XL2 re-scope + d-tempfeedback-001). The §CONTRACTS set is now
-      pending ONLY a clean fresh re-verify (c-converge-verify-002, ready). The bet-SPINE shape may proceed (verify
-      is parallel/non-gating to the spine) but MUST NOT bind §CONTRACTS into executor done_when until the re-verify
-      is clean — treat the contracts as DRAFT until then. NOTE: rewording TREE crit-10 to NAME the temperature→gas
-      feedback deferral (per d-tempfeedback-001) is THIS shape's G9 job — the contract-coverage of crit-10
-      (ORACLE-NMTL class 10) is contingent on it.
+      ✅ CONTRACT GATE LIFTED (2026-06-16 — c-converge-verify-002 PASSED CLEAN): the §CONTRACTS set is VERIFIED
+      (independent fresh-session re-refutation across 4 axes + 3 adjudications, 0 BLOCKs). The contracts are NO
+      LONGER DRAFT — shape MAY now BIND them into executor done_when: copy the §CONTRACTS acceptance + the §WHAT
+      `acceptance` rows (binding by G5) and carry the `→PLAN` rows (CR1 carrier/interest-mechanism; CR2
+      Q_coarse/divergence-bound/coarse-settle/coarse-mass-bound/seam-composition; CR3 coarse representation;
+      band-handoff prep-window; cross-tier coordinate mapping) as the PLAN-agenda. Carry the 4 converge-verify
+      CAPTUREs: V2-1 (size coarse-grid bandwidth from the ON-WIRE keyframe-inclusive ~11k basis, NOT A8.4's stale
+      delta-only wording); V2-2 (keep CR1 "entitled" anchored to gameplay-reach, never the streamed window); V2-3
+      (exercise the COARSE per-band temperature READ in PLAN tests). V2-4 = THIS shape's G9 job: reword TREE
+      done_when #10 to NAME the temperature→gas feedback deferral (d-tempfeedback-001) — the sink ALREADY
+      satisfies the literal frozen crit-10 (verify CONFIRMED this), so the rewording is TREE-honesty, NOT a gate.
   - id: c-map-003
     status: done   # 2026-06-16 CLOSED (s-map-003) — clip-trigger RESOLVED (re-hung on g-2f8c's first artifact; teeth = Wave-2 terminus + 08-31 page date); +g-2f8c (generative marketing process); (a) artifact node REJECTED as crutch (owner); (b) co-op-interdependence DEFERRED → c-map-004. NOW spine untouched (Wave 2 stays next).
     note: |
@@ -200,17 +204,22 @@ open_calls:
       READ-READY seam (a layer can be READ on a committed revision per OR1/OR2/GG2), feedback NOT required
       this wave. Then re-verify.
   - id: c-converge-verify-002
-    status: ready   # 2026-06-16 framed at converge-arch repair (c-converge-003) — fresh-session re-verify of the repaired §CONTRACTS set
+    status: done   # 2026-06-16 PASSED CLEAN (s-converge-verify-002) — independent fresh-session re-refutation of the repaired §CONTRACTS set; §SIGNOFF: converge-verify passed → shape may CONSUME the contracts
     note: |
       NARROW fresh-session converge-verify (binding G5) of the REPAIRED §CONTRACTS set (section H CR1/CR2/CR3 +
-      re-scoped XL1/XL2 + §RESOLVED-4 + GG4 bounds + CS3). Must run in a FRESH session (a different model family
-      is optional extra rigor, not required). SCOPE: firewall + no-lock-reopen NARROW to the new/edited entries;
-      but NO-LEANING + consumer-independence RE-TRACED across every contract that cites a CR-row or §RESOLVED-4
-      (≥ OR2, OR3, GG4, OR4, crit-3/crit-9). Explicitly adjudicate: the class-20 interest-set COVERAGE FLOOR
-      (genuinely ✓ vs a deferral); the coarse-temperature PER-LAYER discharge of XL1 (CR1/CR2/CR3 per-layer, NOT
-      §T12); and that class-10 ✓ is CONTINGENT on the c-shape-wave2 G9 crit-10 rewording. Reuse ORACLE-NMTL
-      (propose as canon). Clean → §SIGNOFF: converge-verify passed → shape may CONSUME the contracts; a real new
-      gap → BLOCKED close + named repair (not self-certified). Full CALL in history/s-converge-003.md RESULT.next.
+      re-scoped XL1/XL2 + §RESOLVED-4 + GG4 bounds + CS3). VERDICT = PASSED CLEAN. Four axes attacked
+      (completeness / firewall / no-lock-reopen narrowed to new/edited; no-leaning + consumer-independence
+      re-traced across every CR-/§RESOLVED-4-citing contract) + the 3 mandated adjudications, adversarially
+      cross-examined (14 agents). 0 BLOCK-severity holes: the F1 closure (CR1/CR2/CR3 coarse-tier replication +
+      consistency, per-layer incl. coarse temperature) and the F2 dissolution (XL1/XL2 sink re-scope) HOLD;
+      ORACLE-NMTL 25/25 re-confirmed; nothing re-opens the LOCK. A BLOCK was proposed (CR1 coverage-floor
+      "entitled" term) and ADJUDICATED DOWN — the floor is a falsifiable observable; the proposed fix would
+      itself be a firewall leak. The 3 adjudications = genuine ✓: (1) interest-set coverage floor closed; (2)
+      coarse-temperature per-layer discharged (no §T12 lean); (3) class-10 — the sink satisfies the LITERAL
+      frozen crit-10 (INDEPENDENTLY CONFIRMED), so the rewording is a forward TREE-honesty mandate, non-gating.
+      4 non-blocking CAPTUREs forwarded to c-shape-wave2 (V2-1 keyframe-inclusive bandwidth basis / A8.4 stale;
+      V2-2 entitlement anchored to gameplay-reach; V2-3 exercise the coarse temperature READ; V2-4 crit-10 G9
+      rewording). → §VERIFY-2 + §SIGNOFF in work/converge-g-9c41.md + history/s-converge-verify-002.md.
   - id: c-shape-004
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 

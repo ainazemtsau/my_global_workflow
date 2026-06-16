@@ -1172,4 +1172,133 @@ untouched). The BINDING independent refutation is the next FRESH converge-verify
 - `close & route: next = a NARROW fresh converge-verify on the repaired set (section H + re-scoped XL1/XL2 +
   §RESOLVED-4 + minors) → then c-shape-wave2 consumes the VERIFIED contracts.`
 
+## §VERIFY-2 (converge-verify RE-RUN — c-converge-verify-002, 2026-06-16) — VERDICT: PASSED CLEAN
+
+> The narrow BINDING re-refutation (G5, a SEPARATE fresh session — NOT the c-converge-003 repair session, NOT
+> its in-session pre-pass wf_b5e55d56-406) of the REPAIRED surface: §CONTRACTS section H (CR1/CR2/CR3), re-scoped
+> XL1/XL2, §RESOLVED-4, GG4 bounds (C22/CR1/CR2), CS3. Attacked on the FOUR axes — firewall + no-lock-reopen
+> NARROWED to the new/edited entries; NO-LEANING + consumer-independence RE-TRACED across every contract citing a
+> CR-row or §RESOLVED-4 — with the three CALL-mandated adjudications, then each finding adversarially
+> cross-examined to kill plausible-but-wrong holes. ORACLE-NMTL reused (still proposed canon). Checked vs the
+> VERBATIM LOCK (s-converge-verify-001 §APPENDIX). RESULT: 0 BLOCK-severity holes survive; the F1 closure and the
+> F2 dissolution HOLD; the repaired set is VERIFIED. 4 non-blocking CAPTUREs carried forward to c-shape-wave2 / PLAN.
+
+### Re-run method
+Independent fan-out (14 agents): one skeptic per axis/adjudication prompted to BREAK the set, each finding
+cross-examined by a second independent skeptic prompted to REFUTE it (default-refuted unless it survives a
+charitable read). The fresh main session is the BINDING reviewer; it adjudicated every finding against the
+verbatim LOCK + the contracts — NOT by vote. One BLOCK was proposed (no-leaning, on the CR1 coverage floor) and
+adjudicated DOWN to CLEAN; the only surviving items are 4 non-blocking CAPTUREs.
+
+### Four axes — all PASS (on the repaired surface)
+- **COMPLETENESS — PASS.** ORACLE-NMTL 25/25 independently re-confirmed (not by trusting the §REPAIR re-map):
+  class 6 (CR1/CR2/CR3) closes all three F1 silent PLAN escapes (host-only / float-hash-breaks-bit-exact /
+  un-named coarse divergence bound); class 9 (XL2 coherent under the sink — locked C21 byte-identical holds
+  LITERALLY for independent/sink layers); class 10 (XL1 sink + §RESOLVED-4 + locked bus — adjudication 3); class
+  20 (CR1 coverage floor + OR2 entitlement-overlap — adjudication 1); class 22 (CS3 explicit named deferral). No
+  oracle class missed now that coarse replication is explicit — the tier-transition / newly-entitled-region race
+  is covered by COMPOSITION (CR1 coverage floor + GG4/OR4 no-jerk-on-entry + class 13), not uncontracted. Atomic
+  split of the compound criteria: crit-3 (all clauses → I6–I11 + CR1/CR2 + GG1/GG3 + A2.x + C16 + B15), crit-10
+  (all clauses → adjudication 3), crit-9 (7/8 map; the c-review-001 keyframe-inclusive bandwidth basis carried by
+  the crit-9 text + knowledge/g9c41-wave1-hold-mechanism-lossy-projection + CR1/CR2 — see CAPTURE V2-1).
+- **FIREWALL — PASS (new/edited entries).** Observables carry properties/shapes; every HOW (push/poll, wire/byte
+  format, cadence, layout, magnitude) routes →PLAN. The XL1 MECHANISM-paragraph trim (the verify-001 borderline)
+  is REAL — moved to §RESOLVED-4 + PLAN; §RESOLVED-4 keeps delivery (sync-pull vs subscription) →PLAN. Closest
+  borderline = CR3 naming "integer/fixed-point" in its observable — CONFIRMED CLEAN: it names the LOCKED I4/C1
+  integer-only-authoritative discipline EXTENDED to the new tier (a frozen invariant, not a fresh HOW); the open
+  representation magnitude (bit-width, scale, integer-native vs float-then-quantize, the reduction rule) is →PLAN.
+  (Parallel to verify-001's XL1-MECHANISM borderline.)
+- **NO-LEANING — PASS.** The four F1 leans now cite CR1/CR2/CR3 (crit-3 → CR1/CR2 bounds; crit-9 → CR1 "the
+  on-wire coarse cell-count crit-9 sizes IS this replicated state"; OR2-on-a-client → CR1 peer-to-peer
+  consumer-independence; GG4/OR4 amount-invariance → CR1/CR2/C22 + OR1). CR1/CR2/CR3's OWN foundations trace to
+  cited/locked/signed facts (CR2 → I7/I8/I10; CR3 → I1/I4/C1/C19; CR1 host-only-decided-out → the owner-signed
+  read-gas core mechanic + OR1/OR2 consumer-independence + crit-9 corroboration). A BLOCK was proposed here (CR1
+  leans on the undefined term "entitled-query set", untraceable for the RN1 visual consumer) and ADJUDICATED
+  DOWN: the floor is a UNIVERSALLY-QUANTIFIED falsifiable observable (it holds for-all-entitled-queries without a
+  closed-form entitlement set), and the proposed fix (pin each consumer's query domain inside the contract) would
+  itself be a FIREWALL LEAK — confirming the contract is RIGHT to route the entitlement MECHANISM →PLAN. (→ CAPTURE
+  V2-2.)
+- **NO-LOCK-REOPEN — PASS (new/edited entries, vs verbatim LOCK).** CR1 carrier: a NEW coarse resolutionKey value
+  AND the barrier-table re-size are SURFACED as locked-wire-enum / table extensions per the LOCK's own "SHALL
+  re-size" (the standard verify-001 already blessed for XL2), never silently assigned. CR3 EXTENDS the I4/C1
+  no-float-in-authoritative-state discipline + references (does not redefine) CellHash.FoldLayer + the [2,4]
+  table. XL1 (feedback deferred) leaves GridEventKind + §T12 + C21 UNTOUCHED (temperature pure sink; no
+  temperature-sourced event). §RESOLVED-4 reads only COMMITTED revisions (never live mid-tick state) — preserves
+  the locked single-writer-per-(LayerKey,phase) determinism. XL2 table-resize surfaced. CS3 names the future
+  versioned surface (wire header + GridEventKind + barrier-table) without redefining it.
+
+### The three mandated adjudications
+1. **Class-20 interest-set COVERAGE FLOOR — GENUINELY ✓ (a closed observable, NOT a deferral).** It escapes both
+   horns of the dilemma: (a) "entitled" is NOT OR2's "answer everywhere" — OR2 is a tier-RESOLUTION floor (no
+   queried point falls below coarse to undefined), NOT a spatial-entitlement-everywhere claim — so there is no
+   whole-level-replication mandate and no inconsistency with the "host-only UNTIL a consumer becomes entitled"
+   note; (b) it is NOT a tautology — entitlement is set UPSTREAM by gameplay role (actor position per OR3 /
+   render view), INDEPENDENT of the network relevance mechanism the floor constrains. The floor ("interest set ⊇
+   entitled-query set; the relevance scheme may scope WHAT a client holds but may NEVER exclude an entitled
+   query") is a falsifiable invariant (construct an actor entitled per OR3 to region R, omit R from the stream,
+   the client far-AI sees a gap → FAIL) — teeth, testable once PLAN fixes the entitlement computation. → CAPTURE
+   V2-2 (keep "entitled" anchored to gameplay-reach, never the streamed window).
+2. **Coarse-temperature PER-LAYER discharge of XL1 — GENUINE ✓.** CR1/CR2/CR3 carry the per-layer obligation
+   INLINE (not only the §H header): each names "the coarse temperature layer('s per-band energy/temperature
+   state, A8.8)". The discharge is real: coarse temperature HAS a defined coarse state (A8.8); the sink
+   (gas-reaction-driven) runs HOST-only and its authoritative coarse result replicates, the client RECONSTRUCTS
+   from exact wire (I1) — no hidden client re-sim; the coarse obligation is DERIVED from CR1/CR2/CR3 per-layer,
+   NOT from §T12 (explicitly dis-anchored — §T12 proves only the FINE 16-cell toy scene); PUSH (CR1/CR2/CR3) and
+   PULL (§RESOLVED-4 read seam) are DISTINCT obligations and the PULL-on-a-client is FED BY the CR1-replicated
+   PUSH state (stated, not assumed). → CAPTURE V2-3 (exercise the COARSE per-band temperature READ in PLAN tests).
+3. **Class-10 ✓ CONTINGENCY — GENUINE ✓, INDEPENDENTLY CONFIRMED (per the CALL: "CONFIRM, not assume shape did
+   it").** The literal frozen crit-10 splits into 10a (≥2 layers ride ONE seam, networked-consistent together →
+   XL1 + XL2), 10b (a cross-layer interaction observable, "reaction/heat → temperature responds" → XL1 SINK —
+   this is the gas→temperature direction; FEEDBACK is the REVERSE arrow, NOT named by the frozen text), 10c (a
+   new layer plugs in without core edits → XL2), 10d (a REAL controlled wall-breach → GG3 / CS1). All four are
+   covered NOW by the sink-only set. The "feedback" requirement was a beyond-frozen-text tightening a prior shape
+   was to fold in — now deferred (d-tempfeedback-001). So contract coverage vs the LITERAL frozen crit-10 is
+   COMPLETE; the contingency is NOT circular (a clean verify UNBLOCKS shape, then shape rewords crit-10 as its G9
+   TREE-honesty job, downstream). The verdict is therefore NON-contingent from the contract gate's standpoint.
+   → CAPTURE V2-4 / forward mandate.
+
+### CAPTUREs (non-blocking — carried to c-shape-wave2 / PLAN; verify writes no contracts)
+- **V2-1 (crit-9 bandwidth basis):** the crit-9 PLAN/validation pass must compute coarse-grid bandwidth from the
+  ON-WIRE keyframe-inclusive basis (~11k lossy cells — the crit-9 refined text + the knowledge file + CR1/CR2
+  coarse-keyframe-cadence →PLAN), NOT A8.4's literal "measured dirty-chunk size" (a delta-only number = the
+  ~5.3× optimistic basis the c-review-001 refinement rejects). A8.4 + the §COVERAGE-MAP crit-9 row are STALE
+  w.r.t. the post-FORM-pass crit-9 refinement and should be freshened at the next converge-arch / audit touch
+  (outside this verify's write scope).
+- **V2-2 (entitlement anchoring):** keep CR1's "entitled" anchored to gameplay-reach (actor position / render
+  view per OR2/OR3), never silently re-bound to the streamed interest window (which would degrade the coverage
+  floor to a tautology); the "a client far-AI/visual querying an entitled region sees no gap" acceptance is the
+  teeth.
+- **V2-3 (coarse temperature read):** exercise the COARSE per-band temperature PULL (read-model on a committed
+  revision) at coarse scale in PLAN tests, mirroring the coarse PUSH CR1/CR2/CR3 mandate — not only the fine
+  per-room read the §RESOLVED-4 illustration shows.
+- **V2-4 (crit-10 TREE honesty):** c-shape-wave2 G9 rewords TREE done_when #10 to NAME the temperature→gas
+  feedback deferral (d-tempfeedback-001) so the done_when stops implying feedback — non-gating; a TREE-honesty
+  obligation, NOT a contract gate. The sink already satisfies the literal frozen crit-10 (confirmed).
+
+### play_check (converge-verify re-run)
+- `1 recite: two propositions stated (repaired set COMPLETE; no answer leans/leaks)` (done)
+- `2 attack-completeness: ORACLE-NMTL (reused, re-proposed canon) 25/25 independently re-confirmed; crit-3/9/10
+  atomically split, all clauses map (crit-9 keyframe-basis = CAPTURE V2-1, non-blocking); no missed class — PASS`
+  (done)
+- `3 attack-smuggling: firewall PASS (HOW→PLAN; CR3 integer-discipline borderline confirmed clean; XL1
+  MECHANISM-trim real); no-leaning PASS (four F1 leans now cite CR1/CR2/CR3; CR1/CR2/CR3 trace to locked/signed;
+  the proposed BLOCK on the "entitled" term adjudicated DOWN — the floor is a falsifiable observable, the
+  proposed fix would itself be a firewall leak); no-lock-reopen PASS (CR1/CR3 surface extensions per the LOCK's
+  SHALL-re-size; XL1 leaves enum/§T12/C21 untouched; §RESOLVED-4 reads committed-only) — checked vs verbatim
+  ADR-0004 §LOCK + ADR-0003 C1–C22` (done)
+- `3b adjudications: (1) interest-set coverage floor GENUINELY ✓; (2) coarse-temperature per-layer discharge
+  GENUINE ✓; (3) class-10 ✓ INDEPENDENTLY CONFIRMED (sink satisfies the literal frozen crit-10) — rewording is a
+  forward TREE-honesty mandate, non-gating` (done)
+- `4 close: PASSED CLEAN — §SIGNOFF written; 0 BLOCKs; 4 non-blocking CAPTUREs forwarded; next = c-shape-wave2
+  CONSUMES the VERIFIED contracts. Not two-strikes (F1/F2 re-closed; this re-verify passes clean)` (done)
+
+## §SIGNOFF — converge-verify
+
+`§SIGNOFF: converge-verify passed @ 2026-06-16 (c-converge-verify-002).` The repaired §CONTRACTS set (section H
+CR1/CR2/CR3 + re-scoped XL1/XL2 + §RESOLVED-4 + GG4 bounds + CS3) passes an independent fresh-session refutation
+across all four axes with the three mandated adjudications resolved as GENUINE ✓ and ZERO BLOCK-severity holes.
+Shape (c-shape-wave2) MAY now CONSUME the contracts as VERIFIED — copy the §CONTRACTS acceptance + the §WHAT
+`acceptance` rows into the executor done_when (binding by G5) and carry the `→PLAN` rows as the PLAN-agenda, plus
+the 4 CAPTUREs (esp. V2-4 = the crit-10 G9 rewording).
+
 END_OF_FILE: live/indie-game-development/work/converge-g-9c41.md
