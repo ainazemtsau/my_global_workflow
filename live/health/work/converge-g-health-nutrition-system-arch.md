@@ -2,316 +2,323 @@
 # Converge-Arch — g-health-nutrition-system
 
 > Produced by converge-arch session s-health-nutrition-converge-arch-001 on 2026-06-16.
-> Assembly surface only; not a state file.
-> Status: CLOSED CONTRACTS + ARCHITECTURE-ON-PAPER; route to converge-verify.
-> Authority: signed nutrition WHAT + reviewed g-health-core contracts/evidence.
-> Firewall: HOW file layout, exact schemas, field tokens, app mirrors, UI, runtime, DB, scheduler, cron, concrete formula magnitudes, and literal recipe formats stay `→ PLAN`.
+> Writer-safe repaired by c-health-nutrition-converge-arch-writer-repair-001 on 2026-06-16 after writer bounce.
+> Assembly surface only; not a Direction OS state file.
+> Authority: signed nutrition WHAT in `live/health/work/converge-g-health-nutrition-system.md`
+> + file-backed g-health-core evidence/history.
+> Status: CLOSED ARCH, route to converge-verify.
 
-## §SOURCE LOCK
+## §READ / EVIDENCE
 
-Closed sources consumed:
-- live/health/work/converge-g-health-nutrition-system.md:
-  signed nutrition WHAT W1-W13; owner approved Define @ 2026-06-16 ("A — да, подписываем") and WHAT @ 2026-06-16 ("A").
-- live/health/work/converge-g-health-core.md:
-  core §CONTRACTS CA1-CA9 and shared concepts: profile/anchors, phase/week/day, metric trio, PLAN-vs-LOG, parser/library/procedure surface, attach contract, schema/versioning.
-- live/health/knowledge/health-core-corrected-g5-review.md:
-  g-health-core met corrected G5; product evidence had zero blocker gaps across WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
-- health-ai core files:
-  core/extensions/attach-contract.md, core/metrics.md, core/profile/owner-facts.md, core/profile/derived-anchors.md, core/intake/non-blocking-questions.md, core/parser/materiality.md, core/principles/minimum-tracked-signals.md, core/phases.md.
-- health-ai acceptance:
-  acceptance/core/evidence-summary.md and acceptance/core/matrix.json.
+- E1 — Nutrition WHAT is signed and closed in `live/health/work/converge-g-health-nutrition-system.md`.
+- E2 — Core corrected G5 binding is imported from file-backed evidence, not CALL-only import:
+  `live/health/knowledge/health-core-corrected-g5-review.md`, corresponding history RESULT,
+  and Health AI core evidence files (`acceptance/core/evidence-summary.md`,
+  `acceptance/core/matrix.json`).
+- E3 — Core attach contract: modules read `phase`, `week`, `day`, `weight_trend`,
+  `adherence`, `biofeedback`; modules write only namespaced `x_<domain>_*` fields and never
+  redefine core concepts.
+- E4 — Core procedure template contract: procedures are declarative and never self-schedule;
+  they run only when invoked by an operator.
+- E5 — Core `day_type` file is a provenance contract only: a logged override beats a planned
+  fallback when deriving coarse `day_type`; no nutrition target is implemented in core.
+- E6 — Boundaries remain unchanged: no current vitrine/Mealie/UI/app/runtime/DB/server/cron/
+  scheduler requirement; no Direction OS raw nutrition diary; no g-health-core rewrite.
 
-Owner-gate status:
-- owner_gate_batch: []
-- Reason: no new owner-owned value fork appeared. Contract and architecture picks are mechanically derived from signed nutrition WHAT plus already-reviewed core contracts. Low-level formats and magnitudes are `→ PLAN`.
+## §BOUNDARIES
 
-## §CONTRACTS — Declare
+- Nutrition is an additive Health AI module on g-health-core.
+- Nutrition consumes core profile, phase, week, day, metric/provenance, parse/materiality,
+  procedure-template, schema/versioning, and attach surfaces.
+- Nutrition writes only nutrition-namespaced artifacts/fields.
+- Direction OS may hold strategy/artifacts but does not store raw daily food, weight,
+  photo, or check-in logs.
+- No current external app/vitrine/Mealie/Notion/UI/image-sync/shopping-app dependency.
+- No runtime, DB, server, cron, scheduler, or automatic background job is required by this
+  architecture surface.
+- Nutrition does not diagnose, prescribe medically, or silently continue unsafe progression.
 
-Contract style:
-- Consumer-driven and behavioral.
-- Each row states consumer, producer, flow, direction, trigger, status.
-- HOW details stay `→ PLAN`.
+## §CONTRACTS
 
-### NCA0 — starter-kit seed intake, not authority
+Status legend: all rows are `answered`.
 
-consumer: g-health-nutrition-system.
-producer: g-health-starter-kit.
-flow: any starter-kit nutrition artifact or feedback may be read as seed/input evidence for the first nutrition source-of-truth, but it is never authority by itself. The nutrition module re-validates seed material against signed nutrition WHAT, g-health-core contracts, current owner facts, phase, and metrics before promotion.
-direction: g-health-starter-kit -> g-health-nutrition-system.
-trigger: initial nutrition source-of-truth seeding or later migration from starter material.
-status: closed. Producer node exists and is done. Exact seed file path and promotion mechanics `→ PLAN`.
+### NCA0 — Starter-kit seed intake
 
-### NCA1 — nutrition module attach and canonical nutrition source-of-truth
+status: answered
 
-consumer: g-health-nutrition-system.
-producer: g-health-core.
-flow: nutrition attaches as an additive module on Health AI core. It consumes core-owned profile/anchors, phase/week/day, metric trio, PLAN-vs-LOG, parser/library/procedure surface, schema/versioning, and attach contract. Nutrition writes only nutrition-namespaced artifacts/fields and never redefines core concepts.
-direction: g-health-core -> nutrition for shared concepts; nutrition -> nutrition namespace only for module artifacts.
-trigger: module registration, nutrition computation, nutrition logging, nutrition review, or nutrition output generation.
-status: closed. Exact domain layout, registry line, literal tokens, and file shapes `→ PLAN`.
+contract: |
+  Nutrition may collect and normalize a starter-kit seed of nutrition owner facts only:
+  allergies/intolerances, medical constraints/meds if owner-known, ethical/religious exclusions,
+  hard dislikes, budget, cooking time, equipment, schedule constraints, household/social constraints,
+  and sustainable tracking capacity.
 
-### NCA2 — personalized nutrition cycle derivation
+acceptance: |
+  The seed never asks expert variables as owner preferences. Meals/day, timing, macros, deficit,
+  protein strategy, food selection, tracking precision, and review cadence are system-decided from
+  evidence + owner facts + core profile/phase/metrics/feedback. Missing owner facts stay pending,
+  reduced-mode, or documented revisable defaults where safe.
 
-consumer: owner-facing nutrition outputs and nutrition review.
-producer: g-health-core profile/anchors + current nutrition source-of-truth.
-flow: the active nutrition cycle is derived from owner facts, pending/reduced-mode facts, system-decided nutrition variables, core phase/week/day, core metrics, nutrition rules, recipes, fallback meals, prep state, and prior review decisions. It must explain which owner facts and system decisions shaped the cycle. It is not a generic menu and not a static diet sheet.
-direction: core+nutrition source-of-truth -> active menu-cycle/eating plan outputs.
-trigger: first nutrition setup, cycle start, owner asks what to eat/cook/buy/replace, review mutation, bad-week mode, or re-solve after off-plan events.
-status: closed. Exact resolver algorithm, cycle length, and formula magnitudes `→ PLAN`.
+rejects: |
+  "Tell me how many meals per day you want" as mandatory setup; fabricated owner facts; blocking
+  first cycle because non-material owner facts are missing.
 
-### NCA3 — nutrition tracking LOG
+### NCA1 — Core attach / nutrition namespace
 
-consumer: nutrition review, nutrition outputs, and core-derived adherence/biofeedback read paths.
-producer: owner text/voice/photo input parsed through core parser/library/materiality surface and mapped to nutrition artifacts.
-flow: nutrition tracking creates Health AI LOG records sufficient for review: planned-vs-actual, substitutions, fallback use, skipped/off-plan events, rough food/portion descriptions, uncertainty/confidence, hunger/satiety/friction signals, and estimates. It does not require gram-level logging by default. It asks only materially necessary questions; unanswered/declined data becomes a revisable default or pending/reduced-mode fact under core policy.
-direction: owner input -> Health AI nutrition LOG; LOG -> review/core-derived reads.
-trigger: meal/day update, photo/voice/text food report, skipped/off-plan event, or feedback report.
-status: closed. LOG schema, confidence tokens, source tokens, and portion-estimation rules `→ PLAN`.
+status: answered
 
-### NCA4 — tracking-to-review mutation path
+contract: |
+  Nutrition attaches as one Health AI domain/module over g-health-core. It reads core-owned shared
+  concepts and writes only nutrition-namespaced artifacts/fields such as `x_nutrition_*`.
 
-consumer: nutrition source-of-truth artifacts.
-producer: nutrition review using nutrition LOG + feedback + core phase/metrics/biofeedback/adherence.
-flow: review emits a concrete decision: hold, mutate dishes, rebuild menu-cycle, update fallback meals, update prep rules, update grocery needs, update system-decided nutrition variables, refresh evidence, or brake/safety-halt. Non-braked changes may be applied by the Health AI writer under decide-and-inform; braked/safety changes require owner ratification or conservative default.
-direction: LOG+feedback+core metrics -> review decision -> nutrition artifact mutation.
-trigger: owner reports a problem, logs reveal pattern, a configured review point is reached when invoked, or safety/body-outcome signals require review.
-status: closed. Patch shape, review checklist, and mutation application mechanics `→ PLAN`.
+acceptance: |
+  A future executor can add nutrition without editing core-owned concept definitions. Core remains
+  authority for `phase`, `week`, `day`, `weight_trend`, `adherence`, `biofeedback`, parse/materiality,
+  procedure template, schema/versioning, and attach contract.
 
-### NCA5 — recipes, base-prep/reuse, grocery/prep correctness
+rejects: |
+  Standalone nutrition system that redefines profile, phase, metrics, review, logs, or core procedures.
 
-consumer: menu-cycle, grocery needs, prep plan, fallback outputs, and review.
-producer: recipes/instructions + base-prep/reused component artifacts.
-flow: recipes/instructions must be executable and connected to menu, prep, substitutions, fallback, and grocery derivation. A base-prep/reused ingredient is a first-class reusable component with planned production and planned uses, so grocery/prep needs neither double-count nor omit shared preparation when one component feeds multiple meals.
-direction: recipes/base-prep -> menu/prep/grocery/review outputs.
-trigger: recipe creation/update, menu-cycle build, grocery derivation, prep-plan generation, fallback update, or review mutation.
-status: closed. Exact component data model, quantity math, pantry assumptions, and grocery list shape `→ PLAN`.
+### NCA2 — Personalized nutrition cycle derivation
 
-### NCA6 — bad-week mode and safety interaction
+status: answered
 
-consumer: owner-facing nutrition process and review.
-producer: nutrition fallback/lazy-food library + core safety/red-flag policy + core minimum tracked-signal principle.
-flow: bad-week mode is a valid reduced nutrition process: fallback/lazy-food minimums, relaxed-but-nonzero tracking, fewer decisions, and safe defaults. Safety/crash-diet boundary overrides nutrition progression: red flags, symptoms, unsafe deterioration, or below-floor proposals halt progression or switch to conservative mode with non-diagnostic medical-check language.
-direction: safety/fallback rules -> active reduced process and review constraints.
-trigger: low time, stress, absence, repeated adherence drop, owner asks for lazy mode, safety flag, or braked nutrition proposal.
-status: closed. Fallback minimums, red-flag threshold list, calorie/protein floors, and bad-week entry/exit mechanics `→ PLAN`.
+contract: |
+  Nutrition produces an active nutrition cycle by resolving owner facts + core profile/phase/metrics
+  + system-decided nutrition variables into menu-cycle/eating-plan, recipes/instructions, base-prep,
+  grocery needs, fallback meals, tracking instructions, and review cadence.
 
-### NCA7 — future integration seam, not current app requirement
+acceptance: |
+  First cycle is personalized and explains which owner facts/core facts/system decisions shaped it.
+  It is not a generic diet sheet or quick menu detached from profile/process.
 
-consumer: future external mirror/vitrine/app, if later built; current chat/Health AI outputs remain primary.
-producer: canonical nutrition artifacts.
-flow: nutrition artifacts remain structured enough for future mirroring of recipes, menu-cycles, grocery needs, prep plans, images, or app displays. External apps are mirrors/interfaces only; they are not current requirements and not source-of-truth.
-direction: nutrition artifacts -> future mirror/interface.
-trigger: a future direction/bet chooses to add a vitrine/app/mirror; no current trigger is required.
-status: closed. Mirror/API/export shape and any image/app/UI sync `→ PLAN` and out of current scope.
+rejects: |
+  Static diet forever; buffet of options the owner must manually choose; generic first menu without
+  setup/run/review loop.
 
-### NCA8 — training day_type / cross-module nutrition coupling via core only
+### NCA3 — Nutrition LOG / low-friction tracking
 
-consumer: g-health-nutrition-system.
-producer: g-health-core day_type contract now; future g-health-training-activity-system logged day_type later through the already-closed core CA5 provenance rule.
-flow: nutrition may read a coarse day_type for a date to adjust carb targets. Current producer is the core planned day_type. When training exists and logs actuals, logged day_type overrides planned fallback under core CA5. Nutrition never writes day_type back. There is no direct nutrition -> training file dependency and no training -> nutrition private contract outside core.
-direction: core/training day_type -> nutrition carb-target derivation through core-owned contract.
-trigger: nutrition resolves a date's carb target.
-status: closed. No build-order blocker for current nutrition because planned core day_type exists. Future logged producer is named and consumes CA5 unchanged. Tier labels and magnitudes `→ PLAN`.
+status: answered
 
-### NCA9 — Direction OS visibility and raw-data ownership boundary
+contract: |
+  Nutrition tracking lives in Health AI nutrition namespace as LOG entries sufficient for review:
+  planned-vs-actual, substitutions, fallback use, skipped/off-plan events, rough food/portion
+  descriptions, uncertainty/confidence, hunger/satiety, friction, and materially necessary estimates.
 
-consumer: Direction OS when doing development, strategy, or review.
-producer: Health AI nutrition artifacts and LOGs.
-flow: Direction OS may read nutrition artifacts and raw nutrition LOGs on demand, but Direction OS does not duplicate raw daily food/weight/photo/check-in logs into its own state. Health AI nutrition carries zero reference to Direction OS and writes no upward dependency.
-direction: Health AI nutrition -> Direction OS read visibility; no reverse dependency.
-trigger: development, feature work, strategy review, or Direction OS session needing Health AI evidence.
-status: closed. Read mechanism and auth/path/connector details `→ PLAN`.
+acceptance: |
+  Owner can log via rough text/voice/photo. The system records confidence, asks only material
+  non-blocking clarifiers, proceeds with safe/default estimates on non-answer, and does not require
+  gram-level logging by default.
 
-### §CONTRACTS COMPLETENESS
+rejects: |
+  Direction OS food diary; mandatory precise macro logging; tracking hidden inside review summary.
 
-TREE/core interaction coverage:
-- g-health-starter-kit -> nutrition seed: NCA0.
-- g-health-core -> nutrition module attach/shared concepts/parser/library/procedure/schema: NCA1, NCA3, NCA4, NCA8.
-- nutrition internal output loop: NCA2, NCA3, NCA4, NCA5, NCA6.
-- g-health-training-activity-system interaction: NCA8 only, through core CA5; no direct module-to-module dependency.
-- Direction OS boundary: NCA9.
-- future specialized apps/vitrine: NCA7 only, mirror/interface later; no current requirement.
-- root body outcome / no crash diet / bad weeks: NCA2, NCA4, NCA6.
+### NCA4 — LOG-to-review mutation path
 
-Dangling-producer check:
-- no dangling current producer.
-- future training logged day_type is named but not required for current nutrition; current planned day_type comes from core. The later training converge consumes CA5/NCA8 unchanged.
+status: answered
 
-HOW leakage check:
-- concrete file paths, schema keys, enum tokens, app integration, UI, runtime, DB, scheduler, cron, exact formula magnitudes, and external sync mechanisms are not fixed here; all route `→ PLAN`.
+contract: |
+  Nutrition review consumes nutrition LOGs + owner feedback + core metrics/phase/biofeedback/
+  adherence and emits explicit decisions: hold, mutate dishes, rebuild menu-cycle, update fallback,
+  update prep/base-prep/grocery rules, refresh evidence, or propose a braked change.
 
-§SIGNOFF — DECLARE:
-closed @ 2026-06-16 by signed nutrition WHAT + reviewed core contracts.
-owner_gate_batch: [].
+acceptance: |
+  Hunger, prep friction, frequent fallback, off-plan pattern, disliked foods, poor adherence, bad
+  body outcome, or safety signal produces a concrete artifact mutation/hold/rebuild/refresh/brake
+  decision. Artifact mutation is part of the nutrition system, not a passive note.
 
-## §DECOMPOSE
+rejects: |
+  Review as passive summary; raw daily diary export to Direction OS; unreviewed drift.
 
-Nutrition decomposes into 11 internal sub-systems:
-1. nutrition namespace/attach layer;
-2. nutrition owner-fact/profile extension surface;
-3. system-decided nutrition variables/rules;
-4. active menu-cycle/eating-plan resolver;
-5. recipe/instruction library;
-6. base-prep/reused-component model;
-7. grocery/prep derivation;
-8. nutrition tracking LOG surface;
-9. nutrition review/mutation engine;
-10. fallback/bad-week/safety layer;
-11. future integration mirror seam.
+### NCA5 — Recipes, base-prep/reuse, grocery correctness
 
-Sub-nodes:
-- none now. The node remains one implementation bet candidate after converge-verify/shape.
-- training/activity remains separate sibling node; no nutrition child is created here.
-- future vitrine/app remains out of current scope and can be shaped later as a separate node if the owner wants.
+status: answered
 
-Internal seams recorded as contracts:
-- attach/source authority: NCA1;
-- cycle derivation: NCA2;
-- tracking: NCA3;
-- review mutation: NCA4;
-- base-prep/grocery: NCA5;
-- bad-week/safety: NCA6;
-- future mirror: NCA7;
-- cross-module day_type via core: NCA8.
+contract: |
+  Recipes/instructions are executable process building blocks. They must represent ingredients,
+  quantities or usable approximations, substitutions, equipment, time/friction notes, base-prep
+  components, yields, reuse links, grocery derivation, and relation to menu/fallback/prep.
 
-## §ARCH — high-risk architecture questions
+acceptance: |
+  One shared prepared component can feed multiple meals without double-counting or omitting prep/
+  grocery needs. Grocery/prep derivation must remain true when recipe instances reuse a base-prep
+  batch.
 
-Architecture-on-paper only. These picks ride PLAN/implementation CALL context as input evidence. They do not become done_when by themselves.
+rejects: |
+  Vague prose-only recipe; treating every recipe as isolated; external recipe/shopping app as current
+  authority.
 
-### Q1 — Where is nutrition source-of-truth?
+### NCA6 — Bad-week mode and safety interaction
 
-pick: Health AI nutrition namespace/module attached to core is canonical.
-refuted:
-- external recipe/meal-planning app as authority: bad because signed WHAT removed current app/vitrine requirement and external authority would bypass core attach/review/log contracts.
-- Direction OS as nutrition diary/source: bad because Direction OS is strategic/development layer, not raw daily diary.
-- chat-only transient answers: bad because future sessions cannot inspect/update stable artifacts and future app seam becomes a dead end.
-signed basis: nutrition W1/W2/W12/W13 + core WA9/WA10/CA4.
-routes: NCA1, NCA7, NCA9.
-PLAN slots: P-N1 nutrition domain layout; P-N2 artifact schema and IDs.
+status: answered
 
-### Q2 — Where do nutrition-specific owner facts live without duplicating core?
+contract: |
+  Nutrition has a reduced bad-week mode with valid fallback/lazy-food minimums and relaxed-but-nonzero
+  tracking. Safety flags or unsafe deterioration halt progression or switch to conservative mode and
+  use non-diagnostic medical-check language.
 
-pick: global irreducible facts stay in core profile owner_facts; nutrition-specific irreducible facts attach as namespaced profile extensions or nutrition artifacts under core attach rules; expert variables are recorded as system-decided nutrition variables with rationale/evidence, not asked preferences.
-refuted:
-- separate nutrition shadow profile: bad because it duplicates core owner-fact boundary and creates drift.
-- asking owner for expert variables at setup: bad because it reopens the v1 defect.
-- forcing all nutrition facts into frozen core schema: bad because it widens core for a module and violates additive attach.
-signed basis: nutrition W2/W3/W4 + core W13-W22/CA4.
-routes: NCA1, NCA2.
-PLAN slots: P-N3 nutrition fact extension surface; P-N4 nutrition variable evidence/rationale structure.
+acceptance: |
+  Bad-week execution stays inside the nutrition process. Red flags cannot silently continue aggressive
+  deficit or unsafe progression.
 
-### Q3 — What is the active nutrition process topology?
+rejects: |
+  Bad week as total system failure; cheat/free-for-all fallback; medical diagnosis/prescription.
 
-pick: active cycle loop = setup/facts -> system-decided variables -> menu-cycle/eating plan -> recipes/base-prep/grocery -> low-friction LOG -> review mutation -> next cycle/re-solve.
-refuted:
-- one-time static diet sheet: bad because it cannot mutate from tracking/review and fails bad weeks.
-- buffet of options owner manually chooses from: bad because it turns expert-variable solving into owner labor.
-- pure daily improvisation: bad because grocery/prep/base-prep correctness cannot be guaranteed.
-signed basis: nutrition W4/W5/W6/W7/W8/W9.
-routes: NCA2, NCA5.
-PLAN slots: P-N5 cycle resolver and rebuild rules.
+### NCA7 — Future integration seam
 
-### Q4 — What is the nutrition LOG architecture?
+status: answered
 
-pick: append-only Health AI nutrition LOG entries using core parse/materiality/library and nutrition-namespaced details sufficient for review.
-refuted:
-- mandatory gram/calorie ledger by default: bad because signed tracking requires low-friction and adherence-biased signal, not friction-maximal precision.
-- photo-only memory or chat summary: bad because review cannot inspect structured planned-vs-actual/substitution/fallback/friction signals.
-- Direction OS food diary: bad because raw nutrition logs belong in Health AI.
-signed basis: nutrition W8/W9 + core WA6/WA7/W43-W52 + minimum-tracked-signals.
-routes: NCA3, NCA4, NCA9.
-PLAN slots: P-N9 nutrition LOG schema, confidence/source tokens, portion materiality rules.
+contract: |
+  Nutrition artifacts are structured enough to be mirrored later by a vitrine/app/recipe/shopping/image
+  surface, but Health AI nutrition remains canonical now and no external UI/app is required.
 
-### Q5 — How does review mutate artifacts?
+acceptance: |
+  Executor/shape may not make current success depend on Mealie, Notion, recipe app, shopping-list app,
+  weekly-menu UI, image sync, recipe-image generation, runtime, DB, server, cron, or scheduler.
 
-pick: nutrition review emits an explicit mutation decision/bundle affecting menu-cycle, recipes, fallback, prep/grocery, or nutrition variables; braked/safety changes require ratification or conservative default; non-braked changes may proceed under decide-and-inform.
-refuted:
-- passive summary-only review: bad because signed WHAT requires tracking/feedback to change artifacts.
-- silent mutation with no decision record: bad because future sessions cannot audit why artifacts changed.
-- every small change waits for owner approval: bad because it recreates over-asking and blocks the system on non-critical details.
-signed basis: nutrition W9/W10/W11 + core W36-W42/G7-2.
-routes: NCA4, NCA6.
-PLAN slots: P-N10 review decision/mutation packet; P-N11 braked-change list.
+rejects: |
+  Chat-only dead end; current app/vitrine dependency.
 
-### Q6 — How should base-prep and grocery correctness work?
+### NCA8 — Regular nutrition procedure extension points
 
-pick: base-prep/reused ingredients are first-class prepared components used by recipes/meals, with planned production and planned uses feeding grocery/prep derivation.
-refuted:
-- recipe-local notes only: bad because shared chicken/prep can be double-counted or omitted across recipes.
-- free-text prep advice: bad because grocery/prep derivation cannot prove correctness.
-- external shopping app as authority: bad because external app is not current source-of-truth.
-signed basis: nutrition W6/W7/W5 + owner base-prep correction in signed WHAT.
-routes: NCA5.
-PLAN slots: P-N6 recipe/instruction schema; P-N7 base-prep allocation math; P-N8 grocery derivation rules.
+status: answered
 
-### Q7 — What is bad-week mode relative to safety?
+contract: |
+  Recurring/bounded nutrition procedures, if needed, are nutrition-namespaced declarative procedure
+  specs conforming to core procedure template: purpose, trigger, inputs, stop condition, files it may
+  touch, and files it must not touch. They run only when invoked by an operator.
 
-pick: bad-week mode is a reduced but valid nutrition mode with fallback/lazy-food minimums, relaxed tracking, and safety/conservative brakes above nutrition goals.
-refuted:
-- bad week as off-system failure: bad because it breaks repeatability and relapse handling.
-- normal plan unchanged under stress: bad because it ignores friction and increases failure probability.
-- aggressive crash-diet catch-up: bad because safety and maintenance constraints forbid unsafe compensation.
-signed basis: nutrition W10/W11 + CHARTER safety/adherence lenses + core safety/red-flag halt.
-routes: NCA6.
-PLAN slots: P-N11 safety thresholds; P-N12 bad-week entry/exit and minimums.
+acceptance: |
+  Nutrition may define procedures such as cycle setup, review, grocery/prep derivation, or bad-week
+  fallback refresh as operator-invoked seams. No procedure self-schedules; no runtime, cron, scheduler,
+  background worker, server, DB, or automation loop is introduced by this architecture.
 
-### Q8 — What is the future integration seam?
+rejects: |
+  Scheduler/runtime requirement; autonomous recurring jobs; rewriting core procedure template.
 
-pick: future app/vitrine mirrors canonical nutrition artifacts; it never becomes current authority and is not required now.
-refuted:
-- build Mealie/vitrine now: bad because owner explicitly cut current app/vitrine requirement.
-- no structure because chat-first: bad because it blocks later mirroring and makes artifacts dead-end.
-- external app owns recipes/menu/grocery: bad because it bypasses nutrition review mutation and core attach.
-signed basis: nutrition W12/W13.
-routes: NCA7.
-PLAN slots: P-N13 mirror/export concept, when future node is shaped.
+### NCA9 — day_type provenance, cross-module coupling, Direction OS visibility
 
-### Q9 — How does nutrition interact with training/activity?
+status: answered
 
-pick: no direct nutrition<->training file coupling now. Nutrition consumes coarse day_type through core CA5. Current source is core planned day_type; future training logged day_type can override planned fallback when training module exists.
-refuted:
-- direct training reads nutrition files or nutrition reads training private files: bad because core CA6 says reusable template is core-owned and removes module-to-module dependency.
-- block nutrition until training exists: bad because core planned day_type is enough for current nutrition and signed nutrition should proceed.
-- ignore training day_type forever: bad because TREE expects cross-module nutrition/training interaction for protein/calories under volume.
-signed basis: core CA5/CA6 + nutrition W2/W13 + TREE training cross-module edge.
-routes: NCA8.
-PLAN slots: P-N14 day_type-to-nutrition target mapping, using core CA5 provenance.
+contract: |
+  Core provides only day_type provenance: logged override beats planned fallback when deriving coarse
+  `day_type`. Core does not own nutrition targets. Nutrition owns any future `x_nutrition_day_type`
+  or `x_nutrition_target` if needed, and it must derive them through core provenance/attach surfaces
+  rather than redefining core. Direction OS may read accepted artifacts/evidence for strategy but does
+  not store raw nutrition logs.
 
-### Gap-hunt
+acceptance: |
+  Training/nutrition coupling, if later needed, travels through core-owned provenance/shared concepts
+  and nutrition-namespaced fields only. No core nutrition target is implied. No raw daily nutrition data
+  is duplicated into Direction OS.
 
-Question asked after decomposition: "which architecture question did we not ask?"
-Found gap: starter-kit seed ingestion could quietly become authority or get dropped.
-Closure: NCA0 makes starter-kit output seed-only, not authority; nutrition re-validates it against signed WHAT/core before promotion.
+rejects: |
+  Core-owned nutrition day_type target; direct nutrition-training private coupling outside core;
+  Direction OS as food log store.
 
-## §PLAN-AGENDA — nutrition HOW slots
+## §ARCH DECISIONS
 
-Values are not decided here:
-- P-N1 nutrition domain layout and registration surface.
-- P-N2 artifact schema/IDs for rules, variables, cycles, recipes, grocery, fallback, review notes.
-- P-N3 nutrition-specific owner-fact extension surface.
-- P-N4 evidence/rationale structure for system-decided nutrition variables.
-- P-N5 active cycle resolver and rebuild/re-solve rules.
-- P-N6 recipe/instruction schema.
-- P-N7 base-prep allocation and remaining-availability math.
-- P-N8 grocery derivation rules and pantry assumptions.
-- P-N9 nutrition LOG shape, confidence/source tokens, portion materiality.
-- P-N10 review decision/mutation packet and application mechanics.
-- P-N11 safety floor/red-flag/brake thresholds.
-- P-N12 bad-week minimums and entry/exit rules.
-- P-N13 future mirror/export shape.
-- P-N14 day_type-to-nutrition target mapping.
+Q1. Nutrition source-of-truth
+answer: |
+  Health AI nutrition namespace/module is canonical for nutrition artifacts. Direction OS is strategy/
+  review surface only. External apps may mirror later but are not authority now.
+closes: W1, W12, W13, NCA1, NCA7, NCA9.
+
+Q2. Owner facts vs expert variables
+answer: |
+  Owner facts are irreducible and non-blocking. Expert variables are system-decided from evidence +
+  profile + feedback; missing owner facts create pending/reduced/default state where safe.
+closes: W3, W4, NCA0, NCA2.
+
+Q3. Personalized run loop
+answer: |
+  Active nutrition cycle loop is setup seed -> system decisions -> menu-cycle -> recipes/base-prep/
+  grocery -> LOG/tracking -> review mutation.
+closes: W4, W5, W8, W9, NCA2, NCA3, NCA4.
+
+Q4. Tracking LOG shape
+answer: |
+  LOG entries are low-friction and review-sufficient, not maximal diaries. Confidence/materiality
+  controls clarifiers and estimates.
+closes: W8, NCA3.
+
+Q5. Review mutation
+answer: |
+  Review must emit hold/mutate/rebuild/update/refresh/brake decisions that point to concrete nutrition
+  artifacts.
+closes: W9, NCA4.
+
+Q6. Recipes/base-prep/grocery semantics
+answer: |
+  Recipes are structured process blocks with base-prep/yield/reuse/grocery derivation semantics.
+closes: W6, W7, NCA5.
+
+Q7. Bad-week and safety
+answer: |
+  Bad-week mode is reduced but valid; safety flags halt/switch conservative and surface non-diagnostic
+  medical-check language.
+closes: W10, W11, NCA6.
+
+Q8. Procedure extension points
+answer: |
+  Regular nutrition procedures are declarative, nutrition-namespaced, and operator-invoked only. Core
+  provides the reusable template; nutrition supplies domain-specific triggers/inputs/stop conditions/
+  file boundaries.
+closes: extension-points coverage, NCA8.
+
+Q9. day_type / target ownership
+answer: |
+  Core provides provenance only. Nutrition owns any later nutrition target/day_type under
+  `x_nutrition_*`; it must not move nutrition target semantics into core.
+closes: B3, NCA9.
+
+## §BLOCKER REPAIR
+
+| blocker | corrected closure | rejected/conflicting reading |
+|---|---|---|
+| B1 — core review binding | Core corrected G5 is imported from file-backed knowledge/history/product evidence, not CALL-only assertion. | "Trust the CALL because the file was unavailable." |
+| B2 — regular nutrition procedure extension points | Covered by core procedure template plus nutrition operator-invoked procedure seam. | Scheduler/runtime/cron/background recurring nutrition process. |
+| B3 — day_type wording | Core provides provenance only; nutrition owns any later namespaced `x_nutrition_day_type` / `x_nutrition_target`. | Core-owned nutrition target or training/nutrition coupling outside core. |
+
+## §COVERAGE
+
+Signed WHAT coverage:
+- W1 source-of-truth -> NCA1, NCA7, NCA9.
+- W2 core attach -> NCA1, NCA9.
+- W3 expert-variable boundary -> NCA0, NCA2.
+- W4 personalized first process -> NCA2.
+- W5 practical outputs -> NCA2, NCA5, NCA7.
+- W6 detailed recipes -> NCA5.
+- W7 base-prep/reuse correctness -> NCA5.
+- W8 nutrition tracking -> NCA3.
+- W9 tracking-to-review mutation -> NCA4.
+- W10 bad-week mode -> NCA6.
+- W11 safety boundary -> NCA6.
+- W12 no current vitrine/app requirement -> NCA7.
+- W13 future integration seam -> NCA7.
+
+Core edge coverage:
+- namespaced additive attach -> NCA1.
+- core shared concepts consumed, not duplicated -> NCA1, NCA9.
+- procedure/template extension points -> NCA8.
+- day_type provenance only -> NCA9.
+- raw data boundary -> NCA3, NCA9.
 
 ## §OPEN / DEFERRED CHECK
 
-open high-risk architecture questions: 0.
-deferred rows: 0.
-low-risk HOW slots: P-N1 through P-N14, all `→ PLAN`.
+open rows: 0
+deferred rows: 0
+blocker rows: 0
+owner decisions needed: 0
 
-## §SIGNOFF — ARCHITECT
+## §ROUTE
 
-closed @ 2026-06-16 by signed nutrition WHAT + reviewed g-health-core contracts/evidence.
-owner_gate_batch: [].
-arch_in_context_only: PASS — Q1-Q9 are input evidence for PLAN/implementation only and must not be copied as standalone done_when.
-next: converge-verify.
+Next: converge-verify.
+
+Reason:
+- WHAT is closed and architecture/contract surface is closed on paper.
+- Corrected B1-B3 are now stated in mechanically checkable terms.
+- Verification must try to refute the architecture closure before any executor CALL.
+
+---
 
 END_OF_FILE: live/health/work/converge-g-health-nutrition-system-arch.md

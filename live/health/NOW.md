@@ -3,10 +3,8 @@
 active_bet:
   status: none
   note: >
-    2026-06-16 nutrition converge-verify failed clean pass: independent oracle
-    found blocker gaps in core review consumption, regular nutrition procedure
-    extension points, and NCA8 day_type producer wording/evidence. Next =
-    converge-arch correction.
+    2026-06-16 nutrition converge closed WHAT and converge-arch is closed on paper after
+    writer-safe repair of B1-B3 correction. Next = converge-verify.
 
 tasks: []
 
@@ -25,64 +23,52 @@ decisions:
     owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-converge-arch-correction-001
+  CALL c-health-nutrition-converge-verify-001
   to: session
   direction: health
-  play: converge-arch
+  play: converge-verify
   node: g-health-nutrition-system
   goal: |
-    g-health-nutrition-system contract/architecture closure is corrected so verifier blockers
-    are closed and the node is ready for fresh verification.
+    Verify that g-health-nutrition-system architecture/contract surface is actually closed
+    after writer-safe repair, before any executor CALL.
   context: |
     Read:
-    - live/health/CHARTER.md
-    - live/health/TREE.md
     - live/health/NOW.md
     - live/health/work/converge-g-health-nutrition-system.md
     - live/health/work/converge-g-health-nutrition-system-arch.md
-    - live/health/work/converge-g-health-core.md
     - live/health/knowledge/health-core-corrected-g5-review.md
-    - health-ai acceptance/core/evidence-summary.md
-    - health-ai acceptance/core/matrix.json
-    - health-ai core/extensions/attach-contract.md
-    - health-ai core/metrics.md
-    - health-ai core/review.md
-    - health-ai core/progression/cadence.md
-    - health-ai core/procedures/template-contract.md
-    - health-ai core/provenance/day-type.md
-    - health-ai core/profile/owner-facts.md
-    - health-ai core/profile/derived-anchors.md
-    - health-ai core/intake/non-blocking-questions.md
-    - health-ai core/parser/materiality.md
-    - health-ai core/principles/minimum-tracked-signals.md
-    - health-ai core/phases.md
+    - relevant history RESULTs for:
+      - c-health-nutrition-converge-arch-001
+      - c-health-nutrition-converge-arch-correction-001
+      - c-health-nutrition-converge-arch-writer-repair-001
+    - Health AI core evidence as needed:
+      acceptance/core/evidence-summary.md
+      acceptance/core/matrix.json
+      core/extensions/attach-contract.md
+      core/procedures/template-contract.md
+      core/provenance/day-type.md
 
-    Correct these converge-verify blockers exactly:
-    - B1: NCA1/NCA4 do not explicitly bind nutrition review to core-owned review policy/cadence/procedure.
-      Core evidence says review is a core-owned reconciliation step; current NCA4 can read as a duplicated
-      nutrition review engine.
-    - B2: TREE's regular nutrition process extension points are not contract-covered as core procedure-template
-      invocations. Current coverage maps them only weakly via W1/W13/NCA1; examples include new dish search,
-      fallback refresh, pantry-based recipes, and low-time-week adaptation.
-    - B3: NCA8 overstates the current planned day_type producer. Core evidence proves CA5 as a provenance
-      contract only; either cite an actual current core planned day_type source or make the nutrition dependency
-      explicitly non-blocking/fallback-safe without requiring a core rewrite.
+    Verify especially:
+    - B1: core review binding is file-backed by knowledge/history/product evidence, not CALL-only import.
+    - B2: regular nutrition procedure extension points are covered by core procedure template plus
+      nutrition operator-invoked procedure seam, without scheduler/runtime/cron/background jobs.
+    - B3: core day_type is provenance only; nutrition owns any later namespaced nutrition day_type/target.
   boundaries: |
-    Do not shape the node or create executor CALLs.
-    Do not add UI/app/Mealie/runtime/DB/server/cron/scheduler requirements.
+    Do not implement.
+    Do not create product repo code.
+    Do not redo nutrition WHAT.
     Do not rewrite g-health-core.
-    Do not reopen owner-signed nutrition WHAT unless a blocker proves a true WHAT-level gap.
-    Do not store raw daily food/weight/photo/check-in logs in Direction OS.
+    Do not add UI/app/runtime/DB/server/cron/scheduler requirements.
+    Do not proceed to executor CALL unless converge-verify passes.
   done_when: |
-    B1-B3 are closed in the nutrition contract/architecture artifact or explicitly routed as unresolved.
-    No new current app/runtime/UI requirement is introduced.
-    No g-health-core rewrite requirement is introduced.
-    Open/deferred high-risk architecture rows are zero, or exact remaining blockers are returned.
-    Next route is a fresh converge-verify CALL.
+    - Try to refute the closed architecture/contract claim against signed WHAT and file-backed core evidence.
+    - Confirm no open/deferred/blocker rows remain in the corrected arch surface.
+    - Confirm no conflicting old §CONTRACTS/§ARCH/§ROUTE rows remain after §COVERAGE.
+    - Confirm B1-B3 are corrected exactly as stated above.
+    - Next route is executor/shape only if verification passes; otherwise repair/awaiting_decision.
   return: |
-    RESULT with corrected contract/architecture rows, evidence against B1-B3, state_changes, play_check,
-    and next CALL.
-  budget: one focused correction movement
+    RESULT with verification verdict, refutation evidence, state_changes, decisions_needed, and next CALL.
+  budget: one tight converge-verify movement
   surface: any capable session
 
 END_OF_FILE: live/health/NOW.md
