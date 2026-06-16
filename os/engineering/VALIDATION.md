@@ -4,11 +4,11 @@ The strictest practical validation for autonomously-built code. Gates run cheap-
 
 ## Gates
 
-**G0 — Contract freeze (before build).** Acceptance criteria per feature, machine-readable, negotiated with the validator before code exists. The builder cannot edit them. No criteria → no build.
+**G0 — Contract freeze (before build).** Acceptance criteria per feature, machine-readable, negotiated with the validator before code exists. The builder cannot edit them. No criteria → no build. The failing acceptance tests realizing those criteria are written by an independent test-author from the spec — not the builder — red at freeze, and the builder cannot edit them (same protection as the criteria); the builder makes them pass. An independently-authored, spec-derived oracle is the only thing that catches a misreading the builder's own tests would share (mutation testing cannot — a wrong-but-consistent test still kills mutants).
 
 **G1 — Mechanical.** Format, strict lint, typecheck, dependency-boundary check, dead-code / unused-export check, duplicate-helper detection, rules against hardcoded values/secrets/magic literals. One command; runs constantly (hooks), not just at the end.
 
-**G2 — Tests.** Full suite green and deterministic. Coverage % is NOT a gate — agent-written tests look good and lie (measured ~57% mutation kill rate). The gate is **diff-scoped mutation testing** ≥ the configured kill-rate floor, plus property-based tests for core logic.
+**G2 — Tests.** Full suite green and deterministic. Coverage % is NOT a gate — agent-written tests look good and lie (measured ~57% mutation kill rate). The gate is **diff-scoped mutation testing** ≥ the configured kill-rate floor, plus property-based tests for core logic; for any feature with >1 concurrent actor the generators must cover multi-actor / conflicting-input-in-one-tick regimes, not a single-actor happy path.
 
 **G3 — Executed end-to-end.** A scripted scenario per feature (run the app / drive the UI headlessly / hit the API and assert on state), executed by the validator. This covers what line review is structurally blind to: missing behavior, state, sequencing.
 
