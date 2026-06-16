@@ -16,6 +16,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner.
 - **Builder** — autonomous session(s), default-tier model. Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
+- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads ONLY the frozen spec (never the code — it does not exist yet) and writes the per-criterion acceptance tests as failing (red). The builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the SPEC, not from a verdict. This is what stops the builder's own tests from inheriting the builder's misreading of the spec.
 
 ## The cycle
 
@@ -29,11 +30,26 @@ CALL (business task from a direction)
     Then it interviews the owner if needed and writes the change spec:
     per-feature acceptance criteria as a machine-readable ledger (all
     entries start failing), plus the verification plan the validator
-    approves BEFORE any code. Owner approves the plan. This is the
+    approves BEFORE any code. Two spec-hardening checks before freeze:
+    (a) when the change EXTENDS a working/frozen system, list the invariants
+    that held in the old regime and, per one, whether this change can falsify
+    it — falsifiable ones become failing criteria tested in the new regime;
+    (b) name what the spec leaves UNCONSTRAINED (which regimes / actor-counts /
+    seams) and mark each silence intentional or not — unintended silences
+    become spec lines, since a test can only cover what the spec names.
+    Owner approves the plan. This is the
     owner's last mandatory appearance until the final report.
+  → RED TESTS (before build): the test-author (see Roles) writes the failing
+    acceptance tests from the frozen spec — the builder cannot author or edit
+    the tests it must satisfy, so a misreading of the spec cannot hide in
+    self-agreeing tests.
   → BUILD (autonomous): one feature at a time, smallest-first.
     Reuse-first rule: before writing anything, search for an existing
     implementation; the duplicate you would have written becomes a call.
+    Make-time obligations on any tests the builder writes itself too: assert
+    every value-bearing/measured field EQUAL to its source (not merely
+    present), and for any feature with >1 concurrent actor exercise multi-actor
+    / conflicting-input-in-one-tick regimes, never a single-actor happy path.
   → VALIDATE (per feature and per change): gates in VALIDATION.md.
     Builder may not edit the ledger or the spec; flipping a ledger entry
     to passing requires opened evidence (hook-enforced where supported).

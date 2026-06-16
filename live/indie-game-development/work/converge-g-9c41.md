@@ -375,4 +375,536 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
 - `verify (the converge-verify PLAY): DEFERRED to a separate session (boundary — not run here); the internal hardening pass above is a self-check, NOT the independent-oracle converge-verify`
 - `forward_clean: NO — open rows are the intended FORM-pass output, not a defect`
 
+---
+
+## §CONTRACTS (converge-arch pass — c-converge-002, 2026-06-16)
+
+> **What this is.** The DECLARE/DECOMPOSE/ARCHITECT output of converge-arch (heavy + sibling-bearing). It
+> turns the §WHAT-B edges (and the internal grid↔gas + cross-layer seams) into CONSUMER-DRIVEN OBSERVABLE
+> contracts: the consumer states what flows, which way, on what trigger, in behavioral terms; every HOW
+> (push/poll, wire/byte format, cadence, layout, magnitude) is routed `→PLAN`. All contracts sit ABOVE the
+> locked Wave-1 foundation (GasCoopGame ADR-0004 §LOCK + ADR-0003 v2 C1–C22) and NONE re-opens it. The heavy
+> architecture-on-paper (ARCH-1v2, brief v2) rides PLAN as INPUT EVIDENCE — recorded in
+> `work/converge-g-9c41-arch.md`, never copied into done_when. Built + hardened by a 15-agent in-session
+> pre-pass (wf_c4e09962-08f: 6 drafters → 6 adversarial firewalls → 3 cross-cutting critics); fixes folded.
+> The BINDING independent refutation is the separate `converge-verify` session (NOT run here — boundary).
+>
+> Per-contract legend: **ID — title** · B-rows · *consumer ← producer* · trigger · OBSERVABLE (no HOW) ·
+> acceptance · `→PLAN` (the HOW) · bounds (open→PLAN C/A rows it constrains) · build-order · fork/canon.
+
+### A. Ingestion adapter / TopologyDocument (B27–B29) — PRIMARY
+
+- **IN1 — Structure-ingestion (TopologyDocument).** B27. *TopologyCore (#1) ← structure generator behind the
+  replaceable adapter (DA day-one).* trigger: level (re)generation / scene load (not per-tick). **OBSERVABLE:**
+  TopologyCore requires a complete static structure description sufficient to sectorize geometrically AND to
+  support exact-source-tracking + on-entry reconstruction — volumes {stable id, archetype incl. hangar/
+  openSpace, bounds extent, free volume, floor/ceiling extent}, portals {position, facing, opening size,
+  **lower-edge height above floor** = the fact that lets a low opening vent heavy gas first}, surfaces
+  {vertical span, **breachable** flag}, anchors, subdivision intent; ids **logically identical + deterministic
+  across peers** from the same generation; vertical carried explicitly even where the generator API is 2D.
+  Self-contained: TopologyCore sectorizes + runs seal/closure with ZERO gas-domain inputs. acceptance:
+  re-ingest same level → logically-identical ids + identical vertical extents on every peer; sectorization-
+  complete with zero gas inputs. `→PLAN`: occupancy present/absent day-one (optional naive ~100–300 vs bet-2
+  occupancy+1000-gate); occupancy encoding/basisCellSize; AABB struct layout; doc serialization; subdivision
+  threshold magnitudes. bounds: B27, A8.1, A8.7. build: produced-now-consumed-later (DA behind seam day-one —
+  not dangling). canon: TopologyDocument-ingestion (read_by TopologyCore + DA/PGG adapters). *[fix: "byte-
+  identical ids" → "logically identical" — byte layout belongs to the LOCKED wire, not this contract.]*
+- **IN2 — Adapter-replaceability invariant.** B27/B28. *TopologyCore ← the replaceable adapter seam.* trigger:
+  a generator swap. **OBSERVABLE:** the structure is defined ENTIRELY by the TopologyDocument contract (IN1),
+  never by the generator's identity/internals; swapping the generator (DA→PGG→any) changes only WHICH document
+  is produced, never its shape; replaceability demonstrated on the DAY-ONE generator alone (PGG parked behind
+  the SAME seam; population OUT of scope now per d-generator-001). acceptance (black-box): any two conforming
+  producers of the same logical level → identical sectorization + seal verdicts; the SOLE admission gate is a
+  conformance check (sectorization-complete + deterministic), the day-one generator passing it is sufficient.
+  `→PLAN`: adapter interface signature; conformance check site/test-vectors; whether PGG population maps to
+  occupancy vs a later doc extension. bounds: B28, A8.7. build: internal. canon: ingestion-adapter-
+  replaceability. *[fix: black-box acceptance — dropped the white-box "no generator-specific branch".]*
+- **IN3 — Transport-vendor swap.** B29. *g-9c41 networked core ← transport vendor (FishNet default / NGO|NfE
+  fallback) behind a transport-adapter.* trigger: a vendor swap. **OBSERVABLE:** swapping the vendor causes NO
+  change to the component tree, the gas-field stream plane, or any gas/domain contract; the gas field rides a
+  SECOND own plane never retrofitted onto the vendor's input/entity transport; no vendor type named outside the
+  adapter. acceptance: a vendor swap leaves the tree + gas/domain contracts unchanged AND the gas-consistency
+  oracle (lossless+lossy under drop/delay/reorder) passes identically. `→PLAN`: adapter signature; default/
+  fallback config; channel-reliability config knobs around the LOCKED unreliable-sequenced mode; per-vendor
+  binding. bounds: B29, I3, C7. build: internal. canon: transport-vendor-decoupling.
+
+### B. grid↔gas internal seam (PRIMARY)
+
+- **GG1 — Topology-change feed.** internal #1→#3. *GasDomain ← TopologyAuthority.* trigger: a committed
+  topology change (revision advances). **OBSERVABLE:** on every topology change GasDomain receives the changed
+  sectors + new adjacency (added/removed portals), each labelled with the topology-revision, on a SINGLE agreed
+  tick every peer observes identically; between changes geometry/adjacency are immutable; change-sets are
+  self-describing (a consumer at revision r given the change-set to r+1 reaches r+1 with no host-private state)
+  + replayable. acceptance: determinism-of-tick (every peer reports the same tick a revision takes effect);
+  revision-monotonic (strictly increasing, no unreconstructable gap); replay-identity. `→PLAN`: push-vs-poll;
+  deferred-commit P1→P2 (the agreed-tick mechanism); change-set encoding + revision-counter width; feed
+  reliability; cadence; replay history depth. bounds: C12, C16, A2.1. build: internal. canon: G:topology-change
+  (read_by TopologyCore + GasDomain). **NOTE:** this topology-revision is the SECTOR/adjacency sibling counter
+  (brief §3.4 "external revision = published tick"), DISTINCT from the LOCKED per-(layerKey,chunkIndex) field
+  barrier — not in conflict.
+- **GG2 — Geometry/band sovereignty split.** internal #1→#3. **OBSERVABLE:** every change-set is purely
+  geometric, keyed by sector id — never names a band/species/mass/concentration; GasDomain attaches its own
+  per-sector band state to a sector id and the attachment survives non-destructive topology changes; conversely
+  NO GasDomain field is an input to producing a change-set (TopologyCore computes the next change-set with zero
+  gas knowledge). acceptance: independence-of-domains (perturb gas → identical change-set stream); vocabulary-
+  closure (no gas field in the change-set schema); key-stability (a sector id survives a non-destructive change
+  so band state isn't orphaned). `→PLAN`: geometric field list; sector-id encoding; band-state indexing. bounds:
+  A3.4, C21. build: internal. canon: Sovereignty (geometry-only, keyed by sector id).
+- **GG3 — Real controlled breach → vertical portals.** B30/RESOLVED-2. internal #1→#3 (GasDomain consumer).
+  trigger: a real controlled LOCAL breach (explosion/player) on a breachable surface; no scripted, no collapse.
+  **OBSERVABLE:** on the agreed topology-change tick, one+ NEW portals appear in the affected sectors' adjacency,
+  each with a breach-portal identity that is deterministic + stable (same breach/inputs → same identity on every
+  peer + across replay; present in snapshot + change-set); after applied, gas transport across the new portal is
+  enabled; the breach changes geometry only. acceptance: breach-causes-flow (no outflow before, an outflow path
+  on the first tick after applied); identity-determinism; same-tick agreement (inherits GG1). `→PLAN`: breach-
+  portal id encoding (surfaceId,ordinal); deferred-commit timing; portal geometric byte layout; #breachable
+  walls day-one (count TBD per RESOLVED-2); the orifice/sill flow MECHANISM. bounds: C16, B30, A8.x sillZ flow.
+  build: internal. canon: **G:topology-change[breach] — ONE shared line with CS1** (read_by g-9c41 +
+  destruction-consumer).
+- **GG4 — Band-handoff support (OWNER-SIGNED, see §SIGNOFF-BH).** band-handoff steer + R10. internal #1→#3.
+  trigger: (a) a source/emitter exists in a coarse-simulated sector; (b) a player enters → fine detail demanded.
+  **OBSERVABLE (resolved per owner):** GasDomain can pin an emitter/source to an EXACT intra-sector location +
+  identity, preserved across non-destructive topology changes, AND on player-entry reconstruct a local field
+  that is roughly right in amount + accumulation RATE + direction + which corner — to a **LOOSE gameplay
+  tolerance** (a few cells; metric exactness is NOT measured), with the **coarse tier as the source of truth
+  for amount AND rate**. acceptance (firm — GAMEPLAY-BINDING, owner 2026-06-16): (1) **NO visible jerk/twitch in
+  the gas at ANY time** — not on the coarse↔fine handoff, not on the first frame on entry, and not from anything
+  computed OFF-SCREEN that surfaces on entry (reading gas is the CORE mechanic → any visible jerk = broken); (2)
+  **believable amount + rate**: on return after being away, the gas QUANTITY matches what the player would expect
+  from the source strength he observed + elapsed time (no jump to half-full when ~quarter is expected) — the
+  coarse tier evolves the gas at a believable, monotone rate while unobserved, and entering/leaving changes only
+  the spatial DETAIL, never the amount or its rate; (3) a weak corner source reads in the right corner; (4)
+  source-survival across non-destructive topology change. The geometry the seam
+  exposes must SUFFICE for this; the reconstruction mechanism is not prescribed. `→PLAN`: the 3-tier prep-window
+  mechanism (owner HINT: coarse=truth / intermediate prep-window within a radius / fine close-up — a hunch, not
+  a lock); hints-vs-replay; the few-cells tolerance magnitude; how source-accumulation is hinted while coarse;
+  burn-in/seeding to achieve no-pop; seam smoothing. bounds: A8.1/A8.2, C15, B27 occupancy. build: internal.
+  canon: band-handoff continuity. *(twin of OR4 — same owner decision, one §SIGNOFF.)*
+
+### C. B31 — the ONE normative field-sampling / ExposureQuery oracle (the cross-cutting invariant; PRIMARY)
+
+- **OR1 — Single-oracle field sampling.** B31/B11. *g-7e15 visual read model + g-d3a8 far-AI ExposureQuery ←
+  g-9c41 GasDomain (IGasReadModel).* trigger: any consumer samples concentration at a point for a published
+  revision. **OBSERVABLE:** ONE published read view; any two consumers querying the SAME point at the SAME
+  published revision get the SAME concentration for the SAME species — regardless of consumer AND regardless of
+  which tier (fine/intermediate/coarse) is the thinnest open level there; the answer is a pure function of
+  (point, species, revision). acceptance: cross-consumer agreement (visual read view == ExposureQuery at the
+  same point); a NAMED cross-tier agreement test at points where the thinnest-open-level differs; determinism.
+  `→PLAN`: the sub-band interpolation math; whether/how it composes across a resolution boundary; agreement
+  tolerance (bit-exact vs ε); resolution-key encoding; push-vs-pull; memory layout. bounds: C1, C10, A1.7/B12,
+  A8.8. build: produced-now-consumed-later. canon: IGasReadModel single-oracle invariant (read_by g-7e15 crit-2
+  + g-d3a8 crit-5). **HIGH-RISK property authored observable-first: if PLAN cannot satisfy it at a seam → a
+  BLOCKED contract, not a silent green.**
+- **OR2 — Point-resolution rule (thinnest open level).** B31/B11. *all three consumers ← GasDomain.*
+  **OBSERVABLE:** a point covered by several levels answers from the THINNEST open level (fine > intermediate >
+  coarse band); the selection is part of the contract (a consumer never chooses a tier, never sees a different
+  tier than another consumer for the same point); exactly one concentration per (point,species,revision); which
+  level supplied it is observable. acceptance: single-valued; precedence-honored (fine inside an open window,
+  coarse outside); consumer-independence; no gaps (coarse = floor). `→PLAN`: precedence structure; window-
+  boundary/seam assignment; resolution-key scheme. bounds: C10, A8.2, T3>T2>T1s budgets. build: internal. canon:
+  point-resolution (thinnest-open-level).
+- **OR3 — ExposureQuery = volume integral of the one oracle.** B31. *g-d3a8 far-AI lethality + self-play
+  (crit-5) ← GasDomain.* **OBSERVABLE:** exposure for an actor occupying a VOLUME = aggregating the same
+  per-point concentration (OR1) over the actor's volume via the same resolution rule (OR2); the far-AI verdict
+  and a self-play run on the same actor/revision/config get the SAME exposure; never reads a private/differently-
+  resolved state. acceptance: ExposureQuery over a degenerate (point) volume == OR1 point answer; self-
+  consistency across runs + across the two g-d3a8 lanes; tier-independence for a straddling actor; a named
+  volume-sum cross-check. `→PLAN`: integration/quadrature; actor-volume representation; exposure units/dose; the
+  **lethality threshold = g-d3a8 design content + a PLAN number, NOT this contract**; pull vs subscription.
+  bounds: C22, A8.6, C1. build: produced-now-consumed-later. canon: ExposureQuery = volume integral.
+- **OR4 — Player-near seeding agrees on entry (band-handoff, OWNER-SIGNED).** B31. *g-9c41 band-handoff seeding
+  ← GasDomain.* The B31-side twin of GG4 — resolved together (§SIGNOFF-BH): opening a fine window changes
+  RESOLUTION not the ANSWER to a LOOSE gameplay tolerance, with NO visible shimmer; a weak corner source is
+  roughly right on arrival; the coarse oracle is the source of truth the fine tier derives from. acceptance
+  (firm — GAMEPLAY-BINDING, owner 2026-06-16, same as GG4): NO visible jerk/twitch EVER (handoff, first frame,
+  or off-screen-computed state surfacing on entry) since gas-reading is the core mechanic; **believable amount +
+  rate** on return (the gas quantity matches the observed source strength + elapsed time — no jump; crossing
+  tiers changes only spatial detail, never amount/rate); source fidelity (right corner); conservation consistent
+  with the read view's mass accounting. `→PLAN`: seeding
+  mechanism (reconstruct-from-source / replay / spatial-hints — brief §3.5); burn-in; coarse-source accumulation
+  hint; tolerance magnitude. bounds: C22, §3.5 window-drag/burn-in, A8.8. build: produced-now-consumed-later.
+  canon: band-handoff continuity.
+
+### D. Cross-layer interaction + extensibility seam (done_when #10 — the WHITE SPOT the miner gap-hunt caught; NEW)
+
+- **XL1 — Cross-layer interaction seam (multi-layer consistency).** done_when #10 + RESOLVED-1 + the LOCKED
+  cross-layer contract. INTERNAL: GasDomain/ReactionLayer (LayerKey 0) PUBLISHES reaction/breach/gas-changed
+  GridEvents; the temperature layer (LayerKey 1) SUBSCRIBES + responds. trigger: a layer publishes a GridEvent
+  another layer consumes within a tick. **OBSERVABLE:** ≥2 independent layers ride ONE seam and are networked-
+  consistent TOGETHER — the non-simulating client reconstructs a consistent MULTI-LAYER field (both gas and
+  temperature held to the lossless bit-exact + lossy bounded-divergence oracle at settle, per the LOCK's
+  CellHash.FoldLayer-per-layer); a cross-layer interaction is OBSERVABLE (a reaction/heat event drives the
+  temperature layer's response, measurable at the firing tick). **MECHANISM (owner-confirmed model, 2026-06-16):**
+  a layer PUBLISHES a typed event keyed by a shared GRID coordinate (reaction/breach/gas-changed at grid cell/
+  sector c) onto the cross-layer bus; any other layer SUBSCRIBES, maps c to its own representation, and reacts by
+  editing ONLY its OWN state — the single-writer-per-(layer×phase) rule forbids writing another layer's cells,
+  which is exactly what keeps the multi-layer field deterministic + network-consistent. The grid is the shared
+  coordinate/communication reference; the bus is generic (FieldFabric kernel), so new layers (pressure, airflow —
+  owner's examples) plug onto it via XL2 with no core edit. acceptance: under the load oracle, BOTH layers'
+  reconstructed cells stay host==clients at every settle; a suppressed-event negative oracle shows the
+  interaction is real; (crit-10 tightening, folded by shape) a FEEDBACK interaction (not a pure sink) is
+  exercised. `→PLAN`: the phase ordering + cross-layer revision/commit rule for a feedback interaction; per-layer
+  Q/N magnitudes; the specific feedback rule + its constant; the **cross-TIER coordinate mapping** (how a grid
+  event maps to coarse-sector vs fine-cell representations at the tier resolving there). bounds: C11, C12,
+  C19/C20, A8.8. build: internal.
+  **NOTE — consistency obligation DECIDED (not an open fork):** the binding obligation = (a) BOTH layers
+  consistent together. done_when #10 says "networked-consistent together"; ADR-0004 §T12 already proved
+  temperature consistent at settle for the Wave-1 sink; the cheaper "gas-only + host-derived temperature"
+  reading would WEAKEN crit-10 and contradict the LOCK → rejected. canon: G:cross-layer-consistency (read_by
+  FieldFabric + GasDomain + the temperature layer).
+- **XL2 — Layer-registry extensibility ("a new layer plugs in without core edits").** done_when #10 +
+  RESOLVED-3 + C21. INTERNAL: a new independent layer registers on FieldFabric (#2) and rides the shared
+  transactional multi-layer commit + revision feed. trigger: a new layer/driver registered at composition/load.
+  **OBSERVABLE:** a temperature-CLASS WHOLE layer (distinct from a within-gas species handler — GT1) registers
+  via the layer registry (one layer per registration, keyed by LayerKey asc) and participates in the shared
+  store + revision feed WITHOUT editing FieldFabric or any other layer's files (file-level isolation = the
+  extensibility proof). acceptance: a gas-only run reproduces the goldens; a gas+new-layer run keeps the gas
+  trajectory byte-identical + an RNG-conservation guard proves the new layer consumed zero gas RNG (the Wave-1
+  C21 proof, generalized); a third DEMONSTRATIVE layer plugs in with no core edit (crit-10 tightening — currently
+  argued, not exercised). `→PLAN`: registry schema / layer-key form; the barrier table re-size for >2 layers
+  (the LOCK requires re-sizing the [layerCount=2,chunkCount=4] table — a HOW this contract forces); per-layer
+  store attach. bounds: C21, C11, LOCK barrier-table sizing. build: internal. **NOTE:** distinct from GT1 (the
+  gas-DOMAIN species handler that writes source/sink INTO the gas field); XL2 is the FieldFabric-kernel WHOLE-
+  LAYER registration seam — the two were conflated in the first draft; separated here. canon:
+  G:layer-registry-extensibility (read_by FieldFabric + any future layer author).
+
+### E. Gas-type extension seam (B1–B6, B8; consumer g-d3a8 — SECONDARY)
+
+- **GT1 — Meta-gas handler seam.** B1/B3. *g-d3a8 ← GasDomain (SpeciesDriverRegistry #9 + IDriverReadView +
+  phase scheduler).* **OBSERVABLE:** any meta-gas handler g-d3a8 supplies, at registration DECLARES the layers/
+  species it owns + read/write scopes; at run time is the SOLE writer of its declared layers within its phase,
+  READS the world only via a phase-consistent POST-TRANSPORT read-view, and CONTRIBUTES only scalar source/sink
+  on its owned species (may not mutate other layers/topology/committed truth); a handler writing outside its
+  declared scope/phase is REJECTED; the world view is the same regardless of which other handlers are present.
+  acceptance: phase isolation (disjoint-layer handlers identical alone or together); out-of-scope write rejected
+  by a negative test; determinism of the seam. `→PLAN`: phase count/ordering; write-lease/token structure; read-
+  view copy mechanism/layout; owned-layer count caps; registration-record encoding. bounds: A3.1, A3.4, C11,
+  C21. build: produced-now-consumed-later. canon: G:meta-gas-seam.
+- **GT2 — Data-alone config + harness acceptance.** B2. **OBSERVABLE:** a gas reusing an existing archetype is
+  expressible as DATA ALONE (shared-parent params + per-meta-gas params + per-meta-gas procedural visual, R15) —
+  no config field carries code; a gas needing behavior the archetypes can't express is the observable trigger to
+  add a handler (GT1); binding acceptance = a third gas type by data alone lands + PASSES THE HARNESS with no
+  core edit; a config smuggling behavior outside the property set is rejected. `→PLAN`: config schema fields/
+  types; value ranges/defaults; procedural-visual param encoding; species-id scheme; serialization. bounds: A3.2,
+  A3.3, A3.4, A3.5. build: produced-now-consumed-later. canon: G:gas-config-acceptance. *[fix: "packing density",
+  not "per-cell packing", to keep the example behavioral, not a layout commitment.]*
+- **GT3 — Declarative reaction registry.** B4. **OBSERVABLE:** reactions DECLARED in INTENSIVE terms
+  (concentration fractions + a temperature/energy window) so the SAME rule fires identically at coarse-band or
+  fine-cell scale, with hysteresis (anti-chatter); each region's reaction evaluated at exactly ONE level per
+  tick (no double-count); outputs = species-mass changes applied conservatively with all same-tick changes +
+  typed consequence events (GT4); a reaction changing a species' class just edits the local mixture (no desync
+  surface). acceptance: level-independence; exclusivity (a region under coarse+fine counted once, provable by a
+  would-double-count test); conservation within the stated bound when summed with transport. `→PLAN`: threshold/
+  hysteresis magnitudes (+3K/−1.5K class); rate caps (per-second); stoichiometric batch encoding; arbiter sort
+  key + scaling; enthalpy/radiative constants. bounds: A2.2, C22, A8.8. build: produced-now-consumed-later.
+  canon: G:reaction-intensive.
+- **GT4 — Consequence/event plane.** B5. **OBSERVABLE:** consequence events are typed + SELF-CONTAINED (location/
+  magnitude/species) so a consumer needs NO field state; proximity-INDEPENDENT; carry a publication revision
+  (baseline-at-R + events-after-R recovery); guaranteed to reach consumers AHEAD of the lossy field
+  reconstruction of the same change (systematically outrun lossy chunks; never on the gas stream); end-to-end
+  latency BOUNDED. acceptance: a no-field-state consumer reconstructs the consequence from the event alone; under
+  field-stream loss/delay the event still arrives before/independently of the field depiction; ordering/revision
+  lets a missed consumer recover exactly; observable within the latency bound. `→PLAN`: the latency-bound NUMBER
+  (sim ≤100 ms / perceived 100–300 ms, I16); event encoding + revision-counter width; delivery channel/
+  reliability (RPC/ghost); baseline+delta encoding; queue sizing. bounds: A2.1, C12, I16. build: produced-now-
+  consumed-later. canon: G:event-plane. **NOTE:** rides the LOCKED revisioned cross-layer GridEvent bus +
+  reliable feed (not re-opened). This is the OUTBOUND gameplay-consequence plane to g-d3a8 — DISTINCT from XL1
+  (the in-core gas↔temperature subscription).
+- **GT5 — Flagship custom-driver + named exclusions.** B8. **OBSERVABLE:** a flagship gas may ship a CUSTOM
+  driver via the SAME seam (GT1) and carry per-meta-gas visual params from which its look is DERIVED (published
+  so a visual consumer renders it from sim state, not a side channel); day-one the seam admits ONLY field-
+  transported gases — a gas hitting an excluded capability (agent/self-directed substrate; directed-velocity
+  intent) is REJECTED at registration with the exclusion named, never silently degraded. acceptance: a flagship
+  custom-driver passes the same seam acceptance as GT1 + renders only from published params; an excluded-
+  capability request is rejected; the excluded modes carry no day-one implementation. `→PLAN`: capability-
+  declaration encoding; driver-state blob format; procedural-visual param ranges; **whether agent-substrate
+  persists as a declared-but-unbuilt MODE (brief §5) or is fully REMOVED per the R5 reframe (I12)** — see fork;
+  velocity-gating wiring. bounds: A3.1, A3.4, R15, I12. build: produced-now-consumed-later. **owner_fork
+  (parked-sibling, DEFAULT taken):** agent-substrate as a first-class 2nd registration pathway vs forever-parked
+  single field pathway → DEFAULT = single field pathway, agent-substrate not a day-one shape (per I12/R5
+  "AGENT_SUBSTRATE removed", risk-#1 gating); the 2nd-pathway question is deferred to **g-d3a8's own converge**,
+  NOT a Wave-2 fork. canon: G:gas-exclusions-dayone.
+- **(B6 self-play lane) — RECLASSIFIED, not a separate cross-node contract.** The agent-self-play validation
+  lane is a g-9c41-INTERNAL validation discipline (harness + asserting agent both inside g-9c41's test surface).
+  Its cross-node observable (same config → same answer in self-play as in the live read model) is already carried
+  by OR3 (ExposureQuery self-consistency across the two g-d3a8 lanes) + GT2 (harness acceptance). Recorded as a
+  g-9c41-internal acceptance row (crit-5 lane), not a converge-arch contract. *[fix: the firewall critic flagged
+  the drafted K5 as a producer-side spec wearing a contract label — demoted here.]*
+
+### F. Render-pipeline seam (B9–B14; consumer g-7e15 — SECONDARY)
+
+- **RN1 — Read-model + pipeline-swap seam.** B11/B9. *g-7e15 ← GasDomain read model (the B31 oracle).*
+  **OBSERVABLE:** the visual pipeline samples sim state ONLY through the published read model — it asks the SAME
+  normative B31 oracle (REFERENCE by name; the formula is NOT restated here) and gets concentrations/species at a
+  point for the current published revision, tagged with the revision + the resolution level that answered;
+  choosing/swapping the concrete render pipeline (URP/HDRP/custom, A5.2) changes no producer-side type/signature/
+  behavior. acceptance: B31 same-point-same-answer; replacing the render pipeline with the sim build unchanged
+  leaves every read-model sample identical; every sample self-describes its revision + resolving level. `→PLAN`:
+  push-vs-poll; sample-result layout; resolutionKey encoding + tier thresholds; the interpolation form; cadence;
+  the URP/HDRP/custom pick. bounds: A5.2, A5.1, Q/band/tier C-rows. build: produced-now-consumed-later. canon:
+  visual-reads-via-published-read-model. *[fix: the B31 formula was inlined in the draft — removed; reference by
+  name only.]*
+- **RN2 — Visuals are a derivation of sim state (blind-check).** B13/B14/B9. **OBSERVABLE:** for any captured
+  moment g-9c41 exposes a machine-readable ground-truth readout (derived from the read model): how many gases +
+  where, where it's dangerous (lethal-exposure regions via ExposureQuery), where gas flows; the visual output
+  (incl. flagship menace silhouette + motion) must be a DERIVATION of this state — a blind vision-agent reading
+  the rendered clip agrees with the ground truth; menace motion is sim-driven, NOT hand-staged VFX. acceptance:
+  blind-check over a captured clip matches the ground-truth readout; same revision sequence → same blind-check
+  verdict (reproducible from state). `→PLAN`: ground-truth artifact schema; blind-check tolerances; lethal-
+  exposure threshold; clip resolution/format/path (g-5b07 B15); the stylization amplitude g-7e15 may add. bounds:
+  A5.5, A5.1, A7.1 (only on a derived-not-faked clip), lethal-exposure C-row. build: produced-now-consumed-later.
+  **owner_fork (parked-sibling, DEFAULT taken):** menace-motion STRICT derivation (g-7e15 may only stylize an
+  existing sim-driven motion) vs HYBRID (bounded authored secondary motion on top) → DEFAULT = STRICT (crit-6
+  default, safer claim); deferred to **g-7e15's converge**, NOT a Wave-2 fork. canon: visuals-derive-from-state.
+- **RN3 — Per-meta-gas visual params from the driver read-view.** B10. **OBSERVABLE:** per meta-gas at a sampled
+  point, g-9c41 publishes (via IDriverReadView) the param set that makes the gas visually DISTINGUISHABLE (R15:
+  shared-parent + per-meta-gas + procedural-visual params), read from sim config/driver state, NOT invented in
+  the renderer; a config-only new gas surfaces its distinguishability params with no producer code change; two
+  distinct meta-gases yield distinguishable param sets (the property the RN2 "how many gases" blind-check relies
+  on). acceptance: which params are exposed is a function of config (a data-alone gas exposes visuals with zero
+  producer/renderer edit); read-view phase-consistent (no torn cross-species reads); distinct gases →
+  distinguishable params. `→PLAN`: visual param schema field list; ranges/defaults; the procedural-visual
+  generation function (g-7e15-side HOW); read-view layout/cadence. bounds: A3.2, A3.4, R15, A3.1. build: produced-
+  now-consumed-later. canon: per-gas-visual-from-published-params.
+- **RN4 — Shared min-spec frame budget.** B12. *g-7e15 (visual layer) + g-9c41 (sim layer) — two-sided
+  boundary.* **OBSERVABLE:** sim-side and visual-side draw on ONE shared min-spec frame budget that is NOT
+  double-spent; the sum is evaluated against a single frame envelope on the SAME profile crit-9 validates scale
+  against (ties A1.7); there is a single named owner of the sim/visual boundary, accountable that the two shares
+  fit one frame. acceptance: on the binding min-spec profile + worst-case scene, sim-side + visual-side time fit
+  one envelope (no double-spend), scored against the same envelope crit-9 uses; exactly one accountable owner so
+  a regression in one layer can't silently consume the other's share. `→PLAN`: the frame-budget number + the sim/
+  visual split (A1.3 gas-ms, A5.3 render-ms); A8.3 coarse-tier tick ms + K-species multiplier; binding profile/
+  proxy method (A1.4); binding scene (A1.5); **the frame-rate/FPS target**. bounds: A1.7, A1.3, A5.3, A8.3, A1.5.
+  build: parked-edge. **owner_fork (DEFAULT taken):** the boundary OWNER = g-9c41 (sim owns the envelope + names
+  the boundary, visual layer is claimant) vs a neutral whole-frame owner above both nodes → DEFAULT = g-9c41 owns
+  sim-side + names the boundary (natural; ties A1.7); the neutral-owner option is deferred to the A1.7/crit-1↔
+  crit-9 closure. canon: shared-frame-budget-single-owner. *[fix: "60-class" (a 60-FPS rate) leaked into the
+  observable — removed; the FPS target → PLAN.]*
+
+### G. Completeness sweep — remaining edges (TREE-completeness, honestly classified)
+
+- **CS1 — Breach → topology-change consumer (B30, external).** *destruction-consumer (a PARKED later node =
+  full destructibility) ← g-9c41 TopologyCore + GasDomain.* SAME observable shape + canon as GG3 (a real
+  controlled local breach = a geometry-only topology-change change-set adding vertical portal(s), deterministic
+  id, gas flows after; ONE local breach mechanism day-one, no destruction SYSTEM). acceptance: same-breach →
+  same-adjacency + same-revision on all peers (deterministic); gas across the new portal consistent host↔clients
+  at settle (cites the LOCKED barrier + breach-affected cells in the hash domain); a breach opening no adjacency
+  is a defect. `→PLAN`: breach-portal id encoding; deferred-commit timing; breachable surfaces + count; trigger
+  wiring (explosion/damage threshold); revision-counter width; **the lockstep-broadcast delivery mechanism**.
+  bounds: C12, C16, A2.1. build: **dangling:destruction-consumer** — the breach PRODUCER half is internal to
+  g-9c41 day-one; the full-destructibility CONSUMER is a separate large unresolved edge PARKED to a later node
+  (named, not dropped; producer exists first). canon: shared G:topology-change[breach] with GG3 (ONE line).
+  *[fix: "lockstep-broadcast" moved to →PLAN — only the determinism property stays in the contract.]*
+- **CS2 — Co-op roles capability (B7) — G7 acceptance row, NOT a data contract.** g-d3a8 (parked) asserts which
+  asymmetric-role shapes the core must not preclude; g-9c41 confirms the host-authoritative + count-as-config
+  model SUPPORTS them: any role expressible as a distinct per-client INPUT/COMMAND stream + a distinct per-client
+  INTEREST/view is supported (all players are non-authoritative input sources against one host writer; no role is
+  a second authoritative field writer); a role needing a second field authority is OUT, surfaced as an owner
+  conflict. build: parked-edge G7 (a capability/acceptance fact a resolve pass signs; no cross-node data flows
+  here). No canon (one node parked).
+- **Honest non-contracts (named for tree-completeness, deliberately NOT manufactured into data contracts):**
+  B15 (clip artifact form) = open→PLAN render/capture magnitude (A2.3/A5.5/A7.x). B16/B17/B19 (min solo-startable
+  slice / distributable build / min-spec backs demo quality) = g-5b07 open→G7 acceptance rows that CONSUME
+  existing real contracts (crit-7 clean-1-player A6.1/A6.2 + crit-1 min-spec) — they mint no new cross-node data
+  shape. B18 (first-clip-as-Steam-milestone) = root map_order milestone/sequencing G7. B20/B21 (steady real-
+  footage byproduct / agent-drivable capture) = g-e6f2 acceptance rows riding the already-real harness
+  (crit-5/A4.x) + the real-footage-only policy (A7.3). B22 = ANSWERED (byproduct of crit 3/5). B23/B24/B25/B26
+  (moat-real / core-fantasy split / reusable-tech-asset / pride) = root owner ACCEPTANCE verdicts (open→G7);
+  B24/B25's arch-flavored half is already covered by the engine-free/portable R4 contract (#13 + crit-9).
+  Manufacturing data contracts for these would itself be a firewall error (inventing observable shape where only
+  a milestone/acceptance question exists).
+
+## §SIGNOFF (converge-arch pass)
+
+`§SIGNOFF: converge-arch DECLARE — SIGNED-in-part @ 2026-06-16 (c-converge-002).`
+
+**§SIGNOFF-BH — band-handoff (GG4/OR4) — OWNER-SIGNED 2026-06-16 (voice, this session).** Echoed owner verdict:
+precision is NOT metrically important («точность не сильно важна», «примерно»; «никто точность измерять,
+естественно, не будет»; «погрешность даже 10 клеток… несколько клеток подряд» — a few cells, loose); the
+coarse simulation = the source of truth («грубо, симуляция… наш источник истины»), which within a radius
+«разворачивается во второй слой… и третий» (his 3-tier hint: coarse-truth / prep-window / fine close-up — a
+HUNCH routed to PLAN, not a lock); the player must APPROXIMATELY see the strength + main corner + that a weak
+source accumulates slowly («он примерно должен видеть… главный угол»; left, came back, «газ не будет заполнен
+всю комнату, он там чуть-чуть дозаполнится»); HARD requirement: «никаких подрагиваний… это 100%» (no shimmer/
+pop on the handoff); «не нужно что-то прям дорогое… с геймплейной точки зрения». Owner flagged «охренеть как
+важно» — OPEN to deeper tightening at the Wave-2 shape (so this signs the contract STRENGTH; the mechanism +
+tolerance magnitude stay PLAN and the owner may revisit in-shape). **CLARIFIED 2026-06-16 (same session, owner
+voice):** the requirement is GAMEPLAY-binding, not only metric — (a) NO visible jerk/twitch in the gas EVER,
+including state computed OFF-SCREEN that surfaces on entry, because reading gas is the CORE mechanic; (b)
+believable amount AND rate on return — the coarse tier (the source of truth) accumulates at a plausible monotone
+rate so the gas QUANTITY matches what the player expected from the source strength he saw + elapsed time (no jump
+to half-full when ~quarter expected); crossing tiers changes only spatial DETAIL, never amount or rate. Folded
+into GG4 + OR4 acceptance.
+
+**Decided this leg (not open forks):**
+- XL1 cross-layer consistency = (a) BOTH layers consistent together (done_when #10 "networked-consistent
+  together" + ADR-0004 §T12 + RESOLVED-1); the cheaper gas-only reading rejected (weakens crit-10 + contradicts
+  the LOCK).
+- Parked-sibling forks declared with DEFAULTS, deferred to the sibling's OWN converge (NOT Wave-2 forks; owner
+  may override there): GT5 agent-substrate = single field pathway (I12/R5); RN2 menace-motion = strict derivation
+  (crit-6 default); RN4 frame-boundary owner = g-9c41 owns sim-side + names the boundary (A1.7).
+
+**Still PENDING (resolve-pass G7 rows, not converge-arch contracts):** CS2 (co-op roles capability) + the
+B15–B26 non-contracts are owner-owned acceptance/milestone rows a later resolve/shape pass signs.
+
+## play_check (converge-arch pass)
+
+- `declare: §CONTRACTS — every TREE g-9c41 interaction + internal seam → a contract or an honest non-contract
+  classification (IN/GG/OR/XL/GT/RN/CS families); B1–B31 all mapped; consumer-driven observable; HOW→PLAN; no
+  contract re-opens the LOCKED foundation (firewall-verified).` (done)
+- `decompose (heavy): the 6 §3.9 components sketched; internal seams → internal contracts (GG1–GG4, XL1–XL2 in-
+  core); GT1 (gas-domain species handler) vs XL2 (FieldFabric whole-layer registry) separated — they were
+  conflated.` (done)
+- `architect (heavy): the high-risk architecture-on-paper = brief v2 ARCH-1v2, imported born-closed, rides PLAN
+  as input-evidence (recorded in work/converge-g-9c41-arch.md); the emergent contract-architecture high-risk
+  questions (B31 cross-tier composition OR1; multi-layer consistency XL1; band-handoff GG4/OR4) authored
+  observable-first with HOW→PLAN; one miner gap-hunt caught the cross-layer/extensibility white spot (XL1/XL2).`
+  (done)
+- `contract_coverage: every TREE interaction → a §CONTRACTS entry — YES (B1–B31 + internal grid↔gas + cross-
+  layer seams; build-order named for every produced-now-consumed-later / dangling edge).` (done)
+- `arch_open: 0 — the brief's picks are imported born-closed; emergent contract properties authored observable-
+  first (a PLAN failure surfaces as a BLOCKED contract, not a silent green).` (done)
+- `arch_in_context_only: PASS — no architecture pick leaked into done_when; architecture-on-paper rides PLAN
+  context only.` (done)
+- `owner decisions (G7): band-handoff SIGNED in-session (voice); cross-layer consistency decided on done_when
+  #10 + LOCK; 3 parked-sibling forks declared with defaults + deferred; batched, not scattered.` (done)
+- `canon_proposed: two-sided contract canon (read_by both nodes) proposed per promotable contract; review/pulse
+  promote (NOT written to knowledge/).` (done)
+- `hardening: 15-agent in-session pre-pass (wf_c4e09962-08f: 6 drafters → 6 adversarial firewalls → 3 cross-
+  cutting critics); fixes folded (render-K1 formula-inline, render-K4 FPS leak, ingestion-K1 byte-identical,
+  ingestion-K2 white-box, gas-K2 packing wording, gas-K6 I12-supersede, completeness-K1 lockstep-broadcast,
+  self-play-lane reclassification, breach-canon dedupe); the cross-layer/extensibility WHITE SPOT (XL1/XL2)
+  caught + added. This is an IN-SESSION pre-pass (same-session helpers), NOT the binding refutation.`
+- `verify (the converge-verify PLAY): DEFERRED to a separate fresh session (boundary) — the next CALL.`
+- `close & route: CHECKPOINT — next = converge-verify (independent refutation of the contract set) → then
+  c-shape-wave2 consumes the VERIFIED contracts.`
+
+## §VERIFY (converge-verify pass — c-converge-verify, 2026-06-16) — VERDICT: BLOCKED CLOSE
+
+> The BINDING independent refutation (G5 lifted to spec) — a SEPARATE fresh session attacking the §CONTRACTS
+> set, NOT the 15-agent in-session pre-pass (that was a same-session self-check). Attacked on FOUR axes
+> (CALL c-converge-verify): (1) COMPLETENESS — independent oracle; (2) FIREWALL — no observable leaks HOW;
+> (3) NO-LEANING — no acceptance leans on a question open elsewhere; (4) NO-LOCK-REOPEN — no contract
+> silently redefines wire/barrier/cross-layer-GridEvent/cell-hash. The LOCK was checked against the VERBATIM
+> ADR-0004 §LOCK + ADR-0003 C1–C22 (read-only). Verify REFUTES; it writes no new contracts — a real gap is a
+> blocked close + a NAMED repair bounced to converge-arch (c-converge-003). NO `§SIGNOFF: converge-verify
+> passed` is written (holes found); a clean re-run after the repair gates shape CONSUMING the contracts.
+
+### ORACLE-NMTL — independent contract-class checklist (AUTHORED from first principles this session)
+
+`knowledge/` held no node-class checklist (an empty oracle = BLOCKED close, never auto-PASS), so the oracle
+was authored from first principles + competing precedents — NOT the brief / converge-arch sources (that
+shares the prover's blind spot). Precedents: authoritative client-server delta-netcode (Quake/Source/
+Overwatch), chunked single-writer atmospherics (SS13/SS14, Stationeers, Noita), data-oriented layered ECS,
+LOD / streaming engines. The 25 contract classes a networked **multi-TIER multi-LAYER host-authoritative
+field-simulation core serving sibling consumers** must expose, and the §CONTRACTS coverage:
+
+| # | contract class | §CONTRACTS entry | verdict |
+|---|---|---|---|
+| 1 | ingestion / source boundary | IN1, IN2 | ✓ |
+| 2 | transport-vendor decoupling | IN3 | ✓ |
+| 3 | authority / replication model (FINE) | I1 (locked) + IN3 | ✓ (foundation) |
+| 4 | FINE-tier state repr / quantization / wire | locked C1, C2, C10 | ✓ |
+| 5 | FINE-tier consistency / recovery (divergence/settle/keyframe/fault) | locked C3/C4/C8/C9/C12/C13/C22 | ✓ |
+| 6 | **COARSE-tier network replication + consistency obligation** | — | **✗ FAIL → F1** |
+| 7 | multi-resolution read-model / sampling oracle | OR1, OR2, OR3, RN1 | ✓ |
+| 8 | cross-tier composition (seam agreement) | OR1 (observable-first; BLOCKED-not-green) | ✓ |
+| 9 | layer-registry extensibility | XL2 | ⚠ (F2) |
+| 10 | inter-layer interaction / event bus | XL1 + locked GridEvent bus | ⚠ (F2) |
+| 11 | topology mutation (breach) | GG1, GG3, CS1 | ✓ |
+| 12 | geometry ↔ domain sovereignty | GG2 | ✓ |
+| 13 | tier-transition / band-handoff continuity | GG4, OR4 (owner-signed) | ✓ |
+| 14 | behavior / content extension (species handlers) | GT1, GT2, GT5 | ✓ |
+| 15 | domain-rules registry (reactions) | GT3 | ✓ |
+| 16 | outbound consequence / event plane | GT4 | ✓ |
+| 17 | shared resource / perf budget envelope | RN4 + A1.7 | ✓ |
+| 18 | render read-model seam | RN1, RN2, RN3 | ✓ |
+| 19 | time / tick / determinism | locked C16, I4 | ✓ (foundation) |
+| 20 | per-client interest / relevance management | folded into GG4 + OR2 observable; mechanism →PLAN | ⚠ (part of F1) |
+| 21 | lifecycle / late-join / session-join | I20 (OUT) + keyframe recovery | ✓ (named deferral) |
+| 22 | protocol / schema version handshake (cross-build) | B17 non-contract + I20 | ✓ (implicit deferral — capture) |
+| 23 | persistence / serialization | cut ("save/load → none") | ✓ (named cut) |
+| 24 | security / authority-validation | CS2 + co-op-friends N/A | ✓ (honest non-contract) |
+| 25 | observability / debug-surface (cross-node) | RN2 + GT4 + B22 | ✓ |
+
+`canon_proposed`: **ORACLE-NMTL** → propose to knowledge/ (serves: g-9c41 + future networked-sim nodes;
+read_by: converge-verify of this node-class). converge-verify PROPOSES; review/pulse promote (verify never
+writes knowledge/).
+
+### Finding F1 — NO coarse-tier network-replication contract (COMPLETENESS FAIL + NO-LEANING FAIL)
+
+The set LOCKED the FINE chunked-delta stream (table `[layerCount=2,chunkCount=4]`) and contracted the
+read-model (OR1/OR2/OR3 = local sampling, not network) — but NEVER declares whether/how the COARSE band tier
+replicates host→clients, nor to what consistency standard. Four weight-bearing places lean on this UNCITED:
+- **crit-3** "clients consistent" — proven in Wave 1 on the FINE toy scene, not the coarse tier at scale;
+- **crit-9** on-wire ~11k keyframe-inclusive cells (knowledge/g9c41-wave1-hold-mechanism-lossy-projection)
+  implies the coarse tier IS what's on the wire at scale — yet no contract states it;
+- **OR2** "coarse = floor, no gaps, consumer-independence" — on a CLIENT this requires coarse state to be
+  PRESENT on the client (else a far-AI / visual consumer on a client sees a gap where the host sees coarse →
+  consumer-independence violated). OR2 leans on an uncited "coarse reaches every client-side consumer";
+- **GG4/OR4** "amount never changes crossing tiers" — needs coarse↔fine mass agreement (C22/OR3) atop the
+  same unresolved decision.
+LATENT CONFLICT: the brief's exponential-relaxation Patankar coarse integrator is typically FLOAT; if coarse
+replicates-and-hashes in the locked `CellHash.FoldLayer` host==client bit-exact, a float solver breaks
+integer-determinism (I4/LOCK). Uncontracted, PLAN gets three silent escapes: (i) coarse host-only → breaks
+OR2 on clients; (ii) coarse replicates with a float solver → breaks bit-exact crit-3; (iii) PLAN invents a
+coarse-tier divergence bound that no contract names. **This is exactly the "gone somewhere primitive on the
+scale claim, unnoticed" the converge layer exists to prevent.**
+REPAIR (→ converge-arch c-converge-003, not authored here): declare a COARSE-tier-replication contract
+observable-first — coarse reaches every client-side consumer (vs host-only); carrier (locked-stream
+resolutionKey vs a separate plane); consistency standard (bit-exact / bounded-divergence / host-only) +
+coarse-solver determinism obligation; HOW (plane / granularity / interest-management) → PLAN.
+
+### Finding F2 — XL1 feedback vs the locked pure-sink proofs (NO-LOCK-REOPEN + internal contradiction)
+
+LOCK (verbatim ADR-0004): §T12 "temperature is a pure sink with no feedback to gas, so it always converges";
+C21 "gas+temp keeps gas hash byte-identical"; `ReactionHeat=32` pinned "so a Wave-2 author cannot silently
+move the reconstructed-Temperature trajectory"; `GridEventKind{GasChanged=1,Breach=2,Reaction=3}` (all
+gas/breach-sourced). XL1 (crit-10 tightening) requires a FEEDBACK interaction (NOT a sink). Two unreconciled
+collisions:
+1. **Literal contradiction.** XL2 accepts "gas+new-layer run keeps the gas trajectory byte-identical (the
+   Wave-1 C21 proof, generalized)". Once feedback is on, gas-with-temp ≠ gas-only — generalizing C21
+   "byte-identical to the gas-only golden" while feedback exists is incoherent. Must split: byte-identical
+   isolation-proof = the 3rd DEMONSTRATIVE layer (XL2); trajectory-changing feedback = gas↔temperature
+   (XL1); the Wave-1 sink / `ReactionHeat=32` / C21 stays a FROZEN control.
+2. **LOCK point.** XL1's MECHANISM paragraph describes pub/sub. A feedback FROM temperature to gas needs a
+   temperature-SOURCED event — absent from the locked enum (gas/breach only). So feedback is either
+   (a) event-based → silently extends the locked `GridEventKind` enum (a LOCK change that must be SURFACED,
+   like the barrier-table resize), or (b) read-based (the gas reaction phase reads temperature via a
+   phase-consistent read-view; phase-ordering → PLAN; enum untouched). XL1 routes "phase ordering" to PLAN
+   (read-based) yet its MECHANISM says pub/sub (event-based) — neither XL1 nor the LOCK reconciles this.
+REPAIR (→ c-converge-003): XL1 states feedback = read-based-in-phase-order (enum untouched; Wave-1 sink =
+frozen control) OR event-based (SURFACE the enum extension, never silent in PLAN); re-baseline XL2 isolation
+(demonstrative layer == gas+temp, NOT == gas-only).
+
+### Axes that passed CLEAN (balance)
+
+- **FIREWALL — PASS (1 borderline note).** Observables route HOW (push/poll, format, cadence, layout,
+  magnitude) to `→PLAN`; the pre-pass already removed the FPS leak, byte-identical-ids, and the inlined B31
+  formula. Borderline: the XL1 MECHANISM paragraph carries a communication model, but it restates LOCKED
+  foundation + routes the open HOW → not a NEW smuggle (capture: trim it at the repair).
+- **NO-LOCK-REOPEN — PASS except F2.** XL2 names the `[2,4]` table and routes the resize to PLAN — exactly
+  per the LOCK's own instruction ("any Wave-2 layer/grid extension SHALL re-size the table"), NOT a re-open.
+  GG1 correctly separates the sector/adjacency revision from the locked per-(layerKey,chunkIndex) barrier.
+  XL1 references (does not redefine) the locked `CellHash.FoldLayer`.
+- **OR1 cross-tier (CALL special focus) — PASS** (modulo F1's "does coarse reach the client"): authored
+  observable-first with the explicit "not satisfiable at a seam → BLOCKED contract, not silent green"
+  discipline; OR2 thinnest-open-level precedence makes cross-CONSUMER agreement exact and routes the
+  cross-TIER tolerance to PLAN.
+- **GG4 / OR4 band-handoff (CALL special focus) — PASS:** owner-signed "no jerk EVER" + "believable amount/
+  rate" are PROPERTIES (owner is the named acceptor), magnitudes → PLAN. Minor (capture): GG4's bounds list
+  omits C22 though its acceptance depends on the lossy mass bound; the OR4 twin cites C22.
+
+### play_check (converge-verify pass)
+
+- `1 recite: two propositions stated (set COMPLETE; no answer leans/leaks)` (done)
+- `2 attack-completeness: ORACLE-NMTL authored from first principles + precedents (NOT brief/converge-arch),
+  named, proposed as canon; 25 classes mapped; FAIL=1 (F1 coarse-tier replication)` (done)
+- `3 attack-smuggling: firewall PASS (HOW→PLAN; XL1 MECHANISM borderline, not new); no-leaning FAIL=1 (=F1
+  uncited coarse-replication lean); no-lock-reopen PASS except F2; checked vs verbatim ADR-0004/ADR-0003`
+  (done)
+- `4 close: BLOCKED — next = c-converge-003 (repair to converge-arch carrying F1+F2); verify re-runs after
+  re-close; NO §SIGNOFF: converge-verify passed written; not two-strikes (first bounce of these rows)`
+  (done)
+
 END_OF_FILE: live/indie-game-development/work/converge-g-9c41.md

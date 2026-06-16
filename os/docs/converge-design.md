@@ -29,7 +29,7 @@ v3.1 (the prior chat's converge.md + converge-arch.md) already had triage-by-ris
 1. **Separate refutation session** (`converge-verify`). v3.1 folded verification into grep-closure + the owner gate + a same-session gap-hunt — a self-check, which cannot catch the assumption the author never knew he made. Verification is now a different session with an independent oracle.
 2. **Mechanism decomposition made mechanical** (converge step 3). Any committed mechanism (chosen approach, or a mechanism locked in done_when) is atomically split into one question per internal parameter — so Q/N/K are *derived*, not dependent on how deeply the architect happened to decompose.
 3. **Retrofit / import-already-decided** (converge step 1). A mid-flight node imports settled decisions from `history/` as born-closed rows (`source: history/<id>`), so converge frames only the genuine gap instead of re-litigating what the owner already decided. Needed because the first real run (g-9c41) is a retrofit and `knowledge/` is empty.
-4. **Self-certifying handoff** (play_check lines: `converge_coverage`, `contract_coverage`, `verify`). The shape/writer Definition-of-Ready that copies acceptance + contract rows into the executor done_when can check line-presence and counts — keeping the writer "no-judgment". The os/adapter enforcement is deferred until the first handoff actually needs it (non-speculative).
+4. **Self-certifying handoff** (play_check lines: `converge_coverage`, `contract_coverage`, `verify`). The shape/writer Definition-of-Ready that copies acceptance + contract rows into the executor done_when can check line-presence and counts — keeping the writer "no-judgment". The converge-readiness facet of this DoR — a non-trivial node must have run converge (or recorded an explicit `converge OFF — because …`) before it is shaped/activated — is now wired in the writer (2026-06-16, os/adapters/coding-agent.md), triggered by the first real handoffs (solmax g-kernel reached shape→work with no converge session). The acceptance/contract-row copy-completeness facet stays a play_check self-cert; its writer enforcement is deferred until that handoff needs it.
 
 ## WHAT/HOW boundary (decision D-0)
 
@@ -50,7 +50,7 @@ The universal spine is TRIAGE → DEFINE → RESOLVE → VERIFY → copy-into-th
 
 ## Fit to physics
 
-Three core plays in `os/plays/` (≤600 words each: 599/600/598). Kernel §6 play list + packets.md `play:` enum gained the converge family (kernel 1494/1500). No 7th state-file type. Reuses research (compete), G5 (verify discipline), G7 (owner decisions), G10 (play_check validation), review (canon promotion). The writer-DoR adapter edit is deferred to when the first handoff needs it. Per-direction parts stay direction-local: node-class decision-class checklists live in each direction's `knowledge/` (the play is general; its oracles are direction data).
+Three core plays in `os/plays/` (≤600 words each: 599/600/598). Kernel §6 play list + packets.md `play:` enum gained the converge family (kernel 1494/1500). No 7th state-file type. Reuses research (compete), G5 (verify discipline), G7 (owner decisions), G10 (play_check validation), review (canon promotion). The writer-DoR's converge-readiness check is wired (2026-06-16, os/adapters/coding-agent.md); its acceptance/contract-row copy-check stays deferred to when that handoff needs it. Per-direction parts stay direction-local: node-class decision-class checklists live in each direction's `knowledge/` (the play is general; its oracles are direction data).
 
 ## Open decisions (carried to the owner)
 
@@ -67,6 +67,6 @@ Built via two multi-agent passes (5 independent architectures → adversarial cr
 1. (this build) author converge / converge-arch / converge-verify + this doc; clean the v3.1 hanging state. [done]
 2. First real run = a fresh session: TIER + FRAME (converge) on g-9c41 as a RETROFIT — import settled decisions, derive the question set incl. the chunked-delta mechanism's Q/N/K as `→ PLAN` rows; output work/converge-g-9c41.md. The success test: converge reproduces, as named questions, exactly the values the executor invented ad hoc.
 3. Resolve one question per chat; converge-arch for the grid↔gas contract; converge-verify; then a shape CALL with the acceptance/contract rows to copy + the PLAN-agenda.
-4. Wire the writer-DoR adapter edit when that first handoff needs it.
+4. Converge-readiness DoR is wired in the writer (2026-06-16); wire the acceptance/contract-row copy-check when that first handoff needs it.
 
 END_OF_FILE: os/docs/converge-design.md
