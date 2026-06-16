@@ -90,9 +90,16 @@ root:
       9. Scale architecture (R1): the coarse simulation tier is designed and
          arithmetic-validated to hold a huge procedurally generated level profile
          (≈200×200×40 m class, ≥1000 volumes) within measured memory/tick/bandwidth
-         budgets on the min-spec profile. Building that scale (sector subdivision,
-         1000-object ingest gate) may be a later bet; this node requires the architecture
-         and the numbers, not the full content.
+         budgets on the min-spec profile. (REFINED 2026-06-16, review c-review-001 —
+         owner-approved «го») The bandwidth budget MUST be computed from the ON-WIRE
+         rate INCLUSIVE of the periodic resync-keyframe flush (a full-state snapshot
+         whose byte cost scales with cell count), NOT from offered-demand deltas alone:
+         the Wave-1 t-3 lossy projection (~59k cells @275 KB/s) was offered-demand-based
+         and ~5.3× optimistic; the honest on-wire lossy basis is ~11k cells (lossless
+         ~4.9k is conservative). Size the coarse-tier grid against the on-wire
+         keyframe-inclusive number. Building that scale (sector subdivision, 1000-object
+         ingest gate) may be a later bet; this node requires the architecture and the
+         numbers, not the full content.
       10. (ADDED 2026-06-14, s-shape-004) Layered architecture PROVEN: ≥2 independent
           system-layers (gas + a thin dynamic temperature layer) ride ONE seam and are
           networked-consistent together; a cross-layer interaction is observable
