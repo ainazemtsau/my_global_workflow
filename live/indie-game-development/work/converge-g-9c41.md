@@ -350,6 +350,30 @@ wall). No scripted finals; simplest impls only for tests. *Grounding:* already t
 core, layer registry + named extension points (a new layer/driver plugs in without core edits), R4
 "asset survives the concept".
 
+## §RESOLVED-4 — INTER-LAYER READ MODEL (2026-06-16, s-decide-003 / folded at c-converge-003)
+
+`§SIGNOFF: owner confirmed the inter-layer read architecture + the temperature→gas feedback deferral @
+2026-06-16 (s-decide-003, voice/text — «все понятно со всем полностью согласен»).` Recorded here because it is
+the SEAM that holds the deferred feedback open (it resolves the verify watch-item "don't foreclose feedback")
+and the model XL1's read-ready seam references instead of restating inline.
+
+**The architecture (owner-confirmed).** The GRID is the shared coordinate/address space + the cell→room/sector
+OWNERSHIP map + the event BUS + the revision/commit CLOCK — it is NOT a data router / god-object (the one
+correction to the owner's first "grid routes the data" model is "grid carries ADDRESSES + ownership, not the
+data values"). Each layer publishes, on a COMMITTED revision: (notification-shaped) typed EVENTS — discrete
+"something happened at grid-cell/sector c" — and a (queryable) READ-MODEL — "value at grid-cell c as of revision
+r" — that translates grid-coords into the layer's OWN internal representation. (Delivery — synchronous pull vs
+subscription — is → PLAN, per XL1.) Consumers subscribe/query in GRID coordinates against a COMMITTED revision;
+they NEVER touch another layer's internals or its live mid-tick state (this is what keeps
+cross-layer reads deterministic + network-consistent). This collapses N×N pairwise adapters → N (one
+grid-addressed read-model per source layer, shared by all consumers) and handles HETEROGENEOUS resolution
+(temperature answers a per-cell query from per-room storage; the coarse gas tier answers from band storage).
+**It MATCHES the already-authored OR1/OR2 (the single field-sampling oracle) + GG2 (geometry/band sovereignty)**
+— the same shape, generalized from "the gas read oracle" to "every layer publishes a read oracle." **Forward
+constraint (cheap, not code — carry into Wave-2 design):** the read seam must let a layer read another layer's
+field at ANY resolution on a committed revision; do NOT optimize the band solver into a corner that forecloses
+later temperature→gas feedback. Magnitudes (read-model encoding, phase ordering, cross-tier mapping) → PLAN.
+
 ## §SIGNOFF — partial (resolve in progress)
 
 G7 owner gates batched into AT MOST THREE points (one per gated movement):
@@ -472,14 +496,18 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
   computed OFF-SCREEN that surfaces on entry (reading gas is the CORE mechanic → any visible jerk = broken); (2)
   **believable amount + rate**: on return after being away, the gas QUANTITY matches what the player would expect
   from the source strength he observed + elapsed time (no jump to half-full when ~quarter is expected) — the
-  coarse tier evolves the gas at a believable, monotone rate while unobserved, and entering/leaving changes only
-  the spatial DETAIL, never the amount or its rate; (3) a weak corner source reads in the right corner; (4)
+  coarse tier evolves the gas at a believable, GRADUAL rate while unobserved (gradual top-up per the owner's
+  «чуть-чуть дозаполнится» signoff; any non-decreasing / curve-shape constraint is NOT baked here → PLAN/g-d3a8),
+  and entering/leaving changes only the spatial DETAIL, never the amount or its rate; (3) a weak corner source
+  reads in the right corner; (4)
   source-survival across non-destructive topology change. The geometry the seam
   exposes must SUFFICE for this; the reconstruction mechanism is not prescribed. `→PLAN`: the 3-tier prep-window
   mechanism (owner HINT: coarse=truth / intermediate prep-window within a radius / fine close-up — a hunch, not
   a lock); hints-vs-replay; the few-cells tolerance magnitude; how source-accumulation is hinted while coarse;
-  burn-in/seeding to achieve no-pop; seam smoothing. bounds: A8.1/A8.2, C15, B27 occupancy. build: internal.
-  canon: band-handoff continuity. *(twin of OR4 — same owner decision, one §SIGNOFF.)*
+  burn-in/seeding to achieve no-pop; seam smoothing. bounds: A8.1/A8.2, C15, C22, CR1/CR2, B27 occupancy. build:
+  internal. canon: band-handoff continuity. *(twin of OR4 — same owner decision, one §SIGNOFF.)* *(C22 + CR1/CR2
+  added c-converge-003: "amount never changes crossing tiers" depends on the lossy mass bound AND on coarse↔fine
+  agreement, which needs the coarse tier replicated + consistent — F1.)*
 
 ### C. B31 — the ONE normative field-sampling / ExposureQuery oracle (the cross-cutting invariant; PRIMARY)
 
@@ -527,31 +555,51 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
 
 ### D. Cross-layer interaction + extensibility seam (done_when #10 — the WHITE SPOT the miner gap-hunt caught; NEW)
 
-- **XL1 — Cross-layer interaction seam (multi-layer consistency).** done_when #10 + RESOLVED-1 + the LOCKED
-  cross-layer contract. INTERNAL: GasDomain/ReactionLayer (LayerKey 0) PUBLISHES reaction/breach/gas-changed
-  GridEvents; the temperature layer (LayerKey 1) SUBSCRIBES + responds. trigger: a layer publishes a GridEvent
-  another layer consumes within a tick. **OBSERVABLE:** ≥2 independent layers ride ONE seam and are networked-
-  consistent TOGETHER — the non-simulating client reconstructs a consistent MULTI-LAYER field (both gas and
-  temperature held to the lossless bit-exact + lossy bounded-divergence oracle at settle, per the LOCK's
-  CellHash.FoldLayer-per-layer); a cross-layer interaction is OBSERVABLE (a reaction/heat event drives the
-  temperature layer's response, measurable at the firing tick). **MECHANISM (owner-confirmed model, 2026-06-16):**
-  a layer PUBLISHES a typed event keyed by a shared GRID coordinate (reaction/breach/gas-changed at grid cell/
-  sector c) onto the cross-layer bus; any other layer SUBSCRIBES, maps c to its own representation, and reacts by
-  editing ONLY its OWN state — the single-writer-per-(layer×phase) rule forbids writing another layer's cells,
-  which is exactly what keeps the multi-layer field deterministic + network-consistent. The grid is the shared
-  coordinate/communication reference; the bus is generic (FieldFabric kernel), so new layers (pressure, airflow —
-  owner's examples) plug onto it via XL2 with no core edit. acceptance: under the load oracle, BOTH layers'
-  reconstructed cells stay host==clients at every settle; a suppressed-event negative oracle shows the
-  interaction is real; (crit-10 tightening, folded by shape) a FEEDBACK interaction (not a pure sink) is
-  exercised. `→PLAN`: the phase ordering + cross-layer revision/commit rule for a feedback interaction; per-layer
-  Q/N magnitudes; the specific feedback rule + its constant; the **cross-TIER coordinate mapping** (how a grid
-  event maps to coarse-sector vs fine-cell representations at the tier resolving there). bounds: C11, C12,
-  C19/C20, A8.8. build: internal.
-  **NOTE — consistency obligation DECIDED (not an open fork):** the binding obligation = (a) BOTH layers
-  consistent together. done_when #10 says "networked-consistent together"; ADR-0004 §T12 already proved
-  temperature consistent at settle for the Wave-1 sink; the cheaper "gas-only + host-derived temperature"
-  reading would WEAKEN crit-10 and contradict the LOCK → rejected. canon: G:cross-layer-consistency (read_by
-  FieldFabric + GasDomain + the temperature layer).
+- **XL1 — Cross-layer interaction seam (multi-layer SINK consistency at coarse scale + read-ready seam).**
+  *(re-scoped c-converge-003 per d-tempfeedback-001 — feedback DEFERRED.)* done_when #10 + RESOLVED-1 +
+  §RESOLVED-4 (inter-layer read model) + the LOCKED cross-layer contract. INTERNAL: GasDomain/ReactionLayer
+  (LayerKey 0) PUBLISHES reaction/breach/gas-changed GridEvents (the LOCKED gas/breach-sourced enum); the
+  temperature layer (LayerKey 1) SUBSCRIBES + responds as a SINK. trigger: a layer publishes a GridEvent another
+  layer consumes within a tick. **OBSERVABLE:** ≥2 independent layers ride ONE seam and are networked-consistent
+  TOGETHER at Wave-2 COARSE scale — the non-simulating client reconstructs a consistent MULTI-LAYER field (both
+  gas and temperature held to the lossless bit-exact + lossy bounded-divergence oracle at settle, per the LOCK's
+  CellHash.FoldLayer-per-layer, now exercised at COARSE scale not only the Wave-1 toy scene); the gas→temperature
+  SINK interaction is OBSERVABLE (a reaction/heat event drives the temperature layer's response, measurable at
+  the firing tick). PLUS the grid-addressed READ-READY seam (§RESOLVED-4): a layer's field can be READ on a
+  COMMITTED revision via a grid-addressed read-model — a consumer queries "value at grid-cell c as of revision r"
+  in GRID coordinates, the layer translates to its own representation internally (temperature answers a per-cell
+  query from per-room storage), and NO consumer touches another layer's internals or live mid-tick state.
+  acceptance: under the load oracle, BOTH layers' reconstructed cells stay host==clients at every settle AT
+  COARSE SCALE — this coarse-scale per-layer consistency is DISCHARGED by CR1/CR2/CR3 read PER LAYER (incl. the
+  coarse temperature layer, §H PER-LAYER note), NOT by §T12 (fine Wave-1 toy scene only); a suppressed-event
+  negative oracle shows the sink interaction is real; the read seam answers a cross-layer grid-coord query on a
+  committed revision deterministically (a live-state / wrong-revision read is rejected). `→PLAN`: the cross-layer
+  phase ordering + commit rule; per-layer Q/N magnitudes; the read-model
+  encoding + the **cross-TIER coordinate mapping** (how a grid query resolves at coarse-sector vs fine-cell
+  representations at the tier resolving there); pull-vs-subscription. bounds: C11, C12, C19/C20, A8.8,
+  §RESOLVED-4, CR1/CR2. build: internal.
+  **MECHANISM → §RESOLVED-4 + PLAN.** *(trimmed c-converge-003 — the pub/sub + read-model communication model is
+  recorded ONCE in §RESOLVED-4 and its magnitudes route to PLAN, not restated as contract prose here; this closes
+  the verify firewall-borderline note on the old MECHANISM paragraph.)*
+  **NOTE — consistency obligation DECIDED (not an open fork):** the binding obligation = BOTH layers consistent
+  together (done_when #10 "networked-consistent together" + RESOLVED-1). §T12 HOLDS for the FINE Wave-1 layer
+  only; the coarse-scale temperature-sink consistency is DERIVED from CR1/CR2/CR3 generalized PER LAYER (§H), NOT
+  directly from §T12. The cheaper "gas-only + host-derived temperature" reading weakens crit-10 + contradicts the
+  LOCK → rejected.
+  **NOTE — FEEDBACK DEFERRED (d-tempfeedback-001, owner-confirmed 2026-06-16, s-decide-003):** temperature→gas
+  FEEDBACK is DEFERRED to a later wave (post-g-d3a8 — the per-gas-type heat rule is game design worked in
+  parallel; building it now = guaranteed rework; nothing in the Wave-2 spine depends on it). This wave's
+  cross-layer interaction is the gas→temperature SINK ONLY, so the locked GridEventKind enum (gas/breach-sourced)
+  is UNTOUCHED, no temperature-sourced event exists, and the verify F2 collision DISSOLVES: temperature stays a
+  pure sink → ADR-0004 §T12 + C21 byte-identical HOLD. FORWARD PATH (named, not built): when feedback is later
+  introduced it is EITHER read-based-in-phase-order (the gas reaction phase READS temperature via §RESOLVED-4's
+  read seam; enum untouched) OR event-based (which SHALL SURFACE the locked-GridEventKind extension, exactly like
+  the barrier-table re-size, never silent in PLAN). FORWARD CONSTRAINT (cheap, carry into Wave-2 design): the
+  read seam must let a layer read another layer's field at ANY resolution on a committed revision — do NOT
+  optimize the band solver into a corner that forecloses later feedback. The crit-10 "feedback interaction"
+  tightening shape folded in is RE-SCOPED to this deferral; the TREE crit-10 rewording (NAME the deferral, don't
+  silently drop it) is the SHAPE's G9 job (c-shape-wave2), NOT edited here. canon: G:cross-layer-consistency
+  (read_by FieldFabric + GasDomain + the temperature layer).
 - **XL2 — Layer-registry extensibility ("a new layer plugs in without core edits").** done_when #10 +
   RESOLVED-3 + C21. INTERNAL: a new independent layer registers on FieldFabric (#2) and rides the shared
   transactional multi-layer commit + revision feed. trigger: a new layer/driver registered at composition/load.
@@ -560,13 +608,22 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
   store + revision feed WITHOUT editing FieldFabric or any other layer's files (file-level isolation = the
   extensibility proof). acceptance: a gas-only run reproduces the goldens; a gas+new-layer run keeps the gas
   trajectory byte-identical + an RNG-conservation guard proves the new layer consumed zero gas RNG (the Wave-1
-  C21 proof, generalized); a third DEMONSTRATIVE layer plugs in with no core edit (crit-10 tightening — currently
-  argued, not exercised). `→PLAN`: registry schema / layer-key form; the barrier table re-size for >2 layers
-  (the LOCK requires re-sizing the [layerCount=2,chunkCount=4] table — a HOW this contract forces); per-layer
-  store attach. bounds: C21, C11, LOCK barrier-table sizing. build: internal. **NOTE:** distinct from GT1 (the
-  gas-DOMAIN species handler that writes source/sink INTO the gas field); XL2 is the FieldFabric-kernel WHOLE-
-  LAYER registration seam — the two were conflated in the first draft; separated here. canon:
-  G:layer-registry-extensibility (read_by FieldFabric + any future layer author).
+  C21 proof, generalized); a third DEMONSTRATIVE layer plugs in with no core edit (crit-10 extensibility proof —
+  the demonstrative layer is an INDEPENDENT / non-feedback layer, so the byte-identical invariant holds). `→PLAN`:
+  registry schema / layer-key form; the barrier table re-size for >2 layers (the LOCK requires re-sizing the
+  [layerCount=2,chunkCount=4] table — a HOW this contract forces); per-layer store attach. bounds: C21, C11, LOCK
+  barrier-table sizing. build: internal. **NOTE:** distinct from GT1 (the gas-DOMAIN species handler that writes
+  source/sink INTO the gas field); XL2 is the FieldFabric-kernel WHOLE-LAYER registration seam — the two were
+  conflated in the first draft; separated here. canon: G:layer-registry-extensibility (read_by FieldFabric + any
+  future layer author).
+  **NOTE — F2 byte-identical contradiction DISSOLVED (re-scoped c-converge-003 per d-tempfeedback-001):** the
+  verify flagged "gas+new-layer keeps gas byte-identical (C21 generalized)" as contradicting XL1's required
+  feedback. With feedback DEFERRED, temperature is a pure SINK → gas-with-temperature == gas-only (locked C21
+  holds LITERALLY: temp consumes zero gas RNG, gas hash byte-identical), so the isolation proof is COHERENT as
+  authored — for INDEPENDENT / sink layers. No re-baseline is required under the deferral. The byte-identical
+  invariant is the extensibility test for an INDEPENDENT layer; a FEEDBACK layer (post-g-d3a8) legitimately
+  CHANGES the gas trajectory, so ITS isolation proof has a DIFFERENT shape ("the change equals exactly the
+  contracted feedback and nothing else") — named here as a later-wave concern, not built now.
 
 ### E. Gas-type extension seam (B1–B6, B8; consumer g-d3a8 — SECONDARY)
 
@@ -702,6 +759,14 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
   a second authoritative field writer); a role needing a second field authority is OUT, surfaced as an owner
   conflict. build: parked-edge G7 (a capability/acceptance fact a resolve pass signs; no cross-node data flows
   here). No canon (one node parked).
+- **CS3 — Cross-build protocol/schema version handshake (ORACLE-NMTL class 22) — EXPLICITLY DEFERRED to the
+  g-5b07 distributable-build edge (capture folded c-converge-003).** Wave-2 harness is SINGLE-BUILD: all peers
+  run the SAME build from tick 0 (I20 late-join OUT), so no cross-version negotiation exists to contract now.
+  When the distributable demo / Steam-Playtest build (g-5b07 B17) introduces peers on DIFFERENT builds, a
+  protocol/schema version handshake becomes a real contract (the wire header + GridEventKind enum + barrier-table
+  shape are the versioned surface). NAMED as a deferral, not silently dropped; no day-one data flow. build:
+  parked-edge (consumer = g-5b07). No canon (deferred). *(Makes ORACLE-NMTL class 22 an EXPLICIT named deferral
+  rather than the implicit B17+I20 one the verify flagged.)*
 - **Honest non-contracts (named for tree-completeness, deliberately NOT manufactured into data contracts):**
   B15 (clip artifact form) = open→PLAN render/capture magnitude (A2.3/A5.5/A7.x). B16/B17/B19 (min solo-startable
   slice / distributable build / min-spec backs demo quality) = g-5b07 open→G7 acceptance rows that CONSUME
@@ -714,7 +779,100 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
   Manufacturing data contracts for these would itself be a firewall error (inventing observable shape where only
   a milestone/acceptance question exists).
 
-## §SIGNOFF (converge-arch pass)
+### H. Coarse-tier network replication + consistency (ADDED c-converge-003, 2026-06-16 — F1 repair; PRIMARY)
+
+> **What this closes.** converge-verify Finding F1: the set LOCKED + contracted the FINE chunked-delta stream and
+> the LOCAL read-model (OR1/OR2/OR3) but never declared whether/how the COARSE band tier reaches clients nor to
+> what consistency standard — yet crit-3 (clients consistent at scale), crit-9 (~11k on-wire keyframe-inclusive
+> cells), OR2-on-a-client ("coarse=floor, consumer-independence"), and GG4/OR4 ("amount never changes crossing
+> tiers") all lean on it. Declared OBSERVABLE-FIRST; the standard is DERIVED from already-signed properties + the
+> LOCK (no new owner G7 fork — see the DECIDED/DERIVED NOTEs); every magnitude / plane / interest-scheme → PLAN.
+> Nothing re-opens the LOCK: CR3 APPLIES the locked I4/C1 integer-exactness discipline to the new tier, and CR1's
+> locked-stream carrier option follows the LOCK's OWN "any Wave-2 layer/grid extension SHALL re-size the table"
+> instruction (a surfaced re-size, never a silent reject).
+>
+> **PER-LAYER (folded c-converge-003 hardening pre-pass).** CR1/CR2/CR3 apply to EVERY coarse layer — coarse gas
+> AND the coarse TEMPERATURE layer (its per-band energy/temperature state, A8.8) — not gas alone. This is the
+> obligation that DISCHARGES XL1's coarse-scale "both layers consistent together" acceptance: the coarse
+> temperature layer's host==client consistency at scale is DERIVED from CR1/CR2/CR3 read per-layer, NOT from the
+> locked §T12 (which proves only the FINE Wave-1 toy scene — C15: 16 temp cells). The read seam (PULL, §RESOLVED-4)
+> and the replicated authoritative coarse state (PUSH, CR1/CR2/CR3) are DISTINCT obligations — the coarse
+> temperature layer is covered on BOTH, never assumed-covered because the read seam exists.
+
+- **CR1 — Coarse-tier replication reaches clients (NOT host-only).** crit-3 / crit-9 + OR2. *every client-side
+  consumer (visual read model RN1; any client-resident far-AI / ExposureQuery OR3) ← host coarse band state, PER
+  LAYER (coarse gas AND the coarse temperature layer — see the §H PER-LAYER note).* trigger: the coarse tier
+  advances / a committed revision publishes coarse changes. **OBSERVABLE:** the coarse band-tier authoritative
+  state is replicated host→clients so that, for any (point, layer, committed revision) a client-side consumer is
+  ENTITLED to query under OR2/OR3, the coarse state it reads equals the host's. COVERAGE FLOOR (this IS the
+  observable, NOT →PLAN): a consumer's interest set MUST cover every (point, layer, revision) it is entitled to
+  query — NO entitled gap; the relevance scheme may scope WHAT each client holds but may NEVER exclude an entitled
+  query. Consumer-independence holds ACROSS THE NETWORK over the OVERLAP of entitlement sets (two clients with
+  different windowed interest agree wherever both are entitled; a client visual and the host-side AI agree at the
+  same point + revision) — coarse is the floor OR2 promises ON EVERY PEER for what that peer is entitled to, not
+  just on the host. acceptance: a client-side coarse read of an ENTITLED (point, layer, revision) == the host's at
+  the same committed revision; a client-resident far-AI querying a host-coarse region it is ENTITLED to sees NO
+  gap (OR2 consumer-independence holds peer-to-peer over entitlement-overlap, not only host-local); the on-wire
+  coarse cell-count crit-9 sizes IS this replicated state. `→PLAN`: carrier (locked-stream resolutionKey vs a
+  separate coarse plane — if the locked stream is chosen, any NEW coarse resolutionKey value AND the barrier-table
+  re-size SHALL be SURFACED as locked-wire-enum / table extensions per the LOCK, NEVER silently assigned in PLAN);
+  per-client interest-management / relevance MECHANISM (whole-level vs windowed — ORACLE-NMTL class 20; HOW the
+  entitlement set is computed/streamed, subject to the coverage floor above) + how a newly-entered region is
+  correct on arrival (constrained by GG4/OR4 no-jerk, NOT free); coarse delta-vs-keyframe granularity; cadence.
+  bounds: crit-3, crit-9, OR2, OR3, GG4/OR4, C10 resolutionKey. build: internal (produces the on-wire coarse
+  state crit-9 sizes; consumed by OR1/OR2/RN1/OR3 ON CLIENTS + GG4/OR4). canon: coarse-tier-replication (read_by
+  GasDomain + the temperature layer + every client-side read-model consumer). **NOTE — host-only DECIDED-OUT (not
+  an open fork):** WHOLE-host-only is refuted by the two premises that do the work — (1) the core mechanic is
+  reading gas in far/adjacent regions a client renders FROM coarse, and (2) OR1/OR2/RN1 consumer-independence is
+  meaningless if consumers on different peers hold divergent coarse state for what they are BOTH entitled to;
+  crit-9's owner-approved on-wire sizing CORROBORATES (is consistent with, does not alone decide) coarse being on
+  the wire. What is NOT foreclosed and lives in the →PLAN interest space: a far region may be host-only UNTIL a
+  consumer becomes entitled to it (relevance-scoped replication) — the coverage floor only forbids an ENTITLED
+  gap. The owner may override at shape, but replicates-for-the-entitled is a derivation from signed facts, not a
+  manufactured fork.
+- **CR2 — Coarse-tier consistency standard = the locked DUAL guarantee, generalized PER LAYER.** crit-3 +
+  I7/I8/I10. **OBSERVABLE:** every replicated coarse LAYER (coarse gas AND the coarse temperature layer) is held
+  to the SAME dual-standard SHAPE as the locked fine stream — (i) LOSSLESS: a per-tick host==client BIT-EXACT
+  correctness oracle over the authoritative coarse cells under the locked CellHash.FoldLayer-per-layer hash
+  DISCIPLINE (deadband off) — the reference oracle that VALIDATES the reconstruction path; (ii) LOSSY production:
+  bounded per-cell divergence ≤ a coarse quant-step every tick + convergence to bit-exact at settle/keyframe; both
+  modes SHARE ONE reconstruction path (anti-gaming, I10 generalized). CROSS-TIER agreement at a coarse↔fine window
+  boundary (the amount a coarse region holds == what a fine window produces there when it opens) is the OR1
+  cross-tier observable (REFERENCE OR1 by name + the coarse mass bound below) — so GG4/OR4 amount-invariance cites
+  a closed-or-explicitly-BLOCKED contract, never a silent green. The owner-signed band-handoff LOOSE tolerance
+  (few cells, «никто точность измерять не будет») is the gameplay face of the LOSSY production mode; the
+  no-jerk-EVER / believable-amount-rate firmness (GG4/OR4) is the settle / believable-rate face. acceptance:
+  lossless oracle bit-exact every tick incl. across a COARSE topology change; lossy bounded every tick + ≥1
+  non-vacuous bit-exact settle; one shared recon path proven (lossless+lossy identical path). `→PLAN`: the coarse
+  quant-step Q_coarse; the divergence bound; the coarse settle predicate / keyframe cadence; the coarse lossy
+  mass-conservation bound (C22 generalized — the coarse AGGREGATE-mass bound stays open→PLAN exactly as the fine
+  C22 is, NOT a smuggled guarantee); the coarse↔fine seam-composition math (OR1); the coarse tier's per-layer
+  layer/chunk addressing within the FoldLayer discipline (the table re-size is the LOCK's OWN SHALL-re-size,
+  →PLAN). bounds: I7/I8/I10, C3/C4/C8/C9/C22, OR1, crit-3, GG4/OR4. build: internal. canon: coarse-tier-
+  consistency (dual guarantee). **NOTE — standard DERIVED (not an open fork):** the dual guarantee is THIS
+  project's consistency methodology (Wave-1 I6–I11). The lossless oracle is NOT a production cost the owner's
+  loose gameplay tolerance argues against — it is a deadband-OFF TEST INSTRUMENT: because lossless and lossy SHARE
+  one reconstruction path (I10 anti-gaming), the lossless oracle is what proves that shared path produces the
+  CORRECT value, not merely a value inside a self-referential bound (a lossy-only standard is itself falsifiable
+  but cannot establish correctness of the path PRODUCTION uses). Dropping it would WEAKEN the locked Wave-1
+  correctness methodology; applying it to the new tier IS that methodology, not a new owner decision. (The owner's
+  loose tolerance maps to the LOSSY production mode, which is the only mode players see.)
+- **CR3 — Coarse authoritative state is EXACT (resolves the latent float-Patankar ↔ locked-integer conflict).**
+  I4 + C1 + the verify latent-conflict. **OBSERVABLE:** the coarse tier's AUTHORITATIVE, replicated, hashed state
+  — for EVERY coarse layer (gas AND the coarse temperature layer's per-band energy/temperature state, A8.8) — is
+  exact integer/fixed-point — the locked I4/C1 "no float in authoritative state" discipline applied to the
+  coarse tier; whatever coarse integrator PLAN picks (incl. the brief's exponential-relaxation Patankar scheme)
+  reduces its output DETERMINISTICALLY to that exact authoritative state BEFORE it is hashed or put on the wire;
+  a raw float/double is NEVER the authoritative or on-wire coarse value. Because only the HOST runs the solver and
+  clients RECONSTRUCT from exact wire values (I1), cross-host/client float determinism is NOT required — only
+  host-side determinism for reproducibility. acceptance: the authoritative coarse cell type is integer/fixed-point
+  (no float in the hashed/replicated state, mirroring C1); a NEGATIVE test that a non-deterministically-reduced
+  float path FAILS the host==client lossless oracle (CR2-i). `→PLAN`: the coarse cell representation (bit-width /
+  fixed-point scale); whether the solver is integer-native or float-then-deterministic-quantize; the reduction
+  rule; host-side reproducibility of the solve. bounds: I4, C1, C19, CR2. build: internal. canon:
+  coarse-state-exactness. **NOTE:** this EXTENDS the LOCK's discipline to a new tier, it does NOT re-open it — and
+  it forecloses the verify's three silent PLAN escapes (i host-only / ii float-hash-breaks-bit-exact / iii
+  un-named coarse divergence bound).
 
 `§SIGNOFF: converge-arch DECLARE — SIGNED-in-part @ 2026-06-16 (c-converge-002).`
 
@@ -731,9 +889,11 @@ pop on the handoff); «не нужно что-то прям дорогое… с
 tolerance magnitude stay PLAN and the owner may revisit in-shape). **CLARIFIED 2026-06-16 (same session, owner
 voice):** the requirement is GAMEPLAY-binding, not only metric — (a) NO visible jerk/twitch in the gas EVER,
 including state computed OFF-SCREEN that surfaces on entry, because reading gas is the CORE mechanic; (b)
-believable amount AND rate on return — the coarse tier (the source of truth) accumulates at a plausible monotone
-rate so the gas QUANTITY matches what the player expected from the source strength he saw + elapsed time (no jump
-to half-full when ~quarter expected); crossing tiers changes only spatial DETAIL, never amount or rate. Folded
+believable amount AND rate on return — the coarse tier (the source of truth) accumulates at a plausible, GRADUAL
+rate (gloss corrected c-converge-003: owner signed «чуть-чуть дозаполнится» = gradual / no-jump, NOT strictly
+non-decreasing; curve-shape → PLAN/g-d3a8) so the gas QUANTITY matches what the player expected from the source
+strength he saw + elapsed time (no jump to half-full when ~quarter expected); crossing tiers changes only spatial
+DETAIL, never amount or rate. Folded
 into GG4 + OR4 acceptance.
 
 **Decided this leg (not open forks):**
@@ -906,5 +1066,110 @@ frozen control) OR event-based (SURFACE the enum extension, never silent in PLAN
 - `4 close: BLOCKED — next = c-converge-003 (repair to converge-arch carrying F1+F2); verify re-runs after
   re-close; NO §SIGNOFF: converge-verify passed written; not two-strikes (first bounce of these rows)`
   (done)
+
+## §REPAIR (converge-arch repair pass — c-converge-003, 2026-06-16) — F1 CLOSED, F2 DISSOLVED
+
+> The converge-arch REPAIR of the two converge-verify findings (the §VERIFY BLOCKED close above), folding owner
+> decision d-tempfeedback-001 (s-decide-003). Observable-first, HOW→PLAN, nothing re-opens the LOCK. The contracts
+> are EDITED IN PLACE (the canonical set shape consumes stays in §CONTRACTS — section H is new, XL1/XL2/GG4 carry
+> "re-scoped/added c-converge-003" markers, §RESOLVED-4 is new); this section records the provenance + the
+> re-mapped oracle + the sign-off. The BINDING re-refutation is a FRESH converge-verify session (the next CALL) —
+> this repair is NOT self-certified.
+
+**F1 — CLOSED.** New §CONTRACTS section H (CR1/CR2/CR3): CR1 declares coarse-tier replication reaches every
+client-side consumer (host-only DECIDED-OUT via crit-9 owner-approved + the core mechanic + OR1/OR2 cross-peer
+consumer-independence — not a manufactured fork); CR2 sets the consistency standard = the locked DUAL guarantee
+(lossless bit-exact oracle + lossy bounded-divergence-converging-at-settle) generalized to the coarse tier
+(DERIVED from the project's own Wave-1 methodology I6–I11, not a new owner decision); CR3 resolves the latent
+float-Patankar ↔ locked-integer conflict by requiring the coarse AUTHORITATIVE / hashed / on-wire state be EXACT
+integer/fixed-point (the locked I4/C1 discipline extended to the new tier — float may be only a transient internal
+computation deterministically reduced before hashing). This forecloses the verify's three silent PLAN escapes
+(host-only / float-hash / un-named coarse bound). The four weight-bearing leans (crit-3, crit-9, OR2-on-a-client,
+GG4/OR4) now cite CR1/CR2/CR3. **No G7 fork raised** — the standard derived cleanly from signed properties + the
+LOCK (the CALL's fork condition "if NOT derivable cleanly" was not met).
+
+**F2 — DISSOLVED via d-tempfeedback-001 (feedback DEFERRED), XL1/XL2 re-scoped IN PLACE.** The owner deferred
+temperature→gas feedback (post-g-d3a8), so temperature stays a pure SINK → the locked §T12 + C21 byte-identical
+HOLD, the locked GridEventKind enum is UNTOUCHED (no temperature-sourced event), and the XL2-vs-XL1 byte-identical
+contradiction disappears. XL1 re-scoped: multi-layer SINK consistency AT COARSE SCALE + the grid-addressed
+READ-READY seam (§RESOLVED-4); the crit-10 "feedback interaction" requirement re-scoped to a NAMED deferral + the
+forward path (read-based enum-untouched OR event-based-with-SURFACED-enum-extension — a later wave's call) + the
+forward constraint (read seam reads any resolution on a committed revision; don't foreclose feedback); the
+firewall-borderline MECHANISM paragraph TRIMMED to §RESOLVED-4 + PLAN. XL2: the byte-identical isolation is
+coherent as authored for INDEPENDENT/sink layers (no re-baseline needed under the deferral); a feedback layer's
+different isolation proof named as a later-wave concern. §RESOLVED-4 records the owner-confirmed inter-layer read
+architecture (grid = addresses+ownership+bus+commit-clock NOT a data router; per-layer push-events + pull-read-
+model on committed revisions; matches OR1/OR2 + GG2).
+
+**Minors folded:** C22 (+CR1/CR2) added to GG4 bounds (its "amount never changes crossing tiers" depends on the
+lossy mass bound AND on coarse↔fine agreement; OR4 twin already cited C22). XL1 MECHANISM trimmed (above).
+Cross-build version-handshake made an EXPLICIT named deferral (CS3) to the g-5b07 edge.
+
+**ORACLE-NMTL re-map (the classes that were not clean at verify):**
+
+| # | class | at verify | after repair |
+|---|---|---|---|
+| 6 | COARSE-tier network replication + consistency | ✗ FAIL (F1) | **✓ CR1, CR2, CR3** |
+| 9 | layer-registry extensibility | ⚠ (F2) | **✓ XL2 (coherent under the deferral)** |
+| 10 | inter-layer interaction / event bus | ⚠ (F2) | **✓ XL1 (sink + read-ready) + §RESOLVED-4 + locked bus** — ✓ CONTINGENT on c-shape-wave2 G9 rewording crit-10 to NAME the feedback deferral (the sink reading already satisfies the literal frozen crit-10; the narrow re-verify must CONFIRM this, not assume shape did it) |
+| 20 | per-client interest / relevance | ⚠ (part of F1) | **✓ CR1 COVERAGE FLOOR (interest set ⊇ entitled-query set = the observable, not bare routing); OR2 consumer-independence scoped to entitlement-overlap; relevance MECHANISM →PLAN** |
+| 22 | protocol/schema version handshake | ✓ (implicit) | **✓ CS3 (explicit named deferral)** |
+
+All 25 classes covered; the other 20 were already ✓ at verify and are untouched.
+
+**Hardening fold (in-session adversarial pre-pass wf_b5e55d56-406, 7 agents, 4 verify axes + a no-fork-derivation
+challenge).** Verdict: the no-fork derivation HOLDS (adjudicated — the coarse lossless oracle is the locked I10
+anti-gaming TEST INSTRUMENT, not a new owner cost; host-only refuted by the core mechanic + cross-peer consumer-
+independence), so NO G7 fork is raised. Two MUST-FIX holes — both at the seams the repair itself touched — were
+found and folded: (1) **CR1 interest-set floor** — CR1 gated coarse equality on an undefined "interest set" with
+no lower bound, re-opening the F1 OR2-on-a-client hole one level down (a client-resident far-AI entitled to a far
+region could fall outside its interest set); folded a COVERAGE FLOOR (interest set ⊇ entitled-query set) as the
+observable + scoped OR2 consumer-independence to entitlement-overlap. (2) **XL1 coarse-temperature per-layer** —
+the F2 re-scope widened XL1 to "both layers consistent AT COARSE SCALE" but CR1/CR2/CR3 were gas-scoped and §T12
+proves only the fine toy scene (the "gone primitive on the scale claim" anti-pattern, re-introduced for
+temperature); folded PER-LAYER (CR1/CR2/CR3 apply to the coarse temperature layer too) + qualified the §T12
+citation. Nits folded: the resolutionKey SURFACED-extension guard (symmetric with the barrier-table + GridEventKind
+discipline); "monotone"→"gradual" (the contract over-stated the owner's «чуть-чуть дозаполнится» signoff — a
+faithfulness correction, NOT a re-litigation, in GG4 + CR2 + the §SIGNOFF-BH echo, curve-shape →PLAN/g-d3a8);
+§RESOLVED-4 push/pull → semantic categories (delivery →PLAN); CR2 C22-ambiguity + cross-tier seam-agreement made
+explicit (GG4/OR4 amount-invariance now cites OR1 + the coarse mass bound honestly); CR1 host-only NOTE leans on
+the two load-bearing premises with crit-9 demoted to corroboration; class-10 ✓ marked contingent on the shape's
+crit-10 rewording. This is a SAME-SESSION pre-pass — the binding refutation is the next fresh converge-verify.
+
+## §SIGNOFF (converge-arch repair pass — c-converge-003)
+
+`§SIGNOFF: converge-arch REPAIR (F1 coarse-tier replication + F2 re-scope) — SIGNED-in-part @ 2026-06-16
+(c-converge-003).` F1 closed observable-first (CR1/CR2/CR3), standard DERIVED — no new owner fork. F2 dissolved
+under owner decision d-tempfeedback-001 (feedback deferred); XL1/XL2 re-scoped in place; §RESOLVED-4 carries the
+owner-confirmed read architecture (s-decide-003). HOW magnitudes → PLAN throughout; nothing re-opens the LOCK
+(CR3 extends I4/C1; CR1 follows the LOCK's own SHALL-re-size; XL1 leaves the GridEventKind enum + §T12 + C21
+untouched). The BINDING independent refutation is the next FRESH converge-verify session (NOT self-certified here).
+
+## play_check (converge-arch repair pass — c-converge-003)
+
+- `declare: F1 → §CONTRACTS section H (CR1 reaches-clients / CR2 dual-guarantee standard / CR3 exact-state);
+  XL1/XL2 re-scoped in place under d-tempfeedback-001; GG4 bounds + CS3 version-handshake folded. Every new
+  contract consumer-driven + observable; HOW→PLAN.` (done)
+- `decompose: the coarse-tier replication seam is the NETWORK face of the already-decomposed coarse tier — CR1
+  (carrier/interest →PLAN) / CR2 (standard) / CR3 (representation) split atomically; no new sub-node minted.`
+  (done)
+- `architect: the one emergent high-risk question (the coarse consistency STANDARD + the float/integer conflict)
+  worked observable-first and DERIVED from signed properties + the LOCK (recorded in work/converge-g-9c41-arch.md
+  §EMERGENT Q5); no architecture-on-paper leaked into done_when.` (done)
+- `contract_coverage: every TREE interaction → a §CONTRACTS entry — YES; the F1 coarse-replication white spot now
+  CR1–CR3; ORACLE-NMTL 25/25 covered (re-map above).` (done)
+- `arch_open: 0 — F1 standard derived (no open fork); F2 dissolved by an EXISTING owner decision
+  (d-tempfeedback-001), not a new one.` (done)
+- `arch_in_context_only: PASS — no pick in done_when; the architecture rides PLAN context.` (done)
+- `owner decisions (G7): none newly raised — F1 derived; F2 folds the already-made d-tempfeedback-001. No
+  scattered / auto-decided fork. (Owner reachable only if a real coarse-standard fork had opened — it did not.)`
+  (done)
+- `hardening: focused in-session adversarial pre-pass (wf_b5e55d56-406, 7 agents) on the 4 verify axes +
+  F1-closed/F2-dissolved + the derivation-validity / no-fork challenge + ORACLE-NMTL re-map; verdict = no fork
+  (derivation holds) + 2 must-fix (CR1 interest-floor, XL1 per-layer coarse-temperature) + nits — ALL folded
+  (see §REPAIR Hardening fold). This is a SAME-SESSION pre-pass, NOT the binding refutation.`
+- `verify (the converge-verify PLAY): DEFERRED to the next FRESH session (boundary) — the next CALL.`
+- `close & route: next = a NARROW fresh converge-verify on the repaired set (section H + re-scoped XL1/XL2 +
+  §RESOLVED-4 + minors) → then c-shape-wave2 consumes the VERIFIED contracts.`
 
 END_OF_FILE: live/indie-game-development/work/converge-g-9c41.md

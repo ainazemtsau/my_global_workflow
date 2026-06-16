@@ -113,10 +113,13 @@ open_calls:
       feedback. NAME the deferral, do not silently drop it. Fold the Wave-2
       cleanup card (Codex round-3). converge-arch c-converge-002 contracts feed this. Builds on ADR-0004 §LOCK +
       knowledge/g9c41-wave1-*.
-      ⚠ CONTRACT GATE (converge-verify c-converge-verify, 2026-06-16): the §CONTRACTS set is BLOCKED pending
-      c-converge-003 + a clean re-verify. The bet-SPINE shape may proceed (verify is parallel/non-gating to
-      the spine), but it MUST NOT bind the §CONTRACTS into executor done_when until re-verify is clean —
-      treat the contracts as DRAFT until then (2 open holes: coarse-tier replication; XL1 feedback vs LOCK).
+      ⚠ CONTRACT GATE (UPDATED 2026-06-16 — c-converge-003 DONE): the 2 verify holes are REPAIRED (F1 coarse-tier
+      replication = CR1/CR2/CR3; F2 dissolved via XL1/XL2 re-scope + d-tempfeedback-001). The §CONTRACTS set is now
+      pending ONLY a clean fresh re-verify (c-converge-verify-002, ready). The bet-SPINE shape may proceed (verify
+      is parallel/non-gating to the spine) but MUST NOT bind §CONTRACTS into executor done_when until the re-verify
+      is clean — treat the contracts as DRAFT until then. NOTE: rewording TREE crit-10 to NAME the temperature→gas
+      feedback deferral (per d-tempfeedback-001) is THIS shape's G9 job — the contract-coverage of crit-10
+      (ORACLE-NMTL class 10) is contingent on it.
   - id: c-map-003
     status: queued   # 2026-06-16 framed at review c-review-001 — re-check the parallel-track structure post-clip-drop
     note: |
@@ -176,8 +179,9 @@ open_calls:
       to converge-arch (c-converge-003); a clean re-verify gates shape CONSUMING the contracts. NO §SIGNOFF
       written. → §VERIFY in work/converge-g-9c41.md + history/s-converge-verify-001.md.
   - id: c-converge-003
-    status: ready   # 2026-06-16 framed at converge-verify (BLOCKED close) — repair the 2 bounced findings, then re-verify
+    status: done   # 2026-06-16 converge-arch REPAIR COMPLETE — F1 closed (CR1/CR2/CR3), F2 dissolved (XL1/XL2 re-scope + d-tempfeedback-001), §RESOLVED-4 + minors; in-session hardening pre-pass (wf_b5e55d56-406) = no G7 fork (derivation holds) + 2 must-fix folded (CR1 interest-floor, XL1 per-layer); next = fresh re-verify c-converge-verify-002. → §REPAIR in work/converge-g-9c41.md + history/s-converge-003.md
     note: |
+      DONE 2026-06-16 (s-converge-003). Original repair framing kept below for history.
       converge-arch REPAIR of the 2 verify-found holes (observable-first, HOW→PLAN, no LOCK re-open):
       F1 — declare a COARSE-tier network-replication + consistency contract: does coarse band-state reach
       every client-side consumer (vs host-only); carrier (locked-stream resolutionKey vs a separate plane);
@@ -195,6 +199,18 @@ open_calls:
       Wave 2 = multi-layer consistency of the gas→temperature SINK at coarse scale + the grid-addressed
       READ-READY seam (a layer can be READ on a committed revision per OR1/OR2/GG2), feedback NOT required
       this wave. Then re-verify.
+  - id: c-converge-verify-002
+    status: ready   # 2026-06-16 framed at converge-arch repair (c-converge-003) — fresh-session re-verify of the repaired §CONTRACTS set
+    note: |
+      NARROW fresh-session converge-verify (binding G5) of the REPAIRED §CONTRACTS set (section H CR1/CR2/CR3 +
+      re-scoped XL1/XL2 + §RESOLVED-4 + GG4 bounds + CS3). Must run in a FRESH session (a different model family
+      is optional extra rigor, not required). SCOPE: firewall + no-lock-reopen NARROW to the new/edited entries;
+      but NO-LEANING + consumer-independence RE-TRACED across every contract that cites a CR-row or §RESOLVED-4
+      (≥ OR2, OR3, GG4, OR4, crit-3/crit-9). Explicitly adjudicate: the class-20 interest-set COVERAGE FLOOR
+      (genuinely ✓ vs a deferral); the coarse-temperature PER-LAYER discharge of XL1 (CR1/CR2/CR3 per-layer, NOT
+      §T12); and that class-10 ✓ is CONTINGENT on the c-shape-wave2 G9 crit-10 rewording. Reuse ORACLE-NMTL
+      (propose as canon). Clean → §SIGNOFF: converge-verify passed → shape may CONSUME the contracts; a real new
+      gap → BLOCKED close + named repair (not self-certified). Full CALL in history/s-converge-003.md RESULT.next.
   - id: c-shape-004
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
