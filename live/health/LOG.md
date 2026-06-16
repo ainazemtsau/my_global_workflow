@@ -34,5 +34,6 @@
 
 - 2026-06-16 — converge g-health-nutrition-system: owner-signed closed WHAT for nutrition module on core; personalized process + mandatory tracking; vitrine/Mealie cut; next converge-arch. → history/2026-06-16-s-health-nutrition-converge-001.md
 - 2026-06-16 — health/g-health-nutrition-system converge-arch: closed §CONTRACTS NCA0-NCA9 and architecture-on-paper Q1-Q9 for nutrition module on g-health-core; no owner decision batch; no current app/UI/Mealie requirement; next converge-verify. → history/2026-06-16-s-health-nutrition-converge-arch-001.md
+- 2026-06-16 — health/g-health-nutrition-system converge-verify: FAIL; bounced core-review, regular-process, and day_type producer blockers to converge-arch correction. → history/2026-06-16-s-health-nutrition-converge-verify-001.md
 
 END_OF_FILE: live/health/LOG.md

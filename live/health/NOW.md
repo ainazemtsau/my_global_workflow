@@ -3,10 +3,10 @@
 active_bet:
   status: none
   note: >
-    2026-06-16 nutrition converge-arch closed contract/architecture-on-paper surface:
-    NCA0-NCA9 cover starter seed, core attach, tracking LOG, review mutation,
-    base-prep/grocery, bad-week/safety, future seam, training day_type via core,
-    and Direction OS raw-data boundary. Next = converge-verify.
+    2026-06-16 nutrition converge-verify failed clean pass: independent oracle
+    found blocker gaps in core review consumption, regular nutrition procedure
+    extension points, and NCA8 day_type producer wording/evidence. Next =
+    converge-arch correction.
 
 tasks: []
 
@@ -25,14 +25,14 @@ decisions:
     owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-converge-verify-001
+  CALL c-health-nutrition-converge-arch-correction-001
   to: session
   direction: health
-  play: converge-verify
+  play: converge-arch
   node: g-health-nutrition-system
   goal: |
-    g-health-nutrition-system contract/architecture closure is independently refuted and either
-    passed clean for shape or bounced with exact blockers.
+    g-health-nutrition-system contract/architecture closure is corrected so verifier blockers
+    are closed and the node is ready for fresh verification.
   context: |
     Read:
     - live/health/CHARTER.md
@@ -46,6 +46,10 @@ next: |
     - health-ai acceptance/core/matrix.json
     - health-ai core/extensions/attach-contract.md
     - health-ai core/metrics.md
+    - health-ai core/review.md
+    - health-ai core/progression/cadence.md
+    - health-ai core/procedures/template-contract.md
+    - health-ai core/provenance/day-type.md
     - health-ai core/profile/owner-facts.md
     - health-ai core/profile/derived-anchors.md
     - health-ai core/intake/non-blocking-questions.md
@@ -53,31 +57,32 @@ next: |
     - health-ai core/principles/minimum-tracked-signals.md
     - health-ai core/phases.md
 
-    Verify specifically:
-    - §CONTRACTS NCA0-NCA9 cover every TREE/core/starter/training/Direction OS/future seam interaction.
-    - There is no dangling current producer; future training logged day_type is correctly non-blocking.
-    - Nutrition consumes core; it does not duplicate core profile, phase, metrics, parser/library/procedure, review, schema/versioning, or Direction OS boundary.
-    - Mandatory tracking, tracking-to-review mutation, base-prep/reuse, grocery/prep derivation, bad-week mode, safety, and future integration seam are covered.
-    - Architecture questions Q1-Q9 are closed with refuted alternatives and no open/deferred high-risk rows.
-    - No HOW leakage appears in §CONTRACTS; HOW is routed to PLAN.
-    - Architecture-on-paper is context-only and does not leak into executor done_when.
+    Correct these converge-verify blockers exactly:
+    - B1: NCA1/NCA4 do not explicitly bind nutrition review to core-owned review policy/cadence/procedure.
+      Core evidence says review is a core-owned reconciliation step; current NCA4 can read as a duplicated
+      nutrition review engine.
+    - B2: TREE's regular nutrition process extension points are not contract-covered as core procedure-template
+      invocations. Current coverage maps them only weakly via W1/W13/NCA1; examples include new dish search,
+      fallback refresh, pantry-based recipes, and low-time-week adaptation.
+    - B3: NCA8 overstates the current planned day_type producer. Core evidence proves CA5 as a provenance
+      contract only; either cite an actual current core planned day_type source or make the nutrition dependency
+      explicitly non-blocking/fallback-safe without requiring a core rewrite.
   boundaries: |
-    Do not shape the node.
-    Do not create executor CALL.
-    Do not build implementation.
+    Do not shape the node or create executor CALLs.
     Do not add UI/app/Mealie/runtime/DB/server/cron/scheduler requirements.
     Do not rewrite g-health-core.
+    Do not reopen owner-signed nutrition WHAT unless a blocker proves a true WHAT-level gap.
     Do not store raw daily food/weight/photo/check-in logs in Direction OS.
-    If blockers are found, return exact blockers; do not patch them silently unless they are purely mechanical wording fixes inside the verify result.
   done_when: |
-    Independent verdict is pass/fail with evidence.
-    Pass only if contract coverage is complete, no current producer dangles, no line cites an open WHAT/term,
-    no HOW leaks into contract rows, mandatory nutrition tracking/review/base-prep semantics are covered,
-    and architecture-on-paper remains input evidence only.
-    If pass, next route is shape. If fail, next route is repair/converge-arch correction with exact blockers.
+    B1-B3 are closed in the nutrition contract/architecture artifact or explicitly routed as unresolved.
+    No new current app/runtime/UI requirement is introduced.
+    No g-health-core rewrite requirement is introduced.
+    Open/deferred high-risk architecture rows are zero, or exact remaining blockers are returned.
+    Next route is a fresh converge-verify CALL.
   return: |
-    RESULT with verdict, evidence table, blocker list if any, state_changes, play_check, and next CALL.
-  budget: one focused verify movement
+    RESULT with corrected contract/architecture rows, evidence against B1-B3, state_changes, play_check,
+    and next CALL.
+  budget: one focused correction movement
   surface: any capable session
 
 END_OF_FILE: live/health/NOW.md
