@@ -1,227 +1,84 @@
 # NOW — health
 
 active_bet:
-  id: g-health-core
-  status: active
-  appetite: 3 focused half-days
-  kill_by: >
-    2026-06-19: if there is not a committed health-ai core-only slice with zero
-    blocker gaps against WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9, plus passing
-    YAML/formula/dry-run evidence, stop and review instead of extending.
-  goal: >
-    Сильное ядро Health AI System создано как провайдеро-независимая файловая система
-    (Markdown/YAML в git): держит здоровье-состояние, программы-как-план, ежедневный
-    трекинг и общий слой метрик/фаз/ревью; принимает ввод обычным текстом/голосом/фото;
-    управляется любым LLM без проприетарной памяти.
-  done_when:
-    - health-ai contains a committed core-only slice satisfying copied acceptance WA1-WA12
-      plus W69/W70/W72/W73/W74 and contracts CA1-CA9 from work/converge-g-health-core.md.
-    - PLAN-agenda P1-P27 is carried as implementation input evidence, not promoted into
-      Direction OS done_when.
-    - The slice is verifiable without nutrition/training modules through a minimal core-only
-      program/day fixture.
-    - Direction OS remains strategic-only and raw daily data is not duplicated here.
-    - Product repo clearing was explicitly owner-confirmed before any destructive wipe.
-  evaluator: >
-    After t-3, review/refutation must try to break the done claim in a fresh session
-    separate from the executor. Cross-family review may be used as extra rigor when
-    explicitly requested, but it is not a hard G5 gate for this bet.
-  rollback: >
-    health-ai is dirty input, not authority. Before clearing it, the executor must record the
-    current branch/status and receive explicit owner confirmation; without that confirmation
-    the task blocks rather than wiping. Git history preserves the previous repo state.
-  cut_list:
-    - Cut nutrition module: menus, recipes, meal-prep, grocery lists, nutrition reviews.
-    - Cut training/activity module: Hevy/Strava/VR/wearables, full strength progression, conditioning.
-    - Cut app UI, server, DB, runtime, cron, and automatic schedulers.
-    - Cut full food/exercise library; only minimal fixtures are allowed.
-    - Cut objective recovery metrics such as HRV/RHR/sleep-device data.
-    - Cut automatic cross-provider sync.
-    - Cut raw daily data in Direction OS.
-    - Cut product-repo wipe authorization from shape; executor must ask before clearing health-ai.
-  lens_sweep:
-    - weight-nutrition: >
-        Needs work only through core-owned weight/trend and the minimum tracked-signal principle;
-        nutrition outputs are cut to the parked nutrition module.
-    - strength-body-composition: >
-        Needs work only through phase/value grammar and future module attach contracts;
-        training programming is cut to the parked training/activity module.
-    - activity-conditioning: >
-        Not needed beyond generic phase/LOG hooks and future attach points; activity implementation is cut.
-    - adherence-relapse: >
-        Needs work through anti-bloat, non-blocking questions, graceful defaults, reduced mode,
-        and review cadence.
-    - medical-safety: >
-        Needs work through red-flag halt, conservative defaults, non-diagnostic wording, and
-        no medical prescriptions.
-    - ai-system-data-architecture: >
-        Primary lens; covered by the provider-independent file core, convention carriers,
-        schema/versioning, PLAN-vs-LOG, parse/library surface, review seam, and module contracts.
-  assumptions:
-    - The converged spec is buildable as a small core-only file system in 3 focused half-days.
-    - A minimal core-only fixture can test WA3/WA4/WA73 before any module exists.
-    - Provider-independence evidence can be produced with files, formulas, linting, and dry-runs,
-      not by building an app/runtime.
-    - The executor can keep the slice from expanding into nutrition/training implementation.
-  forecast: >
-    A hard core-only cut should produce a buildable Health AI foundation without spending the bet
-    on module details or product UI.
-  against: >
-    The strongest case against is that the copied acceptance/contract matrix is too large for
-    3 focused half-days, or that provider-independence cannot be evidenced without a heavier harness.
-  review_status: partially_met_pending_corrected_g5_review
-  review_checkpoint: 2026-06-15 c-health-core-review-001
-  product_evidence_status: clean_prepass
-  product_evidence_commits:
-    - a67a34e109aac5f70284b048af4480be38fb8cd5
-    - ee25a894e22d83485525f7d798f02e0fa9d48189
-    - 8bc980ad21d3f54cbd27b28dcb363e0198c46751
-  product_blocker_gaps: 0
-  non_blocking_gaps:
-    - P8
-    - existing-v1-input
-  binding_g5_status: pending_corrected_review
-  verdict: partially_met
+  status: none
+  note: >
+    2026-06-16 nutrition converge closed WHAT: personalized nutrition process on
+    g-health-core, mandatory nutrition tracking, no current vitrine/Mealie/UI
+    requirement, future integration seam only. Next = converge-arch.
 
-tasks:
-  - id: t-1
-    node: g-health-core
-    status: done
-    kind: executor
-    goal: >
-      In health-ai, after explicit owner confirmation before any repo clearing, produce a committed
-      acceptance harness and core-only fixture map that proves the converged spec is buildable
-      without nutrition/training modules.
-    done_when:
-      - Owner wipe confirmation is recorded before any clearing, or the task returns blocked without clearing.
-      - The repo contains a committed acceptance matrix carrying WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
-      - The matrix maps each acceptance/contract row to a concrete file, fixture, check, or explicit gap.
-      - A minimal core-only program/day fixture is present or precisely specified for WA73.
-      - The task reports whether any blocker gap exists before broader implementation.
-
-  - id: t-2
-    node: g-health-core
-    status: done
-    kind: executor
-    goal: >
-      Build the minimal provider-independent core file-system slice in health-ai.
-    done_when:
-      - Core files cover schema_version/migration notes, profile owner_facts/derived_anchors,
-        program-as-plan, PLAN/LOG separation, formulas/rounding, shared metrics/phase/review,
-        parse/library surface, procedure/extension registry, and convention carriers.
-      - AGENTS.md, CLAUDE.md, and portable system-prompt carry the determinism-load-bearing checklist.
-      - YAML/frontmatter parsing and documented formula checks pass on the core-only fixture.
-      - No app UI, runtime, DB, cron, nutrition module, or training module is built.
-
-  - id: t-3
-    node: g-health-core
-    status: done
-    kind: executor
-    goal: >
-      Validate the core-only slice and package evidence for G5 review.
-    done_when:
-      - Dry-runs with synthetic/minimal seed data cover deterministic derived numbers, anchor cascade,
-        PLAN-vs-LOG separation, parse/library lookup, red-flag halt, graceful default/reduced mode,
-        slug immutability, dummy module attach, and zero Direction OS dependency.
-      - Evidence summary maps every copied acceptance/contract row to pass/fail output.
-      - Remaining gaps are classified; zero blocker gaps are required to close the bet.
-      - Next review CALL is ready.
+tasks: []
 
 recurring: []
 
-open_calls:
-  - id: c-health-core-review-002
-    to: session
-    for: g-health-core corrected G5 review
-    issued: 2026-06-15
-    note: >
-      Product evidence pre-pass is clean. Owner removed the hard cross-family requirement;
-      g-health-core needs a fresh corrected review/refutation session, separate from executor t-3,
-      to return the binding G5 verdict.
+open_calls: []
 
 decisions:
-  - id: d-health-next-bet-after-core-review
-    status: awaiting_owner
-    question: >
-      If corrected G5 review returns met, which next bet should health shape next?
-    options:
-      - A: Shape g-health-nutrition-system next.
-      - B: Shape g-health-training-activity-system next.
-      - C: Pause the direction after core and review priorities.
-    recommendation: A
-    activation_condition: only after corrected G5 review returns met.
+  - id: d-health-nutrition-define-signoff-001
+    status: resolved
+    owner_choice: A
+    owner_words: "A — да, подписываем"
+  - id: d-health-nutrition-what-signoff-001
+    status: resolved
+    owner_choice: A
+    owner_words: "A"
 
 next: |
-  CALL c-health-core-review-002
+  CALL c-health-nutrition-converge-arch-001
   to: session
   direction: health
-  play: review
-  node: g-health-core
+  play: converge-arch
+  node: g-health-nutrition-system
   goal: |
-    g-health-core has a corrected binding G5 review verdict: met, partially met, or not met.
+    g-health-nutrition-system has a closed architecture/contract surface for implementing the signed nutrition
+    WHAT on g-health-core without duplicating core, without current vitrine/app requirements, and with mandatory
+    nutrition tracking/review/base-prep semantics.
   context: |
-    Previous review checkpoint: c-health-core-review-001 returned partially_met because product
-    evidence is clean but it treated cross-family verification as a hard requirement.
-    Owner removed that hard requirement on 2026-06-15: "A, снимаем hard cross-family requirement".
-
-    Corrected evaluator:
-    - G5 requires a fresh review/refutation session separate from executor t-3.
-    - A different model family may be used as extra rigor when explicitly requested.
-    - A different model family is not required to close this bet.
-
-    Direction OS state:
+    Read:
     - live/health/CHARTER.md
     - live/health/TREE.md
     - live/health/NOW.md
+    - live/health/work/converge-g-health-nutrition-system.md
     - live/health/work/converge-g-health-core.md
-
-    health-ai product evidence:
-    - t-1 commit a67a34e109aac5f70284b048af4480be38fb8cd5
-      "core acceptance harness: map converged spec"
-    - t-2 commit ee25a894e22d83485525f7d798f02e0fa9d48189
-      "core slice: replace v1 structure"
-    - t-3 commit 8bc980ad21d3f54cbd27b28dcb363e0198c46751
-      "core evidence: package t-3 dry-run proof"
-    - key paths:
-      acceptance/core/matrix.json
+    - health-ai core files/evidence as needed:
       acceptance/core/evidence-summary.md
-      acceptance/core/fixtures/core-only/fixture.json
-      acceptance/core/clearance.md
-      tools/check_acceptance_matrix.py
-      tools/check_core_slice.py
-      tools/check_core_evidence.py
+      acceptance/core/matrix.json
+      core/metrics.md
+      core/extensions/attach-contract.md
+      core/profile/owner-facts.md
+      core/profile/derived-anchors.md
+      core/intake/non-blocking-questions.md
+      core/parser/materiality.md
+      core/principles/minimum-tracked-signals.md
+      core/phases.md
 
-    Same-family pre-pass findings to refute:
-    - matrix carries WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
-    - evidence-summary reports:
-      python tools/check_acceptance_matrix.py => PASS; 17 acceptance rows, 9 contract rows,
-      27 PLAN rows, 9 architecture inputs, blocker gaps 0.
-      python tools/check_core_slice.py => PASS; 32 core files, schema/frontmatter ok,
-      matrix target files ok, WA73 formula ok, PLAN/LOG separation ok,
-      forbidden module/runtime directories absent.
-      python tools/check_core_evidence.py => PASS; 11 dry-run scenarios, 26 acceptance/contract
-      rows pass, 0 fail, blocker gaps 0.
-    - non-blocking gaps: P8 and existing-v1-input; existing-v1-input should be checked against
-      acceptance/core/clearance.md owner confirmation.
-    - The previous blocker was model-family routing, not a product blocker. Re-check the evidence
-      under the corrected evaluator instead of requiring Claude/non-OpenAI by default.
+    Owner-signed nutrition WHAT highlights:
+    - nutrition is a module on g-health-core;
+    - expert variables are system-decided; owner facts only are askable and non-blocking;
+    - first cycle must be personalized, not generic quick menu;
+    - nutrition tracking is mandatory and low-friction via text/voice/photo;
+    - tracking must feed review and artifact mutation;
+    - recipes/instructions must support base-prep/reuse and grocery/prep correctness;
+    - no current Mealie/vitrine/UI/app/image-sync requirement;
+    - keep only future integration seam.
   boundaries: |
-    Do not store raw daily health data in Direction OS.
-    Do not build or change product repo implementation during review.
-    Do not build nutrition/training/activity modules, app UI, runtime, DB, server, cron, or scheduler.
+    Do not build implementation.
+    Do not create product repo code.
+    Do not require Mealie, UI, app integration, recipe image generation, runtime, DB, server, cron, or scheduler.
+    Do not build training/activity.
+    Do not store raw daily food, weight, photo, or check-in logs in Direction OS.
     Do not make medical prescriptions.
-    Do not require a non-OpenAI model family as a hard gate.
-    Do not close the bet merely because the cross-family requirement was removed; still run refutation
-    against the evidence and done_when.
+    Do not rewrite g-health-core; nutrition consumes it.
   done_when: |
-    - Fresh review/refutation explicitly handles WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9.
-    - It explicitly handles check output, gap classification, product scope cuts, owner clearance, and Direction OS boundary.
-    - It returns a corrected binding G5 review verdict: met, partially met, or not met.
-    - If met, it prepares owner-facing decisions for approving any TREE status change and choosing the next bet.
-    - If not met or partially met, it returns exact blocker/refutation gaps and the next CALL.
+    - Architecture/contract surface decomposes each signed WHAT mechanism into build-deciding contracts:
+      nutrition artifacts, attach namespace, tracking LOG shape, review mutation path, base-prep/reuse semantics,
+      grocery/prep derivation, bad-week mode, safety interaction, and future integration seam.
+    - Every architecture decision is either answered with citation to signed WHAT/core contract or routed to PLAN.
+    - No open/deferred rows remain, or genuine owner decisions are batched with options and recommendation.
+    - Next route is converge-verify if closed; otherwise awaiting_decision.
   return: |
-    RESULT with corrected binding G5 verdict, refutation evidence, state_changes, decisions_needed, and next CALL/awaiting_decision.
-  budget: one focused review session
-  surface: any capable fresh review session; cross-family optional, not required
+    RESULT with architecture artifact path, coverage evidence, state_changes, decisions_needed, and next CALL.
+  budget: one focused converge-arch movement
+  surface: any capable session
 
 END_OF_FILE: live/health/NOW.md

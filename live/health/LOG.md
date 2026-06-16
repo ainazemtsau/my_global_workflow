@@ -28,4 +28,10 @@
 
 - 2026-06-14 — health/g-health-core converge-verify (pass 1 → close → pass 2 PASS): independent 21-class oracle bounced B1–B14 (blockers DC17 versioning/migration + DC3 rounding, + firewall + should-fix; all system-decidable); closed as W65–W79 + WA3-note + §ARCH AA1–AA3/CA8–CA9 + P23–P27 + 5 firewall rewrites; pass2 verify=PASS, firewall clean. CONVERGE SET COMPLETE + refuted-clean; §SIGNOFF converge-verify passed; decision-class checklist proposed as knowledge/ canon. NEXT = shape. → history/2026-06-14-s-health-core-converge-005.md
 
+- 2026-06-15 — c-health-core-review-002 review: corrected binding G5 verdict met. Fresh separate review/refutation found WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9 covered, checks reported PASS, product blocker gaps 0, non-blocking gaps P8/existing-v1-input accepted, add-back 0/8, owner clearance present, Direction OS boundary preserved. TREE close remains awaiting owner approval under G9. Next: d-health-core-close-and-next-bet.
+- 2026-06-15 — health/g-health-core review approval: owner approved closing g-health-core as done and chose recommendation A; next c-health-nutrition-shape-001. → history/2026-06-15-s-health-core-review-002-approval.md
+- 2026-06-16 — health repair before nutrition converge: reconciled visible core-closed state with nutrition reset/core-first evidence; TREE already matched accepted state, NOW rerouted from stale shape CALL to c-health-nutrition-converge-001. → history/2026-06-16-s-health-repair-before-nutrition-converge-001.md
+
+- 2026-06-16 — converge g-health-nutrition-system: owner-signed closed WHAT for nutrition module on core; personalized process + mandatory tracking; vitrine/Mealie cut; next converge-arch. → history/2026-06-16-s-health-nutrition-converge-001.md
+
 END_OF_FILE: live/health/LOG.md
