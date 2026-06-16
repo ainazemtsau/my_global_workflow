@@ -180,15 +180,15 @@ open_calls:
   - id: c-converge-kernel-001
     status: done
     note: |
-      RETROFIT converge wrote `work/converge-g-kernel.md`: W0-internal mechanism meanings
-      are closed for t-2/t-3, zero-kernel-diff now includes the public barrel/API, and
-      sibling-bearing contracts route to converge-arch.
+      RETROFIT converge wrote `work/converge-g-kernel.md`, then repair corrected it from
+      over-closed RESOLVE into FORM/AGENDA: only born-closed history imports are answered;
+      Q1-Q15 require owner signoff before t-2/t-3 can freeze kernel API.
   - id: c-converge-arch-kernel-001
-    status: ready
+    status: blocked
     note: |
-      Close g-kernel's sibling-bearing contracts before converge-verify: Engine request/result
-      shape, channel envelope response contract, surface kind/API, memory ledger read model,
-      cognition trace needs, and OS read-only capability boundary.
+      Premature as previously issued. Blocked until owner resolves or explicitly defers
+      Q1-Q15 in `work/converge-g-kernel.md`; then re-issue converge-arch if sibling-bearing
+      contracts still need architecture closure.
 
 decision_inbox:
   - q: "Accept TypeScript/Node 22 as the W0 setup stack?"
@@ -201,11 +201,17 @@ decision_inbox:
       - "Keep the product clone at `C:\projects\zaratusta-product`."
       - "Move/rename the existing non-git vault and reclone product repo to `C:\projects\Zaratusta`."
     recommendation: "Keep `C:\projects\zaratusta-product` unless exact local-path alignment matters; the proposed path contains pre-existing user content and is not a git repo."
+  - q: "How should the g-kernel converge white spots Q1-Q15 be handled before t-2?"
+    options:
+      - "Hold t-2 and discuss/sign Q1-Q15 in `work/converge-g-kernel.md`."
+      - "Let t-2 proceed with scaffold defaults and accept drift risk."
+      - "Explicitly approve the candidate recommendations in Q1-Q15 as written."
+    recommendation: "Hold t-2 and discuss/sign Q1-Q15; these choices can freeze the kernel API."
 
 next: |
-  ready_call:
-    c-converge-arch-kernel-001 — close sibling-bearing RLK contracts before converge-verify
-    and before t-2/t-3 are treated as freezing the W0 kernel API.
+  awaiting_decision:
+    owner should resolve how to handle Q1-Q15 in `work/converge-g-kernel.md` before
+    converge-arch or t-2. Recommended: hold t-2 and discuss/sign Q1-Q15.
 
   pending_owner_decisions_before_t-2:
     owner should still accept or reject the TypeScript/Node W0 stack and choose whether to keep

@@ -1,5 +1,7 @@
 # LOG — solmax
 
+- 2026-06-16 — repair g-kernel/converge: over-closed converge retrofit downgraded to owner-signoff agenda; c-converge-arch-kernel-001 blocked until Q1-Q15 are resolved. → history/2026-06-16-s-repair-kernel-converge-overclose.md
+
 - 2026-06-16 — converge g-kernel: retrofit closed W0 RLK mechanism meanings, tightened zero-kernel-diff semantics, and routed sibling-bearing Engine/channel/surface/memory/OS-read contracts to converge-arch. → history/2026-06-16-s-converge-kernel-001.md
 
 - 2026-06-16 — repair g-kernel/t-1: stale blocked state replaced with DONE after Zaratusta repo/CI evidence; local path conflict narrowed to an owner decision. → history/2026-06-16-s-repair-kernel-t1-state.md
