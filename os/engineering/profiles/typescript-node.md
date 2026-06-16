@@ -1,0 +1,39 @@
+# Stack profile: typescript-node
+
+First created 2026-06-16 (solmax/g-kernel/t-1). Format: `profiles/README.md`.
+
+## 1. Module conventions
+
+- Modules live under `src/<module>/`; each module exposes only `index.ts`.
+- Each module has colocated `AGENTS.md`.
+- Cross-module access goes through public `index.ts` exports.
+- Dependency boundaries are enforced by dependency-cruiser or equivalent graph lint.
+
+## 2. Default validation.config thresholds
+
+- Retry budget: 3 per gate, then stop and report evidence.
+- Required gates: format, lint, typecheck, boundary, hygiene, tests, deliver report.
+- Deliver report path: root `RESULT.md`, with required fields:
+  outcome, evidence, assumptions, cuts, cost, manual-acceptance, next.
+
+## 3. Test layout
+
+- Tests live under `tests/<module-or-scope>/`.
+- Test hygiene fails skipped tests, assertion-free tests, and test files outside `tests/`.
+- Seeded proof scripts may create temporary violations, but must clean them up.
+
+## 4. Known landmines + mechanical fixes
+
+- Windows-generated npm lockfiles may diverge from Linux CI optional peer metadata.
+  Fix by pinning npm in `packageManager` and CI before `npm ci`.
+- Seeded proof scripts must not run in parallel with normal gates if they create
+  temporary violating files under `src/` or `tests/`.
+- RESULT gates must reject under-filled fields, not only missing headings.
+
+## 5. Setup notes
+
+- Use Node 22 for CI and local checks.
+- Keep OpenSpec under `openspec/changes/<change-id>/`; archive only after green implementation.
+- `_scratch/` is tracked only via `_scratch/.gitignore`; generated scratch contents stay ignored.
+
+END_OF_FILE: os/engineering/profiles/typescript-node.md

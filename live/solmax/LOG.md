@@ -1,5 +1,7 @@
 # LOG — solmax
 
+- 2026-06-16 — repair g-kernel/t-1: stale blocked state replaced with DONE after Zaratusta repo/CI evidence; local path conflict narrowed to an owner decision. → history/2026-06-16-s-repair-kernel-t1-state.md
+
 - 2026-06-15 — work g-kernel/t-1: blocked — Zaratusta product repo not accessible to executor; no setup/harness created. → history/2026-06-15-s-work-kernel-t1-blocked.md
 
 - 2026-06-15 — shape g-kernel: Wave-0 RLK оформлен как активная ставка (appetite 1 week; 3 executor tasks; cuts: no engine/channel/UI/memory/API/OS write/6th part); TREE activation owner_approved in s-shape-001; next → c-work-kernel-t1 repo setup + W0 acceptance harness. → history/s-shape-001.md

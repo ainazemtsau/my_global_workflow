@@ -131,14 +131,7 @@ active_bet:
 
 active_tasks:
   - id: t-1
-    status: blocked
-    blocked_reason: |
-      Executor could not initialize `github.com/ainazemtsau/zaratusta`: repo is not
-      accessible through the current GitHub App installation, and local path
-      `C:\projects\Zaratusta` is not available in the executor environment.
-    unblock_condition: |
-      Owner creates/connects `ainazemtsau/zaratusta` to the GitHub App with write/PR/CI
-      access, or explicitly redirects the product repo; then rerun c-work-kernel-t1.
+    status: done
     kind: executor
     goal: |
       Zaratusta product repo exists with an agent-ready feedback loop and W0 RLK acceptance
@@ -180,22 +173,26 @@ open_calls:
   - id: c-shape-001
     status: done
   - id: c-work-kernel-t1
-    status: blocked
+    status: done
     note: |
-      Returned exact blocker: product repo unavailable to executor; no repo setup or W0
-      harness created.
+      Returned setup evidence: `ainazemtsau/zaratusta` exists, CI is green on
+      18d74b1114428be8df5ece48bf6d89f3b2776a75, and W0 scaffold/gates/OpenSpec exist.
 
 decision_inbox:
-  - q: "Which product repo should executor use for Zaratusta, and how should write/CI access be granted?"
+  - q: "Accept TypeScript/Node 22 as the W0 setup stack?"
     options:
-      - "Create/connect `ainazemtsau/zaratusta` to the GitHub App and rerun c-work-kernel-t1."
-      - "Redirect product repo to existing `ainazemtsau/health-ai` by explicit owner decision."
-      - "Provide a mounted local repo/archive/git bundle, then connect remote CI later."
-    recommendation: "Create/connect `ainazemtsau/zaratusta`; it preserves the charter boundary and lets PROJECT_SETUP produce commit/PR/check evidence."
+      - "Accept TypeScript/Node 22 for W0."
+      - "Reject and rerun setup with another stack."
+    recommendation: "Accept TypeScript/Node 22; it already has green local checks and CI for W0 repo setup."
+  - q: "What should happen with the occupied local path `C:\projects\Zaratusta`?"
+    options:
+      - "Keep the product clone at `C:\projects\zaratusta-product`."
+      - "Move/rename the existing non-git vault and reclone product repo to `C:\projects\Zaratusta`."
+    recommendation: "Keep `C:\projects\zaratusta-product` unless exact local-path alignment matters; the proposed path contains pre-existing user content and is not a git repo."
 
 next: |
   awaiting_decision:
-    owner must create/connect `ainazemtsau/zaratusta` to the GitHub App with write/PR/CI access
-    or explicitly redirect the product repo, then rerun c-work-kernel-t1.
+    owner should accept or reject the TypeScript/Node W0 stack and choose whether to keep
+    the product clone at `C:\projects\zaratusta-product` before launching t-2.
 
 END_OF_FILE: live/solmax/NOW.md
