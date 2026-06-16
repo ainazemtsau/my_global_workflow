@@ -110,12 +110,19 @@ root:
          keyframe-inclusive number. Building that scale (sector subdivision, 1000-object
          ingest gate) may be a later bet; this node requires the architecture and the
          numbers, not the full content.
-      10. (ADDED 2026-06-14, s-shape-004) Layered architecture PROVEN: ≥2 independent
-          system-layers (gas + a thin dynamic temperature layer) ride ONE seam and are
-          networked-consistent together; a cross-layer interaction is observable
-          (reaction/heat → temperature responds); a new layer/driver plugs in without core
-          edits (extensible seams, R13); and the destruction-driven topology change of
-          criteria 2/3 is a REAL controlled wall-breach, not a scripted stub.
+      10. (ADDED 2026-06-14, s-shape-004; REWORDED 2026-06-16, s-shape-wave2 — G9,
+          per d-tempfeedback-001 + converge-verify CAPTURE V2-4) Layered architecture
+          PROVEN: ≥2 independent system-layers (gas + a thin dynamic temperature layer)
+          ride ONE seam and are networked-consistent together AT COARSE SCALE (each layer
+          held to the dual-guarantee per CR1/CR2/CR3). The cross-layer interaction
+          observable THIS wave is the gas→temperature SINK (a reaction/heat event drives
+          the temperature layer's response) — this proves the SEAM (transport +
+          extensibility), NOT gameplay depth. The REVERSE temperature→gas FEEDBACK is
+          DEFERRED to a later wave (post-g-d3a8, where the per-gas-type heat rule is game
+          design), NAMED here, not silently dropped. A new layer/driver plugs in without
+          core edits (extensible seams, R13 — EXERCISED by a 3rd demonstrative layer, not
+          only argued). The destruction-driven topology change of criteria 2/3 is a REAL
+          controlled wall-breach, not a scripted stub.
     status: active
     detail: history/s-map-002.md
 
