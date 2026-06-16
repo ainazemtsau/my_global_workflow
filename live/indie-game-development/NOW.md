@@ -144,13 +144,27 @@ open_calls:
       B1–B31, 3-source coverage map. Success test PASS (names as questions exactly ADR-0003's
       ad-hoc values; witness independently confirmed). Hardened by 2 multi-agent passes. → history/s-converge-001.md
   - id: c-converge-002
-    status: queued   # converge-arch on g-9c41 cross-node contracts (parallel retrofit; gated by d-converge-001)
+    status: checkpoint   # 2026-06-16 converge-arch DECLARE DONE — §CONTRACTS authored; next = converge-verify
     note: |
-      Declare the §WHAT-B cross-node contracts consumer-driven (gas-type seam, render seam, the
-      shared field-sampling oracle B31, ingestion adapter/TopologyDocument, grid↔gas) so the
-      open→PLAN stream magnitudes are frozen against contracts that bound them. Full CALL in
-      history/s-converge-001.md RESULT.next. (d-converge-001 resolved = A; converge-arch runs in
-      parallel and refines the B-row contracts — it does NOT gate the c-exec-003 PLAN under A.)
+      Declared the §WHAT-B cross-node + internal seams as consumer-driven observable contracts in
+      work/converge-g-9c41.md §CONTRACTS (IN ingestion/TopologyDocument · GG grid↔gas · OR the B31
+      single field-sampling/ExposureQuery oracle · XL the cross-layer + layer-registry seam = the
+      done_when-#10 WHITE SPOT the gap-hunt caught · GT gas-type seam · RN render seam · CS
+      completeness) + the ARCHITECT record work/converge-g-9c41-arch.md (ARCH-1v2 imported born-closed,
+      rides PLAN). HOW→PLAN; nothing re-opens the LOCK/C1–C22. Band-handoff GG4/OR4 OWNER-SIGNED (voice:
+      loose spatial + exact source-tracking + FIRM no-shimmer + coarse=truth). Hardened by a 15-agent
+      pre-pass (wf_c4e09962-08f). → history/s-converge-arch-001.md
+  - id: c-converge-verify
+    status: ready   # 2026-06-16 framed at converge-arch c-converge-002 — independent refutation of the contract SET
+    note: |
+      converge-verify (separate FRESH session, G5 discipline): attack "the §CONTRACTS set is complete"
+      with an INDEPENDENT oracle (a node-class contract-class checklist + compete precedents, NOT the
+      sources converge-arch used) and "no contract leans on an unresolved question / leaks a HOW" by
+      tracing each. Special focus: the 2 white-spot adds (XL1 multi-layer consistency / XL2 layer-registry
+      extensibility) + the B31 single-oracle cross-tier-composition risk (OR1) + the band-handoff
+      no-shimmer property (GG4/OR4). A clean verify gates shape consuming the contracts. Builds on
+      work/converge-g-9c41.md §CONTRACTS + work/converge-g-9c41-arch.md. Full CALL in
+      history/s-converge-arch-001.md RESULT.next. Parallel/non-gating to the bet spine (c-shape-wave2).
   - id: c-shape-004
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
@@ -172,6 +186,17 @@ decision_inbox:
       (grid-based) = LATER, for room POPULATION / interior / grid layouts, behind the SAME adapter; population
       is explicitly OUT of scope now. Not married (no co-generation on one level now); both stay swappable via
       the adapter — concept not locked. Wired into c-shape-wave2 as a steer (final lock at the Wave-2 shape).
+  - id: d-bandhandoff-001
+    status: answered   # owner 2026-06-16 (converge-arch c-converge-002, voice) — signed the band-handoff contract STRENGTH
+    note: |
+      Band-handoff contract strength (GG4/OR4). Owner (voice): metric precision NOT important («примерно»,
+      few cells of error OK, «никто точность измерять не будет»); coarse sim = source of truth that unfolds
+      into a prep tier within a radius + a fine close-up tier (his 3-tier HINT → PLAN, a hunch not a lock);
+      the player must APPROXIMATELY see strength + main corner + that a weak source accumulates slowly; HARD
+      = «никаких подрагиваний… это 100%» (no shimmer/pop on the handoff); «не нужно что-то прям дорогое»,
+      gameplay-POV only. «Охренеть как важно» — open to deeper tightening at the Wave-2 shape. Signs the
+      contract STRENGTH; the mechanism + tolerance magnitude stay PLAN. Recorded §SIGNOFF-BH in
+      work/converge-g-9c41.md.
 
 next: |
   CALL c-shape-wave2 — shape Wave 2 of bet g-9c41 (on the LOCKed stream). Owner present for the shape (G6/G9).
