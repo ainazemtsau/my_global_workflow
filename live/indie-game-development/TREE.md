@@ -278,5 +278,12 @@ root:
       worked in a parallel low-ceremony session when the owner chooses (shape via c-shape-marketing).
       Helper resource: the owner's wife + brother run logistics IF the system is clear/rule-based with an
       AI analysis layer (delegate ADMIN not the VOICE).
+      SET UP 2026-06-16 (shape c-shape-marketing, owner-approved G9) as a parallel LOW-CEREMONY PROCESS — NOT a
+      second active bet (G1; g-9c41 stays the spine). Local plays plays/marketing-forge.md (forge ONE card:
+      Frame → Research+owner-inputs → Cross-track → Choose(owner) → Draft → Voice-gate(owner) → Freeze;
+      canon-forge-style) + plays/marketing-status.md (render-only graph) + the work/marketing/ question-graph
+      (seed: q-foundation / q-studio-identity / q-positioning-hook). Design: work/marketing-track-design-2026-06-16.md.
+      The go-to-market plan/goals/channels/stages/numbers are DERIVED INSIDE the process (one chat = one card),
+      NOT baked here. Node stays parked; advanced via marketing-forge sessions in separate chats. → history/s-shape-marketing.md
 
 END_OF_FILE: live/indie-game-development/TREE.md
