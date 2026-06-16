@@ -110,6 +110,10 @@ open_calls:
       FEEDBACK cross-layer interaction + exercise the extensible seam with a real added layer). Fold the Wave-2
       cleanup card (Codex round-3). converge-arch c-converge-002 contracts feed this. Builds on ADR-0004 §LOCK +
       knowledge/g9c41-wave1-*.
+      ⚠ CONTRACT GATE (converge-verify c-converge-verify, 2026-06-16): the §CONTRACTS set is BLOCKED pending
+      c-converge-003 + a clean re-verify. The bet-SPINE shape may proceed (verify is parallel/non-gating to
+      the spine), but it MUST NOT bind the §CONTRACTS into executor done_when until re-verify is clean —
+      treat the contracts as DRAFT until then (2 open holes: coarse-tier replication; XL1 feedback vs LOCK).
   - id: c-map-003
     status: queued   # 2026-06-16 framed at review c-review-001 — re-check the parallel-track structure post-clip-drop
     note: |
@@ -155,16 +159,33 @@ open_calls:
       loose spatial + exact source-tracking + FIRM no-shimmer + coarse=truth). Hardened by a 15-agent
       pre-pass (wf_c4e09962-08f). → history/s-converge-arch-001.md
   - id: c-converge-verify
-    status: ready   # 2026-06-16 framed at converge-arch c-converge-002 — independent refutation of the contract SET
+    status: done   # 2026-06-16 BLOCKED close — independent fresh-session G5 refutation of the §CONTRACTS set
     note: |
-      converge-verify (separate FRESH session, G5 discipline): attack "the §CONTRACTS set is complete"
-      with an INDEPENDENT oracle (a node-class contract-class checklist + compete precedents, NOT the
-      sources converge-arch used) and "no contract leans on an unresolved question / leaks a HOW" by
-      tracing each. Special focus: the 2 white-spot adds (XL1 multi-layer consistency / XL2 layer-registry
-      extensibility) + the B31 single-oracle cross-tier-composition risk (OR1) + the band-handoff
-      no-shimmer property (GG4/OR4). A clean verify gates shape consuming the contracts. Builds on
-      work/converge-g-9c41.md §CONTRACTS + work/converge-g-9c41-arch.md. Full CALL in
-      history/s-converge-arch-001.md RESULT.next. Parallel/non-gating to the bet spine (c-shape-wave2).
+      converge-verify ran the §CONTRACTS set against FOUR axes with an INDEPENDENTLY-AUTHORED oracle
+      (ORACLE-NMTL — 25 contract classes for a networked multi-TIER multi-LAYER authoritative field-core,
+      from first principles + precedents; knowledge/ had no checklist). VERDICT = BLOCKED close: 16 classes
+      covered + firewall substantially clean + no silent LOCK re-open (XL2 table-resize correctly follows
+      the LOCK's own instruction), BUT 2 real holes — F1: NO contract for COARSE-tier network replication +
+      consistency obligation (crit-3/crit-9 ~11k on-wire/OR2-on-a-client/GG4-OR4 all lean on an uncited
+      coarse-replication decision; latent float-Patankar-vs-locked-integer-bit-exact conflict); F2: XL1
+      crit-10 FEEDBACK unreconciled with the locked pure-sink proofs (C21/§T12 byte-identical) + the
+      gas/breach-only locked GridEventKind enum (XL2's generalized-C21 contradicts XL1's feedback). Bounced
+      to converge-arch (c-converge-003); a clean re-verify gates shape CONSUMING the contracts. NO §SIGNOFF
+      written. → §VERIFY in work/converge-g-9c41.md + history/s-converge-verify-001.md.
+  - id: c-converge-003
+    status: ready   # 2026-06-16 framed at converge-verify (BLOCKED close) — repair the 2 bounced findings, then re-verify
+    note: |
+      converge-arch REPAIR of the 2 verify-found holes (observable-first, HOW→PLAN, no LOCK re-open):
+      F1 — declare a COARSE-tier network-replication + consistency contract: does coarse band-state reach
+      every client-side consumer (vs host-only); carrier (locked-stream resolutionKey vs a separate plane);
+      consistency standard (bit-exact / bounded-divergence / host-only) + coarse-solver determinism;
+      resolve the float-Patankar-vs-locked-integer-bit-exact conflict at the contract level (crit-3/crit-9/
+      OR1-OR2-OR3-on-a-client/GG4-OR4 lean on it). F2 — reconcile XL1 crit-10 FEEDBACK with the LOCK:
+      read-based-in-phase-order (enum untouched; Wave-1 sink/ReactionHeat=32/C21 = frozen control) OR
+      event-based (SURFACE the locked-GridEventKind-enum extension, never silent in PLAN); re-baseline XL2
+      isolation (demonstrative layer == gas+temp, NOT == gas-only). Minors: fold C22 into GG4 bounds; trim
+      the XL1 MECHANISM paragraph; make the version-handshake deferral explicit at the g-5b07 build edge.
+      Full CALL in history/s-converge-verify-001.md RESULT.next. After re-close → fresh converge-verify.
   - id: c-shape-004
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 

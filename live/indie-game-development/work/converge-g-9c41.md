@@ -779,4 +779,132 @@ B15–B26 non-contracts are owner-owned acceptance/milestone rows a later resolv
 - `close & route: CHECKPOINT — next = converge-verify (independent refutation of the contract set) → then
   c-shape-wave2 consumes the VERIFIED contracts.`
 
+## §VERIFY (converge-verify pass — c-converge-verify, 2026-06-16) — VERDICT: BLOCKED CLOSE
+
+> The BINDING independent refutation (G5 lifted to spec) — a SEPARATE fresh session attacking the §CONTRACTS
+> set, NOT the 15-agent in-session pre-pass (that was a same-session self-check). Attacked on FOUR axes
+> (CALL c-converge-verify): (1) COMPLETENESS — independent oracle; (2) FIREWALL — no observable leaks HOW;
+> (3) NO-LEANING — no acceptance leans on a question open elsewhere; (4) NO-LOCK-REOPEN — no contract
+> silently redefines wire/barrier/cross-layer-GridEvent/cell-hash. The LOCK was checked against the VERBATIM
+> ADR-0004 §LOCK + ADR-0003 C1–C22 (read-only). Verify REFUTES; it writes no new contracts — a real gap is a
+> blocked close + a NAMED repair bounced to converge-arch (c-converge-003). NO `§SIGNOFF: converge-verify
+> passed` is written (holes found); a clean re-run after the repair gates shape CONSUMING the contracts.
+
+### ORACLE-NMTL — independent contract-class checklist (AUTHORED from first principles this session)
+
+`knowledge/` held no node-class checklist (an empty oracle = BLOCKED close, never auto-PASS), so the oracle
+was authored from first principles + competing precedents — NOT the brief / converge-arch sources (that
+shares the prover's blind spot). Precedents: authoritative client-server delta-netcode (Quake/Source/
+Overwatch), chunked single-writer atmospherics (SS13/SS14, Stationeers, Noita), data-oriented layered ECS,
+LOD / streaming engines. The 25 contract classes a networked **multi-TIER multi-LAYER host-authoritative
+field-simulation core serving sibling consumers** must expose, and the §CONTRACTS coverage:
+
+| # | contract class | §CONTRACTS entry | verdict |
+|---|---|---|---|
+| 1 | ingestion / source boundary | IN1, IN2 | ✓ |
+| 2 | transport-vendor decoupling | IN3 | ✓ |
+| 3 | authority / replication model (FINE) | I1 (locked) + IN3 | ✓ (foundation) |
+| 4 | FINE-tier state repr / quantization / wire | locked C1, C2, C10 | ✓ |
+| 5 | FINE-tier consistency / recovery (divergence/settle/keyframe/fault) | locked C3/C4/C8/C9/C12/C13/C22 | ✓ |
+| 6 | **COARSE-tier network replication + consistency obligation** | — | **✗ FAIL → F1** |
+| 7 | multi-resolution read-model / sampling oracle | OR1, OR2, OR3, RN1 | ✓ |
+| 8 | cross-tier composition (seam agreement) | OR1 (observable-first; BLOCKED-not-green) | ✓ |
+| 9 | layer-registry extensibility | XL2 | ⚠ (F2) |
+| 10 | inter-layer interaction / event bus | XL1 + locked GridEvent bus | ⚠ (F2) |
+| 11 | topology mutation (breach) | GG1, GG3, CS1 | ✓ |
+| 12 | geometry ↔ domain sovereignty | GG2 | ✓ |
+| 13 | tier-transition / band-handoff continuity | GG4, OR4 (owner-signed) | ✓ |
+| 14 | behavior / content extension (species handlers) | GT1, GT2, GT5 | ✓ |
+| 15 | domain-rules registry (reactions) | GT3 | ✓ |
+| 16 | outbound consequence / event plane | GT4 | ✓ |
+| 17 | shared resource / perf budget envelope | RN4 + A1.7 | ✓ |
+| 18 | render read-model seam | RN1, RN2, RN3 | ✓ |
+| 19 | time / tick / determinism | locked C16, I4 | ✓ (foundation) |
+| 20 | per-client interest / relevance management | folded into GG4 + OR2 observable; mechanism →PLAN | ⚠ (part of F1) |
+| 21 | lifecycle / late-join / session-join | I20 (OUT) + keyframe recovery | ✓ (named deferral) |
+| 22 | protocol / schema version handshake (cross-build) | B17 non-contract + I20 | ✓ (implicit deferral — capture) |
+| 23 | persistence / serialization | cut ("save/load → none") | ✓ (named cut) |
+| 24 | security / authority-validation | CS2 + co-op-friends N/A | ✓ (honest non-contract) |
+| 25 | observability / debug-surface (cross-node) | RN2 + GT4 + B22 | ✓ |
+
+`canon_proposed`: **ORACLE-NMTL** → propose to knowledge/ (serves: g-9c41 + future networked-sim nodes;
+read_by: converge-verify of this node-class). converge-verify PROPOSES; review/pulse promote (verify never
+writes knowledge/).
+
+### Finding F1 — NO coarse-tier network-replication contract (COMPLETENESS FAIL + NO-LEANING FAIL)
+
+The set LOCKED the FINE chunked-delta stream (table `[layerCount=2,chunkCount=4]`) and contracted the
+read-model (OR1/OR2/OR3 = local sampling, not network) — but NEVER declares whether/how the COARSE band tier
+replicates host→clients, nor to what consistency standard. Four weight-bearing places lean on this UNCITED:
+- **crit-3** "clients consistent" — proven in Wave 1 on the FINE toy scene, not the coarse tier at scale;
+- **crit-9** on-wire ~11k keyframe-inclusive cells (knowledge/g9c41-wave1-hold-mechanism-lossy-projection)
+  implies the coarse tier IS what's on the wire at scale — yet no contract states it;
+- **OR2** "coarse = floor, no gaps, consumer-independence" — on a CLIENT this requires coarse state to be
+  PRESENT on the client (else a far-AI / visual consumer on a client sees a gap where the host sees coarse →
+  consumer-independence violated). OR2 leans on an uncited "coarse reaches every client-side consumer";
+- **GG4/OR4** "amount never changes crossing tiers" — needs coarse↔fine mass agreement (C22/OR3) atop the
+  same unresolved decision.
+LATENT CONFLICT: the brief's exponential-relaxation Patankar coarse integrator is typically FLOAT; if coarse
+replicates-and-hashes in the locked `CellHash.FoldLayer` host==client bit-exact, a float solver breaks
+integer-determinism (I4/LOCK). Uncontracted, PLAN gets three silent escapes: (i) coarse host-only → breaks
+OR2 on clients; (ii) coarse replicates with a float solver → breaks bit-exact crit-3; (iii) PLAN invents a
+coarse-tier divergence bound that no contract names. **This is exactly the "gone somewhere primitive on the
+scale claim, unnoticed" the converge layer exists to prevent.**
+REPAIR (→ converge-arch c-converge-003, not authored here): declare a COARSE-tier-replication contract
+observable-first — coarse reaches every client-side consumer (vs host-only); carrier (locked-stream
+resolutionKey vs a separate plane); consistency standard (bit-exact / bounded-divergence / host-only) +
+coarse-solver determinism obligation; HOW (plane / granularity / interest-management) → PLAN.
+
+### Finding F2 — XL1 feedback vs the locked pure-sink proofs (NO-LOCK-REOPEN + internal contradiction)
+
+LOCK (verbatim ADR-0004): §T12 "temperature is a pure sink with no feedback to gas, so it always converges";
+C21 "gas+temp keeps gas hash byte-identical"; `ReactionHeat=32` pinned "so a Wave-2 author cannot silently
+move the reconstructed-Temperature trajectory"; `GridEventKind{GasChanged=1,Breach=2,Reaction=3}` (all
+gas/breach-sourced). XL1 (crit-10 tightening) requires a FEEDBACK interaction (NOT a sink). Two unreconciled
+collisions:
+1. **Literal contradiction.** XL2 accepts "gas+new-layer run keeps the gas trajectory byte-identical (the
+   Wave-1 C21 proof, generalized)". Once feedback is on, gas-with-temp ≠ gas-only — generalizing C21
+   "byte-identical to the gas-only golden" while feedback exists is incoherent. Must split: byte-identical
+   isolation-proof = the 3rd DEMONSTRATIVE layer (XL2); trajectory-changing feedback = gas↔temperature
+   (XL1); the Wave-1 sink / `ReactionHeat=32` / C21 stays a FROZEN control.
+2. **LOCK point.** XL1's MECHANISM paragraph describes pub/sub. A feedback FROM temperature to gas needs a
+   temperature-SOURCED event — absent from the locked enum (gas/breach only). So feedback is either
+   (a) event-based → silently extends the locked `GridEventKind` enum (a LOCK change that must be SURFACED,
+   like the barrier-table resize), or (b) read-based (the gas reaction phase reads temperature via a
+   phase-consistent read-view; phase-ordering → PLAN; enum untouched). XL1 routes "phase ordering" to PLAN
+   (read-based) yet its MECHANISM says pub/sub (event-based) — neither XL1 nor the LOCK reconciles this.
+REPAIR (→ c-converge-003): XL1 states feedback = read-based-in-phase-order (enum untouched; Wave-1 sink =
+frozen control) OR event-based (SURFACE the enum extension, never silent in PLAN); re-baseline XL2 isolation
+(demonstrative layer == gas+temp, NOT == gas-only).
+
+### Axes that passed CLEAN (balance)
+
+- **FIREWALL — PASS (1 borderline note).** Observables route HOW (push/poll, format, cadence, layout,
+  magnitude) to `→PLAN`; the pre-pass already removed the FPS leak, byte-identical-ids, and the inlined B31
+  formula. Borderline: the XL1 MECHANISM paragraph carries a communication model, but it restates LOCKED
+  foundation + routes the open HOW → not a NEW smuggle (capture: trim it at the repair).
+- **NO-LOCK-REOPEN — PASS except F2.** XL2 names the `[2,4]` table and routes the resize to PLAN — exactly
+  per the LOCK's own instruction ("any Wave-2 layer/grid extension SHALL re-size the table"), NOT a re-open.
+  GG1 correctly separates the sector/adjacency revision from the locked per-(layerKey,chunkIndex) barrier.
+  XL1 references (does not redefine) the locked `CellHash.FoldLayer`.
+- **OR1 cross-tier (CALL special focus) — PASS** (modulo F1's "does coarse reach the client"): authored
+  observable-first with the explicit "not satisfiable at a seam → BLOCKED contract, not silent green"
+  discipline; OR2 thinnest-open-level precedence makes cross-CONSUMER agreement exact and routes the
+  cross-TIER tolerance to PLAN.
+- **GG4 / OR4 band-handoff (CALL special focus) — PASS:** owner-signed "no jerk EVER" + "believable amount/
+  rate" are PROPERTIES (owner is the named acceptor), magnitudes → PLAN. Minor (capture): GG4's bounds list
+  omits C22 though its acceptance depends on the lossy mass bound; the OR4 twin cites C22.
+
+### play_check (converge-verify pass)
+
+- `1 recite: two propositions stated (set COMPLETE; no answer leans/leaks)` (done)
+- `2 attack-completeness: ORACLE-NMTL authored from first principles + precedents (NOT brief/converge-arch),
+  named, proposed as canon; 25 classes mapped; FAIL=1 (F1 coarse-tier replication)` (done)
+- `3 attack-smuggling: firewall PASS (HOW→PLAN; XL1 MECHANISM borderline, not new); no-leaning FAIL=1 (=F1
+  uncited coarse-replication lean); no-lock-reopen PASS except F2; checked vs verbatim ADR-0004/ADR-0003`
+  (done)
+- `4 close: BLOCKED — next = c-converge-003 (repair to converge-arch carrying F1+F2); verify re-runs after
+  re-close; NO §SIGNOFF: converge-verify passed written; not two-strikes (first bounce of these rows)`
+  (done)
+
 END_OF_FILE: live/indie-game-development/work/converge-g-9c41.md
