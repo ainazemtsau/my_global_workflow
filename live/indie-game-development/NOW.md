@@ -110,7 +110,7 @@ active_tasks:
           band sim on top);
       (4) reproducible build + machine-readable telemetry artifact.
     kind: executor (Opus 4.8 — Fable 5 unavailable)
-    status: active   # 2026-06-15 UNBLOCKED (t-2 done) + dispatched as c-exec-004 (s-work-005). KILL-GATE FINALE of Wave 1: PRONOUNCES the sustained-breach-load steady-rate VERDICT (single binary predicate; clampVerdict DEFERRED-T3 → HOLD|BLOWN), decides+realizes the production channel (C7) + keyframe K (C9), proves cross-layer reaction→temperature (with a suppressed-event NEGATIVE oracle) under load on the locked stream, declares the stream LOCKED. Two failure halves route differently: consistency-fail → P6 model/vendor spike; rate-BLOWN → Barotrauma-hybrid. Framed+hardened via wf frame-c-exec-004-t3 (draft + 3 adversarial lenses). Opens with interactive PLAN + ADR-0004/v3 (owner present); 6 owner decisions at the table.
+    status: done   # 2026-06-15 c-exec-004 RETURNED GREEN/GREEN — Wave-1 kill-gate VERDICT=HOLD (owner-confirmed in build). p1 sustained-load consistency HOLDS over the M=3 pulse→settle wave (both clamps; lossless bit-exact every tick incl. breach, lossy |Δ|≤Q every tick, bit-exact at ≥6 non-vacuous settles). p2 steady-rate VERDICT=HOLD via a single binary recovery-mechanism predicate (under a binding 184/184 stress budget WITH the production fault model + on-quiesce resync keyframe, every steady-window settle bit-exact AND the deferred-chunk backlog drains ≤D=4 ticks; keyframe-off negative control trips BLOWN; host-accepted-revision oracle = no stale chunk applied). p3 cross-layer reaction→temperature (ReactionHeat=32, LayerKey 1, suppressed-event negative oracle) proven bit-exact UNDER load. p4 Wave-2 LOCK declared (ADR-0004 §LOCK + drift-guard test). Honesty boundary: toy scene runs ~75× under the real 275 KB/s clamp → proves the scene-size-independent RECOVERY MECHANISM + an honest throughput PROJECTION (~4.9k lossless / ~59k lossy cells @275 KB/s), not a literal 275-blow; loopback only. check.ps1 -Deliver green, dotnet 103/103, FishNet PlayMode GREEN (new SustainedBreachWave_… + R3 suite). ADR-0004 (T1–T14, 5-skeptic + 3 Codex/GPT-5.5 validator rounds); ADR-0003 v2 C1–C22 + t-2 artifacts byte-untouched. Telemetry docs/measurements/g9c41-t3-{lossless,lossy}.json + repro-constants. Merged dev→main @6619299 + pushed. → history/2026-06-15-c-exec-004-t-3-result.md
 
 recurring: []
 
@@ -118,8 +118,16 @@ open_calls:
   - id: c-exec-003
     status: done   # 2026-06-15 RETURNED GREEN/GREEN (recorded s-work-005); t-2 → done. RESULT → history/2026-06-15-c-exec-003-t-2-result.md
     note: framed at s-work-004 (c-work-002); hardened via an 8-agent pass; PLAN ratified converge §WHAT-C into ADR-0003 v2 (C1–C22 frozen). → history/s-work-004.md
+  - id: c-review-001
+    status: ready   # 2026-06-15 framed at s-work-006 — review of bet g-9c41 after t-3 closed the LAST Wave-1 task (kill-gate VERDICT=HOLD). G5: must run in a FRESH session (never the build) and refute the kill-gate claim from the committed evidence BEFORE Wave 2 is shaped on the LOCK. Full CALL in NOW.next.
+    note: |
+      Wave-1 kill-gate review. Independently re-derive the HOLD verdict from the committed telemetry (don't
+      trust the flag), name any honesty-boundary weakness, harvest what Wave-1 proved into the tree + knowledge,
+      bring the owner a next-bet decision (Wave-2 band-sim shape vs alternative). Folds in two known follow-ups:
+      the Wave-2 cleanup card (Codex round-3) and the parked map-level re-check of the clip-gated parallel
+      tracks (s-shape-004 / root map_order). Builds on history/2026-06-15-c-exec-004-t-3-result.md + ADR-0004.
   - id: c-exec-004
-    status: ready   # 2026-06-15 framed for t-3 (s-work-005); hardened via wf frame-c-exec-004-t3 (draft + 3 adversarial lenses). Full copy-ready CALL in work/c-exec-004-call.md (and summarized in next:). Opens with interactive PLAN + ADR-0004/v3 (owner present).
+    status: done   # 2026-06-15 RETURNED GREEN/GREEN — Wave-1 kill-gate VERDICT=HOLD (owner-confirmed in build), stream LOCKED, merged main @6619299 + pushed. t-3 → done. RESULT → history/2026-06-15-c-exec-004-t-3-result.md
     note: |
       t-3 kill-gate finale. PLAN freezes (ADR-0004 or ADR-0003 v3, C1–C22 UNTOUCHED — t-3 only ADDS): sustained-load
       test shape; the steady-rate VERDICT predicate (single binary, irrecoverable-vs-transient encoded); production
@@ -164,45 +172,42 @@ decision_inbox:
       # d-arch-001 answered at s-shape-003 (see history/s-shape-003.md outcome a-e)
 
 next: |
-  CALL c-exec-004 — full copy-ready CALL in work/c-exec-004-call.md (paste THAT into the GasCoopGame_dev chat).
-  to: executor (coding agent)   repo: GasCoopGame   kind: engineering
-  direction: indie-game-development   node: g-9c41   task: t-3
-  parent: s-work-005 (recorded the c-exec-003 return + framed this); framed+hardened via wf frame-c-exec-004-t3
-  summary: |
-    t-3 = KILL-GATE FINALE of Wave 1. Under a SUSTAINED breach wave, host + 2 clients keep the reconstructed
-    field bit-exact-when-it-should-be and bounded-when-it-can't (both clamps engaged), and the STEADY (not peak)
-    aggregate dirty-rate is evaluated by a SINGLE BINARY predicate — frozen in ADR-0004 BEFORE code, with the
-    "irrecoverable vs transient catch-up" test encoded INSIDE it so it returns PASS/FAIL with no human judgement
-    → clampVerdict flips DEFERRED-T3 → HOLD | BLOWN. On HOLD: declare the stream LOCKED (the immutable precondition
-    Wave 2's band sim builds on). Prove the layer fabric is REAL via a cross-layer reaction→temperature (LayerKey1)
-    interaction on the locked stream, WITH a suppressed-event NEGATIVE oracle, running UNDER the sustained load.
-    Build ON the frozen t-2 stream (ADR-0003 v2, C1–C22) — do NOT redesign or re-open it. t-3 OPENS C7 (channel
-    reliability) / C9 (keyframe K) / C13 (fault scope) / C14 (min-resend); only EXTENDS frozen C16/C18. NO code
-    until ADR-0004 (or ADR-0003 v3) + a default-FAIL G0 ledger are owner-approved. Two failure halves route
-    DIFFERENTLY: p1 consistency-cannot-hold → P6 model/vendor spike (1–2wk timebox); p2 rate-BLOWN → narrow to the
-    Barotrauma-hybrid contingency — the RESULT must name WHICH half failed; the owner decides contingency-vs-kill.
-    The leg CLOSES with a structured RESULT.md gated by `pwsh tools/check.ps1 -Deliver`; the builder routes it
-    home to this direction and does NOT author the next CALL. This IS the 2026-06-30 kill-gate checkpoint against
-    the never-extended 2026-07-24 wall. Full leg_opens_with / context / boundaries / done_when (p1–p6) / return /
-    budget / model_routing / surface: work/c-exec-004-call.md.
-  owner_decisions (decided AT the PLAN — not blocking dispatch):
-    1. ADR vehicle: NEW ADR-0004 vs ADR-0003 v3 (C1–C22 untouched either way). Rec: ADR-0004 (a new concern;
-       avoids the appearance of re-opening frozen C1–C22).
-    2. Sustained-measurement environment: loopback+software-clamps (fast, honesty-caveated) vs real uplink (slower,
-       eats budget). Rec: loopback+software-clamps WITH the honesty boundary stated (byte size + per-tick
-       dirty-chunk COUNT are environment-independent; real-link latency/loss is NOT) — don't spend t-3 on infra.
-    3. Production channel reliability (C7): unreliable-sequenced vs reliable-ordered + the fault model the verdict
-       must survive. Rec: PLAN decides+realizes it, promotes t-2's test-decorator fault-injection to a gated
-       production property; the steady-rate verdict is measured WITH that fault model active.
-    4. Mid-run late-join: a t-3 GATE or stays bet-2-deferred? Rec: stays deferred (default) unless the verdict's
-       honesty genuinely needs a join-baseline (record the reason).
-    5. Periodic keyframe cadence K (C9): does sustained load FORCE a periodic K (value?) or does quiescence-only
-       recovery still suffice? Rec: PLAN decides from the wave shape; pin recovery-under-load either way.
-    6. Confirm kill-gate routing in ADR-0004: p1-fail → P6 spike; p2-BLOWN → Barotrauma-hybrid; the owner decides
-       contingency-vs-kill if the gate trips, not the builder.
-  surface: fresh session in the product-repo dev worktree C:\projects\Unity\GasCoopGame_dev; the interactive
-        PLAN (owner present, plan mode, frontier model) freezes ADR-0004/v3 + the default-FAIL G0 ledger,
-        then autonomous build legs; the closing RESULT.md (gated by `pwsh tools/check.ps1 -Deliver`) routes
-        home to this direction. Full CALL: work/c-exec-004-call.md.
+  CALL c-review-001 — review bet g-9c41 (Wave-1 kill-gate close). Owner opens a FRESH session on this OS
+  direction (G5 — the review must NOT run in the session/repo that did the work).
+  to: session   direction: indie-game-development   play: review   node: g-9c41
+  parent: s-work-006 (recorded the c-exec-004/t-3 return)
+  goal: |
+    The Wave-1 kill-gate result for g-9c41 stands up to independent inspection — or its weak points are named
+    in plain terms — the goal tree shows what Wave-1 actually proved versus what is still only projected, and
+    the owner holds a decision on the next bet: Wave 2 (band sim + grid from DA + the temperature layer, built
+    on the LOCKed stream) or another node, each option carrying its why-now.
+  context: |
+    - The t-3 executor exit report: history/2026-06-15-c-exec-004-t-3-result.md (VERDICT=HOLD, the honesty
+      boundary, the Wave-2 cleanup card, the cuts). Its manual-acceptance step 3 shows the verdict is
+      re-derivable from the committed series — don't trust the flag.
+    - The bet + kill_by + wave_plan: this NOW.md active_bet (checkpoint_2026-06-30 = HOLD ⇒ next_if_true =
+      roll to Wave 2 — but through this review first).
+    - Frozen design in GasCoopGame: docs/adr/ADR-0004-sustained-load-verdict-lock.md (T1–T14, §LOCK, §Verdict)
+      + ADR-0003 v2 (C1–C22); telemetry docs/measurements/g9c41-t3-{lossless,lossy}.json + repro-constants.
+    - TREE g-9c41 done_when criteria 2/3/10 (the Wave-1-relevant ones) + CHARTER lenses.
+    - Two follow-ups to weigh in the harvest/selection: the Wave-2 cleanup card (Codex round-3, owner-accepted)
+      and the parked map-level re-check of the clip-gated parallel tracks (s-shape-004 / root map_order).
+  boundaries: |
+    No Wave-2 code or shaping beyond the next-bet recommendation; the product repo is not touched. The
+    verdict's own correctness is re-established from the committed evidence, not assumed from the build's
+    self-report or the in-build owner-confirm. g-9c41 is a MULTI-WAVE node — closing Wave 1 is not closing the
+    node; the verdict is on the Wave-1 deliverable. TREE.md / CHARTER.md edits reach state only via the owner's
+    in-session approval (G9).
+  done_when: |
+    g-9c41's Wave-1 done_when carries an independently-verified verdict (met / partially / not, G5 refutation),
+    with the surprise vs the bet's forecast/against named; TREE.md reflects the Wave-1 learnings under owner
+    approval; NOW.md is clear of the closed Wave-1 tasks; the owner has a next-bet decision with 2–3 options
+    and a recommendation.
+  return: |
+    review RESULT — verdict + tree diff (owner-approved cards) + ≤1–3 knowledge entries with read_by +
+    decisions_needed (the next-bet choice) + next = shape CALL on the recommended node.
+  budget: one session.
+  surface: a fresh session on this OS direction (chat or this repo via CLI); the owner is present for the
+    next-bet decision and any TREE edits (G9).
 
 END_OF_FILE: live/indie-game-development/NOW.md
