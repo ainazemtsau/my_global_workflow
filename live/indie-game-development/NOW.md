@@ -106,8 +106,11 @@ open_calls:
       ~5.3x-optimistic 59k). Steers: DA gives structure/topology day-one (TopologyDocument adapter), PGG =
       population/interior LATER via the same seam (population OUT of scope now); band-handoff design question —
       track sources/emitters EXACTLY even when a volume is coarse + reconstruct local detail from the source on
-      player-entry (so a weak corner source is correct on arrival). Tighten TREE crit-10 in-shape (require a
-      FEEDBACK cross-layer interaction + exercise the extensible seam with a real added layer). Fold the Wave-2
+      player-entry (so a weak corner source is correct on arrival). Re-scope TREE crit-10 in-shape (G9, per
+      d-tempfeedback-001): temperature→gas FEEDBACK is DEFERRED to a named later wave (post-g-d3a8 — the rule is
+      gas-type game design); Wave 2 requires multi-layer consistency of the gas→temperature SINK at coarse scale
+      + the grid-addressed READ-READY seam (the layer can be READ on a committed revision, OR1/OR2/GG2), NOT
+      feedback. NAME the deferral, do not silently drop it. Fold the Wave-2
       cleanup card (Codex round-3). converge-arch c-converge-002 contracts feed this. Builds on ADR-0004 §LOCK +
       knowledge/g9c41-wave1-*.
       ⚠ CONTRACT GATE (converge-verify c-converge-verify, 2026-06-16): the §CONTRACTS set is BLOCKED pending
@@ -186,6 +189,12 @@ open_calls:
       isolation (demonstrative layer == gas+temp, NOT == gas-only). Minors: fold C22 into GG4 bounds; trim
       the XL1 MECHANISM paragraph; make the version-handshake deferral explicit at the g-5b07 build edge.
       Full CALL in history/s-converge-verify-001.md RESULT.next. After re-close → fresh converge-verify.
+      ⚠ UPDATED 2026-06-16 (d-tempfeedback-001): owner DEFERRED temperature→gas feedback → F2 LARGELY
+      DISSOLVES (temperature stays a SINK; locked C21/§T12 hold; no new GridEventKind; the XL2 byte-identical
+      tension disappears). Repair now = (a) F1 coarse-tier replication = the MAIN work; (b) re-scope XL1 for
+      Wave 2 = multi-layer consistency of the gas→temperature SINK at coarse scale + the grid-addressed
+      READ-READY seam (a layer can be READ on a committed revision per OR1/OR2/GG2), feedback NOT required
+      this wave. Then re-verify.
   - id: c-shape-004
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
@@ -222,6 +231,34 @@ decision_inbox:
       mechanic); (b) believable amount AND rate on return (coarse tier accumulates at a plausible monotone rate;
       quantity matches the observed source strength + elapsed time, no jump; crossing tiers changes only spatial
       detail). Folded into GG4/OR4 + the cross-layer XL1 mechanism made concrete to the owner's grid-as-bus model.
+  - id: d-tempfeedback-001
+    status: answered   # owner 2026-06-16 (post-converge-verify design conversation, this session) — «все понятно со всем полностью согласен»
+    note: |
+      Temperature↔gas — TWO owner decisions confirmed in conversation (defer feedback + the inter-layer read
+      architecture); recorded so the pending CALLs carry them. The formal §RESOLVED / crit-10 rewording happen
+      in c-converge-003 / c-shape-wave2 (NOT written into TREE/§CONTRACTS here).
+      (1) DEFER temperature→gas FEEDBACK to a later wave (post-g-d3a8). How heat affects each gas type is a
+          function of the gas-type GAME DESIGN being worked in parallel (canon track / g-d3a8) — building it now
+          = guaranteed rework (RESOLVED-3 "extensible seam, minimal impl now"). Nothing in the Wave-2 spine
+          (band solver / grid / replication / destruction) depends on it. Temperature STAYS a live, network-
+          consistent layer = the gas→temperature SINK (Wave-1 ReactionHeat sink, exercised at Wave-2 coarse
+          scale), NOT deleted. Deferred HONESTLY: crit-10 is re-scoped so feedback is NAMED as deferred to a
+          later wave, not silently dropped (the rewording = the SHAPE's G9 job). Consequence: verify Finding F2
+          LARGELY DISSOLVES (no feedback → temperature stays a sink → locked C21 byte-identical + §T12 hold; no
+          new GridEventKind needed), shrinking c-converge-003 to mainly F1.
+      (2) INTER-LAYER READ ARCHITECTURE confirmed (resolves the verify watch-item "don't foreclose feedback"):
+          the GRID = shared coordinate/address space + cell→room/sector ownership map + the event bus + the
+          revision/commit clock — NOT a data router/god-object. Each layer publishes, on a committed revision,
+          events (push, discrete "something happened") + a READ-MODEL (pull, "value at grid-cell c as of revision
+          r") that translates grid-coords → its own representation internally. Consumers subscribe/query in GRID
+          coordinates against a COMMITTED revision; never touch another layer's internals or live mid-tick state
+          (determinism). Collapses N×N adapters → N (one grid-addressed read-model per source layer, shared by
+          all consumers) and handles heterogeneous resolution (temperature answers a per-cell query from per-room
+          storage). MATCHES existing contracts OR1/OR2 (single sampling oracle) + GG2 (geometry/sector
+          sovereignty); the only correction to the owner's first model is "grid addresses, not routes data".
+          Forward constraint to carry into Wave-2 design (cheap, not code): the read seam must let a layer read
+          another layer's field at ANY resolution on a committed revision — do NOT optimize the band solver into
+          a corner that forecloses later feedback. → history/s-decide-003.md.
 
 next: |
   CALL c-shape-wave2 — shape Wave 2 of bet g-9c41 (on the LOCKed stream). Owner present for the shape (G6/G9).
