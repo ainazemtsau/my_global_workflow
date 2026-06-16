@@ -7,6 +7,10 @@ active_bet:
     (converge-verify PASSED CLEAN, c-converge-verify-002). Wave 1 CLOSED (review c-review-001, verdict MET — HOLD
     independently re-derived). Node g-9c41 stays ACTIVE (multi-wave). The build is separate executor legs in
     GasCoopGame (next = c-exec-005 on t-1).
+    ⚠ 2026-06-16 (s-decide-004): the t-1 build RAN but the kill-gate PASS is OVERTURNED — owner rejected the gas
+    vertical model (fixed 80/20-style proportions, amount-INDEPENDENT) at the legibility pre-test + an independent
+    Codex review found 2 valid P1 + 1 valid P2. t-1 RE-OPENED for a model-rebuild; the build sits UNCOMMITTED in
+    GasCoopGame_dev (do NOT commit as-is). See decision_inbox d-fillmodel-001 + open_calls c-exec-005.
   appetite: |
     Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
     Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
@@ -155,7 +159,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       (d) crit-9 scale arithmetic vs the R1 profile from the ON-WIRE keyframe-inclusive ~11k basis (V2-1), ≥2 independent
       recomputes; PLUS a week-1 pure-local (R14, zero net) owner-acceptance legibility pre-test. Scored against a
       default-FAIL G0 ledger frozen pre-spike; binding verdict = independent fresh-session G5 refutation at 06-30.
-    status: active
+    status: reopened   # 2026-06-16 (s-decide-004) build RAN but REJECTED — gas vertical model = fixed 80/20-style proportions (amount-INDEPENDENT) + Codex P1 per-band-temp averaging; re-PLAN the fill model (d-fillmodel-001 capacity-fill+overflow) + per-band temperature, then rebuild. Build uncommitted in GasCoopGame_dev.
   - id: t-2
     kind: executor (engineering, GasCoopGame)
     goal: real coarse band gas on a REAL DA-composed generated level, networked-consistent, with a real breach.
@@ -212,7 +216,7 @@ open_calls:
       the Wave-2 cleanup card (Codex round-3) and the parked map-level re-check of the clip-gated parallel
       tracks (s-shape-004 / root map_order). Builds on history/2026-06-15-c-exec-004-t-3-result.md + ADR-0004.
   - id: c-exec-005
-    status: ready   # 2026-06-16 framed at shape s-shape-wave2. Wave-2 t-1 = band-solver KILL-GATE (headless, scale-validated, integer-exact-replicable). Full CALL in NOW.next. Executor leg in GasCoopGame; owner present for the interactive PLAN.
+    status: reopened   # 2026-06-16 (s-decide-004) the t-1 leg RAN + returned a build, but the kill-gate PASS is OVERTURNED. Owner rejected the gas vertical model — built `LowerShare=total·eff/(eff+16)` (80/20 for the heaviest cold gas, amount-INDEPENDENT) at the legibility pre-test (it passed earlier only on a SINGLE near-full snapshot, masking the amount-independence). Independent Codex review: 2 valid P1 (per-band temperature AVERAGED before buoyancy, CoarseBandStep.cs:144; RESULT.md cites untracked tests/ADR/measurements that a staged-only commit would lose) + 1 valid P2 (Unsafe.dll.meta editor-import flip, unrelated to coarse). Build sits UNCOMMITTED in GasCoopGame_dev — do NOT commit as-is. Re-PLAN pending (NOW.next, owner-approval-gated). Prior framing kept in NOW.next: band-solver KILL-GATE on the LOCKed stream.
   - id: c-shape-wave2
     status: done   # 2026-06-16 shape DONE (s-shape-wave2) — Wave 2 SHAPED + committed (G6/G9, owner «го»). BUILD coarse band-sim on the LOCKed stream; 4 tasks (t-1 KILL-GATE first); VERIFIED §CONTRACTS bound into done_when; crit-10 reworded (feedback deferral); owner refinements (generator-agnostic topology, DA room-composer, configurable gas cell, T3 dropped) → captures. next = c-exec-005. → history/s-shape-wave2.md
     note: |
@@ -405,8 +409,58 @@ decision_inbox:
           Forward constraint to carry into Wave-2 design (cheap, not code): the read seam must let a layer read
           another layer's field at ANY resolution on a committed revision — do NOT optimize the band solver into
           a corner that forecloses later feedback. → history/s-decide-003.md.
+  - id: d-fillmodel-001
+    status: answered   # owner 2026-06-16 (s-decide-004) — fixed-proportion fill is OUT; capacity-fill-then-overflow IN
+    note: |
+      The coarse vertical gas distribution (how a species' sector mass splits between the 2 bands) is an OWNER
+      gameplay/feel decision, NOT a builder detail (the ADR-0005 BS4 delegation was the defect). DECIDED:
+      (1) NO fixed proportions. The built `LowerShare = total·eff/(eff+16)` (80/20 for the heaviest cold gas,
+          AMOUNT-INDEPENDENT — a puff still throws 20% to the ceiling) is REJECTED outright — «их вообще не должно быть».
+      (2) Model = CAPACITY-FILL + OVERFLOW (owner's mental model): the floor band fills toward its capacity FIRST
+          (little gas → thin low layer, interface low; more → interface rises), the excess OVERFLOWS to the upper
+          band. AMOUNT-DEPENDENT by construction. Heavy fills from the floor, light from the ceiling; temperature can
+          FLIP which band is "first" (the frozen eff law stays). Multiple species layer by density (heaviest at the
+          very bottom). 2 bands coarse is OK for now; smooth sub-band fill = the fine tier (Wave 3).
+      (3) Deferrals to later waves (owner-confirmed, do NOT build now): Q1 opening-size→flow-rate SHOULD influence
+          (simple now, the curve a later wave; built t-1 uses a FIXED kP = size-agnostic); Q2 explosion-magnitude→
+          opening-size (later, with destruction); Q4 breach repair/seal (later, maybe never). Q3 = far breaches are a
+          single "opening-size NUMBER" (shape does NOT affect gas far away — owner agrees); a breach CAN drive OTHER
+          layers later (temperature transport / air currents) — a SEPARATE axis from geometry, the layered arch extends.
+      → re-PLAN the fill model + per-band temperature in the t-1 rebuild (NOW.next). This re-opens t-1.
+  - id: d-return-reconstruction-001
+    status: deferred   # owner 2026-06-16 (s-decide-004) — Wave-3 design capture; deep-research deferred to Wave-3 shape
+    note: |
+      On player RETURN to a room, the gas state must reflect realistic spread (NEVER "enter → instantly all filled").
+      KEY: the coarse tier is ALWAYS-ON whole-level (I15) — the room keeps filling at the source's RATE × elapsed time
+      while the player is away, so the correct AMOUNT on return is already free (Wave-2-handled, not stale, not
+      instant-full). The INTRA-room FRONT (a cloud growing from a corner source) is the FINE tier = Wave 3, and equals
+      the owner-signed band-handoff (GG4/OR4, d-bandhandoff-001): track the SOURCE (location/strength) EXACTLY +
+      reconstruct local detail on entry. REFINEMENT (owner-accepted critique): do NOT store a SEPARATE "fill/unfolding
+      equation" (= 2nd source of truth = drift) — the coarse amount IS the truth; reconstruct the fine front from
+      (source position + coarse amount). Lazy-LOD optimization (Wave 3): keep fine detail while a room is actively
+      filling, collapse to coarse-only once filled (gas does NOT evaporate, for now — keep the seam extensible). A
+      focused deep-research on cheap off-screen field reconstruction / lazy field seeding / analytic front propagation
+      is DEFERRED to the Wave-3 shape (owner: «deep ресёрч очень не нужен» now). Relates to s-arch-003 lazy-seeding.
 
 next: |
+  ⚠ SUPERSEDED 2026-06-16 (s-decide-004) — the t-1 leg below RAN and its kill-gate PASS is OVERTURNED (owner
+  rejected the gas vertical model + Codex P1s; see open_calls c-exec-005 + decision_inbox d-fillmodel-001). The
+  binding next is a MODEL-REBUILD re-PLAN of t-1 (owner-approval-gated):
+    (1) re-PLAN the coarse vertical model = capacity-fill+overflow, NO proportions (d-fillmodel-001), + per-band
+        temperature, with the owner (the few micro-params: lower-band capacity, multi-species priority, "middle" class);
+    (2) re-freeze ADR-0005 BS4 with the new model + per-band temperature + EXPLICIT physical-REGIME test dimensions
+        (uniform vs gradient per-band temperature; small vs large amount; band asymmetry);
+    (3) re-author the INDEPENDENT tests from the new spec (fill-level: little/lots/overflow + differential-band temp);
+    (4) rebuild the solver (LowerShare → capacity-fill; Settle reads PER-BAND temp, no averaging — fixes Codex P1#1);
+    (5) re-validate (gate + fresh-session G5 + owner gamer-eye on MULTIPLE fill amounts, not one snapshot + Codex);
+    (6) housekeeping at commit: stage ALL (source + tests + ADR-0005 + measurements + openspec); revert Unsafe.dll.meta;
+        rewrite RESULT.md (fixes Codex P1#2/P2#3).
+  A MAINTENANCE REQUEST (feel-decisions delegated to the builder; converge under-decomposed the fill mechanism;
+  spec-hardening must enumerate physical regimes) runs in a SEPARATE session (never touches live/**), per the standing
+  "additive, don't break what works" guardrail. The PRIOR t-1 CALL framing below still HOLDS for the LOCK/boundaries/
+  §CONTRACTS — only the gas vertical MODEL + per-band temperature + regime-tests change.
+
+  ---- PRIOR FRAMING (kept for reference) ----
   CALL c-exec-005 — Wave-2 t-1: band-solver KILL-GATE (headless, scale-validated, integer-exact-replicable).
   to: executor (coding agent)   direction: indie-game-development   product repo: GasCoopGame (branch dev → main when green)
   play: work (executor leg) — g-9c41 Wave 2, task t-1   parent: s-shape-wave2
