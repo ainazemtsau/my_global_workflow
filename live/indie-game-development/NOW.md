@@ -121,7 +121,7 @@ open_calls:
       feedback deferral (per d-tempfeedback-001) is THIS shape's G9 job — the contract-coverage of crit-10
       (ORACLE-NMTL class 10) is contingent on it.
   - id: c-map-003
-    status: queued   # 2026-06-16 framed at review c-review-001 — re-check the parallel-track structure post-clip-drop
+    status: done   # 2026-06-16 CLOSED (s-map-003) — clip-trigger RESOLVED (re-hung on g-2f8c's first artifact; teeth = Wave-2 terminus + 08-31 page date); +g-2f8c (generative marketing process); (a) artifact node REJECTED as crutch (owner); (b) co-op-interdependence DEFERRED → c-map-004. NOW spine untouched (Wave 2 stays next).
     note: |
       Structural tree work routed out of review (review play: restructuring > a few nodes → map). Resolve the
       orphaned clip-gate trigger in root TREE map_order (the spectacular clip was dropped at s-shape-004 but

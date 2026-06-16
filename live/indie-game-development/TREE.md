@@ -35,15 +35,25 @@ root:
 
   map_order: |
     g-9c41 is the spine and the priority. Parallel tracks run alongside it at an OWNER-SET cadence
-    (the owner correlates load; the engine bet always comes first). The old "<=10% of weekly hours
-    until the first spectacular harness clip" gate is RETIRED — that clip milestone was dropped
-    2026-06-14 (s-shape-004), so the gate hung on a trigger that no longer exists. Parallel tracks:
-    the creative/CANON track (g-d3a8 design + lore) runs now via the canon track (repo
-    gas_coop_game_canon + local/canon-forge); gas visibility (g-7e15), the Steam-page slice of
-    g-5b07, and the posting cadence of g-e6f2 stay parked, started when the owner chooses. The
-    g-d3a8 EXECUTABLE-CONFIG validation sub-part still needs g-9c41 alive (its lore/design-on-paper
-    does not). Calendar that still holds: Fest go/no-go checkpoint ~late September 2026;
-    pre-committed decision gate 2026-10-05 (see g-5b07).
+    (the owner correlates load; the engine bet always comes first). The dropped "spectacular clip"
+    trigger is RESOLVED (c-map-003, 2026-06-16): storefront/audience EXECUTION (g-5b07 page, g-e6f2
+    cadence) starts when the marketing process g-2f8c PUBLISHES its first artifact — NOT a pre-fixed
+    clip. The artifact is g-2f8c's call (canon hook + c-map-003 market research), and the build-side
+    guarantee that showable material WILL exist needs NO separate node — it already lives in the
+    Wave-2 player-facing terminus mandate (g-9c41 active bet) + the fixed 2026-08-31 page date
+    (g-2f8c's first emission is timed to 08-31 — the teeth vs pre-mortem #2). The contested
+    fixed-artifact node "(a) first player-legible artifact" was REJECTED as a crutch (artifact =
+    g-2f8c's output; legibility floor already owned by Wave 2). Parallel tracks: the creative/CANON
+    track (g-d3a8 design + lore) runs now via the canon track (repo gas_coop_game_canon +
+    local/canon-forge); the marketing process g-2f8c is parked + ready to be shaped into its own
+    local play (canon-forge-style) in a parallel low-ceremony session when the owner chooses; gas
+    visibility (g-7e15), the Steam-page slice of g-5b07, and the posting cadence of g-e6f2 stay
+    parked, started when the owner chooses. The g-d3a8 EXECUTABLE-CONFIG validation sub-part still
+    needs g-9c41 alive (its lore/design-on-paper does not). Calendar that still holds: Fest go/no-go
+    checkpoint ~late September 2026; pre-committed decision gate 2026-10-05 (see g-5b07). PROPOSED,
+    decision DEFERRED at owner's request: a "co-op interdependence proof" node (b) — pre-mortem #5
+    (the gas world must FORCE cooperation, currently unowned before a parked Steam Playtest); routed
+    to follow-up c-map-004.
 
   children:
 
@@ -176,7 +186,9 @@ root:
     done_when: |
       1. Steam page live + October Next Fest registration by 2026-08-31 (registration is a
          free reversible option until fest start; page ships only with 5 pro assets —
-         human-commissioned capsule ~$300–600 budgeted, real-gameplay trailer by ~Sep 7).
+         human-commissioned capsule ~$300–600 budgeted, real-gameplay trailer by ~Sep 7; the page's
+         first gameplay material = g-2f8c's first published artifact off the Wave-2 player-facing
+         terminus, fronted by the illustrated capsule as the highest-ROI asset).
       2. Free demo: solo-startable, end-of-session wishlist prompt, submitted by Oct 5
          (press-preview cut Sep 21 target), kept live through Dec–Jan; quality gate — a
          janky demo skips the fest rather than burning the one-per-game slot. Steam
@@ -205,9 +217,10 @@ root:
       co-op testers the charter's pride bar needs).
     why: no audience and no manual SMM means marketing is either a system or nonexistent (pre-mortem #7); this machine feeds the storefront and recruits external co-op playtesters without "find four friends".
     done_when: |
-      1. Cadence starts the day the first harness clip exists and holds for weeks without
-         heroics (target set in shape; before the first clip this track is <=10% of
-         weekly hours).
+      1. Cadence starts the day g-2f8c publishes its first artifact (the dropped "first clip"
+         trigger RESOLVED here — c-map-003); g-e6f2 EXECUTES g-2f8c's plan (logistics delegable to
+         the owner's wife/brother; authentic owner voice, AI-assisted) and holds a steady deliberate
+         cadence (target set in shape; NOT a filler treadmill).
       2. Channel mix explicit and metricated: sim-footage-first short form (X primary,
          Bluesky cross-post, player subreddits, TikTok/Shorts/Reels), async micro-creator
          seeding once a distributable build exists, monthly FFF-style tech post, mailing
@@ -221,5 +234,42 @@ root:
       5. Playtest lobbies recruit from this audience (gated on page/demo existing).
     status: parked
     detail: history/s-map-002.md
+
+  - id: g-2f8c
+    goal: |
+      A working, authentic social-marketing system exists: a warm ("ламповое") community around the
+      game in the solo-dev's own voice (NOT corporate), driven by a concrete go-to-market plan
+      (positioning/hook, honest channel roles, publisher/crowdfunding path, timing) — run as a
+      GENERATIVE PROCESS (its own local play, modeled on canon-forge) that EMITS the marketing
+      artifacts the project should make (what to show, where, when) instead of the tree pre-fixing
+      them. Logistics delegable to non-technical operators (the owner's wife + brother); the VOICE
+      stays the owner's (AI amplifies, never replaces).
+    why: closes pre-mortem #7 (audience never became a workflow) + #6 (illegible positioning), is the path not only to wishlists but to publishers/crowdfunding (charter money-gate 2026-12-11), and it OWNS the artifact decision that re-installs the dropped player-facing trigger — so it is commercially load-bearing.
+    done_when: |
+      1. One go-to-market plan exists: positioning/hook (matures with the canon track), a channel map
+         with HONEST roles (Reddit/streamers/Steam-page = cold acquisition; Discord/X/mailing =
+         capture/retention), the publisher/crowdfunding path + prerequisites (residency/entity),
+         timing against 2026-08-31 / 10-05 / 12-11.
+      2. It runs as its own local play (canon-forge-style) that EMITS artifact cards ("make X to show
+         on channel Y by date Z") into its own work ledger, fed by the canon hook + the c-map-003
+         market research; the FIRST emission is timed to the 2026-08-31 page date (teeth vs pre-mortem #2).
+      3. Delegable operating split defined: logistics (scheduling, cross-post, mailing/Discord admin,
+         feedback collection) → wife/brother; authentic voice + Reddit hero-posts + streamer outreach
+         + approval → owner; analysis + drafts-in-the-owner's-voice → AI.
+      4. "Human test": sample posts read as a real person, not detectable-AI generic (explicit anti-criterion).
+      5. Cadence = a steady rhythm of deliberate posts (each genuinely needed, analyzed), gated on
+         "there is something real to say" — NOT a filler treadmill; not dependent on a volunteer's weekly slot.
+      6. Light metrics only (learn channel fit, not corporate analytics); markdown-first, no special
+         MCP/tooling now (API metrics optional later).
+    status: parked
+    detail: |
+      history/s-map-003.md. Born at map c-map-003 (2026-06-16) from owner discussion + 2 deep-research
+      passes (market wf_c85f223d-c09; structure design-panel wf_9d9c7ccf-cd5). The contested fixed-artifact
+      node (a) was REJECTED as a crutch — the artifact is this node's OUTPUT (canon hook + research), while
+      the build-side legibility guarantee already lives in the Wave-2 player-facing terminus + the fixed
+      2026-08-31 page date (no separate guard node). NOT a second active bet (G1 — g-9c41 stays the spine);
+      worked in a parallel low-ceremony session when the owner chooses (shape via c-shape-marketing).
+      Helper resource: the owner's wife + brother run logistics IF the system is clear/rule-based with an
+      AI analysis layer (delegate ADMIN not the VOICE).
 
 END_OF_FILE: live/indie-game-development/TREE.md
