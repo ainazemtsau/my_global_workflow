@@ -17,9 +17,10 @@ Hard habits:
   your FINAL message: a short readable summary in Russian first, then the
   fenced RESULT block. A RESULT block anywhere else is a violation;
   emitting it ends the session. No RESULT, no work happened.
-- You are NEVER the writer: never create or update repo files, even if a
-  connector allows it. State changes travel only inside
-  RESULT.state_changes; a separate writer session applies them.
+- You are NEVER the writer: never create/update repo files. State changes
+  travel only inside RESULT.state_changes; a separate writer applies them.
+  Make them writer-safe: `add` only if absent; else exact edit anchors;
+  no duplicate sections or vague append.
 - The owner starts however he likes: a CALL, a plain sentence,
   "продолжаем". No CALL? Resolve against NOW.md: "продолжаем" → NOW.next;
   a question → read-only answer; matches an open task/recurring → that

@@ -31,10 +31,12 @@ Imported as born-closed only where owner-approved/core-reviewed:
 - I4 — Direction OS is not a raw diary. Raw daily nutrition/weight/check-in/food data lives in
   Health AI System; Direction OS may read Health AI when needed for strategy/development but does
   not duplicate raw logs in its own state.
-- I5 — Per CALL context, c-health-core-review-002 returned corrected binding G5 met and owner
-  approved d-health-core-close-and-next-bet with "approve". The exact file path
-  `live/health/knowledge/health-core-corrected-g5-review.md` was not fetchable in this session;
-  the fact is therefore carried from CALL context, not file import evidence.
+- I5 — g-health-core corrected G5 binding is imported from file-backed evidence, not from
+  CALL-only assertion: `live/health/knowledge/health-core-corrected-g5-review.md`,
+  the corresponding history RESULT, and Health AI core evidence files
+  (`acceptance/core/evidence-summary.md`, `acceptance/core/matrix.json`). The imported
+  binding is: blocker gaps are zero, core remains core-only, modules attach additively,
+  and nutrition consumes core-owned concepts without rewriting core.
 
 ## §DIRTY INPUT DISPOSITION
 
@@ -245,22 +247,66 @@ Dirty input coverage:
 - v1 failure "meals/day asked" -> refuted/re-derived as W3.
 - dirty first-pass recipe/app/architecture candidates -> rejected as authority; vitrine cut in W12.
 - paused Define glossary -> re-derived as signed glossary here; not imported.
+## §CONTRACTS — ARCH CLOSURE
+
+source_artifact: `live/health/work/converge-g-health-nutrition-system-arch.md`
+status: closed-on-paper; route to converge-verify.
+
+Corrected blocker rows:
+- B1 — core review binding: closed by file-backed knowledge/history/product evidence, not CALL-only import.
+- B2 — regular nutrition procedure extension points: closed by core procedure template plus
+  nutrition-namespaced operator-invoked procedure seam; no scheduler/runtime/cron/background job.
+- B3 — day_type wording: core provides provenance only; nutrition owns any later namespaced
+  `x_nutrition_day_type` / `x_nutrition_target` if needed.
+
+Closed contract index:
+- NCA0 — starter-kit seed intake: owner facts only; expert variables remain system-decided.
+- NCA1 — core attach / nutrition namespace: nutrition reads core shared concepts and writes only
+  `x_nutrition_*`.
+- NCA2 — personalized nutrition cycle derivation: setup -> system decisions -> menu-cycle ->
+  recipes/base-prep/grocery -> LOG -> review.
+- NCA3 — nutrition LOG/tracking: low-friction Health AI nutrition LOG sufficient for review.
+- NCA4 — LOG-to-review mutation path: hold/mutate/rebuild/update/refresh/brake decisions.
+- NCA5 — recipes/base-prep/grocery correctness: shared prep/reuse cannot make prep/grocery derivation lie.
+- NCA6 — bad-week and safety: valid reduced mode; red flags halt/switch conservative with
+  non-diagnostic medical-check language.
+- NCA7 — future integration seam: mirrorable later, no current app/vitrine dependency.
+- NCA8 — regular nutrition procedure extension points: declarative and operator-invoked only.
+- NCA9 — day_type provenance / Direction OS visibility: core provenance only; nutrition namespaced target
+  if later needed; no Direction OS raw diary.
+
+## §ARCH
+
+Architecture questions closed:
+- nutrition source-of-truth = Health AI nutrition namespace/module, not Direction OS diary or external app;
+- nutrition attach = additive namespaced module on g-health-core;
+- first cycle = personalized process, not generic menu;
+- tracking = mandatory low-friction Health AI LOG;
+- review = concrete artifact mutation/hold/rebuild/refresh/brake decision;
+- recipes/base-prep/grocery = structured enough for execution and correct derivation;
+- bad-week/safety = valid reduced mode plus safety halt/conservative branch;
+- procedure extension points = core template + nutrition operator-invoked seam, no scheduler/runtime;
+- day_type = core provenance only; nutrition target/day_type, if needed, is `x_nutrition_*`.
 
 ## §OPEN / DEFERRED CHECK
 
 open rows: 0
 deferred rows: 0
+blocker rows: 0
+owner decisions needed: 0
 
 ## §ROUTE
 
-Next: converge-arch.
+Next: converge-verify.
 
 Reason:
-- The WHAT is closed, but the node is heavy and has architecture-contract questions:
-  artifact authority/derivation, exact nutrition attach contract on core, LOG shape,
-  review mutation pathway, base-prep/reuse semantics, future integration seam,
-  and bounded recurring nutrition procedures.
-- Do not emit executor CALL yet.
+- Nutrition WHAT remains unchanged and signed.
+- Architecture/contract surface is now closed on paper in
+  `live/health/work/converge-g-health-nutrition-system-arch.md`.
+- No old conflicting §CONTRACTS/§ARCH/§ROUTE rows should remain because this replacement removes
+  the whole post-§COVERAGE tail before writing the corrected block.
+- Do not emit executor CALL until converge-verify tries to refute the closure.
+
 ---
 
 END_OF_FILE: live/health/work/converge-g-health-nutrition-system.md

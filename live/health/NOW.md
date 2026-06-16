@@ -3,9 +3,8 @@
 active_bet:
   status: none
   note: >
-    2026-06-16 nutrition converge closed WHAT: personalized nutrition process on
-    g-health-core, mandatory nutrition tracking, no current vitrine/Mealie/UI
-    requirement, future integration seam only. Next = converge-arch.
+    2026-06-16 nutrition converge closed WHAT and converge-arch is closed on paper after
+    writer-safe repair of B1-B3 correction. Next = converge-verify.
 
 tasks: []
 
@@ -24,61 +23,52 @@ decisions:
     owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-converge-arch-001
+  CALL c-health-nutrition-converge-verify-001
   to: session
   direction: health
-  play: converge-arch
+  play: converge-verify
   node: g-health-nutrition-system
   goal: |
-    g-health-nutrition-system has a closed architecture/contract surface for implementing the signed nutrition
-    WHAT on g-health-core without duplicating core, without current vitrine/app requirements, and with mandatory
-    nutrition tracking/review/base-prep semantics.
+    Verify that g-health-nutrition-system architecture/contract surface is actually closed
+    after writer-safe repair, before any executor CALL.
   context: |
     Read:
-    - live/health/CHARTER.md
-    - live/health/TREE.md
     - live/health/NOW.md
     - live/health/work/converge-g-health-nutrition-system.md
-    - live/health/work/converge-g-health-core.md
-    - health-ai core files/evidence as needed:
+    - live/health/work/converge-g-health-nutrition-system-arch.md
+    - live/health/knowledge/health-core-corrected-g5-review.md
+    - relevant history RESULTs for:
+      - c-health-nutrition-converge-arch-001
+      - c-health-nutrition-converge-arch-correction-001
+      - c-health-nutrition-converge-arch-writer-repair-001
+    - Health AI core evidence as needed:
       acceptance/core/evidence-summary.md
       acceptance/core/matrix.json
-      core/metrics.md
       core/extensions/attach-contract.md
-      core/profile/owner-facts.md
-      core/profile/derived-anchors.md
-      core/intake/non-blocking-questions.md
-      core/parser/materiality.md
-      core/principles/minimum-tracked-signals.md
-      core/phases.md
+      core/procedures/template-contract.md
+      core/provenance/day-type.md
 
-    Owner-signed nutrition WHAT highlights:
-    - nutrition is a module on g-health-core;
-    - expert variables are system-decided; owner facts only are askable and non-blocking;
-    - first cycle must be personalized, not generic quick menu;
-    - nutrition tracking is mandatory and low-friction via text/voice/photo;
-    - tracking must feed review and artifact mutation;
-    - recipes/instructions must support base-prep/reuse and grocery/prep correctness;
-    - no current Mealie/vitrine/UI/app/image-sync requirement;
-    - keep only future integration seam.
+    Verify especially:
+    - B1: core review binding is file-backed by knowledge/history/product evidence, not CALL-only import.
+    - B2: regular nutrition procedure extension points are covered by core procedure template plus
+      nutrition operator-invoked procedure seam, without scheduler/runtime/cron/background jobs.
+    - B3: core day_type is provenance only; nutrition owns any later namespaced nutrition day_type/target.
   boundaries: |
-    Do not build implementation.
+    Do not implement.
     Do not create product repo code.
-    Do not require Mealie, UI, app integration, recipe image generation, runtime, DB, server, cron, or scheduler.
-    Do not build training/activity.
-    Do not store raw daily food, weight, photo, or check-in logs in Direction OS.
-    Do not make medical prescriptions.
-    Do not rewrite g-health-core; nutrition consumes it.
+    Do not redo nutrition WHAT.
+    Do not rewrite g-health-core.
+    Do not add UI/app/runtime/DB/server/cron/scheduler requirements.
+    Do not proceed to executor CALL unless converge-verify passes.
   done_when: |
-    - Architecture/contract surface decomposes each signed WHAT mechanism into build-deciding contracts:
-      nutrition artifacts, attach namespace, tracking LOG shape, review mutation path, base-prep/reuse semantics,
-      grocery/prep derivation, bad-week mode, safety interaction, and future integration seam.
-    - Every architecture decision is either answered with citation to signed WHAT/core contract or routed to PLAN.
-    - No open/deferred rows remain, or genuine owner decisions are batched with options and recommendation.
-    - Next route is converge-verify if closed; otherwise awaiting_decision.
+    - Try to refute the closed architecture/contract claim against signed WHAT and file-backed core evidence.
+    - Confirm no open/deferred/blocker rows remain in the corrected arch surface.
+    - Confirm no conflicting old §CONTRACTS/§ARCH/§ROUTE rows remain after §COVERAGE.
+    - Confirm B1-B3 are corrected exactly as stated above.
+    - Next route is executor/shape only if verification passes; otherwise repair/awaiting_decision.
   return: |
-    RESULT with architecture artifact path, coverage evidence, state_changes, decisions_needed, and next CALL.
-  budget: one focused converge-arch movement
+    RESULT with verification verdict, refutation evidence, state_changes, decisions_needed, and next CALL.
+  budget: one tight converge-verify movement
   surface: any capable session
 
 END_OF_FILE: live/health/NOW.md
