@@ -3,9 +3,10 @@
 active_bet:
   status: none
   note: >
-    2026-06-16 nutrition converge closed WHAT: personalized nutrition process on
-    g-health-core, mandatory nutrition tracking, no current vitrine/Mealie/UI
-    requirement, future integration seam only. Next = converge-arch.
+    2026-06-16 nutrition converge-arch closed contract/architecture-on-paper surface:
+    NCA0-NCA9 cover starter seed, core attach, tracking LOG, review mutation,
+    base-prep/grocery, bad-week/safety, future seam, training day_type via core,
+    and Direction OS raw-data boundary. Next = converge-verify.
 
 tasks: []
 
@@ -24,61 +25,59 @@ decisions:
     owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-converge-arch-001
+  CALL c-health-nutrition-converge-verify-001
   to: session
   direction: health
-  play: converge-arch
+  play: converge-verify
   node: g-health-nutrition-system
   goal: |
-    g-health-nutrition-system has a closed architecture/contract surface for implementing the signed nutrition
-    WHAT on g-health-core without duplicating core, without current vitrine/app requirements, and with mandatory
-    nutrition tracking/review/base-prep semantics.
+    g-health-nutrition-system contract/architecture closure is independently refuted and either
+    passed clean for shape or bounced with exact blockers.
   context: |
     Read:
     - live/health/CHARTER.md
     - live/health/TREE.md
     - live/health/NOW.md
     - live/health/work/converge-g-health-nutrition-system.md
+    - live/health/work/converge-g-health-nutrition-system-arch.md
     - live/health/work/converge-g-health-core.md
-    - health-ai core files/evidence as needed:
-      acceptance/core/evidence-summary.md
-      acceptance/core/matrix.json
-      core/metrics.md
-      core/extensions/attach-contract.md
-      core/profile/owner-facts.md
-      core/profile/derived-anchors.md
-      core/intake/non-blocking-questions.md
-      core/parser/materiality.md
-      core/principles/minimum-tracked-signals.md
-      core/phases.md
+    - live/health/knowledge/health-core-corrected-g5-review.md
+    - health-ai acceptance/core/evidence-summary.md
+    - health-ai acceptance/core/matrix.json
+    - health-ai core/extensions/attach-contract.md
+    - health-ai core/metrics.md
+    - health-ai core/profile/owner-facts.md
+    - health-ai core/profile/derived-anchors.md
+    - health-ai core/intake/non-blocking-questions.md
+    - health-ai core/parser/materiality.md
+    - health-ai core/principles/minimum-tracked-signals.md
+    - health-ai core/phases.md
 
-    Owner-signed nutrition WHAT highlights:
-    - nutrition is a module on g-health-core;
-    - expert variables are system-decided; owner facts only are askable and non-blocking;
-    - first cycle must be personalized, not generic quick menu;
-    - nutrition tracking is mandatory and low-friction via text/voice/photo;
-    - tracking must feed review and artifact mutation;
-    - recipes/instructions must support base-prep/reuse and grocery/prep correctness;
-    - no current Mealie/vitrine/UI/app/image-sync requirement;
-    - keep only future integration seam.
+    Verify specifically:
+    - §CONTRACTS NCA0-NCA9 cover every TREE/core/starter/training/Direction OS/future seam interaction.
+    - There is no dangling current producer; future training logged day_type is correctly non-blocking.
+    - Nutrition consumes core; it does not duplicate core profile, phase, metrics, parser/library/procedure, review, schema/versioning, or Direction OS boundary.
+    - Mandatory tracking, tracking-to-review mutation, base-prep/reuse, grocery/prep derivation, bad-week mode, safety, and future integration seam are covered.
+    - Architecture questions Q1-Q9 are closed with refuted alternatives and no open/deferred high-risk rows.
+    - No HOW leakage appears in §CONTRACTS; HOW is routed to PLAN.
+    - Architecture-on-paper is context-only and does not leak into executor done_when.
   boundaries: |
+    Do not shape the node.
+    Do not create executor CALL.
     Do not build implementation.
-    Do not create product repo code.
-    Do not require Mealie, UI, app integration, recipe image generation, runtime, DB, server, cron, or scheduler.
-    Do not build training/activity.
-    Do not store raw daily food, weight, photo, or check-in logs in Direction OS.
-    Do not make medical prescriptions.
-    Do not rewrite g-health-core; nutrition consumes it.
+    Do not add UI/app/Mealie/runtime/DB/server/cron/scheduler requirements.
+    Do not rewrite g-health-core.
+    Do not store raw daily food/weight/photo/check-in logs in Direction OS.
+    If blockers are found, return exact blockers; do not patch them silently unless they are purely mechanical wording fixes inside the verify result.
   done_when: |
-    - Architecture/contract surface decomposes each signed WHAT mechanism into build-deciding contracts:
-      nutrition artifacts, attach namespace, tracking LOG shape, review mutation path, base-prep/reuse semantics,
-      grocery/prep derivation, bad-week mode, safety interaction, and future integration seam.
-    - Every architecture decision is either answered with citation to signed WHAT/core contract or routed to PLAN.
-    - No open/deferred rows remain, or genuine owner decisions are batched with options and recommendation.
-    - Next route is converge-verify if closed; otherwise awaiting_decision.
+    Independent verdict is pass/fail with evidence.
+    Pass only if contract coverage is complete, no current producer dangles, no line cites an open WHAT/term,
+    no HOW leaks into contract rows, mandatory nutrition tracking/review/base-prep semantics are covered,
+    and architecture-on-paper remains input evidence only.
+    If pass, next route is shape. If fail, next route is repair/converge-arch correction with exact blockers.
   return: |
-    RESULT with architecture artifact path, coverage evidence, state_changes, decisions_needed, and next CALL.
-  budget: one focused converge-arch movement
+    RESULT with verdict, evidence table, blocker list if any, state_changes, play_check, and next CALL.
+  budget: one focused verify movement
   surface: any capable session
 
 END_OF_FILE: live/health/NOW.md
