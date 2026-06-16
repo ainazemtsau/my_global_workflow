@@ -190,4 +190,26 @@ next: |
 - Closed as a CHECKPOINT with next = converge-verify ✓; bet / tasks / c-shape-wave2 / NOW.next untouched ✓;
   state written only via RESULT.state_changes ✓; LOCK / C1–C22 not edited ✓.
 
+## Addendum — same-session owner clarification (2026-06-16, after RESULT)
+
+The owner clarified two contracts immediately after the leg closed (he is on-call for contract forks); folded
+into the product docs (a contract refinement, not a re-open of the LOCK or a state-schema change):
+
+1. **Band-handoff (GG4/OR4) is GAMEPLAY-binding, not only metric.** (a) NO visible jerk/twitch in the gas EVER —
+   including state computed OFF-SCREEN that surfaces on entry — because reading gas is the CORE mechanic, so any
+   visible jerk = broken. (b) Believable amount AND RATE on return: the coarse tier (source of truth) accumulates
+   at a plausible, monotone rate so the gas QUANTITY matches what the player expected from the source strength he
+   saw + elapsed time (no jump to half-full when ~quarter expected); crossing tiers changes only spatial DETAIL,
+   never amount or rate. → GG4 + OR4 acceptance + §SIGNOFF-BH refined.
+2. **Cross-layer seam (XL1) made concrete to the owner's grid-as-bus model.** Confirmed his architecture IS the
+   declared one: the GRID is the shared coordinate/communication reference; a layer PUBLISHES a typed event keyed
+   by a grid cell/sector (reaction/breach/gas-changed); other layers SUBSCRIBE, map the coordinate to their own
+   representation, and REACT BY EDITING ONLY THEIR OWN state (the single-writer-per-(layer×phase) rule forbids
+   touching another layer's cells — this is what keeps the multi-layer field deterministic + network-consistent);
+   the bus is generic (FieldFabric), so new layers (pressure, airflow) plug on via XL2 with no core edit. Added
+   the cross-TIER coordinate mapping (coarse-sector ↔ fine-cell) to XL1 →PLAN. → XL1 observable + →PLAN refined.
+
+No state-schema change; no LOCK/C1–C22 edit; the converge-verify CALL (next) now also checks these two
+sharpened contracts. Re-committed.
+
 END_OF_FILE: live/indie-game-development/history/s-converge-arch-001.md

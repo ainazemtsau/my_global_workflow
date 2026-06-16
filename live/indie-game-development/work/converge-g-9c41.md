@@ -465,11 +465,16 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
   trigger: (a) a source/emitter exists in a coarse-simulated sector; (b) a player enters → fine detail demanded.
   **OBSERVABLE (resolved per owner):** GasDomain can pin an emitter/source to an EXACT intra-sector location +
   identity, preserved across non-destructive topology changes, AND on player-entry reconstruct a local field
-  that is roughly right in amount + direction + which corner — to a **LOOSE gameplay tolerance** (a few cells;
-  metric exactness is NOT measured), with the **coarse tier as the source of truth**. acceptance (firm): (1)
-  **NO visible discontinuity/shimmer on the coarse↔fine handoff** (the owner's hard 100% requirement); (2) a
-  weak corner source reads in the right corner with roughly-right, slowly-accumulated magnitude when the player
-  returns after leaving; (3) source-survival across non-destructive topology change. The geometry the seam
+  that is roughly right in amount + accumulation RATE + direction + which corner — to a **LOOSE gameplay
+  tolerance** (a few cells; metric exactness is NOT measured), with the **coarse tier as the source of truth
+  for amount AND rate**. acceptance (firm — GAMEPLAY-BINDING, owner 2026-06-16): (1) **NO visible jerk/twitch in
+  the gas at ANY time** — not on the coarse↔fine handoff, not on the first frame on entry, and not from anything
+  computed OFF-SCREEN that surfaces on entry (reading gas is the CORE mechanic → any visible jerk = broken); (2)
+  **believable amount + rate**: on return after being away, the gas QUANTITY matches what the player would expect
+  from the source strength he observed + elapsed time (no jump to half-full when ~quarter is expected) — the
+  coarse tier evolves the gas at a believable, monotone rate while unobserved, and entering/leaving changes only
+  the spatial DETAIL, never the amount or its rate; (3) a weak corner source reads in the right corner; (4)
+  source-survival across non-destructive topology change. The geometry the seam
   exposes must SUFFICE for this; the reconstruction mechanism is not prescribed. `→PLAN`: the 3-tier prep-window
   mechanism (owner HINT: coarse=truth / intermediate prep-window within a radius / fine close-up — a hunch, not
   a lock); hints-vs-replay; the few-cells tolerance magnitude; how source-accumulation is hinted while coarse;
@@ -510,9 +515,12 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
 - **OR4 — Player-near seeding agrees on entry (band-handoff, OWNER-SIGNED).** B31. *g-9c41 band-handoff seeding
   ← GasDomain.* The B31-side twin of GG4 — resolved together (§SIGNOFF-BH): opening a fine window changes
   RESOLUTION not the ANSWER to a LOOSE gameplay tolerance, with NO visible shimmer; a weak corner source is
-  roughly right on arrival; the coarse oracle is the source of truth the fine tier derives from. acceptance:
-  handoff continuity to gameplay tolerance + no pop (firm); source fidelity (right corner, roughly-right slowly-
-  accumulated magnitude); conservation consistent with the read view's mass accounting. `→PLAN`: seeding
+  roughly right on arrival; the coarse oracle is the source of truth the fine tier derives from. acceptance
+  (firm — GAMEPLAY-BINDING, owner 2026-06-16, same as GG4): NO visible jerk/twitch EVER (handoff, first frame,
+  or off-screen-computed state surfacing on entry) since gas-reading is the core mechanic; **believable amount +
+  rate** on return (the gas quantity matches the observed source strength + elapsed time — no jump; crossing
+  tiers changes only spatial detail, never amount/rate); source fidelity (right corner); conservation consistent
+  with the read view's mass accounting. `→PLAN`: seeding
   mechanism (reconstruct-from-source / replay / spatial-hints — brief §3.5); burn-in; coarse-source accumulation
   hint; tolerance magnitude. bounds: C22, §3.5 window-drag/burn-in, A8.8. build: produced-now-consumed-later.
   canon: band-handoff continuity.
@@ -526,11 +534,19 @@ Remaining open rows are still the deliverable for later resolve/arch/verify; con
   consistent TOGETHER — the non-simulating client reconstructs a consistent MULTI-LAYER field (both gas and
   temperature held to the lossless bit-exact + lossy bounded-divergence oracle at settle, per the LOCK's
   CellHash.FoldLayer-per-layer); a cross-layer interaction is OBSERVABLE (a reaction/heat event drives the
-  temperature layer's response, measurable at the firing tick). acceptance: under the load oracle, BOTH layers'
+  temperature layer's response, measurable at the firing tick). **MECHANISM (owner-confirmed model, 2026-06-16):**
+  a layer PUBLISHES a typed event keyed by a shared GRID coordinate (reaction/breach/gas-changed at grid cell/
+  sector c) onto the cross-layer bus; any other layer SUBSCRIBES, maps c to its own representation, and reacts by
+  editing ONLY its OWN state — the single-writer-per-(layer×phase) rule forbids writing another layer's cells,
+  which is exactly what keeps the multi-layer field deterministic + network-consistent. The grid is the shared
+  coordinate/communication reference; the bus is generic (FieldFabric kernel), so new layers (pressure, airflow —
+  owner's examples) plug onto it via XL2 with no core edit. acceptance: under the load oracle, BOTH layers'
   reconstructed cells stay host==clients at every settle; a suppressed-event negative oracle shows the
   interaction is real; (crit-10 tightening, folded by shape) a FEEDBACK interaction (not a pure sink) is
   exercised. `→PLAN`: the phase ordering + cross-layer revision/commit rule for a feedback interaction; per-layer
-  Q/N magnitudes; the specific feedback rule + its constant. bounds: C11, C12, C19/C20, A8.8. build: internal.
+  Q/N magnitudes; the specific feedback rule + its constant; the **cross-TIER coordinate mapping** (how a grid
+  event maps to coarse-sector vs fine-cell representations at the tier resolving there). bounds: C11, C12,
+  C19/C20, A8.8. build: internal.
   **NOTE — consistency obligation DECIDED (not an open fork):** the binding obligation = (a) BOTH layers
   consistent together. done_when #10 says "networked-consistent together"; ADR-0004 §T12 already proved
   temperature consistent at settle for the Wave-1 sink; the cheaper "gas-only + host-derived temperature"
@@ -712,7 +728,13 @@ source accumulates slowly («он примерно должен видеть… 
 всю комнату, он там чуть-чуть дозаполнится»); HARD requirement: «никаких подрагиваний… это 100%» (no shimmer/
 pop on the handoff); «не нужно что-то прям дорогое… с геймплейной точки зрения». Owner flagged «охренеть как
 важно» — OPEN to deeper tightening at the Wave-2 shape (so this signs the contract STRENGTH; the mechanism +
-tolerance magnitude stay PLAN and the owner may revisit in-shape).
+tolerance magnitude stay PLAN and the owner may revisit in-shape). **CLARIFIED 2026-06-16 (same session, owner
+voice):** the requirement is GAMEPLAY-binding, not only metric — (a) NO visible jerk/twitch in the gas EVER,
+including state computed OFF-SCREEN that surfaces on entry, because reading gas is the CORE mechanic; (b)
+believable amount AND rate on return — the coarse tier (the source of truth) accumulates at a plausible monotone
+rate so the gas QUANTITY matches what the player expected from the source strength he saw + elapsed time (no jump
+to half-full when ~quarter expected); crossing tiers changes only spatial DETAIL, never amount or rate. Folded
+into GG4 + OR4 acceptance.
 
 **Decided this leg (not open forks):**
 - XL1 cross-layer consistency = (a) BOTH layers consistent together (done_when #10 "networked-consistent

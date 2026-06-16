@@ -196,7 +196,11 @@ decision_inbox:
       = «никаких подрагиваний… это 100%» (no shimmer/pop on the handoff); «не нужно что-то прям дорогое»,
       gameplay-POV only. «Охренеть как важно» — open to deeper tightening at the Wave-2 shape. Signs the
       contract STRENGTH; the mechanism + tolerance magnitude stay PLAN. Recorded §SIGNOFF-BH in
-      work/converge-g-9c41.md.
+      work/converge-g-9c41.md. CLARIFIED same session (owner voice): GAMEPLAY-binding, not only metric — (a) NO
+      visible jerk/twitch in the gas EVER (incl. off-screen-computed state surfacing on entry; gas-reading = core
+      mechanic); (b) believable amount AND rate on return (coarse tier accumulates at a plausible monotone rate;
+      quantity matches the observed source strength + elapsed time, no jump; crossing tiers changes only spatial
+      detail). Folded into GG4/OR4 + the cross-layer XL1 mechanism made concrete to the owner's grid-as-bus model.
 
 next: |
   CALL c-shape-wave2 — shape Wave 2 of bet g-9c41 (on the LOCKed stream). Owner present for the shape (G6/G9).
