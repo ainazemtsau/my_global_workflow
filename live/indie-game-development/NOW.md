@@ -2,38 +2,72 @@
 
 active_bet:
   node: g-9c41
-  phase: Wave 1 CLOSED 2026-06-16 (review c-review-001) — verdict MET (HOLD independently re-derived); node g-9c41 stays ACTIVE (multi-wave) -> next = shape Wave 2 (c-shape-wave2)
-  appetite: 6 weeks, hard end 2026-07-24 (G3 — fixed, never extended)
+  phase: |
+    Wave 2 SHAPED + ACTIVE 2026-06-16 (shape s-shape-wave2, owner «го» — G6/G9). Consumes the VERIFIED §CONTRACTS
+    (converge-verify PASSED CLEAN, c-converge-verify-002). Wave 1 CLOSED (review c-review-001, verdict MET — HOLD
+    independently re-derived). Node g-9c41 stays ACTIVE (multi-wave). The build is separate executor legs in
+    GasCoopGame (next = c-exec-005 on t-1).
+  appetite: |
+    Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
+    Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
+    ~07-21. Tail Waves 3-4 → re-shaped as bet-3 after the wall.
   approach: |
-    NETWORK-FIRST, minimal-but-REAL LAYERED CORE (RE-SHAPED 2026-06-14, s-shape-004 — owner «фокус на ядро,
-    клип не паримся», «да A»). The riskiest assumption (networked chunked-delta gas consistency) dies first
-    via a net spike, THEN the real core is built on the locked stream in WAVES. The bet proves the core is a
-    REAL extensible LAYERED architecture over the network: gas layer + a thin DYNAMIC temperature layer +
-    REAL controlled destruction (wall breach -> topology -> gas flows) on ONE seam, networked-consistent.
-    Sims stay TRIVIAL, seams REAL + extensible (R13). NO clip in this bet (the spectacular clip is g-7e15's
-    later job — deferred; see s-converge-002 + plan stress-test wf_454d6859-4e4).
-    Brief: work/research-g-9c41-core-architecture-2026-06-12-v2.md.
+    NETWORK-PROVEN real coarse band-sim on the LOCKed stream (BUILD — ranked 8.5 over 2 alternatives on EQUAL
+    footing, wf_d2c5dcb5-0ab; the alternatives are its FALLBACK LADDER, not rivals). Build the genuinely-novel
+    stratified multi-species coarse band solver (brief §3.1: exponential-relaxation Patankar settling + quasi-steady
+    pressure/orifice closure + remainder-bucket conservation) on the HOST, reduce it DETERMINISTICALLY to the LOCKed
+    integer-exact authoritative state (CR3), and replicate host→clients over the ALREADY-LOCKED Wave-1 chunked-delta
+    stream (no new plane; coarse rides a new resolutionKey + the barrier-table re-size SURFACED per the LOCK's own
+    SHALL-re-size). Levels come from a GENERATOR-AGNOSTIC topology seam (owner-refined s-shape-wave2): read
+    (scene-geometry + semantic tags/markers) → TopologyDocument, NOT a per-generator API adapter — decouples us from
+    DA's stale 2D API. DA in ROOM-COMPOSER mode places hand-made tagged room prefabs (PGG-interiors later behind the
+    same seam; population OUT — d-generator-001 refined). A thin temperature layer rides alongside as a pure
+    gas→temperature SINK (feedback DEFERRED, d-tempfeedback-001), exercised at COARSE scale, and a 3rd demonstrative
+    layer plugs in WITHOUT core edits (extensibility EXERCISED, not argued). ONE real controlled wall-breach (GG3)
+    drives a real topology change. Smallest-but-REAL config (brief §5 day-one): 2 bands / 1 sector-per-volume / all
+    10 Hz / naive DA / sink. Tiers = TWO: coarse (everywhere) + 25cm detail near player (Wave 3); T3/12.5cm dropped to
+    not-planned. Brief: work/research-g-9c41-core-architecture-2026-06-12-v2.md; contracts: work/converge-g-9c41.md §CONTRACTS.
   done_when: |
-    Delivered in WAVES on the fixed-but-soft 2026-07-24 wall (move tail waves if needed — owner). By the end:
-    (1) chunked-delta stream LOCKED — 2 clients reconstruct, consistency across a REAL controlled breach
-        (kill-gate "A"); (2) the seam proven MULTI-LAYER — gas + a thin temperature scalar both reconstructed
-        consistently; (3) REAL controlled wall-breach -> topology change -> gas flows (no scripted, no
-        collapse); (4) cross-layer interaction visible (reaction/heat -> temperature responds); (5) everything
-        on EXTENSIBLE seams (a new layer/driver plugs in without core edits); (6) min-spec budget + harness +
-        debug surfaces + reproducibility. NO spectacular clip in this bet. The full-node bar (TREE g-9c41
-        done_when, being realigned this session) is delivered across this bet + bet-2+ (detailed near-player
-        tier + big levels + real gas types = later waves; full core ~= 12-16 solo-weeks per brief).
+    A coarse gas world runs and HOLDS on a real generated level, networked-consistent, ending in a human-legible
+    artifact. By the end (binding the VERIFIED §CONTRACTS acceptance by G5):
+    (1) the novel coarse band solver passes the brief §7-#2 numerical battery AND converges in-budget at the
+        ~3,300-sector R1 scale post-breach (headless), AND reduces DETERMINISTICALLY to integer-exact authoritative
+        state (CR3 — whatever integrator PLAN picks; a non-deterministically-reduced float path FAILS the lossless oracle);
+    (2) coarse band state replicates host + 2 clients PER LAYER (coarse gas AND coarse temperature) — bit-exact
+        lossless oracle + bounded-divergence-converging-at-settle lossy, one shared reconstruction path (CR1/CR2/CR3);
+    (3) it runs on a REAL DA-composed generated level (meaningful size, hundreds of rooms; generator-agnostic topology
+        from scene+tags; IN1 + IN2 replaceability on DA alone) with a REAL controlled breach → topology change → gas
+        flows (GG3 + CR2 lossless-bit-exact ACROSS the coarse topology change);
+    (4) the single field-sampling oracle holds across CONSUMERS at coarse scale: a client visual read-model (OR1) and
+        a client-resident far-AI ExposureQuery (OR3) on DIFFERENT peers return the SAME concentration for the same
+        (point, species, committed revision); CR1 coverage-floor (no entitled gap) holds — vacuously this wave
+        (interest = whole-level), anchored to gameplay-reach (V2-2);
+    (5) the temperature SINK layer rides alongside via the layer registry — a 3rd demonstrative INDEPENDENT layer
+        plugs in WITHOUT core edits (XL2: gas trajectory byte-identical + RNG-conservation guard; [2,4] barrier-table
+        re-size SURFACED per the LOCK), the gas→temperature SINK interaction is observable (suppressed-event negative
+        oracle, XL1), the coarse per-band temperature READ is exercised on a committed revision (§RESOLVED-4, V2-3);
+    (6) a PLAYER-LEGIBLE artifact (crit-6 render slice ≤2wk, quantized-volumetric stylization behind the RN1 seam,
+        ms-budget on min-spec): a room visibly fills bottom-up from the breach side over time, heavier gas settles
+        low, the source/breach is identifiable — readable WITHOUT a debug overlay, reads as DELIBERATE stylization not
+        a stub; acceptance = RN2-style blind vision-agent check (machine-readable ground truth) + owner gamer-eye
+        verdict, EXCLUDING g-7e15's menace/silhouette/material bars; no-jerk/no-shimmer-EVER holds in the render
+        (incl. off-screen-computed state surfacing) — owner-signed GG4/OR4 coarse half;
+    (7) crit-9 scale ARITHMETIC validated vs the R1 profile (~3,280 sectors / ~7,000 band cells), bandwidth sized from
+        the ON-WIRE keyframe-inclusive ~11k basis (V2-1, NOT A8.4's stale delta-only number), ≥2 independent
+        recomputes + named assumptions (A8.5), aggregate-clamp-at-scale checked;
+    (8) clean 1-player parity (crit-7) on the same level + the same determinism/hash discipline.
+    NOT this wave (NAMED, not dropped): the T2 detailed per-cell window + the coarse↔fine no-jerk-on-ENTRY handoff +
+    OR1 cross-TIER composition → Wave 3 (the fine tier is cut, so un-exercisable now); temperature→gas FEEDBACK →
+    post-g-d3a8; gas-type seam GT1-GT5 + crit-4 → later wave / g-d3a8 converge.
   wave_plan: |   # rolling wave — <=3 active tasks; plan each wave knowing the last one's result
-    Wave 1 (NETWORK — t-1 done, t-2/t-3): gas synchronises over the net on a thin field + the seam carries
-      >=2 trivial layers (gas + temp scalar) + a REAL controlled breach. Output: networking PROVEN,
-      stream/format LOCKED. (Loopback proves correctness + byte-size; real-uplink behaviour = later.)
-    Wave 2 (REAL COARSE SIM + GRID + LEVELS): band solver + grid from Dungeon Architect (naive adapter) +
-      the thin temperature layer, on the proven stream. Output: real coarse gas+grid on real (small) levels,
-      networked. (converge-arch c-converge-002 contracts feed this wave.)
-    Wave 3 (DETAIL NEAR PLAYER): the T2 detailed per-cell window + optimisations. Output: detailed gas at the
-      player.
-    Wave 4+: real controlled destruction fully, reaction MECHANISM, scale to big levels. Each wave = short
-      PLAN (its architecture) -> build -> measure -> next.
+    Wave 1 (NETWORK — DONE, review MET): stream/format LOCKED, consistency proven on a toy field.
+    Wave 2 (REAL COARSE SIM + GENERATED LEVELS + TEMPERATURE + LEGIBLE TERMINUS — ACTIVE): t-1 band-solver kill-gate
+      (headless, scale-validated) → t-2 real DA-composed level + breach + coarse replication + single-oracle probe →
+      t-3 temperature layer plugs in + coarse per-layer consistency (∥) → t-4 player-legible render terminus (∥).
+    Wave 3 (DETAIL NEAR PLAYER): the 25cm T2 detailed per-cell window (cell size CONFIGURABLE + geometry-aligned) +
+      the coarse↔fine NO-JERK handoff (owner «100%») + OR1 cross-tier composition + optimisations.
+    Wave 4+: full destructibility, reaction MECHANISM + real gas types (g-d3a8), scale to big levels (occupancy +
+      1000-object min-spec gate), frequency ladder, plume entrainment + dynamic heat. Each tail wave = bet-3+.
   rules:   # owner voice, this session — duplicated here until the maintenance home exists
     - "R12: one player hosts; no dedicated server, ever (not researched — decided)."
     - "R13: sim core = pure C# library, zero Unity refs, builds/runs headless; Unity = render/input/transport adapters only (Burst/Jobs behind a seam the core never sees)."
@@ -42,45 +76,124 @@ active_bet:
     - "R5 (refined): special gases are field-transported by the same simulation, NOT agents/enemies, NOT self-directed; distinguished by params + visual + effects. AGENT_SUBSTRATE + velocity-intent removed from the concept."
     - "R15: layered gas params — shared parent params for ALL gases (density, per-cell packing, spread speed) + meta-gas group adds own params + own visual; specific gas = pure config; per-meta-gas visual defined once but procedurally generated from params (feeds g-7e15)."
   cut_list:
-    - "T2 intra-room grid -> bet-2 (clip works from bands; sectorization contract stubbed day-one)"
-    - "sector subdivision (chains/grids/z-slabs) -> bet-2 (day-one = 1 sector + 2 bands per volume)"
-    - "frequency ladder 10/5/1 Hz -> bet-2 (day-one all 10 Hz)"
-    - "DA occupancy voxelization + 1000-object gate -> bet-2 (day-one naive adapter ~100-300 objects)"
-    - "PGG / second generator -> parked (adapter seam proven on DA alone)"
-    - "directed/agent gases + 'hands in fog' effects -> removed from concept / g-d3a8 design"
-    - "dynamic sector-to-sector heat exchange + plume entrainment -> bet-2; day-one = a THIN DYNAMIC temperature LAYER (own minimal sim on the grid event bus) — SUPERSEDED from 'static field' per owner RESOLVED-1 (s-converge-002)"
-    - "structural collapse / level-wide destruction / debris physics -> OUT (never, R9); day-one = REAL CONTROLLED LOCAL destructibility (destructible wall -> breach -> topology -> gas flows) — SUPERSEDED from 'scripted breach only' per owner RESOLVED-2 (s-converge-002)"
-    - "matchmaking / lobby browser -> planned-for-EA, non-gating (harness = direct connect)"
-    - "save/load -> none (ephemeral harness sessions; reproducibility from deterministic seeds)"
+    fresh_cut_this_wave:
+      - "T2 detailed per-cell window near the player -> Wave 3 — THE real cut, and it HURTS: t-4 renders coarse-only,
+         and the owner-signed coarse<->fine no-jerk-on-ENTRY handoff (GG4/OR4 «100%») goes UNEXERCISED this wave
+         (named-deferred to Wave 3, not dropped — the fine tier it hands off TO lives there)"
+    inherited_deferrals:   # already decided; restated for completeness, NOT this wave's sacrifice
+      - "full DA occupancy voxelization + 1000-object min-spec ingest gate -> later (naive room-composer now; level
+         SIZE is free — sim proven at ~3,300-sector scale headless; deferred = interior fidelity + ingest perf-at-scale)"
+      - "sector subdivision (chains/grids/z-slabs) -> later (day-one 1 sector + 2 bands per volume)"
+      - "frequency ladder 10/5/1 Hz -> later (all coarse 10 Hz day-one)"
+      - "temperature->gas FEEDBACK -> DEFERRED (d-tempfeedback-001; temperature stays a SINK; crit-10 reworded to NAME it)"
+      - "PGG / room-interior population -> parked behind the SAME generator-agnostic seam (optional future research)"
+      - "plume entrainment + dynamic inter-sector heat -> later"
+      - "structural collapse / level-wide destruction / debris (R9) -> OUT; day-one = ONE real controlled local breach"
+      - "matchmaking / lobby browser -> planned-for-EA, non-gating (harness = direct connect)"
+      - "save/load -> none (ephemeral harness; reproducibility from deterministic seeds)"
+      - "spectacular clip -> stays g-7e15 (this wave's terminus is player-LEGIBLE, not spectacular)"
+      - "gas-type seam GT1-GT5 + crit-4 third-gas-by-data -> later wave / g-d3a8 converge (core-depth re-homed)"
+      - "OR1 cross-TIER composition + coarse<->fine handoff -> Wave 3 (with the fine tier); OR2 reduces to
+         coarse-is-floor everywhere this wave (single open tier)"
   lens_verdicts:
-    - "commercial/traction: DEFERRED — spectacular clip dropped from this bet (owner «клип не паримся»; it is g-7e15's later job); the parallel-track gating that hung on the ~07-10 clip needs a map-level re-check (follow-up)"
-    - "core depth: not_needed as design (re-homed to g-d3a8); substrate proven incidentally (param gas + 1 reaction)"
-    - "co-op-first: TASK — 2-4 clients see consistent gas across a topology change (the net spike)"
-    - "technical feasibility: TASK — net consistency = riskiest assumption, the first task"
-    - "scope/production: not_needed as a task — held by the cut list + G3 appetite"
-    - "audience workflow: not_needed as bet work — the clip artifact feeds g-e6f2 (parked, <=10% until clip)"
+    - "commercial/traction: TASK — t-4 player-legible terminus = the first showable artifact off the REAL sim; feeds g-2f8c's 2026-08-31 page date; breaks pre-mortem #2 (Wave 1 left ZERO player-facing artifact)"
+    - "technical feasibility: TASK — t-1 band solver = the riskiest NEW assumption (brief §7-#2, zero precedent)"
+    - "core gameplay depth: Wave 2 CLOSES the 'seam argued-not-exercised' half (real 3rd layer via XL2; breach->flow; sink observable) but the 'inert sink is not depth' half stays OPEN by design (feedback deferred); gas-type depth re-homed to g-d3a8 — named-deferred, NOT claimed as depth"
+    - "co-op-first: NOT advanced this wave — co-op-interdependence is a KNOWN owner-deferred gap (c-map-004, unowned before a parked Steam Playtest); CR1 coarse replication is consistency infra, NECESSARY-not-sufficient for co-op (knowledge/g9c41-wave1-consistency-not-depth-not-coop) — NOT claimed to 'serve' co-op"
+    - "scope/production: held by the cut list + the 07-24 wall + EXPLICIT concurrency (t-4 is a parallel Unity/visual work-stream against t-2/t-3, depends on t-2's level+breach not t-3) — not 'just the cut list'"
+    - "audience workflow: covered by t-4 (feeds g-e6f2 / g-2f8c real-footage cadence)"
   kill_by:
-    wave1_resolution: "RESOLVED 2026-06-16 = HOLD. c-exec-004 returned HOLD; INDEPENDENTLY re-derived at review c-review-001 (telemetry re-computed from the committed series + 6-skeptic refutation — all 6 pillars un-refuted, refuted=0/affecting-verdict=0 — + a live gate run dotnet 103/103 + git: ADR-0003 C1-C22 & t-2 artifacts byte-untouched). next_if_true taken -> roll to Wave 2. One named limit (verdict-NEUTRAL): the lossy throughput PROJECTION was ~5.3x optimistic (offered-demand-based, resync-keyframe-blind); honest on-wire basis ~11k cells (lossless ~4.9k conservative) -> folded into TREE crit-9 + knowledge + the Wave-2 shape."
-    metric: "per-tick state-hash consistency host + 2 clients through a REAL controlled wall-breach with both clamps engaged; measured dirty-chunk wire size within the aggregate host clamp at target tick"
-    checkpoint_2026-06-30: "if consistency cannot be made to hold after reasonable iteration OR the steady dirty-rate irrecoverably blows the aggregate clamp -> P6 model/vendor spike (1-2wk timebox: FishNet<->NGO, last-resort rollback) or kill the bet"
-    hard_2026-07-24: "day-one done_when unmet -> bet dies (G3, no extend); continuation = re-shape bet-2"
-    next_if_true: "stream locked -> roll to Wave 2 (band sim + grid from DA + temperature layer; NO clip)"
-    next_if_false: "model/vendor spike, or narrow to the Barotrauma-hybrid (client-local diffusion + threshold corrections)"
+    metric: |
+      Band-solver kill-gate (single binary, scored against a default-FAIL G0 ledger frozen before the spike — I22):
+      ALL of { sealed-room+source: outflow within K ticks of portal-open; two-room multirate mass-drift <1e-9/hr;
+      cold-rung checkerboard: 0 flow-sign-flip sustained >2 consecutive ticks AND total-variation non-increasing;
+      hot-CO2 inversion detailed-to-ceiling; Steckler monotone interface descent; quasi-steady pressure-solve
+      converges in-budget at the ~3,300-sector scale post-breach } PASS, AND the solve reduces to integer-exact
+      (negative test: a non-deterministically-reduced float path FAILS the host==client lossless oracle), AND
+      host + 2 clients reconstruct coarse band state bit-exact lossless / bounded-at-settle lossy (PER LAYER).
+    checkpoint_2026-06-30: "band-solver kill-gate above unmet after reasonable iteration -> next_if_false(i)"
+    hard_2026-07-24: "Wave-2 done_when unmet even after degrade -> bet dies (G3, no extend); continuation = re-shape bet-3"
+    next_if_true: "coarse sim + temperature + breach + legible terminus -> roll to Wave 3 (T2 detail + no-jerk handoff)"
+    next_if_false: |
+      (i) checkpoint_fail 06-30 -> DEGRADE the coarse solver to scalar-per-volume (wire-compatible, brief §6) and
+          re-baseline so the terminus rides the DEGRADED model (t-4 is SOLVER-AGNOSTIC — reads the RN1 read-model that
+          both the band solver and scalar-per-volume publish; the terminus survives the degrade);
+      (ii) hard 07-24 unmet even after degrade -> re-shape bet-3 (node wall unmoved).
+    evaluator: |
+      Executor-heavy KILL-GATE bet. BUILD = Opus 4.8/Claude Code in GasCoopGame; the §7-#2 numerical battery + CR3
+      determinism negative test + CR1/CR2 lossless/lossy oracles are authored by an INDEPENDENT test-author from the
+      contract acceptance rows (builder can't edit — I22 + the builder-stage quality fix); the binding kill-gate
+      verdict at the 06-30 checkpoint = an independent fresh-session G5 refutation (Codex/GPT-5.5 pre-pass allowed,
+      binding = fresh session). Rollback = the next_if_false ladder above.
   early_finish: |
-    Early finish = success. If the day-one done_when is met before 2026-07-24, close the
-    bet and immediately shape bet-2 (do NOT pad scope — G3). Wave runs <=3 active tasks;
-    faster agents simply move the wave faster. Pull-forward ladder (first bet-2 items if
-    running ahead): (1) sector subdivision, (2) T2 windows around players, (3) frequency
-    ladder + hotness.
-  forecast: "net consistency holds — every working precedent (SS14/Stationeers/Noita) does chunked single-writer delta; the plan kills this risk first (the hardest net task t-1 runs first)"
-  against: "novel band solver (risk #2, no direct precedent) + a custom stream + UNAUDITED agent throughput on this project could eat the window; the first week of t-1..t-3 turns that into a measured fact"
+    Early finish = success (G3 — don't pad). If the Wave-2 done_when is met before 2026-07-24, close + shape Wave 3.
+    Pull-forward if running ahead after the kill-gate: (1) the 25cm T2 detail window, (2) the no-jerk coarse<->fine
+    handoff, (3) sector subdivision of large volumes. <=3 active tasks (G1); faster agents move the wave faster, not wider.
+  forecast: |
+    The band solver's scheme is unconditionally stable BY CONSTRUCTION (exponential-relaxation Patankar + quasi-steady
+    pressure, brief §3.1) and the locked stream already carries multi-layer state bit-exact (Wave 1) — so the residual
+    risk is the float->integer reduction + coarse-scale replication + in-budget convergence at scale, all killed FIRST
+    and cheapest in t-1 (headless, no net/DA), with the scalar-per-volume degrade as a guaranteed wire-compatible fallback.
+  against: |
+    The band-solver synthesis has NO direct donor (brief §6 'new synthesis without a direct donor'); integer-exact
+    reduction of a stiff stratified solver is unproven; the K-species throughput anchor is unmeasured; DA is a stale
+    vendor with vertical-from-convention. Any could eat the window — t-1 (battery + CR3 + scale + micro-bench) turns
+    them into measured facts in week 1, before any net/DA work; the topology-from-scene+tags seam decouples us from DA's API.
 
-active_tasks: []
-  # Wave-1 tasks ALL DONE and CLOSED by review c-review-001 (verdict MET). Records in LOG.md + history/:
-  #   t-1 — engine-free 3-mode deterministic core + FishNet handshake → c-exec-002 @daab33d / s-work-003.md
-  #   t-2 — multi-layer chunked-delta field-state stream, ADR-0003 v2 C1–C22 → c-exec-003 @b9edbce / s-work-005.md
-  #   t-3 — sustained-load kill-gate = HOLD, stream LOCKED, ADR-0004 → c-exec-004 @6619299 / s-work-006.md
-  # The next bet (Wave 2) is shaped via c-shape-wave2 (NOW.next) and will commit fresh tasks (G1/G2).
+active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 active now, the rest queued/blocked
+  - id: t-1
+    kind: executor (engineering, GasCoopGame) — KILL-GATE, riskiest first
+    goal: |
+      The novel coarse band solver is PROVEN numerically stable, integer-exact-replicable, and in-budget at the
+      ~3,300-sector scale — headless, ZERO network/DA/Unity dependency — so the riskiest NEW assumption dies first + cheapest.
+    done_when: |
+      Headless engine-free spike: (a) brief §7-#2 numerical battery PASSES on a scale-realistic procedurally-generated
+      synthetic sector graph (~3,300 sectors) incl. pressure-solve in-budget post-breach; (b) CR3 — whatever integrator
+      PLAN picks reduces deterministically to exact integer/fixed-point authoritative state before hashing/wiring,
+      negative test: a non-deterministically-reduced float path FAILS the host==client lossless oracle (cell with
+      realistic multi-species flux summands, non-vacuous); (c) §7-#3 K-species throughput micro-bench on min-spec;
+      (d) crit-9 scale arithmetic vs the R1 profile from the ON-WIRE keyframe-inclusive ~11k basis (V2-1), ≥2 independent
+      recomputes; PLUS a week-1 pure-local (R14, zero net) owner-acceptance legibility pre-test. Scored against a
+      default-FAIL G0 ledger frozen pre-spike; binding verdict = independent fresh-session G5 refutation at 06-30.
+    status: active
+  - id: t-2
+    kind: executor (engineering, GasCoopGame)
+    goal: real coarse band gas on a REAL DA-composed generated level, networked-consistent, with a real breach.
+    done_when: |
+      Generator-agnostic topology seam (scene-geometry + semantic tags/markers → TopologyDocument; IN1 + IN2
+      replaceability demonstrated on DA room-composer alone, hand-made tagged room prefabs; meaningful size, hundreds of
+      rooms) + GG2 sovereignty; the band solver runs on the real level; ONE real controlled breach (GG3) → topology
+      change → gas flows, with CR2 lossless-bit-exact ACROSS the coarse topology change; CR1 coarse replication host+2
+      clients (coverage-floor vacuous = whole-level interest, anchored to gameplay-reach V2-2); the single-oracle
+      CROSS-CONSUMER probe (OR1 visual read-model + OR3 far-AI ExposureQuery on DIFFERENT peers agree at the same
+      point/species/committed revision; a region entitled per OR3 but omitted from a client's stream FAILS); exact
+      source-pin (GG4 coarse half: source identity survives a non-destructive topology change, accumulates at a
+      believable gradual rate); clean 1-player parity (crit-7).
+    status: blocked_on (t-1 kill-gate)
+  - id: t-3
+    kind: executor (engineering, GasCoopGame) — parallel with t-4 after t-2
+    goal: the temperature layer plugs in as a real 2nd layer without core edits; both layers consistent at coarse scale.
+    done_when: |
+      Temperature SINK layer registers via the layer registry (XL2: a 3rd demonstrative INDEPENDENT layer plugs in
+      WITHOUT editing core; gas trajectory byte-identical + RNG-conservation guard; the [2,4] barrier-table re-size
+      SURFACED per the LOCK's SHALL-re-size, never silent); coarse per-layer consistency CR1/CR2/CR3 incl. the coarse
+      per-band temperature state (V2-3: the coarse temperature READ exercised on a committed revision); the
+      gas→temperature SINK interaction observable (suppressed-event negative oracle, XL1); the §RESOLVED-4
+      grid-addressed read-ready seam exercised (read another layer's field at a committed revision).
+    status: queued
+  - id: t-4
+    kind: executor (engineering, GasCoopGame) — PARALLEL Unity/visual work-stream; depends on t-2 (level+breach+read-model), NOT t-3
+    goal: a PLAYER-LEGIBLE artifact off the real coarse sim — readable without a debug overlay; breaks pre-mortem #2.
+    done_when: |
+      crit-6 render slice (≤2wk, quantized-volumetric stylization behind the RN1 read-model seam, ms-budget on min-spec
+      class): a room visibly fills bottom-up from the breach side over time, heavier gas settles low, the source/breach
+      is identifiable — NO debug overlay, reads as DELIBERATE low-poly stylization not a stub. Acceptance = RN2-style
+      blind vision-agent check (machine-readable ground truth: gas present / which room filling / from the breach) at a
+      floor threshold + owner gamer-eye verdict, EXCLUDING g-7e15's menace/silhouette/material bars. Holds
+      no-jerk/no-shimmer-EVER (incl. off-screen-computed state surfacing — owner-signed GG4/OR4 coarse half).
+      SOLVER-AGNOSTIC (reads RN1 — works on band OR degraded scalar). Rides the 07-11→07-24 cushion to ~07-21;
+      auto-shrinks to a ≤1wk minimal-legibility floor if t-1 slips past 06-30.
+    status: queued
 
 recurring: []
 
@@ -96,8 +209,10 @@ open_calls:
       bring the owner a next-bet decision (Wave-2 band-sim shape vs alternative). Folds in two known follow-ups:
       the Wave-2 cleanup card (Codex round-3) and the parked map-level re-check of the clip-gated parallel
       tracks (s-shape-004 / root map_order). Builds on history/2026-06-15-c-exec-004-t-3-result.md + ADR-0004.
+  - id: c-exec-005
+    status: ready   # 2026-06-16 framed at shape s-shape-wave2. Wave-2 t-1 = band-solver KILL-GATE (headless, scale-validated, integer-exact-replicable). Full CALL in NOW.next. Executor leg in GasCoopGame; owner present for the interactive PLAN.
   - id: c-shape-wave2
-    status: ready   # 2026-06-16 framed at review c-review-001 (owner «го» → Decision A). Shape g-9c41 Wave 2 on the LOCKed stream. Full CALL in NOW.next.
+    status: done   # 2026-06-16 shape DONE (s-shape-wave2) — Wave 2 SHAPED + committed (G6/G9, owner «го»). BUILD coarse band-sim on the LOCKed stream; 4 tasks (t-1 KILL-GATE first); VERIFIED §CONTRACTS bound into done_when; crit-10 reworded (feedback deferral); owner refinements (generator-agnostic topology, DA room-composer, configurable gas cell, T3 dropped) → captures. next = c-exec-005. → history/s-shape-wave2.md
     note: |
       Wave 2 = real coarse band gas-sim + temperature layer on the LOCKed stream over real (small) generated
       levels. TWO owner-mandated shape inputs (G9, «го»): (1) a player-facing TERMINATION clause — Wave 2 ends
@@ -241,6 +356,10 @@ decision_inbox:
       (grid-based) = LATER, for room POPULATION / interior / grid layouts, behind the SAME adapter; population
       is explicitly OUT of scope now. Not married (no co-generation on one level now); both stay swappable via
       the adapter — concept not locked. Wired into c-shape-wave2 as a steer (final lock at the Wave-2 shape).
+      REFINED at s-shape-wave2 (owner «го»): DA runs in ROOM-COMPOSER mode (places hand-made tagged room prefabs,
+      level SIZE free); the topology seam reads (scene-geometry + semantic tags/markers) → TopologyDocument, NOT DA's
+      stale 2D API (generator-agnostic, decouples us from the vendor); PGG = room-INTERIOR generation later behind the
+      same seam, framed as an OPTIONAL future research session (owner «можно отдельно запустить ресёрч»); population OUT.
   - id: d-bandhandoff-001
     status: answered   # owner 2026-06-16 (converge-arch c-converge-002, voice) — signed the band-handoff contract STRENGTH
     note: |
@@ -286,40 +405,50 @@ decision_inbox:
           a corner that forecloses later feedback. → history/s-decide-003.md.
 
 next: |
-  CALL c-shape-wave2 — shape Wave 2 of bet g-9c41 (on the LOCKed stream). Owner present for the shape (G6/G9).
-  to: session   direction: indie-game-development   play: shape   node: g-9c41 (Wave 2)
-  parent: s-review-001 (Wave-1 review; verdict MET, HOLD independently re-derived)
+  CALL c-exec-005 — Wave-2 t-1: band-solver KILL-GATE (headless, scale-validated, integer-exact-replicable).
+  to: executor (coding agent)   direction: indie-game-development   product repo: GasCoopGame (branch dev → main when green)
+  play: work (executor leg) — g-9c41 Wave 2, task t-1   parent: s-shape-wave2
   goal: |
-    g-9c41 Wave 2 exists as a committed, shaped bet: real coarse gas behaviour on real (small) generated
-    levels is networked-consistent across host + clients on the already-LOCKed stream, the temperature layer
-    rides alongside it, the riskiest NEW assumption is identified with a task that tests it first, and the bet
-    ends in an artifact a human can read WITHOUT a debug overlay.
+    Prove the novel coarse band solver FIRST + cheapest — numerically stable, in-budget at the ~3,300-sector R1
+    scale, and deterministically reducible to the LOCKed integer-exact state so it replicates host==client — with
+    ZERO network/DA/Unity dependency. The riskiest NEW assumption (brief §7-#2, zero precedent) dies before any
+    real-level/temperature work. + a week-1 owner-acceptance legibility pre-test.
   context: |
-    - The LOCKed Wave-1 contract is the foundation, do NOT re-open it: GasCoopGame docs/adr/ADR-0004 §LOCK
-      (wire format + revision barrier + channel semantics + cross-layer contract + cell-hash domain) +
-      ADR-0003 v2 C1–C22. Wave-1 verdict = MET/HOLD (history/s-review-001.md; independently re-derived).
-    - Wave-1 learnings (read these): knowledge/g9c41-wave1-hold-mechanism-lossy-projection.md,
-      knowledge/g9c41-wave1-no-player-facing-premortem2-live.md,
-      knowledge/g9c41-wave1-consistency-not-depth-not-coop.md.
-    - converge-arch c-converge-002 (cross-node contracts: ingestion adapter/TopologyDocument, grid↔gas,
-      gas-type seam) feeds this wave's contracts.
-    - The re-shaped bet context still lives in this NOW.md active_bet (approach/wave_plan/rules/cut_list).
+    - Build ON the LOCKed foundation, do NOT re-open it: GasCoopGame ADR-0004 §LOCK + ADR-0003 v2 C1–C22.
+    - VERIFIED §CONTRACTS (binding by G5): work/converge-g-9c41.md §CONTRACTS — esp. CR1/CR2/CR3 (section H) + the
+      §VERIFY-2/§SIGNOFF. Architecture-on-paper rides PLAN as INPUT EVIDENCE: brief §3.1 (the solver), §4 (R1 numbers
+      ~3,280 sectors / ~7,000 band cells), §7 (#2 solver tests, #3 throughput anchor); §EMERGENT Q5 in
+      work/converge-g-9c41-arch.md (CR1/CR2/CR3 derivation).
+    - Bandwidth basis = ON-WIRE keyframe-inclusive ~11k cells (knowledge/g9c41-wave1-hold-mechanism-lossy-projection +
+      crit-9 refined text + CAPTURE V2-1), NOT A8.4's delta-only number. CR3 is firewall-clean: do NOT presuppose float.
+    - The Wave-2 bet (approach/done_when/wave_plan/cut_list/kill_by) lives in this NOW.md active_bet.
   boundaries: |
-    Appetite wall stays 2026-07-24 (G3 — never extended; the node is multi-wave, move tail waves not the wall).
-    Do NOT re-open the Wave-1 HOLD verdict or edit the LOCK / C1–C22 / t-2 artifacts. Shape only — the build is
-    separate executor legs. TREE/CHARTER edits reach state only via owner in-session approval (G9). The
-    structural parallel-track tree work (legibility node, co-op node, clip-gate) is c-map-003, NOT this shape.
+    Headless / engine-free C# only (R13) — NO Unity, NO DA, NO network harness in t-1 (those are t-2/t-3). NO
+    re-opening the LOCK / C1–C22 / t-2/t-3 artifacts. G0 ledger frozen default-FAIL BEFORE the spike; builder never
+    edits ledger/spec/criteria; the §7-#2 battery + CR3 negative test + CR1/CR2 oracles authored by an INDEPENDENT
+    test-author from the contract acceptance rows. Open HOW magnitudes (Q_coarse, bit-width, settle predicate,
+    reduction rule) → ratified at the interactive PLAN (owner present), not invented.
   done_when: |
-    A committed Wave-2 bet valid under G6: appetite + kill_by (metric + threshold + date) + a cut list (≥1 real
-    cut) + a per-lens sweep verdict + a task testing the riskiest NEW assumption (the novel band solver). Two
-    owner-mandated inputs are BAKED into the bet's done_when: (1) a player-facing termination artifact (legible
-    without a debug overlay); (2) coarse-grid bandwidth sizing computed from the ON-WIRE keyframe-inclusive rate
-    (~11k lossy cells, NOT 59k). The band-handoff rule (sources tracked exactly when coarse + reconstruct local
-    detail from the source on player-entry) and the crit-10 tightening (feedback interaction + exercise the
-    seam) are addressed in the shape. The DA-structure-day-one / PGG-population-later steer is locked.
+    (a) brief §7-#2 battery PASSES on a scale-realistic procedurally-generated synthetic sector graph (~3,300 sectors):
+        sealed-room+source; two-room multirate mass-drift <1e-9/hr; cold-rung checkerboard (0 flow-sign-flip >2
+        consecutive ticks + total-variation non-increasing); interface-crossing; hot-CO2 inversion to ceiling;
+        Steckler monotone interface descent; AND the quasi-steady pressure solve converges in-budget (≤4ms, or ≤6–8ms)
+        at ~3,300 nodes WORST-CASE post-breach.
+    (b) CR3: the chosen integrator reduces DETERMINISTICALLY to exact integer/fixed-point authoritative state before
+        hashing/wiring; a non-deterministically-reduced float path FAILS the host==client lossless oracle (negative
+        test on a cell with realistic multi-species flux summands — non-vacuous).
+    (c) §7-#3 K-species throughput micro-bench on a min-spec profile (capped/3060 proxy allowed).
+    (d) crit-9 scale arithmetic vs the R1 profile, bandwidth from the ON-WIRE keyframe-inclusive ~11k basis (V2-1),
+        ≥2 independent recomputes + named assumptions + aggregate-clamp-at-scale check.
+    (e) WEEK-1 pure-local (R14, zero net) owner-acceptance legibility pre-test ("does this read as real coarse gas?")
+        — a NO converts the wave early (degrade).
+    Binding kill-gate verdict at the ~06-30 checkpoint = an independent fresh-session G5 refutation (Codex/GPT-5.5
+    pre-pass allowed; binding = fresh session) scored against the frozen default-FAIL G0 ledger.
   return: |
-    shape RESULT — committed Wave-2 bet (G6/G9), tasks for the wave, next = executor CALL on the first task.
-  budget: one session.
-  surface: a session on this OS direction (chat or this repo via CLI); the owner is present for the shape (G9).
+    executor RESULT — evidence = commits/PR + dotnet headless gates green + the committed numerical battery + the CR3
+    negative test + the crit-9 arithmetic artifact + the owner legibility-pretest verdict; kill-gate verdict
+    (PASS → t-2; FAIL → next_if_false(i) degrade to scalar-per-volume).
+  budget: to the 2026-06-30 checkpoint (band-solver kill-gate). Owner present for the interactive PLAN (the ADR ratifies the HOW).
+  surface: a fresh executor session (coding agent) in the GasCoopGame product repo.
 
 END_OF_FILE: live/indie-game-development/NOW.md
