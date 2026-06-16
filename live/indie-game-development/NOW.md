@@ -198,6 +198,8 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
 recurring: []
 
 open_calls:
+  - id: c-shape-marketing
+    status: done   # 2026-06-16 shape DONE (s-shape-marketing) — g-2f8c set up as a parallel low-ceremony PROCESS (local plays marketing-forge + marketing-status + work/marketing/ graph), canon-forge-style. NOT a second active bet (G1); NOW spine (Wave 2 / c-exec-005) untouched. The go-to-market plan/goals/channels are DERIVED INSIDE the process (one chat = one card), NOT baked. next = first run = q-foundation in a fresh marketing-forge chat. → history/s-shape-marketing.md
   - id: c-exec-003
     status: done   # 2026-06-15 RETURNED GREEN/GREEN (recorded s-work-005); t-2 → done. RESULT → history/2026-06-15-c-exec-003-t-2-result.md
     note: framed at s-work-004 (c-work-002); hardened via an 8-agent pass; PLAN ratified converge §WHAT-C into ADR-0003 v2 (C1–C22 frozen). → history/s-work-004.md
