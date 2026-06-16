@@ -30,5 +30,6 @@
 
 - 2026-06-15 — c-health-core-review-002 review: corrected binding G5 verdict met. Fresh separate review/refutation found WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9 covered, checks reported PASS, product blocker gaps 0, non-blocking gaps P8/existing-v1-input accepted, add-back 0/8, owner clearance present, Direction OS boundary preserved. TREE close remains awaiting owner approval under G9. Next: d-health-core-close-and-next-bet.
 - 2026-06-15 — health/g-health-core review approval: owner approved closing g-health-core as done and chose recommendation A; next c-health-nutrition-shape-001. → history/2026-06-15-s-health-core-review-002-approval.md
+- 2026-06-16 — health repair before nutrition converge: reconciled visible core-closed state with nutrition reset/core-first evidence; TREE already matched accepted state, NOW rerouted from stale shape CALL to c-health-nutrition-converge-001. → history/2026-06-16-s-health-repair-before-nutrition-converge-001.md
 
 END_OF_FILE: live/health/LOG.md
