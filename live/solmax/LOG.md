@@ -1,5 +1,7 @@
 # LOG — solmax
 
+- 2026-06-16 — converge g-kernel: retrofit closed W0 RLK mechanism meanings, tightened zero-kernel-diff semantics, and routed sibling-bearing Engine/channel/surface/memory/OS-read contracts to converge-arch. → history/2026-06-16-s-converge-kernel-001.md
+
 - 2026-06-16 — repair g-kernel/t-1: stale blocked state replaced with DONE after Zaratusta repo/CI evidence; local path conflict narrowed to an owner decision. → history/2026-06-16-s-repair-kernel-t1-state.md
 
 - 2026-06-15 — work g-kernel/t-1: blocked — Zaratusta product repo not accessible to executor; no setup/harness created. → history/2026-06-15-s-work-kernel-t1-blocked.md

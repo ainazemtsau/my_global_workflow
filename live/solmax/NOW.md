@@ -177,6 +177,18 @@ open_calls:
     note: |
       Returned setup evidence: `ainazemtsau/zaratusta` exists, CI is green on
       18d74b1114428be8df5ece48bf6d89f3b2776a75, and W0 scaffold/gates/OpenSpec exist.
+  - id: c-converge-kernel-001
+    status: done
+    note: |
+      RETROFIT converge wrote `work/converge-g-kernel.md`: W0-internal mechanism meanings
+      are closed for t-2/t-3, zero-kernel-diff now includes the public barrel/API, and
+      sibling-bearing contracts route to converge-arch.
+  - id: c-converge-arch-kernel-001
+    status: ready
+    note: |
+      Close g-kernel's sibling-bearing contracts before converge-verify: Engine request/result
+      shape, channel envelope response contract, surface kind/API, memory ledger read model,
+      cognition trace needs, and OS read-only capability boundary.
 
 decision_inbox:
   - q: "Accept TypeScript/Node 22 as the W0 setup stack?"
@@ -191,8 +203,12 @@ decision_inbox:
     recommendation: "Keep `C:\projects\zaratusta-product` unless exact local-path alignment matters; the proposed path contains pre-existing user content and is not a git repo."
 
 next: |
-  awaiting_decision:
-    owner should accept or reject the TypeScript/Node W0 stack and choose whether to keep
+  ready_call:
+    c-converge-arch-kernel-001 — close sibling-bearing RLK contracts before converge-verify
+    and before t-2/t-3 are treated as freezing the W0 kernel API.
+
+  pending_owner_decisions_before_t-2:
+    owner should still accept or reject the TypeScript/Node W0 stack and choose whether to keep
     the product clone at `C:\projects\zaratusta-product` before launching t-2.
 
 END_OF_FILE: live/solmax/NOW.md
