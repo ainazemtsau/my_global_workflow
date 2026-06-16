@@ -3,11 +3,9 @@
 active_bet:
   status: none
   note: >
-    No active bet after owner-approved close of g-health-core. Corrected G5 verdict
-    was met in c-health-core-review-002; owner approved closing the node with
-    "approve". Nutrition is parked after its 2026-06-13 reset; prior v1 and
-    paused Define artifacts are dirty input evidence only, so the next route is
-    c-health-nutrition-converge-001, not shape.
+    2026-06-16 nutrition converge closed WHAT: personalized nutrition process on
+    g-health-core, mandatory nutrition tracking, no current vitrine/Mealie/UI
+    requirement, future integration seam only. Next = converge-arch.
 
 tasks: []
 
@@ -15,65 +13,72 @@ recurring: []
 
 open_calls: []
 
-decisions: []
+decisions:
+  - id: d-health-nutrition-define-signoff-001
+    status: resolved
+    owner_choice: A
+    owner_words: "A — да, подписываем"
+  - id: d-health-nutrition-what-signoff-001
+    status: resolved
+    owner_choice: A
+    owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-converge-001
+  CALL c-health-nutrition-converge-arch-001
   to: session
   direction: health
-  play: converge
+  play: converge-arch
   node: g-health-nutrition-system
   goal: |
-    g-health-nutrition-system has a closed, owner-signed WHAT spec for a nutrition
-    module on g-health-core, with dirty v1 inputs refuted, re-derived, or rejected
-    as authority.
+    g-health-nutrition-system has a closed architecture/contract surface for implementing the signed nutrition
+    WHAT on g-health-core without duplicating core, without current vitrine/app requirements, and with mandatory
+    nutrition tracking/review/base-prep semantics.
   context: |
-    Owner approved decision d-health-core-close-and-next-bet with: "approve".
-    This closes g-health-core as done and selects g-health-nutrition-system next.
-
-    c-health-core-review-002 returned corrected binding G5 verdict met for g-health-core.
-    live/health/knowledge/health-core-corrected-g5-review.md records the accepted
-    fact: fresh separate G5 review/refutation met; hard cross-family review is not
-    a requirement unless explicitly requested.
-
-    Nutrition was reset on 2026-06-13:
-    - live/health/history/2026-06-13-s-health-nutrition-reset-001.md
-    - TREE g-health-nutrition-system returned to parked
-    - all v1 decisions/data/architecture are dirty input only
-    - next route from reset was c-health-nutrition-converge-001 in a fresh chat
-
     Read:
     - live/health/CHARTER.md
     - live/health/TREE.md
     - live/health/NOW.md
-    - live/health/knowledge/health-core-corrected-g5-review.md
-    - live/health/history/2026-06-13-s-health-nutrition-reset-001.md
-    - live/health/history/2026-06-14-s-health-reframe-map-001.md
-    - live/health/work/converge-health-nutrition-input.md
-    - live/health/work/converge-nutrition-define-draft.md
-    - health-ai commit 8bc980ad21d3f54cbd27b28dcb363e0198c46751 and its acceptance/core evidence
+    - live/health/work/converge-g-health-nutrition-system.md
+    - live/health/work/converge-g-health-core.md
+    - health-ai core files/evidence as needed:
+      acceptance/core/evidence-summary.md
+      acceptance/core/matrix.json
+      core/metrics.md
+      core/extensions/attach-contract.md
+      core/profile/owner-facts.md
+      core/profile/derived-anchors.md
+      core/intake/non-blocking-questions.md
+      core/parser/materiality.md
+      core/principles/minimum-tracked-signals.md
+      core/phases.md
 
-    Core contract to consume:
-    - nutrition is a module on g-health-core, not a duplicate core
-    - consume core-owned metrics, phase, PLAN-vs-LOG, review, parser/library, value grammar, and safety floor
-    - raw daily food/weight data stays in Health AI, not Direction OS
+    Owner-signed nutrition WHAT highlights:
+    - nutrition is a module on g-health-core;
+    - expert variables are system-decided; owner facts only are askable and non-blocking;
+    - first cycle must be personalized, not generic quick menu;
+    - nutrition tracking is mandatory and low-friction via text/voice/photo;
+    - tracking must feed review and artifact mutation;
+    - recipes/instructions must support base-prep/reuse and grocery/prep correctness;
+    - no current Mealie/vitrine/UI/app/image-sync requirement;
+    - keep only future integration seam.
   boundaries: |
-    Do not store raw daily food, weight, or check-in logs in Direction OS.
-    Do not import prior nutrition v1, converge input, or paused Define draft as authority.
-    Do not build product repo implementation.
-    Do not build training/activity module.
-    Do not build app UI, runtime, DB, server, cron, or scheduler.
+    Do not build implementation.
+    Do not create product repo code.
+    Do not require Mealie, UI, app integration, recipe image generation, runtime, DB, server, cron, or scheduler.
+    Do not build training/activity.
+    Do not store raw daily food, weight, photo, or check-in logs in Direction OS.
     Do not make medical prescriptions.
     Do not rewrite g-health-core; nutrition consumes it.
   done_when: |
-    - work/converge-g-health-nutrition-system.md has a closed nutrition WHAT spec with no open/deferred rows.
-    - Dirty v1 inputs are refuted, re-derived, or explicitly rejected as authority.
-    - The nutrition expert-variable vs irreducible-owner-fact boundary is owner-signed.
-    - Nutrition is specified as a module on g-health-core, consuming core-owned shared concepts without duplicating them.
-    - Next CALL routes to the next valid OS leg after converge.
+    - Architecture/contract surface decomposes each signed WHAT mechanism into build-deciding contracts:
+      nutrition artifacts, attach namespace, tracking LOG shape, review mutation path, base-prep/reuse semantics,
+      grocery/prep derivation, bad-week mode, safety interaction, and future integration seam.
+    - Every architecture decision is either answered with citation to signed WHAT/core contract or routed to PLAN.
+    - No open/deferred rows remain, or genuine owner decisions are batched with options and recommendation.
+    - Next route is converge-verify if closed; otherwise awaiting_decision.
   return: |
-    RESULT with the converge artifact path, owner signoffs, evidence, state_changes, decisions_needed, and next CALL/awaiting_decision.
-  budget: one focused converge movement
+    RESULT with architecture artifact path, coverage evidence, state_changes, decisions_needed, and next CALL.
+  budget: one focused converge-arch movement
   surface: any capable session
 
 END_OF_FILE: live/health/NOW.md

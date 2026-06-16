@@ -32,4 +32,6 @@
 - 2026-06-15 — health/g-health-core review approval: owner approved closing g-health-core as done and chose recommendation A; next c-health-nutrition-shape-001. → history/2026-06-15-s-health-core-review-002-approval.md
 - 2026-06-16 — health repair before nutrition converge: reconciled visible core-closed state with nutrition reset/core-first evidence; TREE already matched accepted state, NOW rerouted from stale shape CALL to c-health-nutrition-converge-001. → history/2026-06-16-s-health-repair-before-nutrition-converge-001.md
 
+- 2026-06-16 — converge g-health-nutrition-system: owner-signed closed WHAT for nutrition module on core; personalized process + mandatory tracking; vitrine/Mealie cut; next converge-arch. → history/2026-06-16-s-health-nutrition-converge-001.md
+
 END_OF_FILE: live/health/LOG.md
