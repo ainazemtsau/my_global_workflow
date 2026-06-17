@@ -1,0 +1,658 @@
+{
+  "report_metadata": {
+    "report_date": "2026-06-17",
+    "research_scope": "First Health AI nutrition setup for an adult male, age 35, 182 cm, 125 kg, BMI about 37.7, with sustainable fat loss toward 90-95 kg while protecting strength, muscle, energy, sleep, mood, libido, work capacity, adherence, and later maintenance. This report compares the dietary method landscape before selecting a system-decided first-cycle approach. Evidence was checked through 2026-06-17.",
+    "not_medical_advice": true
+  },
+  "evidence_method": {
+    "source_types_prioritized": [
+      "clinical practice guidelines and government/public-health guidance",
+      "systematic reviews and meta-analyses",
+      "large randomized trials and landmark controlled feeding trials",
+      "sports-nutrition consensus or position statements for protein and muscle preservation",
+      "Health AI and Direction OS owner-profile/context files"
+    ],
+    "recency_window": "Priority was given to 2020-2026 sources where available; older landmark trials and still-current guidelines were used when they remain the main evidence base.",
+    "quality_notes": [
+      "Comparative diet trials and reviews generally show that energy deficit and adherence dominate named-diet identity for weight loss; named-diet differences are often small by 12 months.",
+      "Intermittent fasting evidence was updated by a 2026 Cochrane review current to 2024-11-05; long-term obesity-specific data remain limited.",
+      "Protein evidence for preserving lean mass during weight loss in obesity is supportive but partly indirect; confidence is stronger when paired with resistance training.",
+      "This report does not diagnose, prescribe, or decide medication/surgery. BMI-range risk is handled through conservative nutrition defaults and medical-check language."
+    ]
+  },
+  "owner_profile_used": {
+    "sex": "male",
+    "age_years": 35,
+    "height_cm": 182,
+    "weight_kg": 125,
+    "bmi_approx": 37.7,
+    "goal_weight_range_kg": "90-95",
+    "goal": "Sustainable weight loss while preserving strength, muscle, energy, sleep, mood, libido, work capacity, adherence, and long-term maintenance.",
+    "training_status_initial": "No structured training initially; nutrition must stand alone at first and adapt when training starts.",
+    "known_experience": [
+      "sport experience",
+      "diet experience"
+    ],
+    "known_infrastructure": [
+      "cooking infrastructure",
+      "scale",
+      "willingness to use AI tracking"
+    ]
+  },
+  "owner_facts_needed": [
+    {
+      "fact": "allergies_or_intolerances",
+      "why_irreducible": "No evidence review can infer personal allergies or intolerances safely.",
+      "blocking_level": "blocks_safety",
+      "safe_default_or_reduced_mode": "Do not generate allergen-specific recurring menus until checked; use broad ingredient categories and require owner confirmation before repeated exposure."
+    },
+    {
+      "fact": "medications_or_medical_constraints",
+      "why_irreducible": "Medication, renal disease, diabetes therapy, gallbladder history, hypertension treatment, and clinician advice materially change deficit, protein, carbohydrate, and monitoring choices.",
+      "blocking_level": "blocks_safety",
+      "safe_default_or_reduced_mode": "Use conservative deficit, avoid very-low-calorie or supplement-heavy plans, and include medical-check language before aggressive restriction."
+    },
+    {
+      "fact": "history_of_disordered_eating_or_binge_restrict_cycles",
+      "why_irreducible": "Behavioral safety cannot be inferred from weight, sex, or stated goals.",
+      "blocking_level": "blocks_safety",
+      "safe_default_or_reduced_mode": "Avoid rigid precision targets, punitive language, or fasting defaults; route repeated binge/restrict, purging, or obsession signals to medical/mental-health support language."
+    },
+    {
+      "fact": "religious_or_ethical_exclusions",
+      "why_irreducible": "These are values and constraints, not researchable physiology.",
+      "blocking_level": "reduced_mode",
+      "safe_default_or_reduced_mode": "Use omnivore-compatible examples with plant-forward substitutions; mark actual exclusions pending."
+    },
+    {
+      "fact": "hard_dislikes",
+      "why_irreducible": "Taste aversions determine adherence and cannot be inferred reliably.",
+      "blocking_level": "non_blocking",
+      "safe_default_or_reduced_mode": "Start with common high-protein staples and mutate dishes after feedback."
+    },
+    {
+      "fact": "budget_and_shopping_constraints",
+      "why_irreducible": "Cost and shopping access are personal logistics, not expert nutrition variables.",
+      "blocking_level": "reduced_mode",
+      "safe_default_or_reduced_mode": "Default to low-cost repeatable staples, base-prep, frozen/canned options, and avoid specialty products as requirements."
+    },
+    {
+      "fact": "real_cooking_time_and_equipment_details",
+      "why_irreducible": "Cooking infrastructure is known, but real available time and actual equipment shape execution.",
+      "blocking_level": "non_blocking",
+      "safe_default_or_reduced_mode": "Default to meals that can be assembled or cooked in about 30 minutes, plus 1-2 base-prep blocks per week."
+    },
+    {
+      "fact": "hard_schedule_constraints",
+      "why_irreducible": "Workday timing, late evenings, and social meals determine feasibility of meal timing and prep.",
+      "blocking_level": "reduced_mode",
+      "safe_default_or_reduced_mode": "Use a flexible default of 3 protein-centered meals plus an optional protein/fiber snack; do not require fasting windows."
+    },
+    {
+      "fact": "household_or_social_constraints",
+      "why_irreducible": "Shared meals, family preferences, and eating out affect adherence.",
+      "blocking_level": "reduced_mode",
+      "safe_default_or_reduced_mode": "Generate modular meals with swappable protein/starch/vegetable components and restaurant/social fallback rules."
+    },
+    {
+      "fact": "sustainable_logging_capacity",
+      "why_irreducible": "The system can decide what tracking would be useful, but only the owner can reveal what tracking burden is sustainable.",
+      "blocking_level": "non_blocking",
+      "safe_default_or_reduced_mode": "Start with low-friction AI text/photo logging, rough portions, confidence, hunger, energy, and adherence; escalate precision only when trend/review requires it."
+    }
+  ],
+  "method_landscape": [
+    {
+      "method": "Moderate calorie deficit with trend-based adjustment",
+      "evidence_summary": "Guidelines and behavioral obesity references consistently place reduced calorie intake at the center of weight loss. Endotext describes a typical behavioral prescription as a 500-750 kcal/day deficit, while NIDDK and USPSTF use initial 5-10% or at least 5% weight loss as clinically meaningful early targets.",
+      "fit_for_owner": "High fit. The owner starts at BMI about 37.7 and wants sustainable loss without crashing energy or strength. The system should choose a moderate deficit and adjust by weight trend, hunger, energy, adherence, and later training load.",
+      "tradeoffs": [
+        "Too small a deficit delays feedback and may not create early momentum.",
+        "Too aggressive a deficit increases fatigue, hunger, lean-mass risk, and adherence failure.",
+        "Fixed arithmetic is less reliable over time than measured trend adjustment."
+      ],
+      "confidence": "high",
+      "sources": [
+        "S1 NIDDK Choosing a Safe & Successful Weight-loss Program https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program",
+        "S2 USPSTF Behavioral Interventions for Adults With Obesity https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-adults-interventions",
+        "S3 Endotext Behavioral Approaches to Obesity Management https://www.ncbi.nlm.nih.gov/books/NBK278952/"
+      ]
+    },
+    {
+      "method": "Higher-protein energy-restricted diet for satiety and lean-mass protection",
+      "evidence_summary": "Reviews and sports-nutrition consensus support adequate-to-higher protein during weight loss, especially when resistance training is present. Obesity-focused muscle-preservation reviews support hypocaloric diets with adequate but not excessive protein and physical activity, especially resistance-type training.",
+      "fit_for_owner": "High fit. The owner wants weight loss with strength and muscle protected. Use a goal-weight or adjusted-weight protein target rather than current body weight alone, then increase precision when training starts or if medical constraints appear.",
+      "tradeoffs": [
+        "Protein helps satiety and lean-mass preservation but does not replace resistance training.",
+        "Very high protein may be inappropriate with kidney disease or specific medical constraints.",
+        "Using current body weight for g/kg can overstate practical protein needs in obesity."
+      ],
+      "confidence": "moderate",
+      "sources": [
+        "S8 Adv Nutr Preserving Healthy Muscle during Weight Loss https://www.abom.org/wp-content/uploads/2019/05/Preserving-Healthy-Muscle-during-Weight-Loss.pdf",
+        "S9 ISSN Position Stand: Protein and Exercise https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+        "S10 Morton et al. protein supplementation meta-analysis https://pmc.ncbi.nlm.nih.gov/articles/PMC5867436/",
+        "S11 Enhanced protein intake meta-analysis https://pubmed.ncbi.nlm.nih.gov/39002131/"
+      ]
+    },
+    {
+      "method": "Minimally processed, high-satiety dietary pattern",
+      "evidence_summary": "Dietary Guidelines for Americans 2025-2030 emphasize whole nutrient-dense foods and reducing highly processed salty/sweet packaged foods. A controlled NIH inpatient trial found ultra-processed diets caused excess calorie intake and weight gain compared with unprocessed diets matched for presented nutrients.",
+      "fit_for_owner": "High fit. The owner has cooking infrastructure, so Health AI should bias toward protein, vegetables, fruit, legumes/whole grains or other high-fiber carbohydrates, dairy/eggs/meat/fish as tolerated, and home-prepared base-prep, without making any food group identity mandatory.",
+      "tradeoffs": [
+        "Whole-food preparation can raise time/friction if recipes are not simple.",
+        "Overly clean eating can become brittle; fallback meals must still count as valid execution.",
+        "Food quality improves satiety but still needs an energy strategy."
+      ],
+      "confidence": "high",
+      "sources": [
+        "S6 Dietary Guidelines for Americans 2025-2030 https://cdn.realfood.gov/DGA.pdf",
+        "S12 Hall et al. Ultra-processed diets randomized trial https://pmc.ncbi.nlm.nih.gov/articles/PMC7946062/",
+        "S13 NIH news on ultra-processed diet trial https://www.nih.gov/news-events/news-releases/nih-study-finds-heavily-processed-foods-cause-overeating-weight-gain"
+      ]
+    },
+    {
+      "method": "Low-carbohydrate or ketogenic-style restriction",
+      "evidence_summary": "Systematic reviews and RCTs show low-carbohydrate diets can produce weight loss, especially by reducing energy intake and appetite for some people, but average long-term superiority over healthy low-fat approaches is not robust.",
+      "fit_for_owner": "Conditional fit. It can be used as an adherence/satiety knob if the owner likes lower-carb meals or hunger improves, but it should not be the default identity because no medical indication, preferences, lipids, training needs, or adherence response are known yet.",
+      "tradeoffs": [
+        "Can simplify choices and reduce appetite for some people.",
+        "May reduce food variety, fiber, social flexibility, or training carbohydrate availability.",
+        "Strict keto is unnecessary for first setup unless later evidence/owner facts justify it."
+      ],
+      "confidence": "moderate",
+      "sources": [
+        "S14 BMJ 2020 network meta-analysis of named diets https://www.bmj.com/content/369/bmj.m696",
+        "S15 DIETFITS JAMA low-fat vs low-carb trial https://pmc.ncbi.nlm.nih.gov/articles/PMC5839290/",
+        "S16 Canadian Adult Obesity CPG Medical Nutrition Therapy https://obesitycanada.ca/wp-content/uploads/2025/03/8-Canadian-Adult-Obesity-CPG-Medical-Nutrition-Therapy_22.pdf"
+      ]
+    },
+    {
+      "method": "Low-fat or DASH/Mediterranean-style reduced-calorie pattern",
+      "evidence_summary": "Low-fat and Mediterranean/DASH-style patterns can support calorie reduction and cardiometabolic quality. Comparative diet evidence indicates no universal macronutrient winner; healthy versions of lower-fat and lower-carbohydrate diets can both work.",
+      "fit_for_owner": "Moderate-to-high fit as a food-quality template. A Mediterranean/DASH-like high-protein reduced-calorie pattern is a strong default because it is flexible, nutrient-dense, and compatible with later training, while strict low-fat is not required.",
+      "tradeoffs": [
+        "Strict low-fat can impair palatability/satiety for some people.",
+        "Mediterranean-style eating can still overshoot calories if portions of oils, nuts, cheese, or grains are unmanaged.",
+        "Requires recipe and grocery structure to avoid becoming vague advice."
+      ],
+      "confidence": "moderate",
+      "sources": [
+        "S14 BMJ 2020 network meta-analysis of named diets https://www.bmj.com/content/369/bmj.m696",
+        "S15 DIETFITS JAMA low-fat vs low-carb trial https://pmc.ncbi.nlm.nih.gov/articles/PMC5839290/",
+        "S6 Dietary Guidelines for Americans 2025-2030 https://cdn.realfood.gov/DGA.pdf"
+      ]
+    },
+    {
+      "method": "Time-restricted eating or intermittent fasting",
+      "evidence_summary": "The 2026 Cochrane review found intermittent fasting may make little to no difference versus traditional dietary advice for weight loss or quality of life in adults with overweight/obesity, and evidence for adverse events and 5% weight loss achievement is uncertain.",
+      "fit_for_owner": "Not a first-cycle default. It may become an adherence tool if the owner naturally prefers it and hunger/energy are stable, but Health AI should not ask the owner to choose fasting as an expert variable during setup.",
+      "tradeoffs": [
+        "May reduce decision load for some people.",
+        "Can worsen hunger, social friction, training fueling, or binge/restrict patterns.",
+        "Long-term satisfaction and obesity-specific outcome evidence remain limited."
+      ],
+      "confidence": "moderate",
+      "sources": [
+        "S17 Cochrane 2026 intermittent fasting review summary https://www.cochrane.org/evidence/CD015610/intermittent-fasting-traditional-dietary-advice-or-no-treatment-which-works-better-help-adults"
+      ]
+    },
+    {
+      "method": "Meal replacements or highly structured portion-controlled meals",
+      "evidence_summary": "Systematic reviews suggest programs incorporating meal replacements can produce greater one-year weight loss than comparator programs, likely by reducing portion and decision friction, but long-term maintenance and fit depend on transition to normal eating.",
+      "fit_for_owner": "Useful as an optional fallback or busy-day tool, not the core identity. Because the owner has cooking infrastructure and wants recipes/menus, Health AI should prefer real-food templates while allowing protein shakes or structured meals for low-friction compliance.",
+      "tradeoffs": [
+        "Can reduce decision fatigue and improve portion control.",
+        "Can become costly, boring, or weak for cooking-skill/maintenance transition.",
+        "Very-low-calorie formula diets need medical supervision."
+      ],
+      "confidence": "moderate",
+      "sources": [
+        "S18 Astbury et al. meal replacement systematic review https://pubmed.ncbi.nlm.nih.gov/30675990/",
+        "S1 NIDDK Choosing a Safe & Successful Weight-loss Program https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program",
+        "S19 GovInfo/NIDDK safe program PDF https://www.govinfo.gov/content/pkg/GOVPUB-HE20_3300-PURL-LPS78094/pdf/GOVPUB-HE20_3300-PURL-LPS78094.pdf"
+      ]
+    },
+    {
+      "method": "Diet breaks, calorie cycling, and refeeds",
+      "evidence_summary": "The MATADOR trial suggested intermittent energy restriction with energy-balance rest periods may improve weight-loss efficiency in men with obesity, but later planned-pause evidence indicates breaks are not consistently superior to continuous restriction for weight loss. Refeeds/diet breaks are therefore adherence and fatigue-management tools, not magic metabolism fixes.",
+      "fit_for_owner": "Not needed in the first seven-day cycle. Consider structured maintenance-calorie weeks after several weeks of successful deficit, repeated fatigue/hunger, or before maintenance transition.",
+      "tradeoffs": [
+        "Can protect adherence during long losses.",
+        "Extends calendar time and can become an excuse for unstructured overeating.",
+        "Requires clear maintenance-calorie rules and review triggers."
+      ],
+      "confidence": "low",
+      "sources": [
+        "S20 MATADOR intermittent energy restriction trial https://pmc.ncbi.nlm.nih.gov/articles/PMC5803575/",
+        "S21 Planned pauses vs continuous energy restriction https://onlinelibrary.wiley.com/doi/full/10.1002/oby.23976"
+      ]
+    },
+    {
+      "method": "Behavioral self-monitoring, feedback, and relapse prevention",
+      "evidence_summary": "USPSTF describes effective obesity interventions as intensive, multicomponent, often including problem solving, self-monitoring, support, and relapse prevention. USDA NESR found moderate evidence that self-monitoring diet, weight, or both in behavioral interventions improves weight-loss outcomes.",
+      "fit_for_owner": "Very high fit. Health AI's core advantage is low-friction text/voice/photo logging, confidence tagging, feedback, review, and artifact mutation without storing raw logs in Direction OS.",
+      "tradeoffs": [
+        "Detailed tracking can become burdensome and reduce adherence.",
+        "Rough tracking can miss energy drift; precision should escalate only when review needs it.",
+        "Raw logs must stay in Health AI, not Direction OS."
+      ],
+      "confidence": "high",
+      "sources": [
+        "S2 USPSTF Behavioral Interventions for Adults With Obesity https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-adults-interventions",
+        "S22 USDA NESR self-monitoring systematic review https://nesr.usda.gov/what-relationship-between-use-diet-and-body-weight-self-monitoring-strategies-and-body-weight",
+        "S1 NIDDK Choosing a Safe & Successful Weight-loss Program https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+      ]
+    },
+    {
+      "method": "Maintenance transition designed from day one",
+      "evidence_summary": "NIDDK and USPSTF emphasize maintenance planning and ongoing support. Physical activity guidelines and maintenance resources support regular activity and strength work for health and maintenance, even if initial weight loss is mostly nutrition-driven.",
+      "fit_for_owner": "High fit. The owner goal is not brief scale weight but 90-95 kg plus long maintenance and athletic look. The first setup should track the variables that later inform maintenance: food templates, adherence, hunger, activity/training state, and fallback reliability.",
+      "tradeoffs": [
+        "Maintenance planning can feel premature if it delays starting.",
+        "The first cycle should be executable now while leaving hooks for maintenance later.",
+        "Training later will change energy and carbohydrate needs."
+      ],
+      "confidence": "high",
+      "sources": [
+        "S1 NIDDK Choosing a Safe & Successful Weight-loss Program https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program",
+        "S7 CDC Adult Activity Guidelines https://www.cdc.gov/physical-activity-basics/guidelines/adults.html",
+        "S5 NIDDK Diabetes Prevention Game Plan https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-type-2-diabetes/game-plan"
+      ]
+    }
+  ],
+  "evidence_reference": [
+    {
+      "claim": "A realistic first milestone is about 5-10% loss over roughly 6 months, with earlier weekly changes interpreted through trend and safety rather than daily scale noise.",
+      "confidence": "high",
+      "sources": [
+        "S1 NIDDK Choosing a Safe & Successful Weight-loss Program https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program",
+        "S5 NIDDK Diabetes Prevention Game Plan https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-type-2-diabetes/game-plan",
+        "S2 USPSTF Behavioral Interventions for Adults With Obesity https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-adults-interventions"
+      ],
+      "would_change_if": "A clinician sets a different target because of medication, comorbidity, lab results, or a supervised medical weight-loss intervention."
+    },
+    {
+      "claim": "For first-cycle fat loss, the system should decide a moderate energy deficit and adjust by observed trend rather than ask the owner to choose a calorie deficit.",
+      "confidence": "high",
+      "sources": [
+        "S3 Endotext Behavioral Approaches to Obesity Management https://www.ncbi.nlm.nih.gov/books/NBK278952/",
+        "S16 Canadian Adult Obesity CPG Medical Nutrition Therapy https://obesitycanada.ca/wp-content/uploads/2025/03/8-Canadian-Adult-Obesity-CPG-Medical-Nutrition-Therapy_22.pdf",
+        "S1 NIDDK Choosing a Safe & Successful Weight-loss Program https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+      ],
+      "would_change_if": "Owner medical constraints, medications, hunger, fatigue, sleep deterioration, or weight trend show the deficit is unsafe or ineffective."
+    },
+    {
+      "claim": "Named diet identity is less important than creating an energy deficit the owner can adhere to; low-carb and low-fat approaches both work when implemented as healthy reduced-calorie diets.",
+      "confidence": "high",
+      "sources": [
+        "S14 BMJ 2020 network meta-analysis of named diets https://www.bmj.com/content/369/bmj.m696",
+        "S15 DIETFITS JAMA low-fat vs low-carb trial https://pmc.ncbi.nlm.nih.gov/articles/PMC5839290/",
+        "S3 Endotext Behavioral Approaches to Obesity Management https://www.ncbi.nlm.nih.gov/books/NBK278952/"
+      ],
+      "would_change_if": "Owner-specific markers, medical advice, food preferences, or adherence data show a clear individual advantage for one dietary pattern."
+    },
+    {
+      "claim": "Protein should be set by the system as a muscle-preservation and satiety variable; for this owner, a practical first target should be based on goal/adjusted weight, not blindly on current body weight.",
+      "confidence": "moderate",
+      "sources": [
+        "S8 Adv Nutr Preserving Healthy Muscle during Weight Loss https://www.abom.org/wp-content/uploads/2019/05/Preserving-Healthy-Muscle-during-Weight-Loss.pdf",
+        "S9 ISSN Position Stand: Protein and Exercise https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/",
+        "S10 Morton et al. protein supplementation meta-analysis https://pmc.ncbi.nlm.nih.gov/articles/PMC5867436/"
+      ],
+      "would_change_if": "Renal disease, medical advice, major GI intolerance, or a later resistance-training program changes the appropriate target or distribution."
+    },
+    {
+      "claim": "Time-restricted eating or intermittent fasting should not be the default first-cycle method; it is an optional adherence tool if later owner data supports it.",
+      "confidence": "moderate",
+      "sources": [
+        "S17 Cochrane 2026 intermittent fasting review summary https://www.cochrane.org/evidence/CD015610/intermittent-fasting-traditional-dietary-advice-or-no-treatment-which-works-better-help-adults"
+      ],
+      "would_change_if": "The owner naturally prefers a restricted eating window, hunger and energy stay stable, and tracking shows no binge/restrict or training-fueling problems."
+    },
+    {
+      "claim": "Low-friction self-monitoring is evidence-backed and should be part of the active program, but precision should be adjustable because high burden can harm adherence.",
+      "confidence": "high",
+      "sources": [
+        "S22 USDA NESR self-monitoring systematic review https://nesr.usda.gov/what-relationship-between-use-diet-and-body-weight-self-monitoring-strategies-and-body-weight",
+        "S2 USPSTF Behavioral Interventions for Adults With Obesity https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/obesity-in-adults-interventions",
+        "S1 NIDDK Choosing a Safe & Successful Weight-loss Program https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+      ],
+      "would_change_if": "The owner cannot sustain even rough daily food logging, in which case Health AI should reduce logging to checkboxes/photos and rely more on weekly review."
+    },
+    {
+      "claim": "Highly processed foods are a practical first-cycle risk because they can increase ad libitum intake; Health AI should bias toward simple home-prepared nutrient-dense meals and valid fallback meals.",
+      "confidence": "high",
+      "sources": [
+        "S12 Hall et al. Ultra-processed diets randomized trial https://pmc.ncbi.nlm.nih.gov/articles/PMC7946062/",
+        "S13 NIH news on ultra-processed diet trial https://www.nih.gov/news-events/news-releases/nih-study-finds-heavily-processed-foods-cause-overeating-weight-gain",
+        "S6 Dietary Guidelines for Americans 2025-2030 https://cdn.realfood.gov/DGA.pdf"
+      ],
+      "would_change_if": "A processed convenience option is portion-controlled, protein/fiber-sufficient, affordable, and improves adherence without driving overeating."
+    },
+    {
+      "claim": "Physical activity and resistance training are not required for the initial no-training nutrition cycle, but later training should trigger nutrition refresh because protein, carbohydrates, calories, timing, and recovery needs can change.",
+      "confidence": "high",
+      "sources": [
+        "S7 CDC Adult Activity Guidelines https://www.cdc.gov/physical-activity-basics/guidelines/adults.html",
+        "S8 Adv Nutr Preserving Healthy Muscle during Weight Loss https://www.abom.org/wp-content/uploads/2019/05/Preserving-Healthy-Muscle-during-Weight-Loss.pdf",
+        "S9 ISSN Position Stand: Protein and Exercise https://pmc.ncbi.nlm.nih.gov/articles/PMC5477153/"
+      ],
+      "would_change_if": "A clinician restricts activity or a training module defines a specific high-volume program requiring earlier nutrition adaptation."
+    },
+    {
+      "claim": "Very-low-calorie or formula-heavy approaches should not be first-cycle defaults without medical supervision.",
+      "confidence": "high",
+      "sources": [
+        "S19 GovInfo/NIDDK safe program PDF https://www.govinfo.gov/content/pkg/GOVPUB-HE20_3300-PURL-LPS78094/pdf/GOVPUB-HE20_3300-PURL-LPS78094.pdf",
+        "S1 NIDDK Choosing a Safe & Successful Weight-loss Program https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program",
+        "S16 Canadian Adult Obesity CPG Medical Nutrition Therapy https://obesitycanada.ca/wp-content/uploads/2025/03/8-Canadian-Adult-Obesity-CPG-Medical-Nutrition-Therapy_22.pdf"
+      ],
+      "would_change_if": "The owner enters a supervised medical weight-loss program with clinician-defined monitoring."
+    },
+    {
+      "claim": "Planned diet breaks/refeeds are refresh tools for long deficits or adherence fatigue, not mandatory first-cycle variables.",
+      "confidence": "low",
+      "sources": [
+        "S20 MATADOR intermittent energy restriction trial https://pmc.ncbi.nlm.nih.gov/articles/PMC5803575/",
+        "S21 Planned pauses vs continuous energy restriction https://onlinelibrary.wiley.com/doi/full/10.1002/oby.23976"
+      ],
+      "would_change_if": "After several weeks, review shows persistent hunger, fatigue, adherence erosion, or plateaus despite compliance."
+    }
+  ],
+  "personalization_decisions": {
+    "system_decided_variables": [
+      "Energy strategy: start with a moderate trend-adjusted deficit; target a sustainable loss rate around 0.5-1.0% of body weight per week after the initial water-weight period, then adjust after 2-3 weeks of trend data.",
+      "Protein strategy: first-cycle target should be based on goal/adjusted weight, approximately 1.2-1.6 g/kg of 90-95 kg goal range (about 115-150 g/day), with later training biasing toward the upper end if medically appropriate.",
+      "Meal structure: default to 3 protein-centered meals plus an optional protein/fiber fallback snack; do not ask the owner to choose meals per day.",
+      "Meal timing: no fasting requirement; a consistent 10-12 hour eating window may be used only if it reduces friction without worsening hunger, energy, or binge/restrict signals.",
+      "Food selection: high-satiety, minimally processed, protein-forward meals with vegetables/fruit, legumes/whole grains or other high-fiber carbohydrate sources, and practical fats; low-carb or low-fat variants are knobs, not identities.",
+      "Tracking precision: begin with low-friction text/voice/photo logs, rough portions, planned-vs-actual, hunger/satiety, energy, confidence, and fallback use; escalate to calorie/gram precision only if review cannot explain trend or adherence.",
+      "Review cadence: quick safety/friction check after 3 days, first formal review after 7 days, then weekly trend review during the first cycle buildout.",
+      "Diet breaks/refeeds: not default in week 1; use as a structured maintenance-calorie tool only after review triggers.",
+      "Meal replacements: optional busy-day/fallback tool, not the main dietary identity."
+    ],
+    "owner_fact_dependencies": [
+      "allergies_or_intolerances",
+      "medications_or_medical_constraints",
+      "history_of_disordered_eating_or_binge_restrict_cycles",
+      "religious_or_ethical_exclusions",
+      "hard_dislikes",
+      "budget_and_shopping_constraints",
+      "real_cooking_time_and_equipment_details",
+      "hard_schedule_constraints",
+      "household_or_social_constraints",
+      "sustainable_logging_capacity"
+    ],
+    "training_later_adaptation": "When structured training starts, refresh the active program before assuming the same deficit and macro distribution. The refresh should check training volume/intensity, session timing, performance, soreness, sleep, hunger, and weight trend; bias protein toward the upper first-cycle range if medically appropriate; allocate more carbohydrate around harder sessions if performance or adherence suffers; and avoid increasing deficit while training load is escalating.",
+    "do_not_ask_owner_to_choose": [
+      "meals_per_day",
+      "calorie_deficit",
+      "protein_target",
+      "macro_split",
+      "nutrient_timing",
+      "tracking_precision",
+      "intermittent_fasting",
+      "calorie_cycling",
+      "diet_breaks",
+      "refeeds",
+      "diet_identity"
+    ]
+  },
+  "active_program_blueprint": {
+    "phase": "First fat-loss setup under missing owner facts: conservative evidence-backed reduced-calorie, high-protein, high-satiety nutrition with no structured training initially and explicit adaptation when training begins.",
+    "energy_strategy": "Use a moderate deficit calculated by the normalizer from core profile and later adjusted by 7-day weight trend, hunger, energy, adherence, and safety. Avoid very-low-calorie or special-formula diets without medical supervision. Do not chase faster-than-sustainable loss if sleep, energy, mood, libido, work capacity, or adherence deteriorate.",
+    "protein_strategy": "Set protein as a system-decided muscle-preservation variable. First cycle: approximately 115-150 g/day unless medical constraints change it, distributed across meals/snack in practical 30-50 g anchors. When resistance training starts, refresh toward the upper end if tolerated and medically appropriate.",
+    "food_structure": "Default pattern: 3 repeatable protein-centered meals plus optional protein/fiber snack; each meal has a protein anchor, high-volume vegetables/fruit or legumes/whole grains/other high-fiber carbohydrates, and controlled fats. Use base-prep components, simple recipes, grocery derivation, and valid fallback/lazy meals.",
+    "adherence_strategy": "No preselected diet identity and no forbidden-food absolutism. Health AI should generate a small menu cycle, fallback meals, substitutions, and grocery/prep plan; daily logs stay low-friction; weekly review mutates dishes, prep, fallback, tracking precision, or deficit before blaming discipline."
+  },
+  "first_cycle": {
+    "duration": "7 days of execution plus day-8 review; include a day-3 safety/friction check. Continue to day 14 only after the first review confirms safety and usable adherence.",
+    "assumptions": [
+      "No allergies, intolerances, medications, medical constraints, or disordered-eating history are known yet; first cycle must remain conservative and mark these as pending.",
+      "No structured training is active initially, so the nutrition cycle must not rely on exercise calories or training performance.",
+      "Cooking infrastructure and a scale exist, but real cooking time is unknown; meals should be simple, repeatable, and compatible with base-prep.",
+      "Owner is willing to use AI tracking; start with rough text/voice/photo logging and confidence, not default gram-level logging.",
+      "The system decides expert variables; owner questions are limited to irreducible facts when material.",
+      "The first cycle is a setup-and-review loop, not a permanent diet."
+    ],
+    "outputs_to_generate": [
+      "x_nutrition/reference/method-landscape.md from method_landscape and personalization_decisions",
+      "x_nutrition/reference/evidence-reference.md from evidence_reference and evidence_method",
+      "x_nutrition/programs/active-program.md with system-decided variables, owner-fact gaps, safety, and refresh rules",
+      "x_nutrition/cycles/first-cycle.md with first-cycle assumptions, day-3 check, day-8 review, and mutation logic",
+      "x_nutrition/menus/current-menu-cycle.md with a small 7-day menu/eating structure generated by t-2 from active-program decisions",
+      "x_nutrition/recipes/*.md for executable simple meals with substitutions and base-prep links",
+      "x_nutrition/grocery/current-grocery-needs.md accounting for base-prep reuse and fallback meals",
+      "x_nutrition/fallbacks/fallback-meals.md with lazy meals that remain valid execution",
+      "x_nutrition/logs/YYYY-MM-DD.md template for Health AI-only low-friction food logs",
+      "x_nutrition/reviews/first-cycle-review.md template for hold/mutate/rebuild/update/refresh/brake decisions"
+    ],
+    "review_checkpoint": "Day 3: check safety red flags, excessive hunger, energy crash, sleep/mood deterioration, prep friction, and logging burden. Day 8: review 7-day weight data if available, adherence, hunger/satiety, energy/sleep, fallback use, off-plan pattern, food friction, and tracking confidence; decide hold, mutate dishes, rebuild menu, change fallback/prep, change tracking precision, refresh evidence, or brake."
+  },
+  "tracking_review": {
+    "log_fields": [
+      "date",
+      "planned_vs_actual_meals",
+      "rough_food_and_portion_description",
+      "photo_or_voice_text_reference_if_used",
+      "protein_anchor_present",
+      "vegetable_or_fiber_anchor_present",
+      "fallback_or_substitution_used",
+      "skipped_or_off_plan_event",
+      "hunger_1_to_5",
+      "satiety_1_to_5",
+      "energy_1_to_5",
+      "sleep_or_recovery_note",
+      "prep_time_or_friction_note",
+      "social_travel_or_stress_context",
+      "tracking_confidence_low_medium_high",
+      "material_clarifier_needed_yes_no"
+    ],
+    "review_inputs": [
+      "7-day weight trend when available",
+      "nutrition LOG summaries from Health AI only",
+      "adherence percentage or rough adherence class",
+      "hunger/satiety/energy/sleep pattern",
+      "fallback frequency",
+      "off-plan pattern",
+      "prep and grocery friction",
+      "owner feedback on taste, boredom, price, time, and social fit",
+      "safety red flags",
+      "training status change"
+    ],
+    "review_decisions": [
+      "hold_current_program",
+      "mutate_dishes_or_substitutions",
+      "rebuild_menu_cycle",
+      "update_base_prep_or_grocery_rules",
+      "update_fallback_meals",
+      "change_tracking_precision",
+      "adjust_energy_strategy_after_trend",
+      "refresh_evidence_for_trigger",
+      "brake_to_conservative_mode",
+      "recommend_medical_check_language"
+    ]
+  },
+  "safety_boundaries": {
+    "red_flags": [
+      "chest pain, fainting, severe dizziness, severe shortness of breath, or palpitations",
+      "persistent severe fatigue, weakness, sleep collapse, mood deterioration, libido collapse, or work-capacity crash after starting the deficit",
+      "rapid weight loss beyond planned range after the initial water-weight period, especially with weakness or dehydration symptoms",
+      "recurrent vomiting, purging, laxative misuse, binge/restrict cycles, obsessive tracking, or fear of eating",
+      "new or changed diabetes medication, blood pressure medication, appetite/weight medication, or other medical advice affecting food intake",
+      "symptoms suggestive of gallbladder issues or severe gastrointestinal distress during rapid loss",
+      "renal disease, gout flare, uncontrolled hypertension, diabetes, or other known medical condition not yet integrated into the plan",
+      "injury, illness, or training-start fatigue that makes current deficit unsafe"
+    ],
+    "conservative_mode": "Pause aggressive progression. Use maintenance-or-smaller-deficit eating, keep protein and hydration adequate, simplify to safe repeatable meals, reduce tracking burden to essential notes, stop fasting or very low calorie ideas, and route medical/mental-health warning signs to appropriate professional support language. Do not generate stricter targets while red flags are unresolved.",
+    "medical_check_language": "This is not a diagnosis or medical prescription. Because the starting BMI is about 37.7 and medications/medical constraints are unknown, it is prudent to discuss weight-loss plans with a healthcare professional, especially before aggressive calorie restriction, very-low-calorie diets, fasting-heavy approaches, supplements, or if any red-flag symptoms appear."
+  },
+  "refresh_triggers": [
+    {
+      "trigger": "structured_training_starts_or_training_volume_changes",
+      "why_refresh_may_be_needed": "Energy, protein distribution, carbohydrate timing, recovery, hunger, and performance needs can change when training begins or escalates.",
+      "minimum_input": "Training type, days/week, session timing, intensity, soreness, performance, hunger, sleep, and current weight trend."
+    },
+    {
+      "trigger": "weight_trend_plateau",
+      "why_refresh_may_be_needed": "A 2-3 week plateau despite credible adherence may indicate adaptive changes, tracking drift, water retention, or a need to adjust deficit/activity.",
+      "minimum_input": "At least 14-21 days of weight trend, adherence notes, food-log confidence, sodium/travel/stress notes, and current target assumptions."
+    },
+    {
+      "trigger": "persistent_hunger_or_low_satiety",
+      "why_refresh_may_be_needed": "Hunger is a leading adherence risk and may indicate insufficient protein/fiber/volume, poor meal timing, or too aggressive deficit.",
+      "minimum_input": "Hunger/satiety scores by day, meals most associated with hunger, sleep, stress, fallback use, and current meal structure."
+    },
+    {
+      "trigger": "adherence_failure_or_tracking_burden",
+      "why_refresh_may_be_needed": "If adherence falls, the issue may be prep complexity, taste, cost, social friction, schedule, or logging burden rather than motivation.",
+      "minimum_input": "Missed meals/logs, reason categories, prep time, cost, disliked foods, social meals, and which fallback options were used."
+    },
+    {
+      "trigger": "medical_constraint_or_medication_change",
+      "why_refresh_may_be_needed": "Medical conditions and medications can change safe targets, carbohydrate distribution, protein limits, hydration/sodium considerations, and monitoring.",
+      "minimum_input": "Owner-known condition/medication or clinician advice, symptoms if any, and whether any food or activity restrictions were given."
+    },
+    {
+      "trigger": "travel_or_schedule_disruption",
+      "why_refresh_may_be_needed": "Menu, grocery, prep, fallback, and tracking assumptions may be false away from the normal environment.",
+      "minimum_input": "Dates, location/context, cooking access, restaurant/social meal constraints, travel snacks available, and minimum logging feasible."
+    },
+    {
+      "trigger": "bad_week_mode_repeated",
+      "why_refresh_may_be_needed": "If bad-week mode becomes the real program, fallback meals and minimums need redesign rather than repeated emergency use.",
+      "minimum_input": "Number of bad-week days, fallback meals used, hunger/energy, off-plan pattern, prep barriers, and work/stress context."
+    },
+    {
+      "trigger": "maintenance_transition_or_after_major_loss_milestone",
+      "why_refresh_may_be_needed": "Targets and habits need transition from loss to maintenance; energy needs and psychological risks change after sustained loss.",
+      "minimum_input": "Current weight trend, total loss, adherence, hunger, activity/training level, preferred meals, and relapse risks."
+    },
+    {
+      "trigger": "weight_loss_too_fast_or_energy_crash",
+      "why_refresh_may_be_needed": "Excessive loss or biofeedback deterioration can threaten lean mass, recovery, work capacity, and adherence.",
+      "minimum_input": "Recent weight trend, calorie/portion estimates if available, hunger, energy, sleep, mood, libido, dizziness/weakness, and training/activity."
+    },
+    {
+      "trigger": "food_fatigue_or_dislike_pattern",
+      "why_refresh_may_be_needed": "Boredom and disliked foods can predict relapse even when macros are technically correct.",
+      "minimum_input": "Meals disliked, meals repeated too often, preferred cuisines/textures, budget/time constraints, and acceptable substitutions."
+    }
+  ],
+  "artifact_write_plan": [
+    {
+      "path": "x_nutrition/research/first-owner-deep-research-report.json",
+      "artifact_type": "actual_deep_research_report",
+      "source_sections": [
+        "all"
+      ],
+      "write_rule": "Copy this structured object into Health AI, preserve source strings, and validate against deep-research-output.schema.json before normalization."
+    },
+    {
+      "path": "x_nutrition/reference/method-landscape.md",
+      "artifact_type": "method_landscape_reference",
+      "source_sections": [
+        "method_landscape",
+        "personalization_decisions"
+      ],
+      "write_rule": "Summarize compared methods, fit for owner, tradeoffs, excluded defaults, confidence, and source ids; do not present one diet as preselected before comparison."
+    },
+    {
+      "path": "x_nutrition/reference/evidence-reference.md",
+      "artifact_type": "claim_evidence_reference",
+      "source_sections": [
+        "evidence_reference",
+        "evidence_method"
+      ],
+      "write_rule": "Store each material claim with confidence, source URLs, and what would change the claim."
+    },
+    {
+      "path": "x_nutrition/programs/active-program.md",
+      "artifact_type": "active_program",
+      "source_sections": [
+        "active_program_blueprint",
+        "personalization_decisions",
+        "safety_boundaries",
+        "owner_facts_needed"
+      ],
+      "write_rule": "Write current system-decided variables, owner-fact gaps, safe defaults/reduced modes, safety boundaries, and refresh triggers; mark medical/allergy facts pending."
+    },
+    {
+      "path": "x_nutrition/cycles/first-cycle.md",
+      "artifact_type": "first_cycle",
+      "source_sections": [
+        "first_cycle",
+        "tracking_review",
+        "safety_boundaries"
+      ],
+      "write_rule": "Write a 7-day executable first-cycle scaffold with day-3 safety/friction check and day-8 review checkpoint."
+    },
+    {
+      "path": "x_nutrition/menus/current-menu-cycle.md",
+      "artifact_type": "menu_cycle",
+      "source_sections": [
+        "active_program_blueprint",
+        "first_cycle",
+        "owner_facts_needed"
+      ],
+      "write_rule": "Generate a small practical menu from active-program decisions only after report validation; keep allergy/medical constraints pending and avoid mandatory fasting/keto/low-fat identity."
+    },
+    {
+      "path": "x_nutrition/recipes/first-cycle-base-recipes.md",
+      "artifact_type": "recipe_instruction_set",
+      "source_sections": [
+        "first_cycle",
+        "active_program_blueprint",
+        "artifact_write_plan"
+      ],
+      "write_rule": "Create executable simple recipes with ingredients, steps, substitutions, time/friction notes, equipment assumptions, yields, and base-prep reuse links."
+    },
+    {
+      "path": "x_nutrition/grocery/current-grocery-needs.md",
+      "artifact_type": "grocery_and_prep_derivation",
+      "source_sections": [
+        "first_cycle",
+        "active_program_blueprint"
+      ],
+      "write_rule": "Derive grocery/prep needs from menu, recipes, base-prep reuse, and fallback meals; avoid double-counting shared prep."
+    },
+    {
+      "path": "x_nutrition/fallbacks/fallback-meals.md",
+      "artifact_type": "fallback_meals",
+      "source_sections": [
+        "active_program_blueprint",
+        "first_cycle",
+        "tracking_review"
+      ],
+      "write_rule": "Store lazy meals that remain valid execution: protein anchor, fiber/volume anchor, portion boundary, and logging shortcut."
+    },
+    {
+      "path": "x_nutrition/logs/YYYY-MM-DD.md",
+      "artifact_type": "nutrition_log_template",
+      "source_sections": [
+        "tracking_review"
+      ],
+      "write_rule": "Store raw daily food logs only in Health AI, never in Direction OS; include confidence and material clarifier flag."
+    },
+    {
+      "path": "x_nutrition/reviews/first-cycle-review.md",
+      "artifact_type": "review_template",
+      "source_sections": [
+        "tracking_review",
+        "refresh_triggers",
+        "safety_boundaries"
+      ],
+      "write_rule": "Review must emit hold, mutate, rebuild, update, refresh, or brake decisions tied to concrete nutrition artifacts."
+    },
+    {
+      "path": "x_nutrition/state/first-setup-pending.md",
+      "artifact_type": "setup_state",
+      "source_sections": [
+        "report_metadata",
+        "artifact_write_plan"
+      ],
+      "write_rule": "Clear pending only after report validation and normalized artifact writes have succeeded."
+    }
+  ]
+}
