@@ -50,4 +50,6 @@
 - 2026-06-17 — health/g-health-nutrition-system review approval: owner chose A ("Согласен с а"); nutrition system closed done, first real nutrition cycle node added parked, next c-health-first-nutrition-cycle-shape-001. → history/2026-06-17-s-health-nutrition-review-approval-001.md
 - 2026-06-17 — health nutrition workflow repair: owner rejected first nutrition startup surface as structurally wrong; NOW rerouted from first-cycle shape to converge a strict nutrition workflow graph before execution/training. → history/2026-06-17-s-health-nutrition-workflow-repair-001.md
 
+- 2026-06-17 — s-health-nutrition-workflow-converge-001: closed nutrition workflow graph WHAT overlay for g-health-nutrition-system; route to converge-arch; no nutrition execution.
+
 END_OF_FILE: live/health/LOG.md
