@@ -1,21 +1,72 @@
-# NOW — health
+RESULT s-health-nutrition-workflow-repair-001 (call: owner-repair-request-2026-06-17)
+direction: health   play: repair   node/task: g-health-nutrition-system
 
-active_bet:
-  status: none
-  note: >
+outcome: |
+  NOW.md no longer routes health to shape/start the first real nutrition execution cycle.
+  It now routes to a converge session for a strict Health AI nutrition workflow graph:
+  program -> cycle -> week -> day -> review -> mutation, with one bounded chat/task per
+  movement and no owner-facing walls.
+
+evidence: |
+  Owner explicitly rejected the current startup behavior and requested state update:
+  "Давай тогда обнови стейт, дай мне next whole card по нужному формату."
+  He also clarified the required operating model:
+  - "у нас должен быть чёткий, понятный рабочий процесс, условно, как наш воркоп"
+  - "каждый шаг должен быть определен чётко, куда он идёт, что после него"
+  - "никакого ... AI как-то порешает"
+  - "в чате должно быть, что условно один чат, он решает только один вопрос"
+
+  Contradicting prior state:
+  - live/health/NOW.md previously routed to c-health-first-nutrition-cycle-shape-001.
+  - The owner-facing test showed the Health AI nutrition execution surface is not ready
+    for shaping/starting: it dumped menu/recipe/shopping/log content instead of operating
+    through a strict workflow.
+
+state_changes: |
+  Apply these exact Direction OS state changes.
+
+  1) live/health/NOW.md
+
+  Replace the active_bet.note with:
+
     No active bet. g-health-nutrition-system remains closed by prior binding G5 file/functionality
     evidence, but the first owner-facing nutrition startup attempt exposed a workflow defect:
     Health AI nutrition has artifacts, yet no strict owner-approved operating graph for program,
     cycle, week, day, review, and mutation flow. Do not shape/start the first real nutrition
     execution cycle or move to training until the nutrition workflow contract is converged.
 
-tasks: []
+  Keep tasks: [], open_calls: [], recurring: [], decisions: [].
 
-open_calls: []
+  Replace NOW.next with CALL c-health-nutrition-workflow-converge-001 exactly as written in
+  the updated NOW.md.
 
-recurring: []
+  2) live/health/LOG.md
 
-decisions: []
+  Append:
+  - 2026-06-17 — health nutrition workflow repair: owner rejected first nutrition startup surface as structurally wrong; NOW rerouted from first-cycle shape to converge a strict nutrition workflow graph before execution/training. → history/2026-06-17-s-health-nutrition-workflow-repair-001.md
+
+  3) live/health/history/
+
+  Save this RESULT as:
+  live/health/history/2026-06-17-s-health-nutrition-workflow-repair-001.md
+
+captures:
+  - Product repo follow-up: after workflow converge/verify, health-ai x_nutrition artifacts likely need retrofit; do not patch them ad hoc before the workflow contract is closed.
+  - UX rule: one nutrition chat should solve one bounded workflow question/task and close with next state, not print a broad menu/log wall.
+
+decisions_needed: []
+
+play_check:
+  - 1 Name the contradiction: done — NOW.next said first-cycle shape/start; owner-visible evidence says nutrition execution workflow is structurally unready.
+  - 2 Reconstruct: done — prior G5 covered file/functionality evidence, but owner test exposed missing workflow graph; health-ai commit 2a3988f fixed only free-form logging leakage, not workflow.
+  - 3 Propose corrected state: done — keep no active bet, reroute NOW.next to c-health-nutrition-workflow-converge-001.
+  - 4 Confirm: done — owner approved repair/update with "Давай тогда обнови стейт, дай мне next whole card по нужному формату."
+  - 5 Friction: skipped — this is a Health AI product/workflow defect, not a Direction OS rule defect; no os/FRICTION.md edit.
+
+log: >
+  2026-06-17 — health nutrition workflow repair: owner rejected first nutrition startup
+  surface as structurally wrong; NOW rerouted from first-cycle shape to converge a strict
+  nutrition workflow graph before execution/training.
 
 next: |
   CALL c-health-nutrition-workflow-converge-001
@@ -82,4 +133,4 @@ next: |
     RESULT with workflow WHAT artifact changes, owner decisions if any, state_changes, and next CALL.
   budget: one focused converge session; one workflow issue only
 
-END_OF_FILE: live/health/NOW.md
+END_OF_FILE: live/health/history/2026-06-17-s-health-nutrition-workflow-repair-001.md
