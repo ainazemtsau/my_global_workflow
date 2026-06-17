@@ -167,14 +167,23 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
     done_when: |
       Generator-agnostic topology seam (scene-geometry + semantic tags/markers → TopologyDocument; IN1 + IN2
       replaceability demonstrated on DA room-composer alone, hand-made tagged room prefabs; meaningful size, hundreds of
-      rooms) + GG2 sovereignty; the band solver runs on the real level; ONE real controlled breach (GG3) → topology
-      change → gas flows, with CR2 lossless-bit-exact ACROSS the coarse topology change; CR1 coarse replication host+2
-      clients (coverage-floor vacuous = whole-level interest, anchored to gameplay-reach V2-2); the single-oracle
-      CROSS-CONSUMER probe (OR1 visual read-model + OR3 far-AI ExposureQuery on DIFFERENT peers agree at the same
-      point/species/committed revision; a region entitled per OR3 but omitted from a client's stream FAILS); exact
-      source-pin (GG4 coarse half: source identity survives a non-destructive topology change, accumulates at a
-      believable gradual rate); clean 1-player parity (crit-7).
-    status: next   # 2026-06-17 (s-work-007) t-1 kill-gate PASSED → UNBLOCKED. Frame/shape with the owner; carries 4 t-2 SHAPE inputs (per-sector capacity+back-pressure/sink for overflow LIVENESS; cross-band per-species inversion via per-species temperature; narrow ADR-0005 BS4 (planner action); openspec L22 spec-delta + archive). See next.
+      rooms) + GG2 sovereignty; the band solver runs on the real level (whole-level always-on), per-room CAPACITY bound
+      to real DA geometry; LIVENESS (d-roomfull-001 — closed level + capacity + BACK-PRESSURE: a source cannot inject
+      beyond capacity, cells clamp [0,capacity], a saturated CLOSED region HOLDS — no terminal throw / no int overflow /
+      no negative, mass-exact; refutes the A10-3 terminal-overflow); ONE real controlled breach (GG1/GG3) → topology
+      change on a SINGLE agreed tick every peer observes identically (topology-revision strictly monotonic, no
+      unreconstructable gap; change-set replay-identical) → gas flows, with CR2 lossless-bit-exact ACROSS the coarse
+      topology change; CR1 coarse replication host+2 clients PER LAYER (coverage-floor vacuous = whole-level interest,
+      anchored to gameplay-reach V2-2); CR3 coarse authoritative state exact integer (non-vacuous float-mutant negative
+      test); the single-oracle CROSS-CONSUMER probe (OR1 visual read-model + OR3 far-AI ExposureQuery on DIFFERENT peers
+      agree at the same point/species/committed revision; a region entitled per OR3 but omitted from a client's stream
+      FAILS); exact source-pin (GG4 coarse half: source identity survives a non-destructive topology change, accumulates
+      at a believable gradual rate = correct-amount-on-return); clean 1-player parity (crit-7). Planner spec actions
+      (owner-ratified s-work-008, builder applies dictated wording): narrow ADR-0005 BS4 + apply the c-exec-005 openspec
+      delta WITH its spec.md:82 criterion-(b) cross-band claim narrowed in the SAME pass (canonical sim-core/spec.md
+      ends with NO "past a colder species" prose; BS10(e) preserved) + archive; temperature forward-constraint recorded.
+      per-gas TEMPERATURE + the FINE intra-room cloud shape (corner front) are OUT (deferred / Wave 3).
+    status: active   # 2026-06-17 (s-work-008, c-work-003 framing, owner present): 2 gameplay decisions RESOLVED — Р1 closed level + capacity + back-pressure (d-roomfull-001; sink/venting + doors-break-under-pressure = named future seams); Р2 per-species temperature DEFERRED + BS4 narrowed (d-crossband-inv-001 ratified) + forward-constraint (temperature stays an independent readable layer, never fused into gas). amount-on-return = coarse always-on (this wave); fine intra-room cloud shape = Wave 3 (owner-accepted). Executor CALL FRAMED = c-exec-006 (opens with a PLAN, owner present; adversarially hardened by a 3-agent pass wf_1b929b4e — caught the openspec spec.md:82 cross-band contamination + GG1 same-tick). See open_calls + next.
   - id: t-3
     kind: executor (engineering, GasCoopGame) — parallel with t-4 after t-2
     goal: the temperature layer plugs in as a real 2nd layer without core edits; both layers consistent at coarse scale.
@@ -203,6 +212,10 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
 recurring: []
 
 open_calls:
+  - id: c-work-003
+    status: done   # 2026-06-17 (s-work-008) — Wave-2 t-2 framing (owner present): 2 gameplay decisions resolved (d-roomfull-001 closed-level+capacity+back-pressure; d-crossband-inv-001 ratified per-species-temp deferral + BS4 narrow + forward-constraint), BS4 narrowing + openspec L22 PLANNED, executor CALL c-exec-006 FRAMED + adversarially hardened (wf_1b929b4e: openspec spec.md:82 cross-band contamination + GG1 same-tick). t-2 stays active. → history/s-work-008.md
+  - id: c-exec-006
+    status: queued   # FRAMED 2026-06-17 (s-work-008) — Wave-2 t-2 executor leg: real DA-composed level + breach + coarse replication + LIVENESS. Opens with a PLAN (owner present) in GasCoopGame (dev→main when green). Binds VERIFIED §CONTRACTS IN1/IN2/GG1/GG2/GG3/GG4-OR4(coarse half)/CR1/CR2/CR3/OR1/OR2/OR3 + the owner decisions + planner spec actions (BS4 narrow + openspec delta-narrowed-in-same-pass + archive + temperature forward-constraint). Independent test-author + fresh-session G5 + owner manual-acceptance (FishNet PlayMode / real-DA owner-run). Full CALL → history/s-work-008.md RESULT.next.
   - id: c-shape-marketing
     status: done   # 2026-06-16 shape DONE (s-shape-marketing) — g-2f8c set up as a parallel low-ceremony PROCESS (local plays marketing-forge + marketing-status + work/marketing/ graph), canon-forge-style. NOT a second active bet (G1); NOW spine (Wave 2 / c-exec-005) untouched. The go-to-market plan/goals/channels are DERIVED INSIDE the process (one chat = one card), NOT baked. next = first run = q-foundation in a fresh marketing-forge chat. → history/s-shape-marketing.md
   - id: c-exec-003
@@ -442,6 +455,29 @@ decision_inbox:
       filling, collapse to coarse-only once filled (gas does NOT evaporate, for now — keep the seam extensible). A
       focused deep-research on cheap off-screen field reconstruction / lazy field seeding / analytic front propagation
       is DEFERRED to the Wave-3 shape (owner: «deep ресёрч очень не нужен» now). Relates to s-arch-003 lazy-seeding.
+  - id: d-roomfull-001
+    status: answered   # owner 2026-06-17 (s-work-008, c-work-003, owner present) — closed level + capacity + back-pressure; sink + doors-break-under-pressure = named future seams
+    note: |
+      What a room does when FULL (the A10-3 terminal-overflow finding from t-1 — t-1 guarded CONSISTENCY; a no-sink
+      room was terminal-on-overflow: clearing the source did not restore liveness). DECIDED (owner «противодавление …
+      самое логичное, самое хорошее решение»):
+      (1) MODEL = closed level + per-room CAPACITY (bound to real DA geometry in t-2) + BACK-PRESSURE. ONE rule: a cell
+          never exceeds its capacity — every flow/inject clamps to [0,capacity]. A source cannot push into a full room
+          (it idles); a saturated CLOSED region SATURATES AND HOLDS. No terminal throw, no int overflow, no negative,
+          mass-exact (capacity is a chosen number ≪ the int domain; internal math already uses long). Back-pressure is
+          the rule for "gas that didn't fit": gas already in the level is conserved (stays, capped); a source/faucet
+          simply doesn't spawn what has no room — no conserved budget violated. = the t-2 LIVENESS done_when.
+      (2) NO SINK this wave (owner «со стоком согласен» = defer). Owner found a real risk: an always-on sink → the gas
+          all leaks away → the threat self-resolves (anti-climax). So gas does NOT leave the level in t-2; the level is
+          closed and saturates-and-holds (still demos breach→flow→hold fine).
+      (3) NAMED FUTURE SEAMS (recorded, not built — owner asked to keep): (a) gas VENTS to space/vacuum/vents — a
+          DOUBLE-EDGED mechanic (relieves gas BUT decompression kills), needs feel-design (rate, which rooms) → later
+          wave; (b) pressure BREAKS doors/partitions by their strength → new breach → flow = destructibility (R9) →
+          later wave (back-pressure already stores the pressure number that feature reads); (c) >2 bands / sector
+          subdivision for big rooms/hangars = a configurable knob, Wave 3+ (2 bands now keeps the just-validated scale
+          numbers; more bands help VERTICAL smoothness, sub-sectors help a HANGAR's horizontal coarseness). Owner
+          also accepted: amount-on-return = coarse always-on (this wave, GG4 coarse half); the FINE intra-room cloud
+          shape (corner front) = Wave 3 («понял, что это будет в волне 3, окей»). → carried into c-exec-006.
   - id: d-crossband-inv-001
     status: answered   # owner 2026-06-17 (s-decide-005) — accepts the disposition: per-band model is correct, Codex P1 fix rejected as oscillating; per-species TEMPERATURE = the future seam
     note: |
@@ -469,28 +505,38 @@ decision_inbox:
           owner multi-quantity legibility PASS) is owner-CONFIRMED → merge-go. The FORMAL t-1→t-2 close lands when
           the executor RESULT comes home (paste it to close c-exec-005/t-1). See memory
           gascoopgame-buoyancy-perband-ratified + ADR-0005 §Verdict. → history/s-decide-005.md
+      (5) RATIFIED at the t-2 SHAPE (s-work-008, owner present): the BS4 narrowing + the per-species-temperature
+          deferral are CONFIRMED and carried into c-exec-006. FORWARD-CONSTRAINT added (Р2): temperature stays an
+          INDEPENDENT layer, readable at any resolution on a committed revision; never fuse it into the gas store so
+          as to foreclose a future per-species temperature (a room-temperature map ALREADY exists today — deferring
+          does NOT mean "one temperature everywhere"). ⚠ GUARD (3-agent verify wf_1b929b4e, owner-eyes-confirmed):
+          the c-exec-005 openspec change-folder delta (specs/sim-core/spec.md:82, criterion b) STILL restates the
+          dead cross-band claim ("displaced to the UPPER band … PAST A COLDER SPECIES"); the live canonical spec is
+          grep-clean → applying the delta VERBATIM would RE-INJECT it. c-exec-006 narrows criterion (b) in the SAME
+          pass (per-band-throttle truth, drop "past a colder species"; tests L7/BS10(e) untouched).
 
 next: |
-  t-1 band-solver KILL-GATE is CLOSED — REBUILT under d-fillmodel-001 (capacity-fill+overflow + per-band
-  temperature) → VERDICT = PASS_WITH_NITS, owner-CONFIRMED (198/198, mutation 76.76% ≥70, fresh-session G5 PASS,
-  owner MULTI-QUANTITY legibility PASS; Codex P1 cross-band buoyancy dispositioned = NO code change,
-  d-crossband-inv-001). Merged dev→main + pushed (GasCoopGame build @a868270, RESULT finalize @9e7dab9).
-  RESULT → history/2026-06-17-c-exec-005-t1-result.md. The bet rolls to Wave-2 t-2.
+  Wave-2 t-2 is FRAMED (s-work-008, c-work-003, owner present): the executor CALL c-exec-006 is ready and
+  adversarially hardened (wf_1b929b4e). NEXT = open c-exec-006 as an executor leg in GasCoopGame (branch dev → main
+  when green), OPENING WITH A PLAN, owner present (architecture = that PLAN, not pre-decided): real DA-composed level
+  + ONE real breach + coarse replication + the now-quantity-dependent coarse tier + LIVENESS. The builder does NOT
+  author the CALL (it is framed); the executor leg uses the independent test-author + fresh-session G5 discipline.
 
-  NEXT = frame/shape t-2 (real DA-composed level + breach + coarse replication on the LOCKed stream + the
-  now-quantity-dependent coarse tier), OWNER PRESENT at the PLAN. t-2 binds CR1/CR2/CR3 + GG3/GG4 + IN1/IN2 +
-  OR1/OR3 from the VERIFIED §CONTRACTS (work/converge-g-9c41.md §H). The builder does NOT author the t-2 CALL —
-  the direction frames it (a work/shape session, owner present for the PLAN).
-
-  Carry the 4 t-2 SHAPE INPUTS the t-1 RESULT handed home (do NOT lose):
-    (1) Per-sector room CAPACITY + back-pressure/sink — gives the overflow guard LIVENESS (t-1 guards only
-        CONSISTENCY; a no-sink room is terminal-on-overflow today — the A10-3 finding).
-    (2) Cross-band per-species buoyancy INVERSION — needs PER-SPECIES TEMPERATURE (each gas carrying its own T),
-        a seam DISTINCT from the per-species RATE seam BS4 already names (d-crossband-inv-001).
-    (3) Narrow ADR-0005 BS4 at the t-2 SHAPE (planner action WITH the owner, NOT a builder edit): its "a hot
-        heavy species inverts past a cold light one" prose over-specifies the untested cross-band behaviour the
-        per-band model can't coherently do.
-    (4) openspec lifecycle (L22): apply the c-exec-005 change spec delta to openspec/specs/sim-core/spec.md +
-        archive the change folder (planner-owned spec).
+  The 4 t-1 SHAPE inputs are RESOLVED + carried into c-exec-006:
+    (1) Room-full LIVENESS → DECIDED (d-roomfull-001): closed level + per-room capacity (bound to real DA geometry) +
+        BACK-PRESSURE (clamp [0,capacity]; source idles when full; saturate-and-hold; no throw/overflow/negative,
+        mass-exact). NO sink this wave; sink/venting + doors-break-under-pressure = NAMED future seams.
+    (2) Cross-band per-species inversion → DEFERRED (Р2, d-crossband-inv-001 ratified): build on the per-band model;
+        per-species TEMPERATURE = a named future seam; FORWARD-CONSTRAINT = temperature stays an independent readable
+        layer, never fused into gas (room-temperature map already exists; deferral ≠ "one temperature everywhere").
+    (3) Narrow ADR-0005 BS4 → planner action in c-exec-006 (builder applies the dictated wording; BS4 otherwise frozen;
+        no BS10 weakening — BS10(e) tests per-band rise, not a cross-band sort).
+    (4) openspec L22 → c-exec-006: apply the c-exec-005 delta WITH its spec.md:82 criterion-(b) cross-band claim
+        narrowed in the SAME pass (⚠ the delta STILL restates "past a colder species"; the live spec is grep-clean →
+        a verbatim apply would re-inject it — caught by wf_1b929b4e + owner-eyes-confirmed), then archive. done_when
+        binds "canonical spec ends clean + BS10(e) preserved".
+  Also bound (wf_1b929b4e contract-binding finding): GG1 same-tick-agreement / revision-monotonic / replay-identity on
+  the breach, as its OWN observable (GG3 inherits GG1) — refutable independent of the CR2 hash. amount-on-return =
+  coarse always-on (this wave); the fine intra-room cloud shape (corner front) = Wave 3 (owner-accepted).
 
 END_OF_FILE: live/indie-game-development/NOW.md
