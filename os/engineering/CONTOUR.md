@@ -24,12 +24,13 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 CALL (business task from a direction)
   → PLAN (interactive): the planner first names the change class — module
     boundaries / new module / new dependency / core algorithm (simulation,
-    netcode, determinism) / data formats / perf-critical path / player-
-    perceivable behavior (what the player sees, hears, or feels — how an
-    owned mechanism looks, settles, distributes, sounds) touched =
+    netcode, determinism) / data formats / perf-critical path / user-
+    perceivable behavior (what the person the product is for directly
+    experiences — sees, hears, feels, reads: how a mechanism looks, settles,
+    or sounds; how output is paced, shaped, or phrased) touched =
     architectural: options with a recommendation, an owner conversation,
     an ADR; none touched = light: a short plan, one-message approval. For a
-    player-perceivable change the OBSERVABLE behavior is an owner-signed
+    user-perceivable change the OBSERVABLE behavior is an owner-signed
     acceptance PROPERTY (the implementing formula/magnitude stays HOW, the
     ADR records it) — never a builder default, surfaced beside the
     engineering decisions the owner already confirms.
@@ -41,9 +42,12 @@ CALL (business task from a direction)
     that held in the old regime and, per one, whether this change can falsify
     it — falsifiable ones become failing criteria tested in the new regime;
     (b) name what the spec leaves UNCONSTRAINED (which regimes / actor-counts /
-    seams / player-perceivable regimes — uniform vs gradient field, sparse vs
-    dense, asymmetry) and mark each silence intentional or not — unintended silences
+    seams / user-perceivable regimes — e.g. uniform vs gradient field, sparse
+    vs dense, asymmetry) and mark each silence intentional or not — unintended silences
     become spec lines, since a test can only cover what the spec names.
+    This audit — the marked list — is RECORDED in the change spec, not just discussed:
+    the deliver gate checks its presence (PROJECT_SETUP §Strong-check enablement), so a
+    silence audit that happened only in chat is not enabled and the leg is not deliverable.
     Owner approves the plan. This is the
     owner's last mandatory appearance until the final report.
   → RED TESTS (before build): the test-author (see Roles) writes the failing
