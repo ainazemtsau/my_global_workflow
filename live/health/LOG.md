@@ -36,5 +36,11 @@
 - 2026-06-16 — health/g-health-nutrition-system converge-arch: closed §CONTRACTS NCA0-NCA9 and architecture-on-paper Q1-Q9 for nutrition module on g-health-core; no owner decision batch; no current app/UI/Mealie requirement; next converge-verify. → history/2026-06-16-s-health-nutrition-converge-arch-001.md
 - 2026-06-16 — health/g-health-nutrition-system converge-verify: FAIL; bounced core-review, regular-process, and day_type producer blockers to converge-arch correction. → history/2026-06-16-s-health-nutrition-converge-verify-001.md
 - 2026-06-16 c-health-nutrition-converge-arch-writer-repair-001 repair: fixed writer-inapplicable nutrition converge-arch correction by replacing existing arch file, replacing the whole post-§COVERAGE arch/contract tail, updating NOW.next to converge-verify, and preserving B1-B3 substance.
+- 2026-06-16 — health/g-health-nutrition-system converge-verify after writer-safe repair: PASS.
+  Refutation of corrected architecture/contract surface found no open/deferred/blocker rows; B1 file-backed core binding,
+  B2 operator-invoked procedure seam, and B3 core day_type provenance-only all corrected; no old post-§COVERAGE conflict remains.
+  Next: c-health-nutrition-shape-001.
+- 2026-06-17 — shape g-health-nutrition-system: approved 1-focused-day full-functionality nutrition bet with Deep Research, Health AI module implementation, provider-independent writer handoff, and tomorrow-start review packet.
+- 2026-06-17 — repair g-health-nutrition-system/t-1: corrected next from one-off Deep Research guide to Health AI research-to-program executor capability/bootstrap; old open call replaced. → history/2026-06-17-s-health-nutrition-t1-framing-repair-001.md
 
 END_OF_FILE: live/health/LOG.md

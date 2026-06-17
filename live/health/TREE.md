@@ -120,7 +120,14 @@ root:
           и следующие CALL.
         - Питание встроено в body outcome: оно должно поддерживать снижение веса, достаточную сытость,
           белок, повторяемость и плохие недели, но не превращаться в crash diet или бесконечный research.
-      status: parked
+      status: active
+      appetite: 1 focused day
+      kill_by: >
+        2026-06-18 12:00 Europe/Amsterdam: if there is not a research-backed personalized
+        nutrition program encoded into Health AI nutrition, a full W1-W13/NCA0-NCA9 implementation/
+        evidence surface, provider-independent continuation + writer handoff proof, and a tomorrow-start
+        packet that lets the owner begin nutrition without another architecture session, stop and review/
+        repair instead of extending.
       children: []
 
     - id: g-health-training-activity-system
