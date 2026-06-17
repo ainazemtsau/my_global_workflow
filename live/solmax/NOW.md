@@ -189,6 +189,11 @@ open_calls:
       Premature as previously issued. Blocked until owner resolves or explicitly defers
       Q1-Q15 in `work/converge-g-kernel.md`; then re-issue converge-arch if sibling-bearing
       contracts still need architecture closure.
+  - id: c-converge-kernel-q1-q15
+    status: ready
+    note: |
+      Owner selected A on nc-solmax-g-kernel-q1-q15: hold t-2 and discuss/sign Q1-Q15
+      before freeze W0 kernel API, converge-arch, or t-2.
 
 decision_inbox:
   - q: "Accept TypeScript/Node 22 as the W0 setup stack?"
@@ -201,20 +206,48 @@ decision_inbox:
       - "Keep the product clone at `C:\projects\zaratusta-product`."
       - "Move/rename the existing non-git vault and reclone product repo to `C:\projects\Zaratusta`."
     recommendation: "Keep `C:\projects\zaratusta-product` unless exact local-path alignment matters; the proposed path contains pre-existing user content and is not a git repo."
-  - q: "How should the g-kernel converge white spots Q1-Q15 be handled before t-2?"
-    options:
-      - "Hold t-2 and discuss/sign Q1-Q15 in `work/converge-g-kernel.md`."
-      - "Let t-2 proceed with scaffold defaults and accept drift risk."
-      - "Explicitly approve the candidate recommendations in Q1-Q15 as written."
-    recommendation: "Hold t-2 and discuss/sign Q1-Q15; these choices can freeze the kernel API."
 
 next: |
-  awaiting_decision:
-    owner should resolve how to handle Q1-Q15 in `work/converge-g-kernel.md` before
-    converge-arch or t-2. Recommended: hold t-2 and discuss/sign Q1-Q15.
+  CALL c-converge-kernel-q1-q15
+  to: session
+  direction: solmax
+  play: converge
+  node: g-kernel
+  goal: |
+    Q1-Q15 in work/converge-g-kernel.md are owner-signed WHAT decisions or explicit
+    deferrals, so W0 kernel API routing is no longer blocked by unsigned agenda items.
+  context: |
+    live/solmax/NOW.md
+    live/solmax/work/converge-g-kernel.md
 
-  pending_owner_decisions_before_t-2:
-    owner should still accept or reject the TypeScript/Node W0 stack and choose whether to keep
-    the product clone at `C:\projects\zaratusta-product` before launching t-2.
+    Owner decision already made:
+    - selected: A
+    - owner words: "A"
+    - meaning: hold t-2 and discuss/sign Q1-Q15 by agenda order before t-2.
+
+    Current constraints:
+    - t-1 is done.
+    - t-2 and t-3 are ready but must not be launched as executor tasks before Q1-Q15
+      are resolved or explicitly deferred.
+    - c-converge-arch-kernel-001 remains blocked until Q1-Q15 are resolved or explicitly deferred.
+    - work/converge-g-kernel.md is not an API lock while Q1-Q15 remain unsigned.
+  boundaries: |
+    Do not launch t-2 as an executor task.
+    Do not treat work/converge-g-kernel.md as API lock.
+    Do not re-issue converge-arch while Q1-Q15 remain unresolved or not explicitly deferred.
+    Do not decide Q1-Q15 silently; owner signoff is required for each answered or deferred item.
+  done_when: |
+    Each Q1-Q15 item in work/converge-g-kernel.md has one of:
+    - owner-approved answer;
+    - explicit owner-approved deferral.
+
+    The resulting state makes clear whether converge-arch can be re-issued,
+    whether t-2 remains blocked, and whether work/converge-g-kernel.md can be treated
+    as an API lock.
+  return: |
+    RESULT with outcome/evidence, exact state_changes for NOW.md and work/converge-g-kernel.md,
+    play_check citing owner words for signoff steps, and next routing to either
+    converge-arch, t-2 hold, or another owner decision.
+  budget: one session
 
 END_OF_FILE: live/solmax/NOW.md
