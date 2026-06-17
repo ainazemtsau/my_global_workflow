@@ -75,7 +75,7 @@ tasks:
   - id: t-2
     kind: executor
     repo: ainazemtsau/health-ai
-    status: queued
+    status: done
     goal: >
       Implement the full chat-first Health AI nutrition system as an additive module on g-health-core,
       using the t-1 research/program output.
@@ -123,15 +123,7 @@ tasks:
       RESULT from review session with refutation evidence, pass/fail verdict, blocker_gaps, tomorrow-start packet
       if passed, state_changes, and next CALL.
 
-open_calls:
-  - id: c-health-nutrition-t2-full-module-implementation-001
-    to: executor
-    for: g-health-nutrition-system/t-2 full module implementation
-    issued: 2026-06-17
-    note: >
-      Use accepted source-cited research artifact
-      live/health/work/health-nutrition-first-setup-deep-research-report.json plus health-ai
-      t-1 contracts to implement the full additive nutrition module.
+open_calls: []
 
 recurring: []
 
@@ -146,16 +138,16 @@ decisions:
     owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-t2-full-module-implementation-001
+  CALL c-health-nutrition-t3-provider-continuation-writer-handoff-001
   to: executor
   direction: health
   node: g-health-nutrition-system
-  task: t-2
+  task: t-3
   repo: ainazemtsau/health-ai
   kind: engineering
   goal: |
-    Health AI contains a complete additive nutrition module with a research-backed active program
-    and first executable cycle for the owner.
+    Health AI nutrition can resume provider-independently and hand off durable nutrition changes safely
+    across new AI sessions.
   context: |
     Direction state:
     - live/health/CHARTER.md
@@ -168,44 +160,62 @@ next: |
     Product evidence:
     - health-ai commit ce930bc nutrition t-1: add research-to-program setup
     - pushed to origin/main
+    - health-ai commit 659f0a1 nutrition t-2: add full nutrition module
+    - pushed to origin/main
     - x_nutrition/research/deep-research-packet.md
     - x_nutrition/contracts/deep-research-output.schema.json
     - x_nutrition/contracts/normalizer-contract.md
+    - x_nutrition/research/first-owner-deep-research-report.json
+    - x_nutrition/reference/method-landscape.md
+    - x_nutrition/reference/evidence-reference.md
+    - x_nutrition/programs/active-program.md
+    - x_nutrition/cycles/first-cycle.md
+    - x_nutrition/menus/current-menu-cycle.md
+    - x_nutrition/recipes/first-cycle-base-recipes.md
+    - x_nutrition/grocery/current-grocery-needs.md
+    - x_nutrition/fallbacks/fallback-meals.md
+    - x_nutrition/logs/YYYY-MM-DD.md
+    - x_nutrition/reviews/first-cycle-review.md
+    - x_nutrition/procedures/operator-seams.md
+    - x_nutrition/integration/future-integration-seam.md
     - x_nutrition/state/first-setup-pending.md
+    - x_nutrition/state/normalizer-summary.md
     - acceptance/x_nutrition/research-setup-evidence-summary.md
+    - acceptance/x_nutrition/full-module-matrix.json
+    - acceptance/x_nutrition/full-module-evidence-summary.md
+    - tools/check_nutrition_full_module.py
 
     Current state:
-    - Health AI owns the nutrition research-to-program procedure.
-    - Actual source-cited schema-compatible research report now exists in Direction OS work
-      artifact live/health/work/health-nutrition-first-setup-deep-research-report.json.
-    - The report covers broad method landscape, evidence reference, owner-fact gaps,
-      system-decided variables, active-program blueprint, first-cycle assumptions, safety,
-      tracking/review, refresh triggers, and training-later adaptation.
-    - t-2 should import/save the report into Health AI under x_nutrition/research/,
-      validate it against x_nutrition/contracts/deep-research-output.schema.json, then
-      normalize it through x_nutrition/contracts/normalizer-contract.md.
+    - Health AI owns the nutrition research-to-program procedure and normalized the accepted
+      first owner research report into a complete chat-first nutrition module.
+    - W1-W13, NCA0-NCA9, and B1-B3 are mapped in
+      acceptance/x_nutrition/full-module-matrix.json with blocker_gaps=[].
+    - The full module check reported PASS: 13 report schema sections, 10 methods,
+      10 evidence claims, 10 owner fact gaps retained, 10 refresh triggers, 13/13
+      WHAT rows pass, 10/10 NCA rows pass, 3/3 blocker rows pass, no forbidden
+      infrastructure dirs, no core concept rewrite, and no raw Direction OS nutrition diary.
+    - Core checks remained green and the core registry stayed pending, preserving the
+      no-core-rewrite boundary.
   boundaries: |
     Do not rewrite g-health-core or redefine core-owned profile, phase, metrics, parser,
     PLAN-vs-LOG, procedure template, schema/versioning, or day_type provenance.
-    Do not assume a preselected diet or ask the owner to choose expert variables such as
-    meals/day, deficit, protein, timing, tracking precision, fasting, calorie cycling,
-    diet breaks, or refeeds.
-    Do not reduce t-2 to a generic menu-only answer.
+    Do not assume a preselected diet or ask the owner to choose expert variables.
     Do not diagnose or prescribe medically; keep safety language non-diagnostic.
     Do not require UI/app/vitrine/Mealie/Notion/runtime/DB/server/cron/scheduler/background-worker.
     Do not store raw daily nutrition logs in Direction OS.
   done_when: |
-    Health AI nutrition contains the full functional surface: evidence/reference layer,
-    method landscape, active personalized program, decision framework, owner facts
-    known/pending/defaults, phase rules, first cycle, menu/eating plan, substitutions/swaps,
-    executable recipes/instructions, grocery/prep/base-prep, fallback/lazy meals, food LOG
-    shape, review procedure, mutation decisions, bad-week mode, safety behavior,
-    operator-invoked procedure seams, future integration seam; passes W1-W13/NCA0-NCA9/B1-B3
-    with no core rewrite, no forbidden infrastructure, and no raw Direction OS nutrition diary.
+    AGENTS.md is canonical; CLAUDE.md points to AGENTS.md without conflicting fork; portable
+    SYSTEM/project prompt or equivalent convention explains non-code chat operation;
+    operator/writer/executor/reviewer roles are explicit; generated program/menu/cycle/log/review
+    changes can be represented as file changes; writer-compatible packets/patches include exact
+    files, rationale, active program/cycle references, and checks; writer validates schema,
+    namespace, PLAN-vs-LOG, continuity, W1-W13/NCA0-NCA9/B1-B3, no core rewrite, no forbidden
+    infrastructure, no Direction OS raw diary; bad write attempts are rejected with examples;
+    fresh-chat continuation dry-run passes.
   return: |
-    RESULT with commit/PR, file list, schema validation result, evidence summary, evaluator/check
-    output mapping implementation to W1-W13/NCA0-NCA9/B1-B3, first-cycle artifacts showing owner
-    can begin nutrition, blocker gaps if any, and next CALL.
+    RESULT with commit/PR; AGENTS/CLAUDE/SYSTEM or equivalent carrier changes; writer handoff
+    examples; rejection examples; fresh-chat continuation dry-run evidence; blocker gaps if any;
+    and next CALL.
   budget: one focused half-day
 
 END_OF_FILE: live/health/NOW.md
