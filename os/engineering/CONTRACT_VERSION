@@ -1,0 +1,24 @@
+# os/engineering contract version — the forcing function against silent propagation lag
+
+A single monotonic integer naming the current state of the engineering contract (CONTOUR.md +
+VALIDATION.md + PROJECT_SETUP.md + profiles/**). A **MAINTENANCE session bumps it** (current + one
+log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
+repo records the version it last synced to (`validation.config: synced_contract_version`); PROJECT_SETUP
+stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare the two and flag a repo
+that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
+runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
+
+current: 6
+
+log:
+  6  2026-06-17  a-fix-is-a-change: CONTOUR "A FIX IS A CHANGE", VALIDATION G2 invariants-on-all-paths-incl-failure, G4 classify-by-invariant + enumerate-sibling-sites (FRICTION 92)
+  5  2026-06-17  strong-check enablement: G2 mutation-score + spec-silence-audit as deliver dependencies; "Enabled != written" (FRICTION 90)
+  4  2026-06-16  user-perceivable behavior change-class = owner-signed acceptance PROPERTY at PLAN, not a builder default (FRICTION 88)
+  3  2026-06-15  G4 rubric: value-bearing/measured field asserted == its source (test pins MEANING); negative control shown REACHABLE by a real run (FRICTION 82)
+  2  2026-06-16  independent test-author role: spec-derived RED acceptance tests before build, builder cannot edit them (FRICTION 84)
+  1  2026-06-15  report-handback: RESULT.md deliver-gate + non-negotiable #6; builder never authors the next CALL (FRICTION 79)
+
+# A product repo whose synced_contract_version < current is behind by the listed versions and owes a
+# §Re-sync (PROJECT_SETUP §Re-sync). The compare is integer "<"; the log names exactly what is owed.
+
+END_OF_FILE: os/engineering/CONTRACT_VERSION
