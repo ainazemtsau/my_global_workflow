@@ -51,5 +51,6 @@
 - 2026-06-17 — health nutrition workflow repair: owner rejected first nutrition startup surface as structurally wrong; NOW rerouted from first-cycle shape to converge a strict nutrition workflow graph before execution/training. → history/2026-06-17-s-health-nutrition-workflow-repair-001.md
 
 - 2026-06-17 — s-health-nutrition-workflow-converge-001: closed nutrition workflow graph WHAT overlay for g-health-nutrition-system; route to converge-arch; no nutrition execution.
+- 2026-06-17 — s-health-nutrition-workflow-converge-arch-001: closed workflow graph architecture contracts WGA0-WGA15 for WG1-WG14; route to converge-verify; no nutrition execution.
 
 END_OF_FILE: live/health/LOG.md

@@ -263,13 +263,62 @@ open rows: 0
 deferred rows: 0
 owner decisions needed: 0
 
+## §CONTRACTS — ARCH CLOSURE
+
+source_artifact: `live/health/work/converge-g-health-nutrition-workflow-graph-arch.md`
+status: closed-on-paper; route to converge-verify.
+
+Closed contract index:
+- WGA0 — workflow authority surface: future Health AI product work must add
+  `x_nutrition/workflow/graph.md`, `x_nutrition/state/current-workflow.md`, and
+  `x_nutrition/procedures/workflow-router.md` before nutrition execution.
+- WGA1 — startup/router: router resolves current workflow state before any output-heavy nutrition artifact.
+- WGA2 — state descriptor completeness: every state row carries purpose, inputs, owner facts,
+  AI-decided facts, output artifact class, next state(s), block conditions, and review trigger.
+- WGA3 — canonical transition path: STARTUP_ROUTER -> PROGRAM -> CYCLE -> WEEK_PLAN ->
+  DAY_LOOP -> REVIEW -> MUTATION, with scoped mutation return.
+- WGA4 — program state: program-level artifact only; no menu/recipe/grocery/daily/log/review wall.
+- WGA5 — cycle state: cycle-level artifact only; bounded loop and next state.
+- WGA6 — week plan state: only WEEK_PLAN authorizes menu/recipe/grocery/prep artifact families.
+- WGA7 — day loop state: free-form owner input parses internally to Health AI LOG/writer packet only.
+- WGA8 — review state: one explicit hold/mutate/rebuild/update/refresh/brake/medical-check decision.
+- WGA9 — mutation state: one bounded artifact/rule/state change; split unrelated changes.
+- WGA10 — one-chat-one-task: one state and one bounded output/question/action per chat.
+- WGA11 — owner-facts vs AI-decided facts: only material irreducible owner facts are askable.
+- WGA12 — Direction OS boundary: summary/decision/problem/CALL only upward, no raw diary.
+- WGA13 — seed authority: existing Health AI nutrition artifacts remain seeds until graph-selected.
+- WGA14 — safety/block routing: red flags, material missing facts, stale cursor, ambiguity, and forbidden
+  scope route to explicit block outcomes.
+- WGA15 — writer handoff: workflow-affecting writes validate WG1-WG14 in addition to W/NCA/B rows.
+
+## §ARCH
+
+Architecture decisions closed:
+- Router authority = explicit workflow graph + current-state cursor + operator-invoked router procedure;
+  prompt-only, active-program-as-router, and procedure-only router are rejected.
+- State contract shape = one graph file with required fields per state; per-state file split is PLAN-level HOW.
+- Writer boundary = WG-aware writer packet/handoff; Direction OS remains summary-only and stores no raw logs.
+- Block routing = explicit block table; no silent continuation and no intake/questionnaire wall.
+
+## §OPEN / DEFERRED CHECK — ARCH
+
+open rows: 0
+deferred rows: 0
+blocker rows: 0
+owner decisions needed: 0
+
+contract_coverage: every WG1-WG14 row maps to WGA0-WGA15 in the arch artifact.
+arch_open: 0
+arch_in_context_only: PASS — architecture-on-paper is future shape/executor input evidence only.
+
 ## §ROUTE
 
-Next: converge-arch.
+Next: converge-verify.
 
 Reason:
-- triage is heavy because this is a product-defining workflow/state-machine contract;
-- architecture must map WG1-WG14 to Health AI file/procedure/operator contracts before any executor CALL;
-- shape/execution remains blocked until the workflow graph passes architecture and verification.
+- architecture/contract surface is closed on paper in
+  `live/health/work/converge-g-health-nutrition-workflow-graph-arch.md`;
+- every WG1-WG14 row maps to concrete Health AI state/procedure/file/operator obligations;
+- verification must try to refute the closure before shape or product execution.
 
 END_OF_FILE: live/health/work/converge-g-health-nutrition-workflow-graph.md

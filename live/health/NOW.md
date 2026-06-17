@@ -18,21 +18,21 @@ recurring: []
 decisions: []
 
 next: |
-  CALL c-health-nutrition-workflow-converge-arch-001
+  CALL c-health-nutrition-workflow-converge-verify-001
   to: session
   direction: health
-  play: converge-arch
+  play: converge-verify
   node: g-health-nutrition-system
   goal: |
-    Health AI nutrition has an architecture/contract surface for the newly closed workflow graph
-    WHAT so startup, program, cycle, week plan, day loop, review, and mutation can be implemented
-    without recreating the rejected wall-of-content UX.
+    Health AI nutrition workflow graph architecture closure has survived refutation and is
+    ready for the next routing decision without restarting nutrition execution.
   context: |
     Read:
     - live/health/CHARTER.md
     - live/health/TREE.md
     - live/health/NOW.md
     - live/health/work/converge-g-health-nutrition-workflow-graph.md
+    - live/health/work/converge-g-health-nutrition-workflow-graph-arch.md
     - live/health/work/converge-g-health-nutrition-system.md
     - live/health/work/converge-g-health-nutrition-system-arch.md
     - live/health/knowledge/health-nutrition-system-g5-review.md
@@ -40,39 +40,37 @@ next: |
     - health-ai SYSTEM.md
     - health-ai x_nutrition/index.md
     - health-ai x_nutrition/procedures/operator-seams.md
+    - health-ai x_nutrition/procedures/provider-continuation.md
+    - health-ai x_nutrition/procedures/writer-handoff.md
+    - health-ai x_nutrition/state/first-setup-pending.md
     - health-ai x_nutrition/programs/active-program.md
     - health-ai x_nutrition/cycles/first-cycle.md
     - health-ai x_nutrition/logs/YYYY-MM-DD.md
     - health-ai x_nutrition/reviews/first-cycle-review.md
 
-    Current contradiction:
-    - Nutrition artifacts exist and previously passed G5, but owner rejected the startup UX because
-      it produced a wall of menu/recipe/shopping/log content instead of a strict workflow.
-    - The converge session closed WG1-WG14 as the WHAT overlay for the missing workflow graph.
-    - Existing Health AI nutrition artifacts are seeds/evidence only, not accepted owner-facing
-      workflow UX.
-
-    Required architecture outcome:
-    - Map WG1-WG14 to Health AI file/procedure/operator contracts.
-    - Define how the operator resolves current workflow state and routes one-chat-one-task.
-    - Define architecture boundaries for startup/router, program, cycle, week plan, day loop,
-      review, mutation, block conditions, and writer handoff.
-    - Preserve Direction OS raw-data boundary and Health AI free-form owner input boundary.
+    Closure claims to test:
+    - WG1-WG14 all map to concrete Health AI state/procedure/file/operator obligations
+      in WGA0-WGA15.
+    - No open/deferred/blocker rows remain.
+    - Architecture does not restart nutrition execution or produce menus, recipes,
+      grocery lists, shopping instructions, daily plans, or food logs.
+    - Existing Health AI nutrition artifacts are subordinated to the workflow graph
+      as seeds/evidence, not accepted startup UX.
+    - Direction OS raw-data boundary and Health AI free-form owner input boundary are preserved.
+    - g-health-core ownership is preserved; nutrition owns only namespaced workflow/module state.
+    - No app/UI/runtime/server/database/cron/scheduler/background-worker requirement is introduced.
   boundaries: |
     Do not start nutrition execution.
     Do not produce menus, recipes, grocery lists, shopping instructions, daily plans, or food logs.
     Do not move to training/activity.
-    Do not edit product repo code in this session.
+    Do not edit product repo code.
     Do not ask owner to choose expert nutrition variables.
-    Do not add UI/app/runtime/server/database/cron/scheduler/background-worker requirements.
     Do not rewrite g-health-core or duplicate core-owned concepts.
-    Keep owner-facing output compact; if too large, close with a checkpoint and next CALL.
   done_when: |
-    A closed architecture/contract surface exists for the nutrition workflow graph WHAT:
-    every WG1-WG14 row is mapped to concrete Health AI state/procedure/file/operator contract
-    obligations or explicitly rejected as HOW, with open/deferred/blocker rows equal to zero,
-    and the set is ready for converge-verify.
+    Refutation finds no counterexample to the WG1-WG14 architecture closure, or names the exact
+    blocker row and routes back to repair/converge-arch. Passing output must state open rows 0,
+    deferred rows 0, blocker rows 0, and whether the set can route onward.
   return: |
-    RESULT with architecture artifact changes, coverage WG1-WG14, state_changes, and next CALL.
-  budget: one focused converge-arch session; workflow graph only
+    RESULT with refutation verdict, blocker rows if any, state_changes, and next CALL.
+  budget: one focused converge-verify session; workflow graph architecture only
 END_OF_FILE: live/health/NOW.md
