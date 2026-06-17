@@ -45,6 +45,9 @@ CALL (business task from a direction)
     seams / user-perceivable regimes — e.g. uniform vs gradient field, sparse
     vs dense, asymmetry) and mark each silence intentional or not — unintended silences
     become spec lines, since a test can only cover what the spec names.
+    This audit — the marked list — is RECORDED in the change spec, not just discussed:
+    the deliver gate checks its presence (PROJECT_SETUP §Strong-check enablement), so a
+    silence audit that happened only in chat is not enabled and the leg is not deliverable.
     Owner approves the plan. This is the
     owner's last mandatory appearance until the final report.
   → RED TESTS (before build): the test-author (see Roles) writes the failing

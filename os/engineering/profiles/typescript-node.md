@@ -12,9 +12,12 @@ First created 2026-06-16 (solmax/g-kernel/t-1). Format: `profiles/README.md`.
 ## 2. Default validation.config thresholds
 
 - Retry budget: 3 per gate, then stop and report evidence.
-- Required gates: format, lint, typecheck, boundary, hygiene, tests, deliver report.
+- Required gates: format, lint, typecheck, boundary, hygiene, tests, **G2 diff-scoped mutation
+  (Stryker) ≥ the `mutation_kill_floor` config key, score recorded for the deliver check**, deliver report.
 - Deliver report path: root `RESULT.md`, with required fields:
   outcome, evidence, assumptions, cuts, cost, manual-acceptance, next.
+- Deliver (`-Deliver`/equivalent) also enforces the strong-check enablement gate (PROJECT_SETUP §Strong-check
+  enablement): recorded mutation score ≥ floor + a non-empty spec-silence-audit section in the frozen change spec.
 
 ## 3. Test layout
 

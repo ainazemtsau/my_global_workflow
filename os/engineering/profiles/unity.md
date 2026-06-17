@@ -15,7 +15,12 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
 ## 2. Default validation.config thresholds
 - Retry budget 3/gate; non-convergence = same failure class twice → stop.
 - Gates: `dotnet build core/<Game>.Core.csproj` (boundary), `dotnet test <testproj>` (headless),
-  hygiene script.
+  hygiene script, **G2 diff-scoped mutation (Stryker.NET on the headless core) ≥ the
+  `mutation_kill_floor` config key — score recorded for the deliver check** (this runs on the
+  engine-free core, so it needs NO Unity license; only PlayMode/EditMode CI is deferred).
+- Deliver (`pwsh tools/check.ps1 -Deliver`) also enforces the strong-check enablement gate
+  (PROJECT_SETUP §Strong-check enablement): recorded mutation score ≥ floor + a non-empty
+  spec-silence-audit section in the frozen change spec — `dotnet test` passing is NOT G2 on its own.
 - **Unity PlayMode/EditMode CI (GameCI + license secret) DEFERRED** until engine-dependent tests
   exist — core logic is tested headless without a Unity license.
 
