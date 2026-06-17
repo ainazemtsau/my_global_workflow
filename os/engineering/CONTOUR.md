@@ -68,6 +68,18 @@ CALL (business task from a direction)
     attempt. ≤2 retries in-context; then one fresh-context retry with a
     rewritten prompt; the same finding class recurring twice = non-convergence
     → stop early. Hard cap: 3 retries per gate.
+  → A FIX IS A CHANGE, not a patch: a fix made during VALIDATE/RETRY that ADDS
+    or CHANGES behavior (a new guard, a reordering, a check that can throw) re-
+    triggers the spec-hardening checks (a)/(b) on the fix — explicitly on the
+    NEW failure/exception paths it introduces: a guard that throws must keep the
+    old-regime invariants (tick atomicity, conservation, non-negativity) intact
+    ON the throw path, and each becomes a failing criterion the test-author
+    writes RED before the fix (builder makes it pass, cannot edit it — #2).
+    Classify a finding by the INVARIANT it violates, not its surface site:
+    fixing the reported instance without its class's invariant is non-convergence
+    by construction — the invariant resurfaces at the next site (per-actor →
+    per-transfer → per-tick), which the non-convergence rule above must then
+    catch as ONE recurring class, not three new findings.
   → ESCALATE (the only mid-run owner contact): retry budget exhausted,
     non-convergence, a decision outside the approved plan (new dependency,
     scope change, irreversible action), or sandbox/permission boundary hit.
