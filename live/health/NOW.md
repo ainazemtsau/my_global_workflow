@@ -42,8 +42,9 @@ active_bet:
     medical-safety: task via t-1/t-2/t-4
     ai-system-data-architecture: task via t-2/t-3/t-4
   riskiest_assumption: >
-    Broad Deep Research can be converted into an actionable personalized nutrition program without hardcoding
-    a narrow diet answer or leaving a dead research report.
+    Health AI nutrition can own a repeatable research-to-program procedure: request broad Deep Research,
+    normalize it into an actionable active program, persist it in GitHub-state, and refresh it later
+    without turning research into an external one-off.
   acceptance_evaluator_surface:
     what_rows: W1-W13 copied from signed nutrition WHAT in work/converge-g-health-nutrition-system.md
     contract_rows: NCA0-NCA9 copied from corrected architecture in work/converge-g-health-nutrition-system-arch.md
@@ -54,20 +55,23 @@ active_bet:
 
 tasks:
   - id: t-1
-    kind: guide
-    surface: ChatGPT Deep Research
+    kind: executor
+    repo: ainazemtsau/health-ai
     status: active
     goal: >
-      Run broad Deep Research and normalize it into a personalized active nutrition program for the owner.
+      Implement Health AI nutrition's research-to-program procedure and use it to bootstrap the first
+      personalized nutrition program flow.
     done_when: >
-      Deep Research maps the current evidence landscape without assuming a preselected diet; compares relevant
-      method families; synthesizes evidence brief, method reference, personalized active program, no-training
-      initial phase, training-start adaptation rules, system-decided expert variables, askable owner facts,
-      first-cycle design rules, tracking/review framework, safety boundaries, refresh triggers, and implementation
-      handoff for Health AI nutrition.
+      Health AI nutrition has a research-backed setup/refresh procedure; the procedure can generate a broad
+      Deep Research request/prompt with expected output schema; it defines how Deep Research output is normalized
+      into evidence base, method landscape, active nutrition program, first-cycle assumptions, safety boundaries,
+      tracking/review framework, refresh triggers, and writer-compatible Health AI nutrition file changes; it
+      supports first owner setup and later targeted refreshes; if an actual Deep Research report is unavailable,
+      the output is an owner/operator-ready Deep Research packet plus explicit pending state, not invented research
+      conclusions.
     evidence_expected: >
-      Research brief with source citations, method landscape/reference, personalized program spec, decision framework,
-      uncertainty notes, refresh triggers, and implementation handoff artifact suitable for t-2.
+      Commit/PR, file list, research-to-program procedure, broad Deep Research prompt and output schema,
+      normalizer contract, first-setup/pending-state evidence, writer-compatible change examples, and checks.
   - id: t-2
     kind: executor
     repo: ainazemtsau/health-ai
@@ -120,12 +124,12 @@ tasks:
       if passed, state_changes, and next CALL.
 
 open_calls:
-  - id: c-health-nutrition-t1-deep-research-program-001
-    to: session
+  - id: c-health-nutrition-t1-research-program-procedure-001
+    to: executor
     for: t-1
     issued: 2026-06-17
     note: >
-      Guide session for the broad ChatGPT Deep Research work packet and personalized active nutrition program.
+      Implement Health AI nutrition research-to-program procedure/bootstrap in the product repo.
 
 recurring: []
 
@@ -140,14 +144,15 @@ decisions:
     owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-t1-deep-research-program-001
-  to: session
+  CALL c-health-nutrition-t1-research-program-procedure-001
+  to: executor
   direction: health
-  play: guide
   node: g-health-nutrition-system  task: t-1
+  repo: ainazemtsau/health-ai
+  kind: engineering
   goal: |
-    Produce and run/prepare the broad ChatGPT Deep Research work needed to create an evidence-backed,
-    personalized active nutrition program for the owner.
+    Health AI nutrition has a first-class research-to-program setup/refresh procedure, and the first owner
+    nutrition setup is bootstrapped through that procedure or left as an explicit pending Deep Research packet.
   context: |
     Read:
     - live/health/CHARTER.md
@@ -161,6 +166,14 @@ next: |
     - health-ai core/procedures/template-contract.md
     - health-ai core/provenance/day-type.md
 
+    Correction:
+    Deep Research must not be treated as external one-off prep before Health AI nutrition exists.
+    Health AI nutrition must own the research-to-program process: decide when research is needed,
+    generate a broad Deep Research request, define the expected output schema, normalize the report into
+    evidence/reference/program artifacts, persist those artifacts in GitHub-state, and support later targeted
+    refreshes when training, plateau, hunger, medical constraints, travel, bad weeks, or maintenance transition
+    make existing evidence insufficient.
+
     Owner profile known from charter:
     male, 35, 182 cm, 125 kg, BMI about 37.7; goal is sustainable weight loss toward 90-95 kg,
     strength/muscle/energy protection, long-term adherence and maintenance. Owner has sport/diet experience,
@@ -168,35 +181,38 @@ next: |
 
     Shape requirements:
     - No nutrition feature cuts.
-    - Use broad Deep Research, not a hardcoded narrow diet prompt.
+    - Health AI nutrition has research capability as a first-class procedure, not a one-time external report.
+    - Use broad Deep Research through that procedure, not a hardcoded narrow diet prompt.
     - Do not assume a preselected diet.
-    - Produce research brief + method landscape/reference + personalized active nutrition program +
-      implementation handoff for Health AI nutrition.
+    - Produce the procedure, prompt/schema, normalizer contract, and first setup/bootstrap path for:
+      research brief + method landscape/reference + personalized active nutrition program.
     - Program must support no structured training initially and adaptation when training starts later.
     - Expert variables are system-decided; ask only irreducible owner facts.
     - Output must be suitable for t-2 implementation as Health AI nutrition module on g-health-core.
   boundaries: |
-    Do not implement product repo code.
-    Do not create a generic menu-only answer.
+    Do not fake Deep Research if an actual Deep Research report is not available.
+    Do not make research an external one-off outside Health AI nutrition.
+    Do not create a generic menu-only answer or hardcode a preselected diet.
     Do not ask owner to choose expert variables such as meals/day, deficit, protein, timing,
     tracking precision, intermittent fasting, calorie cycling, diet breaks, or refeeds.
     Do not prescribe medically or diagnose.
+    Do not rewrite g-health-core.
     Do not add UI/app/vitrine/Mealie/Notion/runtime/DB/server/cron/scheduler/background-worker requirements.
     Do not store raw daily nutrition logs in Direction OS.
   done_when: |
-    - A self-contained Deep Research prompt/work packet exists and is broad enough to discover the relevant
-      method landscape rather than confirm a preselected approach.
-    - Deep Research output or ready-to-run packet covers:
-      evidence landscape, method comparison, applicability to owner, use_now/later_option/reject decisions,
-      personalized active nutrition program, no-training initial phase, training-start adaptation rules,
-      system-decided expert variables, askable owner facts, first-cycle design rules, tracking/review framework,
-      safety boundaries, refresh triggers, and Health AI implementation handoff.
-    - If actual Deep Research cannot be run inside this session/surface, return the exact ready-to-run Deep Research
-      prompt plus expected output schema and next CALL for implementation after owner supplies the report.
+    - Nutrition has a research-backed setup/refresh procedure in the Health AI nutrition namespace.
+    - The procedure can generate a broad Deep Research prompt and expected output schema without assuming a
+      preselected diet.
+    - The procedure defines how Deep Research output becomes method landscape, evidence reference, active
+      nutrition program, first cycle assumptions, safety boundaries, tracking/review framework, refresh triggers,
+      and writer-compatible file changes.
+    - It supports first owner setup and later targeted refreshes.
+    - If the actual report is missing, the repo contains an owner/operator-ready Deep Research packet and explicit
+      pending state, not invented research conclusions.
   return: |
-    RESULT with Deep Research prompt/report, normalized program spec, method landscape, implementation handoff,
-    state_changes, and next CALL.
-  budget: one tight guide/research movement
-  surface: ChatGPT Deep Research
+    RESULT with commit/PR, file list, checks, research-to-program procedure, prompt/schema, normalizer contract,
+    first setup/bootstrap or pending Deep Research packet evidence, state_changes, and next CALL.
+  budget: one focused executor movement
+  surface: coding agent in health-ai product repo
 
 END_OF_FILE: live/health/NOW.md

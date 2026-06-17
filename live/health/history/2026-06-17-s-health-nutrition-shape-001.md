@@ -784,3 +784,5 @@ next: |
     state_changes, and next CALL.
   budget: one tight guide/research movement
   surface: ChatGPT Deep Research
+
+END_OF_FILE: live/health/history/2026-06-17-s-health-nutrition-shape-001.md

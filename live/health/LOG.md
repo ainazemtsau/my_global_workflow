@@ -41,5 +41,6 @@
   B2 operator-invoked procedure seam, and B3 core day_type provenance-only all corrected; no old post-§COVERAGE conflict remains.
   Next: c-health-nutrition-shape-001.
 - 2026-06-17 — shape g-health-nutrition-system: approved 1-focused-day full-functionality nutrition bet with Deep Research, Health AI module implementation, provider-independent writer handoff, and tomorrow-start review packet.
+- 2026-06-17 — repair g-health-nutrition-system/t-1: corrected next from one-off Deep Research guide to Health AI research-to-program executor capability/bootstrap; old open call replaced. → history/2026-06-17-s-health-nutrition-t1-framing-repair-001.md
 
 END_OF_FILE: live/health/LOG.md
