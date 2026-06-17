@@ -441,6 +441,33 @@ decision_inbox:
       filling, collapse to coarse-only once filled (gas does NOT evaporate, for now — keep the seam extensible). A
       focused deep-research on cheap off-screen field reconstruction / lazy field seeding / analytic front propagation
       is DEFERRED to the Wave-3 shape (owner: «deep ресёрч очень не нужен» now). Relates to s-arch-003 lazy-seeding.
+  - id: d-crossband-inv-001
+    status: answered   # owner 2026-06-17 (s-decide-005) — accepts the disposition: per-band model is correct, Codex P1 fix rejected as oscillating; per-species TEMPERATURE = the future seam
+    note: |
+      Codex P1 on the t-1 REBUILD (CoarseBandStep.Settle, capacity-fill+overflow): the lower band fills
+      densest-first in species-id order throttled by the LOWER band's OWN temperature, NOT a per-species
+      cross-band `eff` sort — Codex claimed the latter is needed for hot-heavy-past-cold-light inversion.
+      DECIDED (owner «принимаю рекомендацию»):
+      (1) NO code change — the per-band capacity-throttle + species-id fill is the COHERENT model and matches
+          d-fillmodel-001 ("layer by density, heaviest at the bottom"; within a band `eff` is monotone in id,
+          so densest-first == id order). Codex's cross-band-`eff` sort is REJECTED: temperature is a per-BAND-cell
+          property, so a cross-band per-species sort has NO fixed point — period-2 oscillation (re-verified this
+          session in code + arithmetic: eff(0,260)=1 vs eff(3,0)=8 → swap → eff(3,260)=1 vs eff(0,0)=64 → swap
+          back, against CoarseBandStep.cs:187-252 + the frozen BS4 eff law — NOT taken on the executor's word).
+          Applying the reviewer's fix would INTRODUCE the bug.
+      (2) The frozen BS4 prose "a hot heavy species inverts past a cold light one" over-specifies that incoherent
+          cross-band behaviour and is UNTESTED (the throttle delivers "hot floor drives gas up"; it does NOT
+          deliver "this gas overtakes that specific colder gas"). NARROW it to the per-band-throttle model — but
+          BS4 is builder-IMMUTABLE/frozen, so the narrowing is a PLANNER action at the t-2 SHAPE (owner present),
+          NOT a t-1 builder edit. ADR-0005 §Verdict already records the disposition + flags it home.
+      (3) NAMED FUTURE SEAM (recorded so it is not lost — owner: «обязательно занести, чтобы не забыть»): true
+          cross-band per-species inversion needs EACH GAS TO CARRY ITS OWN TEMPERATURE (per-species temperature),
+          not the band's. DISTINCT from the per-species buoyancy RATE seam BS4 already names; both sit on the
+          per-species-buoyancy line. Add per-species temperature to the BS4 named seam at the t-2 shape.
+      (4) Kill-gate VERDICT (ADR-0005 §Verdict = PASS_WITH_NITS; 198/198, mutation 76.76%, fresh-session G5 PASS,
+          owner multi-quantity legibility PASS) is owner-CONFIRMED → merge-go. The FORMAL t-1→t-2 close lands when
+          the executor RESULT comes home (paste it to close c-exec-005/t-1). See memory
+          gascoopgame-buoyancy-perband-ratified + ADR-0005 §Verdict. → history/s-decide-005.md
 
 next: |
   ⚠ SUPERSEDED 2026-06-16 (s-decide-004) — the t-1 leg below RAN and its kill-gate PASS is OVERTURNED (owner
