@@ -92,7 +92,7 @@ tasks:
   - id: t-3
     kind: executor
     repo: ainazemtsau/health-ai
-    status: queued
+    status: done
     goal: >
       Add provider-independent continuation and writer handoff for nutrition so new ChatGPT/Claude/Codex sessions
       can resume from GitHub-state and durable changes pass writer validation.
@@ -138,16 +138,15 @@ decisions:
     owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-t3-provider-continuation-writer-handoff-001
-  to: executor
+  CALL c-health-nutrition-t4-review-tomorrow-start-001
+  to: session
   direction: health
+  play: review
   node: g-health-nutrition-system
-  task: t-3
-  repo: ainazemtsau/health-ai
-  kind: engineering
+  task: t-4
   goal: |
-    Health AI nutrition can resume provider-independently and hand off durable nutrition changes safely
-    across new AI sessions.
+    Full Health AI nutrition system is verified or refuted against the shaped bet, and if it passes
+    the owner has a tomorrow-start nutrition packet.
   context: |
     Direction state:
     - live/health/CHARTER.md
@@ -158,44 +157,28 @@ next: |
     - live/health/work/health-nutrition-first-setup-deep-research-report.json
 
     Product evidence:
-    - health-ai commit ce930bc nutrition t-1: add research-to-program setup
-    - pushed to origin/main
-    - health-ai commit 659f0a1 nutrition t-2: add full nutrition module
-    - pushed to origin/main
-    - x_nutrition/research/deep-research-packet.md
-    - x_nutrition/contracts/deep-research-output.schema.json
-    - x_nutrition/contracts/normalizer-contract.md
-    - x_nutrition/research/first-owner-deep-research-report.json
-    - x_nutrition/reference/method-landscape.md
-    - x_nutrition/reference/evidence-reference.md
-    - x_nutrition/programs/active-program.md
-    - x_nutrition/cycles/first-cycle.md
-    - x_nutrition/menus/current-menu-cycle.md
-    - x_nutrition/recipes/first-cycle-base-recipes.md
-    - x_nutrition/grocery/current-grocery-needs.md
-    - x_nutrition/fallbacks/fallback-meals.md
-    - x_nutrition/logs/YYYY-MM-DD.md
-    - x_nutrition/reviews/first-cycle-review.md
-    - x_nutrition/procedures/operator-seams.md
-    - x_nutrition/integration/future-integration-seam.md
-    - x_nutrition/state/first-setup-pending.md
-    - x_nutrition/state/normalizer-summary.md
-    - acceptance/x_nutrition/research-setup-evidence-summary.md
+    - health-ai commit ce930bc nutrition t-1: add research-to-program setup; pushed to origin/main
+    - health-ai commit 659f0a1 nutrition t-2: add full nutrition module; pushed to origin/main
+    - health-ai commit b421b94 nutrition t-3: add provider continuation handoff; pushed to origin/main
+    - AGENTS.md canonical provider-independent operating contract
+    - CLAUDE.md pointer to AGENTS.md without independent fork
+    - SYSTEM.md portable prompt with non-code chat writer-packet behavior
+    - x_nutrition/procedures/provider-continuation.md
+    - x_nutrition/procedures/writer-handoff.md
+    - x_nutrition/handoffs/writer-packet-examples.md
+    - acceptance/x_nutrition/provider-continuation-matrix.json
+    - acceptance/x_nutrition/provider-continuation-dry-run.md
+    - tools/check_nutrition_continuation.py
     - acceptance/x_nutrition/full-module-matrix.json
     - acceptance/x_nutrition/full-module-evidence-summary.md
-    - tools/check_nutrition_full_module.py
 
-    Current state:
-    - Health AI owns the nutrition research-to-program procedure and normalized the accepted
-      first owner research report into a complete chat-first nutrition module.
-    - W1-W13, NCA0-NCA9, and B1-B3 are mapped in
-      acceptance/x_nutrition/full-module-matrix.json with blocker_gaps=[].
-    - The full module check reported PASS: 13 report schema sections, 10 methods,
-      10 evidence claims, 10 owner fact gaps retained, 10 refresh triggers, 13/13
-      WHAT rows pass, 10/10 NCA rows pass, 3/3 blocker rows pass, no forbidden
-      infrastructure dirs, no core concept rewrite, and no raw Direction OS nutrition diary.
-    - Core checks remained green and the core registry stayed pending, preserving the
-      no-core-rewrite boundary.
+    Current checks from t-3:
+    - python tools/check_acceptance_matrix.py: PASS; acceptance rows 17, contract rows 9, blocker gaps 0
+    - python tools/check_core_slice.py: PASS; core files 32, PLAN/LOG fixture separation ok, forbidden runtime dirs absent
+    - python tools/check_core_evidence.py: PASS; dry-run scenarios 11, acceptance/contract rows 26 pass, blocker gaps 0
+    - python tools/check_nutrition_research_setup.py: PASS; required artifacts 8, blocker gaps 0, actual report normalized
+    - python tools/check_nutrition_full_module.py: PASS; W1-W13, NCA0-NCA9, B1-B3 pass, blocker gaps 0
+    - python tools/check_nutrition_continuation.py: PASS; 8 rows pass, blocker gaps 0, fresh-chat continuation dry-run pass
   boundaries: |
     Do not rewrite g-health-core or redefine core-owned profile, phase, metrics, parser,
     PLAN-vs-LOG, procedure template, schema/versioning, or day_type provenance.
@@ -204,18 +187,15 @@ next: |
     Do not require UI/app/vitrine/Mealie/Notion/runtime/DB/server/cron/scheduler/background-worker.
     Do not store raw daily nutrition logs in Direction OS.
   done_when: |
-    AGENTS.md is canonical; CLAUDE.md points to AGENTS.md without conflicting fork; portable
-    SYSTEM/project prompt or equivalent convention explains non-code chat operation;
-    operator/writer/executor/reviewer roles are explicit; generated program/menu/cycle/log/review
-    changes can be represented as file changes; writer-compatible packets/patches include exact
-    files, rationale, active program/cycle references, and checks; writer validates schema,
-    namespace, PLAN-vs-LOG, continuity, W1-W13/NCA0-NCA9/B1-B3, no core rewrite, no forbidden
-    infrastructure, no Direction OS raw diary; bad write attempts are rejected with examples;
-    fresh-chat continuation dry-run passes.
+    Separate review checks t-1 through t-3 evidence; reports pass/fail for broad Deep Research quality,
+    personalized active nutrition program, full W1-W13 functionality, NCA0-NCA9, B1-B3, no functionality cuts,
+    no core rewrite, no forbidden app/runtime/server/DB/cron/scheduler/background-worker, no raw Direction OS diary,
+    and provider-independent continuation + writer handoff; if blocker_gaps=0, produces tomorrow-start packet with
+    what to eat tomorrow, what to buy/prep, fallback, how to log, what to write AI in the evening, and when/how first
+    nutrition review happens.
   return: |
-    RESULT with commit/PR; AGENTS/CLAUDE/SYSTEM or equivalent carrier changes; writer handoff
-    examples; rejection examples; fresh-chat continuation dry-run evidence; blocker gaps if any;
-    and next CALL.
+    RESULT from review session with refutation evidence, pass/fail verdict, blocker_gaps, tomorrow-start packet
+    if passed, state_changes, and next CALL.
   budget: one focused half-day
 
 END_OF_FILE: live/health/NOW.md
