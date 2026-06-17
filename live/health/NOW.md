@@ -4,6 +4,13 @@ active_bet:
   id: b-health-nutrition-system-full-001
   node: g-health-nutrition-system
   status: active
+  review_status: binding_g5_met_pending_owner_close_decision
+  review_checkpoint: 2026-06-17 s-health-nutrition-t4-review-tomorrow-start-001
+  product_evidence_status: clean_binding_g5_met
+  product_blocker_gaps: 0
+  binding_g5_status: met
+  verdict: met
+  tomorrow_start_packet_status: produced
   appetite: 1 focused day
   started_from_call: c-health-nutrition-shape-001
   owner_approved: >
@@ -109,7 +116,7 @@ tasks:
   - id: t-4
     kind: session
     play: review
-    status: queued
+    status: done
     goal: >
       Refute or verify the full nutrition system against the shaped bet, then produce the tomorrow-start packet.
     done_when: >
@@ -136,66 +143,79 @@ decisions:
     status: resolved
     owner_choice: A
     owner_words: "A"
+  - id: d-health-nutrition-close-and-next-bet-001
+    status: awaiting_owner
+    question: >
+      Approve closing g-health-nutrition-system as done based on binding G5 verdict=met,
+      and choose the next health bet posture?
+    options:
+      - A: Approve nutrition system done; add/shape first real Health AI nutrition execution cycle next.
+      - B: Approve nutrition system done; shape g-health-training-activity-system next.
+      - C: Approve nutrition system done; pause new Direction OS bets after the tomorrow-start packet.
+    recommendation: A
+    activation_condition: immediate after s-health-nutrition-t4-review-tomorrow-start-001
+    pending_owner_approved_tree_diff: >
+      On A/B/C, set g-health-nutrition-system.status active -> done. On A, also add parked node
+      g-health-first-nutrition-cycle under g-health-root before shaping it.
+    pending_new_node_card_on_A:
+      id: g-health-first-nutrition-cycle
+      goal: >
+        Первые 8 дней питания реально выполнены через Health AI nutrition: owner стартовал по
+        tomorrow-start packet, вёл Health AI-only nutrition LOG, прошёл day-3 safety/friction check
+        и day-8 review, а Direction OS получил только summary/decision/problem без raw food diary.
+      why: >
+        Реальная body-value начинается не от внедрённого модуля, а от первого выдержанного цикла;
+        этот узел тестирует adherence, logging, fallback и review loop до следующей системной стройки.
+      done_when:
+        - Owner начал питание по Health AI nutrition first cycle.
+        - Day-3 safety/friction check выполнен и не выявил blocker red flags, либо включил conservative branch.
+        - Day-8 first-cycle review выполнен в Health AI по LOG summaries, owner feedback and core metrics.
+        - Direction OS не содержит raw daily food logs/photos/check-ins; только summary, decisions, problems, and next CALL.
+      status: parked
 
 next: |
-  CALL c-health-nutrition-t4-review-tomorrow-start-001
-  to: session
-  direction: health
-  play: review
-  node: g-health-nutrition-system
-  task: t-4
-  goal: |
-    Full Health AI nutrition system is verified or refuted against the shaped bet, and if it passes
-    the owner has a tomorrow-start nutrition packet.
-  context: |
-    Direction state:
-    - live/health/CHARTER.md
-    - live/health/TREE.md
-    - live/health/NOW.md
-    - live/health/work/converge-g-health-nutrition-system.md
-    - live/health/work/converge-g-health-nutrition-system-arch.md
-    - live/health/work/health-nutrition-first-setup-deep-research-report.json
+  awaiting_decision d-health-nutrition-close-and-next-bet-001
 
-    Product evidence:
-    - health-ai commit ce930bc nutrition t-1: add research-to-program setup; pushed to origin/main
-    - health-ai commit 659f0a1 nutrition t-2: add full nutrition module; pushed to origin/main
-    - health-ai commit b421b94 nutrition t-3: add provider continuation handoff; pushed to origin/main
-    - AGENTS.md canonical provider-independent operating contract
-    - CLAUDE.md pointer to AGENTS.md without independent fork
-    - SYSTEM.md portable prompt with non-code chat writer-packet behavior
-    - x_nutrition/procedures/provider-continuation.md
-    - x_nutrition/procedures/writer-handoff.md
-    - x_nutrition/handoffs/writer-packet-examples.md
-    - acceptance/x_nutrition/provider-continuation-matrix.json
-    - acceptance/x_nutrition/provider-continuation-dry-run.md
-    - tools/check_nutrition_continuation.py
-    - acceptance/x_nutrition/full-module-matrix.json
-    - acceptance/x_nutrition/full-module-evidence-summary.md
+  recommended_next_on_A:
+    CALL c-health-first-nutrition-cycle-shape-001
+    to: session
+    direction: health
+    play: shape
+    node: g-health-first-nutrition-cycle
+    goal: |
+      The first real Health AI nutrition execution cycle is ready as the next health bet.
+    context: |
+      Requires owner decision A from d-health-nutrition-close-and-next-bet-001.
+      s-health-nutrition-t4-review-tomorrow-start-001 returned binding G5 verdict met for
+      g-health-nutrition-system, blocker_gaps=0, and a tomorrow-start packet.
 
-    Current checks from t-3:
-    - python tools/check_acceptance_matrix.py: PASS; acceptance rows 17, contract rows 9, blocker gaps 0
-    - python tools/check_core_slice.py: PASS; core files 32, PLAN/LOG fixture separation ok, forbidden runtime dirs absent
-    - python tools/check_core_evidence.py: PASS; dry-run scenarios 11, acceptance/contract rows 26 pass, blocker gaps 0
-    - python tools/check_nutrition_research_setup.py: PASS; required artifacts 8, blocker gaps 0, actual report normalized
-    - python tools/check_nutrition_full_module.py: PASS; W1-W13, NCA0-NCA9, B1-B3 pass, blocker gaps 0
-    - python tools/check_nutrition_continuation.py: PASS; 8 rows pass, blocker gaps 0, fresh-chat continuation dry-run pass
-  boundaries: |
-    Do not rewrite g-health-core or redefine core-owned profile, phase, metrics, parser,
-    PLAN-vs-LOG, procedure template, schema/versioning, or day_type provenance.
-    Do not assume a preselected diet or ask the owner to choose expert variables.
-    Do not diagnose or prescribe medically; keep safety language non-diagnostic.
-    Do not require UI/app/vitrine/Mealie/Notion/runtime/DB/server/cron/scheduler/background-worker.
-    Do not store raw daily nutrition logs in Direction OS.
-  done_when: |
-    Separate review checks t-1 through t-3 evidence; reports pass/fail for broad Deep Research quality,
-    personalized active nutrition program, full W1-W13 functionality, NCA0-NCA9, B1-B3, no functionality cuts,
-    no core rewrite, no forbidden app/runtime/server/DB/cron/scheduler/background-worker, no raw Direction OS diary,
-    and provider-independent continuation + writer handoff; if blocker_gaps=0, produces tomorrow-start packet with
-    what to eat tomorrow, what to buy/prep, fallback, how to log, what to write AI in the evening, and when/how first
-    nutrition review happens.
-  return: |
-    RESULT from review session with refutation evidence, pass/fail verdict, blocker_gaps, tomorrow-start packet
-    if passed, state_changes, and next CALL.
-  budget: one focused half-day
+      On owner approval, writer should:
+      - mark g-health-nutrition-system done in TREE/NOW;
+      - add parked node g-health-first-nutrition-cycle from pending_new_node_card_on_A;
+      - clear decision d-health-nutrition-close-and-next-bet-001;
+      - make this CALL the next ready CALL.
+
+      Read:
+      - live/health/CHARTER.md
+      - live/health/TREE.md
+      - live/health/NOW.md
+      - live/health/knowledge/health-nutrition-system-g5-review.md
+      - health-ai x_nutrition/programs/active-program.md
+      - health-ai x_nutrition/cycles/first-cycle.md
+      - health-ai x_nutrition/menus/current-menu-cycle.md
+      - health-ai x_nutrition/logs/YYYY-MM-DD.md
+      - health-ai x_nutrition/reviews/first-cycle-review.md
+    boundaries: |
+      Do not store raw daily food logs, photos, or check-ins in Direction OS.
+      Do not rebuild the nutrition architecture.
+      Do not build product repo code unless a later executor CALL asks for it.
+      Do not ask owner to choose expert nutrition variables.
+      Do not make medical diagnoses or prescriptions.
+    done_when: |
+      A shaped bet exists for the first real Health AI nutrition execution cycle,
+      with appetite, kill_by, cut list, lens sweep, tasks, and a next CALL.
+    return: |
+      RESULT with shaped bet, state_changes, decisions_needed, and next CALL.
+    budget: one focused shape session
 
 END_OF_FILE: live/health/NOW.md
