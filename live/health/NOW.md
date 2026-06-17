@@ -18,68 +18,59 @@ recurring: []
 decisions: []
 
 next: |
-  CALL c-health-nutrition-workflow-converge-001
+  CALL c-health-nutrition-workflow-converge-verify-001
   to: session
   direction: health
-  play: converge
+  play: converge-verify
   node: g-health-nutrition-system
   goal: |
-    Health AI nutrition has an owner-approved workflow contract that makes program, cycle,
-    week, day, review, and mutation states unambiguous before any nutrition execution starts.
+    Health AI nutrition workflow graph architecture closure has survived refutation and is
+    ready for the next routing decision without restarting nutrition execution.
   context: |
-    Current visible contradiction:
-    - Direction OS NOW previously routed to shape/start the first real nutrition execution cycle.
-    - Owner tested the Health AI nutrition startup surface and rejected it as structurally wrong:
-      it produced a wall of menu/recipe/shopping/log content instead of a strict workflow.
-    - Owner requirement: nutrition must work like a defined operating workflow/graph, not
-      "AI decides somehow"; one chat should solve one bounded question/task and avoid walls.
-
-    Owner words from the repair trigger:
-    - "у нас должен быть чёткий, понятный рабочий процесс, условно, как наш воркоп"
-    - "каждый шаг должен быть определен чётко, куда он идёт, что после него"
-    - "никакого вот этого ... AI как-то порешает"
-    - "в чате должно быть, что условно один чат, он решает только один вопрос"
-
-    Treat existing health-ai nutrition artifacts as implementation/research seeds, not as an
-    accepted owner-facing execution workflow:
-    - health-ai commit 2a3988f fixed only free-form logging leakage; it did not solve the
-      missing workflow graph.
-    - Existing active program/menu/grocery/fallback/log/review files may be used as evidence
-      and raw material, but the next session must not assume they are accepted UX or execution flow.
-
-    Required workflow concepts to resolve:
-    - Program: a larger outcome arc, e.g. 12 weeks or several months, with success criteria.
-    - Cycle: a bounded execution loop inside a program, potentially weekly.
-    - Week plan: menu/food plan built with owner participation before execution.
-    - Day loop: free-form owner updates parsed internally; no owner-facing templates.
-    - Reviews: day/week/cycle/program reviews with explicit mutation rules.
-    - State graph: each state names purpose, inputs, owner-provided facts, AI-decided facts,
-      output artifact, next state, stop/block conditions, and review trigger.
-
     Read:
     - live/health/CHARTER.md
     - live/health/TREE.md
     - live/health/NOW.md
+    - live/health/work/converge-g-health-nutrition-workflow-graph.md
+    - live/health/work/converge-g-health-nutrition-workflow-graph-arch.md
     - live/health/work/converge-g-health-nutrition-system.md
     - live/health/work/converge-g-health-nutrition-system-arch.md
     - live/health/knowledge/health-nutrition-system-g5-review.md
-    - health-ai AGENTS.md, SYSTEM.md, x_nutrition/index.md, and current x_nutrition artifacts.
-  boundaries: |
-    Do not store raw daily food logs, photos, or check-ins in Direction OS.
-    Do not start the first nutrition execution cycle.
-    Do not produce menus, recipes, grocery lists, shopping instructions, or daily food plans.
-    Do not move to training/activity yet.
-    Do not build or edit product repo code in this session.
-    Do not ask owner to choose expert nutrition variables.
-    Do not make medical diagnoses or prescriptions.
-    Keep owner-facing output compact: one bounded workflow question/task per chat; if the
-    work is too large, close with a checkpoint and the next CALL rather than printing a wall.
-  done_when: |
-    A closed owner-approved WHAT for the Health AI nutrition workflow graph exists, covering
-    program/cycle/week/day/review/mutation states and the one-chat-one-task interaction rule,
-    with acceptance rows ready for converge-verify or converge-arch as the play requires.
-  return: |
-    RESULT with workflow WHAT artifact changes, owner decisions if any, state_changes, and next CALL.
-  budget: one focused converge session; one workflow issue only
+    - health-ai AGENTS.md
+    - health-ai SYSTEM.md
+    - health-ai x_nutrition/index.md
+    - health-ai x_nutrition/procedures/operator-seams.md
+    - health-ai x_nutrition/procedures/provider-continuation.md
+    - health-ai x_nutrition/procedures/writer-handoff.md
+    - health-ai x_nutrition/state/first-setup-pending.md
+    - health-ai x_nutrition/programs/active-program.md
+    - health-ai x_nutrition/cycles/first-cycle.md
+    - health-ai x_nutrition/logs/YYYY-MM-DD.md
+    - health-ai x_nutrition/reviews/first-cycle-review.md
 
+    Closure claims to test:
+    - WG1-WG14 all map to concrete Health AI state/procedure/file/operator obligations
+      in WGA0-WGA15.
+    - No open/deferred/blocker rows remain.
+    - Architecture does not restart nutrition execution or produce menus, recipes,
+      grocery lists, shopping instructions, daily plans, or food logs.
+    - Existing Health AI nutrition artifacts are subordinated to the workflow graph
+      as seeds/evidence, not accepted startup UX.
+    - Direction OS raw-data boundary and Health AI free-form owner input boundary are preserved.
+    - g-health-core ownership is preserved; nutrition owns only namespaced workflow/module state.
+    - No app/UI/runtime/server/database/cron/scheduler/background-worker requirement is introduced.
+  boundaries: |
+    Do not start nutrition execution.
+    Do not produce menus, recipes, grocery lists, shopping instructions, daily plans, or food logs.
+    Do not move to training/activity.
+    Do not edit product repo code.
+    Do not ask owner to choose expert nutrition variables.
+    Do not rewrite g-health-core or duplicate core-owned concepts.
+  done_when: |
+    Refutation finds no counterexample to the WG1-WG14 architecture closure, or names the exact
+    blocker row and routes back to repair/converge-arch. Passing output must state open rows 0,
+    deferred rows 0, blocker rows 0, and whether the set can route onward.
+  return: |
+    RESULT with refutation verdict, blocker rows if any, state_changes, and next CALL.
+  budget: one focused converge-verify session; workflow graph architecture only
 END_OF_FILE: live/health/NOW.md
