@@ -120,7 +120,7 @@ root:
           и следующие CALL.
         - Питание встроено в body outcome: оно должно поддерживать снижение веса, достаточную сытость,
           белок, повторяемость и плохие недели, но не превращаться в crash diet или бесконечный research.
-      status: active
+      status: done
       appetite: 1 focused day
       kill_by: >
         2026-06-18 12:00 Europe/Amsterdam: if there is not a research-backed personalized
@@ -128,6 +128,22 @@ root:
         evidence surface, provider-independent continuation + writer handoff proof, and a tomorrow-start
         packet that lets the owner begin nutrition without another architecture session, stop and review/
         repair instead of extending.
+      children: []
+
+    - id: g-health-first-nutrition-cycle
+      goal: >
+        Первые 8 дней питания реально выполнены через Health AI nutrition: owner стартовал по
+        tomorrow-start packet, вёл Health AI-only nutrition LOG, прошёл day-3 safety/friction check
+        и day-8 review, а Direction OS получил только summary/decision/problem без raw food diary.
+      why: >
+        Реальная body-value начинается не от внедрённого модуля, а от первого выдержанного цикла;
+        этот узел тестирует adherence, logging, fallback и review loop до следующей системной стройки.
+      done_when:
+        - Owner начал питание по Health AI nutrition first cycle.
+        - Day-3 safety/friction check выполнен и не выявил blocker red flags, либо включил conservative branch.
+        - Day-8 first-cycle review выполнен в Health AI по LOG summaries, owner feedback and core metrics.
+        - Direction OS не содержит raw daily food logs/photos/check-ins; только summary, decisions, problems, and next CALL.
+      status: parked
       children: []
 
     - id: g-health-training-activity-system
