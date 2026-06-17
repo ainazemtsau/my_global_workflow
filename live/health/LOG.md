@@ -40,5 +40,6 @@
   Refutation of corrected architecture/contract surface found no open/deferred/blocker rows; B1 file-backed core binding,
   B2 operator-invoked procedure seam, and B3 core day_type provenance-only all corrected; no old post-§COVERAGE conflict remains.
   Next: c-health-nutrition-shape-001.
+- 2026-06-17 — shape g-health-nutrition-system: approved 1-focused-day full-functionality nutrition bet with Deep Research, Health AI module implementation, provider-independent writer handoff, and tomorrow-start review packet.
 
 END_OF_FILE: live/health/LOG.md
