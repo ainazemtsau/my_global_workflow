@@ -124,13 +124,14 @@ tasks:
       if passed, state_changes, and next CALL.
 
 open_calls:
-  - id: c-health-nutrition-first-setup-deep-research-001
-    to: research
-    for: g-health-nutrition-system first setup
+  - id: c-health-nutrition-t2-full-module-implementation-001
+    to: executor
+    for: g-health-nutrition-system/t-2 full module implementation
     issued: 2026-06-17
     note: >
-      Produce the actual source-cited Deep Research report required by x_nutrition first setup
-      before full module implementation.
+      Use accepted source-cited research artifact
+      live/health/work/health-nutrition-first-setup-deep-research-report.json plus health-ai
+      t-1 contracts to implement the full additive nutrition module.
 
 recurring: []
 
@@ -145,14 +146,16 @@ decisions:
     owner_words: "A"
 
 next: |
-  CALL c-health-nutrition-first-setup-deep-research-001
-  to: research
+  CALL c-health-nutrition-t2-full-module-implementation-001
+  to: executor
   direction: health
-  play: research
   node: g-health-nutrition-system
+  task: t-2
+  repo: ainazemtsau/health-ai
+  kind: engineering
   goal: |
-    A source-cited owner nutrition evidence report exists in Health AI-compatible structured form
-    for the first setup.
+    Health AI contains a complete additive nutrition module with a research-backed active program
+    and first executable cycle for the owner.
   context: |
     Direction state:
     - live/health/CHARTER.md
@@ -160,6 +163,7 @@ next: |
     - live/health/NOW.md
     - live/health/work/converge-g-health-nutrition-system.md
     - live/health/work/converge-g-health-nutrition-system-arch.md
+    - live/health/work/health-nutrition-first-setup-deep-research-report.json
 
     Product evidence:
     - health-ai commit ce930bc nutrition t-1: add research-to-program setup
@@ -172,34 +176,36 @@ next: |
 
     Current state:
     - Health AI owns the nutrition research-to-program procedure.
-    - Actual Deep Research report is missing.
-    - First owner setup is explicitly pending; no active nutrition program, method conclusions,
-      calorie/macro targets, or menus were invented.
-    - Known owner profile: male, 35, 182 cm, 125 kg, BMI about 37.7; sustainable weight loss
-      toward 90-95 kg; preserve strength/muscle/energy/adherence; sport and diet experience;
-      cooking infrastructure; scale; willing to use AI tracking; no stated restrictions yet.
+    - Actual source-cited schema-compatible research report now exists in Direction OS work
+      artifact live/health/work/health-nutrition-first-setup-deep-research-report.json.
+    - The report covers broad method landscape, evidence reference, owner-fact gaps,
+      system-decided variables, active-program blueprint, first-cycle assumptions, safety,
+      tracking/review, refresh triggers, and training-later adaptation.
+    - t-2 should import/save the report into Health AI under x_nutrition/research/,
+      validate it against x_nutrition/contracts/deep-research-output.schema.json, then
+      normalize it through x_nutrition/contracts/normalizer-contract.md.
   boundaries: |
-    Do not assume a preselected diet.
-    Do not produce a generic menu-only answer.
-    Do not ask owner to choose expert variables such as meals/day, deficit, protein, timing,
-    tracking precision, intermittent fasting, calorie cycling, diet breaks, or refeeds.
-    Do not diagnose or prescribe medically.
+    Do not rewrite g-health-core or redefine core-owned profile, phase, metrics, parser,
+    PLAN-vs-LOG, procedure template, schema/versioning, or day_type provenance.
+    Do not assume a preselected diet or ask the owner to choose expert variables such as
+    meals/day, deficit, protein, timing, tracking precision, fasting, calorie cycling,
+    diet breaks, or refeeds.
+    Do not reduce t-2 to a generic menu-only answer.
+    Do not diagnose or prescribe medically; keep safety language non-diagnostic.
     Do not require UI/app/vitrine/Mealie/Notion/runtime/DB/server/cron/scheduler/background-worker.
     Do not store raw daily nutrition logs in Direction OS.
   done_when: |
-    - A source-cited report is returned or saved in schema-compatible form for
-      x_nutrition/contracts/deep-research-output.schema.json.
-    - The report compares a broad method landscape without preselecting a diet.
-    - It covers evidence reference, owner-fact gaps, system-decided variables, active-program
-      blueprint, first-cycle assumptions, safety boundaries, tracking/review framework,
-      and refresh triggers.
-    - It supports no structured training initially and adaptation when training starts later.
-    - If the report is not good enough to normalize, blocker gaps are explicit.
+    Health AI nutrition contains the full functional surface: evidence/reference layer,
+    method landscape, active personalized program, decision framework, owner facts
+    known/pending/defaults, phase rules, first cycle, menu/eating plan, substitutions/swaps,
+    executable recipes/instructions, grocery/prep/base-prep, fallback/lazy meals, food LOG
+    shape, review procedure, mutation decisions, bad-week mode, safety behavior,
+    operator-invoked procedure seams, future integration seam; passes W1-W13/NCA0-NCA9/B1-B3
+    with no core rewrite, no forbidden infrastructure, and no raw Direction OS nutrition diary.
   return: |
-    RESULT with report artifact/path or paste-ready report, schema coverage, source list,
-    blocker gaps if any, and next CALL for t-2 executor if usable.
-  budget: one Deep Research pass
-  surface: Deep Research capable model
-  parent: s-health-nutrition-t1-research-program-procedure-001
+    RESULT with commit/PR, file list, schema validation result, evidence summary, evaluator/check
+    output mapping implementation to W1-W13/NCA0-NCA9/B1-B3, first-cycle artifacts showing owner
+    can begin nutrition, blocker gaps if any, and next CALL.
+  budget: one focused half-day
 
 END_OF_FILE: live/health/NOW.md
