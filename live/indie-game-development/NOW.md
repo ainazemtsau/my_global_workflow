@@ -7,10 +7,11 @@ active_bet:
     (converge-verify PASSED CLEAN, c-converge-verify-002). Wave 1 CLOSED (review c-review-001, verdict MET — HOLD
     independently re-derived). Node g-9c41 stays ACTIVE (multi-wave). The build is separate executor legs in
     GasCoopGame (next = c-exec-005 on t-1).
-    ⚠ 2026-06-16 (s-decide-004): the t-1 build RAN but the kill-gate PASS is OVERTURNED — owner rejected the gas
-    vertical model (fixed 80/20-style proportions, amount-INDEPENDENT) at the legibility pre-test + an independent
-    Codex review found 2 valid P1 + 1 valid P2. t-1 RE-OPENED for a model-rebuild; the build sits UNCOMMITTED in
-    GasCoopGame_dev (do NOT commit as-is). See decision_inbox d-fillmodel-001 + open_calls c-exec-005.
+    ✅ 2026-06-17 (s-work-007, applies c-exec-005 RESULT): t-1 band-solver kill-gate REBUILT under d-fillmodel-001
+    (capacity-fill+overflow + per-band temperature) → VERDICT = PASS_WITH_NITS, owner-CONFIRMED (198/198, mutation
+    76.76%, fresh-session G5 PASS, owner multi-quantity legibility PASS; Codex P1 cross-band buoyancy dispositioned
+    = NO code change, d-crossband-inv-001). Merged dev→main + pushed (GasCoopGame build @a868270, RESULT @9e7dab9).
+    t-1 CLOSED; the bet rolls to t-2 (real DA level + breach + coarse replication) — 4 t-2 SHAPE inputs carried (see next).
   appetite: |
     Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
     Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
@@ -159,7 +160,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       (d) crit-9 scale arithmetic vs the R1 profile from the ON-WIRE keyframe-inclusive ~11k basis (V2-1), ≥2 independent
       recomputes; PLUS a week-1 pure-local (R14, zero net) owner-acceptance legibility pre-test. Scored against a
       default-FAIL G0 ledger frozen pre-spike; binding verdict = independent fresh-session G5 refutation at 06-30.
-    status: reopened   # 2026-06-16 (s-decide-004) build RAN but REJECTED — gas vertical model = fixed 80/20-style proportions (amount-INDEPENDENT) + Codex P1 per-band-temp averaging; re-PLAN the fill model (d-fillmodel-001 capacity-fill+overflow) + per-band temperature, then rebuild. Build uncommitted in GasCoopGame_dev.
+    status: done   # 2026-06-17 (s-work-007) REBUILT under d-fillmodel-001 (capacity-fill+overflow) + per-band temperature → kill-gate PASS_WITH_NITS, owner-confirmed (198/198, mutation 76.76%, fresh-session G5 PASS, owner multi-quantity legibility PASS). Codex P1 cross-band buoyancy dispositioned = no code change (d-crossband-inv-001). Merged dev→main + pushed (GasCoopGame build @a868270, RESULT @9e7dab9). RESULT → history/2026-06-17-c-exec-005-t1-result.md.
   - id: t-2
     kind: executor (engineering, GasCoopGame)
     goal: real coarse band gas on a REAL DA-composed generated level, networked-consistent, with a real breach.
@@ -173,7 +174,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       point/species/committed revision; a region entitled per OR3 but omitted from a client's stream FAILS); exact
       source-pin (GG4 coarse half: source identity survives a non-destructive topology change, accumulates at a
       believable gradual rate); clean 1-player parity (crit-7).
-    status: blocked_on (t-1 kill-gate)
+    status: next   # 2026-06-17 (s-work-007) t-1 kill-gate PASSED → UNBLOCKED. Frame/shape with the owner; carries 4 t-2 SHAPE inputs (per-sector capacity+back-pressure/sink for overflow LIVENESS; cross-band per-species inversion via per-species temperature; narrow ADR-0005 BS4 (planner action); openspec L22 spec-delta + archive). See next.
   - id: t-3
     kind: executor (engineering, GasCoopGame) — parallel with t-4 after t-2
     goal: the temperature layer plugs in as a real 2nd layer without core edits; both layers consistent at coarse scale.
@@ -216,7 +217,7 @@ open_calls:
       the Wave-2 cleanup card (Codex round-3) and the parked map-level re-check of the clip-gated parallel
       tracks (s-shape-004 / root map_order). Builds on history/2026-06-15-c-exec-004-t-3-result.md + ADR-0004.
   - id: c-exec-005
-    status: reopened   # 2026-06-16 (s-decide-004) the t-1 leg RAN + returned a build, but the kill-gate PASS is OVERTURNED. Owner rejected the gas vertical model — built `LowerShare=total·eff/(eff+16)` (80/20 for the heaviest cold gas, amount-INDEPENDENT) at the legibility pre-test (it passed earlier only on a SINGLE near-full snapshot, masking the amount-independence). Independent Codex review: 2 valid P1 (per-band temperature AVERAGED before buoyancy, CoarseBandStep.cs:144; RESULT.md cites untracked tests/ADR/measurements that a staged-only commit would lose) + 1 valid P2 (Unsafe.dll.meta editor-import flip, unrelated to coarse). Build sits UNCOMMITTED in GasCoopGame_dev — do NOT commit as-is. Re-PLAN pending (NOW.next, owner-approval-gated). Prior framing kept in NOW.next: band-solver KILL-GATE on the LOCKed stream.
+    status: done   # 2026-06-17 (s-work-007) RETURNED PASS_WITH_NITS → t-2. The reopen (s-decide-004, overturned fixed-proportion `LowerShare=total·eff/(eff+16)` model + Codex P1 per-band-temp averaging) is RESOLVED: rebuilt under d-fillmodel-001 (capacity-fill+overflow) + per-band temperature; gate 198/198, mutation 76.76%, fresh-session G5 PASS, owner multi-quantity legibility PASS. A NEW Codex P1 (settle ignores cross-band eff) dispositioned = NO code change (per-band model coherent; the fix would oscillate — d-crossband-inv-001). Merged dev→main + pushed (GasCoopGame build @a868270, RESULT @9e7dab9). RESULT → history/2026-06-17-c-exec-005-t1-result.md.
   - id: c-shape-wave2
     status: done   # 2026-06-16 shape DONE (s-shape-wave2) — Wave 2 SHAPED + committed (G6/G9, owner «го»). BUILD coarse band-sim on the LOCKed stream; 4 tasks (t-1 KILL-GATE first); VERIFIED §CONTRACTS bound into done_when; crit-10 reworded (feedback deferral); owner refinements (generator-agnostic topology, DA room-composer, configurable gas cell, T3 dropped) → captures. next = c-exec-005. → history/s-shape-wave2.md
     note: |
@@ -470,68 +471,26 @@ decision_inbox:
           gascoopgame-buoyancy-perband-ratified + ADR-0005 §Verdict. → history/s-decide-005.md
 
 next: |
-  ⚠ SUPERSEDED 2026-06-16 (s-decide-004) — the t-1 leg below RAN and its kill-gate PASS is OVERTURNED (owner
-  rejected the gas vertical model + Codex P1s; see open_calls c-exec-005 + decision_inbox d-fillmodel-001). The
-  binding next is a MODEL-REBUILD re-PLAN of t-1 (owner-approval-gated):
-    (1) re-PLAN the coarse vertical model = capacity-fill+overflow, NO proportions (d-fillmodel-001), + per-band
-        temperature, with the owner (the few micro-params: lower-band capacity, multi-species priority, "middle" class);
-    (2) re-freeze ADR-0005 BS4 with the new model + per-band temperature + EXPLICIT physical-REGIME test dimensions
-        (uniform vs gradient per-band temperature; small vs large amount; band asymmetry);
-    (3) re-author the INDEPENDENT tests from the new spec (fill-level: little/lots/overflow + differential-band temp);
-    (4) rebuild the solver (LowerShare → capacity-fill; Settle reads PER-BAND temp, no averaging — fixes Codex P1#1);
-    (5) re-validate (gate + fresh-session G5 + owner gamer-eye on MULTIPLE fill amounts, not one snapshot + Codex);
-    (6) housekeeping at commit: stage ALL (source + tests + ADR-0005 + measurements + openspec); revert Unsafe.dll.meta;
-        rewrite RESULT.md (fixes Codex P1#2/P2#3).
-  A MAINTENANCE REQUEST (feel-decisions delegated to the builder; converge under-decomposed the fill mechanism;
-  spec-hardening must enumerate physical regimes) runs in a SEPARATE session (never touches live/**), per the standing
-  "additive, don't break what works" guardrail. The PRIOR t-1 CALL framing below still HOLDS for the LOCK/boundaries/
-  §CONTRACTS — only the gas vertical MODEL + per-band temperature + regime-tests change.
+  t-1 band-solver KILL-GATE is CLOSED — REBUILT under d-fillmodel-001 (capacity-fill+overflow + per-band
+  temperature) → VERDICT = PASS_WITH_NITS, owner-CONFIRMED (198/198, mutation 76.76% ≥70, fresh-session G5 PASS,
+  owner MULTI-QUANTITY legibility PASS; Codex P1 cross-band buoyancy dispositioned = NO code change,
+  d-crossband-inv-001). Merged dev→main + pushed (GasCoopGame build @a868270, RESULT finalize @9e7dab9).
+  RESULT → history/2026-06-17-c-exec-005-t1-result.md. The bet rolls to Wave-2 t-2.
 
-  ---- PRIOR FRAMING (kept for reference) ----
-  CALL c-exec-005 — Wave-2 t-1: band-solver KILL-GATE (headless, scale-validated, integer-exact-replicable).
-  to: executor (coding agent)   direction: indie-game-development   product repo: GasCoopGame (branch dev → main when green)
-  play: work (executor leg) — g-9c41 Wave 2, task t-1   parent: s-shape-wave2
-  goal: |
-    Prove the novel coarse band solver FIRST + cheapest — numerically stable, in-budget at the ~3,300-sector R1
-    scale, and deterministically reducible to the LOCKed integer-exact state so it replicates host==client — with
-    ZERO network/DA/Unity dependency. The riskiest NEW assumption (brief §7-#2, zero precedent) dies before any
-    real-level/temperature work. + a week-1 owner-acceptance legibility pre-test.
-  context: |
-    - Build ON the LOCKed foundation, do NOT re-open it: GasCoopGame ADR-0004 §LOCK + ADR-0003 v2 C1–C22.
-    - VERIFIED §CONTRACTS (binding by G5): work/converge-g-9c41.md §CONTRACTS — esp. CR1/CR2/CR3 (section H) + the
-      §VERIFY-2/§SIGNOFF. Architecture-on-paper rides PLAN as INPUT EVIDENCE: brief §3.1 (the solver), §4 (R1 numbers
-      ~3,280 sectors / ~7,000 band cells), §7 (#2 solver tests, #3 throughput anchor); §EMERGENT Q5 in
-      work/converge-g-9c41-arch.md (CR1/CR2/CR3 derivation).
-    - Bandwidth basis = ON-WIRE keyframe-inclusive ~11k cells (knowledge/g9c41-wave1-hold-mechanism-lossy-projection +
-      crit-9 refined text + CAPTURE V2-1), NOT A8.4's delta-only number. CR3 is firewall-clean: do NOT presuppose float.
-    - The Wave-2 bet (approach/done_when/wave_plan/cut_list/kill_by) lives in this NOW.md active_bet.
-  boundaries: |
-    Headless / engine-free C# only (R13) — NO Unity, NO DA, NO network harness in t-1 (those are t-2/t-3). NO
-    re-opening the LOCK / C1–C22 / t-2/t-3 artifacts. G0 ledger frozen default-FAIL BEFORE the spike; builder never
-    edits ledger/spec/criteria; the §7-#2 battery + CR3 negative test + CR1/CR2 oracles authored by an INDEPENDENT
-    test-author from the contract acceptance rows. Open HOW magnitudes (Q_coarse, bit-width, settle predicate,
-    reduction rule) → ratified at the interactive PLAN (owner present), not invented.
-  done_when: |
-    (a) brief §7-#2 battery PASSES on a scale-realistic procedurally-generated synthetic sector graph (~3,300 sectors):
-        sealed-room+source; two-room multirate mass-drift <1e-9/hr; cold-rung checkerboard (0 flow-sign-flip >2
-        consecutive ticks + total-variation non-increasing); interface-crossing; hot-CO2 inversion to ceiling;
-        Steckler monotone interface descent; AND the quasi-steady pressure solve converges in-budget (≤4ms, or ≤6–8ms)
-        at ~3,300 nodes WORST-CASE post-breach.
-    (b) CR3: the chosen integrator reduces DETERMINISTICALLY to exact integer/fixed-point authoritative state before
-        hashing/wiring; a non-deterministically-reduced float path FAILS the host==client lossless oracle (negative
-        test on a cell with realistic multi-species flux summands — non-vacuous).
-    (c) §7-#3 K-species throughput micro-bench on a min-spec profile (capped/3060 proxy allowed).
-    (d) crit-9 scale arithmetic vs the R1 profile, bandwidth from the ON-WIRE keyframe-inclusive ~11k basis (V2-1),
-        ≥2 independent recomputes + named assumptions + aggregate-clamp-at-scale check.
-    (e) WEEK-1 pure-local (R14, zero net) owner-acceptance legibility pre-test ("does this read as real coarse gas?")
-        — a NO converts the wave early (degrade).
-    Binding kill-gate verdict at the ~06-30 checkpoint = an independent fresh-session G5 refutation (Codex/GPT-5.5
-    pre-pass allowed; binding = fresh session) scored against the frozen default-FAIL G0 ledger.
-  return: |
-    executor RESULT — evidence = commits/PR + dotnet headless gates green + the committed numerical battery + the CR3
-    negative test + the crit-9 arithmetic artifact + the owner legibility-pretest verdict; kill-gate verdict
-    (PASS → t-2; FAIL → next_if_false(i) degrade to scalar-per-volume).
-  budget: to the 2026-06-30 checkpoint (band-solver kill-gate). Owner present for the interactive PLAN (the ADR ratifies the HOW).
-  surface: a fresh executor session (coding agent) in the GasCoopGame product repo.
+  NEXT = frame/shape t-2 (real DA-composed level + breach + coarse replication on the LOCKed stream + the
+  now-quantity-dependent coarse tier), OWNER PRESENT at the PLAN. t-2 binds CR1/CR2/CR3 + GG3/GG4 + IN1/IN2 +
+  OR1/OR3 from the VERIFIED §CONTRACTS (work/converge-g-9c41.md §H). The builder does NOT author the t-2 CALL —
+  the direction frames it (a work/shape session, owner present for the PLAN).
+
+  Carry the 4 t-2 SHAPE INPUTS the t-1 RESULT handed home (do NOT lose):
+    (1) Per-sector room CAPACITY + back-pressure/sink — gives the overflow guard LIVENESS (t-1 guards only
+        CONSISTENCY; a no-sink room is terminal-on-overflow today — the A10-3 finding).
+    (2) Cross-band per-species buoyancy INVERSION — needs PER-SPECIES TEMPERATURE (each gas carrying its own T),
+        a seam DISTINCT from the per-species RATE seam BS4 already names (d-crossband-inv-001).
+    (3) Narrow ADR-0005 BS4 at the t-2 SHAPE (planner action WITH the owner, NOT a builder edit): its "a hot
+        heavy species inverts past a cold light one" prose over-specifies the untested cross-band behaviour the
+        per-band model can't coherently do.
+    (4) openspec lifecycle (L22): apply the c-exec-005 change spec delta to openspec/specs/sim-core/spec.md +
+        archive the change folder (planner-owned spec).
 
 END_OF_FILE: live/indie-game-development/NOW.md
