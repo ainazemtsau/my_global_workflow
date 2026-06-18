@@ -58,5 +58,11 @@
 2026-06-17 — shape approval: owner approved b-health-nutrition-workflow-authority-gate; next is Health AI executor for workflow graph authority/current cursor/router/writer validation; nutrition execution remains blocked.
 
 2026-06-18 — health/g-health-nutrition-system/t-1 work: health-ai workflow authority gate committed (bc16805); graph/current cursor/router/writer WG/WGA checks pass 38/38, full write barrier PASS, no nutrition execution content produced; next t-2 router startup. → history/2026-06-18-s-health-nutrition-workflow-authority-executor-001.md
+2026-06-18 — health/g-health-nutrition-system/t-2 work: health-ai router preflight blocks committed (50d70b6); startup/continuation WG/WGA checks pass 39/39, full write barrier PASS, no nutrition execution content produced; next t-3 writer validation. → history/2026-06-18-s-health-nutrition-workflow-authority-executor-002.md
+2026-06-18 — health/g-health-nutrition-system/t-3 work: health-ai writer validation gate committed (1933375); legacy-W/NCA/B-preserving WG/WGA violations reject via PC10/WGA15, continuation checks pass 40/40, full write barrier PASS, no nutrition execution content produced; next t-4 review. → history/2026-06-18-s-health-nutrition-workflow-authority-executor-003.md
+
+- 2026-06-18 — health/g-health-nutrition-system/t-4 review: workflow authority verdict met; WG1-WG14/WGA0-WGA15 present, continuation checks pass 40/40, blocker_gaps 0, failed rows none, add-back 0/7; nutrition execution remains not started and next bet choice awaits owner. → history/2026-06-18-s-health-nutrition-workflow-authority-review-004.md
+
+- 2026-06-18 — health/g-health-nutrition-system review approval: owner chose A ("A"); workflow authority next-bet decision cleared, first real nutrition cycle shape CALL ready; no nutrition execution started. → history/2026-06-18-s-health-nutrition-workflow-authority-review-approval-001.md
 
 END_OF_FILE: live/health/LOG.md
