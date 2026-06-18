@@ -14,10 +14,16 @@ triage: HEAVY - converge ON - because g-kernel defines the product's extension
         ledger / envelope / gate / engine-store seams.
 mode:   RETROFIT FORM - g-kernel is already active, so import settled history
         as born-closed and frame the remaining white spots for owner resolve.
-status: NOT RESOLVED. NOT SIGNED. Do not treat this file as t-2/t-3 API lock.
-next:   owner resolve on §NEEDS OWNER SIGNOFF before converge-arch or t-2 API
-        freeze. After owner signoff, reroute to converge-arch or converge-verify.
+status: OWNER-DEFERRED. NOT API LOCK. Q1-Q15 are deferred with the whole Solmax/W0 project, not answered as WHAT.
+next:   Solmax/W0 held by owner on 2026-06-17. Do not launch t-2/t-3 or re-issue converge-arch while hold is active.
 ```
+
+## §OWNER DEFERRAL - 2026-06-17
+
+Owner words: "сейчас хочу отложить этот проект и занятсья тем что бы наладить свою жизнь..."
+Effect: Q1-Q15 are explicitly deferred, not answered. Candidate recommendations remain non-binding.
+This file must not be treated as a t-2/t-3 API lock. t-2/t-3 and converge-arch remain held until
+the owner resumes Solmax and chooses whether to answer Q1-Q15, keep them deferred, or reframe W0.
 
 ## Source keys
 
@@ -47,9 +53,9 @@ next:   owner resolve on §NEEDS OWNER SIGNOFF before converge-arch or t-2 API
 
 ## §NEEDS OWNER SIGNOFF - white spots to discuss
 
-Every row below is a proposal candidate, not an answer. A later resolve/signoff
-must either accept, change, or explicitly defer each row before t-2/t-3 are
-treated as kernel API freeze.
+Every row below remains a proposal candidate, not an answer. On 2026-06-17 the owner
+explicitly deferred the whole Solmax/W0 project, so Q1-Q15 are deferred rather than answered.
+Candidate recommendations are non-binding and must not be used as API freeze.
 
 | id | spot | why it matters | candidate recommendation |
 |---|---|---|---|
@@ -68,6 +74,24 @@ treated as kernel API freeze.
 | Q13 | Store vs JSONL ledger ownership. | Current Store seam has `append/replay`, overlapping ledger language; this could create a second state subsystem. | Store is a port over local storage; JSONL ledger owns record format and replay semantics. |
 | Q14 | Engine seam minimum shape. | Too-thin fake `complete(input: string)` may fail later provider swap; too-rich shape leaks g-engine into W0. | Keep fake/no-op, but discuss minimum request/result/error contract before API freeze. |
 | Q15 | Third-plugin fixture and diff oracle. | Acceptance depends on exact file boundaries and expected changed files. | Define fixture paths and diff oracle before t-3; do not let executor improvise the proof. |
+
+## §Q1-Q15 DEFERRAL RECORD
+
+- Q1: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q2: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q3: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q4: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q5: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q6: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q7: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q8: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q9: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q10: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q11: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q12: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q13: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q14: deferred by owner on 2026-06-17 with whole-project hold; not answered.
+- Q15: deferred by owner on 2026-06-17 with whole-project hold; not answered.
 
 ## Owner discussion agenda
 
@@ -102,14 +126,15 @@ Possible owner choices for the whole agenda:
 ## §SIGNOFF
 
 Define signoff:
-- Not signed. Only §BORN-CLOSED is imported as answered.
+- Deferred by owner @ 2026-06-17 — "сейчас хочу отложить этот проект..."
 
 Resolve signoff:
-- Not signed. Q1-Q15 require owner resolve or explicit deferral.
+- Q1-Q15 explicitly deferred by owner @ 2026-06-17 — "сейчас хочу отложить этот проект..."
+- No Q1-Q15 candidate recommendation is approved as API.
+- work/converge-g-kernel.md is not an API lock.
 
 Verification signoff:
-- Not run. Prior explorer/researcher subagents were same-session pre-passes only.
-- Binding verification must happen later in a fresh review/verify session after owner
-  resolve and product evidence.
+- Not run. Binding verification must happen later in a fresh review/verify session after
+  owner resumes Solmax and there is either answered WHAT or a new/reframed W0 route.
 
 END_OF_FILE: live/solmax/work/converge-g-kernel.md

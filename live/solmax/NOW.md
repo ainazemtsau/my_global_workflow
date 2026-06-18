@@ -3,7 +3,19 @@
 active_bet:
   node: g-kernel
   title: "Wave-0 — RLK tiny kernel"
-  status: active
+  status: held_by_owner
+  hold:
+    since: 2026-06-17
+    owner_words: "сейчас хочу отложить этот проект..."
+    reason: |
+      Owner redirected current priority from Solmax/W0 kernel work to a personal life reset:
+      health, productivity, schedule, deep psychological work, binge-eating/insecurity work,
+      and self-disclosure.
+    effect: |
+      Do not launch t-2 or t-3 while this hold is active.
+      Do not re-issue c-converge-arch-kernel-001 while this hold is active.
+      Q1-Q15 in work/converge-g-kernel.md are explicitly deferred, not answered.
+      work/converge-g-kernel.md is not an API lock.
   appetite: "1 calendar week / 3 focused executor-sized increments; no extension"
   started_at: 2026-06-15
   kill_by:
@@ -145,7 +157,7 @@ active_tasks:
     tests_assumption: "Repo feedback loop can constrain agents before kernel code grows."
 
   - id: t-2
-    status: ready
+    status: held_by_owner
     kind: executor
     goal: |
       Minimal RLK vertical slice implements exactly the 5 kernel parts behind small seams.
@@ -154,9 +166,13 @@ active_tasks:
       typed CALL/RESULT envelope + boundary validator, effect-tier gate, and Engine/Store fakes.
       No real engine, channel, UI, memory/RAG, OS write path, or 6th kernel part exists.
     tests_assumption: "5-part core can stay tiny without leaking into future waves."
+    note: |
+      Held by owner on 2026-06-17. Q1-Q15 are explicitly deferred with the whole project,
+      not answered as API decisions. Do not launch as executor work until owner resumes Solmax
+      and chooses the next route.
 
   - id: t-3
-    status: ready
+    status: held_by_owner
     kind: executor
     goal: |
       W0 acceptance proof is green: third plugin requires 0 kernel diff; replay and gate tests pass.
@@ -166,6 +182,9 @@ active_tasks:
       owner approval. Executor RESULT.md includes outcome/evidence/assumptions/cuts/cost/
       manual-acceptance/next and does not author the next OS task CALL.
     tests_assumption: "0-diff extensibility is mechanically provable, not rhetorical."
+    note: |
+      Held by owner on 2026-06-17. Depends on t-2 and on an active W0 route; do not launch
+      while the Solmax/kernel hold is active.
 
 recurring: []
 
@@ -186,9 +205,17 @@ open_calls:
   - id: c-converge-arch-kernel-001
     status: blocked
     note: |
-      Premature as previously issued. Blocked until owner resolves or explicitly defers
-      Q1-Q15 in `work/converge-g-kernel.md`; then re-issue converge-arch if sibling-bearing
-      contracts still need architecture closure.
+      Blocked/held after owner deferred the Solmax/W0 project on 2026-06-17.
+      Q1-Q15 in work/converge-g-kernel.md are explicitly deferred, so the blocker is no longer
+      "unsigned agenda items" alone; the active blocker is owner hold on the project.
+      Re-issue converge-arch only if the owner resumes Solmax and sibling-bearing contracts
+      still need architecture closure.
+  - id: c-converge-kernel-q1-q15
+    status: done
+    note: |
+      Closed as owner-approved deferral, not API answer. Owner chose to defer the current
+      project: "сейчас хочу отложить этот проект..." Q1-Q15 are deferred; t-2/t-3 and
+      converge-arch remain held.
 
 decision_inbox:
   - q: "Accept TypeScript/Node 22 as the W0 setup stack?"
@@ -201,20 +228,42 @@ decision_inbox:
       - "Keep the product clone at `C:\projects\zaratusta-product`."
       - "Move/rename the existing non-git vault and reclone product repo to `C:\projects\Zaratusta`."
     recommendation: "Keep `C:\projects\zaratusta-product` unless exact local-path alignment matters; the proposed path contains pre-existing user content and is not a git repo."
-  - q: "How should the g-kernel converge white spots Q1-Q15 be handled before t-2?"
-    options:
-      - "Hold t-2 and discuss/sign Q1-Q15 in `work/converge-g-kernel.md`."
-      - "Let t-2 proceed with scaffold defaults and accept drift risk."
-      - "Explicitly approve the candidate recommendations in Q1-Q15 as written."
-    recommendation: "Hold t-2 and discuss/sign Q1-Q15; these choices can freeze the kernel API."
 
 next: |
-  awaiting_decision:
-    owner should resolve how to handle Q1-Q15 in `work/converge-g-kernel.md` before
-    converge-arch or t-2. Recommended: hold t-2 and discuss/sign Q1-Q15.
-
-  pending_owner_decisions_before_t-2:
-    owner should still accept or reject the TypeScript/Node W0 stack and choose whether to keep
-    the product clone at `C:\projects\zaratusta-product` before launching t-2.
+  awaiting_new_session:
+    recommended_next_CALL:
+      id: c-frame-life-reset-001
+      to: session
+      direction: life-reset
+      play: frame
+      node: root
+      goal: |
+        Frame a new personal-life direction around health, productivity, schedule, deep
+        psychological work, binge-eating/insecurity work, and self-disclosure, in a way that
+        becomes grounded, safe, and operational rather than an unbounded self-overhaul.
+      context: |
+        Owner paused Solmax/W0 on 2026-06-17 with the words:
+        "сейчас хочу отложить этот проект и занятсья тем что бы наладить свою жизнь..."
+        Current desired territory:
+        - become maximally productive and healthy;
+        - establish a schedule;
+        - seek a very deep transcendent / transformative experience;
+        - dig deeply into psychology;
+        - work through binge eating and insecurity;
+        - meet "demons";
+        - disclose/unfold the self.
+      boundaries: |
+        Do not continue Solmax/W0 in this session.
+        Do not turn this into a huge abstract self-improvement manifesto.
+        Do not prescribe medical or psychiatric treatment; if clinical risk appears, route to
+        appropriate professional support.
+        First frame must reduce the ambition into a safe, concrete first bet.
+      done_when: |
+        A first-direction frame exists with mission, constraints, success criteria, risk posture,
+        and one candidate first bet small enough to start.
+      return: |
+        RESULT with proposed CHARTER/TREE state_changes only after owner approval, captures,
+        decisions_needed if any, and next CALL.
+      budget: one session
 
 END_OF_FILE: live/solmax/NOW.md

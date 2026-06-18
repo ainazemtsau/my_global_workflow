@@ -1,5 +1,9 @@
 # LOG — solmax
 
+- 2026-06-17 — converge g-kernel Q1-Q15 closed as owner-approved deferral after owner paused Solmax/W0; t-2/t-3 and converge-arch held; next recommended frame: life-reset direction. → history/2026-06-17-s-converge-kernel-q1-q15.md
+
+- 2026-06-17 — repair g-kernel: recovered Q1-Q15 owner decision A into valid RESULT shape and routed next to Q1-Q15 converge signoff → history/2026-06-17-s-repair-nc-solmax-g-kernel-q1-q15.md
+
 - 2026-06-16 — repair g-kernel/converge: over-closed converge retrofit downgraded to owner-signoff agenda; c-converge-arch-kernel-001 blocked until Q1-Q15 are resolved. → history/2026-06-16-s-repair-kernel-converge-overclose.md
 
 - 2026-06-16 — converge g-kernel: retrofit closed W0 RLK mechanism meanings, tightened zero-kernel-diff semantics, and routed sibling-bearing Engine/channel/surface/memory/OS-read contracts to converge-arch. → history/2026-06-16-s-converge-kernel-001.md
