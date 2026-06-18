@@ -61,4 +61,6 @@
 2026-06-18 — health/g-health-nutrition-system/t-2 work: health-ai router preflight blocks committed (50d70b6); startup/continuation WG/WGA checks pass 39/39, full write barrier PASS, no nutrition execution content produced; next t-3 writer validation. → history/2026-06-18-s-health-nutrition-workflow-authority-executor-002.md
 2026-06-18 — health/g-health-nutrition-system/t-3 work: health-ai writer validation gate committed (1933375); legacy-W/NCA/B-preserving WG/WGA violations reject via PC10/WGA15, continuation checks pass 40/40, full write barrier PASS, no nutrition execution content produced; next t-4 review. → history/2026-06-18-s-health-nutrition-workflow-authority-executor-003.md
 
+- 2026-06-18 — health/g-health-nutrition-system/t-4 review: workflow authority verdict met; WG1-WG14/WGA0-WGA15 present, continuation checks pass 40/40, blocker_gaps 0, failed rows none, add-back 0/7; nutrition execution remains not started and next bet choice awaits owner. → history/2026-06-18-s-health-nutrition-workflow-authority-review-004.md
+
 END_OF_FILE: live/health/LOG.md
