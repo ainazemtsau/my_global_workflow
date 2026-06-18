@@ -59,7 +59,7 @@ tasks:
       core rewrite, and forbidden infrastructure paths. No nutrition execution content is produced.
       Binding acceptance includes all WG1-WG14 acceptance rows and WGA0-WGA15 contract+acceptance rows
       copied in the executor CALL.
-    status: pending
+    status: done
 
   - id: t-3
     kind: executor
@@ -96,27 +96,25 @@ recurring: []
 decisions: []
 
 next: |
-  CALL c-health-nutrition-workflow-authority-executor-002
+  CALL c-health-nutrition-workflow-authority-executor-003
   to: executor
   direction: health
   node: g-health-nutrition-system
-  task: t-2
+  task: t-3
   repo: ainazemtsau/health-ai
   kind: engineering
   goal: |
-    Health AI nutrition startup and continuation resolve exactly one current workflow state
-    and one bounded next task/question/action before any output-heavy nutrition artifact can
-    be read or emitted.
+    Health AI rejects workflow-affecting nutrition writes that violate workflow graph obligations
+    while preserving existing nutrition acceptance guarantees.
   context: |
-    Product evidence already committed by t-1:
+    Product evidence already committed:
     - health-ai commit bc1680533952c2e10ee5b61795a792470bc3d7ba
-    - Added x_nutrition/workflow/graph.md
-    - Added x_nutrition/state/current-workflow.md
-    - Added x_nutrition/procedures/workflow-router.md
-    - Extended x_nutrition/procedures/provider-continuation.md and writer-handoff validation.
-    - Extended acceptance/x_nutrition/provider-continuation-matrix.json with WG1-WG14 and
-      WGA0-WGA15 rows.
-    - Full product write barrier passed on 2026-06-18.
+      Added workflow graph/current cursor/router and WG/WGA acceptance rows.
+    - health-ai commit 50d70b66c922725888c2353bc6018387874fc27c
+      Added router preflight blocks for prompt-only continuation, all-artifacts-at-once startup,
+      raw external diary, expert-variable questionnaire, core rewrite/duplication, forbidden
+      infrastructure paths, and training/activity scope before nutrition execution content.
+    - Full product write barrier passed on 2026-06-18 for both t-1 and t-2 product evidence.
 
     Read in Direction OS:
     - live/health/CHARTER.md
@@ -135,6 +133,7 @@ next: |
     - x_nutrition/procedures/workflow-router.md
     - x_nutrition/procedures/provider-continuation.md
     - x_nutrition/procedures/writer-handoff.md
+    - x_nutrition/handoffs/writer-packet-examples.md
     - x_nutrition/state/first-setup-pending.md
     - acceptance/x_nutrition/provider-continuation-matrix.json
     - tools/check_nutrition_continuation.py
@@ -149,15 +148,16 @@ next: |
     Keep nutrition changes namespaced under x_nutrition/ unless an existing product check requires
     an acceptance/check file update.
   done_when: |
-    Commit/PR evidence shows startup/continuation is subordinated to workflow-router/current-workflow;
-    active program/cycle/menu/grocery/fallback/LOG/review files are seeds/evidence until their state
-    is selected; router blocks prompt-only, all-artifacts-at-once, raw diary, expert-variable
-    questionnaire, core rewrite, and forbidden infrastructure paths. No nutrition execution content is
-    produced. Binding acceptance includes WG1-WG14 acceptance rows and WGA0-WGA15 contract+acceptance
-    rows in product acceptance/x_nutrition/provider-continuation-matrix.json.
+    Commit/PR evidence shows writer validation rejects packets that preserve old nutrition acceptance
+    rows but violate workflow graph obligations, especially startup/router, one-chat-one-task,
+    seed artifact authority, Direction OS diary boundary, block routing, and workflow-affecting writes
+    without resolved state/target artifact family/source graph rows/boundary statement. Required checks
+    pass or exact failing check output is reported. No nutrition execution content is produced. Binding
+    acceptance includes all WG1-WG14 acceptance rows and WGA0-WGA15 contract+acceptance rows in product
+    acceptance/x_nutrition/provider-continuation-matrix.json.
   return: |
     RESULT with commit/PR evidence, checks run and outputs, exact files changed, whether WG1-WG14 and
-    WGA0-WGA15 pass, proof that no nutrition execution content was produced, and next CALL for t-3 or review.
+    WGA0-WGA15 pass, proof that no nutrition execution content was produced, and next CALL for review.
   budget: one focused implementation day
 
 END_OF_FILE: live/health/NOW.md
