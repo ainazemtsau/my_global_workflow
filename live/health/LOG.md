@@ -57,4 +57,6 @@
 
 2026-06-17 — shape approval: owner approved b-health-nutrition-workflow-authority-gate; next is Health AI executor for workflow graph authority/current cursor/router/writer validation; nutrition execution remains blocked.
 
+2026-06-18 — health/g-health-nutrition-system/t-1 work: health-ai workflow authority gate committed (bc16805); graph/current cursor/router/writer WG/WGA checks pass 38/38, full write barrier PASS, no nutrition execution content produced; next t-2 router startup. → history/2026-06-18-s-health-nutrition-workflow-authority-executor-001.md
+
 END_OF_FILE: live/health/LOG.md
