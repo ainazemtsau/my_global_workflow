@@ -53,4 +53,8 @@
 - 2026-06-17 — s-health-nutrition-workflow-converge-001: closed nutrition workflow graph WHAT overlay for g-health-nutrition-system; route to converge-arch; no nutrition execution.
 - 2026-06-17 — s-health-nutrition-workflow-converge-arch-001: closed workflow graph architecture contracts WGA0-WGA15 for WG1-WG14; route to converge-verify; no nutrition execution.
 
+2026-06-17 s-health-nutrition-workflow-converge-verify-001: nutrition workflow graph architecture verify PASS; WG1-WG14/WGA0-WGA15 survived refutation; open/deferred/blocker rows 0; next route shape workflow implementation only, not nutrition execution.
+
+2026-06-17 — shape approval: owner approved b-health-nutrition-workflow-authority-gate; next is Health AI executor for workflow graph authority/current cursor/router/writer validation; nutrition execution remains blocked.
+
 END_OF_FILE: live/health/LOG.md

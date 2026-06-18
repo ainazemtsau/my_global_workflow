@@ -429,4 +429,23 @@ Reason:
   validation, block routing, and review-trigger-not-schedule boundary.
 - Verification must now try to refute this architecture closure before shape/executor work.
 
+## §SIGNOFF — CONVERGE-VERIFY
+
+§SIGNOFF: converge-verify passed @ 2026-06-17
+
+Verification verdict:
+- completeness: PASS
+- smuggling: PASS
+- WG1-WG14 -> WGA0-WGA15 closure: PASS
+- open rows: 0
+- deferred rows: 0
+- blocker rows: 0
+- can route onward: YES — to shape workflow graph implementation only
+- route forbidden: nutrition execution, menus, recipes, grocery lists, shopping instructions,
+  daily plans, food logs, training/activity
+
+Independent oracle used:
+- health-nutrition-workflow-graph-decision-checklist-v0, authored in verify because no prior
+  node-class checklist was available in supplied knowledge.
+
 END_OF_FILE: live/health/work/converge-g-health-nutrition-workflow-graph-arch.md
