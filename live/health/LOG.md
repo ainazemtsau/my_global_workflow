@@ -55,4 +55,6 @@
 
 2026-06-17 s-health-nutrition-workflow-converge-verify-001: nutrition workflow graph architecture verify PASS; WG1-WG14/WGA0-WGA15 survived refutation; open/deferred/blocker rows 0; next route shape workflow implementation only, not nutrition execution.
 
+2026-06-17 — shape approval: owner approved b-health-nutrition-workflow-authority-gate; next is Health AI executor for workflow graph authority/current cursor/router/writer validation; nutrition execution remains blocked.
+
 END_OF_FILE: live/health/LOG.md
