@@ -514,6 +514,40 @@ decision_inbox:
           dead cross-band claim ("displaced to the UPPER band … PAST A COLDER SPECIES"); the live canonical spec is
           grep-clean → applying the delta VERBATIM would RE-INJECT it. c-exec-006 narrows criterion (b) in the SAME
           pass (per-band-throttle truth, drop "past a colder species"; tests L7/BS10(e) untouched).
+  - id: d-returnfidelity-001
+    status: answered   # owner 2026-06-18 «ОК» (this session) — off-screen return-fidelity bar; FINAL-impl requirement, NOT this wave
+    note: |
+      HARD REQUIREMENT for the FINAL implementation (NOT this wave). On player return to a room — whether the
+      gas has SETTLED or is still IN MOTION (mid-spread / mid-reaction / just reshaped by a blast or wind) — he
+      MUST see an APPROXIMATELY correct picture (place, spread-RATE, evolving shape, + the effect of external
+      events) with NO DISSONANCE vs what a continuous per-cell sim would have produced. Math precision NOT
+      required (a few — even ~10 — cells off is fine); the bar is PLAUSIBLE CONTINUITY / no jarring surprise
+      (e.g. NOT "left → returned to a big hangar → it's all full" when it shouldn't be).
+      NEW vs prior framing (the missed case): the player can return BEFORE the gas settles (far tier off,
+      mid-spread) → the always-on coarse/far layer must carry a believable TRANSIENT (time-evolving) picture,
+      not only the final settled state. 4 cases (not 2): (1) near+active → fine sim live; (2) far+UNSETTLED →
+      coarse carries the transient cheaply (it already fills at a believable RATE, so a mid-spread return shows
+      an honest %, not instant-full + WHERE the front is via the s-research-008 knobs + external events applied
+      to the coarse state WHEN they occur); on return the room is "heated" to fine and CONTINUES from that
+      front; (3) far+settled → coarse holds it, fine reconstructs; (4) return at ANY moment → plausible,
+      approximate, no dissonance. Owner floated "hot room" LOD (promote room→detailed, demote→coarse when
+      settled, back) = accepted mechanism; cheap path = coarse carries the transient always, promote to fine by
+      proximity/return (rooms hot while far+unwatched bounded by simultaneously-active-room count — Wave-3 probe).
+      RELATION: CLARIFIES + EXTENDS the COVERAGE of GG4/OR4 + d-bandhandoff-001 + d-return-reconstruction-001.
+      NOT a precision raise — precision stays loose (consistent with d-bandhandoff-001 "approximately, no
+      shimmer"); the NEW scope = believability must hold on the MID-TRANSIENT return + reflect external-event
+      reshaping, not just the settled cloud (assistant over-stated it as a precision raise earlier this session →
+      corrected, owner: precision loose). One-source-of-truth holds (d-return-reconstruction-001): coarse =
+      truth, fine = reconstructed-consistent; determinism makes "what would have happened" a well-defined target.
+      FORWARD-CONSTRAINT (cheap, not code now): do NOT architect the coarse layer to represent only the SETTLED
+      state / only room-totals — it must carry the transient + front position + applied external events at enough
+      fidelity for an indistinguishable-to-the-eye reconstruction. Subordinates the s-research-008 knobs
+      (graph-of-fronts / sub-sectors / checkerboard / source-seed): chosen by whether they let the TRANSIENT
+      reconstruction avoid dissonance, not for precision. Independent ChatGPT deep-research cross-pass
+      (owner-run) CONFIRMED the s-research-008 verdict + adds a "sparse regular checkerboard" probe variant
+      (determinism-simpler than conformal cut-cells); both agree decisive evidence = the half-day integer probe.
+      SCOPE: FINAL-impl / Wave-3 design bar — binds the Wave-3 shape (triage with the probe menu). Active bet
+      t-2/c-exec-006 (2-band day-one) UNCHANGED + NOT blocked (G1). → history/s-decide-006.md
 
 next: |
   Wave-2 t-2 is FRAMED (s-work-008, c-work-003, owner present): the executor CALL c-exec-006 is ready and
