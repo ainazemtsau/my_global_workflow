@@ -75,7 +75,7 @@ tasks:
       pass or exact failing check output is reported. No nutrition execution content is produced.
       Binding acceptance includes all WG1-WG14 acceptance rows and WGA0-WGA15 contract+acceptance rows
       copied in the executor CALL.
-    status: pending
+    status: done
 
   - id: t-4
     kind: session
@@ -96,35 +96,38 @@ recurring: []
 decisions: []
 
 next: |
-  CALL c-health-nutrition-workflow-authority-executor-003
-  to: executor
+  CALL c-health-nutrition-workflow-authority-review-004
+  to: session
   direction: health
+  play: review
   node: g-health-nutrition-system
-  task: t-3
-  repo: ainazemtsau/health-ai
-  kind: engineering
+  task: t-4
   goal: |
-    Health AI rejects workflow-affecting nutrition writes that violate workflow graph obligations
-    while preserving existing nutrition acceptance guarantees.
+    Workflow authority implementation is accepted as meeting WG1-WG14 and WGA0-WGA15,
+    or exact failed rows are named, before any nutrition execution starts.
   context: |
-    Product evidence already committed:
-    - health-ai commit bc1680533952c2e10ee5b61795a792470bc3d7ba
+    Product evidence already committed in health-ai:
+    - bc1680533952c2e10ee5b61795a792470bc3d7ba
       Added workflow graph/current cursor/router and WG/WGA acceptance rows.
-    - health-ai commit 50d70b66c922725888c2353bc6018387874fc27c
+    - 50d70b66c922725888c2353bc6018387874fc27c
       Added router preflight blocks for prompt-only continuation, all-artifacts-at-once startup,
       raw external diary, expert-variable questionnaire, core rewrite/duplication, forbidden
       infrastructure paths, and training/activity scope before nutrition execution content.
-    - Full product write barrier passed on 2026-06-18 for both t-1 and t-2 product evidence.
+    - 1933375079372fb18d422103ff62b8e7620dce31
+      Added WG/WGA-aware writer negative fixtures and continuation validation row PC10/WGA15.
 
-    Read in Direction OS:
+    Direction OS state/evidence to read:
     - live/health/CHARTER.md
     - live/health/TREE.md
     - live/health/NOW.md
     - live/health/work/converge-g-health-nutrition-workflow-graph.md
     - live/health/work/converge-g-health-nutrition-workflow-graph-arch.md
     - live/health/knowledge/health-nutrition-system-g5-review.md
+    - live/health/history/2026-06-18-s-health-nutrition-workflow-authority-executor-001.md
+    - live/health/history/2026-06-18-s-health-nutrition-workflow-authority-executor-002.md
+    - live/health/history/2026-06-18-s-health-nutrition-workflow-authority-executor-003.md
 
-    Read in product repo:
+    Product files to inspect:
     - AGENTS.md
     - SYSTEM.md
     - x_nutrition/index.md
@@ -136,6 +139,8 @@ next: |
     - x_nutrition/handoffs/writer-packet-examples.md
     - x_nutrition/state/first-setup-pending.md
     - acceptance/x_nutrition/provider-continuation-matrix.json
+    - acceptance/x_nutrition/provider-continuation-dry-run.md
+    - acceptance/x_nutrition/writer-handoff-negative-fixtures.json
     - tools/check_nutrition_continuation.py
   boundaries: |
     Do not start nutrition execution.
@@ -145,19 +150,15 @@ next: |
     Do not rewrite g-health-core or duplicate core-owned concepts.
     Do not introduce app UI, runtime, server, database, cron, scheduler, background worker,
     recipe service, shopping service, or external automation as a requirement.
-    Keep nutrition changes namespaced under x_nutrition/ unless an existing product check requires
-    an acceptance/check file update.
+    Review only implementation evidence and check output; do not repair in the review leg.
   done_when: |
-    Commit/PR evidence shows writer validation rejects packets that preserve old nutrition acceptance
-    rows but violate workflow graph obligations, especially startup/router, one-chat-one-task,
-    seed artifact authority, Direction OS diary boundary, block routing, and workflow-affecting writes
-    without resolved state/target artifact family/source graph rows/boundary statement. Required checks
-    pass or exact failing check output is reported. No nutrition execution content is produced. Binding
-    acceptance includes all WG1-WG14 acceptance rows and WGA0-WGA15 contract+acceptance rows in product
-    acceptance/x_nutrition/provider-continuation-matrix.json.
+    A separate review session verifies from repo evidence and check output that workflow authority surface,
+    current-state cursor, workflow-router, and writer-validation gates are implemented; open/deferred/blocker
+    rows remain zero or the exact failed row is named; no menus, recipes, grocery lists, shopping instructions,
+    daily plans, food logs, training/activity work, core rewrite, or forbidden infrastructure were introduced.
   return: |
-    RESULT with commit/PR evidence, checks run and outputs, exact files changed, whether WG1-WG14 and
-    WGA0-WGA15 pass, proof that no nutrition execution content was produced, and next CALL for review.
-  budget: one focused implementation day
+    RESULT with verdict met/failed, evidence inspected, checks run or trusted with outputs, exact failed WG/WGA
+    row if any, proof no nutrition execution content was introduced, and state_changes for review closure or repair.
+  budget: one review session
 
 END_OF_FILE: live/health/NOW.md
