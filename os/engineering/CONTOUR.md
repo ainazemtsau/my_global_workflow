@@ -37,7 +37,7 @@ CALL (business task from a direction)
     Then it interviews the owner if needed and writes the change spec:
     per-feature acceptance criteria as a machine-readable ledger (all
     entries start failing), plus the verification plan the validator
-    approves BEFORE any code. Two spec-hardening checks before freeze:
+    approves BEFORE any code. Three spec-hardening checks before freeze:
     (a) when the change EXTENDS a working/frozen system, list the invariants
     that held in the old regime and, per one, whether this change can falsify
     it — falsifiable ones become failing criteria tested in the new regime;
@@ -48,6 +48,30 @@ CALL (business task from a direction)
     This audit — the marked list — is RECORDED in the change spec, not just discussed:
     the deliver gate checks its presence (PROJECT_SETUP §Strong-check enablement), so a
     silence audit that happened only in chat is not enabled and the leg is not deliverable.
+    (c) DELIVERABLE COVERAGE: the spec records the CALL done_when VERBATIM and maps EACH
+    done_when bullet (and each owner-locked PLAN decision) to ≥1 ledger row OR an explicit
+    out-of-scope line — the list is indexed by the PROMISES, not by what got built, so a
+    promised artifact cannot be silently left off (a bullet with no disposition is a coverage
+    FAIL). Each row RECORDS the bullet's CLASS — `headless` or `engine` — and the gate keys on it,
+    so engine-vs-headless is a recorded property, NOT the builder's choice of evidence token (the
+    one judgment this check exists to remove). An `engine` artifact (a scene, prefab, composer,
+    adapter) disposed as built MUST close on a RECORDED existence proof — a committed path under
+    the artifact root (e.g. `Assets/**`, `docs/measurements/**`) the deliver check Test-Paths, or a
+    recorded MCP/batch-run artifact carrying a non-trivial measurement (node/cell count) — and may
+    NEVER be discharged by a sibling headless test name, an empty/stub file, a directory, or an
+    arbitrary pre-existing file (this is the exact leg-8 lie: an unbuilt composer reported done by
+    citing unrelated tests). BUILD (the artifact exists) and LOOK
+    (the owner likes it) are separate: an owner-acceptance / eyeball axis defers only the LOOK,
+    and only AFTER the existence row is green — it never stands in for the BUILD. A
+    user-perceivable / engine-side deliverable is architectural by definition (above), so the
+    planner MUST give it a frozen spec; the coverage gate binds it only once it has one, so
+    mis-classifying an engine deliverable as a "light" change (no frozen folder) escapes coverage
+    — a classification defect the validator/owner catches, not yet a gate tripwire (FRICTION-watch).
+    Cutting a promised deliverable is allowed but NEVER silent: an out-of-scope line on a
+    done_when bullet needs a recorded OWNER decision (signed at plan approval, or a mid-run
+    ESCALATION) — a self-authored cut of a promise is a coverage FAIL, not a disposition. This
+    list is RECORDED in the spec; the deliver gate checks it (PROJECT_SETUP §Strong-check
+    enablement) and the writer re-checks it on carry-back (os/adapters/coding-agent.md).
     Owner approves the plan. This is the
     owner's last mandatory appearance until the final report.
   → RED TESTS (before build): the test-author (see Roles) writes the failing

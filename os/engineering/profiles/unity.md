@@ -22,7 +22,15 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
   (PROJECT_SETUP §Strong-check enablement): recorded mutation score ≥ floor + a non-empty
   spec-silence-audit section in the frozen change spec — `dotnet test` passing is NOT G2 on its own.
 - **Unity PlayMode/EditMode CI (GameCI + license secret) DEFERRED** until engine-dependent tests
-  exist — core logic is tested headless without a Unity license.
+  exist — core logic is tested headless without a Unity license. **Deferring PlayMode CI does NOT
+  exempt an engine-side DELIVERABLE from existence** (VALIDATION.md §Enabled ≠ written, CONTOUR §c):
+  a promised scene/prefab/composer/adapter still needs a ledger row whose closure the deliver check
+  trips on — the license-free form is a `Test-Path` on the committed artifact (a `*.unity` / prefab /
+  asset under `Assets/<Game>/`, NOT a vendor sample) or a recorded MCP/batch-run artifact (path +
+  hash) under `docs/measurements/`. The proof must be NON-TRIVIAL — a recorded run artifact carries a
+  measurement (node / cell / spawned-object count > 0) and a committed scene is asserted above a stub
+  floor — so an empty placeholder file cannot satisfy the existence row. This gates BUILD-exists
+  without a license; only the owner LOOK (the eyeball) stays the manual A2.4 axis.
 
 ## 3. Test layout
 - Headless core tests: `tests/<Game>.Core.Tests/` (`net8.0`, **NUnit** — same family as Unity's Test
