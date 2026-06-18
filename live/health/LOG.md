@@ -63,4 +63,6 @@
 
 - 2026-06-18 — health/g-health-nutrition-system/t-4 review: workflow authority verdict met; WG1-WG14/WGA0-WGA15 present, continuation checks pass 40/40, blocker_gaps 0, failed rows none, add-back 0/7; nutrition execution remains not started and next bet choice awaits owner. → history/2026-06-18-s-health-nutrition-workflow-authority-review-004.md
 
+- 2026-06-18 — health/g-health-nutrition-system review approval: owner chose A ("A"); workflow authority next-bet decision cleared, first real nutrition cycle shape CALL ready; no nutrition execution started. → history/2026-06-18-s-health-nutrition-workflow-authority-review-approval-001.md
+
 END_OF_FILE: live/health/LOG.md
