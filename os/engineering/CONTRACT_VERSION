@@ -8,9 +8,10 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 6
+current: 7
 
 log:
+  7  2026-06-18  deliverable-exists invariant: VALIDATION "Enabled != written" extended to DELIVERABLES; CONTOUR §c deliverable-coverage indexed by the done_when PROMISES (every bullet gets a disposition — none silently omitted), each row records a CLASS (headless|engine) the gate keys on, an `engine` row disposed as built needs a NON-TRIVIAL recorded existence artifact under the artifact root and CANNOT be discharged by a headless test name / stub / directory / foreign file (closes the exact leg-8 lie), a cut needs a recorded OWNER-ack; PROJECT_SETUP coverage deliver dependency + 5-case seeded-miss; unity profile license-free non-trivial existence; writer G10 return-path reconciliation diffs the CALL's own done_when (independent copy, catches under-transcription). SCOPE (honest, two red-team rounds): the silent-ACCIDENT drop is caught — omission, absent/foreign/stub existence, engine-as-headless-test, unacked cut. RESIDUAL, validator/owner/writer-bound not gate-bound: a mis-classed engine→headless bullet, an under-transcribed/merged done_when (writer-G10 backstop), light-change classification + archive-as-exit (deliberate-gaming paths, prose in CONTOUR/PROJECT_SETUP, not yet a deliver tripwire — FRICTION watch). Re-sync owed: GasCoopGame (DONE this batch — gate wired+proven, separate dev commit), health-ai. (silent scope-drop of leg-8 composer/scene)
   6  2026-06-17  a-fix-is-a-change: CONTOUR "A FIX IS A CHANGE", VALIDATION G2 invariants-on-all-paths-incl-failure, G4 classify-by-invariant + enumerate-sibling-sites (FRICTION 92)
   5  2026-06-17  strong-check enablement: G2 mutation-score + spec-silence-audit as deliver dependencies; "Enabled != written" (FRICTION 90)
   4  2026-06-16  user-perceivable behavior change-class = owner-signed acceptance PROPERTY at PLAN, not a builder default (FRICTION 88)
