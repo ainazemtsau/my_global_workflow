@@ -18,8 +18,13 @@ active_bet:
     owner eyeball «работает». Gate GREEN 372/372, mutation 75.29%, fresh-session G5 clean. Home-side OpenSpec
     apply+archive DONE (canonical sim-core/spec.md +18 reqs grep-clean; folder archived). GasCoopGame main @0327b9f
     (build) + @ce79e10 (openspec close), UNPUSHED. FishNet UDP wire env-deferred (owner-run). The bet rolls to t-3
-    (temperature-layer extensibility) ∥ t-4 (player-legible render terminus) — both unblocked by t-2; owner picks
-    sequencing (decision_inbox d-wave2-seq-001 + next).
+    (temperature-layer extensibility) ∥ t-4 (player-legible render terminus) — both unblocked by t-2.
+    ✅ 2026-06-19 (s-work-010, owner present): owner chose C — t-3 ∥ t-4 run in PARALLEL (d-wave2-seq-001 answered; G1 = 2 active). Both
+    executor legs FRAMED + adversarially hardened (wf wd3a59z47: 14 must-fixes folded) + OPENED: c-exec-007 (t-3, CORE+TEST temperature-layer
+    extensibility) + c-exec-008 (t-4, render terminus + REAL Dungeon Architect; owner R1 wire-real-DA / R2 guide-loop-when-no-MCP / R3
+    owner-run=close-gate). Each opens with a PLAN (owner present). Parallel-safe: t-4 reads the FROZEN IGasReadModel/RN1 read-model (never
+    reaches below it), t-3 EXTENDS the read seam additively (never changes ConcentrationAt); file-ownership split (t-3 = Core/** + tests, edits
+    no scene/MonoBehaviour; t-4 owns *.unity + a NEW render scene, never co-edits GasDebugCoarseScene). Build = two separate legs in GasCoopGame.
   appetite: |
     Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
     Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
@@ -202,7 +207,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       per-band temperature state (V2-3: the coarse temperature READ exercised on a committed revision); the
       gas→temperature SINK interaction observable (suppressed-event negative oracle, XL1); the §RESOLVED-4
       grid-addressed read-ready seam exercised (read another layer's field at a committed revision).
-    status: queued
+    status: active   # 2026-06-19 (s-work-010) OPENED as c-exec-007 (∥ t-4); opens with a PLAN (owner present). ADDITIVE on t-2: coarse temperature is plane 6 ALREADY shipped + replicated (a coupled plane of CoarseBandLayer, NOT a registered layer) — t-3 ADDS a NEW 3rd INDEPENDENT demonstrative layer (the XL2 file-isolation proof) + the §RESOLVED-4 read seam + the gas→temperature suppressed-event sink oracle; MUST NOT re-home/alter plane 6 or change IGasReadModel.ConcentrationAt (t-4 parallel-safe). Full CALL → history/s-work-010.md.
   - id: t-4
     kind: executor (engineering, GasCoopGame) — PARALLEL Unity/visual work-stream; depends on t-2 (level+breach+read-model), NOT t-3
     goal: a PLAYER-LEGIBLE artifact off the real coarse sim — readable without a debug overlay; breaks pre-mortem #2.
@@ -215,11 +220,56 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       no-jerk/no-shimmer-EVER (incl. off-screen-computed state surfacing — owner-signed GG4/OR4 coarse half).
       SOLVER-AGNOSTIC (reads RN1 — works on band OR degraded scalar). Rides the 07-11→07-24 cushion to ~07-21;
       auto-shrinks to a ≤1wk minimal-legibility floor if t-1 slips past 06-30.
-    status: queued
+    status: active   # 2026-06-19 (s-work-010) OPENED as c-exec-008 (∥ t-3); opens with a PLAN (owner present). Carries owner R1 (wire the REAL Dungeon Architect, existence-proven: real IDaRoomReader, tag prefabs, REMOVE FixedLevelRoomReader from runtime; SCOPE-SPLIT from the render terminus + GEOMETRY-MOVE RULE), R2 (guide-loop step-by-step Unity instructions whenever an action can't go via MCP + answer owner Qs), R3 (owner-run = close-gate: BUILD/existence closes headlessly, only the LOOK is owner-run; DONE-pending-owner-LOOK until owner confirms — no self-marking). Acceptance = RN2 machine blind-check (frozen N-of-M floor) + owner gamer-eye. Full CALL → history/s-work-010.md.
 
 recurring: []
 
 open_calls:
+  - id: c-exec-007
+    status: open   # 2026-06-19 (s-work-010) FRAMED + hardened (wf wd3a59z47) + OPENED — Wave-2 t-3 engine leg, ∥ c-exec-008
+    note: |
+      Executor leg (GasCoopGame, dev→main when green), opens with a PLAN (owner present). GOAL: a 3rd INDEPENDENT
+      system-layer is networked-consistent at coarse scale alongside gas, having plugged in WITHOUT core edits — the
+      extensibility seam EXERCISED, not argued. ADDITIVE on t-2 (coarse temperature plane 6 already shipped +
+      replicated; it is a coupled plane of CoarseBandLayer, NOT a registered layer): t-3 ADDS (a) XL2 file-isolation
+      proof — a NEW independent demonstrative layer EXISTS as new file(s) under Core/Field/Layers/ on a fresh LayerKey,
+      registers via the LayerRegistry with git-diff-EMPTY on the registry + every sibling layer file (adds files, edits
+      none; deliverable-coverage row = the new file PATH); gas-only run reproduces t-2 goldens byte-identical, gas+new
+      run keeps gas Hash() byte-identical + RNG-conservation guard (new layer = zero gas RNG); barrier-table re-size
+      SURFACED per the LOCK; (b) XL1 gas→temperature SINK via a non-vacuous suppressed-event NEGATIVE oracle; (c)
+      §RESOLVED-4 grid-addressed read seam on a COMMITTED revision (+ live/wrong-revision read REJECTED); (d) regression:
+      gas IGasReadModel.ConcentrationAt byte-identical to t-2 OR1/OR3 goldens + plane-6 replication stays GREEN.
+      BOUNDARIES: no LOCK/C1-C22/BS1-BS15 re-open, all goldens byte-green; temperature stays a PURE SINK (feedback
+      DEFERRED — read-back coupling escalates to owner); no per-species temperature; CORE+TEST only (NO *.unity / NO
+      Adapters/GasDebug edits; any shared-core C# edit is t-3-OWNED, t-4 rebases); MUST NOT alter plane-6
+      representation/layerKey/fold-order/read-model ctor (STOP-and-report — would couple into t-4). Discipline:
+      independent test-author RED-first; check.ps1 -Deliver GREEN; mutation ≥70; binding = fresh-session G5.
+      FULL CALL → history/s-work-010.md §c-exec-007.
+  - id: c-exec-008
+    status: open   # 2026-06-19 (s-work-010) FRAMED + hardened (wf wd3a59z47) + OPENED — Wave-2 t-4 render terminus + REAL Dungeon Architect, ∥ c-exec-007
+    note: |
+      Executor leg (GasCoopGame, dev→main when green), opens with a PLAN (owner present). GOAL: a player can SEE the
+      real coarse sim — a room visibly fills bottom-up from the breach, heavier gas low, source identifiable, readable
+      WITHOUT a debug overlay + as deliberate stylization not a stub — on a REAL Dungeon-Architect-generated level.
+      Reads the FROZEN IGasReadModel/RN1 (SOLVER-AGNOSTIC; band OR degraded scalar) and reaches no lower; depends on
+      t-2's level+breach+read-model, NOT on t-3. DONE_WHEN: crit-6 bottom-up-fill render; TWO acceptance gates —
+      (a) MACHINE RN2 blind-check (PLAN freezes a ground-truth schema {gas-present / which-room-filling /
+      from-breach-side / heavier-low} + a frozen N-of-M floor, scored from RN1, artifact docs/measurements/<call>-rn2-blind.json),
+      (b) render-slice = ENGINE-class v7 existence row (committed Assets/** scene + docs/measurements/** capture the
+      deliver check Test-Paths; never a sibling test name/stub — the leg-8 trap); BUILD precedes LOOK; no-shimmer-EVER
+      across off-screen→on-screen surfacing (committed continuity test, GG4/OR4 «100%», continuity NOT monotonicity);
+      solver-agnostic smoke vs BOTH band + scalar degrade. OWNER R1/R2/R3: R1 wire the REAL DA (real
+      DungeonArchitectRoomReader behind the existing DaTopologyProducer/IN2 seam, tag prefabs, REMOVE FixedLevelRoomReader
+      from runtime [grep=0 non-test], evidence = DA-output run-artifact, two seeds→two conforming ProfileHashes; in-code==DA
+      test RETAINED but NON-SUFFICIENT for R1; GEOMETRY-MOVE RULE — a larger/different DA level = a t-3-coordinated
+      barrier-table re-size with the artifact re-recorded, never a unilateral t-4 edit); R2 guide-loop (os/plays/guide.md)
+      step-by-step Unity instructions for any non-MCP action + answer owner Qs (per-step owner confirmation IS the
+      evidence; no batching / no self-marking; log to docs/FRICTION.md); R3 owner-confirmation close-gate (BUILD/existence
+      closes headlessly; only the LOOK is owner-run; DONE-pending-owner-LOOK until owner confirms; env-deferral does NOT
+      apply to the owner-eye axis). BOUNDARIES: reads RN1 only / no core edits / no ConcentrationAt change; t-4 OWNS *.unity
+      + a NEW render scene (don't co-edit GasDebugCoarseScene/GasDebugDirector — fork-by-copy); EXCLUDE g-7e15 bars;
+      COARSE-only (fine tier + coarse↔fine handoff + OR1 cross-tier = Wave 3); d-returnfidelity-001 mid-transient = NOT a
+      t-4 bar; no LOCK re-open; >1 breach / population / late-join OUT. FULL CALL → history/s-work-010.md §c-exec-008.
   - id: c-work-003
     status: done   # 2026-06-17 (s-work-008) — Wave-2 t-2 framing (owner present): 2 gameplay decisions resolved (d-roomfull-001 closed-level+capacity+back-pressure; d-crossband-inv-001 ratified per-species-temp deferral + BS4 narrow + forward-constraint), BS4 narrowing + openspec L22 PLANNED, executor CALL c-exec-006 FRAMED + adversarially hardened (wf_1b929b4e: openspec spec.md:82 cross-band contamination + GG1 same-tick). t-2 stays active. → history/s-work-008.md
   - id: c-exec-006
@@ -557,7 +607,7 @@ decision_inbox:
       SCOPE: FINAL-impl / Wave-3 design bar — binds the Wave-3 shape (triage with the probe menu). Active bet
       t-2/c-exec-006 (2-band day-one) UNCHANGED + NOT blocked (G1). → history/s-decide-006.md
   - id: d-wave2-seq-001
-    status: open   # raised 2026-06-19 (s-work-009) at the t-2 close — which Wave-2 leg leads now that t-2 is done
+    status: answered   # owner 2026-06-19 (s-work-010, present) chose C — run t-3 ∥ t-4 in PARALLEL (G1 = 2 active, OK). «давай рассмотрим возможность запуска параллельно … я бы сейчас сфокусировался бы на 2х задачах». Both legs framed + hardened + OPENED (c-exec-007 / c-exec-008). Owner added R1/R2/R3 for t-4 (wire real DA / guide-loop-when-no-MCP / owner-run=close-gate) — see s-work-010. The parallel-safety boundary (read-model frozen + file-ownership split) makes C non-colliding + reversible (pause t-3, t-4 unaffected).
     note: |
       t-2 is CLOSED; t-3 (temperature-layer extensibility proof) and t-4 (player-legible render terminus) are BOTH
       unblocked and parallelizable (t-4 depends on t-2's level+breach+RN1 read-model, NOT on t-3; t-3 depends on t-2).
@@ -573,21 +623,26 @@ decision_inbox:
       Recommendation = A (t-4 leads; t-3 parallel only if capacity). Resolve at the next work session's PLAN open.
 
 next: |
-  Wave-2 t-2 is CLOSED (s-work-009, applies c-exec-006). The bet rolls to its remaining Wave-2 tasks — BOTH unblocked
-  by t-2 and parallelizable (G1 ≤3 active): t-3 (the temperature SINK layer plugs in as a real 2nd layer WITHOUT core
-  edits — XL2 gas-trajectory byte-identical + the barrier-table re-size SURFACED per the LOCK; coarse per-layer
-  CR1/CR2/CR3 incl. the coarse temperature READ; gas→temperature sink observable via the suppressed-event negative
-  oracle) and t-4 (the player-legible render terminus off the REAL coarse sim — breaks pre-mortem #2, feeds g-2f8c's
-  2026-08-31 page date; SOLVER-AGNOSTIC, depends on t-2's level+breach+RN1 read-model, NOT on t-3).
+  Wave-2 t-3 ∥ t-4 are BOTH OPEN + in flight (s-work-010, owner chose C). Two executor legs run in PARALLEL in
+  GasCoopGame (branch dev → main when green), EACH opening with a PLAN (owner present) under the
+  independent-test-author + fresh-session-G5 + owner-acceptance discipline, binding the APPLIED canonical spec
+  (openspec/specs/sim-core/spec.md) + the VERIFIED §CONTRACTS:
+    - c-exec-007 (t-3, CORE+TEST): the XL2 extensibility proof (a NEW independent layer plugs in WITHOUT core edits) +
+      §RESOLVED-4 read seam + gas→temperature suppressed-event sink oracle; ADDITIVE on t-2 (temperature plane 6 stays
+      frozen, NOT re-homed). Full CALL → open_calls / history/s-work-010.md.
+    - c-exec-008 (t-4, RENDER + REAL DA): the player-legible bottom-up-fill terminus on a REAL Dungeon-Architect level;
+      owner R1 (wire real DA, existence-proven) / R2 (guide-loop instructions when no MCP) / R3 (owner-run = close-gate,
+      DONE-pending-owner-LOOK). Full CALL → open_calls / history/s-work-010.md.
+  Parallel-safety (so the two legs do NOT collide): t-4 reads the FROZEN IGasReadModel/RN1 and never reaches below it;
+  t-3 EXTENDS the read seam additively and never changes ConcentrationAt; file-ownership split (t-3 = Core/** + tests,
+  no scene/MonoBehaviour edits; t-4 owns *.unity + a NEW render scene, never co-edits GasDebugCoarseScene/GasDebugDirector).
+  C is reversible: if two concurrent legs strain a solo owner, PAUSE t-3 — t-4 is unaffected (depends on t-2, not t-3).
 
-  NEXT = a fresh work session frames + opens the next Wave-2 executor leg in GasCoopGame (branch dev → main when
-  green), OPENING WITH A PLAN (owner present), per the independent-test-author + fresh-session-G5 + owner-acceptance
-  discipline. The leg binds the now-APPLIED canonical sim-core spec (t-2 requirements are live in
-  openspec/specs/sim-core/spec.md) + the VERIFIED §CONTRACTS. OWNER DECISION at open (decision_inbox
-  d-wave2-seq-001): which leg leads — recommend t-4 first (first showable artifact; highest leverage on the 08-31
-  date), with t-3 runnable in parallel (independent layer).
+  WHEN BOTH LEGS RETURN → a review session for the Wave-2 node g-9c41 (G5 done-evidence per task done_when; then roll
+  to Wave 3 per kill_by.next_if_true). Either leg may also return DONE-pending-owner-LOOK (t-4) or BLOCKED — re-home
+  via a fresh work session.
 
-  Carry-forward (NOT this leg): per-species temperature / true cross-band inversion (d-crossband-inv-001); the FINE
+  Carry-forward (NOT this wave): per-species temperature / true cross-band inversion (d-crossband-inv-001); the FINE
   intra-room cloud shape + coarse↔fine no-jerk handoff + the d-returnfidelity-001 mid-transient return bar → Wave 3.
   Owner-side, non-gating: (a) PUSH GasCoopGame (dev @7987506 / main @ce79e10) + this OS commit when ready; (b)
   validate the literal FishNet UDP wire once the host network is healthy (WSAENOBUFS — loopback already delivered the
