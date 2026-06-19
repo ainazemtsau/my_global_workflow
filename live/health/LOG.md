@@ -70,4 +70,6 @@
 
 2026-06-19 — health/g-health-nutrition-system repair: rerouted from narrow bootstrap repair to full health-ai nutrition evidence-workflow repair after owner ChatGPT Project transcript showed unverified state transition, seed/menu authority, missing current Deep Research handoff/import, and missing program-synthesis lifecycle. → history/2026-06-19-s-health-nutrition-evidence-workflow-repair-001.md
 
+2026-06-19 — health/g-health-first-nutrition-cycle shape: owner approved first real Health AI nutrition cycle bet; 10-calendar-day appetite, router-first startup, 8 Health AI-only nutrition days, day-3 safety/friction check, day-8 review, no raw diary in Direction OS; next t-1 startup-router guide. → history/2026-06-19-s-health-first-nutrition-cycle-shape-003.md
+
 END_OF_FILE: live/health/LOG.md
