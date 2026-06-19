@@ -11,7 +11,15 @@ active_bet:
     (capacity-fill+overflow + per-band temperature) → VERDICT = PASS_WITH_NITS, owner-CONFIRMED (198/198, mutation
     76.76%, fresh-session G5 PASS, owner multi-quantity legibility PASS; Codex P1 cross-band buoyancy dispositioned
     = NO code change, d-crossband-inv-001). Merged dev→main + pushed (GasCoopGame build @a868270, RESULT @9e7dab9).
-    t-1 CLOSED; the bet rolls to t-2 (real DA level + breach + coarse replication) — 4 t-2 SHAPE inputs carried (see next).
+    t-1 CLOSED; the bet rolled to t-2.
+    ✅ 2026-06-19 (s-work-009, applies c-exec-006 RESULT): t-2 CLOSED — real DA-shaped level + ONE controlled breach +
+    per-room-capacity LIVENESS (d-roomfull-001) + per-layer coarse replication host+2c across the breach (CR1/CR2/CR3)
+    + single field-sampling oracle (OR1/OR3) + clean 1-player parity; leg-8 owner-visible slice built-FOR-REAL +
+    owner eyeball «работает». Gate GREEN 372/372, mutation 75.29%, fresh-session G5 clean. Home-side OpenSpec
+    apply+archive DONE (canonical sim-core/spec.md +18 reqs grep-clean; folder archived). GasCoopGame main @0327b9f
+    (build) + @ce79e10 (openspec close), UNPUSHED. FishNet UDP wire env-deferred (owner-run). The bet rolls to t-3
+    (temperature-layer extensibility) ∥ t-4 (player-legible render terminus) — both unblocked by t-2; owner picks
+    sequencing (decision_inbox d-wave2-seq-001 + next).
   appetite: |
     Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
     Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
@@ -183,7 +191,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       delta WITH its spec.md:82 criterion-(b) cross-band claim narrowed in the SAME pass (canonical sim-core/spec.md
       ends with NO "past a colder species" prose; BS10(e) preserved) + archive; temperature forward-constraint recorded.
       per-gas TEMPERATURE + the FINE intra-room cloud shape (corner front) are OUT (deferred / Wave 3).
-    status: active   # 2026-06-17 (s-work-008, c-work-003 framing, owner present): 2 gameplay decisions RESOLVED — Р1 closed level + capacity + back-pressure (d-roomfull-001; sink/venting + doors-break-under-pressure = named future seams); Р2 per-species temperature DEFERRED + BS4 narrowed (d-crossband-inv-001 ratified) + forward-constraint (temperature stays an independent readable layer, never fused into gas). amount-on-return = coarse always-on (this wave); fine intra-room cloud shape = Wave 3 (owner-accepted). Executor CALL FRAMED = c-exec-006 (opens with a PLAN, owner present; adversarially hardened by a 3-agent pass wf_1b929b4e — caught the openspec spec.md:82 cross-band contamination + GG1 same-tick). See open_calls + next.
+    status: done   # 2026-06-19 (s-work-009, applies c-exec-006 RESULT): t-2 RETURNED + CLOSED. Real DA-shaped level (IN1/IN2 generator-agnostic TopologyDocument seam, hundreds of rooms) + ONE controlled low-floor breach (GG1 same-tick/monotonic-revision/replay-identical + GG2 geometric sovereignty + GG3) + per-room-capacity LIVENESS (d-roomfull-001 closed-level + back-pressure: saturate-and-hold, no throw/overflow/negative, mass-exact, clearing a source leaves a live field) + per-layer coarse replication host+2 clients across the breach (CR1/CR2 lossless-bit-exact + lossy≤Q + bit-exact-at-settle / CR3 integer-exact, float-mutant negative) + single field-sampling oracle (OR1/OR3 cross-consumer+cross-peer over CR1-RECONSTRUCTED state, omitted-region negative) + clean 1-player parity. Leg-8 owner-visible slice BUILT FOR REAL (SceneTopologyComposer + DaTopologyProducer + GasDebugCoarseScene.unity + run-artifact) — the deliverable-exists v7 gate had caught it reported-done-not-built; the rebuild closed it; owner eyeball «работает» (2026-06-18). Gate check.ps1 -Deliver GREEN 372/372, mutation 75.29%, deliverable-coverage 14 promises; fresh-session G5 CLEAN (3 findings fixed: T28b CR1-reconstructed oracle, BandForHeight long, T5b GG4 source-survival). Legs 1-8 on GasCoopGame main (build @bef6fd8→04f39ee, finalized @0327b9f). Home-side OpenSpec apply+archive DONE (canonical sim-core/spec.md +18 reqs, grep-clean; folder → archive/; dev @7987506 / main @ce79e10, UNPUSHED). FishNet UDP wire env-deferred (WSAENOBUFS persists across restart — host/OS condition, NOT a build defect; binding gate = headless+loopback per spec; real-UDP = owner-run). Per-species temperature + fine intra-room cloud shape = Wave 3 (owner-acked cuts). RESULT → history/2026-06-18-c-exec-006-t2-result.md.
   - id: t-3
     kind: executor (engineering, GasCoopGame) — parallel with t-4 after t-2
     goal: the temperature layer plugs in as a real 2nd layer without core edits; both layers consistent at coarse scale.
@@ -215,7 +223,7 @@ open_calls:
   - id: c-work-003
     status: done   # 2026-06-17 (s-work-008) — Wave-2 t-2 framing (owner present): 2 gameplay decisions resolved (d-roomfull-001 closed-level+capacity+back-pressure; d-crossband-inv-001 ratified per-species-temp deferral + BS4 narrow + forward-constraint), BS4 narrowing + openspec L22 PLANNED, executor CALL c-exec-006 FRAMED + adversarially hardened (wf_1b929b4e: openspec spec.md:82 cross-band contamination + GG1 same-tick). t-2 stays active. → history/s-work-008.md
   - id: c-exec-006
-    status: queued   # FRAMED 2026-06-17 (s-work-008) — Wave-2 t-2 executor leg: real DA-composed level + breach + coarse replication + LIVENESS. Opens with a PLAN (owner present) in GasCoopGame (dev→main when green). Binds VERIFIED §CONTRACTS IN1/IN2/GG1/GG2/GG3/GG4-OR4(coarse half)/CR1/CR2/CR3/OR1/OR2/OR3 + the owner decisions + planner spec actions (BS4 narrow + openspec delta-narrowed-in-same-pass + archive + temperature forward-constraint). Independent test-author + fresh-session G5 + owner manual-acceptance (FishNet PlayMode / real-DA owner-run). Full CALL → history/s-work-008.md RESULT.next.
+    status: done   # 2026-06-19 (s-work-009) — RETURNED + applied. t-2 DELIVERED in GasCoopGame (legs 1-8, main @0327b9f) + owner eyeball «работает» (2026-06-18); gate check.ps1 -Deliver GREEN 372/372, mutation 75.29%, deliverable-coverage 14, fresh-session G5 clean (3 findings fixed). Home-side OpenSpec apply+archive DONE (canonical sim-core/spec.md +18 reqs grep-clean; folder → archive/; dev @7987506 / main @ce79e10, UNPUSHED). FishNet UDP wire env-deferred (WSAENOBUFS — owner-run; binding gate = headless+loopback). RESULT → history/2026-06-18-c-exec-006-t2-result.md. Full framing → history/s-work-008.md.
   - id: c-shape-marketing
     status: done   # 2026-06-16 shape DONE (s-shape-marketing) — g-2f8c set up as a parallel low-ceremony PROCESS (local plays marketing-forge + marketing-status + work/marketing/ graph), canon-forge-style. NOT a second active bet (G1); NOW spine (Wave 2 / c-exec-005) untouched. The go-to-market plan/goals/channels are DERIVED INSIDE the process (one chat = one card), NOT baked. next = first run = q-foundation in a fresh marketing-forge chat. → history/s-shape-marketing.md
   - id: c-exec-003
@@ -548,29 +556,41 @@ decision_inbox:
       (determinism-simpler than conformal cut-cells); both agree decisive evidence = the half-day integer probe.
       SCOPE: FINAL-impl / Wave-3 design bar — binds the Wave-3 shape (triage with the probe menu). Active bet
       t-2/c-exec-006 (2-band day-one) UNCHANGED + NOT blocked (G1). → history/s-decide-006.md
+  - id: d-wave2-seq-001
+    status: open   # raised 2026-06-19 (s-work-009) at the t-2 close — which Wave-2 leg leads now that t-2 is done
+    note: |
+      t-2 is CLOSED; t-3 (temperature-layer extensibility proof) and t-4 (player-legible render terminus) are BOTH
+      unblocked and parallelizable (t-4 depends on t-2's level+breach+RN1 read-model, NOT on t-3; t-3 depends on t-2).
+      QUESTION: which leads, or run both in parallel (G1 allows ≤3 active tasks)?
+      (A, RECOMMENDED) t-4 render terminus FIRST — the first human-legible artifact off the REAL coarse sim; breaks
+          pre-mortem #2 (Wave 1 left zero player-facing output) + feeds g-2f8c's fixed 2026-08-31 page date; SOLVER-
+          AGNOSTIC (reads RN1) so it does not wait on t-3. Bad, because: the 'a 3rd independent layer plugs in without
+          core edits' extensibility claim stays argued-not-exercised a little longer.
+      (B) t-3 temperature layer FIRST — closes the 'seam exercised not argued' half (XL2) earliest. Bad, because: it
+          produces nothing the owner/audience can SEE and does not move the 08-31 commercial clock.
+      (C) BOTH in parallel — t-4 (Unity/visual work-stream) ∥ t-3 (engine layer). Bad, because: two concurrent
+          executor legs is more orchestration load on a solo owner — only worth it if clearly running ahead.
+      Recommendation = A (t-4 leads; t-3 parallel only if capacity). Resolve at the next work session's PLAN open.
 
 next: |
-  Wave-2 t-2 is FRAMED (s-work-008, c-work-003, owner present): the executor CALL c-exec-006 is ready and
-  adversarially hardened (wf_1b929b4e). NEXT = open c-exec-006 as an executor leg in GasCoopGame (branch dev → main
-  when green), OPENING WITH A PLAN, owner present (architecture = that PLAN, not pre-decided): real DA-composed level
-  + ONE real breach + coarse replication + the now-quantity-dependent coarse tier + LIVENESS. The builder does NOT
-  author the CALL (it is framed); the executor leg uses the independent test-author + fresh-session G5 discipline.
+  Wave-2 t-2 is CLOSED (s-work-009, applies c-exec-006). The bet rolls to its remaining Wave-2 tasks — BOTH unblocked
+  by t-2 and parallelizable (G1 ≤3 active): t-3 (the temperature SINK layer plugs in as a real 2nd layer WITHOUT core
+  edits — XL2 gas-trajectory byte-identical + the barrier-table re-size SURFACED per the LOCK; coarse per-layer
+  CR1/CR2/CR3 incl. the coarse temperature READ; gas→temperature sink observable via the suppressed-event negative
+  oracle) and t-4 (the player-legible render terminus off the REAL coarse sim — breaks pre-mortem #2, feeds g-2f8c's
+  2026-08-31 page date; SOLVER-AGNOSTIC, depends on t-2's level+breach+RN1 read-model, NOT on t-3).
 
-  The 4 t-1 SHAPE inputs are RESOLVED + carried into c-exec-006:
-    (1) Room-full LIVENESS → DECIDED (d-roomfull-001): closed level + per-room capacity (bound to real DA geometry) +
-        BACK-PRESSURE (clamp [0,capacity]; source idles when full; saturate-and-hold; no throw/overflow/negative,
-        mass-exact). NO sink this wave; sink/venting + doors-break-under-pressure = NAMED future seams.
-    (2) Cross-band per-species inversion → DEFERRED (Р2, d-crossband-inv-001 ratified): build on the per-band model;
-        per-species TEMPERATURE = a named future seam; FORWARD-CONSTRAINT = temperature stays an independent readable
-        layer, never fused into gas (room-temperature map already exists; deferral ≠ "one temperature everywhere").
-    (3) Narrow ADR-0005 BS4 → planner action in c-exec-006 (builder applies the dictated wording; BS4 otherwise frozen;
-        no BS10 weakening — BS10(e) tests per-band rise, not a cross-band sort).
-    (4) openspec L22 → c-exec-006: apply the c-exec-005 delta WITH its spec.md:82 criterion-(b) cross-band claim
-        narrowed in the SAME pass (⚠ the delta STILL restates "past a colder species"; the live spec is grep-clean →
-        a verbatim apply would re-inject it — caught by wf_1b929b4e + owner-eyes-confirmed), then archive. done_when
-        binds "canonical spec ends clean + BS10(e) preserved".
-  Also bound (wf_1b929b4e contract-binding finding): GG1 same-tick-agreement / revision-monotonic / replay-identity on
-  the breach, as its OWN observable (GG3 inherits GG1) — refutable independent of the CR2 hash. amount-on-return =
-  coarse always-on (this wave); the fine intra-room cloud shape (corner front) = Wave 3 (owner-accepted).
+  NEXT = a fresh work session frames + opens the next Wave-2 executor leg in GasCoopGame (branch dev → main when
+  green), OPENING WITH A PLAN (owner present), per the independent-test-author + fresh-session-G5 + owner-acceptance
+  discipline. The leg binds the now-APPLIED canonical sim-core spec (t-2 requirements are live in
+  openspec/specs/sim-core/spec.md) + the VERIFIED §CONTRACTS. OWNER DECISION at open (decision_inbox
+  d-wave2-seq-001): which leg leads — recommend t-4 first (first showable artifact; highest leverage on the 08-31
+  date), with t-3 runnable in parallel (independent layer).
+
+  Carry-forward (NOT this leg): per-species temperature / true cross-band inversion (d-crossband-inv-001); the FINE
+  intra-room cloud shape + coarse↔fine no-jerk handoff + the d-returnfidelity-001 mid-transient return bar → Wave 3.
+  Owner-side, non-gating: (a) PUSH GasCoopGame (dev @7987506 / main @ce79e10) + this OS commit when ready; (b)
+  validate the literal FishNet UDP wire once the host network is healthy (WSAENOBUFS — loopback already delivered the
+  binding slice).
 
 END_OF_FILE: live/indie-game-development/NOW.md
