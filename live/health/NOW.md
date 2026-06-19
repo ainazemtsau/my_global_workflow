@@ -1,321 +1,231 @@
 # NOW — health
 
 active_bet:
-  status: none
-  note: >
-    No active bet. The workflow authority gate bet met review/refutation in
-    s-health-nutrition-workflow-authority-review-004 on 2026-06-18:
-    health-ai graph/current-workflow/router/writer validation passed WG1-WG14
-    and WGA0-WGA15 checks with blocker_gaps=0, and no nutrition execution
-    content was introduced. First nutrition-cycle shape was stopped before
-    approval because the owner identified a higher-priority trust/blocker
-    defect: Health AI must expose a durable repo-backed ChatGPT Project /
-    Claude / Codex startup surface and an end-to-end owner journey proof
-    from repo, not an ad-hoc bootstrap invented in chat. Next is health-ai
-    bootstrap + journey repair.
+  id: b-health-first-nutrition-cycle-001
+  node: g-health-first-nutrition-cycle
+  status: active
+  appetite: 10 calendar days
+  started_from_call: c-health-first-nutrition-cycle-shape-003
+  owner_approved: >
+    Approve as drafted
+  goal: >
+    The owner completes the first real 8-day nutrition cycle through Health AI
+    nutrition: startup begins from a normal owner message, Health AI validates
+    graph/cursor/router before execution, Health AI-only nutrition LOG summaries
+    support day-3 safety/friction check and day-8 review, and Direction OS receives
+    only summary, decisions, problems, and next CALL.
+  kill_by: >
+    2026-06-30 23:59 Europe/Minsk: if Health AI cannot prove a graph-selected
+    repo-backed startup/transition before execution, if fewer than 8 Health AI
+    nutrition days are completed, if day-3 safety/friction check or day-8 review
+    is missing, if raw daily food diary content leaks into Direction OS, or if
+    safety/friction forces conservative branch, stop and review instead of extending.
+  forecast: >
+    This should fit because health-ai now has repo-owned ChatGPT Project bootstrap,
+    workflow graph/current cursor/router, evidence map, accepted program synthesis,
+    first-cycle projection artifacts, provider journey evidence, and the evidence
+    workflow check passing at commit 50f2215.
+  against: >
+    The bet fails if the operator bypasses STARTUP_ROUTER, treats seed menu/cycle
+    files as active authority without graph selection, trusts chat claims as durable
+    state, asks the owner to choose expert nutrition variables, stores raw food
+    diary content in Direction OS, or turns the first cycle into new architecture,
+    training/activity, or medical prescription work.
+  next_if_true: >
+    Review closes the first-cycle execution bet, harvests only strategic summary
+    and decisions, then choose whether to run the second nutrition cycle, shape
+    training/activity, or repair any surfaced Health AI friction.
+  next_if_false: >
+    Stop; do not extend appetite. Route to review/repair with the exact failed
+    layer: provider/bootstrap, workflow cursor/router, evidence/program synthesis,
+    cycle/week-plan execution render, DAY_LOOP logging, safety/friction, or review.
+  cut_list:
+    - raw daily food logs, photos, check-ins, menus, grocery execution, or diary content in Direction OS
+    - training/activity implementation
+    - nutrition architecture rebuild during this shape/execution cycle
+    - app UI, runtime, DB, server, cron, scheduler, or background worker
+    - exact macro/gram tracking as the default first-cycle requirement
+    - owner choosing expert variables such as calories, protein, timing, fasting, meal count, tracking precision, or review cadence
+    - new Deep Research unless Health AI evidence/currentness rules explicitly route to PROGRAM refresh
+  lens_sweep:
+    weight-nutrition: task via t-1/t-2/t-3/t-4; first cycle must test real adherence, hunger, fallback, and review loop
+    strength-body-composition: not_needed_for_this_cycle; nutrition must preserve strength/muscle assumptions, but no training work starts
+    activity-conditioning: not_needed; training/activity node remains parked
+    adherence-relapse: task via t-3/t-4; logging friction, fallback use, hunger, energy, and prep friction are central
+    medical-safety: task via t-1/t-3/t-4; pending allergy/medical facts, red flags, and conservative branch are explicit gates
+    ai-system-data-architecture: task via t-1/t-2/t-5; router authority, repo-backed state proof, Health AI-only LOG, and Direction OS boundary are tested
+  riskiest_assumption: >
+    A normal owner startup message in Health AI can move from STARTUP_ROUTER to
+    the first executable nutrition state through graph/cursor/router and repo-backed
+    evidence without falling back into seed-artifact authority, unverified chat-state,
+    or menu-before-router behavior.
 
-tasks: []
+tasks:
+  - id: t-1
+    kind: guide
+    surface: Health AI ChatGPT Project or repo-backed equivalent
+    status: active
+    goal: >
+      Health AI startup from a normal owner message produces a repo-grounded current
+      nutrition state and exactly one bounded next action without execution content
+      bypassing graph-selected authority.
+    done_when: >
+      Owner starts with a normal message such as "Хочу начать питание"; Health AI
+      reads repo-owned bootstrap/load order, validates graph/current-workflow/router,
+      reports the current state and one bounded next action, asks no expert-variable
+      questionnaire, emits no menu/recipe/grocery/daily plan/raw LOG/review wall,
+      and either proves durable state with commit/diff/fresh repo read or emits a
+      writer-compatible packet.
+    evidence_expected: >
+      Owner-readable startup transcript/summary, resolved state, artifact family
+      authorization status, any writer packet or commit evidence, and explicit
+      no-menu-before-router/no-raw-Direction-OS-diary proof.
+  - id: t-2
+    kind: guide
+    surface: Health AI
+    status: queued
+    goal: >
+      Health AI reaches the first executable nutrition cycle path through authorized
+      PROGRAM/CYCLE/WEEK_PLAN state without bypassing evidence map or program synthesis.
+    done_when: >
+      Health AI uses accepted evidence map and active program synthesis, handles
+      pending irreducible owner facts through reduced/conservative mode or at most
+      one material clarifier, authorizes only the graph-selected artifact family,
+      and produces the bounded first-cycle start packet or writer packet without
+      asking the owner to choose expert variables.
+    evidence_expected: >
+      Graph-selected state path, cited evidence/synthesis references, pending fact
+      handling, first-cycle start packet or writer packet, and proof that menu/cycle
+      content is a projection rather than decision authority.
+  - id: t-3
+    kind: guide
+    surface: Health AI
+    status: queued
+    goal: >
+      Days 1-3 of the first nutrition cycle are completed in Health AI and day-3
+      safety/friction check produces a clear continue/conservative/review signal.
+    done_when: >
+      Health AI records only Health AI nutrition LOG summaries from free-form owner
+      updates, accepts messy text/voice/photo-style input without forcing templates,
+      checks hunger, energy, adherence, fallback use, prep friction, and red flags,
+      and returns a day-3 summary/decision/problem suitable for Direction OS without
+      raw diary content.
+    evidence_expected: >
+      Day-3 Health AI summary, safety/friction verdict, conservative branch if used,
+      and Direction OS-safe summary with raw daily content omitted.
+  - id: t-4
+    kind: guide
+    surface: Health AI
+    status: queued
+    goal: >
+      Days 4-8 of the first nutrition cycle are completed and Health AI performs
+      the day-8 first-cycle review from summaries, owner feedback, and core metrics.
+    done_when: >
+      Health AI completes the remaining first-cycle days, runs day-8 review, names
+      exactly one review decision class or bounded mutation/repair route, keeps raw
+      diary content inside Health AI only, and produces Direction OS-safe summary,
+      decisions, problems, and recommended next CALL.
+    evidence_expected: >
+      Day-8 review summary, review decision class, mutation/repair target if any,
+      no-raw-Direction-OS-diary proof, and recommended next Direction OS CALL.
+  - id: t-5
+    kind: session
+    play: review
+    status: queued
+    goal: >
+      First nutrition-cycle evidence is refuted or accepted as meeting the shaped
+      bet, and the next health bet is chosen from strategic summary only.
+    done_when: >
+      A fresh review/refutation checks t-1 through t-4 evidence against done_when,
+      kill_by, cut list, lens sweep, raw-data boundary, workflow-router authority,
+      day-3 check, and day-8 review; if met, it closes the bet; if not, it routes
+      to the exact failed repair layer.
+    evidence_expected: >
+      RESULT from review session with verdict, blocker gaps, state_changes, and
+      next CALL.
 
-open_calls: []
+open_calls:
+  - id: c-health-first-nutrition-cycle-t1-startup-router-001
+    status: ready
+    note: >
+      First task of b-health-first-nutrition-cycle-001: Health AI startup from
+      normal owner message must prove repo-grounded current state and one bounded
+      next action before any execution content.
 
 recurring: []
 
 decisions: []
 
 next: |
-  CALL c-health-ai-project-bootstrap-e2e-repair-001
-  to: executor
+  CALL c-health-first-nutrition-cycle-t1-startup-router-001
+  to: session
   direction: health
-  repo: ainazemtsau/health-ai
-  kind: engineering
-  node: g-health-nutrition-system
+  play: guide
+  node: g-health-first-nutrition-cycle
+  task: t-1
   goal: |
-    Health AI has a durable repo-backed provider/client startup surface and
-    end-to-end owner journey proof: ChatGPT Project, Claude, Claude Code, and
-    Codex can all start from ainazemtsau/health-ai, use current repo files as
-    source of truth, route normal owner messages through the nutrition workflow,
-    and demonstrate the expected first-days and multi-week nutrition journey
-    without ad-hoc prompt text invented in chat, stale uploaded-file snapshots,
-    or manual Direction OS packet formats from the owner.
+    Health AI startup from a normal owner message has a repo-grounded current
+    nutrition state and exactly one bounded next action, with no unauthorized
+    execution content.
   context: |
-    Problem found during c-health-first-nutrition-cycle-shape-002:
-    the owner wanted to create/use a ChatGPT Project for Health AI and start
-    with a normal message. The session initially produced ad-hoc Project
-    Instructions in chat and then a file-upload fallback. Owner rejected this
-    correctly: Health AI is supposed to work through GitHub/repo state, so the
-    bootstrap must be durable, repo-owned, provider/client-aware, and not require
-    the owner to return to a chat to ask what to paste.
+    Active bet:
+    - live/health/NOW.md
+    - live/health/TREE.md node g-health-first-nutrition-cycle
 
-    Trust issue:
-    This is not only a missing setup file. The owner no longer trusts that the
-    rest of the Health AI nutrition workflow is coherent. The repair must include
-    a detailed owner-readable end-to-end journey example showing how the system is
-    expected to work across:
-    - ChatGPT Project creation/setup from repo-owned instructions.
-    - First normal owner message.
-    - Startup router/current-workflow behavior.
-    - Initial minimal questions.
-    - First day of nutrition.
-    - Day-2 continuation.
-    - Day-3 safety/friction check.
-    - Days 4-8 continuation.
-    - Day-8 review.
-    - Weeks 2-4 continuation/mutation.
-    - New recipe request/intake.
-    - Personalization from feedback and adherence.
-    - Fallback meal usage.
-    - Writer handoff when the current surface cannot write to repo.
-    - Failure modes and repair routing.
+    Accepted prerequisite evidence:
+    - health-ai commit 50f2215118c190ff959b7e21cda0715d368b243c
+      ("Repair nutrition evidence workflow")
+    - `python tools/check_nutrition_evidence_workflow.py` in health-ai reported:
+      PASS; evidence map claims 10; synthesis decisions 10; negative fixtures rejected;
+      blocker gaps 0.
+    - live/health/knowledge/health-nutrition-workflow-authority-g5-review.md
+    - live/health/knowledge/health-nutrition-system-g5-review.md
 
-    Current product evidence:
-    - SYSTEM.md: portable Health AI prompt.
-    - AGENTS.md: canonical operating contract for ChatGPT, Claude, Claude Code,
-      Codex, and other LLM surfaces.
-    - CLAUDE.md: Claude-specific pointer to AGENTS.md, not a separate fork.
-    - x_nutrition/index.md: nutrition setup/continuation load order and active
-      artifacts.
-    - x_nutrition/workflow/graph.md
-    - x_nutrition/state/current-workflow.md
-    - x_nutrition/procedures/workflow-router.md
-    - x_nutrition/procedures/provider-continuation.md
-    - x_nutrition/procedures/writer-handoff.md
-    - acceptance/x_nutrition/provider-continuation-matrix.json
-    - tools/check_nutrition_continuation.py
+    Product surfaces to load or verify:
+    - health-ai/CHATGPT_PROJECT.md
+    - health-ai/AGENTS.md
+    - health-ai/SYSTEM.md
+    - health-ai/x_nutrition/index.md
+    - health-ai/x_nutrition/workflow/graph.md
+    - health-ai/x_nutrition/state/current-workflow.md
+    - health-ai/x_nutrition/procedures/workflow-router.md
+    - health-ai/x_nutrition/procedures/research-to-program.md
+    - health-ai/x_nutrition/reference/evidence-reference.md
+    - health-ai/x_nutrition/program-synthesis/active-program-synthesis.md
+    - health-ai/acceptance/x_nutrition/provider-startup-owner-journey.md
+    - health-ai/tools/check_nutrition_evidence_workflow.py
 
-    Direction OS accepted fact:
-    - live/health/knowledge/health-nutrition-workflow-authority-g5-review.md:
-      workflow authority review passed on 2026-06-18 with WG1-WG14 and
-      WGA0-WGA15 checks, blocker_gaps=0.
+    Current product cursor observed during shape:
+    - `x_nutrition/state/current-workflow.md` has current_state STARTUP_ROUTER,
+      allowed_next_states ["PROGRAM"], selected_output_artifact_family null,
+      owner_input_needed false, blocked false, and router_preflight_required true.
 
-    Required repair intent:
-    - Do not create another chat-only bootstrap.
-    - Make ChatGPT Project setup a repo-owned artifact.
-    - Make the setup point to ainazemtsau/health-ai as source of truth.
-    - Preserve provider independence: ChatGPT Project, Claude, Claude Code,
-      and Codex must converge on repo files, not hidden provider memory.
-    - Prove the owner-facing journey with a detailed synthetic example.
-    - The owner must be able to start with a normal message like:
-      "Хочу начать питание. Проведи меня с нуля до первого рабочего плана."
+    Direction OS state note:
+    - The CALL mentions `live/health/knowledge/health-nutrition-evidence-workflow-g5-review.md`,
+      but that knowledge file was not present locally during shape. Use the product
+      commit/check evidence above plus the CALL's accepted review context; if this
+      absence blocks confidence, return a repair/audit recommendation rather than
+      inventing state.
   boundaries: |
-    Do not start real owner nutrition execution.
-    Do not create real owner menus, real owner grocery lists, real owner shopping
-    instructions, real owner daily plans, or real owner food logs.
-    Synthetic examples/fixtures are allowed only if clearly marked as synthetic,
-    non-authoritative journey proof and not to be followed as the owner's actual
-    nutrition plan.
-    Do not move into training/activity implementation.
-    Do not rewrite g-health-core or redefine core-owned concepts.
-    Do not add app UI, runtime, DB, server, cron, scheduler, or background worker.
-    Do not edit Direction OS repo files from this executor.
-    Do not make uploaded stale snapshots the normal ChatGPT Project path when
-    GitHub/repo access is available.
+    Do not store raw daily food logs, photos, check-ins, menus, grocery execution,
+    or daily diary content in Direction OS.
+    Do not bypass Health AI workflow graph, current-workflow cursor, or workflow-router.
+    Do not emit real menus, recipes, grocery lists, shopping instructions, daily
+    plans, raw LOG dumps, fallback meals, or review walls before the selected graph
+    state authorizes that artifact family.
     Do not ask the owner to choose expert nutrition variables.
+    Do not move into training/activity implementation.
+    Do not rebuild nutrition architecture.
     Do not make medical diagnoses or prescriptions.
-  allowed_files_or_surfaces: |
-    You may edit or add only the carrier/bootstrap/journey/validation surfaces
-    needed for this repair:
-    - SYSTEM.md
-    - AGENTS.md
-    - CLAUDE.md
-    - README.md if present
-    - new repo-owned ChatGPT Project setup/entrypoint doc, recommended:
-      CHATGPT_PROJECT.md
-    - new owner journey proof doc, recommended:
-      docs/owner-journeys/chatgpt-project-nutrition-e2e.md
-      or x_nutrition/handoffs/chatgpt-project-nutrition-e2e.md
-    - x_nutrition/index.md only if needed to point to the repo-owned project
-      bootstrap/journey/load order without changing nutrition semantics
-    - x_nutrition/procedures/provider-continuation.md only if needed to clarify
-      ChatGPT Project / GitHub-connected continuation behavior
-    - x_nutrition/procedures/writer-handoff.md only if needed to clarify
-      non-code chat -> writer packet -> repo commit -> continuation
-    - acceptance/x_nutrition/provider-continuation-matrix.json
-    - tools/check_nutrition_continuation.py
-    - optionally a new focused check such as tools/check_project_bootstrap.py
-    - minimal synthetic fixtures/examples required by those checks
-
-    If the executor finds a contradiction outside these surfaces that prevents
-    the repair from being truthful, stop and return STUCK with exact files and
-    contradiction. Do not silently widen scope and do not paper over it with prose.
-  mandatory_investigation: |
-    Before editing, inspect the existing provider/client carrier surfaces and
-    classify the defect explicitly in the executor RESULT:
-    - missing repo-owned ChatGPT Project entrypoint;
-    - insufficient SYSTEM/AGENTS/CLAUDE load-order clarity;
-    - insufficient validation/acceptance coverage;
-    - insufficient owner-facing end-to-end journey proof;
-    - broader contradiction in nutrition continuation semantics.
-
-    If the issue is broader than bootstrap/journey, the executor must not claim
-    the repair is complete. It must return blocker_gaps with the next repair CALL.
-  mandatory_owner_journey_artifact: |
-    Add or update a repo-owned owner-readable journey document. It must be detailed
-    enough that the owner can judge whether the Health AI nutrition workflow is
-    coherent.
-
-    The journey document must include at least these sections:
-
-    1. Setup from zero:
-       - ChatGPT Project creation.
-       - What exact Project Instructions are used or where they are copied from.
-       - How GitHub/repo source of truth is established.
-       - What happens if the current chat surface has no repo access.
-       - Why uploaded files are not the normal path.
-
-    2. First message:
-       - Owner writes a normal message, e.g.
-         "Хочу начать питание. Проведи меня с нуля до первого рабочего плана."
-       - Expected Health AI behavior.
-       - No CALL, RESULT, JSON, fixed form, colon fields, or Direction OS packet
-         demanded from owner.
-
-    3. Startup routing:
-       - Health AI loads SYSTEM.md, AGENTS.md, core/index.md, x_nutrition/index.md.
-       - Nutrition startup routes through workflow graph, current-workflow cursor,
-         and workflow-router before output-heavy artifacts.
-       - Explain in owner language why active menu/cycle files are seeds until
-         the router selects one state/artifact family.
-
-    4. First setup conversation:
-       - Minimal questions Health AI may ask.
-       - Which facts are irreducible owner facts.
-       - Which variables Health AI decides itself.
-       - What reduced mode looks like if a fact is missing.
-
-    5. First 3 days:
-       - Day 1: how owner receives the first bounded action and logs loosely.
-       - Day 2: how messy text/photo input is parsed without forcing a template.
-       - Day 3: safety/friction check and possible conservative branch.
-       - Include synthetic transcript snippets and expected repo/write outcome.
-
-    6. Days 4-8:
-       - How continuation works.
-       - How fallback food is used.
-       - How hunger, energy, adherence, and practical friction affect adjustment.
-       - What Health AI stores in its nutrition LOG vs what must not go to
-         Direction OS.
-
-    7. Day-8 review:
-       - What gets reviewed.
-       - How summary/decision/problem is separated from raw diary.
-       - How mutation is proposed.
-
-    8. Weeks 2-4:
-       - How the next cycle begins.
-       - How personalization accumulates from feedback.
-       - How a repeated failure changes the plan.
-       - How weight trend / adherence / biofeedback influence changes without
-         turning into medical diagnosis.
-
-    9. New recipe flow:
-       - Owner asks for a new recipe.
-       - Health AI checks constraints, preferences, effort level, protein/satiety,
-         existing menu/fallback fit.
-       - Health AI proposes or files a recipe change through the correct writer path.
-       - Synthetic example must show how the recipe becomes a candidate, accepted
-         recipe, fallback, or rejected idea.
-
-    10. Provider/client handoff:
-        - ChatGPT Project with repo access.
-        - ChatGPT Project without repo write access.
-        - Codex or Claude Code as writer.
-        - Claude/Claude Code loading via CLAUDE.md -> AGENTS.md.
-        - What packet or commit is produced.
-        - How a fresh chat resumes from repo state.
-
-    11. Failure modes:
-        - Chat cannot read repo.
-        - Chat emits output-heavy menu before router.
-        - Chat asks owner to choose expert variables.
-        - Chat tries to write raw daily diary into Direction OS.
-        - Cursor/graph mismatch.
-        - Stale uploaded file snapshot used as authority.
-        - For each: expected block/repair behavior.
   done_when: |
-    A committed health-ai repair exists such that:
-
-    1. The repo contains a durable ChatGPT Project entrypoint, recommended
-       `CHATGPT_PROJECT.md`, with exact setup instructions and either:
-       - exact copy-paste Project Instructions owned by the repo; or
-       - a precise minimal bootstrap that points the Project at
-         ainazemtsau/health-ai as source of truth and then loads SYSTEM.md /
-         AGENTS.md from repo.
-       The artifact must not rely on ad-hoc chat text.
-
-    2. The ChatGPT Project entrypoint clearly distinguishes:
-       - normal path: GitHub/repo-connected source of truth;
-       - reduced/no-repo path: do not claim durable state changed; route to writer
-         packet or Codex/Claude Code;
-       - manual uploaded snapshots: allowed only as temporary degraded fallback,
-         never the accepted normal workflow.
-
-    3. SYSTEM.md, AGENTS.md, CLAUDE.md, and the ChatGPT Project entrypoint have
-       a non-contradictory provider/client load order:
-       - ChatGPT Project: project bootstrap -> GitHub repo -> SYSTEM.md ->
-         AGENTS.md -> core/index.md -> x_nutrition/index.md for nutrition work.
-       - Claude: CLAUDE.md -> AGENTS.md.
-       - Codex/Claude Code: repo root -> AGENTS.md.
-       - Nutrition startup/continuation: x_nutrition/index.md -> workflow graph
-         + current-workflow + workflow-router before output-heavy artifacts.
-
-    4. Owner-facing startup remains normal-language:
-       the owner can type "Хочу начать питание" and must not provide CALL,
-       RESULT, JSON, colon fields, fixed LOG templates, or Direction OS packet
-       formats.
-
-    5. The repo contains the mandatory owner journey artifact described above.
-       It must show the expected journey from zero setup through first days,
-       day-8 review, weeks 2-4, new recipe flow, personalization, provider/client
-       handoff, and failure modes. It must be detailed, owner-readable, and
-       explicitly marked synthetic/non-authoritative where it includes example
-       food/log content.
-
-    6. Nutrition startup still routes through:
-       - x_nutrition/workflow/graph.md
-       - x_nutrition/state/current-workflow.md
-       - x_nutrition/procedures/workflow-router.md
-       before output-heavy nutrition artifacts.
-
-    7. Validation is strengthened so this defect cannot silently return:
-       existing checks pass, and at minimum tools/check_nutrition_continuation.py
-       or a new focused check fails if:
-       - the repo lacks the ChatGPT Project bootstrap/entrypoint;
-       - the bootstrap tells the owner to use stale uploaded snapshots as the
-         default path when GitHub/repo access is available;
-       - the bootstrap omits SYSTEM.md/AGENTS.md/core/index.md/x_nutrition/index.md
-         load order;
-       - the journey artifact is missing;
-       - owner-facing startup requires CALL/RESULT/JSON/fixed templates;
-       - startup can emit menu/recipe/grocery/daily_plan/raw_log before router.
-
-    8. The executor runs relevant checks and reports exact commands/output.
-       Required minimum:
-       - python tools/check_acceptance_matrix.py
-       - python tools/check_core_slice.py
-       - python tools/check_core_evidence.py
-       - python tools/check_nutrition_research_setup.py
-       - python tools/check_nutrition_full_module.py
-       - python tools/check_nutrition_continuation.py
-       - plus any new bootstrap/journey check if added.
-
-    9. The executor RESULT includes:
-       - commit SHA;
-       - changed files;
-       - check commands and outputs;
-       - blocker_gaps count;
-       - explicit defect classification from mandatory_investigation;
-       - path to ChatGPT Project entrypoint;
-       - path to owner journey artifact;
-       - a readable excerpt/summary of the end-to-end journey for owner review;
-       - a ready fresh review CALL to verify the repair by refutation.
+    Owner can start with a normal Health AI message; Health AI reports the current
+    nutrition state and exactly one bounded next action; repo-backed state evidence
+    is named if any transition is claimed; no unauthorized execution content is
+    emitted; and the result is summarized for Direction OS without raw diary content.
   return: |
-    RESULT from executor with commit SHA, changed files, check output, blocker_gaps,
-    defect classification, ChatGPT Project entrypoint path, owner journey artifact
-    path, owner-readable journey summary/excerpt, and a ready review/refutation CALL.
-
-    If the executor finds that the defect is broader than bootstrap/journey and
-    cannot be fixed within allowed surfaces, return STUCK with exact blockers,
-    exact files, and recommended next repair CALL. Do not produce a fake pass.
-  budget: one focused half-day
+    RESULT with startup transcript/summary, resolved state, bounded next action,
+    state evidence or writer packet, no-bypass/no-raw-diary proof, state_changes,
+    and next CALL.
+  budget: one tight guide session
 
 END_OF_FILE: live/health/NOW.md

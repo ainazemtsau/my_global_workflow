@@ -143,7 +143,14 @@ root:
         - Day-3 safety/friction check выполнен и не выявил blocker red flags, либо включил conservative branch.
         - Day-8 first-cycle review выполнен в Health AI по LOG summaries, owner feedback and core metrics.
         - Direction OS не содержит raw daily food logs/photos/check-ins; только summary, decisions, problems, and next CALL.
-      status: parked
+      status: active
+      appetite: 10 calendar days
+      kill_by: >
+        2026-06-30 23:59 Europe/Minsk: if Health AI cannot prove a graph-selected
+        repo-backed startup/transition before execution, if fewer than 8 Health AI
+        nutrition days are completed, if day-3 safety/friction check or day-8 review
+        is missing, if raw daily food diary content leaks into Direction OS, or if
+        safety/friction forces conservative branch, stop and review instead of extending.
       children: []
 
     - id: g-health-training-activity-system
