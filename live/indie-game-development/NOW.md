@@ -25,6 +25,16 @@ active_bet:
     owner-run=close-gate). Each opens with a PLAN (owner present). Parallel-safe: t-4 reads the FROZEN IGasReadModel/RN1 read-model (never
     reaches below it), t-3 EXTENDS the read seam additively (never changes ConcentrationAt); file-ownership split (t-3 = Core/** + tests, edits
     no scene/MonoBehaviour; t-4 owns *.unity + a NEW render scene, never co-edits GasDebugCoarseScene). Build = two separate legs in GasCoopGame.
+    🔧 2026-06-19 (s-work-011): TWO Codex reviews (correctness + structural) triaged → review-driven CONSOLIDATION+HARDENING leg c-exec-009
+    (t-5) FRAMED + red-teamed (wf_619b23cd, SOUND-WITH-FIXES, 6 gaps folded), owner «го». Surfaced previously-SHADOW dev work: dev advanced
+    UNPUSHED past 7987506 to 3be28df (4 tooling commits) + an uncommitted ADR-0008 replication-seam→Core move (read-only headless gate GREEN:
+    build 0/0, 372/372, hygiene OK — coherent, KEEP, no revert). Triage of ~16 findings: 3 confirm-only (P0 STALE=all leg-8 artifacts exist +
+    c-exec-006 archived; MCP-strip already durable @e58a33d; ADR-0008 move=keep), 3 fix-now THROUGH the contour (FieldDelta validate-before-mutate;
+    chunk apply-before-advance; StableId→Core+conformance — all no-silent-state-corruption), 5 NAMED owner-ack deferrals, rest hygiene. SEQUENCING:
+    c-exec-009 LEADS; t-4 (c-exec-008, render) CONTINUES ∥ (untouched by both reviews); t-3 (c-exec-007) HELD pending the clean baseline (shares the
+    Core/Field + Coarse/Replication seam the ADR-0008 move + the 3 fixes touch). The handed CALL («pick t-3/t-4 sequencing») was STALE (predated
+    s-work-010, which already answered C + opened both legs) — re-verified committed state, not re-litigated. 2 owner-gated blockers stay
+    (owner-run Unity PlayMode re-run via MCP; real-UDP FishNet env-blocked).
   appetite: |
     Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
     Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
@@ -207,7 +217,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       per-band temperature state (V2-3: the coarse temperature READ exercised on a committed revision); the
       gas→temperature SINK interaction observable (suppressed-event negative oracle, XL1); the §RESOLVED-4
       grid-addressed read-ready seam exercised (read another layer's field at a committed revision).
-    status: active   # 2026-06-19 (s-work-010) OPENED as c-exec-007 (∥ t-4); opens with a PLAN (owner present). ADDITIVE on t-2: coarse temperature is plane 6 ALREADY shipped + replicated (a coupled plane of CoarseBandLayer, NOT a registered layer) — t-3 ADDS a NEW 3rd INDEPENDENT demonstrative layer (the XL2 file-isolation proof) + the §RESOLVED-4 read seam + the gas→temperature suppressed-event sink oracle; MUST NOT re-home/alter plane 6 or change IGasReadModel.ConcentrationAt (t-4 parallel-safe). Full CALL → history/s-work-010.md.
+    status: blocked_on c-exec-009   # 2026-06-19 (s-work-011) HELD pending the c-exec-009 clean baseline — t-3 edits the Core/Field + Coarse/Replication seam that the ADR-0008 consolidation + the 3 no-silent-corruption fixes touch (collision); resume via a fresh work session once the baseline is green. Originally OPENED 2026-06-19 (s-work-010) as c-exec-007 (∥ t-4); opens with a PLAN (owner present). ADDITIVE on t-2: coarse temperature is plane 6 ALREADY shipped + replicated (a coupled plane of CoarseBandLayer, NOT a registered layer) — t-3 ADDS a NEW 3rd INDEPENDENT demonstrative layer (the XL2 file-isolation proof) + the §RESOLVED-4 read seam + the gas→temperature suppressed-event sink oracle; MUST NOT re-home/alter plane 6 or change IGasReadModel.ConcentrationAt (t-4 parallel-safe). Full CALL → history/s-work-010.md.
   - id: t-4
     kind: executor (engineering, GasCoopGame) — PARALLEL Unity/visual work-stream; depends on t-2 (level+breach+read-model), NOT t-3
     goal: a PLAYER-LEGIBLE artifact off the real coarse sim — readable without a debug overlay; breaks pre-mortem #2.
@@ -221,12 +231,54 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       SOLVER-AGNOSTIC (reads RN1 — works on band OR degraded scalar). Rides the 07-11→07-24 cushion to ~07-21;
       auto-shrinks to a ≤1wk minimal-legibility floor if t-1 slips past 06-30.
     status: active   # 2026-06-19 (s-work-010) OPENED as c-exec-008 (∥ t-3); opens with a PLAN (owner present). Carries owner R1 (wire the REAL Dungeon Architect, existence-proven: real IDaRoomReader, tag prefabs, REMOVE FixedLevelRoomReader from runtime; SCOPE-SPLIT from the render terminus + GEOMETRY-MOVE RULE), R2 (guide-loop step-by-step Unity instructions whenever an action can't go via MCP + answer owner Qs), R3 (owner-run = close-gate: BUILD/existence closes headlessly, only the LOOK is owner-run; DONE-pending-owner-LOOK until owner confirms — no self-marking). Acceptance = RN2 machine blind-check (frozen N-of-M floor) + owner gamer-eye. Full CALL → history/s-work-010.md.
+  - id: t-5
+    kind: executor (engineering, GasCoopGame) — CONSOLIDATION + HARDENING (review-driven, NOT a wave feature); LEADS Wave-2; gates t-3, ∥ t-4
+    goal: |
+      ONE clean, gate-green, owner-acked dev baseline — the in-flight ADR-0008 coarse-replication-seam→Core move + the 4 unpushed tooling
+      commits consolidated coherently (nothing correct lost), the 3 real no-silent-state-corruption fixes landed THROUGH the contour, hygiene
+      batched, every out-of-scope review finding a NAMED owner-ack deferral. Closes the 2-review triage + restores OS visibility of the
+      previously-shadow dev hardening work.
+    done_when: |
+      (consolidation) ADR-0008 changeset committed as ONE coherent boundary-correction commit on top of the 4 kept tooling commits (git clean;
+      moved Core types keep GUIDs; FishNetChunkChannel : ICoarseChunkLink) + R13/R14 mechanical proof (moved Core/Field/Coarse/Replication/*
+      compile noEngineReferences:true, ZERO Unity/FishNet usings). (gate-honesty) check.ps1 -Deliver GREEN on a CLEAN tree, transcript attached
+      to RESULT.md (proves P0 was the dirty tree). (3 fix-now, each red-test-first by an INDEPENDENT test-author, classified
+      no-silent-corruption, ENROLLED as a frozen change with its own mutation-<id>.json ≥ floor): FieldDelta validate-before-mutate;
+      RevisionBarrier/ChunkDecoder/CoarseChunkFollower apply-before-advance; StableId→Core + a TopologyConformance derive-mismatch check (no
+      formula-duplication). (hygiene) AGENTS.md Net-edge-root line; GasDebug version-checked reflection bootstrap; LogAssert targeted-Expect;
+      delete Assets/_Recovery; git rm --cached GasCoopGame.slnx; swapped-assert fixes; hygiene.ps1 flags runtime Assert.Ignore/Assume +
+      _Recovery/_scratch_*. (close) -Deliver GREEN incl. all 3 change-ids' mutation ≥ floor + deliverable-coverage v7 over ALL done_when +
+      spec-silence + a FRESH-SESSION G5 refutation on the HARDENED tree + RESULT reconciled. 5 NAMED owner-ack deferrals recorded. TWO
+      owner-gated blockers stated, NOT self-resolved: (i) owner-run Unity compile + PlayMode CoarseVisibleSlice re-run via MCP; (ii) real-UDP
+      FishNet deferred (WSAENOBUFS).
+    status: active   # 2026-06-19 (s-work-011) FRAMED as c-exec-009 (red-teamed wf_619b23cd, SOUND-WITH-FIXES). Leads Wave-2; ∥ t-4 (c-exec-008); gates t-3 (c-exec-007 HELD). Full CALL → history/s-work-011.md §c-exec-009.
 
 recurring: []
 
 open_calls:
+  - id: c-exec-009
+    status: open   # 2026-06-19 (s-work-011) FRAMED + red-teamed (wf_619b23cd, SOUND-WITH-FIXES) + OPENED — review-driven consolidation+hardening leg (t-5); LEADS Wave-2, ∥ c-exec-008, gates c-exec-007
+    note: |
+      Executor leg (GasCoopGame, dev→main when green). GOAL: ONE clean, gate-green, owner-acked dev baseline that consolidates the in-flight
+      ADR-0008 coarse-replication-seam→Core move + the 4 already-committed UNPUSHED tooling commits (dev @3be28df) into a coherent tip with
+      nothing correct lost, fixes the 3 no-silent-state-corruption defects THROUGH the contour, batches hygiene, and carries every out-of-scope
+      review finding as a NAMED owner-ack deferral. Triaged from TWO owner-pasted Codex reviews (correctness + structural). 3 CONFIRM-ONLY (P0
+      stale = all leg-8 artifacts exist + c-exec-006 archived; MCP player-strip already durable @e58a33d; the ADR-0008 seam move = KEEP, confirm
+      through the gate). 3 FIX-NOW (each red-test-first by an INDEPENDENT test-author, classified by the invariant, ENROLLED as a frozen change
+      with its own mutation-<id>.json ≥ floor — no symptom band-aid): (1) FieldDelta.Apply validate-before-mutate; (2)
+      RevisionBarrier/ChunkDecoder/CoarseChunkFollower apply-before-advance; (3) StableId derivation moved into Core/Field/Topology + a
+      derive-mismatch check in TopologyConformance. HYGIENE batched: AGENTS.md Net-edge-root bless; GasDebug version-checked reflection bootstrap;
+      LogAssert targeted-Expect; delete Assets/_Recovery (untracked on disk); git rm --cached GasCoopGame.slnx; swapped-assert fixes; hygiene.ps1
+      flags runtime Assert.Ignore/Assume + _Recovery/_scratch_* dirs. CLOSE: check.ps1 -Deliver GREEN on a CLEAN tree (proves P0 was the dirty
+      tree) + all 3 change-ids' mutation ≥ floor + deliverable-coverage v7 over ALL done_when + a FRESH-SESSION G5 refutation on the hardened tree +
+      RESULT reconciled to truth. 5 NAMED owner-ack deferrals: untrusted-peer/PeerId-spoof; topology int-overflow on pathological volumes
+      (TopologyDocument MaxX/Y/Z = Min+Extent-1 unchecked); broadcast-leak on reconnect; real-UDP FishNet env-blocked/owner-run (YELLOW-not-green
+      reporting rider); headless CoarseReconstructionHarness.Follower 2nd-source-of-truth (Constitution-#3). 2 owner-gated blockers NOT
+      self-resolved: (i) owner-run Unity compile + PlayMode CoarseVisibleSlice re-run via MCP (edge change under Net/, outside the headless csproj —
+      not done until owner confirms); (ii) real-UDP FishNet deferred (WSAENOBUFS), loopback binding. Read-only headless gate on the dirty tree
+      already GREEN (build 0/0, 372/372, hygiene OK). FULL CALL → history/s-work-011.md §c-exec-009.
   - id: c-exec-007
-    status: open   # 2026-06-19 (s-work-010) FRAMED + hardened (wf wd3a59z47) + OPENED — Wave-2 t-3 engine leg, ∥ c-exec-008
+    status: held   # 2026-06-19 (s-work-011) HELD pending the c-exec-009 clean baseline (shares the Core/Field + Coarse/Replication seam the ADR-0008 move + the 3 fixes touch). FRAMED + hardened (wf wd3a59z47) + OPENED 2026-06-19 (s-work-010) — Wave-2 t-3 engine leg, ∥ c-exec-008
     note: |
       Executor leg (GasCoopGame, dev→main when green), opens with a PLAN (owner present). GOAL: a 3rd INDEPENDENT
       system-layer is networked-consistent at coarse scale alongside gas, having plugged in WITHOUT core edits — the
@@ -623,29 +675,29 @@ decision_inbox:
       Recommendation = A (t-4 leads; t-3 parallel only if capacity). Resolve at the next work session's PLAN open.
 
 next: |
-  Wave-2 t-3 ∥ t-4 are BOTH OPEN + in flight (s-work-010, owner chose C). Two executor legs run in PARALLEL in
-  GasCoopGame (branch dev → main when green), EACH opening with a PLAN (owner present) under the
-  independent-test-author + fresh-session-G5 + owner-acceptance discipline, binding the APPLIED canonical spec
-  (openspec/specs/sim-core/spec.md) + the VERIFIED §CONTRACTS:
-    - c-exec-007 (t-3, CORE+TEST): the XL2 extensibility proof (a NEW independent layer plugs in WITHOUT core edits) +
-      §RESOLVED-4 read seam + gas→temperature suppressed-event sink oracle; ADDITIVE on t-2 (temperature plane 6 stays
-      frozen, NOT re-homed). Full CALL → open_calls / history/s-work-010.md.
-    - c-exec-008 (t-4, RENDER + REAL DA): the player-legible bottom-up-fill terminus on a REAL Dungeon-Architect level;
-      owner R1 (wire real DA, existence-proven) / R2 (guide-loop instructions when no MCP) / R3 (owner-run = close-gate,
-      DONE-pending-owner-LOOK). Full CALL → open_calls / history/s-work-010.md.
-  Parallel-safety (so the two legs do NOT collide): t-4 reads the FROZEN IGasReadModel/RN1 and never reaches below it;
-  t-3 EXTENDS the read seam additively and never changes ConcentrationAt; file-ownership split (t-3 = Core/** + tests,
-  no scene/MonoBehaviour edits; t-4 owns *.unity + a NEW render scene, never co-edits GasDebugCoarseScene/GasDebugDirector).
-  C is reversible: if two concurrent legs strain a solo owner, PAUSE t-3 — t-4 is unaffected (depends on t-2, not t-3).
+  Owner «го» (2026-06-19, s-work-011): a review-driven CONSOLIDATION+HARDENING leg LEADS Wave-2. RUN c-exec-009 (t-5)
+  in GasCoopGame (branch dev): consolidate the in-flight ADR-0008 seam→Core + 4 unpushed tooling commits into ONE clean
+  gate-green baseline, fix the 3 no-silent-corruption defects THROUGH the contour (each red-test-first by an INDEPENDENT
+  test-author + enrolled with its own mutation-<id>.json ≥ floor: FieldDelta validate-before-mutate; chunk
+  apply-before-advance; StableId→Core+conformance), batch hygiene, carry the 5 NAMED owner-ack deferrals, close on
+  check.ps1 -Deliver GREEN on a CLEAN tree + a FRESH-SESSION G5 + RESULT reconciled. Full CALL = history/s-work-011.md
+  §c-exec-009 (red-teamed wf_619b23cd; handed to the owner to paste). Owner-gated blockers, NOT self-resolved:
+  (i) owner-run Unity compile + PlayMode CoarseVisibleSlice re-run via MCP; (ii) real-UDP FishNet deferred (WSAENOBUFS) —
+  loopback binding.
 
-  WHEN BOTH LEGS RETURN → a review session for the Wave-2 node g-9c41 (G5 done-evidence per task done_when; then roll
-  to Wave 3 per kill_by.next_if_true). Either leg may also return DONE-pending-owner-LOOK (t-4) or BLOCKED — re-home
-  via a fresh work session.
+  IN PARALLEL: c-exec-008 (t-4, render terminus + REAL DA) CONTINUES — untouched by both reviews (render path; reads the
+  FROZEN RN1), so it runs alongside the hardening (owner R1/R2/R3 unchanged). Full CALL → open_calls / history/s-work-010.md.
+  HELD: c-exec-007 (t-3) is PAUSED until c-exec-009 lands the clean baseline — t-3 edits the Core/Field + Coarse/Replication
+  seam the ADR-0008 move + the 3 fixes touch (collision). Resume t-3 via a fresh work session once the baseline is green.
+
+  WHEN c-exec-009 + c-exec-008 (and the resumed c-exec-007) RETURN → a review session for the Wave-2 node g-9c41
+  (G5 done-evidence per task done_when; then roll to Wave 3 per kill_by.next_if_true). Any leg may return
+  DONE-pending-owner-LOOK (t-4) or BLOCKED — re-home via a fresh work session.
 
   Carry-forward (NOT this wave): per-species temperature / true cross-band inversion (d-crossband-inv-001); the FINE
   intra-room cloud shape + coarse↔fine no-jerk handoff + the d-returnfidelity-001 mid-transient return bar → Wave 3.
-  Owner-side, non-gating: (a) PUSH GasCoopGame (dev @7987506 / main @ce79e10) + this OS commit when ready; (b)
-  validate the literal FishNet UDP wire once the host network is healthy (WSAENOBUFS — loopback already delivered the
-  binding slice).
+  Owner-side, non-gating: PUSH is owner-gated — dev is UNPUSHED ahead of origin (4 tooling commits + the pending
+  c-exec-009 consolidation); push after c-exec-009 closes + the owner-run Unity gate confirms. Validate the literal
+  FishNet UDP wire once the host network is healthy (WSAENOBUFS — loopback already delivered the binding slice).
 
 END_OF_FILE: live/indie-game-development/NOW.md
