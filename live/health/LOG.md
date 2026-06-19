@@ -65,4 +65,7 @@
 
 - 2026-06-18 — health/g-health-nutrition-system review approval: owner chose A ("A"); workflow authority next-bet decision cleared, first real nutrition cycle shape CALL ready; no nutrition execution started. → history/2026-06-18-s-health-nutrition-workflow-authority-review-approval-001.md
 
+
+2026-06-18 — health/g-health-first-nutrition-cycle shape: first nutrition-cycle shape stopped before approval; owner identified health-ai repo bootstrap/carrier trust defect; next executor repair must add repo-backed ChatGPT Project/Claude/Codex startup plus detailed owner end-to-end nutrition journey proof. → history/2026-06-18-s-health-first-nutrition-cycle-shape-002-bootstrap-blocker-002.md
+
 END_OF_FILE: live/health/LOG.md
