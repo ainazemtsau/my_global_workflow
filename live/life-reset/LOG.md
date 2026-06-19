@@ -7,4 +7,7 @@
 - 2026-06-19 - research: map_evidence report supports a minimal hybrid
   direction-contract shell; next is owner co-created top-level map.
 
+- 2026-06-19 - map: owner approved a six-node top-level life-reset map; next
+  is shaping Weekly Operating Graph & Contract.
+
 END_OF_FILE: live/life-reset/LOG.md

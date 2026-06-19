@@ -16,54 +16,45 @@ open_calls: []
 decisions: []
 
 next: |
-  CALL c-life-reset-map-001
+  CALL c-life-reset-shape-weekly-operating-graph-001
   to: session
   direction: life-reset
-  play: map
-  node: g-life-reset-root
+  play: shape
+  node: g-lr-weekly-operating-graph
   goal: |
-    Produce the first owner-approved top-level goal map for life-reset, grounded
-    in the approved frame state and the map_evidence research result.
+    A valid first limited life-reset bet for g-lr-weekly-operating-graph is
+    approved and ready for work.
   context: |
     Read:
     - live/life-reset/CHARTER.md
     - live/life-reset/TREE.md
     - live/life-reset/NOW.md
-    - live/life-reset/history/2026-06-19-s-life-reset-map-evidence-001.md
+    - live/life-reset/history/2026-06-19-s-life-reset-map-001.md
     - os/KERNEL.md
-    - os/plays/map.md
+    - os/plays/shape.md
 
-    The map_evidence research recommends a minimal hybrid direction-contract
-    shell: small outcomes map, accepted Weekly Contract, WIP-limited Daily
-    Execution board, split backlog/incubator, thin review queue/decision log
-    and portable continuation packet. It compares GTD-centered, Kanban-centered
-    and hybrid architectures, with moderate confidence.
+    The approved map recommends shaping g-lr-weekly-operating-graph first
+    because the real pilot depends on honest week construction before daily
+    runtime, modules or portability can be tested.
 
-    Research candidates, not accepted TREE nodes:
-    - trusted weekly control exists;
-    - portable state survives chat changes;
-    - health has a low-burden operating loop;
-    - game development has a protected proof lane;
-    - backlog and incubator are separated;
-    - review decisions happen on purpose.
-
-    The research also flags a core risk: copying too much ceremony from the
-    Direction OS/kernel patterns into everyday life would make the system too
-    heavy before a real week is run.
+    Owner-approved meaning of the node:
+    life-reset should build the week as an active conversation and operating
+    graph: selected outcomes, sources, success checks, time/capacity budget,
+    backlog candidates, slices of long-running items, explicit cuts, and an
+    accepted Weekly Contract with a rule for changing the week.
   boundaries: |
     Do not continue Solmax/W0.
     Do not prescribe nutrition, training, medical or psychiatric treatment.
     Do not select a permanent provider, chat, repo or external-tool architecture.
-    Do not create tasks, choose an active bet or shape any node.
-    Do not split below the top-level map.
-    Do not treat research candidates as already accepted owner decisions.
+    Do not shape other nodes.
+    Keep v0 minimal enough to run a real week.
+    Do not turn life-reset into the source of truth for health or game tasks.
   done_when: |
-    TREE.md holds an owner-approved top-level life-reset map under
-    g-life-reset-root, every non-root node has a one-line why, and NOW.md points
-    to the recommended shape CALL.
+    NOW.md contains an approved bet for g-lr-weekly-operating-graph and the
+    next work CALL is ready.
   return: |
-    RESULT with the approved TREE.md changes, rejected/parked candidates,
-    captures, log line and next shape CALL.
-  budget: one map session
+    RESULT with the shaped node, cuts, risks, owner decisions, evidence and
+    next CALL.
+  budget: one shape session
 
 END_OF_FILE: live/life-reset/NOW.md
