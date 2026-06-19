@@ -35,6 +35,15 @@ active_bet:
     Core/Field + Coarse/Replication seam the ADR-0008 move + the 3 fixes touch). The handed CALL («pick t-3/t-4 sequencing») was STALE (predated
     s-work-010, which already answered C + opened both legs) — re-verified committed state, not re-litigated. 2 owner-gated blockers stay
     (owner-run Unity PlayMode re-run via MCP; real-UDP FishNet env-blocked).
+    ✅ 2026-06-19 (s-work-012, applies c-exec-009 + c-exec-010 RESULTs): t-5 consolidation+hardening CLOSED. ONE clean
+    gate-green dev baseline at GasCoopGame dev tip cb73e82 — ADR-0008 seam→Core consolidated (GUIDs preserved) + 3
+    no-silent-corruption fixes THROUGH the contour (FieldDelta validate-before-mutate; chunk apply-before-advance;
+    StableId→Core) + a TopologyConformance derive-mismatch admission gate (Part B = c-exec-010). Re-derived FIRST-HAND
+    (wf_a94b5ed9, NOT trusted): check.ps1 -Deliver GREEN on a CLEAN tree (402/402; mutation 93.06/82.5/86.67/90.07 all
+    ≥70; deliverable-coverage disposed); R13/R14 + LOCKed codec/barrier/hash byte-identical proven; fresh-session G5
+    COULD-NOT-REFUTE; 2 owner-gated blockers named-not-resolved. The clean baseline UNBLOCKS t-3 (c-exec-007 UNHELD) →
+    the bet now runs t-3 ∥ t-4 in PARALLEL. NEW forward-constraint to t-4: the real Dungeon Architect MUST route through
+    SceneTopologyComposer.Compose (geometry-derived ids) — a non-geometry StableId is now REJECTED at the Core boundary.
   appetite: |
     Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
     Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
@@ -217,7 +226,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       per-band temperature state (V2-3: the coarse temperature READ exercised on a committed revision); the
       gas→temperature SINK interaction observable (suppressed-event negative oracle, XL1); the §RESOLVED-4
       grid-addressed read-ready seam exercised (read another layer's field at a committed revision).
-    status: blocked_on c-exec-009   # 2026-06-19 (s-work-011) HELD pending the c-exec-009 clean baseline — t-3 edits the Core/Field + Coarse/Replication seam that the ADR-0008 consolidation + the 3 no-silent-corruption fixes touch (collision); resume via a fresh work session once the baseline is green. Originally OPENED 2026-06-19 (s-work-010) as c-exec-007 (∥ t-4); opens with a PLAN (owner present). ADDITIVE on t-2: coarse temperature is plane 6 ALREADY shipped + replicated (a coupled plane of CoarseBandLayer, NOT a registered layer) — t-3 ADDS a NEW 3rd INDEPENDENT demonstrative layer (the XL2 file-isolation proof) + the §RESOLVED-4 read seam + the gas→temperature suppressed-event sink oracle; MUST NOT re-home/alter plane 6 or change IGasReadModel.ConcentrationAt (t-4 parallel-safe). Full CALL → history/s-work-010.md.
+    status: active   # 2026-06-19 (s-work-012) UNHELD — the c-exec-009/010 clean baseline is GREEN (tip cb73e82, re-derived first-hand wf_a94b5ed9), so the Core/Field + Coarse/Replication seam collision is resolved; resume c-exec-007 (∥ t-4) in a fresh work session. Carries the post-consolidation forward-constraints (in-core replication seam location; one TopologyStableIds Core home; must not alter TopologyStableIds/plane-6/IGasReadModel.ConcentrationAt). Originally OPENED 2026-06-19 (s-work-010) as c-exec-007 (∥ t-4); opens with a PLAN (owner present). ADDITIVE on t-2: coarse temperature is plane 6 ALREADY shipped + replicated (a coupled plane of CoarseBandLayer, NOT a registered layer) — t-3 ADDS a NEW 3rd INDEPENDENT demonstrative layer (the XL2 file-isolation proof) + the §RESOLVED-4 read seam + the gas→temperature suppressed-event sink oracle; MUST NOT re-home/alter plane 6 or change IGasReadModel.ConcentrationAt (t-4 parallel-safe). Full CALL → history/s-work-010.md.
   - id: t-4
     kind: executor (engineering, GasCoopGame) — PARALLEL Unity/visual work-stream; depends on t-2 (level+breach+read-model), NOT t-3
     goal: a PLAYER-LEGIBLE artifact off the real coarse sim — readable without a debug overlay; breaks pre-mortem #2.
@@ -251,13 +260,13 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       spec-silence + a FRESH-SESSION G5 refutation on the HARDENED tree + RESULT reconciled. 5 NAMED owner-ack deferrals recorded. TWO
       owner-gated blockers stated, NOT self-resolved: (i) owner-run Unity compile + PlayMode CoarseVisibleSlice re-run via MCP; (ii) real-UDP
       FishNet deferred (WSAENOBUFS).
-    status: active   # 2026-06-19 (s-work-011) FRAMED as c-exec-009 (red-teamed wf_619b23cd, SOUND-WITH-FIXES). Leads Wave-2; ∥ t-4 (c-exec-008); gates t-3 (c-exec-007 HELD). Full CALL → history/s-work-011.md §c-exec-009.
+    status: done   # 2026-06-19 (s-work-012, applies c-exec-009 + c-exec-010 RESULTs): consolidation+hardening RETURNED + applied. Clean gate-green dev baseline (GasCoopGame dev tip cb73e82): ADR-0008 seam→Core (d17e691, GUIDs preserved) + 3 no-silent-corruption fixes THROUGH the contour (22d548b FieldDelta validate-before-mutate; 4396ded chunk apply-before-advance; a9eecde StableId→Core Part A) + hygiene (4a0aab3) + StableId conformance derive-mismatch gate (c-exec-010 @300b812). Re-derived FIRST-HAND (wf_a94b5ed9): -Deliver GREEN (402/402; mutation 93.06/82.5/86.67/90.07 all ≥70; deliverable-coverage disposed); R13/R14 + LOCK byte-identical; fresh-session G5 COULD-NOT-REFUTE. RESULT → GasCoopGame @8aee8a8 + history/s-work-012.md. FRAMED 2026-06-19 (s-work-011, wf_619b23cd).
 
 recurring: []
 
 open_calls:
   - id: c-exec-009
-    status: open   # 2026-06-19 (s-work-011) FRAMED + red-teamed (wf_619b23cd, SOUND-WITH-FIXES) + OPENED — review-driven consolidation+hardening leg (t-5); LEADS Wave-2, ∥ c-exec-008, gates c-exec-007
+    status: done   # 2026-06-19 (s-work-012) RETURNED GREEN + applied — -Deliver GREEN on a CLEAN tree (tip cb73e82, re-derived first-hand wf_a94b5ed9), all 3 change-ids + the spun-out Part B over floor, fresh-session G5 COULD-NOT-REFUTE. Part B (StableId conformance derive-mismatch) spun out as c-exec-010 (also closed). FRAMED + red-teamed (wf_619b23cd) 2026-06-19 (s-work-011). RESULT → GasCoopGame @8aee8a8 + history/s-work-012.md.
     note: |
       Executor leg (GasCoopGame, dev→main when green). GOAL: ONE clean, gate-green, owner-acked dev baseline that consolidates the in-flight
       ADR-0008 coarse-replication-seam→Core move + the 4 already-committed UNPUSHED tooling commits (dev @3be28df) into a coherent tip with
@@ -277,8 +286,21 @@ open_calls:
       self-resolved: (i) owner-run Unity compile + PlayMode CoarseVisibleSlice re-run via MCP (edge change under Net/, outside the headless csproj —
       not done until owner confirms); (ii) real-UDP FishNet deferred (WSAENOBUFS), loopback binding. Read-only headless gate on the dirty tree
       already GREEN (build 0/0, 372/372, hygiene OK). FULL CALL → history/s-work-011.md §c-exec-009.
+  - id: c-exec-010
+    status: done   # 2026-06-19 (s-work-012) RETURNED GREEN + applied — fix #3 Part B, spun out of c-exec-009: TopologyConformance.Check derive-mismatch admission gate (@300b812) REJECTS any TopologyDocument whose volume/portal/surface StableId ≠ derive(geometry); required an authorized test-migration (owner-ack owner-2026-06-19-option1) of synthetic-id builder-coverage tests to geometry-derived ids (suite 402/402). Independent test-author RED test (own spec-transcribed FNV oracle). Mutation 90.07% ≥70. Closing RESULT @cb73e82: fresh-session G5 COULD-NOT-REFUTE + -Deliver transcript (re-derived first-hand wf_a94b5ed9).
+    note: |
+      The deferred half of c-exec-009 fix #3 (StableId), run as its own leg because enabling the Core admission gate
+      broke ~59 synthetic-id builder-coverage tests (needed an authorized test-migration). NEW FORWARD-CONSTRAINT for
+      t-4 (c-exec-008): the real Dungeon Architect MUST emit plain logical geometry (RoomSpec/LinkSpec: absolute
+      inclusive min/max AABB + archetype + link room-key pairs) and route THROUGH the unchanged SceneTopologyComposer.Compose,
+      which derives every StableId from geometry — it must NOT construct TopologyVolume/Portal/Surface with DA's own
+      GUIDs/names/instance-ids/emission-order as ids (a non-geometry id path is now REJECTED at the Core boundary;
+      silent-pass is impossible). Add an explicit done_when sub-clause + an independent-author RED test feeding a
+      DA-shaped doc with a hand-set id and asserting a 'derive-mismatch' reject. Also: ids are now globally unique-checked
+      + absolute bounds non-overlap-checked, so the DA seed→geometry mapping must yield distinct, non-overlapping
+      integer AABBs. RESULT → GasCoopGame @cb73e82 + history/s-work-012.md.
   - id: c-exec-007
-    status: held   # 2026-06-19 (s-work-011) HELD pending the c-exec-009 clean baseline (shares the Core/Field + Coarse/Replication seam the ADR-0008 move + the 3 fixes touch). FRAMED + hardened (wf wd3a59z47) + OPENED 2026-06-19 (s-work-010) — Wave-2 t-3 engine leg, ∥ c-exec-008
+    status: open   # 2026-06-19 (s-work-012) UNHELD — the c-exec-009/010 clean baseline is GREEN (tip cb73e82, re-derived first-hand wf_a94b5ed9), collision resolved. Wave-2 t-3 engine leg, ∥ c-exec-008; opens with a PLAN (owner present). POST-CONSOLIDATION forward-constraints to carry into the PLAN: the coarse-replication seam now lives in Core/Field/Coarse/Replication (namespace GasCoopGame.Core.Field.Coarse) — reference the NEW in-core location, keep it engine-free if touched; StableId derivation has ONE Core home (Core/Field/Topology/TopologyStableIds) — if t-3 produces topology-addressed ids it MUST call it, never re-derive; MUST NOT alter TopologyStableIds / plane-6 / IGasReadModel.ConcentrationAt (the layer-registration seam CoarseField.cs:88 is UNMOVED — no path edit needed). FRAMED + hardened (wf wd3a59z47) + OPENED 2026-06-19 (s-work-010). FULL CALL → history/s-work-010.md §c-exec-007.
     note: |
       Executor leg (GasCoopGame, dev→main when green), opens with a PLAN (owner present). GOAL: a 3rd INDEPENDENT
       system-layer is networked-consistent at coarse scale alongside gas, having plugged in WITHOUT core edits — the
@@ -675,29 +697,38 @@ decision_inbox:
       Recommendation = A (t-4 leads; t-3 parallel only if capacity). Resolve at the next work session's PLAN open.
 
 next: |
-  Owner «го» (2026-06-19, s-work-011): a review-driven CONSOLIDATION+HARDENING leg LEADS Wave-2. RUN c-exec-009 (t-5)
-  in GasCoopGame (branch dev): consolidate the in-flight ADR-0008 seam→Core + 4 unpushed tooling commits into ONE clean
-  gate-green baseline, fix the 3 no-silent-corruption defects THROUGH the contour (each red-test-first by an INDEPENDENT
-  test-author + enrolled with its own mutation-<id>.json ≥ floor: FieldDelta validate-before-mutate; chunk
-  apply-before-advance; StableId→Core+conformance), batch hygiene, carry the 5 NAMED owner-ack deferrals, close on
-  check.ps1 -Deliver GREEN on a CLEAN tree + a FRESH-SESSION G5 + RESULT reconciled. Full CALL = history/s-work-011.md
-  §c-exec-009 (red-teamed wf_619b23cd; handed to the owner to paste). Owner-gated blockers, NOT self-resolved:
-  (i) owner-run Unity compile + PlayMode CoarseVisibleSlice re-run via MCP; (ii) real-UDP FishNet deferred (WSAENOBUFS) —
-  loopback binding.
+  Wave-2 hardening CLOSED (s-work-012, applies c-exec-009 + c-exec-010; baseline re-verified first-hand GREEN, wf_a94b5ed9).
+  The bet now runs TWO executor legs in PARALLEL in GasCoopGame (branch dev → main when green), each opening with a PLAN
+  (owner present) under the independent-test-author + fresh-session-G5 + owner-acceptance discipline, on the clean baseline
+  (dev tip cb73e82) + the APPLIED canonical spec (openspec/specs/sim-core/spec.md) + the VERIFIED §CONTRACTS:
+    - c-exec-007 (t-3, CORE+TEST): RESUME in a fresh work session (was HELD; now UNHELD). The XL2 extensibility proof
+      (a NEW independent layer plugs in WITHOUT core edits) + §RESOLVED-4 read seam + gas→temperature suppressed-event
+      sink oracle; ADDITIVE on t-2. Carries the post-consolidation forward-constraints (in-core Replication seam location;
+      one TopologyStableIds Core home; no plane-6/ConcentrationAt/TopologyStableIds change; CoarseField.cs:88 registry
+      seam UNMOVED). Full CALL → history/s-work-010.md §c-exec-007.
+    - c-exec-008 (t-4, RENDER + REAL DA): CONTINUE. Player-legible bottom-up-fill terminus on a REAL DA level; owner
+      R1/R2/R3. NEW HARD GATE from c-exec-010: the real Dungeon Architect MUST route through SceneTopologyComposer.Compose
+      (geometry-derived StableIds) — a non-geometry id path is now REJECTED at the Core boundary (silent-pass impossible);
+      add an explicit done_when sub-clause + an independent-author RED 'derive-mismatch' reject test on the real-DA reader;
+      DA seed→geometry mapping must yield distinct, non-overlapping integer AABBs. Full CALL → history/s-work-010.md §c-exec-008.
+  Parallel-safety STILL HOLDS post-consolidation (re-verified): t-4 reads the FROZEN IGasReadModel.ConcentrationAt and never
+  reaches below it; t-3 EXTENDS the read seam additively and never changes ConcentrationAt; file-ownership split (t-3 =
+  Core/** + tests, no scene/MonoBehaviour; t-4 owns *.unity + a NEW render scene, never co-edits GasDebugCoarseScene/
+  GasDebugDirector). NEW shared golden = TopologyConformance/TopologyStableIds (FLAG not violation): they stay decoupled only
+  if t-4's real DA routes through SceneTopologyComposer.Compose AND t-3 does not alter TopologyStableIds — either would
+  STOP-and-report. C reversible: PAUSE t-3, t-4 unaffected.
 
-  IN PARALLEL: c-exec-008 (t-4, render terminus + REAL DA) CONTINUES — untouched by both reviews (render path; reads the
-  FROZEN RN1), so it runs alongside the hardening (owner R1/R2/R3 unchanged). Full CALL → open_calls / history/s-work-010.md.
-  HELD: c-exec-007 (t-3) is PAUSED until c-exec-009 lands the clean baseline — t-3 edits the Core/Field + Coarse/Replication
-  seam the ADR-0008 move + the 3 fixes touch (collision). Resume t-3 via a fresh work session once the baseline is green.
+  WHEN BOTH LEGS RETURN → a review session for the Wave-2 node g-9c41 (G5 done-evidence per task done_when; then roll to
+  Wave 3 per kill_by.next_if_true). t-4 may return DONE-pending-owner-LOOK; either may BLOCK — re-home via a fresh work session.
 
-  WHEN c-exec-009 + c-exec-008 (and the resumed c-exec-007) RETURN → a review session for the Wave-2 node g-9c41
-  (G5 done-evidence per task done_when; then roll to Wave 3 per kill_by.next_if_true). Any leg may return
-  DONE-pending-owner-LOOK (t-4) or BLOCKED — re-home via a fresh work session.
-
+  Owner-run / residual (carry into BOTH legs, NOT self-markable): (i) owner-run Unity compile + PlayMode
+  CoarseVisibleSliceReplicationTests re-run via MCP (the FishNetChunkChannel : ICoarseChunkLink edge change under Net/ is
+  excluded from the headless csproj — not done until owner confirms); (ii) real-UDP FishNet stays deferred (WSAENOBUFS;
+  loopback binding); (iii) t-4 owner-eye LOOK at the render terminus (R3 — DONE-pending-owner-LOOK; env-deferral does NOT
+  apply to this axis); (iv) t-4 guide-loop (R2 — step-by-step Unity instructions for any non-MCP action, per-step confirmation).
   Carry-forward (NOT this wave): per-species temperature / true cross-band inversion (d-crossband-inv-001); the FINE
   intra-room cloud shape + coarse↔fine no-jerk handoff + the d-returnfidelity-001 mid-transient return bar → Wave 3.
-  Owner-side, non-gating: PUSH is owner-gated — dev is UNPUSHED ahead of origin (4 tooling commits + the pending
-  c-exec-009 consolidation); push after c-exec-009 closes + the owner-run Unity gate confirms. Validate the literal
-  FishNet UDP wire once the host network is healthy (WSAENOBUFS — loopback already delivered the binding slice).
+  PUSH is owner-gated — dev is UNPUSHED ahead of origin (the 4 tooling commits + the c-exec-009/010 consolidation, dev tip
+  cb73e82); push after the legs land + the owner-run Unity gate confirms.
 
 END_OF_FILE: live/indie-game-development/NOW.md
