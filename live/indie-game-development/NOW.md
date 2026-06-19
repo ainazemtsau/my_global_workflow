@@ -44,6 +44,15 @@ active_bet:
     COULD-NOT-REFUTE; 2 owner-gated blockers named-not-resolved. The clean baseline UNBLOCKS t-3 (c-exec-007 UNHELD) →
     the bet now runs t-3 ∥ t-4 in PARALLEL. NEW forward-constraint to t-4: the real Dungeon Architect MUST route through
     SceneTopologyComposer.Compose (geometry-derived ids) — a non-geometry StableId is now REJECTED at the Core boundary.
+    ✂️ 2026-06-19 (s-work-013, owner «C», d-t3-defer-001): t-3/XL2 CUT from Wave 2 (owner-approved scope cut). The t-3
+    builder PLAN surfaced a CALL-vs-ADR fork; reconciled first-hand — the ADR-0005/0007 "temperature as a SEPARATE
+    registered layer = the t-3 obligation" wording is STALE (superseded by converge-verify F2 + d-tempfeedback-001:
+    XL2 = a NEW demonstrative layer byte-identical = what the CALL implemented; DECOUPLING temperature so gas reads it
+    back = the deferred temperature→gas FEEDBACK, which reopens the LOCK via a 1-tick read-seam lag on the band-split).
+    The demo proof was contrived; owner chose to DEFER → Wave 3 proves extensibility FOR-REAL with the first genuine 2nd
+    layer (the temperature decouple + feedback, g-d3a8). t-2 already ships temperature as a replicated plane-6, so nothing
+    is lost. Wave 2 now runs the SINGLE leg t-4 (c-exec-008); t-3 → dropped, c-exec-007 → cancelled. Correct the stale
+    ADR wording home-side.
   appetite: |
     Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
     Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
@@ -79,10 +88,12 @@ active_bet:
         a client-resident far-AI ExposureQuery (OR3) on DIFFERENT peers return the SAME concentration for the same
         (point, species, committed revision); CR1 coverage-floor (no entitled gap) holds — vacuously this wave
         (interest = whole-level), anchored to gameplay-reach (V2-2);
-    (5) the temperature SINK layer rides alongside via the layer registry — a 3rd demonstrative INDEPENDENT layer
-        plugs in WITHOUT core edits (XL2: gas trajectory byte-identical + RNG-conservation guard; [2,4] barrier-table
-        re-size SURFACED per the LOCK), the gas→temperature SINK interaction is observable (suppressed-event negative
-        oracle, XL1), the coarse per-band temperature READ is exercised on a committed revision (§RESOLVED-4, V2-3);
+    (5) [CUT from Wave 2 — owner «C» 2026-06-19, d-t3-defer-001] the XL2 extensibility proof (a new demonstrative layer
+        plugs in without core edits) + the dedicated XL1 suppressed-event sink oracle + the §RESOLVED-4 read-seam exercise
+        are DEFERRED to Wave 3, where they ride the FIRST genuine 2nd layer (the temperature decouple + the deferred
+        temperature→gas FEEDBACK, g-d3a8). NOT silently dropped: t-2 already ships coarse temperature as a replicated
+        plane-6 (CR1/CR2/CR3) so extensibility is partially evidenced; the demo-layer proof was contrived, and decoupling
+        temperature now would reopen the LOCK (a 1-tick read-seam lag changes the band-split) — correctly re-homed;
     (6) a PLAYER-LEGIBLE artifact (crit-6 render slice ≤2wk, quantized-volumetric stylization behind the RN1 seam,
         ms-budget on min-spec): a room visibly fills bottom-up from the breach side over time, heavier gas settles
         low, the source/breach is identifiable — readable WITHOUT a debug overlay, reads as DELIBERATE stylization not
@@ -98,11 +109,15 @@ active_bet:
     post-g-d3a8; gas-type seam GT1-GT5 + crit-4 → later wave / g-d3a8 converge.
   wave_plan: |   # rolling wave — <=3 active tasks; plan each wave knowing the last one's result
     Wave 1 (NETWORK — DONE, review MET): stream/format LOCKED, consistency proven on a toy field.
-    Wave 2 (REAL COARSE SIM + GENERATED LEVELS + TEMPERATURE + LEGIBLE TERMINUS — ACTIVE): t-1 band-solver kill-gate
-      (headless, scale-validated) → t-2 real DA-composed level + breach + coarse replication + single-oracle probe →
-      t-3 temperature layer plugs in + coarse per-layer consistency (∥) → t-4 player-legible render terminus (∥).
-    Wave 3 (DETAIL NEAR PLAYER): the 25cm T2 detailed per-cell window (cell size CONFIGURABLE + geometry-aligned) +
-      the coarse↔fine NO-JERK handoff (owner «100%») + OR1 cross-tier composition + optimisations.
+    Wave 2 (REAL COARSE SIM + GENERATED LEVELS + LEGIBLE TERMINUS — ACTIVE): t-1 band-solver kill-gate (headless,
+      scale-validated) DONE → t-2 real DA-composed level + breach + coarse replication + single-oracle probe DONE →
+      [t-5 review-driven consolidation+hardening DONE] → t-4 player-legible render terminus + REAL DA = the SOLE remaining
+      leg. t-3 (temperature-layer extensibility) CUT → Wave 3 (owner «C», d-t3-defer-001 — the demo proof was contrived;
+      decoupling temperature is the deferred FEEDBACK work).
+    Wave 3 (DETAIL NEAR PLAYER + REAL EXTENSIBILITY): the 25cm T2 detailed per-cell window (cell size CONFIGURABLE +
+      geometry-aligned) + the coarse↔fine NO-JERK handoff (owner «100%») + OR1 cross-tier composition + optimisations;
+      PLUS extensibility proven FOR-REAL = decouple temperature into a real 2nd layer + the temperature→gas FEEDBACK
+      (g-d3a8 per-gas-type heat) — the genuine XL2/feedback work the contrived t-3 demo was standing in for.
     Wave 4+: full destructibility, reaction MECHANISM + real gas types (g-d3a8), scale to big levels (occupancy +
       1000-object min-spec gate), frequency ladder, plume entrainment + dynamic heat. Each tail wave = bet-3+.
   rules:   # owner voice, this session — duplicated here until the maintenance home exists
@@ -114,6 +129,11 @@ active_bet:
     - "R15: layered gas params — shared parent params for ALL gases (density, per-cell packing, spread speed) + meta-gas group adds own params + own visual; specific gas = pure config; per-meta-gas visual defined once but procedurally generated from params (feeds g-7e15)."
   cut_list:
     fresh_cut_this_wave:
+      - "t-3 temperature-layer extensibility (XL2) -> Wave 3 (owner «C» 2026-06-19, d-t3-defer-001): the demo proof was
+         contrived (a throwaway layer); the REAL value (decouple temperature) is the deferred temperature->gas FEEDBACK —
+         it reopens the LOCK (a 1-tick read-seam lag changes the band-split), so it belongs to Wave 3 / g-d3a8. NOT lost:
+         t-2 ships temperature as a replicated plane-6; extensibility proven FOR-REAL in Wave 3 with the first genuine 2nd
+         layer. ADR-0005/0007 stale 'separate-layer = t-3 obligation' wording to correct home-side."
       - "T2 detailed per-cell window near the player -> Wave 3 — THE real cut, and it HURTS: t-4 renders coarse-only,
          and the owner-signed coarse<->fine no-jerk-on-ENTRY handoff (GG4/OR4 «100%») goes UNEXERCISED this wave
          (named-deferred to Wave 3, not dropped — the fine tier it hands off TO lives there)"
@@ -226,7 +246,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       per-band temperature state (V2-3: the coarse temperature READ exercised on a committed revision); the
       gas→temperature SINK interaction observable (suppressed-event negative oracle, XL1); the §RESOLVED-4
       grid-addressed read-ready seam exercised (read another layer's field at a committed revision).
-    status: active   # 2026-06-19 (s-work-012) UNHELD — the c-exec-009/010 clean baseline is GREEN (tip cb73e82, re-derived first-hand wf_a94b5ed9), so the Core/Field + Coarse/Replication seam collision is resolved; resume c-exec-007 (∥ t-4) in a fresh work session. Carries the post-consolidation forward-constraints (in-core replication seam location; one TopologyStableIds Core home; must not alter TopologyStableIds/plane-6/IGasReadModel.ConcentrationAt). Originally OPENED 2026-06-19 (s-work-010) as c-exec-007 (∥ t-4); opens with a PLAN (owner present). ADDITIVE on t-2: coarse temperature is plane 6 ALREADY shipped + replicated (a coupled plane of CoarseBandLayer, NOT a registered layer) — t-3 ADDS a NEW 3rd INDEPENDENT demonstrative layer (the XL2 file-isolation proof) + the §RESOLVED-4 read seam + the gas→temperature suppressed-event sink oracle; MUST NOT re-home/alter plane 6 or change IGasReadModel.ConcentrationAt (t-4 parallel-safe). Full CALL → history/s-work-010.md.
+    status: dropped   # 2026-06-19 (s-work-013, owner «C», d-t3-defer-001) CUT from Wave 2 → re-homed to Wave 3. The XL2 demo proof was contrived; the real value (decouple temperature) is the deferred temperature→gas FEEDBACK — it reopens the LOCK via a 1-tick read-seam lag on the band-split, so it belongs to Wave 3 / g-d3a8 with the first genuine 2nd layer. t-2 already ships temperature as a replicated plane-6, so extensibility is partially evidenced and nothing is lost. c-exec-007 CANCELLED. (Was UNHELD at s-work-012 on the clean baseline; superseded by this owner-approved cut.) ADR-0005/0007 stale 'separate-layer = t-3 obligation' wording to correct home-side.
   - id: t-4
     kind: executor (engineering, GasCoopGame) — PARALLEL Unity/visual work-stream; depends on t-2 (level+breach+read-model), NOT t-3
     goal: a PLAYER-LEGIBLE artifact off the real coarse sim — readable without a debug overlay; breaks pre-mortem #2.
@@ -300,7 +320,7 @@ open_calls:
       + absolute bounds non-overlap-checked, so the DA seed→geometry mapping must yield distinct, non-overlapping
       integer AABBs. RESULT → GasCoopGame @cb73e82 + history/s-work-012.md.
   - id: c-exec-007
-    status: open   # 2026-06-19 (s-work-012) UNHELD — the c-exec-009/010 clean baseline is GREEN (tip cb73e82, re-derived first-hand wf_a94b5ed9), collision resolved. Wave-2 t-3 engine leg, ∥ c-exec-008; opens with a PLAN (owner present). POST-CONSOLIDATION forward-constraints to carry into the PLAN: the coarse-replication seam now lives in Core/Field/Coarse/Replication (namespace GasCoopGame.Core.Field.Coarse) — reference the NEW in-core location, keep it engine-free if touched; StableId derivation has ONE Core home (Core/Field/Topology/TopologyStableIds) — if t-3 produces topology-addressed ids it MUST call it, never re-derive; MUST NOT alter TopologyStableIds / plane-6 / IGasReadModel.ConcentrationAt (the layer-registration seam CoarseField.cs:88 is UNMOVED — no path edit needed). FRAMED + hardened (wf wd3a59z47) + OPENED 2026-06-19 (s-work-010). FULL CALL → history/s-work-010.md §c-exec-007.
+    status: cancelled   # 2026-06-19 (s-work-013, owner «C», d-t3-defer-001) — t-3 CUT from Wave 2 → Wave 3; this leg is NOT run this wave (the XL2 demo proof was contrived; decoupling temperature is the deferred feedback, which reopens the LOCK). FRAMED + hardened (wf wd3a59z47) + OPENED 2026-06-19 (s-work-010), UNHELD s-work-012, now cancelled. The REAL extensibility leg gets re-framed in Wave 3 with the first genuine 2nd layer. FULL prior CALL → history/s-work-010.md §c-exec-007.
     note: |
       Executor leg (GasCoopGame, dev→main when green), opens with a PLAN (owner present). GOAL: a 3rd INDEPENDENT
       system-layer is networked-consistent at coarse scale alongside gas, having plugged in WITHOUT core edits — the
@@ -695,40 +715,53 @@ decision_inbox:
       (C) BOTH in parallel — t-4 (Unity/visual work-stream) ∥ t-3 (engine layer). Bad, because: two concurrent
           executor legs is more orchestration load on a solo owner — only worth it if clearly running ahead.
       Recommendation = A (t-4 leads; t-3 parallel only if capacity). Resolve at the next work session's PLAN open.
+  - id: d-t3-defer-001
+    status: answered   # owner 2026-06-19 (s-work-013) «C» — DEFER t-3/XL2 to Wave 3; build only t-4 this wave.
+    note: |
+      Raised by the t-3 builder PLAN: the CALL (c-exec-007) frames t-3 as a NEW demonstrative layer (temperature stays a
+      coupled plane), but ADR-0005 / ADR-0007 Decision 5 say "temperature as a SEPARATE registered layer reading gas via
+      the inter-layer read seam = the t-3 XL2 obligation". RECONCILED first-hand this session (against the ADRs + the
+      VERIFIED §CONTRACTS): the ADR wording is STALE — converge-verify Finding F2 already caught it and d-tempfeedback-001
+      resolved it. XL2 (verified contract) = a NEW demonstrative layer, gas byte-identical, no core edits = exactly what
+      the CALL implements. DECOUPLING temperature so gas reads it back = the temperature→gas FEEDBACK, owner-DEFERRED
+      (post-g-d3a8). Deep reason it can't be free now: temperature is an INPUT to the band-solver (per-band throttle,
+      frozen in the LOCK); decoupling forces gas to read temperature via the committed-revision seam = a 1-tick lag →
+      different band-split → breaks the frozen goldens + reopens the LOCK (the only alternative — a live same-tick read —
+      breaks determinism). So the builder's "option 2 = decouple now" is OFF the table (contradicts d-tempfeedback-001 +
+      reopens the LOCK).
+      OPTIONS put to the owner: (A-refined) keep t-3 but pick a PLAUSIBLE byte-identical demo layer (not a counter);
+      (C, RECOMMENDED) DEFER t-3 — prove extensibility FOR-REAL in Wave 3 with the first genuine 2nd layer (the temperature
+      decouple + feedback), focus this wave on t-4 (the visible 08-31 artifact). OWNER CHOSE C.
+      CONSEQUENCES (applied this session): t-3 → dropped (→ Wave 3); c-exec-007 → cancelled; done_when #5 reworded to NAME
+      the deferral; cut_list + wave_plan updated; t-4 (c-exec-008) is the SOLE Wave-2 executor leg. Temperature-decouple
+      stays Wave 3 / g-d3a8 (with feedback). FORWARD: correct the stale ADR-0005/0007 "separate-layer = t-3 obligation"
+      wording home-side (fold into the Wave-3 extensibility leg, or a tiny cleanup). → history/s-work-013.md.
 
 next: |
-  Wave-2 hardening CLOSED (s-work-012, applies c-exec-009 + c-exec-010; baseline re-verified first-hand GREEN, wf_a94b5ed9).
-  The bet now runs TWO executor legs in PARALLEL in GasCoopGame (branch dev → main when green), each opening with a PLAN
-  (owner present) under the independent-test-author + fresh-session-G5 + owner-acceptance discipline, on the clean baseline
-  (dev tip cb73e82) + the APPLIED canonical spec (openspec/specs/sim-core/spec.md) + the VERIFIED §CONTRACTS:
-    - c-exec-007 (t-3, CORE+TEST): RESUME in a fresh work session (was HELD; now UNHELD). The XL2 extensibility proof
-      (a NEW independent layer plugs in WITHOUT core edits) + §RESOLVED-4 read seam + gas→temperature suppressed-event
-      sink oracle; ADDITIVE on t-2. Carries the post-consolidation forward-constraints (in-core Replication seam location;
-      one TopologyStableIds Core home; no plane-6/ConcentrationAt/TopologyStableIds change; CoarseField.cs:88 registry
-      seam UNMOVED). Full CALL → history/s-work-010.md §c-exec-007.
-    - c-exec-008 (t-4, RENDER + REAL DA): CONTINUE. Player-legible bottom-up-fill terminus on a REAL DA level; owner
-      R1/R2/R3. NEW HARD GATE from c-exec-010: the real Dungeon Architect MUST route through SceneTopologyComposer.Compose
-      (geometry-derived StableIds) — a non-geometry id path is now REJECTED at the Core boundary (silent-pass impossible);
-      add an explicit done_when sub-clause + an independent-author RED 'derive-mismatch' reject test on the real-DA reader;
-      DA seed→geometry mapping must yield distinct, non-overlapping integer AABBs. Full CALL → history/s-work-010.md §c-exec-008.
-  Parallel-safety STILL HOLDS post-consolidation (re-verified): t-4 reads the FROZEN IGasReadModel.ConcentrationAt and never
-  reaches below it; t-3 EXTENDS the read seam additively and never changes ConcentrationAt; file-ownership split (t-3 =
-  Core/** + tests, no scene/MonoBehaviour; t-4 owns *.unity + a NEW render scene, never co-edits GasDebugCoarseScene/
-  GasDebugDirector). NEW shared golden = TopologyConformance/TopologyStableIds (FLAG not violation): they stay decoupled only
-  if t-4's real DA routes through SceneTopologyComposer.Compose AND t-3 does not alter TopologyStableIds — either would
-  STOP-and-report. C reversible: PAUSE t-3, t-4 unaffected.
+  Wave-2 scope CUT (s-work-013, owner «C», d-t3-defer-001): t-3/XL2 deferred to Wave 3. The SOLE remaining Wave-2 executor
+  leg is c-exec-008 (t-4). RUN c-exec-008 (t-4, render terminus + REAL Dungeon Architect) in GasCoopGame (branch dev → main
+  when green), opening with a PLAN (owner present), on the clean baseline (dev tip cb73e82) + the APPLIED canonical spec
+  (openspec/specs/sim-core/spec.md) + the VERIFIED §CONTRACTS:
+    - c-exec-008 (t-4, RENDER + REAL DA): owner R1/R2/R3. NEW HARD GATE from c-exec-010 — the real Dungeon Architect MUST
+      route through SceneTopologyComposer.Compose (geometry-derived StableIds); a non-geometry id path is REJECTED at the
+      Core boundary (add a done_when sub-clause + an independent-author RED 'derive-mismatch' reject test; DA seed→geometry
+      mapping must yield distinct, non-overlapping integer AABBs). Reads the FROZEN IGasReadModel/RN1 (solver-agnostic).
+      Full CALL → history/s-work-010.md §c-exec-008 (+ the s-work-012 DA addendum).
+  Owner-run / residual on t-4 (NOT self-markable): (i) owner-run Unity compile + PlayMode CoarseVisibleSlice re-run via MCP;
+  (ii) real-UDP FishNet deferred (WSAENOBUFS; loopback binding); (iii) the owner-eye LOOK at the render terminus (R3 —
+  DONE-pending-owner-LOOK; env-deferral does NOT apply to this axis); (iv) guide-loop (R2 — step-by-step Unity instructions
+  for any non-MCP action, per-step owner confirmation, owner may ask questions; a sent step is NOT done until the owner does
+  it + confirms).
 
-  WHEN BOTH LEGS RETURN → a review session for the Wave-2 node g-9c41 (G5 done-evidence per task done_when; then roll to
-  Wave 3 per kill_by.next_if_true). t-4 may return DONE-pending-owner-LOOK; either may BLOCK — re-home via a fresh work session.
+  WHEN t-4 RETURNS → a review session for the Wave-2 node g-9c41 (G5 done-evidence per task done_when; then roll to Wave 3
+  per kill_by.next_if_true). t-4 may return DONE-pending-owner-LOOK or BLOCKED — re-home via a fresh work session.
 
-  Owner-run / residual (carry into BOTH legs, NOT self-markable): (i) owner-run Unity compile + PlayMode
-  CoarseVisibleSliceReplicationTests re-run via MCP (the FishNetChunkChannel : ICoarseChunkLink edge change under Net/ is
-  excluded from the headless csproj — not done until owner confirms); (ii) real-UDP FishNet stays deferred (WSAENOBUFS;
-  loopback binding); (iii) t-4 owner-eye LOOK at the render terminus (R3 — DONE-pending-owner-LOOK; env-deferral does NOT
-  apply to this axis); (iv) t-4 guide-loop (R2 — step-by-step Unity instructions for any non-MCP action, per-step confirmation).
-  Carry-forward (NOT this wave): per-species temperature / true cross-band inversion (d-crossband-inv-001); the FINE
-  intra-room cloud shape + coarse↔fine no-jerk handoff + the d-returnfidelity-001 mid-transient return bar → Wave 3.
+  WAVE 3 (re-homed here, NOT this wave): extensibility proven FOR-REAL = decouple temperature into a real 2nd layer + the
+  temperature→gas FEEDBACK (g-d3a8 per-gas-type heat) — the genuine work the contrived t-3 demo stood in for; PLUS the FINE
+  25cm tier + coarse↔fine no-jerk handoff + the d-returnfidelity-001 mid-transient bar + per-species temperature /
+  cross-band inversion (d-crossband-inv-001). Home cleanup: correct the stale ADR-0005/0007 'separate-layer = t-3
+  obligation' wording.
   PUSH is owner-gated — dev is UNPUSHED ahead of origin (the 4 tooling commits + the c-exec-009/010 consolidation, dev tip
-  cb73e82); push after the legs land + the owner-run Unity gate confirms.
+  cb73e82); push after t-4 lands + the owner-run Unity gate confirms.
 
 END_OF_FILE: live/indie-game-development/NOW.md
