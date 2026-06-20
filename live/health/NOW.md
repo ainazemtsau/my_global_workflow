@@ -60,7 +60,14 @@ active_bet:
 tasks:
   - id: t-1
     kind: session
-    status: active
+    status: done
+    done_note: >
+      DONE 2026-06-20 (s-health-core-kernel-wave0-derisk-001): zero-engine subtraction PASS — every engine clause
+      of workflow-router.md + graph.md maps to an inherited kernel contract; post-subtraction residual = the WA-K9
+      thin shape {namespaced data, one procedure per term, one registry line, one state-machine instance};
+      named_engine_residual = null. Fresh-read confirmed (wf_c9806260-68d; 3/3 refuters PASS_HOLDS). Findings F-A
+      (subtract per-domain validators) + F-B (cursor conformance) → executor-inputs. Evidence:
+      work/wave0-derisk-g-health-core-kernel.md §t-1.
     goal: >
       Prove on paper that a thin domain needs ZERO engine code (WA-K9/KC12/KL1) BEFORE any build — the kernel's
       riskiest assumption and the exact claim whose failure got the nutrition slice rejected.
@@ -73,7 +80,13 @@ tasks:
       kernel does not absorb, handed to the session lead. No build, no journey-walk, no owner gate.
   - id: t-2
     kind: session
-    status: active
+    status: done
+    done_note: >
+      DONE 2026-06-20: KQ2/O1 cold-start bootstrap realizable cold — non-circular (fixed point = kernel-owned
+      universal bootstrap machine, file-absence cold-start detection), no hand-seeded cursor (cursor = 2nd governed
+      write), and the first SEED→PROPOSED→ACTIVE walk IS the WA-K10 journey-proof — PASS. Fresh-read confirmed (2/3
+      refuters PASS_HOLDS; 1 surviving governance seam F-C registry-line authority → PLAN + non-blocking D-kernel-1,
+      NOT a t-2 FAIL). Evidence: work/wave0-derisk-g-health-core-kernel.md §t-2.
     goal: >
       Paper-check the second kill-bearing assumption (KQ2 cold-start bootstrap recursion) cheaply, before the
       build — confirm the kernel-owned universal bootstrap machine can author a domain's first definition+cursor
@@ -117,57 +130,47 @@ open_calls:
       bootstrap paper-proven FIRST (t-1, t-2) gating the executor spine+journey build (t-3, §WA-K1–K12 verbatim).
       Parallel analysis + adversarial verify (wf_56681b10-608) caught 3 blocking draft defects, corrected.
   - id: c-health-core-kernel-wave0-derisk-001
-    status: in_flight
-    note: Wave-0 de-risk session (t-1 zero-engine subtraction-proof + t-2 KQ2 bootstrap paper-check); PASS releases the gated executor CALL; FAIL bounces. This is NOW.next.
-  - id: c-health-core-kernel-spine-journey-executor-001
-    status: ready_gated
-    gated_on: c-health-core-kernel-wave0-derisk-001 PASS (fresh-read confirmed)
+    status: done
     note: >
-      Executor CALL into health-ai for the kernel spine + journey-proof; authored in full (done_when copies
-      §WA-K1–K12 VERBATIM, Unicode preserved) and carried in NOW.next under "GATED"; NOT dispatched until
-      Wave-0 PASS.
+      DONE 2026-06-20 (s-health-core-kernel-wave0-derisk-001): t-1 zero-engine subtraction PASS + t-2 KQ2/O1
+      cold-start bootstrap PASS, fresh-read confirmed (wf_c9806260-68d, 2 provers + 6 adversarial refuters).
+      Executor CALL released. 3 residuals folded: F-A subtract per-domain validators + F-B cursor conformance
+      (executor-inputs) · F-C registry-line governance → non-blocking decision D-kernel-1. Evidence:
+      work/wave0-derisk-g-health-core-kernel.md.
+  - id: c-health-core-kernel-spine-journey-executor-001
+    status: ready
+    gate_cleared: 2026-06-20 (Wave-0 PASS, fresh-read confirmed)
+    note: >
+      RELEASED 2026-06-20 — Wave-0 de-risk PASS/PASS cleared the gate. Executor CALL into health-ai for the kernel
+      spine + journey-proof; done_when copies §WA-K1–K12 VERBATIM (frozen, Unicode preserved), carried live in
+      NOW.next. Context amended with Wave-0 residuals F-A (subtract per-domain validators) + F-B (cursor
+      conformance) as executor-inputs and F-C (registry-line governance) as a PLAN-residual tied to D-kernel-1 —
+      all input/PLAN only; done_when untouched.
 
 recurring: []
 
-decisions: []
+decisions:
+  - id: D-kernel-1
+    blocking: false
+    tag: deferred second-domain-attach leg (does NOT block the spine+journey build; nutrition already attached)
+    raised: 2026-06-20 (s-health-core-kernel-wave0-derisk-001, Wave-0 t-2 refutation F-C)
+    question: >
+      How is the registry-line write governed? Domain attach = 1 folder + 1 registry line, which grants the domain
+      run-authority (its deletion = remove-domain). It has no signed governance home: KG6/KA2 treat it as an
+      ungated mechanical append, while KV1 (every owner-facing artifact carries a status leaf; only ACTIVE is
+      authority) would gate it by default; no KM11-style exemption exists for it.
+    options:
+      - "1 (recommended): registry line = infrastructure control-file (like the cursor) → NOT under the content gate; mechanical append, decide-and-inform. bad_because: AI could attach an empty domain without owner approval — but an empty domain with no ACTIVE definition produces nothing ACTIVE (content still walks the gate); blast radius low."
+      - "2: registry line rides the bootstrap journey as the attach-SEED → {registry line + definition + cursor} walk SEED→PROPOSED→ACTIVE together (gated). bad_because: slightly heavier attach; upside is owner-explicit domain attach."
+      - "3: explicit KM11-style exemption row for the registry line. bad_because: another governance term for a small thing; effectively option 1 with ceremony."
+    recommendation: 1
+    default_if_unanswered: take option 1, record in the second-domain-attach leg PLAN
 
 next: |
-  CALL c-health-core-kernel-wave0-derisk-001
-  to: session
-  direction: health
-  play: work (desk de-risk; session-kind, no executor, no build)
-  node: g-health-core  bet: b-health-core-kernel  tasks: t-1 + t-2
-  goal: >
-    Produce the Wave-0 de-risk verdict that gates the kernel build: (t-1) a zero-engine subtraction-proof and
-    (t-2) a cold-start bootstrap-recursion realizability check — both on PAPER over files already on disk in
-    health-ai, no build, no owner gate.
-  context: >
-    Read in C:\projects\health-ai: x_nutrition/procedures/workflow-router.md (preflight reject-set +
-    STARTUP/PROGRAM/CYCLE/WEEK_PLAN/DAY_LOOP/REVIEW/MUTATION state rules + provider-continuation),
-    x_nutrition/workflow/graph.md, x_nutrition/state/current-workflow.md, core/extensions/*, and the existing
-    router load-order. Architecture-on-paper input evidence: KC1–KC14 + KQ2 (universal bootstrap machine) in
-    live/health/work/converge-g-health-core-kernel-arch.md; WA-K9/WA-K10 in
-    live/health/work/converge-g-health-core-kernel.md. The kernel contracts the subtraction maps against: KC1
-    single router, KC3 def/cursor split, KC4 registry tuple, KC8 confirm-by-layer, KC9 render-gate, KC10
-    one-job/handoff.
-  boundaries: >
-    Paper only — NO build, NO journey-walk, NO owner gate, NO edits to live/** or health-ai content. Do NOT
-    re-open any signed §KW/§WA-K/§OWNER-DECISION/CA row. This is the riskiest-assumption gate; its PASS/FAIL
-    must be confirmed in a FRESH read (mirroring the G5 separate-context discipline) before the executor CALL
-    dispatches.
-  done_when: >
-    t-1: a written residual ledger — EITHER (PASS) every engine clause of the two hardest nutrition files maps
-    to an inherited kernel contract and the residual is only {x_nutrition data, per-term procedures, 1 registry
-    line, 1 state-machine instance} (WA-K9 meetable) OR (FAIL, kills the bet) a named non-empty engine residual
-    the kernel does not absorb. t-2: a written verdict — EITHER (PASS) the universal bootstrap machine can author
-    a domain's first definition+cursor cold THROUGH the gate (no hand-seeded cursor) and that walk IS the WA-K10
-    journey-proof OR (FAIL/bounce) it needs hand-seeding (refutes KQ2/O1). Both PASS, fresh-read confirmed →
-    release the gated executor CALL c-health-core-kernel-spine-journey-executor-001. Any FAIL → bounce to the
-    session lead; do NOT dispatch the build.
-  return: RESULT with the two ledgers, the PASS/FAIL verdict each, and next (release the executor CALL, or bounce).
-  budget: one focused desk session (≤ half a focused day).
-
-  --- GATED (released only on Wave-0 PASS) ---
+  # RELEASED 2026-06-20 — Wave-0 de-risk PASS/PASS, fresh-read confirmed (s-health-core-kernel-wave0-derisk-001,
+  # wf_c9806260-68d). t-1 zero-engine subtraction PASS; t-2 KQ2/O1 cold-start bootstrap PASS. This executor CALL is
+  # now LIVE. Folded-in Wave-0 residuals (input/PLAN only — done_when §WA-K1–K12 unchanged): F-A subtract per-domain
+  # validators · F-B cursor conformance · F-C registry-line governance → non-blocking decision D-kernel-1.
   CALL c-health-core-kernel-spine-journey-executor-001
   to: executor (engineering agent)
   direction: health  node: g-health-core  bet: b-health-core-kernel
@@ -195,7 +198,14 @@ next: |
     cross-domain seam; CA8 schema_version; CA9 determinism carriers). REUSE-NOT-REDERIVE: lift
     x_nutrition/procedures/workflow-router.md + workflow/graph.md + state/current-workflow.md into CORE-owned
     files; reuse tools/check_*.py + acceptance/core/matrix.json + negative-fixtures as the conformance harness.
-    OWNER DURABLE PREF (KV21/WA-K2): NEVER show the owner writer/YAML files — every gate surface presents "result
+    WAVE-0 F-A (subtraction target is larger than the two files): the firewall-by-subtraction must DELETE the
+    per-domain executable validators tools/check_nutrition_*.py + acceptance/x_nutrition/* fixtures +
+    x_nutrition/contracts/normalizer-contract.md and replace them with the ONE kernel-universal KC7 LLM-evaluated
+    barrier (the write-barrier de-couple already in-scope); each of their checks decomposes 1:1 onto
+    KL7+W1+KC7+KC3/KC9/KC10/KD2/KR5. WAVE-0 F-B (attach-time conformance): the live cursor
+    x_nutrition/state/current-workflow.md holds KM1/KC2-forbidden content (current_weight_kg + clinical
+    post_smoking_cessation_context) — migrate it OUT of the cursor on the lift (cursor = pure non-content control
+    pointer). OWNER DURABLE PREF (KV21/WA-K2): NEVER show the owner writer/YAML files — every gate surface presents "result
     + what will be saved"; linter/writer artifacts stay internal. PRECONDITION FRAMING (context, NOT done_when):
     the lifecycle/gate/writer-barrier/cold-start behavior (carried by the verbatim WA-K2/K3/K4/K5/K10 below) must
     be green before any TIER-3 domain reaches ACTIVE. Within the spine the construction order is KC1–KC4 →
@@ -216,6 +226,11 @@ next: |
     NO code-CONTOUR gate force-fit (mutation/headless-build/Assets-existence do not map to a no-app md/yaml
     kernel); the v7 clauses that DO bite are kept: G0 frozen §WA-K verbatim, builder-cannot-weaken-the-oracle,
     binding fresh-session G5.
+    WAVE-0 F-C (NEW PLAN residual — input only, NOT into done_when): the registry-line write that grants a domain
+    run-authority (attach = 1 folder + 1 line) has no signed governance home; resolve its treatment
+    (gated-as-attach-SEED | KM11-style control-file exemption | decide-and-inform) at PLAN BEFORE the first COLD
+    new-domain attach (deferred second-domain leg) — it does NOT block this spine+journey (nutrition already
+    attached). Tied to owner decision D-kernel-1 in NOW.decisions. Add NO KP/KC/HOW token to any WA-K line.
   done_when: |
     §WA-K1–K12 are the BINDING frozen acceptance, copied VERBATIM (builder cannot edit). Each WA-K → ≥1
     acceptance-matrix row + check_ref; WA-K3/K4/K6/K8/K10 each get a RED negative-fixture the check trips on; each
