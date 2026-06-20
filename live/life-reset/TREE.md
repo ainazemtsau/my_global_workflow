@@ -5,6 +5,17 @@ owner_approved:
   evidence:
     - 'Owner: "A, утверждаю Root v5"'
     - 'Owner approved top-level map: "approve whole tree"'
+    - 'Owner repair 2026-06-20: "отдельный репозиторий" and "ресетнуть ... T1, T2"'
+    - 'Owner repair 2026-06-20: "сначала делать, потом все виклик контракты"'
+    - 'Owner repair 2026-06-20: "дерево сейчас невалидное полностью, заново надо переделывать, перепланировать"'
+
+tree_validity:
+  state: invalid_pending_remap
+  note: |
+    2026-06-20: owner invalidated the current top-level tree as the active
+    planning frame. The existing nodes remain historical planning evidence
+    only until a new map session revises/replaces TREE.md with explicit owner
+    approval. Do not run work, shape or review from this tree before remap.
 
 root:
   id: g-life-reset-root
@@ -64,18 +75,22 @@ root:
 
   children:
     - id: g-lr-weekly-operating-graph
-      status: active
+      status: parked
+      repair_note: |
+        2026-06-20: owner invalidated this as the active first-node frame. The
+        name/scope "weekly operating graph" was too narrow for the actual
+        life-reset runtime/foundation work and must be reconsidered in remap.
       appetite: |
-        Through Sunday evening planning on 2026-06-21: three small session
-        tasks, no extension. The bet stops at the first real Weekly Contract
-        v0 and its continuation packet; running the whole daily system belongs
-        to later nodes.
+        One runtime-architecture bootstrap wave before any real weekly
+        operation. The bet must first create/select a separate Life-reset
+        Runtime v0 repository or workspace and put the actual runtime
+        architecture skeleton there. Concrete Weekly Contracts come later.
+        Direction OS is the control plane, not the weekly/daily runtime.
       kill_by: |
-        2026-06-21: if Sunday planning cannot produce a minimal accepted
-        Weekly Contract for 2026-06-22..2026-06-28 with source snapshots,
-        capacity, selected slices, explicit cuts, a change rule and the
-        session->writer rule, without selecting permanent tooling or building
-        daily runtime/modules, stop and review/simplify instead of extending.
+        2026-06-21: if the separate runtime substrate cannot be created or
+        selected and populated with the runtime architecture skeleton before
+        planning, stop and review or simplify. Do not compensate by running
+        weekly/daily operation inside Direction OS.
       goal: |
         К 20 июля 2026 года life-reset умеет в активном разговоре
         строить неделю как operating graph: выбранные outcomes, slices
