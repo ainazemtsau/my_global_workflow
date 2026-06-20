@@ -97,10 +97,12 @@ root:
 
     - id: g-health-nutrition-system
       goal: >
-        Питание внедрено в Health AI System КАК МОДУЛЬ НА ЯДРЕ g-health-core: меню, рецепты,
-        grocery/meal-prep решения, fallback-еда, nutrition reviews и регулярные research-процессы
-        работают на ядровых программах/трекинге/метриках/фазах (не дублируя их) из единого
-        source-of-truth, но могут переноситься в удобные специализированные приложения.
+        (RESET 2026-06-20 — previous Health AI nutrition implementation rejected by owner;
+        current product files are dirty prototype/evidence only.) Питание внедрено в Health AI
+        System КАК МОДУЛЬ НА ЯДРЕ g-health-core: меню, рецепты, grocery/meal-prep решения,
+        fallback-еда, nutrition reviews и регулярные research-процессы работают на ядровых
+        программах/трекинге/метриках/фазах (не дублируя их) из единого source-of-truth, но
+        могут переноситься в удобные специализированные приложения.
       why: >
         Nutrition system нужна, чтобы питание стало производящей системой меню, рецептов
         и корректировок, а не разовой диетой или дневником в Direction OS.
@@ -120,21 +122,16 @@ root:
           и следующие CALL.
         - Питание встроено в body outcome: оно должно поддерживать снижение веса, достаточную сытость,
           белок, повторяемость и плохие недели, но не превращаться в crash diet или бесконечный research.
-      status: done
-      appetite: 1 focused day
-      kill_by: >
-        2026-06-18 12:00 Europe/Amsterdam: if there is not a research-backed personalized
-        nutrition program encoded into Health AI nutrition, a full W1-W13/NCA0-NCA9 implementation/
-        evidence surface, provider-independent continuation + writer handoff proof, and a tomorrow-start
-        packet that lets the owner begin nutrition without another architecture session, stop and review/
-        repair instead of extending.
+      status: parked
       children: []
 
     - id: g-health-first-nutrition-cycle
       goal: >
-        Первые 8 дней питания реально выполнены через Health AI nutrition: owner стартовал по
-        tomorrow-start packet, вёл Health AI-only nutrition LOG, прошёл day-3 safety/friction check
-        и day-8 review, а Direction OS получил только summary/decision/problem без raw food diary.
+        (DROPPED 2026-06-20 — first-cycle execution bet rejected with the underlying Health AI
+        nutrition slice.) Первые 8 дней питания реально выполнены через Health AI nutrition:
+        owner стартовал по tomorrow-start packet, вёл Health AI-only nutrition LOG, прошёл
+        day-3 safety/friction check и day-8 review, а Direction OS получил только
+        summary/decision/problem без raw food diary.
       why: >
         Реальная body-value начинается не от внедрённого модуля, а от первого выдержанного цикла;
         этот узел тестирует adherence, logging, fallback и review loop до следующей системной стройки.
@@ -143,14 +140,7 @@ root:
         - Day-3 safety/friction check выполнен и не выявил blocker red flags, либо включил conservative branch.
         - Day-8 first-cycle review выполнен в Health AI по LOG summaries, owner feedback and core metrics.
         - Direction OS не содержит raw daily food logs/photos/check-ins; только summary, decisions, problems, and next CALL.
-      status: active
-      appetite: 10 calendar days
-      kill_by: >
-        2026-06-30 23:59 Europe/Minsk: if Health AI cannot prove a graph-selected
-        repo-backed startup/transition before execution, if fewer than 8 Health AI
-        nutrition days are completed, if day-3 safety/friction check or day-8 review
-        is missing, if raw daily food diary content leaks into Direction OS, or if
-        safety/friction forces conservative branch, stop and review instead of extending.
+      status: dropped
       children: []
 
     - id: g-health-training-activity-system

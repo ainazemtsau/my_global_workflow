@@ -72,4 +72,6 @@
 
 2026-06-19 — health/g-health-first-nutrition-cycle shape: owner approved first real Health AI nutrition cycle bet; 10-calendar-day appetite, router-first startup, 8 Health AI-only nutrition days, day-3 safety/friction check, day-8 review, no raw diary in Direction OS; next t-1 startup-router guide. → history/2026-06-19-s-health-first-nutrition-cycle-shape-003.md
 
+- 2026-06-20 — health/g-health-nutrition-system repair: owner rejected current Health AI nutrition / first-cycle work as unacceptable; g-health-nutrition-system reset to parked dirty-prototype/evidence, g-health-first-nutrition-cycle dropped, active bet cleared, next is owner-approved rebuild structure before any cleanup or execution. → history/2026-06-20-s-health-nutrition-reset-rebuild-001.md
+
 END_OF_FILE: live/health/LOG.md
