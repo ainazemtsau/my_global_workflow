@@ -87,4 +87,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-06-20 life-reset repair: repeated g-lr-weekly-operating-graph route repair; runtime architecture skeleton acceptance omitted durable data/memory/retrieval and source-of-truth requirements → watching: repeated external-runtime skeleton omissions may need an OS maintenance rule/check.
 
+2026-06-20 life-reset repair: first-node wedge ("weekly operating graph") drifted into whole-runtime foundation work through repeated repairs, until owner invalidated the entire TREE and requested remap → watching: map/shape may need a stronger "node name/scope still matches route" check after major repairs.
+
 END_OF_FILE: os/FRICTION.md

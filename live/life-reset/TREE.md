@@ -7,6 +7,15 @@ owner_approved:
     - 'Owner approved top-level map: "approve whole tree"'
     - 'Owner repair 2026-06-20: "отдельный репозиторий" and "ресетнуть ... T1, T2"'
     - 'Owner repair 2026-06-20: "сначала делать, потом все виклик контракты"'
+    - 'Owner repair 2026-06-20: "дерево сейчас невалидное полностью, заново надо переделывать, перепланировать"'
+
+tree_validity:
+  state: invalid_pending_remap
+  note: |
+    2026-06-20: owner invalidated the current top-level tree as the active
+    planning frame. The existing nodes remain historical planning evidence
+    only until a new map session revises/replaces TREE.md with explicit owner
+    approval. Do not run work, shape or review from this tree before remap.
 
 root:
   id: g-life-reset-root
@@ -66,7 +75,11 @@ root:
 
   children:
     - id: g-lr-weekly-operating-graph
-      status: active
+      status: parked
+      repair_note: |
+        2026-06-20: owner invalidated this as the active first-node frame. The
+        name/scope "weekly operating graph" was too narrow for the actual
+        life-reset runtime/foundation work and must be reconsidered in remap.
       appetite: |
         One runtime-architecture bootstrap wave before any real weekly
         operation. The bet must first create/select a separate Life-reset

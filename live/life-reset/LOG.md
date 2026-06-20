@@ -40,4 +40,8 @@
   c-life-reset-runtime-architecture-001 must include DATA_MODEL.md,
   MEMORY_POLICY.md, INDEX_SCHEMA.md and RETRIEVAL.md.
 
+- 2026-06-20 - repair: owner invalidated the current life-reset TREE as active
+  planning state; old weekly/runtime route is stopped and next is
+  c-life-reset-remap-001.
+
 END_OF_FILE: live/life-reset/LOG.md
