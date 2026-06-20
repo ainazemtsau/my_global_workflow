@@ -53,6 +53,14 @@ active_bet:
     layer (the temperature decouple + feedback, g-d3a8). t-2 already ships temperature as a replicated plane-6, so nothing
     is lost. Wave 2 now runs the SINGLE leg t-4 (c-exec-008); t-3 → dropped, c-exec-007 → cancelled. Correct the stale
     ADR wording home-side.
+    ✂️ 2026-06-19 (s-work-014, owner steer): t-4 RE-SCOPED to an INTERNAL coarse-sim PROOF (inspectable visualization on a
+    real DA level), NOT a player-legible/Steam-showable terminus — owner: «грубую симуляцию на витрину не вешаю; для меня
+    как доказательство окей; выкинь Steam-требование, вначале базовый функционал». The 08-31/Steam linkage is DROPPED (it
+    was already de-coupled by the marketing q-foundation; Steam-page timing → g-2f8c, gated on real visuals/gameplay). The
+    serious TEST/AUTHORING HARNESS (sandbox) is pulled OUT of t-4 (owner: t-4 context too full; cramming it in was a bad
+    idea) and registered as a SEPARATE post-wave-2 deliverable (d-sandbox-001) — built via research(best-practices)→shape,
+    HOW delegated to me, anti-scene-proliferation. So Wave 2 = t-1/t-2/t-5 done + t-4 (PROOF) → close → review → Wave 3
+    (fine tier + real extensibility + the harness). c-exec-008 must be RE-ISSUED to the proof scope.
   appetite: |
     Node wall = 6 weeks, hard end 2026-07-24 (G3 — fixed, NEVER extended; multi-wave — move tail waves not the wall).
     Wave-2 internal: band-solver KILL checkpoint 2026-06-30; player-facing terminus rides the 07-11→07-24 cushion to
@@ -94,7 +102,11 @@ active_bet:
         temperature→gas FEEDBACK, g-d3a8). NOT silently dropped: t-2 already ships coarse temperature as a replicated
         plane-6 (CR1/CR2/CR3) so extensibility is partially evidenced; the demo-layer proof was contrived, and decoupling
         temperature now would reopen the LOCK (a 1-tick read-seam lag changes the band-split) — correctly re-homed;
-    (6) a PLAYER-LEGIBLE artifact (crit-6 render slice ≤2wk, quantized-volumetric stylization behind the RN1 seam,
+    (6) [RE-SCOPED 2026-06-19 (s-work-014, d-sandbox-001) → INTERNAL coarse-sim PROOF / inspectable visualization, NOT a
+        Steam/player-legible terminus: the Steam / stylization / RN2-showable / footage / owner-gamer-eye-Steam bars in
+        this item are DROPPED; the precise proof bar is set at the re-issued c-exec-008 PLAN; the full sandbox/test-harness
+        is a SEPARATE post-wave-2 deliverable. Superseded original text follows for history —]
+        a PLAYER-LEGIBLE artifact (crit-6 render slice ≤2wk, quantized-volumetric stylization behind the RN1 seam,
         ms-budget on min-spec): a room visibly fills bottom-up from the breach side over time, heavier gas settles
         low, the source/breach is identifiable — readable WITHOUT a debug overlay, reads as DELIBERATE stylization not
         a stub; acceptance = RN2-style blind vision-agent check (machine-readable ground truth) + owner gamer-eye
@@ -117,7 +129,10 @@ active_bet:
     Wave 3 (DETAIL NEAR PLAYER + REAL EXTENSIBILITY): the 25cm T2 detailed per-cell window (cell size CONFIGURABLE +
       geometry-aligned) + the coarse↔fine NO-JERK handoff (owner «100%») + OR1 cross-tier composition + optimisations;
       PLUS extensibility proven FOR-REAL = decouple temperature into a real 2nd layer + the temperature→gas FEEDBACK
-      (g-d3a8 per-gas-type heat) — the genuine XL2/feedback work the contrived t-3 demo was standing in for.
+      (g-d3a8 per-gas-type heat) — the genuine XL2/feedback work the contrived t-3 demo was standing in for; PLUS the
+      serious TEST/AUTHORING HARNESS (sandbox, d-sandbox-001): a disciplined extensible test approach — config-as-data /
+      saved seeds (not a pile of scenes), one parametric harness, owner-tweakable + MCP-drivable + structured logs,
+      reproducible — built v1 first then widened; HOW delegated, via research(best-practices)→shape (its own first leg).
     Wave 4+: full destructibility, reaction MECHANISM + real gas types (g-d3a8), scale to big levels (occupancy +
       1000-object min-spec gate), frequency ladder, plume entrainment + dynamic heat. Each tail wave = bet-3+.
   rules:   # owner voice, this session — duplicated here until the maintenance home exists
@@ -153,7 +168,7 @@ active_bet:
       - "OR1 cross-TIER composition + coarse<->fine handoff -> Wave 3 (with the fine tier); OR2 reduces to
          coarse-is-floor everywhere this wave (single open tier)"
   lens_verdicts:
-    - "commercial/traction: TASK — t-4 player-legible terminus = the first showable artifact off the REAL sim; feeds g-2f8c's 2026-08-31 page date; breaks pre-mortem #2 (Wave 1 left ZERO player-facing artifact)"
+    - "commercial/traction: [RE-SCOPED 2026-06-19, d-sandbox-001] 08-31/Steam linkage DROPPED — t-4 is an INTERNAL coarse-sim PROOF, NOT a Steam-showable artifact (owner: do not put a rough sim on the storefront). Steam-page timing is owned by the marketing track g-2f8c, gated on real visuals/gameplay (consistent with marketing q-foundation = marketing NOT gated on Wave 2). pre-mortem #2 (do not go dark) is answered by the internal inspectable proof + the coming test/authoring harness, not by a public artifact now."
     - "technical feasibility: TASK — t-1 band solver = the riskiest NEW assumption (brief §7-#2, zero precedent)"
     - "core gameplay depth: Wave 2 CLOSES the 'seam argued-not-exercised' half (real 3rd layer via XL2; breach->flow; sink observable) but the 'inert sink is not depth' half stays OPEN by design (feedback deferred); gas-type depth re-homed to g-d3a8 — named-deferred, NOT claimed as depth"
     - "co-op-first: NOT advanced this wave — co-op-interdependence is a KNOWN owner-deferred gap (c-map-004, unowned before a parked Steam Playtest); CR1 coarse replication is consistency infra, NECESSARY-not-sufficient for co-op (knowledge/g9c41-wave1-consistency-not-depth-not-coop) — NOT claimed to 'serve' co-op"
@@ -259,7 +274,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       no-jerk/no-shimmer-EVER (incl. off-screen-computed state surfacing — owner-signed GG4/OR4 coarse half).
       SOLVER-AGNOSTIC (reads RN1 — works on band OR degraded scalar). Rides the 07-11→07-24 cushion to ~07-21;
       auto-shrinks to a ≤1wk minimal-legibility floor if t-1 slips past 06-30.
-    status: active   # 2026-06-19 (s-work-010) OPENED as c-exec-008 (∥ t-3); opens with a PLAN (owner present). Carries owner R1 (wire the REAL Dungeon Architect, existence-proven: real IDaRoomReader, tag prefabs, REMOVE FixedLevelRoomReader from runtime; SCOPE-SPLIT from the render terminus + GEOMETRY-MOVE RULE), R2 (guide-loop step-by-step Unity instructions whenever an action can't go via MCP + answer owner Qs), R3 (owner-run = close-gate: BUILD/existence closes headlessly, only the LOOK is owner-run; DONE-pending-owner-LOOK until owner confirms — no self-marking). Acceptance = RN2 machine blind-check (frozen N-of-M floor) + owner gamer-eye. Full CALL → history/s-work-010.md.
+    status: active   # 2026-06-19 (s-work-014, owner steer) RE-SCOPED → INTERNAL coarse-sim PROOF / inspectable visualization (NOT a Steam/player-legible terminus): drop the stylization/RN2-showable/footage/owner-gamer-eye-Steam/08-31 bars; KEEP real DA (via the c-exec-010 derive-id gate) + reads RN1 + owner confirms the sim is visibly correct. The full sandbox/test-harness is OUT of t-4 → d-sandbox-001 (post-wave-2). c-exec-008 must be RE-ISSUED to this proof scope. ▸ Originally OPENED 2026-06-19 (s-work-010) as c-exec-008 (∥ t-3); opens with a PLAN (owner present). Carries owner R1 (wire the REAL Dungeon Architect, existence-proven: real IDaRoomReader, tag prefabs, REMOVE FixedLevelRoomReader from runtime; SCOPE-SPLIT from the render terminus + GEOMETRY-MOVE RULE), R2 (guide-loop step-by-step Unity instructions whenever an action can't go via MCP + answer owner Qs), R3 (owner-run = close-gate: BUILD/existence closes headlessly, only the LOOK is owner-run; DONE-pending-owner-LOOK until owner confirms — no self-marking). Acceptance = RN2 machine blind-check (frozen N-of-M floor) + owner gamer-eye. Full CALL → history/s-work-010.md.
   - id: t-5
     kind: executor (engineering, GasCoopGame) — CONSOLIDATION + HARDENING (review-driven, NOT a wave feature); LEADS Wave-2; gates t-3, ∥ t-4
     goal: |
@@ -340,7 +355,7 @@ open_calls:
       independent test-author RED-first; check.ps1 -Deliver GREEN; mutation ≥70; binding = fresh-session G5.
       FULL CALL → history/s-work-010.md §c-exec-007.
   - id: c-exec-008
-    status: open   # 2026-06-19 (s-work-010) FRAMED + hardened (wf wd3a59z47) + OPENED — Wave-2 t-4 render terminus + REAL Dungeon Architect, ∥ c-exec-007
+    status: open (NEEDS RE-ISSUE)   # 2026-06-19 (s-work-014) t-4 re-scoped to an INTERNAL coarse-sim PROOF / inspectable visualization (drop Steam/stylization/RN2-showable/footage; KEEP real DA via the derive-id gate + reads RN1 + owner-confirm). The Steam-terminus framing in the note below is SUPERSEDED — re-issue this CALL to the proof scope before building further. FRAMED + hardened (wf wd3a59z47) + OPENED 2026-06-19 (s-work-010) — was: Wave-2 t-4 render terminus + REAL Dungeon Architect, ∥ c-exec-007
     note: |
       Executor leg (GasCoopGame, dev→main when green), opens with a PLAN (owner present). GOAL: a player can SEE the
       real coarse sim — a room visibly fills bottom-up from the breach, heavier gas low, source identifiable, readable
@@ -736,17 +751,41 @@ decision_inbox:
       the deferral; cut_list + wave_plan updated; t-4 (c-exec-008) is the SOLE Wave-2 executor leg. Temperature-decouple
       stays Wave 3 / g-d3a8 (with feedback). FORWARD: correct the stale ADR-0005/0007 "separate-layer = t-3 obligation"
       wording home-side (fold into the Wave-3 extensibility leg, or a tiny cleanup). → history/s-work-013.md.
+  - id: d-sandbox-001
+    status: deferred   # owner 2026-06-19 (s-work-014) — the test/authoring HARNESS is a SEPARATE serious deliverable, AFTER wave 2 closes; NOT in t-4. Also re-scopes t-4 → internal PROOF (no Steam).
+    note: |
+      TWO linked owner steers (this conversation):
+      (1) t-4 IS NOT a Steam artifact. «грубую симуляцию на витрину не вешаю; для меня как доказательство окей; выкинь
+          Steam-требование из головы; вначале базовый функционал». → t-4 RE-SCOPED to an INTERNAL coarse-sim PROOF /
+          inspectable visualization (real DA via the c-exec-010 derive-id gate + reads RN1 + owner-confirm-it-works);
+          DROP the stylization / RN2-showable / footage / owner-gamer-eye-Steam / 08-31 bars. Steam-page timing → the
+          marketing track g-2f8c (gated on real visuals/gameplay; already de-coupled from Wave 2 by q-foundation).
+          c-exec-008 must be RE-ISSUED to this proof scope. pre-mortem #2 (do not go dark) is answered by the internal
+          inspectable proof + the harness below, not by a public artifact now.
+      (2) The serious TEST/AUTHORING HARNESS (sandbox) is its OWN deliverable, built AFTER wave 2 closes (owner: t-4
+          context too full; cramming it into t-4 was a bad idea). NOT one scene — a disciplined TEST APPROACH (possibly a
+          few scenes). HOW = delegated to me («полностью доверюсь … не знаю лучшие практики»). Pain to kill (owner's past
+          gamedev): a PILE of hand-built test scenes + recreated configs = chaos. Recommended best-practice DIRECTION (to
+          be detailed at the research→shape, NOT locked here): config-as-DATA (saved seed/config assets, version-able)
+          over scene-per-test; ONE (or few) PARAMETRIC harness scene; deterministic-by-seed (reuse our core); owner-
+          tweakable inspector + save-as-config; MCP-drivable by the builder (load config → run N ticks → dump a structured
+          log/artifact it can read); a folder/naming CONVENTION so scenes/configs do not sprawl. EXAMPLE capabilities the
+          owner floated (his words: examples, NOT requirements): hand-tweak, save a file, builder reads a log, run by
+          ticks. APPROACH: research(best-practices) → shape → tasks, in the Wave-3 era (its own first leg / interstitial).
+          Owner: «эта задача у нас есть, её надо ставить».
+      → recorded so it is tracked + timed; framed properly post-wave-2. → history/s-work-014.md.
 
 next: |
   Wave-2 scope CUT (s-work-013, owner «C», d-t3-defer-001): t-3/XL2 deferred to Wave 3. The SOLE remaining Wave-2 executor
   leg is c-exec-008 (t-4). RUN c-exec-008 (t-4, render terminus + REAL Dungeon Architect) in GasCoopGame (branch dev → main
   when green), opening with a PLAN (owner present), on the clean baseline (dev tip cb73e82) + the APPLIED canonical spec
   (openspec/specs/sim-core/spec.md) + the VERIFIED §CONTRACTS:
-    - c-exec-008 (t-4, RENDER + REAL DA): owner R1/R2/R3. NEW HARD GATE from c-exec-010 — the real Dungeon Architect MUST
-      route through SceneTopologyComposer.Compose (geometry-derived StableIds); a non-geometry id path is REJECTED at the
-      Core boundary (add a done_when sub-clause + an independent-author RED 'derive-mismatch' reject test; DA seed→geometry
-      mapping must yield distinct, non-overlapping integer AABBs). Reads the FROZEN IGasReadModel/RN1 (solver-agnostic).
-      Full CALL → history/s-work-010.md §c-exec-008 (+ the s-work-012 DA addendum).
+    - c-exec-008 (t-4): RE-ISSUE to the new PROOF scope (s-work-014, d-sandbox-001) — t-4 is now an INTERNAL coarse-sim
+      PROOF / inspectable visualization, NOT a Steam/player-legible terminus (drop stylization/RN2-showable/footage/08-31).
+      KEEP: real Dungeon Architect via the c-exec-010 derive-id gate (route through SceneTopologyComposer.Compose; RED
+      'derive-mismatch' test; distinct non-overlapping AABBs), reads the FROZEN IGasReadModel/RN1, owner confirms the sim
+      is visibly correct (R2 guide-loop / R3 owner-confirm). The full sandbox/test-harness is OUT of t-4 → d-sandbox-001.
+      Prior (Steam-terminus) CALL → history/s-work-010.md §c-exec-008; re-issue to proof scope before building further.
   Owner-run / residual on t-4 (NOT self-markable): (i) owner-run Unity compile + PlayMode CoarseVisibleSlice re-run via MCP;
   (ii) real-UDP FishNet deferred (WSAENOBUFS; loopback binding); (iii) the owner-eye LOOK at the render terminus (R3 —
   DONE-pending-owner-LOOK; env-deferral does NOT apply to this axis); (iv) guide-loop (R2 — step-by-step Unity instructions
@@ -756,9 +795,10 @@ next: |
   WHEN t-4 RETURNS → a review session for the Wave-2 node g-9c41 (G5 done-evidence per task done_when; then roll to Wave 3
   per kill_by.next_if_true). t-4 may return DONE-pending-owner-LOOK or BLOCKED — re-home via a fresh work session.
 
-  WAVE 3 (re-homed here, NOT this wave): extensibility proven FOR-REAL = decouple temperature into a real 2nd layer + the
-  temperature→gas FEEDBACK (g-d3a8 per-gas-type heat) — the genuine work the contrived t-3 demo stood in for; PLUS the FINE
-  25cm tier + coarse↔fine no-jerk handoff + the d-returnfidelity-001 mid-transient bar + per-species temperature /
+  WAVE 3 (re-homed here, NOT this wave): the serious TEST/AUTHORING HARNESS (sandbox, d-sandbox-001 — research(best-
+  practices)→shape→build; its own first leg); extensibility proven FOR-REAL = decouple temperature into a real 2nd layer +
+  the temperature→gas FEEDBACK (g-d3a8 per-gas-type heat) — the genuine work the contrived t-3 demo stood in for; PLUS the
+  FINE 25cm tier + coarse↔fine no-jerk handoff + the d-returnfidelity-001 mid-transient bar + per-species temperature /
   cross-band inversion (d-crossband-inv-001). Home cleanup: correct the stale ADR-0005/0007 'separate-layer = t-3
   obligation' wording.
   PUSH is owner-gated — dev is UNPUSHED ahead of origin (the 4 tooling commits + the c-exec-009/010 consolidation, dev tip
