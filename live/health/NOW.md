@@ -3,97 +3,82 @@
 active_bet:
   status: none
   note: >
-    2026-06-20 owner rejected the current Health AI nutrition / first-cycle
-    work as not accepted. The problem is not a narrow repair: menu, recipes,
-    grocery/prep, first-cycle execution, and the current interaction/writer
-    flow were produced without enough owner co-creation, approval, and
-    one-chat-one-job handoff. The previous Health AI nutrition files may be
-    used only as dirty prototype/evidence, not as authority or accepted
-    execution content. Rebuild starts from a new owner-approved structure.
+    2026-06-20 owner reframe (Variant 1). Mid-converge the owner identified that the
+    rejected Health AI nutrition slice is a symptom of a MISSING CORE LAYER, not a
+    nutrition-only gap: g-health-core delivered the data/contract layer but never
+    provided a runtime — per-domain memory/working-state, state machines, a single
+    procedure-interpreter/router, and a governance lifecycle (artifact SEED→PROPOSED→
+    ACTIVE→SUPERSEDED + owner-approval gate + confirm-before-save + readable-for-owner +
+    writer/evidence barrier + one-chat-one-job). g-health-core is re-opened (parked) to
+    be EXTENDED into a kernel; nutrition and training become thin layers; the governance
+    design is preserved at work/core-kernel-governance-lifecycle-spec.md. No active bet
+    until the kernel WHAT is converged and owner-approved.
 
 tasks: []
 
 open_calls:
-  - id: c-health-nutrition-system-rebuild-converge-001
+  - id: c-health-core-kernel-converge-001
     status: ready
     note: >
-      Restart g-health-nutrition-system from scratch. First produce an
-      owner-approved structure/WHAT/process contract before any product repo
-      cleanup, rebuild, menu, recipe, grocery, or execution work proceeds.
+      Converge the re-opened g-health-core at KERNEL scope (extend, do not rebuild the
+      data/contract layer): runtime primitives + governance lifecycle, so nutrition and
+      training attach as thin one-responsibility-per-procedure layers. Import the existing
+      core WHAT and the governance spec; surface the 16 governance forks and the G7-2
+      confirm-before-save reconciliation; no execution content; route to converge-arch.
 
 recurring: []
 
 decisions: []
 
 next: |
-  CALL c-health-nutrition-system-rebuild-converge-001
+  CALL c-health-core-kernel-converge-001
   to: session
   direction: health
   play: converge
-  node: g-health-nutrition-system
+  node: g-health-core
   goal: |
-    A new owner-approved Health AI nutrition structure exists before any rebuild,
-    cleanup, menu, recipe, grocery, or execution work proceeds.
+    g-health-core is extended into a provider-independent KERNEL that supplies reusable runtime
+    primitives — per-domain memory/working-state, state machines, a single procedure-interpreter/
+    router (each "term" = one bounded procedure the kernel runs), and a governance lifecycle
+    (artifact SEED→PROPOSED→ACTIVE→SUPERSEDED + owner-approval gate + confirm-before-save +
+    readable-for-owner presentation + writer/evidence-of-transition barrier + one-chat-one-job
+    handoff) — so nutrition and training attach as thin one-responsibility-per-procedure layers
+    and no domain reinvents the engine. An owner-approved kernel WHAT exists before any kernel
+    build or domain rebuild.
   context: |
-    Owner rejection on 2026-06-20:
-    - Current Health AI nutrition work is rejected completely, not accepted as
-      a working node.
-    - "Хелс ничего чинить не надо"; the current files are to be archived or
-      deleted by a later bounded product task, not repaired in place.
-    - Existing work may be used only as evidence/dirty prototype.
-    - Menu, recipes, grocery/prep, first-cycle execution, and writer/ChatGPT
-      continuation were not co-created with the owner and must not be treated
-      as accepted authority.
-    - The new solution must be designed like software architecture: roles,
-      process graph, artifact contracts, owner approval gates, writer gates,
-      one chat = one job, and next CALL/card after each job.
-    - Until the owner accepts the structure, no rebuild/execution should start.
-
-    Current Direction OS repair result:
-    - g-health-nutrition-system is parked for rebuild from scratch.
-    - g-health-first-nutrition-cycle is dropped as a rejected execution bet.
-    - There is no active bet.
-
-    Dirty/non-authoritative Health AI product families observed:
-    - health-ai/x_nutrition/program-synthesis/active-program-synthesis.md
-    - health-ai/x_nutrition/programs/active-program.md
-    - health-ai/x_nutrition/cycles/first-cycle.md
-    - health-ai/x_nutrition/menus/current-menu-cycle.md
-    - health-ai/x_nutrition/recipes/first-cycle-base-recipes.md
-    - health-ai/x_nutrition/grocery/current-grocery-needs.md
-    - health-ai/x_nutrition/fallbacks/fallback-meals.md
-    - health-ai/x_nutrition/reviews/first-cycle-review.md
-    - health-ai/x_nutrition/logs/YYYY-MM-DD.md
-
-    Potentially reusable only as evidence/control-plane references, not as
-    accepted nutrition content:
-    - health-ai/x_nutrition/workflow/graph.md
-    - health-ai/x_nutrition/state/current-workflow.md
-    - health-ai/x_nutrition/procedures/*
-    - health-ai/acceptance/x_nutrition/*
-    - prior research/report/check evidence, if explicitly re-imported into the
-      new owner-approved process.
+    Owner chose Variant 1 on 2026-06-20 (history/2026-06-20-s-health-core-kernel-reframe-001.md).
+    RETROFIT converge: g-health-core already has a signed data/contract layer — IMPORT it, do not
+    re-litigate it. Baselines to import / frame the open runtime layer against:
+    - Existing core data/contract WHAT: live/health/work/converge-g-health-core.md (W1–W64,
+      WA1–WA12, CA1–CA7) — born-closed where signed; the gap is the missing runtime layer.
+    - Governance/lifecycle design to fold into the kernel:
+      live/health/work/core-kernel-governance-lifecycle-spec.md (12 failure modes prevented,
+      8 glossary terms, WHAT families, 16 owner forks F1–F16 + recommendations, residuals).
+    - Owner architecture requirements R1–R8 (one procedure per term; single interpreter/router;
+      kernel primitives memory/state-machine/launch/procedure-registry; layered dietitian-targets
+      → menu → recipes → grocery; readable-for-owner + confirm-before-save; anti-fragile add/remove/
+      fix a part independently; reuse for training; inspired by Direction OS).
+    - Failure evidence: the nutrition saga (history 2026-06-13 … 2026-06-20) and the proof that
+      nutrition reinvented its own engine (x_nutrition/workflow/*).
   boundaries: |
-    Do not continue the current first-cycle execution.
-    Do not repair the existing menu/recipe/cycle content in place.
-    Do not treat any existing x_nutrition owner-facing content as accepted.
-    Do not emit or save menu, recipes, grocery/prep, daily plan, or execution
-    artifacts before owner-approved structure and explicit later task.
-    Do not ask the owner to choose expert nutrition variables as a substitute
-    for system design.
-    Do not store raw daily food logs/photos/check-ins in Direction OS.
-    Do not delete or archive product repo files in this converge session; that
-    must be a later bounded executor CALL after the reset structure is accepted.
+    Extend the core; do NOT rebuild or discard the working data/contract layer.
+    No execution content (no real menu/recipe/grocery/program); no health-ai product-repo edits.
+    Nutrition/training rebuild only AFTER the kernel WHAT is owner-approved.
+    Do not silently override the signed G7-2 (decide-and-inform): surface the confirm-before-save
+    change as an explicit owner decision (durable content gated; daily logging stays decide-and-inform).
+    Surface, never auto-decide, the 16 governance forks F1–F16.
+    Do not store raw daily data in Direction OS.
   done_when: |
-    Owner has approved a new Health AI nutrition WHAT/process structure that
-    defines roles, artifact families, approval gates, recipe/menu/grocery
-    lifecycle, writer behavior, one-chat-one-job handoff, and cleanup/rebuild
-    boundaries; all open design terms are closed or routed to explicit owner
-    decisions, with no execution content produced.
+    Owner has approved a kernel WHAT/structure defining: the runtime primitives (memory/working-state,
+    state-machine object, single procedure-interpreter/router, procedure registry), the one-procedure-
+    per-term decomposition + layering contract for thin domains, the governance lifecycle
+    (SEED→PROPOSED→ACTIVE→SUPERSEDED + approval gate + confirm-before-save + readable-for-owner +
+    writer/evidence barrier + one-chat-one-job handoff), and the anti-fragility/extension contract;
+    the 16 governance forks and the G7-2 confirm-before-save reconciliation are resolved or routed to
+    explicit owner decisions; no execution content produced; route to converge-arch.
   return: |
-    RESULT with the owner-approved structure, open decisions if any, state_changes,
-    and next CALL. The next CALL should not rebuild product files until the owner
-    has accepted the structure.
+    RESULT with the owner-approved kernel WHAT, owner decisions, state_changes, and next CALL
+    (converge-arch). No kernel build and no domain rebuild before the WHAT is signed.
   budget: one focused converge session
 
 END_OF_FILE: live/health/NOW.md
