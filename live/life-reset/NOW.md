@@ -18,8 +18,8 @@ active_bet:
     the architecture skeleton for the personal weekly/daily operating system.
     Direction OS remains the control plane that shapes, repairs, reviews and
     evolves that runtime; the runtime owns weekly/daily operation artifacts,
-    state schemas, process/technique lifecycle, provider-facing instructions
-    and later concrete week contracts.
+    state schemas, first-class data/memory/retrieval, process/technique
+    lifecycle, provider-facing instructions and later concrete week contracts.
   done_when:
     - The architecture evidence already produced in work/ is preserved but no
       longer treated as implementation.
@@ -27,10 +27,14 @@ active_bet:
     - That runtime substrate contains the approved v0 architecture skeleton for
       the actual operating process.
     - The architecture skeleton covers at least: control-plane/runtime boundary,
-      state layout, free-form intake, weekly graph model, daily runtime kernel,
-      process/technique registry, research/experiment lifecycle,
-      checkpoint/logging, weekly review/mutation loop, provider/session/writer
-      behavior and source-direction boundaries.
+      state layout, Data / Memory / Retrieval layer, free-form intake, weekly
+      graph model, daily runtime kernel, process/technique registry,
+      research/experiment lifecycle, checkpoint/logging, weekly
+      review/mutation loop, provider/session/writer behavior and
+      source-direction boundaries.
+    - The runtime skeleton includes DATA_MODEL.md, MEMORY_POLICY.md,
+      INDEX_SCHEMA.md and RETRIEVAL.md as first-class architecture files before
+      pilot planning.
     - No concrete Weekly Contract is created in this bet before the architecture
       skeleton is accepted as ready for pilot.
     - Direction OS records only runtime pointer, architecture summary/evidence,
@@ -41,6 +45,7 @@ active_bet:
     - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
     - live/life-reset/work/sunday-planning-packet-v0.md
     - live/life-reset/work/life-reset-runtime-boundary-v0.md
+    - live/life-reset/work/life-reset-runtime-data-memory-retrieval-requirements-v0.md
     - live/life-reset/history/2026-06-20-s-life-reset-runtime-boundary-001.md
   repair_note: |
     2026-06-20: owner rejected task wording that kept turning the next step
@@ -124,11 +129,22 @@ tasks:
       - The runtime substrate exists locally or is explicitly selected with the
         exact setup blocker/unblock condition recorded.
       - It contains architecture files or documents for the v0 runtime skeleton.
-      - The skeleton covers control-plane/runtime boundary, state layout,
-        weekly graph model, daily runtime kernel, free-form intake,
-        process/technique registry, research/experiment lifecycle,
-        checkpoint/logging, review/mutation loop, provider/session/writer
-        behavior and source-direction boundaries.
+      - The skeleton covers control-plane/runtime boundary, state layout, Data
+        / Memory / Retrieval layer, weekly graph model, daily runtime kernel,
+        free-form intake, process/technique registry, research/experiment
+        lifecycle, checkpoint/logging, review/mutation loop,
+        provider/session/writer behavior and source-direction boundaries.
+      - The skeleton includes DATA_MODEL.md, MEMORY_POLICY.md, INDEX_SCHEMA.md
+        and RETRIEVAL.md as first-class files, not optional later additions.
+      - It states that the runtime repository/workspace is the source of truth
+        for runtime data, memory, indexes and retrieval; ChatGPT/Claude memory
+        is interface context only.
+      - Retrieval acceptance cases are covered:
+          "what happened two weeks ago?"
+          "what did we decide about X?"
+          "how did technique Y perform?"
+          "what ideas were captured about Z?"
+          "show process P progress over a month"
       - It does not contain copied raw health/game/Solmax data.
       - No concrete Weekly Contract is created or accepted in this task.
     tests_assumption: >
@@ -177,8 +193,8 @@ open_calls:
     issued: 2026-06-20
     note: >
       Create/select the separate Life-reset Runtime v0 repository/workspace and
-      put the actual runtime architecture skeleton there. Do not create a
-      concrete Weekly Contract.
+      put the actual runtime architecture skeleton there, including the Data /
+      Memory / Retrieval layer. Do not create a concrete Weekly Contract.
 
 decisions: []
 
@@ -198,6 +214,7 @@ next: |
     - live/life-reset/CHARTER.md
     - live/life-reset/TREE.md
     - live/life-reset/work/life-reset-runtime-boundary-v0.md
+    - live/life-reset/work/life-reset-runtime-data-memory-retrieval-requirements-v0.md
     - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
     - live/life-reset/work/sunday-planning-packet-v0.md
     - os/KERNEL.md
@@ -209,11 +226,19 @@ next: |
     route was repaired because it jumped to a concrete Weekly Contract before
     the runtime architecture existed.
 
+    Data / Memory / Retrieval repair:
+    The runtime must work across future chats/providers without relying on
+    hidden ChatGPT/Claude memory. The runtime repository/workspace is the
+    durable source of truth for runtime artifacts, data, memory, indexes and
+    retrieval. Provider chat memory is interface context only.
+
     Meaning:
     - Weekly Contract = later concrete accepted plan for a real week.
     - It is not the runtime architecture and must not be created in this CALL.
     - "Provider instructions" are only one component of the runtime skeleton,
       not a standalone next task.
+    - Data / Memory / Retrieval is a first-class runtime architecture layer,
+      not a later optional feature.
   boundaries: |
     Do not create or accept a concrete Weekly Contract in this CALL.
     Do not run daily operation.
@@ -224,6 +249,7 @@ next: |
     Do not shape other life-reset nodes.
     Do not build process/activity modules, automation or a full backlog.
     Do not copy raw health/game/Solmax data into the runtime.
+    Do not rely on provider memory as the source of truth.
     Do not reduce the task to provider-facing instructions alone; provider
     behavior is only one part of the architecture skeleton.
   done_when: |
@@ -231,11 +257,27 @@ next: |
     - The runtime substrate exists locally or is explicitly selected with the
       exact setup blocker/unblock condition recorded.
     - It contains architecture files or documents for the v0 runtime skeleton.
-    - The skeleton covers control-plane/runtime boundary, state layout, weekly
-      graph model, daily runtime kernel, free-form intake, process/technique
-      registry, research/experiment lifecycle, checkpoint/logging,
-      review/mutation loop, provider/session/writer behavior and
-      source-direction boundaries.
+    - The skeleton covers control-plane/runtime boundary, state layout, Data /
+      Memory / Retrieval layer, weekly graph model, daily runtime kernel,
+      free-form intake, process/technique registry, research/experiment
+      lifecycle, checkpoint/logging, review/mutation loop,
+      provider/session/writer behavior and source-direction boundaries.
+    - The runtime architecture skeleton includes DATA_MODEL.md,
+      MEMORY_POLICY.md, INDEX_SCHEMA.md and RETRIEVAL.md as first-class files.
+    - DATA_MODEL.md defines the durable runtime entities needed to recover past
+      weeks, decisions, process results, topic history and relevant details
+      without loading the whole repository into context.
+    - MEMORY_POLICY.md states what the runtime stores, what it summarizes, what
+      it never stores, and that ChatGPT/Claude memory is not source of truth.
+    - INDEX_SCHEMA.md defines retrieval indexes/tags/links for bounded lookup
+      across weeks, decisions, techniques, processes, topics and source
+      summaries.
+    - RETRIEVAL.md defines query flows and acceptance cases for:
+        "what happened two weeks ago?"
+        "what did we decide about X?"
+        "how did technique Y perform?"
+        "what ideas were captured about Z?"
+        "show process P progress over a month"
     - It does not contain copied raw health/game/Solmax data.
     - No concrete Weekly Contract is created or accepted in this task.
   return: |

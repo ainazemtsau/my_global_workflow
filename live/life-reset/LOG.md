@@ -35,4 +35,9 @@
   Weekly Contract from the active route; next is full runtime architecture
   skeleton in the separate runtime repository/workspace.
 
+- 2026-06-20 - repair: made Data / Memory / Retrieval a required first-class
+  layer of the runtime architecture route; next
+  c-life-reset-runtime-architecture-001 must include DATA_MODEL.md,
+  MEMORY_POLICY.md, INDEX_SCHEMA.md and RETRIEVAL.md.
+
 END_OF_FILE: live/life-reset/LOG.md
