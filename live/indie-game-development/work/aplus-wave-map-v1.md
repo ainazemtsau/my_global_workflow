@@ -24,9 +24,12 @@ answer to the owner's «free gas count» ask and must be decided before any wave
 **Wave B — "Where is the gas" (topology + front + interest).** **FIXES:** (i) wire `RectDecomposition` to split big rooms
 into convex sub-sectors — carry the §D.1 SEMANTIC: an intra-room cut = a PERMISSION "flows freely here", NOT a barrier (wiring
 it as a flow-barrier is the classic bug); (ii) integer geodesic FRONT (§D.4) with an explicit **front-across-seam continuity**
-acceptance (§G#3: front rounds the corner without a kink at the cut seams); (iii) interest-grain + hot/cold (§D.5) WITH the
-**RARITY INVARIANT** as an explicit acceptance/telemetry (non-sleeping node count stays under a ceiling AND the awake-set is
-byte-identical on 2 machines — ties to the Wave-A sleep-determinism probe; this is the perf-economy guard, not a feature);
+acceptance (§G#3: front rounds the corner without a kink at the cut seams); (iii) interest-grain + hot/cold (§D.5) — **OWNER CORRECTION 2026-06-20: rarity is NOT a guaranteed
+invariant — expect PEAKS (esp. chain reactions; he would NOT bet on "few").** So the requirement is GRACEFUL DEGRADATION
+UNDER PEAKS, not "rare is guaranteed": a per-tick detailed-cell CEILING + a fair round-robin + degradation, and the awake-set
+must be DETERMINISTIC (byte-identical who-is-awake + update order on 2 machines) **even during a spike** (ties to the Wave-A
+sleep-determinism probe). Telemetry tracks the awake count; the peak-handling mechanism is the load-bearing part, not an
+assumption that the count stays small;
 (iv) the §D.8 **VISIBILITY-as-truth** half belongs here (host computes ONE shared detailed field, a cell is detailed if ANY
 player is near) — it is a co-op/interest-grain + network-authority claim, exercised by the Wave-A 2-machine probe, NOT bundled
 into Wave-C damage; (v) **return-fidelity is a BINDING Wave-B constraint here, not Track-V taste**: the front/coarse layer MUST
@@ -37,8 +40,12 @@ keep-open). Real-DA at hundreds-of-rooms scale (today proven only at 6).
 **Wave C — "Consequence" (laws + reactions).** Resident-gas DAMAGE (§D.6) **named with §E LAW #1 as a RED invariant** (dose
 from RESIDENT gas, 0 if untouched; damage = a true committed past event, never redrawn) + the hook designed GENERAL (reused
 for slippery-floor / interactive objects, not damage-only); one-truth player DAMAGE half (§D.8); reactions (§D.7) **named with
-§E LAW #3 as a RED invariant** (irreversible reaction fires ONLY on confirmed co-location at fine grain — coarse alone must
-NOT emit a false reaction); explosion = a mass-conserving TRANSFER (RED-test: any op changing total mass = a BUG not balance)
+§E LAW #3 as a RED invariant** (irreversible reaction fires ONLY on confirmed co-location — coarse alone must NOT emit a false
+reaction). **OWNER CORRECTION 2026-06-20:** at COARSE scale APPROXIMATE coincidence is enough (no fine-grain confirm needed
+far from a player); NEAR the player (detailed) the mixing must be VISIBLE and the reaction **TELEGRAPHS** — gases blink/glow
+"about to react" giving the player a **PREP WINDOW**, the irreversible reaction is **NOT instant**. Reaction COUNT is not
+hard-limited: if more gases than the per-room budget co-locate, a **reaction QUEUE** processes them in order (see §4.2 RISK).
+explosion = a mass-conserving TRANSFER (RED-test: any op changing total mass = a BUG not balance)
 + next-tick cascade (§D.9); **ventilation (§D.3) pinned to Wave C (not vague "later") with the §D.11 ⚠ invariant: forced-flow
 is an integer edge-modifier on the SAME graph — NO imported/float vent solver (the doc's single most-emphasized determinism
 landmine)**. Fire/ignition = later.
@@ -63,9 +70,11 @@ GASG visual language is Track V, but "free number of gases" discipline (the wire
   from the doc/§K/map — highest-risk silent drop the sweep caught.)*
 - **Transient, not settled-only** (d-returnfidelity-001 + d-corefoundation-001) — the coarse/front layer carries the time-evolving
   picture + front + external events; source-XY recoverable upstream; no "1 sector per room" assumption baked in.
-- **Capacity + overflow = the visible face of real pressure** (§J) — the owner's literal «убрать ёмкость+перелив / finite source»
-  is REINTERPRETED, not granted: capacity is KEPT (it feeds d-roomfull-001's named door-break / vent-to-vacuum seams + the
-  "threat doesn't self-vent" intent), removed only WITH a replacement law. Both finite + infinite sources stay supported.
+- **ROOM capacity + back-pressure = KEPT** (d-roomfull-001) — owner CONFIRMED 2026-06-20 he never asked to remove it (the
+  s-work-016 «убрать ёмкость» note conflated it with the band-split; see §4 item 1). It is the visible face of pressure + feeds
+  the door-break / vent-to-vacuum future seams; removing it = unbounded gas → perf death. The thing A+ DOES change is the
+  **2-band fill-then-overflow split** (d-fillmodel-001) → weight+temp settling over more layers-as-data + fine grain (the owner's
+  «continuous weight» ask; not literal float). Both finite + infinite sources stay supported.
 - **Inter-layer read architecture** (d-tempfeedback-001) — grid-addressed read-model per layer on a committed revision; temp→gas
   feedback still DEFERRED (post-g-d3a8), but the seam must not be foreclosed.
 - **Generator-agnostic seam** (d-generator-001) — DA(SGF) day-one, PGG later behind the SAME seam; population OUT.
@@ -91,18 +100,42 @@ GASG visual language is Track V, but "free number of gases" discipline (the wire
 | +4 | review probes (sleep-determinism / resident-dose RED / false-reaction / real-DA-at-scale) | A | NEW |
 | H | host-migration (**spike→A**, impl D) · moving-geometry (UNSOLVED, design+probe before D) · griefing (OPEN) · economy-many-sources (OPEN, twin of D.5 rarity) · believability-render (V) · save/load (still CUT/ephemeral) | A/D/OPEN/V | mixed |
 | I | per-gas signature / slab count / fire timing / reconstruction TIGHTNESS (taste only) | V/later | deferred |
-| J | A+ over B; capacity REINTERPRET; gas-count DISCIPLINE (cap+wire) | A/B + owner-confirm | see §4 |
+| J | A+ over B; capacity DE-CONFLATED (room-cap KEPT, band-split changes); gas-count RESOLVED (catalog ∞, ~16–32/level tunable, ~4/room + reaction queue) | A/B | RESOLVED §4 |
 
-## 4. Owner-confirm items (surface — his decision, do not silently resolve)
+## 4. Owner-confirm items — RESOLVED 2026-06-20 (owner answers, s-review-002 thread)
 
-1. **«Убрать ёмкость + перелив / finite source»** — the analysis REINTERPRETS this (capacity = the visible face of real pressure,
-   kept; removed only with a replacement law; both source types kept). This is the owner's OWN redesign trigger being resolved
-   against his literal words → he must SEE it and agree (or push back).
-2. **Active-gas-per-node cap + wire-plane budget = a concrete NUMBER** — the disciplined answer to «free gas count». Needs an
-   owner-aware decision (how many active gases per node / on the wire) because it touches the LOCK ceiling.
-3. **Commercial footage edges** — Wave 2 withdrew the storefront footage guarantee; g-5b07 #1 / g-2f8c #2 / root map_order edges
-   are now unsourced. R4 = «storefront later», so these stay parked, but the broken edges must be carried (route to the map),
-   not silently left dangling.
+1. **Capacity — RESOLVED: the original ask CONFLATED TWO different "capacities"; the owner never wanted room-capacity removed.**
+   The s-work-016 redesign note lumped «убрать ёмкость+перелив / finite source» across BOTH d-fillmodel-001 and d-roomfull-001.
+   De-conflated: **(A) the 2-BAND fill-then-overflow band-split** (d-fillmodel-001, how a sector's gas divides floor↔ceiling) =
+   the thing the owner actually wants changed (= his «continuous weight → smoother height» ask → A+ replaces it with
+   weight+temp-driven settling over MORE layers-as-data + the fine grain; NOT literal float — float breaks the net). **(B) the
+   ROOM total capacity + back-pressure** (d-roomfull-001) = **KEPT** — the owner confirms he never asked to remove it; removing it
+   = unbounded/oscillating gas → perf death, no benefit. Both finite + infinite sources stay supported. The «capacity» owner-confirm
+   question was a FALSE question born of the conflation — closed.
+2. **Gas count — RESOLVED (owner numbers):** catalog of TYPES = effectively UNLIMITED (data; «бесконечно» meant TYPES, not
+   concurrent reactions). Per-LEVEL concurrent = a TUNABLE cap, owner estimate ~16, **max ~32**. Per-ROOM concurrent = typically
+   **≤4** (bounded by the number of portals into a room) but **NOT guaranteed** — more could theoretically arrive. Encoding =
+   SPARSE + TUNABLE (pay only for species actually present; the cap is a dial, NOT a hardcoded 4). Start with a working per-room
+   number (~4) but see §4.2 RISK.
+3. **Commercial footage edges — PARKED (owner R4 «парку, чтобы не вскрывалось»):** Wave 2 withdrew the storefront footage
+   guarantee; g-5b07 #1 / g-2f8c #2 / root map_order edges are unsourced. Stay PARKED (storefront after visualization), carried as
+   a noted-OPEN to the map, not silently dangling.
+
+## 4.1 Owner clarifications folded into the waves (2026-06-20)
+
+- **Reactions (Wave C):** coarse = approximate coincidence OK; near player = visible mixing + TELEGRAPH (blink/glow) + PREP WINDOW,
+  not instant. (Folded into Wave C / §D.7 above.)
+- **Rarity (Wave B):** NOT "rare guaranteed" — expect PEAKS (esp. chain reactions); requirement = graceful degradation under peaks
+  + deterministic awake-set during a spike. (Folded into Wave B above.)
+- **Capacity de-conflation:** room capacity KEPT; the 2-band split is what A+ changes (see §4.1 item 1 above and §2 keep-open).
+
+## 4.2 RISK register (carry into the breakdown — owner: «как Рикс должен записывать это»)
+
+- **R-GASCOUNT-PERROOM:** a room could receive MORE concurrent gas species than the chosen per-room budget (~4). Mitigation =
+  a **reaction QUEUE / overflow strategy** (process in order), NOT a hard silent clamp. Start with ~4 but design the overflow
+  path; do not assume ≤4 is guaranteed. (owner 2026-06-20)
+- **R-PEAKLOAD:** the awake/detailed set can SPIKE (chain reactions); perf rests on graceful degradation (ceiling + round-robin)
+  staying DETERMINISTIC under the spike, not on the set being small. (owner 2026-06-20)
 
 ## 5. BOUNDARY — the one place the repo cannot verify
 
