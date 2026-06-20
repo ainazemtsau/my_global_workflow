@@ -11,74 +11,74 @@ active_bet:
     ACTIVE→SUPERSEDED + owner-approval gate + confirm-before-save + readable-for-owner +
     writer/evidence barrier + one-chat-one-job). g-health-core is re-opened (parked) to
     be EXTENDED into a kernel; nutrition and training become thin layers; the governance
-    design is preserved at work/core-kernel-governance-lifecycle-spec.md. No active bet
-    until the kernel WHAT is converged and owner-approved.
+    design is preserved at work/core-kernel-governance-lifecycle-spec.md. The kernel WHAT is
+    converged + owner-signed 2026-06-20 (Package A = F1–F16 at recommended readings; B-1
+    G7-2 re-signed by layer; B-2 scaffolding; B-3 domain graph owner-approved; B-4
+    anti-fragility binding) in work/converge-g-health-core-kernel.md; next = converge-arch →
+    converge-verify → shape. No active bet until the kernel is shaped into a bet.
 
 tasks: []
 
 open_calls:
   - id: c-health-core-kernel-converge-001
+    status: done
+    note: >
+      DONE 2026-06-20 (s-health-core-kernel-converge-001): kernel WHAT converged + owner-signed.
+      Package A (16 forks F1–F16 at recommended readings) + B-1 (G7-2 re-signed BY LAYER:
+      confirm-before-save on first-time authored owner-facing content + ACTIVE flips;
+      decide-and-inform on daily logging AND review-driven adjustments of already-ACTIVE anchors)
+      + B-2 (confirm-before-save = initial scaffolding with an explicit later relax path) + B-3
+      (a domain's state-machine graph is an owner-approved ACTIVE artifact) + B-4 (anti-fragility
+      is a binding acceptance invariant). Assembly: work/converge-g-health-core-kernel.md.
+      Routed to converge-arch.
+  - id: c-health-core-kernel-converge-arch-001
     status: ready
     note: >
-      Converge the re-opened g-health-core at KERNEL scope (extend, do not rebuild the
-      data/contract layer): runtime primitives + governance lifecycle, so nutrition and
-      training attach as thin one-responsibility-per-procedure layers. Import the existing
-      core WHAT and the governance spec; surface the 16 governance forks and the G7-2
-      confirm-before-save reconciliation; no execution content; route to converge-arch.
+      Architect the kernel's cross-cutting CONTRACTS on top of the signed data-layer CA1–CA9:
+      the runtime primitives (working-state cursor; state-machine definition/cursor split; the
+      single procedure-interpreter/router; the procedure registry) and the governance lifecycle
+      as declared, consumer-driven contracts every domain inherits unchanged; close the KP1–KP12
+      PLAN-agenda routing; no execution content; next → converge-verify (separate refutation),
+      then shape.
 
 recurring: []
 
 decisions: []
 
 next: |
-  CALL c-health-core-kernel-converge-001
+  CALL c-health-core-kernel-converge-arch-001
   to: session
   direction: health
-  play: converge
+  play: converge-arch
   node: g-health-core
   goal: |
-    g-health-core is extended into a provider-independent KERNEL that supplies reusable runtime
-    primitives — per-domain memory/working-state, state machines, a single procedure-interpreter/
-    router (each "term" = one bounded procedure the kernel runs), and a governance lifecycle
-    (artifact SEED→PROPOSED→ACTIVE→SUPERSEDED + owner-approval gate + confirm-before-save +
-    readable-for-owner presentation + writer/evidence-of-transition barrier + one-chat-one-job
-    handoff) — so nutrition and training attach as thin one-responsibility-per-procedure layers
-    and no domain reinvents the engine. An owner-approved kernel WHAT exists before any kernel
-    build or domain rebuild.
+    The kernel's cross-cutting CONTRACTS are architected on paper on top of the signed data-layer
+    CA1–CA9: the runtime primitives (working-state cursor; state-machine definition/cursor split;
+    the single procedure-interpreter/router; the procedure registry) and the governance lifecycle
+    expressed as declared, consumer-driven contracts every domain (nutrition, training, future)
+    inherits unchanged — so no domain reinvents the engine. Architecture-on-paper only; HOW rides
+    the KP-agenda.
   context: |
-    Owner chose Variant 1 on 2026-06-20 (history/2026-06-20-s-health-core-kernel-reframe-001.md).
-    RETROFIT converge: g-health-core already has a signed data/contract layer — IMPORT it, do not
-    re-litigate it. Baselines to import / frame the open runtime layer against:
-    - Existing core data/contract WHAT: live/health/work/converge-g-health-core.md (W1–W64,
-      WA1–WA12, CA1–CA7) — born-closed where signed; the gap is the missing runtime layer.
-    - Governance/lifecycle design to fold into the kernel:
-      live/health/work/core-kernel-governance-lifecycle-spec.md (12 failure modes prevented,
-      8 glossary terms, WHAT families, 16 owner forks F1–F16 + recommendations, residuals).
-    - Owner architecture requirements R1–R8 (one procedure per term; single interpreter/router;
-      kernel primitives memory/state-machine/launch/procedure-registry; layered dietitian-targets
-      → menu → recipes → grocery; readable-for-owner + confirm-before-save; anti-fragile add/remove/
-      fix a part independently; reuse for training; inspired by Direction OS).
-    - Failure evidence: the nutrition saga (history 2026-06-13 … 2026-06-20) and the proof that
-      nutrition reinvented its own engine (x_nutrition/workflow/*).
+    Owner-signed kernel WHAT: live/health/work/converge-g-health-core-kernel.md (§KW rows, §WA-K
+    binding acceptance WA-K1–K12, §OWNER DECISIONS, §KERNEL-PLAN-AGENDA KP1–KP12, §COVERAGE).
+    Signed data/contract layer to build ON (do not re-open): live/health/work/converge-g-health-core.md
+    (CA1–CA9, the §ARCH picks Q1–Q6/AA1–AA3, P1–P27). Governance baseline:
+    live/health/work/core-kernel-governance-lifecycle-spec.md. Owner decisions locked: Package A
+    (F1–F16), B-1 (G7-2 by layer), B-2 (scaffolding), B-3 (domain graph owner-approved), B-4
+    (anti-fragility binding).
   boundaries: |
-    Extend the core; do NOT rebuild or discard the working data/contract layer.
-    No execution content (no real menu/recipe/grocery/program); no health-ai product-repo edits.
-    Nutrition/training rebuild only AFTER the kernel WHAT is owner-approved.
-    Do not silently override the signed G7-2 (decide-and-inform): surface the confirm-before-save
-    change as an explicit owner decision (durable content gated; daily logging stays decide-and-inform).
-    Surface, never auto-decide, the 16 governance forks F1–F16.
-    Do not store raw daily data in Direction OS.
+    Extend the kernel; do NOT re-open or rebuild the signed data/contract layer or the owner
+    decisions. No execution content (no real menu/recipe/grocery/program); no health-ai product
+    edits. HOW magnitudes/schemas (KP1–KP12, P1–P27) ride PLAN as input evidence, never into
+    done_when. Surface any NEW owner-owned contract fork; do not silently auto-decide.
   done_when: |
-    Owner has approved a kernel WHAT/structure defining: the runtime primitives (memory/working-state,
-    state-machine object, single procedure-interpreter/router, procedure registry), the one-procedure-
-    per-term decomposition + layering contract for thin domains, the governance lifecycle
-    (SEED→PROPOSED→ACTIVE→SUPERSEDED + approval gate + confirm-before-save + readable-for-owner +
-    writer/evidence barrier + one-chat-one-job handoff), and the anti-fragility/extension contract;
-    the 16 governance forks and the G7-2 confirm-before-save reconciliation are resolved or routed to
-    explicit owner decisions; no execution content produced; route to converge-arch.
+    Every kernel runtime + governance contract is declared (consumer, producer, flow, direction,
+    trigger) with build-order deps; firewall clean (no HOW token in a flow); the KP-agenda routing
+    is recorded; coverage vs the §KW rows complete; routed to converge-verify (separate refutation)
+    before shape.
   return: |
-    RESULT with the owner-approved kernel WHAT, owner decisions, state_changes, and next CALL
-    (converge-arch). No kernel build and no domain rebuild before the WHAT is signed.
-  budget: one focused converge session
+    RESULT with the declared kernel contracts, any owner decisions (or none), state_changes, and
+    next CALL (converge-verify).
+  budget: one focused converge-arch session
 
 END_OF_FILE: live/health/NOW.md
