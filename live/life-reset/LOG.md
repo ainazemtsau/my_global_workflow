@@ -15,4 +15,7 @@
   first real Weekly Contract, and package continuation across session/writer
   surfaces; next c-life-reset-weekly-graph-t1-packet-001.
 
+- 2026-06-20 - work t-1: Sunday planning packet v0 prepared for the first real
+  Weekly Contract; next c-life-reset-weekly-graph-t2-contract-001.
+
 END_OF_FILE: live/life-reset/LOG.md
