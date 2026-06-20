@@ -18,4 +18,9 @@
 - 2026-06-20 - work t-1: Sunday planning packet v0 prepared for the first real
   Weekly Contract; next c-life-reset-weekly-graph-t2-contract-001.
 
+- 2026-06-20 - repair: corrected g-lr-weekly-operating-graph next after owner
+  clarified that Direction OS must govern/create a separate life-reset runtime,
+  not become the weekly/daily runtime; t-1 packet remains input evidence, next
+  is c-life-reset-runtime-boundary-001.
+
 END_OF_FILE: live/life-reset/LOG.md
