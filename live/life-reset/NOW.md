@@ -87,7 +87,7 @@ active_bet:
 tasks:
   - id: t-1
     node: g-lr-weekly-operating-graph
-    status: open
+    status: done
     kind: session
     goal: >
       A small Sunday planning packet v0 for the first real Weekly Contract
@@ -142,32 +142,32 @@ tasks:
 recurring: []
 
 open_calls:
-  - id: c-life-reset-weekly-graph-t1-packet-001
+  - id: c-life-reset-weekly-graph-t2-contract-001
     to: session
-    for: t-1
+    for: t-2
     issued: 2026-06-20
     note: >
-      Prepare the small Sunday planning packet v0 from the existing dry-run and
-      provider/session-writer audit; do not build permanent tooling or daily
-      runtime.
+      Accept the first real Weekly Contract for 2026-06-22..2026-06-28 from
+      the Sunday planning packet and refreshed owner/source inputs.
 
 decisions: []
 
 next: |
-  CALL c-life-reset-weekly-graph-t1-packet-001
+  CALL c-life-reset-weekly-graph-t2-contract-001
   to: session
   direction: life-reset
   play: work
   node: g-lr-weekly-operating-graph
-  task: t-1
+  task: t-2
   goal: |
-    A small Sunday planning packet v0 for the first real Weekly Contract exists
-    and is ready for owner use.
+    The first real Weekly Contract for 2026-06-22..2026-06-28 is accepted by
+    the owner.
   context: |
     Read:
     - live/life-reset/CHARTER.md
     - live/life-reset/TREE.md
     - live/life-reset/NOW.md
+    - live/life-reset/work/sunday-planning-packet-v0.md
     - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
     - os/adapters/SESSION_PAYLOAD.md
     - os/adapters/chatgpt-project.md
@@ -176,39 +176,28 @@ next: |
     - os/KERNEL.md
     - os/plays/work.md
 
-    The owner approved the v0 architecture: ChatGPT Project and Claude Web can
-    run as session surfaces; durable writes go through RESULT/write requests to
-    Codex or Claude Code writers. Codex may also act as a session and then as
-    its own writer under the coding-agent adapter.
-
-    Existing evidence:
-    - The large dry-run already explores game/health/Solmax imports, tracker
-      lanes, cuts, blockers, reset behavior and review.
-    - This task should condense that into a small Sunday packet rather than
-      expanding the system.
+    Use the packet as the small Sunday form. Use the dry-run only as evidence
+    and background. The real contract must use refreshed source snapshots and
+    the owner's real Sunday inputs.
   boundaries: |
     Do not continue Solmax/W0.
     Do not prescribe nutrition, training, medical or psychiatric treatment.
-    Do not select a permanent provider, chat, repo or external-tool architecture.
+    Do not select a permanent provider, chat, repo, board or external-tool
+    architecture.
     Do not build daily runtime, process/activity modules, automation or a full
     backlog.
-    Do not shape other life-reset nodes.
-    Do not turn life-reset into the source of truth for health or game tasks.
+    Do not turn life-reset into the source of truth for health, game, Solmax or
+    raw source-direction data.
   done_when: |
-    - live/life-reset/work/sunday-planning-packet-v0.md exists.
-    - It contains only the Sunday inputs, source snapshot fields,
-      candidate/card fields, cut/change rule, session/writer rule and owner
-      acceptance checklist needed for the first contract.
-    - It references live/life-reset/work/weekly-operating-graph-dry-run-v0.md
-      as evidence instead of copying the full dry-run.
-    - It explicitly cuts permanent tooling, daily-method selection, modules,
-      full backlog, Solmax/W0 and source-direction ownership.
-    - It is usable from ChatGPT Project, Claude Web, Codex or Claude Code via
-      the existing Direction OS adapters and RESULT/write-request flow.
+    - live/life-reset/work/week-2026-06-22-contract-v0.md exists.
+    - It contains refreshed source snapshots, capacity assumptions, selected
+      slices, explicit cuts, backlog/candidate handling and the change rule.
+    - It records owner acceptance.
+    - It does not choose permanent tooling or prescribe health/game/Solmax work
+      outside their source directions.
   return: |
-    RESULT with the packet path, evidence, state_changes and next CALL for the
-    Sunday contract session.
-  budget: one focused session
+    RESULT with the contract path, evidence, state_changes and next CALL.
+  budget: one focused Sunday planning session
   surface: any session surface; Codex/Claude Code may write only after RESULT
 
 END_OF_FILE: live/life-reset/NOW.md
