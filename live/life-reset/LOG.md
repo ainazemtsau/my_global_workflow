@@ -10,4 +10,9 @@
 - 2026-06-19 - map: owner approved a six-node top-level life-reset map; next
   is shaping Weekly Operating Graph & Contract.
 
+- 2026-06-20 - shape: owner approved g-lr-weekly-operating-graph as the first
+  active bet; tasks t-1..t-3 prepare the Sunday planning packet, accept the
+  first real Weekly Contract, and package continuation across session/writer
+  surfaces; next c-life-reset-weekly-graph-t1-packet-001.
+
 END_OF_FILE: live/life-reset/LOG.md
