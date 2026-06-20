@@ -3,6 +3,33 @@
 active_bet:
   node: g-9c41
   phase: |
+    ⛳⛳ 2026-06-20 — WAVE 2 CLOSED BY REVIEW (s-review-002, binding fresh-session G5; 20-agent adversarial refutation
+    + first-hand gate re-derivation). VERDICT = SUBSTANTIVELY MET / PARTIALLY-MET-AS-WORDED, honest deviations; NOT a
+    failure (the bet's PURPOSE — kill the riskiest assumption + inform the owner — was achieved; the proof triggered
+    d-gasmodel-redesign-001). Per-item: (2) per-layer replication host+2 incl. coarse TEMPERATURE = MET (survived);
+    (4) single OR1/OR3 cross-peer oracle = MET (survived); (8) 1-player parity + hash = MET (survived); (5) XL2/XL1/
+    read-seam = CUT-HONEST (temp plane-6 ships, c-exec-007 cancelled, owner-acked); (1) solver = PARTIAL — §7-#2
+    battery invariants asserted only at 1–8 sectors, at ~3,136 only timing (1.06ms≤8, emitter-computed not gated)
+    + structure + the ANALYTICAL BS1 certificate (CR3 float-negative is non-vacuous); (3) real-DA+hundreds-of-rooms+
+    breach+CR2 = PARTIAL (2nd skeptic confirmed) — NEVER united in one run: real DA(SGF)=6 sectors (t-4, no replication,
+    owner-eye) vs hundreds-of-rooms+CR2-across-breach=SYNTHETIC t-2; real breach+CR2 never on the real-DA level;
+    (6) internal render-proof = PARTIAL (2nd skeptic confirmed) — met only vs the owner-LOWERED bar (glaz-only, RN2
+    cut d-rn2cut-001) + 2 owner-acked deviations + 1 caveated sign-off; the load-bearing SnapGridFlowRoomReader is in
+    Assets/ (no csproj/slnx), 0 headless tests, mutation scope = CoarseFillProjection only → gate STRUCTURALLY can't
+    cover the reader; (7) scale-arith = PARTIAL — keyframe-inclusive basis ✓ + named assumptions ✓ + ~×3 clamp
+    headroom ✓, but ">=2 independent recomputes" holds only for MEMORY (two trivially-equal forms), bandwidth gets one,
+    clamp rests on a more-generous keyframe cadence per-cell. GATE-HONESTY CORRECTION (applied below): NOW.md had
+    rounded "dotnet test 431/431" up to "-Deliver GREEN incl coverage/spec-silence" 3× — I re-ran the gate FIRST-HAND
+    (main a89b36b clean → 431/431 GREEN) and confirmed the full -Deliver strong-checks were NEVER run (deviation-close,
+    RESULT cut #5); mutation 78.12% = CoarseFillProjection-only + stale; SGF reader uncovered. FORECAST-SURPRISE =
+    wrong-mechanism for "satisfaction" (transport+consistency proven ≠ feels resolved) + optimistic on "terminus =
+    showable artifact" (re-scoped to non-showable internal proof). GAS-MODEL дорога A+ INDEPENDENTLY ADVERSARIALLY
+    CONFIRMED (3 angles, code+math, NO dealbreaker; A+ strengthened on all axes; §K 9/11 claims code-grounded; B reopens
+    the solved net-determinism problem); §G load-probes INCOMPLETE → +4 mandatory (two-machine awake-set/sleep
+    determinism; resident-gas-damage RED; confirmed-colocation false-reaction; real-DA-at-hundreds-of-rooms) + split
+    host-migration from the benign save/load cut. Node g-9c41 STAYS ACTIVE (multi-wave); NO active bet now (between
+    waves) — the next bet AWAITS the owner road A+/B/C (rec A+) + tree-diff approval (see decision_inbox +
+    d-review-treediff-001). 3 knowledge promotions written. Wave-2 history below kept verbatim (additive). → next.
     Wave 2 SHAPED + ACTIVE 2026-06-16 (shape s-shape-wave2, owner «го» — G6/G9). Consumes the VERIFIED §CONTRACTS
     (converge-verify PASSED CLEAN, c-converge-verify-002). Wave 1 CLOSED (review c-review-001, verdict MET — HOLD
     independently re-derived). Node g-9c41 stays ACTIVE (multi-wave). The build is separate executor legs in
@@ -65,7 +92,7 @@ active_bet:
     coarse-sim PROOF. Coarse gas renders READABLY on a REAL DA level via SnapGridFlow (SnapGridFlowRoomReader → DaTopologyProducer
     → SceneTopologyComposer.Compose → CoarseSectorGraph.FromTopology conformance gate → CoarseFillProjection → heavy-low/light-high
     slabs); reads the FROZEN RN1; geometry-derived StableId + 2 distinct conformant ProfileHashes (the c-exec-010 derive-id gate
-    HELD). GasCoopGame check.ps1 -Deliver GREEN (431 tests, mutation 78.12%, hygiene/coverage/spec-silence); dev 27ab14e → main
+    HELD). GasCoopGame headless `dotnet test` 431/431 GREEN [⚠ REVIEW s-review-002 CORRECTION: full `-Deliver` strong-checks NOT run — deviation-close per RESULT cut #5; mutation 78.12% = CoarseFillProjection-only + stale; SGF reader uncovered]; dev 27ab14e → main
     a89b36b (--no-ff), PUSHED origin/main+dev (the owner-gated push is DONE; the t-5-era "dev UNPUSHED" residual is CLEARED). Owner
     signed LOOK L1-L3 WITH A CAVEAT (basic works + observable; NOT "model final / all understood"). DRIFT RECONCILED: c-exec-008
     (NEEDS RE-ISSUE) was re-issued as c-exec-011 (proof scope) in a session never recorded in OS state → reconstructed from the
@@ -293,7 +320,7 @@ active_tasks:   # Wave-2 task set (riskiest first); G1 ≤3 active — only t-1 
       no-jerk/no-shimmer-EVER (incl. off-screen-computed state surfacing — owner-signed GG4/OR4 coarse half).
       SOLVER-AGNOSTIC (reads RN1 — works on band OR degraded scalar). Rides the 07-11→07-24 cushion to ~07-21;
       auto-shrinks to a ≤1wk minimal-legibility floor if t-1 slips past 06-30.
-    status: done   # 2026-06-20 (s-work-016, applies the c-exec-011 RESULT): t-4 DELIVERED as an INTERNAL coarse-sim PROOF — coarse gas renders readably on a REAL DA level via SnapGridFlow (SnapGridFlowRoomReader→DaTopologyProducer→SceneTopologyComposer.Compose→CoarseSectorGraph.FromTopology conformance→CoarseFillProjection→heavy-low/light-high slabs), reads the FROZEN RN1, geometry-derived StableId + 2 conformant ProfileHashes (c-exec-010 derive-id gate HELD); GasCoopGame check.ps1 -Deliver GREEN (431 tests, mutation 78.12%, hygiene/coverage/spec-silence); dev 27ab14e→main a89b36b (--no-ff), PUSHED origin/main+dev; owner signed LOOK L1-L3 with a caveat (basic works/observable, NOT model-final). TWO owner-acked builder deviations (acceptance criteria untouched, by design): d-grid-sgf-001 Grid→SnapGridFlow (owner-ack 2026-06-20, ADR-0009; home-side re-spec R1 + openspec apply/archive OWED) + d-rn2cut-001 RN2 machine-vision floor CUT (owner-ack esc-t4-rn2-cut-2026-06-19; readability=owner-EYE, overrides the frozen dual-gate + R3). c-exec-008 was re-issued as c-exec-011 (proof scope; the OS re-issue bookkeeping was missing → drift reconstructed from the RESULT). Gas-MODEL redesign raised by the owner post-LOOK → d-gasmodel-redesign-001 (a SEPARATE leg, NOT a t-4 change). RESULT → history/s-work-016.md + GasCoopGame RESULT.md/ADR-0009/openspec/changes/c-exec-011-t4-coarse-gas-render/. ▸ s-work-014 re-scope (history): INTERNAL coarse-sim PROOF / inspectable visualization (NOT a Steam/player-legible terminus): drop the stylization/RN2-showable/footage/owner-gamer-eye-Steam/08-31 bars; KEEP real DA (via the c-exec-010 derive-id gate) + reads RN1 + owner confirms the sim is visibly correct. The full sandbox/test-harness is OUT of t-4 → d-sandbox-001 (post-wave-2). c-exec-008 must be RE-ISSUED to this proof scope. ▸ Originally OPENED 2026-06-19 (s-work-010) as c-exec-008 (∥ t-3); opens with a PLAN (owner present). Carries owner R1 (wire the REAL Dungeon Architect, existence-proven: real IDaRoomReader, tag prefabs, REMOVE FixedLevelRoomReader from runtime; SCOPE-SPLIT from the render terminus + GEOMETRY-MOVE RULE), R2 (guide-loop step-by-step Unity instructions whenever an action can't go via MCP + answer owner Qs), R3 (owner-run = close-gate: BUILD/existence closes headlessly, only the LOOK is owner-run; DONE-pending-owner-LOOK until owner confirms — no self-marking). Acceptance = RN2 machine blind-check (frozen N-of-M floor) + owner gamer-eye. Full CALL → history/s-work-010.md.
+    status: done   # 2026-06-20 (s-work-016, applies the c-exec-011 RESULT): t-4 DELIVERED as an INTERNAL coarse-sim PROOF — coarse gas renders readably on a REAL DA level via SnapGridFlow (SnapGridFlowRoomReader→DaTopologyProducer→SceneTopologyComposer.Compose→CoarseSectorGraph.FromTopology conformance→CoarseFillProjection→heavy-low/light-high slabs), reads the FROZEN RN1, geometry-derived StableId + 2 conformant ProfileHashes (c-exec-010 derive-id gate HELD); GasCoopGame headless `dotnet test` 431/431 GREEN [⚠ REVIEW s-review-002 CORRECTION: full `-Deliver` strong-checks NOT run — deviation-close per RESULT cut #5; mutation 78.12% = CoarseFillProjection-only + stale; SGF reader uncovered]; dev 27ab14e→main a89b36b (--no-ff), PUSHED origin/main+dev; owner signed LOOK L1-L3 with a caveat (basic works/observable, NOT model-final). TWO owner-acked builder deviations (acceptance criteria untouched, by design): d-grid-sgf-001 Grid→SnapGridFlow (owner-ack 2026-06-20, ADR-0009; home-side re-spec R1 + openspec apply/archive OWED) + d-rn2cut-001 RN2 machine-vision floor CUT (owner-ack esc-t4-rn2-cut-2026-06-19; readability=owner-EYE, overrides the frozen dual-gate + R3). c-exec-008 was re-issued as c-exec-011 (proof scope; the OS re-issue bookkeeping was missing → drift reconstructed from the RESULT). Gas-MODEL redesign raised by the owner post-LOOK → d-gasmodel-redesign-001 (a SEPARATE leg, NOT a t-4 change). RESULT → history/s-work-016.md + GasCoopGame RESULT.md/ADR-0009/openspec/changes/c-exec-011-t4-coarse-gas-render/. ▸ s-work-014 re-scope (history): INTERNAL coarse-sim PROOF / inspectable visualization (NOT a Steam/player-legible terminus): drop the stylization/RN2-showable/footage/owner-gamer-eye-Steam/08-31 bars; KEEP real DA (via the c-exec-010 derive-id gate) + reads RN1 + owner confirms the sim is visibly correct. The full sandbox/test-harness is OUT of t-4 → d-sandbox-001 (post-wave-2). c-exec-008 must be RE-ISSUED to this proof scope. ▸ Originally OPENED 2026-06-19 (s-work-010) as c-exec-008 (∥ t-3); opens with a PLAN (owner present). Carries owner R1 (wire the REAL Dungeon Architect, existence-proven: real IDaRoomReader, tag prefabs, REMOVE FixedLevelRoomReader from runtime; SCOPE-SPLIT from the render terminus + GEOMETRY-MOVE RULE), R2 (guide-loop step-by-step Unity instructions whenever an action can't go via MCP + answer owner Qs), R3 (owner-run = close-gate: BUILD/existence closes headlessly, only the LOOK is owner-run; DONE-pending-owner-LOOK until owner confirms — no self-marking). Acceptance = RN2 machine blind-check (frozen N-of-M floor) + owner gamer-eye. Full CALL → history/s-work-010.md.
   - id: t-5
     kind: executor (engineering, GasCoopGame) — CONSOLIDATION + HARDENING (review-driven, NOT a wave feature); LEADS Wave-2; gates t-3, ∥ t-4
     goal: |
@@ -399,7 +426,7 @@ open_calls:
       COARSE-only (fine tier + coarse↔fine handoff + OR1 cross-tier = Wave 3); d-returnfidelity-001 mid-transient = NOT a
       t-4 bar; no LOCK re-open; >1 breach / population / late-join OUT. FULL CALL → history/s-work-010.md §c-exec-008.
   - id: c-exec-011
-    status: done   # 2026-06-20 (s-work-016) RETURNED + applied (builder→planner handoff). t-4 INTERNAL coarse-sim PROOF DELIVERED on a REAL DA level via SnapGridFlow; GasCoopGame check.ps1 -Deliver GREEN (431 tests, mutation 78.12%, hygiene/coverage/spec-silence); dev 27ab14e→main a89b36b (--no-ff), PUSHED origin/main+dev (main tree == dev tree). Owner signed LOOK L1-L3 WITH a caveat (basic works + observable; NOT "model final / all understood"). RESULT → history/s-work-016.md + GasCoopGame RESULT.md/ADR-0009/openspec/changes/c-exec-011-t4-coarse-gas-render/ + docs/measurements/t-4-da-output.json + t-4-captures/t-4-sgf-render.png + t-4-owner-checklist.md.
+    status: done   # 2026-06-20 (s-work-016) RETURNED + applied (builder→planner handoff). t-4 INTERNAL coarse-sim PROOF DELIVERED on a REAL DA level via SnapGridFlow; GasCoopGame headless `dotnet test` 431/431 GREEN [⚠ REVIEW s-review-002 CORRECTION: full `-Deliver` strong-checks NOT run — deviation-close per RESULT cut #5; mutation 78.12% = CoarseFillProjection-only + stale; SGF reader uncovered]; dev 27ab14e→main a89b36b (--no-ff), PUSHED origin/main+dev (main tree == dev tree). Owner signed LOOK L1-L3 WITH a caveat (basic works + observable; NOT "model final / all understood"). RESULT → history/s-work-016.md + GasCoopGame RESULT.md/ADR-0009/openspec/changes/c-exec-011-t4-coarse-gas-render/ + docs/measurements/t-4-da-output.json + t-4-captures/t-4-sgf-render.png + t-4-owner-checklist.md.
     note: |
       The re-issue of c-exec-008 to the PROOF scope (s-work-014, d-sandbox-001). DRIFT: the re-issue/PLAN session that
       minted this id was never recorded in OS state — this entry is RECONSTRUCTED from the builder RESULT (not invented),
@@ -866,7 +893,7 @@ decision_inbox:
       owner-eye sufficient given the LOOK caveat "basic works, NOT model-final"?) and decide whether the cut weakens the
       Wave-2 verdict. → history/s-work-016.md.
   - id: d-gasmodel-redesign-001
-    status: open — BLOCKING the next g-9c41 bet   # RAISED by the owner 2026-06-20 AFTER seeing the t-4 render (recorded s-work-016) — a fundamental gas-MODEL redesign. NOT yet decided: needs the review/next-bet session to put it to the owner WITH options + a recommendation (G7). The writer only records it raw here; it does NOT adjudicate or pre-commit. **BLOCKING (2026-06-20, s-work-017): no Wave-3/next bet may be SHAPED for g-9c41 until this is decided against work/gas-model-design-full-2026-06-20.md; the old Wave-3 plan (wave_plan) + kill_by.next_if_true are SUSPENDED pending it.**
+    status: open — PUT TO OWNER at review s-review-002 (A+/B/C, rec A+); still BLOCKING the next g-9c41 bet until the owner ratifies   # RAISED by the owner 2026-06-20 AFTER seeing the t-4 render (recorded s-work-016) — a fundamental gas-MODEL redesign. NOT yet decided: needs the review/next-bet session to put it to the owner WITH options + a recommendation (G7). The writer only records it raw here; it does NOT adjudicate or pre-commit. **BLOCKING (2026-06-20, s-work-017): no Wave-3/next bet may be SHAPED for g-9c41 until this is decided against work/gas-model-design-full-2026-06-20.md; the old Wave-3 plan (wave_plan) + kill_by.next_if_true are SUSPENDED pending it.**
     note: |
       Owner, having SEEN the coarse sim render, wants to REDESIGN the gas MODEL itself (his framing):
         - continuous gas WEIGHT → continuously drives height / settling speed (not 2 discrete bands);
@@ -894,55 +921,69 @@ decision_inbox:
       (host loss = death of a 4-8 session). Construction LARGELY rides existing repo + Wave-3 plan (§K, each claim NOW.md-grounded)
       → likely A+ grow, not a from-scratch rewrite. Faithfulness verified (3-audit pass wf_c237a811: no drops, repo-claims grounded,
       Claude-overlay provenance fenced). Status STAYS open — owner ratifies A+/B/C at the review; plan by the doc's chunks. → history/s-research-010.md.
+      REVIEW FINDINGS (2026-06-20, s-review-002 — independent adversarial check, 3 angles, code+math, NO dealbreaker):
+      дорога A+ CONFIRMED + strengthened on all axes. (a) Network-determinism is SOUND and PROVEN-IN-CODE (FloatMutant
+      CR3 control, followers reconstruct-not-recompute, host+2c bit-exact under fault) — B would knowingly discard
+      proven Wave-1/2 work; «continuous field deterministically replicable cheaply» is the unsolved-expensive problem;
+      C (1–2-wk net probe) will likely just rediscover «must integer-discretize = A+ with extra steps». (b) §K
+      repo-overlay 9/11 claims hold EXACTLY vs code (2 over-statements, not fabrications: «sillZ»≈2-band quantization;
+      real-DA proven only at 6 sectors); A+ is honestly «grow the proven core», NOT a disguised rewrite. (c) §G probes
+      are real+cheap but INCOMPLETE — 3 of the 6 new A+ assumptions have NO probe → ADD 4 MANDATORY before any A+ bet:
+      (i) two-machine awake-set/sleep-schedule DETERMINISM (highest silent-desync risk — A+'s perf rests on sleep, the
+      LOCK forbids exactly this bit-exact break); (ii) resident-gas-damage RED ledger (a fixed correctness law shipped
+      with no probe); (iii) confirmed-colocation FALSE-reaction probe; (iv) real-DA(SnapGridFlow) at hundreds-of-rooms
+      scale (today proven only at 6 sectors). SPLIT host-migration (§H — host loss = death of a 4–8 session, the
+      value-prop killer) out of the benign save/load cut; consider a «host dies → session survives» spike in the FIRST
+      A+ bet. The LOCK barrier [7,chunkCount] has only 4 free plane-keys (2..5) before temperature at 6 → «capped active
+      gases/node + hard wire cap» must be a CONCRETE NUMBER at shape (a new plane = a SURFACED LOCK-EXT per ADR-0007).
+      A+ is multi-wave → re-shape PAST 2026-07-24 (move the tail, not the wall). COMMERCIAL TENSION (surface loudly):
+      Wave 2 WITHDREW the storefront footage guarantee (terminus → non-showable internal proof) → the 2026-08-31 page /
+      Oct-Fest gameplay half is now UNSOURCED if the next bet is footage-less core work → owner fork: next showable
+      artifact from the A+ front/place layer (weeks) vs a parallel cheap visual pass on the EXISTING model. → history/s-review-002.md.
 
 next: |
-  t-4 (c-exec-011) DELIVERED → it was the SOLE remaining Wave-2 executor leg (t-1/t-2/t-5 done, t-3 dropped) → Wave 2 has NO
-  open tasks. Per the task-play lifecycle, next = a REVIEW session for the Wave-2 node g-9c41, in a FRESH session (never the
-  one that did the work — G5). The writer does NOT close the bet / edit TREE itself — review does.
+  WAVE 2 CLOSED by review s-review-002 (verdict in active_bet.phase). Node g-9c41 stays ACTIVE (multi-wave) but has NO
+  active bet (G1 — between waves). The NEXT BET is AWAITING the owner's decision — it MAY NOT be shaped until decided:
 
-  CALL — review g-9c41 (Wave 2):
-    ⚠️ HARD PRECONDITION (2026-06-20, s-work-017): the review MAY NOT roll g-9c41 to the OLD Wave 3. It MUST first decide
-        d-gasmodel-redesign-001 (A+/B/C) against work/gas-model-design-full-2026-06-20.md. If A+ → the next bet is RE-SHAPED
-        from the doc's §K chunks (§G load-probes FIRST), NOT the stale wave_plan/kill_by.next_if_true (both SUSPENDED). The full
-        doc is the planning basis — confirm it was actually consumed (cite its §K/§G/§H) before proposing any next bet.
-    goal: Close the Wave-2 bet with a refutation-based verdict, harvest the tree from what Wave 2 (and SEEING the render)
-          taught, and bring the owner the next-bet decision — now dominated by the owner-raised gas-MODEL redesign.
-    context:
-      - The bet: NOW.md active_bet g-9c41 (Wave-2 done_when (1)-(8)); t-1/t-2/t-5 done, t-3 dropped (d-t3-defer-001),
-        t-4 DELIVERED (c-exec-011). Evidence in GasCoopGame (main a89b36b, PUSHED): RESULT.md, ADR-0009, the openspec change
-        folder, docs/measurements/t-4-da-output.json + t-4-captures/t-4-sgf-render.png + t-4-owner-checklist.md; gate
-        -Deliver GREEN (431 tests, mutation 78.12%). NOTE: that gate evidence is the product-repo's — the binding G5
-        refutation re-derives it FIRST-HAND, never trusts the flag.
-      - Two owner-acked t-4 DEVIATIONS to weigh in the verdict: d-rn2cut-001 (readability = owner-EYE only; the machine RN2
-        floor was cut) and d-grid-sgf-001 (Grid→SnapGridFlow; "real DA" met in fact, R1 TEXT stale → home-side re-spec owed).
-      - The owner's LOOK caveat — "basic works + observable, NOT model-final / all understood" — a forecast surprise feeding
-        the redesign decision below.
-      - d-gasmodel-redesign-001 (OPEN): the owner wants a continuous-weight, gas-as-SPACE, free-gas-count, no-capacity-crutch
-        model = a CORE redesign reopening the LOCK (ADR-0004/0005). This is the central next-bet question; it is NOT free
-        (re-does t-1/t-2/t-5 proven work) — surface the tension loudly (don't-break-what-works + explain-in-waves).
-        INPUT NOW EXISTS (owner ran the separate discussion, s-research-010): work/gas-model-design-full-2026-06-20.md (full design)
-        + work/gas-model-research-result-2026-06-20.md (source). Outcome: it's the MODEL not the picture; recommendation = dorога A+
-        (graph-base + grown layers), NOT B (continuous-field rewrite); §G load-probes MANDATORY before betting; OPEN incl.
-        HOST-MIGRATION. Review puts A+/B/C to the owner USING this doc and plans by its chunks (§K, NOW.md-grounded). Note A+
-        re-frames the next bet around growing the proven core, not a 6-week wave — likely a re-shape past the 07-24 wall.
-      - d-sandbox-001 (reaffirmed): the serious test/authoring harness, post-wave-2, research(best-practices)→shape.
-      - Home-side cleanups owed (carry, do not lose): re-spec R1 Grid→SGF + openspec apply/archive (d-grid-sgf-001); the
-        stale ADR-0005/0007 "separate-layer = t-3 obligation" wording; the FishNet real-UDP owner-run residual (non-gating,
-        binding gate = headless+loopback per spec).
-    boundaries: Review writes TREE/NOW/LOG/knowledge ONLY with owner approval per node (G9); restructuring bigger than a few
-        nodes → route to map. Do NOT pre-commit the gas-model redesign — bring OPTIONS + a recommendation (G7). No product-repo
-        edits (home-side cleanups dispatch as their own follow-ups).
-    done_when: A refutation verdict on the Wave-2 done_when (met / partially-met / not-met) that explicitly tests whether
-        owner-EYE-only readability (d-rn2cut-001) + the LOOK caveat suffice for G5; a per-lens harvest; a tree diff
-        (owner-approved) that homes the gas-model-redesign question + the Wave-3 carry items (FINE tier, coarse↔fine handoff,
-        real extensibility, the harness, S2/S3/S4 seams); a next-bet decision put to the owner with 2-3 options + a rec (full
-        gas-model redesign vs Wave-3 fine-tier-first vs a bounded continuous-field probe); NOW.md clean of the closed Wave-2 bet.
-    return: a review RESULT (verdict + tree diff + decisions_needed = next-bet choice + ≤1-3 knowledge promotions + next = a
-        shape CALL on the recommended node, activating on owner approval).
-    budget: one focused review session.
+  awaiting_decision — TWO owner decisions batched (G7 + G9):
+    (D1, d-gasmodel-redesign-001) ROAD for the gas-model redesign / next g-9c41 bet — A+ / B / C (rec = A+):
+      A+ (RECOMMENDED) — grow the PROVEN integer graph core into the target model (geodesic front + interest-grain +
+         resident-gas damage law + reactions + edge-destructibility). Independently adversarially confirmed: NO dealbreaker,
+         strengthened on all axes, §K 9/11 code-grounded, nothing proven wasted. Honest cost: multi-wave → re-shape PAST
+         2026-07-24 (move the tail, not the wall); no new showable footage for weeks; host-migration still open.
+      B — continuous-field rewrite. REJECTED by the analysis (reopens the solved-expensive net-determinism problem; discards
+         Wave-1/2; highest money-gate risk).
+      C — a 1–2-wk bounded continuous-field net-replication PROBE before deciding. Only if the owner still doubts A+; likely
+         just rediscovers «a deterministic continuous field must be integer-discretized = A+ with extra steps».
+    (D2, d-review-treediff-001) TREE DIFF (G9) — approve the FOCUSED cards now + route the bigger commercial restructure to map:
+      APPROVE now: (a) ADD a host-resilience/host-migration outcome under g-9c41 (host can leave/crash without ending the
+         4–8 session — §H's value-prop killer); (b) REWORD g-9c41 wave_plan so Wave 3 = A+-basis with §G(+4) load-probes as a
+         HARD pre-bet gate (replaces the stale T2-detail plan); (c) EXPAND g-d3a8 — free-species bounded by the wire cap.
+      ROUTE TO MAP (>a few nodes, commercial track): the storefront-footage restructure — root map_order edge withdrawn,
+         g-5b07 #1 footage-half unsourced, g-2f8c #2 «teeth», reinstating the rejected «first showable artifact» node.
 
-  PUSH: GasCoopGame is now PUSHED (owner ran it — dev 27ab14e → main a89b36b, origin/main+dev synced; the long-standing
-  "dev UNPUSHED ahead of origin" residual from the t-5 era is CLEARED). This OS repo: the writer commits LOCALLY; pushing main
-  is owner-gated (auto-mode blocks the writer's push — ask the owner to push).
+  ON OWNER APPROVAL OF A+ →
+  CALL — shape the FIRST A+ bet of g-9c41 (re-framed PAST 2026-07-24; basis = work/gas-model-design-full-2026-06-20.md §K):
+    goal: a shaped first A+ bet that DE-RISKS the new model before any feature commitment — the §G load-probes HARDENED
+          (§G's 7 + the review's 4 added MANDATORY: two-machine awake-set/sleep-schedule determinism; resident-gas-damage RED
+          ledger; confirmed-colocation false-reaction; real-DA(SnapGridFlow) at hundreds-of-rooms scale) as the pre-bet
+          kill-gate, THEN the first real layer (integer geodesic front + interest-grain = «where exactly is the gas»), with
+          host-migration («host dies → session survives») as a named spike.
+    context: gas-model doc §K/§G/§H + the s-review-002 knowledge promotions (g9c41-wave2-aplus-over-b-code-grounded /
+             -gload-probes-incomplete-plus4 / -coarse-proof-not-resolution); d-corefoundation-001 keep-open invariant; the LOCK
+             barrier [7,chunkCount] has only 4 free plane-keys (2..5) — «capped active gases/node + hard wire cap» must be a
+             CONCRETE NUMBER at shape (a new plane = a SURFACED LOCK-EXT per ADR-0007); d-sandbox-001 harness may sequence FIRST
+             (the §G probes need its config-as-data / N-tick / structured-log / two-machine capabilities — owner Q3). Home-side
+             cleanups owed (dispatch as their own follow-ups, NOT in this shape): re-spec R1 Grid→SGF + openspec apply/archive
+             (d-grid-sgf-001); stale ADR-0005/0007 «separate-layer = t-3» wording; FishNet real-UDP owner-run residual.
+    boundaries: shape ONLY (G6 — cut list + per-lens sweep + a task testing the riskiest assumption); do NOT silently reopen
+             the LOCK (any new plane/key = a SURFACED LOCK-EXT); multi-wave appetite, move the tail not the 2026-07-24 wall.
+    return: a shaped bet (appetite + kill_by + tasks) committed to NOW with owner «го» (G9).
+    budget: one focused shape session.
+  IF B: frame a from-scratch continuous-field bet (NOT recommended; re-litigates the LOCK). IF C: a 1–2-wk bounded
+  continuous-field net-replication probe first, then re-decide A+/B.
+
+  PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the writer's push — ask the
+  owner to push). (GasCoopGame is already pushed: main a89b36b == origin/main; no product-repo edits this session.)
 
 END_OF_FILE: live/indie-game-development/NOW.md
