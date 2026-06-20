@@ -881,6 +881,16 @@ decision_inbox:
       / S4 source-seed) — some of what the owner wants (gas-as-space, front position) OVERLAPS fine-tier work already triaged
       to Wave 3. The review must bring OPTIONS (full redesign / Wave-3 fine-tier-first / a bounded continuous-field probe) +
       a rec — NOT pre-commit. → history/s-work-016.md.
+      RESEARCH RESULT (2026-06-20, s-research-010): the owner ran the separate discussion + brought back a result, now authored in
+      full at work/gas-model-design-full-2026-06-20.md (immutable source: work/gas-model-research-result-2026-06-20.md). OUTCOME:
+      недовольство = МОДЕЛЬ (not picture); RECOMMENDATION = dorога A+ (graph-base + grown layers), NOT B (continuous-field rewrite)
+      — B re-opens the solved network-determinism problem. «Убрать ёмкость+перелив» REINTERPRETED (the visible face of real pressure
+      + intentional "threat doesn't self-vent"; remove only WITH a replacement law) + «free gas count» DISCIPLINED (capped active
+      gases per node + hard wire cap). §G LOAD-PROBES are MANDATORY before any bet (cascade depth-identical on 2 machines; 8 hot
+      bubbles round-robin; integer incremental Dijkstra on breach; mass-conservation RED-test). OPEN chunks incl. HOST-MIGRATION
+      (host loss = death of a 4-8 session). Construction LARGELY rides existing repo + Wave-3 plan (§K, each claim NOW.md-grounded)
+      → likely A+ grow, not a from-scratch rewrite. Faithfulness verified (3-audit pass wf_c237a811: no drops, repo-claims grounded,
+      Claude-overlay provenance fenced). Status STAYS open — owner ratifies A+/B/C at the review; plan by the doc's chunks. → history/s-research-010.md.
 
 next: |
   t-4 (c-exec-011) DELIVERED → it was the SOLE remaining Wave-2 executor leg (t-1/t-2/t-5 done, t-3 dropped) → Wave 2 has NO
@@ -903,6 +913,11 @@ next: |
       - d-gasmodel-redesign-001 (OPEN): the owner wants a continuous-weight, gas-as-SPACE, free-gas-count, no-capacity-crutch
         model = a CORE redesign reopening the LOCK (ADR-0004/0005). This is the central next-bet question; it is NOT free
         (re-does t-1/t-2/t-5 proven work) — surface the tension loudly (don't-break-what-works + explain-in-waves).
+        INPUT NOW EXISTS (owner ran the separate discussion, s-research-010): work/gas-model-design-full-2026-06-20.md (full design)
+        + work/gas-model-research-result-2026-06-20.md (source). Outcome: it's the MODEL not the picture; recommendation = dorога A+
+        (graph-base + grown layers), NOT B (continuous-field rewrite); §G load-probes MANDATORY before betting; OPEN incl.
+        HOST-MIGRATION. Review puts A+/B/C to the owner USING this doc and plans by its chunks (§K, NOW.md-grounded). Note A+
+        re-frames the next bet around growing the proven core, not a 6-week wave — likely a re-shape past the 07-24 wall.
       - d-sandbox-001 (reaffirmed): the serious test/authoring harness, post-wave-2, research(best-practices)→shape.
       - Home-side cleanups owed (carry, do not lose): re-spec R1 Grid→SGF + openspec apply/archive (d-grid-sgf-001); the
         stale ADR-0005/0007 "separate-layer = t-3 obligation" wording; the FishNet real-UDP owner-run residual (non-gating,
