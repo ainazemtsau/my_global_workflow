@@ -142,6 +142,9 @@ active_bet:
       [t-5 review-driven consolidation+hardening DONE] → t-4 player-legible render terminus + REAL DA = the SOLE remaining
       leg. t-3 (temperature-layer extensibility) CUT → Wave 3 (owner «C», d-t3-defer-001 — the demo proof was contrived;
       decoupling temperature is the deferred FEEDBACK work).
+    ⚠️ Wave 3 below is PROVISIONAL (2026-06-20, s-work-017) — SUBJECT TO d-gasmodel-redesign-001: if the owner picks dorога A+
+      at review, Wave 3 is RE-FRAMED by work/gas-model-design-full-2026-06-20.md §K (that doc becomes the new planning basis;
+      §G load-probes precede any bet). The text below is the PRE-redesign plan, kept for reference, NOT a settled trajectory.
     Wave 3 (DETAIL NEAR PLAYER + REAL EXTENSIBILITY): the 25cm T2 detailed per-cell window (cell size CONFIGURABLE +
       geometry-aligned) + the coarse↔fine NO-JERK handoff (owner «100%») + OR1 cross-tier composition + optimisations;
       PLUS extensibility proven FOR-REAL = decouple temperature into a real 2nd layer + the temperature→gas FEEDBACK
@@ -201,7 +204,7 @@ active_bet:
       host + 2 clients reconstruct coarse band state bit-exact lossless / bounded-at-settle lossy (PER LAYER).
     checkpoint_2026-06-30: "band-solver kill-gate above unmet after reasonable iteration -> next_if_false(i)"
     hard_2026-07-24: "Wave-2 done_when unmet even after degrade -> bet dies (G3, no extend); continuation = re-shape bet-3"
-    next_if_true: "coarse sim + temperature + breach + legible terminus -> roll to Wave 3 (T2 detail + no-jerk handoff)"
+    next_if_true: "[SUSPENDED 2026-06-20, s-work-017 — d-gasmodel-redesign-001]: the auto-roll to the OLD Wave 3 (T2 detail + no-jerk handoff) is HELD. The gas-model research (work/gas-model-design-full-2026-06-20.md, rec dorога A+) may RE-FRAME Wave 3 entirely; the review MUST decide A+/B/C against that doc BEFORE any next bet — no default roll to the stale plan."
     next_if_false: |
       (i) checkpoint_fail 06-30 -> DEGRADE the coarse solver to scalar-per-volume (wire-compatible, brief §6) and
           re-baseline so the terminus rides the DEGRADED model (t-4 is SOLVER-AGNOSTIC — reads the RN1 read-model that
@@ -863,7 +866,7 @@ decision_inbox:
       owner-eye sufficient given the LOOK caveat "basic works, NOT model-final"?) and decide whether the cut weakens the
       Wave-2 verdict. → history/s-work-016.md.
   - id: d-gasmodel-redesign-001
-    status: open   # RAISED by the owner 2026-06-20 AFTER seeing the t-4 render (recorded s-work-016) — a fundamental gas-MODEL redesign. NOT yet decided: needs the review/next-bet session to put it to the owner WITH options + a recommendation (G7). The writer only records it raw here; it does NOT adjudicate or pre-commit.
+    status: open — BLOCKING the next g-9c41 bet   # RAISED by the owner 2026-06-20 AFTER seeing the t-4 render (recorded s-work-016) — a fundamental gas-MODEL redesign. NOT yet decided: needs the review/next-bet session to put it to the owner WITH options + a recommendation (G7). The writer only records it raw here; it does NOT adjudicate or pre-commit. **BLOCKING (2026-06-20, s-work-017): no Wave-3/next bet may be SHAPED for g-9c41 until this is decided against work/gas-model-design-full-2026-06-20.md; the old Wave-3 plan (wave_plan) + kill_by.next_if_true are SUSPENDED pending it.**
     note: |
       Owner, having SEEN the coarse sim render, wants to REDESIGN the gas MODEL itself (his framing):
         - continuous gas WEIGHT → continuously drives height / settling speed (not 2 discrete bands);
@@ -898,6 +901,10 @@ next: |
   one that did the work — G5). The writer does NOT close the bet / edit TREE itself — review does.
 
   CALL — review g-9c41 (Wave 2):
+    ⚠️ HARD PRECONDITION (2026-06-20, s-work-017): the review MAY NOT roll g-9c41 to the OLD Wave 3. It MUST first decide
+        d-gasmodel-redesign-001 (A+/B/C) against work/gas-model-design-full-2026-06-20.md. If A+ → the next bet is RE-SHAPED
+        from the doc's §K chunks (§G load-probes FIRST), NOT the stale wave_plan/kill_by.next_if_true (both SUSPENDED). The full
+        doc is the planning basis — confirm it was actually consumed (cite its §K/§G/§H) before proposing any next bet.
     goal: Close the Wave-2 bet with a refutation-based verdict, harvest the tree from what Wave 2 (and SEEING the render)
           taught, and bring the owner the next-bet decision — now dominated by the owner-raised gas-MODEL redesign.
     context:
