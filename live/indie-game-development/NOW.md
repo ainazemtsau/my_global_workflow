@@ -774,6 +774,40 @@ decision_inbox:
           ticks. APPROACH: research(best-practices) → shape → tasks, in the Wave-3 era (its own first leg / interstitial).
           Owner: «эта задача у нас есть, её надо ставить».
       → recorded so it is tracked + timed; framed properly post-wave-2. → history/s-work-014.md.
+  - id: d-corefoundation-001
+    status: answered   # 2026-06-19 (s-work-015) — assessed the coarse Core as a foundation for the owner vision (wf_16158bde, 4 agents + red-team). VERDICT: do NOTHING to the Core now (SAFE); the keep-open invariant is the only Wave-2 obligation and is ALREADY met; the Wave-3 additions are probe-gated extensions, not a rewrite.
+    note: |
+      Owner doubted the coarse sim is too crude / non-extensible for his vision (exact spawn place/size; plausible
+      on-return cloud; no false over-mix in a big room; reactions everywhere). FIRST-HAND code map (CORRECT, red-team
+      re-verified): today the Core keeps gas only per (sector,band,species) — NO finer-than-room source POSITION
+      (Source struct = {Sector,Band,Species,PerTick}, XY thrown away at SetSource), NO intra-room horizontal split
+      (FromTopology = 1 sector/room; RectDecomposition built+tested but NOT wired; SubdivisionIntent carried but
+      ignored), NO advancing FRONT, NO gas-gas reaction (ReactionLayer is a toy over the legacy RoomGraph). So
+      exact-place / on-return-cloud-place+size / no-false-over-mix / reactions-everywhere-at-fidelity are NOT done by
+      the current Core — the owner's instinct re the LIMITS is RIGHT.
+      BUT the synthesis over-claimed "NEEDS-CORE-CHANGE-NOW"; the RED-TEAM downgraded it (binding):
+        - SUPPORTED-NOW: V1 honest-everywhere; V3 no-merge-to-one-number (K species tracked separately, never collapsed);
+          V6 AMOUNT/RATE (always-on coarse + per-room capacity/back-pressure → "left, returned, whole floor filled" is
+          structurally prevented at room granularity).
+        - The Wave-3 seams (S4 source-seed / S2 sub-sectors / S3 graph-of-fronts) are the owner's OWN signed deferrals
+          (d-roomfull-001(3c): subdivision = "Wave 3+ configurable knob", «2 полосы сейчас сохраняют проверенные числа»;
+          early_finish: pull-forward-if-ahead = not now) + the 17-agent s-research-008 confirms 2-band/1-sector is
+          correct day-one and triages S2/S3/S4 to the Wave-3 shape behind half-day probes NOT yet run.
+        - d-returnfidelity-001's forward-constraint is a KEEP-THE-DOOR-OPEN obligation (don't bake in 1-sector/
+          settled-only), tagged "cheap, not code now" — and it is ALREADY met: wire/hash key off sector COUNT (not
+          1/room); the document carries SubdivisionIntent + TopologyAnchor{LocalX,Y,Z}; RectDecomposition is built.
+        - Source XY is RECOVERABLE upstream (level generator / the currently-empty TopologyAnchor) → the in-Core
+          source-seed is a Wave-3 ADDITION, not an irrecoverable loss → NOT a rewrite. All additions ride ALONGSIDE the
+          LOCKed planes (achievable-on-LOCK = YES; coarse mass stays the single truth, no 2nd fill equation).
+        - G1 + "don't break what works": the active bet is t-4 (internal proof) on a gate-green LOCK-frozen baseline —
+          changing the Core for a Wave-3 benefit is out of scope.
+      CONCLUSION (doNothingNowIsSafe = TRUE): change NOTHING in the Core for t-4. THE WAVE-2-BINDING KEEP-OPEN
+      INVARIANT (= the Wave-3 entry bar): no solver/wire/hash invariant may assume "1 sector per room" or "settled-only";
+      and source XY is lossy at the SetSource boundary today but recoverable upstream — supply it to the Wave-3
+      reconstruction, do not bake the loss in. HONEST CAVEAT: even with sub-sectors the coarse layer reacts
+      per-(subsector,band) — the literal "must NOT react as if co-located" is fully delivered only by the FINE per-cell
+      tier (Wave 3). So exact-place / on-return / no-false-over-mix / reactions-at-fidelity are inherently Wave-3 work,
+      reinforcing the downgrade. → history/s-work-015.md.
 
 next: |
   Wave-2 scope CUT (s-work-013, owner «C», d-t3-defer-001): t-3/XL2 deferred to Wave 3. The SOLE remaining Wave-2 executor
