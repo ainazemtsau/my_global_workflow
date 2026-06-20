@@ -31,4 +31,8 @@
   existed; architecture artifacts preserved as evidence, tasks reset to runtime
   substrate first; next c-life-reset-runtime-substrate-001.
 
+- 2026-06-20 - repair: removed premature provider-instruction task and concrete
+  Weekly Contract from the active route; next is full runtime architecture
+  skeleton in the separate runtime repository/workspace.
+
 END_OF_FILE: live/life-reset/LOG.md

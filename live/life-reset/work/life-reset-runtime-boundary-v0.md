@@ -118,8 +118,8 @@ Interpretation:
 
 - this is a v0 runtime substrate decision, not a permanent tooling, provider,
   automation or product architecture decision;
-- the next session creates or selects the separate runtime workspace only as far
-  as needed to accept the first real Weekly Contract;
+- the next session creates or selects the separate runtime workspace and puts
+  the runtime architecture skeleton there before any real Weekly Contract;
 - Sunday planning remains blocked until that substrate exists or is explicitly
   named.
 
@@ -181,11 +181,13 @@ first real Weekly Contract. That was repaired on 2026-06-20.
 
 Current route:
 
-1. Create, select or minimally initialize the separate Life-reset Runtime v0
-   repository/workspace.
-2. Only after that, create the first real Weekly Contract inside that runtime
-   substrate.
-3. Direction OS records only pointers, summaries, RESULTs and governance state.
+1. Create or select the separate Life-reset Runtime v0 repository/workspace and
+   put the runtime architecture skeleton there.
+2. Audit/patch that architecture skeleton against the owner-discussed operating
+   cases.
+3. Only after the runtime architecture is accepted as ready for pilot, create a
+   concrete Weekly Contract inside that runtime substrate.
+4. Direction OS records only pointers, summaries, RESULTs and governance state.
 
 Use `live/life-reset/NOW.md -> next` as the current authority.
 

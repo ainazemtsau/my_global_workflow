@@ -15,6 +15,12 @@ contract belongs in the separate runtime repository/workspace after that
 substrate exists. Treat all Direction OS paths below as historical/template
 language unless the current `NOW.md` explicitly reauthorizes them.
 
+Third repair note, 2026-06-20:
+
+This packet is not a runtime architecture. Do not use it until the separate
+runtime repository/workspace contains the accepted runtime architecture
+skeleton. The current route is in `live/life-reset/NOW.md`.
+
 Target planning session: Sunday evening, 2026-06-21
 Target week: 2026-06-22..2026-06-28
 Output to produce: `<life-reset-runtime-workspace>/weeks/2026-06-22-contract-v0.md`

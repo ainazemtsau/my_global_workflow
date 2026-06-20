@@ -5,6 +5,15 @@ Target real planning session: Sunday evening, 2026-06-21
 Target real week: 2026-06-22 to 2026-06-28
 Status: draft simulation for shaping, not an approved Weekly Contract
 
+Repair note, 2026-06-20:
+
+This file is preserved as architecture evidence and scenario material only. It
+is not the active route, not an implementation artifact, and not an instruction
+to shrink the runtime architecture. Current authority is
+`live/life-reset/NOW.md`, whose next CALL creates/selects the separate runtime
+repository/workspace and puts the runtime architecture skeleton there before
+any concrete Weekly Contract.
+
 ## 0. What this document is
 
 This document is a detailed dry-run of how `life-reset` could build and operate

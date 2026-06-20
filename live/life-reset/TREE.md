@@ -6,6 +6,7 @@ owner_approved:
     - 'Owner: "A, утверждаю Root v5"'
     - 'Owner approved top-level map: "approve whole tree"'
     - 'Owner repair 2026-06-20: "отдельный репозиторий" and "ресетнуть ... T1, T2"'
+    - 'Owner repair 2026-06-20: "сначала делать, потом все виклик контракты"'
 
 root:
   id: g-life-reset-root
@@ -67,15 +68,16 @@ root:
     - id: g-lr-weekly-operating-graph
       status: active
       appetite: |
-        One runtime-bootstrap wave before any real weekly operation. The bet
-        must first create/select a separate Life-reset Runtime v0 repository or
-        workspace, then create the first Weekly Contract there. Direction OS is
-        the control plane, not the weekly/daily runtime.
+        One runtime-architecture bootstrap wave before any real weekly
+        operation. The bet must first create/select a separate Life-reset
+        Runtime v0 repository or workspace and put the actual runtime
+        architecture skeleton there. Concrete Weekly Contracts come later.
+        Direction OS is the control plane, not the weekly/daily runtime.
       kill_by: |
         2026-06-21: if the separate runtime substrate cannot be created or
-        selected and minimally initialized before planning, stop and review or
-        simplify. Do not compensate by running weekly/daily operation inside
-        Direction OS.
+        selected and populated with the runtime architecture skeleton before
+        planning, stop and review or simplify. Do not compensate by running
+        weekly/daily operation inside Direction OS.
       goal: |
         К 20 июля 2026 года life-reset умеет в активном разговоре
         строить неделю как operating graph: выбранные outcomes, slices
