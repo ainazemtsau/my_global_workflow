@@ -26,4 +26,9 @@
 - 2026-06-20 - work t-2: Life-reset Runtime v0 boundary approved with separate
   repository/workspace as substrate; next c-life-reset-weekly-contract-runtime-001.
 
+- 2026-06-20 - repair: reset g-lr-weekly-operating-graph route after t-2
+  wrongly jumped to Weekly Contract before a separate runtime repository/workspace
+  existed; architecture artifacts preserved as evidence, tasks reset to runtime
+  substrate first; next c-life-reset-runtime-substrate-001.
+
 END_OF_FILE: live/life-reset/LOG.md

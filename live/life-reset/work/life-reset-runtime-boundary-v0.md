@@ -174,10 +174,19 @@ This decision does not build or approve:
 - Solmax/W0 continuation;
 - game production tasks authored by life-reset.
 
-## 7. Next CALL
+## 7. Superseded next wording
 
-The next CALL should create or select the separate runtime repository/workspace
-and use it to accept the first real Weekly Contract. Direction OS should record
-only a summary, evidence pointer, owner acceptance and the next governing CALL.
+The original next wording combined runtime substrate setup with accepting the
+first real Weekly Contract. That was repaired on 2026-06-20.
+
+Current route:
+
+1. Create, select or minimally initialize the separate Life-reset Runtime v0
+   repository/workspace.
+2. Only after that, create the first real Weekly Contract inside that runtime
+   substrate.
+3. Direction OS records only pointers, summaries, RESULTs and governance state.
+
+Use `live/life-reset/NOW.md -> next` as the current authority.
 
 END_OF_FILE: live/life-reset/work/life-reset-runtime-boundary-v0.md
