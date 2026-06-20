@@ -30,6 +30,8 @@ No other setup. The session reads this file and runs the procedure below.
    - (e) unclear / single occurrence of a suspected pattern → log friction only, no change yet.
 
    With a transcript: replay it against its play step by step — behavior vs rule text — and give the verdict BEFORE designing anything: the session broke the rule (→ d), the rule produced the behavior (→ a/b), the platform did (connector cache, project chat history → adapter fix or friction watch), or the expectation itself was wrong (explain to the owner; no change). The owner's proposed mechanism is a hunch, not a spec: extract the underlying problem and judge it independently — "rules are fine, usage was wrong" is a valid resolution.
+
+   If the responsible file is a direction-local play (`live/<id>/plays/<name>.md`), classify the defect here but do not patch it here: maintenance logs the diagnosis and returns a ready direction RESULT/CALL patch path. The local play changes only through that direction's normal RESULT `state_changes`, unless the play is promoted to `os/plays/` by `os/EXTENDING.md`.
 2. **Trigger check.** An explicit owner request is a sufficient trigger for (a)–(c). Self-initiated improvements (nobody asked) need ≥2 FRICTION entries on the same point. Never both fix the request AND slip in unrelated "improvements".
 3. **Design the smallest change** that resolves the case, inside the budgets: kernel ≤1500 words, a play ≤600, six state file types, two packet types. If the fix wants to exceed a budget — simplify the fix or propose removing something else in the same change; growing past budgets is solving the wrong problem.
 4. **Consistency sweep.** Grep every term/file the change touches and update all cross-references. If `os/adapters/SESSION_PAYLOAD.md` changed, say so explicitly in the reply — the owner must re-paste platform instructions (politely degradable, not urgent).
@@ -38,7 +40,7 @@ No other setup. The session reads this file and runs the procedure below.
 
 ## Boundaries
 
-- A maintenance session never touches `live/**` — direction state is the repair play's territory.
+- A maintenance session never touches `live/**` — direction state is the repair play's territory, and direction-local plays still change only through direction RESULT `state_changes`.
 - One problem per session. A second problem surfacing mid-session → one line into FRICTION.md, not a second fix.
 - No speculative structure: nothing is added "for the future". The parking lot for OS ideas is FRICTION.md with `→ idea, watching`.
 
