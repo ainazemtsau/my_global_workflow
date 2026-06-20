@@ -1,5 +1,13 @@
 # Sunday Planning Packet v0 — life-reset
 
+Repair note, 2026-06-20:
+
+This packet is input evidence, not the current next step. The owner clarified
+that Direction OS should create and govern a separate life-reset runtime rather
+than become the weekly/daily runtime itself. Current authority is
+`live/life-reset/NOW.md`; run the runtime-boundary CALL there before using this
+packet for the first real Weekly Contract.
+
 Target planning session: Sunday evening, 2026-06-21
 Target week: 2026-06-22..2026-06-28
 Output to produce: `live/life-reset/work/week-2026-06-22-contract-v0.md`
@@ -293,57 +301,9 @@ The contract is accepted only when all lines are true.
   session/writer rule.
 - The session ends in one RESULT with state_changes for the writer.
 
-## 5. Sunday session next CALL
+## 5. Superseded next CALL
 
-Use this CALL to produce the real contract.
-
-```text
-CALL c-life-reset-weekly-graph-t2-contract-001
-to: session
-direction: life-reset
-play: work
-node: g-lr-weekly-operating-graph
-task: t-2
-goal: |
-  The first real Weekly Contract for 2026-06-22..2026-06-28 is accepted by
-  the owner.
-context: |
-  Read:
-  - live/life-reset/CHARTER.md
-  - live/life-reset/TREE.md
-  - live/life-reset/NOW.md
-  - live/life-reset/work/sunday-planning-packet-v0.md
-  - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
-  - os/adapters/SESSION_PAYLOAD.md
-  - os/adapters/chatgpt-project.md
-  - os/adapters/claude-project.md
-  - os/adapters/coding-agent.md
-  - os/KERNEL.md
-  - os/plays/work.md
-
-  Use the packet as the small Sunday form. Use the dry-run only as evidence and
-  background. The real contract must use refreshed source snapshots and the
-  owner's real Sunday inputs.
-boundaries: |
-  Do not continue Solmax/W0.
-  Do not prescribe nutrition, training, medical or psychiatric treatment.
-  Do not select a permanent provider, chat, repo, board or external-tool
-  architecture.
-  Do not build daily runtime, process/activity modules, automation or a full
-  backlog.
-  Do not turn life-reset into the source of truth for health, game, Solmax or
-  raw source-direction data.
-done_when: |
-  - live/life-reset/work/week-2026-06-22-contract-v0.md exists.
-  - It contains refreshed source snapshots, capacity assumptions, selected
-    slices, explicit cuts, backlog/candidate handling and the change rule.
-  - It records owner acceptance.
-  - It does not choose permanent tooling or prescribe health/game/Solmax work
-    outside their source directions.
-return: |
-  RESULT with the contract path, evidence, state_changes and next CALL.
-budget: one focused Sunday planning session
-surface: any session surface; Codex/Claude Code may write only after RESULT
-```
+The original Sunday-contract CALL was superseded by the 2026-06-20 repair.
+Do not copy a CALL from this packet. Use `live/life-reset/NOW.md -> next`.
 
 END_OF_FILE: live/life-reset/work/sunday-planning-packet-v0.md
