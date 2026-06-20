@@ -963,7 +963,17 @@ next: |
           first reactions/blast/cascade); Wave D = «robustness» (edge-destructibility >1 breach + HOST-MIGRATION + moving
           geometry); Track V (∥, secondary, ~4wk) = GASG visualization research → visual language of types/meta-types, reads
           the FROZEN RN1 + the new front (gate visual IMPLEMENTATION on the read-seams being fixed, not on the core finishing).
-    context: gas-model doc §K (already-built / in-plan / NEW) + §G probes + the s-review-002 +4 mandatory probes (knowledge
+    context: PRIMARY INPUT = work/aplus-wave-map-v1.md — the hardened, COMPLETENESS-SWEPT A+ wave map (sweep wf_7f1bfd63-262,
+             3 finders over the full doc + source + all OS state, run because the owner said «мне нельзя доверять»; verdict
+             complete-with-gaps, A+ NOT invalidated). Consume it; it folds the fixes: host-migration spike→Wave A (NOT D), §E's
+             3 iron laws homed per-mechanism, the §D.5 RARITY invariant, §D.8 visibility-as-truth→Wave B, ceiling+round-robin
+             as a §G#2 prereq, Case-B break-line pre-cut as a Wave-B prereq, ventilation no-float landmine, render-probes
+             §G#6/#7 via the GasDebug overlay, and the KEEP-OPEN invariants A+ must NOT weld shut (per-SPECIES temperature
+             [was silently dropped], transient-not-settled-only return-fidelity, capacity=pressure-face). 3 OWNER-CONFIRM items
+             in its §4 (capacity/finite-source REINTERPRETATION of the owner's literal ask; active-gas-per-node + wire-plane
+             cap = a concrete NUMBER; commercial footage edges). BOUNDARY (its §5): the original external research chat is NOT
+             in the repo — exact §5 physics thresholds + §4 audit internals live only there (owner self-check if numbers wanted).
+             PLUS gas-model doc §K (already-built / in-plan / NEW) + §G probes + the s-review-002 +4 mandatory probes (knowledge
              g9c41-wave2-gload-probes-incomplete-plus4) + §H open chunks (host-migration split out as a real node); the
              s-review-002 knowledge promotions; d-corefoundation-001 keep-open invariant; d-sandbox-001 (sharpened capability
              list — R3); the LOCK barrier [7,chunkCount] has 4 free plane-keys (2..5) → «capped active gases/node + hard wire
