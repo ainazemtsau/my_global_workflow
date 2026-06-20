@@ -115,7 +115,7 @@ tasks:
 
   - id: t-2
     node: g-lr-weekly-operating-graph
-    status: open
+    status: done
     kind: session
     goal: >
       Life-reset Runtime v0 has an approved boundary/substrate decision that
@@ -136,6 +136,11 @@ tasks:
         with the runtime and when they emit write requests/RESULTs.
       - It produces the next CALL to create/use the approved substrate for the
         first real Weekly Contract.
+    result_note: >
+      Boundary approved 2026-06-20: Life-reset Runtime v0 uses a separate
+      repository/workspace. Direction OS remains the control plane and stores
+      only summary/evidence pointers for runtime operation. Evidence:
+      live/life-reset/work/life-reset-runtime-boundary-v0.md.
 
   - id: t-3
     node: g-lr-weekly-operating-graph
@@ -158,33 +163,34 @@ tasks:
 recurring: []
 
 open_calls:
-  - id: c-life-reset-runtime-boundary-001
+  - id: c-life-reset-weekly-contract-runtime-001
     to: session
-    for: t-2
+    for: t-3
     issued: 2026-06-20
     note: >
-      Repair route: define the Life-reset Runtime v0 boundary/substrate before
-      accepting any real Weekly Contract, so Direction OS remains the control
-      plane rather than the weekly/daily runtime.
+      Create or select the approved separate runtime repository/workspace and
+      use it for the first real Weekly Contract, while Direction OS records
+      only summary/evidence pointers.
 
 decisions: []
 
 next: |
-  CALL c-life-reset-runtime-boundary-001
+  CALL c-life-reset-weekly-contract-runtime-001
   to: session
   direction: life-reset
   play: work
   node: g-lr-weekly-operating-graph
-  task: t-2
+  task: t-3
   goal: |
-    Life-reset Runtime v0 has an approved boundary/substrate decision that
-    separates Direction OS control-plane work from the actual weekly/daily
-    operating process.
+    The first real Weekly Contract exists in the approved separate runtime
+    substrate, with Direction OS holding only the governance summary and
+    evidence pointer.
   context: |
     Read:
+    - live/life-reset/NOW.md
     - live/life-reset/CHARTER.md
     - live/life-reset/TREE.md
-    - live/life-reset/NOW.md
+    - live/life-reset/work/life-reset-runtime-boundary-v0.md
     - live/life-reset/work/sunday-planning-packet-v0.md
     - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
     - os/adapters/SESSION_PAYLOAD.md
@@ -194,36 +200,39 @@ next: |
     - os/KERNEL.md
     - os/plays/work.md
 
-    Owner clarified the boundary after t-1:
-    Direction OS should create/govern/tune the life-reset runtime, not itself
-    become the place where weekly/daily operation is run. The Sunday planning
-    packet remains useful input, but real planning must wait until the runtime
-    substrate is defined.
+    Owner decision in t-2: Life-reset Runtime v0 uses a separate
+    repository/workspace. Direction OS remains the control plane and should not
+    host weekly/daily runtime operation. The Sunday planning packet remains
+    useful input evidence for the first Weekly Contract, not permanent runtime
+    architecture.
   boundaries: |
-    Do not run Sunday planning or accept the real Weekly Contract in this CALL.
+    Do not run daily operation.
+    If the separate runtime repository/workspace cannot be created or selected
+    inside budget, close blocked with the exact missing substrate decision or
+    setup blocker.
     Do not continue Solmax/W0.
     Do not prescribe nutrition, training, medical or psychiatric treatment.
     Do not shape other life-reset nodes.
     Do not build daily runtime, process/activity modules, automation or a full
     backlog.
-    Do not choose a permanent provider/chat/repo/tool architecture unless the
-    owner explicitly approves it as the reversible v0 substrate decision.
     Do not turn life-reset into the source of truth for health, game, Solmax or
     raw source-direction data.
   done_when: |
-    - live/life-reset/work/life-reset-runtime-boundary-v0.md exists.
-    - It states what Direction OS owns and what the life-reset runtime owns.
-    - It compares temporary separated work substrate inside this repo vs
-      separate repo/workspace, with recommendation and owner decision.
-    - It records how ChatGPT Project, Claude Web, Codex and Claude Code work
-      with the runtime and when they emit write requests/RESULTs.
-    - It produces the next CALL to create/use the approved substrate for the
-      first real Weekly Contract.
+    - The first Weekly Contract exists in the approved separate runtime
+      repository/workspace.
+    - It contains refreshed source snapshots, capacity assumptions, selected
+      slices, explicit cuts, backlog/candidate handling and the change rule.
+    - It records owner acceptance.
+    - Direction OS stores only a summary/pointer/RESULT, not raw daily runtime
+      logs.
+    - It does not choose permanent tooling or prescribe health/game/Solmax work
+      outside their source directions.
   return: |
-    RESULT with the boundary document path, owner decision, state_changes and
-    next CALL.
-  budget: one focused repair/work session
-  surface: Codex or Claude Code preferred; ChatGPT/Claude Web can run as
-    session-only and emit RESULT for a writer.
+    RESULT with runtime substrate pointer, Weekly Contract pointer/summary,
+    owner acceptance, state_changes and next CALL.
+  budget: one focused planning session
+  surface: Codex or Claude Code preferred if runtime repo/workspace setup is
+    needed; ChatGPT/Claude Web may run as session-only and emit RESULT/write
+    request.
 
 END_OF_FILE: live/life-reset/NOW.md

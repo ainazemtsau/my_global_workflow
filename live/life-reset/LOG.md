@@ -23,4 +23,7 @@
   not become the weekly/daily runtime; t-1 packet remains input evidence, next
   is c-life-reset-runtime-boundary-001.
 
+- 2026-06-20 - work t-2: Life-reset Runtime v0 boundary approved with separate
+  repository/workspace as substrate; next c-life-reset-weekly-contract-runtime-001.
+
 END_OF_FILE: live/life-reset/LOG.md
