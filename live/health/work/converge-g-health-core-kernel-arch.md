@@ -370,4 +370,91 @@ done_when; the 5 just-bound orphan rows verified homed; the KQ-rev system-locked
 §ARCH picks as architecture-on-paper input evidence, and the KP1–KP12 agenda as PLAN input; shape may split into the
 parked domain child nodes, each re-entering TRIAGE).
 
+## §VERIFY — converge-verify (BINDING G5, fresh session s-health-core-kernel-converge-verify-001, 2026-06-20) — verdict: **PASS**
+Method: a SEPARATE refutation session (G5), NOT the converge-arch session that produced the set. Workflow
+wf_924f181d-c2d (16 agents): an INDEPENDENT completeness oracle authored a 42-class kernel-node-class decision-class
+checklist (KDC1–KDC42, §PROPOSED-CANON below) FROM FIRST PRINCIPLES — blind to the product, so it shares no prover
+blind spot — then 4 independent attackers hit completeness / smuggling-traceability / firewall+build-order+done_when-
+leak / arch-pick re-refutation; every candidate was then put to TWO adversarial skeptics (coverage lens + scope/nature
+lens), surviving only if neither could refute it. 5 candidates raised, **all 5 refuted (0 survivors)**. Both
+propositions re-computed, not trusted. (Reuses the data-layer §VERIFY-1/§VERIFY-2 close→re-verify discipline; this set
+passed in one clean pass.)
+
+**Proposition 1 — COMPLETENESS: PASS.** §KW universe = exactly 90 normative rows (KM11+KS10+KR13+KG9+KV21+KV-B2+KL10+
+KA10+KD5), set-checked. Union of the KC1–KC14 kw_row assignments = all 90; ZERO orphans, ZERO phantom assignments (the
+easy-to-miss KR9→KC10 and KR11→KC8 are homed; KC1 correctly omits them). The 5 just-bound orphan rows verified
+genuinely present in the named contract's flow + §KW list: KV6 + KV7 → KC6, KV8 → KC9, KV12 → KC7, KD2 → KC1. WA-K1–K12
+each carried by ≥1 semantically-correct contract; compound WA-Ks split atomically, each sub-clause homed. Every one of
+the 42 independent decision-classes maps to a KC or to a KQ pick (incl. the runtime-class ones a data-concept checklist
+would miss — concurrency, turn-termination, intra-turn re-entrancy, observability/audit, conformance-validation,
+idempotency/replay, error/refusal protocol, authority-source precedence). Build-order non-dangling: 3-tier stack +
+intra-TIER-2 chain KC5→KC6→KC7→KC8→KC9→KC10→KC11 + HARD ORDERING (KC5/6/7/14 green before any TIER-3 ACTIVE); every
+consumer is a parked/future domain inheriting the producer kernel. arch_open = 0; no decision-class uncovered.
+
+**Proposition 2 — TRACEABILITY / SMUGGLING: PASS.** Firewall re-swept CLEAN — no path/format/cadence/grammar/threshold
+in any contract or seam flow; the WHAT-language that resembles HOW ("YAML" KV21, trigger set {owner,chat-turn,
+checkpoint} KG8, commit+diff+re-read WA-K3/5, "N proven passes" KV-B2) is verbatim signed content, not HOW. No arch
+pick (KQ1/KQ2/KQ3/KQ-rev) and no KP token leaks into a done_when line — §WA-K1–K12 (the binding executor done_when) is
+clean (the single KP6 mention sits on the KV11 §KW row, not a done_when line). KQ-rev system-locked demotion HOLDS: the
+over-called owner fork (KD6, "who authors the rebuilt orphan cursor") is forced to system-proposes/owner-confirms by
+already-signed KM11 (cursor EXEMPT from confirm-before-save) + KV20 (rebuild of an already-ACTIVE journey = ADJUSTMENT
+→ decide-and-inform) + KV21 (readable confirmed step) + KS6 (graceful revisable default) + W21/G7-2 (no re-pester);
+owner_gate_batch = [] is sound. No signed §KW/§WA-K/§OWNER-DECISION row contradicted; no daemon/cron/server;
+provider-independence intact.
+
+**5 candidate findings, ALL refuted (the pass had teeth):**
+- (completeness) "concurrency KQ-concurrent has no contract home" → refuted: absorbed by KM7 (handoff = single-open-card
+  token) + git-merge surfacing the conflict loudly; no owner fork; correctly a one-line PLAN note, not a WHAT gap.
+- (completeness) "intra-turn re-entrancy / turn-termination unbounded" → refuted: bounded by KR1 (one router,
+  resolve-state→dispatch) + KR6 (router carries no business logic, touches no output-heavy artifact) + KR9/KC10
+  (exactly ONE bounded output/question/action per turn) + KS5 (allowed_next_states only, non-adjacent jumps rejected).
+- (smuggling) a weight-bearing-value traceability candidate → refuted: traces to its cited signed row.
+- (firewall) a leaked-HOW-token candidate → refuted: verbatim signed WA-K/KV language, not a HOW magnitude.
+- (arch_pick) "KQ-rev cursor-rebuild is first-time authoring → must hit confirm-before-save (missed owner gate)" →
+  refuted: rebuilding the cursor restores a control-file POSITION within an ALREADY-ACTIVE owner-approved journey
+  (KM11 exempt + KV20 adjustment), not authoring new owner-facing content; the system-locked demotion stands.
+
+**PLAN residuals (HOW only — route to the KP/P agenda, NOT a bounce, NOT into done_when):** (1) the KQ-rev
+orphan-detection predicate (state removed/renumbered/edge-deleted) + re-validation trigger wiring + repair-presentation
+/mapping FORMAT ride existing **KP2** (guard-predicate language + per-domain state/edge enum) + **KP10** (two-write
+order); the behavioral WHAT is already fixed (a cursor must detect a definition newer than the one it last validated
+against; orphan → KR4-style block-and-rebuild from durable artifacts+handoff; still-valid cursors untouched per
+WA-K8) — a dedicated PLAN slot MAY be cut at PLAN if warranted, it is NOT minted into the signed KP1–KP12. (2)
+**KQ-concurrent** same-cursor contention — a one-line PLAN note (absorbed by KM7 + git-merge).
+
+**Out-of-scope:** none. No finding would require re-opening a signed WHAT or owner decision. Owner gates spent across
+the kernel converge set remain **2** (Define "Пакет A" + Resolve "по рекомендациям"); converge-arch and converge-verify
+add zero, matching the data-layer zero-new-gate precedent.
+
+## §SIGNOFF — converge-verify
+**§SIGNOFF: converge-verify passed @ 2026-06-20** (s-health-core-kernel-converge-verify-001; single clean pass — 5
+candidates raised + all refuted). The kernel converge SET (§KERNEL-CONTRACTS KC1–KC14 + 7 seams S1–S7 + §KERNEL-ARCH
+KQ1–KQ3 + KQ-rev) is **COMPLETE and refuted-clean**: Define (signed) + Resolve §KW/§WA-K (owner ratified) +
+converge-arch (closed) + converge-verify (passed). Ready for **shape**. Shape's CALL must COPY into the executor
+done_when **§WA-K1–K12 VERBATIM** (binding by G5); carry §KERNEL-CONTRACTS KC1–KC14 + the 4 §ARCH picks as
+architecture-on-paper input evidence, and KP1–KP12 + the 2 PLAN residuals above as the PLAN agenda; shape may split
+into the parked domain child nodes (nutrition, training — TIER-3 consumers), each re-entering TRIAGE. The kernel itself
+is ONE indivisible TIER-2 engine (KC12) — not fragmentable across nodes.
+
+## §PROPOSED-CANON — kernel-node-class decision-class checklist (knowledge/ canon; converge-verify NEVER writes knowledge/ → promote at review/pulse)
+node-class: **"LLM-as-runtime, file-backed (md/yaml in git) single-procedure-interpreter governance kernel that every
+domain inherits unchanged"** (distinct from the data-layer DC1–DC21 class); read_by: converge-verify of this node-class;
+authored blind from first principles this session. 42 classes:
+KDC1 single-entry dispatch · KDC2 cursor representation · KDC3 cursor authority & ownership · KDC4 state-machine def-vs-
+cursor split · KDC5 what a state authorizes · KDC6 procedure binding/registry · KDC7 procedure contract/interface ·
+KDC8 content-authority lifecycle · KDC9 single-ACTIVE / authority-conflict rule · KDC10 approval gate / human-in-the-
+loop · KDC11 confirm-before-save · KDC12 writer/applier persistence barrier · KDC13 evidence-of-transition · KDC14
+stakes-aware dispatch / confirmation tiering · KDC15 render-vs-derivation precedence · KDC16 derivation determinism /
+freshness · KDC17 owner-facing-vs-internal file separation · KDC18 job-bounding (one-chat-one-job) · KDC19 continuity /
+handoff packet · KDC20 provenance / retention / supersede semantics · KDC21 thin-domain attach contract · KDC22 engine-
+ownership boundary · KDC23 isolation between domains · KDC24 anti-fragility / safe removal · KDC25 cold-start bootstrap ·
+KDC26 end-to-end journey proof · KDC27 active-domain selection · KDC28 ask-guard · KDC29 partial-write atomicity / crash
+recovery · KDC30 definition evolution / re-versioning · KDC31 in-flight cursor migration · KDC32 concurrency / same-
+cursor contention · KDC33 provider portability of the runtime · KDC34 turn-termination bound · KDC35 intra-turn re-
+entrancy · KDC36 no-daemon / triggered-only invariant · KDC37 runtime observability / audit reconstruction · KDC38
+conformance / validation gate · KDC39 idempotency / replay safety · KDC40 error / conflict / refusal protocol · KDC41
+authority-source precedence · KDC42 identity / naming scheme.
+(KDC32 concurrency + the orphan-cursor-migration half of KDC31 are the two HOW-residuals that ride PLAN; every other
+class is homed in a KC or a KQ pick — see §VERIFY Proposition 1.)
+
 END_OF_FILE: live/health/work/converge-g-health-core-kernel-arch.md
