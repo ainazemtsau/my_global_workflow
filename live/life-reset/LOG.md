@@ -23,4 +23,25 @@
   not become the weekly/daily runtime; t-1 packet remains input evidence, next
   is c-life-reset-runtime-boundary-001.
 
+- 2026-06-20 - work t-2: Life-reset Runtime v0 boundary approved with separate
+  repository/workspace as substrate; next c-life-reset-weekly-contract-runtime-001.
+
+- 2026-06-20 - repair: reset g-lr-weekly-operating-graph route after t-2
+  wrongly jumped to Weekly Contract before a separate runtime repository/workspace
+  existed; architecture artifacts preserved as evidence, tasks reset to runtime
+  substrate first; next c-life-reset-runtime-substrate-001.
+
+- 2026-06-20 - repair: removed premature provider-instruction task and concrete
+  Weekly Contract from the active route; next is full runtime architecture
+  skeleton in the separate runtime repository/workspace.
+
+- 2026-06-20 - repair: made Data / Memory / Retrieval a required first-class
+  layer of the runtime architecture route; next
+  c-life-reset-runtime-architecture-001 must include DATA_MODEL.md,
+  MEMORY_POLICY.md, INDEX_SCHEMA.md and RETRIEVAL.md.
+
+- 2026-06-20 - repair: owner invalidated the current life-reset TREE as active
+  planning state; old weekly/runtime route is stopped and next is
+  c-life-reset-remap-001.
+
 END_OF_FILE: live/life-reset/LOG.md

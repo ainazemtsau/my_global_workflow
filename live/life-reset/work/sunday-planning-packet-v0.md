@@ -8,9 +8,22 @@ than become the weekly/daily runtime itself. Current authority is
 `live/life-reset/NOW.md`; run the runtime-boundary CALL there before using this
 packet for the first real Weekly Contract.
 
+Second repair note, 2026-06-20:
+
+Do not use this packet to create a contract in `live/life-reset/work/`. The
+contract belongs in the separate runtime repository/workspace after that
+substrate exists. Treat all Direction OS paths below as historical/template
+language unless the current `NOW.md` explicitly reauthorizes them.
+
+Third repair note, 2026-06-20:
+
+This packet is not a runtime architecture. Do not use it until the separate
+runtime repository/workspace contains the accepted runtime architecture
+skeleton. The current route is in `live/life-reset/NOW.md`.
+
 Target planning session: Sunday evening, 2026-06-21
 Target week: 2026-06-22..2026-06-28
-Output to produce: `live/life-reset/work/week-2026-06-22-contract-v0.md`
+Output to produce: `<life-reset-runtime-workspace>/weeks/2026-06-22-contract-v0.md`
 
 ## 0. What this packet is
 
@@ -196,8 +209,9 @@ Selection rule for v0:
 
 ## 3. Contract skeleton
 
-The Sunday session writes the contract in owner-facing language, then stores the
-accepted version in `live/life-reset/work/week-2026-06-22-contract-v0.md`.
+After the runtime workspace exists, the planning session writes the contract in
+owner-facing language and stores the accepted version in that runtime workspace.
+Direction OS may store only a summary/pointer RESULT.
 
 ```yaml
 weekly_contract:

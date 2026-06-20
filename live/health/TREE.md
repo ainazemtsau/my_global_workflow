@@ -57,6 +57,17 @@ root:
 
     - id: g-health-core
       goal: >
+        (RE-OPENED 2026-06-20 — owner chose Variant 1. The delivered core nailed the DATA/CONTRACT
+        layer but missed the RUNTIME layer the architecture needs: per-domain memory/working-state,
+        a state-machine object, a single procedure-interpreter/router (each "term" = one bounded
+        procedure the kernel runs), and a governance lifecycle (artifact SEED→PROPOSED→ACTIVE→
+        SUPERSEDED + owner-approval gate + confirm-before-save + readable-for-owner + writer/
+        evidence barrier + one-chat-one-job). Because the core shipped no runtime, the nutrition
+        module reinvented its own workflow engine without a governance gate and was rejected;
+        training would reinvent it again. The core is being EXTENDED into a kernel — the data/
+        contract layer stays; nutrition/training become thin one-responsibility-per-procedure
+        layers; the governance design from the nutrition converge moves into the kernel
+        (work/core-kernel-governance-lifecycle-spec.md). Re-shaped into a bet at the kernel converge.)
         Сильное ядро Health AI System создано как провайдеро-независимая файловая система
         (Markdown/YAML в git): держит здоровье-состояние, программы-как-план, ежедневный трекинг и
         общий слой метрик/фаз/ревью; принимает ввод обычным текстом/голосом/фото; управляется любым
@@ -87,20 +98,20 @@ root:
           (общие метрики, фаза) по определённому контракту.
         - Граница Direction OS сохранена: вверх идут только summary/decision/problem/CALL; сырые
           ежедневные данные живут в Health AI System.
-      status: done
-      appetite: 3 focused half-days
-      kill_by: >
-        2026-06-19: if there is not a committed health-ai core-only slice with zero
-        blocker gaps against WA1-WA12 + W69/W70/W72/W73/W74 + CA1-CA9, plus passing
-        YAML/formula/dry-run evidence, stop and review instead of extending.
+      status: parked
       children: []
 
     - id: g-health-nutrition-system
       goal: >
-        Питание внедрено в Health AI System КАК МОДУЛЬ НА ЯДРЕ g-health-core: меню, рецепты,
-        grocery/meal-prep решения, fallback-еда, nutrition reviews и регулярные research-процессы
-        работают на ядровых программах/трекинге/метриках/фазах (не дублируя их) из единого
-        source-of-truth, но могут переноситься в удобные специализированные приложения.
+        (RESET 2026-06-20 — previous Health AI nutrition implementation rejected by owner;
+        current product files are dirty prototype/evidence only.)
+        (RE-SCOPED 2026-06-20 — Variant 1: nutrition rebuilds as a THIN LAYER on the re-opened
+        g-health-core kernel; the governance/lifecycle design is now kernel-owned, not a nutrition
+        bolt-on; blocked until the kernel WHAT is owner-approved.) Питание внедрено в Health AI
+        System КАК МОДУЛЬ НА ЯДРЕ g-health-core: меню, рецепты, grocery/meal-prep решения,
+        fallback-еда, nutrition reviews и регулярные research-процессы работают на ядровых
+        программах/трекинге/метриках/фазах (не дублируя их) из единого source-of-truth, но
+        могут переноситься в удобные специализированные приложения.
       why: >
         Nutrition system нужна, чтобы питание стало производящей системой меню, рецептов
         и корректировок, а не разовой диетой или дневником в Direction OS.
@@ -120,21 +131,16 @@ root:
           и следующие CALL.
         - Питание встроено в body outcome: оно должно поддерживать снижение веса, достаточную сытость,
           белок, повторяемость и плохие недели, но не превращаться в crash diet или бесконечный research.
-      status: done
-      appetite: 1 focused day
-      kill_by: >
-        2026-06-18 12:00 Europe/Amsterdam: if there is not a research-backed personalized
-        nutrition program encoded into Health AI nutrition, a full W1-W13/NCA0-NCA9 implementation/
-        evidence surface, provider-independent continuation + writer handoff proof, and a tomorrow-start
-        packet that lets the owner begin nutrition without another architecture session, stop and review/
-        repair instead of extending.
+      status: parked
       children: []
 
     - id: g-health-first-nutrition-cycle
       goal: >
-        Первые 8 дней питания реально выполнены через Health AI nutrition: owner стартовал по
-        tomorrow-start packet, вёл Health AI-only nutrition LOG, прошёл day-3 safety/friction check
-        и day-8 review, а Direction OS получил только summary/decision/problem без raw food diary.
+        (DROPPED 2026-06-20 — first-cycle execution bet rejected with the underlying Health AI
+        nutrition slice.) Первые 8 дней питания реально выполнены через Health AI nutrition:
+        owner стартовал по tomorrow-start packet, вёл Health AI-only nutrition LOG, прошёл
+        day-3 safety/friction check и day-8 review, а Direction OS получил только
+        summary/decision/problem без raw food diary.
       why: >
         Реальная body-value начинается не от внедрённого модуля, а от первого выдержанного цикла;
         этот узел тестирует adherence, logging, fallback и review loop до следующей системной стройки.
@@ -143,14 +149,7 @@ root:
         - Day-3 safety/friction check выполнен и не выявил blocker red flags, либо включил conservative branch.
         - Day-8 first-cycle review выполнен в Health AI по LOG summaries, owner feedback and core metrics.
         - Direction OS не содержит raw daily food logs/photos/check-ins; только summary, decisions, problems, and next CALL.
-      status: active
-      appetite: 10 calendar days
-      kill_by: >
-        2026-06-30 23:59 Europe/Minsk: if Health AI cannot prove a graph-selected
-        repo-backed startup/transition before execution, if fewer than 8 Health AI
-        nutrition days are completed, if day-3 safety/friction check or day-8 review
-        is missing, if raw daily food diary content leaks into Direction OS, or if
-        safety/friction forces conservative branch, stop and review instead of extending.
+      status: dropped
       children: []
 
     - id: g-health-training-activity-system
