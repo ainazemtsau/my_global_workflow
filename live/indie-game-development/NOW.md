@@ -818,7 +818,8 @@ decision_inbox:
       stays Wave 3 / g-d3a8 (with feedback). FORWARD: correct the stale ADR-0005/0007 "separate-layer = t-3 obligation"
       wording home-side (fold into the Wave-3 extensibility leg, or a tiny cleanup). → history/s-work-013.md.
   - id: d-sandbox-001
-    status: deferred   # owner 2026-06-19 (s-work-014) — the test/authoring HARNESS is a SEPARATE serious deliverable, AFTER wave 2 closes; NOT in t-4. Also re-scopes t-4 → internal PROOF (no Steam). REAFFIRMED 2026-06-20 (s-work-016): the c-exec-011 RESULT re-raises it — owner wants a "comprehensive test scene/sandbox to load different DA-flows + params and play around" as a needed requirement; confirms d-sandbox-001 (frame post-wave-2 via research(best-practices)→shape).
+    status: answered/active — SEQUENCE EARLY (Wave A of the A+ breakdown), owner 2026-06-20 «нужен достаточно быстро»   # owner 2026-06-19 (s-work-014) — the test/authoring HARNESS is a SEPARATE serious deliverable; was "after wave 2", now Wave 2 is CLOSED and the owner wants it SOON + the §G(+4) probes NEED it → it leads the A+ breakdown (Wave A). REAFFIRMED+SHARPENED 2026-06-20 (s-review-002 follow-up, owner voice — R3). Build via research(best-practices)→shape, but EARLY, not "post-everything".
+      OWNER CAPABILITY LIST (R3, 2026-06-20 — this is the requirement, NOT just examples): 1–2 scenes; (a) test MULTIPLAYER with chosen conditions; (b) test GAS-SIM; (c) generate ANY level via the level-gen system (SnapGridFlow now, later + the PGG plugin INSIDE the same seam); (d) SPAWN gas at any place / any amount; (e) PAUSE the simulation; (f) everything works CONVENIENTLY; (g) take a DATA SNAPSHOT at a moment → ask Claude to analyze it; (h) DESIRABLE-not-required (only if cheap + non-hanging): a separate Unity-MCP-adapted scene for Claude OR Claude can run MOST functions in the owner's scene too. Owner has 1 inspector plugin installed, can buy more add-ons, thinks that suffices. Discipline (from d-sandbox-001 note + memory): config-as-DATA / saved seeds (not scene-per-test), ONE/few parametric harness scenes, deterministic-by-seed, owner-tweakable + MCP-drivable + structured logs, anti-scene-sprawl convention.
     note: |
       TWO linked owner steers (this conversation):
       (1) t-4 IS NOT a Steam artifact. «грубую симуляцию на витрину не вешаю; для меня как доказательство окей; выкинь
@@ -893,7 +894,8 @@ decision_inbox:
       owner-eye sufficient given the LOOK caveat "basic works, NOT model-final"?) and decide whether the cut weakens the
       Wave-2 verdict. → history/s-work-016.md.
   - id: d-gasmodel-redesign-001
-    status: open — PUT TO OWNER at review s-review-002 (A+/B/C, rec A+); still BLOCKING the next g-9c41 bet until the owner ratifies   # RAISED by the owner 2026-06-20 AFTER seeing the t-4 render (recorded s-work-016) — a fundamental gas-MODEL redesign. NOT yet decided: needs the review/next-bet session to put it to the owner WITH options + a recommendation (G7). The writer only records it raw here; it does NOT adjudicate or pre-commit. **BLOCKING (2026-06-20, s-work-017): no Wave-3/next bet may be SHAPED for g-9c41 until this is decided against work/gas-model-design-full-2026-06-20.md; the old Wave-3 plan (wave_plan) + kill_by.next_if_true are SUSPENDED pending it.**
+    status: answered — owner chose дорога A+ 2026-06-20 (review s-review-002 follow-up). Next g-9c41 bet UNBLOCKED, but the owner asked that the BREAKDOWN be planned CAREFULLY first (research+map of the whole A+ construction into a de-risked, Unity-verifiable wave-tree) before any wave is shaped — see `next`. The old Wave-3 plan stays SUPERSEDED by the gas-model doc §K.   # RAISED by the owner 2026-06-20 AFTER seeing the t-4 render (recorded s-work-016) — a fundamental gas-MODEL redesign. Put to the owner with options A+/B/C + rec A+ at review s-review-002; owner ratified A+.
+      OWNER A+ RATIFICATION + STEERS (2026-06-20, voice, recorded this session): R1 дорога A+ APPROVED (sees the risk; bets it goes FASTER — 2 waves landed faster than expected, clear requirements now, Claude Code writes fast, ~12h/day, many tokens). R2 the BREAKDOWN is the CRUX + his stated #1 fear: «не сделать волну, за которой всё сделается» (no catch-all wave) + split into MINIMAL-but-FINISHED Unity-verifiable pieces (each provable by him in Unity, not a trifle) + «прям очень такой ресёрч как это всё разбить... детально каждый кусок со всеми рисками, чтобы не оказаться что в ядре что-то жёстко не так и всё переделывать»; spec covers it well, implement the spec; floated ~3 split (Grid / gas-sim / T3). R3 the TEST SANDBOX (d-sandbox-001) is needed SOON + clearly-built: 1–2 scenes; test multiplayer with conditions; test gas-sim; generate ANY level (level-gen, later + PGG inside); spawn gas anywhere/any amount; PAUSE the sim; convenient; snapshot data → Claude analyzes; DESIRABLE-not-required (only if cheap / non-hanging): a separate Unity-MCP-adapted scene for Claude OR Claude can run most functions in his scene; he has 1 inspector plugin, can buy more, thinks it's enough. R4 STOREFRONT — «хер с ней» for now: order = build the plan → visualization → THEN think storefront; he writes lore/mechanics in parallel himself; visual should exist by the deadline. R5 PARALLEL VISUAL track (GASG): run it in parallel (architecture is now defined, visual is separate), SECONDARY priority, ~4 wk, needs a VERY big research (many requirements); do NOT forget GASG TYPES / meta-types (their own piece). R6 the 2026-07-24 wall STAYS the extreme deadline (move the tail, not the wall); to hit it → the parallel visual. R7 his estimate ~3 dense weeks for the core impl (says NOT the optimistic scenario). R8 «не спеша, очень внимательно построить планы — важнейший этап». → carried into `next`.
     note: |
       Owner, having SEEN the coarse sim render, wants to REDESIGN the gas MODEL itself (his framing):
         - continuous gas WEIGHT → continuously drives height / settling speed (not 2 discrete bands);
@@ -942,46 +944,44 @@ decision_inbox:
       artifact from the A+ front/place layer (weeks) vs a parallel cheap visual pass on the EXISTING model. → history/s-review-002.md.
 
 next: |
-  WAVE 2 CLOSED by review s-review-002 (verdict in active_bet.phase). Node g-9c41 stays ACTIVE (multi-wave) but has NO
-  active bet (G1 — between waves). The NEXT BET is AWAITING the owner's decision — it MAY NOT be shaped until decided:
+  WAVE 2 CLOSED by review s-review-002 (verdict in active_bet.phase). Node g-9c41 stays ACTIVE (multi-wave), NO active
+  bet (G1 — between waves). OWNER CHOSE дорога A+ (2026-06-20) AND asked to PLAN THE BREAKDOWN CAREFULLY FIRST («не спеша,
+  очень внимательно… важнейший этап»; his #1 fear = a core blind spot found late → redo everything). So the next session
+  is NOT a single shape — it is a careful BREAKDOWN (research + map) of the whole A+ construction into a de-risked,
+  Unity-verifiable wave-tree, then shape wave-1. Owner steers R1–R8 captured in decision_inbox d-gasmodel-redesign-001.
 
-  awaiting_decision — TWO owner decisions batched (G7 + G9):
-    (D1, d-gasmodel-redesign-001) ROAD for the gas-model redesign / next g-9c41 bet — A+ / B / C (rec = A+):
-      A+ (RECOMMENDED) — grow the PROVEN integer graph core into the target model (geodesic front + interest-grain +
-         resident-gas damage law + reactions + edge-destructibility). Independently adversarially confirmed: NO dealbreaker,
-         strengthened on all axes, §K 9/11 code-grounded, nothing proven wasted. Honest cost: multi-wave → re-shape PAST
-         2026-07-24 (move the tail, not the wall); no new showable footage for weeks; host-migration still open.
-      B — continuous-field rewrite. REJECTED by the analysis (reopens the solved-expensive net-determinism problem; discards
-         Wave-1/2; highest money-gate risk).
-      C — a 1–2-wk bounded continuous-field net-replication PROBE before deciding. Only if the owner still doubts A+; likely
-         just rediscovers «a deterministic continuous field must be integer-discretized = A+ with extra steps».
-    (D2, d-review-treediff-001) TREE DIFF (G9) — approve the FOCUSED cards now + route the bigger commercial restructure to map:
-      APPROVE now: (a) ADD a host-resilience/host-migration outcome under g-9c41 (host can leave/crash without ending the
-         4–8 session — §H's value-prop killer); (b) REWORD g-9c41 wave_plan so Wave 3 = A+-basis with §G(+4) load-probes as a
-         HARD pre-bet gate (replaces the stale T2-detail plan); (c) EXPAND g-d3a8 — free-species bounded by the wire cap.
-      ROUTE TO MAP (>a few nodes, commercial track): the storefront-footage restructure — root map_order edge withdrawn,
-         g-5b07 #1 footage-half unsourced, g-2f8c #2 «teeth», reinstating the rejected «first showable artifact» node.
+  CALL — A+ BREAKDOWN (research + map of g-9c41 under дорога A+; basis = work/gas-model-design-full-2026-06-20.md §K/§G/§H):
+    goal: carve the A+ construction into a SMALL set of waves + tasks-within-waves that (i) avoid a catch-all «everything
+          done after this» wave (R2), (ii) are each MINIMAL-but-FINISHED and OWNER-VERIFIABLE IN UNITY (R2), (iii) are
+          de-risked piece-by-piece with an explicit risk pass so no CORE blind spot surfaces late (R2/R8), (iv) sequence the
+          TEST SANDBOX early (R3 — it is also what the §G probes need to run), (v) carry a PARALLEL secondary VISUAL track
+          (R5, its own big research, incl. GASG types/meta-types), (vi) keep the 2026-07-24 wall (R6, move the tail not the
+          wall). Produce: the re-framed g-9c41 wave-tree (map, owner-approved card-by-card, G9) + the recommended wave-1 shape.
+    provisional skeleton to HARDEN, not lock (owner to spar): Wave A = test sandbox (R3) + §G(+4) probe-gate (de-risk wall);
+          Wave B = «where is the gas» (integer geodesic front + interest-grain + grid sub-sectors/convex-chunk cutting +
+          real-DA at hundreds-of-rooms scale); Wave C = «consequence» (resident-gas damage law + one-truth damage/visibility +
+          first reactions/blast/cascade); Wave D = «robustness» (edge-destructibility >1 breach + HOST-MIGRATION + moving
+          geometry); Track V (∥, secondary, ~4wk) = GASG visualization research → visual language of types/meta-types, reads
+          the FROZEN RN1 + the new front (gate visual IMPLEMENTATION on the read-seams being fixed, not on the core finishing).
+    context: gas-model doc §K (already-built / in-plan / NEW) + §G probes + the s-review-002 +4 mandatory probes (knowledge
+             g9c41-wave2-gload-probes-incomplete-plus4) + §H open chunks (host-migration split out as a real node); the
+             s-review-002 knowledge promotions; d-corefoundation-001 keep-open invariant; d-sandbox-001 (sharpened capability
+             list — R3); the LOCK barrier [7,chunkCount] has 4 free plane-keys (2..5) → «capped active gases/node + hard wire
+             cap» must become a CONCRETE NUMBER (a new plane = a SURFACED LOCK-EXT per ADR-0007). Home-side cleanups owed
+             (own follow-ups, NOT here): re-spec R1 Grid→SGF + openspec apply/archive (d-grid-sgf-001); stale ADR-0005/0007
+             «separate-layer = t-3» wording; FishNet real-UDP owner-run residual.
+    HONEST tensions to hold (surface, don't bury): R7 ~3-week core estimate is likely OPTIMISTIC (A+ = 5–6 real layers +
+             §H open chunks incl. host-migration; prior memory put a full core at ~12–16wk) — the breakdown gives the honest
+             number; 2026-07-24 is realistically the wall for the FIRST waves (sandbox + probes + «where is gas»), not all of
+             A+. The de-risk-first Wave A is exactly the cure for R2's «core blind spot» fear (slow start to be fast later).
+    boundaries: map = outcomes only, no tasks (G2), owner-approved card-by-card (G9); shape (wave-1) = G6 (cut list + lens
+             sweep + a task testing the riskiest assumption); do NOT silently reopen the LOCK; storefront stays OUT (R4 — after
+             visualization). Restructuring the commercial track (root map_order / g-5b07 / g-2f8c footage edges) rides this map.
+    return: the g-9c41 A+ wave-tree (owner-approved) + the wave-1 shape CALL (ready to build).
+    budget: a focused breakdown session (research + map); split into stages if it overflows (do not rush — R8).
 
-  ON OWNER APPROVAL OF A+ →
-  CALL — shape the FIRST A+ bet of g-9c41 (re-framed PAST 2026-07-24; basis = work/gas-model-design-full-2026-06-20.md §K):
-    goal: a shaped first A+ bet that DE-RISKS the new model before any feature commitment — the §G load-probes HARDENED
-          (§G's 7 + the review's 4 added MANDATORY: two-machine awake-set/sleep-schedule determinism; resident-gas-damage RED
-          ledger; confirmed-colocation false-reaction; real-DA(SnapGridFlow) at hundreds-of-rooms scale) as the pre-bet
-          kill-gate, THEN the first real layer (integer geodesic front + interest-grain = «where exactly is the gas»), with
-          host-migration («host dies → session survives») as a named spike.
-    context: gas-model doc §K/§G/§H + the s-review-002 knowledge promotions (g9c41-wave2-aplus-over-b-code-grounded /
-             -gload-probes-incomplete-plus4 / -coarse-proof-not-resolution); d-corefoundation-001 keep-open invariant; the LOCK
-             barrier [7,chunkCount] has only 4 free plane-keys (2..5) — «capped active gases/node + hard wire cap» must be a
-             CONCRETE NUMBER at shape (a new plane = a SURFACED LOCK-EXT per ADR-0007); d-sandbox-001 harness may sequence FIRST
-             (the §G probes need its config-as-data / N-tick / structured-log / two-machine capabilities — owner Q3). Home-side
-             cleanups owed (dispatch as their own follow-ups, NOT in this shape): re-spec R1 Grid→SGF + openspec apply/archive
-             (d-grid-sgf-001); stale ADR-0005/0007 «separate-layer = t-3» wording; FishNet real-UDP owner-run residual.
-    boundaries: shape ONLY (G6 — cut list + per-lens sweep + a task testing the riskiest assumption); do NOT silently reopen
-             the LOCK (any new plane/key = a SURFACED LOCK-EXT); multi-wave appetite, move the tail not the 2026-07-24 wall.
-    return: a shaped bet (appetite + kill_by + tasks) committed to NOW with owner «го» (G9).
-    budget: one focused shape session.
-  IF B: frame a from-scratch continuous-field bet (NOT recommended; re-litigates the LOCK). IF C: a 1–2-wk bounded
-  continuous-field net-replication probe first, then re-decide A+/B.
+  PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the writer's push — ask the
+  owner to push).
 
   PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the writer's push — ask the
   owner to push). (GasCoopGame is already pushed: main a89b36b == origin/main; no product-repo edits this session.)
