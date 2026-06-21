@@ -104,4 +104,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-06-20 life-reset repair: first-node wedge ("weekly operating graph") drifted into whole-runtime foundation work through repeated repairs, until owner invalidated the entire TREE and requested remap → watching: map/shape may need a stronger "node name/scope still matches route" check after major repairs.
 
+2026-06-21 indie-game-development/codex local/mechanic-forge q-expedition-loop: Codex run diverged from Direction OS session protocol despite rules existing — first reply did not start with the opening contract, app-level final answers were sent without terminal RESULT, and step-1 brainstorm/options drifted ahead of the play's "verbs before names" discipline; likely mixed one-off execution slip + Codex skill-announcement/final-channel pressure, not yet a rule defect → logged, watching; litmus: next Codex Direction OS session must start with `📍 ...` as the first line, keep ongoing work in commentary, and only use final for a RESULT/checkpoint.
+
 END_OF_FILE: os/FRICTION.md
