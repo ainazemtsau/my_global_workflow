@@ -3,87 +3,96 @@
 active_bet:
   status: none
   note: |
-    2026-06-21: map (s-life-reset-map-manager-tree-001) is DONE. The TREE now
-    holds 6 owner-approved outcome nodes on the manager-as-spine root (run,
-    protect, integrate, learn, trust, grow), each with its why; all parked. The
-    one-real-run completion gate is unchanged (ONE real end-to-end run; no week /
-    no N-cycle). Owner clarified it stays lightweight: "started using it" closes
-    the run once real use produced the real artifacts (anti-paper floor kept); the
-    verdict is rendered through use (problems → hard feedback → fix | fine →
-    extend) — consistent with criteria ①+②, no frame re-route.
+    2026-06-21: implementation RESEARCH (s-life-reset-research-build-manager-001)
+    is DONE. Each of the 10 deferred mechanisms has evidence + 2-3 options + a
+    recommendation (the HOW; the 6-node WHAT-tree is untouched). All 10 were
+    adversarially refuted in a separate pass → ALL holds_with_fix; the refuters
+    caught ONE real guardrail breach (Q7 hollow-week veto could condemn a genuine
+    recovery week = G3 burnout loop → recovery carve-out MUST-FIX) + 9 anti-paper/
+    scoping/wording fixes. Whole-set guardrail audit passes 8/8 CONDITIONAL on the
+    fixes; coherence critic = composes=true → one tiny v1 thin slice (compose-week
+    in strict order → derive-day+R11 → one sealed-core file → one real protect
+    episode → one review→decision → durable+portable → owner attests). Full product:
+    work/life-reset-implementation-research-v1.md.
 
-    Next leg is the implementation RESEARCH (route frame → map → research →
-    shape): how to build the manager — week-graph node/edge form + day-derivation,
-    technique-selection (R32), balance minimum/routine/wishes/rest (R29), safe
-    self-rewrite mechanism (sealed core + override-survives), collapse-grip
-    detection (inside the override path), earned/demotable autonomy, how a "hollow
-    week" / aliveness is measured, ceremony/burden budget, non-punitive re-plan +
-    re-entry, and the realism bar of the one-real-run gate. Shape (after research)
-    picks the first node (recommended g-lr-run) and the v1 thin slice across
-    run+protect+learn+portability. Do NOT run work/shape before that research.
+    Two LOAD-BEARING gaps surfaced OUTSIDE the 10 (not silently expanded, no tree
+    change): g-lr-integrate's summary-contract + conflict-routing, and the
+    recovery-vs-slide distinction several recommendations silently depend on. Owner
+    decided (2026-06-21) to resolve BOTH co-creatively INSIDE shape ("Внутрь shape
+    со мной"), with a tiny-probe fallback. The one-real-run gate (no week / no
+    N-cycle; architecture-exists never counts) and all guardrails are UNCHANGED.
+
+    Next leg is SHAPE on g-lr-run (route frame → map → research → shape): size the
+    v1 thin slice as the §3 A-G compose-pulse with every required-fix folded, one
+    reconciled header layout, one shared sealed-core file, the realness card
+    (anti-paper + one bite-slot), and the two gaps resolved with the owner. Do NOT
+    pull any deferred-upgrade (DAG/board, swap-loop, surge-governor, auto-gate,
+    trace-detection, ledger, two-key veto, auto-prune, gap-ladder, self-cert) into
+    v1 — they are the cut list / g-lr-grow backlog.
   preserved_evidence:
     - live/life-reset/work/life-reset-manager-vision-capture-v1.md
-    - live/life-reset/history/2026-06-20-s-life-reset-remap-001.md
+    - live/life-reset/work/life-reset-implementation-research-v1.md
     - live/life-reset/history/2026-06-21-s-life-reset-frame-root-001.md
     - live/life-reset/history/2026-06-21-s-life-reset-map-manager-tree-001.md
+    - live/life-reset/history/2026-06-21-s-life-reset-research-build-manager-001.md
 
 tasks: []
 
 recurring: []
 
-open_calls:
-  - id: c-life-reset-research-build-manager-001
-    to: session
-    for: g-life-reset-root
-    issued: 2026-06-21
-    note: >
-      Implementation research (evidence + options, NOT decisions) for HOW to build
-      the strict self-improving manager across the 6 outcome nodes, answering the
-      deferred mechanism questions, so the following shape can size a tiny v1 thin
-      slice. Do not re-litigate the tree; respect the one-real-run gate + guardrails.
+open_calls: []
 
 decisions: []
 
 next: |
-  CALL c-life-reset-research-build-manager-001
+  CALL c-life-reset-shape-run-v1-001
   to: session
   direction: life-reset
-  play: research
-  node: g-life-reset-root
+  play: shape
+  node: g-lr-run
   goal: |
-    Produce implementation evidence + 2-3 options each (with a recommendation),
-    NOT decisions, for HOW to build the strict self-improving manager across the
-    6 outcome nodes — so a following shape can size a tiny first real-run slice.
+    g-lr-run carries an owner-approved, shaped v1 bet: the smallest real slice that,
+    run ONCE on real owner data, would close the one-real-run gate — a real composed
+    week in strict order with the filter biting, a derived day with R11, a real
+    review yielding one decision, durable artifacts surviving a chat restart, and
+    owner attestation — with one real protect episode and live-state portability
+    INSIDE it, integrate present-minimal, grow excluded.
   context: |
-    Read, in this order:
-    - os/KERNEL.md ; os/plays/research.md
-    - live/life-reset/CHARTER.md (authority: mission, 4 criteria, guardrails, R32)
-    - live/life-reset/TREE.md (6 outcome nodes run/protect/integrate/learn/trust/
-      grow — the WHAT; this research gives the HOW)
-    - live/life-reset/history/2026-06-21-s-life-reset-map-manager-tree-001.md
-      (full cards + the risk lines that flagged each deferred mechanism)
-    - live/life-reset/work/life-reset-manager-vision-capture-v1.md (§7 open Qs)
+    - live/life-reset/work/life-reset-implementation-research-v1.md (the 10
+      recommendations + their required-fixes + §3 A-G thin slice + §5 shape bundle
+      + §4 gaps + §6 deferred-upgrade backlog)
+    - live/life-reset/CHARTER.md (authority) ; live/life-reset/TREE.md (g-lr-run + the 6 nodes)
+    - live/life-reset/history/2026-06-21-s-life-reset-map-manager-tree-001.md (cards)
+    - live/life-reset/history/2026-06-21-s-life-reset-research-build-manager-001.md (the research RESULT)
   boundaries: |
-    Evidence + options only — the owner decides, research never decides for him.
-    No building. Do NOT re-open the tree (the 6 outcomes are owner-approved); if
-    research reveals an outcome is wrong, surface it, do not silently change it.
-    Keep the one-real-run gate (no week / no N-cycle) and the guardrails (sealed
-    core + inviolable override; recovery protected; no false precision). Source
-    boundaries intact (summaries, not raw neighbor data). One entity per chat.
+    Do NOT re-open the owner-approved 6-node tree (surface, never silently change).
+    Apply ALL 10 required-fixes from the research as bet conditions. Reconcile to ONE
+    week-compose header layout (tier-1 = Musts + Floors + Routine-rest + Recovery,
+    off the top, uncuttable → Routine → Wishes-through-filter [≤1 experiment] →
+    Cuts[+displaces:]). Size ONE shared sealed-core file (override + R11-refusal +
+    protected-class + rollback + "rules change only via the gate" + one collapse-grip
+    tripwire + the non-punishing-return invariant). Realness card = anti-paper
+    artifact-existence + one mandatory BITE slot (real cut OR filter-bites-owner OR
+    recovery-protected); the 5-slot list is illustrative, sized at shape. Resolve the
+    two load-bearing gaps (recovery-vs-slide distinction; g-lr-integrate summary-
+    contract + conflict-routing) CO-CREATIVELY WITH THE OWNER inside shape
+    (owner-chosen 2026-06-21), with a tiny-probe fallback if either proves too big.
+    PRESERVE: the one-real-run gate (no week, no N-cycle; architecture-exists never
+    counts); G1 sealed core + inviolable override; G2 no surfaced numbers; G3
+    recovery + rest protected first-class; G4 summaries-not-raw; STAYS LIGHT (single
+    mentor voice, cost less attention than it saves); one entity per chat.
   done_when: |
-    A research RESULT with evidence + 2-3 options (each with a recommendation) for:
-    week-graph node/edge form + day-derivation; technique-selection method (R32);
-    balance minimum/routine/wishes/rest (R29); safe self-rewrite gate mechanism
-    (sealed core + override-survives-rewrite); collapse-grip detection (inside the
-    override path); earned/demotable autonomy scoring; how a "hollow week" /
-    aliveness is measured; ceremony/burden budget (system stays light); non-
-    punitive re-plan + non-punishing re-entry; and the realism bar of the one-
-    real-run gate (so a cherry-picked easy day or a thin "test" cannot pass).
-    Next = shape CALL on the recommended first node (g-lr-run) bundling the v1
-    thin slice.
+    A shape RESULT (G6-valid) with: an owner-approved shaped v1 bet on g-lr-run
+    carrying appetite + kill_by; ≥1 real cut (the deferred-upgrade backlog is the cut
+    list); a lens-sweep verdict per charter lens; and a task testing the RISKIEST
+    assumption (recommended: the recovery-vs-slide distinction AND whether the
+    owner-authored tripwire fires on a real lapse). The v1 thin slice is sized as the
+    §3 A-G compose-pulse with every required-fix folded; the two load-bearing gaps are
+    resolved (or a tiny pre-build probe is routed). Next = a work/executor CALL (or
+    the first real run) — owner-paced, no calendar block.
   return: |
-    RESULT with evidence, options+recommendations, captures, decisions_needed,
-    and next = shape CALL.
-  budget: one research pass (multi-agent per the parallel-verify discipline).
+    RESULT with the shaped bet, cut list, lens-sweep verdict per lens, the
+    riskiest-assumption task, captures, decisions_needed, and next = work/executor CALL.
+  budget: one shape pass (co-creation; subagents only where the play calls for it).
 
 END_OF_FILE: live/life-reset/NOW.md

@@ -75,4 +75,16 @@
   on dissatisfaction). 9 lenses covered; spirit/inner-work/fatherhood not_needed
   as nodes (served as values+programs). next c-life-reset-research-build-manager-001.
 
+- 2026-06-21 - research: HOW for the manager — each of the 10 deferred mechanisms
+  got evidence + 2-3 options + a recommendation (multi-agent wf_41aaf9c5-c4c, 23
+  agents: 10 generators + 10 adversarial refuters + 3 critics). All 10 refuted to
+  holds_with_fix; one REAL G3 breach caught + patched (Q7 hollow-week veto could
+  condemn a genuine recovery week → recovery carve-out). Guardrail audit 8/8
+  pass-conditional; coherence composes=true → one tiny v1 thin slice (compose-week →
+  derive-day+R11 → one sealed-core file → one protect episode → one review→decision →
+  durable+portable → owner attests). Two load-bearing gaps surfaced outside the 10
+  (g-lr-integrate summary-contract; recovery-vs-slide distinction) → owner routed
+  both into shape ("Внутрь shape со мной"). Tree untouched; full product at
+  work/life-reset-implementation-research-v1.md. next c-life-reset-shape-run-v1-001.
+
 END_OF_FILE: live/life-reset/LOG.md
