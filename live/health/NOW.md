@@ -209,7 +209,16 @@ next: |
     wf_7dce4f4d). Nutrition is now a TRUE blank slate, NOT rebuilt. NEW next = the owner-watched COLD-START run that
     re-authors nutrition clean -- and that rebuild must FIRST fold in the engine fixes (abstract-first/never-pick-foods
     rule + proof-of-load marker + WA-K2/K3 ceiling clarifier) so the fresh domain is born correct. Remaining scope
-    items below (seam reconciliation / marker / WA-K6/K8 walk) still stand.
+    items below. UPDATE 2026-06-21: SEAM RECONCILIATION + PROOF-OF-LOAD MARKER now DONE (health-ai 6b117f0) --
+    corrected the save-gate to the owner-confirmed model "specialist composes in full, owner only gates" (system
+    composes all owner-facing content incl. concrete menus/recipes; nothing first-time persisted-even-as-PROPOSED or
+    activated without explicit echoed owner approval; gate = approve/ask/request-changes conversation; DROPPED the
+    abstract-first/never-pick-foods crutch; DEFINED the adjustment-vs-new-authoring boundary so a concrete-menu swap
+    under an ACTIVE program is NOT a silent decide-and-inform); WA-K3 "lands PROPOSED = status ceiling, not a
+    save-license" clarifier; proof-of-load reply header mandated across router + AGENTS/SYSTEM/CHATGPT_PROJECT.
+    Cross-model (Sonnet, 2 reviewers) folded in -- both independently caught the undefined review-driven-adjustment
+    re-incident path (now closed). All 4 gates green. REMAINING = WA-K6/K8 live walk + ENCODE the agreed 9-stage
+    nutrition process, both at the owner-watched COLD-START.
   why: >
     First nutrition run: an agent surfaced+persisted a CONCRETE owner-facing menu/recipes as PROPOSED without
     owner approval (8504d3f), owner-reverted (adebf3d). Verified root causes (NOT a contradiction): (1) an
