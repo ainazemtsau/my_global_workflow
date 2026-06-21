@@ -136,6 +136,23 @@ GASG visual language is Track V, but "free number of gases" discipline (the wire
   path; do not assume ≤4 is guaranteed. (owner 2026-06-20)
 - **R-PEAKLOAD:** the awake/detailed set can SPIKE (chain reactions); perf rests on graceful degradation (ceiling + round-robin)
   staying DETERMINISTIC under the spike, not on the set being small. (owner 2026-06-20)
+- **R-DOOR-AREA (owner 2026-06-21, CODE-CONFIRMED):** the current coarse orifice IGNORES opening size ENTIRELY — `CoarsePortal`
+  carries only `SillBand` (no area), and the flow `t = mEq/kP` (`CoarseBandStep.Orifice`) has NO area term, so a 25cm slit and a
+  barn door flow IDENTICALLY. `TopologyPortalSpec.OpeningSize` is carried in the topology but DROPPED at transport. DETAILED-tier
+  obligation of the A+ model: door/portal flow MUST scale with the opening's cross-sectional AREA (a §G probe: a 2× opening ≈ 2×
+  flow). The COARSE tier (far from player) keeps the size-blind orifice (cheap/deterministic for netcode); area is a detailed-tier law.
+- **R-DOOR-HEIGHT-CONTINUOUS (owner 2026-06-21, CODE-CONFIRMED):** a room is EXACTLY 2 bands (`CoarseBandStep` uses only
+  LowerBand/UpperBand); the door's real height is read from geometry but ROUNDED to a 2-band index (`CoarsePortal.SillBand` =
+  lower|upper). The "interface rises across [FloorExtent,CeilingExtent]" is a READ-MODEL interpolation for DISPLAY — the actual
+  transported state is 2 numbers (lower mass / upper mass) per species per room. DETAILED-tier obligation: a door connects at its
+  REAL height across MORE than 2 vertical cells (the continuous-weight / interest-grain finer vertical resolution — d-fillmodel-001/
+  A+ subsumes this, now explicitly pinned). Coarse tier keeps 2 bands.
+- **R-BREACH-GRANULARITY (owner 2026-06-21, OPEN design question):** today a breach materializes a pre-declared surface into a
+  2-band, SIZE-BLIND portal → a 1-cell pinhole, 4 scattered holes, and a 50-cell blown wall ALL flow IDENTICALLY (binary
+  open/closed, no area, position only via which band). DETAILED-tier obligation (a §G probe + part of §D.10 Case-A): breach flow
+  scales with the hole's AREA; its POSITION (height) sets which layers connect; multiple scattered holes = multiple flow paths
+  (sum of areas at their heights). The coarse↔detailed boundary for breach geometry is an A+ MODEL-design question to settle WITH
+  the owner before building — NOT silently coarse-only.
 
 ## 5. BOUNDARY — the one place the repo cannot verify
 
