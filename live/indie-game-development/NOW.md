@@ -342,9 +342,11 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       (a) min-spec perf of a grid-fed raymarch is UNPROVEN (one dev abandoned voxel raymarch for cost) → measure early (P4);
       (b) making MANY gas types readable at a glance without colour/motion collisions is a DESIGN unknown (no sourced answer);
       (c) GPU sync (compute finishes before the visual samples the buffer) + per-tick grid→GPU upload bandwidth.
-    next: c-visual-001 (P1 — the grid→GPU pipe + a trivial single-type render that shows WHERE + HOW-MUCH; reads the EXISTING
-          RN1; de-risks the sim→visual data path BEFORE any art). Queued — owner chooses when to start (parallel to the engine).
-          Full prototype sequence P1→P5 + risk gates → work/gas-visual-research-2026-06-21.md §5.
+    next: DESIGN/FEEL pass FIRST (rec, owner-flagged 2026-06-21) — how the gas visual should WORK + READ for the player
+          (where / how-much / which type / front / where's the danger), ABOVE technology; AI-DRIVEN, owner reacts; render
+          tech NOT chosen here. THEN the build steps. The technical P1 (c-visual-001 — grid→GPU pipe, bakes in NO look
+          decisions) is queued AFTER the design pass. Owner picks order; rec = design first (addresses his
+          «tech-before-how-it-works» concern). Full prototype sequence P1→P5 + risk gates → work/gas-visual-research-2026-06-21.md §5.
     note: |
       Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
       (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
@@ -352,7 +354,7 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
 
 open_calls:
   - id: c-visual-001
-    status: queued   # 2026-06-21 (s-visual-001) — VISUAL track (g-7e15) FIRST step (P1). Opens with a PLAN (owner present). Queued; owner starts it when he chooses (parallel to the engine, ~40–60 min/day). Basis = work/gas-visual-research-2026-06-21.md.
+    status: queued   # 2026-06-21 (s-visual-001) — VISUAL track (g-7e15) first BUILD step (P1), queued AFTER the design/feel pass (owner-flagged: settle how-it-works/reads before render tech). Opens with a PLAN (owner present). Owner starts it when he chooses (parallel to the engine, ~40–60 min/day). Basis = work/gas-visual-research-2026-06-21.md.
     note: |
       Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev→main when green). GOAL (P1, the de-risk step):
       build the grid→GPU "pipe" + a trivial single-gas render that shows WHERE the gas is + roughly HOW MUCH, reading the
