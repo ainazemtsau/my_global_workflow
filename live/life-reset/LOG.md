@@ -87,4 +87,16 @@
   both into shape ("Внутрь shape со мной"). Tree untouched; full product at
   work/life-reset-implementation-research-v1.md. next c-life-reset-shape-run-v1-001.
 
+- 2026-06-21 - shape: owner approved (G9, "да") g-lr-run as the active v1 bet — one
+  tiny real composed pulse (2 files: sealed-core + week-file, then ONE real run on live
+  data), appetite ~3h (run owner-paced, not extended), kill_by 2wk soft (2026-07-05) /
+  4wk hard (2026-07-19). Both load-bearing gaps resolved co-creatively: recovery-vs-slide
+  = 3 observable signs (named / floors-stand / bounded) with tripwires watching the FLOORS
+  not the label (anti-gaming, non-punitive); integrate present-minimal = read-only neighbor
+  summaries + owner top-up + conflict→route, no raw (G4). 4 owner floors locked (sleep /
+  no-smoking / no-binge / no-vanishing); a discipline floor captured for a gated future
+  mutation. All 10 research required-fixes folded; cut list = the deferred-upgrade backlog;
+  9 lenses swept; riskiest-assumption task t-1 (recovery-vs-slide + tripwire back-test on a
+  real past lapse). next c-life-reset-run-v1-t1-recovery-slide-001.
+
 END_OF_FILE: live/life-reset/LOG.md

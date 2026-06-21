@@ -6,21 +6,23 @@ owner_approved:
     - 'Owner approved revised root (manager-as-spine), 2026-06-21 s-life-reset-frame-root-001.'
     - 'Owner approved reshaped one-real-run done_when (no week / no N-cycle gate): "да".'
     - 'Owner approved the 6-node outcome tree + order (G9), 2026-06-21 s-life-reset-map-manager-tree-001: "да".'
+    - 'Owner approved (G9) shaping g-lr-run into the active v1 bet (appetite ~3h, kill_by 2+4, 4 floors), 2026-06-21 s-life-reset-shape-run-v1-001: "да".'
 
 tree_validity:
   state: mapped
   note: |
     2026-06-21: map (s-life-reset-map-manager-tree-001) rebuilt the tree on the
     manager-as-spine root — 6 owner-approved outcome nodes (run, protect,
-    integrate, learn, trust, grow), each with its why; all status: parked. The
-    old six nodes (weekly-operating-graph, daily-runtime, direction-life-
-    integration, intake-knowledge-memory, process-activity-modules, review-
-    portable-evolution) remain superseded; their substance was reused (vision
-    capture §2). Full cards (goal/done_when/why/edge/risk + rare-example seeds)
-    live in history/2026-06-21-s-life-reset-map-manager-tree-001.md. Next leg is
-    the implementation RESEARCH (route frame -> map -> research -> shape); shape
-    picks the first node (recommended g-lr-run) and the v1 thin slice AFTER
-    research. Do not run work/shape before that research informs the slice.
+    integrate, learn, trust, grow), each with its why. Full cards (goal/done_when/
+    why/edge/risk + rare-example seeds) live in
+    history/2026-06-21-s-life-reset-map-manager-tree-001.md. Route frame -> map ->
+    research -> shape is complete through shape: research (s-life-reset-research-
+    build-manager-001) answered the 10 deferred HOW-mechanisms, and shape
+    (s-life-reset-shape-run-v1-001) turned g-lr-run into the ACTIVE v1 bet
+    (status: active, with appetite + kill_by below). The other 5 nodes stay
+    parked (G1: one active bet). The full v1 bet — tasks t-1..t-5, the resolved
+    recovery-vs-slide + integrate gaps, cut list, lens sweep — lives in NOW.md +
+    history/2026-06-21-s-life-reset-shape-run-v1-001.md.
 
 root:
   id: g-life-reset-root
@@ -60,7 +62,7 @@ root:
 
   children:
     - id: g-lr-run
-      status: parked
+      status: active
       goal: |
         Существует работающий недельно-дневной ритм: настоящие собранные недели в
         строгом порядке (обязательное/floors → рутина → хотелки через фильтр →
@@ -74,7 +76,18 @@ root:
         выведен ≥1 реальный день, ворота R11 сработали ≥1; всё durable. Это и есть
         «начал пользоваться» — реальный ритм, не бумага.
       why: Несёт критерий ③ и поставляет 2/4 durable-артефакта ①; субстрат, на котором стоят остальные узлы.
+      appetite: |
+        ~3 focused hours to author the 2 v1 files (sealed-core + week-file); the
+        real run is owner-paced, NOT in the build budget; not extended (over-appetite
+        → re-shape a smaller run).
+      kill_by:
+        metric: real end-to-end runs on live data
+        threshold: 0 runs while the v1 files exist
+        soft: 2026-07-05  # pause & run
+        hard: 2026-07-19  # kill → re-shape a smaller run
+        note: owner-paced; re-anchor to build-complete +2wk/+4wk if the build starts later.
       detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
+      bet: history/2026-06-21-s-life-reset-shape-run-v1-001.md  # the active v1 bet (NOW.md)
 
     - id: g-lr-protect
       status: parked
