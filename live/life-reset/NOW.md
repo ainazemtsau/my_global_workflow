@@ -2,100 +2,92 @@
 
 active_bet:
   status: none
-  repair_status: root_being_reframed
   note: |
-    2026-06-20: the remap session (s-life-reset-remap-001) co-created the real
-    scope with the owner and found the current CHARTER root too narrow. The real
-    system is a STRICT, SELF-IMPROVING personal operating MANAGER as the spine
-    (weekly + daily rhythm) into which directions, programs and a backlog plug —
-    not a weekly tracker and not isolated programs. The full captured vision
-    (R1–R31 + two operating models) is saved at
-    work/life-reset-manager-vision-capture-v1.md.
+    2026-06-21: the root re-frame is DONE. CHARTER.md now carries the strict,
+    self-improving personal-manager-as-spine root (mission, 4 success criteria,
+    strict-personality principles, gated self-improvement, guardrails, operating
+    invariants, updated pre-mortem) — all owner-approved this session
+    (s-life-reset-frame-root-001). The v1 completion gate is ONE real end-to-end
+    run on real inputs (test / dry-run / one lived day), NOT a lived week or
+    N cycles.
 
-    Because map cannot edit CHARTER.md, the session routed to FRAME. The TREE
-    stays invalid_pending_remap until the root is re-framed (owner-approved) and
-    a fresh map rebuilds the tree on it. Do not run work/shape/daily operation,
-    and do not accept a Weekly Contract, before the re-frame.
-
-    The old runtime-architecture / weekly-operating-graph route stays stopped;
-    old artifacts remain evidence only, not authority.
+    TREE is root-only (the old six nodes removed; their substance lives in the
+    vision capture + git history). The next session is a fresh MAP that rebuilds
+    outcome nodes on this root. Do NOT run work/shape/review and do NOT accept a
+    week before that map. The implementation research (how to build the manager,
+    week-graph form, technique-selection R32, balances, safe self-rewrite) is the
+    leg AFTER map (route: frame → map → research → shape).
   preserved_evidence:
     - live/life-reset/work/life-reset-manager-vision-capture-v1.md
     - live/life-reset/history/2026-06-20-s-life-reset-remap-001.md
-    - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
-    - live/life-reset/work/sunday-planning-packet-v0.md
-    - live/life-reset/work/life-reset-runtime-boundary-v0.md
-    - live/life-reset/work/life-reset-runtime-data-memory-retrieval-requirements-v0.md
+    - live/life-reset/history/2026-06-21-s-life-reset-frame-root-001.md
 
 tasks: []
 
 recurring: []
 
 open_calls:
-  - id: c-life-reset-frame-manager-root-001
+  - id: c-life-reset-map-manager-tree-001
     to: session
     for: g-life-reset-root
-    issued: 2026-06-20
+    issued: 2026-06-21
     note: >
-      Re-frame the life-reset root to encode a strict, self-improving personal
-      operating manager as the spine (R1–R31). Primary input is the captured
-      vision artifact. A fresh map rebuilds the tree on the approved root.
+      Rebuild the life-reset tree on the owner-approved manager-as-spine root:
+      outcome nodes into which directions + programs + backlog plug; the three
+      routed criteria (managed-extensions, process-incubation, self-improvement-
+      fires) become outcome nodes; reuse the old six nodes' substance from the
+      vision capture. Outcomes only, no tasks; implementation research is the
+      leg AFTER map.
 
 decisions: []
 
 next: |
-  CALL c-life-reset-frame-manager-root-001
+  CALL c-life-reset-map-manager-tree-001
   to: session
   direction: life-reset
-  play: frame
+  play: map
   node: g-life-reset-root
   goal: |
-    life-reset has an owner-approved revised root (mission, success criteria,
-    principles/constraints, lenses) that encodes the real scope: a strict,
-    self-improving personal operating manager as the spine — not a weekly
-    tracker and not isolated programs.
+    life-reset has an owner-approved goal TREE rebuilt on the revised root: a
+    strict, self-improving personal operating MANAGER as the spine, with outcome
+    nodes into which directions + programs + backlog plug (week = pulse, day from
+    week), and the manager's own capabilities (intake/self-definition, weekly
+    pulse, daily loop, review/self-improvement, backlog, process-extension).
   context: |
     Read, in this order:
     - os/KERNEL.md
-    - os/plays/frame.md
-    - live/life-reset/CHARTER.md (current root to revise)
+    - os/plays/map.md
+    - live/life-reset/CHARTER.md (the revised root — authority)
+    - live/life-reset/TREE.md (root-only; children: [])
     - live/life-reset/NOW.md
-    - live/life-reset/work/life-reset-manager-vision-capture-v1.md  (R1–R31 + models — primary input)
-    - live/life-reset/history/2026-06-20-s-life-reset-remap-001.md
-
-    The revised root must newly encode:
-    - manager-as-spine: one coordinating personal manager (weekly+daily rhythm)
-      into which directions + programs + backlog plug; the week is the manager's
-      pulse, not a contract artifact (R8, R27–R29).
-    - strict personality (R1–R7, R30–R31): efficiency-first, non-caving,
-      aggressive/critical-by-default in any program (especially where work
-      stalls), "better to over-criticize than under-criticize"; interrupt the
-      accepted plan only for real impact on current goals/directions or a hard
-      newly-discovered due date; on rest/play do not moralize but seek synergy —
-      while still allowing genuine recovery.
-    - self-improving process (R13–R17): self-defining intake that researches the
-      owner's work-style and can rewrite its own instructions; a week-gone-wrong
-      triggers a re-research/improve cycle on the process itself.
-    - portability/state/writer (R18–R22) and the v1 goal + expansion (R23–R24).
+    - live/life-reset/work/life-reset-manager-vision-capture-v1.md
+      (hub model §2; the old six map nodes live INSIDE the manager — reuse their
+       substance as candidate outcome nodes)
+    - live/life-reset/history/2026-06-21-s-life-reset-frame-root-001.md (this RESULT)
+    Candidate outcome nodes to consider (from frame): the manager's intake +
+    technique-selection (R15/R16/R32); the weekly pulse (compose week from three
+    streams in strict order); the daily loop (day from week + R11 gate); review +
+    self-improvement (gated rule-rewrite, G-1); managed extensions / backlog
+    (routed criterion ⑤); process incubation + self-definition (routed criterion
+    ⑥); self-improvement-fires (routed criterion ⑦); cross-direction integration
+    (read summaries, route, no scope capture); portability/durable-state.
   boundaries: |
-    Present the revised root one artifact at a time; nothing enters CHARTER.md
-    without explicit owner approval (G9).
-    Do not build the tree (that is the following map).
-    Do not run the implementation research inside frame.
-    Keep success criteria measurable and PROTECT the "run one real cycle before
-    more architecture" gate (charter pre_mortem #11) and the guardrails: process
-    self-rule-changes pass an explicit gate/review and the manager cannot
-    silently disable the owner's override path; "math precision" = heuristic +
-    evidence.
-    Do not store raw health/game/Solmax data; keep source-direction boundaries.
-    Do not prescribe nutrition/training/medical/psychiatric treatment.
+    Outcomes only — no tasks (G2). Every non-root node carries its one-line why.
+    Do NOT run the implementation research inside map (week-graph node/edge form,
+    technique-selection design, minimum/routine/wishes balance, safe self-rewrite
+    mechanism) — that is the FOLLOWING research leg (route frame→map→research→
+    shape). One entity per chat. Present the skeleton and each node for explicit
+    owner approval (G9). Keep source-direction boundaries (read summaries, never
+    store raw health/game/Solmax data, never rewrite neighbor scope). Protect the
+    one-real-run completion gate (no week / no N-cycle re-introduction) and the
+    guardrails (gated self-rewrite + inviolable override; recovery protected;
+    no false precision).
   done_when: |
-    CHARTER.md root (mission, success_criteria, principles, lenses) is owner-
-    approved and reflects R1–R31; NOW.next is a map CALL to rebuild the tree on
-    the revised root.
+    TREE.md has an owner-approved set of outcome nodes on g-life-reset-root, each
+    with its why; NOW.next is a research CALL for the §7 implementation questions
+    (or shape, per map's close).
   return: |
-    RESULT with the owner-approved revised charter root, state_changes, evidence
-    and next map CALL.
-  budget: one frame session
+    RESULT with the owner-approved tree, state_changes, evidence and next CALL.
+  budget: one map session
 
 END_OF_FILE: live/life-reset/NOW.md

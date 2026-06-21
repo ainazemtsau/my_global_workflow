@@ -50,4 +50,14 @@
   captured (R1–R31) at work/life-reset-manager-vision-capture-v1.md; next
   c-life-reset-frame-manager-root-001.
 
+- 2026-06-21 - frame: owner approved the re-framed root — strict, self-improving
+  personal-manager-as-spine (mission, 4 success criteria, 5 strict-personality
+  principles + gated self-improvement, guardrails, R11/R12/R22 invariants,
+  updated pre-mortem, root node); efficiency reframed as method-not-end (owner
+  R1 refinement); owner added R32 (technique-selection intake); owner rejected a
+  week/N-cycle completion gate → reshaped to ONE real end-to-end run (test /
+  dry-run / one lived day) + owner-useful acceptance, no calendar week; TREE now
+  root-only (old 6 nodes removed, substance preserved); next
+  c-life-reset-map-manager-tree-001.
+
 END_OF_FILE: live/life-reset/LOG.md
