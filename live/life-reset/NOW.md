@@ -56,9 +56,14 @@ active_bet:
       CALL anything recovery (default = treat-as-recovery, never punished, G3), but the
       owner-authored floor tripwires watch the FLOORS, not the label — a fallen floor fires the
       tripwire as a PROTECT episode (reach-in / name the falling pillar), not a verdict.
-      THREE response altitudes (t-1 audit): (1) default = treat-as-recovery; (2) fallen floor
-      = in-system PROTECT reach-in; (3) a pre-named CLINICAL-RISK sign = route OUT to
-      professional support, never intensify discipline (sealed, lives in the t-2 core).
+      RESPONSE (owner-corrected 2026-06-21, supersedes the t-1 audit's clinical-risk routing):
+      (1) genuine recovery (named / floors-stand / bounded) = protected, leave it; (2) the
+      checkout-slide (NOT chosen as rest, floors falling, unbounded) = caught by the tripwires
+      → re-ignite the "blade" through the owner's OWN values via an objective external voice,
+      FIRM but non-punishing, NEVER force (force doesn't move him; values-synergy does) and
+      NEVER route to a specialist. BOUNDARY: the manager is NOT a clinical safety valve — the
+      owner self-sources any external human support (psychiatrist / friend) outside the system;
+      the override door is always his. (Lives in the t-2 sealed core.)
     floors: |
       1. Sleep — not broken 2 nights running. 2. Not smoking again. 3. No binge-eating.
       4. Not vanishing / zoning-out for days. (A 5th "training/practice discipline" floor is
@@ -81,9 +86,11 @@ active_bet:
     - fatherhood-and-example: not_needed (v1 — a quality criterion, not a first-run mechanism).
     - system-quality: TASK/condition (stays-light enforced by the appetite cap + kill_by
       bureaucracy brake + the no-mid-stream-churn run model).
-    - safety: TASK (t-1/t-2 — recovery carve-out + floors/tripwires + inviolable override +
-      CLINICAL-RISK ROUTING: a clinical-risk sign routes OUT to professional support, not an
-      in-system reach-in — restored by the t-1 plan audit). CRITICAL.
+    - safety: TASK (t-1/t-2 — protect genuine recovery + floors/tripwires + inviolable
+      override; the checkout-slide response = re-ignite via the owner's OWN values (objective
+      voice), firm/non-punishing, never force/refer; the manager is NOT a clinical safety
+      valve — owner self-sources external help — owner-corrected 2026-06-21, supersedes the
+      clinical-risk routing). CRITICAL.
 
   cut_list: |
     NOT in v1 (≥1 real cut, G6) → captures / g-lr-grow backlog: typed-commitment DAG / Kanban
@@ -132,16 +139,17 @@ tasks:
       rollback (git-revert, no automation overclaim) · "rules change only via the gate" (every
       ACTUAL rewrite is gate-checked — not "provably sealed forever") · the 4 tripwires (from
       t-1) · the non-punishing-return invariant (hosted HERE, not on the override path) ·
-      CLINICAL-RISK ROUTING (t-1 audit fix): on a pre-named clinical-risk sign the manager
-      routes OUT to professional support and does NOT intensify discipline or prescribe
-      treatment — a sealed class, distinct from the in-system recovery reach-in.
+      the NOT-A-SAFETY-VALVE boundary (owner-corrected): the manager is no clinician and does
+      NOT route to a specialist or run therapy — the owner self-sources external human support;
+      its checkout-slide response is re-igniting his OWN values via an objective voice, firm
+      but non-punishing, never force/referral.
     done_when: |
       The sealed-core file exists in the PRODUCT REPO (C:\projects\life-reset-manager,
       committed + pushed; evidence = commit SHA), durable, listing all of the above INCLUDING
-      the clinical-risk routing rule (its specific signs co-created with the owner when
-      authoring this file — owner-content); v1 performs NO rewrite (that is g-lr-learn) — this
-      only authors the core + a repeatable 2-assertion hand-run smoke check (override still
-      works + floors intact). No surfaced numbers (G2). markdown-only (lightness_rule).
+      the not-a-safety-valve boundary + the checkout-slide re-ignite-via-values response
+      (owner-corrected); v1 performs NO rewrite (that is g-lr-learn) — this only authors the
+      core + a repeatable 2-assertion hand-run smoke check (override still works + floors
+      intact). No surfaced numbers (G2). markdown-only (lightness_rule).
 
   - id: t-3
     kind: executor
@@ -200,6 +208,7 @@ preserved_evidence:
   - live/life-reset/work/life-reset-v1-plan-audit-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t1-plan-audit-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-setup-product-repo-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-protect-mechanism-correction-001.md
 
 next: |
   CALL c-life-reset-run-v1-t2-sealed-core-001
@@ -217,6 +226,12 @@ next: |
     CLINICAL-RISK ROUTING (a pre-named clinical-risk sign → route OUT to professional support,
     never intensify discipline — the t-1 audit's load-bearing fix). v1 runs NO rewrite; this
     only authors the core + a 2-assertion hand-run smoke check.
+
+    NOTE (owner-corrected 2026-06-21): the manager is NOT a clinical safety valve — NO
+    specialist routing, NO therapy/practices; the owner self-sources his own external human
+    support outside the system. Its checkout-slide response = re-ignite the owner's OWN values
+    via an objective external voice (firm, non-punishing, never by force or referral). The
+    manager is his objective mirror for weighted decisions + anti-overcommit; keep it light.
   context: |
     - WRITE the file in the PRODUCT REPO: C:\projects\life-reset-manager (remote
       github.com/ainazemtsau/life-reset-manager) — markdown-only; commit + push there;
@@ -230,18 +245,20 @@ next: |
     - live/life-reset/CHARTER.md (guardrails G1-G4; product_repos lightness_rule;
       authority_and_boundaries clinical-risk routing; risk_posture asymmetric rigor)
   boundaries: |
-    Co-create with the owner — the CLINICAL-RISK SIGNS and what "professional support" means
-    are owner-content (his signs, his words); do NOT invent them generically. The file lives
-    in the PRODUCT REPO, NOT live/life-reset/work/ (governance only); markdown-only, no infra
-    (lightness_rule). Author ONLY the sealed core (not the week-file — that is t-3). NO rewrite
-    engine (that is g-lr-learn). No surfaced numbers (G2). The override path stays inviolable;
-    the non-punishing-return invariant lives in the core (NOT on the override path);
-    clinical-risk routes OUT (not an in-system reach-in). Keep it light — a short readable file.
+    Co-create with the owner — how the manager should re-voice his OWN values when he's in the
+    checkout-slide is owner-content (his values, his words); do NOT invent generic motivation.
+    The manager is NOT a clinical safety valve: NO specialist routing, NO therapy/practices —
+    the owner self-sources external human help; do NOT re-add a clinical backstop. The file
+    lives in the PRODUCT REPO, NOT live/life-reset/work/ (governance only); markdown-only, no
+    infra (lightness_rule). Author ONLY the sealed core (not the week-file — that is t-3). NO
+    rewrite engine (that is g-lr-learn). No surfaced numbers (G2). The override path stays
+    inviolable; the non-punishing-return invariant lives in the core (NOT on the override path).
+    Keep it light — a short readable file.
   done_when: |
     The sealed-core file exists in the PRODUCT REPO (committed + pushed; evidence = commit SHA),
-    listing all of the above INCLUDING the clinical-risk routing rule with owner-co-created
-    signs; plus a repeatable 2-assertion hand-run smoke check (override still works + floors
-    intact). next = t-3 (week-file template).
+    listing all of the above INCLUDING the not-a-safety-valve boundary + the checkout-slide
+    re-ignite-via-values response (owner-corrected); plus a repeatable 2-assertion hand-run
+    smoke check (override still works + floors intact). next = t-3 (week-file template).
   return: RESULT with the sealed-core file (product-repo commit SHA), the smoke check, next = t-3 CALL.
   budget: one work session (co-creation with the owner).
 

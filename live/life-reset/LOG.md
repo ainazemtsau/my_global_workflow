@@ -118,4 +118,16 @@
   Carried the one real nugget: lightness_rule = markdown-only until a real run earns more.
   t-2/t-3 re-pointed to the product repo. next unchanged: c-life-reset-run-v1-t2-sealed-core-001.
 
+- 2026-06-21 - frame (charter touch, owner G9): CORRECTED the protect/safety mechanism. The
+  t-1 audit's "clinical-risk routing" (route OUT to a specialist) is OVERTURNED by the owner:
+  the manager is NOT a clinical safety valve — no specialist routing, no therapy/practices;
+  the owner self-sources his own external human support outside the system. His real failure
+  mode is the lazy/self-pity CHECKOUT (no middle: lazy=miserable ↔ blade=alive); the response
+  is to re-ignite his OWN values via an OBJECTIVE external voice — firm, non-punishing, never
+  by force (force doesn't move him; values-synergy does) and never by referral. Manager = his
+  "objective side of reality" for weighted decisions + anti-overcommit; must stay light (the
+  Notion-sprawl anti-pattern). Charter (authority/safety-lens/+objective-external-mirror
+  principle), NOW (altitudes/safety/t-2/next CALL) + the product-repo README corrected.
+  next unchanged: c-life-reset-run-v1-t2-sealed-core-001.
+
 END_OF_FILE: live/life-reset/LOG.md
