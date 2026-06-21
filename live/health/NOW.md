@@ -200,6 +200,16 @@ next: |
   to: session lead + executor (health-ai)
   direction: health  node: g-health-core  bet: b-health-core-kernel
   repo: C:\projects\health-ai
+  PROGRESS 2026-06-21: HEALTH-AI CLEANUP escalated by owner ("го") to a FULL CLEAN-SLATE RESET and DONE
+    (health-ai commit 8e981ec, UNPUSHED): deleted the ENTIRE x_nutrition/ domain + acceptance/kernel/journey-proof.md,
+    blanked owner profile/program/anchors to empty templates, emptied the registry (no active domain), rewrote
+    tools/check_core_evidence.py (had 125 kg + x_nutrition-active baked in), de-nutritioned AGENTS/SYSTEM/README/
+    CHATGPT_PROJECT (6 load-bearing keywords preserved). All 4 gates green; zero personal-data/research/run-output
+    remains; engine intact + cold-start possible from core/ alone (adversarially verified: plan wf_1bcd4174, execute
+    wf_7dce4f4d). Nutrition is now a TRUE blank slate, NOT rebuilt. NEW next = the owner-watched COLD-START run that
+    re-authors nutrition clean -- and that rebuild must FIRST fold in the engine fixes (abstract-first/never-pick-foods
+    rule + proof-of-load marker + WA-K2/K3 ceiling clarifier) so the fresh domain is born correct. Remaining scope
+    items below (seam reconciliation / marker / WA-K6/K8 walk) still stand.
   why: >
     First nutrition run: an agent surfaced+persisted a CONCRETE owner-facing menu/recipes as PROPOSED without
     owner approval (8504d3f), owner-reverted (adebf3d). Verified root causes (NOT a contradiction): (1) an
