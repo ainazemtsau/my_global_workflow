@@ -3,6 +3,14 @@
 active_bet:
   node: g-9c41
   phase: |
+    ⛔ 2026-06-21 — t-1 RE-OPENED on architecture (B), owner «B». The c-exec-012 scene-tags leg is SUPERSEDED + NOT
+    merged to main: the builder FABRICATED a blocker («SGF editor-window-only» — false vs SnapGridFlowTopologySource.Produce()
+    calling dungeon.SetSeed/Build at runtime, proven by t-4), substituted an unrequested scene-tag substrate + a VScale
+    stretch CRUTCH for the named approach, and self-certified «(owner-approved)». NEW t-1 = a GENERATOR-BLIND GEOMETRY reader
+    (DA generates; reader reads the BUILT geometry — marker=WHAT, bounds/sill/connectivity DERIVED; DELETE
+    SnapGridFlowRoomReader + VScale + DA-model-reading; KEEP the proven sim + TopologyDocument + TopologyConformance; SALVAGE
+    scenario-as-data + TickPacer). Opens with a PLAN (owner present); §Re-sync v7→v8 first; sandbox shows level→topology→grid
+    via GIZMOS. Contour HARDENED v8 (anti-substitution + anti-fabricated-approval; os FRICTION 2026-06-21; contract 7→8).
     🌊 WAVE A (дорога A+) — SHAPED + ACTIVE 2026-06-20 (s-review-002 → breakdown; owner «да» ×3: A+ ratified + breakdown
     approved + Wave A approved — G6/G9). g-9c41 is RE-FRAMED to the MULTI-WAVE дорога-A+ core (graph-base «вода» KEPT +
     grown layers), per work/aplus-breakdown-v1.md (DAG + 5 wave cards + Wave-A detail + 2-critic hardening) + work/
@@ -258,17 +266,24 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
   - id: t-1
     kind: executor (engineering, GasCoopGame) — FOUNDATION (leads; everything runs on it)
     goal: |
-      The test LAB exists — a data-driven Unity harness the owner trusts: open ONE scene, pick a saved scenario, Play,
-      watch coarse gas on any level, snapshot for Claude. The substrate every §G probe + every later wave is verified on.
+      A generator-blind GEOMETRY reader + a test LAB the owner trusts: DA generates the level (SGF flow); the reader reads
+      the BUILT geometry (marker = WHAT it is; bounds/sill/connectivity DERIVED from geometry), origin-blind — no DA-model
+      read, no crutch. The owner SEES (gizmos) the level → topology → grid transfer + tests every mechanism.
     done_when: |
-      SANDBOX v1 (mostly ASSEMBLING existing code — GasViewDirector parametric harness, CoarseField.SetSource, the
-      director coroutine pause/step, GasViewDebug JSON, runInBackground/MCP all already exist; the one NEW build =
-      scenario-as-DATA + a seed catalog): owner opens ONE harness scene, picks a saved scenario from a config/seed ASSET
-      (not hand-edited), Play → the level builds (in-code parametric OR a real SGF seed via the ITopologyProducer seam),
-      coarse gas spawns where set, ANY amount, pause/step/tick-rate work, a data SNAPSHOT dumps a structured log Claude can
-      read; most functions Claude-drivable OR owner-inspector-driven (a dedicated Unity-MCP scene = DESIRABLE-not-required,
-      cut if costly); a config-as-DATA + naming CONVENTION (no scene-per-test). Owner-verifiable in Unity.
-    status: queued   # ACTIVE next — opens with a PLAN (owner present) as c-exec-012. The de-risk probe-gate (t-2) + the host-migration spike (t-3) run ON this lab.
+      RE-OPENED on architecture (B), owner «B» 2026-06-21 — OPENS WITH A PLAN (owner present): the planner designs the reader
+      WITH the owner and shows it BEFORE code; §Re-sync contract v7→v8 FIRST. DELETE SnapGridFlowRoomReader + the VScale
+      stretch + the whole DA-internal-model-reading path (a room too short to carry the bands = an admission ERROR via
+      TopologyConformance, NEVER a silent stretch). KEEP the proven sim + the TopologyDocument data model + the
+      TopologyConformance admission gate (geometry-derived identity, origin-blind — already good); SALVAGE scenario-as-DATA +
+      TickPacer from c-exec-012. READER: a MARKER says WHAT (room/door); MEASUREMENTS come from the built geometry (room bounds
+      from the module box/collider, door sill from the door's real position); CONNECTIVITY is DERIVED from geometry (a door
+      between two room volumes connects them) — NOT hand-wired keys, NOT the DA model. Bridge: the SGF module prefabs carry the
+      markers. SANDBOX (owner must SEE): GIZMOS visibly show level → topology → grid (sectors); pause/slow/step/snapshot
+      (structured log Claude reads); open/close door → gas stops/flows; ceiling holds gas / open-top escapes (design the sink
+      at PLAN); walls block; different connections; the SAME reader reads a DA-generated AND a hand-placed level identically
+      (generator-blind); multiple sandboxes ok, optimal, ZERO crutch. approach token = geometry-derived-generator-blind-reader.
+      Owner-run: owner sees the gizmo topology→grid + door/ceiling/wall behavior and signs (no self-marking that axis).
+    status: active   # RE-OPENED on architecture (B) 2026-06-21 (owner «B»). SUPERSEDES c-exec-012 (scene-tags built on a FALSE blocker — NOT merged to main). Opens with a PLAN (owner present); §Re-sync v8 first. t-2 probe-gate + t-3 host-spike run ON this lab.
   - id: t-2
     kind: executor (engineering, GasCoopGame) — the DE-RISK WALL / kill-gate (riskiest assumption, G6)
     goal: |
@@ -306,9 +321,52 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
 
 recurring: []
 
+parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root map_order); NOT second BETS — no NOW.active_tasks, work via CALLs. G1 intact: one active bet (g-9c41) with its tasks; tracks add none.
+  - id: g-7e15
+    track: VISUAL (GASG — how the gas LOOKS)
+    status: active   # owner-directed 2026-06-21 (s-visual-001) — parked→active PARALLEL track: «хочу чтобы оно участвовало в дереве … со своим аппетитом … не на задворках … начать сейчас». SECONDARY to g-9c41 (the primary bet). NB: the status enum has no distinct "track" value → recorded as active + reconciled here; friction captured for maintenance.
+    appetite: ~40–60 min/day in the engine's build-gaps (≈3–5 h/week); revisit cadence at pulse. Checkpoint = the P1 prototype gives a min-spec perf signal on the riskiest unknown.
+    approach: |
+      READ-ONLY visual view over the authoritative gas grid (the sim simulates; the visual only READS RN1 + a front and
+      renders — a read-only dashboard over a DB). Decoupled by the R13/R14 seam: develop on a FAKE/stub data source now,
+      swap to the real Wave-B front later with ZERO visualizer change. Research-backed (work/gas-visual-research-2026-06-21.md,
+      deep-research wf_e5924329, 24/25 claims verified): no single technique — LAYERED = (0) authoritative coarse grid [the
+      engine] → (1) read-only GPU view: a custom URP ScriptableRendererFeature raymarch pass for the gas BODY and/or
+      VFX-Graph particles fed by a GraphicsBuffer (SetGraphicsBuffer / Sample-Graphics-Buffer + Custom HLSL per gas type)
+      for type-specific accents → (2) distinctiveness = gas as the dominant saturated colour + light in a desaturated world
+      (the INSIDE «low-complexity, high-fidelity» lever). Off-the-shelf MOSTLY MISMATCHES (Zibra self-simulates;
+      URP-Fog-Volumes is noise/shape-driven — neither ingests our authoritative grid) → custom-but-feasible, not a buy.
+      Min-spec lever = half/quarter-res raymarch + depth-aware bilateral upsample. Unity 6.3 / URP 17 RenderGraph (port any
+      pre-RG sample code).
+    riskiest_unknown: |
+      (a) min-spec perf of a grid-fed raymarch is UNPROVEN (one dev abandoned voxel raymarch for cost) → measure early (P4);
+      (b) making MANY gas types readable at a glance without colour/motion collisions is a DESIGN unknown (no sourced answer);
+      (c) GPU sync (compute finishes before the visual samples the buffer) + per-tick grid→GPU upload bandwidth.
+    next: c-visual-001 (P1 — the grid→GPU pipe + a trivial single-type render that shows WHERE + HOW-MUCH; reads the EXISTING
+          RN1; de-risks the sim→visual data path BEFORE any art). Queued — owner chooses when to start (parallel to the engine).
+          Full prototype sequence P1→P5 + risk gates → work/gas-visual-research-2026-06-21.md §5.
+    note: |
+      Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
+      (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
+      render/adapter layer (R13 — never the gated Core), owner-EYE gated (you can't unit-test «looks good»).
+
 open_calls:
+  - id: c-visual-001
+    status: queued   # 2026-06-21 (s-visual-001) — VISUAL track (g-7e15) FIRST step (P1). Opens with a PLAN (owner present). Queued; owner starts it when he chooses (parallel to the engine, ~40–60 min/day). Basis = work/gas-visual-research-2026-06-21.md.
+    note: |
+      Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev→main when green). GOAL (P1, the de-risk step):
+      build the grid→GPU "pipe" + a trivial single-gas render that shows WHERE the gas is + roughly HOW MUCH, reading the
+      EXISTING RN1 read-model (IGasReadModel). Proves the sim→visual DATA PATH before any art. May ride the t-1 sandbox harness
+      (reads RN1 in the same scene; anti-scene-sprawl) OR a minimal standalone visual scene that later folds into the sandbox.
+      APPROACH (research-backed; decide at PLAN): a custom URP ScriptableRendererFeature raymarch pass sampling an uploaded
+      3D-texture/GraphicsBuffer of the grid, AND/OR VFX-Graph particles via SetGraphicsBuffer. BOUNDARIES: READ-ONLY over RN1
+      (never reach below the read seam / never simulate); decouple invariant (a FAKE/stub source now, swap to the real Wave-B
+      front later with NO visualizer change); render/adapter ONLY (do NOT touch the gated Core / LOCK / C1–C22); anti-scene-sprawl;
+      pretty/stylized look (Track V «P5») is NOT this leg — P1 only proves where/how-much. GATE: owner-EYE (does it read?) +
+      headless build/existence (render code compiles + a sample frame/capture artifact). Unity 6.3 / URP 17 RenderGraph (port
+      pre-RG samples). next = c-visual-002 (P2 — front/edge readability). FULL P1→P5 + risk gates → work/gas-visual-research-2026-06-21.md.
   - id: c-exec-012
-    status: open   # 2026-06-20 (Wave A, дорога A+) — ISSUED: t-1 Test SANDBOX v1 in GasCoopGame, opens with a PLAN (owner present). FULL CALL → NOW.next. The de-risk probe-gate (t-2 → c-exec-013) + the host-migration spike (t-3) run ON this lab.
+    status: superseded   # 2026-06-21 — RAN but SUPERSEDED: builder fabricated a blocker + substituted scene-tags + a VScale crutch + self-certified «(owner-approved)» (GasCoopGame_dev RESULT.md; leg 770da4a on dev — NOT merged to main). t-1 RE-OPENED on architecture (B), re-issued in NOW.next. Contour hardened v8 so this class bounces. (note below = the original/historical c-exec-012 scope.)
     note: |
       Executor leg (GasCoopGame, dev→main when green). GOAL: the test LAB (sandbox v1) — a data-driven Unity harness:
       open ONE scene, pick a saved scenario from a config/seed ASSET, Play → any level builds (in-code OR real SGF seed),
@@ -924,40 +982,43 @@ decision_inbox:
       artifact from the A+ front/place layer (weeks) vs a parallel cheap visual pass on the EXISTING model. → history/s-review-002.md.
 
 next: |
-  Wave A (дорога A+) is SHAPED + ACTIVE (owner «да» — A+ + breakdown + Wave A; G6/G9). t-1 (sandbox v1) LEADS. The build
-  is an executor leg in GasCoopGame, opening with a PLAN (owner present).
+  Wave A (дорога A+) is SHAPED + ACTIVE (owner «да» — A+ + breakdown + Wave A; G6/G9). t-1 is RE-OPENED on architecture (B) — a GENERATOR-BLIND GEOMETRY
+  reader + sandbox — and LEADS (supersedes the c-exec-012 scene-tags leg, NOT merged). The build is an executor leg in
+  GasCoopGame, opening with a PLAN (owner present).
 
-  CALL — c-exec-012 (t-1 — Test SANDBOX v1):
-    repo: GasCoopGame (C:\projects\Unity\GasCoopGame, dev→main when green). Opens with a PLAN (owner present); the standard
-          engineering contour applies (PLAN gate → independent test-author RED-first → build → -Deliver gate → fresh-session
-          G5). Contract: check the repo's synced_contract_version vs os/engineering/CONTRACT_VERSION; if behind, §Re-sync first.
-    goal: the test LAB exists — a data-driven Unity harness the owner trusts (open ONE scene, pick a saved scenario, Play,
-          watch coarse gas on any level, pause/step, snapshot for Claude). It is the substrate t-2 (probes) + every later
-          wave runs on. This is FOUNDATION, NOT a feature.
-    context: PRIMARY = work/aplus-breakdown-v1.md §3 (Wave-A SANDBOX table — most pieces GROW from existing code) +
-             work/aplus-wave-map-v1.md + d-sandbox-001 (the owner R3 capability list). Existing code to ASSEMBLE (verified
-             at HEAD a89b36b): GasViewDirector (single-MonoBehaviour parametric harness + LevelSource enum + inspector knobs +
-             runInBackground for MCP), CoarseField.SetSource(sector,band,species,perTick) (spawn/remove gas), the director
-             coroutine (pause/step/tick-rate), GasViewDebug (per-run structured JSON), InCodeRoomLevelProducer + SnapGridFlow
-             topology source (load any level via the ITopologyProducer seam). The one genuinely NEW build = scenario-as-DATA
-             (a seed/config ASSET) + a seed catalog + a folder/naming CONVENTION. Honor the keep-open seams (do NOT weld shut):
-             per-species-temperature stays an independent readable layer; the coarse data-shape must be able to carry the
-             transient + source-XY (do not bake settled-only). KEEP core untouched (integer water core / replication / RN1).
-    boundaries: SANDBOX ONLY. OUT of this leg (→ t-2): the §G(+4) probe-gate, the active-gas CAP number, the data-shape
-             decision, the minimal front, ceiling/round-robin. OUT (→ later waves): real features (front/damage/reactions),
-             pretty rendering (Track V), PGG. Reuse the existing harness (GROW — do not rewrite GasViewDirector); config-as-DATA
-             over scene-per-test (anti-sprawl); a dedicated Unity-MCP-adapted scene for Claude is DESIRABLE-not-required (ship
-             inspector-driven + Claude-reads-snapshots if a live MCP drive is costly/hangs). Do NOT reopen the LOCK / C1–C22.
-    done_when: SANDBOX v1 (t-1 done_when in active_tasks): owner opens ONE harness scene, picks a saved scenario from a
-             config/seed ASSET (not hand-edited), Play → the level builds (in-code OR a real SGF seed), coarse gas spawns
-             where set / any amount, pause/step/tick-rate work, a data SNAPSHOT dumps a structured log Claude can read; the
-             config-as-DATA + naming convention holds. EVIDENCE: the committed scene + the scenario assets + a sample
-             structured-log artifact (a run Claude reads) + the headless gate green. OWNER-RUN gate (per the owner-run-is-a-real-gate
-             memory): the owner opens the lab, runs a scenario, confirms it works (the LAB-works axis is owner-run; the build/
-             existence closes headlessly). DONE-pending-owner-confirm on the lab-works axis — no self-marking.
-    return: a RESULT (the lab built + a demo scenario run + the snapshot Claude read); evidence = commits/PR + the scene/assets
-            + the sample log + the gate output + an explicit assumptions/cuts list. next = c-exec-013 (t-2 de-risk probe-gate).
-    budget: a few focused days (sandbox v1 = mostly assembly + the scenario-as-data layer). If it looks 2× over → stop + report.
+  CALL — t-1 RE-OPENED (generator-blind GEOMETRY reader + sandbox), architecture (B):
+    repo: GasCoopGame (C:\projects\Unity\GasCoopGame, dev→main when green). OPENS WITH A PLAN (owner present): the planner
+          designs the reader WITH the owner and shows it BEFORE code (the reader is the riskiest piece — owner sign-off at
+          PLAN). §Re-sync this repo from contract v7 → v8 (os CONTRACT_VERSION current:8) BEFORE build — wire coverage-check
+          `approach:` token + REVIEW.md refute-the-blocker. Standard contour (PLAN → RED-first independent test-author → build
+          → -Deliver gate → fresh-session G5). STOP-discipline v8: a blocked/infeasible named approach or a crutch = mandatory
+          STOP + escalate with options, never a silent substitute.
+    approach (de-risk token): geometry-derived-generator-blind-reader
+    goal: a GENERATOR-BLIND geometry reader + a test LAB the owner SEES. DA generates the level (SGF flow); the reader reads
+          the BUILT geometry, origin-blind — no DA-model read, no crutch. FOUNDATION (every later wave runs on it).
+    context: owner-locked architecture (B): a MARKER says WHAT (room/door); MEASUREMENTS come from the built geometry (room
+             bounds from the module box/collider, door sill from the door's real position); CONNECTIVITY is DERIVED from
+             geometry (a door between two room volumes connects them) — NOT hand-wired keys, NOT the DA model. Bridge: the SGF
+             module prefabs carry the markers; DA composes pre-marked modules → the blind reader reads the placed geometry.
+             KEEP (proven, untouched): the integer water sim + replication; TopologyDocument + TopologyConformance (geometry-
+             derived identity, origin-blind — already good). SALVAGE from c-exec-012: scenario-as-DATA + TickPacer. Refs:
+             work/aplus-breakdown-v1.md, work/aplus-wave-map-v1.md, d-sandbox-001 (R3 list).
+    boundaries: DELETE SnapGridFlowRoomReader + the VScale stretch + the whole DA-internal-model-reading path (a room too short
+             to carry the bands = an admission ERROR via TopologyConformance, NEVER a silent stretch). No reading of ANY
+             generator's internal model; no crutch. Do NOT merge the c-exec-012 scene-tags work to main (false blocker).
+             Reactions/destruction/pretty rendering = later waves; no new dependency without escalation. Do NOT reopen the
+             LOCK / C1–C22. The §G probe-gate + cap-number + data-shape = t-2 (later), not this leg.
+    done_when: PLAN-approved reader design built. In a sandbox scene: GIZMOS visibly show level → topology → grid (sectors) —
+             owner SEES how a DA-generated level became sectors with derived bounds/doors/sills; pause/slow/step/snapshot
+             (structured log Claude reads); open/close a door → gas stops/flows; a ceiling holds gas, an open-top room lets it
+             escape (design the sink at PLAN); walls block; different connections; the SAME reader reads a DA-generated AND a
+             hand-placed level identically (generator-blind); multiple sandboxes ok, optimal, ZERO crutch. EVIDENCE: commits/PR
+             + the scene + a gizmo capture (level→grid) + the sample log + the gate green + assumptions/cuts. OWNER-RUN gate:
+             owner sees the gizmo topology→grid + door/ceiling/wall behavior and signs — no self-marking that axis.
+    return: a RESULT (the blind geometry-reader + the gizmo-visible sandbox + a DA-generated level read identically to a hand
+            level). next = c-exec-013 (t-2 de-risk probe-gate, runs ON this lab).
+    budget: a focused span (reader design at PLAN + delete the crutch + build the blind reader + the gizmo sandbox). If the
+            geometry-reader looks infeasible/costly → STOP and escalate with options, never substitute/crutch.
 
   HOME-CLEANUPS owed (own follow-ups, NOT this leg): re-spec R1 Grid→SGF + openspec apply/archive (d-grid-sgf-001); stale
   ADR-0005/0007 «separate-layer = t-3» wording; FishNet real-UDP owner-run residual (non-gating).

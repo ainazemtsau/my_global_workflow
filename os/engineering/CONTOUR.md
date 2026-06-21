@@ -7,6 +7,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 ## Boundary with the direction
 
 - The direction (chat sessions) owns WHAT and the acceptance bar: outcome, business-level done_when, boundaries, budget, evidence pointers. It never prescribes architecture, design, or file layout.
+- A CALL never licenses a silent downgrade, and names the ONE approach it exists to prove. The direction may mark a capability DESIRABLE-not-required, but it may NOT write a standing "ship the lesser form if the real one is costly/hangs" clause — any fallback from the named approach routes through ESCALATE (an owner decision), never a blanket in-CALL permission. When a `done_when`'s substrate/approach is load-bearing it is named as ONE token (an `approach:` / `de-risk-target:`), NOT a disjunctive "X OR a lesser Y": the coverage row echoes that token, so a substituted mechanism is a string-mismatch the gate and the writer catch (VALIDATION.md, coding-agent.md), not a silently-conforming alternative. A disjunctive or downgrade-licensed acceptance bar is a CALL-authoring defect the shape/converge session owns.
 - The contour owns HOW: architecture, design, implementation, validation. Architecture is decided in PLAN — with the owner, in the product repo — and recorded there (ADRs, change specs, module docs). It never lives in direction state; business-relevant assumptions return via REPORT into the direction's review.
 - Design exploration from chats (`work/` docs, research findings) arrives as CALL context pointers: input evidence for the planner, never a binding spec.
 - Feasibility questions ("can this be built within budget at all?") are direction work (research/work spikes); solution design belongs to PLAN.
@@ -106,7 +107,14 @@ CALL (business task from a direction)
     catch as ONE recurring class, not three new findings.
   → ESCALATE (the only mid-run owner contact): retry budget exhausted,
     non-convergence, a decision outside the approved plan (new dependency,
-    scope change, irreversible action), or sandbox/permission boundary hit.
+    scope change, irreversible action), or sandbox/permission boundary hit, OR the
+    specific approach/substrate the CALL or frozen plan NAMED turns out infeasible,
+    blocked, or costly. A blocked named approach is ITSELF a mandatory escalation even
+    if a substitute would pass every gate: the builder may PROPOSE an alternative as an
+    option but may NEVER adopt one as the deliverable, and may NEVER silently widen its
+    own model — a stretch/normalization "crutch" the named approach did not require is a
+    substitution too. A degraded or different mechanism is an owner decision, surfaced as
+    a pre-build STOP, never an end-of-run assumptions/cuts line.
     Escalation = push notification + the specific question + options.
   → REPORT (the RESULT back to the direction):
     outcome; evidence (PR link, gate outputs, ledger final state);
