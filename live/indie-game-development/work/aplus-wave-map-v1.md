@@ -142,10 +142,15 @@ GASG visual language is Track V, but "free number of gases" discipline (the wire
   WRONG in both tiers: a 25cm slit must flow far LESS than a barn door EVEN in coarse. `TopologyPortalSpec.OpeningSize` already
   carries it; it must ENTER the orifice flow law (flow area-scaled). The coarse tier may be LESS GRANULAR (by-layer, not per-cell)
   but the area-driven flow MAGNITUDE must match the detailed tier.
-- **R-HEIGHT-BY-LAYER-OK (owner 2026-06-21, RELAXES the over-stated continuous-height draft):** height by LAYER is acceptable;
-  continuous exact-height computation is NOT wanted (owner: «не хотелось бы по высоте высчитывать… по слоям… примерно будет
-  равно»). A door taps WHICH LAYER (lower/upper today; MORE layers later = an OPTIONAL refinement, NOT a requirement). Neither tier
-  needs exact continuous-height. (Supersedes the earlier R-DOOR-HEIGHT-CONTINUOUS, which over-stated the owner's want.)
+- **R-HEIGHT-DETAILED-REQUIRED (owner 2026-06-21, BINDING — CORRECTS my misread):** on the DETAILED tier height MUST be computed
+  by REAL height, 100% — NOT by-layer (owner: «высоту надо высчитывать, на детальном это 100%»). The player must NOT see gas pass
+  THROUGH a wall, and gas must exit through the ACTUAL opening at its ACTUAL height: a door HALF in the lower layer drains the
+  lower layer; a small LOW hole must NOT leak gas via the UPPER layer (the by-layer rounding's failure the owner named). On the
+  COARSE tier compute by height too IF it works out; **by-layer is a LAST-RESORT compromise ONLY for coarse, only if nothing better
+  is found — NOT desired** — and it BREAKS on a hole spanning TWO layers (the likely-COMMON case) and on wrong-layer leakage.
+  (CORRECTS the earlier R-HEIGHT-BY-LAYER-OK, which wrongly read the coarse-only fallback as the default for both tiers — my error.)
+  Implication: 2 bands is INADEQUATE for detailed — the detailed tier needs real vertical resolution (the A+ continuous-weight /
+  finer-grain model). A hole/door spanning two layers = an OPEN model-design question (how mass splits across the spanned heights).
 - **R-NO-PROXIMITY-POP (owner 2026-06-21, FORBIDDEN 100% — the binding LOD invariant):** the gas flow through a given door/breach
   must NOT visibly change because the PLAYER moved nearer or farther (owner: «игрок отойдёт — замедляется, подходит —
   увеличивается… это запрещено 100%»). The coarse and detailed tiers must give ≈EQUAL area-driven flow for the same opening — the
@@ -153,10 +158,11 @@ GASG visual language is Track V, but "free number of gases" discipline (the wire
   drive the player across the coarse↔detailed boundary while gas flows through a door → the flow rate stays continuous (no
   speed-up on approach / slow-down on leaving).
 - **R-BREACH-GRANULARITY (owner 2026-06-21):** today a breach opens a SIZE-BLIND 2-band portal → a 1-cell pinhole, 4 scattered
-  holes, and a 50-cell blown wall ALL flow IDENTICALLY (binary open/closed, no area). Required (BOTH tiers, per R-AREA-ALWAYS +
-  R-NO-PROXIMITY-POP): breach flow scales with the hole's AREA always; POSITION sets WHICH LAYER (by-layer is fine, NOT exact
-  height); multiple scattered holes = multiple flow paths (sum of areas). Coarse approximates by-layer but the area-driven flow
-  MATCHES detailed (no proximity pop). The coarse↔detailed boundary for breach geometry = an A+ model-design question with the
+  holes, and a 50-cell blown wall ALL flow IDENTICALLY (binary open/closed, no area). Required (per R-AREA-ALWAYS +
+  R-NO-PROXIMITY-POP + R-HEIGHT-DETAILED-REQUIRED): breach flow scales with the hole's AREA always; POSITION by REAL height on the
+  DETAILED tier (a low hole drains low gas, a high hole vents high gas; by-layer is only a coarse last-resort and BREAKS on a
+  two-layer hole); multiple scattered holes = multiple flow paths (sum of areas at their heights). Coarse may approximate but the
+  area-driven flow MATCHES detailed (no proximity pop). The coarse↔detailed boundary for breach geometry = an A+ model-design question with the
   owner; a §G probe pins it.
 
 ## 5. BOUNDARY — the one place the repo cannot verify
