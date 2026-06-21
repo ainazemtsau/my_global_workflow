@@ -4,6 +4,12 @@ active_bet:
   node: g-lr-run
   status: active
   shaped_by: 2026-06-21 s-life-reset-shape-run-v1-001 (owner-approved G9: "да")
+  runtime_home: |
+    The 2 v1 files (sealed-core + week-file) + the manager's memory live in the PRODUCT REPO
+    github.com/ainazemtsau/life-reset-manager (local C:\projects\life-reset-manager) — NOT in
+    live/life-reset/work/ (which stays governance + planning products only). markdown-only
+    until a real run earns more (CHARTER product_repos lightness_rule). Built via executor/
+    work CALLs; the direction tracks by commit evidence. Set 2026-06-21 (owner G9).
   goal: |
     ONE tiny real composed pulse on REAL owner data that closes the one-real-run gate — not
     "architecture exists". Two files (a sealed-core file + a week-file) + ONE real run: a week
@@ -130,11 +136,12 @@ tasks:
       routes OUT to professional support and does NOT intensify discipline or prescribe
       treatment — a sealed class, distinct from the in-system recovery reach-in.
     done_when: |
-      The sealed-core file exists, durable, listing all of the above INCLUDING the clinical-
-      risk routing rule (its specific signs co-created with the owner when authoring this file
-      — owner-content); v1 performs NO rewrite (that is g-lr-learn) — this only authors the
-      core + a repeatable 2-assertion hand-run smoke check (override still works + floors
-      intact). No surfaced numbers (G2).
+      The sealed-core file exists in the PRODUCT REPO (C:\projects\life-reset-manager,
+      committed + pushed; evidence = commit SHA), durable, listing all of the above INCLUDING
+      the clinical-risk routing rule (its specific signs co-created with the owner when
+      authoring this file — owner-content); v1 performs NO rewrite (that is g-lr-learn) — this
+      only authors the core + a repeatable 2-assertion hand-run smoke check (override still
+      works + floors intact). No surfaced numbers (G2). markdown-only (lightness_rule).
 
   - id: t-3
     kind: executor
@@ -147,7 +154,8 @@ tasks:
       artifact-existence + one mandatory BITE slot) · the live running-state fields for
       portability (cycle position, current protections, autonomy rung) + delta re-entry.
     done_when: |
-      The week-file template exists with every section above; the displacement test is
+      The week-file template exists in the PRODUCT REPO (C:\projects\life-reset-manager,
+      committed; evidence = commit SHA) with every section above; the displacement test is
       non-vacuous (a real cut must be loud; `displaces:` fires on a real displacement else is
       labelled untested); the realness card binds on artifact-existence + one bite event.
 
@@ -191,6 +199,7 @@ preserved_evidence:
   - live/life-reset/history/2026-06-21-s-life-reset-shape-run-v1-001.md
   - live/life-reset/work/life-reset-v1-plan-audit-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t1-plan-audit-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-setup-product-repo-001.md
 
 next: |
   CALL c-life-reset-run-v1-t2-sealed-core-001
@@ -209,26 +218,31 @@ next: |
     never intensify discipline — the t-1 audit's load-bearing fix). v1 runs NO rewrite; this
     only authors the core + a 2-assertion hand-run smoke check.
   context: |
-    - live/life-reset/NOW.md (the v1 bet; resolved_gaps = the 3 recovery-vs-slide signs + the
-      4 floors + the 3 response altitudes incl. clinical-risk route-OUT; t-2 goal/done_when)
+    - WRITE the file in the PRODUCT REPO: C:\projects\life-reset-manager (remote
+      github.com/ainazemtsau/life-reset-manager) — markdown-only; commit + push there;
+      RESULT carries the commit SHA as evidence back to this direction.
+    - live/life-reset/NOW.md (the v1 bet; runtime_home; resolved_gaps = the 3 recovery-vs-slide
+      signs + the 4 floors + the 3 response altitudes incl. clinical-risk route-OUT; t-2 spec)
     - live/life-reset/work/life-reset-v1-plan-audit-001.md (the t-1 audit: build-ready; the
       clinical-risk defect + its fix)
     - live/life-reset/work/life-reset-implementation-research-v1.md (Q4 sealed core / Q5
       tripwires / Q9 non-punishing return — mechanics + required-fixes)
-    - live/life-reset/CHARTER.md (guardrails G1-G4; authority_and_boundaries clinical-risk
-      routing; risk_posture asymmetric rigor)
+    - live/life-reset/CHARTER.md (guardrails G1-G4; product_repos lightness_rule;
+      authority_and_boundaries clinical-risk routing; risk_posture asymmetric rigor)
   boundaries: |
     Co-create with the owner — the CLINICAL-RISK SIGNS and what "professional support" means
-    are owner-content (his signs, his words); do NOT invent them generically. Author ONLY the
-    sealed core (not the week-file — that is t-3). NO rewrite engine (that is g-lr-learn). No
-    surfaced numbers (G2). The override path stays inviolable; the non-punishing-return
-    invariant lives in the core (NOT on the override path); clinical-risk routes OUT (not an
-    in-system reach-in). Keep it light — a short readable file, not bureaucracy.
+    are owner-content (his signs, his words); do NOT invent them generically. The file lives
+    in the PRODUCT REPO, NOT live/life-reset/work/ (governance only); markdown-only, no infra
+    (lightness_rule). Author ONLY the sealed core (not the week-file — that is t-3). NO rewrite
+    engine (that is g-lr-learn). No surfaced numbers (G2). The override path stays inviolable;
+    the non-punishing-return invariant lives in the core (NOT on the override path);
+    clinical-risk routes OUT (not an in-system reach-in). Keep it light — a short readable file.
   done_when: |
-    The sealed-core file exists (durable, in work/), listing all of the above INCLUDING the
-    clinical-risk routing rule with owner-co-created signs; plus a repeatable 2-assertion
-    hand-run smoke check (override still works + floors intact). next = t-3 (week-file template).
-  return: RESULT with the sealed-core file, the smoke check, next = t-3 CALL.
+    The sealed-core file exists in the PRODUCT REPO (committed + pushed; evidence = commit SHA),
+    listing all of the above INCLUDING the clinical-risk routing rule with owner-co-created
+    signs; plus a repeatable 2-assertion hand-run smoke check (override still works + floors
+    intact). next = t-3 (week-file template).
+  return: RESULT with the sealed-core file (product-repo commit SHA), the smoke check, next = t-3 CALL.
   budget: one work session (co-creation with the owner).
 
 END_OF_FILE: live/life-reset/NOW.md

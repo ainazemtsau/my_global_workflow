@@ -12,6 +12,7 @@ owner_approved:
     - 'Guardrails + operating invariants (R11/R12/R22): "да".'
     - 'Updated pre-mortem (10 kept, 2 edited, 3 added): "да".'
     - 'Owner rejected a week / N-cycle completion gate; approved the reshaped one-real-run done_when on root + criterion ①: "да".'
+    - 'Owner approved (G9) a SEPARATE product repo for the manager RUNTIME + the markdown-only-until-a-real-run lightness rule, 2026-06-21: "конечно, нужен отдельный репозиторий, потому что мы строим отдельный процесс" → "создал репозиторий … (дальше ты сам)" — github.com/ainazemtsau/life-reset-manager; governance (charter/tree/bets/history) stays in live/life-reset/.'
 
 mission: |
   life-reset — это не недельный трекер и не набор отдельных программ-островов.
@@ -532,6 +533,17 @@ pre_mortem:
       Процесс требует больше церемонии, чем экономит, ИЛИ владелец называет его
       лишней бюрократией → формат немедленно упрощается.
 
-product_repos: []
+product_repos:
+  - repo: https://github.com/ainazemtsau/life-reset-manager.git   # local: C:\projects\life-reset-manager
+    holds: |
+      The life-reset MANAGER RUNTIME (the working process + its own durable memory): the
+      sealed-core file, the week-files, the manager's memory. NOT governance — charter, tree,
+      bets, history stay here in live/life-reset/. Built ONLY via the OS's executor/work
+      CALLs; the direction tracks changes by commit evidence (the G4 source-boundary mirror).
+    lightness_rule: |
+      markdown-ONLY until a real run earns more. NO heavy runtime infra (no DATA_MODEL /
+      MEMORY / RETRIEVAL build) before v1 is proven by ONE real run — that premature-infra
+      build is exactly what invalidated the old tree (2026-06-20). The repo is an ADDRESS,
+      not a licence to over-engineer; appetite + kill_by hold the line, not the location.
 
 END_OF_FILE: live/life-reset/CHARTER.md

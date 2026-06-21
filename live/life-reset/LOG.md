@@ -109,4 +109,13 @@
   reach-in; a 3rd response altitude). Owner's live slide (binge ~1.5wk after quitting smoking
   + stopping training) captured as the t-4 test case. next c-life-reset-run-v1-t2-sealed-core-001.
 
+- 2026-06-21 - frame (charter touch, owner G9): the manager RUNTIME gets its own PRODUCT
+  REPO — github.com/ainazemtsau/life-reset-manager (local C:\projects\life-reset-manager,
+  initialized + pushed, README only). Owner overturned my "build-here-then-port" deferral
+  (I had conflated "separate repo" with "heavy infra"); governance (charter/tree/bets/history)
+  stays in live/life-reset/, the working process + its memory live in the product repo, bridged
+  by executor/work CALLs + commit evidence (native OS product pattern; product_repos was empty).
+  Carried the one real nugget: lightness_rule = markdown-only until a real run earns more.
+  t-2/t-3 re-pointed to the product repo. next unchanged: c-life-reset-run-v1-t2-sealed-core-001.
+
 END_OF_FILE: live/life-reset/LOG.md
