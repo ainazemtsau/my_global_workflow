@@ -114,4 +114,6 @@
 
 - 2026-06-21 — mechanic-forge checkpoint (g-d3a8/q-expedition-loop, s-canon-014): step 1 reframed and owner-agreed — the real first question is "what is an expedition from entry to exit?", not isolated "why go deeper"; "why go deeper" stays the central tension inside that loop. No variants/names/loop generated; canon repo untouched; NOW/TREE/CHARTER untouched. next = c-mechanic-expedition-002 continues from the agreed frame. → history/s-canon-014.md
 
+- 2026-06-21 — repair (g-d3a8/q-visual-style, s-repair-008): corrected a canon carry-forward drift — `s-canon-007` was only a non-frozen visual checkpoint, and `s-canon-008` later carried **Живое Стекло** into frozen `q-visual-style` as a future candidate. Owner explicitly cut it («Вообще этого вырезать такого не будет. Это 100% ... его надо вырезать, как будто его нет»). Applied to canon repo: `questions/q-visual-style.md` no longer carries Живое Стекло; other frozen text untouched. NOW/TREE/CHARTER untouched; old checkpoint/history remains historical evidence, not future authority. → history/s-repair-008.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
