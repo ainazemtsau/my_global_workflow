@@ -123,8 +123,25 @@ root:
           core edits (extensible seams, R13 — EXERCISED by a 3rd demonstrative layer, not
           only argued). The destruction-driven topology change of criteria 2/3 is a REAL
           controlled wall-breach, not a scripted stub.
+      11. (ADDED 2026-06-20, review s-review-002 → A+ breakdown — owner-approved «да», G9) дорога A+
+          RE-FRAME: after Wave 2 PROVED the coarse model + the owner SAW it, the core is re-formed as
+          the MULTI-WAVE дорога-A+ core = the proven integer graph "water" base + bit-exact networked
+          replication (KEPT, criteria 2/3) GROWN with the missing layers — an integer geodesic FRONT
+          ("where exactly is the gas"), interest-grain detail near the player/event, a resident-gas
+          DAMAGE law (consequence), confirmed-colocation reactions, and edge-based destructibility.
+          The model is graph-based (NOT a continuous-field rewrite — B was rejected: it reopens the
+          solved network-determinism problem). KEEP-OPEN invariants the redesign must NOT weld shut:
+          per-SPECIES temperature stays an independent readable layer; the coarse layer carries the
+          TRANSIENT (not settled-only); ROOM capacity + back-pressure is KEPT (only the 2-band split
+          is replaced); a sparse+tunable gas encoding (unlimited TYPE catalog; bounded concurrent-per-
+          node). HOST-RESILIENCE is now a named core obligation: a host can leave/crash without ending
+          the 4–8 co-op session (§H — spiked in Wave A). Every A+ bet is preceded by the §G(+4)
+          load-probe DE-RISK WALL (no core blind spot found late). The wave breakdown lives in NOW.md
+          wave_plan + work/aplus-breakdown-v1.md + work/aplus-wave-map-v1.md (the design source =
+          work/gas-model-design-full-2026-06-20.md). Criteria 1–10 still hold; A+ deepens what "the
+          core" resolves and consequences, it does not drop them.
     status: active
-    detail: history/s-map-002.md
+    detail: history/s-map-002.md   # + s-review-002 (A+ re-frame); wave breakdown → NOW.md wave_plan + work/aplus-breakdown-v1.md
 
   - id: g-d3a8
     goal: |
@@ -137,7 +154,12 @@ root:
     why: the pride bar (root criteria 3–4) is designed, not hoped for; gives the core its capability list beyond the nucleus and the storefront its fantasy language — with honest limits on what AI validation can certify.
     done_when: |
       1. Design doc exists; every base gas carries a gameplay job (decision / risk / tool /
-         co-op role) — no decorative gases.
+         co-op role) — no decorative gases. (EXPANDED 2026-06-20, s-review-002, owner-approved:
+         the gas TYPE catalog is effectively UNLIMITED — meta-gas archetypes × config gradations,
+         «должно быть очень много типов»; the engineering constraint lives in g-9c41 A+ = a bounded,
+         TUNABLE number of gases CONCURRENT per node + a hard wire cap, NOT a cap on the catalog;
+         per-room overflow → a reaction QUEUE. Catalog size is free design; concurrency is the
+         engineered budget.)
       2. The loop produces designed, repeatable co-op fear-spike moments; horror stays
          sim-derived (no scripted jump-scare drift); candidate systems (sanity/exposure)
          remain candidates until they pass the depth test on merit.
