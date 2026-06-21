@@ -165,6 +165,27 @@ GASG visual language is Track V, but "free number of gases" discipline (the wire
   area-driven flow MATCHES detailed (no proximity pop). The coarse↔detailed boundary for breach geometry = an A+ model-design question with the
   owner; a §G probe pins it.
 
+## 4.3 MODEL FRAMING — there are NO fixed "bands"; real-height cells + per-gas buoyancy (owner 2026-06-21, BINDING)
+
+The owner challenged the "layers/bands" concept and is RIGHT: fixed bands are NOT part of the model — they are ONLY the CURRENT
+proven code's cheap coarsening (2 cells per room). The CORRECT model (the A+ direction, what d-fillmodel-001 / «continuous weight»
+already points at):
+- gas mass per species per INTEGER REAL-HEIGHT cell — a room is a STACK of height-cells, NOT 2 fixed layers;
+- each gas has a BUOYANCY COEFFICIENT — a continuous tendency toward ceiling/floor (not binary heavy/light) that relaxes the gas
+  toward its preferred height each tick (the coefficient sets HOW FAST/strongly it climbs or sinks);
+- a door/opening connects the cells at its REAL height range → gas flows wherever it PHYSICALLY reaches the opening: a HIGH door
+  passes heavy gas ONLY once it has filled up to that height («нижний газ верхушкой достаёт»); light gas that has risen to a door
+  flows through; "дверь наполовину в слое" is a NON-question — the door simply spans whatever real-height cells it covers.
+- "Bands" survive ONLY as a point on the LOD spectrum = the NUMBER of vertical cells (MANY near the player, FEW / 1–2 far). The
+  2-band current model is the CHEAPEST coarse case, not the model itself.
+
+WHY the coarse-LOD (fewer cells far) is NOT optional — the honest tension: cost + bit-exact 2-machine replication. Many cells ×
+hundreds of rooms is unaffordable to replicate deterministically, so far rooms collapse to few cells. That collapse IS the
+affordability mechanism AND the source of the R-NO-PROXIMITY-POP risk (the cell-count must change with NO visible flow change).
+The water-like settle/rise PHYSICS is right; what was «грубо» is the SPACE / topology / DOOR discretization (the 2-band hack),
+which A+ replaces with real-height cells + per-gas buoyancy + doors-by-real-height. So the model-design session designs THAT, with
+the cell-count LOD as risk #1 (seamless net-determinism).
+
 ## 5. BOUNDARY — the one place the repo cannot verify
 
 The original external research chat (ChatGPT) is NOT in the repo. The immutable source captures the STRUCTURE faithfully (3-audit
