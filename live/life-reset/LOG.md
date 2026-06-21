@@ -99,4 +99,14 @@
   9 lenses swept; riskiest-assumption task t-1 (recovery-vs-slide + tripwire back-test on a
   real past lapse). next c-life-reset-run-v1-t1-recovery-slide-001.
 
+- 2026-06-21 - work t-1 (RE-SCOPED by owner): the narrated back-test was dropped as
+  self-graded theater ("это не проверка, … еботня"); replaced by a real plan audit —
+  coverage / consistency / data-flow (wf_35ccf508, 24 agents, adversarially verified).
+  Verdict BUILD-READY: 62 required procedures covered, recovery-vs-slide rule + 4 tripwires
+  build-ready, no contradictions, all 4 v1 data-flows close. ONE load-bearing safety defect
+  found + fixed: the sealed core (t-2) had dropped the charter's clinical-risk routing rule →
+  restored (a clinical-risk sign routes OUT to professional support, NOT an in-system
+  reach-in; a 3rd response altitude). Owner's live slide (binge ~1.5wk after quitting smoking
+  + stopping training) captured as the t-4 test case. next c-life-reset-run-v1-t2-sealed-core-001.
+
 END_OF_FILE: live/life-reset/LOG.md

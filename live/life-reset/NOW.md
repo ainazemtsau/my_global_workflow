@@ -50,6 +50,9 @@ active_bet:
       CALL anything recovery (default = treat-as-recovery, never punished, G3), but the
       owner-authored floor tripwires watch the FLOORS, not the label — a fallen floor fires the
       tripwire as a PROTECT episode (reach-in / name the falling pillar), not a verdict.
+      THREE response altitudes (t-1 audit): (1) default = treat-as-recovery; (2) fallen floor
+      = in-system PROTECT reach-in; (3) a pre-named CLINICAL-RISK sign = route OUT to
+      professional support, never intensify discipline (sealed, lives in the t-2 core).
     floors: |
       1. Sleep — not broken 2 nights running. 2. Not smoking again. 3. No binge-eating.
       4. Not vanishing / zoning-out for days. (A 5th "training/practice discipline" floor is
@@ -72,7 +75,9 @@ active_bet:
     - fatherhood-and-example: not_needed (v1 — a quality criterion, not a first-run mechanism).
     - system-quality: TASK/condition (stays-light enforced by the appetite cap + kill_by
       bureaucracy brake + the no-mid-stream-churn run model).
-    - safety: TASK (t-1/t-2 — recovery carve-out + floors/tripwires + inviolable override). CRITICAL.
+    - safety: TASK (t-1/t-2 — recovery carve-out + floors/tripwires + inviolable override +
+      CLINICAL-RISK ROUTING: a clinical-risk sign routes OUT to professional support, not an
+      in-system reach-in — restored by the t-1 plan audit). CRITICAL.
 
   cut_list: |
     NOT in v1 (≥1 real cut, G6) → captures / g-lr-grow backlog: typed-commitment DAG / Kanban
@@ -96,30 +101,40 @@ active_bet:
 tasks:
   - id: t-1
     kind: session
-    status: active
+    status: done   # 2026-06-21 s-life-reset-run-v1-t1-plan-audit-001
     goal: |
-      Lock the recovery-vs-slide rule (3 signs) + the 4 owner floor-tripwires, and back-test
-      them on the owner's most recent REAL lapse. Riskiest-assumption test + input to t-2.
+      RE-SCOPED by live owner instruction: the narrated back-test was dropped as self-graded
+      theater (owner: "Это нахуй не проверка, … проверяй на консистентность данных, на план …
+      что всё покрыто, каждая процедура"). New job: audit the v1 plan for coverage +
+      consistency + data-flow before building, confirm the recovery-vs-slide rule (3 signs) +
+      the 4 floor-tripwires are build-ready, fix any gap.
     done_when: |
-      (a) the rule written as 3 observable signs + the anti-gaming clause (tripwire watches
-      the floor, not the label); (b) the 4 floors each written as an observable tripwire;
-      (c) a back-test narrative on ONE real recent lapse — would each tripwire have fired?
-      would genuine recovery have CLEARED as protected (the carve-out)?; (d) a verdict: does
-      the distinction hold on real data? If not → route a fix before t-2.
+      DONE. Audit ran (wf_35ccf508, 24 agents, adversarially verified): 62 required
+      procedures COVERED; rule + 4 tripwires build-ready; no contradictions; all 4 v1
+      data-flows close. ONE load-bearing defect found+fixed — the sealed core (t-2) had
+      dropped the charter's clinical-risk routing rule. Verdict: BUILD-READY. The 3 signs +
+      the 4 floors + the 3 response altitudes live in resolved_gaps; a clinical-risk sign
+      routes OUT (to professional support), NOT an in-system reach-in. Evidence:
+      work/life-reset-v1-plan-audit-001.md.
 
   - id: t-2
     kind: executor
-    status: pending
+    status: active
     goal: |
       Author the sealed-core file ONCE (serves Q4/Q5/Q9): inviolable override path (incl. the
       R11 refusal) · protected class (recovery/safety/floors incl. routine-rest) · manual
       rollback (git-revert, no automation overclaim) · "rules change only via the gate" (every
       ACTUAL rewrite is gate-checked — not "provably sealed forever") · the 4 tripwires (from
-      t-1) · the non-punishing-return invariant (hosted HERE, not on the override path).
+      t-1) · the non-punishing-return invariant (hosted HERE, not on the override path) ·
+      CLINICAL-RISK ROUTING (t-1 audit fix): on a pre-named clinical-risk sign the manager
+      routes OUT to professional support and does NOT intensify discipline or prescribe
+      treatment — a sealed class, distinct from the in-system recovery reach-in.
     done_when: |
-      The sealed-core file exists, durable, listing all of the above; v1 performs NO rewrite
-      (that is g-lr-learn) — this only authors the core + a repeatable 2-assertion hand-run
-      smoke check (override still works + floors intact). No surfaced numbers (G2).
+      The sealed-core file exists, durable, listing all of the above INCLUDING the clinical-
+      risk routing rule (its specific signs co-created with the owner when authoring this file
+      — owner-content); v1 performs NO rewrite (that is g-lr-learn) — this only authors the
+      core + a repeatable 2-assertion hand-run smoke check (override still works + floors
+      intact). No surfaced numbers (G2).
 
   - id: t-3
     kind: executor
@@ -163,7 +178,7 @@ tasks:
 
 recurring: []
 
-open_calls: []   # the t-1 CALL is `next`, not yet in-flight.
+open_calls: []   # t-1 done; the t-2 CALL is `next`, not yet in-flight.
 
 decisions: []
 
@@ -174,39 +189,46 @@ preserved_evidence:
   - live/life-reset/history/2026-06-21-s-life-reset-map-manager-tree-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-research-build-manager-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-shape-run-v1-001.md
+  - live/life-reset/work/life-reset-v1-plan-audit-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t1-plan-audit-001.md
 
 next: |
-  CALL c-life-reset-run-v1-t1-recovery-slide-001
+  CALL c-life-reset-run-v1-t2-sealed-core-001
   to: session
   direction: life-reset
   play: work
   node: g-lr-run
-  task: t-1
+  task: t-2
   goal: |
-    Lock the recovery-vs-slide rule + the 4 owner floor-tripwires, and back-test them on the
-    owner's most recent REAL lapse — proving the manager can tell protected recovery from a
-    slide, and that the owner-authored tripwires would have fired on a real lapse (not a paper
-    simulation). Riskiest-assumption test + the input to the sealed-core file (t-2).
+    Author the sealed-core file ONCE (the manager's non-amendable safety layer), listing: the
+    inviolable override path (incl. R11 refusal) · the protected class (recovery/safety/floors
+    incl. routine-rest) · manual git-revert rollback (no automation overclaim) · "rules change
+    only via the gate" · the 4 floor-tripwires (sleep / not-smoking / no-binge / not-vanishing,
+    from resolved_gaps.floors) · the non-punishing-return invariant (hosted HERE) ·
+    CLINICAL-RISK ROUTING (a pre-named clinical-risk sign → route OUT to professional support,
+    never intensify discipline — the t-1 audit's load-bearing fix). v1 runs NO rewrite; this
+    only authors the core + a 2-assertion hand-run smoke check.
   context: |
-    - live/life-reset/NOW.md (the v1 bet: recovery-vs-slide 3 signs + the 4 floors + the
-      anti-gaming "tripwires watch floors, not the label" design)
-    - live/life-reset/work/life-reset-implementation-research-v1.md (Q5 collapse-grip + Q7
-      recovery carve-out + Q9 non-punishing return)
-    - live/life-reset/CHARTER.md (g3 recovery protected first-class; the crash loop)
-    - live/life-reset/history/2026-06-21-s-life-reset-shape-run-v1-001.md (this bet)
+    - live/life-reset/NOW.md (the v1 bet; resolved_gaps = the 3 recovery-vs-slide signs + the
+      4 floors + the 3 response altitudes incl. clinical-risk route-OUT; t-2 goal/done_when)
+    - live/life-reset/work/life-reset-v1-plan-audit-001.md (the t-1 audit: build-ready; the
+      clinical-risk defect + its fix)
+    - live/life-reset/work/life-reset-implementation-research-v1.md (Q4 sealed core / Q5
+      tripwires / Q9 non-punishing return — mechanics + required-fixes)
+    - live/life-reset/CHARTER.md (guardrails G1-G4; authority_and_boundaries clinical-risk
+      routing; risk_posture asymmetric rigor)
   boundaries: |
-    Co-create with the owner (his real past lapse, his words). Do NOT build the sealed-core
-    file yet (t-2). NO auto-surveillance — tripwires are ONLY the owner's pre-committed
-    observable floors checked against the rhythm's own trace. REAL lapse, no simulation. Keep
-    the asymmetry: default = treat-as-recovery, never punish; a fired tripwire is a PROTECT
-    episode, not a verdict. No surfaced numbers (G2). The 4 floors: sleep (not broken 2 nights
-    running), not smoking again, no binge-eating, not vanishing/zoning-out for days. Stay light.
+    Co-create with the owner — the CLINICAL-RISK SIGNS and what "professional support" means
+    are owner-content (his signs, his words); do NOT invent them generically. Author ONLY the
+    sealed core (not the week-file — that is t-3). NO rewrite engine (that is g-lr-learn). No
+    surfaced numbers (G2). The override path stays inviolable; the non-punishing-return
+    invariant lives in the core (NOT on the override path); clinical-risk routes OUT (not an
+    in-system reach-in). Keep it light — a short readable file, not bureaucracy.
   done_when: |
-    A work RESULT with: (a) the recovery-vs-slide rule (3 observable signs + the anti-gaming
-    clause); (b) the 4 floors each as an observable tripwire; (c) a back-test on ONE real
-    recent lapse (would each fire? would genuine recovery clear as protected?); (d) a verdict:
-    does the distinction hold on real data? If not → route a fix before t-2. next = t-2.
-  return: RESULT with the rule, the 4 tripwires, the back-test, the verdict, next = t-2 CALL.
+    The sealed-core file exists (durable, in work/), listing all of the above INCLUDING the
+    clinical-risk routing rule with owner-co-created signs; plus a repeatable 2-assertion
+    hand-run smoke check (override still works + floors intact). next = t-3 (week-file template).
+  return: RESULT with the sealed-core file, the smoke check, next = t-3 CALL.
   budget: one work session (co-creation with the owner).
 
 END_OF_FILE: live/life-reset/NOW.md
