@@ -167,9 +167,17 @@ GASG visual language is Track V, but "free number of gases" discipline (the wire
 
 ## 4.3 MODEL FRAMING — there are NO fixed "bands"; real-height cells + per-gas buoyancy (owner 2026-06-21, BINDING)
 
-The owner challenged the "layers/bands" concept and is RIGHT: fixed bands are NOT part of the model — they are ONLY the CURRENT
-proven code's cheap coarsening (2 cells per room). The CORRECT model (the A+ direction, what d-fillmodel-001 / «continuous weight»
-already points at):
+**BINDING vs HUNCH (owner 2026-06-21):** the BINDING requirement is the GAMEPLAY — DEEP, «выжать максимум» — NOT the SUPERFICIAL
+gameplay the current 2-layer model produced (owner: continuing with 2 layers = «суперповерхностный геймплей»). The specific
+mechanism below — «no fixed bands, real-height cells» — is the owner's LEADING HYPOTHESIS for HOW to get that depth, NOT gospel
+(«то, что я пишу, не истинно в последней инстанции… могут быть слои, мне главное как играться будет»). The model-design session
+DEVELOPS an architecture that ACTUALLY works on paper (perf + multiplayer + bit-exact determinism + cost) and delivers the depth;
+it PRESSURE-TESTS the real-height idea against those and may KEEP it, MODIFY it, or find that smarter / adaptive LAYERS deliver the
+same gameplay cheaper. Implementation (cells / layers / hybrid) is the ARCHITECT's call; the gameplay DEPTH is the owner's signed
+PROPERTY — capture the depth as properties (what the player must be able to DO / feel), SEPARATE from the mechanism.
+
+The owner's LEADING HYPOTHESIS (the A+ direction, what d-fillmodel-001 / «continuous weight» points at) — fixed bands are the
+CURRENT proven code's cheap 2-cell coarsening, not physics:
 - gas mass per species per INTEGER REAL-HEIGHT cell — a room is a STACK of height-cells, NOT 2 fixed layers;
 - each gas has a BUOYANCY COEFFICIENT — a continuous tendency toward ceiling/floor (not binary heavy/light) that relaxes the gas
   toward its preferred height each tick (the coefficient sets HOW FAST/strongly it climbs or sinks);
@@ -183,8 +191,9 @@ WHY the coarse-LOD (fewer cells far) is NOT optional — the honest tension: cos
 hundreds of rooms is unaffordable to replicate deterministically, so far rooms collapse to few cells. That collapse IS the
 affordability mechanism AND the source of the R-NO-PROXIMITY-POP risk (the cell-count must change with NO visible flow change).
 The water-like settle/rise PHYSICS is right; what was «грубо» is the SPACE / topology / DOOR discretization (the 2-band hack),
-which A+ replaces with real-height cells + per-gas buoyancy + doors-by-real-height. So the model-design session designs THAT, with
-the cell-count LOD as risk #1 (seamless net-determinism).
+which A+ replaces with a deeper model. So the model-design session designs the architecture that DELIVERS the gameplay depth — the
+real-height + buoyancy + doors-by-height model is the LEADING CANDIDATE to validate (NOT a mandate), the cell-count LOD is risk #1
+(seamless net-determinism), and layers are allowed IF they deliver the depth cheaper. Architecture on paper FIRST; verify after.
 
 ## 5. BOUNDARY — the one place the repo cannot verify
 
