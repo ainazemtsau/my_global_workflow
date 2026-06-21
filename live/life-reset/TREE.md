@@ -3,204 +3,178 @@
 owner_approved:
   status: true
   evidence:
-    - 'Owner: "A, утверждаю Root v5"'
-    - 'Owner approved top-level map: "approve whole tree"'
-    - 'Owner repair 2026-06-20: "отдельный репозиторий" and "ресетнуть ... T1, T2"'
-    - 'Owner repair 2026-06-20: "сначала делать, потом все виклик контракты"'
-    - 'Owner repair 2026-06-20: "дерево сейчас невалидное полностью, заново надо переделывать, перепланировать"'
+    - 'Owner approved revised root (manager-as-spine), 2026-06-21 s-life-reset-frame-root-001.'
+    - 'Owner approved reshaped one-real-run done_when (no week / no N-cycle gate): "да".'
+    - 'Owner approved the 6-node outcome tree + order (G9), 2026-06-21 s-life-reset-map-manager-tree-001: "да".'
+    - 'Owner approved (G9) shaping g-lr-run into the active v1 bet (appetite ~3h, kill_by 2+4, 4 floors), 2026-06-21 s-life-reset-shape-run-v1-001: "да".'
 
 tree_validity:
-  state: invalid_pending_remap
+  state: mapped
   note: |
-    2026-06-20: owner invalidated the current top-level tree as the active
-    planning frame. The existing nodes remain historical planning evidence
-    only until a new map session revises/replaces TREE.md with explicit owner
-    approval. Do not run work, shape or review from this tree before remap.
+    2026-06-21: map (s-life-reset-map-manager-tree-001) rebuilt the tree on the
+    manager-as-spine root — 6 owner-approved outcome nodes (run, protect,
+    integrate, learn, trust, grow), each with its why. Full cards (goal/done_when/
+    why/edge/risk + rare-example seeds) live in
+    history/2026-06-21-s-life-reset-map-manager-tree-001.md. Route frame -> map ->
+    research -> shape is complete through shape: research (s-life-reset-research-
+    build-manager-001) answered the 10 deferred HOW-mechanisms, and shape
+    (s-life-reset-shape-run-v1-001) turned g-lr-run into the ACTIVE v1 bet
+    (status: active, with appetite + kill_by below). The other 5 nodes stay
+    parked (G1: one active bet). The full v1 bet — tasks t-1..t-5, the resolved
+    recovery-vs-slide + integrate gaps, cut list, lens sweep — lives in NOW.md +
+    history/2026-06-21-s-life-reset-shape-run-v1-001.md.
 
 root:
   id: g-life-reset-root
   status: shaped
   goal: |
-    К 20 июля 2026 года life-reset работает как проверенная личная
-    операционная система владельца: формирует реалистичные обязательства на
-    неделю, переводит их в планы на день, удерживает совместимость game
-    development, health и самостоятельных активностей, принимает возникающие
-    идеи без разрушения текущей недели и умеет выращивать подходящие идеи в
-    отдельные управляемые процессы.
+    Поставить и эксплуатировать один строгий, само-улучшающийся личный
+    операционный МЕНЕДЖЕР (недельный + дневной ритм) как хребет, в который
+    втыкаются направления + программы + бэклог; неделя — его пульс, день
+    выводится из недели. Менеджер координирует, приоритизирует, не даёт забыть и
+    не даёт тихо вытеснить текущее важное — читая согласованные summary соседей и
+    не переписывая их scope. Эффективность — метод, а не конечная ценность:
+    исходы — потенциал владельца целиком (вызов, дисциплина, живость, отцовство-
+    как-пример, смысл) без срыва в самоненависть/откат.
 
   done_when: |
-    1. Проведено не менее трёх полных циклов:
-       weekly planning → daily execution → weekly review.
-
-    2. Weekly Contract различает:
-       - главные outcomes существующих directions;
-       - выбранные standalone activities;
-       - imported maintenance floors;
-       - максимум один новый improvement experiment;
-       - explicit cuts.
-
-    3. Новая несрочная идея посреди недели по умолчанию попадает в backlog.
-       Изменение недели требует назвать существенный новый факт, показать
-       приоритет и явно снять конкурирующий объём.
-
-    4. Работает backlog с исходами:
-       selected | parked | promoted | dropped | done.
-       Capture не создаёт обязательство выполнить идею.
-
-    5. Система умеет провести подходящую идею через:
-       capture → clarify → challenge → research if needed → shape → pilot
-       → review → adopt / mutate / kill.
-
-    6. Daily interaction служит Weekly Contract, помогает заметить drift и
-       восстановиться, но не дублирует raw health logs и game-production state.
-
-    7. Weekly Review использует evidence, определяет слабое звено и
-       заканчивается решением:
-       hold | mutate | kill | route | research | simplify.
-
-    8. Значимые идеи владельца проходят содержательную критику, разделение
-       value / impulse / hypothesis / constraints / decision и не исполняются
-       автоматически.
-
-    9. Durable state позволяет продолжить работу в новом чате или у другого
-       AI-провайдера без ручного восстановления всей истории.
-
-    10. Владелец после реального использования явно подтверждает, что система:
-        - помогает проводить недели и дни;
-        - сохраняет новые идеи без разрушения текущих обязательств;
-        - умеет выращивать подходящие идеи в ограниченные процессы;
-        - не создаёт отдельный direction или инфраструктуру для каждой мелочи;
-        - не захватывает scope health и game development;
-        - достаточно полезна и целостна для дальнейшего развития.
+    v1 доказана не по «прожитой неделе» и не по «N циклам» (проживание реальных
+    недель — это текущая работа менеджера, а не приёмка постройки), а по ОДНОМУ
+    реальному сквозному прогону полного цикла на настоящих данных владельца, за
+    столько, сколько занимает прогон. Форму выбирает владелец / research: быстрый
+    тест · сжатый dry-run · один реально прожитый день. Ворота закрыты, когда
+    проверяемо по сохранённым durable-артефактам:
+      1. сборка недели (настоящая) из трёх потоков в строгом порядке
+         (обязательное/floors → рутина → хотелки через фильтр → cuts); фильтр
+         реально сработал ≥1 раз И пропустил настоящее восстановление, если
+         требовалось;
+      2. выведённый из недели реальный день; сработали ворота R11;
+      3. сохранён реальный review, на его evidence показана механика недельного
+         review/мутации — выдано ≥1 решение {hold|mutate|kill|route|research|
+         simplify};
+      4. реальные durable-артефакты (неделя/день/review/решение), пережившие
+         перезапуск чата; другой чат/провайдер может продолжить;
+      5. владелец явно подтверждает, что прогон был настоящим и реально сработал
+         (не «архитектура выглядит правильно», не бумажный/демо).
+    Несущее: «дизайн/архитектура существует» НЕ засчитывается. Антиужесточение:
+    календарная неделя / N циклов НЕ требуются. Дальнейшая архитектура
+    заблокирована, пока ворота не зачтены.
 
   children:
-    - id: g-lr-weekly-operating-graph
-      status: parked
-      repair_note: |
-        2026-06-20: owner invalidated this as the active first-node frame. The
-        name/scope "weekly operating graph" was too narrow for the actual
-        life-reset runtime/foundation work and must be reconsidered in remap.
+    - id: g-lr-run
+      status: active
+      goal: |
+        Существует работающий недельно-дневной ритм: настоящие собранные недели в
+        строгом порядке (обязательное/floors → рутина → хотелки через фильтр →
+        явные cuts; все 3 потока; ≤1 эксперимент) и выведенные из них дни с
+        воротами R11; расхождение плана с реальностью заходит как вход в следующий
+        пульс, переживается как коррекция, не приговор. Дефолт недели — собрать по
+        ПРИНЯТОМУ процессу; обязательного процесс-ресёрча каждую неделю нет.
+      done_when: |
+        На живых данных собрана ≥1 настоящая неделя в этом порядке (floors первыми
+        · ≥1 хотелка через фильтр или отклонена с причиной · ≥1 явный cut),
+        выведен ≥1 реальный день, ворота R11 сработали ≥1; всё durable. Это и есть
+        «начал пользоваться» — реальный ритм, не бумага.
+      why: Несёт критерий ③ и поставляет 2/4 durable-артефакта ①; субстрат, на котором стоят остальные узлы.
       appetite: |
-        One runtime-architecture bootstrap wave before any real weekly
-        operation. The bet must first create/select a separate Life-reset
-        Runtime v0 repository or workspace and put the actual runtime
-        architecture skeleton there. Concrete Weekly Contracts come later.
-        Direction OS is the control plane, not the weekly/daily runtime.
-      kill_by: |
-        2026-06-21: if the separate runtime substrate cannot be created or
-        selected and populated with the runtime architecture skeleton before
-        planning, stop and review or simplify. Do not compensate by running
-        weekly/daily operation inside Direction OS.
-      goal: |
-        К 20 июля 2026 года life-reset умеет в активном разговоре
-        строить неделю как operating graph: выбранные outcomes, slices
-        длинных работ, floors, activities, backlog candidates,
-        time/capacity budgets, success metrics и explicit cuts, затем
-        фиксировать это как принятый Weekly Contract.
-      done_when: |
-        В каждом из трёх weekly cycles сохранён week graph + contract, где
-        видно sources целей, success checks, time/capacity budget,
-        selected slices, considered backlog candidates, reused past
-        decisions/reviews, explicit cuts, owner acceptance и правило, что
-        новая идея входит в текущую неделю только через critical need и
-        снятие другого объёма.
-      why: |
-        Неделя должна строиться как честный граф целей, slices, capacity,
-        metrics, backlog и cuts, а не список желаний.
+        ~3 focused hours to author the 2 v1 files (sealed-core + week-file); the
+        real run is owner-paced, NOT in the build budget; not extended (over-appetite
+        → re-shape a smaller run).
+      kill_by:
+        metric: real end-to-end runs on live data
+        threshold: 0 runs while the v1 files exist
+        soft: 2026-07-05  # pause & run
+        hard: 2026-07-19  # kill → re-shape a smaller run
+        note: owner-paced; re-anchor to build-complete +2wk/+4wk if the build starts later.
+      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
+      bet: history/2026-06-21-s-life-reset-shape-run-v1-001.md  # the active v1 bet (NOW.md)
 
-    - id: g-lr-daily-runtime
+    - id: g-lr-protect
       status: parked
       goal: |
-        К 20 июля 2026 года life-reset умеет вести один рабочий чат дня:
-        утром строить план под Weekly Contract и реальное расписание,
-        в течение дня принимать сообщения о действиях, сбоях, мыслях и
-        изменениях, перестраивать следующий ход и сохранять evidence для
-        review.
+        Асимметричная строгость реально защищает: петля срыва режется на шаге
+        «фиксация» — менеджер throttle-ит собственный всплеск владельца, ни одна
+        опора не вытесняется молча (вытеснение = явный owner-видимый cut),
+        восстановление — легитимное СОСТОЯНИЕ структуры (санкционированный
+        облегчённый режим), и менеджер держит хват, даже когда владелец —
+        ненадёжный рассказчик или отсутствует днями.
       done_when: |
-        В каждом из трёх weekly cycles есть daily runtime evidence:
-        morning plan from Weekly Contract and schedule, in-day updates
-        classified as action done / drift / blocker / idea intake /
-        schedule change / review evidence, adaptive decisions
-        continue / cut / recover / reschedule / push back, evening summary
-        and a replaceable daily method reviewed after use.
-      why: |
-        Каждый день превращает Weekly Contract в расписание, действия,
-        drift/recovery и evidence.
+        В durable есть (а) ≥1 эпизод, где менеджер ограничил/отклонил переинвест
+        или назвал падающую опору ДО срыва и удержал защищённый класс; (б) ≥1
+        эпизод санкционированного облегчённого режима (нагрузка снижена, структура
+        цела); фильтр ≥1 раз пропустил настоящее восстановление, когда требовалось.
+      why: Несёт критерий ① (инокуляция документированной петли срыва) + g3 (иначе менеджер сам = петля выгорания); это причина re-frame.
+      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
 
-    - id: g-lr-direction-life-integration
+    - id: g-lr-integrate
       status: parked
       goal: |
-        К 20 июля 2026 года life-reset умеет собирать в одну неделю
-        summaries, floors, constraints и focus из других directions, семьи
-        и самостоятельных activities, не забирая у них ownership.
+        Три потока (направления-summary, программы, бэклог) кормят ОДИН ритм без
+        потерь и без захвата scope: соседи читаются как summary, не raw; life-reset
+        не хранит raw health/game/Solmax и не переписывает их scope; конфликт
+        между потоками всплывает явно и маршрутизируется, не проглатывается.
       done_when: |
-        В каждом из трёх weekly cycles видно imported game-development
-        focus, imported health floors/constraints without life-reset
-        prescribing nutrition/training/medical protocols, family
-        commitments, standalone activities, conflicts found, and decisions
-        cut / route / defer / ask / adjust without duplicating raw health
-        logs, game-production tasks or long direction plans.
-      why: |
-        Большие цели остаются в directions, а life-reset собирает их в одну
-        реальную неделю без захвата scope.
+        ≥1 реальный случай, где менеджер свёл ≥2 потока в неделю по summary (не raw)
+        и при нехватке дополнил владельцем/routed-запросом, не выдумал; ≥1 явно
+        всплывший и маршрутизированный конфликт/вытеснение; durable life-reset без
+        raw-данных соседей.
+      why: Несёт критерий ③ (все 3 потока) + g4 (границы источников неприкосновенны) + модель-хаб «ничего не теряется».
+      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
 
-    - id: g-lr-intake-knowledge-memory
+    - id: g-lr-learn
       status: parked
       goal: |
-        К 20 июля 2026 года life-reset умеет принимать идеи, книги, статьи,
-        наблюдения, желания, objections и process candidates; отделять
-        важное от мусора; сохранять usable knowledge и decision memory в
-        Markdown-first state; и возвращать это в week design, daily runtime,
-        modules или reviews.
+        Менеджер учится на неделях и безопасно чинит сам себя: дневные review →
+        недельный → ≥1 решение {hold|mutate|kill|route|research|simplify} (дефолт
+        hold; research/mutate только при недовольстве); петля само-улучшения хоть
+        раз реально срабатывает (owner-attributed, сохранено); запечатанное ядро
+        (отдых/безопасность/floors + путь override/rollback) доказуемо переживает
+        каждое переписывание; автономия заработанная и понижаемая; «полная, но
+        пустая» неделя может быть признана провалом.
       done_when: |
-        За три weekly cycles новые inputs не теряются и не попадают в работу
-        автоматически; significant inputs получают решение drop /
-        decision_memory / knowledge / backlog / incubate-research /
-        module_candidate / current-week swap; rejected inputs carry a
-        reason; knowledge notes are usable; long-running books/articles can
-        be sliced across weeks; backlog enters week design as a shortlist.
-      why: |
-        Идеи, книги, статьи и решения сохраняются пригодно, а не становятся
-        мусоркой или внезапными обязательствами.
+        (a) ≥1 недельный review с явным решением, дефолт виден как hold; (b) ≥1
+        реальное owner-approved переписывание себя по выводу про владельца,
+        сохранено; (c) после него override + floors целы — проверено; (d) ≥1
+        review, где «всё сделано, но пусто» признано не-успехом по оси
+        живость/смысл.
+      why: Несёт routed ⑦ (петля обязана хоть раз сработать) + g1 (gated rewrite + неприкосновенный override) + защиту конечной ценности (эффективность=метод).
+      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
 
-    - id: g-lr-process-activity-modules
+    - id: g-lr-trust
       status: parked
       goal: |
-        К 20 июля 2026 года life-reset умеет запускать и вести ограниченные
-        modules для процессов, activities и hobbies, которые ещё не являются
-        отдельными directions: книга на месяц, танцы, велосипед,
-        психологический разговор, духовная практика, learning workflow или
-        новый life-reset protocol.
+        Менеджер — наставник, которому владелец не сопротивляется (R7); доверие
+        переживает доказанно неверный вердикт (полоса терпимой ошибки, не
+        всё-или-ничего) и многодневный разрыв (не-карающее возвращение без полного
+        intake); есть короткий решённый фронт, которому владелец подчиняется вместо
+        пере-решения; живое running-состояние (позиция в цикле, текущие защиты,
+        ступень автономии) продолжается в новом чате/провайдере, не только статичные
+        факты.
       done_when: |
-        За три weekly cycles хотя бы один candidate может быть обработан как
-        module или явно отложен с причиной, and the module pattern defines
-        outcome, why it is not a direction yet, owner interface, durable
-        state, weekly slice, daily runtime entry, progress/benefit signal,
-        safety/scope boundaries, and review decisions continue / pause /
-        mutate / kill / promote to direction / fold into routine.
-      why: |
-        Книги, танцы, велосипед, psychological/spiritual reflection и новые
-        protocols можно вести как ограниченные modules без отдельного
-        direction сразу.
+        (a) ≥1 эпизод: неверный вердикт — владелец всё равно принял следующий
+        строгий вызов; (b) ≥1 эпизод: пропуск на дни → не-карающее возвращение без
+        полного intake; (c) ≥1 действие ОТ решённого фронта без пере-решения; (d)
+        новый чат/провайдер продолжил running-состояние, не только архив.
+      why: Несёт критерий ② (приёмка-после-использования сквозь ошибку и срыв) + ④ (портативность живого состояния) + R7.
+      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
 
-    - id: g-lr-review-portable-evolution
+    - id: g-lr-grow
       status: parked
       goal: |
-        К 20 июля 2026 года life-reset умеет проводить Weekly Review,
-        которое сравнивает Weekly Contract с evidence, обновляет knowledge
-        and decision memory, принимает решения по directions, modules,
-        backlog и daily/weekly protocols, а затем сохраняет portable
-        Markdown/GitHub state так, чтобы следующий чат или AI-провайдер мог
-        продолжить без старой истории.
+        Менеджер сам себя определяет, растит по evidence и остаётся лёгким: первый
+        запуск — обязательный intake + подбор техник под владельца (R32); бэклог =
+        capture-без-обязательства; кандидаты повышаются в программы/новые
+        процессы/directions (процесс определяется ДО запуска: outcome/scope/
+        интерфейс/durable-state/cadence/связь-с-неделей/stop); расширения не
+        раздувают неделю; менеджер умеет СТАНОВИТЬСЯ МЕНЬШЕ (сбрасывать мёртвые
+        правила), мета-слой держит ту же анти-прокрастинационную планку.
       done_when: |
-        В каждом из трёх weekly cycles review shows promised vs actual
-        evidence, drift/overload/self-deception/external conflicts/failed
-        protocols/useful surprises, lessons added to knowledge or decision
-        memory, backlog/intake/module decisions, one weakest link, decisions
-        hold / mutate / kill / route / research / simplify, next-week
-        changes, portable continuation state and a clean-start reset check.
-      why: |
-        Review учит систему, меняет следующие недели/protocols/modules и
-        сохраняет portable Markdown/GitHub state.
+        (a) первый запуск реально провёл intake + подобрал ≥1 технику, сохранил;
+        (b) ≥1 идея в бэклог как capture-без-обязательства, не раздув неделю,
+        lifecycle виден; (c) расширение/программа стартует только ПОСЛЕ реально
+        поюзанного v1, через определение процесса до запуска; (d) ≥1 реальный сброс
+        мёртвого правила/упрощение формата.
+      why: Несёт routed ⑤ (managed-extensions) + ⑥ (process-incubation/self-definition) + system-quality; гейтится на доказанном v1 (расширения после прогона).
+      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
 
 END_OF_FILE: live/life-reset/TREE.md

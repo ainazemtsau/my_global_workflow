@@ -1,122 +1,265 @@
 # NOW — life-reset
 
 active_bet:
-  status: none
-  repair_status: tree_invalid_pending_remap
-  note: |
-    2026-06-20: owner invalidated the current TREE as the active planning
-    frame: "дерево сейчас невалидное полностью, заново надо переделывать,
-    перепланировать".
+  node: g-lr-run
+  status: active
+  shaped_by: 2026-06-21 s-life-reset-shape-run-v1-001 (owner-approved G9: "да")
+  runtime_home: |
+    The 2 v1 files (sealed-core + week-file) + the manager's memory live in the PRODUCT REPO
+    github.com/ainazemtsau/life-reset-manager (local C:\projects\life-reset-manager) — NOT in
+    live/life-reset/work/ (which stays governance + planning products only). markdown-only
+    until a real run earns more (CHARTER product_repos lightness_rule). Built via executor/
+    work CALLs; the direction tracks by commit evidence. Set 2026-06-21 (owner G9).
+  goal: |
+    ONE tiny real composed pulse on REAL owner data that closes the one-real-run gate — not
+    "architecture exists". Two files (a sealed-core file + a week-file) + ONE real run: a week
+    composed in strict order with the filter biting, a day derived with the R11 gate, one real
+    protect episode, one review→one decision, all durable + portable across a chat restart,
+    owner attests it was real.
+  appetite: |
+    ~3 focused hours to author the 2 v1 files. The real run is OWNER-PACED and is NOT in the
+    build budget. Not extended — if it needs more, re-shape a SMALLER run (over-appetite dies,
+    G3). Build to the end without mid-stream rebuilds; evaluate only at the checkpoint (R12).
+  kill_by:
+    metric: real end-to-end runs on live data
+    threshold: 0 runs while the v1 files exist
+    soft: 2026-07-05  # 2 weeks → pause & sit down to run (anti-paper brake, pre-mortem #11)
+    hard: 2026-07-19  # 4 weeks → kill → re-shape a smaller run / tiny-probe
+    note: owner-paced; re-anchor to build-complete +2wk/+4wk if the build starts later.
+  next_if_true: |
+    the run closes the one-real-run gate → the next node opens (protect/integrate deeper) or a
+    review confirms v1 and unlocks g-lr-grow extensions.
+  next_if_false: |
+    no real run by the hard date → kill the bet; re-shape an even smaller run (or a tiny-probe).
 
-    Do not run the previous runtime-architecture CALL
-    c-life-reset-runtime-architecture-001 and do not continue work under
-    g-lr-weekly-operating-graph before remap.
+  done_when: |
+    On live data: ≥1 real week composed in strict order (tier-1 floors+rest+recovery first ·
+    ≥1 wish through the filter OR rejected-with-reason · ≥1 explicit cut · ≥2 neighbor
+    summaries present · ≥1 stream conflict surfaced+routed), ≥1 real day derived (R11 fired
+    ≥1), ≥1 real protect episode, ≥1 saved review→decision; all durable; a fresh chat resumes
+    the live running-state by delta; owner attests the run was REAL (not paper/demo).
 
-    The root charter remains input unless the remap session finds it wrong and
-    explicitly routes to frame. Existing work/history artifacts remain evidence,
-    not authority.
-  preserved_evidence:
-    - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
-    - live/life-reset/work/sunday-planning-packet-v0.md
-    - live/life-reset/work/life-reset-runtime-boundary-v0.md
-    - live/life-reset/work/life-reset-runtime-data-memory-retrieval-requirements-v0.md
-    - live/life-reset/history/2026-06-20-s-life-reset-weekly-operating-graph-shape-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-boundary-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-route-reset-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-architecture-route-repair-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-memory-route-repair-001.md
-  blocked_reason: |
-    The current tree names and structures the first active path as weekly
-    operating graph, but the owner clarified that the actual next structure
-    must represent the whole life-reset runtime/system foundation, not merely a
-    weekly planning component.
+  week_layout: |
+    ONE week-file, four sections in FIXED file-position order (position = "big rocks first"):
+      1. PROTECTED TIER-1  — Musts + Floors + Routine-rest + Recovery (rest/recovery off the
+         top, uncuttable; the filter cannot touch this; "musts first" = ORDER, not size).
+      2. Routine          — the current schedule.
+      3. Wishes-through-filter — each admitted-with-reason OR rejected-to-backlog-with-reason;
+         mark the ≤1 experiment; the burden of proof is on the wish.
+      4. Cuts             — explicit; a `displaces:` line whenever a cut is a displacement
+         (if no displacement actually happened in the run, `displaces:` is labelled untested).
 
-tasks: []
+  resolved_gaps:
+    recovery_vs_slide: |
+      Distinguished NOT by the activity but by 3 observable signs — named/sanctioned ·
+      floors-still-stand · bounded-with-return. Anti-gaming without punishment: the owner may
+      CALL anything recovery (default = treat-as-recovery, never punished, G3), but the
+      owner-authored floor tripwires watch the FLOORS, not the label — a fallen floor fires the
+      tripwire as a PROTECT episode (reach-in / name the falling pillar), not a verdict.
+      RESPONSE (owner-corrected 2026-06-21, supersedes the t-1 audit's clinical-risk routing):
+      (1) genuine recovery (named / floors-stand / bounded) = protected, leave it; (2) the
+      checkout-slide (NOT chosen as rest, floors falling, unbounded) = caught by the tripwires
+      → re-ignite the "blade" through the owner's OWN values via an objective external voice,
+      FIRM but non-punishing, NEVER force (force doesn't move him; values-synergy does) and
+      NEVER route to a specialist. BOUNDARY: the manager is NOT a clinical safety valve — the
+      owner self-sources any external human support (psychiatrist / friend) outside the system;
+      the override door is always his. (Lives in the t-2 sealed core.)
+    floors: |
+      1. Sleep — not broken 2 nights running. 2. Not smoking again. 3. No binge-eating.
+      4. Not vanishing / zoning-out for days. (A 5th "training/practice discipline" floor is
+      captured for a gated future mutation once a training process exists — NOT in v1.)
+    integrate_present_minimal: |
+      The manager only READS a short neighbor summary (health, game — source of truth stays
+      inside the direction); thin/missing → owner tops up in words; NEVER ingests raw, NEVER
+      touches a neighbor's internal process; a stream conflict surfaces as an explicit line +
+      a route ("→ health" / "owner decides"). No raw neighbor data stored (G4). Streams = the
+      neighbor directions (read-only) + the owner's backlog.
+
+  lens_sweep:
+    - weekly-execution: TASK (t-3/t-4 — compose in strict order, filter bites, explicit cuts).
+    - daily-discipline: TASK (t-3/t-4 — MIT-style day-derivation + the R11 gate).
+    - cross-direction-integration: TASK (t-3/t-4 — read-only neighbor summaries, present-minimal).
+    - improvement-and-learning: TASK (t-4 — one review→one decision, default {hold}); the full
+      self-rewrite engine is deferred to g-lr-learn.
+    - spirit-and-transcendence: not_needed (v1 — a terminal value / a grow-program, excluded).
+    - inner-work-and-disclosure: not_needed (v1 — same, deferred).
+    - fatherhood-and-example: not_needed (v1 — a quality criterion, not a first-run mechanism).
+    - system-quality: TASK/condition (stays-light enforced by the appetite cap + kill_by
+      bureaucracy brake + the no-mid-stream-churn run model).
+    - safety: TASK (t-1/t-2 — protect genuine recovery + floors/tripwires + inviolable
+      override; the checkout-slide response = re-ignite via the owner's OWN values (objective
+      voice), firm/non-punishing, never force/refer; the manager is NOT a clinical safety
+      valve — owner self-sources external help — owner-corrected 2026-06-21, supersedes the
+      clinical-risk routing). CRITICAL.
+
+  cut_list: |
+    NOT in v1 (≥1 real cut, G6) → captures / g-lr-grow backlog: typed-commitment DAG / Kanban
+    board (Q1); N-of-1 evaluate-and-swap loop (Q2); baseline-relative surge-governor/ACWR (Q3
+    → g-lr-protect); automated post-rewrite gate w/ auto-revert (Q4); process-trace proxy
+    "unreliable-narrator" detector (Q5); track-record ledger / per-domain trust accounts (Q6);
+    two-key (subjective OR behavioral) hollow-veto (Q7); dormancy auto-prune + hard WIP cap on
+    rules (Q8); gap-length tiered re-entry (Q9); fresh adversarial self-cert session (Q10);
+    routed-request-to-source for neighbor summaries (integrate — v1 = read + owner top-up).
+
+  forecast: |
+    Likely to close the gate: the slice is tiny, inherits the existing OS substrate, and its
+    HOW was already multi-agent-verified in research. The cheapest risk (recovery-vs-slide) is
+    tested FIRST (t-1) on past data, so a fatal flaw surfaces before any file is built.
+  against: |
+    Top risk: a flat 4-layer file may not hold real integrate-streams + day-derivation + drift
+    on the first real week, OR the manager cannot reliably tell recovery from slide → t-1 +
+    t-4 are exactly where that shows. The gate rests on owner self-attestation (deferred
+    hardening = the adversarial self-cert session, Q10).
+
+tasks:
+  - id: t-1
+    kind: session
+    status: done   # 2026-06-21 s-life-reset-run-v1-t1-plan-audit-001
+    goal: |
+      RE-SCOPED by live owner instruction: the narrated back-test was dropped as self-graded
+      theater (owner: "Это нахуй не проверка, … проверяй на консистентность данных, на план …
+      что всё покрыто, каждая процедура"). New job: audit the v1 plan for coverage +
+      consistency + data-flow before building, confirm the recovery-vs-slide rule (3 signs) +
+      the 4 floor-tripwires are build-ready, fix any gap.
+    done_when: |
+      DONE. Audit ran (wf_35ccf508, 24 agents, adversarially verified): 62 required
+      procedures COVERED; rule + 4 tripwires build-ready; no contradictions; all 4 v1
+      data-flows close. ONE load-bearing defect found+fixed — the sealed core (t-2) had
+      dropped the charter's clinical-risk routing rule. Verdict: BUILD-READY. The 3 signs +
+      the 4 floors + the 3 response altitudes live in resolved_gaps; a clinical-risk sign
+      routes OUT (to professional support), NOT an in-system reach-in. Evidence:
+      work/life-reset-v1-plan-audit-001.md.
+
+  - id: t-2
+    kind: executor
+    status: active
+    goal: |
+      Author the sealed-core file ONCE (serves Q4/Q5/Q9): inviolable override path (incl. the
+      R11 refusal) · protected class (recovery/safety/floors incl. routine-rest) · manual
+      rollback (git-revert, no automation overclaim) · "rules change only via the gate" (every
+      ACTUAL rewrite is gate-checked — not "provably sealed forever") · the 4 tripwires (from
+      t-1) · the non-punishing-return invariant (hosted HERE, not on the override path) ·
+      the NOT-A-SAFETY-VALVE boundary (owner-corrected): the manager is no clinician and does
+      NOT route to a specialist or run therapy — the owner self-sources external human support;
+      its checkout-slide response is re-igniting his OWN values via an objective voice, firm
+      but non-punishing, never force/referral.
+    done_when: |
+      The sealed-core file exists in the PRODUCT REPO (C:\projects\life-reset-manager,
+      committed + pushed; evidence = commit SHA), durable, listing all of the above INCLUDING
+      the not-a-safety-valve boundary + the checkout-slide re-ignite-via-values response
+      (owner-corrected); v1 performs NO rewrite (that is g-lr-learn) — this only authors the
+      core + a repeatable 2-assertion hand-run smoke check (override still works + floors
+      intact). No surfaced numbers (G2). markdown-only (lightness_rule).
+
+  - id: t-3
+    kind: executor
+    status: pending
+    goal: |
+      Author the week-file template: the 4 fixed-position sections · read-only neighbor-summary
+      slots + owner top-up + conflict→route (no raw) · MIT-style day-derivation + the R11 gate
+      + where "yesterday's review" lives · the review template (default {hold}, the hollow-week
+      veto WITH the recovery carve-out, no numbers) · the realness card (anti-paper
+      artifact-existence + one mandatory BITE slot) · the live running-state fields for
+      portability (cycle position, current protections, autonomy rung) + delta re-entry.
+    done_when: |
+      The week-file template exists in the PRODUCT REPO (C:\projects\life-reset-manager,
+      committed; evidence = commit SHA) with every section above; the displacement test is
+      non-vacuous (a real cut must be loud; `displaces:` fires on a real displacement else is
+      labelled untested); the realness card binds on artifact-existence + one bite event.
+
+  - id: t-4
+    kind: owner-run
+    status: pending
+    goal: |
+      THE REAL RUN (owner-paced): compose one real week (floors first · filter bites ≥1 · ≥1
+      explicit cut · ≥2 neighbor summaries · ≥1 conflict routed) — the first compose also does
+      a LIGHT intake (manager asks missing facts) + picks ≤1 working technique (owner-reported,
+      heuristic best-bet; on a recovery week a technique is PAUSED not failed) — derive one
+      real day (R11 fires), one real protect episode fires, save one review→one decision.
+    done_when: |
+      All of the above happened on live data and is durable; the filter genuinely BIT (a real
+      cut gave something up OR it bit the owner's own pull OR recovery was protected against a
+      real temptation — the bite slot is non-empty and not invented).
+
+  - id: t-5
+    kind: session
+    status: pending
+    goal: |
+      Portability + owner attestation: a FRESH chat resumes the LIVE running-state (cycle
+      position, current protections) via delta-only re-entry ("what changed?"), no full
+      re-intake; the owner attests the run was REAL and actually worked.
+    done_when: |
+      A fresh chat continued the running-state (not just the archive), and the owner explicitly
+      attests it was a real run (closes the one-real-run gate / criterion ① + ②).
 
 recurring: []
 
-open_calls:
-  - id: c-life-reset-remap-001
-    to: session
-    for: g-life-reset-root
-    issued: 2026-06-20
-    note: >
-      Rebuild the life-reset top-level tree with the owner. Current TREE is
-      invalid as active planning state; old runtime/weekly artifacts are input
-      evidence only.
+open_calls: []   # t-1 done; the t-2 CALL is `next`, not yet in-flight.
 
 decisions: []
 
+preserved_evidence:
+  - live/life-reset/work/life-reset-manager-vision-capture-v1.md
+  - live/life-reset/work/life-reset-implementation-research-v1.md
+  - live/life-reset/history/2026-06-21-s-life-reset-frame-root-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-map-manager-tree-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-research-build-manager-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-shape-run-v1-001.md
+  - live/life-reset/work/life-reset-v1-plan-audit-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t1-plan-audit-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-setup-product-repo-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-protect-mechanism-correction-001.md
+
 next: |
-  CALL c-life-reset-remap-001
+  CALL c-life-reset-run-v1-t2-sealed-core-001
   to: session
   direction: life-reset
-  play: map
-  node: g-life-reset-root
+  play: work
+  node: g-lr-run
+  task: t-2
   goal: |
-    Life-reset has an owner-approved replacement top-level TREE that reflects
-    the real system scope.
+    Author the sealed-core file ONCE (the manager's non-amendable safety layer), listing: the
+    inviolable override path (incl. R11 refusal) · the protected class (recovery/safety/floors
+    incl. routine-rest) · manual git-revert rollback (no automation overclaim) · "rules change
+    only via the gate" · the 4 floor-tripwires (sleep / not-smoking / no-binge / not-vanishing,
+    from resolved_gaps.floors) · the non-punishing-return invariant (hosted HERE) ·
+    CLINICAL-RISK ROUTING (a pre-named clinical-risk sign → route OUT to professional support,
+    never intensify discipline — the t-1 audit's load-bearing fix). v1 runs NO rewrite; this
+    only authors the core + a 2-assertion hand-run smoke check.
+
+    NOTE (owner-corrected 2026-06-21): the manager is NOT a clinical safety valve — NO
+    specialist routing, NO therapy/practices; the owner self-sources his own external human
+    support outside the system. Its checkout-slide response = re-ignite the owner's OWN values
+    via an objective external voice (firm, non-punishing, never by force or referral). The
+    manager is his objective mirror for weighted decisions + anti-overcommit; keep it light.
   context: |
-    Read:
-    - live/life-reset/CHARTER.md
-    - live/life-reset/TREE.md
-    - live/life-reset/NOW.md
-    - live/life-reset/LOG.md
-    - live/life-reset/history/2026-06-19-s-life-reset-map-evidence-001.md
-    - live/life-reset/history/2026-06-19-s-life-reset-map-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-weekly-operating-graph-shape-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-route-reset-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-architecture-route-repair-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-memory-route-repair-001.md
-    - live/life-reset/work/life-reset-runtime-boundary-v0.md
-    - live/life-reset/work/life-reset-runtime-data-memory-retrieval-requirements-v0.md
-    - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
-    - live/life-reset/work/sunday-planning-packet-v0.md
-    - os/KERNEL.md
-    - os/plays/map.md
-    - os/plays/research.md
-    - os/adapters/coding-agent.md
-
-    Owner instruction:
-    - "дерево сейчас невалидное полностью, заново надо переделывать,
-      перепланировать"
-
-    Diagnosis to carry forward:
-    - The old first node name/scope "weekly operating graph" was too narrow.
-    - The actual system needs a coherent life-reset runtime/foundation framing:
-      operating surface, durable state, data/memory/retrieval, weekly planning,
-      daily operation, intake/backlog, process/technique lifecycle, review and
-      source-direction boundaries.
-    - Existing work artifacts may be mined as evidence, but they are not the
-      active route and must not force the new tree.
+    - WRITE the file in the PRODUCT REPO: C:\projects\life-reset-manager (remote
+      github.com/ainazemtsau/life-reset-manager) — markdown-only; commit + push there;
+      RESULT carries the commit SHA as evidence back to this direction.
+    - live/life-reset/NOW.md (the v1 bet; runtime_home; resolved_gaps = the 3 recovery-vs-slide
+      signs + the 4 floors + the 3 response altitudes incl. clinical-risk route-OUT; t-2 spec)
+    - live/life-reset/work/life-reset-v1-plan-audit-001.md (the t-1 audit: build-ready; the
+      clinical-risk defect + its fix)
+    - live/life-reset/work/life-reset-implementation-research-v1.md (Q4 sealed core / Q5
+      tripwires / Q9 non-punishing return — mechanics + required-fixes)
+    - live/life-reset/CHARTER.md (guardrails G1-G4; product_repos lightness_rule;
+      authority_and_boundaries clinical-risk routing; risk_posture asymmetric rigor)
   boundaries: |
-    Do not run the old runtime-architecture work CALL.
-    Do not create or accept a concrete Weekly Contract.
-    Do not run daily operation.
-    Do not assume the old six-node map is valid.
-    Do not preserve "weekly operating graph" as the first active node unless
-    the owner explicitly re-approves it during map.
-    Do not edit CHARTER.md in map; if the charter itself proves wrong, return a
-    frame CALL instead.
-    Do not store raw health/game/Solmax data in life-reset.
-    Do not prescribe nutrition, training, medical or psychiatric treatment.
+    Co-create with the owner — how the manager should re-voice his OWN values when he's in the
+    checkout-slide is owner-content (his values, his words); do NOT invent generic motivation.
+    The manager is NOT a clinical safety valve: NO specialist routing, NO therapy/practices —
+    the owner self-sources external human help; do NOT re-add a clinical backstop. The file
+    lives in the PRODUCT REPO, NOT live/life-reset/work/ (governance only); markdown-only, no
+    infra (lightness_rule). Author ONLY the sealed core (not the week-file — that is t-3). NO
+    rewrite engine (that is g-lr-learn). No surfaced numbers (G2). The override path stays
+    inviolable; the non-punishing-return invariant lives in the core (NOT on the override path).
+    Keep it light — a short readable file.
   done_when: |
-    - TREE.md contains an owner-approved revised top-level map for life-reset,
-      or the session returns an explicit frame CALL because the charter/root is
-      the real problem.
-    - Every non-root node has goal, done_when, status and why.
-    - The revised tree explicitly resolves whether runtime foundation is a
-      top-level node, a first active node, or part of another structure.
-    - The revised tree explicitly places weekly planning/Weekly Contract,
-      daily runtime, data/memory/retrieval, intake/backlog,
-      process/technique lifecycle, review/evolution and source-boundaries.
-    - NOW.md no longer presents the old g-lr-weekly-operating-graph route as
-      executable unless the new map explicitly approves it.
-    - A next shape CALL is ready for the newly recommended first node, or an
-      awaiting_decision state explains the unresolved owner decision.
-  return: |
-    RESULT with owner-approved TREE replacement or frame route, state_changes,
-    evidence and next CALL.
-  budget: one map/replan session
+    The sealed-core file exists in the PRODUCT REPO (committed + pushed; evidence = commit SHA),
+    listing all of the above INCLUDING the not-a-safety-valve boundary + the checkout-slide
+    re-ignite-via-values response (owner-corrected); plus a repeatable 2-assertion hand-run
+    smoke check (override still works + floors intact). next = t-3 (week-file template).
+  return: RESULT with the sealed-core file (product-repo commit SHA), the smoke check, next = t-3 CALL.
+  budget: one work session (co-creation with the owner).
 
 END_OF_FILE: live/life-reset/NOW.md

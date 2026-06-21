@@ -98,7 +98,28 @@ root:
           (общие метрики, фаза) по определённому контракту.
         - Граница Direction OS сохранена: вверх идут только summary/decision/problem/CALL; сырые
           ежедневные данные живут в Health AI System.
-      status: parked
+      status: active
+      appetite: >
+        14 calendar days (kill 2026-07-04), servant-boxed. The OUTCOME worth this box is the kernel's BINDING
+        PRECONDITION green — the runtime primitives + the lifecycle/gate/writer-barrier/cold-start spine + ONE
+        real artifact walked SEED→PROPOSED→ACTIVE through the gate, proven by a fresh session (WA-K10 +
+        KC5/KC6/KC7/KC14) — NOT the full breadth. The kernel is built by LIFTING the proven hand-rolled
+        nutrition trio (router/graph/cursor) up into core/ + building the net-new governance spine
+        (EXTRACT-AND-CANONIZE). Honest sizing is MULTI-LEG (one desk pre-proof + ≥2 executor legs), not half a
+        day — the weaker predecessor data layer took ~6 days. Breadth (WA-K6 render-pair + WA-K8 anti-fragility
+        strongest form) is a named follow-on bet, not this box. No extend (G3): over-box → re-shape.
+      kill_by: >
+        2026-07-04. Dies if ANY: (a) the Wave-0 zero-engine subtraction-proof surfaces a real non-empty engine
+        residual a thin domain cannot shed (WA-K9 unmeetable as architected → do NOT build, re-open the arch
+        claim); (b) the WA-K10 journey-proof + KC5/KC6/KC7/KC14 cannot be walked cold (KQ2 bootstrap recursion
+        fails) under a fresh-session refutation; (c) PROCRASTINATION GUARD — by 2026-07-04 kernel commits exist
+        but ZERO measurable body-execution (none of: ≥1 committed weight log, ≥1 owner-confirmed real
+        menu/grocery used, ≥1 logged training/activity session) → per CHARTER pre_mortem risk #4, CUT the
+        product part, force a near-path to real питание/активность before resuming.
+        next_if_true (precondition green by date): the HARD precondition is cleared — nutrition (already live,
+        re-homed thin) re-enters TRIAGE toward ACTIVE to earn the engine's keep; the breadth follow-on bet
+        (WA-K6/WA-K8) opens. next_if_false: bounce/cut per the failing branch; no breadth leg proceeds on an
+        unproven spine.
       children: []
 
     - id: g-health-nutrition-system
