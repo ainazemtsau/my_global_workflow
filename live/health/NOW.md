@@ -99,8 +99,20 @@ tasks:
       G5 separate-context discipline) before t-3 dispatches. No build.
   - id: t-3
     kind: executor
-    status: todo
+    status: done_with_incident
     repo: health-ai (C:\projects\health-ai)
+    done_note: >
+      DONE-WITH-INCIDENT 2026-06-21 (s-health-core-kernel-incident-rca-001). The kernel spine (KC1-KC11 + KC14) was
+      BUILT in health-ai and the binding journey-proof walked SEED-PROPOSED-ACTIVE with evidence (commit 679dd8d),
+      refuted fresh = SURVIVES (9a0124a) -> the bet binding precondition is met. BUT the first nutrition RUN that
+      followed exposed real defects: an agent surfaced+persisted a CONCRETE owner-facing menu as PROPOSED without
+      owner approval (8504d3f), reverted by owner (adebf3d); stale concrete content left in-repo with active flags;
+      owner-facts duplicated across projection files; the "abstract-first / never pick concrete foods" rule was
+      never in any contract; no visible proof-of-load marker on chat replies; and the executor returned NO OS
+      RESULT -> live/health drifted a full leg (re-synced by this RESULT). Nutrition PAUSED. Full RCA: workflow
+      wf_39392526-26c (8 agents, adversarially verified) -- NOT a WA-K2/WA-K3 contradiction, but an
+      under-specified freeze seam + a missing requirement. Remediation in NOW.next
+      (CALL c-health-core-kernel-incident-fix-001). WA-K6 + WA-K8 remain red_deferred (unwalked).
     gated_on: t-1 PASS AND t-2 PASS (fresh-read confirmed)
     goal: >
       Build the ONE indivisible TIER-2 kernel spine (lift runtime primitives KC1–KC4 + build governance KC5–KC11
@@ -138,7 +150,14 @@ open_calls:
       (executor-inputs) · F-C registry-line governance → non-blocking decision D-kernel-1. Evidence:
       work/wave0-derisk-g-health-core-kernel.md.
   - id: c-health-core-kernel-spine-journey-executor-001
-    status: ready
+    status: done
+    closed: 2026-06-21 (done_with_incident -- see NOW.next + LOG + history/2026-06-21-s-health-core-kernel-incident-rca-001.md)
+    incident_note: >
+      Kernel spine + journey-proof built and proven in health-ai (679dd8d journey ACTIVE; 9a0124a fresh-refutation
+      SURVIVES). BUT the executor returned its results ONLY inside the health-ai repo (in-product handoff packets),
+      never as an OS RESULT with state_changes -- the workflow-loop gap that left live/health drifted a full leg.
+      The follow-on nutrition run overran the thin-attach boundary and hit the menu-without-approval violation
+      (8504d3f, owner-reverted adebf3d). Closed; remediation tracked in NOW.next (c-health-core-kernel-incident-fix-001).
     gate_cleared: 2026-06-20 (Wave-0 PASS, fresh-read confirmed)
     note: >
       RELEASED 2026-06-20 — Wave-0 de-risk PASS/PASS cleared the gate. Executor CALL into health-ai for the kernel
@@ -171,6 +190,48 @@ next: |
   # wf_c9806260-68d). t-1 zero-engine subtraction PASS; t-2 KQ2/O1 cold-start bootstrap PASS. This executor CALL is
   # now LIVE. Folded-in Wave-0 residuals (input/PLAN only — done_when §WA-K1–K12 unchanged): F-A subtract per-domain
   # validators · F-B cursor conformance · F-C registry-line governance → non-blocking decision D-kernel-1.
+  # ====================================================================================================
+  # SUPERSEDED 2026-06-21 (s-health-core-kernel-incident-rca-001). The build below ALREADY HAPPENED and is
+  # closed done_with_incident -- DO NOT run it. The frozen WA-K1-K12 verbatim is retained below ONLY as the
+  # binding acceptance reference (its permanent home is health-ai acceptance/kernel/wa-k.md). The REAL next
+  # action is the incident-fix CALL immediately below. Nutrition is PAUSED.
+  # ====================================================================================================
+  CALL c-health-core-kernel-incident-fix-001
+  to: session lead + executor (health-ai)
+  direction: health  node: g-health-core  bet: b-health-core-kernel
+  repo: C:\projects\health-ai
+  why: >
+    First nutrition run: an agent surfaced+persisted a CONCRETE owner-facing menu/recipes as PROPOSED without
+    owner approval (8504d3f), owner-reverted (adebf3d). Verified root causes (NOT a contradiction): (1) an
+    under-specified FREEZE seam -- the frozen WA-K3 line dropped KV3's "(never directly ACTIVE)" status-ceiling
+    clarifier + the WA-K2 cross-ref, so a code-only agent read "always lands PROPOSED" as a write-now license;
+    (2) a MISSING REQUIREMENT -- "abstract/numeric structure first, never pick concrete foods for the owner" lived
+    only in chat/history, never in any contract (WA-K11 violation); (3) STALE CONCRETE DATA left in-repo with
+    active flags (recipes/grocery/fallbacks status=active_first_cycle while their source menu=SEED) that agents
+    grab; (4) owner-facts (125 kg, smoking-cessation block) duplicated into ~16 projection files instead of one
+    source; (5) no visible proof-of-load marker on chat replies; (6) executor returned no OS RESULT (this RESULT
+    closed that gap).
+  scope (each a separate one-job session):
+    - HEALTH-AI CLEANUP (executor; owner-confirm the delete scope FIRST): delete the stale concrete owner-facing
+      execution content the owner never approved -- x_nutrition/recipes/first-cycle-base-recipes.md,
+      x_nutrition/grocery/current-grocery-needs.md, x_nutrition/fallbacks/fallback-meals.md,
+      x_nutrition/reviews/first-cycle-review.md, and the SEED menu shell x_nutrition/menus/current-menu-cycle.md;
+      strip duplicated owner-facts out of every projection (single source = core/profile/owner-facts.md); fix
+      x_nutrition/index.md so output-heavy families are NOT advertised as "active artifacts". KEEP: kernel
+      (core/runtime, core/governance), workflow graph, cursor, program v1 ACTIVE (real owner echo), owner-facts.
+    - SEAM RECONCILIATION (os-maintenance; touches signed WA-K rows -> proper play, NOT a hotfix): additive
+      clarifier to WA-K3 (status ceiling, not write-now) + restore KV3 cross-ref; record the
+      abstract-first / never-pick-foods requirement as a first-class contract rule.
+    - PROOF-OF-LOAD MARKER (executor): every chat reply opens with a visible header proving the workflow loaded
+      (current state/cursor + which rules loaded), like the Direction-OS opening-contract header -- owner-checkable
+      at a glance, so the owner SEES when a chat did not load the rules.
+    - VERIFY (executor): WA-K6 (render-before-decision) + WA-K8 (anti-fragility) are red_deferred -- walk them
+      live before any nutrition resumes.
+  boundaries: nutrition execution stays PAUSED until cleanup + the abstract-first rule + the marker are in place;
+    no new build; do not delete program v1 / owner-facts / the kernel; D-kernel-1 default option 1 stands.
+  return: a RESULT per sub-session with state_changes for live/health.
+  # ----------------------------------------------------------------------------------------------------
+  # HISTORICAL (closed done_with_incident, do not run) -- the original build CALL + frozen acceptance follows:
   CALL c-health-core-kernel-spine-journey-executor-001
   to: executor (engineering agent)
   direction: health  node: g-health-core  bet: b-health-core-kernel
