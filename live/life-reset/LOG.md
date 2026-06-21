@@ -44,4 +44,10 @@
   planning state; old weekly/runtime route is stopped and next is
   c-life-reset-remap-001.
 
+- 2026-06-20 - map→frame: owner co-created the real scope (strict, self-improving
+  personal manager as the spine; week = minimum + routine floors + wishes via a
+  strict filter); current charter root too narrow → routed to frame; full vision
+  captured (R1–R31) at work/life-reset-manager-vision-capture-v1.md; next
+  c-life-reset-frame-manager-root-001.
+
 END_OF_FILE: live/life-reset/LOG.md

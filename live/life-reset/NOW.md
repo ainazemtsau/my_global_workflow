@@ -2,121 +2,100 @@
 
 active_bet:
   status: none
-  repair_status: tree_invalid_pending_remap
+  repair_status: root_being_reframed
   note: |
-    2026-06-20: owner invalidated the current TREE as the active planning
-    frame: "дерево сейчас невалидное полностью, заново надо переделывать,
-    перепланировать".
+    2026-06-20: the remap session (s-life-reset-remap-001) co-created the real
+    scope with the owner and found the current CHARTER root too narrow. The real
+    system is a STRICT, SELF-IMPROVING personal operating MANAGER as the spine
+    (weekly + daily rhythm) into which directions, programs and a backlog plug —
+    not a weekly tracker and not isolated programs. The full captured vision
+    (R1–R31 + two operating models) is saved at
+    work/life-reset-manager-vision-capture-v1.md.
 
-    Do not run the previous runtime-architecture CALL
-    c-life-reset-runtime-architecture-001 and do not continue work under
-    g-lr-weekly-operating-graph before remap.
+    Because map cannot edit CHARTER.md, the session routed to FRAME. The TREE
+    stays invalid_pending_remap until the root is re-framed (owner-approved) and
+    a fresh map rebuilds the tree on it. Do not run work/shape/daily operation,
+    and do not accept a Weekly Contract, before the re-frame.
 
-    The root charter remains input unless the remap session finds it wrong and
-    explicitly routes to frame. Existing work/history artifacts remain evidence,
-    not authority.
+    The old runtime-architecture / weekly-operating-graph route stays stopped;
+    old artifacts remain evidence only, not authority.
   preserved_evidence:
+    - live/life-reset/work/life-reset-manager-vision-capture-v1.md
+    - live/life-reset/history/2026-06-20-s-life-reset-remap-001.md
     - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
     - live/life-reset/work/sunday-planning-packet-v0.md
     - live/life-reset/work/life-reset-runtime-boundary-v0.md
     - live/life-reset/work/life-reset-runtime-data-memory-retrieval-requirements-v0.md
-    - live/life-reset/history/2026-06-20-s-life-reset-weekly-operating-graph-shape-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-boundary-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-route-reset-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-architecture-route-repair-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-memory-route-repair-001.md
-  blocked_reason: |
-    The current tree names and structures the first active path as weekly
-    operating graph, but the owner clarified that the actual next structure
-    must represent the whole life-reset runtime/system foundation, not merely a
-    weekly planning component.
 
 tasks: []
 
 recurring: []
 
 open_calls:
-  - id: c-life-reset-remap-001
+  - id: c-life-reset-frame-manager-root-001
     to: session
     for: g-life-reset-root
     issued: 2026-06-20
     note: >
-      Rebuild the life-reset top-level tree with the owner. Current TREE is
-      invalid as active planning state; old runtime/weekly artifacts are input
-      evidence only.
+      Re-frame the life-reset root to encode a strict, self-improving personal
+      operating manager as the spine (R1–R31). Primary input is the captured
+      vision artifact. A fresh map rebuilds the tree on the approved root.
 
 decisions: []
 
 next: |
-  CALL c-life-reset-remap-001
+  CALL c-life-reset-frame-manager-root-001
   to: session
   direction: life-reset
-  play: map
+  play: frame
   node: g-life-reset-root
   goal: |
-    Life-reset has an owner-approved replacement top-level TREE that reflects
-    the real system scope.
+    life-reset has an owner-approved revised root (mission, success criteria,
+    principles/constraints, lenses) that encodes the real scope: a strict,
+    self-improving personal operating manager as the spine — not a weekly
+    tracker and not isolated programs.
   context: |
-    Read:
-    - live/life-reset/CHARTER.md
-    - live/life-reset/TREE.md
-    - live/life-reset/NOW.md
-    - live/life-reset/LOG.md
-    - live/life-reset/history/2026-06-19-s-life-reset-map-evidence-001.md
-    - live/life-reset/history/2026-06-19-s-life-reset-map-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-weekly-operating-graph-shape-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-route-reset-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-architecture-route-repair-001.md
-    - live/life-reset/history/2026-06-20-s-life-reset-runtime-memory-route-repair-001.md
-    - live/life-reset/work/life-reset-runtime-boundary-v0.md
-    - live/life-reset/work/life-reset-runtime-data-memory-retrieval-requirements-v0.md
-    - live/life-reset/work/weekly-operating-graph-dry-run-v0.md
-    - live/life-reset/work/sunday-planning-packet-v0.md
+    Read, in this order:
     - os/KERNEL.md
-    - os/plays/map.md
-    - os/plays/research.md
-    - os/adapters/coding-agent.md
+    - os/plays/frame.md
+    - live/life-reset/CHARTER.md (current root to revise)
+    - live/life-reset/NOW.md
+    - live/life-reset/work/life-reset-manager-vision-capture-v1.md  (R1–R31 + models — primary input)
+    - live/life-reset/history/2026-06-20-s-life-reset-remap-001.md
 
-    Owner instruction:
-    - "дерево сейчас невалидное полностью, заново надо переделывать,
-      перепланировать"
-
-    Diagnosis to carry forward:
-    - The old first node name/scope "weekly operating graph" was too narrow.
-    - The actual system needs a coherent life-reset runtime/foundation framing:
-      operating surface, durable state, data/memory/retrieval, weekly planning,
-      daily operation, intake/backlog, process/technique lifecycle, review and
-      source-direction boundaries.
-    - Existing work artifacts may be mined as evidence, but they are not the
-      active route and must not force the new tree.
+    The revised root must newly encode:
+    - manager-as-spine: one coordinating personal manager (weekly+daily rhythm)
+      into which directions + programs + backlog plug; the week is the manager's
+      pulse, not a contract artifact (R8, R27–R29).
+    - strict personality (R1–R7, R30–R31): efficiency-first, non-caving,
+      aggressive/critical-by-default in any program (especially where work
+      stalls), "better to over-criticize than under-criticize"; interrupt the
+      accepted plan only for real impact on current goals/directions or a hard
+      newly-discovered due date; on rest/play do not moralize but seek synergy —
+      while still allowing genuine recovery.
+    - self-improving process (R13–R17): self-defining intake that researches the
+      owner's work-style and can rewrite its own instructions; a week-gone-wrong
+      triggers a re-research/improve cycle on the process itself.
+    - portability/state/writer (R18–R22) and the v1 goal + expansion (R23–R24).
   boundaries: |
-    Do not run the old runtime-architecture work CALL.
-    Do not create or accept a concrete Weekly Contract.
-    Do not run daily operation.
-    Do not assume the old six-node map is valid.
-    Do not preserve "weekly operating graph" as the first active node unless
-    the owner explicitly re-approves it during map.
-    Do not edit CHARTER.md in map; if the charter itself proves wrong, return a
-    frame CALL instead.
-    Do not store raw health/game/Solmax data in life-reset.
-    Do not prescribe nutrition, training, medical or psychiatric treatment.
+    Present the revised root one artifact at a time; nothing enters CHARTER.md
+    without explicit owner approval (G9).
+    Do not build the tree (that is the following map).
+    Do not run the implementation research inside frame.
+    Keep success criteria measurable and PROTECT the "run one real cycle before
+    more architecture" gate (charter pre_mortem #11) and the guardrails: process
+    self-rule-changes pass an explicit gate/review and the manager cannot
+    silently disable the owner's override path; "math precision" = heuristic +
+    evidence.
+    Do not store raw health/game/Solmax data; keep source-direction boundaries.
+    Do not prescribe nutrition/training/medical/psychiatric treatment.
   done_when: |
-    - TREE.md contains an owner-approved revised top-level map for life-reset,
-      or the session returns an explicit frame CALL because the charter/root is
-      the real problem.
-    - Every non-root node has goal, done_when, status and why.
-    - The revised tree explicitly resolves whether runtime foundation is a
-      top-level node, a first active node, or part of another structure.
-    - The revised tree explicitly places weekly planning/Weekly Contract,
-      daily runtime, data/memory/retrieval, intake/backlog,
-      process/technique lifecycle, review/evolution and source-boundaries.
-    - NOW.md no longer presents the old g-lr-weekly-operating-graph route as
-      executable unless the new map explicitly approves it.
-    - A next shape CALL is ready for the newly recommended first node, or an
-      awaiting_decision state explains the unresolved owner decision.
+    CHARTER.md root (mission, success_criteria, principles, lenses) is owner-
+    approved and reflects R1–R31; NOW.next is a map CALL to rebuild the tree on
+    the revised root.
   return: |
-    RESULT with owner-approved TREE replacement or frame route, state_changes,
-    evidence and next CALL.
-  budget: one map/replan session
+    RESULT with the owner-approved revised charter root, state_changes, evidence
+    and next map CALL.
+  budget: one frame session
 
 END_OF_FILE: live/life-reset/NOW.md
