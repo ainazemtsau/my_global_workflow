@@ -130,4 +130,17 @@
   principle), NOW (altitudes/safety/t-2/next CALL) + the product-repo README corrected.
   next unchanged: c-life-reset-run-v1-t2-sealed-core-001.
 
+- 2026-06-21 - work t-2: authored the manager's sealed-core (non-amendable safety layer) in the
+  PRODUCT REPO life-reset-manager @ e6f7cb3 (pushed). §1 inviolable override (incl. R11 refusal)
+  · §2 protected class (recovery/safety/floors/routine-rest) · §3 the 4 floor-tripwires · §4
+  recovery-vs-slide (3 signs) · §5 the objective voice anchored to the owner's OWN committed
+  week/day plan (firm; never scare/cheer/force/refer) · §6 non-punishing-return invariant (in
+  core, not on override path) · §7 NOT-a-safety-valve boundary (no clinical routing — owner
+  correction followed, stale CALL line dropped) · §8 manual git-revert · §9 gate-only changes
+  · §10 the 2-assertion smoke check (both PASS). Co-created: owner reframed the objective voice
+  to objectivity-vs-his-own-plan (not motivation; not scare/cheer; tone can be harder; values
+  current, honesty-with-self an extension) and steered v1 to the basic loop FIRST
+  (week→day→slip-report→rebalance), deeper psychological rules later — folded into the t-3 CALL.
+  next c-life-reset-run-v1-t3-week-file-001.
+
 END_OF_FILE: live/life-reset/LOG.md

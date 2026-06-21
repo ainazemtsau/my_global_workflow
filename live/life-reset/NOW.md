@@ -132,7 +132,7 @@ tasks:
 
   - id: t-2
     kind: executor
-    status: active
+    status: done   # 2026-06-21 s-life-reset-run-v1-t2-sealed-core-001
     goal: |
       Author the sealed-core file ONCE (serves Q4/Q5/Q9): inviolable override path (incl. the
       R11 refusal) · protected class (recovery/safety/floors incl. routine-rest) · manual
@@ -144,12 +144,20 @@ tasks:
       its checkout-slide response is re-igniting his OWN values via an objective voice, firm
       but non-punishing, never force/referral.
     done_when: |
-      The sealed-core file exists in the PRODUCT REPO (C:\projects\life-reset-manager,
-      committed + pushed; evidence = commit SHA), durable, listing all of the above INCLUDING
-      the not-a-safety-valve boundary + the checkout-slide re-ignite-via-values response
-      (owner-corrected); v1 performs NO rewrite (that is g-lr-learn) — this only authors the
-      core + a repeatable 2-assertion hand-run smoke check (override still works + floors
-      intact). No surfaced numbers (G2). markdown-only (lightness_rule).
+      DONE (2026-06-21, s-life-reset-run-v1-t2-sealed-core-001). sealed-core.md authored +
+      pushed to the PRODUCT REPO github.com/ainazemtsau/life-reset-manager @ e6f7cb3
+      (e6f7cb3c3cf863c190921749ccacfe0e07247816). Lists all required: §1 inviolable override
+      (incl. R11 refusal) · §2 protected class (recovery/safety/floors/routine-rest) · §3 the
+      4 floor-tripwires · §4 recovery-vs-slide (3 signs) · §5 the objective voice anchored to
+      the owner's OWN committed week/day plan (firm; never scare/cheer/force/refer; values
+      current, honesty-with-self marked an extension; tone-can-be-harder per owner) · §6 the
+      non-punishing-return invariant (hosted in core, NOT on the override path) · §7 the
+      NOT-a-safety-valve boundary (no clinical routing — owner-correction followed, the stale
+      CALL line dropped) · §8 manual git-revert · §9 gate-only changes (v1 performs no rewrite)
+      · §10 the 2-assertion hand-run smoke check (both PASS: override works + floors intact).
+      markdown-only (lightness_rule); no surfaced numbers (G2). Owner steer R1/R4 (the objective
+      voice = plan-vs-reality; report-slip→day-rebalance is the core loop to make work first;
+      deeper psychological rules = a later extension) folded into the t-3 CALL.
 
   - id: t-3
     kind: executor
@@ -194,7 +202,7 @@ tasks:
 
 recurring: []
 
-open_calls: []   # t-1 done; the t-2 CALL is `next`, not yet in-flight.
+open_calls: []   # t-2 done; the t-3 CALL is `next`, not yet in-flight.
 
 decisions: []
 
@@ -209,57 +217,62 @@ preserved_evidence:
   - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t1-plan-audit-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-setup-product-repo-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-protect-mechanism-correction-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t2-sealed-core-001.md
+  - 'PRODUCT REPO: life-reset-manager/sealed-core.md @ e6f7cb3 (the v1 sealed core, t-2 done)'
 
 next: |
-  CALL c-life-reset-run-v1-t2-sealed-core-001
+  CALL c-life-reset-run-v1-t3-week-file-001
   to: session
   direction: life-reset
   play: work
   node: g-lr-run
-  task: t-2
+  task: t-3
   goal: |
-    Author the sealed-core file ONCE (the manager's non-amendable safety layer), listing: the
-    inviolable override path (incl. R11 refusal) · the protected class (recovery/safety/floors
-    incl. routine-rest) · manual git-revert rollback (no automation overclaim) · "rules change
-    only via the gate" · the 4 floor-tripwires (sleep / not-smoking / no-binge / not-vanishing,
-    from resolved_gaps.floors) · the non-punishing-return invariant (hosted HERE) ·
-    CLINICAL-RISK ROUTING (a pre-named clinical-risk sign → route OUT to professional support,
-    never intensify discipline — the t-1 audit's load-bearing fix). v1 runs NO rewrite; this
-    only authors the core + a 2-assertion hand-run smoke check.
-
-    NOTE (owner-corrected 2026-06-21): the manager is NOT a clinical safety valve — NO
-    specialist routing, NO therapy/practices; the owner self-sources his own external human
-    support outside the system. Its checkout-slide response = re-ignite the owner's OWN values
-    via an objective external voice (firm, non-punishing, never by force or referral). The
-    manager is his objective mirror for weighted decisions + anti-overcommit; keep it light.
+    A single week-file TEMPLATE exists in the product repo that the manager fills each week to
+    (a) compose a real week in strict priority order with the filter biting and cuts explicit,
+    (b) derive a real day with the R11 gate, (c) hold a review that ends in one decision, and
+    (d) carry the LIVE running-state so a fresh chat/provider resumes by delta. The companion to
+    t-2's sealed-core; together they are the 2 v1 files the real run (t-4) exercises.
   context: |
-    - WRITE the file in the PRODUCT REPO: C:\projects\life-reset-manager (remote
-      github.com/ainazemtsau/life-reset-manager) — markdown-only; commit + push there;
-      RESULT carries the commit SHA as evidence back to this direction.
-    - live/life-reset/NOW.md (the v1 bet; runtime_home; resolved_gaps = the 3 recovery-vs-slide
-      signs + the 4 floors + the 3 response altitudes incl. clinical-risk route-OUT; t-2 spec)
-    - live/life-reset/work/life-reset-v1-plan-audit-001.md (the t-1 audit: build-ready; the
-      clinical-risk defect + its fix)
-    - live/life-reset/work/life-reset-implementation-research-v1.md (Q4 sealed core / Q5
-      tripwires / Q9 non-punishing return — mechanics + required-fixes)
-    - live/life-reset/CHARTER.md (guardrails G1-G4; product_repos lightness_rule;
-      authority_and_boundaries clinical-risk routing; risk_posture asymmetric rigor)
+    - WRITE in the PRODUCT REPO C:\projects\life-reset-manager (remote
+      github.com/ainazemtsau/life-reset-manager) — markdown-only; commit + push; the RESULT
+      carries the SHA. Companion to sealed-core.md @ e6f7cb3 (t-2, done).
+    - Required sections (from NOW.md week_layout + tasks[t-3] + research §3): (1) the 4
+      fixed-POSITION sections — PROTECTED TIER-1 (Musts+Floors+Routine-rest+Recovery) → Routine
+      → Wishes-through-filter (each admitted-or-rejected WITH a reason; mark the ≤1 experiment)
+      → Cuts (explicit; a `displaces:` line on a real displacement, else labelled untested);
+      (2) read-only neighbor-summary slots + owner top-up + conflict→route, NO raw (G4);
+      (3) MIT-style day-derivation + the R11 day-start gate + where "yesterday's review" lives
+      (R12: the day is a separate chat); (4) the review template — default {hold}, the
+      hollow-week veto WITH the recovery carve-out, no surfaced numbers (G2); (5) the realness
+      card — anti-paper artifact-existence + ONE mandatory BITE slot; (6) the live running-state
+      fields for portability (cycle position · current protections · autonomy rung) + delta
+      re-entry ("what changed?").
+    - OWNER STEER (s-life-reset-run-v1-t2, 2026-06-21) — FOLD IN: (R4) the committed week/day
+      plan is the SOURCE of sealed-core §5's objective voice — the template must make "what you
+      committed matters this week/day = X" explicit + machine-readable so the manager can show
+      plan-vs-reality (objective truth, not motivation); (R1) the core loop to make work FIRST
+      is week → day → owner reports "I did something off" → manager REBALANCES the rest — the
+      day-derivation needs a LIGHT drift→rebuild step driven by an owner slip-report; deeper
+      psychological rules are a LATER extension — keep v1 light.
+    - live/life-reset/NOW.md (week_layout · resolved_gaps · tasks[t-3]); the new sealed-core.md
+      (§3 floors, §4 recovery-vs-slide, §5 objective voice — the week-file must not contradict
+      it); live/life-reset/work/life-reset-implementation-research-v1.md (Q1/Q3/Q7/Q9/Q10).
   boundaries: |
-    Co-create with the owner — how the manager should re-voice his OWN values when he's in the
-    checkout-slide is owner-content (his values, his words); do NOT invent generic motivation.
-    The manager is NOT a clinical safety valve: NO specialist routing, NO therapy/practices —
-    the owner self-sources external human help; do NOT re-add a clinical backstop. The file
-    lives in the PRODUCT REPO, NOT live/life-reset/work/ (governance only); markdown-only, no
-    infra (lightness_rule). Author ONLY the sealed core (not the week-file — that is t-3). NO
-    rewrite engine (that is g-lr-learn). No surfaced numbers (G2). The override path stays
-    inviolable; the non-punishing-return invariant lives in the core (NOT on the override path).
-    Keep it light — a short readable file.
+    Co-create with the owner — anything he lives by (his routine, his wishes, his real week) is
+    owner-content: ask, don't invent. The deliverable is the empty FORM + a worked example, NOT
+    his actual week (that is t-4). markdown-only, light (lightness_rule); no infra. Author ONLY
+    the week-file (sealed-core is done; the rewrite engine is g-lr-learn). No surfaced numbers
+    (G2). Do NOT store raw neighbor data (G4). Do NOT re-open the tree or the bet shape. The
+    hollow-week veto MUST carry the recovery carve-out (a low-aliveness genuine-recovery week
+    clears, never condemned). Stay consistent with sealed-core.md.
   done_when: |
-    The sealed-core file exists in the PRODUCT REPO (committed + pushed; evidence = commit SHA),
-    listing all of the above INCLUDING the not-a-safety-valve boundary + the checkout-slide
-    re-ignite-via-values response (owner-corrected); plus a repeatable 2-assertion hand-run
-    smoke check (override still works + floors intact). next = t-3 (week-file template).
-  return: RESULT with the sealed-core file (product-repo commit SHA), the smoke check, next = t-3 CALL.
+    The week-file template exists in the PRODUCT REPO (committed + pushed; evidence = SHA) with
+    all 6 sections above; the displacement test is non-vacuous (`displaces:` fires on a real
+    displacement, else is labelled untested); the realness card binds on artifact-existence +
+    one bite event; the template is consistent with sealed-core.md (floors protected, the §5
+    plan-anchor present). next = t-4 (THE REAL RUN, owner-paced).
+  return: RESULT with the week-file template (product-repo SHA), a consistency-with-sealed-core note, next = t-4 CALL.
   budget: one work session (co-creation with the owner).
 
 END_OF_FILE: live/life-reset/NOW.md
