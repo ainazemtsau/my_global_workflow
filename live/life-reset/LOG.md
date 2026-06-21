@@ -60,4 +60,19 @@
   root-only (old 6 nodes removed, substance preserved); next
   c-life-reset-map-manager-tree-001.
 
+- 2026-06-21 - map: owner approved (G9) the 6-node outcome tree on the
+  manager-as-spine root — run (rhythm) · protect (asymmetric strictness cuts the
+  crash loop) · integrate (3 streams, no scope capture) · learn (review -> safe
+  self-rewrite, sealed core, hollow-week veto) · trust (survives wrong verdict +
+  rupture, live-state portable) · grow (self-definition, evidence-paced extension,
+  stays light); order run->protect->integrate->learn->trust->grow. Narrow
+  map_evidence pass (5 finders -> 6 non-obvious outcomes, all survived adversarial
+  verify, + 7 blind spots; seeds: AA, Rule of St. Benedict, Greene quota,
+  provably-corrigible-agents, Dietvorst algorithm-aversion, GTD-limit) folded in.
+  Owner clarified one-real-run stays lightweight (started-using = run, anti-paper
+  floor kept; problems->fix | fine->extend) and the optional-research cadence
+  (first intake mandatory; weekly review every week, default hold; research only
+  on dissatisfaction). 9 lenses covered; spirit/inner-work/fatherhood not_needed
+  as nodes (served as values+programs). next c-life-reset-research-build-manager-001.
+
 END_OF_FILE: live/life-reset/LOG.md
