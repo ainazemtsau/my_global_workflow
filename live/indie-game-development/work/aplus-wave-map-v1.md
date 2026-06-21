@@ -136,23 +136,28 @@ GASG visual language is Track V, but "free number of gases" discipline (the wire
   path; do not assume ≤4 is guaranteed. (owner 2026-06-20)
 - **R-PEAKLOAD:** the awake/detailed set can SPIKE (chain reactions); perf rests on graceful degradation (ceiling + round-robin)
   staying DETERMINISTIC under the spike, not on the set being small. (owner 2026-06-20)
-- **R-DOOR-AREA (owner 2026-06-21, CODE-CONFIRMED):** the current coarse orifice IGNORES opening size ENTIRELY — `CoarsePortal`
-  carries only `SillBand` (no area), and the flow `t = mEq/kP` (`CoarseBandStep.Orifice`) has NO area term, so a 25cm slit and a
-  barn door flow IDENTICALLY. `TopologyPortalSpec.OpeningSize` is carried in the topology but DROPPED at transport. DETAILED-tier
-  obligation of the A+ model: door/portal flow MUST scale with the opening's cross-sectional AREA (a §G probe: a 2× opening ≈ 2×
-  flow). The COARSE tier (far from player) keeps the size-blind orifice (cheap/deterministic for netcode); area is a detailed-tier law.
-- **R-DOOR-HEIGHT-CONTINUOUS (owner 2026-06-21, CODE-CONFIRMED):** a room is EXACTLY 2 bands (`CoarseBandStep` uses only
-  LowerBand/UpperBand); the door's real height is read from geometry but ROUNDED to a 2-band index (`CoarsePortal.SillBand` =
-  lower|upper). The "interface rises across [FloorExtent,CeilingExtent]" is a READ-MODEL interpolation for DISPLAY — the actual
-  transported state is 2 numbers (lower mass / upper mass) per species per room. DETAILED-tier obligation: a door connects at its
-  REAL height across MORE than 2 vertical cells (the continuous-weight / interest-grain finer vertical resolution — d-fillmodel-001/
-  A+ subsumes this, now explicitly pinned). Coarse tier keeps 2 bands.
-- **R-BREACH-GRANULARITY (owner 2026-06-21, OPEN design question):** today a breach materializes a pre-declared surface into a
-  2-band, SIZE-BLIND portal → a 1-cell pinhole, 4 scattered holes, and a 50-cell blown wall ALL flow IDENTICALLY (binary
-  open/closed, no area, position only via which band). DETAILED-tier obligation (a §G probe + part of §D.10 Case-A): breach flow
-  scales with the hole's AREA; its POSITION (height) sets which layers connect; multiple scattered holes = multiple flow paths
-  (sum of areas at their heights). The coarse↔detailed boundary for breach geometry is an A+ MODEL-design question to settle WITH
-  the owner before building — NOT silently coarse-only.
+- **R-AREA-ALWAYS (owner 2026-06-21, BINDING — CORRECTS the first draft):** opening AREA must ALWAYS affect flow — in BOTH the
+  coarse AND detailed tiers (owner: «площадь должна ВСЕГДА влиять, вне зависимости грубая это симуляция или нет»). The current
+  coarse orifice IGNORES area entirely (`CoarsePortal` has no area; `CoarseBandStep.Orifice` flow `t=mEq/kP` has NO area term) —
+  WRONG in both tiers: a 25cm slit must flow far LESS than a barn door EVEN in coarse. `TopologyPortalSpec.OpeningSize` already
+  carries it; it must ENTER the orifice flow law (flow area-scaled). The coarse tier may be LESS GRANULAR (by-layer, not per-cell)
+  but the area-driven flow MAGNITUDE must match the detailed tier.
+- **R-HEIGHT-BY-LAYER-OK (owner 2026-06-21, RELAXES the over-stated continuous-height draft):** height by LAYER is acceptable;
+  continuous exact-height computation is NOT wanted (owner: «не хотелось бы по высоте высчитывать… по слоям… примерно будет
+  равно»). A door taps WHICH LAYER (lower/upper today; MORE layers later = an OPTIONAL refinement, NOT a requirement). Neither tier
+  needs exact continuous-height. (Supersedes the earlier R-DOOR-HEIGHT-CONTINUOUS, which over-stated the owner's want.)
+- **R-NO-PROXIMITY-POP (owner 2026-06-21, FORBIDDEN 100% — the binding LOD invariant):** the gas flow through a given door/breach
+  must NOT visibly change because the PLAYER moved nearer or farther (owner: «игрок отойдёт — замедляется, подходит —
+  увеличивается… это запрещено 100%»). The coarse and detailed tiers must give ≈EQUAL area-driven flow for the same opening — the
+  LOD transition is SEAMLESS, no pop. Coarse approximates by-layer (cheap), but the AGGREGATE flow MATCHES detailed. §G PROBE:
+  drive the player across the coarse↔detailed boundary while gas flows through a door → the flow rate stays continuous (no
+  speed-up on approach / slow-down on leaving).
+- **R-BREACH-GRANULARITY (owner 2026-06-21):** today a breach opens a SIZE-BLIND 2-band portal → a 1-cell pinhole, 4 scattered
+  holes, and a 50-cell blown wall ALL flow IDENTICALLY (binary open/closed, no area). Required (BOTH tiers, per R-AREA-ALWAYS +
+  R-NO-PROXIMITY-POP): breach flow scales with the hole's AREA always; POSITION sets WHICH LAYER (by-layer is fine, NOT exact
+  height); multiple scattered holes = multiple flow paths (sum of areas). Coarse approximates by-layer but the area-driven flow
+  MATCHES detailed (no proximity pop). The coarse↔detailed boundary for breach geometry = an A+ model-design question with the
+  owner; a §G probe pins it.
 
 ## 5. BOUNDARY — the one place the repo cannot verify
 
