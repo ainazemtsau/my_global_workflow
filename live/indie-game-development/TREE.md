@@ -201,8 +201,18 @@ root:
       4. The visual pipeline is a derivation of simulation state (density-mask-style),
          behind the pipeline seam locked by the g-9c41 render proof slice.
       5. Clip material flows directly from harness scenes to g-5b07/g-e6f2.
-    status: parked
-    detail: history/s-map-002.md
+    status: active   # owner-directed 2026-06-21 (s-visual-001): elevated parked→active as a PARALLEL TRACK (NOT a 2nd bet). Engine g-9c41 stays the PRIMARY active bet (G1 — visual adds NO active_tasks; work via CALLs). Full track state → NOW.parallel_tracks.
+    detail: |
+      history/s-map-002.md + history/s-visual-001.md. VISUAL (GASG) TRACK stood up 2026-06-21 — the owner wants the
+      gas's LOOK worked NOW, in parallel to the engine, visible in planning with its own budget («участвовало в дереве
+      … со своим аппетитом … не на задворках … начать сейчас»; SECONDARY to g-9c41, ~40–60 min/day). Approach
+      (research-backed, work/gas-visual-research-2026-06-21.md): a READ-ONLY visual view over the authoritative gas
+      grid, decoupled by the R13/R14 seam (fake data now → swap to the real Wave-B front later, zero visualizer
+      change); layered = grid → URP raymarch body and/or GraphicsBuffer-fed VFX-Graph accents → gas-as-light
+      distinctiveness (INSIDE low-complexity lever); off-the-shelf (Zibra/URP-Fog-Volumes) mostly mismatches. Work =
+      executor CALLs in GasCoopGame's render layer (owner-EYE gated), tracked in NOW.parallel_tracks (g-7e15), not
+      active_tasks; first = c-visual-001 (P1 = grid→GPU pipe + show where/how-much, reads existing RN1). Node
+      goal/done_when (criteria 1-5) UNCHANGED.
 
   - id: g-5b07
     goal: |

@@ -306,7 +306,50 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
 
 recurring: []
 
+parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root map_order); NOT second BETS — no NOW.active_tasks, work via CALLs. G1 intact: one active bet (g-9c41) with its tasks; tracks add none.
+  - id: g-7e15
+    track: VISUAL (GASG — how the gas LOOKS)
+    status: active   # owner-directed 2026-06-21 (s-visual-001) — parked→active PARALLEL track: «хочу чтобы оно участвовало в дереве … со своим аппетитом … не на задворках … начать сейчас». SECONDARY to g-9c41 (the primary bet). NB: the status enum has no distinct "track" value → recorded as active + reconciled here; friction captured for maintenance.
+    appetite: ~40–60 min/day in the engine's build-gaps (≈3–5 h/week); revisit cadence at pulse. Checkpoint = the P1 prototype gives a min-spec perf signal on the riskiest unknown.
+    approach: |
+      READ-ONLY visual view over the authoritative gas grid (the sim simulates; the visual only READS RN1 + a front and
+      renders — a read-only dashboard over a DB). Decoupled by the R13/R14 seam: develop on a FAKE/stub data source now,
+      swap to the real Wave-B front later with ZERO visualizer change. Research-backed (work/gas-visual-research-2026-06-21.md,
+      deep-research wf_e5924329, 24/25 claims verified): no single technique — LAYERED = (0) authoritative coarse grid [the
+      engine] → (1) read-only GPU view: a custom URP ScriptableRendererFeature raymarch pass for the gas BODY and/or
+      VFX-Graph particles fed by a GraphicsBuffer (SetGraphicsBuffer / Sample-Graphics-Buffer + Custom HLSL per gas type)
+      for type-specific accents → (2) distinctiveness = gas as the dominant saturated colour + light in a desaturated world
+      (the INSIDE «low-complexity, high-fidelity» lever). Off-the-shelf MOSTLY MISMATCHES (Zibra self-simulates;
+      URP-Fog-Volumes is noise/shape-driven — neither ingests our authoritative grid) → custom-but-feasible, not a buy.
+      Min-spec lever = half/quarter-res raymarch + depth-aware bilateral upsample. Unity 6.3 / URP 17 RenderGraph (port any
+      pre-RG sample code).
+    riskiest_unknown: |
+      (a) min-spec perf of a grid-fed raymarch is UNPROVEN (one dev abandoned voxel raymarch for cost) → measure early (P4);
+      (b) making MANY gas types readable at a glance without colour/motion collisions is a DESIGN unknown (no sourced answer);
+      (c) GPU sync (compute finishes before the visual samples the buffer) + per-tick grid→GPU upload bandwidth.
+    next: c-visual-001 (P1 — the grid→GPU pipe + a trivial single-type render that shows WHERE + HOW-MUCH; reads the EXISTING
+          RN1; de-risks the sim→visual data path BEFORE any art). Queued — owner chooses when to start (parallel to the engine).
+          Full prototype sequence P1→P5 + risk gates → work/gas-visual-research-2026-06-21.md §5.
+    note: |
+      Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
+      (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
+      render/adapter layer (R13 — never the gated Core), owner-EYE gated (you can't unit-test «looks good»).
+
 open_calls:
+  - id: c-visual-001
+    status: queued   # 2026-06-21 (s-visual-001) — VISUAL track (g-7e15) FIRST step (P1). Opens with a PLAN (owner present). Queued; owner starts it when he chooses (parallel to the engine, ~40–60 min/day). Basis = work/gas-visual-research-2026-06-21.md.
+    note: |
+      Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev→main when green). GOAL (P1, the de-risk step):
+      build the grid→GPU "pipe" + a trivial single-gas render that shows WHERE the gas is + roughly HOW MUCH, reading the
+      EXISTING RN1 read-model (IGasReadModel). Proves the sim→visual DATA PATH before any art. May ride the t-1 sandbox harness
+      (reads RN1 in the same scene; anti-scene-sprawl) OR a minimal standalone visual scene that later folds into the sandbox.
+      APPROACH (research-backed; decide at PLAN): a custom URP ScriptableRendererFeature raymarch pass sampling an uploaded
+      3D-texture/GraphicsBuffer of the grid, AND/OR VFX-Graph particles via SetGraphicsBuffer. BOUNDARIES: READ-ONLY over RN1
+      (never reach below the read seam / never simulate); decouple invariant (a FAKE/stub source now, swap to the real Wave-B
+      front later with NO visualizer change); render/adapter ONLY (do NOT touch the gated Core / LOCK / C1–C22); anti-scene-sprawl;
+      pretty/stylized look (Track V «P5») is NOT this leg — P1 only proves where/how-much. GATE: owner-EYE (does it read?) +
+      headless build/existence (render code compiles + a sample frame/capture artifact). Unity 6.3 / URP 17 RenderGraph (port
+      pre-RG samples). next = c-visual-002 (P2 — front/edge readability). FULL P1→P5 + risk gates → work/gas-visual-research-2026-06-21.md.
   - id: c-exec-012
     status: open   # 2026-06-20 (Wave A, дорога A+) — ISSUED: t-1 Test SANDBOX v1 in GasCoopGame, opens with a PLAN (owner present). FULL CALL → NOW.next. The de-risk probe-gate (t-2 → c-exec-013) + the host-migration spike (t-3) run ON this lab.
     note: |
