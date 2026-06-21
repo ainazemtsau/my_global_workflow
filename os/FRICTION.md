@@ -106,4 +106,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-06-21 indie-game-development/codex local/mechanic-forge q-expedition-loop: Codex run diverged from Direction OS session protocol despite rules existing — first reply did not start with the opening contract, app-level final answers were sent without terminal RESULT, and step-1 brainstorm/options drifted ahead of the play's "verbs before names" discipline; likely mixed one-off execution slip + Codex skill-announcement/final-channel pressure, not yet a rule defect → logged, watching; litmus: next Codex Direction OS session must start with `📍 ...` as the first line, keep ongoing work in commentary, and only use final for a RESULT/checkpoint.
 
+2026-06-21 os/codex protocol consistency: owner clarified the real problem is new-chat reliability, not current-chat vigilance — Codex's generic skill-announcement habit can still preempt the Direction OS first-line contract, and Codex app `final` can look like a normal progress answer; this is a Codex adapter gap, not a direction-state issue → fixed by this maintenance change: root AGENTS Codex Rule 0 + direction-os skill notes make `📍 ...` the literal first owner-facing line and reserve `final` for terminal RESULT/checkpoint.
+
 END_OF_FILE: os/FRICTION.md

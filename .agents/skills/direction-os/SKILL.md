@@ -26,14 +26,18 @@ never an edit target.
 
 ## 1. First reply = opening contract
 
-Start your FIRST reply with this header, then the play's numbered steps with the
-current one marked, then a ≤5-line restate (play, goal, done_when). Then run the
-play and STOP at the first step that needs the owner.
+Start your FIRST reply with this header as the literal first owner-facing line,
+then the play's numbered steps with the current one marked, then a ≤5-line
+restate (play, goal, done_when). Then run the play and STOP at the first step
+that needs the owner.
 
 ```
 📍 <direction>/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>
 ```
 
+- Codex note: this header is the skill announcement for Direction OS. Do not
+  put "using direction-os", apologies, status chatter, or file-reading notes
+  before it. Extra skill notes, if unavoidable, go after the header.
 - Play steps outrank the CALL's wording. The CALL gives the goal; the play
   gives the method.
 - Talk to the owner in **Russian**. Offer options with a recommendation, not
@@ -61,6 +65,10 @@ confirm. The owner never composes packets by hand.
   message: a short readable **Russian** summary first, then the single fenced
   RESULT block. A RESULT block anywhere but the final message is a violation.
   No RESULT → no work happened.
+- Codex app note: do not use a normal `final` answer for mid-session progress,
+  summaries, or options. In a Direction OS leg, `final` means terminal
+  RESULT/checkpoint. If the leg is not closing, keep working in commentary or
+  ask the required owner question.
 - After the job is done and committed, the session ends. Continuation belongs to
   a fresh session.
 
