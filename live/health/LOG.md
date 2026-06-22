@@ -94,4 +94,6 @@
 
 - 2026-06-22 - health/g-health-core repair reconcile: live/health caught up to health-ai origin/main @2930442 after Claude Code/product drift: nutrition thin domain + delegated Deep Research gate attached (1a64f3d), owner-facing child request cleaned (6a04e35, 2930442); local health-ai HEAD is ahead by no-op commit/revert (8a935d0/59c6062, diff empty). NOW.next now points to delegated research -> resume PROGRAM job; TREE untouched. → history/2026-06-22-s-health-core-kernel-reconcile-001.md
 
+- 2026-06-22 - health/g-health-core ChatGPT project memory fence: health-ai @731348b tightened CHATGPT_PROJECT/AGENTS/README so ChatGPT Project treats repo files loaded this turn as the only Health AI authority, ignores account/project memory and uploaded snapshots for state, recommends fresh project-only memory when available, and reads core/extensions/registry.md instead of stale "no domain attached" bootstrap claims. Check PASS: python tools/check_kernel_spine.py. → history/2026-06-22-s-health-chatgpt-project-memory-fence-001.md
+
 END_OF_FILE: live/health/LOG.md

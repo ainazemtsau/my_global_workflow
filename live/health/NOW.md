@@ -195,15 +195,16 @@ next: |
   goal: |
     Nutrition cold-start reaches the next owner-gated PROGRAM checkpoint from the committed delegated-research handoff.
   context: |
-    Current canonical product state: health-ai origin/main @2930442. Since the last OS-recorded point @7b72c31,
+    Current canonical product state: health-ai local main @731348b (unpublished; sits above no-op local
+    init/revert pair 8a935d0/59c6062). Since the last OS-recorded point @7b72c31,
     1a64f3d attached a clean x_nutrition thin domain with PROGRAM awaiting delegated Deep Research; 6a04e35 made the
     child request owner-facing and recorded the owner's facts; 2930442 cleaned that child request into a ready-to-run
-    query with no system tokens. Use x_nutrition/handoffs/2026-06-22-program-awaiting-research.md,
-    x_nutrition/research/deep-research-brief.md, core/runtime/delegated-jobs.md, and live/health/history/
-    2026-06-22-s-health-core-kernel-reconcile-001.md. Historical kernel build acceptance is closed in
-    history/2026-06-21-s-health-core-kernel-incident-rca-001.md; frozen WA-K acceptance lives in health-ai
-    acceptance/kernel/wa-k.md. Local health-ai HEAD has 8a935d0 + 59c6062 above origin/main, but diff
-    2930442..HEAD is empty; treat that as transport hygiene, not accepted owner-program progress.
+    query with no system tokens; 731348b fenced ChatGPT Project memory to repo authority and removed stale
+    "no domain attached" bootstrap claims. Use x_nutrition/handoffs/2026-06-22-program-awaiting-research.md,
+    x_nutrition/research/deep-research-brief.md, core/runtime/delegated-jobs.md, CHATGPT_PROJECT.md, and
+    live/health/history/2026-06-22-s-health-chatgpt-project-memory-fence-001.md. Historical kernel build acceptance
+    is closed in history/2026-06-21-s-health-core-kernel-incident-rca-001.md; frozen WA-K acceptance lives in
+    health-ai acceptance/kernel/wa-k.md.
   boundaries: |
     No ACTIVE nutrition execution menu/grocery/recipe before the owner gate. Do not reintroduce synthetic/demo data.
     Do not treat the local no-op owner-program init/revert as accepted owner-program state. D-kernel-1 default option
