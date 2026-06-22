@@ -936,6 +936,15 @@ decision_inbox:
       LAB + DE-RISK WALL (t-1 sandbox → t-2 §G+4 probe-gate kill-gate → t-3 host-migration spike); next = c-exec-012 (t-1). The
       gas-model redesign decision chain (A+ ratified → breakdown → Wave A) is now CLOSED into the active bet; this decision stays
       as the durable record of WHY the core was re-formed. → history (this session) + work/aplus-breakdown-v1.md + work/aplus-wave-map-v1.md.
+      ARCHITECTURE DEEPENED (2026-06-21, s-research-011 — co-creation + 4 workflows): A+ road конкретизирована в
+      owner-approved архитектуру — D1 input-lockstep (netcode LOCKED; only inputs on wire; per-machine CPU the only
+      limit; this CHANGES the replication model vs the host-broadcast LOCK assumption — planner must reconcile); D2
+      LOD=cell-size (one model; bucket=room-sized cell, far/small only); D3 near=full 3D; D5 big/important rooms stay
+      authoritative+spatial (hold state on return); D6 loot=gas-reached-it (%-far only); D7 reactions everywhere; D9
+      sparse dominant-gas (not per-gas planes); D10 chemistry collision table; D11 real-height via 3D-near; D12
+      reusable-engine DROPPED (game-first); D13 carve-corridor CUT. Full spec + mechanic×tier proof + seams + de-risk:
+      work/gas-model-architecture-decision-2026-06-21.md. Planner reconciles the Wave plan with this (esp. netcode
+      shift + cell-size LOD); decides timing/sequencing. Decision stays answered (A+); this is its durable architecture record.
     note: |
       Owner, having SEEN the coarse sim render, wants to REDESIGN the gas MODEL itself (his framing):
         - continuous gas WEIGHT → continuously drives height / settling speed (not 2 discrete bands);
