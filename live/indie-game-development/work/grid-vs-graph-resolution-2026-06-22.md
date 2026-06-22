@@ -3,8 +3,10 @@
 > **Статус:** owner-approval-pending (G9 + ADR-0010). НЕ применено к доку/дереву. Результат фокус-ресёрча (wf_0e379688-a88:
 > 3 аналитика [архитектура+шов / веб-прецеденты / keep-delete] → 2 adversary [«что форсит граф» / полнота] → синтез).
 > Отвечает на вопрос владельца: нужны ли комнаты/граф/порталы для ДЕТАЛЬНОГО тира.
-> **Вход:** work/gas-model-architecture-decision-2026-06-21.md (§3.1/§3.2/§3.5/§3.6/§3.7/§9/§14), aplus-breakdown-v1.md (§5 KEEP),
-> aplus-replan-under-locked-arch-v1.md, NOW/TREE.
+> **Вход:** work/gas-model-architecture-decision-2026-06-21.md (§3.1/§3.2/§3.5/§3.6/§3.7/§9/§14), work/archive/aplus-breakdown-v1.md (§5 KEEP, архив),
+> work/archive/aplus-replan-under-locked-arch-v1.md (архив), NOW/TREE.
+>
+> **⚠️ ПОПРАВКА (owner-decided 2026-06-22, `d-reflux-gate-001`):** все упоминания «2 машины» / «2-машинный спайк» ниже (§5, §8, §11) = **loopback (2 процесса, ОДНА машина) + zero-float гард**. Реальные 2 ПК — НИКОГДА не гейт (integer кросс-CPU = данность; у владельца одна машина). См. [[g9c41-drift-guard]] #2.
 
 ## 1. Вердикт: ПОДТВЕРЖДЕНО-С-УСЛОВИЯМИ (инсайт владельца верен и делает модель ЛУЧШЕ)
 

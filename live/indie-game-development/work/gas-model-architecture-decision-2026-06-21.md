@@ -6,7 +6,7 @@
 > **Провенанс:** сессия 2026-06-21 (co-creation с владельцем). 4 workflow-прогона:
 > wf_a105d2b4 (3 подхода: voxel/adaptive-layers/analytic + атаки), wf_12c909a7 (атака глубины гибрида + швы),
 > wf_7d44a7dd (глубокий ресёрч + композит, 8 семей техник, веб), wf_a04144c9 (финал: облако-математика + оптимизации).
-> Строит НА: work/gas-model-design-full-2026-06-20.md (§A–§L), work/aplus-wave-map-v1.md, work/aplus-breakdown-v1.md.
+> Строит НА (всё → work/archive/, история, НЕ читать при PLAN): work/archive/gas-model-design-full-2026-06-20.md (§A–§L), work/archive/aplus-wave-map-v1.md, work/archive/aplus-breakdown-v1.md.
 > **Дисциплина:** строек в этой сессии НЕТ. Это спека модели + подписанные свойства + риск-первый план де-риска для
 > планировщика. Планировщик решает ПОРЯДОК и тайминг легов; этот документ — его вход.
 
@@ -328,7 +328,7 @@
 
 - Workflow-выходы (этой сессии): wf_a105d2b4 (3 подхода), wf_12c909a7 (атака глубины), wf_7d44a7dd (композит/веб),
   wf_a04144c9 (облако/оптимизации). Полные результаты — в task-выходах сессии.
-- Базовые доки: work/gas-model-design-full-2026-06-20.md, work/aplus-wave-map-v1.md, work/aplus-breakdown-v1.md.
+- Базовые доки (архив): work/archive/gas-model-design-full-2026-06-20.md, work/archive/aplus-wave-map-v1.md, work/archive/aplus-breakdown-v1.md.
 - Решение-родитель: NOW.md `decision_inbox: d-gasmodel-redesign-001` (A+ ратифицирован 2026-06-20).
 
 END_OF_FILE: live/indie-game-development/work/gas-model-architecture-decision-2026-06-21.md

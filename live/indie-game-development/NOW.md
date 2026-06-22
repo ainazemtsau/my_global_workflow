@@ -10,9 +10,9 @@ active_bet:
     to a SPINE OF SMALL VISIBLE SLICES (each ends in something the owner SEES; marketing/lore ∥). Per-mechanic depth decided at
     EACH slice PLAN (default room-granular A; classify ведро-1/2/3). The bet is now S0 (foundation slice); Wave-A t-1/t-2/t-3
     SUPERSEDED (t-2 probe-gate folds into the slice gate; t-3 host-migration MOOT under no-late-join + near-free lockstep
-    migration). TREE g-9c41 #12 added (G9); decision d-arch-lock-slices-001 below. SINGLE ENTRY POINT: work/dev-plan-graph-2026-06-22.md
-    (+ gas-model-architecture-decision-2026-06-21, aplus-replan-under-locked-arch-v1, grid-vs-graph-resolution-2026-06-22,
-    detail-authority-cost-model-2026-06-22). NEXT = S0 CALL (see next). CONTINUE IN A FRESH SESSION (context hygiene). History
+    migration). TREE g-9c41 #12 added (G9); decisions d-arch-lock-slices-001 + d-reflux-gate-001 below. SINGLE ENTRY POINT: work/dev-plan-graph-2026-06-22.md + knowledge/g9c41-architecture-locked-slices.md + knowledge/g9c41-drift-guard.md
+    (+ decision docs gas-model-architecture-decision-2026-06-21, grid-vs-graph-resolution-2026-06-22, detail-authority-cost-model-2026-06-22).
+    PRE-2026-06-22 docs → work/archive/ (история, НЕ авторитет; s-repair-canon-001). NEXT = S0 CALL (see next). CONTINUE IN A FRESH SESSION (context hygiene). History
     below kept verbatim (additive).
     ⛔ 2026-06-21 — t-1 RE-OPENED on architecture (B), owner «B». The c-exec-012 scene-tags leg is SUPERSEDED + NOT
     merged to main: the builder FABRICATED a blocker («SGF editor-window-only» — false vs SnapGridFlowTopologySource.Produce()
@@ -611,12 +611,22 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-reflux-gate-001
+    status: answered   # owner-decided 2026-06-22 (s-repair-canon-001) — re-flux / determinism binding gate = loopback ONE machine + zero-float guard; NO two physical machines, EVER
+    note: |
+      Owner closed the lone genuine canon gap the drift-sweep surfaced (re-flux kill-probe said «2 машины»; S2 said one machine).
+      DECISION: integer cross-CPU determinism is an ESTABLISHED GIVEN (banks/games) — NOT proven, NO research on two machines.
+      The binding gate for re-flux / the грань-operator (incl. its D5/ведро-3 hard-gate escalation) = a build-time ZERO-FLOAT scan
+      + a loopback hash, BOTH on ONE machine. A real 2-physical-machine run is NEVER a gate (owner has one machine — sufficient).
+      The ONE thing that must exist = a guard that does not let a float into the authoritative path (owner: «нужен гард, который
+      не пропустит float — это очень плохо»). Supersedes the «2 машины» wording in work/grid-vs-graph-resolution §5/§8/§11
+      (corrected in-place via a banner) + the archived aplus-replan §3. Encoded in knowledge/g9c41-drift-guard.md #2/#5.
   - id: d-arch-lock-slices-001
     status: answered   # owner «да» 2026-06-22 (marathon re-plan CLOSE) — locked architecture + slice methodology + the firm decisions
     note: |
       ARCHITECTURE LOCKED + SLICE METHODOLOGY (close of the 2026-06-21/22 re-plan marathon; co-creation + 4 verification workflows).
-      Durable spec: work/dev-plan-graph-2026-06-22.md (SINGLE entry) + gas-model-architecture-decision-2026-06-21.md (D1–D13) +
-      aplus-replan-under-locked-arch-v1.md + grid-vs-graph-resolution-2026-06-22.md + detail-authority-cost-model-2026-06-22.md.
+      Durable spec: work/dev-plan-graph-2026-06-22.md (SINGLE entry) + knowledge/g9c41-architecture-locked-slices.md + knowledge/g9c41-drift-guard.md +
+      gas-model-architecture-decision-2026-06-21.md (D1–D13) + grid-vs-graph-resolution-2026-06-22.md + detail-authority-cost-model-2026-06-22.md. (PRE-2026-06-22 docs → work/archive/, s-repair-canon-001.)
       LOCKED (owner-confirmed): (1) NETCODE = input-lockstep (only inputs on wire; every peer recomputes; weakest-peer CPU the limit;
       host-migration near-free) → ADR-0010 supersedes ADR-0004/0005 host-broadcast authority (game-repo writes it). (2) ONE integer
       cell model, cell-SIZE LOD: near = full-3D grid + flow through OPEN FACES (area/height/no-through-walls emergent); far =
@@ -1003,9 +1013,9 @@ next: |
 
   CALL — S0 (FOUNDATION SLICE: voxelizer + face-flow + sandbox + FEEL grey-box):
     repo: GasCoopGame (C:\projects\Unity\GasCoopGame, dev→main when green). OPENS WITH A PLAN (owner present) that INGESTS +
-          APPLIES work/dev-plan-graph-2026-06-22.md + gas-model-architecture-decision-2026-06-21.md + aplus-replan-under-locked-arch-v1.md
+          APPLIES knowledge/g9c41-architecture-locked-slices.md + knowledge/g9c41-drift-guard.md (READ-FIRST) + work/dev-plan-graph-2026-06-22.md + gas-model-architecture-decision-2026-06-21.md
           + grid-vs-graph-resolution-2026-06-22.md + detail-authority-cost-model-2026-06-22.md (mandatory, applied not just
-          cited), and CLASSIFIES this slice's mechanics ведро-1/2/3. §Re-sync repo contract v7→v8 FIRST. Standard contour
+          cited; PRE-2026-06-22 docs are ARCHIVED in work/archive/ — NOT read), and CLASSIFIES this slice's mechanics ведро-1/2/3. §Re-sync repo contract v7→v8 FIRST. Standard contour
           (PLAN → RED-first independent test-author → build → -Deliver gate → fresh-session G5). STOP-discipline v8: a
           blocked/infeasible named approach or a crutch = mandatory STOP + escalate, never a silent substitute.
     approach token: voxelizer-grid-faceflow-foundation + feel-grey-box + §9-seams + integer-deterministic-by-construction

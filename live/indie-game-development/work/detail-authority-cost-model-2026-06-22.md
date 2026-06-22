@@ -3,7 +3,7 @@
 > **Статус:** owner-approval-pending (G9 + ADR-0010). НЕ применено. Результат фокус-ресёрча (wf_fff6ce9a-058: 3 аналитика
 > [авторитет+стоимость / веб-прецеденты interest-management / детерминизм-десинк] → 2 adversary → синтез).
 > Отвечает на вопрос владельца: нужно ли каждому пиру считать все 8 детальных пузырей.
-> **Вход:** gas-model-architecture-decision (D1/D2/D5/§3.2/§3.3/§3.5), grid-vs-graph-resolution-2026-06-22, aplus-replan-…
+> **Вход:** gas-model-architecture-decision (D1/D2/D5/§3.2/§3.3/§3.5), grid-vs-graph-resolution-2026-06-22, work/archive/aplus-replan-… (архив)
 
 ## 1. Вердикт: НЕТ, 8 пузырей считать не надо — интуиция владельца ВЕРНА (~8× экономия), но УСЛОВНО
 

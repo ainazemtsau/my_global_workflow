@@ -23,7 +23,7 @@ S0 ФУНДАМЕНТ ─┬─> S1 выброс+выдавливание ─┬
 (вокселизатор │                            │                          ├─> S6+ из бэклога
  +грань-поток │  S2 МУЛЬТИПЛЕЕР (lockstep) ─┘   S4 коарс-rollup+LOD ──┤   (по эффекту×ведру)
  +песочница   │  (binding: грубое бит-идентично                       │
- +ОЩУЩЕНИЕ)    │   на 2 машинах)              S5 базовый пролом ───────┘
+ +ОЩУЩЕНИЕ)    │   loopback/1 машина)              S5 базовый пролом ───────┘
               │
               └─ ∥ ВИЗУАЛ (g-7e15) — старт ПОСЛЕ S0 (read-seam есть), на фейк-данных
               └─ ∥ ЛОР (canon track) — всегда параллельно
@@ -63,11 +63,12 @@ S0 ФУНДАМЕНТ ─┬─> S1 выброс+выдавливание ─┬
 
 ## 4. DECISION INDEX (ничего не потеряно — каждый слайс PLAN это впитывает)
 
+- **READ-FIRST: knowledge/g9c41-architecture-locked-slices.md + knowledge/g9c41-drift-guard.md** — залоченные факты + 5 ловушек пересказа (8 пузырей / 2 машины / грид-vs-граф / деталь-в-одну-сторону / float-гард); свериться ДО объяснения владельцу.
 - **work/gas-model-architecture-decision-2026-06-21.md** — D1–D13 (input-lockstep, cell-size-LOD, near-3D, D5, sparse-dominant, chemistry-table, real-height, reusable-DROPPED, carve-CUT), R1–R20, §9 seams-to-reserve, §10 depth-properties P1–P10, §11 de-risk, §14 code-ground-truth.
-- **work/aplus-replan-under-locked-arch-v1.md** — re-plan под locked-arch; tree-diff (#2 lockstep, #9 weakest-peer-CPU); §9-seams (LOCK-touching отмечены); sparring-flags; §9-owner-decisions (NO late-join, ZERO-legacy, graph-agreed); methodology-steer (slices).
+- **(архив) work/archive/aplus-replan-under-locked-arch-v1.md** — re-plan под locked-arch (выводы перенесены: tree-diff #2/#9 → TREE #12; NO late-join / ZERO-legacy / слайсы). НЕ читать при PLAN: его §3 рамил детерминизм как 2-машинный гейт — ОТМЕНЕНО (drift-guard #2).
 - **work/grid-vs-graph-resolution-2026-06-22.md** — детальный=грид+грань-поток (площадь/высота/не-сквозь-стену даром); грубый=граф-rollup; **room=LABEL везде, PIPE-наружу-вблизи**; portal=cut-set-аггрегат; collapse/expand+re-flux; keep/delete-ledger; §3.1+§3.6 doc-refinement (ADR-0010); вертикаль=buoyancy-bias-вблизи.
 - **work/detail-authority-cost-model-2026-06-22.md** — НЕ 8 пузырей (~8× win); грубое=авторитет-везде, деталь=локальное-выводимое-выбрасываемое-вне-checksum; hard-consequences=coarse-events; wash-out-условие; A/B-fork (дефолт A, классифицируем per-slice); D5-ангар-оговорка; co-located-детерминизм; анти-чит-остаток; ре-классификация детали (binding-проба сменилась: грубое-бит-идентично, НЕ re-flux).
-- **work/aplus-wave-map-v1.md + aplus-breakdown-v1.md** — ДО-lockstep (частично superseded; §4.2 RISK-register R-* + §2 keep-open invariants ещё валидны как чек-лист).
+- **(архив) work/archive/aplus-wave-map-v1.md + aplus-breakdown-v1.md** — ДО-lockstep (superseded спайном слайсов). Живой кусок: §4.2 RISK-register R-* + §2 keep-open инварианты — свериться вручную при PLAN (явный заход в архив).
 
 ## 5. Hard rules (несущие, в каждый слайс)
 
