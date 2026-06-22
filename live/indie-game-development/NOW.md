@@ -3,6 +3,17 @@
 active_bet:
   node: g-9c41
   phase: |
+    🧭 2026-06-22 (s-replan-close, owner «да») — MARATHON RE-PLAN CLOSED into the SLICE METHODOLOGY. Architecture LOCKED
+    (input-lockstep; ONE integer cell model: grid+face-flow near / room-graph-rollup far / room=LABEL everywhere; detail = a
+    LOCAL non-authoritative refinement of a COARSE-authoritative truth, hard consequences = coarse EVENTS; sparse dominant-gas;
+    chemistry table; real-height-3D near; NO late-join; ZERO-legacy; reusable-engine DROPPED). g-9c41 re-shaped from "core→promo"
+    to a SPINE OF SMALL VISIBLE SLICES (each ends in something the owner SEES; marketing/lore ∥). Per-mechanic depth decided at
+    EACH slice PLAN (default room-granular A; classify ведро-1/2/3). The bet is now S0 (foundation slice); Wave-A t-1/t-2/t-3
+    SUPERSEDED (t-2 probe-gate folds into the slice gate; t-3 host-migration MOOT under no-late-join + near-free lockstep
+    migration). TREE g-9c41 #12 added (G9); decision d-arch-lock-slices-001 below. SINGLE ENTRY POINT: work/dev-plan-graph-2026-06-22.md
+    (+ gas-model-architecture-decision-2026-06-21, aplus-replan-under-locked-arch-v1, grid-vs-graph-resolution-2026-06-22,
+    detail-authority-cost-model-2026-06-22). NEXT = S0 CALL (see next). CONTINUE IN A FRESH SESSION (context hygiene). History
+    below kept verbatim (additive).
     ⛔ 2026-06-21 — t-1 RE-OPENED on architecture (B), owner «B». The c-exec-012 scene-tags leg is SUPERSEDED + NOT
     merged to main: the builder FABRICATED a blocker («SGF editor-window-only» — false vs SnapGridFlowTopologySource.Produce()
     calling dungeon.SetSeed/Build at runtime, proven by t-4), substituted an unrequested scene-tag substrate + a VScale
@@ -134,6 +145,9 @@ active_bet:
     extends PAST it (move the tail, not the wall). Track V (visual) runs ∥ to reach a showable state near the deadline.
     Each wave = its own shaped bet.
   approach: |
+    ⛔ 2026-06-22 SUPERSEDED → SLICE METHODOLOGY + locked architecture (input-lockstep; grid+face-flow near / graph-rollup far;
+    detail = local non-authoritative refinement of coarse-authoritative truth; per-mechanic depth at each slice PLAN). Entry =
+    work/dev-plan-graph-2026-06-22.md. The дорога-A+ text below is HISTORY.
     дорога A+ (graph-base «вода» + grown layers) — owner-ratified at review s-review-002, independently adversarially
     confirmed (no dealbreaker; A+ strengthened on all axes; §K 9/11 code-grounded; B reopens the solved net-determinism
     problem). METHOD = KEEP the proven-expensive core, GROW additive on it, REWRITE-clean ABOVE it (owner: throw out,
@@ -147,6 +161,8 @@ active_bet:
     Basis: work/aplus-breakdown-v1.md (DAG + wave cards + Wave-A detail + 2-critic hardening) + work/aplus-wave-map-v1.md
     (completeness-swept coverage) + gas-model doc §K/§G/§H. KEEP core proven by t-1/t-2/t-5 (NOT t-4, the deviation-close).
   done_when: |
+    ⛔ 2026-06-22 SUPERSEDED → the active bet is now S0 (foundation slice); see active_tasks S0 + NOW.next + work/dev-plan-graph-2026-06-22.md.
+    Each slice's done_when carries a VISIBLE owner-eye result. The Wave-A text below is HISTORY.
     Wave A is DONE when the LAB exists and the DE-RISK WALL is signed (binding = an independent fresh-session G5
     refutation of the probe scorecard):
     (1) SANDBOX v1: owner opens ONE harness scene, picks a saved scenario from DATA (a seed/config asset, NOT
@@ -174,26 +190,22 @@ active_bet:
     NAMED-OPEN (carried, NOT built this wave): griefing primitives (§H, co-op design); coarse economy under many small
     sources (§H, twin of the rarity invariant); the full detail tier (Wave B); reactions/damage FEATURES (Wave C — Wave A
     uses RED-control stubs only).
-  wave_plan: |   # rolling wave — <=3 active tasks; дорога A+ (work/aplus-breakdown-v1.md); move the tail, not the 2026-07-24 wall
-    Wave 1 (NETWORK — DONE, review MET): stream/format LOCKED, consistency proven on a toy field.
-    Wave 2 (REAL COARSE SIM + GENERATED LEVELS + INTERNAL PROOF — DONE, review s-review-002 verdict substantively-met):
-      t-1 band-solver kill-gate + t-2 real DA level/breach/replication + t-5 hardening + t-4 internal coarse render proof.
-      SEEING the proof generated the gas-model redesign → дорога A+ (owner-ratified).
-    Wave A (LAB + DE-RISK WALL — ACTIVE): sandbox v1 + §G(+4) probe-gate kill-gate + host-migration spike. Build NO
-      features until the core has no blind spot (owner R2/R8). t-1 sandbox → t-2 probe-gate → t-3 host-migration spike.
-    Wave B (WHERE IS THE GAS): wire RectDecomposition (sub-sector topology; cut = open-permission) → integer geodesic
-      FRONT (front-across-seam) → interest-grain + sleep (graceful under PEAKS) → visibility-as-truth (host one shared
-      field) → return-fidelity transient (binding) → real-DA at hundreds of rooms; sparse gas-encoding STORE rewrite only
-      if a level authors > the cap.
-    Wave C (CONSEQUENCE): resident-gas DAMAGE law (§E.1) + reactions (§E.3: telegraph + prep-window + queue; ReactionLayer
-      REWRITTEN-clean — it is a toy) + explosion = mass-conserving transfer + next-tick cascade + ventilation (integer
-      edge-modifier, NO float solver — the doc's top determinism landmine).
-    Wave D (ROBUSTNESS): edge-destructibility (Case A opens / Case B splits a room via pre-cut break-lines) +
-      host-migration IMPL + moving geometry (mass-conserved). Griefing + many-sources-economy = named-OPEN.
-    Track V (VISUAL GASG, ∥ secondary ~4wk): types/meta-types visual language, reads RN1 + the front; research may start
-      now, IMPLEMENTATION gates on the read-seams (RN1 ✓ + the front from Wave B), NOT on the core finishing.
-    Each wave = its own shaped bet; detail the next wave knowing the last one's result; far waves stay outcome-level until
-    their turn (owner: «остальные когда придёт время, строго по доку»).
+  wave_plan: |   # SLICE METHODOLOGY 2026-06-22 (owner «да»); slices are TASKS not tree nodes; FULL graph + deps + index → work/dev-plan-graph-2026-06-22.md
+    Wave 1 (NETWORK) + Wave 2 (REAL COARSE SIM + GENERATED LEVELS + INTERNAL PROOF) — DONE (review s-review-002). The proof
+      generated the gas-model redesign → дорога A+ → now LOCKED into the architecture + slice methodology below.
+    SLICE SPINE (small, VISIBLE, deterministic gas-GAMEPLAY slices; order = effect × foundation-dependency; per-mechanic depth
+      classified at each slice's PLAN, default room-granular A — ведро-1/2/3):
+      S0 ФУНДАМЕНТ+ОЩУЩЕНИЕ (ACTIVE) — вокселизатор (генератор-слепой ридер → грид с гранями + region_id) + грань-поток
+         (наполнение комнаты) + §9-швы + дебаг-гизмо + integer/zero-float scan + loopback hash; owner-eye «весело ли». LEADS.
+      S1 — выброс-при-спауне + выдавливание объектом/игроком.
+      S2 — МУЛЬТИПЛЕЕР (lockstep): грубое бит-идентично на 2 машинах (binding determinism = coarse bit-identical, NOT re-flux).
+      S3 — высота/расслоение (near real-height; coarse = few vertical layers for height-routing).
+      S4 — коарс-rollup + LOD без рывка (collapse/expand = discard-on-leave; graph-as-label live; no-pop owner-eye).
+      S5 — базовый пролом (pre-declared face-flip).
+      S6+ — из бэклога по эффекту×ведру: реакции (телеграф+бах=событие), импульс/раздвоение, ветер, температура, типы газа…
+    ∥ ВИЗУАЛ (g-7e15) после S0 (read-seam), на фейк-данных; ∥ ЛОР (canon); ∥ DEVLOG (g-e6f2/g-2f8c) постит по видимым слайсам
+      (owner брифует маркетинг-трек отдельной сессией). Prior Wave A/B/C/D text SUPERSEDED by this spine (kept in git history);
+      §4.2 RISK-register R-* + §2 keep-open invariants still apply as a PLAN check-list. Each slice = its own fresh session.
   rules:   # owner voice, this session — duplicated here until the maintenance home exists
     - "R12: one player hosts; no dedicated server, ever (not researched — decided)."
     - "R13: sim core = pure C# library, zero Unity refs, builds/runs headless; Unity = render/input/transport adapters only (Burst/Jobs behind a seam the core never sees)."
@@ -263,61 +275,32 @@ active_bet:
     point. The sandbox could balloon (scope) — held by the cut list (inspector-driven, no Odin, no per-probe scenes).
 
 active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 active. Wave-1/2 tasks CLOSED → history/s-review-002.md + per-leg histories.
-  - id: t-1
-    kind: executor (engineering, GasCoopGame) — FOUNDATION (leads; everything runs on it)
+  - id: S0
+    kind: executor (engineering, GasCoopGame) — FOUNDATION SLICE (leads; every later slice runs on it). SUPERSEDES Wave-A t-1/t-2/t-3.
     goal: |
-      A generator-blind GEOMETRY reader + a test LAB the owner trusts: DA generates the level (SGF flow); the reader reads
-      the BUILT geometry (marker = WHAT it is; bounds/sill/connectivity DERIVED from geometry), origin-blind — no DA-model
-      read, no crutch. The owner SEES (gizmos) the level → topology → grid transfer + tests every mechanism.
+      A test sandbox where the owner SEES a generated (DA) or hand-placed level become an integer 3D CELL GRID (per-FACE
+      open/closed connectivity) and watches gas FILL A ROOM by face-flow — and renders the owner-eye verdict «точно + (early)
+      весело». The generator-blind geometry reader (room = LABEL/partition; geometry-derived) is the voxelizer's input.
+      Netcode-NEUTRAL (no lockstep wire / no broadcast — that is S2). FOUNDATION for every later slice.
     done_when: |
-      RE-OPENED on architecture (B), owner «B» 2026-06-21 — OPENS WITH A PLAN (owner present): the planner designs the reader
-      WITH the owner and shows it BEFORE code; §Re-sync contract v7→v8 FIRST. DELETE SnapGridFlowRoomReader + the VScale
-      stretch + the whole DA-internal-model-reading path (a room too short to carry the bands = an admission ERROR via
-      TopologyConformance, NEVER a silent stretch). KEEP the proven sim + the TopologyDocument data model + the
-      TopologyConformance admission gate (geometry-derived identity, origin-blind — already good); SALVAGE scenario-as-DATA +
-      TickPacer from c-exec-012. READER: a MARKER says WHAT (room/door); MEASUREMENTS come from the built geometry (room bounds
-      from the module box/collider, door sill from the door's real position); CONNECTIVITY is DERIVED from geometry (a door
-      between two room volumes connects them) — NOT hand-wired keys, NOT the DA model. Bridge: the SGF module prefabs carry the
-      markers. SANDBOX (owner must SEE): GIZMOS visibly show level → topology → grid (sectors); pause/slow/step/snapshot
-      (structured log Claude reads); open/close door → gas stops/flows; ceiling holds gas / open-top escapes (design the sink
-      at PLAN); walls block; different connections; the SAME reader reads a DA-generated AND a hand-placed level identically
-      (generator-blind); multiple sandboxes ok, optimal, ZERO crutch. approach token = geometry-derived-generator-blind-reader.
-      Owner-run: owner sees the gizmo topology→grid + door/ceiling/wall behavior and signs (no self-marking that axis).
-    status: active   # RE-OPENED on architecture (B) 2026-06-21 (owner «B»). SUPERSEDES c-exec-012 (scene-tags built on a FALSE blocker — NOT merged to main). Opens with a PLAN (owner present); §Re-sync v8 first. t-2 probe-gate + t-3 host-spike run ON this lab.
-  - id: t-2
-    kind: executor (engineering, GasCoopGame) — the DE-RISK WALL / kill-gate (riskiest assumption, G6)
-    goal: |
-      A signed verdict that the A+ core has NO load-bearing blind spot — every §G(+4) probe green/measured against the
-      REAL kept core, the active-gas CAP a concrete number (per-species-temp reserved), the coarse data-shape decided to
-      carry the transient+source-XY. Build NO features until this is green.
-    done_when: |
-      §G(+4) PROBE-GATE (each a RED test or measured probe, authored RED-first by an INDEPENDENT test-author; most reuse
-      the existing host+2-follower / mass / scale / breach harnesses; build MINIMAL geodesic front + cell-ceiling/round-robin
-      ONLY to prove their determinism): cascade depth-identical on 2 (loopback) machines; 8-hot-bubble round-robin under a
-      per-tick cell CEILING; integer incremental Dijkstra on a breach; mass-conservation RED incl. a MOVING-GEOMETRY probe
-      (door closing on a gas column conserves mass); awake-set/sleep DETERMINISM byte-identical on 2 machines UNDER A SPIKE
-      (the BINDING probe = the riskiest assumption); resident-gas-damage RED (dose only from RESIDENT gas); confirmed-
-      colocation false-reaction (coarse-alone emits NO false reaction); real-DA(SGF) at HUNDREDS of rooms; high-hall
-      slab-count by eye + no-pop crossfade via the GasDebug overlay. PLUS: (3) the active-gas CAP + wire-plane budget =
-      a CONCRETE NUMBER (per-room ~4, per-level ~16/max~32, TUNABLE sparse encoding) with a per-species-temperature plane
-      RESERVED (a new plane = a SURFACED LOCK-EXT, ADR-0007); (4) the coarse-layer DATA SHAPE decided to carry the
-      TRANSIENT + front + source-XY (TopologyAnchor populated), NOT settled-only. KILL signal = a probe reveals an
-      unfixable-cheap blind spot → STOP + re-shape that layer. Binding = an independent fresh-session G5 refutation of the
-      scorecard. (Runs on the t-1 lab.)
-    status: queued   # after t-1 (needs the lab to run on). The kill-gate of Wave A.
-  - id: t-3
-    kind: executor (engineering, GasCoopGame) — host-migration SPIKE (can run ∥ t-2 once the lab exists; G1 ≤3)
-    goal: |
-      A documented feasibility verdict on host-migration BEFORE the feature waves bake in an authority model that
-      migration later breaks — «host dies → session survives» on the LOCKed stream, + whether migration CONSTRAINS the
-      authority/replication design.
-    done_when: |
-      A host-migration design pass + a minimal demonstrated authority-handoff spike (a follower already reconstructs host
-      state bit-exact via CoarseChunkFollower — the spike tests promoting a follower to authoritative without a desync)
-      OR a clear, documented «needs X» constraint. The verdict GATES the Wave-B interest-grain / visibility-as-truth design
-      (if migration needs detailed state reconstructable rather than host-private, that constrains the interest design).
-      Zero migration code exists today (§H, the co-op value-prop killer) — finding the constraint NOW (cheap) is the point.
-    status: queued   # ∥-able with t-2 after t-1; its verdict gates Wave-B interest/visibility design.
+      OPENS WITH A PLAN (owner present) that INGESTS-AND-APPLIES work/dev-plan-graph-2026-06-22.md + the 4 decision docs
+      (mandatory, applied not just cited) and CLASSIFIES this slice's mechanics ведро-1/2/3; §Re-sync GasCoopGame contract
+      v7→v8 FIRST. (1) VOXELIZER over the proven generator-blind reader: a MARKER says WHAT (room/door); MEASUREMENTS +
+      connectivity DERIVED from built geometry; voxelizes rooms+openings into an integer cell grid with PER-FACE open/closed
+      (wall=closed face, doorway=open faces; doorway→open-faces = a pure canonical integer function, identical for a DA and a
+      hand-placed level, covered by TopologyConformance). (2) FACE-FLOW: gas fills a room via integer face-flow — AREA emergent
+      (open-face count), HEIGHT emergent (low door drains low cells), walls block. (3) SANDBOX (owner SEES): gizmos show
+      level→grid(faces)+region_id; pause/slow/step; structured snapshot Claude reads; scenario-as-DATA. (4) §9 SEAMS as DATA
+      day-one: per-face state primitive; SPARSE active-front flux-register per face; representation/resolution tags (both LOD
+      axes); region_id in the checksum; collapse/expand interface (stub, identity now); checksum-covers-MEANING extended to
+      face state + region_id. (5) DETERMINISM-BY-CONSTRUCTION: integer-only authoritative path + a build-time ZERO-FLOAT scan +
+      a cheap 2-instance loopback hash tripwire on the grey-box kernels. (6) ZERO-LEGACY: DELETE SnapGridFlowRoomReader +
+      VScale + DA-internal-model reading from the TREE (kept in git). KEEP: TopologyDocument + TopologyConformance +
+      geometry-derived id + RN1 + ROOM-partition (as LABEL) + RectDecomposition. OWNER-EYE gate (binding, non-unit-testable):
+      owner opens the sandbox, sees level→grid + gas filling + signs «точно + весело» — owner-run, no self-marking.
+      STOP-discipline v8: a blocked/infeasible named approach or a crutch = mandatory STOP + escalate, never a silent
+      substitute. approach token = voxelizer-grid-faceflow-foundation + feel-grey-box + §9-seams + integer-deterministic-by-construction.
+    status: active   # S0 foundation slice. Opens with a PLAN (owner present). SUPERSEDES t-1/t-2/t-3 (t-2 probe-gate folds into the slice gate; t-3 host-migration MOOT under no-late-join). next slice = S1.
 
 recurring: []
 
@@ -626,6 +609,25 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-arch-lock-slices-001
+    status: answered   # owner «да» 2026-06-22 (marathon re-plan CLOSE) — locked architecture + slice methodology + the firm decisions
+    note: |
+      ARCHITECTURE LOCKED + SLICE METHODOLOGY (close of the 2026-06-21/22 re-plan marathon; co-creation + 4 verification workflows).
+      Durable spec: work/dev-plan-graph-2026-06-22.md (SINGLE entry) + gas-model-architecture-decision-2026-06-21.md (D1–D13) +
+      aplus-replan-under-locked-arch-v1.md + grid-vs-graph-resolution-2026-06-22.md + detail-authority-cost-model-2026-06-22.md.
+      LOCKED (owner-confirmed): (1) NETCODE = input-lockstep (only inputs on wire; every peer recomputes; weakest-peer CPU the limit;
+      host-migration near-free) → ADR-0010 supersedes ADR-0004/0005 host-broadcast authority (game-repo writes it). (2) ONE integer
+      cell model, cell-SIZE LOD: near = full-3D grid + flow through OPEN FACES (area/height/no-through-walls emergent); far =
+      room-graph ROLLUP; ROOM = a LABEL at every tier (pipe dropped near; portal = cut-set aggregate of open faces). (3) DETAIL = a
+      LOCAL non-authoritative refinement of the COARSE-authoritative truth — coarse computed everywhere + in the checksum; detail only
+      where a peer's OWN player is (~1 bubble/peer not N, ~8× CPU win); hard shared consequences = coarse EVENTS; collapse/expand =
+      discard-on-leave; binding determinism probe = coarse bit-identical on 2 machines (NOT re-flux; re-flux → owner-eye no-pop except
+      D5/ведро-3). (4) sparse dominant-gas (D9), integer chemistry table (D10), real-height-3D near (D11). (5) NO LATE-JOIN (lobby/base
+      → start → raid with whoever is present; no mid-raid join; later maybe). (6) ZERO-LEGACY at completion (clean tree; rollback only
+      via git; tests reviewed/rewritten). (7) reusable-engine DROPPED (D12, game-first). METHODOLOGY: incremental VISIBLE slices
+      (S0…), each PLAN-ingests-all-research → RED-first → build deterministic/clean/extensible → owner-VISIBLE result → integrate;
+      per-mechanic depth classified ведро-1/2/3 at its slice PLAN (default room-granular A). marketing/devlog + lore ∥; storefront
+      gated on visual identity. TREE g-9c41 #12 added (G9). Open per-slice classification of expressive mechanics happens at each PLAN.
   - id: d-converge-001
     status: answered   # owner 2026-06-14 «давай вариант A» → converge set wired into c-exec-003 context + leg_opens_with as mandatory PLAN input evidence (s-decide-002)
     note: |
@@ -993,43 +995,41 @@ decision_inbox:
       artifact from the A+ front/place layer (weeks) vs a parallel cheap visual pass on the EXISTING model. → history/s-review-002.md.
 
 next: |
-  Wave A (дорога A+) is SHAPED + ACTIVE (owner «да» — A+ + breakdown + Wave A; G6/G9). t-1 is RE-OPENED on architecture (B) — a GENERATOR-BLIND GEOMETRY
-  reader + sandbox — and LEADS (supersedes the c-exec-012 scene-tags leg, NOT merged). The build is an executor leg in
-  GasCoopGame, opening with a PLAN (owner present).
+  Architecture LOCKED + SLICE METHODOLOGY (owner «да» 2026-06-22, G9). The active bet is S0 (foundation slice). CONTINUE IN A
+  FRESH SESSION (context hygiene). The S0 PLAN must INGEST-AND-APPLY work/dev-plan-graph-2026-06-22.md (single entry) + the 4
+  decision docs BEFORE design. Build = an executor leg in GasCoopGame, opening with a PLAN (owner present).
 
-  CALL — t-1 RE-OPENED (generator-blind GEOMETRY reader + sandbox), architecture (B):
-    repo: GasCoopGame (C:\projects\Unity\GasCoopGame, dev→main when green). OPENS WITH A PLAN (owner present): the planner
-          designs the reader WITH the owner and shows it BEFORE code (the reader is the riskiest piece — owner sign-off at
-          PLAN). §Re-sync this repo from contract v7 → v8 (os CONTRACT_VERSION current:8) BEFORE build — wire coverage-check
-          `approach:` token + REVIEW.md refute-the-blocker. Standard contour (PLAN → RED-first independent test-author → build
-          → -Deliver gate → fresh-session G5). STOP-discipline v8: a blocked/infeasible named approach or a crutch = mandatory
-          STOP + escalate with options, never a silent substitute.
-    approach (de-risk token): geometry-derived-generator-blind-reader
-    goal: a GENERATOR-BLIND geometry reader + a test LAB the owner SEES. DA generates the level (SGF flow); the reader reads
-          the BUILT geometry, origin-blind — no DA-model read, no crutch. FOUNDATION (every later wave runs on it).
-    context: owner-locked architecture (B): a MARKER says WHAT (room/door); MEASUREMENTS come from the built geometry (room
-             bounds from the module box/collider, door sill from the door's real position); CONNECTIVITY is DERIVED from
-             geometry (a door between two room volumes connects them) — NOT hand-wired keys, NOT the DA model. Bridge: the SGF
-             module prefabs carry the markers; DA composes pre-marked modules → the blind reader reads the placed geometry.
-             KEEP (proven, untouched): the integer water sim + replication; TopologyDocument + TopologyConformance (geometry-
-             derived identity, origin-blind — already good). SALVAGE from c-exec-012: scenario-as-DATA + TickPacer. Refs:
-             work/aplus-breakdown-v1.md, work/aplus-wave-map-v1.md, d-sandbox-001 (R3 list).
-    boundaries: DELETE SnapGridFlowRoomReader + the VScale stretch + the whole DA-internal-model-reading path (a room too short
-             to carry the bands = an admission ERROR via TopologyConformance, NEVER a silent stretch). No reading of ANY
-             generator's internal model; no crutch. Do NOT merge the c-exec-012 scene-tags work to main (false blocker).
-             Reactions/destruction/pretty rendering = later waves; no new dependency without escalation. Do NOT reopen the
-             LOCK / C1–C22. The §G probe-gate + cap-number + data-shape = t-2 (later), not this leg.
-    done_when: PLAN-approved reader design built. In a sandbox scene: GIZMOS visibly show level → topology → grid (sectors) —
-             owner SEES how a DA-generated level became sectors with derived bounds/doors/sills; pause/slow/step/snapshot
-             (structured log Claude reads); open/close a door → gas stops/flows; a ceiling holds gas, an open-top room lets it
-             escape (design the sink at PLAN); walls block; different connections; the SAME reader reads a DA-generated AND a
-             hand-placed level identically (generator-blind); multiple sandboxes ok, optimal, ZERO crutch. EVIDENCE: commits/PR
-             + the scene + a gizmo capture (level→grid) + the sample log + the gate green + assumptions/cuts. OWNER-RUN gate:
-             owner sees the gizmo topology→grid + door/ceiling/wall behavior and signs — no self-marking that axis.
-    return: a RESULT (the blind geometry-reader + the gizmo-visible sandbox + a DA-generated level read identically to a hand
-            level). next = c-exec-013 (t-2 de-risk probe-gate, runs ON this lab).
-    budget: a focused span (reader design at PLAN + delete the crutch + build the blind reader + the gizmo sandbox). If the
-            geometry-reader looks infeasible/costly → STOP and escalate with options, never substitute/crutch.
+  CALL — S0 (FOUNDATION SLICE: voxelizer + face-flow + sandbox + FEEL grey-box):
+    repo: GasCoopGame (C:\projects\Unity\GasCoopGame, dev→main when green). OPENS WITH A PLAN (owner present) that INGESTS +
+          APPLIES work/dev-plan-graph-2026-06-22.md + gas-model-architecture-decision-2026-06-21.md + aplus-replan-under-locked-arch-v1.md
+          + grid-vs-graph-resolution-2026-06-22.md + detail-authority-cost-model-2026-06-22.md (mandatory, applied not just
+          cited), and CLASSIFIES this slice's mechanics ведро-1/2/3. §Re-sync repo contract v7→v8 FIRST. Standard contour
+          (PLAN → RED-first independent test-author → build → -Deliver gate → fresh-session G5). STOP-discipline v8: a
+          blocked/infeasible named approach or a crutch = mandatory STOP + escalate, never a silent substitute.
+    approach token: voxelizer-grid-faceflow-foundation + feel-grey-box + §9-seams + integer-deterministic-by-construction
+    goal: a sandbox where the owner SEES a generated (DA) or hand-placed level become an integer 3D cell grid (per-FACE
+          connectivity) and watches gas FILL A ROOM by face-flow, and renders the owner-eye verdict «точно + (early) весело».
+          Netcode-NEUTRAL (no lockstep wire / no broadcast — that is S2). FOUNDATION for every later slice.
+    context: locked architecture — near = full-3D grid + flow through OPEN FACES (wall=closed, doorway=open faces; area =
+             open-face count, height emergent); ROOM = a LABEL/partition (geometry-derived; the generator-blind reader is the
+             voxelizer's input). Detail will later be a LOCAL refinement of a coarse-authoritative truth (S2+); coarse =
+             room-graph rollup (S4). Full spec + slice graph + decision index: work/dev-plan-graph-2026-06-22.md.
+    boundaries: ZERO-LEGACY — DELETE SnapGridFlowRoomReader + VScale + DA-internal-model reading from the TREE (kept in git).
+             KEEP: TopologyDocument + TopologyConformance + geometry-derived id + RN1 + ROOM-partition (as LABEL) +
+             RectDecomposition. NO features beyond fill+faces (reactions/destruction/momentum/multiplayer = later slices). Do
+             NOT crack the LOCK silently — D1/D2 + detail re-classification = ADR-0010 (game-repo writes it; authorized by the
+             G9 close). Integer-only authoritative path (zero float). §9 seams present as DATA (per-face state, sparse
+             active-front flux-register, rep/res tags, region_id in checksum, collapse/expand interface stub).
+    done_when: PLAN-approved. Sandbox: gizmos show level→grid(faces)+region_id; pause/step/snapshot (structured log); a
+             generated AND a hand level voxelize IDENTICALLY (generator-blind; doorway→open-faces = a pure canonical integer
+             function covered by TopologyConformance); gas fills a room by face-flow (low door drains low cells, wall blocks,
+             area = open-face count); integer-only + a build-time ZERO-FLOAT scan + a 2-instance loopback hash tripwire.
+             ZERO-LEGACY: SGF/VScale deleted from the tree. OWNER-EYE gate (binding, non-unit-testable): owner opens the
+             sandbox, sees level→grid + gas filling + signs «точно + весело» — owner-run, no self-marking. EVIDENCE: commits/PR
+             + the scene + a gizmo capture + the sample log + the gate green + assumptions/cuts/mechanic-classification.
+    return: a RESULT (voxelizer + face-flow + gizmo sandbox + identical DA/hand voxelization + owner-eye sign). next = S1 CALL
+            (выброс-при-спауне + выдавливание).
+    budget: a focused span; PLAN first. If the voxelizer/face-flow looks infeasible/costly → STOP and escalate with options, never substitute/crutch.
 
   HOME-CLEANUPS owed (own follow-ups, NOT this leg): re-spec R1 Grid→SGF + openspec apply/archive (d-grid-sgf-001); stale
   ADR-0005/0007 «separate-layer = t-3» wording; FishNet real-UDP owner-run residual (non-gating).

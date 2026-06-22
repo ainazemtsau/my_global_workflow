@@ -75,7 +75,7 @@ root:
       All hold in the validation harness:
       1. Performance targets met on the min-spec profile (8GB-VRAM 60-class GPU, 16GB RAM),
          not on the dev 4090; cheap validation allowed (capped profiling / used 3060).
-      2. Replication model locked: host/server-authoritative sim + chunked-delta gas
+      2. (⚠ networking clause SUPERSEDED by #12 / ADR-0010 — input-lockstep) Replication model locked: host/server-authoritative sim + chunked-delta gas
          stream; entity ghosts only for players/objects; rollback/lockstep at most one
          1–2-week timeboxed spike; GPU compute never authoritative for networked state
          (default vendor FishNet — Steam-only, free, GameObject-native; model locked,
@@ -97,7 +97,7 @@ root:
          is DROPPED from the core bet; a genuinely spectacular clip is g-7e15's later job once
          real visuals exist. The parallel-track gate that hung on this clip (root map_order)
          needs a map-level re-check (follow-up).
-      9. Scale architecture (R1): the coarse simulation tier is designed and
+      9. (⚠ bandwidth-budget basis SUPERSEDED by #12 — binding limit = weakest-peer CPU under D1) Scale architecture (R1): the coarse simulation tier is designed and
          arithmetic-validated to hold a huge procedurally generated level profile
          (≈200×200×40 m class, ≥1000 volumes) within measured memory/tick/bandwidth
          budgets on the min-spec profile. (REFINED 2026-06-16, review c-review-001 —
@@ -140,6 +140,21 @@ root:
           wave_plan + work/aplus-breakdown-v1.md + work/aplus-wave-map-v1.md (the design source =
           work/gas-model-design-full-2026-06-20.md). Criteria 1–10 still hold; A+ deepens what "the
           core" resolves and consequences, it does not drop them.
+      12. (ADDED 2026-06-22, owner-approved «да» (G9) — дорога A+ ARCHITECTURE LOCKED + SLICE METHODOLOGY;
+          ADR-0010 supersedes the host-broadcast authority of ADR-0004/0005) NETCODE = input-lockstep (only
+          inputs on wire; every peer deterministically recomputes; binding limit = WEAKEST-PEER CPU, not
+          bandwidth — supersedes #2's host-broadcast/chunked-delta + "lockstep=spike" and #9's on-wire
+          bandwidth basis). MODEL = ONE integer cell model at cell-SIZE LOD: near = full-3D grid + flow
+          through OPEN FACES (area/height/no-through-walls emergent); far = room-graph ROLLUP; ROOM = a LABEL
+          at every tier (pipe dropped near). DETAIL = a LOCAL non-authoritative refinement of the
+          COARSE-authoritative truth (coarse computed everywhere + in checksum; detail only where a peer's
+          own player is — ~1 bubble/peer not N; hard shared consequences = coarse EVENTS). sparse
+          dominant-gas (D9), integer chemistry table (D10), real-height-3D near (D11). NO late-join
+          (lobby→raid boundary). ZERO-legacy at completion. reusable-engine DROPPED (D12, game-first).
+          DELIVERED as INCREMENTAL VISIBLE SLICES (each: PLAN-ingests-all-research → RED-first → build
+          deterministic/clean/extensible → owner-VISIBLE result → integrate; per-mechanic depth classified
+          ведро-1/2/3 at its slice PLAN, default room-granular). Full spec + slice graph + decision index:
+          work/dev-plan-graph-2026-06-22.md. Criteria 1–11 hold where not superseded here.
     status: active
     detail: history/s-map-002.md   # + s-review-002 (A+ re-frame); wave breakdown → NOW.md wave_plan + work/aplus-breakdown-v1.md
 
