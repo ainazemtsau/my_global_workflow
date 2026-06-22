@@ -104,4 +104,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-06-20 life-reset repair: first-node wedge ("weekly operating graph") drifted into whole-runtime foundation work through repeated repairs, until owner invalidated the entire TREE and requested remap → watching: map/shape may need a stronger "node name/scope still matches route" check after major repairs.
 
+2026-06-22 health repair: product work in health-ai continued across Claude Code/Codex handoff without an OS RESULT/history entry, leaving live/health behind product commits 1a64f3d..2930442; repeat of workflow-loop gap from 2026-06-21 incident → watching/candidate maintenance: product repo job-close packets must be carried back to Direction OS before continuing the next product leg.
+
 END_OF_FILE: os/FRICTION.md
