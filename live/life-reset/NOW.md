@@ -161,7 +161,7 @@ tasks:
 
   - id: t-3
     kind: executor
-    status: pending
+    status: done   # 2026-06-21 s-life-reset-run-v1-t3-operating-template-001
     goal: |
       Author the week-file template: the 4 fixed-position sections · read-only neighbor-summary
       slots + owner top-up + conflict→route (no raw) · MIT-style day-derivation + the R11 gate
@@ -170,10 +170,23 @@ tasks:
       artifact-existence + one mandatory BITE slot) · the live running-state fields for
       portability (cycle position, current protections, autonomy rung) + delta re-entry.
     done_when: |
-      The week-file template exists in the PRODUCT REPO (C:\projects\life-reset-manager,
-      committed; evidence = commit SHA) with every section above; the displacement test is
-      non-vacuous (a real cut must be loud; `displaces:` fires on a real displacement else is
-      labelled untested); the realness card binds on artifact-existence + one bite event.
+      DONE (2026-06-21, s-life-reset-run-v1-t3-operating-template-001). operating-template.md
+      authored + pushed to the PRODUCT REPO @ 703eab2 (703eab2b32cd665ecbd804823a9cf14577df42db).
+      The owner RESHAPED the scope across this session (slice re-confirmed; R33–R40 below):
+      the day is now a FIRST-CLASS structured artifact (not a thin derivation), and the working
+      METHOD is a swappable hypothesis, not a law. The single file holds: WEEK schema (the 4
+      fixed-position sections; the wish-filter has 3 outcomes — in-week / backlog-with-reason /
+      hard-reject-against-values) · read-only neighbor summaries + top-up + conflict→route (G4) ·
+      the week ACCUMULATOR ("nothing is lost", esp. problems-to-fix, R34) · week-review → ONE
+      decision incl. {research}=a separate-chat deep-research that rewrites the method (R35) +
+      the manager voices any technique it turns on (R36) · DAY schema (R11 gate + wake-log →
+      plan/MIT pulled from the week = the §5 plan-anchor → free log with per-block
+      report→rebalance, R1 → review feeding the accumulator) · method-of-week-1 = time-blocks
+      LABELLED a swappable hypothesis (R40/R33) · realness card (artifact-existence + one BITE
+      slot) · running-state for portability optimized FOR THE MANAGER, owner reads via rendered
+      views (R37/R39) · the method-evolution loop with the rewrite engine deferred to g-lr-learn
+      (hook only). displaces: non-vacuous (untested-labelled). markdown-only (lightness_rule);
+      no surfaced numbers (G2); consistent with sealed-core.md.
 
   - id: t-4
     kind: owner-run
@@ -202,7 +215,7 @@ tasks:
 
 recurring: []
 
-open_calls: []   # t-2 done; the t-3 CALL is `next`, not yet in-flight.
+open_calls: []   # t-3 done; the t-4 CALL is `next`, not yet in-flight.
 
 decisions: []
 
@@ -219,60 +232,55 @@ preserved_evidence:
   - live/life-reset/history/2026-06-21-s-life-reset-protect-mechanism-correction-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t2-sealed-core-001.md
   - 'PRODUCT REPO: life-reset-manager/sealed-core.md @ e6f7cb3 (the v1 sealed core, t-2 done)'
+  - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t3-operating-template-001.md
+  - 'PRODUCT REPO: life-reset-manager/operating-template.md @ 703eab2 (week+day skeleton, t-3 done; carries owner refinements R33-R40)'
 
 next: |
-  CALL c-life-reset-run-v1-t3-week-file-001
+  CALL c-life-reset-run-v1-t4-real-run-001
   to: session
   direction: life-reset
   play: work
   node: g-lr-run
-  task: t-3
+  task: t-4
+  kind: owner-run
   goal: |
-    A single week-file TEMPLATE exists in the product repo that the manager fills each week to
-    (a) compose a real week in strict priority order with the filter biting and cuts explicit,
-    (b) derive a real day with the R11 gate, (c) hold a review that ends in one decision, and
-    (d) carry the LIVE running-state so a fresh chat/provider resumes by delta. The companion to
-    t-2's sealed-core; together they are the 2 v1 files the real run (t-4) exercises.
+    ONE real end-to-end cycle of the manager has actually happened on the owner's LIVE data
+    (owner-paced): a real week composed, a real day lived + derived, one real protect episode,
+    one saved review→decision — using the 2 v1 files (sealed-core.md @ e6f7cb3 +
+    operating-template.md @ 703eab2). This is the bet's gate (criterion ①): not "the files
+    exist" but "a real run happened and the owner attests it was real".
   context: |
-    - WRITE in the PRODUCT REPO C:\projects\life-reset-manager (remote
-      github.com/ainazemtsau/life-reset-manager) — markdown-only; commit + push; the RESULT
-      carries the SHA. Companion to sealed-core.md @ e6f7cb3 (t-2, done).
-    - Required sections (from NOW.md week_layout + tasks[t-3] + research §3): (1) the 4
-      fixed-POSITION sections — PROTECTED TIER-1 (Musts+Floors+Routine-rest+Recovery) → Routine
-      → Wishes-through-filter (each admitted-or-rejected WITH a reason; mark the ≤1 experiment)
-      → Cuts (explicit; a `displaces:` line on a real displacement, else labelled untested);
-      (2) read-only neighbor-summary slots + owner top-up + conflict→route, NO raw (G4);
-      (3) MIT-style day-derivation + the R11 day-start gate + where "yesterday's review" lives
-      (R12: the day is a separate chat); (4) the review template — default {hold}, the
-      hollow-week veto WITH the recovery carve-out, no surfaced numbers (G2); (5) the realness
-      card — anti-paper artifact-existence + ONE mandatory BITE slot; (6) the live running-state
-      fields for portability (cycle position · current protections · autonomy rung) + delta
-      re-entry ("what changed?").
-    - OWNER STEER (s-life-reset-run-v1-t2, 2026-06-21) — FOLD IN: (R4) the committed week/day
-      plan is the SOURCE of sealed-core §5's objective voice — the template must make "what you
-      committed matters this week/day = X" explicit + machine-readable so the manager can show
-      plan-vs-reality (objective truth, not motivation); (R1) the core loop to make work FIRST
-      is week → day → owner reports "I did something off" → manager REBALANCES the rest — the
-      day-derivation needs a LIGHT drift→rebuild step driven by an owner slip-report; deeper
-      psychological rules are a LATER extension — keep v1 light.
-    - live/life-reset/NOW.md (week_layout · resolved_gaps · tasks[t-3]); the new sealed-core.md
-      (§3 floors, §4 recovery-vs-slide, §5 objective voice — the week-file must not contradict
-      it); live/life-reset/work/life-reset-implementation-research-v1.md (Q1/Q3/Q7/Q9/Q10).
+    - The manager RUNS WITH the owner from the 2 product-repo files; owner-paced + owner-run — a
+      step is NOT done until the owner actually does it and confirms (no self-marking; the leg
+      can't close on an unconfirmed owner action).
+    - START method of week-1 = time-blocks, LABELLED a swappable hypothesis (R40/R33). The first
+      compose also does a LIGHT intake (the manager ASKS missing facts, never invents) and picks
+      ≤1 working technique (owner-reported heuristic best-bet; on a recovery week a technique is
+      PAUSED, not failed).
+    - The accumulator runs all week ("nothing is lost", esp. problems-to-fix, R34); the
+      week-review ends in ONE decision {hold|mutate|kill|route|research|simplify}; {research} = a
+      separate-chat deep-research that rewrites the method (R35) — but the rewrite ENGINE is
+      g-lr-learn; v1 only NAMES the path. The manager voices any technique it turns on (R36).
+    - Durable state = the manager's working memory (R37): the owner does NOT read raw files — the
+      manager RENDERS readable views on demand; never dump YAML/raw at the owner.
+    - Files: sealed-core.md (override · floors · recovery-vs-slide · §5 objective voice anchored
+      to the committed plan) · operating-template.md (week+day skeleton · accumulator · review).
+    - live/life-reset/NOW.md (done_when · resolved_gaps · the captured live owner slide as the
+      natural test case: binge ~1.5wk after quitting smoking + stopping training).
   boundaries: |
-    Co-create with the owner — anything he lives by (his routine, his wishes, his real week) is
-    owner-content: ask, don't invent. The deliverable is the empty FORM + a worked example, NOT
-    his actual week (that is t-4). markdown-only, light (lightness_rule); no infra. Author ONLY
-    the week-file (sealed-core is done; the rewrite engine is g-lr-learn). No surfaced numbers
-    (G2). Do NOT store raw neighbor data (G4). Do NOT re-open the tree or the bet shape. The
-    hollow-week veto MUST carry the recovery carve-out (a low-aliveness genuine-recovery week
-    clears, never condemned). Stay consistent with sealed-core.md.
+    Owner-content / owner-paced — the manager facilitates, the OWNER lives it; do NOT fabricate a
+    run, a bite, or owner attestation (a paper/demo run does NOT close the gate). markdown-only
+    (lightness_rule); no infra; no surfaced numbers (G2); no raw neighbor data (G4). Do NOT build
+    the rewrite engine, technique-automation, multi-journals, a timeline app, or notifications
+    (all deferred). Stay consistent with both v1 files. Do NOT re-open the tree or re-shape the
+    bet; an over-appetite run dies → re-shape a SMALLER run (G3).
   done_when: |
-    The week-file template exists in the PRODUCT REPO (committed + pushed; evidence = SHA) with
-    all 6 sections above; the displacement test is non-vacuous (`displaces:` fires on a real
-    displacement, else is labelled untested); the realness card binds on artifact-existence +
-    one bite event; the template is consistent with sealed-core.md (floors protected, the §5
-    plan-anchor present). next = t-4 (THE REAL RUN, owner-paced).
-  return: RESULT with the week-file template (product-repo SHA), a consistency-with-sealed-core note, next = t-4 CALL.
-  budget: one work session (co-creation with the owner).
+    On live data, durably: ≥1 real week composed in strict order (floors/recovery first · filter
+    bit ≥1 OR protected real recovery · ≥1 explicit cut · ≥2 neighbor summaries · ≥1 conflict
+    routed) · ≥1 real day derived (R11 fired ≥1) · ≥1 real protect episode · ≥1 saved
+    review→decision · the realness BITE slot is non-empty and NOT invented · the owner attests
+    the run was REAL. next = t-5 (portability + owner attestation / fresh-chat delta re-entry).
+  return: RESULT with the run evidence (durable artifacts in the product repo + owner attestation), next = t-5 CALL.
+  budget: owner-paced; NOT in the build budget (the ~3h appetite covered authoring the 2 files). kill_by soft 2026-07-05 / hard 2026-07-19.
 
 END_OF_FILE: live/life-reset/NOW.md

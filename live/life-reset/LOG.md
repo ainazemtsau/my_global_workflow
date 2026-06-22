@@ -143,4 +143,16 @@
   (week→day→slip-report→rebalance), deeper psychological rules later — folded into the t-3 CALL.
   next c-life-reset-run-v1-t3-week-file-001.
 
+- 2026-06-21 - work t-3: authored operating-template.md (the 2nd v1 file) in the PRODUCT REPO
+  life-reset-manager @ 703eab2 (pushed) — the week + day skeleton + rules. Owner RESHAPED the
+  model across the session (slice re-confirmed): the DAY is now a first-class structured artifact
+  (gate/plan/free-log/review), and the working METHOD (time-blocks, pomodoro, journal-format) is
+  a SWAPPABLE HYPOTHESIS, not a law — only the rhythm + "nothing is lost" are fixed. Added: the
+  week ACCUMULATOR (R34), week-review → one decision incl. {research}=a separate-chat
+  deep-research that rewrites the method (R35), the manager voices techniques it turns on (R36),
+  durable state optimized FOR THE MANAGER (owner reads via rendered views, R37), method-of-week-1
+  = time-blocks labelled a hypothesis (R40), interaction free + cross-provider (R39), artifacts
+  extensible later (R38). R33-R40 recorded; engine/techniques/journals/automation deferred
+  (g-lr-learn/g-lr-grow). next c-life-reset-run-v1-t4-real-run-001 (THE REAL RUN, owner-paced).
+
 END_OF_FILE: live/life-reset/LOG.md
