@@ -1,5 +1,12 @@
 # NOW — life-reset
 
+> ⛔ DIRECTION RETIRED (2026-06-22, owner directive). life-reset is NOT a standalone direction —
+> it is a PROJECT under the `solmax` (Solmax-Productive) direction, repo `life-reset-manager`
+> (the same pattern as GasCoopGame under indie-game-development). This state is FROZEN evidence.
+> Canonical project spec → `life-reset-manager/SPEC.md`. v1 is BUILT @ b169c65. Re-planning of
+> the project happens under `solmax` in a FRESH chat. Do NOT run this as an active direction.
+> (Physical archival of this folder deferred until the re-plan confirms the structure.)
+
 active_bet:
   node: g-lr-run
   status: active
