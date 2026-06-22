@@ -155,4 +155,18 @@
   extensible later (R38). R33-R40 recorded; engine/techniques/journals/automation deferred
   (g-lr-learn/g-lr-grow). next c-life-reset-run-v1-t4-real-run-001 (THE REAL RUN, owner-paced).
 
+- 2026-06-22 - work/reconcile (live owner directive): owner collapsed the staged plan to ONE node
+  = build the FULL v1 NOW as simple structured markdown (AI = interpreter, no code); stop
+  splitting/deferring (that, not over-building, blocked real implementation). deep-research FIRES
+  in v1 (picks the method, not a default; closes the rewrite loop) — supersedes operating-template's
+  "hook only". day/week = editable recipe of components (R43); components = clean seams open to
+  later skills/tools (R45). The run is owner-paced + owner-RUN, NOT an OS gate — owner runs it and
+  returns with problems; run-gates removed from the tree. Found + cleaned a CONCURRENCY mess (the
+  "неразбериха" the owner sensed): a parallel session had committed operating-template.md (t-3
+  @703eab2) carrying R33-R40, while this chat produced the newer R41-R45 structure → CONSOLIDATED
+  to one clean v1 set in the product repo @ b169c65 (sealed-core + manager + recipe + state;
+  operating-template removed, recoverable). Tree + the open "life-reset as its own direction vs a
+  PROJECT inside Solmax-Productive" question DEFERRED to a post-use session (owner drives the
+  return). next = owner uses v1, returns with problems.
+
 END_OF_FILE: live/life-reset/LOG.md

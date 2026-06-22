@@ -4,6 +4,25 @@ active_bet:
   node: g-lr-run
   status: active
   shaped_by: 2026-06-21 s-life-reset-shape-run-v1-001 (owner-approved G9: "да")
+  directive_2026_06_22: |
+    LIVE OWNER DIRECTIVE (supersedes the staged t-1..t-5 framing below where they conflict):
+    - ONE node = build the FULL v1 now, as a small set of simple STRUCTURED markdown (the AI is
+      the interpreter; NO code). Stop splitting / deferring into nodes & phases — that (not
+      over-building) is what kept us from ever reaching a real implementation.
+    - The deep-research really FIRES in v1: it PICKS the starting method (not a time-block
+      default) and CLOSES the rewrite loop (review→deep-research→rewrite recipe, owner-gated).
+      It is just an in-app procedure, not a separate node/phase. (Supersedes operating-template's
+      "hook only / engine deferred".)
+    - Day & week are COMPOSED from an editable recipe of components (R43); components are clean
+      seams open to later skill/tool/script backing (R45 — architect mindset, still no code now).
+    - The RUN is owner-paced + owner-RUN — NOT an OS gate. The owner runs v1 himself and returns
+      with problems. Do not bake run-weeks/verification into the tree.
+    - The tree + the open governance question "should life-reset be a PROJECT/node inside the
+      Solmax-Productive direction rather than its own direction" are DEFERRED to a session AFTER
+      the owner has used v1. No long-range tree planning now.
+    - V1 BUILT + CONSOLIDATED in the product repo @ b169c65: sealed-core.md (t-2 @e6f7cb3) +
+      manager.md + recipe.md + state.md. A parallel session's operating-template.md (@703eab2)
+      was superseded by the owner's later requirements (R41-R45) and removed (git keeps it).
   runtime_home: |
     The 2 v1 files (sealed-core + week-file) + the manager's memory live in the PRODUCT REPO
     github.com/ainazemtsau/life-reset-manager (local C:\projects\life-reset-manager) — NOT in
@@ -233,54 +252,24 @@ preserved_evidence:
   - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t2-sealed-core-001.md
   - 'PRODUCT REPO: life-reset-manager/sealed-core.md @ e6f7cb3 (the v1 sealed core, t-2 done)'
   - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t3-operating-template-001.md
-  - 'PRODUCT REPO: life-reset-manager/operating-template.md @ 703eab2 (week+day skeleton, t-3 done; carries owner refinements R33-R40)'
+  - 'PRODUCT REPO (superseded): life-reset-manager/operating-template.md @ 703eab2 — consolidated into manager.md+recipe.md, removed @ b169c65 (recoverable in git)'
+  - 'PRODUCT REPO: life-reset-manager v1 SET @ b169c65 — sealed-core.md + manager.md + recipe.md + state.md (the full v1, per the 2026-06-22 owner directive)'
 
 next: |
-  CALL c-life-reset-run-v1-t4-real-run-001
-  to: session
-  direction: life-reset
-  play: work
-  node: g-lr-run
-  task: t-4
-  kind: owner-run
-  goal: |
-    ONE real end-to-end cycle of the manager has actually happened on the owner's LIVE data
-    (owner-paced): a real week composed, a real day lived + derived, one real protect episode,
-    one saved review→decision — using the 2 v1 files (sealed-core.md @ e6f7cb3 +
-    operating-template.md @ 703eab2). This is the bet's gate (criterion ①): not "the files
-    exist" but "a real run happened and the owner attests it was real".
-  context: |
-    - The manager RUNS WITH the owner from the 2 product-repo files; owner-paced + owner-run — a
-      step is NOT done until the owner actually does it and confirms (no self-marking; the leg
-      can't close on an unconfirmed owner action).
-    - START method of week-1 = time-blocks, LABELLED a swappable hypothesis (R40/R33). The first
-      compose also does a LIGHT intake (the manager ASKS missing facts, never invents) and picks
-      ≤1 working technique (owner-reported heuristic best-bet; on a recovery week a technique is
-      PAUSED, not failed).
-    - The accumulator runs all week ("nothing is lost", esp. problems-to-fix, R34); the
-      week-review ends in ONE decision {hold|mutate|kill|route|research|simplify}; {research} = a
-      separate-chat deep-research that rewrites the method (R35) — but the rewrite ENGINE is
-      g-lr-learn; v1 only NAMES the path. The manager voices any technique it turns on (R36).
-    - Durable state = the manager's working memory (R37): the owner does NOT read raw files — the
-      manager RENDERS readable views on demand; never dump YAML/raw at the owner.
-    - Files: sealed-core.md (override · floors · recovery-vs-slide · §5 objective voice anchored
-      to the committed plan) · operating-template.md (week+day skeleton · accumulator · review).
-    - live/life-reset/NOW.md (done_when · resolved_gaps · the captured live owner slide as the
-      natural test case: binge ~1.5wk after quitting smoking + stopping training).
-  boundaries: |
-    Owner-content / owner-paced — the manager facilitates, the OWNER lives it; do NOT fabricate a
-    run, a bite, or owner attestation (a paper/demo run does NOT close the gate). markdown-only
-    (lightness_rule); no infra; no surfaced numbers (G2); no raw neighbor data (G4). Do NOT build
-    the rewrite engine, technique-automation, multi-journals, a timeline app, or notifications
-    (all deferred). Stay consistent with both v1 files. Do NOT re-open the tree or re-shape the
-    bet; an over-appetite run dies → re-shape a SMALLER run (G3).
-  done_when: |
-    On live data, durably: ≥1 real week composed in strict order (floors/recovery first · filter
-    bit ≥1 OR protected real recovery · ≥1 explicit cut · ≥2 neighbor summaries · ≥1 conflict
-    routed) · ≥1 real day derived (R11 fired ≥1) · ≥1 real protect episode · ≥1 saved
-    review→decision · the realness BITE slot is non-empty and NOT invented · the owner attests
-    the run was REAL. next = t-5 (portability + owner attestation / fresh-chat delta re-entry).
-  return: RESULT with the run evidence (durable artifacts in the product repo + owner attestation), next = t-5 CALL.
-  budget: owner-paced; NOT in the build budget (the ~3h appetite covered authoring the 2 files). kill_by soft 2026-07-05 / hard 2026-07-19.
+  NOT a CALL — per the 2026-06-22 owner directive (see active_bet.directive_2026_06_22), the run
+  is owner-paced + owner-RUN, not an OS-tracked gate. The full v1 is BUILT + consolidated in the
+  product repo @ b169c65 (sealed-core.md + manager.md + recipe.md + state.md).
+
+  The owner now USES v1 himself (starts a chat with the manager files; the first run's deep-research
+  picks the method) and RETURNS with problems. (t-4/t-5 above are retained for intent only — the
+  run/attestation belong to the owner, NOT a self-markable OS task.)
+
+  On the owner's return, the next session:
+    (a) acts on his real-use feedback (fixes problems he brings);
+    (b) revisits the TREE with him per the "one node" directive (the staged 6-node/t-1..t-5
+        structure is paused — re-decide what the tree should be AFTER real use);
+    (c) resolves the open governance question: should life-reset be a PROJECT/node inside the
+        Solmax-Productive direction rather than its own direction? (owner raised it 2026-06-22).
+  No new CALL is pre-written — the owner drives the return.
 
 END_OF_FILE: live/life-reset/NOW.md
