@@ -1,5 +1,14 @@
 # LOG — solmax
 
+- 2026-06-22 — structural directive (owner): `life-reset` is NOT a separate direction — it is a
+  PROJECT under this Solmax-Productive direction (repo `life-reset-manager`), the same pattern as
+  GasCoopGame under indie-game-development. The standalone `live/life-reset/` direction (framed
+  2026-06-17 as a "recommended next frame" out of the Solmax pause) is RETIRED. Its v1 is BUILT
+  (@ b169c65) and a canonical nothing-lost spec lives at `life-reset-manager/SPEC.md`. NEXT: a
+  fresh chat re-plans life-reset as a project under Solmax and reconciles Solmax's scope as the
+  umbrella (owner: node-1 = life-reset, node-2 = "the app in the queue"). Not yet a charter/tree
+  edit — the re-plan does the formal integration with owner G9 approval.
+
 - 2026-06-17 — converge g-kernel Q1-Q15 closed as owner-approved deferral after owner paused Solmax/W0; t-2/t-3 and converge-arch held; next recommended frame: life-reset direction. → history/2026-06-17-s-converge-kernel-q1-q15.md
 
 - 2026-06-17 — repair g-kernel: recovered Q1-Q15 owner decision A into valid RESULT shape and routed next to Q1-Q15 converge signoff → history/2026-06-17-s-repair-nc-solmax-g-kernel-q1-q15.md

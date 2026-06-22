@@ -1,9 +1,35 @@
 # NOW — life-reset
 
+> ⛔ DIRECTION RETIRED (2026-06-22, owner directive). life-reset is NOT a standalone direction —
+> it is a PROJECT under the `solmax` (Solmax-Productive) direction, repo `life-reset-manager`
+> (the same pattern as GasCoopGame under indie-game-development). This state is FROZEN evidence.
+> Canonical project spec → `life-reset-manager/SPEC.md`. v1 is BUILT @ b169c65. Re-planning of
+> the project happens under `solmax` in a FRESH chat. Do NOT run this as an active direction.
+> (Physical archival of this folder deferred until the re-plan confirms the structure.)
+
 active_bet:
   node: g-lr-run
   status: active
   shaped_by: 2026-06-21 s-life-reset-shape-run-v1-001 (owner-approved G9: "да")
+  directive_2026_06_22: |
+    LIVE OWNER DIRECTIVE (supersedes the staged t-1..t-5 framing below where they conflict):
+    - ONE node = build the FULL v1 now, as a small set of simple STRUCTURED markdown (the AI is
+      the interpreter; NO code). Stop splitting / deferring into nodes & phases — that (not
+      over-building) is what kept us from ever reaching a real implementation.
+    - The deep-research really FIRES in v1: it PICKS the starting method (not a time-block
+      default) and CLOSES the rewrite loop (review→deep-research→rewrite recipe, owner-gated).
+      It is just an in-app procedure, not a separate node/phase. (Supersedes operating-template's
+      "hook only / engine deferred".)
+    - Day & week are COMPOSED from an editable recipe of components (R43); components are clean
+      seams open to later skill/tool/script backing (R45 — architect mindset, still no code now).
+    - The RUN is owner-paced + owner-RUN — NOT an OS gate. The owner runs v1 himself and returns
+      with problems. Do not bake run-weeks/verification into the tree.
+    - The tree + the open governance question "should life-reset be a PROJECT/node inside the
+      Solmax-Productive direction rather than its own direction" are DEFERRED to a session AFTER
+      the owner has used v1. No long-range tree planning now.
+    - V1 BUILT + CONSOLIDATED in the product repo @ b169c65: sealed-core.md (t-2 @e6f7cb3) +
+      manager.md + recipe.md + state.md. A parallel session's operating-template.md (@703eab2)
+      was superseded by the owner's later requirements (R41-R45) and removed (git keeps it).
   runtime_home: |
     The 2 v1 files (sealed-core + week-file) + the manager's memory live in the PRODUCT REPO
     github.com/ainazemtsau/life-reset-manager (local C:\projects\life-reset-manager) — NOT in
@@ -132,7 +158,7 @@ tasks:
 
   - id: t-2
     kind: executor
-    status: active
+    status: done   # 2026-06-21 s-life-reset-run-v1-t2-sealed-core-001
     goal: |
       Author the sealed-core file ONCE (serves Q4/Q5/Q9): inviolable override path (incl. the
       R11 refusal) · protected class (recovery/safety/floors incl. routine-rest) · manual
@@ -144,16 +170,24 @@ tasks:
       its checkout-slide response is re-igniting his OWN values via an objective voice, firm
       but non-punishing, never force/referral.
     done_when: |
-      The sealed-core file exists in the PRODUCT REPO (C:\projects\life-reset-manager,
-      committed + pushed; evidence = commit SHA), durable, listing all of the above INCLUDING
-      the not-a-safety-valve boundary + the checkout-slide re-ignite-via-values response
-      (owner-corrected); v1 performs NO rewrite (that is g-lr-learn) — this only authors the
-      core + a repeatable 2-assertion hand-run smoke check (override still works + floors
-      intact). No surfaced numbers (G2). markdown-only (lightness_rule).
+      DONE (2026-06-21, s-life-reset-run-v1-t2-sealed-core-001). sealed-core.md authored +
+      pushed to the PRODUCT REPO github.com/ainazemtsau/life-reset-manager @ e6f7cb3
+      (e6f7cb3c3cf863c190921749ccacfe0e07247816). Lists all required: §1 inviolable override
+      (incl. R11 refusal) · §2 protected class (recovery/safety/floors/routine-rest) · §3 the
+      4 floor-tripwires · §4 recovery-vs-slide (3 signs) · §5 the objective voice anchored to
+      the owner's OWN committed week/day plan (firm; never scare/cheer/force/refer; values
+      current, honesty-with-self marked an extension; tone-can-be-harder per owner) · §6 the
+      non-punishing-return invariant (hosted in core, NOT on the override path) · §7 the
+      NOT-a-safety-valve boundary (no clinical routing — owner-correction followed, the stale
+      CALL line dropped) · §8 manual git-revert · §9 gate-only changes (v1 performs no rewrite)
+      · §10 the 2-assertion hand-run smoke check (both PASS: override works + floors intact).
+      markdown-only (lightness_rule); no surfaced numbers (G2). Owner steer R1/R4 (the objective
+      voice = plan-vs-reality; report-slip→day-rebalance is the core loop to make work first;
+      deeper psychological rules = a later extension) folded into the t-3 CALL.
 
   - id: t-3
     kind: executor
-    status: pending
+    status: done   # 2026-06-21 s-life-reset-run-v1-t3-operating-template-001
     goal: |
       Author the week-file template: the 4 fixed-position sections · read-only neighbor-summary
       slots + owner top-up + conflict→route (no raw) · MIT-style day-derivation + the R11 gate
@@ -162,10 +196,23 @@ tasks:
       artifact-existence + one mandatory BITE slot) · the live running-state fields for
       portability (cycle position, current protections, autonomy rung) + delta re-entry.
     done_when: |
-      The week-file template exists in the PRODUCT REPO (C:\projects\life-reset-manager,
-      committed; evidence = commit SHA) with every section above; the displacement test is
-      non-vacuous (a real cut must be loud; `displaces:` fires on a real displacement else is
-      labelled untested); the realness card binds on artifact-existence + one bite event.
+      DONE (2026-06-21, s-life-reset-run-v1-t3-operating-template-001). operating-template.md
+      authored + pushed to the PRODUCT REPO @ 703eab2 (703eab2b32cd665ecbd804823a9cf14577df42db).
+      The owner RESHAPED the scope across this session (slice re-confirmed; R33–R40 below):
+      the day is now a FIRST-CLASS structured artifact (not a thin derivation), and the working
+      METHOD is a swappable hypothesis, not a law. The single file holds: WEEK schema (the 4
+      fixed-position sections; the wish-filter has 3 outcomes — in-week / backlog-with-reason /
+      hard-reject-against-values) · read-only neighbor summaries + top-up + conflict→route (G4) ·
+      the week ACCUMULATOR ("nothing is lost", esp. problems-to-fix, R34) · week-review → ONE
+      decision incl. {research}=a separate-chat deep-research that rewrites the method (R35) +
+      the manager voices any technique it turns on (R36) · DAY schema (R11 gate + wake-log →
+      plan/MIT pulled from the week = the §5 plan-anchor → free log with per-block
+      report→rebalance, R1 → review feeding the accumulator) · method-of-week-1 = time-blocks
+      LABELLED a swappable hypothesis (R40/R33) · realness card (artifact-existence + one BITE
+      slot) · running-state for portability optimized FOR THE MANAGER, owner reads via rendered
+      views (R37/R39) · the method-evolution loop with the rewrite engine deferred to g-lr-learn
+      (hook only). displaces: non-vacuous (untested-labelled). markdown-only (lightness_rule);
+      no surfaced numbers (G2); consistent with sealed-core.md.
 
   - id: t-4
     kind: owner-run
@@ -194,7 +241,7 @@ tasks:
 
 recurring: []
 
-open_calls: []   # t-1 done; the t-2 CALL is `next`, not yet in-flight.
+open_calls: []   # t-3 done; the t-4 CALL is `next`, not yet in-flight.
 
 decisions: []
 
@@ -209,57 +256,27 @@ preserved_evidence:
   - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t1-plan-audit-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-setup-product-repo-001.md
   - live/life-reset/history/2026-06-21-s-life-reset-protect-mechanism-correction-001.md
+  - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t2-sealed-core-001.md
+  - 'PRODUCT REPO: life-reset-manager/sealed-core.md @ e6f7cb3 (the v1 sealed core, t-2 done)'
+  - live/life-reset/history/2026-06-21-s-life-reset-run-v1-t3-operating-template-001.md
+  - 'PRODUCT REPO (superseded): life-reset-manager/operating-template.md @ 703eab2 — consolidated into manager.md+recipe.md, removed @ b169c65 (recoverable in git)'
+  - 'PRODUCT REPO: life-reset-manager v1 SET @ b169c65 — sealed-core.md + manager.md + recipe.md + state.md (the full v1, per the 2026-06-22 owner directive)'
 
 next: |
-  CALL c-life-reset-run-v1-t2-sealed-core-001
-  to: session
-  direction: life-reset
-  play: work
-  node: g-lr-run
-  task: t-2
-  goal: |
-    Author the sealed-core file ONCE (the manager's non-amendable safety layer), listing: the
-    inviolable override path (incl. R11 refusal) · the protected class (recovery/safety/floors
-    incl. routine-rest) · manual git-revert rollback (no automation overclaim) · "rules change
-    only via the gate" · the 4 floor-tripwires (sleep / not-smoking / no-binge / not-vanishing,
-    from resolved_gaps.floors) · the non-punishing-return invariant (hosted HERE) ·
-    CLINICAL-RISK ROUTING (a pre-named clinical-risk sign → route OUT to professional support,
-    never intensify discipline — the t-1 audit's load-bearing fix). v1 runs NO rewrite; this
-    only authors the core + a 2-assertion hand-run smoke check.
+  NOT a CALL — per the 2026-06-22 owner directive (see active_bet.directive_2026_06_22), the run
+  is owner-paced + owner-RUN, not an OS-tracked gate. The full v1 is BUILT + consolidated in the
+  product repo @ b169c65 (sealed-core.md + manager.md + recipe.md + state.md).
 
-    NOTE (owner-corrected 2026-06-21): the manager is NOT a clinical safety valve — NO
-    specialist routing, NO therapy/practices; the owner self-sources his own external human
-    support outside the system. Its checkout-slide response = re-ignite the owner's OWN values
-    via an objective external voice (firm, non-punishing, never by force or referral). The
-    manager is his objective mirror for weighted decisions + anti-overcommit; keep it light.
-  context: |
-    - WRITE the file in the PRODUCT REPO: C:\projects\life-reset-manager (remote
-      github.com/ainazemtsau/life-reset-manager) — markdown-only; commit + push there;
-      RESULT carries the commit SHA as evidence back to this direction.
-    - live/life-reset/NOW.md (the v1 bet; runtime_home; resolved_gaps = the 3 recovery-vs-slide
-      signs + the 4 floors + the 3 response altitudes incl. clinical-risk route-OUT; t-2 spec)
-    - live/life-reset/work/life-reset-v1-plan-audit-001.md (the t-1 audit: build-ready; the
-      clinical-risk defect + its fix)
-    - live/life-reset/work/life-reset-implementation-research-v1.md (Q4 sealed core / Q5
-      tripwires / Q9 non-punishing return — mechanics + required-fixes)
-    - live/life-reset/CHARTER.md (guardrails G1-G4; product_repos lightness_rule;
-      authority_and_boundaries clinical-risk routing; risk_posture asymmetric rigor)
-  boundaries: |
-    Co-create with the owner — how the manager should re-voice his OWN values when he's in the
-    checkout-slide is owner-content (his values, his words); do NOT invent generic motivation.
-    The manager is NOT a clinical safety valve: NO specialist routing, NO therapy/practices —
-    the owner self-sources external human help; do NOT re-add a clinical backstop. The file
-    lives in the PRODUCT REPO, NOT live/life-reset/work/ (governance only); markdown-only, no
-    infra (lightness_rule). Author ONLY the sealed core (not the week-file — that is t-3). NO
-    rewrite engine (that is g-lr-learn). No surfaced numbers (G2). The override path stays
-    inviolable; the non-punishing-return invariant lives in the core (NOT on the override path).
-    Keep it light — a short readable file.
-  done_when: |
-    The sealed-core file exists in the PRODUCT REPO (committed + pushed; evidence = commit SHA),
-    listing all of the above INCLUDING the not-a-safety-valve boundary + the checkout-slide
-    re-ignite-via-values response (owner-corrected); plus a repeatable 2-assertion hand-run
-    smoke check (override still works + floors intact). next = t-3 (week-file template).
-  return: RESULT with the sealed-core file (product-repo commit SHA), the smoke check, next = t-3 CALL.
-  budget: one work session (co-creation with the owner).
+  The owner now USES v1 himself (starts a chat with the manager files; the first run's deep-research
+  picks the method) and RETURNS with problems. (t-4/t-5 above are retained for intent only — the
+  run/attestation belong to the owner, NOT a self-markable OS task.)
+
+  On the owner's return, the next session:
+    (a) acts on his real-use feedback (fixes problems he brings);
+    (b) revisits the TREE with him per the "one node" directive (the staged 6-node/t-1..t-5
+        structure is paused — re-decide what the tree should be AFTER real use);
+    (c) resolves the open governance question: should life-reset be a PROJECT/node inside the
+        Solmax-Productive direction rather than its own direction? (owner raised it 2026-06-22).
+  No new CALL is pre-written — the owner drives the return.
 
 END_OF_FILE: live/life-reset/NOW.md

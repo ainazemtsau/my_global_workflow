@@ -130,4 +130,43 @@
   principle), NOW (altitudes/safety/t-2/next CALL) + the product-repo README corrected.
   next unchanged: c-life-reset-run-v1-t2-sealed-core-001.
 
+- 2026-06-21 - work t-2: authored the manager's sealed-core (non-amendable safety layer) in the
+  PRODUCT REPO life-reset-manager @ e6f7cb3 (pushed). §1 inviolable override (incl. R11 refusal)
+  · §2 protected class (recovery/safety/floors/routine-rest) · §3 the 4 floor-tripwires · §4
+  recovery-vs-slide (3 signs) · §5 the objective voice anchored to the owner's OWN committed
+  week/day plan (firm; never scare/cheer/force/refer) · §6 non-punishing-return invariant (in
+  core, not on override path) · §7 NOT-a-safety-valve boundary (no clinical routing — owner
+  correction followed, stale CALL line dropped) · §8 manual git-revert · §9 gate-only changes
+  · §10 the 2-assertion smoke check (both PASS). Co-created: owner reframed the objective voice
+  to objectivity-vs-his-own-plan (not motivation; not scare/cheer; tone can be harder; values
+  current, honesty-with-self an extension) and steered v1 to the basic loop FIRST
+  (week→day→slip-report→rebalance), deeper psychological rules later — folded into the t-3 CALL.
+  next c-life-reset-run-v1-t3-week-file-001.
+
+- 2026-06-21 - work t-3: authored operating-template.md (the 2nd v1 file) in the PRODUCT REPO
+  life-reset-manager @ 703eab2 (pushed) — the week + day skeleton + rules. Owner RESHAPED the
+  model across the session (slice re-confirmed): the DAY is now a first-class structured artifact
+  (gate/plan/free-log/review), and the working METHOD (time-blocks, pomodoro, journal-format) is
+  a SWAPPABLE HYPOTHESIS, not a law — only the rhythm + "nothing is lost" are fixed. Added: the
+  week ACCUMULATOR (R34), week-review → one decision incl. {research}=a separate-chat
+  deep-research that rewrites the method (R35), the manager voices techniques it turns on (R36),
+  durable state optimized FOR THE MANAGER (owner reads via rendered views, R37), method-of-week-1
+  = time-blocks labelled a hypothesis (R40), interaction free + cross-provider (R39), artifacts
+  extensible later (R38). R33-R40 recorded; engine/techniques/journals/automation deferred
+  (g-lr-learn/g-lr-grow). next c-life-reset-run-v1-t4-real-run-001 (THE REAL RUN, owner-paced).
+
+- 2026-06-22 - work/reconcile (live owner directive): owner collapsed the staged plan to ONE node
+  = build the FULL v1 NOW as simple structured markdown (AI = interpreter, no code); stop
+  splitting/deferring (that, not over-building, blocked real implementation). deep-research FIRES
+  in v1 (picks the method, not a default; closes the rewrite loop) — supersedes operating-template's
+  "hook only". day/week = editable recipe of components (R43); components = clean seams open to
+  later skills/tools (R45). The run is owner-paced + owner-RUN, NOT an OS gate — owner runs it and
+  returns with problems; run-gates removed from the tree. Found + cleaned a CONCURRENCY mess (the
+  "неразбериха" the owner sensed): a parallel session had committed operating-template.md (t-3
+  @703eab2) carrying R33-R40, while this chat produced the newer R41-R45 structure → CONSOLIDATED
+  to one clean v1 set in the product repo @ b169c65 (sealed-core + manager + recipe + state;
+  operating-template removed, recoverable). Tree + the open "life-reset as its own direction vs a
+  PROJECT inside Solmax-Productive" question DEFERRED to a post-use session (owner drives the
+  return). next = owner uses v1, returns with problems.
+
 END_OF_FILE: live/life-reset/LOG.md
