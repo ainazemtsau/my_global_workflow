@@ -198,7 +198,7 @@ active_bet:
       S0 ФУНДАМЕНТ+ОЩУЩЕНИЕ (ACTIVE) — вокселизатор (генератор-слепой ридер → грид с гранями + region_id) + грань-поток
          (наполнение комнаты) + §9-швы + дебаг-гизмо + integer/zero-float scan + loopback hash; owner-eye «весело ли». LEADS.
       S1 — выброс-при-спауне + выдавливание объектом/игроком.
-      S2 — МУЛЬТИПЛЕЕР (lockstep): грубое бит-идентично на 2 машинах (binding determinism = coarse bit-identical, NOT re-flux).
+      S2 — МУЛЬТИПЛЕЕР (lockstep): грубое даёт одинаковый хеш на 2 ПРОЦЕССАХ (loopback, ОДНА машина; integer cross-CPU = GIVEN, не доказываем; реальные 2 ПК = опциональный разовый прогон, НЕ гейт). Determinism by construction (integer-only + zero-float scan), NOT re-flux.
       S3 — высота/расслоение (near real-height; coarse = few vertical layers for height-routing).
       S4 — коарс-rollup + LOD без рывка (collapse/expand = discard-on-leave; graph-as-label live; no-pop owner-eye).
       S5 — базовый пролом (pre-declared face-flip).
@@ -293,8 +293,10 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       level→grid(faces)+region_id; pause/slow/step; structured snapshot Claude reads; scenario-as-DATA. (4) §9 SEAMS as DATA
       day-one: per-face state primitive; SPARSE active-front flux-register per face; representation/resolution tags (both LOD
       axes); region_id in the checksum; collapse/expand interface (stub, identity now); checksum-covers-MEANING extended to
-      face state + region_id. (5) DETERMINISM-BY-CONSTRUCTION: integer-only authoritative path + a build-time ZERO-FLOAT scan +
-      a cheap 2-instance loopback hash tripwire on the grey-box kernels. (6) ZERO-LEGACY: DELETE SnapGridFlowRoomReader +
+      face state + region_id. (5) DETERMINISM-BY-CONSTRUCTION (NOT a proof of the established integer-cross-CPU fact, NOT 2
+      physical machines — owner has one; integer cross-CPU is GIVEN): integer-only authoritative path + a build-time ZERO-FLOAT
+      scan ON ONE MACHINE (the actual cross-CPU guarantee, by construction); an OPTIONAL cheap 2-PROCESS loopback hash (one
+      machine) as an ordering/RNG tripwire whose real home is S2 — NO real 2 machines in S0. (6) ZERO-LEGACY: DELETE SnapGridFlowRoomReader +
       VScale + DA-internal-model reading from the TREE (kept in git). KEEP: TopologyDocument + TopologyConformance +
       geometry-derived id + RN1 + ROOM-partition (as LABEL) + RectDecomposition. OWNER-EYE gate (binding, non-unit-testable):
       owner opens the sandbox, sees level→grid + gas filling + signs «точно + весело» — owner-run, no self-marking.
@@ -621,7 +623,7 @@ decision_inbox:
       room-graph ROLLUP; ROOM = a LABEL at every tier (pipe dropped near; portal = cut-set aggregate of open faces). (3) DETAIL = a
       LOCAL non-authoritative refinement of the COARSE-authoritative truth — coarse computed everywhere + in the checksum; detail only
       where a peer's OWN player is (~1 bubble/peer not N, ~8× CPU win); hard shared consequences = coarse EVENTS; collapse/expand =
-      discard-on-leave; binding determinism probe = coarse bit-identical on 2 machines (NOT re-flux; re-flux → owner-eye no-pop except
+      discard-on-leave; determinism GUARANTEED BY CONSTRUCTION (integer-only; cross-CPU is a GIVEN fact, NOT re-proven, NO 2nd machine needed — owner has one; cheap one-machine lint = zero-float scan + optional 2-process loopback), NOT re-flux (re-flux → owner-eye no-pop except
       D5/ведро-3). (4) sparse dominant-gas (D9), integer chemistry table (D10), real-height-3D near (D11). (5) NO LATE-JOIN (lobby/base
       → start → raid with whoever is present; no mid-raid join; later maybe). (6) ZERO-LEGACY at completion (clean tree; rollback only
       via git; tests reviewed/rewritten). (7) reusable-engine DROPPED (D12, game-first). METHODOLOGY: incremental VISIBLE slices
@@ -1023,7 +1025,9 @@ next: |
     done_when: PLAN-approved. Sandbox: gizmos show level→grid(faces)+region_id; pause/step/snapshot (structured log); a
              generated AND a hand level voxelize IDENTICALLY (generator-blind; doorway→open-faces = a pure canonical integer
              function covered by TopologyConformance); gas fills a room by face-flow (low door drains low cells, wall blocks,
-             area = open-face count); integer-only + a build-time ZERO-FLOAT scan + a 2-instance loopback hash tripwire.
+             area = open-face count); integer-only + a build-time ZERO-FLOAT scan ON ONE MACHINE (the cross-CPU guarantee —
+             integer determinism is a GIVEN fact, NO 2nd machine needed) + an OPTIONAL 2-process loopback tripwire (one machine;
+             real 2 PCs are never a gate).
              ZERO-LEGACY: SGF/VScale deleted from the tree. OWNER-EYE gate (binding, non-unit-testable): owner opens the
              sandbox, sees level→grid + gas filling + signs «точно + весело» — owner-run, no self-marking. EVIDENCE: commits/PR
              + the scene + a gizmo capture + the sample log + the gate green + assumptions/cuts/mechanic-classification.

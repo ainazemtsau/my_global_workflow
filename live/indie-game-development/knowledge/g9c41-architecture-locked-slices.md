@@ -8,9 +8,14 @@ spec + slice graph + decision index is the SINGLE entry point: `work/dev-plan-gr
 1. **NETCODE = input-lockstep** (D1): only player inputs cross the wire; every peer deterministically recomputes the full sim
    (integer/fixed-point + seeded RNG + pinned order + per-tick meaning-checksum; desync = loud stop). Binding scale limit =
    **weakest-peer CPU**, not bandwidth. Host-migration near-free. Supersedes ADR-0004/0005 host-broadcast authority → **ADR-0010**
-   (game-repo writes it). Determinism-by-construction = integer-only authoritative path + a build-time zero-float scan + a
-   loopback hash tripwire (cross-CPU determinism is a property of OUR code staying integer-only, NOT a CPU unknown; a 2nd physical
-   machine is a cheap one-off confirmation, not a gate).
+   (game-repo writes it). DETERMINISM — read carefully (owner-flagged drift 2026-06-22): integer arithmetic is bit-identical
+   across ALL CPUs — this is an ESTABLISHED real-world fact (banking/accounting software relies on it). We do NOT "prove" it and
+   we do NOT need a second physical machine (the owner has ONE machine — that is fine). The ONLY real cross-CPU risk is a FLOAT
+   sneaking into the authoritative path → caught by a build-time ZERO-FLOAT scan ON ONE MACHINE (that scan IS the cross-CPU
+   guarantee, by construction). A 2-PROCESS loopback hash (two processes on the SAME one machine) is an OPTIONAL cheap tripwire
+   for the OTHER bug class (non-canonical iteration order / unseeded RNG) — it is NOT "two machines" and NOT a proof of the
+   integer fact. A real 2-PHYSICAL-machine run is NEVER a gate (an optional one-off confidence check, much later, if ever). So:
+   enforce integer-only + canonical order + seeded RNG (a cheap LINT); do NOT re-prove the given.
 
 2. **ONE integer cell model, cell-SIZE LOD** (D2/D3/D11): near = full-3D grid + flow through **OPEN FACES** (area = open-face
    count, real height, no-through-walls — all emergent from geometry, free; supersedes the area-blind `t=mEq/kP` near). Far =
@@ -23,8 +28,10 @@ spec + slice graph + decision index is the SINGLE entry point: `work/dev-plan-gr
    sim is the SOLE shared truth — computed identically on every peer, in the checksum. The detailed bubble is computed ONLY where
    a peer's own player is (~1 bubble/peer, not N — ~8× CPU win), is OFF the checksum, and never writes coarse back. Hard shared
    consequences (reactions/damage/cross-room flow/explosions) are PROMOTED to **coarse EVENTS** computed from coarse state on
-   every peer. Binding determinism probe = coarse bit-identical on 2 machines (NOT re-flux; re-flux → owner-eye no-pop feel,
-   EXCEPT D5 spatial rooms / sub-room-AND-shared mechanics where it snaps back to a hard gate). Per-mechanic depth is classified
+   every peer. Determinism is GUARANTEED BY CONSTRUCTION (integer-only; cross-CPU is GIVEN — see point 1, NOT re-proven, NO 2nd
+   machine needed) and verified by the cheap ONE-MACHINE lint (zero-float scan + optional 2-process loopback hash). "Coarse the
+   same on every peer" FOLLOWS from integer-only — it is not a 2-machine gate. (re-flux → owner-eye no-pop feel, EXCEPT D5
+   spatial rooms / sub-room-AND-shared mechanics where it snaps back to a hard gate.) Per-mechanic depth is classified
    at EACH slice's PLAN into ведро-1 (washes-out = free local feel) / ведро-2 (coarse-promotable event) / ведро-3 (sub-room AND
    shared = expensive, that room runs detail on all peers). **Default = room-granular (Variant A).**
 
