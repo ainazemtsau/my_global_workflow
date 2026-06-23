@@ -1,5 +1,14 @@
 # g-9c41 dev plan-graph + decision index (2026-06-22) — the SINGLE entry point
 
+> 🔴 **TIE-BREAKER ДЛЯ S0 (s-research-017, 2026-06-22) — READ-FIRST вместе с этим доком.** На ЛЮБОЕ разногласие по размеру
+> клетки / масштабу / 25см / капу / интеракции — АВТОРИТЕТ = `work/gas-cellsize-levelscale-2026-06-22.md` §1-§12
+> (s-research-012..016, перекрывает конфликтующий текст ниже И в decision-доках). Уточнения: газ = **50см ГЛОБАЛЬНО** (НЕ
+> покомнатный/потировый микс; 25см = только off-checksum локальный визуал); геометрия = целое кратное газа (≥50см), не мельче;
+> **room-rollup (S4) ОБЯЗАТЕЛЕН** при цели ~150 комнат (140-223k клеток; равномерно-мелкое тянет только ~40-80); кап =
+> ОПЦИОНАЛЬНЫЙ конфиг (дефолт OFF, full-fill = поддерживаемый фейл); **4 GAP-розетки day-one в S0-швах** — cap(∞/0),
+> tick_divisor(=1), void-sink region_id, resolution_tag=ПАРА(geom,gas); высотные полосы = авторитет (S3); поле энергии = новый
+> шов (S6). Фаза = СТРОИТЬ S0 (осуществимость №1 ЗАКРЫТА), не research.
+
 > **Purpose:** the one doc a fresh session reads first. It holds (1) the slice spine + dependency/parallel graph, (2) the
 > per-slice ritual, (3) the per-mechanic depth-classification rule, (4) the decision INDEX (pointers — nothing lost), (5) the
 > hard rules. Owner-approved methodology 2026-06-22 ("да"). Detail lives in the linked docs; this is the map.

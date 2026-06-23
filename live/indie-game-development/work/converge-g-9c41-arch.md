@@ -1,5 +1,10 @@
 # converge-g-9c41-arch — converge-arch ARCHITECT record (heavy node, c-converge-002)
 
+> 🔴 **SUPERSEDED (s-research-017, 2026-06-22).** Netcode/replication-модель (host single-writer + chunked-delta +
+> «клиенты реконструируют») и band-graph масштаб ПЕРЕКРЫТЫ локом 2026-06-22 (input-lockstep; газ 50см-global; room-rollup
+> обязателен) → `work/dev-plan-graph-2026-06-22.md` + `gas-cellsize-levelscale-2026-06-22.md` §1-§12. Файл = Wave-2
+> converge-ИСТОРИЯ (метод/контракты валидны), НЕ активный неткод-авторитет.
+
 > The ARCHITECT step of converge-arch (heavy node). Its job is NOT to re-run the architecture — that is
 > already a product (brief v2, ARCH-1v2). This file records: (1) the binding architecture-on-paper as
 > IMPORTED-BORN-CLOSED input evidence to PLAN; (2) the small set of EMERGENT contract-architecture high-risk

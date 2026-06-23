@@ -1,5 +1,11 @@
 # converge-g-9c41 — formed question set (RETROFIT, FORM pass)
 
+> 🔴 **SUPERSEDED (s-research-017, 2026-06-22).** Netcode/replication-модель этого дока (host single-writer + chunked-delta +
+> «клиенты реконструируют, не считают сами») и band-graph масштаб ПЕРЕКРЫТЫ локом 2026-06-22 (input-lockstep; одно целочисл.
+> cell-модель; газ 50см-global; room-rollup обязателен) → `work/dev-plan-graph-2026-06-22.md` +
+> `gas-cellsize-levelscale-2026-06-22.md` §1-§12. Файл = Wave-1/2 converge-ИСТОРИЯ (метод/контракты валидны), НЕ активный
+> неткод-авторитет.
+
 > **Status: FORM pass only (checkpoint).** This document FORMS the converge question-set for node
 > g-9c41 and stops. Per CALL c-converge-001 boundaries it does NOT answer open questions with the
 > owner, does NOT run converge-arch / converge-verify / shape, and decides NO HOW value. Open rows

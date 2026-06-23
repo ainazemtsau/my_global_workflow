@@ -1,5 +1,11 @@
 # g-9c41 — LOCKED architecture + slice methodology (accepted 2026-06-22, owner «да»)
 
+> 🔵 **УТОЧНЕНИЕ (s-research-017, 2026-06-22; POINTER, НЕ правка лока).** Пункт 2 «cell-SIZE LOD» и пункт 3 (пузырь/discard)
+> УТОЧНЕНЫ синтезом `work/gas-cellsize-levelscale-2026-06-22.md` §10-§12: газ = **50см ГЛОБАЛЬНО** (авторитетная ось LOD =
+> ПРОСТРАНСТВЕННЫЙ room-rollup, НЕ покомнатный cell-SIZE; cross-resolution re-flux шов убран); 25см = off-checksum визуал +
+> авторитетные высотные полосы. Залоченные факты этим указателем НЕ изменены; формальная ратификация уточнения в лок =
+> owner-signed re-shape (отдельная сессия).
+
 **Who reads this / when:** EVERY g-9c41 build session, at its PLAN, before any design — it is a mandatory ingest. The full
 spec + slice graph + decision index is the SINGLE entry point: `work/dev-plan-graph-2026-06-22.md`.
 
