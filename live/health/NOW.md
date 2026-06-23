@@ -111,8 +111,9 @@ tasks:
       never in any contract; no visible proof-of-load marker on chat replies; and the executor returned NO OS
       RESULT -> live/health drifted a full leg (re-synced by this RESULT). Nutrition PAUSED. Full RCA: workflow
       wf_39392526-26c (8 agents, adversarially verified) -- NOT a WA-K2/WA-K3 contradiction, but an
-      under-specified freeze seam + a missing requirement. Remediation in NOW.next
-      (CALL c-health-core-kernel-incident-fix-001). WA-K6 + WA-K8 remain red_deferred (unwalked).
+      under-specified freeze seam + a missing requirement. Subsequent Health AI remediation progressed through
+      health-ai @1338a35; current x_nutrition cursor is WEEK_PLAN, and review is now the OS-level next step.
+      WA-K6 + WA-K8 remain red_deferred (unwalked).
     gated_on: t-1 PASS AND t-2 PASS (fresh-read confirmed)
     goal: >
       Build the ONE indivisible TIER-2 kernel spine (lift runtime primitives KC1–KC4 + build governance KC5–KC11
@@ -157,7 +158,8 @@ open_calls:
       SURVIVES). BUT the executor returned its results ONLY inside the health-ai repo (in-product handoff packets),
       never as an OS RESULT with state_changes -- the workflow-loop gap that left live/health drifted a full leg.
       The follow-on nutrition run overran the thin-attach boundary and hit the menu-without-approval violation
-      (8504d3f, owner-reverted adebf3d). Closed; remediation tracked in NOW.next (c-health-core-kernel-incident-fix-001).
+      (8504d3f, owner-reverted adebf3d). Initially tracked through c-health-core-kernel-incident-fix-001, then
+      later reconciled through health-ai @1338a35; current OS next is review before a new large bet.
     gate_cleared: 2026-06-20 (Wave-0 PASS, fresh-read confirmed)
     note: >
       RELEASED 2026-06-20 — Wave-0 de-risk PASS/PASS cleared the gate. Executor CALL into health-ai for the kernel
@@ -166,7 +168,17 @@ open_calls:
       conformance) as executor-inputs and F-C (registry-line governance) as a PLAN-residual tied to D-kernel-1 —
       all input/PLAN only; done_when untouched.
 
-recurring: []
+recurring:
+  - id: r-health-ai-minor-fix-lane
+    goal: >
+      Keep a lightweight intake lane for minor Health AI UX/contract/prompt papercuts that do not justify a full
+      direction bet.
+    done_when: >
+      Due minor Health AI issues are batched into a bounded repair/executor CALL or explicitly deferred/dropped; no
+      raw health diary enters Direction OS.
+    cadence: on_demand
+    lens: ai-system-data-architecture
+    last_done: 2026-06-23
 
 decisions:
   - id: D-kernel-1
@@ -186,36 +198,29 @@ decisions:
     default_if_unanswered: take option 1, record in the second-domain-attach leg PLAN
 
 next: |
-  CALL c-health-core-kernel-incident-fix-001
-  to: session lead + executor (health-ai)
+  CALL c-health-core-kernel-review-003
+  to: session
   direction: health
+  play: review
   node: g-health-core
-  bet: b-health-core-kernel
-  repo: C:\projects\health-ai
   goal: |
-    Nutrition cold-start reaches the next owner-gated PROGRAM checkpoint from the committed delegated-research handoff.
+    Current g-health-core kernel bet has a verified verdict, and the next large Health bet choice is ready for owner decision.
   context: |
-    Current canonical product state: health-ai local main @731348b (unpublished; sits above no-op local
-    init/revert pair 8a935d0/59c6062). Since the last OS-recorded point @7b72c31,
-    1a64f3d attached a clean x_nutrition thin domain with PROGRAM awaiting delegated Deep Research; 6a04e35 made the
-    child request owner-facing and recorded the owner's facts; 2930442 cleaned that child request into a ready-to-run
-    query with no system tokens; 731348b fenced ChatGPT Project memory to repo authority and removed stale
-    "no domain attached" bootstrap claims. Use x_nutrition/handoffs/2026-06-22-program-awaiting-research.md,
-    x_nutrition/research/deep-research-brief.md, core/runtime/delegated-jobs.md, CHATGPT_PROJECT.md, and
-    live/health/history/2026-06-22-s-health-chatgpt-project-memory-fence-001.md. Historical kernel build acceptance
-    is closed in history/2026-06-21-s-health-core-kernel-incident-rca-001.md; frozen WA-K acceptance lives in
-    health-ai acceptance/kernel/wa-k.md.
+    live/health/NOW.md, TREE.md, LOG.md, and history for b-health-core-kernel. Product reality now: health-ai
+    origin/main @1338a35. Since the stale NOW.next @731348b, delegated research returned, the first nutrition
+    program became ACTIVE, the first nutrition cycle became ACTIVE, and x_nutrition/runtime/cursor.md now resolves
+    to WEEK_PLAN with next_trigger author_first_x_nutrition_week_plan. Owner says nutrition is not perfect but is
+    basically working, wants a lightweight parallel lane for minor Health AI fixes, and wants the next large plan
+    decision (likely training/activity) after OS cleanup.
   boundaries: |
-    No ACTIVE nutrition execution menu/grocery/recipe before the owner gate. Do not reintroduce synthetic/demo data.
-    Do not treat the local no-op owner-program init/revert as accepted owner-program state. D-kernel-1 default option
-    1 stands.
+    Review only. Do not start training implementation, do not author new Health AI artifacts, and do not close TREE
+    or choose the next bet without owner approval under review gates G7/G9.
   done_when: |
-    Delegated Deep Research child has returned its conclusion; PROGRAM has resumed from the committed handoff/cursor;
-    the next owner-gated PROGRAM checkpoint is ready; no nutrition execution artifact is ACTIVE without approval; and
-    WA-K6/WA-K8 live evidence status is explicitly named.
+    Bet verdict is named with evidence; forecast/cuts/lessons are harvested; the minor-fix lane is accounted for;
+    owner receives 2-3 next-bet options with a recommendation, including training/activity; and the next shape CALL
+    is ready after owner approval.
   return: |
-    RESULT with product commits/evidence, any owner decision needed, exact live/health state_changes, and the next
-    CALL. If product work continues, carry the OS RESULT before starting the next product leg.
-  budget: one focused session
+    RESULT with verdict/evidence, TREE/NOW state_changes, knowledge if any, decisions_needed, log line, and next CALL.
+  budget: one session
 
 END_OF_FILE: live/health/NOW.md
