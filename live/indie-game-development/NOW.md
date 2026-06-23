@@ -1014,7 +1014,12 @@ next: |
   CALL — S0 (FOUNDATION SLICE: voxelizer + face-flow + sandbox + FEEL grey-box):
     repo: GasCoopGame (C:\projects\Unity\GasCoopGame, dev→main when green). OPENS WITH A PLAN (owner present) that INGESTS +
           APPLIES knowledge/g9c41-architecture-locked-slices.md + knowledge/g9c41-drift-guard.md (READ-FIRST) + work/dev-plan-graph-2026-06-22.md + gas-model-architecture-decision-2026-06-21.md
-          + grid-vs-graph-resolution-2026-06-22.md + detail-authority-cost-model-2026-06-22.md (mandatory, applied not just
+          + grid-vs-graph-resolution-2026-06-22.md + detail-authority-cost-model-2026-06-22.md
+          + work/gas-cellsize-levelscale-2026-06-22.md §1-§12 (s-research-012..016 SYNTHESIS — MANDATORY: 50см-global gas,
+          DROP-25cm-authoritative [25cm = optional local visual only], room-rollup S4 MANDATORY at ~150 rooms / 140-223k cells,
+          gas-cap = OPTIONAL stub-field [default OFF], 4 GAP seams to add day-one [cap=∞/0, tick_divisor=1, void-sink region_id,
+          resolution_tag=PAIR(geom,gas)], geometry may be coarser=integer-multiple-of-gas, height-bands→S3 [d-vertical-bands],
+          energy-accumulator→S6 [d-energy-field], 3 binding probes = hangar(i5-7400, 1core+all, scalar+Burst) / 60-room-cascade-bit-identical / re-flux+breach-mid-collapse) (mandatory, applied not just
           cited; PRE-2026-06-22 docs are ARCHIVED in work/archive/ — NOT read), and CLASSIFIES this slice's mechanics ведро-1/2/3. §Re-sync repo contract v7→v8 FIRST. Standard contour
           (PLAN → RED-first independent test-author → build → -Deliver gate → fresh-session G5). STOP-discipline v8: a
           blocked/infeasible named approach or a crutch = mandatory STOP + escalate, never a silent substitute.
