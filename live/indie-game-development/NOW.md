@@ -3,6 +3,20 @@
 active_bet:
   node: g-9c41
   phase: |
+    🧱 2026-06-23 (s-work-018, work play, writer-applied): S0 executor CALL FRAMED + adversarially HARDENED → c-exec-013
+    (build-ready; work/c-exec-013-call.md). wf wwr2am1l9 (64 agents, 49/54 findings kept) folded 12 must-fix + 5 should-fix
+    CALL-text tightenings — ALL verified CAPTURES, zero lock-change (no ADR-0010/G9 to FRAME): voxelizer + doorway→open-faces
+    FORCED into headless Core/** (closes the c-exec-012 Adapters/** self-cert escape); gas=50cm-global + geometry=integer-multiple
+    (2:1 mapping) PINNED; 4 GAP sockets (cap/tick_divisor/void-sink/resolution_tag=PAIR) + §9.9 face-attrs + {energy_sum,capacity_sum}
+    temp-pair enumerated as day-one STUBBED DATA; face-flow law MUST consume open-face area (R6); zero-float scan WIRED as a real
+    check.ps1 gate + RED control; checksum NEGATIVE-controls; owner-eye SPLIT «точно»(headless RED)/«весело»(owner-run) to kill
+    self-certified-approval. LEDGER corrected vs the real tree (HEAD a89b36b): VScale = const@SnapGridFlowRoomReader.cs:76 (NOT a
+    file); SnapGridFlowTopologySource.cs (sole caller + DA-model read) ADDED to the delete set (else deletion orphans it + a
+    GasViewCoarseScene.unity missing-script GUID); far-tier TopologyPortalSpec KEPT. ChunkEncoder (byte)c overflow = real known
+    bug but OUT of S0 (S2 net) → named deferral, NOT folded; ZERO-LEGACY scope = the dead DA→grid path ONLY. Determinism framing
+    CONFIRMED-CLEAN (do NOT re-introduce a 2-machine gate). NOTE: the wf args.call rendered undefined; agents validated against
+    the committed NOW.md S0 text (correct). S0 stays active, awaiting the GasCoopGame executor return. next = open c-exec-013
+    (GasCoopGame, PLAN, owner present). CONTINUE IN A FRESH SESSION.
     🧭 2026-06-22 (s-replan-close, owner «да») — MARATHON RE-PLAN CLOSED into the SLICE METHODOLOGY. Architecture LOCKED
     (input-lockstep; ONE integer cell model: grid+face-flow near / room-graph-rollup far / room=LABEL everywhere; detail = a
     LOCAL non-authoritative refinement of a COARSE-authoritative truth, hard consequences = coarse EVENTS; sparse dominant-gas;
@@ -302,7 +316,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       owner opens the sandbox, sees level→grid + gas filling + signs «точно + весело» — owner-run, no self-marking.
       STOP-discipline v8: a blocked/infeasible named approach or a crutch = mandatory STOP + escalate, never a silent
       substitute. approach token = voxelizer-grid-faceflow-foundation + feel-grey-box + §9-seams + integer-deterministic-by-construction.
-    status: active   # S0 foundation slice. Opens with a PLAN (owner present). SUPERSEDES t-1/t-2/t-3 (t-2 probe-gate folds into the slice gate; t-3 host-migration MOOT under no-late-join). next slice = S1.
+    status: active   # S0 foundation slice. FRAMED + adversarially HARDENED as c-exec-013 (build-ready; work/c-exec-013-call.md) by s-work-018; awaiting the GasCoopGame executor return. Closes done ONLY on c-exec-013's GREEN return (headless RED suite + zero-float scan + grep-clean ZERO-LEGACY) + owner «весело» — no self-marking. Opens with a PLAN (owner present). SUPERSEDES t-1/t-2/t-3 (t-2 probe-gate folds into the slice gate; t-3 host-migration MOOT under no-late-join). next slice = S1.
 
 recurring: []
 
@@ -338,6 +352,25 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       render/adapter layer (R13 — never the gated Core), owner-EYE gated (you can't unit-test «looks good»).
 
 open_calls:
+  - id: c-exec-013
+    status: queued   # 2026-06-23 (s-work-018, work play) — S0 FOUNDATION-SLICE executor CALL: FRAMED + adversarially HARDENED (wf wwr2am1l9: 64 agents, 49/54 findings kept → 12 must-fix + 5 should-fix folded; all verified CAPTURES, no lock-change). Opens with a PLAN (owner present) in GasCoopGame. Full build-ready CALL → work/c-exec-013-call.md. Owner opens it in a FRESH Claude Code session in C:\projects\Unity\GasCoopGame when he starts S0.
+    note: |
+      Executor leg (GasCoopGame, dev→main when green) — the S0 foundation slice: a sandbox where a generated (DA) or hand-placed
+      level becomes an integer 3D per-FACE cell grid + gas FILLS a room by face-flow, owner-eye «весело». §Re-sync repo contract
+      v7→v8 FIRST → PLAN → RED-first independent test-author → build → -Deliver gate → fresh-session G5 → owner-eye. KEY hardening
+      folded into work/c-exec-013-call.md: (1) voxelizer + doorway→open-faces MUST live in headless Core/** (closes the c-exec-012
+      Adapters/** self-cert escape — the binding DA-vs-hand identical-voxelization RED test is authorable there); (2) gas=50cm-global
+      + geometry=integer-multiple (2:1 mapping, REJECT 75) pinned; (3) 4 GAP sockets (cap/tick_divisor/void-sink/resolution_tag=PAIR)
+      + §9.9 per-face attrs + {energy_sum,capacity_sum} temp-pair as day-one STUBBED DATA (a later field-add = a breaking
+      checksum-schema migration); (4) face-flow law CONSUMES open-face area (R6: monotonic + slit-seeps + wall-zero); (5) zero-float
+      scan WIRED as a real check.ps1 gate + a planted-float RED control; (6) checksum negative-controls per meaning-dimension;
+      (7) owner-eye SPLIT — «точно» discharged by the green headless suite, «весело» the ONLY owner-run axis (kills self-certified
+      approval). LEDGER corrected vs HEAD a89b36b: VScale = a const inside SnapGridFlowRoomReader.cs:76 (NOT a file);
+      SnapGridFlowTopologySource.cs ADDED to the delete set (sole caller + DA-model read — else deletion orphans it + a scene
+      missing-script GUID); shared DA→grid plumbing + far-tier TopologyPortalSpec explicitly KEPT. ChunkEncoder (byte)c overflow =
+      OUT of S0 (S2 net) → named deferral. STOP-discipline v8: a blocked/infeasible named approach or a crutch (incl. reduced
+      fidelity) = mandatory STOP + escalate, never a silent substitute. On GREEN → a fresh OS session applies the RESULT (S0 done +
+      S1 CALL). next = c-exec-013 RETURN → S1 (выброс-при-спауне + выдавливание).
   - id: c-visual-001
     status: queued   # 2026-06-21 (s-visual-001) — VISUAL track (g-7e15) first BUILD step (P1), queued AFTER the design/feel pass (owner-flagged: settle how-it-works/reads before render tech). Opens with a PLAN (owner present). Owner starts it when he chooses (parallel to the engine, ~40–60 min/day). Basis = work/gas-visual-research-2026-06-21.md.
     note: |
@@ -1007,53 +1040,28 @@ decision_inbox:
       artifact from the A+ front/place layer (weeks) vs a parallel cheap visual pass on the EXISTING model. → history/s-review-002.md.
 
 next: |
-  Architecture LOCKED + SLICE METHODOLOGY (owner «да» 2026-06-22, G9). The active bet is S0 (foundation slice). CONTINUE IN A
-  FRESH SESSION (context hygiene). The S0 PLAN must INGEST-AND-APPLY work/dev-plan-graph-2026-06-22.md (single entry) + the 4
-  decision docs BEFORE design. Build = an executor leg in GasCoopGame, opening with a PLAN (owner present).
+  S0 (the active bet g-9c41's foundation slice) is FRAMED + build-ready as c-exec-013, adversarially
+  hardened (wf wwr2am1l9, 64 agents; 12 must-fix + 5 should-fix folded — all verified CAPTURES, no
+  lock-change). The full build-ready CALL is work/c-exec-013-call.md. The S0 task stays active,
+  awaiting the GasCoopGame executor return. CONTINUE IN A FRESH SESSION.
 
-  CALL — S0 (FOUNDATION SLICE: voxelizer + face-flow + sandbox + FEEL grey-box):
-    repo: GasCoopGame (C:\projects\Unity\GasCoopGame, dev→main when green). OPENS WITH A PLAN (owner present) that INGESTS +
-          APPLIES knowledge/g9c41-architecture-locked-slices.md + knowledge/g9c41-drift-guard.md (READ-FIRST) + work/dev-plan-graph-2026-06-22.md + gas-model-architecture-decision-2026-06-21.md
-          + grid-vs-graph-resolution-2026-06-22.md + detail-authority-cost-model-2026-06-22.md
-          + work/gas-cellsize-levelscale-2026-06-22.md §1-§12 (s-research-012..016 SYNTHESIS — MANDATORY: 50см-global gas,
-          DROP-25cm-authoritative [25cm = optional local visual only], room-rollup S4 MANDATORY at ~150 rooms / 140-223k cells,
-          gas-cap = OPTIONAL stub-field [default OFF], 4 GAP seams to add day-one [cap=∞/0, tick_divisor=1, void-sink region_id,
-          resolution_tag=PAIR(geom,gas)], geometry may be coarser=integer-multiple-of-gas, height-bands→S3 [d-vertical-bands],
-          energy-accumulator→S6 [d-energy-field], 3 binding probes = hangar(i5-7400, 1core+all, scalar+Burst) / 60-room-cascade-bit-identical / re-flux+breach-mid-collapse) (mandatory, applied not just
-          cited; PRE-2026-06-22 docs are ARCHIVED in work/archive/ — NOT read), and CLASSIFIES this slice's mechanics ведро-1/2/3. §Re-sync repo contract v7→v8 FIRST. Standard contour
-          (PLAN → RED-first independent test-author → build → -Deliver gate → fresh-session G5). STOP-discipline v8: a
-          blocked/infeasible named approach or a crutch = mandatory STOP + escalate, never a silent substitute.
-    approach token: voxelizer-grid-faceflow-foundation + feel-grey-box + §9-seams + integer-deterministic-by-construction
-    goal: a sandbox where the owner SEES a generated (DA) or hand-placed level become an integer 3D cell grid (per-FACE
-          connectivity) and watches gas FILL A ROOM by face-flow, and renders the owner-eye verdict «точно + (early) весело».
-          Netcode-NEUTRAL (no lockstep wire / no broadcast — that is S2). FOUNDATION for every later slice.
-    context: locked architecture — near = full-3D grid + flow through OPEN FACES (wall=closed, doorway=open faces; area =
-             open-face count, height emergent); ROOM = a LABEL/partition (geometry-derived; the generator-blind reader is the
-             voxelizer's input). Detail will later be a LOCAL refinement of a coarse-authoritative truth (S2+); coarse =
-             room-graph rollup (S4). Full spec + slice graph + decision index: work/dev-plan-graph-2026-06-22.md.
-    boundaries: ZERO-LEGACY — DELETE SnapGridFlowRoomReader + VScale + DA-internal-model reading from the TREE (kept in git).
-             KEEP: TopologyDocument + TopologyConformance + geometry-derived id + RN1 + ROOM-partition (as LABEL) +
-             RectDecomposition. NO features beyond fill+faces (reactions/destruction/momentum/multiplayer = later slices). Do
-             NOT crack the LOCK silently — D1/D2 + detail re-classification = ADR-0010 (game-repo writes it; authorized by the
-             G9 close). Integer-only authoritative path (zero float). §9 seams present as DATA (per-face state, sparse
-             active-front flux-register, rep/res tags, region_id in checksum, collapse/expand interface stub).
-    done_when: PLAN-approved. Sandbox: gizmos show level→grid(faces)+region_id; pause/step/snapshot (structured log); a
-             generated AND a hand level voxelize IDENTICALLY (generator-blind; doorway→open-faces = a pure canonical integer
-             function covered by TopologyConformance); gas fills a room by face-flow (low door drains low cells, wall blocks,
-             area = open-face count); integer-only + a build-time ZERO-FLOAT scan ON ONE MACHINE (the cross-CPU guarantee —
-             integer determinism is a GIVEN fact, NO 2nd machine needed) + an OPTIONAL 2-process loopback tripwire (one machine;
-             real 2 PCs are never a gate).
-             ZERO-LEGACY: SGF/VScale deleted from the tree. OWNER-EYE gate (binding, non-unit-testable): owner opens the
-             sandbox, sees level→grid + gas filling + signs «точно + весело» — owner-run, no self-marking. EVIDENCE: commits/PR
-             + the scene + a gizmo capture + the sample log + the gate green + assumptions/cuts/mechanic-classification.
-    return: a RESULT (voxelizer + face-flow + gizmo sandbox + identical DA/hand voxelization + owner-eye sign). next = S1 CALL
-            (выброс-при-спауне + выдавливание).
-    budget: a focused span; PLAN first. If the voxelizer/face-flow looks infeasible/costly → STOP and escalate with options, never substitute/crutch.
+  DO NEXT: open a FRESH Claude Code session in C:\projects\Unity\GasCoopGame and paste the c-exec-013
+  CALL (work/c-exec-013-call.md). It §Re-syncs the repo contract v7→v8 FIRST, then opens with a PLAN
+  (owner present) → RED-first independent test-author → build → -Deliver gate → fresh-session G5 →
+  owner-eye «весело» sign. (The owner participates in the PLAN there; this OS session only framed +
+  hardened the CALL — it did not design the voxelizer/face-flow.)
 
-  HOME-CLEANUPS owed (own follow-ups, NOT this leg): re-spec R1 Grid→SGF + openspec apply/archive (d-grid-sgf-001); stale
-  ADR-0005/0007 «separate-layer = t-3» wording; FishNet real-UDP owner-run residual (non-gating).
+  WHEN c-exec-013 RETURNS GREEN: a fresh OS session applies its RESULT (writer), marks S0 done with
+  evidence, and opens the S1 CALL (выброс-при-спауне + выдавливание). If c-exec-013 STOPs (the
+  voxelizer/face-flow proves infeasible/costly, per its STOP-discipline v8) → a fresh OS session
+  triages the escalation options (re-shape the affected layer, never substitute).
 
-  PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the writer's push — ask the
-  owner to push). GasCoopGame is already pushed (main a89b36b == origin/main); no product-repo edits this session.
+  HOME-CLEANUPS owed (own follow-ups, NOT this leg): re-spec R1 Grid→SGF + openspec apply/archive
+  (d-grid-sgf-001); stale ADR-0005/0007 «separate-layer = t-3» wording; FishNet real-UDP owner-run
+  residual (non-gating).
+
+  PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the
+  writer's push — ask the owner to push). GasCoopGame: no product-repo edits this session (the build
+  is c-exec-013, a separate leg).
 
 END_OF_FILE: live/indie-game-development/NOW.md
