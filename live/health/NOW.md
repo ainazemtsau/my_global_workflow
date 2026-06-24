@@ -4,6 +4,12 @@ active_bet:
   id: b-health-core-kernel
   node: g-health-core
   status: active
+  review_note: >
+    REVIEWED 2026-06-23 (s-health-core-kernel-review-003): verdict partially_met. Wave-0 + kernel spine +
+    incident remediation largely survived refutation, and nutrition is currently attached/running through the
+    kernel to WEEK_PLAN at health-ai @1338a35. But the current product repo no longer contains
+    acceptance/kernel/journey-proof.md after the clean-slate reset; python tools/check_kernel_spine.py reports
+    WA-K10 PENDING. Therefore g-health-core is not closed in TREE and the next large bet is pending owner decision.
   appetite: 14 calendar days (kill 2026-07-04), servant-boxed — WIN = the BINDING PRECONDITION green (WA-K10 journey-proof + KC5/KC6/KC7/KC14), NOT the full breadth; honest sizing MULTI-LEG (see TREE g-health-core appetite/kill_by).
   chosen_approach: >
     EXTRACT-AND-CANONIZE (= BUILD for an LLM-as-runtime kernel: author conventions + per-term procedure files +
@@ -196,31 +202,82 @@ decisions:
       - "3: explicit KM11-style exemption row for the registry line. bad_because: another governance term for a small thing; effectively option 1 with ceremony."
     recommendation: 1
     default_if_unanswered: take option 1, record in the second-domain-attach leg PLAN
+  - id: D-health-core-kernel-review-close-003
+    blocking: true
+    tag: review closure / WA-K10 current-evidence gap
+    raised: 2026-06-23 (s-health-core-kernel-review-003)
+    question: >
+      How should we close the g-health-core kernel bet after review found verdict partially_met? Historical commits
+      679dd8d + 9a0124a prove the original journey-proof once existed and survived fresh refutation, but current
+      health-ai @1338a35 has acceptance/kernel/journey-proof.md absent and WA-K10 PENDING.
+    options:
+      - "A (recommended): run one tiny Health AI evidence repair first: regenerate or restore a current-head WA-K10 journey-proof package from the current nutrition PROGRAM/CYCLE activation evidence, then close g-health-core as done and shape the next large bet. bad_because: one extra small step before training/activity."
+      - "B: accept historical git evidence as sufficient and approve closing g-health-core now, with the current WA-K10 gap recorded as minor-fix debt. bad_because: normalizes a current acceptance precondition showing PENDING."
+      - "C: keep g-health-core active and shape a broader kernel-breadth follow-on before any body-domain bet. bad_because: risks turning Health AI product polish into procrastination against real training/activity."
+    recommendation: A
+  - id: D-health-next-large-bet-003
+    blocking: true
+    tag: next large Health bet after kernel review
+    raised: 2026-06-23 (s-health-core-kernel-review-003)
+    question: >
+      Which large Health bet should be shaped after the WA-K10 current-evidence gap is handled and g-health-core is
+      approved for closure?
+    options:
+      - "A (recommended): shape g-health-training-activity-system. It unlocks strength/body-composition + activity/conditioning, tests the next thin-domain attach, and moves the direction back toward body execution. bad_because: more safety/progression complexity than another nutrition pass."
+      - "B: shape a nutrition execution hardening bet around WEEK_PLAN -> DAY_LOOP -> first review. It turns the current working nutrition lane into real logged behavior. bad_because: nutrition is already basically working and this delays the missing training/activity half."
+      - "C: pause large Health AI product bets and shape a near-path body-execution starter. It reduces product procrastination risk. bad_because: it does not test the next module-on-core architecture and may duplicate the existing starter-kit history."
+    recommendation: A
 
 next: |
-  CALL c-health-core-kernel-review-003
-  to: session
-  direction: health
-  play: review
-  node: g-health-core
-  goal: |
-    Current g-health-core kernel bet has a verified verdict, and the next large Health bet choice is ready for owner decision.
-  context: |
-    live/health/NOW.md, TREE.md, LOG.md, and history for b-health-core-kernel. Product reality now: health-ai
-    origin/main @1338a35. Since the stale NOW.next @731348b, delegated research returned, the first nutrition
-    program became ACTIVE, the first nutrition cycle became ACTIVE, and x_nutrition/runtime/cursor.md now resolves
-    to WEEK_PLAN with next_trigger author_first_x_nutrition_week_plan. Owner says nutrition is not perfect but is
-    basically working, wants a lightweight parallel lane for minor Health AI fixes, and wants the next large plan
-    decision (likely training/activity) after OS cleanup.
-  boundaries: |
-    Review only. Do not start training implementation, do not author new Health AI artifacts, and do not close TREE
-    or choose the next bet without owner approval under review gates G7/G9.
-  done_when: |
-    Bet verdict is named with evidence; forecast/cuts/lessons are harvested; the minor-fix lane is accounted for;
-    owner receives 2-3 next-bet options with a recommendation, including training/activity; and the next shape CALL
-    is ready after owner approval.
-  return: |
-    RESULT with verdict/evidence, TREE/NOW state_changes, knowledge if any, decisions_needed, log line, and next CALL.
-  budget: one session
+  awaiting_decision:
+    - D-health-core-kernel-review-close-003
+    - D-health-next-large-bet-003
+  recommended_route_after_owner_approval: >
+    Acknowledge the partially_met review; run a tiny Health AI WA-K10 current-evidence repair; then close
+    g-health-core and shape g-health-training-activity-system.
+  prepared_repair_call_if_owner_chooses_A: |
+    CALL c-health-core-kernel-wa-k10-evidence-repair-001
+    to: session
+    direction: health
+    play: repair
+    node: g-health-core
+    goal: |
+      Current health-ai HEAD has a green WA-K10 journey-proof evidence package again.
+    context: |
+      live/health/NOW.md; health-ai origin/main @1338a35; historical journey-proof commits 679dd8d and 9a0124a;
+      current nutrition evidence at x_nutrition/handoffs/2026-06-22-program-research-returned.md,
+      x_nutrition/handoffs/2026-06-22-first-nutrition-program-v1-activated.md,
+      x_nutrition/handoffs/2026-06-23-first-nutrition-cycle-v1-activated.md, and x_nutrition/runtime/cursor.md.
+      Review s-health-core-kernel-review-003 found tools/check_kernel_spine.py PASS with WA-K10 PENDING because
+      acceptance/kernel/journey-proof.md is absent after clean-slate reset.
+    boundaries: |
+      Do not start training implementation. Do not change nutrition behavior except evidence packaging. Do not close
+      TREE; return exact state_changes for approval/application.
+    done_when: |
+      health-ai has current-head evidence that resolves WA-K10 from PENDING to green or an explicit owner-approved
+      decision that historical git evidence is sufficient; Direction OS has a ready closure/shape route.
+    return: |
+      RESULT with product evidence, check output, state_changes, and the next owner-approved closure/shape CALL.
+    budget: one focused session
+  prepared_shape_call_after_repair_and_owner_approval: |
+    CALL c-health-training-activity-shape-001
+    to: session
+    direction: health
+    play: shape
+    node: g-health-training-activity-system
+    goal: |
+      The next training/activity bet is small enough to execute and likely to improve real body outcomes.
+    context: |
+      live/health/CHARTER.md, TREE.md, NOW.md, LOG.md, and knowledge/; health-ai current kernel/nutrition state
+      after the WA-K10 evidence repair; owner wants the next large Health choice after OS cleanup and likely
+      training/activity. Nutrition is basically working and minor Health AI papercuts ride r-health-ai-minor-fix-lane.
+    boundaries: |
+      Do not implement training. Do not author Health AI artifacts. Keep Direction OS out of raw daily logs.
+    done_when: |
+      Owner-approved training/activity bet has appetite, kill_by, cut list, lens sweep, riskiest-assumption task,
+      and a ready first CALL.
+    return: |
+      RESULT with owner-approved TREE/NOW state_changes and next CALL.
+    budget: one session
 
 END_OF_FILE: live/health/NOW.md
