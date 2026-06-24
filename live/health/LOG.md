@@ -105,4 +105,6 @@ held 3/4; minor-fix lane reconciled; awaiting owner closure and next-bet
 decisions, recommendation A+A (evidence repair, then training/activity).
 → history/2026-06-24-s-health-core-kernel-review-003-reverify-001.md
 
+2026-06-24 — health/g-health-core repair: current-head WA-K10 evidence repaired in health-ai @8246cec; acceptance/kernel/journey-proof.md restored, check_kernel_spine reports WA-K10 GREEN, fresh validator pre-pass survived; owner-approved option A closed g-health-core done and routed next to training/activity shape. → history/2026-06-24-s-health-core-kernel-wa-k10-evidence-repair-001.md
+
 END_OF_FILE: live/health/LOG.md
