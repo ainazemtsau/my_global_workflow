@@ -3,178 +3,63 @@
 owner_approved:
   status: true
   evidence:
-    - 'Owner approved revised root (manager-as-spine), 2026-06-21 s-life-reset-frame-root-001.'
-    - 'Owner approved reshaped one-real-run done_when (no week / no N-cycle gate): "да".'
-    - 'Owner approved the 6-node outcome tree + order (G9), 2026-06-21 s-life-reset-map-manager-tree-001: "да".'
-    - 'Owner approved (G9) shaping g-lr-run into the active v1 bet (appetite ~3h, kill_by 2+4, 4 floors), 2026-06-21 s-life-reset-shape-run-v1-001: "да".'
+    - '2026-06-24: owner retired LifeReset as a separate project and reset its TREE.'
 
 tree_validity:
-  state: mapped
+  state: retired_evidence
   note: |
-    2026-06-21: map (s-life-reset-map-manager-tree-001) rebuilt the tree on the
-    manager-as-spine root — 6 owner-approved outcome nodes (run, protect,
-    integrate, learn, trust, grow), each with its why. Full cards (goal/done_when/
-    why/edge/risk + rare-example seeds) live in
-    history/2026-06-21-s-life-reset-map-manager-tree-001.md. Route frame -> map ->
-    research -> shape is complete through shape: research (s-life-reset-research-
-    build-manager-001) answered the 10 deferred HOW-mechanisms, and shape
-    (s-life-reset-shape-run-v1-001) turned g-lr-run into the ACTIVE v1 bet
-    (status: active, with appetite + kill_by below). The other 5 nodes stay
-    parked (G1: one active bet). The full v1 bet — tasks t-1..t-5, the resolved
-    recovery-vs-slide + integrate gaps, cut list, lens sweep — lives in NOW.md +
-    history/2026-06-21-s-life-reset-shape-run-v1-001.md.
+    This tree is not executable. The prior manager concept and nodes remain
+    available in git history and history/ as evidence for the new Zaratusta map.
+    Nothing migrates into Zaratusta TREE without fresh owner approval.
 
 root:
   id: g-life-reset-root
-  status: shaped
+  status: dropped
   goal: |
-    Поставить и эксплуатировать один строгий, само-улучшающийся личный
-    операционный МЕНЕДЖЕР (недельный + дневной ритм) как хребет, в который
-    втыкаются направления + программы + бэклог; неделя — его пульс, день
-    выводится из недели. Менеджер координирует, приоритизирует, не даёт забыть и
-    не даёт тихо вытеснить текущее важное — читая согласованные summary соседей и
-    не переписывая их scope. Эффективность — метод, а не конечная ценность:
-    исходы — потенциал владельца целиком (вызов, дисциплина, живость, отцовство-
-    как-пример, смысл) без срыва в самоненависть/откат.
-
+    Historical LifeReset personal-manager concept is preserved without operating
+    as a separate direction or project.
   done_when: |
-    v1 доказана не по «прожитой неделе» и не по «N циклам» (проживание реальных
-    недель — это текущая работа менеджера, а не приёмка постройки), а по ОДНОМУ
-    реальному сквозному прогону полного цикла на настоящих данных владельца, за
-    столько, сколько занимает прогон. Форму выбирает владелец / research: быстрый
-    тест · сжатый dry-run · один реально прожитый день. Ворота закрыты, когда
-    проверяемо по сохранённым durable-артефактам:
-      1. сборка недели (настоящая) из трёх потоков в строгом порядке
-         (обязательное/floors → рутина → хотелки через фильтр → cuts); фильтр
-         реально сработал ≥1 раз И пропустил настоящее восстановление, если
-         требовалось;
-      2. выведённый из недели реальный день; сработали ворота R11;
-      3. сохранён реальный review, на его evidence показана механика недельного
-         review/мутации — выдано ≥1 решение {hold|mutate|kill|route|research|
-         simplify};
-      4. реальные durable-артефакты (неделя/день/review/решение), пережившие
-         перезапуск чата; другой чат/провайдер может продолжить;
-      5. владелец явно подтверждает, что прогон был настоящим и реально сработал
-         (не «архитектура выглядит правильно», не бумажный/демо).
-    Несущее: «дизайн/архитектура существует» НЕ засчитывается. Антиужесточение:
-    календарная неделя / N циклов НЕ требуются. Дальнейшая архитектура
-    заблокирована, пока ворота не зачтены.
+    Canonical work proceeds only through Zaratusta; all useful LifeReset concepts,
+    decisions and implementation evidence remain retrievable for audit and remap.
+  why: |
+    The owner defined this functionality as the first preparatory phase of
+    Zaratusta, not as an independent project.
 
   children:
     - id: g-lr-run
-      status: active
-      goal: |
-        Существует работающий недельно-дневной ритм: настоящие собранные недели в
-        строгом порядке (обязательное/floors → рутина → хотелки через фильтр →
-        явные cuts; все 3 потока; ≤1 эксперимент) и выведенные из них дни с
-        воротами R11; расхождение плана с реальностью заходит как вход в следующий
-        пульс, переживается как коррекция, не приговор. Дефолт недели — собрать по
-        ПРИНЯТОМУ процессу; обязательного процесс-ресёрча каждую неделю нет.
-      done_when: |
-        На живых данных собрана ≥1 настоящая неделя в этом порядке (floors первыми
-        · ≥1 хотелка через фильтр или отклонена с причиной · ≥1 явный cut),
-        выведен ≥1 реальный день, ворота R11 сработали ≥1; всё durable. Это и есть
-        «начал пользоваться» — реальный ритм, не бумага.
-      why: Несёт критерий ③ и поставляет 2/4 durable-артефакта ①; субстрат, на котором стоят остальные узлы.
-      appetite: |
-        ~3 focused hours to author the 2 v1 files (sealed-core + week-file); the
-        real run is owner-paced, NOT in the build budget; not extended (over-appetite
-        → re-shape a smaller run).
-      kill_by:
-        metric: real end-to-end runs on live data
-        threshold: 0 runs while the v1 files exist
-        soft: 2026-07-05  # pause & run
-        hard: 2026-07-19  # kill → re-shape a smaller run
-        note: owner-paced; re-anchor to build-complete +2wk/+4wk if the build starts later.
-      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
-      bet: history/2026-06-21-s-life-reset-shape-run-v1-001.md  # the active v1 bet (NOW.md)
+      status: dropped
+      goal: Historical weekly/daily runtime outcome retained as evidence.
+      done_when: Not pursued in the retired direction.
+      why: Reconsider only inside the new Zaratusta map.
 
     - id: g-lr-protect
-      status: parked
-      goal: |
-        Асимметричная строгость реально защищает: петля срыва режется на шаге
-        «фиксация» — менеджер throttle-ит собственный всплеск владельца, ни одна
-        опора не вытесняется молча (вытеснение = явный owner-видимый cut),
-        восстановление — легитимное СОСТОЯНИЕ структуры (санкционированный
-        облегчённый режим), и менеджер держит хват, даже когда владелец —
-        ненадёжный рассказчик или отсутствует днями.
-      done_when: |
-        В durable есть (а) ≥1 эпизод, где менеджер ограничил/отклонил переинвест
-        или назвал падающую опору ДО срыва и удержал защищённый класс; (б) ≥1
-        эпизод санкционированного облегчённого режима (нагрузка снижена, структура
-        цела); фильтр ≥1 раз пропустил настоящее восстановление, когда требовалось.
-      why: Несёт критерий ① (инокуляция документированной петли срыва) + g3 (иначе менеджер сам = петля выгорания); это причина re-frame.
-      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
+      status: dropped
+      goal: Historical asymmetric-protection outcome retained as evidence.
+      done_when: Not pursued in the retired direction.
+      why: Reconsider only inside the new Zaratusta map.
 
     - id: g-lr-integrate
-      status: parked
-      goal: |
-        Три потока (направления-summary, программы, бэклог) кормят ОДИН ритм без
-        потерь и без захвата scope: соседи читаются как summary, не raw; life-reset
-        не хранит raw health/game/Solmax и не переписывает их scope; конфликт
-        между потоками всплывает явно и маршрутизируется, не проглатывается.
-      done_when: |
-        ≥1 реальный случай, где менеджер свёл ≥2 потока в неделю по summary (не raw)
-        и при нехватке дополнил владельцем/routed-запросом, не выдумал; ≥1 явно
-        всплывший и маршрутизированный конфликт/вытеснение; durable life-reset без
-        raw-данных соседей.
-      why: Несёт критерий ③ (все 3 потока) + g4 (границы источников неприкосновенны) + модель-хаб «ничего не теряется».
-      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
+      status: dropped
+      goal: Historical source-integration outcome retained as evidence.
+      done_when: Not pursued in the retired direction.
+      why: Reconsider only inside the new Zaratusta map.
 
     - id: g-lr-learn
-      status: parked
-      goal: |
-        Менеджер учится на неделях и безопасно чинит сам себя: дневные review →
-        недельный → ≥1 решение {hold|mutate|kill|route|research|simplify} (дефолт
-        hold; research/mutate только при недовольстве); петля само-улучшения хоть
-        раз реально срабатывает (owner-attributed, сохранено); запечатанное ядро
-        (отдых/безопасность/floors + путь override/rollback) доказуемо переживает
-        каждое переписывание; автономия заработанная и понижаемая; «полная, но
-        пустая» неделя может быть признана провалом.
-      done_when: |
-        (a) ≥1 недельный review с явным решением, дефолт виден как hold; (b) ≥1
-        реальное owner-approved переписывание себя по выводу про владельца,
-        сохранено; (c) после него override + floors целы — проверено; (d) ≥1
-        review, где «всё сделано, но пусто» признано не-успехом по оси
-        живость/смысл.
-      why: Несёт routed ⑦ (петля обязана хоть раз сработать) + g1 (gated rewrite + неприкосновенный override) + защиту конечной ценности (эффективность=метод).
-      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
+      status: dropped
+      goal: Historical review and self-improvement outcome retained as evidence.
+      done_when: Not pursued in the retired direction.
+      why: Reconsider only inside the new Zaratusta map.
 
     - id: g-lr-trust
-      status: parked
-      goal: |
-        Менеджер — наставник, которому владелец не сопротивляется (R7); доверие
-        переживает доказанно неверный вердикт (полоса терпимой ошибки, не
-        всё-или-ничего) и многодневный разрыв (не-карающее возвращение без полного
-        intake); есть короткий решённый фронт, которому владелец подчиняется вместо
-        пере-решения; живое running-состояние (позиция в цикле, текущие защиты,
-        ступень автономии) продолжается в новом чате/провайдере, не только статичные
-        факты.
-      done_when: |
-        (a) ≥1 эпизод: неверный вердикт — владелец всё равно принял следующий
-        строгий вызов; (b) ≥1 эпизод: пропуск на дни → не-карающее возвращение без
-        полного intake; (c) ≥1 действие ОТ решённого фронта без пере-решения; (d)
-        новый чат/провайдер продолжил running-состояние, не только архив.
-      why: Несёт критерий ② (приёмка-после-использования сквозь ошибку и срыв) + ④ (портативность живого состояния) + R7.
-      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
+      status: dropped
+      goal: Historical trust and portability outcome retained as evidence.
+      done_when: Not pursued in the retired direction.
+      why: Reconsider only inside the new Zaratusta map.
 
     - id: g-lr-grow
-      status: parked
-      goal: |
-        Менеджер сам себя определяет, растит по evidence и остаётся лёгким: первый
-        запуск — обязательный intake + подбор техник под владельца (R32); бэклог =
-        capture-без-обязательства; кандидаты повышаются в программы/новые
-        процессы/directions (процесс определяется ДО запуска: outcome/scope/
-        интерфейс/durable-state/cadence/связь-с-неделей/stop); расширения не
-        раздувают неделю; менеджер умеет СТАНОВИТЬСЯ МЕНЬШЕ (сбрасывать мёртвые
-        правила), мета-слой держит ту же анти-прокрастинационную планку.
-      done_when: |
-        (a) первый запуск реально провёл intake + подобрал ≥1 технику, сохранил;
-        (b) ≥1 идея в бэклог как capture-без-обязательства, не раздув неделю,
-        lifecycle виден; (c) расширение/программа стартует только ПОСЛЕ реально
-        поюзанного v1, через определение процесса до запуска; (d) ≥1 реальный сброс
-        мёртвого правила/упрощение формата.
-      why: Несёт routed ⑤ (managed-extensions) + ⑥ (process-incubation/self-definition) + system-quality; гейтится на доказанном v1 (расширения после прогона).
-      detail: history/2026-06-21-s-life-reset-map-manager-tree-001.md
+      status: dropped
+      goal: Historical extension and process-lifecycle outcome retained as evidence.
+      done_when: Not pursued in the retired direction.
+      why: Reconsider only inside the new Zaratusta map.
 
 END_OF_FILE: live/life-reset/TREE.md
