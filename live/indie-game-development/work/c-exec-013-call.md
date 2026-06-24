@@ -14,12 +14,12 @@
 1. **§Re-sync GasCoopGame repo contract v7→v8 FIRST** (anti-substitution + anti-fabricated-approval;
    the c-exec-012 failure class). The amendments below ASSUME v8 wires deliverable-coverage over the
    S0 done_when promises — if it does not, the seam-presence/coverage indexing will not bite (see §8).
-2. **READ-FIRST** (sync BEFORE you explain anything to the owner):
-   `knowledge/g9c41-architecture-locked-slices.md` + `knowledge/g9c41-drift-guard.md` (the 5 drift traps).
-3. **INGEST-AND-APPLY** (a checklist, not a citation): `work/dev-plan-graph-2026-06-22.md` (single
-   entry) + `work/gas-model-architecture-decision-2026-06-21.md` + `work/grid-vs-graph-resolution-2026-06-22.md`
-   + `work/detail-authority-cost-model-2026-06-22.md` + `work/gas-cellsize-levelscale-2026-06-22.md`
-   §1–§12 (the s-research-012..017 synthesis). PRE-2026-06-22 docs in `work/archive/` are HISTORY — **NOT read**.
+2. **READ-FIRST — the SINGLE source of truth (consolidated 2026-06-23, owner-signed):**
+   `knowledge/g9c41-gas-engine-SPEC.md` (the canon). It REPLACES the old layered docs.
+3. **(superseded)** The old INGEST list (dev-plan-graph + gas-model + grid-vs-graph + detail-authority + cellsize)
+   is FOLDED into the canon and those files are now in `work/archive/` = HISTORY — **NOT read**. Read ONLY the
+   canon + this CALL + `c-exec-013-PLAN-s0.md`. The CANON WINS on any conflict with this CALL's older wording
+   (e.g. «hand-placed level» → DA-only per PLAN R1; «height-bands» → emergent 50cm, no bands).
 4. **OPEN WITH A PLAN (owner present)** that classifies this slice's mechanics ведро-1/2/3 WITHIN the
    LOCK (default = room-granular Variant A). Show the design BEFORE code. Standard contour:
    PLAN → RED-first independent test-author → build → -Deliver gate → fresh-session G5 → owner-eye.

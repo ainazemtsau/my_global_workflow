@@ -1,5 +1,7 @@
 # g-9c41 — DRIFT-GUARD: 5 ловушек пересказа (owner-locked 2026-06-22)
 
+> 🔴 **FOLDED INTO THE CANON 2026-06-23.** The 5 drift-traps are now in **`knowledge/g9c41-gas-engine-SPEC.md`** §1. Read the canon. Kept for history.
+
 **Кто читает / когда:** КАЖДАЯ сессия g-9c41, ПЕРВОЙ строкой PLAN, вместе с
 [[g9c41-architecture-locked-slices]]. Это пять фактов, которые чаще всего ломаются, когда чат
 пересказывает архитектуру «попроще». **Если твоё объяснение владельцу противоречит любому из

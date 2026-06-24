@@ -1,5 +1,7 @@
 # g-9c41 — LOCKED architecture + slice methodology (accepted 2026-06-22, owner «да»)
 
+> 🔴 **FOLDED INTO THE CANON 2026-06-23 (owner «да»).** These facts + the 5 drift-traps are now in the single source **`knowledge/g9c41-gas-engine-SPEC.md`** (§1/§2). Read the CANON, not this. Kept for history. NB: Fact #2 is re-worded in the canon — «50cm ISOTROPIC, height EMERGENT, NO bands» — which RATIFIES `d-cellsize-ratify-001`; the «cell-SIZE LOD» / «authoritative height-bands» wording below is SUPERSEDED.
+
 > 🔵 **УТОЧНЕНИЕ (s-research-017, 2026-06-22; POINTER, НЕ правка лока).** Пункт 2 «cell-SIZE LOD» и пункт 3 (пузырь/discard)
 > УТОЧНЕНЫ синтезом `work/gas-cellsize-levelscale-2026-06-22.md` §10-§12: газ = **50см ГЛОБАЛЬНО** (авторитетная ось LOD =
 > ПРОСТРАНСТВЕННЫЙ room-rollup, НЕ покомнатный cell-SIZE; cross-resolution re-flux шов убран); 25см = off-checksum визуал +
