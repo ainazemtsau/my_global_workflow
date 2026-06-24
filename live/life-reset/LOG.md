@@ -169,4 +169,9 @@
   PROJECT inside Solmax-Productive" question DEFERRED to a post-use session (owner drives the
   return). next = owner uses v1, returns with problems.
 
+- 2026-06-24 — repair: owner retired LifeReset as a separate project/name.
+  Its latest concept, research and implementation remain evidence for the first
+  preparatory functional phase of Zaratusta. Standalone NOW/TREE are frozen;
+  canonical planning and implementation move to `solmax` / Zaratusta.
+
 END_OF_FILE: live/life-reset/LOG.md
