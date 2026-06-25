@@ -49,6 +49,16 @@ CALL (business task from a direction)
     This audit — the marked list — is RECORDED in the change spec, not just discussed:
     the deliver gate checks its presence (PROJECT_SETUP §Strong-check enablement), so a
     silence audit that happened only in chat is not enabled and the leg is not deliverable.
+    The audit WALKS the cross-kind escape-class registry (os/engineering/ESCAPE-CLASSES.md)
+    row-by-row, marking each class `addressed | n/a because <reason>` — an unmarked class is a
+    deliver FAIL the same as a missing section, which turns "the author remembered the class"
+    into "every class we have ever been bitten by was discharged" (the registry grows by the
+    ratchet — MAINTENANCE step 6; a fresh audit authored from examples is what let end-state and
+    derived-overflow escape even though §b already named "uniform vs gradient field"). And for
+    each surfaced must-hold property the audit names not only a catcher but the REGIME it must hold
+    under (environment / accumulated time or inputs / the transition path, not only the settled
+    instant) and confirms the catcher EXERCISES it: a catcher that can go red but only runs the
+    nominal instant is green where the bug does not live — the same hole as a prose-only gate.
     (c) DELIVERABLE COVERAGE: the spec records the CALL done_when VERBATIM and maps EACH
     done_when bullet (and each owner-locked PLAN decision) to ≥1 ledger row OR an explicit
     out-of-scope line — the list is indexed by the PROMISES, not by what got built, so a
@@ -119,6 +129,9 @@ CALL (business task from a direction)
   → REPORT (the RESULT back to the direction):
     outcome; evidence (PR link, gate outputs, ledger final state);
     assumptions made; anything cut for budget; cost;
+    a defect that reached a LATE stage (owner-eye / independent review / post-merge) names the
+    INVARIANT-CLASS it violated, so the carry-back can append it to the cross-kind escape-class
+    registry (MAINTENANCE step 6) — arming every future feature of any direction against it;
     manual acceptance instructions for the owner — generated from the SAME
     verification scripts the validator ran (one source of truth, two consumers).
     Non-trivial manual steps (editor setup, device checks) may be issued as a
