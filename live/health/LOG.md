@@ -97,5 +97,14 @@
 - 2026-06-22 - health/g-health-core ChatGPT project memory fence: health-ai @731348b tightened CHATGPT_PROJECT/AGENTS/README so ChatGPT Project treats repo files loaded this turn as the only Health AI authority, ignores account/project memory and uploaded snapshots for state, recommends fresh project-only memory when available, and reads core/extensions/registry.md instead of stale "no domain attached" bootstrap claims. Check PASS: python tools/check_kernel_spine.py. → history/2026-06-22-s-health-chatgpt-project-memory-fence-001.md
 - 2026-06-23 - health/g-health-core repair: reconciled Direction OS with health-ai @1338a35 (nutrition cursor WEEK_PLAN after research/program/cycle + post-save NEXT contract), added r-health-ai-minor-fix-lane, and rerouted next to kernel review before training/activity shape. → history/2026-06-23-s-health-core-kernel-reconcile-postsave-next-001.md
 - 2026-06-23 - health/g-health-core review: verdict partially_met -- Wave-0/spine/nutrition-thin progression survived, but current health-ai @1338a35 has WA-K10 PENDING because acceptance/kernel/journey-proof.md is absent after clean-slate reset; cuts held 3/4 (dirty cleanup was genuinely missed); next requires owner decision on WA-K10 evidence repair and next large bet (recommend training/activity). → history/2026-06-23-s-health-core-kernel-review-003.md
+2026-06-24 — health/g-health-core review revalidation: verdict remains
+partially_met at health-ai @77a0ed — nutrition advanced to ACTIVE week plan
+and DAY_LOOP, but current-head WA-K10 remains PENDING because the canonical
+journey-proof package is absent; forecast optimistic+wrong-mechanism, cuts
+held 3/4; minor-fix lane reconciled; awaiting owner closure and next-bet
+decisions, recommendation A+A (evidence repair, then training/activity).
+→ history/2026-06-24-s-health-core-kernel-review-003-reverify-001.md
+
+2026-06-24 — health/g-health-core repair: current-head WA-K10 evidence repaired in health-ai @8246cec; acceptance/kernel/journey-proof.md restored, check_kernel_spine reports WA-K10 GREEN, fresh validator pre-pass survived; owner-approved option A closed g-health-core done and routed next to training/activity shape. → history/2026-06-24-s-health-core-kernel-wa-k10-evidence-repair-001.md
 
 END_OF_FILE: live/health/LOG.md

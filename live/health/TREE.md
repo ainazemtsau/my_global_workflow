@@ -57,6 +57,10 @@ root:
 
     - id: g-health-core
       goal: >
+        (DONE 2026-06-24 — current-head WA-K10 evidence repaired in health-ai
+        8246cec19672bdd7eaadb2fec070a247088b6749; check_kernel_spine reports
+        WA-K10 GREEN; WA-K6/WA-K8 breadth remains a named follow-on, not this
+        closed kernel-spine bet.)
         (RE-OPENED 2026-06-20 — owner chose Variant 1. The delivered core nailed the DATA/CONTRACT
         layer but missed the RUNTIME layer the architecture needs: per-domain memory/working-state,
         a state-machine object, a single procedure-interpreter/router (each "term" = one bounded
@@ -98,7 +102,7 @@ root:
           (общие метрики, фаза) по определённому контракту.
         - Граница Direction OS сохранена: вверх идут только summary/decision/problem/CALL; сырые
           ежедневные данные живут в Health AI System.
-      status: active
+      status: done
       appetite: >
         14 calendar days (kill 2026-07-04), servant-boxed. The OUTCOME worth this box is the kernel's BINDING
         PRECONDITION green — the runtime primitives + the lifecycle/gate/writer-barrier/cold-start spine + ONE
@@ -124,11 +128,12 @@ root:
 
     - id: g-health-nutrition-system
       goal: >
-        (RESET 2026-06-20 — previous Health AI nutrition implementation rejected by owner;
-        current product files are dirty prototype/evidence only.)
-        (RE-SCOPED 2026-06-20 — Variant 1: nutrition rebuilds as a THIN LAYER on the re-opened
-        g-health-core kernel; the governance/lifecycle design is now kernel-owned, not a nutrition
-        bolt-on; blocked until the kernel WHAT is owner-approved.) Питание внедрено в Health AI
+        (PARTIAL CURRENT PROGRESS 2026-06-24 — nutrition is now a thin Health AI
+        domain on the closed g-health-core kernel with an ACTIVE program, ACTIVE
+        cycle, ACTIVE week plan, ACTIVE fixed menu, ACTIVE recipe book, and
+        cursor DAY_LOOP / selected family x_nutrition_day_log. The node remains
+        parked because the next large bet is training/activity; minor nutrition
+        papercuts ride r-health-ai-minor-fix-lane.) Питание внедрено в Health AI
         System КАК МОДУЛЬ НА ЯДРЕ g-health-core: меню, рецепты, grocery/meal-prep решения,
         fallback-еда, nutrition reviews и регулярные research-процессы работают на ядровых
         программах/трекинге/метриках/фазах (не дублируя их) из единого source-of-truth, но
