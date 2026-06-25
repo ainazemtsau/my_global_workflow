@@ -40,45 +40,66 @@ recurring:
 decisions: []
 
 next: |
-  CALL c-health-training-activity-shape-001
+  CALL c-health-training-activity-converge-001
   to: session
   direction: health
-  play: shape
+  play: converge
   node: g-health-training-activity-system
   goal: |
-    The next training/activity bet is small enough to execute and likely to
-    improve real body outcomes.
+    Training/activity has a closed owner-signed WHAT specification so a
+    subsequent shape session can select a small executable bet without guessing
+    and without losing the path to real body outcomes.
   context: |
-    g-health-core is closed done after current-head WA-K10 evidence repair.
-    Product evidence:
-    - health-ai commit 8246cec19672bdd7eaadb2fec070a247088b6749 restored
-      acceptance/kernel/journey-proof.md.
-    - `python tools/check_kernel_spine.py` reports WA-K10 GREEN.
-    - Fresh in-session validator pre-pass post-commit returned
-      SURVIVES-PREPASS for the WA-K10 proof package.
+    Read:
+    - live/health/CHARTER.md
+    - live/health/TREE.md
+    - live/health/NOW.md
+    - live/health/history/2026-06-20-s-health-core-kernel-wave0-derisk-001.md
+    - live/health/work/converge-g-health-core-kernel.md
+    - live/health/work/converge-g-health-core-kernel-arch.md
+    - live/health/history/2026-06-24-s-health-core-kernel-wa-k10-evidence-repair-001.md
 
-    Owner approval carried by the repair CALL:
-    - D-health-core-kernel-review-close-003 option A: repair current-head
-      WA-K10 evidence, then approve g-health-core active -> done and replace the
-      stale g-health-nutrition-system dirty/blocked preamble with current
-      ACTIVE-program/cycle/week-plan, DAY_LOOP partial-progress reality.
-    - D-health-next-large-bet-003 prepared route: shape
-      g-health-training-activity-system next.
+    g-health-core is closed done. Current health-ai nutrition state has an
+    ACTIVE program, cycle, week plan, fixed menu and recipe book, with cursor
+    DAY_LOOP. No active Direction OS bet exists.
 
-    Current health-ai nutrition state has an ACTIVE program, cycle, week plan,
-    fixed menu and recipe book with cursor DAY_LOOP. Minor Health AI papercuts
-    remain in r-health-ai-minor-fix-lane rather than expanding this bet.
-    Carry D-kernel-1 and the strongest WA-K8 second-domain test as explicit
-    shape inputs, not automatic scope.
+    g-health-training-activity-system currently combines:
+    - strength/body-composition progression;
+    - conditioning, walking, cycling and VR activity;
+    - conservative medical/safety boundaries;
+    - adherence and bad-week recovery;
+    - Hevy-like, Strava-like, VR and wearable interfaces;
+    - cross-module exchange with nutrition;
+    - a thin domain attachment to the existing kernel.
+
+    Explicit inputs, not automatic scope:
+    - D-kernel-1: governance of the registry-line write before the first cold
+      second-domain attach; prior recommendation was infrastructure control-file,
+      decide-and-inform.
+    - Strongest WA-K8 second-domain test: removing one domain must leave kernel
+      and all remaining domains green; disabling one procedure must leave its
+      siblings green.
+
+    The preceding shape session stopped because no training/activity converge
+    assembly, signoff or refutation existed.
   boundaries: |
-    Do not implement training. Do not author Health AI artifacts. Do not reopen
-    kernel breadth by default. Keep raw workout/activity logs out of Direction OS.
+    Do not implement training or activity.
+    Do not author or modify health-ai product artifacts.
+    Do not activate a bet or create execution tasks.
+    Do not reopen kernel breadth by default; touch core contracts only where the
+    second-domain boundary forces an explicit WHAT property.
+    Do not prescribe a concrete workout program during converge.
+    Keep raw workout, activity, pulse and wearable logs out of Direction OS.
+    Minor Health AI papercuts remain in r-health-ai-minor-fix-lane.
   done_when: |
-    An owner-approved training/activity bet has appetite, kill_by, real cut
-    list, verdict for every CHARTER lens, a task testing the riskiest
-    assumption first, no more than three active tasks, and a ready first CALL.
+    A citation-backed, forward-clean, owner-signed WHAT set covers the node's
+    done_when, every CHARTER lens, training↔nutrition boundary, safety properties,
+    specialized-tool boundary, real-body-execution requirement, D-kernel-1 and
+    the WA-K8 second-domain acceptance question; it is routed through
+    converge-arch and converge-verify as required before shape.
   return: |
-    RESULT with owner-approved TREE/NOW state_changes and the next execution
+    RESULT with exact work/NOW/LOG/history state_changes, owner signoff evidence
+    for genuine owner forks, and the ready next converge-arch or converge-verify
     CALL.
   budget: one session
 
