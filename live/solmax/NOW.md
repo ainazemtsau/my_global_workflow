@@ -7,32 +7,31 @@ project:
 active_bet:
   status: none
 
-repair_status: tree_reset_pending_evidence_audit
+map_status: mapped_pending_shape
 
 owner_directive: |
-  The first preparatory Zaratusta phase should implement the functionality
-  developed under LifeReset: a personal operating manager coordinating the
-  owner's week/day rhythm, state, intake, planning, review and evolution.
+  Zaratusta is not a PoC. Its first real subsystem is a Personal
+  Operating System built specifically for the owner.
 
-  The latest LifeReset concept is a strong baseline, but it is not automatically
-  accepted. Audit the concept, specification, implementation and prior workflow
-  problems first. Then rebuild the Zaratusta TREE with the owner.
+  The system begins from the former LifeReset concept but every inherited
+  entity, process and rule must be analysed independently. Nothing moves
+  into the new design merely because it existed before.
 
-  After this phase is proven, continue toward the broader capabilities previously
-  planned for Zaratusta.
+  Initial execution should remain Markdown-first where practical, with AI
+  assistants acting as interpreters of explicit process contracts. No
+  hidden assumptions: missing information becomes a stated assumption,
+  an owner question or bounded research.
 
-blocked_reason: |
-  The old g-kernel-first route and the previous LifeReset tree were created under
-  incompatible sequencing assumptions. Previous implementation also suffered from
-  requirement drift and parallel conflicting artifacts. No implementation resumes
-  until evidence is audited and a fresh map is owner-approved.
-
-owner_candidate_for_map:
-  source_words: |
-    "то что мы сейчас делаем это своеобразный подготовительный этап для Zaratusta"
-  candidate: |
-    First prove a coherent personal operating-manager capability derived from the
-    latest LifeReset concept; then proceed toward the broader Zaratusta exocortex.
+active_route:
+  first_node: g-zara-operate
+  order:
+    - g-zara-operate
+    - g-zara-substrate
+    - g-zara-expand
+  rationale: |
+    First build one coherent owner-facing personal system. Then extract
+    reusable capability contracts from demonstrated needs. Only then
+    broaden Zaratusta into additional exocortex capabilities.
 
 tasks: []
 recurring: []
@@ -41,6 +40,7 @@ open_calls: []
 
 preserved_evidence:
   - live/solmax/CHARTER.md
+  - live/solmax/TREE.md
   - live/solmax/history/s-map-001.md
   - live/solmax/history/s-shape-001.md
   - live/life-reset/CHARTER.md
@@ -49,73 +49,97 @@ preserved_evidence:
   - live/life-reset/work/
   - github.com/ainazemtsau/life-reset-manager
   - github.com/ainazemtsau/zaratusta
+  - history/2026-06-25-s-zara-remap-001.md
+
+blocked_reason: |
+  No product implementation resumes until g-zara-operate is shaped.
+
+  The node is intentionally a complete-system outcome and may need
+  owner-approved child outcomes before tasks are valid. The former
+  LifeReset implementation and the old W0 RLK scaffold are evidence only.
 
 next:
-  id: c-zara-life-manager-map-evidence-001
+  id: c-zara-shape-operate-001
   to: session
   direction: solmax
-  play: research
-  node: g-zara
+  play: shape
+  node: g-zara-operate
   goal: |
-    Produce fresh map evidence for rebuilding the Zaratusta tree by auditing the
-    latest LifeReset concept and implementation as the candidate first preparatory
-    Zaratusta capability.
+    g-zara-operate has an owner-approved bounded route to implementation
+    that preserves the complete Personal Operating System outcome without
+    collapsing it into a monolithic prompt or an unbounded bet.
   context: |
-    Owner decisions:
-    - The project is Zaratusta, not LifeReset.
-    - Use github.com/ainazemtsau/zaratusta as the canonical product repository.
-    - Begin with the functionality defined in the latest LifeReset concept.
-    - Treat that concept as a strong baseline, not unquestionable authority.
-    - After this phase is proven, continue toward the broader prior Zaratusta plan.
-
-    Internal sources:
+    Read:
     - live/solmax/CHARTER.md
     - live/solmax/TREE.md
-    - live/solmax/LOG.md
-    - live/solmax/history/s-map-001.md
+    - live/solmax/NOW.md
+    - history/2026-06-25-s-zara-remap-001.md
     - live/life-reset/CHARTER.md
     - live/life-reset/LOG.md
-    - live/life-reset/history/
     - live/life-reset/work/
     - github.com/ainazemtsau/life-reset-manager
     - github.com/ainazemtsau/zaratusta
 
-    Reconstruct separately:
-    1. what was conceptually sound;
-    2. what failed because of planning/workflow/concurrency;
-    3. what failed or remains unproven in specification or implementation;
-    4. what is obsolete, contradictory or duplicated;
-    5. what the first Zaratusta phase must prove before broader expansion.
-  boundaries: |
-    Do not modify state or repositories.
-    Do not implement or migrate files.
-    Do not accept the old LifeReset tree, old Zaratusta tree, SPEC or v1 merely
-    because they exist.
-    Do not collapse concept defects and execution defects into one category.
-    Do not prescribe medical, psychiatric, nutrition or training treatment.
-    If the existing Zaratusta root itself appears wrong, report the evidence and
-    recommend a frame route; do not silently rewrite it.
-  done_when: |
-    Return one evidence report containing:
+    Owner requirements:
 
-    - a dated chronology of the previous route and its failure points;
-    - a requirement-to-implementation trace across the latest LifeReset concept,
-      specifications and actual product files;
-    - a `keep | change | investigate | drop` verdict for every load-bearing
-      mechanism;
-    - explicit separation of concept problems, specification problems,
-      implementation problems and workflow/concurrency problems;
-    - missing acceptance evidence and dangerous untested assumptions;
-    - 2–3 external reference cases relevant to personal operating managers,
-      durable agent state and evidence-gated self-improvement;
-    - 3–6 candidate top-level Zaratusta outcomes for the subsequent map,
-      including the owner candidate on equal footing;
-    - the strongest argument against making the operating manager the first node;
-    - a recommendation on whether map may proceed under the current root or must
-      route to frame.
+    - This is not a PoC. Build the real personal system for the owner.
+    - A partial week planner is not independently useful; the complete
+      minimum must eventually operate coherently.
+    - The system contains separately inspectable process contracts rather
+      than one compressed instruction.
+    - Likely internal concerns include manager identity/authority,
+      work-entity model, planning horizons, execution/tracking/review,
+      durable state/context/writer, and research/process evolution.
+      These are candidates, not pre-approved child nodes.
+    - Multi-week courses/projects/programs must exist without requiring a
+      separate direction.
+    - Logging must produce a bounded context-sensitive operational
+      response, not merely save text or dump all state.
+    - Research routing, one-task-one-chat where appropriate, long-lived
+      logging chats, scoped context and a uniform writer pattern are
+      required design concerns.
+    - Start Markdown-first; AI is the interpreter. Code requires a
+      demonstrated need.
+    - Every LifeReset mechanism must be independently assessed.
+    - Unknowns and assumptions must be explicit.
+
+    Next-route options already considered by map:
+
+    A. Shape g-zara-operate first — selected and recommended because it
+       creates the first real owner-facing system.
+    B. Shape g-zara-substrate first — rejected for now because it repeats
+       architecture-first sequencing.
+    C. Shape g-zara-expand first — rejected because it creates capability
+       sprawl before the coordinating system exists.
+  boundaries: |
+    Do not implement or modify the product repository.
+    Do not resume the old W0 RLK route.
+    Do not copy the former LifeReset specification wholesale.
+    Do not hard-code a 12-week cycle, month model, task taxonomy, journal
+    model or response policy without evidence and owner decision.
+    Do not hide assumptions inside tasks or architecture.
+    Do not reduce the node to a single large prompt.
+    Do not declare an isolated week/day/state component equivalent to the
+    complete Personal Operating System.
+    Do not prescribe medical, psychiatric, nutrition or training
+    treatment.
+  done_when: |
+    One of the following owner-approved outcomes exists:
+
+    A. A bounded active bet for g-zara-operate that passes applicable
+       shape gates and has a ready first work CALL.
+
+    B. If g-zara-operate is too large for one valid bet, an owner-approved
+       split into 2-4 child outcome nodes, each with goal, done_when,
+       status and why, plus a recommended first child and its ready next
+       CALL.
+
+    Unknown or disputed load-bearing terms are not guessed. If they block
+    Definition-of-Ready, the result routes the selected child to
+    converge/research with a self-contained CALL.
   return: |
-    RESULT with sourced findings, confidence and limits; next =
-    c-zara-remap-001 using play map.
-  budget: one focused research session
+    RESULT with the approved bet or child split, exact TREE/NOW/LOG
+    state_changes, evidence and the next ready CALL.
+  budget: one shape session
 
 END_OF_FILE: live/solmax/NOW.md

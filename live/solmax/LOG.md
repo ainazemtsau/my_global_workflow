@@ -34,4 +34,11 @@
   LifeReset artifacts preserved as evidence. Next is a fresh concept +
   implementation + workflow audit before map.
 
+- 2026-06-25 — map: owner approved the replacement Zaratusta top-level
+  TREE with three outcomes in order: g-zara-operate (one coherent
+  Personal Operating System, not a PoC) -> g-zara-substrate (capability
+  contracts extracted from real use, not architecture-first) ->
+  g-zara-expand (broader exocortex accretion). LifeReset and the former
+  W0 kernel map remain evidence only. Next c-zara-shape-operate-001.
+
 END_OF_FILE: live/solmax/LOG.md
