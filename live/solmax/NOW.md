@@ -7,31 +7,28 @@ project:
 active_bet:
   status: none
 
-map_status: mapped_pending_shape
+route_status: operate_first_node_split_approved_pending_converge
 
 owner_directive: |
-  Zaratusta is not a PoC. Its first real subsystem is a Personal
-  Operating System built specifically for the owner.
+  The first Zaratusta implementation route is g-zara-operate: the
+  LifeReset-derived personal operating-manager capability becomes the
+  real Personal Operating System phase of Zaratusta, not a PoC and not a
+  separate LifeReset project.
 
-  The system begins from the former LifeReset concept but every inherited
-  entity, process and rule must be analysed independently. Nothing moves
-  into the new design merely because it existed before.
+  The owner approved option A on 2026-06-26: g-zara-operate is split into
+  four child outcomes:
+  - g-zara-operate-contract
+  - g-zara-operate-state
+  - g-zara-operate-runtime
+  - g-zara-operate-evolution
 
-  Initial execution should remain Markdown-first where practical, with AI
-  assistants acting as interpreters of explicit process contracts. No
-  hidden assumptions: missing information becomes a stated assumption,
-  an owner question or bounded research.
+  First child to converge: g-zara-operate-contract.
 
-active_route:
-  first_node: g-zara-operate
-  order:
-    - g-zara-operate
-    - g-zara-substrate
-    - g-zara-expand
-  rationale: |
-    First build one coherent owner-facing personal system. Then extract
-    reusable capability contracts from demonstrated needs. Only then
-    broaden Zaratusta into additional exocortex capabilities.
+blocked_reason: |
+  No implementation resumes until the first child has cleared converge
+  and converge-verify. Manager authority, entity model, horizon model,
+  escalation/effect-tier boundaries and forbidden prescription zones are
+  load-bearing unknowns and must not be guessed during implementation.
 
 tasks: []
 recurring: []
@@ -41,6 +38,7 @@ open_calls: []
 preserved_evidence:
   - live/solmax/CHARTER.md
   - live/solmax/TREE.md
+  - live/solmax/LOG.md
   - live/solmax/history/s-map-001.md
   - live/solmax/history/s-shape-001.md
   - live/life-reset/CHARTER.md
@@ -49,97 +47,63 @@ preserved_evidence:
   - live/life-reset/work/
   - github.com/ainazemtsau/life-reset-manager
   - github.com/ainazemtsau/zaratusta
-  - history/2026-06-25-s-zara-remap-001.md
-
-blocked_reason: |
-  No product implementation resumes until g-zara-operate is shaped.
-
-  The node is intentionally a complete-system outcome and may need
-  owner-approved child outcomes before tasks are valid. The former
-  LifeReset implementation and the old W0 RLK scaffold are evidence only.
 
 next:
-  id: c-zara-shape-operate-001
+  id: c-zara-operate-contract-converge-001
   to: session
   direction: solmax
-  play: shape
-  node: g-zara-operate
+  play: converge
+  node: g-zara-operate-contract
   goal: |
-    g-zara-operate has an owner-approved bounded route to implementation
-    that preserves the complete Personal Operating System outcome without
-    collapsing it into a monolithic prompt or an unbounded bet.
+    Close the WHAT spec for the operating-manager authority contract so the
+    first g-zara-operate child can later be shaped into a bounded
+    implementation bet without hidden assumptions.
   context: |
     Read:
     - live/solmax/CHARTER.md
     - live/solmax/TREE.md
     - live/solmax/NOW.md
-    - history/2026-06-25-s-zara-remap-001.md
-    - live/life-reset/CHARTER.md
-    - live/life-reset/LOG.md
-    - live/life-reset/work/
-    - github.com/ainazemtsau/life-reset-manager
-    - github.com/ainazemtsau/zaratusta
+    - live/solmax/LOG.md
+    - relevant solmax and life-reset history/work evidence as needed
 
-    Owner requirements:
+    g-zara-operate is the first Zaratusta node: the real Personal Operating
+    System / operating-manager outcome, not a PoC. The owner approved the
+    4-child split on 2026-06-26 by answering "A".
 
-    - This is not a PoC. Build the real personal system for the owner.
-    - A partial week planner is not independently useful; the complete
-      minimum must eventually operate coherently.
-    - The system contains separately inspectable process contracts rather
-      than one compressed instruction.
-    - Likely internal concerns include manager identity/authority,
-      work-entity model, planning horizons, execution/tracking/review,
-      durable state/context/writer, and research/process evolution.
-      These are candidates, not pre-approved child nodes.
-    - Multi-week courses/projects/programs must exist without requiring a
-      separate direction.
-    - Logging must produce a bounded context-sensitive operational
-      response, not merely save text or dump all state.
-    - Research routing, one-task-one-chat where appropriate, long-lived
-      logging chats, scoped context and a uniform writer pattern are
-      required design concerns.
-    - Start Markdown-first; AI is the interpreter. Code requires a
-      demonstrated need.
-    - Every LifeReset mechanism must be independently assessed.
-    - Unknowns and assumptions must be explicit.
+    Approved children:
+    1. g-zara-operate-contract
+    2. g-zara-operate-state
+    3. g-zara-operate-runtime
+    4. g-zara-operate-evolution
 
-    Next-route options already considered by map:
+    This CALL is only for the first child, g-zara-operate-contract.
 
-    A. Shape g-zara-operate first — selected and recommended because it
-       creates the first real owner-facing system.
-    B. Shape g-zara-substrate first — rejected for now because it repeats
-       architecture-first sequencing.
-    C. Shape g-zara-expand first — rejected because it creates capability
-       sprawl before the coordinating system exists.
+    Load-bearing terms likely include manager authority, effect tier,
+    entity model, horizon model, intake, escalation, owner approval,
+    forbidden prescription zone, read-only OS boundary and implementation
+    acceptance properties.
   boundaries: |
-    Do not implement or modify the product repository.
-    Do not resume the old W0 RLK route.
-    Do not copy the former LifeReset specification wholesale.
-    Do not hard-code a 12-week cycle, month model, task taxonomy, journal
-    model or response policy without evidence and owner decision.
-    Do not hide assumptions inside tasks or architecture.
-    Do not reduce the node to a single large prompt.
-    Do not declare an isolated week/day/state component equivalent to the
-    complete Personal Operating System.
-    Do not prescribe medical, psychiatric, nutrition or training
-    treatment.
+    No implementation or product-repository changes.
+    No old W0 restart.
+    No wholesale LifeReset copy.
+    No monolithic prompt.
+    No hidden assumptions.
+    Markdown-first; code only after demonstrated need.
+    No medical, psychiatric, nutrition or training prescriptions.
+    No OS writes; the workflow OS is read-only evidence only.
+    Do not decide vendor, framework, UI or storage implementation.
   done_when: |
-    One of the following owner-approved outcomes exists:
+    A signed WHAT spec exists for g-zara-operate-contract. It is sufficient
+    for a later shape session to create a bounded implementation bet without
+    guessing manager powers, effect tiers, entity/horizon model, escalation
+    rules, owner-approval boundaries or forbidden prescription zones.
 
-    A. A bounded active bet for g-zara-operate that passes applicable
-       shape gates and has a ready first work CALL.
-
-    B. If g-zara-operate is too large for one valid bet, an owner-approved
-       split into 2-4 child outcome nodes, each with goal, done_when,
-       status and why, plus a recommended first child and its ready next
-       CALL.
-
-    Unknown or disputed load-bearing terms are not guessed. If they block
-    Definition-of-Ready, the result routes the selected child to
-    converge/research with a self-contained CALL.
+    Any still-load-bearing unknown is explicitly routed to owner decision,
+    research or a later child node, not silently defaulted.
   return: |
-    RESULT with the approved bet or child split, exact TREE/NOW/LOG
-    state_changes, evidence and the next ready CALL.
-  budget: one shape session
+    RESULT with the signed WHAT spec, glossary/decision evidence, unresolved
+    routes if any, coverage against the node done_when, and next =
+    converge-verify.
+  budget: one converge session
 
 END_OF_FILE: live/solmax/NOW.md

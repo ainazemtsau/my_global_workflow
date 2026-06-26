@@ -41,4 +41,9 @@
   g-zara-expand (broader exocortex accretion). LifeReset and the former
   W0 kernel map remain evidence only. Next c-zara-shape-operate-001.
 
+- 2026-06-26 — shape g-zara-operate: owner approved option A, splitting the
+  first operating-manager node into four child outcomes
+  (contract/state/runtime/evolution). No active bet yet; next routes to
+  converge g-zara-operate-contract before implementation.
+
 END_OF_FILE: live/solmax/LOG.md
