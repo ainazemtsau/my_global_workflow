@@ -7,32 +7,28 @@ project:
 active_bet:
   status: none
 
-repair_status: tree_reset_pending_evidence_audit
+route_status: operate_first_node_split_approved_pending_converge
 
 owner_directive: |
-  The first preparatory Zaratusta phase should implement the functionality
-  developed under LifeReset: a personal operating manager coordinating the
-  owner's week/day rhythm, state, intake, planning, review and evolution.
+  The first Zaratusta implementation route is g-zara-operate: the
+  LifeReset-derived personal operating-manager capability becomes the
+  real Personal Operating System phase of Zaratusta, not a PoC and not a
+  separate LifeReset project.
 
-  The latest LifeReset concept is a strong baseline, but it is not automatically
-  accepted. Audit the concept, specification, implementation and prior workflow
-  problems first. Then rebuild the Zaratusta TREE with the owner.
+  The owner approved option A on 2026-06-26: g-zara-operate is split into
+  four child outcomes:
+  - g-zara-operate-contract
+  - g-zara-operate-state
+  - g-zara-operate-runtime
+  - g-zara-operate-evolution
 
-  After this phase is proven, continue toward the broader capabilities previously
-  planned for Zaratusta.
+  First child to converge: g-zara-operate-contract.
 
 blocked_reason: |
-  The old g-kernel-first route and the previous LifeReset tree were created under
-  incompatible sequencing assumptions. Previous implementation also suffered from
-  requirement drift and parallel conflicting artifacts. No implementation resumes
-  until evidence is audited and a fresh map is owner-approved.
-
-owner_candidate_for_map:
-  source_words: |
-    "то что мы сейчас делаем это своеобразный подготовительный этап для Zaratusta"
-  candidate: |
-    First prove a coherent personal operating-manager capability derived from the
-    latest LifeReset concept; then proceed toward the broader Zaratusta exocortex.
+  No implementation resumes until the first child has cleared converge
+  and converge-verify. Manager authority, entity model, horizon model,
+  escalation/effect-tier boundaries and forbidden prescription zones are
+  load-bearing unknowns and must not be guessed during implementation.
 
 tasks: []
 recurring: []
@@ -41,6 +37,8 @@ open_calls: []
 
 preserved_evidence:
   - live/solmax/CHARTER.md
+  - live/solmax/TREE.md
+  - live/solmax/LOG.md
   - live/solmax/history/s-map-001.md
   - live/solmax/history/s-shape-001.md
   - live/life-reset/CHARTER.md
@@ -51,71 +49,61 @@ preserved_evidence:
   - github.com/ainazemtsau/zaratusta
 
 next:
-  id: c-zara-life-manager-map-evidence-001
+  id: c-zara-operate-contract-converge-001
   to: session
   direction: solmax
-  play: research
-  node: g-zara
+  play: converge
+  node: g-zara-operate-contract
   goal: |
-    Produce fresh map evidence for rebuilding the Zaratusta tree by auditing the
-    latest LifeReset concept and implementation as the candidate first preparatory
-    Zaratusta capability.
+    Close the WHAT spec for the operating-manager authority contract so the
+    first g-zara-operate child can later be shaped into a bounded
+    implementation bet without hidden assumptions.
   context: |
-    Owner decisions:
-    - The project is Zaratusta, not LifeReset.
-    - Use github.com/ainazemtsau/zaratusta as the canonical product repository.
-    - Begin with the functionality defined in the latest LifeReset concept.
-    - Treat that concept as a strong baseline, not unquestionable authority.
-    - After this phase is proven, continue toward the broader prior Zaratusta plan.
-
-    Internal sources:
+    Read:
     - live/solmax/CHARTER.md
     - live/solmax/TREE.md
+    - live/solmax/NOW.md
     - live/solmax/LOG.md
-    - live/solmax/history/s-map-001.md
-    - live/life-reset/CHARTER.md
-    - live/life-reset/LOG.md
-    - live/life-reset/history/
-    - live/life-reset/work/
-    - github.com/ainazemtsau/life-reset-manager
-    - github.com/ainazemtsau/zaratusta
+    - relevant solmax and life-reset history/work evidence as needed
 
-    Reconstruct separately:
-    1. what was conceptually sound;
-    2. what failed because of planning/workflow/concurrency;
-    3. what failed or remains unproven in specification or implementation;
-    4. what is obsolete, contradictory or duplicated;
-    5. what the first Zaratusta phase must prove before broader expansion.
+    g-zara-operate is the first Zaratusta node: the real Personal Operating
+    System / operating-manager outcome, not a PoC. The owner approved the
+    4-child split on 2026-06-26 by answering "A".
+
+    Approved children:
+    1. g-zara-operate-contract
+    2. g-zara-operate-state
+    3. g-zara-operate-runtime
+    4. g-zara-operate-evolution
+
+    This CALL is only for the first child, g-zara-operate-contract.
+
+    Load-bearing terms likely include manager authority, effect tier,
+    entity model, horizon model, intake, escalation, owner approval,
+    forbidden prescription zone, read-only OS boundary and implementation
+    acceptance properties.
   boundaries: |
-    Do not modify state or repositories.
-    Do not implement or migrate files.
-    Do not accept the old LifeReset tree, old Zaratusta tree, SPEC or v1 merely
-    because they exist.
-    Do not collapse concept defects and execution defects into one category.
-    Do not prescribe medical, psychiatric, nutrition or training treatment.
-    If the existing Zaratusta root itself appears wrong, report the evidence and
-    recommend a frame route; do not silently rewrite it.
+    No implementation or product-repository changes.
+    No old W0 restart.
+    No wholesale LifeReset copy.
+    No monolithic prompt.
+    No hidden assumptions.
+    Markdown-first; code only after demonstrated need.
+    No medical, psychiatric, nutrition or training prescriptions.
+    No OS writes; the workflow OS is read-only evidence only.
+    Do not decide vendor, framework, UI or storage implementation.
   done_when: |
-    Return one evidence report containing:
+    A signed WHAT spec exists for g-zara-operate-contract. It is sufficient
+    for a later shape session to create a bounded implementation bet without
+    guessing manager powers, effect tiers, entity/horizon model, escalation
+    rules, owner-approval boundaries or forbidden prescription zones.
 
-    - a dated chronology of the previous route and its failure points;
-    - a requirement-to-implementation trace across the latest LifeReset concept,
-      specifications and actual product files;
-    - a `keep | change | investigate | drop` verdict for every load-bearing
-      mechanism;
-    - explicit separation of concept problems, specification problems,
-      implementation problems and workflow/concurrency problems;
-    - missing acceptance evidence and dangerous untested assumptions;
-    - 2–3 external reference cases relevant to personal operating managers,
-      durable agent state and evidence-gated self-improvement;
-    - 3–6 candidate top-level Zaratusta outcomes for the subsequent map,
-      including the owner candidate on equal footing;
-    - the strongest argument against making the operating manager the first node;
-    - a recommendation on whether map may proceed under the current root or must
-      route to frame.
+    Any still-load-bearing unknown is explicitly routed to owner decision,
+    research or a later child node, not silently defaulted.
   return: |
-    RESULT with sourced findings, confidence and limits; next =
-    c-zara-remap-001 using play map.
-  budget: one focused research session
+    RESULT with the signed WHAT spec, glossary/decision evidence, unresolved
+    routes if any, coverage against the node done_when, and next =
+    converge-verify.
+  budget: one converge session
 
 END_OF_FILE: live/solmax/NOW.md
