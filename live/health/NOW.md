@@ -40,15 +40,15 @@ recurring:
 decisions: []
 
 next: |
-  CALL c-health-training-activity-converge-verify-001
+  CALL c-health-training-activity-shape-002
   to: session
   direction: health
-  play: converge-verify
+  play: shape
   node: g-health-training-activity-system
   goal: |
-    Refute the complete training/activity converge set before shape: signed WHAT
-    W1-W20, §CONTRACTS TA-CA1..TA-CA12, and the context-only architecture paper
-    A1-A5.
+    The next training/activity bet is small enough to execute, preserves the signed
+    training/activity WHAT, and is likely to improve real body outcomes without
+    guessing across unresolved architecture or contract seams.
   context: |
     Read:
     - live/health/CHARTER.md
@@ -63,61 +63,73 @@ next: |
     - live/health/history/2026-06-24-s-health-core-kernel-wa-k10-evidence-repair-001.md
     - live/health/history/2026-06-25-s-health-training-activity-converge-001.md
 
-    Training/activity WHAT is owner-signed:
-    - Define: "ок согласен", including setup proof without mandatory completed
-      workout, split tool authority, and D-kernel-1 option A.
-    - Resolve: "Да, согласен с пакетом B", amended so screenshots are transient:
-      show extracted data for owner correction/confirmation, ask materially useful
-      follow-ups, save only the structured normalized result.
+    Converge-verify passed on 2026-06-26:
+    - W1-W20 remain signed and unchanged.
+    - §CONTRACTS TA-CA1..TA-CA12 coverage is complete.
+    - A1-A5 are closed, arch_open=0, owner_gate_batch=[].
+    - Architecture picks are input evidence only; do not copy A1-A5 picks into done_when.
+    - D-kernel-1 is imported as registry-line control-plane decide-and-inform.
+    - Guided-session durability is compatible with the kernel job contract under the
+      checkpoint-as-job-boundary / same-LOG-family reading.
+    - WA-K8 topology is closed on paper and must remain a later product acceptance
+      proof with live nutrition sibling + attached training removal + one training
+      procedure disablement.
+
+    Binding rows for any later executor done_when:
+    - Copy the acceptance intent of W1-W20 from
+      live/health/work/converge-g-health-training-activity-system.md.
+    - Copy §CONTRACTS TA-CA1..TA-CA12 requirements.
+    - Preserve especially:
+      W1 thin training domain;
+      W2 canonical Health AI training authority;
+      W3 setup asks only irreducible material facts while programming is system-decided;
+      W4 session brief;
+      W7 mechanical safety brake;
+      W9 review mutates/preserves artifacts;
+      W10 equivalent capture routes;
+      W11 transient screenshot/external-result confirmation;
+      W12 guided training chat bounds;
+      W13 normalized session LOG minimum;
+      W14 guided interruption durability;
+      W15 specialist-tool authority/fallback;
+      W16 training<->nutrition contract;
+      W17 Direction OS boundary;
+      W18 D-kernel-1;
+      W19 WA-K8 second-domain proof;
+      W20 setup-proven versus body-proven evidence split.
+    - Preserve PLAN agenda P1-P12 as HOW-only input:
+      namespace/artifact names; concrete program design; session-brief schema;
+      LOG schema; screenshot parsing mechanics; adapters/vendor mapping;
+      guided checkpoint granularity; review thresholds; safety wording;
+      training-demand labels; WA-K8 fixture mechanics; setup/body evidence script.
 
     Current product facts:
     - health-ai @8246cec has current-head WA-K10 GREEN.
-    - health-ai @8246cec registry grammar houses D-kernel-1 as control-plane
-      decide-and-inform.
     - nutrition is an ACTIVE thin sibling with program/cycle/week/menu/recipe
       artifacts and cursor DAY_LOOP.
-
-    Converge-arch closed:
-    - §CONTRACTS TA-CA1..TA-CA12 cover core/kernel, nutrition, specialist tools,
-      Direction OS, setup/body evidence split, and WA-K8 proof topology.
-    - Decomposition records internal seams and no required sub-node before shape.
-    - A1-A5 are closed with refuted comparisons and system picks; owner_gate_batch=[].
-    - Guided-session durability is claimed compatible with kernel job contract via
-      checkpoint-as-job-boundary in the same LOG family.
-    - Architecture picks are input evidence only; they must not be copied into
-      done_when.
+    - Raw workout/activity/pulse/wearable data and screenshots must not enter
+      Direction OS state.
   boundaries: |
     Do not implement training/activity or modify health-ai.
-    Do not activate a bet, create execution tasks, emit an executor CALL, or shape.
+    Do not activate a bet until shape reaches owner approval.
+    Do not create an executor CALL in this shape session unless shape itself
+    validly closes with an owner-approved next execution route.
     Do not prescribe a concrete workout program or freeze exercise/volume/intensity/
-    vendor magnitudes.
+    vendor magnitudes during shape.
     Do not weaken or silently modify signed W1-W20.
-    Do not reopen the kernel unless a direct contradiction is proven; D-kernel-1
-    should be imported unless contradicted.
+    Do not reopen the kernel unless a direct contradiction is proven.
+    Do not copy A1-A5 architecture picks into executor done_when; they are
+    context-only input evidence.
     Keep screenshots and raw workout/activity/pulse/wearable data out of Direction OS.
   done_when: |
-    - Every TREE interaction is covered by a §CONTRACTS row with consumer, producer,
-      behavior, direction, trigger, and build-order.
-    - No contract dangles, no contract line relies on an open WHAT term, and no HOW
-      detail is made binding.
-    - Heavy decomposition has no missing internal seam and its sub-node decision is
-      refutable.
-    - A1-A5 each has a 3-5 option refuted comparison; any claimed system pick is
-      forced by signed WHAT/kernel contracts or else returned as a decision_needed.
-    - Guided-session durability is either compatible with the kernel job contract
-      or a named blocker is returned before shape.
-    - Training<->nutrition routine demand and review-level handoff remain frozen
-      without direct module-file coupling.
-    - D-kernel-1 is imported rather than re-litigated unless a contradiction is proven.
-    - WA-K8 proof topology covers live nutrition sibling, training removal, and one
-      training-procedure disablement.
-    - contract_coverage is complete, arch_open is zero, and architecture remains
-      context-only: no pick is copied into done_when.
-    - Next route is shape only if verify passes; otherwise repair/converge-arch
-      correction.
+    An owner-approved training/activity bet has appetite, kill_by, real cut list,
+    verdict for every CHARTER lens, a task testing the riskiest assumption first,
+    no more than three active tasks, and a ready first CALL. The shaped route
+    preserves W1-W20 acceptance, TA-CA1..TA-CA12 contracts, P1-P12 as PLAN agenda,
+    setup/body evidence split, D-kernel-1 import, and WA-K8 second-domain proof
+    as a later acceptance requirement.
   return: |
-    RESULT with refutation verdict, exact bounce/fix state_changes if any, and either
-    a ready shape CALL or a repair/converge-arch correction CALL.
+    RESULT with owner-approved TREE/NOW state_changes and the next CALL.
   budget: one session
 
 END_OF_FILE: live/health/NOW.md

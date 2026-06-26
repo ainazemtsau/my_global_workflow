@@ -114,5 +114,6 @@ c-health-training-activity-converge-001.
 
 2026-06-25 — health/g-health-training-activity-system converge: heavy WHAT W1–W20 closed and owner-signed; three session modes, transient screenshot confirmation, specialist-tool boundary, safety, nutrition handoff, setup-vs-body proof, D-kernel-1 and strongest WA-K8 covered; no bet activated; next converge-arch. → history/2026-06-25-s-health-training-activity-converge-001.md
 2026-06-26 — health/g-health-training-activity-system converge-arch: §CONTRACTS TA-CA1..TA-CA12 closed for core/kernel, nutrition, specialist tools/input, Direction OS, setup/body evidence split, and WA-K8 proof topology; heavy decomposition found no required sub-node; A1-A5 architecture-on-paper closed with owner_gate_batch=[]; guided-session durability compatible via checkpoint-as-job-boundary; next converge-verify. → history/2026-06-26-s-health-training-activity-converge-arch-001.md
+2026-06-26 — health/g-health-training-activity-system converge-verify: PASS; W1-W20, TA-CA1..TA-CA12 and A1-A5 survived independent refutation; contract_coverage complete, arch_open 0, architecture context-only; next route shape. → history/2026-06-26-s-health-training-activity-converge-verify-001.md
 
 END_OF_FILE: live/health/LOG.md
