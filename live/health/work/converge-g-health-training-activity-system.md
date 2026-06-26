@@ -474,4 +474,61 @@ The WHAT set and converge-arch set are closed on paper. Next is
 
 Shape remains blocked until a separate converge-verify PASS.
 
+## §SIGNOFF — converge-verify
+
+**§SIGNOFF: converge-verify passed @ 2026-06-26** (s-health-training-activity-converge-verify-001).
+
+Verification verdict:
+- completeness: PASS
+- smuggling: PASS
+- contract_coverage: complete
+- arch_open: 0
+- arch_in_context_only: PASS
+- blockers: []
+- decisions_needed: []
+- next route: shape
+
+Independent oracle used:
+- health-training-activity-second-domain-decision-checklist-v0, authored in verify because no promoted knowledge checklist for this exact node-class was found.
+
+Refutation notes:
+- W1-W20 remain signed and unchanged.
+- TA-CA1..TA-CA12 cover all TREE interactions, sibling interactions, kernel inheritance, specialist-tool boundary, Direction OS boundary, setup/body proof split and WA-K8 proof topology.
+- A1-A5 remain context-only input evidence; none is copied into done_when.
+- Guided-session durability is compatible with the kernel job contract only under the checkpoint-as-job-boundary reading in the same LOG family.
+- D-kernel-1 is imported from health-ai @8246cec registry grammar as control-plane decide-and-inform.
+- Full two-live-domain WA-K8 execution proof remains a later product acceptance check after training is attached.
+
+## §PROPOSED-CANON — training/activity second-domain decision-class checklist
+
+node-class: "thin second-domain training/activity module on a provider-independent Health AI kernel, with guided execution, specialist-tool import, normalized LOGs, safety gates, nutrition handoff, setup/body evidence split and WA-K8 anti-fragility proof"
+
+read_by: converge-verify of this node-class
+
+classes:
+TADC1 source-of-truth and authority boundary ·
+TADC2 thin-domain attach / zero engine / registry-only attach ·
+TADC3 owner facts vs system-decided expert programming / non-blocking setup ·
+TADC4 training program / planning layers / current prescription authority ·
+TADC5 session brief / "training today" projection ·
+TADC6 strength baseline, progression, regression, deload and recovery contour ·
+TADC7 activity / conditioning / gameful or competitive safety boundary ·
+TADC8 mechanical safety brake and non-diagnostic medical language ·
+TADC9 reduced mode, bad-week mode and non-punitive return path ·
+TADC10 normalized session LOG minimum and review-readiness ·
+TADC11 equivalent capture routes ·
+TADC12 specialist tool / native raw record boundary and no vendor lock-in ·
+TADC13 screenshot/export extraction confirmation and transient-media disposal ·
+TADC14 guided-session job model, interruption durability and provider-portable continuation ·
+TADC15 review-to-mutation loop ·
+TADC16 routine training-demand signal to nutrition ·
+TADC17 review-level nutrition handoff and no direct module-file coupling ·
+TADC18 Direction OS strategic boundary and raw-data exclusion ·
+TADC19 setup-proven vs body-proven evidence split ·
+TADC20 D-kernel-1 registry-line governance and authority split ·
+TADC21 WA-K8 second-domain removal and one-procedure-disable proof topology ·
+TADC22 build-order / dangling producer checks ·
+TADC23 HOW firewall ·
+TADC24 architecture context-only rule and no done_when leakage.
+
 END_OF_FILE: live/health/work/converge-g-health-training-activity-system.md
