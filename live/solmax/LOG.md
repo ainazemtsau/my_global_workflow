@@ -46,4 +46,9 @@
   (contract/state/runtime/evolution). No active bet yet; next routes to
   converge g-zara-operate-contract before implementation.
 
+- 2026-06-26 — converge g-zara-operate-contract: WHAT spec closed for
+  operating-manager authority/effect/entity/horizon/escalation/
+  prescription-boundaries; no implementation/HOW choices made; next
+  converge-verify.
+
 END_OF_FILE: live/solmax/LOG.md

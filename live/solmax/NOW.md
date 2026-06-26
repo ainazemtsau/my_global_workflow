@@ -7,7 +7,7 @@ project:
 active_bet:
   status: none
 
-route_status: operate_first_node_split_approved_pending_converge
+route_status: g-zara-operate-contract_converged_pending_verify
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the
@@ -49,61 +49,51 @@ preserved_evidence:
   - github.com/ainazemtsau/zaratusta
 
 next:
-  id: c-zara-operate-contract-converge-001
+  id: c-zara-operate-contract-converge-verify-001
   to: session
   direction: solmax
-  play: converge
+  play: converge-verify
   node: g-zara-operate-contract
   goal: |
-    Close the WHAT spec for the operating-manager authority contract so the
-    first g-zara-operate child can later be shaped into a bounded
-    implementation bet without hidden assumptions.
+    Refute the closed WHAT spec for g-zara-operate-contract before shape.
+    Verify that manager authority, effect tiers, entity model, horizon
+    model, escalation rules, owner-approval boundaries, read-only OS
+    boundary and forbidden prescription zones are complete enough for
+    later shape without hidden assumptions.
   context: |
     Read:
     - live/solmax/CHARTER.md
     - live/solmax/TREE.md
     - live/solmax/NOW.md
     - live/solmax/LOG.md
-    - relevant solmax and life-reset history/work evidence as needed
+    - live/solmax/work/converge-g-zara-operate-contract.md
+    - live/solmax/history/2026-06-25-s-zara-remap-001.md
+    - live/solmax/history/2026-06-26-s-zara-shape-operate-001b.md
+    - live/life-reset/CHARTER.md
+    - github.com/ainazemtsau/life-reset-manager/SPEC.md
 
-    g-zara-operate is the first Zaratusta node: the real Personal Operating
-    System / operating-manager outcome, not a PoC. The owner approved the
-    4-child split on 2026-06-26 by answering "A".
-
-    Approved children:
-    1. g-zara-operate-contract
-    2. g-zara-operate-state
-    3. g-zara-operate-runtime
-    4. g-zara-operate-evolution
-
-    This CALL is only for the first child, g-zara-operate-contract.
-
-    Load-bearing terms likely include manager authority, effect tier,
-    entity model, horizon model, intake, escalation, owner approval,
-    forbidden prescription zone, read-only OS boundary and implementation
-    acceptance properties.
+    The converge session closed the WHAT spec without deciding HOW:
+    no vendor/framework/UI/storage/cadence/scoring implementation choices.
+    Later children consume the spec as input evidence:
+    state consumes W8-W10/W16/W18/W20;
+    runtime consumes W1-W15/W17-W20;
+    evolution consumes W15/W18-W20.
   boundaries: |
-    No implementation or product-repository changes.
-    No old W0 restart.
-    No wholesale LifeReset copy.
-    No monolithic prompt.
-    No hidden assumptions.
-    Markdown-first; code only after demonstrated need.
-    No medical, psychiatric, nutrition or training prescriptions.
-    No OS writes; the workflow OS is read-only evidence only.
-    Do not decide vendor, framework, UI or storage implementation.
+    Refute; do not implement.
+    Do not write the product repository.
+    Do not reopen the old W0/kernel-first route.
+    Do not convert routed HOW/PLAN choices into WHAT unless the spec
+    is inconsistent without them.
+    Do not prescribe medical, psychiatric, nutrition or training actions.
+    Do not permit Direction OS writes.
   done_when: |
-    A signed WHAT spec exists for g-zara-operate-contract. It is sufficient
-    for a later shape session to create a bounded implementation bet without
-    guessing manager powers, effect tiers, entity/horizon model, escalation
-    rules, owner-approval boundaries or forbidden prescription zones.
-
-    Any still-load-bearing unknown is explicitly routed to owner decision,
-    research or a later child node, not silently defaulted.
+    The WHAT spec is either verified as forward-clean/backward-clean and
+    ready for shape, or rejected with exact rows that must be reopened.
+    Coverage must check every node done_when noun, every acceptance row
+    A1-A13, every glossary property, and every child-consumer edge.
   return: |
-    RESULT with the signed WHAT spec, glossary/decision evidence, unresolved
-    routes if any, coverage against the node done_when, and next =
-    converge-verify.
-  budget: one converge session
+    RESULT with verification verdict, refutation attempts, row-level
+    failures if any, and next route.
+  budget: one verify session
 
 END_OF_FILE: live/solmax/NOW.md
