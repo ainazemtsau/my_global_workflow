@@ -368,11 +368,26 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       (a) min-spec perf of a grid-fed raymarch is UNPROVEN (one dev abandoned voxel raymarch for cost) → measure early (P4);
       (b) making MANY gas types readable at a glance without colour/motion collisions is a DESIGN unknown (no sourced answer);
       (c) GPU sync (compute finishes before the visual samples the buffer) + per-tick grid→GPU upload bandwidth.
-    next: DESIGN/FEEL pass FIRST (rec, owner-flagged 2026-06-21) — how the gas visual should WORK + READ for the player
-          (where / how-much / which type / front / where's the danger), ABOVE technology; AI-DRIVEN, owner reacts; render
-          tech NOT chosen here. THEN the build steps. The technical P1 (c-visual-001 — grid→GPU pipe, bakes in NO look
-          decisions) is queued AFTER the design pass. Owner picks order; rec = design first (addresses his
-          «tech-before-how-it-works» concern). Full prototype sequence P1→P5 + risk gates → work/gas-visual-research-2026-06-21.md §5.
+    next: |
+      STRUCTURE-FIRST (owner override 2026-06-26, s-visual-002 — SUPERSEDES the 2026-06-21 "design-feel first" rec;
+      owner «структура, не дизайн»). The procedural gas-visual ARCHITECTURE is researched + documented →
+      work/gas-visual-architecture-2026-06-26.md (workflow wf_579651ba-7f9: 13 agents, 5 adversarially-verified
+      dimensions, solo-dev over-engineering critic folded). THE STRUCTURE = a read-only data-driven engine in 4 layers
+      (engine → one-way seam[FAKE now/real later] → ONE shared body shader styled by a typeId-indexed param buffer →
+      separate event-driven warning channel) + a RESERVED bare special-gas hook. OWNER'S SHADER Q ANSWERED: ONE shared
+      shader configured by DATA — new ordinary gas = author one GasTypeDefinition asset + register it (editor-validated),
+      NO per-type shader, NO code. 3 owner decisions ratified (structure-first; 3 param-extreme test fixtures, no
+      neutral/roster; reserve special-gas seam, look-only v1). Two channels: steady BODY + event-driven WARNING
+      telegraph (separate layer, not idle spark). DE-RISKED BUILD SEQUENCE (steps 0-6, each owner-visible on FAKE data;
+      doc §7): STEP 0 = MIN-SPEC PERF SPIKE FIRST (the #1 unknown — does a grid-fed raymarch fit frame budget on a weak
+      GPU + does it support the optional compute/VFX path? measured on real hardware BEFORE any authoring).
+      RECOMMENDED next leg = build-step 0 as an executor leg in GasCoopGame_dev (PLAN → fake-data perf spike) —
+      OWNER-GATED: he reviews the structure + greenlights, and a real min-spec target / quality-tier knob is confirmed
+      when the CALL is authored (his dev rig is OPTIMISTIC — judge vs the weak-target budget). DECISION OPEN
+      d-visual-buildstep0-001 (proceed to step 0 vs adjust the structure first; rec = proceed). Decoupled from the
+      engine: develop on fake data now, swap to the real authoritative INTEGER layered grid (g-9c41) later with ZERO
+      visualizer change. Honest open unknowns + over-engineering guardrails = doc §8. Builds on
+      work/gas-visual-research-2026-06-21.md (layered read-only arch + raymarch/VFX paths — carried, NOT relitigated).
     note: |
       Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
       (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
