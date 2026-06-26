@@ -55,4 +55,6 @@
 
 - 2026-06-26 — shape g-zara-operate-contract: no bet activated; owner rejected blacklist/forbidden-domain framing and clarified Zaratusta manager as an extensible GitHub/Markdown process/source/workspace system. Writes are only to Zaratusta workspace by default; other repos/directions/projects are read-only sources. Bounced G10/W8/W17/W20-A12 and dependent references to converge. → history/2026-06-26-s-zara-operate-contract-shape-001.md
 
+- 2026-06-26 — converge g-zara-operate-contract owner-boundary repair: reopened G10/W8/W17/W20-A12 and dependent W2/W5/W6/W7/W10/W12/W13/W15/W16/W19 references; replaced forbidden-domain framing with a positive process/source/workspace model. Manager is topic-open via process/source/context; writes default only to Zaratusta workspace; other repos/directions/projects remain read-only sources; non-Zaratusta writes require explicit narrow integration. Next → converge-verify. → history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
+
 END_OF_FILE: live/solmax/LOG.md
