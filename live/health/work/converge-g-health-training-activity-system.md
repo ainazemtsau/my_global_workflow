@@ -179,6 +179,226 @@ All rows have `status: answered`.
 
 **§SIGNOFF: owner approved Resolve @ 2026-06-25 — “Да, согласен с пакетом B”.** The owner amended the screenshot path: “скриншоты сохранять не надо ... показать мне ... чтобы я удостоверил, что правильное сканирование произошло ... если нужно ... задавать дополнительные вопросы.” This amendment is binding in W11 and does not require screenshot retention. →S15
 
+## §CONTRACTS — converge-arch (Declare; consumer-driven; HOW → PLAN)
+
+> Produced by converge-arch, session s-health-training-activity-converge-arch-001
+> (2026-06-26). These are behavioral contracts only: implementation details,
+> concrete schemas, literal field names, vendor adapters, parser mechanics, storage
+> layout, thresholds, and cadence remain →PLAN. Completeness checked against TREE:
+> core/kernel, nutrition, specialist input/tools, Direction OS, setup/body proof,
+> and WA-K8 verifier topology. No signed W1-W20 row is changed.
+
+- **TA-CA1 — core kernel inheritance / thin-domain attach.**
+  - consumer: **g-health-training-activity-system**.
+  - producer: **g-health-core kernel**.
+  - behavior: training/activity runs as a thin additive domain over the existing
+    kernel. It consumes the one router, lifecycle, owner gate, writer barrier,
+    job contract, cursor/state-machine grammar, provenance, and handoff model.
+    It contributes only its domain authority, namespaced data, one procedure per
+    term, one state-machine instance, one cursor instance, and one control-plane
+    domain attach act. The attach act grants may-run/may-route only; no training
+    content becomes authoritative without separately ACTIVE artifacts.
+  - direction: core kernel → training/activity; training contributes domain data
+    under the inherited kernel, never engine behavior upward.
+  - trigger: training/activity attach and every later training/activity turn.
+  - build-order: g-health-core @8246cec with WA-K10 GREEN first; training consumes
+    kernel contracts unchanged. D-kernel-1 is imported as control-plane
+    decide-and-inform; no kernel delta is requested. →W1/W18/I1/I2/I6
+
+- **TA-CA2 — shared core coordinates, metrics, and safety state.**
+  - consumer: training setup, session brief, guided run, import, review, and
+    mutation procedures.
+  - producer: g-health-core.
+  - behavior: training/activity reads core-owned phase, week/day position, weight
+    trend, adherence, biofeedback, pain/safety state, and other shared metrics
+    already owned by core. Training uses these to resolve current prescriptions,
+    safety/reduced-mode posture, review decisions, and next-step progression; it
+    does not redefine, duplicate, or write core-owned concepts.
+  - direction: core → training/activity.
+  - trigger: setup, session-brief request, guided/logging job, import close,
+    review, or mutation.
+  - build-order: imported data-layer CA3/CA4/CA7/CA8/CA9 stand first; training
+    consumes them unchanged. →W2/W3/W5/W7/W8/W9/I3
+
+- **TA-CA3 — ACTIVE training authority → session brief / "training today".**
+  - consumer: owner-facing operator surface, guided-session route, and any
+    specialist-tool setup path.
+  - producer: ACTIVE training/activity authority inside Health AI.
+  - behavior: from ACTIVE authority and current core state, training produces a
+    readable session brief for a requested context. The brief states purpose,
+    planned work, planned effort, permitted substitutions, safety cues, and result
+    signals needed afterward. It is a projection of authority, not a new program;
+    it refuses or safely substitutes a request that conflicts with authority or
+    a safety brake.
+  - direction: training/activity authority → owner/operator/guided route.
+  - trigger: owner asks for today's/home/gym/VR/bicycle/conditioning session, or a
+    guided run starts.
+  - build-order: requires ACTIVE training authority plus core state; concrete
+    rendering order and tokens stay →PLAN. →W4/W7/W8/W12
+
+- **TA-CA4 — equivalent capture routes → normalized session LOG.**
+  - consumer: training review, progression/regression, later continuation, and
+    nutrition-demand handoff.
+  - producer: brief-plus-later-report route, guided-session route, and
+    specialist-tool import route.
+  - behavior: all capture routes converge on one normalized Health AI training
+    LOG meaning: assigned work versus performed work, completion, deviations,
+    substitutions, effort, relevant recovery/pain/safety signals, source,
+    provenance, confidence, safety disposition, and whether review is needed.
+    Unavailable details are marked with confidence rather than invented. Raw
+    telemetry, screenshots, native set/route/pulse files, and daily workout logs
+    are not duplicated into Direction OS.
+  - direction: capture route → Health AI training LOG → review/progression/handoff.
+  - trigger: owner reports a session, a guided checkpoint closes, or a confirmed
+    specialist import closes.
+  - build-order: LOG family precedes training review/mutation and nutrition handoff.
+    Exact schema and confidence vocabulary stay →PLAN. →W10/W11/W12/W13/W15/W17
+
+- **TA-CA5 — guided-run checkpoint durability.**
+  - consumer: guided-session continuation, fresh-provider resume, and later review.
+  - producer: guided-session checkpoint close plus Health AI handoff/LOG state.
+  - behavior: an owner-confirmed completed effort block can become recoverable
+    from committed Health AI state before the next block. The system does not
+    persist every repetition. If a chat is interrupted after a committed checkpoint,
+    a fresh session resumes from that checkpoint; if interrupted before a checkpoint,
+    only the unconfirmed/current block is repeated or reconstructed with the owner.
+    A full workout may chain multiple bounded guided jobs in the same LOG family.
+  - direction: guided run → checkpointed Health AI state → next guided run/review.
+  - trigger: owner confirms a bounded block, stops, or a safety stop occurs.
+  - build-order: consumes kernel job/handoff/cursor contracts; compatible with
+    save-at-job-boundary because each durable checkpoint is a job boundary in the
+    same LOG family, not an internal micro-save. →W12/W14/WA-K7/WA-K11
+
+- **TA-CA6 — specialist tools / native raw record boundary.**
+  - consumer: Health AI training importer and normalized LOG path.
+  - producer: Hevy-like, Strava-like, VR, wearable, or other specialist/native
+    source, plus owner-supplied screenshot/export/text/voice.
+  - behavior: the specialist source may remain authority for its native raw record.
+    Health AI extracts candidate training facts, shows the readable extraction to
+    the owner for correction or confirmation, asks only materially useful follow-up
+    questions, then persists only the structured normalized result with source and
+    confidence. Screenshot/media and raw exports are transient inputs or remain in
+    the specialist source; Health AI is not a raw telemetry mirror and Direction OS
+    stores none of it.
+  - direction: specialist/source → owner-confirmed extraction → Health AI LOG.
+    Health AI does not become authority for the native raw record.
+  - trigger: owner supplies or references a specialist result.
+  - build-order: natural-language/screenshot/export fallback must work before any
+    direct vendor adapter; direct integrations stay optional →PLAN. →W10/W11/W13/W15/W17
+
+- **TA-CA7 — normalized LOG + feedback → training review → mutation.**
+  - consumer: ACTIVE training authority and future session resolution.
+  - producer: normalized LOGs, core metrics, owner feedback, safety/recovery
+    signals, tool friction, boredom/motivation/time friction, and completion data.
+  - behavior: training review emits one bounded decision: hold, progress, regress,
+    substitute, reduced mode, deload, rebuild, safety escalation, or nutrition
+    handoff. A material pattern changes or deliberately preserves a named training
+    artifact through REVIEW→MUTATION; review is not merely a summary.
+  - direction: LOG/core/feedback → training review decision → bounded training
+    mutation or preservation.
+  - trigger: review request, enough accumulated actuals, cycle/week boundary,
+    safety signal, sustained friction, or material performance/recovery pattern.
+  - build-order: after ACTIVE training authority and normalized LOG path; exact
+    thresholds/magnitudes stay →PLAN. →W5/W7/W8/W9/W13
+
+- **TA-CA8 — routine dated training demand → nutrition.**
+  - consumer: nutrition date-resolution and nutrition review.
+  - producer: training planned demand and training actual demand, carried through
+    the core-owned coarse demand surface already represented by the data-layer
+    training-demand/day-type contract.
+  - behavior: nutrition receives a coarse dated training-demand signal; actual
+    execution supersedes planned execution for the date when it exists. Nutrition
+    may respond only through nutrition-owned calorie, protein, menu, recipe, or
+    food-plan authority. Nutrition does not read raw training telemetry, raw
+    specialist records, screenshots, or training files, and training does not write
+    nutrition artifacts.
+  - direction: training demand → core-owned carrier → nutrition.
+  - trigger: nutrition resolves a date, training actual lands, or nutrition review
+    needs demand context.
+  - build-order: imports core CA5 unchanged; nutrition is already a live sibling;
+    training completes the producer side when attached. No direct module-file
+    dependency and no kernel delta. →W16/G-TA-9/I4
+
+- **TA-CA9 — review-level training<->nutrition handoff.**
+  - consumer: nutrition review and training review, each inside its own domain.
+  - producer: the other domain's bounded review decision/handoff.
+  - behavior: sustained training volume, phase/deload state, strength decline,
+    recovery concerns, hunger/energy/adherence concerns, or safety patterns may
+    produce a bounded cross-domain review handoff. The receiving domain may answer
+    with one decision summary or request its own review. Neither domain reads or
+    writes the other's internal files; returned decisions influence the next review
+    through core-owned shared/review state, not through raw logs.
+  - direction: training review → nutrition review and nutrition review → training
+    review, both via the core-owned handoff/review surface.
+  - trigger: a review identifies a cross-domain issue that the producing domain
+    does not own.
+  - build-order: both domains need review procedures active; routine demand
+    TA-CA8 remains the daily coupling and this row is the escalation path. →W9/W16
+
+- **TA-CA10 — Direction OS strategic boundary.**
+  - consumer: Direction OS.
+  - producer: Health AI training/activity domain and product repo evidence.
+  - behavior: Direction OS may read Health AI on demand for development, strategy,
+    repair, or review. Direction OS persistent state receives only strategic
+    summary, problem, decision, incident, evidence pointer, and next CALL; it does
+    not duplicate raw workout/activity/pulse/wearable data, screenshots, native
+    exports, or daily session LOGs. Health AI has zero dependency on Direction OS
+    and never writes upward to it.
+  - direction: Health AI → Direction OS read visibility; no Health AI push and no
+    reverse product dependency.
+  - trigger: Direction OS session/review/repair/development need or a strategic
+    incident/decision.
+  - build-order: imports core CA1 and CHARTER boundary unchanged; no raw-data
+    artifact crosses into Direction OS state. →W17/I5
+
+- **TA-CA11 — setup-proven versus body-proven evidence split.**
+  - consumer: Direction OS shape/review and future body-execution review.
+  - producer: training setup path, session brief path, result-capture path, and
+    later real performed session path.
+  - behavior: the first product bet may prove owner-operated setup, a credible
+    approved plan, a usable session brief, and a verified result-capture path
+    without requiring a completed workout. Body proof is separate: a real
+    owner-performed session must reach normalized LOG, safety/recovery feedback,
+    and next adjustment. Setup evidence, synthetic fixtures, and successful UI/tool
+    setup never count as physical execution.
+  - direction: Health AI setup/body evidence → Direction OS strategic evidence.
+  - trigger: first setup bet closure; later body-execution CALL/review.
+  - build-order: shape may cut setup first but must preserve a later body-execution
+    route; no raw session data is stored in Direction OS. →W20/G-TA-6/G-TA-7
+
+- **TA-CA12 — strongest WA-K8 second-domain proof topology.**
+  - consumer: converge-verify, later product review, and anti-fragility verifier.
+  - producer: kernel + live nutrition sibling + training/activity domain topology.
+  - behavior: with nutrition live and training/activity attached, removing the
+    training domain attachment plus training-namespaced content leaves the kernel
+    and nutrition green: remaining derived values resolve, nutrition DAY_LOOP
+    remains routable, and no core or nutrition file needs a compensating rewrite.
+    Separately, disabling or superseding one training procedure leaves sibling
+    training procedures green. A broken or removed procedure fails closed on its
+    own job, not across core/nutrition.
+  - direction: system topology → verifier.
+  - trigger: converge-verify topology attack and later product acceptance.
+  - build-order: requires live nutrition sibling and attached training domain;
+    proof must be refuted before trusting the second domain. Concrete fixtures,
+    checks, and procedure choice stay →PLAN. →W19/I7/WA-K8
+
+### §CONTRACTS completeness
+
+- core/kernel interactions: TA-CA1, TA-CA2, TA-CA5, TA-CA12.
+- nutrition interactions: TA-CA8, TA-CA9, TA-CA12.
+- specialist input/tools: TA-CA6 plus normalized LOG convergence in TA-CA4.
+- Direction OS: TA-CA10 and TA-CA11.
+- internal operational seams required by TREE/WHAT: session brief TA-CA3, capture
+  routes TA-CA4, guided durability TA-CA5, review/mutation TA-CA7.
+- no dangling consumed contract: g-health-core exists and WA-K10 is GREEN; nutrition
+  is live as the first sibling; specialist tools are optional producers with a
+  natural-language/screenshot/export fallback; Direction OS boundary imports core
+  CA1.
+- no HOW token is binding: concrete schemas, paths, literal field names, adapters,
+  parser mechanics, confidence vocabulary, thresholds, and test fixture mechanics
+  remain →PLAN.
+- contract_coverage: **complete**.
+
 ## §ARCHITECTURE INPUT — for converge-arch
 
 The following are high-risk seams whose acceptance properties are closed above; converge-arch must compare realizations and keep its picks as context-only evidence:
@@ -241,6 +461,17 @@ Propose glossary ids `[G-TA-1, G-TA-2, G-TA-3, G-TA-4, G-TA-5, G-TA-6, G-TA-7, G
 
 ## §ROUTE
 
-The WHAT set is signed and mechanically covered. Because the node is heavy and sibling-bearing, next is `converge-arch`; shape remains blocked until a later separate `converge-verify` passes.
+The WHAT set and converge-arch set are closed on paper. Next is
+`converge-verify` to attack:
+- W1-W20 and G-TA-1..G-TA-9 remain signed and unchanged;
+- §CONTRACTS TA-CA1..TA-CA12 coverage/completeness/firewall;
+- heavy architecture paper
+  `work/converge-g-health-training-activity-system-arch.md`;
+- guided-session durability compatibility with the kernel job contract;
+- training<->nutrition no-direct-file-coupling;
+- D-kernel-1 import;
+- WA-K8 two-live-domain + one-procedure-disable topology.
+
+Shape remains blocked until a separate converge-verify PASS.
 
 END_OF_FILE: live/health/work/converge-g-health-training-activity-system.md
