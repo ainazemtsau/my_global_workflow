@@ -78,6 +78,18 @@ tasks:
       A separate review/work session or verifier must try to refute thin-domain attach, no-hardcode
       evidence-backed program creation, gate compatibility, and session-brief correctness before t-1
       is accepted as done.
+    blocker: >
+      t-1 product implementation is not durably applied in ainazemtsau/health-ai:
+      no Health AI commit or PR exists for the training/activity t-1 slice, no
+      changed-HEAD check output exists, and current committed Health AI state has
+      no x_training_activity thin-domain attach, dynamic evidence-backed program
+      proposal path, current-week slice path, or today session brief path.
+    unblock_when: >
+      A code-assistant executor returns Health AI product evidence for t-1:
+      commit or PR, changed files, `python tools/check_kernel_spine.py` output,
+      and an acceptance matrix showing done_when items 1-10 satisfied or naming
+      the first remaining blocker. Only after that evidence exists may a separate
+      verifier try to refute t-1 for done.
 
   - id: t-2
     status: pending
@@ -170,7 +182,7 @@ recurring:
 decisions: []
 
 next: |
-  CALL c-health-training-activity-domain-v0-t1-executor-001
+  CALL c-health-training-activity-domain-v0-t1-executor-002
   to: executor
   direction: health
   node: g-health-training-activity-system
@@ -178,137 +190,107 @@ next: |
   repo: ainazemtsau/health-ai
   kind: engineering
   goal: |
-    Health AI has the first thin training/activity domain v0 slice: thin-domain authority,
-    dynamic evidence-backed program creation, current-week slicing, and today's session
-    brief path over the existing kernel, without hardcoded research/question/program
-    templates and without duplicating any kernel engine.
+    Health AI has committed product evidence for the t-1 training/activity
+    thin-domain v0 slice: x_training_activity is attached over the existing
+    kernel, program creation is dynamic and evidence-backed, setup questions
+    are material and irreducible, proposed training authority rides the
+    existing gate, and ACTIVE authority can produce a current-week slice and
+    today's session brief without duplicating kernel engine behavior.
   context: |
-    Read Direction OS input evidence:
-    - live/health/CHARTER.md
-    - live/health/TREE.md
-    - live/health/NOW.md
-    - live/health/work/converge-g-health-training-activity-system.md
-    - live/health/work/converge-g-health-training-activity-system-arch.md
-    - live/health/work/converge-g-health-core.md
-    - live/health/work/converge-g-health-core-kernel.md
-    - live/health/work/converge-g-health-core-kernel-arch.md
-    - live/health/history/2026-06-20-s-health-core-kernel-wave0-derisk-001.md
-    - live/health/history/2026-06-24-s-health-core-kernel-wa-k10-evidence-repair-001.md
-    - live/health/history/2026-06-25-s-health-training-activity-converge-001.md
-    - live/health/history/2026-06-26-s-health-training-activity-shape-002.md
+    Prior executor attempt produced no Health AI commit or PR. It prepared a
+    context-only candidate patch:
+    - path: /mnt/data/health_ai_training_activity_t1_candidate.patch
+    - sha256: f9d1fb677f5831d6f44fa5484d25a677add591dc8670b0ff4e20d8a54732c6ec
+    - status: HOW-only candidate input, not authority and not required if the
+      executor finds a cleaner implementation.
 
-    Product facts imported by shape:
-    - health-ai @8246cec had current-head WA-K10 GREEN.
-    - nutrition is an ACTIVE thin sibling with program/cycle/week/menu/recipe artifacts
-      and cursor DAY_LOOP.
-    - D-kernel-1 is imported as registry-line control-plane decide-and-inform.
-    - Raw workout/activity/pulse/wearable data, native exports, screenshots and daily
-      session LOGs must not enter Direction OS state.
+    The executor must reload Health AI from committed repo state before making
+    any product claim. The current known blocker is lack of durable product
+    evidence: no commit/PR and no changed-HEAD check output exist for t-1.
 
-    Binding acceptance intent to preserve:
-    - Copy/implement the acceptance intent of W1-W20 from
-      live/health/work/converge-g-health-training-activity-system.md.
-    - Copy/implement §CONTRACTS TA-CA1..TA-CA12 requirements.
-    - Preserve especially:
-      W1 thin training domain;
-      W2 canonical Health AI training authority;
-      W3 setup asks only irreducible material facts while programming is system-decided;
-      W4 session brief;
-      W7 mechanical safety brake;
-      W8 reduced/bad-week return;
-      W9 review mutates/preserves artifacts;
-      W10 equivalent capture routes;
-      W11 transient screenshot/external-result confirmation;
-      W12 guided training chat bounds;
-      W13 normalized session LOG minimum;
-      W14 guided interruption durability;
-      W15 specialist-tool authority/fallback;
-      W16 training<->nutrition contract;
-      W17 Direction OS boundary;
-      W18 D-kernel-1;
-      W19 WA-K8 second-domain proof;
-      W20 setup-proven versus body-proven evidence split.
-
-    PLAN agenda P1-P12 remains HOW-only input:
-    namespace/artifact names; concrete program design; session-brief schema; LOG schema;
-    screenshot parsing mechanics; adapters/vendor mapping; guided checkpoint granularity;
-    review thresholds; safety wording; training-demand labels; WA-K8 fixture mechanics;
-    setup/body evidence script.
-
-    Owner amendment from shape:
-    - Do not hardcode a research template, question script, program template, fixed schedule,
-      split, volume, intensity, vendor, or intake form in Direction OS or the implementation
-      contract.
-    - For any training artifact that depends on current external evidence, especially the
-      training program, Health AI must determine what evidence/deep-research pass is needed,
-      use current data, and record source-backed rationale, owner facts used, defaults/
-      assumptions and safety/adherence constraints.
-    - Questions are dynamic: ask only materially missing irreducible owner facts. Do not ask
-      the owner to design expert variables.
-    - The program must be extensible to arbitrary schedules, constraints, equipment, preferences,
-      conditions and other nuances that materially affect safety, adherence or effectiveness.
-
-    This task is t-1 only. It should establish the authority/program/week/session-brief path.
-    t-2 will handle logging/import/guided/review/handoff contour. t-3 will do owner-operated
-    acceptance.
+    Preserve Direction OS and product acceptance already signed for this bet:
+    - W1 thin training domain.
+    - W2 canonical Health AI training authority.
+    - W3 system-decided programming with only materially missing irreducible
+      owner facts asked.
+    - W4 session brief / "training today".
+    - W7 mechanical safety brake.
+    - W8 reduced/bad-week return.
+    - W17 Direction OS boundary.
+    - W18 D-kernel-1 registry-line control-plane decide-and-inform.
+    - W20 setup-proven versus body-proven split.
+    - TA-CA1, TA-CA2, TA-CA3 must be satisfied.
+    - TA-CA8 and TA-CA9 must not be contradicted.
+    - P1-P3/P8/P9/P10/P12 remain HOW/PLAN input, not Direction OS state.
   boundaries: |
     Do not modify Direction OS state.
-    Do not store raw workout/activity/pulse/wearable data, native exports, screenshots or daily
-    session details in Direction OS.
-    Do not build or require direct API integrations for Hevy, Strava, Apple Health, Apple Fitness,
-    VR or wearable tools.
-    Do not build shared body-measurements protocol, dashboard/trend UI, or full WA-K8 proof in
-    this task.
-    Do not prescribe concrete workout programming in the executor CALL itself; implementation must
-    create the program from evidence, owner/core facts and current Health AI state.
-    Do not duplicate kernel engine behavior: no second router, lifecycle, gate, writer barrier,
-    job model, scheduler, server, database, background worker or module-specific engine.
-    Do not weaken W1-W20, TA-CA1..TA-CA12, setup/body evidence split, D-kernel-1, or the WA-K8
-    later-proof route.
-    Architecture picks A1-A5 are context-only input evidence; do not copy them into product
-    done_when as binding design unless required by the signed WHAT/contract rows.
+    Do not store raw workout/activity/pulse/wearable data, native exports,
+    screenshots, or daily session details in Direction OS.
+    Do not build or require direct API integrations for Hevy, Strava, Apple
+    Health, Apple Fitness, VR, or wearable tools.
+    Do not build shared body-measurements protocol, dashboard/trend UI, or
+    full WA-K8 proof in this task.
+    Do not prescribe concrete workout programming in the Direction OS CALL;
+    Health AI product behavior must create any program from evidence,
+    owner/core facts, and current Health AI state.
+    Do not duplicate kernel engine behavior: no second router, lifecycle,
+    gate, writer barrier, job model, scheduler, server, database, background
+    worker, or module-specific engine.
+    Do not weaken W1-W20, TA-CA1..TA-CA12, setup/body evidence split,
+    D-kernel-1, or the WA-K8 later-proof route.
+    Do not start t-2 breadth work.
   done_when: |
     Product evidence shows:
-    1. Training/activity attaches as a thin domain over the existing kernel: namespaced data,
-       one registry-line control-plane attach, one state-machine instance, one cursor instance,
-       one bounded procedure per term/stage as needed, zero duplicated router/lifecycle/gate/
-       writer/job model/scheduler/server/database/background worker.
-    2. Health AI can create a training/activity program proposal from current owner/core facts
-       and current external evidence. It does not use a hardcoded research template, fixed
-       question script, fixed program template, fixed schedule, split, volume, intensity, vendor,
-       or intake form. The system determines what evidence/deep-research pass is required for
-       the artifact being created; for the training program this must include current evidence
-       sufficient to justify the plan for the owner's profile, goals, constraints, safety,
-       adherence, equipment and phase.
-    3. Setup asks dynamically only for materially missing irreducible owner facts; it may ask
-       freely when useful but does not block on nonessential answers, records defaults/assumptions
-       as revisable where allowed, and never asks the owner to design expert variables. Exercise
-       selection, split, volume, intensity, conditioning mix, progression, regression and deload
-       logic are system-decided from evidence + owner profile + current phase + constraints +
-       feedback.
-    4. The proposed training authority can ride the existing SEED/PROPOSED/ACTIVE gate and is
-       readable for owner approval; it records evidence/rationale, owner facts used, defaults/
-       assumptions, safety constraints and extension points for arbitrary schedules, constraints,
+    1. Training/activity attaches as a thin domain over the existing kernel:
+       namespaced data, one registry-line control-plane attach, one
+       state-machine instance, one cursor instance, one bounded procedure per
+       term/stage as needed, and zero duplicated router/lifecycle/gate/writer/
+       job model/scheduler/server/database/background worker.
+    2. Health AI can create a training/activity program proposal from current
+       owner/core facts and current external evidence. It does not use a
+       hardcoded research template, fixed question script, fixed program
+       template, fixed schedule, split, volume, intensity, vendor, or intake
+       form. The system determines what evidence/deep-research pass is
+       required for the artifact being created; for the training program this
+       must include current evidence sufficient to justify the plan for the
+       owner's profile, goals, constraints, safety, adherence, equipment and
+       phase.
+    3. Setup asks dynamically only for materially missing irreducible owner
+       facts; it may ask freely when useful but does not block on nonessential
+       answers, records defaults/assumptions as revisable where allowed, and
+       never asks the owner to design expert variables. Exercise selection,
+       split, volume, intensity, conditioning mix, progression, regression and
+       deload logic are system-decided from evidence + owner profile + current
+       phase + constraints + feedback.
+    4. The proposed training authority can ride the existing
+       SEED/PROPOSED/ACTIVE gate and is readable for owner approval; it records
+       evidence/rationale, owner facts used, defaults/assumptions, safety
+       constraints and extension points for arbitrary schedules, constraints,
        equipment, preferences and other material nuances.
-    5. From ACTIVE authority, Health AI can generate a current-week training/activity slice and a
-       readable "what today?" session brief for contexts such as home/gym/bike/VR/low-time/fatigue,
-       without requiring the owner to read internal files.
-    6. Session brief includes purpose, ordered work, planned effort, warm-up/prep, permitted
-       substitutions, technique/safety cues, required result signals, reduced/bad-week branch and
-       mechanical safety brake behavior.
-    7. W1 thin training domain, W2 canonical Health AI training authority, W3 system-decided
-       programming, W4 session brief, W7 mechanical safety brake, W8 reduced/bad-week return,
-       W17 Direction OS boundary, W18 D-kernel-1, W20 setup/body evidence split are preserved.
-    8. TA-CA1, TA-CA2 and TA-CA3 are satisfied; TA-CA8/TA-CA9 are not contradicted.
+    5. From ACTIVE authority, Health AI can generate a current-week
+       training/activity slice and a readable "what today?" session brief for
+       contexts such as home/gym/bike/VR/low-time/fatigue, without requiring
+       the owner to read internal files.
+    6. Session brief includes purpose, ordered work, planned effort,
+       warm-up/prep, permitted substitutions, technique/safety cues, required
+       result signals, reduced/bad-week branch and mechanical safety brake
+       behavior.
+    7. W1 thin training domain, W2 canonical Health AI training authority,
+       W3 system-decided programming, W4 session brief, W7 mechanical safety
+       brake, W8 reduced/bad-week return, W17 Direction OS boundary,
+       W18 D-kernel-1, W20 setup/body evidence split are preserved.
+    8. TA-CA1, TA-CA2 and TA-CA3 are satisfied; TA-CA8/TA-CA9 are not
+       contradicted.
     9. P1-P3/P8/P9/P10/P12 remain PLAN/HOW input, not Direction OS state.
-    10. Return includes commit/PR evidence and check output, plus a short note naming any blocker
-        found before breadth work.
+    10. Return includes commit/PR evidence, changed files, check output, and a
+        blocker note before breadth work.
   return: |
     RESULT with:
     - outcome: what Health AI training/activity t-1 can now do;
-    - evidence: commits/PR, changed files, check output, and a concise acceptance matrix against
-      done_when items 1-10;
-    - explicit statement whether t-2 can proceed or which blocker must be repaired first.
+    - evidence: commit/PR, changed files, `python tools/check_kernel_spine.py`
+      output, and an acceptance matrix against done_when items 1-10;
+    - explicit statement whether t-2 can proceed or which blocker must be
+      repaired first.
   budget: one executor task, bounded to t-1 only
 
 END_OF_FILE: live/health/NOW.md

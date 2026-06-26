@@ -118,4 +118,6 @@ c-health-training-activity-converge-001.
 
 2026-06-26 — health/g-health-training-activity-system shape: owner-approved bet b-health-training-activity-domain-v0-001 activated; revised thin-but-functional training/activity v0 scope set with dynamic evidence/deep-research requirement, no hardcoded research/question/program template, 3 tasks, kill_by 2026-07-03; next t-1 executor for thin authority/program/week/session-brief path. → history/2026-06-26-s-health-training-activity-shape-002.md
 
+2026-06-26 — health training/activity t-1 executor repair: prior RESULT was not applied; t-1 remains active with explicit blocker/unblock_when and corrected outcome-only continuation CALL; repair play_check now covers all five repair steps.
+
 END_OF_FILE: live/health/LOG.md
