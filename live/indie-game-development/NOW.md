@@ -3,6 +3,17 @@
 active_bet:
   node: g-9c41
   phase: |
+    🧹 2026-06-23 (s-repair-consolidate, owner «да»): SINGLE-SOURCE CONSOLIDATION — the ~11 layered gas-engine research
+    docs (gas-model / cellsize / grid-vs-graph / detail-authority / audit / frontier×2 / converge×2 / INDEX / dev-plan-graph)
+    → work/archive/ (history). NEW CANON = knowledge/g9c41-gas-engine-SPEC.md (owner-signed) = the ONE source every g-9c41
+    build reads. Built via converge (8-agent sweep+author) → adversarial verify (5 skeptics caught: far-tier-law contradiction,
+    impossible level-scale arithmetic, a lock-breaking hangar fallback, R21+enum losses, AND a SILENT lock-rewording) → fixed
+    → completeness audit (8 source-grounded readers restored 8 load-bearing invariants incl. the destructibility seam the
+    owner flagged) → fixed → owner «да». locked-slices + drift-guard → banner-redirect to canon; c-exec-004 → SUPERSEDED
+    banner (pre-ADR-0010). d-cellsize-ratify-001 RATIFIED by this «да» (Fact #2 = 50cm isotropic / height emergent / NO bands).
+    c-exec-013 CALL+PLAN reading-set repointed to the canon; the S3-«height-bands» phantom corrected. ROOT of the recurring
+    drift = parallel research chats writing one git; FIX = g-9c41 ONE chat at a time during build, research CLOSED. S0 stays
+    active; build resumes on the clean canon + PLAN-s0. CONTINUE IN A FRESH SESSION.
     🧱 2026-06-23 (s-work-018, work play, writer-applied): S0 executor CALL FRAMED + adversarially HARDENED → c-exec-013
     (build-ready; work/c-exec-013-call.md). wf wwr2am1l9 (64 agents, 49/54 findings kept) folded 12 must-fix + 5 should-fix
     CALL-text tightenings — ALL verified CAPTURES, zero lock-change (no ADR-0010/G9 to FRAME): voxelizer + doorway→open-faces
@@ -644,6 +655,22 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-cellsize-ratify-001
+    status: done   # RATIFIED 2026-06-23 by owner «да» on the canon knowledge/g9c41-gas-engine-SPEC.md (s-repair-consolidate). Fact #2 re-worded: «50cm ISOTROPIC, height EMERGENT, NO bands» — the «authoritative height-bands» phrasing in the note below is SUPERSEDED by the canon; cell-SIZE-LOD retired, LOD axis = spatial room-rollup (S4).
+    note: |
+      s-repair-docs-001 flagged — via a POINTER, NOT a silent lock edit — that the locked fact #2 wording «ONE integer cell
+      model, cell-SIZE LOD» (knowledge/g9c41-architecture-locked-slices.md + the d-arch-lock-slices-001 note below) is
+      SUPERSEDED-IN-PART by the s-research-012..016 synthesis (work/gas-cellsize-levelscale-2026-06-22.md §10-§12): the
+      authoritative LOD axis is SPATIAL room-rollup (S4), NOT a per-room cell-SIZE mix; gas = 50cm GLOBAL; 25cm = off-checksum
+      local visual + authoritative height-bands; the cross-resolution re-flux seam is REMOVED. The SUBSTANCE is already in force
+      (c-exec-013 pins 50cm-global + drop-25cm; the pointer banner steers every PLAN, and locked-slices is a mandatory READ-FIRST).
+      What is OPEN = formally re-wording the LOCKED fact text so future sessions stop reading «cell-SIZE LOD» — an owner-signed
+      re-shape (G9; touches the locked canon, so it is NOT done silently).
+      OPTIONS: (A, rec) RATIFY in a ~5-min owner-signed mini-session whenever convenient — reword locked-slices fact #2 to
+      «50cm-global authoritative; LOD axis = spatial room-rollup (S4); 25cm = off-checksum local visual + authoritative
+      height-bands» (the banner holds the interim, nothing is lost); (B) leave the banner only — bad-because the stale
+      «cell-SIZE LOD» text persists in the canon indefinitely and relies on every reader noticing the banner.
+      NON-BLOCKING for S0: c-exec-013 + the pointer banner fully cover it; build S0 first, ratify when convenient.
   - id: d-reflux-gate-001
     status: answered   # owner-decided 2026-06-22 (s-repair-canon-001) — re-flux / determinism binding gate = loopback ONE machine + zero-float guard; NO two physical machines, EVER
     note: |
