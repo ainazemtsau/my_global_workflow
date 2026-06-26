@@ -393,4 +393,7 @@ unresolved_routes:
     - exact automation/scheduler/spend controls
 
 §SIGNOFF: WHAT closed for converge-verify on 2026-06-26.
+§SIGNOFF: converge-verify passed @ 2026-06-26.
+verify: complete=PASS; smuggling=PASS; row_failures=none; oracle=cv-operating-manager-authority-contract-v1.
+shape_binding: copy W20/A1-A13 into Definition-of-Ready or executor done_when; carry W19 routed choices as PLAN agenda.
 END_OF_FILE: work/converge-g-zara-operate-contract.md

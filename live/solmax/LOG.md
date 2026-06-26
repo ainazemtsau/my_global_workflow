@@ -51,4 +51,6 @@
   prescription-boundaries; no implementation/HOW choices made; next
   converge-verify.
 
+- 2026-06-26 — converge-verify g-zara-operate-contract: WHAT spec passed independent completeness and smuggling attacks; no rows reopened; next shape g-zara-operate-contract with W20/A1-A13 binding and W19 PLAN agenda.
+
 END_OF_FILE: live/solmax/LOG.md
