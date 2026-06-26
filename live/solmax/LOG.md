@@ -53,4 +53,6 @@
 
 - 2026-06-26 — converge-verify g-zara-operate-contract: WHAT spec passed independent completeness and smuggling attacks; no rows reopened; next shape g-zara-operate-contract with W20/A1-A13 binding and W19 PLAN agenda.
 
+- 2026-06-26 — shape g-zara-operate-contract: no bet activated; owner rejected blacklist/forbidden-domain framing and clarified Zaratusta manager as an extensible GitHub/Markdown process/source/workspace system. Writes are only to Zaratusta workspace by default; other repos/directions/projects are read-only sources. Bounced G10/W8/W17/W20-A12 and dependent references to converge. → history/2026-06-26-s-zara-operate-contract-shape-001.md
+
 END_OF_FILE: live/solmax/LOG.md
