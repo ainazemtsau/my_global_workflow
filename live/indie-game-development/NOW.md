@@ -399,7 +399,7 @@ open_calls:
       fidelity) = mandatory STOP + escalate, never a silent substitute. On GREEN → a fresh OS session applies the RESULT (S0 done +
       S1 CALL). next = c-exec-013 RETURN → S1 (выброс-при-спауне + выдавливание).
   - id: c-exec-014
-    status: queued   # NEW 2026-06-26 (R1-layered-reshape applied) — S0 FOUNDATION SLICE, LAYERED. Supersedes c-exec-013. CALL to be AUTHORED from work/gas-engine-layered-reshape-R1-2026-06-26.md §3 (reshaped reader contract: STRUCTURE layer reads DA geometry + module markers — geometric validated-vs-geometry / semantic owner-only; door = declared aperture validated vs mesh + per-Z-band conductivity projection; gas-50 + structure-25 grids w/ INVERTED resolution_tag; per-face/breach data-path + one-breach proof; sphere-cap of the off-checksum detail bubble; monotone-B predicate; settled_flag far-scoped). CARRIES OVER from c-exec-013: Core/** voxelizer + 4 GAP sockets + zero-float gate + owner-eye «точно/весело» split + STOP-v8 + the corrected keep/delete sets. Build runs in GasCoopGame_dev; build session reads CALL+PLAN by path; RESULT applied home by a separate OS writer.
+    status: queued   # NEW 2026-06-26 (R1-layered-reshape applied) — S0 FOUNDATION SLICE, LAYERED. Supersedes c-exec-013. CALL AUTHORED → work/c-exec-014-call.md (from R# §3); ready for a FRESH GasCoopGame_dev session. Contract: STRUCTURE layer reads DA geometry + module markers — geometric validated-vs-geometry / semantic owner-only; door = declared aperture validated vs mesh + per-Z-band conductivity projection; gas-50 + structure-25 grids w/ INVERTED resolution_tag; per-face/breach data-path + one-breach proof; sphere-cap of the off-checksum detail bubble; monotone-B predicate; settled_flag far-scoped). CARRIES OVER from c-exec-013: Core/** voxelizer + 4 GAP sockets + zero-float gate + owner-eye «точно/весело» split + STOP-v8 + the corrected keep/delete sets. Build runs in GasCoopGame_dev; build session reads CALL+PLAN by path; RESULT applied home by a separate OS writer.
     note: |
       The reshaped S0 (was c-exec-013). Owner-eye verdict unchanged («точно» = green headless suite, «весело» = owner-run).
       Owner-PLAYABLE per roadmap step (work/gas-engine-build-roadmap-2026-06-26.md): (1) reader→grid — SEE level + rooms + door
@@ -1130,7 +1130,8 @@ next: |
   d-cellsize-split-001 ratified, c-exec-013 SUPERSEDED → c-exec-014. The canon is now the layered model. Full record:
   work/gas-engine-layered-reshape-R1-2026-06-26.md (+ synthesis, cloud-vs-grid, variant-B-affordability, build-roadmap docs).
 
-  DO NEXT (OS): (1) AUTHOR work/c-exec-014-call.md from the R# §3 — the reshaped S0 reader contract (STRUCTURE layer reads DA
+  c-exec-014 CALL is AUTHORED → work/c-exec-014-call.md (build-ready). DO NEXT: owner opens a FRESH GasCoopGame_dev session with
+  it → build Step 1 (reader→grid). The CALL = the reshaped S0 reader contract (STRUCTURE layer reads DA
   geometry + module markers, geometric validated-vs-geometry / semantic owner-only; door = declared aperture validated +
   per-Z-band conductivity projection; gas-50 + structure-25 grids, inverted resolution_tag; per-face/breach data-path +
   one-breach proof; sphere-cap of the detail bubble; monotone-B predicate; settled_flag far-scoped), CARRYING OVER c-exec-013's
