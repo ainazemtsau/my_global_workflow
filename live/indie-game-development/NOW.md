@@ -3,6 +3,22 @@
 active_bet:
   node: g-9c41
   phase: |
+    ✅ 2026-06-26 (R1-layered-reshape APPLIED, owner «да» ×2 = ratify Факт 2 + apply): GAS-ENGINE LAYERED RE-SHAPE landed in
+    canon. Root found: the s-repair consolidation FLATTENED the owner-confirmed layered coordinating-grid into a gas-centric
+    "one 50cm grid" → 4 downstream symptoms (door opened whole wall / marker dispute / 50-25 confusion / "what is a layer").
+    FIX (triple-vetted by 3 adversarial workflows — layered-reshape, cloud-vs-grid, variant-B-affordable): SPEC Факт 2 RE-SHAPED
+    = КООРДИНИРУЮЩИЙ GRID + СЛОИ (gas 50 / structure 25 / placement 25-reserved); structure→gas = integer per-Z-band sub-face
+    conductivity projection (occupancy BITMAP never scalar); markers on modules (geometric validated-vs-geometry / semantic
+    owner-only = c-exec-012 anti-cheat reframed); resolution_tag invariant INVERTED (default (25,50)); §7/§9 narrowed so "25cm
+    buried" = gas-grid only. HYBRID: integer grid stays AUTHORITATIVE (clouds-as-authority KILLED on mass-double-claim /
+    deep-interaction / determinism); ADOPT sphere-cap of the off-checksum detail bubble (ADR start 4m@50см) — the one real lever
+    from owner's cloud idea. Variant-B made affordable by RECLASSIFYING monotone-B → in-checksum coarse-total threshold (NOT a
+    cheaper near rep; height-field = far-only); state-driven-near-demote + lazy-resolve REJECTED. Big halls DEFERRED but
+    RESERVED-EXTENSIBLE (owner: author as segments-with-full-wall-doors, OR far-only mid-2.5D + sub-partition, only by measure).
+    decision d-cellsize-split-001 (EXTENDS d-cellsize-ratify-001 — gas-50 lock UNCHANGED). c-exec-013 SUPERSEDED → c-exec-014
+    (S0 reshaped; CALL authored next). FIRST build task = the hangar probe (the #1 unmeasured number) + the monotone-B oracle
+    RED test, in GasCoopGame_dev. Full record: work/gas-engine-layered-reshape-{2026-06-26,R1-2026-06-26}.md + gas-cloud-vs-grid-
+    analysis-2026-06-26.md + gas-variant-b-affordability-2026-06-26.md + gas-engine-build-roadmap-2026-06-26.md.
     🧹 2026-06-23 (s-repair-consolidate, owner «да»): SINGLE-SOURCE CONSOLIDATION — the ~11 layered gas-engine research
     docs (gas-model / cellsize / grid-vs-graph / detail-authority / audit / frontier×2 / converge×2 / INDEX / dev-plan-graph)
     → work/archive/ (history). NEW CANON = knowledge/g9c41-gas-engine-SPEC.md (owner-signed) = the ONE source every g-9c41
@@ -364,7 +380,7 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
 
 open_calls:
   - id: c-exec-013
-    status: queued   # 2026-06-23 (s-work-018, work play) — S0 FOUNDATION-SLICE executor CALL: FRAMED + adversarially HARDENED (wf wwr2am1l9: 64 agents, 49/54 findings kept → 12 must-fix + 5 should-fix folded; all verified CAPTURES, no lock-change). Opens with a PLAN (owner present) in GasCoopGame. Full build-ready CALL → work/c-exec-013-call.md. Owner opens it in a FRESH Claude Code session in C:\projects\Unity\GasCoopGame when he starts S0.
+    status: superseded   # SUPERSEDED 2026-06-26 by c-exec-014 (R1-layered-reshape APPLIED, owner «да»). c-exec-013 was the gas-centric "one 50cm grid" S0; the layered reshape (Факт 2 re-shaped: coordinating grid + gas-50/structure-25/placement-25 layers + per-Z-band conductivity projection + marker-authoring + door-as-aperture) supersedes its READER contract. Its hardening CARRIES OVER into c-exec-014 (Core/** voxelizer, GAP sockets, owner-eye split, zero-float gate, STOP-v8). work/c-exec-013-call.md kept as history; reshaped CALL = work/c-exec-014-call.md (authored next from work/gas-engine-layered-reshape-R1-2026-06-26.md). — Prior: 2026-06-23 (s-work-018, work play) S0 FOUNDATION-SLICE CALL FRAMED + adversarially HARDENED (wf wwr2am1l9: 64 agents). Full prior CALL → work/c-exec-013-call.md.
     note: |
       Executor leg (GasCoopGame, dev→main when green) — the S0 foundation slice: a sandbox where a generated (DA) or hand-placed
       level becomes an integer 3D per-FACE cell grid + gas FILLS a room by face-flow, owner-eye «весело». §Re-sync repo contract
@@ -382,6 +398,16 @@ open_calls:
       OUT of S0 (S2 net) → named deferral. STOP-discipline v8: a blocked/infeasible named approach or a crutch (incl. reduced
       fidelity) = mandatory STOP + escalate, never a silent substitute. On GREEN → a fresh OS session applies the RESULT (S0 done +
       S1 CALL). next = c-exec-013 RETURN → S1 (выброс-при-спауне + выдавливание).
+  - id: c-exec-014
+    status: queued   # NEW 2026-06-26 (R1-layered-reshape applied) — S0 FOUNDATION SLICE, LAYERED. Supersedes c-exec-013. CALL AUTHORED → work/c-exec-014-call.md (from R# §3); ready for a FRESH GasCoopGame_dev session. Contract: STRUCTURE layer reads DA geometry + module markers — geometric validated-vs-geometry / semantic owner-only; door = declared aperture validated vs mesh + per-Z-band conductivity projection; gas-50 + structure-25 grids w/ INVERTED resolution_tag; per-face/breach data-path + one-breach proof; sphere-cap of the off-checksum detail bubble; monotone-B predicate; settled_flag far-scoped). CARRIES OVER from c-exec-013: Core/** voxelizer + 4 GAP sockets + zero-float gate + owner-eye «точно/весело» split + STOP-v8 + the corrected keep/delete sets. Build runs in GasCoopGame_dev; build session reads CALL+PLAN by path; RESULT applied home by a separate OS writer.
+    note: |
+      The reshaped S0 (was c-exec-013). Owner-eye verdict unchanged («точно» = green headless suite, «весело» = owner-run).
+      Owner-PLAYABLE per roadmap step (work/gas-engine-build-roadmap-2026-06-26.md): (1) reader→grid — SEE level + rooms + door
+      apertures, no gas (closes the ORIGINAL door/«поразносить по типам» question); (2) gas fills a room by face-flow (crude
+      slabs; emergent low-creep through the low door); (3) determinism + lockstep loopback; (4) a CLICKABLE Unity benchmark
+      harness (active cells + frame-time) incl. the HANGAR PROBE — the #1 unmeasured number. ⚠ owner's machine (RTX 4090 + top
+      AMD) is ABOVE average and gas-sim is CPU not GPU → measurements OPTIMISTIC; judge vs the weak-target budget (~200k-cell
+      comfort ceiling on a weak core), NOT "smooth on my rig". FIRST build sub-task = hangar probe + the monotone-B oracle RED.
   - id: c-visual-001
     status: queued   # 2026-06-21 (s-visual-001) — VISUAL track (g-7e15) first BUILD step (P1), queued AFTER the design/feel pass (owner-flagged: settle how-it-works/reads before render tech). Opens with a PLAN (owner present). Owner starts it when he chooses (parallel to the engine, ~40–60 min/day). Basis = work/gas-visual-research-2026-06-21.md.
     note: |
@@ -671,6 +697,38 @@ decision_inbox:
       height-bands» (the banner holds the interim, nothing is lost); (B) leave the banner only — bad-because the stale
       «cell-SIZE LOD» text persists in the canon indefinitely and relies on every reader noticing the banner.
       NON-BLOCKING for S0: c-exec-013 + the pointer banner fully cover it; build S0 first, ratify when convenient.
+  - id: d-cellsize-split-001
+    status: done   # RATIFIED 2026-06-26 by owner «да» on the re-shaped canon SPEC (R1-layered-reshape). EXTENDS d-cellsize-ratify-001 (does NOT reverse it): the gas-50cm isotropic ratification STANDS UNCHANGED; this ADDS the per-LAYER resolution split + the layered coordinating-grid frame the consolidation had flattened.
+    note: |
+      Root (work/gas-engine-layered-reshape-2026-06-26.md §1-§2): the s-repair consolidation flattened the owner-confirmed LAYERED
+      coordinating grid into a gas-centric «one 50cm grid»; build S0 (c-exec-013) inherited it → 4 symptoms (door opened whole wall
+      / marker dispute / 50-25 confusion / «what is a layer»), all = conflating GAS resolution (50cm, volumetric, ×8) with
+      TOPOLOGY/PLACEMENT resolution (can be 25cm, cheap). Triple-vetted by 3 adversarial workflows (layered-reshape, cloud-vs-grid,
+      variant-B). DECIDED (owner «да» 2026-06-26):
+      (1) gas_res = 50cm PRESERVED verbatim (SPEC Факт 2) — ONE 50cm isotropic integer gas model, height emergent, no re-flux seam.
+      (2) geometry_res (STRUCTURE layer) = 25cm DEFAULT — single source of structural truth (walls/floors/openings/breach), authored
+          via markers on reusable modules, validated vs geometry; tunable via the EXISTING resolution_tag config (no rebuild, no
+          extra config machinery).
+      (3) placement_res = 25cm RESERVED, mechanic DEFERRED (no objects yet; address reserve §9 шов 10).
+      (4) resolution_tag invariant INVERTED: geometry MAY be finer than gas (25 under 50); coupling = deterministic INTEGER per-Z-band
+          sub-face occupancy-BITMAP → conductivity COUNT (never a scalar, never integer-divide). One-way structure→gas, static.
+      (5) GRID = coordinating backbone (coord/address + cell→region ownership + event bus + commit clock, NOT a router); cross-layer
+          read ONLY vs a committed revision (§9 шов 7). Markers: geometric = validated-vs-geometry (builder-or-owner); semantic
+          (material/threshold/mask) = owner/fixture ONLY (no oracle → builder never authors = the c-exec-012 anti-cheat reframed).
+      FOLDED sub-decisions (from the cloud-vs-grid + variant-B analyses; detail in the work docs):
+      • HYBRID — integer grid stays AUTHORITATIVE; clouds-as-authority REJECTED (moving-boundary mass-double-claim / deep-interaction
+        drop / determinism). ADOPT a fixed-radius SPHERE-CAP of the off-checksum detail bubble (ADR start 4m@50см; radius+cell-size
+        LOCKED, else 25cm-inside or a big radius silently re-opens the blowup). This is the one real lever from the owner's cloud idea.
+      • Variant-B made affordable by RECLASSIFYING monotone-B → an in-checksum coarse-total threshold (RED oracle + a non-monotone
+        control that MUST fail). State-driven-near-demote + lazy-resolve REJECTED (byte-identical-but-WRONG). height-field = FAR-only LOD.
+      • Big halls DEFERRED but RESERVED-EXTENSIBLE (owner directive): author as segments-with-full-wall-doors (far-coarser falls out
+        free) OR far-only mid-2.5D (§7) + sub-partition — activated ONLY if the hangar-probe measurement shows a problem. settled_flag
+        = far-scoped only (gates far-demote/sleep, never a near transition).
+      PRESERVED (not reshaken): determinism by construction (integer, zero-float scan — the structure layer + projection are ALSO
+      Core-side integer); gas single-50cm (no re-flux seam); R13/R14; owner-eye «точно/весело»; all model-agnostic S0 work.
+      GATES: this is the FOUNDATION of the reshaped S0 (c-exec-014, supersedes c-exec-013). A MAINTENANCE request to os/engineering
+      is drafted (anti-substitution over-rotation + resolution conflation = one meta-pattern «distinguish-the-scope before a decision
+      becomes a global guard/lock») → hand to a SEPARATE maintenance session, os/** NOT touched here.
   - id: d-reflux-gate-001
     status: answered   # owner-decided 2026-06-22 (s-repair-canon-001) — re-flux / determinism binding gate = loopback ONE machine + zero-float guard; NO two physical machines, EVER
     note: |
@@ -1067,28 +1125,28 @@ decision_inbox:
       artifact from the A+ front/place layer (weeks) vs a parallel cheap visual pass on the EXISTING model. → history/s-review-002.md.
 
 next: |
-  S0 (the active bet g-9c41's foundation slice) is FRAMED + build-ready as c-exec-013, adversarially
-  hardened (wf wwr2am1l9, 64 agents; 12 must-fix + 5 should-fix folded — all verified CAPTURES, no
-  lock-change). The full build-ready CALL is work/c-exec-013-call.md. The S0 task stays active,
-  awaiting the GasCoopGame executor return. CONTINUE IN A FRESH SESSION.
+  R1-layered-reshape is APPLIED (2026-06-26, owner «да» ×2 = ratify Факт 2 + apply): SPEC Факт 2 re-shaped (layered
+  coordinating grid + gas-50/structure-25/placement-25), §7/§9 narrowed + structure→gas projection defined, decision
+  d-cellsize-split-001 ratified, c-exec-013 SUPERSEDED → c-exec-014. The canon is now the layered model. Full record:
+  work/gas-engine-layered-reshape-R1-2026-06-26.md (+ synthesis, cloud-vs-grid, variant-B-affordability, build-roadmap docs).
 
-  DO NEXT: open a FRESH Claude Code session in C:\projects\Unity\GasCoopGame and paste the c-exec-013
-  CALL (work/c-exec-013-call.md). It §Re-syncs the repo contract v7→v8 FIRST, then opens with a PLAN
-  (owner present) → RED-first independent test-author → build → -Deliver gate → fresh-session G5 →
-  owner-eye «весело» sign. (The owner participates in the PLAN there; this OS session only framed +
-  hardened the CALL — it did not design the voxelizer/face-flow.)
+  c-exec-014 CALL is AUTHORED → work/c-exec-014-call.md (build-ready). DO NEXT: owner opens a FRESH GasCoopGame_dev session with
+  it → build Step 1 (reader→grid). The CALL = the reshaped S0 reader contract (STRUCTURE layer reads DA
+  geometry + module markers, geometric validated-vs-geometry / semantic owner-only; door = declared aperture validated +
+  per-Z-band conductivity projection; gas-50 + structure-25 grids, inverted resolution_tag; per-face/breach data-path +
+  one-breach proof; sphere-cap of the detail bubble; monotone-B predicate; settled_flag far-scoped), CARRYING OVER c-exec-013's
+  hardening (Core/** voxelizer, 4 GAP sockets, zero-float gate, owner-eye split, STOP-v8, corrected keep/delete sets). (2) Draft
+  + hand off the os/engineering MAINTENANCE request (anti-substitution over-rotation + resolution conflation = one meta-pattern
+  «distinguish-the-scope before a decision becomes a global guard/lock»; os/** NOT touched in a live-direction session).
 
-  WHEN c-exec-013 RETURNS GREEN: a fresh OS session applies its RESULT (writer), marks S0 done with
-  evidence, and opens the S1 CALL (выброс-при-спауне + выдавливание). If c-exec-013 STOPs (the
-  voxelizer/face-flow proves infeasible/costly, per its STOP-discipline v8) → a fresh OS session
-  triages the escalation options (re-shape the affected layer, never substitute).
+  THEN BUILD (GasCoopGame_dev session, MCP + dev branch): owner opens c-exec-014 and builds in SMALL owner-PLAYABLE steps per
+  the roadmap — (1) reader→grid SEEN (closes the ORIGINAL door / «поразносить по типам» question), (2) gas fills a room by
+  face-flow (crude slabs, emergent low-creep), (3) determinism + lockstep loopback, (4) a CLICKABLE Unity benchmark harness
+  incl. the HANGAR PROBE (the #1 unmeasured number — ⚠ owner's RTX-4090 / top-AMD machine is OPTIMISTIC for a CPU sim; judge vs
+  the weak-target ~200k-cell budget, NOT "smooth on my rig"). RESULT applied home by a separate OS writer.
 
-  HOME-CLEANUPS owed (own follow-ups, NOT this leg): re-spec R1 Grid→SGF + openspec apply/archive
-  (d-grid-sgf-001); stale ADR-0005/0007 «separate-layer = t-3» wording; FishNet real-UDP owner-run
-  residual (non-gating).
-
-  PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the
-  writer's push — ask the owner to push). GasCoopGame: no product-repo edits this session (the build
-  is c-exec-013, a separate leg).
+  PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the writer's push — ask the
+  owner to push). The canon reshape + decision + bookkeeping is committed this session; the c-exec-014 CALL authoring is the
+  immediate follow-up writer task.
 
 END_OF_FILE: live/indie-game-development/NOW.md
