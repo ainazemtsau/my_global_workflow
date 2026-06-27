@@ -444,16 +444,25 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       shader configured by DATA — new ordinary gas = author one GasTypeDefinition asset + register it (editor-validated),
       NO per-type shader, NO code. 3 owner decisions ratified (structure-first; 3 param-extreme test fixtures, no
       neutral/roster; reserve special-gas seam, look-only v1). Two channels: steady BODY + event-driven WARNING
-      telegraph (separate layer, not idle spark). DE-RISKED BUILD SEQUENCE (steps 0-6, each owner-visible on FAKE data;
-      doc §7): STEP 0 = MIN-SPEC PERF SPIKE FIRST (the #1 unknown — does a grid-fed raymarch fit frame budget on a weak
-      GPU + does it support the optional compute/VFX path? measured on real hardware BEFORE any authoring).
-      RECOMMENDED next leg = build-step 0 as an executor leg in GasCoopGame_dev (PLAN → fake-data perf spike) —
-      OWNER-GATED: he reviews the structure + greenlights, and a real min-spec target / quality-tier knob is confirmed
-      when the CALL is authored (his dev rig is OPTIMISTIC — judge vs the weak-target budget). DECISION OPEN
-      d-visual-buildstep0-001 (proceed to step 0 vs adjust the structure first; rec = proceed). Decoupled from the
-      engine: develop on fake data now, swap to the real authoritative INTEGER layered grid (g-9c41) later with ZERO
-      visualizer change. Honest open unknowns + over-engineering guardrails = doc §8. Builds on
-      work/gas-visual-research-2026-06-21.md (layered read-only arch + raymarch/VFX paths — carried, NOT relitigated).
+      telegraph (separate layer, not idle spark). d-visual-buildstep0-001 ANSWERED 2026-06-26 (owner = ADJUST,
+      s-visual-003): min-spec perf is NOT a front gate and is NOT measured first — owner has NO min-spec machine, and a
+      perf number does not change the architecture (only tuning knobs, or worst-case a later BODY-rendering-technique
+      swap the read-only seam makes cheap). FIRST GOAL = a WORKING visual on the owner's HOME machine; perf = a LATER
+      optimization pass once the visual exists + target audience HW is known. Cheap safeguards from day one: 2 body knobs
+      (resolution scale + step count) + a free NON-GATING rough frame-cost reading on the home machine; body stays behind
+      the seam (swappable). NAMED DEFERRED RISK: raymarch body may be too heavy for the eventual min-spec → body
+      technique swapped later (bounded — decoupling preserves data model / authoring / warning / 3 gases). ADJUSTED BUILD
+      SEQUENCE (FAKE data, on home; doc §7): step 1 seam+buffer-contract+stride-gate → step 2 three gases from DATA
+      (+ forgot-to-register guard) → step 3 many-types overlap + OWNER-EYE readability bar → step 4 warning channel
+      (telegraph through the gas) → step 5 reserve the bare special-gas hook → step 6 (LATER) real-engine swap
+      (fake→real INTEGER grid g-9c41, ZERO visualizer change). BUILD-STEP-1 CALL AUTHORED + adversarially hardened
+      2026-06-26 (s-visual-004, wf_5dd9d57a-142, 4 lenses) → work/c-visual-001-call.md (c-visual-001 RE-SPECCED + queued
+      in open_calls). READY: owner opens c-visual-001 in a fresh GasCoopGame_dev session (opens with a PLAN, owner
+      present); next leg after = c-visual-002 (step 2 — three gases from DATA).
+      RECONCILED 2026-06-26: engine S0 is now DELIVERED (s-work-019) so the real RN1 read-seam already EXISTS for the
+      later step-6 swap — but the plan stays fake-data-first per the owner. Honest unknowns + over-engineering guardrails
+      = doc §8. Builds on work/gas-visual-research-2026-06-21.md (layered read-only arch + raymarch/VFX paths — carried,
+      NOT relitigated).
     note: |
       Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
       (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
@@ -509,19 +518,23 @@ open_calls:
       STOP-v8. «точно» = green suite; «весело» = owner eyeball (not a gate). May SPLIT (PLAN scopes; step-0 spike + eruption
       is a legit first return). next slice = S2. Reserved upgrade tiers = d-gas-richness-tiers-001. FULL CALL → work/c-exec-015-call.md.
   - id: c-visual-001
-    status: queued   # 2026-06-21 (s-visual-001) — VISUAL track (g-7e15) first BUILD step (P1), queued AFTER the design/feel pass (owner-flagged: settle how-it-works/reads before render tech). Opens with a PLAN (owner present). Owner starts it when he chooses (parallel to the engine, ~40–60 min/day). Basis = work/gas-visual-research-2026-06-21.md.
+    status: queued   # RE-SPECCED 2026-06-26 (s-visual-004) to the STRUCTURE-FIRST build-step 1 (was the pre-structure-first P1 "grid→GPU pipe over RN1"). FULL CALL authored + adversarially hardened (wf_5dd9d57a-142, 4 lenses) → work/c-visual-001-call.md. Opens with a PLAN (owner present), builds in a fresh GasCoopGame_dev session (dev→main when green). Owner starts it when he chooses (parallel to the engine bet, ~40–60 min/day).
     note: |
-      Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev→main when green). GOAL (P1, the de-risk step):
-      build the grid→GPU "pipe" + a trivial single-gas render that shows WHERE the gas is + roughly HOW MUCH, reading the
-      EXISTING RN1 read-model (IGasReadModel). Proves the sim→visual DATA PATH before any art. May ride the t-1 sandbox harness
-      (reads RN1 in the same scene; anti-scene-sprawl) OR a minimal standalone visual scene that later folds into the sandbox.
-      APPROACH (research-backed; decide at PLAN): a custom URP ScriptableRendererFeature raymarch pass sampling an uploaded
-      3D-texture/GraphicsBuffer of the grid, AND/OR VFX-Graph particles via SetGraphicsBuffer. BOUNDARIES: READ-ONLY over RN1
-      (never reach below the read seam / never simulate); decouple invariant (a FAKE/stub source now, swap to the real Wave-B
-      front later with NO visualizer change); render/adapter ONLY (do NOT touch the gated Core / LOCK / C1–C22); anti-scene-sprawl;
-      pretty/stylized look (Track V «P5») is NOT this leg — P1 only proves where/how-much. GATE: owner-EYE (does it read?) +
-      headless build/existence (render code compiles + a sample frame/capture artifact). Unity 6.3 / URP 17 RenderGraph (port
-      pre-RG samples). next = c-visual-002 (P2 — front/edge readability). FULL P1→P5 + risk gates → work/gas-visual-research-2026-06-21.md.
+      Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev→main when green). Build-step 1 of the
+      structure-first gas-visual architecture (work/gas-visual-architecture-2026-06-26.md §7 step 1): a WORKING gas-visual
+      on the HOME machine on FAKE data — a one-way read-only SEAM (IGasViewSource) filling TWO GPU resources (a per-cell
+      GridView volume + a per-type GasParams GraphicsBuffer), a FakeGasViewSource, and ONE shared URP RenderGraph raymarch
+      "body" pass styling each sample by GasParams[dominantTypeId] → a fake blob shows WHERE + HOW-MUCH + a visible edge.
+      BINDING headless evidence = a STRIDE-CONFORMANCE gate (a declared expected-stride constant vs BOTH the C# blittable
+      struct AND the documented HLSL layout) + a PASSING negative control + a headless data-path test; the SOLE owner-run
+      axis = owner-EYE (he SEES the fake gas: color=type, denser=more opaque, a visible edge, and it changes when he
+      changes a fake number). This leg FREEZES the final buffer layout (incl. the warning-granularity fork decision) so
+      steps 4/6 fill it UNCHANGED. KEY BOUNDARIES (full set in the CALL): FAKE data only (RN1 unused — that's step 6);
+      read-only is STRUCTURAL (no writable handle, references no engine types) + UPLOAD-ONLY (no readback into sim);
+      struct defs on the render/adapter side, never Core; FIXED bounded region (scroll/clipmap DEFERRED to the perf pass);
+      flat gradient edge (depth-composited full-res front DEFERRED to step 3); perf NON-gating (2 body knobs + a recorded
+      home frame-cost number). Residual risks + left-to-PLAN items in work/c-visual-001-call.md. next = c-visual-002
+      (build-step 2 — three gases from DATA + the forgot-to-register guard).
   - id: c-exec-012
     status: superseded   # 2026-06-21 — RAN but SUPERSEDED: builder fabricated a blocker + substituted scene-tags + a VScale crutch + self-certified «(owner-approved)» (GasCoopGame_dev RESULT.md; leg 770da4a on dev — NOT merged to main). t-1 RE-OPENED on architecture (B), re-issued in NOW.next. Contour hardened v8 so this class bounces. (note below = the original/historical c-exec-012 scope.)
     note: |

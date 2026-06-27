@@ -152,7 +152,7 @@ decals) needs NO compute — the optional VFX accent/burst layer is ONE feature 
 uploaded GridView to the camera region via a clipmap (write only the new slab); single-buffer for fake steps,
 add double-buffer + in-shader lerp only at the real-engine swap and only if tick-stepping is visible.
 
-**Open perf unknowns to MEASURE on the actual min-spec target (do NOT guess):**
+**Perf unknowns — DEFERRED to a later optimization pass (owner steer 2026-06-26; NOT a front gate — owner has no min-spec HW). Carried so they aren't lost; a free rough reading on the home machine is a non-gating smell test:**
 1. Does the min-spec integrated GPU support compute shaders at all? (gates ONLY the optional VFX layer; default
    body+decals does not need it; fails silently → check on real hardware in step 0).
 2. Real grid→GPU upload time + steady-state VRAM at the LARGEST active region on an iGPU sharing system RAM,
@@ -169,12 +169,23 @@ add double-buffer + in-shader lerp only at the real-engine swap and only if tick
 ## 7. THE DE-RISKED BUILD SEQUENCE — each step owner-visible on FAKE data
 
 Runs as executor legs in **GasCoopGame_dev** (Unity). FAKE data throughout until the last step, so it never waits on
-the engine. ⚠ build-step 0 needs measurement on a real min-spec-class target (owner's dev rig is OPTIMISTIC — judge
-vs the weak-target budget, not "smooth on my machine"); confirm the target / quality-tier knob when the CALL is authored.
+the engine.
+
+**PERF POLICY (owner steer 2026-06-26, d-visual-buildstep0-001 = adjust):** min-spec perf is NOT a front gate and is
+NOT measured first. The owner has no min-spec machine, and a perf number does not change the architecture (it only
+sets tuning knobs or, worst case, forces a cheaper BODY-rendering technique later — which the read-only seam makes a
+cheap swap). FIRST GOAL = a WORKING visual on the owner's HOME machine (steps 1→4 below); real optimization +
+min-spec derivation is a LATER pass once the visual/game exists and the target audience HW is known. Cheap safeguards
+kept from day one: (a) two body knobs — render-resolution scale + raymarch step count — so we never hard-code the
+most expensive version; (b) a free, NON-GATING rough frame-cost reading on the home machine along the way (a smell
+test, not a min-spec verdict); (c) the body stays behind the seam so it is swappable later. NAMED DEFERRED RISK: if
+the raymarch body is fundamentally too heavy for the eventual min-spec, the body technique may have to be swapped
+later — bounded, because the decoupling preserves the data model / authoring / warning / the 3 gases across a
+body-renderer swap.
 
 | Step | Goal | De-risks | Owner sees | Fake data |
 |---|---|---|---|---|
-| **0. Min-spec perf spike (FIRST gate — nothing authored until this returns numbers)** | a bare half-res raymarch fullscreen pass reading a FAKE single-blob 3D texture with a full-res front composite + a probe of `supportsComputeShaders` + a trivial VFX emitter; measure frame cost at target res + largest region | the #1 unknown: does the body fit frame budget on min-spec; does the hardware support the optional VFX path; does the cheap-body+sharp-front recombination read | a frame-time number on real hardware + yes/no on "VFX renders here" + a moving fake blob with a crisp front over a cheap body | yes |
+| **0. PERF — DEFERRED (a policy, not a leg; owner steer)** | NO min-spec spike first. Build the working version on home (steps 1→4); keep the 2 body knobs (resolution scale + step count) + take a free non-gating rough frame-cost reading on the home machine; real optimization + min-spec derivation is a LATER pass once the visual exists | avoids chasing an un-measurable target now (owner has no min-spec HW) without painting into a corner; the decoupling makes a later body swap cheap | nothing new to "see" — the first thing he SEES is step 1 | n/a |
 | **1. The seam + buffer contract** | define GasParams (aligned, blittable) + GridView (clipmap 3D texture); build `IGasViewSource` + `FakeGasViewSource`; wire the body to index GasParams[dominantTypeId]; resolve the warning-granularity fork; add the stride-conformance test | locks the parameter contract (the structure) + the stride discipline as a CHECKED gate; proves the engine-swap seam on fake data | a fake gas blob whose color/opacity is driven by a real buffer lookup (change a number → the body changes) + a green stride test | yes |
 | **2. Data-driven type authoring** | GasTypeDefinition SO + the serialized GasVisualRegistry (stable typeIds, hue deconflict) + the forgot-to-register editor warning; author the 3 parameter-space extremes as DATA | proves "new type = author one asset + register it" across three different looks with ZERO shader edits; validates the branch-free invariant + the register guard | three visibly distinct gases from three Inspector assets, no code touched; a deliberate forget-to-register test producing a visible warning | yes |
 | **3. Many-types overlap + EYE-judged readability bar** | dominant-gas-per-cell compositing (hysteresis tie-break) + the OPTIONAL VFX accent layer; stress with many overlapping fakes incl. camera-inside-the-cloud; a screenshot harness with the 3 extremes co-located, judged by the OWNER'S EYE as the readability pass/fail | validates the one genuinely-new design piece (the dominance rule) + the interpenetration / camera-inside cases against an explicit eye bar; confirms many types stay cheap and body-only is readable | several overlapping gases readable at a glance (~3–4 hues), front crisp, danger legible even when submerged + an explicit owner thumbs-up/down | yes |
@@ -215,7 +226,10 @@ Guardrails (keep it solo-dev-sized — DO NOT build):
   and the half/quarter-res + bilateral-upsample min-spec lever — all carried forward, not relitigated.
 - Confidence: the read-only layered structure + one-uber-shader-by-data + two-channel + reserved-hook are
   high-confidence and solo-dev-sized. The load-bearing UNVERIFIED item is min-spec PERF (the raymarch frame budget +
-  the upload cost + whether the iGPU supports the optional compute path) — which is exactly why build-step 0 measures
-  it FIRST on real hardware before any authoring.
+  the upload cost + whether the iGPU supports the optional compute path) — which the owner has chosen to DEFER
+  (d-visual-buildstep0-001 = adjust): he has no min-spec machine, and a perf number does not change the architecture
+  (only tuning knobs or, worst case, a later body-renderer swap the read-only seam makes cheap). So we build the
+  working version on home FIRST and treat perf as a later optimization pass, keeping two cheap body knobs + a free
+  non-gating home frame-cost reading from day one as smell tests.
 
 END_OF_FILE: live/indie-game-development/work/gas-visual-architecture-2026-06-26.md
