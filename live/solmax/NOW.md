@@ -6,7 +6,7 @@ project:
 active_bet:
   status: none
 
-route_status: g-zara-operate-contract_owner-boundary-repaired_pending_converge-verify
+route_status: g-zara-operate-contract_converge_verify_failed_trace_repair_needed
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -39,20 +39,28 @@ owner_directive: |
     external evidence is needed.
 
 blocked_reason: |
-  No implementation resumes until converge-verify checks the repaired WHAT surface.
-  The previous converge-verify PASS is stale because G10/W8/W17/W20-A12 and dependent
-  acceptance semantics changed after owner clarification.
+  No implementation resumes until converge repairs the trace/copyability failures found by
+  converge-verify after the owner-boundary repair.
 
-  Repaired model:
+  Verification result:
+  - complete=PASS
+  - backward_clean=PASS
+  - forward_clean=FAIL
+  - smuggling=FAIL
+
+  Rows to reopen for trace repair only:
+  - W2 acceptance: invalid `→GLOSSARY:G2[explainable]`
+  - W6 answer: invalid `→GLOSSARY:G9[source-backed]`
+  - W13 answer: invalid `→GLOSSARY:G9[source-backed]`
+  - W17 answer: invalid `→GLOSSARY:G9[source-backed]`
+
+  Preserve:
   - no generic domain/topic blacklist;
-  - topic work is allowed through the right process and loaded source context;
-  - hard boundaries are source integrity, owner approval, state ownership and side-effect
-    safety;
-  - Direction OS and other repos/directions/projects remain read-only sources by default;
+  - topic work is allowed through process/source/context;
+  - Direction OS and other repos/directions/projects are read-only sources by default;
   - Zaratusta writes only to its own workspace/repo by default;
-  - W19 HOW firewall remains intact except for the owner-clarified first-layer constraint:
-    Markdown/GitHub-readable source/process/owner-context/context-loading/examples/tests,
-    with no DB/API/engine/scheduler/automation now.
+  - future non-Zaratusta writes require explicit narrow integration/procedure;
+  - W19 HOW firewall and GitHub/Markdown-readable first-layer constraint.
 
 tasks: []
 recurring: []
@@ -74,16 +82,14 @@ preserved_evidence:
   - github.com/ainazemtsau/zaratusta
 
 next:
-  id: c-zara-operate-contract-converge-verify-owner-boundary-002
+  id: c-zara-operate-contract-converge-trace-repair-003
   to: session
   direction: solmax
-  play: converge-verify
+  play: converge
   node: g-zara-operate-contract
   goal: |
-    Verify the repaired operating-manager authority WHAT after owner-boundary repair.
-    The verification must attack whether the repaired G10/W8/W17/W20-A12 and dependent
-    rows are forward-clean, backward-clean and shape-copyable without reintroducing a
-    domain blacklist or smuggling implementation HOW.
+    Repair the trace/copyability failures found by converge-verify after the owner-boundary
+    repair, without changing the owner-approved process/source/workspace authority model.
   context: |
     Read:
     - live/solmax/CHARTER.md
@@ -91,48 +97,43 @@ next:
     - live/solmax/NOW.md
     - live/solmax/LOG.md
     - live/solmax/work/converge-g-zara-operate-contract.md
-    - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
     - live/solmax/history/2026-06-26-s-zara-operate-contract-shape-001.md
-    - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-verify-001.md
-    - live/life-reset/CHARTER.md
-    - github.com/ainazemtsau/life-reset-manager/SPEC.md
+    - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
+    - live/solmax/history/2026-06-27-s-zara-operate-contract-converge-verify-owner-boundary-002.md
 
-    Prior converge-verify passed before owner clarification, but shape then exposed a
-    contradiction. The repaired WHAT must now be verified against the owner-approved model:
-    the manager is topic-open and works through process/source/context; writes default only
-    to Zaratusta workspace/repo; other repos/directions/projects are read-only sources;
-    any future non-Zaratusta write requires explicit narrow integration/procedure.
+    Converge-verify found no substantive owner-boundary contradiction, no domain blacklist
+    reintroduced, and no hidden HOW in W20/A1-A13. It failed only because four rows cite
+    glossary properties that do not exist in the current §GLOSSARY:
 
-    Specific repair surface to attack:
-    - G10 now means process/source/workspace model, not forbidden prescription zone.
-    - W8 ET3 now blocks effects that lack source/approval/integration/side-effect safety;
-      it is not a domain-forbidden list.
-    - W17 now handles high-stakes/source-owned topics by process/source/context routing,
-      not topic refusal.
-    - W20/A1-A13 is replaced with a shape-copyable acceptance surface for source registry,
-      process registry, context loading, owner-context structure, examples/tests,
-      review/mutation route and write-boundary semantics.
-    - W2/W5/W6/W7/W10/W12/W13/W15/W16/W19 were adjusted only where dependent on the old model.
+    - W2 acceptance: `→GLOSSARY:G2[explainable]`; current G2 has `[bounded]`,
+      `[process-routed]`, `[source-backed]`, `[override-safe]`, `[no-hidden-power]`.
+    - W6 answer: `→GLOSSARY:G9[source-backed]`; current G9 has `[read-not-own]`,
+      `[no-scope-capture]`, `[context-loaded]`, `[integration-explicit]`.
+    - W13 answer: `→GLOSSARY:G9[source-backed]`; same invalid property.
+    - W17 answer: `→GLOSSARY:G9[source-backed]`; same invalid property, though W17 also
+      cites valid `→GLOSSARY:G10[source-backed]`.
+
+    Repair should make the traces valid by retargeting to existing resolved glossary
+    properties or by adding explicit resolved properties if converge determines they are
+    load-bearing. Then route back to converge-verify.
   boundaries: |
-    Do not implement or modify the product repository.
-    Do not reopen the old W0/kernel-first route.
-    Do not copy LifeReset wholesale.
-    Do not treat the previous converge-verify PASS as still valid for repaired rows.
-    Do not reintroduce a broad domain blacklist under a different name.
-    Do not remove the Direction OS / other-repo read-only boundary unless owner explicitly
-    changes it.
+    Do not reintroduce a generic domain/topic blacklist.
+    Do not change the owner-approved rule that the manager may work on any owner-requested
+    topic through the right process and source context.
+    Do not weaken the write boundary: Zaratusta writes only to its own workspace/repo by
+    default; other repos/directions/projects remain read-only sources by default; future
+    writes elsewhere require explicit narrow integration/procedure.
     Do not choose UI, storage engine, database, exact schema, exact cadence, scoring,
-    automation or scheduler.
+    automation, scheduler, vendor, framework or API/subscription adapter.
+    Do not implement or modify the product repository.
   done_when: |
-    Verification explicitly attacks complete/backward-clean/forward-clean/smuggling for
-    the repaired G10/W8/W17/W20-A12 and dependent rows.
-    Verdict is PASS with no row failures and next routes to shape, or FAIL with exact rows
-    reopened / exact owner decision needed.
-    The verifier specifically checks that W20/A1-A13 can be copied by shape without
-    contradicting the owner clarification.
+    W2/W6/W13/W17 no longer contain invalid glossary property references; every
+    load-bearing value traces to a valid §GLOSSARY property, §WHAT row, source or frozen
+    canon id. W20/A1-A13 remains shape-copyable, topic-open and HOW-clean. The repaired
+    WHAT routes back to converge-verify.
   return: |
-    RESULT with verification verdict, row failures if any, state_changes for work/NOW/LOG/history,
-    and next route to shape if PASS or converge/awaiting_decision if FAIL.
-  budget: one converge-verify session
+    RESULT with exact row repairs, evidence that all invalid traces are fixed, state_changes
+    for work/NOW/LOG/history, and next route back to converge-verify.
+  budget: one converge session
 
 END_OF_FILE: live/solmax/NOW.md
