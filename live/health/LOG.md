@@ -120,4 +120,6 @@ c-health-training-activity-converge-001.
 
 2026-06-26 — health training/activity t-1 executor repair: prior RESULT was not applied; t-1 remains active with explicit blocker/unblock_when and corrected outcome-only continuation CALL; repair play_check now covers all five repair steps.
 
+2026-06-27 — health training/activity t-1 work: Health AI c1bf61e durably saved ACTIVE training/activity authority, ACTIVE cursor, current-week and what-today reduced projections; checks pass; t-1 remains active awaiting fresh verifier before done. → history/2026-06-27-s-health-training-activity-t1-active-boundary-repair-001.md
+
 END_OF_FILE: live/health/LOG.md
