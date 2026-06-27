@@ -126,4 +126,6 @@ c-health-training-activity-converge-001.
 
 2026-06-27 — health/g-health-training-activity-system/t-2 work: health-ai 8aa14f8 added the training/activity operational contour; normalized LOG/import/guided/status/review/handoff evidence passes; no raw data/body execution claimed; next t-3 owner-operated acceptance. → history/2026-06-27-s-health-training-activity-t2-executor-001.md
 
+2026-06-27 — health/g-health-training-activity-system/t-3 guide: owner accepted training/activity v0 launch as release handoff ("Запускаем"); Direction OS will not track raw training/body execution; first real performed session is not claimed; next review decides bet closure and emits body-execution route. → history/2026-06-27-s-health-training-activity-t3-guide-001.md
+
 END_OF_FILE: live/health/LOG.md
