@@ -1,5 +1,7 @@
 # CALL c-exec-004 — g-9c41 / t-3 (kill-gate finale: sustained-load VERDICT + stream LOCK)
 
+> 🔴 **SUPERSEDED 2026-06-23 (pre-ADR-0010 history).** Builds on the OLD host single-writer / chunked-delta stream («band sim Wave 2») — RETIRED by input-lockstep (ADR-0010) + the slice methodology. Authority now = `knowledge/g9c41-gas-engine-SPEC.md` (the canon). Kept for history only; do NOT build from it.
+
 > Copy-paste this whole CALL into a fresh chat in the GasCoopGame **dev** worktree
 > (`C:\projects\Unity\GasCoopGame_dev`). It opens with an interactive PLAN (you present).
 > Framed s-work-005 (2026-06-15); hardened via wf `frame-c-exec-004-t3` (draft + 3 adversarial lenses:

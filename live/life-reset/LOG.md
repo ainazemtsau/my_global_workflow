@@ -50,4 +50,128 @@
   captured (R1–R31) at work/life-reset-manager-vision-capture-v1.md; next
   c-life-reset-frame-manager-root-001.
 
+- 2026-06-21 - frame: owner approved the re-framed root — strict, self-improving
+  personal-manager-as-spine (mission, 4 success criteria, 5 strict-personality
+  principles + gated self-improvement, guardrails, R11/R12/R22 invariants,
+  updated pre-mortem, root node); efficiency reframed as method-not-end (owner
+  R1 refinement); owner added R32 (technique-selection intake); owner rejected a
+  week/N-cycle completion gate → reshaped to ONE real end-to-end run (test /
+  dry-run / one lived day) + owner-useful acceptance, no calendar week; TREE now
+  root-only (old 6 nodes removed, substance preserved); next
+  c-life-reset-map-manager-tree-001.
+
+- 2026-06-21 - map: owner approved (G9) the 6-node outcome tree on the
+  manager-as-spine root — run (rhythm) · protect (asymmetric strictness cuts the
+  crash loop) · integrate (3 streams, no scope capture) · learn (review -> safe
+  self-rewrite, sealed core, hollow-week veto) · trust (survives wrong verdict +
+  rupture, live-state portable) · grow (self-definition, evidence-paced extension,
+  stays light); order run->protect->integrate->learn->trust->grow. Narrow
+  map_evidence pass (5 finders -> 6 non-obvious outcomes, all survived adversarial
+  verify, + 7 blind spots; seeds: AA, Rule of St. Benedict, Greene quota,
+  provably-corrigible-agents, Dietvorst algorithm-aversion, GTD-limit) folded in.
+  Owner clarified one-real-run stays lightweight (started-using = run, anti-paper
+  floor kept; problems->fix | fine->extend) and the optional-research cadence
+  (first intake mandatory; weekly review every week, default hold; research only
+  on dissatisfaction). 9 lenses covered; spirit/inner-work/fatherhood not_needed
+  as nodes (served as values+programs). next c-life-reset-research-build-manager-001.
+
+- 2026-06-21 - research: HOW for the manager — each of the 10 deferred mechanisms
+  got evidence + 2-3 options + a recommendation (multi-agent wf_41aaf9c5-c4c, 23
+  agents: 10 generators + 10 adversarial refuters + 3 critics). All 10 refuted to
+  holds_with_fix; one REAL G3 breach caught + patched (Q7 hollow-week veto could
+  condemn a genuine recovery week → recovery carve-out). Guardrail audit 8/8
+  pass-conditional; coherence composes=true → one tiny v1 thin slice (compose-week →
+  derive-day+R11 → one sealed-core file → one protect episode → one review→decision →
+  durable+portable → owner attests). Two load-bearing gaps surfaced outside the 10
+  (g-lr-integrate summary-contract; recovery-vs-slide distinction) → owner routed
+  both into shape ("Внутрь shape со мной"). Tree untouched; full product at
+  work/life-reset-implementation-research-v1.md. next c-life-reset-shape-run-v1-001.
+
+- 2026-06-21 - shape: owner approved (G9, "да") g-lr-run as the active v1 bet — one
+  tiny real composed pulse (2 files: sealed-core + week-file, then ONE real run on live
+  data), appetite ~3h (run owner-paced, not extended), kill_by 2wk soft (2026-07-05) /
+  4wk hard (2026-07-19). Both load-bearing gaps resolved co-creatively: recovery-vs-slide
+  = 3 observable signs (named / floors-stand / bounded) with tripwires watching the FLOORS
+  not the label (anti-gaming, non-punitive); integrate present-minimal = read-only neighbor
+  summaries + owner top-up + conflict→route, no raw (G4). 4 owner floors locked (sleep /
+  no-smoking / no-binge / no-vanishing); a discipline floor captured for a gated future
+  mutation. All 10 research required-fixes folded; cut list = the deferred-upgrade backlog;
+  9 lenses swept; riskiest-assumption task t-1 (recovery-vs-slide + tripwire back-test on a
+  real past lapse). next c-life-reset-run-v1-t1-recovery-slide-001.
+
+- 2026-06-21 - work t-1 (RE-SCOPED by owner): the narrated back-test was dropped as
+  self-graded theater ("это не проверка, … еботня"); replaced by a real plan audit —
+  coverage / consistency / data-flow (wf_35ccf508, 24 agents, adversarially verified).
+  Verdict BUILD-READY: 62 required procedures covered, recovery-vs-slide rule + 4 tripwires
+  build-ready, no contradictions, all 4 v1 data-flows close. ONE load-bearing safety defect
+  found + fixed: the sealed core (t-2) had dropped the charter's clinical-risk routing rule →
+  restored (a clinical-risk sign routes OUT to professional support, NOT an in-system
+  reach-in; a 3rd response altitude). Owner's live slide (binge ~1.5wk after quitting smoking
+  + stopping training) captured as the t-4 test case. next c-life-reset-run-v1-t2-sealed-core-001.
+
+- 2026-06-21 - frame (charter touch, owner G9): the manager RUNTIME gets its own PRODUCT
+  REPO — github.com/ainazemtsau/life-reset-manager (local C:\projects\life-reset-manager,
+  initialized + pushed, README only). Owner overturned my "build-here-then-port" deferral
+  (I had conflated "separate repo" with "heavy infra"); governance (charter/tree/bets/history)
+  stays in live/life-reset/, the working process + its memory live in the product repo, bridged
+  by executor/work CALLs + commit evidence (native OS product pattern; product_repos was empty).
+  Carried the one real nugget: lightness_rule = markdown-only until a real run earns more.
+  t-2/t-3 re-pointed to the product repo. next unchanged: c-life-reset-run-v1-t2-sealed-core-001.
+
+- 2026-06-21 - frame (charter touch, owner G9): CORRECTED the protect/safety mechanism. The
+  t-1 audit's "clinical-risk routing" (route OUT to a specialist) is OVERTURNED by the owner:
+  the manager is NOT a clinical safety valve — no specialist routing, no therapy/practices;
+  the owner self-sources his own external human support outside the system. His real failure
+  mode is the lazy/self-pity CHECKOUT (no middle: lazy=miserable ↔ blade=alive); the response
+  is to re-ignite his OWN values via an OBJECTIVE external voice — firm, non-punishing, never
+  by force (force doesn't move him; values-synergy does) and never by referral. Manager = his
+  "objective side of reality" for weighted decisions + anti-overcommit; must stay light (the
+  Notion-sprawl anti-pattern). Charter (authority/safety-lens/+objective-external-mirror
+  principle), NOW (altitudes/safety/t-2/next CALL) + the product-repo README corrected.
+  next unchanged: c-life-reset-run-v1-t2-sealed-core-001.
+
+- 2026-06-21 - work t-2: authored the manager's sealed-core (non-amendable safety layer) in the
+  PRODUCT REPO life-reset-manager @ e6f7cb3 (pushed). §1 inviolable override (incl. R11 refusal)
+  · §2 protected class (recovery/safety/floors/routine-rest) · §3 the 4 floor-tripwires · §4
+  recovery-vs-slide (3 signs) · §5 the objective voice anchored to the owner's OWN committed
+  week/day plan (firm; never scare/cheer/force/refer) · §6 non-punishing-return invariant (in
+  core, not on override path) · §7 NOT-a-safety-valve boundary (no clinical routing — owner
+  correction followed, stale CALL line dropped) · §8 manual git-revert · §9 gate-only changes
+  · §10 the 2-assertion smoke check (both PASS). Co-created: owner reframed the objective voice
+  to objectivity-vs-his-own-plan (not motivation; not scare/cheer; tone can be harder; values
+  current, honesty-with-self an extension) and steered v1 to the basic loop FIRST
+  (week→day→slip-report→rebalance), deeper psychological rules later — folded into the t-3 CALL.
+  next c-life-reset-run-v1-t3-week-file-001.
+
+- 2026-06-21 - work t-3: authored operating-template.md (the 2nd v1 file) in the PRODUCT REPO
+  life-reset-manager @ 703eab2 (pushed) — the week + day skeleton + rules. Owner RESHAPED the
+  model across the session (slice re-confirmed): the DAY is now a first-class structured artifact
+  (gate/plan/free-log/review), and the working METHOD (time-blocks, pomodoro, journal-format) is
+  a SWAPPABLE HYPOTHESIS, not a law — only the rhythm + "nothing is lost" are fixed. Added: the
+  week ACCUMULATOR (R34), week-review → one decision incl. {research}=a separate-chat
+  deep-research that rewrites the method (R35), the manager voices techniques it turns on (R36),
+  durable state optimized FOR THE MANAGER (owner reads via rendered views, R37), method-of-week-1
+  = time-blocks labelled a hypothesis (R40), interaction free + cross-provider (R39), artifacts
+  extensible later (R38). R33-R40 recorded; engine/techniques/journals/automation deferred
+  (g-lr-learn/g-lr-grow). next c-life-reset-run-v1-t4-real-run-001 (THE REAL RUN, owner-paced).
+
+- 2026-06-22 - work/reconcile (live owner directive): owner collapsed the staged plan to ONE node
+  = build the FULL v1 NOW as simple structured markdown (AI = interpreter, no code); stop
+  splitting/deferring (that, not over-building, blocked real implementation). deep-research FIRES
+  in v1 (picks the method, not a default; closes the rewrite loop) — supersedes operating-template's
+  "hook only". day/week = editable recipe of components (R43); components = clean seams open to
+  later skills/tools (R45). The run is owner-paced + owner-RUN, NOT an OS gate — owner runs it and
+  returns with problems; run-gates removed from the tree. Found + cleaned a CONCURRENCY mess (the
+  "неразбериха" the owner sensed): a parallel session had committed operating-template.md (t-3
+  @703eab2) carrying R33-R40, while this chat produced the newer R41-R45 structure → CONSOLIDATED
+  to one clean v1 set in the product repo @ b169c65 (sealed-core + manager + recipe + state;
+  operating-template removed, recoverable). Tree + the open "life-reset as its own direction vs a
+  PROJECT inside Solmax-Productive" question DEFERRED to a post-use session (owner drives the
+  return). next = owner uses v1, returns with problems.
+
+- 2026-06-24 — repair: owner retired LifeReset as a separate project/name.
+  Its latest concept, research and implementation remain evidence for the first
+  preparatory functional phase of Zaratusta. Standalone NOW/TREE are frozen;
+  canonical planning and implementation move to `solmax` / Zaratusta.
+
 END_OF_FILE: live/life-reset/LOG.md

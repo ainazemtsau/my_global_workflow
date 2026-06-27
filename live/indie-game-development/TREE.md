@@ -75,7 +75,7 @@ root:
       All hold in the validation harness:
       1. Performance targets met on the min-spec profile (8GB-VRAM 60-class GPU, 16GB RAM),
          not on the dev 4090; cheap validation allowed (capped profiling / used 3060).
-      2. Replication model locked: host/server-authoritative sim + chunked-delta gas
+      2. (⚠ networking clause SUPERSEDED by #12 / ADR-0010 — input-lockstep) Replication model locked: host/server-authoritative sim + chunked-delta gas
          stream; entity ghosts only for players/objects; rollback/lockstep at most one
          1–2-week timeboxed spike; GPU compute never authoritative for networked state
          (default vendor FishNet — Steam-only, free, GameObject-native; model locked,
@@ -97,7 +97,7 @@ root:
          is DROPPED from the core bet; a genuinely spectacular clip is g-7e15's later job once
          real visuals exist. The parallel-track gate that hung on this clip (root map_order)
          needs a map-level re-check (follow-up).
-      9. Scale architecture (R1): the coarse simulation tier is designed and
+      9. (⚠ bandwidth-budget basis SUPERSEDED by #12 — binding limit = weakest-peer CPU under D1) Scale architecture (R1): the coarse simulation tier is designed and
          arithmetic-validated to hold a huge procedurally generated level profile
          (≈200×200×40 m class, ≥1000 volumes) within measured memory/tick/bandwidth
          budgets on the min-spec profile. (REFINED 2026-06-16, review c-review-001 —
@@ -123,8 +123,40 @@ root:
           core edits (extensible seams, R13 — EXERCISED by a 3rd demonstrative layer, not
           only argued). The destruction-driven topology change of criteria 2/3 is a REAL
           controlled wall-breach, not a scripted stub.
+      11. (ADDED 2026-06-20, review s-review-002 → A+ breakdown — owner-approved «да», G9) дорога A+
+          RE-FRAME: after Wave 2 PROVED the coarse model + the owner SAW it, the core is re-formed as
+          the MULTI-WAVE дорога-A+ core = the proven integer graph "water" base + bit-exact networked
+          replication (KEPT, criteria 2/3) GROWN with the missing layers — an integer geodesic FRONT
+          ("where exactly is the gas"), interest-grain detail near the player/event, a resident-gas
+          DAMAGE law (consequence), confirmed-colocation reactions, and edge-based destructibility.
+          The model is graph-based (NOT a continuous-field rewrite — B was rejected: it reopens the
+          solved network-determinism problem). KEEP-OPEN invariants the redesign must NOT weld shut:
+          per-SPECIES temperature stays an independent readable layer; the coarse layer carries the
+          TRANSIENT (not settled-only); ROOM capacity + back-pressure is KEPT (only the 2-band split
+          is replaced); a sparse+tunable gas encoding (unlimited TYPE catalog; bounded concurrent-per-
+          node). HOST-RESILIENCE is now a named core obligation: a host can leave/crash without ending
+          the 4–8 co-op session (§H — spiked in Wave A). Every A+ bet is preceded by the §G(+4)
+          load-probe DE-RISK WALL (no core blind spot found late). The wave breakdown lives in NOW.md
+          wave_plan + work/aplus-breakdown-v1.md + work/aplus-wave-map-v1.md (the design source =
+          work/gas-model-design-full-2026-06-20.md). Criteria 1–10 still hold; A+ deepens what "the
+          core" resolves and consequences, it does not drop them.
+      12. (ADDED 2026-06-22, owner-approved «да» (G9) — дорога A+ ARCHITECTURE LOCKED + SLICE METHODOLOGY;
+          ADR-0010 supersedes the host-broadcast authority of ADR-0004/0005) NETCODE = input-lockstep (only
+          inputs on wire; every peer deterministically recomputes; binding limit = WEAKEST-PEER CPU, not
+          bandwidth — supersedes #2's host-broadcast/chunked-delta + "lockstep=spike" and #9's on-wire
+          bandwidth basis). MODEL = ONE integer cell model at cell-SIZE LOD: near = full-3D grid + flow
+          through OPEN FACES (area/height/no-through-walls emergent); far = room-graph ROLLUP; ROOM = a LABEL
+          at every tier (pipe dropped near). DETAIL = a LOCAL non-authoritative refinement of the
+          COARSE-authoritative truth (coarse computed everywhere + in checksum; detail only where a peer's
+          own player is — ~1 bubble/peer not N; hard shared consequences = coarse EVENTS). sparse
+          dominant-gas (D9), integer chemistry table (D10), real-height-3D near (D11). NO late-join
+          (lobby→raid boundary). ZERO-legacy at completion. reusable-engine DROPPED (D12, game-first).
+          DELIVERED as INCREMENTAL VISIBLE SLICES (each: PLAN-ingests-all-research → RED-first → build
+          deterministic/clean/extensible → owner-VISIBLE result → integrate; per-mechanic depth classified
+          ведро-1/2/3 at its slice PLAN, default room-granular). Full spec + slice graph + decision index:
+          work/dev-plan-graph-2026-06-22.md. Criteria 1–11 hold where not superseded here.
     status: active
-    detail: history/s-map-002.md
+    detail: history/s-map-002.md   # + s-review-002 (A+ re-frame); wave breakdown → NOW.md wave_plan + work/aplus-breakdown-v1.md
 
   - id: g-d3a8
     goal: |
@@ -137,7 +169,12 @@ root:
     why: the pride bar (root criteria 3–4) is designed, not hoped for; gives the core its capability list beyond the nucleus and the storefront its fantasy language — with honest limits on what AI validation can certify.
     done_when: |
       1. Design doc exists; every base gas carries a gameplay job (decision / risk / tool /
-         co-op role) — no decorative gases.
+         co-op role) — no decorative gases. (EXPANDED 2026-06-20, s-review-002, owner-approved:
+         the gas TYPE catalog is effectively UNLIMITED — meta-gas archetypes × config gradations,
+         «должно быть очень много типов»; the engineering constraint lives in g-9c41 A+ = a bounded,
+         TUNABLE number of gases CONCURRENT per node + a hard wire cap, NOT a cap on the catalog;
+         per-room overflow → a reaction QUEUE. Catalog size is free design; concurrency is the
+         engineered budget.)
       2. The loop produces designed, repeatable co-op fear-spike moments; horror stays
          sim-derived (no scripted jump-scare drift); candidate systems (sanity/exposure)
          remain candidates until they pass the depth test on merit.
@@ -179,8 +216,18 @@ root:
       4. The visual pipeline is a derivation of simulation state (density-mask-style),
          behind the pipeline seam locked by the g-9c41 render proof slice.
       5. Clip material flows directly from harness scenes to g-5b07/g-e6f2.
-    status: parked
-    detail: history/s-map-002.md
+    status: active   # owner-directed 2026-06-21 (s-visual-001): elevated parked→active as a PARALLEL TRACK (NOT a 2nd bet). Engine g-9c41 stays the PRIMARY active bet (G1 — visual adds NO active_tasks; work via CALLs). Full track state → NOW.parallel_tracks.
+    detail: |
+      history/s-map-002.md + history/s-visual-001.md. VISUAL (GASG) TRACK stood up 2026-06-21 — the owner wants the
+      gas's LOOK worked NOW, in parallel to the engine, visible in planning with its own budget («участвовало в дереве
+      … со своим аппетитом … не на задворках … начать сейчас»; SECONDARY to g-9c41, ~40–60 min/day). Approach
+      (research-backed, work/gas-visual-research-2026-06-21.md): a READ-ONLY visual view over the authoritative gas
+      grid, decoupled by the R13/R14 seam (fake data now → swap to the real Wave-B front later, zero visualizer
+      change); layered = grid → URP raymarch body and/or GraphicsBuffer-fed VFX-Graph accents → gas-as-light
+      distinctiveness (INSIDE low-complexity lever); off-the-shelf (Zibra/URP-Fog-Volumes) mostly mismatches. Work =
+      executor CALLs in GasCoopGame's render layer (owner-EYE gated), tracked in NOW.parallel_tracks (g-7e15), not
+      active_tasks; first = c-visual-001 (P1 = grid→GPU pipe + show where/how-much, reads existing RN1). Node
+      goal/done_when (criteria 1-5) UNCHANGED.
 
   - id: g-5b07
     goal: |

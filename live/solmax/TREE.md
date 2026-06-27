@@ -1,136 +1,120 @@
 # TREE — solmax
 
+owner_approved:
+  status: true
+  evidence:
+    - '2026-06-24: owner approved resetting Zaratusta TREE to root-only before a fresh evidence-led map.'
+    - '2026-06-26: owner approved g-zara-operate as a 4-child first-node split; first child is g-zara-operate-contract.'
+
+tree_validity:
+  state: operate_first_node_split_approved
+  note: |
+    The former kernel-first seven-node map is not executable. Its nodes and
+    architecture remain evidence in history/s-map-001.md and related files.
+
+    Zaratusta now starts with the LifeReset-derived operating-manager outcome
+    as a bounded first node, split into four child outcomes. The first child
+    routes to converge before any implementation.
+
 root:
   id: g-zara
+  status: shaped
   goal: |
-    Zaratusta — a personal, deeply personalized AI exocortex the owner actually relies on
-    deeply across several areas of life and work, built on a tiny, endlessly extensible
-    core (the Registry-Ledger Kernel), growing toward the full EXOCORTEX vision.
-
-  why: |
-    The direction's top-level outcome: a real personal "second brain" that compounds —
-    depth and real daily use on a kernel that stays small while capabilities accrete —
-    not a perpetual core draft (the worst-failure this direction guards against).
-
+    Zaratusta — a personal, deeply personalized AI exocortex the owner actually
+    relies on deeply across several areas of life and work, built to accumulate
+    trustworthy capabilities and grow toward the full EXOCORTEX vision.
   done_when: |
-    All hold (SC1 ∧ SC2 ∧ SC3), unless the charter is later revised in a review session:
+    All hold unless the charter is explicitly revised:
 
-    1. The owner relies on Zaratusta deeply and recurringly in at least 3 distinct
-       areas of life/work (real use, not feature count).
+    1. The owner relies on Zaratusta deeply and recurringly in at least
+       3 distinct areas of life/work.
 
-    2. At least several live capabilities (orientation: ≥8) span all four extension
-       axes — tool, channel, memory, process — each added with ~zero kernel diff.
+    2. Several live capabilities span tool, channel, memory and process axes
+       without requiring repeated core redesign.
 
-    3. At least one real, hard process the owner judges clearly better than a plain
-       ChatGPT/Claude session (multi-step, personalized, priority-aware).
-
-  status: active
-
+    3. At least one real hard process is judged by the owner clearly better
+       than a plain ChatGPT/Claude session: multi-step, personalized and aware
+       of his actual priorities.
+  why: |
+    This is the enduring Zaratusta outcome. The LifeReset-derived operating
+    manager is the first proving phase, not a separate root or product.
   children:
-
-    - id: g-kernel
-      goal: |
-        Крошечное ядро RLK существует и доказано расширяемо (3-й плагин = 0 строк диффа ядра).
-      done_when: |
-        Ровно 5 частей и не больше: (1) Capability Registry; (2) append-only JSONL-ledger
-        (schema_version + зарезервированный upcaster); (3) типизир. конверт CALL/RESULT +
-        boundary-валидатор; (4) effect-tier gate (0/1/2 → owner-approval); (5) швы Engine + Store.
-        Тест 0-дифф зелёный в CI; replay-тест (записать→прочитать→восстановить); gate-тест
-        (tier-2 без аппрува отклонён).
-      why: механизм SC2 + предохранитель от «вечного черновика» (pre-mortem #1).
-      detail: history/s-map-001.md
-      appetite: "1 calendar week / 3 focused executor-sized increments; no extension"
-      kill_by: "2026-06-22: kill/review if W0 acceptance cannot be made green without a 6th kernel part, if third plugin requires kernel edits, or if repo setup/CI is still absent."
-      shaped_detail: history/s-shape-001.md
-      status: active
-      children: []
-
-    - id: g-engine
-      goal: |
-        Когнитивный движок на подписках работает надёжно (claude -p + codex за швом Engine)
-        с защитой от credit-cliff.
-      done_when: |
-        Вызовы идут через шов Engine (форс JSON-Schema); учёт бюджета/кредита; failover-тест
-        без потери CALL; исчерпание = видимое залогированное событие (не тихий останов);
-        подмена адаптера (позже на API) = 0 диффа ядра.
-      why: без мозга ничего не живёт; снимает pre-mortem #5 (credit-cliff).
-      detail: history/s-map-001.md
+    - id: g-zara-operate
       status: parked
-      children: []
-
-    - id: g-channel
       goal: |
-        Первый лёгкий канал (Telegram/голос) живёт и фиксирует контракт канала.
+        Zaratusta operates as the owner's real Personal Operating System:
+        it coordinates week/day rhythm, intake, planning, execution support,
+        review, durable context and evidence-gated evolution with deep
+        personalization and safe manager authority.
       done_when: |
-        Канал = плагин kind:channel (вход → типизир. конверт → ответ тем же каналом);
-        контракт канала заморожен (2-й канал = 0 диффа); всё через ledger + effect-tier gate;
-        реальный dogfood-smoke (≥1 живой запрос с телефона).
-      why: ранний dogfood вне IDE → старт SC1; открывает ось «канал».
-      detail: history/s-map-001.md
-      status: parked
-      children: []
-
-    - id: g-surface
-      goal: |
-        Веб-приложение-дом, где живут ассистент и инструменты и где владелец работает
-        вместе с ним (общая доска, канбан).
-      done_when: |
-        Запущенное веб-приложение (общение + ≥1 общий инструмент вживую); зарегистрировано
-        как kind:surface (2-я панель = 0 диффа); co-work-smoke (оба меняют один артефакт);
-        всё через ledger + gate; реальный dogfood на ≥1 настоящей задаче.
-      why: место, где «живёшь» → SC1 + SC3; открывает ось «поверхность» (5-й вид, доп. доказательство SC2).
-      detail: history/s-map-001.md
-      status: parked
-      children: []
-
-    - id: g-cognition
-      goal: |
-        Когнитивный цикл (сбор контекста + многошаговый цикл) как плагин #1 даёт глубокую
-        помощь явно лучше обычного чата.
-      done_when: |
-        Плагин kind:process (контекст → ресёрч → рассуждение → самопроверка → результат);
-        на ≥1 реальной задаче владелец признаёт «явно лучше» обычной сессии (head-to-head,
-        записан); многошаговость и персонализация видны из ledger; 2-й процесс = 0 диффа.
-      why: прямо SC3 («мега-мозг»), не обёртка чата (pre-mortem #4).
-      detail: history/s-map-001.md
-      status: parked
+        The owner can rely on Zaratusta as a personal operating manager in
+        real recurring use: it maintains trustworthy operating context,
+        routes intake, supports week/day planning and review, preserves
+        decisions and evidence, and evolves its processes without hidden
+        assumptions, OS writes, medical/psychiatric/nutrition/training
+        prescriptions, silent spend or irreversible/external actions.
+      why: |
+        This is the owner-approved first Zaratusta node: the LifeReset-derived
+        operating manager becomes a real personal system, not a PoC, before
+        broader exocortex expansion.
       children:
-
-        - id: g-megabrain
-          goal: |
-            Продвинутый «мега-мозг»: генеративный UI (сам собирает виджеты); обучение на
-            реакциях (дофамин / prediction-error); размышление во сне → только хорошие идеи;
-            омниканальное «тело».
-          done_when: |
-            Раскрывается в будущей map при активации (сейчас не детализируется).
-          why: полная EXOCORTEX-планка; открываем только после реального использования базы (pre-mortem #7, G8).
-          detail: history/s-map-001.md
+        - id: g-zara-operate-contract
           status: parked
-          children: []
+          goal: |
+            The operating manager has a signed authority and entity contract:
+            what it may decide, ask, propose, route, refuse or escalate is
+            explicit across owner entities, work/life domains, horizons and
+            effect tiers.
+          done_when: |
+            A closed WHAT spec defines manager authority, effect tiers,
+            entity model, horizon model, escalation rules and forbidden
+            prescription zones; implementation can build against it without
+            guessing powers or scope.
+          why: |
+            Every later operating feature depends on whether the manager is
+            allowed to act, remember, ask, change state or only advise.
 
-    - id: g-memory
-      goal: |
-        Память живёт: эпизодическая поверх ledger → семантическая/RAG (→ SQLite-fold по объёму).
-      done_when: |
-        Эпизодическая (верно ссылается на прошлые сессии); семантическая (recall по смыслу
-        без совпадения слов); kind:memory (2-й вид = 0 диффа); smoke: процесс измеримо лучше
-        благодаря памяти.
-      why: персонализация и накопление; питает g-cognition / g-megabrain; открывает ось «память».
-      detail: history/s-map-001.md
-      status: parked
-      children: []
+        - id: g-zara-operate-state
+          status: parked
+          goal: |
+            Zaratusta has durable operating state and context that are
+            auditable, recoverable and separate from the Direction OS writer.
+          done_when: |
+            The system can persist and replay operating facts, decisions,
+            source links, open loops and context summaries in its own state;
+            it can read the workflow OS only as a source and cannot write it;
+            recovery and audit are demonstrable.
+          why: |
+            A personal operating system is not real if it forgets, invents
+            continuity or corrupts the external OS state.
 
-    - id: g-accrete
-      goal: |
-        Возможности накапливаются по осям до ≥8 живых при 0 диффе (инструменты + триггеры
-        процессов; чтение OS read-only).
-      done_when: |
-        ≥8 используемых способностей по осям, каждая register()+handler при 0 диффе; живут
-        доска + канбан + ≥1 app-коннектор + чтение OS (жёстко read-only, протестировано,
-        не пишет); триггеры manual/schedule(cron-MCP)/event; владелец реально пользуется несколькими.
-      why: SC2 вширь + бытовые инструменты → SC1.
-      detail: history/s-map-001.md
-      status: parked
-      children: []
+        - id: g-zara-operate-runtime
+          status: parked
+          goal: |
+            The owner can actually run week/day/intake/planning/execution/review
+            through Zaratusta in ordinary use.
+          done_when: |
+            A minimal operating loop handles real owner intake, produces and
+            revises week/day operating packets, tracks open loops, supports
+            execution review, and is judged by the owner more useful than a
+            plain chat for this operating rhythm.
+          why: |
+            Daily use and dogfood are the guard against another abstract core
+            draft; runtime is where the manager proves value.
+
+        - id: g-zara-operate-evolution
+          status: parked
+          goal: |
+            The operating manager improves its processes through explicit
+            review, research and evidence-gated change rather than hidden
+            self-mutation.
+          done_when: |
+            Reviews create accepted facts, rejected changes, research calls
+            and proposed process updates with evidence; capabilities evolve
+            by bounded registration/handler increments, not kernel churn or
+            silent prompt edits.
+          why: |
+            The system must grow toward the full exocortex without becoming
+            an unbounded bet or uncontrolled self-rewrite.
 
 END_OF_FILE: live/solmax/TREE.md

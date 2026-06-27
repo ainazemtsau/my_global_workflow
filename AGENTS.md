@@ -26,7 +26,9 @@ This repository is the **Direction OS** — the owner's workflow system. Rules: 
 
 ## Codex: how to work this OS
 
-When running as **Codex** in this repo, you are a Direction-OS session/writer like any other coding agent. Three rules:
+When running as **Codex** in this repo, you are a Direction-OS session/writer like any other coding agent. Four rules:
+
+0. **Protocol lock comes before all Codex chatter.** For any Direction OS session input, the FIRST owner-facing line must be the `📍 ...` opening-contract header from `direction-os` — no skill-announcement, apology, summary, or "I'll read files" line may precede it. If a generic Codex skill rule asks you to announce the skill, the opening-contract header satisfies the announcement; any extra "using direction-os" note goes after the header. During an active leg, do not use the app's final answer as an ordinary progress answer: final = terminal RESULT/checkpoint only. If you cannot produce a RESULT yet, keep working in commentary or ask the required owner question.
 
 1. **Follow the direction-os skill.** The job-recognition table and hard rules above are authoritative. For the full procedure load the `direction-os` skill (`.agents/skills/direction-os/SKILL.md`) — it points at `os/KERNEL.md`, the play, and `os/adapters/coding-agent.md` (the binding authority for the writer's validate-before-apply checks). Read state from `live/<id>/`; write state ONLY via a RESULT's `state_changes`.
 
