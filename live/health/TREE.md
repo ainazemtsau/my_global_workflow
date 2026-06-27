@@ -205,7 +205,15 @@ root:
         - Специализированные приложения допустимы как интерфейсы: Hevy-like для силовых,
           Strava-like для велосипеда, VR/wearable summaries для активности. Direction OS получает
           только summary, проблемы, решения и следующие CALL, не raw logs.
-      status: parked
+      status: active
+      appetite: 7 calendar days
+      kill_by: >
+        2026-07-03. Kill/review if by this date Health AI does not have an owner-approved
+        thin-but-functional training/activity domain v0 that can produce an evidence-backed
+        training program, current-week slice, today's session brief, normalized logging/import
+        route, basic guided route, status/advice/substitution handling, basic review/handoff
+        contour, and owner-operated acceptance without violating W1-W20, TA-CA1..TA-CA12,
+        Direction OS raw-data boundary, D-kernel-1, or the setup/body evidence split.
       children: []
 
 END_OF_FILE: live/health/TREE.md

@@ -116,4 +116,14 @@ c-health-training-activity-converge-001.
 2026-06-26 — health/g-health-training-activity-system converge-arch: §CONTRACTS TA-CA1..TA-CA12 closed for core/kernel, nutrition, specialist tools/input, Direction OS, setup/body evidence split, and WA-K8 proof topology; heavy decomposition found no required sub-node; A1-A5 architecture-on-paper closed with owner_gate_batch=[]; guided-session durability compatible via checkpoint-as-job-boundary; next converge-verify. → history/2026-06-26-s-health-training-activity-converge-arch-001.md
 2026-06-26 — health/g-health-training-activity-system converge-verify: PASS; W1-W20, TA-CA1..TA-CA12 and A1-A5 survived independent refutation; contract_coverage complete, arch_open 0, architecture context-only; next route shape. → history/2026-06-26-s-health-training-activity-converge-verify-001.md
 
+2026-06-26 — health/g-health-training-activity-system shape: owner-approved bet b-health-training-activity-domain-v0-001 activated; revised thin-but-functional training/activity v0 scope set with dynamic evidence/deep-research requirement, no hardcoded research/question/program template, 3 tasks, kill_by 2026-07-03; next t-1 executor for thin authority/program/week/session-brief path. → history/2026-06-26-s-health-training-activity-shape-002.md
+
+2026-06-26 — health training/activity t-1 executor repair: prior RESULT was not applied; t-1 remains active with explicit blocker/unblock_when and corrected outcome-only continuation CALL; repair play_check now covers all five repair steps.
+
+2026-06-27 — health training/activity t-1 work: Health AI c1bf61e durably saved ACTIVE training/activity authority, ACTIVE cursor, current-week and what-today reduced projections; checks pass; t-1 remains active awaiting fresh verifier before done. → history/2026-06-27-s-health-training-activity-t1-active-boundary-repair-001.md
+
+2026-06-27 — health training/activity t-1 verifier correction: previous un-applied blocker verdict superseded by owner instruction; c1bf61e accepted for continuation, t-1 marked done, evidence-currentness wording retained as later quality note, next route t-2 development. → history/2026-06-27-s-health-training-activity-t1-verifier-owner-correction-001.md
+
+2026-06-27 — health/g-health-training-activity-system/t-2 work: health-ai 8aa14f8 added the training/activity operational contour; normalized LOG/import/guided/status/review/handoff evidence passes; no raw data/body execution claimed; next t-3 owner-operated acceptance. → history/2026-06-27-s-health-training-activity-t2-executor-001.md
+
 END_OF_FILE: live/health/LOG.md
