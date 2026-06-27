@@ -79,7 +79,7 @@ tasks:
       evidence-backed program creation, gate compatibility, and session-brief correctness before t-1
       is accepted as done.
   - id: t-2
-    status: pending
+    status: done
     kind: executor
     repo: ainazemtsau/health-ai
     goal: >
@@ -169,17 +169,15 @@ recurring:
 decisions: []
 
 next: |
-  CALL c-health-training-activity-domain-v0-t2-executor-001
-  to: executor
+  CALL c-health-training-activity-domain-v0-t3-guide-001
+  to: session
   direction: health
+  play: guide
   node: g-health-training-activity-system
-  task: t-2
-  repo: ainazemtsau/health-ai
-  kind: engineering
+  task: t-3
   goal: |
-    Training/activity has a basic operational contour: normalized logging,
-    screenshot/export/text/voice import, basic guided route, status/advice/
-    substitution handling, review decision and nutrition handoff.
+    Owner-operated acceptance proves the training/activity v0 contour is usable
+    enough to start training and preserves a ready body-execution route.
   context: |
     Direction OS state:
     - live/health/NOW.md
@@ -187,76 +185,57 @@ next: |
     - live/health/history/2026-06-26-s-health-training-activity-shape-002.md
     - live/health/history/2026-06-27-s-health-training-activity-t1-active-boundary-repair-001.md
     - live/health/history/2026-06-27-s-health-training-activity-t1-verifier-owner-correction-001.md
+    - live/health/history/2026-06-27-s-health-training-activity-t2-executor-001.md
 
     Product repo:
     - ainazemtsau/health-ai
-    - t-1 accepted for continuation at commit c1bf61e:
-      Activate training activity t1 authority.
+    - t-1 accepted for continuation at commit c1bf61e.
+    - t-2 operational contour committed at 8aa14f8:
+      Add training activity operational contour.
 
-    Existing t-1 surface to preserve:
-    - thin x_training_activity namespace over existing kernel;
-    - one registry-line control-plane attach;
-    - one state-machine instance and one cursor instance;
-    - ACTIVE authority, ACTIVE cursor, current-week projection, and what-today brief;
-    - reduced_mode true;
-    - no raw body execution claim;
-    - no raw workout/activity/pulse/wearable data, screenshots, native exports,
-      or daily session logs in Direction OS;
-    - no second router/lifecycle/gate/writer/job model/scheduler/server/database/
-      background worker.
+    Product evidence to use as pointer, not raw body data:
+    - x_training_activity/programs/active-program.md
+    - x_training_activity/weeks/current-week.md
+    - x_training_activity/briefs/what-today.md
+    - x_training_activity/logs/YYYY-MM-DD.md
+    - x_training_activity/procedures/day-loop.md
+    - x_training_activity/handoffs/training-to-nutrition-demand-context.md
+    - acceptance/x_training_activity/route-equivalence-fixtures.json
+    - acceptance/x_training_activity/thin-slice-evidence-summary.md
 
-    Owner cadence instruction:
-    - Do not add another verifier/repair loop before continuing development.
-    - If wording/evidence labels need later cleanup, capture it and proceed; integrated
-      acceptance will catch real use issues after the contour is built.
+    Current product state is structural/operational evidence only:
+    - reduced_mode remains true;
+    - raw body execution is not claimed;
+    - real owner-operated setup/acceptance and body-execution remain separate.
   boundaries: |
-    Do not reopen t-1 unless implementation directly breaks a t-1 preserved boundary.
-    Do not store raw workout/activity/pulse/wearable data, screenshots, native exports,
-    or daily session records in Direction OS.
-    Do not claim body execution.
-    Do not duplicate router/lifecycle/gate/writer/job model/scheduler/server/
-    database/background worker.
-    Do not weaken W9-W17 or TA-CA4..TA-CA11.
-    W19/TA-CA12 WA-K8 topology remains a later acceptance proof and must not be falsely
-    claimed complete.
-    Direct API integrations for Hevy/Strava/Apple/VR/wearables are explicitly not required.
+    Do not store raw training logs, screenshots, media, native exports,
+    telemetry, wearable data or detailed session notes in Direction OS.
+    Do not represent setup/sample/import evidence as real body-execution proof.
+    Do not claim the first real performed training/activity session is done.
+    Do not edit Health AI internals unless the guide result routes a separate
+    bounded repair/executor CALL.
+    Preserve t-1/t-2 boundaries: no duplicated router/lifecycle/gate/writer/job
+    model/scheduler/server/database/background worker, no direct nutrition
+    internals coupling, no false W19/TA-CA12 WA-K8 completion claim.
   done_when: |
-    Product evidence shows:
-    1. Brief+later-report, specialist screenshot/export/text/voice import, and basic
-       guided route all converge on one normalized training LOG meaning: assigned work,
-       performed work, completion, substitutions/deviations, effort, relevant recovery/
-       pain/safety signals, source/provenance, confidence, safety disposition and
-       review-needed flag.
-    2. Screenshot/external-result path treats media/raw exports as transient input:
-       Health AI extracts candidate facts, shows a readable extraction for owner
-       correction/confirmation, asks only materially useful follow-up questions, then
-       persists only the structured normalized result with source/confidence. Screenshots/
-       media/raw exports are not stored as durable Health AI or Direction OS artifacts.
-    3. Basic guided route can conduct a session by bounded blocks from ACTIVE authority,
-       accept natural language results, shorten/stop for safety, persist recoverable
-       checkpoints/LOG state at lawful job boundaries, and cannot silently rewrite ACTIVE
-       program authority.
-    4. Owner can ask training status/advice/substitution/missed-week questions and Health
-       AI answers from ACTIVE authority, current state and safety rules, not free-form
-       chat memory.
-    5. Training review can emit one bounded decision class: hold, progress, regress,
-       substitute, reduced mode, deload, rebuild, safety escalation or nutrition-review
-       handoff; material patterns mutate or deliberately preserve a named authoritative
-       artifact through the existing review/mutation path.
-    6. Routine training->nutrition coupling uses only coarse planned/actual dated demand,
-       where actual supersedes planned; review-level handoff is bounded. Training does
-       not write nutrition artifacts, nutrition does not read raw training telemetry/files,
-       and neither domain reads/writes the other's internals.
-    7. Direct API integrations for Hevy/Strava/Apple/VR/wearables are explicitly not
-       required; natural-language, screenshot/export and text/voice fallback remains valid.
-    8. W9-W17 and TA-CA4..TA-CA11 are preserved; W19/TA-CA12 WA-K8 topology is preserved
-       as a later acceptance proof and not claimed complete.
-    9. No raw workout/activity/pulse/wearable data, screenshots, native exports or daily
-       session records enter Direction OS state.
+    In a guide session:
+    1. Owner completes training setup or explicitly declines nonessential questions so defaults/unknowns
+       are recorded as revisable according to the Health AI rules.
+    2. Owner reviews and approves or rejects the proposed ACTIVE training program through the existing gate.
+    3. Owner receives a concrete current-week slice and a "what today?" session brief generated from ACTIVE
+       authority.
+    4. Owner tests at least one result-capture path enough to verify it is understandable and correctable:
+       brief+later-report OR screenshot/export/text/voice import OR basic guided route.
+    5. Direction OS receives only strategic summary/problem/decision/evidence pointer/next CALL, not raw
+       session details, screenshots or telemetry.
+    6. A next body-execution CALL is ready: first real performed training/activity session reaches Health AI
+       normalized LOG with safety/recovery feedback and next adjustment/review state.
+    7. Setup/sample/import evidence is not represented as body-proven evidence; real physical execution
+       remains separate per W20.
   return: |
-    RESULT with product commit, changed files, check output, evidence matrix, any captured
-    later-cleanup notes, and next CALL. State explicitly that raw data/body execution were
-    not claimed and t-3 owner-operated acceptance is not started here.
-  budget: one executor session
+    RESULT with owner acceptance verdict, evidence pointer to Health AI outputs,
+    explicit raw-data boundary statement, and next body-execution CALL or bounded
+    repair/decision CALL.
+  budget: one guide session
 
 END_OF_FILE: live/health/NOW.md

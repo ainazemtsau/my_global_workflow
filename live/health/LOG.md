@@ -124,4 +124,6 @@ c-health-training-activity-converge-001.
 
 2026-06-27 — health training/activity t-1 verifier correction: previous un-applied blocker verdict superseded by owner instruction; c1bf61e accepted for continuation, t-1 marked done, evidence-currentness wording retained as later quality note, next route t-2 development. → history/2026-06-27-s-health-training-activity-t1-verifier-owner-correction-001.md
 
+2026-06-27 — health/g-health-training-activity-system/t-2 work: health-ai 8aa14f8 added the training/activity operational contour; normalized LOG/import/guided/status/review/handoff evidence passes; no raw data/body execution claimed; next t-3 owner-operated acceptance. → history/2026-06-27-s-health-training-activity-t2-executor-001.md
+
 END_OF_FILE: live/health/LOG.md
