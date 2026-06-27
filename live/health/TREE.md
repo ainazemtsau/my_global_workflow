@@ -1,5 +1,10 @@
 # TREE — health
 
+owner_approved: true
+approval_evidence: >
+  Owner accepted training/activity v0 launch in t-3 with "Запускаем"; this review verifies
+  the bet as met and closes the node without adding a new TREE node.
+
 root:
   id: g-health-root
   goal: >
@@ -180,6 +185,11 @@ root:
 
     - id: g-health-training-activity-system
       goal: >
+        (DONE 2026-06-27 — training/activity v0 release accepted for personal Health AI use.
+        Health AI @8aa14f8 has thin x_training_activity domain, ACTIVE reduced authority,
+        current-week/what-today projections, normalized LOG/import/guided/status/review/handoff
+        contour. First real performed session is not claimed; raw training/body execution data stay
+        outside Direction OS.)
         Тренировки и активность внедрены в Health AI System КАК МОДУЛЬ НА ЯДРЕ g-health-core
         (с кросс-модульным обменом с питанием: белок/калории под объём, фаза/deload): силовая
         работа, conditioning, VR-активности, велосипед, gameful/competitive loops, safety gates и
@@ -205,7 +215,7 @@ root:
         - Специализированные приложения допустимы как интерфейсы: Hevy-like для силовых,
           Strava-like для велосипеда, VR/wearable summaries для активности. Direction OS получает
           только summary, проблемы, решения и следующие CALL, не raw logs.
-      status: active
+      status: done
       appetite: 7 calendar days
       kill_by: >
         2026-07-03. Kill/review if by this date Health AI does not have an owner-approved
