@@ -444,16 +444,23 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       shader configured by DATA — new ordinary gas = author one GasTypeDefinition asset + register it (editor-validated),
       NO per-type shader, NO code. 3 owner decisions ratified (structure-first; 3 param-extreme test fixtures, no
       neutral/roster; reserve special-gas seam, look-only v1). Two channels: steady BODY + event-driven WARNING
-      telegraph (separate layer, not idle spark). DE-RISKED BUILD SEQUENCE (steps 0-6, each owner-visible on FAKE data;
-      doc §7): STEP 0 = MIN-SPEC PERF SPIKE FIRST (the #1 unknown — does a grid-fed raymarch fit frame budget on a weak
-      GPU + does it support the optional compute/VFX path? measured on real hardware BEFORE any authoring).
-      RECOMMENDED next leg = build-step 0 as an executor leg in GasCoopGame_dev (PLAN → fake-data perf spike) —
-      OWNER-GATED: he reviews the structure + greenlights, and a real min-spec target / quality-tier knob is confirmed
-      when the CALL is authored (his dev rig is OPTIMISTIC — judge vs the weak-target budget). DECISION OPEN
-      d-visual-buildstep0-001 (proceed to step 0 vs adjust the structure first; rec = proceed). Decoupled from the
-      engine: develop on fake data now, swap to the real authoritative INTEGER layered grid (g-9c41) later with ZERO
-      visualizer change. Honest open unknowns + over-engineering guardrails = doc §8. Builds on
-      work/gas-visual-research-2026-06-21.md (layered read-only arch + raymarch/VFX paths — carried, NOT relitigated).
+      telegraph (separate layer, not idle spark). d-visual-buildstep0-001 ANSWERED 2026-06-26 (owner = ADJUST,
+      s-visual-003): min-spec perf is NOT a front gate and is NOT measured first — owner has NO min-spec machine, and a
+      perf number does not change the architecture (only tuning knobs, or worst-case a later BODY-rendering-technique
+      swap the read-only seam makes cheap). FIRST GOAL = a WORKING visual on the owner's HOME machine; perf = a LATER
+      optimization pass once the visual exists + target audience HW is known. Cheap safeguards from day one: 2 body knobs
+      (resolution scale + step count) + a free NON-GATING rough frame-cost reading on the home machine; body stays behind
+      the seam (swappable). NAMED DEFERRED RISK: raymarch body may be too heavy for the eventual min-spec → body
+      technique swapped later (bounded — decoupling preserves data model / authoring / warning / 3 gases). ADJUSTED BUILD
+      SEQUENCE (FAKE data, on home; doc §7): step 1 seam+buffer-contract+stride-gate → step 2 three gases from DATA
+      (+ forgot-to-register guard) → step 3 many-types overlap + OWNER-EYE readability bar → step 4 warning channel
+      (telegraph through the gas) → step 5 reserve the bare special-gas hook → step 6 (LATER) real-engine swap
+      (fake→real INTEGER grid g-9c41, ZERO visualizer change). RECOMMENDED next leg = author the build-step-1 executor
+      CALL (the working-visual-on-home leg: seam+buffer-contract on fake data) for a fresh GasCoopGame_dev session.
+      RECONCILED 2026-06-26: engine S0 is now DELIVERED (s-work-019) so the real RN1 read-seam already EXISTS for the
+      later step-6 swap — but the plan stays fake-data-first per the owner. Honest unknowns + over-engineering guardrails
+      = doc §8. Builds on work/gas-visual-research-2026-06-21.md (layered read-only arch + raymarch/VFX paths — carried,
+      NOT relitigated).
     note: |
       Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
       (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
