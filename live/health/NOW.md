@@ -35,7 +35,7 @@ active_bet:
 
 tasks:
   - id: t-1
-    status: active
+    status: done
     kind: executor
     repo: ainazemtsau/health-ai
     goal: >
@@ -78,16 +78,6 @@ tasks:
       A separate review/work session or verifier must try to refute thin-domain attach, no-hardcode
       evidence-backed program creation, gate compatibility, and session-brief correctness before t-1
       is accepted as done.
-    blocker: >
-      t-1 product implementation evidence now exists in ainazemtsau/health-ai at
-      commit c1bf61e, but t-1 is not accepted as done until a fresh verifier
-      session refutes or accepts the product evidence against done_when items 1-10.
-    unblock_when: >
-      A separate verifier/review work session checks Health AI commit c1bf61e,
-      changed files, `python tools/check_training_activity_thin_slice.py` output,
-      `python tools/check_kernel_spine.py` output, and the acceptance matrix; it
-      either marks t-1 done with evidence or names the first remaining blocker.
-
   - id: t-2
     status: pending
     kind: executor
@@ -179,66 +169,94 @@ recurring:
 decisions: []
 
 next: |
-  CALL c-health-training-activity-domain-v0-t1-verifier-001
-  to: session
+  CALL c-health-training-activity-domain-v0-t2-executor-001
+  to: executor
   direction: health
-  play: work
   node: g-health-training-activity-system
-  task: t-1
+  task: t-2
+  repo: ainazemtsau/health-ai
+  kind: engineering
   goal: |
-    A verifier verdict exists for whether Health AI commit c1bf61e satisfies
-    training/activity t-1 done_when items 1-10 or needs another repair before
-    any t-2 breadth work.
+    Training/activity has a basic operational contour: normalized logging,
+    screenshot/export/text/voice import, basic guided route, status/advice/
+    substitution handling, review decision and nutrition handoff.
   context: |
-    Product repo: C:\my_global_workflow_worktrees\health-ai
-    Product commit: c1bf61e Activate training activity t1 authority
-    Product branch: codex/health-training-activity-t1
+    Direction OS state:
+    - live/health/NOW.md
+    - live/health/TREE.md
+    - live/health/history/2026-06-26-s-health-training-activity-shape-002.md
+    - live/health/history/2026-06-27-s-health-training-activity-t1-active-boundary-repair-001.md
+    - live/health/history/2026-06-27-s-health-training-activity-t1-verifier-owner-correction-001.md
 
-    Changed files:
-    - acceptance/x_training_activity/thin-slice-evidence-summary.md
-    - acceptance/x_training_activity/thin-slice-matrix.json
-    - tools/check_training_activity_thin_slice.py
-    - x_training_activity/briefs/what-today.md
-    - x_training_activity/programs/active-program.md
-    - x_training_activity/programs/proposed-program.md
-    - x_training_activity/runtime/cursor.md
-    - x_training_activity/runtime/state-machine.md
-    - x_training_activity/weeks/current-week.md
+    Product repo:
+    - ainazemtsau/health-ai
+    - t-1 accepted for continuation at commit c1bf61e:
+      Activate training activity t1 authority.
 
-    Executor check output from committed state:
-    - `python tools/check_training_activity_thin_slice.py`: PASS; rows 10 pass,
-      active program ACTIVE, cursor ACTIVE with reduced_mode true and raw body
-      execution false, current-week and what-today ACTIVE-derived reduced
-      projections, forbidden infrastructure absent, raw body execution claims
-      absent.
-    - `python tools/check_kernel_spine.py`: PASS; WA-K1/2/3/4/5/7/9/10/11/12
-      GREEN, WA-K6 and WA-K8 RED-DEFERRED as before.
+    Existing t-1 surface to preserve:
+    - thin x_training_activity namespace over existing kernel;
+    - one registry-line control-plane attach;
+    - one state-machine instance and one cursor instance;
+    - ACTIVE authority, ACTIVE cursor, current-week projection, and what-today brief;
+    - reduced_mode true;
+    - no raw body execution claim;
+    - no raw workout/activity/pulse/wearable data, screenshots, native exports,
+      or daily session logs in Direction OS;
+    - no second router/lifecycle/gate/writer/job model/scheduler/server/database/
+      background worker.
 
-    Same-session subagent reviewer pre-pass found and repair closed two blocker
-    gaps before commit: file-checkable owner echo/name/version/date metadata and
-    state-machine reduced-mode exception. This pre-pass is not the binding G5
-    verifier; this CALL is the fresh verifier route.
+    Owner cadence instruction:
+    - Do not add another verifier/repair loop before continuing development.
+    - If wording/evidence labels need later cleanup, capture it and proceed; integrated
+      acceptance will catch real use issues after the contour is built.
   boundaries: |
-    Do not start t-2.
-    Do not modify Health AI except to report a verifier finding.
-    Do not store raw workout/session/activity/pulse/wearable data, screenshots,
-    native exports, or daily session details in Direction OS.
+    Do not reopen t-1 unless implementation directly breaks a t-1 preserved boundary.
+    Do not store raw workout/activity/pulse/wearable data, screenshots, native exports,
+    or daily session records in Direction OS.
     Do not claim body execution.
     Do not duplicate router/lifecycle/gate/writer/job model/scheduler/server/
     database/background worker.
-    Keep reduced_mode true unless the product has valid evidence and safety
-    basis to change it.
+    Do not weaken W9-W17 or TA-CA4..TA-CA11.
+    W19/TA-CA12 WA-K8 topology remains a later acceptance proof and must not be falsely
+    claimed complete.
+    Direct API integrations for Hevy/Strava/Apple/VR/wearables are explicitly not required.
   done_when: |
-    A fresh verifier RESULT gives:
-    1. verdict: t-1 accepted done or first blocker named;
-    2. evidence against done_when items 1-10;
-    3. explicit statement that t-2 is still not started by this verifier CALL;
-    4. if accepted, state_changes may mark t-1 done and route the next pending
-       task; if not accepted, state_changes keep t-1 active with the blocker.
+    Product evidence shows:
+    1. Brief+later-report, specialist screenshot/export/text/voice import, and basic
+       guided route all converge on one normalized training LOG meaning: assigned work,
+       performed work, completion, substitutions/deviations, effort, relevant recovery/
+       pain/safety signals, source/provenance, confidence, safety disposition and
+       review-needed flag.
+    2. Screenshot/external-result path treats media/raw exports as transient input:
+       Health AI extracts candidate facts, shows a readable extraction for owner
+       correction/confirmation, asks only materially useful follow-up questions, then
+       persists only the structured normalized result with source/confidence. Screenshots/
+       media/raw exports are not stored as durable Health AI or Direction OS artifacts.
+    3. Basic guided route can conduct a session by bounded blocks from ACTIVE authority,
+       accept natural language results, shorten/stop for safety, persist recoverable
+       checkpoints/LOG state at lawful job boundaries, and cannot silently rewrite ACTIVE
+       program authority.
+    4. Owner can ask training status/advice/substitution/missed-week questions and Health
+       AI answers from ACTIVE authority, current state and safety rules, not free-form
+       chat memory.
+    5. Training review can emit one bounded decision class: hold, progress, regress,
+       substitute, reduced mode, deload, rebuild, safety escalation or nutrition-review
+       handoff; material patterns mutate or deliberately preserve a named authoritative
+       artifact through the existing review/mutation path.
+    6. Routine training->nutrition coupling uses only coarse planned/actual dated demand,
+       where actual supersedes planned; review-level handoff is bounded. Training does
+       not write nutrition artifacts, nutrition does not read raw training telemetry/files,
+       and neither domain reads/writes the other's internals.
+    7. Direct API integrations for Hevy/Strava/Apple/VR/wearables are explicitly not
+       required; natural-language, screenshot/export and text/voice fallback remains valid.
+    8. W9-W17 and TA-CA4..TA-CA11 are preserved; W19/TA-CA12 WA-K8 topology is preserved
+       as a later acceptance proof and not claimed complete.
+    9. No raw workout/activity/pulse/wearable data, screenshots, native exports or daily
+       session records enter Direction OS state.
   return: |
-    RESULT with verifier verdict, evidence matrix, state_changes for t-1 only,
-    and next CALL. State whether evidence is a binding fresh verifier or only a
-    same-session pre-pass.
-  budget: one verifier session
+    RESULT with product commit, changed files, check output, evidence matrix, any captured
+    later-cleanup notes, and next CALL. State explicitly that raw data/body execution were
+    not claimed and t-3 owner-operated acceptance is not started here.
+  budget: one executor session
 
 END_OF_FILE: live/health/NOW.md
