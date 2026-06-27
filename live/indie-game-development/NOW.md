@@ -3,6 +3,19 @@
 active_bet:
   node: g-9c41
   phase: |
+    ✅ 2026-06-26 (s-work-021, work/triage — 2 Codex P2s from the c-exec-015 STEP-0 build routed home + DECIDED, verified
+    FIRST-HAND in dev code): #1 d-bias-quantum-001 — VoxelFaceFlow.cs:66 `biasMove = bias*conductivity/kpEff` divides the
+    FORCING bias by the gradient's RELAXATION damper (kpEff=12*spf) → strength<~12 truncates to 0 = a weak kick/vent is a
+    SILENT no-op. A bias-CARRY was correctly rejected by the builder (would move mass at zero gradient → breaks settling).
+    DECISION: a non-zero bias on an open face must never silently no-op → a guaranteed signed ±1 floor (parallel to "a slit
+    never seals to 0"), conservation + in-checksum + still passes the Step-0 settle oracle; independent RED test first.
+    #2 d-rw3-step-atomicity-ledger-001 — RW3 Test-4 is ledgered as "throwing Step is atomic" but forces the throw on
+    SeedMass (not Step) and even asserts the checksum CHANGES. NOT a live bug (Step is atomic by construction; its overflow
+    guard is UNREACHABLE at MaxCellMass=1<<24, max inflow ≪ int range) but a ledger-honesty gap. DECISION: test-author
+    either exercises a real throwing Step via a seam (assert field byte-unchanged) OR renames to its true coverage +
+    discharges Step-atomicity by construction + corrects the ledger row — no silent overclaim. Both fold into the in-flight
+    c-exec-015 STEP-0 (RED-first; not builder patches). hygiene-red = builder housekeeping. next = build session continues
+    STEP-0 with the 2 corrections. CONTINUE IN A FRESH SESSION.
     ✅ 2026-06-26 (s-work-020, work/reshape — S1 REFRAMED to FORCED-FLOW after a deep-research, owner «ок»): owner pushed
     back that gas richness must not be a hard compromise (газ = «сердце»), and that geometry-splitting + an event-impulse
     + fixed-point are all viable. A deep-research workflow (work/gas-richness-deep-research-2026-06-26.md; 20 agents,
@@ -499,7 +512,7 @@ open_calls:
       AMD) is ABOVE average and gas-sim is CPU not GPU → measurements OPTIMISTIC; judge vs the weak-target budget (~200k-cell
       comfort ceiling on a weak core), NOT "smooth on my rig". FIRST build sub-task = hangar probe + the monotone-B oracle RED.
   - id: c-exec-015
-    status: queued   # REFRAMED 2026-06-26 (s-work-020, owner «ок») — S1 FORCED-FLOW SLICE (impulse-events + decaying directional bias: выброс + выдавливание + ветер as first cases). Was the «выброс+выдавливание» framing (s-work-019); reframed per deep-research (work/gas-richness-deep-research-2026-06-26.md, "Forced-Flow Hybrid", adversarially verified). CALL REWRITTEN → work/c-exec-015-call.md (build-ready). Opens with a PLAN (owner present, §Re-sync v8→current FIRST), STEP-0 DE-RISK SPIKE FIRST. RESULT applied home by a separate OS writer.
+    status: in_flight   # IN FLIGHT (STEP-0 spike, dev): 2 Codex P2s routed home + DECIDED 2026-06-26 (s-work-021), verified first-hand in code — d-bias-quantum-001 (weak bias must not silently no-op → ±1 floor, RED-first) + d-rw3-step-atomicity-ledger-001 (RW3 Test-4 throws on SeedMass not Step → make the ledger honest; overflow guard unreachable, no live bug). hygiene-red = builder housekeeping (untracked Unity files + Assets/_Recovery → commit + clean + rerun -Deliver before close). — REFRAMED 2026-06-26 (s-work-020, owner «ок») — S1 FORCED-FLOW SLICE (impulse-events + decaying directional bias: выброс + выдавливание + ветер as first cases). Was the «выброс+выдавливание» framing (s-work-019); reframed per deep-research (work/gas-richness-deep-research-2026-06-26.md, "Forced-Flow Hybrid", adversarially verified). CALL REWRITTEN → work/c-exec-015-call.md (build-ready). Opens with a PLAN (owner present, §Re-sync v8→current FIRST), STEP-0 DE-RISK SPIKE FIRST. RESULT applied home by a separate OS writer.
     note: |
       Executor leg (GasCoopGame, dev→main when green). GOAL: the first DYNAMIC, DIRECTABLE gas via ONE general primitive —
       deterministic integer IMPULSE-EVENTS write a DECAYING directional-bias register, applied on top of the S0 gradient
@@ -794,6 +807,41 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-bias-quantum-001
+    status: answered   # PLANNER-DECIDED 2026-06-26 (s-work-021), verified FIRST-HAND in VoxelFaceFlow.cs:66 (dev). A c-exec-015 STEP-0 finding (Codex P2 #1) routed home; not a builder patch.
+    note: |
+      FINDING (verified): the bias MOVE = `(long)bias * conductivity / kpEff` (line 66), where kpEff = Kp*spf = 12*spf
+      (the GRADIENT's RELAXATION damper). So a valid non-zero bias below ~12 (full face) truncates to 0 → a weak
+      kick/vent is a SILENT no-op (conflicts with the never-seals/valid-impulse-acts contract). Body-vents use huge
+      strength so owner-eye is unaffected; this is an API-contract footgun. A bias-CARRY was correctly REJECTED by the
+      builder (lines 82-86/99-102): banking bias into carry would move mass at ZERO gradient after the bias decays,
+      breaking the "довести фронт до покоя" settle guarantee (ADR-0011 D3).
+      DECISION (policy): a non-zero bias on an OPEN face MUST have a non-zero deterministic effect when mass is available
+      — NEVER a silent no-op. PREFERRED mechanism = a guaranteed signed ±1 floor (if bias≠0 ∧ conductivity>0 ∧
+      truncated biasMove==0 → ±1 in the bias direction, clamped by available mass) — parallel to the gradient's "a slit
+      never seals to 0". NOT a bias-carry. The build MAY instead reconsider whether the FORCING term should be damped by
+      the relaxation kpEff at all (the likely root) — its call, but the ±1 floor is the minimal settle-safe fix.
+      MUST: preserve conservation; integer + in MeaningChecksum + loopback-deterministic; and STILL pass the Step-0
+      monotone-settle oracle (once the bias decays to 0 the system settles — the ±1 acts only in the bounded, decaying
+      forcing window). Independent test-author writes a RED test BEFORE the fix: a weak vent (strength below the current
+      quantum) over N ticks MUST move mass (no silent no-op); TotalMass conserved; settles after the bias ends;
+      deterministic. Document the quantization in the spec (sub-quantum strength still moves the ±1 minimum; no carry).
+  - id: d-rw3-step-atomicity-ledger-001
+    status: answered   # PLANNER-DECIDED 2026-06-26 (s-work-021), verified FIRST-HAND in RW3ConservationAtomicityTests.cs:170-234 (dev). A c-exec-015 STEP-0 finding (Codex P2 #2) routed home; the independent test-author fixes it.
+    note: |
+      FINDING (verified): RW3 Test-4 is ledgered as "throwing VoxelFaceFlow.Step leaves mass/bias/ttl unconsumed" but it
+      forces the throw on SeedMass (line 214), never calls a throwing Step, and even ASSERTS the checksum CHANGES (line
+      224, because EmitImpulse enqueued before the SeedMass throw). So the ledger row overclaims coverage. NOT a live
+      bug: Step IS atomic by construction (all locals computed + validated before the single CommitStep at line 149),
+      AND its overflow guard (line 139) is UNREACHABLE given MaxCellMass=1<<24 (max inflow ≈ 6×16.7M+16.7M ≪ int.MaxValue
+      ~2.1B). It is a gap in the PROOF (honest-ledger defect), not a defect in the code.
+      DECISION (ledger must be honest — the deliverable-exists/honest-ledger invariant): the independent test-author
+      EITHER (a) genuinely exercises a throwing Step via a test SEAM that throws AFTER the bias/queue is computed but
+      BEFORE CommitStep, and asserts the field byte-UNCHANGED (mass/bias/ttl/checksum) — the direct proof; OR (b) RENAMES
+      the current test to its TRUE coverage (SeedMass overflow atomicity + EmitImpulse-before-SeedMass-throw leaves
+      mass/bias unchanged) AND discharges "Step atomicity" by a CONSTRUCTION argument (overflow guard unreachable-by-
+      construction at MaxCellMass=1<<24 + single CommitStep after full validation = structural atomicity), with the
+      ledger row CORRECTED to cite that real evidence. No silent overclaim either way.
   - id: d-gas-richness-tiers-001
     status: answered   # owner-STEERED + owner «ок» 2026-06-26 (s-work-020) on the 3-tier gas-richness model. Basis = deep-research workflow (work/gas-richness-deep-research-2026-06-26.md; 20 agents, web + code, adversarially verified). EXTENDS the locked model (does NOT crack it): adds the impulse-event/directional-bias seam; reserves the two heavier tiers.
     note: |
@@ -1305,11 +1353,19 @@ next: |
   scan over both grids, deliverable-coverage v8 9/9) — verified FIRST-HAND (merge + artifacts). Roadmap steps 1–4 done
   incl. the HANGAR PROBE. The bet ROLLS to S1.
 
-  DO NEXT (owner): open a FRESH GasCoopGame_dev session with work/c-exec-015-call.md — S1 REFRAMED (s-work-020, owner
-  «ок») to the FORCED-FLOW primitive: deterministic integer IMPULSE-EVENTS write a DECAYING directional-bias register on
-  the S0 face-flow → AUTHORITATIVE wind + decaying gust + transient fork-split + one-way-VALVE designed split; выброс +
-  выдавливание + ветер are the first impulse types. Open with a PLAN (owner present, §Re-sync v8→current FIRST). The leg
-  STARTS with a STEP-0 DE-RISK SPIKE (a hard gate, build nothing on a broken base): a RED non-monotone settle oracle
+  IN FLIGHT: the c-exec-015 STEP-0 build (GasCoopGame_dev, dev) is underway and routed home 2 Codex P2s, now DECIDED
+  (s-work-021, verified first-hand): RELAY to the build session — (#1 d-bias-quantum-001) a weak bias must not silently
+  no-op (VoxelFaceFlow.cs:66 divides the forcing bias by the relaxation damper kpEff) → add a guaranteed signed ±1 floor
+  (NOT a bias-carry), RED-first, conservation + in-checksum + still passes the settle oracle; (#2 d-rw3-step-atomicity-
+  ledger-001) RW3 Test-4 throws on SeedMass not Step → make the ledger honest (real throwing-Step seam OR rename + discharge
+  by construction; overflow guard unreachable, no live bug). hygiene-red = builder housekeeping (commit + remove
+  Assets/_Recovery + rerun -Deliver before close). The build then continues STEP-0 → выброс/выдавливание/ветер/valve.
+
+  (c-exec-015 framing, for reference) S1 REFRAMED (s-work-020, owner «ок») to the FORCED-FLOW primitive: deterministic
+  integer IMPULSE-EVENTS write a DECAYING directional-bias register on the S0 face-flow → AUTHORITATIVE wind + decaying
+  gust + transient fork-split + one-way-VALVE designed split; выброс + выдавливание + ветер are the first impulse types.
+  Opens with a PLAN (owner present, §Re-sync v8→current FIRST). The leg STARTS with a STEP-0 DE-RISK SPIKE (a hard gate,
+  build nothing on a broken base): a RED non-monotone settle oracle
   (wind-into-corner-and-back conserves mass + settles + no-oscillate; planted bad-bias control MUST fail) + symmetric
   integer decay + clamp×decay conservation + a 2-process loopback hash incl. CONCURRENT same-face writes (canonical
   order rule) + owner-eye «alive on a forked corridor + vent». Not green → STOP. Then выброс/выдавливание/ветер/valve.
