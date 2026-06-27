@@ -3,6 +3,21 @@
 active_bet:
   node: g-9c41
   phase: |
+    ✅ 2026-06-26 (s-work-020, work/reshape — S1 REFRAMED to FORCED-FLOW after a deep-research, owner «ок»): owner pushed
+    back that gas richness must not be a hard compromise (газ = «сердце»), and that geometry-splitting + an event-impulse
+    + fixed-point are all viable. A deep-research workflow (work/gas-richness-deep-research-2026-06-26.md; 20 agents,
+    web+code, adversarially verified) confirmed it and produced a 3-TIER model, owner «ок» to TIER 1 now (d-gas-richness-
+    tiers-001): TIER 1 (BUILD NOW, no lock-crack) = integer IMPULSE-EVENTS write a DECAYING directional-bias register on
+    the S0 face-flow → AUTHORITATIVE wind + decaying gust + transient fork-split + designed one-way-VALVE split; owner's
+    «split-impulse event» idea = the KEYSTONE (zero new wire). TIER 2 (deferred, ADR, post-sparse) = seeded-int lattice-gas
+    in a few bucket-3 rooms for true emergent vortices; vortices elsewhere = cosmetic g-7e15 fed the bias field. TIER 3
+    (reserved, owner-gated, cracks lock) = fixed-point velocity for true inertia (owner's «float via 2 ints» = real, proven,
+    but bespoke + ADR-0010). 4 verified corrections folded into the CALL (§9.5 face-level-uniform bias; symmetric decay;
+    contraction SUSPENDED→RED oracle gates it; active-set re-measure under forcing). S1 (c-exec-015) REWRITTEN: STEP-0
+    de-risk spike FIRST (RED settle oracle + symmetric decay + loopback hash incl. concurrent same-face writes + owner-eye
+    on a forked corridor+vent), then выброс/выдавливание/ветер as the first impulse types. Honest cap: tier 1 ≠ true
+    inertia / permanent open-volume split / free vortices (those = reserved tiers). next = open the rewritten c-exec-015 in
+    a fresh GasCoopGame_dev session, step-0 spike first. CONTINUE IN A FRESH SESSION.
     ✅ 2026-06-26 (s-work-019, work play — c-exec-014 S0 RETURN APPLIED): S0 FOUNDATION SLICE DELIVERED + CLOSED. The
     layered S0 (c-exec-014, supersedes c-exec-013) is merged GasCoopGame main @824948d (pushed) — verified FIRST-HAND
     (merge + all named artifacts). tools/check.ps1 -Deliver GREEN (799 headless / 0 failed, mutation 77.6% ≥70,
@@ -361,35 +376,40 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       substitute. approach token = voxelizer-grid-faceflow-foundation + feel-grey-box + §9-seams + integer-deterministic-by-construction.
     status: done   # ✅ 2026-06-26 (s-work-019) — S0 DELIVERED as c-exec-014 (layered reshape; supersedes c-exec-013). GasCoopGame main @824948d (merge, pushed) — verified FIRST-HAND (merge + all named artifacts). tools/check.ps1 -Deliver GREEN (799 headless/0 failed, mutation 77.6% ≥70, zero-float scan over both grids, spec-silence, deliverable-coverage v8 9/9); ledger F0a–F12 + Fz/Fcarry/Fg/Fo closed; fresh-session G5 (Sonnet, different family) COULD-NOT-REFUTE on all 6 targets; determinism 5-vector audit SOUND; zero-legacy 3-lens re-audit CLEAN. «точно» = green suite («весело» owner-excluded as non-objective, esc-veselo-excluded-2026-06-26 — playable scenes kept for eyeball-correctness only). Roadmap steps 1–4 delivered incl. the HANGAR PROBE (#1 unmeasured number): 196,608 cells / 24.5 ms-avg-tick (65.5 max) strong-CPU / 1,562 active. Source-of-truth RESULT = GasCoopGame/RESULT.md → saved home history/s-work-019.md. SUPERSEDED t-1/t-2/t-3. The bet rolls to S1.
   - id: S1
-    kind: executor (engineering, GasCoopGame) — DYNAMIC GAS SLICE (выброс-при-спауне + выдавливание телом). Rolls on S0. Netcode-NEUTRAL (wire = S2).
+    kind: executor (engineering, GasCoopGame) — FORCED-FLOW SLICE (impulse-events + directional bias: выброс + выдавливание + ветер as first cases). REFRAMED 2026-06-26 (s-work-020, owner «ок») from "выброс+выдавливание" per deep-research. Rolls on S0. Netcode-NEUTRAL (wire = S2).
     goal: |
-      The first DYNAMIC gas slice on the S0 foundation: gas (a) ERUPTS when a source introduces it (enters under integer
-      pressure / over-fill, pushed outward by the EXISTING S0 face-flow law over ticks, not a 1-tick teleport-fill), and
-      (b) is DISPLACED when a body (player/object) moves into its cells (occupied cells → zero-capacity, displaced integer
-      mass redistributes to valid open neighbours, conserved; body-leave reopens). Owner SEES both on a playable scene.
-      Netcode-NEUTRAL (wire = S2). Stays INSIDE the LOCKED integer face-flow model — NO velocity field / advection /
-      momentum (a need for one = STOP-and-escalate, it reopens SPEC Факт 2). Carries two hardening items
-      (d-overflow-guard-001): H1 class-wide int*int overflow build-scan guard (RED-first, planted control) + H2 the
-      planner-authorized extreme-coordinate spec-silence amendment.
+      The first DYNAMIC, DIRECTABLE gas via ONE general primitive (deep-research "Forced-Flow Hybrid", adversarially
+      verified — work/gas-richness-deep-research-2026-06-26.md): deterministic integer IMPULSE-EVENTS that write a
+      DECAYING directional-bias register, applied on top of the existing S0 gradient face-flow. First cases the owner
+      SEES: (a) ВЫБРОС — a source ejects gas with a directional kick, then settles; (b) ВЫДАВЛИВАНИЕ — a body zeroes its
+      cells + emits a displacement impulse, gas shoved aside + flows around; (c) ВЕТЕР — a sustained directional impulse
+      carries gas down a corridor and SPLITS it at a fork (directionality pure-diffusion S0 could not do) + a face-level
+      one-way VALVE for designed permanent split. Stays INSIDE the LOCKED integer model — the bias is integer / in-checksum
+      / decaying, NOT a stored velocity field. NO float/fixed-point velocity / advection (a RESERVED owner-gated upgrade
+      tier that cracks the lock — a need for one = STOP-and-escalate). Carries d-overflow-guard-001 H1/H2.
     done_when: |
-      OPENS WITH A PLAN (owner present): §Re-sync the GasCoopGame contract v8→current FIRST; ingest S0 + roadmap
-      work/gas-engine-build-roadmap-2026-06-26.md + knowledge/mechanic-lenses.md; classify eruption & displacement
-      ведро-1/2/3. (1) ERUPTION RED suite (independent test-author): mass-conservation under a burst source; the burst
-      SPREADS over ticks then SETTLES to the S0 equilibrium (not a 1-tick fill); monotone-in-pressure; deterministic
-      (integer, zero-float). (2) DISPLACEMENT RED suite: a body entering N cells redistributes EXACTLY the displaced mass
-      to valid open neighbours (zero created/destroyed); occupied cells hold zero gas; body-leave reopens; deterministic.
-      (3) The LAWS live in headless Core/** (Adapters only renders + drives input). (4) H1 guard wired into
-      check.ps1 -Deliver with a planted unguarded-multiply RED control that MUST fail the scan; H2 amendment in the frozen
-      spec (planner-authorized, recorded). (5) check.ps1 -Deliver GREEN (build + headless + zero-float scan + the new
-      int*int scan + mutation ≥70 on new Core + spec-silence incl. coord row + deliverable-coverage). (6) DETERMINISM by
-      construction (integer-only + zero-float scan spans new code; optional loopback hash, one machine). (7) PLAYABLE SCENE:
-      owner spawns a source and watches gas ERUPT + spread; moves a body through gas and watches it get SHOVED ASIDE + flow
-      around — «точно» = the green suite is the discharge; «весело» = owner's separate eyeball (NOT a gate,
-      esc-veselo-excluded). (8) ZERO-LEGACY; transitional debt tracked with delete triggers. STOP-discipline v8 throughout.
-      Binding verify = a FRESH-SESSION G5 (different family) that tries to REFUTE (determinism / conservation /
-      no-silent-substitution / guard soundness / ledger honesty). Build in small owner-PLAYABLE steps. approach token =
-      eruption-overfill + body-displacement-redistribute on the S0 face-flow law + carried-overflow-hardening.
-    status: active   # S1 dynamic-gas slice. FRAMED as c-exec-015 (build-ready; work/c-exec-015-call.md) by s-work-019. Opens with a PLAN (owner present) in a FRESH GasCoopGame_dev session. Closes done ONLY on c-exec-015's GREEN return (-Deliver incl. the new int*int scan + both RED suites + fresh-session G5) — no self-marking; «весело» owner-excluded as a gate (playable scene for eyeball-correctness). next slice = S2 (multiplayer lockstep loopback).
+      OPENS WITH A PLAN (owner present): §Re-sync contract v8→current FIRST; ingest S0 + work/gas-richness-deep-research-
+      2026-06-26.md + mechanic-lenses; classify ведро-1/2/3; set owner-expectation (cheap tier = wind + decaying gust +
+      transient split + designed-valve split; TRUE inertia/free-vortices = reserved tiers). (0) STEP-0 DE-RISK SPIKE FIRST
+      (a hard GATE — build nothing on a broken base; independent test-author): RED non-monotone settle oracle (wind-into-
+      corner-and-back conserves mass + settles + does NOT oscillate; planted bad-bias RED control MUST fail) + SYMMETRIC
+      integer decay rule + clamp×decay conservation + bounded-return-to-quiet cost assertion + 2-process loopback hash with
+      bias in MeaningChecksum incl. CONCURRENT same-face writes (canonical order-independent rule) + owner-eye "alive on a
+      forked corridor + vent". Not green → STOP-and-report. (1) ERUPTION + DISPLACEMENT RED suites (conservation;
+      deterministic; eruption spreads-then-settles; displacement routes around body + body-leave returns to S0 equilibrium).
+      (2) WIND + one-way VALVE (carries gas + splits at fork; valve = permanent no-rejoin where authored; deterministic).
+      (3) LAWS in headless Core/**; bias FACE-LEVEL-UNIFORM only (§9.5 trip-wire — sub-face bitmap stays in StructureGrid;
+      no structure-bitmap import). (4) H1 int*int guard + H2 spec amendment. (5) check.ps1 -Deliver GREEN (build + headless +
+      zero-float scan + new int*int scan + mutation ≥70 on new Core + spec-silence incl. coord row + deliverable-coverage).
+      (6) DETERMINISM by construction (integer-only; bias in checksum; zero-float scan spans new code; loopback hash green).
+      (7) PLAYABLE SCENE (eyeball-correctness, NOT a gate): источник выстреливает+растекается; тело раздвигает газ+обтекание;
+      вентиляция гонит+делит на развилке — «точно» = green suite; «весело» = owner's separate eyeball (esc-veselo-excluded).
+      (8) ZERO-LEGACY. STOP-discipline v8 throughout (incl. any temptation to add a velocity field = STOP). Binding verify =
+      a FRESH-SESSION G5 (different family) refuting determinism (bias/concurrent-write/decay seams) / conservation-under-
+      forcing / contraction-returns-after-decay / no-silent-substitution / guard soundness / ledger honesty. Re-measure the
+      active-set with the bias LIVE (forcing), not after a settle. approach token = impulse-event-decaying-directional-bias
+      on the S0 face-flow law + step-0-spike-first + carried-overflow-hardening.
+    status: active   # S1 forced-flow slice. REFRAMED + FRAMED as c-exec-015 (build-ready; work/c-exec-015-call.md) by s-work-020 (owner «ок»). Opens with a PLAN (owner present) in a FRESH GasCoopGame_dev session, STEP-0 spike FIRST. Closes done ONLY on c-exec-015's GREEN return (step-0 spike green + -Deliver incl. new int*int scan + RED suites + fresh-session G5) — no self-marking; «весело» owner-excluded as a gate. May split (PLAN scopes; budget clause). next slice = S2 (multiplayer lockstep loopback). 2 reserved upgrade tiers named (lattice-gas rooms / fixed-point velocity) — d-gas-richness-tiers-001.
 
 recurring: []
 
@@ -470,20 +490,24 @@ open_calls:
       AMD) is ABOVE average and gas-sim is CPU not GPU → measurements OPTIMISTIC; judge vs the weak-target budget (~200k-cell
       comfort ceiling on a weak core), NOT "smooth on my rig". FIRST build sub-task = hangar probe + the monotone-B oracle RED.
   - id: c-exec-015
-    status: queued   # NEW 2026-06-26 (s-work-019) — S1 DYNAMIC GAS SLICE (выброс-при-спауне + выдавливание телом). Rolls on S0. CALL AUTHORED → work/c-exec-015-call.md (build-ready); ready for a FRESH GasCoopGame_dev session. Opens with a PLAN (owner present, §Re-sync v8→current FIRST), classifies the two mechanics ведро-1/2/3, builds in small owner-PLAYABLE steps. RESULT applied home by a separate OS writer.
+    status: queued   # REFRAMED 2026-06-26 (s-work-020, owner «ок») — S1 FORCED-FLOW SLICE (impulse-events + decaying directional bias: выброс + выдавливание + ветер as first cases). Was the «выброс+выдавливание» framing (s-work-019); reframed per deep-research (work/gas-richness-deep-research-2026-06-26.md, "Forced-Flow Hybrid", adversarially verified). CALL REWRITTEN → work/c-exec-015-call.md (build-ready). Opens with a PLAN (owner present, §Re-sync v8→current FIRST), STEP-0 DE-RISK SPIKE FIRST. RESULT applied home by a separate OS writer.
     note: |
-      Executor leg (GasCoopGame, dev→main when green). GOAL: the first DYNAMIC gas slice on the S0 foundation — gas
-      ERUPTS from a source (integer over-fill pushed out by the EXISTING face-flow law) + is DISPLACED by a moving body
-      (occupied cells → mass redistributes to neighbours, conserved). Owner SEES both on a playable scene. Stays INSIDE
-      the LOCKED integer model — NO velocity/advection/momentum (a need for one = STOP-and-escalate, reopens SPEC Факт 2).
-      BOUNDARIES: no networking/wire (S2); no reactions/chemistry (S6); no breach behaviour (S5); no placement mechanic;
-      no big-hall/far-LOD optim (d-sparse-solver-defer-001); laws in headless Core/** (Adapters render+input only).
-      CARRIED HARDENING (same leg, RED-first, routed home from S0): H1 = class-wide int*int overflow build-scan guard
-      (auto-discovers unguarded multiplies on the authoritative path, planted RED control MUST fail) + H2 = the
-      planner-AUTHORIZED extreme-coordinate spec-silence amendment (builder may not self-edit the frozen spec).
-      DISCIPLINE: RED-first independent test-author; -Deliver GREEN (+ the new int*int scan); mutation ≥70; fresh-session
-      G5 (different family) COULD-NOT-REFUTE; STOP-v8. «точно» = green suite; «весело» = owner's separate eyeball (not a
-      gate). next slice = S2 (multiplayer lockstep loopback). FULL CALL → work/c-exec-015-call.md.
+      Executor leg (GasCoopGame, dev→main when green). GOAL: the first DYNAMIC, DIRECTABLE gas via ONE general primitive —
+      deterministic integer IMPULSE-EVENTS write a DECAYING directional-bias register, applied on top of the S0 gradient
+      face-flow. First cases owner SEES: ВЫБРОС (source kick), ВЫДАВЛИВАНИЕ (body shove), ВЕТЕР (sustained impulse carries
+      gas + splits at a fork) + a face-level one-way VALVE (designed permanent split). Bias = integer/in-checksum/decaying,
+      NOT a stored velocity field. STAYS INSIDE the lock — NO float/fixed-point velocity/advection (a RESERVED owner-gated
+      tier that cracks the lock; a need for one = STOP-and-escalate). STEP-0 DE-RISK SPIKE is a HARD GATE FIRST: RED
+      non-monotone settle oracle (conserve+settle+no-oscillate; planted bad-bias control MUST fail) + symmetric integer
+      decay + clamp×decay conservation + bounded-return-to-quiet + 2-process loopback hash incl. CONCURRENT same-face
+      writes (canonical order rule) + owner-eye on a forked corridor+vent. Not green → STOP. The 4 verified corrections are
+      folded (§9.5 trip-wire = bias FACE-LEVEL-UNIFORM, no structure-bitmap import; symmetric decay; contraction SUSPENDED-
+      not-preserved → the oracle gates it; active-set inflation → re-measure under FORCING). BOUNDARIES: no wire (S2); no
+      reactions (S6); no big-hall/far-LOD (d-sparse-solver-defer-001); vortices → cosmetic g-7e15 layer fed the bias field
+      ONLY; laws in headless Core/**. CARRIED: H1 int*int guard + H2 spec amendment (d-overflow-guard-001). DISCIPLINE:
+      RED-first independent test-author; -Deliver GREEN; mutation ≥70; fresh-session G5 (different family) COULD-NOT-REFUTE;
+      STOP-v8. «точно» = green suite; «весело» = owner eyeball (not a gate). May SPLIT (PLAN scopes; step-0 spike + eruption
+      is a legit first return). next slice = S2. Reserved upgrade tiers = d-gas-richness-tiers-001. FULL CALL → work/c-exec-015-call.md.
   - id: c-visual-001
     status: queued   # 2026-06-21 (s-visual-001) — VISUAL track (g-7e15) first BUILD step (P1), queued AFTER the design/feel pass (owner-flagged: settle how-it-works/reads before render tech). Opens with a PLAN (owner present). Owner starts it when he chooses (parallel to the engine, ~40–60 min/day). Basis = work/gas-visual-research-2026-06-21.md.
     note: |
@@ -757,6 +781,33 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-gas-richness-tiers-001
+    status: answered   # owner-STEERED + owner «ок» 2026-06-26 (s-work-020) on the 3-tier gas-richness model. Basis = deep-research workflow (work/gas-richness-deep-research-2026-06-26.md; 20 agents, web + code, adversarially verified). EXTENDS the locked model (does NOT crack it): adds the impulse-event/directional-bias seam; reserves the two heavier tiers.
+    note: |
+      Owner pushed back on "gas richness is a hard compromise" and asked for deep research (incl. exotic) + a novel/hybrid
+      solution; validated two of his own ideas. RESULT = a 3-TIER architecture, owner «ок» to building tier 1 now:
+      • TIER 1 (BUILD NOW = S1/c-exec-015, NO lock-crack): integer IMPULSE-EVENTS write a DECAYING directional-bias
+        register on top of the S0 gradient face-flow. Delivers — AUTHORITATIVELY + cheaply — WIND/directionality, a
+        decaying momentum-HINT (gust), transient fork-split, and DESIGNED permanent split via a face-level one-way VALVE.
+        Owner's IDEA 1 (a deterministic split-impulse EVENT in the grid) = the KEYSTONE, first-class, zero new wire
+        traffic. Honest limits: NOT true coasting inertia, NOT permanent open-volume split, NOT free emergent vortices.
+      • TIER 2 (DEFERRED, ADR-class, post-sparse-solver): seeded-integer LATTICE-GAS (FHP/ILG) confined to a few bucket-3
+        rooms → true emergent VORTICES as shared truth without floats. Everywhere else, vortices = the read-only cosmetic
+        g-7e15 visual layer, fed the authoritative bias field so swirl aligns with real wind (zero gate risk).
+      • TIER 3 (RESERVED, owner-gated, cracks the lock): fixed-point (Q-format) VELOCITY field = true stored inertia +
+        graceful permanent split as shared truth. Owner's IDEA 2 («float via 2 ints» = fixed-point) is REAL + proven
+        (Photon Quantum/StarCraft/FixPointCS), but bespoke, heavy, and IS the velocity/advection the roadmap names a
+        STOP-escalation → requires an owner-signed ADR-0010 lock-crack. Triggered ONLY if owner-eye proves tier 1 «isn't
+        alive enough». NOT adopted now.
+      4 VERIFIED load-bearing corrections folded into c-exec-015 (the build must honor): (1) §9.5 trip-wire — the sub-face
+      bitmap lives in StructureGrid (own checksum, OUT of the gas checksum); keep bias FACE-LEVEL-UNIFORM, defer sub-face
+      directionality. (2) symmetric integer decay (a signed shift breaks directional symmetry). (3) the Kp≥2*degree
+      contraction proof is SUSPENDED during forcing, not preserved → a RED non-monotone settle oracle is a hard
+      precondition (the de-risk spike). (4) the bias decay-tail inflates the active-set → re-measure under FORCING (it
+      interacts with the deferred sparse solver; big-hall viability stays gated by d-sparse-solver-defer-001).
+      LIBRARY shortlist (only IF tier 3): FixPointCS (MIT), FixedMathSharp (MIT) — arithmetic only; no off-the-shelf
+      fixed-point FLUID solver exists (bespoke). Unity.Burst/Jobs (already present) = the weak-core lever for sparse.
+      Float fluid packages (Zibra/Obi) = ONLY the cosmetic g-7e15 layer, never authoritative.
   - id: d-sparse-solver-defer-001
     status: answered   # PLANNER-DECIDED 2026-06-26 (s-work-019, owner-delegated «решение за тобой»); owner-VETOABLE. Covers S0 routed-home findings #1 (sparse solver), #2 (weak-CPU re-measure), #3 (GC pooling).
     note: |
@@ -1241,14 +1292,27 @@ next: |
   scan over both grids, deliverable-coverage v8 9/9) — verified FIRST-HAND (merge + artifacts). Roadmap steps 1–4 done
   incl. the HANGAR PROBE. The bet ROLLS to S1.
 
-  DO NEXT (owner): open a FRESH GasCoopGame_dev session with work/c-exec-015-call.md (S1 — выброс-при-спауне +
-  выдавливание телом) → open with a PLAN (owner present, §Re-sync v8→current FIRST), classify the two mechanics
-  ведро-1/2/3, build in SMALL owner-PLAYABLE steps. S1 = the first DYNAMIC gas slice on the S0 foundation: gas ERUPTS
-  from a source (integer over-fill pushed out by the EXISTING face-flow law) + is DISPLACED by a moving body (occupied
-  cells → mass redistributes, conserved). Stays INSIDE the LOCKED integer model — NO velocity/advection (a need for one
-  = STOP-and-escalate). Carries two hardening items (d-overflow-guard-001): H1 class-wide int*int overflow build-scan
-  guard (RED-first) + H2 the planner-authorized extreme-coordinate spec-silence amendment. «точно» = the green suite;
-  «весело» = owner's separate eyeball (not a gate). RESULT applied home by a separate OS writer.
+  DO NEXT (owner): open a FRESH GasCoopGame_dev session with work/c-exec-015-call.md — S1 REFRAMED (s-work-020, owner
+  «ок») to the FORCED-FLOW primitive: deterministic integer IMPULSE-EVENTS write a DECAYING directional-bias register on
+  the S0 face-flow → AUTHORITATIVE wind + decaying gust + transient fork-split + one-way-VALVE designed split; выброс +
+  выдавливание + ветер are the first impulse types. Open with a PLAN (owner present, §Re-sync v8→current FIRST). The leg
+  STARTS with a STEP-0 DE-RISK SPIKE (a hard gate, build nothing on a broken base): a RED non-monotone settle oracle
+  (wind-into-corner-and-back conserves mass + settles + no-oscillate; planted bad-bias control MUST fail) + symmetric
+  integer decay + clamp×decay conservation + a 2-process loopback hash incl. CONCURRENT same-face writes (canonical
+  order rule) + owner-eye «alive on a forked corridor + vent». Not green → STOP. Then выброс/выдавливание/ветер/valve.
+  Stays INSIDE the lock — NO float/fixed-point velocity/advection (RESERVED owner-gated tier; a need for one =
+  STOP-escalate). 4 verified corrections folded (§9.5 face-level-uniform bias; symmetric decay; contraction-suspended→
+  oracle; active-set re-measure under forcing). Carries d-overflow-guard-001 H1/H2. May SPLIT (PLAN scopes; step-0 spike
+  + eruption is a legit first return). Basis = work/gas-richness-deep-research-2026-06-26.md + d-gas-richness-tiers-001.
+  HONEST CAP (set owner-expectation in the PLAN): tier 1 ≠ true coasting inertia / permanent open-volume split / free
+  vortices — those are the reserved tiers (lattice-gas rooms; fixed-point velocity). «точно» = green suite; «весело» =
+  owner eyeball (not a gate). RESULT applied home by a separate OS writer.
+
+  RESERVED UPGRADE TIERS (d-gas-richness-tiers-001, NOT built now): TIER 2 = seeded-int lattice-gas in a few bucket-3
+  rooms for true emergent vortices (ADR-class, post-sparse-solver); TIER 3 = fixed-point velocity field for true inertia
+  (owner's «float via 2 ints» — real/proven, but bespoke + cracks the lock → owner-signed ADR-0010). Triggered ONLY if
+  owner-eye proves tier 1 «isn't alive enough». Libraries if tier 3: FixPointCS/FixedMathSharp (MIT, arithmetic only —
+  no off-the-shelf fixed-point fluid exists). Float fluid plugins (Zibra/Obi) = cosmetic g-7e15 layer ONLY.
 
   DEFERRED (decision d-sparse-solver-defer-001, planner-decided, owner-VETOABLE): the SPARSE active-front solver +
   GC-buffer pooling + a WEAK-CPU hangar re-measure are NOT next — they matter ONLY for BIG OPEN HALLS (deferred-reserved),
@@ -1261,6 +1325,7 @@ next: |
   session (os/** NOT touched in a live-direction session).
 
   PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the writer's push —
-  ask the owner to push). The S0 close + S1 framing + the two decisions are committed this session.
+  ask the owner to push). The S1 forced-flow reframe + d-gas-richness-tiers-001 + the rewritten c-exec-015 CALL + the
+  deep-research artifact are committed this session (s-work-020).
 
 END_OF_FILE: live/indie-game-development/NOW.md
