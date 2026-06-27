@@ -57,4 +57,6 @@
 
 - 2026-06-26 — converge g-zara-operate-contract owner-boundary repair: reopened G10/W8/W17/W20-A12 and dependent W2/W5/W6/W7/W10/W12/W13/W15/W16/W19 references; replaced forbidden-domain framing with a positive process/source/workspace model. Manager is topic-open via process/source/context; writes default only to Zaratusta workspace; other repos/directions/projects remain read-only sources; non-Zaratusta writes require explicit narrow integration. Next → converge-verify. → history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
 
+- 2026-06-27 — repair: writer-bounce classified as obsolete duplicate RESULT, not missing work. Stale expected_sha ae0549e targeted a pre-eb70242 work artifact while current local blob is 04682f7 and history already contains s-zara-operate-contract-converge-owner-boundary-002. No WHAT/NOW changes; continue current NOW.next → c-zara-operate-contract-converge-verify-owner-boundary-002. → history/2026-06-27-s-zara-operate-contract-writer-bounce-repair-003.md
+
 END_OF_FILE: live/solmax/LOG.md
