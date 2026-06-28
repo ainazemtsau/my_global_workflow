@@ -461,7 +461,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       verify = a FRESH-SESSION G5 (different family) refuting the determinism / canonical-order /
       hash-parity seams. Owner-eye = he sees 2 processes agree (confidence, NOT a gate; real 2 PCs =
       optional one-off run, never a gate). approach token = loopback-meaningchecksum-determinism-by-construction.
-    status: active   # rolled from S1 2026-06-28 (s-work-023). Needs its executor CALL FRAMED next (a fresh OS work-session authors c-exec-016 ingesting canon §5 S2 + Факт-1 + S0/S1; then a fresh GasCoopGame_dev build session opens it with a PLAN, owner present). Closes done ONLY on c-exec-016's GREEN return (loopback hash + -Deliver + fresh-session G5) — no self-marking. May split (PLAN scopes). next slice = S3 (height/layering).
+    status: active   # rolled from S1 2026-06-28 (s-work-023). Executor CALL c-exec-016 FRAMED + adversarially HARDENED 2026-06-28 (s-work-024 → work/c-exec-016-call.md; wf_6a2fc85f-06e, 2 must-fix + 5 should-fix folded, ZERO lock-change; baked-in symbols verified first-hand — see open_calls). NEXT = a fresh GasCoopGame_dev build session opens c-exec-016 with a PLAN (owner present, §Re-sync contract FIRST). Closes done ONLY on c-exec-016's GREEN return (2-process loopback hash + follower-parity + zero-float scan + -Deliver + fresh-session G5) — no self-marking. May split (PLAN scopes). next slice = S3 (height/layering).
 
 recurring: []
 
@@ -569,6 +569,27 @@ open_calls:
       RED-first independent test-author; -Deliver GREEN; mutation ≥70; fresh-session G5 (different family) COULD-NOT-REFUTE;
       STOP-v8. «точно» = green suite; «весело» = owner eyeball (not a gate). May SPLIT (PLAN scopes; step-0 spike + eruption
       is a legit first return). next slice = S2. Reserved upgrade tiers = d-gas-richness-tiers-001. FULL CALL → work/c-exec-015-call.md.
+  - id: c-exec-016
+    status: framed   # FRAMED + adversarially HARDENED 2026-06-28 (s-work-024, work play): S2 multiplayer-lockstep-loopback executor CALL authored → work/c-exec-016-call.md. Hardening wf_6a2fc85f-06e (32 agents, 8 adversarial lenses → per-finding refute-verify → synth; 22 raised → 12 survived → 2 must-fix + 5 should-fix folded; ZERO lock-change / ZERO re-design — the weak "approach-token"/"re-sync" parity findings refuted-out). Every symbol baked into the CALL VERIFIED first-hand in GasCoopGame (main tip eed321b): IFieldStateChannel-family + chunked-delta family (+ LoopbackCoarseChunkHub/ICoarseChunkLink) + F11LoopbackDeterminismTests + Core/Sim ADR-0002 decoy + RW5OrderIndependenceTests all exist. Ready: owner opens c-exec-016 in a FRESH GasCoopGame_dev session (opens with a PLAN, owner present, §Re-sync contract FIRST). RESULT applied home by a separate OS writer. May SPLIT (PLAN scopes).
+    note: |
+      Executor leg (GasCoopGame, dev→main when green) — S2 MULTIPLAYER LOCKSTEP LOOPBACK slice (canon §5 S2). GOAL: the
+      coarse integer sim gives the SAME per-tick MeaningChecksum on 2 PROCESSES (host + 1 follower, loopback, ONE machine)
+      over a SEEDED scenario EXERCISING the S1 forced-flow events (выброс/ветер/fork/valve/jet) + CONCURRENT same-face
+      writes; determinism BY CONSTRUCTION (integer-only + zero-float scan + single-owner-per-face + gather-then-apply +
+      canonical traversal order + seeded RNG + integer mass-clamp with loud asserts), NOT via re-flux, NOT 2 physical
+      machines; a divergence HALTS LOUDLY. Fork RESOLVED (d-clouds-fork-resolved-001) so S2 hardens the lockstep apparatus
+      deliberately. KEY framing: NOT a from-scratch build — S2 ELEVATES the loopback hash S0 seeded + S1 extended
+      (F11LoopbackDeterminismTests) to load-bearing + reconciles the MIGRATION SPINE (canon §8:184/§7:162 — the Wave-1/2
+      host-broadcast reconstruction = TWO legacy families: coarse chunked-delta + field-state-channel + the Факт-5-buried
+      late-join/snapshot path; PLAN inventories-first, port-or-delete under ZERO-LEGACY; 2-band-as-authority resurrection
+      guard). ВЕДРО: substrate → ведро-2 backbone (full §9.5 in-checksum set proven byte-identical); ведро-1 excluded
+      (count-IN/bitmap-OUT trip-wire held); ведро-3 absent. BOUNDARIES: no 2 PCs (loopback only); no vendor/transport
+      change (R14 edge, no UDP needed for the gate); no stored velocity/float authoritative path (d-gas-richness-tiers-001);
+      no re-flux-as-gate (d-reflux-gate-001); no S3/S4/S5/S6; no big-hall/sparse (d-sparse-solver-defer-001). DISCIPLINE:
+      RED-first independent test-author (planted RED controls: order-dependent write / mis-seeded RNG / silent wrap /
+      awake-queue permutation / region-fold-order / per-meaning-field divergence); -Deliver GREEN; mutation ≥70;
+      fresh-session G5 (different family) COULD-NOT-REFUTE; STOP-v8. «точно» = green suite; owner-eye (2 processes agree) =
+      confidence NOT a gate. next slice = S3. FULL CALL → work/c-exec-016-call.md.
   - id: c-visual-001
     status: queued   # RE-SPECCED 2026-06-26 (s-visual-004) to the STRUCTURE-FIRST build-step 1 (was the pre-structure-first P1 "grid→GPU pipe over RN1"). FULL CALL authored + adversarially hardened (wf_5dd9d57a-142, 4 lenses) → work/c-visual-001-call.md. Opens with a PLAN (owner present), builds in a fresh GasCoopGame_dev session (dev→main when green). Owner starts it when he chooses (parallel to the engine bet, ~40–60 min/day).
     note: |
@@ -1495,15 +1516,19 @@ next: |
   host-authority is ever reconsidered, RE-RUN the cloud-vs-grid analysis on the host-auth model (its kills are
   determinism-class, void under a single host).
 
-  IMMEDIATE NEXT = FRAME the S2 executor CALL (a fresh OS work-session authors c-exec-016 for S2 — multiplayer lockstep
-  loopback — ingesting canon §5 S2 + Факт-1 + the S0/S1 artifacts, classifying ведро, boundaries = no stored velocity /
-  no float authoritative path / no re-flux-as-gate; done_when = 2-process loopback MeaningChecksum byte-identical incl.
-  forced-flow + CONCURRENT same-face writes + follower hash parity (canon §8) + zero-float scan + -Deliver GREEN +
-  fresh-session G5). Then a fresh GasCoopGame_dev build session opens it with a PLAN (owner present, §Re-sync contract
-  FIRST). S2 = the coarse integer sim gives the SAME per-tick MeaningChecksum on 2 PROCESSES (loopback, ONE machine —
-  integer cross-CPU is GIVEN, real 2 PCs never a gate). Determinism BY CONSTRUCTION (integer-only + zero-float scan +
-  canonical order + seeded RNG), NOT re-flux. Load-bearing. NB: the fork resolution means S2 hardens the lockstep
-  apparatus DELIBERATELY (no risk of building on a spine about to be discarded). May split.
+  IMMEDIATE NEXT = OPEN c-exec-016 in a FRESH GasCoopGame_dev build session (opens with a PLAN, owner present, §Re-sync
+  contract FIRST). The S2 executor CALL is FRAMED + adversarially HARDENED 2026-06-28 (s-work-024 → work/c-exec-016-call.md;
+  hardening wf_6a2fc85f-06e — 32 agents / 8 lenses → per-finding refute-verify → synth: 22 raised → 12 survived → 2 must-fix +
+  5 should-fix folded, ZERO lock-change / ZERO re-design; every symbol baked into the CALL VERIFIED first-hand in GasCoopGame).
+  S2 = the coarse integer sim gives the SAME per-tick MeaningChecksum on 2 PROCESSES (loopback, ONE machine — integer cross-CPU
+  is GIVEN, real 2 PCs never a gate) over a SEEDED scenario EXERCISING the S1 forced-flow events + CONCURRENT same-face writes;
+  determinism BY CONSTRUCTION (integer-only + zero-float scan + single-owner-per-face + gather-then-apply + canonical order +
+  seeded RNG + integer mass-clamp loud-assert), NOT re-flux. Load-bearing. KEY: NOT a from-scratch build — it ELEVATES the
+  loopback hash S0 seeded + S1 extended (F11LoopbackDeterminismTests) to load-bearing + closes the MIGRATION SPINE (canon
+  §8/§7 host-broadcast reconstruction = legacy under input-lockstep; PLAN inventories-first, port-or-delete under ZERO-LEGACY).
+  The fork resolution means S2 hardens the lockstep apparatus DELIBERATELY (no spine-about-to-be-discarded risk). May split.
+  Closes S2 done ONLY on c-exec-016's GREEN return (2-process loopback hash + follower-parity + zero-float + -Deliver +
+  fresh-session G5) — no self-marking. RESULT applied home by a separate OS writer.
 
   FOUR BUILDER-RETURNED DECISIONS — ACCEPTED AS A BUNDLE (owner «весь пакет» 2026-06-28):
   • DISPLACEMENT (S1b) → CUT to backlog (d-displacement-s1b-cut-001); re-entry trigger = first body-dams-gas gameplay
@@ -1531,6 +1556,6 @@ next: |
 
   PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the writer's push —
   ask the owner to push). s-work-023 commits: S1 done + S2 rolled + the 4 decisions + d-clouds-fork-resolved-001 +
-  matrix archived.
+  matrix archived. s-work-024 commit: c-exec-016 framed+hardened (CALL artifact + open_calls + S2 note + next).
 
 END_OF_FILE: live/indie-game-development/NOW.md
