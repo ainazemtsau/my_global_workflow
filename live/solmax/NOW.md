@@ -6,7 +6,7 @@ project:
 active_bet:
   status: none
 
-route_status: g-zara-operate-contract_converge_verify_failed_trace_repair_needed
+route_status: g-zara-operate-contract_trace_repaired_pending_converge_verify
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -39,20 +39,14 @@ owner_directive: |
     external evidence is needed.
 
 blocked_reason: |
-  No implementation resumes until converge repairs the trace/copyability failures found by
-  converge-verify after the owner-boundary repair.
+  No implementation resumes until converge-verify validates the 2026-06-28 trace repair.
 
-  Verification result:
-  - complete=PASS
-  - backward_clean=PASS
-  - forward_clean=FAIL
-  - smuggling=FAIL
-
-  Rows to reopen for trace repair only:
-  - W2 acceptance: invalid `→GLOSSARY:G2[explainable]`
-  - W6 answer: invalid `→GLOSSARY:G9[source-backed]`
-  - W13 answer: invalid `→GLOSSARY:G9[source-backed]`
-  - W17 answer: invalid `→GLOSSARY:G9[source-backed]`
+  Converge trace repair result:
+  - W2 acceptance invalid glossary trace repaired by retargeting to valid G2/G3/G11 properties.
+  - W6 answer invalid glossary trace repaired by retargeting to valid G9/G10 properties.
+  - W13 answer invalid glossary trace repaired by retargeting to valid G9/G10 properties.
+  - W17 answer invalid glossary trace repaired by retargeting to valid G9 properties while
+    retaining the already-valid G10[source-backed] trace.
 
   Preserve:
   - no generic domain/topic blacklist;
@@ -60,7 +54,8 @@ blocked_reason: |
   - Direction OS and other repos/directions/projects are read-only sources by default;
   - Zaratusta writes only to its own workspace/repo by default;
   - future non-Zaratusta writes require explicit narrow integration/procedure;
-  - W19 HOW firewall and GitHub/Markdown-readable first-layer constraint.
+  - W19 HOW firewall and GitHub/Markdown-readable first-layer constraint;
+  - W20/A1-A13 shape-copyable acceptance surface.
 
 tasks: []
 recurring: []
@@ -77,19 +72,22 @@ preserved_evidence:
   - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-verify-001.md
   - live/solmax/history/2026-06-26-s-zara-operate-contract-shape-001.md
   - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
+  - live/solmax/history/2026-06-28-s-zara-operate-contract-converge-trace-repair-003.md
   - live/life-reset/CHARTER.md
   - github.com/ainazemtsau/life-reset-manager/SPEC.md
   - github.com/ainazemtsau/zaratusta
 
 next:
-  id: c-zara-operate-contract-converge-trace-repair-003
+  id: c-zara-operate-contract-converge-verify-trace-repair-004
   to: session
   direction: solmax
-  play: converge
+  play: converge-verify
   node: g-zara-operate-contract
   goal: |
-    Repair the trace/copyability failures found by converge-verify after the owner-boundary
-    repair, without changing the owner-approved process/source/workspace authority model.
+    Verify the repaired g-zara-operate-contract WHAT after trace/copyability repair of
+    W2/W6/W13/W17. The verification must confirm that active WHAT rows no longer cite
+    missing §GLOSSARY properties and that W20/A1-A13 remains shape-copyable, topic-open
+    and HOW-clean.
   context: |
     Read:
     - live/solmax/CHARTER.md
@@ -100,22 +98,30 @@ next:
     - live/solmax/history/2026-06-26-s-zara-operate-contract-shape-001.md
     - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
     - live/solmax/history/2026-06-27-s-zara-operate-contract-converge-verify-owner-boundary-002.md
+    - live/solmax/history/2026-06-28-s-zara-operate-contract-converge-trace-repair-003.md
 
-    Converge-verify found no substantive owner-boundary contradiction, no domain blacklist
-    reintroduced, and no hidden HOW in W20/A1-A13. It failed only because four rows cite
-    glossary properties that do not exist in the current §GLOSSARY:
+    Prior owner-boundary verify found complete=PASS and backward_clean=PASS, and found no
+    substantive owner-boundary contradiction, no generic domain/topic blacklist and no hidden
+    HOW in W20/A1-A13. It failed only because W2/W6/W13/W17 cited missing glossary properties.
 
-    - W2 acceptance: `→GLOSSARY:G2[explainable]`; current G2 has `[bounded]`,
-      `[process-routed]`, `[source-backed]`, `[override-safe]`, `[no-hidden-power]`.
-    - W6 answer: `→GLOSSARY:G9[source-backed]`; current G9 has `[read-not-own]`,
-      `[no-scope-capture]`, `[context-loaded]`, `[integration-explicit]`.
-    - W13 answer: `→GLOSSARY:G9[source-backed]`; same invalid property.
-    - W17 answer: `→GLOSSARY:G9[source-backed]`; same invalid property, though W17 also
-      cites valid `→GLOSSARY:G10[source-backed]`.
+    Trace repair performed:
+    - W2 acceptance: replaced missing G2[explainable] with valid G2[bounded],
+      G3[auditable] and G11[auditable].
+    - W6 answer: replaced missing G9[source-backed] with valid G9[read-not-own]
+      and G10[source-backed].
+    - W13 answer: replaced missing G9[source-backed] with valid G9[context-loaded]
+      and G10[source-backed].
+    - W17 answer: replaced missing G9[source-backed] with valid G9[read-not-own]
+      and G9[context-loaded], retaining valid G10[source-backed].
 
-    Repair should make the traces valid by retargeting to existing resolved glossary
-    properties or by adding explicit resolved properties if converge determines they are
-    load-bearing. Then route back to converge-verify.
+    Preserve during verification:
+    - no generic domain/topic blacklist;
+    - topic work is allowed through process/source/context;
+    - Direction OS and other repos/directions/projects are read-only sources by default;
+    - Zaratusta writes only to its own workspace/repo by default;
+    - future non-Zaratusta writes require explicit narrow integration/procedure;
+    - W19 HOW firewall and GitHub/Markdown-readable first-layer constraint;
+    - W20/A1-A13 substance unless verification finds a new exact defect.
   boundaries: |
     Do not reintroduce a generic domain/topic blacklist.
     Do not change the owner-approved rule that the manager may work on any owner-requested
@@ -127,13 +133,14 @@ next:
     automation, scheduler, vendor, framework or API/subscription adapter.
     Do not implement or modify the product repository.
   done_when: |
-    W2/W6/W13/W17 no longer contain invalid glossary property references; every
-    load-bearing value traces to a valid §GLOSSARY property, §WHAT row, source or frozen
-    canon id. W20/A1-A13 remains shape-copyable, topic-open and HOW-clean. The repaired
-    WHAT routes back to converge-verify.
+    Verification explicitly attacks complete/backward-clean/forward-clean/smuggling after
+    the trace repair. Verdict is PASS with no row failures and next routes to shape, or FAIL
+    with exact rows reopened / exact owner decision needed. The verifier specifically checks
+    that W2/W6/W13/W17 no longer contain invalid glossary property references and that
+    W20/A1-A13 can be copied by shape without contradicting owner-boundary clarification.
   return: |
-    RESULT with exact row repairs, evidence that all invalid traces are fixed, state_changes
-    for work/NOW/LOG/history, and next route back to converge-verify.
-  budget: one converge session
+    RESULT with verification verdict, row failures if any, state_changes for work/NOW/LOG/history,
+    and next route to shape if PASS or converge/awaiting_decision if FAIL.
+  budget: one converge-verify session
 
 END_OF_FILE: live/solmax/NOW.md
