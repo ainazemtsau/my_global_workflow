@@ -484,7 +484,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       refuting the delete/keep boundary + tests-rewritten + §7-burial. STOP-discipline (a KEEP-member that breaks / a delete
       needing a behavior change / expanding into S2b loopback work / reopening ADR-0010 = STOP+escalate). FULL CALL →
       work/c-exec-017-call.md. approach token = zero-legacy-reconstruction-spine-retirement.
-    status: active   # NEW 2026-06-28 (s-work-025): the ZERO-LEGACY half of the S2 split, runs FIRST. Executor CALL c-exec-017 AUTHORED → work/c-exec-017-call.md (faithful transcription of the owner-signed + 7-agent-verified c-exec-016 PLAN inventory; NOT re-hardened — leg gates carry verification). next = open c-exec-017 in a fresh GasCoopGame_dev session (PLAN, owner present; §Re-sync + FF dev→main FIRST). Closes done on c-exec-017's GREEN return.
+    status: done   # ✅ DELIVERED 2026-06-28 (c-exec-017 build session; applied s-work-026) — binding gates GREEN on GasCoopGame dev @ec54d4f (857/857 headless, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE on delete/keep + tests-rewritten + §7-burial). Both legacy families DELETED, verified FIRST-HAND (0 production hits). Retirement ADR = ADR-0016 (renumbered from 0015 vs c-visual-001 S5). ⚠ merge dev→main + push OWNER-GATED + now a REAL merge (visual S5 advanced main to 9780713; main…dev 2/4, conflict-free expected Core-vs-Render) — pending. Owner-eye (dotnet test 857, confidence not a gate) optional/pending. Record → history/c-exec-017-s2a-result-2026-06-28.md. Bet rolls to S2b.
   - id: S2b
     kind: executor (engineering, GasCoopGame) — LOCKSTEP LOOPBACK LOAD-BEARING (second half of the S2 split; runs AFTER S2a's clean base). The load-bearing determinism proof.
     goal: |
@@ -502,9 +502,10 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       count-IN/bitmap-OUT negative control; not-yet-built §9.5 members spec-silenced); zero-float scan over new code; integer
       mass-clamp loud-asserts; G0-frozen openspec + frozen spec + ledger + mutation-<id>.json ≥70; -Deliver GREEN; Adapters
       R14 3-mode owner-eye (2 endpoints agree, confidence NOT a gate; real 2 PCs = optional one-off); fresh-session G5.
-      STOP = stored velocity / float authoritative path / re-flux-as-gate / reopening ADR-0010. approach token =
-      loopback-meaningchecksum-load-bearing.
-    status: queued   # NEW 2026-06-28 (s-work-025): HELD pending S2a's clean ZERO-LEGACY base. CALL c-exec-018 authored + hardened AFTER c-exec-017 returns GREEN (rolling-wave — the base it builds on must exist first). Scope frozen by the c-exec-016 PLAN split + d-s2-rng-control-na-001.
+      STOP = stored velocity / float authoritative path / re-flux-as-gate / reopening the input-lockstep lock (ADR-0002 —
+      see d-adr-lockstep-citation-001; the canon's "ADR-0010" is a citation error, ADR-0010 is the test-sandbox). approach
+      token = loopback-meaningchecksum-load-bearing.
+    status: active   # UNBLOCKED 2026-06-28 (s-work-026): S2a's clean base now EXISTS on GasCoopGame dev @ec54d4f. NEXT JOB = the direction AUTHORS + hardens the S2b CALL c-exec-018 (a fresh OS work-session), folding: ADR-0002 (NOT ADR-0010) for the input-lockstep lock per d-adr-lockstep-citation-001; the RNG-control DROP per d-s2-rng-control-na-001; the chunk-span S4-deferral carried. Builds on dev (post-S2a); the S2a dev→main merge is owner-gated (a real merge now). Closes done on c-exec-018's GREEN return.
 
 recurring: []
 
@@ -634,7 +635,7 @@ open_calls:
       fresh-session G5 (different family) COULD-NOT-REFUTE; STOP-v8. «точно» = green suite; owner-eye (2 processes agree) =
       confidence NOT a gate. next slice = S3. FULL CALL → work/c-exec-016-call.md.
   - id: c-exec-017
-    status: framed   # AUTHORED 2026-06-28 (s-work-025): S2a ZERO-LEGACY reconstruction-spine RETIREMENT executor CALL → work/c-exec-017-call.md. Faithful transcription of the owner-signed + 7-agent-verified (wf_89e9d3c2) c-exec-016 PLAN inventory; NOT re-hardened by a fresh workflow (inventory already adversarially verified + owner-signed; the leg's own gates — re-verify first-hand before delete + ZERO-LEGACY 3-lens re-audit + fresh-session G5 — carry verification). Ready: owner opens c-exec-017 in a FRESH GasCoopGame_dev session (PLAN, owner present; §Re-sync + FF dev→main @eed321b + archive c-014/c-015 openspec FIRST). RESULT applied home by a separate OS writer.
+    status: done   # ✅ DELIVERED + applied 2026-06-28 (s-work-026): binding gates GREEN on GasCoopGame dev @ec54d4f (857/857, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE); both legacy families DELETED, verified first-hand (0 prod hits); retirement ADR = ADR-0016; merge dev→main + push OWNER-GATED + now a REAL merge (visual S5 advanced main to 9780713). Record → history/c-exec-017-s2a-result-2026-06-28.md. — was AUTHORED 2026-06-28 (s-work-025): S2a ZERO-LEGACY reconstruction-spine RETIREMENT executor CALL → work/c-exec-017-call.md. Faithful transcription of the owner-signed + 7-agent-verified (wf_89e9d3c2) c-exec-016 PLAN inventory; NOT re-hardened by a fresh workflow (inventory already adversarially verified + owner-signed; the leg's own gates — re-verify first-hand before delete + ZERO-LEGACY 3-lens re-audit + fresh-session G5 — carry verification). Ready: owner opens c-exec-017 in a FRESH GasCoopGame_dev session (PLAN, owner present; §Re-sync + FF dev→main @eed321b + archive c-014/c-015 openspec FIRST). RESULT applied home by a separate OS writer.
     note: |
       Executor leg (GasCoopGame, dev→main when green) — S2a = the ZERO-LEGACY half of the S2 split, runs FIRST (clean base
       for S2b). GOAL: tree is ZERO-LEGACY under input-lockstep (Факт-6) — DELETE both pre-lockstep host-authoritative
@@ -650,7 +651,7 @@ open_calls:
       delete; -Deliver GREEN; ZERO-LEGACY 3-lens re-audit; fresh-session G5; STOP-discipline (KEEP-member breaks / delete
       needs behavior change / expanding into S2b loopback / reopening ADR-0010). FULL CALL → work/c-exec-017-call.md.
   - id: c-exec-018
-    status: queued   # S2b lockstep loopback LOAD-BEARING — HELD 2026-06-28 (s-work-025) pending S2a's clean ZERO-LEGACY base. The direction AUTHORS + hardens this CALL AFTER c-exec-017 returns GREEN (rolling-wave; its base must exist first). Scope frozen by the c-exec-016 PLAN split + d-s2-rng-control-na-001 (RNG control DROPPED — no RNG on the gas authoritative path).
+    status: queued   # READY TO AUTHOR 2026-06-28 (s-work-026): S2a clean base now EXISTS (GasCoopGame dev @ec54d4f). S2b lockstep loopback LOAD-BEARING — the direction authors + hardens this CALL NEXT (a fresh OS work-session). Folds: ADR-0002 (NOT ADR-0010) for the lock (d-adr-lockstep-citation-001 — verified canon citation error); RNG-control DROPPED (d-s2-rng-control-na-001); chunk-span S4-deferral carried. Scope frozen by the c-exec-016 PLAN split.
     note: |
       Executor leg (GasCoopGame, dev→main when green) — S2b = the load-bearing half of the S2 split, on the clean post-S2a
       base. GOAL: elevate the loopback determinism proof to LOAD-BEARING — a 2-endpoint (host + 1 in-process follower = a
@@ -940,6 +941,20 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-adr-lockstep-citation-001
+    status: OPEN   # surfaced 2026-06-28 (s-work-026), verified first-hand from the c-exec-017 (S2a) build session; needs an owner call (touches the owner-signed canon).
+    note: |
+      VERIFIED canon citation error (the c-exec-017 builder flagged it; I confirmed first-hand against the actual repo ADR
+      files): the canon g9c41-gas-engine-SPEC.md cites the INPUT-LOCKSTEP LOCK as «ADR-0010» (Факт-1 line 31, §2 line 12,
+      §6, §7 line 162), and my c-exec-016/c-017 CALLs inherited that. But in the GasCoopGame repo the ACTUAL files are
+      ADR-0002 = "Network determinism: lockstep over FishNet (input-bus only)" (THE lock) and ADR-0010 = "Test sandbox:
+      scenario-as-DATA (Wave A, t-1)". So the canon points at the wrong ADR number; the lock is ADR-0002. S2a recorded the
+      correction repo-side as ADR-0016 (the retirement ADR). This is a PURE CITATION/label error — the lock SEMANTICS are
+      unchanged (input-lockstep stands). OPTIONS: (A, RECOMMENDED) fix the canon citation ADR-0010→ADR-0002 for the lock +
+      note ADR-0010 = test-sandbox, in a review/pulse session with owner ack (the canon is owner-signed G9; a citation fix
+      is low-risk but the canon is the single source of truth) — and c-exec-018 (S2b) already cites ADR-0002; (B) defer to a
+      batched maintenance/review pass. IMPACT if unfixed: every future leg that reads the canon re-imports «reopen ADR-0010»
+      meaning the test-sandbox, not the lock → recurring confusion (the exact drift class g9c41 fights). Recommend A.
   - id: d-s2-split-001
     status: answered   # owner-DECIDED 2026-06-28 (c-exec-016 PLAN, owner «Split S2a+S2b»; applied s-work-025): S2 multiplayer-lockstep-loopback slice SPLIT into S2a + S2b.
     note: |
@@ -1610,19 +1625,21 @@ next: |
   host-authority is ever reconsidered, RE-RUN the cloud-vs-grid analysis on the host-auth model (its kills are
   determinism-class, void under a single host).
 
-  IMMEDIATE NEXT = OPEN c-exec-017 (S2a — ZERO-LEGACY reconstruction-spine RETIREMENT) in a FRESH GasCoopGame_dev session
-  (opens with a PLAN, owner present; §Re-sync contract FIRST, then FF dev→main @eed321b + archive c-014/c-015 openspec
-  FIRST, then execute the retirement). The S2 multiplayer-lockstep-loopback slice's PLAN concluded SPLIT-NEEDED 2026-06-28
-  (c-exec-016 PLAN, GasCoopGame_dev, owner present; owner «Split S2a+S2b») — applied home s-work-025; the PLAN made NO code
-  changes (PLAN-only). S2 = S2a (legacy retirement, runs FIRST → clean base) + S2b (loopback load-bearing, queued). S2a
-  (c-exec-017, AUTHORED → work/c-exec-017-call.md) = delete both pre-lockstep host-authoritative reconstruction families
-  (chunked-delta + field-state-channel incl. the Факт-5 late-join path) + keep store/reducer/far-tier/input-bus (prune the
-  lock-inverted «must-not-re-run» framing) + rewrite ~25 suites — NO new behavior, -Deliver GREEN, ZERO-LEGACY 3-lens
-  re-audit, fresh-session G5. The inventory was owner-signed + 7-agent-verified (wf_89e9d3c2) at the PLAN → c-exec-017 is a
-  faithful transcription, NOT re-hardened (the leg's own gates carry verification). On c-exec-017's GREEN return → the
-  direction authors + hardens S2b (c-exec-018, the load-bearing 2-endpoint loopback proof MINUS the RNG control per
-  d-s2-rng-control-na-001) on the clean base. 2 PLAN reconciliations recorded (d-s2-split-001 / d-s2-rng-control-na-001).
-  RESULT applied home by a separate OS writer. next slice after S2 = S3 (height/layering).
+  IMMEDIATE NEXT = AUTHOR the S2b executor CALL c-exec-018 (a fresh OS work-session frames + hardens the load-bearing
+  loopback proof on the clean post-S2a base). S2a (c-exec-017, ZERO-LEGACY reconstruction-spine retirement) is DELIVERED +
+  applied 2026-06-28 (s-work-026): binding gates GREEN on GasCoopGame dev @ec54d4f (857/857 headless, -Deliver GREEN,
+  mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE), both pre-lockstep host-authoritative reconstruction
+  families (chunked-delta + field-state-channel incl. the Факт-5 late-join path) DELETED — verified FIRST-HAND (0 production
+  hits); retirement ADR = ADR-0016. c-exec-018 MUST fold: ADR-0002 (NOT ADR-0010) for the input-lockstep lock
+  (d-adr-lockstep-citation-001 — a VERIFIED canon citation error: the repo's ADR-0010 is the test-sandbox, the lock is
+  ADR-0002); the RNG-control DROP (d-s2-rng-control-na-001); the chunk-span S4-deferral (CoarseChunkSpan/IsWireEncodable/
+  ChunkSpan/ChunkCount kept this leg — surviving far-tier consumers — full excision at S4). S2b = a 2-endpoint (host + 1
+  in-process follower = a 2nd VoxelField re-running the same input stream) per-tick MeaningChecksum byte-identity over the
+  full forced-flow scenario + RED controls + Adapters R14 3-mode owner-eye + frozen spec.
+  OWNER-GATED + PENDING: (a) merge S2a dev→main + push — now a REAL merge (visual S5 advanced main to 9780713; conflict-free
+  expected, Core-vs-Render), the c-016-era "clean --ff-only" is stale; (b) optional owner-eye (dotnet test 857, confidence
+  not a gate). OWNER DECISION OPEN: d-adr-lockstep-citation-001 (fix the canon ADR-0010→ADR-0002 citation; rec A). RESULT
+  applied home by a separate OS writer. next slice after S2 = S3 (height/layering).
 
   FOUR BUILDER-RETURNED DECISIONS — ACCEPTED AS A BUNDLE (owner «весь пакет» 2026-06-28):
   • DISPLACEMENT (S1b) → CUT to backlog (d-displacement-s1b-cut-001); re-entry trigger = first body-dams-gas gameplay
@@ -1652,6 +1669,8 @@ next: |
   ask the owner to push). s-work-023 commits: S1 done + S2 rolled + the 4 decisions + d-clouds-fork-resolved-001 +
   matrix archived. s-work-024 commit: c-exec-016 framed+hardened (CALL artifact + open_calls + S2 note + next).
   s-work-025 commit: c-exec-016 PLAN split applied (S2→S2a+S2b; c-exec-017 authored, c-exec-018 queued; d-s2-split-001 +
-  d-s2-rng-control-na-001; imported PLAN RESULT → history).
+  d-s2-rng-control-na-001; imported PLAN RESULT → history). s-work-026 commit: c-exec-017 (S2a) RESULT applied — S2a
+  DELIVERED on dev (verified first-hand), bet rolls to S2b; d-adr-lockstep-citation-001 surfaced; S2a dev→main merge +
+  owner-eye owner-gated.
 
 END_OF_FILE: live/indie-game-development/NOW.md
