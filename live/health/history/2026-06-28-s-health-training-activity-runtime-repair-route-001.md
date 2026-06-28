@@ -1,43 +1,108 @@
-# NOW — health
+RESULT s-health-training-activity-runtime-repair-route-001 (call: owner-message-2026-06-28-training-activity-repair)
+direction: health   play: repair   node/task: g-health-training-activity-system/recurring:r-health-ai-minor-fix-lane
 
-active_bet:
-  status: none
-  note: >
-    No active bet after review closed b-health-training-activity-domain-v0-001 as met on
-    2026-06-27. Product/process evidence: health-ai c1bf61e for t-1 and health-ai 8aa14f8 for
-    t-2; owner release acceptance from t-3: "Запускаем". First real performed training/activity
-    session is not claimed done. On 2026-06-28 the owner supplied a product repair request showing
-    that the first-session route is unsafe because health-ai 8aa14f8 falsely resolves
-    x_training_activity to ACTIVE/DAY_LOOP without real research-backed, owner-approved training
-    program authority. The first-session route is superseded by a bounded Health AI repair through
-    r-health-ai-minor-fix-lane; no first real session should be routed until the product repair
-    restores the research -> proposal -> owner approval -> ACTIVE path.
+outcome: |
+  NOW no longer routes the owner to the first real training/activity session.
 
-tasks: []
+  The 2026-06-28 owner correction shows that the previous product launch route is unsafe:
+  health-ai 8aa14f8 resolves x_training_activity to ACTIVE/DAY_LOOP while evidence is
+  sample_committed_claims_only and no real research-backed, owner-approved training program
+  authority exists. The corrected state routes next to a bounded Health AI product repair through
+  r-health-ai-minor-fix-lane.
 
-open_calls: []
+  Direction OS remains strategic only. No raw training/body execution data was stored, and no first
+  real training/activity session is claimed.
 
-recurring:
-  - id: r-health-ai-minor-fix-lane
-    goal: >
-      Keep a lightweight intake lane for minor Health AI UX/contract/prompt
-      papercuts that do not justify a full direction bet.
-    done_when: >
-      Due minor Health AI issues are batched into a bounded repair/executor CALL
-      or explicitly deferred/dropped; no raw health diary enters Direction OS.
-    cadence: on_demand
-    lens: ai-system-data-architecture
-    last_done: 2026-06-24
-    note: >
-      Post-1338a35 bounded work was reconciled into this lane: menu workflow
-      structure repair and owner_fact_delta/assumption hardening
-      (7cd962a, 83dba88, 77a0ed), followed by fixed-menu/recipe support through
-      health-ai 8246cec. The lane remains recurring/on-demand, not a second
-      active bet. Authority, safety, provider-portability or owner-gate defects
-      escalate to a bounded repair/executor CALL; cosmetic papercuts are
-      batched, deferred or dropped.
+evidence: |
+  Contradiction named:
+  - NOW.next before repair was CALL c-health-training-activity-first-real-session-001, a guide route
+    to perform the first real training/activity session through Health AI.
+  - The owner-supplied repair request says this is a false launch state: x_training_activity must not
+    issue a session until Deep Research / program proposal / owner approval / ACTIVE authority exist.
 
-decisions: []
+  Reconstruction:
+  - live/health/LOG.md and history show that on 2026-06-27 the closed review relied on health-ai
+    c1bf61e and 8aa14f8 plus owner launch acceptance "Запускаем".
+  - health-ai is clean at 8aa14f8 Add training activity operational contour.
+  - health-ai x_training_activity/runtime/cursor.md currently declares:
+    x_training_activity_state=ACTIVE, selected route DAY_LOOP, reduced_mode=true, and
+    raw_body_execution_claimed=false.
+  - health-ai x_training_activity/programs/active-program.md currently treats
+    sample_committed_claims_only as part of active reduced launch authority.
+  - health-ai tools/check_training_activity_thin_slice.py currently reports that this bad state
+    passes: cursor ACTIVE, reduced_mode true, raw body execution false, DAY_LOOP route.
+  - Nutrition's x_nutrition/runtime/state-machine.md contains the working Deep Research child
+    dependency pattern that training/activity should adapt without depending on nutrition internals.
+
+  Owner confirmation:
+  - Proposed state repair options were shown.
+  - Owner chose the recommended option with: "вариант A".
+
+  Applied evidence:
+  - live/health/NOW.md now supersedes the first-session route and points to
+    CALL c-health-training-activity-runtime-repair-001.
+  - live/health/LOG.md has this repair line.
+  - This history file records the full RESULT.
+
+state_changes: |
+  Apply the following exact Direction OS state changes.
+
+  1) live/health/NOW.md
+
+  - Preserve active_bet.status: none.
+  - Replace active_bet.note with:
+
+      No active bet after review closed b-health-training-activity-domain-v0-001 as met on
+      2026-06-27. Product/process evidence: health-ai c1bf61e for t-1 and health-ai 8aa14f8 for
+      t-2; owner release acceptance from t-3: "Запускаем". First real performed training/activity
+      session is not claimed done. On 2026-06-28 the owner supplied a product repair request showing
+      that the first-session route is unsafe because health-ai 8aa14f8 falsely resolves
+      x_training_activity to ACTIVE/DAY_LOOP without real research-backed, owner-approved training
+      program authority. The first-session route is superseded by a bounded Health AI repair through
+      r-health-ai-minor-fix-lane; no first real session should be routed until the product repair
+      restores the research -> proposal -> owner approval -> ACTIVE path.
+
+  - Preserve tasks: [].
+  - Preserve open_calls: [].
+  - Preserve recurring r-health-ai-minor-fix-lane unchanged.
+  - Preserve decisions: [].
+  - Replace NOW.next with CALL c-health-training-activity-runtime-repair-001 as shown in next.
+
+  2) live/health/LOG.md
+
+  Append:
+
+      - 2026-06-28 — health/g-health-training-activity-system repair: owner correction superseded the first real session route because health-ai 8aa14f8 falsely resolves x_training_activity to ACTIVE/DAY_LOOP on sample-only evidence; NOW.next rerouted to bounded product repair c-health-training-activity-runtime-repair-001 via r-health-ai-minor-fix-lane. → history/2026-06-28-s-health-training-activity-runtime-repair-route-001.md
+
+  3) live/health/history/
+
+  Add this full RESULT as:
+  - live/health/history/2026-06-28-s-health-training-activity-runtime-repair-route-001.md
+
+  4) TREE.md
+
+  No TREE.md edit in this repair. The closed-node history is not rewritten here; a later review can
+  reconcile the node if product repair evidence shows the prior closure should be reclassified.
+
+captures:
+  - After product repair returns, run a fresh review/refutation if the result changes the meaning of the 2026-06-27 training/activity closure rather than only repairing the runtime surface.
+  - health-ai owes engineering contract re-sync to current os/engineering CONTRACT_VERSION 9; the executor CALL carries this warning so stale checker blind spots do not protect the repair.
+
+decisions_needed: []
+
+play_check:
+  - 1 Name the contradiction: done — NOW.next routed to first real session, while the owner correction says the product is in a false ACTIVE/DAY_LOOP launch state without research/program/approval authority.
+  - 2 Reconstruct: done — checked NOW, TREE, LOG/history, health-ai status/log, cursor.md, active-program.md, checker behavior, and nutrition Deep Research pattern.
+  - 3 Propose corrected state: done — proposed replacing the first-session guide route with bounded executor repair via r-health-ai-minor-fix-lane, leaving active_bet none and TREE unchanged.
+  - 4 Confirm: done — owner confirmed the recommended option with "вариант A".
+  - 5 Friction: skipped — this is a product-runtime/checker defect routed through the existing minor-fix lane; no repeated OS-rule hole is proven in this repair session.
+
+log: >
+  2026-06-28 — health/g-health-training-activity-system repair: owner correction
+  superseded the first real session route because health-ai 8aa14f8 falsely
+  resolves x_training_activity to ACTIVE/DAY_LOOP on sample-only evidence;
+  NOW.next rerouted to bounded product repair
+  c-health-training-activity-runtime-repair-001 via r-health-ai-minor-fix-lane.
 
 next: |
   CALL c-health-training-activity-runtime-repair-001
@@ -221,4 +286,4 @@ next: |
       review if product repair is complete.
   budget: one focused repair/executor session
 
-END_OF_FILE: live/health/NOW.md
+END_OF_FILE: live/health/history/2026-06-28-s-health-training-activity-runtime-repair-route-001.md
