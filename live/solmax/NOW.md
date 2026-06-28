@@ -6,7 +6,7 @@ project:
 active_bet:
   status: none
 
-route_status: g-zara-operate-contract_trace_repaired_pending_converge_verify
+route_status: g-zara-operate-contract_converge_verify_passed_pending_shape
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -20,9 +20,9 @@ owner_directive: |
   - g-zara-operate-runtime
   - g-zara-operate-evolution
 
-  First child remains g-zara-operate-contract. Shape bounced it back to converge, and
-  converge repaired the authority WHAT rows that had encoded the wrong forbidden-domain /
-  blacklist model.
+  First child remains g-zara-operate-contract. Shape bounced it back to converge, converge
+  repaired the authority WHAT rows that had encoded the wrong forbidden-domain/blacklist
+  model, trace repair fixed invalid glossary references, and converge-verify has now passed.
 
   Preserved owner clarification:
   - Zaratusta manager should not be defined by broad domain prohibitions.
@@ -39,23 +39,16 @@ owner_directive: |
     external evidence is needed.
 
 blocked_reason: |
-  No implementation resumes until converge-verify validates the 2026-06-28 trace repair.
+  No implementation resumes until g-zara-operate-contract is shaped into a bounded bet.
+  The repaired WHAT has passed converge-verify:
+  - complete=PASS
+  - backward_clean=PASS
+  - forward_clean=PASS
+  - smuggling=PASS
+  - row_failures=none
 
-  Converge trace repair result:
-  - W2 acceptance invalid glossary trace repaired by retargeting to valid G2/G3/G11 properties.
-  - W6 answer invalid glossary trace repaired by retargeting to valid G9/G10 properties.
-  - W13 answer invalid glossary trace repaired by retargeting to valid G9/G10 properties.
-  - W17 answer invalid glossary trace repaired by retargeting to valid G9 properties while
-    retaining the already-valid G10[source-backed] trace.
-
-  Preserve:
-  - no generic domain/topic blacklist;
-  - topic work is allowed through process/source/context;
-  - Direction OS and other repos/directions/projects are read-only sources by default;
-  - Zaratusta writes only to its own workspace/repo by default;
-  - future non-Zaratusta writes require explicit narrow integration/procedure;
-  - W19 HOW firewall and GitHub/Markdown-readable first-layer constraint;
-  - W20/A1-A13 shape-copyable acceptance surface.
+  Shape must copy W20/A1-A13 into Definition-of-Ready or executor done_when unless it finds
+  a new exact contradiction. W19 remains the PLAN agenda.
 
 tasks: []
 recurring: []
@@ -72,22 +65,22 @@ preserved_evidence:
   - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-verify-001.md
   - live/solmax/history/2026-06-26-s-zara-operate-contract-shape-001.md
   - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
+  - live/solmax/history/2026-06-27-s-zara-operate-contract-converge-verify-owner-boundary-002.md
   - live/solmax/history/2026-06-28-s-zara-operate-contract-converge-trace-repair-003.md
+  - live/solmax/history/2026-06-28-s-zara-operate-contract-converge-verify-trace-repair-004.md
   - live/life-reset/CHARTER.md
   - github.com/ainazemtsau/life-reset-manager/SPEC.md
   - github.com/ainazemtsau/zaratusta
 
 next:
-  id: c-zara-operate-contract-converge-verify-trace-repair-004
+  id: c-zara-operate-contract-shape-002
   to: session
   direction: solmax
-  play: converge-verify
+  play: shape
   node: g-zara-operate-contract
   goal: |
-    Verify the repaired g-zara-operate-contract WHAT after trace/copyability repair of
-    W2/W6/W13/W17. The verification must confirm that active WHAT rows no longer cite
-    missing §GLOSSARY properties and that W20/A1-A13 remains shape-copyable, topic-open
-    and HOW-clean.
+    Shape g-zara-operate-contract into a bounded implementation bet that preserves the
+    verified operating-manager authority WHAT after owner-boundary repair and trace repair.
   context: |
     Read:
     - live/solmax/CHARTER.md
@@ -99,30 +92,75 @@ next:
     - live/solmax/history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
     - live/solmax/history/2026-06-27-s-zara-operate-contract-converge-verify-owner-boundary-002.md
     - live/solmax/history/2026-06-28-s-zara-operate-contract-converge-trace-repair-003.md
+    - live/solmax/history/2026-06-28-s-zara-operate-contract-converge-verify-trace-repair-004.md
+    - live/life-reset/CHARTER.md
+    - github.com/ainazemtsau/life-reset-manager/SPEC.md
 
-    Prior owner-boundary verify found complete=PASS and backward_clean=PASS, and found no
-    substantive owner-boundary contradiction, no generic domain/topic blacklist and no hidden
-    HOW in W20/A1-A13. It failed only because W2/W6/W13/W17 cited missing glossary properties.
+    Converge-verify passed after trace repair:
+    - complete=PASS
+    - backward_clean=PASS
+    - forward_clean=PASS
+    - smuggling=PASS
+    - row_failures=none
 
-    Trace repair performed:
-    - W2 acceptance: replaced missing G2[explainable] with valid G2[bounded],
-      G3[auditable] and G11[auditable].
-    - W6 answer: replaced missing G9[source-backed] with valid G9[read-not-own]
-      and G10[source-backed].
-    - W13 answer: replaced missing G9[source-backed] with valid G9[context-loaded]
-      and G10[source-backed].
-    - W17 answer: replaced missing G9[source-backed] with valid G9[read-not-own]
-      and G9[context-loaded], retaining valid G10[source-backed].
+    Copy W20/A1-A13 into Definition-of-Ready or executor done_when unless shape finds a
+    new exact contradiction:
+    - A1 manager role is separate from source registry, process contracts,
+      owner-context structure and state artifacts; no monolithic prompt closes the node.
+    - A2 every manager output that changes route/state/commitment carries an authority
+      basis, process/source context basis, effect tier and workspace/write boundary.
+    - A3 no generic domain/topic blacklist: the manager may work on any owner-requested
+      topic through the right process and source context.
+    - A4 every source/context item has source id/path/link, owner/scope, read/write
+      status, freshness/trust marker and allowed use.
+    - A5 every nontrivial operation declares the loaded source/context bundle, missing
+      context and route if context is insufficient.
+    - A6 owner-context structure represents durable owner facts, preferences, decisions,
+      approvals, evidence, unknowns, context summaries and state-change requests inside
+      Zaratusta workspace.
+    - A7 process registry entries are inspectable contracts with purpose, inputs, outputs,
+      authority/effect tier, required source context, owner approval gates and examples/tests.
+    - A8 no matching process routes to process draft/research/review; process creation or
+      mutation is a proposal or ET2 action with owner approval; hidden self-rewrite is invalid.
+    - A9 Direction OS and other repos/directions/projects are read-only sources by default;
+      Zaratusta writes only to its own workspace/repo unless an explicit narrow
+      integration/procedure is approved.
+    - A10 external, irreversible, spend, deletion, message/send or material cross-system
+      effects require explicit scoped owner approval before effect.
+    - A11 intake/planning/logging preserve commitment semantics: captures are not commitments;
+      plans distinguish proposal from accepted commitment and name displacement; log responses
+      are bounded to loaded context.
+    - A12 high-stakes/source-owned requests are routed by process/source/context: examples/tests
+      must show answer/summarize/draft/track/route behavior without topic refusal, while
+      unsourced source-owned instructions and unapproved side effects are blocked before effect.
+    - A13 first implementation layer is GitHub/Markdown-readable source registry, process
+      registry, owner-context structure, context-loading procedure and examples/tests; exact
+      UI/storage/vendor/schema/cadence/scoring/scheduler/automation/API choices remain
+      unchosen at this layer.
 
-    Preserve during verification:
-    - no generic domain/topic blacklist;
-    - topic work is allowed through process/source/context;
-    - Direction OS and other repos/directions/projects are read-only sources by default;
-    - Zaratusta writes only to its own workspace/repo by default;
-    - future non-Zaratusta writes require explicit narrow integration/procedure;
-    - W19 HOW firewall and GitHub/Markdown-readable first-layer constraint;
-    - W20/A1-A13 substance unless verification finds a new exact defect.
+    No separate §CONTRACTS section exists in the converge file; W20/A1-A13 are the contract
+    surface to preserve.
+
+    Treat W19 routed choices as PLAN agenda, not as WHAT:
+    - exact UI/channel/surface
+    - exact storage/schema/file layout/database
+    - exact engine/vendor/framework/API/subscription adapter
+    - exact horizon durations/cadence/month/12-week model
+    - exact non-caving weighing/scoring policy and thresholds
+    - exact implementation of state writer and replay
+    - exact research procedure mechanics
+    - exact automation/scheduler/spend controls
+    - exact external integration procedure for future non-Zaratusta writes
+    - exact source registry/process registry/owner-context file layout
+
+    Preserve child-consumer edges:
+    - g-zara-operate-state consumes W8-W10, W16, W18, W20.
+    - g-zara-operate-runtime consumes W1-W20.
+    - g-zara-operate-evolution consumes W15, W18-W20.
   boundaries: |
+    Do not implement or modify the product repository.
+    Do not reopen the old W0/kernel-first route.
+    Do not copy LifeReset wholesale.
     Do not reintroduce a generic domain/topic blacklist.
     Do not change the owner-approved rule that the manager may work on any owner-requested
     topic through the right process and source context.
@@ -131,16 +169,18 @@ next:
     writes elsewhere require explicit narrow integration/procedure.
     Do not choose UI, storage engine, database, exact schema, exact cadence, scoring,
     automation, scheduler, vendor, framework or API/subscription adapter.
-    Do not implement or modify the product repository.
+    Do not convert W19 HOW/PLAN choices into WHAT unless shape finds a contradiction that
+    must bounce to converge.
   done_when: |
-    Verification explicitly attacks complete/backward-clean/forward-clean/smuggling after
-    the trace repair. Verdict is PASS with no row failures and next routes to shape, or FAIL
-    with exact rows reopened / exact owner decision needed. The verifier specifically checks
-    that W2/W6/W13/W17 no longer contain invalid glossary property references and that
-    W20/A1-A13 can be copied by shape without contradicting owner-boundary clarification.
+    An owner-approved bounded bet for g-zara-operate-contract exists with appetite, kill_by,
+    cut list, lens sweep and tasks that include the riskiest assumption.
+    Shape copies W20/A1-A13 into the bet's Definition-of-Ready or executor done_when and
+    carries W19 as PLAN agenda.
+    If any verified WHAT row becomes inconsistent during shape, the exact row is bounced to
+    converge instead of guessed.
   return: |
-    RESULT with verification verdict, row failures if any, state_changes for work/NOW/LOG/history,
-    and next route to shape if PASS or converge/awaiting_decision if FAIL.
-  budget: one converge-verify session
+    RESULT with approved bet or exact bounce, TREE/NOW/LOG state_changes, evidence, and
+    next ready work/verify route.
+  budget: one shape session
 
 END_OF_FILE: live/solmax/NOW.md
