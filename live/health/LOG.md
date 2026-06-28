@@ -130,4 +130,6 @@ c-health-training-activity-converge-001.
 
 - 2026-06-27 — health/g-health-training-activity-system review: bet b-health-training-activity-domain-v0-001 verdict met; health-ai c1bf61e/8aa14f8 plus owner launch acceptance ("Запускаем") close training/activity v0 as product/process done; add-back 0/7 with repeated-zero-cuts caution; no raw/body execution data stored; first real performed session not claimed; next c-health-training-activity-first-real-session-001. → history/2026-06-27-s-health-training-activity-domain-v0-review-001.md
 
+- 2026-06-28 — health/g-health-training-activity-system repair: owner correction superseded the first real session route because health-ai 8aa14f8 falsely resolves x_training_activity to ACTIVE/DAY_LOOP on sample-only evidence; NOW.next rerouted to bounded product repair c-health-training-activity-runtime-repair-001 via r-health-ai-minor-fix-lane. → history/2026-06-28-s-health-training-activity-runtime-repair-route-001.md
+
 END_OF_FILE: live/health/LOG.md
