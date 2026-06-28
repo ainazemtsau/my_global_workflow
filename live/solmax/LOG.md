@@ -59,4 +59,6 @@
 
 - 2026-06-27 — repair: writer-bounce classified as obsolete duplicate RESULT, not missing work. Stale expected_sha ae0549e targeted a pre-eb70242 work artifact while current local blob is 04682f7 and history already contains s-zara-operate-contract-converge-owner-boundary-002. No WHAT/NOW changes; continue current NOW.next → c-zara-operate-contract-converge-verify-owner-boundary-002. → history/2026-06-27-s-zara-operate-contract-writer-bounce-repair-003.md
 
+- 2026-06-27 — converge-verify g-zara-operate-contract owner-boundary repair: FAIL, trace/copyability only. Completeness and backward-clean passed; no domain blacklist or hidden HOW found in substance, but W2/W6/W13/W17 cite missing glossary properties (`G2[explainable]`, `G9[source-backed]`). Reopened those rows for converge trace repair; no owner decision needed. → history/2026-06-27-s-zara-operate-contract-converge-verify-owner-boundary-002.md
+
 END_OF_FILE: live/solmax/LOG.md

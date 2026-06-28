@@ -3,7 +3,7 @@
 node: g-zara-operate-contract
 direction: solmax
 play: converge
-status: repaired_pending_converge_verify
+status: converge_verify_failed_trace_repair_needed
 date: 2026-06-26
 
 imported:
@@ -509,4 +509,19 @@ repair: owner-boundary clarification applied; domain-blacklist semantics removed
 verify: required; previous converge-verify PASS is stale after W8/W17/W20 repair.
 shape_binding: copy repaired W20/A1-A13 into Definition-of-Ready or executor
   done_when; carry W19 routed choices as PLAN agenda.
+
+§VERIFY_FAIL: converge-verify failed @ 2026-06-27.
+verify: complete=PASS; backward_clean=PASS; forward_clean=FAIL; smuggling=FAIL.
+row_failures:
+  - W2 acceptance cites missing glossary property `→GLOSSARY:G2[explainable]`.
+  - W6 answer cites missing glossary property `→GLOSSARY:G9[source-backed]`.
+  - W13 answer cites missing glossary property `→GLOSSARY:G9[source-backed]`.
+  - W17 answer cites missing glossary property `→GLOSSARY:G9[source-backed]`.
+bounce:
+  Reopen W2/W6/W13/W17 only for trace/copyability repair. Preserve the owner-approved
+  process/source/workspace model: no generic domain/topic blacklist; topic work allowed
+  through source/context/process; Zaratusta writes only to its own workspace/repo by
+  default; other repos/directions/projects read-only by default; non-Zaratusta writes
+  require explicit narrow integration/procedure. Preserve W20/A1-A13 substance unless a
+  trace repair requires retargeting references. No owner decision required.
 END_OF_FILE: work/converge-g-zara-operate-contract.md
