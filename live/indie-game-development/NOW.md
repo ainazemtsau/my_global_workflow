@@ -3,6 +3,20 @@
 active_bet:
   node: g-9c41
   phase: |
+    ✅ 2026-06-26 (s-work-022, work — c-exec-015 spike report D1+D4 resolved WITH owner; reconciled vs concurrent
+    s-work-021): owner pasted dev docs/c-exec-015-spike-findings.md (D1–D4). D2+D3 were ALREADY decided by a concurrent
+    session (s-work-021: d-bias-quantum-001 ±1 floor / d-rw3-step-atomicity-ledger-001) — NOT re-decided here; I added only
+    the new delta. D1 (the substantive owner call): he CONFIRMED the game needs gameplay-meaningful directional JETS that
+    deal more damage (by concentration), but chose cheap TIER-1 WITHOUT inertia NOW + revisit. CRUX correction: the
+    spike's open-space ≈2:1 lean measured forward-bias on ONE face only — it NEVER tried LATERAL CONFINEMENT. So the
+    sharpened owner-eye target = a VISIBLE jet on the debug CUBES via a jet-emitter that pushes forward AND clamps the
+    sides (emitter-born valves/inward bias, travels with the jet — NOT level walls; gas spawns anywhere). If even with
+    confinement it can't read as a tight open-space jet → concrete trigger for TIER 3 (fixed-point velocity, ADR-0010).
+    NO coasting this leg; damage = concentration (later combat slice). D4 = spec AMENDED (d-scene-one-polygon-001): engine
+    deliverable = ONE curated sandbox scene + forced-flow MODE, not scene-per-feature (standing convention). PROCESS NOTE
+    (owner-corrected, sharp): do NOT pitch building a throwaway test-rig to settle a head/design decision (a real feature ≠
+    a demo crutch); gas is OPEN-SPACE-first (spawns anywhere) — drop the walls-assumption. Folded into c-exec-015-call.md
+    §AMENDMENT + relayed in next. CONTINUE IN A FRESH SESSION.
     ✅ 2026-06-26 (s-work-021, work/triage — 2 Codex P2s from the c-exec-015 STEP-0 build routed home + DECIDED, verified
     FIRST-HAND in dev code): #1 d-bias-quantum-001 — VoxelFaceFlow.cs:66 `biasMove = bias*conductivity/kpEff` divides the
     FORCING bias by the gradient's RELAXATION damper (kpEff=12*spf) → strength<~12 truncates to 0 = a weak kick/vent is a
@@ -807,6 +821,16 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-scene-one-polygon-001
+    status: answered   # PLANNER spec-amendment 2026-06-26 (s-work-022) — c-exec-015 spike finding D4. Owner direction = ONE curated test polygon, not a scene-per-feature.
+    note: |
+      The c-exec-015 frozen spec mandated a SEPARATE GasForcedFlowScene.unity (deliverable-coverage row 7); the builder
+      already (correctly) consolidated the forced-flow driver into the one VoxelSandboxDirector with a mode selector, but
+      could not edit the frozen spec. DECISION (planner-authorized): the engine owner-eye deliverable = the ONE curated
+      sandbox scene (existing GasVoxelSandboxScene) configured via the director's level/mode selector for forced-flow —
+      NOT a new .unity per feature. Drop the separate-scene `exists:` row; point coverage at the existing sandbox scene;
+      remove/fold the standalone GasForcedFlowScene.unity. ADOPT "one curated polygon, mode-selected" as the STANDING
+      convention for all future richness legs (matches the project's anti-scene-sprawl cut). Folded into c-exec-015-call.md §AMENDMENT.
   - id: d-bias-quantum-001
     status: answered   # PLANNER-DECIDED 2026-06-26 (s-work-021), verified FIRST-HAND in VoxelFaceFlow.cs:66 (dev). A c-exec-015 STEP-0 finding (Codex P2 #1) routed home; not a builder patch.
     note: |
@@ -845,6 +869,15 @@ decision_inbox:
   - id: d-gas-richness-tiers-001
     status: answered   # owner-STEERED + owner «ок» 2026-06-26 (s-work-020) on the 3-tier gas-richness model. Basis = deep-research workflow (work/gas-richness-deep-research-2026-06-26.md; 20 agents, web + code, adversarially verified). EXTENDS the locked model (does NOT crack it): adds the impulse-event/directional-bias seam; reserves the two heavier tiers.
     note: |
+      D1 SPIKE RESOLUTION (s-work-022, 2026-06-26): owner eyeballed the GREEN c-exec-015 Step-0 spike and resolved D1 —
+      he CONFIRMED the game needs gameplay-meaningful directional JETS that deal more damage (by concentration), but chose
+      cheap TIER-1 WITHOUT inertia NOW + revisit. The spike's open-space ≈2:1 lean measured forward-bias on ONE face only
+      — it never tried LATERAL CONFINEMENT; so TIER 1 stays with a sharpened owner-eye target = a VISIBLE jet on the cubes
+      via a jet-emitter (forward push + lateral confinement; emitter-born valves/inward bias; travels with the jet, NOT
+      level walls — gas spawns anywhere). If even with confinement it can't read as a tight open-space jet → concrete
+      trigger for TIER 3 (fixed-point velocity, lock-crack ADR-0010). NO coasting/inertia this leg. (D2 = d-bias-quantum-001
+      / D3 = d-rw3-step-atomicity-ledger-001, already decided s-work-021; D4 = d-scene-one-polygon-001.)
+      ---
       Owner pushed back on "gas richness is a hard compromise" and asked for deep research (incl. exotic) + a novel/hybrid
       solution; validated two of his own ideas. RESULT = a 3-TIER architecture, owner «ок» to building tier 1 now:
       • TIER 1 (BUILD NOW = S1/c-exec-015, NO lock-crack): integer IMPULSE-EVENTS write a DECAYING directional-bias
@@ -1360,6 +1393,18 @@ next: |
   ledger-001) RW3 Test-4 throws on SeedMass not Step → make the ledger honest (real throwing-Step seam OR rename + discharge
   by construction; overflow guard unreachable, no live bug). hygiene-red = builder housekeeping (commit + remove
   Assets/_Recovery + rerun -Deliver before close). The build then continues STEP-0 → выброс/выдавливание/ветер/valve.
+
+  ALSO RELAY (s-work-022 — owner resolved spike-report D1+D4): (D1) owner CONFIRMED the game needs gameplay-meaningful
+  directional JETS that deal more damage (by concentration), but chose cheap TIER-1 WITHOUT inertia NOW + revisit. The
+  spike's open-space ≈2:1 measured forward-bias on ONE face only — it NEVER tried LATERAL CONFINEMENT. New headline
+  owner-eye target = a VISIBLE directional JET on the debug CUBES via a jet-emitter that pushes forward AND clamps the
+  lateral faces along the jet footprint (emitter-born one-way valves / inward bias — travels WITH the jet wherever it
+  fires; NOT level walls; gas spawns anywhere). TUNE tightness on the cubes. If even with confinement it can't read as a
+  tight open-space jet → that is the concrete TIER-3 (fixed-point velocity, ADR-0010 lock-crack) trigger — report, don't
+  substitute. NO coasting this leg; damage = concentration (a later combat slice reads the dense flow the jet creates).
+  (D4, d-scene-one-polygon-001) engine deliverable = the ONE curated sandbox scene with a forced-flow MODE (existing
+  GasVoxelSandboxScene + director mode), NOT a scene-per-feature; drop the separate GasForcedFlowScene.unity; standing
+  convention. All folded into work/c-exec-015-call.md §AMENDMENT.
 
   (c-exec-015 framing, for reference) S1 REFRAMED (s-work-020, owner «ок») to the FORCED-FLOW primitive: deterministic
   integer IMPULSE-EVENTS write a DECAYING directional-bias register on the S0 face-flow → AUTHORITATIVE wind + decaying

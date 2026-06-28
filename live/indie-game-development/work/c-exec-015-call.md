@@ -6,6 +6,33 @@ candidate "Forced-Flow Hybrid", adversarially verified). Supersedes the prior c-
 Executor: a FRESH GasCoopGame_dev session (Unity-MCP + branch `dev` → `main` when green, owner-gated). Opens with a PLAN.
 Builds ON c-exec-014 (S0, merged GasCoopGame `main` @824948d). State source = NOW.md. Canon = knowledge/g9c41-gas-engine-SPEC.md.
 
+## AMENDMENT (after the Step-0 spike + owner decisions D1–D4)
+
+The Step-0 spike returned GREEN (primitive proven, 843 tests, dev @bbc70df; owner eyeballed it). Decisions on the four
+spike-report findings (`docs/c-exec-015-spike-findings.md` in dev):
+
+- **D1 (directionality) — cheap TIER-1 NOW, NO inertia; velocity-tier RESERVED.** Owner CONFIRMED the game needs
+  gameplay-meaningful directional JETS that deal more damage (by concentration), but chose to do it WITHOUT inertia for
+  now and revisit. **The spike's open-space ≈2:1 measurement tested forward-bias on ONE face only — it never tried
+  LATERAL CONFINEMENT.** So the **PRIORITY engine owner-eye target = a VISIBLE directional JET on the debug cubes**, via a
+  **jet-emitter that pushes forward AND clamps the lateral faces along the jet footprint** (one-way valves / inward
+  negative bias — already in the tier; integer, in-checksum, decaying). The lateral confinement is **EMITTER-BORN and
+  travels WITH the jet wherever it fires — NOT level geometry** (gas spawns anywhere). Build it and TUNE the tightness on
+  the cubes to read as a jet. HONEST: if even with confinement it cannot read as a tight open-space jet, THAT is the
+  concrete trigger to escalate to TIER 3 (fixed-point velocity, lock-crack, owner-signed ADR-0010) — report it, do not
+  silently substitute. NO stored velocity / coasting this leg (after the emitter stops, the jet dissipates — accepted).
+  Damage = concentration is a LATER combat slice that reads the dense flow this jet creates (not built here).
+- **D2 — already decided (d-bias-quantum-001, s-work-021):** a weak bias must not silently no-op → guaranteed signed
+  **±1 floor** (NOT a bias-carry), RED-first, conservation + in-checksum + still passes the settle oracle. Use that.
+- **D3 — already decided (d-rw3-step-atomicity-ledger-001, s-work-021):** the INDEPENDENT test-author makes the RW3
+  ledger honest (real throwing-Step seam OR rename + discharge-by-construction; overflow guard unreachable, no live bug).
+- **D4 — spec AMENDED (d-scene-one-polygon-001, planner):** engine owner-eye deliverable = the ONE curated sandbox scene
+  with a forced-flow MODE (existing `GasVoxelSandboxScene` + the director's level/mode selector), NOT a separate `.unity`
+  per feature. Drop the `exists:GasForcedFlowScene.unity` deliverable row; remove/fold the standalone scene. Standing
+  convention for future richness legs.
+
+The jet-emitter (forward + lateral confinement) is the priority engine deliverable. Everything below stands as amended.
+
 ## goal (outcome, not method)
 
 The first DYNAMIC, DIRECTABLE gas on the S0 foundation, via ONE general primitive: **deterministic integer
