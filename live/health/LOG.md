@@ -136,4 +136,6 @@ c-health-training-activity-converge-001.
 
 - 2026-06-28 — health/g-health-training-activity-system state validation: Health AI training/activity product repair 1fe41c2 remains the current authority; owner reports the research/check phase has started, but no returned research conclusion exists yet. NOW should register the Deep Research child as in-flight, keep program/ACTIVE/week/session blocked, and route next to returned-conclusion intake. Stale 8aa14f8 ACTIVE wording in knowledge/TREE identified; knowledge repair proposed now, TREE text cleanup requires owner approval. → history/2026-06-28-s-health-training-activity-state-validation-001.md
 
+2026-06-28 — health/g-health-training-activity-system repair: owner approved minimal TREE cleanup replacing stale 8aa14f8/ACTIVE training/activity wording with current 1fe41c2/PROGRAM-awaiting-Deep-Research boundary; owner also clarified that Direction OS must not track Health AI projects/processes unless explicitly asked, so Health AI continues outside OS tracking and NOW.next becomes awaiting_owner_instruction. → history/2026-06-28-s-health-training-activity-tree-cleanup-001.md
+
 END_OF_FILE: live/health/LOG.md
