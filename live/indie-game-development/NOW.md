@@ -531,34 +531,33 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       (b) making MANY gas types readable at a glance without colour/motion collisions is a DESIGN unknown (no sourced answer);
       (c) GPU sync (compute finishes before the visual samples the buffer) + per-tick grid→GPU upload bandwidth.
     next: |
-      STRUCTURE-FIRST (owner override 2026-06-26, s-visual-002 — SUPERSEDES the 2026-06-21 "design-feel first" rec;
-      owner «структура, не дизайн»). The procedural gas-visual ARCHITECTURE is researched + documented →
-      work/gas-visual-architecture-2026-06-26.md (workflow wf_579651ba-7f9: 13 agents, 5 adversarially-verified
-      dimensions, solo-dev over-engineering critic folded). THE STRUCTURE = a read-only data-driven engine in 4 layers
-      (engine → one-way seam[FAKE now/real later] → ONE shared body shader styled by a typeId-indexed param buffer →
-      separate event-driven warning channel) + a RESERVED bare special-gas hook. OWNER'S SHADER Q ANSWERED: ONE shared
-      shader configured by DATA — new ordinary gas = author one GasTypeDefinition asset + register it (editor-validated),
-      NO per-type shader, NO code. 3 owner decisions ratified (structure-first; 3 param-extreme test fixtures, no
-      neutral/roster; reserve special-gas seam, look-only v1). Two channels: steady BODY + event-driven WARNING
-      telegraph (separate layer, not idle spark). d-visual-buildstep0-001 ANSWERED 2026-06-26 (owner = ADJUST,
-      s-visual-003): min-spec perf is NOT a front gate and is NOT measured first — owner has NO min-spec machine, and a
-      perf number does not change the architecture (only tuning knobs, or worst-case a later BODY-rendering-technique
-      swap the read-only seam makes cheap). FIRST GOAL = a WORKING visual on the owner's HOME machine; perf = a LATER
-      optimization pass once the visual exists + target audience HW is known. Cheap safeguards from day one: 2 body knobs
-      (resolution scale + step count) + a free NON-GATING rough frame-cost reading on the home machine; body stays behind
-      the seam (swappable). NAMED DEFERRED RISK: raymarch body may be too heavy for the eventual min-spec → body
-      technique swapped later (bounded — decoupling preserves data model / authoring / warning / 3 gases). ADJUSTED BUILD
-      SEQUENCE (FAKE data, on home; doc §7): step 1 seam+buffer-contract+stride-gate → step 2 three gases from DATA
-      (+ forgot-to-register guard) → step 3 many-types overlap + OWNER-EYE readability bar → step 4 warning channel
-      (telegraph through the gas) → step 5 reserve the bare special-gas hook → step 6 (LATER) real-engine swap
-      (fake→real INTEGER grid g-9c41, ZERO visualizer change). BUILD-STEP-1 CALL AUTHORED + adversarially hardened
-      2026-06-26 (s-visual-004, wf_5dd9d57a-142, 4 lenses) → work/c-visual-001-call.md (c-visual-001 RE-SPECCED + queued
-      in open_calls). READY: owner opens c-visual-001 in a fresh GasCoopGame_dev session (opens with a PLAN, owner
-      present); next leg after = c-visual-002 (step 2 — three gases from DATA).
-      RECONCILED 2026-06-26: engine S0 is now DELIVERED (s-work-019) so the real RN1 read-seam already EXISTS for the
-      later step-6 swap — but the plan stays fake-data-first per the owner. Honest unknowns + over-engineering guardrails
-      = doc §8. Builds on work/gas-visual-research-2026-06-21.md (layered read-only arch + raymarch/VFX paths — carried,
-      NOT relitigated).
+      LOOK-DEVELOPMENT phase (2026-06-28, s-visual-005 — track BROUGHT HOME from off-contour build; owner chose A +
+      «добро»). The structure-first build-phase is DONE + DELIVERED (c-visual-001 foundation→S1→S3→S5, real data in
+      motion, merged origin/main @9780713; S6 look-dev WIP on dev2 @dc4c225) — that phase is HISTORY (s-visual-002/003/004
+      + work/c-visual-001-call.md + work/gas-visual-architecture-2026-06-26.md). The track now DEVELOPS THE LOOK (the
+      «wow»), not the pipe.
+      FELT TARGET (owner — the ориентир, references-for-a-feeling, NOT a spec): газ = СЕРДЦЕ/жемчужина игры → должен
+      выглядеть ОСОБЕННО КРУТО / уникально; каждый ТИП имеет свой ХАРАКТЕР (шум/движение/свет, не только цвет),
+      настраиваемый под своё состояние; low-poly = the WORLD, NOT a cap on the gas; commercial-clean (no NVIDIA Flow).
+      WHY it FELT like «топчемся/блекло» (diagnosed): ~half = DRIFT (the build was invisible to the OS — now reconciled);
+      ~half = only ~3 of ~10 look levers built + the BOX sandbox mis-leads the eye. NOT the ceiling.
+      FORWARD PLAN (owner-endorsed; SOURCE OF TRUTH = GasCoopGame docs/gas-visual-stage-plan.md §S6+ — do NOT duplicate):
+      (1) a dedicated GAS-LAB scene FIRST — gas as a FREE cloud in open space (no level walls) + good camera/light, so the
+      box stops lying and the look develops cleanly (owner's idea; aligns with gas-is-open-space-first — gas spawns
+      anywhere); (2) the P1 levers — bake a tiling 3D noise (inverted-Worley detail-volume) + smootherstep coord-warp
+      (kills box-creases/lines) + detail-volume erosion + cheap STYLIZED lighting (two-tone ambient + scatter-GLOW = the
+      «jelly» fix) + analytical transmittance (budget); (3) per-type CHARACTER as DATA (noise/motion/erosion/light profile
+      — ⚠ frozen 96B GpuGasParams → reserved-fields or a layout-ADR) + OPTIONAL particle ACCENTS (owner owns «Feel» —
+      check its VFX/feedbacks); gas-spread STAGES later still.
+      PROCESS FIX (owner «добро» — the real ask; TRACK-LEVEL, not a kernel change): the visual track now runs with the
+      ENGINE-track discipline — (a) every slice COMES HOME as a RESULT applied to OS state (end the drift; no off-contour
+      merge invisible to governance); (b) each slice carries TWO owner-eye axes, not one — legibility AND «does it move
+      toward the JEWEL target» (the missing aesthetic gate — why tech accreted while the look stalled).
+      DECISIONS recorded (were off-contour): LOOK-FIRST then optimize (perf = orthogonal bolt-on, S4 deferred); raymarch =
+      the SOLE body base (NO particle/VFX base — fill-rate-bound either way; accents optional/compute-gated later);
+      per-cell warning granularity (ADR-0012 D5); 96B layout FROZEN; the 4 colour CONCEPTS = a start, NOT final (CHARACTER,
+      not colour, is the lever). next = the GAS-LAB look-development leg c-visual-002 (open in a FRESH GasCoopGame_dev_2
+      session, opens with a PLAN; spec = docs/gas-visual-stage-plan.md §S6+).
     note: |
       Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
       (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
@@ -665,8 +664,11 @@ open_calls:
       Carries the c-exec-016 done_when 2/3/4 content MINUS the RNG control. STOP = stored velocity / float authoritative
       path / re-flux-as-gate / reopening ADR-0010. Authored when c-exec-017 is GREEN.
   - id: c-visual-001
-    status: queued   # RE-SPECCED 2026-06-26 (s-visual-004) to the STRUCTURE-FIRST build-step 1 (was the pre-structure-first P1 "grid→GPU pipe over RN1"). FULL CALL authored + adversarially hardened (wf_5dd9d57a-142, 4 lenses) → work/c-visual-001-call.md. Opens with a PLAN (owner present), builds in a fresh GasCoopGame_dev session (dev→main when green). Owner starts it when he chooses (parallel to the engine bet, ~40–60 min/day).
+    status: delivered   # ✅ BROUGHT HOME 2026-06-28 (s-visual-005) — off-contour VISUAL-track drift reconciled first-hand. c-visual-001 was BUILT foundation→S1→S3→S5 and MERGED to GasCoopGame origin/main: S5 real-data swap @9780713 (verified ancestor of main tip 2e24a24). Evidence (GasCoopGame_dev_2/RESULT.md, read first-hand): -Deliver inner GREEN 1022/1022, mutation 76% ≥70, independent spec-only test-author (39 RED), 6-lens adversarial review, ZERO Core/** edit (977 sim tests unchanged), owner-eye SIGNED 2026-06-28 «облако читается хорошо, верится что это газ». ADRs 0012 seam / 0013 S1 / 0014 S3 / 0015 S5. S6 look-development = WIP checkpoint on dev2 @dc4c225 (pushed, NOT merged — look not locked; render-only, zero sim/layout change). The OS recorded this as "queued/not-started" for ~2 days across 3 owner-gated merges = the drift the owner flagged; now corrected. — was: queued (structure-first build-step 1, work/c-visual-001-call.md).
     note: |
+      ✅ DELIVERED through S5 (real data in motion) — see the status comment + GasCoopGame docs/gas-visual-stage-plan.md.
+      The track rolls to LOOK-DEVELOPMENT (gas-lab → P1 levers → per-type character; g-7e15.next). Original build-step-1
+      scope kept below as history:
       Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev→main when green). Build-step 1 of the
       structure-first gas-visual architecture (work/gas-visual-architecture-2026-06-26.md §7 step 1): a WORKING gas-visual
       on the HOME machine on FAKE data — a one-way read-only SEAM (IGasViewSource) filling TWO GPU resources (a per-cell
@@ -1655,8 +1657,11 @@ next: |
   cracks the lock) — armed, not pulled. Libraries if tier 3: FixPointCS/FixedMathSharp (arithmetic only — no
   off-the-shelf fixed-point fluid exists). Float fluid plugins (Zibra/Obi) = cosmetic g-7e15 layer ONLY.
 
-  ∥ VISUAL TRACK (g-7e15): c-visual-001 (structure-first build-step 1) is QUEUED + build-ready (work/c-visual-001-call.md);
-  owner starts it when he chooses (~40–60 min/day), parallel to the engine bet. Unaffected by this session.
+  ∥ VISUAL TRACK (g-7e15): c-visual-001 DELIVERED (foundation→S1→S3→S5 real-data swap, merged origin/main @9780713;
+  verified first-hand 2026-06-28) — brought home from off-contour drift by s-visual-005; S6 look-development = WIP on
+  dev2 @dc4c225 (pushed, not merged). Track now in LOOK-DEVELOPMENT (gas-lab → P1 levers → per-type character); forward
+  spec = GasCoopGame docs/gas-visual-stage-plan.md §S6+. Process fix applied: visual slices come HOME + carry the
+  «moves toward the JEWEL» owner-eye gate. next = the gas-lab leg c-visual-002 in a fresh GasCoopGame_dev_2 session.
 
   PENDING (carried, non-blocking): the os/engineering MAINTENANCE request (anti-substitution over-rotation + resolution
   conflation — work/MAINTENANCE-os-engineering-scope-guard-2026-06-26.md) is drafted, awaiting a SEPARATE maintenance
@@ -1670,5 +1675,8 @@ next: |
   DELIVERED on dev (verified first-hand), bet rolls to S2b; d-adr-lockstep-citation-001 surfaced; S2a dev→main merge +
   owner-eye owner-gated. ed421b5: S2a merge confirmed on main @2e24a24. s-work-027 commit: canon ADR citation FIXED
   (ADR-0010→ADR-0002, d-adr-lockstep-citation-001 answered, owner «да») + c-exec-018 (S2b) authored + adversarially hardened.
+  s-visual-005 commit: gas-VISUAL track BROUGHT HOME — c-visual-001 queued→delivered (S5 in origin/main @9780713, S6 WIP
+  dev2 @dc4c225, both verified first-hand); g-7e15.next reset to LOOK-DEVELOPMENT (gas-lab→P1 levers→character) + felt
+  TARGET (jewel/character) + PROCESS fix (come-home + «moves toward the JEWEL» owner-eye gate). Push main owner-gated.
 
 END_OF_FILE: live/indie-game-development/NOW.md
