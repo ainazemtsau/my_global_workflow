@@ -132,4 +132,6 @@ c-health-training-activity-converge-001.
 
 - 2026-06-28 — health/g-health-training-activity-system repair: owner correction superseded the first real session route because health-ai 8aa14f8 falsely resolves x_training_activity to ACTIVE/DAY_LOOP on sample-only evidence; NOW.next rerouted to bounded product repair c-health-training-activity-runtime-repair-001 via r-health-ai-minor-fix-lane. → history/2026-06-28-s-health-training-activity-runtime-repair-route-001.md
 
+2026-06-28 — health/g-health-training-activity-system repair: health-ai 1fe41c2 replaced false ACTIVE/DAY_LOOP launch readiness with PROGRAM awaiting Deep Research, v9 validation and checker guards; first session remains blocked, no research/approval/session fabricated; next Deep Research child guide. → history/2026-06-28-s-health-training-activity-runtime-repair-001.md
+
 END_OF_FILE: live/health/LOG.md
