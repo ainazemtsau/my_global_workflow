@@ -436,7 +436,32 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       forcing / contraction-returns-after-decay / no-silent-substitution / guard soundness / ledger honesty. Re-measure the
       active-set with the bias LIVE (forcing), not after a settle. approach token = impulse-event-decaying-directional-bias
       on the S0 face-flow law + step-0-spike-first + carried-overflow-hardening.
-    status: active   # S1 forced-flow slice. REFRAMED + FRAMED as c-exec-015 (build-ready; work/c-exec-015-call.md) by s-work-020 (owner «ок»). Opens with a PLAN (owner present) in a FRESH GasCoopGame_dev session, STEP-0 spike FIRST. Closes done ONLY on c-exec-015's GREEN return (step-0 spike green + -Deliver incl. new int*int scan + RED suites + fresh-session G5) — no self-marking; «весело» owner-excluded as a gate. May split (PLAN scopes; budget clause). next slice = S2 (multiplayer lockstep loopback). 2 reserved upgrade tiers named (lattice-gas rooms / fixed-point velocity) — d-gas-richness-tiers-001.
+    status: done   # ✅ 2026-06-28 (s-work-023): S1 forced-flow slice CLOSED — scope S1a delivered via c-exec-015 (merged origin/main @0adae83, 970 green, -Deliver GREEN on dev, fresh-session G5 Sonnet COULD-NOT-REFUTE, Codex by-class CLEAN, owner-eye «работает»). Delivered the forced-flow PRIMITIVE: decaying directional-bias impulse-events on the S0 face-flow → jet-emitter (forward push + lateral confinement) + ВЫБРОС + ВЕТЕР/fork-split + one-way VALVE + ±1 bias-floor + ledger-honesty + one curated scene + class-wide int*int overflow scan — INSIDE the locked integer model (no stored velocity). S1b ВЫДАВЛИВАНИЕ split out + CUT to backlog (d-displacement-s1b-cut-001, owner «весь пакет»). Velocity TIER-3 reserved/trigger-ARMED (d-gas-richness-tiers-001); pressure = signal-on-demand (d-pressure-signal-on-demand-001); sparse = deferred-UNVALIDATED (d-sparse-solver-defer-001). Architecture fork (clouds vs lockstep) RESOLVED → lockstep stands (d-clouds-fork-resolved-001). The bet ROLLS to S2. Full RESULT → history/s-work-023.md.
+  - id: S2
+    kind: executor (engineering, GasCoopGame) — MULTIPLAYER LOCKSTEP LOOPBACK SLICE. Rolls on S0 (S1 present). The netcode determinism core the cheap whole model rides on. Netcode IS the slice (loopback, ONE machine — real 2 PCs never a gate). Per canon §5 S2.
+    goal: |
+      The coarse integer sim produces the SAME per-tick MeaningChecksum on 2 PROCESSES (host + 1
+      follower, loopback, ONE machine — 2 PCs NOT needed; integer cross-CPU = GIVEN, not proven).
+      Determinism BY CONSTRUCTION (integer-only authoritative path + build-time zero-float scan +
+      single-owner-per-face + gather-then-apply + canonical traversal order + seeded RNG), NOT via
+      re-flux. Load-bearing: the cheap detail/event model + S4 no-pop all ride on this. Fork resolved
+      2026-06-28 — lockstep STANDS (no ADR-0010 un-lock), so S2 hardens the lockstep apparatus
+      deliberately, not on a spine about to be discarded.
+    done_when: |
+      OPENS WITH A PLAN (owner present): §Re-sync GasCoopGame contract → current FIRST; ingest the
+      canon SPEC §5/§Факт-1 + S0/S1 artifacts; classify this slice's mechanics ведро-1/2/3.
+      (1) 2-process loopback hash harness: host + 1 in-process follower produce BYTE-IDENTICAL
+      per-tick MeaningChecksum over a seeded run INCLUDING forced-flow (S1 bias/impulse) events +
+      CONCURRENT same-face writes (canonical order rule). (2) The follower's checksum-of-MEANING
+      mirrors the host (CoarseChunkFollower.ComputeHash parity — canon §8 warning, near-checksum
+      reflected on the follower). (3) zero-float scan spans ALL new code; integer mass-clamp asserts
+      (no silent wrap — canon Факт-1). (4) check.ps1 -Deliver GREEN + mutation ≥70 on new Core +
+      spec-silence + deliverable-coverage. (5) ZERO-LEGACY. (6) STOP-discipline: any need for a stored
+      velocity / float authoritative path / re-flux-as-gate = mandatory STOP-and-escalate. Binding
+      verify = a FRESH-SESSION G5 (different family) refuting the determinism / canonical-order /
+      hash-parity seams. Owner-eye = he sees 2 processes agree (confidence, NOT a gate; real 2 PCs =
+      optional one-off run, never a gate). approach token = loopback-meaningchecksum-determinism-by-construction.
+    status: active   # rolled from S1 2026-06-28 (s-work-023). Executor CALL c-exec-016 FRAMED + adversarially HARDENED 2026-06-28 (s-work-024 → work/c-exec-016-call.md; wf_6a2fc85f-06e, 2 must-fix + 5 should-fix folded, ZERO lock-change; baked-in symbols verified first-hand — see open_calls). NEXT = a fresh GasCoopGame_dev build session opens c-exec-016 with a PLAN (owner present, §Re-sync contract FIRST). Closes done ONLY on c-exec-016's GREEN return (2-process loopback hash + follower-parity + zero-float scan + -Deliver + fresh-session G5) — no self-marking. May split (PLAN scopes). next slice = S3 (height/layering).
 
 recurring: []
 
@@ -526,7 +551,7 @@ open_calls:
       AMD) is ABOVE average and gas-sim is CPU not GPU → measurements OPTIMISTIC; judge vs the weak-target budget (~200k-cell
       comfort ceiling on a weak core), NOT "smooth on my rig". FIRST build sub-task = hangar probe + the monotone-B oracle RED.
   - id: c-exec-015
-    status: in_flight   # IN FLIGHT (STEP-0 spike, dev): 2 Codex P2s routed home + DECIDED 2026-06-26 (s-work-021), verified first-hand in code — d-bias-quantum-001 (weak bias must not silently no-op → ±1 floor, RED-first) + d-rw3-step-atomicity-ledger-001 (RW3 Test-4 throws on SeedMass not Step → make the ledger honest; overflow guard unreachable, no live bug). hygiene-red = builder housekeeping (untracked Unity files + Assets/_Recovery → commit + clean + rerun -Deliver before close). — REFRAMED 2026-06-26 (s-work-020, owner «ок») — S1 FORCED-FLOW SLICE (impulse-events + decaying directional bias: выброс + выдавливание + ветер as first cases). Was the «выброс+выдавливание» framing (s-work-019); reframed per deep-research (work/gas-richness-deep-research-2026-06-26.md, "Forced-Flow Hybrid", adversarially verified). CALL REWRITTEN → work/c-exec-015-call.md (build-ready). Opens with a PLAN (owner present, §Re-sync v8→current FIRST), STEP-0 DE-RISK SPIKE FIRST. RESULT applied home by a separate OS writer.
+    status: done   # ✅ DELIVERED + CLOSED 2026-06-28 (s-work-023): S1 scope S1a (forced-flow primitive) merged GasCoopGame origin/main @0adae83 (970 green); tools/check.ps1 -Deliver GREEN on dev; fresh-session G5 (Sonnet, different family) COULD-NOT-REFUTE; Codex by-class CLEAN; owner-eye «работает». Delivered: step-0 de-risk spike + D1 jet-emitter (forward push + lateral confinement) + ERUPTION (RW6) + WIND/fork-split (RW7) + one-way VALVE (RW8, new ValveSpec + 4-arg Voxelize) + D2 ±1 bias-floor (RW10) + D3 RW3-atomicity ledger-honesty + D4 one curated scene + H1 class-wide int*int overflow scan (closes the T6 recurring class). Latent c-014 adapter Rebuild bug (SeedMass>MaxCellMass under forcing) found+fixed this slice. Source RESULT = GasCoopGame/RESULT.md; spike docs/c-exec-015-spike-findings.md; capacity docs/research/capacity-pressure-2026-06-27.md; active-set docs/measurements/c-exec-015-active-set-under-forcing.md → saved home history/s-work-023.md. S1b ВЫДАВЛИВАНИЕ split out + CUT (d-displacement-s1b-cut-001). The 2 STEP-0 Codex P2s (d-bias-quantum-001 ±1 floor / d-rw3-step-atomicity-ledger-001) shipped as RW10/RW3. — was: IN FLIGHT (STEP-0 spike, dev), reframed 2026-06-26 (s-work-020, owner «ок») to the FORCED-FLOW primitive; CALL work/c-exec-015-call.md.
     note: |
       Executor leg (GasCoopGame, dev→main when green). GOAL: the first DYNAMIC, DIRECTABLE gas via ONE general primitive —
       deterministic integer IMPULSE-EVENTS write a DECAYING directional-bias register, applied on top of the S0 gradient
@@ -544,6 +569,27 @@ open_calls:
       RED-first independent test-author; -Deliver GREEN; mutation ≥70; fresh-session G5 (different family) COULD-NOT-REFUTE;
       STOP-v8. «точно» = green suite; «весело» = owner eyeball (not a gate). May SPLIT (PLAN scopes; step-0 spike + eruption
       is a legit first return). next slice = S2. Reserved upgrade tiers = d-gas-richness-tiers-001. FULL CALL → work/c-exec-015-call.md.
+  - id: c-exec-016
+    status: framed   # FRAMED + adversarially HARDENED 2026-06-28 (s-work-024, work play): S2 multiplayer-lockstep-loopback executor CALL authored → work/c-exec-016-call.md. Hardening wf_6a2fc85f-06e (32 agents, 8 adversarial lenses → per-finding refute-verify → synth; 22 raised → 12 survived → 2 must-fix + 5 should-fix folded; ZERO lock-change / ZERO re-design — the weak "approach-token"/"re-sync" parity findings refuted-out). Every symbol baked into the CALL VERIFIED first-hand in GasCoopGame (main tip eed321b): IFieldStateChannel-family + chunked-delta family (+ LoopbackCoarseChunkHub/ICoarseChunkLink) + F11LoopbackDeterminismTests + Core/Sim ADR-0002 decoy + RW5OrderIndependenceTests all exist. Ready: owner opens c-exec-016 in a FRESH GasCoopGame_dev session (opens with a PLAN, owner present, §Re-sync contract FIRST). RESULT applied home by a separate OS writer. May SPLIT (PLAN scopes).
+    note: |
+      Executor leg (GasCoopGame, dev→main when green) — S2 MULTIPLAYER LOCKSTEP LOOPBACK slice (canon §5 S2). GOAL: the
+      coarse integer sim gives the SAME per-tick MeaningChecksum on 2 PROCESSES (host + 1 follower, loopback, ONE machine)
+      over a SEEDED scenario EXERCISING the S1 forced-flow events (выброс/ветер/fork/valve/jet) + CONCURRENT same-face
+      writes; determinism BY CONSTRUCTION (integer-only + zero-float scan + single-owner-per-face + gather-then-apply +
+      canonical traversal order + seeded RNG + integer mass-clamp with loud asserts), NOT via re-flux, NOT 2 physical
+      machines; a divergence HALTS LOUDLY. Fork RESOLVED (d-clouds-fork-resolved-001) so S2 hardens the lockstep apparatus
+      deliberately. KEY framing: NOT a from-scratch build — S2 ELEVATES the loopback hash S0 seeded + S1 extended
+      (F11LoopbackDeterminismTests) to load-bearing + reconciles the MIGRATION SPINE (canon §8:184/§7:162 — the Wave-1/2
+      host-broadcast reconstruction = TWO legacy families: coarse chunked-delta + field-state-channel + the Факт-5-buried
+      late-join/snapshot path; PLAN inventories-first, port-or-delete under ZERO-LEGACY; 2-band-as-authority resurrection
+      guard). ВЕДРО: substrate → ведро-2 backbone (full §9.5 in-checksum set proven byte-identical); ведро-1 excluded
+      (count-IN/bitmap-OUT trip-wire held); ведро-3 absent. BOUNDARIES: no 2 PCs (loopback only); no vendor/transport
+      change (R14 edge, no UDP needed for the gate); no stored velocity/float authoritative path (d-gas-richness-tiers-001);
+      no re-flux-as-gate (d-reflux-gate-001); no S3/S4/S5/S6; no big-hall/sparse (d-sparse-solver-defer-001). DISCIPLINE:
+      RED-first independent test-author (planted RED controls: order-dependent write / mis-seeded RNG / silent wrap /
+      awake-queue permutation / region-fold-order / per-meaning-field divergence); -Deliver GREEN; mutation ≥70;
+      fresh-session G5 (different family) COULD-NOT-REFUTE; STOP-v8. «точно» = green suite; owner-eye (2 processes agree) =
+      confidence NOT a gate. next slice = S3. FULL CALL → work/c-exec-016-call.md.
   - id: c-visual-001
     status: queued   # RE-SPECCED 2026-06-26 (s-visual-004) to the STRUCTURE-FIRST build-step 1 (was the pre-structure-first P1 "grid→GPU pipe over RN1"). FULL CALL authored + adversarially hardened (wf_5dd9d57a-142, 4 lenses) → work/c-visual-001-call.md. Opens with a PLAN (owner present), builds in a fresh GasCoopGame_dev session (dev→main when green). Owner starts it when he chooses (parallel to the engine bet, ~40–60 min/day).
     note: |
@@ -821,6 +867,56 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-clouds-fork-resolved-001
+    status: answered   # owner-DECIDED 2026-06-28 (s-work-023): «точно у игрока, грубо везде» — R7/R12-everywhere is NOT a requirement. The locked input-lockstep integer grid STANDS; no ADR-0010 un-lock; the uncommitted gas-arch-reqs-matrix (candidate E, host-state-sync float clouds) is NOT adopted → archived as history.
+    note: |
+      An UNCOMMITTED draft (work/gas-arch-reqs-matrix-2026-06-26.md, surfaced by an adversarial
+      sequencing check this session) argued the locked model STRUCTURALLY cannot do R7/R12 — a
+      50cm-precise reaction / level-spanning split in a room with NO player, EVERYWHERE — because
+      far-rollup collapses a room to a position-less integer SUM (canon :79) and reactions read those
+      coarse totals (:85); it recommended candidate E (host-authority + float clouds far + fine grid
+      near), requiring un-signing ADR-0010 (the biggest migration on the table). VERIFIED FIRST-HAND:
+      the facts hold (SPEC Факт-1 lockstep lock :31/:12; :79 SUM; :85 coarse-trigger; :90 Ведро-3
+      limited to ~2-3 rooms), AND the prior cloud-vs-grid analysis (basis for the canon's
+      clouds-rejection) evaluated clouds ONLY on cross-CPU determinism — never host-authority — so
+      candidate E was genuinely UNDER-EVALUATED, NOT settled drift. Put to the owner as the pivotal
+      requirement question. OWNER ANSWER: «нет — точно там, где игрок (+2-3 назначенные Ведро-3
+      комнаты); грубо везде по тоталу». => the canon AS-LOCKED already satisfies the real requirement
+      (deep interaction = coarse events everywhere + Ведро-3, exactly as locked; full precision rides
+      with the player). DECISION: lockstep STANDS; no architecture change; matrix → work/archive/ as
+      NON-ADOPTED history (not authority). CARRY (capture): IF host-authority is ever reconsidered,
+      the cloud-vs-grid analysis must be RE-RUN on the host-auth model (its kills are
+      cross-CPU-determinism-class, void under a single host) — recorded so the gap is on the record.
+  - id: d-displacement-s1b-cut-001
+    status: answered   # owner-ACCEPTED 2026-06-28 (s-work-023, «весь пакет»): выдавливание (S1b) CUT to backlog. The original S1 / canon-§5 «выдавливание» is split out + deferred, NOT built now.
+    note: |
+      Displacement (a body shoves gas aside) is the ONLY passive primitive in the S1 set; the active
+      tools (jet/eruption/wind/valve) already deliver the directable-gas feel. Owner lean (confirmed):
+      «player should INTERACT with gas, not have gas be a passive thing bodies push around». NOTE
+      (canon line 122 anti-rule): displacement defaults to COSMETIC in-room (off-checksum; only a
+      door-impulse is authoritative) — so the hand-back's «needs a capacity-aware mechanism + its own
+      ADR» framing was the HEAVY-version read; the canon's own displacement is cheap. DECISION: CUT to
+      backlog. RE-ENTRY TRIGGER (recorded so it's a deliberate deferral, not a silent drop): the first
+      real gameplay moment that needs a body to dam/divert gas (corpse blocks a vent, player plugs a
+      breach). If re-entered, the cheap cosmetic-by-canon version is the default (no capacity model, no
+      ADR) unless a consumer needs authoritative blocking. Keep the pressure capacity representation
+      read-only-only (d-pressure-signal-on-demand-001) so re-entry stays a cheap fold-in, not a rework.
+  - id: d-pressure-signal-on-demand-001
+    status: answered   # owner-ACCEPTED 2026-06-28 (s-work-023, «весь пакет»): pressure = read-only SIGNAL built ON-DEMAND when a consumer needs it; baseline back-pressure already ships; optional cap/compression DEFERRED.
+    note: |
+      Capacity research (builder hand-back, docs/research/capacity-pressure-2026-06-27.md) verdict: a
+      read-only pressure SIGNAL (regionMass/cellCount, integer, ~trivial, ZERO flow-behaviour change)
+      satisfies every named driver; ENFORCEMENT beyond the baseline is unnecessary for S1/S2/S3.
+      CORRECTION (caught this session, for the record): the hand-back's «enforcement is
+      unnecessary/absent» is SLIGHTLY WRONG — BASELINE back-pressure ALREADY ships and is load-bearing
+      (canon d-roomfull-001: flow/inject clamped to [0,cap], source idle on a full room, sealed full
+      region saturate-and-hold mass-exactly). Only the OPTIONAL extra ceiling (GAP-1 cap, stubbed ∞) +
+      true COMPRESSION (behind the deferred sparse solver) are deferred. DECISION: add the read-only
+      signal the moment a real consumer asks (HUD / the S5 «давление ломает дверь» destructibility
+      seam, canon §9.9 / AI) and NOT a leg before; keep baseline back-pressure; leave cap/compression
+      stubbed. DEPENDENCY recorded: the S5 destructibility seam READS a stored back-pressure number —
+      the signal must exist by S5, but not earlier. NOT its own slice (invisible — rides inside the
+      first consumer).
   - id: d-scene-one-polygon-001
     status: answered   # PLANNER spec-amendment 2026-06-26 (s-work-022) — c-exec-015 spike finding D4. Owner direction = ONE curated test polygon, not a scene-per-feature.
     note: |
@@ -869,6 +965,17 @@ decision_inbox:
   - id: d-gas-richness-tiers-001
     status: answered   # owner-STEERED + owner «ок» 2026-06-26 (s-work-020) on the 3-tier gas-richness model. Basis = deep-research workflow (work/gas-richness-deep-research-2026-06-26.md; 20 agents, web + code, adversarially verified). EXTENDS the locked model (does NOT crack it): adds the impulse-event/directional-bias seam; reserves the two heavier tiers.
     note: |
+      S1a CLOSE — VELOCITY STATUS (s-work-023, 2026-06-28, owner «весь пакет»): TIER-3 (fixed-point
+      velocity, ADR-0010 lock-crack) = RESERVED, trigger ARMED — NOT triggered by S1a. Honest read
+      carried so the corridor win can't silently answer the open question: c-exec-015 delivered
+      CHANNELED net-transport ~27× (walls) but open-space concentration is still only ~2:1 (a lean,
+      not a sharp jet); the owner-eye «работает» was on debug cubes WITH emitter-confinement.
+      RE-TRIGGER (concrete) = ONE honest no-walls confinement-tuned open-space jet owner-eye look at
+      the COMBAT slice (where «damage = concentration» becomes load-bearing). If it can't read as a
+      tight open-space jet THEN → that look is the SIGNED evidence for ADR-0010, entered deliberately.
+      Until then 2:1 stands; TIER-3 stays reserved. (Velocity LOCK-CRACK remains a mandatory
+      STOP-and-escalate — never silent.)
+      ---
       D1 SPIKE RESOLUTION (s-work-022, 2026-06-26): owner eyeballed the GREEN c-exec-015 Step-0 spike and resolved D1 —
       he CONFIRMED the game needs gameplay-meaningful directional JETS that deal more damage (by concentration), but chose
       cheap TIER-1 WITHOUT inertia NOW + revisit. The spike's open-space ≈2:1 lean measured forward-bias on ONE face only
@@ -905,6 +1012,14 @@ decision_inbox:
   - id: d-sparse-solver-defer-001
     status: answered   # PLANNER-DECIDED 2026-06-26 (s-work-019, owner-delegated «решение за тобой»); owner-VETOABLE. Covers S0 routed-home findings #1 (sparse solver), #2 (weak-CPU re-measure), #3 (GC pooling).
     note: |
+      UPDATE 2026-06-28 (s-work-023, owner «весь пакет»): RELABEL "deferred-UNVALIDATED". The
+      c-exec-015 active-set-under-forcing measurement (docs/measurements/c-exec-015-active-set-under-
+      forcing.md) shows that under SUSTAINED forcing the active set is near-DENSE (~419 of the vented
+      region), so the promised ~100× sparse win is NOW IN DOUBT and MUST be benchmarked UNDER FORCING
+      (not on a settled field). The deferral STANDS, but its gating spike's FIRST job = the
+      under-forcing benchmark — it either proves big-hall headroom or KILLS big halls as a design
+      option. Trigger unchanged = the first time a level calls for a big open hall.
+      ---
       The S0 HANGAR PROBE measured a big open volume: 196,608 cells / 24.5 ms-avg-tick (65.5 max) on a STRONG CPU, but
       only 1,562 cells held gas — the DENSE S0 solver processes ALL of them every tick (~125× redundant). The builder
       recommends a SPARSE active-front solver (the §9.3 flux/carry register is laid but not yet consumed by
@@ -1381,65 +1496,66 @@ decision_inbox:
       artifact from the A+ front/place layer (weeks) vs a parallel cheap visual pass on the EXISTING model. → history/s-review-002.md.
 
 next: |
-  S0 FOUNDATION SLICE is DELIVERED + CLOSED (s-work-019, work play): c-exec-014 merged GasCoopGame main @824948d
-  (pushed), tools/check.ps1 -Deliver GREEN (mutation 77.6% ≥70, fresh-session G5 Sonnet COULD-NOT-REFUTE, zero-float
-  scan over both grids, deliverable-coverage v8 9/9) — verified FIRST-HAND (merge + artifacts). Roadmap steps 1–4 done
-  incl. the HANGAR PROBE. The bet ROLLS to S1.
+  S1 FORCED-FLOW SLICE is DELIVERED + CLOSED (s-work-023, work play): c-exec-015 scope S1a merged GasCoopGame
+  origin/main @0adae83 (970 green), tools/check.ps1 -Deliver GREEN on dev, fresh-session G5 (Sonnet, different family)
+  COULD-NOT-REFUTE, Codex by-class CLEAN, owner-eye «работает». Delivered the forced-flow PRIMITIVE inside the locked
+  integer model: decaying directional-bias impulse-events on the S0 face-flow → jet-emitter (forward push + lateral
+  confinement) + ВЫБРОС + ВЕТЕР/fork-split + one-way VALVE + ±1 bias-floor + ledger-honesty + one curated scene +
+  class-wide int*int overflow scan. The bet ROLLS to S2.
 
-  IN FLIGHT: the c-exec-015 STEP-0 build (GasCoopGame_dev, dev) is underway and routed home 2 Codex P2s, now DECIDED
-  (s-work-021, verified first-hand): RELAY to the build session — (#1 d-bias-quantum-001) a weak bias must not silently
-  no-op (VoxelFaceFlow.cs:66 divides the forcing bias by the relaxation damper kpEff) → add a guaranteed signed ±1 floor
-  (NOT a bias-carry), RED-first, conservation + in-checksum + still passes the settle oracle; (#2 d-rw3-step-atomicity-
-  ledger-001) RW3 Test-4 throws on SeedMass not Step → make the ledger honest (real throwing-Step seam OR rename + discharge
-  by construction; overflow guard unreachable, no live bug). hygiene-red = builder housekeeping (commit + remove
-  Assets/_Recovery + rerun -Deliver before close). The build then continues STEP-0 → выброс/выдавливание/ветер/valve.
+  ARCHITECTURE FORK RESOLVED (d-clouds-fork-resolved-001, owner «точно у игрока, грубо везде» 2026-06-28): an
+  UNCOMMITTED draft (work/gas-arch-reqs-matrix-2026-06-26.md, surfaced by an adversarial sequencing check) argued the
+  locked input-lockstep integer grid STRUCTURALLY cannot do R7/R12 (a 50cm-precise reaction / level-spanning split in a
+  room with NO player, EVERYWHERE) — far-rollup collapses a room to a position-less SUM (canon :79), reactions read
+  coarse totals (:85) — and recommended candidate E (host-state-sync float clouds, un-signing ADR-0010, the biggest
+  migration). Facts VERIFIED first-hand against the committed canon; the prior cloud-vs-grid analysis only ever evaluated
+  clouds on cross-CPU determinism (never host-authority) so E was genuinely UNDER-evaluated, NOT settled drift → put to
+  the owner as the pivotal requirement question. OWNER: deep interaction = full precision where the player is (+2-3
+  Ведро-3 rooms), coarse events everywhere else — which the canon AS-LOCKED already delivers. => lockstep STANDS, NO
+  ADR-0010 un-lock, NO architecture change; the matrix is moved to work/archive/ as NON-ADOPTED history. CARRY: if
+  host-authority is ever reconsidered, RE-RUN the cloud-vs-grid analysis on the host-auth model (its kills are
+  determinism-class, void under a single host).
 
-  ALSO RELAY (s-work-022 — owner resolved spike-report D1+D4): (D1) owner CONFIRMED the game needs gameplay-meaningful
-  directional JETS that deal more damage (by concentration), but chose cheap TIER-1 WITHOUT inertia NOW + revisit. The
-  spike's open-space ≈2:1 measured forward-bias on ONE face only — it NEVER tried LATERAL CONFINEMENT. New headline
-  owner-eye target = a VISIBLE directional JET on the debug CUBES via a jet-emitter that pushes forward AND clamps the
-  lateral faces along the jet footprint (emitter-born one-way valves / inward bias — travels WITH the jet wherever it
-  fires; NOT level walls; gas spawns anywhere). TUNE tightness on the cubes. If even with confinement it can't read as a
-  tight open-space jet → that is the concrete TIER-3 (fixed-point velocity, ADR-0010 lock-crack) trigger — report, don't
-  substitute. NO coasting this leg; damage = concentration (a later combat slice reads the dense flow the jet creates).
-  (D4, d-scene-one-polygon-001) engine deliverable = the ONE curated sandbox scene with a forced-flow MODE (existing
-  GasVoxelSandboxScene + director mode), NOT a scene-per-feature; drop the separate GasForcedFlowScene.unity; standing
-  convention. All folded into work/c-exec-015-call.md §AMENDMENT.
+  IMMEDIATE NEXT = OPEN c-exec-016 in a FRESH GasCoopGame_dev build session (opens with a PLAN, owner present, §Re-sync
+  contract FIRST). The S2 executor CALL is FRAMED + adversarially HARDENED 2026-06-28 (s-work-024 → work/c-exec-016-call.md;
+  hardening wf_6a2fc85f-06e — 32 agents / 8 lenses → per-finding refute-verify → synth: 22 raised → 12 survived → 2 must-fix +
+  5 should-fix folded, ZERO lock-change / ZERO re-design; every symbol baked into the CALL VERIFIED first-hand in GasCoopGame).
+  S2 = the coarse integer sim gives the SAME per-tick MeaningChecksum on 2 PROCESSES (loopback, ONE machine — integer cross-CPU
+  is GIVEN, real 2 PCs never a gate) over a SEEDED scenario EXERCISING the S1 forced-flow events + CONCURRENT same-face writes;
+  determinism BY CONSTRUCTION (integer-only + zero-float scan + single-owner-per-face + gather-then-apply + canonical order +
+  seeded RNG + integer mass-clamp loud-assert), NOT re-flux. Load-bearing. KEY: NOT a from-scratch build — it ELEVATES the
+  loopback hash S0 seeded + S1 extended (F11LoopbackDeterminismTests) to load-bearing + closes the MIGRATION SPINE (canon
+  §8/§7 host-broadcast reconstruction = legacy under input-lockstep; PLAN inventories-first, port-or-delete under ZERO-LEGACY).
+  The fork resolution means S2 hardens the lockstep apparatus DELIBERATELY (no spine-about-to-be-discarded risk). May split.
+  Closes S2 done ONLY on c-exec-016's GREEN return (2-process loopback hash + follower-parity + zero-float + -Deliver +
+  fresh-session G5) — no self-marking. RESULT applied home by a separate OS writer.
 
-  (c-exec-015 framing, for reference) S1 REFRAMED (s-work-020, owner «ок») to the FORCED-FLOW primitive: deterministic
-  integer IMPULSE-EVENTS write a DECAYING directional-bias register on the S0 face-flow → AUTHORITATIVE wind + decaying
-  gust + transient fork-split + one-way-VALVE designed split; выброс + выдавливание + ветер are the first impulse types.
-  Opens with a PLAN (owner present, §Re-sync v8→current FIRST). The leg STARTS with a STEP-0 DE-RISK SPIKE (a hard gate,
-  build nothing on a broken base): a RED non-monotone settle oracle
-  (wind-into-corner-and-back conserves mass + settles + no-oscillate; planted bad-bias control MUST fail) + symmetric
-  integer decay + clamp×decay conservation + a 2-process loopback hash incl. CONCURRENT same-face writes (canonical
-  order rule) + owner-eye «alive on a forked corridor + vent». Not green → STOP. Then выброс/выдавливание/ветер/valve.
-  Stays INSIDE the lock — NO float/fixed-point velocity/advection (RESERVED owner-gated tier; a need for one =
-  STOP-escalate). 4 verified corrections folded (§9.5 face-level-uniform bias; symmetric decay; contraction-suspended→
-  oracle; active-set re-measure under forcing). Carries d-overflow-guard-001 H1/H2. May SPLIT (PLAN scopes; step-0 spike
-  + eruption is a legit first return). Basis = work/gas-richness-deep-research-2026-06-26.md + d-gas-richness-tiers-001.
-  HONEST CAP (set owner-expectation in the PLAN): tier 1 ≠ true coasting inertia / permanent open-volume split / free
-  vortices — those are the reserved tiers (lattice-gas rooms; fixed-point velocity). «точно» = green suite; «весело» =
-  owner eyeball (not a gate). RESULT applied home by a separate OS writer.
+  FOUR BUILDER-RETURNED DECISIONS — ACCEPTED AS A BUNDLE (owner «весь пакет» 2026-06-28):
+  • DISPLACEMENT (S1b) → CUT to backlog (d-displacement-s1b-cut-001); re-entry trigger = first body-dams-gas gameplay
+    moment; the cheap cosmetic-by-canon version (off-checksum, no ADR — canon line 122) is the default if re-entered.
+  • PRESSURE → read-only SIGNAL built ON-DEMAND when a consumer needs it (d-pressure-signal-on-demand-001); BASELINE
+    back-pressure ALREADY ships (d-roomfull-001) — only the optional cap + true compression are deferred; the S5
+    destructibility seam needs the signal by then.
+  • SPARSE SOLVER → DEFERRED-UNVALIDATED (d-sparse-solver-defer-001): the active-set is near-DENSE under forcing, so the
+    ~100× win is in doubt; its gating spike's FIRST job = the under-forcing benchmark; trigger = first big open hall.
+  • VELOCITY / TIER-3 → RESERVED, trigger ARMED (d-gas-richness-tiers-001): «работает» was on confined cubes; open-space
+    is still ~2:1 (not a sharp jet); re-trigger = one honest no-walls open-space jet look at the COMBAT slice; that look
+    (if it fails) is the signed evidence for the ADR-0010 lock-crack. NO silent entry.
 
-  RESERVED UPGRADE TIERS (d-gas-richness-tiers-001, NOT built now): TIER 2 = seeded-int lattice-gas in a few bucket-3
-  rooms for true emergent vortices (ADR-class, post-sparse-solver); TIER 3 = fixed-point velocity field for true inertia
-  (owner's «float via 2 ints» — real/proven, but bespoke + cracks the lock → owner-signed ADR-0010). Triggered ONLY if
-  owner-eye proves tier 1 «isn't alive enough». Libraries if tier 3: FixPointCS/FixedMathSharp (MIT, arithmetic only —
-  no off-the-shelf fixed-point fluid exists). Float fluid plugins (Zibra/Obi) = cosmetic g-7e15 layer ONLY.
+  RESERVED UPGRADE TIERS (d-gas-richness-tiers-001, NOT built now): TIER 2 = seeded-int lattice-gas in a few Ведро-3
+  rooms for true emergent vortices (ADR-class, post-sparse); TIER 3 = fixed-point velocity (owner-signed ADR-0010,
+  cracks the lock) — armed, not pulled. Libraries if tier 3: FixPointCS/FixedMathSharp (arithmetic only — no
+  off-the-shelf fixed-point fluid exists). Float fluid plugins (Zibra/Obi) = cosmetic g-7e15 layer ONLY.
 
-  DEFERRED (decision d-sparse-solver-defer-001, planner-decided, owner-VETOABLE): the SPARSE active-front solver +
-  GC-buffer pooling + a WEAK-CPU hangar re-measure are NOT next — they matter ONLY for BIG OPEN HALLS (deferred-reserved),
-  not the near room-scale slices S1–S5 (dense solver measured fine: TYPICAL 3,456 cells = 0.525 ms/tick). They are a
-  NAMED, ready optimization leg that FIRES before any big-hall feature is committed; the big-hall viability verdict is
-  gated on it. If the owner prefers to front-load that perf de-risk instead of S1, the next CALL swaps — say the word.
+  ∥ VISUAL TRACK (g-7e15): c-visual-001 (structure-first build-step 1) is QUEUED + build-ready (work/c-visual-001-call.md);
+  owner starts it when he chooses (~40–60 min/day), parallel to the engine bet. Unaffected by this session.
 
   PENDING (carried, non-blocking): the os/engineering MAINTENANCE request (anti-substitution over-rotation + resolution
   conflation — work/MAINTENANCE-os-engineering-scope-guard-2026-06-26.md) is drafted, awaiting a SEPARATE maintenance
   session (os/** NOT touched in a live-direction session).
 
   PUSH: this OS repo — the writer commits LOCALLY; pushing main is owner-gated (auto-mode blocks the writer's push —
-  ask the owner to push). The S1 forced-flow reframe + d-gas-richness-tiers-001 + the rewritten c-exec-015 CALL + the
-  deep-research artifact are committed this session (s-work-020).
+  ask the owner to push). s-work-023 commits: S1 done + S2 rolled + the 4 decisions + d-clouds-fork-resolved-001 +
+  matrix archived. s-work-024 commit: c-exec-016 framed+hardened (CALL artifact + open_calls + S2 note + next).
 
 END_OF_FILE: live/indie-game-development/NOW.md
