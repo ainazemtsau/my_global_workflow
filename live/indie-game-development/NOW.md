@@ -484,7 +484,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       refuting the delete/keep boundary + tests-rewritten + §7-burial. STOP-discipline (a KEEP-member that breaks / a delete
       needing a behavior change / expanding into S2b loopback work / reopening ADR-0010 = STOP+escalate). FULL CALL →
       work/c-exec-017-call.md. approach token = zero-legacy-reconstruction-spine-retirement.
-    status: done   # ✅ DELIVERED 2026-06-28 (c-exec-017 build session; applied s-work-026) — binding gates GREEN on GasCoopGame dev @ec54d4f (857/857 headless, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE on delete/keep + tests-rewritten + §7-burial). Both legacy families DELETED, verified FIRST-HAND (0 production hits). Retirement ADR = ADR-0016 (renumbered from 0015 vs c-visual-001 S5). ⚠ merge dev→main + push OWNER-GATED + now a REAL merge (visual S5 advanced main to 9780713; main…dev 2/4, conflict-free expected Core-vs-Render) — pending. Owner-eye (dotnet test 857, confidence not a gate) optional/pending. Record → history/c-exec-017-s2a-result-2026-06-28.md. Bet rolls to S2b.
+    status: done   # ✅ DELIVERED 2026-06-28 (c-exec-017 build session; applied s-work-026) — binding gates GREEN on GasCoopGame dev @ec54d4f (857/857 headless, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE on delete/keep + tests-rewritten + §7-burial). Both legacy families DELETED, verified FIRST-HAND (0 production hits). Retirement ADR = ADR-0016 (renumbered from 0015 vs c-visual-001 S5). ✅ merge dev→main + push DONE 2026-06-28 (owner) — main @2e24a24, VERIFIED first-hand (S2a commits in main, deleted families 0 prod hits on main, pushed; the real merge with visual S5 landed clean). Owner-eye (dotnet test 857, confidence not a gate) optional/pending. Record → history/c-exec-017-s2a-result-2026-06-28.md. Bet rolls to S2b.
   - id: S2b
     kind: executor (engineering, GasCoopGame) — LOCKSTEP LOOPBACK LOAD-BEARING (second half of the S2 split; runs AFTER S2a's clean base). The load-bearing determinism proof.
     goal: |
@@ -635,7 +635,7 @@ open_calls:
       fresh-session G5 (different family) COULD-NOT-REFUTE; STOP-v8. «точно» = green suite; owner-eye (2 processes agree) =
       confidence NOT a gate. next slice = S3. FULL CALL → work/c-exec-016-call.md.
   - id: c-exec-017
-    status: done   # ✅ DELIVERED + applied 2026-06-28 (s-work-026): binding gates GREEN on GasCoopGame dev @ec54d4f (857/857, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE); both legacy families DELETED, verified first-hand (0 prod hits); retirement ADR = ADR-0016; merge dev→main + push OWNER-GATED + now a REAL merge (visual S5 advanced main to 9780713). Record → history/c-exec-017-s2a-result-2026-06-28.md. — was AUTHORED 2026-06-28 (s-work-025): S2a ZERO-LEGACY reconstruction-spine RETIREMENT executor CALL → work/c-exec-017-call.md. Faithful transcription of the owner-signed + 7-agent-verified (wf_89e9d3c2) c-exec-016 PLAN inventory; NOT re-hardened by a fresh workflow (inventory already adversarially verified + owner-signed; the leg's own gates — re-verify first-hand before delete + ZERO-LEGACY 3-lens re-audit + fresh-session G5 — carry verification). Ready: owner opens c-exec-017 in a FRESH GasCoopGame_dev session (PLAN, owner present; §Re-sync + FF dev→main @eed321b + archive c-014/c-015 openspec FIRST). RESULT applied home by a separate OS writer.
+    status: done   # ✅ DELIVERED + applied 2026-06-28 (s-work-026): binding gates GREEN on GasCoopGame dev @ec54d4f (857/857, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE); both legacy families DELETED, verified first-hand (0 prod hits); retirement ADR = ADR-0016; merge dev→main + push DONE 2026-06-28 (owner; main @2e24a24, verified first-hand). Record → history/c-exec-017-s2a-result-2026-06-28.md. — was AUTHORED 2026-06-28 (s-work-025): S2a ZERO-LEGACY reconstruction-spine RETIREMENT executor CALL → work/c-exec-017-call.md. Faithful transcription of the owner-signed + 7-agent-verified (wf_89e9d3c2) c-exec-016 PLAN inventory; NOT re-hardened by a fresh workflow (inventory already adversarially verified + owner-signed; the leg's own gates — re-verify first-hand before delete + ZERO-LEGACY 3-lens re-audit + fresh-session G5 — carry verification). Ready: owner opens c-exec-017 in a FRESH GasCoopGame_dev session (PLAN, owner present; §Re-sync + FF dev→main @eed321b + archive c-014/c-015 openspec FIRST). RESULT applied home by a separate OS writer.
     note: |
       Executor leg (GasCoopGame, dev→main when green) — S2a = the ZERO-LEGACY half of the S2 split, runs FIRST (clean base
       for S2b). GOAL: tree is ZERO-LEGACY under input-lockstep (Факт-6) — DELETE both pre-lockstep host-authoritative
@@ -1636,10 +1636,11 @@ next: |
   ChunkSpan/ChunkCount kept this leg — surviving far-tier consumers — full excision at S4). S2b = a 2-endpoint (host + 1
   in-process follower = a 2nd VoxelField re-running the same input stream) per-tick MeaningChecksum byte-identity over the
   full forced-flow scenario + RED controls + Adapters R14 3-mode owner-eye + frozen spec.
-  OWNER-GATED + PENDING: (a) merge S2a dev→main + push — now a REAL merge (visual S5 advanced main to 9780713; conflict-free
-  expected, Core-vs-Render), the c-016-era "clean --ff-only" is stale; (b) optional owner-eye (dotnet test 857, confidence
-  not a gate). OWNER DECISION OPEN: d-adr-lockstep-citation-001 (fix the canon ADR-0010→ADR-0002 citation; rec A). RESULT
-  applied home by a separate OS writer. next slice after S2 = S3 (height/layering).
+  S2a MERGE DONE: ✅ merged + pushed to main @2e24a24 2026-06-28 (owner; verified first-hand). OWNER DECISION OPEN:
+  d-adr-lockstep-citation-001 (fix the canon ADR-0010→ADR-0002 citation; rec A). Optional owner confidence: dotnet test 857.
+  The idle build session that delivered S2a has NO further code task (S2a shipped) — it should CLOSE; the next code task
+  (S2b) needs its CALL c-exec-018 authored on the OS side FIRST. RESULT applied home by a separate OS writer. next slice
+  after S2 = S3 (height/layering).
 
   FOUR BUILDER-RETURNED DECISIONS — ACCEPTED AS A BUNDLE (owner «весь пакет» 2026-06-28):
   • DISPLACEMENT (S1b) → CUT to backlog (d-displacement-s1b-cut-001); re-entry trigger = first body-dams-gas gameplay
