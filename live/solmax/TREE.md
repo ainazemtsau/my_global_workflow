@@ -59,7 +59,18 @@ root:
         broader exocortex expansion.
       children:
         - id: g-zara-operate-contract
-          status: parked
+          status: active
+          appetite: 2 focused days
+          kill_by: |
+            metric: independent verification of the Zaratusta Markdown/GitHub-readable
+              contract pack against W20/A1-A13 and W19 HOW firewall
+            threshold: |
+              By 2026-07-05, t-3 must verify product-repo evidence with A1-A13 all
+              covered; zero hard failures on topic-open rule, write boundary, owner
+              approval/side-effect boundary and HOW firewall; no domain blacklist; no
+              OS write path; and no DB/API/runtime/storage/schema/cadence/vendor/
+              scheduler/automation chosen as contract.
+            date: 2026-07-05
           goal: |
             The operating manager has a signed authority and entity contract:
             what it may decide, ask, propose, route, refuse or escalate is
