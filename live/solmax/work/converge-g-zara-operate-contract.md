@@ -3,7 +3,7 @@
 node: g-zara-operate-contract
 direction: solmax
 play: converge
-status: trace_repaired_pending_converge_verify
+status: converge_verify_passed_pending_shape
 date: 2026-06-26
 
 imported:
@@ -558,4 +558,15 @@ verify_ready:
   W20_A1_A13_changed: no.
   W20_A1_A13_status: shape-copyable, topic-open and HOW-clean pending converge-verify.
   route: converge-verify.
+§SIGNOFF: converge-verify passed @ 2026-06-28.
+verify: complete=PASS; backward_clean=PASS; forward_clean=PASS; smuggling=PASS; row_failures=none; oracle=cv-operating-manager-process-source-workspace-contract-v2.1.
+trace_repair_verified:
+  - W2 acceptance: valid traces G2[bounded], G3[auditable], G11[auditable], G12[copiable].
+  - W6 answer: valid traces G9[read-not-own] and G10[source-backed].
+  - W13 answer: valid traces G9[context-loaded] and G10[source-backed].
+  - W17 answer: valid traces G9[read-not-own], G9[context-loaded] and G10[source-backed].
+shape_binding:
+  copy W20/A1-A13 into Definition-of-Ready or executor done_when unless shape finds a new exact contradiction.
+  carry W19 routed choices as PLAN agenda.
+  no separate §CONTRACTS section exists in this converge file; W20/A1-A13 are the contract surface for shape.
 END_OF_FILE: work/converge-g-zara-operate-contract.md
