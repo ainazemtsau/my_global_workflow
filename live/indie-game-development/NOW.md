@@ -505,7 +505,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       STOP = stored velocity / float authoritative path / re-flux-as-gate / reopening the input-lockstep lock (ADR-0002 —
       see d-adr-lockstep-citation-001; the canon's "ADR-0010" is a citation error, ADR-0010 is the test-sandbox). approach
       token = loopback-meaningchecksum-load-bearing.
-    status: active   # UNBLOCKED 2026-06-28 (s-work-026): S2a's clean base now EXISTS on GasCoopGame dev @ec54d4f. NEXT JOB = the direction AUTHORS + hardens the S2b CALL c-exec-018 (a fresh OS work-session), folding: ADR-0002 (NOT ADR-0010) for the input-lockstep lock per d-adr-lockstep-citation-001; the RNG-control DROP per d-s2-rng-control-na-001; the chunk-span S4-deferral carried. Builds on dev (post-S2a); the S2a dev→main merge is owner-gated (a real merge now). Closes done on c-exec-018's GREEN return.
+    status: active   # CALL AUTHORED + adversarially HARDENED 2026-06-28 (s-work-027): c-exec-018 (S2b load-bearing loopback) → work/c-exec-018-call.md (wf_e4074544-feb, 28 agents; 1 must-fix + 6 should-fix folded, ZERO lock-change; ADR-0002 lock, RNG-control DROP, chunk-span S4-deferral). Builds on the clean post-S2a base (GasCoopGame main @2e24a24). NEXT = owner opens c-exec-018 in a fresh GasCoopGame_dev session (PLAN, owner present, §Re-sync FIRST). Closes done on c-exec-018's GREEN return.
 
 recurring: []
 
@@ -651,7 +651,7 @@ open_calls:
       delete; -Deliver GREEN; ZERO-LEGACY 3-lens re-audit; fresh-session G5; STOP-discipline (KEEP-member breaks / delete
       needs behavior change / expanding into S2b loopback / reopening ADR-0010). FULL CALL → work/c-exec-017-call.md.
   - id: c-exec-018
-    status: queued   # READY TO AUTHOR 2026-06-28 (s-work-026): S2a clean base now EXISTS (GasCoopGame dev @ec54d4f). S2b lockstep loopback LOAD-BEARING — the direction authors + hardens this CALL NEXT (a fresh OS work-session). Folds: ADR-0002 (NOT ADR-0010) for the lock (d-adr-lockstep-citation-001 — verified canon citation error); RNG-control DROPPED (d-s2-rng-control-na-001); chunk-span S4-deferral carried. Scope frozen by the c-exec-016 PLAN split.
+    status: framed   # AUTHORED + adversarially HARDENED 2026-06-28 (s-work-027): S2b load-bearing lockstep-loopback executor CALL → work/c-exec-018-call.md. Hardening wf_e4074544-feb (28 agents, 6 lenses → refute-verify → synth; 16 raised → 10 survived → 1 must-fix + 6 should-fix folded, ZERO lock-change / ZERO re-design). Must-fix caught a real bug: a RED control aimed at an UNBUILT S4 region-rollup seam → re-scoped to spec-silence; + 3 stale canon line-cites (my own §1 ADR-edit shifted them +1) → name-anchored; + awake-queue/active-front contradiction, S5 boundary, bitmap trip-wire restored. Folds ADR-0002 lock (d-adr-lockstep-citation-001 — canon now corrected), RNG-control DROP (d-s2-rng-control-na-001), chunk-span S4-deferral. Ready: owner opens c-exec-018 in a FRESH GasCoopGame_dev session (PLAN, owner present, §Re-sync FIRST) on the clean post-S2a base (main @2e24a24). RESULT applied home by a separate OS writer.
     note: |
       Executor leg (GasCoopGame, dev→main when green) — S2b = the load-bearing half of the S2 split, on the clean post-S2a
       base. GOAL: elevate the loopback determinism proof to LOAD-BEARING — a 2-endpoint (host + 1 in-process follower = a
@@ -942,7 +942,7 @@ open_calls:
 
 decision_inbox:
   - id: d-adr-lockstep-citation-001
-    status: OPEN   # surfaced 2026-06-28 (s-work-026), verified first-hand from the c-exec-017 (S2a) build session; needs an owner call (touches the owner-signed canon).
+    status: answered   # owner-APPROVED + APPLIED 2026-06-28 (s-work-027, owner «да»): canon citation FIXED ADR-0010→ADR-0002 (lock = «lockstep over FishNet»; ADR-0010 = test-sandbox). 5 edits to knowledge/g9c41-gas-engine-SPEC.md (§1 authoritative correction note + Факт-1 + §6 hangar + §7 + §9-map), grounded in GasCoopGame ADR-0016/ADR-0002. Full history surfaced: host-broadcast detour was ADR-0003/0004 (+0005-part, +0008), retired ADR-0016/S2a. c-exec-018 (S2b) cites ADR-0002. — surfaced 2026-06-28 (s-work-026), verified first-hand from the c-exec-017 (S2a) build session.
     note: |
       VERIFIED canon citation error (the c-exec-017 builder flagged it; I confirmed first-hand against the actual repo ADR
       files): the canon g9c41-gas-engine-SPEC.md cites the INPUT-LOCKSTEP LOCK as «ADR-0010» (Факт-1 line 31, §2 line 12,
@@ -1625,22 +1625,18 @@ next: |
   host-authority is ever reconsidered, RE-RUN the cloud-vs-grid analysis on the host-auth model (its kills are
   determinism-class, void under a single host).
 
-  IMMEDIATE NEXT = AUTHOR the S2b executor CALL c-exec-018 (a fresh OS work-session frames + hardens the load-bearing
-  loopback proof on the clean post-S2a base). S2a (c-exec-017, ZERO-LEGACY reconstruction-spine retirement) is DELIVERED +
-  applied 2026-06-28 (s-work-026): binding gates GREEN on GasCoopGame dev @ec54d4f (857/857 headless, -Deliver GREEN,
-  mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE), both pre-lockstep host-authoritative reconstruction
-  families (chunked-delta + field-state-channel incl. the Факт-5 late-join path) DELETED — verified FIRST-HAND (0 production
-  hits); retirement ADR = ADR-0016. c-exec-018 MUST fold: ADR-0002 (NOT ADR-0010) for the input-lockstep lock
-  (d-adr-lockstep-citation-001 — a VERIFIED canon citation error: the repo's ADR-0010 is the test-sandbox, the lock is
-  ADR-0002); the RNG-control DROP (d-s2-rng-control-na-001); the chunk-span S4-deferral (CoarseChunkSpan/IsWireEncodable/
-  ChunkSpan/ChunkCount kept this leg — surviving far-tier consumers — full excision at S4). S2b = a 2-endpoint (host + 1
-  in-process follower = a 2nd VoxelField re-running the same input stream) per-tick MeaningChecksum byte-identity over the
-  full forced-flow scenario + RED controls + Adapters R14 3-mode owner-eye + frozen spec.
-  S2a MERGE DONE: ✅ merged + pushed to main @2e24a24 2026-06-28 (owner; verified first-hand). OWNER DECISION OPEN:
-  d-adr-lockstep-citation-001 (fix the canon ADR-0010→ADR-0002 citation; rec A). Optional owner confidence: dotnet test 857.
-  The idle build session that delivered S2a has NO further code task (S2a shipped) — it should CLOSE; the next code task
-  (S2b) needs its CALL c-exec-018 authored on the OS side FIRST. RESULT applied home by a separate OS writer. next slice
-  after S2 = S3 (height/layering).
+  IMMEDIATE NEXT = OPEN c-exec-018 (S2b — load-bearing lockstep loopback determinism proof) in a FRESH GasCoopGame_dev
+  session (opens with a PLAN, owner present, §Re-sync contract FIRST) on the clean post-S2a base (GasCoopGame main @2e24a24).
+  The S2b CALL is AUTHORED + adversarially HARDENED 2026-06-28 (s-work-027 → work/c-exec-018-call.md; wf_e4074544-feb,
+  28 agents / 6 lenses → refute-verify → synth: 16 raised → 10 survived → 1 must-fix + 6 should-fix folded, ZERO lock-change;
+  the must-fix caught a real bug — a RED control aimed at an UNBUILT S4 region-rollup seam, re-scoped to spec-silence; + 3
+  stale canon line-cites name-anchored). S2b = a 2-endpoint (host + 1 in-process follower = a 2nd VoxelField re-running the
+  same input stream) per-tick MeaningChecksum byte-identity over the full forced-flow scenario + the RED controls + §9.5
+  membership proof + Adapters R14 3-mode owner-eye + frozen spec; determinism BY CONSTRUCTION; the lock is ADR-0002 (NOT
+  ADR-0010). DONE THIS TURN (s-work-027, owner «да»): (1) the canon ADR citation FIXED ADR-0010→ADR-0002
+  (d-adr-lockstep-citation-001 ANSWERED; 5 edits grounded in GasCoopGame ADR-0016/0002); (2) c-018 authored + hardened.
+  S2a is DELIVERED + merged+pushed main @2e24a24 (verified first-hand). The idle S2a build session has NO further code task
+  — it should CLOSE (the next code task is S2b, now ready). next slice after S2 = S3 (height/layering).
 
   FOUR BUILDER-RETURNED DECISIONS — ACCEPTED AS A BUNDLE (owner «весь пакет» 2026-06-28):
   • DISPLACEMENT (S1b) → CUT to backlog (d-displacement-s1b-cut-001); re-entry trigger = first body-dams-gas gameplay
@@ -1672,6 +1668,7 @@ next: |
   s-work-025 commit: c-exec-016 PLAN split applied (S2→S2a+S2b; c-exec-017 authored, c-exec-018 queued; d-s2-split-001 +
   d-s2-rng-control-na-001; imported PLAN RESULT → history). s-work-026 commit: c-exec-017 (S2a) RESULT applied — S2a
   DELIVERED on dev (verified first-hand), bet rolls to S2b; d-adr-lockstep-citation-001 surfaced; S2a dev→main merge +
-  owner-eye owner-gated.
+  owner-eye owner-gated. ed421b5: S2a merge confirmed on main @2e24a24. s-work-027 commit: canon ADR citation FIXED
+  (ADR-0010→ADR-0002, d-adr-lockstep-citation-001 answered, owner «да») + c-exec-018 (S2b) authored + adversarially hardened.
 
 END_OF_FILE: live/indie-game-development/NOW.md
