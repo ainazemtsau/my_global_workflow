@@ -134,4 +134,6 @@ c-health-training-activity-converge-001.
 
 2026-06-28 — health/g-health-training-activity-system repair: health-ai 1fe41c2 replaced false ACTIVE/DAY_LOOP launch readiness with PROGRAM awaiting Deep Research, v9 validation and checker guards; first session remains blocked, no research/approval/session fabricated; next Deep Research child guide. → history/2026-06-28-s-health-training-activity-runtime-repair-001.md
 
+- 2026-06-28 — health/g-health-training-activity-system state validation: Health AI training/activity product repair 1fe41c2 remains the current authority; owner reports the research/check phase has started, but no returned research conclusion exists yet. NOW should register the Deep Research child as in-flight, keep program/ACTIVE/week/session blocked, and route next to returned-conclusion intake. Stale 8aa14f8 ACTIVE wording in knowledge/TREE identified; knowledge repair proposed now, TREE text cleanup requires owner approval. → history/2026-06-28-s-health-training-activity-state-validation-001.md
+
 END_OF_FILE: live/health/LOG.md
