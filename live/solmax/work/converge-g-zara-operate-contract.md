@@ -3,7 +3,7 @@
 node: g-zara-operate-contract
 direction: solmax
 play: converge
-status: converge_verify_failed_trace_repair_needed
+status: trace_repaired_pending_converge_verify
 date: 2026-06-26
 
 imported:
@@ -23,6 +23,10 @@ imported:
     source context; writes default only to Zaratusta workspace/repo; other
     repos/directions/projects are read-only sources unless a narrow
     integration/procedure is explicitly introduced.
+  - S8: live/solmax/history/2026-06-27-s-zara-operate-contract-converge-verify-owner-boundary-002.md —
+    trace/copyability verify failure evidence: completeness and backward-clean passed;
+    no owner-boundary contradiction, no generic domain blacklist and no hidden HOW were
+    found; W2/W6/W13/W17 failed only because they cited missing glossary properties.
 
 triage: standard — converge ON — because the node has multiple
   disputed terms and later children consume the answers, but this layer
@@ -73,6 +77,10 @@ miner:
   Markdown/GitHub-readable: source registry, process registry,
   owner-context structure, context-loading procedure and examples/tests;
   no DB/API/engine/scheduler/automation now.
+- S8 — Converge-verify trace repair evidence: complete=PASS and backward_clean=PASS;
+  forward_clean/smuggling failed only because W2/W6/W13/W17 cited missing glossary
+  properties. No owner decision was needed; repair should retarget citations to existing
+  resolved glossary properties or add explicit properties only if load-bearing.
 
 ## §GLOSSARY
 
@@ -124,7 +132,8 @@ answer: The manager may decide classifications and local operating routes:
   →GLOSSARY:G10[topic-open] →GLOSSARY:G10[workspace-bound] →S2 →S3 →S7
 acceptance: each manager output that changes routing, state or commitment
   must show decision type, authority basis, process/source context, effect
-  tier and workspace/write boundary. →GLOSSARY:G2[explainable]
+  tier and workspace/write boundary. →GLOSSARY:G2[bounded]
+  →GLOSSARY:G3[auditable] →GLOSSARY:G11[auditable]
   →GLOSSARY:G12[copiable]
 
 W3 — What may the manager ask?
@@ -172,8 +181,8 @@ answer: The manager may refuse to treat a weak argument as sufficient, add
   the manager routes instead of pretending the whole topic is forbidden.
   Refusal must be reasoned, non-punitive and override-safe.
   →GLOSSARY:G2[override-safe] →GLOSSARY:G8[inviolable]
-  →GLOSSARY:G9[source-backed] →GLOSSARY:G10[topic-open]
-  →GLOSSARY:G10[safety-routed] →S1 →S6 →S7
+  →GLOSSARY:G9[read-not-own] →GLOSSARY:G10[source-backed]
+  →GLOSSARY:G10[topic-open] →GLOSSARY:G10[safety-routed] →S1 →S6 →S7
 acceptance: refusal outputs must include the violated boundary or missing
   process/source/approval/integration, and must leave an owner route
   available. →GLOSSARY:G8[non-punitive]
@@ -287,8 +296,8 @@ answer: Planning may produce horizon/week/day proposals, derive a day from an
   expand accepted scope without displacement or owner approval, and may not
   invent source-owned protocols/commitments as accepted plans without source
   basis and the relevant effect tier. →GLOSSARY:G5[linked]
-  →GLOSSARY:G7[explicit] →GLOSSARY:G9[source-backed]
-  →GLOSSARY:G10[topic-open] →S2 →S6 →S7
+  →GLOSSARY:G7[explicit] →GLOSSARY:G9[context-loaded]
+  →GLOSSARY:G10[source-backed] →GLOSSARY:G10[topic-open] →S2 →S6 →S7
 acceptance: a plan-changing output must distinguish draft/proposal from
   owner-approved commitment, name any displaced item, and name source/process
   basis for source-owned commitments. →GLOSSARY:G7[scope-limited]
@@ -350,9 +359,10 @@ answer: High-stakes or source-owned topics are not blacklisted domains. If
   perform external/irreversible/safety/spend effects without approval. The
   boundary is source integrity, owner approval, state ownership and
   side-effect safety, not "manager cannot touch this domain."
-  →GLOSSARY:G9[source-backed] →GLOSSARY:G10[topic-open]
-  →GLOSSARY:G10[source-backed] →GLOSSARY:G10[safety-routed]
-  →GLOSSARY:G3[approval-boundary] →S3 →S6 →S7
+  →GLOSSARY:G9[read-not-own] →GLOSSARY:G9[context-loaded]
+  →GLOSSARY:G10[topic-open] →GLOSSARY:G10[source-backed]
+  →GLOSSARY:G10[safety-routed] →GLOSSARY:G3[approval-boundary]
+  →S3 →S6 →S7
 acceptance: tests/examples must show that a request in a former
   "forbidden" area is not refused because of topic; it is answered,
   summarized, drafted, tracked or routed according to process/source/context,
@@ -506,17 +516,24 @@ unresolved_routes:
 §SIGNOFF: WHAT repaired for converge-verify on 2026-06-26.
 repair: owner-boundary clarification applied; domain-blacklist semantics removed;
   process/source/workspace model is shape-binding.
-verify: required; previous converge-verify PASS is stale after W8/W17/W20 repair.
+verify: required after trace repair; previous converge-verify PASS is stale after
+  W8/W17/W20 repair, and the 2026-06-27 verify failed only on trace/copyability
+  defects now repaired.
 shape_binding: copy repaired W20/A1-A13 into Definition-of-Ready or executor
   done_when; carry W19 routed choices as PLAN agenda.
 
-§VERIFY_FAIL: converge-verify failed @ 2026-06-27.
-verify: complete=PASS; backward_clean=PASS; forward_clean=FAIL; smuggling=FAIL.
-row_failures:
-  - W2 acceptance cites missing glossary property `→GLOSSARY:G2[explainable]`.
-  - W6 answer cites missing glossary property `→GLOSSARY:G9[source-backed]`.
-  - W13 answer cites missing glossary property `→GLOSSARY:G9[source-backed]`.
-  - W17 answer cites missing glossary property `→GLOSSARY:G9[source-backed]`.
+§VERIFY_FAIL: converge-verify failed @ 2026-06-27; trace defects repaired @ 2026-06-28.
+historical_verify: complete=PASS; backward_clean=PASS; forward_clean=FAIL; smuggling=FAIL before trace repair.
+row_failures_resolved_by_trace_repair:
+  - W2 acceptance previously cited missing glossary property `G2[explainable]`;
+    repaired to valid G2[bounded], G3[auditable] and G11[auditable] traces.
+  - W6 answer previously cited missing glossary property `G9[source-backed]`;
+    repaired to valid G9[read-not-own] and G10[source-backed] traces.
+  - W13 answer previously cited missing glossary property `G9[source-backed]`;
+    repaired to valid G9[context-loaded] and G10[source-backed] traces.
+  - W17 answer previously cited missing glossary property `G9[source-backed]`;
+    repaired to valid G9[read-not-own] and G9[context-loaded] traces while retaining
+    valid G10[source-backed].
 bounce:
   Reopen W2/W6/W13/W17 only for trace/copyability repair. Preserve the owner-approved
   process/source/workspace model: no generic domain/topic blacklist; topic work allowed
@@ -524,4 +541,21 @@ bounce:
   default; other repos/directions/projects read-only by default; non-Zaratusta writes
   require explicit narrow integration/procedure. Preserve W20/A1-A13 substance unless a
   trace repair requires retargeting references. No owner decision required.
+§TRACE_REPAIR: converge trace/copyability repair @ 2026-06-28.
+repaired_rows:
+  - W2 acceptance: missing G2[explainable] retargeted to valid G2[bounded],
+    G3[auditable] and G11[auditable].
+  - W6 answer: missing G9[source-backed] retargeted to valid G9[read-not-own]
+    and G10[source-backed].
+  - W13 answer: missing G9[source-backed] retargeted to valid G9[context-loaded]
+    and G10[source-backed].
+  - W17 answer: missing G9[source-backed] retargeted to valid G9[read-not-own]
+    and G9[context-loaded]; valid G10[source-backed] retained.
+verify_ready:
+  active_invalid_glossary_property_references_in_W2_W6_W13_W17: none.
+  glossary_properties_added: none.
+  authority_model_changed: no.
+  W20_A1_A13_changed: no.
+  W20_A1_A13_status: shape-copyable, topic-open and HOW-clean pending converge-verify.
+  route: converge-verify.
 END_OF_FILE: work/converge-g-zara-operate-contract.md

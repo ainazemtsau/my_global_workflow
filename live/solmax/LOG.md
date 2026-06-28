@@ -61,4 +61,6 @@
 
 - 2026-06-27 — converge-verify g-zara-operate-contract owner-boundary repair: FAIL, trace/copyability only. Completeness and backward-clean passed; no domain blacklist or hidden HOW found in substance, but W2/W6/W13/W17 cite missing glossary properties (`G2[explainable]`, `G9[source-backed]`). Reopened those rows for converge trace repair; no owner decision needed. → history/2026-06-27-s-zara-operate-contract-converge-verify-owner-boundary-002.md
 
+- 2026-06-28 — converge g-zara-operate-contract trace repair: repaired W2/W6/W13/W17 invalid glossary traces by retargeting to existing valid G2/G3/G9/G10/G11 properties; W20/A1-A13 unchanged; process/source/workspace owner-boundary model preserved. Next → converge-verify. → history/2026-06-28-s-zara-operate-contract-converge-trace-repair-003.md
+
 END_OF_FILE: live/solmax/LOG.md
