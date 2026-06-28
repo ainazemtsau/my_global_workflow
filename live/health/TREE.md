@@ -4,6 +4,10 @@ owner_approved: true
 approval_evidence: >
   Owner accepted training/activity v0 launch in t-3 with "Запускаем"; this review verifies
   the bet as met and closes the node without adding a new TREE node.
+  Owner approved a text-only cleanup for g-health-training-activity-system on 2026-06-28:
+  "давай отправим запрос на очистку TREE". The cleanup replaces stale 8aa14f8/ACTIVE wording
+  with the current 1fe41c2/PROGRAM-awaiting-research boundary; it does not restructure the node,
+  reopen the bet, or claim body execution.
 
 root:
   id: g-health-root
@@ -185,11 +189,10 @@ root:
 
     - id: g-health-training-activity-system
       goal: >
-        (DONE 2026-06-27 — training/activity v0 release accepted for personal Health AI use.
-        Health AI @8aa14f8 has thin x_training_activity domain, ACTIVE reduced authority,
-        current-week/what-today projections, normalized LOG/import/guided/status/review/handoff
-        contour. First real performed session is not claimed; raw training/body execution data stay
-        outside Direction OS.)
+        (DONE 2026-06-27 at product/process review, with 2026-06-28 repair superseding launch-readiness semantics.
+        Current authority is health-ai @1fe41c2: x_training_activity is PROGRAM awaiting Deep Research; no ACTIVE
+        real training program, current week, today brief, or first real session is claimed until suitable returned
+        research conclusion plus owner approval exist. Raw training/body execution data stay outside Direction OS.)
         Тренировки и активность внедрены в Health AI System КАК МОДУЛЬ НА ЯДРЕ g-health-core
         (с кросс-модульным обменом с питанием: белок/калории под объём, фаза/deload): силовая
         работа, conditioning, VR-активности, велосипед, gameful/competitive loops, safety gates и
