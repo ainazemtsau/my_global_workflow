@@ -138,4 +138,6 @@ c-health-training-activity-converge-001.
 
 2026-06-28 — health/g-health-training-activity-system repair: owner approved minimal TREE cleanup replacing stale 8aa14f8/ACTIVE training/activity wording with current 1fe41c2/PROGRAM-awaiting-Deep-Research boundary; owner also clarified that Direction OS must not track Health AI projects/processes unless explicitly asked, so Health AI continues outside OS tracking and NOW.next becomes awaiting_owner_instruction. → history/2026-06-28-s-health-training-activity-tree-cleanup-001.md
 
+2026-06-29 — map health/root: owner supplied four next-health candidates; spawned c-health-map-evidence-001 for evidence before skeleton; no bet activated. → history/2026-06-29-s-health-owner-wants-planning-002.md
+
 END_OF_FILE: live/health/LOG.md
