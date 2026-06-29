@@ -122,7 +122,7 @@ active_bet:
     prompt as closure, rollback/revert the product-repo change and route the
     exact failure to repair/converge.
 
-route_status: g-zara-operate-contract_markdown_reset_pending_independent_verify
+route_status: g-zara-operate-contract_t1_markdown_acceptance_map_repair_needed
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -177,22 +177,17 @@ tasks:
       OS-write path, DB/API/runtime choice, exact schema/layout as contract, or
       monolithic prompt as closure.
     progress_note: |
-      Repair session s-zara-operate-contract-repair-after-markdown-reset-001
-      found NOW/product-repo desync after product repo PR #2 merged
-      Markdown-only foundation reset at
-      b9c735c4b06e95e1039c35d8422e0839fd4a9e27. The old target
-      openspec/changes/g-zara-operate-contract/acceptance-matrix.md is stale
-      because OpenSpec is no longer part of the active product surface. Do not
-      continue c-zara-operate-contract-t1-product-repo-matrix-evidence-002.
-      Current main contains Markdown foundation evidence in README.md, AGENTS.md,
-      contracts/, examples/, checks/markdown-foundation-checklist.md,
-      docs/decisions/0001-markdown-only-reset.md and docs/history/. Completion of
-      t-1 is not claimed until independent verification decides whether current
-      main sufficiently maps A1-A13 or needs a Markdown-surface executor repair.
+      Independent verification s-zara-operate-contract-reset-main-verify-001
+      read Zaratusta product repo main at b9c735c4b06e95e1039c35d8422e0839fd4a9e27
+      after PR #2. The current Markdown foundation substantively preserves W20/A1-A13
+      and W19 HOW firewall, but t-1 is not done: product repo main lacks an explicit
+      Markdown-readable A1-A13 acceptance map/matrix naming which artifact/example/check
+      covers each A row. Repair must target the current Markdown surface, not stale
+      OpenSpec/npm/TypeScript/W0/RLK scaffold.
 
   - id: t-2
     kind: executor
-    status: pending
+    status: done
     goal: |
       Materialize the smallest Markdown/GitHub-readable operating-manager
       authority contract pack.
@@ -221,10 +216,16 @@ tasks:
       Revert or repair any product-repo artifact that weakens W20/A1-A13 or smuggles
       W19 choices.
     progress_note: |
-      Product repo PR #2 appears to have materialized a Markdown manager contract
-      foundation, but t-2 completion is not claimed by repair. Independent
-      verification must check the current main evidence against t-2 done_when and
-      the W20/A1-A13 + W19 firewall before any task is marked done.
+      Verified by s-zara-operate-contract-reset-main-verify-001 against product repo main
+      b9c735c4b06e95e1039c35d8422e0839fd4a9e27. PR #2 materialized the smallest
+      Markdown/GitHub-readable operating-manager authority contract pack across README.md,
+      AGENTS.md, CLAUDE.md, contracts/manager-role.md, contracts/workspace-boundaries.md,
+      contracts/source-context.md, contracts/process-contracts.md, contracts/owner-context.md,
+      contracts/context-loading.md, examples/operating-examples.md,
+      checks/markdown-foundation-checklist.md, docs/decisions/0001-markdown-only-reset.md
+      and docs/history/2026-06-16-runtime-scaffold-superseded.md. No W19 HOW choice,
+      generic domain/topic blacklist, Direction OS write path, or unapproved side-effect
+      authority was found.
 
   - id: t-3
     kind: session
@@ -244,22 +245,26 @@ tasks:
       - Next route is ready: on pass, shape g-zara-operate-state; on fail, exact
         repair/bounce.
     evaluator: n/a
+    progress_note: |
+      Current verification completed with FAIL due to t-1 product artifact gap:
+      no explicit product-owned A1-A13 acceptance map/matrix exists on the current
+      Markdown surface. No WHAT contradiction and no hidden HOW/layout/schema/runtime
+      temptation found. Resume t-3 after executor repair returns product repo evidence.
 
 recurring: []
 decisions: []
 open_calls:
-  - id: c-zara-operate-contract-reset-main-verify-001
-    to: session
-    for: t-3
+  - id: c-zara-operate-contract-t1-current-markdown-acceptance-map-repair-001
+    to: executor
+    for: t-1
     issued: 2026-06-29
+    repo: github.com/ainazemtsau/zaratusta
+    kind: engineering
     note: |
-      Independent verification of product repo main after PR #2 Markdown-only
-      reset. This replaces the stale t-1 executor route to the removed OpenSpec
-      path. Verifier must not mark t-1/t-2 done unless product-repo evidence
-      satisfies their done_when and the active bet kill_by threshold. If current
-      main lacks explicit A1-A13 coverage or smuggles HOW, verifier routes the
-      exact repair against the current Markdown surface, not old npm/TS/OpenSpec
-      scaffold.
+      Product artifact repair after independent verification FAIL. Current main
+      substantively preserves W20/A1-A13 and W19 firewall, but lacks explicit product-owned
+      A1-A13 row mapping evidence required by t-1. Repair against current Markdown surface
+      only; do not restore OpenSpec/npm/TypeScript/W0/RLK scaffold.
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -278,35 +283,24 @@ preserved_evidence:
   - github.com/ainazemtsau/life-reset-manager/SPEC.md
   - github.com/ainazemtsau/zaratusta
 
-next:
-  id: c-zara-operate-contract-reset-main-verify-001
-  to: session
+next: |
+  CALL c-zara-operate-contract-t1-current-markdown-acceptance-map-repair-001
+  to: executor
   direction: solmax
-  play: work
   node: g-zara-operate-contract
-  task: t-3
+  task: t-1
+  repo: github.com/ainazemtsau/zaratusta
+  kind: engineering
   goal: |
-    Independently verify whether Zaratusta product repo main after PR #2
-    Markdown-only reset satisfies the active bet's W20/A1-A13 contract-pack
-    evidence and W19 HOW firewall, or route the exact repair.
+    Add product-repo evidence on the current Markdown-only foundation that lets an
+    independent verifier check W20/A1-A13 row-by-row without choosing W19 HOW.
   context: |
     Active bet: b-zara-operate-contract-002.
     Product repo: github.com/ainazemtsau/zaratusta.
-    Product repo reset evidence:
-    - merged PR: https://github.com/ainazemtsau/zaratusta/pull/2
-    - main commit / merge commit:
-      b9c735c4b06e95e1039c35d8422e0839fd4a9e27
-    - branch used: codex/markdown-only-foundation-reset
+    Current main commit verified:
+    b9c735c4b06e95e1039c35d8422e0839fd4a9e27
 
-    Direction state:
-    - live/solmax/NOW.md
-    - live/solmax/TREE.md
-    - live/solmax/LOG.md
-    - live/solmax/work/converge-g-zara-operate-contract.md
-    - live/solmax/history/2026-06-28-s-zara-operate-contract-shape-002.md
-    - live/solmax/history/2026-06-29-s-zara-operate-contract-repair-after-markdown-reset-001.md
-
-    Product repo current foundation:
+    Current Markdown foundation:
     - README.md
     - AGENTS.md
     - CLAUDE.md
@@ -321,44 +315,76 @@ next:
     - docs/decisions/0001-markdown-only-reset.md
     - docs/history/2026-06-16-runtime-scaffold-superseded.md
 
-    Repair finding:
-    - Previous NOW.next targeted
-      openspec/changes/g-zara-operate-contract/acceptance-matrix.md.
-    - That path is stale after the Markdown-only reset; OpenSpec/npm/TS/W0/RLK
-      scaffold is not active.
-    - Do not continue old scaffold work.
-    - Do not infer t-1 or t-2 done from the merge alone.
+    Independent verification finding:
+    - Current Markdown foundation substantively covers W20/A1-A13 and passes W19 HOW firewall.
+    - Exact gap: product repo does not contain an explicit Markdown-readable A1-A13
+      acceptance map/matrix naming which artifact/example/check covers each A row.
+    - This is a product artifact gap, not a WHAT contradiction.
+    - Repair must target the current Markdown surface, not stale OpenSpec/npm/TypeScript/W0/RLK scaffold.
+
+    Binding acceptance surface to map:
+    - A1 manager role is separate from source registry, process contracts,
+      owner-context structure and state artifacts; no monolithic prompt closes the node.
+    - A2 every manager output that changes route/state/commitment carries an
+      authority basis, process/source context basis, effect tier and workspace/write boundary.
+    - A3 no generic domain/topic blacklist: the manager may work on any owner-requested
+      topic through the right process and source context.
+    - A4 every source/context item has source id/path/link, owner/scope, read/write
+      status, freshness/trust marker and allowed use.
+    - A5 every nontrivial operation declares the loaded source/context bundle,
+      missing context and route if context is insufficient.
+    - A6 owner-context structure represents durable owner facts, preferences,
+      decisions, approvals, evidence, unknowns, context summaries and state-change
+      requests inside Zaratusta workspace.
+    - A7 process registry entries are inspectable contracts with purpose, inputs,
+      outputs, authority/effect tier, required source context, owner approval gates
+      and examples/tests.
+    - A8 no matching process routes to process draft/research/review; process creation
+      or mutation is a proposal or ET2 action with owner approval; hidden self-rewrite
+      is invalid.
+    - A9 Direction OS and other repos/directions/projects are read-only sources by
+      default; Zaratusta writes only to its own workspace/repo unless an explicit
+      narrow integration/procedure is approved.
+    - A10 external, irreversible, spend, deletion, message/send or material
+      cross-system effects require explicit scoped owner approval before effect.
+    - A11 intake/planning/logging preserve commitment semantics: captures are not
+      commitments; plans distinguish proposal from accepted commitment and name
+      displacement; log responses are bounded to loaded context.
+    - A12 high-stakes/source-owned requests are routed by process/source/context:
+      examples/tests must show answer/summarize/draft/track/route behavior without
+      topic refusal, while unsourced source-owned instructions and unapproved side
+      effects are blocked before effect.
+    - A13 first implementation layer is GitHub/Markdown-readable source registry,
+      process registry, owner-context structure, context-loading procedure and
+      examples/tests; exact UI/storage/vendor/schema/cadence/scoring/scheduler/
+      automation/API choices remain unchosen at this layer.
   boundaries: |
-    Do not modify Direction OS repo or product repo.
-    Read product repo main and Direction OS state only.
-    Do not treat old npm/TypeScript/OpenSpec/W0/RLK scaffold as active.
-    Do not require a specific product-repo file layout as the only possible
-    pass condition.
-    Do not select UI, API, database, runtime agent, scheduler, automation,
-    storage engine, vendor integration, exact schema, exact file layout or a
-    generic topic/domain blacklist.
-    Preserve Direction OS and other repos as read-only sources by default.
+    Do not modify Direction OS.
+    Do not restore or depend on OpenSpec, npm, TypeScript, src/, tests/, scripts,
+    CI, executable validation, W0/RLK scaffold, JSONL ledger, runtime agent, API,
+    database, scheduler, automation, storage engine, vendor integration, exact schema,
+    exact file layout, exact cadence, scoring policy or external integration procedure.
+    Do not introduce a generic domain/topic blacklist.
+    Do not create a Direction OS write path.
+    Do not treat the acceptance map as a future storage schema or required permanent
+    file layout; it is verification evidence for the current Markdown contract layer.
+    Keep the repair inside the current Markdown product surface. The executor may choose
+    whether to add a new Markdown artifact or extend an existing Markdown checklist/contract.
   done_when: |
-    - Verdict covers t-1, t-2 and t-3 criteria against current product-repo
-      main evidence.
-    - PASS requires A1-A13 covered, zero hard failures on topic-open rule,
-      write boundary, owner approval/side-effect boundary and W19 HOW firewall,
-      no generic domain/topic blacklist, no Direction OS write path, and no
-      DB/API/runtime/storage/schema/cadence/vendor/scheduler/automation chosen
-      as contract.
-    - FAIL names exact missing/contradictory evidence and routes:
-      product artifact gap -> executor repair against current Markdown surface;
-      WHAT contradiction -> converge;
-      hidden HOW/layout/schema/runtime temptation -> shape/review cut, not
-      silent acceptance.
-    - Next route is ready: on PASS, mark verified tasks and route to shape
-      g-zara-operate-state; on FAIL, route the exact repair/bounce.
+    - Product repo main contains Markdown-readable A1-A13 acceptance mapping evidence.
+    - Each A1-A13 row names the artifact/example/check that covers it.
+    - W19 HOW items are explicitly marked not chosen.
+    - No generic topic/domain blacklist appears.
+    - No Direction OS write path appears.
+    - No DB/API/UI/vendor/scheduler/automation/storage engine/runtime/exact schema/
+      exact layout/cadence/scoring/external integration is selected as contract.
+    - Existing Markdown-only foundation remains coherent and readable by ChatGPT/Codex/Claude.
+    - Return PR/commit evidence and any manual check output.
   return: |
-    RESULT with product repo evidence read, verdict per A1-A13/W19, task status
-    recommendations for t-1/t-2/t-3, exact repair route if failed, LOG line and
-    next CALL.
-  budget: one focused session
-  parent: s-zara-operate-contract-repair-after-markdown-reset-001
+    RESULT with product repo PR/commit, changed Markdown files, row-by-row A1-A13
+    mapping evidence, W19 firewall check, and any notes for independent verifier.
+  budget: one focused executor pass
+  parent: s-zara-operate-contract-reset-main-verify-writer-bounce-repair-001
   surface: any
 
 END_OF_FILE: live/solmax/NOW.md
