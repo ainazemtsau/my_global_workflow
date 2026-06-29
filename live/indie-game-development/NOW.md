@@ -559,7 +559,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       conservation + no-pop oracle (no vertical teleport); determinism preserved (loopback hash green; in scan roots);
       -Deliver GREEN + mutation ≥70 + fresh-session G5; ZERO-LEGACY; owner-eye. STOP = per-column instant sort near / float /
       reopening ADR-0002. approach token = per-type-buoyancy-bias-creeping-front.
-    status: active   # UNBLOCKED 2026-06-29 (s-work-031): Sc-types GREEN + binding-G5-verified → the bet rolls here (2nd character-road slice; G1 intact — Sc-types done freed the WIP slot). Subsumes d-buoyancy-near-weight-priority-001. NEXT = frame + adversarially harden the executor CALL c-exec-020 in a fresh OS session, then build in a fresh GasCoopGame_dev session (PLAN, owner present). PORT the proven far-tier CoarseSpecies weight/heat integer law into the near path BEFORE S4 deletes it. G5 PLANNER NOTES to fold into the c-exec-020 CALL: (a) re-derive the monotone-settle floor against kpEff=Kp*spf, NOT raw Kp — MinSpreadKp=12 over-protects ~2.4x at spf=4, so the Kp=4 settle control covers only part of the sub-floor class (SAFE direction, but re-derive if resolution/floor changes); (b) before this FIRST per-type-DISPATCH slice, broaden tools/type-hardcode-scan.ps1 (it catches only the enum/switch token superset — a dict-of-delegates / `if(typeId==N)` chain evades it) or soften its «strongest guarantee» header.
+    status: active   # UNBLOCKED 2026-06-29 (s-work-031): Sc-types GREEN + binding-G5-verified → the bet rolls here (2nd character-road slice; G1 intact — Sc-types done freed the WIP slot). Subsumes d-buoyancy-near-weight-priority-001. NEXT = frame + adversarially harden the executor CALL c-exec-020 in a fresh OS session, then build in a fresh GasCoopGame_dev session (PLAN, owner present). PORT the proven far-tier CoarseSpecies weight/heat integer law into the near path BEFORE S4 deletes it. G5 PLANNER NOTES to fold into the c-exec-020 CALL: (a) re-derive the monotone-settle floor against kpEff=Kp*spf, NOT raw Kp — MinSpreadKp=12 over-protects ~2.4x at spf=4, so the Kp=4 settle control covers only part of the sub-floor class (SAFE direction, but re-derive if resolution/floor changes); (b) before this FIRST per-type-DISPATCH slice, broaden tools/type-hardcode-scan.ps1 (it catches only the enum/switch token superset — a dict-of-delegates / `if(typeId==N)` chain evades it) or soften its «strongest guarantee» header. — FRAMED + adversarially HARDENED 2026-06-29 (s-work-032, wf_8f324a28-81e: 24 raised → 20 survived refute-verify → 3 must-fix + 9 should-fix/nit folded; 4 refuted incl. a goal-hygiene + temperature-reserve challenge) → work/c-exec-020-call.md. STAYS ACTIVE awaiting the GasCoopGame_dev executor return; NEXT = open c-exec-020 in a fresh GasCoopGame_dev session (PLAN, owner present). Both G5 notes folded as HARD obligations; the LINCHPIN must-fix = fold the NEW per-type weight OVERRIDE into the registry ContentHash (parent.RatioToAir alone ≠ override → else two peers pass the lockstep handshake then desync under a green checksum). PORT crux nailed: port the far-tier LAW (CoarseSpecies.EffectiveDensity) re-expressed as DATA, NEVER CoarseBandStep.Settle's per-column capacity-fill SORT (§3/§7-buried). approach token = per-type-buoyancy-bias-creeping-front.
   - id: Sc-reactions
     kind: executor (engineering, GasCoopGame) — REACTIONS. 3rd character-road slice. Integer chemistry between types. Keys off Sc-types (needs ≥2 types).
     goal: |
@@ -822,6 +822,31 @@ open_calls:
       RED-first independent test-author (≥2 types diverge + single-type no-regression + no-hardcoded-type + TypeId-checksum +
       registry-hash); -Deliver GREEN; mutation ≥70; fresh-session G5; STOP (hardcoded C# type / visual creep / weight-reactions
       creep / float / reopening ADR-0002). lock = ADR-0002. May SPLIT (PLAN scopes). FULL CALL → work/c-exec-019-call.md.
+  - id: c-exec-020
+    status: framed   # FRAMED + adversarially HARDENED 2026-06-29 (s-work-032): Sc-weight (per-type vertical buoyancy, ENGINE-ONLY) executor CALL authored → work/c-exec-020-call.md. Hardening wf_8f324a28-81e (7 lenses → per-finding refute-verify → synth; 24 raised → 20 survived → 3 must-fix + 9 should-fix/nit folded, ZERO lock-change / ZERO re-design; 4 refuted incl. goal-hygiene «bias-not-sort is the canon-§3 OUTCOME anchor» + «temperature-reserve does not gut the deliverable»). Every cited symbol VERIFIED first-hand at GasCoopGame main @7d08882: CoarseSpecies.EffectiveDensity:46 (eff=max(1,MW-(T>>shift)), Weights={64,32,16,8}) + CoarseBandStep.Settle:186 (the forbidden densest-first capacity-fill SORT) + VoxelFaceFlow.cs:85 kpEff=Kp*spf + GasParentParams.RatioToAir (reserved «Sc-weight» slot) + GasMetaType/GasType carry only SpreadKpOverride + GasTypeRegistry.ComputeContentHash:146-160 (folds parent.RatioToAir + per-index EffectiveKp only — NOT a per-type weight override) + MeaningMembers max bit TypeId=1<<5. Ready: owner opens c-exec-020 in a FRESH GasCoopGame_dev session (opens with a PLAN, owner present, §Re-sync FIRST). RESULT applied home by a separate OS writer. May SPLIT (PLAN scopes).
+    note: |
+      Executor leg (GasCoopGame, dev→main when green) — Sc-weight = the 2nd CHARACTER-ROAD slice: per-type VERTICAL BUOYANCY
+      (heavy SINKS / light RISES), tunable per meta-type, as an integer BIAS on Z-face flow = a CREEPING front (canon §3
+      «buoyancy-BIAS, НЕ сортировка»; per-column instant sort near = STOP / §7-buried). Keys off Sc-types (wires the RESERVED
+      GasParentParams.RatioToAir weight-class slot). approach token = per-type-buoyancy-bias-creeping-front. PORT CRUX: port the
+      far-tier LAW (CoarseSpecies.EffectiveDensity, re-expressed as DATA) — NEVER the far-tier REALIZATION (CoarseBandStep.Settle's
+      densest-first capacity-fill = the per-column SORT §3/§7 forbid near); the frozen far-tier source stays untouched/unscanned
+      (retires at S4). The far-tier law is RELATIVE/UNSIGNED → the PLAN must define an ABSOLUTE NEUTRAL for the signed Z-bias.
+      MECHANISM (PLAN owns realization): a per-TYPE, Z-faces-only, PERSISTENT integer bias combined into desiredMove before the
+      clamp (analogous to S1's per-face _bias but per-species — NO repurposing _bias; NO banking into the Mass-folded carry).
+      THE 2 G5 PLANNER-NOTES folded as HARD obligations: (a) derive the no-slosh bound against the TRUE per-tick term
+      mag·cond/(Kp·spf) — NOT raw-Kp-assuming-spf=1, NOT a magic «~2.4x» (spf cancels at a full face → over-protection is
+      conductivity-dependent 1×..spf×); RED settle oracle = a forever-slosh-but-loopback-green column MUST be RED. (b) the
+      no-hardcode scan: Sc-weight is the FIRST per-type-DISPATCH slice — option (a) pure data-arithmetic (no enum/switch/
+      if(typeId==N)/dict/array-by-TypeId) + correct the «strongest guarantee» header, OR option (b) broaden the scan BY SYMBOL
+      (NOT a blind dir-append that false-positives on VoxelFaces' geometry switch(face) / the MeaningMembers enum). LINCHPIN
+      must-fix: fold the NEW per-type weight OVERRIDE into the registry ContentHash (lockstep-handshake gate) + the per-tick
+      MeaningChecksum decision (DERIVED→no member / STORED→new SKIP-ZERO member, NOT !IsDefault). BOUNDARIES: ENGINE-ONLY (no
+      visual hookup; the visual's RiseSinkBias on main is a separate cosmetic field); NO reactions/damage; temperature = an
+      OPTIONAL reserved coupling term, NOT the Sc-damage mechanic; NO velocity/inertia (TIER-3/ADR-0010 reserved); lock =
+      ADR-0002. DISCIPLINE: RED-first independent test-author; -Deliver GREEN; mutation ≥70; fresh-session G5 (different family)
+      COULD-NOT-REFUTE; STOP-discipline. «точно» = green suite; owner-eye (heavy pools low / light collects high, creeping) =
+      confidence NOT a gate. next slice = Sc-reactions. FULL CALL → work/c-exec-020-call.md.
   - id: c-visual-001
     status: delivered   # ✅ BROUGHT HOME 2026-06-28 (s-visual-005) — off-contour VISUAL-track drift reconciled first-hand. c-visual-001 was BUILT foundation→S1→S3→S5 and MERGED to GasCoopGame origin/main: S5 real-data swap @9780713 (verified ancestor of main tip 2e24a24). Evidence (GasCoopGame_dev_2/RESULT.md, read first-hand): -Deliver inner GREEN 1022/1022, mutation 76% ≥70, independent spec-only test-author (39 RED), 6-lens adversarial review, ZERO Core/** edit (977 sim tests unchanged), owner-eye SIGNED 2026-06-28 «облако читается хорошо, верится что это газ». ADRs 0012 seam / 0013 S1 / 0014 S3 / 0015 S5. S6 look-development = WIP checkpoint on dev2 @dc4c225 (pushed, NOT merged — look not locked; render-only, zero sim/layout change). The OS recorded this as "queued/not-started" for ~2 days across 3 owner-gated merges = the drift the owner flagged; now corrected. — was: queued (structure-first build-step 1, work/c-visual-001-call.md).
     note: |
@@ -1879,13 +1904,18 @@ next: |
   host-authority is ever reconsidered, RE-RUN the cloud-vs-grid analysis on the host-auth model (its kills are
   determinism-class, void under a single host).
 
-  IMMEDIATE NEXT = FRAME + adversarially harden the **Sc-weight** executor CALL (c-exec-020) in a fresh OS session, then
-  OPEN it in a fresh GasCoopGame_dev session (PLAN, owner present). Sc-weight = per-type buoyancy (heavy SINKS / light
-  RISES via an integer Z-face bias, a CREEPING front — canon §3 «buoyancy-BIAS, не сортировка»; per-column instant sort
-  FORBIDDEN/§7-buried); PORT the proven far-tier CoarseSpecies weight/heat integer law before S4 deletes it (subsumes
-  d-buoyancy-near-weight-priority-001). FOLD the 2 G5 planner-notes into the CALL: (a) re-derive the settle floor against
-  kpEff=Kp*spf not raw Kp (MinSpreadKp=12 over-protects ~2.4x at spf=4); (b) broaden tools/type-hardcode-scan.ps1 before
-  this first per-type-DISPATCH slice (enum/switch-token-only; dict-of-delegates / if(typeId==N) evades it). **Sc-types
+  IMMEDIATE NEXT = OPEN the **Sc-weight** executor CALL (c-exec-020) in a fresh GasCoopGame_dev session (PLAN, owner
+  present) — it is FRAMED + adversarially HARDENED 2026-06-29 (s-work-032, wf_8f324a28-81e: 24 raised → 20 survived
+  refute-verify → 3 must-fix + 9 should-fix/nit folded; 4 refuted → work/c-exec-020-call.md). Sc-weight = per-type buoyancy
+  (heavy SINKS / light RISES via an integer Z-face bias, a CREEPING front — canon §3 «buoyancy-BIAS, не сортировка»;
+  per-column instant sort FORBIDDEN/§7-buried); PORTs the proven far-tier CoarseSpecies weight LAW (NOT CoarseBandStep's
+  per-column capacity-fill SORT) re-expressed as DATA before S4 deletes it (subsumes d-buoyancy-near-weight-priority-001).
+  The 2 G5 planner-notes are FOLDED as HARD obligations: (a) settle bound derived against the TRUE per-tick term
+  mag·cond/(Kp·spf) — NOT raw Kp, NOT a magic «~2.4x» (spf cancels at a full face → over-protection is conductivity-dependent
+  1×..spf×); (b) the no-hardcode scan broadened BY-SYMBOL (NOT a blind dir-append that false-positives on VoxelFaces'
+  geometry switch(face)) OR replaced by pure data-arithmetic — Sc-weight is the FIRST per-type-DISPATCH slice. LINCHPIN
+  must-fix folded: the NEW per-type weight OVERRIDE must fold into the registry ContentHash (parent.RatioToAir alone ≠ the
+  override → else a green-lockstep-handshake cross-peer desync). **Sc-types
   (c-exec-019) DELIVERED + MERGED + PUSHED + binding-G5 COULD-NOT-REFUTE 2026-06-29 (s-work-031, GasCoopGame main @7d08882).** **S2 is COMPLETE** (S2a @2e24a24 + S2b
   @adb9255, verified first-hand; multiplayer-determinism FOUNDATION proven in loopback; gas-as-networked-citizen = a named
   ~S4 seam). **DIRECTION SET (owner «можем оформлять» 2026-06-29):** the bet rolls to the CHARACTER ROAD, not the far-tier.
@@ -1960,5 +1990,11 @@ next: |
   bet rolls to Sc-weight (parked→active; CALL c-exec-020 to be framed). Owner-authorized settle-criterion amendment
   recorded (owner-ack:esc-c-exec-019-settle-criterion-2026-06-29). 2 G5 planner-notes carried into the Sc-weight CALL
   (settle-floor-vs-kpEff; type-hardcode-scan completeness). Push main owner-gated.
+  s-work-032 commit: c-exec-020 (Sc-weight) FRAMED + adversarially HARDENED → work/c-exec-020-call.md + open_calls entry +
+  Sc-weight status note + next. Hardening wf_8f324a28-81e (7 lenses → per-finding refute-verify → synth; 24 raised → 20
+  survived → 3 must-fix + 9 should-fix/nit folded, ZERO lock-change; 4 refuted incl. goal-hygiene + temperature-reserve).
+  Every cited symbol verified first-hand at GasCoopGame main @7d08882. LINCHPIN must-fix folded = fold the NEW per-type
+  weight override into the registry ContentHash (else green-lockstep-handshake desync). Sc-weight stays ACTIVE awaiting the
+  GasCoopGame_dev executor return; no TREE/active-bet change (G1 intact: 1 active task). Push main owner-gated.
 
 END_OF_FILE: live/indie-game-development/NOW.md
