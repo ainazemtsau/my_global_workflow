@@ -461,7 +461,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       verify = a FRESH-SESSION G5 (different family) refuting the determinism / canonical-order /
       hash-parity seams. Owner-eye = he sees 2 processes agree (confidence, NOT a gate; real 2 PCs =
       optional one-off run, never a gate). approach token = loopback-meaningchecksum-determinism-by-construction.
-    status: split   # ✅ PLAN DONE + SPLIT 2026-06-28 (c-exec-016 PLAN, GasCoopGame_dev, owner present): done_when 1 (PLAN) met → concluded SPLIT-NEEDED per the CALL's budget clause; NO code/git changes (PLAN-only). Owner-signed «Split S2a+S2b» + 3 more decisions (d-s2-split-001 / d-s2-rng-control-na-001 / housekeeping FF+archive folded into S2a). Migration-spine port-vs-delete inventory done (7-agent wf_89e9d3c2, verified first-hand; owner-signed). Imported PLAN RESULT → history/c-exec-016-plan-split-2026-06-28.md (applied home s-work-025). S2 = S2a (legacy retirement, FIRST) + S2b (loopback load-bearing, after). Closes done only when BOTH return GREEN. next slice after S2 = S3.
+    status: done   # ✅ S2 SLICE COMPLETE 2026-06-29 (s-work-028): both halves DELIVERED + merged to GasCoopGame main — S2a @2e24a24 (ZERO-LEGACY retirement) + S2b @adb9255 (load-bearing lockstep loopback). Multiplayer-determinism FOUNDATION proven (2-process loopback, determinism by construction); networked-gas-ITickInputBus-citizen = named ~S4 seam (NOT done). Bet rolls to S3. — PLAN DONE + SPLIT 2026-06-28 (c-exec-016 PLAN, GasCoopGame_dev, owner present): done_when 1 (PLAN) met → concluded SPLIT-NEEDED per the CALL's budget clause; NO code/git changes (PLAN-only). Owner-signed «Split S2a+S2b» + 3 more decisions (d-s2-split-001 / d-s2-rng-control-na-001 / housekeeping FF+archive folded into S2a). Migration-spine port-vs-delete inventory done (7-agent wf_89e9d3c2, verified first-hand; owner-signed). Imported PLAN RESULT → history/c-exec-016-plan-split-2026-06-28.md (applied home s-work-025). S2 = S2a (legacy retirement, FIRST) + S2b (loopback load-bearing, after). Closes done only when BOTH return GREEN. next slice after S2 = S3.
   - id: S2a
     kind: executor (engineering, GasCoopGame) — ZERO-LEGACY RECONSTRUCTION-SPINE RETIREMENT (first half of the S2 split; runs FIRST → clean base for S2b). NO new behavior.
     goal: |
@@ -505,7 +505,25 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       STOP = stored velocity / float authoritative path / re-flux-as-gate / reopening the input-lockstep lock (ADR-0002 —
       see d-adr-lockstep-citation-001; the canon's "ADR-0010" is a citation error, ADR-0010 is the test-sandbox). approach
       token = loopback-meaningchecksum-load-bearing.
-    status: active   # CALL AUTHORED + adversarially HARDENED 2026-06-28 (s-work-027): c-exec-018 (S2b load-bearing loopback) → work/c-exec-018-call.md (wf_e4074544-feb, 28 agents; 1 must-fix + 6 should-fix folded, ZERO lock-change; ADR-0002 lock, RNG-control DROP, chunk-span S4-deferral). Builds on the clean post-S2a base (GasCoopGame main @2e24a24). NEXT = owner opens c-exec-018 in a fresh GasCoopGame_dev session (PLAN, owner present, §Re-sync FIRST). Closes done on c-exec-018's GREEN return.
+    status: done   # ✅ DELIVERED + MERGED + PUSHED 2026-06-29 (c-exec-018 build session; applied s-work-028) — GasCoopGame origin/main @adb9255 (--no-ff merge of dev). VERIFIED first-hand: the load-bearing 2-VoxelField loopback harness EXISTS (Core/Field/Determinism/ = LockstepLoopback + LockstepDivergenceException + MeaningMembers + GasScenario); ADR-0017; lock ADR-0002 intact (deleted families 0 prod hits). Gates: -Deliver GREEN, 923/923, mutation 73.51% ≥70, coverage 10/10, fresh-session G5 (Sonnet) COULD-NOT-REFUTE + 3 Codex rounds + 5-skeptic panel. SCOPE-HONESTY: proved determinism-by-construction in LOOPBACK (2 in-process VoxelFields, one machine); gas-as-networked-ITickInputBus-citizen = a larger seam deferred ~S4. Record → history/c-exec-018-s2b-result-2026-06-29.md. This CLOSES S2 (S2a+S2b).
+  - id: S3
+    kind: executor (engineering, GasCoopGame) — HEIGHT / LAYERING SLICE. Rolls on S0 (near real-height already emergent). The next slice after S2. Per canon §5 S3.
+    goal: |
+      Height/layering on the gas grid: NEAR real-height is ALREADY emergent from S0 (the 50cm Z-cells — «crouch under a
+      layer» is free); this slice adds a few VERTICAL layers to the COARSE FAR-tier for height-ROUTING in player-LESS rooms.
+      ⚠ These coarse vertical layers are a FAR-tier construct for distant rooms, NOT near-authoritative «crouch bands»
+      (crouch is already free via S0 Z-cells; resurrecting authoritative height-bands is §7-buried). Netcode rides the S2
+      loopback determinism (in-checksum).
+    done_when: |
+      OPENS WITH A PLAN (owner present): §Re-sync contract FIRST; ingest canon §5 S3 + §6 п.4 (far-rollup vertical-strata
+      count — decided at PLAN S3/S4) + §7 (height-bands buried) + §8 (interim 2-band far-tier); classify ведро-1/2/3;
+      RESOLVE the S3-vs-S4 far-tier sequencing (S3 adds far vertical layers; S4 = far-rollup + LOD — decide whether S3 lands
+      on the interim 2-band far-tier or folds into S4). Then: the far-tier holds a TUNABLE in-checksum number of vertical
+      strata for height-routing; near stays the S0 3D grid (unchanged); determinism preserved (loopback hash green; the new
+      authoritative code inside BOTH zero-float/int-overflow scan roots — CLOSE the scan-root parity gap surfaced by S2b);
+      -Deliver GREEN + mutation ≥70 + fresh-session G5; ZERO-LEGACY; owner-eye on height-routing. STOP-discipline (no
+      authoritative near height-bands = §7 burial; lock = ADR-0002). approach token = far-tier-vertical-layers-for-height-routing.
+    status: active   # NEW 2026-06-29 (s-work-028): S2 done → the bet rolls to S3. CALL NOT yet framed — the direction frames the S3 executor CALL next (PLAN-first, ведро; resolve S3-vs-S4 sequencing + fold the scan-root parity-gap hardening). Then a fresh GasCoopGame_dev session opens it with a PLAN (owner present). May fold into / sequence with S4 (PLAN decides).
 
 recurring: []
 
@@ -668,7 +686,7 @@ open_calls:
       delete; -Deliver GREEN; ZERO-LEGACY 3-lens re-audit; fresh-session G5; STOP-discipline (KEEP-member breaks / delete
       needs behavior change / expanding into S2b loopback / reopening ADR-0010). FULL CALL → work/c-exec-017-call.md.
   - id: c-exec-018
-    status: framed   # AUTHORED + adversarially HARDENED 2026-06-28 (s-work-027): S2b load-bearing lockstep-loopback executor CALL → work/c-exec-018-call.md. Hardening wf_e4074544-feb (28 agents, 6 lenses → refute-verify → synth; 16 raised → 10 survived → 1 must-fix + 6 should-fix folded, ZERO lock-change / ZERO re-design). Must-fix caught a real bug: a RED control aimed at an UNBUILT S4 region-rollup seam → re-scoped to spec-silence; + 3 stale canon line-cites (my own §1 ADR-edit shifted them +1) → name-anchored; + awake-queue/active-front contradiction, S5 boundary, bitmap trip-wire restored. Folds ADR-0002 lock (d-adr-lockstep-citation-001 — canon now corrected), RNG-control DROP (d-s2-rng-control-na-001), chunk-span S4-deferral. Ready: owner opens c-exec-018 in a FRESH GasCoopGame_dev session (PLAN, owner present, §Re-sync FIRST) on the clean post-S2a base (main @2e24a24). RESULT applied home by a separate OS writer.
+    status: done   # ✅ DELIVERED + MERGED + PUSHED 2026-06-29 (s-work-028): GasCoopGame main @adb9255; load-bearing loopback harness verified first-hand (Core/Field/Determinism/); -Deliver GREEN, 923/923, mutation 73.51%, G5 COULD-NOT-REFUTE + Codex + 5-skeptic panel; lock ADR-0002 intact. Record → history/c-exec-018-s2b-result-2026-06-29.md. — was AUTHORED + adversarially HARDENED 2026-06-28 (s-work-027): S2b load-bearing lockstep-loopback executor CALL → work/c-exec-018-call.md. Hardening wf_e4074544-feb (28 agents, 6 lenses → refute-verify → synth; 16 raised → 10 survived → 1 must-fix + 6 should-fix folded, ZERO lock-change / ZERO re-design). Must-fix caught a real bug: a RED control aimed at an UNBUILT S4 region-rollup seam → re-scoped to spec-silence; + 3 stale canon line-cites (my own §1 ADR-edit shifted them +1) → name-anchored; + awake-queue/active-front contradiction, S5 boundary, bitmap trip-wire restored. Folds ADR-0002 lock (d-adr-lockstep-citation-001 — canon now corrected), RNG-control DROP (d-s2-rng-control-na-001), chunk-span S4-deferral. Ready: owner opens c-exec-018 in a FRESH GasCoopGame_dev session (PLAN, owner present, §Re-sync FIRST) on the clean post-S2a base (main @2e24a24). RESULT applied home by a separate OS writer.
     note: |
       Executor leg (GasCoopGame, dev→main when green) — S2b = the load-bearing half of the S2 split, on the clean post-S2a
       base. GOAL: elevate the loopback determinism proof to LOAD-BEARING — a 2-endpoint (host + 1 in-process follower = a
@@ -1662,18 +1680,19 @@ next: |
   host-authority is ever reconsidered, RE-RUN the cloud-vs-grid analysis on the host-auth model (its kills are
   determinism-class, void under a single host).
 
-  IMMEDIATE NEXT = OPEN c-exec-018 (S2b — load-bearing lockstep loopback determinism proof) in a FRESH GasCoopGame_dev
-  session (opens with a PLAN, owner present, §Re-sync contract FIRST) on the clean post-S2a base (GasCoopGame main @2e24a24).
-  The S2b CALL is AUTHORED + adversarially HARDENED 2026-06-28 (s-work-027 → work/c-exec-018-call.md; wf_e4074544-feb,
-  28 agents / 6 lenses → refute-verify → synth: 16 raised → 10 survived → 1 must-fix + 6 should-fix folded, ZERO lock-change;
-  the must-fix caught a real bug — a RED control aimed at an UNBUILT S4 region-rollup seam, re-scoped to spec-silence; + 3
-  stale canon line-cites name-anchored). S2b = a 2-endpoint (host + 1 in-process follower = a 2nd VoxelField re-running the
-  same input stream) per-tick MeaningChecksum byte-identity over the full forced-flow scenario + the RED controls + §9.5
-  membership proof + Adapters R14 3-mode owner-eye + frozen spec; determinism BY CONSTRUCTION; the lock is ADR-0002 (NOT
-  ADR-0010). DONE THIS TURN (s-work-027, owner «да»): (1) the canon ADR citation FIXED ADR-0010→ADR-0002
-  (d-adr-lockstep-citation-001 ANSWERED; 5 edits grounded in GasCoopGame ADR-0016/0002); (2) c-018 authored + hardened.
-  S2a is DELIVERED + merged+pushed main @2e24a24 (verified first-hand). The idle S2a build session has NO further code task
-  — it should CLOSE (the next code task is S2b, now ready). next slice after S2 = S3 (height/layering).
+  IMMEDIATE NEXT = FRAME the S3 executor CALL (a fresh OS work-session frames the height/layering slice — PLAN-first, ведро
+  classification). **S2 is COMPLETE**: S2b DELIVERED + merged + pushed 2026-06-29 (GasCoopGame main @adb9255; the
+  load-bearing 2-VoxelField loopback harness verified first-hand — Core/Field/Determinism/; -Deliver GREEN, 923/923,
+  mutation 73.51%, fresh-session G5 COULD-NOT-REFUTE + 3 Codex rounds + 5-skeptic panel; lock ADR-0002 intact) → this CLOSES
+  S2 (S2a + S2b). The multiplayer-determinism FOUNDATION (2-process loopback, determinism BY CONSTRUCTION) is proven;
+  **gas-as-networked-ITickInputBus-citizen = a named LARGER seam ~S4 (NOT done — scope honesty)**. S3 (canon §5) = the
+  coarse FAR-tier gets a few VERTICAL layers for height-routing in player-LESS rooms (near real-height already free from S0;
+  authoritative crouch-bands are §7-buried). OPEN PLAN questions: far-rollup vertical-strata count (§6 п.4) + S3-vs-S4
+  far-tier sequencing. FOLD INTO the S3 PLAN: the scan-root parity-gap hardening (S2b finding — FieldStep/FieldState/
+  Coarse-Chunks sit OUTSIDE both determinism scan roots; $DefaultRoots duplicated with no parity enforcement → add a
+  self-test asserting every authoritative Core/Field subdir is in BOTH scans). CARRIED DEFERRALS: chunk-span retirement →
+  S4 2-band far-tier cleanup; gas-as-networked-citizen → ~S4; ADR-numbering-by-track (engine 0017 vs visual dev2 0013-0015).
+  RESULT applied home by a separate OS writer.
 
   FOUR BUILDER-RETURNED DECISIONS — ACCEPTED AS A BUNDLE (owner «весь пакет» 2026-06-28):
   • DISPLACEMENT (S1b) → CUT to backlog (d-displacement-s1b-cut-001); re-entry trigger = first body-dams-gas gameplay
@@ -1710,6 +1729,8 @@ next: |
   DELIVERED on dev (verified first-hand), bet rolls to S2b; d-adr-lockstep-citation-001 surfaced; S2a dev→main merge +
   owner-eye owner-gated. ed421b5: S2a merge confirmed on main @2e24a24. s-work-027 commit: canon ADR citation FIXED
   (ADR-0010→ADR-0002, d-adr-lockstep-citation-001 answered, owner «да») + c-exec-018 (S2b) authored + adversarially hardened.
+  s-work-028 commit: S2b RESULT applied — S2b + the whole S2 slice DONE (verified first-hand, GasCoopGame main @adb9255);
+  bet rolls to S3; 4 findings captured (scan-root parity gap, gas-as-networked-citizen ~S4, chunk-span→S4, ADR-numbering-by-track).
   s-visual-005 commit: gas-VISUAL track BROUGHT HOME — c-visual-001 queued→delivered (S5 in origin/main @9780713, S6 WIP
   dev2 @dc4c225, both verified first-hand); g-7e15.next reset to LOOK-DEVELOPMENT (gas-lab→P1 levers→character) + felt
   TARGET (jewel/character) + PROCESS fix (come-home + «moves toward the JEWEL» owner-eye gate). Push main owner-gated.
