@@ -224,4 +224,6 @@
 
 - 2026-06-29 — marketing restart (g-2f8c): status map rendered; q-capture-setup recommended as first restart card; q-ai-pipeline deferred to second, real-build-first frame; no state changes. → history/2026-06-29-s-marketing-restart-001.md
 
+- 2026-06-29 — work/cleanup (g-7e15 + charter, owner «давай его уберем»): removed fixed-hour quota wording from current state and the visual CALL; CHARTER/TREE owner-approved. → history/s-work-hours-quota-cleanup-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

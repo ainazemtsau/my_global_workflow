@@ -113,7 +113,7 @@ A RESULT routed home: outcome + evidence (the render-only invariants + the owner
 
 ## budget & rigor
 
-~40-60 min/day owner-gated build-gaps; a fresh GasCoopGame_dev_2 session. SAME contour as the engine legs
+Secondary visual-track cadence in owner-gated engine build-gaps; no fixed hour quota. A fresh GasCoopGame_dev_2 session. SAME contour as the engine legs
 (CALL → proper PLAN → build → gates → RESULT home). Right-sized rigor: the binding gate is the owner's EYE + the
 render-only regression invariants; no heavy independent-RED-test-author + multi-agent refutation round (nothing
 correctness-critical to refute — render-only). This right-sizes the GATE; it does not skip the contour, the §Re-sync,

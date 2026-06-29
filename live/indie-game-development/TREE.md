@@ -220,7 +220,7 @@ root:
     detail: |
       history/s-map-002.md + history/s-visual-001.md. VISUAL (GASG) TRACK stood up 2026-06-21 — the owner wants the
       gas's LOOK worked NOW, in parallel to the engine, visible in planning with its own budget («участвовало в дереве
-      … со своим аппетитом … не на задворках … начать сейчас»; SECONDARY to g-9c41, ~40–60 min/day). Approach
+      … со своим аппетитом … не на задворках … начать сейчас»; SECONDARY to g-9c41, with no fixed hour quota). Approach
       (research-backed, work/gas-visual-research-2026-06-21.md): a READ-ONLY visual view over the authoritative gas
       grid, decoupled by the R13/R14 seam (fake data now → swap to the real Wave-B front later, zero visualizer
       change); layered = grid → URP raymarch body and/or GraphicsBuffer-fed VFX-Graph accents → gas-as-light
