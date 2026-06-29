@@ -996,6 +996,22 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-buoyancy-near-weight-priority-001
+    status: OPEN   # owner-FLAGGED 2026-06-29 («хочу напомнить, чтобы не потерялось»); a real gap + a prioritization call. Verified first-hand: NO buoyancy/gravity/weight in Core/Field/Voxel (main) — near gas spreads by pure gradient diffusion.
+    note: |
+      OWNER OBSERVATION (verified first-hand in code): the NEAR gas currently spreads by pure GRADIENT diffusion through
+      open faces — vertical behaviour comes ONLY from geometry (a low door drains the low cells), there is NO per-species
+      WEIGHT (a super-heavy gas does NOT sink faster than a slightly-heavy one). Canon §3 PLANS exactly this as
+      «buoyancy-BIAS» (an integer bias on flow through Z-faces, per heavy/light, a CREEPING front — NOT instant
+      teleport-to-floor; per-column instant sort is FORBIDDEN near / §7-buried), but it is NOT built (S0 = gradient
+      face-flow; S1 = forced-flow impulses; S2 = determinism) and NOT assigned to a named slice (the §5 spine's S3 = FAR-tier
+      height-ROUTING layers for player-LESS rooms, which is a DIFFERENT thing from near per-species weight). So near
+      buoyancy = a real, UNSCHEDULED near-tier FEEL — now ON THE RECORD as a named slice candidate (was only a §3 model fact).
+      PRIORITIZATION (owner decides): next slice = (a) NEAR BUOYANCY (heavy sinks / light rises, tunable strength per gas —
+      visible, gameplay-defining, aligns with gas-as-jewel + the ∥ visual track; near = where the player is) OR (b) the
+      planned FAR-tier S3 (height-routing layers) + S4 (cheap distant rooms + no-pop rollup — scale-plumbing, load-bearing
+      for big/~150-room levels, NOT urgent at the current small-level scale; S4 is now unblocked by S2). RECOMMEND (a)
+      buoyancy next; far-tier waits until levels get big. Either way: do NOT lose this (owner ask).
   - id: d-adr-lockstep-citation-001
     status: answered   # owner-APPROVED + APPLIED 2026-06-28 (s-work-027, owner «да»): canon citation FIXED ADR-0010→ADR-0002 (lock = «lockstep over FishNet»; ADR-0010 = test-sandbox). 5 edits to knowledge/g9c41-gas-engine-SPEC.md (§1 authoritative correction note + Факт-1 + §6 hangar + §7 + §9-map), grounded in GasCoopGame ADR-0016/ADR-0002. Full history surfaced: host-broadcast detour was ADR-0003/0004 (+0005-part, +0008), retired ADR-0016/S2a. c-exec-018 (S2b) cites ADR-0002. — surfaced 2026-06-28 (s-work-026), verified first-hand from the c-exec-017 (S2a) build session.
     note: |
