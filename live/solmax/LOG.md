@@ -67,4 +67,5 @@
 
 - 2026-06-28 — shape g-zara-operate-contract: owner approved active bet b-zara-operate-contract-002 with appetite 2 focused days. Scope is a minimal Markdown/GitHub-readable authority contract pack in Zaratusta preserving W20/A1-A13 and W19 HOW firewall; cut runtime/state writer/UI/DB/API/schema/cadence/scoring/scheduler/automation/external integrations/dogfood. Tasks: t-1 acceptance matrix risk gate, t-2 contract pack, t-3 independent verify. Next → executor t-1. → history/2026-06-28-s-zara-operate-contract-shape-002.md
 - 2026-06-28 — work t-1 checkpoint: W20/A1-A13 acceptance matrix content prepared; t-1 remains active pending writer-core product-repo commit or PR evidence. → history/2026-06-28-s-zara-operate-contract-t1-acceptance-matrix-checkpoint-002.md
+- 2026-06-29 — work t-1 corrected handoff: product-repo matrix evidence still missing; stale executor open call replaced with schema-valid executor engineering call c-zara-operate-contract-t1-product-repo-matrix-evidence-002 and NOW.next updated to the same call. → history/2026-06-29-s-zara-operate-contract-t1-product-repo-matrix-evidence-blocked-001-corrected-002.md
 END_OF_FILE: live/solmax/LOG.md
