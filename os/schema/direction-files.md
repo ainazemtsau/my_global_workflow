@@ -108,9 +108,11 @@ next:                          # ready-to-send CALL for the next session
   <CALL packet, see packets.md>
 ```
 
+NOW hygiene rules: NOW.md is hot state, not an archive. Keep long evidence in `history/`, `work/`, or `knowledge/`; NOW keeps one-line pointers only. `open_calls` contains only CALLs still awaiting RESULT; returned, done, superseded, or cancelled calls leave this list and live in LOG/history. `decisions` contains only pending owner decisions; answered decisions move to history or a linked work/knowledge artifact. `next` is exactly one CALL packet, or one line pointing to a self-contained CALL artifact under `work/` (for example `CALL: work/c-117-call.md`), never a status digest.
+
 Recurring rules: entries are NOT tasks (G1/G2 untouched — they have their own ≤3 budget). Only pulse instantiates a due entry, as a ready work CALL in its decision batch; pulse never executes it. A recurring run that can't finish closes with the reason; `last_done` stays unchanged and pulse re-raises it next time.
 
-Open-calls rules: this is how a fresh session on ANY platform sees what is already running and who waits for whom — the recovery point after a crashed chat or a provider switch. A closing RESULT lists the CALLs it issued in `state_changes`; the writer records them here; a returning RESULT clears its entry. Pulse flags entries older than their budget. If a chat died mid-work: nothing is lost except its unwritten conversation — restart from `NOW.next` or the relevant open_calls entry.
+Open-calls rules: this is how a fresh session on ANY platform sees what is already running and who waits for whom — the recovery point after a crashed chat or a provider switch. A closing RESULT lists the CALLs it issued in `state_changes`; the writer records them here; a returning RESULT clears its entry immediately. Pulse flags entries older than their budget. If a chat died mid-work: nothing is lost except its unwritten conversation — restart from `NOW.next` or the relevant open_calls entry.
 
 ## LOG.md
 
