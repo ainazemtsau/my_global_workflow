@@ -212,6 +212,6 @@
 - `work/gas-engine-INDEX.md` — навигация, полностью заменена этим файлом.
 - `work/dev-plan-graph-2026-06-22.md` — слайс-DAG + decision-index + hard-rules → §2/§5/§6.
 - `work/g9c41-drift-guard.md` + `knowledge/g9c41-architecture-locked-slices.md` + `g9c41-wave1-*.md` + `g9c41-wave2-*.md` — свёрнуты сюда (анти-дрейф = §1, факты = §2).
-- `work/c-exec-004-call.md` — pre-input-lockstep-pivot (host single-writer + «band sim Wave 2»), история; нужен SUPERSEDED-баннер.
+- `work/c-exec-004-call.md` — pre-input-lockstep-pivot (host single-writer + «band sim Wave 2»), история. NB: лежит в АКТИВНОМ `work/` (НЕ в `work/archive/`, в отличие от docs выше) и SUPERSEDED-баннер УЖЕ стоит (его «ADR-0010»-цитата = лок ADR-0002 по §1-поправке; файл = неавторитетная история, не править).
 
 END_OF_FILE: knowledge/g9c41-gas-engine-SPEC.md
