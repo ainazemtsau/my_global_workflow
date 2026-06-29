@@ -558,6 +558,9 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       per-cell warning granularity (ADR-0012 D5); 96B layout FROZEN; the 4 colour CONCEPTS = a start, NOT final (CHARACTER,
       not colour, is the lever). next = the GAS-LAB look-development leg c-visual-002 (open in a FRESH GasCoopGame_dev_2
       session, opens with a PLAN; spec = docs/gas-visual-stage-plan.md §S6+).
+      READ-ONLY R&D CENTER (2026-06-29, s-work-visual-rd-center-001, owner chose "Visual R&D Center"): Codex-side
+      research lab exists at work/gas-visual-rd-center-2026-06-29.md. It studies technologies/references/probe briefs
+      for the JEWEL target while Claude Code builds; it edits no product code and does not replace c-visual-002.
     note: |
       Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
       (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
