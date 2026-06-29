@@ -1039,6 +1039,23 @@ decision_inbox:
       multi-gas TYPES slice" + "name a damage slice" findings. Recommend: do this BEFORE starting S3 (far-tier plumbing can
       wait until levels get big). NB: the old far-tier already has proven 4-species + weight + heat integer math → port it
       before S4 deletes it (don't re-R&D).
+      ── R15 / META-TYPE STRUCTURE (owner raised 2026-06-29; verified first-hand) ──
+      The layered param structure (R15: shared PARENT params + per-META-TYPE group params + own visual + per-type config +
+      per-INSTANCE env tuning for intensity/danger at spawn) IS a live rule (canon §5:134) + Факт-4 says "types = data
+      day-one" — but built NOWHERE + on NO slice. CODE STATUS (origin/main): the engine data shape is ALREADY
+      multi-species-ready (VoxelField mass/flux/carry = [species][cell]; VoxelFaceFlow loops per-species;
+      SeedMass(cell,species,mass) species-aware) but pinned speciesCount=1, with NO per-type PARAM TABLE (2 species would
+      behave IDENTICALLY — the flow law has no per-type params), the forced-flow bias is per-FACE not per-type, and NO
+      per-cell dominant-TypeId in the MeaningChecksum (canon §9.5/Факт-4 wanted it day-one; skipped). The VISUAL half
+      (GasTypeDefinition/GpuGasParams render params) is being built by g-7e15 on FAKE data. PLACEMENT ANSWER (owner asked
+      early-vs-late): EARLY — make the meta-type/type param structure the FIRST character-road slice (weight/reactions/damage
+      all key off it). Build the META-TYPE layer first (owner MVP: meta-types + per-instance env params for intensity/danger;
+      specific types = config later). Lay the per-cell dominant-TypeId + its checksum slot WITH that slice — cheap, and
+      avoids a painful networked-schema migration later (safe to do now: types aren't networked-live until ~S4, no live nodes
+      to migrate). CROSS-TRACK: converge on ONE GasType/meta-type DEFINITION carrying BOTH look-params (feeds the visual
+      GasParams) AND behavior-params (feeds the engine) — R15 says the visual is procedural FROM params, so one source not
+      two. REPRESENTATION decision for that slice's PLAN: the engine's current DENSE [species][cell] vs Факт-4's
+      SPARSE-dominant-per-cell (+ mix-overlay) — dense is fine at few types but Факт-4 warns against dense pages at many.
   - id: d-coop-interdependence-repin-001
     status: OPEN   # surfaced 2026-06-29 (s-work-029 audit); a dropped dependency that risks a hard mid-build blocker. Owner: re-pin or fold into the next gameplay-slice PLAN.
     note: |
