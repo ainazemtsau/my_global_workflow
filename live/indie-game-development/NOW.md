@@ -558,6 +558,14 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       per-cell warning granularity (ADR-0012 D5); 96B layout FROZEN; the 4 colour CONCEPTS = a start, NOT final (CHARACTER,
       not colour, is the lever). next = the GAS-LAB look-development leg c-visual-002 (open in a FRESH GasCoopGame_dev_2
       session, opens with a PLAN; spec = docs/gas-visual-stage-plan.md §S6+).
+      AGREED STEP LADDER (owner-approved 2026-06-28, shown as a plain roadmap — gas-feature-first, NOT technique-first;
+      each step SMALL, owner-eye-gated «ближе к жемчужине», comes HOME): 0 gas-lab (open-space cloud) → 1 cloud-at-rest
+      reads as real gas (form/light) → 2 spawn/выброс → 3 jet/струя → 4 types (character, not colour) → 5 behaviour
+      (reaction/telegraph/decay); LATER = particle accents (owner's «Feel» plugin) + min-spec perf. The P1 render levers
+      are the TOOLBOX inside the steps, not the steps. WORKFLOW = identical to the engine legs (CALL → fresh dev2 session
+      PLAN → render-only gates + owner-eye → RESULT home); the ONE legit difference is the binding gate (sim = objective
+      headless tests; look = owner-eye, since «красиво» isn't unit-testable) → so a look leg is render-only-right-sized,
+      no heavy adversarial hardening. STARTING 0+1 (owner «стартуем 0-1») → FRAMED as c-visual-002 (work/c-visual-002-call.md).
       READ-ONLY R&D CENTER (2026-06-29, s-work-visual-rd-center-001, owner chose "Visual R&D Center"): Codex-side
       research lab exists at work/gas-visual-rd-center-2026-06-29.md. It studies technologies/references/probe briefs
       for the JEWEL target while Claude Code builds; it edits no product code and does not replace c-visual-002.
@@ -687,6 +695,17 @@ open_calls:
       flat gradient edge (depth-composited full-res front DEFERRED to step 3); perf NON-gating (2 body knobs + a recorded
       home frame-cost number). Residual risks + left-to-PLAN items in work/c-visual-001-call.md. next = c-visual-002
       (build-step 2 — three gases from DATA + the forgot-to-register guard).
+  - id: c-visual-002
+    status: framed   # 2026-06-28 (s-visual-006) — gas-lab + cloud-at-rest look-development leg (step 0+1 of GasCoopGame docs/gas-visual-stage-plan.md §S6+), framed the SAME way as the engine legs (CALL → fresh dev2 session opens with a PLAN → render-only gates + owner-eye → RESULT home). Corrects an off-contour paste-prompt shortcut. RIGHT-SIZED: render-only look step, NO heavy adversarial hardening (nothing correctness-critical to refute); binding gate = owner-eye «ближе к жемчужине» + render-only regression invariants. FULL CALL → work/c-visual-002-call.md. Owner approved start 0+1.
+    note: |
+      Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev2→main when green). SMALL step 0+1:
+      (0) a gas-LAB scene — one gas cloud as a FREE puff in OPEN space (no level walls), clean fixed camera + light;
+      (1) the resting cloud reads as REAL gas (smootherstep + detail-volume kill the cubic/lines; soft scatter-GLOW
+      light kills the «jelly») — default character only. REUSE the delivered GasUber body + RealGasViewSource seam,
+      don't rebuild. BOUNDARIES: render-only (zero Core/** edit, sim + 977 tests untouched); 96B layout frozen; NO
+      spawn/jet/types/behavior (steps 2-5) — STOP if the build reaches for them. GATES: -Deliver GREEN + render-only
+      regression invariants (Core diff empty, stride gate green) = the «точно» half; OWNER-EYE «ближе к жемчужине» =
+      the binding gate (owner-run, no self-marking). Comes HOME as a RESULT. next = step 2 (spawn/выброс).
   - id: c-exec-012
     status: superseded   # 2026-06-21 — RAN but SUPERSEDED: builder fabricated a blocker + substituted scene-tags + a VScale crutch + self-certified «(owner-approved)» (GasCoopGame_dev RESULT.md; leg 770da4a on dev — NOT merged to main). t-1 RE-OPENED on architecture (B), re-issued in NOW.next. Contour hardened v8 so this class bounces. (note below = the original/historical c-exec-012 scope.)
     note: |
