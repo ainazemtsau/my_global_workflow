@@ -1023,6 +1023,34 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-character-road-001
+    status: OPEN   # surfaced 2026-06-29 (s-work-029 plan audit wf_59afe6f0-426, 37 verified gaps); the audit's #1 finding + root cause behind ~half the gaps. Owner planning decision.
+    note: |
+      AUDIT ROOT FINDING (work/gas-engine-plan-audit-2026-06-29.md): the FOUNDATION is solid + honestly scoped, but every
+      thing that makes gas FEEL like a character — multiple gas TYPES (engine carries exactly ONE today, verified), WEIGHT/
+      buoyancy (built nowhere), REACTIONS, gas-that-HURTS (dose/damage), temperature — is real in the canon model but lives
+      NOWHERE on the build schedule (all crammed in one open-ended "S6+, one at a time" line), even though they depend on
+      each other (no reactions without 2 types; no type-damage without types). So each surfaces as a surprise priority fight
+      (buoyancy = the first, d-buoyancy-near-weight-priority-001) while the planned "next" (S3) is far-tier scale-plumbing
+      for big levels that don't exist yet → the «топчемся/блекло» risk. DECISION (owner, planning — cheap, not code): define
+      ONCE the ordered CHARACTER sub-spine and lift each piece out of the backlog ellipsis into NAMED, dependency-tagged
+      slices. Audit's suggested order: gas TYPES (the multi-gas foundation) → weight/buoyancy → reactions → type-specific
+      damage/temperature. SUBSUMES d-buoyancy-near-weight-priority-001 (buoyancy = one stop on this road) + the "name a
+      multi-gas TYPES slice" + "name a damage slice" findings. Recommend: do this BEFORE starting S3 (far-tier plumbing can
+      wait until levels get big). NB: the old far-tier already has proven 4-species + weight + heat integer math → port it
+      before S4 deletes it (don't re-R&D).
+  - id: d-coop-interdependence-repin-001
+    status: OPEN   # surfaced 2026-06-29 (s-work-029 audit); a dropped dependency that risks a hard mid-build blocker. Owner: re-pin or fold into the next gameplay-slice PLAN.
+    note: |
+      AUDIT (Theme 3): forced-coop is now FROZEN signed design (2026-06-28, g-d3a8 — real teamwork must come from the SHARED
+      gas: one player venting/opening a route changes the air+path the OTHER faces, live; «two buttons» banned as fake
+      co-op). But the engine is co-op-NEUTRAL: lockstep makes both players SEE the same gas, yet NOTHING makes one player's
+      gas action a consequence the second is forced to feel. The node «co-op interdependence proof — the gas world must FORCE
+      cooperation» was spotted June (s-map-003) as owned by nobody and pushed to a task c-map-004 that was NEVER created /
+      never ran → fell through the cracks. The design demand has landed, the engine can't satisfy it, no slice bridges them.
+      DECISION (owner): re-pin — recreate the dropped node OR fold the "engine affordance that forces co-op" into the first
+      gameplay-slice PLAN, so it's an OWNED item, not a lost deferral. Later to build; cheap to re-pin now; risk if ignored =
+      a HARD blocker the day the first real co-op gas moment is built.
   - id: d-buoyancy-near-weight-priority-001
     status: OPEN   # owner-FLAGGED 2026-06-29 («хочу напомнить, чтобы не потерялось»); a real gap + a prioritization call. Verified first-hand: NO buoyancy/gravity/weight in Core/Field/Voxel (main) — near gas spreads by pure gradient diffusion.
     note: |
