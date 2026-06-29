@@ -228,4 +228,6 @@
 
 - 2026-06-29 — local/canon-forge (g-d3a8+g-7e15/q-visual-style, owner «стиль будем придерживаться этого»): updated canon visual style with the ultra-minimal gas-stage baseline; canon repo commit e53db22. → history/s-canon-visual-style-minimal-gas-stage-001.md
 
+- 2026-06-29 — repair (g-9c41/NOW hygiene, s-repair-now-hygiene-001): compacted NOW.md back to hot state; full pre-repair snapshot saved to work/now-snapshot-2026-06-29.md; open_calls now only c-exec-020; decisions now only d-coop-interdependence-repin-001; next points to work/c-exec-020-call.md. → history/s-repair-now-hygiene-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

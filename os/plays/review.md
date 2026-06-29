@@ -19,7 +19,7 @@ Trigger: all bet tasks closed, OR appetite expired, OR kill_by breached. Must ru
 
 ## Done when
 
-Bet has a verified verdict; TREE.md reflects the learnings; owner has a next-bet decision with options; NOW.md is clean of the old bet.
+Bet has a verified verdict; TREE.md reflects the learnings; owner has a next-bet decision with options; NOW.md is clean of the old bet under NOW hygiene rules.
 
 ## Notes
 
