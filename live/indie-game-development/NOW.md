@@ -679,6 +679,29 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       READ-ONLY R&D CENTER (2026-06-29, s-work-visual-rd-center-001, owner chose "Visual R&D Center"): Codex-side
       research lab exists at work/gas-visual-rd-center-2026-06-29.md. It studies technologies/references/probe briefs
       for the JEWEL target while Claude Code builds; it edits no product code and does not replace c-visual-002.
+      S1 DELIVERED (2026-06-29, c-visual-002-s1, s-visual-009 writer-applied + VERIFIED FIRST-HAND): the gas-lab leg's
+      FIRST sub-leg is DONE + MERGED + PUSHED (GasCoopGame origin/main @f7efbea --no-ff, parents 2117341 engine + 04a93ea
+      dev2). A dedicated UNCLIPPED gas-lab where ONE analytical gas plays spawn-bloom → vertical-column jet → slow-creep in
+      open space that NEVER clips to a rectangle — the no-rectangle GUARANTEE is DATA-SIDE (soft edge-falloff drives
+      density to exactly 0 in the outer margin) → ZERO shader/GPU-layout edit + ZERO sim edit (render-only held: Core/**
+      diff EMPTY, dev2 never touched Core). -Deliver GREEN 1003 (923 engine baseline + 80 Lab Render; the 977→923 shift is
+      the ENGINE S2a/S2b deletions, not this leg), stride-gate green; owner-eye #1 SIGNED (Variant A — owner ran
+      GasLabScene live, confirmed spawn→jet→creep + no rectangle from any angle, ACCEPTED the column as the expected S1
+      placeholder shape; «весело» owner-excluded, «точно» = the green suite). Verified on main first-hand:
+      GasLabScene.unity + LabGasField + LabGasViewSource + LabGasFieldEdgeTests + owner-eye checklist + frozen
+      openspec/changes/c-visual-002-s1-gas-lab/ all exist. Record → history/c-visual-002-s1-result-2026-06-29.md.
+      CUTS owner-signed: two differently-charactered gases (heavy-sinks dark&dense / light-rises wispy&pale via the
+      reserved RiseSinkBias per-type buoyancy field — reserved-field path, no layout edit) + the first DIFFERENTIATING
+      look lever «light-through-volume» (scatter-glow, global shader-knob) = S2 (the next sub-leg; owner-signed split;
+      FEEL + lever already fixed on the plan). DEFERRED (owner-ack:esc-c-visual-002-s1-natural-jet-deferred-2026-06-29): a
+      true flowing/turbulent jet (curl-noise advection / billow-formed, NOT a stretching capsule — the column reads as a
+      hard «capsule/plasticine» today) → an S2/S6 look-dev candidate. ⚠ ADR renumber (CONFIRMED first-hand — both
+      ADR-0016 files exist on main): the visual ADR-0016-gas-visual-s1-gas-lab collides by NUMBER with the engine
+      ADR-0016 (c-exec-017) → renumber the visual ADR series (a product cleanup leg, not a builder action; peer to the
+      engine-side dup-ADR-0012 cleanup). S5 FOLLOW-UP (pre-existing, not S1): GasGridBounds.TexelIndex int-overflow
+      (guarded MaxGridDim 256³) — hardening vs raw bounds edits frozen S5 code → a separate leg. A lab look-dev polish
+      pass (dither/noise) is now evaluable IN MOTION. next = S2 — the planner owns the next CALL (opened in a fresh
+      GasCoopGame_dev_2 session with a PLAN, owner present; comes HOME with an owner-eye sign).
     note: |
       Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
       (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
@@ -821,7 +844,7 @@ open_calls:
       home frame-cost number). Residual risks + left-to-PLAN items in work/c-visual-001-call.md. next = c-visual-002
       (build-step 2 — three gases from DATA + the forgot-to-register guard).
   - id: c-visual-002
-    status: framed   # 2026-06-28 (s-visual-006) — gas-lab + cloud-at-rest look-development leg (step 0+1 of GasCoopGame docs/gas-visual-stage-plan.md §S6+), framed the SAME way as the engine legs (CALL → fresh dev2 session opens with a PLAN → render-only gates + owner-eye → RESULT home). Corrects an off-contour paste-prompt shortcut. RIGHT-SIZED: render-only look step, NO heavy adversarial hardening (nothing correctness-critical to refute); binding gate = owner-eye «ближе к жемчужине» + render-only regression invariants. FULL CALL → work/c-visual-002-call.md. VALIDATED + REVISED 2026-06-29 (s-visual-007): an adversarial check vs the REAL dev2 code (wf_de8a9945 — ground-truth + skeptical critique + refute referee) KEPT the plan spine (NO re-spine) but folded 3 changes + flagged perf UNVERIFIED. Verified root cause of «блекло» = coarse grid (5x16x5 / 3x3x4) + the HARD BOX-AABB rectangle clip (NOT a weak shader; GasUber already ~40 knobs). The 3 changes: (a) the lab shows gas IN MOTION (spawn/jet/creep), not a frozen puff; (b) a SEPARATE UNCLIPPED test scene (owner-requested — no rectangular cut); (c) front-load an early TWO-TYPE-character probe (two visibly-different gases on one screen via a RESERVED GasParams field — character is the owner's headline, was deferred to the finale + is globally-impossible today) + reconsider the SKIPPED "unique" levers (light-through-volume/emissive-cores/flow-anisotropy) now toon is revoked. NOT a "small" step (split allowed at PLAN). CALL rewritten.
+    status: delivered   # ✅ S1 DELIVERED + MERGED + PUSHED 2026-06-29 (s-visual-009, writer-applied) — the gas-lab leg's FIRST sub-leg is home: a dedicated unclipped gas-lab where ONE analytical gas plays spawn-bloom → vertical-column jet → slow-creep in open space that NEVER clips to a rectangle (data-side soft edge-falloff drives density to 0 in the outer margin → ZERO shader/GPU-layout/sim edit). VERIFIED FIRST-HAND: GasCoopGame origin/main @f7efbea (--no-ff, parents 2117341 engine + 04a93ea dev2); GasLabScene.unity + LabGasField + LabGasViewSource + LabGasFieldEdgeTests + the owner-eye checklist + frozen openspec/changes/c-visual-002-s1-gas-lab/ ALL exist on main. -Deliver GREEN 1003 tests (923 engine baseline + 80 Lab Render — the 977→923 shift is from the ENGINE S2a/S2b deletions, NOT this render-only leg; Core/** diff EMPTY), stride-gate green, owner-eye #1 SIGNED (Variant A — owner ran GasLabScene live, confirmed spawn→jet→creep + no rectangle from any angle, accepted the column as the expected S1 placeholder shape). Record → history/c-visual-002-s1-result-2026-06-29.md + history/s-visual-009.md. CUTS (owner-signed): two differently-charactered gases (heavy-sinks dark&dense / light-rises wispy&pale via reserved RiseSinkBias per-type buoyancy) + the first DIFFERENTIATING «light-through-volume» lever (scatter-glow) = S2 (the next sub-leg; owner-signed split; FEEL+lever fixed on the plan). DEFERRED (owner-ack:esc-c-visual-002-s1-natural-jet-deferred-2026-06-29): a true flowing/turbulent jet (the column grows as a hard «capsule/plasticine», does not flow) → S2/S6 look-dev candidate. ⚠ ADR renumber (CONFIRMED on main — both ADR-0016 files exist): visual ADR-0016-gas-visual-s1-gas-lab collides by NUMBER with engine ADR-0016 (c-exec-017) → renumber the visual ADR series (product cleanup leg, peer to the dup-ADR-0012 cleanup). S5 follow-up (pre-existing, not S1): GasGridBounds.TexelIndex int-overflow (guarded MaxGridDim 256³) = a separate leg. The leg ROLLS to S2 — planner owns the next CALL. — was FRAMED 2026-06-28 (s-visual-006) — gas-lab + cloud-at-rest look-development leg (step 0+1 of GasCoopGame docs/gas-visual-stage-plan.md §S6+), framed the SAME way as the engine legs (CALL → fresh dev2 session opens with a PLAN → render-only gates + owner-eye → RESULT home). Corrects an off-contour paste-prompt shortcut. RIGHT-SIZED: render-only look step, NO heavy adversarial hardening (nothing correctness-critical to refute); binding gate = owner-eye «ближе к жемчужине» + render-only regression invariants. FULL CALL → work/c-visual-002-call.md. VALIDATED + REVISED 2026-06-29 (s-visual-007): an adversarial check vs the REAL dev2 code (wf_de8a9945 — ground-truth + skeptical critique + refute referee) KEPT the plan spine (NO re-spine) but folded 3 changes + flagged perf UNVERIFIED. Verified root cause of «блекло» = coarse grid (5x16x5 / 3x3x4) + the HARD BOX-AABB rectangle clip (NOT a weak shader; GasUber already ~40 knobs). The 3 changes: (a) the lab shows gas IN MOTION (spawn/jet/creep), not a frozen puff; (b) a SEPARATE UNCLIPPED test scene (owner-requested — no rectangular cut); (c) front-load an early TWO-TYPE-character probe (two visibly-different gases on one screen via a RESERVED GasParams field — character is the owner's headline, was deferred to the finale + is globally-impossible today) + reconsider the SKIPPED "unique" levers (light-through-volume/emissive-cores/flow-anisotropy) now toon is revoked. NOT a "small" step (split allowed at PLAN). CALL rewritten.
     note: |
       Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev2→main when green). REVISED scope (post-
       validation, s-visual-007 — NOT a "small" step): (0) a SEPARATE convenient gas-LAB scene in OPEN space where the gas
@@ -1890,10 +1913,16 @@ next: |
   off-the-shelf fixed-point fluid exists). Float fluid plugins (Zibra/Obi) = cosmetic g-7e15 layer ONLY.
 
   ∥ VISUAL TRACK (g-7e15): c-visual-001 DELIVERED (foundation→S1→S3→S5 real-data swap, merged origin/main @9780713;
-  verified first-hand 2026-06-28) — brought home from off-contour drift by s-visual-005; S6 look-development = WIP on
-  dev2 @dc4c225 (pushed, not merged). Track now in LOOK-DEVELOPMENT (gas-lab → P1 levers → per-type character); forward
-  spec = GasCoopGame docs/gas-visual-stage-plan.md §S6+. Process fix applied: visual slices come HOME + carry the
-  «moves toward the JEWEL» owner-eye gate. next = the gas-lab leg c-visual-002 in a fresh GasCoopGame_dev_2 session.
+  verified first-hand 2026-06-28) — brought home from off-contour drift by s-visual-005. c-visual-002 (gas-lab
+  look-development) S1 DELIVERED + MERGED + PUSHED 2026-06-29 (s-visual-009, verified first-hand: GasCoopGame origin/main
+  @f7efbea; GasLabScene.unity + Lab sources on main; -Deliver GREEN 1003; owner-eye #1 signed Variant A — unclipped
+  gas-lab, gas in spawn→jet→creep motion, no rectangle). Track now in LOOK-DEVELOPMENT (gas-lab ✅ → per-type character →
+  jewel levers); forward spec = GasCoopGame docs/gas-visual-stage-plan.md §S6+. Process fix HELD: the visual slice came
+  HOME + carried the «moves toward the JEWEL» owner-eye gate. next = the S2 sub-leg of c-visual-002 (two differently-
+  charactered gases via reserved RiseSinkBias buoyancy + the first «light-through-volume» scatter-glow lever; owner-signed
+  split) — planner authors the CALL, fresh GasCoopGame_dev_2 session. Carried flags: ⚠ ADR-0016 number collision
+  (visual vs engine, confirmed on main — renumber the visual series); natural-jet deferred (owner-ack:esc-…-2026-06-29);
+  S5 TexelIndex int-overflow follow-up.
 
   PENDING (carried, non-blocking): the os/engineering MAINTENANCE request (anti-substitution over-rotation + resolution
   conflation — work/MAINTENANCE-os-engineering-scope-guard-2026-06-26.md) is drafted, awaiting a SEPARATE maintenance
@@ -1912,5 +1941,11 @@ next: |
   s-visual-005 commit: gas-VISUAL track BROUGHT HOME — c-visual-001 queued→delivered (S5 in origin/main @9780713, S6 WIP
   dev2 @dc4c225, both verified first-hand); g-7e15.next reset to LOOK-DEVELOPMENT (gas-lab→P1 levers→character) + felt
   TARGET (jewel/character) + PROCESS fix (come-home + «moves toward the JEWEL» owner-eye gate). Push main owner-gated.
+  s-visual-009 commit: c-visual-002 S1 (gas-lab unclipped + vertical-column motion) RESULT applied home — DELIVERED +
+  MERGED + PUSHED, VERIFIED FIRST-HAND (GasCoopGame origin/main @f7efbea --no-ff parents 2117341+04a93ea; GasLabScene.unity
+  + Lab sources + LabGasFieldEdgeTests + owner-eye checklist + frozen openspec on main; ADR-0016 collision CONFIRMED).
+  c-visual-002 framed→delivered; leg rolls to S2 (two-type RiseSinkBias buoyancy + scatter-glow «light-through-volume»,
+  owner-signed split); natural-jet deferred (owner-ack:esc-…-2026-06-29); render-only invariant held (Core/** diff empty,
+  -Deliver GREEN 1003, owner-eye #1 Variant A). Push main owner-gated.
 
 END_OF_FILE: live/indie-game-development/NOW.md
