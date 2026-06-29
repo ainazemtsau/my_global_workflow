@@ -55,4 +55,22 @@ c-visual-002 body checkpoint (running) → then frame the ACCENT leg: install VF
 moment layer, designed as a per-type character + spawn/jet differentiator. Timing of the install = after the body
 checkpoint (owner to confirm).
 
+## Addendum — Codex render-visibility correction (verified first-hand) + accent seed + R&D queue
+
+Codex reviewed this triage and sharpened it; I VERIFIED the crux first-hand (GasUber.shader: Blend One OneMinusSrcAlpha,
+ZWrite Off, ZTest Always, Queue Transparent; feature injects BeforeRenderingPostProcessing) — Codex is right and my
+earlier "decals/post/VFX can't see the gas" was over-broad.
+
+- PRECISE render visibility: the gas is NOT in `_CameraOpaqueTexture` (snapshot before transparents) nor
+  `_CameraDepthTexture` (ZWrite Off); URP decals can't project onto it; VFX Graph URP Camera Buffer gets SCENE depth/color
+  but NOT gas depth/mask → LOCALIZED "where-is-the-gas" effects + decals + depth-VFX adhesion need an explicit gas
+  MASK/proxy/pass. BUT built-in fullscreen post AFTER our pass (Bloom / Color Grading) DOES affect the gas colour
+  (written to camera colour before post) → emissive-rim → bloom works immediately, free.
+- ACCENT-LEG SEED (accepted): accents express (1) character by type, (2) state/moment beats, (3) player-readable events.
+  Examples — toxic = corrosive rim/droplets/stains; heavy = downward soot/sparks + floor residue; energetic = electric
+  tendrils + edge sparks; vent burst = pressure plume + leading nose; warning = rim pulse + hazard particles;
+  clearing/counter-gas = expanding clean hole + condensation edge.
+- R&D QUEUE (narrow, LATER; broad landscape = enough): (1) gas-mask/post integration (derive a mask from GasUber for
+  localized fullscreen glow/distortion); (2) which 6-8 character/moment accent modules the gas needs as a jewel.
+
 END_OF_FILE: live/indie-game-development/history/s-visual-008.md

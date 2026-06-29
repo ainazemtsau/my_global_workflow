@@ -604,6 +604,20 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       accents/moments covered by VFX+Particle+FEEL); (4) Unity 6.3→6.5 upgrade DEFERRED (no gas-lab payoff; don't mix with
       a visual probe). The accent leg is REFRAMED (vs the R&D's generic-flair framing) as a per-type CHARACTER + spawn/jet
       MOMENT differentiator. Timing of the VFX-install/accent leg = after the c-visual-002 body checkpoint (owner to confirm).
+      RENDER-VISIBILITY CORRECTION (Codex-sharpened, VERIFIED first-hand: GasUber.shader Blend One OneMinusSrcAlpha /
+      ZWrite Off / ZTest Always / Queue Transparent; feature injects BeforeRenderingPostProcessing). My earlier "decals/
+      post/VFX can't see the gas" was too broad. PRECISE: the gas is NOT in _CameraOpaqueTexture (snapshot before
+      transparents) nor _CameraDepthTexture (ZWrite Off); URP decals can't project onto it; VFX URP Camera Buffer gets
+      SCENE depth/color but NOT gas depth/mask → LOCALIZED "where-is-the-gas" effects + decals + depth-VFX adhesion need an
+      explicit gas MASK/proxy/pass. BUT built-in fullscreen post AFTER our pass (Bloom / Color Grading) DOES affect the gas
+      colour (already written to camera colour before post) → an emissive-rim → bloom works IMMEDIATELY, free (a real plus
+      for the "finish"). ACCENT-LEG SEED (Codex, accepted): accents express (1) gas character by type, (2) state/moment
+      beats, (3) player-readable events — toxic = corrosive rim/droplets/surface stains; heavy = downward soot/sparks +
+      floor-hugging residue; energetic = electric tendrils + edge sparks; vent burst = pressure plume + leading nose;
+      warning = rim pulse + sparse hazard particles; clearing/counter-gas = expanding clean hole + condensation edge.
+      R&D QUEUE (narrow, LATER — broad landscape is DONE-enough): (1) gas-MASK/post integration (derive a mask from GasUber
+      for localized fullscreen glow/distortion: alpha-reuse / extra RT / stencil / half-res mask / RenderGraph attachment);
+      (2) which 6-8 character/moment accent MODULES the gas needs as a jewel.
       READ-ONLY R&D CENTER (2026-06-29, s-work-visual-rd-center-001, owner chose "Visual R&D Center"): Codex-side
       research lab exists at work/gas-visual-rd-center-2026-06-29.md. It studies technologies/references/probe briefs
       for the JEWEL target while Claude Code builds; it edits no product code and does not replace c-visual-002.
