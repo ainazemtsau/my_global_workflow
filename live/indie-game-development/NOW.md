@@ -591,6 +591,19 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       (character is the headline, was deferred + globally-impossible today; cheap via reserved GasParams fields) + revisit
       the SKIPPED "unique" levers now toon is revoked. Perf flagged UNVERIFIED. The "0+1=small" framing was corrected (the
       leg is real work; may split at PLAN).
+      R&D-CENTER TRIAGE 2026-06-29 (s-visual-008, owner-directed): triaged the read-only Gas-Visual R&D Center's Unity-6/
+      URP/VFX-Graph note. LAYERING STRATEGY CONFIRMED (matches s-visual-007): BODY = GridView→GasUber raymarch (load-
+      bearing; URP still has NO built-in volumetrics → custom justified, verified) | ACCENT = VFX Graph / Six-way (sparse,
+      compute-gated, fallback=Particle System, reads visual data/events ONLY — NEVER gas-position authority) | CONTACT =
+      URP decals on opaque | FINISH = fullscreen post. VERIFIED in repo: VFX Graph NOT installed (manifest); Particle
+      System IS; the body injects BeforeRenderingPostProcessing + is transparent → decals/post/VFX do NOT auto-see it
+      (need a mask/proxy). DECISIONS: (1) INSTALL VFX Graph (owner-directed) but as a SEPARATE compute-gated ACCENT leg
+      AFTER the body checkpoint — NOT folded into the render-only c-visual-002 (a package install mid-build risks the
+      running leg); (2) FEEL (owner owns, Pro) = the MOMENT/orchestration layer (triggers VFX bursts + post pulses +
+      shake/sound on spawn/jet/reaction; FEEL=conductor, VFX=particles), NOT the body; (3) NO purchases now (body custom;
+      accents/moments covered by VFX+Particle+FEEL); (4) Unity 6.3→6.5 upgrade DEFERRED (no gas-lab payoff; don't mix with
+      a visual probe). The accent leg is REFRAMED (vs the R&D's generic-flair framing) as a per-type CHARACTER + spawn/jet
+      MOMENT differentiator. Timing of the VFX-install/accent leg = after the c-visual-002 body checkpoint (owner to confirm).
       READ-ONLY R&D CENTER (2026-06-29, s-work-visual-rd-center-001, owner chose "Visual R&D Center"): Codex-side
       research lab exists at work/gas-visual-rd-center-2026-06-29.md. It studies technologies/references/probe briefs
       for the JEWEL target while Claude Code builds; it edits no product code and does not replace c-visual-002.
