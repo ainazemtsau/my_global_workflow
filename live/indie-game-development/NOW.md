@@ -546,7 +546,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       ZERO-LEGACY; fresh-session G5; owner-eye (sees 2 test gases differ — confidence not a gate). STOP: hardcoded-C#-type /
       visual hookup creeping in / weight/reactions creeping in / float on the authoritative path / reopening ADR-0002.
       approach token = data-driven-3-layer-type-params-engine-only. FULL CALL → work/c-exec-019-call.md.
-    status: active   # NEW 2026-06-29 (s-work-030): the FIRST character-road slice. Executor CALL c-exec-019 FRAMED + adversarially HARDENED (wf_672e0128-009, 36 agents; 5 must-fix + 10 should-fix folded, ZERO lock-change) → work/c-exec-019-call.md — BUILD-READY. Hardening caught real traps: the TypeId checksum socket could pass VACUOUSLY on the existing mass fold (now rep-conditional + distinct-member RED); loopback goldens are RELATIONAL so won't catch a uniform fold (no-regression now vs PRE-socket checksum, additive-fold-no-rebaseline); no-hardcode needs a build-scan falsifier SCOPED off the frozen far-tier CoarseSpecies; registry needs a canonical-order invariant; spread-speed = the only live lever (density/weight = reserved-inert; Kp≥2*degree settle floor); cross-track single-source seam reserved. Owner clarifications: TEST types not lore; ENGINE-ONLY (visual forgotten — dev2 independent). Builds on post-S2 base (main at-or-after @adb9255). next = owner opens c-exec-019 in a fresh GasCoopGame_dev session (PLAN, owner present).
+    status: done   # ✅ DELIVERED + MERGED + PUSHED + BINDING-G5-VERIFIED 2026-06-29 (s-work-031, owner reported «DELIVERED + MERGED + PUSHED»): Sc-types (multi-gas META-TYPE/TYPE param substrate, ENGINE-ONLY) is home on GasCoopGame origin/main @7d08882 — verified FIRST-HAND (dev→main --no-ff merge; Core/Field/Types/{GasMetaType,GasParentParams,GasType,GasTypeRegistry}.cs + 8 ScTypes*Tests + tools/type-hardcode-scan.ps1 + ADR-0018 + frozen openspec/changes/c-exec-019-sc-types/ all present). Builder RESULT (GasCoopGame_dev/RESULT.md): -Deliver GREEN (948/948 at build, now 1028/1028 after later dev2 merges; 923 pre-slice baseline byte-identical), mutation 76.74% ≥70, dense [species][cell] rep (ADR-0018 D1) with numeric revisit-trigger (type_count×active_cell ≥200k / tripwire ≥4 types), per-type spread Kp = the only live lever, TypeId checksum member (rep-conditional + ADDITIVE — single-default byte-identical), content-hashed CANONICAL registry (lockstep handshake hook reserved), both zero-float+int-overflow scans cover Core/Field/Types, ZERO-LEGACY, owner-eye dump shows Swift billows / Creep creeps. BINDING fresh-session G5 (THIS session, wf_a07586c0-22f — 7 adversarial seam-refuters + referee over the REAL merged code) = COULD-NOT-REFUTE → mark-done, ZERO blocking findings (5 seams could-not-refute, 2 weakened note-only; 3 refuters re-derived the pre-slice golden by replaying tip @2117341 → byte-identical 13-tick checksums; one ran -Deliver end-to-end GREEN; STOP-discipline held — frozen CoarseSpecies git-diff EMPTY, no weight/reactions/visual/float creep, ADR-0002 intact). OWNER-AUTHORIZED amendment folded: settle-criterion ActiveFaces==0→low-amplitude-rest (infeasible under ≤4-unit carry-seep micro-breathing; flow law byte-identical; owner present 2026-06-29; owner-ack:esc-c-exec-019-settle-criterion-2026-06-29 banner in the frozen spec). Owner-eye = confidence NOT a gate. The bet ROLLS to Sc-weight. — was: active s-work-030 (c-exec-019 FRAMED+HARDENED wf_672e0128-009).
   - id: Sc-weight
     kind: executor (engineering, GasCoopGame) — WEIGHT / BUOYANCY. 2nd character-road slice. Per-type vertical drift. Keys off Sc-types.
     goal: |
@@ -559,7 +559,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       conservation + no-pop oracle (no vertical teleport); determinism preserved (loopback hash green; in scan roots);
       -Deliver GREEN + mutation ≥70 + fresh-session G5; ZERO-LEGACY; owner-eye. STOP = per-column instant sort near / float /
       reopening ADR-0002. approach token = per-type-buoyancy-bias-creeping-front.
-    status: parked   # NEW 2026-06-29 (s-work-030): 2nd character-road slice, HELD pending Sc-types. Subsumes d-buoyancy-near-weight-priority-001. Frame after Sc-types is GREEN.
+    status: active   # UNBLOCKED 2026-06-29 (s-work-031): Sc-types GREEN + binding-G5-verified → the bet rolls here (2nd character-road slice; G1 intact — Sc-types done freed the WIP slot). Subsumes d-buoyancy-near-weight-priority-001. NEXT = frame + adversarially harden the executor CALL c-exec-020 in a fresh OS session, then build in a fresh GasCoopGame_dev session (PLAN, owner present). PORT the proven far-tier CoarseSpecies weight/heat integer law into the near path BEFORE S4 deletes it. G5 PLANNER NOTES to fold into the c-exec-020 CALL: (a) re-derive the monotone-settle floor against kpEff=Kp*spf, NOT raw Kp — MinSpreadKp=12 over-protects ~2.4x at spf=4, so the Kp=4 settle control covers only part of the sub-floor class (SAFE direction, but re-derive if resolution/floor changes); (b) before this FIRST per-type-DISPATCH slice, broaden tools/type-hardcode-scan.ps1 (it catches only the enum/switch token superset — a dict-of-delegates / `if(typeId==N)` chain evades it) or soften its «strongest guarantee» header.
   - id: Sc-reactions
     kind: executor (engineering, GasCoopGame) — REACTIONS. 3rd character-road slice. Integer chemistry between types. Keys off Sc-types (needs ≥2 types).
     goal: |
@@ -808,7 +808,7 @@ open_calls:
       Carries the c-exec-016 done_when 2/3/4 content MINUS the RNG control. STOP = stored velocity / float authoritative
       path / re-flux-as-gate / reopening ADR-0010. Authored when c-exec-017 is GREEN.
   - id: c-exec-019
-    status: framed   # FRAMED + adversarially HARDENED 2026-06-29 (s-work-030): Sc-types (META-TYPE/TYPE param structure, multi-gas foundation, ENGINE-ONLY) — the FIRST character-road slice CALL → work/c-exec-019-call.md. BUILD-READY. Hardening wf_672e0128-009 (36 agents, 6 lenses → refute-verify → synth; 28 raised → 24 survived → 5 must-fix + 10 should-fix folded, ZERO lock-change). Owner clarifications folded: TEST types not lore; ENGINE-ONLY (visual forgotten this slice — connects later, dev2 independent). Opens with a PLAN (owner present) on the post-S2 base (main at-or-after @adb9255). RESULT applied home by a separate OS writer.
+    status: delivered   # ✅ DELIVERED + MERGED + PUSHED + BINDING-G5-VERIFIED 2026-06-29 (s-work-031): Sc-types built on dev → merged dev→main --no-ff @7d08882 (PUSHED), verified FIRST-HAND. Builder RESULT GasCoopGame_dev/RESULT.md: -Deliver GREEN (948/948 build; 1028/1028 now), mutation 76.74%, all 9 done_when disposed, in-build Sonnet 4.6 G5 could-not-refute (6 seams). BINDING fresh-session G5 (s-work-031, wf_a07586c0-22f — 7 seam-refuters + referee over the MERGED code) = COULD-NOT-REFUTE, ZERO blocking; 2 note-only planner-notes carried to c-exec-020 (settle-floor-vs-kpEff; type-hardcode-scan completeness). Owner-authorized settle-criterion amendment folded (owner-ack:esc-c-exec-019-settle-criterion-2026-06-29). — was: FRAMED+HARDENED s-work-030 (wf_672e0128-009).
     note: |
       Executor leg (GasCoopGame, dev→main when green) — Sc-types = the multi-gas TYPE substrate everything else (weight/
       reactions/damage) keys off. GOAL: the engine carries ≥2 TEST meta-types behaving VISIBLY differently via a 3-layer
@@ -1879,8 +1879,14 @@ next: |
   host-authority is ever reconsidered, RE-RUN the cloud-vs-grid analysis on the host-auth model (its kills are
   determinism-class, void under a single host).
 
-  IMMEDIATE NEXT = OPEN c-exec-019 (Sc-types — the FIRST character-road slice) in a fresh GasCoopGame_dev session (PLAN,
-  owner present), once its adversarial hardening (wf_672e0128-009) is folded. **S2 is COMPLETE** (S2a @2e24a24 + S2b
+  IMMEDIATE NEXT = FRAME + adversarially harden the **Sc-weight** executor CALL (c-exec-020) in a fresh OS session, then
+  OPEN it in a fresh GasCoopGame_dev session (PLAN, owner present). Sc-weight = per-type buoyancy (heavy SINKS / light
+  RISES via an integer Z-face bias, a CREEPING front — canon §3 «buoyancy-BIAS, не сортировка»; per-column instant sort
+  FORBIDDEN/§7-buried); PORT the proven far-tier CoarseSpecies weight/heat integer law before S4 deletes it (subsumes
+  d-buoyancy-near-weight-priority-001). FOLD the 2 G5 planner-notes into the CALL: (a) re-derive the settle floor against
+  kpEff=Kp*spf not raw Kp (MinSpreadKp=12 over-protects ~2.4x at spf=4); (b) broaden tools/type-hardcode-scan.ps1 before
+  this first per-type-DISPATCH slice (enum/switch-token-only; dict-of-delegates / if(typeId==N) evades it). **Sc-types
+  (c-exec-019) DELIVERED + MERGED + PUSHED + binding-G5 COULD-NOT-REFUTE 2026-06-29 (s-work-031, GasCoopGame main @7d08882).** **S2 is COMPLETE** (S2a @2e24a24 + S2b
   @adb9255, verified first-hand; multiplayer-determinism FOUNDATION proven in loopback; gas-as-networked-citizen = a named
   ~S4 seam). **DIRECTION SET (owner «можем оформлять» 2026-06-29):** the bet rolls to the CHARACTER ROAD, not the far-tier.
   The PLAN AUDIT (work/gas-engine-plan-audit-2026-06-29.md, 37 gaps) found the "jewel" was built+scheduled nowhere → the
@@ -1947,5 +1953,12 @@ next: |
   c-visual-002 framed→delivered; leg rolls to S2 (two-type RiseSinkBias buoyancy + scatter-glow «light-through-volume»,
   owner-signed split); natural-jet deferred (owner-ack:esc-…-2026-06-29); render-only invariant held (Core/** diff empty,
   -Deliver GREEN 1003, owner-eye #1 Variant A). Push main owner-gated.
+  s-work-031 commit: c-exec-019 Sc-types RESULT applied home — Sc-types DELIVERED + MERGED + PUSHED + binding-G5
+  COULD-NOT-REFUTE (verified first-hand, GasCoopGame origin/main @7d08882; builder RESULT -Deliver GREEN 948/948→1028/1028,
+  mutation 76.74%; fresh-session G5 wf_a07586c0-22f = 7 seam-refuters + referee over the merged code, ZERO blocking, 3
+  refuters re-derived the pre-slice golden @2117341 byte-identical). Sc-types active→done; c-exec-019 framed→delivered;
+  bet rolls to Sc-weight (parked→active; CALL c-exec-020 to be framed). Owner-authorized settle-criterion amendment
+  recorded (owner-ack:esc-c-exec-019-settle-criterion-2026-06-29). 2 G5 planner-notes carried into the Sc-weight CALL
+  (settle-floor-vs-kpEff; type-hardcode-scan completeness). Push main owner-gated.
 
 END_OF_FILE: live/indie-game-development/NOW.md
