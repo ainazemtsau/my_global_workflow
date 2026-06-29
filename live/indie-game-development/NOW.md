@@ -566,6 +566,13 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       PLAN → render-only gates + owner-eye → RESULT home); the ONE legit difference is the binding gate (sim = objective
       headless tests; look = owner-eye, since «красиво» isn't unit-testable) → so a look leg is render-only-right-sized,
       no heavy adversarial hardening. STARTING 0+1 (owner «стартуем 0-1») → FRAMED as c-visual-002 (work/c-visual-002-call.md).
+      VALIDATED 2026-06-29 (s-visual-007): owner challenged "did you just take their plan / verify it / improve it?" — an
+      adversarial check vs the real dev2 code KEPT the spine (no re-spine; root cause = coarse grid + box-AABB clip, NOT a
+      weak shader) but folded 3 owner-approved changes into the CALL — (a) lab shows gas IN MOTION not a frozen puff;
+      (b) a SEPARATE UNCLIPPED test scene (owner-requested, no rectangle); (c) front-load an early TWO-TYPE-character probe
+      (character is the headline, was deferred + globally-impossible today; cheap via reserved GasParams fields) + revisit
+      the SKIPPED "unique" levers now toon is revoked. Perf flagged UNVERIFIED. The "0+1=small" framing was corrected (the
+      leg is real work; may split at PLAN).
       READ-ONLY R&D CENTER (2026-06-29, s-work-visual-rd-center-001, owner chose "Visual R&D Center"): Codex-side
       research lab exists at work/gas-visual-rd-center-2026-06-29.md. It studies technologies/references/probe briefs
       for the JEWEL target while Claude Code builds; it edits no product code and does not replace c-visual-002.
@@ -696,16 +703,22 @@ open_calls:
       home frame-cost number). Residual risks + left-to-PLAN items in work/c-visual-001-call.md. next = c-visual-002
       (build-step 2 — three gases from DATA + the forgot-to-register guard).
   - id: c-visual-002
-    status: framed   # 2026-06-28 (s-visual-006) — gas-lab + cloud-at-rest look-development leg (step 0+1 of GasCoopGame docs/gas-visual-stage-plan.md §S6+), framed the SAME way as the engine legs (CALL → fresh dev2 session opens with a PLAN → render-only gates + owner-eye → RESULT home). Corrects an off-contour paste-prompt shortcut. RIGHT-SIZED: render-only look step, NO heavy adversarial hardening (nothing correctness-critical to refute); binding gate = owner-eye «ближе к жемчужине» + render-only regression invariants. FULL CALL → work/c-visual-002-call.md. Owner approved start 0+1.
+    status: framed   # 2026-06-28 (s-visual-006) — gas-lab + cloud-at-rest look-development leg (step 0+1 of GasCoopGame docs/gas-visual-stage-plan.md §S6+), framed the SAME way as the engine legs (CALL → fresh dev2 session opens with a PLAN → render-only gates + owner-eye → RESULT home). Corrects an off-contour paste-prompt shortcut. RIGHT-SIZED: render-only look step, NO heavy adversarial hardening (nothing correctness-critical to refute); binding gate = owner-eye «ближе к жемчужине» + render-only regression invariants. FULL CALL → work/c-visual-002-call.md. VALIDATED + REVISED 2026-06-29 (s-visual-007): an adversarial check vs the REAL dev2 code (wf_de8a9945 — ground-truth + skeptical critique + refute referee) KEPT the plan spine (NO re-spine) but folded 3 changes + flagged perf UNVERIFIED. Verified root cause of «блекло» = coarse grid (5x16x5 / 3x3x4) + the HARD BOX-AABB rectangle clip (NOT a weak shader; GasUber already ~40 knobs). The 3 changes: (a) the lab shows gas IN MOTION (spawn/jet/creep), not a frozen puff; (b) a SEPARATE UNCLIPPED test scene (owner-requested — no rectangular cut); (c) front-load an early TWO-TYPE-character probe (two visibly-different gases on one screen via a RESERVED GasParams field — character is the owner's headline, was deferred to the finale + is globally-impossible today) + reconsider the SKIPPED "unique" levers (light-through-volume/emissive-cores/flow-anisotropy) now toon is revoked. NOT a "small" step (split allowed at PLAN). CALL rewritten.
     note: |
-      Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev2→main when green). SMALL step 0+1:
-      (0) a gas-LAB scene — one gas cloud as a FREE puff in OPEN space (no level walls), clean fixed camera + light;
-      (1) the resting cloud reads as REAL gas (smootherstep + detail-volume kill the cubic/lines; soft scatter-GLOW
-      light kills the «jelly») — default character only. REUSE the delivered GasUber body + RealGasViewSource seam,
-      don't rebuild. BOUNDARIES: render-only (zero Core/** edit, sim + 977 tests untouched); 96B layout frozen; NO
-      spawn/jet/types/behavior (steps 2-5) — STOP if the build reaches for them. GATES: -Deliver GREEN + render-only
-      regression invariants (Core diff empty, stride gate green) = the «точно» half; OWNER-EYE «ближе к жемчужине» =
-      the binding gate (owner-run, no self-marking). Comes HOME as a RESULT. next = step 2 (spawn/выброс).
+      Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev2→main when green). REVISED scope (post-
+      validation, s-visual-007 — NOT a "small" step): (0) a SEPARATE convenient gas-LAB scene in OPEN space where the gas
+      is NEVER clipped into a rectangle (generous bounds + soft falloff, verify from multiple angles — the box-AABB clip
+      is a code-confirmed root cause); (1) the gas shown IN CHARACTERISTIC MOTION (scripted spawn/jet/creep loop, NOT a
+      frozen puff) reads as a real, especially-cool gas; (2) an EARLY TWO-TYPE-character probe — two visibly-different
+      gases in the SAME volume at once, one per-type shape/motion lever driven from a RESERVED GasParams field (the buffer
+      is already per-type for colour; 96B has reserved RiseSinkBias/Temperature/State…). Pick DIFFERENTIATING look levers
+      (light-through-volume/emissive-cores/flow-anisotropy), not just safe polish (toon revoked). REUSE the delivered
+      GasUber body + RealGasViewSource seam, don't rebuild. BOUNDARIES: render-only (zero Core/** edit, sim + 977 tests
+      untouched); 96B layout frozen (reserved-field or layout-ADR decided in the PLAN); full per-type profiles + jet-shape
+      system + behaviour + particle accents + the weak-HW PERF pass (perf is UNVERIFIED, not a free bolt-on) = LATER legs;
+      STOP if the build reaches past the probe. GATES: -Deliver GREEN + render-only regression invariants = the «точно»
+      half; OWNER-EYE «ближе к жемчужине» (gas in motion, two types differ, no rectangle) = the binding gate (owner-run,
+      no self-marking, judged in motion). May SPLIT at the PLAN. Comes HOME as a RESULT. next = the next look slice.
   - id: c-exec-012
     status: superseded   # 2026-06-21 — RAN but SUPERSEDED: builder fabricated a blocker + substituted scene-tags + a VScale crutch + self-certified «(owner-approved)» (GasCoopGame_dev RESULT.md; leg 770da4a on dev — NOT merged to main). t-1 RE-OPENED on architecture (B), re-issued in NOW.next. Contour hardened v8 so this class bounces. (note below = the original/historical c-exec-012 scope.)
     note: |
