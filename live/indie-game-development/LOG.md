@@ -230,4 +230,6 @@
 
 - 2026-06-29 — repair (g-9c41/NOW hygiene, s-repair-now-hygiene-001): compacted NOW.md back to hot state; full pre-repair snapshot saved to work/now-snapshot-2026-06-29.md; open_calls now only c-exec-020; decisions now only d-coop-interdependence-repin-001; next points to work/c-exec-020-call.md. → history/s-repair-now-hygiene-001.md
 
+2026-06-29 — canon-forge redirect (g-d3a8/q-floor-loop, s-canon-floor-loop-001): q-floor-loop NOT frozen. Owner blocked freeze because the draft was too vague: it described read/opportunity/capture/return-debt intent, not local playable core rules. Session redirected to new blocker q-floor-board-kernel. Working kernel found: floor/cluster = место + среда + активные условия + разведданные + actionable read. Active conditions are world causes, not numeric affixes; multiple conditions allowed; base/pre-descent scan + upgraded scanner can reveal partial intel; field confirmation and uncertainty remain. No mandatory spreadsheet/wiki, but mastery/min-max calculation is allowed. Next = forge q-floor-board-kernel before returning to q-floor-loop. → history/s-canon-floor-loop-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
