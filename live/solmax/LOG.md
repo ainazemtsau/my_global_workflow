@@ -66,4 +66,5 @@
 - 2026-06-28 — converge-verify g-zara-operate-contract trace repair: PASS. Complete/backward-clean/forward-clean/smuggling all passed; W2/W6/W13/W17 no longer cite missing glossary properties; W20/A1-A13 remains shape-copyable, topic-open and HOW-clean. Next → shape g-zara-operate-contract. → history/2026-06-28-s-zara-operate-contract-converge-verify-trace-repair-004.md
 
 - 2026-06-28 — shape g-zara-operate-contract: owner approved active bet b-zara-operate-contract-002 with appetite 2 focused days. Scope is a minimal Markdown/GitHub-readable authority contract pack in Zaratusta preserving W20/A1-A13 and W19 HOW firewall; cut runtime/state writer/UI/DB/API/schema/cadence/scoring/scheduler/automation/external integrations/dogfood. Tasks: t-1 acceptance matrix risk gate, t-2 contract pack, t-3 independent verify. Next → executor t-1. → history/2026-06-28-s-zara-operate-contract-shape-002.md
+- 2026-06-28 — work t-1 checkpoint: W20/A1-A13 acceptance matrix content prepared; t-1 remains active pending writer-core product-repo commit or PR evidence. → history/2026-06-28-s-zara-operate-contract-t1-acceptance-matrix-checkpoint-002.md
 END_OF_FILE: live/solmax/LOG.md
