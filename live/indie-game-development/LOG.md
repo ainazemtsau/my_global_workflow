@@ -226,4 +226,6 @@
 
 - 2026-06-29 — work/cleanup (g-7e15 + charter, owner «давай его уберем»): removed fixed-hour quota wording from current state and the visual CALL; CHARTER/TREE owner-approved. → history/s-work-hours-quota-cleanup-001.md
 
+- 2026-06-29 — local/canon-forge (g-d3a8+g-7e15/q-visual-style, owner «стиль будем придерживаться этого»): updated canon visual style with the ultra-minimal gas-stage baseline; canon repo commit e53db22. → history/s-canon-visual-style-minimal-gas-stage-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
