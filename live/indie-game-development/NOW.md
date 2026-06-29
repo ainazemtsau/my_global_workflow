@@ -1056,6 +1056,21 @@ decision_inbox:
       GasParams) AND behavior-params (feeds the engine) — R15 says the visual is procedural FROM params, so one source not
       two. REPRESENTATION decision for that slice's PLAN: the engine's current DENSE [species][cell] vs Факт-4's
       SPARSE-dominant-per-cell (+ mix-overlay) — dense is fine at few types but Факт-4 warns against dense pages at many.
+      ── SHARED-PARENT params + POST-RELEASE/MOD extensibility (owner raised 2026-06-29) ──
+      (1) SHARED PARENT layer = confirmed = R15's «общий родитель»: params common to ALL gases (density, ratio-to-air =
+      how heavy/light, spread speed, …) defined ONCE on the parent, never copied; meta-type adds its own; specific type =
+      config. Reinforce in the first TYPES slice's param-table design.
+      (2) POST-RELEASE / DLC / MOD gas types = a KEEP-OPEN SEAM to RESERVE now, DEFER the mechanism. The data-driven design
+      (R15: a gas type = a DATA asset + register, NO per-type C# / shader) ALREADY points at moddability — so the
+      load-bearing, nearly-free decision is to make the first TYPES slice purely DATA-DRIVEN (a TYPE TABLE the engine reads;
+      NEVER a hardcoded C# enum/switch — that would weld moddability shut + force a rewrite). DETERMINISM CATCH (lockstep):
+      if two peers have DIFFERENT type tables they DESYNC → reserve the type table as an ORDERED, CONTENT-HASHED,
+      session-FIXED registry whose hash joins the lockstep session-start handshake (Факт-5 no-late-join makes a Start-time
+      handshake natural; mismatch ⇒ refuse/quarantine, never silent). Ship a fixed built-in set first; later DLC/mod types =
+      just more registry entries, the handshake already guarantees all peers match. DEFER (not now): runtime loading of
+      external mod files (asset bundles / addressables), a mod API, workshop. IS IT NEEDED NOW: no — but reserving the seam
+      (data-driven + ordered content-hashed registry + handshake hook) is cheap in the first TYPES slice and avoids both a
+      later rewrite AND a silent lockstep break. RECOMMEND: reserve the seam in the TYPES slice; defer the mechanism.
   - id: d-coop-interdependence-repin-001
     status: OPEN   # surfaced 2026-06-29 (s-work-029 audit); a dropped dependency that risks a hard mid-build blocker. Owner: re-pin or fold into the next gameplay-slice PLAN.
     note: |
