@@ -31,7 +31,7 @@ The direction exists to create a reusable indie-development business seed: techn
 
 ## Constraints
 
-- **Time:** the owner can dedicate roughly 80–90 hours/week because this is the primary work direction, not a side hobby.
+- **Time:** this is the owner's primary work direction, not a side hobby; scheduling is capacity-based, not a fixed hour quota.
 - **Money:** new cash budget is capped at approximately $3,000 before explicit reconsideration; many plugins/tools are already purchased.
 - **Health/rhythm:** high workload is accepted by the owner, but burnout remains a project risk. The OS should treat destroyed health, motivation, or execution reliability as failure pressure, not as “commitment.”
 - **Audience gap:** the owner has little existing audience and low interest in manual social media. Audience development must be systematized through workflow, templates, checklists, automation where reasonable, and concrete recurring outputs.
@@ -72,7 +72,7 @@ The direction exists to create a reusable indie-development business seed: techn
    - Proving fact: 10 years of professional software development experience, mostly Java/full-stack, gives a strong base for architecture, systems thinking, tooling, debugging, and long technical execution.
 
 2. **Availability and priority**
-   - Proving fact: the owner is not currently splitting attention with a normal job and can devote roughly 80–90 hours/week to this direction.
+   - Proving fact: the owner is not currently splitting attention with a normal job and can make this direction the primary work focus without treating any fixed weekly hour count as a requirement.
 
 3. **Player literacy**
    - Proving fact: lifelong broad game-playing experience gives taste references and intuitive understanding of what feels deep, shallow, boring, or alive.
@@ -202,7 +202,7 @@ This direction failed three years from now because one or more of the following 
 
 ### 12. High workload damaged execution reliability
 
-**Failure mode:** 80–90 hours/week turned into cognitive fatigue, poor judgment, avoidant loops, or inability to finish. Because crunch was framed as passion, warning signs were ignored.
+**Failure mode:** a fixed-hour or crunch expectation turned into cognitive fatigue, poor judgment, avoidant loops, or inability to finish. Because overload was framed as passion, warning signs were ignored.
 
 **Mitigation:** the OS should judge by evidence, not hours. If output quality, decision quality, sleep, mood, or execution reliability degrades, reduce scope or change cadence rather than treating more hours as the answer.
 

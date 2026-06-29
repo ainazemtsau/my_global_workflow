@@ -461,7 +461,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       verify = a FRESH-SESSION G5 (different family) refuting the determinism / canonical-order /
       hash-parity seams. Owner-eye = he sees 2 processes agree (confidence, NOT a gate; real 2 PCs =
       optional one-off run, never a gate). approach token = loopback-meaningchecksum-determinism-by-construction.
-    status: split   # ✅ PLAN DONE + SPLIT 2026-06-28 (c-exec-016 PLAN, GasCoopGame_dev, owner present): done_when 1 (PLAN) met → concluded SPLIT-NEEDED per the CALL's budget clause; NO code/git changes (PLAN-only). Owner-signed «Split S2a+S2b» + 3 more decisions (d-s2-split-001 / d-s2-rng-control-na-001 / housekeeping FF+archive folded into S2a). Migration-spine port-vs-delete inventory done (7-agent wf_89e9d3c2, verified first-hand; owner-signed). Imported PLAN RESULT → history/c-exec-016-plan-split-2026-06-28.md (applied home s-work-025). S2 = S2a (legacy retirement, FIRST) + S2b (loopback load-bearing, after). Closes done only when BOTH return GREEN. next slice after S2 = S3.
+    status: done   # ✅ S2 SLICE COMPLETE 2026-06-29 (s-work-028): both halves DELIVERED + merged to GasCoopGame main — S2a @2e24a24 (ZERO-LEGACY retirement) + S2b @adb9255 (load-bearing lockstep loopback). Multiplayer-determinism FOUNDATION proven (2-process loopback, determinism by construction); networked-gas-ITickInputBus-citizen = named ~S4 seam (NOT done). Bet rolls to S3. — PLAN DONE + SPLIT 2026-06-28 (c-exec-016 PLAN, GasCoopGame_dev, owner present): done_when 1 (PLAN) met → concluded SPLIT-NEEDED per the CALL's budget clause; NO code/git changes (PLAN-only). Owner-signed «Split S2a+S2b» + 3 more decisions (d-s2-split-001 / d-s2-rng-control-na-001 / housekeeping FF+archive folded into S2a). Migration-spine port-vs-delete inventory done (7-agent wf_89e9d3c2, verified first-hand; owner-signed). Imported PLAN RESULT → history/c-exec-016-plan-split-2026-06-28.md (applied home s-work-025). S2 = S2a (legacy retirement, FIRST) + S2b (loopback load-bearing, after). Closes done only when BOTH return GREEN. next slice after S2 = S3.
   - id: S2a
     kind: executor (engineering, GasCoopGame) — ZERO-LEGACY RECONSTRUCTION-SPINE RETIREMENT (first half of the S2 split; runs FIRST → clean base for S2b). NO new behavior.
     goal: |
@@ -484,7 +484,7 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       refuting the delete/keep boundary + tests-rewritten + §7-burial. STOP-discipline (a KEEP-member that breaks / a delete
       needing a behavior change / expanding into S2b loopback work / reopening ADR-0010 = STOP+escalate). FULL CALL →
       work/c-exec-017-call.md. approach token = zero-legacy-reconstruction-spine-retirement.
-    status: done   # ✅ DELIVERED 2026-06-28 (c-exec-017 build session; applied s-work-026) — binding gates GREEN on GasCoopGame dev @ec54d4f (857/857 headless, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE on delete/keep + tests-rewritten + §7-burial). Both legacy families DELETED, verified FIRST-HAND (0 production hits). Retirement ADR = ADR-0016 (renumbered from 0015 vs c-visual-001 S5). ⚠ merge dev→main + push OWNER-GATED + now a REAL merge (visual S5 advanced main to 9780713; main…dev 2/4, conflict-free expected Core-vs-Render) — pending. Owner-eye (dotnet test 857, confidence not a gate) optional/pending. Record → history/c-exec-017-s2a-result-2026-06-28.md. Bet rolls to S2b.
+    status: done   # ✅ DELIVERED 2026-06-28 (c-exec-017 build session; applied s-work-026) — binding gates GREEN on GasCoopGame dev @ec54d4f (857/857 headless, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE on delete/keep + tests-rewritten + §7-burial). Both legacy families DELETED, verified FIRST-HAND (0 production hits). Retirement ADR = ADR-0016 (renumbered from 0015 vs c-visual-001 S5). ✅ merge dev→main + push DONE 2026-06-28 (owner) — main @2e24a24, VERIFIED first-hand (S2a commits in main, deleted families 0 prod hits on main, pushed; the real merge with visual S5 landed clean). Owner-eye (dotnet test 857, confidence not a gate) optional/pending. Record → history/c-exec-017-s2a-result-2026-06-28.md. Bet rolls to S2b.
   - id: S2b
     kind: executor (engineering, GasCoopGame) — LOCKSTEP LOOPBACK LOAD-BEARING (second half of the S2 split; runs AFTER S2a's clean base). The load-bearing determinism proof.
     goal: |
@@ -505,7 +505,83 @@ active_tasks:   # Wave-A task set (дорога A+, riskiest-first); G1 ≤3 act
       STOP = stored velocity / float authoritative path / re-flux-as-gate / reopening the input-lockstep lock (ADR-0002 —
       see d-adr-lockstep-citation-001; the canon's "ADR-0010" is a citation error, ADR-0010 is the test-sandbox). approach
       token = loopback-meaningchecksum-load-bearing.
-    status: active   # UNBLOCKED 2026-06-28 (s-work-026): S2a's clean base now EXISTS on GasCoopGame dev @ec54d4f. NEXT JOB = the direction AUTHORS + hardens the S2b CALL c-exec-018 (a fresh OS work-session), folding: ADR-0002 (NOT ADR-0010) for the input-lockstep lock per d-adr-lockstep-citation-001; the RNG-control DROP per d-s2-rng-control-na-001; the chunk-span S4-deferral carried. Builds on dev (post-S2a); the S2a dev→main merge is owner-gated (a real merge now). Closes done on c-exec-018's GREEN return.
+    status: done   # ✅ DELIVERED + MERGED + PUSHED 2026-06-29 (c-exec-018 build session; applied s-work-028) — GasCoopGame origin/main @adb9255 (--no-ff merge of dev). VERIFIED first-hand: the load-bearing 2-VoxelField loopback harness EXISTS (Core/Field/Determinism/ = LockstepLoopback + LockstepDivergenceException + MeaningMembers + GasScenario); ADR-0017; lock ADR-0002 intact (deleted families 0 prod hits). Gates: -Deliver GREEN, 923/923, mutation 73.51% ≥70, coverage 10/10, fresh-session G5 (Sonnet) COULD-NOT-REFUTE + 3 Codex rounds + 5-skeptic panel. SCOPE-HONESTY: proved determinism-by-construction in LOOPBACK (2 in-process VoxelFields, one machine); gas-as-networked-ITickInputBus-citizen = a larger seam deferred ~S4. Record → history/c-exec-018-s2b-result-2026-06-29.md. This CLOSES S2 (S2a+S2b).
+  - id: S3
+    kind: executor (engineering, GasCoopGame) — HEIGHT / LAYERING SLICE. Rolls on S0 (near real-height already emergent). The next slice after S2. Per canon §5 S3.
+    goal: |
+      Height/layering on the gas grid: NEAR real-height is ALREADY emergent from S0 (the 50cm Z-cells — «crouch under a
+      layer» is free); this slice adds a few VERTICAL layers to the COARSE FAR-tier for height-ROUTING in player-LESS rooms.
+      ⚠ These coarse vertical layers are a FAR-tier construct for distant rooms, NOT near-authoritative «crouch bands»
+      (crouch is already free via S0 Z-cells; resurrecting authoritative height-bands is §7-buried). Netcode rides the S2
+      loopback determinism (in-checksum).
+    done_when: |
+      OPENS WITH A PLAN (owner present): §Re-sync contract FIRST; ingest canon §5 S3 + §6 п.4 (far-rollup vertical-strata
+      count — decided at PLAN S3/S4) + §7 (height-bands buried) + §8 (interim 2-band far-tier); classify ведро-1/2/3;
+      RESOLVE the S3-vs-S4 far-tier sequencing (S3 adds far vertical layers; S4 = far-rollup + LOD — decide whether S3 lands
+      on the interim 2-band far-tier or folds into S4). Then: the far-tier holds a TUNABLE in-checksum number of vertical
+      strata for height-routing; near stays the S0 3D grid (unchanged); determinism preserved (loopback hash green; the new
+      authoritative code inside BOTH zero-float/int-overflow scan roots — CLOSE the scan-root parity gap surfaced by S2b);
+      -Deliver GREEN + mutation ≥70 + fresh-session G5; ZERO-LEGACY; owner-eye on height-routing. STOP-discipline (no
+      authoritative near height-bands = §7 burial; lock = ADR-0002). approach token = far-tier-vertical-layers-for-height-routing.
+    status: parked   # DEFERRED 2026-06-29 (s-work-030, owner «можем оформлять» d-character-road-001): the bet rolls to the CHARACTER ROAD instead of S3. S3/S4/S5 = far-tier scale-plumbing for big/~150-room levels — NOT urgent at the current small scale; re-prioritize when levels grow. (S5 breach carries the §4-шов-5 sub-face-bitmap checksum trip-wire when it lands.) Was: active s-work-028.
+  - id: Sc-types
+    kind: executor (engineering, GasCoopGame) — META-TYPE / TYPE PARAM STRUCTURE. The FIRST slice of the CHARACTER ROAD (d-character-road-001). Multi-gas foundation everything else keys off. ENGINE-ONLY (no visual hookup). Per R15 + the audit.
+    goal: |
+      The engine carries MORE THAN ONE gas type, and types behave VISIBLY DIFFERENTLY via a 3-LAYER DATA-DRIVEN param
+      structure (R15: shared PARENT params [density/packing, ratio-to-air=weight class, spread speed] → per-META-TYPE group →
+      per-type/instance config + env tuning). Owner SEES 2 TEST gases behave differently in the engine debug view (e.g. one
+      billows fast, one creeps slow). Day-one DETERMINISM + MODDABILITY sockets laid so weight/reactions/damage + later
+      real/DLC types plug in without a schema migration or a desync. ENGINE-ONLY — NO visual-track hookup this slice.
+    done_when: |
+      OPENS WITH A PLAN (owner present): §Re-sync FIRST; ingest d-character-road-001 + R15 + canon §3/§4/§9.5/Факт-4; DECIDE
+      the representation (dense [species][cell] vs Факт-4 sparse-dominant — record it); classify ведро; pick 2-3 TEST
+      meta-types (placeholder, behaviour-spanning; lore types later) + the day-one parent-param set. THEN: (1) ≥2 test types
+      behave DIFFERENTLY via per-type spread/density (RED: they diverge; single-type run reproduces S0/S1 goldens
+      byte-identical); (2) the 3-layer param table is DATA-DRIVEN (RED: NO type hardcoded — adding a type touches DATA only);
+      (3) per-cell dominant-TypeId in the MeaningChecksum (RED: different per-cell type → checksum diverges; absent field=FAIL);
+      (4) MODDABILITY seam reserved (ordered content-hashed session-fixed type registry; its hash reserved for the lockstep
+      session-start handshake — RED: different registry → different hash; external mod-loading DEFERRED); (5) per-type code
+      inside BOTH zero-float + int-overflow scan roots (CLOSE the S2b scan-root parity gap + a self-test); loopback hash green
+      over a multi-type seeded run; (6) -Deliver GREEN + mutation ≥70 + spec-silence + deliverable-coverage; G0-frozen;
+      ZERO-LEGACY; fresh-session G5; owner-eye (sees 2 test gases differ — confidence not a gate). STOP: hardcoded-C#-type /
+      visual hookup creeping in / weight/reactions creeping in / float on the authoritative path / reopening ADR-0002.
+      approach token = data-driven-3-layer-type-params-engine-only. FULL CALL → work/c-exec-019-call.md.
+    status: done   # ✅ DELIVERED + MERGED + PUSHED + BINDING-G5-VERIFIED 2026-06-29 (s-work-031, owner reported «DELIVERED + MERGED + PUSHED»): Sc-types (multi-gas META-TYPE/TYPE param substrate, ENGINE-ONLY) is home on GasCoopGame origin/main @7d08882 — verified FIRST-HAND (dev→main --no-ff merge; Core/Field/Types/{GasMetaType,GasParentParams,GasType,GasTypeRegistry}.cs + 8 ScTypes*Tests + tools/type-hardcode-scan.ps1 + ADR-0018 + frozen openspec/changes/c-exec-019-sc-types/ all present). Builder RESULT (GasCoopGame_dev/RESULT.md): -Deliver GREEN (948/948 at build, now 1028/1028 after later dev2 merges; 923 pre-slice baseline byte-identical), mutation 76.74% ≥70, dense [species][cell] rep (ADR-0018 D1) with numeric revisit-trigger (type_count×active_cell ≥200k / tripwire ≥4 types), per-type spread Kp = the only live lever, TypeId checksum member (rep-conditional + ADDITIVE — single-default byte-identical), content-hashed CANONICAL registry (lockstep handshake hook reserved), both zero-float+int-overflow scans cover Core/Field/Types, ZERO-LEGACY, owner-eye dump shows Swift billows / Creep creeps. BINDING fresh-session G5 (THIS session, wf_a07586c0-22f — 7 adversarial seam-refuters + referee over the REAL merged code) = COULD-NOT-REFUTE → mark-done, ZERO blocking findings (5 seams could-not-refute, 2 weakened note-only; 3 refuters re-derived the pre-slice golden by replaying tip @2117341 → byte-identical 13-tick checksums; one ran -Deliver end-to-end GREEN; STOP-discipline held — frozen CoarseSpecies git-diff EMPTY, no weight/reactions/visual/float creep, ADR-0002 intact). OWNER-AUTHORIZED amendment folded: settle-criterion ActiveFaces==0→low-amplitude-rest (infeasible under ≤4-unit carry-seep micro-breathing; flow law byte-identical; owner present 2026-06-29; owner-ack:esc-c-exec-019-settle-criterion-2026-06-29 banner in the frozen spec). Owner-eye = confidence NOT a gate. The bet ROLLS to Sc-weight. — was: active s-work-030 (c-exec-019 FRAMED+HARDENED wf_672e0128-009).
+  - id: Sc-weight
+    kind: executor (engineering, GasCoopGame) — WEIGHT / BUOYANCY. 2nd character-road slice. Per-type vertical drift. Keys off Sc-types.
+    goal: |
+      Per-type vertical buoyancy on the near grid: heavy gas SINKS, light gas RISES, tunable strength per meta-type — an
+      integer bias on flow through Z-faces, a CREEPING front (canon §3 «buoyancy-BIAS, НЕ сортировка»; per-column instant
+      sort FORBIDDEN near / §7-buried). The visible weight difference the owner flagged (d-buoyancy-near-weight-priority-001,
+      subsumed here). PORT the proven integer weight/heat law from the OLD far-tier rather than re-R&D (before S4 deletes it).
+    done_when: |
+      Shaped + framed when Sc-types returns clean. Carries: per-type Z-bias (heavy sinks/light rises); RED non-monotone
+      conservation + no-pop oracle (no vertical teleport); determinism preserved (loopback hash green; in scan roots);
+      -Deliver GREEN + mutation ≥70 + fresh-session G5; ZERO-LEGACY; owner-eye. STOP = per-column instant sort near / float /
+      reopening ADR-0002. approach token = per-type-buoyancy-bias-creeping-front.
+    status: active   # UNBLOCKED 2026-06-29 (s-work-031): Sc-types GREEN + binding-G5-verified → the bet rolls here (2nd character-road slice; G1 intact — Sc-types done freed the WIP slot). Subsumes d-buoyancy-near-weight-priority-001. NEXT = frame + adversarially harden the executor CALL c-exec-020 in a fresh OS session, then build in a fresh GasCoopGame_dev session (PLAN, owner present). PORT the proven far-tier CoarseSpecies weight/heat integer law into the near path BEFORE S4 deletes it. G5 PLANNER NOTES to fold into the c-exec-020 CALL: (a) re-derive the monotone-settle floor against kpEff=Kp*spf, NOT raw Kp — MinSpreadKp=12 over-protects ~2.4x at spf=4, so the Kp=4 settle control covers only part of the sub-floor class (SAFE direction, but re-derive if resolution/floor changes); (b) before this FIRST per-type-DISPATCH slice, broaden tools/type-hardcode-scan.ps1 (it catches only the enum/switch token superset — a dict-of-delegates / `if(typeId==N)` chain evades it) or soften its «strongest guarantee» header. — FRAMED + adversarially HARDENED 2026-06-29 (s-work-032, wf_8f324a28-81e: 24 raised → 20 survived refute-verify → 3 must-fix + 9 should-fix/nit folded; 4 refuted incl. a goal-hygiene + temperature-reserve challenge) → work/c-exec-020-call.md. STAYS ACTIVE awaiting the GasCoopGame_dev executor return; NEXT = open c-exec-020 in a fresh GasCoopGame_dev session (PLAN, owner present). Both G5 notes folded as HARD obligations; the LINCHPIN must-fix = fold the NEW per-type weight OVERRIDE into the registry ContentHash (parent.RatioToAir alone ≠ override → else two peers pass the lockstep handshake then desync under a green checksum). PORT crux nailed: port the far-tier LAW (CoarseSpecies.EffectiveDensity) re-expressed as DATA, NEVER CoarseBandStep.Settle's per-column capacity-fill SORT (§3/§7-buried). approach token = per-type-buoyancy-bias-creeping-front.
+  - id: Sc-reactions
+    kind: executor (engineering, GasCoopGame) — REACTIONS. 3rd character-road slice. Integer chemistry between types. Keys off Sc-types (needs ≥2 types).
+    goal: |
+      Integer chemistry: ≥2 gas types react → a coarse EVENT (telegraph + bang), with the canon's mix-overlay cell during a
+      reaction. Reads refinement-invariant coarse totals (NOT post-distributed fine cells); chain next tick. The co-op
+      consequence the 2nd player feels lives partly here (d-coop-interdependence-repin-001 folds into this PLAN).
+    done_when: |
+      Shaped + framed when Sc-weight returns. Carries: integer chemistry table (data, day-one shape); telegraph+bang as a
+      coarse event in-checksum; mix-overlay cell representation; determinism preserved; -Deliver GREEN + G5; ZERO-LEGACY.
+      approach token = integer-chemistry-coarse-event.
+    status: parked   # NEW 2026-06-29 (s-work-030): 3rd character-road slice, HELD pending Sc-types (+Sc-weight). Co-op-interdependence (d-coop-...) folds into this PLAN.
+  - id: Sc-damage
+    kind: executor (engineering, GasCoopGame) — DAMAGE / TEMPERATURE. 4th character-road slice. The first real gameplay payoff. Keys off Sc-types (+ weight).
+    goal: |
+      Gas that HURTS: dose-from-coarse (dose = time-integrated coarse event from RESIDENT gas; 0 overlap → 0 dose; reads the
+      shared authoritative field, never a private bubble — canon §3 carrying invariants), type-specific damage; temperature
+      as a thin sink-layer (d-tempfeedback-001). The first real reason a player CARES about the gas. The 2nd-player-feels-it
+      co-op check (d-coop-...) is in this PLAN's owner-eye.
+    done_when: |
+      Shaped + framed when Sc-reactions returns. Carries: dose-from-coarse RED suite; type-specific damage; temperature
+      sink; determinism preserved; -Deliver GREEN + G5; ZERO-LEGACY. approach token = dose-from-coarse-type-damage.
+    status: parked   # NEW 2026-06-29 (s-work-030): 4th character-road slice, HELD pending Sc-types→weight→reactions. The first real gameplay payoff.
 
 recurring: []
 
@@ -513,7 +589,7 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
   - id: g-7e15
     track: VISUAL (GASG — how the gas LOOKS)
     status: active   # owner-directed 2026-06-21 (s-visual-001) — parked→active PARALLEL track: «хочу чтобы оно участвовало в дереве … со своим аппетитом … не на задворках … начать сейчас». SECONDARY to g-9c41 (the primary bet). NB: the status enum has no distinct "track" value → recorded as active + reconciled here; friction captured for maintenance.
-    appetite: ~40–60 min/day in the engine's build-gaps (≈3–5 h/week); revisit cadence at pulse. Checkpoint = the P1 prototype gives a min-spec perf signal on the riskiest unknown.
+    appetite: secondary visual cadence in the engine's build-gaps; no fixed hour quota; revisit cadence at pulse. Checkpoint = the P1 prototype gives a min-spec perf signal on the riskiest unknown.
     approach: |
       READ-ONLY visual view over the authoritative gas grid (the sim simulates; the visual only READS RN1 + a front and
       renders — a read-only dashboard over a DB). Decoupled by the R13/R14 seam: develop on a FAKE/stub data source now,
@@ -531,34 +607,101 @@ parallel_tracks:   # active ALONGSIDE the g-9c41 bet at owner-set cadence (root 
       (b) making MANY gas types readable at a glance without colour/motion collisions is a DESIGN unknown (no sourced answer);
       (c) GPU sync (compute finishes before the visual samples the buffer) + per-tick grid→GPU upload bandwidth.
     next: |
-      STRUCTURE-FIRST (owner override 2026-06-26, s-visual-002 — SUPERSEDES the 2026-06-21 "design-feel first" rec;
-      owner «структура, не дизайн»). The procedural gas-visual ARCHITECTURE is researched + documented →
-      work/gas-visual-architecture-2026-06-26.md (workflow wf_579651ba-7f9: 13 agents, 5 adversarially-verified
-      dimensions, solo-dev over-engineering critic folded). THE STRUCTURE = a read-only data-driven engine in 4 layers
-      (engine → one-way seam[FAKE now/real later] → ONE shared body shader styled by a typeId-indexed param buffer →
-      separate event-driven warning channel) + a RESERVED bare special-gas hook. OWNER'S SHADER Q ANSWERED: ONE shared
-      shader configured by DATA — new ordinary gas = author one GasTypeDefinition asset + register it (editor-validated),
-      NO per-type shader, NO code. 3 owner decisions ratified (structure-first; 3 param-extreme test fixtures, no
-      neutral/roster; reserve special-gas seam, look-only v1). Two channels: steady BODY + event-driven WARNING
-      telegraph (separate layer, not idle spark). d-visual-buildstep0-001 ANSWERED 2026-06-26 (owner = ADJUST,
-      s-visual-003): min-spec perf is NOT a front gate and is NOT measured first — owner has NO min-spec machine, and a
-      perf number does not change the architecture (only tuning knobs, or worst-case a later BODY-rendering-technique
-      swap the read-only seam makes cheap). FIRST GOAL = a WORKING visual on the owner's HOME machine; perf = a LATER
-      optimization pass once the visual exists + target audience HW is known. Cheap safeguards from day one: 2 body knobs
-      (resolution scale + step count) + a free NON-GATING rough frame-cost reading on the home machine; body stays behind
-      the seam (swappable). NAMED DEFERRED RISK: raymarch body may be too heavy for the eventual min-spec → body
-      technique swapped later (bounded — decoupling preserves data model / authoring / warning / 3 gases). ADJUSTED BUILD
-      SEQUENCE (FAKE data, on home; doc §7): step 1 seam+buffer-contract+stride-gate → step 2 three gases from DATA
-      (+ forgot-to-register guard) → step 3 many-types overlap + OWNER-EYE readability bar → step 4 warning channel
-      (telegraph through the gas) → step 5 reserve the bare special-gas hook → step 6 (LATER) real-engine swap
-      (fake→real INTEGER grid g-9c41, ZERO visualizer change). BUILD-STEP-1 CALL AUTHORED + adversarially hardened
-      2026-06-26 (s-visual-004, wf_5dd9d57a-142, 4 lenses) → work/c-visual-001-call.md (c-visual-001 RE-SPECCED + queued
-      in open_calls). READY: owner opens c-visual-001 in a fresh GasCoopGame_dev session (opens with a PLAN, owner
-      present); next leg after = c-visual-002 (step 2 — three gases from DATA).
-      RECONCILED 2026-06-26: engine S0 is now DELIVERED (s-work-019) so the real RN1 read-seam already EXISTS for the
-      later step-6 swap — but the plan stays fake-data-first per the owner. Honest unknowns + over-engineering guardrails
-      = doc §8. Builds on work/gas-visual-research-2026-06-21.md (layered read-only arch + raymarch/VFX paths — carried,
-      NOT relitigated).
+      LOOK-DEVELOPMENT phase (2026-06-28, s-visual-005 — track BROUGHT HOME from off-contour build; owner chose A +
+      «добро»). The structure-first build-phase is DONE + DELIVERED (c-visual-001 foundation→S1→S3→S5, real data in
+      motion, merged origin/main @9780713; S6 look-dev WIP on dev2 @dc4c225) — that phase is HISTORY (s-visual-002/003/004
+      + work/c-visual-001-call.md + work/gas-visual-architecture-2026-06-26.md). The track now DEVELOPS THE LOOK (the
+      «wow»), not the pipe.
+      FELT TARGET (owner — the ориентир, references-for-a-feeling, NOT a spec): газ = СЕРДЦЕ/жемчужина игры → должен
+      выглядеть ОСОБЕННО КРУТО / уникально; каждый ТИП имеет свой ХАРАКТЕР (шум/движение/свет, не только цвет),
+      настраиваемый под своё состояние; low-poly = the WORLD, NOT a cap on the gas; commercial-clean (no NVIDIA Flow).
+      WHY it FELT like «топчемся/блекло» (diagnosed): ~half = DRIFT (the build was invisible to the OS — now reconciled);
+      ~half = only ~3 of ~10 look levers built + the BOX sandbox mis-leads the eye. NOT the ceiling.
+      FORWARD PLAN (owner-endorsed; SOURCE OF TRUTH = GasCoopGame docs/gas-visual-stage-plan.md §S6+ — do NOT duplicate):
+      (1) a dedicated GAS-LAB scene FIRST — gas as a FREE cloud in open space (no level walls) + good camera/light, so the
+      box stops lying and the look develops cleanly (owner's idea; aligns with gas-is-open-space-first — gas spawns
+      anywhere); (2) the P1 levers — bake a tiling 3D noise (inverted-Worley detail-volume) + smootherstep coord-warp
+      (kills box-creases/lines) + detail-volume erosion + cheap STYLIZED lighting (two-tone ambient + scatter-GLOW = the
+      «jelly» fix) + analytical transmittance (budget); (3) per-type CHARACTER as DATA (noise/motion/erosion/light profile
+      — ⚠ frozen 96B GpuGasParams → reserved-fields or a layout-ADR) + OPTIONAL particle ACCENTS (owner owns «Feel» —
+      check its VFX/feedbacks); gas-spread STAGES later still.
+      PROCESS FIX (owner «добро» — the real ask; TRACK-LEVEL, not a kernel change): the visual track now runs with the
+      ENGINE-track discipline — (a) every slice COMES HOME as a RESULT applied to OS state (end the drift; no off-contour
+      merge invisible to governance); (b) each slice carries TWO owner-eye axes, not one — legibility AND «does it move
+      toward the JEWEL target» (the missing aesthetic gate — why tech accreted while the look stalled).
+      DECISIONS recorded (were off-contour): LOOK-FIRST then optimize (perf = orthogonal bolt-on, S4 deferred); raymarch =
+      the SOLE body base (NO particle/VFX base — fill-rate-bound either way; accents optional/compute-gated later);
+      per-cell warning granularity (ADR-0012 D5); 96B layout FROZEN; the 4 colour CONCEPTS = a start, NOT final (CHARACTER,
+      not colour, is the lever). next = the GAS-LAB look-development leg c-visual-002 (open in a FRESH GasCoopGame_dev_2
+      session, opens with a PLAN; spec = docs/gas-visual-stage-plan.md §S6+).
+      AGREED STEP LADDER (owner-approved 2026-06-28, shown as a plain roadmap — gas-feature-first, NOT technique-first;
+      each step SMALL, owner-eye-gated «ближе к жемчужине», comes HOME): 0 gas-lab (open-space cloud) → 1 cloud-at-rest
+      reads as real gas (form/light) → 2 spawn/выброс → 3 jet/струя → 4 types (character, not colour) → 5 behaviour
+      (reaction/telegraph/decay); LATER = particle accents (owner's «Feel» plugin) + min-spec perf. The P1 render levers
+      are the TOOLBOX inside the steps, not the steps. WORKFLOW = identical to the engine legs (CALL → fresh dev2 session
+      PLAN → render-only gates + owner-eye → RESULT home); the ONE legit difference is the binding gate (sim = objective
+      headless tests; look = owner-eye, since «красиво» isn't unit-testable) → so a look leg is render-only-right-sized,
+      no heavy adversarial hardening. STARTING 0+1 (owner «стартуем 0-1») → FRAMED as c-visual-002 (work/c-visual-002-call.md).
+      VALIDATED 2026-06-29 (s-visual-007): owner challenged "did you just take their plan / verify it / improve it?" — an
+      adversarial check vs the real dev2 code KEPT the spine (no re-spine; root cause = coarse grid + box-AABB clip, NOT a
+      weak shader) but folded 3 owner-approved changes into the CALL — (a) lab shows gas IN MOTION not a frozen puff;
+      (b) a SEPARATE UNCLIPPED test scene (owner-requested, no rectangle); (c) front-load an early TWO-TYPE-character probe
+      (character is the headline, was deferred + globally-impossible today; cheap via reserved GasParams fields) + revisit
+      the SKIPPED "unique" levers now toon is revoked. Perf flagged UNVERIFIED. The "0+1=small" framing was corrected (the
+      leg is real work; may split at PLAN).
+      R&D-CENTER TRIAGE 2026-06-29 (s-visual-008, owner-directed): triaged the read-only Gas-Visual R&D Center's Unity-6/
+      URP/VFX-Graph note. LAYERING STRATEGY CONFIRMED (matches s-visual-007): BODY = GridView→GasUber raymarch (load-
+      bearing; URP still has NO built-in volumetrics → custom justified, verified) | ACCENT = VFX Graph / Six-way (sparse,
+      compute-gated, fallback=Particle System, reads visual data/events ONLY — NEVER gas-position authority) | CONTACT =
+      URP decals on opaque | FINISH = fullscreen post. VERIFIED in repo: VFX Graph NOT installed (manifest); Particle
+      System IS; the body injects BeforeRenderingPostProcessing + is transparent → decals/post/VFX do NOT auto-see it
+      (need a mask/proxy). DECISIONS: (1) INSTALL VFX Graph (owner-directed) but as a SEPARATE compute-gated ACCENT leg
+      AFTER the body checkpoint — NOT folded into the render-only c-visual-002 (a package install mid-build risks the
+      running leg); (2) FEEL (owner owns, Pro) = the MOMENT/orchestration layer (triggers VFX bursts + post pulses +
+      shake/sound on spawn/jet/reaction; FEEL=conductor, VFX=particles), NOT the body; (3) NO purchases now (body custom;
+      accents/moments covered by VFX+Particle+FEEL); (4) Unity 6.3→6.5 upgrade DEFERRED (no gas-lab payoff; don't mix with
+      a visual probe). The accent leg is REFRAMED (vs the R&D's generic-flair framing) as a per-type CHARACTER + spawn/jet
+      MOMENT differentiator. Timing of the VFX-install/accent leg = after the c-visual-002 body checkpoint (owner to confirm).
+      RENDER-VISIBILITY CORRECTION (Codex-sharpened, VERIFIED first-hand: GasUber.shader Blend One OneMinusSrcAlpha /
+      ZWrite Off / ZTest Always / Queue Transparent; feature injects BeforeRenderingPostProcessing). My earlier "decals/
+      post/VFX can't see the gas" was too broad. PRECISE: the gas is NOT in _CameraOpaqueTexture (snapshot before
+      transparents) nor _CameraDepthTexture (ZWrite Off); URP decals can't project onto it; VFX URP Camera Buffer gets
+      SCENE depth/color but NOT gas depth/mask → LOCALIZED "where-is-the-gas" effects + decals + depth-VFX adhesion need an
+      explicit gas MASK/proxy/pass. BUT built-in fullscreen post AFTER our pass (Bloom / Color Grading) DOES affect the gas
+      colour (already written to camera colour before post) → an emissive-rim → bloom works IMMEDIATELY, free (a real plus
+      for the "finish"). ACCENT-LEG SEED (Codex, accepted): accents express (1) gas character by type, (2) state/moment
+      beats, (3) player-readable events — toxic = corrosive rim/droplets/surface stains; heavy = downward soot/sparks +
+      floor-hugging residue; energetic = electric tendrils + edge sparks; vent burst = pressure plume + leading nose;
+      warning = rim pulse + sparse hazard particles; clearing/counter-gas = expanding clean hole + condensation edge.
+      R&D QUEUE (narrow, LATER — broad landscape is DONE-enough): (1) gas-MASK/post integration (derive a mask from GasUber
+      for localized fullscreen glow/distortion: alpha-reuse / extra RT / stencil / half-res mask / RenderGraph attachment);
+      (2) which 6-8 character/moment accent MODULES the gas needs as a jewel.
+      READ-ONLY R&D CENTER (2026-06-29, s-work-visual-rd-center-001, owner chose "Visual R&D Center"): Codex-side
+      research lab exists at work/gas-visual-rd-center-2026-06-29.md. It studies technologies/references/probe briefs
+      for the JEWEL target while Claude Code builds; it edits no product code and does not replace c-visual-002.
+      S1 DELIVERED (2026-06-29, c-visual-002-s1, s-visual-009 writer-applied + VERIFIED FIRST-HAND): the gas-lab leg's
+      FIRST sub-leg is DONE + MERGED + PUSHED (GasCoopGame origin/main @f7efbea --no-ff, parents 2117341 engine + 04a93ea
+      dev2). A dedicated UNCLIPPED gas-lab where ONE analytical gas plays spawn-bloom → vertical-column jet → slow-creep in
+      open space that NEVER clips to a rectangle — the no-rectangle GUARANTEE is DATA-SIDE (soft edge-falloff drives
+      density to exactly 0 in the outer margin) → ZERO shader/GPU-layout edit + ZERO sim edit (render-only held: Core/**
+      diff EMPTY, dev2 never touched Core). -Deliver GREEN 1003 (923 engine baseline + 80 Lab Render; the 977→923 shift is
+      the ENGINE S2a/S2b deletions, not this leg), stride-gate green; owner-eye #1 SIGNED (Variant A — owner ran
+      GasLabScene live, confirmed spawn→jet→creep + no rectangle from any angle, ACCEPTED the column as the expected S1
+      placeholder shape; «весело» owner-excluded, «точно» = the green suite). Verified on main first-hand:
+      GasLabScene.unity + LabGasField + LabGasViewSource + LabGasFieldEdgeTests + owner-eye checklist + frozen
+      openspec/changes/c-visual-002-s1-gas-lab/ all exist. Record → history/c-visual-002-s1-result-2026-06-29.md.
+      CUTS owner-signed: two differently-charactered gases (heavy-sinks dark&dense / light-rises wispy&pale via the
+      reserved RiseSinkBias per-type buoyancy field — reserved-field path, no layout edit) + the first DIFFERENTIATING
+      look lever «light-through-volume» (scatter-glow, global shader-knob) = S2 (the next sub-leg; owner-signed split;
+      FEEL + lever already fixed on the plan). DEFERRED (owner-ack:esc-c-visual-002-s1-natural-jet-deferred-2026-06-29): a
+      true flowing/turbulent jet (curl-noise advection / billow-formed, NOT a stretching capsule — the column reads as a
+      hard «capsule/plasticine» today) → an S2/S6 look-dev candidate. ⚠ ADR renumber (CONFIRMED first-hand — both
+      ADR-0016 files exist on main): the visual ADR-0016-gas-visual-s1-gas-lab collides by NUMBER with the engine
+      ADR-0016 (c-exec-017) → renumber the visual ADR series (a product cleanup leg, not a builder action; peer to the
+      engine-side dup-ADR-0012 cleanup). S5 FOLLOW-UP (pre-existing, not S1): GasGridBounds.TexelIndex int-overflow
+      (guarded MaxGridDim 256³) — hardening vs raw bounds edits frozen S5 code → a separate leg. A lab look-dev polish
+      pass (dither/noise) is now evaluable IN MOTION. next = S2 — the planner owns the next CALL (opened in a fresh
+      GasCoopGame_dev_2 session with a PLAN, owner present; comes HOME with an owner-eye sign).
     note: |
       Engine spine (Wave A / c-exec-012) UNTOUCHED. FIŠKA «Живое Стекло» = already CUT by the owner today in the canon track
       (b274967 / s-repair-008) — NOT re-done here (concurrent-session state reconciled). The render code lives in GasCoopGame's
@@ -635,7 +778,7 @@ open_calls:
       fresh-session G5 (different family) COULD-NOT-REFUTE; STOP-v8. «точно» = green suite; owner-eye (2 processes agree) =
       confidence NOT a gate. next slice = S3. FULL CALL → work/c-exec-016-call.md.
   - id: c-exec-017
-    status: done   # ✅ DELIVERED + applied 2026-06-28 (s-work-026): binding gates GREEN on GasCoopGame dev @ec54d4f (857/857, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE); both legacy families DELETED, verified first-hand (0 prod hits); retirement ADR = ADR-0016; merge dev→main + push OWNER-GATED + now a REAL merge (visual S5 advanced main to 9780713). Record → history/c-exec-017-s2a-result-2026-06-28.md. — was AUTHORED 2026-06-28 (s-work-025): S2a ZERO-LEGACY reconstruction-spine RETIREMENT executor CALL → work/c-exec-017-call.md. Faithful transcription of the owner-signed + 7-agent-verified (wf_89e9d3c2) c-exec-016 PLAN inventory; NOT re-hardened by a fresh workflow (inventory already adversarially verified + owner-signed; the leg's own gates — re-verify first-hand before delete + ZERO-LEGACY 3-lens re-audit + fresh-session G5 — carry verification). Ready: owner opens c-exec-017 in a FRESH GasCoopGame_dev session (PLAN, owner present; §Re-sync + FF dev→main @eed321b + archive c-014/c-015 openspec FIRST). RESULT applied home by a separate OS writer.
+    status: done   # ✅ DELIVERED + applied 2026-06-28 (s-work-026): binding gates GREEN on GasCoopGame dev @ec54d4f (857/857, -Deliver GREEN, mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE); both legacy families DELETED, verified first-hand (0 prod hits); retirement ADR = ADR-0016; merge dev→main + push DONE 2026-06-28 (owner; main @2e24a24, verified first-hand). Record → history/c-exec-017-s2a-result-2026-06-28.md. — was AUTHORED 2026-06-28 (s-work-025): S2a ZERO-LEGACY reconstruction-spine RETIREMENT executor CALL → work/c-exec-017-call.md. Faithful transcription of the owner-signed + 7-agent-verified (wf_89e9d3c2) c-exec-016 PLAN inventory; NOT re-hardened by a fresh workflow (inventory already adversarially verified + owner-signed; the leg's own gates — re-verify first-hand before delete + ZERO-LEGACY 3-lens re-audit + fresh-session G5 — carry verification). Ready: owner opens c-exec-017 in a FRESH GasCoopGame_dev session (PLAN, owner present; §Re-sync + FF dev→main @eed321b + archive c-014/c-015 openspec FIRST). RESULT applied home by a separate OS writer.
     note: |
       Executor leg (GasCoopGame, dev→main when green) — S2a = the ZERO-LEGACY half of the S2 split, runs FIRST (clean base
       for S2b). GOAL: tree is ZERO-LEGACY under input-lockstep (Факт-6) — DELETE both pre-lockstep host-authoritative
@@ -651,7 +794,7 @@ open_calls:
       delete; -Deliver GREEN; ZERO-LEGACY 3-lens re-audit; fresh-session G5; STOP-discipline (KEEP-member breaks / delete
       needs behavior change / expanding into S2b loopback / reopening ADR-0010). FULL CALL → work/c-exec-017-call.md.
   - id: c-exec-018
-    status: queued   # READY TO AUTHOR 2026-06-28 (s-work-026): S2a clean base now EXISTS (GasCoopGame dev @ec54d4f). S2b lockstep loopback LOAD-BEARING — the direction authors + hardens this CALL NEXT (a fresh OS work-session). Folds: ADR-0002 (NOT ADR-0010) for the lock (d-adr-lockstep-citation-001 — verified canon citation error); RNG-control DROPPED (d-s2-rng-control-na-001); chunk-span S4-deferral carried. Scope frozen by the c-exec-016 PLAN split.
+    status: done   # ✅ DELIVERED + MERGED + PUSHED 2026-06-29 (s-work-028): GasCoopGame main @adb9255; load-bearing loopback harness verified first-hand (Core/Field/Determinism/); -Deliver GREEN, 923/923, mutation 73.51%, G5 COULD-NOT-REFUTE + Codex + 5-skeptic panel; lock ADR-0002 intact. Record → history/c-exec-018-s2b-result-2026-06-29.md. — was AUTHORED + adversarially HARDENED 2026-06-28 (s-work-027): S2b load-bearing lockstep-loopback executor CALL → work/c-exec-018-call.md. Hardening wf_e4074544-feb (28 agents, 6 lenses → refute-verify → synth; 16 raised → 10 survived → 1 must-fix + 6 should-fix folded, ZERO lock-change / ZERO re-design). Must-fix caught a real bug: a RED control aimed at an UNBUILT S4 region-rollup seam → re-scoped to spec-silence; + 3 stale canon line-cites (my own §1 ADR-edit shifted them +1) → name-anchored; + awake-queue/active-front contradiction, S5 boundary, bitmap trip-wire restored. Folds ADR-0002 lock (d-adr-lockstep-citation-001 — canon now corrected), RNG-control DROP (d-s2-rng-control-na-001), chunk-span S4-deferral. Ready: owner opens c-exec-018 in a FRESH GasCoopGame_dev session (PLAN, owner present, §Re-sync FIRST) on the clean post-S2a base (main @2e24a24). RESULT applied home by a separate OS writer.
     note: |
       Executor leg (GasCoopGame, dev→main when green) — S2b = the load-bearing half of the S2 split, on the clean post-S2a
       base. GOAL: elevate the loopback determinism proof to LOAD-BEARING — a 2-endpoint (host + 1 in-process follower = a
@@ -664,9 +807,52 @@ open_calls:
       fresh-session G5. Genuine artifact to elevate = VoxelField.MeaningChecksum + the F11 two-endpoint re-run harness.
       Carries the c-exec-016 done_when 2/3/4 content MINUS the RNG control. STOP = stored velocity / float authoritative
       path / re-flux-as-gate / reopening ADR-0010. Authored when c-exec-017 is GREEN.
-  - id: c-visual-001
-    status: queued   # RE-SPECCED 2026-06-26 (s-visual-004) to the STRUCTURE-FIRST build-step 1 (was the pre-structure-first P1 "grid→GPU pipe over RN1"). FULL CALL authored + adversarially hardened (wf_5dd9d57a-142, 4 lenses) → work/c-visual-001-call.md. Opens with a PLAN (owner present), builds in a fresh GasCoopGame_dev session (dev→main when green). Owner starts it when he chooses (parallel to the engine bet, ~40–60 min/day).
+  - id: c-exec-019
+    status: delivered   # ✅ DELIVERED + MERGED + PUSHED + BINDING-G5-VERIFIED 2026-06-29 (s-work-031): Sc-types built on dev → merged dev→main --no-ff @7d08882 (PUSHED), verified FIRST-HAND. Builder RESULT GasCoopGame_dev/RESULT.md: -Deliver GREEN (948/948 build; 1028/1028 now), mutation 76.74%, all 9 done_when disposed, in-build Sonnet 4.6 G5 could-not-refute (6 seams). BINDING fresh-session G5 (s-work-031, wf_a07586c0-22f — 7 seam-refuters + referee over the MERGED code) = COULD-NOT-REFUTE, ZERO blocking; 2 note-only planner-notes carried to c-exec-020 (settle-floor-vs-kpEff; type-hardcode-scan completeness). Owner-authorized settle-criterion amendment folded (owner-ack:esc-c-exec-019-settle-criterion-2026-06-29). — was: FRAMED+HARDENED s-work-030 (wf_672e0128-009).
     note: |
+      Executor leg (GasCoopGame, dev→main when green) — Sc-types = the multi-gas TYPE substrate everything else (weight/
+      reactions/damage) keys off. GOAL: the engine carries ≥2 TEST meta-types behaving VISIBLY differently via a 3-layer
+      DATA-DRIVEN param structure (R15: shared PARENT params [density/packing, ratio-to-air=weight class, spread speed] →
+      per-meta-type → type/instance config + env tuning); + the day-one per-cell dominant-TypeId checksum socket; + the
+      MODDABILITY seam (ordered content-hashed session-fixed type registry whose hash is reserved for the lockstep
+      session-start handshake; external mod-loader DEFERRED). ENGINE-ONLY (no visual hookup — visual runs on dev2). Types
+      differ THIS slice only via EXISTING params (spread speed, density) — weight/reactions/damage = later slices. The engine
+      [species][cell] shape already exists (speciesCount=1 pinned) → EXTENSION not rewrite. Determinism preserved (loopback
+      hash green; close the S2b scan-root parity gap). a type = DATA, NEVER hardcoded C# (welds moddability shut). DISCIPLINE:
+      RED-first independent test-author (≥2 types diverge + single-type no-regression + no-hardcoded-type + TypeId-checksum +
+      registry-hash); -Deliver GREEN; mutation ≥70; fresh-session G5; STOP (hardcoded C# type / visual creep / weight-reactions
+      creep / float / reopening ADR-0002). lock = ADR-0002. May SPLIT (PLAN scopes). FULL CALL → work/c-exec-019-call.md.
+  - id: c-exec-020
+    status: framed   # FRAMED + adversarially HARDENED 2026-06-29 (s-work-032): Sc-weight (per-type vertical buoyancy, ENGINE-ONLY) executor CALL authored → work/c-exec-020-call.md. Hardening wf_8f324a28-81e (7 lenses → per-finding refute-verify → synth; 24 raised → 20 survived → 3 must-fix + 9 should-fix/nit folded, ZERO lock-change / ZERO re-design; 4 refuted incl. goal-hygiene «bias-not-sort is the canon-§3 OUTCOME anchor» + «temperature-reserve does not gut the deliverable»). Every cited symbol VERIFIED first-hand at GasCoopGame main @7d08882: CoarseSpecies.EffectiveDensity:46 (eff=max(1,MW-(T>>shift)), Weights={64,32,16,8}) + CoarseBandStep.Settle:186 (the forbidden densest-first capacity-fill SORT) + VoxelFaceFlow.cs:85 kpEff=Kp*spf + GasParentParams.RatioToAir (reserved «Sc-weight» slot) + GasMetaType/GasType carry only SpreadKpOverride + GasTypeRegistry.ComputeContentHash:146-160 (folds parent.RatioToAir + per-index EffectiveKp only — NOT a per-type weight override) + MeaningMembers max bit TypeId=1<<5. Ready: owner opens c-exec-020 in a FRESH GasCoopGame_dev session (opens with a PLAN, owner present, §Re-sync FIRST). RESULT applied home by a separate OS writer. May SPLIT (PLAN scopes).
+    note: |
+      Executor leg (GasCoopGame, dev→main when green) — Sc-weight = the 2nd CHARACTER-ROAD slice: per-type VERTICAL BUOYANCY
+      (heavy SINKS / light RISES), tunable per meta-type, as an integer BIAS on Z-face flow = a CREEPING front (canon §3
+      «buoyancy-BIAS, НЕ сортировка»; per-column instant sort near = STOP / §7-buried). Keys off Sc-types (wires the RESERVED
+      GasParentParams.RatioToAir weight-class slot). approach token = per-type-buoyancy-bias-creeping-front. PORT CRUX: port the
+      far-tier LAW (CoarseSpecies.EffectiveDensity, re-expressed as DATA) — NEVER the far-tier REALIZATION (CoarseBandStep.Settle's
+      densest-first capacity-fill = the per-column SORT §3/§7 forbid near); the frozen far-tier source stays untouched/unscanned
+      (retires at S4). The far-tier law is RELATIVE/UNSIGNED → the PLAN must define an ABSOLUTE NEUTRAL for the signed Z-bias.
+      MECHANISM (PLAN owns realization): a per-TYPE, Z-faces-only, PERSISTENT integer bias combined into desiredMove before the
+      clamp (analogous to S1's per-face _bias but per-species — NO repurposing _bias; NO banking into the Mass-folded carry).
+      THE 2 G5 PLANNER-NOTES folded as HARD obligations: (a) derive the no-slosh bound against the TRUE per-tick term
+      mag·cond/(Kp·spf) — NOT raw-Kp-assuming-spf=1, NOT a magic «~2.4x» (spf cancels at a full face → over-protection is
+      conductivity-dependent 1×..spf×); RED settle oracle = a forever-slosh-but-loopback-green column MUST be RED. (b) the
+      no-hardcode scan: Sc-weight is the FIRST per-type-DISPATCH slice — option (a) pure data-arithmetic (no enum/switch/
+      if(typeId==N)/dict/array-by-TypeId) + correct the «strongest guarantee» header, OR option (b) broaden the scan BY SYMBOL
+      (NOT a blind dir-append that false-positives on VoxelFaces' geometry switch(face) / the MeaningMembers enum). LINCHPIN
+      must-fix: fold the NEW per-type weight OVERRIDE into the registry ContentHash (lockstep-handshake gate) + the per-tick
+      MeaningChecksum decision (DERIVED→no member / STORED→new SKIP-ZERO member, NOT !IsDefault). BOUNDARIES: ENGINE-ONLY (no
+      visual hookup; the visual's RiseSinkBias on main is a separate cosmetic field); NO reactions/damage; temperature = an
+      OPTIONAL reserved coupling term, NOT the Sc-damage mechanic; NO velocity/inertia (TIER-3/ADR-0010 reserved); lock =
+      ADR-0002. DISCIPLINE: RED-first independent test-author; -Deliver GREEN; mutation ≥70; fresh-session G5 (different family)
+      COULD-NOT-REFUTE; STOP-discipline. «точно» = green suite; owner-eye (heavy pools low / light collects high, creeping) =
+      confidence NOT a gate. next slice = Sc-reactions. FULL CALL → work/c-exec-020-call.md.
+  - id: c-visual-001
+    status: delivered   # ✅ BROUGHT HOME 2026-06-28 (s-visual-005) — off-contour VISUAL-track drift reconciled first-hand. c-visual-001 was BUILT foundation→S1→S3→S5 and MERGED to GasCoopGame origin/main: S5 real-data swap @9780713 (verified ancestor of main tip 2e24a24). Evidence (GasCoopGame_dev_2/RESULT.md, read first-hand): -Deliver inner GREEN 1022/1022, mutation 76% ≥70, independent spec-only test-author (39 RED), 6-lens adversarial review, ZERO Core/** edit (977 sim tests unchanged), owner-eye SIGNED 2026-06-28 «облако читается хорошо, верится что это газ». ADRs 0012 seam / 0013 S1 / 0014 S3 / 0015 S5. S6 look-development = WIP checkpoint on dev2 @dc4c225 (pushed, NOT merged — look not locked; render-only, zero sim/layout change). The OS recorded this as "queued/not-started" for ~2 days across 3 owner-gated merges = the drift the owner flagged; now corrected. — was: queued (structure-first build-step 1, work/c-visual-001-call.md).
+    note: |
+      ✅ DELIVERED through S5 (real data in motion) — see the status comment + GasCoopGame docs/gas-visual-stage-plan.md.
+      The track rolls to LOOK-DEVELOPMENT (gas-lab → P1 levers → per-type character; g-7e15.next). Original build-step-1
+      scope kept below as history:
       Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev→main when green). Build-step 1 of the
       structure-first gas-visual architecture (work/gas-visual-architecture-2026-06-26.md §7 step 1): a WORKING gas-visual
       on the HOME machine on FAKE data — a one-way read-only SEAM (IGasViewSource) filling TWO GPU resources (a per-cell
@@ -682,6 +868,23 @@ open_calls:
       flat gradient edge (depth-composited full-res front DEFERRED to step 3); perf NON-gating (2 body knobs + a recorded
       home frame-cost number). Residual risks + left-to-PLAN items in work/c-visual-001-call.md. next = c-visual-002
       (build-step 2 — three gases from DATA + the forgot-to-register guard).
+  - id: c-visual-002
+    status: delivered   # ✅ S1 DELIVERED + MERGED + PUSHED 2026-06-29 (s-visual-009, writer-applied) — the gas-lab leg's FIRST sub-leg is home: a dedicated unclipped gas-lab where ONE analytical gas plays spawn-bloom → vertical-column jet → slow-creep in open space that NEVER clips to a rectangle (data-side soft edge-falloff drives density to 0 in the outer margin → ZERO shader/GPU-layout/sim edit). VERIFIED FIRST-HAND: GasCoopGame origin/main @f7efbea (--no-ff, parents 2117341 engine + 04a93ea dev2); GasLabScene.unity + LabGasField + LabGasViewSource + LabGasFieldEdgeTests + the owner-eye checklist + frozen openspec/changes/c-visual-002-s1-gas-lab/ ALL exist on main. -Deliver GREEN 1003 tests (923 engine baseline + 80 Lab Render — the 977→923 shift is from the ENGINE S2a/S2b deletions, NOT this render-only leg; Core/** diff EMPTY), stride-gate green, owner-eye #1 SIGNED (Variant A — owner ran GasLabScene live, confirmed spawn→jet→creep + no rectangle from any angle, accepted the column as the expected S1 placeholder shape). Record → history/c-visual-002-s1-result-2026-06-29.md + history/s-visual-009.md. CUTS (owner-signed): two differently-charactered gases (heavy-sinks dark&dense / light-rises wispy&pale via reserved RiseSinkBias per-type buoyancy) + the first DIFFERENTIATING «light-through-volume» lever (scatter-glow) = S2 (the next sub-leg; owner-signed split; FEEL+lever fixed on the plan). DEFERRED (owner-ack:esc-c-visual-002-s1-natural-jet-deferred-2026-06-29): a true flowing/turbulent jet (the column grows as a hard «capsule/plasticine», does not flow) → S2/S6 look-dev candidate. ⚠ ADR renumber (CONFIRMED on main — both ADR-0016 files exist): visual ADR-0016-gas-visual-s1-gas-lab collides by NUMBER with engine ADR-0016 (c-exec-017) → renumber the visual ADR series (product cleanup leg, peer to the dup-ADR-0012 cleanup). S5 follow-up (pre-existing, not S1): GasGridBounds.TexelIndex int-overflow (guarded MaxGridDim 256³) = a separate leg. The leg ROLLS to S2 — planner owns the next CALL. — was FRAMED 2026-06-28 (s-visual-006) — gas-lab + cloud-at-rest look-development leg (step 0+1 of GasCoopGame docs/gas-visual-stage-plan.md §S6+), framed the SAME way as the engine legs (CALL → fresh dev2 session opens with a PLAN → render-only gates + owner-eye → RESULT home). Corrects an off-contour paste-prompt shortcut. RIGHT-SIZED: render-only look step, NO heavy adversarial hardening (nothing correctness-critical to refute); binding gate = owner-eye «ближе к жемчужине» + render-only regression invariants. FULL CALL → work/c-visual-002-call.md. VALIDATED + REVISED 2026-06-29 (s-visual-007): an adversarial check vs the REAL dev2 code (wf_de8a9945 — ground-truth + skeptical critique + refute referee) KEPT the plan spine (NO re-spine) but folded 3 changes + flagged perf UNVERIFIED. Verified root cause of «блекло» = coarse grid (5x16x5 / 3x3x4) + the HARD BOX-AABB rectangle clip (NOT a weak shader; GasUber already ~40 knobs). The 3 changes: (a) the lab shows gas IN MOTION (spawn/jet/creep), not a frozen puff; (b) a SEPARATE UNCLIPPED test scene (owner-requested — no rectangular cut); (c) front-load an early TWO-TYPE-character probe (two visibly-different gases on one screen via a RESERVED GasParams field — character is the owner's headline, was deferred to the finale + is globally-impossible today) + reconsider the SKIPPED "unique" levers (light-through-volume/emissive-cores/flow-anisotropy) now toon is revoked. NOT a "small" step (split allowed at PLAN). CALL rewritten.
+    note: |
+      Executor leg (GasCoopGame render/adapter layer — NOT the gated Core; dev2→main when green). REVISED scope (post-
+      validation, s-visual-007 — NOT a "small" step): (0) a SEPARATE convenient gas-LAB scene in OPEN space where the gas
+      is NEVER clipped into a rectangle (generous bounds + soft falloff, verify from multiple angles — the box-AABB clip
+      is a code-confirmed root cause); (1) the gas shown IN CHARACTERISTIC MOTION (scripted spawn/jet/creep loop, NOT a
+      frozen puff) reads as a real, especially-cool gas; (2) an EARLY TWO-TYPE-character probe — two visibly-different
+      gases in the SAME volume at once, one per-type shape/motion lever driven from a RESERVED GasParams field (the buffer
+      is already per-type for colour; 96B has reserved RiseSinkBias/Temperature/State…). Pick DIFFERENTIATING look levers
+      (light-through-volume/emissive-cores/flow-anisotropy), not just safe polish (toon revoked). REUSE the delivered
+      GasUber body + RealGasViewSource seam, don't rebuild. BOUNDARIES: render-only (zero Core/** edit, sim + 977 tests
+      untouched); 96B layout frozen (reserved-field or layout-ADR decided in the PLAN); full per-type profiles + jet-shape
+      system + behaviour + particle accents + the weak-HW PERF pass (perf is UNVERIFIED, not a free bolt-on) = LATER legs;
+      STOP if the build reaches past the probe. GATES: -Deliver GREEN + render-only regression invariants = the «точно»
+      half; OWNER-EYE «ближе к жемчужине» (gas in motion, two types differ, no rectangle) = the binding gate (owner-run,
+      no self-marking, judged in motion). May SPLIT at the PLAN. Comes HOME as a RESULT. next = the next look slice.
   - id: c-exec-012
     status: superseded   # 2026-06-21 — RAN but SUPERSEDED: builder fabricated a blocker + substituted scene-tags + a VScale crutch + self-certified «(owner-approved)» (GasCoopGame_dev RESULT.md; leg 770da4a on dev — NOT merged to main). t-1 RE-OPENED on architecture (B), re-issued in NOW.next. Contour hardened v8 so this class bounces. (note below = the original/historical c-exec-012 scope.)
     note: |
@@ -941,8 +1144,84 @@ open_calls:
     status: done   # 2026-06-14 — re-shaped the g-9c41 bet under option A (owner «фокус на ядро, клип не паримся», «да A»). Applied: approach/done_when/wave_plan re-shaped, cut_list temp/destruction superseded, kill_by breach=real-controlled, clip dropped, HOLD on c-exec-003 lifted, TREE goal+criteria realigned. → history/s-shape-004.md
 
 decision_inbox:
+  - id: d-character-road-001
+    status: answered   # owner «можем оформлять» 2026-06-29 (s-work-030): CHARACTER ROAD ADOPTED. Ordered slices Sc-types → Sc-weight → Sc-reactions → Sc-damage (in active_tasks), AHEAD of the far-tier S3/S4/S5 (parked → when levels get big). First slice Sc-types FRAMED → work/c-exec-019-call.md (hardening running). Subsumes d-buoyancy-near-weight-priority-001 (→ Sc-weight). Shape → work/character-road-shape-2026-06-29.md. — surfaced 2026-06-29 (s-work-029 plan audit wf_59afe6f0-426, 37 verified gaps); root cause behind ~half the gaps.
+    note: |
+      AUDIT ROOT FINDING (work/gas-engine-plan-audit-2026-06-29.md): the FOUNDATION is solid + honestly scoped, but every
+      thing that makes gas FEEL like a character — multiple gas TYPES (engine carries exactly ONE today, verified), WEIGHT/
+      buoyancy (built nowhere), REACTIONS, gas-that-HURTS (dose/damage), temperature — is real in the canon model but lives
+      NOWHERE on the build schedule (all crammed in one open-ended "S6+, one at a time" line), even though they depend on
+      each other (no reactions without 2 types; no type-damage without types). So each surfaces as a surprise priority fight
+      (buoyancy = the first, d-buoyancy-near-weight-priority-001) while the planned "next" (S3) is far-tier scale-plumbing
+      for big levels that don't exist yet → the «топчемся/блекло» risk. DECISION (owner, planning — cheap, not code): define
+      ONCE the ordered CHARACTER sub-spine and lift each piece out of the backlog ellipsis into NAMED, dependency-tagged
+      slices. Audit's suggested order: gas TYPES (the multi-gas foundation) → weight/buoyancy → reactions → type-specific
+      damage/temperature. SUBSUMES d-buoyancy-near-weight-priority-001 (buoyancy = one stop on this road) + the "name a
+      multi-gas TYPES slice" + "name a damage slice" findings. Recommend: do this BEFORE starting S3 (far-tier plumbing can
+      wait until levels get big). NB: the old far-tier already has proven 4-species + weight + heat integer math → port it
+      before S4 deletes it (don't re-R&D).
+      ── R15 / META-TYPE STRUCTURE (owner raised 2026-06-29; verified first-hand) ──
+      The layered param structure (R15: shared PARENT params + per-META-TYPE group params + own visual + per-type config +
+      per-INSTANCE env tuning for intensity/danger at spawn) IS a live rule (canon §5:134) + Факт-4 says "types = data
+      day-one" — but built NOWHERE + on NO slice. CODE STATUS (origin/main): the engine data shape is ALREADY
+      multi-species-ready (VoxelField mass/flux/carry = [species][cell]; VoxelFaceFlow loops per-species;
+      SeedMass(cell,species,mass) species-aware) but pinned speciesCount=1, with NO per-type PARAM TABLE (2 species would
+      behave IDENTICALLY — the flow law has no per-type params), the forced-flow bias is per-FACE not per-type, and NO
+      per-cell dominant-TypeId in the MeaningChecksum (canon §9.5/Факт-4 wanted it day-one; skipped). The VISUAL half
+      (GasTypeDefinition/GpuGasParams render params) is being built by g-7e15 on FAKE data. PLACEMENT ANSWER (owner asked
+      early-vs-late): EARLY — make the meta-type/type param structure the FIRST character-road slice (weight/reactions/damage
+      all key off it). Build the META-TYPE layer first (owner MVP: meta-types + per-instance env params for intensity/danger;
+      specific types = config later). Lay the per-cell dominant-TypeId + its checksum slot WITH that slice — cheap, and
+      avoids a painful networked-schema migration later (safe to do now: types aren't networked-live until ~S4, no live nodes
+      to migrate). CROSS-TRACK: converge on ONE GasType/meta-type DEFINITION carrying BOTH look-params (feeds the visual
+      GasParams) AND behavior-params (feeds the engine) — R15 says the visual is procedural FROM params, so one source not
+      two. REPRESENTATION decision for that slice's PLAN: the engine's current DENSE [species][cell] vs Факт-4's
+      SPARSE-dominant-per-cell (+ mix-overlay) — dense is fine at few types but Факт-4 warns against dense pages at many.
+      ── SHARED-PARENT params + POST-RELEASE/MOD extensibility (owner raised 2026-06-29) ──
+      (1) SHARED PARENT layer = confirmed = R15's «общий родитель»: params common to ALL gases (density, ratio-to-air =
+      how heavy/light, spread speed, …) defined ONCE on the parent, never copied; meta-type adds its own; specific type =
+      config. Reinforce in the first TYPES slice's param-table design.
+      (2) POST-RELEASE / DLC / MOD gas types = a KEEP-OPEN SEAM to RESERVE now, DEFER the mechanism. The data-driven design
+      (R15: a gas type = a DATA asset + register, NO per-type C# / shader) ALREADY points at moddability — so the
+      load-bearing, nearly-free decision is to make the first TYPES slice purely DATA-DRIVEN (a TYPE TABLE the engine reads;
+      NEVER a hardcoded C# enum/switch — that would weld moddability shut + force a rewrite). DETERMINISM CATCH (lockstep):
+      if two peers have DIFFERENT type tables they DESYNC → reserve the type table as an ORDERED, CONTENT-HASHED,
+      session-FIXED registry whose hash joins the lockstep session-start handshake (Факт-5 no-late-join makes a Start-time
+      handshake natural; mismatch ⇒ refuse/quarantine, never silent). Ship a fixed built-in set first; later DLC/mod types =
+      just more registry entries, the handshake already guarantees all peers match. DEFER (not now): runtime loading of
+      external mod files (asset bundles / addressables), a mod API, workshop. IS IT NEEDED NOW: no — but reserving the seam
+      (data-driven + ordered content-hashed registry + handshake hook) is cheap in the first TYPES slice and avoids both a
+      later rewrite AND a silent lockstep break. RECOMMEND: reserve the seam in the TYPES slice; defer the mechanism.
+  - id: d-coop-interdependence-repin-001
+    status: OPEN   # surfaced 2026-06-29 (s-work-029 audit); a dropped dependency that risks a hard mid-build blocker. Owner: re-pin or fold into the next gameplay-slice PLAN.
+    note: |
+      AUDIT (Theme 3): forced-coop is now FROZEN signed design (2026-06-28, g-d3a8 — real teamwork must come from the SHARED
+      gas: one player venting/opening a route changes the air+path the OTHER faces, live; «two buttons» banned as fake
+      co-op). But the engine is co-op-NEUTRAL: lockstep makes both players SEE the same gas, yet NOTHING makes one player's
+      gas action a consequence the second is forced to feel. The node «co-op interdependence proof — the gas world must FORCE
+      cooperation» was spotted June (s-map-003) as owned by nobody and pushed to a task c-map-004 that was NEVER created /
+      never ran → fell through the cracks. The design demand has landed, the engine can't satisfy it, no slice bridges them.
+      DECISION (owner): re-pin — recreate the dropped node OR fold the "engine affordance that forces co-op" into the first
+      gameplay-slice PLAN, so it's an OWNED item, not a lost deferral. Later to build; cheap to re-pin now; risk if ignored =
+      a HARD blocker the day the first real co-op gas moment is built.
+  - id: d-buoyancy-near-weight-priority-001
+    status: answered   # SUBSUMED 2026-06-29 (s-work-030, owner «можем оформлять») into d-character-road-001 → the **Sc-weight** slice (2nd character-road slice; per-type buoyancy-bias, creeping front; port the old far-tier weight law). Prioritization resolved: character road over far-tier. — owner-FLAGGED 2026-06-29 («чтобы не потерялось»); verified first-hand: NO buoyancy/weight in Core/Field/Voxel.
+    note: |
+      OWNER OBSERVATION (verified first-hand in code): the NEAR gas currently spreads by pure GRADIENT diffusion through
+      open faces — vertical behaviour comes ONLY from geometry (a low door drains the low cells), there is NO per-species
+      WEIGHT (a super-heavy gas does NOT sink faster than a slightly-heavy one). Canon §3 PLANS exactly this as
+      «buoyancy-BIAS» (an integer bias on flow through Z-faces, per heavy/light, a CREEPING front — NOT instant
+      teleport-to-floor; per-column instant sort is FORBIDDEN near / §7-buried), but it is NOT built (S0 = gradient
+      face-flow; S1 = forced-flow impulses; S2 = determinism) and NOT assigned to a named slice (the §5 spine's S3 = FAR-tier
+      height-ROUTING layers for player-LESS rooms, which is a DIFFERENT thing from near per-species weight). So near
+      buoyancy = a real, UNSCHEDULED near-tier FEEL — now ON THE RECORD as a named slice candidate (was only a §3 model fact).
+      PRIORITIZATION (owner decides): next slice = (a) NEAR BUOYANCY (heavy sinks / light rises, tunable strength per gas —
+      visible, gameplay-defining, aligns with gas-as-jewel + the ∥ visual track; near = where the player is) OR (b) the
+      planned FAR-tier S3 (height-routing layers) + S4 (cheap distant rooms + no-pop rollup — scale-plumbing, load-bearing
+      for big/~150-room levels, NOT urgent at the current small-level scale; S4 is now unblocked by S2). RECOMMEND (a)
+      buoyancy next; far-tier waits until levels get big. Either way: do NOT lose this (owner ask).
   - id: d-adr-lockstep-citation-001
-    status: OPEN   # surfaced 2026-06-28 (s-work-026), verified first-hand from the c-exec-017 (S2a) build session; needs an owner call (touches the owner-signed canon).
+    status: answered   # owner-APPROVED + APPLIED 2026-06-28 (s-work-027, owner «да»): canon citation FIXED ADR-0010→ADR-0002 (lock = «lockstep over FishNet»; ADR-0010 = test-sandbox). 5 edits to knowledge/g9c41-gas-engine-SPEC.md (§1 authoritative correction note + Факт-1 + §6 hangar + §7 + §9-map), grounded in GasCoopGame ADR-0016/ADR-0002. Full history surfaced: host-broadcast detour was ADR-0003/0004 (+0005-part, +0008), retired ADR-0016/S2a. c-exec-018 (S2b) cites ADR-0002. — surfaced 2026-06-28 (s-work-026), verified first-hand from the c-exec-017 (S2a) build session.
     note: |
       VERIFIED canon citation error (the c-exec-017 builder flagged it; I confirmed first-hand against the actual repo ADR
       files): the canon g9c41-gas-engine-SPEC.md cites the INPUT-LOCKSTEP LOCK as «ADR-0010» (Факт-1 line 31, §2 line 12,
@@ -1541,7 +1820,7 @@ decision_inbox:
       Wave-2 verdict. → history/s-work-016.md.
   - id: d-gasmodel-redesign-001
     status: answered — owner chose дорога A+ 2026-06-20 (review s-review-002 follow-up). Next g-9c41 bet UNBLOCKED, but the owner asked that the BREAKDOWN be planned CAREFULLY first (research+map of the whole A+ construction into a de-risked, Unity-verifiable wave-tree) before any wave is shaped — see `next`. The old Wave-3 plan stays SUPERSEDED by the gas-model doc §K.   # RAISED by the owner 2026-06-20 AFTER seeing the t-4 render (recorded s-work-016) — a fundamental gas-MODEL redesign. Put to the owner with options A+/B/C + rec A+ at review s-review-002; owner ratified A+.
-      OWNER A+ RATIFICATION + STEERS (2026-06-20, voice, recorded this session): R1 дорога A+ APPROVED (sees the risk; bets it goes FASTER — 2 waves landed faster than expected, clear requirements now, Claude Code writes fast, ~12h/day, many tokens). R2 the BREAKDOWN is the CRUX + his stated #1 fear: «не сделать волну, за которой всё сделается» (no catch-all wave) + split into MINIMAL-but-FINISHED Unity-verifiable pieces (each provable by him in Unity, not a trifle) + «прям очень такой ресёрч как это всё разбить... детально каждый кусок со всеми рисками, чтобы не оказаться что в ядре что-то жёстко не так и всё переделывать»; spec covers it well, implement the spec; floated ~3 split (Grid / gas-sim / T3). R3 the TEST SANDBOX (d-sandbox-001) is needed SOON + clearly-built: 1–2 scenes; test multiplayer with conditions; test gas-sim; generate ANY level (level-gen, later + PGG inside); spawn gas anywhere/any amount; PAUSE the sim; convenient; snapshot data → Claude analyzes; DESIRABLE-not-required (only if cheap / non-hanging): a separate Unity-MCP-adapted scene for Claude OR Claude can run most functions in his scene; he has 1 inspector plugin, can buy more, thinks it's enough. R4 STOREFRONT — «хер с ней» for now: order = build the plan → visualization → THEN think storefront; he writes lore/mechanics in parallel himself; visual should exist by the deadline. R5 PARALLEL VISUAL track (GASG): run it in parallel (architecture is now defined, visual is separate), SECONDARY priority, ~4 wk, needs a VERY big research (many requirements); do NOT forget GASG TYPES / meta-types (their own piece). R6 the 2026-07-24 wall STAYS the extreme deadline (move the tail, not the wall); to hit it → the parallel visual. R7 his estimate ~3 dense weeks for the core impl (says NOT the optimistic scenario). R8 «не спеша, очень внимательно построить планы — важнейший этап». R9 (reactions) coarse=approximate-coincidence OK; near player = visible mixing + TELEGRAPH (blink/glow «вот-вот рванёт») + PREP WINDOW, NOT instant. R10 (rarity) NOT «few guaranteed» — expect PEAKS (esp. chain reactions); requirement = graceful degradation + deterministic awake-set under a spike. R11 (gas count) catalog of TYPES = UNLIMITED («бесконечно» = types, NOT concurrent reactions); per-LEVEL ~16 / max ~32 TUNABLE; per-ROOM typically ≤4 (portal-bounded) but NOT guaranteed → a REACTION QUEUE on overflow; recorded as RISK R-GASCOUNT-PERROOM. R12 (CAPACITY DE-CONFLATED — important) the s-work-016 «убрать ёмкость+перелив» CONFLATED two things; owner CONFIRMED he never wanted ROOM capacity removed: (A) the 2-band fill-then-overflow split (d-fillmodel-001) = what A+ changes (his «continuous weight» → smoother weight+temp settling over more layers, not float); (B) ROOM capacity + back-pressure (d-roomfull-001) = KEPT. The «remove capacity» owner-confirm was a FALSE question from the conflation — closed. All R9–R12 folded into work/aplus-wave-map-v1.md (§4 RESOLVED, §4.1, §4.2 RISK register). → carried into `next`.
+      OWNER A+ RATIFICATION + STEERS (2026-06-20, voice, recorded this session): R1 дорога A+ APPROVED (sees the risk; bets it goes FASTER — 2 waves landed faster than expected, clear requirements now, Claude Code writes fast, long agent sessions, many tokens). R2 the BREAKDOWN is the CRUX + his stated #1 fear: «не сделать волну, за которой всё сделается» (no catch-all wave) + split into MINIMAL-but-FINISHED Unity-verifiable pieces (each provable by him in Unity, not a trifle) + «прям очень такой ресёрч как это всё разбить... детально каждый кусок со всеми рисками, чтобы не оказаться что в ядре что-то жёстко не так и всё переделывать»; spec covers it well, implement the spec; floated ~3 split (Grid / gas-sim / T3). R3 the TEST SANDBOX (d-sandbox-001) is needed SOON + clearly-built: 1–2 scenes; test multiplayer with conditions; test gas-sim; generate ANY level (level-gen, later + PGG inside); spawn gas anywhere/any amount; PAUSE the sim; convenient; snapshot data → Claude analyzes; DESIRABLE-not-required (only if cheap / non-hanging): a separate Unity-MCP-adapted scene for Claude OR Claude can run most functions in his scene; he has 1 inspector plugin, can buy more, thinks it's enough. R4 STOREFRONT — «хер с ней» for now: order = build the plan → visualization → THEN think storefront; he writes lore/mechanics in parallel himself; visual should exist by the deadline. R5 PARALLEL VISUAL track (GASG): run it in parallel (architecture is now defined, visual is separate), SECONDARY priority, ~4 wk, needs a VERY big research (many requirements); do NOT forget GASG TYPES / meta-types (their own piece). R6 the 2026-07-24 wall STAYS the extreme deadline (move the tail, not the wall); to hit it → the parallel visual. R7 his estimate ~3 dense weeks for the core impl (says NOT the optimistic scenario). R8 «не спеша, очень внимательно построить планы — важнейший этап». R9 (reactions) coarse=approximate-coincidence OK; near player = visible mixing + TELEGRAPH (blink/glow «вот-вот рванёт») + PREP WINDOW, NOT instant. R10 (rarity) NOT «few guaranteed» — expect PEAKS (esp. chain reactions); requirement = graceful degradation + deterministic awake-set under a spike. R11 (gas count) catalog of TYPES = UNLIMITED («бесконечно» = types, NOT concurrent reactions); per-LEVEL ~16 / max ~32 TUNABLE; per-ROOM typically ≤4 (portal-bounded) but NOT guaranteed → a REACTION QUEUE on overflow; recorded as RISK R-GASCOUNT-PERROOM. R12 (CAPACITY DE-CONFLATED — important) the s-work-016 «убрать ёмкость+перелив» CONFLATED two things; owner CONFIRMED he never wanted ROOM capacity removed: (A) the 2-band fill-then-overflow split (d-fillmodel-001) = what A+ changes (his «continuous weight» → smoother weight+temp settling over more layers, not float); (B) ROOM capacity + back-pressure (d-roomfull-001) = KEPT. The «remove capacity» owner-confirm was a FALSE question from the conflation — closed. All R9–R12 folded into work/aplus-wave-map-v1.md (§4 RESOLVED, §4.1, §4.2 RISK register). → carried into `next`.
       R13 (2026-06-20, owner «да» ×): A+ BREAKDOWN APPROVED + Wave A APPROVED. Breakdown ran (wf_de2cf689-047: DAG + 5 wave
       cards + Wave-A detail + 2 critics) → work/aplus-breakdown-v1.md (critic verdict: sound plan/right shape; grow-vs-rewrite
       code-verified; 5 hardening fixes folded = lock keep-open seams EARLY). g-9c41 RE-SHAPED to Wave A (active_bet above):
@@ -1625,21 +1904,32 @@ next: |
   host-authority is ever reconsidered, RE-RUN the cloud-vs-grid analysis on the host-auth model (its kills are
   determinism-class, void under a single host).
 
-  IMMEDIATE NEXT = AUTHOR the S2b executor CALL c-exec-018 (a fresh OS work-session frames + hardens the load-bearing
-  loopback proof on the clean post-S2a base). S2a (c-exec-017, ZERO-LEGACY reconstruction-spine retirement) is DELIVERED +
-  applied 2026-06-28 (s-work-026): binding gates GREEN on GasCoopGame dev @ec54d4f (857/857 headless, -Deliver GREEN,
-  mutation 87.96%, coverage 8/8, fresh-session G5 COULD-NOT-REFUTE), both pre-lockstep host-authoritative reconstruction
-  families (chunked-delta + field-state-channel incl. the Факт-5 late-join path) DELETED — verified FIRST-HAND (0 production
-  hits); retirement ADR = ADR-0016. c-exec-018 MUST fold: ADR-0002 (NOT ADR-0010) for the input-lockstep lock
-  (d-adr-lockstep-citation-001 — a VERIFIED canon citation error: the repo's ADR-0010 is the test-sandbox, the lock is
-  ADR-0002); the RNG-control DROP (d-s2-rng-control-na-001); the chunk-span S4-deferral (CoarseChunkSpan/IsWireEncodable/
-  ChunkSpan/ChunkCount kept this leg — surviving far-tier consumers — full excision at S4). S2b = a 2-endpoint (host + 1
-  in-process follower = a 2nd VoxelField re-running the same input stream) per-tick MeaningChecksum byte-identity over the
-  full forced-flow scenario + RED controls + Adapters R14 3-mode owner-eye + frozen spec.
-  OWNER-GATED + PENDING: (a) merge S2a dev→main + push — now a REAL merge (visual S5 advanced main to 9780713; conflict-free
-  expected, Core-vs-Render), the c-016-era "clean --ff-only" is stale; (b) optional owner-eye (dotnet test 857, confidence
-  not a gate). OWNER DECISION OPEN: d-adr-lockstep-citation-001 (fix the canon ADR-0010→ADR-0002 citation; rec A). RESULT
-  applied home by a separate OS writer. next slice after S2 = S3 (height/layering).
+  IMMEDIATE NEXT = OPEN the **Sc-weight** executor CALL (c-exec-020) in a fresh GasCoopGame_dev session (PLAN, owner
+  present) — it is FRAMED + adversarially HARDENED 2026-06-29 (s-work-032, wf_8f324a28-81e: 24 raised → 20 survived
+  refute-verify → 3 must-fix + 9 should-fix/nit folded; 4 refuted → work/c-exec-020-call.md). Sc-weight = per-type buoyancy
+  (heavy SINKS / light RISES via an integer Z-face bias, a CREEPING front — canon §3 «buoyancy-BIAS, не сортировка»;
+  per-column instant sort FORBIDDEN/§7-buried); PORTs the proven far-tier CoarseSpecies weight LAW (NOT CoarseBandStep's
+  per-column capacity-fill SORT) re-expressed as DATA before S4 deletes it (subsumes d-buoyancy-near-weight-priority-001).
+  The 2 G5 planner-notes are FOLDED as HARD obligations: (a) settle bound derived against the TRUE per-tick term
+  mag·cond/(Kp·spf) — NOT raw Kp, NOT a magic «~2.4x» (spf cancels at a full face → over-protection is conductivity-dependent
+  1×..spf×); (b) the no-hardcode scan broadened BY-SYMBOL (NOT a blind dir-append that false-positives on VoxelFaces'
+  geometry switch(face)) OR replaced by pure data-arithmetic — Sc-weight is the FIRST per-type-DISPATCH slice. LINCHPIN
+  must-fix folded: the NEW per-type weight OVERRIDE must fold into the registry ContentHash (parent.RatioToAir alone ≠ the
+  override → else a green-lockstep-handshake cross-peer desync). **Sc-types
+  (c-exec-019) DELIVERED + MERGED + PUSHED + binding-G5 COULD-NOT-REFUTE 2026-06-29 (s-work-031, GasCoopGame main @7d08882).** **S2 is COMPLETE** (S2a @2e24a24 + S2b
+  @adb9255, verified first-hand; multiplayer-determinism FOUNDATION proven in loopback; gas-as-networked-citizen = a named
+  ~S4 seam). **DIRECTION SET (owner «можем оформлять» 2026-06-29):** the bet rolls to the CHARACTER ROAD, not the far-tier.
+  The PLAN AUDIT (work/gas-engine-plan-audit-2026-06-29.md, 37 gaps) found the "jewel" was built+scheduled nowhere → the
+  road is now ordered, named slices (active_tasks): **Sc-types → Sc-weight → Sc-reactions → Sc-damage**, AHEAD of the
+  far-tier S3/S4/S5 (PARKED → when levels get big). First slice **Sc-types** (c-exec-019, FRAMED → work/c-exec-019-call.md)
+  = the multi-gas META-TYPE/TYPE param structure (R15 3-layer: shared PARENT params → meta-type → type/instance), ≥2 TEST
+  types (not lore) behaving differently via spread/density, the day-one per-cell TypeId checksum socket + the moddability
+  seam (content-hashed type registry → lockstep handshake hook; external mod-loader DEFERRED), ENGINE-ONLY (visual forgotten
+  this slice — connects later, dev2 independent). Shape → work/character-road-shape-2026-06-29.md. CARRIED into the road:
+  buoyancy → Sc-weight (port the old far-tier weight math); co-op-interdependence (d-coop-...) → folds into
+  Sc-reactions/Sc-damage PLANs; the scan-root parity gap → closed in Sc-types. RECOMMENDED cheap canon-spec refresh still
+  OPEN (fold forced-flow into the model §3, update S1/S2 spine lines, Fact-4, dup ADR-0012) — owner go. RESULT applied home
+  by a separate OS writer.
 
   FOUR BUILDER-RETURNED DECISIONS — ACCEPTED AS A BUNDLE (owner «весь пакет» 2026-06-28):
   • DISPLACEMENT (S1b) → CUT to backlog (d-displacement-s1b-cut-001); re-entry trigger = first body-dams-gas gameplay
@@ -1658,8 +1948,17 @@ next: |
   cracks the lock) — armed, not pulled. Libraries if tier 3: FixPointCS/FixedMathSharp (arithmetic only — no
   off-the-shelf fixed-point fluid exists). Float fluid plugins (Zibra/Obi) = cosmetic g-7e15 layer ONLY.
 
-  ∥ VISUAL TRACK (g-7e15): c-visual-001 (structure-first build-step 1) is QUEUED + build-ready (work/c-visual-001-call.md);
-  owner starts it when he chooses (~40–60 min/day), parallel to the engine bet. Unaffected by this session.
+  ∥ VISUAL TRACK (g-7e15): c-visual-001 DELIVERED (foundation→S1→S3→S5 real-data swap, merged origin/main @9780713;
+  verified first-hand 2026-06-28) — brought home from off-contour drift by s-visual-005. c-visual-002 (gas-lab
+  look-development) S1 DELIVERED + MERGED + PUSHED 2026-06-29 (s-visual-009, verified first-hand: GasCoopGame origin/main
+  @f7efbea; GasLabScene.unity + Lab sources on main; -Deliver GREEN 1003; owner-eye #1 signed Variant A — unclipped
+  gas-lab, gas in spawn→jet→creep motion, no rectangle). Track now in LOOK-DEVELOPMENT (gas-lab ✅ → per-type character →
+  jewel levers); forward spec = GasCoopGame docs/gas-visual-stage-plan.md §S6+. Process fix HELD: the visual slice came
+  HOME + carried the «moves toward the JEWEL» owner-eye gate. next = the S2 sub-leg of c-visual-002 (two differently-
+  charactered gases via reserved RiseSinkBias buoyancy + the first «light-through-volume» scatter-glow lever; owner-signed
+  split) — planner authors the CALL, fresh GasCoopGame_dev_2 session. Carried flags: ⚠ ADR-0016 number collision
+  (visual vs engine, confirmed on main — renumber the visual series); natural-jet deferred (owner-ack:esc-…-2026-06-29);
+  S5 TexelIndex int-overflow follow-up.
 
   PENDING (carried, non-blocking): the os/engineering MAINTENANCE request (anti-substitution over-rotation + resolution
   conflation — work/MAINTENANCE-os-engineering-scope-guard-2026-06-26.md) is drafted, awaiting a SEPARATE maintenance
@@ -1671,6 +1970,31 @@ next: |
   s-work-025 commit: c-exec-016 PLAN split applied (S2→S2a+S2b; c-exec-017 authored, c-exec-018 queued; d-s2-split-001 +
   d-s2-rng-control-na-001; imported PLAN RESULT → history). s-work-026 commit: c-exec-017 (S2a) RESULT applied — S2a
   DELIVERED on dev (verified first-hand), bet rolls to S2b; d-adr-lockstep-citation-001 surfaced; S2a dev→main merge +
-  owner-eye owner-gated.
+  owner-eye owner-gated. ed421b5: S2a merge confirmed on main @2e24a24. s-work-027 commit: canon ADR citation FIXED
+  (ADR-0010→ADR-0002, d-adr-lockstep-citation-001 answered, owner «да») + c-exec-018 (S2b) authored + adversarially hardened.
+  s-work-028 commit: S2b RESULT applied — S2b + the whole S2 slice DONE (verified first-hand, GasCoopGame main @adb9255);
+  bet rolls to S3; 4 findings captured (scan-root parity gap, gas-as-networked-citizen ~S4, chunk-span→S4, ADR-numbering-by-track).
+  s-visual-005 commit: gas-VISUAL track BROUGHT HOME — c-visual-001 queued→delivered (S5 in origin/main @9780713, S6 WIP
+  dev2 @dc4c225, both verified first-hand); g-7e15.next reset to LOOK-DEVELOPMENT (gas-lab→P1 levers→character) + felt
+  TARGET (jewel/character) + PROCESS fix (come-home + «moves toward the JEWEL» owner-eye gate). Push main owner-gated.
+  s-visual-009 commit: c-visual-002 S1 (gas-lab unclipped + vertical-column motion) RESULT applied home — DELIVERED +
+  MERGED + PUSHED, VERIFIED FIRST-HAND (GasCoopGame origin/main @f7efbea --no-ff parents 2117341+04a93ea; GasLabScene.unity
+  + Lab sources + LabGasFieldEdgeTests + owner-eye checklist + frozen openspec on main; ADR-0016 collision CONFIRMED).
+  c-visual-002 framed→delivered; leg rolls to S2 (two-type RiseSinkBias buoyancy + scatter-glow «light-through-volume»,
+  owner-signed split); natural-jet deferred (owner-ack:esc-…-2026-06-29); render-only invariant held (Core/** diff empty,
+  -Deliver GREEN 1003, owner-eye #1 Variant A). Push main owner-gated.
+  s-work-031 commit: c-exec-019 Sc-types RESULT applied home — Sc-types DELIVERED + MERGED + PUSHED + binding-G5
+  COULD-NOT-REFUTE (verified first-hand, GasCoopGame origin/main @7d08882; builder RESULT -Deliver GREEN 948/948→1028/1028,
+  mutation 76.74%; fresh-session G5 wf_a07586c0-22f = 7 seam-refuters + referee over the merged code, ZERO blocking, 3
+  refuters re-derived the pre-slice golden @2117341 byte-identical). Sc-types active→done; c-exec-019 framed→delivered;
+  bet rolls to Sc-weight (parked→active; CALL c-exec-020 to be framed). Owner-authorized settle-criterion amendment
+  recorded (owner-ack:esc-c-exec-019-settle-criterion-2026-06-29). 2 G5 planner-notes carried into the Sc-weight CALL
+  (settle-floor-vs-kpEff; type-hardcode-scan completeness). Push main owner-gated.
+  s-work-032 commit: c-exec-020 (Sc-weight) FRAMED + adversarially HARDENED → work/c-exec-020-call.md + open_calls entry +
+  Sc-weight status note + next. Hardening wf_8f324a28-81e (7 lenses → per-finding refute-verify → synth; 24 raised → 20
+  survived → 3 must-fix + 9 should-fix/nit folded, ZERO lock-change; 4 refuted incl. goal-hygiene + temperature-reserve).
+  Every cited symbol verified first-hand at GasCoopGame main @7d08882. LINCHPIN must-fix folded = fold the NEW per-type
+  weight override into the registry ContentHash (else green-lockstep-handshake desync). Sc-weight stays ACTIVE awaiting the
+  GasCoopGame_dev executor return; no TREE/active-bet change (G1 intact: 1 active task). Push main owner-gated.
 
 END_OF_FILE: live/indie-game-development/NOW.md
