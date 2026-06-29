@@ -140,4 +140,6 @@ c-health-training-activity-converge-001.
 
 2026-06-29 — map health/root: owner supplied four next-health candidates; spawned c-health-map-evidence-001 for evidence before skeleton; no bet activated. → history/2026-06-29-s-health-owner-wants-planning-002.md
 
+2026-06-29 — research c-health-map-evidence-001: routed four owner health candidates into cross-domain review child candidate, training gameful child, nutrition cooking capsule, and deferred integration lane. → history/2026-06-29-c-health-map-evidence-001.md
+
 END_OF_FILE: live/health/LOG.md
