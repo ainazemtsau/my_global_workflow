@@ -48,6 +48,55 @@ recurring:
 decisions: []
 
 next: |
-  return-to-parent c-health-owner-wants-planning-001
+  CALL c-health-shape-hq-goal-coordinator-001
+  to: session
+  direction: health
+  play: shape
+  node: g-health-hq-goal-coordinator
+  goal: |
+    Shape the owner-approved g-health-hq-goal-coordinator node into the next possible health bet without activating it.
+    The shaped bet should test the smallest useful Health HQ v0: goal structure, owner-triggered review, domain
+    integration contract, and routed correction requests.
+  context: |
+    Read:
+    - live/health/CHARTER.md
+    - live/health/TREE.md
+    - live/health/NOW.md
+    - live/health/history/2026-06-29-c-health-map-evidence-001.md
+    - this map RESULT
+
+    Owner-approved node:
+    g-health-hq-goal-coordinator = Health HQ v0 as owner-facing goal-management/orchestration layer.
+    It is not just a reviewer and not a visual dashboard. It should manage goals, current phase, phase metrics,
+    domain responsibilities, review/decision log, on-demand reviews, domain coordination, and domain integration
+    contracts.
+
+    Owner constraints captured during map:
+    - All checks/reviews are owner-triggered; Health AI does not self-check or poll by default.
+    - Health HQ may diagnose and route but must not silently edit nutrition/training/activity artifacts.
+    - Current and future domains need a structure for integration with Health HQ: summaries/reports, supported goals,
+      exposed signals/metrics, accepted correction request types, and boundaries.
+    - Training starts only now and nutrition has only partial recent real use, so proof may use clearly marked
+      sample/test fixtures where real weekly data is not yet available.
+  boundaries: |
+    Do not activate a bet until shape is complete and owner approves.
+    Do not create tasks before bet shaping gates are satisfied.
+    Do not design a full future architecture.
+    Do not build a visual dashboard, API/integration layer, automatic polling, gameful engine, cooking domain,
+    habit system, sleep domain, or medical domain in this shape.
+    Do not store raw body/nutrition/training data in Direction OS.
+    Keep Health HQ as coordinator/front door/goal manager, not a god-agent replacing domains.
+  done_when: |
+    Shape output is ready for owner decision and includes:
+    - appetite and kill_by;
+    - cut list with at least one real cut;
+    - lens sweep verdict per charter lens;
+    - riskiest assumption and first task proposal testing it;
+    - explicit proof target for smallest useful Health HQ v0;
+    - clear boundary for domain integration contracts and owner-triggered reviews.
+  return: |
+    RESULT with shaped bet proposal, cut list, lens sweep, recommended first task, state_changes only if owner approves,
+    and next.
+  budget: one shape session
 
 END_OF_FILE: live/health/NOW.md

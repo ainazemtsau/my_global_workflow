@@ -8,6 +8,8 @@ approval_evidence: >
   "давай отправим запрос на очистку TREE". The cleanup replaces stale 8aa14f8/ACTIVE wording
   with the current 1fe41c2/PROGRAM-awaiting-research boundary; it does not restructure the node,
   reopen the bet, or claim body execution.
+  Owner approved adding g-health-hq-goal-coordinator on 2026-06-30 in map close with:
+  "Approve whole tree". The node is parked and creates no active bet or tasks.
 
 root:
   id: g-health-root
@@ -227,6 +229,40 @@ root:
         route, basic guided route, status/advice/substitution handling, basic review/handoff
         contour, and owner-operated acceptance without violating W1-W20, TA-CA1..TA-CA12,
         Direction OS raw-data boundary, D-kernel-1, or the setup/body evidence split.
+      children: []
+
+    - id: g-health-hq-goal-coordinator
+      goal: >
+        Health AI имеет верхний Health HQ v0: owner-facing goal-management и orchestration слой.
+        Owner может обращаться к нему как к главному входу в Health AI: "что сегодня?",
+        "разбери неделю", "проверь прогресс", "где bottleneck?", "добавить новый процесс?".
+        Health HQ ведёт явную структуру целей, текущую фазу, phase metrics, domain responsibilities,
+        review/decision log; проводит on-demand daily/weekly-style reviews; синхронизирует
+        nutrition/training/activity/recovery; готовит routed correction requests в домены;
+        задаёт минимальный domain integration contract для текущих и будущих доменов.
+      why: >
+        Root health goal требует не только отдельных nutrition/training процессов, а согласованного
+        движения к весу, силе, атлетичному виду, энергии и maintenance. Health HQ нужен, чтобы домены
+        не оптимизировали локально и не конфликтовали между собой.
+      done_when:
+        - Есть явная верхняя goal structure: root health goals, current phase, phase metrics,
+          domain responsibilities, review/decision log.
+        - Health HQ принимает owner-запросы типа "что сегодня?", "разбери неделю",
+          "проверь прогресс", "где bottleneck?".
+        - Есть минимальный domain integration contract для current/future domains:
+          responsibility; supported goals; summary/report format для HQ; metrics/signals exposed
+          to HQ; accepted correction/request types; boundaries: что HQ не меняет напрямую.
+        - Nutrition и training/activity имеют хотя бы thin summary/report adapter для HQ;
+          если real data ещё мало, proof использует clearly marked sample/test fixtures.
+        - Health HQ проводит один dry-run или partial-real goal review across nutrition +
+          training/activity + goal state.
+        - Review выдаёт progress verdict, bottleneck/uncertainty, routed requests в домены,
+          owner decisions если нужны, и какие метрики нужны сейчас/позже.
+        - Health HQ не меняет domain artifacts silently: только маршрутизирует correction через
+          domain procedures и owner/governance gates.
+        - Direction OS получает только summary, decisions, problems, next CALL; raw body/nutrition/
+          training data остаются вне Direction OS.
+      status: parked
       children: []
 
 END_OF_FILE: live/health/TREE.md
