@@ -96,6 +96,18 @@ parallel_tracks:
     note: |
       Latest marketing status rendered in history/2026-06-29-s-marketing-restart-001.md;
       no current CALL in NOW.
+  - id: codex-sidecar
+    track: CODEX SIDECAR / LAB
+    track_state: active
+    note: |
+      Direction-specific process stood up 2026-06-30 for using Codex alongside
+      Cloud Code without stealing the main bet or overlapping active Cloud Code
+      files. Modes: Scout (read-only), Pair-Lab (owner-present small Unity
+      iterations), Formal Leg (normal engineering contour/OpenSpec for
+      load-bearing work). Process: plays/codex-sidecar.md; design:
+      work/codex-sidecar-track-2026-06-30.md; ledger:
+      work/codex-sidecar/board.md. It assigns no concrete build task yet and
+      preserves the main next CALL.
 
 decisions:
   - id: d-coop-interdependence-repin-001
@@ -121,6 +133,7 @@ history_pointers:
   - Visual gas-lab S1 delivered: history/s-visual-009.md
   - Fixed-hour quota cleanup: history/s-work-hours-quota-cleanup-001.md
   - Visual style canon update: history/s-canon-visual-style-minimal-gas-stage-001.md
+  - Codex Sidecar process: work/codex-sidecar-track-2026-06-30.md; plays/codex-sidecar.md; work/codex-sidecar/board.md
 
 next:
   CALL: work/c-exec-020-call.md
