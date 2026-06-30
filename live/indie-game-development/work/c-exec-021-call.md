@@ -18,6 +18,59 @@ atomic/canonical; the shove must stay inside the c-020 settle envelope; the spli
 STORED-vs-DERIVED is the PLAN's call. Refuted: a shared buoyancy/_bias register STOP (buoyancy is DERIVED, touches neither
 _bias nor EmitImpulse); the next=Sc-damage pointer as a method-leak.)
 
+## ⚠ HELD + RE-SCOPED 2026-06-30 (s-reshape-sparse-dominant-001) — read BEFORE the body below
+
+This CALL was framed + hardened on the PRIOR plan (DENSE `[species][cell]` rep, pairwise, no
+dynamic-typing/waves). The owner then LOCKED **sparse-dominant** representation + env-derived dynamic
+typing + condition-waves (s-design-gas-core-001), and the road gained a new slice **Sc-rep**
+(re-represent dense→sparse-dominant) that runs BEFORE reactions. This CALL is **HELD, NOT trashed**: its
+hardening is REUSED as PRINCIPLE. It does NOT fire until the road REACHES reactions (after Sc-rep merges).
+Its FULL re-hardening (a fresh workflow) happens THEN — the code-grounding shifts under sparse-dominant.
+The body below is the prior-plan text kept for reuse; where it conflicts with this banner, THIS banner wins.
+
+**Re-scope direction (apply at the future reactions shape):**
+1. **Base** = post-**Sc-rep** (sparse-dominant), not post-Sc-weight dense.
+2. **Reaction schema → AXES** (fuel↔oxidizer, cold↔heat, caustic↔inert, …), NOT type-pairs — a new gas of
+   any tier adds ZERO new rules (O(axes)). The no-pair-dispatch crux below still binds.
+3. **Partial combine** = reactions fire ONLY at the OVERLAP FRONT (≥2 reactant types co-resident); a per-tick
+   cap marches the front inward — instant whole-cloud combine is structurally impossible.
+4. **Outcomes = pluggable EVENT KINDS** via an outcome-registry (sorted ids + ContentHash riding the session
+   handshake) + registered-handler dispatch, built on the **near VoxelField** — NOT on the old `GridEvent`
+   bus and NOT by widening `GridEvent`/replacing the `GridEventKind` if-chain (that IS the Wave-2-LOCKED
+   contract the boundaries below forbid touching). The design doc's «replace the GridEventKind if-Kind chain»
+   note lands on the near VoxelField under this re-scope, NOT the locked bus. If the owner ever wants the
+   locked GridEvent path changed, that is a SURFACED owner-gated live-spec amendment, never a quiet bullet.
+5. **Condition-WAVES (fork)**: a reaction MAY emit a PROPAGATING coarse event carrying a condition-tag + a
+   per-type response table (gas1,2→gas4; gas3→annihilate; gas5→ignite; gas6→ignore). ⚠ The wave PROPAGATION
+   channel is DISTINCT from single-cell outcome dispatch (item 4) and from EmitImpulse — it is a marching
+   coarse promo-event other cells READ and respond to. The reactions shape MUST decide which machinery carries
+   it and verify FIRST-HAND whether a propagating promo-event substrate exists or must be built (SPEC:
+   promo-event machinery is a precondition for any ведро-2 mechanic) AND that it does not re-collide with the
+   Wave-2-LOCKED GridEvent contract. So the local-only-vs-wave fork is NOT a free data flag — the wave branch
+   carries a possible new-machinery cost.
+6. **Dynamic-typing socket**: reactions read the per-cell dominant STAMP (laid by Sc-rep); the typing MECHANISM
+   (exposure accumulator/flip) is its own concern — if «accumulate» wins (design fork-1), it adds a NEW per-cell
+   replicated field = a NEW cell-keyed SKIP-ZERO MeaningChecksum member (its own bit, NOT the stamp's), a §9.5
+   schema decision to take deliberately at the typing slice.
+7. **§Re-sync dense→sparse touchpoints (builder MUST re-verify at the tip — do NOT inherit silently):**
+   (a) the no-regression golden is now the post-Sc-rep SPARSE golden (the dense path is removed by Sc-rep
+   ZERO-LEGACY), not the Sc-weight dense golden; (b) mass-bookkeeping + per-tick checksum — the dense per-plane
+   `MaxCellMass` cap / «moves mass between species planes» / «sum across all species planes» reasoning is
+   dense-framed; re-express against the sparse cell store (dominant amount + K-bounded overlay), conservation
+   oracle = per-cell TOTAL (not per-plane), and a reaction product exceeding K overlay slots is the SAME overflow
+   surface Sc-rep decides (LOUD THROW / declared policy); (c) handshake-hash — DROP the «per dense index»
+   phrasing (the handshake folds REGISTRY/rule-set identity, not the field — the fold mechanism survives, but the
+   dense-layout wording must not be inferred from it).
+8. **Forks** (flip-vs-accumulate, consume-vs-residue, wave gameplay-vs-cosmetic, regime-vs-identity, target
+   weak-hardware) resolve at THIS CALL's future shape, owner present.
+9. **ADR**: the prior «ADR-0021» assumption is STALE — Sc-rep takes ADR-0021 ahead of this CALL; c-021 takes the
+   next free engine number at its time (≈ADR-0022, verify mechanically: `git ls-tree -r --name-only dev2 --
+   docs/adr` + main docs/adr; record chosen + siblings).
+10. **All existing hardening below is PRESERVED as PRINCIPLE** (no-pair-dispatch crux, handshake-hash
+    order-independence, per-tick checksum SKIP-ZERO cell-keyed, mass integer-exact/no-silent-wrap/atomic,
+    ZERO-LEGACY ReactionLayer-LOCKED, co-op interdependence, the gate battery) — re-grounded onto sparse-dominant
+    at the future re-hardening, NOT carried forward with dense assumptions.
+
 ## Why this slice (and the lock id)
 
 Sc-types laid the multi-gas substrate (dense `[species][cell]` planes, a canonical content-hashed registry, per-cell type
@@ -194,18 +247,18 @@ DECIDES + RECORDS whether a reaction CONSERVES total mass or is a DATA-declared 
 not an explicit DATA-declared sink is a leak = STOP (GAP-2 void/sink is reserved, not active — canon §4; do NOT route reaction
 loss through it silently). No `int*int` on the authoritative path without a long guard (int-overflow scan).
 
-## the mix-overlay / «blended cell» resolution (dense rep — no PARALLEL overlay)
+## the mix-overlay / «blended cell» resolution (sparse-dominant — the cell IS the blended cell) — RE-SCOPED 2026-06-30
 
-Canon §3 names «временный mix-overlay при реакции», and the plan audit (THEME-1) flagged «'Blended cell during a reaction'
-has no data shape». Sc-types' representation choice was canon-DELEGATED to its PLAN (SPEC.md:50 Факт-4 honesty note:
-«представление (плотно `[вид][клетка]` vs разрежённо-доминантно) решается на PLAN Sc-types») and resolved to DENSE (ADR-0018
-D4) — so §3's «разреженная доминантная … НЕ плотные страницы» is SUPERSEDED by that delegation, and dense `[species][cell]` is
-the canon-sanctioned shape. Under dense, a «blended/mixed cell» is ALREADY representable — a cell carrying mass in ≥2 species
-planes (VoxelField.cs:33, 298-300) — so the reaction reads co-resident per-species masses directly, and canon's «временный
-mix-overlay при реакции» (the TRANSIENT reaction-phase datum) is realized by the TELEGRAPH / pending-reaction state (the
-DERIVED rising-mass warning, or the STORED 1<<6 member — see above), NOT a separate structure. **STOP** = inventing a
-PARALLEL species-mix REPRESENTATION (a sparse-dominant per-cell mix structure beside the dense planes — redundant, contradicts
-the shipped rep). The PLAN RECORDS this (resolving the audit's «no data shape» item).
+Under the LOCKED sparse-dominant representation (Sc-rep), a cell natively carries {dominant type + amount + a small bounded
+mix-overlay}, so a «blended/mixed cell» IS the native representation — the reaction reads the dominant + the co-resident
+overlay slots directly, and canon §3 / Факт-4's «mix-overlay» is the cell's own overlay (no separate structure). **STOP =
+reverting to dense `[species][cell]` planes** (the prior plan's rep — removed by Sc-rep ZERO-LEGACY). The old dense-rep claims
+that stood here («dense `[species][cell]` is the canon-sanctioned shape»; «§3 разреженная доминантная … НЕ плотные страницы is
+SUPERSEDED by the delegation»; «STOP = inventing a PARALLEL species-mix REPRESENTATION beside the dense planes») are DELETED —
+they pointed the wrong way once representation resolved to sparse-dominant (SPEC Факт-4, s-reshape-sparse-dominant-001; the
+SPEC.md Факт-4 honesty-note citation the old STOP rested on is itself now superseded). The PLAN re-grounds the mass/overflow
+handling onto the sparse cell store (per the §Re-sync touchpoints in the RE-SCOPE banner): conservation oracle = per-cell total,
+a product exceeding K overlay slots = the Sc-rep overflow surface (LOUD THROW / declared policy), NOT a dense per-plane cap.
 
 ## ZERO-LEGACY: the old ReactionLayer is a LOCKED contract (do NOT revive, do NOT free-delete)
 
