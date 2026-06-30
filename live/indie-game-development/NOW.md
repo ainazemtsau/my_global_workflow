@@ -66,11 +66,24 @@ parallel_tracks:
     track_state: active
     note: |
       Secondary to g-9c41, no fixed hour quota. c-visual-002 S1 gas-lab delivered
-      and merged (history/s-visual-009.md). The next visual work is the S2 look
-      sub-leg (two differently-charactered gases + scatter-glow), but no active
-      CALL is open in NOW. Use GasCoopGame docs/gas-visual-stage-plan.md §S6+ and
-      the canon visual-style update (history/s-canon-visual-style-minimal-gas-stage-001.md)
-      when the owner chooses that follow-up.
+      and merged (history/s-visual-009.md). 2026-06-29 RE-PLAN (s-visual-010,
+      owner-co-created): the framed S2 (two-type + scatter-glow tuned in the EMPTY
+      analytic gas-lab) degraded to jelly/blobs/visible-grid — WORSE than before;
+      root cause (verified in code) = judging the look in an empty void on a
+      low-ceiling cheap-noise render + blind live knob-turning. RE-PLANNED to judge
+      on the REAL sim in a real lit room (RealGasViewSource reads VoxelField render-
+      only; structurally cannot write the sim) with a NEVER-WORSE discipline (saved
+      baseline + A/B + one-inspector control panel + one visible win at a time).
+      The degraded S2 work was uncommitted on dev2 only (main @7d08882 untouched) ->
+      rolled back to the clean baseline; nothing bad merged. Official WAVE plan =
+      work/gas-visual-wave-plan-2026-06-29.md (4 waves toward the JEWEL + a parallel
+      engine finer-grid track; ~3 of ~10 look levers used). NEXT visual work = WAVE 1
+      CALL work/c-visual-003-call.md (real room + real sim + light-through + base-
+      render cleanup + first two-type; opens in a fresh GasCoopGame_dev_2 session
+      with a PLAN, owner present, comes HOME with an owner-eye sign). The old
+      "S2 two-type+scatter as framed" is SUPERSEDED by this re-plan. Reading set incl.
+      docs/gas-visual-stage-plan.md §S1/§S6+ and the canon visual-style minimal note
+      (history/s-canon-visual-style-minimal-gas-stage-001.md).
   - id: g-d3a8
     track: canon/design
     track_state: parked
