@@ -8,6 +8,21 @@
 
 Codex работает как sidecar-track с тремя режимами: read-only scout, owner-present Pair-Lab для маленьких Unity-итераций, и Formal Leg для любых load-bearing изменений через обычный engineering contour/OpenSpec.
 
+## 0.1. Как вызывать без команд
+
+Точные команды помнить не нужно. Владелец может писать свободно; Codex обязан распознать намерение и перед любыми правками явно назвать режим.
+
+Примеры свободных фраз:
+
+- "посмотри куда Codex может безопасно влезть" -> Scout;
+- "давай вместе покрутим газовую сцену" -> Pair-Lab;
+- "я буду смотреть в Unity, поменяй только камеру/свет/пол" -> Pair-Lab;
+- "можно ли Codex сделать маленький player sandbox?" -> Scout first, then maybe Formal Leg;
+- "оформи это как задачу, которую Codex сможет сделать" -> Formal Leg preparation;
+- "сделай фичу, которую потом будем развивать" -> Formal Leg.
+
+Если фраза двусмысленная, Codex выбирает более безопасный режим: Scout before Pair-Lab, Pair-Lab before Formal Leg only when owner is present, Formal Leg before any load-bearing product claim.
+
 ## 1. Зачем это нужно
 
 - У Cloud Code может закончиться лимит, а разработку останавливать нельзя.

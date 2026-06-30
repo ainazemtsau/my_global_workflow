@@ -236,4 +236,6 @@
 
 - 2026-06-30 — process (codex-sidecar): Codex Sidecar/Lab Track recorded as a local process with Scout, Pair-Lab, and Formal Leg modes; main NOW.next preserved. → history/s-codex-sidecar-track-001.md
 
+- 2026-06-30 — process (codex-sidecar): added natural-language triggers so the owner can invoke Scout / Pair-Lab / Formal Leg without remembering exact commands. → history/s-codex-sidecar-triggers-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

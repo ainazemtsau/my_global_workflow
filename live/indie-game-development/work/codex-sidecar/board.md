@@ -21,6 +21,13 @@ None yet.
 
 - default_worktree_policy: use a separate explicit Codex worktree; if none is assigned and Cloud Code may be active in the same area, downgrade to Scout.
 
+## Natural-language triggers
+
+- "посмотри куда можно влезть" -> Scout.
+- "давай вместе покрутим сцену / я буду смотреть в Unity" -> Pair-Lab.
+- "сделай устойчивую фичу / оформи задачу" -> Formal Leg or Formal Leg preparation.
+- unclear request -> Scout first.
+
 ## Entry template
 
 ```markdown
