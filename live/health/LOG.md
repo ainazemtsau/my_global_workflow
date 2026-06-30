@@ -142,4 +142,7 @@ c-health-training-activity-converge-001.
 
 2026-06-29 — research c-health-map-evidence-001: routed four owner health candidates into cross-domain review child candidate, training gameful child, nutrition cooking capsule, and deferred integration lane. → history/2026-06-29-c-health-map-evidence-001.md
 
+2026-06-30 map health/root: owner approved adding parked g-health-hq-goal-coordinator as Health HQ v0
+goal-management/orchestration node; next is shape on that node; no bet activated.
+
 END_OF_FILE: live/health/LOG.md
