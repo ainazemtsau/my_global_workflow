@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-06-30 by s-repair-now-hygiene-002
+updated: 2026-06-30 by s-work-034
 
 bet:
   node: g-9c41
@@ -14,8 +14,11 @@ bet:
     (per-type vertical buoyancy — heavy sinks / light rises, creeping integer
     Z-face bias, ENGINE-ONLY) closed against all 10 done_when with a BINDING
     fresh-session G5 = COULD-NOT-REFUTE (s-work-033). The road now rolls to
-    Sc-reactions: it is the active task, its executor CALL (c-exec-021) to be
-    framed + hardened in a fresh OS session (builder does NOT author it).
+    Sc-reactions: it is the active task, and its executor CALL c-exec-021 is now
+    FRAMED + adversarially hardened (work/c-exec-021-call.md, s-work-034; 12-lens
+    workflow wf_86b1f6d0-bda + direction adjudication of the rate-limited findings)
+    — ready for a fresh GasCoopGame_dev session to open with a PLAN (owner present;
+    builder did NOT author it). The road then rolls Sc-reactions → Sc-damage.
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -47,8 +50,10 @@ tasks:
       independent-author REDs, fresh-session G5, ZERO-LEGACY, owner-eye).
     status_note: |
       Active since s-work-033 (the bet rolled here when Sc-weight closed). CALL
-      c-exec-021 NOT yet framed — see NOW.next (a fresh OS session frames + hardens
-      it, owner present at PLAN; builder does NOT author it).
+      c-exec-021 FRAMED + adversarially hardened (work/c-exec-021-call.md, s-work-034;
+      12-lens workflow wf_86b1f6d0-bda + direction adjudication). Ready for a fresh
+      GasCoopGame_dev session to open with a PLAN (owner present; d-coop-interdependence-
+      repin-001 ratified there; builder did NOT author it).
 
 next_slices:
   - Sc-damage after Sc-reactions: dose-from-coarse, type-specific damage, temperature sink-layer.
@@ -63,6 +68,15 @@ open_calls:
       Ready for a fresh GasCoopGame_dev_2 session after the degraded uncommitted
       S2 work is rolled back to the clean baseline. Opens with a PLAN, owner
       present, then returns RESULT home.
+  - id: c-exec-021
+    to: executor
+    for: g-9c41 / Sc-reactions
+    issued: 2026-06-30
+    call: work/c-exec-021-call.md
+    note: |
+      Framed + hardened (s-work-034). A fresh GasCoopGame_dev session opens with a
+      PLAN (owner present), builds integer chemistry (telegraph + bang), returns
+      RESULT home. dev->main merge + push owner-gated.
 
 recurring: []
 
@@ -142,41 +156,39 @@ history_pointers:
   - Fixed-hour quota cleanup: history/s-work-hours-quota-cleanup-001.md
   - Visual style canon update: history/s-canon-visual-style-minimal-gas-stage-001.md
   - Codex Sidecar process: work/codex-sidecar-track-2026-06-30.md; plays/codex-sidecar.md; work/codex-sidecar/board.md
+  - Sc-reactions CALL framed + hardened: history/s-work-034.md; work/c-exec-021-call.md
 
 next:
-  CALL c-frame-021
-  to: session
+  CALL c-exec-021
+  to: executor
   direction: indie-game-development
-  play: work
+  play: work (executor — GasCoopGame_dev)
   node: g-9c41
   task: Sc-reactions
   goal: |
-    The next CHARACTER-ROAD executor CALL -- c-exec-021 (Sc-reactions: integer
-    chemistry between weight-class types) -- is framed + adversarially hardened and
-    ready as a self-contained artifact under work/, for a fresh GasCoopGame_dev
-    session to open with a PLAN (owner present).
+    Near-tier gas acquires integer chemistry -- co-resident reactant types telegraph
+    then bang as a shared in-checksum coarse event, data-driven (a new type = 0 new
+    code branches), determinism preserved -- satisfying work/c-exec-021-call.md's
+    done_when (PLAN-first, owner present).
   context: |
-    live/indie-game-development/NOW.md (Sc-reactions = the active task).
-    live/indie-game-development/knowledge/g9c41-gas-engine-SPEC.md (reactions =
-    data axes, not N²; Факт-4).
-    live/indie-game-development/work/character-road-shape-2026-06-29.md (the road;
-    Sc-reactions slice).
-    live/indie-game-development/history/2026-06-30-c-exec-020-sc-weight-result.md
-    (the Sc-weight substrate it builds on).
-    Decision d-coop-interdependence-repin-001: fold co-op interdependence into
-    this PLAN as its recommended home.
-    GasCoopGame main @61b7923 (base at-or-after; §Re-sync confirms HEAD first).
+    work/c-exec-021-call.md (the full hardened CALL -- self-contained; grounded in
+    GasCoopGame main @61b7923 real code).
+    GasCoopGame main @61b7923 (base at-or-after; the CALL's §Re-sync confirms HEAD first).
+    Opens with a PLAN (owner present); RATIFY d-coop-interdependence-repin-001's
+    fold-home there before the co-op axis is binding.
   boundaries: |
-    The builder does NOT author this CALL -- the direction frames it. ENGINE-ONLY
-    unless the shape says otherwise; do not reopen ADR-0002; renumber the engine
-    ADR off the dev2 visual-track number collision at the cross-track merge.
+    Per the CALL: ENGINE-ONLY; no type-pair hardcode dispatch (incl. an if-chain); no
+    same-tick cascade; no temperature/damage/exothermic-heat; do NOT revive or
+    free-delete the Wave-2-LOCKED ReactionLayer/GridEventKind.Reaction openspec
+    contract; frozen far-tier untouched; ADR-0002 not reopened; ADR-0021 (verified vs
+    the dev2 visual track which already holds ADR-0020).
   done_when: |
-    work/c-exec-021-call.md exists and is hardened: goal = integer reactions
-    between weight-class types (telegraph + bang, co-op interdependence pressure),
-    per-type DATA not code-branching, determinism preserved, the usual gate
-    battery; ready for a fresh GasCoopGame_dev session opening with a PLAN.
+    work/c-exec-021-call.md done_when #1-#11 met with evidence; check.ps1 -Deliver
+    GREEN, mutation >=70, independent-author REDs, fresh-session G5 (could-not-refute),
+    ZERO-LEGACY, owner-eye. RESULT routed HOME; dev->main merge + push owner-gated.
   return: |
-    A hardened c-exec-021 CALL artifact; NOW.next repointed to it.
-  budget: one framing session (+ an adversarial-hardening workflow).
+    A RESULT routed HOME (the OS owns the next CALL): outcome + evidence per the CALL's
+    return section + findings for the planner.
+  budget: one slice (split along the machinery seam if the PLAN finds it oversized -- see the CALL budget).
 
 END_OF_FILE: live/indie-game-development/NOW.md
