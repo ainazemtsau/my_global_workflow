@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-06-30 by s-work-033
+updated: 2026-06-30 by s-repair-now-hygiene-002
 
 bet:
   node: g-9c41
@@ -53,7 +53,16 @@ tasks:
 next_slices:
   - Sc-damage after Sc-reactions: dose-from-coarse, type-specific damage, temperature sink-layer.
 
-open_calls: []
+open_calls:
+  - id: c-visual-003
+    to: executor
+    for: g-7e15 / visual wave 1
+    issued: 2026-06-29
+    call: work/c-visual-003-call.md
+    note: |
+      Ready for a fresh GasCoopGame_dev_2 session after the degraded uncommitted
+      S2 work is rolled back to the clean baseline. Opens with a PLAN, owner
+      present, then returns RESULT home.
 
 recurring: []
 
@@ -129,36 +138,45 @@ history_pointers:
   - Sc-weight CALL framed: history/s-work-032.md; work/c-exec-020-call.md
   - Sc-weight delivered + binding-G5 closed: history/s-work-033.md; history/2026-06-30-c-exec-020-sc-weight-result.md
   - Visual gas-lab S1 delivered: history/s-visual-009.md
+  - Visual re-plan to real-sim waves: history/s-visual-010.md; work/gas-visual-wave-plan-2026-06-29.md; work/c-visual-003-call.md
   - Fixed-hour quota cleanup: history/s-work-hours-quota-cleanup-001.md
   - Visual style canon update: history/s-canon-visual-style-minimal-gas-stage-001.md
   - Codex Sidecar process: work/codex-sidecar-track-2026-06-30.md; plays/codex-sidecar.md; work/codex-sidecar/board.md
 
 next:
-  CALL:
-    to: session
-    play: work
-    goal: |
-      The next CHARACTER-ROAD executor CALL — c-exec-021 (Sc-reactions: integer
-      chemistry between weight-class types) — is framed + adversarially hardened and
-      ready as a self-contained artifact under work/, for a fresh GasCoopGame_dev
-      session to open with a PLAN (owner present).
-    context:
-      - live/indie-game-development/NOW.md (Sc-reactions = the active task)
-      - live/indie-game-development/knowledge/g9c41-gas-engine-SPEC.md (reactions = data axes, not N²; Факт-4)
-      - live/indie-game-development/work/character-road-shape-2026-06-29.md (the road; Sc-reactions slice)
-      - live/indie-game-development/history/2026-06-30-c-exec-020-sc-weight-result.md (the weight substrate it builds on)
-      - decision d-coop-interdependence-repin-001 (fold co-op interdependence into this PLAN — its recommended home)
-      - GasCoopGame main @61b7923 (base at-or-after; §Re-sync confirms HEAD first)
-    boundaries: |
-      The builder does NOT author this CALL — the direction frames it. ENGINE-ONLY
-      unless the shape says otherwise; do not reopen ADR-0002; renumber the engine
-      ADR off the dev2 visual-track number collision at the cross-track merge.
-    done_when: |
-      work/c-exec-021-call.md exists and is hardened: goal = integer reactions
-      between weight-class types (telegraph + bang, co-op interdependence pressure),
-      per-type DATA not code-branching, determinism preserved, the usual gate
-      battery; ready for a fresh GasCoopGame_dev session opening with a PLAN.
-    return: a hardened c-exec-021 CALL artifact; NOW.next repointed to it.
-    budget: one framing session (+ an adversarial-hardening workflow).
+  CALL c-frame-021
+  to: session
+  direction: indie-game-development
+  play: work
+  node: g-9c41
+  task: Sc-reactions
+  goal: |
+    The next CHARACTER-ROAD executor CALL -- c-exec-021 (Sc-reactions: integer
+    chemistry between weight-class types) -- is framed + adversarially hardened and
+    ready as a self-contained artifact under work/, for a fresh GasCoopGame_dev
+    session to open with a PLAN (owner present).
+  context: |
+    live/indie-game-development/NOW.md (Sc-reactions = the active task).
+    live/indie-game-development/knowledge/g9c41-gas-engine-SPEC.md (reactions =
+    data axes, not N²; Факт-4).
+    live/indie-game-development/work/character-road-shape-2026-06-29.md (the road;
+    Sc-reactions slice).
+    live/indie-game-development/history/2026-06-30-c-exec-020-sc-weight-result.md
+    (the Sc-weight substrate it builds on).
+    Decision d-coop-interdependence-repin-001: fold co-op interdependence into
+    this PLAN as its recommended home.
+    GasCoopGame main @61b7923 (base at-or-after; §Re-sync confirms HEAD first).
+  boundaries: |
+    The builder does NOT author this CALL -- the direction frames it. ENGINE-ONLY
+    unless the shape says otherwise; do not reopen ADR-0002; renumber the engine
+    ADR off the dev2 visual-track number collision at the cross-track merge.
+  done_when: |
+    work/c-exec-021-call.md exists and is hardened: goal = integer reactions
+    between weight-class types (telegraph + bang, co-op interdependence pressure),
+    per-type DATA not code-branching, determinism preserved, the usual gate
+    battery; ready for a fresh GasCoopGame_dev session opening with a PLAN.
+  return: |
+    A hardened c-exec-021 CALL artifact; NOW.next repointed to it.
+  budget: one framing session (+ an adversarial-hardening workflow).
 
 END_OF_FILE: live/indie-game-development/NOW.md

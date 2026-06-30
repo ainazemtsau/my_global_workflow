@@ -78,8 +78,9 @@ A RESULT routed home: outcome + evidence (render-only invariants + the owner-eye
 baseline) + the next look slice (wave 2 = alive motion).
 
 ## budget & rigor
-~40-60 min/day owner-gated build-gaps; a fresh GasCoopGame_dev_2 session. Same contour as the engine legs
-(CALL -> PLAN -> build -> gates -> RESULT home). Binding gate = the owner's EYE + the render-only regression
-invariants (no heavy multi-agent refutation — render-only). May SPLIT at the PLAN.
+Secondary visual-track cadence in owner-gated engine build-gaps; no fixed hour quota. Fresh GasCoopGame_dev_2
+session. Same contour as the engine legs (CALL -> PLAN -> build -> gates -> RESULT home). Binding gate = the
+owner's EYE + the render-only regression invariants (no heavy multi-agent refutation — render-only). May SPLIT
+at the PLAN.
 
 END_OF_FILE: live/indie-game-development/work/c-visual-003-call.md
