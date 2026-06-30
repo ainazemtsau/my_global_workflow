@@ -177,11 +177,36 @@ tasks:
       OS-write path, DB/API/runtime choice, exact schema/layout as contract, or
       monolithic prompt as closure.
     progress_note: |
-      Executor repair pass `s-zara-operate-contract-t1-current-markdown-acceptance-map-repair-chatgpt-001` prepared a Markdown-only product patch for the current foundation but could not create a product repo branch/commit/PR because the available GitHub actions in that session were read/inspect only. Patch prepared:
-      - add `checks/w20-a1-a13-acceptance-map.md`;
-      - update `README.md`;
-      - update `checks/markdown-foundation-checklist.md`.
-      Local checks: `git diff --cached --check` clean; diff stat 3 files, 93 insertions, 2 deletions; A-row count 13; W19 `Not chosen` count 10. Product repo main is still not repaired until a CLI/Codex/Claude Code executor applies the patch and returns GitHub commit/PR evidence.
+      ChatGPT executor pass
+      `s-zara-operate-contract-t1-apply-prepared-markdown-map-002-chatgpt-blocked`
+      could not create a product repo branch/commit/PR because the available GitHub
+      connector actions in this surface were read/list/search/fetch/status only and the
+      shell environment could not reach github.com for git clone/push. Product repo main
+      remains unrepaired.
+
+      Prepared apply-ready patch artifact for the current Markdown foundation:
+      - sandbox:/mnt/data/zaratusta-acceptance-map-repair-git.patch
+      - sha256: 611e33f4c121f4e448b3dc3b4bdfefca6c4a35ddee5c2d89d4c890e99175f122
+
+      Prepared manual check output:
+      - sandbox:/mnt/data/zaratusta-acceptance-map-repair-manual-check.txt
+      - sha256: 5ef3eafbe3abfdb5dda4fffa00a134cc9cc333a15b1c98fc5cd87d4213ad74c5
+
+      Patch changes only Markdown files:
+      - README.md
+      - checks/markdown-foundation-checklist.md
+      - checks/w20-a1-a13-acceptance-map.md
+
+      Local reconstructed checks:
+      - git apply --check: PASS
+      - git diff --check: PASS
+      - diff stat: 3 files, 74 insertions
+      - A1-A13 row count: 13
+      - W19 `Not chosen` count: 10
+      - boundary/HOW review: PASS
+
+      t-1 still requires a true CLI/Codex/Claude Code executor with product repo write access
+      to apply the patch and return product repo PR/commit evidence.
 
   - id: t-2
     kind: executor
@@ -252,14 +277,17 @@ tasks:
 recurring: []
 decisions: []
 open_calls:
-  - id: c-zara-operate-contract-t1-apply-prepared-markdown-map-002
+  - id: c-zara-operate-contract-t1-apply-prepared-markdown-map-cli-003
     to: executor
     for: t-1
     repo: github.com/ainazemtsau/zaratusta
     kind: engineering
     note: |
-      Apply the prepared Markdown-only A1-A13 acceptance map repair on top of current product repo main. Must create product repo commit/PR evidence; chat connector pass prepared the patch but could not push.
-
+      Apply the Markdown-only acceptance-map repair to product repo main or a product repo PR.
+      Use the exact repair design from c-zara-operate-contract-t1-apply-prepared-markdown-map-002
+      and the prepared patch/check evidence from
+      s-zara-operate-contract-t1-apply-prepared-markdown-map-002-chatgpt-blocked.
+      Must return product repo commit or PR evidence plus manual check output.
 preserved_evidence:
   - live/solmax/CHARTER.md
   - live/solmax/TREE.md
@@ -278,7 +306,7 @@ preserved_evidence:
   - github.com/ainazemtsau/zaratusta
 
 next: |
-  CALL c-zara-operate-contract-t1-apply-prepared-markdown-map-002
+  CALL c-zara-operate-contract-t1-apply-prepared-markdown-map-cli-003
   to: executor
   direction: solmax
   node: g-zara-operate-contract
@@ -286,64 +314,36 @@ next: |
   repo: github.com/ainazemtsau/zaratusta
   kind: engineering
   goal: |
-    Apply the prepared current-Markdown-foundation acceptance-map repair to product repo main and return product repo PR/commit evidence.
+    Apply the current Markdown-only W20/A1-A13 acceptance-map repair to product repo main
+    or a product repo PR and return product repo commit/PR evidence.
   context: |
     Active bet: b-zara-operate-contract-002.
     Product repo: github.com/ainazemtsau/zaratusta.
     Current verified foundation commit: b9c735c4b06e95e1039c35d8422e0839fd4a9e27.
 
-    Previous executor pass prepared, but did not push, this exact repair design:
-    - add `checks/w20-a1-a13-acceptance-map.md`;
-    - update `README.md` to list the acceptance map as current verification evidence;
-    - update `checks/markdown-foundation-checklist.md` to require A1-A13 row mapping and W19 firewall checks.
+    Prior ChatGPT pass prepared an apply-ready patch but could not push:
+    - checks/w20-a1-a13-acceptance-map.md
+    - README.md
+    - checks/markdown-foundation-checklist.md
 
-    The new acceptance map must:
-    - state that it is product-repo verification evidence for the current Markdown-only contract foundation;
-    - state that it is not a future storage schema, permanent file layout, runtime contract, UI plan, API plan, vendor choice, scheduler, automation, scoring policy, cadence, or external integration procedure;
-    - include a `Verification Use` section naming:
-      - README.md
-      - AGENTS.md
-      - contracts/manager-role.md
-      - contracts/workspace-boundaries.md
-      - contracts/source-context.md
-      - contracts/process-contracts.md
-      - contracts/owner-context.md
-      - contracts/context-loading.md
-      - examples/operating-examples.md
-      - checks/markdown-foundation-checklist.md
-      - docs/decisions/0001-markdown-only-reset.md
-      - docs/history/2026-06-16-runtime-scaffold-superseded.md
-    - include an A1-A13 row map where each row names concrete artifact/example/check coverage:
-      - A1: manager role separation -> manager-role Separation; README Current Foundation; AGENTS Contract Discipline; checklist Foundation Presence.
-      - A2: route/state/commitment basis -> AGENTS Contract Discipline; context-loading Procedure step 7; manager-role Responsibilities.
-      - A3: no generic topic/domain blacklist -> README Operating Rule/Out Of Scope; context-loading Topic-Open Rule; manager-role Responsibilities; operating-examples High-Stakes Or Source-Owned Request; checklist Boundary Integrity.
-      - A4: source/context item inspectability -> source-context Each Source Or Context Note Should Make Inspectable; AGENTS Contract Discipline.
-      - A5: loaded bundle/missing context/route -> context-loading Procedure; source-context Insufficient Context.
-      - A6: owner-context categories -> owner-context Context Categories/Basis Requirement; AGENTS Contract Discipline.
-      - A7: process registry/process contract shape -> process-contracts A Process Contract Should Explain; AGENTS Contract Discipline.
-      - A8: no matching process/process mutation -> process-contracts Process Creation And Mutation; context-loading Procedure step 6.
-      - A9: Direction OS/read-only and Zaratusta write boundary -> workspace-boundaries Read Boundary/Write Boundary; README Operating Rule; AGENTS Working Rule; checklist Boundary Integrity.
-      - A10: scoped approval for external/irreversible/spend/deletion/message/send/cross-system effects -> workspace-boundaries Effect Boundary; manager-role Responsibilities; operating-examples External Send Needs Approval and Unsourced Instruction Is Blocked Before Effect; checklist Boundary Integrity.
-      - A11: capture/proposal/commitment/log boundedness semantics -> manager-role Responsibilities; context-loading Procedure; operating-examples Capture Is Not Commitment and Proposal Is Not Accepted Plan; source-context Insufficient Context.
-      - A12: high-stakes/source-owned routing and blocked unsourced/unapproved effects -> context-loading Topic-Open Rule; source-context Allowed Uses/Insufficient Context; operating-examples High-Stakes Or Source-Owned Request and Unsourced Instruction Is Blocked Before Effect; checklist Boundary Integrity.
-      - A13: first Markdown-readable implementation layer and HOW firewall -> README Current Foundation/Out Of Scope; AGENTS Working Rule/Verification; decision 0001 Decision/Not Chosen; superseded runtime scaffold history; checklist Scaffold Absence/Boundary Integrity.
-    - include a W19 HOW firewall table marking all these items as `Not chosen`:
-      - exact UI/channel/app/surface;
-      - exact storage/database/replay engine/schema/file layout;
-      - engine/model vendor/framework/API/subscription adapter;
-      - horizon durations/cadence/month model/12-week model;
-      - non-caving weighing/scoring policy/thresholds;
-      - implementation of state writer and replay;
-      - exact research procedure mechanics;
-      - automation/scheduler/spend controls;
-      - external integration procedure for future non-Zaratusta writes;
-      - exact source registry/process registry/owner-context file layout.
+    Prepared patch/check artifacts from the blocked pass:
+    - sandbox:/mnt/data/zaratusta-acceptance-map-repair-git.patch
+      sha256: 611e33f4c121f4e448b3dc3b4bdfefca6c4a35ddee5c2d89d4c890e99175f122
+    - sandbox:/mnt/data/zaratusta-acceptance-map-repair-manual-check.txt
+      sha256: 5ef3eafbe3abfdb5dda4fffa00a134cc9cc333a15b1c98fc5cd87d4213ad74c5
+
+    If sandbox artifacts are unavailable, recreate the same repair from the original CALL:
+    add checks/w20-a1-a13-acceptance-map.md, update README.md to list it as current
+    verification evidence, and update checks/markdown-foundation-checklist.md to require
+    A1-A13 row mapping and W19 firewall checks.
   boundaries: |
     Do not modify Direction OS.
-    Do not restore or depend on OpenSpec, npm, TypeScript, src/, tests/, scripts, CI, executable validation, W0/RLK scaffold, JSONL ledger, runtime agent, API, database, scheduler, automation, storage engine, vendor integration, exact schema, exact file layout, exact cadence, scoring policy or external integration procedure.
+    Do not restore or depend on OpenSpec, npm, TypeScript, src/, tests/, scripts, CI,
+    executable validation, W0/RLK scaffold, JSONL ledger, runtime agent, API, database,
+    scheduler, automation, storage engine, vendor integration, exact schema, exact file layout,
+    exact cadence, scoring policy or external integration procedure.
     Do not introduce a generic domain/topic blacklist.
     Do not create a Direction OS write path.
-    Do not treat the acceptance map as a future storage schema or required permanent file layout; it is verification evidence for the current Markdown contract layer.
     Keep the repair inside the current Markdown product surface.
   done_when: |
     - Product repo main or a product repo PR contains Markdown-readable A1-A13 acceptance mapping evidence.
@@ -351,13 +351,15 @@ next: |
     - W19 HOW items are explicitly marked not chosen.
     - No generic topic/domain blacklist appears.
     - No Direction OS write path appears.
-    - No DB/API/UI/vendor/scheduler/automation/storage engine/runtime/exact schema/exact layout/cadence/scoring/external integration is selected as contract.
+    - No DB/API/UI/vendor/scheduler/automation/storage engine/runtime/exact schema/exact
+      layout/cadence/scoring/external integration is selected as contract.
     - Existing Markdown-only foundation remains coherent and readable by ChatGPT/Codex/Claude.
     - Return product repo PR/commit evidence and manual check output.
   return: |
-    RESULT with product repo PR/commit, changed Markdown files, row-by-row A1-A13 mapping evidence, W19 firewall check, and manual check output.
+    RESULT with product repo PR/commit, changed Markdown files, row-by-row A1-A13 mapping
+    evidence, W19 firewall check, and manual check output.
   budget: one focused executor pass
-  parent: s-zara-operate-contract-t1-current-markdown-acceptance-map-repair-chatgpt-001
+  parent: s-zara-operate-contract-t1-apply-prepared-markdown-map-002-chatgpt-blocked
   surface: cli
 
 END_OF_FILE: live/solmax/NOW.md
