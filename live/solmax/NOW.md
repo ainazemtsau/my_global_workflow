@@ -122,7 +122,7 @@ active_bet:
     prompt as closure, rollback/revert the product-repo change and route the
     exact failure to repair/converge.
 
-route_status: g-zara-operate-contract_t1_markdown_acceptance_map_repair_needed
+route_status: g-zara-operate-contract_t1_done_pending_t3_verify
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -158,7 +158,7 @@ owner_directive: |
 tasks:
   - id: t-1
     kind: executor
-    status: active
+    status: done
     goal: |
       Create product-repo evidence that maps W20/A1-A13 to concrete
       Markdown-readable artifacts/checks without choosing W19 HOW.
@@ -177,36 +177,31 @@ tasks:
       OS-write path, DB/API/runtime choice, exact schema/layout as contract, or
       monolithic prompt as closure.
     progress_note: |
-      ChatGPT executor pass
-      `s-zara-operate-contract-t1-apply-prepared-markdown-map-002-chatgpt-blocked`
-      could not create a product repo branch/commit/PR because the available GitHub
-      connector actions in this surface were read/list/search/fetch/status only and the
-      shell environment could not reach github.com for git clone/push. Product repo main
-      remains unrepaired.
-
-      Prepared apply-ready patch artifact for the current Markdown foundation:
-      - sandbox:/mnt/data/zaratusta-acceptance-map-repair-git.patch
-      - sha256: 611e33f4c121f4e448b3dc3b4bdfefca6c4a35ddee5c2d89d4c890e99175f122
-
-      Prepared manual check output:
-      - sandbox:/mnt/data/zaratusta-acceptance-map-repair-manual-check.txt
-      - sha256: 5ef3eafbe3abfdb5dda4fffa00a134cc9cc333a15b1c98fc5cd87d4213ad74c5
-
-      Patch changes only Markdown files:
+      Repair session s-zara-operate-contract-repair-t1-t3-state-sync-007
+      closed the state lag after product repo main gained commit
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b
+      (`Correct W20 A1-A13 acceptance map boundary`) on 2026-07-01.
+      Commit evidence:
+      - AGENTS.md
       - README.md
       - checks/markdown-foundation-checklist.md
       - checks/w20-a1-a13-acceptance-map.md
 
-      Local reconstructed checks:
-      - git apply --check: PASS
-      - git diff --check: PASS
-      - diff stat: 3 files, 74 insertions
+      Product evidence checked by the repair session:
       - A1-A13 row count: 13
       - W19 `Not chosen` count: 10
-      - boundary/HOW review: PASS
+      - `AGENTS.md` is repo-local editing guardrail only, not product acceptance
+        authority.
+      - The product docs describe manager/product behavior, not a Zaratusta
+        self-development process.
+      - No generic domain/topic blacklist, Direction OS write path, or DB/API/UI/
+        vendor/scheduler/automation/storage engine/runtime/exact schema/exact
+        layout/cadence/scoring/external integration choice is selected as contract.
 
-      t-1 still requires a true CLI/Codex/Claude Code executor with product repo write access
-      to apply the patch and return product repo PR/commit evidence.
+      Bounced t-3 verifier facts also recorded W20/A1-A13 coverage PASS, hard rows
+      A3/A9/A10/A13 PASS, W19 HOW firewall PASS and development boundary PASS.
+      Product repair is not needed again for t-1; t-3 remains active for a clean
+      verification RESULT against this commit.
 
   - id: t-2
     kind: executor
@@ -265,29 +260,29 @@ tasks:
         WHAT contradiction -> converge;
         hidden HOW/layout/schema/runtime temptation -> shape/review cut, not silent
         acceptance.
-      - Next route is ready: on pass, shape g-zara-operate-state; on fail, exact
-        repair/bounce.
+      - Next route is ready: on pass, review g-zara-operate-contract; on fail,
+        exact repair/bounce.
     evaluator: n/a
     progress_note: |
-      Current verification completed with FAIL due to t-1 product artifact gap:
-      no explicit product-owned A1-A13 acceptance map/matrix exists on the current
-      Markdown surface. No WHAT contradiction and no hidden HOW/layout/schema/runtime
-      temptation found. Resume t-3 after executor repair returns product repo evidence.
+      Previous verification failure due to missing explicit product-owned A1-A13
+      acceptance map is stale after product repo commit
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b. t-3 remains active and should now
+      run a clean verification against that corrected map evidence. If PASS marks
+      t-3 done as the last open task, the next CALL must be review
+      g-zara-operate-contract, not direct shape.
 
 recurring: []
 decisions: []
 open_calls:
-  - id: c-zara-operate-contract-t1-apply-prepared-markdown-map-cli-003
-    to: executor
-    for: t-1
-    repo: github.com/ainazemtsau/zaratusta
-    kind: engineering
+  - id: c-zara-operate-contract-t3-verify-corrected-map-008
+    to: session
+    for: t-3
+    issued: 2026-07-01
     note: |
-      Apply the Markdown-only acceptance-map repair to product repo main or a product repo PR.
-      Use the exact repair design from c-zara-operate-contract-t1-apply-prepared-markdown-map-002
-      and the prepared patch/check evidence from
-      s-zara-operate-contract-t1-apply-prepared-markdown-map-002-chatgpt-blocked.
-      Must return product repo commit or PR evidence plus manual check output.
+      Clean independent verification against product repo commit
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b after repair session closed the
+      stale t-1 open_call. Do not re-open product acceptance-map executor work
+      unless this verification finds a new exact product evidence gap.
 preserved_evidence:
   - live/solmax/CHARTER.md
   - live/solmax/TREE.md
@@ -306,60 +301,75 @@ preserved_evidence:
   - github.com/ainazemtsau/zaratusta
 
 next: |
-  CALL c-zara-operate-contract-t1-apply-prepared-markdown-map-cli-003
-  to: executor
+  CALL c-zara-operate-contract-t3-verify-corrected-map-008
+  to: session
   direction: solmax
+  play: work
   node: g-zara-operate-contract
-  task: t-1
-  repo: github.com/ainazemtsau/zaratusta
-  kind: engineering
+  task: t-3
   goal: |
-    Apply the current Markdown-only W20/A1-A13 acceptance-map repair to product repo main
-    or a product repo PR and return product repo commit/PR evidence.
+    A clean verification verdict exists for Zaratusta commit
+    79578ac87c73591000409f9f82a3bb4d0e33aa5b against W20/A1-A13 and the W19 HOW
+    firewall, with the next route ready.
   context: |
     Active bet: b-zara-operate-contract-002.
     Product repo: github.com/ainazemtsau/zaratusta.
-    Current verified foundation commit: b9c735c4b06e95e1039c35d8422e0839fd4a9e27.
+    Product commit to verify:
+    - 79578ac87c73591000409f9f82a3bb4d0e33aa5b
+    - message: Correct W20 A1-A13 acceptance map boundary
+    - changed files: AGENTS.md, README.md,
+      checks/markdown-foundation-checklist.md,
+      checks/w20-a1-a13-acceptance-map.md
 
-    Prior ChatGPT pass prepared an apply-ready patch but could not push:
-    - checks/w20-a1-a13-acceptance-map.md
-    - README.md
-    - checks/markdown-foundation-checklist.md
+    Direction state:
+    - live/solmax/NOW.md
+    - live/solmax/TREE.md
+    - live/solmax/LOG.md
+    - live/solmax/work/converge-g-zara-operate-contract.md
+    - live/solmax/history/2026-07-01-s-zara-operate-contract-repair-t1-t3-state-sync-007.md
 
-    Prepared patch/check artifacts from the blocked pass:
-    - sandbox:/mnt/data/zaratusta-acceptance-map-repair-git.patch
-      sha256: 611e33f4c121f4e448b3dc3b4bdfefca6c4a35ddee5c2d89d4c890e99175f122
-    - sandbox:/mnt/data/zaratusta-acceptance-map-repair-manual-check.txt
-      sha256: 5ef3eafbe3abfdb5dda4fffa00a134cc9cc333a15b1c98fc5cd87d4213ad74c5
-
-    If sandbox artifacts are unavailable, recreate the same repair from the original CALL:
-    add checks/w20-a1-a13-acceptance-map.md, update README.md to list it as current
-    verification evidence, and update checks/markdown-foundation-checklist.md to require
-    A1-A13 row mapping and W19 firewall checks.
+    Repair finding:
+    - The stale t-1 executor open_call has been cleared.
+    - t-1 is marked done because product repo evidence now contains explicit
+      Markdown-readable A1-A13 mapping and W19 not-chosen firewall evidence.
+    - Bounced verifier facts said W20/A1-A13 coverage passed; hard rows
+      A3/A9/A10/A13 passed; W19 HOW firewall passed; development boundary
+      passed; AGENTS.md passed only as repo-local editing guardrail.
+    - t-3 is still active and needs a clean RESULT against the corrected commit.
   boundaries: |
-    Do not modify Direction OS.
-    Do not restore or depend on OpenSpec, npm, TypeScript, src/, tests/, scripts, CI,
-    executable validation, W0/RLK scaffold, JSONL ledger, runtime agent, API, database,
-    scheduler, automation, storage engine, vendor integration, exact schema, exact file layout,
-    exact cadence, scoring policy or external integration procedure.
+    Do not modify Direction OS repo or product repo.
+    Read product repo evidence plus converge WHAT.
+    Do not re-open W20/A1-A13 product artifact work unless commit evidence is
+    actually insufficient.
+    Do not use AGENTS.md as product acceptance authority.
+    Do not route directly to shape g-zara-operate-state from a passing work RESULT;
+    if this verification closes the last open task, next must be review
+    g-zara-operate-contract.
     Do not introduce a generic domain/topic blacklist.
     Do not create a Direction OS write path.
-    Keep the repair inside the current Markdown product surface.
+    Do not select DB/API/UI/vendor/scheduler/automation/storage engine/runtime/
+    exact schema/exact layout/cadence/scoring/external integration choices.
   done_when: |
-    - Product repo main or a product repo PR contains Markdown-readable A1-A13 acceptance mapping evidence.
-    - Each A1-A13 row names the artifact/example/check that covers it.
-    - W19 HOW items are explicitly marked not chosen.
-    - No generic topic/domain blacklist appears.
-    - No Direction OS write path appears.
-    - No DB/API/UI/vendor/scheduler/automation/storage engine/runtime/exact schema/exact
-      layout/cadence/scoring/external integration is selected as contract.
-    - Existing Markdown-only foundation remains coherent and readable by ChatGPT/Codex/Claude.
-    - Return product repo PR/commit evidence and manual check output.
+    - Verifier reads product repo commit
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b plus converge WHAT.
+    - Verdict covers complete, backward_clean, forward_clean and smuggling.
+    - PASS requires all A1-A13 covered and zero hard failures on A3/A9/A10/A13.
+    - PASS also requires no generic domain/topic blacklist, no Direction OS write
+      path, and no DB/API/UI/vendor/scheduler/automation/storage engine/runtime/
+      exact schema/exact layout/cadence/scoring/external integration selected as
+      contract.
+    - FAIL names exact missing/contradictory rows and routes:
+      product artifact gap -> repair executor task;
+      WHAT contradiction -> converge;
+      hidden HOW/layout/schema/runtime temptation -> shape/review cut, not silent
+      acceptance.
+    - Next route is ready: on PASS, review g-zara-operate-contract; on FAIL,
+      exact repair/bounce.
   return: |
-    RESULT with product repo PR/commit, changed Markdown files, row-by-row A1-A13 mapping
-    evidence, W19 firewall check, and manual check output.
-  budget: one focused executor pass
-  parent: s-zara-operate-contract-t1-apply-prepared-markdown-map-002-chatgpt-blocked
-  surface: cli
+    RESULT with product repo evidence read, verdict per A1-A13/W19, exact task
+    status recommendations, LOG line and next CALL.
+  budget: one focused verification session
+  parent: s-zara-operate-contract-repair-t1-t3-state-sync-007
+  surface: any
 
 END_OF_FILE: live/solmax/NOW.md
