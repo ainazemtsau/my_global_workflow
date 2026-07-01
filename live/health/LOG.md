@@ -147,4 +147,6 @@ goal-management/orchestration node; next is shape on that node; no bet activated
 
 - 2026-06-30 — shape health/hq-goal-coordinator: proposed 5-day Health HQ v0 bet testing thin goal-management/orchestration layer with owner-triggered review, domain integration contracts, and routed correction requests; awaiting owner decision. → history/2026-06-30-s-health-shape-hq-goal-coordinator-001.md
 
+- 2026-07-01 — health/g-health-hq-goal-coordinator shape approval: owner approved recommended Health HQ v0 bet; activated b-health-hq-goal-coordinator-v0-001 with 5-calendar-day appetite, kill_by 2026-07-06, tasks t-1..t-5, next c-health-hq-goal-coordinator-t1-executor-001. → history/2026-07-01-s-health-shape-hq-goal-coordinator-approval-001.md
+
 END_OF_FILE: live/health/LOG.md
