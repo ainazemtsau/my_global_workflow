@@ -33,13 +33,13 @@
 # strategic_search). 12 gives a comfortably wide pool without thrashing.
 # (Some builds historically clamped to 6 -- see smoke tests; dial to 8-10 if
 # you see thrashing or silent clamping.)
-max_threads = 12
+max_threads = 124
 
 # Max nesting depth for spawned agents (root = depth 0; Codex default 1).
 # 2 permits ONE level of nesting: a leg-agent (depth 1) may spawn its own
 # children (depth 2), e.g. a converge miner that fans out sub-searches.
 # Kept at 2 (not deeper) to avoid runaway recursive trees.
-max_depth = 2
+max_depth = 4
 
 # Per-worker timeout (seconds) for spawn_agents_on_csv jobs; Codex default 1800.
 # Kept BOUNDED so a stuck child cannot run unbounded even with tokens to spare.
