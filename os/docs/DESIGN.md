@@ -10,7 +10,7 @@ os/                          ← система (правила; меняетс�
   plays/  frame map shape work guide review research pulse repair
   schema/ direction-files, packets
   adapters/ SESSION_PAYLOAD, chatgpt-project, claude-project,
-            other-platforms, coding-agent, autonomy
+            other-platforms, coding-agent, autonomy, runtime
   engineering/ CONTOUR, PROJECT_SETUP, VALIDATION, TOOLING, profiles/
   MAINTENANCE.md, EXTENDING.md, FRICTION.md, BOOTSTRAP.md, docs/
 

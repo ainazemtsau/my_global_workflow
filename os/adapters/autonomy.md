@@ -1,6 +1,6 @@
 # Adapter: autonomy roadmap
 
-The OS is designed so growing autonomy changes the relay, never the packets, plays, or state. Three stages; the owner moves between them per direction, not all-or-nothing.
+The OS is designed so growing autonomy changes the relay, never the packets, plays, or state. Three stages; the owner moves between them per direction, not all-or-nothing. Runtime details live in `os/adapters/runtime.md`.
 
 ## Action tiers (fixed across all stages)
 
@@ -14,12 +14,13 @@ The tier — not the agent's judgment — decides whether the owner is interrupt
 
 Owner carries CALL/RESULT between chat sessions and the writer. Decision inbox = `NOW.md → decisions`, surfaced by sessions and by pulse.
 
-## Stage 2: standing writer + scheduled pulse
+## Stage 2: runtime-assisted relay
 
-A persistent agent session (or scheduled job) on this repo:
-- applies RESULTs as they arrive (owner pastes once, not twice);
-- runs pulse on schedule, producing the consolidated decision batch;
-- prepares the next CALL ready-to-paste.
+A local runtime, scheduled job, or short-lived headless agent on this repo:
+- applies RESULTs through the writer contract as they arrive (owner pastes once, not twice);
+- runs digest/audit/pulse on schedule, producing consolidated decision batches;
+- prepares the next CALL ready-to-paste;
+- may trigger fresh review of executor evidence before writer apply.
 Owner's manual work shrinks to: open next chat, paste one CALL, answer batched decisions.
 
 ## Stage 3: orchestrator
