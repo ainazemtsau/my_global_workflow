@@ -149,4 +149,6 @@ goal-management/orchestration node; next is shape on that node; no bet activated
 
 - 2026-07-01 — health/g-health-hq-goal-coordinator shape approval: owner approved recommended Health HQ v0 bet; activated b-health-hq-goal-coordinator-v0-001 with 5-calendar-day appetite, kill_by 2026-07-06, tasks t-1..t-5, next c-health-hq-goal-coordinator-t1-executor-001. → history/2026-07-01-s-health-shape-hq-goal-coordinator-approval-001.md
 
+- 2026-07-01 — health/g-health-hq-goal-coordinator repair: Health AI @6ca3f18 / 9ad9330 recorded as narrow summary-only HQ technical proof, not accepted as product; owner rejected status-dispatcher framing, old t-2..t-5 acceptance route superseded, next is converge retrofit for Health HQ as goal-achievement orchestrator. → history/2026-07-01-s-health-hq-scope-repair-001.md
+
 END_OF_FILE: live/health/LOG.md
