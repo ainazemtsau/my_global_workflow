@@ -145,4 +145,6 @@ c-health-training-activity-converge-001.
 2026-06-30 map health/root: owner approved adding parked g-health-hq-goal-coordinator as Health HQ v0
 goal-management/orchestration node; next is shape on that node; no bet activated.
 
+- 2026-06-30 — shape health/hq-goal-coordinator: proposed 5-day Health HQ v0 bet testing thin goal-management/orchestration layer with owner-triggered review, domain integration contracts, and routed correction requests; awaiting owner decision. → history/2026-06-30-s-health-shape-hq-goal-coordinator-001.md
+
 END_OF_FILE: live/health/LOG.md
