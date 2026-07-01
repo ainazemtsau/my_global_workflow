@@ -10,6 +10,9 @@ approval_evidence: >
   reopen the bet, or claim body execution.
   Owner approved adding g-health-hq-goal-coordinator on 2026-06-30 in map close with:
   "Approve whole tree". The node is parked and creates no active bet or tasks.
+  Owner approved activating the shaped Health HQ v0 bet on 2026-07-01 with:
+  "approve recommended bet". This activates g-health-hq-goal-coordinator with a 5-calendar-day
+  appetite, kill/review on 2026-07-06 end-of-day Europe/Amsterdam, and t-1 executor first.
 
 root:
   id: g-health-root
@@ -262,7 +265,15 @@ root:
           domain procedures и owner/governance gates.
         - Direction OS получает только summary, decisions, problems, next CALL; raw body/nutrition/
           training data остаются вне Direction OS.
-      status: parked
+      status: active
+      appetite: 5 calendar days
+      kill_by: >
+        2026-07-06 end-of-day Europe/Amsterdam. Kill/review if by this date Health AI cannot show
+        evidence that Health HQ v0 holds explicit top-level goal structure, accepts one owner-triggered
+        request, consumes nutrition and training/activity summary/report adapters or clearly marked
+        fixtures, produces a progress verdict/bottleneck/routed correction requests/needed metrics,
+        preserves the Direction OS raw-data boundary, does not silently edit domain artifacts, and does
+        not add dashboard/API/polling/full architecture or out-of-scope domains.
       children: []
 
 END_OF_FILE: live/health/TREE.md
