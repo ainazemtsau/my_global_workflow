@@ -117,4 +117,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-07-01 запрос владельца (MAINTENANCE — Direction OS должен управлять агентами и автоматизацией, возможно через n8n/Activepieces, без переноса Markdown authority): классификация — gap, т.к. autonomy.md задавал стадии, но не контракт runtime/control-plane. → fixed этим коммитом: добавлен `os/adapters/runtime.md` (authority, job lifecycle, locks, osctl-поверхность, no-code boundaries, vertical-slice adoption); `autonomy.md` уточнён как runtime-assisted relay вместо вечной writer-сессии; DESIGN/STATUS получили ссылки. live/** не тронут. Литмус: n8n/Activepieces может быть только UI/scheduler вокруг allowlisted `osctl`, не местом canonical state или стратегических решений.
 
+2026-07-01 health Health HQ scope repair: active shape/executor route let a boundary proof ("summary-only coordinator") become the apparent product essence; owner rejected it as status-dispatcher framing and clarified HQ must orchestrate achievement of the health goal through milestones, metrics, strategy, and domain demands. Watching/candidate maintenance: shape/executor CALLs for owner-facing orchestration should preserve positive product essence separately from non-goals/boundaries; proof slices should be labeled as technical boundary proofs, not acceptance of the product.
+
 END_OF_FILE: os/FRICTION.md
