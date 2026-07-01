@@ -1,21 +1,38 @@
 # NOW — indie-game-development
-updated: 2026-06-30 by s-repair-now-hygiene-002
+updated: 2026-07-01 by s-work-035
 
 bet:
   node: g-9c41
   status: active
   goal: |
     Networked co-op gas core, currently on the CHARACTER ROAD: Sc-types →
-    Sc-weight → Sc-reactions → Sc-damage. The far-tier S3/S4/S5 scale plumbing is
+    Sc-weight → Sc-rep → Sc-reactions → Sc-damage. The far-tier S3/S4/S5 scale plumbing is
     parked until levels get big.
   current_truth: |
-    Sc-types AND Sc-weight are both delivered + merged (GasCoopGame origin/main
-    @61b7923, --no-ff; history/s-work-031.md + history/s-work-033.md). Sc-weight
-    (per-type vertical buoyancy — heavy sinks / light rises, creeping integer
-    Z-face bias, ENGINE-ONLY) closed against all 10 done_when with a BINDING
-    fresh-session G5 = COULD-NOT-REFUTE (s-work-033). The road now rolls to
-    Sc-reactions: it is the active task, its executor CALL (c-exec-021) to be
-    framed + hardened in a fresh OS session (builder does NOT author it).
+    Sc-types AND Sc-weight delivered + merged (GasCoopGame origin/main @61b7923, --no-ff;
+    history/s-work-031.md + s-work-033.md). 2026-06-30 OWNER DESIGN PASS (s-design-gas-core-001)
+    LOCKED gas representation = sparse-dominant + env-derived dynamic typing + condition-waves.
+    The road RE-SHAPED 2026-06-30 (s-reshape-sparse-dominant-001, owner present, G9 + 3 forks
+    resolved): a NEW slice **Sc-rep** (re-represent dense→sparse-dominant + per-cell dominant-type
+    STAMP socket + preserve the collapse/expand seam + the FIRST hangar measurement) is shaped (G6)
+    and inserted AFTER Sc-weight, BEFORE Sc-reactions — it is now the active task (full shaped card:
+    work/character-road-shape-2026-06-29.md §SLICE Sc-rep). SPEC edited with owner G9: Факт-4
+    representation RESOLVED = sparse-dominant; §5 records the env-derived dynamic-typing core
+    requirement; §6 п.3 hangar re-homed to Sc-rep; §9.5 checksum-member list extended (stamp +
+    overlay, cell-keyed). Shape drafts adversarially vetted (workflow wf_967a4625-2a4: 29 findings →
+    24 survived → folded; 5 refuted). Sc-reactions / c-exec-021 is HELD + RE-SCOPED onto
+    sparse-dominant (work/c-exec-021-call.md banner: mix-overlay section rewritten, outcome-registry
+    kept OFF the Wave-2-LOCKED GridEvent bus, dense→sparse §Re-sync touchpoints listed, forks +
+    full re-hardening deferred to its shape; ADR shifts — Sc-rep=ADR-0021, c-021=next-free≈0022,
+    verify at tip). Owner forks resolved (took recommendations): (1) accept ~1-slice milestone tail
+    move (honest: 4th consecutive engine-only slice — pre-mortem-#2 tunnel; g-7e15 visual is the
+    parallel player-facing surface); (2) cell overflow (>K co-resident types) = LOUD THROW at the
+    representation (mass conserved, no silent loss; declared-sink is a reactions-design choice later);
+    (3) roster size = config, ~128 a suggested start, tunable without SPEC re-sign. 2026-07-01
+    (s-work-035): the Sc-rep executor CALL c-exec-022 is FRAMED + adversarially HARDENED as
+    work/c-exec-022-call.md, with §Re-sync v8→v9 first, named approach token, full Sc-rep gate
+    battery, v9 escape-class registry walk, and STOP discipline against dense fallback / hashmap /
+    silent overflow / dev2 edits. Sc-rep stays active awaiting the GasCoopGame_dev executor return.
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -33,24 +50,41 @@ bet:
     - live/indie-game-development/work/now-snapshot-2026-06-29.md
 
 tasks:
-  - id: Sc-reactions
+  - id: Sc-rep
     status: active
     goal: |
-      Integer chemistry between weight-class types on the near grid: reactions read
-      from a small FIXED set of data axes (not N², a new type = 0 new code branches),
-      telegraph + bang, surfacing co-op interdependence pressure. Builds on the
-      Sc-weight buoyancy substrate.
+      Re-represent the near gas field dense `int[species][cell]` → SPARSE-DOMINANT (per active
+      cell: dominant type + amount + small bounded inline mix-overlay), lay a per-cell dominant-type
+      STAMP (the socket env-derived typing/waves/reactions key off), roster size = config, single-type
+      run BYTE-IDENTICAL to the post-Sc-weight golden, determinism preserved (ADR-0002), the big-space
+      collapse/expand seam preserved, and the architecture's one unmeasured number — the hangar —
+      measured first-hand. ENGINE-ONLY. The typing MECHANISM (accumulator/flip) is NOT built this
+      slice (stamp socket only).
     done_when: |
-      Its executor CALL (c-exec-021) is framed + hardened, then the GasCoopGame_dev
-      RESULT satisfies it: integer/data-driven reactions, determinism preserved
-      (ADR-0002 lock intact), the usual gate battery (-Deliver GREEN, mutation >=70,
-      independent-author REDs, fresh-session G5, ZERO-LEGACY, owner-eye).
+      Framed as executor CALL c-exec-022 (PLAN-first, owner present) + adversarially hardened, then the
+      GasCoopGame_dev RESULT satisfies the shaped slice (work/character-road-shape-2026-06-29.md §SLICE
+      Sc-rep — the folded gate battery): sparse-dominant cell layout (fixed-size inline, NOT a hashmap,
+      GC-zero steady-state); per-cell dominant STAMP folded into MeaningChecksum CELL-KEYED with 3 RED
+      controls (ISOLATION, DISTINCTNESS same-mass-different-layout-diverges, cross-peer divergence);
+      dense→sparse conversion CONSERVES cell-total mass EXACTLY (RED on a >K-co-resident cell; a silent
+      drop FAILS; overflow = LOUD THROW; stamp = max-mass species, tie = lowest TypeId); roster size =
+      config (RED: change = data only); single-type no-regression byte-identical to the post-Sc-weight
+      golden (verified first-hand at the tip); collapse/expand seam preserved; determinism (both scan
+      roots; new dir → both lists); ZERO-LEGACY dense path removed AFTER a read-path check (no live dev2
+      near-read consumer breaks); FIRST hangar measurement (MEASURE-ONLY, honest partial); -Deliver
+      GREEN + mutation ≥70 + independent-author REDs + fresh-session G5 + owner-eye.
     status_note: |
-      Active since s-work-033 (the bet rolled here when Sc-weight closed). CALL
-      c-exec-021 NOT yet framed — see NOW.next (a fresh OS session frames + hardens
-      it, owner present at PLAN; builder does NOT author it).
+      Active since 2026-06-30 (the bet re-shaped here, s-reshape-sparse-dominant-001). Slice shaped G6
+      (appetite = one slice; split-trip BY MACHINERY — leg1 = full layout + stamp + cell-keyed fold +
+      no-regression + determinism + hangar; leg2 = K/overflow-policy + seam check; the stamp is NOT
+      deferred out of leg1). Drafts adversarially vetted (wf_967a4625-2a4: 24 findings folded). Owner
+      forks: overflow = LOUD THROW (mass-conserving); roster size = config. c-exec-022 framed and
+      issued 2026-07-01 as work/c-exec-022-call.md; next = fresh GasCoopGame_dev PLAN owner-present.
 
 next_slices:
+  - Sc-reactions after Sc-rep: the RE-SCOPED c-exec-021 (integer chemistry on the sparse-dominant
+    overlap front, telegraph+bang = coarse event, axes-not-pairs, condition-waves forked; HELD until
+    the road reaches it, full re-hardening then).
   - Sc-damage after Sc-reactions: dose-from-coarse, type-specific damage, temperature sink-layer.
 
 open_calls:
@@ -63,6 +97,31 @@ open_calls:
       Ready for a fresh GasCoopGame_dev_2 session after the degraded uncommitted
       S2 work is rolled back to the clean baseline. Opens with a PLAN, owner
       present, then returns RESULT home.
+  - id: c-exec-021
+    to: executor
+    for: g-9c41 / Sc-reactions
+    issued: 2026-06-30
+    call: work/c-exec-021-call.md
+    note: |
+      HELD + RE-SCOPED 2026-06-30 (s-reshape-sparse-dominant-001) onto sparse-dominant (see the
+      banner at the top of work/c-exec-021-call.md): base now post-Sc-rep; mix-overlay section
+      rewritten (dense-canon STOP deleted; STOP = reverting to dense planes); reactions on the
+      overlap front; schema toward AXES; outcome registry on the near VoxelField (NOT the
+      Wave-2-LOCKED GridEvent bus); condition-waves folded as a fork (propagation channel flagged
+      as possibly-unbuilt machinery); dense→sparse §Re-sync touchpoints listed; forks + full
+      re-hardening deferred to its shape. Does NOT fire until the road reaches reactions (after
+      Sc-rep). ADR shifts to next-free (≈0022, verify at tip). dev->main merge + push owner-gated.
+  - id: c-exec-022
+    to: executor
+    for: g-9c41 / Sc-rep
+    issued: 2026-07-01
+    call: work/c-exec-022-call.md
+    note: |
+      Ready for a fresh GasCoopGame_dev session. Opens with a PLAN (owner present) and §Re-syncs
+      GasCoopGame contract v8→v9 first. Builds sparse-dominant re-representation: inline fixed-size
+      cell store + per-cell dominant STAMP folded cell-keyed + exact dense→sparse conversion +
+      roster config + post-Sc-weight no-regression + collapse/expand seam + first hangar measure.
+      Engine-only; no typing mechanism, no reactions/waves/damage/temp, no S4 build, no dev2 edits.
 
 recurring: []
 
@@ -142,41 +201,14 @@ history_pointers:
   - Fixed-hour quota cleanup: history/s-work-hours-quota-cleanup-001.md
   - Visual style canon update: history/s-canon-visual-style-minimal-gas-stage-001.md
   - Codex Sidecar process: work/codex-sidecar-track-2026-06-30.md; plays/codex-sidecar.md; work/codex-sidecar/board.md
+  - Sc-reactions CALL framed + hardened (then HELD): history/s-work-034.md; work/c-exec-021-call.md
+  - Reaction/typing design + sparse-dominant LOCK (2026-06-30): work/gas-reaction-typing-design-2026-06-30.md; history/s-design-gas-core-001.md
+  - Road RE-SHAPED to sparse-dominant + Sc-rep slice + SPEC edit + c-021 re-scope (2026-06-30): history/s-reshape-sparse-dominant-001.md; work/character-road-shape-2026-06-29.md (§SLICE Sc-rep); vet workflow wf_967a4625-2a4
+  - Sc-rep CALL framed + hardened (2026-07-01): history/2026-07-01-s-work-035.md; work/c-exec-022-call.md
 
 next:
-  CALL c-frame-021
-  to: session
-  direction: indie-game-development
-  play: work
-  node: g-9c41
-  task: Sc-reactions
-  goal: |
-    The next CHARACTER-ROAD executor CALL -- c-exec-021 (Sc-reactions: integer
-    chemistry between weight-class types) -- is framed + adversarially hardened and
-    ready as a self-contained artifact under work/, for a fresh GasCoopGame_dev
-    session to open with a PLAN (owner present).
-  context: |
-    live/indie-game-development/NOW.md (Sc-reactions = the active task).
-    live/indie-game-development/knowledge/g9c41-gas-engine-SPEC.md (reactions =
-    data axes, not N²; Факт-4).
-    live/indie-game-development/work/character-road-shape-2026-06-29.md (the road;
-    Sc-reactions slice).
-    live/indie-game-development/history/2026-06-30-c-exec-020-sc-weight-result.md
-    (the Sc-weight substrate it builds on).
-    Decision d-coop-interdependence-repin-001: fold co-op interdependence into
-    this PLAN as its recommended home.
-    GasCoopGame main @61b7923 (base at-or-after; §Re-sync confirms HEAD first).
-  boundaries: |
-    The builder does NOT author this CALL -- the direction frames it. ENGINE-ONLY
-    unless the shape says otherwise; do not reopen ADR-0002; renumber the engine
-    ADR off the dev2 visual-track number collision at the cross-track merge.
-  done_when: |
-    work/c-exec-021-call.md exists and is hardened: goal = integer reactions
-    between weight-class types (telegraph + bang, co-op interdependence pressure),
-    per-type DATA not code-branching, determinism preserved, the usual gate
-    battery; ready for a fresh GasCoopGame_dev session opening with a PLAN.
-  return: |
-    A hardened c-exec-021 CALL artifact; NOW.next repointed to it.
-  budget: one framing session (+ an adversarial-hardening workflow).
+  CALL c-exec-022 → executor (GasCoopGame_dev). Open work/c-exec-022-call.md in a fresh
+  GasCoopGame_dev session with a PLAN (owner present), §Re-sync v8→v9 first, then build Sc-rep and
+  return RESULT HOME. dev→main merge + push owner-gated.
 
 END_OF_FILE: live/indie-game-development/NOW.md
