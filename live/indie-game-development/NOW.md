@@ -1,13 +1,13 @@
 # NOW — indie-game-development
-updated: 2026-07-02 by s-work-038
+updated: 2026-07-02 by s-shape-prep-screactions-001
 
 bet:
   node: g-9c41
   status: active
   goal: |
     Networked co-op gas core, currently on the CHARACTER ROAD: Sc-types →
-    Sc-weight → Sc-rep → Sc-reactions → Sc-damage. The far-tier S3/S4/S5 scale plumbing is
-    parked until levels get big.
+    Sc-weight → Sc-rep → Sc-kernel → Sc-reactions → Sc-typing → Sc-damage. The far-tier
+    S3/S4/S5 scale plumbing is parked until levels get big.
   current_truth: |
     Sc-types AND Sc-weight delivered + merged (GasCoopGame origin/main @61b7923, --no-ff;
     history/s-work-031.md + s-work-033.md). 2026-06-30 OWNER DESIGN PASS (s-design-gas-core-001)
@@ -79,6 +79,16 @@ bet:
     same session; d-gas-richness-tiers-001 RE-PINNED (P1), d-hangar-flood-fallback-001 armed-dormant, kill_by
     2026-07-16. Road unchanged: next work = a fresh GasCoopGame_dev executor session opens c-exec-023 (owner-present
     PLAN, base main @5442be0); the RESULT fills the SPEC §6 п.2 ceiling number.
+    2026-07-02 (s-shape-prep-screactions-001, owner present): the Sc-reactions PREP ran PARALLEL to the Sc-kernel
+    executor leg (per NOW.next license): shape forks (a)–(f) CLOSED with the owner in-session, and the c-exec-021
+    body was FULLY REWRITTEN at work/c-exec-021-call.md onto the current base (sparse-dominant, post-Sc-kernel) —
+    both banner generations retired into it, prior hardening kept as principle, rewrite adversarially checked vs
+    STATE (wf_8ab4a0cb-401: 36 raised → 10 machine-verified + 26 first-hand-adjudicated → ~22 distinct defects
+    folded, 0 construction-breaking). Key owner reframe: any-N ZONE mixing = the requirement, per-cell K = internal
+    config constant (the «5-газов не бывает» framing retired); old ReactionLayer demo tier = DELETE via
+    owner-pre-signed live-spec amendment (scoped: demo files + their SHALL lines only; bus/enum stays locked).
+    Sc-typing homed as the NAMED slice after Sc-reactions (accumulate-with-hysteresis). c-exec-021 = prepped,
+    awaits Sc-kernel GREEN to re-harden+fire. G1 untouched: Sc-kernel stays the active task.
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -176,10 +186,22 @@ next_slices:
     roster × domain cells). done_when re-runs the 2026-07-02 measurement matrix before/after + an adversarial
     «hangar flooded» all-cells-active scenario + a Unity-runtime capture; also closes the Coarse/ scan-root hole.
     FRAMED + HARDENED CALL: work/c-exec-023-call.md (s-work-038; audit item-4 additions folded, G9 SPEC batch signed).
-  - Sc-reactions after Sc-rep: the RE-SCOPED c-exec-021 (integer chemistry on the sparse-dominant
-    overlap front, telegraph+bang = coarse event, axes-not-pairs, condition-waves forked; HELD until
-    the road reaches it, full re-hardening then).
-  - Sc-damage after Sc-reactions: dose-from-coarse, type-specific damage, temperature sink-layer.
+  - Sc-reactions after Sc-kernel: c-exec-021 PREPPED 2026-07-02 (s-shape-prep-screactions-001, owner present —
+    forks (a)–(f) closed; body FULLY REWRITTEN at work/c-exec-021-call.md, banner generations retired): integer
+    chemistry on the sparse-dominant overlap front; rule schema = explicit-SET > AXIS (default) > optional
+    env-conditioned DEFAULT rows > identity, all data in the handshake hash; telegraph+bang = coarse event, blast
+    wave GAMEPLAY-load-bearing; layered mass-conserving overflow (any-N ZONE mixing = the requirement, per-cell
+    K = internal config; chemistry-first → admission clamp → config-K); condition-waves forked with pinned
+    exactly-once (cell,wave-id) semantics; outcome registry on near VoxelField; old ReactionLayer demo tier =
+    DELETE via owner-pre-signed live-spec amendment. AWAITS Sc-kernel GREEN; §Re-sync + full re-hardening at fire.
+  - Sc-typing after Sc-reactions (homing decided 2026-07-02 at the shape-prep: placement owner-delegated,
+    mechanism owner-agreed; audit local-depth-03 fix): the typing MECHANISM — env-derived spawn typing + runtime
+    ACCUMULATE-WITH-HYSTERESIS flip (over instant flip); one new replicated cell-keyed SKIP-ZERO checksum member
+    (schema decision at its shape); owns regime-vs-identity + single-reactant env-row firing semantics (routed
+    from the Sc-reactions shape); temperature rows dormant until d-tempfeedback-001 (named re-entry = Sc-damage
+    shape); consumes the Sc-kernel env-delta wake stub. The July demo-road shape (07-10..15) is the named
+    checkpoint where Sc-typing↔Sc-damage order may be consciously swapped — never silently.
+  - Sc-damage after Sc-typing: dose-from-coarse, type-specific damage, temperature sink-layer.
 
 open_calls:
   - id: c-exec-023
@@ -221,32 +243,42 @@ open_calls:
     issued: 2026-06-30
     call: work/c-exec-021-call.md
     note: |
-      HELD + RE-SCOPED 2026-06-30 (s-reshape-sparse-dominant-001) onto sparse-dominant (see the
-      banner at the top of work/c-exec-021-call.md): base now post-Sc-rep; mix-overlay section
-      rewritten (dense-canon STOP deleted; STOP = reverting to dense planes); reactions on the
-      overlap front; schema toward AXES; outcome registry on the near VoxelField (NOT the
-      Wave-2-LOCKED GridEvent bus); condition-waves folded as a fork (propagation channel flagged
-      as possibly-unbuilt machinery); dense→sparse §Re-sync touchpoints listed; forks + full
-      re-hardening deferred to its shape. Does NOT fire until the road reaches reactions (after
-      Sc-rep). dev->main merge + push owner-gated.
-      2026-07-02 banner corrections added (items 11-14): ADR = next-free ADR-E-* per ADR-P-0001
-      (flat «≈0022» will never exist); base shifts post-Sc-kernel if d-sparse-tick-kernel-001
-      approved; NEW named shape fork = co-residency/overflow under mixing (>4 co-resident types =
-      deterministic all-peer LOUD-THROW halt today) + adversarial 5-type junction RED; body
-      drift-sweep or full rewrite required at its shape.
-      2026-07-02 audit-batch OWNER PRE-DECISIONS for this shape (d-simaudit-package-001 «да»):
-      (15) overflow fork (item 13) primary branch = LAYERED MASS-CONSERVING — chemistry-first (a reacting
-      subset fires and frees slots: «слишком много газов = начинается химия»), universal floor = admission
-      clamp at the face extending destinationCapacity (reads as saturation/back-pressure), K raisable via
-      config; RED re-worded «the sim survives a 5-type junction MASS-EXACTLY», never «levels never produce
-      it»; plus an R1 owner-eye mixing scenario (3+ gases at a junction reads believable).
-      (16) fork 3 blast wave = GAMEPLAY-load-bearing (pushes gas/bodies, chains detonations via S1-impulse;
-      owner: «это не косметика, как и остальные реакции»).
-      (17) remaining audit §Package item 5 agenda pins: reactant-SET override DATA rows (precedence
-      explicit>axis, both in handshake hash); wave×wind exactly-once RED oracle; bang-read owner-eye axis
-      incl. one open-space no-walls detonation (failed read = signed TIER-ladder evidence); Sc-typing slice
-      HOMING decision (REC: named slice right after Sc-reactions; accumulate-with-hysteresis over instant
-      flip); weak-hardware budget fork consumes the Sc-kernel flooded number + pinned CPU proxy.
+      PREPPED 2026-07-02 (s-shape-prep-screactions-001, owner present): the body at work/c-exec-021-call.md is
+      FULLY REWRITTEN onto the current base (sparse-dominant, base = post-Sc-kernel main) — both banner
+      generations (items 1–10, 11–17) RETIRED into it; the 2026-06-30 hardening (wf_86b1f6d0-bda) preserved as
+      principle; audit §Package item 5 pins (a)–(f) folded with finding-id traceability. Shape forks CLOSED
+      in-session (owner; full record = history/2026-07-02-s-shape-prep-screactions-001.md):
+      (a) overflow = layered mass-conserving (chemistry-first via the NORMAL telegraph law → admission-clamp
+      floor → config-K) + owner REFRAME: any-N ZONE mixing is the requirement, per-cell K = internal config
+      constant, never a design cap («если можно сделать любое количество … это не требование, это устаревшее»);
+      junction RED parametrized in N (≥5 + one higher), worded «survives MASS-EXACTLY»; LOUD THROW demoted to
+      non-flow invariant assert; R1 owner-eye junction scene added.
+      (b) schema = FOUR data tiers: explicit reactant-SET > AXIS (default) > optional env-conditioned DEFAULT
+      rows (owner addition; blanket defaults rejected) > identity/no-chemistry; precedence deterministic; all
+      tiers + outcome-registry + axis-coordinate table in the handshake hash. Firing scope THIS slice =
+      multi-reactant rules only; single-reactant env-response rows = schema-admitted data whose firing semantics
+      land at Sc-typing (no instant-flip side door).
+      (c) condition-waves stay a FORK; semantics PINNED (owner delegated → decided): each gas parcel converts
+      EXACTLY ONCE per wave ((cell,wave-id) idempotence) + wave×wind RED oracle.
+      (d) blast wave = GAMEPLAY-load-bearing (pre-decision 16 confirmed); bang-read owner-eye axis incl. one
+      open-field no-walls detonation, failed read = signed TIER-ladder evidence; owner extension ROUTED not
+      promised: bodies/loot → Sc-damage (after шов-7 player-kinematics), walls → S5; reserved DORMANT outcome
+      kinds (body-impulse, wall-breach, ignite/freeze).
+      (e) typing homing = NAMED slice Sc-typing immediately after Sc-reactions (placement owner-delegated →
+      decided; mechanism accumulate-with-hysteresis owner-agreed) — see next_slices; consume-vs-residue = per-rule
+      DATA at the PLAN; regime-vs-identity routed to the Sc-typing shape.
+      (f) outcome registry on the near VoxelField; old ReactionLayer demo tier = ZERO-LEGACY DELETE via
+      owner-pre-signed live-spec amendment («если нам какой-то класс не нужен, мы legacy не храним, удаляем …
+      Просто так не держать») — scoped to demo files + their ReactionLayer SHALL lines ONLY; GridEvent bus/enum
+      stays locked (Reaction=3 STAYS); verify-uncomposed first, STOP on live composition or wider SHALL.
+      PENDING (await the Sc-kernel RESULT; CALL §PENDING): weak-hardware budget fork (flooded number + CPU
+      proxy), wake-source exact binding (binds «reaction front» stub; env-delta reserved for Sc-typing), base
+      sha + golden identity, MeaningMembers bits, scan roots, contract version, ADR-E number.
+      Rewrite adversarially checked vs STATE (wf_8ab4a0cb-401: 36 raised → 10 machine-verified + 26
+      first-hand-adjudicated → ~22 distinct defects folded, 0 construction-breaking; subagent quota cut the
+      verify fleet mid-run — adjudication finished first-hand in-session, recorded). The code-grounded FULL
+      re-hardening + §Re-sync sweep still run at fire time. Does NOT fire until Sc-kernel GREEN (owner-gated
+      dev→main merge). dev→main merge + push owner-gated.
   # c-exec-022 (Sc-rep) CLOSED 2026-07-02: G5 COULD-NOT-REFUTE → owner-eye → merged @efaa6eb, pushed
   # (origin/main @5442be0). Record: history/2026-07-02-s-work-036-screp-g5-kernel-signed.md + s-work-037.
 
@@ -526,6 +558,7 @@ history_pointers:
   - Reconcile/repair after the review (2026-07-02): history/2026-07-02-s-repair-review-reconcile-001.md
   - Sim-plan audit + decision batch (2026-07-02): work/audit-gas-sim-plan-2026-07-02.md (wf_a299ecef-44e, 34 findings)
   - Sc-kernel FRAMED + G9 SPEC batch (2026-07-02): history/2026-07-02-s-work-038-sc-kernel-framed.md; work/c-exec-023-call.md; hardening wf_ff1612b9-ec5
+  - Sc-reactions PREPPED — forks (a)–(f) closed, body rewritten (2026-07-02): history/2026-07-02-s-shape-prep-screactions-001.md; work/c-exec-021-call.md; check wf_8ab4a0cb-401
 
 next:
   Sc-kernel FRAMED + HARDENED 2026-07-02 (s-work-038, owner «все подтверждаю») as work/c-exec-023-call.md: audit
@@ -536,8 +569,11 @@ next:
   NEXT WORK = a FRESH GasCoopGame_dev executor session opens c-exec-023 with an owner-present PLAN (base = GasCoopGame
   main @5442be0; the c-exec-022 PLAN deviation must not repeat). The Sc-kernel RESULT fills the SPEC §6 п.2 ceiling
   number. Do NOT re-fire c-exec-022; do NOT re-run W1a.
-  PARALLEL: the c-exec-021 (Sc-reactions) re-shape PREP may start (banner items 11–17); it does NOT fire until
-  Sc-kernel GREEN. After Sc-kernel: re-harden + fire the held c-exec-021 at its shape.
+  PARALLEL: the c-exec-021 (Sc-reactions) re-shape PREP is DONE 2026-07-02 (s-shape-prep-screactions-001): forks
+  (a)–(f) closed owner-present, body FULLY REWRITTEN (banners retired), Sc-typing homed after Sc-reactions. After
+  Sc-kernel GREEN: run the CALL's §Re-sync sweep + the FULL fire-time re-hardening, fill §PENDING from the
+  Sc-kernel RESULT, then fire c-exec-021 in a fresh GasCoopGame_dev session (owner-present PLAN). It does NOT
+  fire before that.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
   VISUAL: ON HOLD by owner 2026-07-02 («сначала разобраться с симуляцией») — W1b and c-visual-004 wait. HONESTY:
   while visual is held the ONLY live player-facing terminus = Sc-reactions telegraph+bang; the 07-24 milestone is

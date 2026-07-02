@@ -1,468 +1,186 @@
-# CALL c-exec-021 — Sc-reactions: INTEGER CHEMISTRY BETWEEN WEIGHT-CLASS TYPES (telegraph + bang = shared event, ENGINE-ONLY)
+# CALL c-exec-021 — Sc-reactions: INTEGER CHEMISTRY ON THE SPARSE-DOMINANT OVERLAP FRONT (telegraph + bang = shared coarse event, ENGINE-ONLY)
 
-Direction: indie-game-development / g-9c41 / Sc-reactions — the THIRD slice of the CHARACTER ROAD (d-character-road-001,
-owner «можем оформлять» 2026-06-29). Builds on the post-Sc-weight base (GasCoopGame `main` at-or-after @61b7923 — the
-c-exec-020 Sc-weight merge; §Re-sync confirms HEAD first — small repo-hygiene-only commits atop it are expected).
-Executor: a FRESH GasCoopGame_dev session (branch `dev` → `main` when green, owner-gated). Opens with a PLAN (owner
-present). State source = NOW.md (active_tasks Sc-reactions). Canon = knowledge/g9c41-gas-engine-SPEC.md (Факт-4 «целочисленная
-химия = ДАННЫЕ, не код-ветвление»; §3 «доминирующий тип + количество + временный mix-overlay при реакции» + «Триггер
-реакции/детонации читает refinement-инвариантные ГРУБЫЕ тоталы … цепь — следующим тиком»; Ведро-2 «триггер реакции + масса»;
-§6 п.5 «согласованность ≠ взаимозависимость»; §9.5/шов 5 + шов 9 «порог взрыва»; §1 ADR poprawка: lock = ADR-0002). Shape
-basis = work/character-road-shape-2026-06-29.md (Sc-reactions slice). Folds decision d-coop-interdependence-repin-001 (the
-dropped forced-coop affordance — RATIFIED at the PLAN, see done_when #1).
-HARDENED 2026-06-30 (wf_86b1f6d0-bda: 12 adversarial lenses → 40 findings → refute-verify + direction adjudication →
-must/should-fixes folded. Key catches: the old ReactionLayer is a Wave-2 LOCKED openspec contract not free dead code;
-ADR-0020 is already taken on dev2 (→ ADR-0021); the co-op axis was framed as consistency not interdependence; the telegraph
-fold needs a distinctness RED; the handshake hash needs a convergence + reactant-set-canonical RED; EmitImpulse is not
-atomic/canonical; the shove must stay inside the c-020 settle envelope; the split must fracture along machinery; telegraph
-STORED-vs-DERIVED is the PLAN's call. Refuted: a shared buoyancy/_bias register STOP (buoyancy is DERIVED, touches neither
-_bias nor EmitImpulse); the next=Sc-damage pointer as a method-leak.)
+**STATUS: PREPPED — body REWRITTEN 2026-07-02 (s-shape-prep-screactions-001, owner present; forks (a)–(f) closed in-session). AWAITS Sc-kernel GREEN to re-harden + fire.** Do NOT fire until the road reaches reactions (the Sc-kernel dev→main merge, owner-gated). At fire time, TWO mandatory steps precede any build: (1) the **§Re-sync sweep below — run FIRST**; (2) a FULL fresh re-hardening workflow against the then-tip — this rewrite was adversarially checked against STATE (SPEC/NOW/audit/decisions; wf_8ab4a0cb-401, 36 raised → 10 machine-verified + 26 first-hand-adjudicated folded), NOT against post-Sc-kernel code, because that code does not exist yet.
 
-## ⚠ HELD + RE-SCOPED 2026-06-30 (s-reshape-sparse-dominant-001) — read BEFORE the body below
+## Lineage (what this rewrite replaces)
 
-This CALL was framed + hardened on the PRIOR plan (DENSE `[species][cell]` rep, pairwise, no
-dynamic-typing/waves). The owner then LOCKED **sparse-dominant** representation + env-derived dynamic
-typing + condition-waves (s-design-gas-core-001), and the road gained a new slice **Sc-rep**
-(re-represent dense→sparse-dominant) that runs BEFORE reactions. This CALL is **HELD, NOT trashed**: its
-hardening is REUSED as PRINCIPLE. It does NOT fire until the road REACHES reactions (after Sc-rep merges).
-Its FULL re-hardening (a fresh workflow) happens THEN — the code-grounding shifts under sparse-dominant.
-The body below is the prior-plan text kept for reuse; where it conflicts with this banner, THIS banner wins.
+This body REPLACES the 2026-06-30 dense-era body and BOTH banner generations (2026-06-30 re-scope items 1–10; 2026-07-02 corrections items 11–17) — their content is either folded below or consciously retired in place; no banner-stacking. The 2026-06-30 hardening (wf_86b1f6d0-bda, 40 findings) is PRESERVED AS PRINCIPLE throughout (no-pair-dispatch crux, handshake canonicalization, SKIP-ZERO cell-keyed checksum discipline, mass atomicity, LOCKED-contract handling, co-op axis, settle envelope) — re-grounded onto sparse-dominant, with dense-era assumptions deleted. Folded audit pins carry their source finding-id inline `[audit 5x / finding-id]` (audit §Package item 10 traceability). Owner quotes marked «…» are from the 2026-07-02 shape-prep session (recorded in history/2026-07-02-s-shape-prep-screactions-001.md; cleaned of speech fillers, meaning verbatim). Sources of record: knowledge/g9c41-gas-engine-SPEC.md (Факт-4, §3, §5, §6 п.9/п.10); work/gas-reaction-typing-design-2026-06-30.md; work/audit-gas-sim-plan-2026-07-02.md (§Package item 5; types-mixing-1..6; local-depth-02/05); NOW decisions d-simaudit-package-001 (pre-decisions 15–17), d-gas-richness-tiers-001, d-coop-interdependence-repin-001, d-sparse-tick-kernel-001.
 
-**Re-scope direction (apply at the future reactions shape):**
-1. **Base** = post-**Sc-rep** (sparse-dominant), not post-Sc-weight dense.
-2. **Reaction schema → AXES** (fuel↔oxidizer, cold↔heat, caustic↔inert, …), NOT type-pairs — a new gas of
-   any tier adds ZERO new rules (O(axes)). The no-pair-dispatch crux below still binds.
-3. **Partial combine** = reactions fire ONLY at the OVERLAP FRONT (≥2 reactant types co-resident); a per-tick
-   cap marches the front inward — instant whole-cloud combine is structurally impossible.
-4. **Outcomes = pluggable EVENT KINDS** via an outcome-registry (sorted ids + ContentHash riding the session
-   handshake) + registered-handler dispatch, built on the **near VoxelField** — NOT on the old `GridEvent`
-   bus and NOT by widening `GridEvent`/replacing the `GridEventKind` if-chain (that IS the Wave-2-LOCKED
-   contract the boundaries below forbid touching). The design doc's «replace the GridEventKind if-Kind chain»
-   note lands on the near VoxelField under this re-scope, NOT the locked bus. If the owner ever wants the
-   locked GridEvent path changed, that is a SURFACED owner-gated live-spec amendment, never a quiet bullet.
-5. **Condition-WAVES (fork)**: a reaction MAY emit a PROPAGATING coarse event carrying a condition-tag + a
-   per-type response table (gas1,2→gas4; gas3→annihilate; gas5→ignite; gas6→ignore). ⚠ The wave PROPAGATION
-   channel is DISTINCT from single-cell outcome dispatch (item 4) and from EmitImpulse — it is a marching
-   coarse promo-event other cells READ and respond to. The reactions shape MUST decide which machinery carries
-   it and verify FIRST-HAND whether a propagating promo-event substrate exists or must be built (SPEC:
-   promo-event machinery is a precondition for any ведро-2 mechanic) AND that it does not re-collide with the
-   Wave-2-LOCKED GridEvent contract. So the local-only-vs-wave fork is NOT a free data flag — the wave branch
-   carries a possible new-machinery cost.
-6. **Dynamic-typing socket**: reactions read the per-cell dominant STAMP (laid by Sc-rep); the typing MECHANISM
-   (exposure accumulator/flip) is its own concern — if «accumulate» wins (design fork-1), it adds a NEW per-cell
-   replicated field = a NEW cell-keyed SKIP-ZERO MeaningChecksum member (its own bit, NOT the stamp's), a §9.5
-   schema decision to take deliberately at the typing slice.
-7. **§Re-sync dense→sparse touchpoints (builder MUST re-verify at the tip — do NOT inherit silently):**
-   (a) the no-regression golden is now the post-Sc-rep SPARSE golden (the dense path is removed by Sc-rep
-   ZERO-LEGACY), not the Sc-weight dense golden; (b) mass-bookkeeping + per-tick checksum — the dense per-plane
-   `MaxCellMass` cap / «moves mass between species planes» / «sum across all species planes» reasoning is
-   dense-framed; re-express against the sparse cell store (dominant amount + K-bounded overlay), conservation
-   oracle = per-cell TOTAL (not per-plane), and a reaction product exceeding K overlay slots is the SAME overflow
-   surface Sc-rep decides (LOUD THROW / declared policy); (c) handshake-hash — DROP the «per dense index»
-   phrasing (the handshake folds REGISTRY/rule-set identity, not the field — the fold mechanism survives, but the
-   dense-layout wording must not be inferred from it).
-8. **Forks** (flip-vs-accumulate, consume-vs-residue, wave gameplay-vs-cosmetic, regime-vs-identity, target
-   weak-hardware) resolve at THIS CALL's future shape, owner present.
-9. **ADR**: the prior «ADR-0021» assumption is STALE — Sc-rep takes ADR-0021 ahead of this CALL; c-021 takes the
-   next free engine number at its time (≈ADR-0022, verify mechanically: `git ls-tree -r --name-only dev2 --
-   docs/adr` + main docs/adr; record chosen + siblings).
-10. **All existing hardening below is PRESERVED as PRINCIPLE** (no-pair-dispatch crux, handshake-hash
-    order-independence, per-tick checksum SKIP-ZERO cell-keyed, mass integer-exact/no-silent-wrap/atomic,
-    ZERO-LEGACY ReactionLayer-LOCKED, co-op interdependence, the gate battery) — re-grounded onto sparse-dominant
-    at the future re-hardening, NOT carried forward with dense assumptions.
+## Direction / road position / base
 
-**⚠ BANNER CORRECTIONS (2026-07-02, s-repair-review-reconcile-001 — the review found the banner itself drifted;
-these win over the items above where they conflict):**
+Direction: indie-game-development / g-9c41 / Sc-reactions — the FIFTH slice of the CHARACTER ROAD (Sc-types → Sc-weight → Sc-rep → Sc-kernel → **Sc-reactions** → Sc-typing → Sc-damage; d-character-road-001 + d-sparse-tick-kernel-001 + the 2026-07-02 Sc-typing homing decision).
 
-11. **ADR (corrects item 9):** the product repo adopted TRACK-NAMESPACED ADRs (ADR-P-0001, owner-approved 2026-06-30;
-    flat numbers frozen; Sc-rep took **ADR-E-0001**). «ADR-0021 / ≈ADR-0022» will never exist. Standing rule: OS-side
-    docs do NOT pre-assign concrete ADR numbers — the executor binds the next free **ADR-E-*** number at the tip per
-    ADR-P-0001 and records it in the RESULT.
-12. **Base (corrects items 1/2 + the «THIRD slice» header):** Sc-rep is BUILT (dev checkpoint adc3b9d, pending fresh
-    G5 / owner-eye / owner-gated merge), and the 2026-07-02 REAL hangar measurement (dev @8db3ee1,
-    docs/measurements/sc-rep-hangar-real-measurement-2026-07-02.md) showed tick cost ∝ REGISTERED roster × domain
-    cells (dense expand/rebuild kernel; roster-64 hangar = 587 ms/tick) → slice **Sc-kernel** (active-front tick
-    iteration; d-sparse-tick-kernel-001, pending owner sign; draft work/c-exec-023-draft-call.md) is recommended
-    BEFORE this CALL. If approved, this CALL's base = post-Sc-kernel.
-13. **NEW NAMED FORK for this CALL's shape — co-residency/overflow under mixing:** K=3 overlay (max 4 co-resident
-    types per cell) with >K = LOUD THROW is wired into the NORMAL tick path — under lockstep that is a deterministic
-    ALL-PEER session halt reachable by ordinary gameplay mixing (5 types meeting at a junction), in a game whose core
-    fantasy is mixing. Item 7(b)'s «the SAME overflow surface Sc-rep decides» is a CIRCULAR pointer (Sc-rep's CALL
-    deferred the policy back to reactions design) — the buck stops at THIS shape. The shape MUST decide, owner present:
-    (a) the representation-level policy for NON-reacting >4-type mixes (canonical merge-to-nearest-axis / raised K /
-    owner-signed declared sink), and (b) an adversarial RED: a 5-type junction scenario proving the throw is
-    unreachable in the intended level + chemistry design. Until then, any level/chemistry permitting 5+ types in one
-    zone is ship-blocking.
-14. **Stale body specifics confirmed at review (do NOT inherit):** the checksum-bit math «1<<6 / current max TypeId
-    1<<5» predates Sc-rep's stamp+overlay checksum members (bits shifted — verify MeaningMembers at the tip); the
-    engineering contract is **v9** (body says v8); body line-refs are pre-Sc-rep. The re-hardening's FIRST step = a
-    recorded line-by-line drift-sweep of every number/ref in the body against the then-tip — or better, REWRITE the
-    body at the shape instead of stacking a third banner generation.
+- **Base = GasCoopGame `main` AT-OR-AFTER the Sc-kernel dev→main merge** (owner-gated; c-exec-023's RESULT names the sha). §Re-sync confirms HEAD first-hand. Firing on a pre-Sc-kernel base is a STOP — the tick kernel this slice rides (active-front iteration over the sparse store) would not exist.
+- Executor: a FRESH GasCoopGame_dev session (branch `dev` → `main` when green, owner-gated). **Opens with a PLAN, owner present — the c-exec-022 PLAN deviation must not repeat.**
+- State source = NOW.md (open_calls c-exec-021 + next_slices). Canon = knowledge/g9c41-gas-engine-SPEC.md: Факт-4 (sparse-dominant + «целочисленная химия = ДАННЫЕ, не код-ветвление»), §3 («доминирующий тип + количество + mix-overlay», «триггер … читает refinement-инвариантные ГРУБЫЕ тоталы … цепь — следующим тиком», ведро-2 «триггер реакции + масса»), §5 (env-derived dynamic typing — the STAMP socket this slice reads), §6 п.5 («согласованность ≠ взаимозависимость»), §6 п.9 (richness ladder — the bang-read axis feeds it), §6 п.10 (cross-type capacity = a NAMED seam, decided ≤ Sc-damage, NOT here).
+- **ADR:** the executor binds the next free **ADR-E-*** number at the tip per ADR-P-0001 and records chosen + siblings in the RESULT. OS-side docs never pre-assign ADR numbers.
+- Lock = **ADR-0002** (input-lockstep) — NOT reopened. Drift-guard: any stray «ADR-0010-as-lock» is a citation error (ADR-0010 = the unrelated test-sandbox, SPEC §1). Separate boundary: «no stored velocity» = the REPRESENTATION boundary (S1/ADR-0012-s1), also not touched here (SPEC §3 «Разделение локов»).
 
-## Why this slice (and the lock id)
+## Re-sync (fire-time verify-at-tip sweep — the executor runs this FIRST, before the PLAN)
 
-Sc-types laid the multi-gas substrate (dense `[species][cell]` planes, a canonical content-hashed registry, per-cell type
-identity in the checksum); Sc-weight wired the FIRST per-type vertical FEEL. Sc-reactions is the FIRST slice where ≥2 gas
-types INTERACT: when reactant types co-reside, the gas TELEGRAPHS then BANGS — a deterministic integer chemistry that both
-peers compute identically and whose consequence reaches a SECOND occupant (the forced-coop affordance,
-d-coop-interdependence-repin-001). This is the FIRST slice whose behaviour DIVERGES on a PAIR (or set) of type identities —
-so it is the textbook hardcode-dispatch / N²-table trap, and the §3 «trigger reads coarse totals, chain next tick»
-determinism crux. Lock = **ADR-0002** (input-lockstep; §1 drift-guard: any stray «ADR-0010-as-lock» is a citation error —
-ADR-0010 = the unrelated test-sandbox). Determinism preserved, not reopened.
+Every code anchor in this body is a NAME, not a line number. At the then-tip, re-derive and RECORD:
+1. HEAD / base sha = the post-Sc-kernel main merge commit (from the c-exec-023 RESULT); confirm first-hand.
+2. The committed GOLDEN identity that covers the gas path post-Sc-kernel (for the byte-identical no-reaction gate).
+3. `MeaningMembers` layout + the next free bit (Sc-rep added stamp/overlay members; Sc-kernel may add more — never assume a number).
+4. `GasTypeRegistry.ContentHash` folded-member list (fold by the ACTUAL method body; docstrings have been stale before).
+5. Scan-root lists of zero-float + int-overflow + type-hardcode scans (Sc-kernel ADDS `Coarse/` to the first two — EXPECTED, keep it; see boundaries) + the type-hardcode scan's actual scope/limits.
+6. `EmitImpulse`/`VoxelImpulse` signatures + throw conditions; the flow step's `destinationCapacity` mechanism; the sparse record's per-LANE MaxCellMass guard.
+7. Live `openspec/specs/**/spec.md` SHALL locations for ReactionLayer / GridEventKind.Reaction / ReactionHeat + the uncomposed-Layers check (§amendment).
+8. The engineering contract version (v9 as of 2026-07-02 — do not inherit) and the next free ADR-E-* number.
+Any mismatch with this body's assumptions = surface at the PLAN, do not silently improvise.
+
+## Why this slice
+
+Sc-types laid the multi-gas substrate; Sc-weight the per-type vertical feel; Sc-rep the sparse-dominant store + per-cell dominant STAMP; Sc-kernel the active-front tick. Sc-reactions is the FIRST slice where ≥2 gas types INTERACT: reactant types co-resident in a cell TELEGRAPH then BANG — deterministic integer chemistry both lockstep peers compute identically, whose consequence reaches beyond the reactant cell (the forced-coop precondition, d-coop-interdependence-repin-001). It is the first slice whose behaviour diverges on a SET of type identities — the textbook hardcode-dispatch / N²-table trap and the §3 «trigger reads coarse totals, chain next tick» determinism crux. It is also the ONLY live player-facing terminus while the visual track is on hold (the 2026-07-24 milestone is re-affirmed against telegraph+bang in the engine debug view — audit words-vs-docs-006).
 
 ## goal (outcome, not method)
 
-Near-tier gas acquires INTEGER CHEMISTRY: when ≥2 reactant gas types co-reside in a cell at/above a DATA-defined threshold,
-the cell TELEGRAPHS (a visible WARNING phase), then BANGS — the reactant masses transform (integer, DATA-defined) into a
-product (a product gas type AND/OR a coarse pressure event that shoves the surrounding gas), as a SHARED consequence both
-lockstep peers compute identically and which reaches beyond the reactant cell (what a second occupant would feel). A reaction
-is pure DATA: **a new gas type adds ZERO new code branches** (no per-type-pair `if`/`switch`, no N² code table) — reactions
-are DATA rules applied by a GENERIC engine. The owner SEES, in the engine debug view, two reactant test gases meet, telegraph
-(warn), then react (a visible bang / product appears), deterministically. **ENGINE-ONLY — no visual-track hookup** (the look
-connects later; the g-7e15 visual track runs independently on dev2).
+Near-tier gas acquires INTEGER CHEMISTRY on the sparse-dominant store: when the reactant types of a MULTI-reactant rule co-reside in a cell at/above a DATA-defined threshold (the OVERLAP FRONT — multi-reactant chemistry fires only where ≥2 of the rule's reactant types are non-zero; pure single-type interiors have a zero factor FOR multi-reactant rules; a per-tick cap marches the front inward, so instant whole-cloud combine is structurally impossible), the cell TELEGRAPHS (a visible WARNING phase), then BANGS — reactant masses transform (integer, DATA-defined) into a product (a product gas type AND/OR a coarse pressure event that shoves the surrounding gas), as a SHARED consequence both lockstep peers compute identically and which reaches beyond the reactant cell. **This slice's FIRING scope = multi-reactant rules (with optional env predicates); single-reactant env-response rows are schema-ADMITTED data but do not fire here (see §the model, Tier 3 NB).** A reaction is pure DATA: **a new gas type adds ZERO new code branches** — reactions are DATA rules applied by a GENERIC engine. The owner SEES, in the engine debug view, two reactant test gases meet, telegraph, then react deterministically. **ENGINE-ONLY — no visual-track hookup** (g-7e15 is on hold by owner directive; the look connects later).
 
-**approach token = `data-driven-reaction-rules-telegraph-then-bang`** — the ONE substrate this leg exists to prove: an
-integer, content-hashed, GENERICALLY-applied reaction rule-set (NOT a per-type-pair code path), with a telegraph→bang that
-chains one step per tick. A delivered artifact whose recorded `approach:` differs (esp. an enum/switch/dict/2D-array/if-chain
-dispatch on type-pairs, or a same-tick unbounded cascade) is a self-authored substitution needing owner-ack — otherwise
-STOP-escalate.
+**approach token = `data-driven-reaction-rules-telegraph-then-bang`** — the ONE substrate this leg exists to prove: an integer, content-hashed, GENERICALLY-applied reaction rule-set (NOT a per-type-pair code path), with a telegraph→bang that chains one step per tick. A delivered artifact whose recorded `approach:` differs (esp. an enum/switch/dict/2D-array/if-chain dispatch on type-pairs, or a same-tick unbounded cascade) is a self-authored substitution needing owner-ack — otherwise STOP-escalate.
 
 ## the model (frame the OUTCOME; the PLAN owns the realization)
 
-The reaction resolves as a deterministic GATHER-THEN-APPLY pass: read tick-start per-cell masses, compute ALL reactions,
-apply atomically — so the outcome is order-independent within a tick (never a mid-tick mutated value, never a sub-cell fine
-detail). **WHETHER this is a separate operator run alongside `VoxelFaceFlow.Step` OR folded INTO the existing flow tick** (as
-Sc-weight folded per-type buoyancy into `VoxelFaceFlow.Step`'s per-species loop, c-020) **is the PLAN's call.** IF the PLAN
-makes reaction a separable phase, the flow↔reaction order within a tick is determinism-relevant and MUST be fixed and
-identical on both peers (record it). Four OUTCOME properties the PLAN must honour:
+The reaction resolves as a deterministic GATHER-THEN-APPLY pass over the sparse store: read tick-start per-cell contents (dominant + overlay lanes), compute ALL reactions, apply atomically — order-independent within a tick. WHETHER reaction is a separate operator or folded into the existing tick (as Sc-weight folded buoyancy into the flow step) is the PLAN's call; IF separable, the flow↔reaction order within a tick is determinism-relevant, fixed, identical on both peers, recorded. Four outcome properties the PLAN must honour:
 
-1. **DATA-DRIVEN rule-set, applied generically (the heart — see «the N² / no-pair-dispatch crux»).** A reaction is a DATA
-   rule whose load-bearing fields are (illustratively, for the explicit-rule schema) its reactant type-SET + threshold +
-   telegraph delay + product/effect + consumption/production stoichiometry. The engine applies rules by a GENERIC canonical
-   lookup; authoring a new reaction OR a new gas type touches DATA only. **Whether the schema is explicit reactant-set rules
-   OR per-type reagent-class axes combined by a fixed function is the PLAN's call** — both are «data, not branches»; what the
-   CALL mandates is the data-driven + zero-type-pair-control-flow PROPERTY, not the exact schema or its field list.
-2. **TELEGRAPH then BANG (chains one step per tick — the §3 determinism crux).** Detection reads the AUTHORITATIVE tick-start
-   per-cell mass (gather-then-apply — never a mid-tick mutated value, never a sub-cell fine detail). A detected reaction
-   TELEGRAPHS (a visible WARNING phase), and only resolves (BANGS) after the DATA-defined delay. A CHAIN reaction therefore
-   advances ONE step per tick — there is NEVER an unbounded same-tick cascade (canon §3 «цепь — следующим тиком»: a same-tick
-   cascade is order-dependent → desync, and a gameplay-pop). **Whether the telegraph is STORED per-cell state (a countdown)
-   OR DERIVED each tick** (e.g. the warning IS the rising co-resident mass, the bang = crossing a higher threshold, no stored
-   timer) **is the PLAN's call — it states which** (this is the main appetite-relief lever; see «the per-tick MeaningChecksum
-   decision»). The telegraph is also the player-feel: the gas WARNS before it bangs.
-3. **The BANG is a shared, in-checksum COARSE EVENT (ведро-2 — the co-op affordance).** The bang's hard consequences (mass
-   transform + any outward pressure shove) are computed from the AUTHORITATIVE shared field on EVERY peer and ride the
-   checksum — zero new network traffic (canon Факт-3 «жёсткие общие последствия ПРОМОУТЯТСЯ в грубые СОБЫТИЯ»). One natural
-   realization computes a pressure shove and reuses the S1 impulse machinery (`VoxelField.EmitImpulse`/`VoxelImpulse`,
-   VoxelField.cs:181-207) — but the PLAN owns whether the bang shoves, produces a product type, or both. ⚠ IF the shove rides
-   `EmitImpulse`, two real constraints (see §the per-tick MeaningChecksum decision): (a) `EmitImpulse` is NOT part of the
-   atomic `Step` — it mutates `_impulses` immediately (VoxelField.cs:206) and THROWS on a sealed/void/out-of-range face
-   (VoxelField.cs:194-197), so a per-cell shove loop must emit in a CANONICAL field-derived order, computed from the tick-start
-   field, validated-all-before-any-mutation (preserving the «thrown reaction tick leaves the field byte-unchanged» atomicity);
-   and (b) the drained S1 bias is COMBINED into `desiredMove` alongside the gradient AND the c-020 buoyancy term in the same
-   per-species loop (VoxelFaceFlow.cs:184-207), so an over-strength shove on Z-faces stacks past the c-020 settle envelope
-   (which was derived for the buoyancy term alone) — the PLAN MUST bound the emitted Strength/Ttl so the COMBINED desiredMove
-   (gradient + buoyancy + shove) still reaches rest (reuse the c-020 over-strength settle RED: a planted over-strength shove
-   that sloshes forever while loopback-green MUST be RED).
+1. **THREE-TIER DATA rule-set, applied generically (the heart — see «the crux»).** Owner-decided 2026-07-02 (fork b) `[audit 5b / types-mixing-2]`:
+   - **Tier 1 — explicit reactant-SET rows** (optional): «exactly {A,B} → signature outcome». Pure DATA (canon Факт-4 forbids pairs in CODE branching, not in data — the SPEC's own «целочисленная таблица столкновений»). Keeps per-pair signature chemistry authorable.
+   - **Tier 2 — AXIS rules** (the default tier): rules over reagent-class axes (fuel↔oxidizer, cold↔heat, caustic↔inert, …). A new gas with axis coordinates participates in ALL matching reactions with ZERO new rules (O(axes)). Axes/menu = CONFIG (canon q-gas-families feeds them; the engine invents no numbers).
+   - **Tier 3 — DEFAULT rows** (optional, owner addition 2026-07-02): explicitly-authored env-conditioned catch-alls for combinations no Tier-1/2 rule covers. Guard (critique folded, owner invited it): a default row must be ENV-CONDITIONED and EXPLICITLY AUTHORED data — a blanket «everything reacts with everything» default is REJECTED (overlap fronts everywhere = perf + believability noise). **NB scope:** most of the owner's default examples («если жарко — сгорает; если холодно — стынет») are SINGLE-reactant env-response rows — the schema ADMITS them as data (and they fold into the handshake hash), but their FIRING semantics are NOT built this slice: a single-gas env-triggered transform is env-driven conversion, which decision (e) routed to **Sc-typing** with ACCUMULATE-WITH-HYSTERESIS — letting them fire here as instant env rows would ship the rejected instant-flip through a side door. This slice fires MULTI-reactant rules only (env predicates allowed as additional conditions); single-reactant row semantics (instant outcome vs accumulated response) are decided at the Sc-typing shape. The PLAN records this classification (decision i).
+   - **Tier 4 — identity (implicit):** no matching rule at any tier = NO chemistry; gases co-mingle physically (today's behaviour). The absolute fallback; costs nothing.
+   Precedence: **explicit-SET > AXIS > DEFAULT > identity**, deterministic tie-break WITHIN a tier (stable canonical rule order). A rule = (reactant predicate [set / axis coords] + optional ENV predicate over the committed env vector + threshold) → (outcome kind + integer consume ratio + optional product TypeId + telegraph delay + per-tick rate cap). The consume ratio/stoichiometry per rule ALSO settles the old «consume-vs-residue» fork: full-consume vs co-resident residue is per-rule DATA, decided rule-by-rule at the PLAN — no longer an open shape fork. ALL tiers are pure data folded into the handshake hash (see §handshake). **Env predicates = the owner's «tag» model:** environment pieces publish enumerable env-vector channels (temperature `{energy_sum,capacity_sum}` — DORMANT, local density, neighbours; RESERVED names: radiation, catalysts); a rule interacts ONLY with channels it names — no tag named = no interaction, by construction. Env is read at COMMITTED revision (1-tick lag, §4 шов 7) — never same-tick. HONESTY: temperature-channel rows are AUTHORABLE but DORMANT until d-tempfeedback-001 lands (named re-entry = the Sc-damage shape); density/neighbour channels can condition MULTI-reactant rules earlier.
+2. **TELEGRAPH then BANG, chain one step per tick (the §3 determinism crux).** Detection reads AUTHORITATIVE tick-start cell contents (never mid-tick mutated values, never sub-cell fine detail — no bubble exists this slice; do not architect the trigger to depend on one). A detected reaction TELEGRAPHS, then resolves after the DATA-defined delay. A CHAIN advances ONE step per tick — NEVER a same-tick unbounded cascade (canon «цепь — следующим тиком»: order-dependent → desync, and a gameplay-pop). Whether the telegraph is STORED per-cell state (a countdown) or DERIVED each tick is the PLAN's call — it states which (the main appetite-relief lever; see §per-tick checksum). The telegraph is also the player-feel: the gas WARNS before it bangs.
+3. **The BANG is a shared, in-checksum COARSE EVENT (ведро-2) — and it is GAMEPLAY-LOAD-BEARING (owner fork d, 2026-07-02: «это не косметика, как и остальные реакции») `[audit 5d / local-depth-02]`.** Hard consequences (mass transform + outward pressure shove) are computed from the authoritative shared field on EVERY peer and ride the checksum — zero new network traffic. THIS slice the bang's physical reach = it SHOVES GAS (reuse the S1 impulse machinery — `VoxelField.EmitImpulse`/`VoxelImpulse`; verify at tip, §Re-sync 6) and can CHAIN detonations (next-tick, via the shoved/transformed masses). The owner's full blast-wave intent is WIDER and is ROUTED, not silently promised: knocking objects/bodies/loot around = Sc-damage territory (needs the SPEC §4 шов 7 player-kinematics decision first); breaching WALLS = the S5 destructibility seam (flip latent 25cm sub-face occupancy → re-projection). The outcome-registry schema MUST admit these as future data kinds (named, DORMANT — e.g. body-impulse, wall-breach, ignite/freeze for the temperature era) without core edits; implementing ANY of them this slice = STOP. IF the shove rides `EmitImpulse`, two carried constraints: (i) EmitImpulse is not part of the atomic Step and throws on sealed/void/out-of-range faces — a per-cell shove loop must emit in CANONICAL field-derived order, computed from the tick-start field, validated-all-before-any-mutation (a thrown reaction tick leaves the field byte-unchanged); (ii) the drained bias combines into desiredMove with gradient + buoyancy — the PLAN MUST bound emitted Strength/Ttl so the COMBINED desiredMove still reaches rest (carry the c-020 over-strength settle RED: a planted over-strength shove that sloshes forever while loopback-green MUST be RED).
+4. **The overflow/co-residency law is part of the model (owner fork a — see §overflow).** Zone-level mixing of ANY number of gas types is the REQUIREMENT; the per-cell slot count K is an internal CONFIG constant, never a gameplay wall.
 
-Do NOT prescribe the exact integer rule form — that is the PLAN's call — but it MUST be: integer-only, deterministic
-(canonical cell order, gather-then-apply for BOTH detection AND resolution/apply), conservative-or-DATA-declared (see «mass
-bookkeeping»), chains one-tick-per-step, and data-driven (zero type-pair control flow).
+Do NOT prescribe the exact integer rule form — the PLAN's call — but it MUST be: integer-only, deterministic (canonical order, gather-then-apply for BOTH detection AND resolution), conservative-or-DATA-declared, chains one-tick-per-step, and data-driven (zero type-set control flow in code).
 
 ## the N² / no-pair-dispatch crux (the central obligation — read this twice)
 
-Sc-reactions is the FIRST slice whose behaviour diverges on a PAIR/SET of type identities. The temptation is a hardcoded
-dispatch: an `if`/`&&`/`==`-chain over a type-pair (`if (a==FIRE && b==FUEL)` / `if(a==X){if(b==Y)…}`), a `switch ((a,b))`, a
-`Dictionary<(int,int),Rule>` of DELEGATES, OR a **const 2D array indexed by (typeIdA, typeIdB)** (the N²-code table — the EXACT
-shape canon Факт-4 forbids: «как ДАННЫЕ, не как код-ветвление … новый тип = 0 новых веток»). The existing
-`tools/type-hardcode-scan.ps1` (contract v8) catches only `enum`/`switch` TOKENS and ONLY in `Core/Field/Types` (its
-`$DefaultRoots`, line 44) — it will NOT see reaction code that lands elsewhere (`Core/Field/Voxel` or a new
-`Core/Field/Reactions`), and an `if`-chain, a `Dictionary<(int,int),…>`, or a `[,]` indexed by TypeId is NOT an enum/switch
-token, so it escapes the scan ENTIRELY (its self-test even WHITELISTS a plain `if`, line 141). The PLAN picks ONE (a silent
-reliance on the old scan = STOP):
-- **(a) PREFERRED — pure data-rule application, no type-pair dispatch:** the reaction rule-SET is DATA (its hash rides the
-  session-start handshake — see «the handshake hash»); the engine applies it by a GENERIC canonical lookup (e.g. a data-built
-  rule index keyed by a canonically-ordered reactant key), with ZERO type-identity control flow AND no rule-logic keyed by a
-  hardcoded TypeId pair. Adding a reaction or a type is DATA only — no code change. THEN correct the type-hardcode scan's
-  scope + «strongest guarantee» header to honestly cover the reaction path's ACTUAL location (mirroring the c-020 honesty note
-  that records the Voxel buoyancy path as data-arithmetic covered by the zero-float/int-overflow scans + data-driven RED
-  tests). **Option (a) is PREFERRED precisely because it sidesteps the token-scan limitation below entirely.**
-- **(b) broaden the scan by SYMBOL:** extend type-hardcode-scan to catch reaction-dispatch — a `switch` over a type-pair, a
-  `Dictionary<(int,int|ValueTuple),…>` of delegates keyed by a TypeId pair, a `[,]`/jagged array indexed by TypeId, AND an
-  `if`/`&&`/`==`-chain comparing a TypeId pair — each with a planted-violation self-test (mirroring the existing
-  `mustFlag`/`mustPass` cases, lines 131-149). ⚠ Two false-positive sources, not one: (i) a naive DIRECTORY-append of
-  `Core/Field/Voxel` false-positives the geometry `switch (face)` in VoxelFaces.cs:23,40 and the `[Flags] enum MeaningMembers`
-  (MeaningMembers.cs:18); (ii) because the scan is a pure regex TOKEN matcher with NO semantic model, it CANNOT tell a
-  `(int,int)`/ValueTuple key that is a TypeId pair from one that is a `(cell,face)` pair — the codebase already uses
-  `HashSet<(int,int)>` for `(cell,face)` (VoxelField.cs:190). So a shape-only `(int,int)`-dict / `[,]`-array rule either
-  false-positives legitimate tuples or misses the real dispatch. An option-(b) scan must therefore rest on a NAMING/whitelist
-  convention (e.g. the reaction rule-index lives in a single NAMED symbol the scan asserts is data-built; all other
-  `(int,int)` tuples go in the self-test's `mustPass`), and the per-pattern planted-violation self-test is where that
-  disambiguation is PROVEN, not assumed. Do NOT mandate the detection mechanism — the PLAN owns it.
-The PRIMARY mechanical falsifier (the GATE, not a reviewer note) is the NEW-TYPE-IS-DATA RED in done_when #2: an independent
-test ADDS a NEW reaction rule + a NEW reactant type as DATA ONLY and asserts the reaction fires (you'd have to edit CODE to
-add a row to a code-keyed table — so this catches a hardcode the token scan cannot). The scan is the bounded SECONDARY
-tripwire.
+Sc-reactions is the first slice whose behaviour diverges on a SET of type identities. The temptation is a hardcoded dispatch: an `if`/`&&`/`==`-chain over a type-pair, a `switch` over a pair, a `Dictionary<(int,int),Rule>` of DELEGATES, or a const 2D array indexed by `(typeIdA,typeIdB)` — the exact shape canon Факт-4 forbids («как ДАННЫЕ, не как код-ветвление … новый тип = 0 новых веток»). The type-hardcode scan (tools/type-hardcode-scan.ps1) catches only enum/switch TOKENS and only in its `$DefaultRoots` — **verify BOTH facts at tip** (§Re-sync 5): reaction code landing elsewhere, an if-chain, a tuple-keyed dict, or a `[,]` indexed by TypeId can escape it entirely. The PLAN picks ONE (silent reliance on the old scan = STOP):
+- **(a) PREFERRED — pure data-rule application, no type-set dispatch:** the rule-set is DATA (hash rides the handshake); the engine applies it via a GENERIC canonical lookup (e.g. a data-built rule index keyed by canonically-ordered reactant keys), with ZERO type-identity control flow and no rule-logic keyed by hardcoded TypeIds. Adding a reaction, a tier row, or a type is DATA only. THEN correct the type-hardcode scan's scope/«strongest guarantee» header to honestly cover the reaction path's ACTUAL location (mirror the c-020 honesty-note precedent). Option (a) sidesteps the token-scan limitation entirely.
+- **(b) broaden the scan BY SYMBOL:** extend it to catch pair-dispatch patterns (switch-over-pair, TypeId-pair-keyed delegate dict, `[,]`/jagged array indexed by TypeId, if/&&/==-chain over a TypeId pair), each with a planted-violation self-test. ⚠ a pure token matcher cannot semantically tell a TypeId tuple from a `(cell,face)` tuple — an option-(b) scan must rest on a NAMING/whitelist convention proven by per-pattern planted self-tests, never a blind directory-append.
+The PRIMARY mechanical falsifier is the NEW-TYPE-IS-DATA RED (done_when #2): an independent test adds a NEW rule + a NEW reactant type as DATA ONLY and asserts the reaction fires. The scan is the bounded SECONDARY tripwire.
 
 ## the handshake hash (the lockstep session-start determinism gate — DO NOT skip)
 
-The reaction rule-set is determinism-LOAD-BEARING session content, exactly like the per-type weight override Sc-weight added.
-Today the lockstep session-start handshake compares `GasTypeRegistry.ContentHash` (GasTypeRegistry.cs:64), which folds the
-parent params + count + per-index `(TypeId, MetaTypeId, EffectiveKp, EffectiveWeight)` (GasTypeRegistry.cs:163-178; NB the
-public `ContentHash()` SUMMARY docstrings at cs:61-64/155-156 are STALE — they still omit `EffectiveWeight`; fold by the
-ACTUAL method body, and refresh those docstrings when you add the reaction fold) — there is NO reaction data. So two
-registries IDENTICAL in types but differing in their REACTION RULES yield an IDENTICAL handshake hash AND an IDENTICAL
-`MeaningMembers.TypeId` fold (VoxelField.cs:379-389) — a matching handshake while reaction physics diverges → a silent
-cross-peer / cross-mod desync under a GREEN checksum (canon Факт-1 / §9.5 «чексумм ЗЕЛЁНЫЙ, физика мусор»; Факт-5 no-late-join
-early-rejection defeated). **OBLIGATION (a determinism PROPERTY, not a placement):** the reaction rule-set's hash MUST ride
-the SAME content-hash both peers compare at the session-start handshake — **WHERE it lives (absorbed into the registry's
-`ComputeContentHash`, or a sibling `ReactionRuleSet` object whose own hash is combined into the handshake hash) is the PLAN's
-call.** It MUST be combined CANONICALLY / order-independently, MATCHING ITS SCHEMA:
-- for explicit reactant-set RULES: fold a stable-key-sorted rule LIST, **each rule's reactant SET itself canonicalized** (its
-  reactant TypeIds sorted) so a rule authored `[A,B]` folds IDENTICALLY to `[B,A]` — TWO levels (canonical reactant key per
-  rule, then a stable cross-rule sort); a single rule-sort is NOT enough (a rule's identity is a set, not a scalar). Fold the
-  rule COUNT before the loop (the `ordered.Length` length-guard precedent, GasTypeRegistry.cs:169) so a prefix/short set
-  cannot collide. Fold EVERY load-bearing field (reactant-set, threshold, telegraph delay, product TypeId, stoichiometry) —
-  the «fold every per-index field» discipline (GasTypeRegistry.cs:170-176).
-- for per-type reagent-class AXES: fold the resolved axes per dense index INSIDE the existing canonical-TypeId loop, exactly
-  as `EffectiveWeight` is folded (GasTypeRegistry.cs:175) — order-independent for free via the existing TypeId sort.
-RED controls (BOTH halves — a divergence-only test is satisfied by a non-canonical fold whenever both test registries happen
-to author in the same order): (1) DIVERGENCE — two registries differing in ANY load-bearing field, **most importantly WHICH
-type-set reacts** (`{A,B}` vs `{A,C}`), and also product/threshold/delay/stoichiometry, MUST DIVERGE the handshake hash; (2)
-CONVERGENCE — two registries built from the SAME reaction content authored in a DIFFERENT order (rules permuted; AND, IF the
-schema carries multi-reactant tuples, the reactant order within a rule permuted) MUST yield the IDENTICAL hash (a fold that
-DIVERGES on a pure re-ordering is non-canonical = FAIL; mirrors the committed `…SameContent_DifferentInsertionOrder_SameHash`
-tests). A rule's product/reactant TypeId MUST reference a REGISTERED type — an unknown TypeId is a LOUD build error, NEVER a
-silent skip (mirror the «unknown MetaTypeId» loud-throw, GasTypeRegistry.cs:135-137).
+The reaction rule-set (ALL tiers) + the outcome-registry are determinism-LOAD-BEARING session content. Today the handshake compares `GasTypeRegistry.ContentHash` (verify the folded member list at tip — docstrings have been stale before, §Re-sync 4); it contains NO reaction data: two registries identical in types but differing in reaction rules OR outcome kinds handshake-match while physics diverges → silent cross-peer desync under a GREEN checksum (Факт-1 / §9.5 «чексумм ЗЕЛЁНЫЙ, физика мусор»). **OBLIGATION (a property, not a placement):** the hash of the reaction rule-set (all tiers), the axis-coordinate table (each type's reagent-class coords), AND the outcome-registry (sorted kind ids + per-kind schema) MUST ride the SAME content-hash both peers compare at session start — WHERE it lives (absorbed into the registry's ComputeContentHash or sibling objects combined in) is the PLAN's call. Folding MUST be canonical / order-independent, MATCHING each schema:
+- explicit-SET and DEFAULT rows: two-level canonicalization — each row's reactant set itself canonicalized (TypeIds sorted), then a stable cross-row sort; fold the row COUNT per tier before each loop (length guard — a prefix/short set must not collide); fold EVERY load-bearing field (reactant set/predicate, env predicate, threshold, telegraph delay, outcome kind, product TypeId, stoichiometry, rate cap, tier id).
+- AXIS rules + per-type axis coordinates: fold resolved coords per type INSIDE the existing canonical-TypeId loop (order-independence for free), rules stable-sorted with count folded.
+- outcome-registry: sorted kind ids + count + per-kind load-bearing schema (mirror GasTypeRegistry's fold discipline).
+RED controls (BOTH halves): (1) DIVERGENCE — registries differing in ANY load-bearing field (most importantly WHICH type-set reacts: `{A,B}` vs `{A,C}`; also tier precedence-relevant fields, env predicate, outcome kind, product, threshold, delay, stoichiometry) MUST diverge the hash; (2) CONVERGENCE — the SAME content authored in a DIFFERENT order (rows permuted; reactant order within a row permuted) MUST yield the IDENTICAL hash. An unknown reactant/product TypeId or outcome-kind id is a LOUD build error, never a silent skip (mirror the unknown-MetaTypeId loud-throw).
 
 ## the per-tick MeaningChecksum decision (trip-wire — the PLAN decides, but states which)
 
-ORTHOGONAL to the handshake hash (that is the registry-identity handshake; this is the per-tick field-state digest). Mirror
-the c-020 DERIVED-vs-STORED shape:
-- **TELEGRAPH state — DERIVED (recommended where possible, the appetite-relief path):** if the telegraph is a pure per-tick
-  function of co-residence + a deterministic phase (e.g. the warning IS the rising co-resident mass, recomputed each tick,
-  never stored as field state), it adds NO new per-tick member — the mass it reads already folds under `Mass`. The PLAN
-  RECORDS this.
-- **TELEGRAPH state — STORED → a NEW member.** If a pending-reaction countdown is stored per-tick field state the next tick
-  reads, it MUST become a NEW `MeaningMembers` member at the next free bit **`1 << 6`** (current max `TypeId = 1 << 5`,
-  MeaningMembers.cs:36), folded ADDITIVELY via the **SKIP-ZERO precedent** (a cell with no pending reaction folds NOTHING — a
-  no-reaction scene stays BYTE-IDENTICAL to the Sc-weight goldens, like `Bias`/`ImpulseQueue` fold nothing when empty,
-  VoxelField.cs:334-371). **Fold each pending reaction KEYED BY ITS CELL's canonical X,Y,Z coordinate** (mirror the Bias fold,
-  VoxelField.cs:341-345) — NOT merely a countdown value or a queue sorted on countdown alone: two fields IDENTICAL in mass but
-  with telegraphs on DIFFERENT cells (or different countdowns on the same cells) MUST DIVERGE the checksum (the §9.5/шов-5
-  trip-wire — a non-cell-keyed fold is a UNIFORM bug both peers build identically, loopback-green, yet two distinct layouts
-  alias). TWO RED controls: (i) ISOLATION — `All & ~<member>` fails parity when the member is non-trivial (proves it is
-  folded); (ii) DISTINCTNESS — two distinct telegraph layouts (different cells / values, same mass) MUST DIVERGE (proves the
-  fold is cell-keyed / collision-free). Do NOT reuse `ImpulseQueue` (1<<4) or `Bias` (1<<3) for telegraph state — a distinct
-  concept gets a distinct bit.
-- **Mass transform** folds under the existing `Mass` (1<<0); **a shove via `EmitImpulse`** rides the existing `ImpulseQueue`
-  (1<<4), emitted deterministically from the shared field, in canonical field-derived order, validate-all-atomic (see §the
-  model property 3).
-Regenerating/rebaselining the Sc-types/Sc-weight goldens to absorb a reaction change = STOP-escalate.
+ORTHOGONAL to the handshake (registry identity vs per-tick field digest). Mirror the c-020 DERIVED-vs-STORED shape:
+- **TELEGRAPH — DERIVED (recommended where possible):** a pure per-tick function of co-residence + deterministic phase adds NO new member (mass already folds). PLAN records this.
+- **TELEGRAPH — STORED → a NEW member at the NEXT FREE MeaningMembers bit.** ⚠ Never assume a bit number — verify at tip (§Re-sync 3). Folded ADDITIVELY (SKIP-ZERO — a no-reaction scene stays byte-identical to the post-Sc-kernel goldens), **KEYED BY the cell's canonical X,Y,Z** — never a bag/sum/value-sort (two fields identical in mass with telegraphs on different cells MUST diverge — §9.5/шов-5). TWO RED controls: ISOLATION (`All & ~<member>` fails parity when non-trivial) and DISTINCTNESS (two telegraph layouts same-mass-different-cells diverge). Do NOT reuse the Bias/ImpulseQueue members for telegraph state — a distinct concept gets a distinct bit.
+- Mass transform folds under the existing Mass member; a shove via EmitImpulse rides the existing ImpulseQueue member (emitted deterministically, canonical order, validate-all-atomic, settle-bounded — §model 3).
+Regenerating/rebaselining committed goldens to absorb a reaction change = STOP-escalate.
 
-## mass bookkeeping (integer-exact, no silent wrap)
+## mass bookkeeping (integer-exact, no silent wrap — sparse-grounded)
 
-A reaction TRANSFORMS mass (chemistry — unlike flow, a reaction may legitimately change a cell's total mass by its DATA-defined
-stoichiometry, and MOVES mass BETWEEN species planes). It MUST be: integer-only (no float — zero-float scan); each reactant
-consumption + product production validated and on out-of-range **THROW loudly, ATOMIC** (field byte-unchanged, mirroring the
-real precedent `VoxelFaceFlow.cs:252-253` / `SeedMass` cs:121-122 — both THROW, neither saturates), NEVER a silent
-two's-complement wrap (canon «Детерминизм — как гарантируется»: «wrap бит-идентичен на всех пирах → чексумм ЗЕЛЁНЫЙ, физика
-мусор»). ⚠ `VoxelField.MaxCellMass` (cs:19) is a PER-PLANE per-`(species,cell)` cap (checked per plane in `SeedMass`,
-cs:118-122) — so even a reaction the PLAN declares mass-CONSERVATIVE can push a single PRODUCT plane over `MaxCellMass` while
-the cell total is conserved; such an out-of-range product MUST THROW, never saturate-and-drop (how the PLAN keeps a product
-under the per-plane cap — re-balance, reject the reaction, or a DATA-declared cap policy — is the PLAN's call). The PLAN
-DECIDES + RECORDS whether a reaction CONSERVES total mass or is a DATA-declared net source/sink — but a NET MASS LOSS that is
-not an explicit DATA-declared sink is a leak = STOP (GAP-2 void/sink is reserved, not active — canon §4; do NOT route reaction
-loss through it silently). No `int*int` on the authoritative path without a long guard (int-overflow scan).
+A reaction TRANSFORMS mass (may legitimately change a cell's total by DATA-defined stoichiometry, and moves mass BETWEEN type lanes). It MUST be integer-only (zero-float scan); every consumption/production validated; out-of-range → THROW loudly, ATOMIC (field byte-unchanged); NEVER a silent two's-complement wrap («wrap бит-идентичен на всех пирах → чексумм ЗЕЛЁНЫЙ, физика мусор»). ⚠ The per-LANE cap: the sparse record caps each lane at MaxCellMass (verify the guard at tip, §Re-sync 6) — even a mass-CONSERVATIVE reaction can push a single PRODUCT lane over its cap while the cell total conserves; such a product MUST THROW or resolve by a DATA-declared policy, never saturate-and-drop. Conservation oracle = **per-cell TOTAL across lanes** (and zone-total in the junction RED) — NOT per-lane exactness (a reaction legitimately moves mass between lanes). The PLAN decides + records whether each rule CONSERVES or is a DATA-declared net source/sink («annihilate» = a declared sink — legal, but the conservation gate must distinguish it from an accidental leak); a net loss that is not an explicit declared sink = STOP (no silent GAP-2 routing). No `int*int` on the authoritative path without a long guard.
 
-## the mix-overlay / «blended cell» resolution (sparse-dominant — the cell IS the blended cell) — RE-SCOPED 2026-06-30
+## overflow / co-residency under mixing (owner-signed layered MASS-CONSERVING policy — fork a) `[audit 5a / types-mixing-1, local-depth-05]`
 
-Under the LOCKED sparse-dominant representation (Sc-rep), a cell natively carries {dominant type + amount + a small bounded
-mix-overlay}, so a «blended/mixed cell» IS the native representation — the reaction reads the dominant + the co-resident
-overlay slots directly, and canon §3 / Факт-4's «mix-overlay» is the cell's own overlay (no separate structure). **STOP =
-reverting to dense `[species][cell]` planes** (the prior plan's rep — removed by Sc-rep ZERO-LEGACY). The old dense-rep claims
-that stood here («dense `[species][cell]` is the canon-sanctioned shape»; «§3 разреженная доминантная … НЕ плотные страницы is
-SUPERSEDED by the delegation»; «STOP = inventing a PARALLEL species-mix REPRESENTATION beside the dense planes») are DELETED —
-they pointed the wrong way once representation resolved to sparse-dominant (SPEC Факт-4, s-reshape-sparse-dominant-001; the
-SPEC.md Факт-4 honesty-note citation the old STOP rested on is itself now superseded). The PLAN re-grounds the mass/overflow
-handling onto the sparse cell store (per the §Re-sync touchpoints in the RE-SCOPE banner): conservation oracle = per-cell total,
-a product exceeding K overlay slots = the Sc-rep overflow surface (LOUD THROW / declared policy), NOT a dense per-plane cap.
+**Requirement reframe (owner, 2026-07-02, this session):** «если можно сделать любое количество или больше, то это не требование, это устаревшее осталось» — i.e. ANY number of gas types meeting in a ZONE is the gameplay requirement; the per-cell slot count (dominant + K overlay lanes, K config) is an INTERNAL representation constant, never a design cap. The old «5 газов не бывает» framing is retired. What makes any-N work: a junction's gases occupy neighbouring cells; each CELL holds ≤K+1 types while the ZONE holds any number, with chemistry + saturation resolving arrivals over ticks (the owner's «очередь реакций» — chemistry-first IS that queue).
 
-## ZERO-LEGACY: the old ReactionLayer is a LOCKED contract (do NOT revive, do NOT free-delete)
+The layered policy (pre-decision 15, confirmed + folded):
+1. **CHEMISTRY-FIRST.** At an overflowing cell, if any co-resident subset matches a rule (any tier), the reaction path ENGAGES this tick under the NORMAL telegraph→bang law — detection/telegraph this tick, resolution by the rule's DATA-defined delay; **no overflow-conditioned special resolution path that bypasses the telegraph** (that would be exactly the order-dependent special-casing the §3 crux forbids). Lanes free at the bang («слишком много газов = начинается химия»; junctions become set-pieces, not crashes); until then, point 2 is the floor. Partial coverage by design (inert sets don't react).
+2. **Universal floor = ADMISSION CLAMP at the face.** Extend the existing per-cell destinationCapacity clamp (verify mechanism at tip, §Re-sync 6): a destination with no matching lane and no free lane presents headroom 0 for that type; mass stays in the source cell — conserved by the same mechanism that already conserves clamp-denied units; no cascade, no throw, deterministic, integer. Reads as saturation/back-pressure. Same admission rule for seeding (a grenade blooms into the nearest admissible cells in canonical order).
+3. **K raisable via CONFIG** (record grows ~8→12 ints; the owner's R8 words are the «owner data» ADR-E-0001 reserves as the K-revisit path; K becomes config like roster — raises are data, not rework).
+Ranked BELOW the layered policy (audit types-mixing-1; recorded — re-entry needs an owner signature, never silent): merge-to-nearest-axis (phantom reactivity — inert merged into fuel — unless gated by an axis-legality table); smallest-mass eviction (reads as displacement but cascades in saturated regions; would need bounded depth + fallback to the clamp).
+- **LOUD THROW is DEMOTED, not deleted:** it remains the invariant assert on NON-flow paths (defensive, catches code bugs); it must be UNREACHABLE via gameplay flow/seed paths — proven by RED, and a planted direct-API abuse test shows the assert still fires.
+- **REDs:** «the sim survives an N-type junction MASS-EXACTLY (or degrades by the signed mass-conserving policy)» — PARAMETRIZED in N (run at minimum N=5 and one materially higher N, e.g. 8) — NEVER worded «levels never produce it» (that is the silent R8 scope-down the audit forbids). K-is-config RED: raising K = data-only change.
+- **Owner-eye scene (R1)** `[local-depth-05]`: 3+ gases meeting at a junction read believable up close (what saturation + chemistry LOOK like is part of the policy, not an implementation detail).
+- HONESTY `[types-mixing-5]`: admission = SLOT admission (which types may lie in a cell), NOT cross-type mass capacity — gases still do not displace each other; that flow-law seam (SPEC §6 п.10, reserved GAP-1 fields) is decided ≤ the Sc-damage PLAN, NOT opened here.
 
-The OLD `Core/Field/Layers/ReactionLayer.cs` (+ `TemperatureLayer.cs`, the v1 `Layers/` ILayer demo) is a publish-only
-producer in the dead `Layers/` ILayer demo tier — uncomposed in production (nothing wires `ReactionLayer` in a real
-composition root). BUT it is NOT free-to-delete dead code: `GridEventKind.Reaction (=3)`, the publish-only `ReactionLayer`,
-and `ReactionHeat (=32)` are a **Wave-2 LOCKED openspec contract** — `openspec/specs/sim-core/spec.md:153-172` carries an
-ACTIVE SHALL («`GridEventKind.Reaction` (=3) SHALL be published by a publish-only `ReactionLayer` … `TemperatureLayer` SHALL
-gain ONE additive P2 branch heating by a frozen `ReactionHeat=32`») AND declares the cross-layer event contract LOCKED /
-immutable for Wave 2 (verdict=HOLD fired). `check.ps1`'s spec-silence audit only checks the NEW change's frozen-spec section,
-NOT source-vs-existing-spec — so a delete would leave EVERY mechanical gate GREEN while silently violating a locked SHALL.
-**DEFAULT disposition = an explicit recorded CUT + a pin** (out of appetite; matches the c-020 frozen-tier discipline «do NOT
-touch … retire later»; the orphaned producer is left intact). DELETE is available ONLY after the builder verifies FIRST-HAND
-at the tip that NO live `openspec/specs/**/spec.md` SHALL references `ReactionLayer` / `GridEventKind.Reaction` / `ReactionHeat`
-(it currently DOES) AND an owner-gated live-spec amendment lands first. **Do NOT revive or extend `ReactionLayer` /
-`GridEventKind.Reaction` / the old `GridEvent` bus** — build reactions on the near `VoxelField`; the bang's pressure shove (if
-any) reuses the S1 `EmitImpulse` path, NOT the old GridEvent bus. (Terminology: this is the dead `Layers/` ILayer demo tier —
-distinct from the far-tier room-graph ROLLUP in `Core/Field/Coarse`, which is canon's chosen far model, DEFERRED not retired.)
+## condition-waves (FORK — semantics prepped, build not ordered)
 
-## co-op interdependence (d-coop-interdependence-repin-001 — RATIFIED at the PLAN, framed HERE)
+A reaction MAY emit a PROPAGATING coarse event carrying a condition-tag + a per-type response table (gas1,2→gas4; gas3→annihilate [declared sink]; gas5→ignite [dormant kind]; gas6→ignore) — the owner's «взрывная волна меняет тип газа в радиусе» rides exactly this. It remains a FORK, not a leg-1 obligation:
+- **Channel:** a marching coarse promo-event ON the outcome registry / near VoxelField — DISTINCT from single-cell outcome dispatch and from EmitImpulse. ⚠ The propagation substrate is POSSIBLY-UNBUILT machinery (SPEC: promo-event machinery precedes any ведро-2 mechanic) — the executor PLAN verifies FIRST-HAND whether it exists or must be built, and that it does not collide with the **Wave-2-LOCKED GridEvent contract** (still LIVE — at fire time only its ReactionLayer-scoped SHALLs retire via the §amendment; the bus/wire lock itself stays live; do not build the wave channel on or into it).
+- **Semantics PINNED (fork c, owner delegated → decided 2026-07-02):** every gas parcel in a wave's region converts **EXACTLY ONCE per wave** — no tunneling past the capped marching front, no double-conversion on recirculation; idempotence key = (cell, wave-id), wave-id rides the event payload. The MECHANISM (tag-on-region-until-expiry vs tag-on-front) = the PLAN's call; the pinned thing is the observable property.
+- **RED oracle (ships WITH the wave branch, whenever built)** `[audit 5c / types-mixing-4]`: gas advected by a standing S1 wind across a marching condition-front converts EXACTLY ONCE (deterministic either way; the oracle protects believability, not sync).
+- Per-type response rows = DATA in the handshake hash (same canonicalization). A wave-induced re-type writes the per-cell dominant STAMP (the Sc-rep socket) — no new mechanism.
+- Wave wake: a wave marching into slept cells is a wake source — the Sc-kernel wake-trigger registry reserves the «reaction front» stub; exact binding = PENDING (see §PENDING).
 
-The signed forced-coop rule (shared gas must force teamwork) lost its engine node (audit THEME-3); its recommended home is
-THIS PLAN + Sc-damage. d-coop-interdependence-repin-001 is still an OPEN decision in NOW.md (options + recommendation, not
-ratified) — so the PLAN, owner present, RATIFIES the fold-into-this-PLAN home (vs the separate-node / defer options) BEFORE the
-co-op axis is treated as binding (done_when #1). Canon §6 п.5 is explicit: the engine is co-op-NEUTRAL, and
-«согласованность ≠ взаимозависимость» — byte-identical-on-both-endpoints is CONSISTENCY (already guaranteed by the determinism
-gates), NOT interdependence; the feel/design half is the canon track g-d3a8, not the engine. So the engine axis this slice can
-prove is the PRECONDITION for interdependence: **the bang's consequence reaches a cell the reactants did NOT occupy** (a
-non-local shared consequence — canon's «ОБЩЕЕ-последствие-которое-чувствует-второй-игрок»). Add this as a
-**REQUIRED-to-CHECK owner-eye axis (confidence, not a delivery gate — like the rest of #10)**. HONESTY: engine-only / loopback,
-no real 2nd player — this proves only the engine precondition (a non-local shared consequence); the full 2-player feel lands
-when networked gas does (~S4) + the gameplay payoff at Sc-damage.
+## dynamic-typing socket + Sc-typing homing (fork e — decided 2026-07-02) `[audit 5e / local-depth-03]`
+
+Reactions READ the per-cell dominant STAMP (laid by Sc-rep); env-conditioned rules READ the committed env vector. The typing MECHANISM (exposure accumulate/flip) is NOT built this slice. Homing decision (placement owner-DELEGATED → decided; mechanism owner-agreed): **Sc-typing = the NAMED slice immediately AFTER Sc-reactions** — written into NOW.next_slices BY THE SAME RESULT that installs this body (verify present at the fire-time §Re-sync); the July demo-road shape 2026-07-10..15 is the named checkpoint where Sc-typing↔Sc-damage order may be consciously swapped under demo pressure — never silently. Mechanism: **ACCUMULATE-WITH-HYSTERESIS over instant flip** (owner «согласен»; instant flip strobes at noisy env boundaries → flicker + active-set inflation + checksum churn). The accumulator = ONE new replicated per-cell cell-keyed SKIP-ZERO checksum member (its own bit) — a schema decision taken AT Sc-typing, not here. Spawn-time typing (gas spawns as parent, reads env, BECOMES a type) = the same env-vector machinery — Sc-typing's scope. **Routing of the remaining 2026-06-30 design forks (so nothing falls through):** consume-vs-residue = per-rule DATA stoichiometry, decided rule-by-rule at THIS slice's PLAN (§model 1); regime-vs-identity = consciously MOVED to the Sc-typing shape (regime = a derived env read that moves no mass, SPEC §5 — it belongs with the accumulator schema); single-reactant env-response rows = schema-admitted here, firing semantics decided at Sc-typing (§model 1, Tier 3 NB). Temperature-keyed rows sleep until d-tempfeedback-001 (named re-entry = the Sc-damage shape); density/neighbour channels can condition multi-reactant rules earlier. This slice's only obligations to typing: do not break the stamp socket; keep outcome kinds compatible with «product = parent re-typed by local env» as a future data-declared product kind (fork-b synergy, recorded not built).
+
+## outcome registry & the old ReactionLayer — ZERO-LEGACY DELETE via owner-signed live-spec amendment (fork f)
+
+Outcomes (transform / explosion / …) = pluggable EVENT KINDS via an **outcome-registry on the near VoxelField** (sorted kind ids + ContentHash riding the handshake; registered-handler dispatch; a new outcome = a data row + a handler, zero core-switch edits). Reserved DORMANT kinds (schema admits, nothing implements): body-impulse (Sc-damage), wall-breach (S5), ignite/freeze (temperature era).
+
+The OLD `Core/Field/Layers/ReactionLayer.cs` (+TemperatureLayer, the v1 Layers/ ILayer demo) is publish-only, uncomposed in production, BUT `GridEventKind.Reaction (=3)` / `ReactionLayer` / `ReactionHeat (=32)` are covered by a **Wave-2 LOCKED openspec contract** (live SHALL — verify location at tip, §Re-sync 7). **Disposition CHANGED by the owner 2026-07-02 (this session): DELETE the dead demo tier, do not keep** — his words: «если нам какой-то класс не нужен, мы legacy не храним, удаляем … Просто так не держать». That statement is the OWNER-GATE PRE-SIGNATURE for the live-spec amendment, recorded here — **scoped to the demo-tier FILES + retiring their ReactionLayer-scoped SHALL lines ONLY.** The GridEventKind.Reaction member on the live bus enum, the GridEvent bus itself, and the wider Wave-2 wire-lock declaration are OUT of the pre-signed scope — touching them = STOP-escalate. Executor path (in order, at fire time):
+1. Verify FIRST-HAND at tip that the Layers/ demo tier is still uncomposed (no live composition root wires ReactionLayer/TemperatureLayer) and enumerate every live `openspec/specs/**/spec.md` SHALL referencing ReactionLayer / GridEventKind.Reaction / ReactionHeat. **NB no mechanical gate catches a quiet delete — check.ps1's spec-silence audit checks only the NEW change's frozen-spec section, not source-vs-existing-spec (verify at tip): this manual enumeration + step 2 are the ONLY guard, hence the fixed order.**
+2. Execute the live-spec AMENDMENT retiring the ReactionLayer-scoped SHALL lines, citing this recorded owner sign (2026-07-02 shape-prep session) — a visible spec change in the deliverable, not a quiet delete.
+3. THEN delete the dead tier files (Факт-6 ZERO-LEGACY: no legacy polluting context).
+4. **STOP-escalate if step 1 finds a LIVE composition or a SHALL whose scope exceeds the demo tier** — the pre-signature covers ONLY the uncomposed-demo case.
+Do NOT revive/extend ReactionLayer / GridEventKind.Reaction / the old GridEvent bus; do NOT widen OR shrink GridEvent/GridEventKind — reactions live on the near VoxelField. (Terminology: the dead Layers/ ILayer demo ≠ the far-tier Coarse/ rollup — the latter is canon's far model, deferred, frozen, untouched.)
+
+## co-op interdependence (d-coop-interdependence-repin-001 — RATIFIED at the PLAN, framed here)
+
+Canon §6 п.5: the engine is co-op-NEUTRAL; «согласованность ≠ взаимозависимость». The engine axis this slice proves is the PRECONDITION for interdependence: **the bang's consequence reaches a cell the reactants did NOT occupy** (a non-local shared consequence). The PLAN, owner present, RATIFIES the fold-into-this-PLAN home (vs separate-node / defer) BEFORE the axis is treated as binding. REQUIRED-to-CHECK owner-eye axis (confidence, not a delivery gate). HONESTY: engine-only/loopback proves the engine precondition; the 2-player feel lands with networked gas (Sc-net candidate) + Sc-damage.
 
 ## boundaries (out of scope / STOP-escalate if tempted)
 
-- **NO type-pair hardcode dispatch** — an `if`/`&&`/`==`-chain over a type-pair, an enum/switch over a pair, a dict-of-delegates
-  keyed by a TypeId pair, a const 2D array indexed by `(typeId,typeId)` — reactions are DATA rules applied generically; a new
-  type = 0 new code branches = STOP.
-- **NO same-tick unbounded cascade** — a chain advances ONE step per tick (telegraph→bang); a same-tick recursive cascade is
-  order-dependent = desync = STOP (canon §3 «цепь — следующим тиком»).
-- **NO temperature / heat mechanic, NO damage** — temperature appears nowhere this slice. ⚠ The natural trap: an EXOTHERMIC
-  reaction that writes a temperature/heat field — that is Sc-damage's thin sink-layer (d-tempfeedback-001) = STOP. A reaction
-  product is a gas TYPE and/or a pressure EVENT, never a heat field.
-- **NO visual-track hookup** (engine-only); do NOT touch the dev2 visual track or its reserved fields.
-- **Do NOT revive/extend the old `ReactionLayer` / `GridEventKind.Reaction` / the dead `Layers/` ILayer demo tier; do NOT
-  delete the Wave-2-LOCKED cross-layer event contract** (`GridEventKind.Reaction=3`, `ReactionLayer`, `ReactionHeat=32`, per
-  openspec/specs/sim-core/spec.md:153-172) without an owner-gated live-spec amendment = STOP (see ZERO-LEGACY).
-- **Do NOT touch / refactor / re-data-drive / move / scan the FROZEN far-tier** `CoarseSpecies` / `CoarseBandStep`
-  (Core/Field/Coarse) — it retires at S4; the type-hardcode scan must still NOT scan it.
-- **NO stored velocity / advection / true inertia / coasting** (TIER-3 / cracks the lock — d-gas-richness-tiers-001) — the
-  bang shove is a bounded BIAS impulse (S1 register, inside the c-020 settle envelope), not a velocity field.
-- **NO silent mass leak** — a net-mass-reducing reaction must be a DATA-declared sink, not a quiet drop (no silent GAP-2).
-- **NO float on the authoritative path / re-flux-as-gate**; integer-only; laws in headless Core/**. Lock = ADR-0002, NOT
-  reopened. The new engine ADR number is taken from the lowest number FREE across BOTH `main` docs/adr AND the `dev2` visual
-  track — NB **dev2 already holds `ADR-0020-gas-visual-w1a`, and engine ADRs run to 0019 (Sc-weight), so the next free engine
-  number is ADR-0021** (verify mechanically: `git ls-tree -r --name-only dev2 -- docs/adr`; OR, if a same-number double-book
-  is unavoidable mid-track, copy ADR-0019's collision-header convention verbatim — state the cross-track double-book +
-  «renumber at the dev/dev2→main merge»). Record the chosen number + the sibling numbers checked in the RESULT.
-- **Forward-discipline (note, do NOT scope in now):** when the detail bubble lands later, the reaction trigger reads the
-  COARSE authoritative total, never the bubble (canon §3 несущие — «подход игрока сам детонирует облако» is the desync). This
-  slice has no bubble; just do not architect the trigger to depend on sub-cell fine detail.
+- **NO type-set hardcode dispatch** (if/&&/== chain, enum/switch over a pair, TypeId-pair-keyed delegate dict, `[,]` indexed by TypeIds) — data rules applied generically; a new type = 0 new branches.
+- **NO same-tick unbounded cascade** — a chain advances one step per tick; no overflow-conditioned telegraph bypass (§overflow 1).
+- **NO temperature/heat mechanic, NO damage** — an exothermic reaction writing a heat field is Sc-damage's sink-layer (d-tempfeedback-001) = STOP. A product is a gas type and/or a pressure event, never a heat field. (ignite/freeze stay DORMANT kinds.)
+- **NO body/object/loot physics, NO wall-breach** this slice — reserved DORMANT outcome kinds only (owner intent recorded + routed: bodies → Sc-damage after шов-7 player-kinematics; walls → S5). Implementing either = STOP.
+- **NO env-driven typing MECHANISM** (exposure accumulator, env-threshold flip, spawn-typing, single-reactant env-transform rows FIRING) — Sc-typing's scope. The stamp changes ONLY as the store's normal consequence of mass transform / wave re-type (max-mass dominant maintenance), never via an accumulator or env-threshold flip.
+- **NO cross-type mass-capacity change** — slot admission only; the §6 п.10 seam stays closed until ≤ Sc-damage `[types-mixing-5]`.
+- **NO visual-track hookup** (engine-only; dev2 untouched; visual is owner-held).
+- **The old GridEvent bus / GridEventKind enum: do NOT revive, extend, widen, or SHRINK it — `GridEventKind.Reaction=3` STAYS in the enum even after the demo tier is deleted** (the enum is Wave-2-LOCKED wire content and a c-exec-017 KEEP-set item; a bus/enum edit is NOT covered by the fork-f pre-sign and needs its own owner gate = STOP-escalate). The Layers/ demo-tier FILES (+ their ReactionLayer-scoped SHALL lines) are the ONLY delete target, executed ONLY via the §amendment path.
+- **Do NOT touch/refactor the FROZEN far-tier** Coarse/ rollup (CoarseSpecies/CoarseBandStep) — it retires at S4; the TYPE-HARDCODE scan must still NOT scan it. NB Sc-kernel ADDS Coarse/ to both the zero-float + int-overflow root lists with a planted self-test (c-exec-023) — that closure is SIGNED: keep it; finding Coarse/ in those two root lists at tip is EXPECTED, not drift.
+- **NO stored velocity/advection/inertia** (TIER-3 boundary) — the shove is a bounded BIAS impulse inside the settle envelope.
+- **NO silent mass leak** (declared sinks only); **no float on the authoritative path / no re-flux-as-gate** (loopback + zero-float scan is the gate; real 2-PC runs are NEVER a gate — SPEC §7); integer-only; laws in headless Core/**. Lock = ADR-0002, not reopened.
+- **NO reverting to dense `[species][cell]` planes** in any form (Sc-rep ZERO-LEGACY removed them; Sc-kernel killed the dense per-tick path) = STOP.
+- **Forward-discipline (note):** when the detail bubble lands later, the trigger reads COARSE authoritative totals, never the bubble. No bubble exists this slice; just don't architect the trigger against it.
+
+## PENDING — awaits the Sc-kernel RESULT (fill at the fire-time re-harden; do NOT invent)
+
+1. **Base sha** (the Sc-kernel merge commit) + the post-Sc-kernel golden identity for the byte-identical no-reaction gate.
+2. **Weak-hardware budget fork** `[audit 5f]`: consumes the flooded-hangar number (c-exec-023 gate 2c) + the pinned weak-CPU proxy class → sets the active-gas/reaction budget; if flooded projected over budget, d-hangar-flood-fallback-001 is already open — reconcile.
+3. **Wake-source exact binding** `[types-mixing-3 — primary closure in c-exec-023 §4c; this line binds the reserved stubs]`: the Sc-kernel wake-trigger registry seam (active: boundary flux, conductivity/occupancy change, impulse footprint; RESERVED stubs: env-vector delta, reaction front, temperature delta) — this slice binds «reaction front» (waves/telegraph wake) and confirms the impulse-footprint wake covers the bang shove; env-delta stays reserved for Sc-typing.
+4. **MeaningMembers layout / next free bit** (if STORED telegraph) + scan-root lists + contract version + all code anchors — §Re-sync at tip.
 
 ## ведро classification (PLAN reconfirms — already decided)
 
-- **Ведро-2** (coarse-promotable, IN-checksum, shared by all peers): the reaction trigger + the bang's mass-transform + any
-  pressure event are authoritative laws on the shared 50cm grid — they ride the mass + the (derived-or-stored) telegraph state
-  + the rule-set every peer agrees on, and are the co-op affordance.
-- **Ведро-1** (off-checksum local detail): ABSENT this slice. **Ведро-3** (sub-room AND shared): ABSENT.
-The PLAN reconfirms this disposition; it does not re-derive it.
+**Ведро-2** (coarse-promotable, IN-checksum, all peers): reaction trigger + mass transform + pressure event — authoritative laws on the shared 50cm grid, the co-op affordance. **Ведро-1** absent this slice. **Ведро-3** absent. The PLAN reconfirms; it does not re-derive.
 
 ## done_when (verifiable)
 
-1. **PLAN (owner present):** §Re-sync FIRST; ingest canon Факт-4 (data-not-branches) + §3 (telegraph/chain/coarse-event,
-   mix-overlay) + §6 п.5 (consistency≠interdependence) + §9.5/шов 5 + d-character-road-001 + d-coop-interdependence-repin-001;
-   **RATIFY (owner present) d-coop-interdependence-repin-001's fold-into-this-PLAN home** (vs the separate-node / defer options)
-   before treating the co-op axis as binding; DECIDE and RECORD: (i) the reaction rule SCHEMA (explicit reactant-set rules vs
-   per-type reagent-class axes) + (if reaction is a separable phase) the fixed flow↔reaction tick ORDER; (ii) the telegraph
-   delay + telegraph STORED-vs-DERIVED + whether the bang shoves / produces a product / both; (iii) the per-tick
-   MeaningChecksum decision (DERIVED → no member + recorded rationale, or STORED → a NEW `1<<6` SKIP-ZERO cell-keyed telegraph
-   member) + how the reaction rule-set rides the session handshake hash (registry-absorbed vs sibling-combined); (iv) the
-   no-pair-dispatch fix (option a pure data-rules + scan-honesty, or option b broaden-the-scan-by-symbol); (v) the mass policy
-   (conserve vs DATA-declared sink/source) + the «blended cell = dense co-residence, no parallel overlay» record; (vi) the
-   disposition of the orphaned `Layers/` demo (DEFAULT recorded-cut+pin; delete only after a live-spec check + owner-gated
-   amendment); (vii) the new ADR number (lowest free across main + dev2; ADR-0021 likely). Reconfirm ведро (ведро-2 only);
-   name the 2-3 reactant TEST types + ≥1 product (reuse/extend the Sc-types test set; weight-class-spanning).
-2. **≥2 reactant types REACT, data-driven** — independent-author RED: over a seeded run, two reactant types co-resident above
-   threshold telegraph then BANG (the product appears / the shove fires); a single-reactant or below-threshold run does NOT
-   react. **NEW-TYPE-IS-DATA (the primary no-pair-dispatch falsifier):** an independently-authored RED registers a NEW
-   reaction rule + a NEW reactant type as DATA ONLY (no code edit) and asserts the reaction fires. **NO REGRESSION:** a
-   no-reaction run reproduces the committed pre-slice gas golden BYTE-IDENTICALLY (this golden already CONTAINS Sc-weight
-   buoyancy creep — verify FIRST-HAND at the tip WHICH committed golden covers the gas path); the loopback two-endpoint
-   `MeaningChecksum` harness is the determinism tripwire, NOT the golden, and being relational (A==B) it will NOT catch a
-   uniform fold (see #5/#6).
-3. **NO-PAIR-DISPATCH (the N² obligation):** reaction logic has ZERO type-identity control flow keyed by a type-pair — no
-   `if`/`&&`/`==`-chain over a pair, no enum/switch over a pair, no `Dictionary<(int,int),…>` of delegates, no `[,]`/jagged
-   array indexed by a TypeId pair; the mechanical falsifier (option a: pure data-rule application + the type-hardcode scan's
-   scope/header corrected to honestly cover the reaction path's location; OR option b: the scan broadened BY SYMBOL/naming with
-   a planted-violation self-test for EACH dispatch pattern incl. the if-chain — NOT a blind directory-append, and resting on a
-   naming/whitelist convention because a token scan cannot semantically distinguish a TypeId-pair tuple from a `(cell,face)`
-   tuple) covers the reaction code's ACTUAL location. The FROZEN far-tier `CoarseSpecies` stays unscanned + untouched.
-4. **TELEGRAPH→BANG, chain one-tick-per-step — TWO named falsifiers:** (i) a TICK-COUNT oracle — a chain of depth N (N cells
-   that would each trigger the next) resolves over EXACTLY N ticks, so a depth-2 chain that fully resolves in 1 tick MUST FAIL
-   (this is the relational-invisible falsifier the loopback hash cannot provide — a canonically-ordered same-tick cascade is
-   loopback-green AND permutation-stable); (ii) an ORDER-PERMUTATION control over BOTH detection AND resolution/apply —
-   detection + the multi-cell reaction-apply (reactant consumption + product production) compute entirely from tick-start
-   masses, so permuting the order in which simultaneously-banging cells are resolved yields a BYTE-IDENTICAL field; a planted
-   read-/apply-against-mutated-mass realization MUST FAIL.
-5. **HANDSHAKE-HASH socket (conditional on #1):** the reaction rule-set's hash rides the session handshake hash canonically —
-   (a) DIVERGENCE RED: two registries differing in ANY load-bearing field, most importantly WHICH type-set reacts (`{A,B}` vs
-   `{A,C}`), also product/threshold/delay/stoichiometry, DIVERGE the hash; (b) CONVERGENCE RED: the SAME reaction content in a
-   DIFFERENT authoring order (rules permuted; reactant order within a rule permuted, schema-permitting) yields the IDENTICAL
-   hash (a fold that diverges on pure re-ordering = FAIL); an unknown reactant/product TypeId is a LOUD build error; the rule
-   count is folded (length guard).
-6. **PER-TICK CHECKSUM socket (conditional on #1):** telegraph DERIVED → no member (recorded); STORED → a NEW `1<<6`
-   `MeaningMembers` member, ADDITIVELY (SKIP-ZERO) folded KEYED BY canonical cell coordinate, with TWO RED controls —
-   ISOLATION (`All & ~<member>`) AND DISTINCTNESS (two telegraph layouts identical in mass but on different cells / values
-   DIVERGE). The mass transform folds under `Mass`; a shove via `EmitImpulse` rides `ImpulseQueue`, emitted deterministically
-   from the tick-start shared field in canonical field-derived order, validated-all-before-mutation (atomic), and bounded so
-   the COMBINED desiredMove (gradient+buoyancy+shove) still settles (the c-020 over-strength settle RED applies). The S1
-   `_bias`/`ImpulseQueue` is NOT repurposed for telegraph state.
-7. **MASS bookkeeping:** integer-exact; reactant consumption + product production THROW loudly on out-of-range / per-plane
-   `MaxCellMass` overflow (no silent wrap, no saturate-and-drop), atomic (a thrown reaction tick leaves the field
-   byte-unchanged); the mass policy (conserve / DATA-declared sink) RECORDED; the conservation RED control checks the
-   CELL-TOTAL mass summed ACROSS ALL species planes — conserved EXACTLY for a declared-conservative reaction, or changed by
-   EXACTLY the data-declared net amount for a declared sink/source — NOT a per-species exactness (a reaction legitimately moves
-   mass between planes; this DIFFERS from the c-020 per-species buoyancy oracle); a planted leak/duplication MUST FAIL it.
-8. **DETERMINISM + scan coverage:** integer-only authoritative path; the new reaction code covered by BOTH the zero-float +
-   int-overflow scans (roots = {Voxel, Structure, Determinism, Types}, zero-float-scan.ps1:36 / int-overflow-scan.ps1:47): if
-   the reaction code lands under an already-scanned root, VERIFY both cover the new files; ONLY IF it introduces a NEW
-   authoritative directory (e.g. `Core/Field/Reactions`), add it to BOTH root lists (keep them identical) + a planted-violation
-   RED self-test there. (The TYPE-HARDCODE scan is a SEPARATE obligation under #3.) Loopback determinism hash green over a
-   multi-type reacting seeded run (planted-float / order-dependence RED controls).
-9. **check.ps1 -Deliver GREEN** (build + headless + zero-float + int-overflow + type-hardcode scans + mutation ≥70 on new
-   Core + spec-silence + deliverable-coverage). G0-frozen (openspec + frozen spec + ledger + mutation-<id>.json ≥70;
-   RESULT.md = DELIVERED).
-10. **ZERO-LEGACY**; tests rewritten not dragged; the orphaned `Layers/` disposition honoured AND a live-spec check confirms
-    no deletion contradicts a current `openspec/specs/**/spec.md` SHALL (the Wave-2-LOCKED `GridEventKind.Reaction` /
-    `ReactionLayer` / `ReactionHeat` contract is NOT deleted without an owner-gated amendment); the old `ReactionLayer` /
-    `GridEventKind.Reaction` NOT revived.
-11. **OWNER-EYE (confidence, NOT a gate):** owner sees two reactant test gases meet, TELEGRAPH (warn), then BANG (a visible
-    product / shove) deterministically in the debug view; AND the REQUIRED-to-CHECK co-op axis — the bang's consequence reaches
-    a cell the reactants did not occupy (a non-local shared consequence; a bang whose effect never leaves the trigger cell
-    FAILS the axis). Owner-run, no self-marking.
+1. **PLAN (owner present):** §Re-sync sweep FIRST; ingest canon (Факт-4, §3, §5 read-only, §6 п.5/п.9/п.10) + this CALL's decisions; RATIFY d-coop-interdependence-repin-001's fold-into-this-PLAN home; DECIDE and RECORD: (i) rule realization for the data tiers + precedence tie-break + the single-reactant-rows-are-schema-only classification (§model 1) + (if separable phase) the fixed flow↔reaction tick order; (ii) telegraph delay + STORED-vs-DERIVED + what the bang does in leg 1 (product / shove / both — one visible effect min); (iii) the per-tick checksum decision (DERIVED → no member + rationale; STORED → next-free-bit SKIP-ZERO cell-keyed member) + where the rule-set/outcome-registry hashes ride the handshake; (iv) the no-pair-dispatch fix (option a preferred / option b by-symbol); (v) the mass policy per rule (conserve vs declared sink/source; consume-vs-residue = per-rule stoichiometry) + per-lane-cap product policy; (vi) the overflow wiring (chemistry-first ordering + its telegraph-law interplay + admission clamp extension + K config); (vii) the ReactionLayer amendment+delete steps (§outcome registry / amendment path) — verify-uncomposed first; (viii) the ADR-E number (next free at tip, siblings recorded); (ix) wave fork disposition for THIS slice (build the propagation substrate or defer the branch — either way the exactly-once semantics + RED ride the fork); (x) reconfirm ведро-2; name 2–3 reactant TEST types + ≥1 product (reuse/extend the Sc-types test set; weight-class-spanning).
+2. **≥2 reactant types REACT, data-driven** — independent-author RED: two reactant types co-resident above threshold telegraph then BANG (product appears / shove fires); a cell holding only ONE of a rule's reactants, or below threshold, does NOT fire that rule (and no single-reactant row FIRES this slice — schema-admission ≠ firing, §model 1). **NEW-TYPE-IS-DATA (primary falsifier):** an independently-authored RED registers a NEW rule + a NEW reactant type as DATA ONLY (no code edit) and asserts the reaction fires — run it per FIRING tier (a new explicit-SET row; a new type entering an existing AXIS rule via coords alone; a DEFAULT row firing where no tier-1/2 rule matches, honoring precedence). **NO REGRESSION:** a no-reaction run reproduces the committed post-Sc-kernel golden BYTE-IDENTICALLY (verify at tip WHICH golden covers the gas path); the loopback MeaningChecksum harness is the relational tripwire, NOT the golden.
+3. **NO-PAIR-DISPATCH:** zero type-identity control flow keyed by a type set; the mechanical falsifier per the chosen option (a: data-rules + scan honesty header/scope; b: by-symbol scan + per-pattern planted self-tests) covers the reaction code's ACTUAL location; the frozen far-tier stays untouched and OUTSIDE the type-hardcode scan (it remains IN the zero-float/int-overflow roots per the signed c-exec-023 closure).
+4. **TELEGRAPH→BANG, chain one-tick-per-step — two named falsifiers:** (i) TICK-COUNT oracle: a chain of depth N resolves over EXACTLY N ticks (a depth-2 chain resolving in 1 tick MUST FAIL — the falsifier loopback hashing cannot provide); (ii) ORDER-PERMUTATION over BOTH detection AND apply: permuting the resolution order of simultaneously-banging cells yields a BYTE-IDENTICAL field; a planted read-against-mutated-state realization MUST FAIL.
+5. **HANDSHAKE-HASH socket:** all rule tiers + axis-coordinate table + outcome-registry ride the session handshake hash canonically — DIVERGENCE RED (any load-bearing field, most importantly WHICH type-set reacts) + CONVERGENCE RED (same content, permuted authoring order → identical hash); unknown TypeId / outcome-kind id = LOUD build error; per-tier row counts folded (length guard).
+6. **PER-TICK CHECKSUM socket:** DERIVED telegraph → no member (recorded); STORED → a NEW next-free-bit member (verify MeaningMembers at tip), SKIP-ZERO, cell-keyed, with ISOLATION + DISTINCTNESS REDs. Mass transform folds under Mass; the shove rides ImpulseQueue — canonical field-derived order, validate-all-atomic, bounded so COMBINED desiredMove settles (carry the c-020 over-strength settle RED). Bias/ImpulseQueue NOT repurposed for telegraph state.
+7. **MASS bookkeeping:** integer-exact; out-of-range / per-lane-cap overflow THROWS or resolves by DATA-declared policy (no silent wrap, no saturate-and-drop), atomic (thrown tick leaves field byte-unchanged); mass policy per rule RECORDED; conservation RED = CELL-TOTAL across lanes (exact for conservative rules; changed by EXACTLY the declared amount for sinks/sources); a planted leak/duplication MUST FAIL.
+8. **OVERFLOW / N-TYPE JUNCTION (fork a):** chemistry-first + admission clamp + config-K implemented per §overflow (no telegraph-bypassing overflow path); REDs — N-type junction survives MASS-EXACTLY (parametrized; minimum N=5 and one higher N), zone-total conserved, no throw on any flow/seed path (planted direct-API abuse still trips the demoted assert); K raise = data-only RED; grenade/seed blooms to nearest admissible cells canonically.
+9. **CONDITION-WAVE fork disposition honoured:** IF built this slice — substrate verified first-hand, exactly-once (cell,wave-id) semantics + the wave×wind RED (standing S1 wind across a marching front converts exactly once) + per-type response rows in the handshake hash + stamp-write for re-type; IF deferred — the fork, pinned semantics, and the ready RED wording are RECORDED in the RESULT for the wave leg (no silent drop).
+10. **DETERMINISM + scan coverage:** integer-only authoritative path; new reaction code covered by BOTH zero-float + int-overflow scans (verify root lists at tip — Coarse/ present in both is the Sc-kernel closure, keep it; a NEW authoritative dir → add to BOTH lists + planted-violation self-test); loopback determinism hash green over a multi-type reacting seeded run (planted-float / order-dependence RED controls).
+11. **check.ps1 -Deliver GREEN** (build + headless + all scans + mutation ≥70 on new Core + spec-silence + deliverable-coverage) at the tip contract version; G0-frozen; RESULT.md = DELIVERED.
+12. **ZERO-LEGACY:** tests rewritten not dragged; the ReactionLayer DELETE executed via the §amendment path (verify-uncomposed → live-spec amendment citing the 2026-07-02 owner pre-sign → delete; STOP if a live composition/wider SHALL is found); no other live SHALL contradicted — NB this is a MANUAL first-hand spec check (the mechanical spec-silence gate cannot see source-vs-existing-spec).
+13. **OWNER-EYE (confidence, NOT a gate; owner-run, no self-marking):** (i) two reactant test gases meet, TELEGRAPH, then BANG deterministically in the debug view; (ii) **the bang reads as a BANG up close, incl. ONE detonation in an open field with no walls** `[audit 5d / local-depth-02]` — a failed read = SIGNED evidence for the TIER-2/TIER-3 richness ladder (d-gas-richness-tiers-001; same channel as the Sc-damage jet look), routed to a decision, never shrugged off; (iii) **3+ gases meeting at a junction read believable** (fork-a R1 scene) `[local-depth-05]`; (iv) the co-op axis — the bang's consequence reaches a cell the reactants did not occupy.
 
 ## discipline / gates (carried)
 
-RED-first by an INDEPENDENT test-author (builder cannot edit the red tests) · Core/** placement · -Deliver GREEN · mutation
-≥ floor (70%) · a FRESH-SESSION G5 (different model family) refuting the data-driven-no-pair-dispatch /
-reaction-rules-ride-the-handshake-hash-ORDER-INDEPENDENTLY / telegraph-member-additive-SKIP-ZERO-and-cell-keyed-DISTINCT /
-chain-one-tick-TICK-COUNT-and-apply-permutation / mass-cell-total-conserved-no-wrap / dense-co-residence-no-parallel-overlay /
-no-regression-byte-identical-incl-buoyancy / shove-inside-the-settle-envelope / orphaned-ReactionLayer-LOCKED-not-deleted /
-co-op-consequence-is-NON-LOCAL seams — COULD-NOT-REFUTE is the bar · STOP-discipline (a type-pair hardcode dispatch incl. an
-if-chain, a same-tick cascade, reviving or free-deleting the LOCKED ReactionLayer, a temperature/damage/exothermic-heat
-mechanic, touching the frozen far-tier, a silent mass leak, an over-strength shove past the settle envelope, float on the
-authoritative path, reopening ADR-0002 = mandatory STOP + escalate) · build in small steps.
+RED-first by an INDEPENDENT test-author (builder cannot edit the red tests) · Core/** placement · -Deliver GREEN at tip contract · mutation ≥70 · a FRESH-SESSION binding G5, **different model family kept per the old body's standing request** (fresh-session is the binding bar; in-session pre-pass ≠ the binding fresh review — state which in the RESULT), refuting the seams: data-driven-no-pair-dispatch / tier-precedence-deterministic / single-reactant-rows-do-NOT-fire / handshake-rides-ALL-tiers-ORDER-INDEPENDENTLY / telegraph-member-additive-SKIP-ZERO-cell-keyed-DISTINCT / chain-one-tick-TICK-COUNT-and-apply-permutation / mass-cell-total-conserved-no-wrap / N-type-junction-mass-exact-no-gameplay-throw / admission-clamp-conserves / shove-inside-settle-envelope / no-regression-byte-identical / ReactionLayer-deleted-VIA-amendment-not-quietly / co-op-consequence-NON-LOCAL — COULD-NOT-REFUTE is the bar · STOP-discipline (type-set dispatch, same-tick cascade or overflow telegraph-bypass, temperature/damage/body/wall mechanics, a firing single-reactant env rule or any typing mechanism, touching the frozen far-tier, silent mass leak, over-strength shove, float, dense-planes revert, quiet ReactionLayer delete/revive or any GridEvent bus/enum edit, reopening ADR-0002 = mandatory STOP + escalate) · build in small steps.
 
 ## return
 
-A RESULT routed HOME (the OS owns the next CALL): outcome + evidence (commits, -Deliver transcript, mutation json, G5
-verdict, the multi-type reacting loopback hash + RED-control trips, the rule-schema + telegraph DERIVED-vs-STORED + handshake-
-hash-fold + no-pair-dispatch-fix + mass-policy + mix-overlay-record + Layers-disposition decisions, the chosen ADR number +
-sibling numbers checked, the co-op-axis non-local-consequence evidence) + findings for the planner. dev→main merge + push is
-OWNER-GATED. On GREEN → the road rolls to Sc-damage (the first real gameplay payoff + the co-op interdependence gameplay
-moment).
+A RESULT routed HOME (the OS owns the next CALL): outcome + evidence (commits, -Deliver transcript, mutation json, G5 verdict, multi-type reacting loopback hash + RED-control trips, the PLAN decisions (i)–(x) recorded, the junction-N scenes, the amendment diff + deletion evidence, the chosen ADR-E number + siblings, the owner-eye verdicts incl. the bang-read and junction scenes with their TIER-ladder routing) + findings for the planner. dev→main merge + push OWNER-GATED. On GREEN → the road rolls to **Sc-typing** (homing decision 2026-07-02: placement owner-delegated, mechanism owner-agreed — see §dynamic-typing), then Sc-damage.
 
 ## budget
 
-One slice. ⚠ The two heaviest NEW obligations are EITHER c-020-sized: (i) a 2-phase STORED telegraph state machine that becomes
-a new per-tick `1<<6` checksum member with a chain-one-tick oracle, and (ii) folding a whole new rule-set into the handshake
-hash. **SPLIT TRIP (mechanical, not a vibe):** if shipping leg 1 would require BOTH a new STORED `1<<6` telegraph member AND
-the rule-set handshake-hash fold AND a multi-tick chain oracle in one build, STOP and split along the MACHINERY seam — leg 1 =
-the data-driven RULE-SET + handshake-hash fold + an INSTANTANEOUS (same-detect-tick) bang doing a mass-transform ONLY (proves
-the no-pair-dispatch + handshake gates, telegraph DERIVED / no new member); leg 2 = the 2-phase TELEGRAPH (the new STORED
-`1<<6` member + the chain-one-tick oracle) + any pressure shove. Do NOT bundle the new per-tick checksum member with the
-registry-fold gate; do NOT silently build a blob. For the FIRST leg the bang realizes ONE visible effect (a product type OR a
-pressure shove, the PLAN's choice — both is the richer-product deferral). Keep the TEST-types scope tight (2-3 reactant test
-types + ≥1 product).
+One slice — but honestly FATTER than the 2026-06-30 estimate (+overflow policy machinery, +junction REDs, +2 owner-eye scenes, +the amendment step). **SPLIT TRIP (mechanical, by MACHINERY — the split IS the default plan):**
+- **Leg 1 = the data substrate:** rule-set tiers + precedence + handshake-hash fold (all tiers + outcome-registry) + admission-clamp floor + chemistry-first ordering + a bang with telegraph delay = 0 AS INTERIM DATA (mass-transform only; the telegraph/tick-count REDs land in leg 2 — leg 1 does NOT satisfy them) + the N-type junction REDs + NEW-TYPE-IS-DATA per firing tier (telegraph DERIVED / no new member in leg 1; proves the no-pair-dispatch + handshake + overflow gates).
+- **Leg 2 = the state machine + feel:** the 2-phase telegraph (STORED-or-DERIVED per the PLAN's recorded decision; IF STORED — the new next-free-bit member + isolation/distinctness REDs; IF DERIVED — the phase logic, no member) + the chain-one-tick oracle + the pressure shove (settle envelope) + the owner-eye scenes (bang-read, junction, non-local) + the ReactionLayer amendment+delete.
+- **The wave branch** (propagation substrate + exactly-once + wave×wind RED) rides leg 2 ONLY if the substrate verification says it is cheap; otherwise it is a NAMED follow-up leg — never silently bundled.
+Collapsing to a single trip is allowed ONLY if the PLAN shows the combined build stays genuinely small — and NEVER by bundling the STORED member + the full handshake fold + the multi-tick chain oracle into one blob (that combination = mandatory split). Do NOT bundle the new per-tick member with the registry-fold gate; do NOT silently build a blob. Keep the TEST-types scope tight (2–3 reactant test types + ≥1 product).
 
 END_OF_FILE: live/indie-game-development/work/c-exec-021-call.md
