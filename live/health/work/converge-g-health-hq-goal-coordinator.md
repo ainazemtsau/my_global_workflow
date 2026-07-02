@@ -46,8 +46,8 @@ triage:
 | W9 | proposed | acceptance | Sleep/recovery must be represented as a demand area even if not implemented as a full domain in this bet: HQ may request needed summary signals or recommend shaping a future domain, but must not diagnose or silently create a medical/sleep protocol. →GLOSSARY:G6[request types, boundaries] |
 | W10 | proposed | acceptance | Future domains must integrate through the same contract shape: responsibility, supported root-goal contribution, summary/report format, exposed metrics/signals, accepted request types, and non-mutation boundaries. →GLOSSARY:G6[responsibility, supported goals, report format, exposed signals, request types, boundaries] |
 | W11 | proposed | acceptance | Authority split: HQ may decide/recommend/request progress verdicts, bottleneck classes, needed metrics, strategy implications, domain demand shapes, and escalation routes; domains execute and mutate domain artifacts; owner/governance approves material plan changes, new domains, and any safety/medical escalation. →GLOSSARY:G1[does not execute domain artifacts] →GLOSSARY:G7[domain owns execution and mutation] |
-| W12 | proposed | research_needed | Before implementation, run deep research on evidence-based goal-achievement orchestration for this health context: milestone/phase model, metric hierarchy, behavior-change loop, review cadence, safety escalation, and domain demand contract checklist. Output must include 3–5 refuted model options and a recommended decision-class checklist for converge-verify. |
-| W13 | proposed | route | Current active bet is repairable only if narrowed now to WHAT/research/arch/verify; no new executor work should be issued from the summary-only proof. If owner rejects narrowing, kill/park Health HQ and return to nutrition/training execution. |
+| W12 | deferred | research_needed | Before implementation, run deep research on evidence-based goal-achievement orchestration for this health context: milestone/phase model, metric hierarchy, behavior-change loop, review cadence, safety escalation, and domain demand contract checklist. Output must include 3–5 refuted model options and a recommended decision-class checklist for converge-verify. Deferred to c-health-hq-goal-achievement-model-research-001. |
+| W13 | answered | route | Owner approved route A on 2026-07-02 with "A": current active bet is repairable only by narrowing now to WHAT/research/arch/verify. No new executor work is authorized from the summary-only proof. |
 | W14 | answered | imported_technical_slice | The existing x_health_hq proof is retained as lower-level technical evidence for summary-only input, fixture marking, non-mutating routed requests, and boundary flags; it is not product acceptance for W1-W13. |
 
 ## §COVERAGE — draft
@@ -70,13 +70,20 @@ mechanism parameter coverage:
 
 ## §SIGNOFF
 
+Route:
+  status: signed
+  evidence: >
+    owner approved route A @ 2026-07-02 — "A"
+
 Define:
   status: missing
-  reason: owner has not yet signed G1-G9 meanings and competing readings after this converge checkpoint.
+  reason: >
+    Glossary G1-G9 remain draft until research returns and owner signs the final meanings/properties.
 
 Resolve:
-  status: missing
-  reason: owner has not yet approved route W13, and W12 research has not returned.
+  status: partial
+  reason: >
+    W13 route is signed; W12 is deferred to research; W1-W11/W14 remain draft until research and owner signoff.
 
 ## recommended_next_if_owner_approves_A
 
