@@ -52,4 +52,14 @@ RENDER-ONLY (R13): zero Core/** edit, sim untouched & its tests unchanged, uploa
 96B GpuGasParams layout FROZEN — a new per-type field = a reserved-field assignment or a layout-ADR event,
 never silent. "Done" = the owner's EYE on the real gas in motion, never a self-marked green suite.
 
+## ⚠ Honesty note on the PARALLEL ENGINE line (2026-07-02, s-repair-review-reconcile-001)
+«Finer sim grid near the player» exists on NO engine slice: the committed road is Sc-rep → (Sc-kernel, pending
+owner sign) → Sc-reactions → Sc-damage; S3/S4/S5 are deferred; the detail-bubble (the only SPEC vehicle for near
+refinement) is specced at the SAME 50cm and not built. A genuinely finer authoritative grid would multiply active
+cells ×8 into the hangar wall and reopen the Fact-2 50cm lock (owner-signed ADR required). Waves 1–2 are honestly
+reachable with RENDER-side levers (sub-cell RICHNESS: baked 3D noise, smootherstep warp, detail erosion,
+scatter-glow); sub-cell SILHOUETTE (thin tendrils, non-cubic form) is NOT purchasable render-side. The fork is the
+owner's: d-finer-grid-fork-001 in NOW.decisions — accept render-side as the medium, or schedule a costed READ-ONLY
+view-refinement engine item (off-checksum, detail-bubble seam) after Sc-damage.
+
 END_OF_FILE: live/indie-game-development/work/gas-visual-wave-plan-2026-06-29.md

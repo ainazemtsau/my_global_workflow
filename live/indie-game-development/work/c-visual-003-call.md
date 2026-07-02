@@ -1,5 +1,16 @@
 # CALL c-visual-003 — WAVE 1: real gas in a real lit room (foundation) — RENDER-ONLY
 
+> ⚠ **STATUS + RE-SCOPE 2026-07-02 (s-repair-review-reconcile-001).** **W1a is EXECUTED on dev2** — 7 commits
+> (509c502..b7dab15, 2026-06-30: PLAN → EXEC «real gas in a lit room» → owner-eye tuning; finding «demo level needs
+> design») + owner checkpoint **@d25b0b2**. Owner-eye checklist NOT yet signed; RESULT not yet routed home. Do NOT
+> re-run W1a from scratch — continue from the dev2 tip.
+> ⚠ **W1b (point 4 below) is RE-SCOPED:** the promised «G channel = real dominantTypeId» read-path DOES NOT EXIST on
+> the dense engine (RealGasViewSource hardcodes G=0 / TypeCount=1; dense planes carry no per-cell dominant id). The
+> real provider = Sc-rep's per-cell dominant STAMP. Sequencing: W1b runs AFTER the Sc-rep dev→main merge, and needs a
+> SMALL engine-side read-API exposing the stamp — an owner-acked engine touch (it was excluded from c-exec-022's
+> scope; it is NOT render-only, so it is its own tiny approved step, never a silent Core edit inside this render leg).
+> Do NOT build a consumer-side argmax/dense read as a workaround (deprecated by c-exec-022).
+
 - direction: indie-game-development
 - node: g-7e15 (VISUAL track)
 - play: work (executor leg — GasCoopGame render/adapter layer; dev2->main when green)
