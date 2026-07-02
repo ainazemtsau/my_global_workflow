@@ -45,10 +45,11 @@ bet:
     (active-front tick iteration) BEFORE Sc-reactions (d-sparse-tick-kernel-001 — SIGNED «да» by the owner
     2026-07-02; draft CALL = work/c-exec-023-draft-call.md). Sc-rep remaining after the 2026-07-02 binding fresh G5
     (COULD-NOT-REFUTE; one P2 test-gap — field-level storage guard — folded into Sc-kernel done_when): owner-eye →
-    owner-gated dev→main merge. VISUAL: c-visual-003 W1a already EXECUTED on dev2 (7 commits + owner checkpoint
-    @d25b0b2; owner-eye checklist pending; RESULT not yet home); W1b re-scoped (after the Sc-rep merge + a small
-    owner-acked stamp read-API — see the CALL banner). The Codex review-fix loop was STOPPED by the owner 2026-07-02
-    (fixes return via the normal contour after G5).
+    owner-gated dev→main merge. VISUAL: c-visual-003 W1a CLOSED 2026-07-02 — owner-eye SIGNED WITH RESERVATIONS
+    (dev2 @40b94cc): foundation accepted, clean LP1–LP5 moves to a DESIGNED gas-demo-scene leg (next visual leg,
+    → c-visual-004); W1b re-scoped (after the Sc-rep merge + a small owner-acked stamp read-API — see the CALL
+    banner). The Codex review-fix loop was STOPPED by the owner 2026-07-02 (fixes return via the normal contour
+    after G5).
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -129,11 +130,17 @@ open_calls:
     issued: 2026-06-29
     call: work/c-visual-003-call.md
     note: |
-      W1a EXECUTED on dev2 2026-06-30 (7 commits 509c502..b7dab15 + owner checkpoint @d25b0b2) —
-      owner-eye checklist pending, RESULT not yet routed home. Do NOT re-run W1a. W1b RE-SCOPED
-      2026-07-02 (see the ⚠ banner in work/c-visual-003-call.md): runs AFTER the Sc-rep dev→main
-      merge; needs a small owner-acked engine read-API for the per-cell dominant STAMP (G channel);
-      no consumer-side argmax/dense workaround.
+      W1a CLOSED 2026-07-02: owner-eye SIGNED WITH RESERVATIONS in-chat (dev2 @40b94cc — checklist +
+      F-OWNER + RESULT flipped to DELIVERED). Honest state: render FOUNDATION accepted (de-block +
+      light-through + never-worse + one inspector); clean LP1–LP5 NOT claimed — LP1 candidate-pass
+      (lamp-direction read weak), LP2/LP3 confirmed live, LP4/LP5 blocked by the missing DESIGNED demo
+      level (owner-eye finding: «demo level needs design»; existing levels = boxy 6×4×6 box /
+      horizontal tube). NEXT visual leg per the RESULT = a deliberately-DESIGNED gas demo scene
+      (roomy vertical space + finite plume + matched room/camera/colour; to be framed as
+      c-visual-004; ties to the canon visual-style track) — focused design work, NOT live knob-tuning
+      (the S2 anti-pattern). W1b (two-type read) RE-SCOPED 2026-07-02 (banner in the CALL): after the
+      Sc-rep dev→main merge; needs a small owner-acked engine read-API for the per-cell dominant
+      STAMP; no argmax/dense workaround. dev2→main merge owner-gated, pending.
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -320,8 +327,10 @@ next:
   CALL c-exec-023 from work/c-exec-023-draft-call.md (owner-present framing + standard adversarial
   hardening) and run it in a fresh GasCoopGame_dev session — d-sparse-tick-kernel-001 is SIGNED, G5 P2
   is folded into its done_when #9. (3) Then re-harden + fire the held c-exec-021 (Sc-reactions) at its
-  shape (banner items 11-14 first). VISUAL: after the Sc-rep merge — owner-eye sign W1a on dev2, then
-  W1b per the re-scoped c-visual-003. Still pending owner: the 4 remaining NOW.decisions (finer-grid /
-  demo-road / marketing-wake / tree9-biglevels). Do NOT re-fire c-exec-022; do NOT re-run W1a.
+  shape (banner items 11-14 first). VISUAL: W1a is SIGNED (with reservations) — merge dev2→main together
+  with the dev merge; then frame the DESIGNED gas-demo-scene leg (c-visual-004, per the W1a owner-eye
+  finding + canon visual style), and W1b after the Sc-rep merge per the re-scoped c-visual-003. Still
+  pending owner: the 4 remaining NOW.decisions (finer-grid / demo-road / marketing-wake /
+  tree9-biglevels). Do NOT re-fire c-exec-022; do NOT re-run W1a.
 
 END_OF_FILE: live/indie-game-development/NOW.md
