@@ -54,7 +54,7 @@ play_check:
   - <step# name>: done | skipped <why>
   # one line per play step; steps the play marks (owner) cite the owner's
   # actual words (his answer, verdict, or explicit waiver) — gate G10
-log: <one physical line for LOG.md, ≤240 chars; details stay in evidence/history>
+log: <one line for LOG.md>
 next: |
   <ready CALL for the continuation | awaiting_decision | return-to-parent <id>>
 ```
