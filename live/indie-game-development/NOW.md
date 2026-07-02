@@ -42,8 +42,9 @@ bet:
     tick budget; active cells CONSTANT at 1,562) — the tick kernel still expands sparse→dense per-species planes every
     tick, so Sc-rep's honest scope = REPRESENTATION + CHECKSUM SCHEMA (the sparse-awake perf rationale is NOT delivered
     by it). De-risk-wall verdict (kill_by 07-05): the wall FIRED correctly → recommendation = insert slice Sc-kernel
-    (active-front tick iteration) BEFORE Sc-reactions (d-sparse-tick-kernel-001, PENDING owner «да»; draft CALL =
-    work/c-exec-023-draft-call.md). Sc-rep remaining: binding fresh-session G5 (scope-relabelled) → owner-eye →
+    (active-front tick iteration) BEFORE Sc-reactions (d-sparse-tick-kernel-001 — SIGNED «да» by the owner
+    2026-07-02; draft CALL = work/c-exec-023-draft-call.md). Sc-rep remaining after the 2026-07-02 binding fresh G5
+    (COULD-NOT-REFUTE; one P2 test-gap — field-level storage guard — folded into Sc-kernel done_when): owner-eye →
     owner-gated dev→main merge. VISUAL: c-visual-003 W1a already EXECUTED on dev2 (7 commits + owner checkpoint
     @d25b0b2; owner-eye checklist pending; RESULT not yet home); W1b re-scoped (after the Sc-rep merge + a small
     owner-acked stamp read-API — see the CALL banner). The Codex review-fix loop was STOPPED by the owner 2026-07-02
@@ -54,8 +55,7 @@ bet:
     stop and re-shape/review instead of stretching the appetite.
   kill_by: |
     De-risk-wall checkpoint 2026-07-05: ANSWERED 2026-07-02 by the real hangar measurement (linear roster scaling) —
-    outcome = re-shape recommendation d-sparse-tick-kernel-001, awaiting the owner's sign; do not let the checkpoint
-    pass silently green. 2026-07-24 remains the visible-gas milestone (telegraph+bang and/or two-type visual on the
+    outcome = re-shape d-sparse-tick-kernel-001, SIGNED «да» by the owner 2026-07-02 — the wall is CLOSED honestly. 2026-07-24 remains the visible-gas milestone (telegraph+bang and/or two-type visual on the
     real sim; the old «Waves A→B» wording is retired), tail movable.
   sources:
     - live/indie-game-development/TREE.md#g-9c41
@@ -102,9 +102,17 @@ tasks:
       bet.current_truth). Remaining: fresh-session G5 (with the scope relabel + an audit of the
       review-repair diffs against the S1/c-exec-015 oracles) → owner-eye → owner-gated merge.
       Do NOT re-fire c-exec-022.
+      2026-07-02 (later, s-work-036): binding fresh-session G5 RUN = COULD-NOT-REFUTE. Held: conversion
+      exact+atomic; stamp cell-keyed (isolation/distinctness/cross-peer); golden = the real post-Sc-weight
+      baseline (not rebaselined); scans cover new files (+ planted self-tests); S1 repairs conform to
+      d-roomfull-001 and the ForcedFlow battery 66/66; 1130/1130 tests; mutation 74.17 (artifact, read-only).
+      ONE finding, P2 (test-gap, not a defect): the hashmap-substitution guard inspects the cell RECORD,
+      not the FIELD authority storage — a private Dictionary<int,SparseDominantCellRecord> could pass;
+      RESOLUTION = field-level storage guard folded into Sc-kernel done_when #9 (c-exec-023 draft).
+      Remaining: owner-eye (confidence) → owner-gated dev→main merge + push. dev2 untouched.
 
 next_slices:
-  - Sc-kernel (PENDING owner «да», d-sparse-tick-kernel-001) BEFORE Sc-reactions: re-point the tick kernel at the
+  - Sc-kernel (SIGNED «да» by the owner 2026-07-02, d-sparse-tick-kernel-001) BEFORE Sc-reactions: re-point the tick kernel at the
     sparse store / active cells (kill the per-species dense expand+rebuild; cost becomes ∝ active cells, not
     roster × domain cells). done_when re-runs the 2026-07-02 measurement matrix before/after + an adversarial
     «hangar flooded» all-cells-active scenario + a Unity-runtime capture; also closes the Coarse/ scan-root hole.
@@ -239,6 +247,9 @@ decisions:
     source: |
       work/review-gas-sim-visual-2026-07-02.md (findings 8/9); GasCoopGame_dev
       docs/measurements/sc-rep-hangar-real-measurement-2026-07-02.md (dev @8db3ee1).
+    decision: |
+      «да» — insert Sc-kernel BEFORE Sc-reactions (owner, 2026-07-02, in-chat; the Sc-rep G5 P2
+      field-storage-guard finding folded into its done_when #9).
   - id: d-finer-grid-fork-001
     q: |
       The visual wave-plan's biggest SHAPE lever («finer sim grid near player») exists on NO engine
@@ -304,13 +315,13 @@ history_pointers:
   - Reconcile/repair after the review (2026-07-02): history/2026-07-02-s-repair-review-reconcile-001.md
 
 next:
-  (1) Owner signs the pending NOW.decisions — minimum d-sparse-tick-kernel-001 («да/нет»). (2) Fresh
-  GasCoopGame_dev session runs the binding G5 refutation of Sc-rep (scope-relabelled; paste block in the
-  2026-07-02 review chat + history/2026-07-02-s-repair-review-reconcile-001.md §G5) → owner-eye →
-  owner-gated dev→main merge + push. (3) If d-sparse-tick-kernel-001 = «да»: frame Sc-kernel from
-  work/c-exec-023-draft-call.md (standard hardening at framing) and run it in a fresh GasCoopGame_dev
-  session. (4) Then re-harden + fire the held c-exec-021 (Sc-reactions) at its shape (banner items 11-14
-  first). VISUAL: after the Sc-rep merge — owner-eye sign W1a on dev2, then W1b per the re-scoped
-  c-visual-003. Do NOT re-fire c-exec-022; do NOT re-run W1a.
+  (1) Owner-eye on Sc-rep (confidence: same scenes + the hangar table) → owner merges dev→main + push
+  (commands in the 2026-07-02 chat; dev2 NOT merged — W1a owner-eye unsigned). (2) Frame Sc-kernel as
+  CALL c-exec-023 from work/c-exec-023-draft-call.md (owner-present framing + standard adversarial
+  hardening) and run it in a fresh GasCoopGame_dev session — d-sparse-tick-kernel-001 is SIGNED, G5 P2
+  is folded into its done_when #9. (3) Then re-harden + fire the held c-exec-021 (Sc-reactions) at its
+  shape (banner items 11-14 first). VISUAL: after the Sc-rep merge — owner-eye sign W1a on dev2, then
+  W1b per the re-scoped c-visual-003. Still pending owner: the 4 remaining NOW.decisions (finer-grid /
+  demo-road / marketing-wake / tree9-biglevels). Do NOT re-fire c-exec-022; do NOT re-run W1a.
 
 END_OF_FILE: live/indie-game-development/NOW.md

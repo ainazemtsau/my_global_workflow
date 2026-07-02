@@ -1,7 +1,8 @@
 # DRAFT CALL c-exec-023 — Sc-kernel: SPARSE TICK KERNEL / ACTIVE-FRONT ITERATION (ENGINE-ONLY)
 
-> ⚠ **DRAFT (2026-07-02, s-repair-review-reconcile-001).** Fires ONLY after: (1) owner signs
-> d-sparse-tick-kernel-001 «да»; (2) Sc-rep passes fresh G5 + owner-eye and merges dev→main. At framing this
+> ⚠ **DRAFT (2026-07-02, s-repair-review-reconcile-001; updated s-work-036).** Fires ONLY after: (1) ✅ owner
+> SIGNED d-sparse-tick-kernel-001 «да» (2026-07-02); (2) Sc-rep fresh G5 ✅ COULD-NOT-REFUTE (2026-07-02; its one
+> P2 test-gap finding is folded below as done_when #9) + owner-eye and dev→main merge (PENDING). At framing this
 > draft gets the standard adversarial hardening pass (like c-018/c-021/c-022) — it is a solid draft, not a
 > hardened CALL. Slice position: AFTER Sc-rep, BEFORE Sc-reactions (c-exec-021 stays HELD behind it).
 
@@ -61,6 +62,13 @@ STOP-escalate.
    **fresh-session G5** + owner-eye (owner sees the same scenes + the before/after table).
 8. **ZERO-LEGACY:** the per-tick dense expand/rebuild path removed at completion (git is rollback); dense
    remains ONLY where it is a one-time migration/test-oracle input, never per-tick authority.
+9. **Field-level storage guard (folds the Sc-rep G5 P2 finding):** the existing hashmap-substitution guards
+   inspect the cell RECORD (SparseDominantCellRecord) but not the FIELD authority storage — a private
+   `Dictionary<int, SparseDominantCellRecord>` authority inside SparseDominantNearGasField could pass today
+   (G5 evidence: SparseDominantLayoutAcceptanceTests.cs:43, SparseDominantGuardrails.cs:15,
+   ScRepRegressionDeterminismAndSeamAcceptanceTests.cs:79 rejects only int[,]/int[][]). Add a structural
+   assertion that the field's authority store is contiguous arrays; a planted Dictionary-backed realization
+   MUST trip it. Natural home = this slice (it restructures exactly this hot path).
 
 ## boundaries / STOP
 
