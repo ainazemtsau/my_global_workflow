@@ -68,7 +68,12 @@ bet:
     stays held) — all fixes are ADDITIVE re-pins / gate extensions / dated-owned triggers, zero new build
     slices before reactions. Decision batch d-simaudit-package-001 queued (+ d-biglevels-tree9-001 and
     d-finer-grid-fork-001 texts broadened per the audit); the c-exec-023 framing MUST consume the audit's
-    §Package item 4 additions.
+    §Package item 4 additions. 2026-07-02 (latest): the audit batch is DECIDED — owner «да» по всем 4
+    пунктам (package whole w/ 001b corrections; layered mass-conserving overflow; blast wave =
+    gameplay-load-bearing «как и остальные реакции»; July demo-road shape 07-10..15). d-biglevels-tree9-001
+    DECIDED (option 3 revised: huge-levels ambition KEPT, S4 dated triggers, squeeze only on measured
+    impossibility). Pre-decisions for the Sc-reactions shape recorded in the c-exec-021 note (items 15-17).
+    Road unchanged: next work = frame c-exec-023 WITH the audit additions + the SPEC G9 batch.
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -199,6 +204,19 @@ open_calls:
       approved; NEW named shape fork = co-residency/overflow under mixing (>4 co-resident types =
       deterministic all-peer LOUD-THROW halt today) + adversarial 5-type junction RED; body
       drift-sweep or full rewrite required at its shape.
+      2026-07-02 audit-batch OWNER PRE-DECISIONS for this shape (d-simaudit-package-001 «да»):
+      (15) overflow fork (item 13) primary branch = LAYERED MASS-CONSERVING — chemistry-first (a reacting
+      subset fires and frees slots: «слишком много газов = начинается химия»), universal floor = admission
+      clamp at the face extending destinationCapacity (reads as saturation/back-pressure), K raisable via
+      config; RED re-worded «the sim survives a 5-type junction MASS-EXACTLY», never «levels never produce
+      it»; plus an R1 owner-eye mixing scenario (3+ gases at a junction reads believable).
+      (16) fork 3 blast wave = GAMEPLAY-load-bearing (pushes gas/bodies, chains detonations via S1-impulse;
+      owner: «это не косметика, как и остальные реакции»).
+      (17) remaining audit §Package item 5 agenda pins: reactant-SET override DATA rows (precedence
+      explicit>axis, both in handshake hash); wave×wind exactly-once RED oracle; bang-read owner-eye axis
+      incl. one open-space no-walls detonation (failed read = signed TIER-ladder evidence); Sc-typing slice
+      HOMING decision (REC: named slice right after Sc-reactions; accumulate-with-hysteresis over instant
+      flip); weak-hardware budget fork consumes the Sc-kernel flooded number + pinned CPU proxy.
   # c-exec-022 (Sc-rep) CLOSED 2026-07-02: G5 COULD-NOT-REFUTE → owner-eye → merged @efaa6eb, pushed
   # (origin/main @5442be0). Record: history/2026-07-02-s-work-036-screp-g5-kernel-signed.md + s-work-037.
 
@@ -291,6 +309,13 @@ decisions:
       Accept whole. Zero new build slices before the jewel, no lock touched, no gate weakened — the package
       only converts memory into state and undated deferrals into owned, dated triggers.
     source: work/audit-gas-sim-plan-2026-07-02.md (findings + package + judges 9/8.5/7 ×2).
+    decision: |
+      «да» по всем 4 пунктам батча (owner, 2026-07-02, in-chat): (1) пакет ЦЕЛИКОМ, с учётом owner-заметок
+      001b (diversity not mines; huge-levels ambition kept; rejoin cut confirmed); (2) >4-type overflow =
+      LAYERED MASS-CONSERVING primary branch (chemistry-first → admission-clamp saturation → config-K) —
+      pre-decision for the c-exec-021 shape; (3) blast wave = GAMEPLAY-load-bearing — owner: «да это не
+      косметика как и остальные реакции» — pre-decision for c-exec-021 fork 3; (4) July demo-road shape
+      2026-07-10..15 with the mandatory rows (see d-demo-road-001.decision).
   - id: d-coop-interdependence-repin-001
     q: |
       Where should the dropped "gas world forces co-op" obligation live so it does
@@ -354,6 +379,16 @@ decisions:
       - Keep building the engine road and decide in September (the review's named failure mode).
     recommendation: July shape session — a conscious choice beats a September discovery.
     source: work/review-gas-sim-visual-2026-07-02.md (finding 3).
+    decision: |
+      «да» (owner, 2026-07-02, in-chat via the audit batch): July shape session, CALENDAR-dated
+      2026-07-10..15 (trigger = calendar, NOT an event), with MANDATORY rows per
+      work/audit-gas-sim-plan-2026-07-02.md §Package item 7: session-resilience (halt/desync player UX —
+      loud stop → readable error → lobby; raid-boundary checkpoint decision; desync-report artifact on the
+      ADR-0017 MeaningMembers mask; peer-drop policy fork — anchor SimInstance.cs:38 no timeout/drop path;
+      host-migration spike 1-2 days = TREE #11 carrier); network ladder (Sc-net candidate slice after
+      Sc-damage — gas on the real FishNet bus, backstop: scheduled before 08-31 if the page says co-op;
+      owner-run real-link feel eval; Steam-transport certification by Sep-21 OR signed direct-IP demo
+      decision; TREE #3 re-pinned to a carrier); mid-raid rejoin stays CUT (owner-confirmed 2026-07-02).
   - id: d-marketing-wake-001
     q: |
       Every 2026-08-31 Steam-page prerequisite sits on PARKED nodes with no wake date; a ready restart
@@ -389,6 +424,13 @@ decisions:
       exactly a silent drop of frozen canon.
     source: work/review-gas-sim-visual-2026-07-02.md (finding 11); work/audit-gas-sim-plan-2026-07-02.md
       (global-scale-1, words-vs-docs-001, verticality-far-reentry).
+    decision: |
+      «да» — option 3 REVISED (owner, 2026-07-02, in-chat via the audit batch «да с учётом моих заметок» +
+      his own words «я бы хотел иметь огромные уровни… думаю с оптимизациями это можно сделать»): TREE #9
+      ambition KEPT, no pre-emptive re-sign-down; S4 dated trigger set (first designed level of ANY
+      archetype over the measured ceiling / before the 08-31 Steam copy freeze if the page markets scale /
+      post-Sc-damage road checkpoint backstop; owner-of-the-watch = the road checkpoint session);
+      squeeze only on measured impossibility, by signature.
 
 history_pointers:
   - Full pre-compaction NOW: work/now-snapshot-2026-06-29.md
@@ -409,17 +451,19 @@ history_pointers:
   - Reconcile/repair after the review (2026-07-02): history/2026-07-02-s-repair-review-reconcile-001.md
 
 next:
-  FIRST: owner answers the 2026-07-02 sim-plan audit batch — d-simaudit-package-001 (+ the broadened
-  d-biglevels-tree9-001 / d-finer-grid-fork-001 texts); record = work/audit-gas-sim-plan-2026-07-02.md.
-  Then frame Sc-kernel as CALL c-exec-023 from work/c-exec-023-draft-call.md (owner present; standard
+  AUDIT BATCH DECIDED «да по всем» 2026-07-02 (d-simaudit-package-001 / d-biglevels-tree9-001 option-3-revised /
+  d-demo-road-001 July 10-15; overflow + blast-wave pre-decisions folded into the c-exec-021 note items 15-17).
+  Frame Sc-kernel as CALL c-exec-023 from work/c-exec-023-draft-call.md (owner present; standard
   adversarial hardening at framing; kill_by set there; the G5-P2 field guard + Coarse/ scan-root closure
-  are already in the draft; if the package is accepted, the framing consumes the audit §Package item 4
-  additions + runs the batched ~10-line SPEC G9 touch in the same session, and the c-exec-021 re-shape
-  PREP starts PARALLEL to the executor leg) → a fresh GasCoopGame_dev executor session builds it
-  (base = main @5442be0).
-  After Sc-kernel: re-harden + fire the held c-exec-021 (Sc-reactions) at its shape (banner items 11-14
-  first). VISUAL: ON HOLD by owner 2026-07-02 («сначала разобраться с симуляцией») — W1b and c-visual-004
-  wait. Still pending owner: the 4 remaining NOW.decisions (finer-grid / demo-road / marketing-wake /
-  tree9-biglevels). Do NOT re-fire c-exec-022; do NOT re-run W1a.
+  are already in the draft; the framing CONSUMES the audit §Package item 4 additions — wake-trigger registry,
+  full-path checksum timing, mine/vertical probe, Z-stacked REDs, roster-128, all-cores row, weak-CPU proxy,
+  flooded→auto-open d-hangar-flood-fallback-001, JEWEL GUARD, 07-24 milestone re-affirm — AND runs the batched
+  ~10-line SPEC G9 touch in the same session; the c-exec-021 re-shape PREP starts PARALLEL to the executor
+  leg) → a fresh GasCoopGame_dev executor session builds it (base = main @5442be0).
+  CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
+  After Sc-kernel: re-harden + fire the held c-exec-021 (Sc-reactions) at its shape (banner items 11-17).
+  VISUAL: ON HOLD by owner 2026-07-02 («сначала разобраться с симуляцией») — W1b and c-visual-004 wait.
+  Still pending owner: d-finer-grid-fork-001 (anchor: before visual WAVE 2 — dormant while visual on hold),
+  d-marketing-wake-001, d-coop-interdependence-repin-001. Do NOT re-fire c-exec-022; do NOT re-run W1a.
 
 END_OF_FILE: live/indie-game-development/NOW.md
