@@ -151,4 +151,8 @@ goal-management/orchestration node; next is shape on that node; no bet activated
 
 - 2026-07-01 — health/g-health-hq-goal-coordinator repair: Health AI @6ca3f18 / 9ad9330 recorded as narrow summary-only HQ technical proof, not accepted as product; owner rejected status-dispatcher framing, old t-2..t-5 acceptance route superseded, next is converge retrofit for Health HQ as goal-achievement orchestrator. → history/2026-07-01-s-health-hq-scope-repair-001.md
 
+2026-07-02 — health/g-health-hq-goal-coordinator converge checkpoint: imported HQ owner corrections and repair, triaged node as heavy/converge ON, drafted corrected Health HQ goal-achievement WHAT/route, and blocked on owner decision A narrow-to-research/arch/verify vs B kill/park vs C accept review-only slice. → history/2026-07-02-s-health-hq-orchestrator-converge-001.md
+
+2026-07-02 — health/g-health-hq-goal-coordinator converge route: owner chose A; Health HQ remains active only on corrected WHAT/research/architecture/verify route, no implementation from summary-only proof; next is c-health-hq-goal-achievement-model-research-001. → history/2026-07-02-s-health-hq-orchestrator-route-approval-001.md
+
 END_OF_FILE: live/health/LOG.md
