@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-02 by s-repair-review-reconcile-001
+updated: 2026-07-02 by s-work-038
 
 bet:
   node: g-9c41
@@ -73,7 +73,12 @@ bet:
     gameplay-load-bearing «как и остальные реакции»; July demo-road shape 07-10..15). d-biglevels-tree9-001
     DECIDED (option 3 revised: huge-levels ambition KEPT, S4 dated triggers, squeeze only on measured
     impossibility). Pre-decisions for the Sc-reactions shape recorded in the c-exec-021 note (items 15-17).
-    Road unchanged: next work = frame c-exec-023 WITH the audit additions + the SPEC G9 batch.
+    2026-07-02 (s-work-038): Sc-kernel FRAMED + HARDENED as work/c-exec-023-call.md — audit §Package item-4
+    additions (a–k) folded + a standard adversarial pass (wf_ff1612b9-ec5: 11→2 P2 folded [wake round-trip RED;
+    frozen-visual honesty], 9 refuted) + the batched G9 SPEC touch (item 8, S1–S10) SIGNED «все подтверждаю» in the
+    same session; d-gas-richness-tiers-001 RE-PINNED (P1), d-hangar-flood-fallback-001 armed-dormant, kill_by
+    2026-07-16. Road unchanged: next work = a fresh GasCoopGame_dev executor session opens c-exec-023 (owner-present
+    PLAN, base main @5442be0); the RESULT fills the SPEC §6 п.2 ceiling number.
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -93,21 +98,32 @@ bet:
 
 tasks:
   - id: Sc-kernel
-    status: signed-awaiting-framing
+    status: framed-awaiting-executor
     goal: |
       Re-point the authoritative tick at the sparse store / active cells: per-tick cost scales with ACTIVE
       cells (+ their open faces + bounded co-resident types), NOT registered roster × domain cells. Behavior
       byte-identical to the post-Sc-rep goldens; determinism preserved (ADR-0002); ENGINE-ONLY.
     done_when: |
-      Gate battery per the draft work/c-exec-023-draft-call.md (roster-independence @1 vs 64; active-scaling;
-      adversarial «hangar flooded» all-active capture; before/after measurement matrix + Unity-runtime capture;
-      byte-identical no-regression; scans + GC-zero; field-level storage guard (Sc-rep G5 P2); Coarse/
-      scan-root closure; ZERO-LEGACY dense per-tick path removed; -Deliver + mutation ≥70 + independent REDs +
-      fresh G5 + owner-eye). The BINDING battery is fixed at framing (c-exec-023, owner present, standard
-      adversarial hardening; kill_by set there).
+      The FRAMED + HARDENED battery = work/c-exec-023-call.md (roster-independence @1 vs 64 + roster-128 row;
+      active-scaling; adversarial «hangar flooded» measure-and-BIND → auto-opens d-hangar-flood-fallback-001;
+      checksum timed; wake-trigger registry seam + per-active-trigger wake round-trip RED; before/after matrix +
+      mine/shaft + TwoStackedRooms Z-fixture + all-cores divisor + bytes/cell + Unity-runtime capture;
+      byte-identical no-regression; scans + GC-zero + Coarse/ scan-root closure; field-level storage guard
+      (Sc-rep G5 P2); ZERO-LEGACY dense per-tick path removed; -Deliver + mutation ≥70 + independent REDs +
+      fresh G5 + owner-eye). The RESULT fills the SPEC §6 п.2 LEVEL-DESIGN CONTRACT ceiling number.
+    kill_by: |
+      Owner-set 2026-07-02 («все подтверждаю»): appetite = one slice (split-trip by machinery; leg1 = kill-test).
+      KILL (approach refuted, not extended) = if gate 2(a) roster-independence can't reach ≤ ~20% roster-1-vs-64
+      hangar delta, OR gate 4 byte-identity can't hold with a sparse kernel → KILL + re-shape, no silent
+      rebaseline, no appetite extension. Date = 2026-07-16 (leg1 checkpoint). Flooded-over-budget is NOT a kill
+      (auto-opens d-hangar-flood-fallback-001; the slice still succeeds).
     status_note: |
-      Owner signed d-sparse-tick-kernel-001 «да» 2026-07-02; base = GasCoopGame main @5442be0 (Sc-rep merged).
-      Next = frame + harden c-exec-023 from the draft, then a fresh GasCoopGame_dev executor session.
+      FRAMED + HARDENED 2026-07-02 as work/c-exec-023-call.md (s-work-038, owner present «все подтверждаю»):
+      audit §Package item-4 additions (a–k) folded + a standard adversarial pass (wf_ff1612b9-ec5: 11 raised →
+      2 P2 confirmed folded [wake round-trip RED; frozen-visual honesty], 9 refuted) + the batched G9 SPEC touch
+      (item 8, S1–S10) signed in the SAME session. Base = GasCoopGame main @5442be0 (Sc-rep merged). Next = a
+      FRESH GasCoopGame_dev executor session opens c-exec-023 with an owner-present PLAN (the c-exec-022 PLAN
+      deviation must not repeat). Do NOT re-fire c-exec-022. dev→main merge owner-gated.
   - id: Sc-rep
     status: delivered-merged
     goal: |
@@ -159,13 +175,27 @@ next_slices:
     sparse store / active cells (kill the per-species dense expand+rebuild; cost becomes ∝ active cells, not
     roster × domain cells). done_when re-runs the 2026-07-02 measurement matrix before/after + an adversarial
     «hangar flooded» all-cells-active scenario + a Unity-runtime capture; also closes the Coarse/ scan-root hole.
-    Draft CALL: work/c-exec-023-draft-call.md (standard hardening at framing).
+    FRAMED + HARDENED CALL: work/c-exec-023-call.md (s-work-038; audit item-4 additions folded, G9 SPEC batch signed).
   - Sc-reactions after Sc-rep: the RE-SCOPED c-exec-021 (integer chemistry on the sparse-dominant
     overlap front, telegraph+bang = coarse event, axes-not-pairs, condition-waves forked; HELD until
     the road reaches it, full re-hardening then).
   - Sc-damage after Sc-reactions: dose-from-coarse, type-specific damage, temperature sink-layer.
 
 open_calls:
+  - id: c-exec-023
+    to: executor
+    for: g-9c41 / Sc-kernel
+    issued: 2026-07-02
+    call: work/c-exec-023-call.md
+    note: |
+      FRAMED + HARDENED 2026-07-02 (s-work-038, owner «все подтверждаю»). Base = GasCoopGame main @5442be0.
+      Opens with an owner-present PLAN in a FRESH GasCoopGame_dev session (the c-exec-022 PLAN deviation must
+      not repeat). Audit §Package item-4 additions folded (wake-trigger seam + wake round-trip RED,
+      checksum-scaling schema decision, flooded measure-and-BIND → d-hangar-flood-fallback-001, roster-128,
+      mine/shaft probe, TwoStackedRooms Z-fixture, all-cores divisor, bytes/cell, weak-CPU proxy, JEWEL GUARD,
+      07-24 milestone re-affirm w/ frozen-visual honesty). approach token = active-front-tick-kernel-over-sparse-store.
+      kill_by = 2026-07-16 (roster-independence / byte-identity refuted → kill+re-shape). The RESULT fills the
+      SPEC §6 п.2 ceiling number. On GREEN → re-harden + fire c-exec-021 (Sc-reactions). dev→main merge owner-gated.
   - id: c-visual-003
     to: executor
     for: g-7e15 / visual wave 1
@@ -272,6 +302,51 @@ parallel_tracks:
       preserves the main next CALL.
 
 decisions:
+  - id: d-gas-richness-tiers-001
+    status: answered — RE-PINNED into live state 2026-07-02 (s-work-038; audit P1 local-depth-01). Dropped at the
+      2026-06-29 NOW compaction; restored from work/now-snapshot-2026-06-29.md with the lock-name correction folded
+      (audit multiplayer-06). EXTENDS the locked model, does NOT crack it.
+    q: |
+      3-tier gas-richness ladder for R1 believability (owner «ок» to TIER-1 now, 2026-06-26; deep-research
+      wf gas-richness-2026-06-26, adversarially verified). How far does near-player richness escalate, and on
+      what signed evidence?
+    note: |
+      TIER-1 (SHIPPED, S1, no lock-crack): integer IMPULSE-EVENTS write a decaying directional-bias register on the
+      S0 gradient face-flow — wind/directionality, decaying gust, transient fork-split, designed permanent VALVE.
+      Honest limit: NOT true coasting inertia; open-space contrast ~2:1 (a lean, not a sharp jet).
+      TIER-2 (RESERVED, ADR-class): seeded-integer LATTICE-GAS (FHP/ILG) in a few ведро-3 rooms → true emergent
+      VORTICES as shared truth without float. Precondition «после sparse-солвера» = MET at Sc-kernel GREEN (armed,
+      not pulled). Elsewhere vortices = the read-only cosmetic g-7e15 layer fed the authoritative bias.
+      TIER-3 (RESERVED, owner-gated): fixed-point (Q-format) VELOCITY = true stored inertia + graceful permanent
+      split as shared truth. ⚠ LOCK-NAME CORRECTION (audit multiplayer-06): TIER-3 reopens the no-stored-velocity
+      REPRESENTATION boundary (S1 / ADR-0012-s1), NOT the netcode lock ADR-0002 — integer fixed-point velocity is
+      lockstep-compatible (Photon Quantum/StarCraft). (Old «ADR-0010 lock-crack» wording = the same citation error
+      §1 corrected.) Libraries if TIER-3: FixPointCS/FixedMathSharp (arithmetic only; no off-the-shelf fixed-point
+      fluid solver exists — bespoke).
+      RE-TRIGGER (concrete, ARMED, NO silent entry): owner-eye axes on the road — «бах читается как БАХ вблизи,
+      вкл. одну детонацию в открытом поле без стен» (Sc-reactions bang-read) + «одна честная струя в открытом поле
+      без стен» (Sc-damage open-space jet). A failed read = the SIGNED evidence to pull the next TIER (paid: new
+      checksum members + weak-peer re-measure). Until then TIER-1 (2:1) stands. SPEC home = §6 п.9 + §3 «Разделение локов».
+    source: work/now-snapshot-2026-06-29.md (original d-gas-richness-tiers-001); work/gas-richness-deep-research-2026-06-26.md;
+      work/audit-gas-sim-plan-2026-07-02.md (local-depth-01, multiplayer-06).
+  - id: d-hangar-flood-fallback-001
+    status: armed-dormant — created 2026-07-02 (s-work-038). AUTO-OPENS iff the Sc-kernel flooded-hangar capture
+      (c-exec-023 gate 2c) projects OVER the weak-peer budget; otherwise the Sc-kernel RESULT closes it
+      «not needed (fit budget)».
+    q: |
+      If a flooded player-occupied open hangar (all ~196k cells active) exceeds the weak-peer budget even after the
+      active-front kernel, which lock-safe fallback do we activate? (Measured, not assumed — the number comes from
+      the Sc-kernel flooded capture.)
+    options:
+      - Segment-authored halls FIRST (author the hall as segment-rooms with full-wall doors — «второстепенное»,
+        owner priority) [recommended first lever].
+      - sub-partition / mid-2.5D far-only / GAP-4 tick_divisor / all-peers-all-bubbles / volume cap / multicore (Sc-par).
+      - «Smaller fully-fine levels» = LAST resort, spends R3 variety + R5 size, only with signature.
+    recommendation: |
+      Do not pre-pick — the measured flooded number picks the cheapest sufficient lever. Segment-first honors
+      «ангар второстепенное»; «smaller levels» is the last resort, never the silent default. All levers lock-safe;
+      activation owner-signed.
+    source: work/audit-gas-sim-plan-2026-07-02.md (item 4b, global-scale-2); SPEC §6 п.3 fallback ladder (S9).
   - id: d-simaudit-package-001
     q: |
       2026-07-02 owner-requested audit of the PLANNED gas simulation vs his verbatim requirement ladder
@@ -449,21 +524,25 @@ history_pointers:
   - Sc-rep CALL framed + hardened (2026-07-01): history/2026-07-01-s-work-035.md; work/c-exec-022-call.md
   - Review sim+visual, 24 verified findings (2026-07-02): work/review-gas-sim-visual-2026-07-02.md
   - Reconcile/repair after the review (2026-07-02): history/2026-07-02-s-repair-review-reconcile-001.md
+  - Sim-plan audit + decision batch (2026-07-02): work/audit-gas-sim-plan-2026-07-02.md (wf_a299ecef-44e, 34 findings)
+  - Sc-kernel FRAMED + G9 SPEC batch (2026-07-02): history/2026-07-02-s-work-038-sc-kernel-framed.md; work/c-exec-023-call.md; hardening wf_ff1612b9-ec5
 
 next:
-  AUDIT BATCH DECIDED «да по всем» 2026-07-02 (d-simaudit-package-001 / d-biglevels-tree9-001 option-3-revised /
-  d-demo-road-001 July 10-15; overflow + blast-wave pre-decisions folded into the c-exec-021 note items 15-17).
-  Frame Sc-kernel as CALL c-exec-023 from work/c-exec-023-draft-call.md (owner present; standard
-  adversarial hardening at framing; kill_by set there; the G5-P2 field guard + Coarse/ scan-root closure
-  are already in the draft; the framing CONSUMES the audit §Package item 4 additions — wake-trigger registry,
-  full-path checksum timing, mine/vertical probe, Z-stacked REDs, roster-128, all-cores row, weak-CPU proxy,
-  flooded→auto-open d-hangar-flood-fallback-001, JEWEL GUARD, 07-24 milestone re-affirm — AND runs the batched
-  ~10-line SPEC G9 touch in the same session; the c-exec-021 re-shape PREP starts PARALLEL to the executor
-  leg) → a fresh GasCoopGame_dev executor session builds it (base = main @5442be0).
+  Sc-kernel FRAMED + HARDENED 2026-07-02 (s-work-038, owner «все подтверждаю») as work/c-exec-023-call.md: audit
+  §Package item-4 additions (a–k) folded, a standard adversarial pass run (wf_ff1612b9-ec5: 11 raised → 2 P2 folded
+  [wake round-trip RED; frozen-visual honesty], 9 refuted), the batched G9 SPEC touch (item 8, S1–S10) SIGNED in the
+  same session, d-gas-richness-tiers-001 RE-PINNED (P1 fix), d-hangar-flood-fallback-001 armed-dormant, kill_by =
+  2026-07-16.
+  NEXT WORK = a FRESH GasCoopGame_dev executor session opens c-exec-023 with an owner-present PLAN (base = GasCoopGame
+  main @5442be0; the c-exec-022 PLAN deviation must not repeat). The Sc-kernel RESULT fills the SPEC §6 п.2 ceiling
+  number. Do NOT re-fire c-exec-022; do NOT re-run W1a.
+  PARALLEL: the c-exec-021 (Sc-reactions) re-shape PREP may start (banner items 11–17); it does NOT fire until
+  Sc-kernel GREEN. After Sc-kernel: re-harden + fire the held c-exec-021 at its shape.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
-  After Sc-kernel: re-harden + fire the held c-exec-021 (Sc-reactions) at its shape (banner items 11-17).
-  VISUAL: ON HOLD by owner 2026-07-02 («сначала разобраться с симуляцией») — W1b and c-visual-004 wait.
+  VISUAL: ON HOLD by owner 2026-07-02 («сначала разобраться с симуляцией») — W1b and c-visual-004 wait. HONESTY:
+  while visual is held the ONLY live player-facing terminus = Sc-reactions telegraph+bang; the 07-24 milestone is
+  re-affirmed against THAT (frozen visual not cited as counterweight; audit words-vs-docs-006).
   Still pending owner: d-finer-grid-fork-001 (anchor: before visual WAVE 2 — dormant while visual on hold),
-  d-marketing-wake-001, d-coop-interdependence-repin-001. Do NOT re-fire c-exec-022; do NOT re-run W1a.
+  d-marketing-wake-001, d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md
