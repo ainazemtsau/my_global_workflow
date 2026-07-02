@@ -129,6 +129,8 @@ Append-only, newest first, one line per session — literally one line, ≤2 sho
 2026-06-11 s-040 review g-12ab: bet met; дерево +2 узла (audience) → history/2026-06-11-s-040.md
 ```
 
+Archival: entry count alone eventually crosses the soft ceiling even with short lines — that's expected, not a defect. When `repair` trims a LOG.md past the ceiling, it keeps the most recent entries (roughly the newest half of the ceiling) and moves everything older **verbatim** — never rewritten, this is cold storage, not a second editorial pass — into `history/LOG-archive-<direction-id>.md`. LOG.md keeps exactly one pointer line at its oldest (bottom) position: `archived: history/LOG-archive-<direction-id>.md — sessions before <date>`. A later rotation appends to the same archive file and bumps that one date. No play reads the archive file by default; it exists to be opened or grepped on demand.
+
 ## history/
 
 One file per session: `history/<date>-<session-id>.md` containing the full RESULT packet verbatim. Never edited after writing.
