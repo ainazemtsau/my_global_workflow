@@ -58,6 +58,17 @@ bet:
     main worktree — they regenerate on the next Editor open.) Owner's local package-manager edits parked in a
     git stash on main. OWNER DIRECTIVE 2026-07-02: VISUAL track ON HOLD — «сначала разобраться с симуляцией»;
     c-visual-004 NOT framed. Road position: Sc-rep CLOSED → next active work = frame Sc-kernel (c-exec-023).
+    2026-07-02 (later) SIM-PLAN AUDIT (s-research-gas-sim-plan-audit-001, owner-requested, his requirement
+    ladder given in-chat and binding over docs): 46-agent workflow wf_a299ecef-44e — 35 findings raised →
+    34 verified (1 refuted), ONE P1 (the TIER-1/2/3 richness escalation ladder — the plan's own answer to R1
+    «очень правдоподобно у игрока» — dropped from live state at the 06-29 NOW compaction; plan silently
+    plateaus at TIER-1 ~2:1 jets); 3 architect packages judged → richness-first ADOPTED-pending-owner.
+    Durable record = work/audit-gas-sim-plan-2026-07-02.md. Core verdict: architecture + both locks + the
+    signed road are CORRECT for the owner ladder (lockstep verdict rationale recorded; HELD clouds draft
+    stays held) — all fixes are ADDITIVE re-pins / gate extensions / dated-owned triggers, zero new build
+    slices before reactions. Decision batch d-simaudit-package-001 queued (+ d-biglevels-tree9-001 and
+    d-finer-grid-fork-001 texts broadened per the audit); the c-exec-023 framing MUST consume the audit's
+    §Package item 4 additions.
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -243,6 +254,36 @@ parallel_tracks:
       preserves the main next CALL.
 
 decisions:
+  - id: d-simaudit-package-001
+    q: |
+      2026-07-02 owner-requested audit of the PLANNED gas simulation vs his verbatim requirement ladder
+      (workflow wf_a299ecef-44e, 46 agents; 34 verified findings incl. 1 P1; durable record =
+      work/audit-gas-sim-plan-2026-07-02.md). Verdict: architecture/locks/road correct, no course change —
+      but the richness escalation ladder (TIER-1 shipped / TIER-2 lattice-gas rooms / TIER-3 fixed-point
+      velocity) lives only in history files, and ~10 promises float undated/unowned (typing slice, S4
+      re-entry, host-resilience TREE #11, gas-on-real-bus, player-kinematics шов 7, ×4-8 multicore, wake
+      triggers, >4-type overflow R1-lens, checksum-at-scale, Z-stacked vertical tests, floor breach).
+      Accept the adopted additive package?
+    options:
+      - Accept whole (recommended) — richness ladder re-pinned (bang-read owner-eye axis on Sc-reactions;
+        open-space jet look on Sc-damage = the signed TIER-2/3 escalation evidence channel); ONE batched G9
+        SPEC touch (~10 one-line additive edits incl. ADR-0002-vs-no-stored-velocity lock-name separation,
+        level-design ceiling contract, S3-on-S4 rule, floor-breach naming, hangar fallbacks reordered
+        segment-first); c-exec-023 framing additions (full-path checksum timing, wake-trigger registry seam,
+        mine/shaft probe, Z-stacked-rooms REDs, roster-128, all-cores row, weak-CPU proxy, flooded→auto-open
+        d-hangar-flood-fallback-001, JEWEL GUARD = Sc-kernel is the LAST pre-reactions engine-only insertion,
+        07-24 milestone re-affirmed there); c-exec-021 shape pins (layered mass-conserving >4-type overflow
+        as primary branch, reactant-set override rows, wave×wind exactly-once oracle, bang-read axis,
+        Sc-typing slice homing); Sc-damage rows (player-kinematics decision first, temp=SINK-only guard,
+        crouch head-Z dose acceptance, armed jet look); July demo-road shape CALENDAR-dated 2026-07-10..15
+        with session-resilience + network-ladder + host-resilience mandatory rows; Sc-net candidate slice
+        after Sc-damage (backstop: scheduled before 08-31 if the page says co-op).
+      - Accept selectively (name dropped lines) — each dropped line stays a known silent-drop channel.
+      - Reject — plan stands as-is; the P1 means near-player richness silently plateaus at TIER-1.
+    recommendation: |
+      Accept whole. Zero new build slices before the jewel, no lock touched, no gate weakened — the package
+      only converts memory into state and undated deferrals into owned, dated triggers.
+    source: work/audit-gas-sim-plan-2026-07-02.md (findings + package + judges 9/8.5/7 ×2).
   - id: d-coop-interdependence-repin-001
     q: |
       Where should the dropped "gas world forces co-op" obligation live so it does
@@ -284,11 +325,18 @@ decisions:
       as the medium, or schedule an engine item?
     options:
       - Accept render-side richness as the medium; strike the «finer grid» line from the wave plan.
+        (Audit honesty line 2026-07-02: this ALSO leaves the detail-bubble mechanism unbuilt — the SPEC §6
+        п.3 «all-peers-all-bubbles» hangar fallback and the ведро-1 near-feel host must then be re-recorded
+        as render-side or dropped WITH a signature, never silently.)
       - Schedule a costed READ-ONLY view-refinement item (off-checksum, detail-bubble seam, no Fact-2/ADR-0002 reopen) after Sc-damage.
+        (Audit broadening 2026-07-02: this slice = view refinement PLUS the ведро-1 host, with its Fact-3
+        ADR — radius + cell size, owner-signed — the bubble is cheap insurance twice over: feel host AND a
+        named hangar fallback.)
     recommendation: |
       Decide BEFORE visual WAVE 2 raises expectations. (2) is the honest keep-the-jewel path; (1) is
       the honest scope cut. Never leave the «(g-9c41 roadmap)» wording implying it is scheduled.
-    source: work/gas-visual-wave-plan-2026-06-29.md ⚠ note; work/review-gas-sim-visual-2026-07-02.md (finding 23).
+    source: work/gas-visual-wave-plan-2026-06-29.md ⚠ note; work/review-gas-sim-visual-2026-07-02.md (finding 23);
+      work/audit-gas-sim-plan-2026-07-02.md (local-depth-04).
   - id: d-demo-road-001
     q: |
       Oct-5 co-op demo (g-5b07): nothing between Sc-damage and a submittable demo is sketched anywhere
@@ -318,10 +366,19 @@ decisions:
     options:
       - Give S4 a dated re-entry condition (e.g. before the Steam-page copy freezes - do not market scale that has no machinery).
       - Explicitly re-sign TREE #9 down to the fully-fine ceiling the measured hangar number supports.
+      - (added by the 2026-07-02 sim-plan audit, RECOMMENDED) Keep the coarse far-tier/S4 machinery as the
+        R2 carrier with a DATED re-entry trigger set — earliest of (i) the FIRST designed level brief
+        exceeding the measured ceiling, EXPLICITLY including mines/tall levels (the owner's TIER-0
+        archetype), not only hangars; (ii) before the 2026-08-31 Steam copy freeze IF the page markets
+        scale; (iii) the post-Sc-damage road checkpoint as backstop — AND re-sign only the numeric
+        200×200×40/≥1000-volume profile down to a TARGET with explicit R5 squeeze license.
     recommendation: |
-      Decide at the next road checkpoint; never let «smaller levels» become the answer without a
-      signature — that is exactly a silent drop of frozen canon.
-    source: work/review-gas-sim-visual-2026-07-02.md (finding 11).
+      Take option 3 (audit): it alone matches the owner's 2026-07-02 ladder (R2 global-sim = TIER-0 keeps
+      its carrier; sizes = MAJOR with squeeze license; mines become the trigger-owner instead of a
+      bystander). NB: option 2 as worded silently also re-signs the SPEC's own ~150-room target. Never let
+      «smaller levels» become the answer without a signature — that is exactly a silent drop of frozen canon.
+    source: work/review-gas-sim-visual-2026-07-02.md (finding 11); work/audit-gas-sim-plan-2026-07-02.md
+      (global-scale-1, words-vs-docs-001, verticality-far-reentry).
 
 history_pointers:
   - Full pre-compaction NOW: work/now-snapshot-2026-06-29.md
@@ -342,9 +399,14 @@ history_pointers:
   - Reconcile/repair after the review (2026-07-02): history/2026-07-02-s-repair-review-reconcile-001.md
 
 next:
-  Frame Sc-kernel as CALL c-exec-023 from work/c-exec-023-draft-call.md (owner present; standard
+  FIRST: owner answers the 2026-07-02 sim-plan audit batch — d-simaudit-package-001 (+ the broadened
+  d-biglevels-tree9-001 / d-finer-grid-fork-001 texts); record = work/audit-gas-sim-plan-2026-07-02.md.
+  Then frame Sc-kernel as CALL c-exec-023 from work/c-exec-023-draft-call.md (owner present; standard
   adversarial hardening at framing; kill_by set there; the G5-P2 field guard + Coarse/ scan-root closure
-  are already in the draft) → a fresh GasCoopGame_dev executor session builds it (base = main @5442be0).
+  are already in the draft; if the package is accepted, the framing consumes the audit §Package item 4
+  additions + runs the batched ~10-line SPEC G9 touch in the same session, and the c-exec-021 re-shape
+  PREP starts PARALLEL to the executor leg) → a fresh GasCoopGame_dev executor session builds it
+  (base = main @5442be0).
   After Sc-kernel: re-harden + fire the held c-exec-021 (Sc-reactions) at its shape (banner items 11-14
   first). VISUAL: ON HOLD by owner 2026-07-02 («сначала разобраться с симуляцией») — W1b and c-visual-004
   wait. Still pending owner: the 4 remaining NOW.decisions (finer-grid / demo-road / marketing-wake /
