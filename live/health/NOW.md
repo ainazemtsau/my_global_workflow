@@ -116,59 +116,12 @@ tasks:
       Corrected requirements explicitly cover root-goal achievement, milestones/phases, metrics,
       strategy/review loop, domain demand contracts, and the difference between safety boundaries
       and the product's positive purpose.
+    checkpoint: >
+      Converge triage/import completed. Draft Health HQ goal-achievement WHAT/route exists in
+      live/health/work/converge-g-health-hq-goal-coordinator.md. The WHAT is not owner-signed.
+      Owner decision d-health-hq-converge-route-001 is required before research/arch/verify or kill/park routing.
 
-open_calls:
-  - id: c-health-hq-orchestrator-converge-001
-    to: session
-    direction: health
-    play: converge
-    node: g-health-hq-goal-coordinator
-    task: t-2
-    goal: |
-      Health HQ has an owner-signed WHAT for goal-achievement orchestration, or the current bet is explicitly killed/narrowed with a clear next route.
-    context: |
-      Direction OS state:
-      - live/health/CHARTER.md
-      - live/health/TREE.md
-      - live/health/NOW.md
-      - live/health/history/2026-06-29-c-health-map-evidence-001.md
-      - live/health/history/2026-06-30-s-health-owner-wants-planning-001-continue.md
-      - live/health/history/2026-06-30-s-health-shape-hq-goal-coordinator-001.md
-      - live/health/history/2026-07-01-s-health-shape-hq-goal-coordinator-approval-001.md
-      - live/health/history/2026-07-01-s-health-hq-scope-repair-001.md
-
-      Product evidence kept as a narrow technical slice:
-      - C:\my_global_workflow_worktrees\health-ai main @6ca3f18
-      - key commit 9ad9330 Add Health HQ summary coordinator proof
-      - x_health_hq/evidence-summary.md
-      - x_health_hq/reviews/2026-07-01-dry-run-progress-review.md
-      - tools/check_health_hq_thin_slice.py
-
-      Owner correction captured in the repair:
-      - Health HQ's main job is achievement of the health goal, not just status review.
-      - It should hold milestones, metrics, strategy, goal progress, and domain-level demands.
-      - Nutrition/training/sleep/future domains are execution mechanisms; HQ can tell them what
-        outcome or support is needed without directly mutating their artifacts.
-      - A proper model likely needs deep research and durable structure, not a prompt-only patch.
-    boundaries: |
-      Do not accept the summary-only proof as the full Health HQ product.
-      Do not edit Health AI in this session.
-      Do not write raw body/nutrition/training data into Direction OS.
-      Do not turn HQ into medical diagnosis, dashboard/API/polling infrastructure, or a silent editor
-      of nutrition/training/activity artifacts.
-      Keep the positive product essence separate from safety/non-goal boundaries.
-    done_when: |
-      The resulting WHAT or route explicitly covers:
-      - Health HQ as orchestrator of reaching the root health goal;
-      - milestones/phases and target/current metrics;
-      - strategic review loop and owner conversation surface;
-      - domain demand contracts for nutrition, training/activity, sleep/recovery, and future domains;
-      - what HQ may decide/recommend/request vs what domains must execute and owner/governance must approve;
-      - what research is needed before implementation;
-      - whether the active bet can be repaired inside appetite or must be killed/re-shaped.
-    return: |
-      RESULT with corrected WHAT/route, evidence, owner decisions if needed, state_changes, and next CALL.
-    budget: one session
+open_calls: []
 
 recurring:
   - id: r-health-ai-minor-fix-lane
@@ -193,59 +146,27 @@ recurring:
       provider-portability or owner-gate defects escalate to a bounded repair/executor
       CALL; cosmetic papercuts are batched, deferred or dropped.
 
-decisions: []
+decisions:
+  - id: d-health-hq-converge-route-001
+    q: >
+      How should Health HQ proceed after converge found that the current proof is too narrow?
+    options:
+      - A: approve recommended narrow route — keep Health HQ alive only as WHAT/research/architecture now; no new Health AI implementation until research + converge-arch + converge-verify pass.
+      - B: kill/park Health HQ now and return to nutrition/training execution.
+      - C: deliberately cut HQ to status/review-only and accept the existing summary-only technical slice as v0.
+    bad_because:
+      A: >
+        Delays product build.
+      B: >
+        Leaves cross-domain goal management unmanaged.
+      C: >
+        Contradicts the owner repair and collapses Health HQ back into status dispatcher.
+    recommendation: >
+      A, because it preserves the owner-corrected product essence — goal-achievement orchestration through
+      milestones, metrics, strategy loop, and domain demand contracts — while preventing more implementation on
+      the rejected status-dispatcher route. B is safer than C if owner no longer wants HQ now. C is not recommended.
 
 next: |
-  CALL c-health-hq-orchestrator-converge-001
-  to: session
-  direction: health
-  play: converge
-  node: g-health-hq-goal-coordinator
-  task: t-2
-  goal: |
-    Health HQ has an owner-signed WHAT for goal-achievement orchestration, or the current bet is explicitly killed/narrowed with a clear next route.
-  context: |
-    Direction OS state:
-    - live/health/CHARTER.md
-    - live/health/TREE.md
-    - live/health/NOW.md
-    - live/health/history/2026-06-29-c-health-map-evidence-001.md
-    - live/health/history/2026-06-30-s-health-owner-wants-planning-001-continue.md
-    - live/health/history/2026-06-30-s-health-shape-hq-goal-coordinator-001.md
-    - live/health/history/2026-07-01-s-health-shape-hq-goal-coordinator-approval-001.md
-    - live/health/history/2026-07-01-s-health-hq-scope-repair-001.md
-
-    Product evidence kept as a narrow technical slice:
-    - C:\my_global_workflow_worktrees\health-ai main @6ca3f18
-    - key commit 9ad9330 Add Health HQ summary coordinator proof
-    - x_health_hq/evidence-summary.md
-    - x_health_hq/reviews/2026-07-01-dry-run-progress-review.md
-    - tools/check_health_hq_thin_slice.py
-
-    Owner correction captured in the repair:
-    - Health HQ's main job is achievement of the health goal, not just status review.
-    - It should hold milestones, metrics, strategy, goal progress, and domain-level demands.
-    - Nutrition/training/sleep/future domains are execution mechanisms; HQ can tell them what
-      outcome or support is needed without directly mutating their artifacts.
-    - A proper model likely needs deep research and durable structure, not a prompt-only patch.
-  boundaries: |
-    Do not accept the summary-only proof as the full Health HQ product.
-    Do not edit Health AI in this session.
-    Do not write raw body/nutrition/training data into Direction OS.
-    Do not turn HQ into medical diagnosis, dashboard/API/polling infrastructure, or a silent editor
-    of nutrition/training/activity artifacts.
-    Keep the positive product essence separate from safety/non-goal boundaries.
-  done_when: |
-    The resulting WHAT or route explicitly covers:
-    - Health HQ as orchestrator of reaching the root health goal;
-    - milestones/phases and target/current metrics;
-    - strategic review loop and owner conversation surface;
-    - domain demand contracts for nutrition, training/activity, sleep/recovery, and future domains;
-    - what HQ may decide/recommend/request vs what domains must execute and owner/governance must approve;
-    - what research is needed before implementation;
-    - whether the active bet can be repaired inside appetite or must be killed/re-shaped.
-  return: |
-    RESULT with corrected WHAT/route, evidence, owner decisions if needed, state_changes, and next CALL.
-  budget: one session
+  awaiting_decision d-health-hq-converge-route-001
 
 END_OF_FILE: live/health/NOW.md
