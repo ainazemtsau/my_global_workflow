@@ -4,125 +4,44 @@ project:
   product_repo: github.com/ainazemtsau/zaratusta
 
 active_bet:
-  id: b-zara-operate-contract-002
-  node: g-zara-operate-contract
-  status: active
-  appetite: 2 focused days
-  started: 2026-06-28
-  kill_by:
-    date: 2026-07-05
-    metric: |
-      Independent verification of the Zaratusta Markdown/GitHub-readable
-      operating-manager authority contract pack against W20/A1-A13 and W19
-      HOW firewall.
-    threshold: |
-      PASS only if t-3 verifies product-repo evidence with:
-      - A1-A13 all covered;
-      - zero hard failures on topic-open rule, write boundary, owner approval/
-        side-effect boundary and HOW firewall;
-      - no generic domain/topic blacklist;
-      - no Direction OS write path;
-      - no DB/API/runtime/storage engine/exact schema/cadence/vendor/
-        scheduler/automation chosen as contract.
-  forecast: |
-    Likely to pass if executor treats this as a contract artifact pack, not
-    runtime architecture. Main risk is accidentally turning Markdown-readable
-    structures into exact schema/layout or hidden runtime contract.
-  against: |
-    This does not prove real daily use. It only creates the authority substrate
-    for g-zara-operate-state and g-zara-operate-runtime. Dogfood belongs after
-    the manager can preserve state and run.
-  definition_of_ready: |
-    The executor must preserve W20/A1-A13 and treat W19 as PLAN agenda, not WHAT.
+  status: none
+  note: |
+    No active bet after repair applied the reviewed closure of
+    b-zara-operate-contract-002 on 2026-07-02.
 
-    Binding acceptance surface:
-    - A1 manager role is separate from source registry, process contracts,
-      owner-context structure and state artifacts; no monolithic prompt closes
-      the node.
-    - A2 every manager output that changes route/state/commitment carries an
-      authority basis, process/source context basis, effect tier and workspace/
-      write boundary.
-    - A3 no generic domain/topic blacklist: the manager may work on any
-      owner-requested topic through the right process and source context.
-    - A4 every source/context item has source id/path/link, owner/scope,
-      read/write status, freshness/trust marker and allowed use.
-    - A5 every nontrivial operation declares the loaded source/context bundle,
-      missing context and route if context is insufficient.
-    - A6 owner-context structure represents durable owner facts, preferences,
-      decisions, approvals, evidence, unknowns, context summaries and state-
-      change requests inside Zaratusta workspace.
-    - A7 process registry entries are inspectable contracts with purpose, inputs,
-      outputs, authority/effect tier, required source context, owner approval
-      gates and examples/tests.
-    - A8 no matching process routes to process draft/research/review; process
-      creation or mutation is a proposal or ET2 action with owner approval;
-      hidden self-rewrite is invalid.
-    - A9 Direction OS and other repos/directions/projects are read-only sources
-      by default; Zaratusta writes only to its own workspace/repo unless an
-      explicit narrow integration/procedure is approved.
-    - A10 external, irreversible, spend, deletion, message/send or material
-      cross-system effects require explicit scoped owner approval before effect.
-    - A11 intake/planning/logging preserve commitment semantics: captures are
-      not commitments; plans distinguish proposal from accepted commitment and
-      name displacement; log responses are bounded to loaded context.
-    - A12 high-stakes/source-owned requests are routed by process/source/context:
-      examples/tests must show answer/summarize/draft/track/route behavior
-      without topic refusal, while unsourced source-owned instructions and
-      unapproved side effects are blocked before effect.
-    - A13 first implementation layer is GitHub/Markdown-readable source registry,
-      process registry, owner-context structure, context-loading procedure and
-      examples/tests; exact UI/storage/vendor/schema/cadence/scoring/scheduler/
-      automation/API choices remain unchosen at this layer.
+    Review verdict: met/done. g-zara-operate-contract is done at the
+    Markdown/GitHub-readable authority-contract substrate level.
 
-    W19 PLAN agenda, not chosen in this bet:
-    - exact UI/channel/surface;
-    - exact storage/schema/file layout/database;
-    - exact engine/vendor/framework/API/subscription adapter;
-    - exact horizon durations/cadence/month/12-week model;
-    - exact non-caving weighing/scoring policy and thresholds;
-    - exact implementation of state writer and replay;
-    - exact research procedure mechanics;
-    - exact automation/scheduler/spend controls;
-    - exact external integration procedure for future non-Zaratusta writes;
-    - exact source registry/process registry/owner-context file layout.
-  cut_list:
-    - Runtime/chat agent.
-    - Durable state writer, replay, ledger, DB, storage backend.
-    - Exact file layout / exact schema as future contract.
-    - UI/channel/surface.
-    - Engine/vendor/framework/API/subscription adapter.
-    - Scheduler, automation, spend controls.
-    - External integration procedure for future writes outside Zaratusta.
-    - Scoring/threshold policy and exact cadence/month/12-week model.
-    - Wholesale LifeReset copy.
-    - Domain-specific process library beyond minimal examples/tests.
-    - Owner dogfood run; runtime child owns that.
-  lens_sweep:
-    extensibility: task_required — contract pack must separate manager role,
-      process contracts, source/context structures and owner-context; no
-      monolithic prompt.
-    real_depth: task_required — examples/tests must show multi-step operating
-      behavior: intake, planning/logging, source-owned/high-stakes routing and
-      approval boundaries.
-    agent_buildability: task_required — executor tasks are half-day,
-      evidence-based and independently verifiable.
-    daily_use_dogfood: not_needed — this node is authority contract, not
-      runtime; dogfood is cut to avoid treating architecture as use.
-    privacy_trust_safety: task_required — ET2/ET3, read-only external sources,
-      owner approval and side-effect boundaries must be explicit.
-    cost_discipline: not_needed — no engine/API/vendor/spend is selected; HOW
-      firewall blocks spend-bearing implementation now.
-  riskiest_assumption: |
-    A Markdown-only contract pack can be concrete enough for executor/state/
-    runtime to consume while not smuggling W19 choices or collapsing into a
-    giant prompt.
-  rollback_first: |
-    If executor introduces a domain blacklist, OS-write path, DB/API/runtime
-    choice, exact schema-as-contract, exact layout-as-contract, or monolithic
-    prompt as closure, rollback/revert the product-repo change and route the
-    exact failure to repair/converge.
+    Product evidence:
+    - Zaratusta commit:
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b
+      (`Correct W20 A1-A13 acceptance map boundary`).
 
-route_status: g-zara-operate-contract_verified_pending_review
+    Closed task evidence:
+    - t-1 done: product repo evidence maps W20/A1-A13 to Markdown-readable
+      artifacts/checks without choosing W19 HOW.
+    - t-2 done: smallest Markdown/GitHub-readable operating-manager
+      authority contract pack materialized.
+    - t-3 done: clean independent verification PASS against commit
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b.
+
+    Verified t-3 dimensions:
+    - complete: PASS
+    - backward_clean: PASS
+    - forward_clean: PASS
+    - smuggling: PASS
+    - hard rows A3/A9/A10/A13: PASS/PASS/PASS/PASS
+    - W19 HOW firewall: PASS
+    - development boundary: PASS
+    - AGENTS.md is repo-local editing guardrail only, not product
+      acceptance authority.
+
+    Boundary:
+    This does not prove durable state, runtime/dogfood, real daily use,
+    storage writer/replay, UI/API/vendor/scheduler/automation, or exact
+    schema/layout. Those remain later-child work.
+
+route_status: g-zara-operate-contract_done_next_bet_decision_open
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -155,136 +74,53 @@ owner_directive: |
   - Deep research is a first-class process/route for creating or improving processes when
     external evidence is needed.
 
-tasks:
-  - id: t-1
-    kind: executor
-    status: done
-    goal: |
-      Create product-repo evidence that maps W20/A1-A13 to concrete
-      Markdown-readable artifacts/checks without choosing W19 HOW.
-    done_when: |
-      - Product repo contains a Markdown-readable acceptance matrix for A1-A13.
-      - Matrix names which artifact/example/check covers each A row.
-      - W19 items are explicitly marked not chosen.
-      - No generic topic/domain blacklist appears.
-      - No DB/API/UI/vendor/scheduler/automation/storage engine/exact schema is
-        selected as contract.
-      - The matrix is sufficient for an independent verifier to reject hidden HOW
-        or missing A-row coverage.
-    evaluator: independent verify session after executor evidence
-    rollback: |
-      Revert or repair any product-repo artifact that introduces a domain blacklist,
-      OS-write path, DB/API/runtime choice, exact schema/layout as contract, or
-      monolithic prompt as closure.
-    progress_note: |
-      Repair session s-zara-operate-contract-repair-t1-t3-state-sync-007
-      closed the state lag after product repo main gained commit
-      79578ac87c73591000409f9f82a3bb4d0e33aa5b
-      (`Correct W20 A1-A13 acceptance map boundary`) on 2026-07-01.
-      Commit evidence:
-      - AGENTS.md
-      - README.md
-      - checks/markdown-foundation-checklist.md
-      - checks/w20-a1-a13-acceptance-map.md
-
-      Product evidence checked by the repair session:
-      - A1-A13 row count: 13
-      - W19 `Not chosen` count: 10
-      - `AGENTS.md` is repo-local editing guardrail only, not product acceptance
-        authority.
-      - The product docs describe manager/product behavior, not a Zaratusta
-        self-development process.
-      - No generic domain/topic blacklist, Direction OS write path, or DB/API/UI/
-        vendor/scheduler/automation/storage engine/runtime/exact schema/exact
-        layout/cadence/scoring/external integration choice is selected as contract.
-
-      Bounced t-3 verifier facts also recorded W20/A1-A13 coverage PASS, hard rows
-      A3/A9/A10/A13 PASS, W19 HOW firewall PASS and development boundary PASS.
-      Product repair is not needed again for t-1; t-3 remains active for a clean
-      verification RESULT against this commit.
-
-  - id: t-2
-    kind: executor
-    status: done
-    goal: |
-      Materialize the smallest Markdown/GitHub-readable operating-manager
-      authority contract pack.
-    done_when: |
-      - Manager role is separate from source registry, process contracts,
-        owner-context structure and state artifacts.
-      - Source/context item shape includes source id/path/link, owner/scope,
-        read/write status, freshness/trust marker and allowed use.
-      - Process registry entry shape includes purpose, inputs, outputs, authority/
-        effect tier, required source context, owner approval gates and examples/tests.
-      - Owner-context structure represents durable owner facts, preferences,
-        decisions, approvals, evidence, unknowns, context summaries and state-change
-        requests inside Zaratusta workspace.
-      - Context-loading procedure declares loaded bundle, missing context and route
-        when insufficient.
-      - Examples/tests cover capture != commitment; plan proposal != accepted
-        commitment; ET2 approval before external/irreversible/spend/message/send/
-        cross-system effect; topic-open high-stakes/source-owned request handled
-        through source/process/context, not topic refusal; unsourced source-owned
-        instruction or unapproved side effect blocked before effect.
-      - Direction OS and other repos/directions/projects remain read-only sources by
-        default; Zaratusta writes only to its own workspace/repo unless a future
-        narrow integration is approved.
-    evaluator: independent verify session after executor evidence
-    rollback: |
-      Revert or repair any product-repo artifact that weakens W20/A1-A13 or smuggles
-      W19 choices.
-    progress_note: |
-      Verified by s-zara-operate-contract-reset-main-verify-001 against product repo main
-      b9c735c4b06e95e1039c35d8422e0839fd4a9e27. PR #2 materialized the smallest
-      Markdown/GitHub-readable operating-manager authority contract pack across README.md,
-      AGENTS.md, CLAUDE.md, contracts/manager-role.md, contracts/workspace-boundaries.md,
-      contracts/source-context.md, contracts/process-contracts.md, contracts/owner-context.md,
-      contracts/context-loading.md, examples/operating-examples.md,
-      checks/markdown-foundation-checklist.md, docs/decisions/0001-markdown-only-reset.md
-      and docs/history/2026-06-16-runtime-scaffold-superseded.md. No W19 HOW choice,
-      generic domain/topic blacklist, Direction OS write path, or unapproved side-effect
-      authority was found.
-
-  - id: t-3
-    kind: session
-    status: done
-    goal: |
-      Independently try to refute that the contract pack preserves W20/A1-A13
-      and W19 firewall.
-    done_when: |
-      - Verifier reads product repo evidence plus converge WHAT.
-      - Verdict covers complete, backward_clean, forward_clean and smuggling.
-      - PASS requires all A1-A13 covered and zero hard failures on A3/A9/A10/A13.
-      - FAIL names exact missing/contradictory rows and routes:
-        product artifact gap -> repair executor task;
-        WHAT contradiction -> converge;
-        hidden HOW/layout/schema/runtime temptation -> shape/review cut, not silent
-        acceptance.
-      - Next route is ready: on pass, review g-zara-operate-contract; on fail,
-        exact repair/bounce.
-    evaluator: n/a
-    progress_note: |
-      Clean independent verification PASS against product repo commit
-      79578ac87c73591000409f9f82a3bb4d0e33aa5b
-      (`Correct W20 A1-A13 acceptance map boundary`).
-
-      Verdict:
-      - complete: PASS
-      - backward_clean: PASS
-      - forward_clean: PASS
-      - smuggling: PASS
-      - hard rows A3/A9/A10/A13: PASS/PASS/PASS/PASS
-      - W19 HOW firewall: PASS
-      - development boundary: PASS
-      - AGENTS.md is repo-local editing guardrail only, not product acceptance
-        authority.
-
-      Product repair is not needed again. Since t-3 closes the last open task of
-      b-zara-operate-contract-002, next route is review g-zara-operate-contract,
-      not direct shape.
+tasks: []
 
 recurring: []
-decisions: []
+decisions:
+  - id: D-zara-operate-next-bet-001
+    status: open
+    created: 2026-07-02
+    q: |
+      Which Zaratusta operating-manager child should be shaped next after
+      g-zara-operate-contract closed as done?
+    facts: |
+      g-zara-operate-contract review verdict is met/done at the
+      authority-substrate level. Product repo commit
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b preserves A1-A13 coverage
+      and the W19 HOW firewall. This does not prove durable state,
+      runtime dogfood or process evolution.
+    terms: |
+      shape = session that turns a parked node into a bounded active bet.
+      state = durable Zaratusta operating context and audit/recovery
+        boundary.
+      runtime = real owner week/day/intake/planning/review loop.
+      evolution = evidence-gated process improvement, not hidden
+        self-mutation.
+    options:
+      - |
+        A (recommended): shape g-zara-operate-state.
+        why_now: it is the prerequisite for trustworthy memory, audit,
+          replay/recovery boundaries and no Direction OS write path before
+          runtime dogfood.
+        bad_because: delays daily-use/runtime proof by one bet.
+      - |
+        B: shape g-zara-operate-runtime.
+        why_now: attacks daily use and real-depth evidence sooner.
+        bad_because: without durable state it risks becoming a chat
+          wrapper that cannot preserve decisions/evidence/open loops
+          safely.
+      - |
+        C: shape g-zara-operate-evolution.
+        why_now: uses the accepted process/source/context model to design
+          process mutation/review mechanics.
+        bad_because: premature before the system has durable state or real
+          runtime processes to evolve.
+    recommendation: |
+      A, because the contract creates authority substrate for state and
+      runtime. State is the narrowest next risk: Zaratusta must preserve
+      context and audit boundaries in its own workspace before a runtime
+      loop can be trusted.
 open_calls: []
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -302,64 +138,12 @@ preserved_evidence:
   - live/life-reset/CHARTER.md
   - github.com/ainazemtsau/life-reset-manager/SPEC.md
   - github.com/ainazemtsau/zaratusta
+  - live/solmax/history/2026-07-01-s-zara-operate-contract-repair-t1-t3-state-sync-007.md
+  - live/solmax/history/2026-07-02-s-zara-operate-contract-t3-verify-corrected-map-008.md
+  - live/solmax/history/2026-07-02-s-zara-operate-contract-review-bounce-repair-001.md
+  - live/solmax/work/calls/c-zara-operate-state-shape-001.md
+  - github.com/ainazemtsau/zaratusta@79578ac87c73591000409f9f82a3bb4d0e33aa5b
+  - github.com/ainazemtsau/zaratusta@79578ac87c73591000409f9f82a3bb4d0e33aa5b/checks/w20-a1-a13-acceptance-map.md
 
-next: |
-  CALL c-zara-operate-contract-review-001
-  to: session
-  direction: solmax
-  play: review
-  node: g-zara-operate-contract
-  goal: |
-    Review active bet b-zara-operate-contract-002 after all tasks closed and
-    decide whether g-zara-operate-contract is done, needs repair, or routes
-    follow-on work.
-  context: |
-    Active bet: b-zara-operate-contract-002.
-    Node: g-zara-operate-contract.
-    Product repo: github.com/ainazemtsau/zaratusta.
-    Verified product repo commit:
-    79578ac87c73591000409f9f82a3bb4d0e33aa5b.
-
-    Closed tasks:
-    - t-1 done: product repo evidence maps W20/A1-A13 to Markdown-readable
-      artifacts/checks without choosing W19 HOW.
-    - t-2 done: smallest Markdown/GitHub-readable operating-manager authority
-      contract pack materialized.
-    - t-3 done: clean independent verification PASS against commit
-      79578ac87c73591000409f9f82a3bb4d0e33aa5b.
-
-    Key verifier result:
-    - complete: PASS
-    - backward_clean: PASS
-    - forward_clean: PASS
-    - smuggling: PASS
-    - hard rows A3/A9/A10/A13: PASS/PASS/PASS/PASS
-    - development boundary: PASS
-    - AGENTS.md is repo-local editing guardrail only, not product acceptance
-      authority.
-
-    Converge WHAT:
-    - live/solmax/work/converge-g-zara-operate-contract.md.
-    - W20/A1-A13 is preserved.
-    - W19 HOW choices remain PLAN/later-child agenda.
-  boundaries: |
-    Do not modify product repo.
-    Do not route directly to shape unless review accepts the bet as done.
-    Do not relax W20/A1-A13 or W19 firewall.
-    Do not re-open product repair unless review finds a new exact evidence gap.
-    Do not introduce DB/API/UI/vendor/scheduler/automation/storage engine/
-    runtime/exact schema/exact layout/cadence/scoring/external integration
-    choices.
-    Do not introduce a generic domain/topic blacklist or Direction OS write path.
-  done_when: |
-    Review determines the active bet outcome using task evidence:
-    - done -> close g-zara-operate-contract/bet and route next eligible work;
-    - repair -> exact repair route with gap;
-    - drop/kill -> exact reason and fallout.
-  return: |
-    RESULT with review verdict, evidence, exact state_changes, and next route.
-  budget: one focused review pass
-  parent: s-zara-operate-contract-t3-verify-corrected-map-008
-  surface: chatgpt
-
+next: work/calls/c-zara-operate-state-shape-001.md
 END_OF_FILE: live/solmax/NOW.md

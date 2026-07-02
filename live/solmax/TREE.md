@@ -5,6 +5,7 @@ owner_approved:
   evidence:
     - '2026-06-24: owner approved resetting Zaratusta TREE to root-only before a fresh evidence-led map.'
     - '2026-06-26: owner approved g-zara-operate as a 4-child first-node split; first child is g-zara-operate-contract.'
+    - '2026-07-02: owner approved TREE closure for g-zara-operate-contract after review verdict met. Owner words: "Нужен исправленный RESULT/repair, который явно несёт owner approval для TREE closure и приводит NOW.next к текущему writer-формату."'
 
 tree_validity:
   state: operate_first_node_split_approved
@@ -59,7 +60,7 @@ root:
         broader exocortex expansion.
       children:
         - id: g-zara-operate-contract
-          status: active
+          status: done
           appetite: 2 focused days
           kill_by: |
             metric: independent verification of the Zaratusta Markdown/GitHub-readable
