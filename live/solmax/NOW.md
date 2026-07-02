@@ -122,7 +122,7 @@ active_bet:
     prompt as closure, rollback/revert the product-repo change and route the
     exact failure to repair/converge.
 
-route_status: g-zara-operate-contract_t1_done_pending_t3_verify
+route_status: g-zara-operate-contract_verified_pending_review
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -247,7 +247,7 @@ tasks:
 
   - id: t-3
     kind: session
-    status: active
+    status: done
     goal: |
       Independently try to refute that the contract pack preserves W20/A1-A13
       and W19 firewall.
@@ -264,25 +264,28 @@ tasks:
         exact repair/bounce.
     evaluator: n/a
     progress_note: |
-      Previous verification failure due to missing explicit product-owned A1-A13
-      acceptance map is stale after product repo commit
-      79578ac87c73591000409f9f82a3bb4d0e33aa5b. t-3 remains active and should now
-      run a clean verification against that corrected map evidence. If PASS marks
-      t-3 done as the last open task, the next CALL must be review
-      g-zara-operate-contract, not direct shape.
+      Clean independent verification PASS against product repo commit
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b
+      (`Correct W20 A1-A13 acceptance map boundary`).
+
+      Verdict:
+      - complete: PASS
+      - backward_clean: PASS
+      - forward_clean: PASS
+      - smuggling: PASS
+      - hard rows A3/A9/A10/A13: PASS/PASS/PASS/PASS
+      - W19 HOW firewall: PASS
+      - development boundary: PASS
+      - AGENTS.md is repo-local editing guardrail only, not product acceptance
+        authority.
+
+      Product repair is not needed again. Since t-3 closes the last open task of
+      b-zara-operate-contract-002, next route is review g-zara-operate-contract,
+      not direct shape.
 
 recurring: []
 decisions: []
-open_calls:
-  - id: c-zara-operate-contract-t3-verify-corrected-map-008
-    to: session
-    for: t-3
-    issued: 2026-07-01
-    note: |
-      Clean independent verification against product repo commit
-      79578ac87c73591000409f9f82a3bb4d0e33aa5b after repair session closed the
-      stale t-1 open_call. Do not re-open product acceptance-map executor work
-      unless this verification finds a new exact product evidence gap.
+open_calls: []
 preserved_evidence:
   - live/solmax/CHARTER.md
   - live/solmax/TREE.md
@@ -301,75 +304,62 @@ preserved_evidence:
   - github.com/ainazemtsau/zaratusta
 
 next: |
-  CALL c-zara-operate-contract-t3-verify-corrected-map-008
+  CALL c-zara-operate-contract-review-001
   to: session
   direction: solmax
-  play: work
+  play: review
   node: g-zara-operate-contract
-  task: t-3
   goal: |
-    A clean verification verdict exists for Zaratusta commit
-    79578ac87c73591000409f9f82a3bb4d0e33aa5b against W20/A1-A13 and the W19 HOW
-    firewall, with the next route ready.
+    Review active bet b-zara-operate-contract-002 after all tasks closed and
+    decide whether g-zara-operate-contract is done, needs repair, or routes
+    follow-on work.
   context: |
     Active bet: b-zara-operate-contract-002.
+    Node: g-zara-operate-contract.
     Product repo: github.com/ainazemtsau/zaratusta.
-    Product commit to verify:
-    - 79578ac87c73591000409f9f82a3bb4d0e33aa5b
-    - message: Correct W20 A1-A13 acceptance map boundary
-    - changed files: AGENTS.md, README.md,
-      checks/markdown-foundation-checklist.md,
-      checks/w20-a1-a13-acceptance-map.md
+    Verified product repo commit:
+    79578ac87c73591000409f9f82a3bb4d0e33aa5b.
 
-    Direction state:
-    - live/solmax/NOW.md
-    - live/solmax/TREE.md
-    - live/solmax/LOG.md
-    - live/solmax/work/converge-g-zara-operate-contract.md
-    - live/solmax/history/2026-07-01-s-zara-operate-contract-repair-t1-t3-state-sync-007.md
+    Closed tasks:
+    - t-1 done: product repo evidence maps W20/A1-A13 to Markdown-readable
+      artifacts/checks without choosing W19 HOW.
+    - t-2 done: smallest Markdown/GitHub-readable operating-manager authority
+      contract pack materialized.
+    - t-3 done: clean independent verification PASS against commit
+      79578ac87c73591000409f9f82a3bb4d0e33aa5b.
 
-    Repair finding:
-    - The stale t-1 executor open_call has been cleared.
-    - t-1 is marked done because product repo evidence now contains explicit
-      Markdown-readable A1-A13 mapping and W19 not-chosen firewall evidence.
-    - Bounced verifier facts said W20/A1-A13 coverage passed; hard rows
-      A3/A9/A10/A13 passed; W19 HOW firewall passed; development boundary
-      passed; AGENTS.md passed only as repo-local editing guardrail.
-    - t-3 is still active and needs a clean RESULT against the corrected commit.
+    Key verifier result:
+    - complete: PASS
+    - backward_clean: PASS
+    - forward_clean: PASS
+    - smuggling: PASS
+    - hard rows A3/A9/A10/A13: PASS/PASS/PASS/PASS
+    - development boundary: PASS
+    - AGENTS.md is repo-local editing guardrail only, not product acceptance
+      authority.
+
+    Converge WHAT:
+    - live/solmax/work/converge-g-zara-operate-contract.md.
+    - W20/A1-A13 is preserved.
+    - W19 HOW choices remain PLAN/later-child agenda.
   boundaries: |
-    Do not modify Direction OS repo or product repo.
-    Read product repo evidence plus converge WHAT.
-    Do not re-open W20/A1-A13 product artifact work unless commit evidence is
-    actually insufficient.
-    Do not use AGENTS.md as product acceptance authority.
-    Do not route directly to shape g-zara-operate-state from a passing work RESULT;
-    if this verification closes the last open task, next must be review
-    g-zara-operate-contract.
-    Do not introduce a generic domain/topic blacklist.
-    Do not create a Direction OS write path.
-    Do not select DB/API/UI/vendor/scheduler/automation/storage engine/runtime/
-    exact schema/exact layout/cadence/scoring/external integration choices.
+    Do not modify product repo.
+    Do not route directly to shape unless review accepts the bet as done.
+    Do not relax W20/A1-A13 or W19 firewall.
+    Do not re-open product repair unless review finds a new exact evidence gap.
+    Do not introduce DB/API/UI/vendor/scheduler/automation/storage engine/
+    runtime/exact schema/exact layout/cadence/scoring/external integration
+    choices.
+    Do not introduce a generic domain/topic blacklist or Direction OS write path.
   done_when: |
-    - Verifier reads product repo commit
-      79578ac87c73591000409f9f82a3bb4d0e33aa5b plus converge WHAT.
-    - Verdict covers complete, backward_clean, forward_clean and smuggling.
-    - PASS requires all A1-A13 covered and zero hard failures on A3/A9/A10/A13.
-    - PASS also requires no generic domain/topic blacklist, no Direction OS write
-      path, and no DB/API/UI/vendor/scheduler/automation/storage engine/runtime/
-      exact schema/exact layout/cadence/scoring/external integration selected as
-      contract.
-    - FAIL names exact missing/contradictory rows and routes:
-      product artifact gap -> repair executor task;
-      WHAT contradiction -> converge;
-      hidden HOW/layout/schema/runtime temptation -> shape/review cut, not silent
-      acceptance.
-    - Next route is ready: on PASS, review g-zara-operate-contract; on FAIL,
-      exact repair/bounce.
+    Review determines the active bet outcome using task evidence:
+    - done -> close g-zara-operate-contract/bet and route next eligible work;
+    - repair -> exact repair route with gap;
+    - drop/kill -> exact reason and fallout.
   return: |
-    RESULT with product repo evidence read, verdict per A1-A13/W19, exact task
-    status recommendations, LOG line and next CALL.
-  budget: one focused verification session
-  parent: s-zara-operate-contract-repair-t1-t3-state-sync-007
-  surface: any
+    RESULT with review verdict, evidence, exact state_changes, and next route.
+  budget: one focused review pass
+  parent: s-zara-operate-contract-t3-verify-corrected-map-008
+  surface: chatgpt
 
 END_OF_FILE: live/solmax/NOW.md
