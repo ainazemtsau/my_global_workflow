@@ -97,6 +97,16 @@ CALL (business task from a direction)
     present), and for any feature with >1 concurrent actor exercise multi-actor
     / conflicting-input-in-one-tick regimes, never a single-actor happy path.
   → VALIDATE (per feature and per change): gates in VALIDATION.md.
+    The independent review (G4) and fresh-session refutation (KERNEL-G5) are
+    RECORDED in `docs/reviews/review-<id>.md` (id == the openspec change folder;
+    `reviewed-commit` an ancestor of the delivered HEAD with every intervening
+    source commit a `fixed <commit>` disposition; every finding dispositioned,
+    none `open`; every `refuted` carrying a G5/KERNEL-G5 verification marker;
+    `rounds` ≤3 or a resolving `escalation:<id>`), which the deliver gate checks
+    for presence/freshness/structure (VALIDATION §Review-evidence, PROJECT_SETUP
+    §Strong-check) — so a leg can no longer reach done before an independent
+    review round is recorded; a review whose tree has since changed with
+    un-accounted source commits is stale and FAILs.
     Builder may not edit the ledger or the spec; flipping a ledger entry
     to passing requires opened evidence (hook-enforced where supported).
   → RETRY policy: a failed gate returns its findings verbatim into the next
@@ -127,7 +137,10 @@ CALL (business task from a direction)
     a pre-build STOP, never an end-of-run assumptions/cuts line.
     Escalation = push notification + the specific question + options.
   → REPORT (the RESULT back to the direction):
-    outcome; evidence (PR link, gate outputs, ledger final state);
+    outcome; evidence (PR link, gate outputs, ledger final state, the
+    `docs/reviews/review-<id>.md` reference with its finding dispositions and
+    G5/KERNEL-G5 refutation markers — a done RESULT for a frozen-spec change
+    carries it, or the writer bounces on carry-back, coding-agent.md G10);
     assumptions made; anything cut for budget; cost;
     a defect that reached a LATE stage (owner-eye / independent review / post-merge) names the
     INVARIANT-CLASS it violated, so the carry-back can append it to the cross-kind escape-class
