@@ -1,19 +1,8 @@
 # CHARTER — life-reset
 
-owner_approved:
-  status: true
-  evidence:
-    - 'Mission (manager-as-spine): "Да, утверждаем миссию как есть, всё принимаю".'
-    - 'R1 efficiency refinement (owner): эффективность считается по разным планам/целям, не как преданность одной задаче и не как суд над «продуктивностью» уже взятой цели.'
-    - 'Success criteria — 4 ядровых approved, ⑤⑥⑦ routed to tree: "Совсем согласен, кроме защищённой недели" → reworded → "да".'
-    - 'Owner-paced build (no hard week-block) + light tripwire: "да".'
-    - 'Strict-personality principles (5): "со всем согласен".'
-    - 'R32 technique-selection added by owner; self-improvement principle (gated): "да".'
-    - 'Guardrails + operating invariants (R11/R12/R22): "да".'
-    - 'Updated pre-mortem (10 kept, 2 edited, 3 added): "да".'
-    - 'Owner rejected a week / N-cycle completion gate; approved the reshaped one-real-run done_when on root + criterion ①: "да".'
-    - 'Owner approved (G9) a SEPARATE product repo for the manager RUNTIME + the markdown-only-until-a-real-run lightness rule, 2026-06-21: "конечно, нужен отдельный репозиторий, потому что мы строим отдельный процесс" → "создал репозиторий … (дальше ты сам)" — github.com/ainazemtsau/life-reset-manager; governance (charter/tree/bets/history) stays in live/life-reset/.'
-    - 'Owner corrected (G9) the clinical-risk routing: the manager is NOT a clinical safety valve — no specialist routing, no therapy/practices — the owner self-sources his own external human support; the checkout-slide response = an OBJECTIVE external voice re-igniting his OWN values (firm, non-punishing), never force/referral; the manager is his "objective side of reality" for weighted decisions + anti-overcommit + light upkeep. 2026-06-21: "я ищу себе психиатра… менеджер просто помогает дисциплинированно держать… мне нужен как объективная сторона реальности… не надо строить предохранителя, психолога".'
+owner_approved: 2026-06-21 — history/2026-06-21-s-life-reset-frame-root-001.md   # mission/success-criteria/build-pace/principles/guardrails/pre-mortem, root done_when — all "да"
+owner_approved: 2026-06-21 — history/2026-06-21-s-life-reset-setup-product-repo-001.md   # separate product repo for the manager runtime ("конечно, нужен отдельный репозиторий")
+owner_approved: 2026-06-21 — history/2026-06-21-s-life-reset-protect-mechanism-correction-001.md   # clinical-risk routing corrected (not a safety valve — "объективная сторона реальности")
 
 mission: |
   life-reset — это не недельный трекер и не набор отдельных программ-островов.

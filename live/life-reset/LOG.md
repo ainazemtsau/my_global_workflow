@@ -174,4 +174,6 @@
   preparatory functional phase of Zaratusta. Standalone NOW/TREE are frozen;
   canonical planning and implementation move to `solmax` / Zaratusta.
 
+- 2026-07-02 — repair (hot-state hygiene, s-repair-hotstate-hygiene-001, owner-confirmed): CHARTER.md owner_approved.evidence collapsed to 3 owner_approved pointers, zero information loss (all quotes already verbatim in history/). → history/2026-07-02-s-repair-hotstate-hygiene-001.md
+
 END_OF_FILE: live/life-reset/LOG.md
