@@ -264,6 +264,13 @@ decisions:
       re-entry, host-resilience TREE #11, gas-on-real-bus, player-kinematics шов 7, ×4-8 multicore, wake
       triggers, >4-type overflow R1-lens, checksum-at-scale, Z-stacked vertical tests, floor breach).
       Accept the adopted additive package?
+      (2026-07-02 OWNER CORRECTIONS folded before decision: (1) mines are NOT the primary archetype —
+      levels must be STRONGLY DIVERSE; the audit's mine/shaft probe stays as the VERTICAL-archetype
+      measurement scenario but no trigger/wording privileges mines — triggers key to ANY designed level
+      over the ceiling; (2) huge levels = KEEP the ambition, compromise only if measurement proves it
+      impossible («думаю с оптимизациями это можно сделать») — see revised d-biglevels-tree9-001 option 3;
+      (3) mid-raid rejoin cut CONFIRMED by owner — R6 means «у всех всё синхронизировано и отлично
+      работает», not rejoin features; the Факт-5 cut stands, halt/stall UX rows remain.)
     options:
       - Accept whole (recommended) — richness ladder re-pinned (bang-read owner-eye axis on Sc-reactions;
         open-space jet look on Sc-damage = the signed TIER-2/3 escalation evidence channel); ONE batched G9
@@ -366,17 +373,20 @@ decisions:
     options:
       - Give S4 a dated re-entry condition (e.g. before the Steam-page copy freezes - do not market scale that has no machinery).
       - Explicitly re-sign TREE #9 down to the fully-fine ceiling the measured hangar number supports.
-      - (added by the 2026-07-02 sim-plan audit, RECOMMENDED) Keep the coarse far-tier/S4 machinery as the
-        R2 carrier with a DATED re-entry trigger set — earliest of (i) the FIRST designed level brief
-        exceeding the measured ceiling, EXPLICITLY including mines/tall levels (the owner's TIER-0
-        archetype), not only hangars; (ii) before the 2026-08-31 Steam copy freeze IF the page markets
-        scale; (iii) the post-Sc-damage road checkpoint as backstop — AND re-sign only the numeric
-        200×200×40/≥1000-volume profile down to a TARGET with explicit R5 squeeze license.
+      - (added by the 2026-07-02 sim-plan audit; REVISED same day by owner words, RECOMMENDED) Keep TREE #9
+        huge levels as the signed AMBITION — owner: «я бы хотел иметь огромные уровни… но я думаю что с
+        оптимизациями это можно сделать»; the optimization path = S4 rollup (+ reserved Sc-par multicore,
+        bubble cap, segment-fallbacks). S4 gets the DATED trigger set — earliest of (i) the FIRST designed
+        level of ANY archetype exceeding the measured ceiling (owner correction: levels must be STRONGLY
+        DIVERSE; mines are ONE type among many, no archetype privileged); (ii) before the 2026-08-31 Steam
+        copy freeze IF the page markets scale; (iii) the post-Sc-damage road checkpoint as backstop.
+        NO pre-emptive re-sign-down: the R5 squeeze license activates ONLY on measured impossibility,
+        by signature.
     recommendation: |
-      Take option 3 (audit): it alone matches the owner's 2026-07-02 ladder (R2 global-sim = TIER-0 keeps
-      its carrier; sizes = MAJOR with squeeze license; mines become the trigger-owner instead of a
-      bystander). NB: option 2 as worded silently also re-signs the SPEC's own ~150-room target. Never let
-      «smaller levels» become the answer without a signature — that is exactly a silent drop of frozen canon.
+      Take option 3 as revised — it now carries the owner's own 2026-07-02 words (ambition kept, compromise
+      only if measurement proves it impossible). NB: option 2 as worded silently also re-signs the SPEC's
+      own ~150-room target. Never let «smaller levels» become the answer without a signature — that is
+      exactly a silent drop of frozen canon.
     source: work/review-gas-sim-visual-2026-07-02.md (finding 11); work/audit-gas-sim-plan-2026-07-02.md
       (global-scale-1, words-vs-docs-001, verticality-far-reentry).
 
