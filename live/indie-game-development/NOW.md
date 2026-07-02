@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-02 by s-shape-prep-screactions-001
+updated: 2026-07-02 by s-visual-012
 
 bet:
   node: g-9c41
@@ -153,19 +153,18 @@ open_calls:
     issued: 2026-06-29
     call: work/c-visual-003-call.md
     note: |
-      W1a CLOSED 2026-07-02: owner-eye SIGNED WITH RESERVATIONS in-chat (dev2 @40b94cc — checklist +
-      F-OWNER + RESULT flipped to DELIVERED). Honest state: render FOUNDATION accepted (de-block +
-      light-through + never-worse + one inspector); clean LP1–LP5 NOT claimed — LP1 candidate-pass
-      (lamp-direction read weak), LP2/LP3 confirmed live, LP4/LP5 blocked by the missing DESIGNED demo
-      level (owner-eye finding: «demo level needs design»; existing levels = boxy 6×4×6 box /
-      horizontal tube). NEXT visual leg per the RESULT = a deliberately-DESIGNED gas demo scene
-      (roomy vertical space + finite plume + matched room/camera/colour; to be framed as
-      c-visual-004; ties to the canon visual-style track) — focused design work, NOT live knob-tuning
-      (the S2 anti-pattern). W1b (two-type read) RE-SCOPED 2026-07-02 (banner in the CALL): after the
-      Sc-rep dev→main merge; needs a small owner-acked engine read-API for the per-cell dominant
-      STAMP; no argmax/dense workaround. dev2→main MERGED 2026-07-02 (@b5675ea) and PUSHED.
-      ⚠ TRACK ON HOLD (owner 2026-07-02: «сначала разобраться с симуляцией») — W1b and the
-      designed-demo-scene leg (c-visual-004) WAIT; do not frame them until the owner returns to visual.
+      CLOSED 2026-07-02 (superseded by plan v2, s-visual-012). W1a CLOSED 2026-07-02: owner-eye SIGNED
+      WITH RESERVATIONS in-chat (dev2 @40b94cc — checklist + F-OWNER + RESULT flipped to DELIVERED).
+      Honest state: render FOUNDATION accepted (de-block + light-through + never-worse + one inspector);
+      clean LP1–LP5 NOT claimed — LP1 candidate-pass (lamp-direction read weak), LP2/LP3 confirmed live,
+      LP4/LP5 blocked by the missing DESIGNED demo level (owner-eye finding: «demo level needs design»;
+      existing levels = boxy 6×4×6 box / horizontal tube). dev2→main MERGED 2026-07-02 (@b5675ea) and
+      PUSHED. The designed-demo-scene leg is now c-visual-004 = Stage 1 of plan v2 (work/c-visual-004-call.md,
+      prepared, DOES NOT FIRE until the hold lifts). W1b (per-cell dominant-type read) RE-SCOPED OUT of the
+      visual track entirely (panel finding: it is a Core/Field edit, cannot ride a render-only leg) — now a
+      tiny ENGINE mini-CALL in the GasCoopGame_dev worktree, windowed per d-w1b-window-001 (Sc-kernel→
+      Sc-reactions gap). ⚠ TRACK ON HOLD (owner 2026-07-02: «сначала разобраться с симуляцией») — c-visual-004
+      WAITS; do not fire it until the owner returns to visual (default trigger = Sc-kernel GREEN).
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -203,6 +202,9 @@ open_calls:
       PENDING (await the Sc-kernel RESULT; CALL §PENDING): weak-hardware budget fork (flooded number + CPU
       proxy), wake-source exact binding (binds «reaction front» stub; env-delta reserved for Sc-typing), base
       sha + golden identity, MeaningMembers bits, scan roots, contract version, ADR-E number.
+      ⚠ W1b (the visual track's per-cell dominant-type read-API, d-w1b-window-001) fires as its OWN tiny
+      engine mini-CALL in the Sc-kernel→Sc-reactions gap (GasCoopGame_dev worktree, never dev_2) — c-exec-021
+      rebases over it via its own §Re-sync sweep; it is not part of c-exec-021's own scope.
       Rewrite adversarially checked vs STATE (wf_8ab4a0cb-401: 36 raised → 10 machine-verified + 26
       first-hand-adjudicated → ~22 distinct defects folded, 0 construction-breaking; subagent quota cut the
       verify fleet mid-run — adjudication finished first-hand in-session, recorded). The code-grounded FULL
@@ -216,26 +218,31 @@ recurring: []
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    track_state: active
+    track_state: active — ON HOLD (owner 2026-07-02, «сначала разобраться с симуляцией»)
     note: |
-      Secondary to g-9c41, no fixed hour quota. c-visual-002 S1 gas-lab delivered
-      and merged (history/s-visual-009.md). 2026-06-29 RE-PLAN (s-visual-010,
-      owner-co-created): the framed S2 (two-type + scatter-glow tuned in the EMPTY
-      analytic gas-lab) degraded to jelly/blobs/visible-grid — WORSE than before;
-      root cause (verified in code) = judging the look in an empty void on a
-      low-ceiling cheap-noise render + blind live knob-turning. RE-PLANNED to judge
-      on the REAL sim in a real lit room (RealGasViewSource reads VoxelField render-
-      only; structurally cannot write the sim) with a NEVER-WORSE discipline (saved
-      baseline + A/B + one-inspector control panel + one visible win at a time).
-      The degraded S2 work was uncommitted on dev2 only (main @7d08882 untouched) ->
-      rolled back to the clean baseline; nothing bad merged. Official WAVE plan =
-      work/gas-visual-wave-plan-2026-06-29.md (4 waves toward the JEWEL + a parallel
-      engine finer-grid track; ~3 of ~10 look levers used). NEXT visual work = WAVE 1
-      CALL work/c-visual-003-call.md (real room + real sim + light-through + base-
-      render cleanup + first two-type; opens in a fresh GasCoopGame_dev_2 session
-      with a PLAN, owner present, comes HOME with an owner-eye sign). The old
-      "S2 two-type+scatter as framed" is SUPERSEDED by this re-plan. Reading set incl.
-      docs/gas-visual-stage-plan.md §S1/§S6+ and the canon visual-style minimal note
+      Secondary to g-9c41, no fixed hour quota. c-visual-002 S1 gas-lab delivered + merged
+      (history/s-visual-009.md); W1a (real gas in a lit room) DELIVERED WITH RESERVATIONS 2026-07-02
+      (history/2026-07-02-s-visual-011-w1a-owner-sign.md — LP2/LP3 confirmed live, LP1 candidate-pass,
+      LP4/LP5 blocked by the missing designed demo level) and MERGED to main @b5675ea.
+      2026-07-02 (s-visual-012): full re-plan replacing the 06-29 wave plan. Method: read-only inventory
+      of the shipped render layer + docs (2 agents), a 5-lens external research sweep (approach forks vs
+      shipped games / per-type readability language / look-dev practice), then a 4-lens adversarial panel
+      (perf-feasibility / owner-visible-value / repo-contracts-OS / solo-scope) that broke the first draft
+      and whose P1/P2 fixes are folded in. OFFICIAL PLAN v2 = work/gas-visual-plan-v2-2026-07-02.md
+      (SUPERSEDES work/gas-visual-wave-plan-2026-06-29.md; full old→new mapping recorded in the doc,
+      nothing silently dropped). Owner-confirmed 2026-07-02 (batch «подтверждаю»): plan accepted; hold
+      stays until Sc-kernel GREEN (default un-hold trigger); d-finer-grid-fork-001 ANSWERED (see
+      NOW.decisions); W1b window ANSWERED (see d-w1b-window-001).
+      SIX STAGES: 1 Стенд+отсечка (designed room + open-space bookmark + depth composite + fixed-seed
+      repeatable motion — CALL prepared, work/c-visual-004-call.md, DOES NOT FIRE until the hold lifts)
+      → 2 Паспорт типа + шипучий режим (8-channel per-type schema + layout-ADR 96→128B + W1b consumption
+      + real half-res pulled forward) → 3 Одна жемчужина (natural-jet fix + cheap lighting levers + LP1
+      re-test + honest ceiling-exit to d-finer-grid-fork-001) → 4 Три характера + шкала опасности (3 canon
+      archetypes, 3-channel minimum-separation rule, blind lineup test, danger ladder clamped <3Hz) →
+      5 Затопленная комната (perf pass framed as a live multi-type flood spectacle, feeds marketing
+      capture) → 6 Газ в мире (post-Steam-page, ONE owner-picked item, default = teammate readability).
+      Old "S2 two-type+scatter in the empty lab" and the 06-29 wave-plan sequencing are SUPERSEDED.
+      Reading set incl. docs/gas-visual-stage-plan.md §S1/§S6+ and the canon visual-style minimal note
       (history/s-canon-visual-style-minimal-gas-stage-001.md).
   - id: g-d3a8
     track: canon/design
@@ -308,24 +315,22 @@ decisions:
       sparse store / active cells; the Sc-rep G5 P2 field-storage-guard finding folded into its done_when
       #9). Full record: work/review-gas-sim-visual-2026-07-02.md (findings 8/9); history/2026-07-02-s-work-038-sc-kernel-framed.md.
   - id: d-finer-grid-fork-001
-    q: |
-      The visual wave-plan's biggest SHAPE lever («finer sim grid near player») exists on NO engine
-      slice; render-side levers buy sub-cell RICHNESS but not sub-cell SILHOUETTE. Accept render-side
-      as the medium, or schedule an engine item?
-    options:
-      - Accept render-side richness as the medium; strike the «finer grid» line from the wave plan.
-        (Audit honesty line 2026-07-02: this ALSO leaves the detail-bubble mechanism unbuilt — the SPEC §6
-        п.3 «all-peers-all-bubbles» hangar fallback and the ведро-1 near-feel host must then be re-recorded
-        as render-side or dropped WITH a signature, never silently.)
-      - Schedule a costed READ-ONLY view-refinement item (off-checksum, detail-bubble seam, no Fact-2/ADR-0002 reopen) after Sc-damage.
-        (Audit broadening 2026-07-02: this slice = view refinement PLUS the ведро-1 host, with its Fact-3
-        ADR — radius + cell size, owner-signed — the bubble is cheap insurance twice over: feel host AND a
-        named hangar fallback.)
-    recommendation: |
-      Decide BEFORE visual WAVE 2 raises expectations. (2) is the honest keep-the-jewel path; (1) is
-      the honest scope cut. Never leave the «(g-9c41 roadmap)» wording implying it is scheduled.
+    status: answered — option 2 (owner, 2026-07-02, plan-v2 session s-visual-012): schedule a costed
+      READ-ONLY view-refinement engine item (off-checksum, detail-bubble seam, no Fact-2/ADR-0002 reopen)
+      after Sc-damage — the keep-the-jewel path. Decided ahead of gas-visual-plan-v2 Stage 3 (hero polish)
+      so the "jewel bar" carries an honest, pre-agreed ceiling-exit rather than an open expectation. This
+      slice = view refinement PLUS the ведро-1 near-feel host (Fact-3 ADR: radius + cell size, owner-signed
+      at that item's shape) — a double-duty lever (feel host AND the named hangar fallback).
     source: work/gas-visual-wave-plan-2026-06-29.md ⚠ note; work/review-gas-sim-visual-2026-07-02.md (finding 23);
-      work/audit-gas-sim-plan-2026-07-02.md (local-depth-04).
+      work/audit-gas-sim-plan-2026-07-02.md (local-depth-04); work/gas-visual-plan-v2-2026-07-02.md.
+  - id: d-w1b-window-001
+    status: answered (owner, 2026-07-02, plan-v2 session s-visual-012, batch «подтверждаю» option 4a): the
+      visual track's per-cell dominant-type read-API (W1b) fires as its OWN tiny ENGINE mini-CALL in the
+      GasCoopGame_dev worktree (never dev_2), in the gap after Sc-kernel merges to main and BEFORE
+      c-exec-021 (Sc-reactions) fires; c-exec-021 rebases over it via its own §Re-sync sweep. Keeps the
+      visual track's render-only boundary intact — a Core/Field edit cannot ride inside a render-only leg
+      (it was previously mis-scoped as part of c-visual-003).
+    source: work/gas-visual-plan-v2-2026-07-02.md; NOW open_calls c-exec-021 §PENDING.
   - id: d-demo-road-001
     status: answered «да» (owner, 2026-07-02) — July shape session, CALENDAR-dated 2026-07-10..15, with
       mandatory rows (session-resilience, network ladder / Sc-net candidate slice, host-migration TREE #11
@@ -368,6 +373,7 @@ history_pointers:
   - Sim-plan audit + decision batch (2026-07-02): work/audit-gas-sim-plan-2026-07-02.md (wf_a299ecef-44e, 34 findings)
   - Sc-kernel FRAMED + G9 SPEC batch (2026-07-02): history/2026-07-02-s-work-038-sc-kernel-framed.md; work/c-exec-023-call.md; hardening wf_ff1612b9-ec5
   - Sc-reactions PREPPED — forks (a)–(f) closed, body rewritten (2026-07-02): history/2026-07-02-s-shape-prep-screactions-001.md; work/c-exec-021-call.md; check wf_8ab4a0cb-401
+  - Gas-visual PLAN v2 (6 stages, supersedes the 06-29 wave plan; 2026-07-02): history/2026-07-02-s-visual-012-plan-v2.md; work/gas-visual-plan-v2-2026-07-02.md; work/c-visual-004-call.md (Stage 1, prepared not fired)
 
 next:
   Sc-kernel FRAMED + HARDENED 2026-07-02 (s-work-038, owner «все подтверждаю») as work/c-exec-023-call.md: audit
@@ -384,10 +390,13 @@ next:
   Sc-kernel RESULT, then fire c-exec-021 in a fresh GasCoopGame_dev session (owner-present PLAN). It does NOT
   fire before that.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
-  VISUAL: ON HOLD by owner 2026-07-02 («сначала разобраться с симуляцией») — W1b and c-visual-004 wait. HONESTY:
-  while visual is held the ONLY live player-facing terminus = Sc-reactions telegraph+bang; the 07-24 milestone is
-  re-affirmed against THAT (frozen visual not cited as counterweight; audit words-vs-docs-006).
-  Still pending owner: d-finer-grid-fork-001 (anchor: before visual WAVE 2 — dormant while visual on hold),
-  d-marketing-wake-001, d-coop-interdependence-repin-001.
+  VISUAL: full re-plan CLOSED 2026-07-02 (s-visual-012) — plan v2 = work/gas-visual-plan-v2-2026-07-02.md (6
+  stages), owner-confirmed, ON HOLD by owner directive 2026-07-02 («сначала разобраться с симуляцией») — Stage 1
+  CALL prepared (work/c-visual-004-call.md) but does NOT fire until the hold lifts (default trigger = Sc-kernel
+  GREEN). W1b RE-SCOPED to its own engine mini-CALL (d-w1b-window-001, fires in the Sc-kernel→Sc-reactions gap).
+  d-finer-grid-fork-001 ANSWERED (option 2, scheduled after Sc-damage). HONESTY: while visual is held the ONLY
+  live player-facing terminus = Sc-reactions telegraph+bang; the 07-24 milestone is re-affirmed against THAT
+  (frozen visual not cited as counterweight; audit words-vs-docs-006).
+  Still pending owner: d-marketing-wake-001, d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md

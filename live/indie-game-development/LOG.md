@@ -2,6 +2,23 @@
 
 archived: history/LOG-archive-indie-game-development.md — sessions before 2026-06-29
 
+2026-07-02 — research/re-plan (g-7e15 VISUAL, s-visual-012, owner-requested track review): full re-plan of
+the gas-visual track, replacing the 06-29 wave plan. Method: 2 read-only inventory agents (shipped render
+code + docs/ADRs) + a 5-lens external research sweep (approach-fork verdict = the fragment-raymarch base is
+correct, matches CS2; per-type readability vocabulary; look-dev/golden-replay practice) + a 4-lens adversarial
+panel (perf-feasibility / owner-visible-value / repo-contracts-OS / solo-scope) that broke the first draft —
+all P1/P2 fixes folded. PLAN v2 = work/gas-visual-plan-v2-2026-07-02.md, 6 owner-gated stages (Стенд+отсечка →
+Паспорт типа+шипучий режим → Одна жемчужина → Три характера+шкала опасности → Затопленная комната →
+Газ в мире), each with a pinned owner-visible win, never-worse discipline throughout, nothing from the old
+wave plan silently dropped (mapping table in the doc). Owner confirmed the plan + 4 batched recommendations
+in one message («подтверждаю»): (1) plan v2 accepted; (2) visual hold stays until Sc-kernel GREEN (default);
+(3) d-finer-grid-fork-001 ANSWERED — option 2, a costed read-only view-refinement engine item after Sc-damage;
+(4) W1b (per-cell dominant-type read-API) re-scoped OUT of the visual track (it is a Core/Field edit) into its
+own tiny engine mini-CALL, windowed in the Sc-kernel→Sc-reactions gap (new decision d-w1b-window-001). Stage 1
+CALL prepared → work/c-visual-004-call.md (supersedes the c-visual-003 "next" designed-demo-scene note) but
+does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parallel track, no active-bet effect).
+→ history/2026-07-02-s-visual-012-plan-v2.md
+
 2026-06-29 — work (g-7e15, s-work-visual-rd-center-001; owner chose "Visual R&D Center"): created the read-only Codex-side Gas-Visual R&D Center → work/gas-visual-rd-center-2026-06-29.md. It defines mission, hard boundaries (no product edits, no sim truth changes), one-question research loop, technology-card template, scoring rubric, initial queues (gas-lab/body shader/jewel gate; front-accent/per-type character/event-drama/hero gas; watchlist), and Claude Code handoff format. NOW g-7e15 notes the center; c-visual-002 remains the active build next. → history/s-work-visual-rd-center-001.md
 
 - 2026-06-29 — work/framing (g-7e15 VISUAL, s-visual-006): owner challenged the off-contour shortcut («почему не по нашему workflow, как с симуляцией?») — corrected. Framed the next visual step as a PROPER executor CALL the SAME way as the engine legs (CALL → fresh dev2 session opens with a PLAN → render-only gates + owner-eye → RESULT home), replacing the hand-written paste-prompt. c-visual-002 = gas-lab (open-space cloud) + cloud-at-rest look (step 0+1 of GasCoopGame docs/gas-visual-stage-plan §S6+); render-only; RIGHT-SIZED (no heavy adversarial hardening — the ONE legit sim-vs-look difference is the gate: objective headless tests vs owner-eye «ближе к жемчужине», because «красиво» isn't unit-testable). Recorded the owner-approved gas-feature-first step ladder (0 lab→1 rest→2 spawn→3 jet→4 types→5 behaviour; later particles/Feel + perf) in g-7e15.next; owner «стартуем 0-1». Reconciled with the concurrent read-only Gas-Visual R&D Center (1b3ea58) — research feeds ideas, c-visual-002 is the build; no conflict. CALL → work/c-visual-002-call.md. NO TREE/CHARTER change; G1 intact. next = owner opens c-visual-002 in a fresh GasCoopGame_dev_2 session (PLAN). → history/s-visual-006.md
