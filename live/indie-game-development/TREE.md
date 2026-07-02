@@ -157,6 +157,11 @@ root:
           work/dev-plan-graph-2026-06-22.md. Criteria 1–11 hold where not superseded here.
     status: active
     detail: history/s-map-002.md   # + s-review-002 (A+ re-frame); wave breakdown → NOW.md wave_plan + work/aplus-breakdown-v1.md
+    # ⚠ 2026-07-02 (s-repair-review-reconcile-001): read this node THROUGH the SPEC (knowledge/g9c41-gas-engine-SPEC.md).
+    # Any «ADR-0010» lock citation in the goal/done_when = citation ERROR (lock = ADR-0002; SPEC §1 поправка 2026-06-28).
+    # The goal-text «host-authoritative … sector-band» wording is superseded by #12 (input-lockstep) + the SPEC leading
+    # frame. Node CONSOLIDATION (rewrite of the #2/#8/#9/#11/#12 banner palimpsest) is QUEUED for an owner-present
+    # session — additive banners only until then. Pending owner forks: see NOW.decisions (d-biglevels-tree9-001 for #9).
 
   - id: g-d3a8
     goal: |

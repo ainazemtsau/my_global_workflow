@@ -71,6 +71,34 @@ The body below is the prior-plan text kept for reuse; where it conflicts with th
     ZERO-LEGACY ReactionLayer-LOCKED, co-op interdependence, the gate battery) — re-grounded onto sparse-dominant
     at the future re-hardening, NOT carried forward with dense assumptions.
 
+**⚠ BANNER CORRECTIONS (2026-07-02, s-repair-review-reconcile-001 — the review found the banner itself drifted;
+these win over the items above where they conflict):**
+
+11. **ADR (corrects item 9):** the product repo adopted TRACK-NAMESPACED ADRs (ADR-P-0001, owner-approved 2026-06-30;
+    flat numbers frozen; Sc-rep took **ADR-E-0001**). «ADR-0021 / ≈ADR-0022» will never exist. Standing rule: OS-side
+    docs do NOT pre-assign concrete ADR numbers — the executor binds the next free **ADR-E-*** number at the tip per
+    ADR-P-0001 and records it in the RESULT.
+12. **Base (corrects items 1/2 + the «THIRD slice» header):** Sc-rep is BUILT (dev checkpoint adc3b9d, pending fresh
+    G5 / owner-eye / owner-gated merge), and the 2026-07-02 REAL hangar measurement (dev @8db3ee1,
+    docs/measurements/sc-rep-hangar-real-measurement-2026-07-02.md) showed tick cost ∝ REGISTERED roster × domain
+    cells (dense expand/rebuild kernel; roster-64 hangar = 587 ms/tick) → slice **Sc-kernel** (active-front tick
+    iteration; d-sparse-tick-kernel-001, pending owner sign; draft work/c-exec-023-draft-call.md) is recommended
+    BEFORE this CALL. If approved, this CALL's base = post-Sc-kernel.
+13. **NEW NAMED FORK for this CALL's shape — co-residency/overflow under mixing:** K=3 overlay (max 4 co-resident
+    types per cell) with >K = LOUD THROW is wired into the NORMAL tick path — under lockstep that is a deterministic
+    ALL-PEER session halt reachable by ordinary gameplay mixing (5 types meeting at a junction), in a game whose core
+    fantasy is mixing. Item 7(b)'s «the SAME overflow surface Sc-rep decides» is a CIRCULAR pointer (Sc-rep's CALL
+    deferred the policy back to reactions design) — the buck stops at THIS shape. The shape MUST decide, owner present:
+    (a) the representation-level policy for NON-reacting >4-type mixes (canonical merge-to-nearest-axis / raised K /
+    owner-signed declared sink), and (b) an adversarial RED: a 5-type junction scenario proving the throw is
+    unreachable in the intended level + chemistry design. Until then, any level/chemistry permitting 5+ types in one
+    zone is ship-blocking.
+14. **Stale body specifics confirmed at review (do NOT inherit):** the checksum-bit math «1<<6 / current max TypeId
+    1<<5» predates Sc-rep's stamp+overlay checksum members (bits shifted — verify MeaningMembers at the tip); the
+    engineering contract is **v9** (body says v8); body line-refs are pre-Sc-rep. The re-hardening's FIRST step = a
+    recorded line-by-line drift-sweep of every number/ref in the body against the then-tip — or better, REWRITE the
+    body at the shape instead of stacking a third banner generation.
+
 ## Why this slice (and the lock id)
 
 Sc-types laid the multi-gas substrate (dense `[species][cell]` planes, a canonical content-hashed registry, per-cell type

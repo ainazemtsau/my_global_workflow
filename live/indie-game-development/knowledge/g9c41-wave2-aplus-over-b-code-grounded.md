@@ -1,5 +1,7 @@
 # Gas-model дорога A+ over B is CODE-GROUNDED, not just argued
 
+> 🔴 **REDIRECT (2026-07-02, s-repair-review-reconcile-001).** Historical capture (A+-era, 2026-06-20). The live canon = `knowledge/g9c41-gas-engine-SPEC.md`; where this file disagrees, the SPEC wins.
+
 read_by: shape of the next g-9c41 bet (when picking the road / sizing the appetite); the technical-feasibility lens (every future "rewrite the core" temptation); a converge session if the gas model is ever re-converged.
 
 Accepted 2026-06-20 by review s-review-002 (independent adversarial check of work/gas-model-design-full-2026-06-20.md, 3 angles, code+math, NO dealbreaker).

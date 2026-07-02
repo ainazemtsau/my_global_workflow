@@ -1,5 +1,7 @@
 # §G load-probes are INCOMPLETE — 4 added MANDATORY probes before any A+ bet
 
+> 🔴 **REDIRECT (2026-07-02, s-repair-review-reconcile-001).** Historical capture of the A+-era review (2026-06-20). The live canon = `knowledge/g9c41-gas-engine-SPEC.md`; where this file disagrees, the SPEC wins. ⚠ In particular: **probe 3 below («no detonation without fine-grain co-location confirmation») is INVERTED by the signed canon** — SPEC §3: reaction/detonation triggers read refinement-invariant COARSE totals, NEVER fine cells. Do NOT ingest probe 3 as a gate at the Sc-reactions shape.
+
 read_by: shape of the FIRST A+ bet of g-9c41 (the §G probes are the pre-bet kill-gate — this list is the hardened gate). Also the technical-feasibility lens.
 
 Accepted 2026-06-20 by review s-review-002 (adversarial audit of the gas-model doc §G/§H against the real GasCoopGame core, HEAD a89b36b).

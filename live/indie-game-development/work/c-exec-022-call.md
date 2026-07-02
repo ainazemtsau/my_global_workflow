@@ -1,5 +1,16 @@
 # CALL c-exec-022 — Sc-rep: SPARSE-DOMINANT RE-REPRESENTATION (ENGINE-ONLY)
 
+> ⚠ **STATUS 2026-07-02 (s-repair-review-reconcile-001): EXECUTED — do NOT re-fire this CALL.** The slice was built
+> 2026-07-01 in GasCoopGame_dev WITHOUT the owner-present PLAN this CALL mandates (process deviation, recorded) and
+> initially sat UNCOMMITTED; the owner checkpointed it 2026-07-02 = dev **@adc3b9d**, and the REAL hangar measurement
+> landed as dev **@8db3ee1** (docs/measurements/sc-rep-hangar-real-measurement-2026-07-02.md). Remaining: binding
+> fresh-session **G5** → **owner-eye** → owner-gated **dev→main merge**.
+> ⚠ **Honest scope correction (review + measurement 2026-07-02):** the slice delivered REPRESENTATION + CHECKSUM
+> SCHEMA only — the tick kernel still expands sparse→dense per-species planes every tick (cost ∝ roster × domain
+> cells; hangar roster-64 = 587 ms/tick), so the sparse-awake performance rationale is NOT delivered here →
+> slice **Sc-kernel** recommended next (d-sparse-tick-kernel-001, draft work/c-exec-023-draft-call.md).
+> **ADR note:** flat «ADR-0021» below is obsolete — the repo adopted track namespaces (ADR-P-0001); Sc-rep = **ADR-E-0001**.
+
 Direction: indie-game-development / g-9c41 / Sc-rep — the sparse-dominant representation slice inserted AFTER Sc-weight
 and BEFORE Sc-reactions (owner «беру рекомендации», 2026-06-30, s-reshape-sparse-dominant-001). Builds on the post-Sc-weight
 base (GasCoopGame `main` at-or-after @61b7923 — the c-exec-020 Sc-weight merge; small repo-hygiene-only commits atop it are

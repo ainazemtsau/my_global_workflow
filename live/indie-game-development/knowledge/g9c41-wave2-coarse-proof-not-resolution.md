@@ -1,5 +1,7 @@
 # Transport+consistency proven ≠ the game feels resolved — the coarse render has a legibility ceiling
 
+> 🔴 **REDIRECT (2026-07-02, s-repair-review-reconcile-001).** Historical capture (A+-era, 2026-06-20). The live canon = `knowledge/g9c41-gas-engine-SPEC.md`; where this file disagrees, the SPEC wins.
+
 read_by: review/shape (do NOT pin "owner satisfaction" or "feels like the game" to a seam/transport proof); the core-gameplay-depth lens (g-d3a8).
 
 Accepted 2026-06-20 by review s-review-002 (forecast-surprise of the Wave-2 close).

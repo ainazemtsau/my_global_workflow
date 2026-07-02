@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-01 by s-work-035
+updated: 2026-07-02 by s-repair-review-reconcile-001
 
 bet:
   node: g-9c41
@@ -33,13 +33,39 @@ bet:
     work/c-exec-022-call.md, with §Re-sync v8→v9 first, named approach token, full Sc-rep gate
     battery, v9 escape-class registry walk, and STOP discipline against dense fallback / hashmap /
     silent overflow / dev2 edits. Sc-rep stays active awaiting the GasCoopGame_dev executor return.
+    2026-07-02 REVIEW + RECONCILE (s-repair-review-reconcile-001; durable review record =
+    work/review-gas-sim-visual-2026-07-02.md, 24/24 findings verified, 0 refuted): Sc-rep was EXECUTED 2026-07-01 in
+    GasCoopGame_dev WITHOUT the owner-present PLAN this CALL mandates (deviation, recorded) and sat UNCOMMITTED; the
+    owner checkpointed it = dev @adc3b9d. A REAL hangar measurement was then taken (dev @8db3ee1,
+    docs/measurements/sc-rep-hangar-real-measurement-2026-07-02.md): tick cost scales ~linearly with REGISTERED roster
+    (~9 ms/type at the 196k-cell hangar; roster-64 = 587 ms/tick avg; roster-128 extrapolates ≈1.16 s vs the 50–100 ms
+    tick budget; active cells CONSTANT at 1,562) — the tick kernel still expands sparse→dense per-species planes every
+    tick, so Sc-rep's honest scope = REPRESENTATION + CHECKSUM SCHEMA (the sparse-awake perf rationale is NOT delivered
+    by it). De-risk-wall verdict (kill_by 07-05): the wall FIRED correctly → recommendation = insert slice Sc-kernel
+    (active-front tick iteration) BEFORE Sc-reactions (d-sparse-tick-kernel-001 — SIGNED «да» by the owner
+    2026-07-02; draft CALL = work/c-exec-023-draft-call.md). Sc-rep remaining after the 2026-07-02 binding fresh G5
+    (COULD-NOT-REFUTE; one P2 test-gap — field-level storage guard — folded into Sc-kernel done_when): owner-eye →
+    owner-gated dev→main merge. VISUAL: c-visual-003 W1a CLOSED 2026-07-02 — owner-eye SIGNED WITH RESERVATIONS
+    (dev2 @40b94cc): foundation accepted, clean LP1–LP5 moves to a DESIGNED gas-demo-scene leg (next visual leg,
+    → c-visual-004); W1b re-scoped (after the Sc-rep merge + a small owner-acked stamp read-API — see the CALL
+    banner). The Codex review-fix loop was STOPPED by the owner 2026-07-02 (fixes return via the normal contour
+    after G5).
+    2026-07-02 MERGED + PUSHED (s-work-037): Sc-rep + W1a merged to GasCoopGame main (origin/main @5442be0;
+    merges efaa6eb + b5675ea; conflicts resolved: RESULT.md = latest-merged-leg, Packages/config = dev superset;
+    one pre-pushed origin commit 2d85442 folded — content already contained). Full gate battery GREEN on merged
+    main FIRST-HAND: 1227/1227 headless + hygiene + zero-float/int-overflow/type-hardcode scans. (A 20-error
+    adapter-build scare = FALSE alarm: the root csproj files are Unity-generated, gitignored, and stale in the
+    main worktree — they regenerate on the next Editor open.) Owner's local package-manager edits parked in a
+    git stash on main. OWNER DIRECTIVE 2026-07-02: VISUAL track ON HOLD — «сначала разобраться с симуляцией»;
+    c-visual-004 NOT framed. Road position: Sc-rep CLOSED → next active work = frame Sc-kernel (c-exec-023).
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
     stop and re-shape/review instead of stretching the appetite.
   kill_by: |
-    2026-07-05 checkpoint for the de-risk wall; 2026-07-24 remains the milestone
-    target for Waves A→B / visible gas progress, with the tail movable.
+    De-risk-wall checkpoint 2026-07-05: ANSWERED 2026-07-02 by the real hangar measurement (linear roster scaling) —
+    outcome = re-shape d-sparse-tick-kernel-001, SIGNED «да» by the owner 2026-07-02 — the wall is CLOSED honestly. 2026-07-24 remains the visible-gas milestone (telegraph+bang and/or two-type visual on the
+    real sim; the old «Waves A→B» wording is retired), tail movable.
   sources:
     - live/indie-game-development/TREE.md#g-9c41
     - live/indie-game-development/knowledge/g9c41-gas-engine-SPEC.md
@@ -50,8 +76,24 @@ bet:
     - live/indie-game-development/work/now-snapshot-2026-06-29.md
 
 tasks:
+  - id: Sc-kernel
+    status: signed-awaiting-framing
+    goal: |
+      Re-point the authoritative tick at the sparse store / active cells: per-tick cost scales with ACTIVE
+      cells (+ their open faces + bounded co-resident types), NOT registered roster × domain cells. Behavior
+      byte-identical to the post-Sc-rep goldens; determinism preserved (ADR-0002); ENGINE-ONLY.
+    done_when: |
+      Gate battery per the draft work/c-exec-023-draft-call.md (roster-independence @1 vs 64; active-scaling;
+      adversarial «hangar flooded» all-active capture; before/after measurement matrix + Unity-runtime capture;
+      byte-identical no-regression; scans + GC-zero; field-level storage guard (Sc-rep G5 P2); Coarse/
+      scan-root closure; ZERO-LEGACY dense per-tick path removed; -Deliver + mutation ≥70 + independent REDs +
+      fresh G5 + owner-eye). The BINDING battery is fixed at framing (c-exec-023, owner present, standard
+      adversarial hardening; kill_by set there).
+    status_note: |
+      Owner signed d-sparse-tick-kernel-001 «да» 2026-07-02; base = GasCoopGame main @5442be0 (Sc-rep merged).
+      Next = frame + harden c-exec-023 from the draft, then a fresh GasCoopGame_dev executor session.
   - id: Sc-rep
-    status: active
+    status: delivered-merged
     goal: |
       Re-represent the near gas field dense `int[species][cell]` → SPARSE-DOMINANT (per active
       cell: dominant type + amount + small bounded inline mix-overlay), lay a per-cell dominant-type
@@ -80,8 +122,28 @@ tasks:
       deferred out of leg1). Drafts adversarially vetted (wf_967a4625-2a4: 24 findings folded). Owner
       forks: overflow = LOUD THROW (mass-conserving); roster size = config. c-exec-022 framed and
       issued 2026-07-01 as work/c-exec-022-call.md; next = fresh GasCoopGame_dev PLAN owner-present.
+      2026-07-02: EXECUTED without the owner-present PLAN (deviation recorded); checkpoint dev @adc3b9d;
+      real hangar measurement dev @8db3ee1; honest scope = representation + checksum schema (see
+      bet.current_truth). Remaining: fresh-session G5 (with the scope relabel + an audit of the
+      review-repair diffs against the S1/c-exec-015 oracles) → owner-eye → owner-gated merge.
+      Do NOT re-fire c-exec-022.
+      2026-07-02 (later, s-work-036): binding fresh-session G5 RUN = COULD-NOT-REFUTE. Held: conversion
+      exact+atomic; stamp cell-keyed (isolation/distinctness/cross-peer); golden = the real post-Sc-weight
+      baseline (not rebaselined); scans cover new files (+ planted self-tests); S1 repairs conform to
+      d-roomfull-001 and the ForcedFlow battery 66/66; 1130/1130 tests; mutation 74.17 (artifact, read-only).
+      ONE finding, P2 (test-gap, not a defect): the hashmap-substitution guard inspects the cell RECORD,
+      not the FIELD authority storage — a private Dictionary<int,SparseDominantCellRecord> could pass;
+      RESOLUTION = field-level storage guard folded into Sc-kernel done_when #9 (c-exec-023 draft).
+      Remaining: owner-eye (confidence) → owner-gated dev→main merge + push. dev2 untouched.
+      2026-07-02 (s-work-037): MERGED to main @efaa6eb and PUSHED (origin/main @5442be0); full gate battery
+      green on merged main. Sc-rep is CLOSED; the road rolls to Sc-kernel.
 
 next_slices:
+  - Sc-kernel (SIGNED «да» by the owner 2026-07-02, d-sparse-tick-kernel-001) BEFORE Sc-reactions: re-point the tick kernel at the
+    sparse store / active cells (kill the per-species dense expand+rebuild; cost becomes ∝ active cells, not
+    roster × domain cells). done_when re-runs the 2026-07-02 measurement matrix before/after + an adversarial
+    «hangar flooded» all-cells-active scenario + a Unity-runtime capture; also closes the Coarse/ scan-root hole.
+    Draft CALL: work/c-exec-023-draft-call.md (standard hardening at framing).
   - Sc-reactions after Sc-rep: the RE-SCOPED c-exec-021 (integer chemistry on the sparse-dominant
     overlap front, telegraph+bang = coarse event, axes-not-pairs, condition-waves forked; HELD until
     the road reaches it, full re-hardening then).
@@ -94,9 +156,19 @@ open_calls:
     issued: 2026-06-29
     call: work/c-visual-003-call.md
     note: |
-      Ready for a fresh GasCoopGame_dev_2 session after the degraded uncommitted
-      S2 work is rolled back to the clean baseline. Opens with a PLAN, owner
-      present, then returns RESULT home.
+      W1a CLOSED 2026-07-02: owner-eye SIGNED WITH RESERVATIONS in-chat (dev2 @40b94cc — checklist +
+      F-OWNER + RESULT flipped to DELIVERED). Honest state: render FOUNDATION accepted (de-block +
+      light-through + never-worse + one inspector); clean LP1–LP5 NOT claimed — LP1 candidate-pass
+      (lamp-direction read weak), LP2/LP3 confirmed live, LP4/LP5 blocked by the missing DESIGNED demo
+      level (owner-eye finding: «demo level needs design»; existing levels = boxy 6×4×6 box /
+      horizontal tube). NEXT visual leg per the RESULT = a deliberately-DESIGNED gas demo scene
+      (roomy vertical space + finite plume + matched room/camera/colour; to be framed as
+      c-visual-004; ties to the canon visual-style track) — focused design work, NOT live knob-tuning
+      (the S2 anti-pattern). W1b (two-type read) RE-SCOPED 2026-07-02 (banner in the CALL): after the
+      Sc-rep dev→main merge; needs a small owner-acked engine read-API for the per-cell dominant
+      STAMP; no argmax/dense workaround. dev2→main MERGED 2026-07-02 (@b5675ea) and PUSHED.
+      ⚠ TRACK ON HOLD (owner 2026-07-02: «сначала разобраться с симуляцией») — W1b and the
+      designed-demo-scene leg (c-visual-004) WAIT; do not frame them until the owner returns to visual.
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -110,18 +182,14 @@ open_calls:
       Wave-2-LOCKED GridEvent bus); condition-waves folded as a fork (propagation channel flagged
       as possibly-unbuilt machinery); dense→sparse §Re-sync touchpoints listed; forks + full
       re-hardening deferred to its shape. Does NOT fire until the road reaches reactions (after
-      Sc-rep). ADR shifts to next-free (≈0022, verify at tip). dev->main merge + push owner-gated.
-  - id: c-exec-022
-    to: executor
-    for: g-9c41 / Sc-rep
-    issued: 2026-07-01
-    call: work/c-exec-022-call.md
-    note: |
-      Ready for a fresh GasCoopGame_dev session. Opens with a PLAN (owner present) and §Re-syncs
-      GasCoopGame contract v8→v9 first. Builds sparse-dominant re-representation: inline fixed-size
-      cell store + per-cell dominant STAMP folded cell-keyed + exact dense→sparse conversion +
-      roster config + post-Sc-weight no-regression + collapse/expand seam + first hangar measure.
-      Engine-only; no typing mechanism, no reactions/waves/damage/temp, no S4 build, no dev2 edits.
+      Sc-rep). dev->main merge + push owner-gated.
+      2026-07-02 banner corrections added (items 11-14): ADR = next-free ADR-E-* per ADR-P-0001
+      (flat «≈0022» will never exist); base shifts post-Sc-kernel if d-sparse-tick-kernel-001
+      approved; NEW named shape fork = co-residency/overflow under mixing (>4 co-resident types =
+      deterministic all-peer LOUD-THROW halt today) + adversarial 5-type junction RED; body
+      drift-sweep or full rewrite required at its shape.
+  # c-exec-022 (Sc-rep) CLOSED 2026-07-02: G5 COULD-NOT-REFUTE → owner-eye → merged @efaa6eb, pushed
+  # (origin/main @5442be0). Record: history/2026-07-02-s-work-036-screp-g5-kernel-signed.md + s-work-037.
 
 recurring: []
 
@@ -189,6 +257,71 @@ decisions:
     source: |
       work/gas-engine-plan-audit-2026-06-29.md; full pre-compaction note preserved
       in work/now-snapshot-2026-06-29.md.
+  - id: d-sparse-tick-kernel-001
+    q: |
+      The 2026-07-02 real hangar measurement: tick cost ∝ registered roster × domain cells (587 ms/tick
+      at roster-64; roster-128 extrapolates ≈1.16 s vs the 50–100 ms budget; weak peer 2–4× worse —
+      breaks the lockstep weakest-peer premise even at small rosters in a hangar). Insert slice
+      Sc-kernel (tick iterates the sparse store / active cells) BEFORE Sc-reactions?
+    options:
+      - Insert Sc-kernel before Sc-reactions (draft CALL ready - work/c-exec-023-draft-call.md).
+      - Build reactions first on the dense kernel, kernel after (rework - reactions ride the tick loop).
+      - Cap the roster small (4-8) and defer (still 90-180 ms weak-peer hangar; silently drops the signed many-types/big-halls canon).
+    recommendation: |
+      Insert BEFORE reactions. The June c-exec-014 readout already named this «the #1 optimization to
+      bank before big halls»; the store Sc-rep laid is exactly the substrate it needs; reactions built
+      on the dense kernel would be built twice.
+    source: |
+      work/review-gas-sim-visual-2026-07-02.md (findings 8/9); GasCoopGame_dev
+      docs/measurements/sc-rep-hangar-real-measurement-2026-07-02.md (dev @8db3ee1).
+    decision: |
+      «да» — insert Sc-kernel BEFORE Sc-reactions (owner, 2026-07-02, in-chat; the Sc-rep G5 P2
+      field-storage-guard finding folded into its done_when #9).
+  - id: d-finer-grid-fork-001
+    q: |
+      The visual wave-plan's biggest SHAPE lever («finer sim grid near player») exists on NO engine
+      slice; render-side levers buy sub-cell RICHNESS but not sub-cell SILHOUETTE. Accept render-side
+      as the medium, or schedule an engine item?
+    options:
+      - Accept render-side richness as the medium; strike the «finer grid» line from the wave plan.
+      - Schedule a costed READ-ONLY view-refinement item (off-checksum, detail-bubble seam, no Fact-2/ADR-0002 reopen) after Sc-damage.
+    recommendation: |
+      Decide BEFORE visual WAVE 2 raises expectations. (2) is the honest keep-the-jewel path; (1) is
+      the honest scope cut. Never leave the «(g-9c41 roadmap)» wording implying it is scheduled.
+    source: work/gas-visual-wave-plan-2026-06-29.md ⚠ note; work/review-gas-sim-visual-2026-07-02.md (finding 23).
+  - id: d-demo-road-001
+    q: |
+      Oct-5 co-op demo (g-5b07): nothing between Sc-damage and a submittable demo is sketched anywhere
+      (real-network gas parked at ~S4; no player-gas loop / level / objectives / packaging slice).
+      Force a road-to-demo shape session in July?
+    options:
+      - July shape session - enumerate the slices Sc-damage → demo against Sep-21/Oct-5; if it does not fit, consciously re-date Oct-5 or cut engine depth.
+      - Keep building the engine road and decide in September (the review's named failure mode).
+    recommendation: July shape session — a conscious choice beats a September discovery.
+    source: work/review-gas-sim-visual-2026-07-02.md (finding 3).
+  - id: d-marketing-wake-001
+    q: |
+      Every 2026-08-31 Steam-page prerequisite sits on PARKED nodes with no wake date; a ready restart
+      CALL exists (history/2026-06-29-s-marketing-restart-001.md) but is undated and unsurfaced.
+      Wake g-2f8c by ~2026-07-20, or re-date 08-31 explicitly?
+    options:
+      - Wake by ~07-20 (first marketing-forge sessions - positioning + artifact card + capsule-pipeline decision; capsule = hard external lead time, contract by early August).
+      - Re-date 08-31 explicitly now (accept Q1-Q2 2027 EA as the planning default; Oct fest = wishlist seeding).
+    recommendation: Pick one consciously; silently missing 08-31 is the worst branch.
+    source: work/review-gas-sim-visual-2026-07-02.md (findings 2/6); TREE g-5b07/g-2f8c; work/marketing/questions/q-foundation.md.
+  - id: d-biglevels-tree9-001
+    q: |
+      TREE g-9c41 done_when #9 (huge levels ~200×200×40m, ≥1000 volumes) has no surviving path: only
+      the S4 far-tier rollup can carry it (fully-fine is ~64× over the weak-core ceiling), the S4
+      deferral is undated, and the road's hangar fallback («smaller fully-fine levels») would silently
+      drop the signed promise.
+    options:
+      - Give S4 a dated re-entry condition (e.g. before the Steam-page copy freezes - do not market scale that has no machinery).
+      - Explicitly re-sign TREE #9 down to the fully-fine ceiling the measured hangar number supports.
+    recommendation: |
+      Decide at the next road checkpoint; never let «smaller levels» become the answer without a
+      signature — that is exactly a silent drop of frozen canon.
+    source: work/review-gas-sim-visual-2026-07-02.md (finding 11).
 
 history_pointers:
   - Full pre-compaction NOW: work/now-snapshot-2026-06-29.md
@@ -203,12 +336,18 @@ history_pointers:
   - Codex Sidecar process: work/codex-sidecar-track-2026-06-30.md; plays/codex-sidecar.md; work/codex-sidecar/board.md
   - Sc-reactions CALL framed + hardened (then HELD): history/s-work-034.md; work/c-exec-021-call.md
   - Reaction/typing design + sparse-dominant LOCK (2026-06-30): work/gas-reaction-typing-design-2026-06-30.md; history/s-design-gas-core-001.md
-  - Road RE-SHAPED to sparse-dominant + Sc-rep slice + SPEC edit + c-021 re-scope (2026-06-30): history/s-reshape-sparse-dominant-001.md; work/character-road-shape-2026-06-29.md (§SLICE Sc-rep); vet workflow wf_967a4625-2a4
+  - Road RE-SHAPED to sparse-dominant + Sc-rep slice + SPEC edit + c-021 re-scope (2026-06-30): history/2026-06-30-s-reshape-sparse-dominant-001.md; work/character-road-shape-2026-06-29.md (§SLICE Sc-rep); vet workflow wf_967a4625-2a4
   - Sc-rep CALL framed + hardened (2026-07-01): history/2026-07-01-s-work-035.md; work/c-exec-022-call.md
+  - Review sim+visual, 24 verified findings (2026-07-02): work/review-gas-sim-visual-2026-07-02.md
+  - Reconcile/repair after the review (2026-07-02): history/2026-07-02-s-repair-review-reconcile-001.md
 
 next:
-  CALL c-exec-022 → executor (GasCoopGame_dev). Open work/c-exec-022-call.md in a fresh
-  GasCoopGame_dev session with a PLAN (owner present), §Re-sync v8→v9 first, then build Sc-rep and
-  return RESULT HOME. dev→main merge + push owner-gated.
+  Frame Sc-kernel as CALL c-exec-023 from work/c-exec-023-draft-call.md (owner present; standard
+  adversarial hardening at framing; kill_by set there; the G5-P2 field guard + Coarse/ scan-root closure
+  are already in the draft) → a fresh GasCoopGame_dev executor session builds it (base = main @5442be0).
+  After Sc-kernel: re-harden + fire the held c-exec-021 (Sc-reactions) at its shape (banner items 11-14
+  first). VISUAL: ON HOLD by owner 2026-07-02 («сначала разобраться с симуляцией») — W1b and c-visual-004
+  wait. Still pending owner: the 4 remaining NOW.decisions (finer-grid / demo-road / marketing-wake /
+  tree9-biglevels). Do NOT re-fire c-exec-022; do NOT re-run W1a.
 
 END_OF_FILE: live/indie-game-development/NOW.md

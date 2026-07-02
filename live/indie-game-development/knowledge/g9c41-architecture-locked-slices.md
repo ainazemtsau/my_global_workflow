@@ -2,6 +2,8 @@
 
 > 🔴 **FOLDED INTO THE CANON 2026-06-23 (owner «да»).** These facts + the 5 drift-traps are now in the single source **`knowledge/g9c41-gas-engine-SPEC.md`** (§1/§2). Read the CANON, not this. Kept for history. NB: Fact #2 is re-worded in the canon — «50cm ISOTROPIC, height EMERGENT, NO bands» — which RATIFIES `d-cellsize-ratify-001`; the «cell-SIZE LOD» / «authoritative height-bands» wording below is SUPERSEDED.
 
+> 🔴 **BANNER EXTENDED 2026-07-02 (s-repair-review-reconcile-001):** two more superseded specifics in the body below — (1) any «ADR-0010» lock citation is a citation ERROR (lock = **ADR-0002**; SPEC §1 поправка 2026-06-28); (2) the Fact-4 «временный mix-overlay при реакции» wording is superseded (2026-06-30: permanent bounded per-active-cell overlay + sparse-dominant, SPEC Факт-4).
+
 > 🔵 **УТОЧНЕНИЕ (s-research-017, 2026-06-22; POINTER, НЕ правка лока).** Пункт 2 «cell-SIZE LOD» и пункт 3 (пузырь/discard)
 > УТОЧНЕНЫ синтезом `work/gas-cellsize-levelscale-2026-06-22.md` §10-§12: газ = **50см ГЛОБАЛЬНО** (авторитетная ось LOD =
 > ПРОСТРАНСТВЕННЫЙ room-rollup, НЕ покомнатный cell-SIZE; cross-resolution re-flux шов убран); 25см = off-checksum визуал +
