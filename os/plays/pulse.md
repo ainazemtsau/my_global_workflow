@@ -2,7 +2,7 @@
 
 Purpose: the recurring sweep (weekly by default) that keeps the system trustworthy. The only play that looks across all directions at once.
 
-Reads: every direction's NOW.md + TREE.md headers + LOG.md tail; os/FRICTION.md.
+Reads: every direction's NOW.md, TREE/CHARTER headers, LOG.md tail, hot-file size/line metadata; os/FRICTION.md.
 Writes: NOW.md of affected directions, LOG.md, knowledge/ staleness marks.
 
 ## Checklist — every item is a boolean, report all of them
@@ -12,7 +12,7 @@ Per direction:
 1. **Decisions** — is the decision inbox empty? If not: re-surface to the owner in one batch, with recommendations.
 2. **Liveness** — does the active bet have a next task ready? If the direction has no active bet and no pending decision: flag as idle, propose shape or explicit pause.
 3. **Kill dates** — any kill_by date passed or threshold breached? → trigger a review CALL (do not review here).
-4. **NOW hygiene** — is NOW still hot state (no closed open_calls, answered decisions, prose next, or archive-scale bloat)? If drifted, propose a repair CALL; do not compact here.
+4. **State temperature** — are hot files below warning thresholds, and is visible hot state still compact (NOW has no closed open_calls, answered decisions, prose next, or archive-scale bloat; LOG lines are short)? If drifted, propose a repair CALL; do not compact here.
 5. **Blocked & in-flight** — any task blocked longer than its unblock condition suggests, or open_calls entry older than its budget? Propose: nudge, re-issue, or drop.
 6. **Captures** — triage capture backlog: each becomes a parked node, merges into an existing node, or is dropped. Captures don't accumulate beyond one pulse.
 7. **Parking lot** — anything parked that current learnings make urgent, or that has been parked so long it should be dropped? Propose, don't decide.

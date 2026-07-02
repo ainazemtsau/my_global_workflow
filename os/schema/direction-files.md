@@ -1,6 +1,8 @@
 # Schema: direction state files
 
-Templates for the six state file types (KERNEL §3). Values may be in the owner's language; keep keys and statuses in English. Keep every file on one screen where possible — these files are read at the start of every session, so their size is a tax on everything.
+Templates for the six state file types (KERNEL §3). Values may be in the owner's language; keep keys and statuses in English. Keep hot files on one screen where possible — these files are read at the start of sessions, so their size is a tax on everything.
+
+Temperature rule: state files carry current decisions and pointers, not rationale dumps. Hot files (`CHARTER.md`, `TREE.md`, `NOW.md`, `LOG.md`) keep the compact current surface; full reasoning lives in `history/`, reusable canon in short `knowledge/` entries with `read_by`, and large/snapshot/searchable artifacts in `work/`. If a hot file grows past about 200 lines / 20 KB, or `LOG.md` grows past about 100 KB, audit/pulse/collect warn and route a repair. These are warning thresholds, not semantic writer judgment; the mechanical writer only bounces explicit violations such as multiline RESULT logs or logs over 240 chars.
 
 ## CHARTER.md
 
@@ -25,6 +27,7 @@ premortem:               # ≥5 distinct failure reasons → response
     response: <mitigation | kill_by candidate | accepted_risk>
 
 outside_view: <paragraph: 2-3 reference cases and what they imply>
+# detail: history/<session>.md or work/<charter-rationale>.md   # optional
 
 edges:                   # 3-5 concrete owner advantages; each cites one past fact proving it
   - <edge — provenance: <fact>>
@@ -35,6 +38,8 @@ risk_posture: explore    # explore | guarded — sets the evidence burden (shape
 repos:                   # product repositories, if any
   - <org/repo>: <what it is>
 ```
+
+Rules: CHARTER keeps the durable operating contract, not the transcript that produced it. Long premortems, outside-view research, edge arguments, and retired-direction narrative move to `history/` or `work/`, leaving one-line claims plus pointers.
 
 ## TREE.md
 
@@ -56,7 +61,7 @@ repos:                   # product repositories, if any
       children: []        # expand only when a node approaches activation
 ```
 
-Rules: outcomes only — tasks never appear here (G2). One `active` node per direction (G1). Width ≤7 open children per node. `dropped` nodes keep one line with the reason — pruning is information. Every non-root node carries its one-line `why`; the full rationale is already stored in the planning session's history file — store rich, load minimal, fetch detail on demand.
+Rules: outcomes only — tasks never appear here (G2). One `active` node per direction (G1). Width ≤7 open children per node. `dropped` nodes keep one line with the reason — pruning is information. Every non-root node carries its one-line `why`; long approval evidence and rationale live behind `detail:`/history pointers — store rich, load minimal, fetch detail on demand.
 
 ## NOW.md
 
@@ -116,12 +121,14 @@ Open-calls rules: this is how a fresh session on ANY platform sees what is alrea
 
 ## LOG.md
 
-Append-only, newest first, one line per session:
+Short session index, newest first, one physical line per session, ≤240 chars:
 
 ```
 2026-06-12 s-041 work t-3: трейлер-сценарий готов и принят → history/2026-06-12-s-041.md
 2026-06-11 s-040 review g-12ab: bet met; дерево +2 узла (audience) → history/2026-06-11-s-040.md
 ```
+
+Rules: LOG is for finding the session, not narrating it. Readers use date/tail windows. Details belong in the linked `history/` RESULT or a `work/` artifact. Normal sessions only add short lines; a repair may rebuild an overgrown LOG into the short index after first saving the old file as a `work/` snapshot.
 
 ## history/
 

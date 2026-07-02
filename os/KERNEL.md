@@ -41,7 +41,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 | `CHARTER.md` | mission, measurable success criteria, constraints, lenses, product repos | frame |
 | `TREE.md` | recursive goal tree — outcomes only, no tasks; every non-root node carries its one-line `why` | frame (root), map, shape (splits), review |
 | `NOW.md` | the active bet, its tasks, recurring obligations, open calls (in-flight registry), decision inbox, ready next CALL | every session |
-| `LOG.md` | append-only: one line per session + link | every session |
+| `LOG.md` | short session index: one line + history link; repair may compact | every session |
 | `history/` | full RESULT of every session, one file each | append-only |
 | `knowledge/` | accepted facts and decisions; each entry names who reads it and when | review, pulse |
 
