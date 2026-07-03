@@ -1,11 +1,13 @@
 # CALL c-visual-004 — Stage 1: Стенд + отсечка по глубине — RENDER-ONLY
 
-> ⚠ **DOES NOT FIRE YET.** g-7e15 (VISUAL track) is ON HOLD by owner directive 2026-07-02
-> («сначала разобраться с симуляцией»). This CALL is prepared and ready; it opens only after the owner lifts
-> the hold (default trigger = Sc-kernel GREEN + dev→main merge), UNLESS the owner explicitly authorizes an
-> early start for the depth-composite fix alone (it is engine-free and can run in isolation — see plan v2
-> §Calendar honesty). Do not open a GasCoopGame_dev_2 session against this CALL without one of those two
-> owner signals.
+> ✅ **OPENED 2026-07-03** (s-work-040). g-7e15's hold is PARTIALLY LIFTED for Stage 1 ONLY — the default
+> un-hold trigger (Sc-kernel GREEN + dev→main merge) is met (GasCoopGame main @b7d4226, then @bc25a33 after a
+> same-day contract-v11 §Re-sync). Owner explicitly authorized this leg while Stage 2+ stays HELD (Stage 2 needs
+> W1b, which fires separately in the Sc-kernel→Sc-reactions gap; opening Stage 2+ needs a fresh owner check, not
+> an automatic cascade from this leg). ⚠ **GasCoopGame_dev_2 is BEHIND main** (still at the old W1a tip
+> @40b94cc — missing Sc-rep, Sc-kernel, and the contract-v11 resync). The PLAN's §Re-sync step MUST merge/pull
+> current `main` into `dev_2` FIRST, before anything else, and re-verify this CALL's assumptions (RealGasViewSource
+> / VoxelSandboxDirector / GasRoomScene / GasUber.shader / GasParams layout) still hold post-merge.
 
 - direction: indie-game-development
 - node: g-7e15 (VISUAL track)
@@ -13,8 +15,9 @@
 - runs_in: a FRESH GasCoopGame_dev_2 session (the BUILD session; NOT the OS-worktree session)
 - supersedes: the queued "designed gas demo scene" placeholder (c-visual-003's `next`) — this CALL IS that
   leg, reshaped as Stage 1 of work/gas-visual-plan-v2-2026-07-02.md
-- opens_with: a PLAN (owner present). §Re-sync the GasCoopGame contract FIRST. Base = GasCoopGame main tip
-  (post Sc-rep + W1a merge, currently @5442be0; re-check at open for any later merge).
+- opens_with: a PLAN (owner present). §Re-sync the GasCoopGame contract FIRST (dev_2 is behind main — merge
+  main into dev_2 before anything else). Base = GasCoopGame main tip, currently @bc25a33 (post Sc-rep + Sc-kernel
+  + W1a merges + the 2026-07-03 contract-v11 §Re-sync; re-check at open for any later merge).
 
 ## goal (outcome, not method)
 Give the owner ONE place to honestly judge gas, ever after: a designed room + an open-space pad where the

@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-03 by s-work-039
+updated: 2026-07-03 by s-work-040
 
 bet:
   node: g-9c41
@@ -168,12 +168,24 @@ open_calls:
       clean LP1–LP5 NOT claimed — LP1 candidate-pass (lamp-direction read weak), LP2/LP3 confirmed live,
       LP4/LP5 blocked by the missing DESIGNED demo level (owner-eye finding: «demo level needs design»;
       existing levels = boxy 6×4×6 box / horizontal tube). dev2→main MERGED 2026-07-02 (@b5675ea) and
-      PUSHED. The designed-demo-scene leg is now c-visual-004 = Stage 1 of plan v2 (work/c-visual-004-call.md,
-      prepared, DOES NOT FIRE until the hold lifts). W1b (per-cell dominant-type read) RE-SCOPED OUT of the
-      visual track entirely (panel finding: it is a Core/Field edit, cannot ride a render-only leg) — now a
-      tiny ENGINE mini-CALL in the GasCoopGame_dev worktree, windowed per d-w1b-window-001 (Sc-kernel→
-      Sc-reactions gap). ⚠ TRACK ON HOLD (owner 2026-07-02: «сначала разобраться с симуляцией») — c-visual-004
-      WAITS; do not fire it until the owner returns to visual (default trigger = Sc-kernel GREEN).
+      PUSHED. The designed-demo-scene leg became c-visual-004 = Stage 1 of plan v2 (OPENED 2026-07-03, see
+      below). W1b (per-cell dominant-type read) RE-SCOPED OUT of the visual track entirely (panel finding: it
+      is a Core/Field edit, cannot ride a render-only leg) — now a tiny ENGINE mini-CALL in the GasCoopGame_dev
+      worktree, windowed per d-w1b-window-001 (Sc-kernel→Sc-reactions gap; still fires there, unaffected by
+      the visual partial un-hold).
+  - id: c-visual-004
+    to: executor
+    for: g-7e15 / Stage 1 (стенд + отсечка по глубине)
+    issued: 2026-07-03
+    call: work/c-visual-004-call.md
+    note: |
+      OPENED 2026-07-03 (s-work-040): owner authorized a PARTIAL un-hold of g-7e15 for Stage 1 ONLY (render-only,
+      zero Core/** edit, no W1b/reactions dependency — Sc-kernel GREEN, the default un-hold trigger, is met).
+      Stage 2+ stays HELD (needs W1b + a fresh owner check before opening — not automatic). Base refreshed to
+      GasCoopGame main @bc25a33 (post Sc-kernel merge + contract-v11 §Re-sync). ⚠ GasCoopGame_dev_2 (where this
+      builds) is currently BEHIND main (still at the old W1a tip @40b94cc) — the PLAN's §Re-sync step MUST pull
+      main into dev_2 FIRST. Runs in GasCoopGame_dev_2 (never dev — that worktree carries engine debug cubes,
+      not the real gas visual). dev_2→main merge owner-gated.
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -229,7 +241,8 @@ recurring: []
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    track_state: active — ON HOLD (owner 2026-07-02, «сначала разобраться с симуляцией»)
+    track_state: active — PARTIAL UN-HOLD 2026-07-03 (owner): Stage 1 (c-visual-004) OPENED; Stage 2+ stays
+      gated on W1b landing + engine-focus discipline (do not silently expand past Stage 1 without asking again).
     note: |
       Secondary to g-9c41, no fixed hour quota. c-visual-002 S1 gas-lab delivered + merged
       (history/s-visual-009.md); W1a (real gas in a lit room) DELIVERED WITH RESERVATIONS 2026-07-02
@@ -244,8 +257,17 @@ parallel_tracks:
       nothing silently dropped). Owner-confirmed 2026-07-02 (batch «подтверждаю»): plan accepted; hold
       stays until Sc-kernel GREEN (default un-hold trigger); d-finer-grid-fork-001 ANSWERED (see
       NOW.decisions); W1b window ANSWERED (see d-w1b-window-001).
+      2026-07-03 (s-work-040, owner-authorized): Sc-kernel GREEN (the default un-hold trigger) is now met
+      (merged main @b7d4226). Owner explicitly authorized a PARTIAL un-hold — Stage 1 ONLY (it is render-only,
+      zero Core/** edit, no dependency on W1b/reactions) — while Stage 2+ stays held (Stage 2 needs W1b, which
+      fires in the same Sc-kernel→Sc-reactions gap as the c-exec-024 cleanup; opening Stage 2+ needs a fresh
+      owner check, not an automatic cascade). c-visual-004 (Stage 1: стенд + отсечка по глубине) OPENED —
+      work/c-visual-004-call.md refreshed to the current main tip (post Sc-kernel + contract-v11 resync,
+      @bc25a33) + a dev_2-behind-main flag (dev_2 is still at the old W1a tip 40b94cc; the PLAN's §Re-sync
+      step must pull main into dev_2 first). Runs in a FRESH GasCoopGame_dev_2 session (never dev — engine
+      debug cubes live there, this is the real gas visual).
       SIX STAGES: 1 Стенд+отсечка (designed room + open-space bookmark + depth composite + fixed-seed
-      repeatable motion — CALL prepared, work/c-visual-004-call.md, DOES NOT FIRE until the hold lifts)
+      repeatable motion — CALL OPENED 2026-07-03, work/c-visual-004-call.md)
       → 2 Паспорт типа + шипучий режим (8-channel per-type schema + layout-ADR 96→128B + W1b consumption
       + real half-res pulled forward) → 3 Одна жемчужина (natural-jet fix + cheap lighting levers + LP1
       re-test + honest ceiling-exit to d-finer-grid-fork-001) → 4 Три характера + шкала опасности (3 canon
@@ -388,8 +410,9 @@ history_pointers:
   - Sim-plan audit + decision batch (2026-07-02): work/audit-gas-sim-plan-2026-07-02.md (wf_a299ecef-44e, 34 findings)
   - Sc-kernel FRAMED + G9 SPEC batch (2026-07-02): history/2026-07-02-s-work-038-sc-kernel-framed.md; work/c-exec-023-call.md; hardening wf_ff1612b9-ec5
   - Sc-reactions PREPPED — forks (a)–(f) closed, body rewritten (2026-07-02): history/2026-07-02-s-shape-prep-screactions-001.md; work/c-exec-021-call.md; check wf_8ab4a0cb-401
-  - Gas-visual PLAN v2 (6 stages, supersedes the 06-29 wave plan; 2026-07-02): history/2026-07-02-s-visual-012-plan-v2.md; work/gas-visual-plan-v2-2026-07-02.md; work/c-visual-004-call.md (Stage 1, prepared not fired)
+  - Gas-visual PLAN v2 (6 stages, supersedes the 06-29 wave plan; 2026-07-02): history/2026-07-02-s-visual-012-plan-v2.md; work/gas-visual-plan-v2-2026-07-02.md
   - Sc-kernel DELIVERED + binding G5 close (2026-07-03): history/2026-07-03-s-work-039-sckernel-binding-g5-close.md; GasCoopGame main @b7d4226; binding G5 wf_91e57ec8-b24; cleanup CALL work/c-exec-024-call.md
+  - Visual partial un-hold, Stage 1 opened (2026-07-03): history/2026-07-03-s-work-040-visual-stage1-unhold.md; work/c-visual-004-call.md
 
 next:
   Sc-kernel (c-exec-023) is DONE + merged to GasCoopGame main @b7d4226 (pushed; owner «мержим», owner-eye live
@@ -406,13 +429,14 @@ next:
   from the Sc-kernel RESULT, then fire in a fresh GasCoopGame_dev session (owner-present PLAN). c-exec-021 does NOT
   fire before the gap clears. Do NOT re-fire c-exec-022 / c-exec-023; do NOT re-run W1a.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
-  VISUAL: plan v2 (work/gas-visual-plan-v2-2026-07-02.md, 6 stages) ON HOLD by owner directive 2026-07-02
-  («сначала разобраться с симуляцией»); Stage 1 CALL prepared (work/c-visual-004-call.md) but does NOT fire.
-  ⚠ Sc-kernel GREEN (the nominal default un-hold trigger) is now MET, but the broader «сначала симуляция» directive
-  + the c-exec-023 framing meta scope the hold to Sc-reactions — do NOT auto-unhold; confirm with the owner before
-  re-opening visual. d-finer-grid-fork-001 ANSWERED (option 2, scheduled after Sc-damage). HONESTY: while visual is
-  held the ONLY live player-facing terminus = Sc-reactions telegraph+bang; the 07-24 milestone is measured against
-  THAT (frozen visual not cited as counterweight; audit words-vs-docs-006).
+  VISUAL: 2026-07-03 (s-work-040) — owner authorized a PARTIAL un-hold: **c-visual-004 (Stage 1: стенд + отсечка
+  по глубине) OPENED**, render-only, zero Core/** edit, no W1b/reactions dependency. Runs in a FRESH
+  GasCoopGame_dev_2 session; base = GasCoopGame main @bc25a33 (dev_2 is behind — §Re-sync pulls main in first).
+  Stage 2+ STAYS HELD (needs W1b + a fresh owner check, not automatic) — do not silently cascade past Stage 1.
+  d-finer-grid-fork-001 ANSWERED (option 2, scheduled after Sc-damage). HONESTY: Stage 1 gives the owner a fair
+  A/B stand but is still not new player-facing PROOF (same gas, better staging) — the 07-24 milestone (first
+  real reaction/bang) stays the actual live player-facing terminus, measured independently of Stage 1 (audit
+  words-vs-docs-006 still holds: frozen-visual-as-counterweight logic does not apply to Stage 1 either).
   Still pending owner: d-marketing-wake-001, d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md

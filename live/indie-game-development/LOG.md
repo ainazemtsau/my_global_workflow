@@ -102,4 +102,14 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
 
 - 2026-07-03 — work (g-9c41 / Sc-kernel binding G5 close; s-work-039): c-exec-023 (active-front sparse tick kernel) verified by refutation in a SEPARATE session (binding G5 — the builder's own G5 was a same-session Sonnet pre-pass). Workflow wf_91e57ec8-b24 (10 adversarial lenses vs real GasCoopGame_dev code + independent per-finding adjudication + synthesis, 19 agents) = **runtime SOUND, 0 P1**: byte-identity, roster-independence KILL gate (genuine + non-vacuous, cell-by-cell Mass equality roster-1 vs 64), ZERO-LEGACY (grep-confirmed dense round-trip off the authoritative SparseStep path), contiguous-array field authority all HOLD. Found **2 P2 + 5 P3** (none a kill condition): P2#1 scaling-benchmark generator git-ignored/uncommitted → measurement numbers (incl. flooded 70.788 ms auto-opening the flood decision) not committed-reproducible/falsifiable; P2#2 AssertContiguousArrayAuthority non-recursive → misses a future nested/base-class-private authority; P3 = FULL-path SPEC wording vs Step-only timing (Step-only is the correct production ceiling), stale store_memory note, buoyancy framed as registry-entry vs inlined _buoyStamp, stale InternalsVisibleTo comment, single-commit RED→GREEN. Owner «да по всем»: Sc-kernel → **done + merged main @b7d4226** (owner «мержим», owner-eye live Play-mode); **c-exec-024** cleanup leg opened (fixes both P2 + sweeps P3, fires in the Sc-kernel→Sc-reactions gap BEFORE c-exec-021); **d-hangar-flood-fallback-001 answered** (design + admission ceiling, heavy levers not built); **SPEC §6 п.2 ceiling seated** ~35k@50ms/~70k@100ms; Unity absolute-ms capture stays deferred. Road rolls to the gap (c-exec-024 → W1b → re-harden + fire c-exec-021). OS commit LOCAL; push owner-gated. → history/2026-07-03-s-work-039-sckernel-binding-g5-close.md
 
+- 2026-07-03 — work (g-7e15 / visual partial un-hold; s-work-040): owner asked whether visual could proceed
+  without waiting for Sc-reactions; checked the actual plan-v2 stage dependencies — Stage 1 (стенд + отсечка по
+  глубине) has NO reactions/W1b dependency (render-only, reuses the existing sim); Stage 2 needs W1b, which
+  fires independently in the same Sc-kernel→Sc-reactions gap as c-exec-024. Owner authorized a PARTIAL un-hold:
+  **c-visual-004 (Stage 1) OPENED**; Stage 2+ stays HELD pending W1b + a fresh owner check (no automatic
+  cascade). Refreshed the CALL to the current GasCoopGame main tip (@bc25a33 — Sc-kernel + a same-day
+  contract-v11 §Re-sync landed) and flagged GasCoopGame_dev_2 as BEHIND main (still at the old W1a tip
+  @40b94cc) — its PLAN's §Re-sync step must merge main in first. Runs in GasCoopGame_dev_2 (not dev — engine
+  debug cubes live there). OS commit LOCAL; push owner-gated. → history/2026-07-03-s-work-040-visual-stage1-unhold.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
