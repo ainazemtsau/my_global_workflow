@@ -112,4 +112,27 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   @40b94cc) — its PLAN's §Re-sync step must merge main in first. Runs in GasCoopGame_dev_2 (not dev — engine
   debug cubes live there). OS commit LOCAL; push owner-gated. → history/2026-07-03-s-work-040-visual-stage1-unhold.md
 
+- 2026-07-03 — work (g-9c41 / Sc-kernel cleanup c-exec-024 binding-G5 close; s-work-041): the c-exec-024 cleanup leg
+  came back DELIVERED and the owner had already merged + pushed it to GasCoopGame main (@7a54320). Read product git
+  directly, then ran the BINDING fresh-session G5 as a multi-lens refutation workflow (wf_fd7a1418-6cf — 6 diverse
+  adversarial lenses + adjudication + a completeness critic, 8 agents; the empirical-gates lens built/tested/stashed
+  in an ISOLATED worktree, the rest read-only; a prior single-agent pass was treated as a pre-pass and independently
+  re-derived). VERDICT = **SOUND, binding G5 PASS, 0 P1**, all 5 done_when CONFIRMED empirically: engine byte-identity
+  (all 4 tick-kernel files blob-hash-IDENTICAL at base 0788972 and tip b1c827f, absent from the diff); guard recurse +
+  base-class walk real, RED→GREEN REPRODUCED in-worktree (revert guard → exactly the 2 named-class tests fail,
+  production control passes; restore → 3/3); RED commit is a git ancestor of the fix commit; all 4 P3 doc fixes match
+  current code; check.ps1 -Deliver run end-to-end → exit 0, "all gates green", 1279/1279, mutation 77.8%≥70. Guard is
+  test-only (zero production callers). Sc-kernel ledger FULLY CLOSED. 5 residual LOW P3 findings routed, none a blocker:
+  F1 stale "full path" wording at spec.md:202/215 (frozen historical-quote rows, load-bearing block WAS corrected);
+  F2 guard misses static authority fields (out-of-scope-new); F3 guard misses interface/declared-type-blind fields
+  (out-of-scope-new); F4 (sharpest, arguably P2 per the critic) the fix EDITED the delivery gate (check.ps1) to add an
+  unprotected [Category("Benchmark")] exclusion with no force-run counterpart — a future author could silently hide any
+  slow test the same way; F5 benchmark-matrix freshness gate-unenforced. F4+F5 → new open decision
+  d-benchmark-category-gate-001 (recommend: defer to a batched tools/ gate-hardening leg — no current signal hidden).
+  Main advanced to @38ab715 (separate contract fact-check leg ADR-P-0003, not our road; c-exec-024 artifacts re-verified
+  green there). Framed the gap's remaining engine item W1b = executor CALL c-exec-025 (per-cell dominant-type read-API,
+  read-only accessor over the Sc-rep stamp, GasCoopGame_dev never dev_2, byte-identity, base @38ab715) →
+  work/c-exec-025-w1b-call.md. NO TREE/CHARTER change; G1 intact (Sc-kernel closed, W1b opens next). OS commit LOCAL;
+  push owner-gated. → history/2026-07-03-s-work-041-c-exec-024-binding-g5-close.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
