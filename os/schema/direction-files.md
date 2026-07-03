@@ -1,11 +1,15 @@
 # Schema: direction state files
 
-Templates for the six state file types (KERNEL §3). Values may be in the owner's language; keep keys and statuses in English. Keep every file on one screen where possible — these files are read at the start of every session, so their size is a tax on everything.
+Templates for the six state file types (KERNEL §3). Values may be in the owner's language; keep keys and statuses in English. Keep every file on one screen where possible — these files are read at the start of every session, so their size is a tax on everything. Soft ceiling: ~150 lines per file; `audit` flags anything past it as hygiene drift and routes to `repair`.
+
+**Pointers, not evidence.** The writer saves every full RESULT verbatim to `history/<date>-<session-id>.md` (KERNEL §2) — that is already the durable record of an owner's exact words, a session's full rationale, or a decision's evidence. CHARTER.md, TREE.md, NOW.md, and LOG.md never re-paste that content: they hold a one-line pointer to the history/ file that proves it. A field not in this file's template below (e.g. a free-form running narrative) is schema drift, not a legitimate extension — `audit` flags it.
 
 ## CHARTER.md
 
 ```markdown
 # <Direction name>   (id: <direction-id>)
+
+owner_approved: <date> — history/<file>.md   # one line, pointer only (G9); never inline the owner's quotes here
 
 mission: <1-2 sentences: the outcome this direction exists for>
 
@@ -40,6 +44,8 @@ repos:                   # product repositories, if any
 
 ```markdown
 # Goal tree: <direction-id>
+
+owner_approved: <date> — history/<file>.md   # one line, pointer only (G9); a later approval appends a new line, never a paragraph
 
 - id: g-root
   goal: <mission as an outcome>
@@ -108,7 +114,7 @@ next:                          # ready-to-send CALL for the next session
   <CALL packet, see packets.md>
 ```
 
-NOW hygiene rules: NOW.md is hot state, not an archive. Keep long evidence in `history/`, `work/`, or `knowledge/`; NOW keeps one-line pointers only. `open_calls` contains only CALLs still awaiting RESULT; returned, done, superseded, or cancelled calls leave this list and live in LOG/history. `decisions` contains only pending owner decisions; answered decisions move to history or a linked work/knowledge artifact. `next` is exactly one CALL packet, or one line pointing to a self-contained CALL artifact under `work/` (for example `CALL: work/c-117-call.md`), never a status digest.
+NOW hygiene rules: NOW.md is hot state, not an archive. Keep long evidence in `history/`, `work/`, or `knowledge/`; NOW keeps one-line pointers only. `open_calls` contains only CALLs still awaiting RESULT; returned, done, superseded, or cancelled calls leave this list and live in LOG/history. `decisions` contains only pending owner decisions; answered decisions move to history or a linked work/knowledge artifact. `next` is exactly one CALL packet, or one line pointing to a self-contained CALL artifact under `work/` (for example `CALL: work/c-117-call.md`), never a status digest. No field outside this template — a running narrative field (e.g. an invented `current_truth`) is the same schema drift as an inlined `owner_approved` quote block: `bet.goal` states the outcome, the latest `history/` file states the current status, and NOW points to it in one line.
 
 Recurring rules: entries are NOT tasks (G1/G2 untouched — they have their own ≤3 budget). Only pulse instantiates a due entry, as a ready work CALL in its decision batch; pulse never executes it. A recurring run that can't finish closes with the reason; `last_done` stays unchanged and pulse re-raises it next time.
 
@@ -116,12 +122,14 @@ Open-calls rules: this is how a fresh session on ANY platform sees what is alrea
 
 ## LOG.md
 
-Append-only, newest first, one line per session:
+Append-only, newest first, one line per session — literally one line, ≤2 short sentences. The session's full outcome, numbers, and rationale already live in the linked `history/` file; LOG is an index into it, not a second summary:
 
 ```
 2026-06-12 s-041 work t-3: трейлер-сценарий готов и принят → history/2026-06-12-s-041.md
 2026-06-11 s-040 review g-12ab: bet met; дерево +2 узла (audience) → history/2026-06-11-s-040.md
 ```
+
+Archival: entry count alone eventually crosses the soft ceiling even with short lines — that's expected, not a defect. When `repair` trims a LOG.md past the ceiling, it keeps the most recent entries (roughly the newest half of the ceiling) and moves everything older **verbatim** — never rewritten, this is cold storage, not a second editorial pass — into `history/LOG-archive-<direction-id>.md`. LOG.md keeps exactly one pointer line at its oldest (bottom) position: `archived: history/LOG-archive-<direction-id>.md — sessions before <date>`. A later rotation appends to the same archive file and bumps that one date. No play reads the archive file by default; it exists to be opened or grepped on demand.
 
 ## history/
 

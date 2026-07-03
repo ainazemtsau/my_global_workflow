@@ -1,18 +1,9 @@
 # TREE — health
 
-owner_approved: true
-approval_evidence: >
-  Owner accepted training/activity v0 launch in t-3 with "Запускаем"; this review verifies
-  the bet as met and closes the node without adding a new TREE node.
-  Owner approved a text-only cleanup for g-health-training-activity-system on 2026-06-28:
-  "давай отправим запрос на очистку TREE". The cleanup replaces stale 8aa14f8/ACTIVE wording
-  with the current 1fe41c2/PROGRAM-awaiting-research boundary; it does not restructure the node,
-  reopen the bet, or claim body execution.
-  Owner approved adding g-health-hq-goal-coordinator on 2026-06-30 in map close with:
-  "Approve whole tree". The node is parked and creates no active bet or tasks.
-  Owner approved activating the shaped Health HQ v0 bet on 2026-07-01 with:
-  "approve recommended bet". This activates g-health-hq-goal-coordinator with a 5-calendar-day
-  appetite, kill/review on 2026-07-06 end-of-day Europe/Amsterdam, and t-1 executor first.
+owner_approved: 2026-06-27 — history/2026-06-27-s-health-training-activity-domain-v0-review-001.md   # training/activity v0 launch accepted ("Запускаем")
+owner_approved: 2026-06-28 — history/2026-06-28-s-health-training-activity-tree-cleanup-001.md   # text-only cleanup (stale 8aa14f8/ACTIVE → 1fe41c2/PROGRAM-awaiting-research wording)
+owner_approved: 2026-06-30 — history/2026-06-30-s-health-owner-wants-planning-001-continue.md   # g-health-hq-goal-coordinator added, parked ("Approve whole tree")
+owner_approved: 2026-07-01 — history/2026-07-01-s-health-shape-hq-goal-coordinator-approval-001.md   # Health HQ v0 bet activated ("approve recommended bet")
 
 root:
   id: g-health-root

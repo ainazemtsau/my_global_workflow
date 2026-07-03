@@ -1,5 +1,9 @@
 # DRAFT CALL c-exec-023 — Sc-kernel: SPARSE TICK KERNEL / ACTIVE-FRONT ITERATION (ENGINE-ONLY)
 
+> ⛔ **SUPERSEDED 2026-07-02 (s-work-038).** This DRAFT is history. The FRAMED + HARDENED authority = `work/c-exec-023-call.md`
+> (audit §Package item-4 additions folded, adversarial pass run, G9 SPEC batch signed, kill_by 2026-07-16). Read the
+> framed CALL, not this draft. Kept for the "why".
+
 > ⚠ **DRAFT (2026-07-02, s-repair-review-reconcile-001; updated s-work-036).** Fires ONLY after: (1) ✅ owner
 > SIGNED d-sparse-tick-kernel-001 «да» (2026-07-02); (2) Sc-rep fresh G5 ✅ COULD-NOT-REFUTE (2026-07-02; its one
 > P2 test-gap finding is folded below as done_when #9) + owner-eye and dev→main merge (PENDING). At framing this
