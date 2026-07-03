@@ -97,4 +97,7 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
 
 - 2026-07-02 — repair (hot-state hygiene, s-repair-hotstate-hygiene-001, owner-confirmed): NOW.md current_truth + 5 answered decisions collapsed to pointers (584→393 lines); LOG.md archived pre-2026-06-29 entries verbatim to history/LOG-archive-indie-game-development.md + fixed one broken pointer (273→82 lines). → history/2026-07-02-s-repair-hotstate-hygiene-001.md
 
+
+2026-07-03 — canon-forge freeze (g-d3a8/q-floor-gas-work-verbs, s-canon-floor-gas-work-verbs-001): q-floor-gas-work-verbs frozen as law-first Simple Gas Work verbs. Gas can be extracted from the field at practical scales, including full room/zone/full expensive extraction, if the team pays via world laws: capacity, equipment, time, custody, condition preservation, route, risk, co-op coverage and return liability. Anti-vacuum clarified: it forbids universal free raw-volume progression, not full extraction itself. Seven action families frozen: extract/capture; contain/carry/hold; route/isolate/divert; use/avoid condition; stabilize/settle; release/vent/quench/abandon; mark/call/prove. Exact tools, containers, scanner, UI, loadout, capacity, economy, balance, leakage/release/stabilization specifics and implementation deferred. Owner signed: “можно фризить”. → history/s-canon-floor-gas-work-verbs-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
