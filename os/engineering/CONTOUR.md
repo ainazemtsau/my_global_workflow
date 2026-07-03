@@ -127,7 +127,8 @@ CALL (business task from a direction)
     a pre-build STOP, never an end-of-run assumptions/cuts line.
     Escalation = push notification + the specific question + options.
   → REPORT (the RESULT back to the direction):
-    outcome; evidence (PR link, gate outputs, ledger final state);
+    outcome; direction/call/node/task; evidence (PR link, final product head,
+    changed files, gate outputs or manual checklist, ledger final state);
     assumptions made; anything cut for budget; cost;
     a defect that reached a LATE stage (owner-eye / independent review / post-merge) names the
     INVARIANT-CLASS it violated, so the carry-back can append it to the cross-kind escape-class
@@ -136,11 +137,18 @@ CALL (business task from a direction)
     verification scripts the validator ran (one source of truth, two consumers).
     Non-trivial manual steps (editor setup, device checks) may be issued as a
     guide CALL (os/plays/guide.md) instead of a flat instruction list.
-    The RESULT is the leg's GATED closing artifact at a known repo path
+    The product RESULT/report is evidence for carry-back, not an OS state
+    packet. It cannot update `live/**` by itself: a Direction OS work/repair
+    session verifies/reconciles it and emits the OS RESULT with state_changes.
+    The product report ends with `next: return-to Direction OS carry-back`
+    naming the direction, never the next task CALL. The RESULT is the leg's
+    GATED closing artifact at a known repo path
     (PROJECT_SETUP stamps the path + fields + an executable check into the
     repo, so the agent produces it with no OS access); a prose chat summary
-    does not close the leg. It ends with `next:` naming the direction as the
-    carry-back target — the builder NEVER authors the next task CALL (#6).
+    does not close the leg. For deliberately Markdown/manual repos with no
+    executable gate, the same fields are required in the final response and
+    repo AGENTS handback section; "changed files + commit" alone is not a
+    report. The builder NEVER authors the next task CALL (#6).
 ```
 
 The owner returns to a finished, verified change and checks the evidence, not every line. Tier-2 actions (publish, spend, delete non-versioned data) are never auto-approved regardless of plan approval.
@@ -162,7 +170,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 3. Validator is read-only and fresh-context, always.
 4. All exploratory artifacts (scripts, test scenes) go to the single scratch dir; nothing from it reaches a commit.
 5. Done = gates green + evidence attached. A narrative claim is not done.
-6. Closing artifact is a CHECK, not prose: a leg cannot merge/deliver unless its RESULT exists at the known repo path with its required fields (a prose summary fails the check). Owner signals ("finish it", "merged?", "summary") TRIGGER the report, never replace it; the builder never authors the next CALL (continuation is the direction's, KERNEL §4).
+6. Closing artifact is a CHECK, not prose: a leg cannot merge/deliver unless its RESULT exists at the known repo path with its required fields (a prose summary fails the check). Markdown/manual-only repos still return the same structured product report. Owner signals ("finish it", "merged?", "summary") TRIGGER the report, never replace it; the builder never authors the next CALL (continuation is the direction's, KERNEL §4, via OS carry-back).
 
 Key sources: Anthropic long-running harness & three-agent harness (planner/generator/evaluator, default-FAIL ledger, evidence gate), Claude Code best practices (/goal, hooks, fresh-context review), OpenAI Codex long-horizon guidance (plans on disk, compaction), retry research (gains plateau at ~3, non-convergence = same error repeating). Full links: os/docs/RESEARCH_BASIS.md and the engineering research session history.
 
