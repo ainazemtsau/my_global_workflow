@@ -17,7 +17,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner.
 - **Builder** — autonomous session(s), default-tier model. Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
-- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads ONLY the frozen spec (never the code — it does not exist yet) and writes the per-criterion acceptance tests as failing (red). The builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the SPEC, not from a verdict. This is what stops the builder's own tests from inheriting the builder's misreading of the spec.
+- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads ONLY the frozen spec (never the code — it does not exist yet) and writes the per-criterion acceptance tests as failing (red). The builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the SPEC, not from a verdict. This is what stops the builder's own tests from inheriting the builder's misreading of the spec. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the code and a reviewer who only reads it after DELIVERED.
 
 ## The cycle
 
@@ -125,6 +125,21 @@ CALL (business task from a direction)
     by construction — the invariant resurfaces at the next site (per-actor →
     per-transfer → per-tick), which the non-convergence rule above must then
     catch as ONE recurring class, not three new findings.
+  → PROPERTY AUDIT (post-build, mandatory for a `core algorithm` change,
+    before REPORT): once VALIDATE is green, the test-author (see Roles)
+    re-reads the DIFF — not the frozen spec, which predates the code and
+    cannot name a seam the implementation invented — for every NEW
+    throw-path, seam, order-dependency, or derived-value range, and appends
+    property tests (VALIDATION §Property-layer: CsCheck/FsCheck,
+    `[Category("Property")]`, permutation-metamorphic /
+    fault-injection-all-exit-paths / multi-actor-one-tick / boundary-biased)
+    recorded against the spec's property table. This is the structural fix
+    for the class of bug only the builder sees and only the post-DELIVERED
+    reviewer previously attacked: an adversarial read positioned exactly
+    when the diff exists, not before it (test-author, G0) or after it ships
+    (review). A property this pass finds failing routes through the normal
+    fix loop above (A FIX IS A CHANGE) — it does not bypass
+    RETRY/escalation, and it does not run for a `light` change.
   → ESCALATE (the only mid-run owner contact): retry budget exhausted,
     non-convergence, a decision outside the approved plan (new dependency,
     scope change, irreversible action), or sandbox/permission boundary hit, OR the
