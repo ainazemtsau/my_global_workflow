@@ -23,5 +23,8 @@ One frozen canon card (text + any chosen images) committed in the canon repo; th
 - Setting before style: ordering lives in the graph's `depends_on` (the Visual Style node depends on a first slab of world); this play just forges whichever question is actionable.
 - The canon TEXT is the source of truth; images are presentation. Consistency comes from the design-map + plates, never from seeds.
 - AI imagery is internal/concept only — never into public marketing (standing policy).
+- If the chosen question proves unready during Frame or Diverge — owner cannot understand the question, hidden prerequisites appear, answer shape is unclear, or the session starts inventing missing structure — do not force a draft. Close a checkpoint RESULT with a `gap_event` and next CALL to `local/canon-cartography`.
+- A canon-forge CALL may include a `forge_handoff` from `local/canon-cartography`: `plain_question`, `why_now`, `must_decide`, `must_not_decide`, `parent_locks`, `expected_answer_shape`, `first_owner_question`, `return_to_graph_if`. If present, follow it unless owner overrides in-session.
+- Co-frame is not co-freeze: related questions may be discussed together for orientation, but this play still freezes one canon card only.
 
 END_OF_FILE: live/indie-game-development/plays/canon-forge.md
