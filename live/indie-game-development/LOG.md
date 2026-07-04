@@ -155,5 +155,22 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   now v14 not v11), PENDING sequencing decision d-nextcall-tooling-vs-c021-001 (small tools/ leg first?). NO
   TREE/CHARTER change; G1 intact (one active bet; W1b is a gap-filler mini-CALL, no bet task marked done). OS commit
   LOCAL; push owner-gated. → history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md
+- 2026-07-04 — work (g-9c41 / c-exec-028 tools benchmark-hardening CALL framed; s-work-043): owner answered
+  d-nextcall-tooling-vs-c021-001 → option 1 («tools/ лег первым»). Framed executor CALL c-exec-028 (small GasCoopGame
+  INFRA leg folding DF-2 [mutation.ps1 [Category("Benchmark")] Stryker poison] + d-benchmark-category-gate-001 [the
+  [Category]-exclusion gate loophole + scaling-matrix freshness]) to fire BEFORE c-exec-021 so the mutation tax
+  clears first. Grounded first-hand in the real tooling (mutation.ps1, check.ps1:88/145-154, hygiene.ps1:96/195,
+  negative-control-check.ps1, benchmark + schema test, committed matrix). Adversarially hardened = wf_bb467c7b-c63 (4
+  lenses vs the real tools): NO blockers to the leg itself, but caught + FOLDED 2 blocking FRAMING defects (the draft
+  pointed the builder at the NegativeControl force-EXECUTE path as the Benchmark counterpart → would re-run the 30-min
+  matrix on every -Deliver; and --list-tests is category-BLIND here → a name-in-list gate is vacuous, can't go RED on
+  a mistag) + 7 should-fix (over_budget pinned to weak_peer_x2 not peak to avoid retro-failing the committed matrix;
+  relocate = absolute-path MOVE + Test-Path-guarded restore not copy-rewrite; v12/openspec battery N/A by NOT freezing
+  a spec folder; the general-rule gate parses ONLY check.ps1:88's live --filter to avoid a self-referential/vacuous
+  meta-gate). Confirmed clean: ADR-P-0005 free; matrix pins bit-exact; benchmark type has no code reference (relocate
+  compile-safe); only excluded categories = NegativeControl (has counterpart) + Benchmark (this leg adds one). CALL =
+  work/c-exec-028-tools-benchmark-hardening-call.md; NOT executed here (no pwsh; runs full contour in a fresh
+  GasCoopGame_dev session with independent RED test-author + fresh G5). NO TREE/CHARTER change; G1 intact. OS commit
+  LOCAL; push owner-gated. → history/2026-07-04-s-work-043-c-exec-028-tools-hardening-framed.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

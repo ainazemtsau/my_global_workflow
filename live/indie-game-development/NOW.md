@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-042
+updated: 2026-07-04 by s-work-043
 
 bet:
   node: g-9c41
@@ -34,8 +34,9 @@ bet:
     (direction owns the CALLs): DF-2 (tools/mutation.ps1 [Category("Benchmark")] poisons Stryker — P2 tooling, EVERY
     mutation leg hit it, ties d-benchmark-category-gate-001) most pressing; DF-1 (RectDecomposition span-DoS — P1 by
     severity but ZERO production caller, wakes when GridFlow room-ingestion wires; approach C pre-selected) and
-    task_441a3b58 (4th throw-atomicity site, unreachable/defense-in-depth) latent. next = re-harden + fire c-exec-021
-    (Sc-reactions), PENDING the small sequencing decision d-nextcall-tooling-vs-c021-001. VISUAL track PARTIAL
+    task_441a3b58 (4th throw-atomicity site, unreachable/defense-in-depth) latent. next: d-nextcall-tooling-vs-c021-001
+    ANSWERED (owner option 1) → c-exec-028 (tools/ benchmark-hardening) framed + hardened (s-work-043) fires FIRST,
+    then re-harden + fire c-exec-021 (Sc-reactions). VISUAL track PARTIAL
     un-hold (Stage 1 c-visual-004 OPENED, s-work-040; Stage 2+ HELD pending a fresh owner check — W1b now landed).
     SPEC §6 п.2 fully-fine ceiling SEATED (~35k@50ms / ~70k@100ms weak-peer). Latest session:
     history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md.
@@ -143,9 +144,9 @@ tasks:
 next_slices:
   - Sc-kernel ledger FULLY CLOSED; W1b (c-exec-025) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a, contract
     v14), binding-G5 SOUND (s-work-042, wf_44257b08-dfe — 0 P1/P2, 2 P3-defer). The Sc-kernel→Sc-reactions GAP is
-    now CLEAR. c-exec-021 (Sc-reactions) fires next (after its §Re-sync — repo is now at v14, NOT v11; the CALL
-    body's base assumption is stale — + full fire-time re-hardening), PENDING d-nextcall-tooling-vs-c021-001
-    (whether a small tools/ hardening leg folding DF-2 + d-benchmark-category-gate-001 slots in first).
+    now CLEAR. d-nextcall-tooling-vs-c021-001 ANSWERED (owner: option 1): c-exec-028 (tools/ benchmark-hardening,
+    DF-2 + d-benchmark-category-gate-001) fires FIRST (framed + hardened s-work-043), THEN c-exec-021 (Sc-reactions)
+    — after its §Re-sync (repo now v14, NOT v11; the CALL body's base assumption is stale) + full fire-time re-hardening.
   - Sc-reactions after Sc-kernel: c-exec-021 PREPPED 2026-07-02 (s-shape-prep-screactions-001, owner present —
     forks (a)–(f) closed; body FULLY REWRITTEN at work/c-exec-021-call.md, banner generations retired): integer
     chemistry on the sparse-dominant overlap front; rule schema = explicit-SET > AXIS (default) > optional
@@ -164,6 +165,22 @@ next_slices:
   - Sc-damage after Sc-typing: dose-from-coarse, type-specific damage, temperature sink-layer.
 
 open_calls:
+  - id: c-exec-028
+    to: executor
+    for: g-9c41 / tools benchmark-hardening (DF-2 + d-benchmark-category-gate-001)
+    issued: 2026-07-04
+    call: work/c-exec-028-tools-benchmark-hardening-call.md
+    note: |
+      Framed + adversarially hardened by s-work-043 (wf_bb467c7b-c63) after owner picked «tools/ лег первым»
+      (d-nextcall-tooling-vs-c021-001 option 1). Small INFRA leg, GasCoopGame_dev worktree — NEVER dev_2. Folds
+      DF-2 (mutation.ps1 [Category("Benchmark")] poisons Stryker — self-contained absolute-path MOVE + Test-Path-
+      guarded try/finally restore) + d-benchmark-category-gate-001 (a category-AWARE NON-executing force-DISCOVER
+      counterpart for the Benchmark exclusion — do NOT mirror the NegativeControl force-EXECUTE path, it re-runs the
+      30-min matrix; --list-tests is category-blind here → source-scan/DLL-reflection; + scaling-matrix freshness
+      asserts, over_budget pinned to weak_peer_x2 not peak). Contour = c-024/026/027 infra pattern (NO frozen
+      openspec folder → v12/per-change battery N/A by absence); independent RED test-author first + fresh-session G5
+      + ADR-P-0005. Base = main @e0e4f5a (v14). dev→main merge + push OWNER-GATED. On GREEN + binding G5 → bench-tax
+      cleared; next = re-harden + fire c-exec-021.
   - id: c-visual-003
     to: executor
     for: g-7e15 / visual wave 1
@@ -443,7 +460,10 @@ decisions:
       squeeze only on measured impossibility, by signature. Full record: work/review-gas-sim-visual-2026-07-02.md
       (finding 11); work/audit-gas-sim-plan-2026-07-02.md (global-scale-1, words-vs-docs-001, verticality-far-reentry).
   - id: d-nextcall-tooling-vs-c021-001
-    status: OPEN — surfaced 2026-07-04 (s-work-042), owner to pick.
+    status: ANSWERED 2026-07-04 (owner: «tools/ лег первым») — option 1. c-exec-028 (tools/ benchmark-hardening,
+      folds DF-2 + d-benchmark-category-gate-001) framed + adversarially hardened by s-work-043
+      (work/c-exec-028-tools-benchmark-hardening-call.md; wf_bb467c7b-c63), fires BEFORE c-exec-021.
+      d-benchmark-category-gate-001 is now being discharged by c-exec-028.
     q: |
       The Sc-kernel→Sc-reactions gap is CLEAR; the road's pre-agreed next is c-exec-021 (Sc-reactions). But DF-2
       (tools/mutation.ps1 [Category("Benchmark")] poisons Stryker) has hit EVERY mutation leg (~30-min manual
@@ -489,9 +509,17 @@ history_pointers:
   - Visual partial un-hold, Stage 1 opened (2026-07-03): history/2026-07-03-s-work-040-visual-stage1-unhold.md; work/c-visual-004-call.md
   - Sc-kernel cleanup c-exec-024 binding-G5 close + W1b framed (2026-07-03): history/2026-07-03-s-work-041-c-exec-024-binding-g5-close.md; GasCoopGame main @7a54320 (→ @38ab715); binding G5 wf_fd7a1418-6cf; next CALL work/c-exec-025-w1b-call.md
   - W1b (c-exec-025) delivered + binding-G5 close + emergent c-026/c-027 sweep (2026-07-04): history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md; GasCoopGame origin/main @e0e4f5a (v14); binding G5 wf_44257b08-dfe; c-026 §Re-sync @a08860e + c-027×2 (ADR-E-0004/0005); C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md (DF-1/DF-2) + task_441a3b58
+  - Tools benchmark-hardening CALL c-exec-028 framed + hardened (2026-07-04): history/2026-07-04-s-work-043-c-exec-028-tools-hardening-framed.md; work/c-exec-028-tools-benchmark-hardening-call.md; hardening wf_bb467c7b-c63 (2 blockers + 7 should-fix folded); owner answered d-nextcall-tooling-vs-c021-001 option 1
 
 next:
-  awaiting_decision d-nextcall-tooling-vs-c021-001 (sequencing). The Sc-kernel→Sc-reactions GAP is CLEAR: W1b
+  IMMEDIATE = fire c-exec-028 (tools/ benchmark-hardening, DF-2 + d-benchmark-category-gate-001) in a FRESH
+  GasCoopGame_dev session — d-nextcall-tooling-vs-c021-001 ANSWERED (owner 2026-07-04: option 1, «tools/ лег
+  первым»); framed + adversarially hardened by s-work-043 (work/c-exec-028-tools-benchmark-hardening-call.md;
+  wf_bb467c7b-c63 caught 2 blockers — the force-EXECUTE-counterpart trap + --list-tests category-blindness — + 7
+  should-fix, all folded). INFRA-only, engine worktree NEVER dev_2, contour = c-024/026/027 (NO frozen openspec
+  folder → v12/per-change battery N/A by absence), independent RED test-author first + fresh G5 + ADR-P-0005, base
+  @e0e4f5a (v14), dev→main merge owner-gated. AFTER c-028 GREEN + binding G5 → c-exec-021.
+  The Sc-kernel→Sc-reactions GAP is CLEAR: W1b
   (c-exec-025) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a, contract v14) and binding-G5 SOUND (s-work-042,
   wf_44257b08-dfe — 0 P1/P2, 2 P3-defer; the 3 W1b-core lenses died on output-conformance so their claims were
   re-derived first-hand: byte-identity / encapsulation / full-domain sentinel / 48 W1b+atomicity tests green).
@@ -499,9 +527,8 @@ next:
   ROAD (fresh GasCoopGame_dev sessions): re-harden + fire c-exec-021 (Sc-reactions) — run its §Re-sync (⚠ the repo
   is NOW at contract v14, not v11 — the CALL body's base @38ab715 + version assumptions are STALE; re-sync BEFORE
   building) + full fire-time re-hardening, fill §PENDING from the Sc-kernel/W1b RESULTs, then fire in a fresh session
-  (owner-present PLAN). RECOMMENDED FIRST (pending the decision): a small GasCoopGame tools/ hardening leg folding
-  DF-2 (mutation.ps1 [Category("Benchmark")] Stryker poison — every leg hit it) + d-benchmark-category-gate-001,
-  before c-021's mutation gate pays the ~30-min tax again. LATENT, tracked-deferred (NOT this leg): DF-1
+  (owner-present PLAN) — but ONLY AFTER c-exec-028 clears the bench-tax (decided; c-028 is the immediate next).
+  LATENT, tracked-deferred (NOT c-028): DF-1
   (RectDecomposition span-DoS — P1-by-severity but ZERO caller, wakes when GridFlow room-ingestion wires; approach C
   pre-selected) + task_441a3b58 (4th throw-atomicity site, unreachable/defense-in-depth). Do NOT re-fire
   c-022/023/024/025/026/027; do NOT re-run W1a.
@@ -512,6 +539,6 @@ next:
   (not an automatic cascade). d-finer-grid-fork-001 ANSWERED (option 2, after Sc-damage). HONESTY: Stage 1 is a fair
   A/B stand, not new player-facing PROOF (same gas, better staging) — the 07-24 milestone (first real reaction/bang)
   stays the live player-facing terminus, measured independently of Stage 1.
-  Still pending owner: d-nextcall-tooling-vs-c021-001, d-marketing-wake-001, d-coop-interdependence-repin-001.
+  Still pending owner: d-marketing-wake-001, d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md
