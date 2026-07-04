@@ -121,61 +121,15 @@ tasks:
       WHAT/research/architecture/verify route. No new Health AI implementation is authorized from the
       summary-only proof.
     current_route: >
-      Research child c-health-hq-goal-achievement-model-research-001 must return before Define/Resolve can close.
+      Research child c-health-hq-goal-achievement-model-research-001 returned; parent converge
+      c-health-hq-orchestrator-converge-001 must convert the accepted research into an
+      owner-signable WHAT/route before Define/Resolve can close.
+    research_note: >
+      Research returned and accepted as input on 2026-07-03; artifact:
+      live/health/work/health-hq-goal-achievement-model-research-2026-07-03.md.
+      It is input for owner-signable WHAT/route, not product acceptance and not implementation authorization.
 
-open_calls:
-  - id: c-health-hq-goal-achievement-model-research-001
-    to: research
-    direction: health
-    play: research
-    node: g-health-hq-goal-coordinator
-    task: t-2
-    parent: c-health-hq-orchestrator-converge-001
-    goal: |
-      Produce the evidence-backed goal-achievement orchestration model Health HQ needs before implementation.
-    context: |
-      Read:
-      - live/health/CHARTER.md
-      - live/health/TREE.md
-      - live/health/NOW.md
-      - live/health/knowledge/health-direction-os-tracking-boundary.md
-      - live/health/history/2026-06-29-c-health-map-evidence-001.md
-      - live/health/history/2026-06-30-s-health-owner-wants-planning-001-continue.md
-      - live/health/history/2026-06-30-s-health-shape-hq-goal-coordinator-001.md
-      - live/health/history/2026-07-01-s-health-shape-hq-goal-coordinator-approval-001.md
-      - live/health/history/2026-07-01-s-health-hq-scope-repair-001.md
-      - work/converge-g-health-hq-goal-coordinator.md
-      - health-ai @6ca3f18 x_health_hq/evidence-summary.md
-      - health-ai @6ca3f18 x_health_hq/reviews/2026-07-01-dry-run-progress-review.md
-      - health-ai @6ca3f18 tools/check_health_hq_thin_slice.py
-
-      Current authority:
-      - Health HQ must be goal-achievement orchestration, not a status dispatcher.
-      - The existing x_health_hq summary-only proof is retained as technical evidence only.
-      - Owner approved route A: WHAT/research/architecture/verify before any new Health AI implementation.
-      - Nutrition/training/sleep/future domains are execution mechanisms; HQ may state outcome/support demands and route requests but must not silently mutate domain artifacts.
-    boundaries: |
-      No medical diagnosis or treatment plan.
-      No raw body/nutrition/training data in Direction OS.
-      No Health AI implementation.
-      No dashboard/API/polling/integration design.
-      Do not accept the summary-only proof as product acceptance.
-      Keep positive Health HQ product essence separate from safety/non-goal boundaries.
-    done_when: |
-      Research returns:
-      - 3-5 refuted model options for Health HQ goal-achievement orchestration;
-      - recommended model with reasons and failure modes;
-      - minimum metric hierarchy for current phase and later phases;
-      - milestone/phase model suitable for large weight loss, strength/body-composition, adherence, energy/recovery, and maintenance;
-      - owner-triggered strategic review loop;
-      - domain demand contract checklist for nutrition, training/activity, sleep/recovery, and future domains;
-      - safety/recovery escalation boundaries;
-      - decision-class checklist suitable for converge-verify;
-      - explicit questions that must remain owner decisions.
-    return: |
-      RESULT to parent c-health-hq-orchestrator-converge-001 with evidence, recommended model, rejected options,
-      checklist/canon candidates, owner-decision questions if any, and next route.
-    budget: one research session
+open_calls: []
 
 recurring:
   - id: r-health-ai-minor-fix-lane
@@ -203,57 +157,6 @@ recurring:
 decisions: []
 
 next: |
-  CALL c-health-hq-goal-achievement-model-research-001
-  to: research
-  direction: health
-  play: research
-  node: g-health-hq-goal-coordinator
-  task: t-2
-  parent: c-health-hq-orchestrator-converge-001
-  goal: |
-    Produce the evidence-backed goal-achievement orchestration model Health HQ needs before implementation.
-  context: |
-    Read:
-    - live/health/CHARTER.md
-    - live/health/TREE.md
-    - live/health/NOW.md
-    - live/health/knowledge/health-direction-os-tracking-boundary.md
-    - live/health/history/2026-06-29-c-health-map-evidence-001.md
-    - live/health/history/2026-06-30-s-health-owner-wants-planning-001-continue.md
-    - live/health/history/2026-06-30-s-health-shape-hq-goal-coordinator-001.md
-    - live/health/history/2026-07-01-s-health-shape-hq-goal-coordinator-approval-001.md
-    - live/health/history/2026-07-01-s-health-hq-scope-repair-001.md
-    - work/converge-g-health-hq-goal-coordinator.md
-    - health-ai @6ca3f18 x_health_hq/evidence-summary.md
-    - health-ai @6ca3f18 x_health_hq/reviews/2026-07-01-dry-run-progress-review.md
-    - health-ai @6ca3f18 tools/check_health_hq_thin_slice.py
-
-    Current authority:
-    - Health HQ must be goal-achievement orchestration, not a status dispatcher.
-    - The existing x_health_hq summary-only proof is retained as technical evidence only.
-    - Owner approved route A: WHAT/research/architecture/verify before any new Health AI implementation.
-    - Nutrition/training/sleep/future domains are execution mechanisms; HQ may state outcome/support demands and route requests but must not silently mutate domain artifacts.
-  boundaries: |
-    No medical diagnosis or treatment plan.
-    No raw body/nutrition/training data in Direction OS.
-    No Health AI implementation.
-    No dashboard/API/polling/integration design.
-    Do not accept the summary-only proof as product acceptance.
-    Keep positive Health HQ product essence separate from safety/non-goal boundaries.
-  done_when: |
-    Research returns:
-    - 3-5 refuted model options for Health HQ goal-achievement orchestration;
-    - recommended model with reasons and failure modes;
-    - minimum metric hierarchy for current phase and later phases;
-    - milestone/phase model suitable for large weight loss, strength/body-composition, adherence, energy/recovery, and maintenance;
-    - owner-triggered strategic review loop;
-    - domain demand contract checklist for nutrition, training/activity, sleep/recovery, and future domains;
-    - safety/recovery escalation boundaries;
-    - decision-class checklist suitable for converge-verify;
-    - explicit questions that must remain owner decisions.
-  return: |
-    RESULT to parent c-health-hq-orchestrator-converge-001 with evidence, recommended model, rejected options,
-    checklist/canon candidates, owner-decision questions if any, and next route.
-  budget: one research session
+  return-to-parent c-health-hq-orchestrator-converge-001
 
 END_OF_FILE: live/health/NOW.md
