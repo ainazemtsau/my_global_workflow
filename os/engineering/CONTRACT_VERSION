@@ -10,9 +10,47 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 16
+current: 17
 
 log:
+  17  2026-07-04  source-scan-is-never-behavior-evidence + self-written-scanner ban (the VENUE axis of no-silent-crutch,
+      owner request, same 2026-07-04 batch — «source-text scan никогда не доказательство поведения для Unity/шейдеров/
+      рендера; самописные сканеры запрещены»): VALIDATION never DEFINED behavior evidence by VENUE, so with PlayMode CI
+      deferred (unity.md) an executor filled the hole with a static source-text scan and then hardened it under the very
+      v11 negative-control + v12/v14 property/sweep gates meant for real code — driving a scanner into a compiler.
+      Witness (verified this session: SourceScanText.cs == 1728 lines, six GasVisual/*ScanTests.cs): GasCoopGame dev_2
+      visual track carries a 1728-line C#/HLSL/ShaderLab SourceScanText.cs + ~2000 lines of scan-tests + ~44
+      negative-controls (a 245-line suite guarding the scanner itself) — ~3900 lines proving "string present in file,"
+      not runtime/render behavior. The v14 witness (c-visual-004 comment-variant arms race, FRICTION line 137) is the
+      SAME root one layer down: v14 made the scanner's FIXES converge; it never asked whether the scanner should exist.
+      Verdict per MAINTENANCE step 1: (a) rule defect + (b) gap with an explicit owner trigger; a real past-the-test-author
+      escape → ESCAPE-CLASSES append (single escape is a sufficient trigger, MAINTENANCE step 6). Fix, STRICTLY ADDITIVE
+      (no gate weakened — a source scan was NEVER legitimate behavior evidence, so nothing green legitimately loses;
+      validator G4/G5, test-author both passes, non-convergence, strong-check/coverage/named-approach/registry-walk/
+      review-evidence/negative-control/property-layer/refuted-register/fix-class-closure/review-scope-split/
+      tool-unavailable-STOP all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact): VALIDATION new
+      §Behavior evidence by venue — engine/shader/render/scene behavior = a real EditMode/PlayMode run OR a live-engine
+      MCP query; engine-free logic = real headless tests; look = owner-eye (G6, not a gate); a static source-text scan is
+      NONE of these even as a perfect compiler; self-written source scanners/parsers FORBIDDEN as behavior evidence; the
+      ONLY legal text check is a declared wiring-smoke (File.Exists + trivial substring, NO acceptance property / NO
+      negative control / NO property test) — so v11/v12/v14 NEVER attach to a smoke or a scan (the arms-race cutoff) and a
+      scan-oracle's fix is DELETION, not a stronger control; G3 anchored (an engine/render scenario is a real run / MCP
+      query — a scan is not an executed scenario); profiles/unity.md §2 names render-behavior = real MCP run + owner-eye,
+      scanner forbidden, boundary-gate stays the real headless COMPILE; ESCAPE-CLASSES.md NEW witnessed row «wrong-venue
+      evidence / self-written proxy scanner (execution, not text)» + a consistency pointer on the empty-oracle row (its
+      scan-oracle fix is deletion, not a stronger control). SCOPE (honest): behavioral/definitional, NOT a deliver-script
+      — enforced by the executor STOP (v16), the validator/owner rejecting a scan as behavior evidence, and the PLAN
+      spec-silence audit WALKING the new ESCAPE-CLASSES row (front-loaded, the one mechanical hook); a judgment-emulating
+      "is-this-a-scanner" grep is deliberately NOT added — it is the proxy-treadmill the owner flagged (memory
+      os-review-checker-gate-taxonomy). Proportionality: removing a crutch means DELETING theater, never adding a
+      pixel-readback harness in its place. OS text ACTIVE now; the product AGENTS.md line + the scanner DELETION land at
+      §Re-sync. §Re-sync OWED: GasCoopGame (DELETE SourceScanText.cs + the *ScanTests.cs + their negative-controls; mirror
+      the source-scan-≠-behavior + no-self-written-scanner + wiring-smoke carve-out into the product run-contract;
+      re-express any real render acceptance as owner-eye + a live-MCP run; synced_contract_version 16→17 — folds into the
+      staged c-exec-026 re-sync, now 11→17); health-ai (markdown kernel — TRANSLATE the class: no self-written scan of the
+      kernel markdown or the chat transcript as behavior evidence, behavior = a real cross-model process run + owner gate;
+      the Unity EditMode/PlayMode specifics are N/A). (owner: «source-text scan никогда не доказательство поведения для
+      Unity/шейдеров/рендера; самописные сканеры/парсеры запрещены; недоступна венью — стоп, зови меня, никаких костылей»)
   16  2026-07-04  tool-unavailable STOP + explicit-written-owner-ack (the no-silent-crutch axis, owner request, same
       session as v15 — owner «давай все как ты рекомендуешь»): a required tool/harness the plan depends on going
       UNAVAILABLE (Unity Editor not launched, the Unity MCP dropped, a headless-test license absent) was only

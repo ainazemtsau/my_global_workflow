@@ -31,6 +31,17 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
   measurement (node / cell / spawned-object count > 0) and a committed scene is asserted above a stub
   floor — so an empty placeholder file cannot satisfy the existence row. This gates BUILD-exists
   without a license; only the owner LOOK (the eyeball) stays the manual A2.4 axis.
+- **Render / shader / scene BEHAVIOR evidence = a real run, never a source scan** (VALIDATION.md
+  §Behavior evidence by venue). The existence proof above closes BUILD-exists (the artifact is
+  present); it is NOT render-behavior. Behavior for a GasVisual / shader / scene leg is a real
+  **EditMode/PlayMode run via the Unity MCP** (`tests-run`) or a **live-editor MCP structural query**
+  (scene / component / material state), plus **owner-eye** for the look; engine-free logic stays
+  headless `dotnet test`. A **self-written source-text scanner/parser** over `.cs` / `.shader` /
+  `.hlsl` is FORBIDDEN as behavior evidence — it proves text-presence, not rendering — and a negative
+  control / property test never attaches to it (hardening a scanner is the arms-race engine). The
+  dependency-boundary gate stays the real headless COMPILE (§4), which EXECUTES, not a scan. Unity MCP
+  dropped / Editor not launched ⇒ STOP and ask the owner to launch it (contract v16), never a scan
+  stand-in.
 
 ## 3. Test layout
 - Headless core tests: `tests/<Game>.Core.Tests/` (`net8.0`, **NUnit** — same family as Unity's Test
