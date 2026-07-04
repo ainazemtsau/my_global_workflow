@@ -134,5 +134,26 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   read-only accessor over the Sc-rep stamp, GasCoopGame_dev never dev_2, byte-identity, base @38ab715) →
   work/c-exec-025-w1b-call.md. NO TREE/CHARTER change; G1 intact (Sc-kernel closed, W1b opens next). OS commit LOCAL;
   push owner-gated. → history/2026-07-03-s-work-041-c-exec-024-binding-g5-close.md
+- 2026-07-04 — work (g-9c41 / W1b c-exec-025 binding-G5 close + emergent c-026/c-027 sweep; s-work-042): builder
+  handed back c-exec-025 (W1b per-cell dominant-type read seam) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a,
+  contract v14, dev==main). Read product git directly + ran the BINDING fresh-session G5 (wf_44257b08-dfe, 8 lenses +
+  adjudication + critic). The handback under-described the window: THREE clusters landed since @38ab715 — c-025 (W1b),
+  c-026 (§Re-sync os/engineering contract v11→v14, ADR-P-0004, @a08860e — never entered open_calls, drift now absorbed)
+  + c-027×2 (emergent PRE-EXISTING P1s from the c-025 owner-review, fixed in child sessions, merged autonomously;
+  c-026/c-027 had NO direction-side G5 until now). VERDICT = **SOUND, 0 P1, 0 P2, 2 P3-defer**. The 3 W1b-core lenses
+  died on output-conformance → re-derived FIRST-HAND: byte-identity holds (no golden/tick file in the diff, additive
+  read methods only); encapsulation-safe (TypeId readonly-struct + record BY VALUE, private near store never escapes);
+  full-domain sentinel (near sized to dense.CellCount → no throw-instead-of-sentinel); 48 W1b+atomicity tests GREEN
+  headless; RED-first VERIFIED (test-only 390dbad ancestor of build-to-green e517388). c-026 re-verified: all 3
+  v12/v13/v14 gates WIRED into -Deliver + self-tests execute-and-fail (v14 $null-no-op bug caught+fixed pre-merge
+  @e1bbf9d). c-027 re-verified: topology inclusive-max guard correct + class-swept (ADR-E-0004); throw-atomicity 3-site
+  fix correct, 4th sibling MaterializeDue unreachable (ADR-E-0005). 2 P3-defer: GridRect doc nit; v14 fix-class-closure
+  gate satisfied by archiving-out-of-scope not a recorded sweep (inert now, voids the reopen-tripwire for a class with
+  a live deferred sibling → capture for maintenance). Route-home backlog: DF-2 (mutation.ps1 [Category("Benchmark")]
+  Stryker poison, every leg hit it — ties d-benchmark-category-gate-001) + DF-1 (span-DoS, P1-latent, no caller) +
+  task_441a3b58 (unreachable). Sc-kernel→Sc-reactions GAP CLEAR; next = re-harden + fire c-exec-021 (§Re-sync ⚠ repo
+  now v14 not v11), PENDING sequencing decision d-nextcall-tooling-vs-c021-001 (small tools/ leg first?). NO
+  TREE/CHARTER change; G1 intact (one active bet; W1b is a gap-filler mini-CALL, no bet task marked done). OS commit
+  LOCAL; push owner-gated. → history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

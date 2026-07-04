@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-03 by s-work-040
+updated: 2026-07-04 by s-work-042
 
 bet:
   node: g-9c41
@@ -9,22 +9,36 @@ bet:
     Sc-weight → Sc-rep → Sc-kernel → Sc-reactions → Sc-typing → Sc-damage. The far-tier
     S3/S4/S5 scale plumbing is parked until levels get big.
   current_truth: |
-    Sc-types + Sc-weight + Sc-rep + Sc-kernel DELIVERED and MERGED to GasCoopGame main. Sc-kernel (c-exec-023,
-    active-front sparse tick kernel) passed its BINDING fresh-session G5 (s-work-039); its P2/P3 cleanup follow-up
-    c-exec-024 is now DONE + MERGED (owner-pushed @7a54320) and passed its OWN binding fresh-session G5 (s-work-041,
-    2026-07-03, wf_fd7a1418-6cf — 6 refutation lenses + adjudication + completeness critic, one lens built/tested in
-    an isolated worktree) = SOUND, 0 P1, all 5 done_when CONFIRMED empirically (engine byte-identity blob-hash-
-    identical, RED→GREEN reproduced, -Deliver green). The 2 P2 fixed + 5 P3 swept; residual = 5 low P3 findings all
-    routed, none a blocker (guard static/interface-typed out-of-scope-new gaps; a stale-wording doc nit; and a
-    [Category]-exclusion gate-loophole the fix widened + benchmark-freshness → d-benchmark-category-gate-001). The
-    Sc-kernel ledger is FULLY CLOSED. The road now rolls through the remaining Sc-kernel→Sc-reactions GAP: (1) W1b
-    engine mini-CALL (c-exec-025, d-w1b-window-001), then re-harden + fire c-exec-021 (Sc-reactions, still HELD).
-    Main advanced to @38ab715 (a separate contract fact-check leg ADR-P-0003, NOT our road; c-exec-024 artifacts
-    re-verified green there) — that is the W1b base. VISUAL track PARTIAL un-hold (Stage 1 c-visual-004 OPENED,
-    s-work-040; Stage 2+ HELD pending W1b + a fresh owner check). d-hangar-flood-fallback-001 ANSWERED 2026-07-03
-    (design + admission ceiling; heavy levers not built). SPEC §6 п.2 fully-fine ceiling SEATED (~35k@50ms /
-    ~70k@100ms weak-peer). Full pre-repair narrative: work/now-current-truth-snapshot-2026-07-02.md. Latest session:
-    history/2026-07-03-s-work-041-c-exec-024-binding-g5-close.md.
+    Sc-types + Sc-weight + Sc-rep + Sc-kernel DELIVERED and MERGED to GasCoopGame main; the Sc-kernel ledger is
+    FULLY CLOSED (c-exec-023 + cleanup c-exec-024, both binding-G5 SOUND — s-work-039 / s-work-041). W1b
+    (c-exec-025, the Sc-kernel→Sc-reactions GAP's remaining engine item — a read-only, encapsulation-safe per-cell
+    dominant-type read seam over the Sc-rep stamp) is now DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a,
+    contract v14) and passed its BINDING fresh-session G5 (s-work-042, 2026-07-04, wf_44257b08-dfe — 8 refutation
+    lenses + adjudication + completeness critic). The 3 W1b-core lenses died on output-conformance, so this session
+    re-derived them FIRST-HAND: byte-identity holds (no golden/tick file in the 38ab715→e0e4f5a diff, additive read
+    methods only); encapsulation-safe (TypeId readonly-struct + record returned BY VALUE, private near store never
+    escapes); full-domain sentinel (near store sized to dense.CellCount → no throw-instead-of-sentinel hole); 48
+    W1b+atomicity tests GREEN headless. Verdict = SOUND, 0 P1, 0 P2. The Sc-kernel→Sc-reactions GAP is now CLEAR.
+    Landed in the SAME product window and independently re-verified SOUND by this session's binding G5 (0 P1/P2):
+    c-exec-026 (§Re-sync of the os/engineering contract v11→v14 — property-layer v12 PILOT + refuted-register v13 +
+    fix-class-closure v14, ADR-P-0004, @a08860e; all three gates confirmed WIRED into check.ps1 -Deliver with self-
+    tests that execute-and-fail-on-bad-fixture; the one real bug, a v14 $null-coerced no-op, was caught by the
+    builder's own G5 and fixed pre-merge @e1bbf9d) and c-exec-027 ×2 — emergent PRE-EXISTING P1s the c-025 owner-
+    review surfaced OUTSIDE the c-025 diff, fixed in child sessions and merged autonomously in the product repo:
+    topology inclusive-max int-overflow guard (ADR-E-0004) and throw-atomicity stage-locals at 3 sites (ADR-E-0005),
+    both technical fixes CONFIRMED correct. TWO P3-defer findings, neither a live defect: (a) a review-vs-DF-1 doc
+    nit on dead-code GridRect; (b) the v14 fix-class-closure gate was satisfied for the throw-atomicity leg by
+    ARCHIVING the change out of the gate's walk scope (owner-decided v11-work exemption) rather than by a recorded
+    machine sweep — inert now (4th sibling MaterializeDue's throw is provably unreachable) but it voids the
+    reopen-tripwire for a class with a live deferred sibling → captured for maintenance. Route-home backlog
+    (direction owns the CALLs): DF-2 (tools/mutation.ps1 [Category("Benchmark")] poisons Stryker — P2 tooling, EVERY
+    mutation leg hit it, ties d-benchmark-category-gate-001) most pressing; DF-1 (RectDecomposition span-DoS — P1 by
+    severity but ZERO production caller, wakes when GridFlow room-ingestion wires; approach C pre-selected) and
+    task_441a3b58 (4th throw-atomicity site, unreachable/defense-in-depth) latent. next = re-harden + fire c-exec-021
+    (Sc-reactions), PENDING the small sequencing decision d-nextcall-tooling-vs-c021-001. VISUAL track PARTIAL
+    un-hold (Stage 1 c-visual-004 OPENED, s-work-040; Stage 2+ HELD pending a fresh owner check — W1b now landed).
+    SPEC §6 п.2 fully-fine ceiling SEATED (~35k@50ms / ~70k@100ms weak-peer). Latest session:
+    history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md.
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -127,11 +141,11 @@ tasks:
       green on merged main. Sc-rep is CLOSED; the road rolls to Sc-kernel.
 
 next_slices:
-  - Sc-kernel DONE + merged; cleanup c-exec-024 DONE + merged (owner-pushed @7a54320), binding G5 SOUND (s-work-041)
-    — the Sc-kernel ledger is FULLY CLOSED. The Sc-kernel→Sc-reactions GAP now holds ONE small engine mini-CALL
-    before c-exec-021 fires: W1b — per-cell dominant-type read-API (c-exec-025, FRAMED = work/c-exec-025-w1b-call.md;
-    d-w1b-window-001, GasCoopGame_dev worktree, NEVER dev_2; base = main @38ab715). c-exec-021 rebases over it via
-    its own §Re-sync.
+  - Sc-kernel ledger FULLY CLOSED; W1b (c-exec-025) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a, contract
+    v14), binding-G5 SOUND (s-work-042, wf_44257b08-dfe — 0 P1/P2, 2 P3-defer). The Sc-kernel→Sc-reactions GAP is
+    now CLEAR. c-exec-021 (Sc-reactions) fires next (after its §Re-sync — repo is now at v14, NOT v11; the CALL
+    body's base assumption is stale — + full fire-time re-hardening), PENDING d-nextcall-tooling-vs-c021-001
+    (whether a small tools/ hardening leg folding DF-2 + d-benchmark-category-gate-001 slots in first).
   - Sc-reactions after Sc-kernel: c-exec-021 PREPPED 2026-07-02 (s-shape-prep-screactions-001, owner present —
     forks (a)–(f) closed; body FULLY REWRITTEN at work/c-exec-021-call.md, banner generations retired): integer
     chemistry on the sparse-dominant overlap front; rule schema = explicit-SET > AXIS (default) > optional
@@ -150,19 +164,6 @@ next_slices:
   - Sc-damage after Sc-typing: dose-from-coarse, type-specific damage, temperature sink-layer.
 
 open_calls:
-  - id: c-exec-025
-    to: executor
-    for: g-9c41 / W1b (per-cell dominant-type read-API)
-    issued: 2026-07-03
-    call: work/c-exec-025-w1b-call.md
-    note: |
-      The Sc-kernel→Sc-reactions GAP's remaining engine item (d-w1b-window-001), FRAMED by s-work-041. A read-only,
-      encapsulation-safe accessor exposing the per-cell DOMINANT type (the Sc-rep stamp) so the visual track's
-      Stage 2 «Паспорт типа» (and later reactions/typing reads) can query «what type dominates this cell» without
-      touching mutable field internals. ENGINE-ONLY, GasCoopGame_dev worktree — NEVER dev_2 (that is the visual
-      render worktree). READ-ONLY → byte-identity MUST hold (no tick change, goldens unchanged); RED-first tests;
-      -Deliver green; §Re-sync to current contract (repo at v11 + ADR-P-0003). Base = GasCoopGame main @38ab715.
-      dev→main merge + push OWNER-GATED. On GREEN → the gap is CLEAR; next = re-harden + fire c-exec-021 (Sc-reactions).
   - id: c-visual-003
     to: executor
     for: g-7e15 / visual wave 1
@@ -245,6 +246,17 @@ open_calls:
   # c-exec-024 (Sc-kernel cleanup) CLOSED 2026-07-03: binding fresh-session G5 SOUND (0 P1), all 5 done_when
   # CONFIRMED empirically → done, merged main (owner-pushed @7a54320). 5 residual low P3 → d-benchmark-category-gate-001.
   # Sc-kernel ledger FULLY CLOSED. Record: history/2026-07-03-s-work-041-c-exec-024-binding-g5-close.md.
+  # c-exec-025 (W1b per-cell dominant-type read seam) CLOSED 2026-07-04: DELIVERED + MERGED + PUSHED (origin/main
+  # @e0e4f5a, v14); binding fresh-session G5 SOUND, 0 P1/P2 (s-work-042, wf_44257b08-dfe). Sc-kernel→Sc-reactions
+  # GAP CLEAR. Record: history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md.
+  # c-exec-026 (§Re-sync os/engineering contract v11→v14: property-layer v12 PILOT + refuted-register v13 +
+  # fix-class-closure v14, ADR-P-0004) CLOSED 2026-07-04: MERGED @a08860e; re-verified SOUND by the s-work-042 G5
+  # (all 3 gates wired into -Deliver + self-tests execute-and-fail; v14 $null-no-op bug caught + fixed pre-merge
+  # @e1bbf9d). CALL = work/c-exec-026-resync-v12-v13-v14-call.md (never entered open_calls — drift now absorbed).
+  # c-exec-027 ×2 (emergent PRE-EXISTING P1s from the c-025 owner-review, fixed in child sessions, merged
+  # autonomously) CLOSED 2026-07-04: topology inclusive-max overflow guard (ADR-E-0004) + throw-atomicity
+  # stage-locals @3 sites (ADR-E-0005); both technical fixes CONFIRMED correct by the s-work-042 G5. 2 P3-defer:
+  # GridRect doc nit; v14-gate-satisfied-by-archiving (capture). Records: docs/reviews/review-c-exec-027-*.
 
 recurring: []
 
@@ -379,6 +391,13 @@ decisions:
       (it was previously mis-scoped as part of c-visual-003).
     source: work/gas-visual-plan-v2-2026-07-02.md; NOW open_calls c-exec-021 §PENDING.
   - id: d-benchmark-category-gate-001
+    status: still open; CONVERGING evidence 2026-07-04 (s-work-042) — DF-2 (tools/mutation.ps1 [Category("Benchmark")]
+      poisons Stryker; EVERY mutation leg has paid a ~30-min manual relocate/restore workaround) is the SAME
+      [Category("Benchmark")] surface as this decision, and the s-work-042 G5 found the v14 fix-class-closure gate was
+      satisfied for the throw-atomicity leg by archiving-out-of-scope (P3-b) — a third gate-integrity signal on the
+      same surface. Option 2's "BEFORE W1b" is now moot (W1b done). Rolled into the live sequencing decision
+      d-nextcall-tooling-vs-c021-001 (do a small tools/ leg folding DF-2 + this before c-exec-021, or after).
+      Recommendation still option 1, now with a concrete when.
     q: |
       The c-exec-024 binding G5 surfaced a gate-integrity nit (P3): the leg's own fix edited the delivery gate
       (tools/check.ps1) to add an UNPROTECTED «&TestCategory!=Benchmark» exclusion, and the benchmark test chose
@@ -423,6 +442,27 @@ decisions:
       archetype / 08-31 Steam copy freeze if page markets scale / post-Sc-damage checkpoint backstop);
       squeeze only on measured impossibility, by signature. Full record: work/review-gas-sim-visual-2026-07-02.md
       (finding 11); work/audit-gas-sim-plan-2026-07-02.md (global-scale-1, words-vs-docs-001, verticality-far-reentry).
+  - id: d-nextcall-tooling-vs-c021-001
+    status: OPEN — surfaced 2026-07-04 (s-work-042), owner to pick.
+    q: |
+      The Sc-kernel→Sc-reactions gap is CLEAR; the road's pre-agreed next is c-exec-021 (Sc-reactions). But DF-2
+      (tools/mutation.ps1 [Category("Benchmark")] poisons Stryker) has hit EVERY mutation leg (~30-min manual
+      workaround each), c-exec-021 will run mutation too, and DF-2 shares the exact [Category("Benchmark")] surface
+      as the already-open d-benchmark-category-gate-001. Slot a small tools/ hardening leg first, or fire c-021 now?
+    options:
+      - Tools/ hardening leg FIRST (fold DF-2 + d-benchmark-category-gate-001: give [Category] exclusions a force-run
+        counterpart + scaling-matrix consistency asserts). Bad-because: delays the feature road ~half a day.
+        [recommended — small, self-contained, overdue; clears the tax before c-021's mutation gate].
+      - Fire c-exec-021 NOW, tools/ leg batched later. Bad-because: c-021's mutation gate hits the Stryker poison →
+        the manual workaround + a transient dirty-tree window again.
+      - Fire c-021 now, fold DF-2 into c-021's own tooling touch. Bad-because: mixes an infra fix into a feature leg
+        (scope creep, muddied diff).
+    recommendation: |
+      Option 1. DF-2 is small, self-contained, overdue (every mutation leg paid the tax); c-021 is another
+      mutation-heavy leg. Folding d-benchmark-category-gate-001 into the same pass closes the whole
+      [Category("Benchmark")] surface at once. DF-1 (P1-latent, no caller) and task_441a3b58 (unreachable) stay
+      tracked-deferred with wake triggers, NOT in this leg.
+    source: history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md; C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md.
 
 history_pointers:
   - Full pre-compaction NOW: work/now-snapshot-2026-06-29.md
@@ -448,33 +488,30 @@ history_pointers:
   - Sc-kernel DELIVERED + binding G5 close (2026-07-03): history/2026-07-03-s-work-039-sckernel-binding-g5-close.md; GasCoopGame main @b7d4226; binding G5 wf_91e57ec8-b24; cleanup CALL work/c-exec-024-call.md
   - Visual partial un-hold, Stage 1 opened (2026-07-03): history/2026-07-03-s-work-040-visual-stage1-unhold.md; work/c-visual-004-call.md
   - Sc-kernel cleanup c-exec-024 binding-G5 close + W1b framed (2026-07-03): history/2026-07-03-s-work-041-c-exec-024-binding-g5-close.md; GasCoopGame main @7a54320 (→ @38ab715); binding G5 wf_fd7a1418-6cf; next CALL work/c-exec-025-w1b-call.md
+  - W1b (c-exec-025) delivered + binding-G5 close + emergent c-026/c-027 sweep (2026-07-04): history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md; GasCoopGame origin/main @e0e4f5a (v14); binding G5 wf_44257b08-dfe; c-026 §Re-sync @a08860e + c-027×2 (ADR-E-0004/0005); C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md (DF-1/DF-2) + task_441a3b58
 
 next:
-  Sc-kernel (c-exec-023) DONE + merged; its cleanup follow-up c-exec-024 is now DONE + merged (owner-pushed
-  @7a54320) and passed its OWN binding fresh-session G5 (s-work-041, 2026-07-03, wf_fd7a1418-6cf — 6 refutation
-  lenses + adjudication + completeness critic, one lens built/tested in an isolated worktree) = SOUND, 0 P1, all 5
-  done_when CONFIRMED empirically (engine byte-identity blob-hash-identical; RED→GREEN reproduced;
-  check.ps1 -Deliver green, 1279/1279). 5 residual low P3 findings routed (guard static/interface-typed
-  out-of-scope-new gaps; a stale-wording doc nit at spec.md:202/215; a [Category]-exclusion gate-loophole the fix
-  widened + benchmark-freshness → d-benchmark-category-gate-001) — none a blocker. The Sc-kernel ledger is FULLY
-  CLOSED. Main advanced to @38ab715 (separate contract fact-check leg ADR-P-0003, NOT our road; c-exec-024 artifacts
-  re-verified green there) = the W1b base.
-  NEXT WORK = the remaining Sc-kernel→Sc-reactions GAP, in FRESH GasCoopGame_dev sessions, in order:
-  (1) W1b — per-cell dominant-type read-API engine mini-CALL (c-exec-025, FRAMED = work/c-exec-025-w1b-call.md;
-  d-w1b-window-001; GasCoopGame_dev worktree, NEVER dev_2; base = main @38ab715): a read-only encapsulation-safe
-  accessor over the Sc-rep dominant stamp; READ-ONLY → byte-identity must hold; RED-first; -Deliver green.
-  (2) THEN re-harden c-exec-021 (Sc-reactions): run its §Re-sync sweep + full fire-time re-hardening, fill §PENDING
-  from the Sc-kernel RESULT, then fire in a fresh GasCoopGame_dev session (owner-present PLAN). c-exec-021 does NOT
-  fire before the gap clears. Do NOT re-fire c-exec-022 / c-exec-023 / c-exec-024; do NOT re-run W1a.
+  awaiting_decision d-nextcall-tooling-vs-c021-001 (sequencing). The Sc-kernel→Sc-reactions GAP is CLEAR: W1b
+  (c-exec-025) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a, contract v14) and binding-G5 SOUND (s-work-042,
+  wf_44257b08-dfe — 0 P1/P2, 2 P3-defer; the 3 W1b-core lenses died on output-conformance so their claims were
+  re-derived first-hand: byte-identity / encapsulation / full-domain sentinel / 48 W1b+atomicity tests green).
+  Emergent c-026 (§Re-sync v11→v14, @a08860e) + c-027×2 (ADR-E-0004/0005) re-verified SOUND in the same G5.
+  ROAD (fresh GasCoopGame_dev sessions): re-harden + fire c-exec-021 (Sc-reactions) — run its §Re-sync (⚠ the repo
+  is NOW at contract v14, not v11 — the CALL body's base @38ab715 + version assumptions are STALE; re-sync BEFORE
+  building) + full fire-time re-hardening, fill §PENDING from the Sc-kernel/W1b RESULTs, then fire in a fresh session
+  (owner-present PLAN). RECOMMENDED FIRST (pending the decision): a small GasCoopGame tools/ hardening leg folding
+  DF-2 (mutation.ps1 [Category("Benchmark")] Stryker poison — every leg hit it) + d-benchmark-category-gate-001,
+  before c-021's mutation gate pays the ~30-min tax again. LATENT, tracked-deferred (NOT this leg): DF-1
+  (RectDecomposition span-DoS — P1-by-severity but ZERO caller, wakes when GridFlow room-ingestion wires; approach C
+  pre-selected) + task_441a3b58 (4th throw-atomicity site, unreachable/defense-in-depth). Do NOT re-fire
+  c-022/023/024/025/026/027; do NOT re-run W1a.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
-  VISUAL: 2026-07-03 (s-work-040) — owner authorized a PARTIAL un-hold: **c-visual-004 (Stage 1: стенд + отсечка
-  по глубине) OPENED**, render-only, zero Core/** edit, no W1b/reactions dependency. Runs in a FRESH
-  GasCoopGame_dev_2 session; base = GasCoopGame main @bc25a33 (dev_2 is behind — §Re-sync pulls main in first).
-  Stage 2+ STAYS HELD (needs W1b + a fresh owner check, not automatic) — do not silently cascade past Stage 1.
-  d-finer-grid-fork-001 ANSWERED (option 2, scheduled after Sc-damage). HONESTY: Stage 1 gives the owner a fair
-  A/B stand but is still not new player-facing PROOF (same gas, better staging) — the 07-24 milestone (first
-  real reaction/bang) stays the actual live player-facing terminus, measured independently of Stage 1 (audit
-  words-vs-docs-006 still holds: frozen-visual-as-counterweight logic does not apply to Stage 1 either).
-  Still pending owner: d-marketing-wake-001, d-coop-interdependence-repin-001.
+  VISUAL: c-visual-004 (Stage 1: стенд + отсечка по глубине) OPEN (s-work-040), render-only, zero Core/** edit, fresh
+  GasCoopGame_dev_2 session, base @bc25a33 (dev_2 behind — §Re-sync pulls main in first). Stage 2+ was gated on W1b —
+  W1b has now LANDED, so Stage 2 is unblocked on the engine side but still needs a FRESH OWNER CHECK before opening
+  (not an automatic cascade). d-finer-grid-fork-001 ANSWERED (option 2, after Sc-damage). HONESTY: Stage 1 is a fair
+  A/B stand, not new player-facing PROOF (same gas, better staging) — the 07-24 milestone (first real reaction/bang)
+  stays the live player-facing terminus, measured independently of Stage 1.
+  Still pending owner: d-nextcall-tooling-vs-c021-001, d-marketing-wake-001, d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md
