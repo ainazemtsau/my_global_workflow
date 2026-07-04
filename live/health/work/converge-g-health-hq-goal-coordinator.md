@@ -207,24 +207,12 @@ Safety in HQ is not medical diagnosis or treatment. It is an escalation and rout
 ## §OWNER_DECISION_BLOCK
 
 Immediate owner decision required:
-- d-health-hq-what-signoff-001
+- none
 
-Plain question:
-Should the owner sign this Health HQ WHAT/route as the basis for converge-arch, or send it back / kill the bet?
-
-Options:
-- A: Sign this WHAT/route. Health HQ remains goal-achievement orchestration; next is converge-arch; no executor implementation yet.
-- B: Request amendments before signoff. Keep t-2 active but return to converge with owner-specified correction.
-- C: Kill/park Health HQ and return direction focus to narrower nutrition/training/body-execution work.
-
-Recommendation:
-- A, because the research returned sufficient evidence to define the product essence and boundaries, and the WHAT preserves owner route A while preventing implementation from the rejected summary-only proof.
-
-Bad because:
-- A: delays implementation behind arch/verify and signs a strong product canon.
-- B: consumes appetite and leaves Health HQ active without a closed route.
-- C: leaves cross-domain root-goal achievement unmanaged, though it is safer than accepting a status-dispatcher HQ.
-
+d-health-hq-what-signoff-001:
+  status: answered
+  answer: >
+    Owner chose A on 2026-07-04 with "A — подписываю".
 ## §COVERAGE
 
 done_when coverage:
@@ -271,23 +259,23 @@ Route:
     owner approved route A @ 2026-07-02 — "A"
 
 Define:
-  status: awaiting_owner_signoff
-  decision: d-health-hq-what-signoff-001
-  reason: >
-    Glossary G1-G13 is now research-integrated and owner-reviewable. No owner signoff is claimed in this session.
+  status: signed
+  evidence: >
+    owner approved research-integrated glossary/WHAT route @ 2026-07-04 — "A — подписываю"
 
 Resolve:
-  status: awaiting_owner_signoff
-  decision: d-health-hq-what-signoff-001
-  reason: >
-    WHAT W1-W21 is now research-integrated and mechanically covered. Owner-owned product meaning and authority defaults must be signed before converge-arch.
-
+  status: signed
+  evidence: >
+    owner approved research-integrated WHAT/route @ 2026-07-04 — "A — подписываю"
 ## §ROUTE
 
 current:
-  awaiting_decision: d-health-hq-what-signoff-001
+  next: converge-arch
 
 if_owner_chooses_A:
+  status: selected
+  evidence: >
+    owner chose A @ 2026-07-04 — "A — подписываю"
   next: converge-arch
   reason: >
     Node is heavy/model-bearing. Architecture must compress this WHAT into implementation-neutral architecture/check requirements before converge-verify and any executor task.
@@ -305,6 +293,7 @@ if_owner_chooses_C:
 executor_authorization:
   status: not_authorized
   reason: >
-    Converge never emits executor CALL. Owner signoff, converge-arch, and converge-verify must happen first.
+    Owner signoff authorizes converge-arch, not executor implementation. Converge-arch and
+    converge-verify must pass first.
 
 END_OF_FILE: live/health/work/converge-g-health-hq-goal-coordinator.md
