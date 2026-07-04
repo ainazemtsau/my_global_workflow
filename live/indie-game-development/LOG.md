@@ -186,5 +186,17 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   with owner. Route decision d-visual-sourcescan-route-001 to owner (rec: re-derive clean on main v14). dev_2 base
   now polluted → guard added to c-visual-004. NO TREE/CHARTER change; G1 intact (no new bet). OS commit LOCAL;
   push owner-gated. → history/2026-07-04-s-work-044-visual-sourcescan-retirement-binding-g5.md
+- s-work-045 (2026-07-04) — review/close of c-exec-028 (tools/ benchmark-hardening) via binding fresh-session G5,
+  read GasCoopGame origin/main @cde4c3d directly. VERDICT = SOUND, 0 P1/P2 — first-hand on the SHIPPED [Explicit]
+  state (review rounds 1-4 judged the SUPERSEDED stash; the [Explicit] redesign had no binding G5 until now). DF-2
+  root-fixed via [Explicit] under owner-ack (mutation.ps1 byte-identical, no stash, ~13.9-min witness); hygiene
+  carve-out narrow + STRENGTHENING (closes an old combined-attr hole); the force-DISCOVER + exclusion-consistency +
+  matrix-freshness gates have real teeth (ran -SelfTest + real gates + 3/3 matrix tests first-hand). v17 cross-check
+  = PERMIT (c-028's scanner-gates are tooling/test-suite-hygiene, not behavior evidence). Leg CLOSED; DF-2 RESOLVED;
+  d-benchmark-category-gate-001 DISCHARGED; bench-tax cleared. Roll: open_call c-028 removed, next = re-harden +
+  §Re-sync (now owes v15/v16/v17) + fire c-exec-021. DF backlog DF-1/DF-3..DF-9 tracked-deferred (DF-10 launched
+  separately) → d-df-backlog-sequencing-001 to owner. Reconciled a mid-flight s-work-044 collision (concurrent
+  visual review); touched only g-9c41/c-028 sections. NO TREE/CHARTER change; G1 intact. OS commit LOCAL; push
+  owner-gated. → history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

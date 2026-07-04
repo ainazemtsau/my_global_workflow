@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-044
+updated: 2026-07-04 by s-work-045
 
 bet:
   node: g-9c41
@@ -35,11 +35,13 @@ bet:
     mutation leg hit it, ties d-benchmark-category-gate-001) most pressing; DF-1 (RectDecomposition span-DoS — P1 by
     severity but ZERO production caller, wakes when GridFlow room-ingestion wires; approach C pre-selected) and
     task_441a3b58 (4th throw-atomicity site, unreachable/defense-in-depth) latent. next: d-nextcall-tooling-vs-c021-001
-    ANSWERED (owner option 1) → c-exec-028 (tools/ benchmark-hardening) framed + hardened (s-work-043) fires FIRST,
-    then re-harden + fire c-exec-021 (Sc-reactions). VISUAL track PARTIAL
+    ANSWERED (owner option 1) → c-exec-028 (tools/ benchmark-hardening) DELIVERED + MERGED + PUSHED (origin/main
+    @cde4c3d, v14) + binding-G5 SOUND (s-work-045) — DF-2 root-fixed via [Explicit] (owner-ack), gate-integrity
+    gates have teeth, bench-tax cleared; d-benchmark-category-gate-001 DISCHARGED. next = re-harden + §Re-sync
+    (repo v14, OS now v17 — owes v15/v16/v17) + fire c-exec-021 (Sc-reactions). VISUAL track PARTIAL
     un-hold (Stage 1 c-visual-004 OPENED, s-work-040; Stage 2+ HELD pending a fresh owner check — W1b now landed).
     SPEC §6 п.2 fully-fine ceiling SEATED (~35k@50ms / ~70k@100ms weak-peer). Latest session:
-    history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md.
+    history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md.
   appetite: |
     Wave/core appetite remains governed by the g-9c41 de-risk wall; do not extend
     a bet silently. If the current slice overruns or reveals a core blind spot,
@@ -145,8 +147,10 @@ next_slices:
   - Sc-kernel ledger FULLY CLOSED; W1b (c-exec-025) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a, contract
     v14), binding-G5 SOUND (s-work-042, wf_44257b08-dfe — 0 P1/P2, 2 P3-defer). The Sc-kernel→Sc-reactions GAP is
     now CLEAR. d-nextcall-tooling-vs-c021-001 ANSWERED (owner: option 1): c-exec-028 (tools/ benchmark-hardening,
-    DF-2 + d-benchmark-category-gate-001) fires FIRST (framed + hardened s-work-043), THEN c-exec-021 (Sc-reactions)
-    — after its §Re-sync (repo now v14, NOT v11; the CALL body's base assumption is stale) + full fire-time re-hardening.
+    DF-2 + d-benchmark-category-gate-001) DELIVERED + binding-G5 SOUND (s-work-045, @cde4c3d), bench-tax cleared;
+    NEXT = c-exec-021 (Sc-reactions) — after its §Re-sync (repo at v14; OS now v17 — owes v15 review-scope-split /
+    v16 tool-unavailable-STOP / v17 source-scan-ban, which must classify c-028's own scanner-gates as tooling-
+    hygiene not behavior-evidence) + full fire-time re-hardening + fill §PENDING.
   - Sc-reactions after Sc-kernel: c-exec-021 PREPPED 2026-07-02 (s-shape-prep-screactions-001, owner present —
     forks (a)–(f) closed; body FULLY REWRITTEN at work/c-exec-021-call.md, banner generations retired): integer
     chemistry on the sparse-dominant overlap front; rule schema = explicit-SET > AXIS (default) > optional
@@ -165,22 +169,12 @@ next_slices:
   - Sc-damage after Sc-typing: dose-from-coarse, type-specific damage, temperature sink-layer.
 
 open_calls:
-  - id: c-exec-028
-    to: executor
-    for: g-9c41 / tools benchmark-hardening (DF-2 + d-benchmark-category-gate-001)
-    issued: 2026-07-04
-    call: work/c-exec-028-tools-benchmark-hardening-call.md
-    note: |
-      Framed + adversarially hardened by s-work-043 (wf_bb467c7b-c63) after owner picked «tools/ лег первым»
-      (d-nextcall-tooling-vs-c021-001 option 1). Small INFRA leg, GasCoopGame_dev worktree — NEVER dev_2. Folds
-      DF-2 (mutation.ps1 [Category("Benchmark")] poisons Stryker — self-contained absolute-path MOVE + Test-Path-
-      guarded try/finally restore) + d-benchmark-category-gate-001 (a category-AWARE NON-executing force-DISCOVER
-      counterpart for the Benchmark exclusion — do NOT mirror the NegativeControl force-EXECUTE path, it re-runs the
-      30-min matrix; --list-tests is category-blind here → source-scan/DLL-reflection; + scaling-matrix freshness
-      asserts, over_budget pinned to weak_peer_x2 not peak). Contour = c-024/026/027 infra pattern (NO frozen
-      openspec folder → v12/per-change battery N/A by absence); independent RED test-author first + fresh-session G5
-      + ADR-P-0005. Base = main @e0e4f5a (v14). dev→main merge + push OWNER-GATED. On GREEN + binding G5 → bench-tax
-      cleared; next = re-harden + fire c-exec-021.
+  # c-exec-028 (tools/ benchmark-hardening: DF-2 + d-benchmark-category-gate-001) CLOSED 2026-07-04: DELIVERED +
+  # MERGED + PUSHED (origin/main @cde4c3d, v14); binding fresh-session G5 SOUND, 0 P1/P2 (s-work-045, first-hand on
+  # the SHIPPED [Explicit] state). DF-2 root-fixed via [Explicit] (owner-ack:c-exec-028-explicit-redesign-2026-07-04;
+  # mutation.ps1 byte-identical, no stash); force-DISCOVER + exclusion-consistency + matrix-freshness gates have
+  # teeth (self+real+matrix run first-hand); v17 cross-check = permit (tooling-hygiene, not behavior-evidence).
+  # d-benchmark-category-gate-001 DISCHARGED. Record: history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md.
   - id: c-visual-003
     to: executor
     for: g-7e15 / visual wave 1
@@ -418,13 +412,13 @@ decisions:
       (it was previously mis-scoped as part of c-visual-003).
     source: work/gas-visual-plan-v2-2026-07-02.md; NOW open_calls c-exec-021 §PENDING.
   - id: d-benchmark-category-gate-001
-    status: still open; CONVERGING evidence 2026-07-04 (s-work-042) — DF-2 (tools/mutation.ps1 [Category("Benchmark")]
-      poisons Stryker; EVERY mutation leg has paid a ~30-min manual relocate/restore workaround) is the SAME
-      [Category("Benchmark")] surface as this decision, and the s-work-042 G5 found the v14 fix-class-closure gate was
-      satisfied for the throw-atomicity leg by archiving-out-of-scope (P3-b) — a third gate-integrity signal on the
-      same surface. Option 2's "BEFORE W1b" is now moot (W1b done). Rolled into the live sequencing decision
-      d-nextcall-tooling-vs-c021-001 (do a small tools/ leg folding DF-2 + this before c-exec-021, or after).
-      Recommendation still option 1, now with a concrete when.
+    status: DISCHARGED 2026-07-04 by c-exec-028 (binding fresh-session G5 SOUND, s-work-045). Both halves landed on
+      origin/main @cde4c3d: the Benchmark force-DISCOVER counterpart (category-AWARE source-scan, non-executing,
+      requires [Explicit]) + the general exclusion-consistency gate (every check.ps1 inner-loop TestCategory!=X needs
+      a counterpart, decoy-immune) + the scaling-matrix freshness asserts (x2/x4/peak/over_budget/naive) with RED
+      controls — all wired into check.ps1 -Deliver with seeded-miss self-tests, run first-hand this session. The
+      over_budget x2-vs-x4 oracle/generator disagreement was owner-acked out-of-scope → DF-10 (in-flight). Original
+      question/options preserved below for the record.
     q: |
       The c-exec-024 binding G5 surfaced a gate-integrity nit (P3): the leg's own fix edited the delivery gate
       (tools/check.ps1) to add an UNPROTECTED «&TestCategory!=Benchmark» exclusion, and the benchmark test chose
@@ -473,7 +467,8 @@ decisions:
     status: ANSWERED 2026-07-04 (owner: «tools/ лег первым») — option 1. c-exec-028 (tools/ benchmark-hardening,
       folds DF-2 + d-benchmark-category-gate-001) framed + adversarially hardened by s-work-043
       (work/c-exec-028-tools-benchmark-hardening-call.md; wf_bb467c7b-c63), fires BEFORE c-exec-021.
-      d-benchmark-category-gate-001 is now being discharged by c-exec-028.
+      d-benchmark-category-gate-001 DISCHARGED by c-exec-028. c-exec-028 now DELIVERED + MERGED + PUSHED (origin/main
+      @cde4c3d) + binding-G5 SOUND (s-work-045); option 1 fully executed, bench-tax cleared.
     q: |
       The Sc-kernel→Sc-reactions gap is CLEAR; the road's pre-agreed next is c-exec-021 (Sc-reactions). But DF-2
       (tools/mutation.ps1 [Category("Benchmark")] poisons Stryker) has hit EVERY mutation leg (~30-min manual
@@ -493,6 +488,27 @@ decisions:
       [Category("Benchmark")] surface at once. DF-1 (P1-latent, no caller) and task_441a3b58 (unreachable) stay
       tracked-deferred with wake triggers, NOT in this leg.
     source: history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md; C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md.
+  - id: d-df-backlog-sequencing-001
+    status: open — awaiting owner (s-work-045, 2026-07-04). Raised by the c-exec-028 close: the Codex KERNEL-G5
+      routed a 9-item route-home backlog (DF-1, DF-3..DF-10; details C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md),
+      5 of them P1. DF-10 is already executor-launched separately. Sequence the rest vs the c-021 road.
+    q: |
+      c-exec-028 cleared the bench-tax; the pre-agreed next is c-exec-021 (Sc-reactions). How do we sequence the
+      DF route-home backlog (DF-1, DF-3..DF-9; DF-10 in-flight) against the c-021 road?
+    options:
+      - c-021 next (main road); DF-1/DF-3/DF-4/DF-6-9 stay tracked-deferred with wake-triggers; consider ONLY DF-5
+        for a queue-jump (it weakens the deliver gate itself). [recommended]
+      - A small P1-DF batch FIRST (DF-5 gate-integrity + DF-3/DF-4 span-overflow / inactive-geometry), then c-021.
+        Bad-because: delays the feature road again right after an infra leg.
+      - Fire c-021 now, defer all DFs. Bad-because: leaves DF-5 (a live gate blind spot) open under every subsequent
+        -Deliver green.
+    recommendation: |
+      Option 1. Most DFs are latent (no caller / P2 / wake-triggered) and the feature road is overdue — but DF-5
+      (deliver review-evidence blind to STAGED changes, check.ps1:64 + review-check.ps1:90) is a genuine
+      gate-integrity hole; decide consciously whether it jumps ahead of c-021, because it silently lowers the trust
+      of every future deliver-green.
+    source: history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md;
+      C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md (DF-1, DF-3..DF-10).
   - id: d-visual-sourcescan-route-001
     status: open — awaiting owner (s-work-044, 2026-07-04). Raised by the binding G5 on the off-book dev_2 leg
       @3858752 "Close visual source-scan retirement" (VERDICT = NOT met; wf_b8e01996-620). The DECLARED core is
@@ -558,28 +574,40 @@ history_pointers:
   - W1b (c-exec-025) delivered + binding-G5 close + emergent c-026/c-027 sweep (2026-07-04): history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md; GasCoopGame origin/main @e0e4f5a (v14); binding G5 wf_44257b08-dfe; c-026 §Re-sync @a08860e + c-027×2 (ADR-E-0004/0005); C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md (DF-1/DF-2) + task_441a3b58
   - Tools benchmark-hardening CALL c-exec-028 framed + hardened (2026-07-04): history/2026-07-04-s-work-043-c-exec-028-tools-hardening-framed.md; work/c-exec-028-tools-benchmark-hardening-call.md; hardening wf_bb467c7b-c63 (2 blockers + 7 should-fix folded); owner answered d-nextcall-tooling-vs-c021-001 option 1
   - Visual source-scan retirement leg binding-G5 = NOT met (2026-07-04): history/2026-07-04-s-work-044-visual-sourcescan-retirement-binding-g5.md; refutation wf_b8e01996-620; subject GasCoopGame_dev_2 @3858752; route decision d-visual-sourcescan-route-001
+  - c-exec-028 (tools/ benchmark-hardening) delivered + binding-G5 close (2026-07-04): history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md; GasCoopGame origin/main @cde4c3d (v14); DF-2 root-fixed via [Explicit] (owner-ack); d-benchmark-category-gate-001 discharged; DF-10 launched separately; §Re-sync to c-021 now owes v15/v16/v17
 
 next:
-  IMMEDIATE = fire c-exec-028 (tools/ benchmark-hardening, DF-2 + d-benchmark-category-gate-001) in a FRESH
-  GasCoopGame_dev session — d-nextcall-tooling-vs-c021-001 ANSWERED (owner 2026-07-04: option 1, «tools/ лег
-  первым»); framed + adversarially hardened by s-work-043 (work/c-exec-028-tools-benchmark-hardening-call.md;
-  wf_bb467c7b-c63 caught 2 blockers — the force-EXECUTE-counterpart trap + --list-tests category-blindness — + 7
-  should-fix, all folded). INFRA-only, engine worktree NEVER dev_2, contour = c-024/026/027 (NO frozen openspec
-  folder → v12/per-change battery N/A by absence), independent RED test-author first + fresh G5 + ADR-P-0005, base
-  @e0e4f5a (v14), dev→main merge owner-gated. AFTER c-028 GREEN + binding G5 → c-exec-021.
+  IMMEDIATE = re-harden + fire c-exec-021 (Sc-reactions) in a FRESH owner-present PLAN session (the direction
+  writes the CALL, not the executor). c-exec-028 is DONE: DELIVERED + MERGED + PUSHED (origin/main @cde4c3d, v14) +
+  binding fresh-session G5 SOUND (s-work-045, first-hand on the SHIPPED [Explicit] state — 0 P1/P2); bench-tax
+  cleared, mutation legs now run clean; d-benchmark-category-gate-001 DISCHARGED; DF-2 → RESOLVED. Before c-021
+  fires, at fire time: run its §Re-sync — ⚠ the repo is at v14 but the OS CONTRACT_VERSION is now v17, so the
+  §Re-sync owes v15 (review-scope-split) + v16 (tool-unavailable-STOP) + v17 (source-scan-is-never-behavior-
+  evidence + self-written-scanner ban); the CALL body's "@38ab715 / v11" base is doubly STALE. v17 note: c-028's
+  OWN new gates (benchmark-discoverability-check.ps1 + excluded-category-check.ps1) are self-written source-scanners
+  — but of the TOOLING/TEST-SUITE-HYGIENE family (hygiene.ps1), NOT product behavior evidence, so v17 PERMITS them;
+  record that classification consciously at §Re-sync, do NOT reflexively delete them. Then full re-hardening + fill
+  §PENDING from the Sc-kernel/W1b RESULTs, then fire.
   The Sc-kernel→Sc-reactions GAP is CLEAR: W1b
   (c-exec-025) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a, contract v14) and binding-G5 SOUND (s-work-042,
   wf_44257b08-dfe — 0 P1/P2, 2 P3-defer; the 3 W1b-core lenses died on output-conformance so their claims were
   re-derived first-hand: byte-identity / encapsulation / full-domain sentinel / 48 W1b+atomicity tests green).
   Emergent c-026 (§Re-sync v11→v14, @a08860e) + c-027×2 (ADR-E-0004/0005) re-verified SOUND in the same G5.
-  ROAD (fresh GasCoopGame_dev sessions): re-harden + fire c-exec-021 (Sc-reactions) — run its §Re-sync (⚠ the repo
-  is NOW at contract v14, not v11 — the CALL body's base @38ab715 + version assumptions are STALE; re-sync BEFORE
-  building) + full fire-time re-hardening, fill §PENDING from the Sc-kernel/W1b RESULTs, then fire in a fresh session
-  (owner-present PLAN) — but ONLY AFTER c-exec-028 clears the bench-tax (decided; c-028 is the immediate next).
-  LATENT, tracked-deferred (NOT c-028): DF-1
-  (RectDecomposition span-DoS — P1-by-severity but ZERO caller, wakes when GridFlow room-ingestion wires; approach C
-  pre-selected) + task_441a3b58 (4th throw-atomicity site, unreachable/defense-in-depth). Do NOT re-fire
-  c-022/023/024/025/026/027; do NOT re-run W1a.
+  ROAD (fresh GasCoopGame_dev sessions): c-exec-021 (Sc-reactions) — run its §Re-sync (⚠ repo at v14, OS now v17 —
+  owes v15/v16/v17; the CALL body's base @38ab715 + v11 assumptions are doubly STALE; re-sync BEFORE building) +
+  full fire-time re-hardening, fill §PENDING from the Sc-kernel/W1b RESULTs, then fire in a fresh session
+  (owner-present PLAN). c-exec-028 has CLEARED the bench-tax (CLOSED, binding-G5 SOUND s-work-045); c-021 is now the
+  immediate next.
+  LATENT, tracked-deferred (route-home backlog from c-028's Codex KERNEL-G5, direction owns each CALL — see
+  d-df-backlog-sequencing-001 + C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md): DF-1 (RectDecomposition
+  span-DoS — P1, ZERO caller, wakes when GridFlow room-ingestion wires; approach C pre-selected) + DF-3
+  (LatticeQuantize extent int-overflow, P1, same class as DF-1) + DF-4 (BuiltSceneRoomReader admits INACTIVE
+  geometry as authoritative topology, P1, needs EditMode tests) + DF-5 (deliver review-evidence blind to STAGED
+  changes — check.ps1:64 + review-check.ps1:90 — P1 GATE-INTEGRITY, the one that arguably jumps the c-021 queue) +
+  DF-6..DF-9 (P2: Phase.ReadOnly input-encapsulation / mutation-json single-field accept / GasVisual material leak /
+  hygiene assert file-vs-method) + task_441a3b58 (4th throw-atomicity site, unreachable). DF-10 (P1, x2-vs-x4 matrix
+  oracle/generator disagreement) is EXECUTOR-LAUNCHED in a separate session (in-flight; reconcile when its RESULT
+  returns). Do NOT re-fire c-022/023/024/025/026/027/028; do NOT re-run W1a.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
   VISUAL: c-visual-004 (Stage 1: стенд + отсечка по глубине) OPEN (s-work-040), render-only, zero Core/** edit, fresh
   GasCoopGame_dev_2 session, base @bc25a33 (dev_2 behind — §Re-sync pulls main in first). Stage 2+ was gated on W1b —
@@ -593,6 +621,7 @@ next:
   their own legs IF wanted). GUARD: dev_2 HEAD @3858752 is contaminated + 46 behind main — reset dev_2 to clean
   main before ANY c-visual-004 Stage 1 work. Confirm-with-owner: the RESULT's «все вроде окей» owner-eye acceptance
   (owner-run gate; likely did not knowingly cover the undeclared shader-occlusion feature).
-  Still pending owner: d-visual-sourcescan-route-001, d-marketing-wake-001, d-coop-interdependence-repin-001.
+  Still pending owner: d-df-backlog-sequencing-001 (DF backlog sequencing vs c-021), d-visual-sourcescan-route-001,
+  d-marketing-wake-001, d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md
