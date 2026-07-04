@@ -120,15 +120,19 @@ tasks:
       Owner approved option A on 2026-07-02 with "A": Health HQ remains active only on the corrected
       WHAT/research/architecture/verify route. No new Health AI implementation is authorized from the
       summary-only proof.
+    what_signoff: >
+      Owner signed the research-integrated Health HQ WHAT/route on 2026-07-04 with
+      "A — подписываю". Health HQ is accepted as an owner-triggered goal-achievement orchestration
+      layer, not a status dispatcher/dashboard/god-agent/medical advisor/integration hub. Next route
+      is converge-arch before converge-verify and any executor implementation.
     current_route: >
-      Research child c-health-hq-goal-achievement-model-research-001 returned; parent converge
-      c-health-hq-orchestrator-converge-001 must convert the accepted research into an
-      owner-signable WHAT/route before Define/Resolve can close.
+      Owner-signed WHAT/route is ready for converge-arch. No executor implementation is authorized
+      until converge-arch and converge-verify pass.
     research_note: >
       Research returned and accepted as input on 2026-07-03; artifact:
       live/health/work/health-hq-goal-achievement-model-research-2026-07-03.md.
-      It is input for owner-signable WHAT/route, not product acceptance and not implementation authorization.
-
+      It has been integrated into the signed WHAT/route, but remains research input, not product
+      acceptance and not implementation authorization.
 open_calls: []
 
 recurring:
@@ -157,6 +161,56 @@ recurring:
 decisions: []
 
 next: |
-  return-to-parent c-health-hq-orchestrator-converge-001
+  CALL c-health-hq-orchestrator-converge-arch-001
+  to: session
+  direction: health
+  play: converge-arch
+  node: g-health-hq-goal-coordinator
+  task: t-2
+  goal: |
+    Convert the owner-signed Health HQ WHAT/route into an implementation-neutral architecture/check route
+    for goal-achievement orchestration, without authorizing executor implementation yet.
+  context: |
+    Read:
+    - os/KERNEL.md
+    - os/plays/converge-arch.md
+    - live/health/CHARTER.md
+    - live/health/TREE.md
+    - live/health/NOW.md
+    - live/health/work/converge-g-health-hq-goal-coordinator.md
+    - live/health/work/health-hq-goal-achievement-model-research-2026-07-03.md
+    - live/health/history/2026-07-02-s-health-hq-orchestrator-route-approval-001.md
+    - live/health/history/2026-07-03-c-health-hq-goal-achievement-model-research-001.md
+    - live/health/history/2026-07-04-s-health-hq-orchestrator-converge-after-research-001.md
+    - live/health/history/2026-07-04-s-health-hq-what-signoff-001.md
+
+    Current authority:
+    - Owner signed d-health-hq-what-signoff-001 with "A — подписываю".
+    - Health HQ is owner-triggered goal-achievement orchestration, not a status dispatcher/dashboard/god-agent/medical advisor/integration hub.
+    - Existing x_health_hq summary-only proof is technical evidence only.
+    - No executor implementation is authorized until architecture and converge-verify pass.
+    - Nutrition/training/sleep/future domains are execution mechanisms; HQ may state outcome/support demands and route non-mutating requests but must not silently mutate domain artifacts.
+  boundaries: |
+    No Health AI implementation.
+    No dashboard/API/polling/integration design.
+    No raw body/nutrition/training data in Direction OS.
+    No medical diagnosis or treatment plan.
+    Do not send raw research directly to executor.
+    Preserve domain authority: HQ routes non-mutating demands; domains execute and mutate through their own procedures.
+  done_when: |
+    Architecture/check route covers:
+    - phase/milestone objects;
+    - metric hierarchy and summary-source contract;
+    - strategic review loop;
+    - bottleneck taxonomy;
+    - domain demand contract objects for nutrition, training/activity, sleep/recovery, and future domains;
+    - decision classes and owner approval gate;
+    - safety/recovery boundary;
+    - old x_health_hq proof as subcomponent only;
+    - implementation evidence expected for later executor;
+    - next route to converge-verify, not executor, unless blocked.
+  return: |
+    RESULT with architecture/check artifact, exact state_changes, play_check, log line, and next CALL/awaiting_decision.
+  budget: one converge-arch session
 
 END_OF_FILE: live/health/NOW.md
