@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-045
+updated: 2026-07-04 by s-work-046
 
 bet:
   node: g-9c41
@@ -209,6 +209,26 @@ open_calls:
       FAILED its binding G5 (see d-visual-sourcescan-route-001) and is CONTAMINATED (undeclared FishNet/shader/
       gate-tooling scope) + 46 commits BEHIND v14 main. c-visual-004 must NOT build on top of @3858752; reset
       dev_2 to a clean current-main base BEFORE any Stage 1 work.
+      ⚠ 2026-07-04 (s-work-046): route ANSWERED → c-visual-005 (clean re-derive on main v14) is the vehicle; IT does
+      the dev_2 reset (its step 0). Fire c-visual-005 BEFORE c-visual-004 Stage 1 (Stage 1 rebases onto the clean tip).
+  - id: c-visual-005
+    to: executor
+    for: g-7e15 / clean visual source-scan retirement (re-derive on v14)
+    issued: 2026-07-04
+    call: work/c-visual-005-clean-sourcescan-retirement-call.md
+    note: |
+      OPENED 2026-07-04 (s-work-046) — resolves d-visual-sourcescan-route-001 (owner option 1). SUPERSEDES the
+      contaminated off-book leg @3858752 (do NOT merge or build on it). CLEAN, SINGLE-CONCERN re-derive on current
+      main @cde4c3d (v14): KEEP = delete the 4 visual *ScanTests.cs, retire the c-visual-003 scan wording in
+      spec/tasks/ADR, the real math/acceptance tests, the GasUber occlusion feature (DECLARED) + duplicate-sampler
+      fix, the Open Arena Jet + LP1 camera fixes. THE ONE FIX vs @3858752 = the wiring smoke must be genuinely
+      EXISTENCE-ONLY (no File.ReadAllText/Does.Contain/glob over source text — that was the crutch it exists to
+      retire). DROP (out of scope) = ALL FishNet networking (preserved on tag ref/visual-sourcescan-leg-3858752 for
+      the future Sc-net slice — owner-delegated net decision, s-work-046: NOT now, gas-core road first), ALL gate/
+      tooling edits (NEVER self-edit check.ps1; dev_2 visual close = owner-eye + normal gates, NOT the engine
+      "DELIVERED on `dev`" assertion), the benchmark-scan concern (TypeId/GasRosterConfig/VoxelBenchmarkDirector),
+      the dep bump. Step 0 = tag @3858752 + start from a clean main base. Runs in a FRESH GasCoopGame_dev_2 session
+      (owner-present PLAN); independent RED test-author + fresh-session G5 + owner-eye; dev_2→main merge owner-gated.
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -320,6 +340,10 @@ parallel_tracks:
       self-relaxed DELIVERED gate arm, on a 46-behind-v11 base. NOT merged. Route decision to owner =
       d-visual-sourcescan-route-001 (rec: re-derive clean on main v14). dev_2 base is now polluted — see the
       c-visual-004 ⚠ note.
+      2026-07-04 (s-work-046): RESOLVED — owner picked option 1 (visual + shader-occlusion WANTED, kept declared);
+      net DELEGATED to me → NOT now / PRESERVED (tag ref/visual-sourcescan-leg-3858752) for the future Sc-net slice.
+      Opened c-visual-005 (clean re-derive on main v14; wiring smoke made existence-only; net/gate-tooling/TypeId
+      dropped; step 0 tags @3858752 + resets dev_2). Fire c-visual-005 BEFORE c-visual-004 Stage 1.
   - id: g-d3a8
     track: canon/design
     track_state: parked
@@ -510,7 +534,16 @@ decisions:
     source: history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md;
       C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md (DF-1, DF-3..DF-10).
   - id: d-visual-sourcescan-route-001
-    status: open — awaiting owner (s-work-044, 2026-07-04). Raised by the binding G5 on the off-book dev_2 leg
+    status: ANSWERED 2026-07-04 (owner + delegated net call, s-work-046) — OPTION 1 (re-derive clean on main v14).
+      Owner: visual accepted («по визуалу всё окей»); shaders WANTED («естественно, нужны — это главная задача была»)
+      → the GasUber occlusion feature is KEPT (declared). Networking DELEGATED to me («ты можешь сам сказать, нужно
+      нам это, не нужно») → DECISION: NOT now / PRESERVE. The FishNet work is real input-lockstep plumbing but it is
+      OFF the current road (gas-core active, Sc-reactions next; netcode is a July-demo-road candidate slice, not
+      framed), DORMANT (no game caller), UNREVIEWED (no PLAN, changes existing silent-drop behavior), on a stale v11
+      base — pulling it in now = an unplanned netcode slice jumping the queue, which violates WIP + the no-unreviewed-
+      code rule. So: DISCARD from this leg, PRESERVE the @3858752 diff (tag ref/visual-sourcescan-leg-3858752) as the
+      reference for the future Sc-net slice (its home = the July demo-road shape's network-ladder row). Executed as
+      c-visual-005 (opened this session). Raised by the binding G5 on the off-book dev_2 leg
       @3858752 "Close visual source-scan retirement" (VERDICT = NOT met; wf_b8e01996-620). The DECLARED core is
       salvageable (4 *ScanTests.cs deleted, spec/tasks/ADR scan-wording retired honestly, real math/acceptance
       tests genuine) but the ONE commit is not cleanly G5-passable: (1) massive UNDECLARED scope — FishNet
@@ -575,6 +608,7 @@ history_pointers:
   - Tools benchmark-hardening CALL c-exec-028 framed + hardened (2026-07-04): history/2026-07-04-s-work-043-c-exec-028-tools-hardening-framed.md; work/c-exec-028-tools-benchmark-hardening-call.md; hardening wf_bb467c7b-c63 (2 blockers + 7 should-fix folded); owner answered d-nextcall-tooling-vs-c021-001 option 1
   - Visual source-scan retirement leg binding-G5 = NOT met (2026-07-04): history/2026-07-04-s-work-044-visual-sourcescan-retirement-binding-g5.md; refutation wf_b8e01996-620; subject GasCoopGame_dev_2 @3858752; route decision d-visual-sourcescan-route-001
   - c-exec-028 (tools/ benchmark-hardening) delivered + binding-G5 close (2026-07-04): history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md; GasCoopGame origin/main @cde4c3d (v14); DF-2 root-fixed via [Explicit] (owner-ack); d-benchmark-category-gate-001 discharged; DF-10 launched separately; §Re-sync to c-021 now owes v15/v16/v17
+  - Visual source-scan route RESOLVED + c-visual-005 framed (2026-07-04): history/2026-07-04-s-work-046-visual-sourcescan-route-resolve.md; work/c-visual-005-clean-sourcescan-retirement-call.md; d-visual-sourcescan-route-001 ANSWERED (owner option 1 + delegated net call: FishNet NOT now / PRESERVED tag ref/visual-sourcescan-leg-3858752)
 
 next:
   IMMEDIATE = re-harden + fire c-exec-021 (Sc-reactions) in a FRESH owner-present PLAN session (the direction
@@ -615,13 +649,15 @@ next:
   (not an automatic cascade). d-finer-grid-fork-001 ANSWERED (option 2, after Sc-damage). HONESTY: Stage 1 is a fair
   A/B stand, not new player-facing PROOF (same gas, better staging) — the 07-24 milestone (first real reaction/bang)
   stays the live player-facing terminus, measured independently of Stage 1.
-  VISUAL SOURCE-SCAN LEG: an off-book dev_2 leg @3858752 "Close visual source-scan retirement" returned + FAILED
-  its binding G5 (s-work-044, NOT met, wf_b8e01996-620). NOT merged. Route decision to owner =
-  d-visual-sourcescan-route-001 (rec: re-derive clean on main v14; split FishNet/shader-occlusion/gate-tooling into
-  their own legs IF wanted). GUARD: dev_2 HEAD @3858752 is contaminated + 46 behind main — reset dev_2 to clean
-  main before ANY c-visual-004 Stage 1 work. Confirm-with-owner: the RESULT's «все вроде окей» owner-eye acceptance
-  (owner-run gate; likely did not knowingly cover the undeclared shader-occlusion feature).
-  Still pending owner: d-df-backlog-sequencing-001 (DF backlog sequencing vs c-021), d-visual-sourcescan-route-001,
-  d-marketing-wake-001, d-coop-interdependence-repin-001.
+  VISUAL SOURCE-SCAN LEG: RESOLVED (d-visual-sourcescan-route-001 ANSWERED, owner option 1 + my delegated net call,
+  s-work-046). The off-book dev_2 leg @3858752 FAILED its binding G5 (s-work-044) → NOT merged. Replaced by
+  c-visual-005 = clean re-derive on main v14 (KEEP visual+shader-occlusion[declared]+camera; wiring smoke made
+  EXISTENCE-ONLY; DROP net/gate-tooling/TypeId/dep-bump; step 0 tags @3858752 + resets dev_2). NET decision (owner-
+  delegated): FishNet NOT now / PRESERVED on tag ref/visual-sourcescan-leg-3858752 for the future Sc-net slice (July
+  demo-road network-ladder). VISUAL SEQUENCING: fire c-visual-005 (fresh GasCoopGame_dev_2, owner-present PLAN)
+  BEFORE c-visual-004 Stage 1 (Stage 1 rebases onto the clean tip). Owner-eye «все вроде окей» stands for the look;
+  the re-derive re-confirms it at close (shader-occlusion now declared).
+  Still pending owner: d-df-backlog-sequencing-001 (DF backlog sequencing vs c-021), d-marketing-wake-001,
+  d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md

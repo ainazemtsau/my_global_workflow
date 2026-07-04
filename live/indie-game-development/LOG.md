@@ -198,5 +198,20 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   separately) → d-df-backlog-sequencing-001 to owner. Reconciled a mid-flight s-work-044 collision (concurrent
   visual review); touched only g-9c41/c-028 sections. NO TREE/CHARTER change; G1 intact. OS commit LOCAL; push
   owner-gated. → history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md
+- s-work-046 (2026-07-04) — RESOLVE d-visual-sourcescan-route-001 (owner answered + one delegated tech call). Owner:
+  visual accepted, shaders WANTED (the GasUber walls-occlude-gas occlusion is KEPT, declared). Networking DELEGATED
+  to me → DECIDED: FishNet NOT now / PRESERVE — it is real input-lockstep plumbing but OFF the current gas-core road
+  (netcode is a July-demo-road candidate, not framed), DORMANT (no game caller), UNREVIEWED (no PLAN, changes silent-
+  drop behavior), on a stale v11 base; pulling it now jumps the queue + violates the no-unreviewed-code rule. Route =
+  OPTION 1: do NOT merge @3858752; FRAMED c-visual-005 = a clean, single-concern re-derive on main v14 (KEEP the 4
+  scan-test deletions + spec/tasks/ADR scan-wording retirement + real math/acceptance tests + GasUber occlusion
+  [declared] + camera fixes; THE ONE FIX = wiring smoke must be EXISTENCE-ONLY, no source-text scan; DROP net +
+  gate-tooling [never self-edit check.ps1] + benchmark-scan/TypeId + dep-bump; step 0 tags @3858752 →
+  ref/visual-sourcescan-leg-3858752 preserving the net+shader ref, then resets dev_2 off the polluted tip). Fire
+  c-visual-005 before c-visual-004 Stage 1. NOTE: v14 main check.ps1 STILL hardcodes "DELIVERED on `dev`" (engine-
+  only) → visual legs close via owner-eye + normal gates, not that assertion; branch-aware gate, if ever wanted, is
+  a separate reviewed tools/ change. NO product-repo change here. NO TREE/CHARTER change; G1 intact. Built on the
+  concurrent s-work-045 commit @0e5437a (c-028 close). OS commit LOCAL; push owner-gated. →
+  history/2026-07-04-s-work-046-visual-sourcescan-route-resolve.md
 
 END_OF_FILE: live/indie-game-development/LOG.md
