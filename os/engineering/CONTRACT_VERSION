@@ -10,9 +10,31 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 15
+current: 16
 
 log:
+  16  2026-07-04  tool-unavailable STOP + explicit-written-owner-ack (the no-silent-crutch axis, owner request, same
+      session as v15 — owner «давай все как ты рекомендуешь»): a required tool/harness the plan depends on going
+      UNAVAILABLE (Unity Editor not launched, the Unity MCP dropped, a headless-test license absent) was only
+      IMPLICITLY an escalation trigger — CONTOUR ESCALATE named "sandbox/permission boundary hit" and the v8
+      no-silent-crutch rule, but an executor need not read "MCP dropped / Editor not running" as a permission boundary,
+      and the owner reports it recurring (the MCP slips, or he forgets to launch Unity) with the risk that a leg
+      crutches around it silently. Verdict per MAINTENANCE step 1: (c) customization — explicit owner request (its own
+      trigger; the ≥2-friction threshold is only for self-initiated changes). Fix, STRICTLY ADDITIVE (adds a STOP
+      trigger + reinforces the owner-ack — nothing that previously failed now passes; no gate weakened; validator/
+      test-author/strong-check/coverage/review-evidence/negative-control/property-layer/refuted-register/
+      fix-class-closure/review-scope-split all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact):
+      CONTOUR ESCALATE names "a required tool/harness the plan depends on is UNAVAILABLE (engine Editor not running /
+      needed MCP disconnected / headless license absent)" as a mandatory STOP + owner-contact naming the tool, never a
+      workaround/crutch/silent scope-narrowing, and any exception (proceed-anyway / substitute / model-widen) stands
+      ONLY on the owner's EXPLICIT written owner-ack he types in chat — never a builder default; PROJECT_SETUP Step-3
+      run-contract carries the same clause (→ every product repo); coding-agent.md Role-2 blockers names the
+      tool-unavailable STOP. SCOPE (honest): behavioral, not a deliver-script — enforced by the executor stopping + the
+      push notification, like the rest of ESCALATE; the OS-side text is ACTIVE now, product AGENTS.md gets the explicit
+      line at §Re-sync. §Re-sync OWED: GasCoopGame + health-ai (mirror the tool-unavailable STOP + written-owner-ack
+      clause into the product run-contract; bump synced_contract_version 15→16 — folds into the same staged c-exec-026
+      re-sync, now 11→16). (owner: «если Unity недоступна — стопаться и говорить мне, надо запустить; никаких обходных
+      путей, костыли запрещено строго; исключения — только с моего явного письменного да в чате»)
   15  2026-07-04  review-scope split (in-scope gates / class-sibling routes — the review-OUTPUT axis, owner request):
       a leg's independent review returns findings from the whole-codebase class search (VALIDATION G4 "enumerate the
       sibling sites") mixed FLAT with the diff's own findings and gates on all of them — so one diff drowns under

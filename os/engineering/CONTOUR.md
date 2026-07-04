@@ -163,14 +163,21 @@ CALL (business task from a direction)
     RETRY/escalation, and it does not run for a `light` change.
   → ESCALATE (the only mid-run owner contact): retry budget exhausted,
     non-convergence, a decision outside the approved plan (new dependency,
-    scope change, irreversible action), or sandbox/permission boundary hit, OR the
+    scope change, irreversible action), or sandbox/permission boundary hit, OR a required tool/harness the plan
+    depends on is UNAVAILABLE (the engine Editor not running, an MCP the leg needs
+    disconnected, a headless-test license absent) — a mandatory STOP naming the tool
+    to the owner («<tool> unavailable — launch it»), never a workaround/crutch/silent
+    scope-narrowing around it, OR the
     specific approach/substrate the CALL or frozen plan NAMED turns out infeasible,
     blocked, or costly. A blocked named approach is ITSELF a mandatory escalation even
     if a substitute would pass every gate: the builder may PROPOSE an alternative as an
     option but may NEVER adopt one as the deliverable, and may NEVER silently widen its
     own model — a stretch/normalization "crutch" the named approach did not require is a
     substitution too. A degraded or different mechanism is an owner decision, surfaced as
-    a pre-build STOP, never an end-of-run assumptions/cuts line.
+    a pre-build STOP, never an end-of-run assumptions/cuts line. Any exception to a
+    required STOP — proceeding on an unavailable tool, adopting a substitute, widening
+    the model — stands ONLY on the owner's EXPLICIT written owner-ack (a signature or
+    escalation-id he actually types in chat), never a builder default.
     Escalation = push notification + the specific question + options.
   → REPORT (the RESULT back to the direction):
     outcome; evidence (PR link, gate outputs, ledger final state, the
