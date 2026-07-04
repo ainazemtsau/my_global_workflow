@@ -172,5 +172,19 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   work/c-exec-028-tools-benchmark-hardening-call.md; NOT executed here (no pwsh; runs full contour in a fresh
   GasCoopGame_dev session with independent RED test-author + fresh G5). NO TREE/CHARTER change; G1 intact. OS commit
   LOCAL; push owner-gated. → history/2026-07-04-s-work-043-c-exec-028-tools-hardening-framed.md
+- s-work-044 (2026-07-04) — binding G5 / review on the off-book dev_2 leg @3858752 "Close visual source-scan
+  retirement" (reported DELIVERED). VERDICT = NOT met. This OS session was the fresh G5 (read GasCoopGame_dev_2
+  product git directly + 4-lens refutation wf_b8e01996-620 + first-hand re-derivation). Salvageable core (4
+  *ScanTests.cs deleted, spec/tasks/ADR scan-wording retired honestly, real math/acceptance tests genuine) — but
+  NOT cleanly G5-passable as one commit: massive UNDECLARED scope (FishNet server-input rewrite +414 with a
+  silent-drop semantic change, EditMode net suite +416, check.ps1 +653 rewrite, package-lock gate +227, unity-mcp
+  dep bump, TypeId.Equals narrowing, a NEW GasUber scene-depth occlusion feature — none in the outcome, none
+  covered by the cited Core.slnx gates); the "wiring smoke" STILL scans source text (Does.Contain of the retired
+  markers) so the crutch is narrowed not retired; a SELF-RELAXED DELIVERED gate arm (branch pin dev→current-branch
+  in the same commit, no ADR); on a 46-behind-v11 base that collides with v14 main. NO merge, NO product-repo
+  change. Owner-eye/Unity claims + the «все вроде окей» owner-run acceptance NAMED as uncertified here → reconfirm
+  with owner. Route decision d-visual-sourcescan-route-001 to owner (rec: re-derive clean on main v14). dev_2 base
+  now polluted → guard added to c-visual-004. NO TREE/CHARTER change; G1 intact (no new bet). OS commit LOCAL;
+  push owner-gated. → history/2026-07-04-s-work-044-visual-sourcescan-retirement-binding-g5.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

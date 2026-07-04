@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-043
+updated: 2026-07-04 by s-work-044
 
 bet:
   node: g-9c41
@@ -211,6 +211,10 @@ open_calls:
       builds) is currently BEHIND main (still at the old W1a tip @40b94cc) — the PLAN's §Re-sync step MUST pull
       main into dev_2 FIRST. Runs in GasCoopGame_dev_2 (never dev — that worktree carries engine debug cubes,
       not the real gas visual). dev_2→main merge owner-gated.
+      ⚠ 2026-07-04 (s-work-044): dev_2 HEAD is now @3858752 "Close visual source-scan retirement" — a leg that
+      FAILED its binding G5 (see d-visual-sourcescan-route-001) and is CONTAMINATED (undeclared FishNet/shader/
+      gate-tooling scope) + 46 commits BEHIND v14 main. c-visual-004 must NOT build on top of @3858752; reset
+      dev_2 to a clean current-main base BEFORE any Stage 1 work.
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -316,6 +320,12 @@ parallel_tracks:
       Old "S2 two-type+scatter in the empty lab" and the 06-29 wave-plan sequencing are SUPERSEDED.
       Reading set incl. docs/gas-visual-stage-plan.md §S1/§S6+ and the canon visual-style minimal note
       (history/s-canon-visual-style-minimal-gas-stage-001.md).
+      2026-07-04 (s-work-044): an off-book leg "Close visual source-scan retirement" returned on dev_2 (@3858752)
+      and FAILED its binding G5 (NOT met; wf_b8e01996-620) — salvageable core, but massive undeclared scope
+      (FishNet/shader-occlusion/gate-tooling) + a narrowed source-scan still living in the "wiring smoke" + a
+      self-relaxed DELIVERED gate arm, on a 46-behind-v11 base. NOT merged. Route decision to owner =
+      d-visual-sourcescan-route-001 (rec: re-derive clean on main v14). dev_2 base is now polluted — see the
+      c-visual-004 ⚠ note.
   - id: g-d3a8
     track: canon/design
     track_state: parked
@@ -483,6 +493,43 @@ decisions:
       [Category("Benchmark")] surface at once. DF-1 (P1-latent, no caller) and task_441a3b58 (unreachable) stay
       tracked-deferred with wake triggers, NOT in this leg.
     source: history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md; C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md.
+  - id: d-visual-sourcescan-route-001
+    status: open — awaiting owner (s-work-044, 2026-07-04). Raised by the binding G5 on the off-book dev_2 leg
+      @3858752 "Close visual source-scan retirement" (VERDICT = NOT met; wf_b8e01996-620). The DECLARED core is
+      salvageable (4 *ScanTests.cs deleted, spec/tasks/ADR scan-wording retired honestly, real math/acceptance
+      tests genuine) but the ONE commit is not cleanly G5-passable: (1) massive UNDECLARED scope — FishNet
+      server-input rewrite (+414, ineligible peers now SILENTLY dropped) + EditMode net suite (+416) + check.ps1
+      rewrite (+653) + package-lock gate (+227) + unity-mcp dep bump + TypeId.Equals narrowing + a NEW GasUber
+      scene-depth OCCLUSION shader feature ("walls occlude the gas"), none in the outcome and none covered by the
+      cited green gates (Core.slnx only); (2) the "wiring smoke" STILL scans source text (File.ReadAllText +
+      Does.Contain of the retired // GASUBER_WARP/// GASLIGHTBINDER/// GOODSAMPLE markers + a verbatim glob-count) —
+      the crutch is narrowed, not retired; (3) SELF-RELAXED gate arm — the DELIVERED-status branch pin was changed
+      from constant `dev` to Get-CurrentGitBranch in the same commit so its own `dev2` RESULT self-accepts, no ADR;
+      (4) 46-behind-v11 base → will collide with v14 gate evolution, no clean merge. Owner-eye/Unity claims (shader
+      compile, jet visibility, camera framing, the occlusion look, net EditMode suite) + the RESULT's «все вроде
+      окей» owner-run acceptance are NOT certified here and must be reconfirmed with the owner.
+    q: |
+      How to land the wanted visual source-scan retirement given dev_2 @3858752 is contaminated + 46 behind v14 main?
+    options:
+      - Re-derive CLEAN on current main v14: take only the honest visual pieces (delete the 4 scan tests; retire the
+        scan wording; keep the real math/acceptance tests) + make the wiring smoke genuinely EXISTENCE-ONLY (no
+        Does.Contain over source); split FishNet / shader-occlusion / gate-tooling / TypeId into their OWN
+        tracked+gated+reviewed legs IF wanted. [recommended] Bad-because: re-does dev_2 plumbing that "works"; a bit slower.
+      - Surgical split-rebase: cherry-pick @3858752 into clean pieces (visual / net / shader / tooling) onto v14,
+        gate+review each. Bad-because: the check.ps1 v11↔v14 collision makes the tooling piece painful; more fiddly;
+        risk of carrying v11 assumptions forward.
+      - Accept the visual part as-is / partial merge. Bad-because: impossible without a split anyway; leaves the
+        source-scan-in-the-replacement + the self-relaxed gate arm. [not recommended]
+    sub_question: |
+      Do you want the FishNet pre-latch input buffering + peer-auth gating, and the walls-occlude-gas shader
+      occlusion, AT ALL? yes → each becomes its own framed+gated leg (networking needs the EditMode net suite run +
+      independent review it never got); no → discard.
+    recommendation: |
+      Option 1. Cleanest: resolves the stale base, the undeclared scope, the crutch-in-the-replacement, and the
+      self-gate-edit at once, and matches the no-silent-crutch / no-undeclared-scope program. The dev_2 diffs stay as
+      reference material, so "re-derive" = do it honestly and fast off an already-proven sketch.
+    source: history/2026-07-04-s-work-044-visual-sourcescan-retirement-binding-g5.md; wf_b8e01996-620;
+      GasCoopGame_dev_2 @3858752.
 
 history_pointers:
   - Full pre-compaction NOW: work/now-snapshot-2026-06-29.md
@@ -510,6 +557,7 @@ history_pointers:
   - Sc-kernel cleanup c-exec-024 binding-G5 close + W1b framed (2026-07-03): history/2026-07-03-s-work-041-c-exec-024-binding-g5-close.md; GasCoopGame main @7a54320 (→ @38ab715); binding G5 wf_fd7a1418-6cf; next CALL work/c-exec-025-w1b-call.md
   - W1b (c-exec-025) delivered + binding-G5 close + emergent c-026/c-027 sweep (2026-07-04): history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md; GasCoopGame origin/main @e0e4f5a (v14); binding G5 wf_44257b08-dfe; c-026 §Re-sync @a08860e + c-027×2 (ADR-E-0004/0005); C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md (DF-1/DF-2) + task_441a3b58
   - Tools benchmark-hardening CALL c-exec-028 framed + hardened (2026-07-04): history/2026-07-04-s-work-043-c-exec-028-tools-hardening-framed.md; work/c-exec-028-tools-benchmark-hardening-call.md; hardening wf_bb467c7b-c63 (2 blockers + 7 should-fix folded); owner answered d-nextcall-tooling-vs-c021-001 option 1
+  - Visual source-scan retirement leg binding-G5 = NOT met (2026-07-04): history/2026-07-04-s-work-044-visual-sourcescan-retirement-binding-g5.md; refutation wf_b8e01996-620; subject GasCoopGame_dev_2 @3858752; route decision d-visual-sourcescan-route-001
 
 next:
   IMMEDIATE = fire c-exec-028 (tools/ benchmark-hardening, DF-2 + d-benchmark-category-gate-001) in a FRESH
@@ -539,6 +587,12 @@ next:
   (not an automatic cascade). d-finer-grid-fork-001 ANSWERED (option 2, after Sc-damage). HONESTY: Stage 1 is a fair
   A/B stand, not new player-facing PROOF (same gas, better staging) — the 07-24 milestone (first real reaction/bang)
   stays the live player-facing terminus, measured independently of Stage 1.
-  Still pending owner: d-marketing-wake-001, d-coop-interdependence-repin-001.
+  VISUAL SOURCE-SCAN LEG: an off-book dev_2 leg @3858752 "Close visual source-scan retirement" returned + FAILED
+  its binding G5 (s-work-044, NOT met, wf_b8e01996-620). NOT merged. Route decision to owner =
+  d-visual-sourcescan-route-001 (rec: re-derive clean on main v14; split FishNet/shader-occlusion/gate-tooling into
+  their own legs IF wanted). GUARD: dev_2 HEAD @3858752 is contaminated + 46 behind main — reset dev_2 to clean
+  main before ANY c-visual-004 Stage 1 work. Confirm-with-owner: the RESULT's «все вроде окей» owner-eye acceptance
+  (owner-run gate; likely did not knowingly cover the undeclared shader-occlusion feature).
+  Still pending owner: d-visual-sourcescan-route-001, d-marketing-wake-001, d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md
