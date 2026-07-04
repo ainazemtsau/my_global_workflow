@@ -152,7 +152,7 @@ tasks:
 
   - id: t-3
     node: g-health-hq-goal-coordinator
-    status: active
+    status: done
     kind: executor
     repo: github.com/ainazemtsau/health-ai
     goal: >
@@ -164,6 +164,24 @@ tasks:
       demand objects, preserve owner approval gates and domain authority, maintain review/decision summaries without raw
       Direction OS data, treat x_health_hq as subcomponent only, and demonstrate safety/recovery boundary behavior without
       diagnosis or treatment.
+    evidence: >
+      Health AI commit 8477ec4 Add Health HQ goal orchestration v0. Product evidence includes
+      x_health_hq/goal-structure.md, x_health_hq/procedures/strategic-review.md,
+      x_health_hq/procedures/domain-integration-contract.md,
+      x_health_hq/procedures/decision-and-safety-gates.md,
+      x_health_hq/reviews/2026-07-04-goal-orchestration-review.md,
+      acceptance/x_health_hq/evidence-map.md, and the hardened
+      tools/check_health_hq_thin_slice.py acceptance checker. Checks observed:
+      check_health_hq_thin_slice PASS; check_kernel_spine PASS with WA-K6/WA-K8
+      RED-DEFERRED as existing breadth deferrals; check_structural_repair PASS;
+      JSON parse PASS for validation.config plus acceptance JSON; python compileall tools PASS.
+      check_training_activity_thin_slice still fails DW02/DW06/DW13 on the
+      pre-existing v0.5/v0.5.1 training/activity checker drift; no
+      x_training_activity or x_nutrition files were changed in this leg.
+    reviewer_note: >
+      Ultracode read-only reviewers found and the executor repaired Health HQ checker gaps around
+      complete current-phase metric source rows, embedded domain demands, exact demand-object shape,
+      and W17 old-proof treatment. Follow-up reviewer found no remaining Health HQ blocker.
 open_calls: []
 
 recurring:
@@ -192,113 +210,51 @@ recurring:
 decisions: []
 
 next: |
-  CALL c-health-hq-goal-coordinator-v0-executor-001
-  to: executor
+  CALL c-health-hq-goal-coordinator-v0-review-001
+  to: session
   direction: health
-  repo: github.com/ainazemtsau/health-ai
-  kind: engineering
+  play: review
   node: g-health-hq-goal-coordinator
-  task: t-3
   goal: |
-    Deliver Health HQ v0 as an owner-triggered goal-achievement orchestration layer in Health AI.
-
-    Health HQ must coordinate progress toward the root health goal through phases, milestones,
-    decision-grade metrics, bottleneck classification, non-mutating domain demands, owner/governance
-    decisions, and safety/recovery gates. It must not regress into a status dispatcher, dashboard,
-    integration hub, god-agent, medical advisor, or silent domain editor.
+    Decide whether the active Health HQ v0 bet is met, needs repair, or should be killed/reshaped based on t-3 product evidence.
   context: |
-    Input evidence to read:
+    Read:
+    - os/KERNEL.md
+    - os/plays/review.md
+    - live/health/CHARTER.md
+    - live/health/TREE.md
+    - live/health/NOW.md
     - live/health/work/converge-g-health-hq-goal-coordinator.md
     - live/health/work/converge-g-health-hq-goal-coordinator-arch.md
-    - live/health/history/2026-07-04-s-health-hq-what-signoff-001.md
-    - live/health/history/2026-07-04-s-health-hq-orchestrator-converge-arch-001.md
     - live/health/history/2026-07-04-s-health-hq-orchestrator-converge-verify-001.md
+    - live/health/history/2026-07-04-s-health-hq-goal-coordinator-v0-executor-001.md
 
-    Current authority:
-    - Owner signed the Health HQ WHAT/route with "A — подписываю".
-    - Converge-verify passed on 2026-07-04.
-    - Signed WHAT W1-W16 and W20-W21 are the business acceptance surface.
-    - W17 means existing x_health_hq is technical subcomponent evidence only, not product acceptance.
-    - W18/W19 mean no implementation was authorized from the old summary-only proof or raw research.
-    - Architecture/check artifact is input evidence only; do not copy architecture picks as implementation done_when.
-    - Raw research must not be used as direct executor instructions; it has been compressed into signed WHAT and arch.
+    Current product evidence:
+    - Health AI commit 8477ec4 Add Health HQ goal orchestration v0.
+    - Health HQ v0 evidence files include x_health_hq/goal-structure.md,
+      x_health_hq/procedures/strategic-review.md,
+      x_health_hq/procedures/domain-integration-contract.md,
+      x_health_hq/procedures/decision-and-safety-gates.md,
+      x_health_hq/reviews/2026-07-04-goal-orchestration-review.md,
+      acceptance/x_health_hq/evidence-map.md, and
+      tools/check_health_hq_thin_slice.py.
+    - Checks: check_health_hq_thin_slice PASS; check_kernel_spine PASS with
+      WA-K6/WA-K8 RED-DEFERRED as existing breadth deferrals;
+      check_structural_repair PASS; JSON parse PASS; python compileall tools PASS.
+    - Known residual outside this task: check_training_activity_thin_slice still
+      fails DW02/DW06/DW13 on pre-existing v0.5/v0.5.1 training/activity checker drift.
   boundaries: |
-    No dashboard/API/polling/integration design.
     No raw body/nutrition/training data in Direction OS.
-    No medical diagnosis or treatment plan.
-    No silent mutation of nutrition, training/activity, sleep/recovery, or future domain artifacts.
-    Preserve domain authority: HQ may review, classify, recommend, request, route, and ask for owner decisions;
-    domains execute and mutate their own artifacts through their own procedures and governance gates.
-    Do not claim live sleep/recovery or future-domain capability unless a producer exists and has passed its own route;
-    pending/fixture status must be explicit.
-    Do not relabel the existing x_health_hq summary-only proof as Health HQ v0 product acceptance.
+    Do not reopen implementation inside review.
+    Do not close or edit TREE without owner approval if review outcome needs TREE changes.
+    Treat x_health_hq old summary-only proof as technical subcomponent evidence only.
+    Treat the training/activity checker drift as a separate residual unless review finds it blocks this bet's evidence.
   done_when: |
-    Return verifiable Health AI evidence that demonstrates:
-
-    1. Owner-triggered review surface:
-       - supports at least "что сегодня?", "разбери неделю", "проверь прогресс", "где bottleneck?", "добавить новый процесс?";
-       - routes plain-language owner intent without requiring fixed wording;
-       - does not rely on background polling or automatic self-checking.
-
-    2. Explicit Health HQ goal structure:
-       - root health goal;
-       - current phase;
-       - phase/milestone objects with entry condition, exit condition, target/current relationship, dominant bottleneck classes,
-         phase-specific domain demands, safety/recovery gates, and owner decision requirements;
-       - domain responsibilities;
-       - review/decision log.
-
-    3. Phase-aware review:
-       - produces progress verdict: on-track / at-risk / stalled / blocked / unsafe-to-escalate;
-       - compares phase target to current summary state;
-       - explains the phase-relevant implication and next action.
-
-    4. Metric hierarchy and summary-source contract:
-       - distinguishes current-phase minimum, later-only, and pending/non-mandatory metrics;
-       - every verdict-driving metric/signal carries source, live/fixture/pending status, freshness, confidence,
-         reason if pending, and decision impact;
-       - no invented numbers;
-       - no raw body/nutrition/training logs copied into Direction OS.
-
-    5. Strategic review output:
-       - progress verdict;
-       - main bottleneck class + reason + confidence;
-       - what would change the classification;
-       - strategy implication;
-       - non-mutating domain demands;
-       - owner decision required yes/no;
-       - if owner decision is required, options plus recommendation;
-       - metrics needed now;
-       - metrics later;
-       - next owner-facing action.
-
-    6. Domain demand objects:
-       - nutrition, training/activity, sleep/recovery pending/fixture handling, and future-domain handling use the same demand contract shape;
-       - demands are non-mutating review/proposal/comparison requests;
-       - domains retain execution and mutation authority;
-       - material strategy, phase, boundary, domain, or canonical source changes require owner/governance approval.
-
-    7. Decision classes:
-       - advisory;
-       - approval-required;
-       - blocked;
-       - blocked actions include diagnosis/treatment, raw-data leak, silent domain edit, unsafe escalation, and dashboard/API/polling implementation creep.
-
-    8. Safety/recovery boundary:
-       - HQ can mark unsafe-to-escalate, hold deficit/load escalation, route domain review, and raise owner-facing concern;
-       - HQ does not diagnose, treat, reassure away red flags, or frame rapid unexplained loss/symptoms as automatic success.
-
-    9. Old proof treatment:
-       - existing x_health_hq summary loading / fixtures / adapters / non-mutating routed-request mechanics may be reused only under the full orchestration spine;
-       - summary-only reviewer proof is not returned as sufficient product acceptance.
-
-    10. Evidence:
-       - commits/PR or equivalent repository evidence;
-       - check output or equivalent validation output;
-       - a short evidence map from the returned implementation proof to signed WHAT W1-W16/W20-W21 and the architecture/check artifact.
+    Review verdict is recorded for the active Health HQ v0 bet: met, not met, partially met, repair needed, or kill/reshape.
+    Verdict cites product commit/check evidence and explicitly handles the known training/activity checker residual.
+    If the bet is ready to close, owner decision route is prepared as required by review/G9.
   return: |
-    RESULT with product-repo evidence, commit/PR/check output, evidence map to signed WHAT and architecture/check,
-    any blockers, state_changes for Direction OS, play_check/evaluator notes, log line, and next CALL/awaiting_decision.
-  budget: one executor leg
+    RESULT with verdict, evidence, add-back/cut status, any decisions_needed, exact state_changes, log line, and next CALL/awaiting_decision.
+  budget: one review session
 
 END_OF_FILE: live/health/NOW.md
