@@ -134,6 +134,13 @@ CALL (business task from a direction)
     by construction — the invariant resurfaces at the next site (per-actor →
     per-transfer → per-tick), which the non-convergence rule above must then
     catch as ONE recurring class, not three new findings.
+    The classification is RECORDED, not mental: before the finding's row in
+    `docs/reviews/review-<id>.md` disposes `fixed`, the fixer writes its
+    `sweep:` line — the sibling sites the class predicts, each closed|n/a,
+    plus a seeded-miss/negative-control per class variant when the finding is
+    itself a gate/scan/oracle false-green (VALIDATION §Fix-class-closure;
+    writer-G10 bounces a RESULT reporting fixed findings without it). A fix
+    with no recorded sweep is a patch, and a patch does not close a finding.
   → PROPERTY AUDIT (post-build, mandatory for a `core algorithm` change,
     before REPORT): once VALIDATE is green, the test-author (see Roles)
     re-reads the DIFF — not the frozen spec, which predates the code and

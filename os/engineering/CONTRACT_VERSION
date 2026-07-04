@@ -10,9 +10,46 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 13
+current: 14
 
 log:
+  14  2026-07-04  fix-class-closure (the fix half of the review loop — the fix axis of *Enabled ≠ written*): a review→fix
+      round fixed the reported INSTANCE, not its class — a source-scan oracle satisfied by commented-out tokens was
+      "fixed" by stripping `//` line-comments only; the next round found `/* */` block comments, a commented-out
+      include, and a raw-text check (3 more sites of the SAME false-green class, GasCoopGame dev_2 / c-visual-004,
+      plus 2 P2 of the same nature: an existence-only package-lock check, a RESULT gate passing comment-only
+      sections) — the same pathology witnessed 3× in June (FRICTION 92/94/96, per-species→per-transfer→per-tick).
+      Verdict per MAINTENANCE step 1: (b) gap. The rule EXISTS in four places (CONTOUR "A FIX IS A CHANGE" since v6;
+      VALIDATION G4 classify+enumerate-siblings; the product repo's own AGENTS.md run contract, verbatim; REVIEW.md
+      "report by CLASS, not by site") and the REVIEWER half even became structure at v10 (the `invariant/class`
+      column; the pasted P1 itself names the class and enumerates the siblings) — but the FIX half never produced an
+      artifact any check trips on: under retry pressure an autonomous fix session satisfies the visible repro, and
+      prose loses — the 5th conversion of this exact defect (v5 strong-check, v10 review, v11 oracle, v12 property,
+      v13 register). Aggravator (witnessed, NOT fixed here — one problem per session): the leg ran with NO openspec
+      change folder (the CALL declared neither frozen nor light), so the v10 review file + rounds counter were
+      legally N/A and the loop lived in chat — logged as a witness on the standing light-change-classification
+      FRICTION watch. Fix, STRICTLY ADDITIVE (no gate weakened — validator G4/G5, test-author both passes,
+      non-convergence, strong-check/coverage/named-approach/registry-walk/review-evidence/negative-control/
+      property-layer/refuted-register, default-FAIL ledger intact; KERNEL/plays/packets untouched; END_OF_FILE
+      trailers intact): VALIDATION §Fix-class-closure — a `fixed <commit>` disposition in `docs/reviews/review-<id>.md`
+      closes ONLY with a recorded `sweep:` line (class token; sibling sites each closed <commit>|n/a because; a
+      seeded-miss/negative-control token per class VARIANT when the finding is itself a gate/scan/oracle false-green);
+      a later-round finding row whose `invariant/class` equals an earlier `fixed` row's class RE-OPENS that row and
+      counts as ONE recurring class toward rounds/escalation — the non-convergence rule's first mechanical hook
+      (string-compare inside one file, not anyone's memory); CONTOUR "A FIX IS A CHANGE" records the sweep BEFORE
+      `fixed`; PROJECT_SETUP §Strong-check clause (h) + run-contract line + Done-when seeded-miss (fixed-without-sweep /
+      recurring-class-not-reopened); ESCAPE-CLASSES Oracle-row witness appended (a recurrence of the SAME class on the
+      fix side — no new row, per the registry's own non-duplication rule). coding-agent.md writer-G10 bounce ENABLED
+      NOW and deliberately keyed on the RESULT's OWN content (any fixed-finding report without per-finding class+sweep
+      bounces) — so it reaches a leg outside the frozen-change machinery, exactly where the witness lived. SCOPE
+      (honest): presence≠truth — a hollow sweep ("searched, nothing") passes presence, but its sibling next round now
+      trips the reopen instead of reading as a fresh finding; a renamed class token dodges the string-compare (G4
+      prose + the owner stay the truth layer); product deliver checks INERT until §Re-sync (as v9/v11/v12/v13).
+      §Re-sync OWED: GasCoopGame — the STAGED c-exec-026 re-sync CALL (was 11→13) must absorb v14 → 11→14 (wire
+      clause (h) into the deliver review-file check + seeded-miss + bump synced_contract_version); health-ai
+      (markdown reviews — the sweep line applies as-is, wire at its own re-sync session). (owner: «мы фиксим весь
+      класс проблем, а не закрываем только один finding — почему ты не следуешь инструкции, в чём проблема, как
+      это исправить»)
   13  2026-07-04  refuted-register (disagreement-persistence axis of the review loop): a `refuted` finding died with its
       per-change review file — the next review of the same seam re-derived and re-litigated it from zero; witnesses: a
       rejected buoyancy P1 whose seam rationale lived only in a session memory (outside the repo), and the workflow's
