@@ -105,7 +105,10 @@ CALL (business task from a direction)
     RECORDED in `docs/reviews/review-<id>.md` (id == the openspec change folder;
     `reviewed-commit` an ancestor of the delivered HEAD with every intervening
     source commit a `fixed <commit>` disposition; every finding dispositioned,
-    none `open`; every `refuted` carrying a G5/KERNEL-G5 verification marker
+    none `open` (in-scope only; a class-sibling the class search surfaced
+    routes to the direction's backlog with a `routed` pointer, not gating this
+    leg — VALIDATION §Review-evidence (iii)); every `refuted` carrying a
+    G5/KERNEL-G5 verification marker
     and ALSO appended as a row to the repo's cumulative refuted-register
     `docs/reviews/REFUTED.md`, so the disagreement outlives the leg — a later
     review CITES the register (marker `register:<row-id>`) instead of
@@ -136,8 +139,10 @@ CALL (business task from a direction)
     catch as ONE recurring class, not three new findings.
     The classification is RECORDED, not mental: before the finding's row in
     `docs/reviews/review-<id>.md` disposes `fixed`, the fixer writes its
-    `sweep:` line — the sibling sites the class predicts, each closed|n/a,
-    plus a seeded-miss/negative-control per class variant when the finding is
+    `sweep:` line — the sibling sites the class predicts, each closed|n/a
+    (a sibling OUTSIDE this change's diff closes `routed` to the direction's
+    backlog — a class-sibling per §Review-evidence, never dragged into this leg
+    as an in-diff fix), plus a seeded-miss/negative-control per class variant when the finding is
     itself a gate/scan/oracle false-green (VALIDATION §Fix-class-closure;
     writer-G10 bounces a RESULT reporting fixed findings without it). A fix
     with no recorded sweep is a patch, and a patch does not close a finding.
@@ -176,6 +181,10 @@ CALL (business task from a direction)
     a defect that reached a LATE stage (owner-eye / independent review / post-merge) names the
     INVARIANT-CLASS it violated, so the carry-back can append it to the cross-kind escape-class
     registry (MAINTENANCE step 6) — arming every future feature of any direction against it;
+    the review's class-sibling findings (pre-existing defects the whole-codebase class
+    search surfaced outside this diff) are handed back to the direction as a `routed`
+    backlog list — none silently dropped — for it to schedule as its own CALLs, not
+    fixed inside this leg (VALIDATION §Review-evidence);
     manual acceptance instructions for the owner — generated from the SAME
     verification scripts the validator ran (one source of truth, two consumers).
     Non-trivial manual steps (editor setup, device checks) may be issued as a

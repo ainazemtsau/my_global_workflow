@@ -10,9 +10,47 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 14
+current: 15
 
 log:
+  15  2026-07-04  review-scope split (in-scope gates / class-sibling routes — the review-OUTPUT axis, owner request):
+      a leg's independent review returns findings from the whole-codebase class search (VALIDATION G4 "enumerate the
+      sibling sites") mixed FLAT with the diff's own findings and gates on all of them — so one diff drowns under
+      pre-existing defects elsewhere and its true-P1 count is inflated by half-year-old bugs it never introduced
+      (witness: c-exec-028 review — 9 findings, only 2 in the diff; 4 of the other 7 were themselves pre-existing
+      GATE-script bugs). Verdict per MAINTENANCE step 1: (a) rule defect — the class SEARCH is right (v6/G4, it keeps
+      closing recurring classes) but the review OUTPUT has no scope dimension, so a codebase-wide sweep both dilutes
+      AND blocks the one diff. Fix, STRICTLY ADDITIVE (no gate weakened — the class search unchanged, in-scope gating
+      unchanged in strictness, nothing silently dropped; validator G4/G5, test-author, non-convergence, strong-check/
+      coverage/named-approach/registry-walk/review-evidence/negative-control/property-layer/refuted-register/
+      fix-class-closure, default-FAIL ledger all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact):
+      the review findings block gains a `scope` ∈ {in-scope | class-sibling} column (VALIDATION §Review-evidence (iii))
+      — in-scope (site IN the diff, or a regression the change CAUSED) GATES the leg with the same {fixed|refuted|
+      owner-ack} dispositions as before; class-sibling (the same class at a pre-existing site the change neither
+      touched nor caused) carries a `routed <ref>` pointer to the direction's backlog and does NOT gate — a
+      class-sibling with no routing pointer FAILs (nothing dropped). The findings block gains a `site` (file:line)
+      column and the anti-dodge floor is MECHANICAL: a class-sibling row whose `site` file is INSIDE the diff FAILs (a
+      git-diff name-membership test, product-side, same surface as reviewed-commit ancestry, INERT until §Re-sync;
+      writer-G10 carries site+scope+routed line-presence). RESIDUAL (1b, honest — caught by the pre-commit adversarial
+      review of THIS change): a caused regression at an OUT-of-diff site mis-tagged class-sibling escapes THIS gate but
+      is bounded by G2/G3 (behavioral regressions gate unconditionally regardless of the scope tag), leaving only a
+      no-test caused regression mis-judged pre-existing to the fresh-G5/owner truth layer. G4 tags each finding+sibling;
+      CONTOUR VALIDATE/REPORT hand the class-sibling bucket home as a routed backlog list; CONTOUR §Fix-is-a-change +
+      VALIDATION §Fix-class-closure let a v14 sweep close an OUT-OF-DIFF sibling as `n/a because out-of-scope, routed
+      <ref>` (the essential consistency point — otherwise "search by class" would still drag the whole codebase into
+      the leg through the sweep requirement); PROJECT_SETUP §Strong-check clause (d) + Done-when seeded-miss
+      (class-sibling with no routed pointer / in-scope row open); coding-agent.md writer-G10 review-evidence bounce now
+      keys on in-scope disposition + class-sibling routed-pointer presence (ENABLED NOW, reaches every repo before its
+      §Re-sync). SCOPE (honest): presence≠truth carries over — the scope TAG is the reviewer's/fresh-G5's call above a
+      mechanical floor (an in-diff site can't be class-sibling; out-of-diff causation stays judgment, exactly as
+      intent-vs-diff already is), so a reviewer who mis-tags an in-scope regression as class-sibling dodges the gate the
+      same way any judgment-in-a-presence-check does — G4 prose + fresh-G5 + owner stay the truth layer. §Re-sync OWED:
+      GasCoopGame (wire the `scope`+`site` columns + class-sibling `routed`-pointer + the `site`-diff-membership
+      anti-dodge check into the deliver review-file check +
+      the v14 sweep out-of-diff `routed` disposition + seeded-miss + bump synced_contract_version 14→15 — folds into
+      the STAGED c-exec-026 re-sync CALL); health-ai (markdown reviews — the scope split applies as-is, wire at its own
+      re-sync session). (owner: «ревью размывает фокус — много находок не про мой diff; такие проблемы фиксить надо, но
+      отдельным ревью»)
   14  2026-07-04  fix-class-closure (the fix half of the review loop — the fix axis of *Enabled ≠ written*): a review→fix
       round fixed the reported INSTANCE, not its class — a source-scan oracle satisfied by commented-out tokens was
       "fixed" by stripping `//` line-comments only; the next round found `/* */` block comments, a commented-out
