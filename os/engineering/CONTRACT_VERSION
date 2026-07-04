@@ -10,9 +10,41 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 12
+current: 13
 
 log:
+  13  2026-07-04  refuted-register (disagreement-persistence axis of the review loop): a `refuted` finding died with its
+      per-change review file — the next review of the same seam re-derived and re-litigated it from zero; witnesses: a
+      rejected buoyancy P1 whose seam rationale lived only in a session memory (outside the repo), and the workflow's
+      own logs hand-writing "REJECTED, do not re-propose" lists (the FRICTION 2026-07-02 parked entry; the v12 log line)
+      — a register already existed informally, homeless and unenforced. Borrow from Sheaf-ADMM (Sakana, ICML 2026; owner
+      request 2026-07-04, assessment in memory research-sheaf-admm-assessment): persistent disagreement state — an
+      unresolved conflict survives the round and biases the next one (the dual-variable mechanism), instead of
+      evaporating. Fix, STRICTLY ADDITIVE (no gate weakened — validator G4/G5, test-author both passes, non-convergence,
+      strong-check/coverage/named-approach/registry-walk/review-evidence/negative-control/property-layer, default-FAIL
+      ledger intact; KERNEL untouched 1494/1500; packets/SESSION_PAYLOAD untouched; END_OF_FILE trailers intact,
+      mid-file inserts): VALIDATION §Refuted-register — every `refuted` disposition ALSO appends a row to the repo's
+      cumulative `docs/reviews/REFUTED.md` (`row-id | seam/invariant | claim | why-refuted | marker | review-<id> |
+      date`); the review file carries a `refuted-register:` line naming the appended rows (`none` legal only with zero
+      refuted rows); a later review closes a re-derived duplicate by CITATION (marker `register:<row-id>` — legal
+      because the cited row carries the original G5/KERNEL-G5 marker); a re-raise WITH new evidence may NOT be
+      citation-closed — it escalates to the owner as a named seam decision and the register row records the re-raise (a
+      seam drawing repeated independent fire accumulates visible weight); CONTOUR §b walk extended to register rows
+      touching the change (`still-holds | re-opened <why>`, unmarked touching row = deliver FAIL) + VALIDATE records the
+      append; PROJECT_SETUP §Strong-check clause (g) + Step-3 run contract + Done-when seeded-miss
+      (refuted-without-register-row / register-line-missing / citation-resolving-nowhere / unmarked-touching-row);
+      coding-agent.md writer-G10 bounce ENABLED NOW (a review-evidence reporting ≥1 `refuted` with no
+      `refuted-register:` line bounces — line-presence, reaches every repo before its §Re-sync). SCOPE (honest):
+      presence≠truth — the register proves a refutation was RECORDED, never that it was right; a wrong refutation now
+      propagates cheaper by citation, which is why the new-evidence hatch is load-bearing and refutation CONTENT stays
+      with the binding fresh-session KERNEL-G5 and the owner; product deliver checks INERT until §Re-sync (as
+      v9/v11/v12). §Re-sync OWED: GasCoopGame (wire clause (g) into the deliver check + seed REFUTED.md — backfill
+      candidates: the ratified buoyancy per-band rejection, the v12 "checked arithmetic" rejection, the FRICTION
+      2026-07-02 REFUTED list — + seeded-miss + synced_contract_version 12→13); health-ai (markdown reviews — register
+      applies as-is, wire at its own re-sync session). SIBLING (same owner request, play-side, outside this contract's
+      file set, commit 2beec18): converge-verify step-3 boundary attack — an imported counterpart contract is
+      re-derived blind from this node's side and diffed; divergence bounces the row (corroborate, never adopt
+      verbatim) — the overlap-corroboration half of the same borrow. (owner: «давай применим твои 2 предложения»)
   12  2026-07-03  property-layer suite (structural-seam axis of oracle-soundness): closes the parked W3 remainder from
       v11 (os/FRICTION.md:131, "property-based слой (CsCheck)") — a DIFFERENT cluster than v11's empty-oracle one:
       ~11 P1 interface/atomicity/ordering-seam defects across four legs, ALL found at review/post-merge, NONE caught

@@ -54,7 +54,11 @@ CALL (business task from a direction)
     deliver FAIL the same as a missing section, which turns "the author remembered the class"
     into "every class we have ever been bitten by was discharged" (the registry grows by the
     ratchet — MAINTENANCE step 6; a fresh audit authored from examples is what let end-state and
-    derived-overflow escape even though §b already named "uniform vs gradient field"). And for
+    derived-overflow escape even though §b already named "uniform vs gradient field"). The walk
+    ALSO covers the repo's refuted-register (`docs/reviews/REFUTED.md`, VALIDATION
+    §Refuted-register): a register row naming a module/seam this change touches is marked
+    `still-holds | re-opened <why>` — an unmarked touching row fails deliver the same as an
+    unmarked class. And for
     each surfaced must-hold property the audit names not only a catcher but the REGIME it must hold
     under (environment / accumulated time or inputs / the transition path, not only the settled
     instant) and confirms the catcher EXERCISES it: a catcher that can go red but only runs the
@@ -101,7 +105,12 @@ CALL (business task from a direction)
     RECORDED in `docs/reviews/review-<id>.md` (id == the openspec change folder;
     `reviewed-commit` an ancestor of the delivered HEAD with every intervening
     source commit a `fixed <commit>` disposition; every finding dispositioned,
-    none `open`; every `refuted` carrying a G5/KERNEL-G5 verification marker;
+    none `open`; every `refuted` carrying a G5/KERNEL-G5 verification marker
+    and ALSO appended as a row to the repo's cumulative refuted-register
+    `docs/reviews/REFUTED.md`, so the disagreement outlives the leg — a later
+    review CITES the register (marker `register:<row-id>`) instead of
+    re-litigating, and a re-raise carrying NEW evidence escalates to the
+    owner, never citation-closed (VALIDATION §Refuted-register);
     `rounds` ≤3 or a resolving `escalation:<id>`), which the deliver gate checks
     for presence/freshness/structure (VALIDATION §Review-evidence, PROJECT_SETUP
     §Strong-check) — so a leg can no longer reach done before an independent
