@@ -41,7 +41,7 @@ active_bet:
     storage writer/replay, UI/API/vendor/scheduler/automation, or exact
     schema/layout. Those remain later-child work.
 
-route_status: g-zara-operate-contract_done_next_bet_decision_open
+route_status: g-zara-operate-contract_done_b92_product_evidence_untracked_awaiting_owner_decision
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -121,6 +121,79 @@ decisions:
       runtime. State is the narrowest next risk: Zaratusta must preserve
       context and audit boundaries in its own workspace before a runtime
       loop can be trusted.
+  - id: D-zara-operate-b92-handback-001
+    status: open
+    created: 2026-07-04
+    q: |
+      How should Direction OS treat the untracked Zaratusta product evidence
+      b92de14/469e699 for Markdown operating-manager-v1?
+    facts: |
+      Current live/solmax state has active_bet.status none, tasks [],
+      open_calls [], open D-zara-operate-next-bet-001, and NOW.next pointing
+      to work/calls/c-zara-operate-state-shape-001.md, which is conditional
+      on owner choosing option A for g-zara-operate-state.
+
+      Product repo main is b92de14eedda436e06a6de457f50aae483b7c631.
+      Product commit 469e6996ea120073168bf350d54cf8e56135f30d adds the
+      Markdown operating-manager-v1 surface. Product files at b92 include:
+      README.md, AGENTS.md, checks/markdown-foundation-checklist.md,
+      checks/w20-a1-a13-acceptance-map.md,
+      contracts/operating-manager-v1.md,
+      contracts/operating-manager-v1-source-basis.md, and
+      docs/decisions/0002-operating-manager-v1-surface.md.
+
+      The product evidence says Operating Manager v1 is a Markdown process
+      surface and explicitly does not choose runtime code, storage
+      architecture, UI, API, database, automation, vendor, scheduler,
+      external integration, exact schema or exact future layout. State
+      touchpoints are meanings/interfaces only, not durable-state
+      implementation.
+
+      Maintenance commit 217ab671 (product-handback bridge v10) says product
+      repo exit reports are evidence, not writer-applicable state packets.
+      It specifically classifies current b92de14/469e699 as not
+      writer-applicable and requiring repair/carry-back before any state
+      update.
+
+      Therefore b92/469 cannot close any Direction OS task by itself and the
+      product-authored next CALL c-zara-operate-markdown-manager-v1-t2-001
+      is not authoritative.
+    terms: |
+      untracked evidence = real product repo change that is not currently
+        tied to a live/solmax active task/open_call.
+      carry-back = a Direction OS session verifies/reconciles product report
+        evidence and emits an OS RESULT with state_changes.
+      accepted evidence = product evidence preserved for later OS use; this
+        is not the same as marking a task or bet done.
+      route-changing owner correction = an owner decision that changes which
+        child/node should be shaped next.
+    options:
+      - |
+        A (recommended): record b92/469 as accepted untracked evidence for
+        future shaping/review, but do not mark any task done and do not
+        change TREE. Keep D-zara-operate-next-bet-001 as the governing
+        next-bet decision; if owner chooses state, b92/469 becomes source
+        input, not proof that durable state is done.
+        bad_because: the already-created operating-manager-v1 surface is not
+          immediately promoted into the active route.
+      - |
+        B: treat b92/469 plus the product decision text as a route-changing
+        owner correction and run a follow-up repair/shape decision to revise
+        the next child from state-first toward a Markdown operating-manager-v1
+        review/runtime route.
+        bad_because: without explicit owner confirmation in Direction OS,
+          this can bypass the durable-state prerequisite and blur product
+          evidence with owner-approved OS route.
+      - |
+        C: reject or park b92/469 as route-violating product work and route
+        only a product-repo cleanup/resync.
+        bad_because: discards useful Markdown process-surface work that
+          appears boundary-clean and already merged to product main.
+    recommendation: |
+      A, because it preserves real product evidence while maintaining OS
+      lifecycle gates: no task is closed without a matching active
+      task/open_call and first-hand evidence, and the owner still decides
+      whether the next bet remains state-first or changes route.
 open_calls: []
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -144,6 +217,13 @@ preserved_evidence:
   - live/solmax/work/calls/c-zara-operate-state-shape-001.md
   - github.com/ainazemtsau/zaratusta@79578ac87c73591000409f9f82a3bb4d0e33aa5b
   - github.com/ainazemtsau/zaratusta@79578ac87c73591000409f9f82a3bb4d0e33aa5b/checks/w20-a1-a13-acceptance-map.md
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631
+  - github.com/ainazemtsau/zaratusta@469e6996ea120073168bf350d54cf8e56135f30d
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/contracts/operating-manager-v1.md
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/contracts/operating-manager-v1-source-basis.md
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/docs/decisions/0002-operating-manager-v1-surface.md
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/examples/operating-manager-v1-examples.md
+  - live/solmax/history/2026-07-04-c-solmax-zaratusta-b92-handback-repair-001.md
 
 next: work/calls/c-zara-operate-state-shape-001.md
 END_OF_FILE: live/solmax/NOW.md
