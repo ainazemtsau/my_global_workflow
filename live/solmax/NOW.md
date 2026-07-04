@@ -16,15 +16,20 @@ active_bet:
       github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631,
       including commit 469e6996ea120073168bf350d54cf8e56135f30d.
 
-    Product-authored next CALL c-zara-operate-markdown-manager-v1-t2-001 is
-    superseded for Direction OS routing by the OS-authored state-shape CALL.
+    Route repair:
+    The previous state-only/state-converge route is superseded. The next bet
+    must close the full Markdown operating-manager-v1 workspace/state surface
+    that the owner clarified: inbox/intake, backlog/open loops, current
+    operating state, week/day, reviews, decisions/commitments, source/context,
+    audit/replay, process mutation and examples/checks. This is the complete
+    current Markdown product layer, not app/runtime/API/database/automation.
 
     Boundary: contract and Markdown operating-manager-v1 surface evidence are
     accepted baseline only. Durable state, runtime/dogfood, automation, UI, API,
     storage writer/replay, exact schema/layout, external integrations and full
     product readiness are not done.
 
-route_status: g-zara-operate-contract_done_b92_baseline_accepted_state_shape_ready
+route_status: g-zara-operate-contract_done_b92_baseline_accepted_markdown_manager_v1_full_shape_ready
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -42,6 +47,14 @@ owner_directive: |
   Owner clarification in c-solmax-zaratusta-b92-state-route-repair-002 resolves
   the next route: do not use an incomplete/manual reduced version; quality and
   full readiness matter; route state-first/full-readiness, not manual-use-now.
+
+  Owner correction in c-solmax-zaratusta-markdown-manager-v1-route-repair-004:
+  the next bet must not narrow to state/replay/converge-only work. It must
+  shape and then implement the full Markdown operating-manager-v1 layer:
+  inbox/intake, backlog/open loops, week/day, reviews, current state,
+  source/context, audit/replay, process mutation, examples/checks and
+  handback rules. Quality remains priority; this layer must be complete in
+  Markdown before later app/runtime/automation work.
 
 tasks: []
 
@@ -79,6 +92,8 @@ preserved_evidence:
   - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/contracts/operating-manager-v1-source-basis.md
   - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/docs/decisions/0002-operating-manager-v1-surface.md
   - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/examples/operating-manager-v1-examples.md
+  - live/solmax/history/2026-07-04-c-solmax-zaratusta-markdown-manager-v1-route-repair-004.md
+  - live/solmax/work/calls/c-zara-operate-markdown-manager-v1-full-shape-001.md
 
-next: work/calls/c-zara-operate-state-shape-001.md
+next: work/calls/c-zara-operate-markdown-manager-v1-full-shape-001.md
 END_OF_FILE: live/solmax/NOW.md
