@@ -74,6 +74,44 @@ research_return:
 | W20 | answer_candidate | acceptance | Next Health AI implementation, after owner signoff + converge-arch + converge-verify, must return evidence for: owner-triggered reviews for main intent classes, phase-aware verdict, bottleneck classification + strategy implication, non-mutating requests across at least nutrition/training/sleep-recovery, owner approval gate on material change, review/decision log without raw data, x_health_hq used as subcomponent only, and safety boundary demonstration. |
 | W21 | answer_candidate | acceptance | Dashboard/API/polling/integration design is outside v0. Health HQ may have bounded owner-facing summary views, but v0 must not depend on dashboard UI, wearable/API integrations, background polling, database architecture, or automatic self-checking. |
 
+## §CONTRACTS — converge-arch
+
+source_arch: live/health/work/converge-g-health-hq-goal-coordinator-arch.md
+status: signed
+signoff: >
+  Owner signed the research-integrated Health HQ WHAT/route on 2026-07-04 with "A — подписываю".
+  These contracts compress signed W8-W16/W20-W21 and add no new owner fork.
+
+contract_rule: >
+  Contracts state behavioral content, direction, and trigger. They do not specify transport,
+  storage, interface mechanics, timing machinery, or implementation structure.
+
+tree_checked_contract_coverage:
+  - g-health-root / Direction OS boundary -> C-ROOT-OS
+  - g-health-starter-kit -> no direct current contract; historical seed only
+  - g-health-ai-core -> no contract; dropped and superseded by g-health-core
+  - g-health-core -> C-CORE
+  - g-health-nutrition-system -> C-NUTRITION
+  - g-health-first-nutrition-cycle -> no live contract; dropped
+  - g-health-training-activity-system -> C-TRAINING-ACTIVITY
+  - sleep/recovery future domain -> C-SLEEP-RECOVERY-PENDING
+  - future domains -> C-FUTURE-DOMAIN
+
+contracts:
+  - C-ROOT-OS: Health HQ produces progress verdict, bottleneck, decision need, routed domain requests, problem summary, and next CALL to health root / Direction OS after owner-triggered HQ review closes or a material decision/problem/next route is found; no raw body/nutrition/training data and no diagnosis/treatment.
+  - C-CORE: Health HQ consumes from g-health-core active domain availability, summary-source status, governance state, owner-approval state, and review/decision context when a review needs current system state; Health HQ produces only HQ-owned review summaries and non-mutating demand records back into the governed Health AI layer.
+  - C-NUTRITION: Health HQ consumes nutrition period/adherence/blocker/phase-fit/weight-support/meal-structure/lapse/proposal summary when nutrition affects phase verdict; Health HQ produces non-mutating demands to review deficit sustainability, explain stall, prepare options, request recipe/process support, or compare risks; HQ must not silently rewrite nutrition artifacts or request unsafe deficit.
+  - C-TRAINING-ACTIVITY: Health HQ consumes planned-vs-completed, recovery impact, activity/conditioning contribution, key movement status, soreness/pain interference, and proposal summary when training/activity affects phase verdict; Health HQ produces non-mutating demands to review plan-fit, prepare variants, define baseline-marker options, or compare load/recovery compatibility; HQ must not silently edit programs/sessions/progression/canon or force escalation despite red flags.
+  - C-SLEEP-RECOVERY-PENDING: Health HQ may consume green/yellow/red recovery state, top signals, pain/energy/day-function interference, and review recommendation when available; current producer is pending/unbuilt, so v0 may mark sleep/recovery pending or fixture-only and must not claim live domain capability until a producer exists and passes its own route.
+  - C-FUTURE-DOMAIN: Health HQ may only interact with future domains after a declared root-goal contribution and the same demand contract shape exist; no hidden powers or undeclared capabilities are allowed.
+  - C-SUMMARY-SOURCE: Every metric/signal used by Health HQ must carry summary source, live/fixture/pending status, freshness, confidence, reason if pending, and decision impact; no invented numbers and no raw logs in Direction OS.
+
+closure:
+  contract_coverage: PASS
+  no_dangling_consumed_contracts: PASS
+  no_open_what_terms: PASS
+  arch_file: live/health/work/converge-g-health-hq-goal-coordinator-arch.md
+
 ## §PHASE_MODEL
 
 | phase | purpose | entry condition | exit condition | dominant bottlenecks | nutrition demand | training/activity demand | sleep/recovery demand | review trigger |
@@ -267,10 +305,24 @@ Resolve:
   status: signed
   evidence: >
     owner approved research-integrated WHAT/route @ 2026-07-04 — "A — подписываю"
+
+Declare:
+  status: signed
+  evidence: >
+    owner approved research-integrated WHAT/route @ 2026-07-04 — "A — подписываю";
+    converge-arch §CONTRACTS are a direct compression of signed W8-W16/W20-W21.
+
+Architect:
+  status: signed
+  evidence: >
+    owner approved research-integrated WHAT/route @ 2026-07-04 — "A — подписываю";
+    high-risk architecture picks are closed in live/health/work/converge-g-health-hq-goal-coordinator-arch.md;
+    arch_open: 0.
+
 ## §ROUTE
 
 current:
-  next: converge-arch
+  next: converge-verify
 
 if_owner_chooses_A:
   status: selected
@@ -293,7 +345,8 @@ if_owner_chooses_C:
 executor_authorization:
   status: not_authorized
   reason: >
-    Owner signoff authorizes converge-arch, not executor implementation. Converge-arch and
-    converge-verify must pass first.
+    Owner signoff authorized converge-arch, not executor implementation. Converge-arch is now complete
+    as architecture/check route, but executor implementation remains blocked until converge-verify passes
+    and emits a separate route.
 
 END_OF_FILE: live/health/work/converge-g-health-hq-goal-coordinator.md
