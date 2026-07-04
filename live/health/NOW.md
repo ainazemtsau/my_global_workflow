@@ -107,7 +107,7 @@ tasks:
 
   - id: t-2
     node: g-health-hq-goal-coordinator
-    status: active
+    status: done
     kind: session
     goal: >
       Health HQ has an owner-signed WHAT for goal-achievement orchestration, or the current bet is
@@ -116,6 +116,13 @@ tasks:
       Corrected requirements explicitly cover root-goal achievement, milestones/phases, metrics,
       strategy/review loop, domain demand contracts, and the difference between safety boundaries
       and the product's positive purpose.
+    evidence: >
+      converge-verify PASS @ 2026-07-04 in s-health-hq-orchestrator-converge-verify-001.
+      Owner-signed WHAT and converge-arch architecture/check route match; completeness and smuggling refutations passed;
+      no failed checklist item remains. No executor implementation occurred in the verify session.
+    verification_note: >
+      Health HQ t-2 requirements route is now verified. The next implementation route is a separate corrected
+      executor CALL that must use the signed WHAT and architecture/check artifact as input evidence, not raw research.
     route_decision: >
       Owner approved option A on 2026-07-02 with "A": Health HQ remains active only on the corrected
       WHAT/research/architecture/verify route. No new Health AI implementation is authorized from the
@@ -142,6 +149,21 @@ tasks:
       live/health/work/health-hq-goal-achievement-model-research-2026-07-03.md.
       It has been integrated into the signed WHAT/route, but remains research input, not product
       acceptance and not implementation authorization.
+
+  - id: t-3
+    node: g-health-hq-goal-coordinator
+    status: active
+    kind: executor
+    repo: github.com/ainazemtsau/health-ai
+    goal: >
+      Health HQ v0 is implemented as owner-triggered goal-achievement orchestration in Health AI, preserving
+      signed WHAT, architecture/check boundaries, domain authority, summary-only Direction OS boundary, and safety/governance gates.
+    done_when: >
+      Health AI evidence shows Health HQ v0 can perform owner-triggered goal reviews across the main intent classes,
+      produce phase-aware progress verdicts, classify bottlenecks with strategy implications, emit non-mutating domain
+      demand objects, preserve owner approval gates and domain authority, maintain review/decision summaries without raw
+      Direction OS data, treat x_health_hq as subcomponent only, and demonstrate safety/recovery boundary behavior without
+      diagnosis or treatment.
 open_calls: []
 
 recurring:
@@ -170,62 +192,113 @@ recurring:
 decisions: []
 
 next: |
-  CALL c-health-hq-orchestrator-converge-verify-001
-  to: session
+  CALL c-health-hq-goal-coordinator-v0-executor-001
+  to: executor
   direction: health
-  play: converge-verify
+  repo: github.com/ainazemtsau/health-ai
+  kind: engineering
   node: g-health-hq-goal-coordinator
-  task: t-2
+  task: t-3
   goal: |
-    Verify the signed Health HQ WHAT plus converge-arch architecture/check route before any executor implementation.
+    Deliver Health HQ v0 as an owner-triggered goal-achievement orchestration layer in Health AI.
+
+    Health HQ must coordinate progress toward the root health goal through phases, milestones,
+    decision-grade metrics, bottleneck classification, non-mutating domain demands, owner/governance
+    decisions, and safety/recovery gates. It must not regress into a status dispatcher, dashboard,
+    integration hub, god-agent, medical advisor, or silent domain editor.
   context: |
-    Read:
-    - os/KERNEL.md
-    - os/plays/converge-verify.md
-    - os/plays/converge-arch.md
-    - live/health/CHARTER.md
-    - live/health/TREE.md
-    - live/health/NOW.md
+    Input evidence to read:
     - live/health/work/converge-g-health-hq-goal-coordinator.md
     - live/health/work/converge-g-health-hq-goal-coordinator-arch.md
-    - live/health/work/health-hq-goal-achievement-model-research-2026-07-03.md
-    - live/health/history/2026-07-02-s-health-hq-orchestrator-route-approval-001.md
-    - live/health/history/2026-07-03-c-health-hq-goal-achievement-model-research-001.md
-    - live/health/history/2026-07-04-s-health-hq-orchestrator-converge-after-research-001.md
     - live/health/history/2026-07-04-s-health-hq-what-signoff-001.md
     - live/health/history/2026-07-04-s-health-hq-orchestrator-converge-arch-001.md
+    - live/health/history/2026-07-04-s-health-hq-orchestrator-converge-verify-001.md
 
     Current authority:
-    - Owner signed d-health-hq-what-signoff-001 with "A — подписываю".
-    - Converge-arch closed §CONTRACTS and architecture/check artifact.
-    - Health HQ is owner-triggered goal-achievement orchestration, not status dispatcher/dashboard/god-agent/medical advisor/integration hub.
-    - Existing x_health_hq summary-only proof is technical evidence only.
-    - No executor implementation is authorized until converge-verify passes and emits a separate route.
-    - Nutrition/training/sleep/future domains are execution mechanisms; HQ may state outcome/support demands and route non-mutating requests but must not silently mutate domain artifacts.
+    - Owner signed the Health HQ WHAT/route with "A — подписываю".
+    - Converge-verify passed on 2026-07-04.
+    - Signed WHAT W1-W16 and W20-W21 are the business acceptance surface.
+    - W17 means existing x_health_hq is technical subcomponent evidence only, not product acceptance.
+    - W18/W19 mean no implementation was authorized from the old summary-only proof or raw research.
+    - Architecture/check artifact is input evidence only; do not copy architecture picks as implementation done_when.
+    - Raw research must not be used as direct executor instructions; it has been compressed into signed WHAT and arch.
   boundaries: |
-    No Health AI implementation.
     No dashboard/API/polling/integration design.
     No raw body/nutrition/training data in Direction OS.
     No medical diagnosis or treatment plan.
-    Do not send raw research directly to executor.
-    Preserve domain authority: HQ routes non-mutating demands; domains execute and mutate through their own procedures.
-    Verify/refute the architecture/check route; do not improve it silently.
+    No silent mutation of nutrition, training/activity, sleep/recovery, or future domain artifacts.
+    Preserve domain authority: HQ may review, classify, recommend, request, route, and ask for owner decisions;
+    domains execute and mutate their own artifacts through their own procedures and governance gates.
+    Do not claim live sleep/recovery or future-domain capability unless a producer exists and has passed its own route;
+    pending/fixture status must be explicit.
+    Do not relabel the existing x_health_hq summary-only proof as Health HQ v0 product acceptance.
   done_when: |
-    Verify or refute:
-    - signed WHAT and architecture/check artifact match;
-    - §CONTRACTS cover every TREE interaction and have no dangling producer except explicit pending dependencies;
-    - no implementation mechanics leaked into contracts or done_when;
-    - phase/milestone objects are sufficient for phase-aware verdicts;
-    - metric hierarchy + summary-source contract prevents raw-data and invented-number leakage;
-    - strategic review loop produces verdict, bottleneck, implication, domain demands, owner decision need, needed metrics, and next action;
-    - bottleneck taxonomy and decision classes are mechanically checkable;
-    - domain demand contracts preserve domain authority and non-mutating HQ demands;
-    - safety/recovery boundary blocks diagnosis/treatment and unsafe escalation;
-    - old x_health_hq proof remains subcomponent only;
-    - later implementation evidence expectations are verifiable;
-    - next route is either corrected executor CALL if PASS, return to converge-arch/converge if FAIL, or awaiting_decision if a real owner fork is found.
+    Return verifiable Health AI evidence that demonstrates:
+
+    1. Owner-triggered review surface:
+       - supports at least "что сегодня?", "разбери неделю", "проверь прогресс", "где bottleneck?", "добавить новый процесс?";
+       - routes plain-language owner intent without requiring fixed wording;
+       - does not rely on background polling or automatic self-checking.
+
+    2. Explicit Health HQ goal structure:
+       - root health goal;
+       - current phase;
+       - phase/milestone objects with entry condition, exit condition, target/current relationship, dominant bottleneck classes,
+         phase-specific domain demands, safety/recovery gates, and owner decision requirements;
+       - domain responsibilities;
+       - review/decision log.
+
+    3. Phase-aware review:
+       - produces progress verdict: on-track / at-risk / stalled / blocked / unsafe-to-escalate;
+       - compares phase target to current summary state;
+       - explains the phase-relevant implication and next action.
+
+    4. Metric hierarchy and summary-source contract:
+       - distinguishes current-phase minimum, later-only, and pending/non-mandatory metrics;
+       - every verdict-driving metric/signal carries source, live/fixture/pending status, freshness, confidence,
+         reason if pending, and decision impact;
+       - no invented numbers;
+       - no raw body/nutrition/training logs copied into Direction OS.
+
+    5. Strategic review output:
+       - progress verdict;
+       - main bottleneck class + reason + confidence;
+       - what would change the classification;
+       - strategy implication;
+       - non-mutating domain demands;
+       - owner decision required yes/no;
+       - if owner decision is required, options plus recommendation;
+       - metrics needed now;
+       - metrics later;
+       - next owner-facing action.
+
+    6. Domain demand objects:
+       - nutrition, training/activity, sleep/recovery pending/fixture handling, and future-domain handling use the same demand contract shape;
+       - demands are non-mutating review/proposal/comparison requests;
+       - domains retain execution and mutation authority;
+       - material strategy, phase, boundary, domain, or canonical source changes require owner/governance approval.
+
+    7. Decision classes:
+       - advisory;
+       - approval-required;
+       - blocked;
+       - blocked actions include diagnosis/treatment, raw-data leak, silent domain edit, unsafe escalation, and dashboard/API/polling implementation creep.
+
+    8. Safety/recovery boundary:
+       - HQ can mark unsafe-to-escalate, hold deficit/load escalation, route domain review, and raise owner-facing concern;
+       - HQ does not diagnose, treat, reassure away red flags, or frame rapid unexplained loss/symptoms as automatic success.
+
+    9. Old proof treatment:
+       - existing x_health_hq summary loading / fixtures / adapters / non-mutating routed-request mechanics may be reused only under the full orchestration spine;
+       - summary-only reviewer proof is not returned as sufficient product acceptance.
+
+    10. Evidence:
+       - commits/PR or equivalent repository evidence;
+       - check output or equivalent validation output;
+       - a short evidence map from the returned implementation proof to signed WHAT W1-W16/W20-W21 and the architecture/check artifact.
   return: |
-    RESULT with verification verdict, exact failed/passed checklist, state_changes, play_check, log line, and next CALL/awaiting_decision.
-  budget: one converge-verify session
+    RESULT with product-repo evidence, commit/PR/check output, evidence map to signed WHAT and architecture/check,
+    any blockers, state_changes for Direction OS, play_check/evaluator notes, log line, and next CALL/awaiting_decision.
+  budget: one executor leg
 
 END_OF_FILE: live/health/NOW.md

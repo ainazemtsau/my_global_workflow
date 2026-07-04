@@ -349,4 +349,60 @@ executor_authorization:
     as architecture/check route, but executor implementation remains blocked until converge-verify passes
     and emits a separate route.
 
+## §SIGNOFF — converge-verify
+
+**§SIGNOFF: converge-verify passed @ 2026-07-04** (s-health-hq-orchestrator-converge-verify-001).
+
+Verification verdict:
+- overall: PASS
+- completeness: PASS
+- smuggling: PASS
+- contract_coverage: PASS
+- no_dangling_producers_except_explicit_pending_dependencies: PASS
+- no_implementation_mechanics_in_contracts_or_done_when: PASS
+- phase_milestone_objects: PASS
+- metric_hierarchy_summary_source_firewall: PASS
+- strategic_review_loop: PASS
+- bottleneck_taxonomy_and_decision_classes: PASS
+- domain_authority_and_non_mutating_demands: PASS
+- safety_recovery_boundary: PASS
+- old_x_health_hq_subcomponent_only: PASS
+- later_executor_evidence_verifiable: PASS
+- failed_checklist: []
+- decisions_needed: []
+- next route: corrected executor CALL c-health-hq-goal-coordinator-v0-executor-001
+
+Independent oracle used:
+- health-hq-goal-achievement-orchestration-checklist-v0, authored in verify because no promoted knowledge checklist for this exact node-class was found.
+
+Refutation notes:
+- Signed WHAT W1-W21 remains unchanged.
+- Architecture/check artifact live/health/work/converge-g-health-hq-goal-coordinator-arch.md remains unchanged.
+- §CONTRACTS cover current TREE interactions and explicitly mark sleep/recovery and future domains as pending producer dependencies.
+- Architecture-on-paper remains context/input evidence only; no dashboard/API/polling/integration design or Health AI implementation was authorized by converge-arch or converge-verify.
+- Existing x_health_hq summary-only proof remains technical subcomponent evidence only, not Health HQ product acceptance.
+- Raw research must not be sent directly to executor; it has already been compressed into the owner-signed WHAT and architecture/check artifact.
+
+## §PROPOSED-CANON — Health HQ goal-achievement orchestration decision-class checklist
+
+node-class: "owner-triggered cross-domain goal-achievement orchestration layer for a health root goal, coordinating phases, milestones, decision-grade metrics, bottleneck classification, non-mutating domain demands, owner/governance decisions, safety/recovery gates, and summary-only Direction OS boundary"
+
+read_by: converge-verify of this node-class
+
+classes:
+HQA1 product essence ·
+HQA2 root goal and phase/milestone model ·
+HQA3 decision-grade metric hierarchy ·
+HQA4 summary-source firewall ·
+HQA5 strategic review loop ·
+HQA6 owner conversation surface ·
+HQA7 bottleneck taxonomy ·
+HQA8 domain demand contracts ·
+HQA9 decision authority classes ·
+HQA10 safety/recovery boundary ·
+HQA11 old proof treatment ·
+HQA12 executor evidence ·
+HQA13 build-order / producer dependency ·
+HQA14 HOW firewall.
+
 END_OF_FILE: live/health/work/converge-g-health-hq-goal-coordinator.md
