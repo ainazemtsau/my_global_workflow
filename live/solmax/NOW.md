@@ -85,7 +85,7 @@ active_bet:
     WHAT contradiction -> converge.
     HOW-smuggling -> rollback/revert product change and review the cut boundary.
 
-route_status: g-zara-operate-state_active_t1_ready
+route_status: g-zara-operate-state_t3_verified_ready_for_review
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -116,7 +116,12 @@ owner_directive: |
 tasks:
   - id: t-1
     kind: executor
-    status: active
+    status: done
+    evidence: |
+      Product repo scaffold evidence:
+      github.com/ainazemtsau/zaratusta@dec12c4b1f449e4afdc304fec4d679f67b72f567
+      contracts/operating-manager-v1-workspace-state-scaffold.md
+      Verified by t-3 PASS RESULT s-zara-operate-markdown-manager-v1-full-surface-t3-001.
     goal: |
       Create the product-repo full-surface coverage scaffold that tests the
       riskiest assumption before broad implementation.
@@ -135,7 +140,12 @@ tasks:
 
   - id: t-2
     kind: executor
-    status: open
+    status: done
+    evidence: |
+      Product repo surface evidence:
+      github.com/ainazemtsau/zaratusta@29562edff935a9d674b99856f2a9a17867b93e8c
+      Commit message: Add operating manager workspace state surface
+      Verified by t-3 PASS RESULT s-zara-operate-markdown-manager-v1-full-surface-t3-001.
     goal: |
       Implement the full minimal Markdown operating-manager-v1 workspace/state
       layer in the Zaratusta product repo.
@@ -154,7 +164,12 @@ tasks:
 
   - id: t-3
     kind: session
-    status: open
+    status: done
+    evidence: |
+      Independent verification PASS:
+      RESULT s-zara-operate-markdown-manager-v1-full-surface-t3-001
+      verified product repo commit
+      github.com/ainazemtsau/zaratusta@29562edff935a9d674b99856f2a9a17867b93e8c.
     goal: |
       Independently try to refute that the product repo now contains the full
       Markdown operating-manager-v1 workspace/state surface.
@@ -172,12 +187,7 @@ tasks:
 recurring: []
 decisions: []
 
-open_calls:
-  - id: c-zara-operate-markdown-manager-v1-full-surface-t1-001
-    to: executor
-    for: t-1
-    issued: 2026-07-05
-    note: full-surface coverage scaffold in Zaratusta product repo
+open_calls: []
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -195,6 +205,9 @@ preserved_evidence:
   - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/contracts/operating-manager-v1-source-basis.md
   - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/docs/decisions/0002-operating-manager-v1-surface.md
   - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/examples/operating-manager-v1-examples.md
+  - github.com/ainazemtsau/zaratusta@dec12c4b1f449e4afdc304fec4d679f67b72f567
+  - github.com/ainazemtsau/zaratusta@29562edff935a9d674b99856f2a9a17867b93e8c
+  - live/solmax/history/2026-07-05-s-zara-operate-markdown-manager-v1-full-surface-t3-001.md
 
-next: work/calls/c-zara-operate-markdown-manager-v1-full-surface-t1-001.md
+next: work/calls/c-zara-operate-markdown-manager-v1-full-surface-review-001.md
 END_OF_FILE: live/solmax/NOW.md
