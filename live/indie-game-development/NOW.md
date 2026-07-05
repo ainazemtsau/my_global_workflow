@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-050
+updated: 2026-07-04 by s-work-051
 
 bet:
   node: g-9c41
@@ -169,6 +169,21 @@ next_slices:
   - Sc-damage after Sc-typing: dose-from-coarse, type-specific damage, temperature sink-layer.
 
 open_calls:
+  - id: c-exec-031
+    to: executor
+    for: g-9c41 / GasCoopGame §Re-sync v14→v18 (review-scope-split + tool-unavailable-STOP + source-scan-ban + cited-artifact-existence)
+    issued: 2026-07-04
+    call: work/c-exec-031-resync-v15-v18-call.md
+    note: |
+      Framed s-work-051 (owner: «фрейми §Re-sync-лег»). Medium INFRA/run-contract leg, GasCoopGame_dev — NEVER
+      dev_2. Base = main @bbe86eb (synced_contract_version=14). Wire v15 (review-scope-split → review-check.ps1) +
+      v16 (tool-unavailable-STOP → AGENTS.md) + v17 (source-scan-ban → AGENTS.md, with the TOOLING-HYGIENE carve-out
+      — hygiene/benchmark-discoverability/excluded-category PERMITTED, NOT deleted) + v18 (cited-artifact-existence →
+      result-check.ps1, the always-run RESULT gate), each mechanically wired + seeded-miss; bump 14→18. ⚠ CROSS-TRACK:
+      the 4 GasVisual/*ScanTests.cs (v17-banned) are OWNED by c-visual-005 — do NOT delete here; grandfather-pending
+      in validation.config. Contour = c-024/026/028/030 (NO frozen openspec folder → per-change battery N/A);
+      independent RED test-author first + fresh-session G5 + ADR-P-0008. dev→main merge + push OWNER-GATED. On GREEN +
+      binding G5 → repo on v18; next = re-harden + fire c-exec-021 (Sc-reactions).
   # c-exec-028 (tools/ benchmark-hardening: DF-2 + d-benchmark-category-gate-001) CLOSED 2026-07-04: DELIVERED +
   # MERGED + PUSHED (origin/main @cde4c3d, v14); binding fresh-session G5 SOUND, 0 P1/P2 (s-work-045, first-hand on
   # the SHIPPED [Explicit] state). DF-2 root-fixed via [Explicit] (owner-ack:c-exec-028-explicit-redesign-2026-07-04;
@@ -663,17 +678,19 @@ history_pointers:
   - c-exec-029 (DF-10 shared over_budget x4 predicate) binding-G5 close (2026-07-04): history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md; GasCoopGame dev @a82ee4f (v14, NOT merged — owner-gated); 7-lens binding G5 wf_b6c4d72c-1c6 = SOUND-WITH-NOTES (code clean; owner-signed x4 obtained here = d-over-budget-x2-x4-001, closing a fabricated-approval label); DF-10 RESOLVED; ADR citation fix + 2 P3 tidy-ups to fold at merge
 
 next:
-  IMMEDIATE = re-harden + fire c-exec-021 (Sc-reactions) in a FRESH owner-present PLAN session (the direction
-  writes the CALL, not the executor). c-exec-028 is DONE: DELIVERED + MERGED + PUSHED (origin/main @cde4c3d, v14) +
-  binding fresh-session G5 SOUND (s-work-045, first-hand on the SHIPPED [Explicit] state — 0 P1/P2); bench-tax
-  cleared, mutation legs now run clean; d-benchmark-category-gate-001 DISCHARGED; DF-2 → RESOLVED. Before c-021
-  fires, at fire time: run its §Re-sync — ⚠ the repo is at v14 but the OS CONTRACT_VERSION is now v17, so the
-  §Re-sync owes v15 (review-scope-split) + v16 (tool-unavailable-STOP) + v17 (source-scan-is-never-behavior-
-  evidence + self-written-scanner ban); the CALL body's "@38ab715 / v11" base is doubly STALE. v17 note: c-028's
-  OWN new gates (benchmark-discoverability-check.ps1 + excluded-category-check.ps1) are self-written source-scanners
-  — but of the TOOLING/TEST-SUITE-HYGIENE family (hygiene.ps1), NOT product behavior evidence, so v17 PERMITS them;
-  record that classification consciously at §Re-sync, do NOT reflexively delete them. Then full re-hardening + fill
-  §PENDING from the Sc-kernel/W1b RESULTs, then fire.
+  IMMEDIATE = fire c-exec-031 (GasCoopGame §Re-sync v14→v18) in a FRESH GasCoopGame_dev session — FRAMED s-work-051
+  (owner «фрейми §Re-sync-лег»; work/c-exec-031-resync-v15-v18-call.md). The §Re-sync (formerly folded into c-021's
+  start) is now its OWN leg so c-021 fires on a clean v18 base: wire v15 (review-scope-split → review-check.ps1) +
+  v16 (tool-unavailable-STOP → AGENTS.md) + v17 (source-scan-ban → AGENTS.md, with the TOOLING-HYGIENE carve-out —
+  hygiene/benchmark-discoverability/excluded-category PERMITTED, NOT deleted) + v18 (cited-artifact-existence →
+  result-check.ps1, the always-run RESULT gate), each mechanically wired + seeded-miss; bump synced_contract_version
+  14→18. ⚠ CROSS-TRACK: the 4 GasVisual/*ScanTests.cs (v17-banned) are OWNED by c-visual-005 — c-031 does NOT delete
+  them, grandfathers-pending in validation.config. INFRA-only, engine worktree NEVER dev_2, contour = c-024/026/028/030
+  (NO frozen openspec folder → per-change battery N/A), independent RED test-author first + fresh G5 + ADR-P-0008,
+  base @bbe86eb, dev→main merge owner-gated. AFTER c-031 GREEN + binding G5 → c-exec-021 (Sc-reactions): re-harden +
+  fill §PENDING from the Sc-kernel/W1b RESULTs, fire in a FRESH owner-present PLAN session (the direction writes the
+  CALL, not the executor). (Infra ledger: c-028 DELIVERED+MERGED+PUSHED @cde4c3d / G5 SOUND s-work-045 — DF-2 RESOLVED,
+  d-benchmark-category-gate-001 DISCHARGED; c-029 DF-10 MERGED @f926958; c-030 MERGED @bbe86eb — DF-5 RESOLVED.)
   PARALLEL-SAFETY + VISUAL-SPLIT CANCELLED (s-work-049, owner 2026-07-04): the visual track is NOT split into its
   own OS direction — indie-game-development stays the UMBRELLA (a facet of one game is not a peer direction; a real
   2nd game would get its own direction WHEN it exists, not pre-built). g-7e15 stays a parallel track here. The split

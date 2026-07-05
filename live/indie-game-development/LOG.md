@@ -268,5 +268,17 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   self-tests + byte-identical-downstream proof + builder's -Deliver log. Merge dev→main OWNER-GATED (d-c030-merge-001;
   I did NOT merge). Reconciled vs heavy concurrency (s-work-049 c-030 frame + canon commit c60d3b7). NO TREE/CHARTER
   change; G1 intact. OS commit LOCAL; push owner-gated. → history/2026-07-04-s-work-050-c-exec-030-binding-g5-close.md
+- s-work-051 (2026-07-04) — shape/frame: c-exec-031 (GasCoopGame §Re-sync v14→v18) FRAMED (owner «фрейми
+  §Re-sync-лег»). Medium INFRA/run-contract leg bringing synced_contract_version 14→18 in one pass so c-021 fires on
+  a current base: v15 review-scope-split → review-check.ps1; v16 tool-unavailable-STOP → AGENTS.md; v17 source-scan-ban
+  → AGENTS.md + the TOOLING-HYGIENE carve-out named (hygiene/benchmark-discoverability/excluded-category PERMITTED,
+  NOT deleted); v18 cited-artifact-existence → result-check.ps1 (the always-run RESULT gate c-030 extracted) with a
+  4-case seeded-miss — each mechanically wired, not prose. ⚠ CROSS-TRACK: the 4 GasVisual/*ScanTests.cs (v17-banned)
+  are OWNED by c-visual-005 → c-031 does NOT delete them, grandfathers-pending in validation.config (avoids the
+  concurrent-delete collision). Contour = c-024/026/028/030 (NO frozen openspec folder → per-change battery N/A);
+  independent RED test-author first + fresh G5 + ADR-P-0008; base = main @bbe86eb. Verified the wiring targets exist
+  on product main (review-check.ps1, result-check.ps1, the 4 scan-tests, the tooling-hygiene scanners). CALL =
+  work/c-exec-031-resync-v15-v18-call.md; fires FIRST (fresh GasCoopGame_dev session), then c-exec-021. NO TREE/CHARTER
+  change; G1 intact. OS commit LOCAL; push owner-gated. → history/2026-07-04-s-work-051-c-exec-031-resync-framed.md
 
 END_OF_FILE: live/indie-game-development/LOG.md
