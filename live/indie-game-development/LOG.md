@@ -213,5 +213,14 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   a separate reviewed tools/ change. NO product-repo change here. NO TREE/CHARTER change; G1 intact. Built on the
   concurrent s-work-045 commit @0e5437a (c-028 close). OS commit LOCAL; push owner-gated. →
   history/2026-07-04-s-work-046-visual-sourcescan-route-resolve.md
+- s-work-047 (2026-07-04) — record owner decision on d-df-backlog-sequencing-001 = «вариант 1»: c-exec-021
+  (Sc-reactions) is the IMMEDIATE next; DF-1/DF-3/DF-4/DF-6..DF-9 tracked-deferred with wake-triggers; DF-5 (P1
+  gate-integrity, deliver-gate blind to STAGED changes) is the TOP-priority deferred to interleave near c-021, NOT
+  jumping ahead; DF-10 executor-launched separately. Reconciled against the concurrent s-work-046 visual commit
+  @4881280 (that g-7e15 job took the s-work-046 id → collision; I took 047, edited only the answered decision +
+  pending-owner line). ALSO OPENED (design, not yet state): owner asks how to «развести» visual / sim-impl / future
+  parallel tracks so concurrent sessions stop colliding on one NOW.md + one session-id counter — this session hit
+  that collision live (3 sessions, one shared state). To be formalized as a MAINTENANCE request (OS structure, one
+  problem per session). NO product/TREE/CHARTER change; G1 intact. OS commit LOCAL; push owner-gated.
 
 END_OF_FILE: live/indie-game-development/LOG.md

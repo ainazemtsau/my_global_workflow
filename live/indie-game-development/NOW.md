@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-046
+updated: 2026-07-04 by s-work-047
 
 bet:
   node: g-9c41
@@ -513,9 +513,10 @@ decisions:
       tracked-deferred with wake triggers, NOT in this leg.
     source: history/2026-07-04-s-work-042-c-exec-025-w1b-binding-g5-close.md; C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md.
   - id: d-df-backlog-sequencing-001
-    status: open — awaiting owner (s-work-045, 2026-07-04). Raised by the c-exec-028 close: the Codex KERNEL-G5
-      routed a 9-item route-home backlog (DF-1, DF-3..DF-10; details C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md),
-      5 of them P1. DF-10 is already executor-launched separately. Sequence the rest vs the c-021 road.
+    status: ANSWERED 2026-07-04 (owner: «вариант 1») — c-exec-021 (Sc-reactions) is the IMMEDIATE next (main road);
+      DF-1/DF-3/DF-4/DF-6..DF-9 stay tracked-deferred with wake-triggers; DF-5 (deliver-gate blind to STAGED changes,
+      P1 gate-integrity) is the TOP-priority deferred to schedule soon (interleave near c-021), NOT jumping ahead of
+      it. DF-10 remains executor-launched separately. Original question/options preserved below for the record.
     q: |
       c-exec-028 cleared the bench-tax; the pre-agreed next is c-exec-021 (Sc-reactions). How do we sequence the
       DF route-home backlog (DF-1, DF-3..DF-9; DF-10 in-flight) against the c-021 road?
@@ -657,7 +658,6 @@ next:
   demo-road network-ladder). VISUAL SEQUENCING: fire c-visual-005 (fresh GasCoopGame_dev_2, owner-present PLAN)
   BEFORE c-visual-004 Stage 1 (Stage 1 rebases onto the clean tip). Owner-eye «все вроде окей» stands for the look;
   the re-derive re-confirms it at close (shader-occlusion now declared).
-  Still pending owner: d-df-backlog-sequencing-001 (DF backlog sequencing vs c-021), d-marketing-wake-001,
-  d-coop-interdependence-repin-001.
+  Still pending owner: d-marketing-wake-001, d-coop-interdependence-repin-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md
