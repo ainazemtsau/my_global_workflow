@@ -240,5 +240,15 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   unchanged: c-exec-021 next. Reconciled a mid-flight s-work-047 state advance; touched only g-9c41/DF-10 sections.
   NO TREE/CHARTER change; G1 intact. OS commit LOCAL; push owner-gated. →
   history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md
+- s-work-049 (2026-07-04) — owner reframed: indie-game-development is the general UMBRELLA (business + this game,
+  maybe future games), so splitting the visual facet into its own direction is redundant → visual-split CANCELLED
+  (runbook work/gas-visual-split-migration-plan.md SHELVED; no live/** split was applied, nothing to unwind). The
+  owner's ORIGINAL pain = GasCoopGame product-repo MERGE CONFLICTS (RESULT.md rewritten each leg → parallel
+  dev/dev_2 collide; witness f43aa39 "Fix parallel-leg collisions … consolidated RESULT" + ADR-number renumber).
+  Framed c-exec-030 = small GasCoopGame INFRA leg: RESULT.md → per-leg + append-only ledgers merge=union + ADR-num
+  convention + DF-5 (P1, -Deliver sees STAGED) — batched (both check.ps1). Run before c-021 & c-visual-005 overlap.
+  Reconciled heavy same-direction concurrency (parallel session merged DF-10/c-exec-029 @f926958 mid-edit; NOW
+  moved twice → took s-work-049 / c-exec-030, re-applied fresh). NO TREE/CHARTER change; G1 intact. OS commit
+  LOCAL; push owner-gated. → history/2026-07-04-s-work-049-cancel-visual-split-frame-c-exec-030.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

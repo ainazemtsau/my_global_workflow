@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-048
+updated: 2026-07-04 by s-work-049
 
 bet:
   node: g-9c41
@@ -274,6 +274,19 @@ open_calls:
       verify fleet mid-run — adjudication finished first-hand in-session, recorded). The code-grounded FULL
       re-hardening + §Re-sync sweep still run at fire time. Does NOT fire until Sc-kernel GREEN (owner-gated
       dev→main merge). dev→main merge + push owner-gated.
+  - id: c-exec-030
+    to: executor
+    for: g-9c41 / GasCoopGame parallel-leg merge-safety (RESULT-per-leg + DF-5)
+    issued: 2026-07-04
+    call: work/c-exec-030-result-per-leg-and-df5-call.md
+    note: |
+      Framed s-work-049 (owner-approved, after the visual-split was cancelled). Small GasCoopGame INFRA leg:
+      (1) RESULT.md → per-leg file so parallel dev/dev_2 legs stop colliding on it (+ append-only ledgers
+      merge=union + an ADR-number convention); (2) DF-5 (P1 gate-integrity) — -Deliver sees STAGED changes.
+      Both = check.ps1/deliver tooling, ADDITIVE, no gate weakened. Base = clean main AFTER the c-029/DF-10
+      merge lands (now MERGED @f926958). Engine worktree GasCoopGame_dev (never dev_2). Independent RED
+      test-author + fresh-session G5 + ADR. RUN before c-021 and c-visual-005 run CONCURRENTLY (clears merge
+      conflicts before parallel product work). dev→main merge owner-gated.
   # c-exec-022 (Sc-rep) CLOSED 2026-07-02: G5 COULD-NOT-REFUTE → owner-eye → merged @efaa6eb, pushed
   # (origin/main @5442be0). Record: history/2026-07-02-s-work-036-screp-g5-kernel-signed.md + s-work-037.
   # c-exec-023 (Sc-kernel) CLOSED 2026-07-03: binding fresh-session G5 SOUND (0 P1) / 2 P2 + 5 P3 → done, merged
@@ -640,6 +653,13 @@ next:
   — but of the TOOLING/TEST-SUITE-HYGIENE family (hygiene.ps1), NOT product behavior evidence, so v17 PERMITS them;
   record that classification consciously at §Re-sync, do NOT reflexively delete them. Then full re-hardening + fill
   §PENDING from the Sc-kernel/W1b RESULTs, then fire.
+  PARALLEL-SAFETY + VISUAL-SPLIT CANCELLED (s-work-049, owner 2026-07-04): the visual track is NOT split into its
+  own OS direction — indie-game-development stays the UMBRELLA (a facet of one game is not a peer direction; a real
+  2nd game would get its own direction WHEN it exists, not pre-built). g-7e15 stays a parallel track here. The split
+  runbook is SHELVED (work/gas-visual-split-migration-plan.md — reference only). Collisions handled by: OS side =
+  concurrency-hygiene @c3a7002 (distinct session-id prefixes + re-sync-before-every-apply); product side = c-exec-030
+  (FRAMED — RESULT.md → per-leg + DF-5 staged-diff, small GasCoopGame INFRA leg). RUN c-exec-030 before c-021 and
+  c-visual-005 run concurrently.
   The Sc-kernel→Sc-reactions GAP is CLEAR: W1b
   (c-exec-025) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a, contract v14) and binding-G5 SOUND (s-work-042,
   wf_44257b08-dfe — 0 P1/P2, 2 P3-defer; the 3 W1b-core lenses died on output-conformance so their claims were

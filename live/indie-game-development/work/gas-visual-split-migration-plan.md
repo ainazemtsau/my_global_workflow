@@ -1,5 +1,15 @@
 # Migration runbook: split g-7e15 (visual) into its own direction `gas-visual`
 
+> **SHELVED / NOT DOING (owner, 2026-07-04, s-work-049).** The split is CANCELLED. Reason: `indie-game-development`
+> is the general UMBRELLA direction (business + this game, and — in theory — future games); a facet of ONE game
+> (the visual) should not be a top-level PEER direction. The collision pain is handled without the split:
+> OS-side by the concurrency-hygiene rule (@c3a7002 — distinct session-id prefixes + re-sync-before-every-apply),
+> product-side by c-exec-030 (RESULT-per-leg + DF-5). A real SECOND game, when it actually exists, would get its
+> own direction then — not pre-built now. This file is kept as REFERENCE only (do NOT execute) in case a genuine
+> direction split is ever needed. Everything below is the shelved plan.
+
+---
+
 Owner-approved 2026-07-04 (Fork A): visual becomes its own PEER direction with a FOCUSED/INSTRUMENTAL
 charter (money/Steam/pride stay owned by `indie-game-development`); split ONLY visual now (marketing/canon
 stay — not colliding). Belt-and-suspenders during migration: the concurrency-hygiene fix on
