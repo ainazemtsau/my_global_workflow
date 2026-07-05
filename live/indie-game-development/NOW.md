@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-051
+updated: 2026-07-05 by s-work-052
 
 bet:
   node: g-9c41
@@ -169,21 +169,14 @@ next_slices:
   - Sc-damage after Sc-typing: dose-from-coarse, type-specific damage, temperature sink-layer.
 
 open_calls:
-  - id: c-exec-031
-    to: executor
-    for: g-9c41 / GasCoopGame §Re-sync v14→v18 (review-scope-split + tool-unavailable-STOP + source-scan-ban + cited-artifact-existence)
-    issued: 2026-07-04
-    call: work/c-exec-031-resync-v15-v18-call.md
-    note: |
-      Framed s-work-051 (owner: «фрейми §Re-sync-лег»). Medium INFRA/run-contract leg, GasCoopGame_dev — NEVER
-      dev_2. Base = main @bbe86eb (synced_contract_version=14). Wire v15 (review-scope-split → review-check.ps1) +
-      v16 (tool-unavailable-STOP → AGENTS.md) + v17 (source-scan-ban → AGENTS.md, with the TOOLING-HYGIENE carve-out
-      — hygiene/benchmark-discoverability/excluded-category PERMITTED, NOT deleted) + v18 (cited-artifact-existence →
-      result-check.ps1, the always-run RESULT gate), each mechanically wired + seeded-miss; bump 14→18. ⚠ CROSS-TRACK:
-      the 4 GasVisual/*ScanTests.cs (v17-banned) are OWNED by c-visual-005 — do NOT delete here; grandfather-pending
-      in validation.config. Contour = c-024/026/028/030 (NO frozen openspec folder → per-change battery N/A);
-      independent RED test-author first + fresh-session G5 + ADR-P-0008. dev→main merge + push OWNER-GATED. On GREEN +
-      binding G5 → repo on v18; next = re-harden + fire c-exec-021 (Sc-reactions).
+  # c-exec-031 (GasCoopGame §Re-sync v14→v18: review-scope-split + tool-unavailable-STOP + source-scan-ban +
+  # cited-artifact-existence) CLOSED 2026-07-05: DELIVERED + MERGED @21f9c0f + PUSHED origin/main; synced_contract_version
+  # = 18. Binding fresh-session G5 (s-work-052, 5-lens wf_1b1d5d16-85e + both selftests run first-hand). ROUND 1 caught a
+  # real P1 (v15 anti-dodge site-parse false-green on file:line:col / #Lnn / range / (line N) / ./ forms — an in-scope
+  # finding could be relabelled class-sibling to dodge in-leg fixing); FIXED REV-2 @3a5caba with a FAIL-CLOSED clean-grammar
+  # site check + Case5a-e seeded-miss (all RED, run first-hand); re-G5 SOUND. v16/v17/v18/additive SOUND round 1. Process
+  # signal: the in-session single-model Sonnet G5 MISSED the P1; the fresh cross-session Opus G5 caught it. DF-11 (2
+  # pre-existing P3s in review-check.ps1) → LATENT. Record: history/2026-07-05-s-work-052-c-exec-031-c-visual-005-close.md.
   # c-exec-028 (tools/ benchmark-hardening: DF-2 + d-benchmark-category-gate-001) CLOSED 2026-07-04: DELIVERED +
   # MERGED + PUSHED (origin/main @cde4c3d, v14); binding fresh-session G5 SOUND, 0 P1/P2 (s-work-045, first-hand on
   # the SHIPPED [Explicit] state). DF-2 root-fixed via [Explicit] (owner-ack:c-exec-028-explicit-redesign-2026-07-04;
@@ -226,24 +219,13 @@ open_calls:
       dev_2 to a clean current-main base BEFORE any Stage 1 work.
       ⚠ 2026-07-04 (s-work-046): route ANSWERED → c-visual-005 (clean re-derive on main v14) is the vehicle; IT does
       the dev_2 reset (its step 0). Fire c-visual-005 BEFORE c-visual-004 Stage 1 (Stage 1 rebases onto the clean tip).
-  - id: c-visual-005
-    to: executor
-    for: g-7e15 / clean visual source-scan retirement (re-derive on v14)
-    issued: 2026-07-04
-    call: work/c-visual-005-clean-sourcescan-retirement-call.md
-    note: |
-      OPENED 2026-07-04 (s-work-046) — resolves d-visual-sourcescan-route-001 (owner option 1). SUPERSEDES the
-      contaminated off-book leg @3858752 (do NOT merge or build on it). CLEAN, SINGLE-CONCERN re-derive on current
-      main @cde4c3d (v14): KEEP = delete the 4 visual *ScanTests.cs, retire the c-visual-003 scan wording in
-      spec/tasks/ADR, the real math/acceptance tests, the GasUber occlusion feature (DECLARED) + duplicate-sampler
-      fix, the Open Arena Jet + LP1 camera fixes. THE ONE FIX vs @3858752 = the wiring smoke must be genuinely
-      EXISTENCE-ONLY (no File.ReadAllText/Does.Contain/glob over source text — that was the crutch it exists to
-      retire). DROP (out of scope) = ALL FishNet networking (preserved on tag ref/visual-sourcescan-leg-3858752 for
-      the future Sc-net slice — owner-delegated net decision, s-work-046: NOT now, gas-core road first), ALL gate/
-      tooling edits (NEVER self-edit check.ps1; dev_2 visual close = owner-eye + normal gates, NOT the engine
-      "DELIVERED on `dev`" assertion), the benchmark-scan concern (TypeId/GasRosterConfig/VoxelBenchmarkDirector),
-      the dep bump. Step 0 = tag @3858752 + start from a clean main base. Runs in a FRESH GasCoopGame_dev_2 session
-      (owner-present PLAN); independent RED test-author + fresh-session G5 + owner-eye; dev_2→main merge owner-gated.
+  # c-visual-005 (g-7e15 clean visual source-scan retirement) CLOSED 2026-07-05: DELIVERED (dev2) + MERGED @26dd062 +
+  # PUSHED origin/main. Binding fresh-session G5 SOUND (s-work-052, first-hand): the 4 v17-banned behavior-source-scanners
+  # DELETED; existence-only wiring smoke (File.Exists, no source-scan/globs/markers — the crutch retired); real visual
+  # changes preserved (GasUber depth-occlusion, render-feature depth, camera/replay, GasRoomScene); owner-eye «работает»
+  # (2026-07-05); 1331/1331 headless. Merge reconciled (dev2 was 2 behind, pre-RESULT-per-leg): root RESULT.md →
+  # docs/results/c-visual-005.md; the c-031 grandfather (validation.config list+note + AGENTS.md v17 bullet) DISCHARGED
+  # (the 4 files now deleted). Resolves d-visual-sourcescan-route-001. Record: history/2026-07-05-s-work-052-c-exec-031-c-visual-005-close.md.
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -678,19 +660,17 @@ history_pointers:
   - c-exec-029 (DF-10 shared over_budget x4 predicate) binding-G5 close (2026-07-04): history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md; GasCoopGame dev @a82ee4f (v14, NOT merged — owner-gated); 7-lens binding G5 wf_b6c4d72c-1c6 = SOUND-WITH-NOTES (code clean; owner-signed x4 obtained here = d-over-budget-x2-x4-001, closing a fabricated-approval label); DF-10 RESOLVED; ADR citation fix + 2 P3 tidy-ups to fold at merge
 
 next:
-  IMMEDIATE = fire c-exec-031 (GasCoopGame §Re-sync v14→v18) in a FRESH GasCoopGame_dev session — FRAMED s-work-051
-  (owner «фрейми §Re-sync-лег»; work/c-exec-031-resync-v15-v18-call.md). The §Re-sync (formerly folded into c-021's
-  start) is now its OWN leg so c-021 fires on a clean v18 base: wire v15 (review-scope-split → review-check.ps1) +
-  v16 (tool-unavailable-STOP → AGENTS.md) + v17 (source-scan-ban → AGENTS.md, with the TOOLING-HYGIENE carve-out —
-  hygiene/benchmark-discoverability/excluded-category PERMITTED, NOT deleted) + v18 (cited-artifact-existence →
-  result-check.ps1, the always-run RESULT gate), each mechanically wired + seeded-miss; bump synced_contract_version
-  14→18. ⚠ CROSS-TRACK: the 4 GasVisual/*ScanTests.cs (v17-banned) are OWNED by c-visual-005 — c-031 does NOT delete
-  them, grandfathers-pending in validation.config. INFRA-only, engine worktree NEVER dev_2, contour = c-024/026/028/030
-  (NO frozen openspec folder → per-change battery N/A), independent RED test-author first + fresh G5 + ADR-P-0008,
-  base @bbe86eb, dev→main merge owner-gated. AFTER c-031 GREEN + binding G5 → c-exec-021 (Sc-reactions): re-harden +
-  fill §PENDING from the Sc-kernel/W1b RESULTs, fire in a FRESH owner-present PLAN session (the direction writes the
-  CALL, not the executor). (Infra ledger: c-028 DELIVERED+MERGED+PUSHED @cde4c3d / G5 SOUND s-work-045 — DF-2 RESOLVED,
-  d-benchmark-category-gate-001 DISCHARGED; c-029 DF-10 MERGED @f926958; c-030 MERGED @bbe86eb — DF-5 RESOLVED.)
+  IMMEDIATE = re-harden + fire c-exec-021 (Sc-reactions) in a FRESH owner-present PLAN session (the direction writes
+  the CALL, not the executor). THE INFRA RUNWAY IS CLEAR: GasCoopGame main @26dd062 is on contract v18 — c-exec-031
+  (§Re-sync v14→v18: review-scope-split + tool-unavailable-STOP + source-scan-ban + cited-artifact-existence)
+  DELIVERED + MERGED @21f9c0f + PUSHED, binding-G5 SOUND after a REV-2 fail-closed fix of a v15 P1 (s-work-052); and
+  c-visual-005 (clean visual source-scan retirement) DELIVERED + MERGED @26dd062 + PUSHED, binding-G5 SOUND, the 4
+  v17-banned scanners deleted + grandfather discharged. So c-021 fires on a CLEAN v18 base, gated by the CURRENT
+  rules. c-021 fire steps: re-harden + fill §PENDING from the Sc-kernel/W1b RESULTs, then fire. (Infra ledger, all
+  MERGED to GasCoopGame main: c-028 @cde4c3d [DF-2 RESOLVED, d-benchmark-category-gate-001 DISCHARGED, G5 s-work-045];
+  c-029 @f926958 [DF-10 RESOLVED, owner-signed x4 d-over-budget-x2-x4-001, G5 s-work-048]; c-030 @bbe86eb [DF-5
+  RESOLVED + RESULT-per-leg, G5 s-work-050]; c-031 @21f9c0f [contract v18, G5 s-work-052]; c-visual-005 @26dd062
+  [source-scan retired, G5 s-work-052].)
   PARALLEL-SAFETY + VISUAL-SPLIT CANCELLED (s-work-049, owner 2026-07-04): the visual track is NOT split into its
   own OS direction — indie-game-development stays the UMBRELLA (a facet of one game is not a peer direction; a real
   2nd game would get its own direction WHEN it exists, not pre-built). g-7e15 stays a parallel track here. The split
@@ -716,7 +696,9 @@ next:
   geometry as authoritative topology, P1, needs EditMode tests) + DF-5 (deliver review-evidence blind to STAGED
   changes — check.ps1:64 + review-check.ps1:90 — P1 GATE-INTEGRITY, the one that arguably jumps the c-021 queue) +
   DF-6..DF-9 (P2: Phase.ReadOnly input-encapsulation / mutation-json single-field accept / GasVisual material leak /
-  hygiene assert file-vs-method) + task_441a3b58 (4th throw-atomicity site, unreachable). DF-10 (P1, x2-vs-x4 matrix
+  hygiene assert file-vs-method) + DF-11 (2 pre-existing P3s in review-check.ps1: Int32-overflow finding-# message +
+  negative Rounds accepted — surfaced by c-031's binding G5, low priority, docs/DEFERRED-FINDINGS.md) + task_441a3b58
+  (4th throw-atomicity site, unreachable). DF-10 (P1, x2-vs-x4 matrix
   oracle/generator disagreement) is RESOLVED by c-exec-029 (binding fresh-session G5 SOUND-WITH-NOTES, s-work-048,
   7-lens wf_b6c4d72c-1c6; owner-signed x4 = d-over-budget-x2-x4-001) — MERGED to GasCoopGame main @f926958 (merge
   5d24ac9 + ADR-P-0006 owner-ack citation fix) and PUSHED origin/main 2026-07-04. Residual P3 (non-blocking,

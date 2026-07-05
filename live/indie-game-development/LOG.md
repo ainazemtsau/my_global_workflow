@@ -280,5 +280,20 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   on product main (review-check.ps1, result-check.ps1, the 4 scan-tests, the tooling-hygiene scanners). CALL =
   work/c-exec-031-resync-v15-v18-call.md; fires FIRST (fresh GasCoopGame_dev session), then c-exec-021. NO TREE/CHARTER
   change; G1 intact. OS commit LOCAL; push owner-gated. → history/2026-07-04-s-work-051-c-exec-031-resync-framed.md
+- s-work-052 (2026-07-05) — binding fresh-session G5 close + MERGE of TWO delivered legs. (1) c-exec-031 (§Re-sync
+  v14→v18): 5-lens fan-out wf_1b1d5d16-85e + both new selftests run first-hand. ROUND 1 = NOT-MET: a real P1 false-green
+  in v15's anti-dodge (site→file regex stripped only one ':<digits>', so a class-sibling cited as file:line:col — the
+  DEFAULT ripgrep/gcc/Roslyn form — / ./ / #Lnn / range / (line N) BYPASSED the in-diff check → an in-scope defect could
+  be relabelled out-of-scope to dodge fixing). Builder FIXED REV-2 @3a5caba with a FAIL-CLOSED clean-grammar site check
+  (rejects ANY non-clean form, not just the 5) + Case5a-e seeded-miss; I ran the extended selftest first-hand (Case5a-e
+  all RED) → re-G5 SOUND. v16/v17/v18/additive/doctrine SOUND round 1. Process signal: the in-session single-model
+  Sonnet G5 MISSED the P1; the fresh cross-session Opus G5 caught it — binding G5 is load-bearing. DF-11 (2 P3s in
+  review-check.ps1) → LATENT. MERGED @21f9c0f + PUSHED; synced_contract_version=18. (2) c-visual-005 (visual source-scan
+  retirement): binding G5 SOUND first-hand — 4 v17-banned scanners DELETED, existence-only wiring smoke (no
+  Does.Contain/markers/globs), render preserved, owner-eye «работает», 1331/1331. Merge reconciled (dev2 was 2 behind,
+  pre-RESULT-per-leg): only RESULT.md conflicted → root deleted, report → docs/results/c-visual-005.md; the c-031
+  grandfather (validation.config + AGENTS.md v17 bullet) DISCHARGED (4 files now deleted). MERGED @26dd062 + PUSHED.
+  GasCoopGame main = 26dd062 on contract v18 — infra runway to c-021 CLEAR. Reconciled vs concurrency; NO TREE/CHARTER
+  change; G1 intact. OS commit LOCAL; push owner-gated. → history/2026-07-05-s-work-052-c-exec-031-c-visual-005-close.md
 
 END_OF_FILE: live/indie-game-development/LOG.md
