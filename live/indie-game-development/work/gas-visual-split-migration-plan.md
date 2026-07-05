@@ -1,0 +1,87 @@
+# Migration runbook: split g-7e15 (visual) into its own direction `gas-visual`
+
+Owner-approved 2026-07-04 (Fork A): visual becomes its own PEER direction with a FOCUSED/INSTRUMENTAL
+charter (money/Steam/pride stay owned by `indie-game-development`); split ONLY visual now (marketing/canon
+stay — not colliding). Belt-and-suspenders during migration: the concurrency-hygiene fix on
+`os/adapters/worktrees.md` (@c3a7002 — distinct session-id prefixes + re-sync-before-every-apply).
+
+This is a FRAME + migration job. Run it as a FRESH, dedicated session (clean context; 30-file surgery).
+Do NOT execute mid another job. Every stage = its own commit → reversible until push (push owner-gated).
+
+## Target shape
+
+Two directions sharing canon + sim-SPEC + product repo, fully parallel writers (worktrees.md model):
+- `indie-game-development` — bet g-9c41 (engine/sim); worktree GasCoopGame **dev**; session-id `eng-NNN`.
+- `gas-visual` (NEW) — bet = gas visual identity; worktree GasCoopGame **dev_2**; session-id `vis-NNN`.
+- SHARED (single source, referenced not duplicated): canon repo `gas_coop_game_canon`; sim-SPEC
+  `indie-game-development/knowledge/g9c41-gas-engine-SPEC.md` (engine owns, visual READS read-only);
+  product repo `GasCoopGame`.
+
+## Manifest — MOVE / STAY / SHARED
+
+MOVE to `live/gas-visual/` (use `git mv` so per-file history is preserved):
+- work/: gas-visual-research-2026-06-21, gas-visual-architecture-2026-06-26, gas-visual-rd-center-2026-06-29,
+  gas-visual-wave-plan-2026-06-29, gas-visual-plan-v2-2026-07-02, c-visual-001..005-call.md
+- history/: s-visual-001..012, s-research-gas-visual-tech-001, s-work-visual-rd-center-001,
+  c-visual-002-s1-result-2026-06-29, 2026-07-03-s-work-040-visual-stage1-unhold,
+  2026-07-04-s-work-044-visual-sourcescan-retirement-binding-g5,
+  2026-07-04-s-work-046-visual-sourcescan-route-resolve
+- NOW content: the parallel_tracks/g-7e15 block → becomes the new direction's BET; open_calls c-visual-004
+  (open) + c-visual-005 (framed); decisions d-visual-sourcescan-route-001 (answered A) + d-finer-grid-fork-001;
+  the visual next-lines.
+
+STAY in `indie-game-development`:
+- all g9c41-* knowledge, engine work/history, marketing + canon plays/tracks, codex-sidecar
+- CHARTER (game charter unchanged — visual is now a peer direction serving the same mission)
+- TREE: g-7e15 node → collapse to a one-line pointer `status: dropped — migrated to live/gas-visual/ (2026-07-04)`
+  (tree rule: a dropped node keeps one line with the reason); update root map_order narrative.
+
+SHARED (reference, do NOT duplicate):
+- g9c41-gas-engine-SPEC.md — stays engine-owned; add a read-only POINTER note in gas-visual/knowledge/.
+- canon repo + product repo — both charters list them; engine→dev, visual→dev_2.
+
+BORDERLINE (decide explicitly):
+- review-gas-sim-visual-2026-07-02.md (joint sim+visual) — STAYS with engine (engine decisions were born
+  from it); gas-visual references it.
+- s-canon-visual-style-minimal-gas-stage-001.md (canon×visual) — POINTER copy in gas-visual (canon original stays).
+
+## Cross-direction edges (keep them working)
+
+| Edge | Post-split mechanism |
+|---|---|
+| engine unblocks visual (Sc-kernel GREEN / W1b landed — both already done) | engine review on the milestone emits a handoff CALL/capture to gas-visual; gas-visual NOW carries `depends_on: <engine milestone>` |
+| visual reads sim-SPEC | read-only pointer in gas-visual/knowledge/ |
+| clips → marketing (g-5b07/g-e6f2, stay with game) | gas-visual drops a clip artifact in product/work → game marketing track picks it up (handoff CALL) |
+| W1b (d-w1b-window-001) | already RESOLVED; recorded closed in both histories |
+
+## Execution — staged, reversible, verifiable
+
+- [ ] Stage 0 — quiesce + re-sync. No open visual session; `git fetch && reset --hard origin/main` before EACH write.
+- [ ] Stage 1 — FRAME gas-visual (G9): CHARTER (focused/instrumental) + root TREE + empty LOG/NOW. Owner-approves each artifact in-session before it is written.
+- [ ] Stage 2 — `git mv` the visual work/history files into live/gas-visual/**; add SPEC pointer + canon-style pointer.
+- [ ] Stage 3 — build gas-visual NOW: bet (from g-7e15 goal/done_when), open_calls c-visual-004/005, decisions d-visual-*, next (continue Stage 1 / fire c-visual-005), `depends_on` engine milestones, id-prefix vis-.
+- [ ] Stage 4 — clean indie: remove g-7e15 track + c-visual open_calls + d-visual decisions + visual next-lines from NOW; TREE g-7e15 → migrated pointer; update map_order; id-prefix eng-.
+- [ ] Stage 5 — commit (one per direction; disjoint paths → parallel-safe) + LOG line each. Push owner-gated.
+
+## Acceptance — "works as expected"
+
+1. `audit gas-visual` and `audit indie-game-development` both clean (END_OF_FILE trailers; six file types; cross-refs resolve; G1–G4 hold).
+2. Nothing lost: visual history file count before == after (`git log --follow` per file).
+3. indie NOW no longer contains g-7e15 / c-visual / d-visual; gas-visual NOW contains them and only them.
+4. Pointers resolve: SPEC pointer opens; canon repos valid; `depends_on` names real engine milestones.
+5. G1 in both: exactly one active bet per direction (engine g-9c41; visual = identity). No parallel_tracks drift.
+6. Isolation proven: two concurrent sessions (eng- / vis-) write to DIFFERENT NOW files + counters → collision impossible by construction (the goal).
+7. Product intact: GasCoopGame main untouched; dev = engine, dev_2 = visual.
+
+## Risks + rollback
+
+- Dangling cross-ref (visual waits on an engine milestone nobody emits) → `depends_on` in gas-visual NOW + the rule "engine review on an unblocking milestone emits a handoff CALL"; record the rule in both NOWs.
+- Canon/SPEC forks and drifts (the exact thing we fixed) → ONE source + pointers; visual NEVER copies sim truth, read-only.
+- Migration on a dirty dev_2 → the dev_2 reset is c-visual-005 step 0; it does NOT block the OS-state migration (state move never touches dev_2), but visual BUILD work waits on it.
+- Rollback: all in git, stage by stage; before push → `reset`; after → reverse `git mv` + restore NOW from history; unpushed gas-visual = does not exist (`git worktree remove`).
+
+## In-flight visual work (not lost)
+- c-visual-004 (Stage 1 stand, open) + c-visual-005 (framed clean re-derive) → move as gas-visual open_calls, continue there (worktree dev_2).
+- d-visual-sourcescan-route-001 (owner chose A) → moves as an answered decision.
+
+END_OF_FILE: live/indie-game-development/work/gas-visual-split-migration-plan.md
