@@ -17,6 +17,63 @@ Two directions sharing canon + sim-SPEC + product repo, fully parallel writers (
   `indie-game-development/knowledge/g9c41-gas-engine-SPEC.md` (engine owns, visual READS read-only);
   product repo `GasCoopGame`.
 
+## gas-visual CHARTER (owner-approved draft 2026-07-04 — the frame session presents THIS at Stage 1 for the formal G9 «да»)
+
+Focused/instrumental. The jewel criterion is REMOVED (it was the owner's illustration that sim+visual are
+the game's FOUNDATION, not a success metric).
+
+- **Mission.** gas-visual gives the game's gas a distinct, readable, spectacular PROCEDURAL visual identity
+  derived from simulation state — turning real gameplay into storefront-ready proof. Rationale (owner): the
+  SIMULATION and its VISUAL are the FOUNDATION of the game; most of our force/resources go here, so the look
+  is a first-class parallel effort, not an afterthought. INSTRUMENTAL: money/Steam/pride outcomes stay owned
+  by `indie-game-development`.
+- **Success criteria** (measurable):
+  1. Generic gas types read clearly at a glance (no labels/overlay) AND look good on a MID-SPEC Steam machine
+     (average requirements).
+  2. A gas's visual reflects its ENVIRONMENTAL RESPONSE (e.g. temperature: slows / gains effects / stays
+     stable when hot vs cold) and matches sim state.
+  3. Blind check: a vision-agent over a captured clip (how many gases / where danger / where flow) matches
+     sim state + the owner's gamer-eye verdict.
+  4. Anomalous gases pass the MENACE test (a 10-30s out-of-context clip reads as threat / creepy / intriguing);
+     a flagship anomalous gas MAY carry a baked visual motif or even a model beyond pure procedural.
+  5. The pipeline is a PROCEDURAL derivation of sim state — SHARED base params + PER-TYPE UNIQUE params —
+     behind the g-9c41 render seam (not hand-staged VFX).
+  6. Clip material flows to the game's marketing (g-5b07 / g-e6f2).
+- **Constraints:** secondary to the engine bet (owner-set cadence, no fixed hour quota); RENDER-ONLY (reads
+  the authoritative sim, ZERO Core/** edit, never writes sim truth); gated on engine milestones (Sc-kernel
+  GREEN — done; W1b — done; later stages may re-gate with a fresh owner check); solo art-scope (asset-ease
+  over beauty; low-poly + gallows-deadpan register B; cuts normal); reads shared canon + sim-SPEC read-only;
+  worktree GasCoopGame_dev_2 (never dev).
+- **Lenses:** (1) readability/legibility; (2) art-scope / solo-feasibility; (3) render-performance (min-spec
+  ms-budget); (4) marketing-feed (does it produce storefront-ready proof).
+- **Owner edges:** gamer-eye taste; asset-ease references (Prey 2017, Breathedge); the shipped render
+  foundation (W1a DELIVERED).
+- **Risk posture:** guarded (inherits the game's posture; look-dev is exploratory but gated on engine + owner-eye).
+- **Repos:** GasCoopGame (render layer, worktree dev_2) + gas_coop_game_canon (read); sim truth = a read-only
+  pointer to indie-game-development/knowledge/g9c41-gas-engine-SPEC.md.
+- **Pre-mortem (>=5):** (1) gas reads as noise/hazard-gimmick not identity -> sim-derived visual language per
+  type + blind test; (2) over-scoped art (custom VFX per gas) breaks solo -> derivation-not-VFX, asset-ease,
+  cuts; (3) drifts off-contour like the source-scan leg (undeclared Core/net/shader) -> render-only boundary,
+  slices come HOME, owner-eye gate, review-scope v15 + source-scan-ban v17; (4) generic env-response or
+  anomalous menace unreadable at mid-spec -> readability lens + ms-budget gate; (5) canon/SPEC forks and drifts
+  -> ONE source + read-only pointer, visual never copies sim truth; (6) builds on a stale/contaminated dev_2 ->
+  reset dev_2 to clean main before build (c-visual-005 step 0).
+
+## Gas visual concept (owner-described 2026-07-04 — DIRECTION, NOT frozen spec; capture as a knowledge/ note in gas-visual)
+
+The visual system is PROCEDURAL, driven by sim state. Gas types share COMMON parameters (a baseline gas
+look) and each type MAY carry its OWN UNIQUE parameters/effects the visual must render (illustrative: сполохи
+/ flashes — not a commitment). Two broad families the owner is leaning toward (nothing final):
+- **Generic gases** (understandable — hot, cold, …): read clearly by their nature; their visual RESPONDS to
+  environmental conditions (temperature etc.) — somewhere slowing, somewhere gaining effects, somewhere
+  unchanged — and the visual SHOWS that response. Must look good + read clearly on a mid-spec Steam machine.
+- **Anomalous gases** (unusual, creepy): rarer (maybe ~one per zone — undecided), meant to instill DREAD and
+  CURIOSITY ("what else could be down there"). May carry a baked visual motif or even a model beyond pure
+  procedural — owner's illustrative example: fog creeping, smoky arms growing out of it (an example, not a
+  requirement). The menace test lands here.
+This is intent/feeling to steer look-dev, not a numbered requirement list — freeze specifics only at each
+slice's own shape with owner-eye (canon: vibe != requirements).
+
 ## Manifest — MOVE / STAY / SHARED
 
 MOVE to `live/gas-visual/` (use `git mv` so per-file history is preserved):
