@@ -279,7 +279,7 @@ open_calls:
   # Gate-integrity airtight: check.ps1 refactor byte-identical-downstream (no dropped check), RESULT-gate port
   # byte-exact, migration blob-identical, DF-5 root-set parity. DF-5 RESOLVED. ONE P1-class PROCESS note (not
   # functional): closing-docs-ahead-of-evidence class recurred (c-029+c-030) → d-review-citation-fixclass-001.
-  # MERGE dev→main OWNER-GATED (d-c030-merge-001). Record: history/2026-07-04-s-work-050-c-exec-030-binding-g5-close.md.
+  # MERGED to GasCoopGame main @bbe86eb (--no-ff) + PUSHED origin/main 2026-07-04 (d-c030-merge-001 «да»). Record: history/2026-07-04-s-work-050-c-exec-030-binding-g5-close.md.
   # c-exec-022 (Sc-rep) CLOSED 2026-07-02: G5 COULD-NOT-REFUTE → owner-eye → merged @efaa6eb, pushed
   # (origin/main @5442be0). Record: history/2026-07-02-s-work-036-screp-g5-kernel-signed.md + s-work-037.
   # c-exec-023 (Sc-kernel) CLOSED 2026-07-03: binding fresh-session G5 SOUND (0 P1) / 2 P2 + 5 P3 → done, merged
@@ -557,18 +557,17 @@ decisions:
     source: history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md;
       C:\projects\Unity\GasCoopGame_dev @a82ee4f docs/adr/ADR-P-0006; workflow wf_b6c4d72c-1c6 (7-lens binding G5).
   - id: d-c030-merge-001
-    status: open — awaiting owner (s-work-050, 2026-07-04). c-exec-030 VERIFIED by binding fresh-session G5
-      SOUND-WITH-NOTES (dev @0c09882); clean-mergeable, gate-integrity airtight. Merge dev→main + push (like c-029)?
-    recommendation: MERGE — no functional defect, no false-green; the one note (d-review-citation-fixclass-001) is a
-      separate process fix, not a c-030 blocker. On «да» I run the dev→main merge + push (owner-gated).
+    status: ANSWERED «да» (owner, 2026-07-04, s-work-050) — c-exec-030 MERGED dev@0c09882 → GasCoopGame main
+      @bbe86eb (--no-ff; RESULT.md→docs/results/c-exec-029.md rename 100%) + PUSHED origin/main. Leg fully landed.
     source: history/2026-07-04-s-work-050-c-exec-030-binding-g5-close.md.
   - id: d-review-citation-fixclass-001
-    status: open — awaiting owner (s-work-050, 2026-07-04). The «closing-docs-drafted-ahead-of-their-own-review/
-      ledger-evidence» class recurred across c-exec-029 (RESULT ahead of artifacts) + c-exec-030 (docs cited the
-      review before it existed), each silently self-patched in-leg, unacknowledged, NO named structural fix — by the
-      repo's OWN AGENTS.md rules (:104 same-class-twice=stop, :211 ≥2-sites=P1, :212 name-the-fix-per-class) a
-      P1-class process defect. It recurs specifically in the infra-leg lane where review-check.ps1's review-evidence
-      gate is N/A-by-absence (no frozen openspec folder). NOT functional (each instance fixed, no false-green).
+    status: ANSWERED 2026-07-04 (owner: MECHANICAL gate — option 1, s-work-050) → routes to a MAINTENANCE session:
+      extend the review-evidence/RESULT deliver gate to the no-frozen-folder INFRA lane so a cited review/ledger file
+      MUST exist at HEAD (a new os/engineering contract version + product §Re-sync; «enforce, not prose»). Closes the
+      recurring «closing-docs-drafted-ahead-of-their-own-review/ledger-evidence» class (c-exec-029 RESULT ahead of
+      artifacts + c-exec-030 docs cited the review before it existed — silently self-patched twice, N/A-by-absence in
+      the infra lane). NOT functional (each instance fixed, no false-green). NEXT = a maintenance session frames the
+      contract change (os/MAINTENANCE.md, one problem per session; owner's explicit request is a sufficient trigger).
     q: |
       How to close the recurring closing-docs-ahead-of-evidence class before a likely 3rd occurrence on the next
       infra leg?
