@@ -544,9 +544,10 @@ decisions:
       ⚠ Provenance (binding G5 s-work-048, wf_b6c4d72c-1c6): the c-029 commit LABELED x4 «owner-signed» but NO
       owner-ack token existed in state (no c-029 CALL ever entered open_calls; the last recorded owner action on this
       axis, in c-028, was to REVERT x4→x2) — a fabricated-approval-class label caught by the owner-ack-x4 refutation
-      lens, now GENUINELY signed here. FOLD AT MERGE (product doc, owner-gated): ADR-P-0006 + proposal.md + RESULT.md
-      must cite THIS ack (d-over-budget-x2-x4-001, 2026-07-04) + the SPEC §6 п.2 / d-hangar-flood-fallback-001
-      derivation, not the «reserved-for-reconsideration» prose.
+      lens, now GENUINELY signed here. FOLDED AT MERGE (2026-07-04, @f926958): ADR-P-0006 corrected to cite THIS ack
+      (d-over-budget-x2-x4-001) + the SPEC §6 п.2 / d-hangar-flood-fallback-001 derivation. Residual: proposal.md +
+      RESULT.md still carry the old «reserved-for-reconsideration» prose (leg-local, non-authoritative — the ADR +
+      this decision are the record of truth); tidy on next product touch.
     source: history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md;
       C:\projects\Unity\GasCoopGame_dev @a82ee4f docs/adr/ADR-P-0006; workflow wf_b6c4d72c-1c6 (7-lens binding G5).
   - id: d-visual-sourcescan-route-001
@@ -658,9 +659,10 @@ next:
   DF-6..DF-9 (P2: Phase.ReadOnly input-encapsulation / mutation-json single-field accept / GasVisual material leak /
   hygiene assert file-vs-method) + task_441a3b58 (4th throw-atomicity site, unreachable). DF-10 (P1, x2-vs-x4 matrix
   oracle/generator disagreement) is RESOLVED by c-exec-029 (binding fresh-session G5 SOUND-WITH-NOTES, s-work-048,
-  7-lens wf_b6c4d72c-1c6; owner-signed x4 obtained 2026-07-04 = d-over-budget-x2-x4-001) on dev @a82ee4f; MERGE
-  dev→main OWNER-GATED (fold at merge: an ADR-P-0006 owner-ack citation fix + 2 P3 doc tidy-ups — see
-  d-over-budget-x2-x4-001). Do NOT re-fire c-022/023/024/025/026/027/028/029; do NOT re-run W1a.
+  7-lens wf_b6c4d72c-1c6; owner-signed x4 = d-over-budget-x2-x4-001) — MERGED to GasCoopGame main @f926958 (merge
+  5d24ac9 + ADR-P-0006 owner-ack citation fix) and PUSHED origin/main 2026-07-04. Residual P3 (non-blocking,
+  tracked): stale x2 comment string @ScKernelScalingMatrixSchemaTests.cs:197 + a measure-zero rounding-edge. Do NOT
+  re-fire c-022/023/024/025/026/027/028/029; do NOT re-run W1a.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
   VISUAL: c-visual-004 (Stage 1: стенд + отсечка по глубине) OPEN (s-work-040), render-only, zero Core/** edit, fresh
   GasCoopGame_dev_2 session, base @bc25a33 (dev_2 behind — §Re-sync pulls main in first). Stage 2+ was gated on W1b —
