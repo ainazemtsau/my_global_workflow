@@ -14,6 +14,13 @@ How to run several directions (and several sessions) at once without corrupting 
 
 Parallel sessions inside one direction are legal (G1 still caps ≤3 active tasks; `open_calls` shows who is running) — only their *applies* serialize.
 
+**Concurrent sessions within one direction — two hygiene rules** (for a direction running several workstreams at once, e.g. an engine bet plus a parallel visual track):
+
+- **Distinct session-id prefixes per workstream.** Each concurrent workstream numbers its sessions under its OWN prefix (`eng-NNN`, `vis-NNN`, … — the direction lists its prefixes) so two live sessions can never mint the same id or fight one counter. A single-workstream direction keeps its default prefix.
+- **Re-sync before EVERY apply, not just at session start.** A session that writes state more than once re-runs `git fetch && reset --hard origin/main` and re-reads NOW.md before EACH write — a concurrent same-direction apply may have landed since the last read (a stale in-memory NOW is the collision, not the git merge, which resolves disjoint edits fine). Edit only your workstream's own regions; the `updated:` line and the shared decision / pending lists are the hot spots.
+
+This is concurrency HYGIENE, not a parallel-tracks feature: the OS's first-class way to run parallel work stays SEPARATE directions (one worktree each, fully parallel above). When a track grows its own bet/tree/cadence, prefer a NEW direction over more workstreams in one — many bets in one direction fight G1.
+
 ## Mechanics: one worktree per direction
 
 For agent CLI sessions (writer, own-writer sessions), give each direction its own worktree and open it as a separate project in the code assistant:
