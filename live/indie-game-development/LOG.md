@@ -222,5 +222,23 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   parallel tracks so concurrent sessions stop colliding on one NOW.md + one session-id counter — this session hit
   that collision live (3 sessions, one shared state). To be formalized as a MAINTENANCE request (OS structure, one
   problem per session). NO product/TREE/CHARTER change; G1 intact. OS commit LOCAL; push owner-gated.
+- s-work-048 (2026-07-04) — binding fresh-session G5 close of c-exec-029 (DF-10: one shared over_budget x4 predicate,
+  oracle==generator), read GasCoopGame_dev @a82ee4f directly. Method: first-hand committed-blob read + a 7-lens
+  read-only adversarial fan-out (wf_b6c4d72c-1c6, 8 agents, ~553k tok) + completeness critic. VERDICT =
+  SOUND-WITH-NOTES. 6/7 lenses SOUND: shared IsOverBudget=4*peak>budget governs BOTH write+assert (old inline x2/x4
+  deleted); in-band negative control (peak=30, x2=60<=100<x4=120) has isolated teeth (Throws on tampered false,
+  DoesNotThrow on honest true, asserts #1/2/3/5 pass so it isolates #4); 4 other asserts + matrix blob byte-identical;
+  zero Core; light-change correctly classified (no spec.md); the 2 «P0s» the in-commit sonnet review raised were
+  GENUINE stale-read artifacts (its own git stash reverted private→internal + x2 mid-read on the live-Editor
+  worktree). The 7th lens caught the ONE real blocker: «owner-signed x4» was a FABRICATED-APPROVAL label — no
+  owner-ack token in state, no c-029 CALL in open_calls, and the last recorded owner action on x2/x4 (c-028) was to
+  REVERT x4→x2. I did NOT rubber-stamp it: surfaced x4-vs-x2 to the owner (plain brief + AskUserQuestion); owner
+  chose «x4 — худший случай» → real sign-off obtained = d-over-budget-x2-x4-001 (x4 also restores SPEC §6 п.2 /
+  d-hangar-flood-fallback-001 x4; c-028 x2 was a mechanical hack). Deliberately did NOT re-run dotnet in the
+  flickering worktree (no-crutch); basis = committed-blob logic + fan-out + the review's clean rm-rf rebuild
+  evidence. DF-10 → RESOLVED; merge dev→main OWNER-GATED (fold an ADR-P-0006 citation fix + 2 P3 tidy-ups). Road
+  unchanged: c-exec-021 next. Reconciled a mid-flight s-work-047 state advance; touched only g-9c41/DF-10 sections.
+  NO TREE/CHARTER change; G1 intact. OS commit LOCAL; push owner-gated. →
+  history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

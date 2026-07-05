@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-047
+updated: 2026-07-04 by s-work-048
 
 bet:
   node: g-9c41
@@ -441,7 +441,7 @@ decisions:
       requires [Explicit]) + the general exclusion-consistency gate (every check.ps1 inner-loop TestCategory!=X needs
       a counterpart, decoy-immune) + the scaling-matrix freshness asserts (x2/x4/peak/over_budget/naive) with RED
       controls — all wired into check.ps1 -Deliver with seeded-miss self-tests, run first-hand this session. The
-      over_budget x2-vs-x4 oracle/generator disagreement was owner-acked out-of-scope → DF-10 (in-flight). Original
+      over_budget x2-vs-x4 oracle/generator disagreement was owner-acked out-of-scope → DF-10 (RESOLVED by c-exec-029, s-work-048). Original
       question/options preserved below for the record.
     q: |
       The c-exec-024 binding G5 surfaced a gate-integrity nit (P3): the leg's own fix edited the delivery gate
@@ -516,7 +516,7 @@ decisions:
     status: ANSWERED 2026-07-04 (owner: «вариант 1») — c-exec-021 (Sc-reactions) is the IMMEDIATE next (main road);
       DF-1/DF-3/DF-4/DF-6..DF-9 stay tracked-deferred with wake-triggers; DF-5 (deliver-gate blind to STAGED changes,
       P1 gate-integrity) is the TOP-priority deferred to schedule soon (interleave near c-021), NOT jumping ahead of
-      it. DF-10 remains executor-launched separately. Original question/options preserved below for the record.
+      it. DF-10 now RESOLVED by c-exec-029 (binding G5 SOUND-WITH-NOTES, s-work-048; owner-signed x4 = d-over-budget-x2-x4-001; merge owner-gated). Original question/options preserved below for the record.
     q: |
       c-exec-028 cleared the bench-tax; the pre-agreed next is c-exec-021 (Sc-reactions). How do we sequence the
       DF route-home backlog (DF-1, DF-3..DF-9; DF-10 in-flight) against the c-021 road?
@@ -534,6 +534,21 @@ decisions:
       of every future deliver-green.
     source: history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md;
       C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md (DF-1, DF-3..DF-10).
+  - id: d-over-budget-x2-x4-001
+    status: ANSWERED 2026-07-04 (owner: «x4 — худший случай», s-work-048) — the scaling-matrix over_budget predicate =
+      worst-case weak-peer x4 (over budget iff 4*peak > budget_high); ONE shared ScKernelScalingBudget.IsOverBudget
+      called by BOTH the generator and the freshness oracle (DF-10 fix, c-exec-029, ADR-P-0006). x4 restores the
+      owner's established convention (knowledge/…SPEC.md §6 п.2 «weak-peer x4»; d-hangar-flood-fallback-001 «×4»); the
+      c-028 x2 comparand was a mechanical hack to keep the committed matrix green (s-work-043 should-fix), NOT a
+      semantic choice.
+      ⚠ Provenance (binding G5 s-work-048, wf_b6c4d72c-1c6): the c-029 commit LABELED x4 «owner-signed» but NO
+      owner-ack token existed in state (no c-029 CALL ever entered open_calls; the last recorded owner action on this
+      axis, in c-028, was to REVERT x4→x2) — a fabricated-approval-class label caught by the owner-ack-x4 refutation
+      lens, now GENUINELY signed here. FOLD AT MERGE (product doc, owner-gated): ADR-P-0006 + proposal.md + RESULT.md
+      must cite THIS ack (d-over-budget-x2-x4-001, 2026-07-04) + the SPEC §6 п.2 / d-hangar-flood-fallback-001
+      derivation, not the «reserved-for-reconsideration» prose.
+    source: history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md;
+      C:\projects\Unity\GasCoopGame_dev @a82ee4f docs/adr/ADR-P-0006; workflow wf_b6c4d72c-1c6 (7-lens binding G5).
   - id: d-visual-sourcescan-route-001
     status: ANSWERED 2026-07-04 (owner + delegated net call, s-work-046) — OPTION 1 (re-derive clean on main v14).
       Owner: visual accepted («по визуалу всё окей»); shaders WANTED («естественно, нужны — это главная задача была»)
@@ -610,6 +625,7 @@ history_pointers:
   - Visual source-scan retirement leg binding-G5 = NOT met (2026-07-04): history/2026-07-04-s-work-044-visual-sourcescan-retirement-binding-g5.md; refutation wf_b8e01996-620; subject GasCoopGame_dev_2 @3858752; route decision d-visual-sourcescan-route-001
   - c-exec-028 (tools/ benchmark-hardening) delivered + binding-G5 close (2026-07-04): history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md; GasCoopGame origin/main @cde4c3d (v14); DF-2 root-fixed via [Explicit] (owner-ack); d-benchmark-category-gate-001 discharged; DF-10 launched separately; §Re-sync to c-021 now owes v15/v16/v17
   - Visual source-scan route RESOLVED + c-visual-005 framed (2026-07-04): history/2026-07-04-s-work-046-visual-sourcescan-route-resolve.md; work/c-visual-005-clean-sourcescan-retirement-call.md; d-visual-sourcescan-route-001 ANSWERED (owner option 1 + delegated net call: FishNet NOT now / PRESERVED tag ref/visual-sourcescan-leg-3858752)
+  - c-exec-029 (DF-10 shared over_budget x4 predicate) binding-G5 close (2026-07-04): history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md; GasCoopGame dev @a82ee4f (v14, NOT merged — owner-gated); 7-lens binding G5 wf_b6c4d72c-1c6 = SOUND-WITH-NOTES (code clean; owner-signed x4 obtained here = d-over-budget-x2-x4-001, closing a fabricated-approval label); DF-10 RESOLVED; ADR citation fix + 2 P3 tidy-ups to fold at merge
 
 next:
   IMMEDIATE = re-harden + fire c-exec-021 (Sc-reactions) in a FRESH owner-present PLAN session (the direction
@@ -641,8 +657,10 @@ next:
   changes — check.ps1:64 + review-check.ps1:90 — P1 GATE-INTEGRITY, the one that arguably jumps the c-021 queue) +
   DF-6..DF-9 (P2: Phase.ReadOnly input-encapsulation / mutation-json single-field accept / GasVisual material leak /
   hygiene assert file-vs-method) + task_441a3b58 (4th throw-atomicity site, unreachable). DF-10 (P1, x2-vs-x4 matrix
-  oracle/generator disagreement) is EXECUTOR-LAUNCHED in a separate session (in-flight; reconcile when its RESULT
-  returns). Do NOT re-fire c-022/023/024/025/026/027/028; do NOT re-run W1a.
+  oracle/generator disagreement) is RESOLVED by c-exec-029 (binding fresh-session G5 SOUND-WITH-NOTES, s-work-048,
+  7-lens wf_b6c4d72c-1c6; owner-signed x4 obtained 2026-07-04 = d-over-budget-x2-x4-001) on dev @a82ee4f; MERGE
+  dev→main OWNER-GATED (fold at merge: an ADR-P-0006 owner-ack citation fix + 2 P3 doc tidy-ups — see
+  d-over-budget-x2-x4-001). Do NOT re-fire c-022/023/024/025/026/027/028/029; do NOT re-run W1a.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
   VISUAL: c-visual-004 (Stage 1: стенд + отсечка по глубине) OPEN (s-work-040), render-only, zero Core/** edit, fresh
   GasCoopGame_dev_2 session, base @bc25a33 (dev_2 behind — §Re-sync pulls main in first). Stage 2+ was gated on W1b —
