@@ -6,6 +6,7 @@ owner_approved:
     - '2026-06-24: owner approved resetting Zaratusta TREE to root-only before a fresh evidence-led map.'
     - '2026-06-26: owner approved g-zara-operate as a 4-child first-node split; first child is g-zara-operate-contract.'
     - '2026-07-02: owner approved TREE closure for g-zara-operate-contract after review verdict met. Owner words: "Нужен исправленный RESULT/repair, который явно несёт owner approval для TREE closure и приводит NOW.next к текущему writer-формату."'
+    - '2026-07-05: owner approved activating g-zara-operate-state as the full Markdown operating-manager-v1 workspace/state surface bet. Owner words: "A".'
 
 tree_validity:
   state: operate_first_node_split_approved
@@ -87,7 +88,24 @@ root:
             allowed to act, remember, ask, change state or only advise.
 
         - id: g-zara-operate-state
-          status: parked
+          status: active
+          appetite: 3 focused days
+          kill_by: |
+            metric: independent verification of the Zaratusta Markdown
+              operating-manager-v1 workspace/state surface against the full required
+              surface list, W20/A1-A13, W19 HOW firewall, workspace/effect boundaries
+              and handback expectations
+            threshold: |
+              By 2026-07-11, t-3 must PASS with all required surfaces covered:
+              inbox/intake, backlog/open loops, current operating state, week/day,
+              reviews, decisions/commitments, source/context, audit/replay, process
+              mutation, examples/checks and handback/reporting. PASS requires zero hard
+              failures on capture/commitment semantics, owner approval gates, read/write
+              boundaries, no OS write path, no generic topic blacklist, no DB/API/
+              runtime/storage engine/vendor/scheduler/automation/exact future schema
+              chosen as contract, and handback evidence returned for Direction OS
+              carry-back.
+            date: 2026-07-11
           goal: |
             Zaratusta has durable operating state and context that are
             auditable, recoverable and separate from the Direction OS writer.
