@@ -250,5 +250,6 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   Reconciled heavy same-direction concurrency (parallel session merged DF-10/c-exec-029 @f926958 mid-edit; NOW
   moved twice → took s-work-049 / c-exec-030, re-applied fresh). NO TREE/CHARTER change; G1 intact. OS commit
   LOCAL; push owner-gated. → history/2026-07-04-s-work-049-cancel-visual-split-frame-c-exec-030.md
+2026-07-05 — s-canon-gas-interaction-map-001: Gas Interaction Map created for g-d3a8; preserves gameplay-first simulation-driven gas, emergent/procedural situation generation, propagation/source/flow/jets, anomalous gas forms, and cargo/containment pause; next recommended forge = Gas Interaction Anchor Cases.
 
 END_OF_FILE: live/indie-game-development/LOG.md
