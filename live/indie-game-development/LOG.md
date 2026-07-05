@@ -251,5 +251,22 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   moved twice → took s-work-049 / c-exec-030, re-applied fresh). NO TREE/CHARTER change; G1 intact. OS commit
   LOCAL; push owner-gated. → history/2026-07-04-s-work-049-cancel-visual-split-frame-c-exec-030.md
 2026-07-05 — s-canon-gas-interaction-map-001: Gas Interaction Map created for g-d3a8; preserves gameplay-first simulation-driven gas, emergent/procedural situation generation, propagation/source/flow/jets, anomalous gas forms, and cargo/containment pause; next recommended forge = Gas Interaction Anchor Cases.
+- s-work-050 (2026-07-04) — binding fresh-session G5 close of c-exec-030 (GasCoopGame parallel-leg merge-safety:
+  RESULT-per-leg + DF-5 + deliver-gate refactor), read dev @0c09882 directly. Method: first-hand committed-blob +
+  I RAN both new gate self-tests + a 7-lens read-only fan-out (wf_ad462cc9-92d, 8 agents ~628k tok) + critic.
+  VERDICT = SOUND-WITH-NOTES. Gate-integrity airtight (this leg edits the deliver gate, so weighted heaviest):
+  check.ps1 refactor byte-identical-downstream from the negative-control banner to EOF (250 lines, no dropped
+  check); RESULT-gate port byte-exact (7 fields + 3 regexes old==new, cannot false-green a bad report); migration
+  cryptographically blob-identical (RESULT.md == docs/results/c-exec-029.md, root retired, no dangling reader);
+  DF-5 staged/untracked guard root-set byte-identical to review-check $SOURCE_ROOTS (Packages/ out); union precise
+  (2 ledgers, RESULT excluded). Both self-tests GREEN with two-sided teeth (run by me). Zero Core/sim/golden. DF-5
+  RESOLVED. THE NOTE (owner hot button): the «closing-docs-drafted-ahead-of-their-own-review/ledger-evidence» class
+  recurred across c-029 + c-030, each silently self-patched, unacknowledged, no named structural fix — a P1-class
+  PROCESS defect by the repo's own AGENTS.md rules, recurring in the infra-lane where review-check is N/A-by-absence.
+  NOT functional (each instance fixed at tip, no false-green) → surfaced as d-review-citation-fixclass-001 (owner
+  picks the fix-class; routes to maintenance). Did NOT re-run full -Deliver (flicker/stash hazard) — basis = the two
+  self-tests + byte-identical-downstream proof + builder's -Deliver log. Merge dev→main OWNER-GATED (d-c030-merge-001;
+  I did NOT merge). Reconciled vs heavy concurrency (s-work-049 c-030 frame + canon commit c60d3b7). NO TREE/CHARTER
+  change; G1 intact. OS commit LOCAL; push owner-gated. → history/2026-07-04-s-work-050-c-exec-030-binding-g5-close.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

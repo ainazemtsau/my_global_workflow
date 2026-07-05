@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-04 by s-work-049
+updated: 2026-07-04 by s-work-050
 
 bet:
   node: g-9c41
@@ -274,19 +274,12 @@ open_calls:
       verify fleet mid-run — adjudication finished first-hand in-session, recorded). The code-grounded FULL
       re-hardening + §Re-sync sweep still run at fire time. Does NOT fire until Sc-kernel GREEN (owner-gated
       dev→main merge). dev→main merge + push owner-gated.
-  - id: c-exec-030
-    to: executor
-    for: g-9c41 / GasCoopGame parallel-leg merge-safety (RESULT-per-leg + DF-5)
-    issued: 2026-07-04
-    call: work/c-exec-030-result-per-leg-and-df5-call.md
-    note: |
-      Framed s-work-049 (owner-approved, after the visual-split was cancelled). Small GasCoopGame INFRA leg:
-      (1) RESULT.md → per-leg file so parallel dev/dev_2 legs stop colliding on it (+ append-only ledgers
-      merge=union + an ADR-number convention); (2) DF-5 (P1 gate-integrity) — -Deliver sees STAGED changes.
-      Both = check.ps1/deliver tooling, ADDITIVE, no gate weakened. Base = clean main AFTER the c-029/DF-10
-      merge lands (now MERGED @f926958). Engine worktree GasCoopGame_dev (never dev_2). Independent RED
-      test-author + fresh-session G5 + ADR. RUN before c-021 and c-visual-005 run CONCURRENTLY (clears merge
-      conflicts before parallel product work). dev→main merge owner-gated.
+  # c-exec-030 (GasCoopGame parallel-leg merge-safety: RESULT-per-leg + DF-5) DELIVERED on dev @0c09882 2026-07-04:
+  # binding fresh-session G5 SOUND-WITH-NOTES (s-work-050, 7-lens wf_ad462cc9-92d + both self-tests run first-hand).
+  # Gate-integrity airtight: check.ps1 refactor byte-identical-downstream (no dropped check), RESULT-gate port
+  # byte-exact, migration blob-identical, DF-5 root-set parity. DF-5 RESOLVED. ONE P1-class PROCESS note (not
+  # functional): closing-docs-ahead-of-evidence class recurred (c-029+c-030) → d-review-citation-fixclass-001.
+  # MERGE dev→main OWNER-GATED (d-c030-merge-001). Record: history/2026-07-04-s-work-050-c-exec-030-binding-g5-close.md.
   # c-exec-022 (Sc-rep) CLOSED 2026-07-02: G5 COULD-NOT-REFUTE → owner-eye → merged @efaa6eb, pushed
   # (origin/main @5442be0). Record: history/2026-07-02-s-work-036-screp-g5-kernel-signed.md + s-work-037.
   # c-exec-023 (Sc-kernel) CLOSED 2026-07-03: binding fresh-session G5 SOUND (0 P1) / 2 P2 + 5 P3 → done, merged
@@ -563,6 +556,35 @@ decisions:
       this decision are the record of truth); tidy on next product touch.
     source: history/2026-07-04-s-work-048-c-exec-029-df10-binding-g5-close.md;
       C:\projects\Unity\GasCoopGame_dev @a82ee4f docs/adr/ADR-P-0006; workflow wf_b6c4d72c-1c6 (7-lens binding G5).
+  - id: d-c030-merge-001
+    status: open — awaiting owner (s-work-050, 2026-07-04). c-exec-030 VERIFIED by binding fresh-session G5
+      SOUND-WITH-NOTES (dev @0c09882); clean-mergeable, gate-integrity airtight. Merge dev→main + push (like c-029)?
+    recommendation: MERGE — no functional defect, no false-green; the one note (d-review-citation-fixclass-001) is a
+      separate process fix, not a c-030 blocker. On «да» I run the dev→main merge + push (owner-gated).
+    source: history/2026-07-04-s-work-050-c-exec-030-binding-g5-close.md.
+  - id: d-review-citation-fixclass-001
+    status: open — awaiting owner (s-work-050, 2026-07-04). The «closing-docs-drafted-ahead-of-their-own-review/
+      ledger-evidence» class recurred across c-exec-029 (RESULT ahead of artifacts) + c-exec-030 (docs cited the
+      review before it existed), each silently self-patched in-leg, unacknowledged, NO named structural fix — by the
+      repo's OWN AGENTS.md rules (:104 same-class-twice=stop, :211 ≥2-sites=P1, :212 name-the-fix-per-class) a
+      P1-class process defect. It recurs specifically in the infra-leg lane where review-check.ps1's review-evidence
+      gate is N/A-by-absence (no frozen openspec folder). NOT functional (each instance fixed, no false-green).
+    q: |
+      How to close the recurring closing-docs-ahead-of-evidence class before a likely 3rd occurrence on the next
+      infra leg?
+    options:
+      - MECHANICAL guard: extend the review-evidence/RESULT deliver gate to the no-frozen-folder infra lane so a
+        cited review/ledger file MUST exist at HEAD (durable; matches «enforce, not prose»). [recommended]
+      - DISCIPLINE rule in AGENTS.md: RESULT/ADR/ledger evidence-claims authored LAST, after the cited artifact
+        lands. Bad-because: prose, weaker — the same «Enabled≠written» gap that let it recur.
+      - Register the class in the AGENTS.md recurring-classes registry + a FRICTION entry; defer the mechanical fix
+        to a 3rd occurrence. Bad-because: accepts a likely 3rd hit.
+    recommendation: |
+      Option 1 (mechanical), routed to a MAINTENANCE session (it changes the run-contract/gate). It closes the exact
+      unguarded lane; prose alone has already failed to hold twice. Route with option 3's registry note as the
+      lightweight interim if the maintenance leg can't run immediately.
+    source: history/2026-07-04-s-work-050-c-exec-030-binding-g5-close.md; workflow wf_ad462cc9-92d (7-lens binding G5);
+      GasCoopGame_dev @0c09882 (c-029.md:53-54 + c-030 review Finding #1); AGENTS.md:104/:211/:212.
   - id: d-visual-sourcescan-route-001
     status: ANSWERED 2026-07-04 (owner + delegated net call, s-work-046) — OPTION 1 (re-derive clean on main v14).
       Owner: visual accepted («по визуалу всё окей»); shaders WANTED («естественно, нужны — это главная задача была»)
@@ -658,8 +680,9 @@ next:
   2nd game would get its own direction WHEN it exists, not pre-built). g-7e15 stays a parallel track here. The split
   runbook is SHELVED (work/gas-visual-split-migration-plan.md — reference only). Collisions handled by: OS side =
   concurrency-hygiene @c3a7002 (distinct session-id prefixes + re-sync-before-every-apply); product side = c-exec-030
-  (FRAMED — RESULT.md → per-leg + DF-5 staged-diff, small GasCoopGame INFRA leg). RUN c-exec-030 before c-021 and
-  c-visual-005 run concurrently.
+  (DELIVERED on dev @0c09882, binding-G5 SOUND-WITH-NOTES s-work-050 — RESULT-per-leg + DF-5 RESOLVED; MERGE dev→main
+  OWNER-GATED d-c030-merge-001). Post-merge, c-visual-005 (visual clean re-derive) + c-021 can run concurrently
+  without RESULT.md collisions.
   The Sc-kernel→Sc-reactions GAP is CLEAR: W1b
   (c-exec-025) DELIVERED + MERGED + PUSHED (origin/main @e0e4f5a, contract v14) and binding-G5 SOUND (s-work-042,
   wf_44257b08-dfe — 0 P1/P2, 2 P3-defer; the 3 W1b-core lenses died on output-conformance so their claims were
