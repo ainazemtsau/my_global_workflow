@@ -10,9 +10,42 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 17
+current: 18
 
 log:
+  18  2026-07-04  cited-artifact existence (the light-lane floor under review-evidence, owner request
+      d-review-citation-fixclass-001 — owner picked the MECHANICAL gate over prose): the v10 review-evidence deliver
+      dependency fires only for a G0-frozen change, so a LIGHT/infra leg (no frozen openspec folder = N/A-by-absence)
+      can deliver a closing report that CITES a docs/reviews/review-*.md / docs/adr/*.md artifact not yet committed.
+      Recurred as a class in the no-frozen-folder infra lane, self-caught by the in-leg reviewer both times, gate-caught
+      neither — but only ONE would have RED'd AS DELIVERED (honesty, the very class this gate forbids): c-exec-030 cited
+      docs/reviews/review-c-exec-030-*.md at the GREEN -Deliver commit 722dcb2 where it was ABSENT (it landed at
+      0c09882) -> the gate WOULD red 722dcb2; c-exec-029 was the SAME class but WEAKER — its citation dangled only at an
+      intermediate commit and resolved at its delivered tip f926958 -> the gate DETERS it prospectively, would not have
+      red'd it as delivered. The review loop's reopen-tripwire (v14) is per-review-file and cannot see a class recurring
+      ACROSS legs. Verdict per MAINTENANCE step 1: (b) gap + (c) owner-requested mechanical fix (sufficient trigger).
+      Fix, STRICTLY ADDITIVE (no gate weakened — a report OMITTING the citation is untouched, a frozen leg keeps its full
+      v10 machinery; validator G4/G5, test-author, non-convergence, strong-check/coverage/named-approach/registry-walk/
+      review-evidence/negative-control/property-layer/refuted-register/fix-class-closure/review-scope-split/
+      tool-unavailable-STOP/source-scan-ban all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact):
+      VALIDATION new §Cited-artifact existence — for EVERY leg the ALWAYS-RUN RESULT-report gate verifies each
+      docs/reviews/review-*.md / docs/adr/*.md path (rooted in the repo's OWN docs/ tree) the closing report cites EXISTS
+      at HEAD; a dangling citation FAILs at whatever commit -Deliver runs. ORTHOGONAL to v10 (v10 keys on the
+      frozen-folder id review-<id>.md; this keys on the report's cited paths review-<id>-<slug>.md — different key
+      spaces, both additive FAIL-only, no double-require). Rides the ALWAYS-RUN RESULT gate (tools/result-check.ps1,
+      extracted by c-exec-030), so it reaches the light/infra lane; PROJECT_SETUP extends the always-run Closing-report
+      clause + a Done-when seeded-miss (a RESULT citing an absent review-*.md -> RED, GREEN once it lands; a RESULT
+      omitting the citation -> PASS). SCOPE (honest): presence!=truth — asserts the cited path is PRESENT, never that the
+      review was real or its verdict right; a cross-repo citation (escaping the repo root / a bare os/ ref) is OUT of
+      scope; a forward-referenced not-yet-created path fails (over-strict/fail-safe); a prose-only review-claim or
+      empty-stub file is NOT caught (the binding fresh-session KERNEL-G5 + owner stay the truth layer — no prose/content
+      scanner, v17). No writer-side keystone (the writer cannot Test-Path the product tree, as v11/v12) — INERT until
+      §Re-sync. No ESCAPE-CLASSES row: that registry holds product-property blind spots the spec-silence audit walks;
+      this is a gate-enforced reporting/process defect nothing walks. §Re-sync OWED: GasCoopGame (wire the
+      cited-existence parse into tools/result-check.ps1 + a seeded-miss; bump synced_contract_version 14->18, folding the
+      still-owed v15/v16/v17); health-ai (markdown kernel, not .NET — translate the cited-artifact-existence to its
+      RESULT/review citations, or record explicit n/a if it has no result-check host). (owner: «механический гейт —
+      цитируемый review обязан существовать на HEAD в infra-полосе»)
   17  2026-07-04  source-scan-is-never-behavior-evidence + self-written-scanner ban (the VENUE axis of no-silent-crutch,
       owner request, same 2026-07-04 batch — «source-text scan никогда не доказательство поведения для Unity/шейдеров/
       рендера; самописные сканеры запрещены»): VALIDATION never DEFINED behavior evidence by VENUE, so with PlayMode CI
