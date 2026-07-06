@@ -1,0 +1,40 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .codex/guard/codex_guard.py --event Stop",
+            "timeout": 30,
+            "statusMessage": "Checking Direction-OS close gates"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .codex/guard/codex_guard.py --event PreToolUse",
+            "timeout": 30,
+            "statusMessage": "Checking Direction-OS write guard"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .codex/guard/codex_guard.py --event PostToolUse",
+            "timeout": 30,
+            "statusMessage": "Checking Direction-OS write guard"
+          }
+        ]
+      }
+    ]
+  }
+}

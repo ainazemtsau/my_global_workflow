@@ -1,0 +1,15 @@
+{
+  "direction_id": "c-visual-006",
+  "protected_side_repair_path": "docs/results/c-visual-005.md",
+  "side_repair_ack_pattern": "owner_ack_side_repair:[A-Za-z0-9_.-]+",
+  "product_repos": [
+    "C:/projects/Unity/GasCoopGame"
+  ],
+  "allowed_product_git_verbs": [
+    "status",
+    "diff",
+    "show",
+    "log",
+    "fetch"
+  ]
+}

@@ -33,6 +33,7 @@ Everything below is written so the kit functions in EITHER mode.
 | `.codex/agents/validator.toml` | project | Role: read-only intra-family refutation child (NON-binding; the binding G5 is Claude). |
 | `.codex/agents/builder.toml` | product repos | Role: workspace-write BUILD leg — belongs in a PRODUCT repo, not here. |
 | `.codex/config.toml` | project | `[agents]` fan-out limits (`max_threads`, `max_depth`, `job_max_runtime_seconds`). |
+| `.codex/hooks.json` + `.codex/guard/` | project | Repo-scoped Codex hook guard. It blocks known-bad close claims and product-repo write hazards while allowing read-only inspection and checkpoint/pending text. |
 
 **The load-bearing pieces** — `.codex/agents/*`, `.agents/skills/`, and the AGENTS.md section — together make Codex work the OS by default: AGENTS.md tells it *what job it's in and when to fan out*, the skills tell it *the procedure*, the agent TOMLs are *the role text* a play's children run (spawned by name, or injected into a generic child).
 
@@ -65,8 +66,9 @@ This keeps one consistent mechanism across the Direction OS repo and every produ
 
 1. **Splice the section** from the repo's `AGENTS.md` Codex block (source: the `agents_md_section` shipped with this kit) into the root `AGENTS.md` between its `BEGIN/END` markers. Keep root `AGENTS.md` well under the **32 KiB** cap — push any new detail into the skill, not AGENTS.md.
 2. Ensure `.codex/agents/*.toml`, `.codex/config.toml`, and `.agents/skills/*/SKILL.md` exist.
-3. **Trust the project** when Codex prompts (repo-scoped `.codex/` only loads for trusted projects), then **restart Codex** so it re-scans agents + skills.
-4. Run the **smoke tests** — the by-name-spawn check FIRST.
+3. Ensure `.codex/hooks.json` and `.codex/guard/` exist if you want the repo-scoped guard enabled.
+4. **Trust the project** when Codex prompts (repo-scoped `.codex/` only loads for trusted projects), then **restart Codex** so it re-scans agents, skills, and hooks. Review the hook trust prompt before enabling; the hook runs local Python from this repo.
+5. Run the **smoke tests** — the by-name-spawn check FIRST.
 
 ---
 
@@ -82,6 +84,8 @@ Run these **inside this repo**. (`/...` = type in the Codex composer.)
 | Subagents available | `/agent` (CLI) | The agent threads UI is present / switchable. **Note `/agent` is documented for the CLI; the desktop app may surface subagents differently — if `/agent` is absent there, that does not mean subagents are off, only that the command lives elsewhere.** |
 | Explicit fan-out works | *"Spawn three read-only children in parallel on `<a tiny prompt>`, wait for all, summarize each."* | Three child threads run and report back (Codex spawns subagents **only when explicitly asked** — matches the play-triggered design). |
 | Cross-family gate is honored | ask Codex to close a node on evidence | Its RESULT says the **binding G5/validation pass routes to a Claude session**, and labels any Codex check as intra-family (SURVIVED-INTRA-FAMILY), not "verified." |
+| Hook guard unit tests | `python -m unittest discover -s .codex/guard/tests` | The guard blocks bad close claims, product-repo writes, unauthorized side repair, and malformed JSON; it allows checkpoints, G5-backed closes, product read-only git, and owner-acked side repair. |
+| Hook guard stdin smoke | `'{\"last_assistant_message\":\"Checkpoint RESULT for c-visual-006; close remains pending\"}' | python .codex/guard/codex_guard.py --event Stop` | Prints `{"continue": true}`. A malformed JSON payload prints `{"decision":"block",...}` because the guard fails closed. |
 | Scaffold helper (optional) | `/init` | Generates/refreshes an `AGENTS.md` scaffold — handy to confirm Codex is reading this dir. |
 
 ---
