@@ -362,4 +362,6 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
 
 2026-07-06 — process repair (g-d3a8/design-lab-process): added `local/design-lab` play and work-note template; updated gas-interaction map so next gas work routes through Design Lab before canon-forge, with no hardcoded case/question counts and explicit failure signals for abstract labels, no player action, static cloud thinking, cargo swallowing gas, anomaly-as-AI, or technically coherent but unfun parent canon. NOW/TREE/CHARTER/canon repo untouched.
 
+2026-07-06 — process repair follow-up (g-d3a8/design-lab-process): cleaned remaining old direct-forge wording in gas-interaction-map tail so the map consistently routes gas-interaction work through Design Lab before canon-forge. NOW/TREE/CHARTER/canon repo untouched.
+
 END_OF_FILE: live/indie-game-development/LOG.md

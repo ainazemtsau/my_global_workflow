@@ -1328,12 +1328,12 @@ Future forge must checkpoint a gap_event and return to cartography if:
 - simulation becomes correct but not gameplay-interesting;
 - anomalous gas becomes arbitrary magic;
 - no-agency lock seems to block fun and may need explicit reopening;
-- the forge starts solving full roster/table/tools/economy/VFX/proof instead of its node.
+- the session starts solving full roster/table/tools/economy/VFX/proof instead of routing the blocker or staying inside the Design Lab question.
 
 ---
 Status: owner-approved work map from s-canon-gas-interaction-map-001.
 This is not a frozen canon card.
-Purpose: route future local/canon-forge sessions before cargo/containment continues.
+Purpose: route future gas-interaction work through Design Lab first, then canon-forge only when the owner-understood answer is ready to freeze.
 Owner-approved additions: gameplay-first, simulation-driven, emergent, procedural situation generation, gas propagation/source/flow/jets, anomalous gas guardrail, and gap/rebalance path for locks that later block fun.
 
 END_OF_FILE: live/indie-game-development/work/canon-maps/gas-interaction-map.md
