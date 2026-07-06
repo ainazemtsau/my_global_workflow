@@ -295,5 +295,25 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   grandfather (validation.config + AGENTS.md v17 bullet) DISCHARGED (4 files now deleted). MERGED @26dd062 + PUSHED.
   GasCoopGame main = 26dd062 on contract v18 — infra runway to c-021 CLEAR. Reconciled vs concurrency; NO TREE/CHARTER
   change; G1 intact. OS commit LOCAL; push owner-gated. → history/2026-07-05-s-work-052-c-exec-031-c-visual-005-close.md
+- s-work-053 (2026-07-06) — c-exec-021 (Sc-reactions) FIRE-READY prep (direction-side; no code build — OS worktree
+  PLANs only). Verified the road genuinely reached reactions: Sc-types/weight/rep/kernel + W1b (c-025) all merged,
+  the Sc-kernel→Sc-reactions gap CLEAR, DF-5 (the one interleave-candidate per d-df-backlog-sequencing-001=вариант-1)
+  RESOLVED, and the latent P1 DFs (DF-1/DF-3/DF-4) all have ZERO callers on subsystems c-021's reaction path does not
+  touch. Refreshed work/c-exec-021-call.md (non-state draft) fire-time anchors: STATUS AWAITS-Sc-kernel → READY TO
+  FIRE; base → GasCoopGame main @26dd062 (v18); §Re-sync contract hint v9 → v18 (+ next ADR-E ≥ 0006 since
+  ADR-E-0004/0005 landed via c-027); §PENDING FILLED — base @26dd062, weak-hardware budget fork RESOLVED by
+  d-hangar-flood-fallback-001 (reactions ride the ~35k–70k all-active ceiling, heavy scale-levers parked), wake-source
+  binds the «reaction front» stub — leaving ONLY the code-anchored items (golden identity / MeaningMembers
+  next-free-bit / scan-root lists / EmitImpulse+cap signatures) as the executor's fire-time first-hand §Re-sync
+  CONFIRM. NEW: added a v17 source-scan-ban interaction note to §Re-sync 5 (the type-hardcode/zero-float/int-overflow
+  scanners are DISCIPLINE-hygiene, PRESERVED under v17, not behaviour-evidence proxies; c-021 is v17-compatible BY
+  CONSTRUCTION — behaviour proof = the NEW-TYPE-IS-DATA RED + loopback, never a scan; a new source-scan-as-evidence =
+  a v17 STOP). NOW.md refreshed to match (c-021 note PENDING→READY; the doubly-stale IMMEDIATE + ROAD sub-lines
+  v14/v17/@38ab715/"owes v15-17" SUPERSEDED). Edits ADDITIVE (no hardened gate weakened); substance of the
+  2026-07-02 rewrite untouched. Firing = a FRESH owner-present GasCoopGame_dev PLAN session (the c-exec-022 PLAN
+  deviation must not repeat). NB Unity/ai-game-developer MCP is DOWN this session — the engine-only c-021 build is
+  headless (NOT blocked); only the final owner-eye scenes (done_when 13, confidence-not-gate) need Unity up.
+  Reconciled vs origin (b8304a1, current); NO TREE/CHARTER change; G1 intact. OS commit LOCAL; push owner-gated.
+  → history/2026-07-06-s-work-053-c-exec-021-fire-ready-prep.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

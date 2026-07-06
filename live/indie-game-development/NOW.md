@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-05 by s-work-052
+updated: 2026-07-06 by s-work-053
 
 bet:
   node: g-9c41
@@ -260,9 +260,14 @@ open_calls:
       owner-pre-signed live-spec amendment («если нам какой-то класс не нужен, мы legacy не храним, удаляем …
       Просто так не держать») — scoped to demo files + their ReactionLayer SHALL lines ONLY; GridEvent bus/enum
       stays locked (Reaction=3 STAYS); verify-uncomposed first, STOP on live composition or wider SHALL.
-      PENDING (await the Sc-kernel RESULT; CALL §PENDING): weak-hardware budget fork (flooded number + CPU
-      proxy), wake-source exact binding (binds «reaction front» stub; env-delta reserved for Sc-typing), base
-      sha + golden identity, MeaningMembers bits, scan roots, contract version, ADR-E number.
+      READY TO FIRE 2026-07-06 (s-work-053) — CALL fire-time anchors REFRESHED + §PENDING FILLED: base =
+      GasCoopGame main @26dd062 (contract v18); weak-hardware budget fork RESOLVED by d-hangar-flood-fallback-001
+      (reactions ride the ~35k–70k all-active ceiling, heavy levers parked); wake-source binds the «reaction
+      front» stub (env-delta reserved for Sc-typing); contract v18 + next ADR-E ≥ 0006; v17 source-scan-ban
+      interaction noted (hygiene scanners preserved → c-021 v17-compatible BY CONSTRUCTION, behaviour proof =
+      the NEW-TYPE-IS-DATA RED, never a scan). The code-anchored remainder (golden identity, MeaningMembers
+      next-free-bit, scan-root lists, EmitImpulse/cap signatures) STAYS the executor's fire-time first-hand
+      §Re-sync CONFIRM — do NOT invent.
       ⚠ W1b (the visual track's per-cell dominant-type read-API, d-w1b-window-001) fires as its OWN tiny
       engine mini-CALL in the Sc-kernel→Sc-reactions gap (GasCoopGame_dev worktree, never dev_2) — c-exec-021
       rebases over it via its own §Re-sync sweep; it is not part of c-exec-021's own scope.
@@ -666,7 +671,13 @@ next:
   DELIVERED + MERGED @21f9c0f + PUSHED, binding-G5 SOUND after a REV-2 fail-closed fix of a v15 P1 (s-work-052); and
   c-visual-005 (clean visual source-scan retirement) DELIVERED + MERGED @26dd062 + PUSHED, binding-G5 SOUND, the 4
   v17-banned scanners deleted + grandfather discharged. So c-021 fires on a CLEAN v18 base, gated by the CURRENT
-  rules. c-021 fire steps: re-harden + fill §PENDING from the Sc-kernel/W1b RESULTs, then fire. (Infra ledger, all
+  rules. c-021 CALL is now FIRE-READY (s-work-053, 2026-07-06): fire-time anchors REFRESHED (base main @26dd062 /
+  contract v18) + §PENDING FILLED (budget fork RESOLVED via d-hangar-flood-fallback-001 = ride the ~35k–70k
+  all-active ceiling; «reaction front» wake stub; v18 + next ADR-E ≥ 0006; v17-scan interaction noted) — only the
+  code-anchored items (golden identity, MeaningMembers bit, scan roots, EmitImpulse/cap signatures) remain the
+  executor's fire-time first-hand §Re-sync. Fire steps: owner launches a FRESH GasCoopGame_dev PLAN session →
+  §Re-sync CONFIRM + full re-harden vs REAL code → build (default split trip: leg 1 data substrate, leg 2
+  state-machine + feel). (Infra ledger, all
   MERGED to GasCoopGame main: c-028 @cde4c3d [DF-2 RESOLVED, d-benchmark-category-gate-001 DISCHARGED, G5 s-work-045];
   c-029 @f926958 [DF-10 RESOLVED, owner-signed x4 d-over-budget-x2-x4-001, G5 s-work-048]; c-030 @bbe86eb [DF-5
   RESOLVED + RESULT-per-leg, G5 s-work-050]; c-031 @21f9c0f [contract v18, G5 s-work-052]; c-visual-005 @26dd062
@@ -684,11 +695,11 @@ next:
   wf_44257b08-dfe — 0 P1/P2, 2 P3-defer; the 3 W1b-core lenses died on output-conformance so their claims were
   re-derived first-hand: byte-identity / encapsulation / full-domain sentinel / 48 W1b+atomicity tests green).
   Emergent c-026 (§Re-sync v11→v14, @a08860e) + c-027×2 (ADR-E-0004/0005) re-verified SOUND in the same G5.
-  ROAD (fresh GasCoopGame_dev sessions): c-exec-021 (Sc-reactions) — run its §Re-sync (⚠ repo at v14, OS now v17 —
-  owes v15/v16/v17; the CALL body's base @38ab715 + v11 assumptions are doubly STALE; re-sync BEFORE building) +
-  full fire-time re-hardening, fill §PENDING from the Sc-kernel/W1b RESULTs, then fire in a fresh session
-  (owner-present PLAN). c-exec-028 has CLEARED the bench-tax (CLOSED, binding-G5 SOUND s-work-045); c-021 is now the
-  immediate next.
+  ROAD (fresh GasCoopGame_dev sessions): c-exec-021 (Sc-reactions) is FIRE-READY — CALL anchors refreshed to base
+  main @26dd062 / contract v18 + §PENDING filled (s-work-053, 2026-07-06); the old @38ab715 / v11 / v14 / "owes
+  v15/v16/v17" notes are SUPERSEDED. The executor runs the code-grounded §Re-sync as a CONFIRM (road-preconditions
+  met) + the full fire-time re-hardening against REAL code (the 2026-07-02 "code does not exist yet" caveat is
+  discharged), then fires in a fresh session (owner-present PLAN). c-021 is the immediate next.
   LATENT, tracked-deferred (route-home backlog from c-028's Codex KERNEL-G5, direction owns each CALL — see
   d-df-backlog-sequencing-001 + C:\projects\Unity\GasCoopGame\docs\DEFERRED-FINDINGS.md): DF-1 (RectDecomposition
   span-DoS — P1, ZERO caller, wakes when GridFlow room-ingestion wires; approach C pre-selected) + DF-3
