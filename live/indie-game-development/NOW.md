@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-06 by s-work-053
+updated: 2026-07-06 by s-work-054
 
 bet:
   node: g-9c41
@@ -219,6 +219,13 @@ open_calls:
       dev_2 to a clean current-main base BEFORE any Stage 1 work.
       ⚠ 2026-07-04 (s-work-046): route ANSWERED → c-visual-005 (clean re-derive on main v14) is the vehicle; IT does
       the dev_2 reset (its step 0). Fire c-visual-005 BEFORE c-visual-004 Stage 1 (Stage 1 rebases onto the clean tip).
+      🔥 FIRE-READY 2026-07-06 (s-work-054, owner «хочу запускать визуал параллельно»): c-visual-005 DONE + MERGED
+      @26dd062 → the dev_2-contamination blocker is CLEARED. CALL refreshed: base @bc25a33 → @26dd062 (v18); RE-SCOPE —
+      c-visual-005 already landed Stage-1 #1 (depth composite: gas no longer draws through walls) + the camera/replay
+      plumbing, so build ONLY the remainder (#2 the STAND / designed room, #3 open-space bookmark, #4 fixed-seed
+      restart); owner-eye @26dd062 first, do NOT redo depth/camera; wiring-smoke stays EXISTENCE-ONLY (v17); RESULT-per-leg
+      + v18 cited-existence apply. Fire in a FRESH GasCoopGame_dev_2 session (reset dev_2 to @26dd062 first). Runs
+      PARALLEL to c-021 (engine) — separate track, separate worktree. dev_2→main merge owner-gated.
   # c-visual-005 (g-7e15 clean visual source-scan retirement) CLOSED 2026-07-05: DELIVERED (dev2) + MERGED @26dd062 +
   # PUSHED origin/main. Binding fresh-session G5 SOUND (s-work-052, first-hand): the 4 v17-banned behavior-source-scanners
   # DELETED; existence-only wiring smoke (File.Exists, no source-scan/globs/markers — the crutch retired); real visual

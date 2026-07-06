@@ -1,13 +1,30 @@
 # CALL c-visual-004 — Stage 1: Стенд + отсечка по глубине — RENDER-ONLY
 
-> ✅ **OPENED 2026-07-03** (s-work-040). g-7e15's hold is PARTIALLY LIFTED for Stage 1 ONLY — the default
-> un-hold trigger (Sc-kernel GREEN + dev→main merge) is met (GasCoopGame main @b7d4226, then @bc25a33 after a
-> same-day contract-v11 §Re-sync). Owner explicitly authorized this leg while Stage 2+ stays HELD (Stage 2 needs
-> W1b, which fires separately in the Sc-kernel→Sc-reactions gap; opening Stage 2+ needs a fresh owner check, not
-> an automatic cascade from this leg). ⚠ **GasCoopGame_dev_2 is BEHIND main** (still at the old W1a tip
-> @40b94cc — missing Sc-rep, Sc-kernel, and the contract-v11 resync). The PLAN's §Re-sync step MUST merge/pull
-> current `main` into `dev_2` FIRST, before anything else, and re-verify this CALL's assumptions (RealGasViewSource
-> / VoxelSandboxDirector / GasRoomScene / GasUber.shader / GasParams layout) still hold post-merge.
+> 🔥 **FIRE-READY 2026-07-06** (s-work-054; owner: «визуал — параллельный трек, хочу запускать»). Base + scope
+> refreshed for launch. **Base = GasCoopGame main @26dd062** (contract v18; includes Sc-rep/Sc-kernel/W1b +
+> c-029/c-030/c-031 §Re-sync + c-visual-005). **dev_2 RESET:** reset `GasCoopGame_dev_2` to `origin/main` @26dd062
+> FIRST (it already carries c-visual-005's merged work; do NOT build on the old contaminated tip @3858752 or the
+> stale @40b94cc/@bc25a33).
+>
+> ⚠ **RE-SCOPE — c-visual-005 already landed a CHUNK of Stage 1 (do NOT rebuild it):** the DEPTH COMPOSITE (#1 —
+> gas no longer draws through walls: `GASUBER_DEPTH_CLAMP` + `GasVisualRenderFeature` depth input/read wiring +
+> `GasShaderMath.SceneDeviceDepth` + `GasShaderDepthMathTests`) AND the camera/replay plumbing (Open-Arena-Jet
+> replay, LP1-Proof camera, `ApplyNow()`/`RefreshNow()`, serialized `GasRoomScene.unity` camera state) are DONE +
+> merged on @26dd062. So the PLAN's step 1 is: OWNER-EYE what is already on @26dd062, then build ONLY the REMAINDER
+> of Stage 1 — #2 THE STAND (designed greybox room ~8-10 m + motivated lamp/`GasLightBinder` + scale cube +
+> mannequin capsule + ONE lit/dark toggle + finalize the 2 fixed camera bookmarks), #3 the OPEN-SPACE no-walls
+> bookmark with directional-jet framing, #4 the fixed-seed restart + ONE serialized single-vent emitter config.
+> Do NOT redo #1 (depth) or the camera path.
+>
+> ⚠ **v17/v18 (contract now v18):** the visual wiring-smoke must stay EXISTENCE-ONLY (`File.Exists`, NO source-text
+> scan / `Does.Contain` / marker-grep — c-visual-005 retired the scanners; do NOT reintroduce any); any render/
+> behavior claim is owner-eye + a real Unity/live-MCP run, NEVER a source scan (v17); the RESULT (per-leg
+> `docs/results/c-visual-004.md`, RESULT-per-leg is live since c-030) may cite only review/ADR paths that EXIST at
+> HEAD (v18). Stage 2+ stays HELD (W1b landed, but opening Stage 2+ needs a fresh owner check — not an auto cascade).
+> Runs in a FRESH GasCoopGame_dev_2 session (never dev — engine cubes live there); dev_2→main merge owner-gated.
+> Re-verify the CALL's assumptions (RealGasViewSource / VoxelSandboxDirector / GasRoomScene / GasUber.shader /
+> GasParams layout) still hold on @26dd062 before building.
+> [Superseded: the 2026-07-03 OPENED banner (base @bc25a33, dev_2 behind @40b94cc) is stale — base is now @26dd062.]
 
 - direction: indie-game-development
 - node: g-7e15 (VISUAL track)
