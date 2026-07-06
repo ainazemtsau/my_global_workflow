@@ -1,5 +1,12 @@
 # CALL c-visual-004 — Stage 1: Стенд + отсечка по глубине — RENDER-ONLY
 
+> ⛔ **SUPERSEDED / DO NOT FIRE (2026-07-06, s-work-054).** Stage 1's content was DELIVERED via c-visual-005's
+> salvage of the polluted @3858752 attempt (depth composite / отсечка + designed room `GasRoomScene` + camera
+> bookmarks + open-arena-jet replay + fixed-seed restart), merged @26dd062; owner tested + confirmed OK 2026-07-06.
+> c-visual-004 is CLOSED (collapsed into c-visual-005) — this CALL is reference only. Next visual leg = **Stage 2**
+> (Паспорт типа + шипучий режим), to be framed fresh. The 🔥 FIRE-READY banner below was a MIS-SCOPE (the "remainder"
+> was already built) and is VOID.
+
 > 🔥 **FIRE-READY 2026-07-06** (s-work-054; owner: «визуал — параллельный трек, хочу запускать»). Base + scope
 > refreshed for launch. **Base = GasCoopGame main @26dd062** (contract v18; includes Sc-rep/Sc-kernel/W1b +
 > c-029/c-030/c-031 §Re-sync + c-visual-005). **dev_2 RESET:** reset `GasCoopGame_dev_2` to `origin/main` @26dd062

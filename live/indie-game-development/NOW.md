@@ -38,8 +38,8 @@ bet:
     ANSWERED (owner option 1) → c-exec-028 (tools/ benchmark-hardening) DELIVERED + MERGED + PUSHED (origin/main
     @cde4c3d, v14) + binding-G5 SOUND (s-work-045) — DF-2 root-fixed via [Explicit] (owner-ack), gate-integrity
     gates have teeth, bench-tax cleared; d-benchmark-category-gate-001 DISCHARGED. next = re-harden + §Re-sync
-    (repo v14, OS now v17 — owes v15/v16/v17) + fire c-exec-021 (Sc-reactions). VISUAL track PARTIAL
-    un-hold (Stage 1 c-visual-004 OPENED, s-work-040; Stage 2+ HELD pending a fresh owner check — W1b now landed).
+    (repo NOW v18, c-031 §Re-sync DONE) + fire c-exec-021 (Sc-reactions). VISUAL track: Stage 1 DONE
+    (via c-visual-005, merged @26dd062, owner-tested OK 2026-07-06); NEXT = Stage 2 (openable — W1b landed + owner-check given).
     SPEC §6 п.2 fully-fine ceiling SEATED (~35k@50ms / ~70k@100ms weak-peer). Latest session:
     history/2026-07-04-s-work-045-c-exec-028-binding-g5-close.md.
   appetite: |
@@ -200,32 +200,14 @@ open_calls:
       is a Core/Field edit, cannot ride a render-only leg) — now a tiny ENGINE mini-CALL in the GasCoopGame_dev
       worktree, windowed per d-w1b-window-001 (Sc-kernel→Sc-reactions gap; still fires there, unaffected by
       the visual partial un-hold).
-  - id: c-visual-004
-    to: executor
-    for: g-7e15 / Stage 1 (стенд + отсечка по глубине)
-    issued: 2026-07-03
-    call: work/c-visual-004-call.md
-    note: |
-      OPENED 2026-07-03 (s-work-040): owner authorized a PARTIAL un-hold of g-7e15 for Stage 1 ONLY (render-only,
-      zero Core/** edit, no W1b/reactions dependency — Sc-kernel GREEN, the default un-hold trigger, is met).
-      Stage 2+ stays HELD (needs W1b + a fresh owner check before opening — not automatic). Base refreshed to
-      GasCoopGame main @bc25a33 (post Sc-kernel merge + contract-v11 §Re-sync). ⚠ GasCoopGame_dev_2 (where this
-      builds) is currently BEHIND main (still at the old W1a tip @40b94cc) — the PLAN's §Re-sync step MUST pull
-      main into dev_2 FIRST. Runs in GasCoopGame_dev_2 (never dev — that worktree carries engine debug cubes,
-      not the real gas visual). dev_2→main merge owner-gated.
-      ⚠ 2026-07-04 (s-work-044): dev_2 HEAD is now @3858752 "Close visual source-scan retirement" — a leg that
-      FAILED its binding G5 (see d-visual-sourcescan-route-001) and is CONTAMINATED (undeclared FishNet/shader/
-      gate-tooling scope) + 46 commits BEHIND v14 main. c-visual-004 must NOT build on top of @3858752; reset
-      dev_2 to a clean current-main base BEFORE any Stage 1 work.
-      ⚠ 2026-07-04 (s-work-046): route ANSWERED → c-visual-005 (clean re-derive on main v14) is the vehicle; IT does
-      the dev_2 reset (its step 0). Fire c-visual-005 BEFORE c-visual-004 Stage 1 (Stage 1 rebases onto the clean tip).
-      🔥 FIRE-READY 2026-07-06 (s-work-054, owner «хочу запускать визуал параллельно»): c-visual-005 DONE + MERGED
-      @26dd062 → the dev_2-contamination blocker is CLEARED. CALL refreshed: base @bc25a33 → @26dd062 (v18); RE-SCOPE —
-      c-visual-005 already landed Stage-1 #1 (depth composite: gas no longer draws through walls) + the camera/replay
-      plumbing, so build ONLY the remainder (#2 the STAND / designed room, #3 open-space bookmark, #4 fixed-seed
-      restart); owner-eye @26dd062 first, do NOT redo depth/camera; wiring-smoke stays EXISTENCE-ONLY (v17); RESULT-per-leg
-      + v18 cited-existence apply. Fire in a FRESH GasCoopGame_dev_2 session (reset dev_2 to @26dd062 first). Runs
-      PARALLEL to c-021 (engine) — separate track, separate worktree. dev_2→main merge owner-gated.
+  # c-visual-004 (g-7e15 / Stage 1: стенд + отсечка по глубине) CLOSED 2026-07-06 (s-work-054): Stage 1 content was
+  # DELIVERED via c-visual-005's salvage of the polluted @3858752 Stage-1 attempt — the depth composite (отсечка,
+  # gas no longer draws through walls) + the designed room (GasRoomScene) + camera bookmarks + open-arena-jet replay
+  # + fixed-seed restart plumbing all landed and MERGED @26dd062. Owner TESTED + confirmed OK 2026-07-06 («Stage 1
+  # ок»). c-visual-004 + c-visual-005 collapsed into ONE delivery — no separate Stage-1 leg fires. (The 2026-07-06
+  # FIRE-READY re-scope once written in this slot was WRONG — the "remainder" was already built; corrected here; the
+  # CALL file work/c-visual-004-call.md carries a SUPERSEDED banner.) Next visual = Stage 2 (openable — see g-7e15
+  # track_state). Record: history/2026-07-06-s-work-054-visual-stage1-close-stage2-open.md.
   # c-visual-005 (g-7e15 clean visual source-scan retirement) CLOSED 2026-07-05: DELIVERED (dev2) + MERGED @26dd062 +
   # PUSHED origin/main. Binding fresh-session G5 SOUND (s-work-052, first-hand): the 4 v17-banned behavior-source-scanners
   # DELETED; existence-only wiring smoke (File.Exists, no source-scan/globs/markers — the crutch retired); real visual
@@ -313,8 +295,12 @@ recurring: []
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    track_state: active — PARTIAL UN-HOLD 2026-07-03 (owner): Stage 1 (c-visual-004) OPENED; Stage 2+ stays
-      gated on W1b landing + engine-focus discipline (do not silently expand past Stage 1 without asking again).
+    track_state: active — STAGE 1 DONE 2026-07-06 (owner-tested OK): Stage 1 (стенд + отсечка по глубине) was
+      delivered via c-visual-005 + merged @26dd062; c-visual-004 CLOSED (collapsed into c-visual-005). NEXT = STAGE 2
+      (Паспорт типа + шипучий режим), now OPENABLE — both gates met: W1b landed (c-exec-025 merged) + the required
+      fresh owner check GIVEN 2026-07-06 («Stage 1 ок, давай Stage 2»). Stage 2 to be FRAMED in a fresh planning
+      session; runs PARALLEL to c-021 (engine) in GasCoopGame_dev_2. Engine-focus discipline still holds (do not
+      silently expand past the framed Stage 2 scope without asking).
     note: |
       Secondary to g-9c41, no fixed hour quota. c-visual-002 S1 gas-lab delivered + merged
       (history/s-visual-009.md); W1a (real gas in a lit room) DELIVERED WITH RESERVATIONS 2026-07-02

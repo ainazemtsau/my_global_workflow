@@ -315,5 +315,15 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   headless (NOT blocked); only the final owner-eye scenes (done_when 13, confidence-not-gate) need Unity up.
   Reconciled vs origin (b8304a1, current); NO TREE/CHARTER change; G1 intact. OS commit LOCAL; push owner-gated.
   → history/2026-07-06-s-work-053-c-exec-021-fire-ready-prep.md
+- s-work-054 (2026-07-06) — g-7e15 visual reconcile (owner: «визуал — свой параллельный трек» + «Stage 1 ок,
+  приведи в порядок для новой планинг-сессии»). Stage 1 (стенд + отсечка по глубине) is DONE: its content was
+  delivered via c-visual-005's salvage of the polluted @3858752 Stage-1 attempt (depth composite/отсечка + designed
+  room GasRoomScene + camera bookmarks + open-arena-jet replay + fixed-seed restart), merged @26dd062; owner tested
+  + confirmed OK. c-visual-004 CLOSED (collapsed into c-visual-005). CORRECTION: earlier this session I wrongly
+  marked c-visual-004 FIRE-READY + told the owner to "build the remainder" — that content was already built; owner
+  caught it; corrected (CALL superseded/void). NEXT visual = Stage 2 (Паспорт типа + шипучий режим), OPENABLE — both
+  gates met (W1b landed c-exec-025 + owner-check given 2026-07-06); to be FRAMED in a fresh planning session,
+  PARALLEL to c-021 (engine, FIRE-READY @26dd062/v18). NO product change; NO TREE/CHARTER change; G1 intact. OS
+  commit LOCAL; push owner-gated. → history/2026-07-06-s-work-054-visual-stage1-close-stage2-open.md
 
 END_OF_FILE: live/indie-game-development/LOG.md
