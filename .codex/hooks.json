@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python .codex/guard/codex_guard.py --event Stop",
+            "command": "python -c \"import pathlib,subprocess,sys; root=subprocess.check_output(['git','rev-parse','--show-toplevel'], text=True).strip(); data=sys.stdin.read(); raise SystemExit(subprocess.run([sys.executable, str(pathlib.Path(root, '.codex', 'guard', 'codex_guard.py')), '--event', 'Stop'], input=data, text=True).returncode)\"",
             "timeout": 30,
             "statusMessage": "Checking Direction-OS close gates"
           }
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python .codex/guard/codex_guard.py --event PreToolUse",
+            "command": "python -c \"import pathlib,subprocess,sys; root=subprocess.check_output(['git','rev-parse','--show-toplevel'], text=True).strip(); data=sys.stdin.read(); raise SystemExit(subprocess.run([sys.executable, str(pathlib.Path(root, '.codex', 'guard', 'codex_guard.py')), '--event', 'PreToolUse'], input=data, text=True).returncode)\"",
             "timeout": 30,
             "statusMessage": "Checking Direction-OS write guard"
           }
@@ -29,7 +29,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python .codex/guard/codex_guard.py --event PostToolUse",
+            "command": "python -c \"import pathlib,subprocess,sys; root=subprocess.check_output(['git','rev-parse','--show-toplevel'], text=True).strip(); data=sys.stdin.read(); raise SystemExit(subprocess.run([sys.executable, str(pathlib.Path(root, '.codex', 'guard', 'codex_guard.py')), '--event', 'PostToolUse'], input=data, text=True).returncode)\"",
             "timeout": 30,
             "statusMessage": "Checking Direction-OS write guard"
           }

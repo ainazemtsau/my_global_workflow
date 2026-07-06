@@ -36,7 +36,7 @@ PRODUCT_WRITE_WORDS = re.compile(
 CLOSE_WORDS = re.compile(r"\b(done|verified|closed|complete(?:d)?)\b", re.IGNORECASE)
 STATE_CLOSE_WORDS = re.compile(
     r"(remove[sd]?\s+open_call|clear[sd]?\s+open_call|delete[sd]?\s+open_call|"
-    r"open_calls\s*:\s*\[\s*\]|status\s*:\s*done|task\s*[-\w]*\s*done|state_changes)",
+    r"open_calls\s*:\s*\[\s*\]|status\s*:\s*done|task\s*[-\w]*\s*done)",
     re.IGNORECASE,
 )
 PENDING_WORDS = re.compile(
@@ -44,10 +44,14 @@ PENDING_WORDS = re.compile(
     r"open_call\s+pending|close\s+remains\s+pending)",
     re.IGNORECASE,
 )
-FRESH_G5_WORDS = re.compile(
-    r"(binding|fresh(?:-session)?)"
-    r"(?=[\s\S]{0,120}\b(?:g5|review|refutation)\b)"
-    r"(?=[\s\S]{0,180}\b(?:evidence|pass|passed|survived|clean|verified)\b)",
+G5_AFFIRMATIVE_WORDS = re.compile(r"\b(?:binding|fresh(?:-session)?)\b", re.IGNORECASE)
+G5_TARGET_WORDS = re.compile(r"\b(?:g5|review|refutation)\b", re.IGNORECASE)
+G5_SUCCESS_WORDS = re.compile(
+    r"\b(?:pass(?:ed)?|survived|clean|verified|could[-\s]+not[-\s]+refute)\b",
+    re.IGNORECASE,
+)
+G5_NEGATED_WORDS = re.compile(
+    r"\b(?:no|without|missing|absent|pending|not\s+run|not\s+executed)\b",
     re.IGNORECASE,
 )
 
@@ -56,8 +60,23 @@ def decision_block(reason: str) -> dict[str, Any]:
     return {"decision": "block", "reason": reason}
 
 
-def decision_allow() -> dict[str, Any]:
-    return {"continue": True}
+def decision_allow(event: str) -> dict[str, Any]:
+    if event == "Stop":
+        return {"continue": True}
+    return {}
+
+
+def has_affirmative_fresh_g5(text: str) -> bool:
+    for claim in G5_AFFIRMATIVE_WORDS.finditer(text):
+        window_start = max(0, claim.start() - 80)
+        window_end = min(len(text), claim.end() + 220)
+        window = text[window_start:window_end]
+        candidate = text[claim.start() : window_end]
+        if G5_NEGATED_WORDS.search(window):
+            continue
+        if G5_TARGET_WORDS.search(candidate) and G5_SUCCESS_WORDS.search(candidate):
+            return True
+    return False
 
 
 def load_policy() -> dict[str, Any]:
@@ -214,7 +233,7 @@ def blocks_side_repair(payload: dict[str, Any], policy: dict[str, Any]) -> str |
     combined = "\n".join([blob, command, workdir_from_payload(payload)])
     direction = str(policy["direction_id"])
     protected = str(policy["protected_side_repair_path"])
-    if direction not in combined or not contains_path(combined, protected):
+    if not contains_path(combined, protected):
         return None
     ack_pattern = re.compile(str(policy["side_repair_ack_pattern"]))
     if ack_pattern.search(combined):
@@ -236,7 +255,7 @@ def blocks_bad_close(payload: dict[str, Any], policy: dict[str, Any]) -> str | N
     has_state_close = bool(STATE_CLOSE_WORDS.search(msg))
     has_close = bool(CLOSE_WORDS.search(msg))
     has_pending = bool(PENDING_WORDS.search(msg))
-    has_binding_g5 = bool(FRESH_G5_WORDS.search(msg))
+    has_binding_g5 = has_affirmative_fresh_g5(msg)
     if has_binding_g5:
         return None
     if has_pending and not has_state_close and "closed" not in msg.lower():
@@ -260,16 +279,16 @@ def evaluate(payload: dict[str, Any], cli_event: str | None = None) -> dict[str,
         reason = blocks_bad_close(payload, policy)
         if reason:
             return decision_block(reason)
-        return decision_allow()
+        return decision_allow(event)
 
     if event in {"PreToolUse", "PostToolUse"}:
         for check in (blocks_product_write, blocks_side_repair):
             reason = check(payload, policy)
             if reason:
                 return decision_block(reason)
-        return decision_allow()
+        return decision_allow(event)
 
-    return decision_allow()
+    return decision_allow(event)
 
 
 def main(argv: list[str] | None = None) -> int:
