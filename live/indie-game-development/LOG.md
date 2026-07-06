@@ -339,5 +339,11 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   later per-gas look modules/assets, but Stage 2 builds no special modules. Everything else in the proposed Stage 2
   plan accepted. CALL + NOW clarified; no product/TREE/CHARTER change; G1 intact. →
   history/2026-07-06-s-work-056-visual-stage2-signoff-clarification.md
+- s-repair-nowmd-001 (2026-07-06) — repair (owner «да»): NOW.md hot-state trim 753→106 lines back to the schema
+  template — removed the out-of-template current_truth, the closed open_calls, the answered decisions, the
+  status-digest next, and history_pointers (all recoverable in history/ + LOG + git); kept the 2 live calls
+  (c-exec-021, c-visual-006) + 2 pending decisions; reconciled the concurrent s-work-056 c-visual-006 clarification.
+  Executes the trim the FRICTION 2026-07-02 hot-state-bloat fix explicitly deferred (instance #3 → root = audit/pulse
+  not run, not a rule gap). Road unchanged; NO os/**/TREE/CHARTER change. → history/2026-07-06-s-repair-nowmd-001.md
 
 END_OF_FILE: live/indie-game-development/LOG.md
