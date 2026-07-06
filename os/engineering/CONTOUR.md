@@ -14,8 +14,8 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
-- **Planner** — interactive session, frontier model, plan mode. Talks to the owner.
-- **Builder** — autonomous session(s), default-tier model. Never talks to the owner mid-run.
+- **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
+- **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan (never the same session that planned). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
 - **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads ONLY the frozen spec (never the code — it does not exist yet) and writes the per-criterion acceptance tests as failing (red). The builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the SPEC, not from a verdict. This is what stops the builder's own tests from inheriting the builder's misreading of the spec. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the code and a reviewer who only reads it after DELIVERED.
 
@@ -87,8 +87,17 @@ CALL (business task from a direction)
     ESCALATION) — a self-authored cut of a promise is a coverage FAIL, not a disposition. This
     list is RECORDED in the spec; the deliver gate checks it (PROJECT_SETUP §Strong-check
     enablement) and the writer re-checks it on carry-back (os/adapters/coding-agent.md).
+    The plan the owner approves is a detailed-but-simple OWNER-READABLE
+    document — the goal in plain words and EACH technical decision spelled out
+    (plain-language what + why), plus what is cut or deferred; the machine spec /
+    ledger / ADR ride ALONGSIDE it for the builder and are NOT what the owner
+    reads to approve (a wall of machine artifacts, or a plan buried in a scratch
+    file, is not a plan).
     Owner approves the plan. This is the
-    owner's last mandatory appearance until the final report.
+    owner's last mandatory appearance until the final report — and it CLOSES the
+    plan leg: RED TESTS + BUILD run as a SEPARATE, fresh build session reading
+    the frozen plan (the plan session writes no product code and commissions no
+    red tests). Planning and building never share one session.
   → RED TESTS (before build): the test-author (see Roles) writes the failing
     acceptance tests from the frozen spec — the builder cannot author or edit
     the tests it must satisfy, so a misreading of the spec cannot hide in

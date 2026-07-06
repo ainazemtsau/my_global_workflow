@@ -10,9 +10,46 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 18
+current: 19
 
 log:
+  19  2026-07-06  PLAN and BUILD are SEPARATE sessions + the owner approves an owner-READABLE plan (the
+      plan-leg-boundary axis, owner request — transcript of a GasCoopGame c-exec-021 session that ran PLAN
+      and BUILD in ONE session (wrote 7 data-layer files + commissioned 11 RED tests inside the planning
+      session) and surfaced the plan as machine artifacts in a scratch folder + a wall of text; owner:
+      «во-первых план должен показывать детально и просто, с расписанными техническими решениями; во-вторых
+      планирование и execution — это должны быть разные сессии»). Replay (MAINTENANCE step 1): CONTOUR already
+      says Roles are «always separated» (Planner = interactive session, Builder = autonomous session(s)) but
+      the cycle draws PLAN → RED TESTS → BUILD as ONE continuous arrow-chain with no explicit SESSION boundary
+      or STOP, and «owner approves the plan» never required an owner-READABLE plan (only the machine spec/
+      ledger/ADR) — so a single executor session doing plan+build and surfacing machine artifacts is what the
+      text INVITES. Verdict: (a) rule defect (ambiguous role-vs-session separation) + (c) owner-requested
+      behavior (explicit request = sufficient trigger). Sibling KEPT PARKED (one problem per session): the
+      2026-07-04 line-141 entry-guard (a bare CALL-id is not runnable / a `c-exec-*` leg opens its openspec
+      folder at PLAN before build, never «light») — a DIFFERENT mechanism, still owed its own session. Fix,
+      STRICTLY ADDITIVE (no gate weakened — validator G4/G5, test-author both passes, non-convergence, strong-
+      check/coverage/named-approach/registry-walk/review-evidence/negative-control/property-layer/refuted-
+      register/fix-class-closure/review-scope-split/cited-artifact/tool-unavailable-STOP/source-scan-ban all
+      intact; KERNEL/plays/packets/schema untouched; END_OF_FILE trailers intact): CONTOUR Roles — Planner is a
+      SEPARATE session from BUILD that ENDS at owner plan-approval (hands off a build CALL, writes no product
+      code, commissions no red tests), Builder is a FRESH session reading the frozen plan; CONTOUR cycle PLAN —
+      the approved plan is a detailed-but-simple OWNER-READABLE document (each technical decision spelled out
+      plain-language + why; the machine spec/ledger/ADR ride alongside for the builder, not as the plan) and
+      plan-approval CLOSES the plan leg (RED TESTS + BUILD are a separate fresh session); PROJECT_SETUP Step-3
+      run-contract carries the same «PLAN and BUILD are separate sessions + owner-readable plan» clause (→ every
+      product repo). SCOPE (honest, like v16/v17): BEHAVIORAL, not a deliver-script — there is no clean
+      mechanical signal that «one session did both» (sessions are not git-visible), so it is enforced by the
+      executor stopping at plan-approval, by the owner not approving a plan that arrives mid-build, and by
+      writer awareness; no seeded-miss, and no ESCAPE-CLASSES row (a process/role defect nothing walks, not a
+      product-property blind spot the spec-silence audit could ask about). OS text ACTIVE now; the product
+      AGENTS.md line lands at §Re-sync. §Re-sync OWED: GasCoopGame (mirror the PLAN/BUILD-separate-sessions +
+      owner-readable-plan clause into the product run-contract, RECONCILING the ad-hoc root-AGENTS.md edit the
+      transcript session hand-added out-of-process so it matches the OS-distilled wording; bump
+      synced_contract_version → 19, folding into the staged c-exec-026 re-sync); health-ai (mirror as-is — the
+      plan/build session split applies to any executor, .NET or markdown kernel). SCOPE-note: this hardens a
+      run-contract that propagates to product repos (same class as v16/v17), so the bump is correct even though
+      the axis is behavioral. (owner: «план детально и просто с техническими решениями; планирование и
+      исполнение — разные сессии»)
   18  2026-07-04  cited-artifact existence (the light-lane floor under review-evidence, owner request
       d-review-citation-fixclass-001 — owner picked the MECHANICAL gate over prose): the v10 review-evidence deliver
       dependency fires only for a G0-frozen change, so a LIGHT/infra leg (no frozen openspec folder = N/A-by-absence)
