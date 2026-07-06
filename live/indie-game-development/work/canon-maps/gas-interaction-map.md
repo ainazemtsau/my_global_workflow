@@ -1202,75 +1202,114 @@ Forge handoff:
 
 ---
 
-# 12. What should be forged next
+# 12. What should happen next
 
 Recommendation:
 
-> Next canon-forge should be Gas Interaction Anchor Cases.
+> Next work should be a `local/design-lab` session for Gas Interaction Gameplay, not a direct canon-forge.
 
-Not full roster.  
-Not exact reaction table.  
-Not cargo stats.  
-Not economy.  
-Not tools.  
-Not final VFX.  
-Not grey-box verdict.
+Reason:
+the current risk is not lack of topics. The risk is that the topics are still too abstract and can collapse into labels like “reaction front”, “source flow”, “anomaly”, or “cargo accident” without a player-understandable gameplay situation.
 
-The next forge should freeze 4–6 concrete gas interaction anchor cases that define what gas does as the core of the game.
+The next session should test gas interaction through concrete playable floor situations before freezing canon.
 
-## Why this next
+A useful situation must be explainable in owner language:
 
-Because the current risk is not lack of theory.  
-The risk is that theory is still too abstract.
-
-Anchor cases force us to align on:
-
-- what starts the situation;
-- where gas comes from;
-- how it spreads;
+- where the team is;
+- what the team wants;
+- what gas/source/environment/cargo/player state exists;
 - what the player reads;
-- what changes in the world;
-- what changes for cargo;
-- what changes for player;
-- what decision appears;
-- what must not collapse into scripted setpiece or arbitrary magic.
+- what the player can do;
+- why greed is tempting;
+- why safety costs something;
+- what changes in the world, player, route, cargo, or gas state;
+- what can go wrong;
+- what remains unresolved.
+
+The session must not use a fixed count of cases. It should use as many situations as are needed to understand the principle, and stop when more examples stop adding new gameplay meaning.
+
+## Why Design Lab first
+
+`local/canon-forge` is for freezing a question once the answer shape is owner-understood.
+This gas interaction question is not ready for direct freezing because it touches several neighboring questions:
+
+- gas source/spread/flow;
+- reaction outcomes;
+- anomalous forms;
+- field capture/value;
+- cargo accidents;
+- route/material consequences;
+- player rescue;
+- field legibility;
+- later grey-box proof.
+
+Design Lab should decide whether:
+- a canon card is ready;
+- a blocker question must be solved first;
+- the map needs repair;
+- a parent canon needs reopen because it is technically coherent but not gameplay-good;
+- a visual/diagram check is needed;
+- a grey-box/prototype route is needed later.
+
+## Failure signals
+
+Stop and do not freeze if:
+
+- the answer reads as a list of abstract labels;
+- there is no player action;
+- there is no understandable scene;
+- the player cannot say what they want;
+- there is no greed/fear or value/safety tradeoff;
+- nothing changes in the world;
+- gas becomes a static spawned cloud;
+- cargo/containment swallows the whole gas system;
+- environment makes every gas identical;
+- anomaly becomes creature AI or arbitrary magic;
+- reaction design needs an exact pair table before gameplay is understood;
+- the old gas-role definition appears technically coherent but bad for gameplay.
+
+## Rejected route: direct freeze of a fixed bundle of cases
+
+Worse, because it encourages checklist coverage instead of playable understanding.
 
 ## Rejected route: return to cargo now
 
-Worse, because cargo would again become the center before gas interactions are anchored.
+Worse, because cargo would again become the center before gas interactions are anchored as gameplay.
 
 ## Rejected route: full roster now
 
-Worse, because roster may become chemistry taxonomy or list of cool exceptions before gameplay jobs are clear.
+Worse, because roster may become chemistry taxonomy or cool exceptions before gameplay jobs are clear.
 
 ## Rejected route: full reaction grammar now
 
-Worse, because grammar may become abstract before we know which reaction scenes matter.
+Worse, because grammar may become abstract before we know which reaction situations matter in play.
 
-## Rejected route: environment/player consequences only
-
-Worse, because it can become a global ontology of everything gas touches.
-
----
-
-# 13. Recommended next forge question
+# 13. Recommended next Design Lab question
 
 The next session should start from:
 
-> Which 4–6 gas interaction cases are mandatory anchors for the game?
+> Which playable gas interaction situations prove that gas is the core gameplay system before cargo/containment continues?
 
-Proposed starting set:
+This is not asking for a fixed number of cases.
+It asks for the smallest useful set of playable situations needed to understand the principle.
 
-1. Two gases meet → reaction front.
-2. Gas source/flow/jet spreads through level and changes situation.
-3. Anomalous gas looks almost alive but remains field behavior.
-4. Cargo leaks into external gas → accident.
-5. Pressure/corrosion changes route/material.
-6. Gas knocks/blocks/pulls player → rescue moment.
-7. Cold/quench stabilizes but sacrifices value.
-8. Extractable value case as one layer, not the whole system.
+Starting hypothesis to test, not freeze:
 
-Forge should choose 4–6 and freeze them as canon anchor cases.
+- gas can create value by being read, captured, pushed, stabilized, released, or lost;
+- source/flow can change a floor while the team is working;
+- reaction can matter only if it creates a readable player decision;
+- cargo leak matters only as a world accident, not a stat penalty;
+- anomaly matters only if it stays gas behavior, not monster AI;
+- utility matters only if safety costs value, route, time, or rescue margin.
+
+The lab should output one of:
+- ready canon-forge CALL;
+- blocker CALL;
+- map repair CALL;
+- parent reopen CALL;
+- visual check CALL;
+- grey-box/prototype CALL;
+- checkpoint with captures only.
 
 ---
 
