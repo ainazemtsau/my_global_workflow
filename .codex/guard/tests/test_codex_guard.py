@@ -87,6 +87,19 @@ class CodexGuardTests(unittest.TestCase):
         self.assertEqual(result["decision"], "block")
         self.assertIn("binding fresh G5", result["reason"])
 
+    def test_future_required_g5_review_blocked(self):
+        result = run_guard(
+            {
+                "last_assistant_message": (
+                    "RESULT for c-visual-006 closed. "
+                    "Binding fresh-session G5 review is required before verified close."
+                )
+            },
+            "Stop",
+        )
+        self.assertEqual(result["decision"], "block")
+        self.assertIn("binding fresh G5", result["reason"])
+
     def test_product_main_write_blocked(self):
         result = run_guard(
             {
@@ -136,6 +149,22 @@ class CodexGuardTests(unittest.TestCase):
                 "tool_name": "shell_command",
                 "tool_input": {
                     "command": "git add docs/results/c-visual-005.md",
+                },
+            },
+            "PreToolUse",
+        )
+        self.assertEqual(result["decision"], "block")
+        self.assertIn("owner_ack_side_repair", result["reason"])
+
+    def test_c_visual_005_side_repair_bash_python_write_blocked(self):
+        result = run_guard(
+            {
+                "tool_name": "Bash",
+                "tool_input": {
+                    "command": (
+                        "python -c \"from pathlib import Path; "
+                        "Path('docs/results/c-visual-005.md').write_text('repair')\""
+                    ),
                 },
             },
             "PreToolUse",

@@ -17,12 +17,20 @@ POLICY_PATH = ROOT / "policy.json"
 
 WRITE_TOOL_NAMES = {
     "apply_patch",
+    "bash",
+    "cmd",
+    "cmd.exe",
     "edit",
     "write",
     "create_file",
     "move",
     "delete",
+    "powershell",
+    "pwsh",
+    "python",
+    "shell",
     "shell_command",
+    "sh",
     "exec_command",
 }
 
@@ -46,12 +54,14 @@ PENDING_WORDS = re.compile(
 )
 G5_AFFIRMATIVE_WORDS = re.compile(r"\b(?:binding|fresh(?:-session)?)\b", re.IGNORECASE)
 G5_TARGET_WORDS = re.compile(r"\b(?:g5|review|refutation)\b", re.IGNORECASE)
-G5_SUCCESS_WORDS = re.compile(
-    r"\b(?:pass(?:ed)?|survived|clean|verified|could[-\s]+not[-\s]+refute)\b",
+G5_COMPLETED_EVIDENCE = re.compile(
+    r"\b(?:review\s+passed|evidence\s+passed|could[-\s]+not[-\s]+refute|"
+    r"survived\s+refutation|clean\s+review)\b",
     re.IGNORECASE,
 )
 G5_NEGATED_WORDS = re.compile(
-    r"\b(?:no|without|missing|absent|pending|not\s+run|not\s+executed)\b",
+    r"\b(?:no|without|missing|absent|pending|required|needed|must|before|"
+    r"not\s+run|not\s+executed)\b",
     re.IGNORECASE,
 )
 
@@ -74,7 +84,7 @@ def has_affirmative_fresh_g5(text: str) -> bool:
         candidate = text[claim.start() : window_end]
         if G5_NEGATED_WORDS.search(window):
             continue
-        if G5_TARGET_WORDS.search(candidate) and G5_SUCCESS_WORDS.search(candidate):
+        if G5_TARGET_WORDS.search(candidate) and G5_COMPLETED_EVIDENCE.search(candidate):
             return True
     return False
 
