@@ -10,6 +10,13 @@
 > main @26dd062 (verified: `c-exec-025-w1b` commits + `c-exec-027` archived it); the render side can finally read
 > more than one species. (2) Owner check GIVEN 2026-07-06 («Stage 1 ок, давай Stage 2») — the required fresh
 > un-hold, not an auto-cascade.
+>
+> ✅ **STAGE 2 SIGN-OFF CLARIFIED 2026-07-06** (owner): «шипучий режим» is ONLY the owner-facing label for the
+> two-colour real multi-type preview, NOT an extra bubbling/particle/boiling effect. The base gas passport is
+> REQUIRED for every gas (hue/value/saturation/edge-softness/motion-frequency/buoyancy-silhouette/interior-structure/
+> glow-pattern/danger). The passport must reserve an extensible render-only attachment path for later per-gas
+> look modules/assets (custom texture, particle accents, special glow/distortion, etc.), but Stage 2 builds NO
+> per-gas special modules yet. Everything else in the proposed Stage 2 plan is accepted.
 
 - direction: indie-game-development
 - node: g-7e15 (VISUAL track)
@@ -27,12 +34,15 @@ later. Stage 2 is mostly PLUMBING + one owner-signed schema decision; its single
 multi-type PREVIEW. It does NOT yet give types their character (that is Stage 4) — it lays the rails for it.
 
 ## what Stage 2 builds (faithful to plan v2 §Stage 2)
-1. **ПАСПОРТ ТИПА — the schema (owner-signed decision, the spine of this leg).** Define the per-type visual profile
-   as **8 identity channels** + a danger scalar:
+1. **ПАСПОРТ ТИПА — the schema (owner-signed decision, the spine of this leg).** Define the REQUIRED base gas
+   passport for EVERY gas as **8 identity channels** + a danger scalar:
    hue · value · saturation · edge-softness · motion-frequency · **buoyancy-silhouette** · interior-structure ·
    glow-pattern  (+ danger 0→1).
    ⚠ `buoyancy-silhouette` is worded strictly as a **read-through of the existing per-type SIM weight** — it is NEVER
    a new render-side vertical bias; `RiseSinkBias` STAYS reserved per ADR-0020. Do not invent sim behaviour render-side.
+   The passport remains EXTENSIBLE: reserve a render-only attachment path so a specific gas type can later opt into
+   optional look modules/assets (custom texture, particle accents, special glow/distortion, etc.). Stage 2 only
+   reserves this path; it does NOT build any per-gas special module.
 2. **96→128-byte LAYOUT-ADR (decide it HERE, before any per-type polish).** Only 5 reserved scalars are genuinely free
    today; ~8–10 new per-type scalars are needed — so the `GpuGasParams` upload layout grows 96→128 B. This is a
    render-adapter change (the GasParams buffer / GasParamsLayout), owner-signed as an ADR, keeping the C#↔HLSL stride
@@ -48,13 +58,15 @@ multi-type PREVIEW. It does NOT yet give types their character (that is Stage 4)
    is not optional at ship quality). Add the depth-aware bilateral upsample so half-res does not smear edges. From here
    on, every owner-eye verdict is judged on THIS ship-quality path.
 5. **ШИПУЧИЙ РЕЖИМ / the visible payoff = a two-colour multi-type PREVIEW.** Owner sees two real gases, distinct
-   colours, meeting — explicitly LABELLED "PREVIEW: colours only; character arrives at Stage 4". (If «шипучий режим»
-   means a specific effervescent/boil look you want on top of the preview, name it at the PLAN — it is confirmed there,
-   not invented here.) Same visual quality, confirmed still-good on the real half-res path.
+   colours, meeting — explicitly LABELLED "PREVIEW: colours only; character arrives at Stage 4". Per owner
+   clarification, «шипучий режим» is the LABEL for this real multi-type preview; it is NOT an extra bubbling,
+   particle, boiling, or other special effect. Same visual quality, confirmed still-good on the real half-res path.
 
 ## explicitly OUT of Stage 2 (later stages, not dropped)
 - Per-type CHARACTER / the 3 canon archetypes / 3-channel minimum-separation / blind lineup / danger LADDER → Stage 4.
 - Natural-jet fix (curl-noise advection, plasticine-capsule kill) / hero one-gas polish / LP1 re-test → Stage 3.
+- Per-gas special render-only look modules/assets (custom texture, particle accents, special glow/distortion, etc.) —
+  Stage 2 reserves the passport extension path only; actual modules/assets are later, explicit legs.
 - Any NEW sim behaviour, any `RiseSinkBias`/reserved-field CONSUMPTION beyond the layout-ADR's declared per-type
   scalars, any Core/** edit → STOP + escalate (engine mini-CALL in dev, never dev_2).
 
@@ -87,8 +99,10 @@ multi-type PREVIEW. It does NOT yet give types their character (that is Stage 4)
 
 ## done_when
 - Opened with the owner-present PLAN; dev_2 reset to @26dd062 + §Re-sync-confirm done first; baseline saved.
-- SCHEMA owner-SIGNED: the 8 channels + danger scalar defined; the 96→128B layout-ADR written (docs/adr/*) and the
-  C#↔HLSL stride gate GREEN with the new layout.
+- SCHEMA owner-SIGNED: the REQUIRED base gas passport for every gas is defined as hue/value/saturation/edge-softness/
+  motion-frequency/buoyancy-silhouette/interior-structure/glow-pattern/danger; the passport reserves a render-only
+  extension path for later per-gas look modules/assets but builds none; the 96→128B layout-ADR is written (docs/adr/*)
+  and the C#↔HLSL stride gate GREEN with the new layout.
 - W1b CONSUMED: `RealGasViewSource` reads the real per-cell dominant type (no longer hardcoded G=0/TypeCount=1);
   demonstrated with a real two-species scenario on the stand.
 - REAL HALF-RES: `resolutionScale` is genuinely half-res + bilateral upsample; owner-eye A/B confirms half-res still
