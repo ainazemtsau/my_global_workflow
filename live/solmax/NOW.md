@@ -29,7 +29,7 @@ active_bet:
     - Return to Zaratusta only after the substrate/scenario/test model is
       understood well enough to apply.
 
-route_status: zaratusta_paused_operating_substrate_architecture_next
+route_status: operating_substrate_placement_approved_umbrella_repair_next
 
 owner_directive: |
   The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
@@ -86,6 +86,7 @@ preserved_evidence:
   - live/solmax/history/2026-07-06-s-solmax-zaratusta-pause-operating-substrate-route-001.md
   - user-provided transcript: Zaratusta Operating Manager v1 first ChatGPT Project live trial, showing live-use failure and debug admission
   - live/solmax/work/calls/c-solmax-operating-substrate-frame-001.md
+  - live/solmax/history/2026-07-06-s-solmax-operating-substrate-placement-decision-001.md
 
-next: work/calls/c-solmax-operating-substrate-frame-001.md
+next: work/calls/c-solmax-operating-substrate-umbrella-placement-repair-001.md
 END_OF_FILE: live/solmax/NOW.md
