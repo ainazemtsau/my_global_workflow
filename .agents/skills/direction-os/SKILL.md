@@ -95,6 +95,12 @@ that file is the authority; do not rely on this summary alone.** In particular:
   editing a state file before the RESULT exists, stop — that is the violation.
 - If a `state_change` is ambiguous or conflicts with the current files, do NOT
   improvise — surface the conflict (it routes to `repair`).
+- A builder/executor handback, product-repo RESULT, merge/push request, owner
+  playtest summary, or "formally closed on dev/dev2" prose is evidence input,
+  not a Direction-OS close. Unless the Direction-OS RESULT/checkpoint itself
+  carries the required close evidence (including the binding fresh-session G5 /
+  review named by the CALL/state), leave the `open_call` open and report the
+  missing close gate. Product gates + merge/push alone never clear state.
 - Reject CHARTER/TREE changes lacking the `owner_approved` mark (G9).
 - Validate before applying (G10), bounce with the specific miss, never apply
   partially: RESULT fields complete per `os/schema/packets.md`; `play_check`
@@ -120,7 +126,9 @@ separate writer session applies them.
 - Plans are co-created, never generated: draft one artifact at a time, get
   explicit owner approval before any `state_changes` (G9); `play_check` cites
   the owner's actual words on `(owner)` steps.
-- Evidence over claims: `done_when` decides, not your confidence (G5).
+- Evidence over claims: `done_when` decides, not your confidence (G5). A phrase
+  like "no heavy multi-agent refutation" only narrows fan-out; it never waives
+  G5 or writer validation.
 - Side-ideas → `RESULT.captures`, never acted on inline. A brainstorm runs as
   `play: research`.
 - A file missing its `END_OF_FILE` marker was truncated — say so, do not rely on
