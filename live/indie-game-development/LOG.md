@@ -362,4 +362,6 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
 
 2026-07-06 — process repair (g-d3a8/design-lab-process): added `local/design-lab` play and work-note template; updated gas-interaction map so next gas work routes through Design Lab before canon-forge, with no hardcoded case/question counts and explicit failure signals for abstract labels, no player action, static cloud thinking, cargo swallowing gas, anomaly-as-AI, or technically coherent but unfun parent canon. NOW/TREE/CHARTER/canon repo untouched.
 
+- s-visual-013 (2026-07-06) — work/checkpoint (g-7e15/c-visual-006): verified GasCoopGame origin/main carries c-visual-006 via merge c21c6bd (parents 0dd823b + 866544f) plus integration gate-fix d4c4b35; pushed origin/main to d4c4b35; ran `.\pwsh.cmd tools/check.ps1 -Deliver` on d4c4b35 -> PASS (1335 headless, gates green). Direction-OS close intentionally NOT applied: c-visual-006 stays in open_calls pending a valid OS close/review with binding close evidence; builder handback/product gates/merge are evidence input only. → history/2026-07-06-s-visual-013-c-visual-006-product-merge-checkpoint.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
