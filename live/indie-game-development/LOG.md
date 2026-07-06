@@ -332,5 +332,12 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   (OUT); zero Core edit. Fires in a fresh GasCoopGame_dev_2 session, owner-present PLAN, PARALLEL to c-021. Verified
   the W1b dependency first-hand before framing (did not hand a blocked CALL). NO product change; NO TREE/CHARTER
   change; G1 intact. OS commit LOCAL; push owner-gated. → history/2026-07-06-s-work-055-frame-c-visual-006-stage2.md
+- s-work-056 (2026-07-06) — g-7e15 work/clarification: owner signed the Stage 2 clarification for c-visual-006.
+  «Шипучий режим» is only the label for the two-colour real multi-type preview (NO extra bubbling/particle/boiling
+  effect); the base gas passport is required for every gas (hue/value/saturation/edge-softness/motion-frequency/
+  buoyancy-silhouette/interior-structure/glow-pattern/danger); the passport reserves a render-only extension path for
+  later per-gas look modules/assets, but Stage 2 builds no special modules. Everything else in the proposed Stage 2
+  plan accepted. CALL + NOW clarified; no product/TREE/CHARTER change; G1 intact. →
+  history/2026-07-06-s-work-056-visual-stage2-signoff-clarification.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

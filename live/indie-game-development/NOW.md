@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-06 by s-work-055
+updated: 2026-07-06 by s-work-056
 
 bet:
   node: g-9c41
@@ -228,7 +228,12 @@ open_calls:
       GasCoopGame main @26dd062/v18; RESET dev_2 to origin/main @26dd062 FIRST; runs in a FRESH GasCoopGame_dev_2
       session (NEVER dev — engine cubes live there); dev_2→main merge owner-gated. Per-type CHARACTER/archetypes/
       danger-ladder = Stage 4 (OUT); natural-jet fix = Stage 3 (OUT); ZERO Core/** edit (STOP if it needs an engine
-      change). Opens with an owner-present PLAN (schema signed before build). PARALLEL to c-021 (engine).
+      change). 2026-07-06 owner sign-off clarified: «шипучий режим» is only the label for the two-colour real
+      multi-type preview (NO extra bubbling/particle/boiling effect); the base passport is required for every gas
+      (hue/value/saturation/edge-softness/motion-frequency/buoyancy-silhouette/interior-structure/glow-pattern/
+      danger); reserve an extensible render-only attachment path for later per-gas modules/assets, but build none in
+      Stage 2. Everything else in the proposed Stage 2 plan accepted. Opens with an owner-present PLAN (schema signed
+      before build). PARALLEL to c-021 (engine).
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -313,8 +318,10 @@ parallel_tracks:
       delivered via c-visual-005 + merged @26dd062; c-visual-004 CLOSED (collapsed into c-visual-005). NEXT = STAGE 2
       (Паспорт типа + шипучий режим), now OPENABLE — both gates met: W1b landed (c-exec-025 merged) + the required
       fresh owner check GIVEN 2026-07-06 («Stage 1 ок, давай Stage 2»). Stage 2 FRAMED + FIRE-READY as c-visual-006
-      (work/c-visual-006-stage2-call.md, s-work-055); runs PARALLEL to c-021 (engine) in GasCoopGame_dev_2. Engine-focus
-      discipline still holds (do not silently expand past the framed Stage 2 scope without asking).
+      (work/c-visual-006-stage2-call.md, s-work-055; clarified by owner in s-work-056: no extra bubbling effect,
+      base passport required for every gas, extension path reserved only); runs PARALLEL to c-021 (engine) in
+      GasCoopGame_dev_2. Engine-focus discipline still holds (do not silently expand past the framed Stage 2 scope
+      without asking).
     note: |
       Secondary to g-9c41, no fixed hour quota. c-visual-002 S1 gas-lab delivered + merged
       (history/s-visual-009.md); W1a (real gas in a lit room) DELIVERED WITH RESERVATIONS 2026-07-02
@@ -726,8 +733,11 @@ next:
   VISUAL: Stage 1 DONE (via c-visual-005, merged @26dd062, owner-tested OK). NEXT = Stage 2 (Паспорт типа + шипучий
   режим) — FRAMED + FIRE-READY 2026-07-06 as CALL c-visual-006 (work/c-visual-006-stage2-call.md): render-only
   8-channel per-type schema + 96→128B layout-ADR + consume W1b read-API (engine side done, c-exec-025 @26dd062) + real
-  half-res; payoff = two-colour multi-type PREVIEW. FIRE in a FRESH GasCoopGame_dev_2 session (reset dev_2 to @26dd062
-  first), owner-present PLAN, PARALLEL to c-021 (engine). Both gates met (W1b landed + owner-check given).
+  half-res; payoff = two-colour multi-type PREVIEW. Owner clarification s-work-056: «шипучий режим» is only the preview
+  label (NO extra bubbling/particle/boiling effect); base passport required for every gas; extension path reserved
+  for later render-only look modules/assets, but no special modules built in Stage 2. FIRE in a FRESH
+  GasCoopGame_dev_2 session (reset dev_2 to @26dd062 first), owner-present PLAN, PARALLEL to c-021 (engine). Both gates
+  met (W1b landed + owner-check given).
   d-finer-grid-fork-001 ANSWERED (option 2, after Sc-damage). HONESTY: Stage 2 is schema+plumbing+a colour preview,
   NOT per-type character (that is Stage 4) — the 07-24 reaction/bang milestone stays the live player-facing terminus.
   VISUAL SOURCE-SCAN LEG: RESOLVED (d-visual-sourcescan-route-001 ANSWERED, owner option 1 + my delegated net call,
