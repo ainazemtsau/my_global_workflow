@@ -325,5 +325,12 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   gates met (W1b landed c-exec-025 + owner-check given 2026-07-06); to be FRAMED in a fresh planning session,
   PARALLEL to c-021 (engine, FIRE-READY @26dd062/v18). NO product change; NO TREE/CHARTER change; G1 intact. OS
   commit LOCAL; push owner-gated. → history/2026-07-06-s-work-054-visual-stage1-close-stage2-open.md
+- s-work-055 (2026-07-06) — g-7e15 shape/frame: c-visual-006 (Stage 2: Паспорт типа + шипучий режим) FRAMED +
+  FIRE-READY (owner asked for the VISUAL next CALL). Render-only: owner-signed 8-channel per-type schema + 96→128B
+  layout-ADR + consume the merged W1b dominant-STAMP read-API (verified c-exec-025 in product main @26dd062) + real
+  half-res + a two-colour multi-type PREVIEW. dev_2 reset to @26dd062 first; NEVER dev; per-type character = Stage 4
+  (OUT); zero Core edit. Fires in a fresh GasCoopGame_dev_2 session, owner-present PLAN, PARALLEL to c-021. Verified
+  the W1b dependency first-hand before framing (did not hand a blocked CALL). NO product change; NO TREE/CHARTER
+  change; G1 intact. OS commit LOCAL; push owner-gated. → history/2026-07-06-s-work-055-frame-c-visual-006-stage2.md
 
 END_OF_FILE: live/indie-game-development/LOG.md

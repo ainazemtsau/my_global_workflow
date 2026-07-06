@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-06 by s-work-054
+updated: 2026-07-06 by s-work-055
 
 bet:
   node: g-9c41
@@ -215,6 +215,20 @@ open_calls:
   # (2026-07-05); 1331/1331 headless. Merge reconciled (dev2 was 2 behind, pre-RESULT-per-leg): root RESULT.md →
   # docs/results/c-visual-005.md; the c-031 grandfather (validation.config list+note + AGENTS.md v17 bullet) DISCHARGED
   # (the 4 files now deleted). Resolves d-visual-sourcescan-route-001. Record: history/2026-07-05-s-work-052-c-exec-031-c-visual-005-close.md.
+  - id: c-visual-006
+    to: executor
+    for: g-7e15 / Stage 2 (Паспорт типа + шипучий режим)
+    issued: 2026-07-06
+    call: work/c-visual-006-stage2-call.md
+    note: |
+      FRAMED + FIRE-READY 2026-07-06 (s-work-055; owner «Stage 1 ок, давай Stage 2»). Stage 2 of gas-visual-plan-v2 —
+      RENDER-ONLY: (a) owner-signed 8-channel per-type schema + the 96→128B layout-ADR, (b) consume the merged W1b
+      dominant-STAMP read-API (engine side DONE — c-exec-025 @26dd062), (c) real half-res + bilateral upsample pulled
+      forward. Visible payoff = a two-colour multi-type PREVIEW (labelled «colours only; character = Stage 4»). Base =
+      GasCoopGame main @26dd062/v18; RESET dev_2 to origin/main @26dd062 FIRST; runs in a FRESH GasCoopGame_dev_2
+      session (NEVER dev — engine cubes live there); dev_2→main merge owner-gated. Per-type CHARACTER/archetypes/
+      danger-ladder = Stage 4 (OUT); natural-jet fix = Stage 3 (OUT); ZERO Core/** edit (STOP if it needs an engine
+      change). Opens with an owner-present PLAN (schema signed before build). PARALLEL to c-021 (engine).
   - id: c-exec-021
     to: executor
     for: g-9c41 / Sc-reactions
@@ -298,9 +312,9 @@ parallel_tracks:
     track_state: active — STAGE 1 DONE 2026-07-06 (owner-tested OK): Stage 1 (стенд + отсечка по глубине) was
       delivered via c-visual-005 + merged @26dd062; c-visual-004 CLOSED (collapsed into c-visual-005). NEXT = STAGE 2
       (Паспорт типа + шипучий режим), now OPENABLE — both gates met: W1b landed (c-exec-025 merged) + the required
-      fresh owner check GIVEN 2026-07-06 («Stage 1 ок, давай Stage 2»). Stage 2 to be FRAMED in a fresh planning
-      session; runs PARALLEL to c-021 (engine) in GasCoopGame_dev_2. Engine-focus discipline still holds (do not
-      silently expand past the framed Stage 2 scope without asking).
+      fresh owner check GIVEN 2026-07-06 («Stage 1 ок, давай Stage 2»). Stage 2 FRAMED + FIRE-READY as c-visual-006
+      (work/c-visual-006-stage2-call.md, s-work-055); runs PARALLEL to c-021 (engine) in GasCoopGame_dev_2. Engine-focus
+      discipline still holds (do not silently expand past the framed Stage 2 scope without asking).
     note: |
       Secondary to g-9c41, no fixed hour quota. c-visual-002 S1 gas-lab delivered + merged
       (history/s-visual-009.md); W1a (real gas in a lit room) DELIVERED WITH RESERVATIONS 2026-07-02
@@ -709,13 +723,13 @@ next:
   tracked): stale x2 comment string @ScKernelScalingMatrixSchemaTests.cs:197 + a measure-zero rounding-edge. Do NOT
   re-fire c-022/023/024/025/026/027/028/029; do NOT re-run W1a.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
-  VISUAL: Stage 1 (стенд + отсечка по глубине) DONE 2026-07-06 — delivered via c-visual-005 (merged @26dd062),
-  owner-tested OK; c-visual-004 CLOSED (collapsed into c-visual-005). NEXT visual = Stage 2 (Паспорт типа + шипучий
-  режим): OPENABLE now — both gates met (W1b landed c-exec-025 + the required fresh owner check GIVEN 2026-07-06);
-  FRAME it in a fresh planning session (base @26dd062/v18, GasCoopGame_dev_2, render-only, owner-eye; plan =
-  work/gas-visual-plan-v2-2026-07-02.md §Stage 2), PARALLEL to c-021. d-finer-grid-fork-001 ANSWERED (option 2, after
-  Sc-damage). HONESTY: Stage 1 is a fair A/B stand, not new player-facing PROOF — the 07-24 milestone (first real
-  reaction/bang) stays the live player-facing terminus.
+  VISUAL: Stage 1 DONE (via c-visual-005, merged @26dd062, owner-tested OK). NEXT = Stage 2 (Паспорт типа + шипучий
+  режим) — FRAMED + FIRE-READY 2026-07-06 as CALL c-visual-006 (work/c-visual-006-stage2-call.md): render-only
+  8-channel per-type schema + 96→128B layout-ADR + consume W1b read-API (engine side done, c-exec-025 @26dd062) + real
+  half-res; payoff = two-colour multi-type PREVIEW. FIRE in a FRESH GasCoopGame_dev_2 session (reset dev_2 to @26dd062
+  first), owner-present PLAN, PARALLEL to c-021 (engine). Both gates met (W1b landed + owner-check given).
+  d-finer-grid-fork-001 ANSWERED (option 2, after Sc-damage). HONESTY: Stage 2 is schema+plumbing+a colour preview,
+  NOT per-type character (that is Stage 4) — the 07-24 reaction/bang milestone stays the live player-facing terminus.
   VISUAL SOURCE-SCAN LEG: RESOLVED (d-visual-sourcescan-route-001 ANSWERED, owner option 1 + my delegated net call,
   s-work-046). The off-book dev_2 leg @3858752 FAILED its binding G5 (s-work-044) → NOT merged. Replaced by
   c-visual-005 = clean re-derive on main v14 (KEEP visual+shader-occlusion[declared]+camera; wiring smoke made
