@@ -709,12 +709,13 @@ next:
   tracked): stale x2 comment string @ScKernelScalingMatrixSchemaTests.cs:197 + a measure-zero rounding-edge. Do NOT
   re-fire c-022/023/024/025/026/027/028/029; do NOT re-run W1a.
   CALENDAR: July demo-road shape session 2026-07-10..15 (d-demo-road-001 «да», mandatory rows in its decision).
-  VISUAL: c-visual-004 (Stage 1: стенд + отсечка по глубине) OPEN (s-work-040), render-only, zero Core/** edit, fresh
-  GasCoopGame_dev_2 session, base @bc25a33 (dev_2 behind — §Re-sync pulls main in first). Stage 2+ was gated on W1b —
-  W1b has now LANDED, so Stage 2 is unblocked on the engine side but still needs a FRESH OWNER CHECK before opening
-  (not an automatic cascade). d-finer-grid-fork-001 ANSWERED (option 2, after Sc-damage). HONESTY: Stage 1 is a fair
-  A/B stand, not new player-facing PROOF (same gas, better staging) — the 07-24 milestone (first real reaction/bang)
-  stays the live player-facing terminus, measured independently of Stage 1.
+  VISUAL: Stage 1 (стенд + отсечка по глубине) DONE 2026-07-06 — delivered via c-visual-005 (merged @26dd062),
+  owner-tested OK; c-visual-004 CLOSED (collapsed into c-visual-005). NEXT visual = Stage 2 (Паспорт типа + шипучий
+  режим): OPENABLE now — both gates met (W1b landed c-exec-025 + the required fresh owner check GIVEN 2026-07-06);
+  FRAME it in a fresh planning session (base @26dd062/v18, GasCoopGame_dev_2, render-only, owner-eye; plan =
+  work/gas-visual-plan-v2-2026-07-02.md §Stage 2), PARALLEL to c-021. d-finer-grid-fork-001 ANSWERED (option 2, after
+  Sc-damage). HONESTY: Stage 1 is a fair A/B stand, not new player-facing PROOF — the 07-24 milestone (first real
+  reaction/bang) stays the live player-facing terminus.
   VISUAL SOURCE-SCAN LEG: RESOLVED (d-visual-sourcescan-route-001 ANSWERED, owner option 1 + my delegated net call,
   s-work-046). The off-book dev_2 leg @3858752 FAILED its binding G5 (s-work-044) → NOT merged. Replaced by
   c-visual-005 = clean re-derive on main v14 (KEEP visual+shader-occlusion[declared]+camera; wiring smoke made
