@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-06 by s-visual-013
+updated: 2026-07-06 by s-work-057
 
 bet:
   node: g-9c41
@@ -54,26 +54,22 @@ open_calls:
     issued: 2026-07-06
     call: work/c-visual-006-stage2-call.md
     note: |
-      PRODUCT MERGE/PUSH CHECKPOINT (s-visual-013; GasCoopGame): dev2 commits 38dd61f +
-      866544f are on origin/main via merge c21c6bd (parents 0dd823b + 866544f), with
-      integration gate-fix d4c4b35 on top to keep docs/results/c-visual-005.md compatible
-      with the deliver gate. Verified on merge-tip d4c4b35: `.\pwsh.cmd tools/check.ps1
-      -Deliver` -> PASS (core build, 1335 headless tests, hygiene/scans, per-leg RESULT
-      gate, negative controls, review/coverage self-tests). Evidence artifacts exist:
-      docs/results/c-visual-006.md and
-      docs/measurements/c-visual-006-depthfix-gameview-{wall-locked,room,high}.png.
-      OPEN_CALL STAYS PENDING: builder handback + owner playtest + product gates +
-      merge/push are evidence input, not a Direction-OS close. Clear c-visual-006 only
-      from a valid OS close/review carrying the required binding close evidence.
+      FIRE-READY (s-work-055; owner sign-off clarified s-work-056): render-only Stage 2 —
+      per-type passport schema (8-channel + 96→128B layout-ADR) + consume the merged W1b
+      read-API + real half-res; payoff = two-colour PREVIEW. Owner clarification: «шипучий
+      режим» = ONLY the two-colour preview label (NO extra bubbling/particle/boiling FX);
+      the base passport is required for every gas; reserve an extensible render-only
+      attachment path for later per-gas modules, but build NONE in Stage 2. Fire in a FRESH
+      GasCoopGame_dev_2 (reset to @26dd062 first), owner-present PLAN, PARALLEL to c-021.
+      ZERO Core/** edit (STOP if it needs one).
 
 recurring: []
 
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    state: active — Stage 1 DONE (owner-tested OK @26dd062); Stage 2 product merge/push checkpointed
-      (GasCoopGame origin/main @d4c4b35; merge c21c6bd contains dev2 @866544f), but NOT Direction-OS-closed;
-      c-visual-006 remains in open_calls pending binding close evidence.
+    state: active — Stage 1 DONE (owner-tested OK @26dd062); NEXT = Stage 2 (c-visual-006, see open_calls;
+      owner-clarified s-work-056 = preview-label only, base passport for every gas, extension path reserved).
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
@@ -112,6 +108,6 @@ next:
   completion) in a FRESH owner-present GasCoopGame_dev re-planning PLAN, base dev@0a95f01. Short PLAN
   (single-cell overflow: widen-K vs same-cell policy + skip-zero-keeps-golden STOP-confirm + SeedMass-clamp
   nod + 3 test-author acks) → EXECUTE leg-1-finish (10 RED → GREEN) → leg 2. dev→main merge/push
-  owner-gated. Parallel visual track = c-visual-006 product merged/pushed, open_call pending close evidence.
+  owner-gated. Parallel visual track = c-visual-006 (open_calls).
 
 END_OF_FILE: live/indie-game-development/NOW.md
