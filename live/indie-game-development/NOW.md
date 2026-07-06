@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-06 by s-work-057
+updated: 2026-07-06 by s-design-lab-process-repair-001
 
 bet:
   node: g-9c41
@@ -62,6 +62,17 @@ open_calls:
       attachment path for later per-gas modules, but build NONE in Stage 2. Fire in a FRESH
       GasCoopGame_dev_2 (reset to @26dd062 first), owner-present PLAN, PARALLEL to c-021.
       ZERO Core/** edit (STOP if it needs one).
+  - id: c-design-lab-gas-interaction-gameplay-001
+    to: session
+    for: g-d3a8 / gas-interaction-gameplay design lab
+    issued: 2026-07-06
+    call: work/c-design-lab-gas-interaction-gameplay-001-call.md
+    note: |
+      Design Lab process is installed and verified. Next gas interaction work must run through
+      local/design-lab before any canon-forge freeze. Purpose: explore playable gas interaction
+      situations in plain owner-readable language, detect blockers / side dependencies / parent
+      reopen risks, and output the correct next route. No hardcoded counts, no abstract label
+      freezing, no cargo/containment continuation as the center.
 
 recurring: []
 
@@ -73,7 +84,7 @@ parallel_tracks:
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
-    state: parked — continues in local/canon-forge; baseline history/s-canon-visual-style-minimal-gas-stage-001.md
+    state: parked — next open call = c-design-lab-gas-interaction-gameplay-001; gas-interaction work now goes through local/design-lab before canon-forge; baseline history/s-canon-visual-style-minimal-gas-stage-001.md
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)

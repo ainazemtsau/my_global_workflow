@@ -364,4 +364,6 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
 
 2026-07-06 — process repair follow-up (g-d3a8/design-lab-process): cleaned remaining old direct-forge wording in gas-interaction-map tail so the map consistently routes gas-interaction work through Design Lab before canon-forge. NOW/TREE/CHARTER/canon repo untouched.
 
+2026-07-06 — research repair (g-d3a8/design-lab-process, s-design-lab-process-repair-001): repaired previous invalid verification RESULT. Design Lab process verified installed at commits 383dee7 + 6b33c36; gas-interaction map now routes through Design Lab before canon-forge. Registered next open CALL c-design-lab-gas-interaction-gameplay-001 in NOW.md and wrote work/c-design-lab-gas-interaction-gameplay-001-call.md. TREE/CHARTER/canon repo untouched.
+
 END_OF_FILE: live/indie-game-development/LOG.md
