@@ -106,6 +106,36 @@ Strength/Ttl bounded so combined `desiredMove` settles — carry the c-020 over-
 scenes. The wave branch stays DEFERRED (substrate absent — ADR-E-0006, `owner-ack:c-exec-021-wave-fork-deferred…`).
 The `ReactionLayer` delete stays DEFERRED (Wave-2 LOCK, owner Q2, `owner-ack:c-exec-021-reactionlayer-delete-deferred…`).
 
+### Owner design input (2026-07-06) — the telegraph is an EXTENSIBLE "unstable window", NOT a hardcoded blink
+
+Owner directive for the leg-2 telegraph shape (recorded here so the fire-time PLAN builds it extensible, not a
+single hardcoded "blink"). Owner words (meaning verbatim): the warning is «нестабильное короткое состояние, окно»
+before something happens — «разные должны типа быть, для этого разные обработчики, разное визуально»; «не
+захардкоджено, что он должен просто мигать … это мы потом можем любые туда добавить». Requirement:
+
+1. **The "unstable window" is a per-cell PENDING STATE that is data-driven + extensible — the same pattern already
+   proven for the OUTCOME registry (kind id → handler, zero core branches).** A new kind of warning is added later as
+   DATA + its own handler — the engine carries the state; it does NOT hardcode "blink". Different reactions →
+   different pending kinds → different look.
+2. **The LOOK (blink / fade-out / glow / …) lives on the VISUAL track (g-7e15), reading the per-cell pending state —
+   near-free on the engine.** The engine's job is only to expose, deterministically, "cell X has reaction R pending,
+   phase P, T ticks left"; the visual layer maps `(kind, phase) → a look`. So "warnings look different" costs the
+   engine ~nothing beyond storing the state.
+3. **Reserve a BOUNDED multi-phase slot** (owner's two-stage idea: two gases blink → players add a third gas that
+   "calms" it → maybe blink → fade → …). The "add a third gas to calm it" is just ANOTHER reaction rule that mutates
+   the pending state — conceptually free (it IS the reaction mechanism). Multi-phase = a small bounded PHASE field in
+   the pending state + a per-rule phase table (DATA).
+4. **Owner perf gate (his exact constraint):** BUILD the minimal version now (one phase = the basic pending window +
+   the extensible seam) and add richer/multi-phase behaviour later **as DATA — ONLY if it stays near-free** («если
+   практически бесплатно … можно; если стоит хоть каких-то ресурсов — не надо, ограничение примем»). The real cost is
+   NOT CPU — it is (a) determinism (the pending/phase state rides the lockstep checksum → must be SKIP-ZERO, cell-keyed,
+   so an idle scene stays byte-identical) and (b) design/test/believability combinatorics (phases × reactions). So the
+   phase count stays a small bounded int; unbounded phase chains are a STOP.
+5. **The leg-2 PLAN decides + records (owner-present):** what the per-cell pending state carries (pending-kind ref +
+   bounded phase + countdown), the extension seam (a `pending-kind → handler` registry mirroring the outcome
+   registry, or a note why the outcome registry itself absorbs it), which look(s) the visual track reads, and the
+   honest near-free perf verdict per (4). Minimal-now / extensible-slot / richer-as-data-later.
+
 ## done_when
 
 Unchanged — the frozen `work/c-exec-021-call.md` §done_when battery #2–#13 (this continuation adds NO new done_when;
