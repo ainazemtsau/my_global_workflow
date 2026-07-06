@@ -47,7 +47,7 @@ that needs the owner.
 
 | Owner pastes / types | Your role | Where |
 |---|---|---|
-| A `RESULT ...` packet ("apply this RESULT") | **writer** | `os/adapters/coding-agent.md` Role 1 |
+| A full `RESULT ...` packet ("apply this RESULT") | **writer** | eligible writer surface only; Codex Desktop/chat-like hands off to `os/adapters/coding-agent.md` Role 1 |
 | `MAINTENANCE REQUEST ...` / a problem about the OS itself | **maintenance** | `os/MAINTENANCE.md` (never touch `live/**`) |
 | A CALL packet, or a plain message about a direction | **session** | run the play per `os/KERNEL.md` §2 OPEN |
 | `collect next for <direction>` | **writer** | one paste block: SESSION_PAYLOAD → play → NOW.md → CALL |
@@ -72,16 +72,27 @@ confirm. The owner never composes packets by hand.
 - After the job is done and committed, the session ends. Continuation belongs to
   a fresh session.
 
-## 4. You become your own writer AFTER emitting the RESULT
+## 4. Writer eligibility depends on Codex surface
 
-This is the one place Codex-on-the-repo differs from a chat-platform session.
-A chat session is NEVER the writer. **You, running in this repo via Codex, ARE
-allowed to become your own writer — but ONLY after you have emitted your
-RESULT.** The order is strict:
+Before any filesystem write, do a Codex pre-write preflight: role, surface,
+loaded sources/skills from their advertised source locator, ultracode decision
+with reason, fan-out/G5 decision, and exact write scope. If a required
+skill/tool cannot be loaded, stop before writing. If ultracode is required,
+load/invoke it before edits.
+
+Desktop/chat-like Codex surfaces are session-only for `live/**`: they may emit a
+terminal RESULT/checkpoint, but must not apply their own state_changes because
+final is terminal. A fresh writer session, orchestrator, or CLI/headless
+one-shot applies.
+
+CLI/headless Codex may become its own writer only if execution can continue
+after RESULT emission. The order is strict:
 
 1. Run the play. Produce the RESULT block (state changes described, not yet
    applied).
-2. THEN, as the writer, apply that RESULT's `state_changes` to `live/**`
+2. Run the full Role-1 validate-before-apply check in
+   `os/adapters/coding-agent.md`.
+3. THEN, as the writer, apply that RESULT's `state_changes` to `live/**`
    exactly as written, append the LOG line, save the full RESULT to
    `history/<date>-<session-id>.md`, maintain every `END_OF_FILE: <path>`
    trailer, and commit (`<direction> <play> <node/task>: <log line>`).
@@ -95,12 +106,13 @@ that file is the authority; do not rely on this summary alone.** In particular:
   editing a state file before the RESULT exists, stop — that is the violation.
 - If a `state_change` is ambiguous or conflicts with the current files, do NOT
   improvise — surface the conflict (it routes to `repair`).
-- A builder/executor handback, product-repo RESULT, merge/push request, owner
-  playtest summary, or "formally closed on dev/dev2" prose is evidence input,
-  not a Direction-OS close. Unless the Direction-OS RESULT/checkpoint itself
+- A builder/executor handback, product-repo RESULT/checkpoint, merge/push
+  request, owner playtest summary, or claims that a product branch is closed are
+  evidence input, not a Direction-OS close. Unless a closing Direction-OS RESULT
   carries the required close evidence (including the binding fresh-session G5 /
   review named by the CALL/state), leave the `open_call` open and report the
-  missing close gate. Product gates + merge/push alone never clear state.
+  missing close gate. A checkpoint RESULT must leave close pending. Product
+  verification plus integration is insufficient to clear state.
 - Reject CHARTER/TREE changes lacking the `owner_approved` mark (G9).
 - Validate before applying (G10), bounce with the specific miss, never apply
   partially: RESULT fields complete per `os/schema/packets.md`; `play_check`
@@ -112,9 +124,9 @@ that file is the authority; do not rely on this summary alone.** In particular:
   task of the active bet done, `next` MUST be a `review` CALL for that node.
 - Mechanical apply uses NO fan-out: one agent, sequentially.
 
-If you are running on a chat platform (not this repo via Codex), you are never
-the writer — state changes ride out only inside `RESULT.state_changes` and a
-separate writer session applies them.
+If you are running on a chat platform or Codex Desktop/chat-like surface, you
+are never the writer — state changes ride out only inside
+`RESULT.state_changes` and a separate writer session applies them.
 
 ## 5. Standing habits
 
@@ -143,3 +155,5 @@ converge-arch miner + strategic_search; review G5 refutation). When a play step
 calls for that, follow the **parallel-verify** skill. Subagents in Codex spawn
 ONLY when explicitly asked — the play text and your prompt must trigger them.
 Mechanical legs (writer apply, single `work` task, digest, audit) never fan out.
+
+END_OF_FILE: .agents/skills/direction-os/SKILL.md

@@ -28,7 +28,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 **Owner-facing vs machine.** The RESULT block — and any packet or state file, a charter draft included — is a machine artifact for the writer. What the owner reads is its substance as a readable summary in his language, never a YAML/state dump as the reply body; the machine block rides once, fenced, at the end of the final message, for the relay to carry.
 
-**Sessions do not write.** No session edits repo state directly — a repo tool or connector is read access, not write permission. State changes travel only inside RESULT.state_changes, applied by the writer (os/adapters/coding-agent.md); an agent-CLI session on this repo becomes its own writer only after emitting its RESULT.
+**Sessions do not write.** State changes travel only inside RESULT.state_changes. Desktop/chat surfaces emit terminal RESULT/checkpoint and stop. CLI/headless may self-apply only after the RESULT exists and Role-1 validation in `os/adapters/coding-agent.md` passes.
 
 **Two-strikes rule.** After two failed correction rounds on the same point: stop, close with a handoff note in RESULT, continue in a fresh session.
 
@@ -67,12 +67,12 @@ An executor CALL for engineering goes to a coding agent in the direction's produ
 - **G2 (rolling wave).** Tasks exist only inside the active bet. Every other tree node stays outcome-level.
 - **G3 (appetite).** Appetite is set before tasks are written and never extends. There is no extend operation: an over-appetite bet dies; continuing means re-shaping a new bet.
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.
-- **G5 (evidence).** `done` requires evidence matching done_when. A bet is verified in a session other than the one that did the work, by trying to refute the claim, not confirm it.
+- **G5 (evidence).** `done` requires evidence matching done_when, verified by a fresh refutation session. Product handback/checkpoint, merge/push, green gates, or owner prose are evidence input only; OS close needs a closing Direction-OS RESULT carrying binding G5/review evidence. Checkpoints leave close pending.
 - **G6 (shape validity).** A shape output without a cut list (≥1 real cut), a lens sweep verdict per lens, and a task testing the riskiest assumption is invalid.
 - **G7 (decisions).** Every owner decision request carries options and a recommendation; decisions are batched, never scattered through a session.
 - **G8 (intake).** New directions and new top-level goals enter only through frame. New ideas default to `parked` — the parking lot is the system's normal answer to enthusiasm.
 - **G9 (co-creation).** CHARTER.md and TREE.md change only with the owner's explicit in-session approval: planning sessions present drafts one artifact at a time (a tree node is an artifact, carrying its one-line `why`), and the RESULT marks each approval (`owner_approved`). The writer rejects charter/tree changes without it.
-- **G10 (protocol).** The first reply carries the play's step plan; a RESULT block appears only as the final message; sessions never write state directly. The writer rejects a RESULT whose `play_check` misses a step or whose `(owner)` steps lack the owner's actual words.
+- **G10 (protocol).** First reply carries the play step plan; RESULT block is final only; state writes follow writer rules. The writer rejects missing `play_check` or `(owner)` words, and any self-apply before terminal RESULT plus Role-1 validation.
 
 A session that cannot pass a gate stops and reports — it never improvises around a gate.
 

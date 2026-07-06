@@ -22,6 +22,7 @@ No other setup. The session reads this file and runs the procedure below.
 
 ## Procedure
 
+0. **Preflight.** Before any filesystem write, state role, surface, loaded sources/skills from their advertised source locator, exact write scope, forbidden paths, budgets, ultracode decision (`required|not-required|prohibited` + reason), and fan-out/G5 decision. For substantive OS changes, ultracode decision must be explicit; if required, load/invoke it before edits. If a required skill/tool cannot be loaded, stop before writing.
 1. **Locate.** Read `os/FRICTION.md` and the named files; grep for the responsible rule. Restate the problem in ≤3 lines and classify:
    - (a) rule defect — a rule is wrong/ambiguous/contradictory;
    - (b) gap — a needed capability has no home;
