@@ -345,5 +345,19 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
   (c-exec-021, c-visual-006) + 2 pending decisions; reconciled the concurrent s-work-056 c-visual-006 clarification.
   Executes the trim the FRICTION 2026-07-02 hot-state-bloat fix explicitly deferred (instance #3 → root = audit/pulse
   not run, not a rule gap). Road unchanged; NO os/**/TREE/CHARTER change. → history/2026-07-06-s-repair-nowmd-001.md
+- s-work-057 (2026-07-06) — work (g-9c41/Sc-reactions): reconciled the c-exec-021 executor checkpoint (sessions 1-2),
+  verified FIRST-HAND in product git + a 4-agent adversarial pass (wf_f85e9ed7-786) over the real dev code. "D+A"
+  grounded in dev commit 0de6cbe (= commit the groundwork, take engine completion to a separate re-planning session).
+  Groundwork committed dev@0a95f01 (NOT merged); owner-present PLAN Q1-Q4 + ADR-E-0006 done; generic NO-PAIR-DISPATCH
+  engine CONFIRMED; independent RED battery in place; non-reaction 1343/1343 GREEN + 13-entry byte-identity goldens
+  INTACT (no rebaseline). 10 reaction RED = engine-completion gaps, CORRECTED vs the checkpoint: finding-5
+  (FullConsumeToZero) is NOT an engine bug — the test's freshField uses a mismatched registry threshold (test-author
+  ack; engine conserves mass to the bit); finding-1 is narrower — only the SingleCellGrid NTypeJunction(5/8) forces
+  >4/cell (the widen-K-vs-same-cell-policy PLAN fork), the rest is the admission clamp (EXECUTE, decided ADR §7); +2
+  new items (KRaise test conflates roster-width with per-cell-K; type-hardcode scan misses the ENGINE half
+  Voxel/Reactions — done_when #3). Framed the re-planning continuation CALL → work/c-exec-021-continuation-call.md
+  (phase PLAN, base dev@0a95f01). Sc-reactions stays ACTIVE (G1 intact); c-exec-021 stays in open_calls (checkpoint,
+  not terminally returned). NO product/TREE/CHARTER change; OS commit LOCAL, push owner-gated. →
+  history/2026-07-06-s-work-057.md
 
 END_OF_FILE: live/indie-game-development/LOG.md
