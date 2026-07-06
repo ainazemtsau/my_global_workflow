@@ -74,6 +74,18 @@ class CodexGuardTests(unittest.TestCase):
         )
         self.assertEqual(result, {"continue": True})
 
+    def test_g5_close_allowed_with_later_must_language(self):
+        result = run_guard(
+            {
+                "last_assistant_message": (
+                    "RESULT for c-visual-006 closed with binding fresh-session G5 review "
+                    "evidence passed. We must now remove open_call."
+                )
+            },
+            "Stop",
+        )
+        self.assertEqual(result, {"continue": True})
+
     def test_negated_missing_g5_evidence_blocked(self):
         result = run_guard(
             {
@@ -160,6 +172,22 @@ class CodexGuardTests(unittest.TestCase):
         result = run_guard(
             {
                 "tool_name": "Bash",
+                "tool_input": {
+                    "command": (
+                        "python -c \"from pathlib import Path; "
+                        "Path('docs/results/c-visual-005.md').write_text('repair')\""
+                    ),
+                },
+            },
+            "PreToolUse",
+        )
+        self.assertEqual(result["decision"], "block")
+        self.assertIn("owner_ack_side_repair", result["reason"])
+
+    def test_c_visual_005_side_repair_unknown_python_write_blocked(self):
+        result = run_guard(
+            {
+                "tool_name": "runner",
                 "tool_input": {
                     "command": (
                         "python -c \"from pathlib import Path; "

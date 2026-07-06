@@ -37,7 +37,7 @@ WRITE_TOOL_NAMES = {
 PRODUCT_WRITE_WORDS = re.compile(
     r"\b(git\s+(?:add|commit|push|checkout|switch|merge|rebase|reset|restore|clean|apply|stash)|"
     r"apply_patch|set-content|add-content|out-file|new-item|remove-item|move-item|copy-item|"
-    r"del|erase|rm|mv|cp)\b",
+    r"write_text|write_bytes|del|erase|rm|mv|cp)\b",
     re.IGNORECASE,
 )
 
@@ -80,11 +80,14 @@ def has_affirmative_fresh_g5(text: str) -> bool:
     for claim in G5_AFFIRMATIVE_WORDS.finditer(text):
         window_start = max(0, claim.start() - 80)
         window_end = min(len(text), claim.end() + 220)
-        window = text[window_start:window_end]
         candidate = text[claim.start() : window_end]
-        if G5_NEGATED_WORDS.search(window):
+        completed = G5_COMPLETED_EVIDENCE.search(candidate)
+        if not completed:
             continue
-        if G5_TARGET_WORDS.search(candidate) and G5_COMPLETED_EVIDENCE.search(candidate):
+        evidence_clause = text[window_start : claim.start()] + candidate[: completed.end()]
+        if G5_NEGATED_WORDS.search(evidence_clause):
+            continue
+        if G5_TARGET_WORDS.search(candidate):
             return True
     return False
 
