@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-06 by s-repair-nowmd-001
+updated: 2026-07-06 by s-work-057
 
 bet:
   node: g-9c41
@@ -8,7 +8,7 @@ bet:
     Sc-kernel → Sc-reactions → Sc-typing → Sc-damage. Delivered + merged to GasCoopGame
     main through W1b (base @26dd062, contract v18); immediate next = Sc-reactions
     (c-exec-021). Far-tier S3/S4/S5 scale plumbing parked until levels get big.
-    Latest session: s-work-056 (see LOG.md / history/).
+    Latest session: s-work-057 (c-exec-021 executor checkpoint reconciled; see LOG.md / history/).
   appetite: |
     Governed by the g-9c41 de-risk wall; do not extend a bet silently. If a slice
     overruns or reveals a core blind spot, stop and re-shape/review, don't stretch.
@@ -23,13 +23,16 @@ tasks:
       Integer chemistry on the sparse-dominant overlap front (explicit-SET > AXIS >
       env-conditioned DEFAULT > identity; telegraph+bang gameplay-load-bearing; layered
       mass-conserving overflow). ENGINE-ONLY. Shaped slice + forks (a)–(f) closed in
-      the CALL: work/c-exec-021-call.md.
+      the CALL: work/c-exec-021-call.md. leg-1 groundwork committed on dev@0a95f01 (owner
+      D+A 2026-07-06, NOT merged); engine completion continues via
+      work/c-exec-021-continuation-call.md.
     done_when: |
       The GasCoopGame_dev RESULT satisfies the c-exec-021 gate battery (fire-time
       §Re-sync + full re-harden vs real code, split trip). Fires via a fresh
       owner-present PLAN session (open_call c-exec-021).
     status: active
-    unblock_when: owner launches a fresh GasCoopGame_dev PLAN session for c-exec-021
+    unblock_when: owner launches a fresh GasCoopGame_dev re-planning PLAN session for the
+      c-021 continuation (work/c-exec-021-continuation-call.md, base dev@0a95f01)
 
 open_calls:
   - id: c-exec-021
@@ -38,10 +41,13 @@ open_calls:
     issued: 2026-06-30
     call: work/c-exec-021-call.md
     note: |
-      FIRE-READY (s-work-053, 2026-07-06): anchors refreshed to base main @26dd062 /
-      contract v18, §PENDING filled. Fire in a FRESH owner-present GasCoopGame_dev PLAN
-      (dev, NOT dev_2). Code-anchored §Re-sync + full re-harden run at fire. Rich prep:
-      history/2026-07-02-s-shape-prep-screactions-001.md.
+      CHECKPOINT RETURNED (executor sessions 1-2 → reconciled s-work-057, verified first-hand
+      + 4-agent adversarial pass wf_f85e9ed7-786). Owner-present PLAN Q1-Q4 + ADR-E-0006 done;
+      generic NO-PAIR-DISPATCH engine CONFIRMED; independent RED battery in place; groundwork
+      committed dev@0a95f01 (owner D+A 2026-07-06, NOT merged); non-reaction 1343/1343 GREEN +
+      13-entry byte-identity goldens INTACT. 10 reaction tests RED = engine-completion gaps.
+      Continuation = a re-planning PLAN per owner D+A → work/c-exec-021-continuation-call.md
+      (base dev@0a95f01). Frozen spec + PLAN.md + ADR-E-0006 STAND (not re-opened).
   - id: c-visual-006
     to: executor
     for: g-7e15 / Stage 2 (Паспорт типа + шипучий режим)
@@ -98,9 +104,10 @@ decisions:
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 
 next:
-  CALL: work/c-exec-021-call.md — fire c-exec-021 (Sc-reactions) in a FRESH owner-present
-  GasCoopGame_dev PLAN. Fire-time: code-anchored §Re-sync (base main @26dd062 / contract
-  v18) + full re-harden vs real code, then build (split trip: leg 1 data substrate, leg 2
-  state-machine + feel). Parallel visual track = c-visual-006 (open_calls).
+  CALL: work/c-exec-021-continuation-call.md — fire the c-exec-021 CONTINUATION (reaction-engine
+  completion) in a FRESH owner-present GasCoopGame_dev re-planning PLAN, base dev@0a95f01. Short PLAN
+  (single-cell overflow: widen-K vs same-cell policy + skip-zero-keeps-golden STOP-confirm + SeedMass-clamp
+  nod + 3 test-author acks) → EXECUTE leg-1-finish (10 RED → GREEN) → leg 2. dev→main merge/push
+  owner-gated. Parallel visual track = c-visual-006 (open_calls).
 
 END_OF_FILE: live/indie-game-development/NOW.md
