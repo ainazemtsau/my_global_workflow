@@ -62,17 +62,19 @@ open_calls:
       attachment path for later per-gas modules, but build NONE in Stage 2. Fire in a FRESH
       GasCoopGame_dev_2 (reset to @26dd062 first), owner-present PLAN, PARALLEL to c-021.
       ZERO Core/** edit (STOP if it needs one).
-  - id: c-design-lab-gas-interaction-gameplay-001
+  - id: c-canon-gas-interaction-playable-anchors-001
     to: session
-    for: g-d3a8 / gas-interaction-gameplay design lab
+    for: g-d3a8 / q-gas-interaction-playable-anchors
     issued: 2026-07-06
-    call: work/c-design-lab-gas-interaction-gameplay-001-call.md
+    call: work/c-canon-gas-interaction-playable-anchors-001-call.md
     note: |
-      Design Lab process is installed and verified. Next gas interaction work must run through
-      local/design-lab before any canon-forge freeze. Purpose: explore playable gas interaction
-      situations in plain owner-readable language, detect blockers / side dependencies / parent
-      reopen risks, and output the correct next route. No hardcoded counts, no abstract label
-      freezing, no cargo/containment continuation as the center.
+      Design Lab `s-design-lab-gas-interaction-gameplay-001` routed gas-interaction gameplay
+      to canon-forge. Purpose: freeze owner-readable scenario grammar for playable gas interaction
+      proof-candidates before cargo/containment continues. Inherit lab verdict: source/flow,
+      active-condition push/stabilize, reaction front, quench/release/control, anomalous field
+      rescue, and cargo leak as bridge only. No fixed-count case list, no cargo-center, no anomaly
+      creature-AI, no exact roster/table/tools/containers, no fun certification; paper result remains
+      UNVERIFIED until later two-player grey-box.
 
 recurring: []
 
@@ -84,7 +86,7 @@ parallel_tracks:
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
-    state: parked — next open call = c-design-lab-gas-interaction-gameplay-001; gas-interaction work now goes through local/design-lab before canon-forge; baseline history/s-canon-visual-style-minimal-gas-stage-001.md
+    state: parked — design-lab complete (s-design-lab-gas-interaction-gameplay-001); next open call = c-canon-gas-interaction-playable-anchors-001; freeze playable gas interaction scenario grammar before cargo/containment continues; baseline history/s-canon-visual-style-minimal-gas-stage-001.md
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
