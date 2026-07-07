@@ -34,20 +34,20 @@ tasks:
     status: done
 
 open_calls:
-  - id: c-cartography-ono-dyshit-core-frame-001
+  - id: c-canon-ono-dyshit-core-frame-001
     to: session
-    for: g-d3a8 / core concept frame before q-gas-interaction-playable-anchors
+    for: g-d3a8 / q-ono-dyshit-core-frame
     issued: 2026-07-07
-    call: work/c-cartography-ono-dyshit-core-frame-001-call.md
+    call: work/c-canon-ono-dyshit-core-frame-001-call.md
     note: |
-      Replacement checkpoint `s-canon-gas-interaction-playable-anchors-001` stopped the old anchor freeze during Diverge.
-      Owner introduced stronger concept frame "ОНО ДЫШИТ": Phasmophobia-like gas evidence/diagnosis + physical gas
-      escalation/intervention in a breathing underground city. Cartography must preserve source
-      `work/concept-share-2026-07-07.md` and research as source material; gas examples (`Тихоня`, `Сквозняк`,
-      `Вспышка`, `Разлив`, `Руки`, `Хор`), sleep/wake, capture, co-op/rescue, tone and proof-scene examples are
-      candidate seeds only, NOT canon. Do not freeze exact roster/wake/capture/tools/timers/cargo/containers. Keep
-      destructibility, reactions, global gas simulation and possible multi-gas levels as core constraints. Purpose:
-      map the new core frame + cut rule + question split before returning to anchors/cargo/containment.
+      OWNER-SIGNED cartography result `s-cartography-ono-dyshit-core-frame-001` mapped corrected "ОНО ДЫШИТ" frame.
+      Owner accepted recording with steering: gas extraction is NOT mandatory first core; first frame = mission-value
+      extraction/salvage through hidden/quiet gas-danger, detection-first, physical gas/building/condition intervention,
+      readable consequences, safe-return stake. Gas capture / bottle-the-monster preserved as candidate/later contract,
+      not first-proof law. One-more-pass pull is required as a design principle: "ещё один проход / ещё одна комната /
+      ещё один уровень / ещё один заход" through floor consequences + route knowledge + base prep, not grind. Next
+      canon-forge must freeze only the plain core frame, player-action loop, cut rule and downstream split; no roster,
+      tools, capture implementation, cargo/containers, timers, economy, final VFX or fun verdict.
   - id: c-visual-007
     to: executor
     for: g-7e15 / VISUAL Stage 3
@@ -70,7 +70,7 @@ parallel_tracks:
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
-    state: parked — q-gas-interaction-playable-anchors canon-forge CHECKPOINTED (s-canon-gas-interaction-playable-anchors-001) after owner introduced "ОНО ДЫШИТ" concept-frame; old anchor freeze returned to cartography. next open call = c-cartography-ono-dyshit-core-frame-001; map core concept frame, candidate seeds, cut rule and question split before returning to playable gas anchors or cargo/containment. baseline history/s-canon-visual-style-minimal-gas-stage-001.md
+    state: parked — c-cartography-ono-dyshit-core-frame-001 OWNER-SIGNED (s-cartography-ono-dyshit-core-frame-001). Corrected core frame: mission-value extraction/salvage through hidden/quiet gas-danger; detection-first; gas as threat/clue/tool/route shaper/accident/co-op pressure; gas harvest/bottle-the-monster candidate later, NOT first-proof law. Added one-more-pass pull principle ("ещё один проход/комната/уровень/заход") tied to floor consequences + route knowledge + base prep. q-gas-interaction-playable-anchors reframed + delayed. next open call = c-canon-ono-dyshit-core-frame-001. baseline history/s-canon-visual-style-minimal-gas-stage-001.md
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)

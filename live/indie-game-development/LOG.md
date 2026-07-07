@@ -50,5 +50,6 @@
 2026-07-07 — repair (hot-state hygiene, s-repair-log-001, owner «вариант A»): LOG.md rotated at current HEAD a3abe2b — archived all sessions before 2026-07-02 verbatim, compacted kept 2026-07-02..2026-07-07 entries to one-line index records, and left ordering/format normalization as a follow-up. → history/2026-07-07-s-repair-log-001.md
 
 archived: history/LOG-archive-indie-game-development.md — sessions before 2026-07-02
+2026-07-07 — canon-cartography OWNER-SIGNED checkpoint (g-d3a8/c-cartography-ono-dyshit-core-frame-001): mapped "ОНО ДЫШИТ" after owner steering. Core corrected away from mandatory gas harvest: first frame = co-op mission-value extraction/salvage through hidden/quiet gas-danger, detection-first, physical gas/building/condition intervention, readable consequence, safe-return stake. Gas capture / "bottle the monster" preserved as candidate/later contract, NOT first-proof law. Added owner principle `one-more-pass pull`: design should create "ещё один проход / ещё одна комната / ещё один уровень / ещё один заход" through floor consequences + route knowledge + base prep, not grind or UI tricks. q-gas-interaction-playable-anchors reframed + delayed; next recommended canon-forge = q-ono-dyshit-core-frame. → history/s-cartography-ono-dyshit-core-frame-001.md
 
 END_OF_FILE: live/indie-game-development/LOG.md
