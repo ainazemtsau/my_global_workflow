@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-07 by s-research-concept-pitch-002
+updated: 2026-07-07 by s-research-concept-pitch-003
 
 bet:
   node: g-9c41
@@ -120,7 +120,7 @@ decisions:
       market suit <=$9.99/proximity-voice/short runs. Which frame does the open
       canon-forge (c-canon-gas-interaction-playable-anchors-001) inherit?
     options:
-      - Canon-forge inherits the pitch «ОНО ДЫШИТ» (work/concept-pitch-2026-07-07.md: bestiary of gas-habits, engineering-hunt capture, seal-at-peak, live-canister carry); two-player grey-box stays the binding fun gate.
+      - Canon-forge inherits the pitch «ОНО ДЫШИТ» v1.2 (work/concept-pitch-2026-07-07.md: bestiary of gas-habits + sleep-as-design-layer with per-type wake triggers, extract-as-herd-into-container + seal-at-peak, live-canister carry-out through the woken floor; sources = escalation events not faucets; recon pressure = endogenous agitation); two-player grey-box stays the binding fun gate.
       - Probe-first - build the discriminating grey-box (4 hook signals) before any canon framing.
       - Pivot to ALT-A hazmat-response (calls instead of harvest; cheapest delta, loses the greed axis; Embr counter-case).
       - Keep course unchanged; report shelved as reference.
