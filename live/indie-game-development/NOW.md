@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-06 by s-work-060-c-visual-006-close
+updated: 2026-07-07 by s-work-061-frame-c-visual-007-stage3
 
 bet:
   node: g-9c41
@@ -61,13 +61,25 @@ open_calls:
       rescue, and cargo leak as bridge only. No fixed-count case list, no cargo-center, no anomaly
       creature-AI, no exact roster/table/tools/containers, no fun certification; paper result remains
       UNVERIFIED until later two-player grey-box.
+  - id: c-visual-007
+    to: executor
+    for: g-7e15 / VISUAL Stage 3
+    issued: 2026-07-07
+    call: work/c-visual-007-stage3-call.md
+    note: |
+      FIRE-READY visual-only Stage 3 ("Одна жемчужина") framed from visual plan v2 after c-visual-006 close.
+      Base = GasCoopGame_dev_2 dev2@6dbdddd (Stage 2 gas passport + real two-type preview + half-res path).
+      Scope: hero-polish one real gas, natural-jet fix, toon-band + opacity-ceiling decisions, LP1 lamp re-test,
+      LP1-LP5 individual dispositions. Boundaries: dev_2 only; render-only; ZERO Core/**/sim/c-exec-021 work;
+      primary NOW.next target unchanged. Product leg owes narrow §Re-sync to contract v19 first (owner-readable PLAN,
+      PLAN and BUILD as separate sessions).
 
 recurring: []
 
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    state: active — Stage 2 DONE (c-visual-006 delivered on GasCoopGame_dev_2 dev2@6dbdddd; owner-eye/play-mode passed; real two-type preview + gas passport + half-res path; not pushed/merged by this close). NEXT visual slice not opened: Stage 3 = one-pearl/hero gas polish + natural-jet fix + LP1 re-test.
+    state: active — Stage 2 DONE (c-visual-006 delivered on GasCoopGame_dev_2 dev2@6dbdddd; owner-eye/play-mode passed; real two-type preview + gas passport + half-res path; not pushed/merged by this close). Stage 3 FRAMED + FIRE-READY as c-visual-007: one-pearl/hero gas polish + natural-jet fix + LP1 re-test; visual-only/dev_2; owes §Re-sync v19 first.
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
@@ -106,6 +118,6 @@ next:
   completion) in a FRESH owner-present GasCoopGame_dev re-planning PLAN, base dev@0a95f01. Short PLAN
   (single-cell overflow: widen-K vs same-cell policy + skip-zero-keeps-golden STOP-confirm + SeedMass-clamp
   nod + 3 test-author acks) → EXECUTE leg-1-finish (10 RED → GREEN) → leg 2. dev→main merge/push
-  owner-gated. Parallel visual track: c-visual-006 Stage 2 is closed; next visual slice is Stage 3, not opened yet.
+  owner-gated. Parallel visual track: c-visual-007 is open for visual-only Stage 3; primary target remains this c-exec-021 continuation.
 
 END_OF_FILE: live/indie-game-development/NOW.md

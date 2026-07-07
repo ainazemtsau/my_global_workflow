@@ -370,4 +370,6 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
 
 2026-07-06 — work (g-7e15/c-visual-006, s-work-060): Stage 2 visual close verified fresh. GasCoopGame_dev_2 dev2@6dbdddd; result-check c-visual-006 PASS; tools/check.ps1 -Deliver PASS (OK: all gates green, headless 1335/1335, negative-control 19/19); Core diff empty; review wording corrected to light render-only n/a. c-visual-006 open_call closed; visual track rolls to Stage 3 not yet opened.
 
+2026-07-07 — work (g-7e15/c-visual-007, s-work-061): Stage 3 visual-only executor CALL framed from visual plan v2. CALL artifact work/c-visual-007-stage3-call.md opens "Одна жемчужина" on GasCoopGame_dev_2 dev2@6dbdddd: hero-polish one real gas, natural-jet fix, toon-band + opacity-ceiling decisions, LP1 lamp re-test, LP1-LP5 individual dispositions; render-only/dev_2, ZERO Core/**/sim/c-exec-021, primary NOW.next target remains c-exec-021; product leg owes §Re-sync v19 first (owner-readable PLAN; PLAN and BUILD separate sessions). → history/2026-07-07-s-work-061-frame-c-visual-007-stage3.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
