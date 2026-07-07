@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-07 by s-research-concept-hooks-001
+updated: 2026-07-07 by s-research-concept-pitch-001
 
 bet:
   node: g-9c41
@@ -120,12 +120,12 @@ decisions:
       market suit <=$9.99/proximity-voice/short runs. Which frame does the open
       canon-forge (c-canon-gas-interaction-playable-anchors-001) inherit?
     options:
-      - Canon-forge inherits the Bottle-the-Monster frame; two-player grey-box stays the binding fun gate.
+      - Canon-forge inherits the pitch «ОНО ДЫШИТ» (work/concept-pitch-2026-07-07.md: bestiary of gas-habits, engineering-hunt capture, seal-at-peak, live-canister carry); two-player grey-box stays the binding fun gate.
       - Probe-first - build the discriminating grey-box (4 hook signals) before any canon framing.
       - Pivot to ALT-A hazmat-response (calls instead of harvest; cheapest delta, loses the greed axis; Embr counter-case).
       - Keep course unchanged; report shelved as reference.
     recommendation: Option 1 (grey-box remains binding either way; option 2 only if zero canon risk is wanted at the cost of stalling the canon-forge).
-    source: work/concept-hooks-research-2026-07-07.md; history/s-research-concept-hooks-001.md.
+    source: work/concept-pitch-2026-07-07.md; work/concept-hooks-research-2026-07-07.md; history/s-research-concept-pitch-001.md.
 
 next:
   CALL: work/c-exec-021-continuation-call.md — fire the c-exec-021 CONTINUATION (reaction-engine

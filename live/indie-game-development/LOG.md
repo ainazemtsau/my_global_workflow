@@ -374,4 +374,6 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
 
 2026-07-07 — research (g-a7f2/concept-hooks, s-research-concept-hooks-001): 7-agent hook/alternatives research delivered → work/concept-hooks-research-2026-07-07.md. Convergent verdict: keep expedition core; add personified flagship antagonists + capture/live-cargo payload + run artifact + one-sentence-contract legibility; market frame <=$9.99/proximity-voice/short-runs/demo-early. Probe = existing two-player grey-box gate with 4 hook signals. Decision d-concept-hook-001 opened (recommend: canon-forge inherits Bottle-the-Monster frame). NOW.next unchanged (c-exec-021 continuation). → history/s-research-concept-hooks-001.md
 
+2026-07-07 — research (g-a7f2/concept-pitch, s-research-concept-pitch-001): owner asked for the concept itself (creative, viral, playable-read; no market/process). Pitch «ОНО ДЫШИТ» delivered → work/concept-pitch-2026-07-07.md: bestiary-of-weather (6 paper species, each one deterministic rule, no AI), engineering-hunt capture, seal-at-peak, live-canister carry-out, emergent roles, physics rescue, knowledge progression. Owner's hands-in-gas adopted («Руки»), eyes rejected (creature-read). d-concept-hook-001 concretized: option 1 = canon-forge inherits THIS pitch. → history/s-research-concept-pitch-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
