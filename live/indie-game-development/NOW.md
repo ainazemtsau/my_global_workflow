@@ -48,19 +48,20 @@ open_calls:
       13-entry byte-identity goldens INTACT. 10 reaction tests RED = engine-completion gaps.
       Continuation = a re-planning PLAN per owner D+A → work/c-exec-021-continuation-call.md
       (base dev@0a95f01). Frozen spec + PLAN.md + ADR-E-0006 STAND (not re-opened).
-  - id: c-canon-gas-interaction-playable-anchors-001
+  - id: c-cartography-ono-dyshit-core-frame-001
     to: session
-    for: g-d3a8 / q-gas-interaction-playable-anchors
-    issued: 2026-07-06
-    call: work/c-canon-gas-interaction-playable-anchors-001-call.md
+    for: g-d3a8 / core concept frame before q-gas-interaction-playable-anchors
+    issued: 2026-07-07
+    call: work/c-cartography-ono-dyshit-core-frame-001-call.md
     note: |
-      Design Lab `s-design-lab-gas-interaction-gameplay-001` routed gas-interaction gameplay
-      to canon-forge. Purpose: freeze owner-readable scenario grammar for playable gas interaction
-      proof-candidates before cargo/containment continues. Inherit lab verdict: source/flow,
-      active-condition push/stabilize, reaction front, quench/release/control, anomalous field
-      rescue, and cargo leak as bridge only. No fixed-count case list, no cargo-center, no anomaly
-      creature-AI, no exact roster/table/tools/containers, no fun certification; paper result remains
-      UNVERIFIED until later two-player grey-box.
+      Replacement checkpoint `s-canon-gas-interaction-playable-anchors-001` stopped the old anchor freeze during Diverge.
+      Owner introduced stronger concept frame "ОНО ДЫШИТ": Phasmophobia-like gas evidence/diagnosis + physical gas
+      escalation/intervention in a breathing underground city. Cartography must preserve source
+      `work/concept-share-2026-07-07.md` and research as source material; gas examples (`Тихоня`, `Сквозняк`,
+      `Вспышка`, `Разлив`, `Руки`, `Хор`), sleep/wake, capture, co-op/rescue, tone and proof-scene examples are
+      candidate seeds only, NOT canon. Do not freeze exact roster/wake/capture/tools/timers/cargo/containers. Keep
+      destructibility, reactions, global gas simulation and possible multi-gas levels as core constraints. Purpose:
+      map the new core frame + cut rule + question split before returning to anchors/cargo/containment.
   - id: c-visual-007
     to: executor
     for: g-7e15 / VISUAL Stage 3
@@ -83,7 +84,7 @@ parallel_tracks:
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
-    state: parked — design-lab complete (s-design-lab-gas-interaction-gameplay-001); next open call = c-canon-gas-interaction-playable-anchors-001; freeze playable gas interaction scenario grammar before cargo/containment continues; baseline history/s-canon-visual-style-minimal-gas-stage-001.md
+    state: parked — q-gas-interaction-playable-anchors canon-forge CHECKPOINTED (s-canon-gas-interaction-playable-anchors-001) after owner introduced "ОНО ДЫШИТ" concept-frame; old anchor freeze returned to cartography. next open call = c-cartography-ono-dyshit-core-frame-001; map core concept frame, candidate seeds, cut rule and question split before returning to playable gas anchors or cargo/containment. baseline history/s-canon-visual-style-minimal-gas-stage-001.md
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
