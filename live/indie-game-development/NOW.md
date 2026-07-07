@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-06 by s-design-lab-process-repair-001
+updated: 2026-07-07 by s-research-concept-pitch-004
 
 bet:
   node: g-9c41
@@ -48,45 +48,43 @@ open_calls:
       13-entry byte-identity goldens INTACT. 10 reaction tests RED = engine-completion gaps.
       Continuation = a re-planning PLAN per owner D+A → work/c-exec-021-continuation-call.md
       (base dev@0a95f01). Frozen spec + PLAN.md + ADR-E-0006 STAND (not re-opened).
-  - id: c-visual-006
-    to: executor
-    for: g-7e15 / Stage 2 (Паспорт типа + шипучий режим)
-    issued: 2026-07-06
-    call: work/c-visual-006-stage2-call.md
-    note: |
-      FIRE-READY (s-work-055; owner sign-off clarified s-work-056): render-only Stage 2 —
-      per-type passport schema (8-channel + 96→128B layout-ADR) + consume the merged W1b
-      read-API + real half-res; payoff = two-colour PREVIEW. Owner clarification: «шипучий
-      режим» = ONLY the two-colour preview label (NO extra bubbling/particle/boiling FX);
-      the base passport is required for every gas; reserve an extensible render-only
-      attachment path for later per-gas modules, but build NONE in Stage 2. Fire in a FRESH
-      GasCoopGame_dev_2 (reset to @26dd062 first), owner-present PLAN, PARALLEL to c-021.
-      ZERO Core/** edit (STOP if it needs one).
-  - id: c-canon-gas-interaction-playable-anchors-001
+  - id: c-cartography-ono-dyshit-core-frame-001
     to: session
-    for: g-d3a8 / q-gas-interaction-playable-anchors
-    issued: 2026-07-06
-    call: work/c-canon-gas-interaction-playable-anchors-001-call.md
+    for: g-d3a8 / core concept frame before q-gas-interaction-playable-anchors
+    issued: 2026-07-07
+    call: work/c-cartography-ono-dyshit-core-frame-001-call.md
     note: |
-      Design Lab `s-design-lab-gas-interaction-gameplay-001` routed gas-interaction gameplay
-      to canon-forge. Purpose: freeze owner-readable scenario grammar for playable gas interaction
-      proof-candidates before cargo/containment continues. Inherit lab verdict: source/flow,
-      active-condition push/stabilize, reaction front, quench/release/control, anomalous field
-      rescue, and cargo leak as bridge only. No fixed-count case list, no cargo-center, no anomaly
-      creature-AI, no exact roster/table/tools/containers, no fun certification; paper result remains
-      UNVERIFIED until later two-player grey-box.
+      Replacement checkpoint `s-canon-gas-interaction-playable-anchors-001` stopped the old anchor freeze during Diverge.
+      Owner introduced stronger concept frame "ОНО ДЫШИТ": Phasmophobia-like gas evidence/diagnosis + physical gas
+      escalation/intervention in a breathing underground city. Cartography must preserve source
+      `work/concept-share-2026-07-07.md` and research as source material; gas examples (`Тихоня`, `Сквозняк`,
+      `Вспышка`, `Разлив`, `Руки`, `Хор`), sleep/wake, capture, co-op/rescue, tone and proof-scene examples are
+      candidate seeds only, NOT canon. Do not freeze exact roster/wake/capture/tools/timers/cargo/containers. Keep
+      destructibility, reactions, global gas simulation and possible multi-gas levels as core constraints. Purpose:
+      map the new core frame + cut rule + question split before returning to anchors/cargo/containment.
+  - id: c-visual-007
+    to: executor
+    for: g-7e15 / VISUAL Stage 3
+    issued: 2026-07-07
+    call: work/c-visual-007-stage3-call.md
+    note: |
+      FIRE-READY visual-only Stage 3 ("Одна жемчужина") framed from visual plan v2 after c-visual-006 close.
+      Base = GasCoopGame_dev_2 dev2@6dbdddd (Stage 2 gas passport + real two-type preview + half-res path).
+      Scope: hero-polish one real gas, natural-jet fix, toon-band + opacity-ceiling decisions, LP1 lamp re-test,
+      LP1-LP5 individual dispositions. Boundaries: dev_2 only; render-only; ZERO Core/**/sim/c-exec-021 work;
+      primary NOW.next target unchanged. Product leg owes narrow §Re-sync to contract v19 first (owner-readable PLAN,
+      PLAN and BUILD as separate sessions).
 
 recurring: []
 
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    state: active — Stage 1 DONE (owner-tested OK @26dd062); NEXT = Stage 2 (c-visual-006, see open_calls;
-      owner-clarified s-work-056 = preview-label only, base passport for every gas, extension path reserved).
+    state: active — Stage 2 DONE (c-visual-006 delivered on GasCoopGame_dev_2 dev2@6dbdddd; owner-eye/play-mode passed; real two-type preview + gas passport + half-res path; not pushed/merged by this close). Stage 3 FRAMED + FIRE-READY as c-visual-007: one-pearl/hero gas polish + natural-jet fix + LP1 re-test; visual-only/dev_2; owes §Re-sync v19 first.
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
-    state: parked — design-lab complete (s-design-lab-gas-interaction-gameplay-001); next open call = c-canon-gas-interaction-playable-anchors-001; freeze playable gas interaction scenario grammar before cargo/containment continues; baseline history/s-canon-visual-style-minimal-gas-stage-001.md
+    state: parked — q-gas-interaction-playable-anchors canon-forge CHECKPOINTED (s-canon-gas-interaction-playable-anchors-001) after owner introduced "ОНО ДЫШИТ" concept-frame; old anchor freeze returned to cartography. next open call = c-cartography-ono-dyshit-core-frame-001; map core concept frame, candidate seeds, cut rule and question split before returning to playable gas anchors or cargo/containment. baseline history/s-canon-visual-style-minimal-gas-stage-001.md
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -115,12 +113,26 @@ decisions:
       - Defer until the first Steam/playtest slice.
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
+  - id: d-concept-hook-001
+    q: |
+      Concept/hook research (work/concept-hooks-research-2026-07-07.md) converged on
+      "Bottle the Monster": keep expedition core, add personified flagship gases +
+      capture/live-cargo payload + run artifact + one-sentence-contract legibility,
+      market suit <=$9.99/proximity-voice/short runs. Which frame does the open
+      canon-forge (c-canon-gas-interaction-playable-anchors-001) inherit?
+    options:
+      - Canon-forge inherits the pitch «ОНО ДЫШИТ» v1.2 (work/concept-pitch-2026-07-07.md: bestiary of gas-habits + sleep-as-design-layer with per-type wake triggers, extract-as-herd-into-container + seal-at-peak, live-canister carry-out through the woken floor; sources = escalation events not faucets; recon pressure = endogenous agitation); two-player grey-box stays the binding fun gate.
+      - Probe-first - build the discriminating grey-box (4 hook signals) before any canon framing.
+      - Pivot to ALT-A hazmat-response (calls instead of harvest; cheapest delta, loses the greed axis; Embr counter-case).
+      - Keep course unchanged; report shelved as reference.
+    recommendation: Option 1 (grey-box remains binding either way; option 2 only if zero canon risk is wanted at the cost of stalling the canon-forge).
+    source: work/concept-share-2026-07-07.md (clean friend-facing concept); work/concept-pitch-2026-07-07.md (design reasoning); history/s-research-concept-pitch-004.md. Owner is taking the clean concept to friends for first discussion before the verdict.
 
 next:
   CALL: work/c-exec-021-continuation-call.md — fire the c-exec-021 CONTINUATION (reaction-engine
   completion) in a FRESH owner-present GasCoopGame_dev re-planning PLAN, base dev@0a95f01. Short PLAN
   (single-cell overflow: widen-K vs same-cell policy + skip-zero-keeps-golden STOP-confirm + SeedMass-clamp
   nod + 3 test-author acks) → EXECUTE leg-1-finish (10 RED → GREEN) → leg 2. dev→main merge/push
-  owner-gated. Parallel visual track = c-visual-006 (open_calls).
+  owner-gated. Parallel visual track: c-visual-007 is open for visual-only Stage 3; primary target remains this c-exec-021 continuation.
 
 END_OF_FILE: live/indie-game-development/NOW.md
