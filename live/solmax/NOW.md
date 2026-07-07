@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_umbrella_placement_corrected_cartography_next
+route_status: operating_substrate_scope_boundary_cartography_approved_forge_next
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -32,6 +32,14 @@ owner_directive: |
   - then forge one architecture question/card at a time;
   - do not activate implementation, repo selection, detailed test plan or
     Direction OS kernel changes from this placement repair.
+
+  Current cartography checkpoint:
+  - Owner approved the first operating-substrate scope/boundary question graph
+    as a working graph.
+  - Owner caveat: some questions may be ambiguous or redundant now, but remain
+    candidate nodes until forge/cartography clarifies them.
+  - No substrate answer is frozen by the map.
+  - Next route is one architecture-forge session for the scope/boundary card.
 
 tasks: []
 
@@ -68,6 +76,11 @@ preserved_evidence:
   - live/indie-game-development/plays/canon-cartography.md
   - live/indie-game-development/plays/canon-forge.md
   - owner approval in chat for umbrella repair option A: "Option A"
+  - live/solmax/work/operating-substrate-scope-boundary-cartography-001.md
+  - live/solmax/plays/architecture-forge.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-scope-boundary-architecture-forge-001.md
+  - live/solmax/history/2026-07-07-s-solmax-operating-substrate-architecture-cartography-001-owner-sign.md
+  - owner approval in chat for scope/boundary cartography map: "с картой согласен ... можем с ней дальше двигаться"
 
-next: work/calls/c-solmax-operating-substrate-architecture-cartography-001.md
+next: work/calls/c-solmax-operating-substrate-scope-boundary-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
