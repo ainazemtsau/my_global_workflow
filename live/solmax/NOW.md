@@ -1,61 +1,37 @@
 # NOW — solmax
 project:
-  name: Zaratusta
+  name: Solmax
+  umbrella: true
+  first_product_branch: Zaratusta
   product_repo: github.com/ainazemtsau/zaratusta
 
 active_bet:
   status: none
-  note: |
-    No active bet after owner paused Zaratusta live-use/product repair on
-    2026-07-06.
 
-    Zaratusta Operating Manager v1 Markdown artifacts remain preserved
-    evidence, but they are not authority for real live personal-manager
-    behavior.
-
-    First ChatGPT Project live-use trial failed:
-    - the manager produced loaded-basis/state/effect-tier/write-boundary/
-      handback bureaucracy;
-    - it did not perform the expected owner-leading personal manager flow;
-    - it did not adequately establish a first-run operating model, research
-      method, live day protocol or useful day guidance;
-    - the failure is treated as evidence for a higher-level process/
-      architecture gap, not as a small prompt-style issue.
-
-    Route:
-    - Pause Zaratusta product repair.
-    - Start a new architecture/planning route for a reusable operating
-      substrate for AI-led stateful processes.
-    - Return to Zaratusta only after the substrate/scenario/test model is
-      understood well enough to apply.
-
-route_status: operating_substrate_placement_approved_umbrella_repair_next
+route_status: operating_substrate_umbrella_placement_corrected_cartography_next
 
 owner_directive: |
-  The first Zaratusta implementation route is g-zara-operate: the LifeReset-derived
-  personal operating-manager capability becomes the real Personal Operating System
-  phase of Zaratusta, not a PoC and not a separate LifeReset project.
+  Owner approved umbrella placement for Solmax.
 
-  Owner-approved split from 2026-06-26 remains: g-zara-operate-contract,
-  g-zara-operate-state, g-zara-operate-runtime, g-zara-operate-evolution.
+  Zaratusta remains the first product/application branch, first consumer,
+  failure-case and evidence source. Zaratusta product repair remains paused
+  after the first ChatGPT Project live-use trial failed as a live personal
+  manager.
 
-  Preserved operating boundary: topic-open through process/source/context; writes
-  default only to the Zaratusta workspace/repo; other repos/directions/projects
-  are read-only sources by default; future non-Zaratusta writes require explicit
-  narrow integration/procedure; deep research is a first-class process route.
+  Reusable operating-substrate is a separate sibling architecture/spec route
+  for AI-led stateful owner/project processes, not a Zaratusta product child.
 
-  Owner correction in c-solmax-zaratusta-markdown-manager-v1-route-repair-004:
-  the next bet must not narrow to state/replay/converge-only work. It must
-  shape and then implement the full Markdown operating-manager-v1 layer:
-  inbox/intake, backlog/open loops, week/day, reviews, current state,
-  source/context, audit/replay, process mutation, examples/checks and handback
-  rules. Quality remains priority; this layer must be complete in Markdown
-  before later app/runtime/automation work.
+  Current Zaratusta and Direction OS artifacts are partial evidence and
+  possible source material, not a ready substrate specification and not
+  authority. ChatGPT must not autonomously design the whole substrate.
 
-  Owner approved option A in the writer-bounced shape exchange: activate the bet
-  as written with appetite 3 focused days, full required Markdown surface scope,
-  three tasks, risk gate first, kill_by 2026-07-11, cut list, lens sweep and
-  first executor CALL.
+  Next working mode:
+  - owner-led architecture/spec cartography;
+  - first map the question graph, dependencies, variants, best-practice
+    research needs and proof anchors;
+  - then forge one architecture question/card at a time;
+  - do not activate implementation, repo selection, detailed test plan or
+    Direction OS kernel changes from this placement repair.
 
 tasks: []
 
@@ -87,6 +63,11 @@ preserved_evidence:
   - user-provided transcript: Zaratusta Operating Manager v1 first ChatGPT Project live trial, showing live-use failure and debug admission
   - live/solmax/work/calls/c-solmax-operating-substrate-frame-001.md
   - live/solmax/history/2026-07-06-s-solmax-operating-substrate-placement-decision-001.md
+  - live/solmax/history/2026-07-06-s-solmax-operating-substrate-umbrella-placement-repair-001.md
+  - live/solmax/knowledge/zaratusta-live-use-failure-and-operating-substrate-route.md
+  - live/indie-game-development/plays/canon-cartography.md
+  - live/indie-game-development/plays/canon-forge.md
+  - owner approval in chat for umbrella repair option A: "Option A"
 
-next: work/calls/c-solmax-operating-substrate-umbrella-placement-repair-001.md
+next: work/calls/c-solmax-operating-substrate-architecture-cartography-001.md
 END_OF_FILE: live/solmax/NOW.md

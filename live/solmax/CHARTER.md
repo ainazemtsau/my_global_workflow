@@ -2,13 +2,36 @@
 
 ## Mission
 
-Build **Zaratusta** — a personal, deeply personalized AI "exocortex" (second brain) that helps the owner think and act with great depth across all aspects of life and work, growing toward the full EXOCORTEX vision (a personal-AGI-like companion).
+Build **Solmax** as an umbrella direction for owner-facing AI systems and
+reusable operating architecture that help the owner think, act and run
+complex stateful processes with deep personalization and evidence-gated
+growth.
 
-The system is built **incrementally by background AI agents under owner review**, on top of a **tiny, endlessly extensible core**. Personal-first; turning it into a product/business is an open future option, not an obligation.
+The first product/application branch is **Zaratusta** — a personal, deeply
+personalized AI exocortex (second brain) that helps the owner think and act
+with great depth across all aspects of life and work, growing toward the full
+EXOCORTEX vision.
+
+Zaratusta remains the first consumer, failure-case and evidence source for
+Solmax. It is not the whole scope of Solmax.
+
+The reusable **operating-substrate** route is a separate architecture/spec
+effort for AI-led stateful owner/project processes. It is not a child task
+inside Zaratusta and must proceed through owner-led architecture/spec
+cartography before design or implementation.
+
+The system is built incrementally by background AI agents under owner review.
+Personal-first; turning any branch into a product/business is an open future
+option, not an obligation.
 
 ## Success criteria
 
 There is no deadline (owner). These are state-based definitions of "succeeded," not dates.
+
+Placement note:
+Current success criteria SC1-SC3 still measure the Zaratusta branch. The
+operating-substrate branch success criteria are intentionally not invented in
+this repair; they will be co-created through architecture/spec cartography.
 
 1. **Real deep use** *(primary — the guard against the "perpetual core draft" failure)*
    - The owner regularly relies on Zaratusta in **at least 3 distinct areas** of life/work, where it gives deep, personalized help he would not otherwise have.
@@ -33,6 +56,10 @@ Personal-vs-product is handled as a checkpoint in Constraints, not a success cri
 - **Personal-vs-product checkpoint:** if/when the system delivers real personal value, the owner makes an explicit decision whether to keep it personal or productize it. Until then it is personal.
 - **Privacy / trust:** it holds the owner's whole-life data → local-first where possible, an auditable ledger, and **owner approval for irreversible / external / spend-incurring actions** (effect-tier gate).
 - **New repo:** the product lives in a new repo, **Zaratusta**, separate from the OS.
+- **Umbrella placement:** Zaratusta and reusable operating-substrate are
+  sibling branches under Solmax. Current Zaratusta artifacts are evidence,
+  not authority. No substrate implementation bet, product repo, test harness
+  or Direction OS kernel change is activated by this placement repair.
 
 ## Lenses
 
@@ -80,8 +107,16 @@ Reference cases used during frame:
 ## Canonical repos
 
 - Direction state repo: `github.com/ainazemtsau/my_global_workflow` (this OS repo).
-- Product repo: **Zaratusta** — proposed `github.com/ainazemtsau/zaratusta`, locally `C:\projects\Zaratusta`. Host/path to be confirmed/created at map/shape; not locked during frame.
-- The OS repo is connected to Zaratusta **read-only**, as one capability among many.
+- Product/application repo: **Zaratusta** —
+  `github.com/ainazemtsau/zaratusta`, locally `C:\projects\Zaratusta`.
+  Zaratusta is the first Solmax consumer/failure-case/evidence source, not
+  the whole scope of Solmax.
+- Operating-substrate repo: none selected. Architecture/spec cartography
+  lives in Direction OS state until a later owner-approved route chooses
+  artifacts, repo boundaries or implementation surfaces.
+- The Direction OS repo remains separate. Zaratusta may read it read-only as
+  one capability among many; neither Zaratusta nor the operating-substrate
+  route writes to it outside Direction OS writer procedure.
 
 ## Pre-mortem
 
