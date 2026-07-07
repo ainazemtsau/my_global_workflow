@@ -34,20 +34,18 @@ tasks:
     status: done
 
 open_calls:
-  - id: c-canon-ono-dyshit-core-frame-001
+  - id: c-designlab-ono-dyshit-core-frame-fork-001
     to: session
-    for: g-d3a8 / q-ono-dyshit-core-frame
+    for: g-d3a8 / q-ono-dyshit-core-frame fork
     issued: 2026-07-07
-    call: work/c-canon-ono-dyshit-core-frame-001-call.md
+    call: work/c-designlab-ono-dyshit-core-frame-fork-001-call.md
     note: |
-      OWNER-SIGNED cartography result `s-cartography-ono-dyshit-core-frame-001` mapped corrected "ОНО ДЫШИТ" frame.
-      Owner accepted recording with steering: gas extraction is NOT mandatory first core; first frame = mission-value
-      extraction/salvage through hidden/quiet gas-danger, detection-first, physical gas/building/condition intervention,
-      readable consequences, safe-return stake. Gas capture / bottle-the-monster preserved as candidate/later contract,
-      not first-proof law. One-more-pass pull is required as a design principle: "ещё один проход / ещё одна комната /
-      ещё один уровень / ещё один заход" through floor consequences + route knowledge + base prep, not grind. Next
-      canon-forge must freeze only the plain core frame, player-action loop, cut rule and downstream split; no roster,
-      tools, capture implementation, cargo/containers, timers, economy, final VFX or fun verdict.
+      REPAIR follow-up after invalid premature freeze. Owner clarified that "Bottle the Monster / gas capture first"
+      vs "mission value through gas danger first" vs hybrid proof was not decided and must be discussed through
+      Design Lab / owner-diverge. `ОНО ДЫШИТ` may remain as working title only; it must not pull design truth,
+      gas agency, magical sleep/wake, harvest-first core, exact gas names/tools/capture/cargo/timers/economy or
+      pitch/research seeds into canon. Goal: compare first-proof/core-frame branches at player-action altitude and
+      return a recommendation + owner decision, no canon freeze.
   - id: c-visual-007
     to: executor
     for: g-7e15 / VISUAL Stage 3
@@ -70,7 +68,13 @@ parallel_tracks:
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
-    state: parked — c-cartography-ono-dyshit-core-frame-001 OWNER-SIGNED (s-cartography-ono-dyshit-core-frame-001). Corrected core frame: mission-value extraction/salvage through hidden/quiet gas-danger; detection-first; gas as threat/clue/tool/route shaper/accident/co-op pressure; gas harvest/bottle-the-monster candidate later, NOT first-proof law. Added one-more-pass pull principle ("ещё один проход/комната/уровень/заход") tied to floor consequences + route knowledge + base prep. q-gas-interaction-playable-anchors reframed + delayed. next open call = c-canon-ono-dyshit-core-frame-001. baseline history/s-canon-visual-style-minimal-gas-stage-001.md
+    state: |-
+      parked — REPAIR s-repair-ono-dyshit-routing-001: previous q-ono-dyshit-core-frame freeze packet invalidated.
+      Core frame NOT frozen. Owner clarified the branch Bottle-the-Monster/gas-capture-first vs mission-value-through-
+      gas-danger-first vs hybrid proof must be discussed through Design Lab / owner-diverge, not chosen by session.
+      `ОНО ДЫШИТ` may remain only as working title / pitch-label; it has no canon authority and must not pull ontology,
+      creature AI, magical sleep/wake, harvest-first core, exact gas names/tools/capture/cargo/timers/economy or any
+      pitch/research seed into canon. Next open call: c-designlab-ono-dyshit-core-frame-fork-001.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
