@@ -372,4 +372,6 @@ does NOT fire — track stays ON HOLD. NO TREE/CHARTER change; G1 intact (parall
 
 2026-07-07 — work (g-7e15/c-visual-007, s-work-061): Stage 3 visual-only executor CALL framed from visual plan v2. CALL artifact work/c-visual-007-stage3-call.md opens "Одна жемчужина" on GasCoopGame_dev_2 dev2@6dbdddd: hero-polish one real gas, natural-jet fix, toon-band + opacity-ceiling decisions, LP1 lamp re-test, LP1-LP5 individual dispositions; render-only/dev_2, ZERO Core/**/sim/c-exec-021, primary NOW.next target remains c-exec-021; product leg owes §Re-sync v19 first (owner-readable PLAN; PLAN and BUILD separate sessions). → history/2026-07-07-s-work-061-frame-c-visual-007-stage3.md
 
+2026-07-07 — research (g-a7f2/concept-hooks, s-research-concept-hooks-001): 7-agent hook/alternatives research delivered → work/concept-hooks-research-2026-07-07.md. Convergent verdict: keep expedition core; add personified flagship antagonists + capture/live-cargo payload + run artifact + one-sentence-contract legibility; market frame <=$9.99/proximity-voice/short-runs/demo-early. Probe = existing two-player grey-box gate with 4 hook signals. Decision d-concept-hook-001 opened (recommend: canon-forge inherits Bottle-the-Monster frame). NOW.next unchanged (c-exec-021 continuation). → history/s-research-concept-hooks-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
