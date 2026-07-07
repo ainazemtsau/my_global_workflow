@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-07 by s-research-concept-pitch-003
+updated: 2026-07-07 by s-research-concept-pitch-004
 
 bet:
   node: g-9c41
@@ -125,7 +125,7 @@ decisions:
       - Pivot to ALT-A hazmat-response (calls instead of harvest; cheapest delta, loses the greed axis; Embr counter-case).
       - Keep course unchanged; report shelved as reference.
     recommendation: Option 1 (grey-box remains binding either way; option 2 only if zero canon risk is wanted at the cost of stalling the canon-forge).
-    source: work/concept-pitch-2026-07-07.md; work/concept-hooks-research-2026-07-07.md; history/s-research-concept-pitch-001.md.
+    source: work/concept-share-2026-07-07.md (clean friend-facing concept); work/concept-pitch-2026-07-07.md (design reasoning); history/s-research-concept-pitch-004.md. Owner is taking the clean concept to friends for first discussion before the verdict.
 
 next:
   CALL: work/c-exec-021-continuation-call.md — fire the c-exec-021 CONTINUATION (reaction-engine
