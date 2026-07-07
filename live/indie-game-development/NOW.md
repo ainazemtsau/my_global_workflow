@@ -6,10 +6,11 @@ bet:
   goal: |
     Networked co-op gas CORE on the character road: Sc-types → Sc-weight → Sc-rep →
     Sc-kernel → Sc-reactions → Sc-typing → Sc-damage. Sc-reactions DELIVERED on GasCoopGame
-    dev@a23183f (c-exec-021 close-verified: engine 180/180 reaction+byte-identity GREEN first-hand,
-    owner-confirmed cross-family G5 / owner-eye / DELIVERED-authorization); dev→main merge+push
-    OWNER-GATED, PENDING (main still 0dd823b). Immediate next = Sc-typing. Far-tier S3/S4/S5 scale
-    plumbing parked until levels get big.
+    dev (code @a23183f; dev tip @f5ba86a after the -Deliver-green doc-sync 2026-07-07). c-exec-021
+    close-verified: engine 180/180 reaction+byte-identity GREEN first-hand + `check.ps1 -Deliver` GREEN
+    end-to-end demonstrated first-hand (EXIT 0); owner-confirmed cross-family G5 / owner-eye /
+    DELIVERED-authorization. dev→main merge+push OWNER-GATED, PENDING (main @a19c3a4). Immediate next =
+    Sc-typing. Far-tier S3/S4/S5 scale plumbing parked until levels get big.
     Latest session: s-review-sc-reactions-close-001 (c-exec-021 CLOSED; see LOG.md / history/).
   appetite: |
     Governed by the g-9c41 de-risk wall; do not extend a bet silently. If a slice
@@ -118,10 +119,11 @@ next:
   DELIVERED. A fresh owner-present PLAN session in GasCoopGame_dev per the frozen g9c41 SPEC + engineering
   contract; keep the mandatory PLAN/BUILD split; independent RED test-author first.
   OWNER-GATED PENDING (separate from the leg's done_when): c-exec-021 dev→main merge + push is yours —
-  main is still 0dd823b and does NOT yet carry c-021. RECOMMENDED product doc-sync BEFORE that merge so
-  main is not left self-contradictory: tick the ledger owner-eye + `-Deliver` boxes
-  (openspec/…/tasks.md L114/L122) and update the review Verdict DELIVERY-PENDING → DELIVERED
-  (owner-confirmed 2026-07-07). Parallel tracks unchanged: c-visual-007 (visual Stage 3),
+  main @a19c3a4 does NOT yet carry c-021; merge dev tip @f5ba86a. The recommended product doc-sync is
+  DONE 2026-07-07 (tip @f5ba86a): ledger owner-eye + `-Deliver` boxes ticked, review Verdict → DELIVERED,
+  `check.ps1 -Deliver` re-run GREEN end-to-end — the delivered tip is internally consistent, so the merge
+  is clean. NOTE: neither repo is pushed yet — OS commit local (ahead of origin), product dev @f5ba86a not
+  on origin/dev. Parallel tracks unchanged: c-visual-007 (visual Stage 3),
   c-cartography-ono-dyshit-core-frame-001 (canon).
 
 END_OF_FILE: live/indie-game-development/NOW.md
