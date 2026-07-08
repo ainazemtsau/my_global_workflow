@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-work-062-frame-sc-typing
+updated: 2026-07-07 by s-review-sc-reactions-close-001
 
 bet:
   node: g-9c41
@@ -10,10 +10,8 @@ bet:
     close-verified: engine 180/180 reaction+byte-identity GREEN first-hand + `check.ps1 -Deliver` GREEN
     end-to-end on dev, merged main GREEN on inner-loop check.ps1; owner-confirmed cross-family G5 / owner-eye /
     DELIVERED-authorization. Product result doc flipped DELIVERED→MERGED. Immediate next = Sc-typing.
-    Sc-typing PLAN CALL framed 2026-07-08 as c-exec-032-sc-typing: product PLAN-only, owner-present,
-    no production code, with BUILD split and independent RED test-author first.
     Far-tier S3/S4/S5 scale plumbing parked until levels get big.
-    Latest session: s-work-062-frame-sc-typing (c-exec-032 Sc-typing PLAN CALL framed; see LOG.md / history/).
+    Latest session: s-review-sc-reactions-close-001 (c-exec-021 CLOSED; see LOG.md / history/).
   appetite: |
     Governed by the g-9c41 de-risk wall; do not extend a bet silently. If a slice
     overruns or reveals a core blind spot, stop and re-shape/review, don't stretch.
@@ -34,26 +32,8 @@ tasks:
       (Codex) G5 final pass could-not-refute on current code + owner-eye ReactionSandbox accepted +
       DELIVERED authorized. dev→main merge+push OWNER-GATED (outside done_when, still pending).
     status: done
-  - id: Sc-typing
-    goal: |
-      Env-derived dynamic typing: single-reactant environment response becomes a typed, accumulated identity
-      mechanism (spawn/runtime parent→face; exposure accumulator + hysteresis + dominant-stamp flip), ENGINE-ONLY.
-    done_when: |
-      c-exec-032 PLAN artifacts are frozen in GasCoopGame_dev under `openspec/changes/c-exec-032-sc-typing/`
-      with owner-present decisions, split PLAN/BUILD, and a BUILD CALL whose first step is an independent RED
-      test-author; then the later BUILD returns a delivered RESULT home and closes Sc-typing.
-    status: active
 
 open_calls:
-  - id: c-exec-032-sc-typing
-    to: executor
-    for: g-9c41 / Sc-typing PLAN
-    issued: 2026-07-08
-    call: work/c-exec-032-sc-typing-call.md
-    note: |
-      FIRE-READY PLAN-only product CALL for GasCoopGame_dev. Scope: owner-present Sc-typing PLAN from frozen
-      g9c41 SPEC + c-exec-021 seams; no production code/tests; mandatory PLAN/BUILD split; later BUILD starts
-      with independent RED test-author first. Do not touch visual/canon parallel tracks.
   - id: c-designlab-ono-dyshit-core-frame-fork-001
     to: session
     for: g-d3a8 / q-ono-dyshit-core-frame fork
@@ -139,10 +119,9 @@ decisions:
     source: work/concept-share-2026-07-07.md (clean friend-facing concept); work/concept-pitch-2026-07-07.md (design reasoning); history/s-research-concept-pitch-004.md. Owner is taking the clean concept to friends for first discussion before the verdict.
 
 next:
-  CALL: work/c-exec-032-sc-typing-call.md → executor (GasCoopGame_dev). Open a fresh owner-present PLAN-only
-  session for Sc-typing per the frozen g9c41 SPEC + engineering contract. No production code/tests in PLAN.
-  Freeze `openspec/changes/c-exec-032-sc-typing/` + ADR-E decision + a next BUILD CALL; the later BUILD session
-  starts with an independent RED test-author first.
+  CALL: shape/plan Sc-typing — the next node on the g-9c41 character road, now that Sc-reactions is
+  DELIVERED. A fresh owner-present PLAN session in GasCoopGame_dev per the frozen g9c41 SPEC + engineering
+  contract; keep the mandatory PLAN/BUILD split; independent RED test-author first.
   DONE 2026-07-07 (no longer pending): c-exec-021 merged dev@f5ba86a → GasCoopGame main @484084a and
   PUSHED (origin/main @484084a, origin/dev @f5ba86a); merged main passes inner-loop `check.ps1` GREEN
   (build + 1468 headless + determinism scans). NOTE on the `-Deliver`-on-main gate: it reports RED for an
