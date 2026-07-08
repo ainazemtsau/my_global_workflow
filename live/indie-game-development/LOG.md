@@ -77,4 +77,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-08 — canon-cartography/map (g-d3a8/mechanics-workbench-question-map, s-cartography-mechanics-workbench-questions-001): owner approved Mechanics Workbench question map v0.1 ("вариант A"). All Bubble / `ЛЁГКИЕ` / quiet floor / detection / release+reactions / carry+co-op / flagship / tools / old-canon / title material is placed, parked or rejected-for-now; first next route selected = Design Lab Q1 `q-first-proof-gas-spatial-form`; NOW open_call moved from cartography to c-designlab-gas-spatial-form-001. No canon freeze; TREE/CHARTER untouched. → work/canon-maps/mechanics-workbench-question-map-v0.1.md
 
+2026-07-08 — design-lab (g-d3a8/q-first-proof-gas-spatial-form, s-designlab-gas-spatial-form-001): Q1 Bubble-proof spatial form completed on paper. Verdict: accept/revise/split gas-before-Bubble as a local shared-field area with readable edge/gradient/layer behavior, not object/pickup/container/creature/final VFX; reject obvious cloud/pool, invisible whole-room fill and discrete-object defaults; source/flow parked as modifier. Next blocker = Q2 pre-contact read/detection; open_call moved to c-designlab-gas-precontact-read-001. No canon freeze; TREE/CHARTER untouched. → work/design-labs/gas-spatial-form-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

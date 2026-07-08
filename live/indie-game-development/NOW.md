@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-cartography-mechanics-workbench-questions-001
+updated: 2026-07-08 by s-designlab-gas-spatial-form-001
 
 bet:
   node: g-9c41
@@ -99,17 +99,19 @@ open_calls:
       LP1-LP5 individual dispositions. Boundaries: dev_2 only; render-only; ZERO Core/**/sim/c-exec-021 work;
       primary NOW.next target unchanged. Product leg owes narrow §Re-sync to contract v19 first (owner-readable PLAN,
       PLAN and BUILD as separate sessions).
-  - id: c-designlab-gas-spatial-form-001
+  - id: c-designlab-gas-precontact-read-001
     to: session
-    for: g-d3a8 / Mechanics Workbench Q1 spatial form
+    for: g-d3a8 / Mechanics Workbench Q2 pre-contact read
     issued: 2026-07-08
-    call: work/c-designlab-gas-spatial-form-001-call.md
+    call: work/c-designlab-gas-precontact-read-001-call.md
     note: |
-      READY first one-question Workbench Design Lab after owner-approved cartography map v0.1 (owner chose "вариант A").
-      Question = q-first-proof-gas-spatial-form: in the first Bubble proof, when we say "there is gas here", what exists
-      in space? Blocks detection/read, transfer-to-bubble, carry/custody, rupture/release, external reactions and co-op
-      proof. Boundaries: no canon freeze; no transfer/carry/reaction/meta/economy/roster/title/final-VFX answers; no
-      `газовый карман`, `запузырить`, exact membrane ring, magic sleep/wake or gas subjectivity as ready terms.
+      READY next one-question Workbench Design Lab after Q1 spatial-form lab. Inherited Q1 result:
+      gas before Bubble is a local shared-field area with readable edge/gradient/layer behavior; not an object,
+      pickup spot, container, creature, or final VFX plate. Question = q-pre-contact-read-detection: what players can
+      fairly read before touching or altering this field-area. Blocks transfer-to-Bubble fairness, first 60 seconds,
+      instrument/building role, route choice, tutorial/no-tutorial, and later grey-box readability. Boundaries: no
+      transfer solution, no exact tool/membrane/cargo/economy/roster/title/final VFX, no creature AI/sleep-aggro
+      ontology, no HUD-number-only answer.
 
 recurring: []
 
@@ -124,10 +126,12 @@ parallel_tracks:
       active in parallel via Mechanics Workbench, not a second active bet. Mechanics Workbench question map v0.1 is
       owner-approved (s-cartography-mechanics-workbench-questions-001, owner "вариант A"). All required draft material is
       accounted for: Bubble placed as current floor-proof candidate; `ЛЁГКИЕ`, flagship examples and title parked; quiet
-      floor, detection, carry/co-op, release/reactions, tools/building and old canon salvage routed. Current open design
-      CALL is c-designlab-gas-spatial-form-001. Design Lab clears unclear blockers; worked gameplay mechanics later go
-      through local/mechanic-forge; local/canon-forge freezes compact canon only when freeze-ready. No canon freeze;
-      TREE/CHARTER untouched.
+      floor, detection, carry/co-op, release/reactions, tools/building and old canon salvage routed. Q1 spatial-form lab
+      completed on paper (work/design-labs/gas-spatial-form-001.md): first proof uses a local shared-field area with
+      readable edge/gradient/layer behavior; exact read/transfer/custody/release/reactions/anti-solo remain downstream.
+      Current open design CALL is c-designlab-gas-precontact-read-001. Design Lab clears unclear blockers; worked
+      gameplay mechanics later go through local/mechanic-forge; local/canon-forge freezes compact canon only when
+      freeze-ready. No canon freeze; TREE/CHARTER untouched.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -161,6 +165,7 @@ next:
   v19 PLAN/BUILD split), independent RED test-author first. Return RESULT HOME; dev→main merge + push owner-gated.
   Sc-catalog c-exec-034 is PARKED/preserved for later when canon gives a real roster; c-exec-033 (env-derived typing)
   SUPERSEDED per owner (accidental wrong-chat) — parked as a later slice, design preserved.
-  Parallel tracks: c-visual-007 Stage 3; g-d3a8 Mechanics Workbench Q1 Design Lab ready as c-designlab-gas-spatial-form-001.
+  Parallel tracks: c-visual-007 Stage 3; g-d3a8 Mechanics Workbench Q2 pre-contact read ready as
+  c-designlab-gas-precontact-read-001 (Q1 result: work/design-labs/gas-spatial-form-001.md).
 
 END_OF_FILE: live/indie-game-development/NOW.md
