@@ -75,4 +75,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-08 — repair/cartography route (g-d3a8/mechanics-workbench-cartography-route, s-repair-mechanics-workbench-cartography-route-001): replaced the ad-hoc Q1 Design Lab next with a formal Mechanics Workbench cartography route. Added seed question map preserving Bubble, `ЛЁГКИЕ`, quiet/detection/reactions/carry/co-op/old canon/title ideas; registered c-cartography-mechanics-workbench-questions-001 in NOW; Q1 spatial-form Design Lab remains candidate, not active, until map owner-sign. TREE/CHARTER untouched; no canon freeze. → work/canon-maps/mechanics-workbench-question-map-seed-v0.md
 
+2026-07-08 — canon-cartography/map (g-d3a8/mechanics-workbench-question-map, s-cartography-mechanics-workbench-questions-001): owner approved Mechanics Workbench question map v0.1 ("вариант A"). All Bubble / `ЛЁГКИЕ` / quiet floor / detection / release+reactions / carry+co-op / flagship / tools / old-canon / title material is placed, parked or rejected-for-now; first next route selected = Design Lab Q1 `q-first-proof-gas-spatial-form`; NOW open_call moved from cartography to c-designlab-gas-spatial-form-001. No canon freeze; TREE/CHARTER untouched. → work/canon-maps/mechanics-workbench-question-map-v0.1.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
