@@ -1,6 +1,8 @@
 # CALL c-exec-033 — Sc-typing: ENV-DERIVED GAS IDENTITY WITH ACCUMULATE-WITH-HYSTERESIS (ENGINE-ONLY)
 
-**STATUS: READY — framed 2026-07-08.** This is the next g-9c41 character-road slice after Sc-reactions. Sc-reactions is DELIVERED, MERGED, and PUSHED to GasCoopGame `main` @484084a (`origin/dev` @f5ba86a, `origin/main` @484084a). This CALL opens a fresh **owner-present PLAN** session in `GasCoopGame_dev`. **PLAN and BUILD are mandatory separate sessions** (engineering contract v19): the PLAN leg ends at owner approval, writes no product code, and commissions no RED tests. A fresh BUILD session starts with an **independent RED test-author first**.
+**⛔ SUPERSEDED 2026-07-08 (s-shape-sc-catalog-001).** Framed by an ACCIDENTAL parallel session (s-work-sc-typing-call-001) — owner: «случайно запустил не тот чат … остальные считаем за ошибку». The g-9c41 road slot after Sc-reactions was RE-SCOPED to **Sc-catalog** (data-defined type-authoring kit — `work/c-exec-034-sc-catalog-call.md`). Env-derived dynamic typing is PARKED as a LATER slice; this design is PRESERVED as reference for that future slice — do NOT fire as-is.
+
+**STATUS: SUPERSEDED (was READY — framed 2026-07-08).** This is the next g-9c41 character-road slice after Sc-reactions. Sc-reactions is DELIVERED, MERGED, and PUSHED to GasCoopGame `main` @484084a (`origin/dev` @f5ba86a, `origin/main` @484084a). This CALL opens a fresh **owner-present PLAN** session in `GasCoopGame_dev`. **PLAN and BUILD are mandatory separate sessions** (engineering contract v19): the PLAN leg ends at owner approval, writes no product code, and commissions no RED tests. A fresh BUILD session starts with an **independent RED test-author first**.
 
 ## Direction / road position / base
 

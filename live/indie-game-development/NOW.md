@@ -1,18 +1,21 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-designlab-ono-dyshit-core-frame-fork-001
+updated: 2026-07-08 by s-shape-sc-catalog-001
 
 bet:
   node: g-9c41
   goal: |
     Networked co-op gas CORE on the character road: Sc-types → Sc-weight → Sc-rep →
-    Sc-kernel → Sc-reactions → Sc-typing → Sc-damage. Sc-reactions DELIVERED + MERGED to GasCoopGame
+    Sc-kernel → Sc-reactions → Sc-catalog → Sc-damage (slot after Sc-reactions RE-SCOPED 2026-07-08
+    Sc-typing→Sc-catalog / data-defined type-authoring kit, owner reframe). Sc-reactions DELIVERED + MERGED to GasCoopGame
     main @484084a and PUSHED 2026-07-07 (merge 8ef6a8e of dev@f5ba86a; origin/dev also @f5ba86a). c-exec-021
     close-verified: engine 180/180 reaction+byte-identity GREEN first-hand + `check.ps1 -Deliver` GREEN
     end-to-end on dev, merged main GREEN on inner-loop check.ps1; owner-confirmed cross-family G5 / owner-eye /
-    DELIVERED-authorization. Product result doc flipped DELIVERED→MERGED. Sc-typing executor CALL c-exec-033
-    is framed and ready: fresh GasCoopGame_dev PLAN, owner present, PLAN/BUILD split, independent RED test-author.
+    DELIVERED-authorization. Product result doc flipped DELIVERED→MERGED. Sc-catalog executor CALL c-exec-034
+    framed + adversarially hardened (wf_e9971bbd-6a8) and ready: fresh GasCoopGame_dev PLAN, owner present, PLAN/BUILD
+    split, independent RED test-author. Env-derived dynamic typing PARKED as a later slice (socket-aware). The accidental
+    parallel framing c-exec-033 (s-work-sc-typing-call-001, wrong chat) is SUPERSEDED per owner.
     Far-tier S3/S4/S5 scale plumbing parked until levels get big.
-    Latest session: s-work-sc-typing-call-001 (c-exec-033 framed; see LOG.md / history/).
+    Latest session: s-shape-sc-catalog-001 (Sc-typing→Sc-catalog re-scope; c-exec-034 ready; see LOG.md / history/).
   appetite: |
     Governed by the g-9c41 de-risk wall; do not extend a bet silently. If a slice
     overruns or reveals a core blind spot, stop and re-shape/review, don't stretch.
@@ -33,31 +36,38 @@ tasks:
       (Codex) G5 final pass could-not-refute on current code + owner-eye ReactionSandbox accepted +
       DELIVERED authorized. dev→main merge+push OWNER-GATED (outside done_when, still pending).
     status: done
-  - id: Sc-typing
+  - id: Sc-catalog
     goal: |
-      Env-derived gas identity: committed-revision env vector + per-cell exposure accumulator with
-      hysteresis flips the sparse-dominant type stamp mass-exactly. ENGINE-ONLY.
+      Data-defined DISTINCT gas types: several genuinely-different types authored AS DATA, each carrying its own
+      laws via an EXTENSIBLE per-type param set (a new param = data, ZERO Core/** edit), inheriting common→meta→type,
+      folded into the handshake; reactions between them on the Sc-reactions engine; + fix the handler-into-production-
+      tick gap so authored reaction outcomes fire. ENGINE-ONLY. (Re-scoped 2026-07-08 from "Sc-typing"/env-derived
+      typing per owner reframe; env-derived typing PARKED as a later slice, socket-aware.)
     done_when: |
-      Executor CALL c-exec-033 returns DELIVERED from a fresh GasCoopGame_dev leg: owner-readable PLAN
-      approved in its own session (contract v19), independent RED test-author first in a separate BUILD
-      session, accumulator+hysteresis / committed-env / wake-without-sweep / checksum / handshake / mass
-      exactness gates green, `check.ps1 -Deliver` green, fresh-session G5 could-not-refute, owner-eye
-      confidence recorded. On close verification the road rolls to Sc-damage.
+      Executor CALL c-exec-034 returns DELIVERED from a fresh GasCoopGame_dev leg: owner-readable PLAN approved in its
+      own session (contract v19), independent RED test-author first in a separate BUILD session; NEW-TYPE-IS-DATA +
+      NEW-PARAM-IS-DATA (zero Core/** edit) + ≥3 genuinely-different types (≥2 law axes + reactions) + handshake fold
+      (divergence / order-convergence / inheritance-path-convergence / partition-aliasing) + byte-identity at
+      MeaningChecksum + authored-reaction-fires-in-production gates green, `check.ps1 -Deliver` green, fresh-session G5
+      could-not-refute, owner-eye confidence recorded. On close verification the road rolls to Sc-damage.
     status: active
 
 open_calls:
-  - id: c-exec-033
+  - id: c-exec-034
     to: executor
-    for: g-9c41 / Sc-typing
+    for: g-9c41 / Sc-catalog
     issued: 2026-07-08
-    call: work/c-exec-033-sc-typing-call.md
+    call: work/c-exec-034-sc-catalog-call.md
     note: |
-      READY Sc-typing executor handoff. Base = GasCoopGame main/origin @484084a after Sc-reactions merge+push.
-      Fresh GasCoopGame_dev PLAN session, owner present. Mandatory engineering-contract v19 split: PLAN closes
-      at owner approval, writes no product code and commissions no RED tests; fresh BUILD session starts with an
-      independent RED test-author. Scope = env-derived identity via committed env-vector + accumulator+hysteresis
-      + mass-exact type-stamp flip; temperature-keyed rows dormant until Sc-damage/temp feedback; no visual,
-      damage, Sc-catalog/per-type-param re-scope, far-tier, dense-plane, or parallel-track work.
+      READY Sc-catalog executor handoff (SUPERSEDES the accidental c-exec-033 env-typing framing — owner: wrong chat,
+      treat as error; c-exec-033 file bannered SUPERSEDED, env-typing design preserved for a later parked slice).
+      Base = GasCoopGame main/origin @484084a after Sc-reactions merge+push; synced contract v18 (mechanical gates
+      wired; only behavioral v19 owed). Fresh GasCoopGame_dev PLAN, owner present; v19 split: PLAN closes at owner
+      approval (no product code, no RED tests); fresh BUILD starts with an independent RED test-author. Scope =
+      data-defined DISTINCT types + EXTENSIBLE per-type laws (new param = data, ZERO Core/** edit) + reactions between
+      them + handler-into-tick fix + convenient authoring surface. Design-AWARE only (build nothing): env-conditioned
+      params, mods/DLC/external-loader, procedural gen, look-lane/visual. Boundaries: no visual/shader, no new gas
+      physics, no reaction-engine/GridEvent redesign, no far-tier/dense-plane, no parallel-track work. Hardened wf_e9971bbd-6a8.
   - id: c-visual-007
     to: executor
     for: g-7e15 / VISUAL Stage 3
@@ -126,6 +136,9 @@ decisions:
     source: work/design-labs/ono-dyshit-core-frame-fork-001.md.
 
 next:
-  CALL c-exec-033 → executor (GasCoopGame_dev): work/c-exec-033-sc-typing-call.md. Return RESULT HOME; dev→main merge + push owner-gated. Parallel tracks unchanged.
+  CALL c-exec-034 → executor (GasCoopGame_dev): work/c-exec-034-sc-catalog-call.md. Fresh owner-present PLAN (contract
+  v19 PLAN/BUILD split), independent RED test-author first. Return RESULT HOME; dev→main merge + push owner-gated.
+  c-exec-033 (env-derived typing) SUPERSEDED per owner (accidental wrong-chat) — parked as a later slice, design preserved.
+  Parallel tracks unchanged (c-visual-007 Stage 3; g-d3a8 ono-dyshit fork awaiting d-ono-dyshit-core-frame-fork-001).
 
 END_OF_FILE: live/indie-game-development/NOW.md
