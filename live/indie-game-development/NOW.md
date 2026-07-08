@@ -1,21 +1,25 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-repair-mechanics-workbench-route-001
+updated: 2026-07-08 by s-shape-sc-sense-001
 
 bet:
   node: g-9c41
   goal: |
     Networked co-op gas CORE on the character road: Sc-types → Sc-weight → Sc-rep →
-    Sc-kernel → Sc-reactions → Sc-catalog → Sc-damage (slot after Sc-reactions RE-SCOPED 2026-07-08
-    Sc-typing→Sc-catalog / data-defined type-authoring kit, owner reframe). Sc-reactions DELIVERED + MERGED to GasCoopGame
+    Sc-kernel → Sc-reactions → Sc-sense → Sc-damage (slot after Sc-reactions RE-SCOPED 2026-07-08:
+    Sc-catalog/type-authoring kit PARKED until canon gives a real roster; Sc-sense pulled forward as the
+    canon-independent player↔gas exposure/dose foundation). Sc-reactions DELIVERED + MERGED to GasCoopGame
     main @484084a and PUSHED 2026-07-07 (merge 8ef6a8e of dev@f5ba86a; origin/dev also @f5ba86a). c-exec-021
     close-verified: engine 180/180 reaction+byte-identity GREEN first-hand + `check.ps1 -Deliver` GREEN
     end-to-end on dev, merged main GREEN on inner-loop check.ps1; owner-confirmed cross-family G5 / owner-eye /
-    DELIVERED-authorization. Product result doc flipped DELIVERED→MERGED. Sc-catalog executor CALL c-exec-034
-    framed + adversarially hardened (wf_e9971bbd-6a8) and ready: fresh GasCoopGame_dev PLAN, owner present, PLAN/BUILD
-    split, independent RED test-author. Env-derived dynamic typing PARKED as a later slice (socket-aware). The accidental
+    DELIVERED-authorization. Product result doc flipped DELIVERED→MERGED. Sc-sense executor CALL c-exec-035
+    framed + hardened from the interrupted Claudia/Codex handoff: fresh GasCoopGame_dev PLAN, owner present, PLAN/BUILD
+    split, independent RED test-author. It builds only actor-position/volume → authoritative-near-field exposure →
+    integer accumulated dose + a separate player-kinematics/dose digest + Unity capsule debug readout; NO damage,
+    NO detection gameplay, NO visual pipeline, NO new gas types. Sc-catalog executor CALL c-exec-034 is preserved
+    PARKED for later; env-derived dynamic typing PARKED as a later slice (socket-aware). The accidental
     parallel framing c-exec-033 (s-work-sc-typing-call-001, wrong chat) is SUPERSEDED per owner.
     Far-tier S3/S4/S5 scale plumbing parked until levels get big.
-    Latest session: s-shape-sc-catalog-001 (Sc-typing→Sc-catalog re-scope; c-exec-034 ready; see LOG.md / history/).
+    Latest session: s-shape-sc-sense-001 (Sc-sense pulled forward; c-exec-035 ready; see LOG.md / history/).
   appetite: |
     Governed by the g-9c41 de-risk wall; do not extend a bet silently. If a slice
     overruns or reveals a core blind spot, stop and re-shape/review, don't stretch.
@@ -44,30 +48,45 @@ tasks:
       tick gap so authored reaction outcomes fire. ENGINE-ONLY. (Re-scoped 2026-07-08 from "Sc-typing"/env-derived
       typing per owner reframe; env-derived typing PARKED as a later slice, socket-aware.)
     done_when: |
-      Executor CALL c-exec-034 returns DELIVERED from a fresh GasCoopGame_dev leg: owner-readable PLAN approved in its
-      own session (contract v19), independent RED test-author first in a separate BUILD session; NEW-TYPE-IS-DATA +
-      NEW-PARAM-IS-DATA (zero Core/** edit) + ≥3 genuinely-different types (≥2 law axes + reactions) + handshake fold
-      (divergence / order-convergence / inheritance-path-convergence / partition-aliasing) + byte-identity at
-      MeaningChecksum + authored-reaction-fires-in-production gates green, `check.ps1 -Deliver` green, fresh-session G5
-      could-not-refute, owner-eye confidence recorded. On close verification the road rolls to Sc-damage.
+      PARKED 2026-07-08 by s-shape-sc-sense-001 before firing. Ready artifact remains at
+      work/c-exec-034-sc-catalog-call.md and returns when canon/design gives a real gas roster / authoring need.
+      Original done_when preserved in that CALL: data-defined distinct gas types, extensible per-type laws, reactions
+      between them, handler-into-production-tick fix, deliver gates, fresh-session G5, owner-eye confidence.
+    status: parked
+  - id: Sc-sense
+    goal: |
+      Player↔gas exposure/dose foundation: one or more player-actors (first owner-eye actor = ordinary Unity capsule,
+      engine-side = integer position/volume) read per-type exposure from the AUTHORITATIVE NEAR gas field and integrate
+      integer accumulated dose over time, deterministically under input-lockstep. The slice records the first
+      player-kinematics/dose digest seam so divergent actor position or dose desyncs loudly. ENGINE-ONLY with Unity
+      debug readout; NO damage/consequence, NO detection gameplay, NO visual pipeline, NO new gas types.
+    done_when: |
+      Executor CALL c-exec-035 returns DELIVERED from a fresh GasCoopGame_dev leg: owner-readable PLAN approved in its
+      own session (contract v19), independent RED test-author first in a separate BUILD session; exposure reads
+      VoxelField/authoritative-near ConcentrationAt per TypeId (not IGasReadModel/2-band); actor position enters as
+      lockstep input with explicit input schema; integer clamped dose accumulates on presence and stops outside gas;
+      player-kinematics/dose digest catches divergent actor position or dose while no-actor gas MeaningChecksum stays
+      byte-identical; consequence-free + detection socket only; zero-float/int-overflow scans and loopback determinism
+      green; `check.ps1 -Deliver` green; fresh-session G5 could-not-refute; owner sees a capsule move through gas with
+      live readout: in gas → dose rises, out → dose stops, different gas → different readout. On close verification the
+      road rolls to Sc-damage.
     status: active
 
 open_calls:
-  - id: c-exec-034
+  - id: c-exec-035
     to: executor
-    for: g-9c41 / Sc-catalog
+    for: g-9c41 / Sc-sense
     issued: 2026-07-08
-    call: work/c-exec-034-sc-catalog-call.md
+    call: work/c-exec-035-sc-sense-call.md
     note: |
-      READY Sc-catalog executor handoff (SUPERSEDES the accidental c-exec-033 env-typing framing — owner: wrong chat,
-      treat as error; c-exec-033 file bannered SUPERSEDED, env-typing design preserved for a later parked slice).
-      Base = GasCoopGame main/origin @484084a after Sc-reactions merge+push; synced contract v18 (mechanical gates
-      wired; only behavioral v19 owed). Fresh GasCoopGame_dev PLAN, owner present; v19 split: PLAN closes at owner
-      approval (no product code, no RED tests); fresh BUILD starts with an independent RED test-author. Scope =
-      data-defined DISTINCT types + EXTENSIBLE per-type laws (new param = data, ZERO Core/** edit) + reactions between
-      them + handler-into-tick fix + convenient authoring surface. Design-AWARE only (build nothing): env-conditioned
-      params, mods/DLC/external-loader, procedural gen, look-lane/visual. Boundaries: no visual/shader, no new gas
-      physics, no reaction-engine/GridEvent redesign, no far-tier/dense-plane, no parallel-track work. Hardened wf_e9971bbd-6a8.
+      READY Sc-sense executor handoff. Base = GasCoopGame main/origin @484084a after Sc-reactions merge+push; §Re-sync
+      confirms synced contract ≥18 and honours v19 behaviorally. Fresh GasCoopGame_dev PLAN, owner present; v19 split:
+      PLAN closes at owner approval (no product code, no RED tests); fresh BUILD starts with an independent RED
+      test-author. Scope = actor position/volume lockstep input + authoritative-near per-type exposure + integer dose
+      integration + separate player-kinematics/dose digest + Unity capsule debug readout. Design-AWARE only: damage,
+      breathing/«Лёгкие», detection/diagnosis gameplay, multi-actor real player controller. Boundaries: no damage/effect,
+      no detection gameplay, no visual/shader/look pipeline, no new gas types, no Sc-catalog/type-authoring, no 2-band
+      read dependency, no float/host-only dose, no gas MeaningChecksum layer-crossing without explicit PLAN rationale.
   - id: c-visual-007
     to: executor
     for: g-7e15 / VISUAL Stage 3
@@ -137,9 +156,10 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  CALL c-exec-034 → executor (GasCoopGame_dev): work/c-exec-034-sc-catalog-call.md. Fresh owner-present PLAN (contract
+  CALL c-exec-035 → executor (GasCoopGame_dev): work/c-exec-035-sc-sense-call.md. Fresh owner-present PLAN (contract
   v19 PLAN/BUILD split), independent RED test-author first. Return RESULT HOME; dev→main merge + push owner-gated.
-  c-exec-033 (env-derived typing) SUPERSEDED per owner (accidental wrong-chat) — parked as a later slice, design preserved.
+  Sc-catalog c-exec-034 is PARKED/preserved for later when canon gives a real roster; c-exec-033 (env-derived typing)
+  SUPERSEDED per owner (accidental wrong-chat) — parked as a later slice, design preserved.
   Parallel tracks: c-visual-007 Stage 3; g-d3a8 Mechanics Workbench ready as chat-first c-designlab-gas-spatial-form-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md

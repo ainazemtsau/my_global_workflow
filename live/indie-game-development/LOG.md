@@ -71,4 +71,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-08 — repair/route (g-d3a8/mechanics-workbench-route, s-repair-mechanics-workbench-route-001): fixed Mechanics Workbench route drift. Workbench drafts and Q1 CALL existed but NOW did not carry the g-d3a8 open_call, leaving the process beside state. Added `c-designlab-gas-spatial-form-001` to NOW.open_calls, updated g-d3a8 parallel track to chat-first Workbench route, removed stale one-shot Bubble-first decision, and documented the correct path: Design Lab clears blockers → Mechanic Forge freezes worked playable loops → Canon Forge freezes compact canon only when ready. TREE/CHARTER untouched; no canon freeze. → work/mechanics-workbench/route-to-forge-v0.md
 
+2026-07-08 — shape/re-scope (g-9c41/Sc-sense, s-shape-sc-sense-001): continued the interrupted Claudia/Codex shape handoff; parked Sc-catalog c-exec-034 for later roster-authoring, hardened Sc-sense c-exec-035 as the next executor CALL (authoritative-near exposure + integer dose + separate player-kinematics/dose digest + capsule debug readout; no damage/detection/visual/new types), and rolled NOW.next to c-exec-035. → history/2026-07-08-s-shape-sc-sense-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
