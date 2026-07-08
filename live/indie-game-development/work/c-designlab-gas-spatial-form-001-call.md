@@ -4,15 +4,16 @@ direction: indie-game-development
 play: local/design-lab
 node: g-d3a8
 question: q-first-proof-gas-spatial-form
-parent: s-repair-mechanics-workbench-route-001
+parent: s-cartography-mechanics-workbench-questions-001
 surface: chat / repo root `C:\my_global_workflow_worktrees\indie-game-development`
 
 goal: |
-  Produce an owner-readable Design Lab result for `q-first-proof-gas-spatial-form`:
-  the first Bubble-proof spatial model is accepted, revised, rejected, or split, and the next blocker is explicit.
+  An owner-readable Design Lab result exists for `q-first-proof-gas-spatial-form`:
+  the first Bubble-proof spatial model is accepted, revised, rejected or split, and the next blocker is explicit.
 
 context: |
-  Agent reads backend context before answering in chat:
+  Read:
+  - live/indie-game-development/work/canon-maps/mechanics-workbench-question-map-v0.1.md
   - live/indie-game-development/work/mechanics-workbench/chat-first-process-v0.md
   - live/indie-game-development/work/mechanics-workbench/question-queue-v0.md
   - live/indie-game-development/work/mechanics-workbench/area-map-v0.md
@@ -22,14 +23,13 @@ context: |
   - live/indie-game-development/work/design-labs/ono-dyshit-bubble-proof-repair-001.md
   - live/indie-game-development/knowledge/mechanic-lenses.md
 
-  Owner process correction:
-  - Work happens through chat, not by owner walking through files.
-  - One session = one question.
-  - The chat packet must immediately say why this question matters and what it blocks.
-  - Maps/ledgers are backend for the agent, not owner homework.
-  - Route after Design Lab: mechanic questions go to `local/mechanic-forge`; compact canon cards go to `local/canon-forge` only after the mechanic is freeze-ready.
+  Owner-approved map:
+  - c-cartography-mechanics-workbench-questions-001 accepted variant A.
+  - First next route is Design Lab for Q1 spatial form.
+  - Design Lab clears unclear blockers; later worked gameplay loops go through `local/mechanic-forge`;
+    compact canon goes through `local/canon-forge` only when freeze-ready.
 
-  Current queue:
+  Current question:
   Q1 = what gas spatial form exists in first proof.
   This blocks detection/read, transfer-to-bubble, carry, release/reactions and co-op.
 
@@ -44,7 +44,7 @@ boundaries: |
 
 done_when: |
   A local/design-lab RESULT contains:
-  1. owner-readable chat summary of the spatial-form question;
+  1. owner-readable summary of the spatial-form question;
   2. options considered, each with "good because" and "bad because";
   3. explicit recommendation or narrowed decision;
   4. what the answer blocks/unblocks;
