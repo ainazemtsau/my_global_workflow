@@ -84,6 +84,7 @@ Purpose: подготовить нормальный старт обсужден
 
 - `chat-first-process-v0.md` — владелец работает через чат; карты являются backend для агента.
 - `question-queue-v0.md` — текущая очередь вопросов, чтобы следующий вопрос не искался руками.
+- `route-to-forge-v0.md` — как Workbench связан с Design Lab, Mechanic Forge and Canon Forge.
 - `area-map-v0.md` — карта областей, blocker graph, где сейчас floor, meta, canon, engine, title.
 - `idea-ledger-v0.md` — реестр идей: `Пузырь`, `ЛЁГКИЕ`, sleep/quiet floor, detection, reactions, title, old canon salvage.
 - `core-proof-skeleton-v0.1.md` — первый нормальный черновик минимального proof без мутных терминов.

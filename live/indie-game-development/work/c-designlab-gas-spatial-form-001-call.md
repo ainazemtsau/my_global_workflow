@@ -4,16 +4,12 @@ direction: indie-game-development
 play: local/design-lab
 node: g-d3a8
 question: q-first-proof-gas-spatial-form
-parent: s-designlab-mechanics-workbench-process-001
+parent: s-repair-mechanics-workbench-route-001
 surface: chat / repo root `C:\my_global_workflow_worktrees\indie-game-development`
 
 goal: |
-  Run a chat-first Design Lab for ONE question:
-
-  In the first playable Bubble proof, what does "gas is here" mean spatially?
-
-  The session must present the question in chat with why-now, blockers, options, bad-because, boundaries and expected result.
-  The owner must not be asked to browse files to find the question.
+  Produce an owner-readable Design Lab result for `q-first-proof-gas-spatial-form`:
+  the first Bubble-proof spatial model is accepted, revised, rejected, or split, and the next blocker is explicit.
 
 context: |
   Agent reads backend context before answering in chat:
@@ -31,6 +27,7 @@ context: |
   - One session = one question.
   - The chat packet must immediately say why this question matters and what it blocks.
   - Maps/ledgers are backend for the agent, not owner homework.
+  - Route after Design Lab: mechanic questions go to `local/mechanic-forge`; compact canon cards go to `local/canon-forge` only after the mechanic is freeze-ready.
 
   Current queue:
   Q1 = what gas spatial form exists in first proof.

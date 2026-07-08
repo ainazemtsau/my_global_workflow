@@ -9,6 +9,10 @@ Only one question is active per session.
 
 If a side topic appears, it is captured and parked, not solved in the same session.
 
+Route:
+Design Lab clears unclear blockers. When the Bubble loop becomes concrete enough, it moves to `local/mechanic-forge`.
+Only after a worked playable loop exists should `local/canon-forge` freeze compact canon cards.
+
 ## Q1 — What does "gas is here" mean in the first proof?
 
 Owner-facing question:

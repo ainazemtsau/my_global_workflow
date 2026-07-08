@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-designlab-ono-dyshit-bubble-proof-repair-001
+updated: 2026-07-08 by s-repair-mechanics-workbench-route-001
 
 bet:
   node: g-9c41
@@ -80,6 +80,17 @@ open_calls:
       LP1-LP5 individual dispositions. Boundaries: dev_2 only; render-only; ZERO Core/**/sim/c-exec-021 work;
       primary NOW.next target unchanged. Product leg owes narrow §Re-sync to contract v19 first (owner-readable PLAN,
       PLAN and BUILD as separate sessions).
+  - id: c-designlab-gas-spatial-form-001
+    to: session
+    for: g-d3a8 / Mechanics Workbench Q1
+    issued: 2026-07-08
+    call: work/c-designlab-gas-spatial-form-001-call.md
+    note: |
+      READY chat-first Design Lab for one blocker: in the first Bubble proof, what does "gas is here" mean spatially?
+      Owner corrected the workflow: maps/ledgers are backend, not owner homework; each session brings one question in
+      chat with why-now, blockers, options, boundaries and needed result. Route is not immediate canon-forge: Design Lab
+      clears unclear blockers; worked mechanics later go to local/mechanic-forge; compact canon cards go to local/canon-
+      forge only when freeze-ready. No canon freeze; no exact tool/membrane/economy/roster/title.
 
 recurring: []
 
@@ -91,12 +102,12 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      parked — Owner rejected the Bubble-vs-mission hybrid wording as wasting time on two mechanics. Corrected route:
-      one first proof only, Bubble-first. Mission-value-first remains a paper sanity-check/fallback, not a parallel
-      playable branch. Bubble is still the strongest capture-first form: visible gas custody, rupture returns gas to
-      the world, and co-op is body/route/voice work rather than container stats. Pending decision narrowed: approve
-      Bubble-first single proof, or reject Bubble-first and fall back to mission-value-first. No canon freeze; title
-      boundary preserved.
+      active in parallel via Mechanics Workbench, not a second active bet. Owner rejected file-browsing / ad-hoc draft
+      handling and required the established process: one chat-first question at a time, maps as backend, state carried
+      in NOW. Route repaired 2026-07-08: Design Lab clears unclear blockers; worked gameplay mechanics later go through
+      local/mechanic-forge; local/canon-forge freezes compact canon only when freeze-ready. Current open design CALL:
+      c-designlab-gas-spatial-form-001 (Q1: what "gas is here" means spatially in the first Bubble proof). Bubble remains
+      current proof candidate; `ЛЁГКИЕ` remains parked meta; no canon freeze; title boundary preserved.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -125,19 +136,10 @@ decisions:
       - Defer until the first Steam/playtest slice.
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
-  - id: d-ono-dyshit-core-frame-fork-001
-    q: |
-      Should canon-forge inherit Bubble-first as the single first proof after the owner rejected two-mechanic comparison?
-    options:
-      - Approve Bubble-first single proof — recommended; first proof is find sleeping gas, bubble it, carry visible live custody out intact, with rupture returning gas to the sim.
-      - Reject Bubble-first and fall back to mission-value-first — only if membrane/custody/route-carry scope is too expensive or too concrete for first proof.
-    recommendation: Approve Bubble-first as one proof. Do not build a Bubble-vs-mission comparison; mission-value is only a paper sanity-check/fallback.
-    source: work/design-labs/ono-dyshit-bubble-proof-repair-001.md; work/design-labs/ono-dyshit-bubble-variant-001.md; work/design-labs/ono-dyshit-core-frame-fork-001.md.
-
 next:
   CALL c-exec-034 → executor (GasCoopGame_dev): work/c-exec-034-sc-catalog-call.md. Fresh owner-present PLAN (contract
   v19 PLAN/BUILD split), independent RED test-author first. Return RESULT HOME; dev→main merge + push owner-gated.
   c-exec-033 (env-derived typing) SUPERSEDED per owner (accidental wrong-chat) — parked as a later slice, design preserved.
-  Parallel tracks unchanged (c-visual-007 Stage 3; g-d3a8 ono-dyshit fork awaiting d-ono-dyshit-core-frame-fork-001).
+  Parallel tracks: c-visual-007 Stage 3; g-d3a8 Mechanics Workbench ready as chat-first c-designlab-gas-spatial-form-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md
