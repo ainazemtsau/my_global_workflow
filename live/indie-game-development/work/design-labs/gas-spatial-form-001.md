@@ -1,12 +1,18 @@
 # Design Lab - Q1 Gas Spatial Form
 
-Status: work note, not canon.
+Status: agent proposal draft, not canon, not owner-approved, not a closed Design Lab result.
 Session: `s-designlab-gas-spatial-form-001`
 Call: `c-designlab-gas-spatial-form-001`
 Direction: `indie-game-development`
 Node: `g-d3a8`
 Question: `q-first-proof-gas-spatial-form`
 Play: `local/design-lab`
+
+Repair note:
+  `s-repair-designlab-owner-verdict-001` reclassified this file. The original close was too strong: it treated the
+  agent's recommendation as accepted/revised/split without the owner's verdict. Use this note only as discussion
+  material for Q1. Current state keeps `c-designlab-gas-spatial-form-001` open until the owner explicitly accepts,
+  revises, rejects, or splits the spatial model.
 
 ## Central question
 
@@ -25,13 +31,13 @@ all depend on what gas occupies in space before custody begins.
 Skipping this would make the next questions hide undefined mechanics behind
 terms that sound solved.
 
-## Plain-language current understanding
+## Plain-language agent proposal
 
 The first proof stays Bubble-first as one proof only: players find a dangerous
 gas state, later get visible custody/value, carry it through route danger, and
 failure returns gas to the world.
 
-The spatial model for Q1 is:
+The proposed spatial model for Q1 is:
 
 > Gas before Bubble is a local region of the shared gas field, not an object,
 > pickup spot, container, creature, or final VFX plate. For the first proof it
@@ -40,8 +46,8 @@ The spatial model for Q1 is:
 
 Short version:
 
-**Use a readable field-area with layer/gradient behavior as the first paper
-model.**
+**Proposal: use a readable field-area with layer/gradient behavior as the first
+paper model.**
 
 ## Relevant map slice
 
@@ -51,10 +57,14 @@ Parents:
 - Old canon is evidence/salvage only.
 - Gas is a shared field/system, not creature AI.
 
-Blockers cleared by this note:
-- Q1 no longer has to choose between "object", "whole room", "source only", or
-  "obvious visual blob" as the first paper model.
-- Q2 can now ask what players read at the edge/gradient/height of the field-area.
+If the owner accepts this proposal, it would clear:
+- Q1 no longer having to choose between "object", "whole room", "source only",
+  or "obvious visual blob" as the first paper model.
+- Q2 being able to ask what players read at the edge/gradient/height of the
+  field-area.
+
+Currently still open:
+- owner verdict on Q1 itself.
 
 Downstream still blocked:
 - Q2 pre-contact read / detection.
@@ -82,7 +92,7 @@ Parent-canon reopen risks:
 
 ## Options considered
 
-### A. Readable local field-area with layer/gradient - recommended
+### A. Readable local field-area with layer/gradient - agent recommendation
 
 Good because:
 - grows from the locked shared field instead of inventing a pickup object;
@@ -97,9 +107,9 @@ Bad because:
 - it can become too abstract unless Q2 gives it perceivable, non-numeric tells;
 - if the edge never moves or bites, it becomes a static hazard zone.
 
-Verdict:
-accept as the first paper spatial model, with Q2 required before any
-mechanic-forge/prototype claim.
+Agent recommendation:
+ask the owner to accept, revise, reject, or split this as the first paper
+spatial model. Q2 is required before any mechanic-forge/prototype claim.
 
 ### B. Source/flow first
 
@@ -112,7 +122,7 @@ Bad because:
 - resting gas becomes unclear;
 - transfer-to-Bubble starts depending on exact tools or room machinery.
 
-Verdict:
+Agent recommendation:
 park as a modifier inside the recommended model. A source or flow may shape the
 field-area; it is not the whole first-proof spatial answer.
 
@@ -128,7 +138,7 @@ Bad because:
 - it risks making gas a generic colored hazard;
 - it pulls final VFX too early.
 
-Verdict:
+Agent recommendation:
 reject as the default first model. It may appear only as a later readability
 choice for Q2, not as Q1's spatial truth.
 
@@ -143,7 +153,7 @@ Bad because:
 - tends to collapse into HUD/instrument numbers;
 - gives Bubble no clear bounded scene to act around.
 
-Verdict:
+Agent recommendation:
 reject as the first proof's default. It may exist as an outer trace around the
 recommended field-area, but cannot carry the proof alone.
 
@@ -158,7 +168,7 @@ Bad because:
 - hides the gas-world behavior the proof is supposed to show;
 - makes release/reaction feel like item durability instead of a world change.
 
-Verdict:
+Agent recommendation:
 reject for the first proof.
 
 ## Scenes / models explored
@@ -236,7 +246,7 @@ The proof becomes a door/vent puzzle instead of gas custody.
 What remains unresolved?
 Which route/building sockets belong in the first proof, if any.
 
-Verdict:
+Agent recommendation:
 use this only as support for the recommended model, not as the first Q1 answer.
 
 ### Scene 3 - too-obvious blob stress test
@@ -269,7 +279,7 @@ Detection becomes trivial, and the gas reads like a standard hazard pickup.
 What remains unresolved?
 Everything interesting: field-read, source/flow, release, co-op pressure.
 
-Verdict:
+Agent recommendation:
 reject as Q1 default.
 
 ## Stress against mechanic lenses
@@ -301,8 +311,8 @@ Not run. Status remains UNVERIFIED.
 
 No blocker before Q1.
 
-New explicit blocker:
-Q2 must define the first fair pre-contact read for the recommended field-area.
+New explicit blocker if the owner accepts/revises the proposal:
+Q2 must define the first fair pre-contact read for the chosen field-area.
 Without Q2, the model is only a paper skeleton.
 
 ## Side dependencies found
@@ -330,23 +340,26 @@ Without Q2, the model is only a paper skeleton.
 No visual check is required for Q1. Q2 may need a visual plate because the next
 question is explicitly about what players read.
 
-## Lab verdict
+## Lab status after repair
 
-Route: continue lab.
+Route: Q1 remains open for owner verdict.
 
-Q1 result:
-accepted/revised/split as paper design:
-- accept gas as a local shared-field area, not object/pickup/creature;
-- revise first proof to use a readable edge/gradient/layer behavior;
-- split exact reads to Q2, transfer to Q3, custody to Q4, release/reactions to
-  Q5/Q6, anti-solo to Q7.
+Agent proposal:
+- consider gas as a local shared-field area, not object/pickup/creature;
+- consider using a readable edge/gradient/layer behavior;
+- keep exact reads in Q2, transfer in Q3, custody in Q4, release/reactions in
+  Q5/Q6, anti-solo in Q7.
 
-Canon-forge is not ready. Mechanic-forge is not ready. The next blocker is Q2:
-pre-contact read / detection for this field-area.
+Canon-forge is not ready. Mechanic-forge is not ready. Q2 is not active until
+the owner gives a Q1 verdict.
 
 ## Next CALL
 
-Next route:
-`c-designlab-gas-precontact-read-001`.
+Current route:
+return to `c-designlab-gas-spatial-form-001` and present this as a normal
+human discussion brief, then stop for owner verdict.
+
+Draft later route if owner accepts/revises Q1:
+`c-designlab-gas-precontact-read-001` remains draft-only.
 
 END_OF_FILE: live/indie-game-development/work/design-labs/gas-spatial-form-001.md

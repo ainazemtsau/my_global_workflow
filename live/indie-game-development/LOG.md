@@ -79,4 +79,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-08 — design-lab (g-d3a8/q-first-proof-gas-spatial-form, s-designlab-gas-spatial-form-001): Q1 Bubble-proof spatial form completed on paper. Verdict: accept/revise/split gas-before-Bubble as a local shared-field area with readable edge/gradient/layer behavior, not object/pickup/container/creature/final VFX; reject obvious cloud/pool, invisible whole-room fill and discrete-object defaults; source/flow parked as modifier. Next blocker = Q2 pre-contact read/detection; open_call moved to c-designlab-gas-precontact-read-001. No canon freeze; TREE/CHARTER untouched. → work/design-labs/gas-spatial-form-001.md
 
+2026-07-08 — repair (g-d3a8/q-first-proof-gas-spatial-form, s-repair-designlab-owner-verdict-001): reverted premature Q1 Design Lab close to owner-pending. `s-designlab-gas-spatial-form-001` is reclassified as agent proposal/draft, not owner verdict; NOW.open_call restored to c-designlab-gas-spatial-form-001; Q2 c-designlab-gas-precontact-read-001 is draft-only until Q1 owner verdict. No canon freeze; TREE/CHARTER untouched.
+
 END_OF_FILE: live/indie-game-development/LOG.md
