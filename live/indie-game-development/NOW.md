@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-work-sc-typing-call-001
+updated: 2026-07-08 by s-designlab-ono-dyshit-core-frame-fork-001
 
 bet:
   node: g-9c41
@@ -58,18 +58,6 @@ open_calls:
       independent RED test-author. Scope = env-derived identity via committed env-vector + accumulator+hysteresis
       + mass-exact type-stamp flip; temperature-keyed rows dormant until Sc-damage/temp feedback; no visual,
       damage, Sc-catalog/per-type-param re-scope, far-tier, dense-plane, or parallel-track work.
-  - id: c-designlab-ono-dyshit-core-frame-fork-001
-    to: session
-    for: g-d3a8 / q-ono-dyshit-core-frame fork
-    issued: 2026-07-07
-    call: work/c-designlab-ono-dyshit-core-frame-fork-001-call.md
-    note: |
-      REPAIR follow-up after invalid premature freeze. Owner clarified that "Bottle the Monster / gas capture first"
-      vs "mission value through gas danger first" vs hybrid proof was not decided and must be discussed through
-      Design Lab / owner-diverge. `ОНО ДЫШИТ` may remain as working title only; it must not pull design truth,
-      gas agency, magical sleep/wake, harvest-first core, exact gas names/tools/capture/cargo/timers/economy or
-      pitch/research seeds into canon. Goal: compare first-proof/core-frame branches at player-action altitude and
-      return a recommendation + owner decision, no canon freeze.
   - id: c-visual-007
     to: executor
     for: g-7e15 / VISUAL Stage 3
@@ -93,12 +81,11 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      parked — REPAIR s-repair-ono-dyshit-routing-001: previous q-ono-dyshit-core-frame freeze packet invalidated.
-      Core frame NOT frozen. Owner clarified the branch Bottle-the-Monster/gas-capture-first vs mission-value-through-
-      gas-danger-first vs hybrid proof must be discussed through Design Lab / owner-diverge, not chosen by session.
-      `ОНО ДЫШИТ` may remain only as working title / pitch-label; it has no canon authority and must not pull ontology,
-      creature AI, magical sleep/wake, harvest-first core, exact gas names/tools/capture/cargo/timers/economy or any
-      pitch/research seed into canon. Next open call: c-designlab-ono-dyshit-core-frame-fork-001.
+      parked — Design Lab s-designlab-ono-dyshit-core-frame-fork-001 completed the unresolved q-ono-dyshit-core-frame
+      fork without canon freeze. Bottle-first vs mission-value-first vs constrained hybrid compared at player-action
+      altitude. Recommendation: owner choose constrained hybrid before canon-forge resumes; fallback if forced =
+      mission-value-first, with Bottle the Monster preserved as downstream/high-value hook. Title boundary preserved:
+      `ОНО ДЫШИТ` remains working title / pitch-label only. Awaiting owner decision d-ono-dyshit-core-frame-fork-001.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -127,20 +114,16 @@ decisions:
       - Defer until the first Steam/playtest slice.
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
-  - id: d-concept-hook-001
+  - id: d-ono-dyshit-core-frame-fork-001
     q: |
-      Concept/hook research (work/concept-hooks-research-2026-07-07.md) converged on
-      "Bottle the Monster": keep expedition core, add personified flagship gases +
-      capture/live-cargo payload + run artifact + one-sentence-contract legibility,
-      market suit <=$9.99/proximity-voice/short runs. Which frame does the open
-      canon-forge (c-canon-gas-interaction-playable-anchors-001) inherit?
+      Which first-proof/core-frame branch should canon-forge inherit after repair:
+      Bottle-first, mission-value-first, or constrained hybrid first?
     options:
-      - Canon-forge inherits the pitch «ОНО ДЫШИТ» v1.2 (work/concept-pitch-2026-07-07.md: bestiary of gas-habits + sleep-as-design-layer with per-type wake triggers, extract-as-herd-into-container + seal-at-peak, live-canister carry-out through the woken floor; sources = escalation events not faucets; recon pressure = endogenous agitation); two-player grey-box stays the binding fun gate.
-      - Probe-first - build the discriminating grey-box (4 hook signals) before any canon framing.
-      - Pivot to ALT-A hazmat-response (calls instead of harvest; cheapest delta, loses the greed axis; Embr counter-case).
-      - Keep course unchanged; report shelved as reference.
-    recommendation: Option 1 (grey-box remains binding either way; option 2 only if zero canon risk is wanted at the cost of stalling the canon-forge).
-    source: work/concept-share-2026-07-07.md (clean friend-facing concept); work/concept-pitch-2026-07-07.md (design reasoning); history/s-research-concept-pitch-004.md. Owner is taking the clean concept to friends for first discussion before the verdict.
+      - Bottle-first now — strongest hook, but accepts early capture/custody scope.
+      - Mission-value-first now — safest canon frame, but weaker hook and must prove gas is not background hazard.
+      - Constrained hybrid first — recommended; compare the fork under one tiny shared gas-field spine before freezing inheritance.
+    recommendation: Pick constrained hybrid first; it preserves the owner's correction and avoids a silent branch choice.
+    source: work/design-labs/ono-dyshit-core-frame-fork-001.md.
 
 next:
   CALL c-exec-033 → executor (GasCoopGame_dev): work/c-exec-033-sc-typing-call.md. Return RESULT HOME; dev→main merge + push owner-gated. Parallel tracks unchanged.
