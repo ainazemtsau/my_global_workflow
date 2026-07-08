@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-07 by s-review-sc-reactions-close-001
+updated: 2026-07-07 by s-research-concept-pitch-005
 
 bet:
   node: g-9c41
