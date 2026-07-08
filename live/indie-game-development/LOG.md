@@ -67,4 +67,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-08 — design-lab/checkpoint drafts (g-d3a8/mechanics-workbench-core-proof, s-designlab-mechanics-workbench-core-proof-001): created non-canon Mechanics Workbench packet for the reset minimal-game discussion: area map + blocker graph, idea ledger preserving `Пузырь` as current proof candidate and `ЛЁГКИЕ` as parked meta, corrected core-proof skeleton with undefined terms banned (`газовый карман`, `запузырить`, exact membrane), reactions/release explicitly included, and owner review guide. No canon freeze; NOW/TREE/CHARTER untouched. → work/mechanics-workbench/mechanics-workbench-v0.md
 
+2026-07-08 — design-lab/process checkpoint (g-d3a8/mechanics-workbench-process, s-designlab-mechanics-workbench-process-001): owner corrected Mechanics Workbench workflow to chat-first: maps/ledgers are backend, not owner homework; every session must present one question in chat with why-now, blockers, options, boundaries and needed result. Added chat-first process note, question queue, and ready next CALL `c-designlab-gas-spatial-form-001` for Q1: what "gas is here" means spatially in the first Bubble proof. No canon freeze; NOW/TREE/CHARTER untouched. → work/mechanics-workbench/chat-first-process-v0.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
