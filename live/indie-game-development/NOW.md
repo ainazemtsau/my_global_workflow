@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-shape-sc-sense-001
+updated: 2026-07-08 by s-repair-mechanics-workbench-cartography-route-001
 
 bet:
   node: g-9c41
@@ -99,17 +99,17 @@ open_calls:
       LP1-LP5 individual dispositions. Boundaries: dev_2 only; render-only; ZERO Core/**/sim/c-exec-021 work;
       primary NOW.next target unchanged. Product leg owes narrow §Re-sync to contract v19 first (owner-readable PLAN,
       PLAN and BUILD as separate sessions).
-  - id: c-designlab-gas-spatial-form-001
+  - id: c-cartography-mechanics-workbench-questions-001
     to: session
-    for: g-d3a8 / Mechanics Workbench Q1
+    for: g-d3a8 / Mechanics Workbench cartography
     issued: 2026-07-08
-    call: work/c-designlab-gas-spatial-form-001-call.md
+    call: work/c-cartography-mechanics-workbench-questions-001-call.md
     note: |
-      READY chat-first Design Lab for one blocker: in the first Bubble proof, what does "gas is here" mean spatially?
-      Owner corrected the workflow: maps/ledgers are backend, not owner homework; each session brings one question in
-      chat with why-now, blockers, options, boundaries and needed result. Route is not immediate canon-forge: Design Lab
-      clears unclear blockers; worked mechanics later go to local/mechanic-forge; compact canon cards go to local/canon-
-      forge only when freeze-ready. No canon freeze; no exact tool/membrane/economy/roster/title.
+      READY cartography/repair handoff before any next one-question Design Lab. Owner rejected the ad-hoc draft queue:
+      the Workbench material must be migrated into a proper owner-readable question map, all Bubble / `ЛЁГКИЕ` / old
+      canon / title / reaction / carry / detection ideas must be accounted for, and then the first one-question CALL
+      must be selected through the map. `c-designlab-gas-spatial-form-001` remains a candidate Q1, not the active route,
+      until cartography owner-signs it. No canon freeze; TREE/CHARTER untouched.
 
 recurring: []
 
@@ -122,11 +122,13 @@ parallel_tracks:
     track: canon/design
     state: |-
       active in parallel via Mechanics Workbench, not a second active bet. Owner rejected file-browsing / ad-hoc draft
-      handling and required the established process: one chat-first question at a time, maps as backend, state carried
-      in NOW. Route repaired 2026-07-08: Design Lab clears unclear blockers; worked gameplay mechanics later go through
-      local/mechanic-forge; local/canon-forge freezes compact canon only when freeze-ready. Current open design CALL:
-      c-designlab-gas-spatial-form-001 (Q1: what "gas is here" means spatially in the first Bubble proof). Bubble remains
-      current proof candidate; `ЛЁГКИЕ` remains parked meta; no canon freeze; title boundary preserved.
+      handling and required the established process: maps first, then one chat-first question at a time. Route repaired
+      again 2026-07-08 after the owner caught the missing cartography step: current open design CALL is
+      c-cartography-mechanics-workbench-questions-001. It must migrate all Workbench ideas into a proper question map,
+      account for parked material, and choose the first one-question session. `c-designlab-gas-spatial-form-001` remains
+      only a candidate Q1 until the map is owner-signed. Design Lab clears unclear blockers; worked gameplay mechanics
+      later go through local/mechanic-forge; local/canon-forge freezes compact canon only when freeze-ready. Bubble
+      remains current proof candidate; `ЛЁГКИЕ` remains parked meta; no canon freeze; title boundary preserved.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -160,6 +162,6 @@ next:
   v19 PLAN/BUILD split), independent RED test-author first. Return RESULT HOME; dev→main merge + push owner-gated.
   Sc-catalog c-exec-034 is PARKED/preserved for later when canon gives a real roster; c-exec-033 (env-derived typing)
   SUPERSEDED per owner (accidental wrong-chat) — parked as a later slice, design preserved.
-  Parallel tracks: c-visual-007 Stage 3; g-d3a8 Mechanics Workbench ready as chat-first c-designlab-gas-spatial-form-001.
+  Parallel tracks: c-visual-007 Stage 3; g-d3a8 Mechanics Workbench cartography ready as c-cartography-mechanics-workbench-questions-001.
 
 END_OF_FILE: live/indie-game-development/NOW.md
