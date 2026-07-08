@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_scope_boundary_cartography_approved_forge_next
+route_status: operating_substrate_scope_boundary_card_approved_structure_discovery_next
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -40,6 +40,25 @@ owner_directive: |
     candidate nodes until forge/cartography clarifies them.
   - No substrate answer is frozen by the map.
   - Next route is one architecture-forge session for the scope/boundary card.
+
+  Current scope/boundary card:
+  - Owner approved operating-substrate-scope-boundary-001.
+  - Frozen scope: operating-substrate is for abstract customizable
+    AI-process construction, not only owner/project processes and not only
+    Zaratusta-like systems.
+  - Frozen boundary: substrate may define reusable ways to discover, reason
+    about, test and evolve process structures across domains; it must not
+    freeze any one consumer's structure as authority.
+  - Not frozen: concrete process structure, state/history/procedure/source/
+    evidence/test/repo/backend model. Candidate elements such as state,
+    history, procedures, sources and tests remain downstream investigation
+    areas.
+  - Owner correction: "не факт, что такая структура будет"; "мы должны
+    определить эту структуру саму ещё"; "Я не хочу, чтобы он становился
+    авторитетным в какую-то структуру".
+  - Next route is a structure-discovery architecture/research step: compare
+    2-3 processes and decide how substrate should discover/design the
+    needed process structure without pre-freezing a component list.
 
 tasks: []
 
@@ -81,6 +100,9 @@ preserved_evidence:
   - live/solmax/work/calls/c-solmax-operating-substrate-scope-boundary-architecture-forge-001.md
   - live/solmax/history/2026-07-07-s-solmax-operating-substrate-architecture-cartography-001-owner-sign.md
   - owner approval in chat for scope/boundary cartography map: "с картой согласен ... можем с ней дальше двигаться"
+  - live/solmax/work/operating-substrate/cards/operating-substrate-scope-boundary-001.md
+  - owner approval in chat for operating-substrate scope/boundary card v2: "Approve v2"
+  - owner correction in chat: "не факт, что такая структура будет ... мы должны определить эту структуру саму ещё ... Я не хочу, чтобы он становился авторитетным в какую-то структуру"
 
-next: work/calls/c-solmax-operating-substrate-scope-boundary-architecture-forge-001.md
+next: work/calls/c-solmax-operating-substrate-structure-discovery-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
