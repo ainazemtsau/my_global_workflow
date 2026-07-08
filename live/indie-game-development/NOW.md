@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-shape-sc-catalog-001
+updated: 2026-07-08 by s-designlab-ono-dyshit-bubble-variant-001
 
 bet:
   node: g-9c41
@@ -91,11 +91,11 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      parked — Design Lab s-designlab-ono-dyshit-core-frame-fork-001 completed the unresolved q-ono-dyshit-core-frame
-      fork without canon freeze. Bottle-first vs mission-value-first vs constrained hybrid compared at player-action
-      altitude. Recommendation: owner choose constrained hybrid before canon-forge resumes; fallback if forced =
-      mission-value-first, with Bottle the Monster preserved as downstream/high-value hook. Title boundary preserved:
-      `ОНО ДЫШИТ` remains working title / pitch-label only. Awaiting owner decision d-ono-dyshit-core-frame-fork-001.
+      parked — Design Lab addendum s-designlab-ono-dyshit-bubble-variant-001 considered owner-proposed `Пузырь`
+      without canon freeze. Bubble is now the strongest capture-first form: visible gas custody, rupture returns gas
+      to the world, and co-op is body/route/voice work rather than container stats. Pending decision updated:
+      Bubble-first vs mission-value-first vs Bubble-vs-mission constrained hybrid. Recommendation: Bubble-informed
+      hybrid first before canon-forge resumes. Title boundary preserved; no pitch seed imported as canon.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -126,14 +126,13 @@ decisions:
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
   - id: d-ono-dyshit-core-frame-fork-001
     q: |
-      Which first-proof/core-frame branch should canon-forge inherit after repair:
-      Bottle-first, mission-value-first, or constrained hybrid first?
+      Which first-proof/core-frame branch should canon-forge inherit after adding the `Пузырь` variant?
     options:
-      - Bottle-first now — strongest hook, but accepts early capture/custody scope.
+      - Bubble-first now — strongest hook and simplest player picture, but accepts membrane/custody/route-carry scope early.
       - Mission-value-first now — safest canon frame, but weaker hook and must prove gas is not background hazard.
-      - Constrained hybrid first — recommended; compare the fork under one tiny shared gas-field spine before freezing inheritance.
-    recommendation: Pick constrained hybrid first; it preserves the owner's correction and avoids a silent branch choice.
-    source: work/design-labs/ono-dyshit-core-frame-fork-001.md.
+      - Bubble-vs-mission constrained hybrid first — recommended; compare Bubble custody against mission value under one tiny shared gas-field spine before freezing inheritance.
+    recommendation: Pick Bubble-vs-mission constrained hybrid first. `Пузырь` is too strong to ignore, but too concrete to freeze by accident.
+    source: work/design-labs/ono-dyshit-bubble-variant-001.md; work/design-labs/ono-dyshit-core-frame-fork-001.md.
 
 next:
   CALL c-exec-034 → executor (GasCoopGame_dev): work/c-exec-034-sc-catalog-call.md. Fresh owner-present PLAN (contract
