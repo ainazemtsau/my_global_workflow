@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-work-065-c-visual-008-frame
+updated: 2026-07-09 by s-process-canon-forge-v2-001
 
 bet:
   node: g-9c41
@@ -127,7 +127,13 @@ parallel_tracks:
       foundations (gas simulation, reactions, destructible/changeable space), treat bubble/floor loop/carry/tools/
       economy/ЛЁГКИЕ/roster/roles/title/old canon as draft, then continue one smallest blocking question at a time.
       work/design-labs/gas-spatial-form-001.md remains an agent proposal/draft only; no Q1 verdict or canon freeze was
-      recorded. TREE/CHARTER untouched.
+      recorded. TREE/CHARTER untouched. PROCESS SHELL (2026-07-09, s-process-canon-forge-v2-001, owner commission):
+      «Кузница v2» installed in canon repo @7541be3 — CONSTITUTION draft (pillars + palette: fixed foundations =
+      sim/reactions/space, bubble-concept = draft candidates) + SESSION script (≤3 candidates → sparring → read-back →
+      owner-verdict-verbatim-or-invalid) + immutable cards/AMENDMENTS + INDEX-as-memory + QUEUE as DRAFT INPUT for the
+      pending cartography (owner-signed map replaces it); old questions/maps = LEGACY evidence. OS plays: canon-forge →
+      v2 wrapper; canon-status/design-lab/mechanic-forge → superseded stubs (mechanic-lenses stays BINDING);
+      canon-cartography KEPT v1 for the pending call.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)

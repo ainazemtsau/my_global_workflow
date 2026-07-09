@@ -1,30 +1,28 @@
-# Play: local/canon-forge
+# Play: local/canon-forge — «Кузница v2»
+v2 2026-07-08 (s-process-canon-forge-v2-001, заказ владельца). v1 — в git-истории этого файла.
 
-Purpose: forge ONE canon question (world / lore / story / mechanic / visual) from open to frozen — owner-chosen direction, drafted, gated by craft, optionally illustrated with consistent images — producing one official canon card in the canon repo and growing the question-graph. Lore is CO-CREATED: the AI proposes options, the owner decides; the AI never freezes invented canon.
+Purpose: развивать канон игры сессиями-обсуждениями. САМ ПРОЦЕСС живёт в канон-репо
+`github.com/ainazemtsau/gas_coop_game_canon` (клон `C:\projects\gas_coop_game_canon`):
+`SESSION.md` — скрипт сессии; `CONSTITUTION.md` — столпы-фильтр + палитра + правила канона;
+`QUEUE.md` — очередь вопросов; `INDEX.md` + `canon/` — замороженные карточки; `AMENDMENTS.md` — замены.
+Этот плей — OS-обвязка.
 
-Reads: the canon repo (the chosen question note + its frozen parent canon + `maps/StyleBible.md` design-map + the area MOC), `knowledge/` craft-gate checklists (narrative / intrigue / world / mechanic / art), TREE.md (node `g-d3a8`), CHARTER.md (lenses).
-Writes: the CANON REPO — the frozen card (text + chosen images + frontmatter `status / depends_on / images[] / gate{}`), the `rejected_alternatives` tail, the new child questions, the area MOC. In OS state: `LOG.md` (one line); PROPOSES cross-cutting canon facts to `knowledge/` (with `read_by:`) for review/pulse — never writes `knowledge/` directly. Does NOT touch `NOW.md` or the active bet (canon is never a second active bet — G1).
+Reads: canon repo (CONSTITUTION + INDEX + верх QUEUE + SESSION + карточки из поля «нужно»).
+Writes: canon repo (карточка/очередь/индекс/улов — по SESSION.md). В OS: LOG.md строка + history/ файл через RESULT. НЕ трогает NOW.md/bet (канон параллелен строительной ставке — G1).
 
-Precondition: a question chosen from `local/canon-status` actionable set (all `depends_on` already `frozen`). Canon runs PARALLEL to the build bet, not as a second active bet. Reached via CALL `to: session, play: local/canon-forge` — one question per session (one chat = one job).
-
-## Steps
-1. **Frame** — restate the exact question + inherit the frozen parent canon it must not contradict (cite parent ids). Name the area.
-2. **Diverge (owner)** — propose 3 distinct directions (different premise/tone), cross-family where useful. The owner picks one, mixes, or steers in his own words. The AI never freezes invented lore. `(owner)`
-3. **Draft** — write the chosen answer as a canon entry: invariants on top, prose below; atomic (one idea, AI-payload-friendly).
-4. **Gate** — run the relevant craft checklist(s) from `knowledge/`: consistency, intrigue (iceberg has a written bottom), not-contrived, hooks, co-op interdependence (for mechanics), tone (King terror>horror). Refute cross-family. A fail returns to step 3.
-5. **Illustrate — where it fits (encouraged, not forced)** — images are first-class for the owner's visual sense, but not every node needs one and early talk-through nodes (North Star, base world) stay text-only. When it fits: the ASSISTANT writes the prompt (from `StyleBible.md` + plates; pick the KIND — default = gameplay screenshot, else mascot / realistic per StyleBible), the owner generates a SET in ChatGPT (GPT Image) and picks; commit chosen PNGs under `/assets` (lowercase-hyphenated, relative refs) and reference them in the card. Images are an approximation / visual target, not final. BLOCKED until `StyleBible.md` is frozen (style is defined first).
-6. **Freeze & grow (owner)** — owner signs → set `status: frozen`; log the dropped directions as the card's `rejected_alternatives`; spawn the child questions this answer forces (new notes with `depends_on`); update the area MOC. `(owner)`
+## Правила (несущие)
+1. Одна сессия = один кластер из 1–3 сцепленных вопросов из QUEUE.md. Продолжение — новая сессия.
+2. Сессия без загруженных CONSTITUTION+INDEX+QUEUE+SESSION работать не имеет права — запросить у владельца.
+3. **Вердикт = дословные слова владельца.** Карточка с пустым полем `вердикт_владельца` недействительна; писатель такую отклоняет.
+4. Карточки неизменяемы: замена = новая карточка + штамп на старой + строка в AMENDMENTS.md.
+5. Карточки-механики гейтятся `knowledge/mechanic-lenses.md` (BINDING; линза 6 = только грейбокс; бумага ≠ fun).
+6. Прошлые решения цитируются только из INDEX/карточек — никогда «по памяти» модели.
+7. Стоп-краны владельца: «рамка» (вернуться к шагу 0), «парковка» (ветка в улов). Съехал дальше одного возврата — закрыть сессию, начать новую с файлов.
 
 ## Done when
-One frozen canon card (text + any chosen images) committed in the canon repo; the craft gate passed (or a fail bounced and re-passed); child questions spawned; a `LOG.md` line written; any cross-cutting fact proposed to `knowledge/` with `read_by:`. The owner's sign is recorded (his words).
+Сессия закрыта RESULT'ом: карточка(и) с вердиктом (или честный статус «обсуждается»), QUEUE/INDEX обновлены, улов разобран владельцем, LOG-строка, history-файл.
 
-## Notes
-- Co-creation is binding: steps 2 and 6 are `(owner)` — invented lore never freezes without his words (G9 spirit for canon content).
-- Setting before style: ordering lives in the graph's `depends_on` (the Visual Style node depends on a first slab of world); this play just forges whichever question is actionable.
-- The canon TEXT is the source of truth; images are presentation. Consistency comes from the design-map + plates, never from seeds.
-- AI imagery is internal/concept only — never into public marketing (standing policy).
-- If the chosen question proves unready during Frame or Diverge — owner cannot understand the question, hidden prerequisites appear, answer shape is unclear, or the session starts inventing missing structure — do not force a draft. Close a checkpoint RESULT with a `gap_event` and next CALL to `local/canon-cartography`.
-- A canon-forge CALL may include a `forge_handoff` from `local/canon-cartography`: `plain_question`, `why_now`, `must_decide`, `must_not_decide`, `parent_locks`, `expected_answer_shape`, `first_owner_question`, `return_to_graph_if`. If present, follow it unless owner overrides in-session.
-- Co-frame is not co-freeze: related questions may be discussed together for orientation, but this play still freezes one canon card only.
+## Superseded
+canon-status → читать QUEUE.md+INDEX.md; canon-cartography → очередь/кластеры/улов; design-lab → шаги кандидаты/спарринг + поле «проверка: нужен-грейбокс»; mechanic-forge → режим МЕХАНИКА в SESSION.md.
 
 END_OF_FILE: live/indie-game-development/plays/canon-forge.md
