@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-process-canon-forge-v2-001
+updated: 2026-07-09 by s-repair-canon-core-recovery-001
 
 bet:
   node: g-9c41
@@ -19,7 +19,12 @@ bet:
     PARKED for later; env-derived dynamic typing PARKED as a later slice (socket-aware). The accidental
     parallel framing c-exec-033 (s-work-sc-typing-call-001, wrong chat) is SUPERSEDED per owner.
     Far-tier S3/S4/S5 scale plumbing parked until levels get big.
-    Latest session: s-shape-sc-sense-001 (Sc-sense pulled forward; c-exec-035 ready; see LOG.md / history/).
+    Sc-sense DELIVERED + close-verified 2026-07-09 (s-review-sc-sense-close-001): builder handback c-exec-035
+    (Codex GPT-5 build + GPT-5.5 review) treated as evidence and verified by a fresh cross-family Claude binding G5 —
+    9/9 refuters could-not-refute + first-hand check.ps1 GREEN 1525/1525 at GasCoopGame main/origin @defade72
+    (dev FF-merged to main; both pushed) + owner «PLAN одобрял» / «капсулу сам гонял — доза росла». c-exec-035 CLOSED.
+    Road now rolls to Sc-damage (consumes the dose → first gas consequence), ready as shape CALL c-shape-sc-damage-001.
+    Latest session: s-review-sc-sense-close-001 (see LOG.md / history/).
   appetite: |
     Governed by the g-9c41 de-risk wall; do not extend a bet silently. If a slice
     overruns or reveals a core blind spot, stop and re-shape/review, don't stretch.
@@ -70,23 +75,29 @@ tasks:
       green; `check.ps1 -Deliver` green; fresh-session G5 could-not-refute; owner sees a capsule move through gas with
       live readout: in gas → dose rises, out → dose stops, different gas → different readout. On close verification the
       road rolls to Sc-damage.
-    status: active
+      CLOSE-VERIFIED 2026-07-09 (s-review-sc-sense-close-001): binding fresh cross-family (Claude) G5 could-not-refute
+      on all six claims (9/9 refuters) + first-hand check.ps1 GREEN 1525/1525 at GasCoopGame @defade72 + Field.Sense
+      31/31 + mutation 70.26% + ADR-E-0008 + owner «PLAN одобрял» (v19 PLAN approval) / «капсулу сам гонял — доза росла»
+      (owner-eye). -Deliver red at tip ONLY on the pre-existing MERGED-doc fallback (c-exec-021/c-visual-005), not
+      Sc-sense (c-exec-035.md passes its own gate). Engine-only foundation is UNWIRED into SimInstance — wiring is
+      Sc-damage's job (feed the committed post-step field once per sim tick; see
+      knowledge/g9c41-sc-sense-delivered-unwired.md).
+    status: done
 
 open_calls:
-  - id: c-exec-035
-    to: executor
-    for: g-9c41 / Sc-sense
-    issued: 2026-07-08
-    call: work/c-exec-035-sc-sense-call.md
+  - id: c-shape-sc-damage-001
+    to: session
+    for: g-9c41 / Sc-damage
+    issued: 2026-07-09
+    call: work/c-shape-sc-damage-call.md
     note: |
-      READY Sc-sense executor handoff. Base = GasCoopGame main/origin @484084a after Sc-reactions merge+push; §Re-sync
-      confirms synced contract ≥18 and honours v19 behaviorally. Fresh GasCoopGame_dev PLAN, owner present; v19 split:
-      PLAN closes at owner approval (no product code, no RED tests); fresh BUILD starts with an independent RED
-      test-author. Scope = actor position/volume lockstep input + authoritative-near per-type exposure + integer dose
-      integration + separate player-kinematics/dose digest + Unity capsule debug readout. Design-AWARE only: damage,
-      breathing/«Лёгкие», detection/diagnosis gameplay, multi-actor real player controller. Boundaries: no damage/effect,
-      no detection gameplay, no visual/shader/look pipeline, no new gas types, no Sc-catalog/type-authoring, no 2-band
-      read dependency, no float/host-only dose, no gas MeaningChecksum layer-crossing without explicit PLAN rationale.
+      READY shape session (play: shape) for the next gas slice Sc-damage — the FIRST gas CONSEQUENCE that consumes the
+      Sc-sense accumulated dose. Owner-present; the produced executor CALL mandates contract v19 (PLAN/BUILD split +
+      independent RED test-author). Base = GasCoopGame origin/main @defade72 (§Re-sync at tip). Reads: Sc-sense wiring
+      contract (dose read/integration + detection socket + UNWIRED-into-SimInstance note) at
+      knowledge/g9c41-sc-sense-delivered-unwired.md, the g9c41 SPEC, engineering contract. Fold the co-op-interdependence
+      axis (decision d-coop-interdependence-repin-001) into the Sc-damage framing. Goal = a fire-ready Sc-damage executor
+      CALL. Boundaries: SHAPE only (produces the CALL, builds nothing); no new gas types; no visual pipeline.
   - id: c-visual-008
     to: executor
     for: g-7e15 / VISUAL Stage 3.5
@@ -99,17 +110,24 @@ open_calls:
       current body shader/path, add honest render-only internal idle life, smooth motion onset where current data allows,
       and A/B gas-off/gas-on clarity. Boundaries: no Core/sim/network/reactions/Sc-sense edits, no fake directional jet,
       no particles/VFX as acceptance crutch, no Stage 4 character/danger work.
-  - id: c-cartography-core-concept-rebuild-001
+      BASE MOVED 2026-07-09: c-exec-035 delivery advanced GasCoopGame origin/main to @defade72; the 9d6f8ded base above
+      is now BEHIND — the visual checkout must §Re-sync to defade72 (latest origin/main) before firing.
+  - id: c-core-1-bubble-fill-001
     to: session
-    for: g-d3a8 / core concept rebuild cartography
+    for: g-d3a8 / CORE piece core-1 — how gas enters the bubble
     issued: 2026-07-09
-    call: work/c-cartography-core-concept-rebuild-001-call.md
+    call: work/c-core-1-bubble-fill-call.md
     note: |
-      PENDING core concept rebuild cartography. Owner correction: current route is not the old Bubble/Q1 entrypoint.
-      Fixed foundations: gas simulation, reactions, destructible/changeable space. Everything else is draft until
-      re-approved: bubble, floor loop, carry, tools, economy, ЛЁГКИЕ, roster, roles, title, old canon. The next session
-      must produce a compact question map, name dependencies, and choose the smallest first blocking question without
-      answering the concept or making bubble/floor/extraction/reactions/economy the center by assumption.
+      READY — runs in a FRESH Кузница v2 session. Owner clarified 2026-07-09: one-question is the DEFAULT not a hard
+      rule (a cluster is allowed WITH a named reason); the real hard requirement is fresh-chat resumability — a bare
+      «что дальше» in any new chat must self-surface the current piece (QUEUE СЛЕДУЮЩИЙ + NOW.next), now encoded in
+      START.md. play: local/canon-forge, mode МЕХАНИКА, base canon repo @3ca0a42. Decides ONLY the fill
+      action (gas → bubble): candidate #1 = owner's «кран-надув / засасывается» (worked to the limit), alt = «обруч-на-
+      озеро», «черпак» rejected. Full МЕХАНИКА depth required: подготовка (engine+refs+fear↔greed) → verbs table →
+      ≤3 candidates each with a seconds-level two-player scene; no generic candidate counts. Verdict = owner's verbatim
+      words or honest «обсуждается». Does NOT decide strength/behaviour-by-type (core-2), carry (core-7), prices, roster,
+      damage numbers, title. Prior CALL c-forge-q-ruki-001 REVOKED. Process is now adapted one-question-one-session
+      (START/SESSION/QUEUE/canon-forge play @04b31de/OS) and constitution reconciled with CORE (bubble = ПРИНЯТОЕ ЯДРО).
 
 recurring: []
 
@@ -121,19 +139,27 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      active in parallel, not a second active bet. Owner stopped the old Bubble/Q1 entrypoint as the active route after
-      new concept-process correction: current work is not q-floor-loop and not local/canon-forge. The live next route is
-      c-cartography-core-concept-rebuild-001 via local/canon-cartography: rebuild a compact question map from fixed
-      foundations (gas simulation, reactions, destructible/changeable space), treat bubble/floor loop/carry/tools/
-      economy/ЛЁГКИЕ/roster/roles/title/old canon as draft, then continue one smallest blocking question at a time.
-      work/design-labs/gas-spatial-form-001.md remains an agent proposal/draft only; no Q1 verdict or canon freeze was
-      recorded. TREE/CHARTER untouched. PROCESS SHELL (2026-07-09, s-process-canon-forge-v2-001, owner commission):
-      «Кузница v2» installed in canon repo @7541be3 — CONSTITUTION draft (pillars + palette: fixed foundations =
-      sim/reactions/space, bubble-concept = draft candidates) + SESSION script (≤3 candidates → sparring → read-back →
-      owner-verdict-verbatim-or-invalid) + immutable cards/AMENDMENTS + INDEX-as-memory + QUEUE as DRAFT INPUT for the
-      pending cartography (owner-signed map replaces it); old questions/maps = LEGACY evidence. OS plays: canon-forge →
-      v2 wrapper; canon-status/design-lab/mechanic-forge → superseded stubs (mechanic-lenses stays BINDING);
-      canon-cartography KEPT v1 for the pending call.
+      active in parallel, not a second active bet. CORE RECOVERY 2026-07-09 (s-repair-canon-core-recovery-001), after the
+      owner rejected the verbs-first map's first output as «полная хуита»: the third process rebuild in a row had lost his
+      ACCEPTED concept core. Root cause established by 6-reader evidence sweep (recorded in the history file): (a) binary
+      status taxonomy — no state between «зафиксировано» and «драфт» for "owner likes this, elaborate from here"; (b)
+      provenance quarantine — «нет в файлах = не решено» + empty INDEX made «мне нравится» formally invisible (the
+      acceptance lived in work/concept-summary-2026-07-09.md, self-labeled «НЕ канон», which rebuild CALLs never read);
+      (c) one-directional guards — anti-premature-freeze rules accreted after 07-07 with NO anti-loss counterpart, so
+      compliant sessions kept demoting the bubble (stripped → candidate → parked); (d) blank-slate dependency cartography
+      re-derived abstract questions the owner had already answered. FIX APPLIED: canon repo CORE.md = owner's verbatim
+      сводка pinned (bubble core «мне нравится»: три фазы, спящие газы+разведка, ПУЗЫРЬ «неси не лопни», ковш-часть,
+      бестиарий без мозгов, палитра вреда + КОМПАС + voice principles «просто не примитивно» / «сложно но не душно» /
+      база проста-глубина сама / «фан — в физическом действии»); load order now CONSTITUTION → CORE → INDEX → QUEUE →
+      SESSION (START/SESSION edited); canon QUEUE.md rewritten as разбор ядра core-1…core-10 (bubble-fill first, damage
+      palette flagged as engine-blocking for Sc-damage); «черновик ≠ второстепенное» + build-AROUND-core + no-silent-
+      replacement rules pinned in CORE.md. REVOKED: the 10-node verbs-first map (work/canon-maps/
+      core-concept-rebuild-question-map-v0.1.md, evidence-stamped) and CALL c-forge-q-ruki-001. Spec board
+      work/game-spec-DRAFT-v0.md rewritten v0.2 around the bubble core with the new 💚 «принято направлением» status.
+      CONSTITUTION ratification (owner «Б», П1–П3, @87a05a7) STANDS — verdict rules were never the problem; the entry was.
+      IN FLIGHT: core-1 discussion (how gas enters the bubble: кольцо vs кран-надув) running live with the owner.
+      Открыто там же: d-ono-dyshit-core-frame-fork-001 formally awaiting_decision (bubble = capture-first de facto;
+      record via core-10). TREE/CHARTER untouched; INDEX still empty (no v2 card yet).
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -163,6 +189,8 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  CALL c-cartography-core-concept-rebuild-001 → work/c-cartography-core-concept-rebuild-001-call.md
+  # TWO fronts. g-9c41 (gas) is the active bet; canon = fresh one-question Кузница session on core-1.
+  - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: active-bet rolling-wave (Sc-sense DONE → shape Sc-damage)
+  - CALL c-core-1-bubble-fill-001 → work/c-core-1-bubble-fill-call.md  # CANON: fresh Кузница session, core-1 bubble-fill (МЕХАНИКА)
 
 END_OF_FILE: live/indie-game-development/NOW.md
