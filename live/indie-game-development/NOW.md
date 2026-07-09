@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-work-062-c-visual-007-close
+updated: 2026-07-09 by s-work-064-c-visual-007-push
 
 bet:
   node: g-9c41
@@ -104,7 +104,7 @@ recurring: []
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    state: active — Stage 3 DONE (c-visual-007 delivered on GasCoopGame_dev_2 dev2@1c99a907; Stage 3 single-gas visual on the Stage 2 half-res path; owner choices recorded: toonBandCount 2, opacityCeiling 0.72; LP1-LP5 pass with caveats; no fake visual-only jet; motion remains honest from current sim/GridView data, with sparse rectangular tail and jerky gas-only motion routed as future work; Core/sim diff empty; result-check and `tools/check.ps1 -Deliver` green). Stage 4 not opened.
+    state: active — Stage 3 DONE + PUSHED (c-visual-007 delivered on GasCoopGame_dev_2 dev2@1c99a907 and merged+pushed to GasCoopGame origin/main@9d6f8ded; Stage 3 single-gas visual on the Stage 2 half-res path; owner choices recorded: toonBandCount 2, opacityCeiling 0.72; LP1-LP5 pass with caveats; no fake visual-only jet; motion remains honest from current sim/GridView data, with sparse rectangular tail and jerky gas-only motion routed as future work; Core/sim diff empty; c-visual-007 result-check green; main inner-loop `tools/check.ps1` green; full `-Deliver` on merged main is blocked by pre-existing c-exec-021/c-visual-005 MERGED-status docs, not by c-visual-007). Stage 4 not opened.
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
