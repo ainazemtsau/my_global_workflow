@@ -116,14 +116,16 @@ open_calls:
     to: session
     for: g-d3a8 / CORE piece core-1 — how gas enters the bubble
     issued: 2026-07-09
-    call: (running LIVE in the owner's current chat — s-repair-canon-core-recovery-001; no packet, queue item = canon QUEUE.md core-1)
+    call: work/c-core-1-bubble-fill-call.md
     note: |
-      IN PROGRESS. First discussion of the rebuilt canon process: candidates «кольцо» (ring on sleeping lake, current
-      working image from the accepted core) vs «кран-надув» (owner's own instinct: deflated bubble + valve, gas flows in,
-      volume grows in hand; ковш ceiling kept) vs rejected «черпак». Decides ONLY the fill action; not strength, prices,
-      carry, types. Verdict = owner's words; «обсуждается» is a valid outcome. Prior CALL c-forge-q-ruki-001 REVOKED
-      (verbs-first entry re-asked what the owner already answered; see work/c-forge-q-ruki-001-call.md and
-      history/2026-07-09-s-repair-canon-core-recovery-001.md).
+      READY — runs in a FRESH Кузница v2 session (owner wants strictly one-question-one-session; the current recovery
+      chat only prepared it). play: local/canon-forge, mode МЕХАНИКА, base canon repo @04b31de. Decides ONLY the fill
+      action (gas → bubble): candidate #1 = owner's «кран-надув / засасывается» (worked to the limit), alt = «обруч-на-
+      озеро», «черпак» rejected. Full МЕХАНИКА depth required: подготовка (engine+refs+fear↔greed) → verbs table →
+      ≤3 candidates each with a seconds-level two-player scene; no generic candidate counts. Verdict = owner's verbatim
+      words or honest «обсуждается». Does NOT decide strength/behaviour-by-type (core-2), carry (core-7), prices, roster,
+      damage numbers, title. Prior CALL c-forge-q-ruki-001 REVOKED. Process is now adapted one-question-one-session
+      (START/SESSION/QUEUE/canon-forge play @04b31de/OS) and constitution reconciled with CORE (bubble = ПРИНЯТОЕ ЯДРО).
 
 recurring: []
 
@@ -185,8 +187,8 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  # TWO fronts. g-9c41 (gas) is the active bet; canon runs core-recovery discussions live with the owner.
-  - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md   # GAS: active-bet rolling-wave continuation (Sc-sense DONE → shape Sc-damage)
-  - CANON: core-1 bubble-fill discussion LIVE in owner chat (canon QUEUE.md core-1); c-forge-q-ruki-001 REVOKED
+  # TWO fronts. g-9c41 (gas) is the active bet; canon = fresh one-question Кузница session on core-1.
+  - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: active-bet rolling-wave (Sc-sense DONE → shape Sc-damage)
+  - CALL c-core-1-bubble-fill-001 → work/c-core-1-bubble-fill-call.md  # CANON: fresh Кузница session, core-1 bubble-fill (МЕХАНИКА)
 
 END_OF_FILE: live/indie-game-development/NOW.md
