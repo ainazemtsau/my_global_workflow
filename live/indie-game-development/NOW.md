@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-work-064-c-visual-007-push
+updated: 2026-07-09 by s-work-065-c-visual-008-frame
 
 bet:
   node: g-9c41
@@ -87,6 +87,18 @@ open_calls:
       breathing/«Лёгкие», detection/diagnosis gameplay, multi-actor real player controller. Boundaries: no damage/effect,
       no detection gameplay, no visual/shader/look pipeline, no new gas types, no Sc-catalog/type-authoring, no 2-band
       read dependency, no float/host-only dose, no gas MeaningChecksum layer-crossing without explicit PLAN rationale.
+  - id: c-visual-008
+    to: executor
+    for: g-7e15 / VISUAL Stage 3.5
+    issued: 2026-07-09
+    call: work/c-visual-008-stage3-5-motion-clarity-call.md
+    note: |
+      READY visual-only Stage 3.5 inserted before Stage 4 after owner observed dead-static idle gas, jerky/low-frame
+      motion onset, and possible scene muddiness around the gas. Base = GasCoopGame origin/main@9d6f8ded with
+      c-visual-007 dev2@1c99a907 already merged; visual checkout must verify/sync to that base first. Scope: audit
+      current body shader/path, add honest render-only internal idle life, smooth motion onset where current data allows,
+      and A/B gas-off/gas-on clarity. Boundaries: no Core/sim/network/reactions/Sc-sense edits, no fake directional jet,
+      no particles/VFX as acceptance crutch, no Stage 4 character/danger work.
   - id: c-cartography-core-concept-rebuild-001
     to: session
     for: g-d3a8 / core concept rebuild cartography
@@ -104,7 +116,7 @@ recurring: []
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    state: active — Stage 3 DONE + PUSHED (c-visual-007 delivered on GasCoopGame_dev_2 dev2@1c99a907 and merged+pushed to GasCoopGame origin/main@9d6f8ded; Stage 3 single-gas visual on the Stage 2 half-res path; owner choices recorded: toonBandCount 2, opacityCeiling 0.72; LP1-LP5 pass with caveats; no fake visual-only jet; motion remains honest from current sim/GridView data, with sparse rectangular tail and jerky gas-only motion routed as future work; Core/sim diff empty; c-visual-007 result-check green; main inner-loop `tools/check.ps1` green; full `-Deliver` on merged main is blocked by pre-existing c-exec-021/c-visual-005 MERGED-status docs, not by c-visual-007). Stage 4 not opened.
+    state: active — Stage 3 DONE + PUSHED (c-visual-007 delivered on GasCoopGame_dev_2 dev2@1c99a907 and merged+pushed to GasCoopGame origin/main@9d6f8ded; Stage 3 single-gas visual on the Stage 2 half-res path; owner choices recorded: toonBandCount 2, opacityCeiling 0.72; LP1-LP5 pass with caveats; no fake visual-only jet; Core/sim diff empty; c-visual-007 result-check green; main inner-loop `tools/check.ps1` green; full `-Deliver` on merged main is blocked by pre-existing c-exec-021/c-visual-005 MERGED-status docs, not by c-visual-007). Stage 3.5 FRAMED + FIRE-READY as c-visual-008: idle internal life for stationary gas, motion-onset smoothness, and environment clarity/muddiness audit; render-only; base origin/main@9d6f8ded; no fake jet; Stage 4 not opened.
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
