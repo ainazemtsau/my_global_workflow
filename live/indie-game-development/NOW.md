@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-repair-concept-process-001-r2
+updated: 2026-07-09 by s-work-062-c-visual-007-close
 
 bet:
   node: g-9c41
@@ -87,18 +87,6 @@ open_calls:
       breathing/«Лёгкие», detection/diagnosis gameplay, multi-actor real player controller. Boundaries: no damage/effect,
       no detection gameplay, no visual/shader/look pipeline, no new gas types, no Sc-catalog/type-authoring, no 2-band
       read dependency, no float/host-only dose, no gas MeaningChecksum layer-crossing without explicit PLAN rationale.
-  - id: c-visual-007
-    to: executor
-    for: g-7e15 / VISUAL Stage 3
-    issued: 2026-07-07
-    call: work/c-visual-007-stage3-call.md
-    note: |
-      FIRE-READY visual-only Stage 3 ("Одна жемчужина") framed from visual plan v2 after c-visual-006 close.
-      Base = GasCoopGame_dev_2 dev2@6dbdddd (Stage 2 gas passport + real two-type preview + half-res path).
-      Scope: hero-polish one real gas, natural-jet fix, toon-band + opacity-ceiling decisions, LP1 lamp re-test,
-      LP1-LP5 individual dispositions. Boundaries: dev_2 only; render-only; ZERO Core/**/sim/c-exec-021 work;
-      primary NOW.next target unchanged. Product leg owes narrow §Re-sync to contract v19 first (owner-readable PLAN,
-      PLAN and BUILD as separate sessions).
   - id: c-cartography-core-concept-rebuild-001
     to: session
     for: g-d3a8 / core concept rebuild cartography
@@ -116,7 +104,7 @@ recurring: []
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    state: active — Stage 2 DONE (c-visual-006 delivered on GasCoopGame_dev_2 dev2@6dbdddd; owner-eye/play-mode passed; real two-type preview + gas passport + half-res path; not pushed/merged by this close). Stage 3 FRAMED + FIRE-READY as c-visual-007: one-pearl/hero gas polish + natural-jet fix + LP1 re-test; visual-only/dev_2; owes §Re-sync v19 first.
+    state: active — Stage 3 DONE (c-visual-007 delivered on GasCoopGame_dev_2 dev2@1c99a907; Stage 3 single-gas visual on the Stage 2 half-res path; owner choices recorded: toonBandCount 2, opacityCeiling 0.72; LP1-LP5 pass with caveats; no fake visual-only jet; motion remains honest from current sim/GridView data, with sparse rectangular tail and jerky gas-only motion routed as future work; Core/sim diff empty; result-check and `tools/check.ps1 -Deliver` green). Stage 4 not opened.
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
