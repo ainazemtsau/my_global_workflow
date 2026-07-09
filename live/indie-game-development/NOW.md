@@ -118,8 +118,10 @@ open_calls:
     issued: 2026-07-09
     call: work/c-core-1-bubble-fill-call.md
     note: |
-      READY — runs in a FRESH Кузница v2 session (owner wants strictly one-question-one-session; the current recovery
-      chat only prepared it). play: local/canon-forge, mode МЕХАНИКА, base canon repo @04b31de. Decides ONLY the fill
+      READY — runs in a FRESH Кузница v2 session. Owner clarified 2026-07-09: one-question is the DEFAULT not a hard
+      rule (a cluster is allowed WITH a named reason); the real hard requirement is fresh-chat resumability — a bare
+      «что дальше» in any new chat must self-surface the current piece (QUEUE СЛЕДУЮЩИЙ + NOW.next), now encoded in
+      START.md. play: local/canon-forge, mode МЕХАНИКА, base canon repo @3ca0a42. Decides ONLY the fill
       action (gas → bubble): candidate #1 = owner's «кран-надув / засасывается» (worked to the limit), alt = «обруч-на-
       озеро», «черпак» rejected. Full МЕХАНИКА depth required: подготовка (engine+refs+fear↔greed) → verbs table →
       ≤3 candidates each with a seconds-level two-player scene; no generic candidate counts. Verdict = owner's verbatim
