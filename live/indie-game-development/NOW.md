@@ -155,22 +155,22 @@ open_calls:
       no particles/VFX as acceptance crutch, no Stage 4 character/danger work.
       BASE MOVED 2026-07-09: c-exec-035 delivery advanced GasCoopGame origin/main to @defade72; the 9d6f8ded base above
       is now BEHIND — the visual checkout must §Re-sync to defade72 (latest origin/main) before firing.
-  - id: c-core-1-bubble-fill-001
+  - id: c-core-0-gas-states-001
     to: session
-    for: g-d3a8 / CORE piece core-1 — how gas enters the bubble
+    for: g-d3a8 / CORE piece core-0 — gas states and what they mean
     issued: 2026-07-09
-    call: work/c-core-1-bubble-fill-call.md
+    call: work/c-core-0-gas-states-call.md
     note: |
-      READY — runs in a FRESH Кузница v2 session. Owner clarified 2026-07-09: one-question is the DEFAULT not a hard
-      rule (a cluster is allowed WITH a named reason); the real hard requirement is fresh-chat resumability — a bare
-      «что дальше» in any new chat must self-surface the current piece (QUEUE СЛЕДУЮЩИЙ + NOW.next), now encoded in
-      START.md. play: local/canon-forge, mode МЕХАНИКА, base canon repo @3ca0a42. Decides ONLY the fill
-      action (gas → bubble): candidate #1 = owner's «кран-надув / засасывается» (worked to the limit), alt = «обруч-на-
-      озеро», «черпак» rejected. Full МЕХАНИКА depth required: подготовка (engine+refs+fear↔greed) → verbs table →
-      ≤3 candidates each with a seconds-level two-player scene; no generic candidate counts. Verdict = owner's verbatim
-      words or honest «обсуждается». Does NOT decide strength/behaviour-by-type (core-2), carry (core-7), prices, roster,
-      damage numbers, title. Prior CALL c-forge-q-ruki-001 REVOKED. Process is now adapted one-question-one-session
-      (START/SESSION/QUEUE/canon-forge play @04b31de/OS) and constitution reconciled with CORE (bubble = ПРИНЯТОЕ ЯДРО).
+      READY fresh Кузница v2 session — NEW FIRST canon piece after the owner hit a hidden prerequisite mid-core-1
+      («не определено, что значит газ, уснувший, активный»): gap_event, queue reordered (canon QUEUE core-0 =
+      СЛЕДУЮЩИЙ). Decides ONLY gas-state semantics: which states (owner working hypothesis, not verdict: sleeping +
+      activated, both capturable, active much harder), what each means for the player (visibility per state — sleeping
+      is near-invisible; «озеро» term vs light gases; what switches states SIM-driven; reversibility), engine fit
+      (design-sleep = layer over byte-sleep). Format: state-TABLE instead of verbs table + ≤3 state-models each with
+      one two-player seconds scene. Cluster with core-5 (следы) allowed only with a named reason. c-core-1 (bubble
+      fill) ON HOLD «обсуждается» pending this: owner leans simplest «шарик сам всасывает», обруч doubted (gas
+      invisible), воротник rejected as душный, capture must work on BOTH states. Harvest from the interrupted core-1
+      session recorded in canon QUEUE (шарик-градации; «каждый свой шарик» pilot; шар как преграда; шарик-проявитель).
 
 recurring: []
 
@@ -200,9 +200,14 @@ parallel_tracks:
       core-concept-rebuild-question-map-v0.1.md, evidence-stamped) and CALL c-forge-q-ruki-001. Spec board
       work/game-spec-DRAFT-v0.md rewritten v0.2 around the bubble core with the new 💚 «принято направлением» status.
       CONSTITUTION ratification (owner «Б», П1–П3, @87a05a7) STANDS — verdict rules were never the problem; the entry was.
-      IN FLIGHT: core-1 discussion (how gas enters the bubble: кольцо vs кран-надув) running live with the owner.
-      Открыто там же: d-ono-dyshit-core-frame-fork-001 formally awaiting_decision (bubble = capture-first de facto;
-      record via core-10). TREE/CHARTER untouched; INDEX still empty (no v2 card yet).
+      GAP_EVENT 2026-07-09: owner interrupted the first core-1 session on a hidden prerequisite («что означает озеро,
+      что означает спящее») — queue reordered, core-0 (gas states) now FIRST (CALL c-core-0-gas-states-001 READY);
+      core-1 ON HOLD «обсуждается» (owner leans simplest «шарик сам всасывает»; обруч doubted — sleeping gas is
+      near-invisible; воротник rejected as душный дрейф; capture must work on sleeping AND active states). Session
+      transcript reviewed in the recovery chat: 8 problems recorded (history addendum) — incl. anti-solo wrongly baked
+      into the fill atom, «черпак отброшен» cited as decided without owner words, harvest not collected (now in canon
+      QUEUE УЛОВ 2026-07-09). Открыто там же: d-ono-dyshit-core-frame-fork-001 formally awaiting_decision (bubble =
+      capture-first de facto; record via core-10). TREE/CHARTER untouched; INDEX still empty (no v2 card yet).
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -236,6 +241,6 @@ next:
   - CALL c-exec-lv-ingest-phase0-001 → work/c-exec-lv-ingest-phase0-call.md  # ENGINE: level-ingestion + gas-source seam, Phase 0 (code/MCP, hand-tagged; SnapGridFlow real DA = Phase 1)
   # Other ready fronts (owner picks):
   - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: shape Sc-damage — HELD (needs design)
-  - CALL c-core-1-bubble-fill-001 → work/c-core-1-bubble-fill-call.md  # CANON: fresh Кузница session, core-1 bubble-fill (МЕХАНИКА)
+  - CALL c-core-0-gas-states-001 → work/c-core-0-gas-states-call.md  # CANON: fresh Кузница session, core-0 gas states (core-1 bubble-fill ON HOLD за ним)
 
 END_OF_FILE: live/indie-game-development/NOW.md
