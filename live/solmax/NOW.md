@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_universal_structure_architecture_gap
+route_status: operating_substrate_universal_structure_cartography_owner_approved
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -74,12 +74,27 @@ owner_directive: |
   - Do not implement the sketch. Do not freeze block list as accepted
     architecture. Return to cartography/research/architecture-prep.
 
+
+  Universal-structure cartography owner sign:
+  - Owner approved the universal adaptive process-structure question map as
+    a working graph.
+  - Owner steering: Q1/Q2 are expected to spawn new entities and questions;
+    the process must treat this as normal recursive architecture graph
+    growth, not as failure by default.
+  - Q15 is amended to graph growth / recursive decomposition / gap rebalance
+    rule.
+  - Next recommended forge is Q1 core invariant. Q1 must classify spawned
+    entities/questions and must not attempt to answer all downstream questions.
+  - No implementation, repo/backend/carrier, proof harness, Direction OS
+    kernel change or final service-block list is activated.
+
 tasks: []
 
 recurring: []
 decisions: []
 
-open_calls: []
+open_calls:
+  - c-solmax-operating-substrate-core-invariant-architecture-forge-001
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -120,5 +135,8 @@ preserved_evidence:
   - live/solmax/history/2026-07-09-c-solmax-operating-substrate-structure-discovery-architecture-forge-001.md
   - owner correction in chat: "должна быть структура ... саму структуру это надо разрабатывать достаточно комплексная вещь ... дальше должна быть идти именно проработка, архитектурная проработка"
 
-next: work/calls/c-solmax-operating-substrate-universal-structure-cartography-001.md
+  - live/solmax/work/operating-substrate-universal-structure-cartography-001.md
+  - live/solmax/history/2026-07-09-s-solmax-operating-substrate-universal-structure-cartography-001.md
+  - owner approval/steering in chat: "я с вопросами согласен ... будут возникать новые вопросы ... за одним вопросом последуют другие ... мы определим какую-то сущность, которая тоже должна быть отдельно определена ... мы должны быть готовы к такому"
+next: work/calls/c-solmax-operating-substrate-core-invariant-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
