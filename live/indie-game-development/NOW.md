@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-repair-designlab-owner-verdict-001
+updated: 2026-07-09 by s-repair-concept-process-001-r2
 
 bet:
   node: g-9c41
@@ -99,21 +99,17 @@ open_calls:
       LP1-LP5 individual dispositions. Boundaries: dev_2 only; render-only; ZERO Core/**/sim/c-exec-021 work;
       primary NOW.next target unchanged. Product leg owes narrow §Re-sync to contract v19 first (owner-readable PLAN,
       PLAN and BUILD as separate sessions).
-  - id: c-designlab-gas-spatial-form-001
+  - id: c-cartography-core-concept-rebuild-001
     to: session
-    for: g-d3a8 / Mechanics Workbench Q1 spatial form
-    issued: 2026-07-08
-    call: work/c-designlab-gas-spatial-form-001-call.md
+    for: g-d3a8 / core concept rebuild cartography
+    issued: 2026-07-09
+    call: work/c-cartography-core-concept-rebuild-001-call.md
     note: |
-      READY owner-verdict Design Lab for Q1 after owner-approved cartography map v0.1 (owner chose "вариант A").
-      The previous Codex close `s-designlab-gas-spatial-form-001` was invalid as a close: it recorded the agent's
-      recommendation as accepted/revised/split without the owner's spatial-model verdict. Treat
-      work/design-labs/gas-spatial-form-001.md only as an agent proposal/draft for discussion. Current question remains
-      q-first-proof-gas-spatial-form: in the first Bubble proof, when we say "there is gas here", what exists in space?
-      The session must present a human-readable brief/options and stop for owner words before any RESULT clears this
-      call or opens Q2. Boundaries: no canon freeze; no transfer/carry/reaction/meta/economy/roster/title/final-VFX
-      answers; no `газовый карман`, `запузырить`, exact membrane ring, magic sleep/wake or gas subjectivity as ready
-      terms.
+      PENDING core concept rebuild cartography. Owner correction: current route is not the old Bubble/Q1 entrypoint.
+      Fixed foundations: gas simulation, reactions, destructible/changeable space. Everything else is draft until
+      re-approved: bubble, floor loop, carry, tools, economy, ЛЁГКИЕ, roster, roles, title, old canon. The next session
+      must produce a compact question map, name dependencies, and choose the smallest first blocking question without
+      answering the concept or making bubble/floor/extraction/reactions/economy the center by assumption.
 
 recurring: []
 
@@ -125,15 +121,13 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      active in parallel via Mechanics Workbench, not a second active bet. Mechanics Workbench question map v0.1 is
-      owner-approved (s-cartography-mechanics-workbench-questions-001, owner "вариант A"). All required draft material is
-      accounted for: Bubble placed as current floor-proof candidate; `ЛЁГКИЕ`, flagship examples and title parked; quiet
-      floor, detection, carry/co-op, release/reactions, tools/building and old canon salvage routed. Q1 spatial-form
-      remains open: work/design-labs/gas-spatial-form-001.md is only an agent proposal/draft, not an owner verdict.
-      Current open design CALL is restored to c-designlab-gas-spatial-form-001; the Q2 pre-contact-read CALL exists only
-      as an inactive draft until the owner accepts/revises/rejects/splits Q1. Design Lab clears unclear blockers; worked
-      gameplay mechanics later go through local/mechanic-forge; local/canon-forge freezes compact canon only when
-      freeze-ready. No canon freeze; TREE/CHARTER untouched.
+      active in parallel, not a second active bet. Owner stopped the old Bubble/Q1 entrypoint as the active route after
+      new concept-process correction: current work is not q-floor-loop and not local/canon-forge. The live next route is
+      c-cartography-core-concept-rebuild-001 via local/canon-cartography: rebuild a compact question map from fixed
+      foundations (gas simulation, reactions, destructible/changeable space), treat bubble/floor loop/carry/tools/
+      economy/ЛЁГКИЕ/roster/roles/title/old canon as draft, then continue one smallest blocking question at a time.
+      work/design-labs/gas-spatial-form-001.md remains an agent proposal/draft only; no Q1 verdict or canon freeze was
+      recorded. TREE/CHARTER untouched.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -163,12 +157,6 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  CALL c-exec-035 → executor (GasCoopGame_dev): work/c-exec-035-sc-sense-call.md. Fresh owner-present PLAN (contract
-  v19 PLAN/BUILD split), independent RED test-author first. Return RESULT HOME; dev→main merge + push owner-gated.
-  Sc-catalog c-exec-034 is PARKED/preserved for later when canon gives a real roster; c-exec-033 (env-derived typing)
-  SUPERSEDED per owner (accidental wrong-chat) — parked as a later slice, design preserved.
-  Parallel tracks: c-visual-007 Stage 3; g-d3a8 Mechanics Workbench Q1 spatial-form owner-verdict ready as
-  c-designlab-gas-spatial-form-001. The agent proposal at work/design-labs/gas-spatial-form-001.md is not accepted
-  state; Q2 c-designlab-gas-precontact-read-001 is draft-only until Q1 owner verdict.
+  CALL c-cartography-core-concept-rebuild-001 → work/c-cartography-core-concept-rebuild-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
