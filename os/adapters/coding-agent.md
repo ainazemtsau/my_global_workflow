@@ -15,6 +15,11 @@ Contract:
 - Validate before applying (gate G10) — bounce with the specific miss, never apply partially:
   - RESULT fields complete per os/schema/packets.md, `play_check` included (one line per play step);
   - `(owner)`-marked steps in play_check carry the owner's actual words, not a bare "done";
+  - **owner-verdict CALL guard (session RESULTs)** — when the returning CALL's `goal`/`done_when` asks for an owner-readable
+    verdict (`accepted/revised/rejected/split`, approve/reject, choose, "можно записывать", or similar), a RESULT that
+    clears the open_call or opens a downstream CALL must carry the owner's actual verdict words in `evidence` or
+    `play_check`. A CALL packet, a recommendation, or the agent's phrase "accepted/revised" is not a verdict. Without
+    owner words, bounce or checkpoint while leaving the same open_call pending.
   - the `next` CALL's goal is an outcome with no method/procedure paraphrase (CALL hygiene, schema/packets.md).
   - **builder-return is not close (engineering RESULTs)** — a product-repo RESULT, owner playtest summary, merge/push request, or prose like "formally closed on dev/dev2" is evidence input, not authority to clear `NOW.open_calls` or mark done. The writer may clear the returning engineering CALL only when the Direction-OS RESULT/checkpoint carries the required close evidence: deliverable reconciliation plus the binding fresh-session G5/review (or stricter gate) named by the CALL/state. Product gates, screenshots, owner-eye, merge, and push may support that close; they do not replace it. A CALL phrase such as "no heavy multi-agent refutation" reduces fan-out only and is not a G5 waiver. If the close evidence is absent, bounce or write a checkpoint that leaves the `open_call` pending; never improvise a "merged therefore closed" state.
   - NOW hygiene (mechanical only): if state_changes write `NOW.md`, reject when `open_calls` keeps the returning CALL id or adds text explicitly marked `returned|done|superseded|cancelled`; when `decisions` adds text explicitly marked answered/accepted/declined; or when `next` is neither a CALL packet nor a one-line pointer to a self-contained CALL artifact under `work/`. Do not judge whether a compaction is semantically good — pulse/repair/review own that.

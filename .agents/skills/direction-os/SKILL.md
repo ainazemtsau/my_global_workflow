@@ -123,6 +123,13 @@ separate writer session applies them.
   jargon term defined in one line, then 2–3 options each with a one-line "bad,
   because" and a recommendation. Never a raw state/YAML dump, never compressed
   to save space.
+- **A CALL is not an owner verdict.** When the CALL/play asks for an
+  owner-readable verdict (`accepted/revised/rejected/split`, approve/reject,
+  choose, "можно записывать", or similar), first present the readable brief and
+  STOP for the owner's actual words. Do not emit a closing RESULT, clear the
+  open_call, or open the downstream CALL until those words can be cited in
+  `play_check`/evidence. If no verdict exists, close only as a checkpoint and
+  leave the same open_call pending.
 - Plans are co-created, never generated: draft one artifact at a time, get
   explicit owner approval before any `state_changes` (G9); `play_check` cites
   the owner's actual words on `(owner)` steps.

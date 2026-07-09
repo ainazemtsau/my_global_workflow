@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-08 by s-cartography-mechanics-workbench-questions-001
+updated: 2026-07-09 by s-work-062-c-visual-007-close
 
 bet:
   node: g-9c41
@@ -87,47 +87,35 @@ open_calls:
       breathing/«Лёгкие», detection/diagnosis gameplay, multi-actor real player controller. Boundaries: no damage/effect,
       no detection gameplay, no visual/shader/look pipeline, no new gas types, no Sc-catalog/type-authoring, no 2-band
       read dependency, no float/host-only dose, no gas MeaningChecksum layer-crossing without explicit PLAN rationale.
-  - id: c-visual-007
-    to: executor
-    for: g-7e15 / VISUAL Stage 3
-    issued: 2026-07-07
-    call: work/c-visual-007-stage3-call.md
-    note: |
-      FIRE-READY visual-only Stage 3 ("Одна жемчужина") framed from visual plan v2 after c-visual-006 close.
-      Base = GasCoopGame_dev_2 dev2@6dbdddd (Stage 2 gas passport + real two-type preview + half-res path).
-      Scope: hero-polish one real gas, natural-jet fix, toon-band + opacity-ceiling decisions, LP1 lamp re-test,
-      LP1-LP5 individual dispositions. Boundaries: dev_2 only; render-only; ZERO Core/**/sim/c-exec-021 work;
-      primary NOW.next target unchanged. Product leg owes narrow §Re-sync to contract v19 first (owner-readable PLAN,
-      PLAN and BUILD as separate sessions).
-  - id: c-designlab-gas-spatial-form-001
+  - id: c-cartography-core-concept-rebuild-001
     to: session
-    for: g-d3a8 / Mechanics Workbench Q1 spatial form
-    issued: 2026-07-08
-    call: work/c-designlab-gas-spatial-form-001-call.md
+    for: g-d3a8 / core concept rebuild cartography
+    issued: 2026-07-09
+    call: work/c-cartography-core-concept-rebuild-001-call.md
     note: |
-      READY first one-question Workbench Design Lab after owner-approved cartography map v0.1 (owner chose "вариант A").
-      Question = q-first-proof-gas-spatial-form: in the first Bubble proof, when we say "there is gas here", what exists
-      in space? Blocks detection/read, transfer-to-bubble, carry/custody, rupture/release, external reactions and co-op
-      proof. Boundaries: no canon freeze; no transfer/carry/reaction/meta/economy/roster/title/final-VFX answers; no
-      `газовый карман`, `запузырить`, exact membrane ring, magic sleep/wake or gas subjectivity as ready terms.
+      PENDING core concept rebuild cartography. Owner correction: current route is not the old Bubble/Q1 entrypoint.
+      Fixed foundations: gas simulation, reactions, destructible/changeable space. Everything else is draft until
+      re-approved: bubble, floor loop, carry, tools, economy, ЛЁГКИЕ, roster, roles, title, old canon. The next session
+      must produce a compact question map, name dependencies, and choose the smallest first blocking question without
+      answering the concept or making bubble/floor/extraction/reactions/economy the center by assumption.
 
 recurring: []
 
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    state: active — Stage 2 DONE (c-visual-006 delivered on GasCoopGame_dev_2 dev2@6dbdddd; owner-eye/play-mode passed; real two-type preview + gas passport + half-res path; not pushed/merged by this close). Stage 3 FRAMED + FIRE-READY as c-visual-007: one-pearl/hero gas polish + natural-jet fix + LP1 re-test; visual-only/dev_2; owes §Re-sync v19 first.
+    state: active — Stage 3 DONE (c-visual-007 delivered on GasCoopGame_dev_2 dev2@1c99a907; Stage 3 single-gas visual on the Stage 2 half-res path; owner choices recorded: toonBandCount 2, opacityCeiling 0.72; LP1-LP5 pass with caveats; no fake visual-only jet; motion remains honest from current sim/GridView data, with sparse rectangular tail and jerky gas-only motion routed as future work; Core/sim diff empty; result-check and `tools/check.ps1 -Deliver` green). Stage 4 not opened.
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
     state: |-
-      active in parallel via Mechanics Workbench, not a second active bet. Mechanics Workbench question map v0.1 is
-      owner-approved (s-cartography-mechanics-workbench-questions-001, owner "вариант A"). All required draft material is
-      accounted for: Bubble placed as current floor-proof candidate; `ЛЁГКИЕ`, flagship examples and title parked; quiet
-      floor, detection, carry/co-op, release/reactions, tools/building and old canon salvage routed. Current open design
-      CALL is c-designlab-gas-spatial-form-001. Design Lab clears unclear blockers; worked gameplay mechanics later go
-      through local/mechanic-forge; local/canon-forge freezes compact canon only when freeze-ready. No canon freeze;
-      TREE/CHARTER untouched.
+      active in parallel, not a second active bet. Owner stopped the old Bubble/Q1 entrypoint as the active route after
+      new concept-process correction: current work is not q-floor-loop and not local/canon-forge. The live next route is
+      c-cartography-core-concept-rebuild-001 via local/canon-cartography: rebuild a compact question map from fixed
+      foundations (gas simulation, reactions, destructible/changeable space), treat bubble/floor loop/carry/tools/
+      economy/ЛЁГКИЕ/roster/roles/title/old canon as draft, then continue one smallest blocking question at a time.
+      work/design-labs/gas-spatial-form-001.md remains an agent proposal/draft only; no Q1 verdict or canon freeze was
+      recorded. TREE/CHARTER untouched.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -157,10 +145,6 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  CALL c-exec-035 → executor (GasCoopGame_dev): work/c-exec-035-sc-sense-call.md. Fresh owner-present PLAN (contract
-  v19 PLAN/BUILD split), independent RED test-author first. Return RESULT HOME; dev→main merge + push owner-gated.
-  Sc-catalog c-exec-034 is PARKED/preserved for later when canon gives a real roster; c-exec-033 (env-derived typing)
-  SUPERSEDED per owner (accidental wrong-chat) — parked as a later slice, design preserved.
-  Parallel tracks: c-visual-007 Stage 3; g-d3a8 Mechanics Workbench Q1 Design Lab ready as c-designlab-gas-spatial-form-001.
+  CALL c-cartography-core-concept-rebuild-001 → work/c-cartography-core-concept-rebuild-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
