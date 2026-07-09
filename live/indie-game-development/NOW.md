@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-repair-canon-core-recovery-001
+updated: 2026-07-09 by s-shape-lv-ingest-001
 
 bet:
   node: g-9c41
@@ -25,6 +25,11 @@ bet:
     (dev FF-merged to main; both pushed) + owner «PLAN одобрял» / «капсулу сам гонял — доза росла». c-exec-035 CLOSED.
     Road now rolls to Sc-damage (consumes the dose → first gas consequence), ready as shape CALL c-shape-sc-damage-001.
     Latest session: s-review-sc-sense-close-001 (see LOG.md / history/).
+    2026-07-09 (s-shape-lv-ingest-001): Sc-damage HELD (needs design; canon core re-assembling). Owner directed a
+    canon-INDEPENDENT engine slice instead — Lv-ingest (level ingestion + object/gas-source placement via Dungeon
+    Architect SnapGridFlow → our engine-free grid). Researched (wf_745d3a1f); SnapGridFlow confirmed; two-phase plan
+    (Phase 0 = hand-tagged seam via code/MCP, Phase 1 = real DA authoring). Lv-ingest now the recommended active engine
+    work; c-exec-lv-ingest-phase0-001 ready. Plan: knowledge/g9c41-da-level-ingestion-plan.md.
   appetite: |
     Governed by the g-9c41 de-risk wall; do not extend a bet silently. If a slice
     overruns or reveals a core blind spot, stop and re-shape/review, don't stretch.
@@ -83,8 +88,46 @@ tasks:
       Sc-damage's job (feed the committed post-step field once per sim tick; see
       knowledge/g9c41-sc-sense-delivered-unwired.md).
     status: done
+  - id: Lv-ingest
+    goal: |
+      Level ingestion + object placement: a generated (Phase 1: Dungeon Architect SnapGridFlow) or hand-tagged
+      (Phase 0) level is parsed into the AUTHORITATIVE gas grid at game start, with gas SOURCES placed as objects
+      (a GasSourceMarker, DA marker/theme-native) and seeded into the sim DETERMINISTICALLY in the authoritative,
+      engine-free path (inside the lockstep checksum). Canon-INDEPENDENT engine infrastructure, pulled in while
+      Sc-damage is design-held (owner-directed 2026-07-09). SnapGridFlow chosen (owner-confirmed: most advanced
+      room/module-based 3D flow; our BuiltSceneRoomReader already reads it generator-blind). Plan + gotchas:
+      knowledge/g9c41-da-level-ingestion-plan.md.
+    done_when: |
+      Phase 0 (c-exec-lv-ingest-phase0-001) returns DELIVERED: on a hand-tagged test scene (2 rooms + door + 1
+      gas-source marker) gas flows from the placed source through the door; the engine-free source seam
+      (GasSourceMarker + GasSourceSpec + BuiltSceneGasSourceReader + GasSourceSeeder + LatticeQuantize.ContainingCell)
+      is deterministic + integer + in the AUTHORITATIVE sim step (continuous injection MOVED out of the render adapter,
+      folded in the MeaningChecksum); RED-first independent tests; -Deliver green; fresh-session cross-family G5
+      could-not-refute; owner sees source→flow. On GREEN, Phase 1 (real DA SnapGridFlow: minimal modules +
+      LevelBootstrap runtime Build + seed/ProfileHash session handshake, SAME reader unchanged) frames. Two gotchas
+      (recorded): DA ships ZERO content (Phase 1 = owner-manual DA authoring), and current source-injection is outside
+      the checksum (Phase 0 moves it in). MCP rule: build via MCP where possible, else step-by-step owner instructions
+      — no crutches.
+    status: active
 
 open_calls:
+  - id: c-exec-lv-ingest-phase0-001
+    to: executor
+    for: g-9c41 / Lv-ingest (Phase 0)
+    issued: 2026-07-09
+    call: work/c-exec-lv-ingest-phase0-call.md
+    note: |
+      READY fresh GasCoopGame_dev BUILD leg. Canon-independent engine infrastructure while Sc-damage is design-held.
+      Base = GasCoopGame origin/main @defade72 (§Re-sync at tip). Phase 0 = the engine-free gas-source seam on
+      HAND-TAGGED geometry (100% code/MCP, NO Dungeon Architect authoring): GasSourceMarker + GasSourceSpec +
+      BuiltSceneGasSourceReader + GasSourceSeeder + LatticeQuantize.ContainingCell + MOVE continuous source injection
+      out of the VoxelSandboxDirector render adapter INTO the authoritative sim step (inside the MeaningChecksum);
+      test scene (2 rooms + door + source) → gas flows from the placed source through the door. Discipline: contract
+      v19 PLAN/BUILD split, independent RED test-author, deterministic integer path + both scans, -Deliver green,
+      fresh cross-family G5. Boundaries: no real DA build / no DA authoring / no DungeonArchitectRoomReader (Phase 1),
+      no multiplayer seed handshake (Phase 1+), no new gas types / visual / damage. MCP rule (owner hard): build via
+      Unity-MCP where possible, else STOP + step-by-step owner instructions, NO crutch; Unity/MCP unavailable → STOP.
+      Reads: knowledge/g9c41-da-level-ingestion-plan.md + g9c41 SPEC. On GREEN → Phase 1 (real DA) frames.
   - id: c-shape-sc-damage-001
     to: session
     for: g-9c41 / Sc-damage
@@ -189,8 +232,10 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  # TWO fronts. g-9c41 (gas) is the active bet; canon = fresh one-question Кузница session on core-1.
-  - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: active-bet rolling-wave (Sc-sense DONE → shape Sc-damage)
+  # RECOMMENDED active engine work while Sc-damage is design-held (owner-approved 2026-07-09 — START HERE):
+  - CALL c-exec-lv-ingest-phase0-001 → work/c-exec-lv-ingest-phase0-call.md  # ENGINE: level-ingestion + gas-source seam, Phase 0 (code/MCP, hand-tagged; SnapGridFlow real DA = Phase 1)
+  # Other ready fronts (owner picks):
+  - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: shape Sc-damage — HELD (needs design)
   - CALL c-core-1-bubble-fill-001 → work/c-core-1-bubble-fill-call.md  # CANON: fresh Кузница session, core-1 bubble-fill (МЕХАНИКА)
 
 END_OF_FILE: live/indie-game-development/NOW.md
