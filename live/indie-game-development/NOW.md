@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-research-concept-summary-001
+updated: 2026-07-09 by s-repair-canon-core-recovery-001
 
 bet:
   node: g-9c41
@@ -112,20 +112,18 @@ open_calls:
       no particles/VFX as acceptance crutch, no Stage 4 character/danger work.
       BASE MOVED 2026-07-09: c-exec-035 delivery advanced GasCoopGame origin/main to @defade72; the 9d6f8ded base above
       is now BEHIND — the visual checkout must §Re-sync to defade72 (latest origin/main) before firing.
-  - id: c-forge-q-ruki-001
+  - id: c-core-1-bubble-fill-001
     to: session
-    for: g-d3a8 / canon node q-ruki (player verbs)
+    for: g-d3a8 / CORE piece core-1 — how gas enters the bubble
     issued: 2026-07-09
-    call: work/c-forge-q-ruki-001-call.md
+    call: (running LIVE in the owner's current chat — s-repair-canon-core-recovery-001; no packet, queue item = canon QUEUE.md core-1)
     note: |
-      READY Кузница v2 session (play: local/canon-forge) on the owner-signed core-concept-rebuild map. Cluster = map
-      node 1 q-ruki (МЕХАНИКА mode); node 2 q-prostranstvo admissible as co-frame if the session has room. Base = canon
-      repo @b77571b: CONSTITUTION ratified (verdict «Б», edits П1–П3), QUEUE.md = the signed map, INDEX still empty (no v2
-      card yet). Session reads CONSTITUTION+INDEX+QUEUE+SESSION itself (START.md). Goal = which 1–3 verbs are the player's
-      hands on the gas world, delivered as a seconds-level loop with players separated, gated by
-      knowledge/mechanic-lenses.md. Verdict = owner's verbatim words or an honest «обсуждается». Boundaries: no tools
-      list, no bubble mechanic, no roster, no economy, no title; no engine beyond the planned road (П3). Gap → gap_event
-      back to work/canon-maps/core-concept-rebuild-question-map-v0.1.md; do not invent canon.
+      IN PROGRESS. First discussion of the rebuilt canon process: candidates «кольцо» (ring on sleeping lake, current
+      working image from the accepted core) vs «кран-надув» (owner's own instinct: deflated bubble + valve, gas flows in,
+      volume grows in hand; ковш ceiling kept) vs rejected «черпак». Decides ONLY the fill action; not strength, prices,
+      carry, types. Verdict = owner's words; «обсуждается» is a valid outcome. Prior CALL c-forge-q-ruki-001 REVOKED
+      (verbs-first entry re-asked what the owner already answered; see work/c-forge-q-ruki-001-call.md and
+      history/2026-07-09-s-repair-canon-core-recovery-001.md).
 
 recurring: []
 
@@ -137,27 +135,27 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      active in parallel, not a second active bet. CARTOGRAPHY DONE 2026-07-09 (s-cartography-core-concept-rebuild-001,
-      CALL c-cartography-core-concept-rebuild-001). Two owner verdicts recorded verbatim:
-      (a) CONSTITUTION.md RATIFIED — verdict «Б» = ratify with edits П1/П2/П3. П1: reactions are fixed material but the
-      comfortable base does NOT require chasing reactions or optimizing expensive gases. П2: pillar 4 is a FILTER (if
-      value exists it comes from gas + failure changes the world), NOT «extraction is the core by default». П3: pillar 6
-      «zero new engine» = nothing beyond the existing sim + already-planned road. Canon repo @87a05a7.
-      (b) core-concept-rebuild question map SIGNED — verdict «А» = «подписываю карту» — written as canon-repo QUEUE.md
-      @b77571b (replaces the 2026-07-08 draft); full-field version at
-      work/canon-maps/core-concept-rebuild-question-map-v0.1.md. 10 nodes in dependency order from the fixed foundations
-      (gas sim, reactions, destructible/changeable space): 1 q-ruki (player verbs, МЕХАНИКА) → 2 q-prostranstvo (space as
-      a hand, co-frame) → 3 q-motiv → 4 q-bazovaya-petlya (comfortable no-reaction-chase loop, from П1) → 5
-      q-reakcii-v-baze → 6 q-proval → 7 q-koop (mechanic-lenses gate) → 8 q-cennost (conditional on motive=value) → 9
-      q-fazy → 10 q-obeshanie (synthesis). Bubble/carry/tools/economy/ЛЁГКИЕ/bestiary/roster/title/old-canon all PARKED
-      with explicit wake-nodes, nothing lost. Owner-approved first route = node 1 q-ruki via local/canon-forge (Кузница
-      v2), node 2 admissible as co-frame; next CALL c-forge-q-ruki-001 ready. No canon card frozen (INDEX still empty).
-      TREE/CHARTER untouched. Gap rule: a forge session hitting a hidden prerequisite / unclear question / wrong
-      answer-shape / owner «не туда» checkpoints a gap_event back to the map, never invents canon. Superseded old route:
-      local/canon-cartography served its purpose; work/design-labs/gas-spatial-form-001.md stays draft-only, no Q1
-      verdict. PROCESS SHELL «Кузница v2» (installed 2026-07-09 s-process-canon-forge-v2-001) unchanged: canon-forge → v2
-      wrapper; canon-status/design-lab/mechanic-forge → superseded stubs (mechanic-lenses BINDING); canon-cartography
-      retained v1.
+      active in parallel, not a second active bet. CORE RECOVERY 2026-07-09 (s-repair-canon-core-recovery-001), after the
+      owner rejected the verbs-first map's first output as «полная хуита»: the third process rebuild in a row had lost his
+      ACCEPTED concept core. Root cause established by 6-reader evidence sweep (recorded in the history file): (a) binary
+      status taxonomy — no state between «зафиксировано» and «драфт» for "owner likes this, elaborate from here"; (b)
+      provenance quarantine — «нет в файлах = не решено» + empty INDEX made «мне нравится» formally invisible (the
+      acceptance lived in work/concept-summary-2026-07-09.md, self-labeled «НЕ канон», which rebuild CALLs never read);
+      (c) one-directional guards — anti-premature-freeze rules accreted after 07-07 with NO anti-loss counterpart, so
+      compliant sessions kept demoting the bubble (stripped → candidate → parked); (d) blank-slate dependency cartography
+      re-derived abstract questions the owner had already answered. FIX APPLIED: canon repo CORE.md = owner's verbatim
+      сводка pinned (bubble core «мне нравится»: три фазы, спящие газы+разведка, ПУЗЫРЬ «неси не лопни», ковш-часть,
+      бестиарий без мозгов, палитра вреда + КОМПАС + voice principles «просто не примитивно» / «сложно но не душно» /
+      база проста-глубина сама / «фан — в физическом действии»); load order now CONSTITUTION → CORE → INDEX → QUEUE →
+      SESSION (START/SESSION edited); canon QUEUE.md rewritten as разбор ядра core-1…core-10 (bubble-fill first, damage
+      palette flagged as engine-blocking for Sc-damage); «черновик ≠ второстепенное» + build-AROUND-core + no-silent-
+      replacement rules pinned in CORE.md. REVOKED: the 10-node verbs-first map (work/canon-maps/
+      core-concept-rebuild-question-map-v0.1.md, evidence-stamped) and CALL c-forge-q-ruki-001. Spec board
+      work/game-spec-DRAFT-v0.md rewritten v0.2 around the bubble core with the new 💚 «принято направлением» status.
+      CONSTITUTION ratification (owner «Б», П1–П3, @87a05a7) STANDS — verdict rules were never the problem; the entry was.
+      IN FLIGHT: core-1 discussion (how gas enters the bubble: кольцо vs кран-надув) running live with the owner.
+      Открыто там же: d-ono-dyshit-core-frame-fork-001 formally awaiting_decision (bubble = capture-first de facto;
+      record via core-10). TREE/CHARTER untouched; INDEX still empty (no v2 card yet).
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -187,9 +185,8 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  # TWO ready fronts — OWNER PICKS. g-9c41 (gas) is the active bet; the canon forge is owner-signed
-  # (s-cartography-core-concept-rebuild-001, verdict «А»). Neither clobbers the other; both are ready.
+  # TWO fronts. g-9c41 (gas) is the active bet; canon runs core-recovery discussions live with the owner.
   - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md   # GAS: active-bet rolling-wave continuation (Sc-sense DONE → shape Sc-damage)
-  - CALL c-forge-q-ruki-001 → work/c-forge-q-ruki-001-call.md      # CANON: owner-signed first route q-ruki (kept intact)
+  - CANON: core-1 bubble-fill discussion LIVE in owner chat (canon QUEUE.md core-1); c-forge-q-ruki-001 REVOKED
 
 END_OF_FILE: live/indie-game-development/NOW.md

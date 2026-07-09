@@ -1,9 +1,11 @@
 # Core Concept Rebuild — Question Map v0.1
 
-Status: owner-signed cartography map, NOT canon, no gameplay answer frozen.
-Approved in: `s-cartography-core-concept-rebuild-001` (CALL c-cartography-core-concept-rebuild-001).
-Owner words: `А` (= «Подписываю карту»).
-Signed compact queue lives in canon repo `QUEUE.md`. This file is the full-field version + gap-rule anchor.
+Status: **REVOKED by owner 2026-07-09** («идеи терялись… полная хуита… стройте вокруг принятого ядра») — kept as EVIDENCE only.
+Root cause recorded in history/2026-07-09-s-repair-canon-core-recovery-001.md: this map demoted the owner-accepted bubble core
+(«мне нравится», work/concept-summary-2026-07-09.md) to parking and re-derived abstract questions from scratch.
+Superseded by: canon repo `CORE.md` (pinned owner core) + rewritten canon `QUEUE.md` (разбор ядра core-1…core-10).
+Original approval trail (for the record): signed «А» in s-cartography-core-concept-rebuild-001 — the map honestly promised
+"nothing lost" for RETRIEVAL, but was false for PRIORITY/ORDER; the owner revoked it on first contact with its output.
 
 ## 1. Cluster
 
