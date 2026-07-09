@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_scope_boundary_card_approved_structure_discovery_next
+route_status: operating_substrate_universal_structure_architecture_gap
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -60,6 +60,20 @@ owner_directive: |
     2-3 processes and decide how substrate should discover/design the
     needed process structure without pre-freezing a component list.
 
+  Structure-discovery forge checkpoint:
+  - Owner rejected treating "discovery loop" as the main substrate answer.
+  - Owner clarified the desired direction: a universal adaptive process
+    structure / process pack with common service layers so new processes
+    do not reinvent persistence, history, routing, procedures, context,
+    results, gates and communication from scratch.
+  - Owner did not approve the assistant's corrected block sketch as truth.
+    It is only a rough direction. Some details are disputed and vague.
+  - Next work must be architectural development of the structure itself:
+    what must exist, why, what the parts are, how processes communicate,
+    how it adapts to different domains, and how it is checked.
+  - Do not implement the sketch. Do not freeze block list as accepted
+    architecture. Return to cartography/research/architecture-prep.
+
 tasks: []
 
 recurring: []
@@ -103,6 +117,8 @@ preserved_evidence:
   - live/solmax/work/operating-substrate/cards/operating-substrate-scope-boundary-001.md
   - owner approval in chat for operating-substrate scope/boundary card v2: "Approve v2"
   - owner correction in chat: "не факт, что такая структура будет ... мы должны определить эту структуру саму ещё ... Я не хочу, чтобы он становился авторитетным в какую-то структуру"
+  - live/solmax/history/2026-07-09-c-solmax-operating-substrate-structure-discovery-architecture-forge-001.md
+  - owner correction in chat: "должна быть структура ... саму структуру это надо разрабатывать достаточно комплексная вещь ... дальше должна быть идти именно проработка, архитектурная проработка"
 
-next: work/calls/c-solmax-operating-substrate-structure-discovery-architecture-forge-001.md
+next: work/calls/c-solmax-operating-substrate-universal-structure-cartography-001.md
 END_OF_FILE: live/solmax/NOW.md
