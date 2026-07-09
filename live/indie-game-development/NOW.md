@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-process-canon-forge-v2-001
+updated: 2026-07-09 by s-cartography-core-concept-rebuild-001
 
 bet:
   node: g-9c41
@@ -99,17 +99,20 @@ open_calls:
       current body shader/path, add honest render-only internal idle life, smooth motion onset where current data allows,
       and A/B gas-off/gas-on clarity. Boundaries: no Core/sim/network/reactions/Sc-sense edits, no fake directional jet,
       no particles/VFX as acceptance crutch, no Stage 4 character/danger work.
-  - id: c-cartography-core-concept-rebuild-001
+  - id: c-forge-q-ruki-001
     to: session
-    for: g-d3a8 / core concept rebuild cartography
+    for: g-d3a8 / canon node q-ruki (player verbs)
     issued: 2026-07-09
-    call: work/c-cartography-core-concept-rebuild-001-call.md
+    call: work/c-forge-q-ruki-001-call.md
     note: |
-      PENDING core concept rebuild cartography. Owner correction: current route is not the old Bubble/Q1 entrypoint.
-      Fixed foundations: gas simulation, reactions, destructible/changeable space. Everything else is draft until
-      re-approved: bubble, floor loop, carry, tools, economy, ЛЁГКИЕ, roster, roles, title, old canon. The next session
-      must produce a compact question map, name dependencies, and choose the smallest first blocking question without
-      answering the concept or making bubble/floor/extraction/reactions/economy the center by assumption.
+      READY Кузница v2 session (play: local/canon-forge) on the owner-signed core-concept-rebuild map. Cluster = map
+      node 1 q-ruki (МЕХАНИКА mode); node 2 q-prostranstvo admissible as co-frame if the session has room. Base = canon
+      repo @b77571b: CONSTITUTION ratified (verdict «Б», edits П1–П3), QUEUE.md = the signed map, INDEX still empty (no v2
+      card yet). Session reads CONSTITUTION+INDEX+QUEUE+SESSION itself (START.md). Goal = which 1–3 verbs are the player's
+      hands on the gas world, delivered as a seconds-level loop with players separated, gated by
+      knowledge/mechanic-lenses.md. Verdict = owner's verbatim words or an honest «обсуждается». Boundaries: no tools
+      list, no bubble mechanic, no roster, no economy, no title; no engine beyond the planned road (П3). Gap → gap_event
+      back to work/canon-maps/core-concept-rebuild-question-map-v0.1.md; do not invent canon.
 
 recurring: []
 
@@ -121,19 +124,27 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      active in parallel, not a second active bet. Owner stopped the old Bubble/Q1 entrypoint as the active route after
-      new concept-process correction: current work is not q-floor-loop and not local/canon-forge. The live next route is
-      c-cartography-core-concept-rebuild-001 via local/canon-cartography: rebuild a compact question map from fixed
-      foundations (gas simulation, reactions, destructible/changeable space), treat bubble/floor loop/carry/tools/
-      economy/ЛЁГКИЕ/roster/roles/title/old canon as draft, then continue one smallest blocking question at a time.
-      work/design-labs/gas-spatial-form-001.md remains an agent proposal/draft only; no Q1 verdict or canon freeze was
-      recorded. TREE/CHARTER untouched. PROCESS SHELL (2026-07-09, s-process-canon-forge-v2-001, owner commission):
-      «Кузница v2» installed in canon repo @7541be3 — CONSTITUTION draft (pillars + palette: fixed foundations =
-      sim/reactions/space, bubble-concept = draft candidates) + SESSION script (≤3 candidates → sparring → read-back →
-      owner-verdict-verbatim-or-invalid) + immutable cards/AMENDMENTS + INDEX-as-memory + QUEUE as DRAFT INPUT for the
-      pending cartography (owner-signed map replaces it); old questions/maps = LEGACY evidence. OS plays: canon-forge →
-      v2 wrapper; canon-status/design-lab/mechanic-forge → superseded stubs (mechanic-lenses stays BINDING);
-      canon-cartography KEPT v1 for the pending call.
+      active in parallel, not a second active bet. CARTOGRAPHY DONE 2026-07-09 (s-cartography-core-concept-rebuild-001,
+      CALL c-cartography-core-concept-rebuild-001). Two owner verdicts recorded verbatim:
+      (a) CONSTITUTION.md RATIFIED — verdict «Б» = ratify with edits П1/П2/П3. П1: reactions are fixed material but the
+      comfortable base does NOT require chasing reactions or optimizing expensive gases. П2: pillar 4 is a FILTER (if
+      value exists it comes from gas + failure changes the world), NOT «extraction is the core by default». П3: pillar 6
+      «zero new engine» = nothing beyond the existing sim + already-planned road. Canon repo @87a05a7.
+      (b) core-concept-rebuild question map SIGNED — verdict «А» = «подписываю карту» — written as canon-repo QUEUE.md
+      @b77571b (replaces the 2026-07-08 draft); full-field version at
+      work/canon-maps/core-concept-rebuild-question-map-v0.1.md. 10 nodes in dependency order from the fixed foundations
+      (gas sim, reactions, destructible/changeable space): 1 q-ruki (player verbs, МЕХАНИКА) → 2 q-prostranstvo (space as
+      a hand, co-frame) → 3 q-motiv → 4 q-bazovaya-petlya (comfortable no-reaction-chase loop, from П1) → 5
+      q-reakcii-v-baze → 6 q-proval → 7 q-koop (mechanic-lenses gate) → 8 q-cennost (conditional on motive=value) → 9
+      q-fazy → 10 q-obeshanie (synthesis). Bubble/carry/tools/economy/ЛЁГКИЕ/bestiary/roster/title/old-canon all PARKED
+      with explicit wake-nodes, nothing lost. Owner-approved first route = node 1 q-ruki via local/canon-forge (Кузница
+      v2), node 2 admissible as co-frame; next CALL c-forge-q-ruki-001 ready. No canon card frozen (INDEX still empty).
+      TREE/CHARTER untouched. Gap rule: a forge session hitting a hidden prerequisite / unclear question / wrong
+      answer-shape / owner «не туда» checkpoints a gap_event back to the map, never invents canon. Superseded old route:
+      local/canon-cartography served its purpose; work/design-labs/gas-spatial-form-001.md stays draft-only, no Q1
+      verdict. PROCESS SHELL «Кузница v2» (installed 2026-07-09 s-process-canon-forge-v2-001) unchanged: canon-forge → v2
+      wrapper; canon-status/design-lab/mechanic-forge → superseded stubs (mechanic-lenses BINDING); canon-cartography
+      retained v1.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -163,6 +174,6 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  CALL c-cartography-core-concept-rebuild-001 → work/c-cartography-core-concept-rebuild-001-call.md
+  CALL c-forge-q-ruki-001 → work/c-forge-q-ruki-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
