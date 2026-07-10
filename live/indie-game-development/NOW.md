@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-repair-canon-design-process-route-001
+updated: 2026-07-10 by s-repair-canon-process-v3-paper-only-001
 
 bet:
   node: g-9c41
@@ -141,56 +141,60 @@ open_calls:
       knowledge/g9c41-sc-sense-delivered-unwired.md, the g9c41 SPEC, engineering contract. Fold the co-op-interdependence
       axis (decision d-coop-interdependence-repin-001) into the Sc-damage framing. Goal = a fire-ready Sc-damage executor
       CALL. Boundaries: SHAPE only (produces the CALL, builds nothing); no new gas types; no visual pipeline.
-  - id: c-visual-008
+  - id: c-visual-009
     to: executor
-    for: g-7e15 / VISUAL Stage 3.5
-    issued: 2026-07-09
-    call: work/c-visual-008-stage3-5-motion-clarity-call.md
-    note: |
-      READY visual-only Stage 3.5 inserted before Stage 4 after owner observed dead-static idle gas, jerky/low-frame
-      motion onset, and possible scene muddiness around the gas. Base = GasCoopGame origin/main@9d6f8ded with
-      c-visual-007 dev2@1c99a907 already merged; visual checkout must verify/sync to that base first. Scope: audit
-      current body shader/path, add honest render-only internal idle life, smooth motion onset where current data allows,
-      and A/B gas-off/gas-on clarity. Boundaries: no Core/sim/network/reactions/Sc-sense edits, no fake directional jet,
-      no particles/VFX as acceptance crutch, no Stage 4 character/danger work.
-      BASE MOVED 2026-07-09: c-exec-035 delivery advanced GasCoopGame origin/main to @defade72; the 9d6f8ded base above
-      is now BEHIND — the visual checkout must §Re-sync to defade72 (latest origin/main) before firing.
-  - id: c-research-canon-design-process-v3-001
-    to: session
-    for: g-d3a8 / evidence-backed canon design process v3
+    for: g-7e15 / VISUAL Stage 3.5 movement-data PLAN
     issued: 2026-07-10
-    call: work/c-research-canon-design-process-v3-001-call.md
+    call: work/c-visual-009-movement-data-plan-call.md
     note: |
-      READY research session after owner verdict «А». Canon Forge v2 is suspended as the active
-      design-decision route. core-0 gas states and core-1 bubble fill are HOLD material for one
-      future pilot, not active canon questions. Fixed foundations remain gas simulation,
-      reactions and destructible/changeable space. Bubble, three phases, sleeping-gas recon and
-      other owner-liked material are DESIGN ANCHORS: preserve them, but do not treat them as canon
-      or immutable foundations. This CALL researches structurally different process options and
-      returns a pilot-ready recommendation; it does not answer the concept, install a process or
-      rebuild the full question graph.
+      READY fresh owner-present PLAN-only product session after c-visual-008 reached its frozen
+      stop-needs-new-data branch (NOT DELIVERED). Select the honest simulation-derived movement seam: previous/current
+      density + tick interpolation versus a separate read-only resource derived from existing signed per-face flux;
+      decide whether density history is complementary, and explicitly split or couple half-res blur/upsample plus
+      dense-core shaping. Preserve GridView meanings and the 128-byte GpuGasParams ABI; no new physics, feedback,
+      render tuning, tests, BUILD or Stage 4. Product preflight observed origin/main@a644e5db while dev2@a48883b5 was
+      stale/diverged with untracked c-visual-008 closure evidence; verify latest main and reconcile that evidence first.
+  - id: c-pilot-canon-design-process-v3-paper-001
+    to: session
+    for: g-d3a8 / paper-only canon-design process pilot
+    issued: 2026-07-10
+    call: work/c-pilot-canon-design-process-v3-paper-001-call.md
+    note: |
+      READY owner-present text-only pilot after owner correction and exact choice «А».
+      Generate and filter mechanic variants only on paper; no Unity scene, greybox, prototype,
+      visual probe, A/B build, implementation, setup, test or tuning work. Apply game-wide laws at
+      game/core-loop altitude and only question-specific criteria to a micro-decision. Show the
+      owner 2–3 structurally different paper candidates or an honest blocked outcome, then request
+      a verdict on the process only. core-0/core-1 remain HOLD source material; no canon freeze.
 
 recurring: []
 
 parallel_tracks:
   - id: g-7e15
     track: VISUAL / GASG
-    state: active — Stage 3 DONE + PUSHED (c-visual-007 delivered on GasCoopGame_dev_2 dev2@1c99a907 and merged+pushed to GasCoopGame origin/main@9d6f8ded; Stage 3 single-gas visual on the Stage 2 half-res path; owner choices recorded: toonBandCount 2, opacityCeiling 0.72; LP1-LP5 pass with caveats; no fake visual-only jet; Core/sim diff empty; c-visual-007 result-check green; main inner-loop `tools/check.ps1` green; full `-Deliver` on merged main is blocked by pre-existing c-exec-021/c-visual-005 MERGED-status docs, not by c-visual-007). Stage 3.5 FRAMED + FIRE-READY as c-visual-008: idle internal life for stationary gas, motion-onset smoothness, and environment clarity/muddiness audit; render-only; base origin/main@9d6f8ded; no fake jet; Stage 4 not opened.
+    state: |-
+      active — Stage 3 DONE + PUSHED (c-visual-007 delivered on GasCoopGame_dev_2 dev2@1c99a907 and merged+pushed
+      to GasCoopGame origin/main@9d6f8ded; one real gas on the Stage 2 half-res path; owner choices band 2 and opacity
+      ceiling 0.72; LP1-LP5 pass with caveats; no fake visual-only jet; Core/sim diff empty). c-visual-008 terminated
+      2026-07-10 as STUCK / stop-needs-new-data, NOT DELIVERED: render-only motion became visible/smoother but owner
+      rejected the solid dense center emitting side wisps; half-res blur remained; rejected product candidate removed.
+      c-visual-009 is FIRE-READY as a PLAN-only movement-data contract over current origin/main: choose density-history
+      interpolation versus/read alongside a separate flux-derived read-only movement resource, and decide whether
+      blur/upsample plus dense-core shaping split into a later render-only leg. Stage 4 remains unopened.
     plan: work/gas-visual-plan-v2-2026-07-02.md
   - id: g-d3a8
     track: canon/design
     state: |-
-      PROCESS REPAIR ROUTED 2026-07-10
-      (s-repair-canon-design-process-route-001; owner «А»). Canon Forge v2 is suspended as the
-      active design-decision route: repeated sessions mixed design discovery with canon recording,
-      lacked a dependency/readiness gate, and selected bubble-fill before gas-state semantics.
-      core-0/core-1 are preserved as HOLD material for one pilot, not active sequential questions.
-      Fixed foundations remain gas simulation, reactions and destructible/changeable space.
-      Bubble, three phases, sleeping-gas reconnaissance and other owner-liked material are DESIGN
-      ANCHORS — not canon, not foundations and not ordinary discardable drafts; preserve them and
-      challenge/replace only explicitly. INDEX remains empty. Next design work =
-      c-research-canon-design-process-v3-001. No full graph rebuild or concept verdict before one
-      owner-evaluated pilot.
+      PAPER-ONLY PROCESS PILOT READY 2026-07-10
+      Research result s-research-canon-design-process-v3-001 is preserved as evidence, but its
+      prototype/playtest/visual-evidence lanes are superseded for this direction by the owner's
+      hard boundary: design variants are generated and compared only in text, with no separate
+      implementation or setup work. Owner chose «А»: game-wide laws apply at game/core-loop
+      altitude; each small decision receives only relevant question-specific filters, never every
+      pillar by force. Canon Forge v2 remains suspended. core-0/core-1 remain HOLD source material;
+      fixed foundations and DESIGN ANCHORS retain their prior status. Next design work =
+      c-pilot-canon-design-process-v3-paper-001. No concept/canon/full-graph verdict before the
+      owner evaluates this paper-only process pilot.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -223,8 +227,9 @@ next:
   # RECOMMENDED active engine work while Sc-damage is design-held (owner-approved 2026-07-09 — START HERE):
   - CALL c-exec-lv-ingest-phase0-001 → work/c-exec-lv-ingest-phase0-call.md  # ENGINE: level-ingestion + gas-source seam, Phase 0 (code/MCP, hand-tagged; SnapGridFlow real DA = Phase 1)
   # Other ready fronts (owner picks):
+  - CALL c-visual-009 → work/c-visual-009-movement-data-plan-call.md  # VISUAL: PLAN-only simulation-derived movement seam; Stage 4 closed
   - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: shape Sc-damage — HELD (needs design)
-  - CALL c-research-canon-design-process-v3-001 → work/c-research-canon-design-process-v3-001-call.md
-    # CANON PROCESS: research process v3 + prepare one pilot; core-0/core-1 remain HOLD material
+  - CALL c-pilot-canon-design-process-v3-paper-001 → work/c-pilot-canon-design-process-v3-paper-001-call.md
+    # CANON PROCESS: paper-only selection pilot; no builds/tests; core-0/core-1 remain HOLD material
 
 END_OF_FILE: live/indie-game-development/NOW.md

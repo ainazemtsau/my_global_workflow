@@ -102,4 +102,12 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — repair (g-d3a8/canon-process, s-repair-canon-design-process-route-001): owner chose «А»; suspended Canon Forge v2 as the active design route, held core-0/core-1 for one pilot, classified liked concept material as design anchors, and opened evidence-backed process-v3 research before any full graph rebuild. → history/2026-07-10-s-repair-canon-design-process-route-001.md
 
+2026-07-10 — research (g-d3a8/canon-process-v3, s-research-canon-design-process-v3-001): diagnosed five separate process failures and recommended a readiness-gated Decision Studio with matched alternatives, claim-specific evidence lanes and a separate Canon Ledger; supplied orthogonal statuses, typed dependency/co-frame rules and a core-0/core-1 process-only pilot with kill criteria; no concept/canon/process decision made. → history/2026-07-10-s-research-canon-design-process-v3-001.md
+
+2026-07-10 — work/route (g-7e15/c-visual-008, s-work-066): c-visual-008 accepted only as terminal stop-needs-new-data, NOT DELIVERED — smoother visible render detail still read as a solid center emitting side wisps and half-res blur remained; c-visual-009 opened as a PLAN-only movement-data contract over current main, with density-history vs flux-derived read-only seam and blur/dense-core split to decide before any BUILD or Stage 4. → history/2026-07-10-s-work-066-c-visual-008-stop-route.md
+
+2026-07-10 — work/checkpoint (g-7e15/c-visual-009, s-work-067): PLAN not started because this Codex leg is bound to the Direction-OS worktree while the CALL requires a fresh GasCoopGame product-repo session; read-only preflight confirmed origin/main@a644e5db, stale/diverged dev2@a48883b5 and 16 preserved untracked c-visual-008 evidence files. c-visual-009 stays pending unchanged; no plan, approval or BUILD work claimed. → history/2026-07-10-s-work-067-c-visual-009-binding-checkpoint.md
+
+2026-07-10 — repair (g-d3a8/canon-process-v3, s-repair-canon-process-v3-paper-only-001): owner prohibited all playable/visual/implementation variant work and chose «А» — game-wide laws at game/core-loop altitude plus only relevant question-specific filters; superseded prototype-inclusive evidence lanes and opened one text-only selection-process pilot with internal generation, hard kills and 2–3 paper candidate cards. → history/2026-07-10-s-repair-canon-process-v3-paper-only-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
