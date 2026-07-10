@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_universal_structure_cartography_owner_approved
+route_status: operating_substrate_core_invariant_owner_approved
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -88,13 +88,38 @@ owner_directive: |
   - No implementation, repo/backend/carrier, proof harness, Direction OS
     kernel change or final service-block list is activated.
 
+  Core-invariant architecture card:
+  - Owner approved operating-substrate-core-invariant-001.
+  - Frozen kind of object: stable, model-neutral, carrier-neutral,
+    owner-tuned AI-process kernel with pluggable process packs.
+  - Concrete processes are created by installing packs, not by modifying
+    the kernel.
+  - Kernel responsibility classes cover bounded runs, procedures,
+    routing, child work, structured communication/continuation,
+    state-memory-source discipline, authority/effect boundaries,
+    adapters, evidence/replay, owner interface and governed evolution.
+  - Owner clarification: every close/checkpoint must yield a portable
+    continuation index that can be copied into a new chat or routed
+    automatically.
+  - Durable mutation crosses a validated writer/apply boundary. A
+    separate writer chat/agent is a current pattern, not a frozen
+    implementation topology.
+  - Markdown/chat are bootstrap carriers. Future applications and
+    automation must implement the same semantics rather than redefine
+    them.
+  - No service-block list, schema, implementation, repo/backend,
+    carrier, proof harness or consumer policy was frozen.
+  - No graph rebalance or gap_event is required.
+  - Next route is bounded best-practice research supporting Q2
+    service-zone/classification forge.
+
 tasks: []
 
 recurring: []
 decisions: []
 
 open_calls:
-  - c-solmax-operating-substrate-core-invariant-architecture-forge-001
+  - c-solmax-operating-substrate-kernel-service-zone-best-practice-research-001
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -138,5 +163,11 @@ preserved_evidence:
   - live/solmax/work/operating-substrate-universal-structure-cartography-001.md
   - live/solmax/history/2026-07-09-s-solmax-operating-substrate-universal-structure-cartography-001.md
   - owner approval/steering in chat: "я с вопросами согласен ... будут возникать новые вопросы ... за одним вопросом последуют другие ... мы определим какую-то сущность, которая тоже должна быть отдельно определена ... мы должны быть готовы к такому"
-next: work/calls/c-solmax-operating-substrate-core-invariant-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-core-invariant-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-core-invariant-architecture-forge-001.md
+  - 'owner approval in chat: "я approve версию 1, вариант А"'
+  - 'owner clarification in chat: "я должен получить индекс, который могу скопировать и вставить в новый чат"'
+  - 'owner clarification in chat: "writer — это отдельная задача ... своя валидация должна быть"'
+  - 'owner carrier direction in chat: "сейчас это как просто Markdown-файл ... в будущем ... более автоматизировано"'
+next: work/calls/c-solmax-operating-substrate-kernel-service-zone-best-practice-research-001.md
 END_OF_FILE: live/solmax/NOW.md
