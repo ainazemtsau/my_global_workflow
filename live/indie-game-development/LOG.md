@@ -143,4 +143,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/publish (g-9c41/PGG, s-work-publish-pgg-spike-checkpoint-001): direction-коммиты по @d23ac1e включительно запушены, clean merge @5cb0f3e залит в origin/main; remote ancestry/readback checkpoint подтверждены, конкурентный Solmax сохранён, занятый dirty main не тронут. → history/2026-07-10-s-work-publish-pgg-spike-checkpoint-001.md
 
+2026-07-10 — repair (g-9c41/M1-A0, s-repair-poligon-a0-checksum-route-001): c-exec-poligon-a0-001 recorded as returned STOP/NOT DELIVERED; NOW compacted to schema and routed through Phase-0-gated checksum foundation plus a fresh successor A0 under the fixed 11-leg appetite, with future M1-9+M1-10 coalesced by owner «А». → history/2026-07-10-s-repair-poligon-a0-checksum-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
