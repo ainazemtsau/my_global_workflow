@@ -141,4 +141,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — research/checkpoint (g-9c41/PGG, s-spike-pgg-001-cp1): бросовый Unity 6.3 проект с PGG 1.6.6.2.12 поднят и компилируется после scratch-only `uGUI 2.0.0` + `PortHandler [System.Serializable]`; чистый импорт был RED, MCP установлен, но ждёт owner Authorize, поэтому PASS/FAIL не вынесен и продукт не тронут. → history/2026-07-10-s-spike-pgg-001-cp1.md
 
+2026-07-10 — work/publish (g-9c41/PGG, s-work-publish-pgg-spike-checkpoint-001): direction-коммиты по @d23ac1e включительно запушены, clean merge @5cb0f3e залит в origin/main; remote ancestry/readback checkpoint подтверждены, конкурентный Solmax сохранён, занятый dirty main не тронут. → history/2026-07-10-s-work-publish-pgg-spike-checkpoint-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
