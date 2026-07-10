@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q3_relationship_card_accepted_q4_instantiation_research_ready
+route_status: operating_substrate_q4_instantiation_research_ready_for_forge
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -207,6 +207,42 @@ owner_directive: |
   - Next route is bounded Q4 best-practice/comparable-system research
     on process-pack instantiation and adaptation.
 
+  Q4 process-pack instantiation research checkpoint:
+  - Primary-source comparison across OSGi, Terraform, Helm, OPA, VS Code,
+    Temporal and Kubernetes is complete.
+  - This is research input, not an approved Q4 architecture answer.
+  - Research supports staged semantic admission/activation rather than
+    treating process-pack instantiation as configuration merge or package
+    download.
+  - Kernel semantics remain inherited and non-overridable. Pack declarations,
+    owner-profile inputs, reusable-service bindings and adapter bindings
+    retain separate normative owners.
+  - Mandatory semantic capabilities must resolve before activation. Optional
+    capabilities may be absent only under an explicit pack-declared degraded
+    route that preserves kernel and remaining process obligations.
+  - Composition must follow atomic normative ownership and reject ambiguous
+    authority/state/effect conflicts rather than generic last-write-wins
+    precedence.
+  - Validation and impact assessment precede authorization and activation.
+    Failed candidates normally leave the current accepted definition in
+    force.
+  - Open work and continuation require explicit compatible-resume, migration,
+    pin/drain, handoff, rejection or unresolved-owner disposition; they must
+    not be forced silently onto the newest pack.
+  - Pack migration, replacement and removal must preserve or explicitly
+    settle ownership, authority, effect certainty, evidence and continuation.
+    Universal rollback is not assumed.
+  - The candidate boundary passed materially different Health-like and
+    game/productive-play pressures without modifying kernel semantics or
+    copying one consumer into another.
+  - Research recommendation: staged semantic admission/activation as Q4
+    backbone, ownership-scoped composition as its conflict rule, and
+    capability resolution as its service/adapter submechanism.
+  - gap_event: none. Exact schema, identity, compatibility representation,
+    carrier, topology, implementation and final service-block list remain
+    downstream.
+  - Next route is the Q4 process-pack instantiation architecture-forge.
+
 tasks: []
 
 recurring: []
@@ -278,5 +314,8 @@ preserved_evidence:
   - 'owner choice in chat: "A"'
   - 'owner approval in chat: "Approve v1"'
   - live/solmax/work/calls/c-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
-next: work/calls/c-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-process-pack-instantiation-best-practice-research-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-process-pack-instantiation-architecture-forge-001.md
+next: work/calls/c-solmax-operating-substrate-process-pack-instantiation-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
