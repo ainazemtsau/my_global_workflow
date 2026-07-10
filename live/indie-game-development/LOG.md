@@ -131,4 +131,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — repair/rebase (g-d3a8/canon-process-v3, s-repair-canon-process-v3-question-origin-gate-003): rebased the owner-approved Minimum Game Frame repair over NOW blob dab7eab after the separate M1-A0 BUILD handoff; consumed only the canon question-origin repair call, preserved the Poligon M1 bet/tasks and exact c-exec-poligon-a0-001 BUILD contract plus global NOW.next, amended the paper pilot spec with Gate F then Gate Q, and opened c-repair-minimum-game-frame-001; no canon, process installation or product change. → history/2026-07-10-s-repair-canon-process-v3-question-origin-gate-003.md
 
+2026-07-10 — work/publish (g-d3a8/canon-process-v3, s-work-publish-canon-process-v3-question-origin-gate-003): repair-коммит @6735c89 запушен в direction-ветку и clean merge @c2bcdd8 залит в origin/main; remote ancestry и опубликованный Minimum Game Frame CALL подтверждены, занятый dirty main не тронут. → history/2026-07-10-s-work-publish-canon-process-v3-question-origin-gate-003.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
