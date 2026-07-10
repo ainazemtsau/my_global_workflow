@@ -112,4 +112,7 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/publish (g-d3a8/canon-process-v3, s-work-canon-process-v3-publish-001): merged the direction worktree into main with both indie-game and concurrent solmax history preserved, pushed merge 32b0e40 to origin/main, and re-verified the unchanged paper-only pilot CALL as the next process step. → history/2026-07-10-s-work-canon-process-v3-publish-001.md
 
+
+2026-07-10 — work/process install (g-9c41/parallel-lanes, s-lanes-install-001): владелец «подтверждаю» — установлена параллельная схема линий: карта площадок knowledge/g9c41-lanes-venues.md (правило владельца: трек стартует только с проверенным worktree), render-only пьеса lanes-board («что можем делать»), LAUNCH-конвенция во всех open_calls; READY: c-shape-poligon-m1-001 (пересборка ставки под Полигон М1 — рекомендуемый старт), c-lab-p0-001 (стенд v0, новый worktree lab, внутри решение D1), c-prep-net-spike-001, c-repair-watchmen-001. Phase 0 в работе (линия D, dev занят). → history/2026-07-10-s-lanes-install-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

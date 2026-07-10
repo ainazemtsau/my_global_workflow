@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-repair-canon-process-v3-paper-only-001
+updated: 2026-07-10 by s-lanes-install-001
 
 bet:
   node: g-9c41
@@ -128,6 +128,9 @@ open_calls:
       no multiplayer seed handshake (Phase 1+), no new gas types / visual / damage. MCP rule (owner hard): build via
       Unity-MCP where possible, else STOP + step-by-step owner instructions, NO crutch; Unity/MCP unavailable → STOP.
       Reads: knowledge/g9c41-da-level-ingestion-plan.md + g9c41 SPEC. On GREEN → Phase 1 (real DA) frames.
+      LAUNCH: lane D · venue GasCoopGame_dev (dev) · mq-слот 1. 2026-07-10 (owner): лег В РАБОТЕ —
+      доделывается, впереди code review; dev worktree ЗАНЯТ этим легом до мержа (правило 1 карты
+      knowledge/g9c41-lanes-venues.md). DA Phase 1 заблокирован до мержа + owner-гейта.
   - id: c-shape-sc-damage-001
     to: session
     for: g-9c41 / Sc-damage
@@ -141,6 +144,8 @@ open_calls:
       knowledge/g9c41-sc-sense-delivered-unwired.md, the g9c41 SPEC, engineering contract. Fold the co-op-interdependence
       axis (decision d-coop-interdependence-repin-001) into the Sc-damage framing. Goal = a fire-ready Sc-damage executor
       CALL. Boundaries: SHAPE only (produces the CALL, builds nothing); no new gas types; no visual pipeline.
+      LAUNCH: lane OS-чат · HELD (дизайн) · c-repair-watchmen-001 обязан дописать сюда ось «armed open-space jet»
+      + шов межтиповой ёмкости ДО запуска.
   - id: c-visual-009
     to: executor
     for: g-7e15 / VISUAL Stage 3.5 movement-data PLAN
@@ -154,6 +159,9 @@ open_calls:
       dense-core shaping. Preserve GridView meanings and the 128-byte GpuGasParams ABI; no new physics, feedback,
       render tuning, tests, BUILD or Stage 4. Product preflight observed origin/main@a644e5db while dev2@a48883b5 was
       stale/diverged with untracked c-visual-008 closure evidence; verify latest main and reconcile that evidence first.
+      LAUNCH: lane B · venue GasCoopGame_dev_2 (dev2, редактор №2) · PLAN-only, owner-present · base: сверить
+      свежий origin/main (§Re-sync) · mq: PLAN не мержится · conflict: рендер-путь — будущее рендер-окно
+      Полигона идёт в ЭТОЙ ЖЕ линии, последовательно.
   - id: c-pilot-canon-design-process-v3-paper-001
     to: session
     for: g-d3a8 / paper-only canon-design process pilot
@@ -166,6 +174,7 @@ open_calls:
       game/core-loop altitude and only question-specific criteria to a micro-decision. Show the
       owner 2–3 structurally different paper candidates or an honest blocked outcome, then request
       a verdict on the process only. core-0/core-1 remain HOLD source material; no canon freeze.
+      LAUNCH: lane OS/канон-чат · без worktree и Unity · параллелен всем инженерным линиям без конфликтов.
 
 recurring: []
 
@@ -224,12 +233,19 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  # RECOMMENDED active engine work while Sc-damage is design-held (owner-approved 2026-07-09 — START HERE):
-  - CALL c-exec-lv-ingest-phase0-001 → work/c-exec-lv-ingest-phase0-call.md  # ENGINE: level-ingestion + gas-source seam, Phase 0 (code/MCP, hand-tagged; SnapGridFlow real DA = Phase 1)
-  # Other ready fronts (owner picks):
-  - CALL c-visual-009 → work/c-visual-009-movement-data-plan-call.md  # VISUAL: PLAN-only simulation-derived movement seam; Stage 4 closed
-  - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: shape Sc-damage — HELD (needs design)
+  # ПАРАЛЛЕЛЬНЫЕ ЛИНИИ установлены 2026-07-10 (owner «подтверждаю»; s-lanes-install-001):
+  # карта площадок = knowledge/g9c41-lanes-venues.md (правило 1: трек стартует только с проверенным worktree);
+  # борд = play local/lanes-board — владелец в любом чате: «что можем делать».
+  # Полигон М1 = ближайшая цель владельца (2026-07-10); пересборка ставки — c-shape-poligon-m1-001.
+  - CALL c-shape-poligon-m1-001 → work/c-shape-poligon-m1-001-call.md  # ЯДРО/A: пересборка ставки под Полигон М1 + первые S4-леги (owner-present) — РЕКОМЕНДУЕМЫЙ СТАРТ
+  - CALL c-lab-p0-001 → work/c-lab-p0-001-call.md                      # СТЕНД/C: верстак v0 (НОВЫЙ worktree lab; первым шагом — решение D1 у владельца)
+  - CALL c-prep-net-spike-001 → work/c-prep-net-spike-001-call.md      # СЕТЬ/E: подготовка спайка двух реальных машин (headless)
+  - CALL c-repair-watchmen-001 → work/c-repair-watchmen-001-call.md    # OS: вернуть сторожей масштаба + потолок SPEC 35k→27.7k + ось в Sc-damage CALL
+  # Уже в работе / прежние фронты:
+  - CALL c-exec-lv-ingest-phase0-001 → work/c-exec-lv-ingest-phase0-call.md  # ЛИНИЯ D: Phase 0 В РАБОТЕ (доделывается + code review); dev занят
+  - CALL c-visual-009 → work/c-visual-009-movement-data-plan-call.md  # ЛИНИЯ B: PLAN-only movement seam (dev_2, owner-present)
+  - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: HELD (дизайн) — после c-repair-watchmen-001
   - CALL c-pilot-canon-design-process-v3-paper-001 → work/c-pilot-canon-design-process-v3-paper-001-call.md
-    # CANON PROCESS: paper-only selection pilot; no builds/tests; core-0/core-1 remain HOLD material
+    # CANON PROCESS: paper-only pilot; параллелен инженерным линиям
 
 END_OF_FILE: live/indie-game-development/NOW.md
