@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-09 by s-shape-lv-ingest-001
+updated: 2026-07-10 by s-repair-canon-design-process-route-001
 
 bet:
   node: g-9c41
@@ -155,22 +155,20 @@ open_calls:
       no particles/VFX as acceptance crutch, no Stage 4 character/danger work.
       BASE MOVED 2026-07-09: c-exec-035 delivery advanced GasCoopGame origin/main to @defade72; the 9d6f8ded base above
       is now BEHIND — the visual checkout must §Re-sync to defade72 (latest origin/main) before firing.
-  - id: c-core-0-gas-states-001
+  - id: c-research-canon-design-process-v3-001
     to: session
-    for: g-d3a8 / CORE piece core-0 — gas states and what they mean
-    issued: 2026-07-09
-    call: work/c-core-0-gas-states-call.md
+    for: g-d3a8 / evidence-backed canon design process v3
+    issued: 2026-07-10
+    call: work/c-research-canon-design-process-v3-001-call.md
     note: |
-      READY fresh Кузница v2 session — NEW FIRST canon piece after the owner hit a hidden prerequisite mid-core-1
-      («не определено, что значит газ, уснувший, активный»): gap_event, queue reordered (canon QUEUE core-0 =
-      СЛЕДУЮЩИЙ). Decides ONLY gas-state semantics: which states (owner working hypothesis, not verdict: sleeping +
-      activated, both capturable, active much harder), what each means for the player (visibility per state — sleeping
-      is near-invisible; «озеро» term vs light gases; what switches states SIM-driven; reversibility), engine fit
-      (design-sleep = layer over byte-sleep). Format: state-TABLE instead of verbs table + ≤3 state-models each with
-      one two-player seconds scene. Cluster with core-5 (следы) allowed only with a named reason. c-core-1 (bubble
-      fill) ON HOLD «обсуждается» pending this: owner leans simplest «шарик сам всасывает», обруч doubted (gas
-      invisible), воротник rejected as душный, capture must work on BOTH states. Harvest from the interrupted core-1
-      session recorded in canon QUEUE (шарик-градации; «каждый свой шарик» pilot; шар как преграда; шарик-проявитель).
+      READY research session after owner verdict «А». Canon Forge v2 is suspended as the active
+      design-decision route. core-0 gas states and core-1 bubble fill are HOLD material for one
+      future pilot, not active canon questions. Fixed foundations remain gas simulation,
+      reactions and destructible/changeable space. Bubble, three phases, sleeping-gas recon and
+      other owner-liked material are DESIGN ANCHORS: preserve them, but do not treat them as canon
+      or immutable foundations. This CALL researches structurally different process options and
+      returns a pilot-ready recommendation; it does not answer the concept, install a process or
+      rebuild the full question graph.
 
 recurring: []
 
@@ -182,32 +180,17 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      active in parallel, not a second active bet. CORE RECOVERY 2026-07-09 (s-repair-canon-core-recovery-001), after the
-      owner rejected the verbs-first map's first output as «полная хуита»: the third process rebuild in a row had lost his
-      ACCEPTED concept core. Root cause established by 6-reader evidence sweep (recorded in the history file): (a) binary
-      status taxonomy — no state between «зафиксировано» and «драфт» for "owner likes this, elaborate from here"; (b)
-      provenance quarantine — «нет в файлах = не решено» + empty INDEX made «мне нравится» formally invisible (the
-      acceptance lived in work/concept-summary-2026-07-09.md, self-labeled «НЕ канон», which rebuild CALLs never read);
-      (c) one-directional guards — anti-premature-freeze rules accreted after 07-07 with NO anti-loss counterpart, so
-      compliant sessions kept demoting the bubble (stripped → candidate → parked); (d) blank-slate dependency cartography
-      re-derived abstract questions the owner had already answered. FIX APPLIED: canon repo CORE.md = owner's verbatim
-      сводка pinned (bubble core «мне нравится»: три фазы, спящие газы+разведка, ПУЗЫРЬ «неси не лопни», ковш-часть,
-      бестиарий без мозгов, палитра вреда + КОМПАС + voice principles «просто не примитивно» / «сложно но не душно» /
-      база проста-глубина сама / «фан — в физическом действии»); load order now CONSTITUTION → CORE → INDEX → QUEUE →
-      SESSION (START/SESSION edited); canon QUEUE.md rewritten as разбор ядра core-1…core-10 (bubble-fill first, damage
-      palette flagged as engine-blocking for Sc-damage); «черновик ≠ второстепенное» + build-AROUND-core + no-silent-
-      replacement rules pinned in CORE.md. REVOKED: the 10-node verbs-first map (work/canon-maps/
-      core-concept-rebuild-question-map-v0.1.md, evidence-stamped) and CALL c-forge-q-ruki-001. Spec board
-      work/game-spec-DRAFT-v0.md rewritten v0.2 around the bubble core with the new 💚 «принято направлением» status.
-      CONSTITUTION ratification (owner «Б», П1–П3, @87a05a7) STANDS — verdict rules were never the problem; the entry was.
-      GAP_EVENT 2026-07-09: owner interrupted the first core-1 session on a hidden prerequisite («что означает озеро,
-      что означает спящее») — queue reordered, core-0 (gas states) now FIRST (CALL c-core-0-gas-states-001 READY);
-      core-1 ON HOLD «обсуждается» (owner leans simplest «шарик сам всасывает»; обруч doubted — sleeping gas is
-      near-invisible; воротник rejected as душный дрейф; capture must work on sleeping AND active states). Session
-      transcript reviewed in the recovery chat: 8 problems recorded (history addendum) — incl. anti-solo wrongly baked
-      into the fill atom, «черпак отброшен» cited as decided without owner words, harvest not collected (now in canon
-      QUEUE УЛОВ 2026-07-09). Открыто там же: d-ono-dyshit-core-frame-fork-001 formally awaiting_decision (bubble =
-      capture-first de facto; record via core-10). TREE/CHARTER untouched; INDEX still empty (no v2 card yet).
+      PROCESS REPAIR ROUTED 2026-07-10
+      (s-repair-canon-design-process-route-001; owner «А»). Canon Forge v2 is suspended as the
+      active design-decision route: repeated sessions mixed design discovery with canon recording,
+      lacked a dependency/readiness gate, and selected bubble-fill before gas-state semantics.
+      core-0/core-1 are preserved as HOLD material for one pilot, not active sequential questions.
+      Fixed foundations remain gas simulation, reactions and destructible/changeable space.
+      Bubble, three phases, sleeping-gas reconnaissance and other owner-liked material are DESIGN
+      ANCHORS — not canon, not foundations and not ordinary discardable drafts; preserve them and
+      challenge/replace only explicitly. INDEX remains empty. Next design work =
+      c-research-canon-design-process-v3-001. No full graph rebuild or concept verdict before one
+      owner-evaluated pilot.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -241,6 +224,7 @@ next:
   - CALL c-exec-lv-ingest-phase0-001 → work/c-exec-lv-ingest-phase0-call.md  # ENGINE: level-ingestion + gas-source seam, Phase 0 (code/MCP, hand-tagged; SnapGridFlow real DA = Phase 1)
   # Other ready fronts (owner picks):
   - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: shape Sc-damage — HELD (needs design)
-  - CALL c-core-0-gas-states-001 → work/c-core-0-gas-states-call.md  # CANON: fresh Кузница session, core-0 gas states (core-1 bubble-fill ON HOLD за ним)
+  - CALL c-research-canon-design-process-v3-001 → work/c-research-canon-design-process-v3-001-call.md
+    # CANON PROCESS: research process v3 + prepare one pilot; core-0/core-1 remain HOLD material
 
 END_OF_FILE: live/indie-game-development/NOW.md
