@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q2_service_zone_classification_accepted_q3_relationship_research_next
+route_status: operating_substrate_q3_relationship_research_ready_for_forge
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -151,6 +151,31 @@ owner_directive: |
   - Next route is bounded Q3 best-practice research on responsibility
     relationships and end-to-end flow.
 
+  Q3 service-zone relationship research checkpoint:
+  - Primary-source comparison across FIPA ACL, W3C PROV-DM, CloudEvents,
+    Temporal, A2A, Structured Concurrency, OpenAI Agents SDK and Anthropic
+    multi-agent engineering is complete.
+  - This is research input, not an approved Q3 architecture answer.
+  - Research supports typed semantic relationships between responsibility
+    instances, not API calls, queues, event buses, graph edges or physical
+    service topology.
+  - Candidate evaluation taxonomy groups invoke/delegate/handoff;
+    query/event/evidence; propose/validate/decide/apply; result; and
+    continuation, with shared lifecycle semantics for acceptance, failure,
+    cancellation, retry and recovery.
+  - One primary current next-action owner per open obligation, one
+    authoritative owner per mutable state boundary and explicit unresolved
+    ownership are candidate Q3 invariants.
+  - Cancellation request is not proof of stop; timeout is not proof of
+    failure; unknown effect outcome requires reconciliation before unsafe
+    retry.
+  - A sparse logical responsibility flow passed the intake-through-
+    procedure/effect/result/continuation stress test without requiring
+    all-to-all zone communication or a central physical orchestrator.
+  - gap_event: none. Exact entities, correlation, schema, transport,
+    topology and final service-block list remain downstream.
+  - Next route is the Q3 service-zone relationship architecture-forge.
+
 tasks: []
 
 recurring: []
@@ -214,5 +239,8 @@ preserved_evidence:
   - 'owner choice in chat: "A"'
   - 'owner approval in chat: "Approve v1"'
   - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
-next: work/calls/c-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-service-zone-relationship-best-practice-research-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-relationship-architecture-forge-001.md
+next: work/calls/c-solmax-operating-substrate-service-zone-relationship-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
