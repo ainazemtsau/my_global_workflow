@@ -139,4 +139,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — research (g-9c41/gas-cloud-gameplay-model, s-research-gas-cloud-gameplay-model-001): revised nonlinear-only into a falsifiable packed-body + bounded-halo candidate, described its player-visible behavior and hard rejects, and left one owner choice on halo mechanics; no canon/product change and c-visual-009 remains open. → history/2026-07-10-s-research-gas-cloud-gameplay-model-001.md
 
+2026-07-10 — research/checkpoint (g-9c41/PGG, s-spike-pgg-001-cp1): бросовый Unity 6.3 проект с PGG 1.6.6.2.12 поднят и компилируется после scratch-only `uGUI 2.0.0` + `PortHandler [System.Serializable]`; чистый импорт был RED, MCP установлен, но ждёт owner Authorize, поэтому PASS/FAIL не вынесен и продукт не тронут. → history/2026-07-10-s-spike-pgg-001-cp1.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
