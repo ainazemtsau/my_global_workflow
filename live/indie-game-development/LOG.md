@@ -125,4 +125,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/publish (g-9c41/watchmen, s-work-publish-watchmen-001): по прямому указанию владельца direction-ветка запушена @e46321b, чистый merge @c899212 залит в origin/main и remote ancestry подтверждён; занятый локальный main не тронут. → history/2026-07-10-s-work-publish-watchmen-001.md
 
+2026-07-10 — work/handoff (g-9c41/M1-A0, s-work-poligon-a0-build-call-001): отдельный BUILD-only CALL c-exec-poligon-a0-001 привязан к owner-approved frozen plan @f80bf700; independent RED-first test-author обязателен, а merge slot 2 остаётся закрыт до MERGED Phase 0 + post-rebase rerun + binding G5. → history/2026-07-10-s-work-poligon-a0-build-call-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

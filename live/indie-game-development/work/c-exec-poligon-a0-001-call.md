@@ -1,5 +1,9 @@
 # CALL c-exec-poligon-a0-001 — Полигон М1 A0: read-only activity seam
 
+> **STATUS: PLAN HANDOFF REPLACED FOR LAUNCH.** Owner-approved PLAN frozen at
+> `f80bf700c26376edb7965eef3481cc04607834c3`; launch the separate BUILD-only packet
+> `work/c-exec-poligon-a0-001-build-call.md`. This file remains the original outcome contract.
+
 to: executor
 direction: indie-game-development
 node: g-9c41
