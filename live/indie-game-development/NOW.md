@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-repair-canon-process-v3-question-origin-gate-003
+updated: 2026-07-10 by s-spike-pgg-001-cp1
 
 bet:
   node: g-9c41
@@ -247,5 +247,9 @@ decisions:
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
   CALL c-exec-poligon-a0-001 → work/c-exec-poligon-a0-001-build-call.md
+  # Параллельно, ничего не занимает (owner «да» 2026-07-10, s-pgg-analysis-001):
+  - CALL c-spike-pgg-001 → work/c-spike-pgg-001-call.md  # УРОВНИ/D-разведка: таймбокс-спайк PGG ≤3 дня (бросовый Unity-проект); вердикт = work/pgg-analysis-2026-07-10.md; PASS → PLAN шага M1-4
+    # CHECKPOINT s-spike-pgg-001-cp1: PGG_Spike компилируется после двух scratch-only fixes; PASS/FAIL не вынесен.
+    # resume: history/2026-07-10-s-spike-pgg-001-cp1.md; первый unblock = owner Authorize в AI Game Developer.
 
 END_OF_FILE: live/indie-game-development/NOW.md

@@ -133,4 +133,12 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/publish (g-d3a8/canon-process-v3, s-work-publish-canon-process-v3-question-origin-gate-003): repair-коммит @6735c89 запушен в direction-ветку и clean merge @c2bcdd8 залит в origin/main; remote ancestry и опубликованный Minimum Game Frame CALL подтверждены, занятый dirty main не тронут. → history/2026-07-10-s-work-publish-canon-process-v3-question-origin-gate-003.md
 
+2026-07-10 — research (g-7e15/c-visual-009 → g-9c41 cloud character, s-research-gas-cloud-character-001): confirmed linear dilution + coverage-destroying erosion + equilibrium stillness, rejected oxygen/more-mass/particles as fixes, and recorded a staged compact-front investigation; c-visual-009 stays open and its PLAN→dirty-BUILD provenance needs repair. → history/2026-07-10-s-research-gas-cloud-character-001.md
+
+2026-07-10 — research/frame (g-9c41/PGG, s-pgg-analysis-001): владелец запросил анализ купленного PGG (FImpossible) — пакет найден в кэше Asset Store, прочитаны исходники (801 .cs) + мануал 26 стр. + веб; вердикт: редакторский помощник авторинга DA-модулей = ПОДХОДИТ (механика подтверждена кодом; батч-вариации по сидам скриптуются), рантайм-роль ОТКЛОНЕНА (глобальный static Random, float/Perlin, сид-вывод менялся между версиями); арта в PGG ноль — нужен low-poly кит; Unity 6.3 не подтверждена = kill-риск спайка. Owner «да» → READY CALL c-spike-pgg-001 (таймбокс ≤3 дня, бросовый проект, параллелен всему). Анализ: work/pgg-analysis-2026-07-10.md. → history/2026-07-10-s-pgg-analysis-001.md
+
+2026-07-10 — research (g-9c41/gas-cloud-gameplay-model, s-research-gas-cloud-gameplay-model-001): revised nonlinear-only into a falsifiable packed-body + bounded-halo candidate, described its player-visible behavior and hard rejects, and left one owner choice on halo mechanics; no canon/product change and c-visual-009 remains open. → history/2026-07-10-s-research-gas-cloud-gameplay-model-001.md
+
+2026-07-10 — research/checkpoint (g-9c41/PGG, s-spike-pgg-001-cp1): бросовый Unity 6.3 проект с PGG 1.6.6.2.12 поднят и компилируется после scratch-only `uGUI 2.0.0` + `PortHandler [System.Serializable]`; чистый импорт был RED, MCP установлен, но ждёт owner Authorize, поэтому PASS/FAIL не вынесен и продукт не тронут. → history/2026-07-10-s-spike-pgg-001-cp1.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
