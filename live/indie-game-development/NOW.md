@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-work-poligon-a0-build-call-001
+updated: 2026-07-10 by s-repair-canon-process-v3-question-origin-gate-003
 
 bet:
   node: g-9c41
@@ -141,19 +141,23 @@ open_calls:
       LAUNCH: lane B · venue GasCoopGame_dev_2 (dev2, редактор №2) · PLAN-only, owner-present · base: сверить
       свежий origin/main (§Re-sync) · mq: PLAN не мержится · conflict: рендер-путь — будущее рендер-окно
       Полигона идёт в ЭТОЙ ЖЕ линии, последовательно.
-  - id: c-repair-canon-process-v3-question-origin-gate-001
+  - id: c-repair-minimum-game-frame-001
     to: session
-    for: g-d3a8 / canon-process-v3 question-origin repair
+    for: g-d3a8 / Minimum Game Frame
     issued: 2026-07-10
-    call: work/c-repair-canon-process-v3-question-origin-gate-001-call.md
+    call: work/c-repair-minimum-game-frame-001-call.md
     note: |
-      READY owner-present repair. Evidence: history/2026-07-10-s-pilot-canon-design-process-v3-paper-001.md;
-      owner verdict = REVISED / BLOCKED because the pilot invented its starting question, priority and terms.
-      Reconcile the stale PILOT READY route, add the mandatory pre-generation gate “откуда вопрос и почему
-      сейчас”, and prepare one new text-only pilot CALL from a real state-derived question. The discarded
-      service-connector/damper/A-B-C material has no design-anchor or canon status. No process installation,
-      canon freeze, core-0/core-1 answer, graph rebuild, implementation or test work.
-      LAUNCH: lane OS/канон-чат · owner-present · без worktree и Unity · параллелен инженерным линиям.
+      READY owner-present text-only repair of the missing shared design basis.
+      The owner accepted a Minimum Game Frame before any detailed design question and
+      explicitly rejected mere compilation of old documents: existing files are
+      evidence, while every weight-bearing frame block must be discussed against the
+      owner's current view.
+      The frame must state the game globally and locally, expose genuine macro forks,
+      preserve but not auto-promote DESIGN ANCHORS, run applicable paper mechanic and
+      CHARTER checks, and return FRAME READY / FRAME REVISED / FRAME BLOCKED.
+      No canon or process installation, detailed gas-state/Bubble-fill/Sc-damage answer,
+      graph rebuild, Unity or product work.
+      LAUNCH: lane OS/канон-чат · owner-present · text only · no worktree or Unity.
 
 recurring: []
 
@@ -173,16 +177,46 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      PAPER-ONLY PROCESS PILOT REVISED / BLOCKED 2026-07-10
-      Owner verdict in s-pilot-canon-design-process-v3-paper-001: «revised — добавить обязательный
-      гейт “откуда вопрос и почему сейчас”». The pilot invented its starting mechanic question,
-      priority, scene and vocabulary; service-connector/damper/A-B-C output is invalidated and has
-      no game-design, DESIGN ANCHOR or canon status. Mandatory revision candidate: before any local
-      criteria or generation, show where the question sits in the game/core loop, the exact unresolved
-      player decision, its source, why it is current/what it blocks, provenance of every introduced
-      entity, and explicit non-scope; gate result READY or BLOCKED. Canon Forge v2 remains suspended;
-      core-0/core-1 stay HOLD; fixed foundations and DESIGN ANCHORS are unchanged. No canon/process
-      installation occurred. Next = owner-present repair CALL c-repair-canon-process-v3-question-origin-gate-001.
+      CANON/DESIGN FRAME REPAIR READY / DETAIL PILOT DEFERRED 2026-07-10
+
+      The failed paper pilot remains REVISED / BLOCKED under the owner's verdict:
+      «revised — добавить обязательный гейт “откуда вопрос и почему сейчас”».
+      Its service-connector, damper and A/B/C output remains invalidated and has no
+      game-design, DESIGN ANCHOR or canon status.
+
+      The owner accepted a prior missing gate before question origin:
+      a current owner-discussed Minimum Game Frame must explain the game coherently at
+      global and local levels before any detailed design question is selected.
+
+      The frame is not a compilation of prior documents. Owner correction:
+      «не то, что мы собрали рамку из существующих документов, а чтобы мы еще обсудили».
+      Existing files are evidence because some earlier concept views may have changed.
+
+      Fixed foundations remain gas simulation, reactions and destructible/changeable
+      space. Bubble, three phases, sleeping-gas reconnaissance and other owner-liked
+      material remain DESIGN ANCHORS: mandatory to surface, legal to revise or reject
+      explicitly, illegal to lose or silently harden into canon.
+
+      The paper pilot specification now has two ordered pre-generation gates:
+      Gate F = current Minimum Game Frame, returning FRAME READY / FRAME REVISED /
+      FRAME BLOCKED;
+      Gate Q = question origin/currentness, returning QUESTION READY /
+      QUESTION BLOCKED.
+
+      No detailed-question selection, local criteria, shared scene or candidate
+      generation is legal before both gates are READY.
+
+      The former direct Sc-damage paper-pilot proposal is not registered.
+      The existing c-shape-sc-damage-001 route remains unchanged; this repair neither
+      activates it as the design pilot nor alters its current watchmen-added evidence
+      requirements. It may become a later canon/design question only if the finished
+      frame derives it through Gate Q.
+
+      Canon Forge v2 remains suspended. core-0/core-1 remain HOLD source material.
+      No canon or process installation occurred.
+
+      Next canon/design session =
+      c-repair-minimum-game-frame-001.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
