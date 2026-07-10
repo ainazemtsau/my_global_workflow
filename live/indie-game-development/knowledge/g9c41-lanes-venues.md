@@ -1,13 +1,13 @@
 # g9c41 — Параллельные линии: карта площадок и правила запуска
 
-updated: 2026-07-10 (s-lanes-install-001; owner «подтверждаю» + жёсткое правило worktree)
+updated: 2026-07-10 (s-shape-poligon-m1-001; owner «А» — отдельный core-worktree, quality-first overlap gate)
 readers: любая сессия, формирующая или запускающая CALL в g-9c41/g-7e15; play `local/lanes-board`; писарь при заполнении `open_calls`.
 
 ## Линии и площадки
 
 | Линия | Зона кода (conflict surface) | Worktree / ветка | Unity Editor | Машина |
 |---|---|---|---|---|
-| A · ядро | `Core/Field/**` (горячие: VoxelField.cs, VoxelFaceFlow.cs) | `C:\projects\Unity\GasCoopGame_dev` (dev) — ПОСЛЕ мержа Phase 0 | НЕ нужен (headless dotnet + tools/check.ps1); только owner-eye | ПК; OS/G5-сессии — можно MacBook |
+| A · ядро | `Core/Field/**` (горячие: VoxelField.cs, VoxelFaceFlow.cs) | `C:\projects\Unity\GasCoopGame_core` (core) — создать/проверить в M1-A0 | НЕ нужен (headless dotnet + tools/check.ps1); Unity только owner-eye | ПК; OS/G5-сессии — можно MacBook |
 | B · рендер/визуал | `Assets/GasCoopGame/Adapters/GasView/**`, `Render/**` | `C:\projects\Unity\GasCoopGame_dev_2` (dev2) | нужен (редактор №2) | ПК |
 | C · стенд (прототип-лента) | НОВАЯ lab-сборка (отдельный asmdef; только публичный API ядра) | `C:\projects\Unity\GasCoopGame_lab` (lab) — создаётся при первом старте | нужен (редактор №3) | ПК |
 | D · уровни / DA | `Adapters/LevelIngestion/**`, сцены | сейчас: `GasCoopGame_dev` (Phase 0 in flight); после мержа Phase 0 → свой worktree `GasCoopGame_levels` (levels) | нужен (DA-авторинг = владелец) | ПК |
@@ -18,7 +18,7 @@ readers: любая сессия, формирующая или запускаю
 
 1. **Правило владельца (2026-07-10): параллельный трек стартует ТОЛЬКО с назначенным и ПРОВЕРЕННЫМ worktree.** Перед запуском сессия обязана проверить: (а) worktree существует (`git -C C:\projects\Unity\GasCoopGame worktree list`) и назначен этой линии в таблице выше — или создать по §Создание и записать назначение через RESULT; (б) в нём НЕТ другого in-flight лега (сверить с NOW.open_calls); (в) project-folder не открыт другим редактором (признак: `Temp/UnityLockfile`). Провал любой проверки = STOP, не запускаться.
 2. Один project-folder = один Unity Editor. Никогда.
-3. Один мутирующий core-лег одновременно: `VoxelField.cs`/`VoxelFaceFlow.cs` трогает только линия A и только один лег за раз (дайджест и свёртка НЕ параллелятся между собой).
+3. Один мутирующий core-лег одновременно: `VoxelField.cs`/`VoxelFaceFlow.cs` трогает только линия A и только один лег за раз (дайджест и свёртка НЕ параллелятся между собой). Узкое исключение M1-A0 во время Phase 0 разрешено владельцем «А» только для НОВЫХ read-only diagnostics/API + tests после документированного нулевого пересечения с текущим Phase-0 diff; любой общий файл или необходимость править hot Core = STOP. M1-A0 не мержится до Phase 0.
 4. §Re-sync к `base` из LAUNCH-блока перед стартом каждого лега; база уехала → пересогласовать, не строить на старой.
 5. Очередь мержей в main: по одному, полный `tools/check.ps1` на merged main, следующий лег перебазируется. Слоты — в NOW.open_calls.
 6. G5 — конвейером: свежая сессия (можно MacBook), параллельно билду следующего лега. Ворота не срезаются никогда; скорость берётся линиями и конвейером.
@@ -37,6 +37,16 @@ launch:
   merge_queue: слот N
   gates: G5 = свежая сессия; owner-eye = <где>
 ```
+
+## Создание core-worktree (M1-A0)
+
+1. Проверить `git -C C:\projects\Unity\GasCoopGame worktree list`; если назначения ещё нет:
+   `git -C C:\projects\Unity\GasCoopGame worktree add ..\GasCoopGame_core -b core origin/main`.
+2. Убедиться, что branch/path не заняты, worktree clean, `Temp/UnityLockfile` отсутствует; до изменений
+   полный `tools/check.ps1` green.
+3. Read-only сравнить текущий Phase-0 diff/status в `GasCoopGame_dev`. Только нулевое пересечение
+   разрешает A0 BUILD; иначе STOP/checkpoint.
+4. A0 merge ждёт Phase 0 MERGED: fetch/rebase на свежий origin/main, полный check, затем слот 2.
 
 ## Создание нового worktree (пример — lab)
 

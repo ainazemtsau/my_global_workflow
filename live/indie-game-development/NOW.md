@@ -1,116 +1,91 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-work-canon-process-v3-publish-002
+updated: 2026-07-10 by s-shape-poligon-m1-001
 
 bet:
   node: g-9c41
   goal: |
-    Networked co-op gas CORE on the character road: Sc-types → Sc-weight → Sc-rep →
-    Sc-kernel → Sc-reactions → Sc-sense → Sc-damage (slot after Sc-reactions RE-SCOPED 2026-07-08:
-    Sc-catalog/type-authoring kit PARKED until canon gives a real roster; Sc-sense pulled forward as the
-    canon-independent player↔gas exposure/dose foundation). Sc-reactions DELIVERED + MERGED to GasCoopGame
-    main @484084a and PUSHED 2026-07-07 (merge 8ef6a8e of dev@f5ba86a; origin/dev also @f5ba86a). c-exec-021
-    close-verified: engine 180/180 reaction+byte-identity GREEN first-hand + `check.ps1 -Deliver` GREEN
-    end-to-end on dev, merged main GREEN on inner-loop check.ps1; owner-confirmed cross-family G5 / owner-eye /
-    DELIVERED-authorization. Product result doc flipped DELIVERED→MERGED. Sc-sense executor CALL c-exec-035
-    framed + hardened from the interrupted Claudia/Codex handoff: fresh GasCoopGame_dev PLAN, owner present, PLAN/BUILD
-    split, independent RED test-author. It builds only actor-position/volume → authoritative-near-field exposure →
-    integer accumulated dose + a separate player-kinematics/dose digest + Unity capsule debug readout; NO damage,
-    NO detection gameplay, NO visual pipeline, NO new gas types. Sc-catalog executor CALL c-exec-034 is preserved
-    PARKED for later; env-derived dynamic typing PARKED as a later slice (socket-aware). The accidental
-    parallel framing c-exec-033 (s-work-sc-typing-call-001, wrong chat) is SUPERSEDED per owner.
-    Far-tier S3/S4/S5 scale plumbing parked until levels get big.
-    Sc-sense DELIVERED + close-verified 2026-07-09 (s-review-sc-sense-close-001): builder handback c-exec-035
-    (Codex GPT-5 build + GPT-5.5 review) treated as evidence and verified by a fresh cross-family Claude binding G5 —
-    9/9 refuters could-not-refute + first-hand check.ps1 GREEN 1525/1525 at GasCoopGame main/origin @defade72
-    (dev FF-merged to main; both pushed) + owner «PLAN одобрял» / «капсулу сам гонял — доза росла». c-exec-035 CLOSED.
-    Road now rolls to Sc-damage (consumes the dose → first gas consequence), ready as shape CALL c-shape-sc-damage-001.
-    Latest session: s-review-sc-sense-close-001 (see LOG.md / history/).
-    2026-07-09 (s-shape-lv-ingest-001): Sc-damage HELD (needs design; canon core re-assembling). Owner directed a
-    canon-INDEPENDENT engine slice instead — Lv-ingest (level ingestion + object/gas-source placement via Dungeon
-    Architect SnapGridFlow → our engine-free grid). Researched (wf_745d3a1f); SnapGridFlow confirmed; two-phase plan
-    (Phase 0 = hand-tagged seam via code/MCP, Phase 1 = real DA authoring). Lv-ingest now the recommended active engine
-    work; c-exec-lv-ingest-phase0-001 ready. Plan: knowledge/g9c41-da-level-ingestion-plan.md.
+    Полигон М1 — одно end-to-end доказательство репрезентативной сетевой co-op сцены g-9c41:
+    регулируемый DA-уровень примерно на 150 комнат, тип/сила источников, player↔gas tracking,
+    реакции и тестовый взрыв, один стеновой пролом с area-aware потоком, видимые sleeping-front
+    + S4 room-rollup, полное затопление, две реальные машины и замер слабого железа.
+    Утверждённая лестница 0–10, cuts и риски: work/poligon-m1-shape-2026-07-10.md.
   appetite: |
-    Governed by the g-9c41 de-risk wall; do not extend a bet silently. If a slice
-    overruns or reveals a core blind spot, stop and re-shape/review, don't stretch.
+    Максимум 11 продуктовых легов (ступени 0–10), started 2026-07-10; это ёмкость, не
+    календарное обещание. Продления нет: исчерпание appetite → review/cut/re-shape.
   kill_by: |
-    De-risk wall CLOSED 2026-07-02 (real hangar measurement = linear roster scaling;
-    re-shaped d-sparse-tick-kernel-001, owner «да»). 2026-07-24 = visible-gas milestone
-    (telegraph+bang and/or two-type visual on the real sim); tail movable.
+    2026-07-24 либо 11 легов, что раньше → обязательный review. Immediate review, если M1-A1
+    не даёт bit-exact/no-pop в одном bounded slice или требует вскрыть лок. Финальный профиль:
+    ≤50 ms green; 50–100 ms owner decision; >100 ms, desync или meaning-loss = not done.
+  forecast: |
+    Первый ранний сигнал — M1-A0 даёт byte-neutral observability параллельно Phase 0; следующий —
+    M1-A1 доказывает либо опровергает самый опасный S4 handoff до оплаты большого уровня.
+    Сохранённые S4-швы и Sc-kernel делают ступени 0–4 вероятными.
+  against: |
+    S4 — новый far-representation, а не body swap; реальная input-bus wiring, DA-авторинг и
+    all-filled слабый пир могут съесть appetite. Merge/G5 остаются полными; продления нет.
+  cut_list:
+    - Sc-damage остаётся HELD; нет damage/consequence.
+    - Нет врагов, миссии, баланса, production UI/audio/VFX и новой газовой энциклопедии.
+    - Только один контролируемый стеновой пролом; пол/потолок и полная разрушаемость вырезаны.
+    - Нет save/load, late join, matchmaking и host migration.
+    - Один Полигон и минимальный DA module set; не контент-производство.
+  lens_verdicts:
+    commercial_traction: M1-10 — capture-пакет для существующих visual/marketing линий.
+    core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
+    coop_first: M1-9 — честный прогон на двух реальных машинах.
+    technical_feasibility: Lv-ingest + M1-A0 + M1-A1, затем M1-2..4.
+    scope_production: "not_needed: cut_list + один уровень держат solo-scope."
+    audience_workflow: M1-10; отдельная соцсеть-задача не нужна.
 
 tasks:
-  - id: Sc-reactions
-    goal: |
-      Integer chemistry (explicit-SET > AXIS > env-DEFAULT > identity; telegraph+bang;
-      layered mass-conserving overflow; extensible warning-kind + outcome registries). ENGINE-ONLY.
-    done_when: |
-      c-exec-021 close-verified 2026-07-07 (s-review-sc-reactions-close-001): reaction+byte-identity
-      180/180 GREEN first-hand at dev@a23183f; no core/tools/golden change after code-tip 0259bcf
-      (post-tip = ReactionSandbox render scene + docs only); owner-confirmed IN-SESSION — cross-family
-      (Codex) G5 final pass could-not-refute on current code + owner-eye ReactionSandbox accepted +
-      DELIVERED authorized. dev→main merge+push OWNER-GATED (outside done_when, still pending).
-    status: done
-  - id: Sc-catalog
-    goal: |
-      Data-defined DISTINCT gas types: several genuinely-different types authored AS DATA, each carrying its own
-      laws via an EXTENSIBLE per-type param set (a new param = data, ZERO Core/** edit), inheriting common→meta→type,
-      folded into the handshake; reactions between them on the Sc-reactions engine; + fix the handler-into-production-
-      tick gap so authored reaction outcomes fire. ENGINE-ONLY. (Re-scoped 2026-07-08 from "Sc-typing"/env-derived
-      typing per owner reframe; env-derived typing PARKED as a later slice, socket-aware.)
-    done_when: |
-      PARKED 2026-07-08 by s-shape-sc-sense-001 before firing. Ready artifact remains at
-      work/c-exec-034-sc-catalog-call.md and returns when canon/design gives a real gas roster / authoring need.
-      Original done_when preserved in that CALL: data-defined distinct gas types, extensible per-type laws, reactions
-      between them, handler-into-production-tick fix, deliver gates, fresh-session G5, owner-eye confidence.
-    status: parked
-  - id: Sc-sense
-    goal: |
-      Player↔gas exposure/dose foundation: one or more player-actors (first owner-eye actor = ordinary Unity capsule,
-      engine-side = integer position/volume) read per-type exposure from the AUTHORITATIVE NEAR gas field and integrate
-      integer accumulated dose over time, deterministically under input-lockstep. The slice records the first
-      player-kinematics/dose digest seam so divergent actor position or dose desyncs loudly. ENGINE-ONLY with Unity
-      debug readout; NO damage/consequence, NO detection gameplay, NO visual pipeline, NO new gas types.
-    done_when: |
-      Executor CALL c-exec-035 returns DELIVERED from a fresh GasCoopGame_dev leg: owner-readable PLAN approved in its
-      own session (contract v19), independent RED test-author first in a separate BUILD session; exposure reads
-      VoxelField/authoritative-near ConcentrationAt per TypeId (not IGasReadModel/2-band); actor position enters as
-      lockstep input with explicit input schema; integer clamped dose accumulates on presence and stops outside gas;
-      player-kinematics/dose digest catches divergent actor position or dose while no-actor gas MeaningChecksum stays
-      byte-identical; consequence-free + detection socket only; zero-float/int-overflow scans and loopback determinism
-      green; `check.ps1 -Deliver` green; fresh-session G5 could-not-refute; owner sees a capsule move through gas with
-      live readout: in gas → dose rises, out → dose stops, different gas → different readout. On close verification the
-      road rolls to Sc-damage.
-      CLOSE-VERIFIED 2026-07-09 (s-review-sc-sense-close-001): binding fresh cross-family (Claude) G5 could-not-refute
-      on all six claims (9/9 refuters) + first-hand check.ps1 GREEN 1525/1525 at GasCoopGame @defade72 + Field.Sense
-      31/31 + mutation 70.26% + ADR-E-0008 + owner «PLAN одобрял» (v19 PLAN approval) / «капсулу сам гонял — доза росла»
-      (owner-eye). -Deliver red at tip ONLY on the pre-existing MERGED-doc fallback (c-exec-021/c-visual-005), not
-      Sc-sense (c-exec-035.md passes its own gate). Engine-only foundation is UNWIRED into SimInstance — wiring is
-      Sc-damage's job (feed the committed post-step field once per sim tick; see
-      knowledge/g9c41-sc-sense-delivered-unwired.md).
-    status: done
   - id: Lv-ingest
     goal: |
-      Level ingestion + object placement: a generated (Phase 1: Dungeon Architect SnapGridFlow) or hand-tagged
-      (Phase 0) level is parsed into the AUTHORITATIVE gas grid at game start, with gas SOURCES placed as objects
-      (a GasSourceMarker, DA marker/theme-native) and seeded into the sim DETERMINISTICALLY in the authoritative,
-      engine-free path (inside the lockstep checksum). Canon-INDEPENDENT engine infrastructure, pulled in while
-      Sc-damage is design-held (owner-directed 2026-07-09). SnapGridFlow chosen (owner-confirmed: most advanced
-      room/module-based 3D flow; our BuiltSceneRoomReader already reads it generator-blind). Plan + gotchas:
-      knowledge/g9c41-da-level-ingestion-plan.md.
+      Phase 0 завершает deterministic authoritative gas-source seam на hand-tagged уровне,
+      чтобы Phase 1 DA и Полигон использовали тот же reader/seeder.
     done_when: |
-      Phase 0 (c-exec-lv-ingest-phase0-001) returns DELIVERED: on a hand-tagged test scene (2 rooms + door + 1
-      gas-source marker) gas flows from the placed source through the door; the engine-free source seam
-      (GasSourceMarker + GasSourceSpec + BuiltSceneGasSourceReader + GasSourceSeeder + LatticeQuantize.ContainingCell)
-      is deterministic + integer + in the AUTHORITATIVE sim step (continuous injection MOVED out of the render adapter,
-      folded in the MeaningChecksum); RED-first independent tests; -Deliver green; fresh-session cross-family G5
-      could-not-refute; owner sees source→flow. On GREEN, Phase 1 (real DA SnapGridFlow: minimal modules +
-      LevelBootstrap runtime Build + seed/ProfileHash session handshake, SAME reader unchanged) frames. Two gotchas
-      (recorded): DA ships ZERO content (Phase 1 = owner-manual DA authoring), and current source-injection is outside
-      the checksum (Phase 0 moves it in). MCP rule: build via MCP where possible, else step-by-step owner instructions
-      — no crutches.
+      c-exec-lv-ingest-phase0-001 закрыт по собственному done_when: source→flow owner-eye,
+      byte-identical authoritative injection, -Deliver green и binding fresh G5.
     status: active
+  - id: M1-A0
+    goal: |
+      Ядро отдаёт canonical read-only ActiveCell snapshot и счётчики шага без изменения
+      authoritative state, tick result или MeaningChecksum.
+    done_when: |
+      c-exec-poligon-a0-001 закрыт по work/c-exec-poligon-a0-001-call.md; worktree core
+      проверен, overlap с Phase 0 нулевой, observer OFF/ON byte-identical, merge slot 2.
+    status: open
+  - id: M1-A1
+    goal: |
+      Одна labelled region проходит fine→collapsed→fine exact/no-pop, а cheap digest
+      чувствителен к authoritative meaning и открывает следующие S4-леги.
+    done_when: |
+      c-exec-poligon-s4-opening-001 закрыт по work/c-exec-poligon-s4-opening-001-call.md:
+      owner-approved PLAN, RED battery, exactness, digest cost, owner-eye, -Deliver и fresh G5.
+    status: blocked
+    unblock_when: c-exec-lv-ingest-phase0-001 MERGED и c-exec-poligon-a0-001 MERGED.
 
 open_calls:
+  - id: c-exec-poligon-a0-001
+    to: executor
+    for: g-9c41 / M1-A0
+    issued: 2026-07-10
+    call: work/c-exec-poligon-a0-001-call.md
+    note: |
+      FIRE-READY setup/build: lane A получает НОВЫЙ C:\projects\Unity\GasCoopGame_core (branch core).
+      BUILD может идти параллельно Phase 0 только после read-only overlap-preflight и только в новом
+      diagnostics/API + tests; любое пересечение с Phase-0 diff или hot Core → STOP. Merge slot 2:
+      дождаться Phase 0 MERGED, rebase на fresh origin/main, полный check, fresh G5.
+      LAUNCH: lane A · core/headless · ПК · last verified base a644e5db (§Re-sync фиксирует tip).
+  - id: c-exec-poligon-s4-opening-001
+    to: executor
+    for: g-9c41 / M1-A1
+    issued: 2026-07-10
+    call: work/c-exec-poligon-s4-opening-001-call.md
+    note: |
+      BLOCKED до c-exec-lv-ingest-phase0-001 MERGED + c-exec-poligon-a0-001 MERGED. Bounded S4
+      micro-proof: одна labelled region, exact collapse/expand, cheap digest, owner-eye no-pop;
+      production room-rollup/auto-subpartition остаются следующими легами. Merge slot 3.
+      LAUNCH: lane A · GasCoopGame_core/core · ПК · base = merged tip обоих deps · fresh G5.
   - id: c-exec-lv-ingest-phase0-001
     to: executor
     for: g-9c41 / Lv-ingest (Phase 0)
@@ -233,19 +208,6 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  # ПАРАЛЛЕЛЬНЫЕ ЛИНИИ установлены 2026-07-10 (owner «подтверждаю»; s-lanes-install-001):
-  # карта площадок = knowledge/g9c41-lanes-venues.md (правило 1: трек стартует только с проверенным worktree);
-  # борд = play local/lanes-board — владелец в любом чате: «что можем делать».
-  # Полигон М1 = ближайшая цель владельца (2026-07-10); пересборка ставки — c-shape-poligon-m1-001.
-  - CALL c-shape-poligon-m1-001 → work/c-shape-poligon-m1-001-call.md  # ЯДРО/A: пересборка ставки под Полигон М1 + первые S4-леги (owner-present) — РЕКОМЕНДУЕМЫЙ СТАРТ
-  - CALL c-lab-p0-001 → work/c-lab-p0-001-call.md                      # СТЕНД/C: верстак v0 (НОВЫЙ worktree lab; первым шагом — решение D1 у владельца)
-  - CALL c-prep-net-spike-001 → work/c-prep-net-spike-001-call.md      # СЕТЬ/E: подготовка спайка двух реальных машин (headless)
-  - CALL c-repair-watchmen-001 → work/c-repair-watchmen-001-call.md    # OS: вернуть сторожей масштаба + потолок SPEC 35k→27.7k + ось в Sc-damage CALL
-  # Уже в работе / прежние фронты:
-  - CALL c-exec-lv-ingest-phase0-001 → work/c-exec-lv-ingest-phase0-call.md  # ЛИНИЯ D: Phase 0 В РАБОТЕ (доделывается + code review); dev занят
-  - CALL c-visual-009 → work/c-visual-009-movement-data-plan-call.md  # ЛИНИЯ B: PLAN-only movement seam (dev_2, owner-present)
-  - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: HELD (дизайн) — после c-repair-watchmen-001
-  - CALL c-repair-canon-process-v3-question-origin-gate-001 → work/c-repair-canon-process-v3-question-origin-gate-001-call.md
-    # CANON PROCESS: owner-present repair after REVISED/BLOCKED pilot; text-only, no canon/process install
+  CALL c-exec-poligon-a0-001 → work/c-exec-poligon-a0-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md

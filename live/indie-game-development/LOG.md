@@ -119,4 +119,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/publish (g-d3a8/canon-process-v3, s-work-canon-process-v3-publish-002): rebased the two unpublished indie-game commits over concurrent Solmax main, pushed origin/main to b583e8c, recorded the paper pilot as REVISED/BLOCKED, and opened owner-present repair CALL c-repair-canon-process-v3-question-origin-gate-001; no canon or process installation. → history/2026-07-10-s-work-canon-process-v3-publish-002.md
 
+2026-07-10 — shape (g-9c41/Полигон М1, s-shape-poligon-m1-001): владелец «А» — ставка пересобрана в лестницу 0–10 с appetite 11 легов; отдельный GasCoopGame_core открывает diff-disjoint A0 параллельно Phase 0, S4-build ждёт MERGED Phase 0+A0, merge slots 1→2→3. → history/2026-07-10-s-shape-poligon-m1-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
