@@ -137,4 +137,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — research/frame (g-9c41/PGG, s-pgg-analysis-001): владелец запросил анализ купленного PGG (FImpossible) — пакет найден в кэше Asset Store, прочитаны исходники (801 .cs) + мануал 26 стр. + веб; вердикт: редакторский помощник авторинга DA-модулей = ПОДХОДИТ (механика подтверждена кодом; батч-вариации по сидам скриптуются), рантайм-роль ОТКЛОНЕНА (глобальный static Random, float/Perlin, сид-вывод менялся между версиями); арта в PGG ноль — нужен low-poly кит; Unity 6.3 не подтверждена = kill-риск спайка. Owner «да» → READY CALL c-spike-pgg-001 (таймбокс ≤3 дня, бросовый проект, параллелен всему). Анализ: work/pgg-analysis-2026-07-10.md. → history/2026-07-10-s-pgg-analysis-001.md
 
+2026-07-10 — research (g-9c41/gas-cloud-gameplay-model, s-research-gas-cloud-gameplay-model-001): revised nonlinear-only into a falsifiable packed-body + bounded-halo candidate, described its player-visible behavior and hard rejects, and left one owner choice on halo mechanics; no canon/product change and c-visual-009 remains open. → history/2026-07-10-s-research-gas-cloud-gameplay-model-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
