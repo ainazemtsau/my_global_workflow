@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-repair-watchmen-001
+updated: 2026-07-10 by s-work-poligon-a0-build-call-001
 
 bet:
   node: g-9c41
@@ -51,7 +51,8 @@ tasks:
       Ядро отдаёт canonical read-only ActiveCell snapshot и счётчики шага без изменения
       authoritative state, tick result или MeaningChecksum.
     done_when: |
-      c-exec-poligon-a0-001 закрыт по work/c-exec-poligon-a0-001-call.md; worktree core
+      c-exec-poligon-a0-001 закрыт по work/c-exec-poligon-a0-001-build-call.md; exact
+      owner-approved frozen PLAN @f80bf700, independent RED-first test-author, worktree core
       проверен, overlap с Phase 0 нулевой, observer OFF/ON byte-identical, merge slot 2.
     status: open
   - id: M1-A1
@@ -69,13 +70,15 @@ open_calls:
     to: executor
     for: g-9c41 / M1-A0
     issued: 2026-07-10
-    call: work/c-exec-poligon-a0-001-call.md
+    call: work/c-exec-poligon-a0-001-build-call.md
     note: |
-      FIRE-READY setup/build: lane A получает НОВЫЙ C:\projects\Unity\GasCoopGame_core (branch core).
-      BUILD может идти параллельно Phase 0 только после read-only overlap-preflight и только в новом
-      diagnostics/API + tests; любое пересечение с Phase-0 diff или hot Core → STOP. Merge slot 2:
-      дождаться Phase 0 MERGED, rebase на fresh origin/main, полный check, fresh G5.
-      LAUNCH: lane A · core/headless · ПК · last verified base a644e5db (§Re-sync фиксирует tip).
+      FIRE-READY separate BUILD-only in C:\projects\Unity\GasCoopGame_core (branch core) по exact
+      frozen PLAN/base f80bf700c26376edb7965eef3481cc04607834c3; owner approval =
+      owner-chat-2026-07-10-c-exec-poligon-a0-001-plan-approved. Сначала отдельный independent
+      RED-first test-author, builder эти тесты не редактирует. BUILD может идти параллельно Phase 0
+      только после zero-overlap preflight; любое пересечение с Phase-0 diff или hot Core → STOP.
+      Merge slot 2 строго после Phase 0 MERGED: rebase на fresh origin/main, полный rerun и binding G5.
+      LAUNCH: lane A · core/headless · ПК · frozen base f80bf700c26376edb7965eef3481cc04607834c3.
   - id: c-exec-poligon-s4-opening-001
     to: executor
     for: g-9c41 / M1-A1
@@ -209,6 +212,6 @@ decisions:
     recommendation: Fold into Sc-reactions / Sc-damage PLANs now (first real gas consequences = where interdependence becomes testable).
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
-  CALL c-exec-poligon-a0-001 → work/c-exec-poligon-a0-001-call.md
+  CALL c-exec-poligon-a0-001 → work/c-exec-poligon-a0-001-build-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
