@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-work-066-c-visual-008-stop-route
+updated: 2026-07-10 by s-repair-canon-process-v3-paper-only-001
 
 bet:
   node: g-9c41
@@ -154,20 +154,18 @@ open_calls:
       dense-core shaping. Preserve GridView meanings and the 128-byte GpuGasParams ABI; no new physics, feedback,
       render tuning, tests, BUILD or Stage 4. Product preflight observed origin/main@a644e5db while dev2@a48883b5 was
       stale/diverged with untracked c-visual-008 closure evidence; verify latest main and reconcile that evidence first.
-  - id: c-research-canon-design-process-v3-001
+  - id: c-pilot-canon-design-process-v3-paper-001
     to: session
-    for: g-d3a8 / evidence-backed canon design process v3
+    for: g-d3a8 / paper-only canon-design process pilot
     issued: 2026-07-10
-    call: work/c-research-canon-design-process-v3-001-call.md
+    call: work/c-pilot-canon-design-process-v3-paper-001-call.md
     note: |
-      READY research session after owner verdict «А». Canon Forge v2 is suspended as the active
-      design-decision route. core-0 gas states and core-1 bubble fill are HOLD material for one
-      future pilot, not active canon questions. Fixed foundations remain gas simulation,
-      reactions and destructible/changeable space. Bubble, three phases, sleeping-gas recon and
-      other owner-liked material are DESIGN ANCHORS: preserve them, but do not treat them as canon
-      or immutable foundations. This CALL researches structurally different process options and
-      returns a pilot-ready recommendation; it does not answer the concept, install a process or
-      rebuild the full question graph.
+      READY owner-present text-only pilot after owner correction and exact choice «А».
+      Generate and filter mechanic variants only on paper; no Unity scene, greybox, prototype,
+      visual probe, A/B build, implementation, setup, test or tuning work. Apply game-wide laws at
+      game/core-loop altitude and only question-specific criteria to a micro-decision. Show the
+      owner 2–3 structurally different paper candidates or an honest blocked outcome, then request
+      a verdict on the process only. core-0/core-1 remain HOLD source material; no canon freeze.
 
 recurring: []
 
@@ -187,17 +185,16 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      PROCESS REPAIR ROUTED 2026-07-10
-      (s-repair-canon-design-process-route-001; owner «А»). Canon Forge v2 is suspended as the
-      active design-decision route: repeated sessions mixed design discovery with canon recording,
-      lacked a dependency/readiness gate, and selected bubble-fill before gas-state semantics.
-      core-0/core-1 are preserved as HOLD material for one pilot, not active sequential questions.
-      Fixed foundations remain gas simulation, reactions and destructible/changeable space.
-      Bubble, three phases, sleeping-gas reconnaissance and other owner-liked material are DESIGN
-      ANCHORS — not canon, not foundations and not ordinary discardable drafts; preserve them and
-      challenge/replace only explicitly. INDEX remains empty. Next design work =
-      c-research-canon-design-process-v3-001. No full graph rebuild or concept verdict before one
-      owner-evaluated pilot.
+      PAPER-ONLY PROCESS PILOT READY 2026-07-10
+      Research result s-research-canon-design-process-v3-001 is preserved as evidence, but its
+      prototype/playtest/visual-evidence lanes are superseded for this direction by the owner's
+      hard boundary: design variants are generated and compared only in text, with no separate
+      implementation or setup work. Owner chose «А»: game-wide laws apply at game/core-loop
+      altitude; each small decision receives only relevant question-specific filters, never every
+      pillar by force. Canon Forge v2 remains suspended. core-0/core-1 remain HOLD source material;
+      fixed foundations and DESIGN ANCHORS retain their prior status. Next design work =
+      c-pilot-canon-design-process-v3-paper-001. No concept/canon/full-graph verdict before the
+      owner evaluates this paper-only process pilot.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -232,7 +229,7 @@ next:
   # Other ready fronts (owner picks):
   - CALL c-visual-009 → work/c-visual-009-movement-data-plan-call.md  # VISUAL: PLAN-only simulation-derived movement seam; Stage 4 closed
   - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: shape Sc-damage — HELD (needs design)
-  - CALL c-research-canon-design-process-v3-001 → work/c-research-canon-design-process-v3-001-call.md
-    # CANON PROCESS: research process v3 + prepare one pilot; core-0/core-1 remain HOLD material
+  - CALL c-pilot-canon-design-process-v3-paper-001 → work/c-pilot-canon-design-process-v3-paper-001-call.md
+    # CANON PROCESS: paper-only selection pilot; no builds/tests; core-0/core-1 remain HOLD material
 
 END_OF_FILE: live/indie-game-development/NOW.md

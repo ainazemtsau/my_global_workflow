@@ -108,4 +108,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/checkpoint (g-7e15/c-visual-009, s-work-067): PLAN not started because this Codex leg is bound to the Direction-OS worktree while the CALL requires a fresh GasCoopGame product-repo session; read-only preflight confirmed origin/main@a644e5db, stale/diverged dev2@a48883b5 and 16 preserved untracked c-visual-008 evidence files. c-visual-009 stays pending unchanged; no plan, approval or BUILD work claimed. → history/2026-07-10-s-work-067-c-visual-009-binding-checkpoint.md
 
+2026-07-10 — repair (g-d3a8/canon-process-v3, s-repair-canon-process-v3-paper-only-001): owner prohibited all playable/visual/implementation variant work and chose «А» — game-wide laws at game/core-loop altitude plus only relevant question-specific filters; superseded prototype-inclusive evidence lanes and opened one text-only selection-process pilot with internal generation, hard kills and 2–3 paper candidate cards. → history/2026-07-10-s-repair-canon-process-v3-paper-only-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
