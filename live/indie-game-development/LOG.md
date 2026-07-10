@@ -145,4 +145,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — repair (g-9c41/M1-A0, s-repair-poligon-a0-checksum-route-001): c-exec-poligon-a0-001 recorded as returned STOP/NOT DELIVERED; NOW compacted to schema and routed through Phase-0-gated checksum foundation plus a fresh successor A0 under the fixed 11-leg appetite, with future M1-9+M1-10 coalesced by owner «А». → history/2026-07-10-s-repair-poligon-a0-checksum-route-001.md
 
+2026-07-10 — research/checkpoint (g-9c41/PGG, s-spike-pgg-001-cp2): после owner Authorize живые Field Designer/GridPainter/ReGenerate на Unity 6.3 прошли, PGG-room запечён в DA-ready static package без PGG-компонентов/зависимостей; финальный product DA+BuiltSceneRoomReader гейт не запускался, потому что Direction-OS guard блокирует product writes, поэтому PASS/FAIL не вынесен. → history/2026-07-10-s-spike-pgg-001-cp2.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

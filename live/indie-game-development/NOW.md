@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-10 by s-repair-poligon-a0-checksum-route-001
+updated: 2026-07-10 by s-spike-pgg-001-cp2
 
 bet:
   node: g-9c41
@@ -80,7 +80,7 @@ open_calls:
     to: executor
     for: g-9c41 / PGG editor-time spike
     issued: 2026-07-10
-    note: "CHECKPOINT/no verdict; awaits owner Authorize; history/2026-07-10-s-spike-pgg-001-cp1.md."
+    note: "CHECKPOINT/no verdict; scratch proven through DA-ready static package, final product DA/gas proof blocked by Direction-OS product-write guard; resume history/2026-07-10-s-spike-pgg-001-cp2.md."
 
 recurring: []
 
