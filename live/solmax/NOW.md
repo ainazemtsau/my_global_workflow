@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q3_relationship_research_ready_for_forge
+route_status: operating_substrate_q3_relationship_card_accepted_q4_instantiation_research_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -176,6 +176,37 @@ owner_directive: |
     topology and final service-block list remain downstream.
   - Next route is the Q3 service-zone relationship architecture-forge.
 
+  Q3 service-zone relationship architecture card:
+  - Owner selected direction A.
+  - Owner approved operating-substrate-service-zone-relationship-001.
+  - Owner words: "Approve v1".
+  - Frozen semantic model has five families and twelve primary kinds:
+    invoke, delegate, handoff; query, observe/event,
+    evidence/provenance; propose, validate, decide/authorize,
+    apply/effect; return/result; continue.
+  - Acceptance, refusal, input-required, progress, waiting, failure,
+    cancellation, retry and recovery are shared lifecycle semantics of
+    open obligations rather than a mandatory flat message catalogue.
+  - Every open obligation has one primary current next-action owner.
+    Waiting is not ownerless; predecessor retains ownership until an
+    accepted handoff; delegation retains parent integration and
+    accountability.
+  - One primary normative state owner establishes each accepted durable
+    version. Capability, delegation, handoff, event and evidence do not
+    implicitly transfer human authority or state ownership.
+  - Cancellation request is not proof of stop. Timeout is not proof
+    that an effect did not occur. Unknown effect outcome blocks blind
+    retry pending reconciliation or independent retry-safety evidence.
+  - Event, evidence, artifact, result and continuation are distinct.
+  - Sparse logical responsibility flow passed the intake-through-
+    procedure/effect/result/continuation stress test without requiring
+    all-to-all communication or a central physical orchestrator.
+  - No entity/message schema, transport, orchestration topology,
+    physical writer or final service-block list was selected.
+  - gap_event: none. Top-level graph rebalance: not needed.
+  - Next route is bounded Q4 best-practice/comparable-system research
+    on process-pack instantiation and adaptation.
+
 tasks: []
 
 recurring: []
@@ -242,5 +273,10 @@ preserved_evidence:
   - live/solmax/work/operating-substrate-service-zone-relationship-best-practice-research-001.md
   - live/solmax/history/2026-07-10-s-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
   - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-relationship-architecture-forge-001.md
-next: work/calls/c-solmax-operating-substrate-service-zone-relationship-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-service-zone-relationship-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-service-zone-relationship-architecture-forge-001.md
+  - 'owner choice in chat: "A"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
+next: work/calls/c-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
 END_OF_FILE: live/solmax/NOW.md
