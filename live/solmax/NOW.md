@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q2_service_zone_research_ready_for_forge
+route_status: operating_substrate_q2_service_zone_classification_accepted_q3_relationship_research_next
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -130,6 +130,27 @@ owner_directive: |
     schema and writer topology remain downstream.
   - Next route is the Q2 service-zone/classification architecture-forge.
 
+  Q2 service-zone classification card:
+  - Owner approved operating-substrate-service-zone-classification-001.
+  - Frozen rule: a service zone is a semantic responsibility family,
+    not automatically a module, service, agent, process or file.
+  - Whole concerns are not assigned one class. They are split into
+    atomic responsibility claims.
+  - Each claim is classified as invariant kernel semantics, reusable
+    service semantics, process-pack declaration, owner-profile concern,
+    adapter/implementation concern, deferred or rejected.
+  - Portable continuation is invariant semantic responsibility; exact
+    schema and serialization remain open.
+  - Durable mutation crosses a logical validated writer/apply boundary;
+    physical writer topology remains open.
+  - Persistence, live interface and domain-specific safety policy can be
+    classified without selecting implementation or a final block list.
+  - Evidence promotion requires cross-source, cross-process and
+    implementation-neutral conformance support.
+  - gap_event: none. Top-level graph rebalance: not needed.
+  - Next route is bounded Q3 best-practice research on responsibility
+    relationships and end-to-end flow.
+
 tasks: []
 
 recurring: []
@@ -188,5 +209,10 @@ preserved_evidence:
   - live/solmax/work/operating-substrate-kernel-service-zone-best-practice-research-001.md
   - live/solmax/history/2026-07-10-s-solmax-operating-substrate-kernel-service-zone-best-practice-research-001.md
   - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-classification-architecture-forge-001.md
-next: work/calls/c-solmax-operating-substrate-service-zone-classification-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-service-zone-classification-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-service-zone-classification-architecture-forge-001.md
+  - 'owner choice in chat: "A"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
+next: work/calls/c-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
 END_OF_FILE: live/solmax/NOW.md
