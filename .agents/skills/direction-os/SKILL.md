@@ -147,6 +147,5 @@ separate writer session applies them.
 
 Some plays benefit from parallel children (research nominal-group; converge /
 converge-arch miner + strategic_search; review G5 refutation). When a play step
-calls for that, follow the **parallel-verify** skill. Subagents in Codex spawn
-ONLY when explicitly asked — the play text and your prompt must trigger them.
+calls for that, follow the **parallel-verify** skill. Even when native Ultra may delegate proactively, a Direction-OS leg spawns subagents ONLY when its play text calls for them; the prompt names the children.
 Mechanical legs (writer apply, single `work` task, digest, audit) never fan out.

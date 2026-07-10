@@ -12,7 +12,7 @@ Precondition: owner names, implies, or accepts a mode and target. Exact commands
 
 1. **Mode + target** — classify the owner phrase as `Scout`, `Pair-Lab`, or `Formal Leg`; name target repo/worktree, target scene/files, and what is explicitly forbidden. If the owner did not use a command, say the inferred mode in plain Russian before continuing.
 2. **Lock + rollback** — before edits, state the file lock, active Cloud Code conflict check, rollback/checkpoint plan, and the one visible outcome. If this cannot be made concrete, stop.
-3. **Plan the smallest move** — for Pair-Lab, one visible change only; for Formal Leg, use the normal engineering contour/OpenSpec and product `AGENTS.md` rules; for substantive product work, invoke `ultracode` before changing files.
+3. **Plan the smallest move** — for Pair-Lab, one visible change only; for Formal Leg, use the normal engineering contour/OpenSpec and product `AGENTS.md` rules.
 4. **Execute / inspect** — do the bounded work or read-only inspection. Do not broaden scope silently.
 5. **Validate** — Pair-Lab: compile/play/screenshot/owner-eye as applicable. Formal Leg: runnable checks + RESULT evidence. Scout: source-grounded answer.
 6. **Owner-eye gate (Pair-Lab only)** — owner says keep / tweak / revert / promote; record his words. `(owner, conditional)`
