@@ -88,4 +88,5 @@
 - 2026-07-09 — operating-substrate structure-discovery forge checkpointed: owner rejected discovery-loop/card freeze and redirected to universal adaptive process structure architecture cartography.
 - 2026-07-09 — operating-substrate universal-structure cartography owner-approved with recursive graph-growth steering; Q15 amended to graph growth / recursive decomposition / gap rebalance; next forge = q01_core_invariant with spawned-question classification.
 - 2026-07-10 — operating-substrate Q1 core invariant accepted: owner-tuned immutable AI-process kernel with pluggable process packs, portable continuation contract, validated mutation boundary and Markdown-as-bootstrap carrier.
+2026-07-10 — solmax/g-operating-substrate research: Q2 kernel service-zone/classification primary-source note completed across OpenAI, Anthropic, ADK, LangGraph, MCP, AutoGen, Temporal and A2A; semantic responsibility boundaries and candidate five-layer promotion criteria derived; no gap_event and no implementation selected; next Q2 architecture-forge. → history/2026-07-10-s-solmax-operating-substrate-kernel-service-zone-best-practice-research-001.md
 END_OF_FILE: live/solmax/LOG.md

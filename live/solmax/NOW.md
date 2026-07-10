@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_core_invariant_owner_approved
+route_status: operating_substrate_q2_service_zone_research_ready_for_forge
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -113,13 +113,29 @@ owner_directive: |
   - Next route is bounded best-practice research supporting Q2
     service-zone/classification forge.
 
+  Q2 service-zone research checkpoint:
+  - Primary-source comparison of OpenAI Agents SDK, Anthropic guidance,
+    Google ADK, LangGraph, MCP, AutoGen, Temporal and A2A is complete.
+  - This is research input, not an approved Q2 architecture answer.
+  - Research supports classifying semantic responsibilities rather than
+    freezing a final service-block list.
+  - Candidate Q2 layers are invariant kernel semantics, reusable service
+    semantics, process-pack declarations, owner-profile concerns and
+    adapter/implementation concerns.
+  - Portable continuation must be semantic and carrier-independent;
+    opaque runtime identifiers are optional references only.
+  - Durable mutation requires a logical validated writer/apply boundary;
+    physical writer topology remains open.
+  - gap_event: none. Exact entity model, message schema, continuation
+    schema and writer topology remain downstream.
+  - Next route is the Q2 service-zone/classification architecture-forge.
+
 tasks: []
 
 recurring: []
 decisions: []
 
-open_calls:
-  - c-solmax-operating-substrate-kernel-service-zone-best-practice-research-001
+open_calls: []
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -169,5 +185,8 @@ preserved_evidence:
   - 'owner clarification in chat: "я должен получить индекс, который могу скопировать и вставить в новый чат"'
   - 'owner clarification in chat: "writer — это отдельная задача ... своя валидация должна быть"'
   - 'owner carrier direction in chat: "сейчас это как просто Markdown-файл ... в будущем ... более автоматизировано"'
-next: work/calls/c-solmax-operating-substrate-kernel-service-zone-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-kernel-service-zone-best-practice-research-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-kernel-service-zone-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-classification-architecture-forge-001.md
+next: work/calls/c-solmax-operating-substrate-service-zone-classification-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
