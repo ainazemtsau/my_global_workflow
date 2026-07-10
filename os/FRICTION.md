@@ -158,4 +158,7 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-07-10 indie-game-development repair: Canon Forge v2 mixed design discovery with canon recording and lacked a pre-candidate dependency/readiness gate; repeated repairs therefore oscillated owner-liked ideas between loss and over-freeze while a linear queue selected bubble-fill before gas-state semantics — owner approved full process research + one pilot before canon work resumes.
 
+2026-07-10 os maintenance: (c) customization — current Codex Ultra provides native proactive subagent orchestration, so the custom global `ultracode` skill/forcing duplicated it; owner explicitly authorized the two narrow `live/**` clause removals with "да"; global skill/global AGENTS removed and Direction-OS wording corrected; historical evidence and native `model_reasoning_effort="ultra"` / `[agents]` retained → partial: four GasCoopGame product `AGENTS.md` copies still require a separate instruction-only commit/propagation because this repo guard blocks product writes; litmus after that handoff: a fresh native-Ultra task has no custom forcing while play-mandated fan-out and fresh-session G5 still hold.
+2026-07-10 os Codex-kit consistency sweep: `.codex/README-CODEX-KIT.md` and `.codex/agents/{validator,builder}.toml` still describe cross-family Claude G5 as mandatory while current AGENTS/parallel-verify make cross-family optional and require only a fresh session → logged for a separate maintenance session; not bundled into the UltraCode-retirement fix.
+
 END_OF_FILE: os/FRICTION.md

@@ -15,8 +15,7 @@ description: >-
 
 # parallel-verify — fan-out + verification (Codex)
 
-Triggered from a play step that asks for parallel children. Codex spawns
-subagents **only when explicitly asked** — never spontaneously. So your prompt
+Triggered from a play step that asks for parallel children. Even when native Ultra may delegate proactively, a Direction-OS leg spawns subagents only when its play/CALL calls for them. Your prompt
 must name the workers and say "in parallel," and the controlling play/CALL text
 must call for the fan-out. If neither does, do NOT invent a swarm: run the leg
 as a single agent.
