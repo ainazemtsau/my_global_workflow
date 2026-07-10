@@ -133,4 +133,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/publish (g-d3a8/canon-process-v3, s-work-publish-canon-process-v3-question-origin-gate-003): repair-коммит @6735c89 запушен в direction-ветку и clean merge @c2bcdd8 залит в origin/main; remote ancestry и опубликованный Minimum Game Frame CALL подтверждены, занятый dirty main не тронут. → history/2026-07-10-s-work-publish-canon-process-v3-question-origin-gate-003.md
 
+2026-07-10 — research (g-7e15/c-visual-009 → g-9c41 cloud character, s-research-gas-cloud-character-001): confirmed linear dilution + coverage-destroying erosion + equilibrium stillness, rejected oxygen/more-mass/particles as fixes, and recorded a staged compact-front investigation; c-visual-009 stays open and its PLAN→dirty-BUILD provenance needs repair. → history/2026-07-10-s-research-gas-cloud-character-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
