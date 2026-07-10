@@ -121,4 +121,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — shape (g-9c41/Полигон М1, s-shape-poligon-m1-001): владелец «А» — ставка пересобрана в лестницу 0–10 с appetite 11 легов; отдельный GasCoopGame_core открывает diff-disjoint A0 параллельно Phase 0, S4-build ждёт MERGED Phase 0+A0, merge slots 1→2→3. → history/2026-07-10-s-shape-poligon-m1-001.md
 
+2026-07-10 — repair (g-9c41/watchmen, s-repair-watchmen-001): владелец «А» — потолок исправлен до ~27.7k@50ms/~55.4k@100ms, три отвеченных сторожа перевешены в knowledge, Sc-damage вооружён open-space/capacity гейтами. → history/2026-07-10-s-repair-watchmen-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

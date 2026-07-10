@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-shape-poligon-m1-001
+updated: 2026-07-10 by s-repair-watchmen-001
 
 bet:
   node: g-9c41
@@ -119,8 +119,9 @@ open_calls:
       knowledge/g9c41-sc-sense-delivered-unwired.md, the g9c41 SPEC, engineering contract. Fold the co-op-interdependence
       axis (decision d-coop-interdependence-repin-001) into the Sc-damage framing. Goal = a fire-ready Sc-damage executor
       CALL. Boundaries: SHAPE only (produces the CALL, builds nothing); no new gas types; no visual pipeline.
-      LAUNCH: lane OS-чат · HELD (дизайн) · c-repair-watchmen-001 обязан дописать сюда ось «armed open-space jet»
-      + шов межтиповой ёмкости ДО запуска.
+      LAUNCH: lane OS-чат · READY (дизайн, owner-present). Обязательные оси: owner-eye «одна честная струя
+      в открытом поле без стен»; Sc-reactions «два облака → телеграф → взрыв» НЕ закрывает отсутствующее
+      open-space/no-walls свидетельство; кросс-типовая общая ёмкость решается не позже Sc-damage PLAN.
   - id: c-visual-009
     to: executor
     for: g-7e15 / VISUAL Stage 3.5 movement-data PLAN
