@@ -247,5 +247,7 @@ decisions:
     source: work/gas-engine-plan-audit-2026-06-29.md; work/now-snapshot-2026-06-29.md.
 next:
   CALL c-exec-poligon-a0-001 → work/c-exec-poligon-a0-001-build-call.md
+  # Параллельно, ничего не занимает (owner «да» 2026-07-10, s-pgg-analysis-001):
+  - CALL c-spike-pgg-001 → work/c-spike-pgg-001-call.md  # УРОВНИ/D-разведка: таймбокс-спайк PGG ≤3 дня (бросовый Unity-проект); вердикт = work/pgg-analysis-2026-07-10.md; PASS → PLAN шага M1-4
 
 END_OF_FILE: live/indie-game-development/NOW.md

@@ -135,4 +135,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — research (g-7e15/c-visual-009 → g-9c41 cloud character, s-research-gas-cloud-character-001): confirmed linear dilution + coverage-destroying erosion + equilibrium stillness, rejected oxygen/more-mass/particles as fixes, and recorded a staged compact-front investigation; c-visual-009 stays open and its PLAN→dirty-BUILD provenance needs repair. → history/2026-07-10-s-research-gas-cloud-character-001.md
 
+2026-07-10 — research/frame (g-9c41/PGG, s-pgg-analysis-001): владелец запросил анализ купленного PGG (FImpossible) — пакет найден в кэше Asset Store, прочитаны исходники (801 .cs) + мануал 26 стр. + веб; вердикт: редакторский помощник авторинга DA-модулей = ПОДХОДИТ (механика подтверждена кодом; батч-вариации по сидам скриптуются), рантайм-роль ОТКЛОНЕНА (глобальный static Random, float/Perlin, сид-вывод менялся между версиями); арта в PGG ноль — нужен low-poly кит; Unity 6.3 не подтверждена = kill-риск спайка. Owner «да» → READY CALL c-spike-pgg-001 (таймбокс ≤3 дня, бросовый проект, параллелен всему). Анализ: work/pgg-analysis-2026-07-10.md. → history/2026-07-10-s-pgg-analysis-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
