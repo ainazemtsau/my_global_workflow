@@ -1,5 +1,5 @@
 # NOW — indie-game-development
-updated: 2026-07-10 by s-lanes-install-001
+updated: 2026-07-10 by s-work-canon-process-v3-publish-002
 
 bet:
   node: g-9c41
@@ -162,19 +162,19 @@ open_calls:
       LAUNCH: lane B · venue GasCoopGame_dev_2 (dev2, редактор №2) · PLAN-only, owner-present · base: сверить
       свежий origin/main (§Re-sync) · mq: PLAN не мержится · conflict: рендер-путь — будущее рендер-окно
       Полигона идёт в ЭТОЙ ЖЕ линии, последовательно.
-  - id: c-pilot-canon-design-process-v3-paper-001
+  - id: c-repair-canon-process-v3-question-origin-gate-001
     to: session
-    for: g-d3a8 / paper-only canon-design process pilot
+    for: g-d3a8 / canon-process-v3 question-origin repair
     issued: 2026-07-10
-    call: work/c-pilot-canon-design-process-v3-paper-001-call.md
+    call: work/c-repair-canon-process-v3-question-origin-gate-001-call.md
     note: |
-      READY owner-present text-only pilot after owner correction and exact choice «А».
-      Generate and filter mechanic variants only on paper; no Unity scene, greybox, prototype,
-      visual probe, A/B build, implementation, setup, test or tuning work. Apply game-wide laws at
-      game/core-loop altitude and only question-specific criteria to a micro-decision. Show the
-      owner 2–3 structurally different paper candidates or an honest blocked outcome, then request
-      a verdict on the process only. core-0/core-1 remain HOLD source material; no canon freeze.
-      LAUNCH: lane OS/канон-чат · без worktree и Unity · параллелен всем инженерным линиям без конфликтов.
+      READY owner-present repair. Evidence: history/2026-07-10-s-pilot-canon-design-process-v3-paper-001.md;
+      owner verdict = REVISED / BLOCKED because the pilot invented its starting question, priority and terms.
+      Reconcile the stale PILOT READY route, add the mandatory pre-generation gate “откуда вопрос и почему
+      сейчас”, and prepare one new text-only pilot CALL from a real state-derived question. The discarded
+      service-connector/damper/A-B-C material has no design-anchor or canon status. No process installation,
+      canon freeze, core-0/core-1 answer, graph rebuild, implementation or test work.
+      LAUNCH: lane OS/канон-чат · owner-present · без worktree и Unity · параллелен инженерным линиям.
 
 recurring: []
 
@@ -194,16 +194,16 @@ parallel_tracks:
   - id: g-d3a8
     track: canon/design
     state: |-
-      PAPER-ONLY PROCESS PILOT READY 2026-07-10
-      Research result s-research-canon-design-process-v3-001 is preserved as evidence, but its
-      prototype/playtest/visual-evidence lanes are superseded for this direction by the owner's
-      hard boundary: design variants are generated and compared only in text, with no separate
-      implementation or setup work. Owner chose «А»: game-wide laws apply at game/core-loop
-      altitude; each small decision receives only relevant question-specific filters, never every
-      pillar by force. Canon Forge v2 remains suspended. core-0/core-1 remain HOLD source material;
-      fixed foundations and DESIGN ANCHORS retain their prior status. Next design work =
-      c-pilot-canon-design-process-v3-paper-001. No concept/canon/full-graph verdict before the
-      owner evaluates this paper-only process pilot.
+      PAPER-ONLY PROCESS PILOT REVISED / BLOCKED 2026-07-10
+      Owner verdict in s-pilot-canon-design-process-v3-paper-001: «revised — добавить обязательный
+      гейт “откуда вопрос и почему сейчас”». The pilot invented its starting mechanic question,
+      priority, scene and vocabulary; service-connector/damper/A-B-C output is invalidated and has
+      no game-design, DESIGN ANCHOR or canon status. Mandatory revision candidate: before any local
+      criteria or generation, show where the question sits in the game/core loop, the exact unresolved
+      player decision, its source, why it is current/what it blocks, provenance of every introduced
+      entity, and explicit non-scope; gate result READY or BLOCKED. Canon Forge v2 remains suspended;
+      core-0/core-1 stay HOLD; fixed foundations and DESIGN ANCHORS are unchanged. No canon/process
+      installation occurred. Next = owner-present repair CALL c-repair-canon-process-v3-question-origin-gate-001.
   - id: g-2f8c
     track: marketing
     state: parked — latest history/2026-06-29-s-marketing-restart-001.md; wake pending (decision d-marketing-wake-001)
@@ -245,7 +245,7 @@ next:
   - CALL c-exec-lv-ingest-phase0-001 → work/c-exec-lv-ingest-phase0-call.md  # ЛИНИЯ D: Phase 0 В РАБОТЕ (доделывается + code review); dev занят
   - CALL c-visual-009 → work/c-visual-009-movement-data-plan-call.md  # ЛИНИЯ B: PLAN-only movement seam (dev_2, owner-present)
   - CALL c-shape-sc-damage-001 → work/c-shape-sc-damage-call.md      # GAS: HELD (дизайн) — после c-repair-watchmen-001
-  - CALL c-pilot-canon-design-process-v3-paper-001 → work/c-pilot-canon-design-process-v3-paper-001-call.md
-    # CANON PROCESS: paper-only pilot; параллелен инженерным линиям
+  - CALL c-repair-canon-process-v3-question-origin-gate-001 → work/c-repair-canon-process-v3-question-origin-gate-001-call.md
+    # CANON PROCESS: owner-present repair after REVISED/BLOCKED pilot; text-only, no canon/process install
 
 END_OF_FILE: live/indie-game-development/NOW.md

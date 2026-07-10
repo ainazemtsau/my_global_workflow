@@ -117,4 +117,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — research (g-d3a8/canon-process-v3 paper pilot, s-pilot-canon-design-process-v3-paper-001): owner rejected the unsourced starting question and returned REVISED — add a mandatory pre-generation gate “откуда вопрос и почему сейчас”; initial damper/service-connector candidates invalidated, pilot closed BLOCKED, no canon or process installation. → history/2026-07-10-s-pilot-canon-design-process-v3-paper-001.md
 
+2026-07-10 — work/publish (g-d3a8/canon-process-v3, s-work-canon-process-v3-publish-002): rebased the two unpublished indie-game commits over concurrent Solmax main, pushed origin/main to b583e8c, recorded the paper pilot as REVISED/BLOCKED, and opened owner-present repair CALL c-repair-canon-process-v3-question-origin-gate-001; no canon or process installation. → history/2026-07-10-s-work-canon-process-v3-publish-002.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
