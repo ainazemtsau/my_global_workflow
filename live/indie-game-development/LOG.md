@@ -115,4 +115,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/process install (g-9c41/parallel-lanes, s-lanes-install-001): владелец «подтверждаю» — установлена параллельная схема линий: карта площадок knowledge/g9c41-lanes-venues.md (правило владельца: трек стартует только с проверенным worktree), render-only пьеса lanes-board («что можем делать»), LAUNCH-конвенция во всех open_calls; READY: c-shape-poligon-m1-001 (пересборка ставки под Полигон М1 — рекомендуемый старт), c-lab-p0-001 (стенд v0, новый worktree lab, внутри решение D1), c-prep-net-spike-001, c-repair-watchmen-001. Phase 0 в работе (линия D, dev занят). → history/2026-07-10-s-lanes-install-001.md
 
+2026-07-10 — research (g-d3a8/canon-process-v3 paper pilot, s-pilot-canon-design-process-v3-paper-001): owner rejected the unsourced starting question and returned REVISED — add a mandatory pre-generation gate “откуда вопрос и почему сейчас”; initial damper/service-connector candidates invalidated, pilot closed BLOCKED, no canon or process installation. → history/2026-07-10-s-pilot-canon-design-process-v3-paper-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
