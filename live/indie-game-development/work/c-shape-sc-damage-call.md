@@ -20,6 +20,12 @@ co-op crew must react to. The shape output carries the mandatory shape artifacts
   committed sim tick; preserve the byte-identical dose invariant; consume the generic per-TypeId socket, don't
   re-derive; own thresholds/policy here).
 - **g9c41 SPEC** — `knowledge/g9c41-gas-engine-SPEC.md` (§3 what BITES reads the authoritative field; §4 seams).
+- **Scale-watchmen home** — `knowledge/g9c41-scale-watchmen.md` + SPEC §6 п.9–10. TIER-2/3 remain armed
+  reserves, not authorized work: this shape must carry the open-space owner-eye re-triggers and the named
+  cross-type-capacity seam without silently choosing either outcome.
+- **Sc-reactions evidence boundary** — `knowledge/g9c41-sc-reactions-c-exec-021-delivered.md`: the recorded
+  owner-eye proves only «два облака → телеграф → взрыв»; it does NOT prove «одна детонация в открытом поле
+  без стен». The Sc-damage shape must present that missing clause to the owner again and may not mark it passed.
 - **Engineering contract v19** — the produced executor CALL MUST mandate: PLAN/BUILD separate sessions +
   owner-readable PLAN; independent RED test-author first; `check.ps1 -Deliver` green at tip; mutation ≥70 on new
   Core; negative-control per acceptance property; a fresh-session binding G5 (cross-family) could-not-refute.
@@ -30,6 +36,13 @@ co-op crew must react to. The shape output carries the mandatory shape artifacts
 
 ## decisions to resolve in the shape (owner-present)
 
+- **Armed open-space richness check** — the executor CALL must require owner-eye «одна честная струя в открытом
+  поле без стен». Separately present the still-unproved Sc-reactions open-space/no-walls detonation clause to the
+  owner; only his actual verdict may discharge or revise it. Failure may open a signed TIER decision, never an
+  automatic escalation.
+- **Cross-type total capacity** — decide no later than this Sc-damage PLAN whether the first consequence needs
+  true total-cell capacity / cross-type displacement, or explicitly keeps today's per-type capacity with a named
+  later trigger. Do not let the current 4×MaxCellMass co-residency become a silent default.
 - **What "consequence" means for the first proof** — the smallest legible dose→effect (e.g. a health/condition
   meter, an incapacitation, a forced action) WITHOUT exploding scope into full combat/status systems. One
   effect, deterministic, engine-first.
@@ -57,6 +70,8 @@ co-op crew must react to. The shape output carries the mandatory shape artifacts
   a budget.
 - Shape artifacts present (G6): appetite, cut list (≥1 real cut), per-lens sweep verdict, riskiest-assumption
   task (candidate: the deterministic wiring of Sc-sense into the live tick loop).
+- The executor CALL carries the mandatory honest open-space jet owner-eye; the shape records the owner's actual
+  verdict on the still-unproved open-space Sc-reactions clause and on cross-type total capacity by PLAN close.
 - NOW.md would gain Sc-damage as the active task and the executor CALL as the open_call (applied by the shape
   session's RESULT).
 
