@@ -110,4 +110,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — repair (g-d3a8/canon-process-v3, s-repair-canon-process-v3-paper-only-001): owner prohibited all playable/visual/implementation variant work and chose «А» — game-wide laws at game/core-loop altitude plus only relevant question-specific filters; superseded prototype-inclusive evidence lanes and opened one text-only selection-process pilot with internal generation, hard kills and 2–3 paper candidate cards. → history/2026-07-10-s-repair-canon-process-v3-paper-only-001.md
 
+2026-07-10 — work/publish (g-d3a8/canon-process-v3, s-work-canon-process-v3-publish-001): merged the direction worktree into main with both indie-game and concurrent solmax history preserved, pushed merge 32b0e40 to origin/main, and re-verified the unchanged paper-only pilot CALL as the next process step. → history/2026-07-10-s-work-canon-process-v3-publish-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
