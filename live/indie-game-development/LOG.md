@@ -104,4 +104,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — research (g-d3a8/canon-process-v3, s-research-canon-design-process-v3-001): diagnosed five separate process failures and recommended a readiness-gated Decision Studio with matched alternatives, claim-specific evidence lanes and a separate Canon Ledger; supplied orthogonal statuses, typed dependency/co-frame rules and a core-0/core-1 process-only pilot with kill criteria; no concept/canon/process decision made. → history/2026-07-10-s-research-canon-design-process-v3-001.md
 
+2026-07-10 — work/route (g-7e15/c-visual-008, s-work-066): c-visual-008 accepted only as terminal stop-needs-new-data, NOT DELIVERED — smoother visible render detail still read as a solid center emitting side wisps and half-res blur remained; c-visual-009 opened as a PLAN-only movement-data contract over current main, with density-history vs flux-derived read-only seam and blur/dense-core split to decide before any BUILD or Stage 4. → history/2026-07-10-s-work-066-c-visual-008-stop-route.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
