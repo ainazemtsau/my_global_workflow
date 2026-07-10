@@ -127,4 +127,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — work/handoff (g-9c41/M1-A0, s-work-poligon-a0-build-call-001): отдельный BUILD-only CALL c-exec-poligon-a0-001 привязан к owner-approved frozen plan @f80bf700; independent RED-first test-author обязателен, а merge slot 2 остаётся закрыт до MERGED Phase 0 + post-rebase rerun + binding G5. → history/2026-07-10-s-work-poligon-a0-build-call-001.md
 
+2026-07-10 — work/publish (g-9c41/M1-A0, s-work-publish-poligon-a0-build-001): BUILD CALL commit @4eb8129 запушен в direction-ветку и clean merge @f59a981 залит в origin/main; remote ancestry и опубликованный CALL подтверждены, занятый dirty main не тронут. → history/2026-07-10-s-work-publish-poligon-a0-build-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
