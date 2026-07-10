@@ -123,4 +123,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-10 — repair (g-9c41/watchmen, s-repair-watchmen-001): владелец «А» — потолок исправлен до ~27.7k@50ms/~55.4k@100ms, три отвеченных сторожа перевешены в knowledge, Sc-damage вооружён open-space/capacity гейтами. → history/2026-07-10-s-repair-watchmen-001.md
 
+2026-07-10 — work/publish (g-9c41/watchmen, s-work-publish-watchmen-001): по прямому указанию владельца direction-ветка запушена @e46321b, чистый merge @c899212 залит в origin/main и remote ancestry подтверждён; занятый локальный main не тронут. → history/2026-07-10-s-work-publish-watchmen-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
