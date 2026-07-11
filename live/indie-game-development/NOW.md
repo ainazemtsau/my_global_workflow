@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-research-player-shell-parallel-002
+updated: 2026-07-11 by s-research-player-shell-puppetmaster-003
 
 bet:
   node: g-9c41
@@ -92,9 +92,9 @@ decisions:
   - q: "d-level-platform-phasing-001 — how should Lv-ingest be re-phased after the PGG production-pipeline FAIL_STAGE?"
     options: ["Clean rephase: Phase 1 = generic level/module contract + validators; old DA/PGG runtime Phase 1 becomes Phase 2; production extensions/content become Phase 3", "Keep historical numbering as Phase 1A = contract/validators and Phase 1B = adapters/runtime; Phase 2 = production extensions/content", "Keep current Phase 1 unchanged and add the generic standard later"]
     recommendation: "Clean rephase: the generic contract and validators are prerequisites for DA/PGG adapters and must reserve full 3D, module!=room, compound modules with 1:N logical rooms, and six-direction connections before vendor integration; putting the standard after current Phase 1 repeats the spike's build-before-contract failure. Source: work/level-platform-phasing-2026-07-11.md."
-  - q: "d-player-shell-parallel-001 — should a narrow controller foundation start in parallel now?"
-    options: ["A — bring a formal P2a Controller Foundation forward inside current M1: code-driven capsule/camera/input+pose seams in an isolated lab, plus parallel read-only rig/animation asset selection; no BUILD before reconciliation and a ready CALL", "B — run only rig/animation asset selection now and keep controller BUILD sequential", "C — wait for the sequential M1 player-tracking step"]
-    recommendation: "A. The controller foundation is technically independent of current P0/P1, but the reconciliation must explicitly fold/cut/reallocate an existing leg inside the fixed 13-leg appetite, prove the exact new-files-only manifest, and authorize+preflight the lab venue. No concrete Humanoid/Animator API is frozen before a licensed rig and clips are selected. Source: work/player-shell-parallelization-2026-07-11.md."
+  - q: "d-player-shell-parallel-001 — should PuppetMaster authority be probed before any production controller BUILD?"
+    options: ["A — run a disposable <=half-day P2a0 Puppet Authority Spike now in an isolated lab; production controller waits for the verdict while rig/animation research may continue in parallel", "B — build the code-driven controller first and integrate PuppetMaster later", "C — wait for the sequential M1 player step and the final rig before either spike or controller BUILD"]
+    recommendation: "A. PuppetMaster is active PhysX ragdoll machinery that may move targetRoot during Unpinned/GetUp, so controller-root/collider/feel is no longer a safe first production freeze. The reconciliation must name the existing M1 leg being folded/cut, authorize the disposable lab, and preflight current plugin version/seat, assembly boundary and physics-layer strategy; the spike itself does no network, damage or product merge. Source: work/puppetmaster-player-authority-2026-07-11.md."
 
 next:
   CALL: work/c-exec-lv-ingest-phase0-call.md

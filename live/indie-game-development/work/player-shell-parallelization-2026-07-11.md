@@ -117,4 +117,11 @@ motor-state/presentation socket remains. Multiplayer and governance exclusions s
 remains deliberately unresolved for the owner-present reconciliation. These are in-session pre-passes, not binding
 fresh-session G5.
 
+## Superseded by the PuppetMaster clarification
+
+The owner's later statement that procedural/physics animation may be load-bearing and that PuppetMaster is available
+materially changes the first safe slice. The controller-first recommendation and `Player/** only` manifest above are
+superseded by `work/puppetmaster-player-authority-2026-07-11.md`: first probe root/physics authority in a disposable
+lab, then freeze any production controller only from that verdict.
+
 END_OF_FILE: live/indie-game-development/work/player-shell-parallelization-2026-07-11.md
