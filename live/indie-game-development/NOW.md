@@ -85,7 +85,12 @@ open_calls:
     to: session
     for: g-d3a8 / q-investigation-readiness paper-answer canon admission
     issued: 2026-07-11
-    note: "Canon Forge v3 revised pilot ACCEPTED; separate owner verdict required for ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE; no design expansion or implementation; work/c-research-q-investigation-readiness-canon-admission-001-call.md."
+    note: "Canon Forge v3 revised pilot ACCEPTED; separate owner verdict required for ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE; no design expansion or implementation; work/c-research-q-investigation-readiness-canon-admission-001-call.md. После вердикта очередной Gate Q обязан рассмотреть кандидатов из work/canon-question-candidates-2026-07-11.md (кооп-взаимозависимость; первый публично показываемый срез)."
+  - id: c-marketing-wake-001
+    to: session
+    for: g-2f8c / минимальное пробуждение маркетинга
+    issued: 2026-07-11
+    note: "READY: owner verdict «будить минимально» 2026-07-11; сессия авторит и исполняет substrate-only wake строго по work/marketing/wake-minimal-2026-07-11.md (апп-проверка — owner-run шаг, хэндлы, AI-капсула, текст страницы, письмо Valve); постинг/каналы/каденции НЕ входят; параллельна инженерным линиям."
 recurring: []
 
 decisions: []

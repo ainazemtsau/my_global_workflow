@@ -75,4 +75,21 @@ next: |
   canon-question-candidates-2026-07-11.md через Gate Q в свою очередь.
 ```
 
+## ADDENDUM (same session, before handoff)
+
+Owner question after the close: «какие действия на записанное произойдут — что запускаем сейчас, что не забываем?»
+Repair of this apply's own pickup gaps (writer delta, same job):
+
+- ADD NOW open_call `c-marketing-wake-001` (to: session, for: g-2f8c) — минимальное пробуждение стояло только
+  брифом в work/ и не существовало в очереди NOW; теперь READY, любой борд-рендер его показывает, запуск одной
+  строкой; исполнение строго по work/marketing/wake-minimal-2026-07-11.md.
+- EXTEND note open_call `c-research-q-investigation-readiness-canon-admission-001` — обязательство: после
+  owner-вердикта о допуске очередной Gate Q рассматривает кандидатов из
+  work/canon-question-candidates-2026-07-11.md (кооп-взаимозависимость; первый публично показываемый срез).
+  До этого кандидат «первый срез» не имел структурного крючка в NOW (только board/brief — забываемо).
+- Board: карточка «ГОТОВА К ЗАПУСКУ · Маркетинг: минимальное пробуждение» добавлена в «Открытые работы»
+  со строкой запуска.
+- LOG: одна addendum-строка.
+
 END_OF_FILE: live/indie-game-development/history/2026-07-11-s-board-walkthrough-decisions-001.md
+
