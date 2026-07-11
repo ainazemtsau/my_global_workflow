@@ -1,0 +1,863 @@
+<title>ОНО ДЫШИТ — сборка к октябрю</title>
+<style>
+  :root{
+    --bg:#f4f7f7; --panel:#ffffff; --panel2:#eef3f3; --ink:#182427; --muted:#5c6f74; --line:#d9e2e3;
+    --accent:#0d8f7c; --accent-ink:#0a6e60; --accent-soft:#d7efe9;
+    --warn:#a8690f; --warn-soft:#f6e8d0; --danger:#b23a2c; --danger-soft:#f4ddd9; --ok:#2e7d3a; --ok-soft:#dcefdd;
+    --owner:#5b4a9e; --owner-soft:#e6e1f5;
+    --chip-bg:#e7eeee;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1517; --panel:#151e21; --panel2:#1a2529; --ink:#e6eeef; --muted:#8fa4a8; --line:#26363b;
+      --accent:#43d8bd; --accent-ink:#7ce8d4; --accent-soft:#123a34;
+      --warn:#e5b45c; --warn-soft:#3a2c12; --danger:#e57a6a; --danger-soft:#3d1f1a; --ok:#7ecc86; --ok-soft:#1b3320;
+      --owner:#b3a3ec; --owner-soft:#2a2440;
+      --chip-bg:#1e2b2f;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1517; --panel:#151e21; --panel2:#1a2529; --ink:#e6eeef; --muted:#8fa4a8; --line:#26363b;
+    --accent:#43d8bd; --accent-ink:#7ce8d4; --accent-soft:#123a34;
+    --warn:#e5b45c; --warn-soft:#3a2c12; --danger:#e57a6a; --danger-soft:#3d1f1a; --ok:#7ecc86; --ok-soft:#1b3320;
+    --owner:#b3a3ec; --owner-soft:#2a2440;
+    --chip-bg:#1e2b2f;
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f7f7; --panel:#ffffff; --panel2:#eef3f3; --ink:#182427; --muted:#5c6f74; --line:#d9e2e3;
+    --accent:#0d8f7c; --accent-ink:#0a6e60; --accent-soft:#d7efe9;
+    --warn:#a8690f; --warn-soft:#f6e8d0; --danger:#b23a2c; --danger-soft:#f4ddd9; --ok:#2e7d3a; --ok-soft:#dcefdd;
+    --owner:#5b4a9e; --owner-soft:#e6e1f5;
+    --chip-bg:#e7eeee;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size:15px; line-height:1.55; margin:0; padding:0 20px 80px;
+  }
+  .wrap{max-width:1160px; margin:0 auto}
+  h1,h2,h3{font-family:"Bahnschrift","Arial Narrow","Segoe UI",sans-serif; text-wrap:balance; margin:0}
+  .mono{font-family:"Cascadia Mono",Consolas,monospace}
+
+  header.hero{padding:56px 0 28px; border-bottom:2px solid var(--line)}
+  .eyebrow{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:10px}
+  h1{font-size:44px; line-height:1.05; font-weight:700; letter-spacing:.01em}
+  .hero p.lead{max-width:70ch; color:var(--muted); font-size:16.5px; margin:16px 0 0}
+  .hero p.lead b{color:var(--ink)}
+  .hero .stamp{margin-top:18px; display:flex; gap:8px; flex-wrap:wrap}
+  .stamp span{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:3px; color:var(--muted); background:var(--panel)}
+
+  section{margin-top:52px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--line); padding-bottom:10px; margin-bottom:22px}
+  .sec-head h2{font-size:26px; text-transform:uppercase; letter-spacing:.03em}
+  .sec-head .tag{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; color:var(--muted)}
+  .note{color:var(--muted); font-size:13.5px; max-width:80ch}
+
+  /* Инвентарь */
+  .tracks{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px}
+  .track{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px 16px 14px; display:flex; flex-direction:column; gap:10px}
+  .track h3{font-size:16.5px; letter-spacing:.02em}
+  .bar{height:8px; background:var(--panel2); border-radius:4px; overflow:hidden; border:1px solid var(--line)}
+  .bar i{display:block; height:100%; background:var(--accent)}
+  .pct{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; color:var(--muted)}
+  .track ul{margin:0; padding:0; list-style:none; font-size:13.5px}
+  .track li{padding:2px 0 2px 20px; position:relative}
+  .track li.done::before{content:"✓"; position:absolute; left:0; color:var(--ok); font-weight:700}
+  .track li.miss::before{content:"✗"; position:absolute; left:0; color:var(--danger); font-weight:700}
+  .track li.miss{color:var(--muted)}
+
+  /* Даты */
+  .dates{display:flex; gap:0; overflow-x:auto; border:1px solid var(--line); border-radius:6px; background:var(--panel)}
+  .date{min-width:150px; flex:1; padding:14px 14px 12px; border-right:1px solid var(--line)}
+  .date:last-child{border-right:none}
+  .date .d{font-family:"Cascadia Mono",Consolas,monospace; font-size:15px; font-weight:700; color:var(--accent-ink)}
+  .date .d.red{color:var(--danger)}
+  .date .t{font-size:13px; margin-top:4px}
+  .date .s{font-size:12px; color:var(--muted); margin-top:2px}
+
+  .callout{border-left:4px solid var(--warn); background:var(--warn-soft); padding:14px 18px; border-radius:0 6px 6px 0; margin-top:18px; font-size:14px; max-width:100ch}
+  .callout.accent{border-left-color:var(--accent); background:var(--accent-soft)}
+  .callout b{letter-spacing:.01em}
+
+  /* Волны */
+  .wave{background:var(--panel); border:1px solid var(--line); border-radius:6px; margin-bottom:18px; overflow:hidden}
+  .wave-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; padding:14px 18px; background:var(--panel2); border-bottom:1px solid var(--line)}
+  .wave-head .num{font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:22px; font-weight:700; color:var(--accent)}
+  .wave-head h3{font-size:18px}
+  .wave-head .dt{font-family:"Cascadia Mono",Consolas,monospace; font-size:12.5px; color:var(--muted); margin-left:auto}
+  .lanes{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:0}
+  .lane{padding:12px 16px 14px; border-right:1px solid var(--line); border-top:1px solid var(--line)}
+  .lane:first-child{border-left:none}
+  .lane h4{margin:0 0 8px; font-size:12px; font-family:"Cascadia Mono",Consolas,monospace; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .lane ul{margin:0; padding-left:16px; font-size:13.5px}
+  .lane li{margin:4px 0}
+  .lane.owner{background:var(--owner-soft)}
+  .lane.owner h4{color:var(--owner)}
+  .wave .milestone{padding:12px 18px; border-top:1px solid var(--line); font-size:14px; background:var(--panel)}
+  .wave .milestone b{color:var(--accent-ink)}
+
+  /* Развилки */
+  .forks{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:14px}
+  .fork{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px}
+  .fork .top{display:flex; gap:8px; align-items:center}
+  .fork .id{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; font-weight:700; background:var(--chip-bg); padding:3px 8px; border-radius:3px}
+  .fork .dl{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; color:var(--danger); margin-left:auto}
+  .fork h3{font-size:15.5px; line-height:1.35}
+  .fork ul{margin:2px 0 0; padding-left:18px; font-size:13.5px; color:var(--muted)}
+  .fork li{margin:3px 0}
+  .fork li.rec{color:var(--ink)}
+  .fork li.rec::marker{color:var(--ok)}
+  .fork .why{font-size:13px; color:var(--muted); border-top:1px dashed var(--line); padding-top:8px; margin-top:2px}
+
+  /* Риски */
+  .risks{counter-reset:r; display:flex; flex-direction:column; gap:10px}
+  .risk{background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--danger); border-radius:0 6px 6px 0; padding:12px 16px; font-size:14px}
+  .risk b{display:block; margin-bottom:2px}
+  .risk span{color:var(--muted)}
+
+  .odds{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-bottom:18px}
+  .odd{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px}
+  .odd .n{font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:38px; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums}
+  .odd .n.warn{color:var(--warn)}
+  .odd p{margin:6px 0 0; font-size:13.5px; color:var(--muted)}
+
+  /* Клей */
+  .glue{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px}
+  .glue .g{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:14px 16px}
+  .glue .g h3{font-size:15px; margin-bottom:6px}
+  .glue .g p{margin:0; font-size:13.5px; color:var(--muted)}
+
+  .mtx-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:6px; background:var(--panel)}
+  table.mtx{width:100%; border-collapse:collapse; font-size:13px; min-width:760px}
+  .mtx th{font-family:"Cascadia Mono",Consolas,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); text-align:left; padding:8px 10px; border-bottom:2px solid var(--line); background:var(--panel2)}
+  .mtx td{padding:6px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+  .mtx tr.grp td{font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:13.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; background:var(--panel2); color:var(--accent-ink)}
+  .mtx td.a{white-space:nowrap; font-variant-numeric:tabular-nums}
+  .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin:10px 0 14px}
+
+  .gloss{font-size:13px; color:var(--muted); border-top:1px solid var(--line); margin-top:44px; padding-top:16px; max-width:100ch}
+  .gloss b{color:var(--ink)}
+  .check ul{font-size:13.5px; color:var(--muted); padding-left:18px}
+  .check li{margin:4px 0}
+  @media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">ОНО ДЫШИТ · полная картина · 10 июля 2026</div>
+  <h1>Сборка к октябрю: что есть, чего нет, и как склеить</h1>
+  <p class="lead">Движок газа — сильный и честно проверенный. Октябрьская цель <b>уже стояла в твоём же дереве целей</b> (страница к 31.08, демо к 5.10) — она не новая, она потерялась из виду. Чего действительно нет: <b>определения демо</b> и <b>дороги к нему</b> — 70% демо это игровая «оболочка» (персонаж, глаголы, сеть-по-настоящему, уровень, звук, билд), которой ещё не существует. Этот документ — проект для обсуждения: в файлах состояния ничего не менялось.</p>
+  <div class="stamp"><span>горизонт: 15 недель</span><span>жёсткая стена: 31.08</span><span>фесты: 19–26.10 и 26.10–2.11</span><span>слот Next Fest: один навсегда</span></div>
+</header>
+
+<section>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">сгенерировано 2026-07-11 · истина всегда NOW.md + git · перегенерирует писарь после каждого apply</span></div>
+  <div class="callout accent"><b>Источник этого файла — репозиторий:</b> live/indie-game-development/work/board/dashboard.html (открывается в Chrome с диска; claude.ai-ссылка — зеркало). Секции ниже борда — зафиксированное обсуждение 10–11.07; живой статус — только эта секция. Панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
+  <div class="callout"><b>Активная ставка: Полигон М1</b> — принят 10.07, аппетит <b>13 продуктовых легов</b> (старт 10.07, разовое расширение под GAS-PROBE+GAS-CORE), <b>kill_by 24.07 либо 13 легов</b>. Дорога: Phase 0 (MERGED) → фундамент чексума → новый A0 (наблюдаемость) → M1-GAS-PROBE (закон газа: packed body вместо «воды») → M1-GAS-CORE → разблокируется c-visual-009 → A1/S4 → трекинг/реакции/пролом (M1-5..7) → финальный evidence-лег (2 машины, слабое железо). Порядок изменён 11.07: <b>закон газа теперь ПЕРЕД визуалом и S4</b> (owner-решение).</div>
+  <div class="tracks">
+    <div class="track">
+      <h3>Открытые CALL'ы</h3>
+      <ul>
+        <li class="done">▶ ЗАПУСКАЕТСЯ СЕЙЧАС (NOW.next): c-exec-poligon-checksum-foundation-plan-001 — PLAN-only, свежая owner-present сессия в GasCoopGame_core</li>
+        <li class="miss">c-exec-lv-ingest-phase0-001 — НЕ смержен (dev@f30e3a3): закрытие + мерж-гейт</li>
+        <li class="miss">c-spike-pgg-001 — checkpoint: scratch дошёл до DA-ready пакета; финальный гейт ждёт продолжения</li>
+        <li class="miss">c-visual-009 — BLOCKED на M1-GAS-CORE (PLAN одобрен, dirty BUILD сохранён)</li>
+        <li class="miss">c-shape-sc-damage-001 — HELD (по cut-list М1)</li>
+        <li class="miss">c-repair-minimum-game-frame-001 — ждёт owner-present сессию (канон, text-only)</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Ждёт тебя (батч)</h3>
+      <ul>
+        <li class="miss">Owner-present PLAN-сессия фундамента чексума (= NOW.next)</li>
+        <li class="miss">Мерж-гейт Phase 0 (dev → main)</li>
+        <li class="miss">Owner-present c-repair-minimum-game-frame-001</li>
+        <li class="miss">d-marketing-wake-001 — решить к ~20.07 (страница 31.08!)</li>
+        <li class="miss">d-coop-interdependence-repin-001 — куда положить обязательство «газ заставляет кооперироваться»</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Контроль-слой</h3>
+      <ul>
+        <li class="done">Карта площадок: knowledge/g9c41-lanes-venues.md (worktree-правило владельца)</li>
+        <li class="done">Борд: «что можем делать» в любом чате → plays/lanes-board.md</li>
+        <li class="done">Ночной рефакторинг: «делай рефакторинг» → plays/refactor-night.md (бэклог work/refactor/backlog.md)</li>
+        <li class="done">Сторожа NOW восстановлены и запушены 10.07</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Где мы</h2><span class="tag">готовность к демо по трекам · экспертная оценка</span></div>
+  <div class="tracks">
+    <div class="track">
+      <h3>Симуляция газа</h3>
+      <div class="bar"><i style="width:85%"></i></div><div class="pct">~85% · главный актив</div>
+      <ul>
+        <li class="done">Диффузия, потоки, типы, плавучесть</li>
+        <li class="done">Реакции: телеграф → взрыв</li>
+        <li class="done">Доза/воздействие на игрока</li>
+        <li class="done">1525/1525 тестов, жёсткие ворота</li>
+        <li class="miss">Доза не подключена к живой симуляции</li>
+        <li class="miss">Урона/последствий нет</li>
+        <li class="miss">Дальний слой S4 (залитые 150+ комнат) — спроектирован, отложен 29.06 с подписью, сторож пробуждения выпал из NOW — поднимать</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Сеть / кооп</h3>
+      <div class="bar"><i style="width:25%"></i></div><div class="pct">~25% · не собиралась целиком</div>
+      <ul>
+        <li class="done">Детерминизм доказан (внутри процесса)</li>
+        <li class="done">FishNet-шина на локалхосте</li>
+        <li class="miss">Реальный газ ни разу не шёл по сети</li>
+        <li class="miss">Нет host/join, лобби, второй машины</li>
+        <li class="miss">Интернет-задержки не проверены</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Игровая оболочка</h3>
+      <div class="bar"><i style="width:5%"></i></div><div class="pct">~5% · главная дыра</div>
+      <ul>
+        <li class="miss">Нет персонажа и управления</li>
+        <li class="miss">Пузыря нет в движке — глагол не существует</li>
+        <li class="miss">Нет UI, меню, экрана смерти</li>
+        <li class="miss">Ни одного standalone-билда за всю историю</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Дизайн ядра</h3>
+      <div class="bar"><i style="width:45%"></i></div><div class="pct">~45% · ядро есть, процесс стоит</div>
+      <ul>
+        <li class="done">Конституция ратифицирована (7 опор)</li>
+        <li class="done">Ядро приколото: пузырь, 3 фазы, разведка</li>
+        <li class="done">Компас отказов работает</li>
+        <li class="miss">Процесс решений приостановлен (10.07)</li>
+        <li class="miss">Фан не проверен: грейбокса не было</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Визуал газа</h3>
+      <div class="bar"><i style="width:55%"></i></div><div class="pct">~55% · на ходу</div>
+      <ul>
+        <li class="done">Стадии 1–3 сданы (герой-газ, глубина)</li>
+        <li class="done">Стадия 3.5 (живость/плавность) строится</li>
+        <li class="miss">Характер по типам газа (стадия 4) не начат</li>
+        <li class="miss">Слабое железо не мерили</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Уровни / контент</h3>
+      <div class="bar"><i style="width:15%"></i></div><div class="pct">~15%</div>
+      <ul>
+        <li class="done">Dungeon Architect установлен, читатель проверен</li>
+        <li class="done">Посадка источников газа — в работе</li>
+        <li class="miss">Контента ноль: DA пустой, авторить — тебе</li>
+        <li class="miss">Демо-уровня нет</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Маркетинг / Steam</h3>
+      <div class="bar"><i style="width:20%"></i></div><div class="pct">~20% · заморожен</div>
+      <ul>
+        <li class="done">Steamworks: аккаунт + банк/налоги + выплаты — сделано</li>
+        <li class="done">Фундамент подписан: «мы никто» → живой клип решает</li>
+        <li class="done">Имя Chinvat выбрано</li>
+        <li class="miss">Хэндлы не захвачены (проверка висит с 20.06)</li>
+        <li class="miss">Нет страницы, капсулы, трейлера, скриншотов</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Звук</h3>
+      <div class="bar"><i style="width:0%"></i></div><div class="pct">0% · нигде не упомянут</div>
+      <ul>
+        <li class="miss">Не существует ни планом, ни файлом</li>
+        <li class="miss">А «разведка по звуку» — несущая механика</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout"><b>Что было «неразберихой»:</b> канон-процесс трижды пересобирался и трижды терял твоё принятое ядро — 10 июля ты его приостановил (маршрут «А»), и это правильно. Но из-за этого дизайн сейчас стоит дважды: и процесс на паузе, и два вопроса, блокирующих движок (урон, состав газов), без ответа. Лечение внутри плана: <b>на вопросы демо отвечает грейбокс, а не бумага</b> — это и есть твоя же 7-я опора конституции.</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Жёсткие даты</h2><span class="tag">проверено по официальным докам Steamworks · 10.07.2026</span></div>
+  <div class="dates">
+    <div class="date"><div class="d red">31.08</div><div class="t">Регистрация на Next Fest закрывается</div><div class="s">страница Steam обязана быть ПУБЛИЧНОЙ к этому дню</div></div>
+    <div class="date"><div class="d">≈15.09</div><div class="t">Демо «в идеале» уже живое</div><div class="s">демо за месяц+ до феста собирают заметно больше</div></div>
+    <div class="date"><div class="d red">21.09</div><div class="t">Демо + страница на ревью</div><div class="s">чтобы попасть в пресс-превью 8.10</div></div>
+    <div class="date"><div class="d red">05.10</div><div class="t">Абсолютный дедлайн демо</div><div class="s">и твой же заранее принятый гейт качества</div></div>
+    <div class="date"><div class="d">19–26.10</div><div class="t">Steam Next Fest</div><div class="s">участие = сжечь единственный слот игры</div></div>
+    <div class="date"><div class="d">26.10–2.11</div><div class="t">Scream Fest V (хоррор)</div><div class="s">слот НЕ сжигает; «ОНО ДЫШИТ» подходит по жанру</div></div>
+    <div class="date"><div class="d">11.12</div><div class="t">Денежный гейт хартии</div><div class="s">&gt;$0 внешних денег — Steam-выручки к этой дате не будет ни в одном сценарии</div></div>
+  </div>
+  <div class="callout"><b>Главное правило, которое всё меняет:</b> Next Fest для одной игры бывает <b>один раз навсегда</b>. Регистрация к 31.08 — бесплатная и обратимая (участие сжигает слот, регистрация — нет; механику отзыва проверить у Valve письменно). Холодный заход без базы вишлистов даёт медианно ~300–800 вишлистов за весь фест — плохая цена за единственный слот. Поэтому рекомендация: <b>демо выходит в октябре в любом случае</b>, но витрина октября — Scream Fest V, а слот Next Fest по умолчанию едет в февраль 2027, когда демо уже 3+ месяца живёт и собирает базу — прямо перед твоей же стеной «EA к Q2 2027».</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Что такое демо</h2><span class="tag">проект паспорта · подписать 17.07 (развилка D2)</span></div>
+  <div class="callout accent"><b>«Bottle the monster»</b> — один рукотворный уровень (5–8 комнат, 2 озера спящего газа, 2 маршрута, точка выгрузки), <b>2 газа</b> (ценный «лут-газ» + один удушающий), <b>один глагол</b> — пузырь фиксированного размера: надуть у озера → нести со штрафом («неси, не лопни») → сдать; лопнул — газ вышел ЗДЕСЬ. Три твои фазы: тихая разведка (глазами и ушами) → первая переноска будит этаж → эскалация выгоняет к выходу. Победа — квота сдана и вышел; смерть — от дозы. <b>Соло-старт всегда</b>; кооп на двоих — опционально и выгодно, но не обязательно. Первый заход 25–45 минут, переигровка ради оценки на финальном экране (объём/чистота/время) + кнопка «в вишлист». Режем без жалости: без процедурной генерации, без существ, без голосового чата, без сохранений, без меты, меню — минимум, текст — английский.</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Спринт: ближайшие 10 дней</h2><span class="tag">10 — 20 июля · все задачи</span></div>
+  <div class="wave">
+    <div class="wave-head"><span class="num">С0</span><h3>Можно запускать сразу — решений не ждёт</h3><span class="dt">10 — 14 июля</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Движок (полные ворота)</h4><ul>
+        <li>Источники газа в честный сетевой шаг симуляции — готовый лег, чинит будущий десинк (Lv-ingest фаза 0)</li>
+      </ul></div>
+      <div class="lane"><h4>Визуал</h4><ul>
+        <li>Стадия 3.5 (живость/плавность) — готовый лег; сначала пересинхронизировать базу на свежий main</li>
+      </ul></div>
+      <div class="lane"><h4>Сеть</h4><ul>
+        <li>Подготовка спайка «два реальных компьютера»: облачная VM, план замера 80–150 мс, дешёвая пер-тик сверка</li>
+      </ul></div>
+      <div class="lane"><h4>Маркетинг-разведка</h4><ul>
+        <li>Steamworks-аккаунт и выплаты — уже сделано ✓ (сверить только, создан ли сам апп игры)</li>
+        <li>Точный дедлайн и условия заявок Scream Fest V</li>
+        <li>Хэндлы chinvat: чек-лист жене/брату (Steam, домен, X/Reddit/TikTok/YouTube)</li>
+        <li>Черновик письма Valve про отзыв регистрации</li>
+      </ul></div>
+      <div class="lane"><h4>Документы · OS</h4><ul>
+        <li>Проект демо-паспорта (к 15.07, тебе — на подпись 17.07)</li>
+        <li>Проект чисел гейта качества+экономики (к 18.07)</li>
+        <li>Гигиена: подтянуть main OS (приостановка канона пока только на рабочей ветке); пометить в канон-репо «маршрут приостановлен»</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Твоё в эти дни:</b> 14.07 — решение D1 о прототип-ленте (30 мин). Steamworks уже сделан — единственная возможная мелочь: если сам апп игры ($100) ещё не создан, это 10 минут при старте работы над страницей.</div>
+  </div>
+  <div class="wave">
+    <div class="wave-head"><span class="num">С1</span><h3>После D1 и демо-паспорта — скелет</h3><span class="dt">14 — 20 июля</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Прототип-лента (после D1)</h4><ul>
+        <li>Персонаж-капсула: контроллер + камера + управление как сетевой вход</li>
+        <li>ПЕРВЫЙ standalone-билд + сборка одной командой; прогон на второй машине (цель 18–20.07)</li>
+        <li>Грейбокс 2–3 комнаты с газовым озером — под скелет</li>
+      </ul></div>
+      <div class="lane"><h4>Движок (после D2, 17.07)</h4><ul>
+        <li>Пузырь v0 — план слайса ядра: надуть у озера / нести / лопнуть → газ здесь</li>
+        <li>Доза → удушье → смерть — план слайса (минимальный честный вариант)</li>
+        <li>Выбрать и зафиксировать 2 демо-газа (визуал сужается на них)</li>
+      </ul></div>
+      <div class="lane"><h4>Сеть</h4><ul>
+        <li>Запуск спайка: реальное ядро между двумя машинами через интернет, первый честный замер</li>
+      </ul></div>
+      <div class="lane"><h4>Маркетинг (после D4, 20.07)</h4><ul>
+        <li>Капсула: бриф от хука «Bottle the monster» + AI-концепты + котировки 2–3 художников (заказ ~25.07)</li>
+        <li>Черновик английского текста страницы</li>
+      </ul></div>
+      <div class="lane owner"><h4>Твой календарь</h4><ul>
+        <li>17.07 — подписать демо-паспорт (D2), 1 ч</li>
+        <li>20.07 — батч: правило октября + числа гейта (D3), разбудить маркетинг (D4), правило «если не весело» (D5), дизайн-режим = грейбокс-пилот (D8), 1–1.5 ч</li>
+        <li>18–20.07 — первый запуск скелет-билда, первое ощущение (вердикт — к 31.07)</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Чем НЕ заниматься в эти 10 дней:</b> стадия 4 визуала, авторинг уровней в DA, полное исследование процесса-v3 (если D8 = грейбокс-пилот), мета «Лёгкие», трейлер, посты/SMM, роспись ростера газов, новые записи в канон. <b>Проверка по календарю OS:</b> веха «видимый газ» 24.07 покрывается стадией 3.5 + визуалом реакций — сверить при пересборке ставки.</div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Ближайшая цель: Полигон М1</h2><span class="tag">ПРИНЯТО 10.07 — активная ставка (аппетит 13 легов, kill_by 24.07) · лестница ниже пересобрана в M1-дорогу, живой статус — в секции БОРД</span></div>
+  <div class="callout accent"><b>Определение:</b> полностью настроенный большой уровень (~150 комнат 8×8×4 м, число комнат регулируется через Dungeon Architect), на котором ты свободно экспериментируешь: ставишь источники газа с силой и типом, ставишь игрока (и второго — по сети), игрок трекается в газе (доза), реакции происходят (включая один взрыв, воспроизводимый где угодно и без газа), пролом → газ идёт через щель по её площади, оптимизации видны (спящий фронт + дальняя свёртка), газ может залить весь уровень — и всё это на слабом железе в бюджете. <b>Математика цели:</b> 150 × (8×8×4 м) = ~307 тыс. клеток + коридоры ≈ ~360–370 тыс. — это 17% от охранного лимита, цель достижима; «223 тыс.» в SPEC — оценка при более скромной комнате, не лимит.</div>
+  <div class="wave">
+    <div class="wave-head"><span class="num">М1</span><h3>Лестница шагов (по одному, как просил)</h3><span class="dt">~15–20 воротных легов · критический путь = цепочка ядра ~9–12 легов, остальное параллелится</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Шаги 0–3 · фундамент</h4><ul>
+        <li><b>0.</b> Доделать текущую задачу: источники газа в честном пути (Phase 0 построен на dev, ждёт твоего гейта на мерж)</li>
+        <li><b>1.</b> Стенд P0: палитра управления + свободная камера + пробы + HUD (параллельно, прототип-лента)</li>
+        <li><b>2.</b> S4-волна ядра: свёртка далёких комнат + бесшовное сворачивание/разворачивание + авторазбиение открытых объёмов + дешёвый дайджест чексума + читальный шов (фронт видно) — главный кусок</li>
+        <li><b>3.</b> Рендер-окно вокруг камеры + чинка детектора в рендере (малые, параллельно)</li>
+      </ul></div>
+      <div class="lane"><h4>Шаги 4–7 · наполнение</h4><ul>
+        <li><b>4.</b> S3-страты: высотная маршрутизация в далёких свёрнутых комнатах</li>
+        <li><b>5.</b> DA Phase 1: регулируемое число комнат, runtime-сборка уровня, seed-рукопожатие</li>
+        <li><b>6.</b> Подключение дозы + капсула игрока (трекается в газе) — стенд P2</li>
+        <li><b>7.</b> Реакции на полигоне: телеграф→взрыв в сцене + инструмент «взорвать здесь» (без газа)</li>
+      </ul></div>
+      <div class="lane"><h4>Шаги 8–10 · доказательство</h4><ul>
+        <li><b>8.</b> S5-брешь v1: рантайм-пролом стены → дыра → газ по площади щели (поток-по-площади уже в модели: SubFaceOccupancy построен; не хватает самого пролома; пол/потолок — расширение отдельно)</li>
+        <li><b>9.</b> Мультиплеер: газ на настоящую сетевую шину + рукопожатие + 2+ реальные машины + пер-тик дешёвая сверка</li>
+        <li><b>10.</b> Сборка Полигона: всё вместе на DA-уровне, эксперименты, замер на слабом железе</li>
+      </ul></div>
+      <div class="lane owner"><h4>Что добавить в критерии (ты упустил)</h4><ul>
+        <li>Замер на named слабом железе = критерий приёмки (min-spec до сих пор не назван)</li>
+        <li>Лампа детерминизма в HUD — иначе «мультиплеер работает» не доказуемо</li>
+        <li>Политика выхода пира/хоста — хотя бы решение</li>
+        <li>Предохранитель заливки (admission ceiling — твой же ответ 03.07) виден в стенде</li>
+        <li>Звук — сознательно НЕ в Полигоне</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Срок:</b> меряем легами, не календарём (вводная владельца: ~1 лег/день на топовых ассистентах). Срок Полигона = длина критического пути — последовательной цепочки ядра (~9–12 легов: шов → S4-свёртка → no-pop → дайджест → страты → сеть); остальные ~8–10 легов идут параллельными линиями и срок НЕ удлиняют. Узкие места — очередь мержей в main и твои гейты, не сборка. Фест-решения принимаются своими гейтами; страница + обратимая регистрация к 31.08 — дёшевая опция, держим.</div>
+  </div>
+
+  <div class="wave">
+    <div class="wave-head"><span class="num">∥</span><h3>Параллельная схема: 4–5 линий, ворота полные на каждом леге</h3><span class="dt">линия = своя зона кода + свой worktree</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>A · ЯДРО (критический путь)</h4><ul>
+        <li>Полные ворота, СТРОГО по одному мутирующему легу в горячих файлах (VoxelField/VoxelFaceFlow)</li>
+        <li>Цепочка: читальный шов → S4-свёртка → no-pop → дешёвый дайджест → S3-страты → газ на сетевую шину</li>
+        <li>Дайджест и свёртка оба трогают VoxelField — НЕ параллелятся между собой</li>
+      </ul></div>
+      <div class="lane"><h4>B · РЕНДЕР-АДАПТЕР</h4><ul>
+        <li>Рендер-окно + чинка детектора; инструменты реакций «взорвать здесь»</li>
+        <li>Общие файлы с визуальным треком (стадия 3.5) — в ОДНУ линию, не в две</li>
+      </ul></div>
+      <div class="lane"><h4>C · СТЕНД (прототип-лента)</h4><ul>
+        <li>P0 палитра/камера/пробы/HUD → капсула-UI → сборка Полигона</li>
+        <li>Отдельная сборка, только публичный API ядра — параллельна всему без риска</li>
+      </ul></div>
+      <div class="lane"><h4>D · УРОВНИ + E · ДОЗА/СЕТЬ-подготовка</h4><ul>
+        <li>D: мерж Phase 0 (твой гейт) → DA Phase 1 → авторинг модулей (твоё время)</li>
+        <li>E: подключение дозы (малый core-лег в окно линии A, координация тик-цикла) → адаптер сетевой шины готовится параллельно, включается после дайджеста</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Правила, защищающие качество:</b> (1) карта владения — одна линия = одна зона кода, два лега никогда не трогают одни файлы; (2) очередь мержей в main по одному, полный прогон check на каждом, следующий лег перебазируется; (3) §Re-sync перед стартом каждого лега (инциденты с уехавшей базой уже были); (4) конвейер ворот — G5-опровержение лега N идёт в свежей сессии параллельно билду лега N+1, ворота не срезаются, они конвейеризуются; (5) перебейз голденов — только сериализованно в линии A; (6) прототип-лента не заходит в ядро; (7) твои вердикты — батчем раз в день, иначе три линии стоят одновременно.</div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Оформление параллельной работы в OS</h2><span class="tag">борд = рендер поверх NOW + git · четыре артефакта · ничего в ядре OS не меняем</span></div>
+  <div class="tracks">
+    <div class="track">
+      <h3>1 · Карта площадок (knowledge)</h3>
+      <ul>
+        <li class="done">Таблица: линия → checkout/ветка → нужен ли Unity Editor → машина</li>
+        <li class="done">Правила Unity: один проект = один редактор; линия = свой worktree</li>
+        <li class="done">Очередь мержей + пред-/пост-полётные чек-листы лега</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>2 · LAUNCH-блок в каждом CALL</h3>
+      <ul>
+        <li class="done">lane / venue / машина / editor или headless</li>
+        <li class="done">base @SHA + обязательный §Re-sync</li>
+        <li class="done">conflict_surface (какие файлы трогает) + depends_on + слот очереди мержей</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>3 · Конвенция open_calls в NOW</h3>
+      <ul>
+        <li class="done">Одна строка на CALL: линия, площадка, база, зависимости, слот</li>
+        <li class="done">Писарь ведёт как обычно — борд из этого рендерится</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>4 · Пьеса «борд» (локальная, render-only)</h3>
+      <ul>
+        <li class="done">Новый чат: «что можем делать» → В РАБОТЕ / МОЖНО ЗАПУСТИТЬ (с инструкцией запуска) / ЖДЁТ ТЕБЯ / ОЧЕРЕДЬ МЕРЖЕЙ</li>
+        <li class="done">Ничего не пишет — только читает NOW + git обоих репо</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout accent"><b>Площадки:</b> ПК = редактор №1 (main — owner-eye и мержи), №2 (dev_2 — линия B рендер), №3 по надобности (новый worktree lab — линия C; цена: первый импорт Library, лимит — RAM). Линия A (ядро) редактора почти не требует — engine-free ядро гоняется headless. MacBook: сессии планирования/писаря/G5 (Unity не нужен) + headless-ядро после установки dotnet+pwsh + кандидат в «машину №2» для интернет-спайка лока (или облачная Windows-VM — чище для первого замера). Один и тот же project-folder в два редактора открыть нельзя — поэтому линия = свой worktree, конфликтов не будет.</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Матрица: всё, что нужно игре</h2><span class="tag">полный охват · класс автономности по каждой строке · блокеры названы</span></div>
+  <div class="legend"><span>🟢 автономно — запуск + короткая валидация вывода</span><span>🟡 автономно, финальный вердикт твой</span><span>🟠 ты нужен в процессе</span><span>🔴 заблокировано (блокер назван)</span><span>·</span><span>✅ есть · 🔧 в работе/готово к запуску · ⬜ не начато</span></div>
+  <div class="mtx-wrap"><table class="mtx">
+    <tr><th>Что нужно</th><th>Статус</th><th class="a">Автономность</th><th>Как / блокер</th></tr>
+    <tr class="grp"><td colspan="4">Движок · Полигон М1 (детали — в секции выше)</td></tr>
+    <tr><td>S4-волна: свёртка + дайджест + страты</td><td>⬜</td><td class="a">🟡</td><td>линия A, полные ворота; вердикты и owner-eye твои</td></tr>
+    <tr><td>Мерж Phase 0 (источники)</td><td>🔧</td><td class="a">🟠</td><td>построено, ждёт ТВОЙ гейт</td></tr>
+    <tr><td>Рендер-окно + чинка детектора</td><td>⬜</td><td class="a">🟡</td><td>линия B; 5-мин owner-eye в конце</td></tr>
+    <tr><td>Стенд P0/P1/P2</td><td>⬜</td><td class="a">🟡</td><td>линия C, прототип-лента</td></tr>
+    <tr><td>DA Phase 1 + авторинг модулей</td><td>⬜</td><td class="a">🟠</td><td>🔴 ждёт мерж Phase 0; модули в редакторе — ты</td></tr>
+    <tr><td>Сеть: газ на шину + спайк 2 машин</td><td>⬜</td><td class="a">🟡/🟠</td><td>🔴 дайджест (шаг линии A); спайк — 2 машины, твои ~2 ч</td></tr>
+    <tr><td>S5-брешь (разрушаемость)</td><td>⬜</td><td class="a">🟡</td><td>после S4; пол/потолок — отдельное твоё «да»</td></tr>
+    <tr class="grp"><td colspan="4">Оболочка игры</td></tr>
+    <tr><td>Контроллер игрока + камера</td><td>⬜</td><td class="a">🟡</td><td>прототип-лента; вердикт по ощущению твой</td></tr>
+    <tr><td>Глагол «пузырь» v0</td><td>⬜</td><td class="a">🟠</td><td>ядро + дизайн-вердикты по ходу; 🔴 частично канон (наполнение)</td></tr>
+    <tr><td>Меню / host-join / экраны конца</td><td>⬜</td><td class="a">🟢</td><td>прототип-лента, валидация глазами разово</td></tr>
+    <tr><td>HUD игрока (доза, опасность)</td><td>⬜</td><td class="a">🟡</td><td>после подключения дозы</td></tr>
+    <tr><td>Настройки (звук/графика/чувствительность)</td><td>⬜</td><td class="a">🟢</td><td>стандартный блок, автономно</td></tr>
+    <tr class="grp"><td colspan="4">Контент · Арт · 3D</td></tr>
+    <tr><td>Research: низкополи модульный кит (стены/пропсы) под DA</td><td>⬜</td><td class="a">🟢</td><td>шорт-лист из 3 → ты выбираешь; токено-ёмко, риск 0</td></tr>
+    <tr><td>Research: модель персонажа + анимации</td><td>⬜</td><td class="a">🟢</td><td>asset-store/AI-варианты, шорт-лист</td></tr>
+    <tr><td>Визуальный wrapper (свет/туман/палитра)</td><td>🔧</td><td class="a">🟡</td><td>визуальная линия, owner-eye</td></tr>
+    <tr><td>Гайд стиля (Prey-2017/Breathedge референсы)</td><td>⬜</td><td class="a">🟡</td><td>драфт автономно, тон — твой вердикт</td></tr>
+    <tr><td>Капсула: бриф + AI-концепты + котировки</td><td>⬜</td><td class="a">🟡</td><td>🔴 решение D4 (маркетинг-wake, 20.07)</td></tr>
+    <tr class="grp"><td colspan="4">Звук (сейчас 0%)</td></tr>
+    <tr><td>Каталог нужных звуков (разведка газа, телеграф, взрыв, шаги, UI)</td><td>⬜</td><td class="a">🟢</td><td>из дизайн-якорей, автономно</td></tr>
+    <tr><td>Пайплайн AI-SFX + паки (генерация → отбор)</td><td>⬜</td><td class="a">🟢/🟡</td><td>setup автономно; отбор — твои уши батчем</td></tr>
+    <tr><td>Решение по аудио-стеку (Unity audio vs FMOD)</td><td>⬜</td><td class="a">🟢</td><td>research + рекомендация (для демо почти наверняка Unity)</td></tr>
+    <tr><td>Proximity voice: совместимость с локстепом</td><td>⬜</td><td class="a">🟢</td><td>research; must-know-early из маркет-исследования</td></tr>
+    <tr class="grp"><td colspan="4">Сеть · Опс</td></tr>
+    <tr><td>Steam transport / lobby / invite-flow research</td><td>⬜</td><td class="a">🟢</td><td>FishNet+Steam sockets, NAT/relay — бумага+прототип</td></tr>
+    <tr><td>Телеметрия плейтестов (метрики, сбор)</td><td>⬜</td><td class="a">🟢</td><td>дизайн сейчас, сборка после билда</td></tr>
+    <tr><td>Облачная Windows-VM (машина №2)</td><td>⬜</td><td class="a">🟢</td><td>setup к сетевому спайку</td></tr>
+    <tr class="grp"><td colspan="4">Маркетинг · Steam</td></tr>
+    <tr><td>Хэндлы chinvat (Steam/домен/соцсети)</td><td>⬜</td><td class="a">🟢</td><td>чек+захват; можно помощникам; висит с 20.06</td></tr>
+    <tr><td>Scream Fest V: дедлайн + условия</td><td>⬜</td><td class="a">🟢</td><td>web-research, полчаса</td></tr>
+    <tr><td>Письмо Valve: механика отзыва регистрации</td><td>⬜</td><td class="a">🟢</td><td>драфт готовлю, отправляешь ты</td></tr>
+    <tr><td>Английский текст страницы от хука</td><td>⬜</td><td class="a">🟡</td><td>драфт автономно; voice-gate твой</td></tr>
+    <tr><td>GIF-пайплайн (закладки камер стенда → клипы)</td><td>⬜</td><td class="a">🟢</td><td>дизайн сейчас, работает после стенда</td></tr>
+    <tr><td>Mailing list + лендинг</td><td>⬜</td><td class="a">🟢</td><td>free-tier, автономно</td></tr>
+    <tr><td>Апп игры в Steamworks (если не создан)</td><td>⬜</td><td class="a">🟠</td><td>твой аккаунт, ~10 мин + $100</td></tr>
+    <tr><td>Steam Playtest канал</td><td>⬜</td><td class="a">🟢</td><td>🔴 нужен первый standalone-билд</td></tr>
+    <tr class="grp"><td colspan="4">Дизайн · Канон</td></tr>
+    <tr><td>Процесс v3 (research + пилот)</td><td>🔧</td><td class="a">🟡</td><td>CALL готов; пилот = грейбокс-вопросы (D8)</td></tr>
+    <tr><td>Параллелизация канона (несколько сессий)</td><td>⬜</td><td class="a">🟠</td><td>обсуждаем В КАНОНЕ: независимые ветки графа + сверка консистентности</td></tr>
+    <tr><td>Демо-паспорт</td><td>⬜</td><td class="a">🟠</td><td>драфт мой, подпись твоя (D2)</td></tr>
+    <tr><td>Позиционирование / hook</td><td>⬜</td><td class="a">🟡</td><td>🔴 мягкий: якоря есть, канон-вердикта нет; драфт-варианты автономно</td></tr>
+    <tr class="grp"><td colspan="4">Инфра · QA · Рефакторинг</td></tr>
+    <tr><td>Автономный рефакторинг-трек (ядро: доказуемо нулевое изменение)</td><td>⬜</td><td class="a">🟢</td><td>байт-идентичные голдены + чексум + mutation не хуже + G5; только свободные зоны; мерж — в холостые слоты</td></tr>
+    <tr><td>Бэклог-скан кандидатов (dead code, дубли, TODO, шум)</td><td>⬜</td><td class="a">🟢</td><td>read-only скан, риск 0</td></tr>
+    <tr><td>Чинка шума -Deliver (MERGED-doc fallback)</td><td>⬜</td><td class="a">🟢</td><td>рекуррентная заноза каждого закрытия</td></tr>
+    <tr><td>Один-клик билд-скрипт + smoke на второй машине</td><td>⬜</td><td class="a">🟢</td><td>прототип-лента</td></tr>
+    <tr><td>Min-spec: research эквивалентов + твоё решение</td><td>⬜</td><td class="a">🟢+🟠</td><td>research автономно; назвать железо — ты</td></tr>
+    <tr><td>OS: борд + карта площадок + LAUNCH-блоки</td><td>🔧</td><td class="a">🟡</td><td>ждёт твоё «да» (секция выше)</td></tr>
+    <tr><td>OS main подтяжка (приостановка канона)</td><td>⬜</td><td class="a">🟠</td><td>писарь готовит, пушишь ты</td></tr>
+    <tr><td>Ремонт выпавших сторожей NOW (3 решения + сессия-сторож)</td><td>⬜</td><td class="a">🟡</td><td>из отчёта о «потерянной оптимизации»</td></tr>
+  </table></div>
+  <div class="wave">
+    <div class="wave-head"><span class="num">🌙</span><h3>Ночной рефакторинг: процесс запуска</h3><span class="dt">твоя команда: «делай рефакторинг» · мерж — утренним батчем</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Вечером (ты, 1 минута)</h4><ul>
+        <li>Новый чат: <b>«делай рефакторинг»</b> — всё</li>
+        <li>Опционально: «только ядро» / «только доки» / «N штук»</li>
+      </ul></div>
+      <div class="lane"><h4>Ночью (само)</h4><ul>
+        <li>Пред-полёт: читает борд/NOW — какие зоны СВОБОДНЫ от летящих легов; занятые зоны не трогает</li>
+        <li>Берёт верхние элементы из work/refactor/backlog.md, чьи зоны свободны</li>
+        <li>Каждый элемент — свой worktree/ветка, параллельно</li>
+        <li>Доказательство на каждом: голдены байт-в-байт + чексум + 1525 тестов + mutation не хуже + оба скана</li>
+        <li>Следом на каждый — G5-опровержение свежей сессией («поведение изменилось? найди») — тоже ночью</li>
+        <li>Что не доказалось — ОТКАТ и пометка в бэклоге, в отчёт честно</li>
+      </ul></div>
+      <div class="lane"><h4>Утром (ты, ~5 минут)</h4><ul>
+        <li>Отчёт в борде: «доказано N, отклонено M, ждут мержа»</li>
+        <li>Мерж в main — твой батч (ворота не ослабляем): смотришь отчёт → «мержи» → очередь мержей по одному с полным прогоном</li>
+      </ul></div>
+      <div class="lane"><h4>Границы ночного</h4><ul>
+        <li>Ночью — только headless-доказуемые зоны: ядро, тесты, tools, доки</li>
+        <li>Адаптер/рендер-рефакторы — дневные (нужен твой 5-мин глаз)</li>
+        <li>Строго ноль изменения поведения; никаких «попутных улучшений»</li>
+        <li>В main ночью не мержится НИЧЕГО</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Для установки:</b> (1) бэклог work/refactor/backlog.md — наполняется стартовым read-only сканом; (2) локальная пьеса plays/refactor-night.md с этим процессом; (3) строка-указатель в NOW, чтобы фраза «делай рефакторинг» из любого нового чата находила пьесу. Позже можно повесить на расписание — но старт всегда работает и вручную.</div>
+  </div>
+  <div class="callout accent"><b>Слой контроля для автономных треков (расширение борда):</b> каждый трек = parallel_track в NOW со своим гроссбухом в work/&lt;трек&gt;/; возвращает RESULT с evidence и встроенной адверсарной проверкой (свежая сессия пытается опровергнуть выводы ДО того, как они попадут к тебе); пишет только в свою рабочую область — в состояние только через писаря; твоя валидация — батч-слот, тем же ритмом, что вердикты. Рефакторинг дополнительно: строго нулевое изменение поведения (доказуемо голденами/чексумом — в детерминированном ядре это проверка сильнее человеческого ревью), никогда не трогает зону, где летит фичевый лег, и всегда уступает мерж-слот фичам.</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Стенд «Газовая лаборатория»</h2><span class="tag">владельческий верстак · спроектирован по реальному коду 10.07</span></div>
+  <div class="callout accent"><b>Что это:</b> одна постоянная сцена-верстак (эволюция существующей песочницы, не новая рига): ты в игре, не в инспекторе — свободная камера, палитра инструментов (спавн газа по клику, вентили/джеты/извержения/двери, пауза/шаг/скорость, заготовленные сценарии), приборы (проба клетки по наведению, масса по типам, стоимость тика, лампа детерминизма AGREE/DIVERGE) и возможность вселиться в капсулу и ходить. <b>Это не одноразовая проверялка</b>: капсула-контроллер, подключение дозы и большой уровень — это одновременно и работа демо-дороги; стенд потом же станет площадкой грейбокса и источником захвата для GIF/трейлера.</div>
+  <div class="wave">
+    <div class="wave-head"><span class="num">P0</span><h3>Верстак v0 — управлять всем, что уже есть</h3><span class="dt">~1 лег (неделя с приёмкой) · ноль изменений ядра</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Что появится</h4><ul>
+        <li>Игровая палитра: зеркалит весь существующий API песочницы (пауза/шаг/скорость, burst/puff, вентиль/джет/извержение, двери/клапаны, FLOOD, выбор уровня)</li>
+        <li>Свободная камера WASD+мышь (её сейчас нет вообще)</li>
+        <li>Клик по клетке → проба: концентрация, тип, потоки, телеграф</li>
+        <li>HUD: тик, ms/тик со спарклайном, активные грани, масса по типам</li>
+        <li>Лампа детерминизма: прогон дважды → AGREE/DIVERGE (код уже написан, просто не положен в сцену)</li>
+        <li>Панель-слот «БЛИЖНИЙ/ДАЛЬНИЙ УРОВЕНЬ: НЕ ПОСТРОЕНО» — честность с первого дня</li>
+      </ul></div>
+      <div class="lane"><h4>Чего в v0 не будет (честно)</h4><ul>
+        <li>Ходьбы (капсула — P2) и дозы (Sc-sense не подключен)</li>
+        <li>Оверлея спящих/бодрых клеток — перечисление фронта внутри ядра закрыто, нужен воротный лег (P1)</li>
+        <li>Больших уровней — сначала чинить рендер (P1): сейчас он каждый кадр считает полный чексум (28 мс на ангаре) и рисует куб-объект на клетку</li>
+        <li>Сохранения своих сессий (сериализатор — на полке)</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Итог P0:</b> нажал Play — и всё, что построено за месяц, у тебя в руках, из игры, без инспектора.</div>
+  </div>
+  <div class="wave">
+    <div class="wave-head"><span class="num">P1–P2</span><h3>Увидеть оптимизации + ходить и дышать</h3><span class="dt">P1: 1 воротный лег в ядро + 1 адаптер-лег · P2: 1–2 лега (= работа демо-дороги)</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>P1 · оптимизации на масштабе</h4><ul>
+        <li>Читальный шов в ядро: счётчик и перечисление активных клеток + счётчики работы шага (read-only, вне чексума, полные ворота)</li>
+        <li>Чинка рендера: чексум по счётчику ревизий, отсечка кубов на больших сценах</li>
+        <li>Оверлей «бодрых» клеток поверх облака — впервые ВИДНО, как спит/просыпается фронт</li>
+        <li>Сцены: HANGAR-196K (та же геометрия, что в замерах — числа сверяемы), MINE-SHAFT (вертикаль, плавучесть)</li>
+      </ul></div>
+      <div class="lane"><h4>P2 · ходьба + доза (= дорога)</h4><ul>
+        <li>Капсула-контроллер WASD — это и есть контроллер игрока для демо</li>
+        <li>Подключение дозы раз-в-тик к живому полю — это и есть пре-работа слайса урона</li>
+        <li>HUD дозы; манекены-пробы; телеграф-оверлей + лог взрывов</li>
+      </ul></div>
+      <div class="lane"><h4>P3–P4 · после (по потребности)</h4><ul>
+        <li>P3: источники на честном сетевом пути (после мержа dev-лега), настоящий выбор типов, покраска реакций A/B</li>
+        <li>P4: BIG-OPEN-1M (128×128×64 = 1,05 млн клеток) — «поставил источник, ушёл, смотришь»; данж растёт к октябрьскому грейбоксу; пресеты камер для GIF</li>
+        <li>Полка (не в плане): рекордер сценариев, 2М-стресс, синк двух инстансов по сети</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Стоп-линия после P2:</b> P3/P4 идут, только если сессии не нужны демо-дороге. Стенд не конкурирует с дорогой — P0+P2 и есть её куски, просто с приборами.</div>
+  </div>
+  <div class="callout"><b>Честные потолки (исправлено раскопками 10.07):</b> охрана 2^21 клеток — это защита от переполнения, <b>НЕ потолок уровня</b> (в коде прямо: «NOT to cap level size»; она суммирует объёмы комнат, и 150 средних комнат ≈ 223 тыс. клеток = ~11% от неё). Реальные потолки другие: слабый компьютер держит ~27–28 тыс. одновременно-<b>активных</b> клеток @50 мс — тихий 150-комнатный уровень движок несёт уже сейчас (стоимость ∝ активному фронту, доказано замерами), полностью залитый — нет; это чинит отложенный S4-rollup, который по подписанному SPEC «При ~150 комнатах ОБЯЗАТЕЛЕН (не опционален)». Полный чексум — 28 мс за обход (дешёвый дайджест = часть S4-пакета). Рендер рисует максимум 128 м по оси (fail-closed) — чинится рендер-окном вокруг камеры: малый лег адаптера, ноль правок ядра. «Кубы делятся возле игрока» (детальная сфера) — спроектировано, не построено, отдельный слот. До мержа dev-лега кнопки впрыска носят бейдж INTERIM.</div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>План волнами</h2><span class="tag">5–6 параллельных линий · твоя колонка выделена</span></div>
+
+  <div class="wave">
+    <div class="wave-head"><span class="num">В1</span><h3>Скелет ходит — убить риски, пока дёшево</h3><span class="dt">10 — 31 июля</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Движок · геймплей</h4><ul>
+        <li>Персонаж-капсула + камера + управление поверх РЕАЛЬНОГО газа</li>
+        <li>Пузырь v0: надуть — нести — лопнуть (фикс. размер)</li>
+        <li>Дозу → удушье → смерть (минимально честно)</li>
+        <li>Это ядро: идёт полными воротами, 3–5 слайсов — приоритет</li>
+      </ul></div>
+      <div class="lane"><h4>Сеть</h4><ul>
+        <li>Спайк: два РЕАЛЬНЫХ компьютера через интернет на реальном ядре (вторая машина — облачная VM/друг)</li>
+        <li>Замер поведения на 80–150 мс задержки</li>
+        <li>Дешёвая пер-тик сверка вместо полной (28 мс)</li>
+      </ul></div>
+      <div class="lane"><h4>Сборка · визуал</h4><ul>
+        <li>ПЕРВЫЙ standalone-билд + сборка одной командой</li>
+        <li>Прогон на второй машине</li>
+        <li>Закрыть визуал-стадию 3.5; identity только 2 демо-газам</li>
+      </ul></div>
+      <div class="lane"><h4>Маркетинг · Steam</h4><ul>
+        <li>Steamworks-аккаунт и выплаты — уже сделано ✓; сверить, создан ли сам апп игры</li>
+        <li>Проверить дедлайн/условия Scream Fest V; захватить хэндлы chinvat</li>
+        <li>Капсула: заказ к ~25.07 (AI-концепты → художник-финал, $300–600)</li>
+      </ul></div>
+      <div class="lane owner"><h4>Твой календарь</h4><ul>
+        <li>14.07 — решение о прототип-ленте (D1), 30 мин</li>
+        <li>17.07 — подписать демо-паспорт (D2), 1 ч</li>
+        <li>20.07 — подписать числа гейта + план феста + разбудить маркетинг (D3, D4), 1 ч</li>
+        <li>25–31.07 — играть в билд: вердикт «пузырь — весело?» (D5)</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Веха 31.07:</b> ты в standalone-билде ходишь по грейбоксу, черпаешь живой газ в пузырь, несёшь, лопаешь, получаешь дозу и умираешь. Впервые игра — игра. Если после ~2 итераций не весело — честный перенос цели на февраль (правило решаем заранее, 20.07).</div>
+  </div>
+
+  <div class="wave">
+    <div class="wave-head"><span class="num">В2</span><h3>Полный круг + вердикт по коопу + публичная страница</h3><span class="dt">1 — 31 августа</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Движок · геймплей</h4><ul>
+        <li>Полировка ощущения пузыря — цель №1 всего бюджета полировки</li>
+        <li>Пробуждение/эскалация v0: переноска будит этаж</li>
+        <li>Квота + выгрузка + экраны победы/смерти = полный соло-круг</li>
+      </ul></div>
+      <div class="lane"><h4>Сеть</h4><ul>
+        <li>Host/join на реальном ядре</li>
+        <li>1.08 — предварительное решение по коопу (по июльскому спайку)</li>
+        <li>23.08 — финал (D6): автопадение в «соло-демо, кооп — фича игры на странице»</li>
+      </ul></div>
+      <div class="lane"><h4>Уровень</h4><ul>
+        <li>Рукотворный грейбокс: 5–8 комнат, 2 озера, 2 маршрута</li>
+        <li>База — модульный кит из магазина + дешёвый визуальный wrapper (свет/цвет/туман/камера)</li>
+        <li>Без процедурки в демо</li>
+      </ul></div>
+      <div class="lane"><h4>Маркетинг · Steam</h4><ul>
+        <li>Английский текст страницы от хука «Bottle the monster»</li>
+        <li>5 скриншотов; почтовый список</li>
+        <li>Страница на ревью ~20–24.08 → ПУБЛИЧНАЯ + регистрация к 29–31.08</li>
+      </ul></div>
+      <div class="lane owner"><h4>Твой календарь</h4><ul>
+        <li>2 интернет-плейтеста с другом (2×2 ч)</li>
+        <li>~10.08 — вердикт «весело» письменно</li>
+        <li>Приёмка капсулы и текста страницы</li>
+        <li>23.08 — кооп-решение строго по правилу из 20.07</li>
+        <li>Вердикты — батчами: 2 фиксированных слота в неделю</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Веха 31.08:</b> полный круг проходится соло от старта до конца; страница Steam публична; регистрация на Next Fest сделана (обратимая).</div>
+  </div>
+
+  <div class="wave">
+    <div class="wave-head"><span class="num">В3</span><h3>Звук, незнакомцы, трейлер</h3><span class="dt">24 августа — 21 сентября</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Звук</h4><ul>
+        <li>Линия открывается 24.08 — классика жанра: звук всегда начинают слишком поздно</li>
+        <li>6–10 закупленных/AI-звуков: тишина, подсказки спящего газа, телеграф опасности</li>
+        <li>Твои уши — ворота приёмки</li>
+      </ul></div>
+      <div class="lane"><h4>Плейтесты</h4><ul>
+        <li>Steam Playtest на незнакомцах ~7–15.09 (SS13/Barotrauma-сообщества; слот не жжёт)</li>
+        <li>Телеметрия с первого же билда: медиана сессии, доходимость, конверсия в вишлист</li>
+      </ul></div>
+      <div class="lane"><h4>Демо · трейлер</h4><ul>
+        <li>Трейлер из реального геймплея ~7.09</li>
+        <li>Контент-комплит демо</li>
+        <li>21.09 — демо + страница на ревью (пресс-превью 8.10)</li>
+      </ul></div>
+      <div class="lane owner"><h4>Твой календарь</h4><ul>
+        <li>Смотреть, как играют незнакомцы (записи/стримы)</li>
+        <li>Приёмка трейлера и звука</li>
+        <li>Никаких новых фич — только полировка</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Веха 21.09:</b> незнакомцы проходят демо без подсказок; данные для гейта копятся; всё сдано на ревью Valve.</div>
+  </div>
+
+  <div class="wave">
+    <div class="wave-head"><span class="num">В4</span><h3>Гейт и октябрь</h3><span class="dt">22 сентября — 12 октября</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Двойной гейт 28.09</h4><ul>
+        <li><b>Качество:</b> ≥10 незнакомцев; ≥70% доходят до конца; первые 3 мин — без помощи; 0 крашей/десинков в 10 прогонах подряд; ≥50% «добавил бы в вишлист»</li>
+        <li><b>Экономика:</b> медиана сессии ≥30 мин; вишлисты заметно выше якоря 1–3 тыс.</li>
+        <li>Числа подписаны ещё 20.07 — в сентябре только сверяем</li>
+      </ul></div>
+      <div class="lane"><h4>Ветки исхода</h4><ul>
+        <li>Зелёный → Next Fest 19–26.10</li>
+        <li>Жёлтый (ожидаемый) → отзыв регистрации, Scream Fest V 26.10–2.11, +3 недели полировки</li>
+        <li>Красный → только Playtest; демо к началу декабря; слот цел</li>
+      </ul></div>
+      <div class="lane"><h4>Полировка</h4><ul>
+        <li>Тест на слабом железе (min-spec)</li>
+        <li>Фест-пакет: посты, GIF, ответы — заготовлены заранее</li>
+      </ul></div>
+      <div class="lane owner"><h4>Твой календарь</h4><ul>
+        <li>28.09 — одно решающее собрание по заранее подписанным числам</li>
+        <li>Решение не пересматривается под давлением феста</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Веха 12.10:</b> демо публично в октябре (в том или ином фесте) — или честный перенос со слотом на руках.</div>
+  </div>
+
+  <div class="wave">
+    <div class="wave-head"><span class="num">В5</span><h3>Урожай и февральская дорожка</h3><span class="dt">13 октября →</span></div>
+    <div class="lanes">
+      <div class="lane"><h4>Фест и после</h4><ul>
+        <li>Фест-режим: присутствие, сбор фидбека; демо остаётся живым</li>
+        <li>GIF-каденция и рассылка стримерам — после фестовой недели, не в сентябре</li>
+      </ul></div>
+      <div class="lane"><h4>Игра</h4><ul>
+        <li>«Момент, где двое обязательны» — проектируется на реальной телеметрии</li>
+        <li>Взросление коопа и контента к февралю</li>
+      </ul></div>
+      <div class="lane"><h4>Слот</h4><ul>
+        <li>Next Fest февраль 2027 = главное событие слота: демо к тому моменту живёт 3+ месяца</li>
+        <li>Сразу за ним — окно EA (твоя стена: Q2 2027)</li>
+      </ul></div>
+      <div class="lane owner"><h4>Твой календарь</h4><ul>
+        <li>К 1.11 — переподписать денежный гейт 11.12 (D7): опережающие индикаторы вместо выручки</li>
+      </ul></div>
+    </div>
+    <div class="milestone"><b>Смысл волны:</b> слот тратится в максимуме своей цены, а не «сохраняется»; октябрь — посев, февраль — жатва.</div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Развилки — решать тебе</h2><span class="tag">8 карточек · с рекомендациями · зелёный маркер = рекомендую</span></div>
+  <div class="forks">
+    <div class="fork">
+      <div class="top"><span class="id">D1</span><span class="dl">до 14.07</span></div>
+      <h3>Прототип-лента для оболочки: да или нет?</h3>
+      <ul>
+        <li class="rec">Да: отдельная сборка для контроллера/UI/уровня/меню без полных ворот; ядро и сеть — под полными воротами как раньше</li>
+        <li>Нет: полные ворота везде → честно перецеливаемся на февраль</li>
+      </ul>
+      <div class="why">При темпе 1 проверенный слайс за 3–7 дней октябрь без ленты невозможен арифметически. Это НЕ ослабление твоих ворот: лента аддитивна и в детерминированное ядро не заходит. Нужно твоё явное письменное «да».</div>
+    </div>
+    <div class="fork">
+      <div class="top"><span class="id">D2</span><span class="dl">до 17.07</span></div>
+      <h3>Демо-паспорт: подписать одну страницу «что такое демо»</h3>
+      <ul>
+        <li class="rec">25–45 мин первый заход, с переигровкой и оценкой на экране (конверсионная планка фестов — медиана 30–60 мин)</li>
+        <li>15–25 мин одноразово — отступ, если грейбокс к концу июля шаткий</li>
+      </ul>
+      <div class="why">Паспорт = единственный источник правды для всех линий. Всё, что не в паспорте, — не в демо.</div>
+    </div>
+    <div class="fork">
+      <div class="top"><span class="id">D3</span><span class="dl">до 20.07</span></div>
+      <h3>Правило октября: чем заслуживается Next Fest?</h3>
+      <ul>
+        <li class="rec">Двойной гейт 28.09 (качество И экономика), дефолт = отзыв, слот на февраль 2027</li>
+        <li>Только качество — октябрь как живая цель (риск: сжечь слот на «просто не стыдно»)</li>
+        <li>Формальность — вообще не целиться (риск: без дедлайна всё поплывёт)</li>
+      </ul>
+      <div class="why">Правило, записанное в июле, переживёт сентябрьское давление вложенного труда. Записанное в октябре — нет.</div>
+    </div>
+    <div class="fork">
+      <div class="top"><span class="id">D4</span><span class="dl">до 20.07</span></div>
+      <h3>Разбудить маркетинг сейчас?</h3>
+      <ul>
+        <li class="rec">Да: Steamworks + проверка выплат + хэндлы + капсула — это внешние сроки, они не сжимаются</li>
+        <li>Нет / позже — молча пропустить 31.08 (твоя же запись называет это худшей веткой)</li>
+      </ul>
+      <div class="why">Решение и так висит с рекомендованным сроком ~20.07. Капсула и ревью Valve — единственные вещи в плане, которые нельзя ускорить работой.</div>
+    </div>
+    <div class="fork">
+      <div class="top"><span class="id">D5</span><span class="dl">до 31.07</span></div>
+      <h3>Если пузырь «не весело» после ~2 итераций — что дальше?</h3>
+      <ul>
+        <li class="rec">Заранее решить: перенос октября → февраль, спокойная переработка глагола</li>
+        <li>Продолжать упрощая — рискуя и октябрём, и качеством вердикта</li>
+      </ul>
+      <div class="why">Запасного глагола нет, дизайн-процесс на паузе. Если правило не решено заранее — его решит вложенный труд, а не ты.</div>
+    </div>
+    <div class="fork">
+      <div class="top"><span class="id">D6</span><span class="dl">предв. 1.08 · финал 23.08</span></div>
+      <h3>Кооп в демо: дефолт и дата решения</h3>
+      <ul>
+        <li class="rec">Соло-старт всегда; кооп на двоих — если июльско-августовская сеть зелёная; автопадение в соло-демо</li>
+        <li>Сразу соло-демо, кооп только через Playtest позже (безопаснее, но теряем витрину коопа)</li>
+      </ul>
+      <div class="why">Кооп никогда не «обязателен» в демо — момент «где двое нужны» ещё не спроектирован (единственный красный флаг твоей же спеки).</div>
+    </div>
+    <div class="fork">
+      <div class="top"><span class="id">D7</span><span class="dl">до 1.11</span></div>
+      <h3>Денежный гейт 11.12: что с ним делать?</h3>
+      <ul>
+        <li class="rec">Переподписать на опережающие индикаторы (вишлисты / игроки демо / скорость роста)</li>
+        <li>Токен-выручка (itch-сборка «для поддержки») ради буквального «&gt;$0»</li>
+        <li>Оставить и дать сработать осознанно</li>
+      </ul>
+      <div class="why">Все три плана и оба судьи сходятся: Steam-выручки к 11.12 не будет ни в одном сценарии — EA честно едет в 2027. Решить надо, а не обнаружить в декабре.</div>
+    </div>
+    <div class="fork">
+      <div class="top"><span class="id">D8</span><span class="dl">обсудить</span></div>
+      <h3>Дизайн-трек до октября: заморожен или параллельный пилот?</h3>
+      <ul>
+        <li class="rec">Грейбокс демо = и есть пилот: вопросы «состояния газа», «как наполняется пузырь», «какой урон» отвечаются в билде и записываются как решения демо</li>
+        <li>Параллельно гнать исследование процесса v3 — риск снова уехать в бумагу в самые дорогие недели</li>
+      </ul>
+      <div class="why">Твоя 7-я опора: бумага не доказывает фан. Демо-грейбокс — самый честный пилот нового процесса, какой можно придумать.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Честные шансы и главные риски</h2><span class="tag">оценка панели из 5 независимых разборов</span></div>
+  <div class="odds">
+    <div class="odd"><div class="n warn">30–35%</div><p>что октябрьское демо выйдет на твоей собственной планке качества («стыдное демо пропускает фест»)</p></div>
+    <div class="odd"><div class="n">75–80%</div><p>что публичное демо выйдет в октябре–начале декабря (Scream Fest / Playtest), а слот Next Fest останется цел для февраля</p></div>
+    <div class="odd"><div class="n">$500–900</div><p>затраты плана из лимита $3000: капсула $300–600 + звук ~$100–200 (+$100 за апп, если ещё не куплен); остаётся буфер</p></div>
+  </div>
+  <div class="risks">
+    <div class="risk"><b>1 · Оболочка против календаря.</b><span> 70% демо — то, чего ещё нет. При нынешнем темпе не влезает — поэтому D1 (прототип-лента) — решение №1, без него весь план фикция.</span></div>
+    <div class="risk"><b>2 · Глагол не проверен, дизайн на паузе.</b><span> Пузырь никогда не был в руках. Вердикт «весело?» к 31.07 — самая важная точка плана; последствия вердикта решаем заранее (D5).</span></div>
+    <div class="risk"><b>3 · Сеть по-настоящему не собиралась.</b><span> Реальный газ ни разу не шёл по сети между двумя машинами. Июльский спайк — самая дешёвая точка узнать правду; дефолт демо — соло-старт.</span></div>
+    <div class="risk"><b>4 · Коммерческая цепочка: резерва по времени почти ноль.</b><span> Steamworks и выплаты уже сделаны — но 31.08 остаётся двойной стеной (публичная страница + регистрация), а капсула (3–4 недели у художника) и ревью Valve — внешние сроки, которые не сжимаются работой. Заказ капсулы к ~25.07 — критичен.</span></div>
+    <div class="risk"><b>5 · Всё видимое упирается в тебя одного.</b><span> Ты — дизайн-вердикты, QA, контент и голос маркетинга одновременно. Лечение: вердикты батчами 2 слота/нед (твоя задержка останавливает три AI-линии сразу), админ-логистика — помощникам.</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Клей: как не расползтись снова</h2><span class="tag">практики, а не лозунги</span></div>
+  <div class="glue">
+    <div class="g"><h3>Обратное планирование</h3><p>Все даты выведены из жёстких внешних стен (31.08 → 21.09 → 5.10), а не из «сколько хочется». Если что-то не влезает — режем скоуп, не дату.</p></div>
+    <div class="g"><h3>Вертикальный срез + пятничный билд</h3><p>Каждая неделя заканчивается сборкой, в которую можно поиграть. «Система стала лучше внутри» без видимого результата — не прогресс (твой же premortem №2).</p></div>
+    <div class="g"><h3>Убить дёшево</h3><p>Самые смертельные неизвестные (сеть, фан глагола, первый билд, выплаты) — в июле, пока смена курса стоит недели, а не фест.</p></div>
+    <div class="g"><h3>Улисс-пакт</h3><p>Числа гейтов подписываются в июле, пока никто эмоционально не вложился. В сентябре — только сверка, никаких пересмотров.</p></div>
+    <div class="g"><h3>Один источник правды</h3><p>Демо-паспорт (1 страница). Любая линия сверяется с ним, а не со «своей памятью» — так лечится «каждый копает в свою сторону».</p></div>
+    <div class="g"><h3>Твои вердикты — батчами</h3><p>2 фиксированных слота в неделю с правилом «ответ в ту же неделю». Твоя задержка — единственный невосполнимый ресурс плана.</p></div>
+  </div>
+  <div class="callout" style="margin-top:20px"><b>Пока ничего не менялось.</b> Когда скажешь «поехали», для запуска понадобятся (отдельными сессиями): пересобрать активную ставку вокруг демо-дороги (одобренное тобой ещё 2.07 окно «дорога к демо» 10–15.07 как раз открыто); решение по пробуждению маркетинга; и гигиена: приостановка канона пока не на главной ветке OS (сессия, читающая main, воскресит отменённый маршрут), а файлы канон-репо всё ещё указывают на старый маршрут.</div>
+  <div class="check" style="margin-top:14px"><b style="font-size:14px">Проверить перед стартом (неподтверждённые предпосылки плана):</b>
+    <ul>
+      <li>Создан ли сам апп игры в Steamworks ($100, отдельно от аккаунта) — если нет, 10 минут при старте страницы.</li>
+      <li>Точный дедлайн и условия Scream Fest V (проверены даты феста, не дедлайн заявок).</li>
+      <li>Механика отзыва регистрации Next Fest — письменно у Valve («регистрация обратима» — несущая предпосылка).</li>
+      <li>Свободен ли хэндл chinvat (Steam/домен/соцсети) — проверка висит с 20.06.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="gloss">
+  <b>Словарик:</b> <b>грейбокс</b> — уровень из серых болванок без арта, чтобы проверить геймплей; <b>standalone-билд</b> — игра как отдельный .exe, а не запуск из редактора Unity; <b>вертикальный срез</b> — маленький кусок игры, где есть всё сразу (управление, цель, смерть, звук), а не одна система целиком; <b>капсула</b> — обложка игры в Steam, главный конверсионный арт; <b>вишлист</b> — «в желаемое» в Steam, главная валюта до релиза; <b>слот Next Fest</b> — право участвовать, даётся игре один раз навсегда; <b>прототип-лента</b> — отдельная «песочница» в проекте для быстрого кода оболочки, не трогающая проверенное ядро симуляции; <b>телеметрия</b> — автоматический сбор данных, как играют люди (сколько минут, где умерли); <b>min-spec</b> — слабый компьютер, на котором игра обязана работать.
+  <br><br>Оценки готовности и шансов — экспертные (панель из 3 планов + 2 судей + сверка всех репозиториев 10.07.2026), не измерения. Даты Steam — из официальной документации Steamworks на 10.07.2026.
+</div>
+
+</div>
+
+<!-- END_OF_FILE: live/indie-game-development/work/board/dashboard.html -->
