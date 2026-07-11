@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q6_persistence_history_research_ready_for_forge
+route_status: operating_substrate_q6_persistence_history_accepted_q7_routing_procedure_research_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -383,17 +383,53 @@ owner_directive: |
   - top-level graph rebalance: not needed.
   - Next route is one bounded Q6 persistence/history architecture-forge.
 
+  Q6 persistence/history architecture card:
+  - Owner selected the recommended direction.
+  - Owner direction words: "беру твою рекумендацию".
+  - Owner approved operating-substrate-persistence-history-001.
+  - Owner approval words: "Approve v1".
+  - Frozen backbone: responsibility-separated durable continuity with an
+    authoritative accepted-state anchor.
+  - Direction A's one-state-owner, minimal-universal-burden and
+    anti-bureaucracy constraints are mandatory.
+  - Accepted current state, transition/history, audit, evidence,
+    provenance, source, memory, artifact, definition/version,
+    checkpoint/recovery and retention/status remain semantically
+    distinct.
+  - Each mutable-state boundary has one primary normative owner for each
+    accepted durable version.
+  - Durable mutation crosses validated apply; events, timestamps, audit,
+    artifacts and result narratives do not acquire state authority.
+  - Accepted-version lineage and no-silent-overwrite are required.
+  - Resume, retry, replay, restore, fork, reconcile and compensation
+    remain non-equivalent.
+  - Effect uncertainty survives interruption and blocks blind retry.
+  - Historical material remains interpretable under its governing
+    definition/version.
+  - Retention/status has explicit normative ownership and no universal
+    TTL.
+  - Mutable-state, event/history-derived, checkpoint and physical-hybrid
+    implementations may conform; none is selected universally.
+  - Health-like and game/productive-play pressure tests pass.
+  - No schema, storage, repository, carrier, provider, topology,
+    consumer template, implementation or final service-block list is
+    frozen.
+  - hidden_prerequisite: none.
+  - gap_event: none.
+  - top-level graph rebalance: not needed.
+  - Next route is bounded Q7 routing/procedure best-practice research.
+
 tasks: []
 
 recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-persistence-history-architecture-forge-001
+  - id: c-solmax-operating-substrate-routing-procedure-best-practice-research-001
     to: session
-    for: g-operating-substrate/Q6-persistence-history
+    for: g-operating-substrate/Q7-routing-procedure
     issued: 2026-07-11
-    note: "Pending Q6 persistence/history architecture-forge; work/calls/c-solmax-operating-substrate-persistence-history-architecture-forge-001.md."
+    note: "Pending bounded Q7 routing/procedure best-practice research; work/calls/c-solmax-operating-substrate-routing-procedure-best-practice-research-001.md."
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -477,5 +513,10 @@ preserved_evidence:
   - live/solmax/work/calls/c-solmax-operating-substrate-persistence-history-best-practice-research-001.md
   - live/solmax/work/operating-substrate-persistence-history-best-practice-research-001.md
   - live/solmax/work/calls/c-solmax-operating-substrate-persistence-history-architecture-forge-001.md
-next: work/calls/c-solmax-operating-substrate-persistence-history-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-persistence-history-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-persistence-history-architecture-forge-001.md
+  - 'owner direction choice in chat: "беру твою рекумендацию"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-routing-procedure-best-practice-research-001.md
+next: work/calls/c-solmax-operating-substrate-routing-procedure-best-practice-research-001.md
 END_OF_FILE: live/solmax/NOW.md
