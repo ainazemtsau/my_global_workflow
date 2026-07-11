@@ -1,12 +1,12 @@
 # Level platform phasing after PGG spike — research brief (2026-07-11)
 
-status: research recommendation; NOT owner-ratified; source of decision `d-level-platform-phasing-001`
+status: owner-ratified phasing A on 2026-07-11; exact architecture and BUILD split remain Phase 1 PLAN decisions
 
-## Verdict
+## Ratified verdict
 
-The generic level/module standard must precede real Dungeon Architect / PGG integration. Adding it as a later
-Phase 2 while leaving today's Phase 1 unchanged would put the contract after the first production modules and repeat
-the spike's failure mode. Recommended clean phasing:
+Owner verdict: `A`. The generic level/module standard precedes real Dungeon Architect / PGG integration. Adding it as
+a later phase while leaving the old Phase 1 unchanged would put the contract after the first production modules and
+repeat the spike's failure mode. Ratified clean phasing:
 
 - Phase 0 — finish the already-built generator-blind seam and authoritative placed-gas-source path.
 - Phase 1 — build a technology-neutral Level/Module Contract plus authoring/build/engine validators.
@@ -14,8 +14,9 @@ the spike's failure mode. Recommended clean phasing:
   and seed/ProfileHash handshake.
 - Phase 3 — produce real rooms and add typed level features/content through the extension seams.
 
-Phase 1A/1B is a viable lower-churn naming alternative, but the dependency remains hard: contract/validators first,
-adapters/runtime second.
+The rejected Phase 1A/1B alternative would preserve more historical numbering, but not change the dependency. The
+owner chose the clearer clean rephase; this is a phase-boundary decision, not approval of provisional type names or a
+license to begin BUILD.
 
 ## What Phase 0 actually does
 
@@ -289,19 +290,19 @@ Real room kit/content plus item/machine/spawn/valve/etc. feature types added thr
 Actual large multi-storey compound modules also live here or in later content bets. This phase is not a license for
 speculative genericity: add a typed feature when a real M1 need appears.
 
-## Options for owner verdict
+## Owner verdict and rejected naming alternatives
 
-1. **Clean rephase (recommended):** Phase 1 = contract/validators; old Phase 1 moves to Phase 2; production expansion
-   becomes Phase 3. Clearest dependency and least chance of repeating build-before-contract.
-2. **Historical numbering:** Phase 1A = contract/validators, Phase 1B = adapters/runtime, Phase 2 = production. Less
-   documentation churn, but the hard gate between 1A and 1B must remain explicit.
-3. **Leave Phase 1 unchanged, standard later:** reject. Real adapters/modules would be accepted through a reader already
-   known to lose occupancy, aperture position and anchors.
+1. **A — selected:** Phase 1 = contract/validators; old Phase 1 moves to Phase 2; production expansion becomes Phase 3.
+2. **Historical 1A/1B numbering — not selected:** technically viable, but less clear about the prerequisite boundary.
+3. **Leave Phase 1 unchanged — rejected:** real adapters/modules would be accepted through a reader already known to
+   lose occupancy, aperture position and anchors.
 
 ## Confidence and limits
 
-Established from current code/canon: Phase 0 scope, current Phase 1 promise, generic lower contracts, AABB/aperture/
-anchor gaps, the 50/25 cm structure rule, and the canon requirement to re-derive geometric markers from mesh.
+Owner-ratified: clean phase order, contract-before-adapters, full-3D reservation, module != room, compound 1:N logical
+rooms, and six-direction connection/aperture expressibility. Established from current code/canon: Phase 0 scope, the
+old Phase 1 promise, generic lower contracts, AABB/aperture/anchor gaps, the 50/25 cm structure rule, and the canon
+requirement to re-derive geometric markers from mesh.
 
 Recommended/inferred: exact names and container split (`ProjectModuleContract`, `BuiltLevelManifest`, `LevelAnchor`) and
 whether Phase 1 uses occupancy masks or rectangular decomposition. Those are PLAN decisions, not ratified architecture.
