@@ -165,24 +165,30 @@
   <div class="callout"><b>Активная ставка: Полигон М1</b> — принят 10.07, аппетит <b>13 продуктовых легов</b> (старт 10.07, разовое расширение под GAS-PROBE+GAS-CORE), <b>kill_by 24.07 либо 13 легов</b>. Дорога: Phase 0 (MERGED) → фундамент чексума → новый A0 (наблюдаемость) → M1-GAS-PROBE (закон газа: packed body вместо «воды») → M1-GAS-CORE → разблокируется c-visual-009 → A1/S4 → трекинг/реакции/пролом (M1-5..7) → финальный evidence-лег (2 машины, слабое железо). Порядок изменён 11.07: <b>закон газа теперь ПЕРЕД визуалом и S4</b> (owner-решение).</div>
   <div class="tracks">
     <div class="track">
-      <h3>Открытые CALL'ы</h3>
+      <h3>Открытые работы — что и зачем</h3>
       <ul>
-        <li class="done">✓ c-exec-poligon-checksum-foundation-plan-001 — ЗАКРЫТ 11.07: PLAN одобрен и заморожен (core@4a43d6e); BUILD запрещён до Phase 0 MERGED</li>
-        <li class="done">✓ Minimum Game Frame — «FRAME READY» 11.07: каркас проникновение → добыча/операция → эвакуация, почти невидимый газ; открыт Gate Q</li>
-        <li class="miss">▶ NOW.next: c-exec-lv-ingest-phase0-001 — закрытие + мерж (dev → main), НЕ смержен</li>
-        <li class="miss">c-visual-009 — BLOCKED на M1-GAS-CORE (PLAN одобрен, dirty BUILD сохранён)</li>
-        <li class="miss">c-shape-sc-damage-001 — HELD (по cut-list М1)</li>
-        <li class="miss">c-repair-gate-q-investigation-readiness-001 — Gate Q: owner-present решение о готовности investigation→operation</li>
+        <li class="miss">▶ <b>Источники газа в честном сетевом пути</b> <span style="opacity:.55">(c-exec-lv-ingest-phase0-001)</span> — чтобы газ появлялся в уровне ВНУТРИ проверяемой симуляции, иначе кооп разъедется. Построено на ветке dev, в main НЕ влито. Дальше: закрытие + твой мерж-гейт — это текущий next, за ним стоит вся дорога М1</li>
+        <li class="miss"><b>Канон: разбор «готовы ли начинать операцию?»</b> <span style="opacity:.55">(c-research-q-investigation-readiness-001)</span> — первый легитимный вопрос нового процесса (прошёл проверку происхождения 11.07): бумажное сравнение вариантов, как игроки решают «поняли газ достаточно — идём добывать, продолжаем разведку или отступаем». Готов к запуску, только текст</li>
+        <li class="miss"><b>Визуал: живое движение газа</b> <span style="opacity:.55">(c-visual-009)</span> — чинит «дёрганое/мёртвое» движение честными данными движения. ЗАБЛОКИРОВАН до смены закона газа (M1-GAS-CORE); одобренный план и незавершённая сборка сохранены. Последний апдейт 11.07: визуал сознательно уведён за закон газа</li>
+        <li class="miss"><b>Дизайн урона от газа</b> <span style="opacity:.55">(c-shape-sc-damage-001)</span> — первое последствие для игрока (доза → вред). ДЕРЖИТСЯ сознательно: по cut-list'у М1 урон в этот заход не строим; ждёт палитры вреда из канона</li>
+      </ul>
+    </div>
+    <div class="track">
+      <h3>Закрыто сегодня — чем кончилось</h3>
+      <ul>
+        <li class="done"><b>План фундамента чексума</b> <span style="opacity:.55">(c-exec-poligon-checksum-foundation-plan-001)</span> — зачем: убрать медленный полный пересчёт контрольной суммы (28 мс) и дать дешёвую сверку синхронности. Итог: план одобрен тобой и ЗАМОРОЖЕН; сборка стартует после мержа Phase 0</li>
+        <li class="done"><b>Рамка целой игры</b> — итог «FRAME READY»: принят каркас «расследование почти невидимого газа → план → добыча/операция → эвакуация»; подробности — на канон-борде</li>
+        <li class="done"><b>Gate Q (происхождение вопроса)</b> — итог «QUESTION READY»: первый вопрос канона легитимен; открыл research-работу слева</li>
+        <li class="done"><b>PGG-спайк</b> <span style="opacity:.55">(c-spike-pgg-001)</span> — итог двоякий: комната из купленного PGG честно испечена в DA-совместимый пакет (авторинг работает), но продакшн-конвейер уровня провалил этап (FAIL_STAGE) — модулям нужен наш стандарт 0,5 м / сокеты / порталы. Родил решение о перефазировке платформы уровней — оно у тебя в батче</li>
       </ul>
     </div>
     <div class="track">
       <h3>Ждёт тебя (батч)</h3>
       <ul>
-        <li class="miss">Мерж-гейт Phase 0 (dev → main) — теперь верх очереди</li>
-        <li class="miss">Gate Q (канон): решение о готовности investigation→operation</li>
-        <li class="miss">d-marketing-wake-001 — решить к ~20.07 (страница 31.08!)</li>
-        <li class="miss">d-coop-interdependence-repin-001 — куда положить обязательство «газ заставляет кооперироваться»</li>
-        <li class="miss">d-level-platform-phasing-001 — Phase 1 = generic 3D Module→Rooms contract + validators, Phase 2 = adapters/runtime (рекомендация) или сохранить 1A/1B</li>
+        <li class="miss"><b>Мерж-гейт Phase 0</b> — влить «источники газа» с dev в main. Верх очереди: разблокирует фундамент чексума и весь хвост дороги М1</li>
+        <li class="miss"><b>Решение: платформа уровней</b> <span style="opacity:.55">(d-level-platform-phasing-001)</span> — как перестроить фазы после провала PGG-конвейера. Рекомендация: сначала общий контракт модулей + валидаторы, адаптеры DA/PGG потом — иначе повторим ошибку спайка «строили до контракта»</li>
+        <li class="miss"><b>Решение: будить маркетинг?</b> <span style="opacity:.55">(d-marketing-wake-001)</span> — решить к ~20.07: страница Steam к 31.08 не сжимается работой, капсула — внешний срок у художника</li>
+        <li class="miss"><b>Решение: где живёт «газ заставляет кооперироваться»</b> <span style="opacity:.55">(d-coop-interdependence-repin-001)</span> — рекомендация: вложить обязательство в планы реакций/урона, чтобы не стало поздним блокером</li>
       </ul>
     </div>
     <div class="track">
@@ -207,7 +213,7 @@
     <ul>
       <li><b>Ремонт маршрута:</b> аппетит М1 разово поднят до 13 легов (GAS-PROBE + GAS-CORE); S4 уведён ЗА закон газа; c-visual-009 заблокирован на GAS-CORE</li>
       <li><b>M1-A0:</b> выпущен PLAN-only CALL «фундамент чексума» → PLAN одобрен владельцем и заморожен (core@4a43d6e); BUILD ждёт мержа Phase 0; next = Phase 0</li>
-      <li><b>Канон:</b> Minimum Game Frame — «FRAME READY»: каркас «проникновение → добыча/операция → эвакуация», почти невидимый газ; открыт Gate Q (готовность investigation→operation)</li>
+      <li><b>Канон:</b> Minimum Game Frame — «FRAME READY»: каркас «проникновение → добыча/операция → эвакуация», почти невидимый газ; затем Gate Q ПРОЙДЕН («QUESTION READY») — первый вопрос легитимен, открыт его бумажный разбор</li>
       <li><b>PGG:</b> спайк закрыт FAIL_STAGE без мержа: static prefab реально проходит SnapGridFlow→BuiltSceneRoomReader, но production-модули ждут project-owned стандарт 0.5 м, сокетов, portal kit, occupancy/aperture и item anchors</li>
       <li><b>Платформа уровня:</b> research нашёл текущую Phase 1 слишком ранней для DA/PGG runtime integration; рекомендована новая Phase 1 = generic Level/Module Contract + validators, прежняя Phase 1 переезжает в Phase 2; не ратифицировано, ждёт решения d-level-platform-phasing-001</li>
       <li><b>Verticality:</b> owner requirement — будущий module может содержать несколько logical rooms на разных высотах; сейчас резервируем full-3D Module→Rooms hierarchy и internal/external six-direction connections, но не строим огромный вертикальный контент</li>
