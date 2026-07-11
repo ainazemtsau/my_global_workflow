@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-work-poligon-checksum-foundation-plan-close-001
+updated: 2026-07-11 by s-spike-pgg-001-close-001
 
 bet:
   node: g-9c41
@@ -80,12 +80,6 @@ open_calls:
     for: g-d3a8 / Gate Q — investigation-to-operation readiness
     issued: 2026-07-11
     note: "FRAME READY; Gate Q only, no question answer or candidates; work/c-repair-gate-q-investigation-readiness-001-call.md."
-  - id: c-spike-pgg-001
-    to: executor
-    for: g-9c41 / PGG editor-time spike
-    issued: 2026-07-10
-    note: "CHECKPOINT/no verdict; scratch proven through DA-ready static package, final product DA/gas proof blocked by Direction-OS product-write guard; resume history/2026-07-10-s-spike-pgg-001-cp2.md."
-
 recurring: []
 
 decisions:
