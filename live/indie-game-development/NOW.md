@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-research-level-platform-phasing-001
+updated: 2026-07-11 by s-repair-gate-q-investigation-readiness-001
 
 bet:
   node: g-9c41
@@ -75,11 +75,11 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-repair-gate-q-investigation-readiness-001
+  - id: c-research-q-investigation-readiness-001
     to: session
-    for: g-d3a8 / Gate Q — investigation-to-operation readiness
+    for: g-d3a8 / q-investigation-readiness paper design comparison
     issued: 2026-07-11
-    note: "FRAME READY; Gate Q only, no question answer or candidates; work/c-repair-gate-q-investigation-readiness-001-call.md."
+    note: "QUESTION READY; post-Gate-Q text-only research on the exact gated question; work/c-research-q-investigation-readiness-001-call.md."
 recurring: []
 
 decisions:
