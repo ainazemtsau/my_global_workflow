@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-work-poligon-checksum-foundation-plan-route-001
+updated: 2026-07-11 by s-repair-minimum-game-frame-001
 
 bet:
   node: g-9c41
@@ -80,11 +80,11 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-repair-minimum-game-frame-001
+  - id: c-repair-gate-q-investigation-readiness-001
     to: session
-    for: g-d3a8 / Minimum Game Frame
-    issued: 2026-07-10
-    note: "Pending owner-present text-only repair; work/c-repair-minimum-game-frame-001-call.md."
+    for: g-d3a8 / Gate Q — investigation-to-operation readiness
+    issued: 2026-07-11
+    note: "FRAME READY; Gate Q only, no question answer or candidates; work/c-repair-gate-q-investigation-readiness-001-call.md."
   - id: c-spike-pgg-001
     to: executor
     for: g-9c41 / PGG editor-time spike
