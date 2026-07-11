@@ -85,7 +85,9 @@ RESULT.** The order is strict:
    fresh current `live/**`, rebasing stale anchors while preserving concurrent
    edits, append the LOG line, save the full RESULT to
    `history/<date>-<session-id>.md`, maintain every `END_OF_FILE: <path>`
-   trailer, and commit (`<direction> <play> <node/task>: <log line>`).
+   trailer, regenerate the direction's declared owner panel if one exists
+   (rules in the direction's `knowledge/`; adapter Role 1), and commit
+   (`<direction> <play> <node/task>: <log line>`).
 
 The writer half is a bounded semantic integrator: it may resolve stale
 preconditions and compatible parallel edits, but carries no authority to
